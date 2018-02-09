@@ -1,0 +1,57 @@
+.navbar {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid $grijs-20;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: 44px;
+  padding-bottom: 10px;
+
+  .navbar-nav {
+    > li {
+      a {
+        border-bottom: 3px solid transparent;
+        border-top: 1px solid $wit;
+        color: $bosgroen;
+        font-size: 1.2em;
+        height: 40px;
+
+        &:hover,
+        &:focus {
+          background: none;
+          color: $zwart;
+        }
+      }
+    }
+
+    > .active {
+      > a {
+        background: transparent;
+        border-bottom: 3px solid $oranje;
+        color: $bosgroen;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+          background: transparent;
+          color: $zwart;
+        }
+      }
+    }
+  }
+
+  .navbar-toggle {
+    background-color: $grasgroen-10;
+    margin: 0 0 10px;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    &:focus {
+      background-color: $grasgroen-10;
+      border: 2px solid $grasgroen-10;
+    }
+
+    &:hover {
+      background-color: $grasgroen-10;
+    }
+  }
+}

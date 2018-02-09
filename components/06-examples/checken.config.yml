@@ -1,0 +1,28 @@
+status: ready
+context:
+  menu:
+    menuItems:
+      - label: Home
+      - label: Actueel
+      - label: Raadplegen
+      - label: Checken
+        active: true
+      - label: Aanvragen
+  breadcrumbs:
+    crumbs:
+      - label: Home
+        url: '#'
+      - label: Checken
+        url: '#'
+  wizard:
+    items:
+    - label: Locatie bepalen
+      state: done
+    - label: Werkzaamheden kiezen
+      state: done
+    - label: Werkzaamheden checken
+      state: active
+    - label: Resultaat
+      state: disabled
+  checkSideListItems:
+    - Bouwen van een dakkapel

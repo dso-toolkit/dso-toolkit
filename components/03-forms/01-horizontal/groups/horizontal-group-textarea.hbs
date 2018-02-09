@@ -1,0 +1,9 @@
+<div class="form-group textarea">
+  <label for="{{ id }}" class="control-label">{{ label }}</label>
+  <div class="field-container">
+    <textarea class="form-control" id="{{ id }}" {{{ifattr 'rows' rows }}}></textarea>
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
+</div>

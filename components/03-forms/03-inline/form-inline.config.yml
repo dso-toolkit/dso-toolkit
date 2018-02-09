@@ -1,0 +1,26 @@
+notes: |
+  Een inline formulier is een **verticaal formulier** met een `.form-inline` op de `form`.
+
+  Alle onderdelen van een inline formulier staan in een `fieldset`. Eventueel kan de `legend` verborgen worden met `.sr-only`.
+
+  Om het formulier nog compacter te maken, is het mogelijk het `label` te verbergen met `.sr-only`. Als het `label` element ongewenst is, is een alternatief `@aria-label` of `@title` op de `input`
+status: ready
+label: Voorbeeld
+context:
+  groups:
+    - id: naam
+      type: input
+      inputType: text
+      label: Naam
+    - id: email
+      type: input
+      inputType: email
+      label: E-mailadres
+    - id: secure
+      type: static
+      label: Beveiligd
+      value: Ja
+  submitButton:
+    modifier: primary
+    label: Verstuur herinnering
+    type: submit

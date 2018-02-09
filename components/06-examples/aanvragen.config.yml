@@ -1,0 +1,272 @@
+notes: |
+  De aside met de checklist schuift mee met het formulier, tot hij een punt bereikt waar hij niet verder MAG scrollen.
+  We gebruiken hiervoor Bootstrap Affix, en deze heeft twee values - `data-offset-top` en `data-offset-bottom` - die bepalen waar het kantelpunt zit.
+  Let op de uitlijning die te zien is in onderstaande instructie afbeelding.
+
+  Zie ook
+  * [Bootstrap Affix](https://getbootstrap.com/docs/3.3/javascript/#affix)
+  * Positioneren van de affix, links in het menu onder het kopje "Documentation"
+status: ready
+context:
+  menu:
+    menuItems:
+      - label: Home
+      - label: Actueel
+      - label: Raadplegen
+      - label: Checken
+      - label: Aanvragen
+        active: true
+    searchGroupInput:
+      id: button
+      ariaLabel: Zoeken
+      placeholder: Zoeken
+      type: submit
+      buttonRight: true
+      icon: fa fa-search
+  breadcrumbs:
+    crumbs:
+      - label: Home
+        url: '#'
+      - label: Aanvragen
+        url: '#'
+      - label: Mijn project
+        url: '#'
+      - label: Aanvraag voorbereiden
+        url: '#'
+  panel1:
+    id: panel1
+    title: Omschrijving project
+    fieldsets:
+      - legend: Omschrijving project
+        groups:
+          - id: titel
+            type: input
+            inputType: text
+            label: Titel
+          - id: nummer
+            type: static
+            inputType: static
+            label: Nummer
+            text: 24253729
+          - id: projectomschrijving
+            type: textarea
+            inputType: textarea
+            label: Projectomschrijving
+          - id: gefaseerdeAanvraag
+            type: radios
+            label: Gefaseerde aanvraag
+            options:
+              - value: nee
+                label: Nee
+              - value: ja
+                label: Ja
+          - id: procedure
+            type: static
+            inputType: static
+            label: Procedure
+            text: Reguliere procedure
+          - id: status
+            type: static
+            inputType: static
+            label: Status
+            text: In voorbereiding
+          - id: versie
+            type: static
+            inputType: static
+            label: Formulierversie
+            text: 2016.03
+    submitButton:
+      type: submit
+      modifier: primary
+      label: "naar het volgende gedeelte: Aanvrager"
+  panel2:
+    id: panel2
+    title: Aanvrager
+    fieldsets:
+      - legend: Persoonsgegevens aanvrager
+        groups:
+          - id: achternaam
+            type: input
+            inputType: text
+            label: Achternaam
+          - id: tussenvoegsels
+            type: input
+            inputType: text
+            label: Tussenvoegsels
+            size: 8
+          - id: voorletters
+            type: input
+            inputType: text
+            label: Voorletter(s)
+            size: 8
+          - id: bsn
+            type: input
+            inputType: text
+            label: BSN
+            size: 8
+          - id: geslacht
+            type: input
+            inputType: text
+            label: Geslacht
+            size: 8
+      - legend: Contactgegevens aanvrager
+        groups:
+          - id: telefoonnummer
+            type: input
+            inputType: text
+            label: Telefoonnummer
+            size: 12
+          - id: emailadres
+            type: input
+            inputType: text
+            label: Emailadres
+      - legend: Correspondentieadres
+        groups:
+          - id: capostcode
+            type: input
+            inputType: text
+            label: Postcode
+            size: 8
+          - id: cahuisnummer
+            type: input
+            inputType: text
+            label: Huisnummer
+            size: 8
+          - id: catoevoeging
+            type: input
+            inputType: text
+            label: Huisnummer toevoeging
+            size: 8
+          - id: castraatnaam
+            type: input
+            inputType: text
+            label: Straatnaam
+          - id: cawoonplaats
+            type: input
+            inputType: text
+            label: Woonplaats
+      - legend: Verblijfadres
+        groups:
+          - id: vapostcode
+            type: input
+            inputType: text
+            label: Postcode
+            size: 8
+          - id: vahuisnummer
+            type: input
+            inputType: text
+            label: Huisnummer
+            size: 8
+          - id: vatoevoeging
+            type: input
+            inputType: text
+            label: Huisnummer toevoeging
+            size: 8
+          - id: vastraatnaam
+            type: input
+            inputType: text
+            label: Straatnaam
+          - id: vawoonplaats
+            type: input
+            inputType: text
+            label: Woonplaats
+    submitButton:
+      type: submit
+      modifier: primary
+      label: "naar het volgende gedeelte: Locatie"
+  panel3:
+    id: panel3
+    title: Locatie
+    fieldsets:
+      - legend: Adres voor aanvraag omgevingsvergunning
+        groups:
+          - id: omgevingsvergunningPostcode
+            type: input
+            inputType: text
+            label: Postcode
+            size: 8
+          - id: omgevingsvergunningHuisnummer
+            type: input
+            inputType: text
+            label: Huisnummer
+            size: 8
+          - id: omgevingsvergunningToevoeging
+            type: input
+            inputType: text
+            label: Huisnummer toevoeging
+            size: 8
+          - id: omgevingsvergunningStraatnaam
+            type: input
+            inputType: text
+            label: Straatnaam
+          - id: omgevingsvergunningWoonplaats
+            type: input
+            inputType: text
+            label: Woonplaats
+          - id: omgevingsvergunningWerkzaamheden
+            type: radios
+            label: Gelden de werkzaamheden in deze aanvraag/melding voor meerdere adressen of percelen?
+            options:
+              - value: nee
+                label: Nee
+              - value: ja
+                label: Ja
+      - legend: Eigendomssituatie
+        groups:
+          - id: eigendomssituatie
+            type: static
+            inputType: static
+            label: Eigendomssituatie van het perceel
+            text: U bent huurder van het perceel
+    submitButton:
+      type: submit
+      modifier: primary
+      label: "naar het volgende gedeelte: Werkzaamheden"
+  panel4:
+    id: panel4
+    title: Werkzaamheden
+    addActivityButton:
+      label: Activiteiten toevoegen
+      type: button
+      modifier: primary
+    nextButton:
+      label: |
+        naar het volgende gedeelte: Bijlagen
+      type: button
+      modifier: default
+    editButton:
+      label: Specificeren
+      type: button
+      modifier: link
+      icon: fa fa-pencil-square-o
+    deleteButton:
+      label: Verwijderen
+      type: button
+      modifier: link
+      icon: fa fa-trash-o
+  panel5:
+    id: panel5
+    title: Bijlagen
+    checkButton:
+      label: Checken voor bijlagen
+      type: button
+      modifier: link
+      icon: fa fa-pencil-square-o
+    nextButton:
+      label: Naar Indienen van de aanvraag
+      type: button
+      modifier: primary
+    deleteButton:
+      label: Verwijderen
+      type: button
+      modifier: link
+      icon: fa fa-trash-o
+    addButton:
+      label: Meer toevoegen
+      type: button
+      modifier: link
+      icon: fa fa-plus-square-o
+  applyRequest:
+    label: Aanvraag indienen
+    type: submit
+    modifier: primary

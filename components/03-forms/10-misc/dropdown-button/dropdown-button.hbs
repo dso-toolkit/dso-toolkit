@@ -1,0 +1,18 @@
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="{{ id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{ label }}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="{{ id }}">
+    {{#each items }}
+      {{#unless @first }}
+        <li role="separator" class="divider"></li>
+      {{/unless}}
+      {{#each this }}
+        <li>
+          <a href="#">{{ this }}</a>
+        </li>
+      {{/each}}
+    {{/each}}
+  </ul>
+</div>

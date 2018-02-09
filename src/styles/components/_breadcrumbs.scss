@@ -1,0 +1,14 @@
+// This is counter-styling some Bootstrap values which can't be changed using bootstrap-variables
+
+ol.breadcrumb {
+  margin-bottom: 0;
+
+  > li + li::before {
+    color: $grijs-50;
+    padding: 0 0 0 5px;
+  }
+
+  > li > a {
+    color: $bosgroen;
+  }
+}

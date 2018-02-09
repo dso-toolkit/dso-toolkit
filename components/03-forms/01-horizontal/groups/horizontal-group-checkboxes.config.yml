@@ -1,0 +1,12 @@
+status: ready
+context:
+  id: checkbox_voorbeeld
+  label: Even getallen
+  helpText: Selecteer alle even getallen
+  options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie

@@ -1,0 +1,21 @@
+$dso-anchor-download-content: " #{$fa-var-download}";
+$dso-anchor-extern-content: " #{$fa-var-external-link}";
+
+a {
+  &.download,
+  &.extern {
+    &::after {
+      @extend .fa;
+
+      white-space: pre;
+    }
+  }
+
+  &.download::after {
+    content: $dso-anchor-download-content;
+  }
+
+  &.extern::after {
+    content: $dso-anchor-extern-content;
+  }
+}

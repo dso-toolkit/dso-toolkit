@@ -1,0 +1,13 @@
+<header>
+  <div class="logo-bar">
+    <div class="login">
+      {{> '@icon' icon="fa fa-user" }}
+      Inloggen
+    </div>
+    {{> '@logo' }}
+  </div>
+
+  {{render '@menu' menu merge=true }}
+
+  {{> '@breadcrumbs' breadcrumbs }}
+</header>

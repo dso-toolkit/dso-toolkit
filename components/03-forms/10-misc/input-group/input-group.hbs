@@ -1,0 +1,23 @@
+{{#if label }}
+  <label for="{{ id }}">{{ label }}</label>
+{{/if}}
+<div class="input-group {{ modifier }}">
+  {{#if leftAddon }}
+    <span class="input-group-addon" {{#unless ariaLabel }} id="{{ id }}_left-addon"{{/unless}}>{{ leftAddon }}</span>
+  {{/if}}
+  <input type="text" class="form-control"
+    {{#if label }}
+      id="{{ id }}"
+    {{else unless ariaLabel }}
+      title="{{ placeholder }}"
+    {{/if}}
+    {{{ifattr 'placeholder' placeholder}}}
+    {{#if ariaLabel }}
+      aria-label="{{ ariaLabel }}"
+    {{else}}
+      aria-describedby="{{ id }}_{{#if rightAddon}}right-addon{{else}}left-addon{{/if}}"
+    {{/if}}/>
+  {{#if rightAddon }}
+    <span class="input-group-addon" {{#unless ariaLabel }} id="{{ id }}_right-addon"{{/unless}}>{{ rightAddon }}</span>
+  {{/if}}
+</div>

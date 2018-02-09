@@ -1,0 +1,48 @@
+.table {
+  > thead > tr {
+    > th {
+      border-bottom: 1px solid $grijs-50;
+      font-style: italic;
+    }
+  }
+
+  > tbody > tr {
+    > td {
+      border-top: 1px dotted $grijs-30;
+
+      &:first-child {
+        width: 35%;
+      }
+
+      &.actions {
+        width: 25%;
+      }
+
+      .fa-check {
+        color: $grasgroen;
+        font-size: 1.4em;
+      }
+
+      .fa-exclamation-circle {
+        color: $grijs-40;
+        font-size: 1.4em;
+      }
+
+      &:last-child span {
+        margin-left: 12px;
+        margin-right: 4px;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  td.actions {
+    button {
+      text-align: left;
+      width: 100%;
+    }
+  }
+}

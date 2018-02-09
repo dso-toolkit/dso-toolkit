@@ -1,0 +1,22 @@
+status: ready
+context:
+  menuItems:
+    - label: Home
+      active: true
+    - label: Actueel
+    - label: Kalender
+    - label: Zelf aan de slag
+    - label: Documenten
+    - label: Over ons
+      count: 12
+    - label: Wetgeving
+  searchGroupInput:
+    id: button
+    modifier: default
+    label: Zoeken
+    ariaLabel: Zoeken
+    placeholder: Zoeken
+    iconOnly: true
+    type: submit
+    buttonRight: true
+    icon: fa fa-search

@@ -1,0 +1,10 @@
+status: ready
+default: tabs
+collated: true
+context:
+  items:
+    - label: Home
+      active: true
+    - label: Profiel
+    - label: Berichten
+      count: 15

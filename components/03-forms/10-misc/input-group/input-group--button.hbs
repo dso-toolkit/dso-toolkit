@@ -1,0 +1,13 @@
+<div class="input-group {{ modifier }}">
+  {{#if buttonLeft }}
+    <span class="input-group-btn">
+      {{> '@button' }}
+    </span>
+  {{/if}}
+  <input type="text" class="form-control" aria-label="{{ ariaLabel }}" {{{ifattr 'placeholder' placeholder}}}/>
+  {{#if buttonRight }}
+    <span class="input-group-btn">
+      {{> '@button' }}
+    </span>
+  {{/if}}
+</div>

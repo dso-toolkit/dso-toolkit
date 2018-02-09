@@ -1,0 +1,84 @@
+$label-column: $grid-columns / 4;
+
+.form-group {
+  label {
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+.form-control[size] {
+  width: auto;
+}
+
+.form-horizontal {
+  fieldset + fieldset {
+    margin-top: 30px;
+  }
+
+  .form-group {
+    > .control-label {
+      @include make-sm-column($label-column);
+      text-align: left;
+    }
+
+    > .field-container {
+      @include make-sm-column($grid-columns - $label-column);
+    }
+
+    &.confirm {
+      @media (min-width: $screen-sm-min) {
+        .field-container {
+          margin-left: percentage($label-column / $grid-columns);
+          padding-left: $grid-gutter-width / 2;
+        }
+      }
+    }
+
+    &.static {
+      .field-container {
+        margin-bottom: 0;
+        min-height: $line-height-computed + $font-size-base;
+        padding-bottom: $padding-base-vertical + 1;
+        padding-top: $padding-base-vertical + 1;
+      }
+    }
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .form-buttons {
+      margin-left: percentage($label-column / $grid-columns);
+      padding-left: $grid-gutter-width / 4;
+    }
+  }
+}
+
+.form-inline {
+  @media (min-width: $screen-sm-min) {
+    white-space: nowrap;
+
+    > .form-fields,
+    > .form-buttons {
+      display: inline-block;
+    }
+  }
+}
+
+legend.control-label {
+  border-bottom: 0;
+  cursor: default;
+  display: inline-block;
+  font-size: $font-size-base;
+  font-style: italic;
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+
+fieldset.form-group {
+  .radio,
+  .checkbox {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

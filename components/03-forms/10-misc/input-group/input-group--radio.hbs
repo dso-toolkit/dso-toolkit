@@ -1,0 +1,13 @@
+<div class="input-group {{ modifier }}">
+  {{#if radioLeft }}
+    <span class="input-group-addon">
+      <input type="radio" aria-label="{{ ariaLabelAddon }}"/>
+    </span>
+  {{/if}}
+  <input type="text" class="form-control" aria-label="{{ ariaLabel }}" {{{ifattr 'placeholder' placeholder}}}/>
+  {{#if radioRight }}
+    <span class="input-group-addon">
+      <input type="radio" aria-label="{{ ariaLabelAddon }}"/>
+    </span>
+  {{/if}}
+</div>

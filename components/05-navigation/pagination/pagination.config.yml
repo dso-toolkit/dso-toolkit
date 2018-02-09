@@ -1,0 +1,18 @@
+status: ready
+collated: true
+default: normal
+context:
+  items:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+variants:
+  - name: large
+    context:
+      modifier: pagination-lg
+  - name: normal
+  - name: small
+    context:
+      modifier: pagination-sm

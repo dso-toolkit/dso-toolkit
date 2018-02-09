@@ -1,0 +1,5 @@
+status: ready
+context:
+  id: group_confirm_voorbeeld
+  label: Check mij
+  helpText: Klik op het vakje om te selecteren

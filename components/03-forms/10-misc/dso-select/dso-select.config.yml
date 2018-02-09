@@ -1,0 +1,26 @@
+status: ready
+collated: true
+label: DSO select
+default: radio
+context:
+  name: radio
+  id: dakkapel_positie
+  type: single
+  inputType: radio
+  setLabel: Waar wordt de dakkapel gebouwd?
+  options:
+    - value: 1
+      label: Zijkant
+    - value: 2
+      label: Voorkant
+    - value: 3
+      label: Achterkant
+    - value: 4
+      label: Onderkant
+      disabled: true
+variants:
+  - name: checkbox
+    context:
+      id: dakkapel_posities
+      type: multi
+      inputType: checkbox

@@ -1,0 +1,20 @@
+status: ready
+collated: true
+context:
+  caption: Overzicht van gebruikersnamen
+variants:
+  - name: Caption
+    context:
+      showCaption: true
+  - name: Striped
+    context:
+      modifier: table-striped
+  - name: Bordered
+    context:
+      modifier: table-bordered
+  - name: Hovered
+    context:
+      modifier: table-hover
+  - name: Condensed
+    context:
+      modifier: table-condensed

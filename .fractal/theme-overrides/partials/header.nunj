@@ -1,0 +1,14 @@
+<div class="dso-Logo">
+    <a href="{{ path('/') }}" class="Header-title" data-pjax>
+        <img src="{{ path('/images/omgevingswet.svg') }}" width="300" />
+    </a>
+</div>
+<div class="Header">
+    <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+        {% include 'icons/close-nav.svg' %}
+        {% include 'icons/open-nav.svg' %}
+    </button>
+    <a href="{{ path('/') }}" class="Header-title" data-pjax>
+        {{ frctl.get('project.title') | default('Component Library') }}
+    </a>
+</div>

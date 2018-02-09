@@ -1,0 +1,6 @@
+status: ready
+context:
+  id: group_input_voorbeeld
+  type: text
+  label: Voornaam
+  helpText: Vul een naam in

@@ -1,0 +1,98 @@
+notes: |
+  Voor meer informatie zie [Bootstrap Grid system](https://getbootstrap.com/docs/3.3/css/#grid) documentatie
+status: ready
+collated: true
+context:
+  rows:
+    - columns:
+      -
+        - sm-4
+        - md-2
+      -
+        - sm-8 
+        - md-10
+    - columns:
+      -
+        - sm-5
+        - md-4
+      -
+        - sm-7
+        - md-8
+    - columns:
+      -
+        - sm-6
+      -
+        - sm-6
+    - columns:
+      -
+        - sm-7
+        - md-8
+      -
+        - sm-5
+        - md-4
+    - columns:
+      -
+        - sm-8
+        - md-10
+      -
+        - sm-4
+        - md-2
+variants:
+  - name: offset
+    context:
+      rows:
+        - columns:
+          -
+            - sm-6
+            - sm-offset-3
+            - md-4
+            - md-offset-4
+        - columns:
+          -
+            - sm-3
+            - md-4
+          -
+            - sm-6
+            - sm-offset-3
+            - md-4
+            - md-offset-4
+        - columns:
+          -
+            - sm-4
+            - md-6
+          -
+            - sm-7
+            - sm-offset-1
+            - md-4
+            - md-offset-2
+        - columns:
+          -
+            - sm-8
+            - sm-offset-4
+            - md-10
+            - md-offset-2
+  - name: ordered
+    context:
+      rows:
+        - columns:
+          -
+            - sm-5
+            - sm-push-7
+            - md-4
+            - md-push-8
+          -
+            - sm-7
+            - sm-pull-5
+            - md-8
+            - md-pull-4
+        - columns:
+          -
+            - sm-7
+            - sm-push-5
+            - md-8
+            - md-push-4
+          -
+            - sm-5
+            - sm-pull-7
+            - md-4
+            - md-pull-8

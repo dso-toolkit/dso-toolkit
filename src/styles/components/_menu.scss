@@ -1,0 +1,40 @@
+.menu {
+  .search {
+    float: right;
+    max-width: 250px;
+  }
+
+  .navbar-header {
+    float: left;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+  }
+}
+
+@media(min-width: $screen-sm) {
+  .menu {
+    .navbar-collapse {
+      width: 100%;
+    }
+
+    .navbar-nav {
+      > li {
+        width: auto;
+
+        a {
+          padding: 12px 10px 0;
+        }
+      }
+    }
+  }
+}
+
+@media(min-width: $screen-sm) and (max-width: $screen-md) {
+  .menu {
+    .search {
+      max-width: 200px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+status: ready
+context:
+  list1:
+    items:
+      - Contact
+      - Sitemap
+      - Help
+  list2:
+    items:
+      - Copyright
+      - Privacy
+      - Cookies
+      - Toegankelijkheid
+  list3:
+    items:
+      - Twitter
+      - LinkedIn

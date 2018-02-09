@@ -1,0 +1,26 @@
+notes: |
+  Groepeert een set buttons op een enkele regel. Gebaseerd op de Bootstrap "Button groups" component
+status: ready
+collated: true
+default: m
+context:
+  buttons:
+    - Links
+    - Midden
+    - Rechts
+variants:
+  - name: xs
+    context:
+      ariaLabel: Extra small button group
+      modifier: btn-group-xs
+  - name: s
+    context:
+      ariaLabel: Small button group
+      modifier: btn-group-sm
+  - name: m
+    context:
+      ariaLabel: Medium button group
+  - name: l
+    context:
+      ariaLabel: Large button group
+      modifier: btn-group-lg

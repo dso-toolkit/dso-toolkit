@@ -1,0 +1,12 @@
+status: ready
+collated: true
+context:
+  element: h2
+  label: U heeft geen vergunning nodig
+variants:
+  - name: header3
+    context:
+      element: h3
+  - name: header4
+    context:
+      element: h4

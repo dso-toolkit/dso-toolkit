@@ -1,0 +1,16 @@
+<form class="form-horizontal">
+  <fieldset class="form-fields">
+    <legend class="sr-only">Horizontal form</legend>
+    {{#each fieldsets }}
+      <fieldset>
+        <legend>{{ legend }}</legend>
+        {{#each groups }}
+          {{> (concat '@horizontal-group-' type) }}
+        {{/each}}
+      </fieldset>
+    {{/each}}
+  </fieldset>
+  <div class="form-buttons">
+    {{> '@button' submitButton }}
+  </div>
+</form>

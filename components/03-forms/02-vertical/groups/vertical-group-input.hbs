@@ -1,0 +1,10 @@
+<div class="form-group input {{ inputType }}">
+  <label for="{{ id }}">{{ label }}</label>
+  <input type="{{ inputType }}" id="{{ id }}" class="form-control"
+    {{{ifattr 'aria-describedby' helpText (helpTextId id)}}}
+    {{{ifattr 'disabled' disabled }}}
+    {{{ifattr 'readonly' readonly }}} />
+  {{#if helpText }}
+    {{> '@help-block' }}
+  {{/if}}
+</div>

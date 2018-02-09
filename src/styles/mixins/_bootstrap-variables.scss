@@ -1,0 +1,205 @@
+//
+// DSO Variables - Bootstrap overwrites
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+$brand-primary:         $bosgroen; //
+$brand-success:         $grasgroen;
+$brand-info:            $grasgroen;
+$brand-warning:         $oranje;
+$brand-danger:          $oranje;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: Asap, sans-serif;
+
+$font-size-base: 16px;
+
+$font-size-h2: 2em;
+$font-size-h3: 1.2em;
+
+$headings-color: $bosgroen;
+
+//== Iconography
+//
+//## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+$icon-font-path: "../fonts/bootstrap/";
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-default-bg: $grasgroen-40;
+$btn-default-border: $grasgroen-40;
+
+$btn-primary-bg: $grasgroen;
+$btn-primary-border: $grasgroen;
+
+//== Forms
+//
+//##
+
+//** Disabled cursor for form controls and buttons.
+$cursor-disabled: default;
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+$dropdown-link-hover-color: $wit;
+$dropdown-link-hover-bg: $grasgroen;
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+//== Navbar
+//
+//##
+
+$navbar-padding-horizontal: 0;
+
+//== Navs
+//
+//##
+
+//== Tabs
+//
+//##
+
+//== Pills
+//
+//##
+
+//== Pagination
+//
+//##
+
+//== Pager
+//
+//##
+
+//== Jumbotron
+//
+//##
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+//== Tooltips
+//
+//##
+
+//== Popovers
+//
+//##
+
+//== Labels
+//
+//##
+
+//== Modals
+//
+//##
+
+//== Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+$state-success-text: $grijs-80;
+$state-success-bg: $grasgroen-10;
+$state-success-border: $grasgroen-40;
+
+$state-info-text: $grijs-80;
+$state-info-bg: $grijs-10;
+$state-info-border: $grijs-40;
+
+$state-warning-text: $grijs-80;
+$state-warning-bg: $oranje-10;
+$state-warning-border: $oranje-40;
+
+$state-danger-text: $grijs-80;
+$state-danger-bg: $oranje-40;
+$state-danger-border: $oranje-80;
+
+//== Progress bars
+//
+//##
+
+$progress-bar-bg: $grasgroen;
+
+//== List group
+//
+//##
+
+//== Panels
+//
+//##
+
+//== Thumbnails
+//
+//##
+
+//== Wells
+//
+//##
+
+$well-bg: $grasgroen-40;
+$well-border: $grasgroen-40;
+
+//== Badges
+//
+//##
+
+//== Breadcrumbs
+//
+//##
+
+$breadcrumb-padding-vertical: 0;
+$breadcrumb-padding-horizontal: 12px;
+$breadcrumb-bg: none;
+$breadcrumb-color: $grijs-70;
+$breadcrumb-separator: "|";
+
+//== Carousel
+//
+//##
+
+//== Close
+//
+//##
+
+//== Code
+//
+//##
+
+//== Type
+//
+//##

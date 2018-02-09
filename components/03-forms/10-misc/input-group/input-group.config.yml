@@ -1,0 +1,62 @@
+notes: |
+  Maak visueel uitgebreide elementen met input groups. Combineer een input group niet met een form group, maar plaats de input group in plaats daarvan IN de form group.
+status: ready
+default: left
+collated: true
+variants:
+  - name: left
+    context:
+      id: left
+      placeholder: Gebruikersnaam
+      leftAddon: \@
+  - name: right
+    context:
+      id: right
+      placeholder: Gebruikersnaam van de ontvanger
+      rightAddon: \@rws.nl
+  - name: double
+    context:
+      id: double
+      ariaLabel: Bedrag (afgerond in hele Euro's')
+      leftAddon: €
+      rightAddon: ",00"
+  - name: labelled
+    context:
+      id: labelled
+      label: Jouw persoonlijke URL
+      leftAddon: https://example.com/users/
+  - name: sizingLarge
+    context:
+      id: sizingLarge
+      modifier: input-group-lg
+      leftAddon: \@
+      placeholder: Gebruikersnaam
+  - name: sizingSmall
+    context:
+      id: sizingSmall
+      modifier: input-group-sm
+      leftAddon: \@
+      placeholder: Gebruikersnaam
+  - name: checkbox
+    context:
+      id: checkbox
+      placeholder: Gebruikersnaam
+      checkboxLeft: true
+      ariaLabelAddon: Activeer veld
+      ariaLabel: Vul naam in
+  - name: radio
+    context:
+      id: radio
+      placeholder: Gebruikersnaam
+      radioLeft: true
+      ariaLabelAddon: Selecteer veld
+      ariaLabel: Vul naam in
+  - name: button
+    context:
+      id: button
+      placeholder: Gebruikersnaam
+      buttonLeft: true
+      label: Zoek
+      type: button
+      modifier: default
+      ariaLabel: Gebruikersnaam

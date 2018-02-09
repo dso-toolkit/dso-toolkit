@@ -1,0 +1,82 @@
+.accordion {
+  .panel {
+    border: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+
+  .section-toggle,
+  .section-body {
+    padding-left: 40px;
+  }
+
+  .section-toggle {
+    position: relative;
+
+    .toggle-icon {
+      font-size: 2.4em;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    h2 {
+      border-bottom: 1px solid $grijs-50;
+      color: $bosgroen;
+      font-size: 2em;
+      font-weight: normal;
+      margin-top: 10px;
+      padding-bottom: 10px;
+
+      a {
+        &:hover,
+        &:focus {
+          color: $bosgroen;
+          text-decoration: none;
+        }
+      }
+
+      span {
+        color: $grasgroen;
+        font-size: .875em;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .section-body {
+    fieldset legend {
+      border-bottom: 0;
+      color: $bosgroen;
+      font-size: 1.2em;
+      font-weight: 700;
+    }
+
+    > label {
+      color: $bosgroen;
+      font-size: 1.4em;
+      margin-top: 30px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .fa-check {
+        color: $grasgroen;
+      }
+
+      .fa-exclamation-circle {
+        color: $grijs-50;
+      }
+    }
+
+    button {
+      margin-bottom: 12px;
+
+      &.btn-link {
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+  }
+}

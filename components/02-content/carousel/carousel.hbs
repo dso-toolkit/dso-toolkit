@@ -1,0 +1,27 @@
+<div id="{{ carouselId }}" class="carousel slide" data-ride="carousel">
+  {{! Indicators }}
+  <ol class="carousel-indicators">
+    {{#each slides }}
+      <li data-target="#{{ carouselId }}" data-slide-to="{{ @index }}" {{#if active }}class="active"{{/if}}></li>
+    {{/each}}
+  </ol>
+
+  {{! Wrapper for slides }}
+  <div class="carousel-inner" role="listbox">
+    {{#each slides }}
+      <div class="item{{#if active }} active{{/if}}">
+        <img src="{{path image }}" alt="{{ imageAlt }}" />
+      </div>
+    {{/each}}
+  </div>
+
+  {{! Controls }}
+  <a href="#{{ carouselId }}" class="left carousel-control" role="button" data-slide="prev">
+    {{> '@icon' icon="glyphicon glyphicon-chevron-left" }}
+    <span class="sr-only">Vorige</span>
+  </a>
+  <a href="#{{ carouselId }}" class="right carousel-control" role="button" data-slide="next">
+    {{> '@icon' icon="glyphicon glyphicon-chevron-right" }}
+    <span class="sr-only">Volgende</span>
+  </a>
+</div>

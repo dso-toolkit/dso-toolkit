@@ -1,0 +1,29 @@
+$asap-font-path: "../fonts/Asap/" !default;
+
+@font-face {
+  font-family: "Asap";
+  font-style: normal;
+  font-weight: normal;
+  src: url("#{$asap-font-path}Asap-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Asap Bold";
+  font-style: normal;
+  font-weight: bold;
+  src: url("#{$asap-font-path}Asap-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Asap Italic";
+  font-style: italic;
+  font-weight: normal;
+  src: url("#{$asap-font-path}Asap-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Asap Bold Italic";
+  font-style: italic;
+  font-weight: bold;
+  src: url("#{$asap-font-path}Asap-BoldItalic.ttf") format("truetype");
+}

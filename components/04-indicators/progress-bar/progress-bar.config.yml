@@ -1,0 +1,9 @@
+notes: |
+  Toont een progress-bar. Let op het gebruik van correcte waardes voor `aria-valuenow` (de huidige waarde van de progressbar), `aria-valuemin` (de minimale waarde) en `aria-valuemax` (de maximale waarde).
+status: ready
+collated: true
+context:
+  progress: 60
+  value:
+    min: 0
+    max: 100

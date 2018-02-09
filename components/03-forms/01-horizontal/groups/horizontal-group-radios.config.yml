@@ -1,0 +1,12 @@
+status: ready
+context:
+  id: radio_voorbeeld
+  label: Oneven getal
+  helpText: Kies een oneven getal
+  options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie

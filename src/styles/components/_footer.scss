@@ -1,0 +1,21 @@
+footer {
+  background-color: $grijs-10;
+  margin-top: 50px;
+  padding: 20px 10px;
+
+  h2 {
+    border-bottom: 1px solid $grijs-40;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-top: 0;
+    padding-bottom: 16px;
+  }
+
+  ul {
+    @include list-unstyled;
+
+    li {
+      line-height: 2em;
+    }
+  }
+}

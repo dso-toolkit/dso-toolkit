@@ -1,0 +1,7 @@
+notes: |
+  Plaatst een lichtgewicht, flexibel component dat optioneel de gehele breedte van de viewport kan bevatten om belangrijke content van je site te tonen. Gebaseerd op Bootstrap "Jumbotron".
+status: ready
+context:
+  title: Aan de slag met de Omgevingswet
+  content: Dit is een testcomponent genaamd 'jumbotron'
+  ctaText: Leer meer

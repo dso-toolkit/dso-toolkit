@@ -1,0 +1,4 @@
+notes: |
+  Een lege badge zal zichzelf verbergen dmv. `display: none` op de `:empty` psuedo selector
+context:
+  count: 3

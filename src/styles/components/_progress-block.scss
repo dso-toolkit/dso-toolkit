@@ -1,0 +1,32 @@
+.progress-block {
+  background-color: $grijs-10;
+  border-color: $grijs-10;
+  display: inline-block;
+  margin-bottom: 0;
+
+  &.affix {
+    top: 35px;
+  }
+
+  &.affix-bottom {
+    position: relative;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  ul {
+    li {
+      color: $grijs-60;
+      font-weight: bold;
+      line-height: 2em;
+
+      &.active {
+        color: $zwart;
+      }
+    }
+  }
+}

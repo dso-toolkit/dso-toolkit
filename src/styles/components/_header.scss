@@ -1,0 +1,31 @@
+header {
+  margin-bottom: 40px;
+
+  .login {
+    float: right;
+  }
+
+  .logo {
+    width: 300px;
+  }
+
+  .breadcrumb {
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-top: 0;
+  }
+
+  .form-control-feedback {
+    color: $bosgroen;
+    font-size: 1.4em;
+  }
+}

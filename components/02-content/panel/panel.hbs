@@ -1,0 +1,21 @@
+<div class="panel panel-{{ modifier }}">
+  {{#if title }}
+    <div class="panel-heading">
+      {{#if header}}
+        <{{header}} class="panel-title">
+          {{ title }}
+        </{{header}}>
+      {{else}}
+        {{ title }}
+      {{/if}}
+    </div>
+  {{/if}}
+  <div class="panel-body">
+    {{ body }}
+  </div>
+  {{#if footer }}
+    <div class="panel-footer">
+      {{ footer }}
+    </div>
+  {{/if}}
+</div>

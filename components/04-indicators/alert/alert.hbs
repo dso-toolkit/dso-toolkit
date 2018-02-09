@@ -1,0 +1,10 @@
+<div class="alert {{ modifier }}" role="alert">
+  {{#if icon }}
+    {{> '@icon' }}
+    <span class="sr-only">{{ label }}</span>
+    {{ message }}
+  {{else}}
+    <strong>{{ label }}:</strong>
+    {{ message }}
+  {{/if}}
+</div>

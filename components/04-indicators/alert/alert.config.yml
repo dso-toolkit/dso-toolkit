@@ -1,0 +1,30 @@
+notes: |
+  Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component
+status: ready
+collated: true
+context:
+  modifier: alert-success
+  label: Succes
+  message: De wijziging is opgeslagen!
+variants:
+  - name: default
+    label: Succes
+  - name: info
+    context:
+      modifier: alert-info
+      label: Let op
+      message: De sessie verloopt over 5 minuten.
+  - name: warning
+    context:
+      modifier: alert-warning
+      label: Waarschuwing
+      message: Vergeet niet uit te loggen na het gebruik van dit systeem.
+  - name: danger
+    context:
+      modifier: alert-danger
+      label: Fout
+      message: Uw wijzigingen konden helaas niet worden opgeslagen door een technisch probleem. Probeer het later nog eens.
+  - name: success-icon
+    context:
+      icon: fa fa-check
+      label: Success

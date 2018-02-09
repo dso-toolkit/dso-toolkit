@@ -1,0 +1,10 @@
+status: ready
+context:
+  panels:
+  - title: Paneel 1
+    id: panel1
+    icon: fa fa-check
+  - title: Paneel 2
+    id: panel2
+  - title: Paneel 3
+    id: panel3

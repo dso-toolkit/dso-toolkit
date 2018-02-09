@@ -1,0 +1,8 @@
+<li role="presentation" {{#if active }}class="active"{{/if}}>
+  <a href="#">
+    {{ label }}
+    {{#if count }}
+      {{> '@badge' }}
+    {{/if}}
+  </a>
+</li>

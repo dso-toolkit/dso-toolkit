@@ -1,0 +1,4 @@
+status: ready
+context:
+  id: group_checkbox_voorbeeld
+  label: Check mij

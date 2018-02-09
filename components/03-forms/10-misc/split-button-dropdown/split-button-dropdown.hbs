@@ -1,0 +1,19 @@
+<div class="btn-group {{ sizing }}">
+  <button type="button" class="btn {{ modifier }}">{{ button-label }}</button>
+  <button type="button" class="btn {{ modifier }} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">{{ dropdown-label }}</span>
+  </button>
+  <ul class="dropdown-menu">
+    {{#each items }}
+      {{#unless @first }}
+        <li role="separator" class="divider"></li>
+      {{/unless}}
+      {{#each this }}
+        <li>
+          <a href="#">{{ this }}</a>
+        </li>
+      {{/each}}
+    {{/each}}
+  </ul>
+</div>

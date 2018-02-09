@@ -1,0 +1,11 @@
+notes: |
+  Toont een breadcrumb. Gebaseerd op de Bootstrap "Breadcrumbs" component
+status: ready
+context:
+  crumbs:
+  - label: Home
+    url: '#'
+  - label: Zelf aan de slag
+    url: '#'
+  - label: Inhoud
+    url: '#'

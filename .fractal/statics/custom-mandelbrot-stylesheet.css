@@ -1,0 +1,125 @@
+.Header {
+  background-color: #e9eeeb;
+  color: #000;
+}
+
+.Header svg {
+  fill: #000;
+}
+
+.Browser-tab.is-active a {
+  border-bottom-color: #e17000;
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Asap/Asap-Regular.ttf) format("truetype")
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/Asap/Asap-Bold.ttf) format("truetype")
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: italic;
+  font-weight: 400;
+  src: url(../fonts/Asap/Asap-Italic.ttf) format("truetype")
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: italic;
+  font-weight: 700;
+  src: url(../fonts/Asap/Asap-BoldItalic.ttf) format("truetype")
+}
+
+html,
+h1, h2, h3, h4, h5, h6,
+.Browser-tab a,
+.Document-title
+.Error--render .Error-title,
+.Error--render .Error-message,
+.FileBrowser-selectWrapper,
+.FileBrowser-select-label,
+.select2-results__option,
+.Meta-key,
+.Meta-value,
+.Pen-title,
+.Prose,
+.Prose h1,
+.Prose h2,
+.Prose h3,
+.Prose caption,
+.Status-label,
+.Tree-title,
+.Tree-collectionLabel,
+.Tree-item {
+  font-family: Asap, sans-serif;
+}
+
+.color-chips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 70vw
+}
+
+.color-chips .color-chip {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  border-top-width: 8em;
+  border-top-style: solid;
+  border-bottom-width: 0;
+  border-bottom-style: solid;
+  background-color: #fff;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+.Preview-iframe {
+  padding: 15px;
+}
+
+@media (min-width: 60em) {
+  .color-chips .color-chip {
+    flex-basis: 20em;
+  }
+}
+
+ul.icons {
+  padding-left: 0 !important;
+  list-style: none;
+}
+
+ul.icons li {
+  float: left;
+  width: 25%;
+  height: 150px;
+  padding: 10px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+  list-style-type: none;
+}
+
+ul.icons label {
+  display: block;
+}
+
+ul.icons .demo-icon {
+  font-size: 4em;
+}
