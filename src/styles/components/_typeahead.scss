@@ -1,0 +1,39 @@
+.typeahead {
+  ul,
+  .no-results {
+    background-color: $wit;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+
+  ul a,
+  .no-results {
+    padding: $padding-base-vertical $padding-base-horizontal;
+  }
+
+  .no-results {
+    font-style: italic;
+  }
+
+  ul {
+    @extend .list-unstyled;
+
+    a {
+      color: $zwart;
+      display: block;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: $grasgroen-40;
+        text-decoration: none;
+      }
+
+      .match {
+        font-weight: bold;
+      }
+    }
+  }
+}

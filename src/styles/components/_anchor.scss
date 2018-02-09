@@ -5,7 +5,7 @@ a {
   &.download,
   &.extern {
     &::after {
-      @extend .fa;
+      @extend .#{$fa-css-prefix};
 
       white-space: pre;
     }

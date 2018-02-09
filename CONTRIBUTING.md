@@ -22,9 +22,17 @@ Properly label the issue as a bug, improvement, new feature.
 * Take note of the codestyle, we are using linters. 
 * Add an entry to the CHANGELOG using `#issueId: summary-of-the-change`
 * If possible, change both the toolkit **and** component library (You want to showcase your changes, right?)
+* When contributing (breaking) changes, update changelog accordingly. Commit a new reference DOM using `gulp reference:dom` as well.
 
 ### 3. Create a merge request
 Create a merge request to `master`. A maintainer will review your changes, merge them, and close the issue.
+
+## Reviewing
+When reviewing a merge request, make sure the items in step 2. Contribute are checked. Pay special attention to the changelog. Any changes in the reference DOM should be documented in the changelog.
+
+For example:
+- DSOCOMLIB-000: External links in text should open in a new page\
+To every `a.extern` in `p` add `target="_blank"`.
 
 ## Building a static component library
 To build a static version:

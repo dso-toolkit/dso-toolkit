@@ -2,9 +2,19 @@ status: ready
 default: tabs
 collated: true
 context:
+  modifier: tabs
   items:
-    - label: Home
-      active: true
-    - label: Profiel
-    - label: Berichten
-      count: 15
+  - label: Deze locatie
+    active: true
+  - label: Regels
+  - label: Overige informatie
+variants:
+  - name: pills
+    context:
+      modifier: pills
+      items:
+      - label: Home
+        active: true
+      - label: Profiel
+      - label: Berichten
+        count: 15

@@ -8,9 +8,9 @@ const sassLint = require('gulp-sass-lint');
 const isCi = require('./functions/is-ci');
 
 module.exports = {
-  lint: gulp.series(lintStyles, lintScripts),
   lintStyles,
-  lintScripts
+  lintScripts,
+  lintWatcher
 };
 
 function lintStyles() {
@@ -33,4 +33,16 @@ function lintScripts() {
     }))
     .pipe(eslint.format())
     .pipe(gulpIf(isCi, eslint.failOnError()));
+}
+
+function lintWatcher(logger) {
+  gulp.watch('components/**/*.js').on('all', function (event, path, stats) {
+    logger('scripts', event, path);
+
+    return lintScripts();
+  });
+
+  gulp.watch('src/**/*.s[ac]ss').on('all', function (event, path, stats) {
+    return lintStyles();
+  });
 }

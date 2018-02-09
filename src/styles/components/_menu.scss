@@ -2,6 +2,10 @@
   .search {
     float: right;
     max-width: 250px;
+
+    @media(min-width: $screen-sm) and (max-width: $screen-md) {
+      max-width: 200px;
+    }
   }
 
   .navbar-header {
@@ -11,30 +15,66 @@
   .navbar-collapse {
     width: 100%;
   }
-}
 
-@media(min-width: $screen-sm) {
-  .menu {
-    .navbar-collapse {
-      width: 100%;
-    }
+  &.navbar {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $grijs-20;
+    border-radius: 0;
+    margin-bottom: 0;
+    min-height: 44px;
+    padding-bottom: 10px;
 
     .navbar-nav {
       > li {
-        width: auto;
-
         a {
-          padding: 12px 10px 0;
+          border-bottom: 3px solid transparent;
+          border-top: 1px solid $wit;
+          color: $bosgroen;
+          font-size: 1.2em;
+          height: 40px;
+
+          &:hover,
+          &:focus {
+            background: none;
+            color: $zwart;
+          }
+
+          @media(min-width: $screen-sm) {
+            padding: 12px 10px 0;
+          }
+        }
+      }
+
+      > .active {
+        > a {
+          background: transparent;
+          border-bottom: 3px solid $oranje;
+          color: $bosgroen;
+          font-weight: bold;
+
+          &:hover,
+          &:focus {
+            background: transparent;
+            color: $zwart;
+          }
         }
       }
     }
-  }
-}
 
-@media(min-width: $screen-sm) and (max-width: $screen-md) {
-  .menu {
-    .search {
-      max-width: 200px;
+    .navbar-toggle {
+      background-color: $grasgroen-10;
+      margin: 0 0 10px;
+      padding: $padding-base-vertical $padding-base-horizontal;
+
+      &:focus {
+        background-color: $grasgroen-10;
+        border: 2px solid $grasgroen-10;
+      }
+
+      &:hover {
+        background-color: $grasgroen-10;
+      }
     }
   }
 }

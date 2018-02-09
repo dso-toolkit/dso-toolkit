@@ -1,19 +1,19 @@
-$('.section-body').on('hidden.bs.collapse', function () {
+$('.section-body').on('hide.bs.collapse', function () {
   const body = $(this);
   const id = body.attr('id');
 
-  const toggle = body.closest('.accordion').find(`.section-toggle h2 a[href="#${id}"]`);
+  const toggle = body.closest('.accordion').find(`.section-toggle[href="#${id}"]`);
 
   toggle.closest('.section-toggle').find('span.toggle-icon')
-    .removeClass('fa-angle-down')
-    .addClass('fa-angle-right');
+    .removeClass('toggle-open')
+    .addClass('toggle-closed');
 });
 
-$('.section-body').on('shown.bs.collapse', function () {
+$('.section-body').on('show.bs.collapse', function () {
   const body = $(this);
   const id = body.attr('id');
 
-  const toggle = body.closest('.accordion').find(`.section-toggle h2 a[href="#${id}"]`);
+  const toggle = body.closest('.accordion').find(`.section-toggle[href="#${id}"]`);
 
-  toggle.closest('.section-toggle').find('span.toggle-icon').removeClass('fa-angle-right').addClass('fa-angle-down');
+  toggle.closest('.section-toggle').find('span.toggle-icon').removeClass('toggle-closed').addClass('toggle-open');
 });

@@ -1,0 +1,33 @@
+.nav-tabs {
+  > li {
+    margin-bottom: 0;
+
+    a {
+      border: 0;
+      color: $grijs-40;
+      font-family: "Asap Bold";
+      font-size: 20px;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: none;
+        color: $grasgroen;
+      }
+    }
+
+    &.active {
+      a {
+        border: 0;
+        border-bottom: 3px solid $grasgroen;
+
+        &:hover,
+        &:focus,
+        &:active {
+          border: 0;
+          border-bottom: 3px solid $grasgroen;
+        }
+      }
+    }
+  }
+}

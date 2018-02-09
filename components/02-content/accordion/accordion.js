@@ -29,12 +29,10 @@ module.exports = function (fractal) {
         })
         .then(content => `
           <div class="panel">
-            <div class="section-toggle">
-              <span class="toggle-icon fa fa-angle-right"></span>
-              <h2>
-                <a data-toggle="collapse" data-parent="#accordion" href="#${context.id}" aria-expanded="false" aria-controls="${context.id}">${title}</a>${icon ? '\n' + icon : ''}
-              </h2>
-            </div>
+            <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#${context.id}" aria-expanded="false" aria-controls="${context.id}">
+              <span class="toggle-icon"></span>
+              <h2>${title}${icon || ''}</h2>
+            </a>
             <div class="section-body collapse" id="${context.id}">
               ${content.trim()}
             </div>

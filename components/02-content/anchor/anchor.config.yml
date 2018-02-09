@@ -7,8 +7,8 @@ context:
 variants:
   - name: download
     context:
-      label: Afvalkalendar 2017
-      url: afvalkalendar.pdf
+      label: Afvalkalender 2017
+      url: afvalkalender.pdf
       modifier: download
   - name: extern
     context:

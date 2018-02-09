@@ -6,6 +6,7 @@ const util = require('gulp-util');
 const babel = require('rollup-plugin-babel');
 const del = require('del');
 const fractal = require('../fractal.js');
+const fse = require('fs-extra');
 const path = require('path');
 const rollup = require('rollup');
 const sass = require('gulp-sass');
@@ -14,16 +15,15 @@ const trim = require('gulp-trim');
 const log = util.log;
 
 module.exports = {
+  cleanBuild,
+  buildToolkit: gulp.series(buildScripts, buildStyles, buildAssets),
   buildSite: gulp.series(buildSite, trimReports, cleanUpBuild),
-  buildScripts,
-  buildStyles,
-  buildAssets,
-  clean
+  createDomReference: gulp.series(buildSite, createDomReference),
+  buildWatcher
 };
-module.exports.build = gulp.series(clean, gulp.parallel(buildScripts, buildStyles, buildAssets), module.exports.buildSite);
 
-function clean() {
-  return del(['build', 'dist', 'wcag']);
+function cleanBuild() {
+  return del('build');
 }
 
 function buildSite() {
@@ -93,4 +93,35 @@ function buildAssets() {
       'node_modules/bootstrap-sass/assets/fonts{,/**}'
     ])
     .pipe(gulp.dest('build/toolkit'));
+}
+
+function createDomReference() {
+  log('Cleaning component reference files');
+
+  return fse.remove('reference/components')
+    .then(function () {
+      log('Copied reference component files');
+
+      return fse.copy('build/library/components/render', 'reference/render');
+    });
+}
+
+function buildWatcher(logger) {
+  gulp.watch('src/**/*.js').on('all', function (event, path, stats) {
+    logger('scripts', event, path);
+
+    return buildScripts();
+  });
+
+  gulp.watch('src/**/*.scss').on('all', function (event, path, stats) {
+    logger('styles', event, path);
+
+    return buildStyles();
+  });
+
+  gulp.watch('assets/**/*').on('all', function (event, path, stats) {
+    logger('assets', event, path);
+
+    return buildAssets();
+  });
 }
