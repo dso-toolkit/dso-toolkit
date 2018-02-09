@@ -27,7 +27,7 @@ function lintStyles() {
 }
 
 function lintScripts() {
-  return gulp.src(['**/*.js', '!node_modules/**', '!build/**'])
+  return gulp.src(['**/*.js', '!node_modules/**', '!build/**', '!backstop_data/**'])
     .pipe(eslint({
       verbose: true
     }))

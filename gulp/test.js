@@ -4,6 +4,8 @@ const gulp = require('gulp');
 const util = require('gulp-util');
 
 const access = require('gulp-accessibility');
+const backstopJs = require('backstopjs');
+const backstopJsConfig = require('./backstop.json');
 const del = require('del');
 const fs = require('fs');
 const hiff = require('hiff');
@@ -15,8 +17,12 @@ const log = util.log;
 
 module.exports = {
   testAccessibility: gulp.series(clean, testAccessibility),
-  testDom
+  testDom,
+  testCss: cssRegression('test'),
+  refCss: cssRegression('reference')
 };
+
+const ignoreBackstopTesting = ['preview.html'];
 
 function clean() {
   return del('wcag');
@@ -44,6 +50,25 @@ function testAccessibility() {
       extname: '.json'
     }))
     .pipe(gulp.dest('wcag'));
+}
+
+function cssRegression(action) {
+  const dir = 'build/library/components/preview';
+
+  var files = fs.readdirSync(dir)
+    .filter(function (file) {
+      return fs.statSync(path.join(dir, file)).isFile();
+    })
+    .filter(f => ~f.indexOf('.html') && !~f.indexOf('--'))
+    .filter(f => !~ignoreBackstopTesting.indexOf(path.basename(f)));
+
+  let config = Object.assign(backstopJsConfig, {
+    scenarios: files.map(f => ({ label: f, url: path.join(dir, f) }))
+  });
+
+  log(config);
+
+  return backstopJs(action, config);
 }
 
 function testDom(cb) {
