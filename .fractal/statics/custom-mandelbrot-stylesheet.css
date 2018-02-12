@@ -63,6 +63,76 @@ h1, h2, h3, h4, h5, h6,
   font-family: Asap, sans-serif;
 }
 
+.Prose h1 {
+  color: #39870C;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.Prose h1.example-as-small {
+  color: #39870C;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.Prose h2 {
+  color: #275937;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.Prose h3 {
+  color: #275937;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.Prose h4 {
+  color: #000000;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.Prose h5 {
+  color: #000000;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.Prose p {
+  font-size: 1rem;
+}
+
+.Prose a {
+  font-size: 1rem;
+}
+
+.Prose a,
+.Prose a.static,
+.Prose a.static:hover,
+.Prose a.static:visited {
+  color: #39870C;
+  text-decoration: none;
+}
+
+.Prose a:hover,
+.Prose a.static-hover,
+.Prose a.static-hover:hover,
+.Prose a.static-hover:visited {
+  color: #676CB0;
+  text-decoration: underline;
+}
+
+.Prose a:visited,
+.Prose a.static-visited,
+.Prose a.static-visited:hover,
+.Prose a.static-visited:visited {
+  color: #8B4A6A;
+  text-decoration: none;
+}
+
 .color-chips {
   display: -webkit-box;
   display: -ms-flexbox;
