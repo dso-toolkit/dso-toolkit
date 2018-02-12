@@ -38,3 +38,18 @@
     }
   }
 }
+
+@media(max-width: $screen-sm) {
+  .menu {
+    .search {
+      $hamburger-menu-button-width: 40px;
+
+      margin-left: #{$hamburger-menu-button-width + 4px};
+      width: calc(100% - #{$hamburger-menu-button-width + 4px});
+    }
+
+    .navbar-header {
+      position: absolute;
+    }
+  }
+}
