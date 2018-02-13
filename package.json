@@ -4,8 +4,8 @@
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "1.1.0",
   "engines": {
-    "node": ">=8.0.0",
-    "npm": ">=5.0.0"
+    "node": ">=9.0.0",
+    "npm": ">=5.6.0"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@frctl/fractal": "^1.1.7",
-    "access-sniff": "^2.4.7",
+    "access-sniff": "^3.1.0",
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
