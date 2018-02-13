@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Documentation: Layout (#18)
 - Favicon (#12)
+- New component `typeahead` (#6)
 
 ### Changed
 - Updated `access-sniff` package to version 3.1.0 (#16)
