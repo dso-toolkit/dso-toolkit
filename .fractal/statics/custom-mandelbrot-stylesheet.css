@@ -19,21 +19,21 @@
 }
 
 @font-face {
-  font-family: "Asap Bold";
+  font-family: "Asap";
   font-style: normal;
   font-weight: 700;
   src: url(../fonts/Asap/Asap-Bold.ttf) format("truetype")
 }
 
 @font-face {
-  font-family: "Asap Italic";
+  font-family: "Asap";
   font-style: italic;
   font-weight: 400;
   src: url(../fonts/Asap/Asap-Italic.ttf) format("truetype")
 }
 
 @font-face {
-  font-family: "Asap Bold Italic";
+  font-family: "Asap";
   font-style: italic;
   font-weight: 700;
   src: url(../fonts/Asap/Asap-BoldItalic.ttf) format("truetype")
@@ -52,20 +52,17 @@ h1, h2, h3, h4, h5, h6,
 .Meta-value,
 .Pen-title,
 .Prose,
+.Prose h1,
+.Prose h2,
+.Prose h3,
+.Prose h4,
+.Prose h5,
 .Prose caption,
 .Status-label,
 .Tree-title,
 .Tree-collectionLabel,
 .Tree-item {
   font-family: Asap, sans-serif;
-}
-
-.Prose h1,
-.Prose h2,
-.Prose h3,
-.Prose h4,
-.Prose h5 {
-  font-family: AsapBold, sans-serif
 }
 
 .Prose h1 {

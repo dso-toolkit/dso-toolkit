@@ -29,12 +29,12 @@ $font-family-sans-serif: Asap, sans-serif;
 
 $font-size-base: 16px;
 
-$font-size-h1: 2.5rem;
-$font-size-h2: 1.5rem;
-$font-size-h3: 1.25rem;
-$font-size-h4: 1.125rem;
-$font-size-h5: 1rem;
-$font-size-h6: 1rem;
+$font-size-h1: $dso-font-size-h1;
+$font-size-h2: $dso-font-size-h2;
+$font-size-h3: $dso-font-size-h3;
+$font-size-h4: $dso-font-size-h4;
+$font-size-h5: $dso-font-size-h5;
+$font-size-h6: $dso-font-size-h5;
 
 $headings-font-family: "Asap Bold", sans-serif;
 $headings-font-weight: bold;
