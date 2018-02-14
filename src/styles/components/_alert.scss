@@ -1,0 +1,58 @@
+$dso-alert-icon-size: $u4;
+$dso-alert-padding: $u2;
+
+$dso-alert-success-icon-color: $wit;
+$dso-alert-danger-icon-color: $wit;
+$dso-alert-warning-icon-color: $grijs-90;
+$dso-alert-info-icon-color: $wit;
+
+.alert {
+  line-height: $dso-alert-icon-size;
+  min-height: 2 * $dso-alert-padding + $dso-alert-icon-size;
+  padding-left: 2 * $dso-alert-padding + $dso-alert-icon-size - 1px; // 1px border
+  position: relative;
+
+  &::before {
+    @include fa-icon;
+    border-radius: 50%;
+    height: $dso-alert-icon-size;
+    left: $dso-alert-padding - 1px;
+    line-height: $dso-alert-icon-size;
+    position: absolute;
+    text-align: center;
+    top: $dso-alert-padding - 1px;
+    width: $dso-alert-icon-size;
+  }
+
+  &.alert-success {
+    &::before {
+      background-color: $dso-alert-success-icon-bg-color;
+      color: $dso-alert-success-icon-color;
+      content: $fa-var-check;
+    }
+  }
+
+  &.alert-danger {
+    &::before {
+      background-color: $dso-alert-danger-icon-bg-color;
+      color: $dso-alert-danger-icon-color;
+      content: $fa-var-times;
+    }
+  }
+
+  &.alert-warning {
+    &::before {
+      background-color: $dso-alert-warning-icon-bg-color;
+      color: $dso-alert-warning-icon-color;
+      content: $fa-var-exclamation;
+    }
+  }
+
+  &.alert-info {
+    &::before {
+      background-color: $dso-alert-info-icon-bg-color;
+      color: $dso-alert-info-icon-color;
+      content: $fa-var-info;
+    }
+  }
+}
