@@ -1,0 +1,18 @@
+<div class="input-group {{ modifier }} typeahead">
+  {{#if open}}
+    <ul>
+      <li><a href="#">bouwen van <span class="match">een</span> <span class="match">een</span>denhuis</a></li>
+      <li><a href="#">bouwen van <span class="match">een</span> schuur</a></li>
+      <li><a href="#">bouwen van <span class="match">een</span> tuinhuis</a></li>
+      <li><a href="#">bouwen van <span class="match">een</span> garage</a></li>
+      <li><a href="#">bouwen van <span class="match">een</span> berging</a></li>
+      <li><a href="#">bouwen van <span class="match">een</span> garagebox</a></li>
+    </ul>
+  {{else if noResults}}
+    <p class="no-results">Geen resultaten</p>
+  {{/if}}
+  <input type="text" class="form-control" aria-label="{{ ariaLabel }}" {{{ifattr 'placeholder' placeholder}}} {{{ifattr 'value' value}}}/>
+  <span class="input-group-btn">
+    {{> '@button' }}
+  </span>
+</div>
