@@ -6,6 +6,12 @@ $dso-alert-danger-icon-color: $wit;
 $dso-alert-warning-icon-color: $grijs-90;
 $dso-alert-info-icon-color: $wit;
 
+@mixin dso-alert-icon($background-color, $color, $content) {
+  background-color: $background-color;
+  color: $color;
+  content: $content;
+}
+
 .alert {
   line-height: $dso-alert-icon-size;
   min-height: 2 * $dso-alert-padding + $dso-alert-icon-size;
@@ -16,43 +22,35 @@ $dso-alert-info-icon-color: $wit;
     @include fa-icon;
     border-radius: 50%;
     height: $dso-alert-icon-size;
-    left: $dso-alert-padding - 1px;
+    left: $dso-alert-padding - 1px; // 1px border
     line-height: $dso-alert-icon-size;
     position: absolute;
     text-align: center;
-    top: $dso-alert-padding - 1px;
+    top: $dso-alert-padding - 1px; // 1px border
     width: $dso-alert-icon-size;
   }
 
   &.alert-success {
     &::before {
-      background-color: $dso-alert-success-icon-bg-color;
-      color: $dso-alert-success-icon-color;
-      content: $fa-var-check;
+      @include dso-alert-icon($dso-alert-success-icon-bg-color, $dso-alert-success-icon-color, $fa-var-check);
     }
   }
 
   &.alert-danger {
     &::before {
-      background-color: $dso-alert-danger-icon-bg-color;
-      color: $dso-alert-danger-icon-color;
-      content: $fa-var-times;
+      @include dso-alert-icon($dso-alert-danger-icon-bg-color, $dso-alert-danger-icon-color, $fa-var-times);
     }
   }
 
   &.alert-warning {
     &::before {
-      background-color: $dso-alert-warning-icon-bg-color;
-      color: $dso-alert-warning-icon-color;
-      content: $fa-var-exclamation;
+      @include dso-alert-icon($dso-alert-warning-icon-bg-color, $dso-alert-warning-icon-color, $fa-var-exclamation);
     }
   }
 
   &.alert-info {
     &::before {
-      background-color: $dso-alert-info-icon-bg-color;
-      color: $dso-alert-info-icon-color;
-      content: $fa-var-info;
+      @include dso-alert-icon($dso-alert-info-icon-bg-color, $dso-alert-info-icon-color, $fa-var-info);
     }
   }
 }
