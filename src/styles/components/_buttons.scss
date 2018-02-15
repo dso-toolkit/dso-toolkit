@@ -1,0 +1,118 @@
+$btn-size: 48px;
+
+.btn {
+  border-width: 2px;
+  font-size: 1.125em;
+  font-weight: bold;
+  height: $btn-size;
+  min-width: $btn-size;
+
+  .btn-label {
+    padding: 0 #{$btn-size / 2};
+  }
+}
+
+.btn-default {
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background-color: $grasgroen;
+    border-color: $grasgroen;
+    color: $wit;
+  }
+
+  &.disabled,
+  &[disabled] {
+    background-color: $wit;
+    border-color: $grasgroen-40;
+    color: $grasgroen-40;
+    opacity: 1;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      border-color: $grasgroen-40;
+      color: $grasgroen-40;
+    }
+  }
+}
+
+.btn-primary {
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background-color: #d45800;
+    border-color: #d45800;
+  }
+
+  &.disabled,
+  &[disabled] {
+    background-color: #f6d4b2;
+    border-color: #f6d4b2;
+    opacity: 1;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      background-color: #f6d4b2;
+      border-color: #f6d4b2;
+    }
+  }
+}
+
+.btn-link {
+  color: $grasgroen;
+
+  &::before {
+    @include fa-icon;
+    border: 2px solid $grasgroen;
+    border-radius: 50%;
+    content: "\f105";
+    margin-right: 8px;
+    padding: $padding-base-vertical #{$padding-base-horizontal - 1} $padding-base-vertical #{$padding-base-horizontal + 1};
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .btn-label {
+    padding: 0;
+    vertical-align: middle;
+  }
+
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    color: $grasgroen;
+    text-decoration: none;
+
+    &::before {
+      background-color: $grasgroen;
+      color: $wit;
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    opacity: 1;
+
+    .btn-label {
+      color: $grasgroen-40;
+    }
+
+    &::before {
+      background-color: $wit;
+      border-color: $grasgroen-40;
+      color: $grasgroen-40;
+    }
+  }
+}

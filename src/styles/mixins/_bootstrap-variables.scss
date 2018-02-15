@@ -47,11 +47,14 @@ $icon-font-path: "../fonts/bootstrap/";
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-default-bg: $grasgroen-40;
-$btn-default-border: $grasgroen-40;
+$btn-default-color: $grasgroen;
+$btn-default-bg: $wit;
+$btn-default-border: $grasgroen;
 
-$btn-primary-bg: $grasgroen;
-$btn-primary-border: $grasgroen;
+$btn-primary-bg: $oranje;
+$btn-primary-border: $oranje;
+
+$btn-border-radius-base: 24px;
 
 //== Forms
 //
