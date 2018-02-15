@@ -1,27 +1,22 @@
 notes: De class `cta-primary` en `cta-default` kunnen alleen op elementen van het type `a` of `button` geplaatst worden
-status: ready
+status: wip
 collated: true
-default: button-cta-primary
+default: cta-button
 variants:
-  - name: button-cta-primary
+  - name: cta-button
     context:
       button: true
-      value: Verstuur feedback
-      modifier: primary
-  - name: button-cta-default
+      value: Volgende
+  - name: cta-button-disabled
     context:
       button: true
-      value: Meld ongewenst gedrag
-      modifier: default
-  - name: anchor-cta-primary
+      value: Volgende
+  - name: cta-button-icon
+    context:
+      button: true
+      value: Volgende
+  - name: cta-button-anchor
     context:
       anchor: true
-      value: Vraag nu vergunning aan
-      modifier: primary
-      url: "#"
-  - name: anchor-cta-default
-    context:
-      anchor: true
-      value: E-mail de redactie
-      modifier: default
+      value: Volgende
       url: "#"
