@@ -1,11 +1,15 @@
+$dso-pager-icon-space: $dso-unit / 2;
+$dso-pager-border-width: 2px;
+$dso-pager-height: 48px;
+
 .pager {
   li {
     a {
-      border-width: 2px;
+      border-width: $dso-pager-border-width;
       font-size: 1.125em;
       font-weight: 700;
-      line-height: 44px;
-      padding: 0 48px;
+      line-height: #{$dso-pager-height - $dso-pager-border-width * 2};
+      padding: 0 $dso-pager-height;
 
       &:hover,
       &:active,
@@ -31,13 +35,13 @@
 
     &.previous {
       .fa {
-        margin-right: 4px;
+        margin-right: $dso-pager-icon-space;
       }
     }
 
     &.next {
       .fa {
-        margin-left: 4px;
+        margin-left: $dso-pager-icon-space;
       }
     }
   }
