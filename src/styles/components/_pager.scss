@@ -1,0 +1,44 @@
+.pager {
+  li {
+    a {
+      border-width: 2px;
+      font-size: 1.125em;
+      font-weight: 700;
+      line-height: 44px;
+      padding: 0 48px;
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus,
+      &.focus {
+        color: $wit;
+      }
+    }
+
+    &.disabled {
+      a {
+        border-color: $grasgroen-40;
+      }
+    }
+
+    &.previous,
+    &.next {
+      .fa {
+        font-weight: 700;
+      }
+    }
+
+    &.previous {
+      .fa {
+        margin-right: 4px;
+      }
+    }
+
+    &.next {
+      .fa {
+        margin-left: 4px;
+      }
+    }
+  }
+}
