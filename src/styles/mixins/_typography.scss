@@ -6,9 +6,17 @@ h1 {
   color: $grasgroen;
 }
 
-h4,
+h4 {
+  color: $bosgroen;
+}
+
 h5 {
-  color: $zwart;
+  color: $grijs-90;
+}
+
+// Mind Bootstrap's .caption class: node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_thumbnails.scss
+.caption {
+  font-style: italic;
 }
 
 @media (max-width: $screen-sm-max) {
