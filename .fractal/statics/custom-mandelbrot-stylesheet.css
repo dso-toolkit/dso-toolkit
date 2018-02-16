@@ -63,6 +63,10 @@
        url("../fonts/Asap/asap-v7-latin-700italic.svg#Asap") format("svg");
 }
 
+html {
+  color: #191919;
+}
+
 html,
 h1, h2, h3, h4, h5, h6,
 .Browser-tab a,
@@ -170,40 +174,8 @@ span.caption {
   text-decoration: none;
 }
 
-.color-chips {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 70vw
-}
-
-.color-chips .color-chip {
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
-  border-top-width: 8em;
-  border-top-style: solid;
-  border-bottom-width: 0;
-  border-bottom-style: solid;
-  background-color: #fff;
-  padding: 1em;
-  margin-bottom: 2em;
-}
-
 .Preview-iframe {
   padding: 15px;
-}
-
-@media (min-width: 60em) {
-  .color-chips .color-chip {
-    flex-basis: 20em;
-  }
 }
 
 ul.icons {
@@ -229,4 +201,52 @@ ul.icons label {
 
 ul.icons .demo-icon {
   font-size: 4em;
+}
+
+.color-chip {
+  border-bottom: 4em solid #fff;
+  border-top: 2em solid #fff;
+  float: left;
+  height: auto;
+  margin-bottom: 3em !important;
+  padding-top: 22%;
+  position: relative;
+  width: 23.5%;
+}
+
+.color-chip + .color-chip,
+.color-chip + .color-supplement {
+  margin-left: 2%;
+}
+
+.color-supplement {
+  border-top: 2em solid #fff;
+  float: left;
+}
+
+.color-supplement.chip-3 {
+  width: 74.5%;
+}
+
+.color-row + *:not(.color-row) {
+  clear: both;
+}
+
+.color-chip .label {
+  font-weight: bold;
+  position: absolute;
+  top: -2em;
+}
+
+.color-chip .description {
+  bottom: -4em;
+  position: absolute;
+}
+
+.color-chip ul {
+  padding-left: 0 !important;
+}
+
+.color-chip ul li {
+  list-style-type: none;
 }
