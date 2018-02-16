@@ -1,30 +1,20 @@
 notes: |
   Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component
-status: ready
+status: wip
 collated: true
 context:
   modifier: alert-success
-  label: Succes
-  message: De wijziging is opgeslagen!
+  message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
-  - name: default
-    label: Succes
-  - name: info
-    context:
-      modifier: alert-info
-      label: Let op
-      message: De sessie verloopt over 5 minuten.
-  - name: warning
-    context:
-      modifier: alert-warning
-      label: Waarschuwing
-      message: Vergeet niet uit te loggen na het gebruik van dit systeem.
   - name: danger
     context:
       modifier: alert-danger
-      label: Fout
-      message: Uw wijzigingen konden helaas niet worden opgeslagen door een technisch probleem. Probeer het later nog eens.
-  - name: success-icon
+      message: Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.
+  - name: warning
     context:
-      icon: fa fa-check
-      label: Success
+      modifier: alert-warning
+      message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
+  - name: info
+    context:
+      modifier: alert-info
+      message: Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.

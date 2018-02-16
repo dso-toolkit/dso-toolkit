@@ -1,0 +1,19 @@
+html {
+  font-size: $font-size-base;
+}
+
+h1 {
+  color: $grasgroen;
+}
+
+h4,
+h5 {
+  color: $zwart;
+}
+
+@media (max-width: $screen-sm-max) {
+  h1,
+  .h1 {
+    font-size: $dso-font-size-h1-responsive;
+  }
+}

@@ -2,6 +2,10 @@ $dso-anchor-download-content: " #{$fa-var-download}";
 $dso-anchor-extern-content: " #{$fa-var-external-link}";
 
 a {
+  &:visited {
+    color: $dso-anchor-visited-color;
+  }
+
   &.download,
   &.extern {
     &::after {
