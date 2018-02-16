@@ -1,13 +1,12 @@
 <button type="{{ type }}" class="btn btn-{{ modifier }}" {{{ifattr 'disabled' disabled }}}>
-  {{!-- {{#if icon }}
-    {{> '@icon' icon=icon }}
-  {{/if}} --}}
   {{#if iconOnly }}
     <span class="sr-only">{{ label }}</span>
   {{else}}
-    <span class="btn-label">{{ label }}</span>
+    <span class="btn-label">
+      {{#if icon }}
+        {{> '@icon' icon=icon }}
+      {{/if}}
+      {{ label }}
+    </span>
   {{/if}}
-  {{!-- {{#if count }}
-    {{> '@badge' }}
-  {{/if}} --}}
 </button>

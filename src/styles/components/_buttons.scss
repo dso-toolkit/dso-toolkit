@@ -71,20 +71,17 @@ $btn-size: 48px;
 .btn-link {
   color: $grasgroen;
 
-  &::before {
+  .fa {
     @include fa-icon;
     border: 2px solid $grasgroen;
     border-radius: 50%;
-    content: "\f105";
     margin-right: 8px;
-    padding: $padding-base-vertical #{$padding-base-horizontal - 1} $padding-base-vertical #{$padding-base-horizontal + 1};
+    padding: $padding-base-vertical $padding-base-horizontal;
     text-align: center;
-    vertical-align: middle;
   }
 
   .btn-label {
     padding: 0;
-    vertical-align: middle;
   }
 
   &:hover,
@@ -95,7 +92,7 @@ $btn-size: 48px;
     color: $grasgroen;
     text-decoration: none;
 
-    &::before {
+    .fa {
       background-color: $grasgroen;
       color: $wit;
     }
@@ -109,7 +106,7 @@ $btn-size: 48px;
       color: $grasgroen-40;
     }
 
-    &::before {
+    .fa {
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
