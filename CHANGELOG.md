@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - New component `typeahead` (#6)
 
 ### Changed
+- Typography (#14)
 - Updated `access-sniff` package to version 3.1.0 (#16)
 - Alert design improvements (#22)
 
