@@ -1,6 +1,5 @@
 status: ready
 collated: true
-default: normal
 context:
   items:
     - 1
@@ -9,10 +8,13 @@ context:
     - 4
     - 5
 variants:
-  - name: large
+  - name: ellipsis
     context:
-      modifier: pagination-lg
-  - name: normal
-  - name: small
-    context:
-      modifier: pagination-sm
+      items:
+        - 5
+        - ...
+        - 11
+        - 12
+        - 13
+        - ...
+        - 35

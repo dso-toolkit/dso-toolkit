@@ -1,8 +1,8 @@
 <nav aria-label="Page navigation">
-  <ul class="pagination {{ modifier }}">
-    <li>
+  <ul class="pagination">
+    <li class="previous">
       <a href="#" aria-label="Vorige">
-        <span aria-hidden="true">&laquo;</span>
+        <span class="fa fa-angle-left" aria-hidden="true"></span>
       </a>
     </li>
     {{#each items }}
@@ -10,9 +10,9 @@
         <a href="#">{{ this }}</a>
       </li>
     {{/each}}
-    <li>
+    <li class="next">
       <a href="#" aria-label="Volgende">
-        <span aria-hidden="true">&raquo;</span>
+        <span class="fa fa-angle-right" aria-hidden="true"></span>
       </a>
     </li>
   </ul>

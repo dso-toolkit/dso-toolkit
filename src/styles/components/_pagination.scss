@@ -1,0 +1,38 @@
+.pagination {
+  li {
+    a {
+      border-radius: 50%;
+      display: inline-block;
+      float: none;
+      height: 32px;
+      line-height: 28px;
+      padding: 0;
+      text-align: center;
+      width: 32px;
+    }
+
+    & + li {
+      margin-left: 8px;
+    }
+
+    &.previous,
+    &.next {
+      a {
+        border: 2px solid $grasgroen;
+        border-radius: 50%;
+      }
+    }
+
+    &.previous {
+      a {
+        margin-right: 5px;
+      }
+    }
+
+    &.next {
+      a {
+        margin-left: 5px;
+      }
+    }
+  }
+}
