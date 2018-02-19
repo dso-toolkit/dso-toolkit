@@ -33,6 +33,8 @@ context:
           inputType: text
           label: Geboortedatum
           hasFeedback: true
+          feedbackIcon: fa fa-calendar-o
+          optional: true
         - id: email
           type: input
           inputType: email
@@ -56,6 +58,7 @@ context:
           type: select
           label: Beleg
           multiple: true
+          optional: true
           options:
             - optionType: Vlees
               items:
@@ -76,6 +79,7 @@ context:
         - id: auto_merk
           type: select
           label: Type auto
+          optional: true
           options:
             - optionType: Europees
               items:
@@ -93,6 +97,7 @@ context:
         - id: aanhanger
           type: radios
           label: Welke aanhanger
+          optional: true
           options:
             - value: bak
               label: Bak

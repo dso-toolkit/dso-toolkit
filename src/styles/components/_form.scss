@@ -6,9 +6,20 @@ $label-column: $grid-columns / 2;
   }
 }
 
+.control-label {
+  .optional {
+    color: $bosgroen-40;
+    font-size: .85em;
+    font-style: italic;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+}
+
 .form-control {
   border-width: 2px;
   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+  width: calc(100% - 40px); // Info icon: 16px space + 24px size
 
   &::placeholder {
     color: $bosgroen-40;
@@ -65,9 +76,13 @@ $label-column: $grid-columns / 2;
   }
 
   .has-feedback {
+    .form-control {
+      padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
+    }
+
     .form-control-feedback {
       color: $bosgroen;
-      right: 20px;
+      right: 60px;
     }
   }
 
@@ -105,5 +120,11 @@ fieldset.form-group {
     &:first-of-type {
       margin-top: 0;
     }
+  }
+}
+
+.form-group {
+  textarea {
+    resize: vertical;
   }
 }
