@@ -1,4 +1,8 @@
-$btn-size: 48px;
+$btn-size: $u6;
+$btn-link-size: $u4;
+
+$btn-primary-status-color: #d45800;
+$btn-primary-disabled-color: #f6d4b2;
 
 .btn {
   border-width: 2px;
@@ -7,8 +11,24 @@ $btn-size: 48px;
   height: $btn-size;
   min-width: $btn-size;
 
-  .btn-label {
-    padding: 0 #{$btn-size / 2};
+  &:focus,
+  &.focus {
+    outline: 0;
+
+    &:active,
+    &.active {
+      box-shadow: none;
+      outline: 0;
+    }
+  }
+
+  &.btn-default,
+  &.btn-primary {
+    padding: 0 $btn-size;
+  }
+
+  &.btn-link {
+    padding: 0;
   }
 }
 
@@ -21,6 +41,16 @@ $btn-size: 48px;
     background-color: $grasgroen;
     border-color: $grasgroen;
     color: $wit;
+  }
+
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      background-color: darken($grasgroen, 10%);
+      border-color: darken($grasgroen, 10%);
+      color: $wit;
+    }
   }
 
   &.disabled,
@@ -47,14 +77,24 @@ $btn-size: 48px;
   &.active,
   &:focus,
   &.focus {
-    background-color: #d45800;
-    border-color: #d45800;
+    background-color: $btn-primary-status-color;
+    border-color: $btn-primary-status-color;
+  }
+
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      background-color: darken($btn-primary-status-color, 10%);
+      border-color: darken($btn-primary-status-color, 10%);
+      color: $wit;
+    }
   }
 
   &.disabled,
   &[disabled] {
-    background-color: #f6d4b2;
-    border-color: #f6d4b2;
+    background-color: $btn-primary-disabled-color;
+    border-color: $btn-primary-disabled-color;
     opacity: 1;
 
     &:hover,
@@ -62,26 +102,30 @@ $btn-size: 48px;
     &.active,
     &:focus,
     &.focus {
-      background-color: #f6d4b2;
-      border-color: #f6d4b2;
+      background-color: $btn-primary-disabled-color;
+      border-color: $btn-primary-disabled-color;
     }
   }
 }
 
 .btn-link {
   color: $grasgroen;
+  height: #{$btn-link-size + 4};
 
-  .fa {
+  .icon {
     @include fa-icon;
     border: 2px solid $grasgroen;
     border-radius: 50%;
-    margin-right: 8px;
-    padding: $padding-base-vertical $padding-base-horizontal;
-    text-align: center;
+    font-size: $u2;
+    height: $btn-link-size;
+    margin-right: $u1;
+    padding: $padding-base-vertical 0;
+    vertical-align: middle;
+    width: $btn-link-size;
   }
 
   .btn-label {
-    padding: 0;
+    vertical-align: middle;
   }
 
   &:hover,
@@ -92,9 +136,23 @@ $btn-size: 48px;
     color: $grasgroen;
     text-decoration: none;
 
-    .fa {
+    .icon {
       background-color: $grasgroen;
       color: $wit;
+    }
+  }
+
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      color: darken($grasgroen, 10%);
+
+      .icon {
+        background-color: darken($grasgroen, 10%);
+        border-color: darken($grasgroen, 10%);
+        color: $wit;
+      }
     }
   }
 

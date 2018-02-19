@@ -2,10 +2,10 @@
   {{#if iconOnly }}
     <span class="sr-only">{{ label }}</span>
   {{else}}
+    {{#if icon }}
+      {{> '@icon' icon=icon }}
+    {{/if}}
     <span class="btn-label">
-      {{#if icon }}
-        {{> '@icon' icon=icon }}
-      {{/if}}
       {{ label }}
     </span>
   {{/if}}
