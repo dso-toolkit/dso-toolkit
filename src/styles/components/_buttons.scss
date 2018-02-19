@@ -2,6 +2,7 @@ $btn-size: $u6;
 $btn-link-size: $u4;
 
 $btn-primary-status-color: #d45800;
+$btn-primary-active-hover-color: #a94600;
 $btn-primary-disabled-color: #f6d4b2;
 
 .btn {
@@ -47,8 +48,8 @@ $btn-primary-disabled-color: #f6d4b2;
   &.active {
     &:focus,
     &.focus {
-      background-color: darken($grasgroen, 10%);
-      border-color: darken($grasgroen, 10%);
+      background-color: $bosgroen;
+      border-color: $bosgroen;
       color: $wit;
     }
   }
@@ -85,8 +86,8 @@ $btn-primary-disabled-color: #f6d4b2;
   &.active {
     &:focus,
     &.focus {
-      background-color: darken($btn-primary-status-color, 10%);
-      border-color: darken($btn-primary-status-color, 10%);
+      background-color: $btn-primary-active-hover-color;
+      border-color: $btn-primary-active-hover-color;
       color: $wit;
     }
   }
@@ -146,11 +147,11 @@ $btn-primary-disabled-color: #f6d4b2;
   &.active {
     &:focus,
     &.focus {
-      color: darken($grasgroen, 10%);
+      color: $bosgroen;
 
       .icon {
-        background-color: darken($grasgroen, 10%);
-        border-color: darken($grasgroen, 10%);
+        background-color: $bosgroen;
+        border-color: $bosgroen;
         color: $wit;
       }
     }
