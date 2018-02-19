@@ -1,9 +1,21 @@
-$label-column: $grid-columns / 4;
+$label-column: $grid-columns / 2;
 
 .form-group {
   label {
-    font-style: italic;
-    font-weight: 400;
+    font-weight: 700;
+  }
+}
+
+.form-control {
+  border-width: 2px;
+  padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+
+  &::placeholder {
+    color: $bosgroen-40;
+  }
+
+  &[required] {
+    border-color: $dso-form-control-required-color;
   }
 }
 
@@ -49,6 +61,19 @@ $label-column: $grid-columns / 4;
     .form-buttons {
       margin-left: percentage($label-column / $grid-columns);
       padding-left: $grid-gutter-width / 4;
+    }
+  }
+
+  .has-feedback {
+    .form-control-feedback {
+      color: $bosgroen;
+      right: 20px;
+    }
+  }
+
+  .field-container {
+    .required {
+      color: $dso-form-control-required-color;
     }
   }
 }

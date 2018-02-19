@@ -19,6 +19,7 @@ context:
           type: input
           inputType: text
           label: Voornaam
+          required: true
         - id: achternaam
           type: input
           inputType: text
@@ -27,10 +28,16 @@ context:
         - type: static
           label: Geslacht
           value: Man
+        - id: geboortedatum
+          type: input
+          inputType: text
+          label: Geboortedatum
+          hasFeedback: true
         - id: email
           type: input
           inputType: email
           label: E-mailadres
+          required: true
         - id: password
           type: input
           inputType: password
