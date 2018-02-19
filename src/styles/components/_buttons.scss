@@ -1,35 +1,27 @@
-$btn-size: $u6;
-$btn-link-size: $u4;
-
-$btn-primary-status-color: #d45800;
-$btn-primary-active-hover-color: #a94600;
-$btn-primary-disabled-color: #f6d4b2;
-
 .btn {
-  border-width: 2px;
+  border-width: $dso-button-border-width;
   font-size: 1.125em;
   font-weight: bold;
-  height: $btn-size;
-  min-width: $btn-size;
+  height: $dso-button-size;
+  min-width: $dso-button-size;
 
+  &:active,
+  &.active,
   &:focus,
-  &.focus {
+  &.focus,
+  &:active:focus,
+  &:active.focus,
+  &.active:focus,
+  &.active.focus,
+  &:active:hover,
+  &.active:hover {
+    box-shadow: none;
     outline: 0;
-
-    &:active,
-    &.active {
-      box-shadow: none;
-      outline: 0;
-    }
   }
 
   &.btn-default,
   &.btn-primary {
-    padding: 0 $btn-size;
-  }
-
-  &.btn-link {
-    padding: 0;
+    padding: 0 $dso-button-size - $dso-button-border-width;
   }
 }
 
@@ -47,7 +39,8 @@ $btn-primary-disabled-color: #f6d4b2;
   &:active,
   &.active {
     &:focus,
-    &.focus {
+    &.focus,
+    &:hover {
       background-color: $bosgroen;
       border-color: $bosgroen;
       color: $wit;
@@ -78,24 +71,24 @@ $btn-primary-disabled-color: #f6d4b2;
   &.active,
   &:focus,
   &.focus {
-    background-color: $btn-primary-status-color;
-    border-color: $btn-primary-status-color;
+    background-color: $dso-button-primary-status-color;
+    border-color: $dso-button-primary-status-color;
   }
 
   &:active,
   &.active {
     &:focus,
     &.focus {
-      background-color: $btn-primary-active-hover-color;
-      border-color: $btn-primary-active-hover-color;
+      background-color: $dso-button-primary-active-hover-color;
+      border-color: $dso-button-primary-active-hover-color;
       color: $wit;
     }
   }
 
   &.disabled,
   &[disabled] {
-    background-color: $btn-primary-disabled-color;
-    border-color: $btn-primary-disabled-color;
+    background-color: $dso-button-primary-disabled-color;
+    border-color: $dso-button-primary-disabled-color;
     opacity: 1;
 
     &:hover,
@@ -103,30 +96,27 @@ $btn-primary-disabled-color: #f6d4b2;
     &.active,
     &:focus,
     &.focus {
-      background-color: $btn-primary-disabled-color;
-      border-color: $btn-primary-disabled-color;
+      background-color: $dso-button-primary-disabled-color;
+      border-color: $dso-button-primary-disabled-color;
     }
   }
 }
 
 .btn-link {
+  border: 0;
   color: $grasgroen;
-  height: #{$btn-link-size + 4};
+  height: $dso-button-link-size;
+  line-height: $dso-button-link-size;
+  padding: 0;
 
   .icon {
-    @include fa-icon;
-    border: 2px solid $grasgroen;
+    border: $dso-button-border-width solid $grasgroen;
     border-radius: 50%;
-    font-size: $u2;
-    height: $btn-link-size;
+    float: left;
+    height: $dso-button-link-size;
+    line-height: $dso-button-link-size - 2 * $dso-button-border-width;
     margin-right: $u1;
-    padding: $padding-base-vertical 0;
-    vertical-align: middle;
-    width: $btn-link-size;
-  }
-
-  .btn-label {
-    vertical-align: middle;
+    width: $dso-button-link-size;
   }
 
   &:hover,
