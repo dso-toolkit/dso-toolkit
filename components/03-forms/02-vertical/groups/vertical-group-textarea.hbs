@@ -1,5 +1,10 @@
 <div class="form-group textarea">
-  <label for="{{ id }}">{{ label }}</label>
+  <label for="{{ id }}">
+    {{ label }}
+    {{#if optional }}
+      <span class="optional">optioneel</span>
+    {{/if}}
+  </label>
   <textarea class="form-control" id="{{ id }}" rows="{{ rows }}"></textarea>
   {{#if helpText }}
     {{> '@help-block' }}

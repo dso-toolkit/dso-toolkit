@@ -74,23 +74,6 @@ $label-column: $grid-columns / 2;
       padding-left: $grid-gutter-width / 4;
     }
   }
-
-  .has-feedback {
-    .form-control {
-      padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
-    }
-
-    .form-control-feedback {
-      color: $bosgroen;
-      right: 60px;
-    }
-  }
-
-  .field-container {
-    .required {
-      color: $dso-form-control-required-color;
-    }
-  }
 }
 
 .form-inline {
@@ -126,5 +109,22 @@ fieldset.form-group {
 .form-group {
   textarea {
     resize: vertical;
+  }
+
+  &.has-feedback {
+    .form-control {
+      padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
+    }
+
+    .form-control-feedback {
+      color: $bosgroen;
+      right: 60px;
+    }
+  }
+
+  .field-container {
+    .required {
+      color: $dso-form-control-required-color;
+    }
   }
 }

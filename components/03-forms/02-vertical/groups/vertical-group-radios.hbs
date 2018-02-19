@@ -1,5 +1,10 @@
 <fieldset class="form-group radios">
-  <legend class="control-label">{{ label }}</legend>
+  <legend class="control-label">
+    {{ label }}
+    {{#if optional }}
+      <span class="optional">optioneel</span>
+    {{/if}}
+  </legend>
   {{#each options }}
     <div class="radio">
       <label>
