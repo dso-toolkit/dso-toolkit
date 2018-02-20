@@ -6,7 +6,7 @@
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
-$brand-primary:         $bosgroen; //
+$brand-primary:         $bosgroen;
 $brand-success:         $grasgroen;
 $brand-info:            $grasgroen;
 $brand-warning:         $oranje;
@@ -16,6 +16,10 @@ $brand-danger:          $oranje;
 //
 //## Settings for some of the most global styles.
 
+$text-color: $grijs-90;
+$link-color: $grasgroen;
+$link-hover-color: $dso-anchor-hover-color;
+
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
@@ -24,9 +28,15 @@ $font-family-sans-serif: Asap, sans-serif;
 
 $font-size-base: 16px;
 
-$font-size-h2: 2em;
-$font-size-h3: 1.2em;
+$font-size-h1: $dso-font-size-h1;
+$font-size-h2: $dso-font-size-h2;
+$font-size-h3: $dso-font-size-h3;
+$font-size-h4: $dso-font-size-h4;
+$font-size-h5: $dso-font-size-h5;
+$font-size-h6: $dso-font-size-h5;
 
+$headings-font-family: "Asap", sans-serif;
+$headings-font-weight: bold;
 $headings-color: $bosgroen;
 
 //== Iconography
@@ -135,21 +145,24 @@ $nav-tabs-active-link-hover-color: $zwart;
 //
 //## Define alert colors, border radius, and padding.
 
-$state-success-text: $grijs-80;
-$state-success-bg: $grasgroen-10;
-$state-success-border: $grasgroen-40;
+$alert-padding: $u2 - 1px; // 1px border
+$alert-border-radius: 0;
 
-$state-info-text: $grijs-80;
-$state-info-bg: $grijs-10;
-$state-info-border: $grijs-40;
+$state-success-text: $grijs-90;
+$state-success-bg: $dso-alert-success-bg-color;
+$state-success-border: $dso-alert-success-bg-color;
 
-$state-warning-text: $grijs-80;
-$state-warning-bg: $oranje-10;
-$state-warning-border: $oranje-40;
+$state-info-text: $grijs-90;
+$state-info-bg: $dso-alert-info-bg-color;
+$state-info-border: $dso-alert-info-bg-color;
 
-$state-danger-text: $grijs-80;
-$state-danger-bg: $oranje-40;
-$state-danger-border: $oranje-80;
+$state-warning-text: $grijs-90;
+$state-warning-bg: $dso-alert-warning-bg-color;
+$state-warning-border: $dso-alert-warning-bg-color;
+
+$state-danger-text: $grijs-90;
+$state-danger-bg: $dso-alert-danger-bg-color;
+$state-danger-border: $dso-alert-danger-bg-color;
 
 //== Progress bars
 //
