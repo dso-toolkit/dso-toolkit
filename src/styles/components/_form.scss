@@ -3,16 +3,14 @@ $label-column: $grid-columns / 2;
 .form-group {
   label {
     font-weight: 700;
-  }
-}
 
-.control-label {
-  .optional {
-    color: $bosgroen-40;
-    font-size: .85em;
-    font-style: italic;
-    font-weight: 400;
-    margin-left: 4px;
+    .optional {
+      color: $bosgroen-40;
+      font-size: .85em;
+      font-style: italic;
+      font-weight: 400;
+      margin-left: 4px;
+    }
   }
 }
 
@@ -32,6 +30,46 @@ $label-column: $grid-columns / 2;
 
 .form-control[size] {
   width: auto;
+}
+
+legend.control-label {
+  border-bottom: 0;
+  cursor: default;
+  display: inline-block;
+  font-size: $font-size-base;
+  font-style: italic;
+  margin-bottom: 5px;
+  max-width: 100%;
+}
+
+fieldset.form-group {
+  .radio,
+  .checkbox {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+.form-group {
+  textarea {
+    resize: vertical;
+  }
+
+  &.has-feedback {
+    .form-control {
+      padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
+    }
+
+    .form-control-feedback {
+      color: $bosgroen;
+      right: 45px;
+    }
+  }
+
+  .required {
+    color: $dso-form-control-required-color;
+  }
 }
 
 .form-horizontal {
@@ -66,6 +104,12 @@ $label-column: $grid-columns / 2;
         padding-top: $padding-base-vertical + 1;
       }
     }
+
+    &.has-feedback {
+      .form-control-feedback {
+        right: 60px;
+      }
+    }
   }
 
   @media (min-width: $screen-sm-min) {
@@ -84,45 +128,5 @@ $label-column: $grid-columns / 2;
     > .form-buttons {
       display: inline-block;
     }
-  }
-}
-
-legend.control-label {
-  border-bottom: 0;
-  cursor: default;
-  display: inline-block;
-  font-size: $font-size-base;
-  font-style: italic;
-  margin-bottom: 5px;
-  max-width: 100%;
-}
-
-fieldset.form-group {
-  .radio,
-  .checkbox {
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
-}
-
-.form-group {
-  textarea {
-    resize: vertical;
-  }
-
-  &.has-feedback {
-    .form-control {
-      padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
-    }
-
-    .form-control-feedback {
-      color: $bosgroen;
-      right: 60px;
-    }
-  }
-
-  .required {
-    color: $dso-form-control-required-color;
   }
 }
