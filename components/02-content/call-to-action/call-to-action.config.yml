@@ -7,14 +7,6 @@ variants:
     context:
       button: true
       value: Volgende
-  - name: cta-button-disabled
-    context:
-      button: true
-      value: Volgende
-  - name: cta-button-icon
-    context:
-      button: true
-      value: Volgende
   - name: cta-button-anchor
     context:
       anchor: true

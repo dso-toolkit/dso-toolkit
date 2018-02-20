@@ -28,6 +28,7 @@
   font-size: 1.125em;
   font-weight: bold;
   height: $dso-button-size;
+  line-height: $dso-button-size - $dso-button-border-width * 2 ;
   min-width: $dso-button-size;
 
   &:active,

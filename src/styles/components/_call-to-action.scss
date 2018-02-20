@@ -1,15 +1,7 @@
 a,
 button {
-  &.cta-primary,
-  &.cta-default {
+  &.cta-button {
     @extend .btn;
-  }
-
-  &.cta-primary {
     @extend .btn-primary;
-  }
-
-  &.cta-default {
-    @extend .btn-default;
   }
 }
