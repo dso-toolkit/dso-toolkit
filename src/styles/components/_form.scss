@@ -122,9 +122,7 @@ fieldset.form-group {
     }
   }
 
-  .field-container {
-    .required {
-      color: $dso-form-control-required-color;
-    }
+  .required {
+    color: $dso-form-control-required-color;
   }
 }
