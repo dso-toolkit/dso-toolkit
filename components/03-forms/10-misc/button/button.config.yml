@@ -1,36 +1,39 @@
-status: ready
+status: wip
 collated: true
 context:
-  label: Versturen
   type: button
   modifier: default
 variants:
   - name: default
-    label: Default button
-  - name: primary
-    label: Primary submit button
     context:
-      type: submit
-      modifier: primary
+      label: Vorige
   - name: disabled
-    label: Disabled button
     context:
+      label: Vorige
       type: submit
       modifier: default
       disabled: true
-  - name: with-icon
-    label: Default button with icon
+  - name: primary
     context:
-      icon: fa fa-lock
-      iconOnly: true
-      label: Vergrendelen
-  - name: with-badge
-    label: Primary button with badge
+      label: Volgende
+      type: submit
+      modifier: primary
+  - name: primary-disabled
     context:
-      count: 3
-  - name: with-icon-badge
-    label: Button with icon and badge
+      label: Volgende
+      type: submit
+      modifier: primary
+      disabled: true
+  - name: button-link
     context:
-      icon: fa fa-envelope-o
-      label: Berichten
-      count: 3
+      label: Button-link
+      type: submit
+      modifier: link
+      icon: icon fa fa-angle-right
+  - name: button-link
+    context:
+      label: Button-link
+      type: submit
+      modifier: link
+      icon: icon fa fa-angle-right
+      disabled: true

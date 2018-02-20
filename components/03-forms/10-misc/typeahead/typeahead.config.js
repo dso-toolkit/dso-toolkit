@@ -6,7 +6,7 @@ module.exports = {
 * De typeahead wordt gesloten zodra er een waarde wordt geselecteerd (dmv. klik of keyboard)
 * De typeahead wordt gesloten zodra er buiten de typeahead wordt geklikt
 `,
-  status: 'wip',
+  status: 'prototype',
   default: 'closed',
   collated: true,
   collator: (markup, item) => `<div class="col-md-4"><h2>${item.label}</h2><hr />${markup}</div>`,
