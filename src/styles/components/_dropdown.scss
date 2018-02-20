@@ -1,0 +1,17 @@
+.dropdown {
+  &.open {
+    .btn-default {
+      background-color: $grasgroen;
+      border-color: $grasgroen;
+      color: $wit;
+
+      &:hover,
+      &:focus,
+      &.focus {
+        background-color: $bosgroen;
+        border-color: $bosgroen;
+        color: $wit;
+      }
+    }
+  }
+}
