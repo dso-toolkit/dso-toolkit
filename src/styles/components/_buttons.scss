@@ -1,3 +1,28 @@
+@mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background-color: $background-color;
+    border-color: $border-color;
+    color: $color;
+  }
+}
+
+@mixin double-state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+  &:active,
+  &.active {
+    &:focus,
+    &.focus,
+    &:hover {
+      background-color: $background-color;
+      border-color: $border-color;
+      color: $color;
+    }
+  }
+}
+
 .btn {
   border-width: $dso-button-border-width;
   font-size: 1.125em;
@@ -26,79 +51,31 @@
 }
 
 .btn-default {
-  &:hover,
-  &:active,
-  &.active,
-  &:focus,
-  &.focus {
-    background-color: $grasgroen;
-    border-color: $grasgroen;
-    color: $wit;
-  }
-
-  &:active,
-  &.active {
-    &:focus,
-    &.focus,
-    &:hover {
-      background-color: $bosgroen;
-      border-color: $bosgroen;
-      color: $wit;
-    }
-  }
+  @include state-styling($grasgroen, $grasgroen, $wit);
+  @include double-state-styling($bosgroen, $bosgroen, $wit);
 
   &.disabled,
   &[disabled] {
+    @include state-styling($border-color: $grasgroen-40, $color: $grasgroen-40);
+
     background-color: $wit;
     border-color: $grasgroen-40;
     color: $grasgroen-40;
     opacity: 1;
-
-    &:hover,
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-      border-color: $grasgroen-40;
-      color: $grasgroen-40;
-    }
   }
 }
 
 .btn-primary {
-  &:hover,
-  &:active,
-  &.active,
-  &:focus,
-  &.focus {
-    background-color: $dso-button-primary-status-color;
-    border-color: $dso-button-primary-status-color;
-  }
-
-  &:active,
-  &.active {
-    &:focus,
-    &.focus {
-      background-color: $dso-button-primary-active-hover-color;
-      border-color: $dso-button-primary-active-hover-color;
-      color: $wit;
-    }
-  }
+  @include state-styling($dso-button-primary-status-color, $dso-button-primary-status-color, $wit);
+  @include double-state-styling($dso-button-primary-active-hover-color, $dso-button-primary-active-hover-color, $wit);
 
   &.disabled,
   &[disabled] {
+    @include state-styling($background-color: $dso-button-primary-disabled-color, $border-color: $dso-button-primary-disabled-color);
+
     background-color: $dso-button-primary-disabled-color;
     border-color: $dso-button-primary-disabled-color;
     opacity: 1;
-
-    &:hover,
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-      background-color: $dso-button-primary-disabled-color;
-      border-color: $dso-button-primary-disabled-color;
-    }
   }
 }
 
