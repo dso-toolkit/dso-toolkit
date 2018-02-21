@@ -2,16 +2,25 @@ status: ready
 context:
   list1:
     items:
-      - Contact
-      - Sitemap
-      - Help
+      - label: Contact
+        isLink: true
+      - label: Sitemap
+        isLink: true
+      - label: Help
+        isLink: true
   list2:
     items:
-      - Copyright
-      - Privacy
-      - Cookies
-      - Toegankelijkheid
+      - label: Copyright
+        isLink: true
+      - label: Privacy
+        isLink: true
+      - label: Cookies
+        isLink: true
+      - label: Toegankelijkheid
+        isLink: true
   list3:
     items:
-      - Twitter
-      - LinkedIn
+      - label: Twitter
+        isLink: true
+      - label: LinkedIn
+        isLink: true
