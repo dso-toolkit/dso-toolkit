@@ -36,6 +36,25 @@ $dso-check-icon-size: $u3;
       }
     }
 
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      text-decoration: none;
+
+      .toggle-icon,
+      h2 {
+        color: $oranje;
+      }
+    }
+
+    &.active {
+      .toggle-icon::before {
+        content: $fa-var-angle-up;
+      }
+    }
+
     .check-icon {
       background-color: $grasgroen;
       border-radius: 50%;
@@ -78,38 +97,41 @@ $dso-check-icon-size: $u3;
   }
 
   .section-body {
-    fieldset legend {
-      border-bottom: 0;
-      color: $bosgroen;
-      font-size: 1.2em;
-      font-weight: 700;
-    }
+    padding-bottom: $u4;
+    padding-top: $u1;
 
-    > label {
-      color: $bosgroen;
-      font-size: 1.4em;
-      margin-top: 30px;
+    // fieldset legend {
+    //   border-bottom: 0;
+    //   color: $bosgroen;
+    //   font-size: 1.2em;
+    //   font-weight: 700;
+    // }
 
-      &:first-child {
-        margin-top: 0;
-      }
+    // > label {
+    //   color: $bosgroen;
+    //   font-size: 1.4em;
+    //   margin-top: 30px;
 
-      .fa-check {
-        color: $grasgroen;
-      }
+    //   &:first-child {
+    //     margin-top: 0;
+    //   }
 
-      .fa-exclamation-circle {
-        color: $grijs-50;
-      }
-    }
+    //   .fa-check {
+    //     color: $grasgroen;
+    //   }
 
-    button {
-      margin-bottom: 12px;
+    //   .fa-exclamation-circle {
+    //     color: $grijs-50;
+    //   }
+    // }
 
-      &.btn-link {
-        margin-bottom: 0;
-        padding: 0;
-      }
-    }
+    // button {
+    //   margin-bottom: 12px;
+
+    //   &.btn-link {
+    //     margin-bottom: 0;
+    //     padding: 0;
+    //   }
+    // }
   }
 }

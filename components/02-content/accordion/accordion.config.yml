@@ -8,5 +8,38 @@ context:
     id: panel2
   - title: Plaats van het bouwwerk
     id: panel3
+    active: true
+    section-body:
+      fieldsets:
+      - legend: Persoonsgegevens aanvrager
+        groups:
+          - id: achternaam
+            type: input
+            inputType: text
+            label: Achternaam
+          - id: tussenvoegsels
+            type: input
+            inputType: text
+            label: Tussenvoegsels
+            size: 8
+          - id: voorletters
+            type: input
+            inputType: text
+            label: Voorletter(s)
+            size: 8
+          - id: bsn
+            type: input
+            inputType: text
+            label: BSN
+            size: 8
+          - id: geslacht
+            type: input
+            inputType: text
+            label: Geslacht
+            size: 8
+      submitButton:
+        type: submit
+        modifier: primary
+        label: "Volgende"
   - title: Afmetingen van het bouwwerk
     id: panel4

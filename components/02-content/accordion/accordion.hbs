@@ -8,7 +8,7 @@
 
 <div class="accordion">
   {{#each sections }}
-    <a class="section-toggle" href="#" aria-expanded="false">
+    <a class="section-toggle{{#if active }} active{{/if}}" href="#" aria-expanded="false">
       <span class="toggle-icon"></span>
       {{#if icon }}
         <span class="check-icon {{ icon }}"></span>
@@ -17,6 +17,11 @@
         {{ title }}
       </h2>
     </a>
+    {{#if active }}
+      <div class="section-body">
+        {{> '@form-horizontal' section-body }}
+      </div>
+    {{/if}}
   {{/each}}
 </div>
 
