@@ -1,54 +1,14 @@
 .accordion {
-  .panel {
-    border: 0;
-    box-shadow: none;
-    margin-bottom: 0;
-  }
-
-  .section-toggle,
-  .section-body {
-    padding-left: 40px;
-  }
-
   .section-toggle {
+    border-top: 1px solid $dso-accordion-border-color;
     display: block;
-
-    .toggle-icon {
-      @extend .#{$fa-css-prefix};
-
-      color: $grijs-80;
-      float: left;
-      font-size: 2.4em;
-      margin-left: -30px;
-      margin-top: -3px;
-      transition: .5s ease;
-
-      &::before {
-        content: $fa-var-angle-right;
-      }
-
-      &.toggle-closed {
-        transform: rotate(0deg);
-      }
-
-      &.toggle-open {
-        transform: rotate(90deg);
-      }
-    }
-
-    &:hover,
-    &:focus {
-      color: $bosgroen;
-      text-decoration: none;
-    }
+    padding-left: $u4;
 
     h2 {
-      border-bottom: 1px solid $grijs-50;
-      color: $bosgroen;
-      font-size: 2em;
-      font-weight: normal;
-      margin-top: 10px;
-      padding-bottom: 10px;
+      color: $grasgroen;
+      font-size: 1.125em;
+      line-height: $u6;
+      margin: 0;
 
       span {
         color: $grasgroen;
@@ -56,6 +16,67 @@
         margin-left: 15px;
       }
     }
+
+    .toggle-icon {
+      @extend .#{$fa-css-prefix};
+
+      color: $grasgroen;
+      float: left;
+      font-size: $u3;
+      line-height: $u6;
+      margin-left: -$u4;
+      width: $u2;
+
+      &::before {
+        content: $fa-var-angle-down;
+      }
+    }
+
+    .check-icon {
+      @extend .#{$fa-css-prefix};
+
+      background-color: $grasgroen;
+      border-radius: 50%;
+      color: $wit;
+      float: right;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+      width: 32px;
+
+      &::before {
+        content: $fa-var-check;
+      }
+    }
+
+    // .toggle-icon {
+    //   @extend .#{$fa-css-prefix};
+
+    //   color: $grijs-80;
+    //   float: left;
+    //   font-size: 2.4em;
+    //   margin-left: -30px;
+    //   margin-top: -3px;
+    //   transition: .5s ease;
+
+    //   &::before {
+    //     content: $fa-var-angle-right;
+    //   }
+
+    //   &.toggle-closed {
+    //     transform: rotate(0deg);
+    //   }
+
+    //   &.toggle-open {
+    //     transform: rotate(90deg);
+    //   }
+    // }
+
+    // &:hover,
+    // &:focus {
+    //   color: $bosgroen;
+    //   text-decoration: none;
+    // }
   }
 
   .section-body {

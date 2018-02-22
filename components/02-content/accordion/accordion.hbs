@@ -1,7 +1,25 @@
-{{#accordion}}
+{{!-- {{#accordion}}
   {{#each panels }}
     {{#panel title this }}
       <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
     {{/panel}}
   {{/each}}
-{{/accordion}}
+{{/accordion}} --}}
+
+<div class="accordion">
+  {{#each sections }}
+    <a class="section-toggle" href="#" aria-expanded="false">
+      <span class="toggle-icon"></span>
+      <h2>
+        {{ title }}
+        {{#if icon }}
+          <span class="check-icon"></span>
+        {{/if}}
+      </h2>
+    </a>
+  {{/each}}
+</div>
+
+{{!-- <div class="section-body collapse" id="${context.id}">
+    Blaat
+  </div> --}}

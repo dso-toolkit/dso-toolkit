@@ -1,10 +1,12 @@
-status: ready
+status: prototype
 context:
-  panels:
-  - title: Paneel 1
+  sections:
+  - title: Woning
     id: panel1
     icon: fa fa-check
-  - title: Paneel 2
+  - title: Bouwwerkzaamheden
     id: panel2
-  - title: Paneel 3
+  - title: Plaats van het bouwwerk
     id: panel3
+  - title: Afmetingen van het bouwwerk
+    id: panel4
