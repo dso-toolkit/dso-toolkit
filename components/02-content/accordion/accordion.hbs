@@ -10,11 +10,11 @@
   {{#each sections }}
     <a class="section-toggle" href="#" aria-expanded="false">
       <span class="toggle-icon"></span>
+      {{#if icon }}
+        <span class="check-icon {{ icon }}"></span>
+      {{/if}}
       <h2>
         {{ title }}
-        {{#if icon }}
-          <span class="check-icon"></span>
-        {{/if}}
       </h2>
     </a>
   {{/each}}
