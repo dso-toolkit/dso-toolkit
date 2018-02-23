@@ -82,3 +82,104 @@ fieldset.form-group {
     }
   }
 }
+
+// Checkbox / Radio
+////
+
+.checkbox {
+  display: block;
+  margin-bottom: $u1;
+  padding: 0 0 0 $u4;
+  position: relative;
+
+  .form-horizontal & {
+    padding-top: 0;
+  }
+
+  input[type="checkbox"] {
+    margin-left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  + label::before {
+    //-webkit-appearance: none; // sass-lint:disable no-vendor-prefixes
+    border: 0;
+    box-shadow: inset 0 0 0 2px $bosgroen-40;
+    font-family: "AvenirNextLTW01-Regular", verdana, sans-serif;
+    font-size: 1rem;
+  }
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  height: 24px;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 24px;
+  z-index: 1;
+  zoom: 1;
+
+  + label {
+    font-style: normal;
+    padding-left: 0;
+
+    &::before {
+      background: $wit;
+      border-radius: 6px;
+      content: "";
+      height: calc(26px - 2px);
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: calc(26px - 2px);
+    }
+
+    &::after {
+      background: transparent;
+      border: solid;
+      border-top-color: transparent;
+      border-width: 0 0 3px 3px;
+      content: "";
+      height: 8px;
+      left: 6px;
+      opacity: 0;
+      position: absolute;
+      top: 6px;
+      transform: rotate(-45deg);
+      width: 13px;
+      zoom: 1;
+    }
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+
+    + label::before {
+      box-shadow: inset 0 0 0 3px $bosgroen;
+    }
+  }
+
+  &:active,
+  &.active {
+    + label::before {
+      background-color: $grasgroen-10;
+      box-shadow: inset 0 0 0 1px $bosgroen;
+    }
+  }
+
+  &:checked {
+    + label {
+      &::after {
+        border-color: $grasgroen;
+        opacity: 1;
+        zoom: 1;
+      }
+    }
+  }
+}

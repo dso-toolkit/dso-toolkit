@@ -6,7 +6,10 @@ context:
   options:
     - value: 1
       label: een
+      id: optie_1
     - value: 2
       label: twee
+      id: optie_2
     - value: 3
       label: drie
+      id: optie_3
