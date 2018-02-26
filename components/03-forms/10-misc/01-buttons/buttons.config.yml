@@ -1,0 +1,66 @@
+status: wip
+context:
+  primary-buttons:
+    - state-label: Standard
+      label: Call to action
+      type: submit
+      modifier: primary
+    - state-label: Hover
+      label: Call to action
+      type: submit
+      modifier: primary
+      state: hover
+    - state-label: Active
+      label: Call to action
+      type: submit
+      modifier: primary
+      state: active
+    - state-label: Disabled
+      label: Call to action
+      type: submit
+      modifier: primary
+      disabled: true
+  secundary-buttons:
+    - state-label: Standard
+      label: Volgende
+      type: submit
+      modifier: default
+    - state-label: Hover
+      label: Volgende
+      type: submit
+      modifier: default
+      state: hover
+    - state-label: Active
+      label: Volgende
+      type: submit
+      modifier: default
+      state: active
+    - state-label: Disabled
+      label: Volgende
+      type: submit
+      modifier: default
+      disabled: true
+  tertiary-buttons:
+    - state-label: Standard
+      label: Lees verder
+      type: submit
+      modifier: link
+      icon: icon fa fa-angle-right
+    - state-label: Hover
+      label: Lees verder
+      type: submit
+      modifier: link
+      icon: icon fa fa-angle-right
+      state: hover
+    - state-label: Active
+      label: Lees verder
+      type: submit
+      modifier: link
+      icon: icon fa fa-angle-right
+      state: active
+    - state-label: Disabled
+      label: Lees verder
+      type: submit
+      modifier: link
+      icon: icon fa fa-angle-right
+      disabled: true
