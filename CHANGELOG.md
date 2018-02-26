@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Documentation: Layout (#18)
 - Favicon (#12)
 - New component `typeahead` (#6)
+- DSO Styleguide Only SCSS (#44)
 
 ### Changed
 - Typography (#14)
