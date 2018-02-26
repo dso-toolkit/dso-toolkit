@@ -1,0 +1,109 @@
+// Needed to reset styling for demonstration purposes
+
+.btn {
+  &.btn-primary {
+    &:hover,
+    &:focus {
+      background-color: $btn-primary-bg;
+      border-color: $btn-primary-bg;
+    }
+
+    &.hover {
+      background-color: $dso-button-primary-hover-color;
+      border-color: $dso-button-primary-hover-color;
+      color: $wit;
+    }
+
+    &.active {
+      background-color: $dso-button-primary-active-color;
+      border-color: $dso-button-primary-active-color;
+      color: $wit;
+    }
+
+    &[disabled] {
+      &,
+      &:hover {
+        background-color: $dso-button-primary-disabled-color;
+        border-color: $dso-button-primary-disabled-color;
+        color: $wit;
+        opacity: 1;
+      }
+    }
+  }
+
+  &.btn-default {
+    &:hover,
+    &:focus {
+      background-color: $wit;
+      border-color: $grasgroen;
+      color: $grasgroen;
+    }
+
+    &.hover {
+      background-color: $grasgroen;
+      border-color: $grasgroen;
+      color: $wit;
+    }
+
+    &.active {
+      background-color: $bosgroen;
+      border-color: $bosgroen;
+      color: $wit;
+    }
+
+    &[disabled] {
+      &,
+      &:hover {
+        background-color: $wit;
+        border-color: $grasgroen-40;
+        color: $grasgroen-40;
+        opacity: 1;
+      }
+    }
+  }
+
+  &.btn-link {
+    &:hover,
+    &:focus {
+      color: $grasgroen;
+
+      .icon {
+        background-color: $wit;
+        border-color: $grasgroen;
+        color: $grasgroen;
+      }
+    }
+
+    &.hover {
+      .icon {
+        background-color: $grasgroen;
+        border-color: $grasgroen;
+        color: $wit;
+      }
+    }
+
+    &.active {
+      color: $bosgroen;
+
+      .icon {
+        background-color: $bosgroen;
+        border-color: $bosgroen;
+        color: $wit;
+      }
+    }
+
+    &[disabled] {
+      &,
+      &:hover {
+        color: $grasgroen-40;
+        opacity: 1;
+
+        .icon {
+          background-color: $wit;
+          border-color: $grasgroen-40;
+          color: $grasgroen-40;
+        }
+      }
+    }
+  }
+}
