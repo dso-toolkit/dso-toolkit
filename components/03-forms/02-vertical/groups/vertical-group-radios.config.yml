@@ -4,13 +4,21 @@ notes: |
   Als een checkbox disabled is, dan moet er ook een `.disabled` op de `.radio` worden geplaatst. Zonder deze modifier zal er geen "niet toegestaan" cursor op het `label` zijn
 status: ready
 context:
-  id: radio_voorbeeld
-  label: Oneven getal
-  helpText: Kies alle oneven getallen
-  options:
-    - value: 1
-      label: een
-    - value: 2
-      label: twee
-    - value: 3
-      label: drie
+  form-groups:
+    - id: radio_voorbeeld_1
+      label: Oneven getal
+      helpText: Kies alle oneven getallen
+      options:
+        - value: 1
+          label: een
+        - value: 2
+          label: twee
+        - value: 3
+          label: drie
+    - id: radio_voorbeeld_2
+      label: Gaat het om de bouw van een of meer woningen?
+      options:
+        - value: 1
+          label: ja
+        - value: 2
+          label: nee
