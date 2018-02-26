@@ -1,13 +1,11 @@
-$dso-footer-border: #bcbebd;
-
 footer {
   background-color: $grijs-10;
-  border-top: 1px solid $dso-footer-border;
-  margin-top: 48px;
-  padding: $u3 $u2;
+  border-top: 1px solid $dso-footer-border-color;
+  margin-top: $u6;
+  padding: $u3 $u5 $u6;
 
   h2 {
-    border-bottom: 1px solid $dso-footer-border;
+    border-bottom: 1px solid $dso-footer-border-color;
     font-size: 1.25em;
     font-weight: 700;
     margin-bottom: $u1;
@@ -17,7 +15,6 @@ footer {
 
   ul {
     @include list-unstyled;
-    margin-bottom: $u3;
 
     li {
       line-height: 2em;
