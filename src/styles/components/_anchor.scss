@@ -9,7 +9,7 @@ a {
   &.download,
   &.extern {
     &::after {
-      @extend .#{$fa-css-prefix};
+      @extend .fas;
 
       white-space: pre;
     }
