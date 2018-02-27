@@ -36,7 +36,6 @@ context:
           label: Geboortedatum
           hasFeedback: true
           feedbackIcon: fa fa-calendar-o
-          optional: true
         - id: password
           type: input
           inputType: password
@@ -58,7 +57,6 @@ context:
           type: select
           label: Beleg
           multiple: true
-          optional: true
           options:
             - optionType: Vlees
               items:
@@ -79,7 +77,6 @@ context:
         - id: auto_merk
           type: select
           label: Type auto
-          optional: true
           options:
             - optionType: Europees
               items:
@@ -95,7 +92,6 @@ context:
         - id: aanhanger
           type: radios
           label: Aanhanger2
-          optional: true
           options:
             - value: bak
               label: Bak
@@ -113,7 +109,6 @@ context:
           rows: 5
           label: Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
           helpText: Deze vraag heeft een toelichting
-          optional: true
   submitButton:
     type: submit
     modifier: primary

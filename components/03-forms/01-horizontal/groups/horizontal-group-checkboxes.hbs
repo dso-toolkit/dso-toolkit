@@ -1,9 +1,9 @@
 <fieldset class="form-group checkboxes">
   <legend class="control-label">
     {{ label }}
-    {{#if optional }}
+    {{#unless required }}
       <span class="optional">optioneel</span>
-    {{/if}}
+    {{/unless}}
   </legend>
   <div class="field-container">
     {{#each options }}

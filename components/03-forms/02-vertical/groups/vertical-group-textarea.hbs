@@ -1,9 +1,9 @@
 <div class="form-group textarea">
   <label for="{{ id }}">
     {{ label }}
-    {{#if optional }}
+    {{#unless required }}
       <span class="optional">optioneel</span>
-    {{/if}}
+    {{/unless}}
   </label>
   <textarea class="form-control" id="{{ id }}" rows="{{ rows }}"></textarea>
   {{#if helpText }}

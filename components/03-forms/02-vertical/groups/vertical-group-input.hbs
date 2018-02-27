@@ -1,9 +1,9 @@
 <div class="form-group input {{ inputType }}{{#if hasFeedback }} has-feedback{{/if}}">
   <label for="{{ id }}">
     {{ label }}
-    {{#if optional }}
+    {{#unless required }}
       <span class="optional">optioneel</span>
-    {{/if}}
+    {{/unless}}
   </label>
   <input type="{{ inputType }}" id="{{ id }}" class="form-control"
     {{{ifattr 'aria-describedby' helpText (helpTextId id)}}}

@@ -13,7 +13,7 @@
     <fieldset>
       <legend class="sr-only">Zoekformulier</legend>
       <div class="input-group default">
-        <input type="text" class="form-control" aria-label="Zoeken" placeholder="Zoeken" />
+        <input type="text" class="form-control" aria-label="Zoeken" placeholder="Zoeken"/>
           <span class="input-group-btn">
             <button type="submit" class="btn btn-default" >
                 <span class="fa fa-search" aria-hidden="true"></span>
@@ -105,9 +105,13 @@
                 <fieldset>
                   <legend>Omschrijving project</legend>
                     <div class="form-group input text">
-                      <label for="titel" class="control-label">Titel</label>
+                      <label for="titel" class="control-label">
+                        Titel
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="titel" class="form-control"
+                          
                           
                           
                           
@@ -121,13 +125,19 @@
                       </p>
                     </div>
                     <div class="form-group textarea">
-                      <label for="projectomschrijving" class="control-label">Projectomschrijving</label>
+                      <label for="projectomschrijving" class="control-label">
+                        Projectomschrijving
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <textarea class="form-control" id="projectomschrijving" ></textarea>
                       </div>
                     </div>
                     <fieldset class="form-group radios">
-                      <legend class="control-label">Gefaseerde aanvraag</legend>
+                      <legend class="control-label">
+                        Gefaseerde aanvraag
+                          <span class="optional">optioneel</span>
+                      </legend>
                       <div class="field-container">
                           <div class="radio">
                             <label>
@@ -148,7 +158,8 @@
                             </label>
                           </div>
                       </div>
-                    </fieldset>          <div class="form-group static">
+                    </fieldset>
+                    <div class="form-group static">
                       <label class="control-label">Procedure</label>
                       <p class="field-container">
                         
@@ -188,51 +199,71 @@
                 <fieldset>
                   <legend>Persoonsgegevens aanvrager</legend>
                     <div class="form-group input text">
-                      <label for="achternaam" class="control-label">Achternaam</label>
+                      <label for="achternaam" class="control-label">
+                        Achternaam
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="achternaam" class="form-control"
                           
                           
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="tussenvoegsels" class="control-label">Tussenvoegsels</label>
+                      <label for="tussenvoegsels" class="control-label">
+                        Tussenvoegsels
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="tussenvoegsels" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="voorletters" class="control-label">Voorletter(s)</label>
+                      <label for="voorletters" class="control-label">
+                        Voorletter(s)
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="voorletters" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="bsn" class="control-label">BSN</label>
+                      <label for="bsn" class="control-label">
+                        BSN
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="bsn" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="geslacht" class="control-label">Geslacht</label>
+                      <label for="geslacht" class="control-label">
+                        Geslacht
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="geslacht" class="form-control"
                           
                           size="8"
+                          
                           
                            />
                       </div>
@@ -241,19 +272,27 @@
                 <fieldset>
                   <legend>Contactgegevens aanvrager</legend>
                     <div class="form-group input text">
-                      <label for="telefoonnummer" class="control-label">Telefoonnummer</label>
+                      <label for="telefoonnummer" class="control-label">
+                        Telefoonnummer
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="telefoonnummer" class="form-control"
                           
                           size="12"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="emailadres" class="control-label">Emailadres</label>
+                      <label for="emailadres" class="control-label">
+                        Emailadres
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="emailadres" class="form-control"
+                          
                           
                           
                           
@@ -264,49 +303,69 @@
                 <fieldset>
                   <legend>Correspondentieadres</legend>
                     <div class="form-group input text">
-                      <label for="capostcode" class="control-label">Postcode</label>
+                      <label for="capostcode" class="control-label">
+                        Postcode
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="capostcode" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="cahuisnummer" class="control-label">Huisnummer</label>
+                      <label for="cahuisnummer" class="control-label">
+                        Huisnummer
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="cahuisnummer" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="catoevoeging" class="control-label">Huisnummer toevoeging</label>
+                      <label for="catoevoeging" class="control-label">
+                        Huisnummer toevoeging
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="catoevoeging" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="castraatnaam" class="control-label">Straatnaam</label>
+                      <label for="castraatnaam" class="control-label">
+                        Straatnaam
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="castraatnaam" class="form-control"
                           
                           
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="cawoonplaats" class="control-label">Woonplaats</label>
+                      <label for="cawoonplaats" class="control-label">
+                        Woonplaats
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="cawoonplaats" class="form-control"
+                          
                           
                           
                           
@@ -317,49 +376,69 @@
                 <fieldset>
                   <legend>Verblijfadres</legend>
                     <div class="form-group input text">
-                      <label for="vapostcode" class="control-label">Postcode</label>
+                      <label for="vapostcode" class="control-label">
+                        Postcode
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="vapostcode" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="vahuisnummer" class="control-label">Huisnummer</label>
+                      <label for="vahuisnummer" class="control-label">
+                        Huisnummer
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="vahuisnummer" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="vatoevoeging" class="control-label">Huisnummer toevoeging</label>
+                      <label for="vatoevoeging" class="control-label">
+                        Huisnummer toevoeging
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="vatoevoeging" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="vastraatnaam" class="control-label">Straatnaam</label>
+                      <label for="vastraatnaam" class="control-label">
+                        Straatnaam
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="vastraatnaam" class="form-control"
                           
                           
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="vawoonplaats" class="control-label">Woonplaats</label>
+                      <label for="vawoonplaats" class="control-label">
+                        Woonplaats
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="vawoonplaats" class="form-control"
+                          
                           
                           
                           
@@ -388,49 +467,69 @@
                 <fieldset>
                   <legend>Adres voor aanvraag omgevingsvergunning</legend>
                     <div class="form-group input text">
-                      <label for="omgevingsvergunningPostcode" class="control-label">Postcode</label>
+                      <label for="omgevingsvergunningPostcode" class="control-label">
+                        Postcode
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="omgevingsvergunningPostcode" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="omgevingsvergunningHuisnummer" class="control-label">Huisnummer</label>
+                      <label for="omgevingsvergunningHuisnummer" class="control-label">
+                        Huisnummer
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="omgevingsvergunningHuisnummer" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="omgevingsvergunningToevoeging" class="control-label">Huisnummer toevoeging</label>
+                      <label for="omgevingsvergunningToevoeging" class="control-label">
+                        Huisnummer toevoeging
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="omgevingsvergunningToevoeging" class="form-control"
                           
                           size="8"
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="omgevingsvergunningStraatnaam" class="control-label">Straatnaam</label>
+                      <label for="omgevingsvergunningStraatnaam" class="control-label">
+                        Straatnaam
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="omgevingsvergunningStraatnaam" class="form-control"
                           
                           
                           
+                          
                            />
                       </div>
                     </div>
                     <div class="form-group input text">
-                      <label for="omgevingsvergunningWoonplaats" class="control-label">Woonplaats</label>
+                      <label for="omgevingsvergunningWoonplaats" class="control-label">
+                        Woonplaats
+                          <span class="optional">optioneel</span>
+                      </label>
                       <div class="field-container">
                         <input type="text" id="omgevingsvergunningWoonplaats" class="form-control"
+                          
                           
                           
                           
@@ -438,7 +537,10 @@
                       </div>
                     </div>
                     <fieldset class="form-group radios">
-                      <legend class="control-label">Gelden de werkzaamheden in deze aanvraag/melding voor meerdere adressen of percelen?</legend>
+                      <legend class="control-label">
+                        Gelden de werkzaamheden in deze aanvraag/melding voor meerdere adressen of percelen?
+                          <span class="optional">optioneel</span>
+                      </legend>
                       <div class="field-container">
                           <div class="radio">
                             <label>
@@ -459,7 +561,8 @@
                             </label>
                           </div>
                       </div>
-                    </fieldset>      </fieldset>
+                    </fieldset>
+                </fieldset>
                 <fieldset>
                   <legend>Eigendomssituatie</legend>
                     <div class="form-group static">

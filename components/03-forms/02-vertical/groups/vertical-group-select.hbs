@@ -1,9 +1,9 @@
 <div class="form-group select{{#if multiple }} multiple{{/if}}">
   <label for="{{ id }}">
     {{ label }}
-    {{#if optional }}
+    {{#unless required }}
       <span class="optional">optioneel</span>
-    {{/if}}
+    {{/unless}}
   </label>
   <select id="{{ id }}" class="form-control"
     {{{ifattr 'disabled' disabled }}}

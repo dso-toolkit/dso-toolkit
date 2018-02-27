@@ -6,19 +6,27 @@
       <fieldset>
         <legend>Contact</legend>
           <div class="form-group input text">
-            <label for="voornaam" class="control-label">Voornaam</label>
+            <label for="voornaam" class="control-label">
+              Voornaam
+            </label>
             <div class="field-container">
               <input type="text" id="voornaam" class="form-control"
                 
                 
                 
-                 />
+                
+                required />
+                <span class="required">Dit is een verplicht veld</span>
             </div>
           </div>
           <div class="form-group input text">
-            <label for="achternaam" class="control-label">Achternaam</label>
+            <label for="achternaam" class="control-label">
+              Achternaam
+                <span class="optional">optioneel</span>
+            </label>
             <div class="field-container">
               <input type="text" id="achternaam" class="form-control"
+                
                 
                 
                 
@@ -32,30 +40,57 @@
               Man
             </p>
           </div>
+          <div class="form-group input text has-feedback">
+            <label for="geboortedatum" class="control-label">
+              Geboortedatum
+                <span class="optional">optioneel</span>
+            </label>
+            <div class="field-container">
+              <input type="text" id="geboortedatum" class="form-control"
+                
+                
+                
+                
+                 />
+                <span class="fa fa-calendar-o form-control-feedback" aria-hidden="true"></span>
+            </div>
+          </div>
           <div class="form-group input email">
-            <label for="email" class="control-label">E-mailadres</label>
+            <label for="email" class="control-label">
+              E-mailadres
+            </label>
             <div class="field-container">
               <input type="email" id="email" class="form-control"
                 
                 
                 
-                 />
+                
+                required />
+                <span class="required">Dit is een verplicht veld</span>
             </div>
           </div>
           <div class="form-group input password">
-            <label for="password" class="control-label">Wachtwoord</label>
+            <label for="password" class="control-label">
+              Wachtwoord
+                <span class="optional">optioneel</span>
+            </label>
             <div class="field-container">
               <input type="password" id="password" class="form-control"
                 
                 
                 
+                
                  />
             </div>
           </div>
           <div class="form-group input password">
-            <label for="password_bevestig" class="control-label">Wachtwoord (bevestig)</label>
+            <label for="password_bevestig" class="control-label">
+              Wachtwoord (bevestig)
+                <span class="optional">optioneel</span>
+            </label>
             <div class="field-container">
               <input type="password" id="password_bevestig" class="form-control"
+                
                 
                 
                 
@@ -77,12 +112,16 @@
       <fieldset>
         <legend>Beleg</legend>
           <div class="form-group select multiple">
-            <label for="beleg" class="control-label">Beleg</label>
+            <label for="beleg" class="control-label">
+              Beleg
+                <span class="optional">optioneel</span>
+            </label>
             <div class="field-container">
               <select id="beleg" class="form-control"
                 
                 
-                multiple>
+                multiple
+                >
                   <optgroup label="Vlees">
                       <option value="worst">Worst</option>
                       <option value="salami">Salami</option>
@@ -99,9 +138,13 @@
       <fieldset>
         <legend>Auto merk</legend>
           <div class="form-group select">
-            <label for="auto_merk" class="control-label">Type auto</label>
+            <label for="auto_merk" class="control-label">
+              Type auto
+                <span class="optional">optioneel</span>
+            </label>
             <div class="field-container">
               <select id="auto_merk" class="form-control"
+                
                 
                 
                 >
@@ -118,7 +161,10 @@
       <fieldset>
         <legend>Aanhanger</legend>
           <fieldset class="form-group radios">
-            <legend class="control-label">Welke aanhanger</legend>
+            <legend class="control-label">
+              Welke aanhanger
+                <span class="optional">optioneel</span>
+            </legend>
             <div class="field-container">
                 <div class="radio">
                   <label>
@@ -157,11 +203,15 @@
                   </label>
                 </div>
             </div>
-          </fieldset>      </fieldset>
+          </fieldset>
+      </fieldset>
       <fieldset>
         <legend>Vraag</legend>
           <div class="form-group textarea">
-            <label for="gekke_vraag" class="control-label">Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?</label>
+            <label for="gekke_vraag" class="control-label">
+              Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
+                <span class="optional">optioneel</span>
+            </label>
             <div class="field-container">
               <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
                 <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
