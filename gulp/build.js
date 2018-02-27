@@ -16,10 +16,10 @@ const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: gulp.series(buildScripts, buildStyles, buildAssets),
+  buildToolkit: options => gulp.series(buildScripts, buildStyles(options || {}), buildAssets),
   buildSite: gulp.series(buildSite, trimReports, cleanUpBuild),
   createDomReference: gulp.series(buildSite, createDomReference),
-  buildWatcher
+  buildWatcher: options => buildWatcher(options || {})
 };
 
 function cleanBuild() {
@@ -74,16 +74,18 @@ async function buildScripts() {
   });
 }
 
-function buildStyles() {
-  const sassCompiler = sass({
-    includePaths: [
-      path.join(process.cwd(), 'node_modules')
-    ]
-  }).on('error', sass.logError);
+function buildStyles(options) {
+  return () => {
+    const sassCompiler = sass({
+      includePaths: [
+        path.join(process.cwd(), 'node_modules')
+      ]
+    }).on('error', sass.logError);
 
-  return gulp.src('src/*.s[ac]ss')
-    .pipe(sassCompiler)
-    .pipe(gulp.dest('build/toolkit/styles'));
+    return gulp.src(`${options.dev ? 'components' : 'src'}/*.s[ac]ss`)
+      .pipe(sassCompiler)
+      .pipe(gulp.dest('build/toolkit/styles'));
+  };
 }
 
 function buildAssets() {
@@ -106,22 +108,24 @@ function createDomReference() {
     });
 }
 
-function buildWatcher(logger) {
-  gulp.watch('src/**/*.js').on('all', function (event, path, stats) {
-    logger('scripts', event, path);
+function buildWatcher(options) {
+  return logger => {
+    gulp.watch('src/**/*.js').on('all', function (event, path, stats) {
+      logger('scripts', event, path);
 
-    return buildScripts();
-  });
+      return buildScripts();
+    });
 
-  gulp.watch('src/**/*.scss').on('all', function (event, path, stats) {
-    logger('styles', event, path);
+    gulp.watch(`${options.dev ? 'components' : 'src'}/**/*.scss`).on('all', function (event, path, stats) {
+      logger('styles', event, path);
 
-    return buildStyles();
-  });
+      return buildStyles(options)();
+    });
 
-  gulp.watch('assets/**/*').on('all', function (event, path, stats) {
-    logger('assets', event, path);
+    gulp.watch('assets/**/*').on('all', function (event, path, stats) {
+      logger('assets', event, path);
 
-    return buildAssets();
-  });
+      return buildAssets();
+    });
+  };
 }
