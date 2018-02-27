@@ -19,7 +19,8 @@ $dso-alert-info-icon-color: $wit;
   position: relative;
 
   &::before {
-    @include fa-icon;
+    @extend .fas;
+
     border-radius: 50%;
     height: $dso-alert-icon-size;
     left: $dso-alert-padding - 1px; // 1px border
@@ -32,19 +33,19 @@ $dso-alert-info-icon-color: $wit;
 
   &.alert-success {
     &::before {
-      @include dso-alert-icon($dso-alert-success-icon-bg-color, $dso-alert-success-icon-color, $fa-var-check);
+      @include dso-alert-icon($dso-alert-success-icon-bg-color, $dso-alert-success-icon-color, fa-content($fa-var-check));
     }
   }
 
   &.alert-danger {
     &::before {
-      @include dso-alert-icon($dso-alert-danger-icon-bg-color, $dso-alert-danger-icon-color, $fa-var-times);
+      @include dso-alert-icon($dso-alert-danger-icon-bg-color, $dso-alert-danger-icon-color, fa-content($fa-var-times));
     }
   }
 
   &.alert-warning {
     &::before {
-      @include dso-alert-icon($dso-alert-warning-icon-bg-color, $dso-alert-warning-icon-color, $fa-var-exclamation);
+      @include dso-alert-icon($dso-alert-warning-icon-bg-color, $dso-alert-warning-icon-color, fa-content($fa-var-exclamation));
     }
   }
 
