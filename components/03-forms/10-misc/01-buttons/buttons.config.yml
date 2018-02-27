@@ -1,66 +1,66 @@
 status: wip
 context:
   primary-buttons:
-    - state-label: Standard
+    - example-label: Standard
       label: Call to action
-      type: submit
+      type: button
       modifier: primary
-    - state-label: Hover
+    - example-label: Hover/Focus
       label: Call to action
-      type: submit
+      type: button
       modifier: primary
       state: hover
-    - state-label: Active
+    - example-label: Active
       label: Call to action
-      type: submit
+      type: button
       modifier: primary
       state: active
-    - state-label: Disabled
+    - example-label: Disabled
       label: Call to action
-      type: submit
+      type: button
       modifier: primary
       disabled: true
   secundary-buttons:
-    - state-label: Standard
+    - example-label: Standard
       label: Volgende
-      type: submit
+      type: button
       modifier: default
-    - state-label: Hover
+    - example-label: Hover/Focus
       label: Volgende
-      type: submit
+      type: button
       modifier: default
       state: hover
-    - state-label: Active
+    - example-label: Active
       label: Volgende
-      type: submit
+      type: button
       modifier: default
       state: active
-    - state-label: Disabled
+    - example-label: Disabled
       label: Volgende
-      type: submit
+      type: button
       modifier: default
       disabled: true
   tertiary-buttons:
-    - state-label: Standard
+    - example-label: Standard
       label: Lees verder
-      type: submit
+      type: button
       modifier: link
       icon: icon fa fa-angle-right
-    - state-label: Hover
+    - example-label: Hover/Focus
       label: Lees verder
-      type: submit
+      type: button
       modifier: link
       icon: icon fa fa-angle-right
       state: hover
-    - state-label: Active
+    - example-label: Active
       label: Lees verder
-      type: submit
+      type: button
       modifier: link
       icon: icon fa fa-angle-right
       state: active
-    - state-label: Disabled
+    - example-label: Disabled
       label: Lees verder
-      type: submit
+      type: button
       modifier: link
       icon: icon fa fa-angle-right
       disabled: true

@@ -1,50 +1,59 @@
-<h3>Primaire button / Call to action</h3>
-<div class="row">
-{{#each primary-buttons }}
-  <div class="col-xs-12 col-md-3">
-    <p class="example-label">{{ state-label }}</p>
-    {{> '@button' }}
-  </div>
-{{/each}}
+<h2 style="margin-bottom: 24px">Primaire button / Call to action</h2>
+
+{{> '@button' label='Call to action' type='button' modifier='primary' }}
+
+<div class="row demo-example">
+  {{#each primary-buttons }}
+    <div class="col-md-3 {{ state }}">
+      <p><i>{{ example-label }}</i></p>
+      {{> '@button' }}
+    </div>
+  {{/each}}
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-md-6">
+  <div class="col-md-6">
     <label>Gebruik:</label>
     <p>De oranje kleur is een intense kleur om de aandacht te trekken. Maar teveel oranje is overweldigend voor de gebruiker en vermindert het gewenste effect van de button.</p>
     <p>De gebruiksregel voor dit element is om maximaal één primaire button per pagina te gebruiken.</p>
   </div>
 </div>
 
-<h3>Secundaire button</h3>
-<div class="row">
-{{#each secundary-buttons }}
-  <div class="col-xs-12 col-md-3">
-    <p class="example-label">{{ state-label }}</p>
-    {{> '@button' }}
-  </div>
-{{/each}}
+<h2 style="margin-bottom: 24px; margin-top: 40px;">Secundaire button</h2>
+
+{{> '@button' label='Volgende' type='button' modifier='default' }}
+
+<div class="row demo-example">
+  {{#each secundary-buttons }}
+    <div class="col-md-3 {{ state }}">
+      <p><i>{{ example-label }}</i></p>
+      {{> '@button' }}
+    </div>
+  {{/each}}
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-md-6">
+  <div class="col-md-6">
     <label>Gebruik:</label>
     <p>O.A. secundaire acties in formulieren</p>
   </div>
 </div>
 
-<h3>Tertiaire button</h3>
-<div class="row">
-{{#each tertiary-buttons }}
-  <div class="col-xs-12 col-md-3">
-    <p class="example-label">{{ state-label }}</p>
-    {{> '@button' }}
-  </div>
-{{/each}}
+<h2 style="margin-bottom: 24px; margin-top: 40px;">Tertiaire button</h2>
+
+{{> '@button' label='Lees verder' type='button' modifier='link' icon='icon fa fa-angle-right' }}
+
+<div class="row demo-example">
+  {{#each tertiary-buttons }}
+    <div class="col-md-3 {{ state }}">
+      <p><i>{{ example-label }}</i></p>
+      {{> '@button' }}
+    </div>
+  {{/each}}
 </div>
 
 <div class="row">
-  <div class="col-xs-12 col-md-6">
+  <div class="col-md-6">
     <label>Gebruik:</label>
     <p>Lage prioriteit interacties</p>
   </div>
