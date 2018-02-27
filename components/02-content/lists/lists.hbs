@@ -1,11 +1,5 @@
 <ul>
   {{#each items }}
-    <li>
-      {{#if isLink }}
-        <a href="#">{{ label }}</a>
-      {{ else }}
-        {{ this }}
-      {{/if}}
-    </li>
+    <li>{{ this }}</li>
   {{/each}}
 </ul>
