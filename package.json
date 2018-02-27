@@ -7,24 +7,16 @@
     "node": ">=9.0.0",
     "npm": ">=5.6.0"
   },
-  "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1"
-  },
   "devDependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.4",
     "@frctl/fractal": "^1.1.7",
     "access-sniff": "^3.1.0",
-    "babel-core": "^6.26.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
+    "bootstrap-sass": "^3.3.7",
     "cheerio": "^1.0.0-rc.2",
     "del": "^3.0.0",
-    "eslint": "^4.15.0",
     "fs-extra": "^5.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-accessibility": "^3.0.1",
-    "gulp-eslint": "^4.0.1",
     "gulp-file": "^0.4.0",
     "gulp-if": "^2.0.2",
     "gulp-rename": "^1.2.2",
@@ -33,9 +25,6 @@
     "gulp-tap": "^1.0.1",
     "gulp-trim": "^1.0.2",
     "hiff": "^0.3.0",
-    "node-sass": "^4.7.2",
-    "rollup": "^0.54.1",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-node-resolve": "^3.0.2"
+    "node-sass": "^4.7.2"
   }
 }

@@ -1,5 +1,5 @@
-$dso-anchor-download-content: " #{$fa-var-download}";
-$dso-anchor-extern-content: " #{$fa-var-external-link}";
+$dso-anchor-download-content: fa-content($fa-var-download);
+$dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 
 a {
   &:visited {
