@@ -1,0 +1,15 @@
+%full-width-row {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: calc(50vw - 50% - #{ceil($grid-gutter-width / 2)});
+  padding-right: calc(50vw - 50% - #{floor($grid-gutter-width / 2)});
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.row.full-width {
+  @extend %full-width-row;
+}

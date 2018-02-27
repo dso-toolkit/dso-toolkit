@@ -1,8 +1,12 @@
 footer {
+  @extend %full-width-row;
+  @include clearfix;
+
   background-color: $grijs-10;
   border-top: 1px solid $dso-footer-border-color;
   margin-top: $u6;
-  padding: $u3 $u5 $u6;
+  padding-bottom: $u6;
+  padding-top: $u3;
 
   h2 {
     border-bottom: 1px solid $dso-footer-border-color;
