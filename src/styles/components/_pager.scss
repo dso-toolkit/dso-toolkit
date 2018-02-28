@@ -1,15 +1,18 @@
 $dso-pager-icon-space: $dso-unit / 2;
-$dso-pager-border-width: 2px;
-$dso-pager-height: 48px;
+$dso-pager-border-width: $dso-button-border-width;
+$dso-pager-height: $u6;
+
+$dso-pager-previous-content: fa-content($fa-var-angle-left);
+$dso-pager-next-content: fa-content($fa-var-angle-right);
 
 .pager {
   li {
     a {
       border-width: $dso-pager-border-width;
-      font-size: 1.125em;
+      font-size: $dso-font-size-h4;
       font-weight: 700;
       line-height: #{$dso-pager-height - $dso-pager-border-width * 2};
-      padding: 0 $dso-pager-height;
+      padding: 0 #{$dso-pager-height - $dso-pager-border-width};
 
       &:hover,
       &:active,
@@ -23,25 +26,6 @@ $dso-pager-height: 48px;
     &.disabled {
       a {
         border-color: $grasgroen-40;
-      }
-    }
-
-    &.previous,
-    &.next {
-      .fa {
-        font-weight: 700;
-      }
-    }
-
-    &.previous {
-      .fa {
-        margin-right: $dso-pager-icon-space;
-      }
-    }
-
-    &.next {
-      .fa {
-        margin-left: $dso-pager-icon-space;
       }
     }
   }
