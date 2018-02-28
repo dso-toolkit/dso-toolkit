@@ -1,15 +1,12 @@
-@import "mixins/dso-variables";
-@import "mixins/bootstrap-variables";
-
-@import "bootstrap-sass/assets/stylesheets/bootstrap";
-
 @import "mixins/font-asap";
+@import "mixins/full-width-row";
 @import "mixins/typography";
 
 @import "components/alert";
 @import "components/accordion";
 @import "components/anchor";
 @import "components/breadcrumbs";
+@import "components/button";
 @import "components/call-to-action";
 @import "components/dso-select";
 @import "components/footer";
@@ -19,10 +16,10 @@
 @import "components/image";
 @import "components/label";
 @import "components/menu";
+@import "components/pager";
 @import "components/navs";
 @import "components/progress-block";
 @import "components/streamer";
 @import "components/table";
-@import "components/typeahead";
 @import "components/well";
 @import "components/wizard";

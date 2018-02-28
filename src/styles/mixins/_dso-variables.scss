@@ -27,6 +27,19 @@ $grijs-20:      #ccc;       //                 - niet te gebruiken als leestekst
 $grijs-10:      #e5e5e5;    //                 - niet te gebruiken als leestekst
 $wit:           #fff;
 
+$dso-unit: 8px;
+
+$u1: $dso-unit;
+$u2: $dso-unit * 2;
+$u3: $dso-unit * 3;
+$u4: $dso-unit * 4;
+$u5: $dso-unit * 5;
+$u6: $dso-unit * 6;
+$u7: $dso-unit * 7;
+$u8: $dso-unit * 8;
+$u9: $dso-unit * 9;
+$u10: $dso-unit * 10;
+
 $dso-font-size-h1: 2.5rem;
 $dso-font-size-h1-responsive: 2rem;
 $dso-font-size-h2: 1.5rem;
@@ -47,18 +60,16 @@ $dso-alert-warning-icon-bg-color: #dcd400;
 $dso-alert-info-bg-color: #e1ecf7;
 $dso-alert-info-icon-bg-color: #6ca4d9;
 
+$dso-button-size: $u6;
+$dso-button-link-size: $u4;
 $dso-accordion-border-color: #d3ddd6;
 
-$dso-unit: 8px;
+$dso-button-border-width: 2px;
+$dso-button-primary-hover-color: #d45800;
+$dso-button-primary-active-color: #a94600;
+$dso-button-primary-disabled-color: #f6d4b2;
 
-$u1: $dso-unit;
-$u2: $dso-unit * 2;
-$u3: $dso-unit * 3;
-$u4: $dso-unit * 4;
-$u5: $dso-unit * 5;
-$u6: $dso-unit * 6;
-$u7: $dso-unit * 7;
-$u8: $dso-unit * 8;
-$u9: $dso-unit * 9;
-$u10: $dso-unit * 10;
+$fa-font-path: "../fonts/fontawesome" !default;
+$asap-font-path: "../fonts/Asap/" !default;
 
+$dso-footer-border-color: #bcbebd;
