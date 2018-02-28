@@ -3,12 +3,10 @@
 const gulp = require('gulp');
 const util = require('gulp-util');
 
-const babel = require('rollup-plugin-babel');
 const del = require('del');
 const fractal = require('../fractal.js');
 const fse = require('fs-extra');
 const path = require('path');
-const rollup = require('rollup');
 const sass = require('gulp-sass');
 const trim = require('gulp-trim');
 
@@ -16,7 +14,7 @@ const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: options => gulp.series(buildScripts, buildStyles(options || {}), buildAssets),
+  buildToolkit: options => gulp.series(buildStyles(options || {}), copyAssets, copyFontAwesomeFonts),
   buildSite: gulp.series(buildSite, trimReports, cleanUpBuild),
   createDomReference: gulp.series(buildSite, createDomReference),
   buildWatcher: options => buildWatcher(options || {})
@@ -56,24 +54,6 @@ function cleanUpBuild() {
   return del(['build/toolkit/dummy', 'build/toolkit/docs']);
 }
 
-async function buildScripts() {
-  const bundle = await rollup.rollup({
-    input: 'src/dso.js',
-    plugins: [
-      babel({
-        exclude: 'node_modules/**'
-      })
-    ]
-  });
-
-  return bundle.write({
-    file: 'build/toolkit/scripts/dso.js',
-    format: 'umd',
-    name: 'DSO Toolkit',
-    sourcemap: true
-  });
-}
-
 function buildStyles(options) {
   return () => {
     const sassCompiler = sass({
@@ -88,13 +68,19 @@ function buildStyles(options) {
   };
 }
 
-function buildAssets() {
+function copyAssets() {
   return gulp
     .src([
       'assets/**',
       'node_modules/bootstrap-sass/assets/fonts{,/**}'
     ])
     .pipe(gulp.dest('build/toolkit'));
+}
+
+function copyFontAwesomeFonts() {
+  return gulp
+    .src('node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/**')
+    .pipe(gulp.dest('build/toolkit/fonts/fontawesome'));
 }
 
 function createDomReference() {
@@ -110,13 +96,7 @@ function createDomReference() {
 
 function buildWatcher(options) {
   return logger => {
-    gulp.watch('src/**/*.js').on('all', function (event, path, stats) {
-      logger('scripts', event, path);
-
-      return buildScripts();
-    });
-
-    gulp.watch(`${options.dev ? 'components' : 'src'}/**/*.scss`).on('all', function (event, path, stats) {
+    gulp.watch('(components|src)/**/*.scss').on('all', function (event, path, stats) {
       logger('styles', event, path);
 
       return buildStyles(options)();
@@ -125,7 +105,7 @@ function buildWatcher(options) {
     gulp.watch('assets/**/*').on('all', function (event, path, stats) {
       logger('assets', event, path);
 
-      return buildAssets();
+      return copyAssets();
     });
   };
 }
