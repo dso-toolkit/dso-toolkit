@@ -86,7 +86,7 @@ function copyFontAwesomeFonts() {
 function createDomReference() {
   log('Cleaning component reference files');
 
-  return fse.remove('reference/components')
+  return fse.remove('reference/render')
     .then(function () {
       log('Copied reference component files');
 
