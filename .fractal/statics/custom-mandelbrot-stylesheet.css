@@ -93,6 +93,18 @@ h1, h2, h3, h4, h5, h6,
   font-family: Asap, sans-serif;
 }
 
+.Prose {
+  max-width: 60em;
+}
+
+span.caption {
+  font-style: italic;
+}
+
+.Prose table {
+  font-size: 1rem;
+}
+
 .Prose h1 {
   color: #39870C;
   font-size: 2.5rem;
@@ -118,16 +130,17 @@ h1, h2, h3, h4, h5, h6,
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0;
+  opacity: 1;
 }
 
 .Prose h4 {
-  color: #000000;
+  color: #275937;
   font-size: 1.125rem;
   font-weight: bold;
 }
 
 .Prose h5 {
-  color: #000000;
+  color: #191919;
   font-size: 1rem;
   font-weight: bold;
 }

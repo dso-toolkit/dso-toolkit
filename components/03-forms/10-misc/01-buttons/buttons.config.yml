@@ -1,0 +1,69 @@
+status: wip
+context:
+  primary-buttons:
+    - example-label: Standard
+      label: Call to action
+      type: button
+      modifier: primary
+      state: standard
+    - example-label: Hover/Focus
+      label: Call to action
+      type: button
+      modifier: primary
+      state: hover
+    - example-label: Active
+      label: Call to action
+      type: button
+      modifier: primary
+      state: active
+    - example-label: Disabled
+      label: Call to action
+      type: button
+      modifier: primary
+      disabled: true
+  secundary-buttons:
+    - example-label: Standard
+      label: Volgende
+      type: button
+      modifier: default
+      state: standard
+    - example-label: Hover/Focus
+      label: Volgende
+      type: button
+      modifier: default
+      state: hover
+    - example-label: Active
+      label: Volgende
+      type: button
+      modifier: default
+      state: active
+    - example-label: Disabled
+      label: Volgende
+      type: button
+      modifier: default
+      disabled: true
+  tertiary-buttons:
+    - example-label: Standard
+      label: Lees verder
+      type: button
+      modifier: link
+      state: standard
+      icon: icon fa fa-angle-right
+    - example-label: Hover/Focus
+      label: Lees verder
+      type: button
+      modifier: link
+      icon: icon fa fa-angle-right
+      state: hover
+    - example-label: Active
+      label: Lees verder
+      type: button
+      modifier: link
+      icon: icon fa fa-angle-right
+      state: active
+    - example-label: Disabled
+      label: Lees verder
+      type: button
+      modifier: link
+      icon: icon fa fa-angle-right
+      disabled: true

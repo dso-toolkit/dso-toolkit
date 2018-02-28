@@ -3,12 +3,10 @@
 const gulp = require('gulp');
 const util = require('gulp-util');
 
-const babel = require('rollup-plugin-babel');
 const del = require('del');
 const fractal = require('../fractal.js');
 const fse = require('fs-extra');
 const path = require('path');
-const rollup = require('rollup');
 const sass = require('gulp-sass');
 const trim = require('gulp-trim');
 
@@ -16,10 +14,10 @@ const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: gulp.series(buildScripts, buildStyles, buildAssets),
+  buildToolkit: options => gulp.series(buildStyles(options || {}), copyAssets, copyFontAwesomeFonts),
   buildSite: gulp.series(buildSite, trimReports, cleanUpBuild),
   createDomReference: gulp.series(buildSite, createDomReference),
-  buildWatcher
+  buildWatcher: options => buildWatcher(options || {})
 };
 
 function cleanBuild() {
@@ -56,37 +54,21 @@ function cleanUpBuild() {
   return del(['build/toolkit/dummy', 'build/toolkit/docs']);
 }
 
-async function buildScripts() {
-  const bundle = await rollup.rollup({
-    input: 'src/dso.js',
-    plugins: [
-      babel({
-        exclude: 'node_modules/**'
-      })
-    ]
-  });
+function buildStyles(options) {
+  return () => {
+    const sassCompiler = sass({
+      includePaths: [
+        path.join(process.cwd(), 'node_modules')
+      ]
+    }).on('error', sass.logError);
 
-  return bundle.write({
-    file: 'build/toolkit/scripts/dso.js',
-    format: 'umd',
-    name: 'DSO Toolkit',
-    sourcemap: true
-  });
+    return gulp.src(`${options.dev ? 'components' : 'src'}/*.s[ac]ss`)
+      .pipe(sassCompiler)
+      .pipe(gulp.dest('build/toolkit/styles'));
+  };
 }
 
-function buildStyles() {
-  const sassCompiler = sass({
-    includePaths: [
-      path.join(process.cwd(), 'node_modules')
-    ]
-  }).on('error', sass.logError);
-
-  return gulp.src('src/*.s[ac]ss')
-    .pipe(sassCompiler)
-    .pipe(gulp.dest('build/toolkit/styles'));
-}
-
-function buildAssets() {
+function copyAssets() {
   return gulp
     .src([
       'assets/**',
@@ -95,10 +77,16 @@ function buildAssets() {
     .pipe(gulp.dest('build/toolkit'));
 }
 
+function copyFontAwesomeFonts() {
+  return gulp
+    .src('node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/**')
+    .pipe(gulp.dest('build/toolkit/fonts/fontawesome'));
+}
+
 function createDomReference() {
   log('Cleaning component reference files');
 
-  return fse.remove('reference/components')
+  return fse.remove('reference/render')
     .then(function () {
       log('Copied reference component files');
 
@@ -106,22 +94,18 @@ function createDomReference() {
     });
 }
 
-function buildWatcher(logger) {
-  gulp.watch('src/**/*.js').on('all', function (event, path, stats) {
-    logger('scripts', event, path);
+function buildWatcher(options) {
+  return logger => {
+    gulp.watch('(components|src)/**/*.scss').on('all', function (event, path, stats) {
+      logger('styles', event, path);
 
-    return buildScripts();
-  });
+      return buildStyles(options)();
+    });
 
-  gulp.watch('src/**/*.scss').on('all', function (event, path, stats) {
-    logger('styles', event, path);
+    gulp.watch('assets/**/*').on('all', function (event, path, stats) {
+      logger('assets', event, path);
 
-    return buildStyles();
-  });
-
-  gulp.watch('assets/**/*').on('all', function (event, path, stats) {
-    logger('assets', event, path);
-
-    return buildAssets();
-  });
+      return copyAssets();
+    });
+  };
 }
