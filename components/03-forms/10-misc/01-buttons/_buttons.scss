@@ -1,4 +1,4 @@
-.demo-example {
+.example {
   border-bottom: 2px solid $grijs-10;
   border-top: 2px solid $grijs-10;
   margin-bottom: $u3;
@@ -72,31 +72,31 @@
     }
   }
 
-  .hover .btn.btn-primary {
+  .example-hover .btn.btn-primary {
     background-color: $dso-button-primary-hover-color;
     border-color: $dso-button-primary-hover-color;
     color: $wit;
   }
 
-  .active .btn.btn-primary {
+  .example-active .btn.btn-primary {
     background-color: $dso-button-primary-active-color;
     border-color: $dso-button-primary-active-color;
     color: $wit;
   }
 
-  .hover .btn.btn-default {
+  .example-hover .btn.btn-default {
     background-color: $grasgroen;
     border-color: $grasgroen;
     color: $wit;
   }
 
-  .active .btn.btn-default {
+  .example-active .btn.btn-default {
     background-color: $bosgroen;
     border-color: $bosgroen;
     color: $wit;
   }
 
-  .hover .btn.btn-link {
+  .example-hover .btn.btn-link {
     .icon {
       background-color: $grasgroen;
       border-color: $grasgroen;
@@ -104,7 +104,7 @@
     }
   }
 
-  .active .btn.btn-link {
+  .example-active .btn.btn-link {
     color: $bosgroen;
 
     .icon {

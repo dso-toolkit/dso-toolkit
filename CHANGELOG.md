@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Documentation: Colors update (#26)
 - Buttons redesign (#25)
 - FontAwesome 5 (#40)
+- Buttons redesign (#25)
 
 ## 1.1.0 - 2017-01-19
 ### Changed

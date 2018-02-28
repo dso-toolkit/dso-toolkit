@@ -5,6 +5,7 @@ context:
       label: Call to action
       type: button
       modifier: primary
+      state: standard
     - example-label: Hover/Focus
       label: Call to action
       type: button
@@ -25,6 +26,7 @@ context:
       label: Volgende
       type: button
       modifier: default
+      state: standard
     - example-label: Hover/Focus
       label: Volgende
       type: button
@@ -45,6 +47,7 @@ context:
       label: Lees verder
       type: button
       modifier: link
+      state: standard
       icon: icon fa fa-angle-right
     - example-label: Hover/Focus
       label: Lees verder
