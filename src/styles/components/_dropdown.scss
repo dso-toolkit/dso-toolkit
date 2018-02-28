@@ -1,6 +1,6 @@
 .dropdown {
   &.open {
-    .btn-default {
+    > .btn-default.dropdown-toggle {
       background-color: $grasgroen;
       border-color: $grasgroen;
       color: $wit;

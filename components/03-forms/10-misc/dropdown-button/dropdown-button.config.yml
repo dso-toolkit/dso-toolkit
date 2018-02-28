@@ -1,6 +1,7 @@
 notes: |
   Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component
 status: ready
+collated: true
 context:
   id: actie
   label: Actie
