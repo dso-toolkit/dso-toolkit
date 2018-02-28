@@ -3,7 +3,6 @@ context:
   sections:
   - title: Woning
     id: panel1
-    icon: fas fa-check
   - title: Bouwwerkzaamheden
     id: panel2
   - title: Plaats van het bouwwerk

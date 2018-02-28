@@ -1,4 +1,7 @@
-$dso-check-icon-size: $u3;
+$dso-check-icon-size: $u2;
+$dso-accordion-panel-icon: fa-content($fa-var-chevron-down);
+$dso-accordion-panel-active-icon: fa-content($fa-var-chevron-up);
+$dso-accordion-check-icon: fa-content($fa-var-check);
 
 .accordion {
   .section-toggle {
@@ -22,17 +25,17 @@ $dso-check-icon-size: $u3;
     }
 
     .toggle-icon {
-      @extend .#{$fa-css-prefix};
+      @extend .fas;
 
       color: $grasgroen;
       float: left;
-      font-size: $u3;
+      font-size: $u2;
       line-height: $u6;
       margin-left: -$u4;
       width: $u2;
 
       &::before {
-        content: $fa-var-angle-down;
+        content: $dso-accordion-panel-icon;
       }
     }
 
@@ -51,49 +54,26 @@ $dso-check-icon-size: $u3;
 
     &.active {
       .toggle-icon::before {
-        content: $fa-var-angle-up;
+        content: $dso-accordion-panel-active-icon;
+      }
+
+      .check-icon {
+        @extend .fas;
+
+        background-color: $grasgroen;
+        border-radius: 50%;
+        color: $wit;
+        font-size: $dso-check-icon-size;
+        padding: 6px;
+        position: absolute;
+        right: 0;
+        top: calc(50% - #{$dso-check-icon-size / 2});
+
+        &::before {
+          content: $dso-accordion-check-icon;
+        }
       }
     }
-
-    .check-icon {
-      background-color: $grasgroen;
-      border-radius: 50%;
-      color: $wit;
-      font-size: $dso-check-icon-size;
-      padding: 6px;
-      position: absolute;
-      right: 0;
-      top: calc(50% - #{$dso-check-icon-size / 2});
-    }
-
-    // .toggle-icon {
-    //   @extend .#{$fa-css-prefix};
-
-    //   color: $grijs-80;
-    //   float: left;
-    //   font-size: 2.4em;
-    //   margin-left: -30px;
-    //   margin-top: -3px;
-    //   transition: .5s ease;
-
-    //   &::before {
-    //     content: $fa-var-angle-right;
-    //   }
-
-    //   &.toggle-closed {
-    //     transform: rotate(0deg);
-    //   }
-
-    //   &.toggle-open {
-    //     transform: rotate(90deg);
-    //   }
-    // }
-
-    // &:hover,
-    // &:focus {
-    //   color: $bosgroen;
-    //   text-decoration: none;
-    // }
   }
 
   .section-body {
