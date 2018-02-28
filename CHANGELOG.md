@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Documentation: Layout (#18)
 - Favicon (#12)
-- New component `typeahead` (#6)
+- Build tools: developer mode (#44)
 
 ### Changed
 - Typography (#14)
@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Alert design improvements (#22)
 - Documentation: Colors update (#26)
 - Buttons redesign (#25)
+- FontAwesome 5 (#40)
 
 ## 1.1.0 - 2017-01-19
 ### Changed
