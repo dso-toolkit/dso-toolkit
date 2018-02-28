@@ -2,9 +2,9 @@
 
 {{> '@button' label='Call to action' type='button' modifier='primary' }}
 
-<div class="row demo-example">
+<div class="row example">
   {{#each primary-buttons }}
-    <div class="col-md-3 {{ state }}">
+    <div class="col-md-3 example-{{ state }}">
       <p><i>{{ example-label }}</i></p>
       {{> '@button' }}
     </div>
@@ -23,9 +23,9 @@
 
 {{> '@button' label='Volgende' type='button' modifier='default' }}
 
-<div class="row demo-example">
+<div class="row example">
   {{#each secundary-buttons }}
-    <div class="col-md-3 {{ state }}">
+    <div class="col-md-3 example-{{ state }}">
       <p><i>{{ example-label }}</i></p>
       {{> '@button' }}
     </div>
@@ -43,9 +43,9 @@
 
 {{> '@button' label='Lees verder' type='button' modifier='link' icon='icon fa fa-angle-right' }}
 
-<div class="row demo-example">
+<div class="row example">
   {{#each tertiary-buttons }}
-    <div class="col-md-3 {{ state }}">
+    <div class="col-md-3 example-{{ state }}">
       <p><i>{{ example-label }}</i></p>
       {{> '@button' }}
     </div>
