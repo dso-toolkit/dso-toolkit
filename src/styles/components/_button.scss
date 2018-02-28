@@ -67,8 +67,8 @@
 }
 
 .btn-primary {
-  @include state-styling($dso-button-primary-status-color, $dso-button-primary-status-color, $wit);
-  @include double-state-styling($dso-button-primary-active-hover-color, $dso-button-primary-active-hover-color, $wit);
+  @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
+  @include double-state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
 
   &.disabled,
   &[disabled] {
@@ -133,7 +133,7 @@
       color: $grasgroen-40;
     }
 
-    .fa {
+    .icon {
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
