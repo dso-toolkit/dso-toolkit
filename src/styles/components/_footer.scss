@@ -1,6 +1,5 @@
 footer {
-  @extend %full-width-row;
-  @include clearfix;
+  @include full-width-row;
 
   background-color: $grijs-10;
   border-top: 1px solid $dso-footer-border-color;
