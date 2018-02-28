@@ -11,10 +11,8 @@ variants:
   - name: ellipsis
     context:
       items:
-        - 5
         - ...
         - 11
         - 12
         - 13
         - ...
-        - 35

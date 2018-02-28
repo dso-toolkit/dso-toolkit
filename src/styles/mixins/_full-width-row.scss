@@ -1,0 +1,22 @@
+@mixin full-width-row($gutter: 0) {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  @if ($gutter > 0) {
+    padding-left: calc(50vw - 50% - #{ceil($gutter / 2)});
+    padding-right: calc(50vw - 50% - #{floor($gutter / 2)});
+  }
+  @else {
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.row.full-width {
+  @include full-width-row($grid-gutter-width);
+}

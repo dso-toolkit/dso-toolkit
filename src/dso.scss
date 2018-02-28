@@ -1,2 +1,86 @@
-@import "font-awesome/scss/font-awesome.scss";
+@import "src/styles/mixins/dso-variables";
+@import "src/styles/mixins/bootstrap-variables";
+
+/*!
+ * Font Awesome Free 5.0.7 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@import "@fortawesome/fontawesome-free-webfonts/scss/variables";
+@import "@fortawesome/fontawesome-free-webfonts/scss/mixins";
+@import "@fortawesome/fontawesome-free-webfonts/scss/core";
+@import "@fortawesome/fontawesome-free-webfonts/scss/larger";
+@import "@fortawesome/fontawesome-free-webfonts/scss/fixed-width";
+@import "@fortawesome/fontawesome-free-webfonts/scss/list";
+@import "@fortawesome/fontawesome-free-webfonts/scss/bordered-pulled";
+@import "@fortawesome/fontawesome-free-webfonts/scss/animated";
+@import "@fortawesome/fontawesome-free-webfonts/scss/rotated-flipped";
+@import "@fortawesome/fontawesome-free-webfonts/scss/stacked";
+@import "@fortawesome/fontawesome-free-webfonts/scss/icons";
+// @import "@fortawesome/fontawesome-free-webfonts/scss/screen-reader";
+
+@import "@fortawesome/fontawesome-free-webfonts/scss/fa-brands";
+@import "@fortawesome/fontawesome-free-webfonts/scss/fa-regular";
+@import "@fortawesome/fontawesome-free-webfonts/scss/fa-solid";
+
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+// Components
+@import "bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/navs";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/pager";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/labels";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/badges";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/media";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/panels";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/wells";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+/*!
+ * DSO Toolkit styling
+ */
 @import "styles/dso";
