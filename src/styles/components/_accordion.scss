@@ -13,28 +13,28 @@
   .section-toggle {
     display: block;
 
-    .toggle-icon {
-      @extend .#{$fa-css-prefix};
+    // .toggle-icon {
+    //   @extend .#{$fa-css-prefix};
 
-      color: $grijs-80;
-      float: left;
-      font-size: 2.4em;
-      margin-left: -30px;
-      margin-top: -3px;
-      transition: .5s ease;
+    //   color: $grijs-80;
+    //   float: left;
+    //   font-size: 2.4em;
+    //   margin-left: -30px;
+    //   margin-top: -3px;
+    //   transition: .5s ease;
 
-      &::before {
-        content: $fa-var-angle-right;
-      }
+    //   &::before {
+    //     content: $fa-var-angle-right;
+    //   }
 
-      &.toggle-closed {
-        transform: rotate(0deg);
-      }
+    //   &.toggle-closed {
+    //     transform: rotate(0deg);
+    //   }
 
-      &.toggle-open {
-        transform: rotate(90deg);
-      }
-    }
+    //   &.toggle-open {
+    //     transform: rotate(90deg);
+    //   }
+    // }
 
     &:hover,
     &:focus {

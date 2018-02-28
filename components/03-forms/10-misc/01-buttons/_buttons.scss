@@ -1,0 +1,116 @@
+.example {
+  border-bottom: 2px solid $grijs-10;
+  border-top: 2px solid $grijs-10;
+  margin-bottom: $u3;
+  margin-top: $u3;
+  padding-bottom: $u3;
+  padding-top: $u2;
+
+  .btn {
+    &.btn-primary {
+      &:hover,
+      &:focus {
+        background-color: $btn-primary-bg;
+        border-color: $btn-primary-bg;
+      }
+
+      &[disabled] {
+        &,
+        &:hover {
+          background-color: $dso-button-primary-disabled-color;
+          border-color: $dso-button-primary-disabled-color;
+          color: $wit;
+          opacity: 1;
+        }
+      }
+    }
+
+    &.btn-default {
+      &:hover,
+      &:focus {
+        background-color: $wit;
+        border-color: $grasgroen;
+        color: $grasgroen;
+      }
+
+      &[disabled] {
+        &,
+        &:hover {
+          background-color: $wit;
+          border-color: $grasgroen-40;
+          color: $grasgroen-40;
+          opacity: 1;
+        }
+      }
+    }
+
+    &.btn-link {
+      &:hover,
+      &:focus {
+        color: $grasgroen;
+
+        .icon {
+          background-color: $wit;
+          border-color: $grasgroen;
+          color: $grasgroen;
+        }
+      }
+
+      &[disabled] {
+        &,
+        &:hover {
+          color: $grasgroen-40;
+          opacity: 1;
+
+          .icon {
+            background-color: $wit;
+            border-color: $grasgroen-40;
+            color: $grasgroen-40;
+          }
+        }
+      }
+    }
+  }
+
+  .example-hover .btn.btn-primary {
+    background-color: $dso-button-primary-hover-color;
+    border-color: $dso-button-primary-hover-color;
+    color: $wit;
+  }
+
+  .example-active .btn.btn-primary {
+    background-color: $dso-button-primary-active-color;
+    border-color: $dso-button-primary-active-color;
+    color: $wit;
+  }
+
+  .example-hover .btn.btn-default {
+    background-color: $grasgroen;
+    border-color: $grasgroen;
+    color: $wit;
+  }
+
+  .example-active .btn.btn-default {
+    background-color: $bosgroen;
+    border-color: $bosgroen;
+    color: $wit;
+  }
+
+  .example-hover .btn.btn-link {
+    .icon {
+      background-color: $grasgroen;
+      border-color: $grasgroen;
+      color: $wit;
+    }
+  }
+
+  .example-active .btn.btn-link {
+    color: $bosgroen;
+
+    .icon {
+      background-color: $bosgroen;
+      border-color: $bosgroen;
+      color: $wit;
+    }
+  }
+}

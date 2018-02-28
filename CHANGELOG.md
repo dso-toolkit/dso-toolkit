@@ -7,13 +7,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Documentation: Layout (#18)
 - Favicon (#12)
-- New component `typeahead` (#6)
+- Build tools: developer mode (#44)
 
 ### Changed
 - Typography (#14)
 - Updated `access-sniff` package to version 3.1.0 (#16)
 - Alert design improvements (#22)
 - Documentation: Colors update (#26)
+- FontAwesome 5 (#40)
+- Buttons redesign (#25)
 - Footer redesign (#35)
 
 ## 1.1.0 - 2017-01-19
