@@ -5,3 +5,7 @@ button {
     @extend .btn-primary;
   }
 }
+
+a.cta-button:visited {
+  color: $wit;
+}
