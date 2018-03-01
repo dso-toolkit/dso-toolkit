@@ -1,4 +1,17 @@
+$dso-dropdown-caret: fa-content($fa-var-caret-down);
+
 .dropdown {
+  > .btn-default.dropdown-toggle {
+    &::after {
+      @extend .fas;
+
+      content: $dso-dropdown-caret;
+      float: right;
+      line-height: $u3;
+      margin-left: $u1;
+    }
+  }
+
   &.open {
     > .btn-default.dropdown-toggle {
       background-color: $grasgroen;

@@ -5,10 +5,14 @@ collated: true
 context:
   id: actie
   label: Actie
-  items:
-    -
-      - Actie
-      - Andere actie
-      - Nog iets anders hier
-    -
-      - Gescheiden link
+variants:
+  - name: Open
+    context:
+      open: true
+      items:
+        -
+          - Actie
+          - Andere actie
+          - Nog iets anders hier
+        -
+          - Gescheiden link
