@@ -6,7 +6,7 @@ const util = require('gulp-util');
 const fractal = require('./fractal.js');
 
 const { lintStyles, lintWatcher } = require('./gulp/lint');
-const { cleanBuild, buildToolkit, buildSite, createDomReference, buildWatcher } = require('./gulp/build');
+const { build, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
 const { testAccessibility, testDom } = require('./gulp/test');
 const { postBuild } = require('./gulp/post-build');
 
@@ -16,8 +16,7 @@ gulp.task('clean', cleanBuild);
 gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), fractalDev, watch));
 
 gulp.task('lint', lintStyles);
-gulp.task('build', gulp.series(cleanBuild, buildToolkit(), buildSite));
-gulp.task('build:site', buildSite);
+gulp.task('build', build);
 gulp.task('test', gulp.series(testDom, testAccessibility));
 gulp.task('test:accessibility', testAccessibility);
 gulp.task('test:dom', testDom);
@@ -41,4 +40,3 @@ function fractalDev() {
     log(`Fractal server is now running at ${server.url}`);
   });
 }
-
