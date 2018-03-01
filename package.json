@@ -27,6 +27,7 @@
     "gulp-tap": "^1.0.1",
     "gulp-trim": "^1.0.2",
     "hiff": "^0.3.0",
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
+    "pretty": "^2.0.0"
   }
 }
