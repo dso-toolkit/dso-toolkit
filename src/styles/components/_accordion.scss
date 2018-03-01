@@ -13,7 +13,7 @@ $dso-accordion-check-icon: fa-content($fa-var-check);
 
     h2 {
       color: $grasgroen;
-      font-size: 1.125em;
+      font-size: $dso-font-size-h4;
       line-height: $u6;
       margin: 0;
 
@@ -79,39 +79,5 @@ $dso-accordion-check-icon: fa-content($fa-var-check);
   .section-body {
     padding-bottom: $u4;
     padding-top: $u1;
-
-    // fieldset legend {
-    //   border-bottom: 0;
-    //   color: $bosgroen;
-    //   font-size: 1.2em;
-    //   font-weight: 700;
-    // }
-
-    // > label {
-    //   color: $bosgroen;
-    //   font-size: 1.4em;
-    //   margin-top: 30px;
-
-    //   &:first-child {
-    //     margin-top: 0;
-    //   }
-
-    //   .fa-check {
-    //     color: $grasgroen;
-    //   }
-
-    //   .fa-exclamation-circle {
-    //     color: $grijs-50;
-    //   }
-    // }
-
-    // button {
-    //   margin-bottom: 12px;
-
-    //   &.btn-link {
-    //     margin-bottom: 0;
-    //     padding: 0;
-    //   }
-    // }
   }
 }

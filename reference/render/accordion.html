@@ -1,29 +1,53 @@
-<div class="accordion" id="accordion">
-  <div class="panel">
-    <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1" aria-expanded="false" aria-controls="panel1">
-      <span class="toggle-icon"></span>
-      <h2>Paneel 1<span class="fa fa-check" aria-hidden="true"></span></h2>
-    </a>
-    <div class="section-body collapse" id="panel1">
-      <p>En dit is de inhoud van <strong>Paneel 1</strong></p>
-    </div>
+<div class="accordion">
+  <a class="section-toggle" href="#" aria-expanded="false">
+    <span class="toggle-icon"></span>
+    <span class="check-icon"></span>
+    <h2>
+      Woning
+    </h2>
+  </a>
+  <a class="section-toggle" href="#" aria-expanded="false">
+    <span class="toggle-icon"></span>
+    <span class="check-icon"></span>
+    <h2>
+      Bouwwerkzaamheden
+    </h2>
+  </a>
+  <a class="section-toggle active" href="#" aria-expanded="false">
+    <span class="toggle-icon"></span>
+    <span class="check-icon"></span>
+    <h2>
+      Plaats van het bouwwerk
+    </h2>
+  </a>
+  <div class="section-body">
+    <fieldset class="form-group radios">
+      <legend class="control-label">Oneven getal</legend>
+      <div class="field-container">
+        <div class="radio">
+          <label>
+            <input type="radio" name="radio_voorbeeld" value="1" /> een
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="radio_voorbeeld" value="2" /> twee
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="radio_voorbeeld" value="3" /> drie
+          </label>
+        </div>
+        <p class="help-block" id="helpTextId_radio_voorbeeld">Kies een oneven getal</p>
+      </div>
+    </fieldset>
   </div>
-  <div class="panel">
-    <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel2" aria-expanded="false" aria-controls="panel2">
-      <span class="toggle-icon"></span>
-      <h2>Paneel 2</h2>
-    </a>
-    <div class="section-body collapse" id="panel2">
-      <p>En dit is de inhoud van <strong>Paneel 2</strong></p>
-    </div>
-  </div>
-  <div class="panel">
-    <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel3" aria-expanded="false" aria-controls="panel3">
-      <span class="toggle-icon"></span>
-      <h2>Paneel 3</h2>
-    </a>
-    <div class="section-body collapse" id="panel3">
-      <p>En dit is de inhoud van <strong>Paneel 3</strong></p>
-    </div>
-  </div>
+  <a class="section-toggle" href="#" aria-expanded="false">
+    <span class="toggle-icon"></span>
+    <span class="check-icon"></span>
+    <h2>
+      Afmetingen van het bouwwerk
+    </h2>
+  </a>
 </div>
