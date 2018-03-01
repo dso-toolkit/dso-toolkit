@@ -16,13 +16,31 @@ $dso-pager-height: $u6;
       &.active,
       &:focus,
       &.focus {
-        color: $wit;
+        &,
+        &:visited {
+          background-color: $grasgroen;
+          color: $wit;
+        }
+      }
+
+      &:focus,
+      &.focus {
+        outline: 0;
+      }
+
+      &:visited {
+        color: $grasgroen;
       }
     }
 
     &.disabled {
       a {
-        border-color: $grasgroen-40;
+        &,
+        &:visited {
+          background-color: $wit;
+          border-color: $grasgroen-40;
+          color: $grasgroen-40;
+        }
       }
     }
   }
