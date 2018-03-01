@@ -1,176 +1,132 @@
-
-
 <form class="form-horizontal">
   <fieldset class="form-fields">
     <legend class="sr-only">Horizontal form</legend>
-      <fieldset>
-        <legend>Contact</legend>
-          <div class="form-group input text">
-            <label for="voornaam" class="control-label">Voornaam</label>
-            <div class="field-container">
-              <input type="text" id="voornaam" class="form-control"
-                
-                
-                
-                 />
-            </div>
+    <fieldset>
+      <legend>Contact</legend>
+      <div class="form-group input text">
+        <label for="voornaam" class="control-label">Voornaam</label>
+        <div class="field-container">
+          <input type="text" id="voornaam" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group input text">
+        <label for="achternaam" class="control-label">Achternaam</label>
+        <div class="field-container">
+          <input type="text" id="achternaam" class="form-control" />
+          <p class="help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+        </div>
+      </div>
+      <div class="form-group static">
+        <label class="control-label">Geslacht</label>
+        <p class="field-container">
+          Man
+        </p>
+      </div>
+      <div class="form-group input email">
+        <label for="email" class="control-label">E-mailadres</label>
+        <div class="field-container">
+          <input type="email" id="email" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group input password">
+        <label for="password" class="control-label">Wachtwoord</label>
+        <div class="field-container">
+          <input type="password" id="password" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group input password">
+        <label for="password_bevestig" class="control-label">Wachtwoord (bevestig)</label>
+        <div class="field-container">
+          <input type="password" id="password_bevestig" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group confirm">
+        <div class="field-container">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" /> Stuur mij de maandelijkse nieuwsbrief
+            </label>
           </div>
-          <div class="form-group input text">
-            <label for="achternaam" class="control-label">Achternaam</label>
-            <div class="field-container">
-              <input type="text" id="achternaam" class="form-control"
-                
-                
-                
-                 />
-                <p class="help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
-            </div>
+          <p class="help-block" id="helpTextId_nieuwsbrief">Uw gegevens zullen niet worden gedeeld met derden</p>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Beleg</legend>
+      <div class="form-group select multiple">
+        <label for="beleg" class="control-label">Beleg</label>
+        <div class="field-container">
+          <select id="beleg" class="form-control" multiple>
+            <optgroup label="Vlees">
+              <option value="worst">Worst</option>
+              <option value="salami">Salami</option>
+              <option value="geit">Geit</option>
+            </optgroup>
+            <optgroup label="Vis">
+              <option value="zalm">Zalm</option>
+              <option value="makreel">Makreel</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Auto merk</legend>
+      <div class="form-group select">
+        <label for="auto_merk" class="control-label">Type auto</label>
+        <div class="field-container">
+          <select id="auto_merk" class="form-control">
+            <optgroup label="Europees">
+              <option value="alfa">Alfa Romeo</option>
+              <option value="fiat">Fiat</option>
+              <option value="marcedes" selected>Mercedes</option>
+              <option value="volkswagen">Volkswagen</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Aanhanger</legend>
+      <fieldset class="form-group radios">
+        <legend class="control-label">Welke aanhanger</legend>
+        <div class="field-container">
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="bak" /> Bak
+            </label>
           </div>
-          <div class="form-group static">
-            <label class="control-label">Geslacht</label>
-            <p class="field-container">
-              Man
-            </p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="caravan" checked /> Caravan
+            </label>
           </div>
-          <div class="form-group input email">
-            <label for="email" class="control-label">E-mailadres</label>
-            <div class="field-container">
-              <input type="email" id="email" class="form-control"
-                
-                
-                
-                 />
-            </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="fietsendrager" /> Fietsendrager
+            </label>
           </div>
-          <div class="form-group input password">
-            <label for="password" class="control-label">Wachtwoord</label>
-            <div class="field-container">
-              <input type="password" id="password" class="form-control"
-                
-                
-                
-                 />
-            </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="oplegger" /> Oplegger
+            </label>
           </div>
-          <div class="form-group input password">
-            <label for="password_bevestig" class="control-label">Wachtwoord (bevestig)</label>
-            <div class="field-container">
-              <input type="password" id="password_bevestig" class="form-control"
-                
-                
-                
-                 />
-            </div>
-          </div>
-          <div class="form-group confirm">
-            <div class="field-container">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"
-                    
-                     /> Stuur mij de maandelijkse nieuwsbrief
-                </label>
-              </div>
-                <p class="help-block" id="helpTextId_nieuwsbrief">Uw gegevens zullen niet worden gedeeld met derden</p>
-            </div>
-          </div>      </fieldset>
-      <fieldset>
-        <legend>Beleg</legend>
-          <div class="form-group select multiple">
-            <label for="beleg" class="control-label">Beleg</label>
-            <div class="field-container">
-              <select id="beleg" class="form-control"
-                
-                
-                multiple>
-                  <optgroup label="Vlees">
-                      <option value="worst">Worst</option>
-                      <option value="salami">Salami</option>
-                      <option value="geit">Geit</option>
-                  </optgroup>
-                  <optgroup label="Vis">
-                      <option value="zalm">Zalm</option>
-                      <option value="makreel">Makreel</option>
-                  </optgroup>
-              </select>
-            </div>
-          </div>
+        </div>
       </fieldset>
-      <fieldset>
-        <legend>Auto merk</legend>
-          <div class="form-group select">
-            <label for="auto_merk" class="control-label">Type auto</label>
-            <div class="field-container">
-              <select id="auto_merk" class="form-control"
-                
-                
-                >
-                  <optgroup label="Europees">
-                      <option value="alfa">Alfa Romeo</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="marcedes" selected>Mercedes</option>
-                      <option value="volkswagen">Volkswagen</option>
-                  </optgroup>
-              </select>
-            </div>
-          </div>
-      </fieldset>
-      <fieldset>
-        <legend>Aanhanger</legend>
-          <fieldset class="form-group radios">
-            <legend class="control-label">Welke aanhanger</legend>
-            <div class="field-container">
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="aanhanger" value="bak"
-                      
-                      
-                       />
-                    Bak
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="aanhanger" value="caravan"
-                      
-                      
-                      checked />
-                    Caravan
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="aanhanger" value="fietsendrager"
-                      
-                      
-                       />
-                    Fietsendrager
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="aanhanger" value="oplegger"
-                      
-                      
-                       />
-                    Oplegger
-                  </label>
-                </div>
-            </div>
-          </fieldset>      </fieldset>
-      <fieldset>
-        <legend>Vraag</legend>
-          <div class="form-group textarea">
-            <label for="gekke_vraag" class="control-label">Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?</label>
-            <div class="field-container">
-              <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
-                <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
-            </div>
-          </div>
-      </fieldset>
+    </fieldset>
+    <fieldset>
+      <legend>Vraag</legend>
+      <div class="form-group textarea">
+        <label for="gekke_vraag" class="control-label">Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?</label>
+        <div class="field-container">
+          <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
+          <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
+        </div>
+      </div>
+    </fieldset>
   </fieldset>
   <div class="form-buttons">
-    <button type="submit" class="btn btn-primary" >
+    <button type="submit" class="btn btn-primary">
       Verstuur
     </button>
   </div>

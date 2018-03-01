@@ -1,14 +1,19 @@
 footer {
+  @include full-width-row;
+
   background-color: $grijs-10;
-  margin-top: 50px;
-  padding: 20px 10px;
+  border-top: 1px solid $dso-footer-border-color;
+  margin-top: $u6;
+  padding-bottom: $u6;
+  padding-top: $u3;
 
   h2 {
-    border-bottom: 1px solid $grijs-40;
-    font-size: 1.3em;
+    border-bottom: 1px solid $dso-footer-border-color;
+    font-size: 1.25em;
     font-weight: 700;
+    margin-bottom: $u1;
     margin-top: 0;
-    padding-bottom: 16px;
+    padding-bottom: $u1;
   }
 
   ul {
