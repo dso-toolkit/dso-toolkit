@@ -1,0 +1,86 @@
+$dso-modal-close-icon: fa-content($fa-var-times);
+$dso-modal-close-icon-size: $u4;
+
+.modal {
+  //-webkit-overflow-scrolling: touch;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  max-width: 640px;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $zindex-modal;
+
+  .modal-header {
+    border-bottom: 1px solid $dso-modal-border-color;
+    padding: $u2;
+
+    .modal-title {
+      margin: 0;
+    }
+
+    .modal-close {
+      @extend .fas;
+
+      background: none;
+      border: 0;
+      border-radius: 50%;
+      color: $grasgroen;
+      float: right;
+      height: $dso-modal-close-icon-size;
+      margin-top: -3px;
+      width: $dso-modal-close-icon-size;
+
+      &::before {
+        content: $dso-modal-close-icon;
+      }
+
+      &:hover,
+      &:focus,
+      &.focus {
+        background-color: $wit;
+        border: 2px solid $grasgroen;
+        outline: 0;
+      }
+
+      &:active,
+      &.active {
+        background-color: $grasgroen;
+        border: 2px solid $grasgroen;
+        color: $wit;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: $u4;
+  }
+
+  .modal-footer {
+    padding: 0 $u4 $u4;
+  }
+
+  .modal-content {
+    background-clip: padding-box;
+    background-color: $modal-content-bg;
+    border: 1px solid $modal-content-border-color;
+    outline: 0;
+    position: relative;
+  }
+}
+
+.modal-dialog {
+  margin: $u2 0;
+}
+
+.modal-backdrop {
+  background-color: fade-out($modal-backdrop-bg, .4);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: $zindex-modal-background;
+}
