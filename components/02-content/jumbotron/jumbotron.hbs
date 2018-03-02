@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1>{{ title }}</h1>
-  <p>{{ content }}</p>
-  <p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">{{ ctaText }}</a>
-  </p>
+  <div class="jumbotron-body">
+    <p>{{ content }}</p>
+    {{> '@button' button }}
+  </div>
 </div>
