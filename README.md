@@ -6,7 +6,7 @@ The toolkit and component library is distributed to dso-toolkit.nl.
 
 ### Toolkit
 
-The toolkit consists of `scripts/dso.js` and `styles/dso.css`. Use the table below to resolve the branch/channel to the base url
+The toolkit is framework-agnostic and consists of only styling: `styles/dso.css`. Use the table below to resolve the branch/channel to the base url
 
 | branch      | channel    | url                                    |
 |-------------|------------|----------------------------------------|
@@ -27,12 +27,8 @@ Example:
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/stable/styles/dso.css" />
 ```
 
-```html
-<script src="https://cdn.dso-toolkit.nl/stable/scripts/dso.js"></script>
-```
-
 ## Requirements
-Node 8 and NPM 5.
+Node 9 and NPM 5.
 
 ## Getting started
 1. Clone the repository
@@ -45,8 +41,6 @@ A development webserver on http://localhost:3000 with BrowserSync is started. Al
 The DSO Toolkit and Component Library uses
 * `npm` for package management
 * `gulp` for build automation
-* `rollup.js` as javascript module bundler
-* `babel` to transpile ES2015 to ES5
 * `node-sass` to compile sass to css
 * `fractal` to document the toolkit
 

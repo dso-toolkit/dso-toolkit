@@ -1,17 +1,18 @@
-status: ready
+status: wip
 context:
-  list1:
-    items:
-      - Contact
-      - Sitemap
-      - Help
-  list2:
-    items:
-      - Copyright
-      - Privacy
-      - Cookies
-      - Toegankelijkheid
-  list3:
-    items:
-      - Twitter
-      - LinkedIn
+  columns:
+    - label: Service
+      items:
+        - Contact
+        - Sitemap
+        - Help
+    - label: Over deze site
+      items:
+        - Copyright
+        - Privacy
+        - Cookies
+        - Toegankelijkheid
+    - label: Volg ons ook op
+      items:
+        - Twitter
+        - LinkedIn

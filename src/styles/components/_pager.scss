@@ -1,0 +1,47 @@
+$dso-pager-icon-space: $dso-unit / 2;
+$dso-pager-border-width: $dso-button-border-width;
+$dso-pager-height: $u6;
+
+.pager {
+  li {
+    a {
+      border-width: $dso-pager-border-width;
+      font-size: $dso-font-size-h4;
+      font-weight: 700;
+      line-height: #{$dso-pager-height - $dso-pager-border-width * 2};
+      padding: 0 #{$dso-pager-height - $dso-pager-border-width};
+
+      &:hover,
+      &:active,
+      &.active,
+      &:focus,
+      &.focus {
+        &,
+        &:visited {
+          background-color: $grasgroen;
+          color: $wit;
+        }
+      }
+
+      &:focus,
+      &.focus {
+        outline: 0;
+      }
+
+      &:visited {
+        color: $grasgroen;
+      }
+    }
+
+    &.disabled {
+      a {
+        &,
+        &:visited {
+          background-color: $wit;
+          border-color: $grasgroen-40;
+          color: $grasgroen-40;
+        }
+      }
+    }
+  }
+}

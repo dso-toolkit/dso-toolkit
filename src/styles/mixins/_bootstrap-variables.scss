@@ -35,6 +35,8 @@ $font-size-h4: $dso-font-size-h4;
 $font-size-h5: $dso-font-size-h5;
 $font-size-h6: $dso-font-size-h5;
 
+$line-height-base: 1.5;
+
 $headings-font-family: "Asap", sans-serif;
 $headings-font-weight: bold;
 $headings-color: $bosgroen;
@@ -43,7 +45,7 @@ $headings-color: $bosgroen;
 //
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
-$icon-font-path: "../fonts/bootstrap/";
+$icon-font-path: "../fonts/bootstrap/" !default;
 
 //== Components
 //
@@ -57,11 +59,15 @@ $icon-font-path: "../fonts/bootstrap/";
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-default-bg: $grasgroen-40;
-$btn-default-border: $grasgroen-40;
+$btn-default-color: $grasgroen;
+$btn-default-bg: $wit;
+$btn-default-border: $grasgroen;
 
-$btn-primary-bg: $grasgroen;
-$btn-primary-border: $grasgroen;
+$btn-primary-color: $wit;
+$btn-primary-bg: $oranje;
+$btn-primary-border: $oranje;
+
+$btn-border-radius-base: 24px;
 
 //== Forms
 //
@@ -79,7 +85,9 @@ $cursor-disabled: default;
 //
 //## Dropdown menu container and contents.
 
+//** Hover color for dropdown links.
 $dropdown-link-hover-color: $wit;
+//** Hover background for dropdown links.
 $dropdown-link-hover-bg: $grasgroen;
 
 //== Media queries breakpoints
@@ -121,6 +129,15 @@ $nav-tabs-active-link-hover-color: $zwart;
 //== Pager
 //
 //##
+$pager-border: $grasgroen;
+$pager-border-radius: 24px;
+
+$pager-hover-bg: $grasgroen;
+
+$pager-active-bg: $grasgroen;
+$pager-active-color: $wit;
+
+$pager-disabled-color: $grasgroen-40;
 
 //== Jumbotron
 //
