@@ -2,11 +2,13 @@ notes: |
   Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component
 status: ready
 collated: true
+default: dropdown
 context:
+  open: false
   id: actie
   label: Actie
 variants:
-  - name: Open
+  - name: dropdown-open
     context:
       open: true
       items:

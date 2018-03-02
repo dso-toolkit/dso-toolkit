@@ -1,5 +1,5 @@
 <div class="dropdown{{#if open }} open{{/if}}">
-  <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{{ aria-expanded }}">
+  <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{{#if open }}true{{else}}false{{/if}}">
     {{ label }}
   </button>
   {{#if open }}
