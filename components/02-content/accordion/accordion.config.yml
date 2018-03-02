@@ -1,23 +1,27 @@
+notes: |
+  Een accordion (`.accordion`) bestaat uit secties (`.accordion-section`). Een sectie heeft een handle (`.section-handle`) en body (`.section-body`).
+
+  Als de body verborgen wordt dmv. styling (`display: none` of `.hidden`) moeten ervoor toegankelijkheid wat attributen worden toegevoegd.
+
+  De handle krijgt
+  * `aria-controls="ID"`. ID verwijst naar het `#id` van de section body.
+  * `aria-expanded="true|false"`.
+
+  De body krijgt
+  * `id="ID"`. Een uniek ID.
+
+  Als de section bodies niet in het DOM zitten, zijn bovenstaande attributen niet nodig.
 status: prototype
 context:
   sections:
   - title: Woning
     id: panel1
+    state: success
   - title: Bouwwerkzaamheden
     id: panel2
+    state: success
   - title: Plaats van het bouwwerk
     id: panel3
-    active: true
-    section-body:
-      id: radio_voorbeeld
-      label: Oneven getal
-      helpText: Kies een oneven getal
-      options:
-        - value: 1
-          label: een
-        - value: 2
-          label: twee
-        - value: 3
-          label: drie
+    open: true
   - title: Afmetingen van het bouwwerk
     id: panel4

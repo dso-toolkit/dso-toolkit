@@ -1,77 +1,80 @@
-$dso-check-icon-size: $u2;
+$dso-check-icon-font-size: $u2;
+$dso-check-icon-size: $u4;
 $dso-accordion-panel-icon: fa-content($fa-var-chevron-down);
 $dso-accordion-panel-active-icon: fa-content($fa-var-chevron-up);
 $dso-accordion-check-icon: fa-content($fa-var-check);
 
 .accordion {
-  .section-toggle {
+  .section-handle {
     border-top: 1px solid $dso-accordion-border-color;
     display: block;
+    font-size: $dso-font-size-h2;
+    font-weight: 700;
     padding-left: $u4;
     padding-right: $u4;
     position: relative;
 
-    h2 {
+    a {
       color: $grasgroen;
-      font-size: $dso-font-size-h4;
       line-height: $u6;
       margin: 0;
 
-      span {
-        color: $grasgroen;
-        font-size: .875em;
-        margin-left: 15px;
-      }
-    }
-
-    .toggle-icon {
-      @extend .fas;
-
-      color: $grasgroen;
-      float: left;
-      font-size: $u2;
-      line-height: $u6;
-      margin-left: -$u4;
-      width: $u2;
-
       &::before {
+        @extend .fas;
+
+        color: $grasgroen;
         content: $dso-accordion-panel-icon;
-      }
-    }
-
-    &:hover,
-    &:focus,
-    &.focus,
-    &:active,
-    &.active {
-      text-decoration: none;
-
-      .toggle-icon,
-      h2 {
-        color: $oranje;
-      }
-    }
-
-    &.active {
-      .toggle-icon::before {
-        content: $dso-accordion-panel-active-icon;
+        float: left;
+        font-size: $u2;
+        line-height: $u6;
+        margin-left: -$u4;
+        width: $u2;
       }
 
-      .check-icon {
+      &::after {
         @extend .fas;
 
         background-color: $grasgroen;
         border-radius: 50%;
         color: $wit;
-        font-size: $dso-check-icon-size;
-        padding: 6px;
+        content: $dso-accordion-check-icon;
+        font-size: $dso-check-icon-font-size;
+        height: $dso-check-icon-size;
+        line-height: $dso-check-icon-size;
         position: absolute;
         right: 0;
+        text-align: center;
         top: calc(50% - #{$dso-check-icon-size / 2});
+        width: $dso-check-icon-size;
+      }
 
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        text-decoration: none;
+
+        &,
         &::before {
-          content: $dso-accordion-check-icon;
+          color: $oranje;
         }
+      }
+    }
+  }
+
+  .accordion-section {
+    &.open {
+      .section-handle {
+        a::before {
+          content: $dso-accordion-panel-active-icon;
+        }
+      }
+    }
+
+    &:not(.open) {
+      .section-body {
+        display: none;
       }
     }
   }

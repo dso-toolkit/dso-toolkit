@@ -1,16 +1,7 @@
-<div class="accordion">
+{{#accordion}}
   {{#each sections }}
-    <a class="section-toggle{{#if active }} active{{/if}}" href="#" aria-expanded="false">
-      <span class="toggle-icon"></span>
-      <span class="check-icon"></span>
-      <h2>
-        {{ title }}
-      </h2>
-    </a>
-    {{#if active }}
-      <div class="section-body">
-        {{> '@horizontal-group-radios' section-body }}
-      </div>
-    {{/if}}
+    {{#accordionSection title }}
+      <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+    {{/accordionSection}}
   {{/each}}
-</div>
+{{/accordion}}

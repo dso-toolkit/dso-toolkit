@@ -16,18 +16,25 @@ module.exports = function (fractal) {
       `.trim();
     },
 
-    panel(title, context, options) {
-      return `
-        <div class="panel">
-          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#${context.id}" aria-expanded="false" aria-controls="${context.id}">
-            <span class="toggle-icon"></span>
-            <h2>${title}</h2>
-          </a>
-          <div class="section-body collapse" id="${context.id}">
-            ${options.fn(context)}
-          </div>
-        </div>
-      `.trim();
+    accordionSection(title, options) {
+      var self = this;
+
+      let html = (
+        `<div class="accordion-section${(self.state ? ' accordion-' + self.state : '') + (self.open ? ' open' : '') }">
+          <div class="section-handle">
+            <a href="#">${ title }</a>
+          </div>`);
+
+      if (self.open) {
+        html += (
+          `<div class="section-body">
+            ${options.fn(self)}
+          </div>`);
+      }
+
+      html += `</div>`;
+
+      return html.trim();
     }
   };
 };
