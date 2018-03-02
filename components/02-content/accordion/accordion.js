@@ -17,27 +17,17 @@ module.exports = function (fractal) {
     },
 
     panel(title, context, options) {
-      let o = options || context;
-      let icon = '';
-
-      return handlebars
-        .compile('{{> \'@icon\' }}')({ icon: context.icon })
-        .then(i => {
-          icon = context.icon && i.trim();
-
-          return o.fn(context);
-        })
-        .then(content => `
-          <div class="panel">
-            <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#${context.id}" aria-expanded="false" aria-controls="${context.id}">
-              <span class="toggle-icon"></span>
-              <h2>${title}${icon || ''}</h2>
-            </a>
-            <div class="section-body collapse" id="${context.id}">
-              ${content.trim()}
-            </div>
+      return `
+        <div class="panel">
+          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#${context.id}" aria-expanded="false" aria-controls="${context.id}">
+            <span class="toggle-icon"></span>
+            <h2>${title}</h2>
+          </a>
+          <div class="section-body collapse" id="${context.id}">
+            ${options.fn(context)}
           </div>
-        `.trim());
+        </div>
+      `.trim();
     }
   };
 };
