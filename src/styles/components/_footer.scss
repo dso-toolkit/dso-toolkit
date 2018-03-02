@@ -16,6 +16,32 @@ footer {
     padding-bottom: $u1;
   }
 
+  a {
+    color: $bosgroen;
+
+    &:hover,
+    &.active,
+    &:active,
+    &.focus,
+    &:focus {
+      color: $grijs-90;
+      outline: 0;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $bosgroen;
+
+      &:hover,
+      &.active,
+      &:active,
+      &.focus,
+      &:focus {
+        color: $grijs-90;
+      }
+    }
+  }
+
   ul {
     @include list-unstyled;
 
