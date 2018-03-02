@@ -6,9 +6,21 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       @extend .fas;
 
       content: $dso-dropdown-caret;
+      display: block;
       float: right;
       line-height: $u3;
       margin-left: $u1;
+    }
+  }
+
+  .dropdown-menu {
+    li {
+      a {
+        &:focus,
+        &.focus {
+          outline: 0;
+        }
+      }
     }
   }
 
