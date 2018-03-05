@@ -4,12 +4,13 @@ status: ready
 collated: true
 default: dropdown
 context:
-  open: false
   id: actie
+  open: false
   label: Actie
 variants:
   - name: dropdown-open
     context:
+      id: actie_open
       open: true
       items:
         -
