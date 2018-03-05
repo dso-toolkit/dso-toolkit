@@ -17,6 +17,25 @@ body {
   overflow-x: hidden;
 }
 
-.row.full-width {
+main .row {
+  + .row {
+    border-top: 1px solid $dso-row-divider-color;
+  }
+}
+
+main .row.full-width {
   @include full-width-row($grid-gutter-width);
+
+  background-color: $dso-full-width-color;
+  border-top: 0;
+
+  + .row {
+    border-top: 0;
+  }
+}
+
+.rich-content {
+  *:first-child {
+    margin-top: 0;
+  }
 }
