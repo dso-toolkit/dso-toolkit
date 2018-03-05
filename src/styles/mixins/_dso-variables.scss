@@ -48,21 +48,31 @@ $dso-font-size-h4: 1.125rem;
 $dso-font-size-h5: 1rem;
 
 // component kleuren
+$dso-success-color: #79b929;
+$dso-danger-color: #ce3f51;
+$dso-warning-color: #dcd400;
+$dso-info-color: #6ca4d9;
+
 $dso-anchor-visited-color: #8b4a6a;
 $dso-anchor-hover-color: #676cb0;
 
+$dso-accordion-border-color: #d3ddd6;
+$dso-accordion-success-icon-bg-color: $dso-success-color;
+$dso-accordion-danger-icon-bg-color: $dso-danger-color;
+$dso-accordion-warning-icon-bg-color: $dso-warning-color;
+$dso-accordion-info-icon-bg-color: $dso-info-color;
+
 $dso-alert-success-bg-color: #e4f1d4;
-$dso-alert-success-icon-bg-color: #79b929;
+$dso-alert-success-icon-bg-color: $dso-success-color;
 $dso-alert-danger-bg-color: #f5d8dc;
-$dso-alert-danger-icon-bg-color: #ce3f51;
+$dso-alert-danger-icon-bg-color: $dso-danger-color;
 $dso-alert-warning-bg-color: #f8f6cc;
-$dso-alert-warning-icon-bg-color: #dcd400;
+$dso-alert-warning-icon-bg-color: $dso-warning-color;
 $dso-alert-info-bg-color: #e1ecf7;
-$dso-alert-info-icon-bg-color: #6ca4d9;
+$dso-alert-info-icon-bg-color: $dso-info-color;
 
 $dso-button-size: $u6;
 $dso-button-link-size: $u4;
-$dso-accordion-border-color: #d3ddd6;
 
 $dso-button-border-width: 2px;
 $dso-button-primary-hover-color: #d45800;

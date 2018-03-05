@@ -17,13 +17,16 @@ context:
   - title: Woning
     id: panel1
     state: success
-    icon: fas fa-check
   - title: Bouwwerkzaamheden
     id: panel2
     state: success
-    icon: fas fa-check
   - title: Plaats van het bouwwerk
     id: panel3
+    state: warning
     open: true
   - title: Afmetingen van het bouwwerk
     id: panel4
+    state: info
+  - title: Extra werkzaamheden
+    id: panel5
+    state: danger

@@ -2,7 +2,10 @@ $dso-check-icon-font-size: $u2;
 $dso-check-icon-size: $u4;
 $dso-accordion-panel-icon: fa-content($fa-var-chevron-down);
 $dso-accordion-panel-active-icon: fa-content($fa-var-chevron-up);
-$dso-accordion-check-icon: fa-content($fa-var-check);
+$dso-accordion-success-icon: fa-content($fa-var-check);
+$dso-accordion-danger-icon: fa-content($fa-var-times);
+$dso-accordion-warning-icon: fa-content($fa-var-exclamation);
+$dso-accordion-info-icon: fa-content($fa-var-info);
 
 .accordion {
   .section-handle {
@@ -31,11 +34,10 @@ $dso-accordion-check-icon: fa-content($fa-var-check);
         width: $u2;
       }
 
-      .check-icon {
-        background-color: $grasgroen;
+      &::after {
+        @extend .fas;
+
         border-radius: 50%;
-        color: $wit;
-        font-size: $dso-check-icon-font-size;
         height: $dso-check-icon-size;
         line-height: $dso-check-icon-size;
         position: absolute;
@@ -61,6 +63,42 @@ $dso-accordion-check-icon: fa-content($fa-var-check);
   }
 
   .accordion-section {
+    &.accordion-success {
+      a::after {
+        background-color: $dso-accordion-success-icon-bg-color;
+        color: $wit;
+        content: $dso-accordion-success-icon;
+        font-size: $dso-check-icon-font-size;
+      }
+    }
+
+    &.accordion-danger {
+      a::after {
+        background-color: $dso-accordion-danger-icon-bg-color;
+        color: $wit;
+        content: $dso-accordion-danger-icon;
+        font-size: $dso-check-icon-font-size;
+      }
+    }
+
+    &.accordion-warning {
+      a::after {
+        background-color: $dso-accordion-warning-icon-bg-color;
+        color: $grijs-90;
+        content: $dso-accordion-warning-icon;
+        font-size: $dso-check-icon-font-size;
+      }
+    }
+
+    &.accordion-info {
+      a::after {
+        background-color: $dso-accordion-info-icon-bg-color;
+        color: $wit;
+        content: $dso-accordion-info-icon;
+        font-size: $dso-check-icon-font-size;
+      }
+    }
+
     &.open {
       .section-handle {
         a::before {
