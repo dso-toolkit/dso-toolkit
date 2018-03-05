@@ -1,26 +1,7 @@
 @mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
-  &:hover,
-  &:active,
-  &.active,
-  &:focus,
-  &.focus {
-    background-color: $background-color;
-    border-color: $border-color;
-    color: $color;
-  }
-}
-
-@mixin double-state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
-  &:active,
-  &.active {
-    &:focus,
-    &.focus,
-    &:hover {
-      background-color: $background-color;
-      border-color: $border-color;
-      color: $color;
-    }
-  }
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
 }
 
 .btn {
@@ -51,8 +32,21 @@
 }
 
 .btn-default {
-  @include state-styling($grasgroen, $grasgroen, $wit);
-  @include double-state-styling($bosgroen, $bosgroen, $wit);
+  &:hover,
+  &:focus,
+  &.focus {
+    @include state-styling($grasgroen, $grasgroen, $wit);
+  }
+
+  &:active,
+  &.active {
+    &,
+    &:focus,
+    &.focus,
+    &:hover {
+      @include state-styling($bosgroen, $bosgroen, $wit);
+    }
+  }
 
   &.disabled,
   &[disabled] {
@@ -66,8 +60,21 @@
 }
 
 .btn-primary {
-  @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
-  @include double-state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+  &:hover,
+  &:focus,
+  &.focus {
+    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
+  }
+
+  &:active,
+  &.active {
+    &,
+    &:focus,
+    &.focus,
+    &:hover {
+      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+    }
+  }
 
   &.disabled,
   &[disabled] {
@@ -97,8 +104,6 @@
   }
 
   &:hover,
-  &:active,
-  &.active,
   &:focus,
   &.focus {
     color: $grasgroen;
@@ -112,6 +117,7 @@
 
   &:active,
   &.active {
+    &,
     &:focus,
     &.focus {
       color: $bosgroen;
