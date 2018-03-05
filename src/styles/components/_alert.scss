@@ -51,7 +51,7 @@ $dso-alert-info-icon-color: $wit;
 
   &.alert-info {
     &::before {
-      @include dso-alert-icon($dso-alert-info-icon-bg-color, $dso-alert-info-icon-color, $fa-var-info);
+      @include dso-alert-icon($dso-alert-info-icon-bg-color, $dso-alert-info-icon-color, fa-content($fa-var-info));
     }
   }
 }
