@@ -17,9 +17,11 @@ context:
   - title: Woning
     id: panel1
     state: success
+    icon: fas fa-check
   - title: Bouwwerkzaamheden
     id: panel2
     state: success
+    icon: fas fa-check
   - title: Plaats van het bouwwerk
     id: panel3
     open: true

@@ -18,12 +18,21 @@ module.exports = function (fractal) {
 
     accordionSection(title, options) {
       var self = this;
+      var icon = this.icon;
 
       let html = (
         `<div class="accordion-section${(self.state ? ' accordion-' + self.state : '') + (self.open ? ' open' : '') }">
           <div class="section-handle">
-            <a href="#">${ title }</a>
-          </div>`);
+            <a href="#">
+              ${ title }`);
+
+              if (icon) {
+                html += (
+                  `<span class="check-icon ${ icon }"></span>`);
+              }
+
+            html += `</a>
+          </div>`;
 
       if (self.open) {
         html += (

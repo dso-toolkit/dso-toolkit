@@ -31,13 +31,10 @@ $dso-accordion-check-icon: fa-content($fa-var-check);
         width: $u2;
       }
 
-      &::after {
-        @extend .fas;
-
+      .check-icon {
         background-color: $grasgroen;
         border-radius: 50%;
         color: $wit;
-        content: $dso-accordion-check-icon;
         font-size: $dso-check-icon-font-size;
         height: $dso-check-icon-size;
         line-height: $dso-check-icon-size;
