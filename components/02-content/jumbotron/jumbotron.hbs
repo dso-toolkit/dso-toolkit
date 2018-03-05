@@ -1,7 +1,14 @@
 <div class="jumbotron">
-  <h1>{{ title }}</h1>
+  <h1 class="jumbotron-title">{{ title }}</h1>
   <div class="jumbotron-body">
     <p>{{ content }}</p>
-    {{> '@button' button }}
+    {{#if button }}
+      {{> '@button' button }}
+    {{/if}}
   </div>
+  {{#if image }}
+    <div class="jumbotron-image">
+      {{> '@image' image }}
+    </div>
+  {{/if}}
 </div>

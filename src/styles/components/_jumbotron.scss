@@ -1,0 +1,15 @@
+.jumbotron {
+  @include make-row;
+
+  .jumbotron-title {
+    @include make-md-column(12);
+  }
+
+  .jumbotron-body {
+    @include make-md-column(8);
+  }
+
+  .jumbotron-image {
+    @include make-md-column(4);
+  }
+}
