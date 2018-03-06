@@ -1,9 +1,10 @@
 notes: |
   Een help block staat altijd direct in de `.form-group`.
-status: ready
+status: wip
+collated: true
 context:
   id: select_voorbeeld
-  helpText: Selecteer een waarde
+  label: Select
   options:
     - optionType: Europees
       items:
@@ -16,3 +17,97 @@ context:
           selected: true
         - value: volkswagen
           label: Volkswagen
+variants:
+  - name: input-focus
+    context:
+      id: group_input_focus
+      type: text
+      label: Select - Focus
+      inputModifiers: " example-focus"
+      options:
+        - optionType: Europees
+          items:
+            - value: alfa
+              label: Alfa Romeo
+            - value: fiat
+              label: Fiat
+            - value: marcedes
+              label: Mercedes
+              selected: true
+            - value: volkswagen
+              label: Volkswagen
+  - name: input-feedback
+    context:
+      id: group_input_feedback
+      type: text
+      label: Select - Feedback
+      helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
+      inputModifiers: " example-default"
+      options:
+        - optionType: Europees
+          items:
+            - value: alfa
+              label: Alfa Romeo
+            - value: fiat
+              label: Fiat
+            - value: marcedes
+              label: Mercedes
+              selected: true
+            - value: volkswagen
+              label: Volkswagen
+  - name: input-ongeldig
+    context:
+      id: group_input_required
+      type: text
+      label: Select - Ongeldig
+      required: U heeft geen geldige waarde geselecteerd
+      options:
+        - optionType: Europees
+          items:
+            - value: alfa
+              label: Alfa Romeo
+            - value: fiat
+              label: Fiat
+            - value: marcedes
+              label: Mercedes
+              selected: true
+            - value: volkswagen
+              label: Volkswagen
+  - name: input-ongeldig-feedback
+    context:
+      id: group_input_required
+      type: text
+      label: Select - Ongeldig / Feedback
+      required: Voer een geldig e-mailadres in
+      helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
+      options:
+        - optionType: Europees
+          items:
+            - value: alfa
+              label: Alfa Romeo
+            - value: fiat
+              label: Fiat
+            - value: marcedes
+              label: Mercedes
+              selected: true
+            - value: volkswagen
+              label: Volkswagen
+  - name: input-uitleg
+    context:
+      id: group_input_explanation
+      type: text
+      label: Select - Uitleg
+      helpIcon: true
+      inputModifiers: " example-default"
+      options:
+        - optionType: Europees
+          items:
+            - value: alfa
+              label: Alfa Romeo
+            - value: fiat
+              label: Fiat
+            - value: marcedes
+              label: Mercedes
+              selected: true
+            - value: volkswagen
+              label: Volkswagen

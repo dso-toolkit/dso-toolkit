@@ -5,19 +5,28 @@
       <span class="optional">optioneel</span>
     {{/unless}}
   </label>
-  <select id="{{ id }}" class="form-control"
-    {{{ifattr 'disabled' disabled }}}
-    {{{ifattr 'readonly' readonly }}}
-    {{{ifattr 'multiple' multiple }}}>
-    {{#each options }}
-      <optgroup label="{{ optionType }}"{{{ifattr ' disabled' disabled }}}>
-        {{#each items }}
-          <option value="{{ value }}"{{{ifattr ' selected' selected }}}>{{ label }}</option>
-        {{/each}}
-      </optgroup>
-    {{/each}}
-  </select>
-  {{#if helpText }}
-    {{> '@help-block' }}
-  {{/if}}
+  <div {{#if inputIcon }}class="has-feedback"{{/if}}>
+    {{#if helpIcon }}
+      <button class="input-help"></button>
+    {{/if}}
+    <select id="{{ id }}" class="form-control{{ inputModifiers }}"
+      {{{ifattr 'disabled' disabled }}}
+      {{{ifattr 'readonly' readonly }}}
+      {{{ifattr 'multiple' multiple }}}
+      {{{ifattr 'required' required }}}>
+      {{#each options }}
+        <optgroup label="{{ optionType }}"{{{ifattr ' disabled' disabled }}}>
+          {{#each items }}
+            <option value="{{ value }}"{{{ifattr ' selected' selected }}}>{{ label }}</option>
+          {{/each}}
+        </optgroup>
+      {{/each}}
+    </select>
+    {{#if required }}
+      <span class="required">Dit is een verplicht veld</span>
+    {{/if}}
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
 </div>

@@ -1,10 +1,10 @@
-status: ready
+status: wip
+collated: true
 context:
   id: beleg
   type: select
-  label: Beleg
+  label: Select
   multiple: true
-  helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
   options:
     - optionType: Vlees
       items:
@@ -20,3 +20,117 @@ context:
           label: Zalm
         - value: makreel
           label: Makreel
+variants:
+  - name: input-focus
+    context:
+      id: group_input_focus
+      type: text
+      label: Select - Focus
+      inputModifiers: " example-focus"
+      multiple: true
+      options:
+        - optionType: Vlees
+          items:
+            - value: worst
+              label: Worst
+            - value: salami
+              label: Salami
+            - value: geit
+              label: Geit
+        - optionType: Vis
+          items:
+            - value: zalm
+              label: Zalm
+            - value: makreel
+              label: Makreel
+  - name: input-feedback
+    context:
+      id: group_input_feedback
+      type: text
+      label: Select - Feedback
+      helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
+      inputModifiers: " example-default"
+      multiple: true
+      options:
+        - optionType: Vlees
+          items:
+            - value: worst
+              label: Worst
+            - value: salami
+              label: Salami
+            - value: geit
+              label: Geit
+        - optionType: Vis
+          items:
+            - value: zalm
+              label: Zalm
+            - value: makreel
+              label: Makreel
+  - name: input-ongeldig
+    context:
+      id: group_input_required
+      type: text
+      label: Select - Ongeldig
+      required: U heeft geen geldige waarde geselecteerd
+      multiple: true
+      options:
+        - optionType: Vlees
+          items:
+            - value: worst
+              label: Worst
+            - value: salami
+              label: Salami
+            - value: geit
+              label: Geit
+        - optionType: Vis
+          items:
+            - value: zalm
+              label: Zalm
+            - value: makreel
+              label: Makreel
+  - name: input-ongeldig-feedback
+    context:
+      id: group_input_required
+      type: text
+      label: Select - Ongeldig / Feedback
+      required: Voer een geldig e-mailadres in
+      helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
+      multiple: true
+      options:
+        - optionType: Vlees
+          items:
+            - value: worst
+              label: Worst
+            - value: salami
+              label: Salami
+            - value: geit
+              label: Geit
+        - optionType: Vis
+          items:
+            - value: zalm
+              label: Zalm
+            - value: makreel
+              label: Makreel
+  - name: input-uitleg
+    context:
+      id: group_input_explanation
+      type: text
+      label: Select - Uitleg
+      helpIcon: true
+      inputModifiers: " example-default"
+      multiple: true
+      options:
+        - optionType: Vlees
+          items:
+            - value: worst
+              label: Worst
+            - value: salami
+              label: Salami
+            - value: geit
+              label: Geit
+        - optionType: Vis
+          items:
+            - value: zalm
+              label: Zalm
+            - value: makreel
+              label: Makreel
