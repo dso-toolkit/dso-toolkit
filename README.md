@@ -1,7 +1,7 @@
 # DSO Toolkit and Component Library
 This is the repository of the DSO Toolkit and Component Library. 
 
-The toolkit is framework-agnostic and based on [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3) written in SCSS. The component library is written in Handlebars.js using Fractal. [Fractal](https://fractal.build)] is a _component library & styleguide framework_.
+The toolkit is framework-agnostic and based on [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3) written in SCSS. The component library is written in Handlebars.js using Fractal. [Fractal](https://fractal.build) is a _component library & styleguide framework_.
 
 ## Getting started
 Releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
