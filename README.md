@@ -48,7 +48,9 @@ The same goes for the component library:
 | master      | stable     | `https://www.dso-toolkit.nl/stable/`   |
 | *tags only* | *releases* | `https://www.dso-toolkit.nl/VERSION/`  |
 
-The branch *latest* is the current development branch, which at the time of writing was **1_2_0**
+The branch *latest* is the current development branch, which at the time of writing was **1_2_0**.
+
+**DEPRECATED**: The table above shows a 'master' branch. There is no master branch anymore. The URLs still work, but refer to a stable release of the 1.x cycle.
 
 ```html
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/stable/styles/dso.css" />
