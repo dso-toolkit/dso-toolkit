@@ -6,7 +6,16 @@
     {{/unless}}
   </label>
   <div class="field-container">
-    <textarea class="form-control" id="{{ id }}" {{{ifattr 'rows' rows }}}></textarea>
+    {{#if helpIcon }}
+      <button class="input-help"></button>
+    {{/if}}
+    <textarea class="form-control{{ inputModifiers }}" id="{{ id }}" {{{ifattr 'rows' rows }}}
+      {{{ifattr 'disabled' disabled }}}
+      {{{ifattr 'readonly' readonly }}}
+      {{{ifattr 'required' required }}}></textarea>
+    {{#if required }}
+      <i class="required">{{ required }}</i>
+    {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}
     {{/if}}
