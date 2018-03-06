@@ -78,7 +78,8 @@ fieldset.form-group {
     resize: vertical;
   }
 
-  &.has-feedback {
+  &.has-feedback,
+  .has-feedback {
     .form-control {
       padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
     }

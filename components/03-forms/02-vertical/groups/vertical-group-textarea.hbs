@@ -5,8 +5,19 @@
       <span class="optional">optioneel</span>
     {{/unless}}
   </label>
-  <textarea class="form-control" id="{{ id }}" rows="{{ rows }}"></textarea>
-  {{#if helpText }}
-    {{> '@help-block' }}
-  {{/if}}
+  <div {{#if inputIcon }}class="has-feedback"{{/if}}>
+    {{#if helpIcon }}
+      <button class="input-help"></button>
+    {{/if}}
+    <textarea class="form-control{{ inputModifiers }}" id="{{ id }}" rows="{{ rows }}"
+      {{{ifattr 'disabled' disabled }}}
+      {{{ifattr 'readonly' readonly }}}
+      {{{ifattr 'required' required }}}></textarea>
+    {{#if required }}
+      <i class="required">{{ required }}</i>
+    {{/if}}
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
 </div>

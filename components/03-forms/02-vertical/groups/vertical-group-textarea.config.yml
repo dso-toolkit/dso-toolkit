@@ -1,8 +1,42 @@
 notes: |
   Een help block staat altijd direct in de `.form-group`.
-status: ready
+status: wip
+collated: true
 context:
   id: textarea_voorbeeld
-  label: Klachten
+  label: Textarea
   rows: 5
-  helpText: Vul hier aanvullende informatie in
+variants:
+  - name: textarea-focus
+    context:
+      id: group_input_focus
+      type: text
+      label: Textarea - Focus
+      inputModifiers: " example-focus"
+  - name: textarea-feedback
+    context:
+      id: group_input_feedback
+      type: text
+      label: Textarea - Feedback
+      helpText: Minimaal 6 tekens waarvan 1 leesteken
+      inputModifiers: " example-default"
+  - name: textarea-ongeldig
+    context:
+      id: group_input_required
+      type: text
+      label: Textarea - Ongeldig
+      required: Minimaal 6 tekens waarvan 1 leesteken
+  - name: textarea-ongeldig-feedback
+    context:
+      id: group_input_required
+      type: text
+      label: Textarea - Ongeldig / Feedback
+      required: Voer een geldig e-mailadres in
+      helpText: Minimaal 6 tekens waarvan 1 leesteken
+  - name: textarea-uitleg
+    context:
+      id: group_input_explanation
+      type: text
+      label: Textarea - Uitleg
+      helpIcon: true
+      inputModifiers: " example-default"

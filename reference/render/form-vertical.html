@@ -7,45 +7,56 @@
         <label for="voornaam">
           Voornaam
         </label>
-        <input type="text" id="voornaam" class="form-control" required />
-        <span class="required">Dit is een verplicht veld</span>
+        <div>
+          <input type="text" id="voornaam" class="form-control" required />
+          <span class="required">true</span>
+        </div>
       </div>
       <div class="form-group input text">
         <label for="achternaam">
           Achternaam
           <span class="optional">optioneel</span>
         </label>
-        <input type="text" id="achternaam" class="form-control" />
-        <p class="help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+        <div>
+          <input type="text" id="achternaam" class="form-control" />
+          <p class="help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+        </div>
       </div>
       <div class="form-group input email">
         <label for="email">
           E-mailadres
         </label>
-        <input type="email" id="email" class="form-control" required />
-        <span class="required">Dit is een verplicht veld</span>
+        <div>
+          <input type="email" id="email" class="form-control" required />
+          <span class="required">true</span>
+        </div>
       </div>
-      <div class="form-group input text has-feedback">
+      <div class="form-group input text">
         <label for="geboortedatum">
           Geboortedatum
           <span class="optional">optioneel</span>
         </label>
-        <input type="text" id="geboortedatum" class="form-control" />
-        <span class="fa fa-calendar-o form-control-feedback" aria-hidden="true"></span>
+        <div>
+          <input type="text" id="geboortedatum" class="form-control" />
+        </div>
       </div>
       <div class="form-group input password">
         <label for="password">
           Wachtwoord
           <span class="optional">optioneel</span>
         </label>
-        <input type="password" id="password" class="form-control" />
+        <div>
+          <input type="password" id="password" class="form-control" />
+        </div>
       </div>
       <div class="form-group input password">
         <label for="password_bevestig">
           Wachtwoord (bevestig)
           <span class="optional">optioneel</span>
         </label>
-        <input type="password" id="password_bevestig" class="form-control" />
+        <div>
+          <input type="password" id="password_bevestig" class="form-control" />
+        </div>
       </div>
       <div class="form-group static">
         <label class="control-label">Product</label>
@@ -131,8 +142,10 @@
           Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
           <span class="optional">optioneel</span>
         </label>
-        <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
-        <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
+        <div>
+          <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
+          <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
+        </div>
       </div>
     </fieldset>
   </fieldset>
