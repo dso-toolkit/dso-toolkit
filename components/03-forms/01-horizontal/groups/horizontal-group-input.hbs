@@ -18,8 +18,8 @@
     {{#if inputIcon }}
       <span class="{{ inputIcon }} form-control-feedback" aria-hidden="true"></span>
     {{/if}}
-    {{#if required }}
-      <i class="required">{{ required }}</i>
+    {{#if errorText }}
+      <i class="error-text">{{ errorText }}</i>
     {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}

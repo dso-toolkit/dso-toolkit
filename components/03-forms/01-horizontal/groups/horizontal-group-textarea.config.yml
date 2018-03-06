@@ -18,20 +18,30 @@ variants:
       id: group_input_feedback
       type: text
       label: Textarea - Feedback
-      helpText: Minimaal 6 tekens waarvan 1 leesteken
       inputModifiers: " example-default"
+      helpText: Minimaal 6 tekens waarvan 1 leesteken
+  - name: textarea-required
+    context:
+      id: group_input_required
+      type: text
+      label: Textarea - Required
+      required: true
   - name: textarea-ongeldig
     context:
-      id: group_input_required
+      id: group_input_invalid
       type: text
       label: Textarea - Ongeldig
-      required: Minimaal 6 tekens waarvan 1 leesteken
+      inputModifiers: " invalid"
+      required: true
+      errorText: Minimaal 6 tekens waarvan 1 leesteken
   - name: textarea-ongeldig-feedback
     context:
-      id: group_input_required
+      id: group_input_invalid-feedback
       type: text
       label: Textarea - Ongeldig / Feedback
-      required: Voer een geldig e-mailadres in
+      inputModifiers: " invalid"
+      required: true
+      errorText: Voer een geldig e-mailadres in
       helpText: Minimaal 6 tekens waarvan 1 leesteken
   - name: textarea-uitleg
     context:

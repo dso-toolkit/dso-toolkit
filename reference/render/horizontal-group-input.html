@@ -42,14 +42,27 @@
 <!-- End: @horizontal-group-input--input-feedback -->
 <hr />
 
-<!-- Start: @horizontal-group-input--input-ongeldig -->
+<!-- Start: @horizontal-group-input--input-verplicht -->
 <div class="form-group input ">
   <label for="group_input_required" class="control-label">
+    Text veld - Verplicht
+  </label>
+  <div class="field-container">
+    <input type="" id="group_input_required" class="form-control" required />
+  </div>
+</div>
+
+<!-- End: @horizontal-group-input--input-verplicht -->
+<hr />
+
+<!-- Start: @horizontal-group-input--input-ongeldig -->
+<div class="form-group input ">
+  <label for="group_input_invalid" class="control-label">
     Text veld - Ongeldig
   </label>
   <div class="field-container">
-    <input type="" id="group_input_required" class="form-control" required="Minimaal 6 tekens waarvan 1 leesteken" />
-    <i class="required">Minimaal 6 tekens waarvan 1 leesteken</i>
+    <input type="" id="group_input_invalid" class="form-control invalid" required />
+    <i class="error-text">Minimaal 6 tekens waarvan 1 leesteken</i>
   </div>
 </div>
 
@@ -58,13 +71,13 @@
 
 <!-- Start: @horizontal-group-input--input-ongeldig-feedback -->
 <div class="form-group input ">
-  <label for="group_input_required" class="control-label">
+  <label for="group_input_invalid-feedback" class="control-label">
     Text veld - Ongeldig / Feedback
   </label>
   <div class="field-container">
-    <input type="" id="group_input_required" class="form-control" required="Voer een geldig e-mailadres in" />
-    <i class="required">Voer een geldig e-mailadres in</i>
-    <p class="help-block" id="helpTextId_group_input_required">Minimaal 6 tekens waarvan 1 leesteken</p>
+    <input type="" id="group_input_invalid-feedback" class="form-control invalid" required />
+    <i class="error-text">Voer een geldig e-mailadres in</i>
+    <p class="help-block" id="helpTextId_group_input_invalid-feedback">Minimaal 6 tekens waarvan 1 leesteken</p>
   </div>
 </div>
 

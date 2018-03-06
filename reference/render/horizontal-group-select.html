@@ -72,13 +72,13 @@
 <!-- End: @horizontal-group-select--input-feedback -->
 <hr />
 
-<!-- Start: @horizontal-group-select--input-ongeldig -->
+<!-- Start: @horizontal-group-select--input-required -->
 <div class="form-group select multiple">
   <label for="group_input_required" class="control-label">
-    Select - Ongeldig
+    Select - Verplicht
   </label>
   <div class="field-container">
-    <select id="group_input_required" class="form-control" multiple required="U heeft geen geldige waarde geselecteerd">
+    <select id="group_input_required" class="form-control" multiple required>
       <optgroup label="Vlees">
         <option value="worst">Worst</option>
         <option value="salami">Salami</option>
@@ -89,7 +89,30 @@
         <option value="makreel">Makreel</option>
       </optgroup>
     </select>
-    <span class="required">Dit is een verplicht veld</span>
+  </div>
+</div>
+
+<!-- End: @horizontal-group-select--input-required -->
+<hr />
+
+<!-- Start: @horizontal-group-select--input-ongeldig -->
+<div class="form-group select multiple">
+  <label for="group_input_invalid" class="control-label">
+    Select - Ongeldig
+  </label>
+  <div class="field-container">
+    <select id="group_input_invalid" class="form-control invalid" multiple required>
+      <optgroup label="Vlees">
+        <option value="worst">Worst</option>
+        <option value="salami">Salami</option>
+        <option value="geit">Geit</option>
+      </optgroup>
+      <optgroup label="Vis">
+        <option value="zalm">Zalm</option>
+        <option value="makreel">Makreel</option>
+      </optgroup>
+    </select>
+    <i class="error-text">Maak een geldige selectie</i>
   </div>
 </div>
 
@@ -98,11 +121,11 @@
 
 <!-- Start: @horizontal-group-select--input-ongeldig-feedback -->
 <div class="form-group select multiple">
-  <label for="group_input_required" class="control-label">
+  <label for="group_input_invalid-feedback" class="control-label">
     Select - Ongeldig / Feedback
   </label>
   <div class="field-container">
-    <select id="group_input_required" class="form-control" multiple required="Voer een geldig e-mailadres in">
+    <select id="group_input_invalid-feedback" class="form-control invalid" multiple required>
       <optgroup label="Vlees">
         <option value="worst">Worst</option>
         <option value="salami">Salami</option>
@@ -113,8 +136,8 @@
         <option value="makreel">Makreel</option>
       </optgroup>
     </select>
-    <span class="required">Dit is een verplicht veld</span>
-    <p class="help-block" id="helpTextId_group_input_required">Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt</p>
+    <i class="error-text">Maak een geldige selectie</i>
+    <p class="help-block" id="helpTextId_group_input_invalid-feedback">Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt</p>
   </div>
 </div>
 

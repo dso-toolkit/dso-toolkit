@@ -48,8 +48,30 @@ variants:
       id: group_input_feedback
       type: text
       label: Select - Feedback
-      helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
       inputModifiers: " example-default"
+      helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
+      multiple: true
+      options:
+        - optionType: Vlees
+          items:
+            - value: worst
+              label: Worst
+            - value: salami
+              label: Salami
+            - value: geit
+              label: Geit
+        - optionType: Vis
+          items:
+            - value: zalm
+              label: Zalm
+            - value: makreel
+              label: Makreel
+  - name: input-required
+    context:
+      id: group_input_required
+      type: text
+      label: Select - Verplicht
+      required: true
       multiple: true
       options:
         - optionType: Vlees
@@ -68,10 +90,12 @@ variants:
               label: Makreel
   - name: input-ongeldig
     context:
-      id: group_input_required
+      id: group_input_invalid
       type: text
       label: Select - Ongeldig
-      required: U heeft geen geldige waarde geselecteerd
+      inputModifiers: " invalid"
+      required: true
+      errorText: Maak een geldige selectie
       multiple: true
       options:
         - optionType: Vlees
@@ -90,10 +114,12 @@ variants:
               label: Makreel
   - name: input-ongeldig-feedback
     context:
-      id: group_input_required
+      id: group_input_invalid-feedback
       type: text
       label: Select - Ongeldig / Feedback
-      required: Voer een geldig e-mailadres in
+      inputModifiers: " invalid"
+      required: true
+      errorText: Maak een geldige selectie
       helpText: Deze producten worden allemaal gemaakt in een fabriek waar ook noten worden verwerkt
       multiple: true
       options:
@@ -116,8 +142,8 @@ variants:
       id: group_input_explanation
       type: text
       label: Select - Uitleg
-      helpIcon: true
       inputModifiers: " example-default"
+      helpIcon: true
       multiple: true
       options:
         - optionType: Vlees

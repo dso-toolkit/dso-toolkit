@@ -22,8 +22,8 @@
         </optgroup>
       {{/each}}
     </select>
-    {{#if required }}
-      <span class="required">Dit is een verplicht veld</span>
+    {{#if errorText }}
+      <i class="error-text">{{ errorText }}</i>
     {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}

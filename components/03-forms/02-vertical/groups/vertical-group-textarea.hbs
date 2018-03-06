@@ -13,8 +13,8 @@
       {{{ifattr 'disabled' disabled }}}
       {{{ifattr 'readonly' readonly }}}
       {{{ifattr 'required' required }}}></textarea>
-    {{#if required }}
-      <i class="required">{{ required }}</i>
+    {{#if errorText }}
+      <i class="error-text">{{ errorText }}</i>
     {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}

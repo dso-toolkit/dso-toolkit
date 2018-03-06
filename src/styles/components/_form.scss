@@ -40,7 +40,7 @@ $label-column: $grid-columns / 2;
     color: $bosgroen-40;
   }
 
-  &[required] {
+  &.invalid {
     border-color: $dso-form-control-required-color;
   }
 
@@ -90,8 +90,14 @@ fieldset.form-group {
     }
   }
 
-  .required {
+  .error-text {
     color: $dso-form-control-required-color;
+    display: block;
+    margin-top: 5px;
+
+    + .help-block {
+      margin-top: 0;
+    }
   }
 
   .help-block {

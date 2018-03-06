@@ -42,14 +42,27 @@
 <!-- End: @horizontal-group-textarea--textarea-feedback -->
 <hr />
 
-<!-- Start: @horizontal-group-textarea--textarea-ongeldig -->
+<!-- Start: @horizontal-group-textarea--textarea-required -->
 <div class="form-group textarea">
   <label for="group_input_required" class="control-label">
+    Textarea - Required
+  </label>
+  <div class="field-container">
+    <textarea class="form-control" id="group_input_required" rows="10" required></textarea>
+  </div>
+</div>
+
+<!-- End: @horizontal-group-textarea--textarea-required -->
+<hr />
+
+<!-- Start: @horizontal-group-textarea--textarea-ongeldig -->
+<div class="form-group textarea">
+  <label for="group_input_invalid" class="control-label">
     Textarea - Ongeldig
   </label>
   <div class="field-container">
-    <textarea class="form-control" id="group_input_required" rows="10" required="Minimaal 6 tekens waarvan 1 leesteken"></textarea>
-    <i class="required">Minimaal 6 tekens waarvan 1 leesteken</i>
+    <textarea class="form-control invalid" id="group_input_invalid" rows="10" required></textarea>
+    <i class="error-text">Minimaal 6 tekens waarvan 1 leesteken</i>
   </div>
 </div>
 
@@ -58,13 +71,13 @@
 
 <!-- Start: @horizontal-group-textarea--textarea-ongeldig-feedback -->
 <div class="form-group textarea">
-  <label for="group_input_required" class="control-label">
+  <label for="group_input_invalid-feedback" class="control-label">
     Textarea - Ongeldig / Feedback
   </label>
   <div class="field-container">
-    <textarea class="form-control" id="group_input_required" rows="10" required="Voer een geldig e-mailadres in"></textarea>
-    <i class="required">Voer een geldig e-mailadres in</i>
-    <p class="help-block" id="helpTextId_group_input_required">Minimaal 6 tekens waarvan 1 leesteken</p>
+    <textarea class="form-control invalid" id="group_input_invalid-feedback" rows="10" required></textarea>
+    <i class="error-text">Voer een geldig e-mailadres in</i>
+    <p class="help-block" id="helpTextId_group_input_invalid-feedback">Minimaal 6 tekens waarvan 1 leesteken</p>
   </div>
 </div>
 
