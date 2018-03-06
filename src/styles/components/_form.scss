@@ -12,6 +12,23 @@ $label-column: $grid-columns / 2;
       margin-left: 4px;
     }
   }
+
+  .input-help {
+    background: none;
+    border: 0;
+    float: right;
+    line-height: $u4;
+    padding: 0;
+
+    &::before {
+      @extend .far;
+
+      color: $grasgroen;
+      content: fa-content($fa-var-question-circle);
+      font-size: $u3;
+      vertical-align: middle;
+    }
+  }
 }
 
 .form-control {
@@ -25,6 +42,11 @@ $label-column: $grid-columns / 2;
 
   &[required] {
     border-color: $dso-form-control-required-color;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: none;
   }
 }
 
@@ -69,6 +91,11 @@ fieldset.form-group {
 
   .required {
     color: $dso-form-control-required-color;
+  }
+
+  .help-block {
+    color: $grijs-60;
+    font-style: italic;
   }
 }
 

@@ -1,5 +1,47 @@
-status: ready
+status: wip
+collated: true
 context:
   id: group_input_voorbeeld
   type: text
-  label: Voornaam
+  label: Text veld
+variants:
+  - name: input-focus
+    context:
+      id: group_input_focus
+      type: text
+      label: Text veld - Focus
+      inputModifiers: " example-focus"
+  - name: input-feedback
+    context:
+      id: group_input_feedback
+      type: text
+      label: Text veld - Feedback
+      helpText: Minimaal 6 tekens waarvan 1 leesteken
+      inputModifiers: " example-default"
+  - name: input-ongeldig
+    context:
+      id: group_input_required
+      type: text
+      label: Text veld - Ongeldig
+      required: Minimaal 6 tekens waarvan 1 leesteken
+  - name: input-ongeldig-feedback
+    context:
+      id: group_input_required
+      type: text
+      label: Text veld - Ongeldig / Feedback
+      required: Voer een geldig e-mailadres in
+      helpText: Minimaal 6 tekens waarvan 1 leesteken
+  - name: input-icoon
+    context:
+      id: group_input_icon
+      type: text
+      label: Text veld - Icoon
+      inputIcon: fas fa-calendar
+      inputModifiers: " example-default"
+  - name: input-uitleg
+    context:
+      id: group_input_explanation
+      type: text
+      label: Text veld - Uitleg
+      helpIcon: true
+      inputModifiers: " example-default"
