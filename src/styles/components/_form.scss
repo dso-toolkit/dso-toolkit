@@ -12,6 +12,23 @@ $label-column: $grid-columns / 2;
       margin-left: 4px;
     }
   }
+
+  .input-help {
+    background: none;
+    border: 0;
+    float: right;
+    line-height: $u4;
+    padding: 0;
+
+    &::before {
+      @extend .far;
+
+      color: $grasgroen;
+      content: fa-content($fa-var-question-circle);
+      font-size: $u3;
+      vertical-align: middle;
+    }
+  }
 }
 
 .form-control {
@@ -23,8 +40,13 @@ $label-column: $grid-columns / 2;
     color: $bosgroen-40;
   }
 
-  &[required] {
+  &.invalid {
     border-color: $dso-form-control-required-color;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: none;
   }
 }
 
@@ -56,7 +78,8 @@ fieldset.form-group {
     resize: vertical;
   }
 
-  &.has-feedback {
+  &.has-feedback,
+  .has-feedback {
     .form-control {
       padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
     }
@@ -67,8 +90,19 @@ fieldset.form-group {
     }
   }
 
-  .required {
+  .error-text {
     color: $dso-form-control-required-color;
+    display: block;
+    margin-top: 5px;
+
+    + .help-block {
+      margin-top: 0;
+    }
+  }
+
+  .help-block {
+    color: $grijs-60;
+    font-style: italic;
   }
 }
 

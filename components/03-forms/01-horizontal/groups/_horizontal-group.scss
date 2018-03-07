@@ -1,0 +1,9 @@
+.form-control {
+  &.example-focus {
+    border-color: $input-border-focus;
+  }
+
+  &.example-default {
+    border-color: $input-border;
+  }
+}

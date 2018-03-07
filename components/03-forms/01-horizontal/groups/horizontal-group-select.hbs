@@ -6,7 +6,10 @@
     {{/unless}}
   </label>
   <div class="field-container">
-    <select id="{{ id }}" class="form-control"
+    {{#if helpIcon }}
+      <button class="input-help"></button>
+    {{/if}}
+    <select id="{{ id }}" class="form-control{{ inputModifiers }}"
       {{{ifattr 'disabled' disabled }}}
       {{{ifattr 'readonly' readonly }}}
       {{{ifattr 'multiple' multiple }}}
@@ -19,8 +22,8 @@
         </optgroup>
       {{/each}}
     </select>
-    {{#if required }}
-      <span class="required">Dit is een verplicht veld</span>
+    {{#if errorText }}
+      <i class="error-text">{{ errorText }}</i>
     {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}

@@ -1,22 +1,27 @@
-<div class="form-group input {{ inputType }}{{#if hasFeedback }} has-feedback{{/if}}">
+<div class="form-group input {{ inputType }}">
   <label for="{{ id }}">
     {{ label }}
     {{#unless required }}
       <span class="optional">optioneel</span>
     {{/unless}}
   </label>
-  <input type="{{ inputType }}" id="{{ id }}" class="form-control"
-    {{{ifattr 'aria-describedby' helpText (helpTextId id)}}}
-    {{{ifattr 'disabled' disabled }}}
-    {{{ifattr 'readonly' readonly }}}
-    {{{ifattr 'required' required }}} />
-  {{#if hasFeedback }}
-    <span class="{{ feedbackIcon }} form-control-feedback" aria-hidden="true"></span>
-  {{/if}}
-  {{#if required }}
-    <span class="required">Dit is een verplicht veld</span>
-  {{/if}}
-  {{#if helpText }}
-    {{> '@help-block' }}
-  {{/if}}
+  <div {{#if inputIcon }}class="has-feedback"{{/if}}>
+    {{#if helpIcon }}
+      <button class="input-help"></button>
+    {{/if}}
+    <input type="{{ inputType }}" id="{{ id }}" class="form-control{{ inputModifiers }}"
+      {{{ifattr 'aria-describedby' helpText (helpTextId id)}}}
+      {{{ifattr 'disabled' disabled }}}
+      {{{ifattr 'readonly' readonly }}}
+      {{{ifattr 'required' required }}} />
+    {{#if inputIcon }}
+      <span class="{{ inputIcon }} form-control-feedback" aria-hidden="true"></span>
+    {{/if}}
+    {{#if errorText }}
+      <i class="error-text">{{ errorText }}</i>
+    {{/if}}
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
 </div>

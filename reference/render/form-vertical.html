@@ -7,45 +7,54 @@
         <label for="voornaam">
           Voornaam
         </label>
-        <input type="text" id="voornaam" class="form-control" required />
-        <span class="required">Dit is een verplicht veld</span>
+        <div>
+          <input type="text" id="voornaam" class="form-control" required />
+        </div>
       </div>
       <div class="form-group input text">
         <label for="achternaam">
           Achternaam
           <span class="optional">optioneel</span>
         </label>
-        <input type="text" id="achternaam" class="form-control" />
-        <p class="help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+        <div>
+          <input type="text" id="achternaam" class="form-control" />
+          <p class="help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+        </div>
       </div>
       <div class="form-group input email">
         <label for="email">
           E-mailadres
         </label>
-        <input type="email" id="email" class="form-control" required />
-        <span class="required">Dit is een verplicht veld</span>
+        <div>
+          <input type="email" id="email" class="form-control" required />
+        </div>
       </div>
-      <div class="form-group input text has-feedback">
+      <div class="form-group input text">
         <label for="geboortedatum">
           Geboortedatum
           <span class="optional">optioneel</span>
         </label>
-        <input type="text" id="geboortedatum" class="form-control" />
-        <span class="fa fa-calendar-o form-control-feedback" aria-hidden="true"></span>
+        <div>
+          <input type="text" id="geboortedatum" class="form-control" />
+        </div>
       </div>
       <div class="form-group input password">
         <label for="password">
           Wachtwoord
           <span class="optional">optioneel</span>
         </label>
-        <input type="password" id="password" class="form-control" />
+        <div>
+          <input type="password" id="password" class="form-control" />
+        </div>
       </div>
       <div class="form-group input password">
         <label for="password_bevestig">
           Wachtwoord (bevestig)
           <span class="optional">optioneel</span>
         </label>
-        <input type="password" id="password_bevestig" class="form-control" />
+        <div>
+          <input type="password" id="password_bevestig" class="form-control" />
+        </div>
       </div>
       <div class="form-group static">
         <label class="control-label">Product</label>
@@ -68,17 +77,19 @@
           Beleg
           <span class="optional">optioneel</span>
         </label>
-        <select id="beleg" class="form-control" multiple>
-          <optgroup label="Vlees">
-            <option value="worst">Worst</option>
-            <option value="salami">Salami</option>
-            <option value="geit">Geit</option>
-          </optgroup>
-          <optgroup label="Vis">
-            <option value="zalm">Zalm</option>
-            <option value="makreel">Makreel</option>
-          </optgroup>
-        </select>
+        <div>
+          <select id="beleg" class="form-control" multiple>
+            <optgroup label="Vlees">
+              <option value="worst">Worst</option>
+              <option value="salami">Salami</option>
+              <option value="geit">Geit</option>
+            </optgroup>
+            <optgroup label="Vis">
+              <option value="zalm">Zalm</option>
+              <option value="makreel">Makreel</option>
+            </optgroup>
+          </select>
+        </div>
       </div>
     </fieldset>
     <fieldset>
@@ -88,14 +99,16 @@
           Type auto
           <span class="optional">optioneel</span>
         </label>
-        <select id="auto_merk" class="form-control">
-          <optgroup label="Europees">
-            <option value="alfa">Alfa Romeo</option>
-            <option value="fiat">Fiat</option>
-            <option value="marcedes" selected>Mercedes</option>
-            <option value="volkswagen">Volkswagen</option>
-          </optgroup>
-        </select>
+        <div>
+          <select id="auto_merk" class="form-control">
+            <optgroup label="Europees">
+              <option value="alfa">Alfa Romeo</option>
+              <option value="fiat">Fiat</option>
+              <option value="marcedes" selected>Mercedes</option>
+              <option value="volkswagen">Volkswagen</option>
+            </optgroup>
+          </select>
+        </div>
       </div>
       <fieldset class="form-group radios">
         <legend class="control-label">
@@ -131,8 +144,10 @@
           Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
           <span class="optional">optioneel</span>
         </label>
-        <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
-        <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
+        <div>
+          <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
+          <p class="help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
+        </div>
       </div>
     </fieldset>
   </fieldset>
