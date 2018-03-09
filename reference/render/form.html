@@ -1,0 +1,181 @@
+<form>
+  <fieldset class="form-fields">
+    <legend class="sr-only">Vertical Form</legend>
+    <fieldset>
+      <legend>Contact</legend>
+      <div class="form-group dso-input dso-input dso-required">
+        <div class="dso-label-container">
+          <label for="voornaam" class="control-label">
+            Voornaam
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="input" id="voornaam" class="form-control" required />
+        </div>
+      </div>
+      <div class="form-group dso-input dso-input">
+        <div class="dso-label-container">
+          <label for="achternaam" class="control-label">
+            Achternaam
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="input" id="achternaam" class="form-control" />
+          <p class="dso-help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+        </div>
+      </div>
+      <div class="form-group dso-static">
+        <div class="dso-label-container">
+          <label class="control-label">Geslacht</label>
+        </div>
+        <p class="dso-field-container">
+          Man
+        </p>
+      </div>
+      <div class="form-group dso-input dso-input">
+        <div class="dso-label-container">
+          <label for="geboortedatum" class="control-label">
+            Geboortedatum
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="input" id="geboortedatum" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group dso-input dso-input dso-required">
+        <div class="dso-label-container">
+          <label for="email" class="control-label">
+            E-mailadres
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="input" id="email" class="form-control" required />
+        </div>
+      </div>
+      <div class="form-group dso-input dso-input">
+        <div class="dso-label-container">
+          <label for="password" class="control-label">
+            Wachtwoord
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="input" id="password" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group dso-input dso-input">
+        <div class="dso-label-container">
+          <label for="password_bevestig" class="control-label">
+            Wachtwoord (bevestig)
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="input" id="password_bevestig" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group dso-confirm">
+        <div class="dso-field-container">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" /> Stuur mij de maandelijkse nieuwsbrief
+            </label>
+          </div>
+          <p class="dso-help-block" id="helpTextId_nieuwsbrief">Uw gegevens zullen niet worden gedeeld met derden</p>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Beleg</legend>
+      <div class="form-group dso-select dso-multiple">
+        <div class="dso-label-container">
+          <label for="beleg" class="control-label">
+            Beleg
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <select id="beleg" class="form-control" multiple>
+            <optgroup label="Vlees">
+              <option value="worst">Worst</option>
+              <option value="salami">Salami</option>
+              <option value="geit">Geit</option>
+            </optgroup>
+            <optgroup label="Vis">
+              <option value="zalm">Zalm</option>
+              <option value="makreel">Makreel</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Auto merk</legend>
+      <div class="form-group dso-select">
+        <div class="dso-label-container">
+          <label for="auto_merk" class="control-label">
+            Type auto
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <select id="auto_merk" class="form-control">
+            <optgroup label="Europees">
+              <option value="alfa">Alfa Romeo</option>
+              <option value="fiat">Fiat</option>
+              <option value="marcedes" selected>Mercedes</option>
+              <option value="volkswagen">Volkswagen</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Aanhanger</legend>
+      <fieldset class="form-group dso-radios">
+        <div class="dso-label-container">
+          <legend class="control-label">
+            Welke aanhanger
+          </legend>
+        </div>
+        <div class="dso-field-container">
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="bak" /> Bak
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="caravan" checked /> Caravan
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="fietsendrager" /> Fietsendrager
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="aanhanger" value="oplegger" /> Oplegger
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </fieldset>
+    <fieldset>
+      <legend>Vraag</legend>
+      <div class="form-group dso-textarea">
+        <div class="dso-label-container">
+          <label for="gekke_vraag" class="control-label">
+            Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
+          <p class="dso-help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
+        </div>
+      </div>
+    </fieldset>
+  </fieldset>
+  <div class="form-buttons">
+    <button type="submit" class="btn btn-primary">
+      Verstuur
+    </button>
+  </div>
+</form>

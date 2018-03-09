@@ -1,0 +1,16 @@
+<form{{#if formModifier }} class="{{ formModifier }}"{{/if}}>
+  <fieldset class="form-fields">
+    <legend class="sr-only">{{ formLegend }}</legend>
+    {{#each fieldsets }}
+      <fieldset>
+        <legend>{{ legend }}</legend>
+        {{#each groups }}
+          {{> (concat '@group-' type) }}
+        {{/each}}
+      </fieldset>
+    {{/each}}
+  </fieldset>
+  <div class="form-buttons">
+    {{> '@button' submitButton }}
+  </div>
+</form>

@@ -1,0 +1,23 @@
+<fieldset class="form-group dso-checkboxes{{#if required }} dso-required{{/if}}">
+  <div class="dso-label-container">
+    <legend class="control-label">
+      {{ label }}
+    </legend>
+  </div>
+  <div class="dso-field-container">
+    {{#each options }}
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="{{ ../id }}" value="{{ value }}"
+            {{{ifattr 'disabled' disabled }}}
+            {{{ifattr 'readonly' readonly }}}
+            {{{ifattr 'checked' checked }}} />
+          {{ label }}
+        </label>
+      </div>
+    {{/each}}
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
+</fieldset>

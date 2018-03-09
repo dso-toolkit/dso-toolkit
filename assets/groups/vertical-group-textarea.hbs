@@ -1,0 +1,26 @@
+<div class="form-group dso-textarea">
+  <div class="dso-label-container">
+    <label for="{{ id }}" class="control-label">
+      {{ label }}
+      {{#unless required }}
+        <span class="dso-optional">optioneel</span>
+      {{/unless}}
+    </label>
+  </div>
+  <div class="dso-field-container">
+    {{#if helpIcon }}
+      <button class="input-help"></button>
+    {{/if}}
+    <textarea class="form-control" id="{{ id }}"
+      {{{ifattr 'rows' rows }}}
+      {{{ifattr 'disabled' disabled }}}
+      {{{ifattr 'readonly' readonly }}}
+      {{{ifattr 'required' required }}}></textarea>
+    {{#if errorText }}
+      <p class="dso-message">{{ errorText }}</p>
+    {{/if}}
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
+</div>

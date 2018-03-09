@@ -1,0 +1,35 @@
+status: wip
+collated: true
+context:
+  id: input
+  type: text
+  label: Tekstveld
+variants:
+  - name: input-error
+    context:
+      id: input-text-error
+      label: E-mailadres
+      value: thomas@
+      required: true
+      helpText: Je e-mailadres zal nooit worden doorgegeven (FOUTIEF INGEVULDE WAARDE)
+      state: invalid
+      errorText: Ongeldig e-mailadres ingevuld
+  - name: input-text-error-fixed
+    context:
+      id: input-text-error-fixed
+      label: E-mailadres
+      value: thomas@infoprojects.nl
+      required: true
+      state: valid
+      helpText: Je e-mailadres zal nooit worden doorgegeven (FOUTIEF INGEVULDE WAARDE GECORRIGEERD)
+  - name: input-text-empty
+    context:
+      id: input-text-empty
+      label: Naam
+      placeholder: Voornaam Achternaam
+      required: true
+  - name: input-text-icon
+    context:
+      id: input-text-icon
+      label: Tekstveld met icoon
+      inputIcon: fas fa-calendar

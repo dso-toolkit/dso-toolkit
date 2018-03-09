@@ -1,47 +1,78 @@
-$label-column: $grid-columns / 2;
+$dso-label-column: $grid-columns / 2;
+
+$dso-field-invalid-border-color: $dso-danger-color;
+$dso-field-invalid-message-color: $dso-danger-color;
+$dso-optional-color: $bosgroen-40;
+
+$dso-form-control-border-width: 2px;
 
 .form-group {
-  label {
-    font-weight: 700;
+  .control-label {
+    font-weight: bold;
+    margin-bottom: $u1;
+    text-align: left;
+  }
 
-    .optional {
-      color: $bosgroen-40;
-      font-size: .85em;
-      font-style: italic;
-      font-weight: 400;
-      margin-left: 4px;
+  &:not(.dso-required) {
+    &.dso-checkboxes,
+    &.dso-confirm,
+    &.dso-input,
+    &.dso-radios,
+    &.dso-select,
+    &.dso-textarea {
+      .control-label::after {
+        color: $dso-optional-color;
+        content: "optioneel";
+        font-size: .85em;
+        font-style: italic;
+        font-weight: 400;
+        margin-left: 4px;
+      }
     }
   }
 
-  .input-help {
-    background: none;
-    border: 0;
-    float: right;
-    line-height: $u4;
-    padding: 0;
-
-    &::before {
-      @extend .far;
-
-      color: $grasgroen;
-      content: fa-content($fa-var-question-circle);
-      font-size: $u3;
-      vertical-align: middle;
+  &.has-feedback {
+    .form-control {
+      padding-right: $u6 - $dso-form-control-border-width; // Feedback icon: 16px padding + 16px size + 16px padding - border
     }
+
+    .form-control-feedback {
+      color: $bosgroen;
+      width: $u6;
+    }
+  }
+
+  &.dso-invalid {
+    .form-control {
+      border-color: $dso-field-invalid-border-color;
+    }
+
+    .dso-message {
+      color: $dso-field-invalid-message-color;
+    }
+  }
+
+  .dso-message,
+  .dso-help-block {
+    margin: $u1 0 0;
+  }
+
+  .dso-help-block {
+    color: $grijs-60;
+    font-style: italic;
+  }
+
+  textarea {
+    resize: vertical;
   }
 }
 
 .form-control {
-  border-width: 2px;
+  border-width: $dso-form-control-border-width;
   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
-  width: calc(100% - 40px); // Info icon: 16px space + 24px size
 
-  &::placeholder {
-    color: $bosgroen-40;
-  }
-
-  &.invalid {
-    border-color: $dso-form-control-required-color;
+  &[size] {
+    width: auto;
   }
 
   &:focus,
@@ -50,60 +81,13 @@ $label-column: $grid-columns / 2;
   }
 }
 
-.form-control[size] {
-  width: auto;
-}
-
 legend.control-label {
   border-bottom: 0;
   cursor: default;
   display: inline-block;
   font-size: $font-size-base;
-  font-style: italic;
   margin-bottom: 5px;
   max-width: 100%;
-}
-
-fieldset.form-group {
-  .radio,
-  .checkbox {
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
-}
-
-.form-group {
-  textarea {
-    resize: vertical;
-  }
-
-  &.has-feedback,
-  .has-feedback {
-    .form-control {
-      padding-right: 46px; // Feedback icon: 16px padding + 16px size + 14px padding
-    }
-
-    .form-control-feedback {
-      color: $bosgroen;
-      right: 45px;
-    }
-  }
-
-  .error-text {
-    color: $dso-form-control-required-color;
-    display: block;
-    margin-top: 5px;
-
-    + .help-block {
-      margin-top: 0;
-    }
-  }
-
-  .help-block {
-    color: $grijs-60;
-    font-style: italic;
-  }
 }
 
 .form-horizontal {
@@ -112,26 +96,25 @@ fieldset.form-group {
   }
 
   .form-group {
-    > .control-label {
-      @include make-sm-column($label-column);
-      text-align: left;
+    > .dso-label-container {
+      @include make-sm-column($dso-label-column);
     }
 
-    > .field-container {
-      @include make-sm-column($grid-columns - $label-column);
+    > .dso-field-container {
+      @include make-sm-column($grid-columns - $dso-label-column);
     }
 
-    &.confirm {
+    &.dso-confirm {
       @media (min-width: $screen-sm-min) {
-        .field-container {
-          margin-left: percentage($label-column / $grid-columns);
+        .dso-field-container {
+          margin-left: percentage($dso-label-column / $grid-columns);
           padding-left: $grid-gutter-width / 2;
         }
       }
     }
 
-    &.static {
-      .field-container {
+    &.dso-static {
+      .dso-field-container {
         margin-bottom: 0;
         min-height: $line-height-computed + $font-size-base;
         padding-bottom: $padding-base-vertical + 1;
@@ -139,16 +122,17 @@ fieldset.form-group {
       }
     }
 
-    &.has-feedback {
-      .form-control-feedback {
-        right: 60px;
+    &.dso-textarea {
+      .form-control {
+        padding-bottom: $padding-base-vertical - 1;
+        padding-top: $padding-base-vertical - 1;
       }
     }
   }
 
   @media (min-width: $screen-sm-min) {
-    .form-buttons {
-      margin-left: percentage($label-column / $grid-columns);
+    .dso-form-buttons {
+      margin-left: percentage($dso-label-column / $grid-columns);
       padding-left: $grid-gutter-width / 4;
     }
   }
@@ -158,8 +142,8 @@ fieldset.form-group {
   @media (min-width: $screen-sm-min) {
     white-space: nowrap;
 
-    > .form-fields,
-    > .form-buttons {
+    > .dso-form-fields,
+    > .dso-form-buttons {
       display: inline-block;
     }
   }
