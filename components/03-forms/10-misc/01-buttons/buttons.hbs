@@ -58,3 +58,16 @@
     <p>Lage prioriteit interacties</p>
   </div>
 </div>
+
+<h2 style="margin-bottom: 24px; margin-top: 40px;">Anchor als button</h2>
+
+{{> '@anchor' label='Ga verder' modifier='btn btn-primary' }}
+
+<div class="row example">
+  {{#each anchor-buttons }}
+    <div class="col-md-3 example-{{ state }}">
+      <p><i>{{ example-label }}</i></p>
+      {{> '@anchor' }}
+    </div>
+  {{/each}}
+</div>
