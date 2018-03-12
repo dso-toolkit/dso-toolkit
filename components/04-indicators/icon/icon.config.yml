@@ -4,7 +4,7 @@ default: decorative
 variants:
   - name: decorative
     context:
-      icon: fa fa-road
+      icon: fish
   - name: semantic
     context:
       icon: fa fa-road
