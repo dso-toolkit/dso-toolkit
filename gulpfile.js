@@ -52,7 +52,7 @@ gulp.task('inline-svg', function() {
         prefix: 'dso-icon'
       },
       interceptor: function (svgData, file) {
-        return Object.assign(svgData, { variableName: slug(file.relative.replace('\\', '-').replace('.svg', '')) });
+        return Object.assign(svgData, { variableName: slug(file.relative.replace(/['\\'_]/g, '-').replace('.svg', '')) });
       }
     }))
     .pipe(gulp.dest('src/styles/icons'));
