@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Pager redesign (#27)
 - Gutter width is 15px instead of 16px (#67)
 - Checkboxes redesign (#42)
+- Radiobuttons redesign (#43)
 
 ## 1.1.0 - 2017-01-19
 ### Changed
