@@ -1,4 +1,4 @@
-<div class="form-group dso-textarea{{#if required }} dso-required{{/if}}">
+<div class="form-group dso-textarea{{#if state}} dso-{{ state }}{{/if}}{{#if required }} dso-required{{/if}}">
   <div class="dso-label-container">
     <label for="{{ id }}" class="control-label">
       {{ label }}
@@ -7,6 +7,7 @@
   <div class="dso-field-container">
     <textarea class="form-control" id="{{ id }}"
       {{{ifattr 'rows' rows }}}
+      {{{ifattr 'placeholder' placeholder}}}
       {{{ifattr 'disabled' disabled }}}
       {{{ifattr 'readonly' readonly }}}
       {{{ifattr 'required' required }}}></textarea>

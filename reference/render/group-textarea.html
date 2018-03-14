@@ -1,109 +1,82 @@
-
-<!-- Start: @group-textarea--default -->
 <div class="form-group dso-textarea">
   <div class="dso-label-container">
     <label for="feedback" class="control-label">
-      Textarea
+      Wilt u nog wat kwijt?
     </label>
   </div>
   <div class="dso-field-container">
-    <textarea class="form-control" id="feedback" rows="10"></textarea>
+    <textarea class="form-control" id="feedback" rows="5"></textarea>
   </div>
 </div>
-
-<!-- End: @group-textarea--default -->
 <hr />
 
-<!-- Start: @group-textarea--textarea-focus -->
-<div class="form-group dso-textarea">
-  <div class="dso-label-container">
-    <label for="group_input_focus" class="control-label">
-      Textarea - Focus
-    </label>
+<!-- Start: @group-textarea--textarea-error -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig</h2>
+    <p>Indien een textarea ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-textarea'.</p>
   </div>
-  <div class="dso-field-container">
-    <textarea class="form-control" id="group_input_focus" rows="10"></textarea>
+  <div class="dso-example">
+    <div class="form-group dso-textarea dso-invalid dso-required">
+      <div class="dso-label-container">
+        <label for="input-textarea-error" class="control-label">
+          Wilt u nog wat kwijt?
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <textarea class="form-control" id="input-textarea-error" rows="5" required></textarea>
+        <p class="dso-message">Dit is geen geldige tekst</p>
+        <p class="dso-help-block" id="helpTextId_input-textarea-error">Vul een geldige tekst in</p>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- End: @group-textarea--textarea-focus -->
 <hr />
 
-<!-- Start: @group-textarea--textarea-feedback -->
-<div class="form-group dso-textarea">
-  <div class="dso-label-container">
-    <label for="group_input_feedback" class="control-label">
-      Textarea - Feedback
-    </label>
+<!-- End: @group-textarea--textarea-error -->
+
+<!-- Start: @group-textarea--textarea-error-fixed -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Geldig</h2>
+    <p>Indien een textarea ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
   </div>
-  <div class="dso-field-container">
-    <textarea class="form-control" id="group_input_feedback" rows="10"></textarea>
-    <p class="dso-help-block" id="helpTextId_group_input_feedback">Minimaal 6 tekens waarvan 1 leesteken</p>
+  <div class="dso-example">
+    <div class="form-group dso-textarea dso-required">
+      <div class="dso-label-container">
+        <label for="input-textarea-error-fixed" class="control-label">
+          Wilt u nog wat kwijt?
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <textarea class="form-control" id="input-textarea-error-fixed" rows="5" required></textarea>
+        <p class="dso-help-block" id="helpTextId_input-textarea-error-fixed">Minimaal 6 tekens waarvan 1 leesteken</p>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- End: @group-textarea--textarea-feedback -->
 <hr />
 
-<!-- Start: @group-textarea--textarea-required -->
-<div class="form-group dso-textarea dso-required">
-  <div class="dso-label-container">
-    <label for="group_input_required" class="control-label">
-      Textarea - Required
-    </label>
+<!-- End: @group-textarea--textarea-error-fixed -->
+
+<!-- Start: @group-textarea--textarea-empty -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Placeholder</h2>
   </div>
-  <div class="dso-field-container">
-    <textarea class="form-control" id="group_input_required" rows="10" required></textarea>
+  <div class="dso-example">
+    <div class="form-group dso-textarea dso-required">
+      <div class="dso-label-container">
+        <label for="input-textarea-empty" class="control-label">
+          Wilt u nog wat kwijt?
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <textarea class="form-control" id="input-textarea-empty" rows="5" placeholder="Bijvoorbeeld; vragen over de toolkit" required></textarea>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- End: @group-textarea--textarea-required -->
 <hr />
 
-<!-- Start: @group-textarea--textarea-ongeldig -->
-<div class="form-group dso-textarea dso-required">
-  <div class="dso-label-container">
-    <label for="group_input_invalid" class="control-label">
-      Textarea - Ongeldig
-    </label>
-  </div>
-  <div class="dso-field-container">
-    <textarea class="form-control" id="group_input_invalid" rows="10" required></textarea>
-    <p class="dso-message">Minimaal 6 tekens waarvan 1 leesteken</p>
-  </div>
-</div>
-
-<!-- End: @group-textarea--textarea-ongeldig -->
-<hr />
-
-<!-- Start: @group-textarea--textarea-ongeldig-feedback -->
-<div class="form-group dso-textarea dso-required">
-  <div class="dso-label-container">
-    <label for="group_input_invalid-feedback" class="control-label">
-      Textarea - Ongeldig / Feedback
-    </label>
-  </div>
-  <div class="dso-field-container">
-    <textarea class="form-control" id="group_input_invalid-feedback" rows="10" required></textarea>
-    <p class="dso-message">Voer een geldig e-mailadres in</p>
-    <p class="dso-help-block" id="helpTextId_group_input_invalid-feedback">Minimaal 6 tekens waarvan 1 leesteken</p>
-  </div>
-</div>
-
-<!-- End: @group-textarea--textarea-ongeldig-feedback -->
-<hr />
-
-<!-- Start: @group-textarea--textarea-uitleg -->
-<div class="form-group dso-textarea">
-  <div class="dso-label-container">
-    <label for="group_input_explanation" class="control-label">
-      Textarea - Uitleg
-    </label>
-  </div>
-  <div class="dso-field-container">
-    <textarea class="form-control" id="group_input_explanation" rows="10"></textarea>
-  </div>
-</div>
-
-<!-- End: @group-textarea--textarea-uitleg -->
-<hr />
+<!-- End: @group-textarea--textarea-empty -->

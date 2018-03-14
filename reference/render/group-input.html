@@ -1,5 +1,3 @@
-
-<!-- Start: @group-input--default -->
 <div class="form-group dso-input dso-text">
   <div class="dso-label-container">
     <label for="input" class="control-label">
@@ -10,70 +8,98 @@
     <input type="text" id="input" class="form-control" />
   </div>
 </div>
-
-<!-- End: @group-input--default -->
 <hr />
 
 <!-- Start: @group-input--input-error -->
-<div class="form-group dso-input dso-text dso-invalid dso-required">
-  <div class="dso-label-container">
-    <label for="input-text-error" class="control-label">
-      E-mailadres
-    </label>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig</h2>
+    <p>Indien een input ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-input'.</p>
   </div>
-  <div class="dso-field-container">
-    <input type="text" id="input-text-error" class="form-control" value="thomas@" required />
-    <p class="dso-message">Ongeldig e-mailadres ingevuld</p>
-    <p class="dso-help-block" id="helpTextId_input-text-error">Je e-mailadres zal nooit worden doorgegeven (FOUTIEF INGEVULDE WAARDE)</p>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-text dso-invalid dso-required">
+      <div class="dso-label-container">
+        <label for="input-text-error" class="control-label">
+          E-mailadres
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="text" id="input-text-error" class="form-control" value="thomas@" required />
+        <p class="dso-message">Ongeldig e-mailadres ingevuld</p>
+        <p class="dso-help-block" id="helpTextId_input-text-error">Bijvoorbeeld: email@email.nl</p>
+      </div>
+    </div>
   </div>
 </div>
+<hr />
 
 <!-- End: @group-input--input-error -->
-<hr />
 
 <!-- Start: @group-input--input-text-error-fixed -->
-<div class="form-group dso-input dso-text dso-valid dso-required">
-  <div class="dso-label-container">
-    <label for="input-text-error-fixed" class="control-label">
-      E-mailadres
-    </label>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Geldig</h2>
+    <p>Indien een input ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
   </div>
-  <div class="dso-field-container">
-    <input type="text" id="input-text-error-fixed" class="form-control" value="thomas@infoprojects.nl" required />
-    <p class="dso-help-block" id="helpTextId_input-text-error-fixed">Je e-mailadres zal nooit worden doorgegeven (FOUTIEF INGEVULDE WAARDE GECORRIGEERD)</p>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-text dso-valid dso-required">
+      <div class="dso-label-container">
+        <label for="input-text-error-fixed" class="control-label">
+          E-mailadres
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="text" id="input-text-error-fixed" class="form-control" value="thomas@infoprojects.nl" required />
+        <p class="dso-help-block" id="helpTextId_input-text-error-fixed">Bijvoorbeeld: email@email.nl</p>
+      </div>
+    </div>
   </div>
 </div>
+<hr />
 
 <!-- End: @group-input--input-text-error-fixed -->
-<hr />
 
 <!-- Start: @group-input--input-text-empty -->
-<div class="form-group dso-input dso-text dso-required">
-  <div class="dso-label-container">
-    <label for="input-text-empty" class="control-label">
-      Naam
-    </label>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Placeholder</h2>
   </div>
-  <div class="dso-field-container">
-    <input type="text" id="input-text-empty" class="form-control" placeholder="Voornaam Achternaam" required />
+  <div class="dso-example">
+    <div class="form-group dso-input dso-text dso-required">
+      <div class="dso-label-container">
+        <label for="input-text-empty" class="control-label">
+          Naam
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="text" id="input-text-empty" class="form-control" placeholder="Voornaam Achternaam" required />
+      </div>
+    </div>
   </div>
 </div>
+<hr />
 
 <!-- End: @group-input--input-text-empty -->
-<hr />
 
 <!-- Start: @group-input--input-text-icon -->
-<div class="form-group dso-input dso-text has-feedback">
-  <div class="dso-label-container">
-    <label for="input-text-icon" class="control-label">
-      Tekstveld met icoon
-    </label>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Met icoon</h2>
   </div>
-  <div class="dso-field-container">
-    <input type="text" id="input-text-icon" class="form-control" />
-    <span class="fas fa-calendar form-control-feedback" aria-hidden="true"></span>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-text has-feedback">
+      <div class="dso-label-container">
+        <label for="input-text-icon" class="control-label">
+          Tekstveld met icoon
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="text" id="input-text-icon" class="form-control" />
+        <span class="fas fa-calendar form-control-feedback" aria-hidden="true"></span>
+      </div>
+    </div>
   </div>
 </div>
+<hr />
 
 <!-- End: @group-input--input-text-icon -->
-<hr />
