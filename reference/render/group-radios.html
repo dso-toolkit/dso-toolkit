@@ -5,21 +5,108 @@
     </legend>
   </div>
   <div class="dso-field-container">
-    <div class="radio">
-      <label>
-        <input type="radio" name="radio_voorbeeld" value="1" /> een
+    <div class="dso-selectable">
+      <input type="radio" id="optie_1" name="radio_voorbeeld" value="1" />
+      <label for="optie_1">
+        een
       </label>
     </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="radio_voorbeeld" value="2" /> twee
+    <div class="dso-selectable">
+      <input type="radio" id="optie_2" name="radio_voorbeeld" value="2" />
+      <label for="optie_2">
+        twee
       </label>
     </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="radio_voorbeeld" value="3" /> drie
+    <div class="dso-selectable">
+      <input type="radio" id="optie_3" name="radio_voorbeeld" value="3" />
+      <label for="optie_3">
+        drie
       </label>
     </div>
     <p class="dso-help-block" id="helpTextId_radio_voorbeeld">Kies een oneven getal</p>
   </div>
 </fieldset>
+<hr />
+
+<!-- Start: @group-radios--input-error -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig</h2>
+    <p>Indien een radio groep ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-radios'.</p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-invalid dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Oneven getal
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="error_1" name="input-radio-error" value="1" />
+          <label for="error_1">
+            een
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="error_2" name="input-radio-error" value="2" />
+          <label for="error_2">
+            twee
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="error_3" name="input-radio-error" value="3" />
+          <label for="error_3">
+            drie
+          </label>
+        </div>
+        <p class="dso-message">Dit veld is verplicht</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-error">Kies een oneven getal</p>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-radios--input-error -->
+
+<!-- Start: @group-radios--input-error -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Geldig</h2>
+    <p>Indien een radio groep ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-valid dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Oneven getal
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="fixed_1" name="input-radio-error-fixed" value="1" />
+          <label for="fixed_1">
+            een
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="fixed_2" name="input-radio-error-fixed" value="2" />
+          <label for="fixed_2">
+            twee
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="fixed_3" name="input-radio-error-fixed" value="3" />
+          <label for="fixed_3">
+            drie
+          </label>
+        </div>
+        <p class="dso-help-block" id="helpTextId_input-radio-error-fixed">Kies een oneven getal</p>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-radios--input-error -->

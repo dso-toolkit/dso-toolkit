@@ -171,27 +171,27 @@ fieldset.form-group {
 // Checkbox / Radio
 ////
 
-.checkbox,
-.radio {
+.dso-selectable {
   display: block;
   margin-bottom: $u1;
+  margin-top: $u1;
   padding: 0 0 0 $u4;
   position: relative;
 
   .form-horizontal & {
     padding-top: 0;
   }
-}
 
-.checkbox {
   input[type="checkbox"] {
     margin-left: 0;
   }
-}
 
-.radio {
   input[type="radio"] {
     margin-left: 0;
+  }
+
+  label {
+    font-weight: 400;
   }
 }
 
@@ -245,6 +245,19 @@ input[type="radio"] {
     + label::before {
       background-color: $grasgroen-10;
       box-shadow: inset 0 0 0 1px $bosgroen;
+    }
+  }
+
+  .dso-invalid & {
+    + label::before {
+      box-shadow: inset 0 0 0 2px $dso-danger-color;
+    }
+
+    &:focus,
+    &.focus {
+      + label::before {
+        box-shadow: inset 0 0 0 3px $dso-danger-color;
+      }
     }
   }
 }

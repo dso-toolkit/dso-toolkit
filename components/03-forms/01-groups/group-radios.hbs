@@ -1,4 +1,4 @@
-<fieldset class="form-group dso-radios{{#if required }} dso-required{{/if}}">
+<fieldset class="form-group dso-radios{{#if state}} dso-{{ state }}{{/if}}{{#if required }} dso-required{{/if}}">
   <div class="dso-label-container">
     <legend class="control-label">
       {{ label }}
@@ -6,7 +6,7 @@
   </div>
   <div class="dso-field-container">
     {{#each options }}
-      <div class="radio">
+      <div class="dso-selectable">
         <input type="radio" id="{{ id }}" name="{{ ../id }}" value="{{ value }}"
           {{{ifattr 'disabled' disabled }}}
           {{{ifattr 'readonly' readonly }}}
@@ -16,6 +16,9 @@
         </label>
       </div>
     {{/each}}
+    {{#if errorText }}
+      <p class="dso-message">{{ errorText }}</p>
+    {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}
     {{/if}}

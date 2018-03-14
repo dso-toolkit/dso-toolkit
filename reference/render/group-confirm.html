@@ -1,9 +1,52 @@
 <div class="form-group dso-confirm">
   <div class="dso-field-container">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox" /> Check mij
-      </label>
+    <div class="dso-selectable">
+      <input type="checkbox" id="group_checkbox_voorbeeld" name="" value="" />
+      <label for="group_checkbox_voorbeeld">Check mij</label>
     </div>
   </div>
 </div>
+<hr />
+
+<!-- Start: @group-confirm--input-error -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig</h2>
+    <p>Indien een checkbox groep ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-checkboxes'.</p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-confirm dso-invalid dso-required">
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="input-checkbox-error" name="" value="" />
+          <label for="input-checkbox-error">Check mij</label>
+        </div>
+        <p class="dso-message">Dit veld is verplicht</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-confirm--input-error -->
+
+<!-- Start: @group-confirm--input-error -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Geldig</h2>
+    <p>Indien een checkbox groep ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-confirm dso-valid dso-required">
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="input-checkbox-error" name="" value="" />
+          <label for="input-checkbox-error">Check mij</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-confirm--input-error -->

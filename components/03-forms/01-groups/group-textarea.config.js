@@ -47,6 +47,7 @@ item.context.__title || item.context.__explanation
         "type": "text",
         "required": true,
         "inputModifiers": " example-default",
+        "state": "valid",
         "helpText": "Minimaal 6 tekens waarvan 1 leesteken"
       }
     },

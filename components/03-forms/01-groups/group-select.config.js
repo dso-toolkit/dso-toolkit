@@ -88,6 +88,7 @@ item.context.__title || item.context.__explanation
         "id": "input-select-error-fixed",
         "type": "text",
         "required": true,
+        "state": "valid",
         "helpText": "Maak een keuze tussen vlees of vis"
       }
     }

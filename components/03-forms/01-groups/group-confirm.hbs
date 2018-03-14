@@ -1,12 +1,15 @@
-<div class="form-group dso-confirm{{#if required }} dso-required{{/if}}">
+<div class="form-group dso-confirm{{#if state}} dso-{{ state }}{{/if}}{{#if required }} dso-required{{/if}}">
   <div class="dso-field-container">
-    <div class="checkbox">
-      <label>
-        <input type="checkbox"
-          {{{ifattr 'disabled' disabled }}}
-          {{{ifattr 'readonly' readonly }}} /> {{ label }}
-      </label>
+    <div class="dso-selectable">
+      <input type="checkbox" id="{{ id }}" name="{{ ../id }}" value="{{ value }}"
+        {{{ifattr 'disabled' disabled }}}
+        {{{ifattr 'readonly' readonly }}}
+        {{{ifattr 'checked' checked }}} />
+      <label for="{{ id }}">{{ label }}</label>
     </div>
+    {{#if errorText }}
+      <p class="dso-message">{{ errorText }}</p>
+    {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}
     {{/if}}
