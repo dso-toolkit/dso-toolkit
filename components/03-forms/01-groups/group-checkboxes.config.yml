@@ -1,0 +1,64 @@
+status: wip
+collated: true
+context:
+  id: input-checkbox
+  label: Maak een keuze
+  options:
+  - value: 1
+    label: een
+    id: optie_1
+  - value: 2
+    label: twee
+    id: optie_2
+  - value: 3
+    label: drie
+    id: optie_3
+variants:
+- name: input-required
+  context:
+    __title: Verplicht
+    __explanation:
+    - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
+      op de <code>.form-group.dso-checkboxes</code>
+    - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
+      root element, geen <code>div.form-group</code>
+- name: input-invalid
+  context:
+    __title: Ongeldig
+    __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
+      op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
+    id: input-checkbox-invalid
+    required: true
+    helpText: Selecteer alle even getallen
+    state: invalid
+    errorText: Dit veld is verplicht
+    options:
+    - value: 1
+      label: een
+      id: error_1
+    - value: 2
+      label: twee
+      id: error_2
+    - value: 3
+      label: drie
+      id: error_3
+- name: input-checkbox-valid
+  context:
+    __title: Geldig
+    __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
+      <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
+    id: input-checkbox-valid
+    required: true
+    helpText: Selecteer alle even getallen
+    state: valid
+    options:
+    - value: 1
+      label: een
+      id: fixed_1
+    - value: 2
+      label: twee
+      id: fixed_2
+      checked: true
+    - value: 3
+      label: drie
+      id: fixed_3

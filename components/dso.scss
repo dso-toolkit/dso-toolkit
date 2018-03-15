@@ -24,10 +24,11 @@
       font-size: 1em;
       margin: 0;
       text-transform: uppercase;
+    }
 
-      + p {
-        margin-top: 8px;
-      }
+    h2 + p,
+    p + p {
+      margin-top: 8px;
     }
 
     p {
