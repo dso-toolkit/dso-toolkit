@@ -69,6 +69,7 @@ $dso-form-control-border-width: 2px;
 
 .form-control {
   border-width: $dso-form-control-border-width;
+  box-shadow: none;
   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
 
   &[size] {
@@ -78,6 +79,15 @@ $dso-form-control-border-width: 2px;
   &:focus,
   &.focus {
     box-shadow: none;
+  }
+
+  &[disabled] {
+    border-color: $dso-input-border-color-disabled;
+    color: $dso-input-color-disabled;
+  }
+
+  &[readonly] {
+    border-width: $dso-form-control-border-width / 2;
   }
 }
 
@@ -154,7 +164,6 @@ legend.control-label {
   cursor: default;
   display: inline-block;
   font-size: $font-size-base;
-  font-style: italic;
   margin-bottom: 5px;
   max-width: 100%;
 }
@@ -172,9 +181,8 @@ fieldset.form-group {
 ////
 
 .dso-selectable {
-  display: block;
   margin-bottom: $u1;
-  margin-top: $u1;
+  margin-top: ($padding-base-vertical + 1);
   padding: 0 0 0 $u4;
   position: relative;
 
@@ -192,6 +200,44 @@ fieldset.form-group {
 
   label {
     font-weight: 400;
+  }
+
+  input[type="checkbox"][disabled],
+  input[type="radio"][disabled] {
+    &,
+    &:active,
+    &:focus {
+      + label {
+        &::before {
+          background-color: $wit;
+          box-shadow: inset 0 0 0 2px $dso-input-border-color-disabled;
+        }
+      }
+    }
+  }
+
+  input[type="checkbox"][disabled] {
+    &,
+    &:active,
+    &:focus {
+      + label {
+        &::after {
+          border-color: $grasgroen-40;
+        }
+      }
+    }
+  }
+
+  input[type="radio"][disabled] {
+    &,
+    &:active,
+    &:focus {
+      + label {
+        &::after {
+          background-color: $grasgroen-40;
+        }
+      }
+    }
   }
 }
 
@@ -294,6 +340,12 @@ input[type="checkbox"] {
       }
     }
   }
+
+  .dso-invalid & {
+    &:checked + label::after {
+      border-color: $dso-danger-color;
+    }
+  }
 }
 
 input[type="radio"] {
@@ -323,6 +375,27 @@ input[type="radio"] {
         opacity: 1;
         zoom: 1;
       }
+    }
+  }
+
+  .dso-invalid & {
+    &:checked + label::after {
+      background-color: $dso-danger-color;
+    }
+  }
+}
+
+.dso-radios.dso-inline {
+  .dso-label-container,
+  .dso-field-container {
+    width: 100%;
+  }
+
+  .dso-selectable {
+    display: inline-block;
+
+    + .dso-selectable {
+      margin-left: $u3;
     }
   }
 }

@@ -1,65 +1,65 @@
 <div class="form-group dso-textarea">
   <div class="dso-label-container">
-    <label for="feedback" class="control-label">
+    <label for="input-textarea" class="control-label">
       Wilt u nog wat kwijt?
     </label>
   </div>
   <div class="dso-field-container">
-    <textarea class="form-control" id="feedback" rows="5"></textarea>
+    <textarea class="form-control" id="input-textarea" rows="5"></textarea>
   </div>
 </div>
 <hr />
 
-<!-- Start: @group-textarea--textarea-error -->
+<!-- Start: @group-textarea--input-textarea-invalid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Ongeldig</h2>
-    <p>Indien een textarea ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-textarea'.</p>
+    <p>Indien een textarea ongeldig is, dient er een <code>.so-invalid</code> class gezet te worden op de div met de class <code>.so-textarea</code>.</p>
   </div>
   <div class="dso-example">
     <div class="form-group dso-textarea dso-invalid dso-required">
       <div class="dso-label-container">
-        <label for="input-textarea-error" class="control-label">
+        <label for="input-textarea-invalid" class="control-label">
           Wilt u nog wat kwijt?
         </label>
       </div>
       <div class="dso-field-container">
-        <textarea class="form-control" id="input-textarea-error" rows="5" required></textarea>
+        <textarea class="form-control" id="input-textarea-invalid" rows="5" required></textarea>
         <p class="dso-message">Dit is geen geldige tekst</p>
-        <p class="dso-help-block" id="helpTextId_input-textarea-error">Vul een geldige tekst in</p>
+        <p class="dso-help-block" id="helpTextId_input-textarea-invalid">Vul een geldige tekst in</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-textarea--textarea-error -->
+<!-- End: @group-textarea--input-textarea-invalid -->
 
-<!-- Start: @group-textarea--textarea-error-fixed -->
+<!-- Start: @group-textarea--input-textarea-valid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Geldig</h2>
-    <p>Indien een textarea ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
+    <p>Indien een textarea ongeldig was en valide wordt gemaakt, dient de <code>.so-invalid</code> class vervangen te worden door de class <code>.so-valid</code>.</p>
   </div>
   <div class="dso-example">
     <div class="form-group dso-textarea dso-valid dso-required">
       <div class="dso-label-container">
-        <label for="input-textarea-error-fixed" class="control-label">
+        <label for="input-textarea-valid" class="control-label">
           Wilt u nog wat kwijt?
         </label>
       </div>
       <div class="dso-field-container">
-        <textarea class="form-control" id="input-textarea-error-fixed" rows="5" required></textarea>
-        <p class="dso-help-block" id="helpTextId_input-textarea-error-fixed">Minimaal 6 tekens waarvan 1 leesteken</p>
+        <textarea class="form-control" id="input-textarea-valid" rows="5" required>Ik heb wat ingevuld</textarea>
+        <p class="dso-help-block" id="helpTextId_input-textarea-valid">Minimaal 6 tekens waarvan 1 leesteken</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-textarea--textarea-error-fixed -->
+<!-- End: @group-textarea--input-textarea-valid -->
 
-<!-- Start: @group-textarea--textarea-empty -->
+<!-- Start: @group-textarea--input-textarea-placeholder -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Placeholder</h2>
@@ -67,16 +67,60 @@
   <div class="dso-example">
     <div class="form-group dso-textarea dso-required">
       <div class="dso-label-container">
-        <label for="input-textarea-empty" class="control-label">
+        <label for="input-textarea-placeholder" class="control-label">
           Wilt u nog wat kwijt?
         </label>
       </div>
       <div class="dso-field-container">
-        <textarea class="form-control" id="input-textarea-empty" rows="5" placeholder="Bijvoorbeeld; vragen over de toolkit" required></textarea>
+        <textarea class="form-control" id="input-textarea-placeholder" rows="5" placeholder="Bijvoorbeeld; vragen over de toolkit" required></textarea>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-textarea--textarea-empty -->
+<!-- End: @group-textarea--input-textarea-placeholder -->
+
+<!-- Start: @group-textarea--input-textarea-disabled -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Disabled</h2>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-textarea dso-required">
+      <div class="dso-label-container">
+        <label for="input-textarea-disabled" class="control-label">
+          Wilt u nog wat kwijt?
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <textarea class="form-control" id="input-textarea-disabled" rows="5" disabled required></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-textarea--input-textarea-disabled -->
+
+<!-- Start: @group-textarea--input-textarea-readonly -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Readonly</h2>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-textarea dso-required">
+      <div class="dso-label-container">
+        <label for="input-textarea-readonly" class="control-label">
+          Wilt u nog wat kwijt?
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <textarea class="form-control" id="input-textarea-readonly" rows="5" readonly required></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-textarea--input-textarea-readonly -->

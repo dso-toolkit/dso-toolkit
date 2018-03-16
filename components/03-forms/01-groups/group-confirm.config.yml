@@ -1,0 +1,41 @@
+status: wip
+collated: true
+context:
+  id: input-confirm
+  label: Check mij
+variants:
+- name: input-confirm-required
+  context:
+    __title: Verplicht
+    __explanation:
+    - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
+      op de <code>.form-group.dso-confirm</code>
+    id: input-confirm-required
+    required: true
+- name: input-confirm-invalid
+  context:
+    __title: Ongeldig
+    __explanation:
+    - Indien een confirm ongeldig is, dient er een <code>.dso-invalid</code>
+      class gezet te worden op de div met de class <code>.dso-checkboxes</code>.
+    id: input-confirm-invalid
+    required: true
+    state: invalid
+    errorText: Dit veld is verplicht
+- name: input-confirm-valid
+  context:
+    __title: Geldig
+    __explanation:
+    - Indien een confirm ongeldig was en valide wordt gemaakt,
+      dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
+    id: input-confirm-valid
+    required: true
+    state: valid
+    checked: true
+- name: input-confirm-disabled
+  context:
+    __title: Disabled
+    id: input-confirm-disabled
+    required: true
+    disabled: true
+    checked: true

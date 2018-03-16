@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Gutter width is 15px instead of 16px (#67)
 - Checkboxes redesign (#42)
 - Radiobuttons redesign (#43)
+- Formulieren: Tekstvelden en labels (#32)
 
 ## 1.1.0 - 2017-01-19
 ### Changed

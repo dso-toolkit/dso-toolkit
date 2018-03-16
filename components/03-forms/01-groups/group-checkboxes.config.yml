@@ -29,13 +29,13 @@ variants:
       op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
     id: input-checkbox-invalid
     required: true
-    helpText: Selecteer alle even getallen
     state: invalid
-    errorText: Dit veld is verplicht
+    errorText: Selecteer minimaal 2 velden
     options:
     - value: 1
       label: een
       id: error_1
+      checked: true
     - value: 2
       label: twee
       id: error_2
@@ -62,3 +62,22 @@ variants:
     - value: 3
       label: drie
       id: fixed_3
+- name: input-checkbox-disabled
+  context:
+    __title: Disabled
+    id: input-checkbox-disabled
+    required: true
+    options:
+    - value: 1
+      label: een
+      id: disabled_1
+      disabled: true
+      checked: true
+    - value: 2
+      label: twee
+      id: disabled_2
+      disabled: true
+    - value: 3
+      label: drie
+      id: disabled_3
+      disabled: true

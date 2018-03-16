@@ -10,9 +10,9 @@
       {{{ifattr 'placeholder' placeholder}}}
       {{{ifattr 'disabled' disabled }}}
       {{{ifattr 'readonly' readonly }}}
-      {{{ifattr 'required' required }}}></textarea>
+      {{{ifattr 'required' required }}}>{{ value }}</textarea>
     {{#if errorText }}
-      <p class="dso-message">{{ errorText }}</p>
+      {{> '@error-block' }}
     {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}

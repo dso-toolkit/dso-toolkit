@@ -1,0 +1,104 @@
+status: wip
+collated: true
+context:
+  id: input-radio
+  label: Oneven getal
+  helpText: Kies een oneven getal
+  options:
+  - value: 1
+    label: een
+    id: radio_1
+  - value: 2
+    label: twee
+    id: radio_2
+  - value: 3
+    label: drie
+    id: radio_3
+variants:
+- name: input-radio-required
+  context:
+    __title: Verplicht
+    __explanation:
+    - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
+      op de <code>.form-group.dso-radios</code>
+    - Radiobuttons hebben (net zoals checkboxen) een <code>fieldset.form-group</code> als
+      root element, geen <code>div.form-group</code>
+- name: input-radio-invalid
+  context:
+    __title: Ongeldig
+    __explanation:
+    - Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code>
+      class gezet te worden op de div met de class <code>.dso-radios</code>.
+    id: input-radio-invalid
+    required: true
+    state: invalid
+    errorText: Dit veld is verplicht
+    options:
+    - value: 1
+      label: een
+      id: invalid_1
+    - value: 2
+      label: twee
+      id: invalid_2
+      checked: true
+    - value: 3
+      label: drie
+      id: invalid_3
+- name: input-radio-valid
+  context:
+    __title: Geldig
+    __explanation:
+    - Indien een radio groep ongeldig was en valide wordt gemaakt, dient
+      de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
+    id: input-radio-valid
+    required: true
+    state: valid
+    options:
+    - value: 1
+      label: een
+      id: valid_1
+      checked: true
+    - value: 2
+      label: twee
+      id: valid_2
+    - value: 3
+      label: drie
+      id: valid_3
+- name: input-radio-disabled
+  context:
+    __title: Disabled
+    id: input-radio-disabled
+    required: true
+    state: valid
+    options:
+    - value: 1
+      label: een
+      id: disabled_1
+      disabled: true
+    - value: 2
+      label: twee
+      id: disabled_2
+      disabled: true
+    - value: 3
+      label: drie
+      id: disabled_3
+      checked: true
+      disabled: true
+- name: input-radio-inline
+  context:
+    __title: Inline
+    __explanation:
+    - Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.
+    id: input-radio-valid
+    label: Gaat hem om de bouw van één of meer woningen?
+    helpText: ""
+    required: true
+    inline: true
+    options:
+    - value: 1
+      label: ja
+      id: radio_yes
+      checked: true
+    - value: 2
+      label: nee
+      id: radio_no

@@ -1,4 +1,4 @@
-<div class="form-group dso-input dso-text">
+<div class="form-group dso-input dso-input-text">
   <div class="dso-label-container">
     <label for="input" class="control-label">
       Tekstveld
@@ -10,76 +10,76 @@
 </div>
 <hr />
 
-<!-- Start: @group-input--input-error -->
+<!-- Start: @group-input--input-text-invalid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Ongeldig</h2>
-    <p>Indien een input ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-input'.</p>
+    <p>Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-text dso-invalid dso-required">
+    <div class="form-group dso-input dso-input-text dso-invalid dso-required">
       <div class="dso-label-container">
-        <label for="input-text-error" class="control-label">
+        <label for="input-text-invalid" class="control-label">
           E-mailadres
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-error" class="form-control" value="thomas@" required />
+        <input type="text" id="input-text-invalid" class="form-control" value="thomas@" required />
         <p class="dso-message">Ongeldig e-mailadres ingevuld</p>
-        <p class="dso-help-block" id="helpTextId_input-text-error">Bijvoorbeeld: email@email.nl</p>
+        <p class="dso-help-block" id="helpTextId_input-text-invalid">Bijvoorbeeld: email@email.nl</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-input--input-error -->
+<!-- End: @group-input--input-text-invalid -->
 
-<!-- Start: @group-input--input-text-error-fixed -->
+<!-- Start: @group-input--input-text-valid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Geldig</h2>
-    <p>Indien een input ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
+    <p>Indien een input ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-text dso-valid dso-required">
+    <div class="form-group dso-input dso-input-text dso-valid dso-required">
       <div class="dso-label-container">
-        <label for="input-text-error-fixed" class="control-label">
+        <label for="input-text-valid" class="control-label">
           E-mailadres
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-error-fixed" class="form-control" value="thomas@infoprojects.nl" required />
-        <p class="dso-help-block" id="helpTextId_input-text-error-fixed">Bijvoorbeeld: email@email.nl</p>
+        <input type="text" id="input-text-valid" class="form-control" value="thomas@infoprojects.nl" required />
+        <p class="dso-help-block" id="helpTextId_input-text-valid">Bijvoorbeeld: email@email.nl</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-input--input-text-error-fixed -->
+<!-- End: @group-input--input-text-valid -->
 
-<!-- Start: @group-input--input-text-empty -->
+<!-- Start: @group-input--input-text-placeholder -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Placeholder</h2>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-text dso-required">
+    <div class="form-group dso-input dso-input-text dso-required">
       <div class="dso-label-container">
-        <label for="input-text-empty" class="control-label">
+        <label for="input-text-placeholder" class="control-label">
           Naam
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-empty" class="form-control" placeholder="Voornaam Achternaam" required />
+        <input type="text" id="input-text-placeholder" class="form-control" placeholder="Voornaam Achternaam" required />
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-input--input-text-empty -->
+<!-- End: @group-input--input-text-placeholder -->
 
 <!-- Start: @group-input--input-text-icon -->
 <div class="dso-example-wrapper">
@@ -87,10 +87,10 @@
     <h2>Met icoon</h2>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-text has-feedback">
+    <div class="form-group dso-input dso-input-text has-feedback">
       <div class="dso-label-container">
         <label for="input-text-icon" class="control-label">
-          Tekstveld met icoon
+          Kies een datum
         </label>
       </div>
       <div class="dso-field-container">
@@ -103,3 +103,47 @@
 <hr />
 
 <!-- End: @group-input--input-text-icon -->
+
+<!-- Start: @group-input--input-text-disabled -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Disabled</h2>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-input-text dso-required">
+      <div class="dso-label-container">
+        <label for="input-text-disabled" class="control-label">
+          Naam
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="text" id="input-text-disabled" class="form-control" disabled required />
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-input--input-text-disabled -->
+
+<!-- Start: @group-input--input-text-readonly -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Readonly</h2>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-input-text dso-required">
+      <div class="dso-label-container">
+        <label for="input-text-readonly" class="control-label">
+          Naam
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="text" id="input-text-readonly" class="form-control" readonly required />
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-input--input-text-readonly -->

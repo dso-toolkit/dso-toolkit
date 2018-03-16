@@ -19,7 +19,7 @@
       {{/each}}
     </select>
     {{#if errorText }}
-      <p class="dso-message">{{ errorText }}</p>
+      {{> '@error-block' }}
     {{/if}}
     {{#if helpText }}
       {{> '@help-block' }}

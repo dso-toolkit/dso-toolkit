@@ -1,11 +1,11 @@
 <div class="form-group dso-select">
   <div class="dso-label-container">
-    <label for="beleg" class="control-label">
+    <label for="input-select" class="control-label">
       Kies uw beleg
     </label>
   </div>
   <div class="dso-field-container">
-    <select id="beleg" class="form-control">
+    <select id="input-select" class="form-control">
       <optgroup label="Vlees">
         <option value="worst">Worst</option>
         <option value="salami">Salami</option>
@@ -20,21 +20,21 @@
 </div>
 <hr />
 
-<!-- Start: @group-select--input-error -->
+<!-- Start: @group-select--input-select-multiple -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Multiple</h2>
-    <p>Indien een multiple select gewenst is, dient er een 'dso-multiple' class gezet te worden op de div met de class 'dso-select'.</p>
+    <p>Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code> class gezet te worden op de div met de class <code>.dso-select</code>.</p>
   </div>
   <div class="dso-example">
     <div class="form-group dso-select dso-multiple">
       <div class="dso-label-container">
-        <label for="input-select-error" class="control-label">
+        <label for="input-select-multiple" class="control-label">
           Kies uw beleg
         </label>
       </div>
       <div class="dso-field-container">
-        <select id="input-select-error" class="form-control" multiple>
+        <select id="input-select-multiple" class="form-control" multiple>
           <optgroup label="Vlees">
             <option value="worst">Worst</option>
             <option value="salami">Salami</option>
@@ -45,30 +45,30 @@
             <option value="makreel">Makreel</option>
           </optgroup>
         </select>
-        <p class="dso-help-block" id="helpTextId_input-select-error">Maak een keuze tussen vlees of vis</p>
+        <p class="dso-help-block" id="helpTextId_input-select-multiple">Maak een keuze tussen vlees of vis</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-select--input-error -->
+<!-- End: @group-select--input-select-multiple -->
 
-<!-- Start: @group-select--input-error -->
+<!-- Start: @group-select--input-select-invalid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Ongeldig</h2>
-    <p>Indien een select ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-select'.</p>
+    <p>Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-select</code>.</p>
   </div>
   <div class="dso-example">
     <div class="form-group dso-select dso-invalid dso-required">
       <div class="dso-label-container">
-        <label for="input-select-error" class="control-label">
+        <label for="input-select-invalid" class="control-label">
           Kies uw beleg
         </label>
       </div>
       <div class="dso-field-container">
-        <select id="input-select-error" class="form-control" required>
+        <select id="input-select-invalid" class="form-control" required>
           <optgroup label="Vlees">
             <option value="worst">Worst</option>
             <option value="salami">Salami</option>
@@ -80,30 +80,30 @@
           </optgroup>
         </select>
         <p class="dso-message">Dit veld is verplicht</p>
-        <p class="dso-help-block" id="helpTextId_input-select-error">Maak een keuze tussen vlees of vis</p>
+        <p class="dso-help-block" id="helpTextId_input-select-invalid">Maak een keuze tussen vlees of vis</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-select--input-error -->
+<!-- End: @group-select--input-select-invalid -->
 
-<!-- Start: @group-select--input-select-error-fixed -->
+<!-- Start: @group-select--input-select-valid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Geldig</h2>
-    <p>Indien een select ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
+    <p>Indien een select ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.</p>
   </div>
   <div class="dso-example">
     <div class="form-group dso-select dso-valid dso-required">
       <div class="dso-label-container">
-        <label for="input-select-error-fixed" class="control-label">
+        <label for="input-select-valid" class="control-label">
           Kies uw beleg
         </label>
       </div>
       <div class="dso-field-container">
-        <select id="input-select-error-fixed" class="form-control" required>
+        <select id="input-select-valid" class="form-control" required>
           <optgroup label="Vlees">
             <option value="worst">Worst</option>
             <option value="salami">Salami</option>
@@ -114,11 +114,43 @@
             <option value="makreel">Makreel</option>
           </optgroup>
         </select>
-        <p class="dso-help-block" id="helpTextId_input-select-error-fixed">Maak een keuze tussen vlees of vis</p>
+        <p class="dso-help-block" id="helpTextId_input-select-valid">Maak een keuze tussen vlees of vis</p>
       </div>
     </div>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-select--input-select-error-fixed -->
+<!-- End: @group-select--input-select-valid -->
+
+<!-- Start: @group-select--input-select-disabled -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Disabled</h2>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-select dso-required">
+      <div class="dso-label-container">
+        <label for="input-select-disabled" class="control-label">
+          Kies uw beleg
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <select id="input-select-disabled" class="form-control" disabled required>
+          <optgroup label="Vlees">
+            <option value="worst">Worst</option>
+            <option value="salami">Salami</option>
+            <option value="geit">Geit</option>
+          </optgroup>
+          <optgroup label="Vis">
+            <option value="zalm">Zalm</option>
+            <option value="makreel">Makreel</option>
+          </optgroup>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-select--input-select-disabled -->

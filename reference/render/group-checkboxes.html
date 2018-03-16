@@ -6,26 +6,61 @@
   </div>
   <div class="dso-field-container">
     <div class="dso-selectable">
-      <input type="checkbox" id="optie_1" name="checkbox_voorbeeld" value="1" />
+      <input type="checkbox" id="optie_1" name="input-checkbox" value="1" />
       <label for="optie_1">een</label>
     </div>
     <div class="dso-selectable">
-      <input type="checkbox" id="optie_2" name="checkbox_voorbeeld" value="2" />
+      <input type="checkbox" id="optie_2" name="input-checkbox" value="2" />
       <label for="optie_2">twee</label>
     </div>
     <div class="dso-selectable">
-      <input type="checkbox" id="optie_3" name="checkbox_voorbeeld" value="3" />
+      <input type="checkbox" id="optie_3" name="input-checkbox" value="3" />
       <label for="optie_3">drie</label>
     </div>
   </div>
 </fieldset>
 <hr />
 
-<!-- Start: @group-checkboxes--input-error -->
+<!-- Start: @group-checkboxes--input-required -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Verplicht</h2>
+    <p>Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code> op de <code>.form-group.dso-checkboxes</code></p>
+    <p>Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als root element, geen <code>div.form-group</code></p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-checkboxes">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Maak een keuze
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="optie_1" name="input-checkbox" value="1" />
+          <label for="optie_1">een</label>
+        </div>
+        <div class="dso-selectable">
+          <input type="checkbox" id="optie_2" name="input-checkbox" value="2" />
+          <label for="optie_2">twee</label>
+        </div>
+        <div class="dso-selectable">
+          <input type="checkbox" id="optie_3" name="input-checkbox" value="3" />
+          <label for="optie_3">drie</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-checkboxes--input-required -->
+
+<!-- Start: @group-checkboxes--input-invalid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Ongeldig</h2>
-    <p>Indien een checkbox groep ongeldig is, dient er een 'dso-invalid' class gezet te worden op de div met de class 'dso-checkboxes'.</p>
+    <p>Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code> op de <code>.form-group.dso-checkboxes</code> geplaatst te worden</p>
   </div>
   <div class="dso-example">
     <fieldset class="form-group dso-checkboxes dso-invalid dso-required">
@@ -36,32 +71,31 @@
       </div>
       <div class="dso-field-container">
         <div class="dso-selectable">
-          <input type="checkbox" id="error_1" name="input-checkbox-error" value="1" />
+          <input type="checkbox" id="error_1" name="input-checkbox-invalid" value="1" checked />
           <label for="error_1">een</label>
         </div>
         <div class="dso-selectable">
-          <input type="checkbox" id="error_2" name="input-checkbox-error" value="2" />
+          <input type="checkbox" id="error_2" name="input-checkbox-invalid" value="2" />
           <label for="error_2">twee</label>
         </div>
         <div class="dso-selectable">
-          <input type="checkbox" id="error_3" name="input-checkbox-error" value="3" />
+          <input type="checkbox" id="error_3" name="input-checkbox-invalid" value="3" />
           <label for="error_3">drie</label>
         </div>
-        <p class="dso-message">Dit veld is verplicht</p>
-        <p class="dso-help-block" id="helpTextId_input-checkbox-error">Selecteer alle even getallen</p>
+        <p class="dso-message">Selecteer minimaal 2 velden</p>
       </div>
     </fieldset>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-checkboxes--input-error -->
+<!-- End: @group-checkboxes--input-invalid -->
 
-<!-- Start: @group-checkboxes--input-checkbox-error-fixed -->
+<!-- Start: @group-checkboxes--input-checkbox-valid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Geldig</h2>
-    <p>Indien een checkbox groep ongeldig was en valide wordt gemaakt, dient de 'dso-invalid' class vervangen te worden door de class 'dso-valid'.</p>
+    <p>Een ongeldige checkbox-group welke geldig is gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code></p>
   </div>
   <div class="dso-example">
     <fieldset class="form-group dso-checkboxes dso-valid dso-required">
@@ -72,22 +106,55 @@
       </div>
       <div class="dso-field-container">
         <div class="dso-selectable">
-          <input type="checkbox" id="fixed_1" name="input-checkbox-error" value="1" />
+          <input type="checkbox" id="fixed_1" name="input-checkbox-valid" value="1" />
           <label for="fixed_1">een</label>
         </div>
         <div class="dso-selectable">
-          <input type="checkbox" id="fixed_2" name="input-checkbox-error" value="2" />
+          <input type="checkbox" id="fixed_2" name="input-checkbox-valid" value="2" checked />
           <label for="fixed_2">twee</label>
         </div>
         <div class="dso-selectable">
-          <input type="checkbox" id="fixed_3" name="input-checkbox-error" value="3" />
+          <input type="checkbox" id="fixed_3" name="input-checkbox-valid" value="3" />
           <label for="fixed_3">drie</label>
         </div>
-        <p class="dso-help-block" id="helpTextId_input-checkbox-error">Selecteer alle even getallen</p>
+        <p class="dso-help-block" id="helpTextId_input-checkbox-valid">Selecteer alle even getallen</p>
       </div>
     </fieldset>
   </div>
 </div>
 <hr />
 
-<!-- End: @group-checkboxes--input-checkbox-error-fixed -->
+<!-- End: @group-checkboxes--input-checkbox-valid -->
+
+<!-- Start: @group-checkboxes--input-checkbox-disabled -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Disabled</h2>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-checkboxes dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Maak een keuze
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="disabled_1" name="input-checkbox-disabled" value="1" disabled checked />
+          <label for="disabled_1">een</label>
+        </div>
+        <div class="dso-selectable">
+          <input type="checkbox" id="disabled_2" name="input-checkbox-disabled" value="2" disabled />
+          <label for="disabled_2">twee</label>
+        </div>
+        <div class="dso-selectable">
+          <input type="checkbox" id="disabled_3" name="input-checkbox-disabled" value="3" disabled />
+          <label for="disabled_3">drie</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<hr />
+
+<!-- End: @group-checkboxes--input-checkbox-disabled -->

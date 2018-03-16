@@ -1,0 +1,12 @@
+---
+status: wip
+collated: true
+context:
+  label: Kleur van object
+  value: Rood
+variants:
+- name: static
+  context:
+    __title: Static
+    __explanation:
+    - Een static input kan informatie tonen die van belang is in een formulier zonder dat er een keuze gemaakt dient te worden.
