@@ -6,13 +6,13 @@ module.exports = (markup, item) =>
         <div class="dso-example-text">
           ${item.context.__title ? `<h2>${item.context.__title}</h2>` : ''}
           ${item.context.__explanation
-      ? [].concat(item.context.__explanation).map(e => `<p>${e}</p>`).join('\n')
-      : ''}
-          </div>
-          <div class="dso-example">
-            ${markup}
-          </div>
+            ? [].concat(item.context.__explanation).map(e => `<p>${e}</p>`).join('\n')
+            : ''}
         </div>
-        <hr />
-        <!-- End: @${item.handle} -->`
-    : `${markup}<hr />`;
+        <div class="dso-example">
+          ${markup}
+        </div>
+      </div>
+      <hr />
+      <!-- End: @${item.handle} -->`
+  : `${markup}<hr />`;

@@ -1,7 +1,7 @@
 status: wip
 collated: true
 context:
-  id: input
+  id: input-text
   type: text
   label: Tekstveld
 variants:

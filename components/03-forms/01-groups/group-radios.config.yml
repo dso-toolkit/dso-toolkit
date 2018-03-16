@@ -2,7 +2,7 @@ status: wip
 collated: true
 context:
   id: input-radio
-  label: Oneven getal
+  label: Maak een keuze
   helpText: Kies een oneven getal
   options:
   - value: 1
@@ -23,6 +23,8 @@ variants:
       op de <code>.form-group.dso-radios</code>
     - Radiobuttons hebben (net zoals checkboxen) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
+    id: input-radio-required
+    required: true
 - name: input-radio-invalid
   context:
     __title: Ongeldig
@@ -32,7 +34,7 @@ variants:
     id: input-radio-invalid
     required: true
     state: invalid
-    errorText: Dit veld is verplicht
+    errorText: Foutieve keuze
     options:
     - value: 1
       label: een
@@ -90,7 +92,7 @@ variants:
     __explanation:
     - Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.
     id: input-radio-valid
-    label: Gaat hem om de bouw van één of meer woningen?
+    label: Gaat het om de bouw van één of meer woningen?
     helpText: ""
     required: true
     inline: true

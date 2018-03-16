@@ -2,7 +2,7 @@ status: wip
 collated: true
 context:
   id: input-confirm
-  label: Check mij
+  label: Ik ga akkoord met de voorwaarden
 variants:
 - name: input-confirm-required
   context:

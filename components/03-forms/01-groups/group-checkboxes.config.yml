@@ -6,15 +6,15 @@ context:
   options:
   - value: 1
     label: een
-    id: optie_1
+    id: checkbox_1
   - value: 2
     label: twee
-    id: optie_2
+    id: checkbox_2
   - value: 3
     label: drie
-    id: optie_3
+    id: checkbox_3
 variants:
-- name: input-required
+- name: input-checkbox-required
   context:
     __title: Verplicht
     __explanation:
@@ -22,7 +22,9 @@ variants:
       op de <code>.form-group.dso-checkboxes</code>
     - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
-- name: input-invalid
+    id: input-checkbox-required
+    required: true
+- name: input-checkbox-invalid
   context:
     __title: Ongeldig
     __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
@@ -34,14 +36,14 @@ variants:
     options:
     - value: 1
       label: een
-      id: error_1
+      id: invalid_1
       checked: true
     - value: 2
       label: twee
-      id: error_2
+      id: invalid_2
     - value: 3
       label: drie
-      id: error_3
+      id: invalid_3
 - name: input-checkbox-valid
   context:
     __title: Geldig
@@ -54,14 +56,14 @@ variants:
     options:
     - value: 1
       label: een
-      id: fixed_1
+      id: valid_1
     - value: 2
       label: twee
-      id: fixed_2
+      id: valid_2
       checked: true
     - value: 3
       label: drie
-      id: fixed_3
+      id: valid_3
 - name: input-checkbox-disabled
   context:
     __title: Disabled
