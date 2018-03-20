@@ -67,24 +67,3 @@ context:
       modifier: link
       icon: icon fa fa-angle-right
       disabled: true
-  anchor-buttons:
-    - example-label: Standard
-      label: Ga verder
-      type: button
-      modifier: btn btn-primary
-      state: standard
-    - example-label: Hover/Focus
-      label: Ga verder
-      type: button
-      modifier: btn btn-primary
-      state: hover
-    - example-label: Active
-      label: Ga verder
-      type: button
-      modifier: btn btn-primary
-      state: active
-    - example-label: Disabled
-      label: Ga verder
-      type: button
-      modifier: btn btn-primary
-      disabled: true
