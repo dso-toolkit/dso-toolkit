@@ -13,6 +13,17 @@ $dso-modal-close-icon-size: $u4;
   top: 0;
   z-index: $zindex-modal;
 
+  &::before {
+    background-color: fade-out($modal-backdrop-bg, $modal-backdrop-opacity);
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
   .modal-header {
     border-bottom: 1px solid $dso-modal-border-color;
     padding: $u2;
@@ -60,6 +71,10 @@ $dso-modal-close-icon-size: $u4;
 
   .modal-footer {
     padding: 0 $u4 $u4;
+
+    .btn-primary {
+      float: right;
+    }
   }
 
   .modal-content {
@@ -73,14 +88,4 @@ $dso-modal-close-icon-size: $u4;
 
 .modal-dialog {
   margin: $u2 0;
-}
-
-.modal-backdrop {
-  background-color: fade-out($modal-backdrop-bg, .4);
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: $zindex-modal-background;
 }
