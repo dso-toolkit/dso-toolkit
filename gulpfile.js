@@ -4,7 +4,6 @@ const gulp = require('gulp');
 const util = require('gulp-util');
 
 const fractal = require('./fractal.js');
-const slug = require('slug');
 
 const { lintStyles, lintWatcher } = require('./gulp/lint');
 const { build, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
@@ -12,24 +11,6 @@ const { testAccessibility, testDom } = require('./gulp/test');
 const { postBuild } = require('./gulp/post-build');
 
 const log = util.log;
-
-slug.defaults.mode ='rfc3986';
-slug.defaults.modes['rfc3986'] = {
-    replacement: '-',      // replace spaces with replacement
-    symbols: true,         // replace unicode symbols or not
-    remove: null,          // (optional) regex to remove characters
-    lower: true,           // result in lower case
-    charmap: slug.charmap, // replace special characters
-    multicharmap: slug.multicharmap // replace multi-characters
-};
-slug.defaults.modes['pretty'] = {
-    replacement: '-',
-    symbols: true,
-    remove: /[.]/g,
-    lower: false,
-    charmap: slug.charmap,
-    multicharmap: slug.multicharmap
-};
 
 gulp.task('clean', cleanBuild);
 gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), fractalDev, watch));

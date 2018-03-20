@@ -1,11 +1,6 @@
 $dso-alert-icon-size: $u4;
 $dso-alert-padding: $u2;
 
-$dso-alert-success-icon-color: $wit;
-$dso-alert-danger-icon-color: $wit;
-$dso-alert-warning-icon-color: $grijs-90;
-$dso-alert-info-icon-color: $wit;
-
 @mixin dso-alert-icon($content) {
   background-image: url($content);
   content: "";

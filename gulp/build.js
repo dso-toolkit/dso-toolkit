@@ -10,7 +10,9 @@ const inlineSvg = require('gulp-inline-svg');
 const path = require('path');
 const pretty = require('pretty');
 const sass = require('gulp-sass');
+const slug = require('slug');
 const svgmin = require('gulp-svgmin');
+const svgVariableName = require('./functions/svg-variable-name.js');
 const tap = require('gulp-tap');
 const trim = require('gulp-trim');
 
@@ -69,7 +71,7 @@ function inlineSvgIcons() {
         prefix: 'dso-icon'
       },
       interceptor: function (svgData, file) {
-        return Object.assign(svgData, { variableName: slug(file.relative.replace(/['\\'_]/g, '-').replace('.svg', '')) });
+        return Object.assign(svgData, { variableName: svgVariableName(file.relative) });
       }
     }))
     .pipe(gulp.dest('src/styles/icons'));
