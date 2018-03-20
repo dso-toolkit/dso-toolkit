@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const util = require('gulp-util');
-const inlineSvg = require('gulp-inline-svg');
 
 const fractal = require('./fractal.js');
 const slug = require('slug');
@@ -42,21 +41,6 @@ gulp.task('test:accessibility', testAccessibility);
 gulp.task('test:dom', testDom);
 gulp.task('post-build', gulp.series(postBuild));
 gulp.task('reference:dom', createDomReference);
-
-gulp.task('inline-svg', function() {
-  return gulp.src('assets/icons/**/*.svg')
-    .pipe(inlineSvg({
-      filename: 'dso-icons.scss',
-      template: 'assets/icons/template.mustache',
-      context: {
-        prefix: 'dso-icon'
-      },
-      interceptor: function (svgData, file) {
-        return Object.assign(svgData, { variableName: slug(file.relative.replace(/['\\'_]/g, '-').replace('.svg', '')) });
-      }
-    }))
-    .pipe(gulp.dest('src/styles/icons'));
-});
 
 function watch() {
   const changeLogger = (type, event, path) => log(`${event} detected: ${path}. Recompiling ${type}`);
