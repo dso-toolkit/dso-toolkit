@@ -13,6 +13,7 @@ $dso-alert-padding: $u2;
   position: relative;
 
   &::before {
+    display: block;
     height: $dso-alert-icon-size;
     left: $dso-alert-padding - 1px; // 1px border
     line-height: $dso-alert-icon-size;
