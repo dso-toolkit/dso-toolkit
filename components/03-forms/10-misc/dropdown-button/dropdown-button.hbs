@@ -1,18 +1,19 @@
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" id="{{ id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="dropdown{{#if open }} open{{/if}}">
+  <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{{#if open }}true{{else}}false{{/if}}">
     {{ label }}
-    <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" aria-labelledby="{{ id }}">
-    {{#each items }}
-      {{#unless @first }}
-        <li role="separator" class="divider"></li>
-      {{/unless}}
-      {{#each this }}
-        <li>
-          <a href="#">{{ this }}</a>
-        </li>
+  {{#if open }}
+    <ul class="dropdown-menu" aria-labelledby="{{ id }}">
+      {{#each items }}
+        {{#unless @first }}
+          <li role="separator" class="divider"></li>
+        {{/unless}}
+        {{#each this }}
+          <li>
+            <a href="#">{{ this }}</a>
+          </li>
+        {{/each}}
       {{/each}}
-    {{/each}}
-  </ul>
+    </ul>
+  {{/if}}
 </div>

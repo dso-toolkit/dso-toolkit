@@ -2,7 +2,7 @@
   "name": "dso-toolkit",
   "description": "DSO Toolkit and Component Library",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
-  "version": "1.1.0",
+  "version": "1.2.0-alpha.0",
   "engines": {
     "node": ">=9.0.0",
     "npm": ">=5.6.0"
@@ -21,13 +21,16 @@
     "gulp-accessibility": "^3.0.1",
     "gulp-file": "^0.4.0",
     "gulp-if": "^2.0.2",
+    "gulp-inline-svg": "^1.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sass-lint": "^1.3.4",
+    "gulp-svgmin": "^1.2.4",
     "gulp-tap": "^1.0.1",
     "gulp-trim": "^1.0.2",
     "hiff": "^0.3.0",
     "node-sass": "^4.7.2",
-    "pretty": "^2.0.0"
+    "pretty": "^2.0.0",
+    "slug": "^0.9.1"
   }
 }
