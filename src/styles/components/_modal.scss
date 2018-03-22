@@ -1,7 +1,8 @@
-$dso-modal-close-icon: fa-content($fa-var-times);
+$dso-modal-close-icon: $dso-icon-button-icon-cross-12x12;
+$dso-modal-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
 $dso-modal-close-icon-size: $u4;
 
-.modal {
+.dso-modal {
   //-webkit-overflow-scrolling: touch;
   bottom: 0;
   left: 0;
@@ -12,6 +13,10 @@ $dso-modal-close-icon-size: $u4;
   right: 0;
   top: 0;
   z-index: $zindex-modal;
+
+  &:focus {
+    outline: 0;
+  }
 
   &::before {
     background-color: fade-out($modal-backdrop-bg, $modal-backdrop-opacity);
@@ -24,29 +29,28 @@ $dso-modal-close-icon-size: $u4;
     top: 0;
   }
 
-  .modal-header {
+  .dso-modal-header {
     border-bottom: 1px solid $dso-modal-border-color;
     padding: $u2;
+    position: relative;
 
-    .modal-title {
+    .dso-modal-title {
       margin: 0;
     }
 
-    .modal-close {
-      @extend .fas;
-
-      background: none;
+    .dso-modal-close {
+      background-color: transparent;
+      background-image: url($dso-modal-close-icon);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
       border: 0;
       border-radius: 50%;
       color: $grasgroen;
-      float: right;
       height: $dso-modal-close-icon-size;
-      margin-top: -3px;
+      position: absolute;
+      right: 13px;
+      top: 13px;
       width: $dso-modal-close-icon-size;
-
-      &::before {
-        content: $dso-modal-close-icon;
-      }
 
       &:hover,
       &:focus,
@@ -59,25 +63,27 @@ $dso-modal-close-icon-size: $u4;
       &:active,
       &.active {
         background-color: $grasgroen;
+        background-image: url($dso-modal-close-icon-active);
         border: 2px solid $grasgroen;
         color: $wit;
       }
     }
   }
 
-  .modal-body {
+  .dso-modal-body {
     padding: $u4;
   }
 
-  .modal-footer {
+  .dso-modal-footer {
     padding: 0 $u4 $u4;
+    text-align: right;
 
-    .btn-primary {
-      float: right;
+    .btn-link {
+      float: left;
     }
   }
 
-  .modal-content {
+  .dso-modal-content {
     background-clip: padding-box;
     background-color: $modal-content-bg;
     border: 1px solid $modal-content-border-color;
@@ -86,6 +92,6 @@ $dso-modal-close-icon-size: $u4;
   }
 }
 
-.modal-dialog {
+.dso-modal-dialog {
   margin: $u2 0;
 }

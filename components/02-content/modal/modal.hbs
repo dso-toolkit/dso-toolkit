@@ -1,15 +1,17 @@
-<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="modal-close"></button>
-        <h2 class="modal-title" id="exampleModalLabel">{{ heading }}</h2>
+<div class="dso-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="{{ id }}" aria-hidden="false">
+  <div class="dso-modal-dialog" role="document">
+    <div class="dso-modal-content">
+      <div class="dso-modal-header">
+        <h2 class="dso-modal-title" id="{{ id }}">{{ heading }}</h2>
+        {{#if closeButton }}
+          <button type="button" class="dso-modal-close"></button>
+        {{/if}}
       </div>
-      <div class="modal-body">
+      <div class="dso-modal-body">
         <p>{{ body }}</p>
       </div>
-      <div class="modal-footer">
-        {{> '@button' closeButton }}
+      <div class="dso-modal-footer">
+        {{> '@button' cancelButton }}
         {{> '@button' confirmButton }}
       </div>
     </div>
