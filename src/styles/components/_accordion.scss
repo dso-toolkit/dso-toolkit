@@ -8,7 +8,6 @@ $dso-accordion-state-icon-size: $u4;
 .dso-accordion {
   .dso-section-handle {
     border-top: 1px solid $dso-accordion-border-color;
-    display: block;
     font-weight: 700;
     padding-right: $dso-accordion-state-icon-size + $u1;
     position: relative;
