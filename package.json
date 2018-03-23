@@ -2,7 +2,7 @@
   "name": "dso-toolkit",
   "description": "DSO Toolkit and Component Library",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
-  "version": "1.2.0-alpha.0",
+  "version": "1.2.0-beta.0",
   "engines": {
     "node": ">=9.0.0",
     "npm": ">=5.6.0"
