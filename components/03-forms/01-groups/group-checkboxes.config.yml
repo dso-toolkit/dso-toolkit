@@ -29,13 +29,10 @@ variants:
     options:
     - value: 1
       label: een
-      id: required_1
     - value: 2
       label: twee
-      id: required_2
     - value: 3
       label: drie
-      id: required_3
 - name: input-checkbox-invalid
   context:
     __title: Ongeldig
@@ -48,14 +45,11 @@ variants:
     options:
     - value: 1
       label: een
-      id: invalid_1
       checked: true
     - value: 2
       label: twee
-      id: invalid_2
     - value: 3
       label: drie
-      id: invalid_3
 - name: input-checkbox-valid
   context:
     __title: Geldig
@@ -68,14 +62,11 @@ variants:
     options:
     - value: 1
       label: een
-      id: valid_1
     - value: 2
       label: twee
-      id: valid_2
       checked: true
     - value: 3
       label: drie
-      id: valid_3
 - name: input-checkbox-disabled
   context:
     __title: Disabled
@@ -85,14 +76,11 @@ variants:
     options:
     - value: 1
       label: een
-      id: disabled_1
       disabled: true
       checked: true
     - value: 2
       label: twee
-      id: disabled_2
       disabled: true
     - value: 3
       label: drie
-      id: disabled_3
       disabled: true

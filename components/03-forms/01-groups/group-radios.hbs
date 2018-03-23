@@ -7,11 +7,11 @@
   <div class="dso-field-container">
     {{#each options }}
       <div class="dso-selectable">
-        <input type="radio" id="{{ id }}" name="{{ ../id }}" value="{{ value }}"
+        <input type="radio" id="{{ ../id }}-{{ @index }}" name="{{ ../id }}" value="{{ value }}"
           {{{ifattr 'disabled' disabled }}}
           {{{ifattr 'checked' checked }}}
           {{{ifattr 'required' required }}} />
-        <label for="{{ id }}">
+        <label for="{{ ../id }}-{{ @index }}">
           {{ label }}
         </label>
       </div>
