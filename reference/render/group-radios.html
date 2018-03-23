@@ -1,0 +1,232 @@
+
+<!-- Start: @group-radios--default -->
+<fieldset class="form-group dso-radios">
+  <div class="dso-label-container">
+    <legend class="control-label">
+      Maak een keuze
+    </legend>
+  </div>
+  <div class="dso-field-container">
+    <div class="dso-selectable">
+      <input type="radio" id="radio_1" name="input-radio" value="1" />
+      <label for="radio_1">
+        een
+      </label>
+    </div>
+    <div class="dso-selectable">
+      <input type="radio" id="radio_2" name="input-radio" value="2" />
+      <label for="radio_2">
+        twee
+      </label>
+    </div>
+    <div class="dso-selectable">
+      <input type="radio" id="radio_3" name="input-radio" value="3" />
+      <label for="radio_3">
+        drie
+      </label>
+    </div>
+    <p class="dso-help-block" id="helpTextId_input-radio">Kies een oneven getal</p>
+  </div>
+</fieldset>
+
+<!-- End: @group-radios--default -->
+<hr />
+
+<!-- Start: @group-radios--input-radio-required -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Verplicht</h2>
+    <p>Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code> op de <code>.form-group.dso-radios</code></p>
+    <p>Radiobuttons hebben (net zoals checkboxen) een <code>fieldset.form-group</code> als root element, geen <code>div.form-group</code></p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Maak een keuze
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="radio_1" name="input-radio-required" value="1" />
+          <label for="radio_1">
+            een
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="radio_2" name="input-radio-required" value="2" />
+          <label for="radio_2">
+            twee
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="radio_3" name="input-radio-required" value="3" />
+          <label for="radio_3">
+            drie
+          </label>
+        </div>
+        <p class="dso-help-block" id="helpTextId_input-radio-required">Kies een oneven getal</p>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<!-- End: @group-radios--input-radio-required -->
+<hr />
+
+<!-- Start: @group-radios--input-radio-invalid -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig</h2>
+    <p>Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-radios</code>.</p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-invalid dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Maak een keuze
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="invalid_1" name="input-radio-invalid" value="1" />
+          <label for="invalid_1">
+            een
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="invalid_2" name="input-radio-invalid" value="2" checked />
+          <label for="invalid_2">
+            twee
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="invalid_3" name="input-radio-invalid" value="3" />
+          <label for="invalid_3">
+            drie
+          </label>
+        </div>
+        <p class="dso-message">Foutieve keuze</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-invalid">Kies een oneven getal</p>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<!-- End: @group-radios--input-radio-invalid -->
+<hr />
+
+<!-- Start: @group-radios--input-radio-valid -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Geldig</h2>
+    <p>Indien een radio groep ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.</p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-valid dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Maak een keuze
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="valid_1" name="input-radio-valid" value="1" checked />
+          <label for="valid_1">
+            een
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="valid_2" name="input-radio-valid" value="2" />
+          <label for="valid_2">
+            twee
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="valid_3" name="input-radio-valid" value="3" />
+          <label for="valid_3">
+            drie
+          </label>
+        </div>
+        <p class="dso-help-block" id="helpTextId_input-radio-valid">Kies een oneven getal</p>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<!-- End: @group-radios--input-radio-valid -->
+<hr />
+
+<!-- Start: @group-radios--input-radio-disabled -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Disabled</h2>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-valid dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Maak een keuze
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="disabled_1" name="input-radio-disabled" value="1" disabled />
+          <label for="disabled_1">
+            een
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="disabled_2" name="input-radio-disabled" value="2" disabled />
+          <label for="disabled_2">
+            twee
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="disabled_3" name="input-radio-disabled" value="3" disabled checked />
+          <label for="disabled_3">
+            drie
+          </label>
+        </div>
+        <p class="dso-help-block" id="helpTextId_input-radio-disabled">Kies een oneven getal</p>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<!-- End: @group-radios--input-radio-disabled -->
+<hr />
+
+<!-- Start: @group-radios--input-radio-inline -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Inline</h2>
+    <p>Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.</p>
+  </div>
+  <div class="dso-example">
+    <fieldset class="form-group dso-radios dso-inline dso-required">
+      <div class="dso-label-container">
+        <legend class="control-label">
+          Gaat het om de bouw van één of meer woningen?
+        </legend>
+      </div>
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="radio" id="radio_yes" name="input-radio-valid" value="1" checked />
+          <label for="radio_yes">
+            ja
+          </label>
+        </div>
+        <div class="dso-selectable">
+          <input type="radio" id="radio_no" name="input-radio-valid" value="2" />
+          <label for="radio_no">
+            nee
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<!-- End: @group-radios--input-radio-inline -->
+<hr />

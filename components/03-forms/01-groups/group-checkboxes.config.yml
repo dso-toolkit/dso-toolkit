@@ -1,0 +1,98 @@
+notes: |
+  Een checkbox group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
+status: wip
+collated: true
+context:
+  id: input-checkbox
+  label: Maak een keuze
+  options:
+  - value: 1
+    label: een
+    id: checkbox_1
+  - value: 2
+    label: twee
+    id: checkbox_2
+  - value: 3
+    label: drie
+    id: checkbox_3
+variants:
+- name: input-checkbox-required
+  context:
+    __title: Verplicht
+    __explanation:
+    - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
+      op de <code>.form-group.dso-checkboxes</code>
+    - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
+      root element, geen <code>div.form-group</code>
+    id: input-checkbox-required
+    required: true
+    options:
+    - value: 1
+      label: een
+      id: required_1
+    - value: 2
+      label: twee
+      id: required_2
+    - value: 3
+      label: drie
+      id: required_3
+- name: input-checkbox-invalid
+  context:
+    __title: Ongeldig
+    __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
+      op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
+    id: input-checkbox-invalid
+    required: true
+    state: invalid
+    errorText: Selecteer minimaal 2 velden
+    options:
+    - value: 1
+      label: een
+      id: invalid_1
+      checked: true
+    - value: 2
+      label: twee
+      id: invalid_2
+    - value: 3
+      label: drie
+      id: invalid_3
+- name: input-checkbox-valid
+  context:
+    __title: Geldig
+    __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
+      <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
+    id: input-checkbox-valid
+    required: true
+    helpText: Selecteer alle even getallen
+    state: valid
+    options:
+    - value: 1
+      label: een
+      id: valid_1
+    - value: 2
+      label: twee
+      id: valid_2
+      checked: true
+    - value: 3
+      label: drie
+      id: valid_3
+- name: input-checkbox-disabled
+  context:
+    __title: Disabled
+    __explanation: Alle <code>input[type="checkbox"]</code> moeten een <code>disabled</code> attribuut krijgen.
+    id: input-checkbox-disabled
+    required: true
+    options:
+    - value: 1
+      label: een
+      id: disabled_1
+      disabled: true
+      checked: true
+    - value: 2
+      label: twee
+      id: disabled_2
+      disabled: true
+    - value: 3
+      label: drie
+      id: disabled_3
+      disabled: true

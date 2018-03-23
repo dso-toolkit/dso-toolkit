@@ -1,0 +1,49 @@
+notes: |
+  'Attribuut `@rows` is optioneel'
+status: wip
+collated: true
+context:
+  id: input-textarea
+  label: Wilt u nog wat kwijt?
+  rows: 5
+variants:
+- name: input-textarea-invalid
+  context:
+    __title: Ongeldig
+    __explanation:
+    - Indien een textarea ongeldig is, dient er een <code>.so-invalid</code> class
+      gezet te worden op de div met de class <code>.so-textarea</code>.
+    id: input-textarea-invalid
+    required: true
+    helpText: Vul een geldige tekst in
+    state: invalid
+    errorText: Dit is geen geldige tekst
+- name: input-textarea-valid
+  context:
+    __title: Geldig
+    __explanation:
+    - Indien een textarea ongeldig was en valide wordt gemaakt, dient
+      de <code>.so-invalid</code> class vervangen te worden door de class <code>.so-valid</code>.
+    id: input-textarea-valid
+    required: true
+    state: valid
+    helpText: Minimaal 6 tekens waarvan 1 leesteken
+    value: Ik heb wat ingevuld
+- name: input-textarea-placeholder
+  context:
+    __title: Placeholder
+    id: input-textarea-placeholder
+    placeholder: Bijvoorbeeld; vragen over de toolkit
+    required: true
+- name: input-textarea-disabled
+  context:
+    __title: Disabled
+    id: input-textarea-disabled
+    required: true
+    disabled: true
+- name: input-textarea-readonly
+  context:
+    __title: Readonly
+    id: input-textarea-readonly
+    required: true
+    readonly: true
