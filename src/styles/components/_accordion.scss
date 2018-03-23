@@ -13,23 +13,26 @@ $dso-accordion-info-icon: fa-content($fa-var-info);
     border-top: 1px solid $dso-accordion-border-color;
     display: block;
     font-weight: 700;
-    height: $u6;
     padding-right: $u4;
     position: relative;
 
     a {
       color: $grasgroen;
+      display: inline-block;
       line-height: $u6;
       margin: 0;
+      padding-left: $u4;
+      width: calc(100% - #{$u1});
       word-break: break-word;
 
       &::before {
         @include icon($dso-icon-button-icon-chevron-down-12x12, 100% 50%);
-        background-size: 16px;
+        background-size: $u2;
         color: $grasgroen;
         font-size: $u2;
         height: $u2;
         line-height: $u6;
+        margin-left: -$u4;
         margin-right: $u2;
         width: $u2;
       }
