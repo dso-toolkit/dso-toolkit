@@ -1,9 +1,15 @@
+$dso-hamburger-menu-button-width: 40px;
+
 .menu {
   .search {
     float: right;
     max-width: 250px;
 
-    @media(min-width: $screen-sm) and (max-width: $screen-md) {
+    @media(max-width: $screen-sm-max) {
+      width: calc(100% - #{$dso-hamburger-menu-button-width + $u1});
+    }
+
+    @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
       max-width: 200px;
     }
   }
@@ -14,6 +20,10 @@
 
   .navbar-collapse {
     width: 100%;
+
+    @media(max-width: $screen-sm-max) {
+      clear: both;
+    }
   }
 
   &.navbar {
@@ -40,7 +50,7 @@
             color: $zwart;
           }
 
-          @media(min-width: $screen-sm) {
+          @media(min-width: $screen-sm-min) {
             padding: 12px 10px 0;
           }
         }
@@ -69,27 +79,12 @@
 
       &:focus {
         background-color: $grasgroen-10;
-        border: 2px solid $grasgroen-10;
+        border: 1px solid $grasgroen-10;
       }
 
       &:hover {
         background-color: $grasgroen-10;
       }
-    }
-  }
-}
-
-@media(max-width: $screen-sm) {
-  .menu {
-    .search {
-      $hamburger-menu-button-width: 40px;
-
-      margin-left: #{$hamburger-menu-button-width + 4px};
-      width: calc(100% - #{$hamburger-menu-button-width + 4px});
-    }
-
-    .navbar-header {
-      position: absolute;
     }
   }
 }

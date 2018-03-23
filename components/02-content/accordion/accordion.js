@@ -10,34 +10,31 @@ module.exports = function (fractal) {
   return {
     accordion(options) {
       return `
-        <div class="accordion" id="accordion">
+        <div class="dso-accordion" id="accordion">
           ${options.fn(this)}
         </div>
       `.trim();
     },
 
-    panel(title, context, options) {
-      let o = options || context;
-      let icon = '';
+    accordionSection(title, options) {
+      var self = this;
 
-      return handlebars
-        .compile('{{> \'@icon\' }}')({ icon: context.icon })
-        .then(i => {
-          icon = context.icon && i.trim();
+      let html = (
+        `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
+          <div class="dso-section-handle">
+            <a href="#">${ title }</a>
+          </div>`);
 
-          return o.fn(context);
-        })
-        .then(content => `
-          <div class="panel">
-            <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#${context.id}" aria-expanded="false" aria-controls="${context.id}">
-              <span class="toggle-icon"></span>
-              <h2>${title}${icon || ''}</h2>
-            </a>
-            <div class="section-body collapse" id="${context.id}">
-              ${content.trim()}
-            </div>
-          </div>
-        `.trim());
+      if (self.open) {
+        html += (
+          `<div class="dso-section-body">
+            ${options.fn(self)}
+          </div>`);
+      }
+
+      html += `</div>`;
+
+      return html.trim();
     }
   };
 };
