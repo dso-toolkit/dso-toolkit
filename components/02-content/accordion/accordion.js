@@ -10,7 +10,7 @@ module.exports = function (fractal) {
   return {
     accordion(options) {
       return `
-        <div class="accordion" id="accordion">
+        <div class="dso-accordion" id="accordion">
           ${options.fn(this)}
         </div>
       `.trim();
@@ -20,14 +20,14 @@ module.exports = function (fractal) {
       var self = this;
 
       let html = (
-        `<div class="accordion-section${(self.state ? ' accordion-' + self.state : '') + (self.open ? ' open' : '') }">
-          <div class="section-handle">
+        `<div class="dso-accordion-section${(self.state ? ' dso-accordion-' + self.state : '') + (self.open ? ' dso-open' : '') }">
+          <div class="dso-section-handle">
             <a href="#">${ title }</a>
           </div>`);
 
       if (self.open) {
         html += (
-          `<div class="section-body">
+          `<div class="dso-section-body">
             ${options.fn(self)}
           </div>`);
       }

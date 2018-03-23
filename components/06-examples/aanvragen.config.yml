@@ -33,6 +33,21 @@ context:
         url: '#'
       - label: Aanvraag voorbereiden
         url: '#'
+  sections:
+  - title: Woning
+    id: panel1
+    state: success
+  - title: Bouwwerkzaamheden
+    id: panel2
+    state: success
+  - title: Plaats van het bouwwerk
+    id: panel3
+    state: danger
+    open: true
+  - title: Afmetingen van het bouwwerk
+    id: panel4
+  - title: Extra werkzaamheden
+    id: panel5
   panel1:
     id: panel1
     title: Omschrijving project
