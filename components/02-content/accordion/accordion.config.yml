@@ -5,7 +5,7 @@ notes: |
   `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
 
   Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
-status: prototype
+status: wip
 context:
   sections:
   - title: Woning

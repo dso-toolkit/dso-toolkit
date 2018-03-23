@@ -10,7 +10,7 @@ module.exports = function (fractal) {
   return {
     accordion(options) {
       return `
-        <div class="dso-accordion" id="accordion">
+        <div class="dso-accordion">
           ${options.fn(this)}
         </div>
       `.trim();
