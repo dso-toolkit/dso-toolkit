@@ -1,48 +1,40 @@
-$dso-check-icon-font-size: $u2;
-$dso-check-icon-size: $u4;
-$dso-accordion-panel-icon: fa-content($fa-var-chevron-down);
-$dso-accordion-panel-active-icon: fa-content($fa-var-chevron-up);
-$dso-accordion-success-icon: fa-content($fa-var-check);
-$dso-accordion-danger-icon: fa-content($fa-var-times);
-$dso-accordion-warning-icon: fa-content($fa-var-exclamation);
-$dso-accordion-info-icon: fa-content($fa-var-info);
+$dso-accordion-chevron-gutter: $u2;
+$dso-accordion-chevron-icon-size: $u2;
+$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-gutter;
+$dso-accordion-state-icon-size: $u4;
+$dso-accordion-handle-height: $u6;
 
 .dso-accordion {
   .dso-section-handle {
-    @extend %is-h4;
     border-top: 1px solid $dso-accordion-border-color;
     display: block;
     font-weight: 700;
-    padding-right: $u4;
+    padding-right: $dso-accordion-state-icon-size + $u1;
     position: relative;
 
     a {
+      @extend %is-h4;
       color: $grasgroen;
       display: inline-block;
-      line-height: $u6;
-      margin: 0;
-      padding-left: $u4;
-      width: calc(100% - #{$u1});
+      line-height: $dso-accordion-handle-height;
+      padding-left: $dso-accordion-chevron-space;
       word-break: break-word;
 
       &::before {
-        @include icon($dso-icon-button-icon-chevron-down-12x12, 100% 50%);
-        background-size: $u2;
-        color: $grasgroen;
-        font-size: $u2;
-        height: $u2;
-        line-height: $u6;
-        margin-left: -$u4;
-        margin-right: $u2;
-        width: $u2;
+        @include icon($dso-icon-button-icon-chevron-down-12x12);
+        background-size: $dso-accordion-chevron-icon-size;
+        height: $dso-accordion-chevron-icon-size;
+        margin-left: -$dso-accordion-chevron-space;
+        margin-right: $dso-accordion-chevron-gutter;
+        width: $dso-accordion-chevron-icon-size;
       }
 
       &::after {
-        height: $dso-check-icon-size;
+        height: $dso-accordion-state-icon-size;
         position: absolute;
         right: 0;
-        top: $u1;
-        width: $dso-check-icon-size;
+        top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
+        width: $dso-accordion-state-icon-size;
       }
 
       &:hover,
@@ -50,46 +42,38 @@ $dso-accordion-info-icon: fa-content($fa-var-info);
       &.focus,
       &:active,
       &.active {
+        color: $oranje;
         text-decoration: none;
 
-        &,
         &::before {
-          color: $oranje;
-        }
-
-        &::before {
-          @include icon($dso-icon-button-icon-chevron-down-orange-12x12, 100% 50%);
+          @include icon($dso-icon-button-icon-chevron-down-orange-12x12);
         }
       }
     }
   }
 
   .dso-accordion-section {
-    &.dso-accordion-success {
+    &.dso-success {
       a::after {
-        @include icon($dso-icon-notification-succes-32x32, 50% 100%);
-        font-size: $dso-check-icon-font-size;
+        @include icon($dso-icon-notification-succes-32x32);
       }
     }
 
-    &.dso-accordion-danger {
+    &.dso-danger {
       a::after {
-        @include icon($dso-icon-notification-error-32x32, 50% 100%);
-        font-size: $dso-check-icon-font-size;
+        @include icon($dso-icon-notification-error-32x32);
       }
     }
 
-    &.dso-accordion-warning {
+    &.dso-warning {
       a::after {
-        @include icon($dso-icon-notification-warning-32x32, 50% 100%);
-        font-size: $dso-check-icon-font-size;
+        @include icon($dso-icon-notification-warning-32x32);
       }
     }
 
-    &.dso-accordion-info {
+    &.dso-info {
       a::after {
-        @include icon($dso-icon-notification-information-32x32, 50% 100%);
-        font-size: $dso-check-icon-font-size;
+        @include icon($dso-icon-notification-information-32x32);
       }
     }
 

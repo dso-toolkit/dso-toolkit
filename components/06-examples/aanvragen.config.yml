@@ -73,7 +73,7 @@ context:
     submitButton:
       type: submit
       modifier: primary
-      label: "naar het volgende gedeelte: Afmetingen van het bouwwerk"
+      label: Volgende stap
   - title: Afmetingen van het bouwwerk
     id: panel4
   - title: Extra werkzaamheden

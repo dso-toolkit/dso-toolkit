@@ -1,22 +1,15 @@
 notes: |
-  Een accordion (`.accordion`) bestaat uit secties (`.accordion-section`). Een sectie heeft een handle (`.section-handle`) en body (`.section-body`).
+  Een accordion (`.dso-accordion`) bestaat uit secties (`.dso-accordion-section`). Een sectie heeft een handle (`.dso-section-handle`) en body (`.dso-section-body`).
 
-  Als de body verborgen wordt dmv. styling (`display: none` of `.hidden`) moeten ervoor toegankelijkheid wat attributen worden toegevoegd.
+  Een accordion section in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt voor oranje tekst en het "chevron-up"-icoon. Ook als het
+  `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
 
-  De handle krijgt
-  * `aria-controls="ID"`. ID verwijst naar het `#id` van de section body.
-  * `aria-expanded="true|false"`.
-
-  De body krijgt
-  * `id="ID"`. Een uniek ID.
-
-  Als de section bodies niet in het DOM zitten, zijn bovenstaande attributen niet nodig.
+  Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
 status: prototype
 context:
   sections:
   - title: Woning
     id: panel1
-    state: success
   - title: Bouwwerkzaamheden
     id: panel2
     state: success

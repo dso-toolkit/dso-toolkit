@@ -20,7 +20,7 @@ module.exports = function (fractal) {
       var self = this;
 
       let html = (
-        `<div class="dso-accordion-section${(self.state ? ' dso-accordion-' + self.state : '') + (self.open ? ' dso-open' : '') }">
+        `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
           <div class="dso-section-handle">
             <a href="#">${ title }</a>
           </div>`);
