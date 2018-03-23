@@ -1,7 +1,13 @@
 <h2 style="margin-bottom: 24px">Primaire button / Call to action</h2>
+<div class="row">
+  <div class="col-md-3">
+    {{> '@button' label='Button' type='button' modifier='primary' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' }}
+  </div>
+</div>
 
-{{> '@button' label='Button' type='button' modifier='primary' }}
-{{> '@anchor' label='Anchor' modifier='btn btn-primary' }}
 
 <div class="row example">
   {{#each primary-buttons }}
@@ -21,9 +27,14 @@
 </div>
 
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Secundaire button</h2>
-
-{{> '@button' label='Button' type='button' modifier='default' }}
-{{> '@anchor' label='Anchor' modifier='btn btn-default' }}
+<div class="row">
+  <div class="col-md-3">
+    {{> '@button' label='Button' type='button' modifier='default' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' }}
+  </div>
+</div>
 
 <div class="row example">
   {{#each secundary-buttons }}
@@ -42,9 +53,14 @@
 </div>
 
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Tertiaire button</h2>
-
-{{> '@button' label='Button' type='button' modifier='link' icon='icon fa fa-angle-right' }}
-{{> '@anchor' label='Anchor' modifier='btn btn-link' icon='icon fa fa-angle-right' }}
+<div class="row">
+  <div class="col-md-3">
+    {{> '@button' label='Button' type='button' modifier='link' icon='icon fa fa-angle-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-link' icon='icon fa fa-angle-right' url='#' }}
+  </div>
+</div>
 
 <div class="row example">
   {{#each tertiary-buttons }}

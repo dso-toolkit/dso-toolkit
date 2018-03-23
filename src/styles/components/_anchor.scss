@@ -22,31 +22,4 @@ a {
   &.extern::after {
     content: $dso-anchor-extern-content;
   }
-
-  &.btn-default,
-  &.btn-primary {
-    &:visited {
-      color: $wit;
-    }
-
-    &:active,
-    &.active {
-      &:visited {
-        color: $wit;
-      }
-    }
-  }
-
-  &.btn-link {
-    &:visited {
-      color: $grasgroen;
-    }
-
-    &:active,
-    &.active {
-      &:visited {
-        color: $bosgroen;
-      }
-    }
-  }
 }

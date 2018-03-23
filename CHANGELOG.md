@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Gutter width is 15px instead of 16px (#67)
 - Wrong font in Navs component (#80)
 - Responsive hamburger menu styling (#72)
+- Button modifiers do not work properly on anchors (#75)
 
 ## 1.1.0 - 2017-01-19
 ### Changed
