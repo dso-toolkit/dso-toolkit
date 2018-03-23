@@ -26,6 +26,16 @@ variants:
       root element, geen <code>div.form-group</code>
     id: input-checkbox-required
     required: true
+    options:
+    - value: 1
+      label: een
+      id: required_1
+    - value: 2
+      label: twee
+      id: required_2
+    - value: 3
+      label: drie
+      id: required_3
 - name: input-checkbox-invalid
   context:
     __title: Ongeldig
