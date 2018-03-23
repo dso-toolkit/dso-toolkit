@@ -86,30 +86,75 @@
   </div>
   <div class="row">
     <div class="col-md-9">
-      <div class="accordion" id="accordion">
-        <div class="accordion-section">
-          <div class="section-handle">
-            <a href="#">Omschrijving project</a>
+      <div class="dso-accordion" id="accordion">
+        <div class="dso-accordion-section dso-success">
+          <div class="dso-section-handle">
+            <a href="#">Woning</a>
           </div>
         </div>
-        <div class="accordion-section">
-          <div class="section-handle">
-            <a href="#">Aanvrager</a>
+        <div class="dso-accordion-section dso-success">
+          <div class="dso-section-handle">
+            <a href="#">Bouwwerkzaamheden</a>
           </div>
         </div>
-        <div class="accordion-section">
-          <div class="section-handle">
-            <a href="#">Locatie</a>
+        <div class="dso-accordion-section dso-warning dso-open">
+          <div class="dso-section-handle">
+            <a href="#">Plaats van het bouwwerk</a>
+          </div>
+          <div class="dso-section-body">
+            <form class="form-horizontal">
+              <fieldset class="form-fields">
+                <legend class="sr-only">Horizontal form</legend>
+                <fieldset>
+                  <legend>Plaats van het bouwwerk</legend>
+                  <div class="form-group input text">
+                    <label for="omgevingsvergunningPostcode" class="control-label">Postcode</label>
+                    <div class="field-container">
+                      <input type="text" id="omgevingsvergunningPostcode" class="form-control" size="8" />
+                    </div>
+                  </div>
+                  <div class="form-group input text">
+                    <label for="omgevingsvergunningHuisnummer" class="control-label">Huisnummer</label>
+                    <div class="field-container">
+                      <input type="text" id="omgevingsvergunningHuisnummer" class="form-control" size="8" />
+                    </div>
+                  </div>
+                  <div class="form-group input text">
+                    <label for="omgevingsvergunningToevoeging" class="control-label">Huisnummer toevoeging</label>
+                    <div class="field-container">
+                      <input type="text" id="omgevingsvergunningToevoeging" class="form-control" size="8" />
+                    </div>
+                  </div>
+                  <div class="form-group input text">
+                    <label for="omgevingsvergunningStraatnaam" class="control-label">Straatnaam</label>
+                    <div class="field-container">
+                      <input type="text" id="omgevingsvergunningStraatnaam" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group input text">
+                    <label for="omgevingsvergunningWoonplaats" class="control-label">Woonplaats</label>
+                    <div class="field-container">
+                      <input type="text" id="omgevingsvergunningWoonplaats" class="form-control" />
+                    </div>
+                  </div>
+                </fieldset>
+              </fieldset>
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  Volgende stap
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="accordion-section">
-          <div class="section-handle">
-            <a href="#">Werkzaamheden</a>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Afmetingen van het bouwwerk</a>
           </div>
         </div>
-        <div class="accordion-section">
-          <div class="section-handle">
-            <a href="#">Bijlagen</a>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Extra werkzaamheden</a>
           </div>
         </div>
       </div>
@@ -135,8 +180,7 @@
             <span class="fa fa-angle-right" aria-hidden="true"></span> Bijlagen
           </li>
         </ul>
-        <button type="submit" class="btn btn-primary">
-          Aanvraag indienen
+        <button type="" class="btn btn-">
         </button>
       </div>
     </div>
