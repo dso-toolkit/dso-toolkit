@@ -9,6 +9,7 @@
   font-size: 1.125em;
   font-weight: bold;
   height: $dso-button-size;
+  line-height: $dso-button-size - 2 * $dso-button-border-width;
   min-width: $dso-button-size;
 
   &:active,
@@ -32,6 +33,10 @@
 }
 
 .btn-default {
+  &:visited {
+    color: $btn-default-color;
+  }
+
   &:hover,
   &:focus,
   &.focus {
@@ -43,7 +48,8 @@
     &,
     &:focus,
     &.focus,
-    &:hover {
+    &:hover,
+    &:visited {
       @include state-styling($bosgroen, $bosgroen, $wit);
     }
   }
@@ -76,6 +82,10 @@
     }
   }
 
+  &:visited {
+    color: $btn-primary-color;
+  }
+
   &.disabled,
   &[disabled] {
     @include state-styling($background-color: $dso-button-primary-disabled-color, $border-color: $dso-button-primary-disabled-color);
@@ -101,6 +111,10 @@
     line-height: $dso-button-link-size - 2 * $dso-button-border-width;
     margin-right: $u1;
     width: $dso-button-link-size;
+  }
+
+  &:visited {
+    color: $grasgroen;
   }
 
   &:hover,
