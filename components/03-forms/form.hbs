@@ -1,5 +1,5 @@
 <form{{#if formModifier }} class="{{ formModifier }}"{{/if}}>
-  <fieldset class="form-fields">
+  <fieldset class="dso-form-fields">
     <legend class="sr-only">{{ formLegend }}</legend>
     {{#each fieldsets }}
       <fieldset>
@@ -10,7 +10,7 @@
       </fieldset>
     {{/each}}
   </fieldset>
-  <div class="form-buttons">
+  <div class="dso-form-buttons">
     {{> '@button' submitButton }}
   </div>
 </form>

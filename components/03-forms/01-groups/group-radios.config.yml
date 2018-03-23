@@ -1,3 +1,5 @@
+notes: |
+  Een radio group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
 status: wip
 collated: true
 context:
