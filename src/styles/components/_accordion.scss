@@ -1,96 +1,104 @@
-.accordion {
-  .panel {
-    border: 0;
-    box-shadow: none;
-    margin-bottom: 0;
-  }
+$dso-accordion-border-color: #d3ddd6;
+$dso-accordion-chevron-gutter: $u2;
+$dso-accordion-chevron-icon-size: $u2;
+$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-gutter;
+$dso-accordion-handle-height: $u6;
+$dso-accordion-state-icon-size: $u4;
 
-  .section-toggle,
-  .section-body {
-    padding-left: 40px;
-  }
-
-  .section-toggle {
+.dso-accordion {
+  .dso-section-handle {
+    border-top: 1px solid $dso-accordion-border-color;
     display: block;
+    font-weight: 700;
+    padding-right: $dso-accordion-state-icon-size + $u1;
+    position: relative;
 
-    // .toggle-icon {
-    //   @extend .#{$fa-css-prefix};
+    a {
+      @extend %is-h4;
+      color: $grasgroen;
+      display: inline-block;
+      line-height: $dso-accordion-handle-height;
+      padding-left: $dso-accordion-chevron-space;
+      word-break: break-word;
 
-    //   color: $grijs-80;
-    //   float: left;
-    //   font-size: 2.4em;
-    //   margin-left: -30px;
-    //   margin-top: -3px;
-    //   transition: .5s ease;
+      &::before {
+        @include icon($dso-icon-button-icon-chevron-down-12x12);
+        background-size: $dso-accordion-chevron-icon-size;
+        height: $dso-accordion-chevron-icon-size;
+        margin-left: -$dso-accordion-chevron-space;
+        margin-right: $dso-accordion-chevron-gutter;
+        width: $dso-accordion-chevron-icon-size;
+      }
 
-    //   &::before {
-    //     content: $fa-var-angle-right;
-    //   }
+      &::after {
+        height: $dso-accordion-state-icon-size;
+        position: absolute;
+        right: 0;
+        top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
+        width: $dso-accordion-state-icon-size;
+      }
 
-    //   &.toggle-closed {
-    //     transform: rotate(0deg);
-    //   }
+      &:hover,
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        color: $oranje;
+        text-decoration: none;
 
-    //   &.toggle-open {
-    //     transform: rotate(90deg);
-    //   }
-    // }
-
-    &:hover,
-    &:focus {
-      color: $bosgroen;
-      text-decoration: none;
-    }
-
-    h2 {
-      border-bottom: 1px solid $grijs-50;
-      color: $bosgroen;
-      font-size: 2em;
-      font-weight: normal;
-      margin-top: 10px;
-      padding-bottom: 10px;
-
-      span {
-        color: $grasgroen;
-        font-size: .875em;
-        margin-left: 15px;
+        &::before {
+          @include icon($dso-icon-button-icon-chevron-down-orange-12x12);
+        }
       }
     }
   }
 
-  .section-body {
-    fieldset legend {
-      border-bottom: 0;
-      color: $bosgroen;
-      font-size: 1.2em;
-      font-weight: 700;
-    }
-
-    > label {
-      color: $bosgroen;
-      font-size: 1.4em;
-      margin-top: 30px;
-
-      &:first-child {
-        margin-top: 0;
-      }
-
-      .fa-check {
-        color: $grasgroen;
-      }
-
-      .fa-exclamation-circle {
-        color: $grijs-50;
+  .dso-accordion-section {
+    &.dso-success {
+      a::after {
+        @include icon($dso-icon-notification-succes-32x32);
       }
     }
 
-    button {
-      margin-bottom: 12px;
-
-      &.btn-link {
-        margin-bottom: 0;
-        padding: 0;
+    &.dso-danger {
+      a::after {
+        @include icon($dso-icon-notification-error-32x32);
       }
     }
+
+    &.dso-warning {
+      a::after {
+        @include icon($dso-icon-notification-warning-32x32);
+      }
+    }
+
+    &.dso-info {
+      a::after {
+        @include icon($dso-icon-notification-information-32x32);
+      }
+    }
+
+    &.dso-open {
+      .dso-section-handle {
+        a {
+          color: $oranje;
+
+          &::before {
+            background-image: url($dso-icon-button-icon-chevron-up-orange-12x12);
+          }
+        }
+      }
+    }
+
+    &:not(.dso-open) {
+      .dso-section-body {
+        display: none;
+      }
+    }
+  }
+
+  .dso-section-body {
+    padding-bottom: $u4;
+    padding-top: $u1;
   }
 }
