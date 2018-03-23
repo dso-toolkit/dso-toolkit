@@ -49,11 +49,9 @@ variants:
     id: input-text-disabled
     label: Naam
     disabled: true
-    required: true
 - name: input-text-readonly
   context:
     __title: Readonly
     id: input-text-readonly
     label: Naam
     readonly: true
-    required: true

@@ -84,7 +84,7 @@ context:
           label: Alfa Romeo
         - value: fiat
           label: Fiat
-        - value: marcedes
+        - value: mercedes
           label: Mercedes
           selected: true
         - value: volkswagen

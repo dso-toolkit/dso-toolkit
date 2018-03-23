@@ -1,7 +1,7 @@
 module.exports = (markup, item) =>
-  item.context.__title || item.context.__explanation
+  `<!-- Start: @${item.handle} -->\n` +
+  (item.context.__title || item.context.__explanation
     ? `
-      <!-- Start: @${item.handle} -->
       <div class="dso-example-wrapper">
         <div class="dso-example-text">
           ${item.context.__title ? `<h2>${item.context.__title}</h2>` : ''}
@@ -12,7 +12,6 @@ module.exports = (markup, item) =>
         <div class="dso-example">
           ${markup}
         </div>
-      </div>
-      <hr />
-      <!-- End: @${item.handle} -->`
-  : `${markup}<hr />`;
+      </div>`
+  : `${markup}`) +
+  `\n<!-- End: @${item.handle} --><hr />\n`;

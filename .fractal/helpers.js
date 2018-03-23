@@ -24,9 +24,6 @@ module.exports = fractal => Object.assign({
   helpTextId: function (id) {
     return 'helpTextId_' + id;
   },
-  errorTextId: function (id) {
-    return 'errorTextId_' + id;
-  },
   radioId: function (name, index) {
     return ['radio', name, index].join('_');
   },

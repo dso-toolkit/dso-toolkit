@@ -9,10 +9,12 @@ label: Voorbeeld
 context:
   groups:
     - id: naam
-      type: text
+      type: input
+      inputType: text
       label: Naam
     - id: email
-      type: text
+      type: input
+      inputType: text
       label: E-mailadres
     - id: secure
       type: static

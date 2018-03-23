@@ -1,3 +1,5 @@
+notes: |
+  Een checkbox group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
 status: wip
 collated: true
 context:
@@ -67,6 +69,7 @@ variants:
 - name: input-checkbox-disabled
   context:
     __title: Disabled
+    __explanation: Alle <code>input[type="checkbox"]</code> moeten een <code>disabled</code> attribuut krijgen.
     id: input-checkbox-disabled
     required: true
     options:
