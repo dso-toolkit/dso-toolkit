@@ -1,4 +1,6 @@
-$dso-row-divider-color: #d3ddd6;
+$dso-row-vertical-space: $u6;
+$dso-featured-background-color: #ebf3e6;
+$dso-row-border-color: #d3ddd6;
 
 @mixin full-width-row($gutter: 0) {
   margin-left: calc(50% - 50vw);
@@ -19,46 +21,23 @@ body {
   overflow-x: hidden;
 }
 
-@if (false) {
-  main {
-    .row {
-      background-color: #fffafa;
-
-      > * {
-        border-bottom: 1px dashed #000;
-        border-top: 1px dashed #000;
-      }
-    }
-  }
-}
-
 main {
   .row {
-    padding-bottom: 48px;
-    padding-top: 48px;
+    padding-bottom: $dso-row-vertical-space;
+    padding-top: $dso-row-vertical-space;
 
-    &:not(.full-width) {
-      border-bottom: 1px solid $dso-row-divider-color;
+    &:not(.dso-featured) {
+      border-bottom: 1px solid $dso-row-border-color;
     }
 
-    &.full-width {
+    &.dso-featured {
       @include full-width-row($grid-gutter-width);
 
-      background-color: $dso-full-width-color;
+      background-color: $dso-featured-background-color;
     }
 
-    &:not(.full-width) + .row.full-width {
+    &:not(.dso-featured) + .row.dso-featured {
       margin-top: -1px;
     }
-  }
-}
-
-.rich-content {
-  > :first-child {
-    margin-top: 0;
-  }
-
-  > :last-child {
-    margin-bottom: 0;
   }
 }
