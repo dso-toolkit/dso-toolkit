@@ -1,21 +1,109 @@
 status: wip
-label: Modal
+default: modal
 context:
   id: modal-no-close
   heading: Activiteit toevoegen
   body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.
-  cancelButton:
-    type: button
-    modifier: link
-    icon: icon fas fa-times
-    label: Annuleren
-  confirmButton:
+  buttons:
+    - name: cancelButton
+      type: button
+      modifier: link
+      icon: icon fas fa-times
+      label: Annuleren
+    - name: confirmButton
+      type: submit
+      modifier: primary
+      label: Toevoegen
+  fieldsets:
+    - legend: Contact
+      groups:
+        - id: voornaam
+          type: input
+          inputType: text
+          label: Voornaam
+        - id: achternaam
+          type: input
+          inputType: text
+          label: Achternaam
+          helpText: Mag ook de familienaam zijn
+        - type: static
+          label: Geslacht
+          value: Man
+        - id: email
+          type: input
+          inputType: email
+          label: E-mailadres
+        - id: password
+          type: input
+          inputType: password
+          label: Wachtwoord
+        - id: password_bevestig
+          type: input
+          inputType: password
+          label: Wachtwoord (bevestig)
+        - id: nieuwsbrief
+          type: confirm
+          label: Stuur mij de maandelijkse nieuwsbrief
+          helpText: Uw gegevens zullen niet worden gedeeld met derden
+  submitButton:
     type: submit
     modifier: primary
-    label: Toevoegen
+    label: Verstuur
 variants:
-  - name: close
-    label: Met sluiter
+  - name: modal-close
+    label: Closable
     context:
       id: modal-close
       closeButton: true
+  - name: modal-single-submit
+    label: Single submit
+    context:
+      id: modal-single-submit
+      buttons:
+      - name: confirmButton
+        type: submit
+        modifier: primary
+        label: Indienen
+  - name: modal-single-cancel
+    label: Single cancel
+    context:
+      id: modal-single-cancel
+      buttons:
+      - name: cancelButton
+        type: button
+        modifier: link
+        icon: icon fas fa-times
+        label: Annuleren
+  - name: modal-steps
+    label: Steps
+    context:
+      id: modal-steps
+      buttons:
+      - name: cancelButton
+        type: button
+        modifier: link
+        icon: icon fas fa-times
+        label: Annuleren
+      - name: previousButton
+        type: button
+        modifier: default
+        label: Vorige
+      - name: nextButton
+        type: button
+        modifier: default
+        label: Volgende
+  - name: modal-confirm
+    label: Confirm
+    context:
+      id: modal-confirm
+      confirm: true
+      body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+      buttons:
+      - name: yesButton
+        type: button
+        modifier: default
+        label: Ja
+      - name: noButton
+        type: button
+        modifier: default
+        label: Nee

@@ -75,11 +75,30 @@ $dso-modal-close-icon-size: $u4;
   }
 
   .dso-modal-footer {
+    box-sizing: content-box;
+    min-height: $u4;
     padding: 0 $u4 $u4;
+    position: relative;
     text-align: right;
 
     .btn-link {
-      float: left;
+      left: 32px;
+      position: absolute;
+    }
+
+    button + button {
+      margin-left: $u2;
+    }
+
+    &.dso-modal-confirm {
+      button {
+        // min-width: 150px;
+        // width: 40%;
+
+        &:first-child {
+          float: left;
+        }
+      }
     }
   }
 

@@ -1,3 +1,4 @@
+{{> '@form-horizontal' }}
 <div class="dso-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="{{ id }}" aria-hidden="false">
   <div class="dso-modal-dialog" role="document">
     <div class="dso-modal-content">
@@ -10,9 +11,10 @@
       <div class="dso-modal-body">
         <p>{{ body }}</p>
       </div>
-      <div class="dso-modal-footer">
-        {{> '@button' cancelButton }}
-        {{> '@button' confirmButton }}
+      <div class="dso-modal-footer{{#if confirm }} dso-modal-confirm{{/if}}">
+        {{#each buttons }}
+          {{> '@button' }}
+        {{/each}}
       </div>
     </div>
   </div>
