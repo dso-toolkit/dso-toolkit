@@ -3,6 +3,7 @@
 
   .jumbotron-title {
     @include make-md-column(12);
+    margin-top: 0;
   }
 
   .jumbotron-body {

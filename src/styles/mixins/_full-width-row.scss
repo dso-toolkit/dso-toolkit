@@ -1,3 +1,5 @@
+$dso-row-divider-color: #d3ddd6;
+
 @mixin full-width-row($gutter: 0) {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -17,25 +19,46 @@ body {
   overflow-x: hidden;
 }
 
-main .row {
-  + .row {
-    border-top: 1px solid $dso-row-divider-color;
+@if (false) {
+  main {
+    .row {
+      background-color: #fffafa;
+
+      > * {
+        border-bottom: 1px dashed #000;
+        border-top: 1px dashed #000;
+      }
+    }
   }
 }
 
-main .row.full-width {
-  @include full-width-row($grid-gutter-width);
+main {
+  .row {
+    padding-bottom: 48px;
+    padding-top: 48px;
 
-  background-color: $dso-full-width-color;
-  border-top: 0;
+    &:not(.full-width) {
+      border-bottom: 1px solid $dso-row-divider-color;
+    }
 
-  + .row {
-    border-top: 0;
+    &.full-width {
+      @include full-width-row($grid-gutter-width);
+
+      background-color: $dso-full-width-color;
+    }
+
+    &:not(.full-width) + .row.full-width {
+      margin-top: -1px;
+    }
   }
 }
 
 .rich-content {
-  *:first-child {
+  > :first-child {
     margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
   }
 }
