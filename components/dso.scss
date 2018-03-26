@@ -3,3 +3,37 @@
 
 @import "03-forms/10-misc/01-buttons/buttons";
 
+.dso-example-wrapper {
+  margin-left: -10px;
+  margin-right: -10px;
+
+  .dso-example {
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    border-top: 0;
+    padding: 10px;
+  }
+
+  .dso-example-text {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+    padding: 10px;
+
+    h2 {
+      font-size: 1em;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    h2 + p,
+    p + p {
+      margin-top: 8px;
+    }
+
+    p {
+      font-size: .875em;
+      margin: 0;
+    }
+  }
+}

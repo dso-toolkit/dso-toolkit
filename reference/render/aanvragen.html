@@ -86,645 +86,95 @@
   </div>
   <div class="row">
     <div class="col-md-9">
-      <div class="accordion" id="accordion">
-        <div class="panel">
-          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel1" aria-expanded="false" aria-controls="panel1">
-            <span class="toggle-icon"></span>
-            <h2>Omschrijving project</h2>
-          </a>
-          <div class="section-body collapse" id="panel1">
-            <form class="form-horizontal">
-              <fieldset class="form-fields">
-                <legend class="sr-only">Horizontal form</legend>
-                <fieldset>
-                  <legend>Omschrijving project</legend>
-                  <div class="form-group input text">
-                    <label for="titel" class="control-label">Titel</label>
-                    <div class="field-container">
-                      <input type="text" id="titel" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group static">
-                    <label class="control-label">Nummer</label>
-                    <p class="field-container">
-                    </p>
-                  </div>
-                  <div class="form-group textarea">
-                    <label for="projectomschrijving" class="control-label">Projectomschrijving</label>
-                    <div class="field-container">
-                      <textarea class="form-control" id="projectomschrijving"></textarea>
-                    </div>
-                  </div>
-                  <fieldset class="form-group radios">
-                    <legend class="control-label">Gefaseerde aanvraag</legend>
-                    <div class="field-container">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="gefaseerdeAanvraag" value="nee" /> Nee
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="gefaseerdeAanvraag" value="ja" /> Ja
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                  <div class="form-group static">
-                    <label class="control-label">Procedure</label>
-                    <p class="field-container">
-                    </p>
-                  </div>
-                  <div class="form-group static">
-                    <label class="control-label">Status</label>
-                    <p class="field-container">
-                    </p>
-                  </div>
-                  <div class="form-group static">
-                    <label class="control-label">Formulierversie</label>
-                    <p class="field-container">
-                    </p>
-                  </div>
-                </fieldset>
-              </fieldset>
-              <div class="form-buttons">
-                <button type="submit" class="btn btn-primary">
-                  naar het volgende gedeelte: Aanvrager
-                </button>
-              </div>
-            </form>
+      <div class="dso-accordion">
+        <div class="dso-accordion-section dso-success">
+          <div class="dso-section-handle">
+            <a href="#">Woning</a>
           </div>
         </div>
-        <div class="panel">
-          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel2" aria-expanded="false" aria-controls="panel2">
-            <span class="toggle-icon"></span>
-            <h2>Aanvrager</h2>
-          </a>
-          <div class="section-body collapse" id="panel2">
-            <form class="form-horizontal">
-              <fieldset class="form-fields">
-                <legend class="sr-only">Horizontal form</legend>
-                <fieldset>
-                  <legend>Persoonsgegevens aanvrager</legend>
-                  <div class="form-group input text">
-                    <label for="achternaam" class="control-label">Achternaam</label>
-                    <div class="field-container">
-                      <input type="text" id="achternaam" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="tussenvoegsels" class="control-label">Tussenvoegsels</label>
-                    <div class="field-container">
-                      <input type="text" id="tussenvoegsels" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="voorletters" class="control-label">Voorletter(s)</label>
-                    <div class="field-container">
-                      <input type="text" id="voorletters" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="bsn" class="control-label">BSN</label>
-                    <div class="field-container">
-                      <input type="text" id="bsn" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="geslacht" class="control-label">Geslacht</label>
-                    <div class="field-container">
-                      <input type="text" id="geslacht" class="form-control" size="8" />
-                    </div>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Contactgegevens aanvrager</legend>
-                  <div class="form-group input text">
-                    <label for="telefoonnummer" class="control-label">Telefoonnummer</label>
-                    <div class="field-container">
-                      <input type="text" id="telefoonnummer" class="form-control" size="12" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="emailadres" class="control-label">Emailadres</label>
-                    <div class="field-container">
-                      <input type="text" id="emailadres" class="form-control" />
-                    </div>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Correspondentieadres</legend>
-                  <div class="form-group input text">
-                    <label for="capostcode" class="control-label">Postcode</label>
-                    <div class="field-container">
-                      <input type="text" id="capostcode" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="cahuisnummer" class="control-label">Huisnummer</label>
-                    <div class="field-container">
-                      <input type="text" id="cahuisnummer" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="catoevoeging" class="control-label">Huisnummer toevoeging</label>
-                    <div class="field-container">
-                      <input type="text" id="catoevoeging" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="castraatnaam" class="control-label">Straatnaam</label>
-                    <div class="field-container">
-                      <input type="text" id="castraatnaam" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="cawoonplaats" class="control-label">Woonplaats</label>
-                    <div class="field-container">
-                      <input type="text" id="cawoonplaats" class="form-control" />
-                    </div>
-                  </div>
-                </fieldset>
-                <fieldset>
-                  <legend>Verblijfadres</legend>
-                  <div class="form-group input text">
-                    <label for="vapostcode" class="control-label">Postcode</label>
-                    <div class="field-container">
-                      <input type="text" id="vapostcode" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="vahuisnummer" class="control-label">Huisnummer</label>
-                    <div class="field-container">
-                      <input type="text" id="vahuisnummer" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="vatoevoeging" class="control-label">Huisnummer toevoeging</label>
-                    <div class="field-container">
-                      <input type="text" id="vatoevoeging" class="form-control" size="8" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="vastraatnaam" class="control-label">Straatnaam</label>
-                    <div class="field-container">
-                      <input type="text" id="vastraatnaam" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group input text">
-                    <label for="vawoonplaats" class="control-label">Woonplaats</label>
-                    <div class="field-container">
-                      <input type="text" id="vawoonplaats" class="form-control" />
-                    </div>
-                  </div>
-                </fieldset>
-              </fieldset>
-              <div class="form-buttons">
-                <button type="submit" class="btn btn-primary">
-                  naar het volgende gedeelte: Locatie
-                </button>
-              </div>
-            </form>
+        <div class="dso-accordion-section dso-success">
+          <div class="dso-section-handle">
+            <a href="#">Bouwwerkzaamheden</a>
           </div>
         </div>
-        <div class="panel">
-          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel3" aria-expanded="false" aria-controls="panel3">
-            <span class="toggle-icon"></span>
-            <h2>Locatie</h2>
-          </a>
-          <div class="section-body collapse" id="panel3">
-            <form class="form-horizontal">
-              <fieldset class="form-fields">
-                <legend class="sr-only">Horizontal form</legend>
+        <div class="dso-accordion-section dso-warning dso-open">
+          <div class="dso-section-handle">
+            <a href="#">Plaats van het bouwwerk</a>
+          </div>
+          <div class="dso-section-body">
+            <form>
+              <fieldset class="dso-form-fields">
+                <legend class="sr-only">Aanvraagformulier</legend>
                 <fieldset>
-                  <legend>Adres voor aanvraag omgevingsvergunning</legend>
-                  <div class="form-group input text">
-                    <label for="omgevingsvergunningPostcode" class="control-label">Postcode</label>
-                    <div class="field-container">
+                  <legend>Plaats van het bouwwerk</legend>
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningPostcode" class="control-label">
+                        Postcode
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
                       <input type="text" id="omgevingsvergunningPostcode" class="form-control" size="8" />
                     </div>
                   </div>
-                  <div class="form-group input text">
-                    <label for="omgevingsvergunningHuisnummer" class="control-label">Huisnummer</label>
-                    <div class="field-container">
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningHuisnummer" class="control-label">
+                        Huisnummer
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
                       <input type="text" id="omgevingsvergunningHuisnummer" class="form-control" size="8" />
                     </div>
                   </div>
-                  <div class="form-group input text">
-                    <label for="omgevingsvergunningToevoeging" class="control-label">Huisnummer toevoeging</label>
-                    <div class="field-container">
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningToevoeging" class="control-label">
+                        Huisnummer toevoeging
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
                       <input type="text" id="omgevingsvergunningToevoeging" class="form-control" size="8" />
                     </div>
                   </div>
-                  <div class="form-group input text">
-                    <label for="omgevingsvergunningStraatnaam" class="control-label">Straatnaam</label>
-                    <div class="field-container">
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningStraatnaam" class="control-label">
+                        Straatnaam
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
                       <input type="text" id="omgevingsvergunningStraatnaam" class="form-control" />
                     </div>
                   </div>
-                  <div class="form-group input text">
-                    <label for="omgevingsvergunningWoonplaats" class="control-label">Woonplaats</label>
-                    <div class="field-container">
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningWoonplaats" class="control-label">
+                        Woonplaats
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
                       <input type="text" id="omgevingsvergunningWoonplaats" class="form-control" />
                     </div>
                   </div>
-                  <fieldset class="form-group radios">
-                    <legend class="control-label">Gelden de werkzaamheden in deze aanvraag/melding voor meerdere adressen of percelen?</legend>
-                    <div class="field-container">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="omgevingsvergunningWerkzaamheden" value="nee" /> Nee
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="omgevingsvergunningWerkzaamheden" value="ja" /> Ja
-                        </label>
-                      </div>
-                    </div>
-                  </fieldset>
-                </fieldset>
-                <fieldset>
-                  <legend>Eigendomssituatie</legend>
-                  <div class="form-group static">
-                    <label class="control-label">Eigendomssituatie van het perceel</label>
-                    <p class="field-container">
-                    </p>
-                  </div>
                 </fieldset>
               </fieldset>
-              <div class="form-buttons">
+              <div class="dso-form-buttons">
                 <button type="submit" class="btn btn-primary">
-                  naar het volgende gedeelte: Werkzaamheden
+                  Volgende stap
                 </button>
               </div>
             </form>
           </div>
         </div>
-        <div class="panel">
-          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel4" aria-expanded="false" aria-controls="panel4">
-            <span class="toggle-icon"></span>
-            <h2>Werkzaamheden</h2>
-          </a>
-          <div class="section-body collapse" id="panel4">
-            <table class="table table-responsive">
-              <thead>
-                <tr>
-                  <th>Werkzaamheid</th>
-                  <th>Activiteit (vanuit de wet)</th>
-                  <th>Acties</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Dakkapel plaatsen <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Bouwen</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Specificeren
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Dakkapel plaatsen <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Handelen in strijd met regels ruimtelijke ordening</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Specificeren
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Schuur bouwen <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Bouwen</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Specificeren
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div>
-              <button type="button" class="btn btn-primary">
-                Activiteiten toevoegen
-              </button>
-            </div>
-            <div>
-              <button type="button" class="btn btn-default">
-                naar het volgende gedeelte: Bijlagen
-              </button>
-            </div>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Afmetingen van het bouwwerk</a>
           </div>
         </div>
-        <div class="panel">
-          <a class="section-toggle" data-toggle="collapse" data-parent="#accordion" href="#panel5" aria-expanded="false" aria-controls="panel5">
-            <span class="toggle-icon"></span>
-            <h2>Bijlagen</h2>
-          </a>
-          <div class="section-body collapse" id="panel5">
-            <label>Overzicht werkzaamheden voor bijlage check <span class="fa fa-check" aria-hidden="true"></span>
-            </label>
-            <table class="table table-responsive">
-              <thead>
-                <tr>
-                  <th>Werkzaamheid</th>
-                  <th>Activiteit (vanuit de wet)</th>
-                  <th>Acties</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Dakkapel plaatsen <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Bouwen</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Checken voor bijlagen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Dakkapel plaatsen <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Handelen in strijd met regels ruimtelijke ordening</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Checken voor bijlagen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Schuur bouwen <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Bouwen</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Checken voor bijlagen
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <label>Dakkapel plaatsen [ Bouwen ] <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-              <span class="fa fa-check" aria-hidden="true"></span>
-            </label>
-            <table class="table table-responsive">
-              <thead>
-                <tr>
-                  <th>Gevraagde bijlagen voor aanvraag</th>
-                  <th>Toegevoegde bestanden</th>
-                  <th>Acties</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Welstand <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Aanzicht bouwwerk.pdf</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Plattegronden en doorsneden bouwen eenvoudige bouwwerken <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>
-                    <div>Plattegrond woning.dwg</div>
-                    <div>Dakkapel ontwerp v7.dwg</div>
-                    <div>Vooraanzicht woning v3.dwg</div>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Bestemmingsplan, beheersverordening en bouwverordening eenvoudige bouwwerken</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Constructieve veiligheid eenvoudige bouwwerken</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Kwaliteitsverklaringen</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Overige</td>
-                  <td></td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="well">
-              <div class="media">
-                <div class="media-left">
-                  <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                </div>
-                <div class="media-body">
-                  <p>Het is mogelijk dat een aantal bijlagen ontbreekt bij deze aanvraag voor een Omgevingsvergunning. U mag de aanvraag indienen. Het is mogelijk dat een aanvulling op de aanvraag wordt verzocht. Hierdoor kan de besluitvorming langer duren.</p>
-                  <p>Na Aanvraag indienen, kunt u nog naderhand Bijlagen toevoegen via "Aanvraag aanvullen"</p>
-                </div>
-              </div>
-            </div>
-            <label>Dakkapel plaatsen [ Handelen in strijd met regels ruimtelijke ordening ] <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-            </label>
-            <table class="table table-responsive">
-              <thead>
-                <tr>
-                  <th>Gevraagde bijlagen voor aanvraag</th>
-                  <th>Toegevoegde bestanden</th>
-                  <th>Acties</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Gegevens Handelen in strijd met regels ruimtelijke ordening</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Overige</td>
-                  <td></td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="well">
-              <div class="media">
-                <div class="media-left">
-                  <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                </div>
-                <div class="media-body">
-                  <p>Het is mogelijk dat een aantal bijlagen ontbreekt bij deze aanvraag voor een Omgevingsvergunning. U mag de aanvraag indienen. Het is mogelijk dat een aanvulling op de aanvraag wordt verzocht. Hierdoor kan de besluitvorming langer duren.</p>
-                  <p>Na Aanvraag indienen, kunt u nog naderhand Bijlagen toevoegen via "Aanvraag aanvullen"</p>
-                </div>
-              </div>
-            </div>
-            <label>Schuur bouwen [ Bouwen ] <span class="fa fa-check" aria-hidden="true"></span>
-            </label>
-            <table class="table table-responsive">
-              <thead>
-                <tr>
-                  <th>Gevraagde bijlagen voor aanvraag</th>
-                  <th>Toegevoegde bestanden</th>
-                  <th>Acties</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Welstand <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>Afbeelding serre.jpg</td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Plattegronden en doorsneden bouwen eenvoudige bouwwerken <span class="fa fa-check" aria-hidden="true"></span>
-                  </td>
-                  <td>
-                    <div>Plattegrond woning met tuin.dwg</div>
-                    <div>Serre doorsnede.dwg</div>
-                    <div>Vooraanzicht woning v3.dwg</div>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-trash-o" aria-hidden="true"></span> Verwijderen
-                    </button>
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Bestemmingsplan, beheersverordening en bouwverordening eenvoudige bouwwerken</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Constructieve veiligheid eenvoudige bouwwerken</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Kwaliteitsverklaringen</td>
-                  <td><span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                  </td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Overige</td>
-                  <td></td>
-                  <td class="actions">
-                    <button type="button" class="btn btn-link">
-                      <span class="fa fa-plus-square-o" aria-hidden="true"></span> Meer toevoegen
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="well">
-              <div class="media">
-                <div class="media-left">
-                  <span class="fa fa-exclamation-circle" aria-hidden="true"></span>
-                </div>
-                <div class="media-body">
-                  <p>Het is mogelijk dat een aantal bijlagen ontbreekt bij deze aanvraag voor een Omgevingsvergunning. U mag de aanvraag indienen. Het is mogelijk dat een aanvulling op de aanvraag wordt verzocht. Hierdoor kan de besluitvorming langer duren.</p>
-                  <p>Na Aanvraag indienen, kunt u nog naderhand Bijlagen toevoegen via "Aanvraag aanvullen"</p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button type="button" class="btn btn-primary">
-                Naar Indienen van de aanvraag
-              </button>
-            </div>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Extra werkzaamheden</a>
           </div>
         </div>
       </div>
@@ -750,9 +200,6 @@
             <span class="fa fa-angle-right" aria-hidden="true"></span> Bijlagen
           </li>
         </ul>
-        <button type="submit" class="btn btn-primary">
-          Aanvraag indienen
-        </button>
       </div>
     </div>
   </div>

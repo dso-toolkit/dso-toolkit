@@ -1,53 +1,156 @@
-$label-column: $grid-columns / 4;
+$dso-label-column: $grid-columns / 2;
 
-.form-group {
-  label {
-    font-style: italic;
-    font-weight: 400;
+$dso-field-invalid-border-color: $dso-danger-color;
+$dso-field-invalid-message-color: $dso-danger-color;
+$dso-optional-color: $bosgroen-40;
+
+$dso-form-control-border-width: 2px;
+$dso-form-control-readonly-border-width: 1px;
+$dso-optional-string: "optioneel";
+
+form {
+  .dso-field-container {
+    position: relative;
+  }
+
+  fieldset + fieldset {
+    margin-top: $u4;
   }
 }
 
-.form-control[size] {
-  width: auto;
+.form-group {
+  .control-label {
+    font-weight: bold;
+    margin-bottom: $u1;
+    text-align: left;
+  }
+
+  legend.control-label {
+    border-bottom: 0;
+    cursor: default;
+    display: inline-block;
+    font-size: $font-size-base;
+    margin-bottom: 5px;
+    max-width: 100%;
+  }
+
+  &:not(.dso-required) {
+    &.dso-checkboxes,
+    &.dso-confirm,
+    &.dso-input,
+    &.dso-radios,
+    &.dso-select,
+    &.dso-textarea {
+      .control-label::after {
+        color: $dso-optional-color;
+        content: $dso-optional-string;
+        font-size: .85em;
+        font-style: italic;
+        font-weight: 400;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  &.has-feedback {
+    .form-control {
+      padding-right: $u6 - $dso-form-control-border-width; // Feedback icon: 16px padding + 16px size + 16px padding - border
+    }
+
+    .form-control-feedback {
+      color: $bosgroen;
+      width: $u6;
+    }
+  }
+
+  &.dso-invalid {
+    .form-control {
+      border-color: $dso-field-invalid-border-color;
+    }
+
+    .dso-message {
+      color: $dso-field-invalid-message-color;
+    }
+  }
+
+  .dso-message,
+  .dso-help-block {
+    margin: $u1 0 0;
+  }
+
+  .dso-help-block {
+    color: $grijs-60;
+    font-style: italic;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.form-control {
+  border-width: $dso-form-control-border-width;
+  box-shadow: none;
+  padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+
+  &[size] {
+    width: auto;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: none;
+  }
+
+  &[disabled] {
+    border-color: $dso-input-disabled-border-color;
+    color: $dso-input-disabled-color;
+  }
+
+  &[readonly] {
+    border-width: $dso-form-control-readonly-border-width;
+  }
 }
 
 .form-horizontal {
-  fieldset + fieldset {
-    margin-top: 30px;
-  }
-
   .form-group {
-    > .control-label {
-      @include make-sm-column($label-column);
-      text-align: left;
+    > .dso-label-container {
+      @include make-sm-column($dso-label-column);
     }
 
-    > .field-container {
-      @include make-sm-column($grid-columns - $label-column);
+    > .dso-field-container {
+      @include make-sm-column($grid-columns - $dso-label-column);
     }
 
-    &.confirm {
+    &.dso-confirm {
       @media (min-width: $screen-sm-min) {
-        .field-container {
-          margin-left: percentage($label-column / $grid-columns);
+        .dso-field-container {
+          margin-left: percentage($dso-label-column / $grid-columns);
           padding-left: $grid-gutter-width / 2;
         }
       }
     }
 
-    &.static {
-      .field-container {
+    &.dso-static {
+      .dso-field-container {
         margin-bottom: 0;
         min-height: $line-height-computed + $font-size-base;
         padding-bottom: $padding-base-vertical + 1;
         padding-top: $padding-base-vertical + 1;
       }
     }
+
+    &.dso-textarea {
+      .form-control {
+        padding-bottom: $padding-base-vertical - 1;
+        padding-top: $padding-base-vertical - 1;
+      }
+    }
   }
 
   @media (min-width: $screen-sm-min) {
-    .form-buttons {
-      margin-left: percentage($label-column / $grid-columns);
+    .dso-form-buttons {
+      margin-left: percentage($dso-label-column / $grid-columns);
       padding-left: $grid-gutter-width / 4;
     }
   }
@@ -57,28 +160,9 @@ $label-column: $grid-columns / 4;
   @media (min-width: $screen-sm-min) {
     white-space: nowrap;
 
-    > .form-fields,
-    > .form-buttons {
+    > .dso-form-fields,
+    > .dso-form-buttons {
       display: inline-block;
-    }
-  }
-}
-
-legend.control-label {
-  border-bottom: 0;
-  cursor: default;
-  display: inline-block;
-  font-size: $font-size-base;
-  font-style: italic;
-  margin-bottom: 5px;
-  max-width: 100%;
-}
-
-fieldset.form-group {
-  .radio,
-  .checkbox {
-    &:first-of-type {
-      margin-top: 0;
     }
   }
 }

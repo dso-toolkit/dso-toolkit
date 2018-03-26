@@ -1,0 +1,57 @@
+status: wip
+collated: true
+context:
+  id: input-text
+  type: text
+  label: Tekstveld
+variants:
+- name: input-text-invalid
+  context:
+    __title: Ongeldig
+    __explanation:
+    - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-input</code>.
+    id: input-text-invalid
+    label: E-mailadres
+    value: thomas@
+    required: true
+    helpText: 'Bijvoorbeeld: email@email.nl'
+    state: invalid
+    errorText: Ongeldig e-mailadres ingevuld
+- name: input-text-valid
+  context:
+    __title: Geldig
+    __explanation:
+    - Indien een input ongeldig was en valide wordt gemaakt, dient de
+      <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
+    id: input-text-valid
+    label: E-mailadres
+    value: thomas@infoprojects.nl
+    required: true
+    state: valid
+    helpText: 'Bijvoorbeeld: email@email.nl'
+- name: input-text-placeholder
+  context:
+    __title: Placeholder
+    id: input-text-placeholder
+    label: Naam
+    placeholder: Voornaam Achternaam
+    required: true
+- name: input-text-icon
+  context:
+    __title: Met icoon
+    id: input-text-icon
+    label: Kies een datum
+    inputIcon: fas fa-calendar
+- name: input-text-disabled
+  context:
+    __title: Disabled
+    id: input-text-disabled
+    label: Naam
+    disabled: true
+- name: input-text-readonly
+  context:
+    __title: Readonly
+    id: input-text-readonly
+    label: Naam
+    readonly: true
