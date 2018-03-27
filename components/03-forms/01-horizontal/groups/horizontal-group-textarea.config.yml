@@ -1,7 +1,0 @@
-notes: |
-  Attribuut `@rows` is optioneel
-status: ready
-context:
-  id: feedback
-  label: Hoe was uw overnachting?
-  rows: 10

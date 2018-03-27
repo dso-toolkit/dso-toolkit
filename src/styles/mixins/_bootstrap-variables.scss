@@ -73,6 +73,25 @@ $btn-border-radius-base: 24px;
 //
 //##
 
+//** `<input disabled>` background color
+$input-bg-disabled: $wit;
+//** Text color for `<input>`s
+$input-color: $grijs-90;
+//** `<input>` border color
+$input-border: $bosgroen-40;
+
+//** Default `.form-control` border radius
+$input-border-radius: 8px;
+
+//** Border color for inputs on focus
+$input-border-focus: $bosgroen;
+
+//** Placeholder text color
+$input-color-placeholder: $bosgroen-40;
+
+//** `.form-group` margin
+$form-group-margin-bottom: $u2;
+
 //** Disabled cursor for form controls and buttons.
 $cursor-disabled: default;
 

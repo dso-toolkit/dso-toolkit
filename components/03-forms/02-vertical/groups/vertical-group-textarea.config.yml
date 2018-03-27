@@ -1,8 +1,0 @@
-notes: |
-  Een help block staat altijd direct in de `.form-group`.
-status: ready
-context:
-  id: textarea_voorbeeld
-  label: Klachten
-  rows: 5
-  helpText: Vul hier aanvullende informatie in

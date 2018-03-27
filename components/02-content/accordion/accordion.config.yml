@@ -1,10 +1,25 @@
-status: prototype
+notes: |
+  Een accordion (`.dso-accordion`) bestaat uit secties (`.dso-accordion-section`). Een sectie heeft een handle (`.dso-section-handle`) en body (`.dso-section-body`).
+
+  Een accordion section in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt voor oranje tekst en het "chevron-up"-icoon. Ook als het
+  `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
+
+  Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
+status: wip
 context:
-  panels:
-  - title: Paneel 1
+  sections:
+  - title: Woning
     id: panel1
-    icon: fa fa-check
-  - title: Paneel 2
+  - title: Bouwwerkzaamheden
     id: panel2
-  - title: Paneel 3
+    state: success
+  - title: Plaats van het bouwwerk
     id: panel3
+    state: warning
+    open: true
+  - title: Afmetingen van het bouwwerk
+    id: panel4
+    state: info
+  - title: Extra werkzaamheden
+    id: panel5
+    state: danger

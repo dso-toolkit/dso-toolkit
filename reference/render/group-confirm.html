@@ -1,0 +1,97 @@
+
+<!-- Start: @group-confirm--default -->
+<div class="form-group dso-confirm">
+  <div class="dso-field-container">
+    <div class="dso-selectable">
+      <input type="checkbox" id="input-confirm" name="" value="" />
+      <label for="input-confirm">Ik ga akkoord met de voorwaarden</label>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-confirm--default -->
+<hr />
+
+<!-- Start: @group-confirm--input-confirm-required -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Verplicht</h2>
+    <p>Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code> op de <code>.form-group.dso-confirm</code></p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-confirm dso-required">
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="input-confirm-required" name="" value="" required />
+          <label for="input-confirm-required">Ik ga akkoord met de voorwaarden</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-confirm--input-confirm-required -->
+<hr />
+
+<!-- Start: @group-confirm--input-confirm-invalid -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig</h2>
+    <p>Indien een confirm ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-checkboxes</code>.</p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-confirm dso-invalid dso-required">
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="input-confirm-invalid" name="" value="" required />
+          <label for="input-confirm-invalid">Ik ga akkoord met de voorwaarden</label>
+        </div>
+        <p class="dso-message">Dit veld is verplicht</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-confirm--input-confirm-invalid -->
+<hr />
+
+<!-- Start: @group-confirm--input-confirm-valid -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Geldig</h2>
+    <p>Indien een confirm ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.</p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-confirm dso-valid dso-required">
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="input-confirm-valid" name="" value="" checked required />
+          <label for="input-confirm-valid">Ik ga akkoord met de voorwaarden</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-confirm--input-confirm-valid -->
+<hr />
+
+<!-- Start: @group-confirm--input-confirm-disabled -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Disabled</h2>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-confirm dso-required">
+      <div class="dso-field-container">
+        <div class="dso-selectable">
+          <input type="checkbox" id="input-confirm-disabled" name="" value="" disabled checked required />
+          <label for="input-confirm-disabled">Ik ga akkoord met de voorwaarden</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-confirm--input-confirm-disabled -->
+<hr />
