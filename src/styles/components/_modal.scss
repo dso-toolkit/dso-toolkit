@@ -121,6 +121,12 @@ $dso-modal-close-icon-size: $u4;
           margin-left: 0;
           margin-top: $u1;
         }
+
+        &.btn-link {
+          span {
+            float: none;
+          }
+        }
       }
     }
   }
