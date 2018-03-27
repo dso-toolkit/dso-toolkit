@@ -15,36 +15,43 @@ context:
       modifier: primary
       label: Toevoegen
   fieldsets:
-    - legend: Contact
-      groups:
-        - id: voornaam
-          type: input
-          inputType: text
-          label: Voornaam
-        - id: achternaam
-          type: input
-          inputType: text
-          label: Achternaam
-          helpText: Mag ook de familienaam zijn
-        - type: static
-          label: Geslacht
-          value: Man
-        - id: email
-          type: input
-          inputType: email
-          label: E-mailadres
-        - id: password
-          type: input
-          inputType: password
-          label: Wachtwoord
-        - id: password_bevestig
-          type: input
-          inputType: password
-          label: Wachtwoord (bevestig)
-        - id: nieuwsbrief
-          type: confirm
-          label: Stuur mij de maandelijkse nieuwsbrief
-          helpText: Uw gegevens zullen niet worden gedeeld met derden
+  - legend: Contact
+    groups:
+    - id: voornaam
+      inputType: input
+      type: text
+      label: Voornaam
+      required: true
+    - id: achternaam
+      inputType: input
+      type: text
+      label: Achternaam
+      helpText: Mag ook de familienaam zijn
+    - inputType: static
+      label: Geslacht
+      value: Man
+    - id: geboortedatum
+      inputType: input
+      type: text
+      label: Geboortedatum
+      inputIcon: fas fa-calendar
+    - id: email
+      inputType: input
+      type: text
+      label: E-mailadres
+      required: true
+    - id: password
+      inputType: input
+      type: text
+      label: Wachtwoord
+    - id: password_bevestig
+      inputType: input
+      type: text
+      label: Wachtwoord (bevestig)
+    - id: nieuwsbrief
+      inputType: confirm
+      label: Stuur mij de maandelijkse nieuwsbrief
+      helpText: Uw gegevens zullen niet worden gedeeld met derden
   submitButton:
     type: submit
     modifier: primary
