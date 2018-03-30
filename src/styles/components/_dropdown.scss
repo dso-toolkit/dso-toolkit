@@ -2,6 +2,8 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
 
 .dropdown {
   > .btn-default.dropdown-toggle {
+    line-height: $line-height-base;
+
     &::after {
       @extend .fas;
 
