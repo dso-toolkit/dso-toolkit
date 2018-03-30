@@ -2,15 +2,13 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
 
 .dropdown {
   > .btn-default.dropdown-toggle {
-    line-height: $line-height-base;
-
     &::after {
       @extend .fas;
 
       content: $dso-dropdown-caret;
       display: block;
       float: right;
-      line-height: $u3;
+      line-height: $dso-button-size - 2 * $dso-button-border-width;
       margin-left: $u1;
     }
   }
