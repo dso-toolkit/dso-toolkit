@@ -11,6 +11,7 @@ De `1.2.0` release bestaat uit onderstaande samen met:
 * Een fix wat in #75 is stukgemaakt van #34
 
 **Belangrijk: De *Input group* componenten in de "Button" variant zijn praktisch bijgetrokken maar zijn nog in afwachting van een redesign**
+**Belangrijk: De WCAG checker geeft bij Formulieren, Checkboxen en Radios aan dat er fieldsets zijn die geen legend hebben. De voorschriften geven echter WEL een `<legend>`. Uitzoeken in #94**
 
 ### 1.2.0-beta.0 - 23-03-2018
 Vandaag is de eerste beta van de `1.2.0` uitgekomen. Dit betekent
