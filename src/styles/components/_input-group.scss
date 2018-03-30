@@ -1,0 +1,11 @@
+.input-group {
+  .input-group-btn {
+    button {
+      border-radius: $input-border-radius;
+      font-size: $font-size-base;
+      height: $input-height-base;
+      line-height: $line-height-base;
+      padding: 0 $padding-base-horizontal;
+    }
+  }
+}
