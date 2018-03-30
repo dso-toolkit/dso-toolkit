@@ -3,7 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 1.2.0 - UNRELEASED
+## 1.2.0 - 30-03-2018
+
+De `1.2.0` release bestaat uit onderstaande samen met:
+* #89: Duplicate line in table header
+* Tijdelijke oplossing in afwachting van #71
+* Een fix wat in #75 is stukgemaakt van #34
+
+**Belangrijk: De *Input group* componenten in de "Button" variant zijn praktisch bijgetrokken maar zijn nog in afwachting van een redesign**
 
 ### 1.2.0-beta.0 - 23-03-2018
 Vandaag is de eerste beta van de `1.2.0` uitgekomen. Dit betekent
