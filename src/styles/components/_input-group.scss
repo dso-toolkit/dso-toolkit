@@ -2,9 +2,9 @@
   .input-group-btn {
     button {
       border-radius: $input-border-radius;
-      font-size: 16px;
+      font-size: $font-size-base;
       height: $input-height-base;
-      line-height: 1.5;
+      line-height: $line-height-base;
       padding: 0 $padding-base-horizontal;
     }
   }
