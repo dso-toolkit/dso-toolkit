@@ -93,7 +93,7 @@ form {
     -webkit-appearance: none;
     // sass-lint:enable no-vendor-prefixes
     background-image: url("#{$dso-icon-caret-down-fa}");
-    background-position: calc(100% - 14px) 50%;
+    background-position: calc(100% - #{$padding-base-horizontal + 2}) 50%;
     background-repeat: no-repeat;
   }
 
