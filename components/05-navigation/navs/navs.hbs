@@ -1,7 +1,7 @@
-<ul class="nav nav-{{ modifier }}">
+<ul role="tablist" class="nav nav-{{ modifier }}">
   {{#each items }}
     <li role="presentation" {{#if active }}class="active"{{/if}}>
-      <a href="#">
+      <a role="tab" href="#">
         {{ label }}
         {{#if count }}
           {{> '@badge' }}
