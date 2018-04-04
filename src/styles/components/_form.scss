@@ -86,6 +86,20 @@ form {
   textarea {
     resize: vertical;
   }
+
+  select:not([multiple]) {
+    // sass-lint:disable no-vendor-prefixes
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    // sass-lint:enable no-vendor-prefixes
+    background-image: url("#{$dso-icon-caret-down-fa}");
+    background-position: calc(100% - 14px) 50%;
+    background-repeat: no-repeat;
+  }
+
+  select::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+    display: none;
+  }
 }
 
 .form-control {
