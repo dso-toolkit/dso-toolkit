@@ -30,6 +30,19 @@
   &.btn-primary {
     padding: 0 $dso-button-size - $dso-button-border-width;
   }
+
+  &.download,
+  &.extern {
+    &::after {
+      background-position: 50% 0;
+      background-repeat: no-repeat;
+      content: "";
+      display: inline-block;
+      height: 1.125em;
+      vertical-align: middle;
+      width: 1em;
+    }
+  }
 }
 
 .btn-default {
@@ -63,6 +76,26 @@
     color: $grasgroen-40;
     opacity: 1;
   }
+
+  &.download {
+    &::after {
+      background-image: url("#{$dso-icon-icon-download-fa}");
+    }
+
+    &:hover::after {
+      background-image: url("#{$dso-icon-icon-download-white-fa}");
+    }
+  }
+
+  &.extern {
+    &::after {
+      background-image: url("#{$dso-icon-icon-external-link-fa}");
+    }
+
+    &:hover::after {
+      background-image: url("#{$dso-icon-icon-external-link-white-fa}");
+    }
+  }
 }
 
 .btn-primary {
@@ -93,6 +126,18 @@
     background-color: $dso-button-primary-disabled-color;
     border-color: $dso-button-primary-disabled-color;
     opacity: 1;
+  }
+
+  &.download {
+    &::after {
+      background-image: url("#{$dso-icon-icon-download-white-fa}");
+    }
+  }
+
+  &.extern {
+    &::after {
+      background-image: url("#{$dso-icon-icon-external-link-white-fa}");
+    }
   }
 }
 
@@ -156,6 +201,18 @@
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
+    }
+  }
+
+  &.download {
+    &::after {
+      background-image: url("#{$dso-icon-icon-download-fa}");
+    }
+  }
+
+  &.extern {
+    &::after {
+      background-image: url("#{$dso-icon-icon-external-link-fa}");
     }
   }
 }

@@ -6,8 +6,10 @@
   <div class="col-md-3">
     {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' }}
   </div>
+  <div class="col-md-6">
+    {{> '@button' label='Aanvraagformulier downloaden' type='button' modifier='primary download' }}
+  </div>
 </div>
-
 
 <div class="row example">
   {{#each primary-buttons }}
@@ -34,6 +36,12 @@
   <div class="col-md-3">
     {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' }}
   </div>
+  <div class="col-md-3">
+    {{> '@button' label='Downloaden' type='button' modifier='default download' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Lees verder' type='button' modifier='default extern' }}
+  </div>
 </div>
 
 <div class="row example">
@@ -59,6 +67,12 @@
   </div>
   <div class="col-md-3">
     {{> '@anchor' label='Anchor' modifier='btn btn-link' icon='icon fa fa-angle-right' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Downloaden' type='button' modifier='link download' icon='icon fa fa-angle-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Lees verder' type='button' modifier='link extern' icon='icon fa fa-angle-right' }}
   </div>
 </div>
 
