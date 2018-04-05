@@ -1,0 +1,5 @@
+.searchbar {
+  .form-control-feedback {
+    @include icon($dso-icon-header-icon-search-24x24);
+  }
+}

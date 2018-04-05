@@ -1,0 +1,5 @@
+status: wip
+context:
+  id: input-text
+  type: text
+  required: true
