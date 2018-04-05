@@ -1,5 +1,10 @@
 status: wip
+collated: true
 context:
-  id: input-text
-  type: text
-  required: true
+  id: searchbar
+  label: Zoeken
+  searchbarModifiers: searchbar-closed
+variants:
+  - name: searchbar-opened
+    context:
+      searchbarModifiers: searchbar-open

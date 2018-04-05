@@ -1,5 +1,139 @@
+$search-icon-size: 48px;
+$animation-duration: .5s;
+
 .searchbar {
+  width: 288px;
+
   .form-control-feedback {
     @include icon($dso-icon-header-icon-search-24x24);
+  }
+
+  &.searchbar-closed {
+    input.form-control {
+      animation-duration: $animation-duration;
+      animation-name: hide-searchbar-input;
+      border-color: transparent;
+      display: inline-block;
+      padding: 0;
+      transition: all $animation-duration;
+      width: 0;
+
+      //sass-lint:disable no-vendor-prefixes
+      &::-moz-placeholder {
+        color: transparent;
+        opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+      }
+
+      // Internet Explorer 10+
+      &:-ms-input-placeholder {
+        color: transparent;
+      }
+
+      // Safari and Chrome
+      &::-webkit-input-placeholder  {
+        color: transparent;
+      }
+      //sass-lint:enable no-vendor-prefixes
+    }
+
+    .form-control-feedback {
+      right: 100%;
+      transform: translateX($search-icon-size); // Needed since IE doesn't animate calc()
+      transition: right $animation-duration;
+    }
+
+    label {
+      animation-duration: $animation-duration;
+      animation-name: show-searchbar-label;
+      color: $grasgroen;
+      margin-left: $search-icon-size - 4px;
+    }
+  }
+
+  &.searchbar-open {
+    input.form-control {
+      animation-duration: $animation-duration;
+      animation-name: show-searchbar-input;
+      border-color: $input-border;
+      padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+      transition: all $animation-duration;
+      width: 100%;
+
+      &:focus {
+        border-color: $input-border-focus;
+      }
+    }
+
+    .form-control-feedback {
+      background-size: 16px;
+      right: 0;
+      transition: right $animation-duration;
+    }
+
+    label {
+      display: none;
+    }
+  }
+
+  // &.searchbar-closed input.form-control:focus {
+  //   animation-duration: $animation-duration;
+  //   animation-name: show-searchbar-input;
+  //   border-color: $bosgroen;
+  //   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+  //   width: 100%;
+
+  //   + .form-control-feedback {
+  //     right: 0;
+  //   }
+
+  //   ~ label {
+  //     display: none;
+  //   }
+  // }
+}
+
+@keyframes show-searchbar-input {
+  0% {
+    border-color: transparent;
+  }
+
+  10% {
+    border-color: transparent;
+  }
+
+  100% {
+    border-color: $input-border;
+  }
+}
+
+@keyframes hide-searchbar-input {
+  0% {
+    border-color: $input-border;
+  }
+
+  90% {
+    border-color: transparent;
+  }
+
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes show-searchbar-label {
+  0% {
+    overflow: hidden;
+    width: 0;
+  }
+
+  75% {
+    opacity: 0;
+    overflow: hidden;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    overflow: visible;
   }
 }

@@ -1,4 +1,5 @@
-<div class="form-group has-feedback searchbar"></div>
-  <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+<div class="form-group has-feedback searchbar {{ searchbarModifiers }}">
+  <input type="text" id="{{ id }}" class="form-control" placeholder="{{ label }}" />
   <span class="form-control-feedback" aria-hidden="true"></span>
+  <label for="{{ id }}">{{ label }}</label>
 </div>
