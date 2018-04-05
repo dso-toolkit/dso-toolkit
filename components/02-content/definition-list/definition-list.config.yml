@@ -1,0 +1,26 @@
+status: wip
+collated: true
+context:
+  definitions:
+    - dl-title: Thema
+      dl-description: Wonen en Werken
+    - dl-title: Regelkwalificatie
+      dl-description: Instructieregels
+    - dl-title: Onderwerp
+      dl-description: Bedrijventerrein
+    - dl-title: Functie
+      dl-description: Bedrijventerrein > Bedrijventerrein
+    - dl-title: Type regel
+      dl-description: Bindend voor bestuursorganen
+    - dl-title: Normadressaat
+      dl-description: Gemeentebestuur / Provinciebestuur
+variants:
+  - name: vertical
+    context:
+      modifier: dso-vertical
+  - name: emphasize-description
+    context:
+      modifier: dso-emphasize-description
+  - name: vertical-emphasize-description
+    context:
+      modifier: dso-vertical dso-emphasize-description

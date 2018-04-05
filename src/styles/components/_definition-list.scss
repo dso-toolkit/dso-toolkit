@@ -1,0 +1,58 @@
+$definition-list-gutter: 20px;
+
+dl {
+  dt,
+  dd {
+    line-height: #{$line-height-base + .5};
+  }
+
+  dd {
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: $dl-horizontal-breakpoint) {
+    dt {
+      clear: left;
+      float: left;
+      width: #{$dl-horizontal-offset - $definition-list-gutter};
+    }
+
+    dd {
+      margin-left: $dl-horizontal-offset;
+    }
+  }
+
+  @media (max-width: #{$dl-horizontal-breakpoint + 1px}) {
+    dt,
+    dd {
+      line-height: $line-height-base;
+    }
+
+    dd + dt {
+      margin-top: $u2;
+    }
+  }
+
+  &.dso-vertical {
+    dt,
+    dd {
+      line-height: $line-height-base;
+      width: 100%;
+    }
+
+    dd {
+      margin-left: 0;
+    }
+
+    dd + dt {
+      margin-top: $u2;
+    }
+  }
+
+  &.dso-emphasize-description {
+    dt {
+      color: $grijs-60;
+      font-weight: normal;
+    }
+  }
+}
