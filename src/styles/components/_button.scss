@@ -34,10 +34,6 @@
   &.download,
   &.extern {
     &::after {
-      background-position: 50% 0;
-      background-repeat: no-repeat;
-      content: "";
-      display: inline-block;
       height: 1.125em;
       vertical-align: middle;
       width: 1em;
@@ -79,21 +75,21 @@
 
   &.download {
     &::after {
-      background-image: url("#{$dso-icon-icon-download-fa}");
+      @include icon($dso-icon-icon-download-fa, 50% 0);
     }
 
     &:hover::after {
-      background-image: url("#{$dso-icon-icon-download-white-fa}");
+      @include icon($dso-icon-icon-download-white-fa, 50% 0);
     }
   }
 
   &.extern {
     &::after {
-      background-image: url("#{$dso-icon-icon-external-link-fa}");
+      @include icon($dso-icon-icon-external-link-fa, 50% 0);
     }
 
     &:hover::after {
-      background-image: url("#{$dso-icon-icon-external-link-white-fa}");
+      @include icon($dso-icon-icon-external-link-white-fa, 50% 0);
     }
   }
 }
@@ -130,13 +126,13 @@
 
   &.download {
     &::after {
-      background-image: url("#{$dso-icon-icon-download-white-fa}");
+      @include icon($dso-icon-icon-download-white-fa, 50% 0);
     }
   }
 
   &.extern {
     &::after {
-      background-image: url("#{$dso-icon-icon-external-link-white-fa}");
+      @include icon($dso-icon-icon-external-link-white-fa, 50% 0);
     }
   }
 }
@@ -206,13 +202,13 @@
 
   &.download {
     &::after {
-      background-image: url("#{$dso-icon-icon-download-fa}");
+      @include icon($dso-icon-icon-download-fa, 50% 0);
     }
   }
 
   &.extern {
     &::after {
-      background-image: url("#{$dso-icon-icon-external-link-fa}");
+      @include icon($dso-icon-icon-external-link-fa, 50% 0);
     }
   }
 }
