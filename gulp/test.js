@@ -35,7 +35,7 @@ function testAccessibility() {
     process.exit(1);
   });
 
-  return gulp.src(['build/library/components/preview/*.html', '!build/library/components/preview/*--*.html'])
+  return gulp.src(['build/library/components/preview/*.html'].concat(['*--*', 'button'].map(f => `!build/library/components/preview/${f}.html`)))
     .pipe(a)
     .pipe(access.report({
       reportType: 'json'

@@ -1,0 +1,25 @@
+<div class="form-group dso-input dso-input-{{ type }}{{#if inputIcon}} has-feedback{{/if}}{{#if state}} dso-{{ state }}{{/if}}{{#if required }} dso-required{{/if}}">
+  <div class="dso-label-container">
+    <label for="{{ id }}" class="control-label">
+      {{ label }}
+    </label>
+  </div>
+  <div class="dso-field-container">
+    <input type="{{ type }}" id="{{ id }}" class="form-control"
+      {{{ifattr 'placeholder' placeholder }}}
+      {{{ifattr 'size' size }}}
+      {{{ifattr 'value' value }}}
+      {{{ifattr 'disabled' disabled }}}
+      {{{ifattr 'readonly' readonly }}}
+      {{{ifattr 'required' required }}} />
+    {{#if inputIcon }}
+      <span class="{{ inputIcon }} form-control-feedback" aria-hidden="true"></span>
+    {{/if}}
+    {{#if errorText }}
+      {{> '@error-block' }}
+    {{/if}}
+    {{#if helpText }}
+      {{> '@help-block' }}
+    {{/if}}
+  </div>
+</div>

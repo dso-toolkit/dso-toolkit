@@ -1,6 +1,6 @@
 notes: |
   Groepeert een set buttons op een enkele regel. Gebaseerd op de Bootstrap "Button groups" component
-status: prototype
+status: wip
 collated: true
 default: m
 context:
