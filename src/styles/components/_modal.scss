@@ -106,7 +106,9 @@ $dso-modal-close-icon-size: $u4;
 }
 
 .dso-modal-dialog {
-  margin: $u2 0;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 @media screen and (max-width: $screen-xs-max) {
