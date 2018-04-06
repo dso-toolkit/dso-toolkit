@@ -1,3 +1,7 @@
+$dso-row-vertical-space: $u6;
+$dso-featured-background-color: #ebf3e6;
+$dso-row-border-color: #d3ddd6;
+
 @mixin full-width-row($gutter: 0) {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -17,25 +21,23 @@ body {
   overflow-x: hidden;
 }
 
-main .row {
-  + .row {
-    border-top: 1px solid $dso-row-divider-color;
-  }
-}
+main {
+  .row {
+    padding-bottom: $dso-row-vertical-space;
+    padding-top: $dso-row-vertical-space;
 
-main .row.full-width {
-  @include full-width-row($grid-gutter-width);
+    &:not(.dso-featured) {
+      border-bottom: 1px solid $dso-row-border-color;
+    }
 
-  background-color: $dso-full-width-color;
-  border-top: 0;
+    &.dso-featured {
+      @include full-width-row($grid-gutter-width);
 
-  + .row {
-    border-top: 0;
-  }
-}
+      background-color: $dso-featured-background-color;
+    }
 
-.rich-content {
-  *:first-child {
-    margin-top: 0;
+    &:not(.dso-featured) + .row.dso-featured {
+      margin-top: -1px;
+    }
   }
 }
