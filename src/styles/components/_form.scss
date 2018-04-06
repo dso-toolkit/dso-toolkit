@@ -88,6 +88,32 @@ form {
   }
 }
 
+select:not([multiple]) {
+  .form-group & {
+    // sass-lint:disable no-vendor-prefixes
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    // sass-lint:enable no-vendor-prefixes
+
+    background-image: url($dso-icon-fa-caret-down);
+    background-position: calc(100% - #{$u1});
+    background-repeat: no-repeat;
+    padding-right: $u4;
+
+    &:disabled {
+      background-image: url($dso-icon-fa-caret-down-lightgrey);
+    }
+
+    &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+      display: none;
+    }
+  }
+
+  .form-group.dso-invalid & {
+    background-image: url($dso-icon-fa-caret-down-red);
+  }
+}
+
 .form-control {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
