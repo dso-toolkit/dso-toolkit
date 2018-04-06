@@ -2,18 +2,18 @@ status: wip
 collated: true
 context:
   definitions:
-    - dl-title: Thema
-      dl-description: Wonen en Werken
-    - dl-title: Regelkwalificatie
-      dl-description: Instructieregels
-    - dl-title: Onderwerp
-      dl-description: Bedrijventerrein
-    - dl-title: Functie
-      dl-description: Bedrijventerrein > Bedrijventerrein
-    - dl-title: Type regel
-      dl-description: Bindend voor bestuursorganen
-    - dl-title: Normadressaat
-      dl-description: Gemeentebestuur / Provinciebestuur
+    - term: Thema
+      description: Wonen en Werken
+    - term: Regelkwalificatie
+      description: Instructieregels
+    - term: Onderwerp
+      description: Bedrijventerrein
+    - term: Functie
+      description: Bedrijventerrein > Bedrijventerrein
+    - term: Type regel
+      description: Bindend voor bestuursorganen
+    - term: Normadressaat
+      description: Gemeentebestuur / Provinciebestuur
 variants:
   - name: vertical
     context:
