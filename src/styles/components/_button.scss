@@ -30,15 +30,6 @@
   &.btn-primary {
     padding: 0 $dso-button-size - $dso-button-border-width;
   }
-
-  &.download,
-  &.extern {
-    &::after {
-      height: 1.125em;
-      vertical-align: middle;
-      width: 1em;
-    }
-  }
 }
 
 .btn-default {
@@ -72,26 +63,6 @@
     color: $grasgroen-40;
     opacity: 1;
   }
-
-  &.download {
-    &::after {
-      @include icon($dso-icon-icon-download-fa, 50% 0);
-    }
-
-    &:hover::after {
-      @include icon($dso-icon-icon-download-white-fa, 50% 0);
-    }
-  }
-
-  &.extern {
-    &::after {
-      @include icon($dso-icon-icon-external-link-fa, 50% 0);
-    }
-
-    &:hover::after {
-      @include icon($dso-icon-icon-external-link-white-fa, 50% 0);
-    }
-  }
 }
 
 .btn-primary {
@@ -122,18 +93,6 @@
     background-color: $dso-button-primary-disabled-color;
     border-color: $dso-button-primary-disabled-color;
     opacity: 1;
-  }
-
-  &.download {
-    &::after {
-      @include icon($dso-icon-icon-download-white-fa, 50% 0);
-    }
-  }
-
-  &.extern {
-    &::after {
-      @include icon($dso-icon-icon-external-link-white-fa, 50% 0);
-    }
   }
 }
 
@@ -197,18 +156,6 @@
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
-    }
-  }
-
-  &.download {
-    &::after {
-      @include icon($dso-icon-icon-download-fa, 50% 0);
-    }
-  }
-
-  &.extern {
-    &::after {
-      @include icon($dso-icon-icon-external-link-fa, 50% 0);
     }
   }
 }
