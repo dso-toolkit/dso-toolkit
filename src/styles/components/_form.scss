@@ -63,6 +63,16 @@ form {
     }
   }
 
+  &.dso-invalid {
+    .form-control {
+      border-color: $dso-field-invalid-border-color;
+    }
+
+    .dso-message {
+      color: $dso-field-invalid-message-color;
+    }
+  }
+
   .dso-message,
   .dso-help-block {
     margin: $u1 0 0;
@@ -76,34 +86,31 @@ form {
   textarea {
     resize: vertical;
   }
+}
 
-  select:not([multiple]) {
-    @include icon($dso-icon-icon-caret-down-fa, calc(100% - #{$padding-base-horizontal + 2}) 50%);
+select:not([multiple]) {
+  .form-group & {
     // sass-lint:disable no-vendor-prefixes
     -moz-appearance: none;
     -webkit-appearance: none;
     // sass-lint:enable no-vendor-prefixes
 
-    appearance: none;
-    padding-right: $u5;
+    background-image: url($dso-icon-fa-caret-down);
+    background-position: calc(100% - #{$u1});
+    background-repeat: no-repeat;
+    padding-right: $u4;
+
+    &:disabled {
+      background-image: url($dso-icon-fa-caret-down-lightgrey);
+    }
 
     &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
       display: none;
     }
   }
 
-  &.dso-invalid {
-    .form-control {
-      border-color: $dso-field-invalid-border-color;
-    }
-
-    .dso-message {
-      color: $dso-field-invalid-message-color;
-    }
-
-    select:not([multiple]) {
-      @include icon($dso-icon-icon-caret-down-red-fa, calc(100% - #{$padding-base-horizontal + 2}) 50%);
-    }
+  .form-group.dso-invalid & {
+    background-image: url($dso-icon-fa-caret-down-red);
   }
 }
 
