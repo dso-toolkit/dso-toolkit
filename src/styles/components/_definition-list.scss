@@ -1,4 +1,4 @@
-$definition-list-gutter: 20px;
+$dso-definition-list-gutter: 20px;
 
 dl {
   dd {
@@ -11,7 +11,7 @@ dl {
       dt {
         clear: left;
         float: left;
-        width: #{$dl-horizontal-offset - $definition-list-gutter};
+        width: #{$dl-horizontal-offset - $dso-definition-list-gutter};
       }
 
       dd {
