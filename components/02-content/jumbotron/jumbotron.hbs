@@ -1,14 +1,18 @@
-<div class="jumbotron">
-  <h1 class="jumbotron-title">{{ title }}</h1>
-  <div class="jumbotron-body">
-    <p>{{ content }}</p>
-    {{#if button }}
-      {{> '@button' button }}
-    {{/if}}
+<div class="dso-jumbotron">
+  <h2 class="dso-jumbotron-title">{{ title }}</h2>
+  <div class="dso-jumbotron-body">
+    <div class="dso-rich-content">
+      <p>{{ content }}</p>
+    </div>
   </div>
   {{#if image }}
-    <div class="jumbotron-image">
+    <div class="dso-jumbotron-image">
       {{> '@image' image }}
+    </div>
+  {{/if}}
+  {{#if button }}
+    <div class="dso-jumbotron-cta">
+      {{> '@button' button }}
     </div>
   {{/if}}
 </div>

@@ -1,16 +1,23 @@
-.jumbotron {
+.dso-jumbotron {
   @include make-row;
 
-  .jumbotron-title {
+  .dso-jumbotron-title {
     @include make-md-column(12);
+    margin-bottom: $u2;
     margin-top: 0;
   }
 
-  .jumbotron-body {
+  .dso-jumbotron-body {
     @include make-md-column(8);
   }
 
-  .jumbotron-image {
+  .dso-jumbotron-image {
     @include make-md-column(4);
+  }
+
+  .dso-jumbotron-cta {
+    @include make-xs-column(3);
+    clear: both;
+    margin-top: $u2;
   }
 }
