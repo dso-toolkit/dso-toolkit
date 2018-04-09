@@ -6,34 +6,44 @@
     }
   }
 
-  > tbody > tr {
-    > td {
-      border-top: 1px dotted $grijs-30;
-
+  > tbody {
+    > tr {
       &:first-child {
-        width: 35%;
+        > td,
+        > th {
+          border-top: 0;
+        }
       }
 
-      &.actions {
-        width: 25%;
-      }
-
-      .fa-check {
-        color: $grasgroen;
-        font-size: 1.4em;
-      }
-
-      .fa-exclamation-circle {
-        color: $grijs-40;
-        font-size: 1.4em;
-      }
-
-      &:last-child span {
-        margin-left: 12px;
-        margin-right: 4px;
+      > td,
+      > th {
+        border-top: 1px dotted $grijs-30;
 
         &:first-child {
-          margin-left: 0;
+          width: 35%;
+        }
+
+        &.actions {
+          width: 25%;
+        }
+
+        .fa-check {
+          color: $grasgroen;
+          font-size: 1.4em;
+        }
+
+        .fa-exclamation-circle {
+          color: $grijs-40;
+          font-size: 1.4em;
+        }
+
+        &:last-child span {
+          margin-left: 12px;
+          margin-right: 4px;
+
+          &:first-child {
+            margin-left: 0;
+          }
         }
       }
     }
