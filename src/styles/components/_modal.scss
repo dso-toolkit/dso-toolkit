@@ -34,12 +34,10 @@ body.dso-modal-open {
   z-index: $dso-modal-zindex;
 
   &:focus {
-    background-color: #f00;
-    border: 5px solid #f0f;
     outline: 0;
   }
 
-  .dso-modal-dialog {
+  .dso-dialog {
     background-clip: padding-box;
     background-color: $modal-content-bg;
     border: 1px solid $modal-content-border-color;
@@ -49,7 +47,7 @@ body.dso-modal-open {
     transform: translate(0, -50%);
   }
 
-  .dso-modal-header {
+  .dso-header {
     border-bottom: 1px solid $dso-modal-border-color;
     margin-bottom: 0;
     padding: $u2;
@@ -59,7 +57,7 @@ body.dso-modal-open {
       margin: 0;
     }
 
-    .dso-modal-close {
+    .dso-close {
       background-color: transparent;
       background-image: url($dso-modal-close-icon);
       background-position: 50% 50%;
@@ -91,11 +89,11 @@ body.dso-modal-open {
     }
   }
 
-  .dso-modal-body {
+  .dso-body {
     padding: $u4;
   }
 
-  .dso-modal-footer {
+  .dso-footer {
     background-color: $wit;
     border-top: 0;
     box-sizing: content-box;
@@ -111,8 +109,10 @@ body.dso-modal-open {
     button + button {
       margin-left: $u2;
     }
+  }
 
-    &.dso-modal-confirm {
+  &.dso-confirm {
+    .dso-footer {
       button {
         &:first-child {
           float: left;
@@ -126,7 +126,7 @@ body.dso-modal-open {
   .dso-modal {
     max-width: 100%;
 
-    .dso-modal-footer {
+    .dso-footer {
       button {
         width: 100%;
 
