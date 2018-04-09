@@ -1,29 +1,27 @@
-$dso-definition-list-gutter: 20px;
+$dso-definition-list-gutter: $u2;
+$dso-definition-list-vertical-space: $u2;
+$dso-definition-list-term-width: 200px;
+$dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 
 dl {
+  margin-bottom: -$dso-definition-list-vertical-space;
+
   dd {
     @include clearfix; // Clear the floated `dt` if an empty `dd` is present
-    margin-bottom: $u1;
+    margin-bottom: $dso-definition-list-vertical-space;
   }
 
-  @media (min-width: $dl-horizontal-breakpoint) {
-    &:not(.dso-vertical) {
+  &:not(.dso-vertical) {
+    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
       dt {
         clear: left;
         float: left;
-        width: #{$dl-horizontal-offset - $dso-definition-list-gutter};
+        width: $dso-definition-list-term-width;
+        word-break: break-word;
       }
 
       dd {
-        margin-left: $dl-horizontal-offset;
-      }
-    }
-  }
-
-  @media (max-width: #{$dl-horizontal-breakpoint + 1px}) {
-    &:not(.dso-vertical) {
-      dd + dt {
-        margin-top: $u1;
+        margin-left: $dso-definition-list-gutter + $dso-definition-list-term-width;
       }
     }
   }
@@ -36,10 +34,6 @@ dl {
 
     dd {
       margin-left: 0;
-    }
-
-    dd + dt {
-      margin-top: $u1;
     }
   }
 
