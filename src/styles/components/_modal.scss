@@ -1,6 +1,10 @@
+$dso-modal-zindex: 20;
+
 $dso-modal-backdrop-bg: $wit;
 $dso-modal-backdrop-opacity: .2;
-$dso-modal-zindex: 20;
+$dso-modal-content-bg: $wit;
+$dso-modal-content-border-color: fade-out($zwart, .8);
+$dso-modal-border-color: #d3ddd6;
 
 $dso-modal-close-icon: $dso-icon-button-icon-cross-12x12;
 $dso-modal-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
@@ -18,7 +22,7 @@ body.dso-modal-open {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: #{$dso-modal-zindex / 2};
+    z-index: #{$dso-modal-zindex - 1};
   }
 }
 
@@ -39,8 +43,8 @@ body.dso-modal-open {
 
   .dso-dialog {
     background-clip: padding-box;
-    background-color: $modal-content-bg;
-    border: 1px solid $modal-content-border-color;
+    background-color: $dso-modal-content-bg;
+    border: 1px solid $dso-modal-content-border-color;
     outline: 0;
     position: relative;
     top: 50%;
