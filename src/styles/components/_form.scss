@@ -25,16 +25,6 @@ form {
     text-align: left;
   }
 
-  // Deprecated as of 1.2.1, will be removed in 2.0.0. See issue dso-toolkit/#100
-  legend.control-label {
-    border-bottom: 0;
-    cursor: default;
-    display: inline-block;
-    font-size: $font-size-base;
-    margin-bottom: $u1;
-    max-width: 100%;
-  }
-
   legend.dso-label-container {
     border-bottom: 0;
     font-size: $font-size-base;
