@@ -1,21 +1,27 @@
-{{> '@form' }}
-<div class="dso-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="{{ id }}" aria-hidden="false">
-  <div class="dso-modal-dialog" role="document">
-    <div class="dso-modal-content">
-      <div class="dso-modal-header">
-        <h2 class="dso-modal-title" id="{{ id }}">{{ heading }}</h2>
+<!-- When modal is open add .dso-modal-open to body -->
+<body class="dso-modal-open">
+  <!-- Modal markup. Can be placed anywhere inside <body> -->
+  <section class="dso-modal{{#if confirm }} dso-confirm{{/if}}" tabindex="-1" role="dialog" aria-labelledby="{{ id }}">
+    <div class="dso-modal-dialog" role="document">
+      <header>
+        <h1 id="{{ id }}">{{ heading }}</h1>
         {{#if closeButton }}
-          <button type="button" class="dso-modal-close"></button>
+          <button type="button" class="dso-modal-close" aria-label="Sluiten"></button>
         {{/if}}
-      </div>
+      </header>
       <div class="dso-modal-body">
         <p>{{ body }}</p>
       </div>
-      <div class="dso-modal-footer{{#if confirm }} dso-modal-confirm{{/if}}">
+      <footer>
         {{#each buttons }}
           {{> '@button' }}
         {{/each}}
-      </div>
+      </footer>
     </div>
+  </section>
+
+  <div class="container">
+    <!-- Page content -->
+    {{> '@form' }}
   </div>
-</div>
+</body>
