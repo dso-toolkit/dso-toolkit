@@ -1,27 +1,31 @@
 <!-- When modal is open add .dso-modal-open to body -->
 <body class="dso-modal-open">
   <!-- Modal markup. Can be placed anywhere inside <body> -->
-  <section class="dso-modal{{#if confirm }} dso-confirm{{/if}}" tabindex="-1" role="dialog" aria-labelledby="{{ id }}">
+  <div class="dso-modal{{#if confirm }} dso-confirm{{/if}}" tabindex="-1" role="dialog" aria-labelledby="{{ id }}">
     <div class="dso-modal-dialog" role="document">
-      <header>
-        <h1 id="{{ id }}">{{ heading }}</h1>
+      <div class="dso-modal-header">
+        <h2 id="{{ id }}">{{ heading }}</h2>
         {{#if closeButton }}
           <button type="button" class="dso-modal-close" aria-label="Sluiten"></button>
         {{/if}}
-      </header>
+      </div>
       <div class="dso-modal-body">
         <p>{{ body }}</p>
       </div>
-      <footer>
+      <div class="dso-modal-footer">
         {{#each buttons }}
           {{> '@button' }}
         {{/each}}
-      </footer>
+      </div>
     </div>
-  </section>
+  </div>
 
   <div class="container">
     <!-- Page content -->
     {{> '@form' }}
   </div>
+
+  <script>
+    document.querySelector('.dso-modal').focus();
+  </script>
 </body>
