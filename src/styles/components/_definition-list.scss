@@ -4,9 +4,9 @@ $dso-definition-list-term-width: 200px;
 $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 
 dl {
-  margin-bottom: -$dso-definition-list-vertical-space;
+  margin-bottom: 0;
 
-  dd {
+  dd:not(:last-of-type) {
     @include clearfix; // Clear the floated `dt` if an empty `dd` is present
     margin-bottom: $dso-definition-list-vertical-space;
   }
@@ -17,7 +17,7 @@ dl {
         clear: left;
         float: left;
         width: $dso-definition-list-term-width;
-        word-break: break-word;
+        word-wrap: break-word;
       }
 
       dd {
