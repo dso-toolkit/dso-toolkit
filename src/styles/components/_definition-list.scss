@@ -1,0 +1,46 @@
+$dso-definition-list-gutter: $u2;
+$dso-definition-list-vertical-space: $u2;
+$dso-definition-list-term-width: 200px;
+$dso-definition-list-horizontal-breakpoint: $screen-sm-min;
+
+dl {
+  margin-bottom: 0;
+
+  dd:not(:last-of-type) {
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+    margin-bottom: $dso-definition-list-vertical-space;
+  }
+
+  &:not(.dso-vertical) {
+    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+      dt {
+        clear: left;
+        float: left;
+        width: $dso-definition-list-term-width;
+        word-wrap: break-word;
+      }
+
+      dd {
+        margin-left: $dso-definition-list-gutter + $dso-definition-list-term-width;
+      }
+    }
+  }
+
+  &.dso-vertical {
+    dt,
+    dd {
+      width: 100%;
+    }
+
+    dd {
+      margin-left: 0;
+    }
+  }
+
+  &.dso-emphasize-description {
+    dt {
+      color: $grijs-60;
+      font-weight: normal;
+    }
+  }
+}

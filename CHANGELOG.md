@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 2.0.0 - UNRELEASED
 
+### Added
+- Definition list component (#78)
+
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
 
