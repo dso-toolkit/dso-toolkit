@@ -8,7 +8,7 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       content: $dso-dropdown-caret;
       display: block;
       float: right;
-      line-height: $u3;
+      line-height: $dso-button-size - 2 * $dso-button-border-width;
       margin-left: $u1;
     }
   }
