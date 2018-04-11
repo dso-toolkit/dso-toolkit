@@ -1,4 +1,5 @@
 $dso-modal-zindex: 20;
+$dso-modal-size: 640px;
 
 $dso-modal-backdrop-bg: $wit;
 $dso-modal-backdrop-opacity: .2;
@@ -9,6 +10,12 @@ $dso-modal-border-color: #d3ddd6;
 $dso-modal-close-icon: $dso-icon-button-icon-cross-12x12;
 $dso-modal-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
 $dso-modal-close-icon-size: $u4;
+
+$dso-modal-border-size: 1px;
+
+$dso-modal-header-padding: $u2;
+$dso-modal-footer-padding: $u4;
+$dso-modal-footer-button-height: $u6;
 
 body.dso-modal-open {
   overflow: hidden;
@@ -28,10 +35,10 @@ body.dso-modal-open {
 
 .dso-modal {
   bottom: 0;
+  height: 100%;
   left: 0;
-  margin: 0 auto;
-  max-width: 640px;
-  overflow: hidden;
+  margin: auto;
+  max-width: $dso-modal-size;
   position: fixed;
   right: 0;
   top: 0;
@@ -42,10 +49,8 @@ body.dso-modal-open {
   }
 
   .dso-dialog {
-    background-clip: padding-box;
     background-color: $dso-modal-content-bg;
-    border: 1px solid $dso-modal-content-border-color;
-    outline: 0;
+    border: $dso-modal-border-size solid $dso-modal-content-border-color;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
@@ -53,8 +58,7 @@ body.dso-modal-open {
 
   .dso-header {
     border-bottom: 1px solid $dso-modal-border-color;
-    margin-bottom: 0;
-    padding: $u2;
+    padding: $dso-modal-header-padding;
     position: relative;
 
     h2 {
@@ -68,7 +72,6 @@ body.dso-modal-open {
       background-repeat: no-repeat;
       border: 0;
       border-radius: 50%;
-      color: $grasgroen;
       height: $dso-modal-close-icon-size;
       position: absolute;
       right: 13px;
@@ -87,23 +90,21 @@ body.dso-modal-open {
       &.active {
         background-color: $grasgroen;
         background-image: url($dso-modal-close-icon-active);
-        border: 2px solid $grasgroen;
-        color: $wit;
       }
     }
   }
 
   .dso-body {
-    padding: $u4;
+    border-bottom: $u4 solid $wit;
+    border-top: $u3 solid $wit;
+    max-height: calc(#{$dso-modal-size - ($dso-modal-header-padding * 2) - ($dso-modal-footer-button-height + $dso-modal-footer-padding) - ($dso-modal-border-size * 2)} - 1.5em);
+    overflow-x: auto;
+    padding: 0 $u4;
   }
 
   .dso-footer {
-    background-color: $wit;
-    border-top: 0;
-    box-sizing: content-box;
-    margin: 0;
-    min-height: $u4;
-    padding: 0 $u4 $u4;
+    min-height: $dso-modal-footer-button-height + $dso-modal-footer-padding;
+    padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
     text-align: right;
 
     .btn-link {
