@@ -1,0 +1,36 @@
+status: wip
+collated: true
+context:
+  __title: Standaard
+  __explanation: Responsive component. Gedrag kan gestuurd worden met <code>.dso-vertical</code> en <code>.dso-emphasize-description</code>
+  definitions:
+    - term: Thema
+      description: Wonen en Werken
+    - term: Regelkwalificatie
+      description: Instructieregels
+    - term: Onderwerp
+      description: Bedrijventerrein
+    - term: Functie
+      description: Bedrijventerrein > Bedrijventerrein
+    - term: Type regel
+      description: Bindend voor bestuursorganen
+    - term: Normadressaat
+      description: Gemeentebestuur / Provinciebestuur
+    - term: Pneumonoultramicroscopicsilicovolcanoconiosis
+      description: Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.
+variants:
+  - name: vertical
+    context:
+      __title: Geforceerd verticale modus
+      __explanation: Als het definitie component in smalle elementen wordt gebruikt kan de verticale modus worden gefoceerd met <code>.dso-vertical</code>
+      modifier: dso-vertical
+  - name: emphasize-description
+    context:
+      __title: Nadruk op beschrijving
+      __explanation: Nadruk op de beschrijving door de termen niet dikgedrukt te maken en lichtere kleur te geven
+      modifier: dso-emphasize-description
+  - name: vertical-emphasize-description
+    context:
+      __title: null
+      __explanation: null
+      modifier: dso-vertical dso-emphasize-description

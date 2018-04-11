@@ -13,7 +13,7 @@ form {
     position: relative;
   }
 
-  fieldset + fieldset {
+  > fieldset + fieldset {
     margin-top: $u4;
   }
 }
@@ -25,13 +25,10 @@ form {
     text-align: left;
   }
 
-  legend.control-label {
+  legend.dso-label-container {
     border-bottom: 0;
-    cursor: default;
-    display: inline-block;
     font-size: $font-size-base;
-    margin-bottom: 5px;
-    max-width: 100%;
+    margin-bottom: 0;
   }
 
   &:not(.dso-required) {
@@ -88,6 +85,32 @@ form {
   }
 }
 
+select:not([multiple]) {
+  .form-group & {
+    // sass-lint:disable no-vendor-prefixes
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    // sass-lint:enable no-vendor-prefixes
+
+    background-image: url($dso-icon-fa-caret-down);
+    background-position: calc(100% - #{$u1});
+    background-repeat: no-repeat;
+    padding-right: $u4;
+
+    &:disabled {
+      background-image: url($dso-icon-fa-caret-down-lightgrey);
+    }
+
+    &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+      display: none;
+    }
+  }
+
+  .form-group.dso-invalid & {
+    background-image: url($dso-icon-fa-caret-down-red);
+  }
+}
+
 .form-control {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
@@ -123,7 +146,7 @@ form {
     }
 
     &.dso-confirm {
-      @media (min-width: $screen-sm-min) {
+      @media screen and (min-width: $screen-sm-min) {
         .dso-field-container {
           margin-left: percentage($dso-label-column / $grid-columns);
           padding-left: $grid-gutter-width / 2;
@@ -146,9 +169,18 @@ form {
         padding-top: $padding-base-vertical - 1;
       }
     }
+
+    @media screen and (min-width: $screen-sm-min) {
+      &.dso-checkboxes,
+      &.dso-radios {
+        .dso-field-container {
+          padding-top: #{$padding-base-vertical + 1};
+        }
+      }
+    }
   }
 
-  @media (min-width: $screen-sm-min) {
+  @media screen and (min-width: $screen-sm-min) {
     .dso-form-buttons {
       margin-left: percentage($dso-label-column / $grid-columns);
       padding-left: $grid-gutter-width / 4;
@@ -157,7 +189,7 @@ form {
 }
 
 .form-inline {
-  @media (min-width: $screen-sm-min) {
+  @media screen and (min-width: $screen-sm-min) {
     white-space: nowrap;
 
     > .dso-form-fields,

@@ -3,7 +3,65 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 1.2.0 - UNRELEASED
+## 2.0.0 - UNRELEASED
+
+### Added
+- Definition list component (#78)
+
+### Removed
+- Deprecated styling for .form-field - legend (#100)
+
+## 1.2.1 - 06-04-2018
+
+### DEPRECATION INTRODUCED IN #94: Build error "NoLegend"
+In de formulieren restyle zit een bug. Elke werkvorm in een formulier bestaat uit een `.form-group`. Dit is een `div`-element, behalve voor `.dso-radios` en `.dso-checkboxes`: Dan is het een `fieldset`.
+
+Om de opbouw uniform te houden (`.form-group > .dso-label-container + .dso-field-container`) is het (voor `fieldset` verplichte) `legend` ten onrechte *in* de `.dso-label-container` beland. De regel is echter `fieldset > legend`.
+
+De voorschriften zijn dus aangepast.
+
+`< 1.2.1`
+```html
+<fieldset class="form-group dso-[checkboxes|radios]">
+  <div class="dso-label-container">
+    <legend>Welke auto</legend>
+  </div>
+  <div class="dso-field-container">
+    [..]
+  </div>
+</div>
+```
+
+`>= 1.2.1`
+```html
+<fieldset class="form-group dso-[checkboxes|radios]">
+  <legend class="dso-label-container">
+    <label>Welke auto</label>
+  </legend>
+  <div class="dso-field-container">
+    [..]
+  </div>
+</div>
+```
+
+De verkeerde notatie is deprecated maar zal visueel blijven werken. Vanaf 2.0.0 niet meer.
+
+### Added
+- Documentated .extern and .download modifiers in .btn (#74)
+
+### Fixed
+- Select input improvement (#93)
+- Build error "NoLegend" (#94) (DEPRECATED NOTICE)
+
+## 1.2.0 - 30-03-2018
+
+De `1.2.0` release bestaat uit onderstaande samen met:
+* #89: Duplicate line in table header
+* Tijdelijke oplossing in afwachting van #71
+* Een fix wat in #75 is stukgemaakt van #34
+
+**Belangrijk: De *Input group* componenten in de "Button" variant zijn praktisch bijgetrokken maar zijn nog in afwachting van een redesign**
+**Belangrijk: De WCAG checker geeft bij Formulieren, Checkboxen en Radios aan dat er fieldsets zijn die geen legend hebben. De voorschriften geven echter WEL een `<legend>`. Uitzoeken in #94**
 
 ### 1.2.0-beta.0 - 23-03-2018
 Vandaag is de eerste beta van de `1.2.0` uitgekomen. Dit betekent
