@@ -1,32 +1,38 @@
 $dso-hamburger-menu-button-width: 40px;
 
-.menu {
-  .search {
+.dso-menu {
+  .dso-search {
     float: right;
     max-width: 250px;
 
-    @media(max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-sm-max) {
       width: calc(100% - #{$dso-hamburger-menu-button-width + $u1});
     }
 
-    @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+    @media screen and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
       max-width: 200px;
     }
   }
 
-  .navbar-header {
+  .dso-navbar-header {
     float: left;
   }
 
-  .navbar-collapse {
+  .dso-navbar-collapse {
     width: 100%;
 
-    @media(max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-sm-max) {
       clear: both;
+    }
+
+    @media screen and (min-width: 768px) {
+      &.dso-collapse {
+        display: block !important;
+      }
     }
   }
 
-  &.navbar {
+  &.dso-navbar {
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid $grijs-20;
@@ -35,45 +41,11 @@ $dso-hamburger-menu-button-width: 40px;
     min-height: 44px;
     padding-bottom: 10px;
 
-    .navbar-nav {
-      > li {
-        a {
-          border-bottom: 3px solid transparent;
-          border-top: 1px solid $wit;
-          color: $bosgroen;
-          font-size: 1.2em;
-          height: 40px;
-
-          &:hover,
-          &:focus {
-            background: none;
-            color: $zwart;
-          }
-
-          @media(min-width: $screen-sm-min) {
-            padding: 12px 10px 0;
-          }
-        }
-      }
-
-      > .active {
-        > a {
-          background: transparent;
-          border-bottom: 3px solid $oranje;
-          color: $bosgroen;
-          font-weight: bold;
-
-          &:hover,
-          &:focus {
-            background: transparent;
-            color: $zwart;
-          }
-        }
-      }
-    }
-
-    .navbar-toggle {
+    .dso-navbar-toggle {
       background-color: $grasgroen-10;
+      border: 1px solid transparent;
+      border-color: $grijs-10;
+      border-radius: 4px;
       margin: 0 0 10px;
       padding: $padding-base-vertical $padding-base-horizontal;
 
@@ -84,6 +56,10 @@ $dso-hamburger-menu-button-width: 40px;
 
       &:hover {
         background-color: $grasgroen-10;
+      }
+
+      @media screen and (min-width: 768px) {
+        display: none;
       }
     }
   }

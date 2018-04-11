@@ -1,11 +1,8 @@
-<ul class="nav nav-{{ modifier }}">
+<ul class="dso-nav dso-nav-{{ modifier }}">
   {{#each items }}
-    <li role="presentation" {{#if active }}class="active"{{/if}}>
+    <li role="presentation" {{#if active }}class="dso-active"{{/if}}>
       <a href="#">
         {{ label }}
-        {{#if count }}
-          {{> '@badge' }}
-        {{/if}}
       </a>
     </li>
   {{/each}}

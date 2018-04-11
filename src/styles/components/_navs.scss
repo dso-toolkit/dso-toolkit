@@ -1,30 +1,77 @@
-.nav-tabs {
-  > li {
-    margin-bottom: 0;
+.dso-nav {
+  @include clearfix;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
 
-    a {
-      border: 0;
-      color: $grijs-40;
-      font-size: 20px;
+  > li {
+    > a {
+      background-color: $wit;
+      display: block;
+      padding: 12px 10px 0;
 
       &:hover,
-      &:focus,
-      &:active {
-        background: none;
-        color: $grasgroen;
+      &:focus {
+        background-color: $wit;
+        text-decoration: none;
       }
     }
+  }
 
-    &.active {
-      a {
-        border: 0;
-        border-bottom: 3px solid $grasgroen;
+  &.dso-nav-main {
+    margin: $u1 0; //
+
+    > li {
+      display: block;
+
+      @media (min-width: 768px) {
+        display: inline-block;
+      }
+
+      > a {
+        color: $bosgroen;
+        font-size: 1.2em;
+
+        line-height: $line-height-computed; //
+        padding-bottom: 10px; //
+        padding-top:    10px; //
 
         &:hover,
-        &:focus,
-        &:active {
-          border: 0;
+        &:focus {
+          color: $zwart;
+        }
+      }
+
+      &.dso-active {
+        > a {
+          border-bottom: 3px solid $oranje;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  &.dso-nav-sub {
+    > li {
+      display: inline-block;
+
+      > a {
+        color: $grijs-60;
+        font-size: 16px;
+        padding: $u1;
+
+        &:hover,
+        &:focus {
           border-bottom: 3px solid $grasgroen;
+          color: $grasgroen;
+        }
+      }
+
+      &.dso-active {
+        > a {
+          border-bottom: 3px solid $oranje;
+          color: $bosgroen;
+          font-weight: bold;
         }
       }
     }

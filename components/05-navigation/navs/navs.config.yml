@@ -2,19 +2,25 @@ status: ready
 default: tabs
 collated: true
 context:
-  modifier: tabs
+  __title: Hoofdnavigatie
+  modifier: main
   items:
-  - label: Deze locatie
+  - label: Home
     active: true
-  - label: Regels
-  - label: Overige informatie
+  - label: Actueel
+  - label: Kalender
+  - label: Zelf aan de slag
+  - label: Documenten
+  - label: Over ons
+  - label: Wetgeving
 variants:
-  - name: pills
+  - name: subnavigation
     context:
-      modifier: pills
+      __title: Subnavigatie
+      modifier: sub
       items:
-      - label: Home
+      - label: Deze locatie
         active: true
-      - label: Profiel
-      - label: Berichten
-        count: 15
+      - label: Regels
+      - label: Overige informatie
+
