@@ -1,40 +1,38 @@
+@mixin nav-item-border($color) {
+  border-bottom: 3px solid $color;
+}
+
 .dso-nav {
-  @include clearfix;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
 
   > li {
     > a {
-      background-color: $wit;
       display: block;
       padding: 12px 10px 0;
 
       &:hover,
       &:focus {
-        background-color: $wit;
         text-decoration: none;
       }
     }
   }
 
   &.dso-nav-main {
-    margin: $u1 0; //
-
     > li {
       display: block;
 
-      @media (min-width: 768px) {
+      @media screen and (min-width: $screen-sm-min) {
         display: inline-block;
       }
 
       > a {
         color: $bosgroen;
         font-size: 1.2em;
-
-        line-height: $line-height-computed; //
-        padding-bottom: 10px; //
-        padding-top:    10px; //
+        line-height: $line-height-computed;
+        padding-bottom: $u1;
+        padding-top: $u1;
 
         &:hover,
         &:focus {
@@ -44,7 +42,7 @@
 
       &.dso-active {
         > a {
-          border-bottom: 3px solid $oranje;
+          @include nav-item-border($oranje);
           font-weight: bold;
         }
       }
@@ -57,21 +55,26 @@
 
       > a {
         color: $grijs-60;
-        font-size: 16px;
+        font-size: $font-size-base;
         padding: $u1;
 
         &:hover,
         &:focus {
-          border-bottom: 3px solid $grasgroen;
+          @include nav-item-border($grasgroen);
           color: $grasgroen;
         }
       }
 
       &.dso-active {
         > a {
-          border-bottom: 3px solid $oranje;
+          @include nav-item-border($oranje);
           color: $bosgroen;
           font-weight: bold;
+
+          &:hover,
+          &:focus {
+            color: $zwart;
+          }
         }
       }
     }

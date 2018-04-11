@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Definition list component (#78)
 
+### Changed
+- Smaller navs component for viewer (#87)
+
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
 
