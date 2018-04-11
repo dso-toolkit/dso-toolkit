@@ -3,8 +3,8 @@ collated: true
 context:
   id: searchbar
   label: Zoeken
-  searchbarModifiers: searchbar-closed
+  searchbarModifiers: dso-searchbar-closed
 variants:
   - name: searchbar-opened
     context:
-      searchbarModifiers: searchbar-open
+      searchbarModifiers: dso-searchbar-open

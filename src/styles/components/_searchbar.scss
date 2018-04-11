@@ -1,62 +1,57 @@
-$search-icon-size: 48px;
-$animation-duration: .5s;
+$dso-search-icon-size: 48px;
+$dso-animation-duration: .5s;
 
-.searchbar {
+@mixin dso-searchbar-hide {
+  animation-duration: $dso-animation-duration;
+  animation-name: dso-searchbar-hide-input;
+  transition: all $dso-animation-duration;
+}
+
+@mixin dso-searchbar-show {
+  animation-duration: $dso-animation-duration;
+  animation-name: dso-searchbar-show-label;
+  transition: all $dso-animation-duration;
+}
+
+.dso-searchbar {
   width: 288px;
 
   .form-control-feedback {
     @include icon($dso-icon-header-icon-search-24x24);
   }
 
-  &.searchbar-closed {
+  &.dso-searchbar-closed {
     input.form-control {
-      animation-duration: $animation-duration;
-      animation-name: hide-searchbar-input;
+      @include no-placeholder;
+      @include dso-searchbar-hide;
+
       border-color: transparent;
+      border-width: 0;
       display: inline-block;
       padding: 0;
-      transition: all $animation-duration;
       width: 0;
-
-      //sass-lint:disable no-vendor-prefixes
-      &::-moz-placeholder {
-        color: transparent;
-        opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
-      }
-
-      // Internet Explorer 10+
-      &:-ms-input-placeholder {
-        color: transparent;
-      }
-
-      // Safari and Chrome
-      &::-webkit-input-placeholder  {
-        color: transparent;
-      }
-      //sass-lint:enable no-vendor-prefixes
     }
 
     .form-control-feedback {
       right: 100%;
-      transform: translateX($search-icon-size); // Needed since IE doesn't animate calc()
-      transition: right $animation-duration;
+      transform: translateX($dso-search-icon-size); // Needed translateX since IE doesn't animate calc()
+      transition: right $dso-animation-duration;
     }
 
     label {
-      animation-duration: $animation-duration;
-      animation-name: show-searchbar-label;
+      @include dso-searchbar-show;
+
       color: $grasgroen;
-      margin-left: $search-icon-size - 4px;
+      margin-left: $dso-search-icon-size - 4px;
     }
   }
 
-  &.searchbar-open {
+  &.dso-searchbar-open {
     input.form-control {
-      animation-duration: $animation-duration;
-      animation-name: show-searchbar-input;
+      @include dso-searchbar-show;
+
       border-color: $input-border;
       padding: $padding-base-vertical #{$padding-base-horizontal + 2};
-      transition: all $animation-duration;
       width: 100%;
 
       &:focus {
@@ -67,32 +62,16 @@ $animation-duration: .5s;
     .form-control-feedback {
       background-size: 16px;
       right: 0;
-      transition: right $animation-duration;
+      transition: right $dso-animation-duration;
     }
 
     label {
       display: none;
     }
   }
-
-  // &.searchbar-closed input.form-control:focus {
-  //   animation-duration: $animation-duration;
-  //   animation-name: show-searchbar-input;
-  //   border-color: $bosgroen;
-  //   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
-  //   width: 100%;
-
-  //   + .form-control-feedback {
-  //     right: 0;
-  //   }
-
-  //   ~ label {
-  //     display: none;
-  //   }
-  // }
 }
 
-@keyframes show-searchbar-input {
+@keyframes dso-searchbar-show-input {
   0% {
     border-color: transparent;
   }
@@ -106,7 +85,7 @@ $animation-duration: .5s;
   }
 }
 
-@keyframes hide-searchbar-input {
+@keyframes dso-searchbar-hide-input {
   0% {
     border-color: $input-border;
   }
@@ -120,8 +99,9 @@ $animation-duration: .5s;
   }
 }
 
-@keyframes show-searchbar-label {
+@keyframes dso-searchbar-show-label {
   0% {
+    opacity: 0;
     overflow: hidden;
     width: 0;
   }
