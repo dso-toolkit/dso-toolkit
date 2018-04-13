@@ -4,6 +4,7 @@ const path = require('path');
 
 const fractal = module.exports = require('@frctl/fractal').create();
 const helpers = require('./.fractal/helpers.js')(fractal);
+const collator = require('./.fractal/collator.js');
 
 fractal.web.set('builder.dest', __dirname + '/build/library');
 
@@ -16,7 +17,7 @@ const hbs = require('@frctl/handlebars')({
 fractal.components.engine(hbs);
 fractal.components.set('path', path.join(__dirname, 'components'));
 fractal.components.set('default.status', 'wip');
-fractal.components.set('default.collator', (markup, item) => `<!-- Start: @${item.handle} -->\n${markup}\n<!-- End: @${item.handle} --><hr />\n`);
+fractal.components.set('default.collator', collator);
 
 fractal.docs.engine(hbs);
 fractal.docs.set('path', path.join(__dirname, 'docs'));

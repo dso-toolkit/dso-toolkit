@@ -6,19 +6,26 @@ const util = require('gulp-util');
 const del = require('del');
 const fractal = require('../fractal.js');
 const fse = require('fs-extra');
+const inlineSvg = require('gulp-inline-svg');
 const path = require('path');
+const pretty = require('pretty');
 const sass = require('gulp-sass');
+const slug = require('slug');
+const svgmin = require('gulp-svgmin');
+const svgVariableName = require('./functions/svg-variable-name.js');
+const tap = require('gulp-tap');
 const trim = require('gulp-trim');
 
 const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: options => gulp.series(buildStyles(options || {}), copyAssets, copyFontAwesomeFonts),
-  buildSite: gulp.series(buildSite, trimReports, cleanUpBuild),
+  buildToolkit: options => gulp.series(inlineSvgIcons, buildStylesWrapper(options), copyAssets, copyFontAwesomeFonts),
   createDomReference: gulp.series(buildSite, createDomReference),
-  buildWatcher: options => buildWatcher(options || {})
+  buildWatcher: options => buildWatcher(options)
 };
+module.exports.buildSite = gulp.series(module.exports.buildToolkit({ library: true }), buildSite, trimReports, cleanUpBuild);
+module.exports.build = gulp.series(cleanBuild, module.exports.buildSite, module.exports.buildToolkit());
 
 function cleanBuild() {
   return del('build');
@@ -54,15 +61,33 @@ function cleanUpBuild() {
   return del(['build/toolkit/dummy', 'build/toolkit/docs']);
 }
 
-function buildStyles(options) {
-  return () => {
+function inlineSvgIcons() {
+  return gulp.src('assets/icons/**/*.svg')
+    .pipe(svgmin())
+    .pipe(inlineSvg({
+      filename: 'dso-icons.scss',
+      template: 'assets/icons/template.mustache',
+      context: {
+        prefix: 'dso-icon'
+      },
+      interceptor: function (svgData, file) {
+        return Object.assign(svgData, { variableName: svgVariableName(file.relative) });
+      }
+    }))
+    .pipe(gulp.dest('src/styles/icons'));
+}
+
+function buildStylesWrapper(options) {
+  options = options || {};
+
+  return function buildStyles() {
     const sassCompiler = sass({
       includePaths: [
         path.join(process.cwd(), 'node_modules')
       ]
     }).on('error', sass.logError);
 
-    return gulp.src(`${options.dev ? 'components' : 'src'}/*.s[ac]ss`)
+    return gulp.src(`${options.library || options.dev ? 'components' : 'src'}/*.s[ac]ss`)
       .pipe(sassCompiler)
       .pipe(gulp.dest('build/toolkit/styles'));
   };
@@ -90,16 +115,25 @@ function createDomReference() {
     .then(function () {
       log('Copied reference component files');
 
-      return fse.copy('build/library/components/render', 'reference/render');
+      return gulp.src('build/library/components/render/*.html')
+        .pipe(tap(function (file) {
+          let html = file.contents.toString();
+          let prettied = pretty(html, { ocd: true, newlines: '\r\n', eol: '\r\n', end_with_newline: true });
+
+          file.contents = Buffer.from(prettied);
+        }))
+        .pipe(gulp.dest('reference/render'));
     });
 }
 
 function buildWatcher(options) {
+  options = options || {};
+
   return logger => {
     gulp.watch('(components|src)/**/*.scss').on('all', function (event, path, stats) {
       logger('styles', event, path);
 
-      return buildStyles(options)();
+      return buildStylesWrapper(options)();
     });
 
     gulp.watch('assets/**/*').on('all', function (event, path, stats) {

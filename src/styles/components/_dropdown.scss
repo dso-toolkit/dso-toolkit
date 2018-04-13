@@ -1,0 +1,42 @@
+$dso-dropdown-caret: fa-content($fa-var-caret-down);
+
+.dropdown {
+  > .btn-default.dropdown-toggle {
+    &::after {
+      @extend .fas;
+
+      content: $dso-dropdown-caret;
+      display: block;
+      float: right;
+      line-height: $dso-button-size - 2 * $dso-button-border-width;
+      margin-left: $u1;
+    }
+  }
+
+  .dropdown-menu {
+    li {
+      a {
+        &:focus,
+        &.focus {
+          outline: 0;
+        }
+      }
+    }
+  }
+
+  &.open {
+    > .btn-default.dropdown-toggle {
+      background-color: $grasgroen;
+      border-color: $grasgroen;
+      color: $wit;
+
+      &:hover,
+      &:focus,
+      &.focus {
+        background-color: $bosgroen;
+        border-color: $bosgroen;
+        color: $wit;
+      }
+    }
+  }
+}

@@ -3,15 +3,15 @@ html {
 }
 
 h1 {
-  color: $grasgroen;
+  @extend %is-h1;
 }
 
 h4 {
-  color: $bosgroen;
+  @extend %is-h4;
 }
 
 h5 {
-  color: $grijs-90;
+  @extend %is-h5;
 }
 
 // Mind Bootstrap's .caption class: node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_thumbnails.scss

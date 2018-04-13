@@ -3,36 +3,37 @@ This repository houses two projects:
 * The toolkit in `src/` and `assets/`
 * A component library in `docs/` and `components/`
 
-The toolkit is based on [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3). The main differences are accessibility and script enhancements. The component library is written in Handlebars.js using Fractal. [Fractal](http://fractal.build)] is a _component library & styleguides framework_.
-
 This project uses [Semantic Versioning](http://semver.org/).
+
+## Language
+There are two language domains: English and Dutch. Anything tech-related (styling, source code, standard open source files, etc) is in English. Anything else (Fractal notes, manuals, GitHub issues and comments) is in Dutch.
 
 ## How to contribute
 Contributing to the DSO toolkit is fairly straight-forward:
-1. Open an issue
-2. Contribute
-3. Create a merge request
+1. Fork
+2. Open an issue
+3. Contribute
+4. Create a pull request
 
-### 1. Open an issue
-Every change is accomponied by an issue describing the change, scope, and incentive. This way contributers and maintainers can reason about the suggested changes.
+### 1. Fork
+Fork the repository to your own - or your organisation's - namespace.
+
+### 2. Open an issue
+Every change is accomponied by an issue describing the change, scope, and incentive. This way contributers, maintainers and product owners can reason about the suggested changes.
 
 Properly label the issue as a bug, improvement, new feature.
 
-### 2. Contribute
+### 3. Contribute
 * Take note of the codestyle, we are using linters. 
-* Add an entry to the CHANGELOG using `#issueId: summary-of-the-change`
-* If possible, change both the toolkit **and** component library (You want to showcase your changes, right?)
-* When contributing (breaking) changes, update changelog accordingly. Commit a new reference DOM using `gulp reference:dom` as well.
+* Add an entry to the CHANGELOG.md.
+* When changing the toolkit, try to demonstrate the change using the component library (new components or variants)
+* Run `gulp test:dom`. Commit new/changed reference DOM files using `gulp reference:dom`.
 
-### 3. Create a merge request
-Create a merge request to `master`. A maintainer will review your changes, merge them, and close the issue.
+### 4. Create a pull request
+Create a pull request to the target version branch (for example `1_2_0`). A maintainer will review your changes, merge them, and close the issue.
 
 ## Reviewing
-When reviewing a merge request, make sure the items in step 2. Contribute are checked. Pay special attention to the changelog. Any changes in the reference DOM should be documented in the changelog.
-
-For example:
-- DSOCOMLIB-000: External links in text should open in a new page\
-To every `a.extern` in `p` add `target="_blank"`.
+When reviewing a pull request, make sure the items in __step 3. Contribute__ are checked. Pay special attention to the changelog and (if needed) reference DOM files.
 
 ## Building a static component library
 To build a static version:
@@ -40,16 +41,4 @@ To build a static version:
 gulp build
 ```
 
-This will generate static a static site component library (`/assets`, `/components` and `/docs`)  AND toolkit (`/src`).
-
-## Further reading
-* https://www.npmjs.com/
-* https://www.npmjs.com/
-* https://rollupjs.org/
-* http://babeljs.io/
-* https://github.com/sass/node-sass
-* http://fractal.build/
-* http://keepachangelog.com/en/1.0.0/
-* http://semver.org/
-* http://handlebarsjs.com/
-* http://www.yaml.org/
+This will generate static a static site component library (`/assets`, `/components` and `/docs`) AND toolkit (`/src`).

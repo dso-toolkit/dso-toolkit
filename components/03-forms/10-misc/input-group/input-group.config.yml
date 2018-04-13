@@ -1,6 +1,6 @@
 notes: |
   Maak visueel uitgebreide elementen met input groups. Combineer een input group niet met een form group, maar plaats de input group in plaats daarvan IN de form group.
-status: prototype
+status: wip
 default: left
 collated: true
 variants:
