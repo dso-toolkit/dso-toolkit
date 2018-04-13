@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - Definition list component (#78)
 
+### Fixed
+- img in .hero-image has width but no height (#107)
+
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
 
