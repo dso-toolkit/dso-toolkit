@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 - img in .hero-image has width but no height (#107)
+- Asap font doesn't look sharp (#69)
 
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
