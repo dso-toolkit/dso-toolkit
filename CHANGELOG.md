@@ -3,6 +3,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.0.0 - UNRELEASED
+
+### Added
+- Definition list component (#78)
+
+### Fixed
+- img in .hero-image has width but no height (#107)
+
+### Removed
+- Deprecated styling for .form-field - legend (#100)
+
 ## 1.2.1 - 06-04-2018
 
 ### DEPRECATION INTRODUCED IN #94: Build error "NoLegend"
