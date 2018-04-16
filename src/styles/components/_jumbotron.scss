@@ -2,6 +2,7 @@
   @include make-row;
 
   .dso-jumbotron-title {
+    @extend %is-h1;
     @include make-md-column(12);
     margin-bottom: $u2;
     margin-top: 0;
@@ -16,7 +17,6 @@
   }
 
   .dso-jumbotron-cta {
-    @include make-xs-column(3);
     clear: both;
     margin-top: $u2;
   }

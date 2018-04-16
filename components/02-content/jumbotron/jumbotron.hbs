@@ -4,15 +4,15 @@
     <div class="dso-rich-content">
       <p>{{ content }}</p>
     </div>
+    {{#if button }}
+      <div class="dso-jumbotron-cta">
+        {{> '@button' button }}
+      </div>
+    {{/if}}
   </div>
   {{#if image }}
     <div class="dso-jumbotron-image">
       {{> '@image' image }}
-    </div>
-  {{/if}}
-  {{#if button }}
-    <div class="dso-jumbotron-cta">
-      {{> '@button' button }}
     </div>
   {{/if}}
 </div>
