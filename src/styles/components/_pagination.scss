@@ -1,37 +1,80 @@
-.pagination {
-  li {
-    a {
+$dso-pagination-item-size: $u4;
+$dso-pagination-item-border-size: 2px;
+
+.dso-pagination {
+  text-align: center;
+
+  > li {
+    display: inline;
+
+    a,
+    span {
+      border: $dso-pagination-item-border-size solid transparent;
       border-radius: 50%;
+      color: $grasgroen;
       display: inline-block;
-      float: none;
-      height: 32px;
-      line-height: 28px;
-      padding: 0;
-      text-align: center;
-      width: 32px;
+      height: $dso-pagination-item-size;
+      line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
+      vertical-align: middle;
+      width: $dso-pagination-item-size;
+
+      &:active {
+        background-color: $grasgroen-10;
+      }
+    }
+
+    a {
+      &:hover,
+      &:focus {
+        border-color: $grasgroen;
+        text-decoration: none;
+      }
+    }
+
+    &.active {
+      span {
+        background-color: $grasgroen;
+        color: $wit;
+      }
     }
 
     & + li {
-      margin-left: 8px;
+      margin-left: $u1;
     }
 
-    &.previous,
-    &.next {
+    &.dso-previous,
+    &.dso-next {
       a {
         border: 2px solid $grasgroen;
         border-radius: 50%;
+
+        &:hover,
+        &:focus {
+          background-color: $grasgroen;
+          color: $wit;
+        }
       }
     }
 
-    &.previous {
+    &.dso-previous {
       a {
+        @include icon($dso-icon-button-icon-chevron-left-12x12);
         margin-right: 5px;
+
+        &:hover {
+          @include icon($dso-icon-button-icon-chevron-left-white-12x12);
+        }
       }
     }
 
-    &.next {
+    &.dso-next {
       a {
+        @include icon($dso-icon-button-icon-chevron-right-12x12);
         margin-left: 5px;
+
+        &:hover {
+          @include icon($dso-icon-button-icon-chevron-right-white-12x12);
+        }
       }
     }
   }

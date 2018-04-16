@@ -3,16 +3,222 @@ collated: true
 context:
   items:
     - 1
-    - 2
-    - 3
-    - 4
-    - 5
 variants:
-  - name: ellipsis
+  - name: pagination-two-pages
     context:
-      items:
-        - ...
-        - 11
-        - 12
-        - 13
-        - ...
+      __title: Paginering met 2 pagina's
+      itemList:
+        - items:
+            - label: 1
+              active: true
+        - items:
+            - label: 1
+              active: true
+            - label: 2
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+              active: true
+          goToFirst: true
+  - name: pagination-three-pages
+    context:
+      __title: Paginering met 3 pagina's
+      itemList:
+        - items:
+            - label: 1
+              active: true
+            - label: 2
+            - label: 3
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+              active: true
+            - label: 3
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+              active: true
+          goToFirst: true
+  - name: pagination-four-pages
+    context:
+      __title: Paginering met 4 pagina's
+      itemList:
+        - items:
+            - label: 1
+              active: true
+            - label: 2
+            - label: 3
+            - label: 4
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+              active: true
+            - label: 3
+            - label: 4
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+              active: true
+            - label: 4
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+            - label: 4
+              active: true
+          goToFirst: true
+  - name: pagination-five-pages
+    context:
+      __title: Paginering met 5 pagina's
+      itemList:
+        - items:
+            - label: 1
+              active: true
+            - label: 2
+            - label: 3
+            - label: 4
+            - label: 5
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+              active: true
+            - label: 3
+            - label: 4
+            - label: 5
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+              active: true
+            - label: 4
+            - label: 5
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+            - label: 4
+              active: true
+            - label: 5
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+            - label: 4
+            - label: 5
+              active: true
+          goToFirst: true
+  - name: pagination-six-pages
+    context:
+      __title: Paginering met 6 pagina's
+      itemList:
+        - items:
+            - label: 1
+              active: true
+            - label: 2
+            - label: 3
+            - label: ...
+              ellipsis: true
+            - label: 6
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+              active: true
+            - label: 3
+            - label: ...
+              ellipsis: true
+            - label: 6
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: 2
+            - label: 3
+              active: true
+            - label: ...
+              ellipsis: true
+            - label: 6
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: ...
+              ellipsis: true
+            - label: 4
+              active: true
+            - label: 5
+            - label: 6
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: ...
+              ellipsis: true
+            - label: 4
+            - label: 5
+              active: true
+            - label: 6
+          goToFirst: true
+          goToLast: true
+        - items:
+            - label: 1
+            - label: ...
+              ellipsis: true
+            - label: 4
+            - label: 5
+            - label: 6
+              active: true
+          goToFirst: true
+  - name: pagination-hundred-pages
+    context:
+      __title: Paginering met 100 pagina's
+      itemList:
+        - items:
+            - label: 1
+            - label: ...
+              ellipsis: true
+            - label: 98
+            - label: 99
+            - label: 100
+              active: true
+          goToFirst: true
+        - items:
+            - label: 1
+              active: true
+            - label: 2
+            - label: 3
+            - label: ...
+              ellipsis: true
+            - label: 100
+          goToLast: true
+        - items:
+            - label: 1
+            - label: ...
+              ellipsis: true
+            - label: 49
+            - label: 50
+              active: true
+            - label: 51
+            - label: ...
+              ellipsis: true
+            - label: 100
+          goToFirst: true
+          goToLast: true
