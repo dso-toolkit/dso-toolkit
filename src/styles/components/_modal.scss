@@ -1,4 +1,4 @@
-$dso-modal-zindex: 20;
+$dso-modal-z-index: 20;
 $dso-modal-size: 640px;
 
 $dso-modal-backdrop-bg: $wit;
@@ -14,22 +14,25 @@ $dso-modal-close-icon-size: $u4;
 $dso-modal-border-size: 1px;
 
 $dso-modal-header-padding: $u2;
+$dso-modal-body-padding: $u4;
 $dso-modal-footer-padding: $u4;
 $dso-modal-footer-button-height: $u6;
 
 body.dso-modal-open {
-  overflow: hidden;
+  @media screen and (min-width: $screen-sm-min) {
+    overflow: hidden;
 
-  &::before {
-    background-color: fade-out($dso-modal-backdrop-bg, $dso-modal-backdrop-opacity);
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: #{$dso-modal-zindex - 1};
+    &::before {
+      background-color: fade-out($dso-modal-backdrop-bg, $dso-modal-backdrop-opacity);
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: #{$dso-modal-z-index - 1};
+    }
   }
 
   @media screen and (max-width: $screen-xs-max) {
@@ -40,16 +43,6 @@ body.dso-modal-open {
 }
 
 .dso-modal {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  margin: auto;
-  max-width: $dso-modal-size;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: $dso-modal-zindex;
-
   &:focus {
     outline: 0;
   }
@@ -57,9 +50,6 @@ body.dso-modal-open {
   .dso-dialog {
     background-color: $dso-modal-content-bg;
     border: $dso-modal-border-size solid $dso-modal-content-border-color;
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
   }
 
   .dso-header {
@@ -105,13 +95,9 @@ body.dso-modal-open {
   }
 
   .dso-body {
-    $dso-body-height: 2 * $dso-modal-header-padding - ($dso-modal-footer-button-height + $dso-modal-footer-padding) - 2 * $dso-modal-border-size;
-
-    border-bottom: $u4 solid $wit;
-    border-top: $u3 solid $wit;
-    max-height: calc(#{$dso-modal-size - $dso-body-height} - 1.5em);
-    overflow-x: auto;
-    padding: 0 $u4;
+    border-bottom: $dso-modal-body-padding solid $wit;
+    border-top: $dso-modal-body-padding solid $wit;
+    padding: 0 $dso-modal-body-padding;
   }
 
   .dso-footer {
@@ -121,12 +107,6 @@ body.dso-modal-open {
 
     .btn-link {
       float: left;
-    }
-
-    @media screen and (min-width: $screen-sm-min) {
-      button + button.btn-default {
-        margin-left: $u2;
-      }
     }
   }
 
@@ -139,10 +119,39 @@ body.dso-modal-open {
       }
     }
   }
-}
 
-@media screen and (max-width: $screen-xs-max) {
-  .dso-modal {
+  @media screen and (min-width: $screen-sm-min) {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    max-width: $dso-modal-size;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $dso-modal-z-index;
+
+    .dso-dialog {
+      position: relative;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    .dso-body {
+      $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding) + (2 * $dso-modal-border-size);
+
+      max-height: calc(#{$dso-modal-size - $dso-body-height} - 1.5em);
+      overflow-x: auto;
+    }
+
+    .dso-footer {
+      button + button.btn-default {
+        margin-left: $u2;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
     max-width: 100%;
 
     .dso-footer {
