@@ -1,0 +1,174 @@
+$dso-modal-z-index: 20;
+$dso-modal-size: 640px;
+
+$dso-modal-backdrop-bg: $wit;
+$dso-modal-backdrop-opacity: .2;
+$dso-modal-content-bg: $wit;
+$dso-modal-content-border-color: fade-out($zwart, .8);
+$dso-modal-border-color: #d3ddd6;
+
+$dso-modal-close-icon: $dso-icon-button-icon-cross-12x12;
+$dso-modal-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
+$dso-modal-close-icon-size: $u4;
+
+$dso-modal-border-size: 1px;
+
+$dso-modal-header-padding: $u2;
+$dso-modal-body-padding: $u4;
+$dso-modal-footer-padding: $u4;
+$dso-modal-footer-button-height: $u6;
+
+body.dso-modal-open {
+  @media screen and (min-width: $screen-sm-min) {
+    overflow: hidden;
+
+    &::before {
+      background-color: fade-out($dso-modal-backdrop-bg, $dso-modal-backdrop-opacity);
+      bottom: 0;
+      content: "";
+      display: block;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: #{$dso-modal-z-index - 1};
+    }
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    .container {
+      display: none;
+    }
+  }
+}
+
+.dso-modal {
+  &:focus {
+    outline: 0;
+  }
+
+  .dso-dialog {
+    background-color: $dso-modal-content-bg;
+    border: $dso-modal-border-size solid $dso-modal-content-border-color;
+  }
+
+  .dso-header {
+    border-bottom: 1px solid $dso-modal-border-color;
+    padding: $dso-modal-header-padding;
+    position: relative;
+
+    h2 {
+      margin: 0;
+      max-width: calc(100% - #{$u3});
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .dso-close {
+      background-color: transparent;
+      background-image: url($dso-modal-close-icon);
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      border: 0;
+      border-radius: 50%;
+      height: $dso-modal-close-icon-size;
+      position: absolute;
+      right: 13px;
+      top: calc(50% - #{$dso-modal-close-icon-size / 2});
+      width: $dso-modal-close-icon-size;
+
+      &:hover,
+      &:focus,
+      &.focus {
+        background-color: $wit;
+        border: 2px solid $grasgroen;
+        outline: 0;
+      }
+
+      &:active,
+      &.active {
+        background-color: $grasgroen;
+        background-image: url($dso-modal-close-icon-active);
+      }
+    }
+  }
+
+  .dso-body {
+    border-bottom: $dso-modal-body-padding solid $wit;
+    border-top: $dso-modal-body-padding solid $wit;
+    padding: 0 $dso-modal-body-padding;
+  }
+
+  .dso-footer {
+    min-height: $dso-modal-footer-button-height + $dso-modal-footer-padding;
+    padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
+    text-align: right;
+
+    .btn-link {
+      float: left;
+    }
+  }
+
+  &.dso-confirm {
+    .dso-footer {
+      button {
+        &:first-child {
+          float: left;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    max-width: $dso-modal-size;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: $dso-modal-z-index;
+
+    .dso-dialog {
+      position: relative;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    .dso-body {
+      $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding) + (2 * $dso-modal-border-size);
+
+      max-height: calc(#{$dso-modal-size - $dso-body-height} - 1.5em);
+      overflow-x: auto;
+    }
+
+    .dso-footer {
+      button + button.btn-default {
+        margin-left: $u2;
+      }
+    }
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    max-width: 100%;
+
+    .dso-footer {
+      button {
+        width: 100%;
+
+        + button {
+          margin-top: $u1;
+        }
+
+        &.btn-link {
+          &,
+          span {
+            float: none;
+          }
+        }
+      }
+    }
+  }
+}
