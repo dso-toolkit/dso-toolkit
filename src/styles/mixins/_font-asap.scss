@@ -6,7 +6,7 @@
   font-style: normal;
   font-weight: 400;
   src:
-    local("Asap Regular "),
+    local("Asap Regular"),
     local("Asap-Regular"),
     url("#{$asap-font-path}asap-latin-400.woff2") format("woff2"), // Super Modern Browsers
     url("#{$asap-font-path}asap-latin-400.woff") format("woff"); // Modern Browsers
@@ -30,7 +30,7 @@
   font-style: normal;
   font-weight: 700;
   src:
-    local("Asap Bold "),
+    local("Asap Bold"),
     local("Asap-Bold"),
     url("#{$asap-font-path}asap-latin-700.woff2") format("woff2"), // Super Modern Browsers
     url("#{$asap-font-path}asap-latin-700.woff") format("woff"); // Modern Browsers
