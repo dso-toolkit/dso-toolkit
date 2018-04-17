@@ -1,0 +1,21 @@
+notes: |
+  Plaats een label. Gebaseerd op de Bootstrap 'Label' component
+status: ready
+collated: true
+context:
+  __title: Small label
+  label: Small
+  modifier: default small
+variants:
+  - name: label-large
+    context:
+      __title: Large label
+      label: Large
+      modifier: default large
+  - name: label-filter
+    context:
+      __title: Filter label
+      label: Filter label
+      modifier: default large
+      filterLabel: true
+

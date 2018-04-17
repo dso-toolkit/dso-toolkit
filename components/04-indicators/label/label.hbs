@@ -1,1 +1,6 @@
-<span class="label label-{{ modifier }}">{{ label }}</span>
+<span class="label label-{{ modifier }}">
+  {{label}}
+  {{~#if filterLabel }}
+    <button type="button"></button>
+  {{/if}}
+</span>

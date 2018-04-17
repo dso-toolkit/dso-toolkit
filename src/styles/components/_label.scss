@@ -1,4 +1,28 @@
-.label-warning,
-.label-danger {
-  color: $grijs-90;
+$dso-label-bg-color: #e4f1d4;
+$dso-filter-delete-size: 12px;
+
+.label {
+  background-color: $dso-label-bg-color;
+  border-radius: 4px;
+  color: $bosgroen;
+  display: inline-block;
+  line-height: 1em;
+  padding: #{$u1 / 2} $u1;
+
+  &.label-small {
+    font-size: .875em;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    float: right;
+    padding: 0 0 0 $u1;
+
+    &::after {
+      @include icon($dso-icon-fa-times);
+      height: $dso-filter-delete-size;
+      width: $dso-filter-delete-size;
+    }
+  }
 }
