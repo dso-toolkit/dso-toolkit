@@ -5,15 +5,15 @@ context:
   heading: Activiteit toevoegen
   body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
   buttons:
+    - name: confirmButton
+      type: submit
+      modifier: primary
+      label: Toevoegen
     - name: cancelButton
       type: button
       modifier: link
       icon: icon fas fa-times
       label: Annuleren
-    - name: confirmButton
-      type: submit
-      modifier: primary
-      label: Toevoegen
   fieldsets:
   - legend: Contact
     groups:
@@ -86,11 +86,6 @@ variants:
     context:
       id: modal-steps
       buttons:
-      - name: cancelButton
-        type: button
-        modifier: link
-        icon: icon fas fa-times
-        label: Annuleren
       - name: previousButton
         type: button
         modifier: default
@@ -99,6 +94,11 @@ variants:
         type: button
         modifier: default
         label: Volgende
+      - name: cancelButton
+        type: button
+        modifier: link
+        icon: icon fas fa-times
+        label: Annuleren
   - name: modal-confirm
     label: Confirm
     context:

@@ -31,6 +31,12 @@ body.dso-modal-open {
     top: 0;
     z-index: #{$dso-modal-zindex - 1};
   }
+
+  @media screen and (max-width: $screen-xs-max) {
+    .container {
+      display: none;
+    }
+  }
 }
 
 .dso-modal {
@@ -99,9 +105,11 @@ body.dso-modal-open {
   }
 
   .dso-body {
+    $dso-body-height: 2 * $dso-modal-header-padding - ($dso-modal-footer-button-height + $dso-modal-footer-padding) - 2 * $dso-modal-border-size;
+
     border-bottom: $u4 solid $wit;
     border-top: $u3 solid $wit;
-    max-height: calc(#{$dso-modal-size - ($dso-modal-header-padding * 2) - ($dso-modal-footer-button-height + $dso-modal-footer-padding) - ($dso-modal-border-size * 2)} - 1.5em);
+    max-height: calc(#{$dso-modal-size - $dso-body-height} - 1.5em);
     overflow-x: auto;
     padding: 0 $u4;
   }
@@ -115,8 +123,10 @@ body.dso-modal-open {
       float: left;
     }
 
-    button + button {
-      margin-left: $u2;
+    @media screen and (min-width: $screen-sm-min) {
+      button + button.btn-default {
+        margin-left: $u2;
+      }
     }
   }
 
@@ -140,11 +150,11 @@ body.dso-modal-open {
         width: 100%;
 
         + button {
-          margin-left: 0;
           margin-top: $u1;
         }
 
         &.btn-link {
+          &,
           span {
             float: none;
           }
