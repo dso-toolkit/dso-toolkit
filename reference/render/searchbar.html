@@ -1,20 +1,57 @@
 
 <!-- Start: @searchbar--default -->
-<div class="form-group has-feedback dso-searchbar dso-searchbar-closed">
-  <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
-  <span class="form-control-feedback" aria-hidden="true"></span>
-  <label for="searchbar">Zoeken</label>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Example: Open/Close</h2>
+    <p>Gebruik dit voorbeeld om te zien hoe de animatie in zijn werk gaat.</p>
+  </div>
+  <input type="checkbox" id="state-switch" />
+  <label for="state-switch">Open/sluit</label>
+  <div class="dso-example">
+    <div class="dso-searchbar ">
+      <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+      <span class="dso-searchbar-icon" aria-hidden="true"></span>
+      <label for="searchbar">Zoeken</label>
+    </div>
+  </div>
 </div>
 
 <!-- End: @searchbar--default -->
 <hr />
 
 <!-- Start: @searchbar--searchbar-opened -->
-<div class="form-group has-feedback dso-searchbar dso-searchbar-open">
-  <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
-  <span class="form-control-feedback" aria-hidden="true"></span>
-  <label for="searchbar">Zoeken</label>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Zoekbalk open</h2>
+    <p>Om een zoekbalk te openen dient de class <code>.dso-searchbar-closed</code> doormiddel van scripting vervangen te worden door de class <code>.dso-searchbar-open</code>. Dit triggert een animatie die de zoekbalk opent.</p>
+  </div>
+  <div class="dso-example">
+    <div class="dso-searchbar dso-searchbar-open">
+      <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+      <span class="dso-searchbar-icon" aria-hidden="true"></span>
+      <label for="searchbar">Zoeken</label>
+    </div>
+  </div>
 </div>
 
 <!-- End: @searchbar--searchbar-opened -->
+<hr />
+
+<!-- Start: @searchbar--searchbar-closed -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Zoekbalk gesloten</h2>
+    <p>De zoekbalk dient vanuit zichzelf de class <code>.dso-searchbar</code> te hebben en kan worden uitgebreid met de modifier classes <code>.dso-searchbar-closed</code> of <code>.dso-searchbar-open</code>. Het togglen (door scripting) van deze modifier
+      classes start een animatie de de zoekbalk opent of sluit.</p>
+  </div>
+  <div class="dso-example">
+    <div class="dso-searchbar dso-searchbar-closed">
+      <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+      <span class="dso-searchbar-icon" aria-hidden="true"></span>
+      <label for="searchbar">Zoeken</label>
+    </div>
+  </div>
+</div>
+
+<!-- End: @searchbar--searchbar-closed -->
 <hr />

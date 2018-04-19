@@ -1,101 +1,98 @@
-$dso-search-icon-size: 48px;
+$dso-search-icon-size: 38px;
 $dso-animation-duration: .5s;
 
-@mixin dso-searchbar-hide {
-  animation-duration: $dso-animation-duration;
-  animation-name: dso-searchbar-hide-input;
-  transition: all $dso-animation-duration;
+%searchbar-closed {
+  input.form-control {
+    @include no-placeholder;
+
+    border-color: transparent;
+    border-width: 0;
+    display: inline-block;
+    padding: 0;
+    width: 0;
+  }
+
+  .dso-searchbar-icon {
+    background-size: $u3;
+    right: 100%;
+    transform: translateX($dso-search-icon-size); // Needed translateX since IE doesn't animate calc()
+    transition: all $dso-animation-duration;
+  }
+
+  label {
+    color: $grasgroen;
+    margin-left: $dso-search-icon-size - 4px;
+    opacity: 1;
+    overflow: visible;
+  }
 }
 
-@mixin dso-searchbar-show {
-  animation-duration: $dso-animation-duration;
-  animation-name: dso-searchbar-show-label;
-  transition: all $dso-animation-duration;
+%searchbar-open {
+  input.form-control {
+    border-color: $input-border;
+    padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+    width: 100%;
+
+    &:focus {
+      border-color: $input-border-focus;
+    }
+  }
+
+  .dso-searchbar-icon {
+    background-size: $u2;
+    right: 0;
+    transition: all $dso-animation-duration;
+  }
+
+  label {
+    display: none;
+    opacity: 0;
+    overflow: hidden;
+    width: 0;
+  }
 }
 
 .dso-searchbar {
+  position: relative;
   width: 288px;
 
-  .form-control-feedback {
+  input.form-control,
+  label,
+  .dso-searchbar-icon {
+    transition: all .5s;
+  }
+
+  .dso-searchbar-icon {
     @include icon($dso-icon-header-icon-search-24x24);
+
+    height: $input-height-base;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: $input-height-base;
+    z-index: 2; // Ensure icon is above input groups
+  }
+
+  @if($library) {
+    #state-switch:not(:checked) ~ .dso-example & { // sass-lint:disable-line no-ids
+      @extend %searchbar-closed;
+    }
   }
 
   &.dso-searchbar-closed {
-    input.form-control {
-      @include no-placeholder;
-      @include dso-searchbar-hide;
+    @extend %searchbar-closed;
+  }
 
-      border-color: transparent;
-      border-width: 0;
-      display: inline-block;
-      padding: 0;
-      width: 0;
-    }
-
-    .form-control-feedback {
-      right: 100%;
-      transform: translateX($dso-search-icon-size); // Needed translateX since IE doesn't animate calc()
-      transition: right $dso-animation-duration;
-    }
-
-    label {
-      @include dso-searchbar-show;
-
-      color: $grasgroen;
-      margin-left: $dso-search-icon-size - 4px;
+  @if($library) {
+    #state-switch:checked ~ .dso-example & { // sass-lint:disable-line no-ids
+      @extend %searchbar-open;
     }
   }
 
   &.dso-searchbar-open {
-    input.form-control {
-      @include dso-searchbar-show;
-
-      border-color: $input-border;
-      padding: $padding-base-vertical #{$padding-base-horizontal + 2};
-      width: 100%;
-
-      &:focus {
-        border-color: $input-border-focus;
-      }
-    }
-
-    .form-control-feedback {
-      background-size: 16px;
-      right: 0;
-      transition: right $dso-animation-duration;
-    }
-
-    label {
-      display: none;
-    }
-  }
-}
-
-@keyframes dso-searchbar-show-input {
-  0% {
-    border-color: transparent;
-  }
-
-  10% {
-    border-color: transparent;
-  }
-
-  100% {
-    border-color: $input-border;
-  }
-}
-
-@keyframes dso-searchbar-hide-input {
-  0% {
-    border-color: $input-border;
-  }
-
-  90% {
-    border-color: transparent;
-  }
-
-  100% {
-    border-color: transparent;
+    @extend %searchbar-open;
   }
 }
 
