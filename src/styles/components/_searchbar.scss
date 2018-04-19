@@ -20,8 +20,7 @@ $dso-animation-duration: .5s;
   }
 
   label {
-    color: $grasgroen;
-    margin-left: $dso-search-icon-size - 4px;
+    left: $dso-search-icon-size;
     opacity: 1;
     overflow: visible;
   }
@@ -45,10 +44,8 @@ $dso-animation-duration: .5s;
   }
 
   label {
-    display: none;
+    left: 100%;
     opacity: 0;
-    overflow: hidden;
-    width: 0;
   }
 }
 
@@ -60,6 +57,13 @@ $dso-animation-duration: .5s;
   label,
   .dso-searchbar-icon {
     transition: all .5s;
+  }
+
+  label {
+    color: $grasgroen;
+    line-height: $input-height-base;
+    position: absolute;
+    top: 0;
   }
 
   .dso-searchbar-icon {
@@ -93,24 +97,5 @@ $dso-animation-duration: .5s;
 
   &.dso-searchbar-open {
     @extend %searchbar-open;
-  }
-}
-
-@keyframes dso-searchbar-show-label {
-  0% {
-    opacity: 0;
-    overflow: hidden;
-    width: 0;
-  }
-
-  75% {
-    opacity: 0;
-    overflow: hidden;
-    width: 0;
-  }
-
-  100% {
-    opacity: 1;
-    overflow: visible;
   }
 }
