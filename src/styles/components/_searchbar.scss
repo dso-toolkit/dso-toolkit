@@ -1,22 +1,24 @@
-$dso-search-icon-size: 38px;
+$dso-search-icon-size: $input-height-base;
 $dso-animation-duration: .5s;
+
+%transition {
+  transition: all $dso-animation-duration;
+  transition-timing-function: ease-out;
+}
 
 %searchbar-closed {
   input.form-control {
-    @include no-placeholder;
-
     border-color: transparent;
-    border-width: 0;
     display: inline-block;
-    padding: 0;
     width: 0;
   }
 
   .dso-searchbar-icon {
+    @extend %transition;
+
     background-size: $u3;
     right: 100%;
     transform: translateX($dso-search-icon-size); // Needed translateX since IE doesn't animate calc()
-    transition: all $dso-animation-duration;
   }
 
   label {
@@ -29,7 +31,7 @@ $dso-animation-duration: .5s;
 %searchbar-open {
   input.form-control {
     border-color: $input-border;
-    padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+    padding-right: $dso-search-icon-size;
     width: 100%;
 
     &:focus {
@@ -38,9 +40,11 @@ $dso-animation-duration: .5s;
   }
 
   .dso-searchbar-icon {
+    @extend %transition;
+
     background-size: $u2;
     right: 0;
-    transition: all $dso-animation-duration;
+    transform: translateX(0); // Needed translateX since IE doesn't animate calc()
   }
 
   label {
@@ -50,13 +54,17 @@ $dso-animation-duration: .5s;
 }
 
 .dso-searchbar {
+  @extend %searchbar-closed;
+
+  display: inline-block;
   position: relative;
+  text-align: left;
   width: 288px;
 
   input.form-control,
   label,
   .dso-searchbar-icon {
-    transition: all .5s;
+    @extend %transition;
   }
 
   label {
@@ -72,7 +80,6 @@ $dso-animation-duration: .5s;
     height: $input-height-base;
     pointer-events: none;
     position: absolute;
-    right: 0;
     text-align: center;
     top: 0;
     width: $input-height-base;
@@ -83,10 +90,6 @@ $dso-animation-duration: .5s;
     #state-switch:not(:checked) ~ .dso-example & { // sass-lint:disable-line no-ids
       @extend %searchbar-closed;
     }
-  }
-
-  &.dso-searchbar-closed {
-    @extend %searchbar-closed;
   }
 
   @if($library) {

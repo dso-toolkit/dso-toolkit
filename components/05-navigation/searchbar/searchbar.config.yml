@@ -9,15 +9,14 @@ context:
   id: searchbar
   label: Zoeken
 variants:
-  - name: searchbar-opened
-    context:
-      __title: Zoekbalk open
-      __explanation: Om een zoekbalk te openen dient de class <code>.dso-searchbar-closed</code> doormiddel van scripting vervangen te worden door de class <code>.dso-searchbar-open</code>. Dit triggert een animatie die de zoekbalk opent.
-      __switches: null
-      searchbarModifiers: dso-searchbar-open
   - name: searchbar-closed
     context:
       __title: Zoekbalk gesloten
       __explanation: De zoekbalk dient vanuit zichzelf de class <code>.dso-searchbar</code> te hebben en kan worden uitgebreid met de modifier classes <code>.dso-searchbar-closed</code> of <code>.dso-searchbar-open</code>. Het togglen (door scripting) van deze modifier classes start een animatie de de zoekbalk opent of sluit.
       __switches: null
-      searchbarModifiers: dso-searchbar-closed
+  - name: searchbar-opened
+    context:
+      __title: Zoekbalk open
+      __explanation: Om een zoekbalk te openen dient de class <code>.dso-searchbar-closed</code> doormiddel van scripting vervangen te worden door de class <code>.dso-searchbar-open</code>. Dit triggert een animatie die de zoekbalk opent.
+      __switches: null
+      searchbarModifiers: " dso-searchbar-open"
