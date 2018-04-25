@@ -12,6 +12,7 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
+- Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 
 ### Added
 - Definition list component (#78)
