@@ -1,8 +1,9 @@
-// This is counter-styling some Bootstrap values which can't be changed using bootstrap-variables
-
 ol.breadcrumb {
+  @include clearfix;
+
   list-style: none;
   margin-bottom: 0;
+  padding: 0 $u2;
 
   > li {
     float: left;
