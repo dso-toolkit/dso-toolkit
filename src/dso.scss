@@ -1,5 +1,18 @@
-@import "src/styles/mixins/dso-variables";
-@import "src/styles/mixins/bootstrap-variables";
+/*
+ * DSO Toolkit is built upon Bootstrap SASS 3.3.7 and FontAwesome. Building this module will result in artifacts that already
+ * include Bootstrap and FontAwesome. To build this file from your project you will need to pass two extra include paths to the sass compiler.
+ *
+ * - node_modules/dso-toolkit/node_modules
+ * - node_modules
+ *
+ * For example:
+ *   $ node-sass --include-path node_modules/dso-toolkit/node_modules --include-path node_modules
+ *
+ * See https://github.com/dso-toolkit/dso-toolkit/issues/105 for more information
+*/
+
+@import "styles/mixins/dso-variables";
+@import "styles/mixins/bootstrap-variables";
 
 /*!
  * Font Awesome Free 5.0.7 by @fontawesome - https://fontawesome.com
@@ -54,12 +67,12 @@
 @import "bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/navs";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/navbar";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+//@import "bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
 // @import "bootstrap-sass/assets/stylesheets/bootstrap/pagination";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/pager";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/labels";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/badges";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+//@import "bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/alerts";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
@@ -71,7 +84,7 @@
 @import "bootstrap-sass/assets/stylesheets/bootstrap/close";
 
 // Components w/ JavaScript
-@import "bootstrap-sass/assets/stylesheets/bootstrap/modals";
+//@import "bootstrap-sass/assets/stylesheets/bootstrap/modals";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/popovers";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/carousel";

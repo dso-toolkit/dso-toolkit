@@ -1,0 +1,116 @@
+status: wip
+default: modal
+context:
+  id: modal-no-close
+  heading: Activiteit toevoegen
+  body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+  buttons:
+    - name: confirmButton
+      type: submit
+      modifier: primary
+      label: Toevoegen
+    - name: cancelButton
+      type: button
+      modifier: link
+      icon: icon fas fa-times
+      label: Annuleren
+  fieldsets:
+  - legend: Contact
+    groups:
+    - id: voornaam
+      inputType: input
+      type: text
+      label: Voornaam
+      required: true
+    - id: achternaam
+      inputType: input
+      type: text
+      label: Achternaam
+      helpText: Mag ook de familienaam zijn
+    - inputType: static
+      label: Geslacht
+      value: Man
+    - id: geboortedatum
+      inputType: input
+      type: text
+      label: Geboortedatum
+      inputIcon: fas fa-calendar
+    - id: email
+      inputType: input
+      type: text
+      label: E-mailadres
+      required: true
+    - id: password
+      inputType: input
+      type: text
+      label: Wachtwoord
+    - id: password_bevestig
+      inputType: input
+      type: text
+      label: Wachtwoord (bevestig)
+    - id: nieuwsbrief
+      inputType: confirm
+      label: Stuur mij de maandelijkse nieuwsbrief
+      helpText: Uw gegevens zullen niet worden gedeeld met derden
+  submitButton:
+    type: submit
+    modifier: primary
+    label: Verstuur
+variants:
+  - name: modal-close
+    label: Closable
+    context:
+      id: modal-close
+      closeButton: true
+  - name: modal-single-submit
+    label: Single submit
+    context:
+      id: modal-single-submit
+      buttons:
+      - name: confirmButton
+        type: submit
+        modifier: primary
+        label: Indienen
+  - name: modal-single-cancel
+    label: Single cancel
+    context:
+      id: modal-single-cancel
+      buttons:
+      - name: cancelButton
+        type: button
+        modifier: link
+        icon: icon fas fa-times
+        label: Annuleren
+  - name: modal-steps
+    label: Steps
+    context:
+      id: modal-steps
+      buttons:
+      - name: previousButton
+        type: button
+        modifier: default
+        label: Vorige
+      - name: nextButton
+        type: button
+        modifier: default
+        label: Volgende
+      - name: cancelButton
+        type: button
+        modifier: link
+        icon: icon fas fa-times
+        label: Annuleren
+  - name: modal-confirm
+    label: Confirm
+    context:
+      id: modal-confirm
+      confirm: true
+      body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+      buttons:
+      - name: yesButton
+        type: button
+        modifier: default
+        label: Ja
+      - name: noButton
+        type: button
+        modifier: default
+        label: Nee

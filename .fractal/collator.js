@@ -3,7 +3,7 @@ module.exports = (markup, item) =>
   (item.context.__title || item.context.__explanation
     ? `
       <div class="dso-example-wrapper">
-        <div class="dso-example-text">
+        <div class="dso-example-text" aria-hidden="true">
           ${item.context.__title ? `<h2>${item.context.__title}</h2>` : ''}
           ${item.context.__explanation
             ? [].concat(item.context.__explanation).map(e => `<p>${e}</p>`).join('\n')
