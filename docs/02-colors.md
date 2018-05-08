@@ -137,15 +137,6 @@ Oranje is een sterke kleur die wordt gebruikt voor aandachtspunten. Een kleur di
 De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt zwart en verhoogt de leesbaarheid als er lange stukken tekst op de pagina staan.
 
 <div class="color-row">
-  <div class="color-chip" style="background-color: #000000;">
-    <div class="label">Zwart</div>
-    <div class="description">
-      <ul>
-        <li>#000000</li>
-        <li>rgb(0, 0, 0)</li>
-      </ul>
-    </div>
-  </div>
   <div class="color-chip" style="background-color: #191919;">
     <div class="label">Zwart 90%</div>
     <div class="description">
@@ -164,12 +155,21 @@ De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt 
       </ul>
     </div>
   </div>
-  <div class="color-chip" style="background-color: #e8e8e8;">
+  <div class="color-chip" style="background-color: #e5e5e5;">
     <div class="label">Zwart 10%</div>
     <div class="description">
       <ul>
-        <li>#e8e8e8</li>
-        <li>rgb(232, 232, 232)</li>
+        <li>#e5e5e5</li>
+        <li>rgb(229, 229, 229)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="color-chip" style="background-color: #f2f2f2;">
+    <div class="label">Zwart 5%</div>
+    <div class="description">
+      <ul>
+        <li>#f2f2f2</li>
+        <li>rgb(242, 242, 242)</li>
       </ul>
     </div>
   </div>
