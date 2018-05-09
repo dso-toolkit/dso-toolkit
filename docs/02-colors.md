@@ -88,6 +88,9 @@ Groen is de basis kleur voor het ontwerp van het DSO en brengt met zich mee een 
   </div>
 </div>
 
+### Lime
+<p>Lime wordt gebruikt voor non-essential beeldmerken. Bijvoorbeeld vinkjes toevoegen na een succesvolle post. Deze kleur is niet een interactie kleur, in tegenstelling tot de andere groen kleuren.</p>
+
 <div class="color-row">
   <div class="color-chip" style="background-color: #79b929;">
     <div class="label">Lime</div>
@@ -98,10 +101,14 @@ Groen is de basis kleur voor het ontwerp van het DSO en brengt met zich mee een 
       </ul>
     </div>
   </div>
-  <div class="color-supplement chip-3">
-    <p>Lime wordt gebruikt voor non-essential beeldmerken.</p>
-    <p>Bijvoorbeeld vinkjes toevoegen na een succesvolle post.</p>
-    <p>Deze kleur is niet een interactie kleur, in tegenstelling tot de andere groen kleuren.</p>
+  <div class="color-chip" style="background-color: #e4f1d4;">
+    <div class="label">Lime 20%</div>
+    <div class="description">
+      <ul>
+        <li>#e4f1d4</li>
+        <li>rgb(228, 241, 212)</li>
+      </ul>
+    </div>
   </div>
 </div>
 
