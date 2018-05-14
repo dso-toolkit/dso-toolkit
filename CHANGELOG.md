@@ -252,6 +252,7 @@ Pagers bevatten geen iconen meer:
 - Button modifiers do not work properly on anchors (#75)
 - Radiobuttons redesign (#43)
 - Checkboxes redesign (#42)
+- Space missing between link text and icon (#126)
 
 ## 1.1.0 - 2017-01-19
 ### Changed
