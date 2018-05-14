@@ -23,7 +23,7 @@ a {
   }
 
   &.download {
-    padding-right: #{$dso-anchor-download-width + $dso-anchor-spacer-width};
+    padding-right: $dso-anchor-download-width + $dso-anchor-spacer-width;
 
     &::after {
       content: $dso-anchor-download-content;
@@ -31,7 +31,7 @@ a {
   }
 
   &.extern {
-    padding-right: #{$dso-anchor-extern-width + $dso-anchor-spacer-width};
+    padding-right: $dso-anchor-extern-width + $dso-anchor-spacer-width;
 
     &::after {
       content: $dso-anchor-extern-content;
