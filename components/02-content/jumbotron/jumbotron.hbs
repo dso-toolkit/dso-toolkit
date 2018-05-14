@@ -1,7 +1,18 @@
-<div class="jumbotron">
-  <h1>{{ title }}</h1>
-  <p>{{ content }}</p>
-  <p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">{{ ctaText }}</a>
-  </p>
+<div class="dso-jumbotron">
+  <h2 class="dso-jumbotron-title">{{ title }}</h2>
+  <div class="dso-jumbotron-body">
+    <div class="dso-rich-content">
+      <p>{{ content }}</p>
+    </div>
+    {{#if button }}
+      <div class="dso-jumbotron-cta">
+        {{> '@button' button }}
+      </div>
+    {{/if}}
+  </div>
+  {{#if image }}
+    <div class="dso-jumbotron-image">
+      {{> '@image' image }}
+    </div>
+  {{/if}}
 </div>

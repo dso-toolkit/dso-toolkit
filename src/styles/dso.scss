@@ -2,6 +2,7 @@
 @import "mixins/extends";
 @import "mixins/font-asap";
 @import "mixins/full-width-row";
+@import "mixins/grid";
 @import "mixins/typography";
 
 @import "icons/dso-icons";
@@ -20,11 +21,14 @@
 @import "components/highlight-box";
 @import "components/image";
 @import "components/input-group";
+@import "components/jumbotron";
 @import "components/label";
 @import "components/menu";
+@import "components/modal";
 @import "components/pager";
 @import "components/navs";
 @import "components/progress-block";
+@import "components/rich-content";
 @import "components/selectables";
 @import "components/streamer";
 @import "components/table";
