@@ -23,7 +23,7 @@
     <!-- Page content -->
     <form>
       <fieldset class="dso-form-fields">
-        <legend class="sr-only"></legend>
+        <legend class="sr-only">Vertical Form</legend>
         <fieldset>
           <legend>Contact</legend>
           <div class="form-group dso-input dso-input-text dso-required">
@@ -103,6 +103,99 @@
                 <label for="nieuwsbrief">Stuur mij de maandelijkse nieuwsbrief</label>
               </div>
               <p class="dso-help-block" id="helpTextId_nieuwsbrief">Uw gegevens zullen niet worden gedeeld met derden</p>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Beleg</legend>
+          <div class="form-group dso-select dso-multiple">
+            <div class="dso-label-container">
+              <label for="beleg" class="control-label">
+                Beleg
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <select id="beleg" class="form-control" multiple>
+                <optgroup label="Vlees">
+                  <option value="worst">Worst</option>
+                  <option value="salami">Salami</option>
+                  <option value="geit">Geit</option>
+                </optgroup>
+                <optgroup label="Vis">
+                  <option value="zalm">Zalm</option>
+                  <option value="makreel">Makreel</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Auto merk</legend>
+          <div class="form-group dso-select">
+            <div class="dso-label-container">
+              <label for="auto_merk" class="control-label">
+                Type auto
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <select id="auto_merk" class="form-control">
+                <optgroup label="Europees">
+                  <option value="alfa">Alfa Romeo</option>
+                  <option value="fiat">Fiat</option>
+                  <option value="mercedes" selected>Mercedes</option>
+                  <option value="volkswagen">Volkswagen</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Aanhanger</legend>
+          <fieldset class="form-group dso-radios">
+            <legend class="dso-label-container">
+              <label class="control-label">
+                Welke aanhanger
+              </label>
+            </legend>
+            <div class="dso-field-container">
+              <div class="dso-selectable">
+                <input type="radio" id="aanhanger-0" name="aanhanger" value="bak" />
+                <label for="aanhanger-0">
+                  Bak
+                </label>
+              </div>
+              <div class="dso-selectable">
+                <input type="radio" id="aanhanger-1" name="aanhanger" value="caravan" checked />
+                <label for="aanhanger-1">
+                  Caravan
+                </label>
+              </div>
+              <div class="dso-selectable">
+                <input type="radio" id="aanhanger-2" name="aanhanger" value="fietsendrager" />
+                <label for="aanhanger-2">
+                  Fietsendrager
+                </label>
+              </div>
+              <div class="dso-selectable">
+                <input type="radio" id="aanhanger-3" name="aanhanger" value="oplegger" />
+                <label for="aanhanger-3">
+                  Oplegger
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>Vraag</legend>
+          <div class="form-group dso-textarea">
+            <div class="dso-label-container">
+              <label for="gekke_vraag" class="control-label">
+                Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <textarea class="form-control" id="gekke_vraag" rows="5"></textarea>
+              <p class="dso-help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
             </div>
           </div>
         </fieldset>
