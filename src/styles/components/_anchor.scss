@@ -1,5 +1,8 @@
 $dso-anchor-download-content: fa-content($fa-var-download);
 $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
+$dso-anchor-download-width: 16px;
+$dso-anchor-extern-width: 18px;
+$dso-anchor-spacer-width: 4px;
 
 a {
   &:visited {
@@ -8,18 +11,30 @@ a {
 
   &.download,
   &.extern {
+    position: relative;
+
     &::after {
       @extend .fas;
 
-      white-space: pre;
+      line-height: $line-height-base;
+      position: absolute;
+      right: 0;
     }
   }
 
-  &.download::after {
-    content: $dso-anchor-download-content;
+  &.download {
+    padding-right: $dso-anchor-download-width + $dso-anchor-spacer-width;
+
+    &::after {
+      content: $dso-anchor-download-content;
+    }
   }
 
-  &.extern::after {
-    content: $dso-anchor-extern-content;
+  &.extern {
+    padding-right: $dso-anchor-extern-width + $dso-anchor-spacer-width;
+
+    &::after {
+      content: $dso-anchor-extern-content;
+    }
   }
 }
