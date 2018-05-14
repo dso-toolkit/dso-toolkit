@@ -5,14 +5,14 @@ $dso-anchor-extern-width: 18px;
 $dso-anchor-spacer-width: 4px;
 
 a {
-  position: relative;
-
   &:visited {
     color: $dso-anchor-visited-color;
   }
 
   &.download,
   &.extern {
+    position: relative;
+
     &::after {
       @extend .fas;
 
