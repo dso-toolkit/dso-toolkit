@@ -2,6 +2,8 @@ $dso-anchor-download-content: fa-content($fa-var-download);
 $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 
 a {
+  display: inline-block;
+
   &:visited {
     color: $dso-anchor-visited-color;
   }
@@ -11,7 +13,9 @@ a {
     &::after {
       @extend .fas;
 
-      white-space: pre;
+      float: right;
+      line-height: 1.5;
+      margin-left: 8px;
     }
   }
 
