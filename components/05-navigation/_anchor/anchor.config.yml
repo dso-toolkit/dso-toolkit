@@ -1,0 +1,6 @@
+status: ready
+collated: true
+label: Link
+context:
+  label: Home
+  url: "#"
