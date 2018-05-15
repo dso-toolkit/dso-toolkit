@@ -1,7 +1,2 @@
-notes: Externe links krijgen de class `extern` en een `target="_blank"`
-status: ready
-collated: true
+status: wip
 label: Link
-context:
-  label: Link voorbeeld
-  url: "#"
