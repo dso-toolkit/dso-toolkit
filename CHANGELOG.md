@@ -12,6 +12,7 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
+- **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 
 ### Added
@@ -274,6 +275,7 @@ Pagers bevatten geen iconen meer:
 - Button modifiers do not work properly on anchors (#75)
 - Radiobuttons redesign (#43)
 - Checkboxes redesign (#42)
+- Space missing between link text and icon (#126)
 
 ## 1.1.0 - 2017-01-19
 ### Changed
@@ -287,6 +289,7 @@ Node 9 compatible package.json (#11)
 
 ### Fixed
 - In small viewport the hamburgermenu button active state forces button below search field (#10)
+- img in .hero-image has width but no height (#107)
 
 ## [1.0.5] - 2017-12-01 (Re-released 2018-09-02)
 The source code is moved to a public GitHub repository. Source code of versions older than 1.0.5 are not published, and are only available through NPM.
