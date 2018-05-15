@@ -3,6 +3,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 1.2.4 - 15-05-2018
+
+### Changed
+- Redone: Space missing between link text and icon (#126)
+
+## 1.2.3 - 14-05-2018 [DEPRECATED]
+
+This release has been deprecated in favour of 1.2.4. A bug was introduced in #126.
+
+### Fixed
+- img in .hero-image has width but no height (#107)
+- Space missing between link text and icon (#126)
+
+## 1.2.2 - 17-04-2018
+
+### Fixed
+- Invalid import path and build documentation (#105)
+
 ## 1.2.1 - 06-04-2018
 
 ### DEPRECATION INTRODUCED IN #94: Build error "NoLegend"
@@ -233,7 +251,6 @@ Pagers bevatten geen iconen meer:
 - Favicon (#12)
 - Build tools: developer mode (#44)
 - Fractal collator improvement (#82)
-- Anchor example page (#126)
 
 ### Changed
 - BREAKING: Accordion redesign (#39)
@@ -253,7 +270,6 @@ Pagers bevatten geen iconen meer:
 - Button modifiers do not work properly on anchors (#75)
 - Radiobuttons redesign (#43)
 - Checkboxes redesign (#42)
-- Space missing between link text and icon (#126)
 
 ## 1.1.0 - 2017-01-19
 ### Changed
@@ -267,7 +283,6 @@ Node 9 compatible package.json (#11)
 
 ### Fixed
 - In small viewport the hamburgermenu button active state forces button below search field (#10)
-- img in .hero-image has width but no height (#107)
 
 ## [1.0.5] - 2017-12-01 (Re-released 2018-09-02)
 The source code is moved to a public GitHub repository. Source code of versions older than 1.0.5 are not published, and are only available through NPM.
