@@ -1,28 +1,78 @@
-$dso-label-bg-color: #e4f1d4;
+$dso-label-default-bg-color: $lime-20;
+$dso-label-info-bg-color: #6ca4d9;
+$dso-label-primary-bg-color: $bosgroen;
+$dso-label-success-bg-color: $grasgroen;
+$dso-label-warning-bg-color: #dcd400;
+$dso-label-danger-bg-color: $dso-danger-color;
 $dso-filter-delete-size: 12px;
 
 .label {
-  background-color: $dso-label-bg-color;
   border-radius: 4px;
-  color: $bosgroen;
   display: inline-block;
   line-height: 1em;
-  padding: #{$u1 / 2} $u1;
 
-  &.label-small {
-    font-size: .875em;
+  span {
+    display: inline-block;
+    padding: #{$u1 / 2} $u1;
+  }
+
+  &.label-default {
+    background-color: $dso-label-default-bg-color;
+    color: $bosgroen;
+  }
+
+  &.label-info {
+    background-color: $dso-label-info-bg-color;
+    color: $wit;
+  }
+
+  &.label-primary {
+    background-color: $dso-label-primary-bg-color;
+    color: $wit;
+  }
+
+  &.label-success {
+    background-color: $dso-label-success-bg-color;
+    color: $wit;
+  }
+
+  &.label-warning {
+    background-color: $dso-label-warning-bg-color;
+    color: $grijs-90;
+  }
+
+  &.label-danger {
+    background-color: $dso-label-danger-bg-color;
+    color: $wit;
   }
 
   button {
     background: none;
     border: 0;
+    border-left: 1px solid $bosgroen;
+    border-radius: 0 #{$u1 / 2} #{$u1 / 2} 0;
     float: right;
-    padding: 0 0 0 $u1;
+    padding: #{$u1 / 2} $u1;
 
     &::after {
-      @include icon($dso-icon-fa-times);
+      @include icon($dso-icon-fa-times-darkgreen);
+
       height: $dso-filter-delete-size;
       width: $dso-filter-delete-size;
+    }
+
+    &:hover {
+      background-color: $bosgroen;
+
+      &::after {
+        @include icon($dso-icon-fa-times-limetwenty);
+      }
+    }
+  }
+
+  &:not(.closable) {
+    button {
+      display: none;
     }
   }
 }
