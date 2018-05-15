@@ -233,6 +233,7 @@ Pagers bevatten geen iconen meer:
 - Favicon (#12)
 - Build tools: developer mode (#44)
 - Fractal collator improvement (#82)
+- Anchor example page (#126)
 
 ### Changed
 - BREAKING: Accordion redesign (#39)
