@@ -14,3 +14,13 @@ context:
         url: '#'
       - label: Checken
         url: '#'
+  searchGroupInput:
+    id: button
+    modifier: default
+    label: Zoeken
+    ariaLabel: Zoeken
+    placeholder: Zoeken
+    iconOnly: true
+    type: submit
+    buttonRight: true
+    icon: fa fa-search

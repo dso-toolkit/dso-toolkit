@@ -5,6 +5,13 @@
       Inloggen
     </div>
     {{> '@logo' }}
+    <form class="dso-search">
+      {{> '@searchbar' searchbarModifiers=" dso-searchbar-open" label="Zoeken" }}
+      {{!-- <fieldset>
+        <legend class="sr-only">Zoekformulier</legend>
+        {{> '@input-group--button' searchGroupInput }}
+      </fieldset> --}}
+    </form>
   </div>
 
   {{render '@menu' menu merge=true }}
