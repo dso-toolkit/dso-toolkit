@@ -1,0 +1,41 @@
+notes: |
+  "Een lege badge zal zichzelf verbergen dmv. `display: none` op de `:empty` psuedo selector"
+status: ready
+collated: true
+context:
+  __title: Default badge
+  __explanation: Een default badge heeft altijd een <code>.badge-default</code> op het element <code>span</code> met <code>.badge</code> staan.
+  label: Default
+  modifier: default
+variants:
+  - name: badge-info
+    context:
+      __title: Info badge
+      __explanation: Om een informatief badge te krijgen moet <code>.badge-default</code> vervangen worden door <code>.badge-info</code>.
+      label: Info
+      modifier: info
+  - name: badge-primary
+    context:
+      __title: Primary badge
+      __explanation: Om een primair badge te krijgen moet <code>.badge-default</code> vervangen worden door <code>.badge-primary</code>.
+      label: Primary
+      modifier: primary
+  - name: badge-success
+    context:
+      __title: Success badge
+      __explanation: Om een 'succes' badge te krijgen moet <code>.badge-default</code> vervangen worden door <code>.badge-success</code>.
+      label: Success
+      modifier: success
+  - name: badge-warning
+    context:
+      __title: Warning badge
+      __explanation: Om een 'warning' badge te krijgen moet <code>.badge-default</code> vervangen worden door <code>.badge-warning</code>.
+      label: Warning
+      modifier: warning
+  - name: badge-danger
+    context:
+      __title: Danger badge
+      __explanation: Om een 'error' badge te krijgen moet <code>.badge-default</code> vervangen worden door <code>.badge-danger</code>.
+      label: Danger
+      modifier: danger
+
