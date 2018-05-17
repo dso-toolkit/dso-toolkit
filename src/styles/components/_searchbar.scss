@@ -1,5 +1,7 @@
 $dso-search-icon-size: $input-height-base;
 $dso-animation-duration: .5s;
+$dso-searchbar-open-width: 288px;
+$dso-searchbar-closed-width: 100px;
 
 %transition {
   transition: all $dso-animation-duration;
@@ -7,6 +9,8 @@ $dso-animation-duration: .5s;
 }
 
 %searchbar-closed {
+  width: $dso-searchbar-closed-width;
+
   input.form-control {
     border-color: transparent;
     display: inline-block;
@@ -29,6 +33,8 @@ $dso-animation-duration: .5s;
 }
 
 %searchbar-open {
+  width: $dso-searchbar-open-width;
+
   input.form-control {
     border-color: $input-border;
     padding-right: $dso-search-icon-size;
@@ -59,7 +65,7 @@ $dso-animation-duration: .5s;
   display: inline-block;
   position: relative;
   text-align: left;
-  width: 288px;
+  transition: width $dso-animation-duration;
 
   input.form-control,
   label,
