@@ -1,25 +1,76 @@
-<nav aria-label="Page navigation">
-  {{#each itemList }}
-    <ul class="dso-pagination">
-      {{#if goToFirst }}
-      <li class="dso-previous">
-        <a href="#" aria-label="Vorige"></a>
+{{!-- {{#each itemList }} --}}
+  {{!-- <ul class="dso-pagination">
+    {{{makePagination 100 26 }}} --}}
+    {{!-- {{#if goToFirst }}
+    <li class="dso-previous">
+      <a href="#" aria-label="Vorige"></a>
+    </li>
+    {{/if}}
+    {{#each items }}
+      <li{{#if active }} class="active"{{/if}}>
+        {{#if (or active ellipsis)}}
+          <span>{{ label }}</span>
+        {{else}}
+          <a href="#">{{ label }}</a>
+        {{/if}}
       </li>
-      {{/if}}
-      {{#each items }}
-        <li{{#if active }} class="active"{{/if}}>
-          {{#if (or active ellipsis)}}
-            <span>{{ label }}</span>
-          {{else}}
-            <a href="#">{{ label }}</a>
-          {{/if}}
-        </li>
-      {{/each}}
-      {{#if goToLast }}
-      <li class="dso-next">
-        <a href="#" aria-label="Volgende"></a>
-      </li>
-      {{/if}}
-    </ul>
-  {{/each}}
-</nav>
+    {{/each}}
+    {{#if goToLast }}
+    <li class="dso-next">
+      <a href="#" aria-label="Volgende"></a>
+    </li>
+    {{/if}} --}}
+  {{!-- </ul> --}}
+{{!-- {{/each}} --}}
+
+<ul class="dso-pagination">
+  {{#if (ne current 1) }}
+    <li class="dso-previous">
+      <a href="#" aria-label="Vorige"></a>
+    </li>
+    <li>
+      <a href="#">1</a>
+    </li>
+  {{/if}}
+  {{#if (gt current 3) }}
+    <li>
+      <span>...</span>
+    </li>
+  {{/if}}
+  {{#if (eq current count) }}
+    <li>
+      <a href="#">{{subtract current 2 }}</a>
+    </li>
+  {{/if}}
+  {{#if (and (gte current 3) (ne current (subtract count 2 ))) }}
+    <li>
+      <a href="#">{{subtract current 1 }}</a>
+    </li>
+  {{/if}}
+  <li class="active">
+    <span>{{ current }}</span>
+  </li>
+  {{#if (and (lte current (subtract count 2 )) (ne current 3)) }}
+    <li>
+      <a href="#">{{add current 1 }}</a>
+    </li>
+  {{/if}}
+  {{#if (eq current 1) }}
+    <li>
+      <a href="#">{{add current 2 }}</a>
+    </li>
+  {{/if}}
+  {{#if (lte current (subtract count 3 )) }}
+    <li>
+      <span>...</span>
+    </li>
+  {{/if}}
+  {{#if (ne current count)}}
+    <li>
+      <a href="#">{{ count }}</a>
+    </li>
+    <li class="dso-next">
+      <a href="#" aria-label="Volgende"></a>
+    </li>
+  {{/if}}
+</ul>

@@ -57,25 +57,31 @@ module.exports = fractal => Object.assign({
     return valueOne === valueTwo;
   },
   ne: function (valueOne, valueTwo) {
-      return valueOne !== valueTwo;
+    return valueOne !== valueTwo;
   },
   lt: function (valueOne, valueTwo) {
-      return valueOne < valueTwo;
+    return valueOne < valueTwo;
   },
   gt: function (valueOne, valueTwo) {
-      return valueOne > valueTwo;
+    return valueOne > valueTwo;
   },
   lte: function (valueOne, valueTwo) {
-      return valueOne <= valueTwo;
+    return valueOne <= valueTwo;
   },
   gte: function (valueOne, valueTwo) {
-      return valueOne >= valueTwo;
+    return valueOne >= valueTwo;
   },
   and: function (valueOne, valueTwo) {
-      return valueOne && valueTwo;
+    return valueOne && valueTwo;
   },
   or: function (valueOne, valueTwo) {
-      return valueOne || valueTwo;
+    return valueOne || valueTwo;
+  },
+  add: function (value, number) {
+    return value + number;
+  },
+  subtract: function (value, number) {
+    return value - number;
   }
 },
 require('../components/02-content/accordion/accordion.js')(fractal),
