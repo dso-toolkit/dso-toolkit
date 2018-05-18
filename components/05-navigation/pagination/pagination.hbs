@@ -1,28 +1,3 @@
-{{!-- {{#each itemList }} --}}
-  {{!-- <ul class="dso-pagination">
-    {{{makePagination 100 26 }}} --}}
-    {{!-- {{#if goToFirst }}
-    <li class="dso-previous">
-      <a href="#" aria-label="Vorige"></a>
-    </li>
-    {{/if}}
-    {{#each items }}
-      <li{{#if active }} class="active"{{/if}}>
-        {{#if (or active ellipsis)}}
-          <span>{{ label }}</span>
-        {{else}}
-          <a href="#">{{ label }}</a>
-        {{/if}}
-      </li>
-    {{/each}}
-    {{#if goToLast }}
-    <li class="dso-next">
-      <a href="#" aria-label="Volgende"></a>
-    </li>
-    {{/if}} --}}
-  {{!-- </ul> --}}
-{{!-- {{/each}} --}}
-
 <ul class="dso-pagination">
   {{#if (ne current 1) }}
     <li class="dso-previous">
@@ -43,7 +18,7 @@
     </li>
   {{/if}}
   {{#if (and (gte current 3) (ne current (subtract count 2 ))) }}
-    <li>
+    <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="previous"{{/if}}>
       <a href="#">{{subtract current 1 }}</a>
     </li>
   {{/if}}
@@ -51,7 +26,7 @@
     <span>{{ current }}</span>
   </li>
   {{#if (and (lte current (subtract count 2 )) (ne current 3)) }}
-    <li>
+    <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="next"{{/if}}>
       <a href="#">{{add current 1 }}</a>
     </li>
   {{/if}}
