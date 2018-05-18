@@ -18,7 +18,7 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 ### Added
 - **BREAKING:** Modal component (#60)
 - Definition list component (#78)
-- Smaller accordeon icons (#121)
+- Smaller accordion icons (#121)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)
