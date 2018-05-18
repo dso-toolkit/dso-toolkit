@@ -13,6 +13,7 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+- **BREAKING:** Smaller navs component for viewer (#87)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 
 ### Added
@@ -23,9 +24,6 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 ### Fixed
 - img in .hero-image has width but no height (#107)
 - Asap font doesn't look sharp (#69)
-
-### Changed
-- Smaller navs component for viewer (#87)
 
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
