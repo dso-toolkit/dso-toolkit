@@ -1,28 +1,17 @@
-<nav class="navbar navbar-default menu">
-  <form class="search">
+<nav class="dso-navbar dso-menu">
+  <form class="dso-search">
     <fieldset>
       <legend class="sr-only">Zoekformulier</legend>
       {{> '@input-group--button' searchGroupInput }}
     </fieldset>
   </form>
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+  <div class="dso-navbar-header">
+    <button type="button" class="dso-navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
       {{> '@icon' icon='fa fa-bars' }}
       <span class="sr-only">Ga naar menu</span>
     </button>
   </div>
-  <div id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-      {{#each menuItems }}
-        <li {{#if active }}class="active"{{/if}}>
-          <a href="#">
-            {{ label }}
-            {{#if count }}
-              {{> '@badge' }}
-            {{/if}}
-          </a>
-        </li>
-      {{/each}}
-    </ul>
+  <div class="dso-navbar-collapse{{#if collapsed}} dso-collapse{{/if}}">
+    {{render '@navs' modifier="main" }}
   </div>
 </nav>

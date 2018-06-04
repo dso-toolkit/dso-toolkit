@@ -6,25 +6,50 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 2.0.0 - UNRELEASED
 
 ### Releasenotes
-De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
-
-De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
+* De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
+* De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
 
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+- **BREAKING:** Smaller navs component for viewer (#87)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
+- Image replacement in documentatie (#132)
 
 ### Added
-- Definition list component (#78)
 - **BREAKING:** Modal component (#60)
+- Definition list component (#78)
+- Smaller accordion icons (#121)
+- Add Color Lime 20% to Toolkit (#114)
+- Rich content component (#85)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)
 - Asap font doesn't look sharp (#69)
+- Font path is faulty (#136)
+- Add "Zwart 5%" change "Zwart 10%" (#100)
+- Primary Button WCAG Contrast Error (#111)
 
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
+
+## 1.2.4 - 15-05-2018
+
+### Changed
+- Redone: Space missing between link text and icon (#126)
+
+## 1.2.3 - 14-05-2018 [DEPRECATED]
+
+This release has been deprecated in favour of 1.2.4. A bug was introduced in #126.
+
+### Fixed
+- img in .hero-image has width but no height (#107)
+- Space missing between link text and icon (#126)
+
+## 1.2.2 - 17-04-2018
+
+### Fixed
+- Invalid import path and build documentation (#105)
 
 ## 1.2.1 - 06-04-2018
 
