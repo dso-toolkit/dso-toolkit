@@ -6,9 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 2.0.0 - UNRELEASED
 
 ### Releasenotes
-De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
-
-De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
+* De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
+* De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
 
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
@@ -20,10 +19,15 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 - **BREAKING:** Modal component (#60)
 - Definition list component (#78)
 - Smaller accordion icons (#121)
+- Add Color Lime 20% to Toolkit (#114)
+- Rich content component (#85)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)
 - Asap font doesn't look sharp (#69)
+- Font path is faulty (#136)
+- Add "Zwart 5%" change "Zwart 10%" (#100)
+- Primary Button WCAG Contrast Error (#111)
 
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
