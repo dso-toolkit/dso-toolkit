@@ -15,6 +15,7 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** Smaller navs component for viewer (#87)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
+- Image replacement in documentatie (#132)
 
 ### Added
 - **BREAKING:** Modal component (#60)
