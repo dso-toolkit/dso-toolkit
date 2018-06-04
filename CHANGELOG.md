@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** Smaller navs component for viewer (#87)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
+- Image replacement in documentatie (#132)
 
 ### Added
 - **BREAKING:** Modal component (#60)
