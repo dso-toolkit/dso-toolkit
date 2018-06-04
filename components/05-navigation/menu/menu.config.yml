@@ -1,5 +1,7 @@
 status: ready
+collated: true
 context:
+  __title: Menu ingeklapt
   menuItems:
     - label: Home
       active: true
@@ -10,3 +12,19 @@ context:
     - label: Over ons
       count: 12
     - label: Wetgeving
+  searchGroupInput:
+    id: button
+    modifier: default
+    label: Zoeken
+    ariaLabel: Zoeken
+    placeholder: Zoeken
+    iconOnly: true
+    type: submit
+    buttonRight: true
+    icon: fa fa-search
+  collapsed: true
+variants:
+  - name: open-menu
+    context:
+      __title: Menu uitgeklapt
+      collapsed: false

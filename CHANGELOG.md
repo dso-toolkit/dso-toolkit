@@ -13,11 +13,13 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+- **BREAKING:** Smaller navs component for viewer (#87)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 
 ### Added
-- Definition list component (#78)
 - **BREAKING:** Modal component (#60)
+- Definition list component (#78)
+- Smaller accordion icons (#121)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)
@@ -25,6 +27,24 @@ De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal st
 
 ### Removed
 - Deprecated styling for .form-field - legend (#100)
+
+## 1.2.4 - 15-05-2018
+
+### Changed
+- Redone: Space missing between link text and icon (#126)
+
+## 1.2.3 - 14-05-2018 [DEPRECATED]
+
+This release has been deprecated in favour of 1.2.4. A bug was introduced in #126.
+
+### Fixed
+- img in .hero-image has width but no height (#107)
+- Space missing between link text and icon (#126)
+
+## 1.2.2 - 17-04-2018
+
+### Fixed
+- Invalid import path and build documentation (#105)
 
 ## 1.2.1 - 06-04-2018
 

@@ -1,0 +1,11 @@
+.example-big-font {
+  font-size: 1.3em;
+}
+
+.anchor-example {
+  .row ~ .row {
+    border-top: 2px solid $grijs-10;
+    margin-top: $u3;
+    padding-top: $u2;
+  }
+}
