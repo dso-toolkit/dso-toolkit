@@ -104,7 +104,19 @@ $dso-searchbar-closed-width: 100px;
     }
   }
 
-  &.dso-searchbar-open {
+  &.dso-open {
     @extend %searchbar-open;
+  }
+
+  > button {
+    background: none;
+    border: 0;
+    color: transparent;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }

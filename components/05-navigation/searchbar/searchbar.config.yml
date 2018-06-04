@@ -2,7 +2,7 @@ status: wip
 collated: true
 context:
   __title: "Example: Open/Close"
-  __explanation: Gebruik dit voorbeeld om te zien hoe de animatie in zijn werk gaat.
+  __explanation: Animatie demo
   __switches:
     - name: state
       label: Open/sluit
@@ -12,11 +12,11 @@ variants:
   - name: searchbar-closed
     context:
       __title: Zoekbalk gesloten
-      __explanation: De zoekbalk dient vanuit zichzelf de class <code>.dso-searchbar</code> te hebben en kan worden uitgebreid met de modifier classes <code>.dso-searchbar-closed</code> of <code>.dso-searchbar-open</code>. Het togglen (door scripting) van deze modifier classes start een animatie de de zoekbalk opent of sluit.
+      __explanation: De zoekbalk dient vanuit zichzelf de class <code>.dso-searchbar</code> te hebben en kan worden geopend met de modifier classes <code>.dso-open</code>. Het toevoegen/verwijderen van deze modifier classes start een animatie die de zoekbalk opent of sluit.
       __switches: null
   - name: searchbar-opened
     context:
       __title: Zoekbalk open
-      __explanation: Om een zoekbalk te openen dient de class <code>.dso-searchbar-closed</code> doormiddel van scripting vervangen te worden door de class <code>.dso-searchbar-open</code>. Dit triggert een animatie die de zoekbalk opent.
+      __explanation: Om een zoekbalk te openen dient de class <code>.dso-open</code> toegevoegd te worden. Sluiten gaat door de class weer te verwijderen
       __switches: null
-      searchbarModifiers: " dso-searchbar-open"
+      searchbarModifiers: " dso-open"
