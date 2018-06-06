@@ -14,21 +14,21 @@ $dso-searchbar-closed-width: 100px;
   input.form-control {
     border-color: transparent;
     display: inline-block;
-    width: 0;
+    opacity: 0;
   }
 
   .dso-searchbar-icon {
-    @extend %transition;
-
+    animation-duration: $dso-animation-duration;
+    animation-name: magnifier-slide-left;
     background-size: $u3;
     right: 100%;
-    transform: translateX($dso-search-icon-size); // Needed translateX since IE doesn't animate calc()
+    transform: translateX(#{$dso-search-icon-size}); // Needed translateX since IE doesn't animate calc()
   }
 
   label {
-    left: $dso-search-icon-size;
     opacity: 1;
     overflow: visible;
+    padding-left: $dso-search-icon-size;
   }
 }
 
@@ -37,6 +37,7 @@ $dso-searchbar-closed-width: 100px;
 
   input.form-control {
     border-color: $input-border;
+    opacity: 1;
     padding-right: $dso-search-icon-size;
     width: 100%;
 
@@ -46,16 +47,16 @@ $dso-searchbar-closed-width: 100px;
   }
 
   .dso-searchbar-icon {
-    @extend %transition;
-
+    animation-duration: $dso-animation-duration;
+    animation-name: magnifier-slide-right;
     background-size: $u2;
     right: 0;
     transform: translateX(0); // Needed translateX since IE doesn't animate calc()
   }
 
   label {
-    left: 100%;
     opacity: 0;
+    padding-left: 14px;
   }
 }
 
@@ -75,6 +76,7 @@ $dso-searchbar-closed-width: 100px;
 
   label {
     color: $grasgroen;
+    left: 0;
     line-height: $input-height-base;
     position: absolute;
     top: 0;
@@ -106,6 +108,10 @@ $dso-searchbar-closed-width: 100px;
 
   &.dso-open {
     @extend %searchbar-open;
+
+    button {
+      display: none;
+    }
   }
 
   > button {
@@ -118,5 +124,25 @@ $dso-searchbar-closed-width: 100px;
     position: absolute;
     top: 0;
     width: 100%;
+  }
+}
+
+@keyframes magnifier-slide-right {
+  from {
+    right: 100%;
+  }
+
+  to {
+    right: 0;
+  }
+}
+
+@keyframes magnifier-slide-left {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: 100%;
   }
 }
