@@ -100,6 +100,14 @@ variants:
     context:
       count: 7
       current: 5
+  - name: 100-98
+    context:
+      count: 100
+      current: 98
+  - name: 100-99
+    context:
+      count: 100
+      current: 99
   - name: 100-100
     context:
       count: 100
