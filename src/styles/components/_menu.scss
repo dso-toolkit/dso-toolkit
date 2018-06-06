@@ -1,89 +1,60 @@
 $dso-hamburger-menu-button-width: 40px;
 
-.menu {
-  .search {
+.dso-menu {
+  .dso-search {
     float: right;
     max-width: 250px;
 
-    @media(max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-sm-max) {
       width: calc(100% - #{$dso-hamburger-menu-button-width + $u1});
     }
 
-    @media(min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+    @media screen and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
       max-width: 200px;
     }
   }
 
-  .navbar-header {
+  .dso-navbar-header {
     float: left;
   }
 
-  .navbar-collapse {
+  .dso-navbar-collapse {
     width: 100%;
 
-    @media(max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-sm-max) {
       clear: both;
+    }
+
+    @media screen and (min-width: $screen-sm-min) {
+      &.dso-collapse {
+        display: block !important;
+      }
     }
   }
 
-  &.navbar {
-    background-color: transparent;
-    border: 0;
+  &.dso-navbar {
     border-bottom: 1px solid $grijs-20;
-    border-radius: 0;
-    margin-bottom: 0;
     min-height: 44px;
-    padding-bottom: 10px;
+    padding-bottom: $u1;
 
-    .navbar-nav {
-      > li {
-        a {
-          border-bottom: 3px solid transparent;
-          border-top: 1px solid $wit;
-          color: $bosgroen;
-          font-size: 1.2em;
-          height: 40px;
-
-          &:hover,
-          &:focus {
-            background: none;
-            color: $zwart;
-          }
-
-          @media(min-width: $screen-sm-min) {
-            padding: 12px 10px 0;
-          }
-        }
-      }
-
-      > .active {
-        > a {
-          background: transparent;
-          border-bottom: 3px solid $oranje;
-          color: $bosgroen;
-          font-weight: bold;
-
-          &:hover,
-          &:focus {
-            background: transparent;
-            color: $zwart;
-          }
-        }
-      }
-    }
-
-    .navbar-toggle {
+    .dso-navbar-toggle {
       background-color: $grasgroen-10;
-      margin: 0 0 10px;
+      border: 1px solid $grijs-10;
+      border-radius: 4px;
+      margin: 0 0 $u1;
       padding: $padding-base-vertical $padding-base-horizontal;
 
+      &:hover,
       &:focus {
         background-color: $grasgroen-10;
+      }
+
+      &:focus {
         border: 1px solid $grasgroen-10;
       }
 
-      &:hover {
-        background-color: $grasgroen-10;
+      @media screen and (min-width: $screen-sm-min) {
+        display: none;
       }
     }
   }

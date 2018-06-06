@@ -3,7 +3,7 @@ $dso-accordion-chevron-gutter: $u2;
 $dso-accordion-chevron-icon-size: $u2;
 $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-gutter;
 $dso-accordion-handle-height: $u6;
-$dso-accordion-state-icon-size: $u4;
+$dso-accordion-state-icon-size: $u3;
 
 .dso-accordion {
   .dso-section-handle {
@@ -55,25 +55,25 @@ $dso-accordion-state-icon-size: $u4;
   .dso-accordion-section {
     &.dso-success {
       a::after {
-        @include icon($dso-icon-notification-succes-32x32);
+        @include icon($dso-icon-notification-succes-24x24);
       }
     }
 
     &.dso-danger {
       a::after {
-        @include icon($dso-icon-notification-error-32x32);
+        @include icon($dso-icon-notification-error-24x24);
       }
     }
 
     &.dso-warning {
       a::after {
-        @include icon($dso-icon-notification-warning-32x32);
+        @include icon($dso-icon-notification-warning-24x24);
       }
     }
 
     &.dso-info {
       a::after {
-        @include icon($dso-icon-notification-information-32x32);
+        @include icon($dso-icon-notification-information-24x24);
       }
     }
 

@@ -1,28 +1,26 @@
-notes: |
-  De navigatie componenten kunnen op twee verschillende manieren ingezet worden:
-  * De tabs en pills zijn alleen visueel. Het tonen van andere data wordt door een URL change gerealiseerd
-  * Er is een applicatiemodus. Binnen de huidige paginacontext is er een kleiner onderdeel dat andere data toont.
-
-  Als van de navigatiecomponenten de linkende (anchor) eigenschappen wordt gebruikt moet er mogelijk een `<nav>` of `[role="navigation"]` element om de `<ul>` worden geplaatst. Zie ook de [Bootstrap documentatie](https://getbootstrap.com/docs/3.3/components/#nav)
-
-  Als de navigatiecomponenten vanuit een applicatiemodus worden ingezet dient er rekening gehouden te worden met ARIA attributen. Het panel moet gelinkt worden aan de anchor, de actieve panel moet worden gemarkeerd en er moet rekening gehouden worden met keyboard accessibility. Zie [Example of Tabs with Automatic Activation](https://www.w3.org/TR/2017/NOTE-wai-aria-practices-1.1-20171214/examples/tabs/tabs-1/tabs.html)
-status: ready
+status: wip
 default: tabs
 collated: true
+label: Navigations
 context:
-  modifier: tabs
+  __title: Hoofdnavigatie
+  modifier: main
   items:
-  - label: Deze locatie
+  - label: Home
     active: true
-  - label: Regels
-  - label: Overige informatie
+  - label: Actueel
+  - label: Kalender
+  - label: Zelf aan de slag
+  - label: Documenten
+  - label: Over ons
+  - label: Wetgeving
 variants:
-  - name: pills
+  - name: subnavigation
     context:
-      modifier: pills
+      __title: Subnavigatie
+      modifier: sub
       items:
-      - label: Home
+      - label: Deze locatie
         active: true
-      - label: Profiel
-      - label: Berichten
-        count: 15
+      - label: Regels
+      - label: Overige informatie
