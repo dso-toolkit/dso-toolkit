@@ -29,6 +29,10 @@ $dso-pagination-item-border-size: 2px;
         border-color: $grasgroen;
         text-decoration: none;
       }
+
+      &:focus {
+        outline: 0;
+      }
     }
 
     &.active {
@@ -61,7 +65,9 @@ $dso-pagination-item-border-size: 2px;
         @include icon($dso-icon-button-icon-chevron-left-12x12);
         margin-right: 5px;
 
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
           @include icon($dso-icon-button-icon-chevron-left-white-12x12);
         }
       }
@@ -72,7 +78,9 @@ $dso-pagination-item-border-size: 2px;
         @include icon($dso-icon-button-icon-chevron-right-12x12);
         margin-left: 5px;
 
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
           @include icon($dso-icon-button-icon-chevron-right-white-12x12);
         }
       }

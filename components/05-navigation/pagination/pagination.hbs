@@ -7,35 +7,39 @@
       <a href="#">1</a>
     </li>
   {{/if}}
-  {{#if (gt current 3) }}
+  {{#if (and (gt current 3) (gte count 5)) }}
     <li>
       <span>...</span>
     </li>
   {{/if}}
-  {{#if (eq current count) }}
-    <li>
-      <a href="#">{{subtract current 2 }}</a>
-    </li>
+  {{#if (or (ne current count) (gte count 4))}}
+    {{#if (and (eq current count) (ne current 1)) }}
+      <li class="minTwee"> <!-- class nog weghalen -->
+        <a href="#">{{subtract current 2 }}</a>
+      </li>
+    {{/if}}
   {{/if}}
-  {{#if (and (gte current 3) (ne current (subtract count 2 ))) }}
+  {{#if (and (gte current 3) (or (ne current (subtract count 2 )) (gte count 5) )) }}
     <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="previous"{{/if}}>
-      <a href="#">{{subtract current 1 }}</a>
+      <a href="#" class="minEen">{{subtract current 1 }}</a> <!-- class nog weghalen -->
     </li>
   {{/if}}
   <li class="active">
     <span>{{ current }}</span>
   </li>
-  {{#if (and (lte current (subtract count 2 )) (ne current 3)) }}
-    <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="next"{{/if}}>
-      <a href="#">{{add current 1 }}</a>
-    </li>
+  {{#if (ne current count)}}
+    {{#if (and (lte current (subtract count 2 )) (or (ne current 3) (gte count 5) )) }}
+      <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="next"{{/if}}>
+        <a href="#">{{add current 1 }}</a>
+      </li>
+    {{/if}}
+    {{#if (and (eq current 1) (gt count (add current 2))) }}
+      <li>
+        <a href="#">{{add current 2 }}</a>
+      </li>
+    {{/if}}
   {{/if}}
-  {{#if (eq current 1) }}
-    <li>
-      <a href="#">{{add current 2 }}</a>
-    </li>
-  {{/if}}
-  {{#if (lte current (subtract count 3 )) }}
+  {{#if (and (lte current (subtract count 3)) (gte count 5) ) }}
     <li>
       <span>...</span>
     </li>
