@@ -1,4 +1,4 @@
-<div class="dso-searchbar{{ searchbarModifiers }}">
+<div class="dso-searchbar{{#if open }} dso-open{{/if}}">
   <input type="text" id="{{ id }}" class="form-control" placeholder="{{ label }}" />
   <span class="dso-searchbar-icon" aria-hidden="true"></span>
   <label for="{{ id }}">{{ label }}</label>

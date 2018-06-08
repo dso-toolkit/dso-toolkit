@@ -8,14 +8,6 @@ notes: |
   * Positioneren van de affix, links in het menu onder het kopje "Documentation"
 status: ready
 context:
-  menu:
-    menuItems:
-      - label: Home
-      - label: Actueel
-      - label: Raadplegen
-      - label: Checken
-      - label: Aanvragen
-        active: true
   breadcrumbs:
     crumbs:
       - label: Home

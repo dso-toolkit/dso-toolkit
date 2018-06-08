@@ -5,7 +5,7 @@
     </div>
     {{> '@logo' }}
     <form class="dso-search">
-      {{> '@searchbar' searchbarModifiers=" dso-searchbar-open" label="Zoeken" }}
+      {{render '@searchbar' searchbarContext merge=true }}
     </form>
   </div>
 
