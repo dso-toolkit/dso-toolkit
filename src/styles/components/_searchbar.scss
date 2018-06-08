@@ -117,6 +117,7 @@ $dso-searchbar-closed-width: 100px;
   > button {
     background: none;
     border: 0;
+    clip: rect(0, 0, 0, 0);
     color: transparent;
     height: 100%;
     left: 0;

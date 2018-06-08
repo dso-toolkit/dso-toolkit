@@ -12,16 +12,6 @@ context:
     - label: Over ons
       count: 12
     - label: Wetgeving
-  searchGroupInput:
-    id: button
-    modifier: default
-    label: Zoeken
-    ariaLabel: Zoeken
-    placeholder: Zoeken
-    iconOnly: true
-    type: submit
-    buttonRight: true
-    icon: fa fa-search
   collapsed: true
 variants:
   - name: open-menu
