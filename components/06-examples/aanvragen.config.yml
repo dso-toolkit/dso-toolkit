@@ -16,13 +16,6 @@ context:
       - label: Checken
       - label: Aanvragen
         active: true
-    searchGroupInput:
-      id: button
-      ariaLabel: Zoeken
-      placeholder: Zoeken
-      type: submit
-      buttonRight: true
-      icon: fa fa-search
   breadcrumbs:
     crumbs:
       - label: Home

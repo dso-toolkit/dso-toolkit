@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
 * #60: De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
 * #61: De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
+* #71: Het search bar component is nieuw maar moet doorgevoerd worden de header en verwijderd worden uit het menu.
 * #87: De tabs en pills markup van bootstrap is komen te vervallen voor DSO specifieke markup.
 * #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
 
@@ -22,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 - **BREAKING:** Modal component (#60)
+- **BREAKING:** Searchbar redesign (#71)
 - Definition list component (#78)
 - Smaller accordion icons (#121)
 - Add Color Lime 20% to Toolkit (#114)
