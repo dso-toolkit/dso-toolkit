@@ -1,19 +1,4 @@
-$dso-hamburger-menu-button-width: 40px;
-
 .dso-menu {
-  .dso-search {
-    float: right;
-    max-width: 250px;
-
-    @media screen and (max-width: $screen-sm-max) {
-      width: calc(100% - #{$dso-hamburger-menu-button-width + $u1});
-    }
-
-    @media screen and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-      max-width: 200px;
-    }
-  }
-
   .dso-navbar-header {
     float: left;
   }

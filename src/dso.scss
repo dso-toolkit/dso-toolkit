@@ -11,6 +11,8 @@
  * See https://github.com/dso-toolkit/dso-toolkit/issues/105 for more information
 */
 
+$library: true !default;
+
 @import "styles/mixins/dso-variables";
 @import "styles/mixins/bootstrap-variables";
 
