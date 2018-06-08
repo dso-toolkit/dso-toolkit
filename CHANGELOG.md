@@ -6,13 +6,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 2.0.0 - UNRELEASED
 
 ### Releasenotes
-* De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
-* De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
+* #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination.
+* #60: De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
+* #61: De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
+* #87: De tabs en pills markup van bootstrap is komen te vervallen voor DSO specifieke markup.
+* #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
 
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** Smaller navs component for viewer (#87)
+- **BREAKING:**Pagination redesign (#31)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 - Image replacement in documentatie (#132)
 
