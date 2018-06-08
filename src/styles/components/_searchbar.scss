@@ -58,6 +58,10 @@ $dso-searchbar-closed-width: 100px;
     opacity: 0;
     padding-left: 14px;
   }
+
+  button {
+    display: none;
+  }
 }
 
 .dso-searchbar {
@@ -108,10 +112,6 @@ $dso-searchbar-closed-width: 100px;
 
   &.dso-open {
     @extend %searchbar-open;
-
-    button {
-      display: none;
-    }
   }
 
   > button {
