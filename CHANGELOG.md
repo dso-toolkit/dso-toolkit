@@ -16,7 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - **BREAKING:** Jumbotron component (#61)
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** Smaller navs component for viewer (#87)
-- **BREAKING:**Pagination redesign (#31)
+- **BREAKING:** Pagination redesign (#31)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 - Image replacement in documentatie (#132)
 
