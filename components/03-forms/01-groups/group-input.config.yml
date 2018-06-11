@@ -41,8 +41,8 @@ variants:
   context:
     __title: Met icoon
     id: input-text-icon
-    label: Kies een datum
-    inputIcon: fas fa-calendar
+    label: E-mailadres
+    inputIcon: fas fa-at
 - name: input-text-disabled
   context:
     __title: Disabled

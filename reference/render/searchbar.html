@@ -1,0 +1,60 @@
+
+<!-- Start: @searchbar--default -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Example: Open/Close</h2>
+    <p>Animatie demo</p>
+  </div>
+  <input type="checkbox" id="state-switch" />
+  <label for="state-switch">Open/sluit</label>
+  <div class="dso-example">
+    <div class="dso-searchbar">
+      <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+      <span class="dso-searchbar-icon" aria-hidden="true"></span>
+      <label for="searchbar">Zoeken</label>
+      <button type="button">Open zoeken</button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @searchbar--default -->
+<hr />
+
+<!-- Start: @searchbar--searchbar-closed -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Zoekbalk gesloten</h2>
+    <p>De zoekbalk dient vanuit zichzelf de class <code>.dso-searchbar</code> te hebben en kan worden geopend met de modifier classes <code>.dso-open</code>. Het toevoegen/verwijderen van deze modifier classes start een animatie die de zoekbalk opent of
+      sluit.</p>
+  </div>
+  <div class="dso-example">
+    <div class="dso-searchbar">
+      <input type="text" id="searchbarClosed" class="form-control" placeholder="Zoeken" />
+      <span class="dso-searchbar-icon" aria-hidden="true"></span>
+      <label for="searchbarClosed">Zoeken</label>
+      <button type="button">Open zoeken</button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @searchbar--searchbar-closed -->
+<hr />
+
+<!-- Start: @searchbar--searchbar-opened -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Zoekbalk open</h2>
+    <p>Om een zoekbalk te openen dient de class <code>.dso-open</code> toegevoegd te worden. Sluiten gaat door de class weer te verwijderen</p>
+  </div>
+  <div class="dso-example">
+    <div class="dso-searchbar dso-open">
+      <input type="text" id="searchbarOpened" class="form-control" placeholder="Zoeken" />
+      <span class="dso-searchbar-icon" aria-hidden="true"></span>
+      <label for="searchbarOpened">Zoeken</label>
+      <button type="button">Open zoeken</button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @searchbar--searchbar-opened -->
+<hr />

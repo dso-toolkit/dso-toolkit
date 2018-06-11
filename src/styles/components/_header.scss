@@ -1,8 +1,38 @@
 header {
   margin-bottom: 40px;
 
+  .logo-bar {
+    position: relative;
+  }
+
+  .login,
+  .dso-search {
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   .login {
-    float: right;
+    right: 0;
+
+    a {
+      color: $grasgroen;
+      font-weight: 700;
+
+      &,
+      .login-icon::after {
+        vertical-align: middle;
+      }
+
+      .login-icon::after {
+        @include icon($dso-icon-header-icon-profile-24x24);
+
+        height: 24px;
+        vertical-align: middle;
+        width: 24px;
+      }
+    }
   }
 
   .logo {
