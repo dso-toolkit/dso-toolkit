@@ -1,23 +1,21 @@
 <header>
   <div class="logo-bar">
     <div class="login">
-      <span class="fa fa-user" aria-hidden="true"></span> Inloggen
+      <a href="">
+        <span class="login-icon" aria-hidden="true"></span> Inloggen
+      </a>
     </div>
-    <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" /> </div>
-  <nav class="dso-navbar dso-menu">
+    <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
     <form class="dso-search">
-      <fieldset>
-        <legend class="sr-only">Zoekformulier</legend>
-        <div class="input-group default">
-          <input type="text" class="form-control" aria-label="Zoeken" placeholder="Zoeken" />
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-default" >
-                <span class="fa fa-search" aria-hidden="true"></span> Zoeken
-          </button>
-          </span>
-        </div>
-      </fieldset>
+      <div class="dso-searchbar dso-open">
+        <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+        <span class="dso-searchbar-icon" aria-hidden="true"></span>
+        <label for="searchbar">Zoeken</label>
+        <button type="button">Open zoeken</button>
+      </div>
     </form>
+  </div>
+  <nav class="dso-navbar dso-menu">
     <div class="dso-navbar-header">
       <button type="button" class="dso-navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="fa fa-bars" aria-hidden="true"></span>
@@ -68,13 +66,7 @@
     <li>
       <a href="#">Home</a>
     </li>
-    <li>
-      <a href="#">Aanvragen</a>
-    </li>
-    <li>
-      <a href="#">Mijn project</a>
-    </li>
-    <li class="active">Aanvraag voorbereiden</li>
+    <li class="active">Checken</li>
   </ol>
 </header>
 <main>
