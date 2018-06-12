@@ -6,7 +6,7 @@ $dso-label-warning-bg-color: $dso-warning-color;
 $dso-label-danger-bg-color: $dso-danger-color;
 $dso-filter-delete-size: 12px;
 
-.label {
+.dso-label {
   border-radius: 4px;
   display: inline-block;
   line-height: 1em;
@@ -70,7 +70,7 @@ $dso-filter-delete-size: 12px;
     }
   }
 
-  &:not(.closable) {
+  &:not(.has-button) {
     button {
       display: none;
     }
