@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Smaller accordion icons (#121)
 - Add Color Lime 20% to Toolkit (#114)
 - Rich content component (#85)
+- Tooltip component (#137)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)

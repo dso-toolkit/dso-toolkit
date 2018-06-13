@@ -19,6 +19,10 @@ h5 {
   font-style: italic;
 }
 
+.small {
+  font-size: $font-size-small;
+}
+
 @media (max-width: $screen-sm-max) {
   h1,
   .h1 {
