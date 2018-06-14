@@ -1,3 +1,19 @@
+%mobile-menu-open {
+  .dso-navbar-collapse {
+    &.dso-collapse {
+      display: block;
+    }
+  }
+}
+
+%mobile-menu-closed {
+  .dso-navbar-collapse {
+    &.dso-collapse {
+      display: none;
+    }
+  }
+}
+
 .dso-menu {
   .dso-navbar-header {
     float: left;
@@ -41,6 +57,18 @@
       @media screen and (min-width: $screen-sm-min) {
         display: none;
       }
+    }
+  }
+
+  @if($library) {
+    #state-switch:not(:checked) ~ .dso-example & { // sass-lint:disable-line no-ids
+      @extend %mobile-menu-closed;
+    }
+  }
+
+  @if($library) {
+    #state-switch:checked ~ .dso-example & { // sass-lint:disable-line no-ids
+      @extend %mobile-menu-open;
     }
   }
 }

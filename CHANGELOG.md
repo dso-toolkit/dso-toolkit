@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - **BREAKING:** Pagination redesign (#31)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 - Image replacement in documentatie (#132)
+- Hamburger menu small view example (#135)
 
 ### Added
 - **BREAKING:** Modal component (#60)

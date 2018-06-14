@@ -1,7 +1,10 @@
 status: ready
 collated: true
 context:
-  __title: Menu ingeklapt
+  __title: 'Example: open/close'
+  __switches:
+    - name: state
+      label: Open/sluit
   menuItems:
     - label: Home
       active: true
@@ -14,7 +17,8 @@ context:
     - label: Wetgeving
   collapsed: true
 variants:
-  - name: open-menu
+  - name: menu
     context:
-      __title: Menu uitgeklapt
+      __title: Menu
+      __switches: null
       collapsed: false
