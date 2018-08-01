@@ -13,35 +13,35 @@ module.exports = {
       }
     },
     {
-      name: 'label-info',
+      name: 'info',
       context: {
         label: 'Info',
         modifier: 'info'
       }
     },
     {
-      name: 'label-primary',
+      name: 'primary',
       context: {
         label: 'Primary',
         modifier: 'primary'
       }
     },
     {
-      name: 'label-success',
+      name: 'success',
       context: {
         label: 'Success',
         modifier: 'success'
       }
     },
     {
-      name: 'label-warning',
+      name: 'warning',
       context: {
         label: 'Warning',
         modifier: 'warning'
       }
     },
     {
-      name: 'label-danger',
+      name: 'danger',
       context: {
         label: 'Danger',
         modifier: 'danger'
