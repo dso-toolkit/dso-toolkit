@@ -150,6 +150,11 @@ span.caption {
   font-size: 1rem;
 }
 
+.Prose .small,
+.Prose small {
+  font-size: 14px;
+}
+
 .Prose a,
 .Prose a.static,
 .Prose a.static:hover,
