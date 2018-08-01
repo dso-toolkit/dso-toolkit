@@ -15,33 +15,28 @@ $tooltip-arrow-size: $u2;
   padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
   position: relative;
 
-  &::before,
-  &::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-  }
-
   &::before {
     border: #{$tooltip-arrow-size / 2 - 1} solid $wit;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    height: #{$tooltip-arrow-size - $tooltip-border-size};
     left: #{$u2 - $tooltip-border-size};
-    top: 100%;
-    width: #{$tooltip-arrow-size - 2px};
+    width: #{$tooltip-arrow-size};
     z-index: 1;
   }
 
   &::after {
     border: #{$tooltip-arrow-size / 2} solid $grasgroen;
+    left: #{$u2 - $tooltip-border-size * 2};
+    width: $tooltip-arrow-size + 2 * $tooltip-border-size;
+  }
+
+  &::before,
+  &::after {
     border-bottom-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
+    content: "";
+    display: inline-block;
     height: #{$tooltip-arrow-size - $tooltip-border-size};
-    left: #{$u2 - $tooltip-border-size * 2};
+    position: absolute;
     top: 100%;
-    width: $tooltip-arrow-size;
   }
 }
