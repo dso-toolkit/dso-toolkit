@@ -20,6 +20,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - **BREAKING:** Pagination redesign (#31)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 - Image replacement in documentatie (#132)
+- Added `.dso-label` component, disabled Bootstrap's label component (#103)
+- Added `.dso-badge` component, disabled Bootstrap's badge component (#125)
 
 ### Added
 - **BREAKING:** Modal component (#60)
