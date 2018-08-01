@@ -150,7 +150,8 @@ span.caption {
   font-size: 1rem;
 }
 
-.Prose p.small {
+.Prose .small,
+.Prose small {
   font-size: 14px;
 }
 
