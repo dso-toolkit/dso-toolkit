@@ -1,78 +1,106 @@
 $dso-label-default-bg-color: $lime-20;
+$dso-label-default-color: $bosgroen;
+$dso-label-default-button-border-color: $bosgroen;
+$dso-label-default-button-hover-background-color: $bosgroen;
+$dso-label-default-button-hover-color: $wit;
+
 $dso-label-info-bg-color: $dso-info-color;
+$dso-label-info-color: $wit;
+$dso-label-info-button-border-color: #2b5780;
+$dso-label-info-button-hover-background-color: #2b5780;
+$dso-label-info-button-hover-color: $wit;
+
 $dso-label-primary-bg-color: $bosgroen;
 $dso-label-success-bg-color: $dso-success-color;
+
 $dso-label-warning-bg-color: $dso-warning-color;
+$dso-label-warning-color: $grijs-90;
+$dso-label-warning-button-border-color: #191919;
+$dso-label-warning-button-hover-background-color: #e17000;
+$dso-label-warning-button-hover-color: $wit;
+
 $dso-label-danger-bg-color: $dso-danger-color;
-$dso-filter-delete-size: 12px;
+$dso-label-danger-color: $wit;
+$dso-label-danger-button-border-color: $dso-danger-color;
+$dso-label-danger-button-hover-background-color: $dso-danger-color;
+$dso-label-danger-button-hover-color: $wit;
 
 .dso-label {
+  background-color: $dso-label-default-bg-color;
   border-radius: 4px;
+  color: $dso-label-default-color;
   display: inline-block;
   line-height: 1em;
-
-  span {
-    display: inline-block;
-    padding: #{$u1 / 2} $u1;
-  }
-
-  &.label-default {
-    background-color: $dso-label-default-bg-color;
-    color: $bosgroen;
-  }
-
-  &.label-info {
-    background-color: $dso-label-info-bg-color;
-    color: $wit;
-  }
-
-  &.label-primary {
-    background-color: $dso-label-primary-bg-color;
-    color: $wit;
-  }
-
-  &.label-success {
-    background-color: $dso-label-success-bg-color;
-    color: $wit;
-  }
-
-  &.label-warning {
-    background-color: $dso-label-warning-bg-color;
-    color: $grijs-90;
-  }
-
-  &.label-danger {
-    background-color: $dso-label-danger-bg-color;
-    color: $wit;
-  }
+  padding: #{$u1 / 2} $u1;
 
   button {
     background: none;
     border: 0;
-    border-left: 1px solid $bosgroen;
+    border-left-color: $dso-label-default-button-border-color;
+    border-left-style: solid;
+    border-left-width: 1px;
     border-radius: 0 #{$u1 / 2} #{$u1 / 2} 0;
-    float: right;
+    margin-bottom: -$u1 / 2;
+    margin-right: -$u1;
+    margin-top: -$u1 / 2;
     padding: #{$u1 / 2} $u1;
 
-    &::after {
-      @include icon($dso-icon-fa-times-darkgreen);
-
-      height: $dso-filter-delete-size;
-      width: $dso-filter-delete-size;
-    }
-
     &:hover {
-      background-color: $bosgroen;
+      background-color: $dso-label-default-button-hover-background-color;
+      color: $dso-label-default-button-hover-color;
+    }
+  }
 
-      &::after {
-        @include icon($dso-icon-fa-times-limetwenty);
+  &.dso-label-info {
+    background-color: $dso-label-info-bg-color;
+    color: $dso-label-info-color;
+
+    button {
+      border-left-color: $dso-label-info-button-border-color;
+
+      &:hover {
+        background-color: $dso-label-info-button-hover-background-color;
+        color: $dso-label-info-button-hover-color;
       }
     }
   }
 
-  &:not(.has-button) {
+  &.dso-label-primary {
+    background-color: $dso-label-primary-bg-color;
+    color: $wit;
+  }
+
+  &.dso-label-success {
+    background-color: $dso-label-success-bg-color;
+    color: $wit;
+  }
+
+  &.dso-label-warning {
+    background-color: $dso-label-warning-bg-color;
+    color: $dso-label-warning-color;
+
     button {
-      display: none;
+      border-left-color: $dso-label-warning-button-border-color;
+
+      &:hover {
+        background-color: $dso-label-warning-button-hover-background-color;
+        border-left-color: $dso-label-warning-button-hover-background-color;
+        color: $dso-label-warning-button-hover-color;
+      }
+    }
+  }
+
+  &.dso-label-danger {
+    background-color: $dso-label-danger-bg-color;
+    color: $dso-label-danger-color;
+
+    button {
+      border-left-color: $dso-label-danger-button-border-color;
+
+      &:hover {
+        background-color: $dso-label-danger-button-hover-background-color;
+        color: $dso-label-danger-button-hover-color;
+      }
     }
   }
 }

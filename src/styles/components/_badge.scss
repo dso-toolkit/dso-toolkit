@@ -6,15 +6,12 @@ $dso-badge-warning-bg-color: $dso-warning-color;
 $dso-badge-danger-bg-color: $dso-danger-color;
 
 .dso-badge {
+  background-color: $dso-badge-default-bg-color;
   border-radius: 1em;
+  color: $bosgroen;
   display: inline-block;
   line-height: 1em;
   padding: #{$u1 / 2} $u1;
-
-  &.badge-default {
-    background-color: $dso-badge-default-bg-color;
-    color: $bosgroen;
-  }
 
   &.badge-info {
     background-color: $dso-badge-info-bg-color;
