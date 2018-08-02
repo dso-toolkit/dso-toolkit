@@ -1,0 +1,40 @@
+$dso-badge-default-bg-color: $lime-20;
+$dso-badge-info-bg-color: $dso-info-color;
+$dso-badge-primary-bg-color: $bosgroen;
+$dso-badge-success-bg-color: $dso-success-color;
+$dso-badge-warning-bg-color: $dso-warning-color;
+$dso-badge-danger-bg-color: $dso-danger-color;
+
+.dso-badge {
+  background-color: $dso-badge-default-bg-color;
+  border-radius: 1em;
+  color: $bosgroen;
+  display: inline-block;
+  line-height: 1em;
+  padding: #{$u1 / 2} $u1;
+
+  &.badge-info {
+    background-color: $dso-badge-info-bg-color;
+    color: $wit;
+  }
+
+  &.badge-primary {
+    background-color: $dso-badge-primary-bg-color;
+    color: $wit;
+  }
+
+  &.badge-success {
+    background-color: $dso-badge-success-bg-color;
+    color: $wit;
+  }
+
+  &.badge-warning {
+    background-color: $dso-badge-warning-bg-color;
+    color: $grijs-90;
+  }
+
+  &.badge-danger {
+    background-color: $dso-badge-danger-bg-color;
+    color: $wit;
+  }
+}

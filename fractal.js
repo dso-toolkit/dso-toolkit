@@ -17,7 +17,7 @@ const hbs = require('@frctl/handlebars')({
 fractal.components.engine(hbs);
 fractal.components.set('path', path.join(__dirname, 'components'));
 fractal.components.set('default.status', 'wip');
-fractal.components.set('default.collator', collator);
+fractal.components.set('default.collator', collator.defaultCollator);
 
 fractal.docs.engine(hbs);
 fractal.docs.set('path', path.join(__dirname, 'docs'));
