@@ -51,6 +51,8 @@ $dso-pagination-item-border-size: 2px;
       a {
         border: 2px solid $grasgroen;
         border-radius: 50%;
+        text-indent: -9999px;
+        white-space: nowrap;
 
         &:hover,
         &:focus {
