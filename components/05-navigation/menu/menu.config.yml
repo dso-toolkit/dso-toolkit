@@ -1,7 +1,12 @@
 status: ready
 collated: true
+notes: Openen van het hamburger menu gaat door `.dso-open` naast `.dso-nav-bar` te zetten
 context:
-  __title: Menu ingeklapt
+  __title: 'Example: open/close'
+  __explanation: Verklein de viewport en gebruik de checkbox om het responsive gedrag te zien
+  __switches:
+    - name: state
+      label: Open/sluit
   menuItems:
     - label: Home
       active: true
@@ -14,7 +19,9 @@ context:
     - label: Wetgeving
   collapsed: true
 variants:
-  - name: open-menu
+  - name: open
     context:
-      __title: Menu uitgeklapt
+      __title: Menu open
+      __explanation: Verklein de viewport om het responsive menu open te zien
+      __switches: null
       collapsed: false
