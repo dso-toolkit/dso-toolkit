@@ -1,5 +1,6 @@
 status: ready
 collated: true
+notes: Openen van het hamburger menu gaat door `.dso-open` naast `.dso-nav-bar` te zetten
 context:
   __title: 'Example: open/close'
   __explanation: Verklein de viewport en gebruik de checkbox om het responsive gedrag te zien
