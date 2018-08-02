@@ -24,10 +24,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - **BREAKING:** Modal component (#60)
 - **BREAKING:** Searchbar redesign (#71)
+- **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
+- **BREAKING:** Added `.dso-badge` component, disabled Bootstrap's badge component (#125)
 - Definition list component (#78)
 - Smaller accordion icons (#121)
 - Add Color Lime 20% to Toolkit (#114)
 - Rich content component (#85)
+- Tooltip component (#137)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)

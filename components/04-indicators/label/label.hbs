@@ -1,1 +1,8 @@
-<span class="label label-{{ modifier }}">{{ label }}</span>
+<span class="dso-label{{#if modifier}} dso-label-{{ modifier }}{{/if}}">
+  {{ label }}
+  {{#if button}}
+    <button type="button" title="{{ buttonTitle }}">
+      <span class="{{ button }}"></span>
+    </button>
+  {{/if}}
+</span>

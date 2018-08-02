@@ -4,57 +4,44 @@ module.exports = {
   status: 'wip',
   collated: true,
   collator: collator.inlineCollator,
-  default: 'default',
+  context: {
+    label: 'Default',
+  },
   variants: [
     {
-      name: 'default',
-      context: {
-        label: 'Default',
-      }
-    },
-    {
-      name: 'info',
+      name: 'badge-info',
       context: {
         label: 'Info',
         modifier: 'info'
       }
     },
     {
-      name: 'primary',
+      name: 'badge-primary',
       context: {
         label: 'Primary',
         modifier: 'primary'
       }
     },
     {
-      name: 'success',
+      name: 'badge-success',
       context: {
         label: 'Success',
         modifier: 'success'
       }
     },
     {
-      name: 'warning',
+      name: 'badge-warning',
       context: {
         label: 'Warning',
         modifier: 'warning'
       }
     },
     {
-      name: 'danger',
+      name: 'badge-danger',
       context: {
         label: 'Danger',
         modifier: 'danger'
       }
     }
-  ].reduce((total, variant) => total.concat([
-    variant,
-    Object.assign({}, variant, {
-      name: `${variant.name}-button`,
-      context: Object.assign({}, variant.context, {
-        button: 'fa fa-times',
-        buttonTitle: 'Verwijder'
-      })
-    })
-  ]), [])
+  ]
 };

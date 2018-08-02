@@ -33,9 +33,11 @@ variants:
       icon: fa fa-search
       iconOnly: true
       label: zoeken
-      count: 4
+      badge:
+        label: 4
   - name: iconLabelBadge
     context:
       icon: fa fa-search
       label: zoeken
-      count: 4
+      badge:
+        label: 4
