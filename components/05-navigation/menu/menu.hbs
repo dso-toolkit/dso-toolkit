@@ -1,11 +1,9 @@
-<nav class="dso-navbar dso-menu">
+<nav class="dso-navbar{{#if open}} dso-open{{/if}}">
   <div class="dso-navbar-header">
-    <button type="button" class="dso-navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <button type="button" class="dso-navbar-toggle">
       {{> '@icon' icon='fa fa-bars' }}
       <span class="sr-only">Ga naar menu</span>
     </button>
   </div>
-  <div class="dso-navbar-collapse{{#if collapsed}} dso-collapse{{/if}}">
-    {{render '@navs' modifier="main" }}
-  </div>
+  {{render '@navs' modifier="main" }}
 </nav>

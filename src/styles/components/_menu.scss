@@ -1,34 +1,16 @@
-%mobile-menu-open {
-  .dso-navbar-collapse {
-    &.dso-collapse {
-      display: block;
-    }
-  }
-}
-
-%mobile-menu-closed {
-  .dso-navbar-collapse {
-    &.dso-collapse {
-      display: none;
-    }
-  }
-}
-
-.dso-menu {
+.dso-navbar {
   .dso-navbar-header {
     float: left;
   }
 
-  .dso-navbar-collapse {
-    width: 100%;
-
-    @media screen and (max-width: $screen-sm-max) {
+  @media screen and (max-width: $screen-sm-max) {
+    > .dso-nav {
       clear: both;
     }
 
-    @media screen and (min-width: $screen-sm-min) {
-      &.dso-collapse {
-        display: block !important;
+    &:not(.dso-open) {
+      > .dso-nav {
+        display: none;
       }
     }
   }
@@ -61,14 +43,8 @@
   }
 
   @if($library) {
-    #state-switch:not(:checked) ~ .dso-example & { // sass-lint:disable-line no-ids
-      @extend %mobile-menu-closed;
-    }
-  }
-
-  @if($library) {
-    #state-switch:checked ~ .dso-example & { // sass-lint:disable-line no-ids
-      @extend %mobile-menu-open;
+    #state-switch:checked ~ .dso-example & > .dso-nav { // sass-lint:disable-line no-ids
+      display: block;
     }
   }
 }

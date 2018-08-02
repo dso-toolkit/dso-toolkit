@@ -2,6 +2,7 @@ status: ready
 collated: true
 context:
   __title: 'Example: open/close'
+  __explanation: Verklein de viewport en gebruik de checkbox om het responsive gedrag te zien
   __switches:
     - name: state
       label: Open/sluit
@@ -19,6 +20,7 @@ context:
 variants:
   - name: menu
     context:
-      __title: Menu
+      __title: Menu open
+      __explanation: Verklein de viewport om het responsive menu open te zien
       __switches: null
       collapsed: false
