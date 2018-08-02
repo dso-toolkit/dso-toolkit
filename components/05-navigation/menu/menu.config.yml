@@ -19,7 +19,7 @@ context:
     - label: Wetgeving
   collapsed: true
 variants:
-  - name: menu
+  - name: open
     context:
       __title: Menu open
       __explanation: Verklein de viewport om het responsive menu open te zien
