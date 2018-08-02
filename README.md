@@ -1,3 +1,6 @@
+* [Slack chat](https://dso-toolkit.slack.com/)
+* [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/enQtNDA5Mjk5MTU5MDEyLTk5OWFmMWYwODlhMmRhMzMzN2E1NzZhNmQwYzhiNDliZGQ0NGMxMmE4MzkxM2U2NjZjNzNmZDQ0YmY3YTRiNTg)
+
 # DSO Toolkit and Component Library
 This is the repository of the DSO Toolkit and Component Library.
 
@@ -5,22 +8,6 @@ The toolkit is framework-agnostic and based on [Bootstrap v3.3.7](https://getboo
 
 ## Getting started
 Releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
-
-Each DSO Program Increment a new DSO Toolkit will be released. Every 1 to 2 weeks an alpha or beta will be released. Bugfix releases are released when needed.
-
-Example:
->The latest release is 1.1.0. Bugfix releases will increment the PATCH:
-> * 1.1.1,
-> * 1.1.2,
-> * 1.1.3 etc.
-
-Example 2:
->At the end of the Program Increment, 1.2.0 will be released. In the preceeding weeks several alpha's and beta's will be released:
-> * 1.2.0-alpha.0
-> * 1.2.0-alpha.[1...n]
-> * 1.2.0-beta.0
-> * 1.2.0-beta.[1...n]
-> * 1.2.0
 
 Alpha's should be considered unstable. Beta's will not have any breaking changes.
 
@@ -37,24 +24,18 @@ The toolkit and component library are distributed to dso-toolkit.nl. Use the tab
 
 | branch      | channel    | url                                    |
 |-------------|------------|----------------------------------------|
-| *latest*    | unstable   | `https://cdn.dso-toolkit.nl/unstable/` |
-| master      | stable     | `https://cdn.dso-toolkit.nl/stable/`   |
+| master      | stable     | `https://cdn.dso-toolkit.nl/master/`   |
 | *tags only* | *releases* | `https://cdn.dso-toolkit.nl/VERSION/`  |
 
 The same goes for the component library:
 
 | branch      | channel    | url                                    |
 |-------------|------------|----------------------------------------|
-| *latest*    | unstable   | `https://www.dso-toolkit.nl/unstable/` |
-| master      | stable     | `https://www.dso-toolkit.nl/stable/`   |
+| master      | stable     | `https://www.dso-toolkit.nl/master/`   |
 | *tags only* | *releases* | `https://www.dso-toolkit.nl/VERSION/`  |
 
-The branch *latest* is the current development branch, which at the time of writing was **1_2_0**.
-
-**DEPRECATED**: The table above shows a 'master' branch. There is no master branch anymore. The URLs still work, but refer to a stable release of the 1.x cycle.
-
 ```html
-<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/stable/styles/dso.css" />
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|VERSION]/styles/dso.css" />
 ```
 
 ### Develop or mockups

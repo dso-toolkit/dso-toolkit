@@ -24,13 +24,13 @@ Every change is accomponied by an issue describing the change, scope, and incent
 Properly label the issue as a bug, improvement, new feature.
 
 ### 3. Contribute
-* Take note of the codestyle, we are using linters. 
+* Take note of the codestyle, we are using linters.
 * Add an entry to the CHANGELOG.md.
 * When changing the toolkit, try to demonstrate the change using the component library (new components or variants)
 * Run `gulp test:dom`. Commit new/changed reference DOM files using `gulp reference:dom`.
 
 ### 4. Create a pull request
-Create a pull request to the target version branch (for example `1_2_0`). A maintainer will review your changes, merge them, and close the issue.
+Create a pull request to the target version branch, most likely `master`. A maintainer will review your changes, merge them, and close the issue.
 
 ## Reviewing
 When reviewing a pull request, make sure the items in __step 3. Contribute__ are checked. Pay special attention to the changelog and (if needed) reference DOM files.

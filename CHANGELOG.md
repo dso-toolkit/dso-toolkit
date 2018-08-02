@@ -3,29 +3,39 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 2.0.0 - UNRELEASED
+## 3.0.0 - UNRELEASED
 
 ### Releasenotes
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
+* #71: Het search bar component is nieuw. Dit component moet doorgevoerd worden in de header en verwijderd worden uit het menu.
+* #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
+
+### Added
+- **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
+- **BREAKING:** Added `.dso-badge` component, disabled Bootstrap's badge component (#125)
+
+### Changed
+- **BREAKING:** Pagination redesign (#31)
+- **BREAKING:** Searchbar redesign (#71)
+
+### Fixed
+- **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+
+## 2.0.0 - 23-6-2018
+
+### Releasenotes
 * #60: De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
 * #61: De jumbotron volgens de DSO styling is in 2.0.0 geintroduceerd. Tegelijkertijd is de styling van de Bootstrap jumbotron uitgeschakeld.
-* #71: Het search bar component is nieuw. Dit component moet doorgevoerd worden in de header en verwijderd worden uit het menu.
 * #87: De tabs en pills markup van bootstrap is komen te vervallen voor DSO specifieke markup.
-* #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
 
 ### Changed
 - **BREAKING:** Jumbotron component (#61)
-- **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** Smaller navs component for viewer (#87)
-- **BREAKING:** Pagination redesign (#31)
 - Breadcrumbs, WCAG Contrast error plus margin adjustment (#112)
 - Image replacement in documentatie (#132)
 
 ### Added
 - **BREAKING:** Modal component (#60)
-- **BREAKING:** Searchbar redesign (#71)
-- **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
-- **BREAKING:** Added `.dso-badge` component, disabled Bootstrap's badge component (#125)
 - Definition list component (#78)
 - Smaller accordion icons (#121)
 - Add Color Lime 20% to Toolkit (#114)
