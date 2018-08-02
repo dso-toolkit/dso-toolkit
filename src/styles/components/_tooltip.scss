@@ -1,0 +1,42 @@
+$tooltip-padding-vertical: $dso-unit;
+$tooltip-padding-horizontal: #{$dso-unit / 2};
+$tooltip-border-size: 1px;
+$tooltip-border-radius: #{$dso-unit / 2};
+$tooltip-arrow-size: $u2;
+
+.dso-tooltip {
+  border: $tooltip-border-size solid $grasgroen;
+  border-radius: $tooltip-border-radius;
+  color: $grasgroen;
+  display: inline-block;
+  font-size: $font-size-small;
+  line-height: 1.2em;
+  max-width: 240px;
+  padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
+  position: relative;
+
+  &::before {
+    border: #{$tooltip-arrow-size / 2 - 1} solid $wit;
+    left: #{$u2 - $tooltip-border-size};
+    width: #{$tooltip-arrow-size};
+    z-index: 1;
+  }
+
+  &::after {
+    border: #{$tooltip-arrow-size / 2} solid $grasgroen;
+    left: #{$u2 - $tooltip-border-size * 2};
+    width: $tooltip-arrow-size + 2 * $tooltip-border-size;
+  }
+
+  &::before,
+  &::after {
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    content: "";
+    display: inline-block;
+    height: #{$tooltip-arrow-size - $tooltip-border-size};
+    position: absolute;
+    top: 100%;
+  }
+}

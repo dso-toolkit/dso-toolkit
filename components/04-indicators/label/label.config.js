@@ -1,45 +1,60 @@
+const collator = require('../../../.fractal/collator');
+
 module.exports = {
-  notes: 'Plaats een label. Gebaseerd op de Bootstrap \'Label\' component',
-  status: 'ready',
+  status: 'wip',
   collated: true,
-  collator: markup => markup,
-  context: {
-    label: 'Default',
-    modifier: 'default'
-  },
-  variants: [{
-    name: 'primary',
-    context: {
-      label: 'Primary',
-      modifier: 'primary'
+  collator: collator.inlineCollator,
+  default: 'default',
+  variants: [
+    {
+      name: 'default',
+      context: {
+        label: 'Default',
+      }
+    },
+    {
+      name: 'info',
+      context: {
+        label: 'Info',
+        modifier: 'info'
+      }
+    },
+    {
+      name: 'primary',
+      context: {
+        label: 'Primary',
+        modifier: 'primary'
+      }
+    },
+    {
+      name: 'success',
+      context: {
+        label: 'Success',
+        modifier: 'success'
+      }
+    },
+    {
+      name: 'warning',
+      context: {
+        label: 'Warning',
+        modifier: 'warning'
+      }
+    },
+    {
+      name: 'danger',
+      context: {
+        label: 'Danger',
+        modifier: 'danger'
+      }
     }
-  },
-  {
-    name: 'success',
-    context: {
-      label: 'Success',
-      modifier: 'success'
-    }
-  },
-  {
-    name: 'info',
-    context: {
-      label: 'Info',
-      modifier: 'info'
-    }
-  },
-  {
-    name: 'warning',
-    context: {
-      label: 'Warning',
-      modifier: 'warning'
-    }
-  },
-  {
-    name: 'danger',
-    context: {
-      label: 'Danger',
-      modifier: 'danger'
-    }
-  }]
+  ].reduce((total, variant) => total.concat([
+    variant,
+    Object.assign({}, variant, {
+      name: `${variant.name}-button`,
+      context: Object.assign({}, variant.context, {
+        button: 'fa fa-times',
+        buttonTitle: 'Verwijder'
+      })
+    })
+  ]), [])
 };

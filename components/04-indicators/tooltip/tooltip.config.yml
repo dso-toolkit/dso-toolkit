@@ -1,0 +1,8 @@
+status: inprogress
+collated: true
+context:
+  label: Hergebruiken
+variants:
+  - name: tooltip-long-text
+    context:
+      label: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.

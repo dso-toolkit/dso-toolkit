@@ -64,6 +64,12 @@ $dso-searchbar-closed-width: 100px;
   }
 }
 
+.dso-search {
+  button {
+    @include sr-only;
+  }
+}
+
 .dso-searchbar {
   @extend %searchbar-closed;
 
