@@ -2,11 +2,11 @@ $dso-label-column: $grid-columns / 2;
 
 $dso-field-invalid-border-color: $dso-danger-color;
 $dso-field-invalid-message-color: $dso-danger-color;
-$dso-optional-color: $bosgroen-40;
+$dso-required-color: $grijs-60;
 
 $dso-form-control-border-width: 2px;
 $dso-form-control-readonly-border-width: 1px;
-$dso-optional-string: "optioneel";
+$dso-required-string: "Verplicht";
 
 form {
   .dso-field-container {
@@ -31,7 +31,7 @@ form {
     margin-bottom: 0;
   }
 
-  &:not(.dso-required) {
+  &.dso-required {
     &.dso-checkboxes,
     &.dso-confirm,
     &.dso-input,
@@ -39,8 +39,8 @@ form {
     &.dso-select,
     &.dso-textarea {
       .control-label::after {
-        color: $dso-optional-color;
-        content: $dso-optional-string;
+        color: $dso-required-color;
+        content: $dso-required-string;
         font-size: .85em;
         font-style: italic;
         font-weight: 400;
