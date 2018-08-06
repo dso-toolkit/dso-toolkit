@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+- Disabled buttons with hover styles wrong (#145)
 
 ## 2.0.0 - 23-6-2018
 
