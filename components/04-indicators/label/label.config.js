@@ -52,7 +52,7 @@ module.exports = {
     Object.assign({}, variant, {
       name: `${variant.name}-button`,
       context: Object.assign({}, variant.context, {
-        button: 'fa fa-times',
+        button: 'fas fa-times',
         buttonTitle: 'Verwijder'
       })
     })
