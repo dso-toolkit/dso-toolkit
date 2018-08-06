@@ -56,12 +56,12 @@
 
   &.disabled,
   &[disabled] {
-    @include state-styling($border-color: $grasgroen-40, $color: $grasgroen-40);
+    &,
+    &:hover {
+      @include state-styling($wit, $grasgroen-40, $grasgroen-40);
 
-    background-color: $wit;
-    border-color: $grasgroen-40;
-    color: $grasgroen-40;
-    opacity: 1;
+      opacity: 1;
+    }
   }
 }
 
@@ -88,11 +88,12 @@
 
   &.disabled,
   &[disabled] {
-    @include state-styling($background-color: $dso-button-primary-disabled-color, $border-color: $dso-button-primary-disabled-color);
+    &,
+    &:hover {
+      @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
 
-    background-color: $dso-button-primary-disabled-color;
-    border-color: $dso-button-primary-disabled-color;
-    opacity: 1;
+      opacity: 1;
+    }
   }
 }
 
@@ -146,10 +147,10 @@
 
   &.disabled,
   &[disabled] {
-    opacity: 1;
-
-    .btn-label {
+    &,
+    &:hover {
       color: $grasgroen-40;
+      opacity: 1;
     }
 
     .icon {
