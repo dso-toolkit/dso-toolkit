@@ -125,16 +125,15 @@ body.dso-modal-open {
     bottom: 0;
     height: 100%;
     left: 0;
-    margin: auto;
-    max-width: $dso-modal-max-width;
     position: fixed;
     right: 0;
     top: 0;
     z-index: $dso-modal-z-index;
 
     .dso-dialog {
-      position: relative;
-      top: 15vh;
+      margin: auto;
+      margin-top: 15vh;
+      max-width: $dso-modal-max-width;
     }
 
     .dso-body {
