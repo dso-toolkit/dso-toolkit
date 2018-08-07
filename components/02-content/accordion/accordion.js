@@ -2,11 +2,8 @@
 // ------
 // * Each change to this file needs a restart of the fractal instance
 // * Exported methods are merged as helpers in fractal.js
-// ToDo: Multiple accordion's are impossible: The @id of each .accordion is fixed.
 
-module.exports = function (fractal) {
-  const handlebars = fractal.components.engine().handlebars;
-
+module.exports = function () {
   return {
     accordion(options) {
       return `
