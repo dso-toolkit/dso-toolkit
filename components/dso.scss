@@ -19,13 +19,13 @@
   }
 
   > input[type="checkbox"] {
-    & ~ .dso-example {
-      border-top: 1px solid #ddd;
-    }
-
     + label {
       margin-left: 8px;
       margin-top: 5px;
+    }
+
+    & ~ .dso-example {
+      border-top: 1px solid #ddd;
     }
   }
 
