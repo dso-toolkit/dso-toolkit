@@ -24,6 +24,14 @@
     }
   }
 
+
+  > input[type="checkbox"] {
+    + label {
+      margin-left: 8px;
+      margin-top: 5px;
+    }
+  }
+
   .dso-example-text {
     background-color: #eee;
     border-bottom: 1px solid #ddd;
