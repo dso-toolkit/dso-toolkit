@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 - **BREAKING:** Pagination redesign (#31)
 - **BREAKING:** Searchbar redesign (#71)
-- Formulieren "optioneel" omgedraaid naar "Verplicht" (#146)
+- Formulieren "optioneel" omgedraaid naar "verplicht" (#146)
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
