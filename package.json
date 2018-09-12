@@ -3,12 +3,16 @@
   "description": "DSO Toolkit and Component Library",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "3.0.0-alpha.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dso-toolkit/dso-toolkit.git"
+  },
   "engines": {
     "node": ">=9.0.0",
     "npm": ">=5.6.0"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free-webfonts": "^1.0.9",
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "bootstrap-sass": "^3.3.7",
     "typeface-asap": "0.0.35"
   },
@@ -30,7 +34,7 @@
     "gulp-tap": "^1.0.1",
     "gulp-trim": "^1.0.2",
     "hiff": "^0.3.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "pretty": "^2.0.0",
     "slug": "^0.9.1"
   }
