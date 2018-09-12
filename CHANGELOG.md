@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - **BREAKING:** Searchbar redesign (#71)
 - Formulieren "optioneel" omgedraaid naar "verplicht" (#146)
 - Deprecated fontawesome-free-webfronts package used (#165)
+- Logo updaten (#167)
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
