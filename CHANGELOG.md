@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Modal repositions when content changes (#151)
 - IE11 modal is positioned left (#163)
 - `.dso-rich-content` in highlight-box component (#170)
+- Icons.scss generated wrongly on unix-based OS (#168)
 
 ## 2.0.0 - 23-6-2018
 

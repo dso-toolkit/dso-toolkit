@@ -13,7 +13,7 @@ slug.defaults.modes['rfc3986'] = {
 };
 
 module.exports = function (filename) {
-  let name = filename.replace(/[\\_]/g, '-').replace('.svg', '');
+  let name = filename.replace(/[/\\_]/g, '-').replace('.svg', '');
 
   return slug(name);
 };
