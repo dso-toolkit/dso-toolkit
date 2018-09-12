@@ -113,7 +113,7 @@ function copyBootstrapFonts() {
 
 function copyFontAwesomeFonts() {
   return gulp
-    .src('node_modules/@fortawesome/fontawesome-free-webfonts/webfonts/**')
+    .src('node_modules/@fortawesome/fontawesome-free/webfonts/**')
     .pipe(gulp.dest('build/toolkit/fonts/fontawesome'));
 }
 
