@@ -18,7 +18,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - **BREAKING:** Pagination redesign (#31)
 - **BREAKING:** Searchbar redesign (#71)
 - Formulieren "optioneel" omgedraaid naar "Verplicht" (#146)
-- .dso-rich-content in highlight-box component (#170)
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
@@ -26,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Font-Awesome classnames fix FA v5 (#148)
 - Modal repositions when content changes (#151)
 - IE11 modal is positioned left (#163)
+- `.dso-rich-content` in highlight-box component (#170)
 
 ## 2.0.0 - 23-6-2018
 
