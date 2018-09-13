@@ -22,7 +22,7 @@ $dso-selectable-size: $u3;
       + label {
         &::before {
           background-color: $wit;
-          box-shadow: inset 0 0 0 2px $dso-input-disabled-border-color;
+          box-shadow: 0 0 0 2px $dso-input-disabled-border-color;
         }
       }
     }
@@ -59,13 +59,13 @@ $dso-selectable-size: $u3;
       &::before {
         background: $wit;
         border: 0;
-        box-shadow: inset 0 0 0 2px $bosgroen-40;
+        box-shadow: 0 0 0 2px $bosgroen-40;
         content: "";
-        height: $dso-selectable-size;
-        left: 0;
+        height: $dso-selectable-size - 4px;
+        left: 2px;
         position: absolute;
-        top: 0;
-        width: $dso-selectable-size;
+        top: 2px;
+        width: $dso-selectable-size - 4px;
       }
     }
 
@@ -74,7 +74,11 @@ $dso-selectable-size: $u3;
       outline: 0;
 
       + label::before {
-        box-shadow: inset 0 0 0 3px $bosgroen;
+        box-shadow: 0 0 0 3px $bosgroen;
+        height: $dso-selectable-size - 6px;
+        left: 3px;
+        top: 3px;
+        width: $dso-selectable-size - 6px;
       }
     }
 
@@ -82,19 +86,27 @@ $dso-selectable-size: $u3;
     &.active {
       + label::before {
         background-color: $grasgroen-10;
-        box-shadow: inset 0 0 0 1px $bosgroen;
+        box-shadow: 0 0 0 1px $bosgroen;
+        height: $dso-selectable-size - 2px;
+        left: 1px;
+        top: 1px;
+        width: $dso-selectable-size - 2px;
       }
     }
 
     .dso-invalid & {
       + label::before {
-        box-shadow: inset 0 0 0 2px $dso-danger-color;
+        box-shadow: 0 0 0 2px $dso-danger-color;
       }
 
       &:focus,
       &.focus {
         + label::before {
-          box-shadow: inset 0 0 0 3px $dso-danger-color;
+          box-shadow: 0 0 0 3px $dso-danger-color;
+          height: $dso-selectable-size - 6px;
+          left: 3px;
+          top: 3px;
+          width: $dso-selectable-size - 6px;
         }
       }
     }
@@ -103,7 +115,7 @@ $dso-selectable-size: $u3;
   input[type="checkbox"] {
     + label {
       &::before {
-        border-radius: 6px;
+        border-radius: 4px;
       }
 
       &::after {

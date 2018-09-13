@@ -17,7 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 - **BREAKING:** Pagination redesign (#31)
 - **BREAKING:** Searchbar redesign (#71)
-- Formulieren "optioneel" omgedraaid naar "Verplicht" (#146)
+- Formulieren "optioneel" omgedraaid naar "verplicht" (#146)
+- Deprecated fontawesome-free-webfronts package used (#165)
+- Logo updaten (#167)
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
@@ -25,6 +27,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Font-Awesome classnames fix FA v5 (#148)
 - Modal repositions when content changes (#151)
 - IE11 modal is positioned left (#163)
+- `.dso-rich-content` in highlight-box component (#170)
+- Icons.scss generated wrongly on unix-based OS (#168)
 
 ## 2.0.0 - 23-6-2018
 
