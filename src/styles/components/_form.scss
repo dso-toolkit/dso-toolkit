@@ -187,14 +187,3 @@ select:not([multiple]) {
     }
   }
 }
-
-.form-inline {
-  @media screen and (min-width: $screen-sm-min) {
-    white-space: nowrap;
-
-    > .dso-form-fields,
-    > .dso-form-buttons {
-      display: inline-block;
-    }
-  }
-}
