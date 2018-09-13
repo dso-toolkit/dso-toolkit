@@ -14,15 +14,5 @@ context:
         url: '#'
       - label: Checken
         url: '#'
-  wizard:
-    items:
-    - label: Locatie bepalen
-      state: done
-    - label: Werkzaamheden kiezen
-      state: done
-    - label: Werkzaamheden checken
-      state: active
-    - label: Resultaat
-      state: disabled
   checkSideListItems:
     - Bouwen van een dakkapel
