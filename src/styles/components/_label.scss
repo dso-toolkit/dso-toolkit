@@ -6,7 +6,7 @@ $dso-label-default-button-hover-border-color: $lime-20;
 $dso-label-default-button-hover-color: $bosgroen;
 
 $dso-label-info-bg-color: $dso-info-color;
-$dso-label-info-color: $wit;
+$dso-label-info-color: $grijs-90;
 $dso-label-info-button-border-color: #2b5780;
 $dso-label-info-button-hover-background-color: $wit;
 $dso-label-info-button-hover-border-color: $dso-info-color;
@@ -73,7 +73,7 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     color: $dso-label-info-color;
 
     button {
-      border-left-color: $dso-label-info-button-border-color;
+      border-left-color: $grijs-90;
 
       &:hover,
       &:focus,
@@ -91,6 +91,8 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     color: $wit;
 
     button {
+      border-left-color: $wit;
+
       &:hover,
       &:focus,
       &:active {
@@ -107,6 +109,8 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     color: $wit;
 
     button {
+      border-left-color: $wit;
+
       &:hover,
       &:focus,
       &:active {
@@ -141,7 +145,7 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     color: $dso-label-danger-color;
 
     button {
-      border-left-color: $dso-label-danger-button-border-color;
+      border-left-color: $wit;
 
       &:hover,
       &:focus,
