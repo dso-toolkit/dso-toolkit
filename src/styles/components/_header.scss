@@ -28,7 +28,7 @@ header {
       .login-icon::after {
         @include icon($dso-icon-header-icon-profile-24x24);
 
-        height: 24px;
+        height: $input-height-base;
         vertical-align: middle;
         width: 24px;
       }

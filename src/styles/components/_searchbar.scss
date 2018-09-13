@@ -87,7 +87,7 @@ $dso-searchbar-closed-width: 100px;
   label {
     color: $grasgroen;
     left: 0;
-    line-height: $input-height-base;
+    line-height: $input-height-base - 4px;
     position: absolute;
     top: 0;
   }
