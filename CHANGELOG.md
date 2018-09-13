@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 3.0.0 - UNRELEASED
+## 3.0.0 - 13-9-2018
 
 ### Releasenotes
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
@@ -13,22 +13,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
 - **BREAKING:** Added `.dso-badge` component, disabled Bootstrap's badge component (#125)
+- Hamburger menu small view example (#135)
+- Tooltip component (#137)
 
 ### Changed
 - **BREAKING:** Pagination redesign (#31)
 - **BREAKING:** Searchbar redesign (#71)
 - Formulieren "optioneel" omgedraaid naar "verplicht" (#146)
-- Deprecated fontawesome-free-webfronts package used (#165)
 - Logo updaten (#167)
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+- **BREAKING:** WCAG errors in 2.0.0-alpha.2 (#143)
 - Disabled buttons with hover styles wrong (#145)
 - Font-Awesome classnames fix FA v5 (#148)
+- Checkbox display in IE 11 (#149)
 - Modal repositions when content changes (#151)
 - IE11 modal is positioned left (#163)
-- `.dso-rich-content` in highlight-box component (#170)
+- Deprecated fontawesome-free-webfronts package used (#165)
 - Icons.scss generated wrongly on unix-based OS (#168)
+- `.dso-rich-content` in highlight-box component (#170)
+- Iconen van zoeken en inloggen lijnen vreemd uit (#176)
+- Header toont rond 800px breed helemaal geen menu (#177)
 
 ## 2.0.0 - 23-6-2018
 
@@ -49,7 +55,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Smaller accordion icons (#121)
 - Add Color Lime 20% to Toolkit (#114)
 - Rich content component (#85)
-- Tooltip component (#137)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)
