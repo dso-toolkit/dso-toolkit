@@ -57,10 +57,13 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     margin-top: -$u1 / 2;
     padding: #{$u1 / 2} $u1;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       background-color: $dso-label-default-button-hover-background-color;
       border-left-color: $dso-label-default-button-hover-border-color;
       color: $dso-label-default-button-hover-color;
+      outline: 0;
     }
   }
 
@@ -72,7 +75,9 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     button {
       border-left-color: $dso-label-info-button-border-color;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: $dso-label-info-button-hover-background-color;
         border-left-color: $dso-label-info-button-hover-border-color;
         color: $dso-label-info-button-hover-color;
@@ -86,7 +91,9 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     color: $wit;
 
     button {
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: $dso-label-primary-button-hover-background-color;
         border-left-color: $dso-label-primary-button-hover-border-color;
         color: $dso-label-primary-button-hover-color;
@@ -100,7 +107,9 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     color: $wit;
 
     button {
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: $dso-label-success-button-hover-background-color;
         border-left-color: $dso-label-success-button-hover-border-color;
         color: $dso-label-success-button-hover-color;
@@ -116,10 +125,11 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     button {
       border-left-color: $dso-label-warning-button-border-color;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: $dso-label-warning-button-hover-background-color;
         border-left-color: $dso-label-warning-button-hover-border-color;
-        //border-left-color: $dso-label-warning-button-hover-background-color;
         color: $dso-label-warning-button-hover-color;
       }
     }
@@ -133,7 +143,9 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     button {
       border-left-color: $dso-label-danger-button-border-color;
 
-      &:hover {
+      &:hover,
+      &:focus,
+      &:active {
         background-color: $dso-label-danger-button-hover-background-color;
         border-left-color: $dso-label-danger-button-hover-border-color;
         color: $dso-label-danger-button-hover-color;

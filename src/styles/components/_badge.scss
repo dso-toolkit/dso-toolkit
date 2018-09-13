@@ -1,4 +1,4 @@
-$dso-badge-default-bg-color: $lime-20;
+$dso-badge-default-bg-color: $grijs-60;
 $dso-badge-info-bg-color: $dso-info-color;
 $dso-badge-primary-bg-color: $bosgroen;
 $dso-badge-success-bg-color: $dso-success-color;
@@ -8,14 +8,14 @@ $dso-badge-danger-bg-color: $dso-danger-color;
 .dso-badge {
   background-color: $dso-badge-default-bg-color;
   border-radius: 1em;
-  color: $bosgroen;
+  color: $wit;
   display: inline-block;
   line-height: 1em;
   padding: #{$u1 / 2} $u1;
 
   &.badge-info {
     background-color: $dso-badge-info-bg-color;
-    color: $wit;
+    color: $grijs-90;
   }
 
   &.badge-primary {
