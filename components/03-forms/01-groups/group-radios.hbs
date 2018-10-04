@@ -1,7 +1,10 @@
-<fieldset class="form-group dso-radios{{#if state}} dso-{{ state }}{{/if}}{{#if inline}} dso-inline{{/if}}{{#if required }} dso-required{{/if}}">
+<fieldset class="form-group dso-radios{{#if state}} dso-{{ state }}{{/if}}{{#if inline}} dso-inline{{/if}}{{#if required }} dso-required{{/if}}{{#if info }} dso-info{{/if}}"">
   <legend class="dso-label-container">
     <label class="control-label">
       {{ label }}
+      {{#if info }}
+        {{> '@info-icon' }}
+      {{/if}}
     </label>
   </legend>
   <div class="dso-field-container">

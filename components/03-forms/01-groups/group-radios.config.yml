@@ -91,3 +91,20 @@ variants:
       checked: true
     - value: 2
       label: nee
+- name: input-radio-inline-info
+  context:
+    __title: Inline met toelichting
+    __explanation:
+    - Een knopje achter het formlabel. Dit is te bereiken door <code>.dso-info</code> op <code>.dso-radios</code> te zetten. En een <code><i class="fas fa-info"></i></code> achter de label-tekst.
+    id: input-radio-inline
+    label: Gaat het om de bouw van één of meer woningen?
+    helpText: ""
+    # required: true
+    info: true
+    inline: true
+    options:
+    - value: 1
+      label: ja
+      checked: true
+    - value: 2
+      label: nee

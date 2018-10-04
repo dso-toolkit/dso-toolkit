@@ -49,6 +49,21 @@ form {
     }
   }
 
+  &.dso-info {
+    i.fa-info {
+      border: $dso-button-border-width solid $grasgroen;
+      border-radius: 50%;
+      color: $grasgroen;
+      display: inline-block;
+      font-size: .85em;
+      height: $dso-button-info-size;
+      line-height: $dso-button-info-size - 2 * $dso-button-border-width;
+      margin-right: $u1;
+      text-align: center;
+      width: $dso-button-info-size;
+    }
+  }
+
   &.has-feedback {
     .form-control {
       padding-right: $u6 - $dso-form-control-border-width; // Feedback icon: 16px padding + 16px size + 16px padding - border
