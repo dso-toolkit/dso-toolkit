@@ -160,3 +160,31 @@
     }
   }
 }
+
+.btn-info {
+  background-color: $wit;
+  border: $dso-button-info-border-width solid $grasgroen;
+  border-radius: 50%;
+  color: $grasgroen;
+  font-size: .55em;
+  height: $dso-button-info-size;
+  line-height: $dso-button-info-size - 2 * $dso-button-info-border-width;
+  margin-left: $u1;
+  min-width: $dso-button-info-size;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  top: $dso-button-info-correction-factor;
+  width: $dso-button-info-size;
+
+  .dso-info-open &,
+  &:hover {
+    background-color: $grasgroen;
+    border-color: $grasgroen;
+    color: $wit;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    top: #{$u1 + $dso-button-info-correction-factor};
+  }
+}

@@ -1,0 +1,45 @@
+<fieldset class="form-group dso-radios dso-info{{#if info-open}} dso-info-open{{/if}}">
+  <legend class="dso-label-container">
+    <label class="control-label">
+      {{ label }}
+    </label>
+    <button type="{{ type }}" class="btn btn-info">
+      {{> '@icon' icon=icon }}
+      <span class="sr-only" aria-hidden="true">
+         {{ button-label }}
+      </span>
+    </button>
+  </legend>
+  <div class="dso-field-container">
+    {{#each options }}
+      <div class="dso-selectable">
+        <input type="radio" id="{{ ../id }}-{{ @index }} " name="{{ ../id }} " value="{{ value }}" />
+        <label for="{{ ../id }}-{{ @index }} ">
+          {{ label }}
+        </label>
+      </div>
+    {{/each}}
+  </div>
+</fieldset>
+{{#if info-text}}
+  <div class="dso-info-toggle-container">
+    <div class="dso-info-toggle-header">
+      <button type="button" class="dso-info-toggle-close" aria-label="Sluiten"></button>
+      {{#if info-title}}
+        <h3>
+          {{ info-title }}
+        </h3>
+      {{/if}}
+    </div>
+    <div class="dso-info-toggle-text">
+      {{ info-text }}
+    </div>
+    <div class="dso-info-toggle-link">
+      <a href="#">
+        {{> '@icon' icon=info-link-icon }}
+        {{ info-link }}
+      </a>
+    </div>
+  </div>
+{{/if}}
+

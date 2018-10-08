@@ -1,0 +1,28 @@
+notes:
+  Een knopje achter het formlabel. Dit is te bereiken door `.dso-info` op `.form-group` te zetten.
+  En een `button` achter de label-tekst. De class `.dso-info-open` doet de toelichting tonen.
+id: toggle-info
+collated: true
+context:
+  button-label: Toelichting
+  icon: fas fa-info
+  id: input-radio
+  label: Maak een keuze om een keuze te hebben gemaakt
+  inline: true
+  options:
+  - value: 1
+    label: een
+  - value: 2
+    label: twee
+variants:
+  - name: toggle-uitgeklapt
+    context:
+      id: toggle-info-open
+      info-link: Lees meer
+      info-link-icon: fas fa-chevron-down
+      info-open: true
+      info-text: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      info-title: Toelichting titel
