@@ -3,7 +3,9 @@ $step-padding: 12px;
 .stepcounter {
   @extend %is-h2;
   border-bottom: 1px solid $grasgroen;
+  float: left;
   padding-bottom: $step-padding;
+  width: 100%;
 
   span.step {
     display: block;
