@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs tabcnt-{{ count }}">
+  {{#each tabs }}
+    {{#if @first }}
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url }}">{{ label }}</a>
+      </li>
+    {{else}}
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url }}">{{ label }}</a>
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>

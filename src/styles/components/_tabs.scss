@@ -1,0 +1,78 @@
+ul.nav-tabs {
+  border-bottom: 1px solid $grasgroen;
+
+  li {
+    border-color: $grasgroen;
+    font-weight: bold;
+
+    a {
+      color: $grijs-60;
+    }
+
+    &.active a {
+      border: 1px solid $grasgroen;
+      border-bottom-color: transparent;
+      color: $grasgroen;
+    }
+
+    &:hover a {
+      background-color: $wit;
+      border: 1px solid $grasgroen;
+      border-bottom-color: $wit;
+    }
+  }
+
+  &.tabcnt-2 {
+    li {
+      width: 50%;
+    }
+  }
+
+  &.tabcnt-3 {
+    li {
+      width:33%;
+    }
+  }
+
+  &.tabcnt-4 {
+    li {
+      width: 25%;
+    }
+  }
+
+  &.tabcnt-5 {
+    li {
+      width: 20%;
+    }
+  }
+
+  &.tabcnt-6 {
+    li {
+      width: 16.66%;
+    }
+  }
+
+  &.tabcnt-7 {
+    li {
+      width: 14.28%;
+    }
+  }
+
+  &.tabcnt-8 {
+    li {
+      width: 12.5%;
+    }
+  }
+
+  &.tabcnt-9 {
+    li {
+      width: 11.11%;
+    }
+  }
+
+  &.tabcnt-10 {
+    li {
+      width: 10%;
+    }
+  }
+}
