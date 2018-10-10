@@ -1,0 +1,15 @@
+$step-padding: 12px;
+
+.stepcounter {
+  @extend %is-h2;
+  border-bottom: 1px solid $grasgroen;
+  padding-bottom: $step-padding;
+
+  span.step {
+    display: block;
+    float: right;
+    font-size: 1rem;
+    font-weight: normal;
+    padding-top: #{$step-padding / 2};
+  }
+}
