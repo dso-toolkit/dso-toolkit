@@ -10,6 +10,7 @@
   font-weight: bold;
   height: $dso-button-size;
   line-height: $dso-button-size - 2 * $dso-button-border-width;
+  margin-bottom: $dso-button-margin-bottom;
   min-width: $dso-button-size;
 
   &:active,
