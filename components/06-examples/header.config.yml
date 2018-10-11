@@ -1,3 +1,5 @@
+notes: |
+  Toevoeging van de class class `.dso-open` op de `.dso-navbar` opent het mobiele navigatiemenu. Dit dient scriptend te gebeuren.
 status: ready
 context:
   searchbarContext:
