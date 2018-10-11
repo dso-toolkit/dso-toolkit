@@ -10,6 +10,7 @@
   font-weight: bold;
   height: $dso-button-size;
   line-height: $dso-button-size - 2 * $dso-button-border-width;
+  margin-bottom: $dso-button-margin-bottom;
   min-width: $dso-button-size;
 
   &:active,
@@ -100,6 +101,7 @@
 .btn-link {
   border: 0;
   color: $grasgroen;
+  font-size: 1rem;
   height: $dso-button-link-size;
   line-height: $dso-button-link-size;
   padding: 0;
