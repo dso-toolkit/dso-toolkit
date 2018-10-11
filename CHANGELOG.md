@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Accordeon font-size naar 20px (#185)
 * Tertiare button 16px (#186)
 * Hamburger menu documentatie bijwerken met instructies voor scripting (#188)
+* Lijnen van secundaire button niet altijd even dik (#193)
 
 ## 3.0.0 - 13-9-2018
 
