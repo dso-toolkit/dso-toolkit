@@ -91,3 +91,20 @@ variants:
       checked: true
     - value: 2
       label: nee
+- name: input-radio-inline-info
+  context:
+    __title: Inline
+    __explanation:
+    - Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.
+    id: input-radio-inline
+    label: Gaat het om de bouw van één of meer woningen?
+    helpText: ""
+    infoButton: true
+    # required: true
+    inline: true
+    options:
+    - value: 1
+      label: ja
+      checked: true
+    - value: 2
+      label: nee

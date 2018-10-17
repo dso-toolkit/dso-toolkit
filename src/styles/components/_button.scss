@@ -163,7 +163,7 @@
   }
 }
 
-.btn-info {
+.dso-label-container .btn {
   background-color: $wit;
   border: $dso-button-info-border-width solid $grasgroen;
   border-radius: 50%;
@@ -178,6 +178,11 @@
   text-align: center;
   top: $dso-button-info-correction-factor;
   width: $dso-button-info-size;
+
+  &::after {
+    content: "\f129";
+    font-family: FontAwesome;
+  }
 
   .dso-info-open &,
   &:hover {
