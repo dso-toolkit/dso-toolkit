@@ -1,0 +1,4 @@
+@import "bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+.list-group > .list-group-item {
+  @extend %dso-rich-content;
+}
