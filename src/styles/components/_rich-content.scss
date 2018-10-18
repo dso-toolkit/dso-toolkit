@@ -1,4 +1,4 @@
-.dso-rich-content {
+%dso-rich-content {
   > :first-child {
     margin-top: 0;
   }
@@ -6,4 +6,10 @@
   > :last-child {
     margin-bottom: 0;
   }
+}
+
+/// @deprecated This class should not have to be used and may be dropped in
+/// a future major release. Instead extend `%dso-rich-content`.
+.dso-rich-content {
+  @extend %dso-rich-content;
 }
