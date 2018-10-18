@@ -1,5 +1,6 @@
 .table {
-  td, th {
+  td,
+  th {
     @extend %dso-rich-content;
   }
 
