@@ -8,6 +8,7 @@ dl {
 
   dd:not(:last-of-type) {
     @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+    @extend %dso-rich-content;
     margin-bottom: $dso-definition-list-vertical-space;
   }
 

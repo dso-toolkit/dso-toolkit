@@ -1,6 +1,15 @@
 <dl{{{ifattr ' class' modifier }}}>
   {{#each definitions }}
     <dt>{{ term }}</dt>
+    {{#each descriptions }}
     <dd>{{ description }}</dd>
+    {{/each }}
+    {{#if longread }}
+    <dd>
+      {{#each longread }}
+      <p>{{ paragraph }}
+      {{/each }}
+    </dd>
+    {{/if }}
   {{/each}}
 </dl>
