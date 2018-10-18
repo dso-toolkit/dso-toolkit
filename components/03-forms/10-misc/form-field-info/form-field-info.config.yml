@@ -1,6 +1,5 @@
 notes:
-  Een knopje achter het formlabel. Dit is te bereiken door `.dso-info` op `.form-group` te zetten.
-  En een `button` achter de label-tekst. De class `.dso-info-open` doet de toelichting tonen.
+  Een toelcihting bij form-group. De info-link facliteert het tonen van extra informatie. De class op het icoon toggled van <code>fa-chevron-down</code> naar <code>fa-chevron-down</code>.
 id: toggle-info-open
 collated: true
 context:

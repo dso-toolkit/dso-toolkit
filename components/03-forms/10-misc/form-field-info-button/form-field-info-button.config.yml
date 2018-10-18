@@ -1,6 +1,5 @@
 notes:
-  Een knopje achter het formlabel. Dit is te bereiken door `.dso-info` op `.form-group` te zetten.
-  En een `button` achter de label-tekst. De class `.dso-info-open` doet de toelichting tonen.
+  Een knopje achter het formlabel. En een `button` achter de label-tekst. De class `.dso-info-open` (bij getoonde toelichting) maakt de button groen.
 id: toggle-info
 collated: true
 context:
