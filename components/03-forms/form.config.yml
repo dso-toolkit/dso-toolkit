@@ -111,6 +111,44 @@ context:
       rows: 5
       label: Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
       helpText: Deze vraag heeft een toelichting
+  - legend: Vraag met infobutton
+    groups:
+    - id: input-radio-infobutton
+      inputType: radios
+      label: Blieft u een toelichting?
+      options:
+      - value: 1
+        label: ja
+        checked: true
+      - value: 2
+        label: nee
+      infoButton: true
+      infoButtonLabel: Toelichting
+      infoOpen: false
+  - legend: Vraag met infobutton uitgeklapt
+    groups:
+    - id: input-radio-infobutton-open
+      inputType: radios
+      label: Toelichting op uw vraag
+      options:
+      - value: 1
+        label: ja
+        checked: true
+      - value: 2
+        label: nee
+      infoButton: true
+      infoButtonLabel: Toelichting
+      infoOpen: true
+      infoTitle: Toelichting titel
+      infoLink: Lees meer
+      infoLinkIcon: fas fa-chevron-down
+      infoText: |
+        <h4>Heading 4</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+          Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+        </p>
   submitButton:
     type: submit
     modifier: primary
