@@ -55,3 +55,35 @@ variants:
     id: input-select-disabled
     required: true
     disabled: true
+- name: input-select-infobutton
+  context:
+    __title: Infobutton
+    id: input-select-infobutton
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: false
+- name: input-select-infobutton-required
+  context:
+    __title: Infobutton verplicht
+    id: input-select-multiple-required
+    required: true
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: false
+- name: input-select-infobutton-open
+  context:
+    __title: Infobutton uitgeklapt
+    id: input-select-multiple-open
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: true
+    infoTitle: Toelichting titel
+    infoLink: Lees meer
+    infoLinkIcon: fas fa-chevron-down
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>

@@ -3,6 +3,9 @@
     <label for="{{ id }}" class="control-label">
       {{ label }}
     </label>
+    {{#if infoButton }}
+      {{> '@form-field-info-button' }}
+    {{/if}}
   </div>
   <div class="dso-field-container">
     <textarea class="form-control" id="{{ id }}"
@@ -18,4 +21,7 @@
       {{> '@help-block' }}
     {{/if}}
   </div>
+  {{#if infoText }}
+    {{> '@form-field-info' }}
+  {{/if}}
 </div>

@@ -55,3 +55,47 @@ variants:
     id: input-text-readonly
     label: Naam
     readonly: true
+- name: input-text-infobutton
+  context:
+    __title: Info button
+    __explanation:
+    - Bla 1
+    id: input-text-infobutton
+    label: E-mailadres
+    value: thomas@
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: false
+- name: input-text-infobutton-required
+  context:
+    __title: Info button
+    __explanation:
+    - Bla 2
+    id: input-text-infobutton
+    label: E-mailadres
+    value: thomas@
+    required: true
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: false
+- name: input-text-infobutton-open
+  context:
+    __title: Info button
+    __explanation:
+    - Bla 3
+    id: input-text-infobutton-open
+    label: E-mailadres
+    value: thomas@
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: true
+    infoTitle: Toelichting titel
+    infoLink: Lees meer
+    infoLinkIcon: fas fa-chevron-down
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>

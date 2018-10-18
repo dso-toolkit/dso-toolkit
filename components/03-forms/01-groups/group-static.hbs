@@ -1,8 +1,14 @@
 <div class="form-group dso-static">
   <div class="dso-label-container">
     <label class="control-label">{{ label }}</label>
+    {{#if infoButton }}
+      {{> '@form-field-info-button' }}
+    {{/if}}
   </div>
   <div class="dso-field-container">
     <p>{{ value }}</p>
   </div>
+  {{#if infoText }}
+    {{> '@form-field-info' }}
+  {{/if}}
 </div>

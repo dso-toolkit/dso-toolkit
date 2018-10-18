@@ -102,14 +102,12 @@ form {
   }
 
   .dso-info-toggle-container {
-    background-color: $grijs-10;
     margin-bottom: $u2;
     margin-top: $u2;
-    padding: $u2;
 
-    .dso-info-toggle-container {
-      float: left;
-      width: 100%;
+    .dso-info-toggle-inside {
+      background-color: $grijs-10;
+      padding: $u2;
     }
 
     .dso-info-toggle-close {
@@ -247,6 +245,10 @@ select:not([multiple]) {
 
     > .dso-field-container {
       @include make-sm-column($grid-columns - $dso-label-column);
+    }
+
+    > .dso-info-toggle-container {
+      @include make-sm-column($grid-columns);
     }
 
     &.dso-confirm {

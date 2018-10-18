@@ -3,6 +3,9 @@
     <label class="control-label">
       {{ label }}
     </label>
+    {{#if infoButton }}
+      {{> '@form-field-info-button' }}
+    {{/if}}
   </legend>
   <div class="dso-field-container">
     {{#each options }}
@@ -21,4 +24,7 @@
       {{> '@help-block' }}
     {{/if}}
   </div>
+  {{#if infoText }}
+    {{> '@form-field-info' }}
+  {{/if}}
 </fieldset>

@@ -84,3 +84,59 @@ variants:
     - value: 3
       label: drie
       disabled: true
+- name: input-checkbox-info
+  context:
+    __title: Info button
+    __explanation: Bla 1
+    id: input-checkbox-info-button
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: false
+- name: input-checkbox-info-button-required
+  context:
+    __title: Info button verplicht
+    __explanation: Bla 2
+    id: input-checkbox-info-button-required
+    required: true
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: false
+- name: input-checkbox-info-button-open
+  context:
+    __title: Info button uitgeklapt
+    __explanation: Bla 3
+    id: input-checkbox-info-button-open
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+    infoButton: true
+    infoButtonLabel: Toelichting
+    infoOpen: true
+    infoTitle: Toelichting titel
+    infoLink: Lees meer
+    infoLinkIcon: fas fa-chevron-down
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
