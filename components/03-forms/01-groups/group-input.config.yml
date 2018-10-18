@@ -57,9 +57,9 @@ variants:
     readonly: true
 - name: input-text-infobutton
   context:
-    __title: Info button
+    __title: Infobutton
     __explanation:
-    - Bla 1
+    - Toelichting ingeklapt
     id: input-text-infobutton
     label: E-mailadres
     value: thomas@
@@ -68,9 +68,9 @@ variants:
     infoOpen: false
 - name: input-text-infobutton-required
   context:
-    __title: Info button
+    __title: Infobutton verplicht
     __explanation:
-    - Bla 2
+    - Toelichting ingeklapt, verplicht veld
     id: input-text-infobutton
     label: E-mailadres
     value: thomas@
@@ -80,9 +80,9 @@ variants:
     infoOpen: false
 - name: input-text-infobutton-open
   context:
-    __title: Info button
+    __title: Infobutton uitgeklapt
     __explanation:
-    - Bla 3
+    - Toelichting uitgeklapt
     id: input-text-infobutton-open
     label: E-mailadres
     value: thomas@

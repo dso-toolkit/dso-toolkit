@@ -87,7 +87,8 @@ variants:
 - name: input-checkbox-info
   context:
     __title: Info button
-    __explanation: Bla 1
+    __explanation:
+    - Toelichting ingeklapt
     id: input-checkbox-info-button
     options:
     - value: 1
@@ -101,8 +102,9 @@ variants:
     infoOpen: false
 - name: input-checkbox-info-button-required
   context:
-    __title: Info button verplicht
-    __explanation: Bla 2
+    __title: Infobutton verplicht
+    __explanation:
+    - Toelichting ingeklapt, verplicht veld
     id: input-checkbox-info-button-required
     required: true
     options:
@@ -117,8 +119,9 @@ variants:
     infoOpen: false
 - name: input-checkbox-info-button-open
   context:
-    __title: Info button uitgeklapt
-    __explanation: Bla 3
+    __title: Infobutton uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt
     id: input-checkbox-info-button-open
     options:
     - value: 1

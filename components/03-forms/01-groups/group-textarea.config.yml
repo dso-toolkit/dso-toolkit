@@ -50,6 +50,8 @@ variants:
 - name: input-textarea-infobutton
   context:
     __title: Infobutton
+    __explanation:
+    - Toelichting ingeklapt
     id: input-textarea-infobutton
     infoButton: true
     infoButtonLabel: Toelichting
@@ -57,6 +59,8 @@ variants:
 - name: input-textarea-infobutton-required
   context:
     __title: Infobutton verplicht
+    __explanation:
+    - Toelichting ingeklapt, verplicht veld
     id: input-textarea-infobutton-required
     required: true
     infoButton: true
@@ -64,7 +68,9 @@ variants:
     infoOpen: false
 - name: input-textarea-infobutton-open
   context:
-    __title: Infobutton verplicht
+    __title: Infobutton uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt
     id: input-textarea-infobutton-open
     infoButton: true
     infoButtonLabel: Toelichting

@@ -93,7 +93,7 @@ variants:
       label: nee
 - name: input-radio-inline-info
   context:
-    __title: Inline info
+    __title: Infobutton
     __explanation:
     - Toelichting ingeklapt
     id: input-radio-inline
@@ -111,7 +111,7 @@ variants:
     infoOpen: false
 - name: input-radio-inline-info
   context:
-    __title: Inline info
+    __title: Infobutton verplicht
     __explanation:
     - Toelichting ingeklapt, verplicht veld
     id: input-radio-inline
@@ -130,7 +130,7 @@ variants:
     infoOpen: false
 - name: input-radio-inline-info
   context:
-    __title: Inline info
+    __title: Infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
     id: input-radio-inline

@@ -58,6 +58,8 @@ variants:
 - name: input-select-infobutton
   context:
     __title: Infobutton
+    __explanation:
+    - Toelichting ingeklapt
     id: input-select-infobutton
     infoButton: true
     infoButtonLabel: Toelichting
@@ -65,6 +67,8 @@ variants:
 - name: input-select-infobutton-required
   context:
     __title: Infobutton verplicht
+    __explanation:
+    - Toelichting ingeklapt, verplicht veld
     id: input-select-multiple-required
     required: true
     infoButton: true
@@ -73,6 +77,8 @@ variants:
 - name: input-select-infobutton-open
   context:
     __title: Infobutton uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt
     id: input-select-multiple-open
     infoButton: true
     infoButtonLabel: Toelichting
