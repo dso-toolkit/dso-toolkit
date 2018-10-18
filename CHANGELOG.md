@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Lijnen van secundaire button niet altijd even dik (#193)
 * Label spacing padding too small (#194)
 
+### Added
+* Info button for formfield labels (#190)
+
 ## 3.0.0 - 13-9-2018
 
 ### Releasenotes
