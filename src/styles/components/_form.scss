@@ -10,7 +10,7 @@ $dso-required-string: "verplicht";
 
 $dso-toggle-close-icon: $dso-icon-button-icon-cross-12x12;
 $dso-toggle-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
-$dso-toggle-close-icon-size: $u4;
+$dso-toggle-close-icon-size: $u3;
 $dso-toggle-header-margin: 12px;
 
 form {
@@ -107,7 +107,7 @@ form {
 
     .dso-info-toggle-inside {
       background-color: $grijs-10;
-      padding: $u2;
+      padding: $u2 $u4 $u2 $u2;
     }
 
     .dso-info-toggle-close {
@@ -119,7 +119,7 @@ form {
       border-radius: 50%;
       float: right;
       height: $dso-toggle-close-icon-size;
-      margin-top: #{$dso-toggle-close-icon-size / -8};
+      margin: #{$u1 / 2 - 2px} #{$u1 / 2 - 2px} 0 0;
       width: $dso-toggle-close-icon-size;
 
       &:hover,
