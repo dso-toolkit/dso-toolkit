@@ -2,7 +2,7 @@ notes: |
   Toont navigatie-tabs. Gebaseerd op de Bootstrap "Navs" component
 collated: true
 context:
-  __title: 2 tabs
+  __title: Two tabs
   tabs:
     - label: Tab 1
       url: '#'
@@ -11,7 +11,7 @@ context:
 variants:
   - name: Three tabs
     context:
-      __title: 3 tabs
+      __title: Three tabs
       tabs:
       - label: Tab 1
         url: '#'
