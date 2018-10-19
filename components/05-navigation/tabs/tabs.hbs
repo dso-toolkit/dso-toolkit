@@ -1,13 +1,7 @@
 <ul class="nav nav-tabs dso-tabcnt-{{ tabs.length }}">
   {{#each tabs }}
-    {{#if @first }}
-      <li class="nav-item active">
-        <a href="{{ url }}" class="nav-link">{{ label }}</a>
-      </li>
-    {{else}}
-      <li class="nav-item">
-        <a href="{{ url }}" class="nav-link">{{ label }}</a>
-      </li>
-    {{/if}}
+    <li class="nav-item{{#if @first }} active{{/if}}">
+      <a href="{{ url }}" class="nav-link">{{ label }}</a>
+    </li>
   {{/each}}
 </ul>
