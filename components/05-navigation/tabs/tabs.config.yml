@@ -3,7 +3,6 @@ notes: |
 collated: true
 context:
   __title: 2 tabs
-  count: 2
   tabs:
     - label: Tab 1
       url: '#'
@@ -13,7 +12,6 @@ variants:
   - name: Three tabs
     context:
       __title: 3 tabs
-      count: 3
       tabs:
       - label: Tab 1
         url: '#'
@@ -25,7 +23,6 @@ variants:
   - name: Four tabs
     context:
       __title: Four tabs
-      count: 4
       tabs:
       - label: Tab 1
         url: '#'
@@ -39,7 +36,6 @@ variants:
   - name: Five tabs
     context:
       __title: Five tabs
-      count: 5
       tabs:
       - label: Tab 1
         url: '#'
@@ -55,7 +51,6 @@ variants:
   - name: Six tabs
     context:
       __title: Six tabs
-      count: 6
       tabs:
       - label: Tab 1
         url: '#'
@@ -73,7 +68,6 @@ variants:
   - name: Seven tabs
     context:
       __title: Seven tabs
-      count: 7
       tabs:
       - label: Tab 1
         url: '#'
@@ -93,7 +87,6 @@ variants:
   - name: Eight tabs
     context:
       __title: Eight tabs
-      count: 8
       tabs:
       - label: Tab 1
         url: '#'
@@ -115,7 +108,6 @@ variants:
   - name: Nine tabs
     context:
       __title: Nine tabs
-      count: 9
       tabs:
       - label: Tab 1
         url: '#'
@@ -139,7 +131,6 @@ variants:
   - name: Ten tabs
     context:
       __title: Ten tabs
-      count: 10
       tabs:
       - label: Tab 1
         url: '#'

@@ -4,75 +4,40 @@ ul.nav-tabs {
   li {
     border-color: $grasgroen;
     font-weight: bold;
+    min-height: 44px;
 
     a {
+      border-radius: 3px;
       color: $grijs-60;
+      min-height: 44px;
+      padding: 10px 25px;
     }
 
     &.active a {
-      border: 1px solid $grasgroen;
-      border-bottom-color: transparent;
-      color: $grasgroen;
+      &,
+      &:focus,
+      &:hover {
+        border: 1px solid $grasgroen;
+        border-bottom-color: $wit;
+        color: $grasgroen;
+      }
     }
 
-    &:hover a {
-      background-color: $wit;
+    a:active,
+    a:focus,
+    a:hover {
+      background-color: $wit !important;
       border: 1px solid $grasgroen;
       border-bottom-color: $wit;
+      outline: 0;
     }
   }
 
-  &.tabcnt-2 {
-    li {
-      width: 50%;
-    }
-  }
+  $tab-cnt: dso-tabcnt !default;
 
-  &.tabcnt-3 {
-    li {
-      width:33%;
-    }
-  }
-
-  &.tabcnt-4 {
-    li {
-      width: 25%;
-    }
-  }
-
-  &.tabcnt-5 {
-    li {
-      width: 20%;
-    }
-  }
-
-  &.tabcnt-6 {
-    li {
-      width: 16.66%;
-    }
-  }
-
-  &.tabcnt-7 {
-    li {
-      width: 14.28%;
-    }
-  }
-
-  &.tabcnt-8 {
-    li {
-      width: 12.5%;
-    }
-  }
-
-  &.tabcnt-9 {
-    li {
-      width: 11.11%;
-    }
-  }
-
-  &.tabcnt-10 {
-    li {
-      width: 10%;
+  @for $i from 1 through 10 {
+    &.#{$tab-cnt}-#{$i} li {
+      width: calc(100% / #{$i} - 1px);
     }
   }
 }
