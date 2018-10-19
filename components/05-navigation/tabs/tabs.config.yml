@@ -1,5 +1,5 @@
 notes: |
-  Toont navigatie-tabs. Gebaseerd op de Bootstrap "Navs" component
+  Toont navigatie-tabs. Gebaseerd op de Bootstrap `nav-tabs` component. Afhankelijk van het aantal tabs, loopt het getal in de class `dso-tabcnt-2` evenredig op (lees: `dso-tabcnt-3`, `dso-tabcnt-4`, etc.).
 collated: true
 context:
   __title: Two tabs
