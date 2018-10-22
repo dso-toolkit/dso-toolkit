@@ -1,4 +1,9 @@
 .table {
+  td,
+  th {
+    @extend %dso-rich-content;
+  }
+
   > thead > tr {
     > th {
       border-bottom: 1px solid $grijs-50;

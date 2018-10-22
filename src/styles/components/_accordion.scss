@@ -97,6 +97,7 @@ $dso-accordion-state-icon-size: $u3;
   }
 
   .dso-section-body {
+    @extend %dso-rich-content;
     padding-bottom: $u4;
     padding-top: $u1;
   }
