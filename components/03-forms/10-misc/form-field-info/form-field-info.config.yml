@@ -1,5 +1,5 @@
 notes:
-  Een toelcihting bij form-group. De info-link facliteert het tonen van extra informatie. De class op het icoon toggled van <code>fa-chevron-down</code> naar <code>fa-chevron-down</code>.
+  Een toelichting bij form-group. De info-link faciliteert het tonen van extra informatie. De class op het icoon togglt van <code>fa-chevron-down</code> naar <code>fa-chevron-down</code>.
 id: toggle-info-open
 collated: true
 context:

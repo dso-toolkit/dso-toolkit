@@ -10,7 +10,7 @@ $dso-required-string: "verplicht";
 
 $dso-toggle-close-icon: $dso-icon-button-icon-cross-12x12;
 $dso-toggle-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
-$dso-toggle-close-icon-size: $u3;
+$dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
 
 form {
@@ -115,25 +115,21 @@ form {
       background-image: url($dso-toggle-close-icon);
       background-position: 50% 50%;
       background-repeat: no-repeat;
+      background-size: $u2 $u2;
       border: 0;
       border-radius: 50%;
       float: right;
-      height: $dso-toggle-close-icon-size;
-      margin: #{$u1 / 2 - 2px} #{$u1 / 2 - 2px} 0 0;
-      width: $dso-toggle-close-icon-size;
+      height: #{$dso-toggle-close-icon-size - 2px};
+      margin: #{$u1 / 4} #{$u1 / 4} 0 0;
+      width: #{$dso-toggle-close-icon-size - 2px};
 
       &:hover,
       &:focus,
-      &.focus {
-        background-color: $wit;
-        border: 2px solid $grasgroen;
-        outline: 0;
-      }
-
+      &.focus,
       &:active,
       &.active {
-        background-color: $grasgroen;
-        background-image: url($dso-toggle-close-icon-active);
+        border: 2px solid $grasgroen;
+        outline: 0;
       }
     }
 
