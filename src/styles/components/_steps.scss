@@ -1,13 +1,14 @@
+$step-indicator-padding: 12px;
 $step-padding: 12px;
 
-.stepcounter {
+.dso-steps-indicator {
   @extend %is-h2;
   border-bottom: 1px solid $grasgroen;
   float: left;
-  padding-bottom: $step-padding;
+  padding-bottom: $step-indicator-padding;
   width: 100%;
 
-  span.step {
+  span.dso-step {
     display: block;
     float: right;
     font-size: 1rem;
