@@ -108,7 +108,6 @@ context:
     groups:
     - id: gekke_vraag
       inputType: textarea
-      rows: 5
       label: Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
       helpText: Deze vraag heeft een toelichting
   submitButton:

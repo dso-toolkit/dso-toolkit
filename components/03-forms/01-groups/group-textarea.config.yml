@@ -5,7 +5,6 @@ collated: true
 context:
   id: input-textarea
   label: Wilt u nog wat kwijt?
-  rows: 5
 variants:
 - name: input-textarea-invalid
   context:
