@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hamburger menu documentatie bijwerken met instructies voor scripting (#188)
 * Lijnen van secundaire button niet altijd even dik (#193)
 * Label spacing padding too small (#194)
+*  correctie berekening hoogte fractal content-panel -non intrusive- (#208)
 
 ## 3.0.0 - 13-9-2018
 
