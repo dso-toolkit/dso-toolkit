@@ -50,6 +50,7 @@
         color: $grasgroen;
 
         .icon {
+          @include icon($dso-icon-button-icon-chevron-right-12x12);
           background-color: $wit;
           border-color: $grasgroen;
           color: $grasgroen;
@@ -63,6 +64,7 @@
           opacity: 1;
 
           .icon {
+            @include icon($dso-icon-button-icon-chevron-right-disabled-12x12);
             background-color: $wit;
             border-color: $grasgroen-40;
             color: $grasgroen-40;
@@ -98,6 +100,7 @@
 
   .example-hover .btn.btn-link {
     .icon {
+      @include icon($dso-icon-button-icon-chevron-right-white-12x12);
       background-color: $grasgroen;
       border-color: $grasgroen;
       color: $wit;
@@ -108,6 +111,7 @@
     color: $bosgroen;
 
     .icon {
+      @include icon($dso-icon-button-icon-chevron-right-white-12x12);
       background-color: $bosgroen;
       border-color: $bosgroen;
       color: $wit;
