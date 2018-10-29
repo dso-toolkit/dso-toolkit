@@ -6,6 +6,7 @@ $dso-pagination-item-border-size: 2px;
 
   > li {
     display: inline-block;
+    font-weight: bold;
     height: $dso-pagination-item-size;
     line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
     text-align: center;
