@@ -5,28 +5,35 @@ $dso-pagination-item-border-size: 2px;
   text-align: center;
 
   > li {
-    display: inline;
+    display: inline-block;
+    line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
+    text-align: center;
+    width: $dso-pagination-item-size;
 
     a,
     span {
-      border: $dso-pagination-item-border-size solid transparent;
-      border-radius: 50%;
       color: $grasgroen;
       display: inline-block;
-      height: $dso-pagination-item-size;
-      line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
       vertical-align: middle;
-      width: $dso-pagination-item-size;
 
       &:active {
         background-color: $grasgroen-10;
       }
     }
 
+    span {
+      border: $dso-pagination-item-border-size solid transparent;
+      border-radius: 50%;
+      height: $dso-pagination-item-size;
+      width: $dso-pagination-item-size;
+    }
+
     a {
+      border-bottom: 3px solid transparent;
+
       &:hover,
       &:focus {
-        border-color: $grasgroen;
+        border-bottom: 3px solid $grasgroen;
         text-decoration: none;
       }
 
@@ -51,8 +58,10 @@ $dso-pagination-item-border-size: 2px;
       a {
         border: 2px solid $grasgroen;
         border-radius: 50%;
+        height: $dso-pagination-item-size;
         text-indent: -9999px;
         white-space: nowrap;
+        width: $dso-pagination-item-size;
 
         &:hover,
         &:focus {
