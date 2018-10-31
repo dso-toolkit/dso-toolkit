@@ -11,8 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hamburger menu documentatie bijwerken met instructies voor scripting (#188)
 * Lijnen van secundaire button niet altijd even dik (#193)
 * Label spacing padding too small (#194)
-* Icoon a.extern::after en dso-succes a::after beten elkaar (#205)
+* Icoon a.extern::after en dso-succes a::after beten elkaar (#204)
 * Correctie berekening hoogte Fractal content-panel (#208)
+* Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
 
 ## 3.0.0 - 13-9-2018
 
