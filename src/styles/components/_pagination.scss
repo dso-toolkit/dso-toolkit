@@ -7,15 +7,14 @@ $dso-pagination-item-border-size: 2px;
   > li {
     display: inline-block;
     font-weight: bold;
-    height: $dso-pagination-item-size;
     line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
     text-align: center;
-    width: $dso-pagination-item-size;
 
     a,
     span {
       color: $grasgroen;
       display: inline-block;
+      position: relative;
       vertical-align: middle;
 
       &:active {
@@ -31,16 +30,30 @@ $dso-pagination-item-border-size: 2px;
     }
 
     a {
-      border-bottom: 3px solid transparent;
+      height: $dso-pagination-item-size;
+      width: $dso-pagination-item-size;
 
       &:hover,
       &:focus {
-        border-bottom: 3px solid $grasgroen;
         text-decoration: none;
+
+        &::after {
+          border-bottom-color: $grasgroen;
+        }
       }
 
       &:focus {
         outline: 0;
+      }
+
+      &::after {
+        border-bottom: 3px solid transparent;
+        bottom: 0;
+        content: "";
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        width: 100%;
       }
     }
 
@@ -69,6 +82,10 @@ $dso-pagination-item-border-size: 2px;
         &:focus {
           background-color: $grasgroen;
           color: $wit;
+        }
+
+        &::after {
+          display: none;
         }
       }
     }
