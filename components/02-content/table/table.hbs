@@ -1,4 +1,4 @@
-<table class="table {{ modifier }}">
+<table {{#if tableClass}}class="{{ tableClass }} {{ modifier }}"{{/if}}>
   <caption {{#unless showCaption }}class="sr-only"{{/unless}}>{{ caption }}</caption>
   <thead>
     <tr>

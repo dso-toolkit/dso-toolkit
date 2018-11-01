@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ _target.label }} | {{ _config.project.title }} - Component preview</title>
+
+    <link rel="stylesheet" href="{{path '/styles/dso.css' }}" />
+
+    <style>
+      .grid-example .row .col {
+        background-color: #efefef;
+        margin-bottom: 12px;
+        padding: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      {{{ yield }}}
+    </div>
+  </body>
+
+</html>
