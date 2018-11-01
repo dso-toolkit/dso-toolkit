@@ -163,7 +163,7 @@
   }
 }
 
-.dso-label-container .btn {
+.dso-info-button {
   background: url($dso-icon-info-icon-tooltip-info-14x14) $wit 50% 50%;
   border-radius: 50%;
   border-width: 0;
@@ -174,7 +174,7 @@
   position: relative;
   width: $dso-button-info-size;
 
-  &.dso-info-open,
+  &.dso-open,
   &:hover,
   &:active,
   &.active,
