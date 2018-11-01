@@ -17,6 +17,12 @@
         <label for="{{ ../id }}-{{ @index }}">
           {{ label }}
         </label>
+        {{#if infoText }}
+          {{> '@form-field-info-button' }}
+        {{/if}}
+        {{#if infoOpen }}
+          {{> '@form-field-info' }}
+        {{/if}}
       </div>
     {{/each}}
     {{#if errorText }}

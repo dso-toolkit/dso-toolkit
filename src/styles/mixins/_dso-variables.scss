@@ -66,14 +66,13 @@ $dso-alert-warning-bg-color: #f8f6cc;
 $dso-alert-info-bg-color: #e1ecf7;
 
 $dso-button-size: $u6;
-$dso-button-info-size: 14px;
+$dso-button-info-size: $u2;
 $dso-button-link-size: $u4;
 
 $dso-button-border-width: 2px;
 $dso-button-margin-bottom: 1px;
 
 $dso-button-info-border-width: 1px;
-$dso-button-info-correction-factor: -2px;
 
 $dso-button-primary-hover-color: #d45800;
 $dso-button-primary-active-color: #a94600;

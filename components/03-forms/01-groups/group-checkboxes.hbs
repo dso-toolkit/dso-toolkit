@@ -3,7 +3,7 @@
     <label class="control-label">
       {{ label }}
     </label>
-    {{#if infoButton }}
+    {{#if infoText }}
       {{> '@form-field-info-button' }}
     {{/if}}
   </legend>
@@ -14,7 +14,15 @@
           {{{ifattr 'disabled' disabled }}}
           {{{ifattr 'checked' checked }}}
           {{{ifattr 'required' required }}} />
-        <label for="{{ ../id }}-{{ @index }}">{{ label }}</label>
+        <label for="{{ ../id }}-{{ @index }}">
+          {{ label }}
+        </label>
+        {{#if infoText }}
+          {{> '@form-field-info-button' }}
+        {{/if}}
+        {{#if infoOpen }}
+          {{> '@form-field-info' }}
+        {{/if}}
       </div>
     {{/each}}
     {{#if errorText }}
@@ -24,7 +32,7 @@
       {{> '@help-block' }}
     {{/if}}
   </div>
-  {{#if infoText }}
+  {{#if infoOpen }}
     {{> '@form-field-info' }}
   {{/if}}
 </fieldset>

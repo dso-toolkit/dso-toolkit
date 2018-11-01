@@ -136,19 +136,23 @@ variants:
     id: input-radio-inline
     label: Gaat het om de bouw van één of meer woningen?
     helpText: ""
-    inline: true
     options:
     - value: 1
       label: ja
       checked: true
+      infoOpen: true
+      infoText: |
+        <h4>Heading 4</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+          Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+        </p>
     - value: 2
       label: nee
-    infoButton: true
-    infoButtonLabel: Toelichting
+      infoText: |
+        Closed
     infoOpen: true
-    infoTitle: Toelichting titel
-    infoLink: Lees meer
-    infoLinkIcon: fas fa-chevron-down
     infoText: |
       <h4>Heading 4</h4>
       <p>

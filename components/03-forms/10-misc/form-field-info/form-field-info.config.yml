@@ -1,31 +1,9 @@
 notes:
   Een toelichting bij form-group. De info-link faciliteert het tonen van extra informatie. De class op het icoon togglt van <code>fa-chevron-down</code> naar <code>fa-chevron-down</code>.
 id: toggle-info-open
-collated: true
 context:
-  infoTitle: Toelichting titel
   infoText: |
-    <h4>Heading 4</h4>
+    <h2>Heading 2</h2>
     <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
     Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
     Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.</p>
-  infoLink: Lees meer
-  infoLinkIcon: fas fa-chevron-down
-variants:
-- name: toggle-info-open-more
-  context:
-    __title: Uitgeklapte tekst
-    __explanation:
-    - De tekst is verder uitgeklapt en de uitklap-link is een inklap-link geworden.
-    infoTitle: Toelichting titel
-    infoText: |
-      <h4>Heading 4</h4>
-      <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
-      Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
-      Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.</p>
-
-      <p>Lorem ipsum dolor sit amet, <strong>consectetur</strong> adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
-      Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
-      Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.</p>
-    infoLink: Lees minder
-    infoLinkIcon: fas fa-chevron-up

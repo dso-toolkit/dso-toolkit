@@ -63,9 +63,9 @@ variants:
     id: input-text-infobutton
     label: E-mailadres
     value: thomas@
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: false
+    infoText: |
+      Closed
 - name: input-text-infobutton-required
   context:
     __title: Infobutton verplicht
@@ -75,9 +75,9 @@ variants:
     label: E-mailadres
     value: thomas@
     required: true
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: false
+    infoText: |
+      Closed
 - name: input-text-infobutton-open
   context:
     __title: Infobutton uitgeklapt
@@ -86,12 +86,7 @@ variants:
     id: input-text-infobutton-open
     label: E-mailadres
     value: thomas@
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: true
-    infoTitle: Toelichting titel
-    infoLink: Lees meer
-    infoLinkIcon: fas fa-chevron-down
     infoText: |
       <h4>Heading 4</h4>
       <p>

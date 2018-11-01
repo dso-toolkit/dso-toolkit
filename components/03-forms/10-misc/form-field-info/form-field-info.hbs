@@ -1,27 +1,6 @@
-<div class="dso-info-toggle-container">
-  <button type="button" class="dso-info-toggle-close" aria-label="Sluiten"></button>
-  <div class="dso-info-toggle-inside">
-    <div class="dso-info-toggle-header">
-      {{#if infoTitle}}
-        <h3>
-          {{ infoTitle }}
-        </h3>
-      {{/if}}
-    </div>
-    {{#if infoText}}
-      <div class="dso-info-toggle-text">
-        <div class="dso-rich-content">
-            {{{ infoText }}}
-        </div>
-      </div>
-    {{/if}}
-    {{#if infoLink}}
-      <div class="dso-info-toggle-link">
-        <a href="#">
-          {{> '@icon' icon=infoLinkIcon }}
-          {{ infoLink }}
-        </a>
-      </div>
-    {{/if}}
+<div class="dso-field-info">
+  <button type="button" aria-label="Sluiten"><span class="sr-only">Sluiten</span></button>
+  <div class="dso-rich-content">
+    {{{ infoText }}}
   </div>
 </div>

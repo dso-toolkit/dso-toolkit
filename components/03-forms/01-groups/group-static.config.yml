@@ -12,18 +12,15 @@ variants:
 - name: static-infobutton
   context:
     __title: Static infobutton
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: false
+    infoText: |
+      Closed
 - name: static-infobutton-open
   context:
     __title: Static infobutton uitgeklapt
     infoButton: true
     infoButtonLabel: Toelichting
     infoOpen: true
-    infoTitle: Toelichting titel
-    infoLink: Lees meer
-    infoLinkIcon: fas fa-chevron-down
     infoText: |
       <h4>Heading 4</h4>
       <p>

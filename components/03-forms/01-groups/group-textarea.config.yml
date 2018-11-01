@@ -53,9 +53,9 @@ variants:
     __explanation:
     - Toelichting ingeklapt
     id: input-textarea-infobutton
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: false
+    infoText: |
+      Closed
 - name: input-textarea-infobutton-required
   context:
     __title: Infobutton verplicht
@@ -63,21 +63,16 @@ variants:
     - Toelichting ingeklapt, verplicht veld
     id: input-textarea-infobutton-required
     required: true
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: false
+    infoText: |
+      Closed
 - name: input-textarea-infobutton-open
   context:
     __title: Infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
     id: input-textarea-infobutton-open
-    infoButton: true
-    infoButtonLabel: Toelichting
     infoOpen: true
-    infoTitle: Toelichting titel
-    infoLink: Lees meer
-    infoLinkIcon: fas fa-chevron-down
     infoText: |
       <h4>Heading 4</h4>
       <p>

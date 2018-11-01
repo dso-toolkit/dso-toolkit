@@ -100,85 +100,45 @@ form {
   textarea {
     resize: vertical;
   }
+}
 
-  .dso-info-toggle-container {
-    margin-bottom: $u2;
-    margin-top: $u2;
+.dso-field-info {
+  background-color: $grijs-10;
+  padding: $u2 $u4 $u2 $u2;
+  position: relative;
 
-    .dso-info-toggle-inside {
-      background-color: $grijs-10;
-      padding: $u2 $u4 $u2 $u2;
-    }
+  .form-group > & {
+    float: left;
+    margin: $u2;
+    width: calc(100% - #{$u4});
+  }
 
-    .dso-info-toggle-close {
-      background-color: transparent;
-      background-image: url($dso-toggle-close-icon);
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: $u2 $u2;
-      border: 0;
-      border-radius: 50%;
-      float: right;
-      height: #{$dso-toggle-close-icon-size - 2px};
-      margin: #{$u1 / 4} #{$u1 / 4} 0 0;
-      width: #{$dso-toggle-close-icon-size - 2px};
+  .dso-selectable > & {
+    float: none;
+    margin: $u1 $u2 #{$u1 * -1} #{$u4 * -1};
+    width: calc(100% + #{$u4});
+  }
 
-      &:hover,
-      &:focus,
-      &.focus,
-      &:active,
-      &.active {
-        border: 2px solid $grasgroen;
-        outline: 0;
-      }
-    }
+  > button {
+    background-color: transparent;
+    background-image: url($dso-toggle-close-icon);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: $u2 $u2;
+    border-radius: 50%;
+    border-style: none;
+    height: #{$dso-toggle-close-icon-size - 2px};
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: #{$dso-toggle-close-icon-size - 2px};
 
-    h2,
-    h3 {
-      float: left;
-      margin-top: 0;
-    }
-
-    .dso-info-toggle-text {
-      clear: left;
-    }
-
-    .dso-info-toggle-link a {
-      color: $bosgroen;
-      display: block;
-      font-weight: bold;
-      line-height: $u4;
-      margin-top: $u2;
-      padding-left: $u5;
-
-      .fas {
-        background-color: transparent;
-        border: 2px solid $bosgroen;
-        border-radius: 50%;
-        float: left;
-        height: $u4;
-        line-height: #{$u4 - 2px};
-        margin-left: -$u5;
-        text-align: center;
-        width: $u4;
-      }
-
-      &:hover,
-      &:focus,
-      &.focus {
-        .fas {
-          background-color: $wit;
-          border: 2px solid $bosgroen;
-          outline: 0;
-        }
-      }
-
-      &:active,
-      &.active {
-        .fas {
-          background-color: $bosgroen;
-        }
-      }
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      outline: 0;
     }
   }
 }
@@ -241,10 +201,6 @@ select:not([multiple]) {
 
     > .dso-field-container {
       @include make-sm-column($grid-columns - $dso-label-column);
-    }
-
-    > .dso-info-toggle-container {
-      @include make-sm-column($grid-columns);
     }
 
     &.dso-confirm {
