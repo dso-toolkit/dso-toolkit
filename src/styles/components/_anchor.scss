@@ -16,9 +16,9 @@ a {
     &::after {
       @extend .fas;
 
+      bottom: 1px;
       margin-left: $dso-anchor-spacer-width;
       position: absolute;
-      top: calc(50% - .5em);
     }
   }
 
