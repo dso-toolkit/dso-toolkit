@@ -30,18 +30,6 @@ form {
     text-align: left;
   }
 
-  &.dso-info .control-label {
-    max-width: calc(100% - #{$dso-button-info-size * 2});
-    top: 0;
-
-    @media screen and (min-width: $screen-sm-min) {
-      display: inline;
-      max-width: 100%;
-      position: relative;
-      top: #{$u1 - 1px};
-    }
-  }
-
   legend.dso-label-container {
     border-bottom: 0;
     font-size: $font-size-base;
