@@ -31,11 +31,6 @@
   &.btn-primary {
     padding: 0 $dso-button-size - $dso-button-border-width;
   }
-
-  &::after {
-    bottom: auto;
-    top: calc(50% - .5em);
-  }
 }
 
 .btn-default {
