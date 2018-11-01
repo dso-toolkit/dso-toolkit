@@ -164,24 +164,15 @@
 }
 
 .dso-label-container .btn {
-  background-color: $wit;
-  border: $dso-button-info-border-width solid $grasgroen;
+  background: url($dso-icon-info-icon-tooltip-info-14x14) $wit 50% 50%;
   border-radius: 50%;
-  color: $grasgroen;
-  font-size: .55em;
+  border-width: 0;
   height: $dso-button-info-size;
-  line-height: $dso-button-info-size - 2 * $dso-button-info-border-width;
   margin-left: $u1;
   min-width: $dso-button-info-size;
   padding: 0;
   position: relative;
-  text-align: center;
   width: $dso-button-info-size;
-
-  &::after {
-    content: "\f129";
-    font-family: FontAwesome;
-  }
 
   &.dso-info-open,
   &:hover,
@@ -189,8 +180,6 @@
   &.active,
   &:focus,
   &.focus {
-    background-color: $grasgroen;
-    border-color: $grasgroen;
-    color: $wit;
+    background-image: url($dso-icon-info-icon-tooltip-info-actief-14x14);
   }
 }
