@@ -1,0 +1,23 @@
+notes: |
+  Voor meer informatie zie [Bootstrap Grid system](https://getbootstrap.com/docs/3.3/css/#grid) documentatie
+status: wip
+collated: true
+context:
+  tableClass: false
+  caption: Overzicht van gebruikersnamen
+variants:
+  - name: Caption
+    context:
+      showCaption: true
+  - name: Striped
+    context:
+      modifier: table-striped
+  - name: Bordered
+    context:
+      modifier: table-bordered
+  - name: Hovered
+    context:
+      modifier: table-hover
+  - name: Condensed
+    context:
+      modifier: table-condensed
