@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Correctie berekening hoogte Fractal content-panel (#208)
 * Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
 
+### Added
+* Border onder hover/focus state (vervolg uit #31)
+
 ## 3.0.0 - 13-9-2018
 
 ### Releasenotes
