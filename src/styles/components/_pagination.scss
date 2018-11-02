@@ -5,33 +5,55 @@ $dso-pagination-item-border-size: 2px;
   text-align: center;
 
   > li {
-    display: inline;
+    display: inline-block;
+    font-weight: bold;
+    line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
+    text-align: center;
 
     a,
     span {
-      border: $dso-pagination-item-border-size solid transparent;
-      border-radius: 50%;
       color: $grasgroen;
       display: inline-block;
-      height: $dso-pagination-item-size;
-      line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
+      position: relative;
       vertical-align: middle;
-      width: $dso-pagination-item-size;
 
       &:active {
         background-color: $grasgroen-10;
       }
     }
 
+    span {
+      border: $dso-pagination-item-border-size solid transparent;
+      border-radius: 50%;
+      height: $dso-pagination-item-size;
+      width: $dso-pagination-item-size;
+    }
+
     a {
+      height: $dso-pagination-item-size;
+      width: $dso-pagination-item-size;
+
       &:hover,
       &:focus {
-        border-color: $grasgroen;
         text-decoration: none;
+
+        &::after {
+          border-bottom-color: $grasgroen;
+        }
       }
 
       &:focus {
         outline: 0;
+      }
+
+      &::after {
+        border-bottom: 3px solid transparent;
+        bottom: 0;
+        content: "";
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        width: 100%;
       }
     }
 
@@ -51,13 +73,19 @@ $dso-pagination-item-border-size: 2px;
       a {
         border: 2px solid $grasgroen;
         border-radius: 50%;
+        height: $dso-pagination-item-size;
         text-indent: -9999px;
         white-space: nowrap;
+        width: $dso-pagination-item-size;
 
         &:hover,
         &:focus {
           background-color: $grasgroen;
           color: $wit;
+        }
+
+        &::after {
+          display: none;
         }
       }
     }
