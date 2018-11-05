@@ -19,3 +19,24 @@ variants:
   - name: Condensed
     context:
       modifier: table-condensed
+  - name: Active
+    context:
+      rowClass: active
+  - name: Primary
+    context:
+      rowClass: primary
+  - name: Secondary
+    context:
+      rowClass: secondary
+  - name: Succes
+    context:
+      rowClass: success
+  - name: Danger
+    context:
+      rowClass: danger
+  - name: Warning
+    context:
+      rowClass: warning
+  - name: Info
+    context:
+      rowClass: info
