@@ -3,7 +3,7 @@
     <label class="control-label">
       {{ label }}
     </label>
-    {{#if infoButton }}
+    {{#if infoText }}
       {{> '@form-field-info-button' }}
     {{/if}}
   </legend>
@@ -32,7 +32,7 @@
       {{> '@help-block' }}
     {{/if}}
   </div>
-  {{#if infoText }}
+  {{#if infoOpen }}
     {{> '@form-field-info' }}
   {{/if}}
 </fieldset>

@@ -97,8 +97,7 @@ form {
 
   .form-group > & {
     float: left;
-    margin: $u2;
-    width: calc(100% - #{$u4});
+    margin: $u2 0;
   }
 
   .dso-selectable > & {
@@ -189,6 +188,11 @@ select:not([multiple]) {
 
     > .dso-field-container {
       @include make-sm-column($grid-columns - $dso-label-column);
+    }
+
+    > .dso-field-info {
+      margin: $u2;
+      width: calc(100% - #{$u4});
     }
 
     &.dso-confirm {

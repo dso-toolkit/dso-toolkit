@@ -120,11 +120,16 @@ context:
       - value: 1
         label: ja
         checked: true
+        infoOpen: false
+        infoText: |
+          Empty
       - value: 2
         label: nee
       infoButton: true
       infoButtonLabel: Toelichting
       infoOpen: false
+      infoText: |
+        Empty
   - legend: Vraag met infobutton uitgeklapt
     groups:
     - id: input-radio-infobutton-open
@@ -134,14 +139,15 @@ context:
       - value: 1
         label: ja
         checked: true
+        infoOpen: true
+        infoText: |
+          <h4>Heading 4</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          </p>
       - value: 2
         label: nee
-      infoButton: true
-      infoButtonLabel: Toelichting
       infoOpen: true
-      infoTitle: Toelichting titel
-      infoLink: Lees meer
-      infoLinkIcon: fas fa-chevron-down
       infoText: |
         <h4>Heading 4</h4>
         <p>
