@@ -16,8 +16,8 @@ th {
   text-align: left;
 }
 
-.dso-rich-content table,
-table.table {
+table.table,
+.dso-rich-content table {
   @include dso-table;
 }
 
@@ -91,39 +91,3 @@ table {
 @include dso-table-row-variant("info", $state-info-bg);
 @include dso-table-row-variant("warning", $state-warning-bg);
 @include dso-table-row-variant("danger", $state-danger-bg);
-
-// Responsive tables
-//
-// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
-// by enabling horizontal scrolling. Only applies <768px. Everything above that
-// will display normally.
-
-.table-responsive {
-  min-height: .01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
-  overflow-x: auto;
-
-  @media screen and (max-width: $screen-xs-max) {
-    -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line no-vendor-prefixes
-    border: 1px solid $table-border-color;
-    margin-bottom: ($line-height-computed * .75);
-    overflow-y: hidden;
-    width: 100%;
-
-    // Tighten up spacing
-    > .table {
-      margin-bottom: 0;
-
-      // Ensure the content doesn't wrap
-      > thead,
-      > tbody,
-      > tfoot {
-        > tr {
-          > th,
-          > td {
-            white-space: nowrap;
-          }
-        }
-      }
-    }
-  }
-}

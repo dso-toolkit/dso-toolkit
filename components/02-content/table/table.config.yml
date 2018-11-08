@@ -3,13 +3,13 @@ notes: |
 
   Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
   * Er is geen `.table-bordered` variant.
-  * Er is geen `tr.primary` en `tr.secondary`
+  * Er is geen `tr.primary` en `tr.secondary`.
+  * Er is geen `.table-responsive` functionaliteit.
 
-  Een caption moet altijd geplaatst worden. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
+  Een `<caption>` moet altijd worden geplaatst. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
 
   Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
 status: ready
-collated: false
 context:
   modifier: table
   caption: Overzicht van gebruikersnamen
