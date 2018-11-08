@@ -53,6 +53,12 @@ $dso-accordion-state-icon-size: $u3;
   }
 
   .dso-accordion-section {
+    &:first-child {
+      .dso-section-handle {
+        border-top: 0;
+      }
+    }
+
     &.dso-success {
       .dso-section-handle {
         a::after {
