@@ -1,13 +1,31 @@
 ul.nav-tabs {
-  border-bottom: 1px solid $grasgroen;
+  @media screen and (min-width: $screen-sm-min) {
+    border-bottom: 1px solid $grasgroen;
+  }
+
+  @media screen and (max-width: $screen-sm-max) {
+    border-bottom: 1px solid $wit;
+  }
 
   li {
     border-color: $grasgroen;
     font-weight: bold;
     min-height: 44px;
 
+    @media screen and (max-width: $screen-sm-max) {
+      margin: 10px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
     a {
-      border-radius: 3px;
+      border-radius: 4px;
       color: $grijs-60;
       min-height: 44px;
       padding: 10px 25px;
@@ -31,13 +49,45 @@ ul.nav-tabs {
       border-bottom-color: $wit;
       outline: 0;
     }
+
+    @media screen and (max-width: $screen-xs-max) {
+      a {
+        border-color: $wit;
+        border-radius: 8px;
+        padding: 18px 20px;
+
+        &:active,
+        &:focus,
+        &:hover {
+          border-bottom-color: $grasgroen;
+          border-bottom-width: 1px;
+          border-color: $grasgroen;
+        }
+      }
+
+      &.active a {
+        &,
+        &:focus,
+        &:hover {
+          border-bottom-color: $grasgroen;
+          border-bottom-width: 1px;
+          border-color: $grasgroen;
+        }
+      }
+    }
   }
 
   $tab-cnt: dso-tabcnt !default;
 
   @for $i from 1 through 10 {
     &.#{$tab-cnt}-#{$i} li {
-      width: calc(100% / #{$i} - 1px);
+      @media screen and (max-width: $screen-xs-max) {
+        width: 100%;
+      }
+
+      @media screen and (min-width: $screen-sm-min) {
+        width: calc(100% / #{$i} - 1px);
+      }
     }
   }
 }
