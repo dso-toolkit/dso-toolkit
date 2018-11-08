@@ -1,31 +1,167 @@
-<table class="{{#if tableClass}}{{ tableClass }}{{/if}} {{#if modifier}}{{ modifier }}{{/if}}">
+<table{{#if modifier}} class="{{ modifier }}"{{/if}}>
   <caption {{#unless showCaption }}class="sr-only"{{/unless}}>{{ caption }}</caption>
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Voornaam</th>
       <th scope="col">Achternaam</th>
-      <th scope="col">Gebruikersnaam</th>
+      <th scope="col">GitHub gebruikersnaam</th>
+      <th scope="col">Modifier</th>
     </tr>
   </thead>
   <tbody>
-    <tr {{#if rowClass}}class="{{ rowClass }}"{{/if}}>
+    <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Fabien</td>
+      <td>Potencier</td>
+      <td>fabpot</td>
+      <td>
+        <code>tr</code>
+      </td>
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <td>Andrew</td>
+      <td>Nesbitt</td>
+      <td>andrew</td>
+      <td>
+        <code>tr</code>
+      </td>
     </tr>
-    <tr {{#if rowClass}}class="{{ rowClass }}"{{/if}}>
+    <tr>
       <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
+      <td>Taylor</td>
+      <td>Otwell</td>
+      <td>taylorotwell</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr class="active">
+      <th scope="row">4</th>
+      <td>Hugo</td>
+      <td>Giraudel</td>
+      <td>HugoGiraudel</td>
+      <td>
+        <code>tr.active</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Thibault</td>
+      <td>Duplessis</td>
+      <td>ornicar</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr class="success">
+      <th scope="row">6</th>
+      <td>Juho</td>
+      <td>Vepsäläinen</td>
+      <td>bebraw</td>
+      <td>
+        <code>tr.success</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Alex</td>
+      <td>Crichton</td>
+      <td>alexcrichton</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Josh</td>
+      <td>Abernathy</td>
+      <td>joshaber</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr class="info">
+      <th scope="row">9</th>
+      <td>Mike</td>
+      <td>McNeil</td>
+      <td>mikermcneil</td>
+      <td>
+        <code>tr.info</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>Ben</td>
+      <td>Balter</td>
+      <td>benbalter</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>Brandon</td>
+      <td>Keepers</td>
+      <td>bkeepers</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr class="warning">
+      <th scope="row">12</th>
+      <td>Brent</td>
+      <td>Jackson</td>
+      <td>jxnblk</td>
+      <td>
+        <code>tr.warning</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">13</th>
+      <td>Yegor</td>
+      <td>Bugayenko</td>
+      <td>yegor256</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">14</th>
+      <td>Kenneth</td>
+      <td>Reitz</td>
+      <td>kennethreitz</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr class="danger">
+      <th scope="row">15</th>
+      <td>Graham</td>
+      <td>Campbell</td>
+      <td>GrahamCampbell</td>
+      <td>
+        <code>tr.danger</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">16</th>
+      <td>Kamran</td>
+      <td>Ahmed</td>
+      <td>kamranahmedse</td>
+      <td>
+        <code>tr</code>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">17</th>
+      <td>Katrina</td>
+      <td>Owen</td>
+      <td>kytrinyx</td>
+      <td>
+        <code>tr</code>
+      </td>
     </tr>
   </tbody>
 </table>
