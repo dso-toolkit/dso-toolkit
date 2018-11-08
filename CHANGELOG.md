@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Icoon a.extern::after en dso-succes a::after beten elkaar (#204)
 * Correctie berekening hoogte Fractal content-panel (#208)
 * Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
+* Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
 
 ### Added
 * Border onder hover/focus state (vervolg uit #31)
