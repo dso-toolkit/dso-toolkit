@@ -1,0 +1,5 @@
+ol > li,
+ul > li,
+.list-group > .list-group-item {
+  @extend %dso-rich-content;
+}

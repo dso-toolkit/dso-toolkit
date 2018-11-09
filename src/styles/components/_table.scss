@@ -1,10 +1,5 @@
 // Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
 // Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
-  td,
-  th {
-    @extend %dso-rich-content;
-  }
-
 
 table {
   background-color: $table-bg;
@@ -19,6 +14,13 @@ caption {
 
 th {
   text-align: left;
+}
+
+table.table {
+  td,
+  th {
+    @extend %dso-rich-content;
+  }
 }
 
 table.table,

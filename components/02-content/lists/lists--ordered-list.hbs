@@ -1,10 +1,7 @@
 <ol>
   {{#each items }}
   <li>
-    {{ text }}
-    {{#if paragraph}}
-    <p>{{ paragraph }}</p>
-    {{/if}}
+    {{ text }}{{#if paragraph}}<p>{{ paragraph }}</p>{{/if}}
   </li>
   {{/each}}
 </ol>

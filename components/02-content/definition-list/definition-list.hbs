@@ -2,14 +2,14 @@
   {{#each definitions }}
     <dt>{{ term }}</dt>
     {{#each descriptions }}
-    <dd>{{ description }}</dd>
+      <dd>{{ description }}</dd>
     {{/each }}
     {{#if longread }}
-    <dd>
-      {{#each longread }}
-      <p>{{ paragraph }}
-      {{/each }}
-    </dd>
+      <dd>
+        {{#each longread }}
+          <p>{{ paragraph }}</p>
+        {{/each }}
+      </dd>
     {{/if }}
   {{/each}}
 </dl>
