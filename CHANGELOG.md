@@ -7,14 +7,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Accordeon font-size naar 20px (#185)
-* Tertiare button 16px (#186)
+* Tertiare button 16px, icon 18px (#186)
 * Hamburger menu documentatie bijwerken met instructies voor scripting (#188)
 * Lijnen van secundaire button niet altijd even dik (#193)
 * Label spacing padding too small (#194)
+* Icoon a.extern::after en dso-succes a::after beten elkaar (#204)
+* Correctie berekening hoogte Fractal content-panel (#208)
+* Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
+* Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
 * Fix vertical margins on child elements of components with vertical
   padding possibly containing block elements. Wrapping the entire inner
   content in a single `div.dso-rich-content` can be omitted in the majority of
   cases. (#189)
+
+### Added
+* Border onder hover/focus state (vervolg uit #31)
+* `.dso-rich-content` component ter documentatie (#228)
 
 ## 3.0.0 - 13-9-2018
 
