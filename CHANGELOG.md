@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Border onder hover/focus state (vervolg uit #31)
+* `.dso-rich-content` component ter documentatie (#228)
 
 ## 3.0.0 - 13-9-2018
 
