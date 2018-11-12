@@ -96,6 +96,7 @@ body.dso-modal-open {
   }
 
   .dso-body {
+    @extend %dso-rich-content;
     border-bottom: $dso-modal-body-padding solid $wit;
     border-top: $dso-modal-body-padding solid $wit;
     padding: 0 $dso-modal-body-padding;

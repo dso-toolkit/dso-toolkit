@@ -2,7 +2,7 @@
   "name": "dso-toolkit",
   "description": "DSO Toolkit and Component Library",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
-  "version": "3.1.0-alpha.1",
+  "version": "3.1.0-alpha.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
