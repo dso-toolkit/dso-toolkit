@@ -16,6 +16,13 @@ th {
   text-align: left;
 }
 
+table.table {
+  td,
+  th {
+    @extend %dso-rich-content;
+  }
+}
+
 table.table,
 .dso-rich-content table {
   @include dso-table;
