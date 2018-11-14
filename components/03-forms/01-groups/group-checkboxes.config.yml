@@ -84,3 +84,35 @@ variants:
     - value: 3
       label: drie
       disabled: true
+- name: input-checkbox-info-button
+  context:
+    __title: Infobutton
+    __explanation:
+    - Een checkbox fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
+    id: input-checkbox-info-button
+    required: true
+    options:
+    - value: 1
+      label: een
+      infoText: |
+        Closed
+    - value: 2
+      label: twee
+      infoOpen: true
+      infoText: |
+        <h4>Heading 4</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+          Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+        </p>
+    - value: 3
+      label: drie
+    infoOpen: true
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
