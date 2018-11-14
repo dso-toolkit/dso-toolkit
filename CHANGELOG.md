@@ -31,6 +31,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
 * #71: Het search bar component is nieuw. Dit component moet doorgevoerd worden in de header en verwijderd worden uit het menu.
 * #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
+* #113: Een groot aantal legacy components zijn verwijderd, zie issue voor meer informatie
 
 ### Added
 - **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
@@ -47,6 +48,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** WCAG errors in 2.0.0-alpha.2 (#143)
+- **BREAKING:** Remove legacy components (#113)
 - Disabled buttons with hover styles wrong (#145)
 - Font-Awesome classnames fix FA v5 (#148)
 - Checkbox display in IE 11 (#149)
