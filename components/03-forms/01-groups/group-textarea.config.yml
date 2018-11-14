@@ -47,31 +47,13 @@ variants:
     id: input-textarea-readonly
     required: true
     readonly: true
-- name: input-textarea-infobutton
-  context:
-    __title: Infobutton
-    __explanation:
-    - Toelichting ingeklapt
-    id: input-textarea-infobutton
-    infoOpen: false
-    infoText: |
-      Closed
-- name: input-textarea-infobutton-required
-  context:
-    __title: Infobutton verplicht
-    __explanation:
-    - Toelichting ingeklapt, verplicht veld
-    id: input-textarea-infobutton-required
-    required: true
-    infoOpen: false
-    infoText: |
-      Closed
 - name: input-textarea-infobutton-open
   context:
     __title: Infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
     id: input-textarea-infobutton-open
+    required: true
     infoOpen: true
     infoText: |
       <h4>Heading 4</h4>

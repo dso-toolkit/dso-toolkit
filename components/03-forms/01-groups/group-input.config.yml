@@ -66,18 +66,6 @@ variants:
     infoOpen: false
     infoText: |
       Closed
-- name: input-text-infobutton-required
-  context:
-    __title: Infobutton verplicht
-    __explanation:
-    - Toelichting ingeklapt, verplicht veld
-    id: input-text-infobutton
-    label: E-mailadres
-    value: thomas@
-    required: true
-    infoOpen: false
-    infoText: |
-      Closed
 - name: input-text-infobutton-open
   context:
     __title: Infobutton uitgeklapt
@@ -85,7 +73,7 @@ variants:
     - Toelichting uitgeklapt
     id: input-text-infobutton-open
     label: E-mailadres
-    value: thomas@
+    required: true
     infoOpen: true
     infoText: |
       <h4>Heading 4</h4>

@@ -84,45 +84,13 @@ variants:
     - value: 3
       label: drie
       disabled: true
-- name: input-checkbox-info
+- name: input-checkbox-info-button
   context:
-    __title: Info button
+    __title: Infobutton
     __explanation:
-    - Toelichting ingeklapt
+    - Een checkbox fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-checkbox-info-button
-    options:
-    - value: 1
-      label: een
-    - value: 2
-      label: twee
-    - value: 3
-      label: drie
-    infoButton: true
-    infoButtonLabel: Toelichting
-    infoOpen: false
-- name: input-checkbox-info-button-required
-  context:
-    __title: Infobutton verplicht
-    __explanation:
-    - Toelichting ingeklapt, verplicht veld
-    id: input-checkbox-info-button-required
     required: true
-    options:
-    - value: 1
-      label: een
-    - value: 2
-      label: twee
-    - value: 3
-      label: drie
-    infoButton: true
-    infoButtonLabel: Toelichting
-    infoOpen: false
-- name: input-checkbox-info-button-open
-  context:
-    __title: Infobutton uitgeklapt
-    __explanation:
-    - Toelichting uitgeklapt
-    id: input-checkbox-info-button-open
     options:
     - value: 1
       label: een

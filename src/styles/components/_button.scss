@@ -163,24 +163,3 @@
     }
   }
 }
-
-.dso-info-button {
-  background: url($dso-icon-info-icon-tooltip-info-16x16) $wit 50% 50%;
-  border-radius: 50%;
-  border-width: 0;
-  height: $dso-button-info-size;
-  margin-left: $u1;
-  min-width: $dso-button-info-size;
-  padding: 0;
-  position: relative;
-  width: $dso-button-info-size;
-
-  &.dso-open,
-  &:hover,
-  &:active,
-  &.active,
-  &:focus,
-  &.focus {
-    background-image: url($dso-icon-info-icon-tooltip-info-actief-16x16);
-  }
-}

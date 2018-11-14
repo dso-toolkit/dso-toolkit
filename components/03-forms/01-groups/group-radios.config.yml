@@ -95,47 +95,11 @@ variants:
   context:
     __title: Infobutton
     __explanation:
-    - Toelichting ingeklapt
+    - Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-radio-inline
     label: Gaat het om de bouw van één of meer woningen?
-    helpText: ""
-    inline: true
-    options:
-    - value: 1
-      label: ja
-      checked: true
-    - value: 2
-      label: nee
-    infoButton: true
-    infoButtonLabel: Toelichting
-    infoOpen: false
-- name: input-radio-inline-info
-  context:
-    __title: Infobutton verplicht
-    __explanation:
-    - Toelichting ingeklapt, verplicht veld
-    id: input-radio-inline
-    label: Gaat het om de bouw van één of meer woningen?
-    helpText: ""
     required: true
-    inline: true
-    options:
-    - value: 1
-      label: ja
-      checked: true
-    - value: 2
-      label: nee
-    infoButton: true
-    infoButtonLabel: Toelichting
-    infoOpen: false
-- name: input-radio-inline-info
-  context:
-    __title: Infobutton uitgeklapt
-    __explanation:
-    - Toelichting uitgeklapt
-    id: input-radio-inline
-    label: Gaat het om de bouw van één of meer woningen?
-    helpText: ""
+    helpText: Antwoord hier met "Ja" of "Nee"
     options:
     - value: 1
       label: ja

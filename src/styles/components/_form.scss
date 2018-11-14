@@ -13,6 +13,8 @@ $dso-toggle-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
 $dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
 
+$dso-button-info-size: $u2;
+
 form {
   .dso-field-container {
     position: relative;
@@ -90,6 +92,25 @@ form {
   }
 }
 
+.dso-field-info-button {
+  @include icon($dso-icon-info-icon-tooltip-info-16x16);
+  height: $dso-button-info-size;
+  margin-left: $u1;
+  min-width: $dso-button-info-size;
+  padding: 0;
+  position: relative;
+  width: $dso-button-info-size;
+
+  &.dso-open,
+  &:hover,
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
+  }
+}
+
 .dso-field-info {
   background-color: $grijs-10;
   padding: $u2 $u4 $u2 $u2;
@@ -107,12 +128,8 @@ form {
   }
 
   > button {
-    background-color: transparent;
-    background-image: url($dso-toggle-close-icon);
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+    @include icon($dso-toggle-close-icon);
     background-size: $u2 $u2;
-    border-radius: 50%;
     border-style: none;
     height: #{$dso-toggle-close-icon-size - 2px};
     position: absolute;

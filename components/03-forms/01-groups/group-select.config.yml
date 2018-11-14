@@ -55,31 +55,13 @@ variants:
     id: input-select-disabled
     required: true
     disabled: true
-- name: input-select-infobutton
-  context:
-    __title: Infobutton
-    __explanation:
-    - Toelichting ingeklapt
-    id: input-select-infobutton
-    infoButton: true
-    infoButtonLabel: Toelichting
-    infoOpen: false
-- name: input-select-infobutton-required
-  context:
-    __title: Infobutton verplicht
-    __explanation:
-    - Toelichting ingeklapt, verplicht veld
-    id: input-select-multiple-required
-    required: true
-    infoOpen: false
-    infoText: |
-      Closed
 - name: input-select-infobutton-open
   context:
     __title: Infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
     id: input-select-multiple-open
+    required: true
     infoOpen: true
     infoText: |
       <h4>Heading 4</h4>
