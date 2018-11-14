@@ -1,15 +1,16 @@
-<div class="form-group dso-select">
+<div class="form-group dso-select dso-required">
   <div class="dso-label-container">
     <label for="input-select-multiple-open" class="control-label">
       Kies uw beleg
     </label>
-    <button type="button" class="btn dso-info-button dso-open">
+    <button type="button" class="btn dso-field-info-button dso-open">
       <span class="sr-only">
+          Toelichting
         </span>
     </button>
   </div>
   <div class="dso-field-container">
-    <select id="input-select-multiple-open" class="form-control">
+    <select id="input-select-multiple-open" class="form-control" required>
       <optgroup label="Vlees">
         <option value="worst">Worst</option>
         <option value="salami">Salami</option>
@@ -22,7 +23,9 @@
     </select>
   </div>
   <div class="dso-field-info">
-    <button type="button" aria-label="Sluiten"><span class="sr-only">Sluiten</span></button>
+    <button type="button">
+      <span class="sr-only">Sluiten</span>
+    </button>
     <div class="dso-rich-content">
       <h4>Heading 4</h4>
       <p>

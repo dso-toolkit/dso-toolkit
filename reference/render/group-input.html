@@ -164,8 +164,9 @@
         <label for="input-text-infobutton" class="control-label">
           E-mailadres
         </label>
-        <button type="button" class="btn dso-info-button">
+        <button type="button" class="btn dso-field-info-button">
           <span class="sr-only">
+          Toelichting
         </span>
         </button>
       </div>
@@ -179,33 +180,6 @@
 <!-- End: @group-input--input-text-infobutton -->
 <hr />
 
-<!-- Start: @group-input--input-text-infobutton-required -->
-<div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
-    <h2>Infobutton verplicht</h2>
-    <p>Toelichting ingeklapt, verplicht veld</p>
-  </div>
-  <div class="dso-example">
-    <div class="form-group dso-input dso-input-text dso-required">
-      <div class="dso-label-container">
-        <label for="input-text-infobutton" class="control-label">
-          E-mailadres
-        </label>
-        <button type="button" class="btn dso-info-button">
-          <span class="sr-only">
-        </span>
-        </button>
-      </div>
-      <div class="dso-field-container">
-        <input type="text" id="input-text-infobutton" class="form-control" value="thomas@" required />
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End: @group-input--input-text-infobutton-required -->
-<hr />
-
 <!-- Start: @group-input--input-text-infobutton-open -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
@@ -213,21 +187,24 @@
     <p>Toelichting uitgeklapt</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-input-text">
+    <div class="form-group dso-input dso-input-text dso-required">
       <div class="dso-label-container">
         <label for="input-text-infobutton-open" class="control-label">
           E-mailadres
         </label>
-        <button type="button" class="btn dso-info-button dso-open">
+        <button type="button" class="btn dso-field-info-button dso-open">
           <span class="sr-only">
+          Toelichting
         </span>
         </button>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-infobutton-open" class="form-control" value="thomas@" />
+        <input type="text" id="input-text-infobutton-open" class="form-control" required />
       </div>
       <div class="dso-field-info">
-        <button type="button" aria-label="Sluiten"><span class="sr-only">Sluiten</span></button>
+        <button type="button">
+          <span class="sr-only">Sluiten</span>
+        </button>
         <div class="dso-rich-content">
           <h4>Heading 4</h4>
           <p>

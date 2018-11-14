@@ -194,51 +194,11 @@
 <!-- End: @group-checkboxes--input-checkbox-disabled -->
 <hr />
 
-<!-- Start: @group-checkboxes--input-checkbox-info -->
+<!-- Start: @group-checkboxes--input-checkbox-info-button -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
-    <h2>Info button</h2>
-    <p>Toelichting ingeklapt</p>
-  </div>
-  <div class="dso-example">
-    <fieldset class="form-group dso-checkboxes">
-      <legend class="dso-label-container">
-        <label class="control-label">
-          Maak een keuze
-        </label>
-      </legend>
-      <div class="dso-field-container">
-        <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-0" name="input-checkbox-info-button" value="1" />
-          <label for="input-checkbox-info-button-0">
-            een
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-1" name="input-checkbox-info-button" value="2" />
-          <label for="input-checkbox-info-button-1">
-            twee
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-2" name="input-checkbox-info-button" value="3" />
-          <label for="input-checkbox-info-button-2">
-            drie
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</div>
-
-<!-- End: @group-checkboxes--input-checkbox-info -->
-<hr />
-
-<!-- Start: @group-checkboxes--input-checkbox-info-button-required -->
-<div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
-    <h2>Infobutton verplicht</h2>
-    <p>Toelichting ingeklapt, verplicht veld</p>
+    <h2>Infobutton</h2>
+    <p>Een checkbox fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.</p>
   </div>
   <div class="dso-example">
     <fieldset class="form-group dso-checkboxes dso-required">
@@ -246,73 +206,38 @@
         <label class="control-label">
           Maak een keuze
         </label>
-      </legend>
-      <div class="dso-field-container">
-        <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-required-0" name="input-checkbox-info-button-required" value="1" />
-          <label for="input-checkbox-info-button-required-0">
-            een
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-required-1" name="input-checkbox-info-button-required" value="2" />
-          <label for="input-checkbox-info-button-required-1">
-            twee
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-required-2" name="input-checkbox-info-button-required" value="3" />
-          <label for="input-checkbox-info-button-required-2">
-            drie
-          </label>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-</div>
-
-<!-- End: @group-checkboxes--input-checkbox-info-button-required -->
-<hr />
-
-<!-- Start: @group-checkboxes--input-checkbox-info-button-open -->
-<div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
-    <h2>Infobutton uitgeklapt</h2>
-    <p>Toelichting uitgeklapt</p>
-  </div>
-  <div class="dso-example">
-    <fieldset class="form-group dso-checkboxes">
-      <legend class="dso-label-container">
-        <label class="control-label">
-          Maak een keuze
-        </label>
-        <button type="button" class="btn dso-info-button dso-open">
+        <button type="button" class="btn dso-field-info-button dso-open">
           <span class="sr-only">
+          Toelichting
         </span>
         </button>
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-open-0" name="input-checkbox-info-button-open" value="1" />
-          <label for="input-checkbox-info-button-open-0">
+          <input type="checkbox" id="input-checkbox-info-button-0" name="input-checkbox-info-button" value="1" />
+          <label for="input-checkbox-info-button-0">
             een
           </label>
-          <button type="button" class="btn dso-info-button">
+          <button type="button" class="btn dso-field-info-button">
             <span class="sr-only">
+              Toelichting
             </span>
           </button>
         </div>
         <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-open-1" name="input-checkbox-info-button-open" value="2" />
-          <label for="input-checkbox-info-button-open-1">
+          <input type="checkbox" id="input-checkbox-info-button-1" name="input-checkbox-info-button" value="2" />
+          <label for="input-checkbox-info-button-1">
             twee
           </label>
-          <button type="button" class="btn dso-info-button dso-open">
+          <button type="button" class="btn dso-field-info-button dso-open">
             <span class="sr-only">
+              Toelichting
             </span>
           </button>
           <div class="dso-field-info">
-            <button type="button" aria-label="Sluiten"><span class="sr-only">Sluiten</span></button>
+            <button type="button">
+              <span class="sr-only">Sluiten</span>
+            </button>
             <div class="dso-rich-content">
               <h4>Heading 4</h4>
               <p>
@@ -323,14 +248,16 @@
           </div>
         </div>
         <div class="dso-selectable">
-          <input type="checkbox" id="input-checkbox-info-button-open-2" name="input-checkbox-info-button-open" value="3" />
-          <label for="input-checkbox-info-button-open-2">
+          <input type="checkbox" id="input-checkbox-info-button-2" name="input-checkbox-info-button" value="3" />
+          <label for="input-checkbox-info-button-2">
             drie
           </label>
         </div>
       </div>
       <div class="dso-field-info">
-        <button type="button" aria-label="Sluiten"><span class="sr-only">Sluiten</span></button>
+        <button type="button">
+          <span class="sr-only">Sluiten</span>
+        </button>
         <div class="dso-rich-content">
           <h4>Heading 4</h4>
           <p>
@@ -343,5 +270,5 @@
   </div>
 </div>
 
-<!-- End: @group-checkboxes--input-checkbox-info-button-open -->
+<!-- End: @group-checkboxes--input-checkbox-info-button -->
 <hr />

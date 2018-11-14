@@ -159,76 +159,6 @@
 <!-- End: @group-select--input-select-disabled -->
 <hr />
 
-<!-- Start: @group-select--input-select-infobutton -->
-<div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
-    <h2>Infobutton</h2>
-    <p>Toelichting ingeklapt</p>
-  </div>
-  <div class="dso-example">
-    <div class="form-group dso-select">
-      <div class="dso-label-container">
-        <label for="input-select-infobutton" class="control-label">
-          Kies uw beleg
-        </label>
-      </div>
-      <div class="dso-field-container">
-        <select id="input-select-infobutton" class="form-control">
-          <optgroup label="Vlees">
-            <option value="worst">Worst</option>
-            <option value="salami">Salami</option>
-            <option value="geit">Geit</option>
-          </optgroup>
-          <optgroup label="Vis">
-            <option value="zalm">Zalm</option>
-            <option value="makreel">Makreel</option>
-          </optgroup>
-        </select>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End: @group-select--input-select-infobutton -->
-<hr />
-
-<!-- Start: @group-select--input-select-infobutton-required -->
-<div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
-    <h2>Infobutton verplicht</h2>
-    <p>Toelichting ingeklapt, verplicht veld</p>
-  </div>
-  <div class="dso-example">
-    <div class="form-group dso-select dso-required">
-      <div class="dso-label-container">
-        <label for="input-select-multiple-required" class="control-label">
-          Kies uw beleg
-        </label>
-        <button type="button" class="btn dso-info-button">
-          <span class="sr-only">
-        </span>
-        </button>
-      </div>
-      <div class="dso-field-container">
-        <select id="input-select-multiple-required" class="form-control" required>
-          <optgroup label="Vlees">
-            <option value="worst">Worst</option>
-            <option value="salami">Salami</option>
-            <option value="geit">Geit</option>
-          </optgroup>
-          <optgroup label="Vis">
-            <option value="zalm">Zalm</option>
-            <option value="makreel">Makreel</option>
-          </optgroup>
-        </select>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End: @group-select--input-select-infobutton-required -->
-<hr />
-
 <!-- Start: @group-select--input-select-infobutton-open -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
@@ -236,18 +166,19 @@
     <p>Toelichting uitgeklapt</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-select">
+    <div class="form-group dso-select dso-required">
       <div class="dso-label-container">
         <label for="input-select-multiple-open" class="control-label">
           Kies uw beleg
         </label>
-        <button type="button" class="btn dso-info-button dso-open">
+        <button type="button" class="btn dso-field-info-button dso-open">
           <span class="sr-only">
+          Toelichting
         </span>
         </button>
       </div>
       <div class="dso-field-container">
-        <select id="input-select-multiple-open" class="form-control">
+        <select id="input-select-multiple-open" class="form-control" required>
           <optgroup label="Vlees">
             <option value="worst">Worst</option>
             <option value="salami">Salami</option>
@@ -260,7 +191,9 @@
         </select>
       </div>
       <div class="dso-field-info">
-        <button type="button" aria-label="Sluiten"><span class="sr-only">Sluiten</span></button>
+        <button type="button">
+          <span class="sr-only">Sluiten</span>
+        </button>
         <div class="dso-rich-content">
           <h4>Heading 4</h4>
           <p>
