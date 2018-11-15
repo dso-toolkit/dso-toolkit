@@ -51,15 +51,15 @@ $dso-font-size-h3: 1.25rem;
 $dso-font-size-h4: 1.125rem;
 $dso-font-size-h5: 1rem;
 
-$dso-success-bg-color: #e4f1d4; //$lime-20;
+$dso-success-color: $grasgroen;
+$dso-info-color: #6ca4d9;
+$dso-warning-color: #dcd400;
+$dso-danger-color: #ce3f51;
+
+$dso-success-bg-color: $lime-20;
 $dso-info-bg-color: #e1ecf7;
 $dso-warning-bg-color: #f8f6cc;
 $dso-danger-bg-color: #f5d8dc;
-
-$dso-success-color: $dso-success-bg-color;
-$dso-info-color: $dso-info-bg-color;
-$dso-warning-color: $dso-warning-bg-color;
-$dso-danger-color: $dso-danger-bg-color;
 
 // component kleuren
 $dso-anchor-visited-color: #8b4a6a;
