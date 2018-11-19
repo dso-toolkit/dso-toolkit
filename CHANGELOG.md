@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 3.1.0 - UNRELEASED
 
+### Added
+* Lijn plus titel en 'stappenteller' (#153)
+
 ### Fixed
 * Accordeon font-size naar 20px (#185)
 * Tertiare button 16px, icon 18px (#186)
