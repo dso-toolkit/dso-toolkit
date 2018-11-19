@@ -94,7 +94,7 @@ table {
 
 // Generate the contextual variants
 @include dso-table-row-variant("active", $table-bg-active);
-@include dso-table-row-variant("success", $dso-success-color);
-@include dso-table-row-variant("info", $state-info-bg);
-@include dso-table-row-variant("warning", $state-warning-bg);
-@include dso-table-row-variant("danger", $state-danger-bg);
+@include dso-table-row-variant("success", $dso-success-bg-color);
+@include dso-table-row-variant("info", $dso-info-bg-color);
+@include dso-table-row-variant("warning", $dso-warning-bg-color);
+@include dso-table-row-variant("danger", $dso-danger-bg-color);
