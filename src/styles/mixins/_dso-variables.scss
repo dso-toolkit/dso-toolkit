@@ -10,6 +10,7 @@ $lime-20:       #e4f1d4;
 
 $bosgroen:      #275937;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-80:   #527a5e;    //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$bosgroen-60:   #7d9886;    //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
 $bosgroen-40:   #a8bcaf;    //  40% tint       - niet te gebruiken als leestekst
 $bosgroen-10:   #e9eeeb;    //  10% tint       - niet te gebruiken als leestekst
 
@@ -51,15 +52,15 @@ $dso-font-size-h3: 1.25rem;
 $dso-font-size-h4: 1.125rem;
 $dso-font-size-h5: 1rem;
 
-$dso-success-bg-color: #e4f1d4; //$lime-20;
+$dso-success-color: $grasgroen;
+$dso-info-color: #6ca4d9;
+$dso-warning-color: #dcd400;
+$dso-danger-color: #ce3f51;
+
+$dso-success-bg-color: $lime-20;
 $dso-info-bg-color: #e1ecf7;
 $dso-warning-bg-color: #f8f6cc;
 $dso-danger-bg-color: #f5d8dc;
-
-$dso-success-color: $dso-success-bg-color;
-$dso-info-color: $dso-info-bg-color;
-$dso-warning-color: $dso-warning-bg-color;
-$dso-danger-color: $dso-danger-bg-color;
 
 // component kleuren
 $dso-anchor-visited-color: #8b4a6a;

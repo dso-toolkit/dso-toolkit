@@ -5,8 +5,12 @@ notes: |
   `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
 
   Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
+
+  De class `dso-no-top-border` zorgt er voor dat de eerste `.dso-accordion-section` geen `border-top` krijgt.
+
 status: wip
 context:
+  modifiers: dso-no-top-border
   sections:
   - title: Woning
     id: panel1
