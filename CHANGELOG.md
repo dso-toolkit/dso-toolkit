@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * `.dso-rich-content` component ter documentatie (#228)
+* highlight-box in `.dso-rich-content` support (#232)
 
 ### Fixed
 * Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
