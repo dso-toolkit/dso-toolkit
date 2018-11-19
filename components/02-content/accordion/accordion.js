@@ -12,7 +12,7 @@ module.exports = function () {
         <div class="${classNames}">
           ${options.fn(this)}
         </div>
-      `.trim(); // 'bla ' + modifiers + ' asdf';
+      `.trim();
     },
 
     accordionSection(title, options) {
