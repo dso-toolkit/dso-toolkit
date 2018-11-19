@@ -5,12 +5,30 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 3.1.0 - UNRELEASED
 
+### Added
+* Lijn plus titel en 'stappenteller' (#153)
+* Accordeon border-top schakelbaar maken (#152)
+* highlight-box in `.dso-rich-content` support (#232)
+
 ### Fixed
 * Accordeon font-size naar 20px (#185)
-* Tertiare button 16px (#186)
+* Tertiare button 16px, icon 18px (#186)
 * Hamburger menu documentatie bijwerken met instructies voor scripting (#188)
 * Lijnen van secundaire button niet altijd even dik (#193)
 * Label spacing padding too small (#194)
+* Icoon a.extern::after en dso-succes a::after beten elkaar (#204)
+* Correctie berekening hoogte Fractal content-panel (#208)
+* Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
+* Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
+* Fix vertical margins on child elements of components with vertical padding possibly containing block elements. Wrapping the entire inner content in a single `div.dso-rich-content` can be omitted in the majority of cases. (#189)
+
+### Added
+* Border onder hover/focus state (vervolg uit #31)
+* `.dso-rich-content` component ter documentatie (#228)
+
+### Added
+* Info button for formfield labels (#190)
+* Info textbox for formfields (#203)
 
 ### Added
 - Added `.nav-tabs` bootstrap-component, equal length on tabs triggered bij class 'dso-tabcnt-#' (#156)
@@ -21,6 +39,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
 * #71: Het search bar component is nieuw. Dit component moet doorgevoerd worden in de header en verwijderd worden uit het menu.
 * #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
+* #113: Een groot aantal legacy components zijn verwijderd, zie issue voor meer informatie
 
 ### Added
 - **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
@@ -37,6 +56,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
 - **BREAKING:** WCAG errors in 2.0.0-alpha.2 (#143)
+- **BREAKING:** Remove legacy components (#113)
 - Disabled buttons with hover styles wrong (#145)
 - Font-Awesome classnames fix FA v5 (#148)
 - Checkbox display in IE 11 (#149)

@@ -1,0 +1,14 @@
+.panel-heading,
+.panel-footer {
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.panel-body {
+  @extend %dso-rich-content;
+}

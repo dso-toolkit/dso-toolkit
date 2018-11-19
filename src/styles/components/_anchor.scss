@@ -15,10 +15,21 @@ a {
 
     &::after {
       @extend .fas;
-
       margin-left: $dso-anchor-spacer-width;
       position: absolute;
-      top: calc(50% - .5em);
+    }
+
+    &:not(.btn) {
+      &::after {
+        bottom: 1px;
+      }
+    }
+
+    &.btn {
+      &::after {
+        bottom: auto;
+        top: calc(50% - .5em);
+      }
     }
   }
 

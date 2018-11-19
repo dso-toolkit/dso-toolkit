@@ -1,0 +1,18 @@
+$step-indicator-padding: 12px;
+$step-padding: 12px;
+
+.dso-steps-indicator {
+  @extend %is-h2;
+  border-bottom: 1px solid $bosgroen-60;
+  float: left;
+  padding-bottom: $step-indicator-padding;
+  width: 100%;
+
+  span.dso-step {
+    display: block;
+    float: right;
+    font-size: 1rem;
+    font-weight: normal;
+    padding-top: #{$step-padding / 2};
+  }
+}

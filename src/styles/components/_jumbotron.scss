@@ -9,6 +9,7 @@
   }
 
   .dso-jumbotron-body {
+    @extend %dso-rich-content;
     @include make-md-column(8);
   }
 
