@@ -6,9 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 3.1.0 - UNRELEASED
 
 ### Added
-* Lijn plus titel en 'stappenteller' (#153)
+* Border onder hover/focus state (vervolg uit #31)
 * Accordeon border-top schakelbaar maken (#152)
-* highlight-box in `.dso-rich-content` support (#232)
+* Lijn plus titel en 'stappenteller' (#153)
+* Info button for formfield labels (#190)
+* Info textbox for formfields (#203)
 
 ### Fixed
 * Accordeon font-size naar 20px (#185)
@@ -19,16 +21,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Icoon a.extern::after en dso-succes a::after beten elkaar (#204)
 * Correctie berekening hoogte Fractal content-panel (#208)
 * Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
+
+## 3.0.1 - 21-11-2018
+
+### Added
+* `.dso-rich-content` component ter documentatie (#228)
+* highlight-box in `.dso-rich-content` support (#232)
+
+### Fixed
 * Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
 * Fix vertical margins on child elements of components with vertical padding possibly containing block elements. Wrapping the entire inner content in a single `div.dso-rich-content` can be omitted in the majority of cases. (#189)
-
-### Added
-* Border onder hover/focus state (vervolg uit #31)
-* `.dso-rich-content` component ter documentatie (#228)
-
-### Added
-* Info button for formfield labels (#190)
-* Info textbox for formfields (#203)
 
 ## 3.0.0 - 13-9-2018
 
