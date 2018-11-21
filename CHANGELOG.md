@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 3.0.1 - UNRELEASED
 
 ### Fixed
+* Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
 * Fix vertical margins on child elements of components with vertical padding possibly containing block elements. Wrapping the entire inner content in a single `div.dso-rich-content` can be omitted in the majority of cases. (#189)
 
 ## 3.0.0 - 13-9-2018
