@@ -3,7 +3,7 @@ ul.nav-tabs {
     border-bottom: 1px solid $grasgroen;
   }
 
-  @media screen and (max-width: $screen-sm-max) {
+  @media screen and (max-width: $screen-xs-max) {
     border-bottom: 1px solid $wit;
   }
 
@@ -12,7 +12,7 @@ ul.nav-tabs {
     font-weight: bold;
     min-height: 44px;
 
-    @media screen and (max-width: $screen-sm-max) {
+    @media screen and (max-width: $screen-xs-max) {
       margin: 10px 0;
 
       &:first-child {
@@ -25,7 +25,7 @@ ul.nav-tabs {
     }
 
     a {
-      border-radius: 4px;
+      border-radius: 4px 4px 0 0;
       color: $grijs-60;
       min-height: 44px;
       padding: 10px 25px;
