@@ -13,7 +13,7 @@ variants:
       modifier: download
   - name: extern
     context:
-      label: Google
+      label: Een link naar Google
       url: http://www.google.nl
       modifier: extern
   - name: icon

@@ -111,6 +111,40 @@ context:
       rows: 5
       label: Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
       helpText: Deze vraag heeft een toelichting
+  - legend: Vraag met infobutton
+    groups:
+    - id: input-radio-infobutton
+      inputType: radios
+      label: Blieft u een toelichting?
+      options:
+      - value: 1
+        label: ja
+        checked: true
+        infoOpen: false
+        infoText: |
+          Empty
+      - value: 2
+        label: nee
+      infoOpen: false
+      infoText: |
+        Empty
+  - legend: Vraag met infobutton uitgeklapt
+    groups:
+    - id: input-radio-infobutton-open
+      inputType: radios
+      label: Toelichting op uw vraag
+      options:
+      - value: 1
+        label: ja
+        checked: true
+        infoOpen: false
+        infoText: Empty
+      - value: 2
+        label: nee
+      infoOpen: true
+      infoText: |
+        <h4>Let op</h4>
+        <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
   submitButton:
     type: submit
     modifier: primary

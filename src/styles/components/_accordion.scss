@@ -6,8 +6,14 @@ $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
 
 .dso-accordion {
+  &:not(.dso-no-top-border) .dso-accordion-section:first-child,
+  .dso-accordion-section + .dso-accordion-section {
+    .dso-section-handle {
+      border-top: 1px solid $dso-accordion-border-color;
+    }
+  }
+
   .dso-section-handle {
-    border-top: 1px solid $dso-accordion-border-color;
     font-weight: 700;
     padding-right: $dso-accordion-state-icon-size + $u1;
     position: relative;
@@ -54,26 +60,34 @@ $dso-accordion-state-icon-size: $u3;
 
   .dso-accordion-section {
     &.dso-success {
-      a::after {
-        @include icon($dso-icon-notification-succes-24x24);
+      .dso-section-handle {
+        a::after {
+          @include icon($dso-icon-notification-succes-24x24);
+        }
       }
     }
 
     &.dso-danger {
-      a::after {
-        @include icon($dso-icon-notification-error-24x24);
+      .dso-section-handle {
+        a::after {
+          @include icon($dso-icon-notification-error-24x24);
+        }
       }
     }
 
     &.dso-warning {
-      a::after {
-        @include icon($dso-icon-notification-warning-24x24);
+      .dso-section-handle {
+        a::after {
+          @include icon($dso-icon-notification-warning-24x24);
+        }
       }
     }
 
     &.dso-info {
-      a::after {
-        @include icon($dso-icon-notification-information-24x24);
+      .dso-section-handle {
+        a::after {
+          @include icon($dso-icon-notification-information-24x24);
+        }
       }
     }
 

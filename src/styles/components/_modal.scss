@@ -96,6 +96,7 @@ body.dso-modal-open {
   }
 
   .dso-body {
+    @extend %dso-rich-content;
     border-bottom: $dso-modal-body-padding solid $wit;
     border-top: $dso-modal-body-padding solid $wit;
     padding: 0 $dso-modal-body-padding;
@@ -130,10 +131,22 @@ body.dso-modal-open {
     top: 0;
     z-index: $dso-modal-z-index;
 
+    @keyframes slideInFromTop {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
     .dso-dialog {
+      animation: 1s ease-out 0s 1 slideInFromTop;
       margin: auto;
       margin-top: 15vh;
       max-width: $dso-modal-max-width;
+      opacity: 1;
     }
 
     .dso-body {

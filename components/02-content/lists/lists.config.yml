@@ -5,11 +5,11 @@ status: ready
 default: unordered-list
 context:
   items:
-    - Cras justo odio
-    - Dapibus ac facilisis in
-    - Morbi leo risus
-    - Porta ac consectetur ac
-    - Vestibulum at eros
+    - text: Cras justo odio
+    - text: Dapibus ac facilisis in
+    - text: Morbi leo risus
+    - text: Porta ac consectetur ac
+    - paragraph: Vestibulum at eros
 variants:
   - name: ordered-list
   - name: list-group
