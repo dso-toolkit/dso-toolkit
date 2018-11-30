@@ -105,17 +105,19 @@ ul.dso-tabs {
     }
   }
 
-  $tab-count: dso-tabcount !default;
+  $tab-count: 10 !default;
 
-  @for $i from 1 through 10 {
-    &.#{$tab-count}-#{$i} li {
-      @media screen and (max-width: $screen-xs-max) {
-        width: 100%;
-      }
-
-      @media screen and (min-width: $screen-sm-min) {
+  @media screen and (min-width: $screen-sm-min) {
+    @for $i from 1 through $tab-count {
+      &.dso-tabcount-#{$i} > li {
         width: calc(100% / #{$i} - 1px);
       }
+    }
+  }
+
+  > li {
+    @media screen and (max-width: $screen-xs-max) {
+      width: 100%;
     }
   }
 }
