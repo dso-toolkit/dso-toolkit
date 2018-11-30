@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Lijn plus titel en 'stappenteller' (#153)
 * Info button for formfield labels (#190)
 * Info textbox for formfields (#203)
-* Added `.nav-tabs` bootstrap-component, equal length on tabs triggered bij class 'dso-tabcnt-#' (#156)
+* Added `.dso-tabs` component, equal length on tabs triggered bij class 'dso-tabcount-#' (#156)
 
 ### Fixed
 * Accordeon font-size naar 20px (#185)

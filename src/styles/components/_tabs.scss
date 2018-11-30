@@ -1,4 +1,13 @@
-ul.nav-tabs {
+$dso-tabs-border-radius: 4px;
+$dso-tabs-height: $dso-tabs-height;
+
+ul.dso-tabs {
+  @include clearfix;
+  border-bottom: 1px solid $nav-tabs-border-color;
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+
   @media screen and (min-width: $screen-sm-min) {
     border-bottom: 1px solid $grasgroen;
   }
@@ -7,10 +16,15 @@ ul.nav-tabs {
     border-bottom: 1px solid $wit;
   }
 
-  li {
+  > li {
     border-color: $grasgroen;
+    display: block;
+    float: left;
     font-weight: bold;
-    min-height: 44px;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    min-height: $dso-tabs-height;
+    position: relative;
 
     @media screen and (max-width: $screen-xs-max) {
       margin: 10px 0;
@@ -24,20 +38,33 @@ ul.nav-tabs {
       }
     }
 
-    a {
-      border-radius: 4px 4px 0 0;
+    // Actual tabs (as links)
+    > a {
+      border: 1px solid transparent;
+      border-radius: $dso-tabs-border-radius $dso-tabs-border-radius 0 0;
       color: $grijs-60;
-      min-height: 44px;
+      display: block;
+      line-height: $line-height-base;
+      margin-right: 2px;
+      min-height: $dso-tabs-height;
       padding: 10px 25px;
+      position: relative;
+
+      &:hover {
+        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+      }
     }
 
-    &.active a {
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
       &,
       &:focus,
       &:hover {
+        background-color: $nav-tabs-active-link-hover-bg;
         border: 1px solid $grasgroen;
         border-bottom-color: $wit;
         color: $grasgroen;
+        cursor: default;
       }
     }
 
@@ -48,6 +75,7 @@ ul.nav-tabs {
       border: 1px solid $grasgroen;
       border-bottom-color: $wit;
       outline: 0;
+      text-decoration: none;
     }
 
     @media screen and (max-width: $screen-xs-max) {
@@ -77,10 +105,10 @@ ul.nav-tabs {
     }
   }
 
-  $tab-cnt: dso-tabcnt !default;
+  $tab-count: dso-tabcount !default;
 
   @for $i from 1 through 10 {
-    &.#{$tab-cnt}-#{$i} li {
+    &.#{$tab-count}-#{$i} li {
       @media screen and (max-width: $screen-xs-max) {
         width: 100%;
       }
