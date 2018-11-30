@@ -28,7 +28,7 @@ a {
 
     &.btn-default,
     &.btn-primary {
-      padding-right: calc(#{$dso-button-size - $dso-button-border-width + $dso-anchor-spacer-width} + #{$dso-anchor-download-width});
+      padding-right: #{$dso-button-size - $dso-button-border-width + $dso-anchor-spacer-width};
     }
   }
 
@@ -41,7 +41,7 @@ a {
 
     &.btn-default,
     &.btn-primary {
-      padding-right: calc(#{$dso-button-size - $dso-button-border-width + $dso-anchor-spacer-width} + #{$dso-anchor-extern-width});
+      padding-right: #{$dso-button-size - $dso-button-border-width + $dso-anchor-spacer-width};
     }
   }
 }
