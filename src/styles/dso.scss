@@ -3,12 +3,13 @@
 @import "mixins/font-asap";
 @import "mixins/full-width-row";
 @import "mixins/grid";
+@import "mixins/tables";
 @import "mixins/typography";
 
 @import "icons/dso-icons";
 
-@import "components/alert";
 @import "components/accordion";
+@import "components/alert";
 @import "components/anchor";
 @import "components/badge";
 @import "components/breadcrumbs";
@@ -22,15 +23,18 @@
 @import "components/image";
 @import "components/jumbotron";
 @import "components/label";
+@import "components/lists";
 @import "components/menu";
 @import "components/modal";
+@import "components/navs";
 @import "components/pager";
 @import "components/pagination";
-@import "components/navs";
+@import "components/panel";
 @import "components/progress-block";
 @import "components/rich-content";
 @import "components/searchbar";
 @import "components/selectables";
+@import "components/steps";
 @import "components/table";
 @import "components/tooltip";
 @import "components/well";

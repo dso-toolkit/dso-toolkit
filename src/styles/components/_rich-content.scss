@@ -1,4 +1,9 @@
+%dso-rich-content,
 .dso-rich-content {
+  .highlight-box {
+    margin-bottom: 12px;
+  }
+
   > :first-child {
     margin-top: 0;
   }

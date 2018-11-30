@@ -3,6 +3,9 @@
     <label class="control-label">
       {{ label }}
     </label>
+    {{#if infoText }}
+      {{> '@form-field-info-button' }}
+    {{/if}}
   </legend>
   <div class="dso-field-container">
     {{#each options }}
@@ -11,7 +14,15 @@
           {{{ifattr 'disabled' disabled }}}
           {{{ifattr 'checked' checked }}}
           {{{ifattr 'required' required }}} />
-        <label for="{{ ../id }}-{{ @index }}">{{ label }}</label>
+        <label for="{{ ../id }}-{{ @index }}">
+          {{ label }}
+        </label>
+        {{#if infoText }}
+          {{> '@form-field-info-button' }}
+        {{/if}}
+        {{#if infoOpen }}
+          {{> '@form-field-info' }}
+        {{/if}}
       </div>
     {{/each}}
     {{#if errorText }}
@@ -21,4 +32,7 @@
       {{> '@help-block' }}
     {{/if}}
   </div>
+  {{#if infoOpen }}
+    {{> '@form-field-info' }}
+  {{/if}}
 </fieldset>

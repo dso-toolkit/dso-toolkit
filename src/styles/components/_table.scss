@@ -1,58 +1,100 @@
-.table {
-  > thead > tr {
-    > th {
-      border-bottom: 1px solid $grijs-50;
-      font-style: italic;
-    }
-  }
+// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
+// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
 
-  > tbody {
-    > tr {
-      &:first-child {
-        > td,
-        > th {
-          border-top: 0;
+table {
+  background-color: $table-bg;
+}
+
+caption {
+  color: $text-muted;
+  padding-bottom: $table-cell-padding;
+  padding-top: $table-cell-padding;
+  text-align: left;
+}
+
+th {
+  text-align: left;
+}
+
+table.table {
+  td,
+  th {
+    @extend %dso-rich-content;
+  }
+}
+
+table.table,
+.dso-rich-content table {
+  @include dso-table;
+}
+
+// Condensed table w/ half padding
+
+table.table,
+.dso-rich-content table {
+  &.table-condensed {
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          padding: $table-condensed-cell-padding;
         }
       }
-
-      > td,
-      > th {
-        border-top: 1px dotted $grijs-30;
-
-        &:first-child {
-          width: 35%;
-        }
-
-        &.actions {
-          width: 25%;
-        }
-
-        .fa-check {
-          color: $grasgroen;
-          font-size: 1.4em;
-        }
-
-        .fa-exclamation-circle {
-          color: $grijs-40;
-          font-size: 1.4em;
-        }
-
-        &:last-child span {
-          margin-left: 12px;
-          margin-right: 4px;
-
-          &:first-child {
-            margin-left: 0;
-          }
-        }
-      }
-    }
-  }
-
-  td.actions {
-    button {
-      text-align: left;
-      width: 100%;
     }
   }
 }
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+  > tbody > tr:nth-of-type(odd) {
+    background-color: $table-bg-accent;
+  }
+}
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  display: table-column;
+  float: none;
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+}
+
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      display: table-cell;
+      float: none;
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+    }
+  }
+}
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+@include dso-table-row-variant("active", $table-bg-active);
+@include dso-table-row-variant("success", $dso-success-bg-color);
+@include dso-table-row-variant("info", $dso-info-bg-color);
+@include dso-table-row-variant("warning", $dso-warning-bg-color);
+@include dso-table-row-variant("danger", $dso-danger-bg-color);
