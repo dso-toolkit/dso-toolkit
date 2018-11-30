@@ -11,4 +11,10 @@
   > :last-child {
     margin-bottom: 0;
   }
+
+  img {
+    display: block;
+    margin: 0 auto $dso-unit;
+    max-width: 100%;
+  }
 }
