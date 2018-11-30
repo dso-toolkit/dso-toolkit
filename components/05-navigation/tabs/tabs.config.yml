@@ -1,0 +1,154 @@
+notes: |
+  Toont navigatie-tabs. Gebaseerd op de Bootstrap `nav-tabs` component. Afhankelijk van het aantal tabs, loopt het getal in de class `dso-tabcount-X` evenredig op (lees: `dso-tabcount-3`, `dso-tabcount-4`, etc.).
+collated: true
+context:
+  __title: Two tabs
+  tabs:
+    - label: Tab 1
+      url: '#'
+    - label: Tab 2
+      url: '#'
+variants:
+  - name: Three tabs
+    context:
+      __title: Three tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+
+  - name: Four tabs
+    context:
+      __title: Four tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+
+  - name: Five tabs
+    context:
+      __title: Five tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+      - label: Tab 5
+        url: '#'
+
+  - name: Six tabs
+    context:
+      __title: Six tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+      - label: Tab 5
+        url: '#'
+      - label: Tab 6
+        url: '#'
+
+  - name: Seven tabs
+    context:
+      __title: Seven tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+      - label: Tab 5
+        url: '#'
+      - label: Tab 6
+        url: '#'
+      - label: Tab 7
+        url: '#'
+
+  - name: Eight tabs
+    context:
+      __title: Eight tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+      - label: Tab 5
+        url: '#'
+      - label: Tab 6
+        url: '#'
+      - label: Tab 7
+        url: '#'
+      - label: Tab 8
+        url: '#'
+
+  - name: Nine tabs
+    context:
+      __title: Nine tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+      - label: Tab 5
+        url: '#'
+      - label: Tab 6
+        url: '#'
+      - label: Tab 7
+        url: '#'
+      - label: Tab 8
+        url: '#'
+      - label: Tab 9
+        url: '#'
+
+  - name: Ten tabs
+    context:
+      __title: Ten tabs
+      tabs:
+      - label: Tab 1
+        url: '#'
+      - label: Tab 2
+        url: '#'
+      - label: Tab 3
+        url: '#'
+      - label: Tab 4
+        url: '#'
+      - label: Tab 5
+        url: '#'
+      - label: Tab 6
+        url: '#'
+      - label: Tab 7
+        url: '#'
+      - label: Tab 8
+        url: '#'
+      - label: Tab 9
+        url: '#'
+      - label: Tab 10
+        url: '#'
