@@ -6,8 +6,10 @@
 module.exports = function () {
   return {
     accordion(options) {
+      const classNames = ['dso-accordion', this.modifiers].filter(c => c).join(' ');
+
       return `
-        <div class="dso-accordion">
+        <div class="${classNames}">
           ${options.fn(this)}
         </div>
       `.trim();

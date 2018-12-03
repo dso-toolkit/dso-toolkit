@@ -55,3 +55,30 @@ variants:
     id: input-text-readonly
     label: Naam
     readonly: true
+- name: input-text-infobutton
+  context:
+    __title: Infobutton
+    __explanation:
+    - Toelichting ingeklapt
+    id: input-text-infobutton
+    label: E-mailadres
+    value: thomas@
+    infoOpen: false
+    infoText: |
+      Closed
+- name: input-text-infobutton-open
+  context:
+    __title: Infobutton uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt
+    id: input-text-infobutton-open
+    label: E-mailadres
+    required: true
+    infoOpen: true
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
