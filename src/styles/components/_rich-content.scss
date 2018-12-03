@@ -14,7 +14,11 @@
 
   img {
     display: block;
-    margin: 0 auto $dso-unit;
+    margin: $dso-unit auto;
     max-width: 100%;
+  }
+
+  * + img {
+    margin-top: 0;
   }
 }
