@@ -4,7 +4,8 @@
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "3.1.0-alpha.5",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build && gulp test && gulp post-build"
   },
   "repository": {
     "type": "git",
