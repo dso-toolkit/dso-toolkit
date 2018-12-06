@@ -3,6 +3,9 @@
   "description": "DSO Toolkit and Component Library",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "3.1.0-alpha.5",
+  "scripts": {
+    "start": "gulp"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
