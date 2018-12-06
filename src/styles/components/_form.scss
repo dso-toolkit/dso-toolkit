@@ -8,7 +8,7 @@ $dso-form-control-border-width: 2px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-required-string: "verplicht";
 
-$dso-toggle-close-icon: $dso-icon-button-icon-cross-12x12;
+$dso-toggle-close-icon-forestgreen: $dso-icon-button-icon-cross-12x12-forestgreen;
 $dso-toggle-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
 $dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
@@ -128,7 +128,7 @@ form {
   }
 
   > button {
-    @include icon($dso-toggle-close-icon);
+    @include icon($dso-toggle-close-icon-forestgreen);
     background-size: $u2 $u2;
     border-style: none;
     height: #{$dso-toggle-close-icon-size - 2px};
