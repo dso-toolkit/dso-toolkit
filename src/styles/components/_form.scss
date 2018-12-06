@@ -234,6 +234,10 @@ select:not([multiple]) {
       .form-control {
         padding-bottom: $padding-base-vertical - 1;
         padding-top: $padding-base-vertical - 1;
+
+        &:not([rows]) {
+          height: calc(#{$line-height-base * 3}rem + #{($padding-base-vertical + 1) * 2});
+        }
       }
     }
 

@@ -5,7 +5,6 @@ collated: true
 context:
   id: input-textarea
   label: Wilt u nog wat kwijt?
-  rows: 5
 variants:
 - name: input-textarea-invalid
   context:
@@ -29,6 +28,11 @@ variants:
     state: valid
     helpText: Minimaal 6 tekens waarvan 1 leesteken
     value: Ik heb wat ingevuld
+- name: input-textarea-rows6
+  context:
+    __title: Een textarea met 6 rijen
+    id: input-textarea-rows6
+    rows: 6
 - name: input-textarea-placeholder
   context:
     __title: Placeholder
