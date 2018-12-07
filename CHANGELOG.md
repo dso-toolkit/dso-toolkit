@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Info button for formfield labels (#190)
 * Info textbox for formfields (#203)
 * Added `.dso-tabs` component (#156)
+* Plaat in `.dso-rich-content` in het midden positioneren (#242)
 
 ### Fixed
 * Accordeon font-size naar 20px (#185)
