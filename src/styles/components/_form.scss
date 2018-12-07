@@ -238,7 +238,7 @@ select:not([multiple]) {
         padding-top: $padding-base-vertical - 1;
 
         &:not([rows]) {
-          height: calc(#{$line-height-base * $dso-textarea-default-rows}rem + #{($padding-base-vertical + 1) * 2});
+          height: calc(#{$line-height-base * $dso-textarea-default-rows}em + #{($padding-base-vertical + 1) * 2});
         }
       }
     }
