@@ -1,3 +1,5 @@
+$dso-textarea-default-rows: 1 !default;
+
 $dso-label-column: $grid-columns / 2;
 
 $dso-field-invalid-border-color: $dso-danger-color;
@@ -8,7 +10,7 @@ $dso-form-control-border-width: 2px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-required-string: "verplicht";
 
-$dso-toggle-close-icon: $dso-icon-button-icon-cross-12x12;
+$dso-toggle-close-icon-forestgreen: $dso-icon-button-icon-cross-12x12-forestgreen;
 $dso-toggle-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
 $dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
@@ -128,7 +130,7 @@ form {
   }
 
   > button {
-    @include icon($dso-toggle-close-icon);
+    @include icon($dso-toggle-close-icon-forestgreen);
     background-size: $u2 $u2;
     border-style: none;
     height: #{$dso-toggle-close-icon-size - 2px};
@@ -234,6 +236,10 @@ select:not([multiple]) {
       .form-control {
         padding-bottom: $padding-base-vertical - 1;
         padding-top: $padding-base-vertical - 1;
+
+        &:not([rows]) {
+          height: calc(#{$line-height-base * $dso-textarea-default-rows}em + #{($padding-base-vertical + 1) * 2});
+        }
       }
     }
 
