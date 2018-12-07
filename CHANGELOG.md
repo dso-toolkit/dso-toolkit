@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 * Border onder hover/focus state (vervolg uit #31)
 * Accordeon border-top schakelbaar maken (#152)
-* Lijn plus titel en 'stappenteller' (#153)
+* Stappenteller in Koppen (#153)
 * Info button for formfield labels (#190)
 * Info textbox for formfields (#203)
 * Added `.dso-tabs` component (#156)
