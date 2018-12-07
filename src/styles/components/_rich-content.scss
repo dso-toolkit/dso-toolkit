@@ -12,9 +12,9 @@
     margin-bottom: 0;
   }
 
-  img {
+  > p > img {
     display: block;
-    margin: $dso-unit auto;
+    margin: $u1 auto;
     max-width: 100%;
   }
 }
