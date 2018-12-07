@@ -1,7 +1,5 @@
 $dso-anchor-download-content: fa-content($fa-var-download);
 $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
-$dso-anchor-download-width: 1em;
-$dso-anchor-extern-width: 1.2em;
 $dso-anchor-spacer-width: 4px;
 
 a {
@@ -11,8 +9,6 @@ a {
 
   &.download,
   &.extern {
-    position: relative;
-
     &::after {
       @extend .fas;
       margin-left: $dso-anchor-spacer-width;
@@ -20,28 +16,14 @@ a {
   }
 
   &.download {
-    padding-right: calc(#{$dso-anchor-download-width} + #{$dso-anchor-spacer-width});
-
     &::after {
       content: $dso-anchor-download-content;
-    }
-
-    &.btn-default,
-    &.btn-primary {
-      padding-right: #{$dso-button-size - $dso-button-border-width + $dso-anchor-spacer-width};
     }
   }
 
   &.extern {
-    padding-right: calc(#{$dso-anchor-extern-width} + #{$dso-anchor-spacer-width});
-
     &::after {
       content: $dso-anchor-extern-content;
-    }
-
-    &.btn-default,
-    &.btn-primary {
-      padding-right: #{$dso-button-size - $dso-button-border-width + $dso-anchor-spacer-width};
     }
   }
 }
