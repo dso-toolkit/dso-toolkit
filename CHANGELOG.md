@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 3.1.0 - 1-02-2019
+## 3.1.0 - 02-01-2019
 
 * Border onder hover/focus state (vervolg uit #31)
 * Accordeon border-top schakelbaar maken (#152)
@@ -34,7 +34,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
 * Fix vertical margins on child elements of components with vertical padding possibly containing block elements. Wrapping the entire inner content in a single `div.dso-rich-content` can be omitted in the majority of cases. (#189)
 
-## 3.0.0 - 13-9-2018
+## 3.0.0 - 13-09-2018
 
 ### Releasenotes
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
@@ -69,7 +69,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Iconen van zoeken en inloggen lijnen vreemd uit (#176)
 - Header toont rond 800px breed helemaal geen menu (#177)
 
-## 2.0.0 - 23-6-2018
+## 2.0.0 - 23-06-2018
 
 ### Releasenotes
 * #60: De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
