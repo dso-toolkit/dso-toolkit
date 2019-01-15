@@ -68,6 +68,8 @@ $dso-searchbar-closed-width: 100px;
   label {
     opacity: 0;
     padding-left: 14px;
+    position: absolute;
+    z-index: -1;
   }
 
   button {
@@ -104,6 +106,7 @@ $dso-searchbar-closed-width: 100px;
     line-height: $input-height-base - 4px;
     position: absolute;
     top: 0;
+    z-index: 1;
   }
 
   .dso-searchbar-icon {
