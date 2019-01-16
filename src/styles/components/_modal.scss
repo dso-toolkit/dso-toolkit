@@ -156,6 +156,12 @@ body.dso-modal-open {
       overflow-x: auto;
     }
 
+    &.dso-scripted-height {
+      .dso-body {
+        max-height: none;
+      }
+    }
+
     .dso-footer {
       button + button.btn-default {
         margin-left: $u2;
