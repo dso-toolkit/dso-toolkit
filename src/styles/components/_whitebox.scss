@@ -1,0 +1,34 @@
+.dso-whitebox {
+  background: #fff;
+  box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
+  height: 520px;
+  margin-bottom: 56px;
+  padding: 16px 24px;
+  top: 56px;
+
+  @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
+    height: 540px;
+    padding: 12px 20px;
+  }
+
+  .dso-function-title {
+    height: 25%;
+  }
+
+  .dso-function-link {
+    text-align: center;
+  }
+
+  .dso-function-icon {
+    margin-bottom: 15px;
+    min-height: 150px;
+    padding: 15px 0;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .dso-desciption {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+}
