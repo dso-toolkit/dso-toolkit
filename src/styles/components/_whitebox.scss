@@ -1,6 +1,6 @@
 .dso-whitebox {
-  background: #fff;
-  box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
+  background: $wit;
+  box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
   margin-bottom: $u7;
   min-height: 520px;
   padding: $u2 $u3 0;
@@ -36,8 +36,8 @@
 }
 
 .dso-whitebox-small {
-  background: #fff;
-  box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
+  background: $wit;
+  box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
   margin-bottom: $u7;
   min-height: 200px;
   padding: $u3 $u2 $u2;
@@ -57,13 +57,13 @@
   }
 
   .dso-whitebox-link {
-    border-bottom: 4px solid transparent;
+    border-bottom: #{$u1 / 2} solid transparent;
     color: $grasgroen;
     display: block;
     font-size: $dso-font-size-h4;
     font-weight: bold;
     line-height: 1.167;
-    padding-bottom: 4px;
+    padding-bottom: #{$u1 / 2};
     text-align: center;
   }
 
@@ -71,7 +71,7 @@
     text-decoration: none;
 
     .dso-whitebox-link {
-      border-bottom: 4px solid $grasgroen;
+      border-bottom: #{$u1 / 2} solid $grasgroen;
     }
   }
 }
