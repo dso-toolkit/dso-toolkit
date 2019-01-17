@@ -1,21 +1,24 @@
 .dso-whitebox {
   background: #fff;
   box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
+  margin-bottom: $u7;
   min-height: 520px;
   padding: $u2 $u3 0;
+  position: relative;
+  top: $u7;
 
-  .dso-function-title {
+  .dso-whitebox-title {
     h2 {
       margin: 0 0 $u6;
     }
   }
 
-  .dso-function-link {
+  .dso-whitebox-link {
     margin-bottom: $u4;
     text-align: center;
   }
 
-  .dso-function-icon {
+  .dso-whitebox-icon {
     margin-bottom: $u4;
     text-align: center;
     white-space: nowrap;
@@ -35,10 +38,13 @@
 .dso-whitebox-small {
   background: #fff;
   box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
-  height: 200px;
+  margin-bottom: $u7;
+  min-height: 200px;
   padding: $u3 $u2 $u2;
+  position: relative;
+  top: $u7;
 
-  .dso-function-icon {
+  .dso-whitebox-icon {
     display: block;
     margin-bottom: $u2;
     text-align: center;
@@ -50,7 +56,7 @@
     }
   }
 
-  .dso-function-link {
+  .dso-whitebox-link {
     border-bottom: 4px solid transparent;
     color: $grasgroen;
     display: block;
@@ -64,7 +70,7 @@
   a:hover {
     text-decoration: none;
 
-    .dso-function-link {
+    .dso-whitebox-link {
       border-bottom: 4px solid $grasgroen;
     }
   }
