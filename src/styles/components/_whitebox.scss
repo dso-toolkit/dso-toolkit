@@ -1,34 +1,71 @@
 .dso-whitebox {
   background: #fff;
   box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
-  height: 520px;
-  margin-bottom: 56px;
-  padding: 16px 24px;
-  top: 56px;
-
-  @media (max-width: $screen-md-max) and (min-width: $screen-md-min) {
-    height: 540px;
-    padding: 12px 20px;
-  }
+  min-height: 520px;
+  padding: $u2 $u3 0;
 
   .dso-function-title {
-    height: 25%;
+    h2 {
+      margin: 0 0 $u6;
+    }
   }
 
   .dso-function-link {
+    margin-bottom: $u4;
     text-align: center;
   }
 
   .dso-function-icon {
-    margin-bottom: 15px;
-    min-height: 150px;
-    padding: 15px 0;
+    margin-bottom: $u4;
     text-align: center;
     white-space: nowrap;
+
+    img {
+      height: 160px;
+      width: 160px;
+    }
   }
 
   .dso-desciption {
-    margin-bottom: 8px;
+    margin-bottom: $u6;
     width: 100%;
+  }
+}
+
+.dso-whitebox-small {
+  background: #fff;
+  box-shadow: 0 6px 8px 0 $opac10, 0 6px 8px 0 $opac10;
+  height: 200px;
+  padding: $u3 $u2 $u2;
+
+  .dso-function-icon {
+    display: block;
+    margin-bottom: $u2;
+    text-align: center;
+    white-space: nowrap;
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  .dso-function-link {
+    border-bottom: 4px solid transparent;
+    color: $grasgroen;
+    display: block;
+    font-size: $dso-font-size-h4;
+    font-weight: bold;
+    line-height: 1.167;
+    padding-bottom: 4px;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+
+    .dso-function-link {
+      border-bottom: 4px solid $grasgroen;
+    }
   }
 }
