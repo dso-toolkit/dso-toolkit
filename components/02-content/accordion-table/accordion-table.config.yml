@@ -11,15 +11,17 @@ notes: |
 status: wip
 context:
   modifiers: dso-no-top-border
+  head:
+  - tablehead: Aanvraag/melding
   sections:
-  - title: Woning
+  - title: Vergunning kappen
     id: panel1
-  - title: Bouwwerkzaamheden
+  - title: Boom 23 kappen
     id: panel2
-  - title: Plaats van het bouwwerk
+  - title: Pand 24 slopen
     id: panel3
     open: true
-  - title: Afmetingen van het bouwwerk
+  - title: Kerkstraat 10 tuin uitgraven
     id: panel4
-  - title: Extra werkzaamheden
+  - title: Grote Markt 31 kabels leggen
     id: panel5

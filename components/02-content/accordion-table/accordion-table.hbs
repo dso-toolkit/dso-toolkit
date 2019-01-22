@@ -1,4 +1,10 @@
 {{#accordionTable}}
+  {{#each head }}
+    {{#accordionTableHead tablehead}}
+      <p>Tabel header</p>
+    {{/accordionTableHead }}
+  {{/each}}
+
   {{#each sections }}
     {{#accordionTableSection title }}
       <p>En dit is de inhoud van <strong>{{ title }}</strong></p>

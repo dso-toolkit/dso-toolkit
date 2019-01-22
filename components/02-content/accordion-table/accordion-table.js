@@ -5,6 +5,7 @@
 
 module.exports = function () {
   return {
+
     accordionTable(options) {
       const classNames = ['dso-accordion-table', this.modifiers].filter(c => c).join(' ');
 
@@ -15,10 +16,25 @@ module.exports = function () {
       `.trim();
     },
 
+    accordionTableHead(tablehead) {
+      let tableHeadHtml = `<thead>`;
+      tableHeadHtml += (
+        `<tr class="dso-accordion-head">
+          <th>
+            ${ tablehead }
+          </th>
+        </tr>`);
+      tableHeadHtml += `</thead>`;
+
+      return tableHeadHtml.trim();
+    },
+
     accordionTableSection(title, options) {
       var self = this;
 
-      let html = (
+      let tableBodyHtml = `<tbody>`;
+
+      tableBodyHtml += (
         `<tr class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
           <td class="dso-section-handle">
             <a href="#">${ title }</a>
@@ -26,7 +42,7 @@ module.exports = function () {
         </tr>`);
 
       if (self.open) {
-        html += (
+        tableBodyHtml += (
           `<tr class="dso-section-body">
             <td>
               ${options.fn(self)}
@@ -34,9 +50,9 @@ module.exports = function () {
           </tr>`);
       }
 
-      // html += `</tr>`;
+      tableBodyHtml += `</tbody>`;
 
-      return html.trim();
+      return tableBodyHtml.trim();
     }
   };
 };

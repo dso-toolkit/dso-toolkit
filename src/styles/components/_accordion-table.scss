@@ -8,6 +8,14 @@ $dso-accordion-state-icon-size: $u3;
 .dso-accordion-table {
   width: 100%;
 
+  th {
+    @extend %is-h3;
+
+    &:first-child {
+      padding-left: $u4;
+    }
+  }
+
   &:not(.dso-no-top-border) .dso-accordion-section:first-child,
   .dso-accordion-section + .dso-accordion-section {
     .dso-section-handle {
