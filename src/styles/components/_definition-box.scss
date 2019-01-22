@@ -12,6 +12,10 @@ $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
   text-decoration: none;
   width: 100%;
 
+  .dso-begrip-text {
+    margin-right: $u1;
+  }
+
   .dso-begrip-cancel {
     cursor: pointer;
     position: absolute;
