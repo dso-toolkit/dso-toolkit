@@ -85,6 +85,7 @@ module.exports = fractal => Object.assign({
   }
 },
 require('../components/02-content/accordion/accordion.js')(fractal),
+require('../components/02-content/accordion-table/accordion-table.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js'),
 require('../components/02-content/progress-block/progress-block.js')
 );
