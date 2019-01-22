@@ -14,6 +14,10 @@ $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 
   .dso-begrip-text {
     margin-right: $u1;
+
+    *:first-child {
+      margin-top: 0;
+    }
   }
 
   .dso-begrip-cancel {
