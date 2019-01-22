@@ -1,0 +1,36 @@
+$dso-definition-list-gutter: $u2;
+$dso-definition-list-vertical-space: $u2;
+$dso-definition-list-term-width: 200px;
+$dso-definition-list-horizontal-breakpoint: $screen-sm-min;
+
+.dso-begrip-div {
+  background-color: $dso-info-bg-color;
+  border: 1px solid $dso-info-color;
+  margin-top: 5px;
+  padding: #{$u2 + 1} #{$u2 - 1} #{$u1 - 1};
+  position: relative;
+  text-decoration: none;
+  width: 100%;
+
+  .dso-begrip-cancel {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+  }
+
+  &::after {
+    background: $wit;
+    border-bottom: 1px solid $dso-info-color;
+    border-right: 1px solid $dso-info-color;
+    content: "";
+    display: block;
+    height: 10px;
+    left: 50%;
+    position: absolute;
+    top: -5px;
+    transform: rotate(45deg);
+    width: 10px;
+  }
+}
+
