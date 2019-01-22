@@ -1,10 +1,8 @@
 notes: |
-  Een accordion (`.dso-accordion`) bestaat uit secties (`.dso-accordion-section`). Een sectie heeft een handle (`.dso-section-handle`) en body (`.dso-section-body`).
+  Een table met accordion-fcuhntioonaliteit met (`.dso-accordion-talbe`) bestaat uit secties (`.dso-accordion-section`). Een sectie heeft een handle (`.dso-section-handle`) en body (`.dso-section-body`).
 
-  Een accordion section in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt voor oranje tekst en het "chevron-up"-icoon. Ook als het
+  Een accordion section (`tr`) in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt voor oranje tekst en het "chevron-up"-icoon. Ook als het
   `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
-
-  Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
 
   De class `dso-no-top-border` zorgt er voor dat de eerste `.dso-accordion-section` geen `border-top` krijgt.
 

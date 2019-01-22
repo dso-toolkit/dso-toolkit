@@ -32,10 +32,10 @@ module.exports = function () {
     accordionTableSection(title, options) {
       var self = this;
 
-      let tableBodyHtml = `<tbody>`;
+      let tableBodyHtml = `<tbody class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">`;
 
       tableBodyHtml += (
-        `<tr class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
+        `<tr>
           <td class="dso-section-handle">
             <a href="#">${ title }</a>
           </td>
