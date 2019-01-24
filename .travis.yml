@@ -1,9 +1,10 @@
 language: node_js
 node_js:
-  - node
+  - "node"
+  - "10"
 install:
   - gem install percy-cli
   - npm install
 script:
   - npm run build
-  - percy snapshot --widths "380,780,1024,1280" build/library/components/preview
+  - percy snapshot --widths "380,780,1024,1280" --baseurl "/components/preview" build/library/
