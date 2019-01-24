@@ -1,0 +1,7 @@
+language: node_js
+install:
+  - gem install percy-cli
+  - npm install
+script:
+  - npm build
+  - percy snapshot --widths "380,780,1024,1280" build/library/components/preview
