@@ -1,4 +1,6 @@
 language: node_js
+node_js:
+  - node
 install:
   - gem install percy-cli
   - npm install
