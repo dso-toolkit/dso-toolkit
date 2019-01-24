@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 3.2.0
+
+* Maximale hoogte van dso-body in modal te klein / niet handig (#191)
+
 ## 3.1.0 - 02-01-2019
 
 * Border onder hover/focus state (vervolg uit #31)
