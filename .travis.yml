@@ -6,4 +6,6 @@ install:
   - npm install
 script:
   - npm run build
-  - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/.+\.html$" build/library/
+  - npm run test
+  - echo "test"
+
