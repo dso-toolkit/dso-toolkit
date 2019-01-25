@@ -7,5 +7,6 @@ install:
 script:
   - npm run build
   - npm run test
+after_success:
   - echo "test"
 
