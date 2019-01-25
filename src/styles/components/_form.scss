@@ -118,6 +118,14 @@ form {
   padding: $u2 $u4 $u2 $u2;
   position: relative;
 
+  .dso-rich-content {
+    > p > img {
+      display: block;
+      margin: $u1 auto;
+      max-width: 100%;
+    }
+  }
+
   .form-group > & {
     float: left;
     margin: $u2 0;
