@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * CSS regressie testing en de WCAG checker uitgeschakeld (#8)
 
+### Fixed
+* Kleur aanpassing tabel caption (#262)
+
 ### Changed
 * **BREAKING:** Tooltip: Bootstrap markup handhaven (#252)
 
