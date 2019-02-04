@@ -1,11 +1,11 @@
 header {
   margin-bottom: 40px;
 
-  .logo-bar {
+  .dso-logo-bar {
     position: relative;
   }
 
-  .tools-bar {
+  .dso-tools-bar {
     float: right;
     margin-top: $u3 + 1px;
 
@@ -17,7 +17,7 @@ header {
   }
 
   .dso-search,
-  .login {
+  .dso-login {
     float: left;
 
     @media screen and (max-width: $screen-sm-max) {
@@ -25,7 +25,7 @@ header {
     }
   }
 
-  .login {
+  .dso-login {
     a {
       color: $grasgroen;
       font-weight: 700;
