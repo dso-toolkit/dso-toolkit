@@ -7,8 +7,7 @@ const fractal = require('./fractal.js');
 
 const { lintStyles, lintWatcher } = require('./gulp/lint');
 const { build, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
-const { testAccessibility, testDom } = require('./gulp/test');
-const { postBuild } = require('./gulp/post-build');
+const { testDom } = require('./gulp/test');
 
 const log = util.log;
 
@@ -17,10 +16,8 @@ gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), fracta
 
 gulp.task('lint', lintStyles);
 gulp.task('build', build);
-gulp.task('test', gulp.series(testDom, testAccessibility));
-gulp.task('test:accessibility', testAccessibility);
+gulp.task('test', gulp.series(testDom));
 gulp.task('test:dom', testDom);
-gulp.task('post-build', gulp.series(postBuild));
 gulp.task('reference:dom', createDomReference);
 
 function watch() {

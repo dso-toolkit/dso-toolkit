@@ -66,6 +66,13 @@
       > th {
         border-top: 1px dotted $grijs-30;
       }
+
+      &:last-child {
+        > td,
+        > th {
+          border-bottom: 1px dotted $grijs-30;
+        }
+      }
     }
   }
   // End DSO specific styling
