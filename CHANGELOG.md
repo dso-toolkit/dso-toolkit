@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * CSS regressie testing en de WCAG checker uitgeschakeld (#8)
 
 ### Fixed
+* **BREAKING:** Header elementen kunnen over elkaar heen vallen (#178)
 * Kleur aanpassing tabel caption (#262)
 * Accordeon pijltje wordt kleiner op Hover (#253)
 * Searchbar z-index (#241)
