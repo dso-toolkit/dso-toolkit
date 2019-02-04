@@ -49,13 +49,6 @@
         padding: $table-cell-padding;
         vertical-align: top;
       }
-
-      &:last-child {
-        > th,
-        > td {
-          border-bottom: 1px solid $table-border-color;
-        }
-      }
     }
   }
 
