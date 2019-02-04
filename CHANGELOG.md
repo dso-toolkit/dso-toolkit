@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Kleur aanpassing tabel caption (#262)
 * Accordeon pijltje wordt kleiner op Hover (#253)
 * Searchbar z-index (#241)
+* Maximale hoogte van .dso-body in modal te klein / niet handig (#191)
 
 ### Changed
 * **BREAKING:** Tooltip: Bootstrap markup handhaven (#252)
