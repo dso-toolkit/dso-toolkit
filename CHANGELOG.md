@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING:** Tooltip: Bootstrap markup handhaven (#252)
+* Interlinie in .dso-rich-content (#233)
 
 ## 3.1.1 - 23-01-2019
 
