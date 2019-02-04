@@ -20,6 +20,17 @@ $dso-modal-footer-padding: $u4;
 $dso-modal-footer-button-height: $u6;
 
 body.dso-modal-open {
+  &:not(.dso-scripted-height) {
+    .dso-modal {
+      .dso-body {
+        $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding) + (2 * $dso-modal-border-size);
+
+        max-height: calc(#{$dso-modal-max-height} - #{$dso-body-height} - 1.5em);
+        overflow-x: auto;
+      }
+    }
+  }
+
   @media screen and (min-width: $screen-sm-min) {
     overflow: hidden;
 
@@ -147,19 +158,6 @@ body.dso-modal-open {
       margin-top: 15vh;
       max-width: $dso-modal-max-width;
       opacity: 1;
-    }
-
-    .dso-body {
-      $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding) + (2 * $dso-modal-border-size);
-
-      max-height: calc(#{$dso-modal-max-height} - #{$dso-body-height} - 1.5em);
-      overflow-x: auto;
-    }
-
-    &.dso-scripted-height {
-      .dso-body {
-        max-height: none;
-      }
     }
 
     .dso-footer {

@@ -1,7 +1,7 @@
 <!-- When modal is open add .dso-modal-open to body -->
-<body class="dso-modal-open">
+<body class="dso-modal-open{{#if noMaxHeight }} dso-scripted-height{{/if}}">
   <!-- Modal markup. Can be placed anywhere inside <body> -->
-  <div class="dso-modal{{#if confirm }} dso-confirm{{/if}}{{#if noMaxHeight }} dso-scripted-height{{/if}}" tabindex="-1" role="dialog" aria-labelledby="{{ id }}">
+  <div class="dso-modal{{#if confirm }} dso-confirm{{/if}}" tabindex="-1" role="dialog" aria-labelledby="{{ id }}">
     <div class="dso-dialog" role="document">
       <div class="dso-header">
         <h2 id="{{ id }}">{{ heading }}</h2>
