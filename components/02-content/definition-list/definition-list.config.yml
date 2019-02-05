@@ -43,3 +43,70 @@ variants:
       __title: null
       __explanation: null
       modifier: dso-vertical dso-emphasize-description
+  - name: columns-1-3
+    context:
+      __title: Kolomverdeling 1-3
+      __explanation: Kolomverdeling 1-3, groene koppen door class <code>dso-first-line-headers</code>.
+      modifier: dso-columns-1-3 dso-first-line-headers
+      definitions:
+        - term: Verzoek 1
+          descriptions:
+            - description: Aanleg rondweg Leiden traject Rijnland route 1
+        - term: Verzoeknummer
+          descriptions:
+            - description: 20181024 00729 000
+        - term: Datum ingediend
+          descriptions:
+            - description: 24/10/2018
+        - term: Ingediend bij
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: Uw verzoek wordt behandeld door
+          descriptions:
+            - description: Omgevingsdienst Haaglanden
+  - name: columns-2-2
+    context:
+      __title: Kolomverdeling 2-2
+      __explanation: Kolomverdeling 2-2, handmatige highlights met tag <code>strong</code> en class <code>dso-definition-highlight</code>.
+      modifier: dso-columns-2-2 dso-emphasize-description
+      definitions:
+        - term: Verzoek 1
+          emphasizeElement: true
+          hightlightElement: dso-definition-highlight
+          descriptions:
+            - description: Aanleg rondweg Leiden traject Rijnland route 1
+              emphasizeElement: true
+              hightlightElement: dso-definition-highlight
+        - term: Verzoeknummer
+          descriptions:
+            - description: 20181024 00729 000
+        - term: Datum ingediend
+          descriptions:
+            - description: 24/10/2018
+        - term: Ingediend bij
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: Uw verzoek wordt behandeld door
+          descriptions:
+            - description: Omgevingsdienst Haaglanden
+  - name: columns-3-1
+    context:
+      __title: Kolomverdeling 3-1 met borders
+      __explanation: Kolomverdeling 3-1, class <code>dso-dl-borders</code> geeft een lijn boven en onder.
+      modifier: dso-columns-3-1 dso-emphasize-description dso-dl-borders
+      definitions:
+        - term: Verzoek 1
+          descriptions:
+            - description: Aanleg rondweg Leiden traject Rijnland route 1
+        - term: Verzoeknummer
+          descriptions:
+            - description: 20181024 00729 000
+        - term: Datum ingediend
+          descriptions:
+            - description: 24/10/2018
+        - term: Ingediend bij
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: Uw verzoek wordt behandeld door
+          descriptions:
+            - description: Omgevingsdienst Haaglanden
