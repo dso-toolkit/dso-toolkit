@@ -1,10 +1,12 @@
 <header>
-  <div class="logo-bar">
-    <div class="login">
-      {{> '@anchor' label="Inloggen" icon="login-icon" }}
-    </div>
+  <div class="dso-logo-bar">
     {{> '@logo' }}
-    {{render '@searchbar' searchbarContext merge=true }}
+    <div class="dso-tools-bar">
+      {{render '@searchbar' searchbarContext merge=true }}
+      <div class="dso-login">
+        {{> '@anchor' label="Inloggen" icon="login-icon" }}
+      </div>
+    </div>
   </div>
 
   {{render '@menu' menu merge=true }}
