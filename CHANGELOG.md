@@ -3,7 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## 5.0.0 - 15-02-2019
+
+### Changed
+* **BREAKING**: Tabs in lijn brengen met bootstrap markup (#268)
 
 ## 4.0.0 - 04-02-2019
 
