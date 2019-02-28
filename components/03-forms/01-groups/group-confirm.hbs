@@ -5,7 +5,9 @@
         {{{ifattr 'disabled' disabled }}}
         {{{ifattr 'checked' checked }}}
         {{{ifattr 'required' required }}} />
-      <label for="{{ id }}">{{ label }}</label>
+      <label for="{{ id }}">
+        {{ label }}
+      </label>
     </div>
     {{#if errorText }}
       {{> '@error-block' }}

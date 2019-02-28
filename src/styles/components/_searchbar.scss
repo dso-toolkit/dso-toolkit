@@ -18,11 +18,17 @@ $dso-searchbar-closed-width: 100px;
   }
 
   .dso-searchbar-icon {
-    animation-duration: $dso-animation-duration;
-    animation-name: magnifier-slide-left;
     background-size: $u3;
-    right: 100%;
-    transform: translateX(#{$dso-search-icon-size}); // Needed translateX since IE doesn't animate calc()
+    right: calc(100% - #{$dso-search-icon-size});
+  }
+
+  &.dso-animate {
+    .dso-searchbar-icon {
+      animation-duration: $dso-animation-duration;
+      animation-name: magnifier-slide-left;
+      right: 100%;
+      transform: translateX(#{$dso-search-icon-size}); // Needed translateX since IE doesn't animate calc()
+    }
   }
 
   label {
@@ -47,16 +53,23 @@ $dso-searchbar-closed-width: 100px;
   }
 
   .dso-searchbar-icon {
-    animation-duration: $dso-animation-duration;
-    animation-name: magnifier-slide-right;
     background-size: $u2;
     right: 0;
-    transform: translateX(0); // Needed translateX since IE doesn't animate calc()
+  }
+
+  &.dso-animate {
+    .dso-searchbar-icon {
+      animation-duration: $dso-animation-duration;
+      animation-name: magnifier-slide-right;
+      transform: translateX(0); // Needed translateX since IE doesn't animate calc()
+    }
   }
 
   label {
     opacity: 0;
     padding-left: 14px;
+    position: absolute;
+    z-index: -1;
   }
 
   button {
@@ -76,20 +89,24 @@ $dso-searchbar-closed-width: 100px;
   display: inline-block;
   position: relative;
   text-align: left;
-  transition: width $dso-animation-duration;
 
-  input.form-control,
-  label,
-  .dso-searchbar-icon {
-    @extend %transition;
+  &.dso-animate {
+    transition: width $dso-animation-duration;
+
+    input.form-control,
+    label,
+    .dso-searchbar-icon {
+      @extend %transition;
+    }
   }
 
   label {
     color: $grasgroen;
     left: 0;
-    line-height: $input-height-base;
+    line-height: $input-height-base - 4px;
     position: absolute;
     top: 0;
+    z-index: 1;
   }
 
   .dso-searchbar-icon {

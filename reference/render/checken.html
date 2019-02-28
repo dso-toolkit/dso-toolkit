@@ -1,20 +1,23 @@
 <header>
-  <div class="logo-bar">
-    <div class="login">
-      <a href="">
-        <span class="login-icon" aria-hidden="true"></span> Inloggen
-      </a>
-    </div>
+  <div class="dso-logo-bar">
     <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
-    <form class="dso-search">
-      <div class="dso-searchbar">
-        <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
-        <span class="dso-searchbar-icon" aria-hidden="true"></span>
-        <label for="searchbar">Zoeken</label>
-        <button type="button">Open zoeken</button>
+    <div class="dso-tools-bar">
+      <form class="dso-search">
+        <div class="dso-searchbar dso-animate ">
+          <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
+          <span class="dso-searchbar-icon" aria-hidden="true"></span>
+          <label for="searchbar">Zoeken</label>
+          <button type="button">Open zoeken</button>
+        </div>
+        <button type="submit">Zoeken</button>
+      </form>
+      <div class="dso-login">
+        <a href="">
+          <span class="login-icon" aria-hidden="true"></span>
+          Inloggen
+        </a>
       </div>
-      <button type="submit">Zoeken</button>
-    </form>
+    </div>
   </div>
   <nav class="dso-navbar">
     <div class="dso-navbar-header">
@@ -72,63 +75,16 @@
   <h1>Checken</h1>
   <div class="row">
     <div class="col-md-9">
-      <nav class="wizard">
-        <ul class="nav nav-wizard">
-          <li class="done">
-            <a href="#">Locatie bepalen</a>
-          </li>
-          <li class="done">
-            <a href="#">Werkzaamheden kiezen</a>
-          </li>
-          <li class="active">
-            <span>Werkzaamheden checken</span>
-          </li>
-          <li class="disabled">
-            <span>Resultaat</span>
-          </li>
-        </ul>
-      </nav>
       <h2>Werkzaamheden checken</h2>
       <h3>Bouwen van een dakkapel</h3>
-      <div class="dso-select single">
-        <fieldset>
-          <legend>Waar wordt de dakkapel gebouwd?</legend>
-          <div class="option">
-            <input type="radio" id="radio_dakkapel_positie_0" name="dakkapel_positie" value="1" />
-            <label for="radio_dakkapel_positie_0">
-              Zijkant
-            </label>
-          </div>
-          <div class="option">
-            <input type="radio" id="radio_dakkapel_positie_1" name="dakkapel_positie" value="2" />
-            <label for="radio_dakkapel_positie_1">
-              Voorkant
-            </label>
-          </div>
-          <div class="option">
-            <input type="radio" id="radio_dakkapel_positie_2" name="dakkapel_positie" value="3" />
-            <label for="radio_dakkapel_positie_2">
-              Achterkant
-            </label>
-          </div>
-          <div class="option">
-            <input type="radio" id="radio_dakkapel_positie_3" name="dakkapel_positie" value="4" disabled />
-            <label for="radio_dakkapel_positie_3">
-              Onderkant
-            </label>
-          </div>
-        </fieldset>
-      </div>
-      <h2 class="streamer">U heeft geen vergunning nodig</h2>
       <div class="highlight-box">
-        <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
-        <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p>
-        <p>Het Opleverdossier (zie voor een nadere omschrijving van de informatieproducten de volgende paragrafen) is de, door gebruikers gewenste, centrale registratie waarin alle informatie over een bouwwerk is opgenomen. Het gaat hierbij om de tekeningen,
-          berekeningen en de resultaten van de kwaliteitsborging (zoals toetsen en inspecties).</p>
-        <p>De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B’s), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van
-          ieder bouwwerk.</p>
-        <p>Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken die vergunningvrij, maar niet regelvrij, zijn gerealiseerd. Het vierde en vooralsnog laatste informatieproduct is de Digitaliseringshulp,
-          een service voor het centraal en gestandaardiseerd digitaliseren van documenten.</p>
+        <div class="dso-rich-content">
+          <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
+          <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p>
+          <p>Het Opleverdossier (zie voor een nadere omschrijving van de informatieproducten de volgende paragrafen) is de, door gebruikers gewenste, centrale registratie waarin alle informatie over een bouwwerk is opgenomen. Het gaat hierbij om de tekeningen, berekeningen en de resultaten van de kwaliteitsborging (zoals toetsen en inspecties).</p>
+          <p>De Bouwregelgeving is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B’s), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.</p>
+          <p>Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken die vergunningvrij, maar niet regelvrij, zijn gerealiseerd. Het vierde en vooralsnog laatste informatieproduct is de Digitaliseringshulp, een service voor het centraal en gestandaardiseerd digitaliseren van documenten.</p>
+        </div>
       </div>
     </div>
     <div class="col-md-3">
@@ -148,43 +104,25 @@
     <div class="col-sm-6 col-md-3">
       <h2>Service</h2>
       <ul>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-        <li>
-          <a href="#">Sitemap</a>
-        </li>
-        <li>
-          <a href="#">Help</a>
-        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Help</a></li>
       </ul>
     </div>
     <div class="col-sm-6 col-md-3">
       <h2>Over deze site</h2>
       <ul>
-        <li>
-          <a href="#">Copyright</a>
-        </li>
-        <li>
-          <a href="#">Privacy</a>
-        </li>
-        <li>
-          <a href="#">Cookies</a>
-        </li>
-        <li>
-          <a href="#">Toegankelijkheid</a>
-        </li>
+        <li><a href="#">Copyright</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Toegankelijkheid</a></li>
       </ul>
     </div>
     <div class="col-sm-6 col-md-3">
       <h2>Volg ons ook op</h2>
       <ul>
-        <li>
-          <a href="#">Twitter</a>
-        </li>
-        <li>
-          <a href="#">LinkedIn</a>
-        </li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
       </ul>
     </div>
   </div>

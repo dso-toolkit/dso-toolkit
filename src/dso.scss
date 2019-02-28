@@ -21,22 +21,22 @@ $library: true !default;
  * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 
-@import "@fortawesome/fontawesome-free-webfonts/scss/variables";
-@import "@fortawesome/fontawesome-free-webfonts/scss/mixins";
-@import "@fortawesome/fontawesome-free-webfonts/scss/core";
-@import "@fortawesome/fontawesome-free-webfonts/scss/larger";
-@import "@fortawesome/fontawesome-free-webfonts/scss/fixed-width";
-@import "@fortawesome/fontawesome-free-webfonts/scss/list";
-@import "@fortawesome/fontawesome-free-webfonts/scss/bordered-pulled";
-@import "@fortawesome/fontawesome-free-webfonts/scss/animated";
-@import "@fortawesome/fontawesome-free-webfonts/scss/rotated-flipped";
-@import "@fortawesome/fontawesome-free-webfonts/scss/stacked";
-@import "@fortawesome/fontawesome-free-webfonts/scss/icons";
-// @import "@fortawesome/fontawesome-free-webfonts/scss/screen-reader";
+@import "@fortawesome/fontawesome-free/scss/variables";
+@import "@fortawesome/fontawesome-free/scss/mixins";
+@import "@fortawesome/fontawesome-free/scss/core";
+@import "@fortawesome/fontawesome-free/scss/larger";
+@import "@fortawesome/fontawesome-free/scss/fixed-width";
+@import "@fortawesome/fontawesome-free/scss/list";
+@import "@fortawesome/fontawesome-free/scss/bordered-pulled";
+@import "@fortawesome/fontawesome-free/scss/animated";
+@import "@fortawesome/fontawesome-free/scss/rotated-flipped";
+@import "@fortawesome/fontawesome-free/scss/stacked";
+@import "@fortawesome/fontawesome-free/scss/icons";
+// @import "@fortawesome/fontawesome-free/scss/screen-reader";
 
-@import "@fortawesome/fontawesome-free-webfonts/scss/fa-brands";
-@import "@fortawesome/fontawesome-free-webfonts/scss/fa-regular";
-@import "@fortawesome/fontawesome-free-webfonts/scss/fa-solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -58,15 +58,15 @@ $library: true !default;
 @import "bootstrap-sass/assets/stylesheets/bootstrap/type";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/code";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/grid";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/tables";
+// @import "bootstrap-sass/assets/stylesheets/bootstrap/tables";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/forms";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
 // Components
 @import "bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+//@import "bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+//@import "bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/navs";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/navbar";
 //@import "bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
@@ -87,7 +87,7 @@ $library: true !default;
 
 // Components w/ JavaScript
 //@import "bootstrap-sass/assets/stylesheets/bootstrap/modals";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+// @import "bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/popovers";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/carousel";
 

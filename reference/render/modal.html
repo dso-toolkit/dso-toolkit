@@ -16,7 +16,8 @@
           Toevoegen
         </button>
         <button type="button" class="btn btn-link">
-          <span class="icon fas fa-times" aria-hidden="true"></span> Annuleren
+          <span class="icon fas fa-times" aria-hidden="true"></span>
+          Annuleren
         </button>
       </div>
     </div>
@@ -103,7 +104,9 @@
             <div class="dso-field-container">
               <div class="dso-selectable">
                 <input type="checkbox" id="nieuwsbrief" name="" value="" />
-                <label for="nieuwsbrief">Stuur mij de maandelijkse nieuwsbrief</label>
+                <label for="nieuwsbrief">
+                  Stuur mij de maandelijkse nieuwsbrief
+                </label>
               </div>
               <p class="dso-help-block" id="helpTextId_nieuwsbrief">Uw gegevens zullen niet worden gedeeld met derden</p>
             </div>
@@ -201,6 +204,83 @@
               <p class="dso-help-block" id="helpTextId_gekke_vraag">Deze vraag heeft een toelichting</p>
             </div>
           </div>
+        </fieldset>
+        <fieldset>
+          <legend>Vraag met infobutton</legend>
+          <fieldset class="form-group dso-radios">
+            <legend class="dso-label-container">
+              <label class="control-label">
+                Blieft u een toelichting?
+              </label>
+              <button type="button" class="btn dso-field-info-button">
+                <span class="sr-only">
+                    Toelichting
+                  </span>
+              </button>
+            </legend>
+            <div class="dso-field-container">
+              <div class="dso-selectable">
+                <input type="radio" id="input-radio-infobutton-0" name="input-radio-infobutton" value="1" checked />
+                <label for="input-radio-infobutton-0">
+                  ja
+                </label>
+                <button type="button" class="btn dso-field-info-button">
+                  <span class="sr-only">
+                        Toelichting
+                      </span>
+                </button>
+              </div>
+              <div class="dso-selectable">
+                <input type="radio" id="input-radio-infobutton-1" name="input-radio-infobutton" value="2" />
+                <label for="input-radio-infobutton-1">
+                  nee
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>Vraag met infobutton uitgeklapt</legend>
+          <fieldset class="form-group dso-radios">
+            <legend class="dso-label-container">
+              <label class="control-label">
+                Toelichting op uw vraag
+              </label>
+              <button type="button" class="btn dso-field-info-button dso-open">
+                <span class="sr-only">
+                    Toelichting
+                  </span>
+              </button>
+            </legend>
+            <div class="dso-field-container">
+              <div class="dso-selectable">
+                <input type="radio" id="input-radio-infobutton-open-0" name="input-radio-infobutton-open" value="1" checked />
+                <label for="input-radio-infobutton-open-0">
+                  ja
+                </label>
+                <button type="button" class="btn dso-field-info-button">
+                  <span class="sr-only">
+                        Toelichting
+                      </span>
+                </button>
+              </div>
+              <div class="dso-selectable">
+                <input type="radio" id="input-radio-infobutton-open-1" name="input-radio-infobutton-open" value="2" />
+                <label for="input-radio-infobutton-open-1">
+                  nee
+                </label>
+              </div>
+            </div>
+            <div class="dso-field-info">
+              <button type="button">
+                <span class="sr-only">Sluiten</span>
+              </button>
+              <div class="dso-rich-content">
+                <h4>Let op</h4>
+                <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
+              </div>
+            </div>
+          </fieldset>
         </fieldset>
       </fieldset>
       <div class="dso-form-buttons">

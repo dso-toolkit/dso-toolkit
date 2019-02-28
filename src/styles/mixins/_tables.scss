@@ -1,0 +1,108 @@
+// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
+// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
+
+@mixin dso-table-row-variant($state, $background) {
+  // Exact selectors below required to override `.table-striped` and prevent
+  // inheritance to nested tables.
+  .dso-rich-content table > thead > tr,
+  .dso-rich-content table > tbody > tr,
+  .dso-rich-content table > tfoot > tr,
+  .table > thead > tr,
+  .table > tbody > tr,
+  .table > tfoot > tr {
+    > td.#{$state},
+    > th.#{$state},
+    &.#{$state} > td,
+    &.#{$state} > th {
+      background-color: $background;
+    }
+  }
+
+  // Hover states for `.table-hover`
+  // Note: this is not available for cells or rows within `thead` or `tfoot`.
+  .table-hover > tbody > tr {
+    > td.#{$state}:hover,
+    > th.#{$state}:hover,
+    &.#{$state}:hover > td,
+    &:hover > .#{$state},
+    &.#{$state}:hover > th {
+      background-color: darken($background, 5%);
+    }
+  }
+}
+
+
+@mixin dso-table {
+  // Cells
+  margin-bottom: $line-height-computed;
+  max-width: 100%;
+  width: 100%;
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-top: 1px solid $table-border-color;
+        line-height: $line-height-base;
+        padding: $table-cell-padding;
+        vertical-align: top;
+      }
+    }
+  }
+
+  // DSO specific styling
+  > tbody {
+    > tr {
+      &:first-child {
+        > td,
+        > th {
+          border-top: 0;
+        }
+      }
+
+      > td,
+      > th {
+        border-top: 1px dotted $grijs-30;
+      }
+
+      &:last-child {
+        > td,
+        > th {
+          border-bottom: 1px dotted $grijs-30;
+        }
+      }
+    }
+  }
+  // End DSO specific styling
+
+  // Bottom align for column headings
+  > thead > tr > th {
+    border-bottom: 1px solid $grijs-50;
+    font-style: italic;
+    vertical-align: bottom;
+  }
+
+  // Remove top border from thead by default
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  }
+}

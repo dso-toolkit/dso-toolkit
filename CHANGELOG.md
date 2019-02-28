@@ -3,30 +3,99 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 3.0.0 - UNRELEASED
+## 5.0.0 - 15-02-2019
+
+### Changed
+* **BREAKING**: Tabs in lijn brengen met bootstrap markup (#268)
+
+## 4.0.0 - 04-02-2019
+
+### Added
+* CSS regressie testing en de WCAG checker uitgeschakeld (#8)
+
+### Fixed
+* **BREAKING:** Header elementen kunnen over elkaar heen vallen (#178)
+* Kleur aanpassing tabel caption (#259)
+* Accordeon pijltje wordt kleiner op Hover (#253)
+* Searchbar z-index (#241)
+* Maximale hoogte van .dso-body in modal te klein / niet handig (#191)
+
+### Changed
+* **BREAKING:** Tooltip: Bootstrap markup handhaven (#252)
+* Interlinie in .dso-rich-content (#233)
+
+## 3.1.1 - 23-01-2019
+
+### Fixed
+* Plaat in `.dso-rich-content` in het midden positioneren moet gescoped worden op toelichtingenbox (#250)
+
+## 3.1.0 - 02-01-2019
+
+* Border onder hover/focus state (vervolg uit #31)
+* Accordeon border-top schakelbaar maken (#152)
+* Stappenteller in Koppen (#153)
+* Info button for formfield labels (#190)
+* Info textbox for formfields (#203)
+* Added `.dso-tabs` component (#156)
+* Plaat in `.dso-rich-content` in het midden positioneren (#242)
+
+### Fixed
+* Accordeon font-size naar 20px (#185)
+* Tertiare button 16px, icon 18px (#186)
+* Hamburger menu documentatie bijwerken met instructies voor scripting (#188)
+* Lijnen van secundaire button niet altijd even dik (#193)
+* Label spacing padding too small (#194)
+* Icoon a.extern::after en dso-succes a::after beten elkaar (#204)
+* Correctie berekening hoogte Fractal content-panel (#208)
+* Externe link icoontje verspringt niet meer bij een dubbele regel (#205)
+* Default height textarea (#216)
+
+## 3.0.1 - 21-11-2018
+
+### Added
+* `.dso-rich-content` component ter documentatie (#228)
+* highlight-box in `.dso-rich-content` support (#232)
+
+### Fixed
+* Table in .dso-rich-content styling zoals table.table, table-row classes toegevoegd (#220)
+* Fix vertical margins on child elements of components with vertical padding possibly containing block elements. Wrapping the entire inner content in a single `div.dso-rich-content` can be omitted in the majority of cases. (#189)
+
+## 3.0.0 - 13-09-2018
 
 ### Releasenotes
 * #31: De markup is aangepast. De Bootstrap pagination is vervangen door een DSO pagination en de Bootstrap Pagination styling is uitgeschakeld.
 * #71: Het search bar component is nieuw. Dit component moet doorgevoerd worden in de header en verwijderd worden uit het menu.
 * #88: De CodeSniffer melding was tweedelig: De navigatiecomponenten kregen onterecht een role=presentation. Deze is verwijderd
+* #113: Een groot aantal legacy components zijn verwijderd, zie issue voor meer informatie
 
 ### Added
 - **BREAKING:** Added `.dso-label` component, disabled Bootstrap's label component (#103)
 - **BREAKING:** Added `.dso-badge` component, disabled Bootstrap's badge component (#125)
+- Hamburger menu small view example (#135)
+- Tooltip component (#137)
 
 ### Changed
 - **BREAKING:** Pagination redesign (#31)
 - **BREAKING:** Searchbar redesign (#71)
-- Formulieren "optioneel" omgedraaid naar "Verplicht" (#146)
+- Formulieren "optioneel" omgedraaid naar "verplicht" (#146)
+- Logo updaten (#167)
 
 ### Fixed
 - **BREAKING:** HTML_CodeSniffer outdated - wrongfully not reporting errors (#88)
+- **BREAKING:** WCAG errors in 2.0.0-alpha.2 (#143)
+- **BREAKING:** Remove legacy components (#113)
 - Disabled buttons with hover styles wrong (#145)
 - Font-Awesome classnames fix FA v5 (#148)
+- Checkbox display in IE 11 (#149)
 - Modal repositions when content changes (#151)
 - IE11 modal is positioned left (#163)
+- Deprecated fontawesome-free-webfronts package used (#165)
+- Icons.scss generated wrongly on unix-based OS (#168)
+- `.dso-rich-content` in highlight-box component (#170)
+- Iconen van zoeken en inloggen lijnen vreemd uit (#176)
+- Header toont rond 800px breed helemaal geen menu (#177)
 
-## 2.0.0 - 23-6-2018
+## 2.0.0 - 23-06-2018
 
 ### Releasenotes
 * #60: De Bootstrap Modal heeft plaats gemaakt voor de DSO Modal. De Bootstrap Modal styling is uitgeschakeld.
@@ -45,7 +114,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Smaller accordion icons (#121)
 - Add Color Lime 20% to Toolkit (#114)
 - Rich content component (#85)
-- Tooltip component (#137)
 
 ### Fixed
 - img in .hero-image has width but no height (#107)

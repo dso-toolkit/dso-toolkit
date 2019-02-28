@@ -1,0 +1,106 @@
+$dso-tabs-border-radius: 4px;
+$dso-tabs-height: 44px;
+
+ul.nav-tabs {
+  border-bottom: 1px solid $nav-tabs-border-color;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: $screen-sm-min) {
+    border-bottom: 1px solid $grasgroen;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    border-bottom: 1px solid $wit;
+    display: block;
+  }
+
+  > li {
+    border-color: $grasgroen;
+    flex: 1;
+    float: none;
+    font-weight: bold;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    min-height: $dso-tabs-height;
+
+    @media screen and (max-width: $screen-xs-max) {
+      flex: 0;
+      margin: 10px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Actual tabs (as links)
+    > a {
+      border: 1px solid transparent;
+      border-radius: $dso-tabs-border-radius $dso-tabs-border-radius 0 0;
+      color: $grijs-60;
+      display: block;
+      line-height: $line-height-base;
+      margin-right: 2px;
+      min-height: $dso-tabs-height;
+      padding: 10px 25px;
+      position: relative;
+
+      &:hover {
+        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+      }
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:focus,
+      &:hover {
+        background-color: $nav-tabs-active-link-hover-bg;
+        border: 1px solid $grasgroen;
+        border-bottom-color: $wit;
+        color: $grasgroen;
+        cursor: default;
+      }
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+      background-color: $wit !important;
+      border: 1px solid $grasgroen;
+      border-bottom-color: $wit;
+      outline: 0;
+      text-decoration: none;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+      a {
+        border-color: $wit;
+        border-radius: 8px;
+        padding: 18px 20px;
+
+        &:active,
+        &:focus,
+        &:hover {
+          border-bottom-color: $grasgroen;
+          border-bottom-width: 1px;
+          border-color: $grasgroen;
+        }
+      }
+
+      &.active a {
+        &,
+        &:focus,
+        &:hover {
+          border-bottom-color: $grasgroen;
+          border-bottom-width: 1px;
+          border-color: $grasgroen;
+        }
+      }
+    }
+  }
+}

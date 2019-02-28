@@ -5,19 +5,28 @@ context:
   __explanation: Responsive component. Gedrag kan gestuurd worden met <code>.dso-vertical</code> en <code>.dso-emphasize-description</code>
   definitions:
     - term: Thema
-      description: Wonen en Werken
+      descriptions:
+        - description: Wonen
+        - description: Werken
     - term: Regelkwalificatie
-      description: Instructieregels
+      descriptions:
+        - description: Instructieregels
     - term: Onderwerp
-      description: Bedrijventerrein
+      descriptions:
+        - description: Bedrijventerrein
     - term: Functie
-      description: Bedrijventerrein > Bedrijventerrein
+      descriptions:
+        - description: Bedrijventerrein > Bedrijventerrein
     - term: Type regel
-      description: Bindend voor bestuursorganen
+      descriptions:
+        - description: Bindend voor bestuursorganen
     - term: Normadressaat
-      description: Gemeentebestuur / Provinciebestuur
+      longread:
+        - paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        - paragraph: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     - term: Pneumonoultramicroscopicsilicovolcanoconiosis
-      description: Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.
+      longread:
+        - paragraph: Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.
 variants:
   - name: vertical
     context:

@@ -1,3 +1,7 @@
+.Frame-body {
+  height: calc(100% - 143px);
+}
+
 .Header {
   background-color: #e9eeeb;
   color: #000;

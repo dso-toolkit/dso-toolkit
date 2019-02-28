@@ -1,21 +1,31 @@
 header {
   margin-bottom: 40px;
 
-  .logo-bar {
+  .dso-logo-bar {
     position: relative;
   }
 
-  .login,
-  .dso-search {
-    position: absolute;
-    right: 100px;
-    top: 50%;
-    transform: translateY(-50%);
+  .dso-tools-bar {
+    float: right;
+    margin-top: $u3 + 1px;
+
+    @media screen and (max-width: $screen-sm-max) {
+      clear: both;
+      float: none;
+      margin-top: 0;
+    }
   }
 
-  .login {
-    right: 0;
+  .dso-search,
+  .dso-login {
+    float: left;
 
+    @media screen and (max-width: $screen-sm-max) {
+      margin-bottom: $u2;
+    }
+  }
+
+  .dso-login {
     a {
       color: $grasgroen;
       font-weight: 700;
@@ -28,11 +38,15 @@ header {
       .login-icon::after {
         @include icon($dso-icon-header-icon-profile-24x24);
 
-        height: 24px;
+        height: $input-height-base;
         vertical-align: middle;
         width: 24px;
       }
     }
+  }
+
+  .dso-search {
+    margin-right: $u1;
   }
 
   .logo {

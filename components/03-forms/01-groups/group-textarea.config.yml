@@ -5,14 +5,13 @@ collated: true
 context:
   id: input-textarea
   label: Wilt u nog wat kwijt?
-  rows: 5
 variants:
 - name: input-textarea-invalid
   context:
     __title: Ongeldig
     __explanation:
-    - Indien een textarea ongeldig is, dient er een <code>.so-invalid</code> class
-      gezet te worden op de div met de class <code>.so-textarea</code>.
+    - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-textarea</code>.
     id: input-textarea-invalid
     required: true
     helpText: Vul een geldige tekst in
@@ -23,12 +22,18 @@ variants:
     __title: Geldig
     __explanation:
     - Indien een textarea ongeldig was en valide wordt gemaakt, dient
-      de <code>.so-invalid</code> class vervangen te worden door de class <code>.so-valid</code>.
+      de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-textarea-valid
     required: true
     state: valid
     helpText: Minimaal 6 tekens waarvan 1 leesteken
     value: Ik heb wat ingevuld
+- name: input-textarea-rows6
+  context:
+    __title: Een textarea met 6 rijen
+    __explanation: Een textarea zonder <code>rows</code> attribuut krijgt een standaard hoogte. De implementator kan met <code>rows</code> de hoogte van de textarea sturen
+    id: input-textarea-rows6
+    rows: 6
 - name: input-textarea-placeholder
   context:
     __title: Placeholder
@@ -47,3 +52,18 @@ variants:
     id: input-textarea-readonly
     required: true
     readonly: true
+- name: input-textarea-infobutton-open
+  context:
+    __title: Infobutton uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt
+    id: input-textarea-infobutton-open
+    required: true
+    infoOpen: true
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
