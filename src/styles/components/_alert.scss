@@ -12,6 +12,10 @@ $dso-alert-padding: $u2;
   padding-left: 2 * $dso-alert-padding + $dso-alert-icon-size - 1px; // 1px border
   position: relative;
 
+  &:not(:first-child) {
+    margin-top: $u3;
+  }
+
   &::before {
     display: block;
     height: $dso-alert-icon-size;
