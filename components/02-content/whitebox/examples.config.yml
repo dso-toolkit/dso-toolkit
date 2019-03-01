@@ -1,0 +1,3 @@
+status: wip
+notes: |
+  Breedte van het element wordt gedicteerd door de bootstrap class van het omliggende element.
