@@ -1,0 +1,72 @@
+.dso-whitebox {
+  background: $wit;
+  box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
+  margin-bottom: $u7;
+  min-height: 520px;
+  padding: $u2 $u3 0;
+  position: relative;
+  top: $u7;
+
+  .dso-whitebox-title {
+    h2 {
+      margin: 0 0 $u6;
+    }
+  }
+
+  .dso-whitebox-link {
+    margin-bottom: $u4;
+    text-align: center;
+  }
+
+  .dso-whitebox-icon {
+    margin-bottom: $u4;
+    text-align: center;
+    white-space: nowrap;
+
+    img {
+      height: 160px;
+      width: 160px;
+    }
+  }
+}
+
+.dso-whitebox-small {
+  background: $wit;
+  box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
+  margin-bottom: $u7;
+  min-height: 200px;
+  padding: $u3 $u2 $u2;
+  position: relative;
+  top: $u7;
+
+  .dso-whitebox-icon {
+    display: block;
+    margin-bottom: $u2;
+    text-align: center;
+    white-space: nowrap;
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  .dso-whitebox-link {
+    border-bottom: #{$u1 / 2} solid transparent;
+    color: $grasgroen;
+    display: block;
+    font-size: $dso-font-size-h4;
+    font-weight: bold;
+    line-height: 1.167;
+    padding-bottom: #{$u1 / 2};
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: none;
+
+    .dso-whitebox-link {
+      border-bottom: #{$u1 / 2} solid $grasgroen;
+    }
+  }
+}

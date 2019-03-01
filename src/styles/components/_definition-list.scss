@@ -4,8 +4,6 @@ $dso-definition-list-term-width: 200px;
 $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 
 dl {
-  margin-bottom: 0;
-
   dd {
     @extend %dso-rich-content;
   }

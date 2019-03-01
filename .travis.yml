@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "10"
+install:
+  - gem install percy-cli
+  - npm install
+script:
+  - npm run build
+  - npm run test
+after_success:
+  - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/.+\.html$" build/library/

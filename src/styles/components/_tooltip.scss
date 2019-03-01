@@ -4,7 +4,7 @@ $tooltip-border-size: 1px;
 $tooltip-border-radius: #{$dso-unit / 2};
 $tooltip-arrow-size: $u2;
 
-.dso-tooltip {
+.tooltip {
   border: $tooltip-border-size solid $grasgroen;
   border-radius: $tooltip-border-radius;
   color: $grasgroen;
@@ -14,6 +14,10 @@ $tooltip-arrow-size: $u2;
   max-width: 240px;
   padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
   position: relative;
+
+  .tooltip-arrow {
+    display: none;
+  }
 
   &::before {
     border: #{$tooltip-arrow-size / 2 - 1} solid $wit;
