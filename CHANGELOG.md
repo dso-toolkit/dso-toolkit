@@ -3,18 +3,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## 4.0.0 - UNRELEASED
+## 5.0.0 - 15-02-2019
+
+### Changed
+* **BREAKING**: Tabs in lijn brengen met bootstrap markup (#268)
+
+## 4.0.0 - 04-02-2019
 
 ### Added
 * CSS regressie testing en de WCAG checker uitgeschakeld (#8)
 
 ### Fixed
-* Kleur aanpassing tabel caption (#262)
+* **BREAKING:** Header elementen kunnen over elkaar heen vallen (#178)
+* Kleur aanpassing tabel caption (#259)
 * Accordeon pijltje wordt kleiner op Hover (#253)
 * Searchbar z-index (#241)
+* Maximale hoogte van .dso-body in modal te klein / niet handig (#191)
 
 ### Changed
 * **BREAKING:** Tooltip: Bootstrap markup handhaven (#252)
+* Interlinie in .dso-rich-content (#233)
 
 ## 3.1.1 - 23-01-2019
 
