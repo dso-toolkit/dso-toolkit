@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Underline aanzetten bij standaard text links (#280)
+* Link color in Alerts en Highlight box naar tekstkleur (#265)
 
 ### Documentation
 * Component status bijwerken (#278)
