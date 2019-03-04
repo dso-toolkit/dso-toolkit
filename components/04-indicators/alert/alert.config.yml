@@ -1,6 +1,6 @@
 notes: |
   Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component
-status: wip
+status: ready
 collated: true
 context:
   modifier: alert-success

@@ -1,3 +1,4 @@
+status: ready
 notes:
   Een knopje achter het formlabel. En een `button` achter de label-tekst. De class `.dso-info-open` (bij getoonde toelichting) maakt de button groen.
 id: toggle-info

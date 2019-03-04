@@ -1,3 +1,4 @@
+status: ready
 notes:
   Een toelichting bij form-group. De info-link faciliteert het tonen van extra informatie. De class op het icoon togglt van <code>fa-chevron-down</code> naar <code>fa-chevron-down</code>.
   Afbeeldingen worden in het midden uitgelijnd

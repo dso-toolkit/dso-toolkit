@@ -1,6 +1,6 @@
 notes: |
   'Attribuut `@rows` is optioneel'
-status: wip
+status: ready
 collated: true
 context:
   id: input-textarea
