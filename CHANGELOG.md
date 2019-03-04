@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+## 5.1.0 - 04-03-2019
+
 ### Added
 * Whitebox component (#264)
 * Alert heeft nu ook margin aan de bovenkant, mits deze niet bovenaan staat (#283)
