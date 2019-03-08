@@ -1,7 +1,7 @@
 $dso-pagination-item-size: $u4;
 $dso-pagination-item-border-size: 2px;
 
-.dso-pagination {
+.pagination {
   text-align: center;
 
   > li {
@@ -68,9 +68,9 @@ $dso-pagination-item-border-size: 2px;
       margin-left: $u1;
     }
 
-    &.dso-previous,
-    &.dso-next {
-      a {
+    a {
+      &[aria-label="Previous"],
+      &[aria-label="Next"] {
         border: 2px solid $grasgroen;
         border-radius: 50%;
         height: $dso-pagination-item-size;
@@ -90,8 +90,8 @@ $dso-pagination-item-border-size: 2px;
       }
     }
 
-    &.dso-previous {
-      a {
+    a {
+      &[aria-label="Previous"] {
         @include icon($dso-icon-button-icon-chevron-left-12x12);
         margin-right: 5px;
 
@@ -101,10 +101,8 @@ $dso-pagination-item-border-size: 2px;
           @include icon($dso-icon-button-icon-chevron-left-white-12x12);
         }
       }
-    }
 
-    &.dso-next {
-      a {
+      &[aria-label="Next"] {
         @include icon($dso-icon-button-icon-chevron-right-12x12);
         margin-left: 5px;
 
