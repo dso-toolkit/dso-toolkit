@@ -93,3 +93,15 @@ variants:
       __explanation: pagina 5 geselecteerd
       count: 5
       current: 5
+  - name: 7-5
+    context:
+      __title: 7 pagina's
+      __explanation: pagina 5 geselecteerd
+      count: 7
+      current: 5
+  - name: 100-98
+    context:
+      __title: 100 pagina's
+      __explanation: pagina 98 geselecteerd
+      count: 100
+      current: 98

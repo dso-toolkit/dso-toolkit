@@ -99,6 +99,7 @@ $dso-pagination-item-border-size: 2px;
         &:focus,
         &:active {
           @include icon($dso-icon-button-icon-chevron-left-white-12x12);
+          background-color: $grasgroen;
         }
       }
 
@@ -110,6 +111,7 @@ $dso-pagination-item-border-size: 2px;
         &:focus,
         &:active {
           @include icon($dso-icon-button-icon-chevron-right-white-12x12);
+          background-color: $grasgroen;
         }
       }
     }
