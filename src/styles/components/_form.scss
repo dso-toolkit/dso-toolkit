@@ -25,9 +25,30 @@ form {
   > fieldset + fieldset {
     margin-top: $u4;
   }
+
+  .dso-info {
+    .dso-rich-content {
+      > p > img {
+        display: block;
+        margin: $u1 auto;
+        max-width: 100%;
+      }
+    }
+  }
 }
 
 .form-group {
+  > .dso-info {
+    float: left;
+    margin: $u2 0;
+  }
+
+  .dso-selectable > .dso-info {
+    float: none;
+    margin: $u1 $u2 #{$u1 * -1} #{$u4 * -1};
+    width: calc(100% + #{$u4});
+  }
+
   .control-label {
     font-weight: bold;
     margin-bottom: $u1;
@@ -94,69 +115,6 @@ form {
   }
 }
 
-.dso-field-info-button {
-  @include icon($dso-icon-info-icon-tooltip-info-16x16);
-  height: $dso-button-info-size;
-  margin-left: $u1;
-  min-width: $dso-button-info-size;
-  padding: 0;
-  position: relative;
-  width: $dso-button-info-size;
-
-  &.dso-open,
-  &:hover,
-  &:active,
-  &.active,
-  &:focus,
-  &.focus {
-    @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
-  }
-}
-
-.dso-field-info {
-  background-color: $grijs-10;
-  padding: $u2 $u4 $u2 $u2;
-  position: relative;
-
-  .dso-rich-content {
-    > p > img {
-      display: block;
-      margin: $u1 auto;
-      max-width: 100%;
-    }
-  }
-
-  .form-group > & {
-    float: left;
-    margin: $u2 0;
-  }
-
-  .dso-selectable > & {
-    float: none;
-    margin: $u1 $u2 #{$u1 * -1} #{$u4 * -1};
-    width: calc(100% + #{$u4});
-  }
-
-  > button {
-    @include icon($dso-toggle-close-icon-forestgreen);
-    background-size: $u2 $u2;
-    border-style: none;
-    height: #{$dso-toggle-close-icon-size - 2px};
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: #{$dso-toggle-close-icon-size - 2px};
-
-    &:hover,
-    &:focus,
-    &.focus,
-    &:active,
-    &.active {
-      outline: 0;
-    }
-  }
-}
-
 select:not([multiple]) {
   .form-group & {
     // sass-lint:disable no-vendor-prefixes
@@ -217,7 +175,7 @@ select:not([multiple]) {
       @include make-sm-column($grid-columns - $dso-label-column);
     }
 
-    > .dso-field-info {
+    > .dso-info {
       margin: $u2;
       width: calc(100% - #{$u4});
     }

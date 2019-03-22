@@ -1,7 +1,6 @@
 status: ready
 notes:
-  Een toelichting bij form-group. De info-link faciliteert het tonen van extra informatie. De class op het icoon togglt van <code>fa-chevron-down</code> naar <code>fa-chevron-down</code>.
-  Afbeeldingen worden in het midden uitgelijnd
+  Afbeeldingen worden in <code>form .dso-info</code> in het midden uitgelijnd
 id: toggle-info-open
 context:
   infoText: |

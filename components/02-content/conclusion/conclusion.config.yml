@@ -1,0 +1,32 @@
+collated: true
+default: success
+variants:
+  - name: success
+    context:
+      items:
+        - modifier: success
+          label: <strong>Geen vergunning of melding nodig</strong> voor bouwactiviteit
+          subItems:
+            - <strong>Let op:</strong> Soms is er wel een omgevingsvergunning omgevingsplanactiviteit bouwen nodig.
+            - <strong>Let op:</strong> Misschien mag u nog niet gelijk gaan bouwen!
+      alert:
+        modifier: alert-success
+        message: Succes melding
+  - name: warning
+    context:
+      items:
+        - modifier: warning
+          label: <strong>Neem contact op</strong> met uw gemeente voor omgevingsplanactiviteit op- en uitritten
+        - modifier: warning
+          label: <strong>Informatie geven</strong> voor milieubelastende activiteit
+      alert:
+        modifier: alert-warning
+        message: Waarschuwing
+  - name: forbidden
+    context:
+      items:
+        - modifier: forbidden
+          label: <strong>Verboden</strong> voor omgevingsplanactiviteit lichthinder
+          info:
+            infoOpen: true
+            infoText: <p>De regels zijn erg ingewikkeld. Vraag uw gemeente Den Haag (070-1214070) of u een omgevingsvergunning moet aanvragen of een melding moet doen.</p>
