@@ -1,11 +1,9 @@
-<nav aria-label="Page navigation">
-
-
+<nav aria-label="Pagina navigatie">
   <ul class="pagination">
     {{#if (ne current 1) }}
       <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">Vorige</span>
+        <a href="#" aria-label="Vorige">
+          <span class="dso-previous" aria-hidden="true"></span>
         </a>
       </li>
       <li>
@@ -17,27 +15,25 @@
       {{#if (eq count 5)}}
         <a href="#">2</a>
       {{else}}
-        <span>&hellip;</span>
+        <span class="dso-ellipsis"></span>
       {{/if}}
     </li>
     {{/if}}
-    {{#if (or (ne current count) (gte count 4))}}
-      {{#if (and (eq current count) (ne current 1)) }}
-        <li>
-          <a href="#" class="minTwee">{{subtract current 2 }}</a>
-        </li>
-      {{/if}}
+    {{#if (and (or (ne current count) (gte count 4)) (and (eq current count) (ne current 1)))}}
+      <li>
+        <a href="#">{{subtract current 2 }}</a>
+      </li>
     {{/if}}
     {{#if (and (gte current 3) (or (and (gte current 3) (lte count 5)) (and (gt count 5) (ne current (subtract count 2 )) ) )) }}
-      <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="previous" {{/if}}>
-        <a href="#" class="minEen">{{subtract current 1 }}</a>
+      <li>
+        <a href="#">{{subtract current 1 }}</a>
       </li>
     {{/if}}
     <li class="active">
       <span>{{ current }}</span>
     </li>
     {{#if (and (lte current (subtract count 2 )) (or (and (lte current 3) (lte count 5)) (and (ne current 3) (gt count 5)) ) ) }}
-      <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="next" {{/if}}>
+      <li>
         <a href="#">{{add current 1 }}</a>
       </li>
     {{/if}}
@@ -51,7 +47,7 @@
         {{#if (eq count 5)}}
           <a href="#">{{ subtract count 1 }}</a>
         {{else}}
-          <span>&hellip;</span>
+          <span class="dso-ellipsis"></span>
         {{/if}}
       </li>
     {{/if}}
@@ -59,9 +55,9 @@
       <li>
         <a href="#">{{ count }}</a>
       </li>
-      <li class="dso-next" title="Volgende">
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">Volgende</span>
+      <li>
+        <a href="#" aria-label="Volgende">
+          <span class="dso-next" aria-hidden="true"></span>
         </a>
       </li>
     {{/if}}

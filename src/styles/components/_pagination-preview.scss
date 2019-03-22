@@ -4,29 +4,43 @@ $dso-pagination-item-border-size: 2px;
 .pagination {
   text-align: center;
 
+  .dso-previous,
+  .dso-next {
+    border-color: $grasgroen;
+  }
+
+  .dso-previous {
+    @include icon($dso-icon-button-icon-chevron-left-12x12, $position-y: 40%);
+  }
+
+  .dso-next {
+    @include icon($dso-icon-button-icon-chevron-right-12x12, $position-y: 40%);
+  }
+
+  .dso-ellipsis::before {
+    content: "\2026";
+  }
+
   > li {
     display: inline-block;
     font-weight: bold;
     line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
     text-align: center;
 
-    a,
-    span {
+    > a,
+    > span {
+      border: $dso-pagination-item-border-size solid transparent;
+      border-radius: 50%;
       color: $grasgroen;
       display: inline-block;
+      height: $dso-pagination-item-size;
       position: relative;
       vertical-align: middle;
+      width: $dso-pagination-item-size;
 
       &:active {
         background-color: $grasgroen-10;
       }
-    }
-
-    span {
-      border: $dso-pagination-item-border-size solid transparent;
-      border-radius: 50%;
-      height: $dso-pagination-item-size;
-      width: $dso-pagination-item-size;
     }
 
     a {
@@ -114,13 +128,6 @@ $dso-pagination-item-border-size: 2px;
           @include icon($dso-icon-button-icon-chevron-right-white-12x12);
           background-color: $grasgroen;
         }
-      }
-    }
-
-    @media screen and (max-width: $screen-sm) {
-      &.previous,
-      &.next {
-        display: none;
       }
     }
   }

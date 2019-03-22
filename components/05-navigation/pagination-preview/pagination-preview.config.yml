@@ -1,4 +1,7 @@
-status: wip
+notes: |
+  * 100% Bootstrap compatible markup
+  * Als het niet mogelijk is om vanaf de huidige pagina naar een vorige of volgende pagina te gaan, dan toont deze knop niet
+status: prototype
 label: Pagination (Preview)
 collated: true
 context:
@@ -7,102 +10,69 @@ context:
 variants:
   - name: 1-1
     context:
-      __title: 1 pagina
       count: 1
       current: 1
   - name: 2-1
     context:
-      __title: 2 pagina's
-      __explanation: pagina 1 geselecteerd
       count: 2
       current: 1
   - name: 2-2
     context:
-      __title: 2 pagina's
-      __explanation: pagina 2 geselecteerd
       count: 2
       current: 2
   - name: 3-1
     context:
-      __title: 3 pagina's
-      __explanation: pagina 1 geselecteerd
       count: 3
       current: 1
   - name: 3-2
     context:
-      __title: 3 pagina's
-      __explanation: pagina 2 geselecteerd
       count: 3
       current: 2
   - name: 3-3
     context:
-      __title: 3 pagina's
-      __explanation: pagina 3 geselecteerd
       count: 3
       current: 3
   - name: 4-1
     context:
-      __title: 4 pagina's
-      __explanation: pagina 1 geselecteerd
       count: 4
       current: 1
   - name: 4-2
     context:
-      __title: 4 pagina's
-      __explanation: pagina 2 geselecteerd
       count: 4
       current: 2
   - name: 4-3
     context:
-      __title: 4 pagina's
-      __explanation: pagina 3 geselecteerd
       count: 4
       current: 3
   - name: 4-4
     context:
-      __title: 4 pagina's
-      __explanation: pagina 4 geselecteerd
       count: 4
       current: 4
   - name: 5-1
     context:
-      __title: 5 pagina's
-      __explanation: pagina 1 geselecteerd
       count: 5
       current: 1
   - name: 5-2
     context:
-      __title: 5 pagina's
-      __explanation: pagina 2 geselecteerd
       count: 5
       current: 2
   - name: 5-3
     context:
-      __title: 5 pagina's
-      __explanation: pagina 3 geselecteerd
       count: 5
       current: 3
   - name: 5-4
     context:
-      __title: 5 pagina's
-      __explanation: pagina 4 geselecteerd
       count: 5
       current: 4
   - name: 5-5
     context:
-      __title: 5 pagina's
-      __explanation: pagina 5 geselecteerd
       count: 5
       current: 5
   - name: 7-5
     context:
-      __title: 7 pagina's
-      __explanation: pagina 5 geselecteerd
       count: 7
       current: 5
   - name: 100-98
     context:
-      __title: 100 pagina's
-      __explanation: pagina 98 geselecteerd
       count: 100
       current: 98
