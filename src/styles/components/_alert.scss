@@ -50,7 +50,8 @@ $dso-alert-padding: $u2;
     }
   }
 
-  a {
+  a,
+  a:visited {
     color: $text-color;
   }
 }

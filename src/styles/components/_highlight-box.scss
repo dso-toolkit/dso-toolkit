@@ -3,7 +3,8 @@
   margin-top: 10px;
   padding: 25px;
 
-  a {
+  a,
+  a:visited {
     color: $text-color;
   }
 }

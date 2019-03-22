@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## 6.0.0 - 22-03-2019
 
 ### Breaking release notes
 In #282 is een nieuw component geintroduceerd. Voor dit component zijn de `form-field-info` componenten generiek beschikbaar gesteld. Dit betekent dat de volgende classnames zijn aangepast:
@@ -13,6 +13,10 @@ In #282 is een nieuw component geintroduceerd. Voor dit component zijn de `form-
 ### Changed
 * **BREAKING**: Conclusie component (#282)
 * Kleur succes-icoon aanpassen naar #79b929 (#288)
+
+### Fixed
+* Anchor text-decoration: underline scopen tot .alert, .highlight-box, .dso-rich-content, en .dso-info (#286)
+* Anchor visited state in .alert en .highlightbox naar tekstkleur (#285)
 
 ## 5.1.0 - 04-03-2019
 
