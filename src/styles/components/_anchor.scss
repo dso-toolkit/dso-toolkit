@@ -3,6 +3,15 @@ $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 $dso-anchor-spacer-width: 4px;
 
 a {
+  &:not(.btn) {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
   &:visited {
     color: $dso-anchor-visited-color;
   }

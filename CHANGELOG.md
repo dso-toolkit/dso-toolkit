@@ -5,12 +5,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Changed
+* **BREAKING**: Conclusie component (#282)
+* Kleur succes-icoon aanpassen naar #79b929 (#288)
+
+## 5.1.0 - 04-03-2019
+
 ### Added
 * Whitebox component (#264)
 * Alert heeft nu ook margin aan de bovenkant, mits deze niet bovenaan staat (#283)
 
-## Changed
-* **BREAKING**: Conclusie component (#282) (@Th: Bij akkoord nodige issues aanmaken)
+### Changed
+* Underline aanzetten bij standaard text links (#280)
+* Link color in Alerts en Highlight box naar tekstkleur (#265)
+
+### Documentation
+* Component status bijwerken (#278)
 
 ## 5.0.0 - 15-02-2019
 

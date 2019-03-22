@@ -49,4 +49,8 @@ $dso-alert-padding: $u2;
       @include dso-alert-icon($dso-icon-notification-information-32x32);
     }
   }
+
+  a {
+    color: $text-color;
+  }
 }
