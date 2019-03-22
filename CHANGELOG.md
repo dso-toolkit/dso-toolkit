@@ -5,7 +5,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
-### Breaking release notes
 In #282 is een nieuw component geintroduceerd. Voor dit component zijn de `form-field-info` componenten generiek beschikbaar gesteld. Dit betekent dat de volgende classnames zijn aangepast:
 * `.dso-field-info` -> `.dso-info`
 * `.dso-field-info-button` -> `.dso-info-button`

@@ -1,69 +1,61 @@
-<nav aria-label="Page navigation">
-
-
-  <ul class="pagination">
-    {{#if (ne current 1) }}
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">Vorige</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">1</a>
-      </li>
-    {{/if}}
-    {{#if (and (gt current 3) (gte count 5)) }}
+<ul class="dso-pagination">
+  {{#if (ne current 1) }}
+    <li class="dso-previous" title="Vorige">
+      <a href="#">Vorige</a>
+    </li>
+    <li>
+      <a href="#">1</a>
+    </li>
+  {{/if}}
+  {{#if (and (gt current 3) (gte count 5)) }}
     <li>
       {{#if (eq count 5)}}
         <a href="#">2</a>
       {{else}}
-        <span>&hellip;</span>
+        <span>...</span>
       {{/if}}
     </li>
-    {{/if}}
-    {{#if (or (ne current count) (gte count 4))}}
-      {{#if (and (eq current count) (ne current 1)) }}
-        <li>
-          <a href="#" class="minTwee">{{subtract current 2 }}</a>
-        </li>
-      {{/if}}
-    {{/if}}
-    {{#if (and (gte current 3) (or (and (gte current 3) (lte count 5)) (and (gt count 5) (ne current (subtract count 2 )) ) )) }}
-      <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="previous" {{/if}}>
-        <a href="#" class="minEen">{{subtract current 1 }}</a>
+  {{/if}}
+  {{#if (or (ne current count) (gte count 4))}}
+    {{#if (and (eq current count) (ne current 1)) }}
+      <li>
+        <a href="#" class="minTwee">{{subtract current 2 }}</a>
       </li>
     {{/if}}
-    <li class="active">
-      <span>{{ current }}</span>
+  {{/if}}
+  {{#if (and (gte current 3) (or (and (gte current 3) (lte count 5)) (and (gt count 5) (ne current (subtract count 2 )) ) )) }}
+    <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="previous"{{/if}}>
+      <a href="#" class="minEen">{{subtract current 1 }}</a>
     </li>
-    {{#if (and (lte current (subtract count 2 )) (or (and (lte current 3) (lte count 5)) (and (ne current 3) (gt count 5)) ) ) }}
-      <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="next" {{/if}}>
-        <a href="#">{{add current 1 }}</a>
-      </li>
-    {{/if}}
-    {{#if (and (eq current 1) (gt count (add current 2))) }}
-      <li>
-        <a href="#">{{add current 2 }}</a>
-      </li>
-    {{/if}}
-    {{#if (and (lte current (subtract count 3)) (gte count 5) ) }}
-      <li>
-        {{#if (eq count 5)}}
-          <a href="#">{{ subtract count 1 }}</a>
-        {{else}}
-          <span>&hellip;</span>
-        {{/if}}
-      </li>
-    {{/if}}
-    {{#if (ne current count)}}
-      <li>
-        <a href="#">{{ count }}</a>
-      </li>
-      <li class="dso-next" title="Volgende">
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">Volgende</span>
-        </a>
-      </li>
-    {{/if}}
-  </ul>
-</nav>
+  {{/if}}
+  <li class="active">
+    <span>{{ current }}</span>
+  </li>
+  {{#if (and (lte current (subtract count 2 )) (or (and (lte current 3) (lte count 5)) (and (ne current 3) (gt count 5)) ) ) }}
+    <li {{#if (and (gte current 4) (lt current (subtract count 2))) }}class="next"{{/if}}>
+      <a href="#">{{add current 1 }}</a>
+    </li>
+  {{/if}}
+  {{#if (and (eq current 1) (gt count (add current 2))) }}
+    <li>
+      <a href="#">{{add current 2 }}</a>
+    </li>
+  {{/if}}
+  {{#if (and (lte current (subtract count 3)) (gte count 5) ) }}
+    <li>
+      {{#if (eq count 5)}}
+        <a href="#">{{ subtract count 1 }}</a>
+      {{else}}
+        <span>...</span>
+      {{/if}}
+    </li>
+  {{/if}}
+  {{#if (ne current count)}}
+    <li>
+      <a href="#">{{ count }}</a>
+    </li>
+    <li class="dso-next" title="Volgende">
+      <a href="#">Volgende</a>
+    </li>
+  {{/if}}
+</ul>
