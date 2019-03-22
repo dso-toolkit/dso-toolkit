@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Changed
-* **BREAKING**: Conclusie component (#282)
+* **BREAKING**: Conclusie component (#282). `.dso-field-info` -> `.dso-info` en `.dso-field-info-button` -> `.dso-info-button`.
 * Kleur succes-icoon aanpassen naar #79b929 (#288)
 
 ## 5.1.0 - 04-03-2019
