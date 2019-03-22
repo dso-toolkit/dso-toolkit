@@ -1,0 +1,36 @@
+ul.dso-conclusion {
+  list-style-type: none;
+  margin: 4px 0 0;
+  padding-left: 0;
+
+  li {
+    background-position: left 3px;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    margin: 0 0 8px;
+    padding-left: 26px;
+
+    &.dso-success {
+      @include dso-alert-icon($dso-icon-notification-succes-32x32);
+    }
+
+    &.dso-warning {
+      @include dso-alert-icon($dso-icon-notification-warning-32x32);
+    }
+
+    &.dso-forbidden {
+      @include dso-alert-icon($dso-icon-notification-forbidden-32x32);
+    }
+
+    .dso-info {
+      margin: 16px 0 16px -26px;
+    }
+
+    ul li {
+      font-style: italic;
+      margin: 0 0 8px;
+      padding: 0;
+    }
+  }
+}
+
