@@ -10,15 +10,6 @@
         <a href="#">1</a>
       </li>
     {{/if}}
-    {{#if (and (gt current 3) (gte count 5)) }}
-    <li>
-      {{#if (eq count 5)}}
-        <a href="#">2</a>
-      {{else}}
-        <span class="dso-ellipsis"></span>
-      {{/if}}
-    </li>
-    {{/if}}
     {{#if (and (or (ne current count) (gte count 4)) (and (eq current count) (ne current 1)))}}
       <li>
         <a href="#">{{subtract current 2 }}</a>
@@ -40,15 +31,6 @@
     {{#if (and (eq current 1) (gt count (add current 2))) }}
       <li>
         <a href="#">{{add current 2 }}</a>
-      </li>
-    {{/if}}
-    {{#if (and (lte current (subtract count 3)) (gte count 5) ) }}
-      <li>
-        {{#if (eq count 5)}}
-          <a href="#">{{ subtract count 1 }}</a>
-        {{else}}
-          <span class="dso-ellipsis"></span>
-        {{/if}}
       </li>
     {{/if}}
     {{#if (ne current count)}}

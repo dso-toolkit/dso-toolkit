@@ -7,18 +7,18 @@ $dso-pagination-item-border-size: 2px;
   .dso-previous,
   .dso-next {
     border-color: $grasgroen;
+    height: $dso-pagination-item-size;
+    text-indent: -9999px;
+    white-space: nowrap;
+    width: $dso-pagination-item-size;
   }
 
   .dso-previous {
-    @include icon($dso-icon-button-icon-chevron-left-12x12, $position-y: 40%);
+    @include icon($dso-icon-button-icon-chevron-left-12x12, $position-x: 52%, $position-y: 40%);
   }
 
   .dso-next {
-    @include icon($dso-icon-button-icon-chevron-right-12x12, $position-y: 40%);
-  }
-
-  .dso-ellipsis::before {
-    content: "\2026";
+    @include icon($dso-icon-button-icon-chevron-right-12x12, $position-x: 48%, $position-y: 40%);
   }
 
   > li {
@@ -29,8 +29,6 @@ $dso-pagination-item-border-size: 2px;
 
     > a,
     > span {
-      border: $dso-pagination-item-border-size solid transparent;
-      border-radius: 50%;
       color: $grasgroen;
       display: inline-block;
       height: $dso-pagination-item-size;
@@ -43,10 +41,13 @@ $dso-pagination-item-border-size: 2px;
       }
     }
 
+    > span {
+      border: $dso-pagination-item-border-size solid transparent;
+      border-radius: 50%;
+    }
+
     a {
-      height: $dso-pagination-item-size;
       text-decoration: none;
-      width: $dso-pagination-item-size;
 
       &:hover,
       &:focus {
@@ -81,54 +82,6 @@ $dso-pagination-item-border-size: 2px;
 
     & + li {
       margin-left: $u1;
-    }
-
-    a {
-      &[aria-label="Previous"],
-      &[aria-label="Next"] {
-        border: 2px solid $grasgroen;
-        border-radius: 50%;
-        height: $dso-pagination-item-size;
-        text-indent: -9999px;
-        white-space: nowrap;
-        width: $dso-pagination-item-size;
-
-        &:hover,
-        &:focus {
-          background-color: $grasgroen;
-          color: $wit;
-        }
-
-        &::after {
-          display: none;
-        }
-      }
-    }
-
-    a {
-      &[aria-label="Previous"] {
-        @include icon($dso-icon-button-icon-chevron-left-12x12);
-        margin-right: 5px;
-
-        &:hover,
-        &:focus,
-        &:active {
-          @include icon($dso-icon-button-icon-chevron-left-white-12x12);
-          background-color: $grasgroen;
-        }
-      }
-
-      &[aria-label="Next"] {
-        @include icon($dso-icon-button-icon-chevron-right-12x12);
-        margin-left: 5px;
-
-        &:hover,
-        &:focus,
-        &:active {
-          @include icon($dso-icon-button-icon-chevron-right-white-12x12);
-          background-color: $grasgroen;
-        }
-      }
     }
   }
 }
