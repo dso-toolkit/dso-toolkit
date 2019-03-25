@@ -3,9 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## UNRELEASED
+
+### Added
+* Pagination conform Bootstrap markup preview (#272)
+
 ## 6.0.0 - 22-03-2019
 
-### Breaking release notes
 In #282 is een nieuw component geintroduceerd. Voor dit component zijn de `form-field-info` componenten generiek beschikbaar gesteld. Dit betekent dat de volgende classnames zijn aangepast:
 * `.dso-field-info` -> `.dso-info`
 * `.dso-field-info-button` -> `.dso-info-button`
