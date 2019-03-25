@@ -2,8 +2,11 @@ $dso-anchor-download-content: fa-content($fa-var-download);
 $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 $dso-anchor-spacer-width: 4px;
 
-a {
-  &:not(.btn) {
+.alert,
+.highlight-box,
+.dso-rich-content,
+.dso-info {
+  a:not(.btn) {
     text-decoration: underline;
 
     &:hover,
@@ -11,7 +14,9 @@ a {
       text-decoration: none;
     }
   }
+}
 
+a {
   &:visited {
     color: $dso-anchor-visited-color;
   }
