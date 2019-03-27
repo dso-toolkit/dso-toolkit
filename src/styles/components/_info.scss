@@ -1,4 +1,4 @@
-.dso-info {
+.dso-info:not(.dso-accordion-section) {
   background-color: $grijs-10;
   padding: $u2 $u4 $u2 $u2;
   position: relative;

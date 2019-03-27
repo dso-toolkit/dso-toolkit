@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## UNRELEASED
 
+## 6.0.1 - 27-03-2019
+
+### Fixed
+* `.dso-info` als status-indicator in `.dso-accordion` krijgt onterecht achtergrondkleur (#289)
+
 ### Added
 * Pagination conform Bootstrap markup preview (#272)
 
