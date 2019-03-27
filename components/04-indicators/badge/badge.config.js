@@ -1,7 +1,7 @@
 const collator = require('../../../.fractal/collator');
 
 module.exports = {
-  status: 'wip',
+  status: 'ready',
   collated: true,
   collator: collator.inlineCollator,
   context: {

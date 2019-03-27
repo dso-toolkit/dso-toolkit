@@ -4,7 +4,7 @@
       {{ label }}
     </label>
     {{#if infoText }}
-      {{> '@form-field-info-button' }}
+      {{> '@info-button' }}
     {{/if}}
   </legend>
   <div class="dso-field-container">
@@ -18,10 +18,10 @@
           {{ label }}
         </label>
         {{#if infoText }}
-          {{> '@form-field-info-button' }}
+          {{> '@info-button' }}
         {{/if}}
         {{#if infoOpen }}
-          {{> '@form-field-info' }}
+          {{> '@info' }}
         {{/if}}
       </div>
     {{/each}}
@@ -33,6 +33,6 @@
     {{/if}}
   </div>
   {{#if infoOpen }}
-    {{> '@form-field-info' }}
+    {{> '@info' }}
   {{/if}}
 </fieldset>

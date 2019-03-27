@@ -3,11 +3,37 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## UNRELEASED
+
+### Added
+* Pagination conform Bootstrap markup preview (#272)
+
+## 6.0.0 - 22-03-2019
+
+In #282 is een nieuw component geintroduceerd. Voor dit component zijn de `form-field-info` componenten generiek beschikbaar gesteld. Dit betekent dat de volgende classnames zijn aangepast:
+* `.dso-field-info` -> `.dso-info`
+* `.dso-field-info-button` -> `.dso-info-button`
+
+### Changed
+* **BREAKING**: Conclusie component (#282)
+* Kleur succes-icoon aanpassen naar #79b929 (#288)
+
+### Fixed
+* Anchor text-decoration: underline scopen tot .alert, .highlight-box, .dso-rich-content, en .dso-info (#286)
+* Anchor visited state in .alert en .highlightbox naar tekstkleur (#285)
+
+## 5.1.0 - 04-03-2019
 
 ### Added
 * Whitebox component (#264)
-* Tabel Accordeon Component (#263)
+* Alert heeft nu ook margin aan de bovenkant, mits deze niet bovenaan staat (#283)
+
+### Changed
+* Underline aanzetten bij standaard text links (#280)
+* Link color in Alerts en Highlight box naar tekstkleur (#265)
+
+### Documentation
+* Component status bijwerken (#278)
 
 ## 5.0.0 - 15-02-2019
 
@@ -282,7 +308,7 @@ De oude Alert met icoon:
 </div>
 ```
 
-Het `span` element voor het icon is komen te vervallen. Een icoon zit komt voortaan standaard bij het soort melding: `success`, `info`, `warning` en `danger`.
+Het `span` element voor het icon is komen te vervallen. Een icoon zit komt voortaan standaard bij het soort melding: `success`, `info`, `warning` en `danger.
 
 Bij een alert zonder icoon betekent dat het `<strong>TYPE</strong>` element voorafgaand aan de melding niet meer gemaakt wordt.
 
