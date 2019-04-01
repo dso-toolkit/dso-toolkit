@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## UNRELEASED
 
+### Added
+* Definition List component modifiers uitbreiden (#239)
+
 ## 6.0.1 - 27-03-2019
 
 ### Fixed
@@ -60,9 +63,6 @@ In #282 is een nieuw component geintroduceerd. Voor dit component zijn de `form-
 ### Changed
 * **BREAKING:** Tooltip: Bootstrap markup handhaven (#252)
 * Interlinie in .dso-rich-content (#233)
-
-## 3.2 - UNRELEASED
-* Uitbreiding mogeliujkheden definition list (#239)
 
 ## 3.1.1 - 23-01-2019
 
