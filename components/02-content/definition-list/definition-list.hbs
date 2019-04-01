@@ -1,8 +1,8 @@
 <dl{{{ifattr ' class' modifier }}}>
   {{#each definitions }}
-    <dt{{{ifattr ' class' hightlightElement }}}>{{ term }}</dt>
+    <dt>{{ term }}</dt>
     {{#each descriptions }}
-      <dd{{{ifattr ' class' hightlightElement }}}>{{ description }}</dd>
+      <dd>{{ description }}</dd>
     {{/each }}
     {{#if longread }}
       <dd>
