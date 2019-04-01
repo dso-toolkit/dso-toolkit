@@ -2,13 +2,13 @@
   <div class="dso-label-container">
     <label class="control-label">{{ label }}</label>
     {{#if infoText }}
-      {{> '@form-field-info-button' }}
+      {{> '@info-button' }}
     {{/if}}
   </div>
   <div class="dso-field-container">
     <p>{{ value }}</p>
   </div>
   {{#if infoOpen }}
-    {{> '@form-field-info' }}
+    {{> '@info' }}
   {{/if}}
 </div>

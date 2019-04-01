@@ -1,7 +1,54 @@
+$rich-content-margin-bottom: $u2;
+
 %dso-rich-content,
 .dso-rich-content {
+
+  // Headings
+  // -------------------------
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3 {
+    margin-bottom: $rich-content-margin-bottom;
+  }
+
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    margin-bottom: $rich-content-margin-bottom;
+  }
+
+  // Body text
+  // -------------------------
+  p {
+    margin: 0 0 $rich-content-margin-bottom;
+  }
+
+  // Unordered and Ordered lists
+  ul,
+  ol {
+    margin-bottom: $rich-content-margin-bottom;
+  }
+
+  // Pre
+  // -------------------------
+  pre {
+    margin: 0 0 $rich-content-margin-bottom;
+  }
+
+  // Blockquotes
+  blockquote {
+    padding: $rich-content-margin-bottom $line-height-computed;
+  }
+
   .highlight-box {
-    margin-bottom: 12px;
+    margin-bottom: $line-height-computed;
   }
 
   > :first-child {

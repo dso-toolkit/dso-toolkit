@@ -1,6 +1,6 @@
 notes: |
   Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component
-status: wip
+status: ready
 collated: true
 context:
   modifier: alert-success
@@ -9,7 +9,7 @@ variants:
   - name: danger
     context:
       modifier: alert-danger
-      message: Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.
+      message: Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   - name: warning
     context:
       modifier: alert-warning
@@ -17,4 +17,4 @@ variants:
   - name: info
     context:
       modifier: alert-info
-      message: Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.
+      message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.

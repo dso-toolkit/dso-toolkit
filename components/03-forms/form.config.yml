@@ -9,7 +9,7 @@ notes: |
   #### Extra:
   * https://getbootstrap.com/docs/3.3/css/#forms
   * [H91: Using HTML form controls and links](https://www.w3.org/TR/WCAG20-TECHS/H91)
-status: wip
+status: ready
 default: form-vertical
 context:
   formLegend: Vertical Form
