@@ -5,15 +5,6 @@ $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 $dso-definition-list-highlight-color: $grasgroen;
 
 dl {
-  &.dso-dl-borders {
-    border-bottom: 2px solid $grijs-10;
-    padding: $dso-definition-list-vertical-space 0;
-
-    &:last-of-type {
-      border-top: 2px solid $grijs-10;
-    }
-  }
-
   dd {
     @extend %dso-rich-content;
   }
@@ -79,28 +70,20 @@ dl {
     }
   }
 
-  &.dso-emphasize-description,
-  &.dso-first-line-headers {
+  &.dso-emphasize-description {
     dt {
       color: $grijs-60;
       font-weight: normal;
     }
   }
 
-  &.dso-first-line-headers {
+  &.dso-with-header {
     dt,
     dd {
       &:first-of-type {
         color: $dso-definition-list-highlight-color;
         font-weight: bold;
       }
-    }
-  }
-
-  dt,
-  dd {
-    &.dso-definition-highlight {
-      color: $dso-definition-list-highlight-color;
     }
   }
 }
