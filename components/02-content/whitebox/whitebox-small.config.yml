@@ -1,0 +1,4 @@
+status: wip
+context:
+  id: whitebox-small
+  label: Bomen kappen of struiken verwijderen

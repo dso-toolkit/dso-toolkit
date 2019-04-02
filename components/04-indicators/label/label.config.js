@@ -1,7 +1,7 @@
 const collator = require('../../../.fractal/collator');
 
 module.exports = {
-  status: 'wip',
+  status: 'ready',
   collated: true,
   collator: (markup, item) => `<div class="col-xs-6${item.order % 2 === 1 ? ' text-right' : ''}">${markup}<br /><br /></div>`,
   default: 'default',
