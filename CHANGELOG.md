@@ -5,15 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## UNRELEASED
 
-### Fixed
+### Changed
 * **BREAKING**: Tooltip positioneren (#281)
+* In modals sluitenkruis standaard tonen (#275)
+
+### Fixed
+* Plaat in toelichting buiten formulier niet meer in het midden gepositioneerd (#291)
 
 ### Added
 * Definition List component modifiers uitbreiden (#239)
 * Verkleinen fontsize badges (van 16px naar 14px) (#269)
-
-### Changed
-* In modals sluitenkruis standaard tonen (#275)
 
 ## 6.0.1 - 27-03-2019
 

@@ -25,16 +25,6 @@ form {
   > fieldset + fieldset {
     margin-top: $u4;
   }
-
-  .dso-info {
-    .dso-rich-content {
-      > p > img {
-        display: block;
-        margin: $u1 auto;
-        max-width: 100%;
-      }
-    }
-  }
 }
 
 .form-group {
