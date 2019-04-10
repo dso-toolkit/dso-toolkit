@@ -8,10 +8,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **BREAKING**: Tooltip positioneren (#281)
 
-## 6.0.1 - 27-03-2019
-
 ### Added
 * Verkleinen fontsize badges (van 16px naar 14px) (#269)
+
+## 6.0.1 - 27-03-2019
 
 ### Fixed
 * `.dso-info` als status-indicator in `.dso-accordion` krijgt onterecht achtergrondkleur (#289)
