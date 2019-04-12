@@ -63,7 +63,6 @@ variants:
     label: Closable
     context:
       id: modal-close
-      closeButton: true
   - name: modal-single-submit
     label: Single submit
     context:

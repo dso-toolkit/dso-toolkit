@@ -21,6 +21,14 @@
       outline: 0;
     }
   }
+
+  .dso-rich-content {
+    img {
+      display: block;
+      margin: $u1 auto;
+      max-width: 100%;
+    }
+  }
 }
 
 .dso-info-button {

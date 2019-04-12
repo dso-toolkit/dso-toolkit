@@ -2,6 +2,7 @@ $dso-definition-list-gutter: $u2;
 $dso-definition-list-vertical-space: $u2;
 $dso-definition-list-term-width: 200px;
 $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
+$dso-definition-list-highlight-color: $grasgroen;
 
 dl {
   dd {
@@ -25,6 +26,36 @@ dl {
       dd {
         margin-left: $dso-definition-list-gutter + $dso-definition-list-term-width;
       }
+
+      &.dso-columns-1-3 {
+        dt {
+          width: 25%;
+        }
+
+        dd {
+          margin-left: calc(25% + #{$dso-definition-list-gutter});
+        }
+      }
+
+      &.dso-columns-2-2 {
+        dt {
+          width: 50%;
+        }
+
+        dd {
+          margin-left: calc(50% + #{$dso-definition-list-gutter});
+        }
+      }
+
+      &.dso-columns-3-1 {
+        dt {
+          width: 75%;
+        }
+
+        dd {
+          margin-left: calc(75% + #{$dso-definition-list-gutter});
+        }
+      }
     }
   }
 
@@ -43,6 +74,16 @@ dl {
     dt {
       color: $grijs-60;
       font-weight: normal;
+    }
+  }
+
+  &.dso-with-header {
+    dt,
+    dd {
+      &:first-of-type {
+        color: $dso-definition-list-highlight-color;
+        font-weight: bold;
+      }
     }
   }
 }

@@ -43,3 +43,63 @@ variants:
       __title: null
       __explanation: null
       modifier: dso-vertical dso-emphasize-description
+  - name: columns-1-3
+    context:
+      __title: Kolomverdeling 1-3
+      __explanation: Kolomverdeling 1-3, groene koppen door class <code>dso-with-header</code>.
+      modifier: dso-columns-1-3 dso-with-header
+      definitions:
+        - term: Verzoek 1
+          descriptions:
+            - description: Aanleg rondweg Leiden traject Rijnland route 1
+        - term: Verzoeknummer
+          descriptions:
+            - description: 20181024 00729 000
+        - term: Datum ingediend
+          descriptions:
+            - description: 24/10/2018
+        - term: Ingediend bij
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: Uw verzoek wordt behandeld door
+          descriptions:
+            - description: Omgevingsdienst Haaglanden
+  - name: columns-2-2
+    context:
+      __title: Kolomverdeling 2-2
+      __explanation: Kolomverdeling 2-2 en <code>dso-with-header</code>.
+      modifier: dso-columns-2-2 dso-with-header
+      definitions:
+        - term: Verzoek 1
+          descriptions:
+            - description: Aanleg rondweg Leiden traject Rijnland route 1
+        - term: Verzoeknummer
+          descriptions:
+            - description: 20181024 00729 000
+        - term: Datum ingediend
+          descriptions:
+            - description: 24/10/2018
+        - term: Ingediend bij
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: Uw verzoek wordt behandeld door
+          descriptions:
+            - description: Omgevingsdienst Haaglanden
+  - name: columns-3-1
+    context:
+      __title: Kolomverdeling 3-1
+      __explanation: Kolomverdeling 3-1.
+      modifier: dso-columns-3-1
+      definitions:
+        - term: Verzoeknummer
+          descriptions:
+            - description: 20181024 00729 000
+        - term: Datum ingediend
+          descriptions:
+            - description: 24/10/2018
+        - term: Ingediend bij
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: Uw verzoek wordt behandeld door
+          descriptions:
+            - description: Omgevingsdienst Haaglanden
