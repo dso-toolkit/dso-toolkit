@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 7.0.1 - 15-04-2019
+
+### Fixed
+* Margins van paragraph in `.dso-conclusion` (#295)
+
 ## 7.0.0 - 10-04-2019
 
 ### Changed
