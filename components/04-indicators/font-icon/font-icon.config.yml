@@ -1,0 +1,17 @@
+status: ready
+collated: true
+default: alert
+variants:
+  - name: alert
+    context:
+      icon: di di-warning
+  - name: info
+    # notes: Een font kan worden vergroot met modifier classes `.fa-2x` tot `.fa-6x`.
+    context:
+      icon: di di-info
+  - name: ok
+    context:
+      icon: di di-vink
+  - name: cross
+    context:
+      icon: di di-cross

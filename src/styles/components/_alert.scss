@@ -26,27 +26,41 @@ $dso-alert-padding: $u2;
     width: $dso-alert-icon-size;
   }
 
+  i.di::before {
+    border-radius: 50%;
+    font-size: .8em;
+    height: $dso-alert-icon-size;
+    line-height: $dso-alert-icon-size;
+    margin: 0 18px 0 -50px;
+    text-align: center;
+    width: $dso-alert-icon-size;
+  }
+
+
   &.alert-success {
-    &::before {
-      @include dso-alert-icon($dso-icon-notification-succes-32x32);
+    i.di::before {
+      background-color: $lime;
+      color: $wit;
     }
   }
 
   &.alert-danger {
-    &::before {
-      @include dso-alert-icon($dso-icon-notification-error-32x32);
+    i.di::before {
+      background-color: $dso-danger-color;
+      color: $wit;
     }
   }
 
   &.alert-warning {
-    &::before {
-      @include dso-alert-icon($dso-icon-notification-warning-32x32);
+    i.di::before {
+      background-color: $dso-warning-color;
     }
   }
 
   &.alert-info {
-    &::before {
-      @include dso-alert-icon($dso-icon-notification-information-32x32);
+    i.di::before {
+      background-color: $dso-info-color;
+      color: $wit;
     }
   }
 

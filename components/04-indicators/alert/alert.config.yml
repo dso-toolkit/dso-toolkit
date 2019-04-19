@@ -4,17 +4,21 @@ status: ready
 collated: true
 context:
   modifier: alert-success
+  icon: di di-vink
   message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
   - name: danger
     context:
       modifier: alert-danger
+      icon: di di-cross
       message: Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   - name: warning
     context:
       modifier: alert-warning
+      icon: di di-warning
       message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
   - name: info
     context:
       modifier: alert-info
+      icon: di di-info
       message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.

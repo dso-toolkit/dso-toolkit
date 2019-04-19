@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "dso webfont";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/dso-webfont/dso-webfont.eot");
+  src: url("../fonts/dso-webfont/dso-webfont.woff") format("woff"),
+  url("../fonts/dso-webfont/dso-webfont.ttf") format("truetype"),
+  url("../fonts/dso-webfont/dso-webfont.svg#dso-webfont") format("svg");
+}
+
+i.di::before {
+  -moz-osx-font-smoothing: grayscale; // sass-lint:disable no-vendor-prefixes
+  -webkit-font-smoothing: antialiased; // sass-lint:disable no-vendor-prefixes
+  display: inline-block;
+  font-family: "dso webfont";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+}
+
+.di-cross::before {
+  content: "\0041";
+}
+
+.di-info::before {
+  content: "\0042";
+}
+
+.di-vink::before {
+  content: "\0043";
+}
+
+.di-warning::before {
+  content: "\0044";
+}
+
+// @mixin dso-alert-icon($content) {
+//   background-image: url($content);
+//   content: "";
+// }
+
+// .alert {
+//   line-height: $dso-alert-icon-size;
+//   min-height: 2 * $dso-alert-padding + $dso-alert-icon-size;
+//   padding-left: 2 * $dso-alert-padding + $dso-alert-icon-size - 1px; // 1px border
+//   position: relative;
+
+//   &:not(:first-child) {
+//     margin-top: $u3;
+//   }
+
+//   &::before {
+//     display: block;
+//     height: $dso-alert-icon-size;
+//     left: $dso-alert-padding - 1px; // 1px border
+//     line-height: $dso-alert-icon-size;
+//     position: absolute;
+//     top: $dso-alert-padding - 1px; // 1px border
+//     width: $dso-alert-icon-size;
+//   }
+
+//   &.alert-success {
+//     &::before {
+//       @include dso-alert-icon($dso-icon-notification-succes-32x32);
+//     }
+//   }
+
+//   &.alert-danger {
+//     &::before {
+//       @include dso-alert-icon($dso-icon-notification-error-32x32);
+//     }
+//   }
+
+//   &.alert-warning {
+//     &::before {
+//       @include dso-alert-icon($dso-icon-notification-warning-32x32);
+//     }
+//   }
+
+//   &.alert-info {
+//     &::before {
+//       @include dso-alert-icon($dso-icon-notification-information-32x32);
+//     }
+//   }
+
+//   a,
+//   a:visited {
+//     color: $text-color;
+//   }
+// }
