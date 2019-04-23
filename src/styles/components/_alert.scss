@@ -1,5 +1,6 @@
 $dso-alert-icon-size: $u4;
 $dso-alert-padding: $u2;
+$dso-alert-icon-pos: -#{$u4};
 
 @mixin dso-alert-icon($content) {
   background-image: url($content);
@@ -16,26 +17,24 @@ $dso-alert-padding: $u2;
     margin-top: $u3;
   }
 
-  &::before {
-    display: block;
-    height: $dso-alert-icon-size;
-    left: $dso-alert-padding - 1px; // 1px border
-    line-height: $dso-alert-icon-size;
+  i.di {
+    font-size: .75em;
+    margin: 0 10px 0 $dso-alert-icon-pos;
     position: absolute;
-    top: $dso-alert-padding - 1px; // 1px border
-    width: $dso-alert-icon-size;
-  }
 
-  i.di::before {
-    border-radius: 50%;
-    font-size: .8em;
-    height: $dso-alert-icon-size;
-    line-height: $dso-alert-icon-size;
-    margin: 0 18px 0 -50px;
-    text-align: center;
-    width: $dso-alert-icon-size;
+    &::before {
+      border-radius: 50%;
+      display: block;
+      height: $dso-alert-icon-size;
+      left: 50%;
+      line-height: $dso-alert-icon-size;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translate(-50%);
+      width: $dso-alert-icon-size;
+    }
   }
-
 
   &.alert-success {
     i.di::before {
@@ -48,6 +47,7 @@ $dso-alert-padding: $u2;
     i.di::before {
       background-color: $dso-danger-color;
       color: $wit;
+      font-size: .875em;
     }
   }
 
