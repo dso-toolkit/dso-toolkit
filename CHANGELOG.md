@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Underline bij hover op anchor (#299)
 
+### Changed
+* Header margin-bottom naar 8px (#297)
+
 ## 7.0.1 - 15-04-2019
 
 ### Fixed
