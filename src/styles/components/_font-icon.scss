@@ -1,21 +1,29 @@
 @font-face {
-  font-family: "dso webfont";
+  font-family: "dso iconfont";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/dso-webfont/dso-webfont.eot");
-  src: url("../fonts/dso-webfont/dso-webfont.woff") format("woff"),
-  url("../fonts/dso-webfont/dso-webfont.ttf") format("truetype"),
-  url("../fonts/dso-webfont/dso-webfont.svg#dso-webfont") format("svg");
+  src: url("../fonts/dso-iconfont/dso-iconfont.eot");
+  src: url("../fonts/dso-iconfont/dso-iconfont.woff") format("woff"),
+  url("../fonts/dso-iconfont/dso-iconfont.ttf") format("truetype"),
+  url("../fonts/dso-iconfont/dso-iconfont.svg#dso-iconfont") format("svg");
 }
 
-i.di::before {
-  -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-  -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-  display: inline-block;
-  font-family: "dso webfont";
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
+i.di {
+  &::before {
+    -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+    display: inline-block;
+    font-family: "dso iconfont";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  @for $i from 2 through 6 {
+    &.di-#{$i}x::before {
+      font-size: #{$i}em;
+    }
+  }
 }
 
 .di-cross::before {
