@@ -40,6 +40,7 @@ $dso-alert-icon-pos: -#{$u4};
     i.di::before {
       background-color: $lime;
       color: $wit;
+      content: "\0043";
     }
   }
 
@@ -47,6 +48,7 @@ $dso-alert-icon-pos: -#{$u4};
     i.di::before {
       background-color: $dso-danger-color;
       color: $wit;
+      content: "\0041";
       font-size: .875em;
     }
   }
@@ -54,6 +56,7 @@ $dso-alert-icon-pos: -#{$u4};
   &.alert-warning {
     i.di::before {
       background-color: $dso-warning-color;
+      content: "\0044";
     }
   }
 
@@ -61,6 +64,7 @@ $dso-alert-icon-pos: -#{$u4};
     i.di::before {
       background-color: $dso-info-color;
       color: $wit;
+      content: "\0042";
     }
   }
 
