@@ -40,7 +40,7 @@ $dso-accordion-state-icon-size: $u3;
         color: $wit;
         display: block;
         font-family: "dso iconfont";
-        font-size: .466em;
+        font-size: .47em;
         font-style: normal;
         font-weight: normal;
         height: $dso-accordion-state-icon-size;
@@ -80,6 +80,7 @@ $dso-accordion-state-icon-size: $u3;
       .dso-section-handle {
         a::after {
           @include icon-danger;
+          font-size: .42em;
         }
       }
     }
