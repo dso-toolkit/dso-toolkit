@@ -36,9 +36,18 @@ $dso-accordion-state-icon-size: $u3;
       }
 
       &::after {
+        border-radius: 50%;
+        color: $wit;
+        display: block;
+        font-family: "dso iconfont";
+        font-size: .466em;
+        font-style: normal;
+        font-weight: normal;
         height: $dso-accordion-state-icon-size;
+        line-height: $dso-accordion-state-icon-size;
         position: absolute;
         right: 0;
+        text-align: center;
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
         width: $dso-accordion-state-icon-size;
       }
@@ -62,7 +71,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-success {
       .dso-section-handle {
         a::after {
-          @include icon($dso-icon-notification-succes-24x24);
+          @include icon-success;
         }
       }
     }
@@ -70,7 +79,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-danger {
       .dso-section-handle {
         a::after {
-          @include icon($dso-icon-notification-error-24x24);
+          @include icon-danger;
         }
       }
     }
@@ -78,7 +87,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-warning {
       .dso-section-handle {
         a::after {
-          @include icon($dso-icon-notification-warning-24x24);
+          @include icon-warning;
         }
       }
     }
@@ -86,7 +95,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-info {
       .dso-section-handle {
         a::after {
-          @include icon($dso-icon-notification-information-24x24);
+          @include icon-info;
         }
       }
     }

@@ -33,27 +33,20 @@ $dso-alert-icon-pos: -#{$u4};
   }
 
   &.alert-success::before {
-    background-color: $lime;
-    color: $wit;
-    content: "\0043";
+    @include icon-success;
   }
 
   &.alert-danger::before {
-    background-color: $dso-danger-color;
-    color: $wit;
-    content: "\0041";
+    @include icon-danger;
     font-size: .62em;
   }
 
   &.alert-warning::before {
-    background-color: $dso-warning-color;
-    content: "\0044";
+    @include icon-warning;
   }
 
   &.alert-info::before {
-    background-color: $dso-info-color;
-    color: $wit;
-    content: "\0042";
+    @include icon-info;
   }
 
   a,
