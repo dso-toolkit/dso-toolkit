@@ -41,3 +41,8 @@ i.di {
 .di-warning::before {
   content: "\0044";
 }
+
+.di-forbidden:before{
+  content: "\0045";
+  font-size: 1em;
+}

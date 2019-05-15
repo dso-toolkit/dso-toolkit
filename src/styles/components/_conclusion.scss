@@ -1,3 +1,5 @@
+$dso-conclusion-icon-size: 18px;
+
 ul.dso-conclusion {
   list-style-type: none;
   margin: 4px 0 0;
@@ -9,17 +11,34 @@ ul.dso-conclusion {
     background-size: 18px;
     margin: 0 0 8px;
     padding-left: 26px;
+    position: relative;
 
-    &.dso-success {
-      @include dso-alert-icon($dso-icon-notification-succes-32x32);
+    &::before {
+      border-radius: 50%;
+      display: block;
+      font-family: "dso iconfont";
+      font-size: .45em;
+      font-style: normal;
+      font-weight: normal;
+      height: $dso-conclusion-icon-size;
+      left: 0;
+      line-height: $dso-conclusion-icon-size;
+      position: absolute;
+      text-align: center;
+      top: 3px;
+      width: $dso-conclusion-icon-size;
     }
 
-    &.dso-warning {
-      @include dso-alert-icon($dso-icon-notification-warning-32x32);
+    &.dso-success::before {
+      @include icon-success;
     }
 
-    &.dso-forbidden {
-      @include dso-alert-icon($dso-icon-notification-forbidden-32x32);
+    &.dso-warning::before {
+      @include icon-warning;
+    }
+
+    &.dso-forbidden::before {
+      @include icon-forbidden;
     }
 
     .dso-info {

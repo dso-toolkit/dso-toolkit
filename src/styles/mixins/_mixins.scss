@@ -39,3 +39,8 @@
   content: "\0042";
 }
 
+@mixin icon-forbidden {
+  color: $dso-danger-color;
+  content: "\0045";
+  font-size: 1em;
+}
