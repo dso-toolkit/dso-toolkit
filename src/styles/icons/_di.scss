@@ -98,13 +98,13 @@ $di-icon-map: (
   }
 }
 
-@mixin di-forbidden($pseudo: "before") {
+@mixin di-forbidden($size: $u4, $pseudo: "before") {
   @include di-font($pseudo: $pseudo);
   @include di("forbidden", $pseudo: $pseudo);
 
   &::#{$pseudo} {
     color: $dso-danger-color;
-    font-size: 1em;
+    height: $size;
   }
 }
 

@@ -1,6 +1,4 @@
 span.di {
-  @include di-font;
-
   @for $i from 2 through 6 {
     &.di-#{$i}x::before {
       font-size: #{$i}em;
@@ -26,5 +24,4 @@ span.di {
   &.di-forbidden {
     @include di-forbidden;
   }
-
 }

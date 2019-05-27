@@ -11,31 +11,21 @@ ul.dso-conclusion {
     position: relative;
 
     &::before {
-      border-radius: 50%;
-      display: block;
-      font-family: "dso iconfont";
-      font-size: .45em;
-      font-style: normal;
-      font-weight: normal;
-      height: $dso-conclusion-icon-size;
       left: 0;
-      line-height: $dso-conclusion-icon-size;
       position: absolute;
-      text-align: center;
       top: 3px;
-      width: $dso-conclusion-icon-size;
     }
 
-    &.dso-success::before {
-      @include di-check;
+    &.dso-success {
+      @include di-check($size: $dso-conclusion-icon-size);
     }
 
-    &.dso-warning::before {
-      @include di-warning;
+    &.dso-warning {
+      @include di-warning($size: $dso-conclusion-icon-size);
     }
 
-    &.dso-forbidden::before {
-      @include di-forbidden;
+    &.dso-forbidden {
+      @include di-forbidden($size: $dso-conclusion-icon-size);
     }
 
     .dso-info {
