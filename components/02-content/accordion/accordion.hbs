@@ -2,6 +2,11 @@
   {{#each sections }}
     {{#accordionSection title }}
       <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+      {{#each sections }}
+        {{#accordionSection title }}
+          <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+        {{/accordionSection}}
+      {{/each}}
     {{/accordionSection}}
   {{/each}}
 {{/accordion}}

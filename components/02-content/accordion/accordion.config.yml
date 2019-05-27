@@ -21,6 +21,22 @@ context:
     id: panel3
     state: warning
     open: true
+    sections:
+    - title: Woning
+      id: panel1
+      open: true
+    - title: Bouwwerkzaamheden
+      id: panel2
+      state: success
+    - title: Plaats van het bouwwerk
+      id: panel3
+      state: warning
+    - title: Afmetingen van het bouwwerk
+      id: panel4
+      state: info
+    - title: Extra werkzaamheden
+      id: panel5
+      state: danger
   - title: Afmetingen van het bouwwerk
     id: panel4
     state: info
