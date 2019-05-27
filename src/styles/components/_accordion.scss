@@ -36,20 +36,9 @@ $dso-accordion-state-icon-size: $u3;
       }
 
       &::after {
-        border-radius: 50%;
-        color: $wit;
-        display: block;
-        font-family: "dso iconfont";
-        font-size: .47em;
-        font-style: normal;
-        font-weight: normal;
-        height: $dso-accordion-state-icon-size;
-        line-height: $dso-accordion-state-icon-size;
         position: absolute;
         right: 0;
-        text-align: center;
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
-        width: $dso-accordion-state-icon-size;
       }
 
       &:hover,
@@ -70,33 +59,32 @@ $dso-accordion-state-icon-size: $u3;
   .dso-accordion-section {
     &.dso-success {
       .dso-section-handle {
-        a::after {
-          @include di-check($pseudo: "after");
+        a {
+          @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
       }
     }
 
     &.dso-danger {
       .dso-section-handle {
-        a::after {
-          @include di-cross($pseudo: "after");
-          font-size: .42em;
+        a {
+          @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
       }
     }
 
     &.dso-warning {
       .dso-section-handle {
-        a::after {
-          @include di-warning($pseudo: "after");
+        a {
+          @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
       }
     }
 
     &.dso-info {
       .dso-section-handle {
-        a::after {
-          @include di-info($pseudo: "after");
+        a {
+          @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
       }
     }
