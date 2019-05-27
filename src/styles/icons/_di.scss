@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "DSO IconFont";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/DSO-IconFont/DSO-IconFont.eot"); // sass-lint:disable-line no-duplicate-properties
+  src: url("../fonts/DSO-IconFont/DSO-IconFont.woff") format("woff"), // sass-lint:disable-line no-duplicate-properties
+  url("../fonts/DSO-IconFont/DSO-IconFont.ttf") format("truetype"),
+  url("../fonts/DSO-IconFont/DSO-IconFont.svg#DSO-IconFont") format("svg");
+}
+
+$di-icons: (
+  "cross": "\0041",
+  "info": "\0042",
+  "check": "\0043",
+  "warning": "\0044",
+  "forbidden": "\0045"
+);
+
+@each $name, $glyph in $di-icons {
+  .di-#{$name}::before {
+    content: $glyph;
+  }
+}
+
+.di-forbidden::before {
+  font-size: 1em;
+}

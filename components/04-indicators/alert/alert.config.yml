@@ -4,7 +4,6 @@ status: ready
 collated: true
 context:
   modifier: alert-success
-  icon: di
   message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
   - name: danger
