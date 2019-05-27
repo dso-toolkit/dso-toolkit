@@ -22,6 +22,31 @@
     url("#{$asap-font-path}Asap-Italic.woff") format("woff");
 }
 
+// asap-600normal - latin
+@font-face {
+  font-family: "Asap";
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local("Asap SemiBold"),
+    local("Asap-SemiBold"),
+    url("#{$asap-font-path}asap-latin-500.woff2") format("woff2"), // Super Modern Browsers
+    url("#{$asap-font-path}asap-latin-500.woff") format("woff"); // Modern Browsers
+}
+
+// asap-500italic - latin
+@font-face {
+  font-family: "Asap";
+  font-style: italic;
+  font-weight: 500;
+  src:
+    local("Asap SemiBold italic"),
+    local("Asap-SemiBolditalic"),
+    url("#{$asap-font-path}asap-latin-500italic.woff2") format("woff2"), // Super Modern Browsers
+    url("#{$asap-font-path}asap-latin-500italic.woff") format("woff"); // Modern Browsers
+}
+
+// asap-700normal - latin
 @font-face {
   font-family: "Asap";
   font-style: normal;
