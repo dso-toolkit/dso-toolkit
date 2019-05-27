@@ -1,9 +1,0 @@
-status: ready
-collated: true
-default: info
-variants:
-  - name: info
-  - name: warning
-  - name: check
-  - name: cross
-  - name: forbidden

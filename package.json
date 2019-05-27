@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "gulp": "gulp",
     "test": "gulp test"
   },
   "repository": {
