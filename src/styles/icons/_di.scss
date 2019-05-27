@@ -8,7 +8,7 @@
   url("../fonts/DSO-IconFont/DSO-IconFont.svg#DSO-IconFont") format("svg");
 }
 
-$di-icons: (
+$di-icon-map: (
   "cross": "\0041",
   "info": "\0042",
   "check": "\0043",
@@ -16,12 +16,95 @@ $di-icons: (
   "forbidden": "\0045"
 );
 
-@each $name, $glyph in $di-icons {
-  .di-#{$name}::before {
-    content: $glyph;
+@mixin di-font($pseudo: "before") {
+  &::#{$pseudo} {
+    -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
+    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
+    display: inline-block;
+    font-family: "DSO IconFont";
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
   }
 }
 
-.di-forbidden::before {
-  font-size: 1em;
+@mixin di($icon, $pseudo: "before") {
+  &::#{$pseudo} {
+    content: map-get($di-icon-map, $icon);
+  }
 }
+
+@mixin di-cross($pseudo: "before") {
+  @include di-font;
+  @include di("cross");
+
+  &::#{$pseudo} {
+    background-color: $dso-danger-color;
+    border-radius: 50%;
+    color: $wit;
+    font-size: .75em;
+    height: $u4;
+    line-height: $u4;
+    text-align: center;
+    width: $u4;
+  }
+}
+
+@mixin di-info($pseudo: "before") {
+  @include di-font;
+  @include di("info");
+
+  &::#{$pseudo} {
+    background-color: $dso-info-color;
+    border-radius: 50%;
+    color: $wit;
+    font-size: .75em;
+    height: $u4;
+    line-height: $u4;
+    text-align: center;
+    width: $u4;
+  }
+}
+
+@mixin di-check($pseudo: "before") {
+  @include di-font;
+  @include di("check");
+
+  &::#{$pseudo} {
+    background-color: $lime;
+    border-radius: 50%;
+    color: $wit;
+    font-size: .75em;
+    height: $u4;
+    line-height: $u4;
+    text-align: center;
+    width: $u4;
+  }
+}
+
+@mixin di-warning($pseudo: "before") {
+  @include di-font;
+  @include di("warning");
+
+  &::#{$pseudo} {
+    background-color: $dso-warning-color;
+    border-radius: 50%;
+    color: $zwart;
+    font-size: .75em;
+    height: $u4;
+    line-height: $u4;
+    text-align: center;
+    width: $u4;
+  }
+}
+
+@mixin di-forbidden($pseudo: "before") {
+  @include di-font;
+  @include di("forbidden");
+
+  &::#{$pseudo} {
+    color: $dso-danger-color;
+    font-size: 1em;
+  }
+}
+

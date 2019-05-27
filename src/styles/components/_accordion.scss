@@ -71,7 +71,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-success {
       .dso-section-handle {
         a::after {
-          @include icon-success;
+          @include di-check($pseudo: "after");
         }
       }
     }
@@ -79,7 +79,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-danger {
       .dso-section-handle {
         a::after {
-          @include icon-danger;
+          @include di-cross($pseudo: "after");
           font-size: .42em;
         }
       }
@@ -88,7 +88,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-warning {
       .dso-section-handle {
         a::after {
-          @include icon-warning;
+          @include di-warning($pseudo: "after");
         }
       }
     }
@@ -96,7 +96,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-info {
       .dso-section-handle {
         a::after {
-          @include icon-info;
+          @include di-info($pseudo: "after");
         }
       }
     }

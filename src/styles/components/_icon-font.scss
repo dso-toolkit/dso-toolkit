@@ -1,17 +1,30 @@
 span.di {
-  &::before {
-    -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-    display: inline-block;
-    font-family: "DSO IconFont";
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-  }
+  @include di-font;
 
   @for $i from 2 through 6 {
     &.di-#{$i}x::before {
       font-size: #{$i}em;
     }
   }
+
+  &.di-cross {
+    @include di-cross;
+  }
+
+  &.di-info {
+    @include di-info;
+  }
+
+  &.di-check {
+    @include di-check;
+  }
+
+  &.di-warning {
+    @include di-warning;
+  }
+
+  &.di-forbidden {
+    @include di-forbidden;
+  }
+
 }

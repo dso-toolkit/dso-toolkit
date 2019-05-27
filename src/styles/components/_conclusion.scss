@@ -27,15 +27,15 @@ ul.dso-conclusion {
     }
 
     &.dso-success::before {
-      @include icon-success;
+      @include di-check;
     }
 
     &.dso-warning::before {
-      @include icon-warning;
+      @include di-warning;
     }
 
     &.dso-forbidden::before {
-      @include icon-forbidden;
+      @include di-forbidden;
     }
 
     .dso-info {

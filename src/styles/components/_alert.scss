@@ -1,11 +1,5 @@
 $dso-alert-icon-size: $u4;
 $dso-alert-padding: $u2;
-$dso-alert-icon-pos: -#{$u4};
-
-@mixin dso-alert-icon($content) {
-  background-image: url($content);
-  content: "";
-}
 
 .alert {
   line-height: $dso-alert-icon-size;
@@ -18,35 +12,25 @@ $dso-alert-icon-pos: -#{$u4};
   }
 
   &::before {
-    border-radius: 50%;
-    display: block;
-    font-family: "dso iconfont";
-    font-size: .75em;
-    font-style: normal;
-    font-weight: normal;
-    height: $dso-alert-icon-size;
-    left: 15px;
-    line-height: $dso-alert-icon-size;
+    left: $dso-alert-padding - 1px; // 1px border
     position: absolute;
-    text-align: center;
-    width: $dso-alert-icon-size;
+    top: $dso-alert-padding - 1px; // 1px border
   }
 
-  &.alert-success::before {
-    @include icon-success;
+  &.alert-success {
+    @include di-check;
   }
 
-  &.alert-danger::before {
-    @include icon-danger;
-    font-size: .62em;
+  &.alert-danger {
+    @include di-cross;
   }
 
-  &.alert-warning::before {
-    @include icon-warning;
+  &.alert-warning {
+    @include di-warning;
   }
 
-  &.alert-info::before {
-    @include icon-info;
+  &.alert-info {
+    @include di-info;
   }
 
   a,

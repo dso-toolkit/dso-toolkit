@@ -14,33 +14,3 @@
   position: absolute;
   width: 1px;
 }
-
-@mixin icon-success {
-  background-color: $lime;
-  color: $wit;
-  content: "\0043";
-}
-
-@mixin icon-danger {
-  background-color: $dso-danger-color;
-  color: $wit;
-  content: "\0041";
-}
-
-@mixin icon-warning {
-  background-color: $dso-warning-color;
-  color: $zwart;
-  content: "\0044";
-}
-
-@mixin icon-info {
-  background-color: $dso-info-color;
-  color: $wit;
-  content: "\0042";
-}
-
-@mixin icon-forbidden {
-  color: $dso-danger-color;
-  content: "\0045";
-  font-size: 1em;
-}
