@@ -1,6 +1,6 @@
 $dso-accordion-main-color: #8b4a6a;
 $dso-accordion-nesting-color: #dbc8d1;
-$dso-accordion-border-radius: #{$u2 / 2};
+$dso-accordion-border-radius: #{$u1 / 2};
 $dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u2;
 $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
@@ -8,17 +8,11 @@ $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
 
 .dso-accordion {
-  .dso-accordion-section {
-    margin-top: 0;
-
-    + .dso-accordion-section {
-      margin-top: #{$u1 / 2};
-    }
-  }
-
   .dso-section-handle {
+    border: 1px solid $dso-accordion-main-color;
+    border-radius: $dso-accordion-border-radius;
+    overflow: hidden;
     background-color: $wit;
-    border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
     font-weight: 500;
     padding: 0 $dso-accordion-main-padding;
     position: relative;
@@ -58,9 +52,12 @@ $dso-accordion-state-icon-size: $u3;
   }
 
   .dso-accordion-section {
-    border: 1px solid $dso-accordion-main-color;
     border-radius: $dso-accordion-border-radius;
-    overflow: hidden;
+    margin-top: 0;
+
+    + .dso-accordion-section {
+      margin-top: #{$u1 / 2};
+    }
 
     &.dso-success {
       .dso-section-handle {
@@ -95,6 +92,8 @@ $dso-accordion-state-icon-size: $u3;
     }
 
     &.dso-open {
+      border: 1px solid $dso-accordion-main-color;
+
       > .dso-section-handle {
         background-color: $dso-accordion-main-color;
         border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
@@ -109,12 +108,10 @@ $dso-accordion-state-icon-size: $u3;
       }
 
       &.dso-hassections {
-        background-color: $dso-accordion-nesting-color;
+        border: 0;
 
         > .dso-section-handle {
           background-color: $wit;
-          border-bottom: 1px solid $dso-accordion-main-color;
-          border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
 
           a {
             color: $dso-accordion-main-color;
@@ -123,6 +120,11 @@ $dso-accordion-state-icon-size: $u3;
               background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
             }
           }
+        }
+
+        > .dso-section-body {
+          background-color: $dso-accordion-nesting-color;
+          border-radius: $dso-accordion-border-radius;
         }
 
         .dso-accordion-section {
