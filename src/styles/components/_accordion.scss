@@ -1,6 +1,6 @@
 $dso-accordion-main-color: #8b4a6a;
 $dso-accordion-nesting-color: #dbc8d1;
-$dso-accordion-border-radius: #{$u1 / 2};
+$dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u2;
 $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
@@ -9,11 +9,11 @@ $dso-accordion-state-icon-size: $u3;
 
 .dso-accordion {
   .dso-section-handle {
+    background-color: $wit;
     border: 1px solid $dso-accordion-main-color;
     border-radius: $dso-accordion-border-radius;
-    overflow: hidden;
-    background-color: $wit;
     font-weight: 500;
+    overflow: hidden;
     padding: 0 $dso-accordion-main-padding;
     position: relative;
 
@@ -53,14 +53,22 @@ $dso-accordion-state-icon-size: $u3;
 
   .dso-accordion-section {
     border-radius: $dso-accordion-border-radius;
-    margin-top: 0;
 
     + .dso-accordion-section {
-      margin-top: #{$u1 / 2};
+      margin-top: $u1 / 2;
+    }
+
+    &.dso-success,
+    &.dso-danger,
+    &.dso-warning,
+    &.dso-info {
+      > .dso-section-handle {
+        padding-right: $u6;
+      }
     }
 
     &.dso-success {
-      .dso-section-handle {
+      > .dso-section-handle {
         a {
           @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
@@ -68,7 +76,7 @@ $dso-accordion-state-icon-size: $u3;
     }
 
     &.dso-danger {
-      .dso-section-handle {
+      > .dso-section-handle {
         a {
           @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
@@ -76,7 +84,7 @@ $dso-accordion-state-icon-size: $u3;
     }
 
     &.dso-warning {
-      .dso-section-handle {
+      > .dso-section-handle {
         a {
           @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
@@ -84,7 +92,7 @@ $dso-accordion-state-icon-size: $u3;
     }
 
     &.dso-info {
-      .dso-section-handle {
+      > .dso-section-handle {
         a {
           @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
         }
@@ -94,9 +102,10 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-open {
       border: 1px solid $dso-accordion-main-color;
 
-      > .dso-section-handle {
+      &:not(.dso-nested-accordion) > .dso-section-handle {
         background-color: $dso-accordion-main-color;
-        border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+        border: 0;
+        border-radius: 0 0 4px 4px;
 
         a {
           color: $wit;
@@ -107,15 +116,13 @@ $dso-accordion-state-icon-size: $u3;
         }
       }
 
-      &.dso-hassections {
+      &.dso-nested-accordion {
+        background-color: $dso-accordion-nesting-color;
         border: 0;
+        border-radius: $dso-accordion-border-radius;
 
         > .dso-section-handle {
-          background-color: $wit;
-
           a {
-            color: $dso-accordion-main-color;
-
             &::before {
               background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
             }
@@ -123,8 +130,7 @@ $dso-accordion-state-icon-size: $u3;
         }
 
         > .dso-section-body {
-          background-color: $dso-accordion-nesting-color;
-          border-radius: $dso-accordion-border-radius;
+          padding: ($u2 - 1) ($u2 + 1) $u4; // corrections for missing borders in nested accordion
         }
 
         .dso-accordion-section {
@@ -143,12 +149,9 @@ $dso-accordion-state-icon-size: $u3;
   .dso-section-body {
     padding: $u2 $u2 $u4;
 
-    .dso-section-body {
-      padding: $u2;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
+    .dso-rich-content + .dso-accordion,
+    .dso-accordion + .dso-rich-content {
+      margin-top: $u2;
     }
   }
 }

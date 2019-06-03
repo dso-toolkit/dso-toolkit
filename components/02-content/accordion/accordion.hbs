@@ -1,12 +1,20 @@
 {{#accordion}}
   {{#each sections }}
     {{#accordionSection title }}
-      <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
-      {{#each sections }}
-        {{#accordionSection title }}
-          <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
-        {{/accordionSection}}
-      {{/each}}
+      <div class="dso-rich-content">
+        <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+      </div>
+      {{#if sections }}
+        {{#accordion}}
+          {{#each sections }}
+            {{#accordionSection title }}
+              <div class="dso-rich-content">
+                <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+              </div>
+            {{/accordionSection}}
+          {{/each}}
+        {{/accordion}}
+      {{/if}}
     {{/accordionSection}}
   {{/each}}
 {{/accordion}}
