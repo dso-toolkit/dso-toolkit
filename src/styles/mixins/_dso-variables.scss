@@ -75,12 +75,19 @@ $dso-alert-danger-bg-color: $dso-danger-bg-color;
 $dso-button-size: $u6;
 $dso-button-link-size: $u4;
 
-$dso-button-border-width: 2px;
+$dso-button-border-radius: 4px;
+$dso-button-border-width: 1px;
 $dso-button-margin-bottom: 1px;
 
-$dso-button-primary-hover-color: #d45800;
-$dso-button-primary-active-color: #a94600;
-$dso-button-primary-disabled-color: #f6d4b2;
+$dso-button-font-size: 1em;
+
+$dso-button-primary-color: $grasgroen;
+$dso-button-primary-hover-color: $bosgroen;
+$dso-button-primary-disabled-color: $grasgroen-40;
+
+$dso-button-default-color: $wit;
+$dso-button-default-hover-color: $grasgroen;
+$dso-button-default-disabled-color: $grasgroen-40;
 
 $dso-input-disabled-color: $grijs-40;
 $dso-input-disabled-border-color: #e8e8e8;

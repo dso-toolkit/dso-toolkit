@@ -8,29 +8,27 @@
 
   .btn {
     &.btn-primary {
-      &:hover,
-      &:focus {
-        background-color: $btn-primary-bg;
-        border-color: $btn-primary-bg;
+      &:hover {
+        background-color: $dso-button-primary-hover-color;
+        border-color: $dso-button-primary-hover-color;
       }
 
       &[disabled] {
         &,
         &:hover {
-          background-color: $dso-button-primary-disabled-color;
+          background-color: $wit;
           border-color: $dso-button-primary-disabled-color;
-          color: $wit;
+          color: $dso-button-primary-disabled-color;
           opacity: 1;
         }
       }
     }
 
     &.btn-default {
-      &:hover,
-      &:focus {
-        background-color: $wit;
-        border-color: $grasgroen;
-        color: $grasgroen;
+      &:hover {
+        background-color: $dso-button-default-color;
+        border-color: $dso-button-hover-color;
+        color: $dso-button-hover-color;
       }
 
       &[disabled] {
@@ -45,8 +43,7 @@
     }
 
     &.btn-link {
-      &:hover,
-      &:focus {
+      &:hover {
         color: $grasgroen;
 
         .icon {
@@ -78,11 +75,11 @@
     color: $wit;
   }
 
-  .example-active .btn.btn-primary {
-    background-color: $dso-button-primary-active-color;
-    border-color: $dso-button-primary-active-color;
-    color: $wit;
-  }
+  // .example-active .btn.btn-primary {
+  //   background-color: $dso-button-primary-active-color;
+  //   border-color: $dso-button-primary-active-color;
+  //   color: $wit;
+  // }
 
   .example-hover .btn.btn-default {
     background-color: $grasgroen;
@@ -90,11 +87,11 @@
     color: $wit;
   }
 
-  .example-active .btn.btn-default {
-    background-color: $bosgroen;
-    border-color: $bosgroen;
-    color: $wit;
-  }
+  // .example-active .btn.btn-default {
+  //   background-color: $bosgroen;
+  //   border-color: $bosgroen;
+  //   color: $wit;
+  // }
 
   .example-hover .btn.btn-link {
     .icon {

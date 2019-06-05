@@ -5,9 +5,10 @@
 }
 
 .btn {
+  border-radius: $dso-button-border-radius;
   border-width: $dso-button-border-width;
   font-size: 1.25em;
-  font-weight: bold;
+  font-weight: 500;
   height: $dso-button-size;
   line-height: $dso-button-size - 2 * $dso-button-border-width;
   margin-bottom: $dso-button-margin-bottom;
@@ -15,12 +16,6 @@
 
   &:active,
   &.active,
-  &:focus,
-  &.focus,
-  &:active:focus,
-  &:active.focus,
-  &.active:focus,
-  &.active.focus,
   &:active:hover,
   &.active:hover {
     box-shadow: none;
@@ -34,21 +29,19 @@
 }
 
 .btn-default {
+  font-size: $dso-button-font-size;
+
   &:visited {
     color: $btn-default-color;
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
+  &:hover {
     @include state-styling($grasgroen, $grasgroen, $wit);
   }
 
   &:active,
   &.active {
     &,
-    &:focus,
-    &.focus,
     &:hover,
     &:visited {
       @include state-styling($bosgroen, $bosgroen, $wit);
@@ -67,20 +60,13 @@
 }
 
 .btn-primary {
-  &:hover,
-  &:focus,
-  &.focus {
-    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
-  }
+  font-size: $dso-button-font-size;
 
-  &:active,
-  &.active {
-    &,
-    &:focus,
-    &.focus,
-    &:hover {
-      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
-    }
+  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+
+
+  &:hover {
+    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
   }
 
   &:visited {
@@ -91,7 +77,7 @@
   &[disabled] {
     &,
     &:hover {
-      @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
+      @include state-styling($wit, $dso-button-primary-disabled-color, $dso-button-primary-disabled-color);
 
       opacity: 1;
     }
