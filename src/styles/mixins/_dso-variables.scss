@@ -1,13 +1,14 @@
 // DSO kleuren                http://webaim.org/resources/contrastchecker/ (contrast op een witte achtergrond)
 
-$grasgroen:     #39870c;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grasgroen-80:  #609f3c;    //  80% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
-$grasgroen-40:  #afcf9d;    //  40% tint       - niet te gebruiken als leestekst
-$grasgroen-10:  #ebf3e6;    //  10% tint       - niet te gebruiken als leestekst
+$grasgroen:       #39870c;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grasgroen-80:    #609f3c;    //  80% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
+$grasgroen-40:    #afcf9d;    //  40% tint       - niet te gebruiken als leestekst
+$grasgroen-10:    #ebf3e6;    //  10% tint       - niet te gebruiken als leestekst
 
 $lime:          #79b929;
 $lime-20:       #e4f1d4;
 
+$bosgroen-130:  #15301e;    // 130% tint
 $bosgroen:      #275937;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-80:   #527a5e;    //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-60:   #7d9886;    //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
@@ -84,7 +85,7 @@ $dso-button-font-size: 1em;
 $dso-button-primary: $grasgroen;
 $dso-button-primary-color: $grasgroen;
 $dso-button-primary-hover-color: $bosgroen;
-$dso-button-primary-active-color: #15301e;
+$dso-button-primary-active-color: $bosgroen-130;
 $dso-button-primary-disabled-color: $grasgroen-40;
 
 $dso-button-default-color: $wit;
