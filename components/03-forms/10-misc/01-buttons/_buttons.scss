@@ -75,11 +75,11 @@
     color: $wit;
   }
 
-  // .example-active .btn.btn-primary {
-  //   background-color: $dso-button-primary-active-color;
-  //   border-color: $dso-button-primary-active-color;
-  //   color: $wit;
-  // }
+  .example-active .btn.btn-primary {
+    background-color: $dso-button-primary-active-color;
+    border-color: $dso-button-primary-active-color;
+    color: $wit;
+  }
 
   .example-hover .btn.btn-default {
     background-color: $grasgroen;
@@ -87,11 +87,11 @@
     color: $wit;
   }
 
-  // .example-active .btn.btn-default {
-  //   background-color: $bosgroen;
-  //   border-color: $bosgroen;
-  //   color: $wit;
-  // }
+  .example-active .btn.btn-default {
+    background-color: $dso-button-default-active-color;
+    border-color: $dso-button-default-active-color;
+    color: $wit;
+  }
 
   .example-hover .btn.btn-link {
     .icon {
