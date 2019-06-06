@@ -34,7 +34,7 @@
   }
 
   &:hover {
-    @include state-styling($grasgroen, $grasgroen, $wit);
+    @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
   &:active,
@@ -42,7 +42,7 @@
     &,
     &:hover,
     &:visited {
-      @include state-styling($bosgroen, $bosgroen, $wit);
+      @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
     }
   }
 
@@ -50,7 +50,7 @@
   &[disabled] {
     &,
     &:hover {
-      @include state-styling($wit, $grasgroen-40, $grasgroen-40);
+      @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
 
       opacity: 1;
     }
@@ -58,8 +58,7 @@
 }
 
 .btn-primary {
- @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
-
+  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
 
   &:hover {
     @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
@@ -67,6 +66,15 @@
 
   &:visited {
     color: $btn-primary-color;
+  }
+
+  &:active,
+  &.active {
+    &,
+    &:hover,
+    &:visited {
+      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+    }
   }
 
   &.disabled,

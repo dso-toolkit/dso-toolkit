@@ -81,12 +81,15 @@ $dso-button-margin-bottom: 1px;
 
 $dso-button-font-size: 1em;
 
+$dso-button-primary: $grasgroen;
 $dso-button-primary-color: $grasgroen;
 $dso-button-primary-hover-color: $bosgroen;
+$dso-button-primary-active-color: #15301e;
 $dso-button-primary-disabled-color: $grasgroen-40;
 
 $dso-button-default-color: $wit;
 $dso-button-default-hover-color: $grasgroen;
+$dso-button-default-active-color: $bosgroen;
 $dso-button-default-disabled-color: $grasgroen-40;
 
 $dso-input-disabled-color: $grijs-40;
