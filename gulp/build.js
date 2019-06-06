@@ -101,7 +101,7 @@ function copyAssets() {
 
 function copyAsapFonts() {
   return gulp
-    .src('/src/styles/fonts/asap/**')
+    .src('src/styles/fonts/asap/**')
     .pipe(gulp.dest('build/toolkit/fonts/asap'));
 }
 
