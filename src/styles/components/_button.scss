@@ -58,7 +58,10 @@
 }
 
 .btn-primary {
-  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+  &,
+  &:focus {
+    @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+  }
 
   &:hover {
     @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
@@ -72,6 +75,7 @@
   &.active {
     &,
     &:hover,
+    &:focus,
     &:visited {
       @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
     }
@@ -80,7 +84,8 @@
   &.disabled,
   &[disabled] {
     &,
-    &:hover {
+    &:hover,
+    &:focus {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
 
       opacity: 1;
