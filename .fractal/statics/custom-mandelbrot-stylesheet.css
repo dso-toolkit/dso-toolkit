@@ -15,7 +15,6 @@
   border-bottom-color: #e17000;
 }
 
-/* asap-400normal - latin */
 @font-face {
   font-family: 'Asap';
   font-style: normal;
@@ -24,11 +23,10 @@
   src:
     local('Asap Regular'),
     local('Asap-Regular'),
-    url('../fonts/asap/asap-regular.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-regular.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-Regular.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-Regular.woff') format('woff');
 }
 
-/* asap-400italic - latin */
 @font-face {
   font-family: 'Asap';
   font-style: italic;
@@ -37,11 +35,10 @@
   src:
     local('Asap Regular italic'),
     local('Asap-Regularitalic'),
-    url('../fonts/asap/asap-italic.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-italic.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-Italic.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-Italic.woff') format('woff');
 }
 
-/* asap-500normal - latin */
 @font-face {
   font-family: 'Asap';
   font-style: normal;
@@ -50,11 +47,10 @@
   src:
     local('Asap Bold'),
     local('Asap-Bold'),
-    url('../fonts/asap/asap-medium.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-medium.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-Medium.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-Medium.woff') format('woff');
 }
 
-/* asap-500italic - latin */
 @font-face {
   font-family: 'Asap';
   font-style: italic;
@@ -63,11 +59,10 @@
   src:
     local('Asap Bold italic'),
     local('Asap-Bolditalic'),
-    url('../fonts/asap/asap-mediumitalic.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-mediumitalic.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-MediumItalic.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-MediumItalic.woff') format('woff');
 }
 
-/* asap-600normal - latin */
 @font-face {
   font-family: 'Asap';
   font-style: normal;
@@ -76,11 +71,10 @@
   src:
     local('Asap Bold'),
     local('Asap-Bold'),
-    url('../fonts/asap/asap-semibold.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-semibold.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-SemiBold.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-SemiBold.woff') format('woff');
 }
 
-/* asap-600italic - latin */
 @font-face {
   font-family: 'Asap';
   font-style: italic;
@@ -89,11 +83,10 @@
   src:
     local('Asap Bold italic'),
     local('Asap-Bolditalic'),
-    url('../fonts/asap/asap-semibolditalic.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-semibolditalic.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-SemiBoldItalic.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-SemiBoldItalic.woff') format('woff');
 }
 
-/* asap-700normal - latin */
 @font-face {
   font-family: 'Asap';
   font-style: normal;
@@ -102,11 +95,10 @@
   src:
     local('Asap Bold'),
     local('Asap-Bold'),
-    url('../fonts/asap/asap-bold.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-bold.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-Bold.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-Bold.woff') format('woff');
 }
 
-/* asap-700italic - latin */
 @font-face {
   font-family: 'Asap';
   font-style: italic;
@@ -115,8 +107,8 @@
   src:
     local('Asap Bold italic'),
     local('Asap-Bolditalic'),
-    url('../fonts/asap/asap-bolditalic.woff2') format('woff2'), /* Super Modern Browsers */
-    url('../fonts/asap/asap-bolditalic.woff') format('woff'); /* Modern Browsers */
+    url('../fonts/Asap/Asap-BoldItalic.woff2') format('woff2'),
+    url('../fonts/Asap/Asap-BoldItalic.woff') format('woff');
 }
 
 html {
