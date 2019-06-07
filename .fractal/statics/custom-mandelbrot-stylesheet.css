@@ -155,42 +155,36 @@ span.caption {
 
 .Prose h1 {
   color: #39870C;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
-.Prose h1.example-as-small {
-  color: #39870C;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
 .Prose h2 {
-  color: #275937;
+  color: #39870C;
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 0;
 }
 
 .Prose h3 {
-  color: #275937;
+  color: #39870C;
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 0;
   opacity: 1;
 }
 
 .Prose h4 {
-  color: #275937;
-  font-size: 1.125rem;
-  font-weight: bold;
+  color: #39870C;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .Prose h5 {
   color: #191919;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .Prose p,

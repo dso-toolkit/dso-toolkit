@@ -6,6 +6,14 @@ h1 {
   @extend %is-h1;
 }
 
+h2 {
+  @extend %is-h2;
+}
+
+h3 {
+  @extend %is-h3;
+}
+
 h4 {
   @extend %is-h4;
 }
@@ -22,11 +30,4 @@ h5 {
 small,
 .small {
   font-size: $font-size-small;
-}
-
-@media (max-width: $screen-sm-max) {
-  h1,
-  .h1 {
-    font-size: $dso-font-size-h1-responsive;
-  }
 }
