@@ -1,0 +1,27 @@
+span.di {
+  @for $i from 2 through 6 {
+    &.di-#{$i}x::before {
+      font-size: #{$i}em;
+    }
+  }
+
+  &.di-cross {
+    @include di-cross;
+  }
+
+  &.di-info {
+    @include di-info;
+  }
+
+  &.di-check {
+    @include di-check;
+  }
+
+  &.di-warning {
+    @include di-warning;
+  }
+
+  &.di-forbidden {
+    @include di-forbidden;
+  }
+}

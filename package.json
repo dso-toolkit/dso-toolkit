@@ -2,10 +2,11 @@
   "name": "dso-toolkit",
   "description": "DSO Toolkit and Component Library",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "gulp": "gulp",
     "test": "gulp test"
   },
   "repository": {
