@@ -20,7 +20,7 @@ const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: options => gulp.series(inlineSvgIcons, buildStylesWrapper(options), copyAssets, copyAsapFonts, copyBootstrapFonts, copyFontAwesomeFonts),
+  buildToolkit: options => gulp.series(inlineSvgIcons, buildStylesWrapper(options), copyAssets, copyBootstrapFonts, copyFontAwesomeFonts),
   createDomReference: gulp.series(buildSite, createDomReference),
   buildWatcher: options => buildWatcher(options)
 };
@@ -97,12 +97,6 @@ function copyAssets() {
   return gulp
     .src('assets/**')
     .pipe(gulp.dest('build/toolkit'));
-}
-
-function copyAsapFonts() {
-  return gulp
-    .src('node_modules/typeface-asap/files/**')
-    .pipe(gulp.dest('build/toolkit/fonts/asap'));
 }
 
 function copyBootstrapFonts() {

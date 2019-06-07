@@ -1,6 +1,5 @@
 // sass-lint:disable no-duplicate-properties,indentation
 
-//asap-400normal - latin
 @font-face {
   font-family: "Asap";
   font-style: normal;
@@ -8,11 +7,10 @@
   src:
     local("Asap Regular"),
     local("Asap-Regular"),
-    url("#{$asap-font-path}asap-latin-400.woff2") format("woff2"), // Super Modern Browsers
-    url("#{$asap-font-path}asap-latin-400.woff") format("woff"); // Modern Browsers
+    url("#{$asap-font-path}Asap-Regular.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-Regular.woff") format("woff");
 }
 
-// asap-400italic - latin
 @font-face {
   font-family: "Asap";
   font-style: italic;
@@ -20,11 +18,54 @@
   src:
     local("Asap Regular italic"),
     local("Asap-Regularitalic"),
-    url("#{$asap-font-path}asap-latin-400italic.woff2") format("woff2"), // Super Modern Browsers
-    url("#{$asap-font-path}asap-latin-400italic.woff") format("woff"); // Modern Browsers
+    url("#{$asap-font-path}Asap-Italic.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-Italic.woff") format("woff");
 }
 
-// asap-700normal - latin
+@font-face {
+  font-family: "Asap";
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local("Asap Bold"),
+    local("Asap-Bold"),
+    url("#{$asap-font-path}Asap-Medium.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: italic;
+  font-weight: 500;
+  src:
+    local("Asap Bold italic"),
+    local("Asap-Bolditalic"),
+    url("#{$asap-font-path}Asap-MediumItalic.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-MediumItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local("Asap Bold"),
+    local("Asap-Bold"),
+    url("#{$asap-font-path}Asap-SemiBold.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Asap";
+  font-style: italic;
+  font-weight: 600;
+  src:
+    local("Asap Bold italic"),
+    local("Asap-Bolditalic"),
+    url("#{$asap-font-path}Asap-SemiBoldItalic.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-SemiBoldItalic.woff") format("woff");
+}
+
 @font-face {
   font-family: "Asap";
   font-style: normal;
@@ -32,11 +73,10 @@
   src:
     local("Asap Bold"),
     local("Asap-Bold"),
-    url("#{$asap-font-path}asap-latin-700.woff2") format("woff2"), // Super Modern Browsers
-    url("#{$asap-font-path}asap-latin-700.woff") format("woff"); // Modern Browsers
+    url("#{$asap-font-path}Asap-Bold.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-Bold.woff") format("woff");
 }
 
-// asap-700italic - latin
 @font-face {
   font-family: "Asap";
   font-style: italic;
@@ -44,6 +84,6 @@
   src:
     local("Asap Bold italic"),
     local("Asap-Bolditalic"),
-    url("#{$asap-font-path}asap-latin-700italic.woff2") format("woff2"), // Super Modern Browsers
-    url("#{$asap-font-path}asap-latin-700italic.woff") format("woff"); // Modern Browsers
+    url("#{$asap-font-path}Asap-BoldItalic.woff2") format("woff2"),
+    url("#{$asap-font-path}Asap-BoldItalic.woff") format("woff");
 }
