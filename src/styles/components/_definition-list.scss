@@ -5,6 +5,10 @@ $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 $dso-definition-list-highlight-color: $grasgroen;
 
 dl {
+  dt::after {
+    content: ":";
+  }
+
   dd {
     @extend %dso-rich-content;
   }
