@@ -21,7 +21,7 @@ module.exports = function () {
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
           <div class="dso-section-handle">
-            <a href="#">${ title }</a>
+            <a href="#">${ title } <img class="dso-accordion-state-img" alt="${ self.state }" src="/assets/icons/Notification/${ self.state }_24x24.svg"></a>
           </div>`);
 
       if (self.open) {
