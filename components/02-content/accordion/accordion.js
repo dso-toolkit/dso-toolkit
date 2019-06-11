@@ -21,8 +21,13 @@ module.exports = function () {
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
           <div class="dso-section-handle">
-            <a href="#">${ title } <img class="dso-accordion-state-img" alt="${ self.state }" src="/assets/icons/Notification/${ self.state }_24x24.svg"></a>
-          </div>`);
+            <a href="#">${ title }`);
+
+      if (self.state) {
+        html+= (`<img class="dso-accordion-state-img" alt="${ self.state }" src="/components/assets/icons/Notification/${ self.state }_24x24.svg">`);
+      }
+
+      html += (`</a></div>`);
 
       if (self.open) {
         html += (
