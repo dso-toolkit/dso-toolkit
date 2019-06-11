@@ -24,7 +24,7 @@ module.exports = function () {
             <a href="#">${ title }`);
 
       if (self.state) {
-        html+= (`<img class="dso-accordion-state-img" alt="${ self.state }" src="/components/assets/icons/Notification/${ self.state }_24x24.svg">`);
+        html+= (`<img class="dso-accordion-state-img" alt="${ self.state }" src="/assets/icons/Notification/${ self.state }_24x24.svg">`);
       }
 
       html += (`</a></div>`);
