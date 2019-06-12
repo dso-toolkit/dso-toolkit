@@ -40,7 +40,7 @@ Links naar relevante pagina's
 - Digitoegankelijkheid(onder ontwikkeling)
 - Sketch library(onder ontwikkeling)
 - [Installation guide(English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Templates](../components/examples/)
+- [Templates](../components/detail/aanvragen)
 - Meewerken aan de toolkit(onder ontwikkeling)
 
 
