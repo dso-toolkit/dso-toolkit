@@ -1,19 +1,18 @@
 notes: |
   Een accordion (`.dso-accordion`) bestaat uit secties (`.dso-accordion-section`). Een sectie heeft een handle (`.dso-section-handle`) en body (`.dso-section-body`).
 
-  Een accordion section in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt voor oranje tekst en het "chevron-up"-icoon. Ook als het
-  `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
+  Een accordion section in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt het "chevron-up"-icoon. Ook als het `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
 
   Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
 
-  De class `dso-no-top-border` zorgt er voor dat de eerste `.dso-accordion-section` geen `border-top` krijgt.
+  Het is mogelijk om een accordion in een accordion te plaatsen. Er moet dan wel `.dso-nested-accordion` op de `.dso-accordion-section` worden gezet.
 
-status: wip
+status: ready
 context:
-  modifiers: dso-no-top-border
   sections:
   - title: Woning
     id: panel1
+    open: true
   - title: Bouwwerkzaamheden
     id: panel2
     state: success
@@ -21,6 +20,22 @@ context:
     id: panel3
     state: warning
     open: true
+    sections:
+    - title: Woning
+      id: panel1
+    - title: Bouwwerkzaamheden
+      id: panel2
+      open: true
+      state: success
+    - title: Plaats van het bouwwerk
+      id: panel3
+      state: warning
+    - title: Afmetingen van het bouwwerk
+      id: panel4
+      state: info
+    - title: Extra werkzaamheden
+      id: panel5
+      state: danger
   - title: Afmetingen van het bouwwerk
     id: panel4
     state: info
