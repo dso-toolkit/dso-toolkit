@@ -63,7 +63,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-warning,
     &.dso-info {
       > .dso-section-handle {
-        padding-right: $u6;
+        padding-right: $u7;
       }
     }
 
@@ -100,18 +100,20 @@ $dso-accordion-state-icon-size: $u3;
     }
 
     &.dso-open {
-      border: 1px solid $dso-accordion-main-color;
+      &:not(.dso-nested-accordion) {
+        border: 1px solid $dso-accordion-main-color;
 
-      &:not(.dso-nested-accordion) > .dso-section-handle {
-        background-color: $dso-accordion-main-color;
-        border: 0;
-        border-radius: 0 0 4px 4px;
+        > .dso-section-handle {
+          background-color: $dso-accordion-main-color;
+          border: 0;
+          border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
 
-        a {
-          color: $wit;
+          a {
+            color: $wit;
 
-          &::before {
-            background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
+            &::before {
+              background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
+            }
           }
         }
       }

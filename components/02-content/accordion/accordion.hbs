@@ -2,14 +2,14 @@
   {{#each sections }}
     {{#accordionSection title }}
       <div class="dso-rich-content">
-        <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+        <p>Dit is de inhoud van <strong>{{ title }}</strong></p>
       </div>
       {{#if sections }}
         {{#accordion}}
           {{#each sections }}
             {{#accordionSection title }}
               <div class="dso-rich-content">
-                <p>En dit is de inhoud van <strong>{{ title }}</strong></p>
+                <p>Dit is een geneste accordion. De inhoud is van <strong>{{ title }}</strong>. Zie de <em>Notes</em> van dit component.</p>
               </div>
             {{/accordionSection}}
           {{/each}}
