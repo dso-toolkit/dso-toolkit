@@ -21,7 +21,7 @@ $dso-accordion-state-icon-size: $u3;
     a {
       @extend %is-h3;
       color: $grasgroen;
-      display: inline-block;
+      display: block;
       line-height: $dso-accordion-handle-height;
       padding-left: $dso-accordion-chevron-space;
       word-break: break-word;
@@ -33,12 +33,6 @@ $dso-accordion-state-icon-size: $u3;
         margin-left: -$dso-accordion-chevron-space;
         margin-right: $dso-accordion-chevron-gutter;
         width: $dso-accordion-chevron-icon-size;
-      }
-
-      &::after {
-        position: absolute;
-        right: 0;
-        top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
       }
 
       &:hover,
@@ -53,42 +47,14 @@ $dso-accordion-state-icon-size: $u3;
           @include icon($dso-icon-button-icon-chevron-down-orange-16x16);
         }
       }
+
+      img {
+        float: right;
+      }
     }
   }
 
   .dso-accordion-section {
-    &.dso-success {
-      .dso-section-handle {
-        a {
-          @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
-
-    &.dso-danger {
-      .dso-section-handle {
-        a {
-          @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
-
-    &.dso-warning {
-      .dso-section-handle {
-        a {
-          @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
-
-    &.dso-info {
-      .dso-section-handle {
-        a {
-          @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
-
     &.dso-open {
       .dso-section-handle {
         a {
