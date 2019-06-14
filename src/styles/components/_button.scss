@@ -101,8 +101,9 @@
   padding: 0;
 
   table.table & {
-    height: inherit;
-    line-height: inherit;
+    margin: -4px 0 -6px !important;
+    position: relative;
+    top: -2px;
   }
 
   .icon {
