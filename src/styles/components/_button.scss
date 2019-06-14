@@ -114,6 +114,11 @@
     line-height: $dso-button-link-size - 2 * $dso-button-border-width;
     margin-right: $u1;
     width: $dso-button-link-size;
+
+    &::before {
+      position: relative;
+      top: -1px;
+    }
   }
 
   &:visited {
