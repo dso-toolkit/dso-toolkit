@@ -106,7 +106,7 @@
   }
 
   .icon {
-    border: $dso-button-border-width solid $grasgroen;
+    border: #{$dso-button-border-width * 2} solid $grasgroen;
     border-radius: 50%;
     float: left;
     font-size: (18em / 16);
