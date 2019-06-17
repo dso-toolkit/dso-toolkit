@@ -35,6 +35,10 @@ const theme = require('@frctl/mandelbrot')({
   styles: [
     'default',
     '/_statics/custom-mandelbrot-stylesheet.css'
+  ],
+  scripts: [
+    'default',
+    '/dso-toolkit-scripts.js'
   ]
 });
 

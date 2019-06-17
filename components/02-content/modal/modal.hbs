@@ -1,0 +1,12 @@
+<!-- When modal is open add .dso-modal-open to body -->
+<body class="dso-modal-open{{#if noMaxHeight }} dso-scripted-height{{/if}}">
+  <!-- Modal markup. Can be placed anywhere inside <body> -->
+  {{#dialog dialog }}
+    <p>{{ body }}</p>
+  {{/dialog}}
+
+  <div class="container">
+    <!-- Page content -->
+    {{render '@form' }}
+  </div>
+</body>
