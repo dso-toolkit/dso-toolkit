@@ -25,10 +25,12 @@ module.exports = function () {
 
       if (self.state) {
         const alias = self.state;
-        const map = { info: 'information', danger: 'error', success: 'succes' };
-        const iconname = map[alias] || alias;
+        const srcmap = { info: 'information', danger: 'error', success: 'succes' };
+        const altmap = { info: 'informatie', danger: 'fout', success: 'succes', warning: 'waarschuwing' };
+        const iconname = srcmap[alias] || alias;
+        const altimg = altmap[alias] || alias;
 
-        html+= (`<img class="dso-accordion-state-img" alt="${ self.state }" src="/icons/Notification/${ iconname }_24x24.svg">`);
+        html+= (`<img class="dso-accordion-state-img" alt="${ altimg }" src="/icons/Notification/${ iconname }_24x24.svg">`);
       }
 
       html += (`</a></div>`);
