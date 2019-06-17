@@ -1,6 +1,21 @@
 'use strict';
 
 module.exports = fractal => Object.assign({
+  frame: function (path, element) {
+    const { handlebars } = fractal.docs.engine();
+
+    let html = `
+<div class="dso-toolkit-window">
+  <div class="dso-toolkit-titlebar-stoplight">
+    <div class="dso-toolkit-titlebar-close"></div>
+    <div class="dso-toolkit-titlebar-minimize"></div>
+    <div class="dso-toolkit-titlebar-fullscreen"></div>
+  </div>
+  <iframe src="${path}" frameborder="0" scrolling="no" onload="DsoToolkitResizeIframe(this${typeof element === 'string' ? `, '${element}'` : ''})"></iframe>
+</div>`;
+
+    return new handlebars.SafeString(html);
+  },
   concat: function (obj1, obj2) {
     return obj1.concat(obj2);
   },
@@ -84,6 +99,7 @@ module.exports = fractal => Object.assign({
     return value - number;
   }
 },
+require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js'),
 require('../components/02-content/progress-block/progress-block.js')

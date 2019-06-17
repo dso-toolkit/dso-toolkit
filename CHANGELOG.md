@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Redesigned accordion (#307)
   * Class modifier `.dso-no-top-border` op accordion's bestaat niet meer en kan veilig worden verwijderd.
+* Documentatie: Startgids en toelichting Modal component (#322)
 
 ## 7.2.0 - 27-05-2019
 

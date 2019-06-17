@@ -1,124 +1,87 @@
+notes: |
+  De class `.dso-scripted-height` verwijdert op `.dso-body` in de large viewport de `max-height`-property.
 status: ready
 default: modal
 context:
-  id: modal-no-close
-  heading: Activiteit toevoegen
   body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  buttons:
-    - name: confirmButton
-      type: submit
-      modifier: primary
-      label: Toevoegen
-    - name: cancelButton
-      type: button
-      modifier: link
-      icon: icon fas fa-times
-      label: Annuleren
-  fieldsets:
-  - legend: Contact
-    groups:
-    - id: voornaam
-      inputType: input
-      type: text
-      label: Voornaam
-      required: true
-    - id: achternaam
-      inputType: input
-      type: text
-      label: Achternaam
-      helpText: Mag ook de familienaam zijn
-    - inputType: static
-      label: Geslacht
-      value: Man
-    - id: geboortedatum
-      inputType: input
-      type: text
-      label: Geboortedatum
-      inputIcon: fas fa-calendar
-    - id: email
-      inputType: input
-      type: text
-      label: E-mailadres
-      required: true
-    - id: password
-      inputType: input
-      type: text
-      label: Wachtwoord
-    - id: password_bevestig
-      inputType: input
-      type: text
-      label: Wachtwoord (bevestig)
-    - id: nieuwsbrief
-      inputType: confirm
-      label: Stuur mij de maandelijkse nieuwsbrief
-      helpText: Uw gegevens zullen niet worden gedeeld met derden
-  submitButton:
-    type: submit
-    modifier: primary
-    label: Verstuur
-notes: |
-  De class `.dso-scripted-height` verwijdert op `.dso-body` in de large viewport de `max-height`-property.
+  dialog:
+    id: modal-no-close
+    heading: Activiteit toevoegen
+    buttons:
+      - name: confirmButton
+        type: submit
+        modifier: primary
+        label: Toevoegen
+      - name: cancelButton
+        type: button
+        modifier: link
+        icon: icon fas fa-times
+        label: Annuleren
 variants:
   - name: modal-close
     label: Closable
     context:
-      id: modal-close
+      dialog:
+        id: modal-close
   - name: modal-single-submit
     label: Single submit
     context:
-      id: modal-single-submit
-      buttons:
-      - name: confirmButton
-        type: submit
-        modifier: primary
-        label: Indienen
+      dialog:
+        id: modal-single-submit
+        buttons:
+        - name: confirmButton
+          type: submit
+          modifier: primary
+          label: Indienen
   - name: modal-single-cancel
     label: Single cancel
     context:
-      id: modal-single-cancel
-      buttons:
-      - name: cancelButton
-        type: button
-        modifier: link
-        icon: icon fas fa-times
-        label: Annuleren
+      dialog:
+        id: modal-single-cancel
+        buttons:
+        - name: cancelButton
+          type: button
+          modifier: link
+          icon: icon fas fa-times
+          label: Annuleren
   - name: modal-steps
     label: Steps
     context:
-      id: modal-steps
-      buttons:
-      - name: previousButton
-        type: button
-        modifier: default
-        label: Vorige
-      - name: nextButton
-        type: button
-        modifier: default
-        label: Volgende
-      - name: cancelButton
-        type: button
-        modifier: link
-        icon: icon fas fa-times
-        label: Annuleren
+      dialog:
+        id: modal-steps
+        buttons:
+        - name: previousButton
+          type: button
+          modifier: default
+          label: Vorige
+        - name: nextButton
+          type: button
+          modifier: default
+          label: Volgende
+        - name: cancelButton
+          type: button
+          modifier: link
+          icon: icon fas fa-times
+          label: Annuleren
   - name: modal-confirm
     label: Confirm
     context:
-      id: modal-confirm
-      confirm: true
       body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-      buttons:
-      - name: yesButton
-        type: button
-        modifier: default
-        label: Ja
-      - name: noButton
-        type: button
-        modifier: default
-        label: Nee
+      dialog:
+        id: modal-confirm
+        confirm: true
+        buttons:
+        - name: yesButton
+          type: button
+          modifier: default
+          label: Ja
+        - name: noButton
+          type: button
+          modifier: default
+          label: Nee
   - name: modal-scripted-height
     label: No max height
     context:
-      id: modal-scripted-height
       body: |
         What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -130,3 +93,5 @@ variants:
         Where can I get some?
         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
       noMaxHeight: true
+      dialog:
+        id: modal-scripted-height
