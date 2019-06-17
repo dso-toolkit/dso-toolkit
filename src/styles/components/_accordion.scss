@@ -19,7 +19,7 @@ $dso-accordion-state-icon-size: $u3;
 
     a {
       color: $dso-accordion-main-color;
-      display: inline-block;
+      display: block;
       font-size: 1.25em;
       line-height: $dso-accordion-handle-height;
       padding-left: $dso-accordion-chevron-space;
@@ -45,7 +45,7 @@ $dso-accordion-state-icon-size: $u3;
 
       img {
         float: right;
-        margin: #{$u1 * 1.5} #{-$u4} 0 0;
+        margin: #{$u1 * 1.5} 0 0;
       }
     }
   }
