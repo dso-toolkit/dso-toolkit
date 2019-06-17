@@ -3,12 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## 7.3.0 - 17-06-2019
 
 ### Changed
-* Redesigned accordion (#307)
+* Redesigned "Accordion" component (#307)
+* Redesigned "Button" component (#308)
   * Class modifier `.dso-no-top-border` op accordion's bestaat niet meer en kan veilig worden verwijderd.
+* Headings typografie aangepast (#311)
+* Font Asap update improvement (#318)
 * Documentatie: Startgids en toelichting Modal component (#322)
+
+### Fixed
+* Verticale uitlijning table button-span elementen en tekst elementen gaat niet bij alle button-elementen goed bug (#317)
 
 ## 7.2.0 - 27-05-2019
 
