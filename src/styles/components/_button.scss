@@ -5,9 +5,10 @@
 }
 
 .btn {
+  border-radius: $dso-button-border-radius;
   border-width: $dso-button-border-width;
-  font-size: 1.25em;
-  font-weight: bold;
+  font-size: $dso-button-font-size;
+  font-weight: 500;
   height: $dso-button-size;
   line-height: $dso-button-size - 2 * $dso-button-border-width;
   margin-bottom: $dso-button-margin-bottom;
@@ -15,12 +16,6 @@
 
   &:active,
   &.active,
-  &:focus,
-  &.focus,
-  &:active:focus,
-  &:active.focus,
-  &.active:focus,
-  &.active.focus,
   &:active:hover,
   &.active:hover {
     box-shadow: none;
@@ -38,20 +33,16 @@
     color: $btn-default-color;
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
-    @include state-styling($grasgroen, $grasgroen, $wit);
+  &:hover {
+    @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
   &:active,
   &.active {
     &,
-    &:focus,
-    &.focus,
     &:hover,
     &:visited {
-      @include state-styling($bosgroen, $bosgroen, $wit);
+      @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
     }
   }
 
@@ -59,7 +50,7 @@
   &[disabled] {
     &,
     &:hover {
-      @include state-styling($wit, $grasgroen-40, $grasgroen-40);
+      @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
 
       opacity: 1;
     }
@@ -67,30 +58,34 @@
 }
 
 .btn-primary {
-  &:hover,
-  &:focus,
-  &.focus {
-    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
+  &,
+  &:focus {
+    @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
   }
 
-  &:active,
-  &.active {
-    &,
-    &:focus,
-    &.focus,
-    &:hover {
-      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
-    }
+  &:hover {
+    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
   }
 
   &:visited {
     color: $btn-primary-color;
   }
 
+  &:active,
+  &.active {
+    &,
+    &:hover,
+    &:focus,
+    &:visited {
+      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+    }
+  }
+
   &.disabled,
   &[disabled] {
     &,
-    &:hover {
+    &:hover,
+    &:focus {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
 
       opacity: 1;
@@ -101,18 +96,18 @@
 .btn-link {
   border: 0;
   color: $grasgroen;
-  font-size: 1rem;
   height: $dso-button-link-size;
   line-height: $dso-button-link-size;
   padding: 0;
 
   table.table & {
-    height: inherit;
-    line-height: inherit;
+    margin: -4px 0 -6px !important;
+    position: relative;
+    top: -2px;
   }
 
   .icon {
-    border: $dso-button-border-width solid $grasgroen;
+    border: #{$dso-button-border-width * 2} solid $grasgroen;
     border-radius: 50%;
     float: left;
     font-size: (18em / 16);
@@ -120,6 +115,11 @@
     line-height: $dso-button-link-size - 2 * $dso-button-border-width;
     margin-right: $u1;
     width: $dso-button-link-size;
+
+    &::before {
+      position: relative;
+      top: -1px;
+    }
   }
 
   &:visited {

@@ -1,37 +1,36 @@
-$dso-accordion-border-color: #d3ddd6;
-$dso-accordion-chevron-gutter: $u2;
+$dso-accordion-main-color: #8b4a6a;
+$dso-accordion-nesting-color: #dbc8d1;
+$dso-accordion-border-radius: $u1 / 2;
+$dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u2;
-$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-gutter;
+$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
 
 .dso-accordion {
-  &:not(.dso-no-top-border) .dso-accordion-section:first-child,
-  .dso-accordion-section + .dso-accordion-section {
-    .dso-section-handle {
-      border-top: 1px solid $dso-accordion-border-color;
-    }
-  }
-
   .dso-section-handle {
-    font-weight: 700;
-    padding-right: $dso-accordion-state-icon-size + $u1;
+    background-color: $wit;
+    border: 1px solid $dso-accordion-main-color;
+    border-radius: $dso-accordion-border-radius;
+    font-weight: 500;
+    overflow: hidden;
+    padding: 0 $dso-accordion-main-padding;
     position: relative;
 
     a {
-      @extend %is-h3;
-      color: $grasgroen;
-      display: block;
+      color: $dso-accordion-main-color;
+      display: inline-block;
+      font-size: 1.25em;
       line-height: $dso-accordion-handle-height;
       padding-left: $dso-accordion-chevron-space;
       word-break: break-word;
 
       &::before {
-        @include icon($dso-icon-button-icon-chevron-down-16x16);
+        @include icon($dso-icon-button-icon-chevron-down-purple-16x16);
         background-size: $dso-accordion-chevron-icon-size;
         height: $dso-accordion-chevron-icon-size;
         margin-left: -$dso-accordion-chevron-space;
-        margin-right: $dso-accordion-chevron-gutter;
+        margin-right: $dso-accordion-main-padding;
         width: $dso-accordion-chevron-icon-size;
       }
 
@@ -40,12 +39,8 @@ $dso-accordion-state-icon-size: $u3;
       &.focus,
       &:active,
       &.active {
-        color: $oranje;
+        color: $dso-accordion-main-color;
         text-decoration: none;
-
-        &::before {
-          @include icon($dso-icon-button-icon-chevron-down-orange-16x16);
-        }
       }
 
       img {
@@ -56,14 +51,52 @@ $dso-accordion-state-icon-size: $u3;
   }
 
   .dso-accordion-section {
-    &.dso-open {
-      .dso-section-handle {
-        a {
-          color: $oranje;
+    border-radius: $dso-accordion-border-radius;
 
-          &::before {
-            background-image: url($dso-icon-button-icon-chevron-up-orange-16x16);
+    + .dso-accordion-section {
+      margin-top: $u1 / 2;
+    }
+  }
+
+  .dso-accordion-section {
+    &.dso-open {
+      &:not(.dso-nested-accordion) {
+        border: 1px solid $dso-accordion-main-color;
+
+        > .dso-section-handle {
+          background-color: $dso-accordion-main-color;
+          border: 0;
+          border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+
+          a {
+            color: $wit;
+
+            &::before {
+              background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
+            }
           }
+        }
+      }
+
+      &.dso-nested-accordion {
+        background-color: $dso-accordion-nesting-color;
+        border: 0;
+        border-radius: $dso-accordion-border-radius;
+
+        > .dso-section-handle {
+          a {
+            &::before {
+              background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
+            }
+          }
+        }
+
+        > .dso-section-body {
+          padding: ($u2 - 1) ($u2 + 1) $u4; // corrections for missing borders in nested accordion
+        }
+
+        .dso-accordion-section {
+          background-color: $wit;
         }
       }
     }
@@ -76,7 +109,11 @@ $dso-accordion-state-icon-size: $u3;
   }
 
   .dso-section-body {
-    padding-bottom: $u4;
-    padding-top: $u1;
+    padding: $u2 $u2 $u4;
+
+    .dso-rich-content + .dso-accordion,
+    .dso-accordion + .dso-rich-content {
+      margin-top: $u2;
+    }
   }
 }

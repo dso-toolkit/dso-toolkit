@@ -8,10 +8,9 @@
 
   .btn {
     &.btn-primary {
-      &:hover,
-      &:focus {
-        background-color: $btn-primary-bg;
-        border-color: $btn-primary-bg;
+      &:hover {
+        background-color: $dso-button-primary-hover-color;
+        border-color: $dso-button-primary-hover-color;
       }
 
       &[disabled] {
@@ -26,11 +25,10 @@
     }
 
     &.btn-default {
-      &:hover,
-      &:focus {
-        background-color: $wit;
-        border-color: $grasgroen;
-        color: $grasgroen;
+      &:hover {
+        background-color: $dso-button-default-color;
+        border-color: $dso-button-default-hover-color;
+        color: $dso-button-default-hover-color;
       }
 
       &[disabled] {
@@ -45,8 +43,7 @@
     }
 
     &.btn-link {
-      &:hover,
-      &:focus {
+      &:hover {
         color: $grasgroen;
 
         .icon {
@@ -91,8 +88,8 @@
   }
 
   .example-active .btn.btn-default {
-    background-color: $bosgroen;
-    border-color: $bosgroen;
+    background-color: $dso-button-default-active-color;
+    border-color: $dso-button-default-active-color;
     color: $wit;
   }
 
