@@ -8,16 +8,6 @@ notes: |
   * Positioneren van de affix, links in het menu onder het kopje "Documentation"
 status: ready
 context:
-  breadcrumbs:
-    crumbs:
-      - label: Home
-        url: '#'
-      - label: Aanvragen
-        url: '#'
-      - label: Mijn project
-        url: '#'
-      - label: Aanvraag voorbereiden
-        url: '#'
   sections:
   - title: Woning
     id: panel1
