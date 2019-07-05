@@ -2,15 +2,6 @@
   <div class="dso-logo-bar">
     <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
     <div class="dso-tools-bar">
-      <form class="dso-search">
-        <div class="dso-searchbar dso-animate ">
-          <input type="text" id="searchbar" class="form-control" placeholder="Zoeken" />
-          <span class="dso-searchbar-icon" aria-hidden="true"></span>
-          <label for="searchbar">Zoeken</label>
-          <button type="button">Open zoeken</button>
-        </div>
-        <button type="submit">Zoeken</button>
-      </form>
       <div class="dso-login">
         <a href="">
           <span class="login-icon" aria-hidden="true"></span>
@@ -68,34 +59,127 @@
     <li>
       <a href="#">Home</a>
     </li>
-    <li class="active">Checken</li>
+    <li class="active">Vergunningcheck</li>
   </ol>
 </header>
 <main>
-  <h1>Checken</h1>
   <div class="row">
-    <div class="col-md-9">
-      <h2>Werkzaamheden checken</h2>
-      <h3>Bouwen van een dakkapel</h3>
-      <div class="highlight-box">
-        <div class="dso-rich-content">
-          <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
-          <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p>
-          <p>Het Opleverdossier (zie voor een nadere omschrijving van de informatieproducten de volgende paragrafen) is de, door gebruikers gewenste, centrale registratie waarin alle informatie over een bouwwerk is opgenomen. Het gaat hierbij om de tekeningen, berekeningen en de resultaten van de kwaliteitsborging (zoals toetsen en inspecties).</p>
-          <p>De <a href="#">Bouwregelgeving</a> is een database met alle bouwregelgeving in Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B’s), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.</p>
-          <p>Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken die vergunningvrij, maar niet regelvrij, zijn gerealiseerd. Het vierde en vooralsnog laatste informatieproduct is de Digitaliseringshulp, een service voor het centraal en gestandaardiseerd digitaliseren van documenten.</p>
+    <div class="col-xs-12">
+      <h1>Vergunningcheck</h1>
+      <h2 class="dso-steps-indicator">
+        3. Activiteiten
+        <span class="dso-step">
+    Stap 3/6
+  </span>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="dso-accordion">
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Woning</a>
+          </div>
+        </div>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Bouwwerkzaamheden</a>
+          </div>
+        </div>
+        <div class="dso-accordion-section dso-open">
+          <div class="dso-section-handle">
+            <a href="#">Plaats van het bouwwerk</a>
+          </div>
+          <div class="dso-section-body">
+            <form>
+              <fieldset class="dso-form-fields">
+                <legend class="sr-only">Aanvraagformulier</legend>
+                <fieldset>
+                  <legend>Plaats van het bouwwerk</legend>
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningPostcode" class="control-label">
+                        Postcode
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
+                      <input type="text" id="omgevingsvergunningPostcode" class="form-control" size="8" />
+                    </div>
+                  </div>
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningHuisnummer" class="control-label">
+                        Huisnummer
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
+                      <input type="text" id="omgevingsvergunningHuisnummer" class="form-control" size="8" />
+                    </div>
+                  </div>
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningToevoeging" class="control-label">
+                        Huisnummer toevoeging
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
+                      <input type="text" id="omgevingsvergunningToevoeging" class="form-control" size="8" />
+                    </div>
+                  </div>
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningStraatnaam" class="control-label">
+                        Straatnaam
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
+                      <input type="text" id="omgevingsvergunningStraatnaam" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group dso-input dso-input-text">
+                    <div class="dso-label-container">
+                      <label for="omgevingsvergunningWoonplaats" class="control-label">
+                        Woonplaats
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
+                      <input type="text" id="omgevingsvergunningWoonplaats" class="form-control" />
+                    </div>
+                  </div>
+                </fieldset>
+              </fieldset>
+              <div class="dso-form-buttons">
+                <button type="submit" class="btn btn-primary">
+                  Volgende stap
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Afmetingen van het bouwwerk</a>
+          </div>
+        </div>
+        <div class="dso-accordion-section">
+          <div class="dso-section-handle">
+            <a href="#">Extra werkzaamheden</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="well progress-block" data-spy="affix" data-offset-top="245" data-offset-bottom="444">
-        <h2>Tussenresultaten</h2>
-        <ul class="list-unstyled">
-          <li>
-            Bouwen van een dakkapel
-          </li>
-        </ul>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-push-3 col-md-offset-6">
+      <button type="button" class="btn btn-primary pull-right">
+        Volgende stap
+      </button>
+    </div>
+    <div class="col-md-3 col-md-pull-9">
+      <button type="button" class="btn btn-default">
+        Vorige stap
+      </button>
     </div>
   </div>
 </main>

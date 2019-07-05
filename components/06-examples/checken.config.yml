@@ -1,11 +1,4 @@
 notes: |
-  De aside met de checklist schuift mee met het formulier, tot hij een punt bereikt waar hij niet verder MAG scrollen.
-  We gebruiken hiervoor Bootstrap Affix, en deze heeft twee values - `data-offset-top` en `data-offset-bottom` - die bepalen waar het kantelpunt zit.
-  Let op de uitlijning die te zien is in onderstaande instructie afbeelding.
-
-  Zie ook
-  * [Bootstrap Affix](https://getbootstrap.com/docs/3.3/javascript/#affix)
-  * Positioneren van de affix, links in het menu onder het kopje "Documentation"
 status: ready
 context:
   breadcrumbs:
