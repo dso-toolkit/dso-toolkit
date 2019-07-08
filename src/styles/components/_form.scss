@@ -199,6 +199,41 @@ select:not([multiple]) {
       }
     }
 
+    &.dso-file {
+      padding-left: $grid-gutter-width / 2;
+      padding-right: $grid-gutter-width / 2;
+
+      .dso-remove {
+        @include di-font;
+        @include di("cross");
+      }
+
+      .dso-description + .dso-filelist {
+        margin-top: $u2;
+      }
+
+      .dso-filelist {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+
+        li {
+          background-color: $grijs-5;
+          border: 1px solid $grijs-10;
+          border-radius: $dso-button-border-radius;
+          padding: ($u1 - 1px);
+
+          + li {
+            margin-top: $u1;
+          }
+
+          .dso-filename {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
     @media screen and (min-width: $screen-sm-min) {
       &.dso-checkboxes,
       &.dso-radios {
