@@ -103,6 +103,13 @@ form {
   textarea {
     resize: vertical;
   }
+
+  &.dso-input-file {
+    .control-label {
+      font-weight: 600;
+      text-align: center;
+    }
+  }
 }
 
 select:not([multiple]) {
@@ -154,6 +161,8 @@ select:not([multiple]) {
     border-width: $dso-form-control-readonly-border-width;
   }
 }
+
+
 
 .form-horizontal {
   .form-group {

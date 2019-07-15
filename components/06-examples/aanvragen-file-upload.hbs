@@ -1,0 +1,50 @@
+{{render '@header' }}
+
+<main>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Project | Aanbouw Kerkstraat 1</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      {{#accordion}}
+        {{#each sections }}
+          {{#accordionSection title }}
+            {{#each sections }}
+              {{#accordionSection title }}
+                {{> '@group-file' }}
+              {{/accordionSection}}
+            {{/each}}
+          {{/accordionSection}}
+        {{/each}}
+      {{/accordion}}
+    </div>
+
+    <div class="col-md-3">
+      {{#progressBlock }}
+        <h2>Aanvraag voorbereiden</h2>
+        <p>Omgevingsvergunning</p>
+        <ul class="list-unstyled">
+          <li class="active">
+            {{> '@icon' icon="fas fa-angle-right"}} Omschrijving project {{> '@icon' icon="fas fa-check"}}
+          </li>
+          <li class="active">
+            {{> '@icon' icon="fas fa-angle-right"}} Aanvrager {{> '@icon' icon="fas fa-check"}}
+          </li>
+          <li>
+            {{> '@icon' icon="fas fa-angle-right"}} Locatie
+          </li>
+          <li>
+            {{> '@icon' icon="fas fa-angle-right"}} Werkzaamheden
+          </li>
+          <li>
+            {{> '@icon' icon="fas fa-angle-right"}} Bijlagen
+          </li>
+        </ul>
+      {{/progressBlock}}
+    </div>
+  </div>
+</main>
+
+{{render '@footer' }}
