@@ -7,6 +7,16 @@
       {{> '@file-item' this }}
     {{/each}}
   </ul>
+  {{#if (in (map files 'confidential') true)}}
+    <div class="alert alert-warning">
+      <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
+      <ol>
+        <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
+        <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
+      </ol>
+      <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
+    </div>
+  {{/if}}
   <div class="form-group dso-input dso-input-file">
     <div class="dso-label-container">
       <label for="add-file" class="control-label btn btn-link">

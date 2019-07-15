@@ -13,7 +13,9 @@
           {{#accordionSection title }}
             {{#each sections }}
               {{#accordionSection title }}
-                {{> '@group-file' }}
+                <form class="form-horizontal">
+                  {{> '@group-file' }}
+                </form>
               {{/accordionSection}}
             {{/each}}
           {{/accordionSection}}
