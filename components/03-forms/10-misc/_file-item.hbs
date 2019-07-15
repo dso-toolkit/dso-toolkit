@@ -3,10 +3,10 @@
     {{ filename }}
   </div>
   <div class="dso-confidential dso-selectable">
-    <input type="checkbox" id="input-confirm" name="" value=""
+    <input type="checkbox" id="input-confirm-{{@index}}" name="" value=""
       {{{ifattr 'checked' confidential }}}
     />
-    <label for="input-confirm">
+    <label for="input-confirm-{{@index}}">
       Vertrouwelijk
     </label>
   </div>

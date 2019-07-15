@@ -206,6 +206,12 @@ select:not([multiple]) {
       .dso-remove {
         @include di-font;
         @include di("cross");
+
+        font-size: 0;
+
+        &::before {
+          font-size: 1rem;
+        }
       }
 
       .dso-description + .dso-filelist {
@@ -221,14 +227,76 @@ select:not([multiple]) {
           background-color: $grijs-5;
           border: 1px solid $grijs-10;
           border-radius: $dso-button-border-radius;
+          display: flex;
           padding: ($u1 - 1px);
 
           + li {
             margin-top: $u1;
           }
 
+          div {
+            display: flex;
+            margin: #{$u1 / 2} 0;
+            vertical-align: middle;
+          }
+
+          .dso-remove {
+            display: flex;
+            min-width: auto;
+            padding: $u1;
+
+            &::before {
+              height: $u2;
+              width: $u2;
+            }
+          }
+
+          .dso-confidential {
+            + .dso-remove {
+              margin-left: $u4;
+            }
+          }
+
+          .di-warning {
+            @include di-warning($u3);
+            margin: #{$u1 / 2} 0 #{$u1 / 2} $u1;
+          }
+
           .dso-filename {
             font-weight: 600;
+            width: 100%;
+            word-break: break-all;
+          }
+
+          .dso-selectable {
+            margin-bottom: 0;
+          }
+
+          @media screen and (max-width: $screen-sm-max) {
+            display: block;
+
+            .dso-filename {
+              display: block;
+            }
+
+            .dso-confidential,
+            .di-warning,
+            .dso-remove {
+              display: inline-block;
+            }
+
+            .dso-confidential {
+              margin-top: 0;
+              width: calc(100% - #{$u4 + $u5});
+
+              + .dso-remove {
+                margin-left: #{$u5 - $u1 / 2};
+              }
+            }
+
+            .dso-remove {
+              margin-right: 0;
+            }
           }
         }
       }
