@@ -117,6 +117,71 @@
           </div>
         </fieldset>
         <fieldset>
+          <legend>Bijlagen</legend>
+          <div class="form-group dso-files">
+            <div class="dso-description dso-rich-content">
+              Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
+            </div>
+            <ul class="dso-filelist">
+              <li>
+                <div class="dso-filename">
+                  Schetsen_en_foto’s_1.pdf
+                </div>
+                <div class="dso-confidential dso-selectable">
+                  <input type="checkbox" id="input-confirm-0" name="" value="" />
+                  <label for="input-confirm-0">
+                    Vertrouwelijk
+                  </label>
+                </div>
+                <button type="button" class="btn btn-link dso-remove">
+                  Verwijder document
+                </button>
+              </li>
+              <li>
+                <div class="dso-filename">
+                  Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
+                </div>
+                <div class="dso-confidential dso-selectable">
+                  <input type="checkbox" id="input-confirm-1" name="" value="" checked />
+                  <label for="input-confirm-1">
+                    Vertrouwelijk
+                  </label>
+                </div>
+                <span class="di di-warning" aria-hidden="true"></span>
+                <button type="button" class="btn btn-link dso-remove">
+                  Verwijder document
+                </button>
+              </li>
+            </ul>
+            <div class="alert alert-warning">
+              <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
+              <ol>
+                <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
+                <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
+              </ol>
+              <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
+            </div>
+
+            <!-- To use an input type="file" element -->
+            <div class="dso-file-upload">
+              <input type="file" id="file-upload" />
+              <label class="btn btn-link" for="file-upload">
+                <span class="icon fa fa-plus"></span>
+                Document toevoegen
+              </label>
+            </div>
+
+            <!-- Or to trigger the upload using a button element (not recommended) -->
+
+            <!--
+              <button type="button" class="btn btn-link" >
+                  <span class="icon fa fa-plus" aria-hidden="true"></span>
+                Document toevoegen
+              </button>
+            -->
+          </div>
+        </fieldset>
+        <fieldset>
           <legend>Beleg</legend>
           <div class="form-group dso-select dso-multiple">
             <div class="dso-label-container">

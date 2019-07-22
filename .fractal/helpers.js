@@ -97,6 +97,9 @@ module.exports = fractal => Object.assign({
   },
   subtract: function (value, number) {
     return value - number;
+  },
+  map: function (array, property) {
+    return array.map(a => a[property]);
   }
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
