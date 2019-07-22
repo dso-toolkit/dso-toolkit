@@ -103,13 +103,6 @@ form {
   textarea {
     resize: vertical;
   }
-
-  .dso-input-file {
-    .control-label {
-      font-weight: 600;
-      text-align: center;
-    }
-  }
 }
 
 select:not([multiple]) {
@@ -162,8 +155,6 @@ select:not([multiple]) {
   }
 }
 
-
-
 .form-horizontal {
   .form-group {
     > .dso-label-container {
@@ -208,109 +199,6 @@ select:not([multiple]) {
       }
     }
 
-    &.dso-file {
-      padding-left: $grid-gutter-width / 2;
-      padding-right: $grid-gutter-width / 2;
-
-      .dso-remove {
-        @include di-font;
-        @include di("cross");
-
-        font-size: 0;
-
-        &::before {
-          font-size: 1rem;
-        }
-      }
-
-      .dso-description + .dso-filelist {
-        margin-top: $u2;
-      }
-
-      .dso-filelist {
-        list-style: none;
-        margin-bottom: 0;
-        padding-left: 0;
-
-        li {
-          background-color: $grijs-5;
-          border: 1px solid $grijs-10;
-          border-radius: $dso-button-border-radius;
-          display: flex;
-          padding: ($u1 - 1px);
-
-          + li {
-            margin-top: $u1;
-          }
-
-          div {
-            display: flex;
-            margin: #{$u1 / 2} 0;
-            vertical-align: middle;
-          }
-
-          .dso-remove {
-            display: flex;
-            min-width: auto;
-            padding: $u1;
-
-            &::before {
-              height: $u2;
-              width: $u2;
-            }
-          }
-
-          .dso-confidential {
-            + .dso-remove {
-              margin-left: $u4;
-            }
-          }
-
-          .di-warning {
-            @include di-warning($u3);
-            margin: #{$u1 / 2} 0 #{$u1 / 2} $u1;
-          }
-
-          .dso-filename {
-            font-weight: 600;
-            width: 100%;
-            word-break: break-all;
-          }
-
-          .dso-selectable {
-            margin-bottom: 0;
-          }
-
-          @media screen and (max-width: $screen-sm-max) {
-            display: block;
-
-            .dso-filename {
-              display: block;
-            }
-
-            .dso-confidential,
-            .di-warning,
-            .dso-remove {
-              display: inline-block;
-            }
-
-            .dso-confidential {
-              margin-top: 0;
-              width: calc(100% - #{$u4 + $u5});
-
-              + .dso-remove {
-                margin-left: #{$u5 - $u1 / 2};
-              }
-            }
-
-            .dso-remove {
-              margin-right: 0;
-            }
-          }
-        }
-      }
-    }
-
     @media screen and (min-width: $screen-sm-min) {
       &.dso-checkboxes,
       &.dso-radios {
@@ -328,3 +216,5 @@ select:not([multiple]) {
     }
   }
 }
+
+@import "./form/files";

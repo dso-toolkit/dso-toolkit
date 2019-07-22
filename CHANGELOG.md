@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Variabele voor DSO's icon-font mist (#333)
 
 ### Added
-* Formulier file group (#328)
+* Formulier: Files component (#328)
 
 ## 7.3.0 - 17-06-2019
 

@@ -1,4 +1,4 @@
-<div class="form-group dso-file{{#if required }} dso-required{{/if}}">
+<div class="form-group dso-files{{#if required }} dso-required{{/if}}">
   <div class="dso-description dso-rich-content">
     {{ description }}
   </div>
@@ -17,16 +17,18 @@
       <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
     </div>
   {{/if}}
-  <div class="dso-input dso-input-file">
-    <div class="dso-label-container">
-      <label for="add-file" class="control-label btn btn-link">
-        <span class="icon fas fa fa-plus"></span>
-        Document toevoegen
-      </label>
-    </div>
-    <div class="dso-field-container">
-      <input type="file" id="add-file" class="form-control sr-only">
-      <label for="add-file" class="control-label sr-only">
-    </div>
+
+  <!-- To use an input type="file" element -->
+  <div class="dso-file-upload">
+    <input type="file" id="file-upload" />
+    <label class="btn btn-link" for="file-upload">
+      <span class="icon fa fa-plus"></span>
+      Document toevoegen
+    </label>
   </div>
+
+  <!-- Or to trigger the upload using a button element (not recommended) -->
+  <!--
+    {{> '@button' type='button' modifier='link' label='Document toevoegen' icon='icon fa fa-plus' }}
+  -->
 </div>
