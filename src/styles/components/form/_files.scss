@@ -58,7 +58,7 @@ form,
           border: 1px solid $grijs-10;
           border-radius: $dso-button-border-radius;
           display: flex;
-          padding: ($u1 - 1px);
+          padding: #{$u1 / 2 - 1} #{$u1 - 1} #{$u1 / 2 - 2};
 
           + li {
             margin-top: $u1;
@@ -66,7 +66,8 @@ form,
 
           .dso-filename {
             font-weight: 600;
-            width: 100%;
+            padding-right: $u1;
+            width: calc(100% - #{$u1});
             word-break: break-all;
           }
 
@@ -91,6 +92,12 @@ form,
               height: $u3;
               line-height: $u3;
               width: $u3;
+            }
+          }
+
+          button {
+            &::before {
+              color: $grijs-90;
             }
           }
 
