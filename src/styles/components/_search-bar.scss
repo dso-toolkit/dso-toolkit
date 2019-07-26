@@ -26,7 +26,13 @@
       }
     }
 
+    input:first-child {
+      padding-left: $u1 - 1;
+    }
+
     input {
+      @include placeholder($input-color-placeholder);
+
       background-color: $wit;
       background-image: none;
       border: 1px solid $bosgroen-40;
@@ -45,6 +51,12 @@
         border-color: $bosgroen;
         outline: none;
       }
+
+      // sass-lint:disable no-vendor-prefixes
+      &::-ms-clear {
+        display: none;
+      }
+      // sass-lint:enable no-vendor-prefixes
     }
 
     button {
@@ -76,6 +88,8 @@
     line-height: 38px;
     margin-bottom: 0;
     margin-left: $u1;
+    min-width: initial;
     padding: 0 $u2;
+    text-align: center;
   }
 }

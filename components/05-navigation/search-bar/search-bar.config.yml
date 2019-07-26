@@ -1,3 +1,10 @@
 notes: |
   Pas bij een waarde toont de reset-knop, initieel is deze knop verborgen
 status: ready
+collated: true
+context:
+  icon: true
+variants:
+  - name: without-icon
+    context:
+      icon: false
