@@ -32,6 +32,7 @@
 
     input {
       @include placeholder($input-color-placeholder);
+
       background-color: $wit;
       background-image: none;
       border: 1px solid $bosgroen-40;
