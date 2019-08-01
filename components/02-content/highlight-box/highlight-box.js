@@ -6,9 +6,7 @@
 module.exports = {
   highlightBox(options) {
     return `
-      <div class="highlight-box">
-        ${options.fn(this)}
-      </div>
+      ${options.fn(this)}
     `.trim();
   }
 };

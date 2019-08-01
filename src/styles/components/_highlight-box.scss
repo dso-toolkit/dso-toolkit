@@ -1,7 +1,16 @@
 .highlight-box {
   background-color: $grijs-10;
-  margin-top: 10px;
-  padding: 25px;
+  margin-top: $u1;
+  padding: $u2;
+
+  &.highlightbox-yellow {
+    background-color: $dso-warning-bg-color;
+  }
+
+  &.highlightbox-bordered {
+    background-color: $wit;
+    border: 1px solid $grijs-20;
+  }
 
   a,
   a:visited {
