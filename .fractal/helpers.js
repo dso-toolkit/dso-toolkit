@@ -100,7 +100,10 @@ module.exports = fractal => Object.assign({
   },
   map: function (array, property) {
     return array.map(a => a[property]);
-  }
+  },
+  counter: function (index) {
+    return index + 1;
+  },
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
