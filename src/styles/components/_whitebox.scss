@@ -70,3 +70,15 @@
     }
   }
 }
+
+.dso-equal-heights {
+  display: flex;
+
+  > div {
+    display: flex;
+
+    div.dso-whitebox {
+      min-height: 0;
+    }
+  }
+}
