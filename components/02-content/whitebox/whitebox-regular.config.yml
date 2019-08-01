@@ -3,3 +3,12 @@ context:
   title: Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.
   linktext: Direct naar aanvragen
   description: Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.
+variants:
+  - name: counter
+    context:
+      counter: true
+      counter-icon: false
+  - name: status
+    context:
+      counter: true
+      counter-icon: true

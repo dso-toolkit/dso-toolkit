@@ -7,6 +7,37 @@
   position: relative;
   top: $u7;
 
+  &.has-dso-whitebox-counter {
+    padding: $u5 $u3 0;
+
+    .dso-whitebox-title {
+      h2 {
+        font-size: 1.25em;
+      }
+    }
+  }
+
+  .dso-whitebox-counter {
+    background-color: $grasgroen;
+    border-radius: 50%;
+    border: $u1 solid $lime;
+    box-sizing: content-box;
+    color: #fff;
+    font-size: 1.25em;
+    font-weight: 500;
+    height: $u4;
+    left: $u2;
+    line-height: $u4;
+    position: absolute;
+    text-align: center;
+    top: -$u3;
+    width: $u4;
+
+    .di::before {
+      background-color: transparent;
+    }
+  }
+
   .dso-whitebox-title {
     h2 {
       margin: 0 0 $u6;
