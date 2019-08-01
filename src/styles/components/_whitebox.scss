@@ -73,12 +73,14 @@
 
 .dso-equal-heights {
   display: flex;
+  flex-wrap: wrap;
 
   > div {
     display: flex;
 
     div.dso-whitebox {
       min-height: 0;
+      padding-bottom: $u2;
     }
   }
 }
