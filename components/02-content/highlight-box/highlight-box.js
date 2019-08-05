@@ -6,7 +6,7 @@
 module.exports = {
   highlightBox(options) {
     return `
-      <div class="highlight-box">
+      <div class="${['highlight-box', this.modifier].filter(c => c).join(' ')}">
         ${options.fn(this)}
       </div>
     `.trim();
