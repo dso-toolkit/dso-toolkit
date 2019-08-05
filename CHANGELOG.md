@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Highlight Box restyling en variaties (#325)
+* Stappenteller boven whitebox (#326)
 
 ## 8.0.1 - 26-07-2019
 

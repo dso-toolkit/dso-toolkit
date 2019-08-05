@@ -7,17 +7,9 @@
   position: relative;
   top: $u7;
 
-  &.has-dso-whitebox-counter {
-    padding: $u5 $u3 0;
-
-    .dso-whitebox-title {
-      h2,
-      h3 {
-        font-size: 1.25em;
-        font-weight: 500;
-        margin-bottom: $u2;
-      }
-    }
+  &.dso-has-counter {
+    min-height: 520 + $u5;
+    padding-top: $u5;
   }
 
   .dso-whitebox-counter {
@@ -101,20 +93,6 @@
 
     .dso-whitebox-link {
       border-bottom: #{$u1 / 2} solid $grasgroen;
-    }
-  }
-}
-
-.dso-equal-heights {
-  display: flex;
-  flex-wrap: wrap;
-
-  > div {
-    display: flex;
-
-    div.dso-whitebox {
-      min-height: 0;
-      padding-bottom: $u2;
     }
   }
 }

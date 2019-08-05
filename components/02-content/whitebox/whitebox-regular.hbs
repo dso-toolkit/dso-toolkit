@@ -1,11 +1,11 @@
-<div class="dso-whitebox{{#if counter }} has-dso-whitebox-counter{{/if}}">
-  {{#if counter }}
+<div class="dso-whitebox{{#if (or count (and icon label)) }} dso-has-counter{{/if}}">
+  {{#if (or count (and icon label)) }}
     <div class="dso-whitebox-counter">
-      {{#if counter-icon }}
-        <span class="di di-check" aria-hidden="true"></span>
-        <span class="sr-only">afgerond</span>
+      {{#if (and icon label) }}
+        {{> '@icon' }}
+        <span class="sr-only">{{ label }}</span>
       {{else}}
-        1
+        {{ count }}
       {{/if}}
     </div>
   {{/if}}
