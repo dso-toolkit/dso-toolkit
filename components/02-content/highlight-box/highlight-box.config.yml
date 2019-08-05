@@ -1,5 +1,4 @@
 status: ready
-name: highlightBox
 notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>highlight-box-yellow</code>) en met grijze border (modifier <code>highlight-box-bordered</code>).
 variants:
   - name: yellow
