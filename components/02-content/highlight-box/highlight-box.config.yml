@@ -1,1 +1,9 @@
 status: ready
+notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>highlight-box-yellow</code>) en met grijze border (modifier <code>highlight-box-bordered</code>).
+variants:
+  - name: yellow
+    context:
+      modifier: highlight-box-yellow
+  - name: bordered
+    context:
+      modifier: highlight-box-bordered
