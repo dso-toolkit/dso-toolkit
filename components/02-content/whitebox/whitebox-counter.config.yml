@@ -1,0 +1,12 @@
+status: wip
+context:
+  name: number
+  title: Vragen beantwoorden
+  description: Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer relevant zijn vallen vanzelf weg.
+  counter: true
+  counter-icon: false
+variants:
+  - name: icon
+    context:
+      counter: true
+      counter-icon: true

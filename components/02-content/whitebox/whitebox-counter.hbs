@@ -1,0 +1,18 @@
+<div class="dso-whitebox{{#if counter }} has-dso-whitebox-counter{{/if}}">
+  {{#if counter }}
+    <div class="dso-whitebox-counter">
+      {{#if counter-icon }}
+        <span class="di di-check" aria-hidden="true"></span>
+        <span class="sr-only">afgerond</span>
+      {{else}}
+        1
+      {{/if}}
+    </div>
+  {{/if}}
+  <div class="dso-whitebox-title">
+    <h2>{{ title }}</h2>
+  </div>
+  <div class="dso-rich-content">
+    <p>{{ description }}</p>
+  </div>
+</div>

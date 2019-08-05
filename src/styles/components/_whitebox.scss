@@ -11,18 +11,21 @@
     padding: $u5 $u3 0;
 
     .dso-whitebox-title {
-      h2 {
+      h2,
+      h3 {
         font-size: 1.25em;
+        font-weight: 500;
+        margin-bottom: $u2;
       }
     }
   }
 
   .dso-whitebox-counter {
     background-color: $grasgroen;
-    border-radius: 50%;
     border: $u1 solid $lime;
+    border-radius: 50%;
     box-sizing: content-box;
-    color: #fff;
+    color: $wit;
     font-size: 1.25em;
     font-weight: 500;
     height: $u4;
