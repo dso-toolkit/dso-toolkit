@@ -1,10 +1,10 @@
 status: ready
 name: highlightBox
-notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>highlightbox-yellow</code>) en met grijze border (modifier <code>highlightbox-bordered</code>).
+notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>highlight-box-yellow</code>) en met grijze border (modifier <code>highlight-box-bordered</code>).
 variants:
   - name: yellow
     context:
-      dso-highlightbox-modifier: highlightbox-yellow
+      modifier: highlight-box-yellow
   - name: bordered
     context:
-      dso-highlightbox-modifier: highlightbox-bordered
+      modifier: highlight-box-bordered

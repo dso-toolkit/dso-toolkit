@@ -3,13 +3,14 @@
   margin-top: $u1;
   padding: $u2;
 
-  &.highlightbox-yellow {
+  &.highlight-box-yellow {
     background-color: $dso-warning-bg-color;
   }
 
-  &.highlightbox-bordered {
+  &.highlight-box-bordered {
     background-color: $wit;
     border: 1px solid $grijs-20;
+    padding: $u2 - 1;
   }
 
   a,
