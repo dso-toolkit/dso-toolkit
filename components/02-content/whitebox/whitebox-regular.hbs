@@ -1,4 +1,14 @@
-<div class="dso-whitebox">
+<div class="dso-whitebox{{#if (or count (and icon label)) }} dso-has-counter{{/if}}">
+  {{#if (or count (and icon label)) }}
+    <div class="dso-whitebox-counter">
+      {{#if (and icon label) }}
+        {{> '@icon' }}
+        <span class="sr-only">{{ label }}</span>
+      {{else}}
+        {{ count }}
+      {{/if}}
+    </div>
+  {{/if}}
   <div class="dso-whitebox-title">
     <h2>{{ title }}</h2>
   </div>
