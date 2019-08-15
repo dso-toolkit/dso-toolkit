@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### DEPRECATED
+* In versie 6.0.1 #272 is de Bootstrap Pagination als preview meegekomen. In deze release is oude DSO Pagination deprecated. Oplossing: Migreer naar de Bootstrap Pagination
+
+### Added
+* Pagination naar Bootstrap v3 markup (#272)
+
 ### Fixed
 * Inline radios met error heeft teveel ruimte tussen keuzes en foutmelding (#342)
 
