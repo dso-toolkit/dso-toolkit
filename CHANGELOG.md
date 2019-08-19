@@ -3,13 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## 8.2.0 - 19-08-2019
 
 ### DEPRECATED
-* In versie 6.0.1 #272 is de Bootstrap Pagination als preview meegekomen. In deze release is oude DSO Pagination deprecated. Oplossing: Migreer naar de Bootstrap Pagination
+* In versie 6.0.1 is de Bootstrap Pagination als preview meegekomen. In deze release is oude DSO Pagination deprecated. Oplossing: Migreer naar de Bootstrap Pagination (#272)
 
 ### Added
-* Pagination naar Bootstrap v3 markup (#272)
+* Winkelwagen component (#349)
+* Highlight box stappenteller (#359)
+* Full width Image (#336)
+* Standaard lijn in .row element verwijderen (#360)
 
 ### Fixed
 * Inline radios met error heeft teveel ruimte tussen keuzes en foutmelding (#342)
