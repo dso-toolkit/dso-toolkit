@@ -18,3 +18,19 @@ main {
     }
   }
 }
+
+.row.dso-banner {
+  @include full-width-row($grid-gutter-width);
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #ebf3e6;
+  height: 400px;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dso-banner-implementation-specific-image {
+  // background-image: url('/dummy/images/hero.png');
+}

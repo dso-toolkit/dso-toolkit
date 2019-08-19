@@ -17,6 +17,7 @@
     box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
   }
 
+  &.dso-border,
   &.highlight-box-bordered {
     background-color: $wit;
     border: 1px solid $grijs-20;
