@@ -1,0 +1,97 @@
+.dso-shopping-cart {
+  button.dso-status {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    display: block;
+    font-weight: 600;
+    padding: ($u3 / 2) 0;
+    padding-left: $u2;
+    text-align: left;
+    width: 100%;
+  }
+
+  .dso-contents {
+    background-color: $grijs-10;
+
+    & + .dso-warning {
+      margin-top: $u2;
+    }
+  }
+
+  .di::before {
+    font-size: 10px !important;
+    height: $u3 !important;
+    line-height: $u3 !important;
+    width: $u3 !important;
+  }
+
+  ul,
+  ol {
+    @include list-unstyled;
+    margin-bottom: 0;
+  }
+
+  .dso-activities > li {
+    font-weight: normal;
+  }
+
+  li,
+  button {
+    > .icon {
+      float: left;
+      height: $u3;
+      line-height: $u3;
+      margin-right: $u1;
+      text-align: center;
+      width: $u3;
+    }
+  }
+
+  li {
+    padding: ($u3 / 2) 0;
+  }
+
+  .dso-items {
+    padding-left: $u2;
+    padding-right: $u2;
+
+    > li {
+      font-weight: 600;
+    }
+
+    .dso-activities {
+      padding-left: $u4;
+      padding-top: ($u3 / 2);
+
+      li:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .dso-delete {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    color: $grasgroen;
+    float: right;
+    height: $u3;
+    padding: 0;
+    text-align: center;
+    width: $u3;
+  }
+
+  .dso-empty {
+    padding: ($u3 / 2) $u2;
+  }
+
+  .dso-warning {
+    .di::before {
+      font-size: 10px !important;
+      height: $u2 !important;
+      line-height: $u2 !important;
+      width: $u2 !important;
+    }
+  }
+}
