@@ -86,8 +86,8 @@ module.exports = fractal => Object.assign({
   gte: function (valueOne, valueTwo) {
     return valueOne >= valueTwo;
   },
-  and: function (valueOne, valueTwo) {
-    return valueOne && valueTwo;
+  and: function () {
+    return [...arguments].every(a => !!a);
   },
   or: function (valueOne, valueTwo) {
     return valueOne || valueTwo;
@@ -105,5 +105,6 @@ module.exports = fractal => Object.assign({
 require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js'),
-require('../components/02-content/progress-block/progress-block.js')
+require('../components/02-content/progress-block/progress-block.js'),
+require('../components/02-content/shopping-cart/shopping-cart.helpers.js')
 );
