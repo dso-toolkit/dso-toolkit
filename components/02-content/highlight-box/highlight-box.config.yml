@@ -7,3 +7,10 @@ variants:
   - name: bordered
     context:
       modifier: highlight-box-bordered
+  - name: white-drop-shadow
+    context:
+      modifier: dso-white dso-drop-shadow
+  - name: Step indicator
+    context:
+      modifier: dso-yellow
+      step: 2

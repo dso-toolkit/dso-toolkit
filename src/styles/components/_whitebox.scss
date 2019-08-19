@@ -7,32 +7,6 @@
   position: relative;
   top: $u7;
 
-  &.dso-has-counter {
-    min-height: 520 + $u5;
-    padding-top: $u5;
-  }
-
-  .dso-whitebox-counter {
-    background-color: $grasgroen;
-    border: $u1 solid $lime;
-    border-radius: 50%;
-    box-sizing: content-box;
-    color: $wit;
-    font-size: 1.25em;
-    font-weight: 500;
-    height: $u4;
-    left: $u2;
-    line-height: $u4;
-    position: absolute;
-    text-align: center;
-    top: -$u3;
-    width: $u4;
-
-    .di::before {
-      background-color: transparent;
-    }
-  }
-
   .dso-whitebox-title {
     h2 {
       margin: 0 0 $u6;

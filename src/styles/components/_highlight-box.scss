@@ -1,10 +1,20 @@
+.dso-highlight-box,
 .highlight-box {
   background-color: $grijs-10;
-  margin-top: $u1;
+  margin-top: $u6;
   padding: $u2;
 
+  &.dso-white {
+    background-color: $wit;
+  }
+
+  &.dso-yellow,
   &.highlight-box-yellow {
     background-color: $dso-warning-bg-color;
+  }
+
+  &.dso-drop-shadow {
+    box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
   }
 
   &.highlight-box-bordered {

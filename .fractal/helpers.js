@@ -87,13 +87,16 @@ module.exports = fractal => Object.assign({
     return valueOne >= valueTwo;
   },
   and: function () {
-    return [...arguments].every(a => !!a);
+    return [...arguments].slice(0, -1).every(a => !!a);
   },
   or: function (valueOne, valueTwo) {
     return valueOne || valueTwo;
   },
-  add: function (value, number) {
-    return value + number;
+  add: function () {
+    return [...arguments].slice(0, -1).reduce((t, n) => t + n, 0);
+  },
+  multiply: function () {
+    return [...arguments].slice(0, -1).reduce((t, n) => t * n, 1);
   },
   subtract: function (value, number) {
     return value - number;
