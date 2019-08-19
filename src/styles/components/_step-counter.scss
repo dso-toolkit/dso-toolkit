@@ -1,3 +1,9 @@
+.dso-whitebox {
+  &.dso-has-counter {
+    min-height: 520 + $u5;
+  }
+}
+
 .dso-whitebox,
 .highlight-box {
   &.dso-has-counter {
