@@ -6,7 +6,46 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next - Unreleased
 
 ### Added
-* Documentation: "Aanvragen" en "Checken" bijgewerkt, "Samenwerken" toegevoegd (#329)
+* Documentation: "Aanvragen" en "Checken" bijgewerkt ook is menu en header bijgewerkt om gebruik te maken van context, "Samenwerken" toegevoegd (#329)
+
+## 8.2.0 - 19-08-2019
+
+### DEPRECATED
+* In versie 6.0.1 is de Bootstrap Pagination als preview meegekomen. In deze release is oude DSO Pagination deprecated. Oplossing: Migreer naar de Bootstrap Pagination (#272)
+
+### Added
+* Winkelwagen component (#349)
+* Highlight box stappenteller (#359)
+* Full width Image (#336)
+* Standaard lijn in .row element verwijderen (#360)
+
+### Fixed
+* Inline radios met error heeft teveel ruimte tussen keuzes en foutmelding (#342)
+
+## 8.1.0 - 05-08-2019
+
+### Added
+* Highlight Box restyling en variaties (#325)
+* Stappenteller boven whitebox (#326)
+
+## 8.0.1 - 26-07-2019
+
+### Fixed
+* Search Bar niet conform ontwerp (#347)
+* Formulier Files groep niet conform ontwerp (#346)
+
+## 8.0.0 - 22-07-2019
+
+### Added
+* Formulier: Files component (#328)
+
+### Changed
+* **BREAKING**: Expliciete zoek knop bij zoekbalken (#298)
+
+## 7.3.1 - 08-07-2019
+
+### Fixed
+* Variabele voor DSO's icon-font mist (#333)
 
 ## 7.3.0 - 17-06-2019
 

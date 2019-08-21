@@ -1,6 +1,13 @@
 notes: |
 status: ready
 context:
+  menu: 
+    modifier: main
+    items: 
+      - label: Samenwerkingen
+        active: true
+      - label: Acties overzicht
+      - label: Notificatie overzicht
   sections:
   - title: Woning
     id: panel1

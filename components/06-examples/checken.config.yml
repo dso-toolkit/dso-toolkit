@@ -1,6 +1,15 @@
 notes: |
 status: ready
 context:
+  menu: 
+    modifier: main
+    items: 
+      - label: Home
+      - label: Vergunningcheck
+        active: true
+      - label: Aanvragen
+      - label: Regels op de kaart
+      - label: Mijn Omgevingsloket
   breadcrumbs:
     crumbs:
       - label: Home

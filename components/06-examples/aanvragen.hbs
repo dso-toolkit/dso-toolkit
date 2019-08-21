@@ -1,29 +1,29 @@
 {{> '@header' }}
 <main>
-    <div class="row">
-        <div class="col-xs-12">
-            <h1>Aanvragen</h1>
-            {{render '@steps'}}
-        </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Aanvragen</h1>
+      {{render '@steps'}}
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            {{#accordion}}
-                {{#each sections }}
-                    {{#accordionSection title }}
-                        {{> '@form' }}
-                    {{/accordionSection}}
-                {{/each}}
-            {{/accordion}}
-        </div>     
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      {{#accordion}}
+        {{#each sections }}
+          {{#accordionSection title }}
+            {{> '@form' }}
+          {{/accordionSection}}
+        {{/each}}
+      {{/accordion}}
+    </div>     
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-push-3 col-md-offset-6">
+      {{> '@button' label='Volgende stap' type='button' modifier='primary pull-right'}}
     </div>
-    <div class="row">
-        <div class="col-md-3 col-md-push-3 col-md-offset-6">
-            {{> '@button' label='Volgende stap' type='button' modifier='primary pull-right'}}
-        </div>
-        <div class="col-md-3 col-md-pull-9">
-            {{> '@button' label='Vorige stap' type='button' modifier='default'}}
-        </div>
+    <div class="col-md-3 col-md-pull-9">
+      {{> '@button' label='Vorige stap' type='button' modifier='default'}}
     </div>
+  </div>
 </main>
 {{render '@footer' }}
