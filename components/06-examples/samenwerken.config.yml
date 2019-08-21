@@ -4,19 +4,10 @@ context:
   menu: 
     modifier: main
     items: 
-      - label: Home
-      - label: Vergunningcheck
+      - label: Samenwerkingen
         active: true
-      - label: Aanvragen
-      - label: Regels op de kaart
-      - label: Mijn Omgevingsloket
-  breadcrumbs:
-    crumbs:
-      - label: Home
-        url: '#'
-      - label: Vergunningcheck
-        url: '#'
-      
+      - label: Acties overzicht
+      - label: Notificatie overzicht
   sections:
   - title: Woning
     id: panel1

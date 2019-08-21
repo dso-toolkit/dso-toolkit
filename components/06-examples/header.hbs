@@ -2,6 +2,7 @@
   <div class="dso-logo-bar">
     {{> '@logo' }}
     <div class="dso-tools-bar">
+    <div class="dso-tools-bar"> 
       <div class="dso-login">
         {{> '@anchor' label="Inloggen" icon="login-icon" }}
       </div>
@@ -10,5 +11,6 @@
 
   {{render '@menu' menu merge=true }}
 
+  {{> '@menu' menu }}
   {{> '@breadcrumbs' breadcrumbs }}
 </header>

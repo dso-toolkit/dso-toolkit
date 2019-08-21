@@ -1,27 +1,29 @@
 {{> '@header' }}
-
-<main>
-  <h1>Checken</h1>
+<main> 
   <div class="row">
-    <div class="col-md-9">
-      <h2>Werkzaamheden checken</h2>
-      <h3>Bouwen van een dakkapel</h3>
-
-      {{render '@highlight-box' }}
+    <div class="col-md-12">
+      <h1>Vergunningcheck</h1>
+      {{render '@steps'}}
     </div>
-    <div class="col-md-3">
-      {{#progressBlock }}
-        <h2>Tussenresultaten</h2>
-        <ul class="list-unstyled">
-          {{#each checkSideListItems }}
-            <li>
-              {{ this }}
-            </li>
-          {{/each}}
-        </ul>
-      {{/progressBlock}}
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      {{#accordion}}
+        {{#each sections }}
+          {{#accordionSection title }}
+            {{> '@form' }}
+          {{/accordionSection}}
+        {{/each}}
+      {{/accordion}}
+    </div>    
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-push-3 col-md-offset-6">
+      {{> '@button' label='Volgende stap' type='button' modifier='primary pull-right'}}
+    </div>
+    <div class="col-md-3 col-md-pull-9">
+      {{> '@button' label='Vorige stap' type='button' modifier='default'}}
     </div>
   </div>
 </main>
-
 {{render '@footer' }}

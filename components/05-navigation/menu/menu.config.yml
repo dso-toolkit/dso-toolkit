@@ -17,6 +17,14 @@ context:
     - label: Over ons
       count: 12
     - label: Wetgeving
+  modifier: main
+  items:
+  - label: Home
+    active: true
+  - label: Vergunningcheck
+  - label: Aanvragen
+  - label: Regels op de kaart
+  - label: Mijn Omgevingsloket
   collapsed: true
 variants:
   - name: open

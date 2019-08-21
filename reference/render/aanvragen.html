@@ -59,29 +59,41 @@
     <li>
       <a href="#">Home</a>
     </li>
-    <li class="active">Checken</li>
+    <li>
+      <a href="#">Aanvragen</a>
+    </li>
+    <li>
+      <a href="#">Mijn project</a>
+    </li>
+    <li class="active">Aanvraag voorbereiden</li>
   </ol>
 </header>
 <main>
   <div class="row">
     <div class="col-xs-12">
-      <h1>Project | Aanbouw Kerkstraat 1</h1>
+      <h1>Aanvragen</h1>
+      <h2 class="dso-steps-indicator">
+        3. Activiteiten
+        <span class="dso-step">
+    Stap 3/6
+  </span>
+      </h2>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="dso-accordion">
-        <div class="dso-accordion-section dso-success">
+        <div class="dso-accordion-section">
           <div class="dso-section-handle">
             <a href="#">Woning</a>
           </div>
         </div>
-        <div class="dso-accordion-section dso-success">
+        <div class="dso-accordion-section">
           <div class="dso-section-handle">
             <a href="#">Bouwwerkzaamheden</a>
           </div>
         </div>
-        <div class="dso-accordion-section dso-warning dso-open">
+        <div class="dso-accordion-section dso-open">
           <div class="dso-section-handle">
             <a href="#">Plaats van het bouwwerk</a>
           </div>
@@ -163,33 +175,17 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="well progress-block" data-spy="affix" data-offset-top="245" data-offset-bottom="444">
-        <h2>Aanvraag voorbereiden</h2>
-        <p>Omgevingsvergunning</p>
-        <ul class="list-unstyled">
-          <li class="active">
-            <span class="fas fa-angle-right" aria-hidden="true"></span>
-            Omschrijving project <span class="fas fa-check" aria-hidden="true"></span>
-          </li>
-          <li class="active">
-            <span class="fas fa-angle-right" aria-hidden="true"></span>
-            Aanvrager <span class="fas fa-check" aria-hidden="true"></span>
-          </li>
-          <li>
-            <span class="fas fa-angle-right" aria-hidden="true"></span>
-            Locatie
-          </li>
-          <li>
-            <span class="fas fa-angle-right" aria-hidden="true"></span>
-            Werkzaamheden
-          </li>
-          <li>
-            <span class="fas fa-angle-right" aria-hidden="true"></span>
-            Bijlagen
-          </li>
-        </ul>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-push-3 col-md-offset-6">
+      <button type="button" class="btn btn-primary pull-right">
+        Volgende stap
+      </button>
+    </div>
+    <div class="col-md-3 col-md-pull-9">
+      <button type="button" class="btn btn-default">
+        Vorige stap
+      </button>
     </div>
   </div>
 </main>

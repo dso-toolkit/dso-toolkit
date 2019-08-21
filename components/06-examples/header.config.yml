@@ -3,13 +3,15 @@ notes: |
 status: ready
 context:
   menu:
-    menuItems:
+    modifier: main
+    items:
       - label: Home
-      - label: Actueel
-      - label: Raadplegen
-      - label: Checken
-        active: true
+      - label: Vergunningcheck
       - label: Aanvragen
+      - label: Regels op de kaart
+        active: true
+      - label: Mijn Omgevingsloket
+    collapsed: false
   breadcrumbs:
     crumbs:
       - label: Home
