@@ -7,6 +7,7 @@ $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-
 $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
+$dso-anchor-focus-color: #676cb0;
 
 .dso-accordion {
   .dso-accordion-section {
@@ -30,7 +31,12 @@ $dso-accordion-state-icon-size: $u3;
     overflow: hidden;
     padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
     position: relative;
-
+    
+    &:focus-within{
+      background-color: $dso-anchor-focus-color;
+      border-color: $dso-anchor-focus-color;
+    }
+    
     a {
       color: $dso-accordion-main-color;
       display: inline-block;
@@ -55,12 +61,26 @@ $dso-accordion-state-icon-size: $u3;
       }
 
       &:hover,
-      &:focus,
-      &.focus,
       &:active,
       &.active {
         color: $dso-accordion-main-color;
         text-decoration: none;
+      }
+      &:focus,
+      &.focus
+      {
+        color: $wit;
+        background-color: transparent;
+        text-decoration: underline;
+        
+        &::before {
+        @include icon($dso-icon-button-icon-chevron-down-white-16x16);
+        background-size: $dso-accordion-chevron-icon-size;
+        height: $dso-accordion-chevron-icon-size;
+        margin-left: -$dso-accordion-chevron-space;
+        margin-right: $dso-accordion-main-padding;
+        width: $dso-accordion-chevron-icon-size;
+        }
       }
     }
   }

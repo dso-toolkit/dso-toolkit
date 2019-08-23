@@ -1,3 +1,5 @@
+$dso-anchor-focus-color: #676cb0;
+
 @mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
   background-color: $background-color;
   border-color: $border-color;
@@ -20,6 +22,12 @@
   &.active:hover {
     box-shadow: none;
     outline: 0;
+  }
+  &:focus,
+  &.focus{
+    @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
+    text-decoration: underline;
+    outline: none;
   }
 
   &.btn-default,
@@ -58,8 +66,7 @@
 }
 
 .btn-primary {
-  &,
-  &:focus {
+  & {
     @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
   }
 
@@ -69,6 +76,10 @@
 
   &:visited {
     color: $btn-primary-color;
+  }
+  &:focus,
+  &.focus{
+    @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
   }
 
   &:active,

@@ -1,3 +1,5 @@
+$dso-anchor-focus-color: #676cb0;
+
 ol.breadcrumb {
   @include clearfix;
 
@@ -23,6 +25,13 @@ ol.breadcrumb {
 
     > a {
       color: $bosgroen;
+      
+      &:focus {
+        color: $bosgroen;
+        background-color: $wit;
+        outline: 4px solid $dso-anchor-focus-color;
+        outline-offset: 2px;      
+      }
     }
   }
 }

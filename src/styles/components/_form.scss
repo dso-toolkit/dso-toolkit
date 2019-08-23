@@ -142,6 +142,8 @@ select:not([multiple]) {
 
   &:focus,
   &.focus {
+    border-color: $dso-anchor-focus-color;
+    border-width: 3px;
     box-shadow: none;
   }
 
