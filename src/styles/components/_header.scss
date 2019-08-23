@@ -1,3 +1,5 @@
+$dso-anchor-focus-color: #676cb0;
+
 header {
   margin-bottom: $u1;
 
@@ -19,7 +21,11 @@ header {
   .dso-search,
   .dso-login {
     float: left;
-
+    
+    &:focus-within{
+      outline: 4px solid $dso-anchor-focus-color;
+      outline-offset: 2px;
+    }
     @media screen and (max-width: $screen-sm-max) {
       margin-bottom: $u2;
     }
@@ -29,7 +35,11 @@ header {
     a {
       color: $grasgroen;
       font-weight: 700;
-
+      
+      &:focus{
+        background-color: transparent;
+        outline: none;
+      }
       &,
       .login-icon::after {
         vertical-align: middle;
