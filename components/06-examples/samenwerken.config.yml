@@ -8,6 +8,7 @@ context:
         active: true
       - label: Acties overzicht
       - label: Notificatie overzicht
+  title: Overzicht samenwerkingen
   sections:
   - title: Woning
     id: panel1
