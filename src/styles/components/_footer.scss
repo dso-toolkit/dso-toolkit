@@ -40,10 +40,15 @@ footer {
       &:hover,
       &.active,
       &:active,
-      &.focus,
-      &:focus {
+      {
         color: $grijs-90;
       }
+      &.focus,
+      &:focus {
+        background-color: $dso-anchor-focus-color; 
+        color: $wit;
+      }
+      
     }
   }
 

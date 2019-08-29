@@ -80,6 +80,8 @@ $dso-anchor-focus-color: #676cb0;
   &:focus,
   &.focus{
     @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
+    text-decoration: underline;
+    outline: none;
   }
 
   &:active,
@@ -137,14 +139,25 @@ $dso-anchor-focus-color: #676cb0;
     color: $grasgroen;
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
+  &:hover
+    {
     color: $grasgroen;
     text-decoration: none;
 
     .icon {
       background-color: $grasgroen;
+      color: $wit;
+    }
+  }
+  &:focus,
+  &.focus {
+    background-color: $wit;
+    color: $dso-anchor-focus-color;
+    text-decoration: underline;
+    
+    .icon {
+      border: #{$dso-button-border-width * 2} solid $dso-anchor-focus-color;
+      background-color: $dso-anchor-focus-color;
       color: $wit;
     }
   }

@@ -1,3 +1,5 @@
+$dso-anchor-focus-color: #676cb0;
+
 .dso-info:not(.dso-accordion-section) {
   background-color: $grijs-10;
   padding: $u2 $u4 $u2 $u2;
@@ -14,10 +16,21 @@
     width: #{$dso-toggle-close-icon-size - 2px};
 
     &:hover,
-    &:focus,
-    &.focus,
     &:active,
     &.active {
+      outline: 0;
+    }
+    &:focus,
+    &.focus{
+      @include icon($dso-icon-button-icon-cross-white-12x12);
+      background-size: $u2 $u2;
+      border-style: none;
+      height: #{$dso-toggle-close-icon-size - 2px};
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: #{$dso-toggle-close-icon-size - 2px};
+      background-color: $dso-anchor-focus-color;
       outline: 0;
     }
   }

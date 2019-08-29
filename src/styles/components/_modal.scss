@@ -90,11 +90,16 @@ body.dso-modal-open {
       top: calc(50% - #{$dso-modal-close-icon-size / 2});
       width: $dso-modal-close-icon-size;
 
-      &:hover,
-      &:focus,
-      &.focus {
+      &:hover{
         background-color: $wit;
         border: 2px solid $grasgroen;
+        outline: 0;
+      }
+      &:focus,
+      &.focus {
+        background-color: $dso-anchor-focus-color;
+        border: 2px solid $dso-anchor-focus-color;
+        background-image: url($dso-modal-close-icon-active);
         outline: 0;
       }
 

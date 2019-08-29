@@ -46,6 +46,12 @@
       text-align: center;
       width: $u3;
     }
+    &.focus,
+    &:focus {
+      background-color: $dso-anchor-focus-color;
+      color: $wit;
+      outline: 0;
+    }
   }
 
   li {

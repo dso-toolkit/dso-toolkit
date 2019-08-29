@@ -37,13 +37,15 @@ $dso-pagination-item-border-size: 2px;
       width: $dso-pagination-item-size;
 
       &:active {
-        background-color: $grasgroen-10;
+       
+        &::after {
+          border-bottom-color: $dso-anchor-focus-color;
+        }
       }
     }
 
     > span {
       border: $dso-pagination-item-border-size solid transparent;
-      border-radius: 50%;
     }
 
     a {
@@ -54,12 +56,15 @@ $dso-pagination-item-border-size: 2px;
         text-decoration: none;
 
         &::after {
-          border-bottom-color: $grasgroen;
+          border-bottom-color: $dso-anchor-focus-color;
         }
       }
 
       &:focus {
+        color: $wit;
+        text-decoration: underline;
         outline: 0;
+        
       }
 
       &::after {
@@ -75,8 +80,18 @@ $dso-pagination-item-border-size: 2px;
 
     &.active {
       span {
-        background-color: $grasgroen;
-        color: $wit;
+        background-color: $wit;
+        color: $grasgroen;
+        
+        &::after {
+          border-bottom: 3px solid $grasgroen;
+          bottom: 0;
+          content: "";
+          display: inline-block;
+          left: 0;
+          position: absolute;
+          width: 100%;
+        }
       }
     }
 

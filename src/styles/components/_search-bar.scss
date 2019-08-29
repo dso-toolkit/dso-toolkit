@@ -80,6 +80,13 @@
       &::before {
         font-size: .8rem;
       }
+      &:focus,
+      &.focus {
+        background-color: $dso-anchor-focus-color;
+        color: $wit;
+        border-radius: 4px;
+        outline: 0;
+      }
     }
   }
 

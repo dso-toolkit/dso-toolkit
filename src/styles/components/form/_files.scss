@@ -22,6 +22,15 @@ form,
           height: $u2;
           width: $u2;
         }
+        &:focus,
+        &.focus {
+          background-color:  $dso-anchor-focus-color;
+          outline: none;
+          
+          &::before {
+          color: $wit;
+          }
+        }
       }
 
       .dso-file-upload {

@@ -18,6 +18,9 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       a {
         &:focus,
         &.focus {
+          background-color: $dso-anchor-focus-color;
+          border-color: $dso-anchor-focus-color;
+          color: $wit;
           outline: 0;
         }
       }

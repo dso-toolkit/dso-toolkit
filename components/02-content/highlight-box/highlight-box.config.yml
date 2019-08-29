@@ -12,5 +12,5 @@ variants:
       modifier: dso-white dso-drop-shadow
   - name: Step indicator
     context:
-      modifier: dso-yellow
+      modifier: highlight-box-yellow
       step: 2

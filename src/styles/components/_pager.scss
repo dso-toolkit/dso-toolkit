@@ -10,12 +10,11 @@ $dso-pager-height: $u6;
       font-weight: 700;
       line-height: #{$dso-pager-height - $dso-pager-border-width * 2};
       padding: 0 #{$dso-pager-height - $dso-pager-border-width};
+      border-radius: 4px;
 
       &:hover,
       &:active,
-      &.active,
-      &:focus,
-      &.focus {
+      &.active {
         &,
         &:visited {
           background-color: $grasgroen;
@@ -25,6 +24,10 @@ $dso-pager-height: $u6;
 
       &:focus,
       &.focus {
+        background-color: $dso-anchor-focus-color;
+        border-color: $dso-anchor-focus-color;
+        color: $wit;
+        text-decoration: underline;
         outline: 0;
       }
 
@@ -40,6 +43,7 @@ $dso-pager-height: $u6;
           background-color: $wit;
           border-color: $grasgroen-40;
           color: $grasgroen-40;
+          text-decoration: none;
         }
       }
     }
