@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Added
+* Accordeon titels met koppen (#340)
+
 ### Fixed
 * Afbeelding over de volledige breedte: onnodige margin bottom en typefout in SCSS variable (#370)
 

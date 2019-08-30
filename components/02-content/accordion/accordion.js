@@ -16,13 +16,14 @@ module.exports = function () {
     },
 
     accordionSection(title, options) {
-      var self = this;
+      const self = this;
+      const header = options.hash.header || 'div';
 
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') + (self.sections ? ' dso-nested-accordion' : '') }">
-          <div class="dso-section-handle">
+          <${header} class="dso-section-handle">
             <a href="#">${ title }</a>
-          </div>`);
+          </${header}>`);
 
       if (self.open) {
         html += (
