@@ -153,22 +153,27 @@ span.caption {
   font-size: 1rem;
 }
 
+.Document-header {
+  border: 0;
+}
+
+h1.Document-title,
 .Prose h1 {
-  color: #39870C;
+  color: #275937;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0;
 }
 
 .Prose h2 {
-  color: #39870C;
+  color: #275937;
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0;
 }
 
 .Prose h3 {
-  color: #39870C;
+  color: #275937;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0;
@@ -176,7 +181,7 @@ span.caption {
 }
 
 .Prose h4 {
-  color: #39870C;
+  color: #275937;
   font-size: 1rem;
   font-weight: 600;
 }
