@@ -8,7 +8,7 @@
   </legend>
   <div class="dso-field-container">
     <div class="dso-selectable">
-      <input type="radio" id="input-radio-0" name="input-radio" value="1" />
+      <input type="radio" id="input-radio-0" name="input-radio" value="1" checked />
       <label for="input-radio-0">
         een
       </label>
@@ -48,7 +48,7 @@
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
-          <input type="radio" id="input-radio-required-0" name="input-radio-required" value="1" />
+          <input type="radio" id="input-radio-required-0" name="input-radio-required" value="1" checked />
           <label for="input-radio-required-0">
             een
           </label>
@@ -204,7 +204,7 @@
     <p>Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.</p>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios dso-inline dso-required">
+    <fieldset class="form-group dso-radios dso-invalid dso-inline dso-required">
       <legend class="dso-label-container">
         <label class="control-label">
           Gaat het om de bouw van één of meer woningen?
@@ -223,6 +223,7 @@
             nee
           </label>
         </div>
+        <p class="dso-message">Foutieve keuze</p>
       </div>
     </fieldset>
   </div>
@@ -251,8 +252,8 @@
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
-          <input type="radio" id="input-radio-inline-0" name="input-radio-inline" value="1" checked />
-          <label for="input-radio-inline-0">
+          <input type="radio" id="input-radio-inline-info-0" name="input-radio-inline-info" value="1" checked />
+          <label for="input-radio-inline-info-0">
             ja
           </label>
           <button type="button" class="btn dso-info-button dso-open">
@@ -275,8 +276,8 @@
           </div>
         </div>
         <div class="dso-selectable">
-          <input type="radio" id="input-radio-inline-1" name="input-radio-inline" value="2" />
-          <label for="input-radio-inline-1">
+          <input type="radio" id="input-radio-inline-info-1" name="input-radio-inline-info" value="2" />
+          <label for="input-radio-inline-info-1">
             nee
           </label>
           <button type="button" class="btn dso-info-button">
@@ -285,7 +286,7 @@
             </span>
           </button>
         </div>
-        <p class="dso-help-block" id="helpTextId_input-radio-inline">Antwoord hier met &quot;Ja&quot; of &quot;Nee&quot;</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-inline-info">Antwoord hier met &quot;Ja&quot; of &quot;Nee&quot;</p>
       </div>
       <div class="dso-info">
         <button type="button">

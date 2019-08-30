@@ -27,9 +27,6 @@ variants:
             label: Nee
   - name: invalid
     context:
-      searchbar:
-        open: true
-        label: Zoek activiteit
       form:
         id: alle-activiteiten
         inputType: checkboxes

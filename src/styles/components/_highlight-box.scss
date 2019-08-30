@@ -1,7 +1,28 @@
+.dso-highlight-box,
 .highlight-box {
   background-color: $grijs-10;
-  margin-top: 10px;
-  padding: 25px;
+  margin-top: $u6;
+  padding: $u2;
+
+  &.dso-white {
+    background-color: $wit;
+  }
+
+  &.dso-yellow,
+  &.highlight-box-yellow {
+    background-color: $dso-warning-bg-color;
+  }
+
+  &.dso-drop-shadow {
+    box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
+  }
+
+  &.dso-border,
+  &.highlight-box-bordered {
+    background-color: $wit;
+    border: 1px solid $grijs-20;
+    padding: $u2 - 1;
+  }
 
   a,
   a:visited {

@@ -9,6 +9,7 @@ context:
   options:
   - value: 1
     label: een
+    checked: true
   - value: 2
     label: twee
   - value: 3
@@ -85,6 +86,8 @@ variants:
     helpText: ""
     required: true
     inline: true
+    state: invalid
+    errorText: Foutieve keuze
     options:
     - value: 1
       label: ja
@@ -96,7 +99,7 @@ variants:
     __title: Infobutton
     __explanation:
     - Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
-    id: input-radio-inline
+    id: input-radio-inline-info
     label: Gaat het om de bouw van één of meer woningen?
     required: true
     helpText: Antwoord hier met "Ja" of "Nee"

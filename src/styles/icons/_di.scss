@@ -2,10 +2,10 @@
   font-family: "DSO IconFont";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/DSO-IconFont/DSO-IconFont.eot"); // sass-lint:disable-line no-duplicate-properties
-  src: url("../fonts/DSO-IconFont/DSO-IconFont.woff") format("woff"), // sass-lint:disable-line no-duplicate-properties
-  url("../fonts/DSO-IconFont/DSO-IconFont.ttf") format("truetype"),
-  url("../fonts/DSO-IconFont/DSO-IconFont.svg#DSO-IconFont") format("svg");
+  src: url("#{$dso-icon-font-path}DSO-IconFont.eot"); // sass-lint:disable-line no-duplicate-properties
+  src: url("#{$dso-icon-font-path}DSO-IconFont.woff") format("woff"), // sass-lint:disable-line no-duplicate-properties
+  url("#{$dso-icon-font-path}DSO-IconFont.ttf") format("truetype"),
+  url("#{$dso-icon-font-path}DSO-IconFont.svg#DSO-IconFont") format("svg");
 }
 
 $di-icon-map: (

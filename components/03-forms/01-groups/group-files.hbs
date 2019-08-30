@@ -1,0 +1,34 @@
+<div class="form-group dso-files{{#if required }} dso-required{{/if}}">
+  <div class="dso-description dso-rich-content">
+    {{ description }}
+  </div>
+  <ul class="dso-filelist">
+    {{#each files }}
+      {{> '@file-item' this }}
+    {{/each}}
+  </ul>
+  {{#if (in (map files 'confidential') true)}}
+    <div class="alert alert-warning">
+      <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
+      <ol>
+        <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
+        <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
+      </ol>
+      <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
+    </div>
+  {{/if}}
+
+  <!-- To use an input type="file" element -->
+  <div class="dso-file-upload">
+    <input type="file" id="file-upload" />
+    <label class="btn btn-link" for="file-upload">
+      <span class="icon fa fa-plus"></span>
+      Document toevoegen
+    </label>
+  </div>
+
+  <!-- Or to trigger the upload using a button element (not recommended) -->
+  <!--
+    {{> '@button' type='button' modifier='link' label='Document toevoegen' icon='icon fa fa-plus' }}
+  -->
+</div>

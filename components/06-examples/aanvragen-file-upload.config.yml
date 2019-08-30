@@ -1,0 +1,40 @@
+status: ready
+context:
+  steps:
+    title: 5. Documenten
+    step: Stap 5 van 7
+  sections:
+  - title: Veehouderij
+    id: panel1
+    open: true
+    sections:
+    - title: Beschrijving installatie en activiteiten
+      id: panel1
+      open: true
+      form:
+        formModifier: form-horizontal
+        formLegend: Vertical Form
+        fieldsets:
+        - legend: Bijlagen
+          groups:
+            - id: documenten
+              inputType: files
+              description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
+              files:
+                - filename: Schetsen_en_foto’s_1.pdf
+                - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
+                  confidential: true
+        submitButton:
+          type: button
+          modifier: primary
+          label: Volgende
+  - title: Beschrijving grondstoffen en hulpstoffen
+    id: panel2
+  - title: Energiegebruik en maatregelen
+    id: panel3
+  - title: Emissies, maatregelen en technieken
+    id: panel4
+  - title: Beschrijving toestand van de lokatie
+    id: panel5
+  - title: Afvalstoffen
+    id: panel6

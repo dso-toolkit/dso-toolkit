@@ -1,0 +1,18 @@
+context:
+  rows:
+    - cols:
+      - header: Project aanmaken
+        body: Maak eerst een project aan. Deze vindt u daarna terug in <a href="#">Mijn omgevingsloket</a>.
+      - header: Locatie
+        body: Kies de locatie voor uw bouwactiviteit(en).
+      - header: Activiteiten
+        body: Kies de activiteiten van uw project. Wanneer u een aanvraag start vanuit de vergunningscheck worden deze vooringevuld.
+      - header: Vragen beantwoorden
+        body: Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer relevant zijn vallen vanzelf weg.
+    - cols:
+      - header: Documenten toevoegen
+        body: Voeg alle benodigde documenten toe.
+      - header: Uw gegevens
+        body: Controleer uw gegevens en vul aan waar nodig.
+      - header: Verzoek samenstellen
+        body: In de laatste stap bepaalt u voor welke activiteit(en) een (proef)verzoek wordt verzonden.

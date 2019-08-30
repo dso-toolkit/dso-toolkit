@@ -3,10 +3,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## Next - Unreleased
+## NEXT - UNRELEASED
 
-### Added
-* Documentation: "Aanvragen" en "Checken" bijgewerkt ook is menu en header bijgewerkt om gebruik te maken van context, "Samenwerken" toegevoegd (#329)
+### Fixed
+* Afbeelding over de volledige breedte: onnodige margin bottom en typefout in SCSS variable (#370)
+
+### Changed
+* Titels H1-H4 kleur naar bosgroen (#374)
 
 ## 8.2.0 - 19-08-2019
 
