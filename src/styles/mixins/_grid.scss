@@ -12,10 +12,9 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: grasgroen-10;
+    background-color: $grasgroen-10;
     height: 400px;
     padding-top: 2rem;
-    margin-bottom: 2rem;
   }
 
   &.dso-featured {
