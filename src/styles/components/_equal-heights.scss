@@ -1,0 +1,23 @@
+.row.dso-equal-heights {
+  display: flex;
+  flex-wrap: wrap;
+
+  > [class*="col-"] {
+    > .highlight-box,
+    > .dso-highlight-box {
+      height: calc(100% - #{$dso-highlight-box-margin-top});
+      min-height: auto;
+    }
+
+    > .dso-whitebox {
+      height: calc(100% - #{$dso-whitebox-margin-bottom});
+      min-height: auto;
+      padding-bottom: $u2;
+    }
+
+    > .dso-whitebox-small {
+      height: calc(100% - #{$dso-whitebox-small-margin-bottom});
+      min-height: auto;
+    }
+  }
+}
