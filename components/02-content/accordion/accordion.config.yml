@@ -10,35 +10,46 @@ notes: |
 status: ready
 context:
   sections:
-  - title: Woning
+  - title: Oprit (div)
+    id: panel_oprit
+  - title: Woning (h1)
     id: panel1
     open: true
-  - title: Bouwwerkzaamheden
+    header: h1
+  - title: Bouwwerkzaamheden (h2)
     id: panel2
     state: success
-  - title: Plaats van het bouwwerk
+    header: h2
+  - title: Plaats van het bouwwerk (h3)
     id: panel3
     state: warning
+    header: h3
     open: true
     sections:
-    - title: Woning
+    - title: Woning (div)
       id: panel1
-    - title: Bouwwerkzaamheden
+    - title: Bouwwerkzaamheden (h2)
       id: panel2
       open: true
       state: success
-    - title: Plaats van het bouwwerk
+      header: h2
+    - title: Plaats van het bouwwerk (h3)
       id: panel3
       state: warning
-    - title: Afmetingen van het bouwwerk
+      header: h3
+    - title: Afmetingen van het bouwwerk (h4)
       id: panel4
       state: info
-    - title: Extra werkzaamheden
+      header: h4
+    - title: Extra werkzaamheden (h5)
       id: panel5
       state: danger
-  - title: Afmetingen van het bouwwerk
+      header: h5
+  - title: Afmetingen van het bouwwerk (h4)
     id: panel4
     state: info
-  - title: Extra werkzaamheden
+    header: h4
+  - title: Extra werkzaamheden (h5)
     id: panel5
     state: danger
+    header: h5
