@@ -1,0 +1,124 @@
+form,
+.form {
+  &.form-horizontal {
+    .form-group.dso-files {
+      padding-left: $grid-gutter-width / 2;
+      padding-right: $grid-gutter-width / 2;
+    }
+  }
+
+  .form-group {
+    &.dso-files {
+      .dso-remove {
+        @include di-font;
+        @include di("cross");
+
+        font-size: 0;
+        min-width: auto;
+        padding: $u1;
+
+        &::before {
+          font-size: 1rem;
+          height: $u2;
+          width: $u2;
+        }
+      }
+
+      .dso-file-upload {
+        input[type="file"] {
+          @include sr-only;
+
+          &:focus {
+            & + label {
+              @include tab-focus;
+
+              color: $grasgroen;
+              text-decoration: none;
+
+              .icon {
+                background-color: $grasgroen;
+                color: $wit;
+              }
+            }
+          }
+        }
+      }
+
+      .dso-description + .dso-filelist {
+        margin-top: $u2;
+      }
+
+      .dso-filelist {
+        list-style: none;
+        margin-bottom: 0;
+        padding-left: 0;
+
+        li {
+          background-color: $grijs-5;
+          border: 1px solid $grijs-10;
+          border-radius: $dso-button-border-radius;
+          display: flex;
+          padding: #{$u1 / 2 - 1} #{$u1 - 1} #{$u1 / 2 - 2};
+
+          + li {
+            margin-top: $u1;
+          }
+
+          .dso-filename {
+            font-weight: 600;
+            padding-right: $u1;
+            width: calc(100% - #{$u1});
+            word-break: break-all;
+          }
+
+          .dso-confidential + .dso-remove {
+            margin-left: $u4;
+          }
+
+          .dso-selectable {
+            margin-bottom: 0;
+          }
+
+          .dso-filename,
+          .dso-confidential {
+            margin: #{$u1 / 2} 0;
+          }
+
+          .di {
+            margin: #{$u1 / 2} 0 #{$u1 / 2} $u1;
+
+            &::before {
+              font-size: .4 * $u3;
+              height: $u3;
+              line-height: $u3;
+              width: $u3;
+            }
+          }
+
+          button {
+            &::before {
+              color: $grijs-90;
+            }
+          }
+
+          @media screen and (max-width: $screen-sm-max) {
+            @include clearfix;
+
+            display: block;
+
+            .dso-confidential,
+            .di,
+            .dso-remove {
+              display: block;
+              float: left
+            }
+
+            .dso-confidential {
+              width: calc(100% - #{$u8});
+            }
+          }
+        }
+      }
+    }
+  }
+}

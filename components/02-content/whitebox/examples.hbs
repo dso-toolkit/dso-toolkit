@@ -30,3 +30,11 @@
     {{render '@whitebox-regular' }}
   </div>
 </div>
+
+<div class="row">
+  {{#each columns }}
+    <div class="{{ modifier }}">
+      {{render '@whitebox-regular' whitebox merge=true }}
+    </div>
+  {{/each}}
+</div>

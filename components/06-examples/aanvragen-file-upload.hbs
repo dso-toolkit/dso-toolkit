@@ -1,0 +1,21 @@
+{{render '@header' }}
+
+<main>
+  <div class="clearfix">
+    <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+    {{> '@steps' steps }}
+  </div>
+  {{#accordion}}
+    {{#each sections }}
+      {{#accordionSection title }}
+        {{#each sections }}
+          {{#accordionSection title }}
+            {{> '@form' form }}
+          {{/accordionSection}}
+        {{/each}}
+      {{/accordionSection}}
+    {{/each}}
+  {{/accordion}}
+</main>
+
+{{render '@footer' }}

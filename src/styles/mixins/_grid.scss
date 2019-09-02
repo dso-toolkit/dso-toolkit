@@ -2,19 +2,28 @@ main {
   > .row {
     padding-bottom: $dso-row-vertical-space;
     padding-top: $dso-row-vertical-space;
-
-    &:not(.dso-featured) {
-      border-bottom: 1px solid $dso-row-border-color;
-    }
-
-    &.dso-featured {
-      @include full-width-row($grid-gutter-width);
-
-      background-color: $dso-featured-background-color;
-    }
-
-    &:not(.dso-featured) + .row.dso-featured {
-      margin-top: -1px;
-    }
   }
+}
+
+.row {
+  &.dso-banner {
+    @include full-width-row($grid-gutter-width);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: $grasgroen-10;
+    height: 400px;
+    padding-top: 2rem;
+  }
+
+  &.dso-featured {
+    @include full-width-row($grid-gutter-width);
+
+    background-color: $dso-featured-background-color;
+  }
+}
+
+.dso-banner-implementation-specific-image {
+  // background-image: url('/dummy/images/hero.png');
 }

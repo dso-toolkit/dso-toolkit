@@ -86,21 +86,28 @@ module.exports = fractal => Object.assign({
   gte: function (valueOne, valueTwo) {
     return valueOne >= valueTwo;
   },
-  and: function (valueOne, valueTwo) {
-    return valueOne && valueTwo;
+  and: function () {
+    return [...arguments].slice(0, -1).every(a => !!a);
   },
   or: function (valueOne, valueTwo) {
     return valueOne || valueTwo;
   },
-  add: function (value, number) {
-    return value + number;
+  add: function () {
+    return [...arguments].slice(0, -1).reduce((t, n) => t + n, 0);
+  },
+  multiply: function () {
+    return [...arguments].slice(0, -1).reduce((t, n) => t * n, 1);
   },
   subtract: function (value, number) {
     return value - number;
+  },
+  map: function (array, property) {
+    return array.map(a => a[property]);
   }
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js'),
-require('../components/02-content/progress-block/progress-block.js')
+require('../components/02-content/progress-block/progress-block.js'),
+require('../components/02-content/shopping-cart/shopping-cart.helpers.js')
 );

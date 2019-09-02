@@ -12,13 +12,13 @@ $dso-pagination-item-border-size: 2px;
 
     a,
     span {
-      color: $grasgroen;
+      color: $dso-danger-color;
       display: inline-block;
       position: relative;
       vertical-align: middle;
 
       &:active {
-        background-color: $grasgroen-10;
+        background-color: $dso-danger-color;
       }
     }
 
@@ -38,7 +38,7 @@ $dso-pagination-item-border-size: 2px;
         text-decoration: none;
 
         &::after {
-          border-bottom-color: $grasgroen;
+          border-bottom-color: $dso-danger-color;
         }
       }
 
@@ -59,7 +59,7 @@ $dso-pagination-item-border-size: 2px;
 
     &.active {
       span {
-        background-color: $grasgroen;
+        background-color: $dso-danger-color;
         color: $wit;
       }
     }
@@ -71,7 +71,7 @@ $dso-pagination-item-border-size: 2px;
     &.dso-previous,
     &.dso-next {
       a {
-        border: 2px solid $grasgroen;
+        border: 2px solid $dso-danger-color;
         border-radius: 50%;
         height: $dso-pagination-item-size;
         text-indent: -9999px;
@@ -80,7 +80,7 @@ $dso-pagination-item-border-size: 2px;
 
         &:hover,
         &:focus {
-          background-color: $grasgroen;
+          background-color: $dso-danger-color;
           color: $wit;
         }
 

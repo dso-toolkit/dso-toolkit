@@ -1,0 +1,95 @@
+.dso-search-bar {
+  display: flex;
+
+  .dso-search-bar-input {
+    position: relative;
+    width: 100%;
+
+    .dso-search-icon {
+      bottom: 0;
+      color: $grasgroen;
+      height: 40px;
+      left: 0;
+      line-height: 38px;
+      padding: 0 $u1;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: $u5;
+
+      &::before {
+        @include fa-icon;
+
+        content: fa-content($fa-var-search);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+      }
+    }
+
+    input:first-child {
+      padding-left: $u1 - 1;
+    }
+
+    input {
+      @include placeholder($input-color-placeholder);
+
+      background-color: $wit;
+      background-image: none;
+      border: 1px solid $bosgroen-40;
+      border-radius: 4px;
+      border-width: 1px;
+      box-shadow: none;
+      display: block;
+      font-size: 16px;
+      height: 40px;
+      line-height: 1.5;
+      padding: 6px $u5;
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      width: 100%;
+
+      &:focus {
+        border-color: $bosgroen;
+        outline: none;
+      }
+
+      // sass-lint:disable no-vendor-prefixes
+      &::-ms-clear {
+        display: none;
+      }
+      // sass-lint:enable no-vendor-prefixes
+    }
+
+    button {
+      @include di-font;
+      @include di("cross");
+
+      background-color: transparent;
+      border: 0;
+      bottom: 0;
+      box-shadow: none;
+      color: $grasgroen;
+      font-size: 0;
+      height: 40px;
+      padding: 0 $u1;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: $u5;
+
+      &::before {
+        font-size: .8rem;
+      }
+    }
+  }
+
+  .dso-search-bar-input + button {
+    height: 40px;
+    line-height: 38px;
+    margin-bottom: 0;
+    margin-left: $u1;
+    min-width: initial;
+    padding: 0 $u2;
+    text-align: center;
+  }
+}

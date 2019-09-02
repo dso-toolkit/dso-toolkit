@@ -199,6 +199,12 @@ select:not([multiple]) {
       }
     }
 
+    &.dso-radios.dso-inline {
+      .dso-selectable {
+        margin-bottom: 0;
+      }
+    }
+
     @media screen and (min-width: $screen-sm-min) {
       &.dso-checkboxes,
       &.dso-radios {
@@ -216,3 +222,5 @@ select:not([multiple]) {
     }
   }
 }
+
+@import "./form/files";
