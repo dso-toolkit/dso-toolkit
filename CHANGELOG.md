@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Templates update. Nieuwe templates voor samenwerken (#329)
 * Accordeon titels met koppen (#340)
+* Gelijke hoogte kolommen voor highlight-box (#365)
 
 ### Fixed
 * Afbeelding over de volledige breedte: onnodige margin bottom en typefout in SCSS variable (#370)
