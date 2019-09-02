@@ -4,18 +4,32 @@ $dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u2;
 $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
+$dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
 $dso-anchor-focus-color: #676cb0;
 
 .dso-accordion {
+  .dso-accordion-section {
+    .dso-section-handle,
+    > h1.dso-section-handle,
+    > h2.dso-section-handle,
+    > h3.dso-section-handle,
+    > h4.dso-section-handle,
+    > h5.dso-section-handle {
+      font-size: 1em;
+      line-height: $dso-accordion-handle-line-height;
+      margin: 0;
+    }
+  }
+
   .dso-section-handle {
     background-color: $wit;
     border: 1px solid $dso-accordion-main-color;
     border-radius: $dso-accordion-border-radius;
     font-weight: 500;
     overflow: hidden;
-    padding: 0 $dso-accordion-main-padding;
+    padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
     position: relative;
     
     &:focus-within{
@@ -26,8 +40,6 @@ $dso-anchor-focus-color: #676cb0;
     a {
       color: $dso-accordion-main-color;
       display: inline-block;
-      font-size: 1.25em;
-      line-height: $dso-accordion-handle-height;
       padding-left: $dso-accordion-chevron-space;
       word-break: break-word;
 
@@ -37,6 +49,8 @@ $dso-anchor-focus-color: #676cb0;
         height: $dso-accordion-chevron-icon-size;
         margin-left: -$dso-accordion-chevron-space;
         margin-right: $dso-accordion-main-padding;
+        position: relative;
+        top: calc((#{$dso-accordion-handle-line-height} - 1em) / 2);
         width: $dso-accordion-chevron-icon-size;
       }
 
