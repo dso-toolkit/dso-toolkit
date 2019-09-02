@@ -1,4 +1,5 @@
 status: wip
 context:
   id: whitebox-small
-  label: Bomen kappen of struiken verwijderen
+  label: Boom kappen of snoeien
+  

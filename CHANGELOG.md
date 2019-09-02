@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Added
+* Templates update. Nieuwe templates voor samenwerken (#329)
 * Accordeon titels met koppen (#340)
 
 ### Fixed
