@@ -20,37 +20,17 @@
     <ul class="dso-nav dso-nav-main">
       <li class="dso-active">
         <a href="#">
-          Home
+          Samenwerkingen
         </a>
       </li>
       <li>
         <a href="#">
-          Actueel
+          Acties overzicht
         </a>
       </li>
       <li>
         <a href="#">
-          Kalender
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Zelf aan de slag
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Documenten
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Over ons
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Wetgeving
+          Notificatie overzicht
         </a>
       </li>
     </ul>
@@ -60,17 +40,23 @@
 </header>
 <main>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-md-12">
       <h1>Samenwerken aan behandelen</h1>
       <h2 class="dso-steps-indicator">
         Overzicht samenwerkingen
+        <span class="dso-step">
+        </span>
       </h2>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-3"><button type="button" class="btn btn-link">
         <span class="icon fas fa-plus" aria-hidden="true"></span>
         samenwerking toevoegen
       </button>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-12">
       <table class="table">
         <caption class="sr-only">Table met alle samenwerkingen</caption>
@@ -93,8 +79,8 @@
             <td>Gemeente Den Haag</td>
             <td>123456789123</td>
             <td>Geheim</td>
-            <td><a><span class="icon fas fa-users"></span></a></td>
-            <td><a><span class="icon fas fa-pencil-alt"></span></a></td>
+            <td><a><span class="icon fas fa-users" aria-hidden="true"></span> <span class="sr-only">Gebruikers</span></a></td>
+            <td><a><span class="icon fas fa-pencil-alt" aria-hidden="true"></span><span class="sr-only">Gegevens wijzigen</span></a></td>
             <td><button type="button" class="btn btn-link pull-right">
                 <span class="icon fas fa-angle-right" aria-hidden="true"></span>
                 Openen

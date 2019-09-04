@@ -7,16 +7,6 @@ context:
   __switches:
     - name: state
       label: Open/sluit
-  menuItems:
-    - label: Home
-      active: true
-    - label: Actueel
-    - label: Kalender
-    - label: Zelf aan de slag
-    - label: Documenten
-    - label: Over ons
-      count: 12
-    - label: Wetgeving
   modifier: main
   items:
   - label: Home

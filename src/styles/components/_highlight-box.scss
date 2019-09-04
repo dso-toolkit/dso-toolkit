@@ -1,7 +1,7 @@
 .dso-highlight-box,
 .highlight-box {
   background-color: $grijs-10;
-  margin-top: $u6;
+  margin-top: $dso-highlight-box-margin-top;
   padding: $u2;
 
   &.dso-white {

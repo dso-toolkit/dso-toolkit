@@ -3,12 +3,14 @@
   <div class="row">
     <div class="col-md-12">
       <h1>Samenwerken aan behandelen</h1>
-      <h2 class="dso-steps-indicator">
-        Overzicht samenwerkingen
-      </h2>    
+      {{> '@steps'}}
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-3">{{> '@button' label='samenwerking toevoegen' type='button' modifier='link' icon='icon fas fa-plus'}}
     </div> 
+  </div>
+  <div class="row">
     <div class="col-md-12">
       <table class="table">
         <caption class="sr-only">Table met alle samenwerkingen</caption>
@@ -31,8 +33,8 @@
             <td>Gemeente Den Haag</td>
             <td>123456789123</td>
             <td>Geheim</td>
-            <td><a><span class="icon fas fa-users"></span></a></td>
-            <td><a><span class="icon fas fa-pencil-alt"></span></a></td>
+            <td><a><span class="icon fas fa-users" aria-hidden="true"></span> <span class="sr-only">Gebruikers</span></a></td>
+            <td><a><span class="icon fas fa-pencil-alt" aria-hidden="true"></span><span class="sr-only">Gegevens wijzigen</span ></a></td>
             <td>{{> '@button' label='Openen' type='button' modifier='link pull-right' icon='icon fas fa-angle-right'}}</td>
           </tr>
         </tbody>
