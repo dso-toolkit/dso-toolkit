@@ -1,5 +1,6 @@
 notes: |
-  Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component
+  Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component.
+  Wanneer er een button geplaatst wordt, moet de voorgaande tekst in een `div.dso-rich-content` staan.
 status: ready
 collated: true
 context:
