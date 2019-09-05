@@ -9,10 +9,8 @@
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
-  line-height: $dso-button-line-height;
   margin-bottom: $dso-button-margin-bottom;
   min-width: $dso-button-size;
-  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
 
   &:active,
   &.active,
@@ -20,6 +18,12 @@
   &.active:hover {
     box-shadow: none;
     outline: 0;
+  }
+
+  &.btn-default,
+  &.btn-primary {
+    line-height: $dso-button-line-height;
+    padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
   }
 }
 
