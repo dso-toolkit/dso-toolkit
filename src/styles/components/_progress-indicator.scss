@@ -1,0 +1,31 @@
+$dso-progress-indicator-unit: 36px;
+
+.dso-progress-indicator {
+  clear: both;
+  line-height: $dso-progress-indicator-unit;
+
+  .di-progress-indicator {
+    &::before {
+      @extend .fas;
+      // animation: rotation 1.5s infinite ease 1.2s;
+      color: $grasgroen;
+      content: "\f1ce";
+      display: block;
+      float: left;
+      font-size: $dso-progress-indicator-unit;
+      height: $dso-progress-indicator-unit;
+      margin-right: $u2;
+      transform-origin: #{$dso-progress-indicator-unit / 2} #{$dso-progress-indicator-unit / 2};
+      width: $dso-progress-indicator-unit;
+    }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359.99deg);
+  }
+}
