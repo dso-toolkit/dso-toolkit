@@ -7,7 +7,7 @@ $dso-progress-indicator-unit: 36px;
   .di-progress-indicator {
     &::before {
       @extend .fas;
-      // animation: rotation 1.5s infinite ease 1.2s;
+      animation: rotation 1.5s infinite ease 1.2s;
       color: $grasgroen;
       content: "\f1ce";
       display: block;

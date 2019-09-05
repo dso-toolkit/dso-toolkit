@@ -3,7 +3,4 @@ notes: |
 status: ready
 collated: true
 context:
-  progress: 60
-  value:
-    min: 0
-    max: 100
+  statustext: Een moment geduld a.u.b.
