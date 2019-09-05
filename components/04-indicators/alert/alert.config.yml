@@ -18,3 +18,8 @@ variants:
     context:
       modifier: alert-info
       message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.
+  - name: warning
+    context:
+      modifier: alert-warning
+      message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
+      buttontext: Zoekopdracht afbreken
