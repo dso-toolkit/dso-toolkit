@@ -1,10 +1,12 @@
 $dso-alert-icon-size: $u4;
-$dso-alert-padding: $u2;
+$dso-alert-hor-padding: $u2;
+$dso-alert-ver-padding: #{$u1 * 2.5 - 1px};
+$dso-alert-left-padding: 2 * $dso-alert-hor-padding + $dso-alert-icon-size - 1px; // 1px border
 
 .alert {
-  line-height: $dso-alert-icon-size;
-  min-height: 2 * $dso-alert-padding + $dso-alert-icon-size;
-  padding-left: 2 * $dso-alert-padding + $dso-alert-icon-size - 1px; // 1px border
+  line-height: $u3;
+  min-height: 2 * $dso-alert-hor-padding + $dso-alert-icon-size;
+  padding: $dso-alert-ver-padding $dso-alert-hor-padding $dso-alert-ver-padding $dso-alert-left-padding;
   position: relative;
 
   &:not(:first-child) {
@@ -12,9 +14,9 @@ $dso-alert-padding: $u2;
   }
 
   &::before {
-    left: $dso-alert-padding - 1px; // 1px border
+    left: $dso-alert-hor-padding - 1px; // 1px border
     position: absolute;
-    top: $dso-alert-padding - 1px; // 1px border
+    top: $dso-alert-hor-padding - 1px; // 1px border
   }
 
   &.alert-success {
