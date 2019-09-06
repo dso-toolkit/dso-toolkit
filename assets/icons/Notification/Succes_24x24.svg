@@ -1,6 +1,1 @@
-<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <title>goed-24</title>
-  <rect width="24" height="24" rx="0.5" style="fill: none"/>
-  <circle cx="12" cy="12" r="11" style="fill: #79b929"/>
-  <path d="M10.67,17.09l-5-5a.5.5,0,0,1,0-.7l.72-.72a.5.5,0,0,1,.7,0L11,14.54l6-6.83a.5.5,0,0,1,.7,0l.76.66a.49.49,0,0,1,.05.7l-7,8A.5.5,0,0,1,10.67,17.09Z" style="fill: #fff"/>
-</svg>
+<svg data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx=".5" fill="none"/><circle cx="12" cy="12" r="11" fill="#79b929"/><path d="M10.67 17.09l-5-5a.5.5 0 0 1 0-.7l.72-.72a.5.5 0 0 1 .7 0L11 14.54l6-6.83a.5.5 0 0 1 .7 0l.76.66a.49.49 0 0 1 .05.7l-7 8a.5.5 0 0 1-.84.02z" fill="#fff"/></svg>

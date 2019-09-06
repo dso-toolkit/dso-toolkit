@@ -1,9 +1,1 @@
-<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <title>info-32</title>
-  <rect width="32" height="32" style="fill: none"/>
-  <circle cx="16" cy="16" r="14" style="fill: #6ca4d9"/>
-  <g>
-    <path d="M17.91,21.09h-.64V15.36a.63.63,0,0,0-.63-.63H14.09a.64.64,0,0,0-.64.63v1.28a.64.64,0,0,0,.64.63h.64v3.82h-.64a.64.64,0,0,0-.64.64V23a.64.64,0,0,0,.64.64h3.82a.64.64,0,0,0,.64-.64V21.73A.64.64,0,0,0,17.91,21.09Z" style="fill: #fff"/>
-    <circle cx="16" cy="10.27" r="1.91" style="fill: #fff"/>
-  </g>
-</svg>
+<svg data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="none" d="M0 0h32v32H0z"/><circle cx="16" cy="16" r="14" fill="#6ca4d9"/><g fill="#fff"><path d="M17.91 21.09h-.64v-5.73a.63.63 0 0 0-.63-.63h-2.55a.64.64 0 0 0-.64.63v1.28a.64.64 0 0 0 .64.63h.64v3.82h-.64a.64.64 0 0 0-.64.64V23a.64.64 0 0 0 .64.64h3.82a.64.64 0 0 0 .64-.64v-1.27a.64.64 0 0 0-.64-.64z"/><circle cx="16" cy="10.27" r="1.91"/></g></svg>

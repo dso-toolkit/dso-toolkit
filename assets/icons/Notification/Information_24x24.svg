@@ -1,9 +1,1 @@
-<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <title>info-24</title>
-  <rect width="24" height="24" style="fill: none"/>
-  <circle cx="12" cy="12" r="11" style="fill: #6ca4d9"/>
-  <g>
-    <path d="M13.5,16H13V11.5a.5.5,0,0,0-.5-.5h-2a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H11v3h-.5a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h3a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,13.5,16Z" style="fill: #fff"/>
-    <circle cx="12" cy="7.5" r="1.5" style="fill: #fff"/>
-  </g>
-</svg>
+<svg data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="11" fill="#6ca4d9"/><g fill="#fff"><path d="M13.5 16H13v-4.5a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.5v3h-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/><circle cx="12" cy="7.5" r="1.5"/></g></svg>

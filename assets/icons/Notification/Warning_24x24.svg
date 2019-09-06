@@ -1,9 +1,1 @@
-<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <title>waarschuwing-24</title>
-  <rect width="24" height="24" style="fill: none"/>
-  <path d="M13.8,2l9.91,16.81A2.09,2.09,0,0,1,23,21.71a2.06,2.06,0,0,1-1.06.29H2.09A2.09,2.09,0,0,1,0,19.91a2.12,2.12,0,0,1,.29-1.07L10.2,2a2.08,2.08,0,0,1,2.86-.74A2,2,0,0,1,13.8,2Z" style="fill: #dcd400"/>
-  <g>
-    <rect x="11" y="7" width="2" height="7" rx="0.5" style="fill: #191919"/>
-    <circle cx="12" cy="17.5" r="1.5" style="fill: #191919"/>
-  </g>
-</svg>
+<svg data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M13.8 2l9.91 16.81a2.09 2.09 0 0 1-.71 2.9 2.06 2.06 0 0 1-1.06.29H2.09A2.09 2.09 0 0 1 0 19.91a2.12 2.12 0 0 1 .29-1.07L10.2 2a2.08 2.08 0 0 1 2.86-.74 2 2 0 0 1 .74.74z" fill="#dcd400"/><g fill="#191919"><rect x="11" y="7" width="2" height="7" rx=".5"/><circle cx="12" cy="17.5" r="1.5"/></g></svg>
