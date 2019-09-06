@@ -1,18 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>Notification/Information_32x32</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Notification/Information_32x32">
-            <rect id="Rectangle-3-Copy-4" fill="#6CA4D9" x="0" y="0" width="32" height="32" rx="16"></rect>
-            <g id="Button-Icon/info-White_12x12" transform="translate(10.000000, 10.000000)">
-                <path d="M6,6 L6,11" id="Line" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
-                <path d="M4,6 L6,6" id="Line-Copy" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
-                <path d="M4,11 L8,11" id="Line-Copy-2" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
-                <circle id="Oval" fill="#FFFFFF" fill-rule="evenodd" cx="6" cy="1.5" r="1.5"></circle>
-            </g>
-        </g>
-    </g>
+<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>info-32</title>
+  <rect width="32" height="32" style="fill: none"/>
+  <circle cx="16" cy="16" r="14" style="fill: #6ca4d9"/>
+  <g>
+    <path d="M17.91,21.09h-.64V15.36a.63.63,0,0,0-.63-.63H14.09a.64.64,0,0,0-.64.63v1.28a.64.64,0,0,0,.64.63h.64v3.82h-.64a.64.64,0,0,0-.64.64V23a.64.64,0,0,0,.64.64h3.82a.64.64,0,0,0,.64-.64V21.73A.64.64,0,0,0,17.91,21.09Z" style="fill: #fff"/>
+    <circle cx="16" cy="10.27" r="1.91" style="fill: #fff"/>
+  </g>
 </svg>
