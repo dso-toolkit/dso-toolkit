@@ -1,0 +1,31 @@
+$dso-progress-bar-height: $u2;
+$dso-progress-bar-margin: $u1;
+$dso-progress-bar-bg: $wit;
+$dso-progress-bar-color: $grasgroen;
+// -------------------------
+
+// Outer container
+.progress {
+  background-color: $dso-progress-bar-bg;
+  border: 1px solid  $dso-progress-bar-color;
+  height: $dso-progress-bar-height;
+  margin-bottom: $dso-progress-bar-margin;
+  overflow: hidden;
+}
+
+// Bar of progress
+.progress-bar {
+  background-color: $progress-bar-bg;
+  color: $progress-bar-color;
+  float: left;
+  font-size: $font-size-small;
+  height: 100%;
+  line-height: $dso-progress-bar-height;
+  text-align: center;
+  width: 0%;
+}
+
+.dso-progress-pct {
+  color: $grijs-90;
+  margin-bottom: $dso-progress-bar-margin;
+}
