@@ -14,10 +14,15 @@
     width: #{$dso-toggle-close-icon-size - 2px};
 
     &:hover,
-    &:focus,
-    &.focus,
     &:active,
     &.active {
+      outline: 0;
+    }
+    
+    &:focus,
+    &.focus {
+      @include icon($dso-icon-button-icon-cross-white-12x12);
+      background-color: $dso-anchor-focus-color;
       outline: 0;
     }
   }
@@ -43,9 +48,13 @@
   &.dso-open,
   &:hover,
   &:active,
-  &.active,
+  &.active {
+    @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
+  }
+  
   &:focus,
   &.focus {
-    @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
+    background-color: transparent;
+    outline: 5px auto -webkit-focus-ring-color;
   }
 }
