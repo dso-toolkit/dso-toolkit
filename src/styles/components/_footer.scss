@@ -1,5 +1,3 @@
-$dso-anchor-focus-color: #676cb0;
-
 footer {
   @include full-width-row;
 
@@ -28,6 +26,7 @@ footer {
       outline: 0;
       text-decoration: underline;
     }
+    
     &.focus,
     &:focus {
       background-color: $dso-anchor-focus-color; 
@@ -39,10 +38,14 @@ footer {
 
       &:hover,
       &.active,
-      &:active,
+      &:active {
+        color: $grijs-90;
+      }
+      
       &.focus,
       &:focus {
-        color: $grijs-90;
+        background-color: $dso-anchor-focus-color; 
+        color: $wit;
       }
     }
   }

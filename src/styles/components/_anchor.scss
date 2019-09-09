@@ -1,7 +1,6 @@
 $dso-anchor-download-content: fa-content($fa-var-download);
 $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 $dso-anchor-spacer-width: 4px;
-$dso-anchor-focus-color: #676cb0;
 
 .alert,
 .highlight-box,
@@ -21,7 +20,8 @@ a {
   &:visited {
     color: $dso-anchor-visited-color;
   }
-  &:focus{
+  
+  &:focus {
     color: $wit;
     background-color: $dso-anchor-focus-color;
     outline: none;

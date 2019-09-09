@@ -1,5 +1,3 @@
-$dso-anchor-focus-color: #676cb0;
-
 @mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
   background-color: $background-color;
   border-color: $border-color;
@@ -23,8 +21,9 @@ $dso-anchor-focus-color: #676cb0;
     box-shadow: none;
     outline: 0;
   }
+  
   &:focus,
-  &.focus{
+  &.focus {
     @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
     text-decoration: underline;
     outline: none;
@@ -66,10 +65,8 @@ $dso-anchor-focus-color: #676cb0;
 }
 
 .btn-primary {
-  & {
-    @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
-  }
-
+  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+  
   &:hover {
     @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
   }
@@ -77,8 +74,9 @@ $dso-anchor-focus-color: #676cb0;
   &:visited {
     color: $btn-primary-color;
   }
+  
   &:focus,
-  &.focus{
+  &.focus {
     @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
   }
 
@@ -137,14 +135,25 @@ $dso-anchor-focus-color: #676cb0;
     color: $grasgroen;
   }
 
-  &:hover,
-  &:focus,
-  &.focus {
+  &:hover {
     color: $grasgroen;
     text-decoration: none;
 
     .icon {
       background-color: $grasgroen;
+      color: $wit;
+    }
+  }
+  
+  &:focus,
+  &.focus {
+    background-color: transparent;
+    color: $dso-anchor-focus-color;
+    text-decoration: underline;
+
+    .icon {
+      border: #{$dso-button-border-width * 2} solid $dso-anchor-focus-color;
+      background-color: $dso-anchor-focus-color;
       color: $wit;
     }
   }
