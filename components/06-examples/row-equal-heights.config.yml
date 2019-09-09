@@ -1,0 +1,5 @@
+context:
+  whiteboxSmall:
+    label: Kort verhaal
+  whiteboxLarge:
+    label: Lang verhaal waardoor dit blok hoger op je scherm wordt

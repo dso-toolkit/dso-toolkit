@@ -1,7 +1,7 @@
 .dso-whitebox {
   background: $wit;
   box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
-  margin-bottom: $u7;
+  margin-bottom: $dso-whitebox-margin-bottom;
   min-height: 520px;
   padding: $u2 $u3 0;
   position: relative;
@@ -33,7 +33,7 @@
 .dso-whitebox-small {
   background: $wit;
   box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
-  margin-bottom: $u7;
+  margin-bottom: $dso-whitebox-small-margin-bottom;
   min-height: 200px;
   padding: $u3 $u2 $u2;
   position: relative;

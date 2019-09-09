@@ -3,10 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## 8.3.0 - 02-09-2019
 
 ### Added
+* Templates update. Nieuwe templates voor samenwerken (#329)
 * Accordeon titels met koppen (#340)
+* Gelijke hoogte kolommen voor highlight-box (#365)
 
 ### Fixed
 * Afbeelding over de volledige breedte: onnodige margin bottom en typefout in SCSS variable (#370)

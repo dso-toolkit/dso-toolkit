@@ -1,13 +1,13 @@
-{{render '@header' }}
-
+{{> '@header' }}
 <main>
   <div class="row">
-    <div class="col-xs-12">
-      <h1>Project | Aanbouw Kerkstraat 1</h1>
+    <div class="col-md-12">
+      <h1>Aanvragen</h1>
+      {{render '@steps'}}
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
       {{#accordion}}
         {{#each sections }}
           {{#accordionSection title }}
@@ -15,32 +15,15 @@
           {{/accordionSection}}
         {{/each}}
       {{/accordion}}
+    </div>     
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-push-3 col-md-offset-6">
+      {{> '@button' label='Volgende stap' type='button' modifier='primary pull-right'}}
     </div>
-
-    <div class="col-md-3">
-      {{#progressBlock }}
-        <h2>Aanvraag voorbereiden</h2>
-        <p>Omgevingsvergunning</p>
-        <ul class="list-unstyled">
-          <li class="active">
-            {{> '@icon' icon="fas fa-angle-right"}} Omschrijving project {{> '@icon' icon="fas fa-check"}}
-          </li>
-          <li class="active">
-            {{> '@icon' icon="fas fa-angle-right"}} Aanvrager {{> '@icon' icon="fas fa-check"}}
-          </li>
-          <li>
-            {{> '@icon' icon="fas fa-angle-right"}} Locatie
-          </li>
-          <li>
-            {{> '@icon' icon="fas fa-angle-right"}} Werkzaamheden
-          </li>
-          <li>
-            {{> '@icon' icon="fas fa-angle-right"}} Bijlagen
-          </li>
-        </ul>
-      {{/progressBlock}}
+    <div class="col-md-3 col-md-pull-9">
+      {{> '@button' label='Vorige stap' type='button' modifier='default'}}
     </div>
   </div>
 </main>
-
 {{render '@footer' }}
