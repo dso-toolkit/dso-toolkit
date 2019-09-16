@@ -9,10 +9,10 @@ main {
   &.dso-banner {
     @include full-width-row($grid-gutter-width);
 
+    background-color: $grasgroen-10;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-    background-color: $grasgroen-10;
     height: 400px;
     padding-top: 2rem;
   }
@@ -24,6 +24,8 @@ main {
   }
 }
 
-.dso-banner-implementation-specific-image {
+.dso-banner-implementation-specific-image { // sass-lint:disable-line no-empty-rulesets
+  // implement using background-image:
+  // ----
   // background-image: url('/dummy/images/hero.png');
 }
