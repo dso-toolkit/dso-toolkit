@@ -9,9 +9,6 @@
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
-  height: $dso-button-size;
-  line-height: $dso-button-size - 2 * $dso-button-border-width;
-  margin-bottom: $dso-button-margin-bottom;
   min-width: $dso-button-size;
 
   &:active,
@@ -32,7 +29,8 @@
 
   &.btn-default,
   &.btn-primary {
-    padding: 0 $dso-button-size - $dso-button-border-width;
+    line-height: $dso-button-line-height;
+    padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
   }
 }
 
@@ -59,7 +57,6 @@
     &,
     &:hover {
       @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
-
       opacity: 1;
     }
   }
@@ -97,7 +94,6 @@
     &:hover,
     &:focus {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
-
       opacity: 1;
     }
   }

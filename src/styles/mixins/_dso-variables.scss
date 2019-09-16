@@ -80,7 +80,10 @@ $dso-button-link-size: $u4;
 
 $dso-button-border-radius: 4px;
 $dso-button-border-width: 1px;
+$dso-button-line-height: $u3;
 $dso-button-margin-bottom: 1px;
+$dso-button-horizontal-padding: $u2 - $dso-button-border-width;
+$dso-button-vertical-padding: $u1 * 1.5 - $dso-button-border-width;
 
 $dso-button-font-size: 1em;
 
