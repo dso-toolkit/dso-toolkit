@@ -13,23 +13,40 @@ $dso-pager-height: $u6;
 
       &:hover,
       &:active,
-      &.active,
-      &:focus,
-      &.focus {
+      &.active {
         &,
         &:visited {
           background-color: $grasgroen;
           color: $wit;
+
+          &:focus,
+          &.focus {
+            background-color: $dso-anchor-focus-color;
+            outline: 0;
+          }
         }
       }
 
       &:focus,
       &.focus {
+        background-color: $dso-anchor-focus-color;
+        border-color: $dso-anchor-focus-color;
+        color: $wit;
         outline: 0;
+        text-decoration: underline;
       }
 
       &:visited {
         color: $grasgroen;
+
+        &:focus,
+        &.focus {
+          background-color: $dso-anchor-focus-color;
+          border-color: $dso-anchor-focus-color;
+          color: $wit;
+          outline: 0;
+          text-decoration: underline;
+        }
       }
     }
 
@@ -40,6 +57,7 @@ $dso-pager-height: $u6;
           background-color: $wit;
           border-color: $grasgroen-40;
           color: $grasgroen-40;
+          text-decoration: none;
         }
       }
     }
