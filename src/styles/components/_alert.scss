@@ -1,12 +1,12 @@
 $dso-alert-icon-size: $u4;
-$dso-alert-hor-padding: $u2;
-$dso-alert-ver-padding: #{$u1 * 2.5 - 1px};
-$dso-alert-left-padding: 2 * $dso-alert-hor-padding + $dso-alert-icon-size - 1px; // 1px border
+$dso-alert-horizontal-padding: $u2;
+$dso-alert-vertical-padding: $u1 * 2.5 - 1px;
+$dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
 
 .alert {
   line-height: $u3;
-  min-height: 2 * $dso-alert-hor-padding + $dso-alert-icon-size;
-  padding: $dso-alert-ver-padding $dso-alert-hor-padding $dso-alert-ver-padding $dso-alert-left-padding;
+  min-height: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size;
+  padding: $dso-alert-vertical-padding $dso-alert-horizontal-padding $dso-alert-vertical-padding $dso-alert-left-padding;
   position: relative;
 
   &:not(:first-child) {
@@ -14,9 +14,9 @@ $dso-alert-left-padding: 2 * $dso-alert-hor-padding + $dso-alert-icon-size - 1px
   }
 
   &::before {
-    left: $dso-alert-hor-padding - 1px; // 1px border
+    left: $dso-alert-horizontal-padding - 1px; // 1px border
     position: absolute;
-    top: $dso-alert-hor-padding - 1px; // 1px border
+    top: $dso-alert-horizontal-padding - 1px; // 1px border
   }
 
   &.alert-success {
