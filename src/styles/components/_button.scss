@@ -32,18 +32,6 @@
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
   }
-
-  .alert & {
-    background-color: rgba(25, 25, 25, .05);
-    margin-top: $u2;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: rgba(25, 25, 25, .20);
-      color: $zwart;
-    }
-  }
 }
 
 .btn-default {
