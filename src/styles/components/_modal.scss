@@ -95,15 +95,15 @@ body.dso-modal-open {
         border: 2px solid $grasgroen;
         outline: 0;
       }
-      
+
       &:focus,
       &.focus {
         background-color: $dso-anchor-focus-color;
-        background-image: url($dso-modal-close-icon-active); 
+        background-image: url($dso-modal-close-icon-active);
         border: 2px solid $dso-anchor-focus-color;
         outline: 0;
       }
-      
+
       &:active,
       &.active {
         background-color: $grasgroen;

@@ -27,13 +27,13 @@
   a,
   a:visited {
     color: $text-color;
-    
+
     &.focus,
     &:focus {
-      color: $wit; 
-    } 
+      color: $wit;
+    }
   }
-  
+
   &.focus,
   &:focus {
     color: $wit;

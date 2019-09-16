@@ -19,7 +19,7 @@ header {
   .dso-search,
   .dso-login {
     float: left;
-    
+
     @media screen and (max-width: $screen-sm-max) {
       margin-bottom: $u2;
     }
@@ -29,12 +29,12 @@ header {
     a {
       color: $grasgroen;
       font-weight: 700;
-      
+
       &:focus {
         background-color: transparent;
         outline: 4px solid $dso-anchor-focus-color;
       }
-      
+
       &,
       .login-icon::after {
         vertical-align: middle;

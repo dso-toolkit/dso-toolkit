@@ -20,10 +20,10 @@ a {
   &:visited {
     color: $dso-anchor-visited-color;
   }
-  
+
   &:focus {
-    color: $wit;
     background-color: $dso-anchor-focus-color;
+    color: $wit;
     outline: none;
   }
 

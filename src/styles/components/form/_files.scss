@@ -99,12 +99,12 @@ form,
             &.focus,
             &:focus {
               background-color: $dso-anchor-focus-color;
-              
+
               &::before {
                 color: $wit;
               }
             }
-            
+
             &::before {
               color: $grijs-90;
             }

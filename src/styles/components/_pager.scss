@@ -18,12 +18,12 @@ $dso-pager-height: $u6;
         &:visited {
           background-color: $grasgroen;
           color: $wit;
-          
+
           &:focus,
           &.focus {
             background-color: $dso-anchor-focus-color;
             outline: 0;
-          } 
+          }
         }
       }
 
@@ -31,21 +31,21 @@ $dso-pager-height: $u6;
       &.focus {
         background-color: $dso-anchor-focus-color;
         border-color: $dso-anchor-focus-color;
-        text-decoration: underline;
         color: $wit;
         outline: 0;
+        text-decoration: underline;
       }
 
       &:visited {
         color: $grasgroen;
-        
+
         &:focus,
         &.focus {
           background-color: $dso-anchor-focus-color;
           border-color: $dso-anchor-focus-color;
           color: $wit;
-          text-decoration: underline;
           outline: 0;
+          text-decoration: underline;
         }
       }
     }

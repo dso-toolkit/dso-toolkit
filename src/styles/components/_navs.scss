@@ -37,10 +37,10 @@
         &:hover {
           color: $zwart;
         }
-        
+
         &:focus {
-          color: $zwart;
           background-color: $wit;
+          color: $zwart;
           outline: 4px solid $dso-anchor-focus-color;
         }
       }
