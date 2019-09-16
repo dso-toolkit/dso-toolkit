@@ -39,4 +39,15 @@ $dso-alert-left-padding: 2 * $dso-alert-hor-padding + $dso-alert-icon-size - 1px
   a:visited {
     color: $text-color;
   }
+
+  .btn {
+    background-color: rgba(25, 25, 25, .05);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(25, 25, 25, .2);
+      color: $zwart;
+    }
+  }
 }
