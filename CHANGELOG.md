@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Buttons verbeteringen (#337)
 * Tabs optimalisatie (#354)
 * Verbeterde contrastverhouding formulier elementen (#380)
+* Line-height lager in alerts (#381)
 
 ### Fixed
 * build: SASS Lint wordt niet in buildstraat gedraaid (#395)
