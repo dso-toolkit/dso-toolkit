@@ -48,7 +48,7 @@
       width: 100%;
 
       &:focus {
-        border-color: $bosgroen;
+        border: 4px solid $dso-anchor-focus-color;
         outline: none;
       }
 
@@ -79,6 +79,14 @@
 
       &::before {
         font-size: .8rem;
+      }
+
+      &.focus,
+      &:focus {
+        background-color: $dso-anchor-focus-color;
+        border-radius: 4px;
+        color: $wit;
+        outline: none;
       }
     }
   }
