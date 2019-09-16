@@ -8,7 +8,7 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       content: $dso-dropdown-caret;
       display: block;
       float: right;
-      line-height: $dso-button-size - 2 * $dso-button-border-width;
+      line-height: $dso-button-size - 2 * $dso-button-vertical-padding - 2px;
       margin-left: $u1;
     }
   }
@@ -18,7 +18,11 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       a {
         &:focus,
         &.focus {
+          background-color: $dso-anchor-focus-color;
+          border-color: $dso-anchor-focus-color;
+          color: $wit;
           outline: 0;
+          text-decoration: underline;
         }
       }
     }
@@ -30,12 +34,18 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       border-color: $grasgroen;
       color: $wit;
 
-      &:hover,
-      &:focus,
-      &.focus {
+      &:hover {
         background-color: $bosgroen;
         border-color: $bosgroen;
         color: $wit;
+      }
+
+      &:focus,
+      &.focus {
+        background-color: $dso-anchor-focus-color;
+        border-color: $dso-anchor-focus-color;
+        color: $wit;
+        text-decoration: underline;
       }
     }
   }

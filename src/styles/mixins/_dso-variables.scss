@@ -67,6 +67,8 @@ $dso-danger-bg-color: #f5d8dc;
 // component kleuren
 $dso-anchor-visited-color: #8b4a6a;
 $dso-anchor-hover-color: #676cb0;
+$dso-anchor-focus-color: #676cb0;
+
 
 $dso-alert-success-bg-color: $dso-success-bg-color;
 $dso-alert-info-bg-color: $dso-info-bg-color;
@@ -78,7 +80,10 @@ $dso-button-link-size: $u4;
 
 $dso-button-border-radius: 4px;
 $dso-button-border-width: 1px;
+$dso-button-line-height: $u3;
 $dso-button-margin-bottom: 1px;
+$dso-button-horizontal-padding: $u2 - $dso-button-border-width;
+$dso-button-vertical-padding: $u1 * 1.5 - $dso-button-border-width;
 
 $dso-button-font-size: 1em;
 

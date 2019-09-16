@@ -37,4 +37,15 @@ $dso-alert-padding: $u2;
   a:visited {
     color: $text-color;
   }
+
+  .btn {
+    background-color: rgba(25, 25, 25, .05);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(25, 25, 25, .2);
+      color: $zwart;
+    }
+  }
 }
