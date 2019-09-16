@@ -59,7 +59,7 @@ $dso-selectable-size: $u3;
       &::before {
         background: $wit;
         border: 0;
-        box-shadow: 0 0 0 2px $bosgroen-40;
+        box-shadow: 0 0 0 2px $bosgroen;
         content: "";
         height: $dso-selectable-size - 4px;
         left: 2px;
