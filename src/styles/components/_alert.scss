@@ -1,6 +1,11 @@
 $dso-alert-icon-size: $u4;
 $dso-alert-padding: $u2;
 
+@mixin dso-alert-icon($content) {
+  background-image: url($content);
+  content: "";
+}
+
 .alert {
   line-height: $dso-alert-icon-size;
   min-height: 2 * $dso-alert-padding + $dso-alert-icon-size;
@@ -12,25 +17,37 @@ $dso-alert-padding: $u2;
   }
 
   &::before {
+    display: block;
+    height: $dso-alert-icon-size;
     left: $dso-alert-padding - 1px; // 1px border
+    line-height: $dso-alert-icon-size;
     position: absolute;
     top: $dso-alert-padding - 1px; // 1px border
+    width: $dso-alert-icon-size;
   }
 
   &.alert-success {
-    @include di-check;
+    &::before {
+      @include dso-alert-icon($dso-icon-notification-succes-32x32);
+    }
   }
 
   &.alert-danger {
-    @include di-cross;
+    &::before {
+      @include dso-alert-icon($dso-icon-notification-error-32x32);
+    }
   }
 
   &.alert-warning {
-    @include di-warning;
+    &::before {
+      @include dso-alert-icon($dso-icon-notification-warning-32x32);
+    }
   }
 
   &.alert-info {
-    @include di-info;
+    &::before {
+      @include dso-alert-icon($dso-icon-notification-information-32x32);
+    }
   }
 
   a,
