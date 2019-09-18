@@ -96,6 +96,15 @@ form,
           }
 
           button {
+            &.focus,
+            &:focus {
+              background-color: $dso-anchor-focus-color;
+
+              &::before {
+                color: $wit;
+              }
+            }
+
             &::before {
               color: $grijs-90;
             }
@@ -110,7 +119,7 @@ form,
             .di,
             .dso-remove {
               display: block;
-              float: left
+              float: left;
             }
 
             .dso-confidential {

@@ -23,6 +23,13 @@ ol.breadcrumb {
 
     > a {
       color: $bosgroen;
+
+      &:focus {
+        background-color: $wit;
+        color: $bosgroen;
+        outline: 4px solid $dso-anchor-focus-color;
+        outline-offset: 2px;
+      }
     }
   }
 }
