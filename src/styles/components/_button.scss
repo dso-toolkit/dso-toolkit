@@ -128,18 +128,17 @@
     height: $dso-button-link-size;
     line-height: $dso-button-link-size - 2 * $dso-button-border-width;
     position: relative;
-    top: #{$u1 / 2};
     vertical-align: text-bottom;
     width: $dso-button-link-size;
   }
 
   &.di-icon-before .icon::before,
-  &.di-icon-after .icon::after {
-    content: "";
+  &.di-icon-after .icon::before {
     display: inline-block;
     height: $dso-button-link-size;
     padding: 0;
     position: relative;
+    top: 2px;
     width: $dso-button-link-size;
   }
 
@@ -157,11 +156,9 @@
 
   &:hover {
     color: $dso-anchor-hover-color;
-    text-decoration: none;
 
-    .icon {
-      background-color: $dso-anchor-hover-color;
-      color: $wit;
+    .icon span::before {
+      color: $dso-anchor-hover-color;
     }
   }
 
@@ -173,8 +170,6 @@
     text-decoration: underline;
 
     .icon {
-      background-color: $dso-anchor-focus-color;
-      border: #{$dso-button-border-width * 2} solid $dso-anchor-focus-color;
       color: $wit;
     }
   }
