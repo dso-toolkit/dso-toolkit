@@ -13,7 +13,11 @@ $di-icon-map: (
   "info": "\0042",
   "check": "\0043",
   "warning": "\0044",
-  "forbidden": "\0045"
+  "forbidden": "\0045",
+  "chevron-left": "\0046",
+  "chevron-right": "\0047",
+  "chevron-up": "\0048",
+  "chevron-down": "\0049"
 );
 
 @mixin di-font($pseudo: "before") {
@@ -108,3 +112,20 @@ $di-icon-map: (
   }
 }
 
+@mixin di-chevron-left($size: $u3, $pseudo: "before") {
+  @include di-font($pseudo: $pseudo);
+  @include di("chevron-left", $pseudo: $pseudo);
+
+  // &::#{$pseudo} {
+  //   @include icon($dso-icon-button-icon-chevron-left-12x12, $position-x: 52%, $position-y: 40%);
+  // }
+}
+
+@mixin di-chevron-right($size: $u3, $pseudo: "after") {
+  @include di-font($pseudo: $pseudo);
+  @include di("chevron-right", $pseudo: $pseudo);
+
+  // &::#{$pseudo} {
+  //   @include icon($dso-icon-button-icon-chevron-right-12x12, $position-x: 52%, $position-y: 40%);
+  // }
+}

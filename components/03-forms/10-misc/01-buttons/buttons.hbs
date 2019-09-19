@@ -74,6 +74,21 @@
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Tertiaire button</h2>
 <div class="row">
   <div class="col-md-3">
+    {{> '@button' label='Button' type='button' modifier='btn btn-link' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Info' type='button' modifier='btn btn-link btn-icon' position='before' icon='icon di di-info' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Terug' type='button' modifier='btn btn-link' position='before' icon='icon di di-chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Verder' type='button' modifier='btn btn-link' position='after' icon='icon di di-chevron-right' }}
+  </div>
+</div>
+<br>
+<!--div class="row">
+  <div class="col-md-3">
     {{> '@button' label='Button' type='button' modifier='link' icon='icon fas fa-angle-right' }}
   </div>
   <div class="col-md-3">
@@ -86,7 +101,7 @@
     {{> '@anchor' label='Lees verder' modifier='btn btn-link extern' icon='icon fas fa-angle-right' url='#' }}
   </div>
 </div>
-<br>
+<br-->
 <div class="row">
   <div class="col-md-3">
     {{> '@button' label='Disabled' type='button' modifier='link' icon='icon fas fa-angle-right' disabled=true }}
