@@ -113,15 +113,6 @@
     top: -2px;
   }
 
-
-  &.btn-icon {
-    font-size: 0;
-
-    &:focus {
-      font-size: inherit;
-    }
-  }
-
   .icon {
     display: inline-block;
     font-size: (18em / 16);
@@ -162,30 +153,18 @@
     }
   }
 
+  &:active,
+  &.active,
   &:focus,
   &.focus {
     background-color: $dso-anchor-focus-color;
     border: 0;
     color: $wit;
+    outline: 0;
     text-decoration: underline;
 
     .icon {
       color: $wit;
-    }
-  }
-
-  &:active,
-  &.active {
-    &,
-    &:focus,
-    &.focus {
-      color: $bosgroen;
-
-      .icon {
-        background-color: $bosgroen;
-        border-color: $bosgroen;
-        color: $wit;
-      }
     }
   }
 
