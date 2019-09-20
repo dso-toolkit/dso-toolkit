@@ -19,9 +19,8 @@ footer {
   a {
     color: $bosgroen;
 
-    &:hover,
-    &.active,
-    &:active {
+    &:hover {
+      background-color: transparent;
       color: $grijs-90;
       outline: 0;
       text-decoration: underline;
@@ -33,12 +32,21 @@ footer {
       color: $wit;
     }
 
+    &.active,
+    &:active {
+      background-color: transparent;
+      color: $dso-active-color;
+      outline: 0;
+      text-decoration: underline;
+    }
+
     &:visited {
       color: $bosgroen;
 
       &:hover,
       &.active,
       &:active {
+        background-color: transparent;
         color: $grijs-90;
       }
 
@@ -46,6 +54,14 @@ footer {
       &:focus {
         background-color: $dso-anchor-focus-color;
         color: $wit;
+      }
+
+      &.active,
+      &:active {
+        background-color: transparent;
+        color: $dso-active-color;
+        outline: 0;
+        text-decoration: underline;
       }
     }
   }

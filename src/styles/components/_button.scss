@@ -43,6 +43,11 @@
     @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
+  &:focus,
+  &.focus {
+    color: $wit;
+  }
+
   &:active,
   &.active {
     &,
