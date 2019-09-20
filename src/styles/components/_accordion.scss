@@ -69,7 +69,6 @@ $dso-accordion-state-icon-size: $u3;
 
         &::before {
           @include icon($dso-icon-button-icon-chevron-down-white-16x16);
-
           background-size: $dso-accordion-chevron-icon-size;
           height: $dso-accordion-chevron-icon-size;
           margin-left: -$dso-accordion-chevron-space;
@@ -77,6 +76,7 @@ $dso-accordion-state-icon-size: $u3;
           width: $dso-accordion-chevron-icon-size;
         }
       }
+
     }
   }
 
@@ -140,6 +140,11 @@ $dso-accordion-state-icon-size: $u3;
           a {
             color: $wit;
 
+            &:focus,
+            &.focus {
+              background-color: $dso-accordion-main-color;
+            }
+
             &::before {
               background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
             }
@@ -154,6 +159,14 @@ $dso-accordion-state-icon-size: $u3;
 
         > .dso-section-handle {
           a {
+
+            &:focus,
+            &.focus {
+              background-color: $wit;
+              color: $dso-accordion-main-color;
+              text-decoration: underline;
+            }
+
             &::before {
               background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
             }

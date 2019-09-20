@@ -43,11 +43,21 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
   .btn {
     background-color: rgba(25, 25, 25, .05);
 
-    &:hover,
-    &:active,
-    &:focus {
+    &:hover {
       background-color: rgba(25, 25, 25, .2);
       color: $zwart;
+    }
+
+    &:focus {
+      background-color: $dso-anchor-focus-color;
+      color: $wit;
+    }
+
+    &:active {
+      background-color: rgba(25, 25, 25, .4);
+      border-color: rgba(25, 25, 25, .2);
+      color: $text-color;
+      text-decoration: none;
     }
   }
 }
