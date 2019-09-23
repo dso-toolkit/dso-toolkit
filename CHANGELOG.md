@@ -5,8 +5,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Added
+* Loaders: spinner en progress bar (#341)
+
+## 8.4.0 - 16-09-2019
+
+### Added
+* Focus states (#367)
+* Buttons in alerts (#339)
+
 ### Changed
-* Vervangende iconen voor indicatoren (#357)
+* Buttons verbeteringen (#337)
+* Tabs optimalisatie (#354)
+* Verbeterde contrastverhouding formulier elementen (#380)
+* Line-height lager in alerts (#381)
+
+### Fixed
+* build: SASS Lint wordt niet in buildstraat gedraaid (#395)
 
 ## 8.3.0 - 02-09-2019
 
