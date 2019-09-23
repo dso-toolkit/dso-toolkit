@@ -21,6 +21,12 @@ a {
     color: $dso-anchor-visited-color;
   }
 
+  &:focus {
+    background-color: $dso-anchor-focus-color;
+    color: $wit;
+    outline: none;
+  }
+
   &.download,
   &.extern {
     &::after {

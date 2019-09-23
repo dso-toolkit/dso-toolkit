@@ -6,7 +6,7 @@ $dso-field-invalid-border-color: $dso-danger-color;
 $dso-field-invalid-message-color: $dso-danger-color;
 $dso-required-color: $grijs-60;
 
-$dso-form-control-border-width: 2px;
+$dso-form-control-border-width: 1px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-required-string: "verplicht";
 
@@ -142,6 +142,8 @@ select:not([multiple]) {
 
   &:focus,
   &.focus {
+    border-color: $dso-anchor-focus-color;
+    border-width: 4px;
     box-shadow: none;
   }
 

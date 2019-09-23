@@ -1,5 +1,11 @@
 notes: |
-  Toont navigatie-tabs. Gebaseerd op de Bootstrap `nav-tabs` component. Afhankelijk van het aantal tabs, loopt het getal in de class `dso-tabcount-X` evenredig op (lees: `dso-tabcount-3`, `dso-tabcount-4`, etc.).
+  Toont navigatie-tabs. Gebaseerd op de Bootstrap `nav-tabs` component.
+
+  Speciale aandacht voor de `.disabled` modifier:
+    * Scriptend moet ervoor gezorgd worden dat de `a` niet meer reageert;
+    * Let op de tabindex bij een disabled tabblad;
+
+  Zie ook https://getbootstrap.com/docs/3.3/components/#nav-disabled-links.
 status: ready
 collated: true
 context:
@@ -7,8 +13,10 @@ context:
   tabs:
     - label: Tab 1
       url: '#'
+      modifiers: active
     - label: Tab 2
       url: '#'
+      modifiers: disabled
 variants:
   - name: Three tabs
     context:
@@ -16,10 +24,12 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
         url: '#'
+        modifiers: disabled
 
   - name: Four tabs
     context:
@@ -27,12 +37,14 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
         url: '#'
       - label: Tab 4
         url: '#'
+        modifiers: disabled
 
   - name: Five tabs
     context:
@@ -40,6 +52,7 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
@@ -48,6 +61,7 @@ variants:
         url: '#'
       - label: Tab 5
         url: '#'
+        modifiers: disabled
 
   - name: Six tabs
     context:
@@ -55,6 +69,7 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
@@ -65,6 +80,7 @@ variants:
         url: '#'
       - label: Tab 6
         url: '#'
+        modifiers: disabled
 
   - name: Seven tabs
     context:
@@ -72,6 +88,7 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
@@ -84,6 +101,7 @@ variants:
         url: '#'
       - label: Tab 7
         url: '#'
+        modifiers: disabled
 
   - name: Eight tabs
     context:
@@ -91,6 +109,7 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
@@ -105,6 +124,7 @@ variants:
         url: '#'
       - label: Tab 8
         url: '#'
+        modifiers: disabled
 
   - name: Nine tabs
     context:
@@ -112,6 +132,7 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3
@@ -128,6 +149,7 @@ variants:
         url: '#'
       - label: Tab 9
         url: '#'
+        modifiers: disabled
 
   - name: Ten tabs
     context:
@@ -135,6 +157,7 @@ variants:
       tabs:
       - label: Tab 1
         url: '#'
+        modifiers: active
       - label: Tab 2
         url: '#'
       - label: Tab 3

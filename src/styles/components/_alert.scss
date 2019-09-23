@@ -1,10 +1,12 @@
 $dso-alert-icon-size: $u4;
-$dso-alert-padding: $u2;
+$dso-alert-horizontal-padding: $u2;
+$dso-alert-vertical-padding: $u1 * 2.5 - 1px;
+$dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
 
 .alert {
-  line-height: $dso-alert-icon-size;
-  min-height: 2 * $dso-alert-padding + $dso-alert-icon-size;
-  padding-left: 2 * $dso-alert-padding + $dso-alert-icon-size - 1px; // 1px border
+  line-height: $u3;
+  min-height: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size;
+  padding: $dso-alert-vertical-padding $dso-alert-horizontal-padding $dso-alert-vertical-padding $dso-alert-left-padding;
   position: relative;
 
   &:not(:first-child) {
@@ -12,9 +14,9 @@ $dso-alert-padding: $u2;
   }
 
   &::before {
-    left: $dso-alert-padding - 1px; // 1px border
+    left: $dso-alert-horizontal-padding - 1px; // 1px border
     position: absolute;
-    top: $dso-alert-padding - 1px; // 1px border
+    top: $dso-alert-horizontal-padding - 1px; // 1px border
   }
 
   &.alert-success {
@@ -36,5 +38,16 @@ $dso-alert-padding: $u2;
   a,
   a:visited {
     color: $text-color;
+  }
+
+  .btn {
+    background-color: rgba(25, 25, 25, .05);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(25, 25, 25, .2);
+      color: $zwart;
+    }
   }
 }

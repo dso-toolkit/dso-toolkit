@@ -1,5 +1,10 @@
+$dso-tabs-color: $grasgroen;
+$dso-tabs-hover-color: $grijs-5;
+$dso-tabs-text-color: $grijs-60;
 $dso-tabs-border-radius: 4px;
-$dso-tabs-height: 44px;
+$dso-tabs-height: 56px;
+$dso-tabs-horizontal-padding: $u2 - 1px;
+$dso-tabs-vertical-padding: $u3 - 1px;
 
 ul.nav-tabs {
   border-bottom: 1px solid $nav-tabs-border-color;
@@ -16,7 +21,7 @@ ul.nav-tabs {
   }
 
   > li {
-    border-color: $grasgroen;
+    border-color: $dso-tabs-color;
     flex: 1;
     float: none;
     font-weight: bold;
@@ -41,12 +46,12 @@ ul.nav-tabs {
     > a {
       border: 1px solid transparent;
       border-radius: $dso-tabs-border-radius $dso-tabs-border-radius 0 0;
-      color: $grijs-60;
+      color: $dso-tabs-text-color;
       display: block;
       line-height: $line-height-base;
       margin-right: 2px;
       min-height: $dso-tabs-height;
-      padding: 10px 25px;
+      padding: $dso-tabs-horizontal-padding $dso-tabs-vertical-padding;
       position: relative;
 
       &:hover {
@@ -54,27 +59,28 @@ ul.nav-tabs {
       }
     }
 
-    // Active state, and its :hover to override normal :hover
-    &.active > a {
-      &,
-      &:focus,
-      &:hover {
-        background-color: $nav-tabs-active-link-hover-bg;
-        border: 1px solid $grasgroen;
-        border-bottom-color: $wit;
-        color: $grasgroen;
-        cursor: default;
-      }
-    }
-
     a:active,
     a:focus,
     a:hover {
-      background-color: $wit !important;
-      border: 1px solid $grasgroen;
-      border-bottom-color: $wit;
+      background-color: $dso-tabs-hover-color;
+      border: 1px solid transparent;
+      border-bottom-color: $dso-tabs-color;
       outline: 0;
       text-decoration: none;
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: $wit;
+        border: 1px solid $dso-tabs-color;
+        border-bottom-color: $wit;
+        color: $dso-tabs-color;
+        cursor: default;
+      }
     }
 
     @media screen and (max-width: $screen-xs-max) {
@@ -86,9 +92,9 @@ ul.nav-tabs {
         &:active,
         &:focus,
         &:hover {
-          border-bottom-color: $grasgroen;
+          border-bottom-color: transparent;
           border-bottom-width: 1px;
-          border-color: $grasgroen;
+          border-color: transparent;
         }
       }
 
@@ -96,9 +102,9 @@ ul.nav-tabs {
         &,
         &:focus,
         &:hover {
-          border-bottom-color: $grasgroen;
+          border-bottom-color: $dso-tabs-color;
           border-bottom-width: 1px;
-          border-color: $grasgroen;
+          border-color: $dso-tabs-color;
         }
       }
     }

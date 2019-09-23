@@ -3,8 +3,25 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## NEXT - UNRELEASED
+
+### Added
+* Loaders: spinner en progress bar (#341)
+
+## 8.4.0 - 16-09-2019
+
+### Added
+* Focus states (#367)
+* Buttons in alerts (#339)
+
 ### Changed
-* Loaders (spinner en progress bar) (#341)
+* Buttons verbeteringen (#337)
+* Tabs optimalisatie (#354)
+* Verbeterde contrastverhouding formulier elementen (#380)
+* Line-height lager in alerts (#381)
+
+### Fixed
+* build: SASS Lint wordt niet in buildstraat gedraaid (#395)
 
 ## 8.3.0 - 02-09-2019
 

@@ -55,12 +55,27 @@ $dso-accordion-state-icon-size: $u3;
       }
 
       &:hover,
-      &:focus,
-      &.focus,
       &:active,
       &.active {
         color: $dso-accordion-main-color;
         text-decoration: none;
+      }
+
+      &:focus,
+      &.focus {
+        background-color: $dso-anchor-focus-color;
+        color: $wit;
+        text-decoration: underline;
+
+        &::before {
+          @include icon($dso-icon-button-icon-chevron-down-white-16x16);
+
+          background-size: $dso-accordion-chevron-icon-size;
+          height: $dso-accordion-chevron-icon-size;
+          margin-left: -$dso-accordion-chevron-space;
+          margin-right: $dso-accordion-main-padding;
+          width: $dso-accordion-chevron-icon-size;
+        }
       }
     }
   }

@@ -1,5 +1,7 @@
 notes: |
-  Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component
+  Toon een contextuele melding aan de gebruiker. Gebasserd op de Bootstrap "Alerts" component.
+
+  Bij voorkeur de inhoud van `.alert` in een `.dso-rich-content` plaatsen. Als er buttons nodig zijn, deze in een `p` plaatsen. Zie de laatste voorbeelden.
 status: ready
 collated: true
 context:
@@ -18,3 +20,35 @@ variants:
     context:
       modifier: alert-info
       message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.
+  - name: success-button
+    context:
+      modifier: alert-success
+      message: |
+        <div class="dso-rich-content">
+          <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
+          <p><button type="button" class="btn">Button</button></p>
+        </div>
+  - name: danger-button
+    context:
+      modifier: alert-danger
+      message: |
+        <div class="dso-rich-content">
+          <p>Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.</p>
+          <p><button type="button" class="btn">Button</button></p>
+        </div>
+  - name: warning-button
+    context:
+      modifier: alert-warning
+      message: |
+        <div class="dso-rich-content">
+          <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>
+          <p><button type="button" class="btn">Zoekopdracht afbreken</button></p>
+        </div>
+  - name: info-button
+    context:
+      modifier: alert-info
+      message: |
+        <div class="dso-rich-content">
+          <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
+          <p><button type="button" class="btn">Button</button></p>
+        </div>
