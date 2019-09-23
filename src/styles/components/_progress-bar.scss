@@ -9,8 +9,8 @@ $dso-progress-bar-color: $grasgroen;
   background-color: $dso-progress-bar-bg;
   border: 1px solid  $dso-progress-bar-color;
   height: $dso-progress-bar-height;
-  margin-bottom: $dso-progress-bar-margin;
-  overflow: hidden;
+  margin-bottom: calc(#{$dso-progress-bar-margin * 2} + 1em);
+  position: relative;
 }
 
 // Bar of progress
@@ -23,9 +23,11 @@ $dso-progress-bar-color: $grasgroen;
   line-height: $dso-progress-bar-height;
   text-align: center;
   width: 0%;
-}
 
-.dso-progress-pct {
-  color: $grijs-90;
-  margin-bottom: $dso-progress-bar-margin;
+  > span:not(.sr-only) {
+    color: $text-color;
+    left: 0;
+    position: absolute;
+    top: calc(100% + #{$dso-progress-bar-margin});
+  }
 }
