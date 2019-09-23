@@ -17,11 +17,8 @@ $dso-anchor-spacer-width: 4px;
 }
 
 .alert {
-
   &.alert-success {
-
     a {
-
       &:focus img {
         background-color: $dso-alert-success-bg-color;
       }
@@ -29,9 +26,7 @@ $dso-anchor-spacer-width: 4px;
   }
 
   &.alert-danger {
-
     a {
-
       &:focus img {
         background-color: $dso-alert-danger-bg-color;
       }
@@ -39,9 +34,7 @@ $dso-anchor-spacer-width: 4px;
   }
 
   &.alert-warning {
-
     a {
-
       &:focus img {
         background-color: $dso-alert-warning-bg-color;
       }
@@ -49,9 +42,7 @@ $dso-anchor-spacer-width: 4px;
   }
 
   &.alert-info {
-
     a {
-
       &:focus img {
         background-color: $dso-alert-info-bg-color;
       }
@@ -103,12 +94,9 @@ a {
 
 .dso-highlight-box,
 .highlight-box {
-
   &.dso-yellow,
   &.highlight-box-yellow {
-
     a {
-
       &:focus img {
         background-color: $dso-warning-bg-color;
       }
@@ -117,9 +105,7 @@ a {
 }
 
 .dso-info:not(.dso-accordion-section) {
-
   a {
-
     &:focus img {
       background-color: $grijs-10;
       outline: 4px solid $dso-anchor-focus-color;
