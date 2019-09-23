@@ -18,32 +18,32 @@ $dso-anchor-spacer-width: 4px;
 
 .alert {
   &.alert-success {
-    a {
-      &:focus img {
+    a:focus {
+      img {
         background-color: $dso-alert-success-bg-color;
       }
     }
   }
 
   &.alert-danger {
-    a {
-      &:focus img {
+    a:focus {
+      img {
         background-color: $dso-alert-danger-bg-color;
       }
     }
   }
 
   &.alert-warning {
-    a {
-      &:focus img {
+    a:focus {
+      img {
         background-color: $dso-alert-warning-bg-color;
       }
     }
   }
 
   &.alert-info {
-    a {
-      &:focus img {
+    a:focus {
+      img {
         background-color: $dso-alert-info-bg-color;
       }
     }
@@ -96,8 +96,8 @@ a {
 .highlight-box {
   &.dso-yellow,
   &.highlight-box-yellow {
-    a {
-      &:focus img {
+    a:focus {
+      img {
         background-color: $dso-warning-bg-color;
       }
     }
@@ -105,8 +105,8 @@ a {
 }
 
 .dso-info:not(.dso-accordion-section) {
-  a {
-    &:focus img {
+  a:focus {
+    img {
       background-color: $grijs-10;
       outline: 4px solid $dso-anchor-focus-color;
     }
