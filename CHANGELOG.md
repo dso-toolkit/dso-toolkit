@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Added
+* Loaders: spinner en progress bar (#341)
+
+## 8.4.0 - 16-09-2019
+
+### Added
 * Focus states (#367)
 * Buttons in alerts (#339)
 
