@@ -4,30 +4,34 @@ context:
   __title: Standaard
   __explanation: Responsive component. Gedrag kan gestuurd worden met <code>.dso-vertical</code> en <code>.dso-emphasize-description</code>
   definitions:
-    - term: Thema
+    - term: "Thema:"
       descriptions:
         - description: Wonen
         - description: Werken
-    - term: Regelkwalificatie
+    - term: "Regelkwalificatie:"
       descriptions:
         - description: Instructieregels
-    - term: Onderwerp
+    - term: "Onderwerp:"
       descriptions:
         - description: Bedrijventerrein
-    - term: Functie
+    - term: "Functie:"
       descriptions:
         - description: Bedrijventerrein > Bedrijventerrein
-    - term: Type regel
+    - term: "Type regel:"
       descriptions:
         - description: Bindend voor bestuursorganen
-    - term: Normadressaat
+    - term: "Normadressaat:"
       longread:
         - paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         - paragraph: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    - term: Pneumonoultramicroscopicsilicovolcanoconiosis
+    - term: "Pneumonoultramicroscopicsilicovolcanoconiosis:"
       longread:
         - paragraph: Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.
 variants:
+  - name: accessibility
+    context:
+      __title: Gedrag en accessibility
+      __explanation: Bij het gebruik van de definition list gebruik dan altijd een dubbele punt <code>:</code> achter de termen. Dit helpt gebruikers van screenreaders termen en definities makkelijker te relateren aan elkaar. Zie voorbeelden voor de implementatie.
   - name: vertical
     context:
       __title: Geforceerd verticale modus
@@ -49,19 +53,19 @@ variants:
       __explanation: Kolomverdeling 1-3, groene koppen door class <code>dso-with-header</code>.
       modifier: dso-columns-1-3 dso-with-header
       definitions:
-        - term: Verzoek 1
+        - term: "Verzoek 1:"
           descriptions:
             - description: Aanleg rondweg Leiden traject Rijnland route 1
-        - term: Verzoeknummer
+        - term: "Verzoeknummer:"
           descriptions:
             - description: 20181024 00729 000
-        - term: Datum ingediend
+        - term: "Datum ingediend:"
           descriptions:
             - description: 24/10/2018
-        - term: Ingediend bij
+        - term: "Ingediend bij:"
           descriptions:
             - description: Gemeente Den Haag
-        - term: Uw verzoek wordt behandeld door
+        - term: "Uw verzoek wordt behandeld door:"
           descriptions:
             - description: Omgevingsdienst Haaglanden
   - name: columns-2-2
@@ -70,19 +74,19 @@ variants:
       __explanation: Kolomverdeling 2-2 en <code>dso-with-header</code>.
       modifier: dso-columns-2-2 dso-with-header
       definitions:
-        - term: Verzoek 1
+        - term: "Verzoek 1:"
           descriptions:
             - description: Aanleg rondweg Leiden traject Rijnland route 1
-        - term: Verzoeknummer
+        - term: "Verzoeknummer:"
           descriptions:
             - description: 20181024 00729 000
-        - term: Datum ingediend
+        - term: "Datum ingediend:"
           descriptions:
             - description: 24/10/2018
-        - term: Ingediend bij
+        - term: "Ingediend bij:"
           descriptions:
             - description: Gemeente Den Haag
-        - term: Uw verzoek wordt behandeld door
+        - term: "Uw verzoek wordt behandeld door:"
           descriptions:
             - description: Omgevingsdienst Haaglanden
   - name: columns-3-1
@@ -91,15 +95,15 @@ variants:
       __explanation: Kolomverdeling 3-1.
       modifier: dso-columns-3-1
       definitions:
-        - term: Verzoeknummer
+        - term: "Verzoeknummer:"
           descriptions:
             - description: 20181024 00729 000
-        - term: Datum ingediend
+        - term: "Datum ingediend:"
           descriptions:
             - description: 24/10/2018
-        - term: Ingediend bij
+        - term: "Ingediend bij:"
           descriptions:
             - description: Gemeente Den Haag
-        - term: Uw verzoek wordt behandeld door
+        - term: "Uw verzoek wordt behandeld door:"
           descriptions:
             - description: Omgevingsdienst Haaglanden
