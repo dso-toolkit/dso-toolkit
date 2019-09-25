@@ -16,6 +16,11 @@ variants:
     context:
       modifier: alert-warning
       message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
+  - name: warning-svg
+    context:
+      modifier: alert-warning
+      svgicon: true
+      message: Dit is een waarschuwingsmelding met een svg-icon! Deze wordt gebruikt voor waarschuwingen.
   - name: info
     context:
       modifier: alert-info
@@ -42,6 +47,15 @@ variants:
       message: |
         <div class="dso-rich-content">
           <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>
+          <p><button type="button" class="btn">Zoekopdracht afbreken</button></p>
+        </div>
+  - name: warning-button-svg
+    context:
+      modifier: alert-warning
+      svgicon: true
+      message: |
+        <div class="dso-rich-content">
+          <p>Dit is een waarschuwingsmelding met een svg-icon! Deze wordt gebruikt voor waarschuwingen.</p>
           <p><button type="button" class="btn">Zoekopdracht afbreken</button></p>
         </div>
   - name: info-button

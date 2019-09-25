@@ -29,6 +29,22 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
 
   &.alert-warning {
     @include di-warning;
+
+    &.svgicon {
+      &::before {
+        content: '';
+        display: none;
+      }
+
+      svg {
+        position: absolute;
+        left: $u2;
+        top: $u2;
+
+        #{--color-2}: $dso-warning-color;
+        #{--color-3}: $zwart;
+      }
+    }
   }
 
   &.alert-info {
