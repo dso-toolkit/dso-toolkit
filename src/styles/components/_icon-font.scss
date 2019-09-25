@@ -40,8 +40,8 @@ svg.di {
 
   @for $i from 1 through 6 {
     &.di-#{$i}x {
-      height: #{$i * $u1};
-      width: #{$i * $u1};
+      height: #{$i * $u1 * .8};
+      width: #{$i * $u1 * .8};
     }
   }
 
