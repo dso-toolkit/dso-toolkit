@@ -25,3 +25,36 @@ span.di {
     @include di-forbidden;
   }
 }
+
+svg.di {
+  height: $u3;
+  width: $u3;
+
+  @for $i from 1 through 6 {
+    &.di-#{$i}x {
+      height: #{$i * $u1};
+      width: #{$i * $u1};
+    }
+  }
+
+  &.chevron-left {
+    color: $grasgroen;
+  }
+
+  &.chevron-right {
+    #{--color-1}: $bosgroen;
+  }
+
+  &.chevron-up {
+    color: $oranje;
+  }
+
+  &.chevron-down {
+    color: $lime;
+  }
+
+  &.icon-warning {
+    #{--color-2}: $lime-20;
+    #{--color-3}: $zwart;
+  }
+}
