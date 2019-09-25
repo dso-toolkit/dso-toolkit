@@ -24,6 +24,14 @@ span.di {
   &.di-forbidden {
     @include di-forbidden;
   }
+
+  &.di-chevron-left {
+    @include di-chevron-left;
+  }
+
+  &.di-chevron-right {
+    @include di-chevron-right;
+  }
 }
 
 svg.di {

@@ -2,10 +2,10 @@
   font-family: "DSO IconFont";
   font-style: normal;
   font-weight: normal;
-  src: url("#{$dso-icon-font-path}DSO-IconFont.eot"); // sass-lint:disable-line no-duplicate-properties
-  src: url("#{$dso-icon-font-path}DSO-IconFont.woff") format("woff"), // sass-lint:disable-line no-duplicate-properties
-  url("#{$dso-icon-font-path}DSO-IconFont.ttf") format("truetype"),
-  url("#{$dso-icon-font-path}DSO-IconFont.svg#DSO-IconFont") format("svg");
+  src: url("#{$dso-icon-font-path}dso-iconfont.eot"); // sass-lint:disable-line no-duplicate-properties
+  src: url("#{$dso-icon-font-path}dso-iconfont.woff") format("woff"), // sass-lint:disable-line no-duplicate-properties
+  url("#{$dso-icon-font-path}dso-iconfont.ttf") format("truetype"),
+  url("#{$dso-icon-font-path}dso-iconfont.svg#dso-iconfont") format("svg");
 }
 
 $di-icon-map: (
@@ -13,7 +13,11 @@ $di-icon-map: (
   "info": "\0042",
   "check": "\0043",
   "warning": "\0044",
-  "forbidden": "\0045"
+  "forbidden": "\0045",
+  "chevron-left": "\0046",
+  "chevron-right": "\0047",
+  "chevron-up": "\0048",
+  "chevron-down": "\0049"
 );
 
 @mixin di-font($pseudo: "before") {
@@ -108,3 +112,28 @@ $di-icon-map: (
   }
 }
 
+@mixin di-chevron-left($size: $u3, $pseudo: "before") {
+  @include di-font($pseudo: $pseudo);
+  @include di("chevron-left", $pseudo: $pseudo);
+
+  &::#{$pseudo} {
+    font-size: .5 * $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    width: $size;
+  }
+}
+
+@mixin di-chevron-right($size: $u3, $pseudo: "before") {
+  @include di-font($pseudo: $pseudo);
+  @include di("chevron-right", $pseudo: $pseudo);
+
+  &::#{$pseudo} {
+    font-size: .5 * $size;
+    height: $size;
+    line-height: $size;
+    text-align: center;
+    width: $size;
+  }
+}

@@ -101,6 +101,7 @@
 
 .btn-link {
   border: 0;
+  border-radius: 0;
   color: $grasgroen;
   height: $dso-button-link-size;
   line-height: $dso-button-link-size;
@@ -113,19 +114,31 @@
   }
 
   .icon {
-    border: #{$dso-button-border-width * 2} solid $grasgroen;
-    border-radius: 50%;
-    float: left;
+    display: inline-block;
     font-size: (18em / 16);
     height: $dso-button-link-size;
     line-height: $dso-button-link-size - 2 * $dso-button-border-width;
-    margin-right: $u1;
+    position: relative;
+    vertical-align: text-bottom;
     width: $dso-button-link-size;
+  }
 
-    &::before {
-      position: relative;
-      top: -1px;
-    }
+  &.di-icon-before .icon::before,
+  &.di-icon-after .icon::before {
+    display: inline-block;
+    height: $dso-button-link-size;
+    padding: 0;
+    position: relative;
+    top: 2px;
+    width: $dso-button-link-size;
+  }
+
+  &.di-icon-before {
+    margin-right: $u1;
+  }
+
+  &.di-icon-after {
+    margin-left: $u1;
   }
 
   &:visited {
@@ -133,40 +146,25 @@
   }
 
   &:hover {
-    color: $grasgroen;
-    text-decoration: none;
+    color: $dso-anchor-hover-color;
 
-    .icon {
-      background-color: $grasgroen;
-      color: $wit;
-    }
-  }
-
-  &:focus,
-  &.focus {
-    background-color: transparent;
-    color: $dso-anchor-focus-color;
-    text-decoration: underline;
-
-    .icon {
-      background-color: $dso-anchor-focus-color;
-      border: #{$dso-button-border-width * 2} solid $dso-anchor-focus-color;
-      color: $wit;
+    .icon span::before {
+      color: $dso-anchor-hover-color;
     }
   }
 
   &:active,
-  &.active {
-    &,
-    &:focus,
-    &.focus {
-      color: $bosgroen;
+  &.active,
+  &:focus,
+  &.focus {
+    background-color: $dso-anchor-focus-color;
+    border: 0;
+    color: $wit;
+    outline: 0;
+    text-decoration: underline;
 
-      .icon {
-        background-color: $bosgroen;
-        border-color: $bosgroen;
-        color: $wit;
-      }
+    .icon {
+      color: $wit;
     }
   }
 

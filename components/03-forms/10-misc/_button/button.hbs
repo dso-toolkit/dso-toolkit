@@ -1,6 +1,9 @@
-<button type="{{ type }}" class="btn btn-{{ modifier }}" {{{ifattr 'disabled' disabled }}}>
-  {{#if icon }}
-    {{> '@icon' icon=icon }}
+<button type="{{ type }}" class="btn btn-{{ modifier }} di-icon-{{position}}" {{{ifattr 'disabled' disabled }}}>
+  {{#if icon}}
+    {{#if (eq position 'before')}}{{> '@icon' icon=icon }}{{/if}}
   {{/if}}
-  {{ label }}
+  <span {{#if btn-icon}}class="sr-only"{{/if}}>{{ label }}</span>
+  {{#if icon}}
+    {{#if (eq position 'after')}}{{> '@icon' icon=icon }}{{/if}}
+  {{/if}}
 </button>
