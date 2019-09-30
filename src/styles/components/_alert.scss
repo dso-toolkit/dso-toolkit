@@ -14,41 +14,36 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
   }
 
   &::before {
+    content: "";
+    height: $dso-alert-icon-size;
     left: $dso-alert-horizontal-padding - 1px; // 1px border
     position: absolute;
     top: $dso-alert-horizontal-padding - 1px; // 1px border
+    width: $dso-alert-icon-size;
   }
 
   &.alert-success {
-    @include di-check;
+    &::before {
+      @include di("success");
+    }
   }
 
   &.alert-danger {
-    @include di-cross;
+    &::before {
+      @include di("error");
+    }
   }
 
   &.alert-warning {
-    @include di-warning;
-
-    &.svgicon {
-      &::before {
-        content: '';
-        display: none;
-      }
-
-      svg {
-        position: absolute;
-        left: $u2;
-        top: $u2;
-
-        #{--color-2}: $dso-warning-color;
-        #{--color-3}: $zwart;
-      }
+    &::before {
+      @include di("warning");
     }
   }
 
   &.alert-info {
-    @include di-info;
+    &::before {
+      @include di("information");
+    }
   }
 
   a,

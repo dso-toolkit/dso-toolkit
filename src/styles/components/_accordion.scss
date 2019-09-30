@@ -38,7 +38,7 @@ $dso-accordion-state-icon-size: $u3;
       word-break: break-word;
 
       &::before {
-        @include icon($dso-icon-button-icon-chevron-down-purple-16x16);
+        // @include icon($dso-icon-button-icon-chevron-down-purple-16x16); ICON
         background-size: $dso-accordion-chevron-icon-size;
         height: $dso-accordion-chevron-icon-size;
         margin-left: -$dso-accordion-chevron-space;
@@ -68,7 +68,7 @@ $dso-accordion-state-icon-size: $u3;
         text-decoration: underline;
 
         &::before {
-          @include icon($dso-icon-button-icon-chevron-down-white-16x16);
+          // @include icon($dso-icon-button-icon-chevron-down-white-16x16); ICON
 
           background-size: $dso-accordion-chevron-icon-size;
           height: $dso-accordion-chevron-icon-size;
@@ -96,37 +96,37 @@ $dso-accordion-state-icon-size: $u3;
       }
     }
 
-    &.dso-success {
-      > .dso-section-handle {
-        a {
-          @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
+    // &.dso-success {
+    //   > .dso-section-handle {
+    //     a {
+    //       @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
+    //     }
+    //   }
+    // }
 
-    &.dso-danger {
-      > .dso-section-handle {
-        a {
-          @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
+    // &.dso-danger {
+    //   > .dso-section-handle {
+    //     a {
+    //       @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
+    //     }
+    //   }
+    // }
 
-    &.dso-warning {
-      > .dso-section-handle {
-        a {
-          @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
+    // &.dso-warning {
+    //   > .dso-section-handle {
+    //     a {
+    //       @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
+    //     }
+    //   }
+    // }
 
-    &.dso-info {
-      > .dso-section-handle {
-        a {
-          @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
-        }
-      }
-    }
+    // &.dso-info {
+    //   > .dso-section-handle {
+    //     a {
+    //       @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
+    //     }
+    //   }
+    // }
 
     &.dso-open {
       &:not(.dso-nested-accordion) {
@@ -140,9 +140,9 @@ $dso-accordion-state-icon-size: $u3;
           a {
             color: $wit;
 
-            &::before {
-              background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
-            }
+            // &::before { ICON
+            //   background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
+            // }
           }
         }
       }
@@ -152,13 +152,13 @@ $dso-accordion-state-icon-size: $u3;
         border: 0;
         border-radius: $dso-accordion-border-radius;
 
-        > .dso-section-handle {
-          a {
-            &::before {
-              background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
-            }
-          }
-        }
+        // > .dso-section-handle { ICON
+        //   a {
+        //     &::before {
+        //       background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
+        //     }
+        //   }
+        // }
 
         > .dso-section-body {
           padding: ($u2 - 1) ($u2 + 1) $u4; // corrections for missing borders in nested accordion

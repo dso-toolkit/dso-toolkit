@@ -4,7 +4,7 @@
   position: relative;
 
   > button {
-    @include icon($dso-toggle-close-icon-forestgreen);
+    // @include icon($dso-toggle-close-icon-forestgreen);
     background-size: $u2 $u2;
     border-style: none;
     height: #{$dso-toggle-close-icon-size - 2px};
@@ -21,7 +21,7 @@
 
     &:focus,
     &.focus {
-      @include icon($dso-icon-button-icon-cross-white-12x12);
+      // @include icon($dso-icon-button-icon-cross-white-12x12);
       background-color: $dso-anchor-focus-color;
       outline: 0;
     }
@@ -37,7 +37,7 @@
 }
 
 .dso-info-button {
-  @include icon($dso-icon-info-icon-tooltip-info-16x16);
+  // @include icon($dso-icon-info-icon-tooltip-info-16x16);
   height: $dso-button-info-size;
   margin-left: $u1;
   min-width: $dso-button-info-size;
@@ -45,12 +45,12 @@
   position: relative;
   width: $dso-button-info-size;
 
-  &.dso-open,
-  &:hover,
-  &:active,
-  &.active {
-    @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
-  }
+  // &.dso-open,
+  // &:hover,
+  // &:active,
+  // &.active {
+  //   @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
+  // }
 
   &:focus,
   &.focus {

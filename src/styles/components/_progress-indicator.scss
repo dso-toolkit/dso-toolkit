@@ -4,11 +4,11 @@ $dso-progress-indicator-unit: $u4;
   line-height: $dso-progress-indicator-unit;
 
   &::before {
-    @extend .fas;
+    // @extend .fas;
 
     animation: rotation 1.5s infinite ease 1.2s;
     color: $grasgroen;
-    content: #{fa-content($fa-var-circle-notch)};
+    // content: #{fa-content($fa-var-circle-notch)};
     display: block;
     float: left;
     font-size: $dso-progress-indicator-unit;

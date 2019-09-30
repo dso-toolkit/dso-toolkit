@@ -13,13 +13,13 @@ $dso-pagination-item-border-size: 2px;
     width: $dso-pagination-item-size;
   }
 
-  .dso-previous {
-    @include icon($dso-icon-button-icon-chevron-left-12x12, $position-x: 52%, $position-y: 40%);
-  }
+  // .dso-previous {
+  //   @include icon($dso-icon-button-icon-chevron-left-12x12, $position-x: 52%, $position-y: 40%);
+  // }
 
-  .dso-next {
-    @include icon($dso-icon-button-icon-chevron-right-12x12, $position-x: 48%, $position-y: 40%);
-  }
+  // .dso-next {
+  //   @include icon($dso-icon-button-icon-chevron-right-12x12, $position-x: 48%, $position-y: 40%);
+  // }
 
   > li {
     display: inline-block;

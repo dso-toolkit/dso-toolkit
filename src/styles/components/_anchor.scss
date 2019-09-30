@@ -1,5 +1,5 @@
-$dso-anchor-download-content: fa-content($fa-var-download);
-$dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
+// $dso-anchor-download-content: fa-content($fa-var-download);
+// $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 $dso-anchor-spacer-width: 4px;
 
 .alert,
@@ -30,20 +30,20 @@ a {
   &.download,
   &.extern {
     &::after {
-      @extend .fas;
+      // @extend .fas;
       margin-left: $dso-anchor-spacer-width;
     }
   }
 
-  &.download {
-    &::after {
-      content: $dso-anchor-download-content;
-    }
-  }
+  // &.download {
+  //   &::after {
+  //     content: $dso-anchor-download-content;
+  //   }
+  // }
 
-  &.extern {
-    &::after {
-      content: $dso-anchor-extern-content;
-    }
-  }
+  // &.extern {
+  //   &::after {
+  //     content: $dso-anchor-extern-content;
+  //   }
+  // }
 }

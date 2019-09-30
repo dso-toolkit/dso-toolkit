@@ -17,28 +17,6 @@ $library: true !default;
 @import "styles/mixins/bootstrap-variables";
 
 /*!
- * Font Awesome Free 5.0.7 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
- */
-
-@import "@fortawesome/fontawesome-free/scss/variables";
-@import "@fortawesome/fontawesome-free/scss/mixins";
-@import "@fortawesome/fontawesome-free/scss/core";
-@import "@fortawesome/fontawesome-free/scss/larger";
-@import "@fortawesome/fontawesome-free/scss/fixed-width";
-@import "@fortawesome/fontawesome-free/scss/list";
-@import "@fortawesome/fontawesome-free/scss/bordered-pulled";
-@import "@fortawesome/fontawesome-free/scss/animated";
-@import "@fortawesome/fontawesome-free/scss/rotated-flipped";
-@import "@fortawesome/fontawesome-free/scss/stacked";
-@import "@fortawesome/fontawesome-free/scss/icons";
-// @import "@fortawesome/fontawesome-free/scss/screen-reader";
-
-@import "@fortawesome/fontawesome-free/scss/brands";
-@import "@fortawesome/fontawesome-free/scss/regular";
-@import "@fortawesome/fontawesome-free/scss/solid";
-
-/*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -51,7 +29,7 @@ $library: true !default;
 // Reset and dependencies
 @import "bootstrap-sass/assets/stylesheets/bootstrap/normalize";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/print";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+// @import "bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
 // Core CSS
 @import "bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";

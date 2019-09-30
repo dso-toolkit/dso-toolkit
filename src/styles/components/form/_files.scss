@@ -10,8 +10,13 @@ form,
   .form-group {
     &.dso-files {
       .dso-remove {
-        @include di-font;
-        @include di("cross");
+        &::before {
+          @include di("times");
+
+          content: "";
+          height: 24px;
+          width: 24px;
+        }
 
         font-size: 0;
         min-width: auto;

@@ -17,13 +17,13 @@
       top: 0;
       width: $u5;
 
-      &::before {
-        @include fa-icon;
+      // &::before {
+      //   // @include fa-icon;
 
-        content: fa-content($fa-var-search);
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-      }
+      //   // content: fa-content($fa-var-search);
+      //   // font-family: "Font Awesome 5 Free";
+      //   // font-weight: 900;
+      // }
     }
 
     input:first-child {
@@ -60,8 +60,8 @@
     }
 
     button {
-      @include di-font;
-      @include di("cross");
+      // @include di-font;
+      // @include di("cross");
 
       background-color: transparent;
       border: 0;

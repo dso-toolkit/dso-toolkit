@@ -16,17 +16,17 @@ ul.dso-conclusion {
       top: 3px;
     }
 
-    &.dso-success {
-      @include di-check($size: $dso-conclusion-icon-size);
-    }
+    // &.dso-success {
+    //   @include di-check($size: $dso-conclusion-icon-size);
+    // }
 
-    &.dso-warning {
-      @include di-warning($size: $dso-conclusion-icon-size);
-    }
+    // &.dso-warning {
+    //   @include di-warning($size: $dso-conclusion-icon-size);
+    // }
 
-    &.dso-forbidden {
-      @include di-forbidden($size: $dso-conclusion-icon-size);
-    }
+    // &.dso-forbidden {
+    //   @include di-forbidden($size: $dso-conclusion-icon-size);
+    // }
 
     .dso-info {
       margin: 16px 0 16px -26px;

@@ -22,13 +22,13 @@
   <div class="dso-file-upload">
     <input type="file" id="file-upload" />
     <label class="btn btn-link" for="file-upload">
-      <span class="icon fa fa-plus"></span>
+      {{> '@icon' icon='plus' }}
       Document toevoegen
     </label>
   </div>
 
   <!-- Or to trigger the upload using a button element (not recommended) -->
   <!--
-    {{> '@button' type='button' modifier='link' label='Document toevoegen' icon='icon fa fa-plus' }}
+    {{> '@button' type='button' modifier='link' label='Document toevoegen' icon='plus' }}
   -->
 </div>

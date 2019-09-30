@@ -1,0 +1,135 @@
+<svg viewBox="144 0 320 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style type="text/css">
+    #times * { fill: red; }
+  </style>
+
+  <view id="img-error" viewBox="0 0 32 32" />
+  <g>
+    <use href="#error" />
+  </g>
+
+  <view id="img-forbidden" viewBox="32 0 32 32" />
+  <g transform="translate(32)">
+    <use href="#forbidden" />
+  </g>
+
+  <view id="img-information" viewBox="64 0 32 32" />
+  <g transform="translate(64)">
+    <use href="#information" />
+  </g>
+
+  <view id="img-success" viewBox="96 0 32 32" />
+  <g transform="translate(96)">
+    <use href="#success" />
+  </g>
+
+  <view id="img-times" viewBox="128 0 32 32" />
+  <g transform="translate(128)">
+    <use href="#times" />
+  </g>
+
+  <view id="img-warning" viewBox="160 0 32 32" />
+  <g transform="translate(160)">
+    <use href="#warning" />
+  </g>
+
+  <view id="img-chevron-left" viewBox="192 0 32 32" />
+  <g transform="translate(192)">
+    <use href="#chevron-left" />
+  </g>
+
+  <view id="img-chevron-up" viewBox="224 0 32 32" />
+  <g transform="translate(224)">
+    <use href="#chevron-up" />
+  </g>
+
+  <view id="img-chevron-down" viewBox="256 0 32 32" />
+  <g transform="translate(256)">
+    <use href="#chevron-down" />
+  </g>
+
+  <view id="img-chevron-right" viewBox="288 0 32 32" />
+  <g transform="translate(288)">
+    <use href="#chevron-right" />
+  </g>
+
+  <symbol id="chevron-down" viewBox="0 0 32 32">
+    <path d="M1.333 9.333c0-0.8 0.267-1.333 0.8-1.867 1.067-1.067 2.667-1.067 3.733 0l11.467 11.467 11.467-11.467c1.067-1.067 2.667-1.067 3.733 0s1.067 2.667 0 3.733l-13.333 13.333c-1.067 1.067-2.667 1.067-3.733 0l-13.333-13.333c-0.533-0.533-0.8-1.067-0.8-1.867z" />
+  </symbol>
+
+  <symbol id="chevron-left" viewBox="0 0 32 32">
+    <path d="M24 0c0.8 0 1.333 0.267 1.867 0.8 1.067 1.067 1.067 2.667 0 3.733l-11.467 11.467 11.467 11.467c1.067 1.067 1.067 2.667 0 3.733s-2.667 1.067-3.733 0l-13.333-13.333c-1.067-1.067-1.067-2.667 0-3.733l13.333-13.333c0.533-0.533 1.067-0.8 1.867-0.8z" />
+  </symbol>
+
+  <symbol id="chevron-right" viewBox="0 0 32 32">
+    <path d="M10.667 32c-0.8 0-1.333-0.267-1.867-0.8-1.067-1.067-1.067-2.667 0-3.733l11.467-11.467-11.467-11.467c-1.067-1.067-1.067-2.667 0-3.733s2.667-1.067 3.733 0l13.333 13.333c1.067 1.067 1.067 2.667 0 3.733l-13.333 13.333c-0.533 0.533-1.067 0.8-1.867 0.8z" />
+  </symbol>
+
+  <symbol id="chevron-up" viewBox="0 0 32 32">
+    <path d="M33.333 22.667c0 0.8-0.267 1.333-0.8 1.867-1.067 1.067-2.667 1.067-3.733 0l-11.467-11.467-11.467 11.467c-1.067 1.067-2.667 1.067-3.733 0s-1.067-2.667 0-3.733l13.333-13.333c1.067-1.067 2.667-1.067 3.733 0l13.333 13.333c0.533 0.533 0.8 1.067 0.8 1.867z" />
+  </symbol>
+
+  <symbol id="form-info" viewBox="0 0 16 16">
+    <g fill="none" fill-rule="evenodd">
+      <circle stroke="#39870C" stroke-width="2" cx="8" cy="8" r="7"/>
+      <g transform="translate(7 4)">
+        <path d="M1 4v3" stroke="#39870C" stroke-width="2" stroke-linecap="round"/>
+        <circle fill="#39870C" cx="1" cy="1" r="1"/>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="form-info-active" viewBox="0 0 16 16">
+    <g fill="none" fill-rule="evenodd">
+      <circle stroke="#39870C" stroke-width="2" fill="#39870C" cx="8" cy="8" r="7"/>
+      <g transform="translate(7 4)">
+        <path d="M1 4v3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        <circle fill="#fff" cx="1" cy="1" r="1"/>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="error" viewBox="0 0 32 32">
+    <g fill="none" fill-rule="evenodd">
+      <rect fill="#CE3F51" width="32" height="32" rx="16"/>
+      <g stroke="#FFF" stroke-linecap="round" stroke-width="2">
+        <path d="M20.5 11.5l-9 9M11.5 11.5l9 9"/>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="forbidden" viewBox="0 0 512 512">
+    <path fill="#ce3f51" d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
+  </symbol>
+
+  <symbol id="information" viewBox="0 0 32 32">
+    <g fill="none" fill-rule="evenodd">
+      <rect fill="#6CA4D9" width="32" height="32" rx="16"/>
+      <g transform="translate(10 10)">
+        <path d="M6 6v5M4 6h2M4 11h4" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+        <circle fill="#FFF" cx="6" cy="1.5" r="1.5"/>
+      </g>
+    </g>
+  </symbol>
+
+  <symbol id="success" viewBox="0 0 32 32">
+    <g fill="none" fill-rule="evenodd">
+      <rect fill="#79b929" width="32" height="32" rx="16"/>
+      <path d="M11 16.5l3 3 7-7" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </symbol>
+
+  <symbol id="times" viewBox="0 0 352 512">
+    <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z" />
+  </symbol>
+
+  <symbol id="warning" viewBox="0 0 32 32">
+    <g fill="none" fill-rule="evenodd">
+      <rect fill="#DCD500" width="32" height="32" rx="16"/>
+      <g transform="translate(10 10)">
+        <path d="M6 1v5" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <circle fill="#000" cx="6" cy="10.5" r="1.5"/>
+      </g>
+    </g>
+  </symbol>
+</svg>

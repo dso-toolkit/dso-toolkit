@@ -6,13 +6,9 @@ const util = require('gulp-util');
 const del = require('del');
 const fractal = require('../fractal.js');
 const fse = require('fs-extra');
-const inlineSvg = require('gulp-inline-svg');
 const path = require('path');
 const pretty = require('pretty');
 const sass = require('gulp-sass');
-const slug = require('slug');
-const svgmin = require('gulp-svgmin');
-const svgVariableName = require('./functions/svg-variable-name.js');
 const tap = require('gulp-tap');
 const trim = require('gulp-trim');
 
@@ -20,7 +16,7 @@ const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: options => gulp.series(inlineSvgIcons, buildStylesWrapper(options), copyAssets, copyBootstrapFonts, copyFontAwesomeFonts),
+  buildToolkit: options => gulp.series(buildStylesWrapper(options), copyAssets),
   createDomReference: gulp.series(buildSite, createDomReference),
   buildWatcher: options => buildWatcher(options)
 };
@@ -61,22 +57,6 @@ function cleanUpBuild() {
   return del(['build/toolkit/dummy', 'build/toolkit/docs']);
 }
 
-function inlineSvgIcons() {
-  return gulp.src('assets/icons/**/*.svg')
-    .pipe(svgmin())
-    .pipe(inlineSvg({
-      filename: 'dso-icons.scss',
-      template: 'assets/icons/template.mustache',
-      context: {
-        prefix: 'dso-icon'
-      },
-      interceptor: function (svgData, file) {
-        return Object.assign(svgData, { variableName: svgVariableName(file.relative) });
-      }
-    }))
-    .pipe(gulp.dest('src/styles/icons'));
-}
-
 function buildStylesWrapper(options) {
   options = options || {};
 
@@ -97,18 +77,6 @@ function copyAssets() {
   return gulp
     .src('assets/**')
     .pipe(gulp.dest('build/toolkit'));
-}
-
-function copyBootstrapFonts() {
-  return gulp
-    .src('node_modules/bootstrap-sass/assets/fonts/bootstrap/**')
-    .pipe(gulp.dest('build/toolkit/fonts/bootstrap'));
-}
-
-function copyFontAwesomeFonts() {
-  return gulp
-    .src('node_modules/@fortawesome/fontawesome-free/webfonts/**')
-    .pipe(gulp.dest('build/toolkit/fonts/fontawesome'));
 }
 
 function createDomReference() {
