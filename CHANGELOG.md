@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
 * **BREAKING**: SVG iconen (#414).
 * Andere iconen voor status indicatoren (success, info, warning en danger) (#357)
+* Kleine buttons mogelijk maken met class btn-sm (#377)
 
 ### Removed
 * DSO specifieke markup voor het pagination component. Deze is gemarkeerd als deprecated in versie 8.2.0 door issue #272
