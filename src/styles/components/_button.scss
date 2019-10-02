@@ -35,6 +35,10 @@
   &.btn-primary {
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+
+    &.btn-sm {
+      line-height: $u2;
+    }
   }
 }
 
