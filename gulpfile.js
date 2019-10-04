@@ -6,7 +6,7 @@ const util = require('gulp-util');
 const fractal = require('./fractal.js');
 
 const { lintStyles, lintWatcher } = require('./gulp/lint');
-const { build, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
+const { build, cleanBuild, createSvgSpritesheet, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
 const { testDom } = require('./gulp/test');
 
 const log = util.log;
@@ -16,6 +16,7 @@ gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), fracta
 
 gulp.task('lint', lintStyles);
 gulp.task('build', build);
+gulp.task('spritesheet', createSvgSpritesheet)
 gulp.task('test', gulp.series(testDom));
 gulp.task('test:dom', testDom);
 gulp.task('reference:dom', createDomReference);

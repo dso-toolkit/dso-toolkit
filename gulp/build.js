@@ -11,12 +11,18 @@ const pretty = require('pretty');
 const sass = require('gulp-sass');
 const tap = require('gulp-tap');
 const trim = require('gulp-trim');
+const svgmin = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
+const prettyData = require('gulp-pretty-data');
+const cheerio = require('gulp-cheerio');
+const rename = require('gulp-rename');
 
 const log = util.log;
 
 module.exports = {
   cleanBuild,
-  buildToolkit: options => gulp.series(buildStylesWrapper(options), copyAssets),
+  createSvgSpritesheet,
+  buildToolkit: options => gulp.series(buildStylesWrapper(options), createSvgSpritesheet, copyAssets),
   createDomReference: gulp.series(buildSite, createDomReference),
   buildWatcher: options => buildWatcher(options)
 };
@@ -112,5 +118,65 @@ function buildWatcher(options) {
 
       return copyAssets();
     });
+
+    gulp.watch('src/icons/*.svg').on('all', function (event, path, stats) {
+      logger('icons', event, path);
+
+      return createSvgSpritesheet();
+    });
   };
+}
+
+function createSvgSpritesheet() {
+  return gulp
+    .src('src/icons/*.svg')
+    .pipe(svgmin({
+      js2svg: {
+        pretty: true
+      }
+    }))
+    .pipe(svgstore({
+      inlineSvg: true
+    }))
+    .pipe(cheerio({
+      run: function ($) {
+        const grid = 32;
+        const symbols = $('symbol');
+
+        symbols.each(function (index, element) {
+          const symbol = $(element);
+          const id = symbol.attr('id');
+
+          symbol
+            .before(`<!-- START: ${id} -->`)
+            .after(`<!-- END: ${id} -->`);
+
+          const view = $('<view>')
+            .attr('id', `img-${id}`)
+            .attr('viewBox', [index * grid, 0, grid, grid].join(' '));
+
+          symbol.before(view);
+
+          const use = $('<use>')
+            .attr('href', `#${id}`);
+
+          const g = $('<g>')
+            .attr('transform', `translate(${index * grid})`)
+            .append(use);
+
+          symbol.before(g);
+        });
+
+        $(':root').attr('viewBox', [symbols.length * grid / 2 - grid / 2, 0, symbols.length * grid, grid].join(' '))
+      },
+      parserOptions: { xmlMode: true }
+    }))
+    .pipe(prettyData({
+      type: 'prettify',
+      extensions: {
+        'svg': 'xml'
+      }
+    }))
+    .pipe(rename('dso-icons.svg'))
+    .pipe(gulp.dest('build/toolkit'));
 }

@@ -4,3 +4,4 @@ node_modules
 /build
 /wcag
 .vscode
+assets/icons/dso-icons.svg
