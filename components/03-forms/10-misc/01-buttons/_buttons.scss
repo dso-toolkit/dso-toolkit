@@ -94,8 +94,6 @@
   }
 
   .example-hover .btn.btn-link {
-    text-decoration: underline;
-
     .icon {
       background-color: $grasgroen;
       border-color: $grasgroen;
@@ -109,15 +107,6 @@
     .icon {
       background-color: $bosgroen;
       border-color: $bosgroen;
-      color: $wit;
-    }
-  }
-
-  .example-focus .btn.btn-link {
-    background-color: $dso-anchor-focus-color;
-    color: $wit;
-
-    .icon {
       color: $wit;
     }
   }
