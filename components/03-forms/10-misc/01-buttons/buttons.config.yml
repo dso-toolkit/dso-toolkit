@@ -55,12 +55,12 @@ context:
       modifier: link
       icon: icon fas fa-angle-right
       state: hover
-    - example-label: Focus
+    - example-label: Active
       label: Lees verder
       type: button
       modifier: link
       icon: icon fas fa-angle-right
-      state: focus
+      state: active
     - example-label: Disabled
       label: Lees verder
       type: button
