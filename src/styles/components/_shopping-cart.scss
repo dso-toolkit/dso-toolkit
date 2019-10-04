@@ -26,12 +26,12 @@
     }
   }
 
-  .di::before {
-    font-size: 10px !important;
-    height: $u3 !important;
-    line-height: $u3 !important;
-    width: $u3 !important;
-  }
+  // .di::before { ??
+  //   font-size: 10px !important;
+  //   height: $u3 !important;
+  //   line-height: $u3 !important;
+  //   width: $u3 !important;
+  // }
 
   ul,
   ol {
@@ -45,7 +45,7 @@
 
   li,
   button {
-    > .icon {
+    > svg.di {
       float: left;
       height: $u3;
       line-height: $u3;
@@ -100,12 +100,12 @@
     padding: ($u3 / 2) $u2;
   }
 
-  .dso-warning {
-    .di::before {
-      font-size: 10px !important;
-      height: $u2 !important;
-      line-height: $u2 !important;
-      width: $u2 !important;
-    }
-  }
+  // .dso-warning { ??
+  //   .di::before {
+  //     font-size: 10px !important;
+  //     height: $u2 !important;
+  //     line-height: $u2 !important;
+  //     width: $u2 !important;
+  //   }
+  // }
 }

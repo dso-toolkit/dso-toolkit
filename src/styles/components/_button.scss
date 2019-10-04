@@ -112,7 +112,7 @@
     top: -2px;
   }
 
-  .icon {
+  > svg.di {
     border: #{$dso-button-border-width * 2} solid $grasgroen;
     border-radius: 50%;
     float: left;
@@ -120,12 +120,8 @@
     height: $dso-button-link-size;
     line-height: $dso-button-link-size - 2 * $dso-button-border-width;
     margin-right: $u1;
+    padding: 5px;
     width: $dso-button-link-size;
-
-    &::before {
-      position: relative;
-      top: -1px;
-    }
   }
 
   &:visited {
@@ -136,7 +132,7 @@
     color: $grasgroen;
     text-decoration: none;
 
-    .icon {
+    > svg.di {
       background-color: $grasgroen;
       color: $wit;
     }
@@ -148,9 +144,8 @@
     color: $dso-anchor-focus-color;
     text-decoration: underline;
 
-    .icon {
+    > svg.di {
       background-color: $dso-anchor-focus-color;
-      border: #{$dso-button-border-width * 2} solid $dso-anchor-focus-color;
       color: $wit;
     }
   }
@@ -162,7 +157,7 @@
     &.focus {
       color: $bosgroen;
 
-      .icon {
+      > svg.di {
         background-color: $bosgroen;
         border-color: $bosgroen;
         color: $wit;
@@ -178,7 +173,7 @@
       opacity: 1;
     }
 
-    .icon {
+    > svg.di {
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;

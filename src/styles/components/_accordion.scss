@@ -39,13 +39,17 @@ $dso-accordion-state-icon-size: $u3;
 
       &::before {
         // @include icon($dso-icon-button-icon-chevron-down-purple-16x16); ICON
-        background-size: $dso-accordion-chevron-icon-size;
-        height: $dso-accordion-chevron-icon-size;
+        @include di("chevron-down");
+
+        content: "";
+        color: $dso-accordion-main-color;
+        display: inline-block;
+        // height: $dso-accordion-chevron-icon-size;
         margin-left: -$dso-accordion-chevron-space;
         margin-right: $dso-accordion-main-padding;
         position: relative;
         top: calc((#{$dso-accordion-handle-line-height} - 1em) / 2);
-        width: $dso-accordion-chevron-icon-size;
+        // width: $dso-accordion-chevron-icon-size;
       }
 
       &::after {

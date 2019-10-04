@@ -24,25 +24,25 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
 
   &.alert-success {
     &::before {
-      @include di("success");
+      @include di("status-success", 32px);
     }
   }
 
   &.alert-danger {
     &::before {
-      @include di("error");
+      @include di("status-error", 32px);
     }
   }
 
   &.alert-warning {
     &::before {
-      @include di("warning");
+      @include di("status-warning", 32px);
     }
   }
 
   &.alert-info {
     &::before {
-      @include di("information");
+      @include di("status-information", 32px);
     }
   }
 

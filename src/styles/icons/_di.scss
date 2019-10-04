@@ -1,10 +1,13 @@
-@mixin di($icon) {
-  background: url("/icons/dso-icons.svg#img-#{$icon}") no-repeat;
-  background-position: 0 -32px;
-  background-size: 32px 96px;
+@mixin di($icon, $size: 16px) {
+  background: url("/dso-icons.svg#img-#{$icon}") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: $size;
+  width: $size;
 }
 
 svg.di {
   height: 1em;
+  vertical-align: -.17em;
   width: 1em;
 }
