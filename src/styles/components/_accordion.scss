@@ -41,8 +41,8 @@ $dso-accordion-state-icon-size: $u3;
         // @include icon($dso-icon-button-icon-chevron-down-purple-16x16); ICON
         @include di("chevron-down");
 
-        content: "";
         color: $dso-accordion-main-color;
+        content: "";
         display: inline-block;
         // height: $dso-accordion-chevron-icon-size;
         margin-left: -$dso-accordion-chevron-space;

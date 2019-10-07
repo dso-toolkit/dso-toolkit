@@ -16,6 +16,9 @@ const svgstore = require('gulp-svgstore');
 const prettyData = require('gulp-pretty-data');
 const cheerio = require('gulp-cheerio');
 const rename = require('gulp-rename');
+const ListStream = require('list-stream');
+const css = require('css');
+const indent = require('indent');
 
 const log = util.log;
 
@@ -107,7 +110,7 @@ function buildWatcher(options) {
   options = options || {};
 
   return logger => {
-    gulp.watch('(components|src)/**/*.scss').on('all', function (event, path, stats) {
+    gulp.watch(['components/**/*.scss', 'src/dso.scss', 'src/styles/**/*.scss']).on('all', function (event, path, stats) {
       logger('styles', event, path);
 
       return buildStylesWrapper(options)();
@@ -119,7 +122,7 @@ function buildWatcher(options) {
       return copyAssets();
     });
 
-    gulp.watch('src/icons/*.svg').on('all', function (event, path, stats) {
+    gulp.watch('src/icons/*.(svg|scss)').on('all', function (event, path, stats) {
       logger('icons', event, path);
 
       return createSvgSpritesheet();
@@ -127,56 +130,131 @@ function buildWatcher(options) {
   };
 }
 
-function createSvgSpritesheet() {
-  return gulp
-    .src('src/icons/*.svg')
-    .pipe(svgmin({
-      js2svg: {
-        pretty: true
-      }
-    }))
-    .pipe(svgstore({
-      inlineSvg: true
-    }))
-    .pipe(cheerio({
-      run: function ($) {
-        const grid = 32;
-        const symbols = $('symbol');
+function transformSelector(selector) {
+  const [primary, ...rest] = selector.split(' ');
 
-        symbols.each(function (index, element) {
-          const symbol = $(element);
-          const id = symbol.attr('id');
+  return `#img-${primary.replace(':', '-')} + g ${rest.join(' ')}`.trim();
+}
 
-          symbol
-            .before(`<!-- START: ${id} -->`)
-            .after(`<!-- END: ${id} -->`);
+async function createSvgSpritesheet() {
+  const sassCompiler = sass({
+    includePaths: [
+      path.join(process.cwd(), 'node_modules')
+    ]
+  }).on('error', sass.logError);
 
-          const view = $('<view>')
-            .attr('id', `img-${id}`)
-            .attr('viewBox', [index * grid, 0, grid, grid].join(' '));
+  const stylesheets = await new Promise((resolve, reject) => {
+    gulp.src('src/icons/*.scss')
+      .pipe(sassCompiler)
+      .pipe(ListStream.obj((error, data) => {
+        if (error) {
+          reject(error);
+        }
 
-          symbol.before(view);
+        resolve(data.map(({ relative, extname, contents }) => {
+          const id = path.basename(relative, extname);
+          const style = contents.toString();
+          const ast = css.parse(style);
+          const variants = ast.stylesheet.rules
+            .filter(r => r.type === 'rule')
+            .reduce((v, rule) =>
+              v.concat(
+                rule.selectors
+                  .filter(s => s !== id && s.indexOf(`${id}:`) === 0)
+                  .map(s => s.substr(id.length + 1))
+                  .map(s => s.indexOf(' ') > -1 ? s.substr(0, s.indexOf(' ')) : s)
+                  .filter(s => v.indexOf(s) === -1)
+              ),
+              []
+            );
 
-          const use = $('<use>')
-            .attr('href', `#${id}`);
+          ast.stylesheet.rules
+            .filter(r => r.type === 'rule')
+            .forEach(rule =>
+                rule.selectors = rule.selectors.map(s => s.indexOf(id) === 0
+                  ? transformSelector(s)
+                  : s
+                )
+            );
 
-          const g = $('<g>')
-            .attr('transform', `translate(${index * grid})`)
-            .append(use);
+          return { id, variants, style: css.stringify(ast) };
+        }));
+      }));
+  });
+  
+  return new Promise((resolve, reject) => {
+    gulp
+      .src('src/icons/*.svg')
+      .pipe(svgmin({
+        js2svg: {
+          pretty: true
+        }
+      }))
+      .pipe(svgstore({
+        inlineSvg: true
+      }))
+      .pipe(cheerio({
+        run: function ($) {
+          const grid = 32;
+          const symbols = $('symbol').toArray();
 
-          symbol.before(g);
-        });
+          const positions = symbols.reduce((position, element) => {
+            const symbol = $(element);
+            const id = symbol.attr('id');
 
-        $(':root').attr('viewBox', [symbols.length * grid / 2 - grid / 2, 0, symbols.length * grid, grid].join(' '))
-      },
-      parserOptions: { xmlMode: true }
-    }))
-    .pipe(prettyData({
-      type: 'prettify',
-      extensions: {
-        'svg': 'xml'
-      }
-    }))
-    .pipe(rename('dso-icons.svg'))
-    .pipe(gulp.dest('build/toolkit'));
+            const stylesheet = stylesheets.find(s => s.id === id);
+            const iconIds = [
+              id,
+              ...(stylesheet ? stylesheet.variants : []).map(v => `${id}-${v}`)
+            ];
+
+            symbol
+              .before(`<!-- START: ${iconIds.join(', ')} -->`)
+              .after(`<!-- END: ${iconIds.join(', ')} -->`);
+
+            if (stylesheet) {
+              const style = $('<style>')
+              .attr('type', 'text/css')
+              .html(`\n${indent(stylesheet.style, 4)}\n  `); // last two spaces are indent fix
+
+              symbol.before(style);
+            }
+
+            iconIds.forEach((iconId, index) => {
+              const view = $('<view>')
+                .attr('id', `img-${iconId}`)
+                .attr('viewBox', [(position + index) * grid, 0, grid, grid].join(' '));
+
+              symbol.before(view);
+
+              const use = $('<use>')
+                .attr('href', `#${id}`);
+
+              const g = $('<g>')
+                .attr('transform', `translate(${(position + index) * grid})`)
+                .append(use);
+
+              symbol.before(g);
+            });
+
+            return position + iconIds.length;
+          }, 0);
+
+          $(':root').attr(
+            'viewBox',
+            [positions * grid / 2 - grid / 2, 0, positions * grid, grid].join(' ')
+          );
+        },
+        parserOptions: { xmlMode: true }
+      }))
+      .pipe(prettyData({
+        type: 'prettify',
+        extensions: {
+          'svg': 'xml'
+        }
+      }))
+      .pipe(rename('dso-icons.svg'))
+      .pipe(gulp.dest('build/toolkit'))
+      .pipe(tap(() => resolve()));
+    });
 }
