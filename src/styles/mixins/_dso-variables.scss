@@ -33,6 +33,9 @@ $grijs-10:      #e5e5e5;    //                 - niet te gebruiken als leestekst
 $grijs-5:       #f2f2f2;    //                 - niet te gebruiken als leestekst
 $wit:           #fff;
 
+$cannon-pink:   #8b4a6a;
+$scampi:        #676cb0;
+
 $opac10:        rgba(0, 0, 0, .1);
 
 $dso-unit: 8px;
@@ -65,9 +68,9 @@ $dso-warning-bg-color: #f8f6cc;
 $dso-danger-bg-color: #f5d8dc;
 
 // component kleuren
-$dso-anchor-visited-color: #8b4a6a;
-$dso-anchor-hover-color: #676cb0;
-$dso-anchor-focus-color: #676cb0;
+$dso-anchor-visited-color: $cannon-pink;
+$dso-anchor-hover-color: $scampi;
+$dso-anchor-focus-color: $scampi;
 
 
 $dso-alert-success-bg-color: $dso-success-bg-color;

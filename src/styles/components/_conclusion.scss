@@ -16,17 +16,31 @@ ul.dso-conclusion {
       top: 3px;
     }
 
-    // &.dso-success {
-    //   @include di-check($size: $dso-conclusion-icon-size);
-    // }
+    &.dso-success,
+    &.dso-warning,
+    &.dso-forbidden {
+      &::before {
+        content: "";
+      }
+    }
 
-    // &.dso-warning {
-    //   @include di-warning($size: $dso-conclusion-icon-size);
-    // }
+    &.dso-success {
+      &::before {
+        @include di("status-success", $dso-conclusion-icon-size);
+      }
+    }
 
-    // &.dso-forbidden {
-    //   @include di-forbidden($size: $dso-conclusion-icon-size);
-    // }
+    &.dso-warning {
+      &::before {
+        @include di("status-warning", $dso-conclusion-icon-size);
+      }
+    }
+
+    &.dso-forbidden {
+      &::before {
+        @include di("forbidden", $dso-conclusion-icon-size);
+      }
+    }
 
     .dso-info {
       margin: 16px 0 16px -26px;
@@ -43,4 +57,3 @@ ul.dso-conclusion {
     }
   }
 }
-

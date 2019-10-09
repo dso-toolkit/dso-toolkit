@@ -15,7 +15,7 @@ context:
       - name: cancelButton
         type: button
         modifier: link
-        icon: icon fas fa-times
+        icon: times
         label: Annuleren
 variants:
   - name: modal-close
@@ -42,7 +42,7 @@ variants:
         - name: cancelButton
           type: button
           modifier: link
-          icon: icon fas fa-times
+          icon: times
           label: Annuleren
   - name: modal-steps
     label: Steps
@@ -61,7 +61,7 @@ variants:
         - name: cancelButton
           type: button
           modifier: link
-          icon: icon fas fa-times
+          icon: times
           label: Annuleren
   - name: modal-confirm
     label: Confirm

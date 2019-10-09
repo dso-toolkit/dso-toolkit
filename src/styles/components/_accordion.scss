@@ -1,8 +1,8 @@
-$dso-accordion-main-color: #8b4a6a;
+$dso-accordion-main-color: $cannon-pink;
 $dso-accordion-nesting-color: #dbc8d1;
 $dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
-$dso-accordion-chevron-icon-size: $u2;
+$dso-accordion-chevron-icon-size: $u3;
 $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
 $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
@@ -38,21 +38,16 @@ $dso-accordion-state-icon-size: $u3;
       word-break: break-word;
 
       &::before {
-        // @include icon($dso-icon-button-icon-chevron-down-purple-16x16); ICON
-        @include di("chevron-down");
+        @include di("chevron-down-cannon-pink");
 
-        color: $dso-accordion-main-color;
         content: "";
         display: inline-block;
-        // height: $dso-accordion-chevron-icon-size;
         margin-left: -$dso-accordion-chevron-space;
         margin-right: $dso-accordion-main-padding;
-        position: relative;
-        top: calc((#{$dso-accordion-handle-line-height} - 1em) / 2);
-        // width: $dso-accordion-chevron-icon-size;
       }
 
       &::after {
+        content: "";
         position: absolute;
         right: $u2;
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
@@ -72,13 +67,7 @@ $dso-accordion-state-icon-size: $u3;
         text-decoration: underline;
 
         &::before {
-          // @include icon($dso-icon-button-icon-chevron-down-white-16x16); ICON
-
-          background-size: $dso-accordion-chevron-icon-size;
-          height: $dso-accordion-chevron-icon-size;
-          margin-left: -$dso-accordion-chevron-space;
-          margin-right: $dso-accordion-main-padding;
-          width: $dso-accordion-chevron-icon-size;
+          @include di-variant("chevron-down-wit");
         }
       }
     }
@@ -100,37 +89,37 @@ $dso-accordion-state-icon-size: $u3;
       }
     }
 
-    // &.dso-success {
-    //   > .dso-section-handle {
-    //     a {
-    //       @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
-    //     }
-    //   }
-    // }
+    &.dso-success {
+      > .dso-section-handle {
+        a::after {
+          @include di("status-success", $dso-accordion-chevron-icon-size);
+        }
+      }
+    }
 
-    // &.dso-danger {
-    //   > .dso-section-handle {
-    //     a {
-    //       @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
-    //     }
-    //   }
-    // }
+    &.dso-danger {
+      > .dso-section-handle {
+        a::after {
+          @include di("status-danger", $dso-accordion-chevron-icon-size);
+        }
+      }
+    }
 
-    // &.dso-warning {
-    //   > .dso-section-handle {
-    //     a {
-    //       @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
-    //     }
-    //   }
-    // }
+    &.dso-warning {
+      > .dso-section-handle {
+        a::after {
+          @include di("status-warning", $dso-accordion-chevron-icon-size);
+        }
+      }
+    }
 
-    // &.dso-info {
-    //   > .dso-section-handle {
-    //     a {
-    //       @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
-    //     }
-    //   }
-    // }
+    &.dso-info {
+      > .dso-section-handle {
+        a::after {
+          @include di("status-info", $dso-accordion-chevron-icon-size);
+        }
+      }
+    }
 
     &.dso-open {
       &:not(.dso-nested-accordion) {
@@ -144,9 +133,9 @@ $dso-accordion-state-icon-size: $u3;
           a {
             color: $wit;
 
-            // &::before { ICON
-            //   background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
-            // }
+            &::before {
+              @include di-variant("chevron-up-wit");
+            }
           }
         }
       }
@@ -156,13 +145,13 @@ $dso-accordion-state-icon-size: $u3;
         border: 0;
         border-radius: $dso-accordion-border-radius;
 
-        // > .dso-section-handle { ICON
-        //   a {
-        //     &::before {
-        //       background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
-        //     }
-        //   }
-        // }
+        > .dso-section-handle {
+          a {
+            &::before {
+              @include di-variant("chevron-up-cannon-pink");
+            }
+          }
+        }
 
         > .dso-section-body {
           padding: ($u2 - 1) ($u2 + 1) $u4; // corrections for missing borders in nested accordion

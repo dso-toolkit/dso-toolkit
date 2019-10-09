@@ -195,7 +195,8 @@ async function createSvgSpritesheet() {
       }))
       .pipe(cheerio({
         run: function ($) {
-          const grid = 32;
+          const canvas = 32;
+          const gutter = 10;
           const symbols = $('symbol').toArray();
 
           const positions = symbols.reduce((position, element) => {
@@ -221,9 +222,11 @@ async function createSvgSpritesheet() {
             }
 
             iconIds.forEach((iconId, index) => {
+              const x = (position + index) * (canvas + gutter) + gutter / 2;
+
               const view = $('<view>')
                 .attr('id', `img-${iconId}`)
-                .attr('viewBox', [(position + index) * grid, 0, grid, grid].join(' '));
+                .attr('viewBox', [x, 0, canvas, canvas].join(' '));
 
               symbol.before(view);
 
@@ -231,7 +234,7 @@ async function createSvgSpritesheet() {
                 .attr('href', `#${id}`);
 
               const g = $('<g>')
-                .attr('transform', `translate(${(position + index) * grid})`)
+                .attr('transform', `translate(${x})`)
                 .append(use);
 
               symbol.before(g);
@@ -242,7 +245,7 @@ async function createSvgSpritesheet() {
 
           $(':root').attr(
             'viewBox',
-            [positions * grid / 2 - grid / 2, 0, positions * grid, grid].join(' ')
+            [positions * (canvas + gutter) / 2 - (canvas + gutter) / 2 + gutter / 2, 0, positions * (canvas + gutter) + gutter, canvas].join(' ')
           );
         },
         parserOptions: { xmlMode: true }

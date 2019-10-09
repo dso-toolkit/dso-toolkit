@@ -10,8 +10,6 @@ $dso-form-control-border-width: 1px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-required-string: "verplicht";
 
-// $dso-toggle-close-icon-forestgreen: $dso-icon-button-icon-cross-12x12-forestgreen;
-// $dso-toggle-close-icon-active: $dso-icon-button-icon-cross-white-12x12;
 $dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
 
@@ -107,28 +105,30 @@ form {
 
 select:not([multiple]) {
   .form-group & {
+    @include di-variant("caret-down");
+
     // sass-lint:disable no-vendor-prefixes
     -moz-appearance: none;
     -webkit-appearance: none;
     // sass-lint:enable no-vendor-prefixes
 
-    // background-image: url($dso-icon-fa-caret-down); ICON
     background-position: calc(100% - #{$u1});
     background-repeat: no-repeat;
+    background-size: 16px 16px;
     padding-right: $u4;
 
-    // &:disabled { ICON
-    //   background-image: url($dso-icon-fa-caret-down-lightgrey);
-    // }
+    &:disabled {
+      @include di-variant("caret-down-disabled");
+    }
 
     &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
       display: none;
     }
   }
 
-  // .form-group.dso-invalid & {
-  //   background-image: url($dso-icon-fa-caret-down-red);
-  // }
+  .form-group.dso-invalid & {
+    @include di-variant("caret-down-invalid");
+  }
 }
 
 .form-control {

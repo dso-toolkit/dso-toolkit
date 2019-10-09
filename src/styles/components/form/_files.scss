@@ -15,10 +15,16 @@ form,
         padding: $u1;
 
         &::before {
-          @include di("times");
+          @include di("times-bosgroen");
 
           content: "";
           display: block;
+        }
+
+        &:focus {
+          &::before {
+            @include di-variant("times-wit");
+          }
         }
       }
 
@@ -33,7 +39,7 @@ form,
               color: $grasgroen;
               text-decoration: none;
 
-              > .di {
+              > svg.di {
                 background-color: $grasgroen;
                 color: $wit;
               }

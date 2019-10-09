@@ -79,9 +79,6 @@ body.dso-modal-open {
 
     .dso-close {
       background-color: transparent;
-      // background-image: url($dso-modal-close-icon);
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
       border: 0;
       border-radius: 50%;
       height: $dso-modal-close-icon-size;
@@ -89,6 +86,13 @@ body.dso-modal-open {
       right: 13px;
       top: calc(50% - #{$dso-modal-close-icon-size / 2});
       width: $dso-modal-close-icon-size;
+
+      &::before {
+        @include di("times");
+
+        content: "";
+        display: inline-block;
+      }
 
       &:hover {
         background-color: $wit;
@@ -99,7 +103,6 @@ body.dso-modal-open {
       &:focus,
       &.focus {
         background-color: $dso-anchor-focus-color;
-        // background-image: url($dso-modal-close-icon-active);
         border: 2px solid $dso-anchor-focus-color;
         outline: 0;
       }
@@ -107,7 +110,15 @@ body.dso-modal-open {
       &:active,
       &.active {
         background-color: $grasgroen;
-        // background-image: url($dso-modal-close-icon-active);
+      }
+
+      &:focus,
+      &.focus,
+      &:active,
+      &.active {
+        &::before {
+          @include di-variant("times-wit")
+        }
       }
     }
   }

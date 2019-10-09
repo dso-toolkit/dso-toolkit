@@ -7,23 +7,21 @@
 
     .dso-search-icon {
       bottom: 0;
-      color: $grasgroen;
       height: 40px;
       left: 0;
-      line-height: 38px;
+      line-height: $u5;
       padding: 0 $u1;
       position: absolute;
       text-align: center;
       top: 0;
       width: $u5;
 
-      // &::before {
-      //   // @include fa-icon;
+      &::before {
+        @include di("search");
 
-      //   // content: fa-content($fa-var-search);
-      //   // font-family: "Font Awesome 5 Free";
-      //   // font-weight: 900;
-      // }
+        content: "";
+        display: inline-block;
+      }
     }
 
     input:first-child {
@@ -60,9 +58,6 @@
     }
 
     button {
-      // @include di-font;
-      // @include di("cross");
-
       background-color: transparent;
       border: 0;
       bottom: 0;
@@ -78,15 +73,21 @@
       width: $u5;
 
       &::before {
-        font-size: .8rem;
+        @include di("times");
+
+        content: "";
+        display: inline-block;
       }
 
       &.focus,
       &:focus {
         background-color: $dso-anchor-focus-color;
         border-radius: 4px;
-        color: $wit;
         outline: none;
+
+        &::before {
+          @include di-variant("times-wit");
+        }
       }
     }
   }

@@ -48,22 +48,22 @@ context:
       type: button
       modifier: link
       state: standard
-      icon: icon fas fa-angle-right
+      icon: chevron-right
     - example-label: Hover
       label: Lees verder
       type: button
       modifier: link
-      icon: icon fas fa-angle-right
+      icon: chevron-right
       state: hover
     - example-label: Active
       label: Lees verder
       type: button
       modifier: link
-      icon: icon fas fa-angle-right
+      icon: chevron-right
       state: active
     - example-label: Disabled
       label: Lees verder
       type: button
       modifier: link
-      icon: icon fas fa-angle-right
+      icon: chevron-right
       disabled: true

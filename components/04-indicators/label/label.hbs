@@ -2,7 +2,7 @@
   {{ label }}
   {{#if button}}
     <button type="button" title="{{ buttonTitle }}">
-      <span class="{{ button }}"></span>
+      {{> '@icon' icon=button }}
     </button>
   {{/if}}
 </span>

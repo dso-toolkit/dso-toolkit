@@ -1,5 +1,3 @@
-// $dso-anchor-download-content: fa-content($fa-var-download);
-// $dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 $dso-anchor-spacer-width: 4px;
 
 .alert,
@@ -30,20 +28,45 @@ a {
   &.download,
   &.extern {
     &::after {
-      // @extend .fas;
+      content: "";
+      display: inline-block;
       margin-left: $dso-anchor-spacer-width;
     }
   }
 
-  // &.download {
-  //   &::after {
-  //     content: $dso-anchor-download-content;
-  //   }
-  // }
+  &.download {
+    &::after {
+      @include di("download");
+    }
 
-  // &.extern {
-  //   &::after {
-  //     content: $dso-anchor-extern-content;
-  //   }
-  // }
+    &:hover {
+      &::after {
+        @include di-variant("download-scampi");
+      }
+    }
+
+    &:focus {
+      &::after {
+        @include di-variant("download-wit");
+      }
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+
+    &:hover {
+      &::after {
+        @include di-variant("external-link-scampi");
+      }
+    }
+
+    &:focus {
+      &::after {
+        @include di-variant("external-link-wit");
+      }
+    }
+  }
 }

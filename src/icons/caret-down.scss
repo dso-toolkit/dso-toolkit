@@ -8,6 +8,14 @@ caret-down:grasgroen {
   color: $grasgroen;
 }
 
+caret-down:disabled {
+  color: $grijs-40;
+}
+
+caret-down:invalid {
+  color: $dso-danger-color;
+}
+
 caret-down:wit {
   color: $wit;
 }
