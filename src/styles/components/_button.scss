@@ -10,7 +10,8 @@
   font-size: $dso-button-font-size;
   font-weight: 500;
 
-  &:not(.btn-link) {
+  &.btn-primary,
+  &.btn-default {
     min-width: $dso-button-size;
   }
 
