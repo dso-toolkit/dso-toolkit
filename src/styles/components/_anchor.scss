@@ -17,7 +17,7 @@ $dso-anchor-spacer-width: 4px;
 }
 
 a {
-  &:visited {
+  &:not(.btn):visited {
     color: $dso-anchor-visited-color;
   }
 

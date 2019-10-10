@@ -39,7 +39,7 @@
 }
 
 .btn-default {
-  &:visited:not(:focus):not(:hover) {
+  &:not(.btn):visited:not(:focus):not(:hover) {
     color: $btn-default-color;
   }
 
@@ -51,7 +51,7 @@
   &.active {
     &,
     &:hover,
-    &:visited {
+    &:not(.btn):visited {
       @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
     }
   }
@@ -73,7 +73,7 @@
     @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
   }
 
-  &:visited:not(:focus):not(:hover) {
+  &:not(.btn):visited:not(:focus):not(:hover) {
     color: $btn-primary-color;
   }
 
@@ -87,7 +87,7 @@
     &,
     &:hover,
     &:focus,
-    &:visited {
+    &:not(.btn):visited {
       @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
     }
   }
@@ -116,7 +116,6 @@
   }
 
   table.table & {
-    margin: -4px 0 -6px !important;
     position: relative;
     top: -2px;
   }
@@ -139,7 +138,7 @@
     vertical-align: middle;
   }
 
-  &:visited:not(:focus):not(:hover) {
+  &:not(.btn):visited:not(:focus):not(:hover) {
     color: $grasgroen;
   }
 
