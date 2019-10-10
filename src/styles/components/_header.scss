@@ -25,18 +25,6 @@ header {
     }
   }
 
-  .dso-login {
-    a {
-      color: $grasgroen;
-      font-weight: 700;
-
-      &:focus {
-        background-color: transparent;
-        outline: 4px solid $dso-anchor-focus-color;
-      }
-    }
-  }
-
   .dso-search {
     margin-right: $u1;
   }

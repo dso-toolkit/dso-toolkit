@@ -9,7 +9,11 @@
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
-  min-width: $dso-button-size;
+
+  &.btn-primary,
+  &.btn-default {
+    min-width: $dso-button-size;
+  }
 
   &:active,
   &.active,
@@ -35,7 +39,7 @@
 }
 
 .btn-default {
-  &:visited {
+  &:not(.btn):visited:not(:focus):not(:hover) {
     color: $btn-default-color;
   }
 
@@ -47,7 +51,7 @@
   &.active {
     &,
     &:hover,
-    &:visited {
+    &:not(.btn):visited {
       @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
     }
   }
@@ -69,7 +73,7 @@
     @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
   }
 
-  &:visited {
+  &:not(.btn):visited:not(:focus):not(:hover) {
     color: $btn-primary-color;
   }
 
@@ -83,7 +87,7 @@
     &,
     &:hover,
     &:focus,
-    &:visited {
+    &:not(.btn):visited {
       @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
     }
   }
@@ -101,50 +105,69 @@
 
 .btn-link {
   border: 0;
+  border-radius: 0;
   color: $grasgroen;
-  height: $dso-button-link-size;
-  line-height: $dso-button-link-size;
   padding: 0;
 
+  &.btn-align {
+    height: $u3;
+    margin-bottom: 1.5 * $u1 - 1px;
+    margin-top: 1.5 * $u1 - 1px;
+  }
+
   table.table & {
-    margin: -4px 0 -6px !important;
     position: relative;
     top: -2px;
   }
 
-  > svg.di {
-    border: #{$dso-button-border-width * 2} solid $grasgroen;
-    border-radius: 50%;
-    float: left;
-    height: $dso-button-link-size;
-    margin-right: $u1;
-    padding: 5px;
-    width: $dso-button-link-size;
+  svg.di + span:not(.sr-only),
+  span:not(.sr-only) + svg.di {
+    margin-left: $u1;
   }
 
-  &:visited {
+  // svg.di {
+  //   font-size: 1.5em;
+  // }
+
+  // span.sr-only + svg.di {
+  //   display: block;
+  // }
+
+  svg.di,
+  span {
+    vertical-align: middle;
+  }
+
+  &:not(.btn):visited:not(:focus):not(:hover) {
     color: $grasgroen;
   }
 
-  &:hover {
-    color: $grasgroen;
+  &:not([disabled]):hover {
     text-decoration: none;
 
-    > svg.di {
+    > svg.di { // ?
       background-color: $grasgroen;
       color: $wit;
+    }
+
+    span:not(.icon) {
+      text-decoration: underline;
     }
   }
 
   &:focus,
   &.focus {
-    background-color: transparent;
-    color: $dso-anchor-focus-color;
-    text-decoration: underline;
+    background-color: $dso-anchor-focus-color;
+    color: $wit;
+    text-decoration: none;
 
-    > svg.di {
+    > svg.di { // ?
       background-color: $dso-anchor-focus-color;
       color: $wit;
+    }
+
+    span:not(.icon) {
+      text-decoration: underline;
     }
   }
 

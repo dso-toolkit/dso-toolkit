@@ -15,7 +15,7 @@ $dso-anchor-spacer-width: 4px;
 }
 
 a {
-  &:visited {
+  &:not(.btn):visited {
     color: $dso-anchor-visited-color;
   }
 
@@ -25,47 +25,49 @@ a {
     outline: none;
   }
 
-  &.download,
-  &.extern {
-    &::after {
-      content: "";
-      display: inline-block;
-      margin-left: $dso-anchor-spacer-width;
-    }
-  }
-
-  &.download {
-    &::after {
-      @include di("download");
-    }
-
-    &:hover {
+  &:not(.btn) {
+    &.download,
+    &.extern {
       &::after {
-        @include di-variant("download-scampi");
+        content: "";
+        display: inline-block;
+        margin-left: $dso-anchor-spacer-width;
       }
     }
 
-    &:focus {
+    &.download {
       &::after {
-        @include di-variant("download-wit");
+        @include di("download");
+      }
+
+      &:hover {
+        &::after {
+          @include di-variant("download-scampi");
+        }
+      }
+
+      &:focus {
+        &::after {
+          @include di-variant("download-wit");
+        }
       }
     }
-  }
 
-  &.extern {
-    &::after {
-      @include di("external-link");
-    }
-
-    &:hover {
+    &.extern {
       &::after {
-        @include di-variant("external-link-scampi");
+        @include di("external-link");
       }
-    }
 
-    &:focus {
-      &::after {
-        @include di-variant("external-link-wit");
+      &:hover {
+        &::after {
+          @include di-variant("external-link-scampi");
+        }
+      }
+
+      &:focus {
+        &::after {
+          @include di-variant("external-link-wit");
+        }
       }
     }
   }
