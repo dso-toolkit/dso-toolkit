@@ -3,6 +3,61 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 9.0.0  - UNRELEASED
+
+### Changed
+* **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
+
+#### Migratie notities:
+
+##### Tertiaire button `.btn-link` redesign (#372)
+De modifier `.download` en `.extern` zijn op `.btn` niet meer toegestaan.
+
+Het label van een `.btn` dient vanaf nu in een `span` te zitten.
+
+Voorheen:
+```html
+<button type="..." class="btn ...modifiers">
+  Label
+</button>
+
+<a href="..." class="btn ...modifiers">
+  Label
+</a>
+```
+
+Moet worden:
+```html
+<button type="..." class="btn ...modifiers">
+  <span>Label</span>
+</button>
+
+<a href="..." class="btn ...modifiers">
+  <span>Label</span>
+</a>
+```
+
+Iconen in `.btn` krijgen geen `float: left` meer en is daarom geen block-element meer. Zoals alle inline elementen is _whitespace_ altijd _significant whitespace_. Het is van belang dat tussen het label en icoon geen whitespace staat.
+
+**Let op:** Frontend frameworks/libraries genereren markup niet altijd zoals het template is opgebouwd.
+
+```html
+<!-- OK -->
+<... class="btn ...">
+  <span>Label</span><svg class="di ..."></svg>
+</...>
+
+<!-- NOT OK -->
+<... class="btn ...">
+  <span>Label</span>
+  <svg class="di ..."></svg>
+</...>
+
+<... class="btn ...">
+  <span>Label</span> <svg class="di ..."></svg>
+</...>
+```
+
 ## 8.5.0 - 30-09-2019
 
 ### Added

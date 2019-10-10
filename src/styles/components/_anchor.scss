@@ -27,23 +27,25 @@ a {
     outline: none;
   }
 
-  &.download,
-  &.extern {
-    &::after {
-      @extend .fas;
-      margin-left: $dso-anchor-spacer-width;
+  &:not(.btn) {
+    &.download,
+    &.extern {
+      &::after {
+        @extend .fas;
+        margin-left: $dso-anchor-spacer-width;
+      }
     }
-  }
 
-  &.download {
-    &::after {
-      content: $dso-anchor-download-content;
+    &.download {
+      &::after {
+        content: $dso-anchor-download-content;
+      }
     }
-  }
 
-  &.extern {
-    &::after {
-      content: $dso-anchor-extern-content;
+    &.extern {
+      &::after {
+        content: $dso-anchor-extern-content;
+      }
     }
   }
 }

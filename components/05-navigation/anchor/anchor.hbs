@@ -1,13 +1,3 @@
-<a href="{{ url }}" {{{ifattr 'class' modifier }}} {{{ifattr 'target' modifier 'extern' '_blank' }}}>
-  {{#if icon }}
-    {{> '@icon' icon=icon }}
-  {{/if}}
-  {{#if iconOnly }}
-    <span class="sr-only">{{ label }}</span>
-  {{else}}
-    {{ label }}
-  {{/if}}
-  {{#if badge }}
-    {{> '@badge' badge }}
-  {{/if}}
+<a href="{{ url }}"{{#if iconOnly }} title="{{ label }}"{{/if}} {{{ifattr 'class' modifier }}} {{{ifattr 'target' modifier 'extern' '_blank' }}}>
+  {{#if icon }}{{> '@icon' icon=icon }}{{/if}}<span{{#if iconOnly }} class="sr-only"{{/if}}>{{ label }}</span>{{#if iconAfter }}{{> '@icon' icon=iconAfter }}{{/if}}{{#if badge }}{{> '@badge' badge }}{{/if}}
 </a>

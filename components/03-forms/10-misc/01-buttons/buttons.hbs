@@ -1,110 +1,83 @@
 <h2 style="margin-bottom: 24px">Primaire button / Call to action</h2>
 <div class="row">
   <div class="col-md-3">
-    {{> '@button' label='Button' type='button' modifier='primary' }}
+    {{> '@button' type='button' label='Button' modifier='primary' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='primary' disabled=true }}
   </div>
   <div class="col-md-3">
     {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' }}
   </div>
-  <div class="col-md-6">
-    {{> '@anchor' label='Aanvraagformulier downloaden' modifier='btn btn-primary download' url='#' }}
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-md-3">
-    {{> '@button' label='Disabled' type='button' modifier='primary' disabled=true }}
-  </div>
 </div>
 
 <div class="row example">
-  {{#each primary-buttons }}
-    <div class="col-md-3 example-{{ state }}">
-      <p><i>{{ example-label }}</i></p>
-      {{> '@button' }}
-    </div>
-  {{/each}}
-</div>
-
-<div class="row">
   <div class="col-md-6">
-    <label>Gebruik:</label>
-    <p>De gebruiksregel voor dit element is om maximaal één primaire button per pagina te gebruiken.</p>
+    <div class="dso-rich-content">
+      <label>Gebruik:</label>
+      <p>De gebruiksregel voor dit element is om maximaal één primaire button per pagina te gebruiken.</p>
+    </div>
   </div>
 </div>
 
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Secundaire button</h2>
 <div class="row">
   <div class="col-md-3">
-    {{> '@button' label='Button' type='button' modifier='default' }}
+    {{> '@button' type='button' label='Button' modifier='default' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='default' disabled=true }}
   </div>
   <div class="col-md-3">
     {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' }}
   </div>
-  <div class="col-md-3">
-    {{> '@anchor' label='Downloaden' modifier='btn btn-default download' url='#' }}
-  </div>
-  <div class="col-md-3">
-    {{> '@anchor' label='Lees verder' modifier='btn btn-default extern' url='#' }}
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-md-3">
-    {{> '@button' label='Disabled' type='button' modifier='default' disabled=true }}
-  </div>
 </div>
 
 <div class="row example">
-  {{#each secundary-buttons }}
-    <div class="col-md-3 example-{{ state }}">
-      <p><i>{{ example-label }}</i></p>
-      {{> '@button' }}
-    </div>
-  {{/each}}
-</div>
-
-<div class="row">
   <div class="col-md-6">
-    <label>Gebruik:</label>
-    <p>O.A. secundaire acties in formulieren</p>
+    <div class="dso-rich-content">
+      <label>Gebruik:</label>
+      <p>O.A. secundaire acties in formulieren</p>
+    </div>
   </div>
 </div>
 
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Tertiaire button</h2>
 <div class="row">
   <div class="col-md-3">
-    {{> '@button' label='Button' type='button' modifier='link' icon='icon fas fa-angle-right' }}
+    {{> '@button' type='button' label='Button' modifier='link' icon='icon fas fa-angle-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='link' icon='icon fas fa-angle-right' disabled=true }}
   </div>
   <div class="col-md-3">
     {{> '@anchor' label='Anchor' modifier='btn btn-link' icon='icon fas fa-angle-right' url='#' }}
   </div>
-  <div class="col-md-3">
-    {{> '@anchor' label='Downloaden' modifier='btn btn-link download' icon='icon fas fa-angle-right' url='#' }}
+</div>
+<br>
+<div class="row">
+  <div class="col-md-2">
+    {{> '@button' type='button' label='.btn-default' modifier='btn btn-default' url='#' }}
   </div>
-  <div class="col-md-3">
-    {{> '@anchor' label='Lees verder' modifier='btn btn-link extern' icon='icon fas fa-angle-right' url='#' }}
+  <div class="col-md-2">
+    {{> '@button' type='button' label='.btn-link.btn-align' modifier='btn btn-link btn-align' url='#' }}
   </div>
 </div>
 <br>
 <div class="row">
-  <div class="col-md-3">
-    {{> '@button' label='Disabled' type='button' modifier='link' icon='icon fas fa-angle-right' disabled=true }}
+  <div class="col-md-6">
+    {{> '@button' type='button' label='Link button' modifier='btn btn-link' url='#' }}
+    {{> '@button' type='button' label='Link button' modifier='btn btn-link' iconAfter='icon fas fa-info-circle' iconOnly=true url='#' }}
+    {{> '@button' type='button' label='Link button' modifier='btn btn-link' icon='icon fas fa-angle-left' url='#' }}
+    {{> '@button' type='button' label='Link button' modifier='btn btn-link' iconAfter='icon fas fa-angle-right' url='#' }}
   </div>
 </div>
 
 <div class="row example">
-  {{#each tertiary-buttons }}
-    <div class="col-md-3 example-{{ state }}">
-      <p><i>{{ example-label }}</i></p>
-      {{> '@button' }}
-    </div>
-  {{/each}}
-</div>
-
-<div class="row">
   <div class="col-md-6">
-    <label>Gebruik:</label>
-    <p>Lage prioriteit interacties</p>
+    <div class="dso-rich-content">
+      <label>Gebruik:</label>
+      <p>Lage prioriteit interacties</p>
+    </div>
   </div>
 </div>
