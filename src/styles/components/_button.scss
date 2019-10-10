@@ -125,13 +125,9 @@
     margin-left: $u1;
   }
 
-  // svg.di {
-  //   font-size: 1.5em;
-  // }
-
-  // span.sr-only + svg.di {
-  //   display: block;
-  // }
+  svg.di {
+    font-size: 1.5em;
+  }
 
   svg.di,
   span {
@@ -145,11 +141,6 @@
   &:not([disabled]):hover {
     text-decoration: none;
 
-    > svg.di { // ?
-      background-color: $grasgroen;
-      color: $wit;
-    }
-
     span:not(.icon) {
       text-decoration: underline;
     }
@@ -160,11 +151,6 @@
     background-color: $dso-anchor-focus-color;
     color: $wit;
     text-decoration: none;
-
-    > svg.di { // ?
-      background-color: $dso-anchor-focus-color;
-      color: $wit;
-    }
 
     span:not(.icon) {
       text-decoration: underline;
