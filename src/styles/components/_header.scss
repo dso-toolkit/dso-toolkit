@@ -25,31 +25,6 @@ header {
     }
   }
 
-  .dso-login {
-    a {
-      color: $grasgroen;
-      font-weight: 700;
-
-      &:focus {
-        background-color: transparent;
-        outline: 4px solid $dso-anchor-focus-color;
-      }
-
-      &,
-      .login-icon::after {
-        vertical-align: middle;
-      }
-
-      .login-icon::after {
-        @include icon($dso-icon-header-icon-profile-24x24);
-
-        height: $input-height-base;
-        vertical-align: middle;
-        width: 24px;
-      }
-    }
-  }
-
   .dso-search {
     margin-right: $u1;
   }

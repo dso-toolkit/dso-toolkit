@@ -56,6 +56,9 @@ module.exports = fractal => Object.assign({
       })
       .reduce((accumulator, currentValue) => Object.assign(accumulator, currentValue), {});
   },
+  not: function (value) {
+    return !value;
+  },
   toString: function (value) {
     return value.toString();
   },
