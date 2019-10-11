@@ -7,8 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
+* **BREAKING**: SVG iconen (#414).
 
 #### Migratie notities:
+
+##### SVG Iconen (#414)
+
+Het voorschrift voor de carousel maakte voorheen gebruik van Bootstrap's glyphicons. Het SVG-icoon element moet een modifier `icon-next` en `icon-prev` krijgen. Dit zijn standaard Bootstrap modifiers.
 
 ##### Tertiaire button `.btn-link` redesign (#372)
 De modifier `.download` en `.extern` zijn op `.btn` niet meer toegestaan.

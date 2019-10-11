@@ -67,6 +67,10 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
       color: $dso-label-default-button-hover-color;
       outline: 0;
     }
+
+    > svg.di {
+      display: block;
+    }
   }
 
   &.dso-label-info {

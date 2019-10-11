@@ -68,6 +68,12 @@ module.exports = fractal => Object.assign({
   join: function (list, character) {
     return list.join(character);
   },
+  split: function (str, character) {
+    return str.split(character);
+  },
+  first: function (value) {
+    return value[0];
+  },
   prefix: function (list, value) {
     return list.map(item => value + item);
   },
