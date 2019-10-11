@@ -1,29 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
+const icons = getIcons();
+
 module.exports = {
+  default: icons[0],
   collated: true,
   collator: function (markup, item) {
-    let html = '';
-
-    const index = item.order - 1;
-
-    if (index % 4 === 0) {
-      html += '<div class="row">';
-    }
-
-    html += `<div class="col-md-3">${markup}</div>`;
-
-    if (index % 4 === 3) {
-      html += '</div>';
-    }
-
-    return html;
+    return `<li><div>${markup}</div><code>${item.context.icon}</code></li>`;
   },
   context: {
     icon: 'user'
   },
-  variants: getIcons().map(icon => ({ name: icon, context: { icon } }))
+  variants: icons.map(icon => ({ name: icon, context: { icon } }))
 };
 
 function getIcons() {

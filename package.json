@@ -45,6 +45,7 @@
     "indent": "0.0.2",
     "list-stream": "1.0.1",
     "node-sass": "4.9.3",
-    "pretty": "2.0.0"
+    "pretty": "2.0.0",
+    "svg4everybody": "2.1.9"
   }
 }

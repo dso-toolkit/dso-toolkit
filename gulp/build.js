@@ -84,7 +84,7 @@ function buildStylesWrapper(options) {
 
 function copyAssets() {
   return gulp
-    .src('assets/**')
+    .src(['assets/**','node_modules/svg4everybody/dist/svg4everybody.min.js'])
     .pipe(gulp.dest('build/toolkit'));
 }
 
