@@ -9,13 +9,17 @@
     <link rel="stylesheet" href="{{path '/styles/dso.css' }}" />
 
     <style type="text/css">
-      ol {
-        list-style: none;
-        margin-left: 0;
-        padding-left: 0;
+      .icon-container {
         margin: 0 auto;
-        background-color: #f2f2f2;
         max-width: 600px;
+      }
+    
+      ol {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding-left: 0;
+        background-color: #f2f2f2;
       }
 
       ol::after {
@@ -29,12 +33,22 @@
       }
 
       li {
-        display: block;
         background-color: #fff;
-        float: left;
         width: 25%;
         padding: 8px;
         text-align: center;
+      }
+
+      @media (max-width: 650px) {
+        li {
+          width: 33%;
+        }
+      }
+
+      @media (max-width: 400px) {
+        li {
+          width: 50%;
+        }
       }
 
       ol li div {
@@ -49,9 +63,12 @@
 
   <body>
     <div class="container">
-      <ol>
-        {{{ yield }}}
-      </ol>
+      <div class="dso-rich-content icon-container">
+        <ol>
+          {{{ yield }}}
+        </ol>
+        <p>Sommige iconen zijn van <a href="https://fontawesome.com/" target="_blank" rel="noreferrer">FontAwesome</a>.</p>
+      </div>
     </div>
 
     <!-- Polyfill for svg use[href] with external uri -->
