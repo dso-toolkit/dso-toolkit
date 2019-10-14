@@ -16,6 +16,10 @@
       color: $wit;
       outline: none;
     }
+
+    svg.di {
+      margin-right: $u1;
+    }
   }
 
   .dso-contents {
@@ -24,13 +28,6 @@
     & + .dso-warning {
       margin-top: $u2;
     }
-  }
-
-  .di::before {
-    font-size: 10px !important;
-    height: $u3 !important;
-    line-height: $u3 !important;
-    width: $u3 !important;
   }
 
   ul,
@@ -43,12 +40,10 @@
     font-weight: normal;
   }
 
-  li,
-  button {
-    > .icon {
+  li {
+    > svg.di {
       float: left;
       height: $u3;
-      line-height: $u3;
       margin-right: $u1;
       text-align: center;
       width: $u3;
@@ -98,14 +93,5 @@
 
   .dso-empty {
     padding: ($u3 / 2) $u2;
-  }
-
-  .dso-warning {
-    .di::before {
-      font-size: 10px !important;
-      height: $u2 !important;
-      line-height: $u2 !important;
-      width: $u2 !important;
-    }
   }
 }

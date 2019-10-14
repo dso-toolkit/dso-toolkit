@@ -1,15 +1,19 @@
-$dso-dropdown-caret: fa-content($fa-var-caret-down);
-
 .dropdown {
   > .btn-default.dropdown-toggle {
     &::after {
-      @extend .fas;
+      @include di("caret-down-grasgroen");
 
-      content: $dso-dropdown-caret;
-      display: block;
-      float: right;
-      line-height: $dso-button-size - 2 * $dso-button-vertical-padding - 2px;
+      content: "";
+      display: inline-block;
       margin-left: $u1;
+      width: 10px;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @include di-variant("caret-down-wit");
+      }
     }
   }
 
@@ -33,6 +37,10 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       background-color: $grasgroen;
       border-color: $grasgroen;
       color: $wit;
+
+      &::after {
+        @include di-variant("caret-down-wit");
+      }
 
       &:hover {
         background-color: $bosgroen;

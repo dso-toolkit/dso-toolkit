@@ -14,3 +14,9 @@ variants:
     context:
       modifier: dso-yellow
       step: 2
+  - name: Icon indicator
+    context:
+      modifier: dso-yellow
+      icon: plus
+      label: Plus
+

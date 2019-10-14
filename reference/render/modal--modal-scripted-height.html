@@ -26,7 +26,9 @@
           <span>Toevoegen</span>
         </button>
         <button type="button" class="btn btn-link">
-          <span class="icon fas fa-times" aria-hidden="true"></span><span>Annuleren</span>
+          <svg class="di di-times">
+            <use href="/dso-icons.svg#times" />
+          </svg><span>Annuleren</span>
         </button>
       </div>
     </div>
@@ -76,7 +78,10 @@
             </div>
             <div class="dso-field-container">
               <input type="text" id="geboortedatum" class="form-control" />
-              <span class="fas fa-calendar form-control-feedback" aria-hidden="true"></span>
+              <span class="form-control-feedback" aria-hidden="true">
+                  <svg class="di di-calendar">
+                    <use href="../../dso-icons.svg#calendar" />
+                  </svg>      </span>
             </div>
           </div>
           <div class="form-group dso-input dso-input-text dso-required">
@@ -152,7 +157,9 @@
                     Vertrouwelijk
                   </label>
                 </div>
-                <span class="di di-warning" aria-hidden="true"></span> <button type="button" class="btn btn-link dso-remove">
+                <svg class="di di-status-warning">
+                  <use href="../../dso-icons.svg#status-warning" />
+                </svg> <button type="button" class="btn btn-link dso-remove">
                   <span>Verwijder document</span>
                 </button>
               </li>
@@ -170,7 +177,9 @@
             <div class="dso-file-upload">
               <input type="file" id="file-upload" />
               <label class="btn btn-link" for="file-upload">
-                <span class="icon fa fa-plus" aria-hidden="true"></span><span>Document toevoegen</span>
+                <svg class="di di-plus">
+                  <use href="../../dso-icons.svg#plus" />
+                </svg><span>Document toevoegen</span>
               </label>
             </div>
 
@@ -178,7 +187,9 @@
 
             <!--
               <button type="button" class="btn btn-link" >
-                <span class="icon fa fa-plus" aria-hidden="true"></span><span>Document toevoegen</span>
+                <svg class="di di-plus">
+                <use href="../../dso-icons.svg#plus" />
+              </svg><span>Document toevoegen</span>
               </button>
             -->
           </div>
@@ -361,4 +372,10 @@
       </div>
     </form>
   </div>
+
+  <!-- Polyfill for svg use[href] with external uri -->
+  <script src="../../svg4everybody.min.js"></script>
+  <script>
+    svg4everybody();
+  </script>
 </body>

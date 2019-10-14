@@ -33,7 +33,7 @@ context:
       inputType: input
       type: text
       label: Geboortedatum
-      inputIcon: fas fa-calendar
+      inputIcon: calendar
     - id: email
       inputType: input
       type: text

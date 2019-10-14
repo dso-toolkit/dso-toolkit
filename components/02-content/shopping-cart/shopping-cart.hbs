@@ -3,32 +3,31 @@
 <div class="dso-shopping-cart">
   <div class="dso-contents">
     {{#if items }}
-      {{#if toggleButton }}
+      {{#if toggleButton ~}}
         <button type="button" class="dso-status">
-          {{#if open }}
-            {{> '@icon' icon="icon fas fa-chevron-up"}}
-          {{else}}
-            {{> '@icon' icon="icon fas fa-chevron-down"}}
-          {{/if}}
-          U heeft {{countActivities items }} activiteit{{#if (gt (countActivities items) 1) }}en{{/if}} gekozen
+          {{~#if open ~}}
+            {{~> '@icon' icon='chevron-up'~}}
+          {{~else~}}
+            {{~> '@icon' icon='chevron-down'~}}
+          {{~/if~}}U heeft {{countActivities items }} activiteit{{#if (gt (countActivities items) 1) }}en{{/if}} gekozen
         </button>
       {{/if}}
       {{#if open }}
         <ul class="dso-items">
           {{#each items }}
             <li>
-              {{#if (hasWarning activities)}}{{> '@icon' icon="icon di di-warning" }}{{/if}}
+              {{#if (hasWarning activities)}}{{> '@icon' icon='status-warning' }}{{/if}}
               {{ label }}
               <button type="button" class="dso-delete" title="Verwijder">
-                {{> '@icon' icon="icon fas fa-trash-alt" }}
+                {{> '@icon' icon='trash' }}
               </button>
               <ul class="dso-activities">
                 {{#each activities }}
                   <li>
-                    {{#if warning }}{{> '@icon' icon="icon di di-warning" }}{{/if}}
+                    {{#if warning }}{{> '@icon' icon='status-warning' }}{{/if}}
                     {{ label }}
                     <button type="button" class="dso-delete" title="Verwijder">
-                      {{> '@icon' icon="icon fas fa-trash-alt" }}
+                      {{> '@icon' icon='trash' }}
                     </button>
                   </li>
                 {{/each}}
@@ -44,7 +43,7 @@
 
   {{#if (and items (hasWarning items) open)}}
     <p class="dso-warning">
-      <strong>Let op:</strong> Voor de werkzaamheden met een {{> '@icon' icon="di di-warning" }} zijn geen maatregelen opgenomen in dit overzicht met maatregelen. Dit betekent niet dat er geen voorschriften en maatregelen van toepassing zijn.
+      <strong>Let op:</strong> Voor de werkzaamheden met een {{> '@icon' icon='warning' }} zijn geen maatregelen opgenomen in dit overzicht met maatregelen. Dit betekent niet dat er geen voorschriften en maatregelen van toepassing zijn.
     </p>
   {{/if}}
 </div>

@@ -1,8 +1,8 @@
-$dso-accordion-main-color: #8b4a6a;
+$dso-accordion-main-color: $cannon-pink;
 $dso-accordion-nesting-color: #dbc8d1;
 $dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
-$dso-accordion-chevron-icon-size: $u2;
+$dso-accordion-chevron-icon-size: $u3;
 $dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
 $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
@@ -38,17 +38,16 @@ $dso-accordion-state-icon-size: $u3;
       word-break: break-word;
 
       &::before {
-        @include icon($dso-icon-button-icon-chevron-down-purple-16x16);
-        background-size: $dso-accordion-chevron-icon-size;
-        height: $dso-accordion-chevron-icon-size;
+        @include di("chevron-down-cannon-pink");
+
+        content: "";
+        display: inline-block;
         margin-left: -$dso-accordion-chevron-space;
         margin-right: $dso-accordion-main-padding;
-        position: relative;
-        top: calc((#{$dso-accordion-handle-line-height} - 1em) / 2);
-        width: $dso-accordion-chevron-icon-size;
       }
 
       &::after {
+        content: "";
         position: absolute;
         right: $u2;
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
@@ -68,13 +67,7 @@ $dso-accordion-state-icon-size: $u3;
         text-decoration: underline;
 
         &::before {
-          @include icon($dso-icon-button-icon-chevron-down-white-16x16);
-
-          background-size: $dso-accordion-chevron-icon-size;
-          height: $dso-accordion-chevron-icon-size;
-          margin-left: -$dso-accordion-chevron-space;
-          margin-right: $dso-accordion-main-padding;
-          width: $dso-accordion-chevron-icon-size;
+          @include di-variant("chevron-down-wit");
         }
       }
     }
@@ -98,32 +91,32 @@ $dso-accordion-state-icon-size: $u3;
 
     &.dso-success {
       > .dso-section-handle {
-        a {
-          @include di-check($size: $dso-accordion-state-icon-size, $pseudo: "after");
+        a::after {
+          @include di("status-success", $dso-accordion-chevron-icon-size);
         }
       }
     }
 
     &.dso-danger {
       > .dso-section-handle {
-        a {
-          @include di-cross($size: $dso-accordion-state-icon-size, $pseudo: "after");
+        a::after {
+          @include di("status-danger", $dso-accordion-chevron-icon-size);
         }
       }
     }
 
     &.dso-warning {
       > .dso-section-handle {
-        a {
-          @include di-warning($size: $dso-accordion-state-icon-size, $pseudo: "after");
+        a::after {
+          @include di("status-warning", $dso-accordion-chevron-icon-size);
         }
       }
     }
 
     &.dso-info {
       > .dso-section-handle {
-        a {
-          @include di-info($size: $dso-accordion-state-icon-size, $pseudo: "after");
+        a::after {
+          @include di("status-info", $dso-accordion-chevron-icon-size);
         }
       }
     }
@@ -141,7 +134,7 @@ $dso-accordion-state-icon-size: $u3;
             color: $wit;
 
             &::before {
-              background-image: url($dso-icon-button-icon-chevron-up-white-16x16);
+              @include di-variant("chevron-up-wit");
             }
           }
         }
@@ -155,7 +148,7 @@ $dso-accordion-state-icon-size: $u3;
         > .dso-section-handle {
           a {
             &::before {
-              background-image: url($dso-icon-button-icon-chevron-up-purple-16x16);
+              @include di-variant("chevron-up-cannon-pink");
             }
           }
         }

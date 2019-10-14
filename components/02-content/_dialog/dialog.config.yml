@@ -51,5 +51,5 @@ variants:
           - name: cancelButton
             type: button
             modifier: link
-            icon: icon fas fa-times
+            icon: times
             label: Annuleren

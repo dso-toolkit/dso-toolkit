@@ -120,20 +120,16 @@
     top: -2px;
   }
 
-  .icon + span:not(.sr-only),
-  span:not(.sr-only) + .icon {
+  svg.di + span:not(.sr-only),
+  span:not(.sr-only) + svg.di {
     margin-left: $u1;
   }
 
-  .icon {
+  svg.di {
     font-size: 1.5em;
   }
 
-  span.sr-only + .icon {
-    display: block;
-  }
-
-  .icon,
+  svg.di,
   span {
     vertical-align: middle;
   }
@@ -168,7 +164,7 @@
     &.focus {
       color: $bosgroen;
 
-      .icon {
+      > svg.di {
         background-color: $bosgroen;
         border-color: $bosgroen;
         color: $wit;
@@ -184,7 +180,7 @@
       opacity: 1;
     }
 
-    .icon {
+    > svg.di {
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;

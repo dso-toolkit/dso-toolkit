@@ -68,6 +68,12 @@ module.exports = fractal => Object.assign({
   join: function (list, character) {
     return list.join(character);
   },
+  split: function (str, character) {
+    return str.split(character);
+  },
+  first: function (value) {
+    return value[0];
+  },
   prefix: function (list, value) {
     return list.map(item => value + item);
   },
@@ -110,7 +116,7 @@ module.exports = fractal => Object.assign({
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
-require('../components/02-content/highlight-box/highlight-box.js'),
+require('../components/02-content/highlight-box/highlight-box.js')(fractal),
 require('../components/02-content/progress-block/progress-block.js'),
 require('../components/02-content/shopping-cart/shopping-cart.helpers.js')
 );
