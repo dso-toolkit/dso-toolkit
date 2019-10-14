@@ -5,3 +5,4 @@ node_modules
 /wcag
 .vscode
 assets/icons/dso-icons.svg
+*.zip
