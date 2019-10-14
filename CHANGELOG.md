@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 9.0.0  - UNRELEASED
 
+### Added
+* Dropdown menu items checkable maken (#373)
+
 ### Changed
 * **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
 * **BREAKING**: SVG iconen (#414).
