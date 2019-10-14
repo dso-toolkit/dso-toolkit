@@ -32,12 +32,20 @@ Moet worden:
 ```
 
 Notes:
+* Tijdens het upgraden zal het voorkomen dat een icoon niet meer beschikbaar is. In dat geval is samen met het UX team de volgende procedure bedacht:
+  1. Gebruik het placeholder icoon `wip-wip`.
+  2. Geef aan het UX team door welke iconen je mist.
+
+  Het UX team zal het verzoek beoordelen en indien nodig een icoon in DSO huisstijl ontwerpen. Het icoon wordt dan opgenomen in de toolkit. In de CHANGELOG zal duidelijk aangegeven worden welke iconen er toegevoegd zijn.
+
+  `wip-wip` zal nooit een "echt" icoon worden. Het is daarom een ideaal keyword om de broncode op te doorzoeken naar missende iconen.
 * Een namespace attribuut is niet nodig als het icoon in een HTML5 applicatie wordt gebruikt (https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg).
 * In het `use` element mag direct `href` ipv `xlink:href` worden gebruikt. In SVG2 is `xlink:href` deprecated (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href).
 * In bovenstaand voorbeeld verwijs ik naar `dso-icons.svg`:
   * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/library/dso-icons.svg` wordt gebundled;
   * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
   * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
+* FontAwesome is geen dependency meer. Tevens wordt Bootstrap's Glyphicons niet meer gebundled.
 * IE11 heeft geen support voor `use href` naar een externe URI of data URI. Elke implementatie van de toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de toolkit en maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
 
 Het voorschrift voor de carousel maakte voorheen gebruik van Bootstrap's glyphicons. Het SVG-icoon element moet een modifier `icon-next` en `icon-prev` krijgen. Dit zijn standaard Bootstrap modifiers.
