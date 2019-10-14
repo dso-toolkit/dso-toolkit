@@ -73,7 +73,7 @@
       width: $u5;
 
       &::before {
-        @include di("times");
+        @include di("times", 16px);
 
         content: "";
         display: inline-block;

@@ -114,7 +114,7 @@ select:not([multiple]) {
 
     background-position: calc(100% - #{$u1});
     background-repeat: no-repeat;
-    background-size: 16px 16px;
+    background-size: $dso-icon-size $dso-icon-size;
     padding-right: $u4;
 
     &:disabled {

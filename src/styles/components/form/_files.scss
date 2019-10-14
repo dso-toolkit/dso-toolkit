@@ -15,7 +15,7 @@ form,
         padding: $u1;
 
         &::before {
-          @include di("times-bosgroen");
+          @include di("times-bosgroen", 16px);
 
           content: "";
           display: block;

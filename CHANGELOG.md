@@ -8,10 +8,37 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
 * **BREAKING**: SVG iconen (#414).
+* Andere iconen voor status indicatoren (success, info, warning en danger) (#357)
+
+### Removed
+* DSO specifieke markup voor het pagination component. Deze is gemarkeerd als deprecated in versie 8.2.0 door issue #272
 
 #### Migratie notities:
 
 ##### SVG Iconen (#414)
+
+Zie de memo in #414 voor de achtergrond.
+
+Voorheen:
+```html
+<span class="fa fa-user" aria-hidden="true"></span>
+```
+
+Moet worden:
+```html
+<svg class="di di-user">
+  <use href="dso-icons.svg#user" />
+</svg>
+```
+
+Notes:
+* Een namespace attribuut is niet nodig als het icoon in een HTML5 applicatie wordt gebruikt (https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg).
+* In het `use` element mag direct `href` ipv `xlink:href` worden gebruikt. In SVG2 is `xlink:href` deprecated (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href).
+* In bovenstaand voorbeeld verwijs ik naar `dso-icons.svg`:
+  * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/library/dso-icons.svg` wordt gebundled;
+  * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
+  * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
+* IE11 heeft geen support voor `use href` naar een externe URI of data URI. Elke implementatie van de toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de toolkit en maakt gebruik van www.dso-toolkit.nl) maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
 
 Het voorschrift voor de carousel maakte voorheen gebruik van Bootstrap's glyphicons. Het SVG-icoon element moet een modifier `icon-next` en `icon-prev` krijgen. Dit zijn standaard Bootstrap modifiers.
 
