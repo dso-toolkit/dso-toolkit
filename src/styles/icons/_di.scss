@@ -1,4 +1,5 @@
 $dso-icon-size: 1em;
+$dso-icon-vertical-align: -0.17em;
 
 @mixin di($icon, $size: $dso-icon-size) {
   background: url("../dso-icons.svg#img-#{$icon}") no-repeat;
@@ -14,6 +15,6 @@ $dso-icon-size: 1em;
 
 svg.di {
   height: $dso-icon-size;
-  vertical-align: -.17em;
+  vertical-align: $dso-icon-vertical-align;
   width: $dso-icon-size;
 }
