@@ -1,5 +1,4 @@
-.dso-highlight-box,
-.highlight-box {
+.dso-highlight-box {
   background-color: $grijs-10;
   margin-top: $dso-highlight-box-margin-top;
   padding: $u2;
@@ -9,7 +8,7 @@
   }
 
   &.dso-yellow,
-  &.highlight-box-yellow {
+  &.dso-highlight-box-yellow {
     background-color: $dso-warning-bg-color;
   }
 
@@ -18,19 +17,21 @@
   }
 
   &.dso-border,
-  &.highlight-box-bordered {
+  &.dso-highlight-box-bordered {
     background-color: $wit;
     border: 1px solid $grijs-20;
     padding: $u2 - 1;
   }
 
-  a,
-  a:visited {
-    color: $text-color;
+  &:not(.dso-border):not(.dso-highlight-box-bordered):not(.dso-drop-shadow) {
+    a,
+    a:visited {
+      color: $text-color;
 
-    &.focus,
-    &:focus {
-      color: $wit;
+      &.focus,
+      &:focus {
+        color: $wit;
+      }
     }
   }
 
