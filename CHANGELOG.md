@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
 * **BREAKING**: SVG iconen (#414).
+* **BREAKING**: Wijziging dropdown button (#373).
 * Andere iconen voor status indicatoren (success, info, warning en danger) (#357)
 
 ### Removed

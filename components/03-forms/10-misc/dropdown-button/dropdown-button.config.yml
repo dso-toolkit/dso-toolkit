@@ -1,5 +1,6 @@
 notes: |
-  Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component
+  Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component. Class `dso-selectable-items` op de `ul` geeft extra ruimte voor een check-mark.
+  Class 'selected' geeft de `a` een checkmark.
 status: ready
 collated: true
 default: dropdown

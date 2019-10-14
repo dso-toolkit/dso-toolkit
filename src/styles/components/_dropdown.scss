@@ -1,5 +1,4 @@
 .dropdown {
-
   &.dso-align-right {
     clear: both;
     text-align: right;
@@ -12,15 +11,6 @@
   }
 
   > .btn-link.dropdown-toggle {
-    &::before {
-      @include di("user-grasgroen");
-      content: "";
-      display: inline-block;
-      height: 18px;
-      margin-right: #{$u3 / 2};
-      width: 20px;
-    }
-
     &:hover {
       text-decoration: underline;
     }
@@ -38,6 +28,10 @@
       a {
         padding: #{$u1 / 2} $u2;
 
+        &:visited {
+          color: $zwart;
+        }
+
         &:focus,
         &.focus {
           background-color: $dso-anchor-focus-color;
@@ -45,6 +39,12 @@
           color: $wit;
           outline: 0;
           text-decoration: underline;
+        }
+
+        &:hover {
+          background-color: $grasgroen;
+          border-color: $grasgroen;
+          color: $wit;
         }
       }
     }
@@ -63,10 +63,8 @@
               @include di("checkmark-wit");
               content: "";
               display: inline-block;
-              height: 20px;
               margin-left: -#{$u3 / 2 + 20};
               margin-right: #{$u3 / 2};
-              width: 20px;
             }
           }
         }
