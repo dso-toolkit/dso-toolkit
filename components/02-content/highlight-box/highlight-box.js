@@ -11,7 +11,7 @@ module.exports = function (fractal) {
 
       return `
         <div class="${[
-          'highlight-box',
+          'dso-highlight-box',
           this.modifier,
           modifier,
           (step || (icon && label)) ? 'dso-has-counter' : false
