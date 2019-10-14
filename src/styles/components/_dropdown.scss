@@ -1,25 +1,43 @@
 .dropdown {
-  > .btn-default.dropdown-toggle {
-    &::after {
-      @include di("caret-down-grasgroen");
 
-      content: "";
-      display: inline-block;
-      margin-left: $u1;
-      width: 10px;
-    }
+  &.dso-align-right {
+    clear: both;
+    text-align: right;
 
-    &:hover,
-    &:focus {
-      &::after {
-        @include di-variant("caret-down-wit");
-      }
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+      text-align: left;
     }
   }
+
+  > .btn-link.dropdown-toggle {
+    &::before {
+      @include di("user-grasgroen");
+      content: "";
+      display: inline-block;
+      height: 18px;
+      margin-right: #{$u3 / 2};
+      width: 20px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.open {
+    > .btn-link.dropdown-toggle {
+      text-decoration: underline;
+    }
+  }
+
 
   .dropdown-menu {
     li {
       a {
+        padding: #{$u1 / 2} $u2;
+
         &:focus,
         &.focus {
           background-color: $dso-anchor-focus-color;
@@ -30,30 +48,28 @@
         }
       }
     }
-  }
 
-  &.open {
-    > .btn-default.dropdown-toggle {
-      background-color: $grasgroen;
-      border-color: $grasgroen;
-      color: $wit;
+    &.dso-selectable-items {
+      li {
+        a {
+          padding-left: $u5;
 
-      &::after {
-        @include di-variant("caret-down-wit");
-      }
+          &.selected {
+            background-color: $grasgroen;
+            border-color: $grasgroen;
+            color: $wit;
 
-      &:hover {
-        background-color: $bosgroen;
-        border-color: $bosgroen;
-        color: $wit;
-      }
-
-      &:focus,
-      &.focus {
-        background-color: $dso-anchor-focus-color;
-        border-color: $dso-anchor-focus-color;
-        color: $wit;
-        text-decoration: underline;
+            &::before {
+              @include di("checkmark-wit");
+              content: "";
+              display: inline-block;
+              height: 20px;
+              margin-left: -#{$u3 / 2 + 20};
+              margin-right: #{$u3 / 2};
+              width: 20px;
+            }
+          }
+        }
       }
     }
   }

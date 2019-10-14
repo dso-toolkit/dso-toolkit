@@ -14,8 +14,30 @@ variants:
       open: true
       items:
         -
-          - Actie
-          - Andere actie
-          - Nog iets anders hier
+          - label: Actie
+          - label: Andere actie
+  - name: dropdown-open
+    context:
+      id: actie_open
+      open: true
+      align: right
+      items:
         -
-          - Gescheiden link
+          - label: Actie
+          - label: Andere actie
+          - label: Nog iets anders hier
+        -
+          - label: Gescheiden link
+  - name: dropdown-open
+    context:
+      id: actie_open
+      open: true
+      selectable: true
+      items:
+        -
+          - label: Actie geselecteerd
+            selected: true
+          - label: Andere actie
+          - label: Nog iets anders hier
+        -
+          - label: Gescheiden link
