@@ -10,12 +10,12 @@
     text-align: left;
     width: 100%;
 
-    &.focus,
-    &:focus {
-      background-color: $dso-anchor-focus-color;
-      color: $wit;
-      outline: none;
-    }
+    // &.focus,
+    // &:focus {
+    //   background-color: $dso-anchor-focus-color;
+    //   color: $wit;
+    //   outline: none;
+    // }
 
     svg.di {
       margin-right: $u1;
@@ -82,13 +82,6 @@
     padding: 0;
     text-align: center;
     width: $u3;
-
-    &.focus,
-    &:focus {
-      background-color: $dso-anchor-focus-color;
-      color: $wit;
-      outline: none;
-    }
   }
 
   .dso-empty {
