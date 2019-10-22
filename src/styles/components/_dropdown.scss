@@ -22,10 +22,10 @@
       a {
         &:focus,
         &.focus {
-          background-color: $dso-anchor-focus-color;
-          border-color: $dso-anchor-focus-color;
+          background-color: $grasgroen;
+          border-color: $grasgroen;
           color: $wit;
-          outline: 0;
+          // outline: 0;
           text-decoration: underline;
         }
       }
@@ -78,8 +78,8 @@
 
       &:focus,
       &.focus {
-        background-color: $dso-anchor-focus-color;
-        border-color: $dso-anchor-focus-color;
+        background-color: $grasgroen;
+        border-color: $grasgroen;
         color: $wit;
         text-decoration: underline;
       }
