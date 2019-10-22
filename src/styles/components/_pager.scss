@@ -18,22 +18,12 @@ $dso-pager-height: $u6;
         &:visited {
           background-color: $grasgroen;
           color: $wit;
-
-          &:focus,
-          &.focus {
-            background-color: $dso-anchor-focus-color;
-            outline: 0;
-          }
         }
       }
 
       &:focus,
       &.focus {
-        background-color: $dso-anchor-focus-color;
-        border-color: $dso-anchor-focus-color;
         color: $wit;
-        outline: 0;
-        text-decoration: underline;
       }
 
       &:visited {
@@ -41,11 +31,7 @@ $dso-pager-height: $u6;
 
         &:focus,
         &.focus {
-          background-color: $dso-anchor-focus-color;
-          border-color: $dso-anchor-focus-color;
           color: $wit;
-          outline: 0;
-          text-decoration: underline;
         }
       }
     }
