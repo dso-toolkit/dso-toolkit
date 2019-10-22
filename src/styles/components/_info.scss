@@ -22,16 +22,6 @@
     &.active {
       outline: 0;
     }
-
-    &:focus,
-    &.focus {
-      background-color: $dso-anchor-focus-color;
-      outline: 0;
-
-      &::before {
-        @include di-variant("times-wit");
-      }
-    }
   }
 
   .dso-rich-content {
