@@ -1,6 +1,6 @@
 # Contributing to the DSO Toolkit and DSO Component Library
 This repository houses two projects:
-* The toolkit in `src/` and `assets/`
+* The Toolkit in `src/` and `assets/`
 * A component library in `docs/` and `components/`
 
 This project uses [Semantic Versioning](http://semver.org/).
@@ -9,7 +9,7 @@ This project uses [Semantic Versioning](http://semver.org/).
 There are two language domains: English and Dutch. Anything tech-related (styling, source code, standard open source files, etc) is in English. Anything else (Fractal notes, manuals, GitHub issues and comments) is in Dutch.
 
 ## How to contribute
-Contributing to the DSO toolkit is fairly straight-forward:
+Contributing to the DSO Toolkit is fairly straight-forward:
 1. Fork
 2. Open an issue
 3. Contribute
@@ -26,7 +26,7 @@ Properly label the issue as a bug, improvement, new feature.
 ### 3. Contribute
 * Take note of the codestyle, we are using linters.
 * Add an entry to the CHANGELOG.md.
-* When changing the toolkit, try to demonstrate the change using the component library (new components or variants)
+* When changing the Toolkit, try to demonstrate the change using the component library (new components or variants)
 * Run `gulp test:dom`. Commit new/changed reference DOM files using `gulp reference:dom`.
 
 ### 4. Create a pull request
@@ -41,4 +41,4 @@ To build a static version:
 gulp build
 ```
 
-This will generate static a static site component library (`/assets`, `/components` and `/docs`) AND toolkit (`/src`).
+This will generate static a static site component library (`/assets`, `/components` and `/docs`) AND Toolkit (`/src`).

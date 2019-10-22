@@ -1,15 +1,17 @@
-## Typografie
+---
+label: Typografie
+---
 
-### Asap
+## Asap
 
-Het webfont "Asap" is onderdeel van de vrij beschikbare Google Fonts. Dit webfont is optimaal voor schermweergave. Asap heeft als eigenschap dat alle karakters in het lettertype een gedeelde breedte hebben. De lopende tekst blijft er voor de eindgebruiker rustig uitzien, ook bij veranderingen van de stijl van het lettertype.
+Het webfont "Asap" is onderdeel van de vrij beschikbare [Google Fonts](https://fonts.google.com/specimen/Asap). Dit webfont is optimaal voor schermweergave. Asap heeft als eigenschap dat alle karakters in het lettertype een gedeelde breedte hebben. De lopende tekst blijft er voor de eindgebruiker rustig uitzien, ook bij veranderingen van de stijl van het lettertype.
 
-* Het webfont mag door alle betrokken partijen in publicaties ingezet worden.
-* Het is aan te bevelen ook een fallback systeemfont als alternatieve weergave te bepalen voor situaties waarin het webfont niet getoond kan worden. Standaard instelling is "sans-serif”.
-* Met de opkomst van mobiele apparaten is er een trend waarneembaar om grotere corpsen toe te passen.
+- Het webfont mag door alle betrokken partijen in publicaties ingezet worden.
+- Het is aan te bevelen ook een fallback systeemfont als alternatieve weergave te bepalen voor situaties waarin het webfont niet getoond kan worden. Standaard instelling is `sans-serif`.
+- Met de opkomst van mobiele apparaten is er een trend waarneembaar om grotere corpsen toe te passen.
 
 ## Headings
-| Description       | Markup                                 | Preview                                                                                                                                                                                                                              |
+| Beschrijving      | Markup                                 | Preview                                                                                                                                                                                                                              |
 | ----------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Heading 1         | `<h1>Heading</h1>`                     | <h1>Bold 32px #39870C</h1>                                                                                                                                                                                                           |
 | Heading 2         | `<h2>Heading</h2>`                     | <h2>Bold 24px #39870C</h2>                                                                                                                                                                                                           |

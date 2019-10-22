@@ -1,11 +1,14 @@
+---
+label: Knoppen
+---
 Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in een enkele klik. Buttons communiceren acties die gebruikers kunnen nemen. Ze moeten makkelijk te identificeren en  makkelijk te vinden zijn. Tegelijkertijd moet een button duidelijk de actie aantonen die de gebruiker moet volbrengen. Gebruik vorm en kleur om een button visueel als button herkenbaar te maken voor de gebruiker.
 
-* Plaats buttons waar gebruikers ze verwachten en makkelijk vindbaar zijn
-* Van belang zijn: de grootte van een button, de 'touch size' en witruimte rondom
-* Verschillende platvormen gebruiken verschillende formaten buttons
-* Let op positie en volgorde met name als buttons in groepen staan (vorige/volgende) benadruk welke primair is of de belangrijkste actie aanduidt
-* Een actieknop moet opvallen; gebruik daarom een contrasterende kleur
-* Gebruik visuele hints om aandacht te vestigen op een actieknop
+- Plaats buttons waar gebruikers ze verwachten en makkelijk vindbaar zijn
+- Van belang zijn: de grootte van een button, de 'touch size' en witruimte rondom
+- Verschillende platvormen gebruiken verschillende formaten buttons
+- Let op positie en volgorde met name als buttons in groepen staan (vorige/volgende) benadruk welke primair is of de belangrijkste actie aanduidt
+- Een actieknop moet opvallen: gebruik daarom een contrasterende kleur
+- Gebruik visuele hints om aandacht te vestigen op een actieknop
 
 ## Hoe te gebruiken:
 <table>
@@ -22,11 +25,11 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
     </tr>
 </table>
 
-* Tekst wit, Asap semibold 16
-* De rechthoekige grasgroene achtergrond (#39870c) heeft afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
-* Wordt één keer per scherm gebruikt tenzij het dezelfde actie betreft
-* Uitzondering is gebruik in de header of in een modal
-* Niet elk scherm heeft een primaire knop nodig
+- Tekst wit, Asap semibold 16
+- De rechthoekige grasgroene achtergrond (#39870c) heeft afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
+- Wordt één keer per scherm gebruikt tenzij het dezelfde actie betreft
+- Uitzondering is gebruik in de header of in een modal
+- Niet elk scherm heeft een primaire knop nodig
 
 ## Hoe te gebruiken:
 <table>
@@ -43,9 +46,9 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
     </tr>
 </table>
 
-* Tekst grasgroen, Asap semibold 16
-* De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen  (#39870c), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
-* Dit is de standaard button voor de meeste gebruikscasussen
+- Tekst grasgroen, Asap semibold 16
+- De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen  (#39870c), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
+- Dit is de standaard button voor de meeste gebruikscasussen
 
 ## Hoe te gebruiken:
 <table>
@@ -62,8 +65,8 @@ In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.</td>
     </tr>
 </table>
 
-* Tekst grasgroen (#39870c), Asap semibold 16
-* En/of icoon in grasgroen (#39870c)
+- Tekst grasgroen (#39870c), Asap semibold 16
+- En/of icoon in grasgroen (#39870c)
 
 ## Hoe te gebruiken:
 <table>
@@ -89,12 +92,12 @@ Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 40 pi
     </tr>
 </table>
 
-## Gedrag en Accessibility
+## Gedrag en toegankelijkheid
 
-* Als zintuiglijke informatie wordt gebruikt (denk bijvoorbeeld aan knoppen met een chevron om naar de vorige of volgende pagina te gaan), voeg dan de tekst “volgende pagina” en “vorige pagina” toe
-* Elementen zoals buttons die er hetzelfde uitzien, moeten ook overal hetzelfde ‘doen’
-* Button tekst moet beschrijven wat het doet
+- Als zintuiglijke informatie wordt gebruikt (denk bijvoorbeeld aan knoppen met een chevron om naar de vorige of volgende pagina te gaan), voeg dan de tekst “volgende pagina" en “vorige pagina" toe;
+- Elementen zoals buttons die er hetzelfde uitzien, moeten ook overal hetzelfde 'doen';
+- Button tekst moet beschrijven wat het doet.
 
 ## Bronvermelding
-* [Nielsen Norman Group](https://www.nngroup.com/)
-* [Dienst digitale overheid](https://www.digitoegankelijk.nl)
+- [Nielsen Norman Group](https://www.nngroup.com/)
+- [Dienst digitale overheid](https://www.digitoegankelijk.nl)

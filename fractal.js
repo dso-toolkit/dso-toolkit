@@ -8,7 +8,7 @@ const collator = require('./.fractal/collator.js');
 
 fractal.web.set('builder.dest', __dirname + '/build/library');
 
-fractal.set('project.title', 'DSO Component Library');
+fractal.set('project.title', 'DSO Toolkit');
 
 const hbs = require('@frctl/handlebars')({
   helpers
@@ -18,9 +18,11 @@ fractal.components.engine(hbs);
 fractal.components.set('path', path.join(__dirname, 'components'));
 fractal.components.set('default.status', 'wip');
 fractal.components.set('default.collator', collator.defaultCollator);
+fractal.components.set('label', 'Componenten');
 
 fractal.docs.engine(hbs);
 fractal.docs.set('path', path.join(__dirname, 'docs'));
+fractal.docs.set('label', 'Documentatie');
 
 fractal.web.set('static.path', path.join(__dirname, 'build/toolkit'));
 fractal.web.set('server.syncOptions', {

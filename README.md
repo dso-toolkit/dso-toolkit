@@ -4,7 +4,7 @@
 # DSO Toolkit and Component Library
 This is the repository of the DSO Toolkit and Component Library.
 
-The toolkit is framework-agnostic and based on [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3) written in SCSS. The component library is written in Handlebars.js using Fractal. [Fractal](https://fractal.build) is a _component library & styleguide framework_.
+The Toolkit is framework-agnostic and based on [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3) written in SCSS. The component library is written in Handlebars.js using Fractal. [Fractal](https://fractal.build) is a _component library & styleguide framework_.
 
 ## Getting started
 Releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
@@ -20,7 +20,7 @@ npm install dso-toolkit
 2. Bundle `/node_modules/dso-toolkit/src/dso.scss` in your build process.
 
 ### CDN
-The toolkit and component library are distributed to dso-toolkit.nl. Use the table below to resolve the branch/channel to the base url:
+The Toolkit and component library are distributed to dso-toolkit.nl. Use the table below to resolve the branch/channel to the base url:
 
 | branch      | channel    | url                                    |
 |-------------|------------|----------------------------------------|
@@ -57,7 +57,7 @@ The DSO Toolkit and Component Library uses
 * `npm` for package management
 * `gulp` for build automation
 * `node-sass` to compile sass to css
-* `fractal` to document the toolkit
+* `fractal` to document the Toolkit
 * `yaml` to configure fractal components
 
 Fractal is configured to use `handlebars` and `yaml`.
