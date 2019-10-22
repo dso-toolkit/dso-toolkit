@@ -65,8 +65,12 @@ ul.nav-tabs {
       background-color: $dso-tabs-hover-color;
       border: 1px solid transparent;
       border-bottom-color: $dso-tabs-color;
-      outline: 0;
       text-decoration: none;
+    }
+
+    a:active,
+    a:hover {
+      outline: 0;
     }
 
     // Active state, and its :hover to override normal :hover
