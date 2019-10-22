@@ -8,6 +8,7 @@ $dso-required-color: $grijs-60;
 
 $dso-form-control-border-width: 1px;
 $dso-form-control-readonly-border-width: 1px;
+$dso-form-control-focus-border-color: $bosgroen;
 $dso-required-string: "verplicht";
 
 $dso-toggle-close-icon-size: $u4;
@@ -142,8 +143,8 @@ select:not([multiple]) {
 
   &:focus,
   &.focus {
-    border-color: $dso-anchor-focus-color;
-    border-width: 4px;
+    border-color: $dso-form-control-focus-border-color;
+    border-width: 2px;
     box-shadow: none;
   }
 
