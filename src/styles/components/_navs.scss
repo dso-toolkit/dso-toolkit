@@ -38,11 +38,11 @@
           color: $zwart;
         }
 
-        &:focus {
-          background-color: $wit;
-          color: $zwart;
-          outline: 4px solid $dso-anchor-focus-color;
-        }
+        // &:focus {
+        //   background-color: $wit;
+        //   color: $zwart;
+        //   outline: 4px solid $dso-anchor-focus-color;
+        // }
       }
 
       &.dso-active {
