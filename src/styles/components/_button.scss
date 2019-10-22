@@ -23,14 +23,6 @@
     outline: 0;
   }
 
-  &:focus,
-  &.focus {
-    @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
-
-    outline: none;
-    text-decoration: underline;
-  }
-
   &.btn-default,
   &.btn-primary {
     line-height: $dso-button-line-height;
@@ -47,7 +39,9 @@
     color: $btn-default-color;
   }
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &.focus {
     @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
@@ -83,14 +77,13 @@
 
   &:focus,
   &.focus {
-    @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
+    @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
   }
 
   &:active,
   &.active {
     &,
     &:hover,
-    &:focus,
     &:not(.btn):visited {
       @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
     }
@@ -99,8 +92,7 @@
   &.disabled,
   &[disabled] {
     &,
-    &:hover,
-    &:focus {
+    &:hover {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
       opacity: 1;
     }
@@ -152,13 +144,9 @@
 
   &:focus,
   &.focus {
-    background-color: $dso-anchor-focus-color;
-    color: $wit;
+    background-color: transparent;
+    color: $grasgroen;
     text-decoration: none;
-
-    span:not(.icon) {
-      text-decoration: underline;
-    }
   }
 
   &:active,
