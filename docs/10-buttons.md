@@ -10,20 +10,15 @@ Buttons geven gebruikers de mogelijkheid om actie te nemen en keuzes te maken in
 - Een actieknop moet opvallen: gebruik daarom een contrasterende kleur
 - Gebruik visuele hints om aandacht te vestigen op een actieknop
 
-## Hoe te gebruiken:
-<table>
-    <tr>
-        <td width='33%'><h3>Primaire buttons</h3></td>
-    </tr>
-    <tr>
-        <td valign="top">De primaire actie is die button waarmee de gebruiker de taak volbrengt.<br><br>
+## Hoe te gebruiken: Primaire buttons
 
-Als de gebruiker op het punt staat een onomkeerbare actie te ondernemen is de 'Annuleer' knop de primaire actie en krijgt deze visueel meer aandacht omdat de gebruiker goed na moet denken voordat hij/zij reageert.<br><br>
+De primaire actie is die button waarmee de gebruiker de taak volbrengt.
 
-In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerbare actie.</td>
-        <td width='66%'>![Buttons primair](/images/buttons_primair.svg "Buttons primair")</td>
-    </tr>
-</table>
+Als de gebruiker op het punt staat een onomkeerbare actie te ondernemen is de 'Annuleer' knop de primaire actie en krijgt deze visueel meer aandacht omdat de gebruiker goed na moet denken voordat hij/zij reageert.
+
+In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerbare actie.
+
+{{frame (path '/components/preview/buttons-primary') '.dso-example-wrapper'}}
 
 - Tekst wit, Asap semibold 16
 - De rechthoekige grasgroene achtergrond (#39870c) heeft afgeronde hoeken van 4 pixels en een hoogte van 48 pixels

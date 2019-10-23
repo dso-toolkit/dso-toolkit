@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = fractal => Object.assign({
-  frame: function (path, element) {
+  frame: function (path, element, modifier) {
     const { handlebars } = fractal.docs.engine();
 
     let html = `
-<div class="dso-toolkit-window">
+<div class="dso-toolkit-window${typeof modifier === 'string' ? ` ${modifier}` : ''}">
   <div class="dso-toolkit-titlebar-stoplight">
     <div class="dso-toolkit-titlebar-close"></div>
     <div class="dso-toolkit-titlebar-minimize"></div>

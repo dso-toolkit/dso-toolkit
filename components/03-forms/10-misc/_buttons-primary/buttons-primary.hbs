@@ -1,0 +1,41 @@
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Primaire button</h2>
+    {{!-- <p>De primaire actie is die button waarmee de gebruiker de taak volbrengt.</p>
+    <p>Als de gebruiker op het punt staat een onomkeerbare actie te ondernemen is de 'Annuleer' knop de primaire actie en krijgt deze visueel meer aandacht omdat de gebruiker goed na moet denken voordat hij/zij reageert.</p>
+    <p>In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerbare actie.</p> --}}
+  </div>
+  <div class="dso-example">
+    <table class="table">
+      <caption class="sr-only">Tabel met de verschijingsvormen van de primaire button</caption>
+      <thead>
+        <tr>
+          <th scope="col">Beschrijving</th>
+          <th scope="col">Weergave</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Normaal</td>
+          <td>{{> '@button' type='button' label='Primaire button' modifier='primary' }}</td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td class="example-hover">{{> '@button' type='button' label='Primaire button' modifier='primary' }}</td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>{{> '@button' type='button' label='Primaire button' modifier='primary' disabled=true }}</td>
+        </tr>
+        <tr>
+          <td>Icoon links</td>
+          <td>{{> '@button' type='button' label='Primaire button' modifier='primary' icon='angle-left' url='#' }}</td>
+        </tr>
+        <tr>
+          <td>Icoon rechts</td>
+          <td>{{> '@button' type='button' label='Primaire button' modifier='primary' iconAfter='angle-right' url='#' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
