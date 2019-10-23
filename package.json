@@ -19,7 +19,8 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
-    "bootstrap-sass": "3.3.7"
+    "bootstrap-sass": "3.3.7",
+    "normalize.css": "^8.0.1"
   },
   "devDependencies": {
     "@frctl/fractal": "1.1.7",
