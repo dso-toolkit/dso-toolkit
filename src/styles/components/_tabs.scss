@@ -68,11 +68,6 @@ ul.nav-tabs {
       text-decoration: none;
     }
 
-    a:active,
-    a:hover {
-      outline: 0;
-    }
-
     // Active state, and its :hover to override normal :hover
     &.active > a {
       &,
