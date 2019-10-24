@@ -1,8 +1,9 @@
 ---
 label: Lay-out
+order: 4
 ---
 ## Horizontale lay-out
-Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12 columns structuur uit bootstrap gebruikt. Onder het kopje grid staat de toepassing van deze 12-columns structuur
+Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12-koloms structuur uit bootstrap gebruikt. Onder het kopje grid staat de toepassing van deze 12-koloms structuur
 
 [![Responsive grid beschrijving]({{path '/docs/layout/layout_1.png' }} "Klik voor origineel")]({{path '/docs/layout/layout_1.png' }})
 

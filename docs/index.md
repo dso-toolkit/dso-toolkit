@@ -1,5 +1,6 @@
 ---
 label: Startgids
+order: 0
 ---
 # De DSO Toolkit: wat is het, voor wie is het en hoe werkt het?
 

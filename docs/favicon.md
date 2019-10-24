@@ -1,3 +1,7 @@
+---
+label: Favicon
+order: 5
+---
 | Type | Dimensions |                                                 |
 | ---- | ---------- | :---------------------------------------------: |
 | ICO  | 16x16      | ![Favicon ICO]({{path '/images/favicon.ico' }}) |

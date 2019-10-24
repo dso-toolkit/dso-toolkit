@@ -3,5 +3,5 @@ function DsoToolkitResizeIframe(frame, element) {
     ? frame.contentWindow.document.querySelector(element).scrollHeight
     : frame.contentWindow.document.body.scrollHeight;
 
-  frame.style.height = `${height + 32}px`;
+  frame.style.height = `${height * 1.2}px`;
 }

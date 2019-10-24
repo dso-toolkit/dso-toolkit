@@ -1,5 +1,6 @@
 ---
 label: Kleuren
+order: 2
 ---
 ## Primaire kleuren
 Als kleuren een semantische waarde hebben kunnen gebruikers functionaliteiten sneller identificeren en gebruiken. Hanteer de volgende regels per kleur.
