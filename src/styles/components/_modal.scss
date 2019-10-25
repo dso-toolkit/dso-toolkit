@@ -90,6 +90,8 @@ body.dso-modal-open {
 
         content: "";
         display: inline-block;
+        margin-top: $dso-icon-vertical-align;
+        vertical-align: middle;
       }
 
       &:hover {
