@@ -1,0 +1,30 @@
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Inline validatie</h2>
+  </div>
+  <div class="dso-example">
+    <table class="table">
+      <caption>Formulierelementen met inline validatiemelding (<code>.dso-invalid</code>).</caption>
+      <thead>
+        <tr>
+          <th scope="col">Beschrijving</th>
+          <th scope="col">Weergave</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Veld</td>
+          <td>
+            {{> '@group-input' label='Naam' helpText='Instructie tekst buiten een tekstveld.' }}
+          </td>
+        </tr>
+        <tr>
+          <td>Veld met fout</td>
+          <td>
+            {{> '@group-input' label='Naam' required='true' state='invalid' helpText='Instructie tekst buiten een tekstveld.' errorText='Verplicht veld niet gevuld'}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
