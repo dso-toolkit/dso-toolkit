@@ -141,8 +141,7 @@ select:not([multiple]) {
     width: auto;
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     border-color: $dso-form-control-focus-border-color;
     border-width: 2px;
     box-shadow: none;
