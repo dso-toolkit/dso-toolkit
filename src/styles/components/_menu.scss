@@ -34,10 +34,6 @@
         background-color: $grasgroen-10;
       }
 
-      &:focus {
-        border: 1px solid $grasgroen-10;
-      }
-
       @media screen and (min-width: $screen-md-min) {
         display: none;
       }

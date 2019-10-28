@@ -59,17 +59,6 @@ $dso-accordion-state-icon-size: $u3;
         color: $dso-accordion-main-color;
         text-decoration: none;
       }
-
-      &:focus,
-      &.focus {
-        background-color: $dso-anchor-focus-color;
-        color: $wit;
-        text-decoration: underline;
-
-        &::before {
-          @include di-variant("chevron-down-wit");
-        }
-      }
     }
   }
 

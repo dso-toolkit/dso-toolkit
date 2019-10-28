@@ -53,10 +53,6 @@ body.dso-modal-open {
 }
 
 .dso-modal {
-  &:focus {
-    outline: 0;
-  }
-
   .dso-dialog {
     background-color: $dso-modal-content-bg;
     border: $dso-modal-border-size solid $dso-modal-content-border-color;
@@ -90,19 +86,13 @@ body.dso-modal-open {
 
         content: "";
         display: inline-block;
+        margin-top: $dso-icon-vertical-align;
+        vertical-align: middle;
       }
 
       &:hover {
         background-color: $wit;
         border: 2px solid $grasgroen;
-        outline: 0;
-      }
-
-      &:focus,
-      &.focus {
-        background-color: $dso-anchor-focus-color;
-        border: 2px solid $dso-anchor-focus-color;
-        outline: 0;
       }
 
       &:active,
@@ -110,8 +100,6 @@ body.dso-modal-open {
         background-color: $grasgroen;
       }
 
-      &:focus,
-      &.focus,
       &:active,
       &.active {
         &::before {
