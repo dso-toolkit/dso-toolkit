@@ -71,8 +71,7 @@ $dso-selectable-focus-border-width: 3px;
       }
     }
 
-    &:focus,
-    &.focus {
+    &:focus {
       outline: 0;
 
       + label::before {
