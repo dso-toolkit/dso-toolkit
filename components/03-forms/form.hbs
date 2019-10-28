@@ -3,14 +3,16 @@
     <legend class="sr-only">{{ formLegend }}</legend>
     {{#each fieldsets }}
       <fieldset>
-        <legend>{{ legend }}</legend>
+        <legend{{#if legendScreenreaderOnly }} class="sr-only"{{/if}}>{{ legend }}</legend>
         {{#each groups }}
           {{> (concat '@group-' inputType) }}
         {{/each}}
       </fieldset>
     {{/each}}
   </fieldset>
-  <div class="dso-form-buttons">
-    {{> '@button' submitButton }}
-  </div>
+  {{#if submitButton}}
+    <div class="dso-form-buttons">
+      {{> '@button' submitButton }}
+    </div>
+  {{/if}}
 </form>

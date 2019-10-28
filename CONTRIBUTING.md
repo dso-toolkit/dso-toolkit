@@ -9,7 +9,7 @@ This project uses [Semantic Versioning](http://semver.org/).
 There are two language domains: English and Dutch. Anything tech-related (styling, source code, standard open source files, etc) is in English. Anything else (Fractal notes, manuals, GitHub issues and comments) is in Dutch.
 
 ## How to contribute
-Contributing to the DSO toolkit is fairly straight-forward:
+Contributing to the DSO Toolkit is fairly straight-forward:
 1. Fork
 2. Open an issue
 3. Contribute
