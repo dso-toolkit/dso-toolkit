@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Shopping kart toelichting mist icoon in lopende tekst (#445)
 * In sluitknop van modal is het icoon niet netjes gecentreerd (#447)
+* Uitlijning info-button met tekst is onjuist (#441)
 
 ## 9.1.0 - 18-10-2019
 
