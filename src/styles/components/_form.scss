@@ -7,6 +7,7 @@ $dso-field-invalid-message-color: $dso-danger-color;
 $dso-required-color: $grijs-60;
 
 $dso-form-control-border-width: 1px;
+$dso-form-control-focus-border-width: 2px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-form-control-focus-border-color: $bosgroen;
 $dso-required-string: "verplicht";
@@ -82,6 +83,11 @@ form {
   &.dso-invalid {
     .form-control {
       border-color: $dso-field-invalid-border-color;
+
+      &:focus,
+      &.focus {
+        box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-field-invalid-border-color;
+      }
     }
 
     .dso-message {
@@ -143,8 +149,7 @@ select:not([multiple]) {
 
   &:focus {
     border-color: $dso-form-control-focus-border-color;
-    border-width: 2px;
-    box-shadow: none;
+    box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-form-control-focus-border-color;
   }
 
   &[disabled] {
