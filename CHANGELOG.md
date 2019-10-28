@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Changed
+* Terug naar default focus states (#418)
+
 ### Fixed
 * Shopping kart toelichting mist icoon in lopende tekst (#445)
 * In sluitknop van modal is het icoon niet netjes gecentreerd (#447)

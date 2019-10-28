@@ -23,14 +23,7 @@ footer {
     &.active,
     &:active {
       color: $grijs-90;
-      outline: 0;
       text-decoration: underline;
-    }
-
-    &.focus,
-    &:focus {
-      background-color: $dso-anchor-focus-color;
-      color: $wit;
     }
 
     &:visited {
@@ -40,12 +33,6 @@ footer {
       &.active,
       &:active {
         color: $grijs-90;
-      }
-
-      &.focus,
-      &:focus {
-        background-color: $dso-anchor-focus-color;
-        color: $wit;
       }
     }
   }

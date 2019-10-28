@@ -68,10 +68,6 @@ $dso-pagination-item-border-size: 2px;
         }
       }
 
-      &:focus {
-        outline: 0;
-      }
-
       &::after {
         border-bottom: 3px solid transparent;
         bottom: 0;

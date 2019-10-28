@@ -57,6 +57,8 @@ $dso-font-size-h3: 1.25rem;
 $dso-font-size-h4: 1rem;
 $dso-font-size-h5: 1rem;
 
+$dso-focus-color: $scampi;
+
 $dso-success-color: $grasgroen;
 $dso-info-color: #6ca4d9;
 $dso-warning-color: #dcd400;
@@ -70,8 +72,6 @@ $dso-danger-bg-color: #f5d8dc;
 // component kleuren
 $dso-anchor-visited-color: $cannon-pink;
 $dso-anchor-hover-color: $scampi;
-$dso-anchor-focus-color: $scampi;
-
 
 $dso-alert-success-bg-color: $dso-success-bg-color;
 $dso-alert-info-bg-color: $dso-info-bg-color;

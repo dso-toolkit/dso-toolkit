@@ -20,12 +20,10 @@
   .dropdown-menu {
     li {
       a {
-        &:focus,
-        &.focus {
-          background-color: $dso-anchor-focus-color;
-          border-color: $dso-anchor-focus-color;
+        &:focus {
+          background-color: $grasgroen;
+          border-color: $grasgroen;
           color: $wit;
-          outline: 0;
           text-decoration: underline;
         }
       }
@@ -76,10 +74,9 @@
         color: $wit;
       }
 
-      &:focus,
-      &.focus {
-        background-color: $dso-anchor-focus-color;
-        border-color: $dso-anchor-focus-color;
+      &:focus {
+        background-color: $grasgroen;
+        border-color: $grasgroen;
         color: $wit;
         text-decoration: underline;
       }

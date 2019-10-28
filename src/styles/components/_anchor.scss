@@ -19,12 +19,6 @@ a {
     color: $dso-anchor-visited-color;
   }
 
-  &:focus {
-    background-color: $dso-anchor-focus-color;
-    color: $wit;
-    outline: none;
-  }
-
   &:not(.btn) {
     &.download,
     &.extern {
@@ -40,35 +34,11 @@ a {
       &::after {
         @include di("download");
       }
-
-      &:hover {
-        &::after {
-          @include di-variant("download-scampi");
-        }
-      }
-
-      &:focus {
-        &::after {
-          @include di-variant("download-wit");
-        }
-      }
     }
 
     &.extern {
       &::after {
         @include di("external-link");
-      }
-
-      &:hover {
-        &::after {
-          @include di-variant("external-link-scampi");
-        }
-      }
-
-      &:focus {
-        &::after {
-          @include di-variant("external-link-wit");
-        }
       }
     }
   }
