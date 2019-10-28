@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Changed
+* Focus states formulier elementen (#416)
 * Terug naar default focus states (#418)
 * Documentatie: Iconen, Logo's, Buttons, Status-meldingen. taal, taalgebruik, labels in navigatie, liststyles (#411)
 
