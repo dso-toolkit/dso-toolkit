@@ -10,7 +10,7 @@ context:
         type: text
         label: Naam
         helpText: Instructie tekst buiten een tekstveld.
-  formWithEmptyRequiredFIeld:
+  formWithEmptyRequiredField:
     formLegend: Voorbeeld
     fieldsets:
     - legend: Contact
