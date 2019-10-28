@@ -4,7 +4,7 @@
   </div>
   <div class="dso-example">
     <table class="table">
-      <caption>Formulierelementen met specifiek gewenst formaat.</caption>
+      <caption>Formulierelementen met inline validatiemelding (<code>.dso-invalid</code>).</caption>
       <thead>
         <tr>
           <th scope="col">Beschrijving</th>
@@ -13,9 +13,15 @@
       </thead>
       <tbody>
         <tr>
+          <td>Veld</td>
+          <td>
+            {{> '@form' formWithHelpText }}
+          </td>
+        </tr>
+        <tr>
           <td>Veld met fout</td>
           <td>
-            {{> '@group-input' label='E-mailadres' value="piet@" state='invalid' errorText='Er is geen geldig e-mailadres ingevuld. Controleer of het e-mailadres een @ en een punt bevat, en of er geen spaties in staan.'}}
+            {{> '@form' formWithEmptyRequiredFIeld }}
           </td>
         </tr>
       </tbody>

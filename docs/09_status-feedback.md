@@ -1,6 +1,6 @@
 ---
 label: Status melding
-order: 8
+order: 9
 ---
 Status feedback bepaalt het succes van elk systeem en is er om de gebruiker te informeren over de status van het systeem. Er zijn drie verschillende vormen van status feedback (meldingen), te weten:
 - notificaties;
