@@ -48,7 +48,8 @@
     &,
     &:hover,
     &:not(.btn):visited {
-      @incl
+      @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
+    }
   }
 
   &.disabled,
@@ -81,7 +82,8 @@
     &,
     &:hover,
     &:not(.btn):visited {
-      @incl
+      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+    }
   }
 
   &.disabled,
@@ -146,7 +148,8 @@
   &:active,
   &.active {
     &,
-    &:focus {
+    &:focus,
+    &.focus {
       color: $bosgroen;
 
       > svg.di {
