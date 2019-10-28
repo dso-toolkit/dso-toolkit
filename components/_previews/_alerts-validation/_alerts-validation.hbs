@@ -15,17 +15,17 @@
         <tr>
           <td>1 veld fout</td>
           <td>
-            <div class="alert alert-danger" role="alert">
+            {{> '@alert' modifier='danger' message='
               <div class="dso-rich-content">
                 <p><a href="#">[Label]</a> is een verplicht veld.</p>
               </div>
-            </div>
+            '}}
           </td>
         </tr>
         <tr>
           <td>Meerdere velden fout</td>
           <td>
-            <div class="alert alert-danger" role="alert">
+            {{> '@alert' modifier='danger' message='
               <div class="dso-rich-content">
                 <p>Een aantal velden is niet goed ingevuld.</p>
                 <ul>
@@ -33,7 +33,7 @@
                   <li><a href="#">[Label]</a> is niet goed ingevuld.</li>
                 </ul>
               </div>
-            </div>
+            '}}
           </td>
         </tr>
       </tbody>
