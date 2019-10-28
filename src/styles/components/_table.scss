@@ -17,7 +17,7 @@ th {
 }
 
 table.table {
-  td,
+  td:not(.plain-content),
   th {
     @extend %dso-rich-content;
   }
