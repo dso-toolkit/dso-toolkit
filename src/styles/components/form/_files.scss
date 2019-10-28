@@ -95,14 +95,6 @@ form,
           }
 
           button {
-            &:focus {
-              background-color: $dso-focus-color;
-
-              &::before {
-                color: $wit;
-              }
-            }
-
             &::before {
               color: $grijs-90;
             }
