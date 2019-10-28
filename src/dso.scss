@@ -25,11 +25,11 @@ $library: true !default;
 // Core variables and mixins
 @import "bootstrap-sass/assets/stylesheets/bootstrap/variables";
 // @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "styles/mixins/bootstrap-mixins";
+@import "bootstrap/mixins/bootstrap-mixins";
 
 // Reset and dependencies
 // @import "bootstrap-sass/assets/stylesheets/bootstrap/normalize";
-@import "styles/mixins/bootstrap-normalize-alt";
+@import "styles/mixins/dso-normalize";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/print";
 // @import "bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
