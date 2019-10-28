@@ -56,17 +56,17 @@ Notes:
   1. Gebruik het placeholder icoon `wip-wip`.
   2. Geef aan het UX team door welke iconen je mist.
 
-  Het UX team zal het verzoek beoordelen en indien nodig een icoon in DSO huisstijl ontwerpen. Het icoon wordt dan opgenomen in de Toolkit. In de CHANGELOG zal duidelijk aangegeven worden welke iconen er toegevoegd zijn.
+  Het UX team zal het verzoek beoordelen en indien nodig een icoon in DSO huisstijl ontwerpen. Het icoon wordt dan opgenomen in de toolkit. In de CHANGELOG zal duidelijk aangegeven worden welke iconen er toegevoegd zijn.
 
   `wip-wip` zal nooit een "echt" icoon worden. Het is daarom een ideaal keyword om de broncode op te doorzoeken naar missende iconen.
 * Een namespace attribuut is niet nodig als het icoon in een HTML5 applicatie wordt gebruikt (https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg).
 * In het `use` element mag direct `href` ipv `xlink:href` worden gebruikt. In SVG2 is `xlink:href` deprecated (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href).
 * In bovenstaand voorbeeld verwijs ik naar `dso-icons.svg`:
-  * Als de Toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/toolkit/dso-icons.svg` wordt gebundled;
-  * Als de Toolkit via de CDN wordt gebruikt werken SVG iconen direct;
-  * Als de Toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
+  * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/toolkit/dso-icons.svg` wordt gebundled;
+  * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
+  * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
 * FontAwesome is geen dependency meer. Tevens wordt Bootstrap's Glyphicons niet meer gebundled.
-* IE11 heeft geen support voor `use href` naar een externe URI of data URI. Elke implementatie van de Toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de Toolkit en maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
+* IE11 heeft geen support voor `use href` naar een externe URI of data URI. Elke implementatie van de toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de toolkit en maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
 
 Het voorschrift voor de carousel maakte voorheen gebruik van Bootstrap's glyphicons. Het SVG-icoon element moet een modifier `icon-next` en `icon-prev` krijgen. Dit zijn standaard Bootstrap modifiers.
 
@@ -507,10 +507,10 @@ Deze release is bijzonder: Het is "maar" een minor increment. Volgens SemVer zou
 * zullen breaking changes een major increment zijn
 * zullen breaking changes aangekondigd worden en waar mogelijk zal een change backwards compatible zijn en "deprecated" worden gemarkeerd
 
-De breaking changes zitten niet alleen in de componenten maar ook in de filosifie van de DSO Toolkit. De Toolkit is sinds 1.2.0 *framework agnostisch*: Dit betekent 100% CSS. Waar de Toolkit voor een expliciete dependency op jQuery had, wordt er nu geen Toolkit javascript meer gemaakt en/of verwacht. De componenten met breaking changes zijn alert, accordion, formulieren en buttons.
+De breaking changes zitten niet alleen in de componenten maar ook in de filosifie van de DSO Toolkit. de toolkit is sinds 1.2.0 *framework agnostisch*: Dit betekent 100% CSS. Waar de toolkit voor een expliciete dependency op jQuery had, wordt er nu geen Toolkit javascript meer gemaakt en/of verwacht. De componenten met breaking changes zijn alert, accordion, formulieren en buttons.
 
 ### Geen jQuery dependency
-In [#72](https://github.com/dso-toolkit/dso-toolkit/issues/73) heb ik een uitleg gegeven waarom de jQuery dependency is verdwenen. Sinds 1.2.0 levert de Toolkit geen javascript meer, en heeft ook geen javascript framework meer nodig. De implementator moet zich houden aan de voorschriften die de stijlgids voorschrijft en de Toolkit zorgt dan voor een site zoals DSO deze voorschrijft.
+In [#72](https://github.com/dso-toolkit/dso-toolkit/issues/73) heb ik een uitleg gegeven waarom de jQuery dependency is verdwenen. Sinds 1.2.0 levert de toolkit geen javascript meer, en heeft ook geen javascript framework meer nodig. De implementator moet zich houden aan de voorschriften die de stijlgids voorschrijft en de toolkit zorgt dan voor een site zoals DSO deze voorschrijft.
 
 ### Accordion
 Het eerste component dat bovenstaande breaking change meteen voelt, is de accordion. Los daarvan, is er ook een nieuw design.
@@ -519,7 +519,7 @@ De vorige accordion was gebasseerd op Bootstrap, voor zover dat al kan: Bootstra
 
 Deze aanpak werkt prima, mits je tevreden bent met een jQuery dependency en niet zoveel aan Bootstrap's panel styling hoeft te doen. Maak je gebruik van een SPA framework, of genereer je markup serverside werd het iets lastiger. Daarbij was het ontwerp van DSO totaal conflicterend met Bootstraps panel design en moest er veel worden tegengestijld.
 
-Nu de Toolkit geen javascript meer levert, is de demo pagina statisch geworden. Er kan immers geen interactie meer worden getoond. Bijkomend voordeel is dat Bootstrap's Panel markup niet meer als basis dient. Samen met het complexere design is er voor een complete (breaking) overhaul gekozen.
+Nu de toolkit geen javascript meer levert, is de demo pagina statisch geworden. Er kan immers geen interactie meer worden getoond. Bijkomend voordeel is dat Bootstrap's Panel markup niet meer als basis dient. Samen met het complexere design is er voor een complete (breaking) overhaul gekozen.
 
 De oude accordion had een root-element `.accordion`. Daarin staan meerdere `.panel`s.
 
