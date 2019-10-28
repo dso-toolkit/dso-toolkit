@@ -60,8 +60,7 @@ $dso-accordion-state-icon-size: $u3;
         text-decoration: none;
       }
 
-      &:focus,
-      &.focus {
+      &:focus {
         text-decoration: none;
       }
     }

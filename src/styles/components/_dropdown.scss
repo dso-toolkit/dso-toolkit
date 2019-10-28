@@ -20,8 +20,7 @@
   .dropdown-menu {
     li {
       a {
-        &:focus,
-        &.focus {
+        &:focus {
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
@@ -75,8 +74,7 @@
         color: $wit;
       }
 
-      &:focus,
-      &.focus {
+      &:focus {
         background-color: $grasgroen;
         border-color: $grasgroen;
         color: $wit;

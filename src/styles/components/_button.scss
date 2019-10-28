@@ -39,8 +39,7 @@
   }
 
   &:hover,
-  &:focus,
-  &.focus {
+  &:focus {
     @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
@@ -49,8 +48,7 @@
     &,
     &:hover,
     &:not(.btn):visited {
-      @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
-    }
+      @incl
   }
 
   &.disabled,
@@ -74,8 +72,7 @@
     color: $btn-primary-color;
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
   }
 
@@ -84,8 +81,7 @@
     &,
     &:hover,
     &:not(.btn):visited {
-      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
-    }
+      @incl
   }
 
   &.disabled,
@@ -141,8 +137,7 @@
     }
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     background-color: transparent;
     color: $grasgroen;
     text-decoration: none;
@@ -151,8 +146,7 @@
   &:active,
   &.active {
     &,
-    &:focus,
-    &.focus {
+    &:focus {
       color: $bosgroen;
 
       > svg.di {

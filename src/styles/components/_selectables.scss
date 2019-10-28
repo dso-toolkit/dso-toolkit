@@ -69,8 +69,7 @@ $dso-selectable-size: $u3;
       }
     }
 
-    &:focus,
-    &.focus {
+    &:focus {
       outline: 0;
 
       + label::before {
@@ -99,8 +98,7 @@ $dso-selectable-size: $u3;
         box-shadow: 0 0 0 2px $dso-danger-color;
       }
 
-      &:focus,
-      &.focus {
+      &:focus {
         + label::before {
           box-shadow: 0 0 0 3px $dso-danger-color;
           height: $dso-selectable-size - 6px;

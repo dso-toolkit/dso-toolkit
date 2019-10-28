@@ -21,16 +21,14 @@ $dso-pager-height: $u6;
         }
       }
 
-      &:focus,
-      &.focus {
+      &:focus {
         color: $wit;
       }
 
       &:visited {
         color: $grasgroen;
 
-        &:focus,
-        &.focus {
+        &:focus {
           color: $wit;
         }
       }

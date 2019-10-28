@@ -41,8 +41,7 @@
     @include di-variant("info-active");
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     background-color: transparent;
     outline: 5px auto -webkit-focus-ring-color; // sass-lint:disable-line no-vendor-prefixes
   }
