@@ -97,7 +97,7 @@ form,
           button {
             &.focus,
             &:focus {
-              background-color: $dso-anchor-focus-color;
+              background-color: $dso-focus-color;
 
               &::before {
                 color: $wit;
