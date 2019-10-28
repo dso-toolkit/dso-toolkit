@@ -20,15 +20,6 @@
   &:active:hover,
   &.active:hover {
     box-shadow: none;
-    outline: 0;
-  }
-
-  &:focus,
-  &.focus {
-    @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
-
-    outline: none;
-    text-decoration: underline;
   }
 
   &.btn-default,
@@ -47,7 +38,8 @@
     color: $btn-default-color;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
@@ -81,16 +73,14 @@
     color: $btn-primary-color;
   }
 
-  &:focus,
-  &.focus {
-    @include state-styling($dso-anchor-focus-color, $dso-anchor-focus-color, $wit);
+  &:focus {
+    @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
   }
 
   &:active,
   &.active {
     &,
     &:hover,
-    &:focus,
     &:not(.btn):visited {
       @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
     }
@@ -99,8 +89,7 @@
   &.disabled,
   &[disabled] {
     &,
-    &:hover,
-    &:focus {
+    &:hover {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
       opacity: 1;
     }
@@ -150,22 +139,16 @@
     }
   }
 
-  &:focus,
-  &.focus {
-    background-color: $dso-anchor-focus-color;
-    color: $wit;
+  &:focus {
+    background-color: transparent;
+    color: $grasgroen;
     text-decoration: none;
-
-    span:not(.icon) {
-      text-decoration: underline;
-    }
   }
 
   &:active,
   &.active {
     &,
-    &:focus,
-    &.focus {
+    &:focus {
       color: $bosgroen;
 
       > svg.di {

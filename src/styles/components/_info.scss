@@ -16,22 +16,6 @@
       content: "";
       display: inline-block;
     }
-
-    &:hover,
-    &:active,
-    &.active {
-      outline: 0;
-    }
-
-    &:focus,
-    &.focus {
-      background-color: $dso-anchor-focus-color;
-      outline: 0;
-
-      &::before {
-        @include di-variant("times-wit");
-      }
-    }
   }
 
   .dso-rich-content {
@@ -47,6 +31,7 @@
   @include di("info", $dso-button-info-size);
 
   margin-left: $u1;
+  margin-top: $dso-icon-vertical-align;
   min-width: $dso-button-info-size;
   padding: 0;
 
@@ -57,8 +42,7 @@
     @include di-variant("info-active");
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     background-color: transparent;
     outline: 5px auto -webkit-focus-ring-color; // sass-lint:disable-line no-vendor-prefixes
   }

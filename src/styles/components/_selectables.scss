@@ -100,8 +100,7 @@ $dso-selectable-focus-border-width: 3px;
         box-shadow: 0 0 0 2px $dso-danger-color;
       }
 
-      &:focus,
-      &.focus {
+      &:focus {
         + label::before {
           box-shadow: 0 0 0 3px $dso-danger-color;
           height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
