@@ -16,7 +16,7 @@ context:
     - legend: Contact
       legendScreenreaderOnly: true
       groups:
-      - id: name
+      - id: name2
         inputType: input
         type: text
         label: Naam

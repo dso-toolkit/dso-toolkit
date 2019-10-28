@@ -1,6 +1,5 @@
 ---
 label: Startgids
-order: 0
 ---
 # De DSO Toolkit: wat is het, voor wie is het en hoe werkt het?
 
@@ -10,7 +9,7 @@ De DSO Toolkit is een set van ontwerpprincipes, componenten, en templates waarme
 Per teamrol is beschreven welke secties, tools, en ondersteunende middelen interessant zijn.
 
 ### Productowner
-de toolkit is een collectie van alle visuele onderdelen zoals templates, componenten, Sketch libraries, inzicht in veel voorkomende fouten. Deze kunnen gebruikt worden zodat teams assets niet van de grond af hoeft op te bouwen.
+De toolkit is een collectie van alle visuele onderdelen zoals templates, componenten, Sketch libraries, inzicht in veel voorkomende fouten. Deze kunnen gebruikt worden zodat teams assets niet van de grond af hoeft op te bouwen.
 
 Besteed extra aandacht aan de sectie over digitale toegankelijkheid. Om de toegankelijkheid succesvol te borgen moet een heel team zich verantwoordelijk voelen en dit controleren in zijn of haar aspect van het werk.
 
@@ -26,7 +25,7 @@ Links naar relevante pagina's:
 ### Ontwerper
 Om te beginnen is er een Sketch library waar alle componenten staan die ook in de toolkit staan. Hoe deze componenten moeten worden toegepast is terug te vinden in de toolkit. Onzeker of het juiste component in de juiste context gebruikt wordt? Raadpleeg dan de toolkit. De templates zijn voorbeeld pagina's die al live staan op het Omgevingsloket. Dit kan helpen om meer over pagina structurering en indeling te leren van het Omgevingsloket.
 
-Als ontwerper kun je pagina's direct ontwerpen met de toolkit. de toolkit maakt gebruik van [Fractal](https://www.fractal.build). Fractal maakt op zijn beurt weer gebruik van de [handlebars.js](https://handlebarsjs.com/) templating engine.
+Als ontwerper kun je pagina's direct ontwerpen met de toolkit. De toolkit maakt gebruik van [Fractal](https://www.fractal.build). Fractal maakt op zijn beurt weer gebruik van de [handlebars.js](https://handlebarsjs.com/) templating engine.
 
 Probeer te voorkomen dat er onderdelen gemaakt worden die al bestaan. Ontkom je er toch niet aan om een nieuw component te maken dat opgenomen zou moeten worden in de toolkit, bekijk dan de procespagina van de toolkit. Hier staat hoe je nieuwe componenten kunt toevoegen of updates op bestaande componenten kan doorvoeren.
 

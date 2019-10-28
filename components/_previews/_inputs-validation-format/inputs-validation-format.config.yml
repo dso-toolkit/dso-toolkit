@@ -1,5 +1,5 @@
 context:
-  formWithIncorrectFIeld:
+  formWithIncorrectField:
     formLegend: Voorbeeld
     fieldsets:
     - legend: Contact

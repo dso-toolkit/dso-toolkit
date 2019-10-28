@@ -1,6 +1,5 @@
 ---
 label: Lay-out
-order: 4
 ---
 ## Horizontale lay-out
 Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12-koloms structuur uit bootstrap gebruikt. Onder het kopje grid staat de toepassing van deze 12-koloms structuur

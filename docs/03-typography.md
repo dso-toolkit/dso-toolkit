@@ -1,6 +1,5 @@
 ---
 label: Typografie
-order: 3
 ---
 
 ## Asap

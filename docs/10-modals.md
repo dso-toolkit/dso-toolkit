@@ -1,6 +1,5 @@
 ---
 label: Modals
-order: 10
 ---
 Modals zijn schermelementen die de hoofdflow van de gebruiker onderbreken. Goed doordachte inhoud en het juiste verschijningsmoment van modals zorgen ervoor dat het bezoek van de gebruiker intuïtief verloopt en de ervaring biedt die hij of zij verwacht. Het zal helpen bij het vermijden van de constante storingsfactor van een misplaatste modal (verkeerd gebruik van een modal).
 

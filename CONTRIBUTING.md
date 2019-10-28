@@ -41,4 +41,4 @@ To build a static version:
 gulp build
 ```
 
-This will generate static a static site component library (`/assets`, `/components` and `/docs`) AND Toolkit (`/src`).
+This will generate static a static site component library (`/assets`, `/components` and `/docs`) AND toolkit (`/src`).

@@ -1,6 +1,5 @@
 ---
 label: Logo
-order: 1
 ---
 Een logo is een beeldmerk dat wordt ingezet voor de herkenbaarheid van de organisatie in allerlei communicatie-uitingen. Een logo kan een grafisch element zijn of bestaan uit tekst of een combinatie van beide. Een logo is een belangrijk onderdeel van de huisstijl en vormt de identiteit van de organisatie.
 

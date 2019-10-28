@@ -14,49 +14,48 @@
       <tbody>
         <tr>
           <td>Waarschuwing</td>
-          <td>
+          <td class="plain-content">
             {{> '@alert' modifier='warning' message='
               <div class="dso-rich-content">
                 <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>
-                <p>{{> '@button' type='button' label='Zoekopdracht afbreken' }}</p>
+                <p><button type="button" class="btn">Zoekopdracht afbreken</button></p>
               </div>
-            '}}a
+            '}}
           </td>
         </tr>
         <tr>
           <td>Info</td>
-          <td>
+          <td class="plain-content">
             {{> '@alert' modifier='info' message='
               <div class="dso-rich-content">
                 <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-                <p>{{> '@button' type='button' label='Ok' }}</p>
+                <p><button type="button" class="btn">Ok</button></p>
               </div>
             '}}
           </td>
         </tr>
         <tr>
           <td>Fout</td>
-          <td>
+          <td class="plain-content">
             {{> '@alert' modifier='danger' message='
               <div class="dso-rich-content">
                 <p>Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.</p>
-                <p>{{> '@button' type='button' label='Ok' }}</p>
+                <p><button type="button" class="btn">Ok</button></p>
               </div>
             '}}
           </td>
         </tr>
         <tr>
           <td>Succes</td>
-          <td>
+          <td class="plain-content">
             {{> '@alert' modifier='success' message='
               <div class="dso-rich-content">
                 <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
-                <p>{{> '@button' type='button' label='Hoera' }}</p>
+                <p><button type="button" class="btn">Hoera</button></p>
               </div>
             '}}
           </td>
         </tr>
-
       </tbody>
     </table>
   </div>
