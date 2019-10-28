@@ -148,8 +148,7 @@
   &:active,
   &.active {
     &,
-    &:focus,
-    &.focus {
+    &:focus {
       color: $bosgroen;
 
       > svg.di {
