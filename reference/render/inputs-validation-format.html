@@ -15,17 +15,25 @@
         <tr>
           <td>Veld met fout</td>
           <td>
-            <div class="form-group dso-input dso-input- dso-invalid">
-              <div class="dso-label-container">
-                <label for="" class="control-label">
-                  E-mailadres
-                </label>
-              </div>
-              <div class="dso-field-container">
-                <input type="" id="" class="form-control" value="piet@" />
-                <p class="dso-message">Er is geen geldig e-mailadres ingevuld. Controleer of het e-mailadres een @ en een punt bevat, en of er geen spaties in staan.</p>
-              </div>
-            </div>
+            <form>
+              <fieldset class="dso-form-fields">
+                <legend class="sr-only">Voorbeeld</legend>
+                <fieldset>
+                  <legend class="sr-only">Contact</legend>
+                  <div class="form-group dso-input dso-input-text dso-invalid">
+                    <div class="dso-label-container">
+                      <label for="email" class="control-label">
+                        E-mailadres
+                      </label>
+                    </div>
+                    <div class="dso-field-container">
+                      <input type="text" id="email" class="form-control" value="piet@" />
+                      <p class="dso-message">Er is geen geldig e-mailadres ingevuld. Controleer of het e-mailadres een @ en een punt bevat, en of er geen spaties in staan.</p>
+                    </div>
+                  </div>
+                </fieldset>
+              </fieldset>
+            </form>
           </td>
         </tr>
       </tbody>

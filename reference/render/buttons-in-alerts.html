@@ -1,70 +1,60 @@
-<div class="dso-example-wrapper">
-  <div class="dso-example-text">
-    <h2>Buttons in sectieberichten</h2>
-  </div>
-  <div class="dso-example">
-    <table class="table">
-      <caption>Verschijningsvormen van buttons in sectieberichten (<code>.alert</code>).</caption>
-      <thead>
-        <tr>
-          <th scope="col">Beschrijving</th>
-          <th scope="col">Weergave</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Waarschuwing</td>
-          <td>
-            <div class="alert alert-warning" role="alert">
-              <div class="dso-rich-content">
-                <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>
-                <button type="button" class="btn">
-                  <span>Zoekopdracht afbreken</span>
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Info</td>
-          <td>
-            <div class="alert alert-info" role="alert">
-              <div class="dso-rich-content">
-                <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-                <button type="button" class="btn">
-                  <span>Ok</span>
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Fout</td>
-          <td>
-            <div class="alert alert-danger" role="alert">
-              <div class="dso-rich-content">
-                <p>Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.</p>
-                <button type="button" class="btn">
-                  <span>Ok</span>
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>Succes</td>
-          <td>
-            <div class="alert alert-success" role="alert">
-              <div class="dso-rich-content">
-                <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
-                <button type="button" class="btn">
-                  <span>Hoera</span>
-                </button>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../_assets/images/favicon.ico" type="image/ico">
+    <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../../_statics/custom-mandelbrot-stylesheet.css?cachebust=1.2.0" type="text/css">
+    <title>Error rendering component buttons-in-alerts | DSO Toolkit | Component Library</title>
+  </head>
+  <body>
+    <div class="Frame Frame--full" id="frame">
+      <div class="Error Error--render">
+        <h4 class="Error-title">Error rendering component</h4>
+        <div class="Error-message Prose">
+          <p>Parse error on line 21:
+            ... <p>{{&gt; &#39;@button&#39; type=&#39;butto
+-----------------------^
+Expecting &#39;CLOSE_RAW_BLOCK&#39;, &#39;CLOSE&#39;, &#39;CLOSE_UNESCAPED&#39;, &#39;CLOSE_SEXPR&#39;, &#39;ID&#39;, &#39;OPEN_BLOCK_PARAMS&#39;, got &#39;DATA&#39;</p>
+    </div>
+    <code class="Error-stack">
+        <pre>Error: Parse error on line 21:
+...            <p>{{> '@button' type='butto
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', got 'DATA'
+    at Parser.parseError (C:\Dev\packages\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:268:19)
+    at Parser.parse (C:\Dev\packages\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:337:30)
+    at HandlebarsEnvironment.parse (C:\Dev\packages\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (C:\Dev\packages\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:515:19)
+    at ret (C:\Dev\packages\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:524:18)
+    at prepareAndResolveMarkers (C:\Dev\packages\dso-toolkit\node_modules\promised-handlebars\index.js:99:39)
+    at C:\Dev\packages\dso-toolkit\node_modules\promised-handlebars\lib\utils.js:29:28
+    at HandlebarsAdapter.render (C:\Dev\packages\dso-toolkit\node_modules\@frctl\handlebars\src\adapter.js:34:30)
+    at ComponentSource._renderVariant (C:\Dev\packages\dso-toolkit\node_modules\@frctl\fractal\src\api\components\source.js:207:30)
+    at _renderVariant.next (<anonymous>)
+    at onFulfilled (C:\Dev\packages\dso-toolkit\node_modules\co\index.js:65:19)
+    at bound (domain.js:402:14)
+    at runBound (domain.js:415:12)
+    at tryCatcher (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:694:18)
+    at Promise._fulfill (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:638:18)
+    at Promise._resolveCallback (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:432:57)
+    at Promise._settlePromiseFromHandler (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:524:17)
+    at Promise._settlePromise (C:\Dev\packages\dso-toolkit\node_modules\bluebird\js\release\promise.js:569:18)</pre>
+    </code>
 </div>
+</div>
+<script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+<script src="../../dso-toolkit-scripts.js?cachebust=1.2.0"></script>
+</body>
+</html>
