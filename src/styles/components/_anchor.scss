@@ -34,25 +34,11 @@ a {
       &::after {
         @include di("download");
       }
-
-      &:hover,
-      &:focus {
-        &::after {
-          @include di-variant("download-scampi");
-        }
-      }
     }
 
     &.extern {
       &::after {
         @include di("external-link");
-      }
-
-      &:hover,
-      &:focus {
-        &::after {
-          @include di-variant("external-link-scampi");
-        }
       }
     }
   }
