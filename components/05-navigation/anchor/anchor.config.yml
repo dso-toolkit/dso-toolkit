@@ -18,7 +18,7 @@ variants:
       modifier: extern
   - name: icon
     context:
-      icon: fas fa-search
+      icon: search
       iconOnly: true
       label: Zoeken
   - name: label
@@ -26,18 +26,18 @@ variants:
       label: Zoeken
   - name: iconLabel
     context:
-      icon: fas fa-search
+      icon: search
       label: zoeken
   - name: iconBadge
     context:
-      icon: fas fa-search
+      icon: search
       iconOnly: true
       label: zoeken
       badge:
         label: 4
   - name: iconLabelBadge
     context:
-      icon: fas fa-search
+      icon: search
       label: zoeken
       badge:
         label: 4

@@ -16,6 +16,10 @@
         <button type="submit" class="hidden">VALIDATOR_ONLY</button>
       </form>
     </div>
+
+    <!-- Polyfill for svg use[href] with external uri -->
+    <script src="{{path '/svg4everybody.min.js' }}"></script>
+    <script>svg4everybody();</script>
   </body>
 
 </html>

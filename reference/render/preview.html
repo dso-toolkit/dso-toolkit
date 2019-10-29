@@ -2,7 +2,7 @@
 <html lang="nl">
   <head>
     <meta charset="utf-8">
-    <title> | DSO Component Library - Component preview</title>
+    <title> | DSO Toolkit | Component Library - Component preview</title>
     <link rel="stylesheet" href="../../styles/dso.css" />
   </head>
   <body>
@@ -11,5 +11,11 @@
         <button type="submit" class="hidden">VALIDATOR_ONLY</button>
       </form>
     </div>
+
+    <!-- Polyfill for svg use[href] with external uri -->
+    <script src="../../svg4everybody.min.js"></script>
+    <script>
+      svg4everybody();
+    </script>
   </body>
 </html>

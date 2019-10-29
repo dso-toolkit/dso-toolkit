@@ -3,7 +3,6 @@
   flex-wrap: wrap;
 
   > [class*="col-"] {
-    > .highlight-box,
     > .dso-highlight-box {
       height: calc(100% - #{$dso-highlight-box-margin-top});
       min-height: auto;

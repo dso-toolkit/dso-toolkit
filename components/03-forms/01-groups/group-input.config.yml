@@ -42,7 +42,7 @@ variants:
     __title: Met icoon
     id: input-text-icon
     label: E-mailadres
-    inputIcon: fas fa-at
+    inputIcon: at
 - name: input-text-disabled
   context:
     __title: Disabled

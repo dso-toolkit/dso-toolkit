@@ -1,0 +1,12 @@
+@import "../styles/mixins/dso-variables";
+times {
+  color: $grasgroen;
+}
+
+times:bosgroen {
+  color: $bosgroen;
+}
+
+times:wit {
+  color: $wit;
+}

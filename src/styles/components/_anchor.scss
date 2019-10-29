@@ -1,9 +1,7 @@
-$dso-anchor-download-content: fa-content($fa-var-download);
-$dso-anchor-extern-content: fa-content($fa-var-external-link-alt);
 $dso-anchor-spacer-width: 4px;
 
 .alert,
-.highlight-box,
+.dso-highlight-box,
 .dso-rich-content > :not(table),
 .dso-info:not(.dso-accordion-section) {
   a:not(.btn) {
@@ -17,33 +15,31 @@ $dso-anchor-spacer-width: 4px;
 }
 
 a {
-  &:visited {
+  &:not(.btn):visited {
     color: $dso-anchor-visited-color;
   }
 
-  &:focus {
-    background-color: $dso-anchor-focus-color;
-    color: $wit;
-    outline: none;
-  }
-
-  &.download,
-  &.extern {
-    &::after {
-      @extend .fas;
-      margin-left: $dso-anchor-spacer-width;
+  &:not(.btn) {
+    &.download,
+    &.extern {
+      &::after {
+        content: "";
+        display: inline-block;
+        margin-left: $dso-anchor-spacer-width;
+        vertical-align: $dso-icon-vertical-align;
+      }
     }
-  }
 
-  &.download {
-    &::after {
-      content: $dso-anchor-download-content;
+    &.download {
+      &::after {
+        @include di("download");
+      }
     }
-  }
 
-  &.extern {
-    &::after {
-      content: $dso-anchor-extern-content;
+    &.extern {
+      &::after {
+        @include di("external-link");
+      }
     }
   }
 }

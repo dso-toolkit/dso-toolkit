@@ -1,15 +1,18 @@
+---
+label: Kleuren
+---
 ## Primaire kleuren
-Als kleuren een semantische waarden hebben kunnen gebruikers functionaliteiten sneller identificeren en gebruiken. Hanteer de volgende regels per kleur.
+Als kleuren een semantische waarde hebben kunnen gebruikers functionaliteiten sneller identificeren en gebruiken. Hanteer de volgende regels per kleur.
 
 ### Groen
-Groen is de basis kleur voor het ontwerp van het DSO en brengt met zich mee een rustige en natuurlijke uitstraling.
+Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustige en natuurlijke uitstraling.
 
 #### Gebruiken voor
-* Titels
-* Subtitels
-* Menu tekst
-* Secundaire knoppen
-* Steunkleuren
+- Titels
+- Subtitels
+- Menu tekst
+- Secundaire knoppen
+- Steunkleuren
 
 <div class="color-row">
   <div class="color-chip" style="background-color: #39870c;">
@@ -89,7 +92,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en brengt met zich mee een 
 </div>
 
 ### Lime
-<p>Lime wordt gebruikt voor non-essential beeldmerken. Bijvoorbeeld vinkjes toevoegen na een succesvolle post. Deze kleur is niet een interactie kleur, in tegenstelling tot de andere groen kleuren.</p>
+Lime wordt gebruikt voor non-essential beeldmerken, bijvoorbeeld vinkjes toevoegen na een succesvolle post. Deze kleur is geen interactie kleur, in tegenstelling tot de andere groen kleuren.
 
 <div class="color-row">
   <div class="color-chip" style="background-color: #79b929;">
@@ -113,13 +116,13 @@ Groen is de basis kleur voor het ontwerp van het DSO en brengt met zich mee een 
 </div>
 
 ### Oranje
-Oranje is een sterke kleur die wordt gebruikt voor aandachtspunten. Een kleur die spaarzaam gebruikt moet worden voor essentiële onderdelen en accenten
+Oranje is een sterke kleur die wordt gebruikt voor aandachtspunten. Deze kleur wordt spaarzaam gebruikt voor essentiële onderdelen en accenten.
 
 #### Gebruiken voor
-* Accenten
-* Indicatoren
-* Call to actions
-* Primaire knoppen
+- Accenten
+- Indicatoren
+- Call to actions
+- Primaire knoppen
 
 <div class="color-row">
   <div class="color-chip" style="background-color: #e17000;">
@@ -176,7 +179,7 @@ De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt 
 </div>
 
 ## Secundaire kleurenpalet
-De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontstaan vanuit de basiselementen: Aarde, Water, Lucht en Vuur. Warme en koude kleuren die de communicatiekleuren aanvullen. Deze kleuren kun je gebruiken als de communicatiekleuren niet toereikend zijn. Bijvoorbeeld in tabellen en grafieken waar meer kleurvariatie nodig is om duidelijk onderscheid te kunnen maken in verschillende waarden of legenda’s. Dus nooit als steunkleur voor accenten in de reguliere opmaak. Dan gebruik je uitsluitend het primaire kleurenpalet.
+De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontstaan vanuit de basiselementen: Aarde, Water, Lucht en Vuur. Warme en koude kleuren die de communicatiekleuren aanvullen. Deze kleuren kun je gebruiken als de communicatiekleuren niet toereikend zijn. Bijvoorbeeld in tabellen en grafieken waar meer kleurvariatie nodig is om duidelijk onderscheid te kunnen maken in verschillende waarden of legenda's. Dus nooit als steunkleur voor accenten in de reguliere opmaak. Dan gebruik je uitsluitend het primaire kleurenpalet.
 
 **Let op: Deze kleuren worden naast het primaire kleurenpalet gebruikt en zijn ondergeschikt.**
 

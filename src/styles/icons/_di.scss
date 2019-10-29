@@ -1,110 +1,20 @@
-@font-face {
-  font-family: "DSO IconFont";
-  font-style: normal;
-  font-weight: normal;
-  src: url("#{$dso-icon-font-path}DSO-IconFont.eot"); // sass-lint:disable-line no-duplicate-properties
-  src: url("#{$dso-icon-font-path}DSO-IconFont.woff") format("woff"), // sass-lint:disable-line no-duplicate-properties
-  url("#{$dso-icon-font-path}DSO-IconFont.ttf") format("truetype"),
-  url("#{$dso-icon-font-path}DSO-IconFont.svg#DSO-IconFont") format("svg");
+$dso-icon-size: 1em;
+$dso-icon-vertical-align: -.17em;
+
+@mixin di($icon, $size: $dso-icon-size) {
+  background: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: $size;
+  width: $size;
 }
 
-$di-icon-map: (
-  "cross": "\0041",
-  "info": "\0042",
-  "check": "\0043",
-  "warning": "\0044",
-  "forbidden": "\0045"
-);
-
-@mixin di-font($pseudo: "before") {
-  &::#{$pseudo} {
-    -moz-osx-font-smoothing: grayscale; // sass-lint:disable-line no-vendor-prefixes
-    -webkit-font-smoothing: antialiased; // sass-lint:disable-line no-vendor-prefixes
-    display: inline-block;
-    font-family: "DSO IconFont";
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-  }
+@mixin di-variant($icon) {
+  background-image: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}");
 }
 
-@mixin di($icon, $pseudo: "before") {
-  &::#{$pseudo} {
-    content: map-get($di-icon-map, $icon);
-  }
+svg.di {
+  height: $dso-icon-size;
+  vertical-align: $dso-icon-vertical-align;
+  width: $dso-icon-size;
 }
-
-@mixin di-cross($size: $u4, $pseudo: "before") {
-  @include di-font($pseudo: $pseudo);
-  @include di("cross", $pseudo: $pseudo);
-
-  &::#{$pseudo} {
-    background-color: $dso-danger-color;
-    border-radius: 50%;
-    color: $wit;
-    font-size: .4 * $size;
-    height: $size;
-    line-height: $size;
-    text-align: center;
-    width: $size;
-  }
-}
-
-@mixin di-info($size: $u4, $pseudo: "before") {
-  @include di-font($pseudo: $pseudo);
-  @include di("info", $pseudo: $pseudo);
-
-  &::#{$pseudo} {
-    background-color: $dso-info-color;
-    border-radius: 50%;
-    color: $wit;
-    font-size: .4 * $size;
-    height: $size;
-    line-height: $size;
-    text-align: center;
-    width: $size;
-  }
-}
-
-@mixin di-check($size: $u4, $pseudo: "before") {
-  @include di-font($pseudo: $pseudo);
-  @include di("check", $pseudo: $pseudo);
-
-  &::#{$pseudo} {
-    background-color: $lime;
-    border-radius: 50%;
-    color: $wit;
-    font-size: .4 * $size;
-    height: $size;
-    line-height: $size;
-    text-align: center;
-    width: $size;
-  }
-}
-
-@mixin di-warning($size: $u4, $pseudo: "before") {
-  @include di-font($pseudo: $pseudo);
-  @include di("warning", $pseudo: $pseudo);
-
-  &::#{$pseudo} {
-    background-color: $dso-warning-color;
-    border-radius: 50%;
-    color: $zwart;
-    font-size: .4 * $size;
-    height: $size;
-    line-height: $size;
-    text-align: center;
-    width: $size;
-  }
-}
-
-@mixin di-forbidden($size: $u4, $pseudo: "before") {
-  @include di-font($pseudo: $pseudo);
-  @include di("forbidden", $pseudo: $pseudo);
-
-  &::#{$pseudo} {
-    color: $dso-danger-color;
-    height: $size;
-  }
-}
-

@@ -1,4 +1,6 @@
 $dso-selectable-size: $u3;
+$dso-selectable-border-width: 2px;
+$dso-selectable-focus-border-width: 3px;
 
 .dso-selectable {
   padding: 0 0 0 $u4;
@@ -22,7 +24,7 @@ $dso-selectable-size: $u3;
       + label {
         &::before {
           background-color: $wit;
-          box-shadow: 0 0 0 2px $dso-input-disabled-border-color;
+          box-shadow: 0 0 0 $dso-selectable-border-width $dso-input-disabled-border-color;
         }
       }
     }
@@ -59,26 +61,25 @@ $dso-selectable-size: $u3;
       &::before {
         background: $wit;
         border: 0;
-        box-shadow: 0 0 0 2px $bosgroen;
+        box-shadow: 0 0 0 $dso-selectable-border-width $bosgroen;
         content: "";
-        height: $dso-selectable-size - 4px;
-        left: 2px;
+        height: $dso-selectable-size - 2 * $dso-selectable-border-width;
+        left: $dso-selectable-border-width;
         position: absolute;
-        top: 2px;
-        width: $dso-selectable-size - 4px;
+        top: $dso-selectable-border-width;
+        width: $dso-selectable-size - 2 * $dso-selectable-border-width;
       }
     }
 
-    &:focus,
-    &.focus {
+    &:focus {
       outline: 0;
 
       + label::before {
-        box-shadow: 0 0 0 4px $dso-anchor-focus-color;
-        height: $dso-selectable-size - 6px;
-        left: 3px;
-        top: 3px;
-        width: $dso-selectable-size - 6px;
+        box-shadow: 0 0 0 $dso-selectable-focus-border-width $dso-form-control-focus-border-color;
+        height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
+        left: $dso-selectable-focus-border-width;
+        top: $dso-selectable-focus-border-width;
+        width: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
       }
     }
 
@@ -99,14 +100,13 @@ $dso-selectable-size: $u3;
         box-shadow: 0 0 0 2px $dso-danger-color;
       }
 
-      &:focus,
-      &.focus {
+      &:focus {
         + label::before {
           box-shadow: 0 0 0 3px $dso-danger-color;
-          height: $dso-selectable-size - 6px;
-          left: 3px;
-          top: 3px;
-          width: $dso-selectable-size - 6px;
+          height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
+          left: $dso-selectable-focus-border-width;
+          top: $dso-selectable-focus-border-width;
+          width: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
         }
       }
     }

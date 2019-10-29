@@ -16,16 +16,30 @@ ul.dso-conclusion {
       top: 3px;
     }
 
+    &.dso-success,
+    &.dso-warning,
+    &.dso-forbidden {
+      &::before {
+        content: "";
+      }
+    }
+
     &.dso-success {
-      @include di-check($size: $dso-conclusion-icon-size);
+      &::before {
+        @include di("status-success", $dso-conclusion-icon-size);
+      }
     }
 
     &.dso-warning {
-      @include di-warning($size: $dso-conclusion-icon-size);
+      &::before {
+        @include di("status-warning", $dso-conclusion-icon-size);
+      }
     }
 
     &.dso-forbidden {
-      @include di-forbidden($size: $dso-conclusion-icon-size);
+      &::before {
+        @include di("forbidden", $dso-conclusion-icon-size);
+      }
     }
 
     .dso-info {
@@ -43,4 +57,3 @@ ul.dso-conclusion {
     }
   }
 }
-

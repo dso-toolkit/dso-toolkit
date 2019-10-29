@@ -14,25 +14,34 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
   }
 
   &::before {
+    content: "";
     left: $dso-alert-horizontal-padding - 1px; // 1px border
     position: absolute;
     top: $dso-alert-horizontal-padding - 1px; // 1px border
   }
 
   &.alert-success {
-    @include di-check;
+    &::before {
+      @include di("status-success", $dso-alert-icon-size);
+    }
   }
 
   &.alert-danger {
-    @include di-cross;
+    &::before {
+      @include di("status-danger", $dso-alert-icon-size);
+    }
   }
 
   &.alert-warning {
-    @include di-warning;
+    &::before {
+      @include di("status-warning", $dso-alert-icon-size);
+    }
   }
 
   &.alert-info {
-    @include di-info;
+    &::before {
+      @include di("status-info", $dso-alert-icon-size);
+    }
   }
 
   a,

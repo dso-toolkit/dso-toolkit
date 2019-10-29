@@ -3,6 +3,150 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 9.2.0 - 28-10-2019
+
+### Changed
+* Focus states formulier elementen (#416)
+* Terug naar default focus states (#418)
+* Documentatie: Iconen, Logo's, Buttons, Status-meldingen. taal, taalgebruik, labels in navigatie, liststyles (#411)
+
+### Fixed
+* Shopping kart toelichting mist icoon in lopende tekst (#445)
+* In sluitknop van modal is het icoon niet netjes gecentreerd (#447)
+* Uitlijning info-button met tekst is onjuist (#441)
+
+## 9.1.0 - 18-10-2019
+
+### Added
+* Locatie van dso-icons.svg in variabele `$dso-icons-path` ondergebracht (default: `../`) (#435).
+
+### Fixed
+* Typefout in CHANGELOG migratie documentatie (#436)
+
+## 9.0.0 - 14-10-2019
+
+### Added
+* Dropdown menu items checkable maken (#373)
+
+### Changed
+* **BREAKING**: Tertiaire button `.btn-link` redesign (#372).
+* **BREAKING**: SVG iconen (#414).
+* Andere iconen voor status indicatoren (success, info, warning en danger) (#357)
+* Kleine buttons mogelijk maken met class btn-sm (#377)
+* **BREAKING**: Highlight-box component prefixen met `dso-` (#369)
+
+### Removed
+* DSO specifieke markup voor het pagination component. Deze is gemarkeerd als deprecated in versie 8.2.0 door issue #272
+
+#### Migratie notities:
+
+##### SVG Iconen (#414)
+
+Zie de memo in #414 voor de achtergrond.
+
+Voorheen:
+```html
+<span class="fa fa-user" aria-hidden="true"></span>
+```
+
+Moet worden:
+```html
+<svg class="di di-user">
+  <use href="dso-icons.svg#user" />
+</svg>
+```
+
+Notes:
+* Tijdens het upgraden zal het voorkomen dat een icoon niet meer beschikbaar is. In dat geval is samen met het UX team de volgende procedure bedacht:
+  1. Gebruik het placeholder icoon `wip-wip`.
+  2. Geef aan het UX team door welke iconen je mist.
+
+  Het UX team zal het verzoek beoordelen en indien nodig een icoon in DSO huisstijl ontwerpen. Het icoon wordt dan opgenomen in de toolkit. In de CHANGELOG zal duidelijk aangegeven worden welke iconen er toegevoegd zijn.
+
+  `wip-wip` zal nooit een "echt" icoon worden. Het is daarom een ideaal keyword om de broncode op te doorzoeken naar missende iconen.
+* Een namespace attribuut is niet nodig als het icoon in een HTML5 applicatie wordt gebruikt (https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg).
+* In het `use` element mag direct `href` ipv `xlink:href` worden gebruikt. In SVG2 is `xlink:href` deprecated (https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/xlink:href).
+* In bovenstaand voorbeeld verwijs ik naar `dso-icons.svg`:
+  * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk `node_modules/dso-toolkit/dist/toolkit/dso-icons.svg` wordt gebundled;
+  * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
+  * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
+* FontAwesome is geen dependency meer. Tevens wordt Bootstrap's Glyphicons niet meer gebundled.
+* IE11 heeft geen support voor `use href` naar een externe URI of data URI. Elke implementatie van de toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de toolkit en maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
+
+Het voorschrift voor de carousel maakte voorheen gebruik van Bootstrap's glyphicons. Het SVG-icoon element moet een modifier `icon-next` en `icon-prev` krijgen. Dit zijn standaard Bootstrap modifiers.
+
+##### Tertiaire button `.btn-link` redesign (#372)
+De modifier `.download` en `.extern` zijn op `.btn` niet meer toegestaan.
+
+Het label van een `.btn` dient vanaf nu in een `span` te zitten.
+
+Voorheen:
+```html
+<button type="..." class="btn ...modifiers">
+  Label
+</button>
+
+<a href="..." class="btn ...modifiers">
+  Label
+</a>
+```
+
+Moet worden:
+```html
+<button type="..." class="btn ...modifiers">
+  <span>Label</span>
+</button>
+
+<a href="..." class="btn ...modifiers">
+  <span>Label</span>
+</a>
+```
+
+Iconen in `.btn` krijgen geen `float: left` meer en is daarom geen block-element meer. Zoals alle inline elementen is _whitespace_ altijd _significant whitespace_. Het is van belang dat tussen het label en icoon geen whitespace staat.
+
+**Let op:** Frontend frameworks/libraries genereren markup niet altijd zoals het template is opgebouwd.
+
+```html
+<!-- OK -->
+<... class="btn ...">
+  <span>Label</span><svg class="di ..."></svg>
+</...>
+
+<!-- NOT OK -->
+<... class="btn ...">
+  <span>Label</span>
+  <svg class="di ..."></svg>
+</...>
+
+<... class="btn ...">
+  <span>Label</span> <svg class="di ..."></svg>
+</...>
+```
+
+##### Highlight-box component prefixen met `dso-` (#369)
+
+Het highlight-box component is een van de laatste niet-Bootstrap componenten die geen `dso-` prefix had.
+
+Voorheen:
+```html
+<div class="highlight-box">
+  [..]
+</div>
+```
+
+Moet worden:
+```html
+<div class="dso-highlight-box">
+  [..]
+</div>
+```
+
+De highlight-box had een aantal niet-prefixed modifiers:
+* `highlight-box-yellow` -> `dso-yellow`
+* `highlight-box-bordered` -> `dso-border`
+
+`dso-drop-shadow` voldeed al aan de `dso-` prefix en is ongewijzigd.
+
 ## 8.5.0 - 30-09-2019
 
 ### Added
@@ -368,7 +512,7 @@ Deze release is bijzonder: Het is "maar" een minor increment. Volgens SemVer zou
 * zullen breaking changes een major increment zijn
 * zullen breaking changes aangekondigd worden en waar mogelijk zal een change backwards compatible zijn en "deprecated" worden gemarkeerd
 
-De breaking changes zitten niet alleen in de componenten maar ook in de filosifie van de DSO Toolkit. De Toolkit is sinds 1.2.0 *framework agnostisch*: Dit betekent 100% CSS. Waar de toolkit voor een expliciete dependency op jQuery had, wordt er nu geen toolkit javascript meer gemaakt en/of verwacht. De componenten met breaking changes zijn alert, accordion, formulieren en buttons.
+De breaking changes zitten niet alleen in de componenten maar ook in de filosifie van de DSO Toolkit. De toolkit is sinds 1.2.0 *framework agnostisch*: Dit betekent 100% CSS. Waar de toolkit voor een expliciete dependency op jQuery had, wordt er nu geen toolkit javascript meer gemaakt en/of verwacht. De componenten met breaking changes zijn alert, accordion, formulieren en buttons.
 
 ### Geen jQuery dependency
 In [#72](https://github.com/dso-toolkit/dso-toolkit/issues/73) heb ik een uitleg gegeven waarom de jQuery dependency is verdwenen. Sinds 1.2.0 levert de toolkit geen javascript meer, en heeft ook geen javascript framework meer nodig. De implementator moet zich houden aan de voorschriften die de stijlgids voorschrijft en de toolkit zorgt dan voor een site zoals DSO deze voorschrijft.

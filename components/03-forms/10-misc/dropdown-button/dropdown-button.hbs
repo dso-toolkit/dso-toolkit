@@ -1,16 +1,14 @@
 <div class="dropdown{{#if open }} open{{/if}}">
-  <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{{#if open }}true{{else}}false{{/if}}">
-    {{ label }}
-  </button>
+  <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{{#if open }}true{{else}}false{{/if}}">{{ label }}</button>
   {{#if open }}
-    <ul class="dropdown-menu" aria-labelledby="{{ id }}">
+    <ul class="dropdown-menu{{#if modifiers}} {{ modifiers }}{{/if}}" aria-labelledby="{{ id }}">
       {{#each items }}
         {{#unless @first }}
           <li role="separator" class="divider"></li>
         {{/unless}}
         {{#each this }}
-          <li>
-            <a href="#">{{ this }}</a>
+          <li{{#if checked}} class="dso-checked"{{/if}}>
+            <a href="#">{{ this.label }}</a>
           </li>
         {{/each}}
       {{/each}}

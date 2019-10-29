@@ -16,7 +16,7 @@ variants:
         type: button
         modifier: link
         state: standard
-        icon: icon fas fa-angle-right
+        icon: angle-right
   - name: image
     context:
       __title: Jumbotron met Image
@@ -34,4 +34,4 @@ variants:
         type: button
         modifier: link
         state: standard
-        icon: icon fas fa-angle-right
+        icon: angle-right

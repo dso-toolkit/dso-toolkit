@@ -40,7 +40,10 @@
         </div>
         <div class="dso-field-container">
           <input type="text" id="geboortedatum" class="form-control" />
-          <span class="fas fa-calendar form-control-feedback" aria-hidden="true"></span>
+          <span class="form-control-feedback" aria-hidden="true">
+                  <svg class="di di-calendar">
+                    <use href="../../dso-icons.svg#calendar" />
+                  </svg>      </span>
         </div>
       </div>
       <div class="form-group dso-input dso-input-text dso-required">
@@ -103,7 +106,7 @@
               </label>
             </div>
             <button type="button" class="btn btn-link dso-remove">
-              Verwijder document
+              <span>Verwijder document</span>
             </button>
           </li>
           <li>
@@ -116,27 +119,31 @@
                 Vertrouwelijk
               </label>
             </div>
-            <span class="di di-warning" aria-hidden="true"></span>
-            <button type="button" class="btn btn-link dso-remove">
-              Verwijder document
+            <svg class="di di-status-warning">
+              <use href="../../dso-icons.svg#status-warning" />
+            </svg> <button type="button" class="btn btn-link dso-remove">
+              <span>Verwijder document</span>
             </button>
           </li>
         </ul>
-        <div class="alert alert-warning">
-          <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
-          <ol>
-            <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
-            <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
-          </ol>
-          <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
+        <div class="alert alert-warning" role="alert">
+          <div class="dso-rich-content">
+            <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
+            <ol>
+              <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
+              <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
+            </ol>
+            <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
+          </div>
         </div>
 
         <!-- To use an input type="file" element -->
         <div class="dso-file-upload">
           <input type="file" id="file-upload" />
           <label class="btn btn-link" for="file-upload">
-            <span class="icon fa fa-plus"></span>
-            Document toevoegen
+            <svg class="di di-plus">
+              <use href="../../dso-icons.svg#plus" />
+            </svg><span>Document toevoegen</span>
           </label>
         </div>
 
@@ -144,8 +151,9 @@
 
         <!--
               <button type="button" class="btn btn-link" >
-                  <span class="icon fa fa-plus" aria-hidden="true"></span>
-                Document toevoegen
+                <svg class="di di-plus">
+                <use href="../../dso-icons.svg#plus" />
+              </svg><span>Document toevoegen</span>
               </button>
             -->
       </div>
@@ -323,7 +331,7 @@
   </fieldset>
   <div class="dso-form-buttons">
     <button type="submit" class="btn btn-primary">
-      Verstuur
+      <span>Verstuur</span>
     </button>
   </div>
 </form>

@@ -5,7 +5,7 @@
 }
 
 .dso-whitebox,
-.highlight-box {
+.dso-highlight-box {
   &.dso-has-counter {
     padding-top: $u5;
     position: relative;
@@ -27,9 +27,5 @@
     text-align: center;
     top: -$u3;
     width: $u4;
-
-    .di::before {
-      background-color: transparent;
-    }
   }
 }

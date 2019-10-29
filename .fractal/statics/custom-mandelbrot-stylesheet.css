@@ -336,4 +336,5 @@ ul.icons .demo-icon {
 
 .dso-toolkit-window iframe {
   width: 100%;
+  margin-top: 16px;
 }

@@ -1,0 +1,52 @@
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Spinners en progressbars</h2>
+  </div>
+  <div class="dso-example">
+    <table class="table">
+      <caption>Spinners en progressbars met gebruiksaanwijzingen</caption>
+      <thead>
+        <tr>
+          <th scope="col">Wachttijd</th>
+          <th scope="col">Bouwsteen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Minder dan 1 seconde</td>
+          <td>
+            <p>Geen indicator.</p>
+          </td>
+        </tr>
+        <tr>
+          <td>1 - 4 seconden</td>
+          <td class="plain-content">
+            <div class="dso-progress-indicator" role="progressbar" aria-valuetext="Een moment geduld a.u.b.">
+              Een moment geduld a.u.b.
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Minder dan 1 minuut</td>
+          <td class="plain-content">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="" aria-valuemax="" style="width: 75%;">
+                <span>75%</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Meer dan 1 minuut</td>
+          <td class="plain-content">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="" aria-valuemax="" style="width: 30%;">
+                <span>30%</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

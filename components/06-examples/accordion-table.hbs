@@ -14,59 +14,36 @@
   <tbody>
     <tr>
       <th scope="row">
-        <button type="button" class="btn btn-link btn-xs">
-          {{> "@icon" icon="fa fa-chevron-down"}}
-        </button>
+        {{> '@button' type='button' label='Open' modifier='link' icon='chevron-down' iconOnly=true }}
       </th>
       <td>Vergunning kappen</td>
       <td>Verzonden</td>
       <td>21/11/2017</td>
       <td>Aanvraag</td>
-      <td class="text-center">2 <span class="fa fa-paperclip"></span></td>
+      <td class="text-center">2 {{> '@icon' icon='paperclip' }}</td>
       <td class="text-right">
-        <button type="button" class="btn btn-link">
-          <span class="fas fa-pencil-alt"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="fas fa-redo-alt"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="far fa-copy"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="far fa-trash-alt"></span>
-        </button>
+        {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Opnieuw' icon='redo' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Kopieer' icon='copy' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
       </td>
     </tr>
     <tr>
       <th scope="row">
-        <button type="button" class="btn btn-link btn-xs active">
-          {{> "@icon" icon="fa fa-chevron-up"}}
-        </button>
+        {{> '@button' type='button' label='Open' modifier='link active' icon='chevron-up' iconOnly=true }}
       </th>
       <td>Boom 23 kappen</td>
       <td>
-        <button class="btn btn-link" type="button">
-          {{> "@icon" icon="icon fas fa-angle-right"}}
-          Openen
-        </button>
+        {{> '@button' type='button' modifier='link' label='Openen' icon='angle-right' }}
       </td>
       <td>15/10/2017</td>
       <td>Verzoek</td>
-      <td class="text-center">7 <span class="fa fa-paperclip"></span></td>
+      <td class="text-center">7 {{> '@icon' icon='paperclip' }}</span></td>
       <td class="text-right">
-        <button type="button" class="btn btn-link">
-          <span class="fas fa-pencil-alt"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="fas fa-redo-alt"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="far fa-copy"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="far fa-trash-alt"></span>
-        </button>
+        {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Opnieuw' icon='redo' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Kopieer' icon='copy' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
       </td>
     </tr>
     <tr>
@@ -76,29 +53,21 @@
     </tr>
     <tr>
       <th scope="row">
-        <button type="button" class="btn btn-link btn-xs">
-          {{> "@icon" icon="fa fa-chevron-down"}}
-        </button>
+        {{> '@button' type='button' label='Open' modifier='link' icon='chevron-down' iconOnly=true }}
       </th>
       <td>Pand 24 slopen</td>
       <td>Aangevuld</td>
       <td>13/09/2017</td>
       <td>Melding</td>
-      <td class="text-center">6 <span class="fa fa-paperclip"></span></td>
+      <td class="text-center">6 {{> '@icon' icon='paperclip' }}</span></td>
       <td class="text-right">
-        <button type="button" class="btn btn-link">
-          <span class="far fa-copy"></span>
-        </button>
-        <button type="button" class="btn btn-link">
-          <span class="far fa-trash-alt"></span>
-        </button>
+        {{> '@button' type='button' modifier='link' label='Kopieer' icon='copy' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
       </td>
     </tr>
     <tr>
       <th scope="row">
-        <button type="button" class="btn btn-link btn-xs">
-          {{> "@icon" icon="fa fa-chevron-down"}}
-        </button>
+        {{> '@button' type='button' label='Open' modifier='link' icon='chevron-down' iconOnly=true }}
       </th>
       <td>Kerkstraat 10 tuin uitgraven</td>
       <td>Ingetrokken</td>
@@ -106,16 +75,12 @@
       <td>Aanvraag</td>
       <td></td>
       <td class="text-right">
-        <button type="button" class="btn btn-link">
-          <span class="far fa-trash-alt"></span>
-        </button>
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
       </td>
     </tr>
     <tr>
       <th scope="row">
-        <button type="button" class="btn btn-link btn-xs">
-          {{> "@icon" icon="fa fa-chevron-down"}}
-        </button>
+        {{> '@button' type='button' label='Open' modifier='link' icon='chevron-down' iconOnly=true }}
       </th>
       <td>Grote Markt 31 kabels leggen</td>
       <td>Concept</td>
@@ -123,9 +88,7 @@
       <td>Aanvraag</td>
       <td></td>
       <td class="text-right">
-        <button type="button" class="btn btn-link">
-          <span class="far fa-trash-alt"></span>
-        </button>
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
       </td>
     </tr>
   </tbody>

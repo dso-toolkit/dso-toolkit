@@ -60,37 +60,22 @@
     </div>
   </div>
 
-  <h2 style="margin-bottom: 24px">Gebruik in buttons</h2>
+  <h2 style="margin-bottom: 24px">Visueel als buttons</h2>
   <div class="row">
     <div class="col-md-3">
       {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' }}
-    </div>
-    <div class="col-md-3">
-      {{> '@anchor' label='Downloaden' modifier='btn btn-primary download' url='#' }}
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-3">
       {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' }}
     </div>
-    <div class="col-md-3">
-      {{> '@anchor' label='Downloaden' modifier='btn btn-default download' url='#' }}
-    </div>
-    <div class="col-md-3">
-      {{> '@anchor' label='Lees verder' modifier='btn btn-default extern' url='#' }}
+    <div class="col-md-2">
+      {{> '@anchor' label='.btn-align' modifier='btn btn-link btn-align' url='#' }}
     </div>
   </div>
-
   <div class="row">
-    <div class="col-md-3">
-      {{> '@anchor' label='Anchor' modifier='btn btn-link' icon='icon fas fa-angle-right' url='#' }}
-    </div>
-    <div class="col-md-3">
-      {{> '@anchor' label='Downloaden' modifier='btn btn-link download' icon='icon fas fa-angle-right' url='#' }}
-    </div>
-    <div class="col-md-3">
-      {{> '@anchor' label='Lees verder' modifier='btn btn-link extern' icon='icon fas fa-angle-right' url='#' }}
+    <div class="col-md-6">
+      {{> '@anchor' label='Link button' modifier='btn btn-link' url='#' }}
+      {{> '@anchor' label='Link button' modifier='btn btn-link' icon='info' iconOnly=true url='#' }}
+      {{> '@anchor' label='Link button' modifier='btn btn-link' icon='angle-left' url='#' }}
+      {{> '@anchor' label='Link button' modifier='btn btn-link' iconAfter='angle-right' url='#' }}
     </div>
   </div>
 </div>

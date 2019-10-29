@@ -5,24 +5,24 @@ notes: |
 status: ready
 collated: true
 context:
-  modifier: alert-success
+  modifier: success
   message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
   - name: danger
     context:
-      modifier: alert-danger
+      modifier: danger
       message: Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   - name: warning
     context:
-      modifier: alert-warning
+      modifier: warning
       message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
   - name: info
     context:
-      modifier: alert-info
+      modifier: info
       message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.
   - name: success-button
     context:
-      modifier: alert-success
+      modifier: success
       message: |
         <div class="dso-rich-content">
           <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
@@ -30,7 +30,7 @@ variants:
         </div>
   - name: danger-button
     context:
-      modifier: alert-danger
+      modifier: danger
       message: |
         <div class="dso-rich-content">
           <p>Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.</p>
@@ -38,7 +38,7 @@ variants:
         </div>
   - name: warning-button
     context:
-      modifier: alert-warning
+      modifier: warning
       message: |
         <div class="dso-rich-content">
           <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>
@@ -46,7 +46,7 @@ variants:
         </div>
   - name: info-button
     context:
-      modifier: alert-info
+      modifier: info
       message: |
         <div class="dso-rich-content">
           <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>

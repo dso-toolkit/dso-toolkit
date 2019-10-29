@@ -1,28 +1,58 @@
-$dso-dropdown-caret: fa-content($fa-var-caret-down);
-
 .dropdown {
   > .btn-default.dropdown-toggle {
     &::after {
-      @extend .fas;
+      @include di("caret-down-grasgroen");
 
-      content: $dso-dropdown-caret;
-      display: block;
-      float: right;
-      line-height: $dso-button-size - 2 * $dso-button-vertical-padding - 2px;
+      content: "";
+      display: inline-block;
       margin-left: $u1;
+      width: 10px;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @include di-variant("caret-down-wit");
+      }
     }
   }
 
   .dropdown-menu {
     li {
       a {
-        &:focus,
-        &.focus {
-          background-color: $dso-anchor-focus-color;
-          border-color: $dso-anchor-focus-color;
+        &:focus {
+          background-color: $grasgroen;
+          border-color: $grasgroen;
           color: $wit;
-          outline: 0;
           text-decoration: underline;
+        }
+      }
+    }
+
+    &.dso-checkable {
+      li {
+        a {
+          padding-left: $u5;
+        }
+
+        &.dso-checked {
+          a {
+            &:not(:focus) {
+              background-color: $grasgroen;
+              border-color: $grasgroen;
+              color: $wit;
+            }
+
+            &::before {
+              @include di("check-wit", $u3);
+
+              content: "";
+              display: block;
+              float: left;
+              margin-left: -$u4;
+              margin-right: $u1;
+            }
+          }
         }
       }
     }
@@ -34,16 +64,19 @@ $dso-dropdown-caret: fa-content($fa-var-caret-down);
       border-color: $grasgroen;
       color: $wit;
 
+      &::after {
+        @include di-variant("caret-down-wit");
+      }
+
       &:hover {
         background-color: $bosgroen;
         border-color: $bosgroen;
         color: $wit;
       }
 
-      &:focus,
-      &.focus {
-        background-color: $dso-anchor-focus-color;
-        border-color: $dso-anchor-focus-color;
+      &:focus {
+        background-color: $grasgroen;
+        border-color: $grasgroen;
         color: $wit;
         text-decoration: underline;
       }

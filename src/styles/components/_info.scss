@@ -4,26 +4,17 @@
   position: relative;
 
   > button {
-    @include icon($dso-toggle-close-icon-forestgreen);
-    background-size: $u2 $u2;
+    background-color: transparent;
     border-style: none;
-    height: #{$dso-toggle-close-icon-size - 2px};
     position: absolute;
     right: 0;
     top: 0;
-    width: #{$dso-toggle-close-icon-size - 2px};
 
-    &:hover,
-    &:active,
-    &.active {
-      outline: 0;
-    }
+    &::before {
+      @include di("times-bosgroen", 16px);
 
-    &:focus,
-    &.focus {
-      @include icon($dso-icon-button-icon-cross-white-12x12);
-      background-color: $dso-anchor-focus-color;
-      outline: 0;
+      content: "";
+      display: inline-block;
     }
   }
 
@@ -37,23 +28,21 @@
 }
 
 .dso-info-button {
-  @include icon($dso-icon-info-icon-tooltip-info-16x16);
-  height: $dso-button-info-size;
+  @include di("info", $dso-button-info-size);
+
   margin-left: $u1;
+  margin-top: $dso-icon-vertical-align;
   min-width: $dso-button-info-size;
   padding: 0;
-  position: relative;
-  width: $dso-button-info-size;
 
   &.dso-open,
   &:hover,
   &:active,
   &.active {
-    @include icon($dso-icon-info-icon-tooltip-info-actief-16x16);
+    @include di-variant("info-active");
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     background-color: transparent;
     outline: 5px auto -webkit-focus-ring-color; // sass-lint:disable-line no-vendor-prefixes
   }

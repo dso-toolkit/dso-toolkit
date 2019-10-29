@@ -1,12 +1,12 @@
 status: ready
-notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>highlight-box-yellow</code>) en met grijze border (modifier <code>highlight-box-bordered</code>).
+notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>dso-yellow</code>) en met grijze border (modifier <code>dso-border</code>).
 variants:
   - name: yellow
     context:
-      modifier: highlight-box-yellow
+      modifier: dso-yellow
   - name: bordered
     context:
-      modifier: highlight-box-bordered
+      modifier: dso-border
   - name: white-drop-shadow
     context:
       modifier: dso-white dso-drop-shadow
@@ -14,3 +14,8 @@ variants:
     context:
       modifier: dso-yellow
       step: 2
+  - name: Icon indicator
+    context:
+      modifier: dso-yellow
+      icon: plus
+      label: Plus

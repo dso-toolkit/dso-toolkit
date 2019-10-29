@@ -14,9 +14,12 @@
       {{{ifattr 'value' value }}}
       {{{ifattr 'disabled' disabled }}}
       {{{ifattr 'readonly' readonly }}}
-      {{{ifattr 'required' required }}} />
+      {{{ifattr 'required' required }}}
+    />
     {{#if inputIcon }}
-      <span class="{{ inputIcon }} form-control-feedback" aria-hidden="true"></span>
+      <span class="form-control-feedback" aria-hidden="true">
+        {{> '@icon' icon=inputIcon }}
+      </span>
     {{/if}}
     {{#if errorText }}
       {{> '@error-block' }}

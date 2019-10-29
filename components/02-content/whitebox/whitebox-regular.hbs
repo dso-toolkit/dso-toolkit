@@ -13,10 +13,7 @@
     <h2>{{ title }}</h2>
   </div>
   <div class="dso-whitebox-link">
-    <a class="btn btn-link" href="#">
-      <span class="icon fa fa-angle-right"></span>
-      {{ linktext }}
-    </a>
+    {{> '@anchor' url='#' label=linktext modifier='btn btn-link' icon='angle-right' }}
   </div>
   <div class="dso-whitebox-icon">
     <img src="{{path '/dummy/images/indienen.png' }}" alt="Indienen" />
