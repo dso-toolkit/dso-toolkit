@@ -8,13 +8,21 @@ install:
 #   - npm run lint
 #   - npm run build
 #   - npm run test
-  # - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" build/library/
+  
 jobs:
   include:
     - name: "Topic branch"
-      if: branch =~ /^#/
+      if: branch =~ /^#/ && type = push
+      script:
+        - npm run lint
+        # - npm run build
+        # - npm run gulp test:dom
+        - echo "deploy topic branch to web"
+  include:
+    - name: "Lint, Build, Test"
+      if: branch =~ /^#/ && type = pull_request
       script:
         - npm run lint
         - npm run build
-        - npm run gulp test:dom
-        - echo "deploy to web"
+        - npm run test
+        # - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" build/library/
