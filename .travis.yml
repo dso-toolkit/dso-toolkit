@@ -12,6 +12,7 @@ install:
 jobs:
   include:
     - name: "Topic branch"
+      if: branch =~ /^#/
       script:
         - npm run lint
         - npm run build
