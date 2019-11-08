@@ -17,7 +17,7 @@ jobs:
     after_success:
     - echo "run percy"
 before_install:
-- openssl aes-256-cbc -K $encrypted_a2be20f3e463_key -iv $encrypted_a2be20f3e463_iv
+- openssl aes-256-cbc -K $encrypted_15082e308684_key -iv $encrypted_15082e308684_iv
   -in deploy_rsa.enc -out deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy_rsa
