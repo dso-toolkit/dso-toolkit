@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 9.3.0 - 11-11-2019
+
+### Added
+* Icoon .status-danger toevoegen aan conclusion component (#454)
+* Icoon bij veldvalidatie (#455)
+
 ## 9.2.0 - 28-10-2019
 
 ### Changed
