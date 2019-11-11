@@ -91,17 +91,6 @@ form {
 
     .dso-message {
       color: $dso-field-invalid-message-color;
-      padding-left: 26px;
-      position: relative;
-
-      &::before {
-        @include di("status-danger", $dso-conclusion-icon-size);
-        content: "";
-        display: block;
-        left: 0;
-        position: absolute;
-        top: 3px;
-      }
     }
   }
 
