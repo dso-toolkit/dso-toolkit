@@ -17,7 +17,7 @@ variants:
       items:
         - modifier: warning
           label: <strong>Neem contact op</strong> met uw gemeente voor omgevingsplanactiviteit op- en uitritten
-        - modifier: warning
+        - modifier: danger
           label: <strong>Informatie geven</strong> voor milieubelastende activiteit
       alert:
         modifier: warning
