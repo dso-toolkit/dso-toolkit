@@ -9,22 +9,22 @@ jobs:
   - name: master branch
     if: branch = master && type = push
     script:
-    - npm run lint
-    - npm run build
-    - npm run test
-    - mv build dist
-    - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
+      npm run lint &&
+      npm run build &&
+      npm run test &&
+      mv build dist &&
+      percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
   - name: topic branch
     if: branch =~ /^#/ && type = push
     script:
-    - npm run lint
-    - npm run build
-    - npm run test
-    - mv build dist
-    - rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:/cygdrive/d/sites/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
-    - rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:/cygdrive/d/sites/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
-    - ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} 'cd /cygdrive/d/sites/dso-toolkit.nl && node --experimental-modules update-versions.mjs'
-    - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
+      npm run lint &&
+      npm run build &&
+      npm run test &&
+      mv build dist &&
+      rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:/cygdrive/d/sites/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
+      rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:/cygdrive/d/sites/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
+      ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} 'cd /cygdrive/d/sites/dso-toolkit.nl && node --experimental-modules update-versions.mjs' &&
+      percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
 before_install:
 - openssl aes-256-cbc -K $encrypted_15082e308684_key -iv $encrypted_15082e308684_iv -in deploy_rsa.enc -out deploy_rsa -d
 - eval "$(ssh-agent -s)"
