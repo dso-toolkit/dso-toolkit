@@ -6,25 +6,35 @@ install:
 - npm install
 jobs:
   include:
-  - name: Topic branch
+  - name: master branch
+    if: branch = master && type = push
+    script:
+    - npm run lint
+    - npm run build
+    - npm run test
+    - mv build dist
+    - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
+  - name: topic branch
     if: branch =~ /^#/ && type = push
     script:
-    # - npm run lint
-    # - npm run build
-    # - npm run test
-    # - mv build dist
-    - ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} mkdir hello
-    after_success:
-    - echo "run percy"
+    - npm run lint
+    - npm run build
+    - npm run test
+    - mv build dist
+    - rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:/cygdrive/d/sites/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
+    - rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:/cygdrive/d/sites/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
+    - ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} 'cd /cygdrive/d/sites/dso-toolkit.nl && node --experimental-modules update-versions.mjs'
+    - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
 before_install:
-- openssl aes-256-cbc -K $encrypted_15082e308684_key -iv $encrypted_15082e308684_iv
-  -in deploy_rsa.enc -out deploy_rsa -d
+- openssl aes-256-cbc -K $encrypted_15082e308684_key -iv $encrypted_15082e308684_iv -in deploy_rsa.enc -out deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy_rsa
 - ssh-add deploy_rsa
-- echo -e "Host ${DEPLOY_HOST}\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- cat known_hosts >> ~/.ssh/known_hosts
+- echo -e "Host ${DEPLOY_HOST}\n\tCheckHostIP no\n" >> ~/.ssh/config
 env:
   global:
-  - secure: HURnv6R8pwP6c1e3cuoDm/lqhLou0wNmODAWPz+DiWt4AhTuzBzFzEhKK5jwlVJN03yAW8M9LimrUPsrTwQrNX1FhahJWa13naOJYhekLBVpK9fXXjT2be8krCcSURMIXni/xI26SepumU4cH9xwAX0bYwp0ddfkd3ssghOAcoMBpcDVIe43R/gJupP1X3of7KGRLi9SR4m/0cvoWXZm94BEXGaiU1hYibWd7jebjxZACYrGhrEbhI3lmfE1jPxByW+dcvGYPwYpM4/9d14ZfFSBwYMweibB5IHcCcY4fPy132CnWhnRrz4u8/G3doNKNUVBqQuZOQOftvVcivOCGgdOKtvFkSq94abOwuE+bClKEBWEZC4iGJF4327a2ZqsNDk9PRN9GxvinUpu0MwNKcQLaTtIMzpRRGfkDtR10PvLP0CySegdfaHEQlOn9xXTRjnCOmRhaSDtu9sCDpEHlRU21jM/+6gcV5IWwWuzmZmlkM21F/jAt/0IFeRJbJ75u1FbEcmPIif7ILB0Nq6XtJSxoPCD4S/LbjPMLRgcGfBvjoHn5iiFMAPrZ48sMd+hyyt5Qtq55dMXr7EHx+MQe64pp/oJDL2Ze00Vc7wBZBR9cldqpk9KECiw2YCyL4hoMhR+7YYTWkVMnMvTVErtDVT7htC8ApRC5Hg8BuWSgyA=
+  - secure: PRTPsr5DAVTpoWXNPl4bGlzRM8rqTf62itvth41jMFUvbE6XTzbNDh37Iu2A6uaauKvEPZdWAuKtjr0edTiDkN3/LWex72Uv5aRbdEw81SXe5zYdU+eLLEQYSvUFz/T3Yyezd/6TCddDM+cmFUchmDT+Pj1oEkaRJdne25uttWMbe3wbBIeBQvN5Zb+4gstN07i7Jomy8gkPYGoC6894hYt+P5QoHw7r451ROxNJZCYSZjDCYPazwNOuMYxLTx7/Ht8HqvYWXLjVrrre/GrZWJun8u5AduI/Q//oXaZnue2DC0wB+L7nwRLFIRjYbaDBH30gvKYJMyRBfkTHYKmzPKe2iC80fL076THgXY46/dVYhZqfRLKLp1bfHXjqSlBWpJyLN3rarLkTSkfHjQsHlq7EmU+Bgm6+ym2XCrAdNDl2yAl9+IzyrYfl9+g5ZmgN60UyyGVp2GjOFC/qXTazqFfr5HCmbejsy8J58y2GPolAqMHIIqiqvnt4Q1sTTeuh4z5xgTi/195RAtTfYJaWvZiKfanOvnGRdnCQLqdyVpxwO9hmPZYiuyEdNJ5hU9prBjQKCMDXZg7EBE040y4OQet/Xj0iwFJDwcdmyXjyMLJl8BAFxXCjHmJJ5xO9naqMciLI9HTXOfDZIrmxx98ztL6XrVfJ9l6EuOR5c5OBllQ=
   - secure: WsUvT88U04gNqDOpd15gD2w7TIICpusxOq52oJKpGE64n+O8WmRBDPm8R/NAtf2Y/k47Op3h7B9fNC+ayYrszcz8fc3sUy+6RzMJszM/FlxAOCFUHKNGtOGmfH+HNI6sVB685NI+DivVMIajIugZlh6zWkKkH/s+vZkqmCwoOLLxJ1ZB/ijQYL0TgJ5u70vDKPRanHjk9CiuL3X7Gr8JV7Un3yQAsBKAzFqSmLoLfPz0zKmPtF7Xwtxk1iphQ7mQ5SxI6SEi4dQ3HGRZCie/Yeogg0xu0ZHVkR4N45MfCh5PrjgbYsx5smNKAfWfQ6ojL3kPzMgvbpqeCDJux7vW3bcIIecRz0hXql482/R2gzQ1HcZyA5Bkysd6z8nnCeVnSj7CraQPZXT443VdJCnnLtmS0Vn2LVqVnKQbpWbGpXkVI/NmFXF4vIs1tEcp3SyDOtdccbN5GeJlUqhxMo+mXSSYDpqE7TOFxGzftx333HNJfKtG6mMPf3pM+MCZbQwEF7CtOzi6WGLHqcvuF1N/rbST8nHhEJwVMkEBSzb3TUo3vT1cDnst+2WQqqfxvQcU8xP/HfKjso1A45wiNV6I7Gde58h11NL88a26O/I9grtICRMNgJe5Aiti2UTJ6ZgGCljsXr0LVaLMrD1h4uYdrL0KDxbupTYimDpPdDtYhvw=
-  - secure: Ndk1chiFeIAjrX44TvcXrnJ4ShJXpw3UXViiEnp7LO6FAnssPSmS94658S63uNk8O+K2D4OlAG2F4G7ZciPF3tS9JKAuByEw6uZVliEQcgFxxOhtuWFjewAE6WgGSLQ1qsW+RkBwQKaFZhvmI8iNsxdkQQpPra7sfBobDnPaUbvdpiM+r6ERgh3vr+u97G6uG9Y59wxQsNt2Q344wM7wcA6teWPv1oVfLj/7TIY1muVLrl8tyrG5TcosLIV9cetfQ50CGILRdBaPi45SE57lZSJFI4zeKC7vPmYAxGSCx2PifH0I107BziT9ceTXWhOKz9Fr5vqY0BxS3KM6g84bcovLJyAIjKkIFQZSO6F/26ONALlAoeJeEQvYZW2fKXwOTPHltsRH2YVZVUEmwQAHn0UwncqXQ7iwwABJZwm1cHhrzUguIx8SFRksfcTtjOGWzLeaebeds1WcCTStvgQNcT/zrhrkheZXWswaFo4u37tCBDQ2LJ/PezvGkq9AG2Gz/CZ3FZFw28RGZkzjC3cCC24bTTwch4RoAsz8tvq5PpS/YC8trLMbPvSEwEt2uGQR8zr7CyaPju25hEhrG4s+c7F5ufWe9HDKFFgsdXYleu2O56Cryz8ri2OFNk98yz3SnopcVOJVEUwV1QPL//AcIppQSP1eXkH47gH84D2UP8Q=
+  - secure: BijaS2QP7+re/FSgMTyj/c+FvkpIqCQrZbx47wrCBTfIbU4FeCzGnqTTVo1UWPEglM5FwnyzQku1SUh9MVSwi6LzXNgoG1vm31yA0hnEKpwMYboaT7Y5Haswplo6AAm8ORC25l4syDOwD8aZSC+YI1RgyWZGMNEUzndum8NyUZUSyUU96Ud49vHXZkUEffKabRNDIt+uHBadk7YY0ECjJT0YAjORLP/m+yu+4jfM1Tqcj/a6GzICMhDWDWjdMxZs5nM+kI0iov7NGSIjzX9VO+J0r0vvNlQfKoYz8Id5XbTFUDHeyjAToLHvrc9LQKjRbuM/mmEp1nEdi6lAggTdWKuBj0LzAH8uwpjKxTajCiX9s6Tfs+gO44mHCe3SFrLi4MOZMPviQBRtckb6JhmzODCqndPODsu4LtZVxBgS/1mBIawzdZaVE+S8xEUSIACQP8jFEyOXExQ/K4htYKt728KtU+BxhDSGuHre9wdr37K7ZMs/335ZXw7iF4xk4H4k12+EiV23zdibqZEKHwd7ZQK2hopq5b/hIZMyteVBJh1uq/BJ5drx9bbx4VD6DOiS/K+BOsPZLOapvG1w5WRkGv99YtmIwarUy/wNxQo7hc+uOfuFi13nrs9oRTDX5xrWL4zh0yaGJILC0DpSAvYlJiUczeiZuNELa8GellkrVug=
+  - secure: LXRRqVVWdDp0A2hURdEUrcKLuFuzQgi8Y9K1Yomqzd+hblASsiufmBuxBliIEOXT9GQnTVKzOTerlEV+2gWzRm3JeDqsJ5AZ+v83KU7zgxwQdCnVbX7BrjEDSRITUULx2eJpe0I0h3na6XVZsl7UBhwrTublCGtxJeXTo8s8wmuVUy0FOUyQabOTLV+39457eJRDCq7lCSjQD+2L0kpWwEqmlppXztkBKDVt7brYapLKWx2iHrerMXa0JhCJdddRVLQTpIZNy8oa0VmnCR+tuU352pCXI9H2cCh4Oj/4UylG3tOk2GfyDr2+JbXyrDqjmm7N/TcmpMdwA77XssCIzLXomrBr8Ph4WFD4Fl5IgWFeHkqSLkI27K17m0JwobEp+GRQUS+YBQpmfkr1CwuW4KhuU3BJsjn8vBgo5Pai0qj4G6L2V0HUVM57uDNz1JvS5TAN7l2v07cohk879T2zsqVpi1vZuO0U1RSxzxrqPT1w+jF3AMw2c9YLR5YLFI3GtObFkua+jk9mCXKDXI3DMnePNBLpgDtrxxX/heM56AAAxH4uIiF96BuquEnbxJEDPOjQNO31/tOPGAbx5Iy0oBy6VB3WF6oF1fduL1TRnST4H+zwME0KTUarSrDh4karrorjeDN5utJSTzc+9MqvOEbRDSADtdESHwc2pvIz0NE=
