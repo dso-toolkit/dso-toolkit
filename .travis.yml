@@ -23,7 +23,7 @@ jobs:
       mv build dist &&
       rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
       rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-      ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/dso-toolkit.nl && node --experimental-modules update-versions.mjs" &&
+      ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions" &&
       percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
 before_install:
 - openssl aes-256-cbc -K $encrypted_5f33485edc80_key -iv $encrypted_5f33485edc80_iv -in deploy_rsa.enc -out deploy_rsa -d
