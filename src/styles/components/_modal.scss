@@ -23,7 +23,7 @@ body.dso-modal-open {
       .dso-body {
         $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding) + (2 * $dso-modal-border-size);
 
-        max-height: calc(#{$dso-modal-max-height} - #{$dso-body-height + $u4} - 1.5em );
+        max-height: calc(#{$dso-modal-max-height} - #{$dso-body-height + $u4} - 1.5em);
         overflow-x: auto;
       }
     }
