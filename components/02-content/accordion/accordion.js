@@ -19,10 +19,16 @@ module.exports = function () {
       const self = this;
       const header = options.hash.header || 'div';
 
+      var termsEnglish = ["success", "warning", "info", "danger"];
+      var termsDutch = ["succes", "waarschuwing", "info", "gevaar"];
+      // var stateTerm = termsEnglish.indexOf(self.state);
+      // var dutchTerm = termsDutch.slice(stateTerm, stateTerm + 1);
+      var dutchTerm = termsDutch[termsEnglish.indexOf(self.state)]
+
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') + (self.sections ? ' dso-nested-accordion' : '') }">
           <${header} class="dso-section-handle">
-            <a href="#">${ title }</a>
+            <a href="#"><span class="sr-only">${dutchTerm}: </span>${ title }</a>
           </${header}>`);
 
       if (self.open) {
