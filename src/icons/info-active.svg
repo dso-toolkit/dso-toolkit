@@ -1,13 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
-    <title>Icoon_Rond/Tooltip_actief</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Icoon_Rond/Tooltip_actief" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <circle id="Bgr_i" stroke="#39870C" stroke-width="2" fill="#39870C" cx="8" cy="8" r="7"></circle>
-        <g id="i" transform="translate(7.000000, 4.000000)">
-            <path d="M1,4 L1,7" id="Lijn" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path>
-            <circle id="Cirkel" fill="#FFFFFF" cx="1" cy="1" r="1"></circle>
-        </g>
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" fill-rule="evenodd">
+    <circle stroke="#39870C" stroke-width="2" fill="#39870C" cx="8" cy="8" r="7"/>
+    <g transform="translate(7 4)">
+      <path d="M1 4v3" stroke="#FFF" stroke-width="2" stroke-linecap="round"/>
+      <circle fill="#FFF" cx="1" cy="1" r="1"/>
     </g>
+  </g>
 </svg>
