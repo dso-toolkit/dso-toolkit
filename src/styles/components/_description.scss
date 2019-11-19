@@ -40,6 +40,8 @@
 }
 
 .dso-description-content {
+  position: relative;
+
   &[aria-hidden="true"] {
     display: none;
   }
@@ -51,5 +53,20 @@
     display: block;
     margin: #{$u1 / 2} 0;
     padding: $u1 $u4 $u1 $u1;
+  }
+
+  > button {
+    background-color: transparent;
+    border-style: none;
+    position: absolute;
+    right: $u1;
+    top: #{$u1 / 2};
+
+    &::before {
+      @include di("times", 16px);
+
+      content: "";
+      display: inline-block;
+    }
   }
 }
