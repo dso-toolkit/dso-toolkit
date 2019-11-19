@@ -92,7 +92,7 @@ form {
 
     .dso-message {
       color: $dso-field-invalid-message-color;
-      padding-left: 32px;
+      padding-left: $u4;
       position: relative;
 
       &::before {
