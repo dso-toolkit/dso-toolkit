@@ -1,0 +1,55 @@
+.dso-description-term {
+  border-bottom: 2px dotted $dso-description-border-color;
+  cursor: pointer;
+  position: relative;
+  white-space: nowrap;
+
+  &:hover {
+    border-bottom-style: solid;
+  }
+
+  &.dso-is-open {
+    &::before {
+      border-color: $wit transparent transparent;
+      border-style: solid;
+      border-width: #{$u1 - 1} #{$u1 - 1} 0;
+      bottom: #{-$u2 + 2};
+      content: "";
+      height: 0;
+      left: 50%;
+      margin-left: #{-$u1 + 1px};
+      position: absolute;
+      width: 0;
+      z-index: 2;
+    }
+
+    &::after {
+      border-color: $dso-description-border-color transparent transparent;
+      border-style: solid;
+      border-width: #{$u1} #{$u1} 0;
+      bottom: -$u2;
+      content: "";
+      height: 0;
+      left: 50%;
+      margin-left: -$u1;
+      position: absolute;
+      width: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.dso-description-content {
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  &[aria-hidden="false"] {
+    background-color: $dso-description-bg-color;
+    border-bottom: 1px $dso-description-border-color solid;
+    border-top: 1px $dso-description-border-color solid;
+    display: block;
+    margin: #{$u1 / 2} 0;
+    padding: $u1 $u4 $u1 $u1;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="dso-rich-content">
+  <p>
+    {{{ text-before }}}
+    <span class="dso-description-term{{#unless description-hidden}} dso-is-open{{/unless}}">
+      {{ term }}
+    </span>
+    <span class="dso-description-content" aria-hidden="{{ description-hidden }}">
+      {{{ content }}}
+    </span>
+    {{{ text-after }}}
+  </p>
+</div>
