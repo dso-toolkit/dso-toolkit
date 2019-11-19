@@ -28,8 +28,13 @@ module.exports = function () {
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') + (self.sections ? ' dso-nested-accordion' : '') }">
           <${header} class="dso-section-handle">
-            <a href="#"><span class="sr-only">${dutchTerm}: </span>${ title }</a>
-          </${header}>`);
+            <a href="#">`);
+      if (dutchTerm) {
+        html += (`<span class="sr-only">${dutchTerm}: </span>`);
+      }
+      html += (`
+        ${ title }</a>
+      </${header}>`);
 
       if (self.open) {
         html += (
