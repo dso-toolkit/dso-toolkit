@@ -4,10 +4,12 @@ context:
   toggleButton: true
   items:
     - label: Tankstation starten of veranderen
+      hasActivities: true
       activities:
         - label: Tanken van diesel, benzine en andere vloeibare brandstof
         - label: Tanken en opslaan van LPG
     - label: Opslaan van vloeistoffen in een opslagtank
+      hasActivities: true
       activities:
         - label: Opslaan van vloeistoffen in een ondergrondse opslagtank
           warning: true
@@ -21,3 +23,9 @@ variants:
   - name: no-toggle
     context:
       toggleButton: false
+  - name: edit-name
+    context:
+      items:
+        - label: Milieubeslastende activiteit - Melding
+          edit: Naam bewerken
+          activities: []

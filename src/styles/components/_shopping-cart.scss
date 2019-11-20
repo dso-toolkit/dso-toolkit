@@ -1,11 +1,15 @@
+$dso-shopping-cart-radius: $u1 / 2;
+$dso-shopping-cart-border-color: $grijs-20;
+
 .dso-shopping-cart {
   button.dso-status {
-    background-color: transparent;
+    background-color: $grijs-10;
     border: 0;
+    border-radius: $dso-shopping-cart-radius;
     box-shadow: none;
     display: block;
     font-weight: 600;
-    padding: ($u3 / 2) 0;
+    padding: $u2 0;
     padding-left: $u2;
     text-align: left;
     width: 100%;
@@ -13,27 +17,51 @@
     svg.di {
       margin-right: $u1;
     }
+
+    + .dso-items {
+      border-top: 1px solid $dso-shopping-cart-border-color;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
   .dso-contents {
     background-color: $grijs-10;
+    border: 0;
+    border-radius: $dso-shopping-cart-radius;
 
-    & + .dso-warning {
+    + .dso-warning {
       margin-top: $u2;
+    }
+
+    &:has(.dso-items) {
+      background-color: $zwart;
     }
   }
 
   ul,
   ol {
     @include list-unstyled;
+    background-color: $grijs-10;
+    border-radius: $dso-shopping-cart-radius;
     margin-bottom: 0;
+
+    li {
+      border-top: 1px solid $dso-shopping-cart-border-color;
+    }
   }
 
-  .dso-activities > li {
-    font-weight: normal;
+  .dso-activities {
+    > li {
+      font-weight: normal;
+    }
   }
 
   li {
+    padding-bottom: $u2;
+    padding-top: $u2;
+    position: relative;
+
     > svg.di {
       float: left;
       height: $u3;
@@ -43,24 +71,32 @@
     }
   }
 
-  li {
-    padding: ($u3 / 2) 0;
-  }
-
   .dso-items {
-    padding-left: $u2;
-    padding-right: $u2;
-
     > li {
       font-weight: 600;
+      padding-left: $u2;
+      padding-right: $u2;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      .dso-edit-cart-item {
+        display: block;
+      }
     }
 
     .dso-activities {
-      padding-left: $u4;
-      padding-top: ($u3 / 2);
+      margin-top: $u2;
 
-      li:last-child {
-        padding-bottom: 0;
+      li {
+        margin-left: -$u2;
+        margin-right: -$u2;
+        padding: $u2 $u2 $u2 $u6;
+
+        &:last-child {
+          padding-bottom: 0;
+        }
       }
     }
   }
@@ -70,10 +106,12 @@
     border: 0;
     box-shadow: none;
     color: $grasgroen;
-    float: right;
     height: $u3;
     padding: 0;
+    position: absolute;
+    right: $u2;
     text-align: center;
+    top: $u2;
     width: $u3;
   }
 

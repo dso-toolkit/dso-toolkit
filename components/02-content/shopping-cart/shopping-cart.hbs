@@ -18,20 +18,23 @@
             <li>
               {{#if (hasWarning activities)}}{{> '@icon' icon='status-warning' }}{{/if}}
               {{ label }}
+              {{#if edit}}<a href="#" class="dso-edit-cart-item">{{edit}}</a>{{/if}}
               <button type="button" class="dso-delete" title="Verwijder">
                 {{> '@icon' icon='trash' }}
               </button>
-              <ul class="dso-activities">
-                {{#each activities }}
-                  <li>
-                    {{#if warning }}{{> '@icon' icon='status-warning' }}{{/if}}
-                    {{ label }}
-                    <button type="button" class="dso-delete" title="Verwijder">
-                      {{> '@icon' icon='trash' }}
-                    </button>
-                  </li>
-                {{/each}}
-              </ul>
+              {{#if hasActivities}}
+                <ul class="dso-activities">
+                  {{#each activities }}
+                    <li>
+                      {{#if warning }}{{> '@icon' icon='status-warning' }}{{/if}}
+                      {{ label }}
+                      <button type="button" class="dso-delete" title="Verwijder">
+                        {{> '@icon' icon='trash' }}
+                      </button>
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/if}}
             </li>
           {{/each}}
         </ul>
