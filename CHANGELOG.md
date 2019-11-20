@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Icoon bij validatie te klein (#463)
+* Modal uitzoomen geeft vreemde rendering (#456)
 
 ## 9.3.0 - 11-11-2019
 
