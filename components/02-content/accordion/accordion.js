@@ -33,8 +33,6 @@ module.exports = function () {
 
       const term = self.state;
 
-      // Success
-
       if (termMap[term]) {
         html += (`<span class="sr-only">${termMap[term]}: </span>`);
       }
