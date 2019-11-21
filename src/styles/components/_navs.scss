@@ -1,21 +1,19 @@
+$dso-navigation-selected-color: $cannon-pink;
+
 @mixin nav-item-border($color) {
-  border-bottom: 3px solid $color;
+  border-bottom: 4px solid $color;
 }
 
 .dso-nav {
+  border-bottom: 1px solid $grijs-20;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
 
   > li {
     > a {
+      color: $bosgroen;
       display: block;
-      padding: 12px 10px 0;
-
-      &:hover,
-      &:focus {
-        text-decoration: none;
-      }
     }
   }
 
@@ -28,20 +26,15 @@
       }
 
       > a {
-        color: $bosgroen;
-        font-size: 1.2em;
-        line-height: $line-height-computed;
-        padding-bottom: $u1;
-        padding-top: $u1;
-
-        &:hover {
-          color: $zwart;
-        }
+        font-size: 1.25em; //20px;
+        line-height: 1;
+        margin-top: $u1;
+        padding: $u1 $u2 #{$u1 - 1px};
       }
 
       &.dso-active {
         > a {
-          @include nav-item-border($oranje);
+          @include nav-item-border($dso-navigation-selected-color);
           font-weight: bold;
         }
       }
@@ -53,27 +46,15 @@
       display: inline-block;
 
       > a {
-        color: $grijs-60;
         font-size: $font-size-base;
-        padding: $u1;
-
-        &:hover,
-        &:focus {
-          @include nav-item-border($grasgroen);
-          color: $grasgroen;
-        }
+        margin-top: ($u1 / 2);
+        padding: ($u1 / 2) $u1 #{$u1 / 2 - 1px};
       }
 
       &.dso-active {
         > a {
-          @include nav-item-border($oranje);
-          color: $bosgroen;
+          @include nav-item-border($dso-navigation-selected-color);
           font-weight: bold;
-
-          &:hover,
-          &:focus {
-            color: $zwart;
-          }
         }
       }
     }
