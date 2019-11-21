@@ -18,9 +18,18 @@ $dso-navigation-selected-color: $cannon-pink;
       color: $bosgroen;
       display: block;
     }
+
+    &.dso-active {
+      > a {
+        @include nav-item-border($dso-navigation-selected-color);
+        font-weight: bold;
+      }
+    }
   }
 
   &.dso-nav-main {
+    margin-bottom: $u1;
+
     > li {
       display: block;
 
@@ -29,17 +38,10 @@ $dso-navigation-selected-color: $cannon-pink;
       }
 
       > a {
-        font-size: 1.25em; ;
+        font-size: 1.25em;
         line-height: 1;
         margin-top: $u1;
         padding: $u1 $u2 #{$u1 - 1px};
-      }
-
-      &.dso-active {
-        > a {
-          @include nav-item-border($dso-navigation-selected-color);
-          font-weight: bold;
-        }
       }
     }
   }
@@ -52,13 +54,6 @@ $dso-navigation-selected-color: $cannon-pink;
         font-size: $font-size-base;
         margin-top: ($u1 / 2);
         padding: ($u1 / 2) $u1 #{$u1 / 2 - 1px};
-      }
-
-      &.dso-active {
-        > a {
-          @include nav-item-border($dso-navigation-selected-color);
-          font-weight: bold;
-        }
       }
     }
   }
