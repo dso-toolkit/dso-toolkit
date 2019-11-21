@@ -26,7 +26,7 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 - Uitzondering is gebruik in de header of in een modal
 - Niet elk scherm heeft een primaire knop nodig
 
-## Hoe te gebruiken: Secundaire buttons</h3></td>
+## Hoe te gebruiken: Secundaire buttons
 
 {{frame (path '/components/preview/buttons-default') '.dso-example-wrapper'}}
 
