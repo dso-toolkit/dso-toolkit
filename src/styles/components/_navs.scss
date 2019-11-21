@@ -5,10 +5,13 @@ $dso-navigation-selected-color: $cannon-pink;
 }
 
 .dso-nav {
-  border-bottom: 1px solid $grijs-20;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    border-bottom: 1px solid $grijs-20;
+  }
 
   > li {
     > a {
@@ -26,7 +29,7 @@ $dso-navigation-selected-color: $cannon-pink;
       }
 
       > a {
-        font-size: 1.25em; //20px;
+        font-size: 1.25em; ;
         line-height: 1;
         margin-top: $u1;
         padding: $u1 $u2 #{$u1 - 1px};
