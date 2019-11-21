@@ -48,8 +48,7 @@
 
   &[aria-hidden="false"] {
     background-color: $dso-description-bg-color;
-    border-bottom: 1px $dso-description-border-color solid;
-    border-top: 1px $dso-description-border-color solid;
+    border: 1px $dso-description-border-color solid;
     display: block;
     margin: #{$u1 / 2} 0;
     padding: $u1 $u4 $u1 $u1;
@@ -59,11 +58,11 @@
     background-color: transparent;
     border-style: none;
     position: absolute;
-    right: $u1;
-    top: #{$u1 / 2};
+    right: 0;
+    top: 0;
 
     &::before {
-      @include di("times", 16px);
+      @include di("times-zwart", 16px);
 
       content: "";
       display: inline-block;
