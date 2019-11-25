@@ -16,6 +16,8 @@ $dso-navigation-selected-color: $cannon-pink;
   > li {
     > a {
       &,
+      &:hover,
+      &:focus,
       &:visited {
         color: $bosgroen;
       }
