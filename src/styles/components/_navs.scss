@@ -15,7 +15,11 @@ $dso-navigation-selected-color: $cannon-pink;
 
   > li {
     > a {
-      color: $bosgroen;
+      &,
+      &:visited {
+        color: $bosgroen;
+      }
+
       display: block;
     }
 
