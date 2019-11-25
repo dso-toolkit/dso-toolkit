@@ -15,5 +15,4 @@ variants:
       counter: '99x'
   - name: button disabled
     context:
-      modifier: disabled
       disabled: true

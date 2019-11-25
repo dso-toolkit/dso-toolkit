@@ -1,9 +1,3 @@
-// @mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
-//   background-color: $background-color;
-//   border-color: $border-color;
-//   color: $color;
-// }
-
 .btn-list-button {
   @include state-styling($wit, $grijs-20, $grijs-90);
   font-weight: 600;
