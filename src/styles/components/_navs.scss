@@ -15,14 +15,14 @@ $dso-navigation-selected-color: $cannon-pink;
 
   > li {
     > a {
+      display: block;
+
       &,
       &:hover,
       &:focus,
       &:visited {
         color: $bosgroen;
       }
-
-      display: block;
     }
 
     &.dso-active {
