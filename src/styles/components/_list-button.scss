@@ -5,9 +5,12 @@
 // }
 
 .btn-list-button {
-  @include state-styling($wit, $grijs-60, $grijs-90);
-  height: $u6;
+  @include state-styling($wit, $grijs-20, $grijs-90);
+  font-weight: 600;
+  padding-bottom: 10px;
+  padding-top: 10px;
   text-align: left;
+  white-space: normal;
   width: 100%;
 
   &:hover,
@@ -28,9 +31,15 @@
   &[disabled] {
     &,
     &:hover {
-      @include state-styling($wit, $grijs-60, $grijs-60);
+      @include state-styling($wit, $grijs-20, $grijs-60);
       opacity: 1;
     }
+  }
+
+  &.list-button-selected,
+  &.list-button-multiple-selected {
+    border-color: $grasgroen;
+    border-width: 2px;
   }
 
   svg.di {
@@ -42,5 +51,6 @@
 
   .counter {
     float: right;
+    font-weight: 700;
   }
 }

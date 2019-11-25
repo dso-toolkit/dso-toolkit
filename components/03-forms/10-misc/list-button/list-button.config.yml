@@ -6,14 +6,14 @@ context:
   label: Milieubelastende activiteit - Melding
 variants:
   - name: button selected
-    modifier: selected
     context:
+      modifier: selected
       icon: true
   - name: button multiple selected
-    modifier: multiple-selected
     context:
+      modifier: multiple-selected
       counter: '99x'
   - name: button disabled
     context:
-      disabled: true
       modifier: disabled
+      disabled: true
