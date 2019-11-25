@@ -1,5 +1,5 @@
 notes: |
-
+  Een list-button met class 'selected' heeft een svg met de class 'check', een list-button met de class 'multiple-selected' heeft een span met de class 'selected'.
 status: wip
 context:
   type: button
