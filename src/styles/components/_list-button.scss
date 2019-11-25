@@ -1,0 +1,46 @@
+// @mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+//   background-color: $background-color;
+//   border-color: $border-color;
+//   color: $color;
+// }
+
+.btn-list-button {
+  @include state-styling($wit, $grijs-60, $grijs-90);
+  height: $u6;
+  text-align: left;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+  }
+
+  &:active,
+  &.active {
+    &,
+    &:hover,
+    &:not(.btn):visited {
+      @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    &,
+    &:hover {
+      @include state-styling($wit, $grijs-60, $grijs-60);
+      opacity: 1;
+    }
+  }
+
+  svg.di {
+    color: $grasgroen;
+    float: right;
+    height: $u3;
+    width: $u3;
+  }
+
+  .counter {
+    float: right;
+  }
+}

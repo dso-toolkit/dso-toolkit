@@ -1,0 +1,4 @@
+<button type="{{ type }}" class="btn btn-list-button {{#if modifier }} list-button-{{ modifier }}{{/if}}" {{{ifattr 'disabled' disabled }}}>
+  <span>{{ label }}</span>
+  {{#if (and icon) }}{{> '@icon' icon='check' }}{{/if}}
+</button>
