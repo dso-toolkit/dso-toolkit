@@ -7,8 +7,7 @@
 .btn-list-button {
   @include state-styling($wit, $grijs-20, $grijs-90);
   font-weight: 600;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding: #{$u1 + 2} $u2;
   text-align: left;
   white-space: normal;
   width: 100%;
