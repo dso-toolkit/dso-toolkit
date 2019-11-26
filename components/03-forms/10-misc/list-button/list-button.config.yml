@@ -11,7 +11,7 @@ variants:
       icon: true
   - name: button multiple selected
     context:
-      modifier: multiple-selected
+      modifier: selected
       counter: '99x'
   - name: button disabled
     context:

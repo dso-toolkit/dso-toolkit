@@ -19,8 +19,7 @@
   &:active,
   &.active {
     &,
-    &:hover,
-    &:not(.btn):visited {
+    &:hover {
       @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
     }
   }
@@ -34,8 +33,7 @@
     }
   }
 
-  &.list-button-selected,
-  &.list-button-multiple-selected {
+  &.list-button-selected {
     border-color: $grasgroen;
     border-width: 2px;
   }
