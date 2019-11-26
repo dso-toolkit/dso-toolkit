@@ -1,0 +1,16 @@
+collated: true
+default: default
+variants:
+  - name: default
+    context:
+      cards:
+        - label: Titel
+  - name: aside
+    context:
+      cards:
+        - label: <strong>Neem contact op</strong> met uw gemeente voor omgevingsplanactiviteit op- en uitritten
+        - label: <strong>Informatie geven</strong> voor milieubelastende activiteit
+  - name: below
+    context:
+      cards:
+        - label: <strong>Verboden</strong> voor omgevingsplanactiviteit lichthinder

@@ -1,0 +1,16 @@
+<div class="dso-card-container">
+  {{#each cards}}
+    <div class="dso-card{{#if interactionsOri}} dso-card-interactions-{{interactionsOri}}{{/if}}">
+      <div class="dso-card-content">
+    [[content]]
+      </div>
+      {{#if interactionsOri}}
+        <div class="dso-card-interactions">
+          <a href="#">i</a>
+          <a href="#">i</a>
+        </div>
+      {{/if}}
+    </div>
+  {{/each}}
+</div>
+
