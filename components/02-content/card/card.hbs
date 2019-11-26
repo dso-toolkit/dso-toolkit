@@ -1,13 +1,27 @@
-<div class="dso-card-container">
+<div class="dso-card-container{{#if interactionsOri}} dso-card-interactions-{{interactionsOri}}{{/if}}">
   {{#each cards}}
-    <div class="dso-card{{#if interactionsOri}} dso-card-interactions-{{interactionsOri}}{{/if}}">
-      <div class="dso-card-content">
-    [[content]]
-      </div>
-      {{#if interactionsOri}}
+    <div class="dso-card-holder">
+      <a href="#" class="dso-card">
+        <div class="dso-card-content">
+          <h2>{{ label }}</h2>
+          <p>{{{ content }}}</p>
+        </div>
+      </a>
+      {{#if (or toggle link)}}
         <div class="dso-card-interactions">
-          <a href="#">i</a>
-          <a href="#">i</a>
+          {{#if toggle}}
+            <div class="dso-card-interaction">
+              <input type="checkbox" id="{{ id }}" name="{{ id }}" value="{{ value }}" />
+              <label for="{{ id }}">
+                {{ id }}
+              </label>
+            </div>
+          {{/if}}
+          {{#if info}}
+            <div class="dso-card-interaction">
+              {{> '@info-button' }}
+            </div>
+          {{/if}}
         </div>
       {{/if}}
     </div>
