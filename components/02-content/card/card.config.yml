@@ -1,5 +1,4 @@
-collated: true
-default: default
+status: wip
 variants:
   - name: default
     context:

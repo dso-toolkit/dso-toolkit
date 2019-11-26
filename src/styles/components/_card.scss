@@ -75,7 +75,7 @@
   position: relative;
 
   .dso-card {
-    padding-bottom: $u7;
+    padding-bottom: $u5;
   }
 
   .dso-card-interactions {
@@ -83,7 +83,7 @@
     bottom: 0;
     display: flex;
     flex-direction: row;
-    height: $u7;
+    height: $u5;
     justify-content: space-between;
     left: 0;
     position: absolute;
@@ -92,8 +92,8 @@
 
     .dso-card-interaction {
       display: flex;
-      text-align: center;
       padding: 0 $u2;
+      text-align: center;
     }
   }
 }
