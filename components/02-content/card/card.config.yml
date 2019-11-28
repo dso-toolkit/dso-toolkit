@@ -12,13 +12,13 @@ variants:
         - label: Omgevingsplan Nieuwegein
           content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
           toggle:
-            - id: 1
+            - id: omgevingsplan-nieuwegein
               value: 0
           info: true
         - label: Brouwersmolen
           content: Brouwersmolen eget iaculis nisi quam in libero.
           toggle:
-            - id: 1
+            - id: brouwersmolen
               value: 0
           info: true
   - name: below
@@ -28,12 +28,12 @@ variants:
         - label: Omgevingsplan Nieuwegein
           content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
           toggle:
-            - id: 1
+            - id: omgevingsplan-nieuwegein
               value: 0
           info: true
         - label: Brouwersmolen
           content: Brouwersmolen eget iaculis nisi quam in libero.
           toggle:
-            - id: 1
+            - id: brouwersmolen
               value: 0
           info: true
