@@ -7,11 +7,11 @@ module.exports = function () {
   return {
     description(term, options) {
       return [
-        `<span class="dso-description-term${this['description-hidden'] ? '' : ' dso-is-open'}">${term}</span>`,
-        `<span class="dso-description-content" aria-hidden="${!!this['description-hidden']}">`,
-          `<button type="button">`,
+        `<a id="${encodeURI(term)}-term" href="#${encodeURI(term)}-content" class="dso-description-term${this['description-hidden'] ? '' : ' dso-is-open'}">${term}</a>`,
+        `<span id="${encodeURI(term)}-content" class="dso-description-content" aria-hidden="${!!this['description-hidden']}">`,
+          `<a href="#${encodeURI(term)}-term">`,
             `<span class="sr-only">Sluiten</span>`,
-          `</button>`,
+          `</a>`,
           `<span>${options.fn(this)}</span>`,
         `</span>`
       ].join('');

@@ -1,11 +1,19 @@
 .dso-description-term {
   border-bottom: 2px dotted $dso-description-border-color;
-  cursor: pointer;
   position: relative;
   white-space: nowrap;
 
+  &,
+  &:visited,
+  &:active,
+  &:focus {
+    color: $grijs-90 !important;
+    text-decoration: none !important;
+  }
+
   &:hover {
     border-bottom-style: solid;
+    text-decoration: none;
   }
 
   &.dso-is-open {
