@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Begrippen in tekst (#240)
 
+## 9.4.0 - 25-11-2019
+
+### Fixed
+* Icoon bij validatie te klein (#463)
+* Modal uitzoomen geeft vreemde rendering (#456)
+
 ## 9.3.0 - 11-11-2019
 
 ### Added
