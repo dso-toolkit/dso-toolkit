@@ -1,0 +1,39 @@
+notes: |
+  Class `singlestep` lijnt de buttons links uit.
+  Class `dso-multistep` icm `dso-form-default` lijnt de buttons rechts uit.
+  Class `dso-multistep` icm `dso-form-paging` lijnt de eerste button links, de tweede button rechts uit.
+collated: true
+status: wip
+context:
+  __title: Formulier met enkel scherm
+  formStyle: singlestep
+  buttons:
+    - modifier: primary
+      label: Primaire actie
+      type: button
+variants:
+  - name: versie 3
+    context:
+      __title: Formulier met annuleren optie
+      pagingStyle: default
+      formStyle: multistep
+      buttons:
+        - label: Annuleren
+          modifier: link
+          type: button
+        - label: Opslaan
+          modifier: primary
+          type: button
+  - name: versie 2
+    context:
+      __title: Formulier met meerdere stappen
+      pagingStyle: paging
+      formStyle: multistep
+      buttons:
+        - label: Vorige
+          modifier: link
+          type: button
+          icon: chevron-left
+        - label: Volgende
+          modifier: primary
+          type: button
