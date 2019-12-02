@@ -1,3 +1,94 @@
+<table class="table dso-accordion-table">
+  <caption class="sr-only">{{ caption }}</caption>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Aanvraag/melding</th>
+      <th scope="col">Status</th>
+      <th scope="col">Ingediend</th>
+      <th scope="col">Type</th>
+      <th scope="col" width="50"></th>
+      <th scope="col" width="250"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" colspan="2">
+        {{> '@button' type='button' modifier='link' label='Vergunning kappen' icon='chevron-down' srLabel=' (gesloten)' }}
+      </th>
+      <td>Verzonden</td>
+      <td>21/11/2017</td>
+      <td>Aanvraag</td>
+      <td class="text-center">2 {{> '@icon' icon='paperclip' }}</td>
+      <td class="text-right">
+        {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Opnieuw' icon='redo' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Kopieer' icon='copy' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="2">
+        {{> '@button' type='button' modifier='link' label='Boom 23 kappen' icon='chevron-down' srLabel=' (geopend)' }}
+      </th>
+      <td>
+        {{> '@button' type='button' modifier='link' label='Openen' icon='angle-right' }}
+      </td>
+      <td>15/10/2017</td>
+      <td>Verzoek</td>
+      <td class="text-center">7 {{> '@icon' icon='paperclip' }}</span></td>
+      <td class="text-right">
+        {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Opnieuw' icon='redo' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Kopieer' icon='copy' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="7" class="text-center" style="line-height: 300px;">
+        Container cel
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="2">
+        {{> '@button' type='button' modifier='link' label='Pand 24 slopen' icon='chevron-down' srLabel=' (gesloten)' }}
+      </th>
+      <td>Aangevuld</td>
+      <td>13/09/2017</td>
+      <td>Melding</td>
+      <td class="text-center">6 {{> '@icon' icon='paperclip' }}</span></td>
+      <td class="text-right">
+        {{> '@button' type='button' modifier='link' label='Kopieer' icon='copy' iconOnly=true }}
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="2">
+        {{> '@button' type='button' modifier='link' label='Kerkstraat 10 tuin uitgraven' icon='chevron-down' srLabel=' (gesloten)' }}
+      </th>
+      <td>Ingetrokken</td>
+      <td>11/07/2017</td>
+      <td>Aanvraag</td>
+      <td></td>
+      <td class="text-right">
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="2">
+        {{> '@button' type='button' modifier='link' label='Grote Markt 31 kabels leggen' icon='chevron-down' srLabel=' (gesloten)' }}
+      </th>
+      <td>Concept</td>
+      <td>28/06/2017</td>
+      <td>Aanvraag</td>
+      <td></td>
+      <td class="text-right">
+        {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <table class="table">
   <caption class="sr-only">{{ caption }}</caption>
   <thead>

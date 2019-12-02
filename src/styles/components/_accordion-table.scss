@@ -1,0 +1,8 @@
+.dso-accordion-table {
+  thead,
+  tbody {
+    th:first-child {
+      width: calc(1.5rem + #{$u1});
+    }
+  }
+}
