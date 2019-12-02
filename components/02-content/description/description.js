@@ -5,7 +5,7 @@
 
 module.exports = function () {
   return {
-    description(term, options) {
+    dsoDescription(term, options) {
       return [
         `<a id="${encodeURI(term)}-term" href="#${encodeURI(term)}-content" class="dso-description-term${this['description-hidden'] ? '' : ' dso-is-open'}">${term}</a>`,
         `<span id="${encodeURI(term)}-content" class="dso-description-content" aria-hidden="${!!this['description-hidden']}">`,
