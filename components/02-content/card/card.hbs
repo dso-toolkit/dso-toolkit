@@ -9,14 +9,14 @@
       </a>
       {{#if (or toggle link)}}
         <div class="dso-card-interactions">
-          {{#each toggle}}
+          {{#if toggle}}
             <div class="dso-card-interaction">
               <input type="checkbox" id="{{ id }}" name="{{ id }}" value="{{ value }}" />
               <label class="sr-only" for="{{ id }}">
-                {{ id }}
+                {{ label }} geselecteerd
               </label>
             </div>
-          {{/each}}
+          {{/if}}
           {{#if info}}
             <div class="dso-card-interaction">
               {{> '@info-button' }}
