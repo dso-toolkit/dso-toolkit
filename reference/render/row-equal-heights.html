@@ -1,54 +1,288 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="no-js">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-      window.frctl = {
-        env: 'static'
-    };
-    </script>
-    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
-    <link rel="shortcut icon" href="../../_assets/images/favicon.ico" type="image/ico">
-    <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.1" type="text/css">
-    <link rel="stylesheet" href="../../_statics/custom-mandelbrot-stylesheet.css?cachebust=1.2.1" type="text/css">
-    <title>Error rendering component row-equal-heights | DSO Toolkit | Component Library</title>
-  </head>
-  <body>
-    <div class="Frame Frame--full" id="frame">
-      <div class="Error Error--render">
-        <h4 class="Error-title">Error rendering component</h4>
-        <div class="Error-message Prose">
-          <p>Cannot read property &#39;fn&#39; of undefined</p>
-        </div>
-        <code class="Error-stack">
-        <pre>TypeError: Cannot read property 'fn' of undefined
-    at Object.description (D:\dso\dso-toolkit\components\02-content\description\description.js:15:28)
-    at Object.helperWrapper (D:\dso\dso-toolkit\node_modules\promised-handlebars\index.js:130:23)
-    at Object.<anonymous> (D:\dso\dso-toolkit\node_modules\promised-handlebars\lib\utils.js:29:28)
-    at Object.eval [as main] (eval at createFunctionContext (D:\dso\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\javascript-compiler.js:262:23), <anonymous>:16:168)
-    at main (D:\dso\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\runtime.js:176:32)
-    at ret (D:\dso\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\runtime.js:179:12)
-    at ret (D:\dso\dso-toolkit\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:526:21)
-    at prepareAndResolveMarkers (D:\dso\dso-toolkit\node_modules\promised-handlebars\index.js:99:39)
-    at D:\dso\dso-toolkit\node_modules\promised-handlebars\lib\utils.js:29:28
-    at HandlebarsAdapter.render (D:\dso\dso-toolkit\node_modules\@frctl\handlebars\src\adapter.js:34:30)
-    at ComponentSource._renderVariant (D:\dso\dso-toolkit\node_modules\@frctl\fractal\src\api\components\source.js:207:30)
-    at _renderVariant.next (<anonymous>)
-    at onFulfilled (D:\dso\dso-toolkit\node_modules\co\index.js:65:19)
-    at bound (domain.js:402:14)
-    at runBound (domain.js:415:12)
-    at tryCatcher (D:\dso\dso-toolkit\node_modules\bluebird\js\release\util.js:16:23)
-    at Promise._settlePromiseFromHandler (D:\dso\dso-toolkit\node_modules\bluebird\js\release\promise.js:547:31)
-    at Promise._settlePromise (D:\dso\dso-toolkit\node_modules\bluebird\js\release\promise.js:604:18)
-    at Promise._settlePromise0 (D:\dso\dso-toolkit\node_modules\bluebird\js\release\promise.js:649:10)
-    at Promise._settlePromises (D:\dso\dso-toolkit\node_modules\bluebird\js\release\promise.js:729:18)
-    at Promise._fulfill (D:\dso\dso-toolkit\node_modules\bluebird\js\release\promise.js:673:18)
-    at Promise._resolveCallback (D:\dso\dso-toolkit\node_modules\bluebird\js\release\promise.js:466:57)</pre>
-    </code>
+<header>
+  <div class="dso-logo-bar">
+    <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
+    <div class="dso-tools-bar">
+      <div class="dso-login">
+        <a href="" class="btn btn-link"><svg class="di di-user">
+            <use href="../../dso-icons.svg#user" />
+          </svg><span>Inloggen</span></a>
       </div>
     </div>
-    <script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.1"></script>
-    <script src="../../dso-toolkit-scripts.js?cachebust=1.2.1"></script>
-  </body>
-</html>
+  </div>
+  <nav class="dso-navbar">
+    <div class="dso-navbar-header">
+      <button type="button" class="dso-navbar-toggle">
+        <svg class="di di-bars">
+          <use href="../../dso-icons.svg#bars" />
+        </svg> <span class="sr-only">Ga naar menu</span>
+      </button>
+    </div>
+    <ul class="dso-nav dso-nav-main">
+      <li>
+        <a href="#">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          Vergunningcheck
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          Aanvragen
+        </a>
+      </li>
+      <li class="dso-active">
+        <a href="#">
+          Regels op de kaart
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          Mijn Omgevingsloket
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <ol class="breadcrumb">
+    <li>
+      <a href="#">Home</a>
+    </li>
+    <li class="active">Checken</li>
+  </ol>
+</header>
+<main>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow">
+        <code>col-sm-12 col-md-6 col-lg-3</code>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow">
+        <code>col-sm-12 col-md-6 col-lg-3</code>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow">
+        <code>col-sm-12 col-md-6 col-lg-3</code>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow">
+        <code>col-sm-12 col-md-6 col-lg-3</code>
+      </div>
+    </div>
+  </div>
+  <div class="row dso-equal-heights">
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow dso-has-counter">
+        <div class="dso-step-counter">
+          1
+        </div>
+        <div class="dso-rich-content">
+          <h2>Ongelijke inhoud</h2>
+          <p>Zodra een <code>.row</code> een <code>.dso-equal-heights</code> krijgt, worden voor de volgende componenten de kolommen visueel even hoog:</p>
+          <ul>
+            <li>Highlight Box</li>
+            <li>Whitebox</li>
+            <li>Whitebox small</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-yellow dso-drop-shadow dso-has-counter">
+        <div class="dso-step-counter">
+          2
+        </div>
+        <div class="dso-rich-content">
+          <h2>Ongelijke inhoud</h2>
+          <p>Dit blok is hoger, dit blok heeft meer te vertellen omdat het een veel boeiender blok is. Mijn broertjes zijn minder interessant, dat zie je aan de inhoud</p>
+          <p>PS: Ik ben het tweede blokje</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow dso-has-counter">
+        <div class="dso-step-counter">
+          3
+        </div>
+        <div class="dso-rich-content">
+          <h2>Ongelijke inhoud</h2>
+          <p>Oninteressant blokje</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-3">
+      <div class="dso-highlight-box dso-drop-shadow dso-has-counter">
+        <div class="dso-step-counter">
+          4
+        </div>
+        <div class="dso-rich-content">
+          <h2>Ongelijke inhoud</h2>
+          <p>Aha</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row dso-equal-heights">
+    <div class="col-lg-2 col-md-4 col-xs-6">
+      <div class="dso-whitebox-small">
+        <a href="#">
+          <span class="dso-whitebox-icon">
+              <img src="../../dummy/images/icon-tree.png" />
+            </span>
+          <span class="dso-whitebox-link">
+              Kort verhaal
+            </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-4 col-xs-6">
+      <div class="dso-whitebox-small">
+        <a href="#">
+          <span class="dso-whitebox-icon">
+              <img src="../../dummy/images/icon-tree.png" />
+            </span>
+          <span class="dso-whitebox-link">
+              Lang verhaal waardoor dit blok hoger op je scherm wordt
+            </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-4 col-xs-6">
+      <div class="dso-whitebox-small">
+        <a href="#">
+          <span class="dso-whitebox-icon">
+              <img src="../../dummy/images/icon-tree.png" />
+            </span>
+          <span class="dso-whitebox-link">
+              Kort verhaal
+            </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-4 col-xs-6">
+      <div class="dso-whitebox-small">
+        <a href="#">
+          <span class="dso-whitebox-icon">
+              <img src="../../dummy/images/icon-tree.png" />
+            </span>
+          <span class="dso-whitebox-link">
+              Lang verhaal waardoor dit blok hoger op je scherm wordt
+            </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-4 col-xs-6">
+      <div class="dso-whitebox-small">
+        <a href="#">
+          <span class="dso-whitebox-icon">
+              <img src="../../dummy/images/icon-tree.png" />
+            </span>
+          <span class="dso-whitebox-link">
+              Kort verhaal
+            </span>
+        </a>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-4 col-xs-6">
+      <div class="dso-whitebox-small">
+        <a href="#">
+          <span class="dso-whitebox-icon">
+              <img src="../../dummy/images/icon-tree.png" />
+            </span>
+          <span class="dso-whitebox-link">
+              Lang verhaal waardoor dit blok hoger op je scherm wordt
+            </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row dso-equal-heights">
+    <div class="col-md-4 col-sm-6 col-xs-12 ">
+      <div class="dso-whitebox">
+        <div class="dso-whitebox-title">
+          <h2>Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.</h2>
+        </div>
+        <div class="dso-whitebox-link">
+          <a href="#" class="btn btn-link"><svg class="di di-angle-right">
+              <use href="../../dso-icons.svg#angle-right" />
+            </svg><span>Direct naar aanvragen</span></a>
+        </div>
+        <div class="dso-whitebox-icon">
+          <img src="../../dummy/images/indienen.png" alt="Indienen" />
+        </div>
+        <div class="dso-rich-content">
+          <p>Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 ">
+      <div class="dso-whitebox">
+        <div class="dso-whitebox-title">
+          <h2>Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.</h2>
+        </div>
+        <div class="dso-whitebox-link">
+          <a href="#" class="btn btn-link"><svg class="di di-angle-right">
+              <use href="../../dso-icons.svg#angle-right" />
+            </svg><span>Direct naar aanvragen</span></a>
+        </div>
+        <div class="dso-whitebox-icon">
+          <img src="../../dummy/images/indienen.png" alt="Indienen" />
+        </div>
+        <div class="dso-rich-content">
+          <p>Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12 ">
+      <div class="dso-whitebox">
+        <div class="dso-whitebox-title">
+          <h2>Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.</h2>
+        </div>
+        <div class="dso-whitebox-link">
+          <a href="#" class="btn btn-link"><svg class="di di-angle-right">
+              <use href="../../dso-icons.svg#angle-right" />
+            </svg><span>Direct naar aanvragen</span></a>
+        </div>
+        <div class="dso-whitebox-icon">
+          <img src="../../dummy/images/indienen.png" alt="Indienen" />
+        </div>
+        <div class="dso-rich-content">
+          <p>Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="row">
+    <div class="col-sm-6 col-md-3">
+      <h2>Service</h2>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <h2>Over deze site</h2>
+      <ul>
+        <li><a href="#">Copyright</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Toegankelijkheid</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <h2>Volg ons ook op</h2>
+      <ul>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
