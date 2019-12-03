@@ -12,21 +12,32 @@ context:
       label: Primaire actie
       type: button
 variants:
-  - name: versie 3
+  - name: Formulier met enkel scherm en annuleren optie
     context:
-      __title: Formulier met annuleren optie
+      __title: Formulier met enkel scherm en annuleren optie
+      formStyle: singlestep
+      buttons:
+        - modifier: primary
+          label: Primaire actie
+          type: button
+        - label: Secundaire actie
+          modifier: link
+          type: button
+  - name: Groot formulier met meerdere secties en annuleren optie
+    context:
+      __title: Groot formulier met meerdere secties en annuleren optie
       pagingStyle: default
       formStyle: multistep
       buttons:
-        - label: Annuleren
+        - label: Secundaire actie
           modifier: link
           type: button
-        - label: Opslaan
+        - label: Primaire actie
           modifier: primary
           type: button
-  - name: versie 2
+  - name: Groot formulier met meerdere stappen
     context:
-      __title: Formulier met meerdere stappen
+      __title: Groot formulier met meerdere stappen
       pagingStyle: paging
       formStyle: multistep
       buttons:
@@ -34,6 +45,22 @@ variants:
           modifier: link
           type: button
           icon: chevron-left
+        - label: Volgende
+          modifier: primary
+          type: button
+  - name: Groot formulier met meerdere stappen en annuleren optie
+    context:
+      __title: Groot formulier met meerdere stappen en annuleren optie
+      pagingStyle: paging
+      formStyle: multistep
+      buttons:
+        - label: Vorige
+          modifier: link
+          type: button
+          icon: chevron-left
+        - label: Secundaire actie
+          modifier: link
+          type: button
         - label: Volgende
           modifier: primary
           type: button
