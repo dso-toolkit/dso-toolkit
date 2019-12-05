@@ -1,18 +1,17 @@
 notes: |
   Een list-button met class 'selected' heeft een svg met de class 'check', een list-button met de class 'multiple-selected' heeft een span met de class 'selected'.
 status: wip
+collated: true
 context:
   type: button
   label: Milieubelastende activiteit - Melding
 variants:
   - name: button selected
     context:
-      modifier: selected
-      icon: true
+      count: 1
   - name: button multiple selected
     context:
-      modifier: selected
-      counter: '99x'
+      count: 99
   - name: button disabled
     context:
       disabled: true

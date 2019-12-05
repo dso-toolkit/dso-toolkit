@@ -1,4 +1,4 @@
-.btn-list-button {
+.dso-list-button {
   @include state-styling($wit, $grijs-20, $grijs-90);
   font-weight: 600;
   margin-top: ($u1 / 2);
@@ -33,7 +33,7 @@
     }
   }
 
-  &.list-button-selected {
+  &.dso-selected {
     border-color: $grasgroen;
     border-width: 2px;
   }
@@ -45,7 +45,7 @@
     width: $u3;
   }
 
-  .counter {
+  .dso-count {
     float: right;
     font-weight: 700;
   }
