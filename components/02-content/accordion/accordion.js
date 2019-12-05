@@ -19,11 +19,26 @@ module.exports = function () {
       const self = this;
       const header = options.hash.header || 'div';
 
+      const termMap = {
+        success: 'succes',
+        warning: 'waarschuwing',
+        info: 'info',
+        danger: 'gevaar'
+      };
+
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') + (self.sections ? ' dso-nested-accordion' : '') }">
           <${header} class="dso-section-handle">
-            <a href="#">${ title }</a>
-          </${header}>`);
+            <a href="#">`);
+
+      const term = self.state;
+
+      if (termMap[term]) {
+        html += (`<span class="sr-only">${termMap[term]}: </span>`);
+      }
+
+      html += (`${title}</a>
+      </${header}>`);
 
       if (self.open) {
         html += (
