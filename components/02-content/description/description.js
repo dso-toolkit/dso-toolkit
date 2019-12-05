@@ -7,8 +7,8 @@ module.exports = function () {
   return {
     dsoDescription(term, options) {
       return [
-        `<a id="${encodeURI(term)}-term" href="#${encodeURI(term)}-content" class="dso-description-term${this['description-hidden'] ? '' : ' dso-is-open'}">${term}</a>`,
-        `<span id="${encodeURI(term)}-content" class="dso-description-content" aria-hidden="${!!this['description-hidden']}">`,
+        `<a id="${encodeURI(term)}-term" href="#${encodeURI(term)}-content" class="dso-description-term${this['description-hidden'] ? '' : ' dso-is-open'}" aria-collapsed="${!!this['description-hidden']}" aria-controls="${encodeURI(term)}-content">${term}</a>`,
+        `<span id="${encodeURI(term)}-content" class="dso-description-content ${this['description-hidden'] ? ' dso-description-collapsed' : ' dso-description-expanded'}">`,
           `<a href="#${encodeURI(term)}-term">`,
             `<span class="sr-only">Sluiten</span>`,
           `</a>`,

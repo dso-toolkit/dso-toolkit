@@ -50,11 +50,11 @@
 .dso-description-content {
   position: relative;
 
-  &[aria-hidden="true"] {
+  &.dso-description-collapsed {
     display: none;
   }
 
-  &[aria-hidden="false"] {
+  &.dso-description-expanded {
     background-color: $dso-description-bg-color;
     border: 1px $dso-description-border-color solid;
     display: block;
@@ -62,9 +62,9 @@
     padding: $u1 $u4 $u1 $u1;
   }
 
-  > button {
-    background-color: transparent;
-    border-style: none;
+  > a {
+    display: block;
+    padding: ($u1 / 2);
     position: absolute;
     right: 0;
     top: 0;
