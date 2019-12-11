@@ -231,13 +231,6 @@ select:not([multiple]) {
       }
     }
   }
-
-  @media screen and (min-width: $screen-sm-min) {
-    .dso-form-buttons {
-      margin-left: percentage($dso-label-column / $grid-columns);
-      padding-left: $grid-gutter-width / 4;
-    }
-  }
 }
 
 @import "./form/files";

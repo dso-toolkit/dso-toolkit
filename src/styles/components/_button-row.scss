@@ -6,15 +6,17 @@ $dso-form-button-breakpoint: 480px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-left: 0;
+  padding-left: 0;
+
+  @media screen and (max-width: $dso-form-button-breakpoint) {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
   &.dso-multistep {
-    &.dso-form-default {
-      justify-content: flex-end;
-
-      @media screen and (max-width: $dso-form-button-breakpoint) {
-        justify-content: flex-start;
-      }
-    }
+    justify-content: flex-end;
 
     &.dso-form-paging {
       justify-content: flex-end;
@@ -22,10 +24,6 @@ $dso-form-button-breakpoint: 480px;
       button:first-child {
         align-self: flex-start;
         margin-right: auto;
-      }
-
-      @media screen and (max-width: $dso-form-button-breakpoint) {
-        justify-content: flex-start;
       }
     }
 
@@ -42,8 +40,8 @@ $dso-form-button-breakpoint: 480px;
   &.dso-singlestep {
     justify-content: flex-start;
 
-    .btn-link {
-      margin-left: $u2;
+    .btn-primary {
+      margin-right: $u2;
     }
   }
 
