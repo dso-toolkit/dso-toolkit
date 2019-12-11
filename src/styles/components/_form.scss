@@ -4,6 +4,7 @@ $dso-label-column: $grid-columns / 2;
 
 $dso-field-invalid-border-color: $dso-danger-color;
 $dso-field-invalid-message-color: $dso-danger-color;
+$dso-field-invalid-icon-size: $u3;
 $dso-required-color: $grijs-60;
 
 $dso-form-control-border-width: 1px;
@@ -91,16 +92,15 @@ form {
 
     .dso-message {
       color: $dso-field-invalid-message-color;
-      padding-left: 26px;
+      padding-left: $u4;
       position: relative;
 
       &::before {
-        @include di("status-danger", $dso-conclusion-icon-size);
+        @include di("status-danger", $dso-field-invalid-icon-size);
         content: "";
         display: block;
         left: 0;
         position: absolute;
-        top: 3px;
       }
     }
   }

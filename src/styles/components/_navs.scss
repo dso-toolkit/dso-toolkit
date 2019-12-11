@@ -1,5 +1,7 @@
+$dso-navigation-selected-color: $cannon-pink;
+
 @mixin nav-item-border($color) {
-  border-bottom: 3px solid $color;
+  border-bottom: 4px solid $color;
 }
 
 .dso-nav {
@@ -7,19 +9,33 @@
   margin-bottom: 0;
   padding-left: 0;
 
+  @media screen and (min-width: $screen-sm-min) {
+    border-bottom: 1px solid $grijs-20;
+  }
+
   > li {
     > a {
       display: block;
-      padding: 12px 10px 0;
 
+      &,
       &:hover,
-      &:focus {
-        text-decoration: none;
+      &:focus,
+      &:visited {
+        color: $bosgroen;
+      }
+    }
+
+    &.dso-active {
+      > a {
+        @include nav-item-border($dso-navigation-selected-color);
+        font-weight: bold;
       }
     }
   }
 
   &.dso-nav-main {
+    margin-bottom: $u1;
+
     > li {
       display: block;
 
@@ -28,22 +44,10 @@
       }
 
       > a {
-        color: $bosgroen;
-        font-size: 1.2em;
-        line-height: $line-height-computed;
-        padding-bottom: $u1;
-        padding-top: $u1;
-
-        &:hover {
-          color: $zwart;
-        }
-      }
-
-      &.dso-active {
-        > a {
-          @include nav-item-border($oranje);
-          font-weight: bold;
-        }
+        font-size: 1.25em;
+        line-height: 1;
+        margin-top: $u1;
+        padding: $u1 $u2 #{$u1 - 1px};
       }
     }
   }
@@ -53,28 +57,9 @@
       display: inline-block;
 
       > a {
-        color: $grijs-60;
         font-size: $font-size-base;
-        padding: $u1;
-
-        &:hover,
-        &:focus {
-          @include nav-item-border($grasgroen);
-          color: $grasgroen;
-        }
-      }
-
-      &.dso-active {
-        > a {
-          @include nav-item-border($oranje);
-          color: $bosgroen;
-          font-weight: bold;
-
-          &:hover,
-          &:focus {
-            color: $zwart;
-          }
-        }
+        margin-top: ($u1 / 2);
+        padding: ($u1 / 2) $u1 #{$u1 / 2 - 1px};
       }
     }
   }
