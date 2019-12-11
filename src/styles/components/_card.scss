@@ -12,8 +12,9 @@
 }
 
 .dso-card {
-  display: block;
+  display: flex;
   padding: $u2 $u2 $u1;
+  width: 100%;
 
   &,
   &:not(.btn):visited,
@@ -38,6 +39,15 @@
 }
 
 .dso-card-interactions {
+  display: flex;
+  justify-content: space-between;
+  padding: $u2;
+
+  .dso-card-interaction {
+    display: flex;
+    text-align: center;
+  }
+
   .dso-info-button {
     height: $u3;
     margin: 0;
@@ -46,54 +56,17 @@
 }
 
 .dso-card-interactions-aside .dso-card-holder {
-  position: relative;
-
-  .dso-card {
-    padding-right: $u8;
-  }
+  display: flex;
+  flex-direction: row;
 
   .dso-card-interactions {
     align-items: center;
-    display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: space-evenly;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: $u7;
-    z-index: 2;
-
-    .dso-card-interaction {
-      display: flex;
-      text-align: center;
-    }
   }
 }
 
 .dso-card-interactions-below .dso-card-holder {
-  position: relative;
-
-  .dso-card {
-    padding-bottom: $u5;
-  }
-
   .dso-card-interactions {
-    align-items: center;
-    bottom: 0;
-    display: flex;
     flex-direction: row;
-    height: $u5;
-    justify-content: space-between;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-
-    .dso-card-interaction {
-      display: flex;
-      padding: 0 $u2;
-      text-align: center;
-    }
   }
 }
