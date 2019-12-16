@@ -3,7 +3,7 @@ label: Zoeksuggesties
 ---
 Zoek suggesties zijn aanbevolen resultaten die verschijnen in een dropdown als gebruikers typen in een zoekveld.
 
-![Details logo met extra tekstregel]({{path '/docs/images/Typeahead.png'}})
+![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk.png'}})
 
 ## Wanneer te gebruiken
 Het belangrijkste doel is dat een zoeksuggestie de gebruiker helpt in het samenstellen van zijn of haar zoekopdracht. Dit kan een vrije zoekopdracht zijn zoals Google of zoeken in een "onzichtbare" lijst met vaste waarden. Zoals het zoeken van een adres in een map applicatie.
@@ -24,11 +24,12 @@ Wat de toolkit wel kan leveren zijn de eisen aan de vormgeving en het functionel
 ## Vormgeving
 In onderstaande afbeelding staan de specificaties voor de suggestionbox die bij de zoeksuggesties horen. Een live voorbeeld is te vinden op [de vergunningcheck op het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1)
 
-![Details logo met extra tekstregel]({{path '/docs/images/Typeahead specs.png'}})
+![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk specs.png'}})
 
 ## Gedrag en Accesbility
 
 - Maximaal 10 suggesties; zo houden we de lijst compact en zijn er geen scrollbars zichtbaar
+- Als de zin  niet op de breedte van de lijst past wordt de zin vervolgd op de volgende regel. Een zoeksuggestie wordt niet afgebroken.
 - Ondersteuning van toetsenbord navigatie; maak het mogelijk dat gebruikers met de pijltoetsen door het menu kunnen navigeren en met enter een resultaat kunnen selecteren
 - Hand cursor; de zoeksuggestie krijgt een duidelijke hover state met een "hand" cursor.
 - (Optioneel) Zoekhistorie; Toon de voorgaande zoekopdrachten als de gebruiker in het veld focused.
