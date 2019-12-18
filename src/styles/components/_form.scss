@@ -26,6 +26,22 @@ form {
   > fieldset + fieldset {
     margin-top: $u4;
   }
+
+  &.dso-multipage .dso-form-buttons .btn:first-child,
+  &:not(.dso-multipage) .dso-form-buttons .btn:not(:only-child) {
+    float: right;
+  }
+
+  .dso-form-buttons {
+    .btn + .btn {
+      margin-right: $u1;
+    }
+
+    .btn-link {
+      line-height: $dso-button-line-height;
+      padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+    }
+  }
 }
 
 .form-group {

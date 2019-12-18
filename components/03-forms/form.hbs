@@ -10,9 +10,11 @@
       </fieldset>
     {{/each}}
   </fieldset>
-  {{#if submitButton}}
+  {{#if buttons.length }}
     <div class="dso-form-buttons">
-      {{> '@button' submitButton }}
+      {{#each buttons }}
+        {{> '@button' }}
+      {{/each}}
     </div>
   {{/if}}
 </form>

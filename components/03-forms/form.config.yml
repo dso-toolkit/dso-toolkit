@@ -154,12 +154,54 @@ context:
       infoText: |
         <h4>Let op</h4>
         <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
-  submitButton:
-    type: submit
+  buttons:
+  - type: submit
     modifier: primary
     label: Verstuur
+  - type: button
+    modifier: link
+    label: Annuleren
 variants:
 - name: form-horizontal
   context:
     formModifier: form-horizontal
     formLegend: Form Horizontal
+- name: simple-form
+  context:
+    formLegend: Een simpel formulier
+    fieldsets:
+    - legend: Invoervelden
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Invoerveld
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Invoerveld
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Primaire actie
+- name: multipage-form
+  context:
+    formModifier: dso-multipage
+    formLegend: Een formulier met pager knoppen
+    fieldsets:
+    - legend: Contact
+      groups:
+      - id: voornaam
+        inputType: input
+        type: text
+        label: Voornaam
+        required: true
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Volgende
+      iconAfter: angle-right
+    - type: button
+      modifier: link
+      label: Vorige
+      icon: angle-left
