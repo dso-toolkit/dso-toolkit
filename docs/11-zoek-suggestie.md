@@ -22,9 +22,9 @@ De toolkit is een framework agnostische stijlgids. Om de zoeksuggesties op een d
 Wat de toolkit wel kan leveren zijn de eisen aan de vormgeving en het functionele gedrag van de zoeksuggesties.
 
 ## Vormgeving
-In onderstaande afbeelding staan de specificaties voor de suggestionbox die bij de zoeksuggesties horen. Een live voorbeeld is te vinden op [de vergunningcheck op het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1)
+In onderstaande afbeelding staan de specificaties voor de suggestionbox die bij de zoeksuggesties horen.Op [de vergunningcheck van het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1) is een live voorbeeld is te vinden
 
-![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk specs.png'}})
+![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk-specs.png'}})
 
 ## Gedrag en Accesbility
 
