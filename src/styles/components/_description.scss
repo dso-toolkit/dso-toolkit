@@ -1,7 +1,6 @@
 .dso-description-term {
   border-bottom: 2px dotted $dso-description-border-color;
   position: relative;
-  white-space: nowrap;
 
   &,
   &:visited,
@@ -16,16 +15,16 @@
     text-decoration: none;
   }
 
-  &.dso-is-open {
+  &.dso-open {
     &::before {
       border-color: $wit transparent transparent;
       border-style: solid;
-      border-width: #{$u1 - 1} #{$u1 - 1} 0;
-      bottom: #{-$u2 + 2};
+      border-width: $u1 - 1 $u1 - 1 0;
+      bottom: -$u2 + 2;
       content: "";
       height: 0;
       left: 50%;
-      margin-left: #{-$u1 + 1px};
+      margin-left: -$u1 + 1px;
       position: absolute;
       width: 0;
       z-index: 2;
@@ -34,7 +33,7 @@
     &::after {
       border-color: $dso-description-border-color transparent transparent;
       border-style: solid;
-      border-width: #{$u1} #{$u1} 0;
+      border-width: $u1 $u1 0;
       bottom: -$u2;
       content: "";
       height: 0;
@@ -45,35 +44,38 @@
       z-index: 1;
     }
   }
-}
 
-.dso-description-content {
-  position: relative;
-
-  &.dso-description-collapsed {
+  &:not(.dso-open) + .dso-description-content {
     display: none;
   }
 
-  &.dso-description-expanded {
-    background-color: $dso-description-bg-color;
-    border: 1px $dso-description-border-color solid;
+  &.dso-open + .dso-description-content {
     display: block;
-    margin: #{$u1 / 2} 0;
-    padding: $u1 $u4 $u1 $u1;
   }
 
-  > a {
-    display: block;
-    padding: ($u1 / 2);
-    position: absolute;
-    right: 0;
-    top: 0;
+  & + .dso-description-content {
+    background-color: $dso-description-bg-color;
+    border: 1px $dso-description-border-color solid;
+    margin: $u1 / 2 0;
+    padding: $u1 $u4 $u1 $u1;
+    position: relative;
 
-    &::before {
-      @include di("times-zwart", 16px);
+    > a {
+      display: block;
+      height: 24px;
+      padding: $u1 / 2;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 24px;
 
-      content: "";
-      display: inline-block;
+      &::before {
+        @include di("times-zwart", 16px);
+
+        content: "";
+        display: block;
+      }
     }
   }
 }

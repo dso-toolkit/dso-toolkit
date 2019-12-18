@@ -7,12 +7,12 @@ module.exports = function () {
   return {
     dsoDescription(term, options) {
       return [
-        `<a id="${encodeURI(term)}-term" href="#${encodeURI(term)}-content" class="dso-description-term${this['description-hidden'] ? '' : ' dso-is-open'}" aria-expanded="${this['description-hidden'] ? 'false' : 'true'}" aria-controls="${encodeURI(term)}-content">${term}</a>`,
-        `<span id="${encodeURI(term)}-content" class="dso-description-content ${this['description-hidden'] ? ' dso-description-collapsed' : ' dso-description-expanded'}">`,
-          `<a href="#${encodeURI(term)}-term">`,
+        `<a id="${this._self.handle}-term" href="#${this._self.handle}-content" class="dso-description-term${this['open'] ? ' dso-open' : ''}" aria-expanded="${this['open'] ? 'true' : 'false'}" aria-controls="${this._self.handle}-content">${term}</a>`,
+        `<span id="${this._self.handle}-content" class="dso-description-content">`,
+          `${options.fn(this)}`,
+          `<a href="#${this._self.handle}-term">`,
             `<span class="sr-only">Verbergen</span>`,
           `</a>`,
-          `<span>${options.fn(this)}</span>`,
         `</span>`
       ].join('');
     }
