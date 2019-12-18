@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="555px" height="332px" viewBox="0 0 555 332" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M20.67,19.07 L16.29,14.69 C17.2212649,13.4387088 17.7228907,11.9197998 17.72,10.36 C17.72,6.29518424 14.4248158,3 10.36,3 C6.29518424,3 3,6.29518424 3,10.36 C3,14.4248158 6.29518424,17.72 10.36,17.72 C11.9197998,17.7228907 13.4387088,17.2212649 14.69,16.29 L19.07,20.67 C19.5118278,21.1118278 20.2281722,21.1118278 20.67,20.67 C21.1118278,20.2281722 21.1118278,19.5118278 20.67,19.07 L20.67,19.07 Z M5.25999013,10.36 C5.25595359,8.29633736 6.49595991,6.43362542 8.40137544,5.64109055 C10.306791,4.84855567 12.5020301,5.28241823 13.962694,6.74021815 C15.423358,8.19801808 15.8615283,10.3924014 15.0727348,12.2993688 C14.2839412,14.2063361 12.4236666,15.45 10.36,15.45 C7.54951987,15.4445215 5.2709946,13.170464 5.25999013,10.36 Z" id="path-1"></path>
+        <rect id="path-3" x="0" y="0" width="450" height="232" rx="4"></rect>
+        <filter x="-4.6%" y="-5.4%" width="109.1%" height="117.7%" filterUnits="objectBoundingBox" id="filter-4">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="8" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.4 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Componenten" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="formulier-elementen" transform="translate(-149.000000, -1609.000000)">
+            <g id="Group-14" transform="translate(160.000000, 1609.000000)">
+                <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="544" height="332"></rect>
+                <g id="buttons/secondair/standaard-klein" transform="translate(458.000000, 38.000000)">
+                    <g id="Group">
+                        <rect id="background" stroke="#39870C" fill="#FFFFFF" x="0.5" y="0.5" width="85" height="39" rx="4"></rect>
+                        <text id="label" font-family="Asap-SemiBold, Asap SemiBold" font-size="16" font-weight="500" line-spacing="24" fill="#39870C">
+                            <tspan x="16.272" y="23">Zoeken</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-9-Copy-3" transform="translate(0.000000, 6.000000)">
+                    <g id="input/textfield" transform="translate(0.000000, 32.000000)">
+                        <rect id="Textfield" stroke="#275937" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="448" height="38" rx="4"></rect>
+                        <g id="iconen/search" transform="translate(8.000000, 8.000000)">
+                            <g id="search">
+                                <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Shape" fill="#1D1D1B" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                <g id="kleuren/primair/grasgroen" mask="url(#mask-2)" fill="#39870C">
+                                    <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <text id="Invoer|" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#191919">
+                            <tspan x="40" y="23">Invoer|</tspan>
+                        </text>
+                    </g>
+                    <text id="Zoekbalk" font-family="Asap-SemiBold, Asap SemiBold" font-size="16" font-weight="500" line-spacing="24" fill="#191919">
+                        <tspan x="0" y="15">Zoekbalk</tspan>
+                    </text>
+                </g>
+                <g id="Group-9-Copy" transform="translate(0.000000, 78.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                    <rect id="Rectangle" fill="#39870C" x="0" y="8" width="450" height="32"></rect>
+                    <text id="Aanvraag/melding-Copy-7" font-family="Asap-Bold, Asap" font-size="16" font-weight="bold" line-spacing="24" fill="#FFFFFF">
+                        <tspan x="16" y="27">Invoer</tspan>
+                        <tspan x="60.768" y="27" font-family="Asap-Regular, Asap" font-weight="normal"> suggestie</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-9" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#191919">
+                        <tspan x="16" y="59">Nog een </tspan>
+                        <tspan x="79.184" y="59" font-family="Asap-Bold, Asap" font-weight="bold">invoer</tspan>
+                        <tspan x="123.68" y="59"> suggestie</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-25" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#191919">
+                        <tspan x="16" y="91">Een suggestie met een </tspan>
+                        <tspan x="178.016" y="91" font-family="Asap-Bold, Asap" font-weight="bold">invoer</tspan>
+                        <tspan x="222.512" y="91"> match </tspan>
+                        <tspan x="16" y="115">halverwege over meerdere regels</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-26" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#191919">
+                        <tspan x="16" y="147">Suggestie met een </tspan>
+                        <tspan x="149.296" y="147" font-family="Asap-Bold, Asap" font-weight="bold">invoer</tspan>
+                        <tspan x="193.792" y="147"> match</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-27" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#191919">
+                        <tspan x="16" y="179">Suggestie 5 met een </tspan>
+                        <tspan x="161.696" y="179" font-family="Asap-Bold, Asap" font-weight="bold">invoer</tspan>
+                        <tspan x="206.192" y="179"> match</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-28" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#191919">
+                        <tspan x="16" y="211">Maximaal 10</tspan>
+                        <tspan x="106.928" y="211" font-family="Asap-Bold, Asap" font-weight="bold"> invoer </tspan>
+                        <tspan x="159.104" y="211">suggesties </tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-8" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                        <tspan x="360.8" y="27">Gemeente</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-10" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#666666">
+                        <tspan x="349.328" y="59">Woonplaats</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-11" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#666666">
+                        <tspan x="402.528" y="91">Weg</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-12" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#666666">
+                        <tspan x="394.064" y="147">Adres</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-13" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#666666">
+                        <tspan x="394.064" y="179">Adres</tspan>
+                    </text>
+                    <text id="Aanvraag/melding-Copy-14" font-family="Asap-Regular, Asap" font-size="16" font-weight="normal" line-spacing="24" fill="#666666">
+                        <tspan x="394.064" y="211">Adres</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

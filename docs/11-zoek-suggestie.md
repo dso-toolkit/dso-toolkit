@@ -3,7 +3,7 @@ label: Zoeksuggesties
 ---
 Zoek suggesties zijn aanbevolen resultaten die verschijnen in een dropdown als gebruikers typen in een zoekveld.
 
-![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk.png'}})
+![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk.svg'}})
 
 ## Wanneer te gebruiken
 Het belangrijkste doel is dat een zoeksuggestie de gebruiker helpt in het samenstellen van zijn of haar zoekopdracht. Dit kan een vrije zoekopdracht zijn zoals Google of zoeken in een "onzichtbare" lijst met vaste waarden. Zoals het zoeken van een adres in een map applicatie.
