@@ -1,50 +1,44 @@
 ---
 label: Zoeksuggesties
 ---
-Zoek suggesties zijn aanbevolen resultaten die verschijnen in een dropdown als gebruikers typen in een zoekveld.
+Zoeksuggesties zijn aanbevolen resultaten die verschijnen in een dropdownmenu als gebruikers in een zoekveld typen.
 
 ![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk.svg'}})
 
-## Wanneer te gebruiken
-Het belangrijkste doel is dat een zoeksuggestie de gebruiker helpt in het samenstellen van zijn of haar zoekopdracht. Dit kan een vrije zoekopdracht zijn zoals Google of zoeken in een "onzichtbare" lijst met vaste waarden. Zoals het zoeken van een adres in een map applicatie.
+## Gebruik
+Een goede zoeksuggestie helpt de gebruiker bij het bedenken van een zoekopdracht. Dat kan een vrije zoekopdracht zijn, zoals bij Google, of zoeken in een 'onzichtbare' lijst met vaste waarden. Denk hierbij aan een adres zoeken in een applicatie met een kaart.
 
 Deze suggesties verschijnen onder het zoekveld en veranderen bij elke letter die een gebruiker typt.
 
-Voordelen voor een gebruiker als zoeksuggesties gebruikt worden:
+Zoeksuggesties gebruiken heeft de volgende voordelen voor een gebruiker:
 
-- Selectie van een toepasselijke term, wat betere zoekresultaten oplevert
-- Sneller, gebruikers hoeven minder te typen
-- Type fouten, gebruikers hoeven het geheel niet te typen.
-- Minder inspanning, het systeem neemt een deel van de verantwoordelijkheid over.
+- Betere zoekresultaten door gebruik van relevante suggesties.
+- De gebruiker kan sneller zoeken.
+- Minder typefouten doordat de gebruikers niet zelf hoeven te typen.
+- Het kost de gebruiker minder inspanning doordat het systeem een deel van het werk overneemt.
 
-## Waarom geen markup voorbeeld in de toolkit?
-De toolkit is een framework agnostische stijlgids. Om de zoeksuggesties op een digitoegankelijke manier te bouwen is een script framework nodig. Dit kan de toolkit niet leveren.
-Wat de toolkit wel kan leveren zijn de eisen aan de vormgeving en het functionele gedrag van de zoeksuggesties.
+## Geen markupvoorbeeld in de toolkit
+De toolkit is een framework-agnostische stijlgids. Om zoeksuggesties op een digitaal toegankelijke manier te bouwen, heeft u een script framework nodig. De toolkit kan dit niet leveren. Wel vindt u in de toolkit eisen aan de vormgeving en eisen voor het functionele gedrag van de zoeksuggesties.
 
 ## Vormgeving
-In onderstaande afbeelding staan de specificaties voor de suggestionbox die bij de zoeksuggesties horen.Op [de vergunningcheck van het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1) is een live voorbeeld is te vinden
+In de onderstaande afbeelding staan specificaties voor de suggestion box die bij de zoeksuggesties hoort. In [de Vergunningcheck van het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1) is een live voorbeeld is te vinden
 
 ![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk-specs.png'}})
 
-## Gedrag en Accesbility
+## Gedrag en toegankelijkheid
 
-- Maximaal 10 suggesties; zo houden we de lijst compact en zijn er geen scrollbars zichtbaar
-- Als de zin  niet op de breedte van de lijst past wordt de zin vervolgd op de volgende regel. Een zoeksuggestie wordt niet afgebroken.
-- Ondersteuning van toetsenbord navigatie; maak het mogelijk dat gebruikers met de pijltoetsen door het menu kunnen navigeren en met enter een resultaat kunnen selecteren
-- Hand cursor; de zoeksuggestie krijgt een duidelijke hover state met een "hand" cursor.
-- (Optioneel) Zoekhistorie; Toon de voorgaande zoekopdrachten als de gebruiker in het veld focused.
+- Geef maximaal 10 suggesties. Zo houden we de lijst compact en zijn er geen scrollbars te zien.
+- Breek een zoeksuggestie nooit af. Past een zin niet binnen de breedte van de lijst? Laat de zin dan verdergaan op de volgende regel.
+- Maak het mogelijk dat gebruikers met de pijltoetsen door het menu kunnen navigeren en met enter een resultaat kunnen kiezen.
+- Geef de zoeksuggestie een duidelijke hover state met een 'hand'-cursor.
+- Toon eerdere zoekopdrachten als de gebruiker in het veld focust. Deze stap is optioneel.
 
-### Highlighten tekst
-Een zoeksuggestie bestaat uit twee delen. Het gedeelte getypt door de gebruikers en het gedeelte dat het systeem aanvult.
+### Tekst highlighten
+Een zoeksuggestie bestaat uit twee delen: het gedeelte dat de gebruiker typt en het gedeelte dat het systeem aanvult.
 
-(afbeelding om dit begrip aan te duiden)
+Dit verschil moet duidelijk zichtbaar zijn. Zo kan de gebruiker makkelijk zien welk deel het systeem aanvult.
 
-Dit verschil moet duidelijk getoond worden, zodat de gebruiker makkelijk kan afleiden welke gedeelte door de computer wordt aangevuld.
-
-In de toolkit wordt dit onderscheid als volgt gemaakt. Wat getypt wordt door de gebruiker wordt **bold** getoond.
-Argumentatie:
-Verschillende onderdelen kunnen in een suggestie gehighlight worden. Een zoeksuggestie bij de locatiekiezer bestaat bijvoorbeeld uit een straatnaam + huisnummer, postcode, plaatsnaam.
-Op elk van deze onderdelen kan gezocht worden wat de volgende mogelijkheden tot highlighten geeft.
+Zorg ervoor dat wat de gebruiker typt, in bold zichtbaar is. Zo kan de gebruiker op meerdere elementen uit de zoeksuggestie zoeken. Dingen die niet in bold staan, zijn aanvullingen vanuit het systeem. Bijvoorbeeld:
 
 - **Rijnstraat 51** , 1234 gt, Amsterdam
 - Rijnstraat, **1234 gt**, Amsterdam
@@ -54,22 +48,21 @@ Of zelfs een combinatie van meerdere elementen.
 
 - **Rijnstraat**, 1234gt,s **Amsterdam**
 
-Dit zorgt ervoor dat een gebruiker altijd snel resultaten kan scannen op zijn ingevulde zoek opdracht.
+Dit zorgt ervoor dat een gebruiker altijd snel resultaten kan scannen op zijn ingevulde zoekopdracht.
 
 ### Screenreader
-Zoeksuggesties geven een gebruiker extra informatie om het gebruik van de website zo makkelijk mogelijk te maken. Deze extra informatie moet voor iedereen toegankelijk zijn. Dit vereist extra werk aan de kant van de implementator. De volgende informatie moet terug gekoppeld worden via een Screenreader want de informatie die visueel getoond wordt moet ook beschikbaar zijn voor gebruikers van screenreaders. 
+Zoeksuggesties moeten ook waar te nemen zijn door mensen die een screenreader gebruiken. Zorg ervoor dat de screenreader in ieder geval de volgende informatie aangeeft:
 
-Voor een live voorbeeld kijk dan op [de vergunningcheck op het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1)
+- Geef het label en de placeholder een duidelijke en begrijpelijke tekst. Geef een inputveld een role=combobox mee. Dit helpt de gebruiker bij het herkennen van het inputveld.
+- Geef een melding met hoeveel beschikbare resultaten er zijn als een gebruiker stopt met typen. Dat geldt voor als de gebruiker klaar is met typen of als hij halverwege stopt. Geef maximaal 10 beschikbare resultaten. Geef ook een indicatie dat de lijst navigeerbaar is met de pijltoetsen en de enterknop.
+- Laat de screenreader een resultaat voorlezen als een gebruiker erboven hovert.
+- Als een gebruiker een selectie bevestigt, sluit u af met een bevestiging: 'U heeft ... geselecteerd.'
 
-- Label en placeholder worden opgelezen, zorg daarom voor een heldere en begrijpbare tekst. Geef ook een role=combobox op een input veld mee. Dit helpt een gebruiker bij het identificeren van het input veld en de verwachtingen hiervan.
-- Wanneer een gebruiker een zoekopdracht begint te typen en hier of mee klaar is of stopt halverwege; geef dan een melding met hoeveel beschikbare resultaten er zijn (altijd max.10 of minder). Geef ook een indicatie dat de lijst navigeerbaar is met de pijltoetsen en de enter knop.
-- Wanneer een gebruiker hovered over een selectie lees dan het resultaat voor.
-- Wanneer een gebruiker de selectie bevestigd sluit dan af met een bevestiging: u heeft de volgende ...... geselecteerd.
+Zie de [de Vergunningcheck op het Omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1) voor een live voorbeeld.
 
-### Blijf analyseren en monitoren
-Een effectieve zoekmachine bouwen is niet gemakkelijk. Het is aan de ontwikkelaars en ontwerpers om het gebruik van zoekvelden en de resultaten goed te monitoren. Om vervolgens de zoekmachine verder te ontwikkelen om de gebruiker nog beter te helpen.
+### Goed meten
+Meet het gebruik van zoekvelden en de resultaten goed. Met de inzichten die daaruit komen, kunt u de zoekmachine blijven verbeteren. Zo krijgt de gebruiker een optimale ervaring.
 
 ## Bronvermelding
 - [Nielsen Norman Group](https://www.nngroup.com/)
 - [Dienst digitale overheid](https://www.digitoegankelijk.nl)
-
