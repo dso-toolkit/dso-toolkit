@@ -37,8 +37,12 @@ module.exports = function () {
         html += (`<span class="sr-only">${termMap[term]}: </span>`);
       }
 
-      html += (`${title}</a>
-      </${header}>`);
+      html += (`${title}`);
+      if (self.countertext) {
+        html += (`<span class="dso-accordion-counter">${self.countertext}</span>`);
+      }
+      html += (`</a></${header}>`);
+
 
       if (self.open) {
         html += (

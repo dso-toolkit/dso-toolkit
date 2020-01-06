@@ -53,3 +53,14 @@ context:
     id: panel5
     state: danger
     header: h5
+    countertext: 5 van 7 beantwoord
+  - title: Optionele werkzaamheden (h5)
+    id: panel6
+    state: warning
+    header: h5
+    open: true
+    countertext: 6 van 7 beantwoord
+  - title: Afsluitende werkzaamheden (h5)
+    id: panel7
+    header: h5
+    countertext: 7 van 7 beantwoord

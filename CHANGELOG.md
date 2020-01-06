@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Added
+* Accordion component uitbreiding (#457)
+
+### Added
 * Begrippen in tekst (#240)
 * Toevoegen button component (#426)
 

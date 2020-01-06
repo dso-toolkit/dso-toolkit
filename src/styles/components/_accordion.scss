@@ -26,14 +26,14 @@ $dso-accordion-state-icon-size: $u3;
     background-color: $wit;
     border: 1px solid $dso-accordion-main-color;
     border-radius: $dso-accordion-border-radius;
-    font-weight: 500;
     overflow: hidden;
     padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
     position: relative;
 
     a {
       color: $dso-accordion-main-color;
-      display: inline-block;
+      display: block;
+      font-weight: 600;
       padding-left: $dso-accordion-chevron-space;
       word-break: break-word;
 
@@ -49,7 +49,7 @@ $dso-accordion-state-icon-size: $u3;
       &::after {
         content: "";
         position: absolute;
-        right: $u2;
+        right: #{$u2 - 2};
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
       }
 
@@ -58,6 +58,13 @@ $dso-accordion-state-icon-size: $u3;
       &.active {
         color: $dso-accordion-main-color;
         text-decoration: none;
+      }
+
+      .dso-accordion-counter {
+        display: block;
+        float: right;
+        font-weight: 400;
+        text-decoration: underline;
       }
     }
   }
@@ -74,7 +81,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-warning,
     &.dso-info {
       > .dso-section-handle {
-        padding-right: $u7;
+        padding-right: $u6;
       }
     }
 
