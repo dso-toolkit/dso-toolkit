@@ -121,7 +121,16 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-attachment {
       > .dso-section-handle {
         a::after {
-          @include di("paperclip", $dso-accordion-chevron-icon-size);
+          @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
+        }
+
+        .dso-accordion-counter {
+          color: $grijs-60;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

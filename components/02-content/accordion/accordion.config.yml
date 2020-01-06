@@ -64,8 +64,7 @@ context:
     id: panel7
     state: attachment
     header: h5
-    countertext: 7 van 8 beantwoord
-    attachment: true
+    countertext: 2
   - title: Afsluitende werkzaamheden (h5)
     id: panel8
     header: h5
