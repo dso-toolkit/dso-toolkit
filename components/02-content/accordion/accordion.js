@@ -23,7 +23,8 @@ module.exports = function () {
         success: 'succes',
         warning: 'waarschuwing',
         info: 'info',
-        danger: 'gevaar'
+        danger: 'gevaar',
+        attachment: 'bijlage'
       };
 
       let html = (

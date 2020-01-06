@@ -79,7 +79,8 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-success,
     &.dso-danger,
     &.dso-warning,
-    &.dso-info {
+    &.dso-info,
+    &.dso-attachment {
       > .dso-section-handle {
         padding-right: $u6;
       }
@@ -117,6 +118,14 @@ $dso-accordion-state-icon-size: $u3;
       }
     }
 
+    &.dso-attachment {
+      > .dso-section-handle {
+        a::after {
+          @include di("paperclip", $dso-accordion-chevron-icon-size);
+        }
+      }
+    }
+
     &.dso-open {
       &:not(.dso-nested-accordion) {
         border: 1px solid $dso-accordion-main-color;
@@ -131,6 +140,15 @@ $dso-accordion-state-icon-size: $u3;
 
             &::before {
               @include di-variant("chevron-up-wit");
+            }
+          }
+        }
+
+
+        &.dso-attachment {
+          > .dso-section-handle {
+            a::after {
+              @include di-variant("paperclip-wit");
             }
           }
         }
