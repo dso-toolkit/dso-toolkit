@@ -1,0 +1,21 @@
+notes: |
+status: ready
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Home
+      - label: Vergunningcheck
+      - label: Aanvragen
+        active: true
+      - label: Regels op de kaart
+      - label: Mijn Omgevingsloket
+  title: 
+  breadcrumbs:
+    crumbs:
+      - label: Home
+        url: '#'
+      - label: Inloggen
+        url: '#'
+      - label: Inloggen als gemachtigde
+        url: '#'

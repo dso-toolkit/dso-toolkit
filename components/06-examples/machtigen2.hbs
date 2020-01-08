@@ -1,0 +1,93 @@
+{{> '@header' }}
+<main>
+  <div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-12">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Inloggen</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <ul class="nav nav-tabs">
+              <li>
+                <a href="machtigen">Voor mezelf</a>
+              </li>
+              <li class="active">
+                <a href="machtigen1">Voor een ander</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row dso-rich-content">
+          <fieldset class="form-group dso-radios">
+            <legend class="dso-label-container sr-only">
+              <label class="control-label">
+                Heeft u al een machtiging?
+              </label>
+            </legend>
+            <div class="dso-field-container">
+              <div class="col-sm-12">
+                <div class="dso-highlight-box dso-border" style="margin: 16px 0px 8px 0px">
+                  <div class="dso-selectable">
+                    <input type="radio" id="input-radio-0" name="input-radio" value="1" checked/>
+                    <label for="input-radio-0">
+                      <b>Ik heb een geldige machtiging</b>
+                    </label>
+                  </div>
+                  <div >
+                    <div class="alert alert-warning" role="alert">
+                      U gaat met een machtiging inloggen voor iemand anders. Gebruik als gemachtigde uw eigen inloggegevens.
+                    </div>
+                    <div class="dso-highlight-box dso-border" style="margin: 16px 0px 8px 0px">
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2 col-xs-4text-center"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSeMYNaLgE_QRTO29G9QtWFpQPmjcb4l06kyDemLfl5PwkO-zX-Q&s" alt="Alternatieve tekst" style="display: inline; float:none; width:60px; height:60px;"></div>
+                        <div class="col-md-10 col-sm-4 col-xs-4">
+                          <button type="button" class="btn btn-link" >
+                            <span>Inloggen met digID</span><svg class="di di-angle-right">
+                            <use href="../../dso-icons.svg#angle-right" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dso-highlight-box dso-border" style="margin: 8px 0px 8px 0px">
+                      <div class="row">
+                        <div class="col-md-2 col-sm-2 col-xs-4text-center"><img src="/logos/eherkenninglogo.png" alt="Alternatieve tekst" style="margin: auto 0px; width:60px; height:60px;"></div>
+                        <div class="col-md-10 col-sm-4 col-xs-4">
+                          <button type="button" class="btn btn-link " >
+                            <span>Inloggen met Eherkenning</span>
+                            <svg class="di di-angle-right">
+                              <use href="../../dso-icons.svg#angle-right" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#">
+                    Ik heb een machtigingscode die nog niet is geactiveerd.</a>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="dso-highlight-box dso-border" style="margin: 8px 0px 8px 0px">
+                  <div class="dso-selectable">
+                    <input type="radio" id="input-radio-1" name="input-radio" value="2" onclick="window.location='machtigen3';"/>
+                    <label for="input-radio-1">
+                      <b> Ik heb nog géén geldige machtiging</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="col-sm-12">
+            <a>Hulp bij inloggen en machtigen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{render '@footer' }}

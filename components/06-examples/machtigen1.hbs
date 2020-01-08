@@ -1,0 +1,67 @@
+{{> '@header' }}
+<main>
+  <div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-12">
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Inloggen</h1>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <ul class="nav nav-tabs">
+              <li>
+                <a href="machtigen">Voor mezelf</a>
+              </li>
+              <li class="active">
+                <a href="machtigen1">Voor een ander</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row dso-rich-content">
+
+          <fieldset class="form-group dso-radios">
+            <legend class="dso-label-container sr-only">
+              <label class="control-label">
+                Heeft u al een machtiging?
+              </label>
+            </legend>
+            <div class="dso-field-container">
+              <div class="col-sm-12">
+                <div class="dso-highlight-box dso-border" style="margin: 16px 0px 8px 0px">
+                  <div class="dso-selectable">
+                    <input type="radio" id="input-radio-0" name="input-radio" value="1" onclick="window.location='machtigen2';"/>
+                    <label for="input-radio-0">
+                      <b>Ik heb een geldige machtiging</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="dso-highlight-box dso-border" style="margin: 8px 0px 8px 0px">
+                  <div class="dso-selectable">
+                    <input type="radio" id="input-radio-1" name="input-radio" value="2" onclick="window.location='machtigen3';"/>
+                    <label for="input-radio-1">
+                      <b> Ik heb nog géén geldige machtiging</b>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </fieldset>
+
+          <div class="col-sm-12">
+            <a>Hulp bij inloggen en machtigen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{{render '@footer' }}
