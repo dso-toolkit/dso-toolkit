@@ -1,23 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-<style type="text/css">
-	.st0{display:none;}
-	.st1{fill:#1D1D1B;}
-	.st2{fill:#2B5780;}
-	.st3{fill:#FFFFFF;}
-	.st4{fill:#CE3F51;}
-	.st5{fill:#39870C;}
-	.st6{fill:#DCD400;}
-	.st7{fill-rule:evenodd;clip-rule:evenodd;fill:#1D1D1B;}
-</style>
-<g id="Layer_3" class="st0">
-</g>
-<g id="Layer_1">
-	<path class="st1" d="M12.2,17l-6.8-6.8c-0.5-0.5-0.5-1.3,0-1.8c0.5-0.5,1.3-0.5,1.8,0l5.1,5.1l5.1-5.1c0.5-0.5,1.3-0.5,1.8,0
-		s0.5,1.3,0,1.8L12.2,17z"/>
-</g>
-<g id="Layer_4">
-</g>
+<svg id="chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path fill="currentColor" d="M12,16,5.29,9.63a.93.93,0,0,1,0-1.35,1,1,0,0,1,1.42,0l5.29,5,5.29-5a1,1,0,0,1,1.42,0,.91.91,0,0,1,0,1.34Z"/>
 </svg>

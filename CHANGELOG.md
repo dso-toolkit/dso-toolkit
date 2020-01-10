@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Toevoegen button component (#426)
 
 ### Changed
+* Iconen set vervangen door custom iconen (#480)
 * accessibility, accordion: screen reader leest afgerond / niet afgerond niet wegens decoratieve icoontjes (#309)
 * Navigatie verbeteringen (#394)
 
