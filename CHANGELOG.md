@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Added
+* Iconen set vervangen door DSO huisstijl iconen (#480) Note: `di di-at` bestaat niet meer
+
 ## 9.5.0 - 07-01-2020
 
 ### Added
