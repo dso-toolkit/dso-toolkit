@@ -27,20 +27,31 @@ form {
     margin-top: $u4;
   }
 
-  &.dso-multipage .dso-form-buttons .btn:first-child,
-  &:not(.dso-multipage) .dso-form-buttons .btn:not(:only-child) {
-    float: right;
+  &.dso-multipage .dso-form-buttons {
+    .btn:first-child {
+      float: left;
+    }
   }
 
   .dso-form-buttons {
-    .btn + .btn {
-      margin-right: $u1;
+    float: left;
+    text-align: right;
+    width: 100%;
+
+    .btn:only-child {
+      float: left;
     }
 
     .btn-link {
       line-height: $dso-button-line-height;
       padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
     }
+  }
+
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
   }
 }
 

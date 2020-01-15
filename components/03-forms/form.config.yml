@@ -155,12 +155,12 @@ context:
         <h4>Let op</h4>
         <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
   buttons:
-  - type: submit
-    modifier: primary
-    label: Verstuur
   - type: button
     modifier: link
     label: Annuleren
+  - type: submit
+    modifier: primary
+    label: Verstuur
 variants:
 - name: form-horizontal
   context:
@@ -197,11 +197,11 @@ variants:
         label: Voornaam
         required: true
     buttons:
-    - type: submit
-      modifier: primary
-      label: Volgende
-      iconAfter: angle-right
     - type: button
       modifier: link
       label: Vorige
       icon: angle-left
+    - type: submit
+      modifier: primary
+      label: Volgende
+      iconAfter: angle-right
