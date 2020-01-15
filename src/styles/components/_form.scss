@@ -49,8 +49,8 @@ form {
   }
 
   &::after {
-    content: "";
     clear: both;
+    content: "";
     display: table;
   }
 }
