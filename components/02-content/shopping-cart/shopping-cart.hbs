@@ -18,11 +18,11 @@
             <li>
               {{#if (hasWarning activities)}}{{> '@icon' icon='status-warning' }}{{/if}}
               {{ label }}
-              {{#if edit}}<a href="#" class="dso-edit-cart-item">{{edit}}</a>{{/if}}
+              {{#if edit}}<button type="button" class="btn-link dso-edit-cart-item">{{edit}}</button>{{/if}}
               <button type="button" class="dso-delete" title="Verwijder">
                 {{> '@icon' icon='trash' }}
               </button>
-              {{#if hasActivities}}
+              {{#if activities.length }}
                 <ul class="dso-activities">
                   {{#each activities }}
                     <li>
