@@ -1,9 +1,9 @@
 notes: |
 status: ready
 context:
-  menu: 
+  menu:
     modifier: main
-    items: 
+    items:
       - label: Home
       - label: Vergunningcheck
         active: true
@@ -16,7 +16,9 @@ context:
         url: '#'
       - label: Vergunningcheck
         url: '#'
-      
+  steps:
+    title: 3. Activiteiten
+    step: Stap 3 van 6
   sections:
   - title: Woning
     id: panel1
