@@ -3,11 +3,31 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-### Changed (let op: release wk50)
+## NEXT - UNRELEASED
+
+### Changed
 * Shopping cart uitbreiding (#425)
+
+## 9.6.0 - 15-01-2020
+
+### Added
+* Iconen set vervangen door DSO huisstijl iconen (#480) Note: `di di-at` bestaat niet meer
+
+## 9.5.0 - 07-01-2020
+
+### Added
+* Begrippen in tekst (#240)
+* Toevoegen button component (#426)
+
+### Changed
+* accessibility, accordion: screen reader leest afgerond / niet afgerond niet wegens decoratieve icoontjes (#309)
+* Navigatie verbeteringen (#394)
+
+## 9.4.0 - 25-11-2019
 
 ### Fixed
 * Icoon bij validatie te klein (#463)
+* Modal uitzoomen geeft vreemde rendering (#456)
 
 ## 9.3.0 - 11-11-2019
 
