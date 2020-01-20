@@ -51,7 +51,8 @@ $dso-shopping-cart-border-color: $grijs-20;
     }
   }
 
-  .dso-activities {
+  .dso-activities, // .dso-activities is deprecated
+  .dso-subitems {
     > li {
       font-weight: normal;
     }
@@ -88,7 +89,8 @@ $dso-shopping-cart-border-color: $grijs-20;
       }
     }
 
-    .dso-activities {
+    .dso-activities, // .dso-activities is deprecated
+    .dso-subitems {
       margin-top: $u2;
 
       li {
@@ -101,6 +103,10 @@ $dso-shopping-cart-border-color: $grijs-20;
         }
       }
     }
+  }
+
+  .dso-edit-name {
+    @extend .form-control;
   }
 
   .dso-delete {

@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Changed
-* Shopping cart uitbreiding (#425)
+* Shopping cart uitbreiding (#425) (**Deprecation notice, see issue**)
 
 ## 9.6.0 - 15-01-2020
 
