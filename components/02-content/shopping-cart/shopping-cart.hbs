@@ -18,17 +18,31 @@
           {{#each items }}
             <li>
               {{#if (hasWarning subitems)}}{{> '@icon' icon='status-warning' }}{{/if}}
-              {{ label }}{{#if (and (not readonly) (not edit))}}
+              {{ label }}{{#if (and (not readonly) (not edit1) (not edit2) additive)}}
                 <span class="dso-additive">{{ additive }}</span>
               {{~/if}}
               {{#unless readonly}}
-                {{#if edit}}
+                {{#if edit1}}
                   <input type="text" class="dso-edit-name" value="{{ additive }}" />
-                {{else}}
+                {{/if}}
+
+                {{#if edit2}}
+                  <form>
+                    <div class="input-group">
+                      <label for="form_voorbeeld" class="input-group-addon">Bewerk</label>
+                      <input type="text" id="form_voorbeeld" class="form-control" value="{{ additive }}">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">Ok</button>
+                      </span>
+                    </div>
+                  </form>
+                {{/if}}
+
+                {{#if (and (not edit1) (not edit2))}}
                   <button type="button" class="btn-link dso-edit-cart-item">Naam bewerken</button>
                 {{/if}}
               {{/unless}}
-              {{#unless edit}}
+              {{#unless (or edit1 edit2)}}
                 <button type="button" class="dso-delete" title="Verwijder">
                   {{> '@icon' icon='trash' }}
                 </button>
