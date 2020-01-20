@@ -1,3 +1,6 @@
+$dso-search-bar-height: 40px;
+$dso-search-icon-margin: (#{$dso-search-bar-height} - #{$dso-icon-size}) / 2;
+
 .dso-search-bar {
   display: flex;
 
@@ -13,7 +16,7 @@
       padding: 0 $u1;
       position: absolute;
       text-align: center;
-      top: 0;
+      top: (40px - 24px) / 2;
       width: $u5;
 
       &::before {
@@ -68,7 +71,7 @@
       width: $u5;
 
       &::before {
-        @include di("times", 16px);
+        @include di("times", 24px);
 
         content: "";
         display: inline-block;
