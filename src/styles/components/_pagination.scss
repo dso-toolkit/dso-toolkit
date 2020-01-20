@@ -1,5 +1,7 @@
 $dso-pagination-item-size: $u4;
 $dso-pagination-item-border-size: 2px;
+$dso-pagination-line-height: $dso-pagination-item-size + 1;
+$dso-pagination-icon-margin: 4px;
 
 .pagination {
   text-align: center;
@@ -11,23 +13,25 @@ $dso-pagination-item-border-size: 2px;
     text-indent: -9999px;
     white-space: nowrap;
     width: $dso-pagination-item-size;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      line-height: $dso-pagination-line-height;
+      margin-top: $dso-pagination-icon-margin;
+      vertical-align: middle;
+    }
   }
 
   .dso-previous {
     &::before {
       @include di("chevron-left");
-
-      content: "";
-      display: inline-block;
     }
   }
 
   .dso-next {
     &::before {
       @include di("chevron-right");
-
-      content: "";
-      display: inline-block;
     }
   }
 
@@ -57,6 +61,7 @@ $dso-pagination-item-border-size: 2px;
     }
 
     a {
+      line-height: $dso-pagination-line-height;
       text-decoration: none;
 
       &:hover,
