@@ -3,7 +3,8 @@ $dso-accordion-nesting-color: #dbc8d1;
 $dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u3;
-$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
+$dso-accordion-chevron-margin: $u1;
+$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-margin;
 $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
@@ -43,7 +44,7 @@ $dso-accordion-state-icon-size: $u3;
         content: "";
         display: inline-block;
         margin-left: -$dso-accordion-chevron-space;
-        margin-right: $dso-accordion-main-padding;
+        margin-right: $dso-accordion-chevron-margin;
       }
 
       &::after {

@@ -1,4 +1,4 @@
-$dso-icon-size: 1em;
+$dso-icon-size: 1.5em;
 $dso-icon-vertical-align: -.17em;
 
 @mixin di($icon, $size: $dso-icon-size) {
@@ -6,6 +6,7 @@ $dso-icon-vertical-align: -.17em;
   background-position: center;
   background-size: cover;
   height: $size;
+  vertical-align: top;
   width: $size;
 }
 
