@@ -15,13 +15,13 @@ variants:
           toggle:
             - id: omgevingsplan-nieuwegein
               value: 0
-          info: true
+          infoExplanation: bij Omgevingsplan Nieuwegein
         - label: Brouwersmolen
           content: Brouwersmolen eget iaculis nisi quam in libero.
           toggle:
             - id: brouwersmolen
               value: 0
-          info: true
+          infoExplanation: bij Brouwersmolen
   - name: below
     context:
       interactionsOri: below
@@ -31,10 +31,10 @@ variants:
           toggle:
             - id: omgevingsplan-nieuwegein
               value: 0
-          info: true
+          infoExplanation: bij Omgevingsplan Nieuwegein
         - label: Brouwersmolen
           content: Brouwersmolen eget iaculis nisi quam in libero.
           toggle:
             - id: brouwersmolen
               value: 0
-          info: true
+          infoExplanation: bij Brouwersmolen
