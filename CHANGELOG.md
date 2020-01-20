@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+## 9.6.0 - 15-01-2020
+
+### Added
+* Iconen set vervangen door DSO huisstijl iconen (#480) Note: `di di-at` bestaat niet meer
+
+## 9.5.0 - 07-01-2020
+
 ### Added
 * Button positionering (#401)
 * Begrippen in tekst (#240)
