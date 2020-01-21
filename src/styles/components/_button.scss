@@ -13,10 +13,6 @@
   &.btn-primary,
   &.btn-default {
     min-width: $dso-button-size;
-
-    svg.di {
-      vertical-align: top;
-    }
   }
 
   &:active,
