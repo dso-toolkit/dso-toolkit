@@ -13,6 +13,10 @@
   &.btn-primary,
   &.btn-default {
     min-width: $dso-button-size;
+
+    svg.di {
+      vertical-align: top;
+    }
   }
 
   &:active,
@@ -29,6 +33,10 @@
 
     &.btn-sm {
       line-height: $u2;
+
+      svg.di {
+        margin: $u1 / -2;
+      }
     }
   }
 }
@@ -116,10 +124,6 @@
   svg.di + span:not(.sr-only),
   span:not(.sr-only) + svg.di {
     margin-left: $u1;
-  }
-
-  svg.di {
-    font-size: 1.5em;
   }
 
   svg.di,

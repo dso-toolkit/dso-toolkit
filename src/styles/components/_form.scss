@@ -12,6 +12,7 @@ $dso-form-control-focus-border-width: 2px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-form-control-focus-border-color: $bosgroen;
 $dso-required-string: "verplicht";
+$dso-required-size: .85em;
 
 $dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
@@ -62,7 +63,7 @@ form {
       .control-label::after {
         color: $dso-required-color;
         content: $dso-required-string;
-        font-size: .85em;
+        font-size: $dso-required-size;
         font-style: italic;
         font-weight: 400;
         margin-left: 4px;
@@ -176,6 +177,10 @@ select:not([multiple]) {
   .form-group {
     > .dso-label-container {
       @include make-sm-column($dso-label-column);
+
+      .dso-info-button {
+        margin-top: $dso-required-size / 2;
+      }
     }
 
     > .dso-field-container {

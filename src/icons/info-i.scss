@@ -1,0 +1,13 @@
+@import "../styles/mixins/dso-variables";
+
+info-i {
+  color: $grasgroen
+}
+
+info-i:bosgroen {
+  color: $bosgroen;
+}
+
+info-i:wit {
+  color: $wit;
+}
