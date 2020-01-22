@@ -76,7 +76,7 @@ $dso-shopping-cart-border-color: $grijs-20;
     > li {
       font-weight: 600;
       padding-left: $u2;
-      padding-right: $u2;
+      padding-right: $u6;
 
       &:first-child {
         border-top: 0;
@@ -92,6 +92,7 @@ $dso-shopping-cart-border-color: $grijs-20;
     .dso-activities, // .dso-activities is deprecated
     .dso-subitems {
       margin-top: $u2;
+      margin-right: -$u4;
 
       li {
         margin-left: -$u2;
