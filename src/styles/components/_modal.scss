@@ -85,9 +85,9 @@ body.dso-modal-open {
 
       &::before {
         @include di("times");
+
         content: "";
         display: inline-block;
-        margin-top: $dso-icon-vertical-align;
         vertical-align: middle;
       }
 

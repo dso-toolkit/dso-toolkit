@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Added
+* Voorbeeld van skelet beheerscherm met gebruik definition list en tabel (#484)
+
 ## 9.6.0 - 15-01-2020
 
 ### Added

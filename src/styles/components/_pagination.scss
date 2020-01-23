@@ -1,7 +1,7 @@
 $dso-pagination-item-size: $u4;
 $dso-pagination-item-border-size: 2px;
-$dso-pagination-line-height: $dso-pagination-item-size + 1;
-$dso-pagination-icon-margin: 4px;
+$dso-pagination-line-height: $dso-pagination-item-size;
+$dso-pagination-icon-margin: $u1 / 2;
 
 .pagination {
   text-align: center;
@@ -17,9 +17,7 @@ $dso-pagination-icon-margin: 4px;
     &::before {
       content: "";
       display: inline-block;
-      line-height: $dso-pagination-line-height;
       margin-top: $dso-pagination-icon-margin;
-      vertical-align: middle;
     }
   }
 

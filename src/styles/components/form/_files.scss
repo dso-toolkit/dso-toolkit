@@ -15,16 +15,11 @@ form,
         padding: $u1 / 2;
 
         &::before {
-          @include di("times-bosgroen", 24px);
+          @include di("times-bosgroen");
 
           content: "";
           display: block;
-        }
-
-        &:focus {
-          &::before {
-            @include di-variant("times-wit");
-          }
+          font-size: $font-size-base;
         }
       }
 

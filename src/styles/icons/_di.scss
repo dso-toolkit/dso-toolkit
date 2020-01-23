@@ -1,12 +1,12 @@
 $dso-icon-size: 1.5em;
-$dso-icon-vertical-align: -.17em;
+$dso-icon-vertical-align: top;
 
-@mixin di($icon, $size: $dso-icon-size) {
+@mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align) {
   background: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
   background-position: center;
   background-size: cover;
   height: $size;
-  vertical-align: top;
+  vertical-align: $vertical-align;
   width: $size;
 }
 
@@ -18,8 +18,4 @@ svg.di {
   height: $dso-icon-size;
   vertical-align: $dso-icon-vertical-align;
   width: $dso-icon-size;
-
-  a > & {
-    vertical-align: top;
-  }
 }
