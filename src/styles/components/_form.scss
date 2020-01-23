@@ -78,6 +78,10 @@ form {
     .form-control-feedback {
       color: $bosgroen;
       width: $u6;
+
+      svg.di {
+        margin-top: #{$u1 - 1};
+      }
     }
   }
 
