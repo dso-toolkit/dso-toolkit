@@ -27,12 +27,47 @@
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
 
+    svg.di {
+      margin-left: -$u1;
+      margin-right: $u1;
+    }
+
+    span + svg.di {
+      margin-left: $u1;
+      margin-right: -$u1;
+    }
+
     &.btn-sm {
       line-height: $u2;
 
       svg.di {
-        margin: $u1 / -2;
+        margin-bottom: -$u1 / 2;
+        margin-top: -$u1 / 2;
       }
+
+      &.extern,
+      &.download {
+        &::after {
+          margin-bottom: -$u1 / 2;
+          margin-top: -$u1 / 2;
+        }
+      }
+    }
+  }
+
+  + .btn {
+    margin-left: $u2;
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 1.5em;
+      margin-left: $u1;
+      vertical-align: top;
+      width: 1.5em;
     }
   }
 }
@@ -62,6 +97,82 @@
     &:hover {
       @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
       opacity: 1;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+
+      // start #497
+      height: 1.5em;
+      vertical-align: top;
+      width: 1.5em;
+      // eind #497
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @include di("external-link-wit");
+
+        // start #497
+        height: 1.5em;
+        vertical-align: top;
+        width: 1.5em;
+        // eind #497
+      }
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+
+        // start #497
+        height: 1.5em;
+        vertical-align: top;
+        width: 1.5em;
+        // eind #497
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+
+      // start #497
+      height: 1.5em;
+      vertical-align: top;
+      width: 1.5em;
+      // eind #497
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @include di("download-wit");
+
+        // start #497
+        height: 1.5em;
+        vertical-align: top;
+        width: 1.5em;
+        // eind #497
+      }
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+
+        // start #497
+        height: 1.5em;
+        vertical-align: top;
+        width: 1.5em;
+        // eind #497
+      }
     }
   }
 }
@@ -96,6 +207,30 @@
     &:hover {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
       opacity: 1;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link-wit");
+
+      // start #497
+      height: 1.5em;
+      vertical-align: top;
+      width: 1.5em;
+      // eind #497
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download-wit");
+
+      // start #497
+      height: 1.5em;
+      vertical-align: top;
+      width: 1.5em;
+      // eind #497
     }
   }
 }
@@ -171,6 +306,56 @@
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+
+      // start #497
+      height: 1.5em;
+      vertical-align: top;
+      width: 1.5em;
+      // eind #497
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+
+        // start #497
+        height: 1.5em;
+        vertical-align: top;
+        width: 1.5em;
+        // eind #497
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+
+      // start #497
+      height: 1.5em;
+      vertical-align: top;
+      width: 1.5em;
+      // eind #497
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+
+        // start #497
+        height: 1.5em;
+        vertical-align: top;
+        width: 1.5em;
+        // eind #497
+      }
     }
   }
 }
