@@ -1,7 +1,22 @@
 <h2 style="margin-bottom: 24px">Primaire button / Call to action</h2>
+
 <div class="row">
+  <div class="col-md-9">
+    <div class="dso-rich-content">
+      <label>Gebruik:</label>
+      <p>De gebruiksregel voor dit element is om maximaal één primaire button per pagina te gebruiken.</p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Primaire button:</label>
+    </div>
+  </div>
   <div class="col-md-3">
-    {{> '@button' type='button' label='Button' modifier='primary' }}
+    {{> '@button' type='button' label='Primaire button' modifier='primary' }}
   </div>
   <div class="col-md-3">
     {{> '@button' type='button' label='Disabled' modifier='primary' disabled=true }}
@@ -13,20 +28,99 @@
     {{> '@button' label='Small' type='button' modifier='primary btn-sm' }}
   </div>
 </div>
-
-<div class="row example">
-  <div class="col-md-6">
+<br>
+<div class="row">
+  <div class="col-md-12">
     <div class="dso-rich-content">
-      <label>Gebruik:</label>
-      <p>De gebruiksregel voor dit element is om maximaal één primaire button per pagina te gebruiken.</p>
+      <label>Primaire button met icon:</label>
     </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Primaire button' modifier='primary' icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='primary' disabled=true icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='primary btn-sm' icon='chevron-left' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Primaire button' modifier='primary' iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='primary' disabled=true iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='primary btn-sm' iconAfter='chevron-right' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Primaire button met cms modifier:</label>
+      <p><em>.extern</em></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Primaire button' modifier='primary extern' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='primary extern' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-primary extern' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='primary btn-sm extern' }}
+  </div>
+  <br>
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <p><em>.download</em></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Primaire button' modifier='primary download' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='primary download' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-primary download' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='primary btn-sm download' }}
   </div>
 </div>
 
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Secundaire button</h2>
 <div class="row">
+  <div class="col-md-9">
+    <div class="dso-rich-content">
+      <label>Gebruik:</label>
+      <p>O.A. secundaire acties in formulieren</p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Secundaire button:</label>
+    </div>
+  </div>
   <div class="col-md-3">
-    {{> '@button' type='button' label='Button' modifier='default' }}
+    {{> '@button' type='button' label='Secundaire button' modifier='default' }}
   </div>
   <div class="col-md-3">
     {{> '@button' type='button' label='Disabled' modifier='default' disabled=true }}
@@ -38,52 +132,196 @@
     {{> '@button' label='Small' type='button' modifier='default btn-sm' }}
   </div>
 </div>
-
-<div class="row example">
-  <div class="col-md-6">
+<br>
+<div class="row">
+  <div class="col-md-12">
     <div class="dso-rich-content">
-      <label>Gebruik:</label>
-      <p>O.A. secundaire acties in formulieren</p>
+      <label>Secundaire button met icon:</label>
     </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Secundaire button' modifier='default' icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='default' disabled=true icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='default btn-sm' icon='chevron-left' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Secundaire button' modifier='default' iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='default' disabled=true iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='default btn-sm' iconAfter='chevron-right' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Secundaire button met cms modifier:</label>
+      <p><em>.extern</em></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Secundaire button' modifier='default extern' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='default extern' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-default extern' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='default btn-sm extern' }}
+  </div>
+  <br>
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <p><em>.download</em></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Secundaire button' modifier='default download' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='default download' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-default download' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='default btn-sm download' }}
   </div>
 </div>
 
 <h2 style="margin-bottom: 24px; margin-top: 40px;">Tertiaire button</h2>
 <div class="row">
-  <div class="col-md-3">
-    {{> '@button' type='button' label='Button' modifier='link' icon='angle-right' }}
-  </div>
-  <div class="col-md-3">
-    {{> '@button' type='button' label='Disabled' modifier='link' icon='angle-right' disabled=true }}
-  </div>
-  <div class="col-md-3">
-    {{> '@anchor' label='Anchor' modifier='btn btn-link' icon='angle-right' url='#' }}
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-md-2">
-    {{> '@button' type='button' label='.btn-default' modifier='default' url='#' }}
-  </div>
-  <div class="col-md-2">
-    {{> '@button' type='button' label='.btn-link.btn-align' modifier='link btn-align' url='#' }}
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-md-6">
-    {{> '@button' type='button' label='Link button' modifier='link' url='#' }}
-    {{> '@button' type='button' label='Link button' modifier='link' icon='info' iconOnly=true url='#' }}
-    {{> '@button' type='button' label='Link button' modifier='link' icon='angle-left' url='#' }}
-    {{> '@button' type='button' label='Link button' modifier='link' iconAfter='angle-right' url='#' }}
-  </div>
-</div>
-
-<div class="row example">
-  <div class="col-md-6">
+  <div class="col-md-9">
     <div class="dso-rich-content">
       <label>Gebruik:</label>
       <p>Lage prioriteit interacties</p>
     </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Tertiaire button:</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Tertiaire button' modifier='link' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='link' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-link' url='#' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Tertiaire button met icon:</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Tertiaire button' modifier='link' icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='link' disabled=true icon='chevron-left' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-link' url='#' icon='chevron-left' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Tertiaire button' modifier='link' iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='link' disabled=true iconAfter='chevron-right' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-link' url='#' iconAfter='chevron-right' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Tertiaire icon only:</label>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Link button' modifier='link' icon='info' iconOnly=true url='#' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Tertiaire button met cms modifier:</label>
+      <p><em>.extern</em></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Tertiaire button' modifier='link extern' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='link extern' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-link extern' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='link btn-sm extern' }}
+  </div>
+  <br>
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <p><em>.download</em></p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Tertiaire button' modifier='link download' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' type='button' label='Disabled' modifier='link download' disabled=true }}
+  </div>
+  <div class="col-md-3">
+    {{> '@anchor' label='Anchor' modifier='btn btn-link download' url='#' }}
+  </div>
+  <div class="col-md-3">
+    {{> '@button' label='Small' type='button' modifier='link btn-sm download' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Tertiaire button met modifier om hem dezelfde hoogte te geven als belendende buttons:</label>
+      <p><em>.btn-align</em></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    {{> '@button' type='button' label='Primaire actie' modifier='primary' url='#' }}
+    {{> '@button' type='button' label='Link button' modifier='link btn-align' url='#' }}
   </div>
 </div>
