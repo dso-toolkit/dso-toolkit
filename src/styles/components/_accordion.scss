@@ -3,7 +3,8 @@ $dso-accordion-nesting-color: #dbc8d1;
 $dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u3;
-$dso-accordion-chevron-space: $dso-accordion-chevron-icon-size + $dso-accordion-main-padding;
+$dso-accordion-chevron-space: $u1;
+$dso-accordion-chevron-left-offset: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-space;
 $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
@@ -34,7 +35,7 @@ $dso-accordion-state-icon-size: $u3;
     a {
       color: $dso-accordion-main-color;
       display: inline-block;
-      padding-left: $dso-accordion-chevron-space;
+      padding-left: $dso-accordion-chevron-left-offset;
       word-break: break-word;
 
       &::before {
@@ -42,8 +43,8 @@ $dso-accordion-state-icon-size: $u3;
 
         content: "";
         display: inline-block;
-        margin-left: -$dso-accordion-chevron-space;
-        margin-right: $dso-accordion-main-padding;
+        margin-left: -$dso-accordion-chevron-left-offset;
+        margin-right: $dso-accordion-chevron-space;
       }
 
       &::after {
