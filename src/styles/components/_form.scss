@@ -18,6 +18,7 @@ $dso-toggle-header-margin: 12px;
 
 $dso-button-info-size: $u2;
 
+.form,
 form {
   .dso-field-container {
     position: relative;
@@ -27,21 +28,25 @@ form {
     margin-top: $u4;
   }
 
-  &.dso-multipage .dso-form-buttons {
-    .btn:first-child {
-      float: left;
+  &:not(.dso-single-page):not(.dso-sections) {
+    .dso-form-buttons {
+      @include clearfix;
+
+      text-align: right;
+
+      .btn:first-child {
+        float: left;
+      }
+    }
+  }
+
+  &.dso-sections {
+    .dso-form-buttons {
+      text-align: right;
     }
   }
 
   .dso-form-buttons {
-    float: left;
-    text-align: right;
-    width: 100%;
-
-    .btn:only-child {
-      float: left;
-    }
-
     .btn-link {
       line-height: $dso-button-line-height;
       padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
@@ -50,12 +55,6 @@ form {
     .btn ~ .btn {
       margin-left: $u1;
     }
-  }
-
-  &::after {
-    clear: both;
-    content: "";
-    display: table;
   }
 }
 

@@ -6,10 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Added
-* Button positionering (#401)
 * Voorbeeld van skelet beheerscherm met gebruik definition list en tabel (#484)
 * Iconen wijziging - indicatoren (#502) Note: Geen wijziging maar toevoeging van iconen
 * Card component (#400)
+
+### Changed
+* Button positionering (#401)
 
 ### Fixed
 * Rendering iconen niet overal 24x24 (#497)
