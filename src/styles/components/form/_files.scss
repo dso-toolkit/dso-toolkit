@@ -12,19 +12,14 @@ form,
       .dso-remove {
         font-size: 0;
         min-width: auto;
-        padding: $u1;
+        padding: $u1 / 2;
 
         &::before {
-          @include di("times-bosgroen", 16px);
+          @include di("times-bosgroen");
 
           content: "";
           display: block;
-        }
-
-        &:focus {
-          &::before {
-            @include di-variant("times-wit");
-          }
+          font-size: $font-size-base;
         }
       }
 

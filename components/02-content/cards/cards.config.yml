@@ -1,0 +1,30 @@
+context:
+  cards:
+    - label: Omgevingsplan Nieuwegein
+      content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    - label: 'Brouwersmolen'
+      content: 'Brouwersmolen eget iaculis nisi quam in libero.'
+      interactions:
+        - toggle:
+            id: brouwersmolen
+        - button:
+            type: button
+            modifier: link
+            icon: info
+            label: Toon informatie
+            iconOnly: true
+    - label: 'Brouwersmolen'
+      content: 'Brouwersmolen eget iaculis nisi quam in libero.'
+      interactions:
+        - toggle:
+            id: brouwersmolen
+        - button:
+            type: button
+            modifier: link
+            icon: info
+            label: Toon informatie
+            iconOnly: true
+variants:
+  - name: interactions-bottom
+    context:
+      interactionsLocation: bottom
