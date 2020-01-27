@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Iconen wijziging - indicatoren (#502) Note: Geen wijziging maar toevoeging van iconen
 * Card component (#400)
 
+### Fixed
+* Rendering iconen niet overal 24x24 (#497)
+
 ## 9.6.0 - 15-01-2020
 
 ### Added
