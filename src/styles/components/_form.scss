@@ -46,6 +46,10 @@ form {
       line-height: $dso-button-line-height;
       padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
     }
+
+    .btn ~ .btn {
+      margin-left: $u1;
+    }
   }
 
   &::after {
