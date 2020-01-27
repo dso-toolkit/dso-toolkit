@@ -1,17 +1,42 @@
-.dso-card-container {
-  background: $wit;
-  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, .5);
-}
+$dso-cards-box-shadow-color: rgba(0, 0, 0, .5);
 
-.dso-card-holder {
-  border-top: 1px solid $grijs-10;
+ul,
+ol {
+  &.dso-cards {
+    @include list-unstyled;
 
-  &:first-child {
-    border-top: 0;
+    &:not(.dso-interactions-bottom) {
+      .dso-card {
+        display: flex;
+        flex-direction: row;
+
+        .dso-card-interactions {
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .dso-interactions-bottom {
+      .dso-card {
+        .dso-card-interactions {
+          flex-direction: row;
+        }
+      }
+    }
+
+    > li + li {
+      border-top: 1px solid $grijs-10;
+    }
   }
 }
 
-.dso-card {
+.dso-cards {
+  background: $wit;
+  box-shadow: 1px 2px 4px 0 $dso-cards-box-shadow-color;
+}
+
+.dso-card > a {
   display: flex;
   padding: $u2 $u2 $u1;
   width: 100%;
@@ -30,11 +55,10 @@
     text-decoration: none;
   }
 
-  .dso-card-content {
+  .dso-rich-content {
     h2:first-child,
     h3:first-child {
       font-size: 1.125em;
-      margin-top: 0;
     }
   }
 }
@@ -53,21 +77,5 @@
     height: $u3;
     margin: 0;
     width: $u3;
-  }
-}
-
-.dso-card-interactions-aside .dso-card-holder {
-  display: flex;
-  flex-direction: row;
-
-  .dso-card-interactions {
-    align-items: center;
-    flex-direction: column;
-  }
-}
-
-.dso-card-interactions-below .dso-card-holder {
-  .dso-card-interactions {
-    flex-direction: row;
   }
 }

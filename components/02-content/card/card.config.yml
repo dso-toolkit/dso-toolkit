@@ -1,40 +1,36 @@
-status: wip
+notes: |
+  Het `dso-card` component mag alleen in het `dso-cards` worden gebruikt.
 collated: true
 variants:
-  - name: default
-    context:
-      cards:
-        - label: Omgevingsplan Nieuwegein
-          content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  - name: aside
-    context:
-      interactionsOri: aside
-      cards:
-        - label: Omgevingsplan Nieuwegein
-          content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          toggle:
-            - id: omgevingsplan-nieuwegein
-              value: 0
-          infoExplanation: bij Omgevingsplan Nieuwegein
-        - label: Brouwersmolen
-          content: Brouwersmolen eget iaculis nisi quam in libero.
-          toggle:
-            - id: brouwersmolen
-              value: 0
-          infoExplanation: bij Brouwersmolen
-  - name: below
-    context:
-      interactionsOri: below
-      cards:
-        - label: Omgevingsplan Nieuwegein
-          content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          toggle:
-            - id: omgevingsplan-nieuwegein
-              value: 0
-          infoExplanation: bij Omgevingsplan Nieuwegein
-        - label: Brouwersmolen
-          content: Brouwersmolen eget iaculis nisi quam in libero.
-          toggle:
-            - id: brouwersmolen
-              value: 0
-          infoExplanation: bij Brouwersmolen
+- name: default
+  context:
+    label: Omgevingsplan Nieuwegein
+    content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing
+      elit.
+- name: aside
+  context:
+    label: Brouwersmolen
+    content: Brouwersmolen eget iaculis nisi quam in libero.
+    interactions:
+    - toggle:
+        id: brouwersmolen
+    - button:
+        type: button
+        modifier: link
+        icon: info
+        label: Toon informatie
+        iconOnly: true
+- name: below
+  context:
+    interactionsOri: below
+    label: Brouwersmolen
+    content: Brouwersmolen eget iaculis nisi quam in libero.
+    interactions:
+    - toggle:
+        id: brouwersmolen
+    - button:
+        type: button
+        modifier: link
+        icon: info
+        label: Toon informatie
+        iconOnly: true
