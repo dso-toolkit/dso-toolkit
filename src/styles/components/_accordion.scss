@@ -33,7 +33,7 @@ $dso-accordion-state-icon-size: $u3;
 
     a {
       color: $dso-accordion-main-color;
-      display: inline-block;
+      display: block;
       padding-left: $dso-accordion-chevron-left-offset;
       word-break: break-word;
 
@@ -42,14 +42,14 @@ $dso-accordion-state-icon-size: $u3;
 
         content: "";
         display: inline-block;
-        margin-left: -$dso-accordion-chevron-left-offset;
-        margin-right: $dso-accordion-chevron-space;
+        left: $u2 - 1;
+        position: absolute;
       }
 
       &::after {
         content: "";
         position: absolute;
-        right: #{$u2 - 2};
+        right: $u3 / 2;
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
       }
 
@@ -60,11 +60,26 @@ $dso-accordion-state-icon-size: $u3;
         text-decoration: none;
       }
 
-      .dso-accordion-counter {
+      .dso-status {
         display: block;
         float: right;
         font-weight: 400;
         text-decoration: underline;
+      }
+
+      .dso-attachments {
+        color: $grijs-60;
+        display: block;
+        float: right;
+        font-weight: 400;
+        text-decoration: none;
+
+        &::after {
+          @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
+
+          content: "";
+          display: inline-block;
+        }
       }
     }
   }
@@ -79,8 +94,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-success,
     &.dso-danger,
     &.dso-warning,
-    &.dso-info,
-    &.dso-attachment {
+    &.dso-info {
       > .dso-section-handle {
         padding-right: $u6;
       }
@@ -118,23 +132,6 @@ $dso-accordion-state-icon-size: $u3;
       }
     }
 
-    &.dso-attachment {
-      > .dso-section-handle {
-        a::after {
-          @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
-        }
-
-        .dso-accordion-counter {
-          color: $grijs-60;
-          text-decoration: none;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-
     &.dso-open {
       &:not(.dso-nested-accordion) {
         border: 1px solid $dso-accordion-main-color;
@@ -154,11 +151,9 @@ $dso-accordion-state-icon-size: $u3;
         }
 
 
-        &.dso-attachment {
-          > .dso-section-handle {
-            a::after {
-              @include di-variant("paperclip-wit");
-            }
+        .dso-attachments {
+          a::after {
+            @include di-variant("paperclip-wit");
           }
         }
       }
