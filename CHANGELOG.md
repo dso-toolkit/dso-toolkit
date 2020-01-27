@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Rendering iconen niet overal 24x24 (#497)
+* Waarschuwing (icoon) wordt niet voorgelezen in de shopping cart (#493)
 
 ## 9.6.0 - 15-01-2020
 
