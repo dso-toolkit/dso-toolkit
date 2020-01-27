@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Voorbeeld van skelet beheerscherm met gebruik definition list en tabel (#484)
 * Iconen wijziging - indicatoren (#502) Note: Geen wijziging maar toevoeging van iconen
 * Card component (#400)
+* Accordion component uitbreiding (#457)
 
 ### Changed
 * Button positionering (#401)

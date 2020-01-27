@@ -27,14 +27,13 @@ $dso-accordion-state-icon-size: $u3;
     background-color: $wit;
     border: 1px solid $dso-accordion-main-color;
     border-radius: $dso-accordion-border-radius;
-    font-weight: 500;
     overflow: hidden;
     padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
     position: relative;
 
     a {
       color: $dso-accordion-main-color;
-      display: inline-block;
+      display: block;
       padding-left: $dso-accordion-chevron-left-offset;
       word-break: break-word;
 
@@ -43,14 +42,14 @@ $dso-accordion-state-icon-size: $u3;
 
         content: "";
         display: inline-block;
-        margin-left: -$dso-accordion-chevron-left-offset;
-        margin-right: $dso-accordion-chevron-space;
+        left: $u2 - 1;
+        position: absolute;
       }
 
       &::after {
         content: "";
         position: absolute;
-        right: $u2;
+        right: $u3 / 2;
         top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
       }
 
@@ -59,6 +58,28 @@ $dso-accordion-state-icon-size: $u3;
       &.active {
         color: $dso-accordion-main-color;
         text-decoration: none;
+      }
+
+      .dso-status {
+        display: block;
+        float: right;
+        font-weight: 400;
+        text-decoration: underline;
+      }
+
+      .dso-attachments {
+        color: $grijs-60;
+        display: block;
+        float: right;
+        font-weight: 400;
+        text-decoration: none;
+
+        &::after {
+          @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
+
+          content: "";
+          display: inline-block;
+        }
       }
     }
   }
@@ -75,7 +96,7 @@ $dso-accordion-state-icon-size: $u3;
     &.dso-warning,
     &.dso-info {
       > .dso-section-handle {
-        padding-right: $u7;
+        padding-right: $u6;
       }
     }
 
@@ -126,6 +147,12 @@ $dso-accordion-state-icon-size: $u3;
             &::before {
               @include di-variant("chevron-up-wit");
             }
+          }
+        }
+
+        .dso-attachments {
+          a::after {
+            @include di-variant("paperclip-wit");
           }
         }
       }

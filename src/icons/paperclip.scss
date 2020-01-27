@@ -1,0 +1,13 @@
+@import "../styles/mixins/dso-variables";
+
+paperclip {
+  color: $bosgroen;
+}
+
+paperclip:grijs {
+  color: $grijs-60;
+}
+
+paperclip:wit {
+  color: $wit;
+}

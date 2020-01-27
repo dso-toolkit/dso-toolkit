@@ -32,19 +32,30 @@ module.exports = function () {
             <a href="#">`);
 
       const term = self.state;
-
       if (termMap[term]) {
         html += (`<span class="sr-only">${termMap[term]}: </span>`);
       }
 
-      html += (`${title}</a>
-      </${header}>`);
+      html += title;
+
+      const status = self.status;
+      if (status) {
+        html += (`<span class="dso-status">${status}</span>`);
+      }
+
+      const attachments = self.attachments;
+      if (typeof attachments === 'number') {
+        html += (`<span class="dso-attachments">${attachments} <span class="sr-only">bijlage${attachments === 1 ? '' : 'n'}</span></span>`)
+      }
+
+      html += (`</a>\n</${header}>`);
 
       if (self.open) {
         html += (
           `<div class="dso-section-body">
             ${options.fn(self)}
-          </div>`);
+          </div>`
+        );
       }
 
       html += `</div>`;
