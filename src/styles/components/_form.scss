@@ -34,7 +34,7 @@ form {
 
       text-align: right;
 
-      .btn:first-child {
+      .btn:not(:only-child):first-child {
         float: left;
       }
     }
