@@ -1,0 +1,25 @@
+<div class="dso-card">
+  <a href="#">
+    <div class="dso-rich-content">
+      <h2>{{ label }}</h2>
+      <p>{{ content }}</p>
+    </div>
+  </a>
+  {{#if interactions.length }}
+    <div class="dso-card-interactions">
+      {{#each interactions}}
+        <div class="dso-card-interaction">
+          {{#if toggle }}
+            <label>
+              <input type="checkbox" name="{{ toggle.id }}" />
+              <span class="sr-only">{{ label }}</span>
+            </label>
+          {{/if}}
+          {{#if button }}
+            {{> '@button' button }}
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
+</div>

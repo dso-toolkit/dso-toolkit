@@ -112,6 +112,11 @@ module.exports = fractal => Object.assign({
   },
   map: function (array, property) {
     return array.map(a => a[property]);
+  },
+  json: function (obj) {
+    console.log(obj);
+
+    return JSON.stringify(obj, null, 2);
   }
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
