@@ -1,0 +1,81 @@
+$dso-cards-box-shadow-color: rgba(0, 0, 0, .5);
+
+ul,
+ol {
+  &.dso-cards {
+    @include list-unstyled;
+
+    &:not(.dso-interactions-bottom) {
+      .dso-card {
+        display: flex;
+        flex-direction: row;
+
+        .dso-card-interactions {
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+    }
+
+    .dso-interactions-bottom {
+      .dso-card {
+        .dso-card-interactions {
+          flex-direction: row;
+        }
+      }
+    }
+
+    > li + li {
+      border-top: 1px solid $grijs-10;
+    }
+  }
+}
+
+.dso-cards {
+  background: $wit;
+  box-shadow: 1px 2px 4px 0 $dso-cards-box-shadow-color;
+}
+
+.dso-card > a {
+  display: flex;
+  padding: $u2 $u2 $u1;
+  width: 100%;
+
+  &,
+  &:not(.btn):visited,
+  &:active,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $grijs-5;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .dso-rich-content {
+    h2:first-child,
+    h3:first-child {
+      font-size: 1.125em;
+    }
+  }
+}
+
+.dso-card-interactions {
+  display: flex;
+  justify-content: space-between;
+  padding: $u2;
+
+  .dso-card-interaction {
+    display: flex;
+    text-align: center;
+  }
+
+  .dso-info-button {
+    height: $u3;
+    margin: 0;
+    width: $u3;
+  }
+}
