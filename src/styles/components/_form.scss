@@ -18,6 +18,7 @@ $dso-toggle-header-margin: 12px;
 
 $dso-button-info-size: $u2;
 
+.form,
 form {
   .dso-field-container {
     position: relative;
@@ -25,6 +26,35 @@ form {
 
   > fieldset + fieldset {
     margin-top: $u4;
+  }
+
+  &:not(.dso-single-page):not(.dso-sections) {
+    .dso-form-buttons {
+      @include clearfix;
+
+      text-align: right;
+
+      .btn:not(:only-child):first-child {
+        float: left;
+      }
+    }
+  }
+
+  &.dso-sections {
+    .dso-form-buttons {
+      text-align: right;
+    }
+  }
+
+  .dso-form-buttons {
+    .btn-link {
+      line-height: $dso-button-line-height;
+      padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+    }
+
+    .btn ~ .btn {
+      margin-left: $u1;
+    }
   }
 }
 
@@ -239,13 +269,6 @@ select:not([multiple]) {
           padding-top: #{$padding-base-vertical + 1};
         }
       }
-    }
-  }
-
-  @media screen and (min-width: $screen-sm-min) {
-    .dso-form-buttons {
-      margin-left: percentage($dso-label-column / $grid-columns);
-      padding-left: $grid-gutter-width / 4;
     }
   }
 }

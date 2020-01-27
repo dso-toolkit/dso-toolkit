@@ -24,8 +24,8 @@ context:
                 - filename: Schetsen_en_foto’s_1.pdf
                 - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
                   confidential: true
-        submitButton:
-          type: button
+        buttons:
+        - type: button
           modifier: primary
           label: Volgende
   - title: Beschrijving grondstoffen en hulpstoffen
