@@ -320,9 +320,13 @@
       <p><em>.btn-align</em></p>
     </div>
   </div>
-  <div class="col-md-6">
-    {{> '@button' type='button' label='Primaire actie' modifier='primary' }}
-    {{> '@button' type='button' label='Link button' modifier='link btn-align' url='#' }}
+  <div class="col-md-12">
+    <form class="dso-single-page">
+      <div class="dso-form-buttons">
+        {{> '@button' type='button' label='Primaire actie' modifier='primary' }}
+        {{> '@button' type='button' label='Link button' modifier='link btn-align' url='#' }}
+        </div>
+      </form>
   </div>
 </div>
 <br>
@@ -336,7 +340,7 @@
     <br>
     <form class="dso-sections">
       <div class="dso-form-buttons">
-        {{> '@button' type='button' label='Vorige stap' modifier='link btn-align' icon='chevron-left' }}
+        {{> '@button' type='button' label='Vorige stap' modifier='default' icon='chevron-left' }}
         {{> '@button' type='button' label='Volgende stap' modifier='primary' iconAfter='chevron-right' }}
       </div>
     </form>
