@@ -321,7 +321,52 @@
     </div>
   </div>
   <div class="col-md-6">
-    {{> '@button' type='button' label='Primaire actie' modifier='primary' url='#' }}
+    {{> '@button' type='button' label='Primaire actie' modifier='primary' }}
     {{> '@button' type='button' label='Link button' modifier='link btn-align' url='#' }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="dso-rich-content">
+      <label>Margins tussen knoppen: 16px</label>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <br>
+    <form>
+      <div class="dso-form-buttons">
+        {{> '@button' type='button' label='Vorige stap' modifier='link btn-align' icon='chevron-left' }}
+        {{> '@button' type='button' label='Volgende stap' modifier='primary' iconAfter='chevron-right' }}
+      </div>
+    </form>
+    <br>
+    <form>
+      <div class="dso-form-buttons">
+        {{> '@button' type='button' label='Link button' modifier='link btn-align' }}
+        {{> '@button' type='button' label='Volgende stap' modifier='primary' iconAfter='chevron-right' }}
+      </div>
+    </form>
+    <br>
+    <form>
+      <div class="dso-form-buttons">
+        {{> '@button' type='button' label='Standaard button' modifier='default' }}
+        {{> '@button' type='button' label='Volgende stap' modifier='primary' iconAfter='chevron-right' }}
+      </div>
+    </form>
+    <br>
+    <form>
+      <div class="dso-form-buttons">
+        {{> '@button' type='button' label='Primaire actie' modifier='primary' icon='chevron-left' }}
+        {{> '@button' type='button' label='Link button' modifier='link btn-align' }}
+      </div>
+    </form>
+    <br>
+    <form>
+      <div class="dso-form-buttons">
+        {{> '@button' type='button' label='Primaire actie' modifier='primary' icon='chevron-left' }}
+        {{> '@button' type='button' label='Standaard button' modifier='default' }}
+      </div>
+    </form>
   </div>
 </div>
