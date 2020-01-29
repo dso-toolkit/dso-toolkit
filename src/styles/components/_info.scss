@@ -6,12 +6,13 @@
   > button {
     background-color: transparent;
     border-style: none;
+    padding: 0;
     position: absolute;
     right: 0;
     top: 0;
 
     &::before {
-      @include di("times-bosgroen", 16px);
+      @include di("times-bosgroen");
 
       content: "";
       display: inline-block;
@@ -28,10 +29,9 @@
 }
 
 .dso-info-button {
-  @include di("info", $dso-button-info-size);
+  @include di("info");
 
   margin-left: $u1;
-  margin-top: $dso-icon-vertical-align;
   min-width: $dso-button-info-size;
   padding: 0;
 

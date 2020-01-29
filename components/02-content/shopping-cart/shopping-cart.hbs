@@ -16,7 +16,7 @@
         <ul class="dso-items">
           {{#each items }}
             <li>
-              {{#if (hasWarning activities)}}{{> '@icon' icon='status-warning' }}{{/if}}
+              {{#if (hasWarning activities)}}{{> '@icon' icon='status-warning' }}<span class="sr-only">waarschuwing</span>{{/if}}
               {{ label }}
               <button type="button" class="dso-delete" title="Verwijder">
                 {{> '@icon' icon='trash' }}
@@ -24,7 +24,7 @@
               <ul class="dso-activities">
                 {{#each activities }}
                   <li>
-                    {{#if warning }}{{> '@icon' icon='status-warning' }}{{/if}}
+                    {{#if warning }}{{> '@icon' icon='status-warning' }}<span class="sr-only">waarschuwing</span>{{/if}}
                     {{ label }}
                     <button type="button" class="dso-delete" title="Verwijder">
                       {{> '@icon' icon='trash' }}

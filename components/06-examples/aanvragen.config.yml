@@ -55,8 +55,8 @@ context:
             inputType: input
             type: text
             label: Woonplaats
-    submitButton:
-      type: submit
+    buttons:
+    - type: submit
       modifier: primary
       label: Volgende stap
   - title: Afmetingen van het bouwwerk
