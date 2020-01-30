@@ -12,7 +12,6 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
     position: relative;
 
     &::before {
-      border: 1px dotted #000;
       content: "";
       display: block;
       left: $dso-alert-horizontal-padding - 1px; // 1px border
@@ -20,29 +19,29 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
       top: 0;
       width: $dso-alert-horizontal-padding - 1px; // 1px border
     }
+  }
 
-    &.banner-success {
-      &::before {
-        @include di("status-success", $dso-alert-icon-size);
-      }
+  &.alert-success {
+    .row::before {
+      @include di("status-success", $dso-alert-icon-size);
     }
+  }
 
-    &.banner-danger {
-      &::before {
-        @include di("status-danger", $dso-alert-icon-size);
-      }
+  &.alert-danger {
+    .row::before {
+      @include di("status-danger", $dso-alert-icon-size);
     }
+  }
 
-    &.banner-warning {
-      &::before {
-        @include di("status-warning", $dso-alert-icon-size);
-      }
+  &.alert-warning {
+    .row::before {
+      @include di("status-warning", $dso-alert-icon-size);
     }
+  }
 
-    &.banner-info {
-      &::before {
-        @include di("status-info", $dso-alert-icon-size);
-      }
+  &.alert-info {
+    .row::before {
+      @include di("status-info", $dso-alert-icon-size);
     }
   }
 
