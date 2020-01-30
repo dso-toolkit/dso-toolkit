@@ -1,0 +1,53 @@
+$dso-alert-icon-size: $u4;
+$dso-alert-horizontal-padding: $u2;
+$dso-alert-vertical-padding: $u1 * 2.5 - 1px;
+$dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
+
+.banner {
+  padding: $u2 0;
+  position: relative;
+
+  .row {
+    padding-left: $dso-alert-left-padding;
+    position: relative;
+
+    &::before {
+      border: 1px dotted #000;
+      content: "";
+      display: block;
+      left: $dso-alert-horizontal-padding - 1px; // 1px border
+      position: absolute;
+      top: 0;
+      width: $dso-alert-horizontal-padding - 1px; // 1px border
+    }
+
+    &.banner-success {
+      &::before {
+        @include di("status-success", $dso-alert-icon-size);
+      }
+    }
+
+    &.banner-danger {
+      &::before {
+        @include di("status-danger", $dso-alert-icon-size);
+      }
+    }
+
+    &.banner-warning {
+      &::before {
+        @include di("status-warning", $dso-alert-icon-size);
+      }
+    }
+
+    &.banner-info {
+      &::before {
+        @include di("status-info", $dso-alert-icon-size);
+      }
+    }
+  }
+
+  a,
+  a:visited {
+    color: $text-color;
+  }
+}
