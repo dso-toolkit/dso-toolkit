@@ -1,47 +1,61 @@
-$dso-alert-icon-size: $u4;
-$dso-alert-horizontal-padding: $u2;
-$dso-alert-vertical-padding: $u1 * 2.5 - 1px;
-$dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
+$dso-banner-icon-size: $u3;
+$dso-banner-horizontal-padding: $u2;
+$dso-banner-vertical-padding: $u1 * 2.5 - 1px;
+$dso-banner-left-padding: $u4;
 
 .banner {
   padding: $u2 0;
   position: relative;
 
   .row {
-    padding-left: $dso-alert-left-padding;
-    position: relative;
+    > div {
+      line-height: $u3;
+      padding-left: $dso-banner-left-padding;
+      position: relative;
 
-    &::before {
-      content: "";
-      display: block;
-      left: $dso-alert-horizontal-padding - 1px; // 1px border
-      position: absolute;
-      top: 0;
-      width: $dso-alert-horizontal-padding - 1px; // 1px border
-    }
-  }
+      &::before {
+        content: "";
+        display: inline-block;
+        left: 0;
+        position: absolute;
+      }
 
-  &.alert-success {
-    .row::before {
-      @include di("status-success", $dso-alert-icon-size);
+      button  {
+        float: right;
+
+        svg.di {
+          color: $zwart;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: $screen-xs-max) {
+        padding-left: $dso-banner-left-padding + $u2;
+
+        &::before {
+          left: $u2;
+        }
+
+        > span {
+          display: block;
+          width: calc(100% - #{$u3});
+        }
+      }
     }
   }
 
   &.alert-danger {
-    .row::before {
-      @include di("status-danger", $dso-alert-icon-size);
+    .row > div::before {
+      @include di("status-danger-outline", $dso-banner-icon-size);
     }
   }
 
   &.alert-warning {
-    .row::before {
-      @include di("status-warning", $dso-alert-icon-size);
-    }
-  }
-
-  &.alert-info {
-    .row::before {
-      @include di("status-info", $dso-alert-icon-size);
+    .row > div::before {
+      @include di("status-warning-outline", $dso-banner-icon-size);
     }
   }
 
