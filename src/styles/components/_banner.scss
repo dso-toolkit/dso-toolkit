@@ -1,6 +1,3 @@
-$dso-banner-icon-size: $u3;
-$dso-banner-horizontal-padding: $u2;
-$dso-banner-vertical-padding: $u1 * 2.5 - 1px;
 $dso-banner-left-padding: $u6;
 
 .banner {
@@ -43,13 +40,13 @@ $dso-banner-left-padding: $u6;
 
   &.alert-danger {
     .row > div::before {
-      @include di("status-danger-outline", $dso-banner-icon-size);
+      @include di("status-danger-outline");
     }
   }
 
   &.alert-warning {
     .row > div::before {
-      @include di("status-warning-outline", $dso-banner-icon-size);
+      @include di("status-warning-outline");
     }
   }
 
