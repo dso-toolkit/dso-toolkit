@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Fixed
+
+* Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
+
 ## 9.7.0 - 27-01-2020
 
 ### Added
