@@ -32,14 +32,6 @@
       margin-right: $u1;
     }
 
-    // start #497
-    svg.di {
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-    }
-    // eind #497
-
     span + svg.di {
       margin-left: $u1;
       margin-right: -$u1;
@@ -111,24 +103,12 @@
   &.extern {
     &::after {
       @include di("external-link");
-
-      // start #497
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-      // eind #497
     }
 
     &:hover,
     &:focus {
       &::after {
         @include di("external-link-wit");
-
-        // start #497
-        height: 1.5em;
-        vertical-align: top;
-        width: 1.5em;
-        // eind #497
       }
     }
 
@@ -136,12 +116,6 @@
     &[disabled] {
       &::after {
         @include di("external-link-grasgroen-40");
-
-        // start #497
-        height: 1.5em;
-        vertical-align: top;
-        width: 1.5em;
-        // eind #497
       }
     }
   }
@@ -149,24 +123,12 @@
   &.download {
     &::after {
       @include di("download");
-
-      // start #497
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-      // eind #497
     }
 
     &:hover,
     &:focus {
       &::after {
         @include di("download-wit");
-
-        // start #497
-        height: 1.5em;
-        vertical-align: top;
-        width: 1.5em;
-        // eind #497
       }
     }
 
@@ -174,12 +136,6 @@
     &[disabled] {
       &::after {
         @include di("download-grasgroen-40");
-
-        // start #497
-        height: 1.5em;
-        vertical-align: top;
-        width: 1.5em;
-        // eind #497
       }
     }
   }
@@ -221,24 +177,12 @@
   &.extern {
     &::after {
       @include di("external-link-wit");
-
-      // start #497
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-      // eind #497
     }
   }
 
   &.download {
     &::after {
       @include di("download-wit");
-
-      // start #497
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-      // eind #497
     }
   }
 }
@@ -250,10 +194,8 @@
   padding: 0;
 
   &.btn-align {
-    // height: $u3;
     padding: 11px 0;
     position: relative;
-    // top: -2px;
   }
 
   table.table & {
@@ -321,24 +263,12 @@
   &.extern {
     &::after {
       @include di("external-link");
-
-      // start #497
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-      // eind #497
     }
 
     &.disabled,
     &[disabled] {
       &::after {
         @include di("external-link-grasgroen-40");
-
-        // start #497
-        height: 1.5em;
-        vertical-align: top;
-        width: 1.5em;
-        // eind #497
       }
     }
   }
@@ -346,24 +276,12 @@
   &.download {
     &::after {
       @include di("download");
-
-      // start #497
-      height: 1.5em;
-      vertical-align: top;
-      width: 1.5em;
-      // eind #497
     }
 
     &.disabled,
     &[disabled] {
       &::after {
         @include di("download-grasgroen-40");
-
-        // start #497
-        height: 1.5em;
-        vertical-align: top;
-        width: 1.5em;
-        // eind #497
       }
     }
   }
