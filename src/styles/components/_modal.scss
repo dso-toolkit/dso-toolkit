@@ -124,16 +124,21 @@ body.dso-modal-open {
     padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
     text-align: right;
 
-    .btn-link {
+    .btn:not(:only-child):first-child,
+    .btn:only-child {
       float: left;
+    }
+
+    .btn-link {
+      padding: 11px 0;
     }
   }
 
   &.dso-confirm {
     .dso-footer {
       button {
-        &:first-child {
-          float: left;
+        &:not(:first-child) {
+          float: right;
         }
       }
     }
@@ -167,7 +172,7 @@ body.dso-modal-open {
     }
 
     .dso-footer {
-      button + button.btn-default {
+      .btn + .btn {
         margin-left: $u2;
       }
     }
