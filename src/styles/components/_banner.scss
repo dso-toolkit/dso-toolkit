@@ -1,7 +1,7 @@
 $dso-banner-icon-size: $u3;
 $dso-banner-horizontal-padding: $u2;
 $dso-banner-vertical-padding: $u1 * 2.5 - 1px;
-$dso-banner-left-padding: $u4;
+$dso-banner-left-padding: $u6;
 
 .banner {
   padding: $u2 0;
@@ -16,7 +16,7 @@ $dso-banner-left-padding: $u4;
       &::before {
         content: "";
         display: inline-block;
-        left: 0;
+        left: $u2;
         position: absolute;
       }
 
@@ -33,12 +33,6 @@ $dso-banner-left-padding: $u4;
       }
 
       @media screen and (max-width: $screen-xs-max) {
-        padding-left: $dso-banner-left-padding + $u2;
-
-        &::before {
-          left: $u2;
-        }
-
         > span {
           display: block;
           width: calc(100% - #{$u3});
