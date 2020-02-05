@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Icons in (primaire, secundaire en default) buttons, verloren gegane modifiers, margins (#438)
+* Marges formulier elementen (#421)
 
 ## 9.7.0 - 27-01-2020
 
