@@ -84,6 +84,16 @@ $dso-accordion-state-icon-size: $u3;
     }
   }
 
+  .dso-open {
+    .dso-section-handle a .dso-attachments {
+      color: $wit;
+
+      &::after {
+        @include di-variant("paperclip-wit");
+      }
+    }
+  }
+
   .dso-accordion-section {
     border-radius: $dso-accordion-border-radius;
 
