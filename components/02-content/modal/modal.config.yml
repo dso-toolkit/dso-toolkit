@@ -8,15 +8,14 @@ context:
     id: modal-no-close
     heading: Activiteit toevoegen
     buttons:
-      - name: cancelButton
-        type: button
-        modifier: link
-        icon: times
-        label: Annuleren
       - name: confirmButton
         type: submit
         modifier: primary
         label: Toevoegen
+      - name: cancelButton
+        type: button
+        modifier: link
+        label: Annuleren
 variants:
   - name: modal-close
     label: Closable
@@ -42,7 +41,6 @@ variants:
         - name: cancelButton
           type: button
           modifier: link
-          # icon: times
           label: Annuleren
   - name: modal-steps
     label: Steps
@@ -54,15 +52,14 @@ variants:
           type: button
           modifier: default
           label: Vorige
-        - name: cancelButton
-          type: button
-          modifier: link
-          # icon: times
-          label: Annuleren
         - name: nextButton
           type: button
           modifier: default
           label: Volgende
+        - name: cancelButton
+          type: button
+          modifier: link
+          label: Annuleren
   - name: modal-confirm
     label: Confirm
     context:
