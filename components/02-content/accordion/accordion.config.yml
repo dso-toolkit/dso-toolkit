@@ -68,3 +68,8 @@ context:
     id: panel8
     header: h5
     status: 7 van 8 beantwoord
+  - title: Evaluatie werkzaamheden (h5)
+    id: panel8
+    header: h5
+    attachments: 1
+    open: true
