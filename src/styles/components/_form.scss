@@ -11,6 +11,8 @@ $dso-form-control-border-width: 1px;
 $dso-form-control-focus-border-width: 2px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-form-control-focus-border-color: $bosgroen;
+$dso-form-control-height: #{($padding-base-vertical + 1) * 2 + $dso-form-control-border-width * 2 + $font-size-base * 1.5};
+
 $dso-required-string: "verplicht";
 
 $dso-toggle-close-icon-size: $u4;
@@ -185,7 +187,7 @@ select:not([multiple]) {
 .form-control {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
-  min-height: 40px;
+  height: $dso-form-control-height;
   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
 
   &[size] {
