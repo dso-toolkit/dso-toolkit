@@ -84,7 +84,11 @@ form {
   legend.dso-label-container {
     border-bottom: 0;
     font-size: $font-size-base;
-    margin-bottom: 0;
+    margin-bottom: $u1;
+
+    label {
+      display: inline;
+    }
   }
 
   &.dso-required {
@@ -215,12 +219,10 @@ select:not([multiple]) {
   .form-group {
     > .dso-label-container {
       @include make-sm-column($dso-label-column);
+    }
 
-      @media (min-width: $screen-sm-min) {
-        .dso-info-button {
-          margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
-        }
-      }
+    > legend.dso-label-container {
+      margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
     }
 
     > .dso-field-container {
