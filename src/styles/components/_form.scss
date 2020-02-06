@@ -185,6 +185,7 @@ select:not([multiple]) {
 .form-control {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
+  min-height: 40px;
   padding: $padding-base-vertical #{$padding-base-horizontal + 2};
 
   &[size] {
