@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Fixed
+* Hoogte inputfields en dropdowns niet juist (#506)
+
 ### Changed
 * Icons in (primaire, secundaire en default) buttons, verloren gegane modifiers, margins (#438)
 
