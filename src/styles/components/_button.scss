@@ -264,7 +264,8 @@
   &.extern,
   &.download {
     &::after {
-      margin-top: -2px;
+      position: relative;
+      top: -2px;
     }
   }
 
