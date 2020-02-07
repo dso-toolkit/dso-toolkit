@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Fixed
+* Een tertiaire button is hoger dan 24px (#524)
+
 ## 9.8.0 - 21-02-2020
 
 ### Fixed
