@@ -121,6 +121,7 @@ module.exports = fractal => Object.assign({
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
+require('../components/02-content/accordion-light/accordion-light.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js')(fractal),
 require('../components/02-content/progress-block/progress-block.js'),
 require('../components/02-content/shopping-cart/shopping-cart.helpers.js'),
