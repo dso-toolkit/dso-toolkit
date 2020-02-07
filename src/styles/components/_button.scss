@@ -104,6 +104,7 @@
   border: 0;
   border-radius: 0;
   color: $grasgroen;
+  line-height: 1;
   padding: 0;
 
   &.btn-align {
@@ -171,6 +172,39 @@
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
+    }
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      margin-top: -.17em;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+      }
     }
   }
 }
