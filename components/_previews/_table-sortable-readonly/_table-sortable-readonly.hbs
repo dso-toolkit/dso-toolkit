@@ -3,7 +3,7 @@
     <h2>Sorteerbare data-grid</h2>
     <p>In het voorbeeld hieronder is de data is oplopend gesorteerd voor de kolom "Bron". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
   </div>
-  <table {{#if modifier}} class="{{modifier}}"{{/if}} role="grid">
+  <table {{#if modifier}} class="{{modifier}}"{{/if}} role="grid" aria-readonly="true">
     <caption {{#unless showCaption}} class="sr-only"{{/unless}}>{{ caption }}</caption>
     <thead>
       <tr>
