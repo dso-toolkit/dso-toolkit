@@ -6,7 +6,7 @@
   <table {{#if modifier}} class="{{modifier}}"{{/if}} role="grid" aria-readonly="true">
     <caption {{#unless showCaption}} class="sr-only"{{/unless}}>{{ caption }}</caption>
     <thead>
-      <tr>
+      <tr role="row">
         {{#each columnHeaders}}
         <th scope="col" {{#if sorteerbaar}} role="columnheader" aria-sort="ascending"{{/if}}>
           {{title}}
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       {{#each rowContent}}
-      <tr {{#if rowNotification}} class="{{rowNotification}}"{{/if}}>
+      <tr {{#if rowNotification}} class="{{rowNotification}}"{{/if}} role="row">
         {{#if rowHeader}}
         <th scope="row">{{rowHeader}}</th>
         {{/if}}
