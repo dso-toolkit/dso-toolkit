@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
-* Bij het description Icon is het kruisje nog steeds 16*16 en niet 24*24 (#516)
+* Bij het description Icon is het kruisje nog steeds 16x16 en niet 24x24 (#516)
 
 ## 9.7.0 - 27-01-2020
 
