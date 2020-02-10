@@ -2,7 +2,7 @@ notes: |
 status: ready
 context:
   modifier: table
-  caption: Overzicht toegevoegde documenten
+  caption: Overzicht bronnen
   columnHeaders:
     - title: Bron
       sorteerbaar: true

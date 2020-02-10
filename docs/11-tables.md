@@ -53,7 +53,9 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 
 ### Sorteren in een data-grid
 - Bij het gebruik van ```role="grid"``` wordt vanuit gegaan dat de data in het data-grid aanpasbaar is. Voeg ```aria-readonly="true"``` toe, als de data niet aanpasbaar is.  
-- Als je een kolom of rij sorteerbaar wilt maken, voeg dan aan het volgende toe: Wanneer de sortering oplopend is, geef het aan met ```aria-sort="ascending"```. Bij aflopende resultaten, gebruik ```aria-sort="descending"```.
+- Als je een kolom sorteerbaar wilt maken, voeg dan aan ```<th>``` ```"role=columnheader"``` toe. 
+- - Als je een rij sorteerbaar wilt maken, voeg dan aan ```<th>``` ```"role=rowheader"``` toe. 
+- Wanneer de sortering oplopend is, geef dit bij ```<th>``` aan met ```aria-sort="ascending"```. Bij aflopende resultaten, gebruik ```aria-sort="descending"```.
 - Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met ```aria-sort```.
 {{frame (path '/components/preview/table-sortable-readonly') '.dso-example-wrapper'}}
 
