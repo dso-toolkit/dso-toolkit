@@ -10,10 +10,11 @@ Het component ```<table>``` wordt als een data-tabel gebruikt of als data-grid.
 - Bij het weergeven van logisch gestructureerde informatie
 - Bij het weergeven van “key-value pairs”.
 - Wanneer je **wel** headers kan toekennen.
-- Wanneer er **geen** interactieve elementen zijn.
+- Wanneer er **geen** interactieve elementen zijn om de tabel aan te passen.
 - Een data tabel is daarmee een statische weergave van informatie. 
 - Opbouw van data tabel is met native HTML ```<table>``` tag
-- Gebruik ```<th>``` om koptitels in header te definiëren.
+- Gebruik ```<th scope="col">``` voor koptitels in de kolommen.
+- Gebruik ```<th scope="row">``` voor koptitels in de rijen.
 
 {{frame (path '/components/preview/table-data-table') '.dso-example-wrapper'}}
 
@@ -42,10 +43,11 @@ Zie ook: https://www.dso-toolkit.nl/master/components/detail/definition-list.htm
 
 ## Hoe component "table" te gebruiken als data-grid
 Een data grid is een dynamischere weergave van informatie.
-Het bevat wel interactieve elementen.
+Het bevat **wel** interactieve elementen om de tabel aan te passen.
 
 - Opbouw van data grid is met native HTML ```<table>``` tag én ARIA table ```role="grid"```
 - Gebruik ```<th>``` om koptitels in header te definiëren.
+- Bij het gebruik van ```role="grid"``` wordt vanuit gegaan dat het data-grid aanpasbaar is. Voeg ```aria-readonly="true"``` toe, als het data-grid niet aanpasbaar is. 
 - Specifieke keyboard interacties moeten verder worden toegevoegd voor interactieve elementen.
 {{frame (path '/components/preview/table-data-grid') '.dso-example-wrapper'}}
 
@@ -63,13 +65,15 @@ Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
 
 
 ## Gedrag en toegankelijkheid
-- Een table heeft altijd een ```<caption>``` nodig. De caption wordt als een titel opgelezen door een screen reader. Indien deze visueel niet wenselijk is wordt deze verborgen met ```.sr-only```.
-- Zorg ervoor dat een table één niveau van headers ```<th>``` heeft voor kolommen of rijen.
-- Houd de table zo eenvoudig mogelijk. Dit verhoogt de begrijpelijkheid van de table voor eindgebruikers. 
-- Zorg ervoor dat er maximaal 1 header niveau is voor de kolommen en maximaal 1 header niveau voor de rijen. Screen readers hebben moeite om goed meerdere header niveaus op te lezen.
-- Splits de table in twee losse tables als er 2 header niveaus nodig zijn.
+- Een tabel heeft altijd een ```<caption>``` nodig. De caption wordt als een titel opgelezen door een screen reader. Indien deze visueel niet wenselijk is wordt deze verborgen met ```.sr-only```.
+- Houd de tabel zo eenvoudig mogelijk. Dit verhoogt de begrijpelijkheid van de tabel voor eindgebruikers. 
+- Zorg ervoor dat er maximaal één kop niveau is voor de kolommen en maximaal één kop niveau voor de rijen. Screen readers hebben vaak moeite om goed meerdere kop niveaus op te lezen.
+- Gebruik ```<th scope="col">``` voor koptitels in de kolommen.
+- Gebruik ```<th scope="row">``` voor koptitels in de rijen.
+- Splits de table in twee losse tables als er twee kop niveaus nodig zijn.
 
 
 ## Bronvermelding
 - [WAI ARIA 1.1 Table](https://w3c.github.io/aria-practices/#table)
-- [Dienst digitale overheid](https://www.digitoegankelijk.nl)
+- [WAI ARIA 1.1 Grid](https://w3c.github.io/aria-practices/#grid)
+- [Digitoegankelijk](https://www.digitoegankelijk.nl)

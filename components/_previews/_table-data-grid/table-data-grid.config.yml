@@ -1,29 +1,37 @@
 notes: |
-  Het tabel component is gebasseerd op Bootstrap's Table.
-
-  Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
-  * Er is geen `.table-bordered` variant.
-  * Er is geen `tr.primary` en `tr.secondary`.
-  * Er is geen `.table-responsive` functionaliteit.
-
-  Een `<caption>` moet altijd worden geplaatst. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
-
-  Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
 status: ready
 context:
   modifier: table
-  caption: Overzicht van gebruikersnamen
-variants:
-  - name: caption
-    label: With caption
-    context:
-      showCaption: true
-  - name: striped
-    context:
-      modifier: table table-striped
-  - name: hovered
-    context:
-      modifier: table table-hover
-  - name: condensed
-    context:
-      modifier: table table-condensed
+  caption: Overzicht toegevoegde documenten
+  columnHeaders:
+    - title: "#"
+    - title: Documentnaam
+    - title: Eigenaar 
+    - title: Upload datum
+    - title: Acties
+  rowContent:
+    - rowHeader: 1
+      linkHref: tekening
+      documentNaam: Tekening.jpg
+      eigenaar: P.J. Puk
+      uploadDatum: 21-07-2019      
+    - rowHeader: 2
+      linkHref: omgevingsplan
+      documentNaam: Omgevingsplan.pdf
+      eigenaar: H.G. Griff
+      uploadDatum: 22-07-2019
+    - rowHeader: 3
+      linkHref: bodemonderzoek
+      documentNaam: Bodemonderzoek.pdf
+      eigenaar: P.J. Puk
+      uploadDatum: 23-07-2019
+    - rowHeader: 4
+      linkHref: maatregelen
+      documentNaam: Maatregelen.pdf
+      eigenaar: P.J. Puk
+      uploadDatum: 23-07-2019
+    - rowHeader: 5
+      linkHref: omgevingsplan
+      documentNaam: Plattegrond.pdf
+      eigenaar: P.J. Puk
+      uploadDatum: 28-07-2019

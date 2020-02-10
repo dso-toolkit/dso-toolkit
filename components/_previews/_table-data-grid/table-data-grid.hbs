@@ -1,64 +1,34 @@
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Data-grid</h2>
-    <p>Een data-grid bevat wel interactieve elementen</p>
+    <p>Een data grid is een dynamischere weergave van informatie. Het bevat wel interactieve elementen om de tabel aan te passen.</p>
   </div>
-  <table{{#if modifier}} class="{{ modifier }}"{{/if}} role="grid">
-    <caption {{#unless showCaption }}class="sr-only"{{/unless}}>{{ caption }}</caption>
+  <table {{#if modifier}} class="{{modifier}}"{{/if}} role="grid">
+    <caption {{#unless showCaption}} class="sr-only"{{/unless}}>{{ caption }}</caption>
     <thead>
       <tr>
-        <th scope="col">Documentnaam</th>
-        <th scope="col">Eigenaar</th>
-        <th scope="col">Upload datum</th>
-        <th scope="col">Acties</th>
+        {{#each columnHeaders}}
+        <th scope="col">
+          {{title}}
+        </th>
+        {{/each}}
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><a href="#tekening">Tekening.pdf</a></td>
-        <td>P.J. Puk</td>
-        <td>21-07-2019</td>
+      {{#each rowContent}}
+      <tr {{#if rowNotification}} class="{{rowNotification}}"{{/if}}>
+        {{#if rowHeader}}
+        <th scope="row">{{rowHeader}}</th>
+        {{/if}}
+        <td><a href="#{{linkHref}}">{{documentNaam}}</a></td>
+        <td>{{eigenaar}}</td>
+        <td>{{uploadDatum}}</td>
         <td>
           {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
           {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
         </td>
       </tr>
-       <tr>
-        <td><a href="#omgevingsplan">Omgevingsplan.pdf</a></td>
-        <td>H.G. Griff</td>
-        <td>22-07-2019</td>
-        <td>
-          {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
-          {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
-        </td>
-      </tr>
-      <tr>
-        <td><a href="#bodemonderzoek">Bodemonderzoek.pdf</a></td>
-        <td>P.J. Puk</td>
-        <td>23-07-2019</td>
-        <td>
-          {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
-          {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
-        </td>
-      </tr>
-      <tr>
-        <td><a href="#maatregelen">Maatregelen.pdf</a></td>
-        <td>P.J. Puk</td>
-        <td>23-07-2019</td>
-        <td>
-          {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
-          {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
-        </td>
-      </tr>
-      <tr>
-        <td><a href="#Plattegrond">Plattegrond.pdf</a></td>
-        <td>P.J. Puk</td>
-        <td>23-07-2019</td>
-        <td>
-          {{> '@button' type='button' modifier='link' label='Bewerk' icon='pencil' iconOnly=true }}
-          {{> '@button' type='button' modifier='link' label='Verwijder' icon='trash' iconOnly=true }}
-        </td>
-      </tr>
+      {{/each}}
     </tbody>
   </table>
 </div>
