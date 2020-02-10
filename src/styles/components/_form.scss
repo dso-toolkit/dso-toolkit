@@ -34,6 +34,7 @@ form {
       > legend {
         @extend %is-h3;
         border-bottom: 0;
+        margin-bottom: $dso-fieldset-seperator-unit;
       }
 
       + fieldset {
