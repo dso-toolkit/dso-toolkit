@@ -131,7 +131,7 @@ context:
     groups:
     - id: input-radio-infobutton
       inputType: radios
-      label: Soms laat de vraagstelling aan duidelijkheid te wensen over. Blieft u een toelichting?
+      label: Soms laat de vraagstelling aan duidelijkheid te wensen over. Wenst u een toelichting hierop?
       options:
       - value: 1
         label: ja
