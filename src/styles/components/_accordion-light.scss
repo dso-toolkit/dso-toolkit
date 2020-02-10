@@ -7,6 +7,8 @@ $dso-accordion-light-handle-line-height: $u3;
 $dso-accordion-light-border-color: $grijs-20;
 
 .dso-accordion-light {
+  border-bottom: 1px solid $dso-accordion-light-border-color;
+
   .dso-section-handle,
   > h1.dso-section-handle,
   > h2.dso-section-handle,
