@@ -47,9 +47,15 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 
 - Opbouw van data grid is met native HTML ```<table>``` tag én ARIA table ```role="grid"```
 - Gebruik ```<th>``` om koptitels in header te definiëren.
-- Bij het gebruik van ```role="grid"``` wordt vanuit gegaan dat het data-grid aanpasbaar is. Voeg ```aria-readonly="true"``` toe, als het data-grid niet aanpasbaar is. 
 - Specifieke keyboard interacties moeten verder worden toegevoegd voor interactieve elementen.
 {{frame (path '/components/preview/table-data-grid') '.dso-example-wrapper'}}
+
+
+### Sorteren in een data-grid
+- Bij het gebruik van ```role="grid"``` wordt vanuit gegaan dat de data in het data-grid aanpasbaar is. Voeg ```aria-readonly="true"``` toe, als de data niet aanpasbaar is.  
+- Als je een kolom of rij sorteerbaar wilt maken, voeg dan aan het volgende toe: Wanneer de sortering oplopend is, geef het aan met ```aria-sort="ascending"```. Bij aflopende resultaten, gebruik ```aria-sort="descending"```.
+- Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met ```aria-sort```.
+{{frame (path '/components/preview/table-sortable-readonly') '.dso-example-wrapper'}}
 
 
 ## Bootstrap "table" 
@@ -74,6 +80,7 @@ Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
 
 
 ## Bronvermelding
-- [WAI ARIA 1.1 Table](https://w3c.github.io/aria-practices/#table)
-- [WAI ARIA 1.1 Grid](https://w3c.github.io/aria-practices/#grid)
+- [WAI-ARIA 1.1 Table](https://w3c.github.io/aria-practices/#table)
+- [WAI-ARIA 1.1 Grid](https://w3c.github.io/aria-practices/#grid)
+- [WAI-ARIA 1.1 ARIA-Sort](https://www.w3.org/TR/wai-aria-1.1/#aria-sort)
 - [Digitoegankelijk](https://www.digitoegankelijk.nl)
