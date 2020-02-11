@@ -134,13 +134,13 @@ context:
       label: Soms laat de vraagstelling aan duidelijkheid te wensen over. Wenst u een toelichting hierop?
       options:
       - value: 1
-        label: ja
+        label: ja, de vraagstelling aan duidelijkheid te wensen over, ik wil graag een toelichting hierop
         checked: true
         infoOpen: false
         infoText: |
           Empty
       - value: 2
-        label: nee
+        label: nee, het is mij duidelijk
       infoOpen: false
       infoText: |
         Empty
