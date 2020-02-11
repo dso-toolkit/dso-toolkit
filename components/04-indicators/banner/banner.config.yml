@@ -1,0 +1,11 @@
+notes: |
+status: wip
+collated: true
+context:
+  modifier: danger
+  message: Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.
+variants:
+  - name: warning
+    context:
+      modifier: warning
+      message: Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het Omgevingsloket. <a href="#">Meer informatie</a>
