@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Marges formulier elementen (#421)
 * Fieldset legend styling (#518)
 
+### Added
+* Banners (#472)
+
 ## 9.7.0 - 27-01-2020
 
 ### Added
