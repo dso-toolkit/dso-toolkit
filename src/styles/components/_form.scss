@@ -54,7 +54,7 @@ form {
 
   .dso-form-buttons {
     .btn-link {
-      padding: $dso-button-link-padding;
+      padding: $dso-button-link-padding 0;
     }
 
     .btn ~ .btn {
