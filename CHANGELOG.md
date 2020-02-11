@@ -33,9 +33,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Rendering iconen niet overal 24x24 (#497)
 * Waarschuwing (icoon) wordt niet voorgelezen in de shopping cart (#493)
 
-### Changed
-* Icons in (primaire, secundaire en default) buttons, verloren gegane modifiers, margins (#438)
-
 ## 9.6.0 - 15-01-2020
 
 ### Added
