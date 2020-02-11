@@ -277,12 +277,6 @@ select:not([multiple]) {
   .form-group {
     > .dso-label-container {
       @include make-sm-column($dso-label-column);
-
-      @media (min-width: $screen-sm-min) {
-        .dso-info-button {
-          margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
-        }
-      }
     }
 
     > legend.dso-label-container {
