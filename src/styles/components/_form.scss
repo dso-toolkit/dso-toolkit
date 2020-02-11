@@ -7,7 +7,7 @@ $dso-field-invalid-message-color: $dso-danger-color;
 $dso-field-invalid-icon-size: $u3;
 $dso-required-color: $grijs-60;
 
-$dso-form-group-margin-bottom: $u4;
+$dso-form-group-margin: $u4;
 
 $dso-form-control-border-width: 1px;
 $dso-form-control-focus-border-width: 2px;
@@ -79,7 +79,11 @@ form {
 }
 
 .form-group {
-  margin-bottom: $dso-form-group-margin-bottom;
+  margin-bottom: 0;
+
+  + .form-group {
+    margin-top: $dso-form-group-margin;
+  }
 
   > .dso-info {
     float: left;
