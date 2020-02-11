@@ -47,3 +47,12 @@
     outline: 5px auto -webkit-focus-ring-color; // sass-lint:disable-line no-vendor-prefixes
   }
 }
+
+label.control-label + .dso-info-button {
+  margin-top: #{$u1 - 1};
+
+  .dso-radios &,
+  .dso-checkboxes & {
+    margin-top: 0;
+  }
+}
