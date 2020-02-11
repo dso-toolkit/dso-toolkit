@@ -126,6 +126,7 @@ body.dso-modal-open {
 
     .btn-link {
       float: left;
+      padding: $dso-button-link-padding-horizontal 0;
     }
   }
 
@@ -167,8 +168,12 @@ body.dso-modal-open {
     }
 
     .dso-footer {
-      button + button.btn-default {
+      .btn + .btn-default {
         margin-left: $u2;
+      }
+
+      .btn + .btn-link {
+        margin-left: 0;
       }
     }
   }

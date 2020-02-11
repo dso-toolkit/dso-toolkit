@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
 * Marges formulier elementen (#421)
 * Fieldset legend styling (#518)
+* Icons in (primaire, secundaire en default) buttons, verloren gegane modifiers, margins (#438)
 
 ### Added
 * Banners (#472)

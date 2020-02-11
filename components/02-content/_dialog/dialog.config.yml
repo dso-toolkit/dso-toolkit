@@ -51,5 +51,4 @@ variants:
           - name: cancelButton
             type: button
             modifier: link
-            icon: times
             label: Annuleren
