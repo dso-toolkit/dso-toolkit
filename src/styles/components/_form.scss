@@ -78,6 +78,40 @@ form {
       margin-left: $u1;
     }
   }
+
+  &:not(.dso-single-page):not(.dso-sections) {
+    .dso-form-buttons {
+      @include clearfix;
+
+      text-align: right;
+
+      .btn:not(:only-child):first-child {
+        display: block;
+        float: left;
+      }
+    }
+  }
+
+  &.dso-sections {
+    .dso-form-buttons {
+      text-align: right;
+
+      .btn:not(.btn-link):not(:only-child):first-child {
+        display: block;
+        float: left;
+      }
+    }
+  }
+
+  .dso-form-buttons {
+    .btn-link {
+      padding: $dso-button-link-padding-horizontal 0;
+    }
+
+    .btn ~ .btn {
+      margin-left: $u2;
+    }
+  }
 }
 
 .form-group {
@@ -243,6 +277,12 @@ select:not([multiple]) {
   .form-group {
     > .dso-label-container {
       @include make-sm-column($dso-label-column);
+
+      @media (min-width: $screen-sm-min) {
+        .dso-info-button {
+          margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
+        }
+      }
     }
 
     > legend.dso-label-container {

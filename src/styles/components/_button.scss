@@ -27,12 +27,47 @@
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
 
+    svg.di {
+      margin-left: -$u1;
+      margin-right: $u1;
+    }
+
+    span + svg.di {
+      margin-left: $u1;
+      margin-right: -$u1;
+    }
+
     &.btn-sm {
       line-height: $u2;
 
       svg.di {
-        margin: $u1 / -2;
+        margin-bottom: -$u1 / 2;
+        margin-top: -$u1 / 2;
       }
+
+      &.extern,
+      &.download {
+        &::after {
+          margin-bottom: -$u1 / 2;
+          margin-top: -$u1 / 2;
+        }
+      }
+    }
+  }
+
+  + .btn {
+    margin-left: $u2;
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 1.5em;
+      margin-left: $u1;
+      vertical-align: top;
+      width: 1.5em;
     }
   }
 }
@@ -62,6 +97,46 @@
     &:hover {
       @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
       opacity: 1;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @include di("external-link-wit");
+      }
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        @include di("download-wit");
+      }
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+      }
     }
   }
 }
@@ -98,6 +173,18 @@
       opacity: 1;
     }
   }
+
+  &.extern {
+    &::after {
+      @include di("external-link-wit");
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download-wit");
+    }
+  }
 }
 
 .btn-link {
@@ -107,9 +194,8 @@
   padding: 0;
 
   &.btn-align {
-    height: $u3;
-    margin-bottom: 1.5 * $u1 - 1px;
-    margin-top: 1.5 * $u1 - 1px;
+    padding: $dso-button-link-padding-horizontal 0;
+    position: relative;
   }
 
   table.table & {
@@ -171,6 +257,32 @@
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+
+    &.disabled,
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+      }
     }
   }
 }
