@@ -57,6 +57,7 @@ form {
       text-align: right;
 
       .btn:not(:only-child):first-child {
+        display: block;
         float: left;
       }
     }
@@ -65,17 +66,21 @@ form {
   &.dso-sections {
     .dso-form-buttons {
       text-align: right;
+
+      .btn:not(.btn-link):not(:only-child):first-child {
+        display: block;
+        float: left;
+      }
     }
   }
 
   .dso-form-buttons {
     .btn-link {
-      line-height: $dso-button-line-height;
-      padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+      padding: $dso-button-link-padding-horizontal 0;
     }
 
     .btn ~ .btn {
-      margin-left: $u1;
+      margin-left: $u2;
     }
   }
 }
