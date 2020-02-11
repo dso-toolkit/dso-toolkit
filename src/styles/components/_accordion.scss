@@ -147,12 +147,14 @@ $dso-accordion-state-icon-size: $u3;
             &::before {
               @include di-variant("chevron-up-wit");
             }
-          }
-        }
 
-        .dso-attachments {
-          a::after {
-            @include di-variant("paperclip-wit");
+            .dso-attachments {
+              color: $wit;
+
+              &::after {
+                @include di-variant("paperclip-wit");
+              }
+            }
           }
         }
       }
