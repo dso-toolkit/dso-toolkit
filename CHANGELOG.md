@@ -6,12 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Fixed
-<<<<<<< HEAD
 * Bij het description Icon is het kruisje nog steeds 16*16 en niet 24*24 (#516)
 * Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
-=======
 * Positie info button bij een label over meerdere regels (#517)
->>>>>>> f537d7a... #517 Positie info button bij een label over meerdere regels
 
 ### Changed
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
