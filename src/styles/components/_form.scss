@@ -20,14 +20,32 @@ $dso-toggle-header-margin: 12px;
 
 $dso-button-info-size: $u2;
 
+$dso-fieldset-separator-color: $grijs-20;
+$dso-fieldset-separator-unit: $u4;
+
 .form,
 form {
   .dso-field-container {
     position: relative;
   }
 
-  > fieldset + fieldset {
-    margin-top: $u4;
+  > fieldset {
+    > fieldset {
+      padding-bottom: $dso-fieldset-separator-unit;
+
+      > legend {
+        @extend %is-h3;
+        border-bottom: 0;
+        margin-bottom: $dso-fieldset-separator-unit;
+      }
+
+      + fieldset {
+        > legend {
+          border-top: 1px solid $dso-fieldset-separator-color;
+          padding-top: $dso-fieldset-separator-unit;
+        }
+      }
+    }
   }
 
   &:not(.dso-single-page):not(.dso-sections) {
