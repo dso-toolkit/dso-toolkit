@@ -49,7 +49,7 @@
 }
 
 @media screen and (min-width: $screen-sm-min) {
-  .form-horizontal .control-label + .dso-info-button {
+  label.control-label + .dso-info-button {
     margin-top: #{$u1 - 1};
 
     .dso-radios &,
