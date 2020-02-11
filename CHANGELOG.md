@@ -7,7 +7,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 
-* Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
 * Paperclip en teller (`.dso-attachments`) worden niet wit wanneer het paneel van het accordion is uitgeklapt (#514)
 
 ## 9.7.0 - 27-01-2020
