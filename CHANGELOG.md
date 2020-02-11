@@ -28,16 +28,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Iconen wijziging - indicatoren (#502) Note: Geen wijziging maar toevoeging van iconen
 * Card component (#400)
 * Accordion component uitbreiding (#457)
-<<<<<<< HEAD
-
-### Changed
-* Button positionering (#401)
-
-### Fixed
-* Rendering iconen niet overal 24x24 (#497)
-* Waarschuwing (icoon) wordt niet voorgelezen in de shopping cart (#493)
-=======
->>>>>>> ea17b3e... Merge remote-tracking branch 'remotes/origin/master' into #438.Icons-in-buttons-modifiers-margins
 
 ### Changed
 * Button positionering (#401)
