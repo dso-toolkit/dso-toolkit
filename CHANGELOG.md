@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
 * Hoogte inputfields en dropdowns niet juist (#506)
 * Paperclip en teller (`.dso-attachments`) worden niet wit wanneer het paneel van het accordion is uitgeklapt (#514)
+* Positie info button bij een label over meerdere regels (#517)
 
 ### Changed
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
