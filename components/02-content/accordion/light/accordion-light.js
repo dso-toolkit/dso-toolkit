@@ -25,15 +25,11 @@ module.exports = function () {
 
       html += title;
 
-      html += (`</button>\n</${header}>`);
-
-      if (self.open) {
-        html += (
-          `<div class="dso-section-body">
-            ${options.fn(self)}
-          </div>`
-        );
-      }
+      html += (`</button>\n</${header}>
+        <div class="dso-section-body">
+          ${options.fn(self)}
+        </div>`
+      );
 
       return html.trim();
     }
