@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Shopping cart uitbreiding (#425) **Deprecation notice, see issue**
 * Verbetering tabel documentatie (#483)
 * Attachments counter component (#532)
+* Pdf-bestanden documentatie (#550)
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
