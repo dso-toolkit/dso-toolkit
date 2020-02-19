@@ -33,7 +33,10 @@ ol {
 
 .dso-cards {
   background: $wit;
-  box-shadow: 1px 2px 4px 0 $dso-cards-box-shadow-color;
+
+  &:not(.dso-card-flat) {
+    box-shadow: 1px 2px 4px 0 $dso-cards-box-shadow-color;
+  }
 }
 
 .dso-card > a {

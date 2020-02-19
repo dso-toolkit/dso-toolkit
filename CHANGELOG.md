@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hoogte inputfields en dropdowns niet juist (#506)
 * Fieldset legend styling (#518)
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
+* Cards component voorzien van variant zonder dropshadow (#549)
 
 ### Added
 * Banners (#472)
