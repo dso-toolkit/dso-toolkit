@@ -21,12 +21,12 @@ module.exports = function () {
 
       let html = (
         `<${header} class="dso-section-handle${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') }">
-          <button>`);
+          <button aria-expanded="${(self.open ? 'true' : 'false') }">`);
 
       html += title;
 
       html += (`</button>\n</${header}>
-        <div class="dso-section-body">
+        <div class="dso-section-body" aria-hidden="${(self.open ? 'false' : 'true') }">
           ${options.fn(self)}
         </div>`
       );
