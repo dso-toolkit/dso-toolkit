@@ -17,32 +17,23 @@
         <ul class="dso-items">
           {{#each items }}
             <li>
-              {{#if (hasWarning subitems)}}{{> '@icon' icon='status-warning' }}{{/if}}
-              {{ label }}{{#if (and (not readonly) (not edit1) (not edit2) additive)}}
+              {{#if (hasWarning subitems)}}{{> '@icon' icon='status-warning' }}<span class="sr-only">waarschuwing</span>{{/if}}
+              {{ label }}{{#if (and (not readonly) (not edit) additive)}}
                 <span class="dso-additive">{{ additive }}</span>
               {{~/if}}
               {{#unless readonly}}
-                {{#if edit1}}
-                  <input type="text" class="dso-edit-name" value="{{ additive }}" />
+                {{#if edit}}
+                  <div class="dso-edit-additive">
+                    <label for="additive-{{ ../_self.name }}-{{ @index }}">Bewerk toevoeging</label>
+                    <input type="text" class="dso-edit-name" id="additive-{{ ../_self.name }}-{{ @index }}" value="{{ additive }}" />
+                  </div>
                 {{/if}}
 
-                {{#if edit2}}
-                  <form>
-                    <div class="input-group">
-                      <label for="form_voorbeeld" class="input-group-addon">Toevoeging</label>
-                      <input type="text" id="form_voorbeeld" class="form-control" value="{{ additive }}">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">Ok</button>
-                      </span>
-                    </div>
-                  </form>
-                {{/if}}
-
-                {{#if (and (not edit1) (not edit2))}}
+                {{#if (not edit)}}
                   <button type="button" class="btn-link dso-edit-cart-item">Naam bewerken</button>
                 {{/if}}
               {{/unless}}
-              {{#unless (or edit1 edit2)}}
+              {{#unless edit}}
                 <button type="button" class="dso-delete" title="Verwijder">
                   {{> '@icon' icon='trash' }}
                 </button>
@@ -51,7 +42,7 @@
                 <ul class="dso-subitems">
                   {{#each subitems }}
                     <li>
-                      {{#if warning }}{{> '@icon' icon='status-warning' }}{{/if}}
+                      {{#if warning }}{{> '@icon' icon='status-warning' }}<span class="sr-only">waarschuwing</span>{{/if}}
                       {{ label }}
                       <button type="button" class="dso-delete" title="Verwijder">
                         {{> '@icon' icon='trash' }}

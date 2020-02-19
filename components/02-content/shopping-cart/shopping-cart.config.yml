@@ -21,7 +21,7 @@ variants:
         - label: Milieubelastende activiteit - Melding
         - label: Milieubelastende activiteit - Melding
           additive: 2
-          edit1: true
+          edit: true
   - name: subitems-hidden-summary
     context:
       hideSummary: true
@@ -31,7 +31,7 @@ variants:
             - label: Wasstraat of wasplaats
         - label: Milieubelastende activiteit - Melding
           additive: Wasstraat om de hoek van garagebedrijf Jansen
-          edit2: true
+          edit: true
           subitems:
             - label: Wasstraat of wasplaats
   - name: subitems

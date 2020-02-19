@@ -124,6 +124,14 @@ $dso-shopping-cart-border-color: $grijs-20;
     width: $u3;
   }
 
+  .dso-edit-additive {
+    margin-right: -$u4;
+
+    label {
+      @include sr-only;
+    }
+  }
+
   .dso-empty {
     padding: ($u3 / 2) $u2;
   }
