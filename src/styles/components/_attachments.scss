@@ -1,0 +1,14 @@
+.dso-attachments {
+  display: block;
+  float: right;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &::after {
+    @include di("paperclip-grijs");
+
+    content: "";
+    display: inline-block;
+  }
+}

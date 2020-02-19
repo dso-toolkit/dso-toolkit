@@ -69,17 +69,6 @@ $dso-accordion-state-icon-size: $u3;
 
       .dso-attachments {
         color: $grijs-60;
-        display: block;
-        float: right;
-        font-weight: 400;
-        text-decoration: none;
-
-        &::after {
-          @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
-
-          content: "";
-          display: inline-block;
-        }
       }
     }
   }
@@ -155,12 +144,6 @@ $dso-accordion-state-icon-size: $u3;
                 @include di-variant("paperclip-wit");
               }
             }
-          }
-        }
-
-        .dso-attachments {
-          a::after {
-            @include di-variant("paperclip-wit");
           }
         }
       }
