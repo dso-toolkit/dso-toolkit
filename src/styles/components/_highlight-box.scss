@@ -24,7 +24,10 @@
   &:not(.dso-border):not(.dso-drop-shadow) {
     a,
     a:visited {
-      color: $text-color;
+      &:not(.btn) {
+        color: $text-color;
+      }
     }
   }
 }
+

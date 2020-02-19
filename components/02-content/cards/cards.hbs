@@ -1,0 +1,7 @@
+<ul class="dso-cards{{#if interactionsLocation}} dso-interactions-{{ interactionsLocation }}{{/if}}">
+  {{#each cards}}
+    <li>
+      {{> '@card' }}
+    </li>
+  {{/each}}
+</ul>
