@@ -1,11 +1,12 @@
 .dso-attachments {
+  color: $grijs-60;
   display: inline-block;
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;
 
   &::after {
-    @include di("paperclip");
+    @include di("paperclip-grijs");
 
     content: "";
     display: inline-block;
