@@ -1,0 +1,53 @@
+label: Legal-Document
+status: wip
+default: complete
+collated: true
+variants:
+  - name: complete
+    context:
+      legalDocument:
+        - type: documentHeader
+          content: Naam van het document
+        - type: chapterHeader
+          content: Hoofdstuk
+        - type: titleHeader
+          content: Titel (optioneel)
+        - type: departmentHeader
+          content: Afdeling (optioneel)
+        - type: article
+          content:
+            - type: paragraphHeader
+              content: Paragraaf (optioneel)
+            - type: subparagraphHeader
+              content: Subparagraaf (optioneel)
+            - type: subsubparagraphHeader
+              content: Subsubparagraaf (optioneel)
+            - type: articleHeader
+              content: Artikel
+            - type: body
+              content: |
+                <p>Lid</p>
+                <p>Ander lid</p>
+                <ul>
+                  <li>item 1</li>
+                  <li>item 2</li>
+                </ul>
+  - name: no-optionals
+    context:
+      legalDocument:
+        - type: documentHeader
+          content: Naam van het document
+        - type: chapterHeader
+          content: Hoofdstuk
+        - type: article
+          content:
+            - type: articleHeader
+              content: Artikel
+            - type: body
+              content: |
+                <p>Lid</p>
+                <p>Ander lid</p>
+                <ul>
+                  <li>item 1</li>
+                  <li>item 2</li>
+                </ul>

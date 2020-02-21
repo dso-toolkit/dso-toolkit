@@ -124,5 +124,6 @@ require('../components/02-content/accordion/accordion.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js')(fractal),
 require('../components/02-content/progress-block/progress-block.js'),
 require('../components/02-content/shopping-cart/shopping-cart.helpers.js'),
-require('../components/02-content/description/description.js')(fractal)
+require('../components/02-content/description/description.js')(fractal),
+require('../components/07-layout/legal-document/legal-document.js')
 );
