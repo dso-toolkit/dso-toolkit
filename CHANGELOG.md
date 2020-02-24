@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
+* Toevoeging pagina voor bijzondere tekstverbeeldingen (#530)
 * Accordion faq styling (#523)
 
 ### Fixed

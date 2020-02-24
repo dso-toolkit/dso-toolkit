@@ -31,3 +31,34 @@ small,
 .small {
   font-size: $font-size-small;
 }
+
+//
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+//
+
+sub,
+sup,
+.dso-footnote-link {
+  font-size: .65em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup,
+.dso-footnote-link {
+  top: -.5em;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+del {
+  background-color: $dso-danger-bg-color;
+}
+
+ins {
+  background-color: $dso-success-bg-color;
+  text-decoration: none;
+}
