@@ -1,26 +1,25 @@
 <h1>Horizontale layout</h1>
-<p>Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12 columns structuur uit bootstrap 3.3.7 gebruikt.</p>
+<p>Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12 columns structuur uit Bootstrap 3 gebruikt.</p>
 <p>12 columns</p>
 <p>Column width auto</p>
 <p>Gutter width 32px (16px on each side of a column)</p>
 
 <h2>Breakpoints</h2>
-<label>Extra small (mobiele telefoons) smaller then 768px</label>
-<p>Max container width none (auto)</p>
-
-<label>Small (tablets) bigger or equal to 768px</label>
-<p>Max container width none (auto)</p>
-
-<label>Medium (desktops) bigger or equal to 992px</label>
-<p>Max container width 922px</p>
-
-<label>Large (desktops) bigger or equal to 1200px</label>
-<p>Max container width 1152</p>
+<dl class="dso-vertical">
+  <dt>Extra small (mobiele telefoons) smaller than 768px</dt>
+  <dd>Max container width none (auto)</dd>
+  <dt>Small (tablets) bigger or equal to 768px</dt>
+  <dd>Max container width none (auto)</dd>
+  <dt>Medium (desktops) bigger or equal to 992px</dt>
+  <dd>Max container width 922px</dd>
+  <dt>Large (desktops) bigger or equal to 1200px</dt>
+  <dd>Max container width 1152</dd>
+</dl>
 
 <h2>Verticale layout</h2>
 <p>Voor de verticale layout en hiërarchie wordt het 8px grid gebruikt. Het 8px grid betekent het volgende: Gebruik increments van 8px om de grootte van en ruimte tussen de elementen te tonen op een pagina. Dus height, width, padding, margin bestaan allemaal uit increments van 8.</p>
 
-<h1>Voorbeeld grid layout</h1>
+<h2>Voorbeeld grid layout</h2>
 <section class="grid-example">
   {{#each rows }}
     <div class="row">
