@@ -1,7 +1,4 @@
-label: Legal-Document
-status: wip
 default: complete
-collated: true
 variants:
   - name: complete
     context:

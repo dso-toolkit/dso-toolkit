@@ -14,8 +14,7 @@ module.exports = {
 
             return `<${headerElement} class="${headerClass}">${d.content}</${headerElement}>`;
           }
-
-          if (isArticle(d.type)) {
+          else if (isArticle(d.type)) {
             return `
               <article>
                 ${d.content.map((c, i, array) => {
@@ -25,7 +24,7 @@ module.exports = {
 
                     return `<${articleHeaderElement} class="${articleHeaderClass}">${c.content}</${articleHeaderElement}>`;
                   }
-                  if (isArticleBody(c.type)) {
+                  else if (isArticleBody(c.type)) {
                     return c.content;
                   }
                 }).join('')}
@@ -39,7 +38,7 @@ module.exports = {
 };
 
 function isHeader(type) {
-  return type === 'documentHeader' || type === 'chapterHeader' || type == 'titleHeader' || type === 'departmentHeader';
+  return type === 'documentHeader' || type === 'chapterHeader' || type === 'titleHeader' || type === 'departmentHeader';
 }
 
 function getHeader(h, array) {
@@ -95,7 +94,7 @@ function getArticleHeadingClass(type) {
       return 'dso-is-subparagraph';
     case 'subsubparagraphHeader':
       return 'dso-is-subsubparagraph';
-      case 'articleHeader':
-        return 'dso-is-article';
+    case 'articleHeader':
+      return 'dso-is-article';
   }
 }
