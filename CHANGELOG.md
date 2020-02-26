@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Toegankelijke structuur voor juridische documenten (#492)
 * Cards component voorzien van variant zonder dropshadow (#549)
+* Shopping cart uitbreiding (#425) **Deprecation notice, see issue**
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
