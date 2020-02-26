@@ -5,8 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Added
+* Toegankelijke structuur voor juridische documenten (#492)
+* Cards component voorzien van variant zonder dropshadow (#549)
+* **Deprecation notice, see issue:** Shopping cart uitbreiding (#425)
+
 ### Changed
-* Shopping cart uitbreiding (#425) (**Deprecation notice, see issue**)
+* Aanpassing bootstrap container width variabelen (#420)
 
 ## 9.8.0 - 21-02-2020
 
@@ -22,6 +27,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hoogte inputfields en dropdowns niet juist (#506)
 * Fieldset legend styling (#518)
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
+* Cards component voorzien van variant zonder dropshadow (#549)
 
 ### Added
 * Banners (#472)
