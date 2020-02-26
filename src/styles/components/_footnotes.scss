@@ -3,4 +3,8 @@
 
   border-top: 1px solid $grijs-40;
   padding-top: #{$dso-unit * 1.5};
+
+  .dso-indicator {
+    color: $grasgroen;
+  }
 }
