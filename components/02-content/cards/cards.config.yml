@@ -30,4 +30,4 @@ variants:
       interactionsLocation: bottom
   - name: flat
     context:
-      flat: true
+      modifiers: dso-flat
