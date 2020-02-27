@@ -73,11 +73,13 @@ body.dso-modal-open {
 
     .dso-close {
       background-color: transparent;
-      border: 0;
+      border: 2px solid transparent;
       border-radius: 50%;
       height: $dso-modal-close-icon-size;
+      padding: 0;
       position: absolute;
       right: 13px;
+      text-align: center;
       top: calc(50% - #{$dso-modal-close-icon-size / 2});
       width: $dso-modal-close-icon-size;
 
@@ -86,7 +88,6 @@ body.dso-modal-open {
 
         content: "";
         display: inline-block;
-        margin-top: $dso-icon-vertical-align;
         vertical-align: middle;
       }
 
@@ -125,6 +126,9 @@ body.dso-modal-open {
 
     .btn-link {
       float: left;
+      line-height: calc(1.5em - 1px);
+      padding: $dso-button-link-padding-horizontal 0;
+      position: relative;
     }
   }
 
@@ -166,8 +170,12 @@ body.dso-modal-open {
     }
 
     .dso-footer {
-      button + button.btn-default {
+      .btn + .btn-default {
         margin-left: $u2;
+      }
+
+      .btn + .btn-link {
+        margin-left: 0;
       }
     }
   }

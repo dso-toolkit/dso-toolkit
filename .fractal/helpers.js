@@ -112,11 +112,18 @@ module.exports = fractal => Object.assign({
   },
   map: function (array, property) {
     return array.map(a => a[property]);
+  },
+  json: function (obj) {
+    console.log(obj);
+
+    return JSON.stringify(obj, null, 2);
   }
 },
 require('../components/02-content/_dialog/dialog.js')(fractal),
 require('../components/02-content/accordion/accordion.js')(fractal),
 require('../components/02-content/highlight-box/highlight-box.js')(fractal),
 require('../components/02-content/progress-block/progress-block.js'),
-require('../components/02-content/shopping-cart/shopping-cart.helpers.js')
+require('../components/02-content/shopping-cart/shopping-cart.helpers.js'),
+require('../components/02-content/description/description.js')(fractal),
+require('../components/02-content/legal-document/legal-document.js')
 );

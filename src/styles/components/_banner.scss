@@ -1,0 +1,57 @@
+$dso-banner-left-padding: $u6;
+
+.banner {
+  padding: $u2 0;
+  position: relative;
+
+  .row {
+    > div {
+      line-height: $u3;
+      padding-left: $dso-banner-left-padding;
+      position: relative;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        left: $u2;
+        position: absolute;
+      }
+
+      button  {
+        float: right;
+
+        svg.di {
+          color: $zwart;
+        }
+      }
+
+      a {
+        text-decoration: underline;
+      }
+
+      @media screen and (max-width: $screen-xs-max) {
+        > span {
+          display: block;
+          width: calc(100% - #{$u3});
+        }
+      }
+    }
+  }
+
+  &.alert-danger {
+    .row > div::before {
+      @include di("status-danger-outline");
+    }
+  }
+
+  &.alert-warning {
+    .row > div::before {
+      @include di("status-warning-outline");
+    }
+  }
+
+  a,
+  a:visited {
+    color: $text-color;
+  }
+}

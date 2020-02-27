@@ -1,104 +1,64 @@
-<h1>The Hague (h1)</h1>
-<p>The Hague (<a href="https://en.wikipedia.org/wiki/Dutch_language" class="extern" target="_blank">Dutch</a>: Den Haag) is a city on the western coast of the Netherlands and the capital (<a href="#" class="download">chart</a>) of the province of South Holland.</p>
-<h2>History (h2)</h2>
-<p>See also: <a href="https://en.wikipedia.org/wiki/Timeline_of_The_Hague" class="extern" target="_blank">Timeline of The Hague</a></p>
-<h3>Early history (h3)</h3>
-<p>The Hague originated around 1230, when Count Floris IV of Holland purchased land alongside a pond, the present-day Hofvijver, in order to build a hunting residence. In 1248, his son and successor William II, King of the Romans, decided to extend the residence to a palace, which would later be called the Binnenhof (Inner Court). He died in 1256 before this palace was completed but parts of it were finished by his son Floris V, of which the Ridderzaal (Knights' Hall), still intact, is the most prominent.</p>
-<h4>Trivia (h4)</h4>
-<ul>
-  <li>The village that originated around the Binnenhof was first mentioned as Haga in a charter dating from 1242. In the 15th century, des Graven hage came into use, literally "The Count's Wood", with connotations like "The Count's Hedge, Private Enclosure or Hunting Grounds".</li>
-  <li>'s-Gravenhage was officially used for the city from the 17th century onwards. Today, this name is only used in some official documents like birth and marriage certificates. The city itself uses "Den Haag" in all its communication.</li>
-</ul>
-<h5>More information (h5)</h5>
-<p>See <a href="https://en.wikipedia.org/wiki/The_Hague" class="extern" target="_blank">Wikipedia</a></p>
-<h3>Modern history (h3)</h3>
-<p>Only in 1806, when the <a href="https://en.wikipedia.org/wiki/Kingdom_of_Holland" class="extern" class="_blank">Kingdom of Holland</a> was a puppet state of the First French Empire, was the settlement granted city rights by Louis Bonaparte. After the Napoleonic Wars, modern-day Belgium and the Netherlands were combined in the United Kingdom of the Netherlands to form a buffer against France. As a compromise, Brussels and Amsterdam alternated as capital every two years, with the government remaining in The Hague. After the separation of Belgium in 1830, Amsterdam remained the capital of the Netherlands, while the government was situated in The Hague. When the government started to play a more prominent role in Dutch society after 1850, The Hague quickly expanded. Many streets were specifically built for the large number of civil servants employed in the country's government and for the Dutchmen who were retiring from the administration of the Netherlands East Indies.</p>
-<h4>World War II (h4)</h4>
-<p>The city sustained heavy damage during World War II. Many Jews were killed during the German occupation. Additionally, the Atlantic Wall was built through the city, causing a large quarter to be torn down by the Nazi occupants. On 3 March 1945, the Royal Air Force mistakenly bombed the Bezuidenhout quarter. The target was an installation of V-2 rockets in the nearby Haagse Bos park, but because of navigational errors, the bombs fell on a heavily populated and historic part of the city. The bombardment wreaked widespread destruction in the area and caused 511 fatalities.</p>
-<h5>More information (h5)</h5>
-<p>See <a href="https://en.wikipedia.org/wiki/The_Hague" class="extern" target="_blank">Wikipedia</a></p>
-<h1>The Grid (h1)</h1>
+<h1>Horizontale layout</h1>
+<p>Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12 columns structuur uit Bootstrap 3 gebruikt.</p>
+<p>12 columns</p>
+<p>Column width auto</p>
+<p>Gutter width 32px (16px on each side of a column)</p>
+<h2>Breakpoints</h2>
+<dl class="dso-vertical">
+  <dt>Extra small (mobiele telefoons) smaller than 768px</dt>
+  <dd>Max container width none (auto)</dd>
+  <dt>Small (tablets) bigger or equal to 768px</dt>
+  <dd>Max container width none (auto)</dd>
+  <dt>Medium (desktops) bigger or equal to 992px</dt>
+  <dd>Max container width 922px</dd>
+  <dt>Large (desktops) bigger or equal to 1200px</dt>
+  <dd>Max container width 1152</dd>
+</dl>
+<h2>Verticale layout</h2>
+<p>Voor de verticale layout en hiërarchie wordt het 8px grid gebruikt. Het 8px grid betekent het volgende: Gebruik increments van 8px om de grootte van en ruimte tussen de elementen te tonen op een pagina. Dus height, width, padding, margin bestaan allemaal uit increments van 8.</p>
+<h2>Voorbeeld grid layout</h2>
 <section class="grid-example">
   <div class="row">
-    <div class="col-sm-4 col-md-2">
-      <div class="col">sm-4 md-2</div>
-    </div>
-    <div class="col-sm-8 col-md-10">
-      <div class="col">sm-8 md-10</div>
+    <div class="col-xs-12">
+      <div class="col">xs-12</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-5 col-md-4">
-      <div class="col">sm-5 md-4</div>
+    <div class="col-xs-6">
+      <div class="col">xs-6</div>
     </div>
-    <div class="col-sm-7 col-md-8">
-      <div class="col">sm-7 md-8</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6">
-      <div class="col">sm-6</div>
-    </div>
-    <div class="col-sm-6">
-      <div class="col">sm-6</div>
+    <div class="col-xs-6">
+      <div class="col">xs-6</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-7 col-md-8">
-      <div class="col">sm-7 md-8</div>
+    <div class="col-xs-4">
+      <div class="col">xs-4</div>
     </div>
-    <div class="col-sm-5 col-md-4">
-      <div class="col">sm-5 md-4</div>
+    <div class="col-xs-4">
+      <div class="col">xs-4</div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-md-10">
-      <div class="col">sm-8 md-10</div>
-    </div>
-    <div class="col-sm-4 col-md-2">
-      <div class="col">sm-4 md-2</div>
+    <div class="col-xs-4">
+      <div class="col">xs-4</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-      <div class="col">sm-6 sm-offset-3 md-4 md-offset-4</div>
+    <div class="col-xs-3">
+      <div class="col">xs-3</div>
+    </div>
+    <div class="col-xs-3">
+      <div class="col">xs-3</div>
+    </div>
+    <div class="col-xs-3">
+      <div class="col">xs-3</div>
+    </div>
+    <div class="col-xs-3">
+      <div class="col">xs-3</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-3 col-md-4">
-      <div class="col">sm-3 md-4</div>
-    </div>
-    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-      <div class="col">sm-6 sm-offset-3 md-4 md-offset-4</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4 col-md-6">
-      <div class="col">sm-4 md-6</div>
-    </div>
-    <div class="col-sm-7 col-sm-offset-1 col-md-4 col-md-offset-2">
-      <div class="col">sm-7 sm-offset-1 md-4 md-offset-2</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-4 col-md-10 col-md-offset-2">
-      <div class="col">sm-8 sm-offset-4 md-10 md-offset-2</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-5 col-sm-push-7 col-md-4 col-md-push-8">
-      <div class="col">sm-5 sm-push-7 md-4 md-push-8</div>
-    </div>
-    <div class="col-sm-7 col-sm-pull-5 col-md-8 col-md-pull-4">
-      <div class="col">sm-7 sm-pull-5 md-8 md-pull-4</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-7 col-sm-push-5 col-md-8 col-md-push-4">
-      <div class="col">sm-7 sm-push-5 md-8 md-push-4</div>
-    </div>
-    <div class="col-sm-5 col-sm-pull-7 col-md-4 col-md-pull-8">
-      <div class="col">sm-5 sm-pull-7 md-4 md-pull-8</div>
+    <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <div class="col">xs-12 sm-12 md-10 md-offset-1 lg-8 lg-offset-2</div>
     </div>
   </div>
 </section>

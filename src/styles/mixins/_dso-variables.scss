@@ -78,8 +78,7 @@ $dso-alert-info-bg-color: $dso-info-bg-color;
 $dso-alert-warning-bg-color: $dso-warning-bg-color;
 $dso-alert-danger-bg-color: $dso-danger-bg-color;
 
-$dso-button-size: $u6;
-$dso-button-link-size: $u4;
+$dso-button-size: $u7;
 
 $dso-button-border-radius: 4px;
 $dso-button-border-width: 1px;
@@ -104,6 +103,9 @@ $dso-button-default-disabled-color: $grasgroen-40;
 $dso-input-disabled-color: $grijs-40;
 $dso-input-disabled-border-color: $grijs-10;
 
+$dso-button-link-size: $u4;
+$dso-button-link-padding-horizontal: $dso-button-vertical-padding;
+
 $dso-full-width-color: $grasgroen-10;
 
 $dso-row-divider-color: #d3ddd6;
@@ -116,4 +118,7 @@ $dso-footer-border-color: #bcbebd;
 $dso-highlight-box-margin-top: $u6;
 
 $dso-whitebox-margin-bottom: $u7;
-$dso-whitebox-small-margin-bottom: $u7
+$dso-whitebox-small-margin-bottom: $u7;
+
+$dso-description-bg-color: $dso-info-bg-color;
+$dso-description-border-color: $dso-info-color;
