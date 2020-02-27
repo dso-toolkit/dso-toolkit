@@ -1,0 +1,28 @@
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Data-tabel</h2>
+    <p>Bij een data-tabel kan wel een koptitel als header boven de kolom worden geplaatst als overkoepelende groepsnaam.</p>
+  </div>
+  <table {{#if modifier}} class="{{modifier}}"{{/if}}>
+    <caption {{#unless showCaption}} class="sr-only"{{/unless}}>{{ caption }}</caption>
+    <thead>
+      <tr>
+        {{#each columnHeaders}}
+        <th scope="col">{{title}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rowContent}}
+      <tr {{#if rowNotification}} class="{{rowNotification}}"{{/if}}>
+        {{#if rowHeader}}
+        <th scope="row">{{rowHeader}}</th>
+        {{/if}}
+        <td><a href="#{{linkHref}}">{{documentNaam}}</a></td>
+        <td>{{eigenaar}}</td>
+        <td>{{uploadDatum}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
