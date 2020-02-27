@@ -1,2 +1,4 @@
 notes: |
   Counter voor attachments, toont met paperclip icoon.
+context:
+  count: 1

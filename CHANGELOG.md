@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Cards component voorzien van variant zonder dropshadow (#549)
 * Shopping cart uitbreiding (#425) **Deprecation notice, see issue**
 * Verbetering tabel documentatie (#483)
+* Attachments counter component (#532)
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
