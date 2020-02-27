@@ -67,19 +67,9 @@ $dso-accordion-state-icon-size: $u3;
         text-decoration: underline;
       }
 
-      .dso-attachments {
-        color: $grijs-60;
+      .dso-attachments-counter {
         display: block;
         float: right;
-        font-weight: 400;
-        text-decoration: none;
-
-        &::after {
-          @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
-
-          content: "";
-          display: inline-block;
-        }
       }
     }
   }
@@ -148,19 +138,13 @@ $dso-accordion-state-icon-size: $u3;
               @include di-variant("chevron-up-wit");
             }
 
-            .dso-attachments {
+            .dso-attachments-counter {
               color: $wit;
 
               &::after {
                 @include di-variant("paperclip-wit");
               }
             }
-          }
-        }
-
-        .dso-attachments {
-          a::after {
-            @include di-variant("paperclip-wit");
           }
         }
       }
