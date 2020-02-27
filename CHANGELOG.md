@@ -60,6 +60,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Begrippen in tekst (#240)
 * Toevoegen button component (#426)
+* Documentatie Typeahead (#366)
 
 ### Changed
 * accessibility, accordion: screen reader leest afgerond / niet afgerond niet wegens decoratieve icoontjes (#309)
