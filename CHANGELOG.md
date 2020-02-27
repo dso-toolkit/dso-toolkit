@@ -5,13 +5,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Added
+* Toegankelijke structuur voor juridische documenten (#492)
+* Cards component voorzien van variant zonder dropshadow (#549)
+* Shopping cart uitbreiding (#425) **Deprecation notice, see issue**
+
+### Changed
+* Aanpassing bootstrap container width variabelen (#420)
+
 ### Fixed
 * Een tertiaire button is hoger dan 24px (#524)
 
 ## 9.8.0 - 21-02-2020
 
 ### Fixed
-* Bij het description Icon is het kruisje nog steeds 16*16 en niet 24*24 (#516)
 * Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
 * Paperclip en teller (`.dso-attachments`) worden niet wit wanneer het paneel van het accordion is uitgeklapt (#514)
 * Bij het description Icon is het kruisje nog steeds 16*16 en niet 24*24 (#516)
@@ -23,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hoogte inputfields en dropdowns niet juist (#506)
 * Fieldset legend styling (#518)
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
+* Cards component voorzien van variant zonder dropshadow (#549)
 
 ### Added
 * Banners (#472)
