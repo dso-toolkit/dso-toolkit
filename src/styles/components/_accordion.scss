@@ -75,7 +75,7 @@ $dso-accordion-light-border-color: $grijs-20;
           text-decoration: underline;
         }
 
-        .dso-attachments {
+        .dso-attachments-counter {
           color: $grijs-60;
           display: block;
           float: right;
@@ -156,7 +156,7 @@ $dso-accordion-light-border-color: $grijs-20;
                 @include di-variant("chevron-up-wit");
               }
 
-              .dso-attachments {
+              .dso-attachments-counter {
                 color: $wit;
 
                 &::after {
@@ -166,7 +166,7 @@ $dso-accordion-light-border-color: $grijs-20;
             }
           }
 
-          .dso-attachments {
+          .dso-attachments-counter {
             a::after {
               @include di-variant("paperclip-wit");
             }
