@@ -17,6 +17,12 @@ $dso-accordion-light-handle-line-height: $u3;
 $dso-accordion-light-border-color: $grijs-20;
 
 .dso-accordion {
+  .dso-section-handle {
+    font-weight: 600;
+  }
+}
+
+.dso-accordion {
   &:not(.dso-accordion-compact) {
     .dso-accordion-section {
       .dso-section-handle,
