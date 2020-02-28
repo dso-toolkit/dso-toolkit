@@ -18,6 +18,7 @@ module.exports = function () {
     accordionSection(title, options) {
       const self = this;
       const header = options.hash.header || 'div';
+      const handleType = self.type;
 
       const termMap = {
         success: 'succes',
@@ -28,8 +29,9 @@ module.exports = function () {
 
       let html = (
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') + (self.sections ? ' dso-nested-accordion' : '') }">
-          <${header} class="dso-section-handle">
-            <a href="#">`);
+          <${header} class="dso-section-handle">`);
+
+      html += handleType === 'button' ? (`<button type="button">`) : (`<a href="#">`);
 
       const term = self.state;
       if (termMap[term]) {
@@ -48,7 +50,7 @@ module.exports = function () {
         html += (`<span class="dso-attachments">${attachments} <span class="sr-only">bijlage${attachments === 1 ? '' : 'n'}</span></span>`)
       }
 
-      html += (`</a>\n</${header}>`);
+      html += handleType === 'button' ? (`</button>\n</${header}>`) : (`</a>\n</${header}>`);
 
       if (self.open) {
         html += (
