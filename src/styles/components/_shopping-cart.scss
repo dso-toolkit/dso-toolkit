@@ -125,7 +125,9 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   .dso-edit-additive {
+    font-weight: 400;
     margin-right: -$u4;
+    margin-top: $u1;
 
     label {
       @include sr-only;
