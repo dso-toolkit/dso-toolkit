@@ -1,0 +1,32 @@
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Sorteerbare data-grid</h2>
+    <p>In het voorbeeld hieronder is de data is oplopend gesorteerd voor de kolom "Bron". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
+  </div>
+  <table {{#if modifier}} class="{{modifier}}"{{/if}} role="grid" aria-readonly="true">
+    <caption {{#unless showCaption}} class="sr-only"{{/unless}}>{{ caption }}</caption>
+    <thead>
+      <tr role="row">
+        {{#each columnHeaders}}
+        <th scope="col" {{#if sorteerbaar}} role="columnheader" aria-sort="ascending"{{/if}}>
+          {{title}}
+          {{#if sorteerbaar}}
+          {{> '@button' type='button' modifier='link' label='Sorteer' icon='sort' iconOnly=true }}
+          {{/if}}
+        </th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rowContent}}
+      <tr {{#if rowNotification}} class="{{rowNotification}}"{{/if}} role="row">
+        {{#if rowHeader}}
+        <th scope="row">{{rowHeader}}</th>
+        {{/if}}
+        <td><a href="#">{{bron}}</a></td>
+        <td>{{uitleg}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

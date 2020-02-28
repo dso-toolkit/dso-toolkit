@@ -191,9 +191,11 @@
   border: 0;
   border-radius: 0;
   color: $grasgroen;
+  line-height: 1;
   padding: 0;
 
   &.btn-align {
+    line-height: calc(1.5em - 1px);
     padding: $dso-button-link-padding-horizontal 0;
     position: relative;
   }
@@ -257,6 +259,14 @@
       background-color: $wit;
       border-color: $grasgroen-40;
       color: $grasgroen-40;
+    }
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      position: relative;
+      top: -2px;
     }
   }
 

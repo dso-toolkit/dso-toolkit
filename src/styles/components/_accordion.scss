@@ -9,12 +9,12 @@ $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
 
-$dso-accordion-light-main-color: $grasgroen;
-$dso-accordion-light-chevron-icon-size: $u3;
-$dso-accordion-light-chevron-space: $u1;
-$dso-accordion-light-chevron-left-offset: $dso-accordion-light-chevron-icon-size + $dso-accordion-light-chevron-space;
-$dso-accordion-light-handle-line-height: $u3;
-$dso-accordion-light-border-color: $grijs-20;
+$dso-accordion-compact-main-color: $grasgroen;
+$dso-accordion-compact-chevron-icon-size: $u3;
+$dso-accordion-compact-chevron-space: $u1;
+$dso-accordion-compact-chevron-left-offset: $dso-accordion-compact-chevron-icon-size + $dso-accordion-compact-chevron-space;
+$dso-accordion-compact-handle-line-height: $u3;
+$dso-accordion-compact-border-color: $grijs-20;
 
 .dso-accordion {
   &:not(.dso-accordion-compact) {
@@ -214,7 +214,7 @@ $dso-accordion-light-border-color: $grijs-20;
   }
 
   &.dso-accordion-compact {
-    border-bottom: 1px solid $dso-accordion-light-border-color;
+    border-bottom: 1px solid $dso-accordion-compact-border-color;
 
     .dso-accordion-section {
       &.dso-open {
@@ -225,7 +225,7 @@ $dso-accordion-light-border-color: $grijs-20;
         }
 
         .dso-section-body {
-          border-top: 1px solid $dso-accordion-light-border-color;
+          border-top: 1px solid $dso-accordion-compact-border-color;
           display: block;
           padding: $u2;
         }
@@ -233,10 +233,10 @@ $dso-accordion-light-border-color: $grijs-20;
     }
 
     .dso-section-handle {
-      border-top: 1px solid $dso-accordion-light-border-color;
+      border-top: 1px solid $dso-accordion-compact-border-color;
       box-sizing: content-box;
       font-size: 1em;
-      line-height: $dso-accordion-light-handle-line-height;
+      line-height: $dso-accordion-compact-handle-line-height;
       margin: 0;
       overflow: hidden;
       padding: $u1 * 1.5 $u2 $u1 * 1.5 $u1;
@@ -245,16 +245,16 @@ $dso-accordion-light-border-color: $grijs-20;
       button {
         background: transparent;
         border: 0;
-        color: $dso-accordion-light-main-color;
+        color: $dso-accordion-compact-main-color;
         display: block;
-        padding: 0 0 0 $dso-accordion-light-chevron-left-offset;
+        padding: 0 0 0 $dso-accordion-compact-chevron-left-offset;
         text-align: left;
         word-break: break-word;
 
         &:hover,
         &:active,
         &.active {
-          color: $dso-accordion-light-main-color;
+          color: $dso-accordion-compact-main-color;
         }
 
         &:focus {

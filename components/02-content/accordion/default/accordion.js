@@ -31,7 +31,7 @@ module.exports = function () {
         `<div class="dso-accordion-section${(self.state ? ' dso-' + self.state : '') + (self.open ? ' dso-open' : '') + (self.sections ? ' dso-nested-accordion' : '') }">
           <${header} class="dso-section-handle">`);
 
-      html += handleType === 'button' ? (`<button type="button">`) : (`<a href="#">`);
+      html += handleType === 'button' ? (`\n<button type="button">`) : (`\n<a href="#">`);
 
       const term = self.state;
       if (termMap[term]) {
@@ -47,7 +47,7 @@ module.exports = function () {
 
       const attachments = self.attachments;
       if (typeof attachments === 'number') {
-        html += (`<span class="dso-attachments">${attachments} <span class="sr-only">bijlage${attachments === 1 ? '' : 'n'}</span></span>`)
+        html += (`<span class="dso-attachments-counter">${attachments} <span class="sr-only">bijlage${attachments === 1 ? '' : 'n'}</span></span>`)
       }
 
       html += handleType === 'button' ? (`</button>\n</${header}>`) : (`</a>\n</${header}>`);

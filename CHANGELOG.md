@@ -6,7 +6,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Added
-Accordion faq styling (#523)
+* Toegankelijke structuur voor juridische documenten (#492)
+* Cards component voorzien van variant zonder dropshadow (#549)
+* Shopping cart uitbreiding (#425) **Deprecation notice, see issue**
+* Verbetering tabel documentatie (#483)
+* Attachments counter component (#532)
+* Pdf-bestanden documentatie (#550)
+* Accordion faq styling (#523)
+
+### Changed
+* Aanpassing bootstrap container width variabelen (#420)
+
+### Fixed
+* Een tertiaire button is hoger dan 24px (#524)
 
 ## 9.8.0 - 21-02-2020
 
@@ -23,6 +35,7 @@ Accordion faq styling (#523)
 * Hoogte inputfields en dropdowns niet juist (#506)
 * Fieldset legend styling (#518)
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
+* Cards component voorzien van variant zonder dropshadow (#549)
 
 ### Added
 * Banners (#472)
@@ -52,6 +65,7 @@ Accordion faq styling (#523)
 ### Added
 * Begrippen in tekst (#240)
 * Toevoegen button component (#426)
+* Documentatie Typeahead (#366)
 
 ### Changed
 * accessibility, accordion: screen reader leest afgerond / niet afgerond niet wegens decoratieve icoontjes (#309)
