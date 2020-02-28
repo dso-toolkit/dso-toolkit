@@ -37,16 +37,14 @@ small,
 //
 
 sub,
-sup,
-.dso-footnote-link {
+sup {
   font-size: .65em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
-sup,
-.dso-footnote-link {
+sup {
   top: -.5em;
 }
 
