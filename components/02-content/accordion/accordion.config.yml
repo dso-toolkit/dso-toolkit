@@ -73,3 +73,25 @@ context:
     header: h5
     attachments: 1
     open: true
+variants:
+  - name: compact
+    context:
+      modifiers: dso-accordion-compact
+      sections:
+        - title: Sectie titel (active)
+          id: panel1
+          header: h3
+          type: button
+          open: true
+        - title: Sectie titel
+          id: panel2
+          header: h3
+          type: button
+        - title: Sectie titel
+          id: panel3
+          header: h3
+          type: button
+        - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, ipsum eu porttitor cursus, metus ante ultricies quam, quis egestas urna justo a quam.
+          id: panel4
+          header: h3
+          type: button
