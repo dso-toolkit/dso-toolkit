@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Pdf-bestanden documentatie (#550)
 * Bijzondere tekstverbeeldingen in typografie geplaatst (#530)
 * Iconen update (#563)
+* Illustraties tbv storingsschermen (#570)
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
