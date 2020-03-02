@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+## 9.9.0 - 02-03-2020
+
 ### Added
 * Toegankelijke structuur voor juridische documenten (#492)
 * Cards component voorzien van variant zonder dropshadow (#549)
@@ -15,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Bijzondere tekstverbeeldingen in typografie geplaatst (#530)
 * Iconen update (#563)
 * Illustraties tbv storingsschermen (#570)
+* Zoekbalk type-ahead documentatie (#366)
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
@@ -37,7 +40,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Hoogte inputfields en dropdowns niet juist (#506)
 * Fieldset legend styling (#518)
 * Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
-* Cards component voorzien van variant zonder dropshadow (#549)
 
 ### Added
 * Banners (#472)
