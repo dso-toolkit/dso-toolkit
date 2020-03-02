@@ -12,10 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Verbetering tabel documentatie (#483)
 * Attachments counter component (#532)
 * Pdf-bestanden documentatie (#550)
+* Bijzondere tekstverbeeldingen in typografie geplaatst (#530)
 
 ### Changed
 * Aanpassing bootstrap container width variabelen (#420)
-* Accordion faq styling (#523)
 
 ### Fixed
 * Een tertiaire button is hoger dan 24px (#524)
