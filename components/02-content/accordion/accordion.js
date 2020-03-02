@@ -47,7 +47,7 @@ module.exports = function () {
 
       const attachments = self.attachments;
       if (typeof attachments === 'number') {
-        html += (`<span class="dso-attachments-counter">${attachments} <span class="sr-only">bijlage${attachments === 1 ? '' : 'n'}</span></span>`)
+        html += (`<span class="dso-attachments">${attachments} <span class="sr-only">bijlage${attachments === 1 ? '' : 'n'}</span></span>`)
       }
 
       html += handleType === 'button' ? (`</button>\n</${header}>`) : (`</a>\n</${header}>`);
