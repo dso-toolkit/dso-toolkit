@@ -6,6 +6,7 @@ const fractal = module.exports = require('@frctl/fractal').create();
 const collator = require('./.fractal/collator.js');
 
 const nunjucksFilters = require('./nunjucks/filters.js');
+const nunjucksGlobals = require('./nunjucks/globals.js');
 const nunjucksExtensions = require('./nunjucks/extensions.js');
 
 fractal.web.set('builder.dest', __dirname + '/build/library');
@@ -20,7 +21,7 @@ const nunj = require("@frctl/nunjucks")({
     ...nunjucksFilters
   },
   globals: {
-    // global-name: global-val
+    ...nunjucksGlobals
   },
   extensions: {
     ...nunjucksExtensions
