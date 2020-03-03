@@ -6,19 +6,19 @@
 
     <title>{{ _target.label }} | {{ _config.project.title }} - Component preview</title>
 
-    <link rel="stylesheet" href="{{path '/styles/dso.css' }}" />
+    <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
   </head>
 
   <body>
     <div class="container">
       <form class="form-horizontal">
-        {{{ yield }}}
+        {{ yield | safe }}
         <button type="submit" class="hidden">VALIDATOR_ONLY</button>
       </form>
     </div>
 
     <!-- Polyfill for svg use[href] with external uri -->
-    <script src="{{path '/svg4everybody.min.js' }}"></script>
+    <script src="{{ '/svg4everybody.min.js' | path }}"></script>
     <script>svg4everybody();</script>
   </body>
 
