@@ -3,24 +3,39 @@
 const path = require('path');
 
 const fractal = module.exports = require('@frctl/fractal').create();
-const helpers = require('./.fractal/helpers.js')(fractal);
 const collator = require('./.fractal/collator.js');
+
+const nunjucksFilters = require('./nunjucks/filters.js');
+const nunjucksExtensions = require('./nunjucks/extensions.js');
 
 fractal.web.set('builder.dest', __dirname + '/build/library');
 
 fractal.set('project.title', 'DSO Toolkit | Component Library');
 
-const hbs = require('@frctl/handlebars')({
-  helpers
+const nunj = require("@frctl/nunjucks")({
+  env: {
+    // Nunjucks environment opts: https://mozilla.github.io/nunjucks/api.html#configure
+  },
+  filters: {
+    ...nunjucksFilters
+  },
+  globals: {
+    // global-name: global-val
+  },
+  extensions: {
+    ...nunjucksExtensions
+  }
 });
 
-fractal.components.engine(hbs);
+fractal.components.engine(nunj);
+fractal.components.set('ext', '.njk');
 fractal.components.set('path', path.join(__dirname, 'components'));
 fractal.components.set('default.status', 'wip');
 fractal.components.set('default.collator', collator.defaultCollator);
 fractal.components.set('label', 'Componenten');
 
-fractal.docs.engine(hbs);
+fractal.docs.engine(nunj);
+fractal.components.set('ext', '.njk');
 fractal.docs.set('path', path.join(__dirname, 'docs'));
 fractal.docs.set('label', 'Documentatie');
 
