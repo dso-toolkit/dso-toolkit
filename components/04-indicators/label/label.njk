@@ -1,4 +1,4 @@
-<span class="dso-label{% if modifier %} dso-label-{{ modifier }}{% endif %}">
+<span {{ className('dso-label', [modifier, 'dso-label-' + modifier]) }}>
   {{ label }}
   {% if button -%}
     <button type="button" title="{{ buttonTitle }}">
