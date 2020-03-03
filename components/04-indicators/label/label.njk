@@ -1,0 +1,8 @@
+<span class="dso-label{% if modifier %} dso-label-{{ modifier }}{% endif %}">
+  {{ label }}
+  {% if button -%}
+    <button type="button" title="{{ buttonTitle }}">
+      {%- render '@icon', {icon: button} -%}
+    </button>
+  {% endif -%}
+</span>
