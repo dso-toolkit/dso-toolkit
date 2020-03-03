@@ -1,13 +1,13 @@
 <div id="{{ carouselId }}" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     {% for slide in slides -%}
-      <li data-target="#{{ carouselId }}" data-slide-to="{{ loop.index0 }}" {% if slide.active %}class="active"{% endif %}></li>
+      <li data-target="#{{ carouselId }}" data-slide-to="{{ loop.index0 }}" {{ className([slide.active, 'active']) }}></li>
     {% endfor -%}
   </ol>
 
   <div class="carousel-inner" role="listbox">
     {% for slide in slides -%}
-      <div class="item{% if slide.active %} active{% endif %}">
+      <div {{ className('item', [slide.active, 'active']) }}>
         <img src="{{ slide.image | path }}" alt="{{ slide.imageAlt }}" />
       </div>
     {% endfor -%}
