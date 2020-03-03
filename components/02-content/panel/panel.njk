@@ -1,21 +1,21 @@
 <div class="panel panel-{{ modifier }}">
-  {{#if title }}
+  {% if title -%}
     <div class="panel-heading">
-      {{#if header}}
-        <{{header}} class="panel-title">
+      {% if header -%}
+        <{{ header }} class="panel-title">
           {{ title }}
-        </{{header}}>
-      {{else}}
+        </{{ header }}>
+      {% else -%}
         {{ title }}
-      {{/if}}
+      {% endif -%}
     </div>
-  {{/if}}
+  {% endif -%}
   <div class="panel-body">
     <p>{{ body }}</p>
   </div>
-  {{#if footer }}
+  {% if footer -%}
     <div class="panel-footer">
       {{ footer }}
     </div>
-  {{/if}}
+  {% endif -%}
 </div>
