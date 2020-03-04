@@ -1,9 +1,9 @@
-<nav class="dso-navbar{{#if open}} dso-open{{/if}}">
+<nav {{ className('dso-navbar', [open, 'dso-open']) }}>
   <div class="dso-navbar-header">
     <button type="button" class="dso-navbar-toggle">
-      {{> '@icon' icon='bars' }}
+      {% render '@icon', {icon: 'bars'} %}
       <span class="sr-only">Ga naar menu</span>
     </button>
   </div>
-  {{> '@navs' }}
+  {% render '@navs', {modifier: modifier, items: items} %}
 </nav>
