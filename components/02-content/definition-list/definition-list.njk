@@ -1,0 +1,15 @@
+<dl {{ className(modifier) }}>
+  {%- for definition in definitions %}
+    <dt>{{ definition.term }}</dt>
+    {%- for description in definition.descriptions %}
+      <dd>{{ description.description }}</dd>
+    {%- endfor -%}
+    {%- if definition.longread %}
+      <dd>
+        {%- for paragraph in definition.longread %}
+          <p>{{ paragraph.paragraph }}</p>
+        {%- endfor -%}
+      </dd>
+    {%- endif -%}
+  {% endfor -%}
+</dl>
