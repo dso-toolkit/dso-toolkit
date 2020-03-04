@@ -2,15 +2,15 @@
   <h2 class="dso-jumbotron-title">{{ title }}</h2>
   <div class="dso-jumbotron-body">
     <p>{{ content }}</p>
-    {{#if button }}
+    {%- if button %}
       <div class="dso-jumbotron-cta">
-        {{> '@button' button }}
+        {% render '@button', button %}
       </div>
-    {{/if}}
+    {% endif -%}
   </div>
-  {{#if image }}
+  {%- if image %}
     <div class="dso-jumbotron-image">
-      {{> '@image' image }}
+      {% render '@image', image %}
     </div>
-  {{/if}}
+  {% endif -%}
 </div>
