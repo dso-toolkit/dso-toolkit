@@ -1,4 +1,4 @@
-<div class="panel panel-{{ modifier }}">
+<div {{ className('panel', 'panel-' + modifier) }}>
   {% if title -%}
     <div class="panel-heading">
       {% if header -%}

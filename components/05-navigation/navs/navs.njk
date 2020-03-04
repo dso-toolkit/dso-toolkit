@@ -1,4 +1,4 @@
-<ul class="dso-nav dso-nav-{{ modifier }}">
+<ul {{ className('dso-nav', 'dso-nav-' + modifier) }}>
   {%- for item in items %}
     <li {{ className([item.active, 'dso-active']) }}>
       <a href="#">
