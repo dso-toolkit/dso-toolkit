@@ -4,17 +4,17 @@
       {{ label }}
     </label>
     {% if infoText %}
-      {% render '@info-button' %}
+      {% render '@info-button', {infoOpen: infoOpen} %}
     {% endif %}
   </legend>
   <div class="dso-field-container">
     {% for option in options %}
       <div class="dso-selectable">
-        <input type="checkbox" id="{{ id }}-{{ loop.index }}" name="{{ id }}" value="{{ option.value }}"
+        <input type="checkbox" id="{{ id }}-{{ loop.index0 }}" name="{{ id }}" value="{{ option.value }}"
           {% if option.disabled %} disabled{% endif %}
           {% if option.checked %} checked{% endif %}
           {% if option.required %} required{% endif %}>
-        <label for="{{ id }}-{{ loop.index }}">
+        <label for="{{ id }}-{{ loop.index0 }}">
           {{ option.label }}
         </label>
         {% if option.infoText %}
@@ -29,7 +29,7 @@
       {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block' %}
+      {% render '@help-block', {helpText: helpText, id: id} %}
     {% endif %}
   </div>
   {% if infoOpen %}
