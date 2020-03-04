@@ -1,11 +1,11 @@
 <nav aria-label="Zoekresultaten pager">
   <ul class="pager">
-    <li class="previous{{#if firstPage}} disabled{{/if}}">
+    <li {{ className('previous', [firstPage, 'disabled']) }}>
       <a href="#">
         Vorige
       </a>
     </li>
-    <li class="next{{#if lastPage}} disabled{{/if}}">
+    <li {{ className('next', [lastPage, 'disabled']) }}>
       <a href="#">
         Volgende
       </a>
