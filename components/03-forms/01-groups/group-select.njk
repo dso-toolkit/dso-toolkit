@@ -1,9 +1,3 @@
-{% macro option(data) %}
-  {% for item in data.items %}
-    <option value="{{ item.value }}"{% if item.selected %} selected{% endif %}>{{ item.label }}</option>
-  {% endfor %}
-{% endmacro %}
-
 <div {{ className('form-group dso-select', [multiple, 'dso-multiple'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
     <label for="{{ id }}" class="control-label">
@@ -19,10 +13,11 @@
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
       {% if required %} required{% endif %}>
-      {% for items in options %}
-        <optgroup label="{{ items.optionType }}"{% if items.disabled %} disabled{% endif %}>
-          {% set data = items %}
-          {{ option(data) }}
+      {% for option in options %}
+        <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
+          {% for item in option.items %}
+            <option value="{{ item.value }}"{% if item.selected %} selected{% endif %}>{{ item.label }}</option>
+          {% endfor %}
         </optgroup>
       {% endfor %}
     </select>
