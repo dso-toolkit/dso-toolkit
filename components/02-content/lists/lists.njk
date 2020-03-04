@@ -1,0 +1,7 @@
+<ul>
+  {%- for item in items -%}
+    <li>
+      {{ item.text }}{% if item.paragraph %}<p>{{ item.paragraph }}</p>{% endif %}
+    </li>
+  {% endfor -%}
+</ul>
