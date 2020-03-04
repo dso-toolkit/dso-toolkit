@@ -1,5 +1,5 @@
 <button type="{{ type }}"{% if iconOnly %} title="{{ label }}"{% endif %} {{ className('btn', [modifier, 'btn-' + modifier]) }}{% if disabled %} disabled{% endif %}>
   {%- if icon and not(iconOnly) %}{% render '@icon', {icon: icon} -%}{% endif -%}
   <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
-  {% if iconAfter or iconOnly %}{% render '@icon', {icon: (iconAfter or icon)} -%}{% endif -%}
+  {%- if iconAfter or iconOnly %}{% render '@icon', {icon: (iconAfter or icon)} -%}{% endif -%}
 </button>

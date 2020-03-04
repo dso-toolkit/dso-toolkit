@@ -1,0 +1,15 @@
+<li>
+  <div class="dso-filename">
+    {{ filename }}
+  </div>
+  <div class="dso-confidential dso-selectable">
+    <input type="checkbox" id="input-confirm-{{ pos }}" name="" value="" {% if confidential %} checked {% endif %} />
+    <label for="input-confirm-{{ pos }}">
+      Vertrouwelijk
+    </label>
+  </div>
+  {% if confidential %}
+    {%- render '@icon', {icon: 'status-warning'} -%}
+  {% endif %}
+  {% render '@button', {label: 'Verwijder document', modifier: 'link dso-remove', type: 'button'}, true -%}
+</li>
