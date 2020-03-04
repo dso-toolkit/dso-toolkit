@@ -1,0 +1,25 @@
+<ul class="dso-conclusion">
+  {%- for item in items -%}
+    <li class="dso-{{ item.modifier }}">
+      {{ item.label | safe }}
+      {%- if item.info %}
+        {% render '@info-button', item.info %}
+      {% endif %}
+
+      {%- if item.subItems %}
+        <ul>
+          {%- for subItem in item.subItems -%}
+            <li>{{ subItem | safe }}</li>
+          {% endfor -%}
+        </ul>
+      {% endif -%}
+
+      {%- if item.info %}
+        {% render '@info', item.info %}
+      {% endif -%}
+    </li>
+  {% endfor -%}
+</ul>
+{% if alert %}
+  {% render '@alert', alert %}
+{% endif %}
