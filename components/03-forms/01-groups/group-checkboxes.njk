@@ -10,11 +10,11 @@
   <div class="dso-field-container">
     {% for option in options %}
       <div class="dso-selectable">
-        <input type="checkbox" id="{{ id }}-{{ @index }}" name="{{ id }}" value="{{ option.value }}"
+        <input type="checkbox" id="{{ id }}-{{ loop.index }}" name="{{ id }}" value="{{ option.value }}"
           {% if option.disabled %} disabled{% endif %}
           {% if option.checked %} checked{% endif %}
           {% if option.required %} required{% endif %}>
-        <label for="{{ id }}-{{ @index }}">
+        <label for="{{ id }}-{{ loop.index }}">
           {{ option.label }}
         </label>
         {% if option.infoText %}
@@ -26,7 +26,7 @@
       </div>
     {% endfor %}
     {% if errorText %}
-      {% render '@error-block' %}
+      {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block' %}
