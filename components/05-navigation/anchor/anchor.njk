@@ -1,0 +1,21 @@
+<a href="{{ url }}"{% if iconOnly %} title="{{ label }}"{% endif %} {{ className(modifier) }} {% if modifier === 'extern' %}target="_blank"{% endif %}>
+  {%- if icon and not iconOnly %}
+    {%- render '@icon', {icon: icon} -%}
+    {%- if not modifier or modifier.indexOf('btn') === -1 %} {% endif -%}
+  {%- endif -%}
+
+  {%- if modifier and modifier.indexOf('btn') > -1 %}
+    <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
+  {%- else -%}
+    {{ label }}
+  {%- endif -%}
+
+  {%- if iconAfter or iconOnly %}
+    {%- if not modifier or modifier.indexOf('btn') === -1 %} {% endif -%}
+    {%- render '@icon', {icon: iconAfter or icon} %}
+  {%- endif -%}
+
+  {%- if badge %}
+    {% render '@badge', badge %}
+  {%- endif -%}
+</a>
