@@ -1,7 +1,7 @@
 <div {{ className('form-group', 'dso-confirm', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-field-container">
     <div class="dso-selectable">
-      <input type="checkbox" id="{{ id }}" name="{{ id }}" value="{{ value }}"
+      <input type="checkbox" id="{{ id }}" name="{{ id }}"
         {% if disabled %} disabled{% endif %}
         {% if checked %} checked{% endif %}
         {% if required %} required{% endif %}>
