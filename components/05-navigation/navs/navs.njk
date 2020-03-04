@@ -1,6 +1,6 @@
 <ul class="dso-nav dso-nav-{{ modifier }}">
   {%- for item in items %}
-    <li {{ className([active, 'dso-active']) }}>
+    <li {{ className([item.active, 'dso-active']) }}>
       <a href="#">
         {{ item.label }}
       </a>
