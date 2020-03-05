@@ -1,0 +1,20 @@
+<form{% if formModifier %} class="{{ formModifier }}"{% endif %}>
+  <fieldset class="dso-form-fields">
+    <legend class="sr-only">{{ formLegend }}</legend>
+    {% for outerfieldset in fieldsets %}
+      <fieldset>
+        <legend{% if outerfieldset.legendScreenreaderOnly %} class="sr-only"{% endif %}>{{ outerfieldset.legend }}</legend>
+        {% for fieldsetgroup in outerfieldset.groups %}
+          {% render '@group-' + fieldsetgroup.inputType, fieldsetgroup %}
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+  </fieldset>
+  {% if buttons %}
+    <div class="dso-form-buttons">
+      {% for button in buttons %}
+        {% render '@button', button %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</form>
