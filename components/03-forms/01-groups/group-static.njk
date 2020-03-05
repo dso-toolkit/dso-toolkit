@@ -1,14 +1,14 @@
 <div class="form-group dso-static">
   <div class="dso-label-container">
     <label class="control-label">{{ label }}</label>
-    {{#if infoText }}
-      {{> '@info-button' }}
-    {{/if}}
+    {% if infoText %}
+      {% render '@info-button', {infoOpen: infoOpen} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
     <p>{{ value }}</p>
   </div>
-  {{#if infoOpen }}
-    {{> '@info' }}
-  {{/if}}
+  {% if infoOpen %}
+    {% render '@info', {infoText: infoText} %}
+  {% endif %}
 </div>
