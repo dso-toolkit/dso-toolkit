@@ -1,9 +1,9 @@
 <ul class="dso-conclusion">
   {%- for item in items -%}
-    <li class="dso-{{ item.modifier }}">
+    <li {{ className('dso-' + item.modifier) }}>
       {{ item.label | safe }}
       {%- if item.info %}
-        {% render '@info-button', item.info %}
+        {% render '@info-button', item.info, true %}
       {% endif %}
 
       {%- if item.subItems %}
@@ -15,11 +15,11 @@
       {% endif -%}
 
       {%- if item.info %}
-        {% render '@info', item.info %}
+        {% render '@info', item.info, true %}
       {% endif -%}
     </li>
   {% endfor -%}
 </ul>
 {% if alert %}
-  {% render '@alert', alert %}
+  {% render '@alert', alert, true %}
 {% endif %}

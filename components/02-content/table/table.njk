@@ -1,5 +1,5 @@
-<table{{#if modifier}} class="{{ modifier }}"{{/if}}>
-  <caption {{#unless showCaption }}class="sr-only"{{/unless}}>{{ caption }}</caption>
+<table {{ className(modifier) }}>
+  <caption {% if not showCaption %}class="sr-only"{% endif %}>{{ caption }}</caption>
   <thead>
     <tr>
       <th scope="col">#</th>

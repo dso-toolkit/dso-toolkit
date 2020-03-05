@@ -4,7 +4,7 @@
     {%- if not modifier or modifier.indexOf('btn') === -1 %} {% endif -%}
   {%- endif -%}
 
-  {%- if modifier and modifier.indexOf('btn') > -1 %}
+  {%- if modifier and modifier.indexOf('btn') > -1 -%}
     <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
   {%- else -%}
     {{ label }}
