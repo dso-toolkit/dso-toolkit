@@ -1,6 +1,0 @@
-<button type="{{ type }}" class="btn dso-list-button{{#if (gt count 0) }} dso-selected{{/if}}" {{{ifattr 'disabled' disabled }}}>
-  <span>{{ label }}</span>
-  {{#if (eq count 1) }}{{> '@icon' icon='check' }}{{/if}}
-  {{#if (gt count 1) }}<span class="dso-count">{{ count }}x</span>{{/if}}
-  {{#if (gt count 0) }}<span class="sr-only">geselecteerd</span>{{/if}}
-</button>
