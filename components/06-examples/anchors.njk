@@ -2,13 +2,13 @@
   <h2 style="margin-bottom: 24px">Link</h2>
   <div class="row">
     <div class="col-md-3">
-      {{> '@anchor' label='Link voorbeeld' url="#" }}
+      {% render '@anchor', {label:'Link voorbeeld', url:"#"} %}
     </div>
     <div class="col-md-3">
-      {{> '@anchor' label='Externe link' url="#" modifier="extern" }}
+      {% render '@anchor', {label:'Externe link', url:"#", modifier:"extern") %}
     </div>
     <div class="col-md-3">
-      {{> '@anchor' label='Download link' url="#" modifier="download" }}
+      {% render '@anchor', {label:'Download link', url:"#", modifier:"download") %}
     </div>
   </div>
 
@@ -32,13 +32,13 @@
 
   <div class="row">
     <div class="col-md-3 example-big-font">
-      {{> '@anchor' label='Link voorbeeld' url="#" }}
+      {% render '@anchor', {label:'Link voorbeeld', url:"#"} %}
     </div>
     <div class="col-md-3 example-big-font">
-      {{> '@anchor' label='Externe link' url="#" modifier="extern" }}
+      {% render '@anchor', {label:'Externe link', url:"#", modifier:"extern"} %}
     </div>
     <div class="col-md-3 example-big-font">
-      {{> '@anchor' label='Download link' url="#" modifier="download" }}
+      {% render '@anchor', {label:'Download link', url:"#", modifier:"download"} %}
     </div>
   </div>
 
@@ -63,19 +63,19 @@
   <h2 style="margin-bottom: 24px">Visueel als buttons</h2>
   <div class="row">
     <div class="col-md-3">
-      {{> '@anchor' label='Anchor' modifier='btn btn-primary' url='#' }}
-      {{> '@anchor' label='Anchor' modifier='btn btn-default' url='#' }}
+      {% render '@anchor', {label:'Anchor', modifier:'btn btn-primary', url:'#'} %}
+      {% render '@anchor', {label:'Anchor', modifier:'btn btn-default', url:'#'} %}
     </div>
     <div class="col-md-2">
-      {{> '@anchor' label='.btn-align' modifier='btn btn-link btn-align' url='#' }}
+      {% render '@anchor', {label:'.btn-align', modifier:'btn btn-link btn-align', url:'#'} %}
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      {{> '@anchor' label='Link button' modifier='btn btn-link' url='#' }}
-      {{> '@anchor' label='Link button' modifier='btn btn-link' icon='info' iconOnly=true url='#' }}
-      {{> '@anchor' label='Link button' modifier='btn btn-link' icon='angle-left' url='#' }}
-      {{> '@anchor' label='Link button' modifier='btn btn-link' iconAfter='angle-right' url='#' }}
+      {% render '@anchor', {label:'Link button', modifier:'btn btn-link', url:'#'} %}
+      {% render '@anchor', {label:'Link button', modifier:'btn btn-link', icon:'info', iconOnly:true, url:'#'} %}
+      {% render '@anchor', {label:'Link button', modifier:'btn btn-link', icon:'angle-left', url:'#'} %}
+      {% render '@anchor', {label:'Link button', modifier:'btn btn-link', iconAfter:'angle-right', url:'#'} %}
     </div>
   </div>
 </div>
