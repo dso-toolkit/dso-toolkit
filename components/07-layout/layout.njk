@@ -21,13 +21,13 @@
 
 <h2>Voorbeeld grid layout</h2>
 <section class="grid-example">
-  {{#each rows }}
+  {% for layoutrow in rows %}
     <div class="row">
-      {{#each columns }}
-        <div class="{{join (prefix this 'col-') ' ' }}">
-          <div class="col">{{join this ' ' }}</div>
+      {% for col in layoutrow.columns %}
+        <div class="{% for def in col %}{%if loop.index0 > 0 %} {% endif %}col-{{ def }}{% endfor %}">
+          <div class="col">{{ col | join(' ') }}</div>
         </div>
-      {{/each}}
+      {% endfor %}
     </div>
-  {{/each}}
+  {% endfor %}
 </section>
