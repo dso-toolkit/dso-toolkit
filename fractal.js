@@ -24,7 +24,7 @@ const nunj = require("@frctl/nunjucks")({
     ...nunjucksGlobals
   },
   extensions: {
-    ...nunjucksExtensions
+    ...nunjucksExtensions(fractal)
   }
 });
 
