@@ -1,4 +1,14 @@
-{{#highlightBox step=step icon=icon label=label }}
+{# <div class="${['dso-highlight-box',this.modifier,modifier,(step || (icon && label)) ? 'dso-has-counter' : false].filter(c => c).join(' ')}"> #}
+<div {{ className('dso-highlight-box', modifier, [step or (icon and label), 'dso-has-counter']) }}>
+  {%- if step or (icon and label) %}
+    <div class="dso-step-counter">
+      {%- if icon and label %}
+        {% render '@icon', {icon: icon, label: label} %}
+      {% else %}
+        {{ step }}
+      {% endif -%}
+    </div>
+  {% endif -%}
   <div class="dso-rich-content">
     <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
     <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p>
@@ -9,4 +19,4 @@
     <a href="#" class="btn btn-default">Secundaire button</a>
     <a href="#" class="btn btn-link btn-align">Tertiaire button</a>
   </div>
-{{/highlightBox}}
+</div>
