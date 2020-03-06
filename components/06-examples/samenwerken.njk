@@ -1,15 +1,15 @@
-{{> '@header' }}
+{% render '@header', {menu: menu, breadcrumbs: []} -%}
 <main>
   <div class="row">
     <div class="col-md-12">
       <h1>Samenwerken aan behandelen</h1>
-      {{> '@steps'}}
+      {% render '@steps', {title: title} -%}
     </div>
   </div>
   <div class="row">
     <div class="col-md-3">
-      {{> '@button' label='samenwerking toevoegen' type='button' modifier='link' icon='plus'}}
-    </div> 
+      {% render '@button', {label:'samenwerking toevoegen', type:'button', modifier:'link', icon:'plus'} %}
+    </div>
   </div>
   <div class="row">
     <div class="col-md-12">
@@ -34,13 +34,13 @@
             <td>Gemeente Den Haag</td>
             <td>123456789123</td>
             <td>Geheim</td>
-            <td>{{> '@anchor' url='#' modifier='btn btn-link' label='Gebruikers' icon='users' iconOnly=true }}</td>
-            <td>{{> '@anchor' url='#' modifier='btn btn-link' label='Gegevens wijzigen' icon='pencil' iconOnly=true }}</td>
-            <td>{{> '@button' type='button' modifier='link pull-right' label='Openen' icon='angle-right'}}</td>
+            <td>{% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gebruikers', icon:'users', iconOnly:true} %}</td>
+            <td>{% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gegevens wijzigen', icon:'pencil', iconOnly:true} %}</td>
+            <td>{% render '@button', {type:'button', modifier:'link pull-right', label:'Openen', icon:'angle-right'} %}</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </main>
-{{render '@footer' }}
+{% render '@footer' %}

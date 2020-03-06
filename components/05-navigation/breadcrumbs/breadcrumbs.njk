@@ -1,5 +1,5 @@
 <ol class="breadcrumb">
-  {% for crumb in crumbs %}
+  {%- for crumb in crumbs %}
     {%- if loop.last -%}
       <li class="active">{{ crumb.label }}</li>
     {%- else -%}
