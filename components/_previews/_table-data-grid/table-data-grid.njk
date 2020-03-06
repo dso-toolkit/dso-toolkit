@@ -1,0 +1,34 @@
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Data-grid</h2>
+    <p>Een data grid is een dynamischere weergave van informatie. Het bevat wel interactieve elementen om de tabel aan te passen.</p>
+  </div>
+  <table {{ className(modifier) }} role="grid">
+    <caption {% if not showCaption %} class="sr-only"{% endif %}>{{ caption }}</caption>
+    <thead>
+      <tr>
+        {% for columnHeader in columnHeaders %}
+        <th scope="col">
+          {{ columnHeader.title }}
+        </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for content in rowContent %}
+      <tr {{ className(content.rowNotification) }}>
+        {% if content.rowHeader %}
+          <th scope="row">{{ content.rowHeader }}</th>
+        {% endif %}
+        <td><a href="#{{ content.linkHref }}">{{ content.documentNaam }}</a></td>
+        <td>{{ content.eigenaar }}</td>
+        <td>{{ content.uploadDatum }}</td>
+        <td>
+          {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+          {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
