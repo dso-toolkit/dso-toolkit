@@ -15,13 +15,13 @@
         <tr>
           <td>Veld</td>
           <td class="plain-content">
-            {{> '@form' formWithHelpText }}
+            {% render '@form', formWithHelpText %}
           </td>
         </tr>
         <tr>
           <td>Veld met fout</td>
           <td class="plain-content">
-            {{> '@form' formWithEmptyRequiredField }}
+            {% render '@form', formWithEmptyRequiredField %}
           </td>
         </tr>
       </tbody>
