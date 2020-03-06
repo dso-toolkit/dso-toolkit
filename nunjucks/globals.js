@@ -1,7 +1,7 @@
 module.exports = {
   className: function () {
     const classes = [...arguments].reduce((classes, c) => {
-      if (typeof c === 'string') {
+      if (typeof c === 'string' && c !== '') {
         classes.push(c)
       }
 
