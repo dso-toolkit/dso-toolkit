@@ -17,7 +17,7 @@ Het Omgevingsloket wordt ontwikkeld vanuit het gebruikersperspectief, daarom zij
 
 Links naar relevante pagina's:
 - [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Templates]({{path '/components/detail/aanvragen' }})
+- [Templates]({{ '/components/detail/aanvragen' | path }})
 - Digitale toegankelijkheid (onder ontwikkeling)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
 - Sketch library (onder ontwikkeling)
@@ -32,10 +32,10 @@ Probeer te voorkomen dat er onderdelen gemaakt worden die al bestaan. Ontkom je 
 Als je nieuwe componenten wilt toe gaan voegen aan de toolkit, lees dan de sectie over Digitale toegankelijkheid door. Bekijk aan welke guidelines het nieuwe component moet voldoen.
 
 Links naar relevante pagina's:
-- [Kleurgebruik]({{path '/docs/colors' }})
-- [Typografie]({{path '/docs/typography' }})
-- [Lay-out]({{path '/docs/layout' }})
-- [Templates]({{path '/components/detail/aanvragen' }})
+- [Kleurgebruik]({{ '/docs/colors' | path }})
+- [Typografie]({{ '/docs/typography' | path }})
+- [Lay-out]({{ '/docs/layout' | path }})
+- [Templates]({{ '/components/detail/aanvragen' | path }})
 - Digitale toegankelijkheid (onder ontwikkeling)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
 - Sketch library (onder ontwikkeling)
@@ -47,10 +47,10 @@ Speciale aandacht is vereist voor de digitale toegankelijkheid, dit is een onder
 
 Links naar relevante pagina's:
 - [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Kleurgebruik]({{path '/docs/colors' }})
-- [Typografie]({{path '/docs/typography' }})
-- [Lay-out]({{path '/docs/layout' }})
-- [Templates]({{path '/components/detail/aanvragen' }})
+- [Kleurgebruik]({{ '/docs/colors' | path }})
+- [Typografie]({{ '/docs/typography' | path }})
+- [Lay-out]({{ '/docs/layout' | path }})
+- [Templates]({{ '/components/detail/aanvragen' | path }})
 - Digitale toegankelijkheid (onder ontwikkeling)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
 
