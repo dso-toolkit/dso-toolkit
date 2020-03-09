@@ -1,0 +1,8 @@
+context:
+  title: 404 Pagina niet gevonden
+  message: |
+    <p>We hebben de pagina niet gevonden. Dat kan komen doordat wij die hebben verplaatst of verwijderd, of doordat de invoerde html niet klopt.</p>
+    <ul>
+      <li>Controleer de spelling van de link.</li>
+      <li>Ga terug naar de <a href="/">homepage</a>.</li>
+    </ul>
