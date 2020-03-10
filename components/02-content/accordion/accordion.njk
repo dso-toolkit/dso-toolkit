@@ -42,10 +42,14 @@
 
       {%- if section.open %}
         <div class="dso-section-body">
-          <div class="dso-rich-content">
-            <p>Dit is de inhoud van <strong>{{ section.title }}</strong></p>
-            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
-          </div>
+          {% if section.richContent %}
+            <div class="dso-rich-content">
+              {{ section.richContent | safe }}
+            </div>
+          {% endif %}
+          {% if section.form %}
+            {% render '@form', section.form %}
+          {% endif %}
           {%- if section.sections %}
             <div {{ className('dso-accordion', section.modifiers) }}>
               {%- for subsection in section.sections -%}
@@ -91,9 +95,14 @@
 
                   {% if subsection.open %}
                     <div class="dso-section-body">
-                      <div class="dso-rich-content">
-                        <p>Dit is een geneste accordion. De inhoud is van <strong>{{ subsection.title }}</strong>. Zie de <em>Notes</em> van dit component.</p>
-                      </div>
+                      {% if subsection.richContent %}
+                        <div class="dso-rich-content">
+                          {{ subsection.richContent | safe }}
+                        </div>
+                      {% endif %}
+                      {% if subsection.form %}
+                        {% render '@form', subsection.form %}
+                      {% endif %}
                     </div>
                   {% endif %}
                 </div>
