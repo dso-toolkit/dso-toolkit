@@ -1,0 +1,107 @@
+<div {{ className('dso-accordion', modifiers) }}>
+  {%- for section in sections -%}
+    <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
+      <{{ section.header if section.header else 'div' }} class="dso-section-handle">
+      {%- if section.type === 'button' %}
+        <button type="button">
+      {% else -%}
+        <a href="#">
+      {%- endif -%}
+
+      {%- if section.state %}
+        <span class="sr-only">
+          {%- if section.state === 'success' %}
+            succes:
+          {%- elif section.state === 'warning' %}
+            waarschuwing:
+          {%- elif section.state === 'danger' %}
+            gevaar:
+          {%- elif section.state === 'info' %}
+            info:
+          {% endif %}
+        </span>
+      {% endif -%}
+
+      {{ section.title }}
+
+      {% if section.status %}
+        <span class="dso-status">{{ section.status }}</span>
+      {%- endif %}
+
+      {% if section.attachments %}
+        <span class="dso-attachments">{{ section.attachments }} <span class="sr-only">bijlage{{ '' if section.attachments === 1 else 'n' }}</span></span>
+      {% endif %}
+
+      {% if type === 'button' %}
+        </button>
+        </{{ section.header if section.header else 'div' }}>
+      {% else %}
+        </a>
+        </{{ section.header if section.header else 'div' }}>
+      {%- endif %}
+
+      {%- if section.open %}
+        <div class="dso-section-body">
+          <div class="dso-rich-content">
+            <p>Dit is de inhoud van <strong>{{ section.title }}</strong></p>
+            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+          </div>
+          {%- if section.sections %}
+            <div {{ className('dso-accordion', section.modifiers) }}>
+              {%- for subsection in section.sections -%}
+                <div {{ className('dso-accordion-section', [subsection.state, 'dso-' + subsection.state], [subsection.open, 'dso-open'], [subsection.sections, 'dso-nested-accordion']) }}>
+                  <{{ subsection.header if subsection.header else 'div' }} class="dso-section-handle">
+                  {%- if section.type === 'button' %}
+                    <button type="button">
+                  {%- else %}
+                    <a href="#">
+                  {% endif %}
+
+                  {%- if subsection.state %}
+                    <span class="sr-only">
+                      {%- if subsection.state === 'success' %}
+                        succes:
+                      {%- elif subsection.state === 'warning' %}
+                        waarschuwing:
+                      {%- elif subsection.state === 'danger' %}
+                        gevaar:
+                      {%- elif subsection.state === 'info' %}
+                        info:
+                      {% endif %}
+                    </span>
+                  {% endif -%}
+
+                  {{ subsection.title }}
+
+                  {% if subsection.status %}
+                    <span class="dso-status">{{ subsection.status }}</span>
+                  {% endif %}
+
+                  {% if subsection.attachments %}
+                    <span class="dso-attachments">{{ subsection.attachments }} <span class="sr-only">bijlage{{ '' if subsection.attachments === 1 else 'n' }}</span></span>
+                  {% endif %}
+
+                  {% if type === 'button' %}
+                    </button>
+                    </{{ subsection.header if subsection.header else 'div' }}>
+                  {% else %}
+                    </a>
+                    </{{ subsection.header if subsection.header else 'div' }}>
+                  {% endif %}
+
+                  {% if subsection.open %}
+                    <div class="dso-section-body">
+                      <div class="dso-rich-content">
+                        <p>Dit is een geneste accordion. De inhoud is van <strong>{{ subsection.title }}</strong>. Zie de <em>Notes</em> van dit component.</p>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              {%- endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {%- endif %}
+    </div>
+  {%- endfor %}
+</div>
