@@ -1,3 +1,5 @@
+const shoppingCartFilters = require('../components/02-content/shopping-cart/shopping-cart.filters');
+
 module.exports = {
   split: function(input, separator) {
     return input.split(separator);
@@ -9,5 +11,6 @@ module.exports = {
   },
   includes: function(arr, value) {
     return arr.includes(value);
-  }
+  },
+  ...shoppingCartFilters
 };

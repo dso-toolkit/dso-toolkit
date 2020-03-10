@@ -4,24 +4,24 @@
     <p>Bij een data-tabel kan wel een koptitel als header boven de kolom worden geplaatst als overkoepelende groepsnaam.</p>
   </div>
   <table {{ className(modifier) }}>
-    <caption {% if not showCaption %} class="sr-only"{% endif %}>{{ caption }}</caption>
+    <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
     <thead>
       <tr>
         {% for columnHeader in columnHeaders %}
-        <th scope="col">{{ columnHeader.title }}</th>
+          <th scope="col">{{ columnHeader.title }}</th>
         {% endfor %}
       </tr>
     </thead>
     <tbody>
       {% for content in rowContent %}
-      <tr {{ className(content.rowNotification) }}>
-        {% if content.rowHeader %}
-        <th scope="row">{{ content.rowHeader }}</th>
-        {% endif %}
-        <td><a href="#{{ content.linkHref }}">{{ content.documentNaam }}</a></td>
-        <td>{{ content.eigenaar }}</td>
-        <td>{{ content.uploadDatum }}</td>
-      </tr>
+        <tr {{ className(content.rowNotification) }}>
+          {% if content.rowHeader %}
+            <th scope="row">{{ content.rowHeader }}</th>
+          {% endif %}
+          <td><a href="#{{ content.linkHref }}">{{ content.documentNaam }}</a></td>
+          <td>{{ content.eigenaar }}</td>
+          <td>{{ content.uploadDatum }}</td>
+        </tr>
       {% endfor %}
     </tbody>
   </table>

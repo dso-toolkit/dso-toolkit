@@ -4,7 +4,7 @@
     <p>Een data grid is een dynamischere weergave van informatie. Het bevat wel interactieve elementen om de tabel aan te passen.</p>
   </div>
   <table {{ className(modifier) }} role="grid">
-    <caption {% if not showCaption %} class="sr-only"{% endif %}>{{ caption }}</caption>
+    <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
     <thead>
       <tr>
         {% for columnHeader in columnHeaders %}
