@@ -24,9 +24,9 @@ Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 ### Maak geen layout-tabel
 Gebruik een `<table>` nooit om inhoud op een pagina op te maken. Dit is ook wel bekend als een layout-tabel. Gebruik in plaats daarvan het responsive grid-systeem om inhoud op een pagina op te maken.
 
-Zie ook: [de layout documentatie]({{path '/docs/layout' }})
+Zie ook: [de layout documentatie]({{ '/docs/layout' | path }})
 
-![Voorbeeld van een layout-tabel]({{path '/docs/images/tables/layout-tabel_voorbeeld.png'}})
+![Voorbeeld van een layout-tabel]({{ '/docs/images/tables/layout-tabel_voorbeeld.png' | path }})
 
 
 ### Maak geen definition lists met "table"
@@ -34,7 +34,7 @@ Zie ook: [de layout documentatie]({{path '/docs/layout' }})
 - Gebruik een definition list als je **geen** koptitel als header boven de kolom kan plaatsen.
 - Gebruik een  `<table>` als je **wel** een koptitel boven de kolommen kunt plaatsen. De kolom kun je als een groep met een koptitel beschouwen.
 
-Zie ook: [Definition List]({{path '/components/detail/definition-list' }})
+Zie ook: [Definition List]({{ '/components/detail/definition-list' | path }})
 
 {{frame (path '/components/preview/table-definition-list') '.dso-example-wrapper'}}
 
