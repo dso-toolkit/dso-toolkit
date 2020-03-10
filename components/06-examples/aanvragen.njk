@@ -1,0 +1,72 @@
+{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
+<main>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Aanvragen</h1>
+      {% render '@steps' %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div {{ className('dso-accordion', modifiers) }}>
+        {%- for section in sections -%}
+          <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
+            <{{ section.header if section.header else 'div' }} class="dso-section-handle">
+            {%- if section.type === 'button' %}
+              <button type="button">
+            {% else -%}
+              <a href="#">
+            {%- endif -%}
+
+            {%- if section.state %}
+              <span class="sr-only">
+                {%- if section.state === 'success' %}
+                  succes:
+                {%- elif section.state === 'warning' %}
+                  waarschuwing:
+                {%- elif section.state === 'danger' %}
+                  gevaar:
+                {%- elif section.state === 'info' %}
+                  info:
+                {% endif %}
+              </span>
+            {% endif -%}
+
+            {{ section.title }}
+
+            {% if section.status %}
+              <span class="dso-status">{{ section.status }}</span>
+            {%- endif %}
+
+            {% if section.attachments %}
+              <span class="dso-attachments">{{ section.attachments }} <span class="sr-only">bijlage{{ '' if section.attachments === 1 else 'n' }}</span></span>
+            {% endif %}
+
+            {% if type === 'button' %}
+              </button>
+              </{{ section.header if section.header else 'div' }}>
+            {% else %}
+              </a>
+              </{{ section.header if section.header else 'div' }}>
+            {%- endif %}
+
+            {%- if section.open %}
+              <div class="dso-section-body">
+                {% render '@form', {formLegend: section.formLegend, fieldsets: section.fieldsets, buttons: section.buttons} %}
+              </div>
+            {%- endif %}
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-md-push-3 col-md-offset-6">
+      {% render '@button', {label:'Volgende stap', type:'button', modifier:'primary pull-right'} %}
+    </div>
+    <div class="col-md-3 col-md-pull-9">
+      {% render '@button', {label:'Vorige stap', type:'button', modifier:'default'} %}
+    </div>
+  </div>
+</main>
+{% render '@footer' %}
