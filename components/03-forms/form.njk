@@ -1,11 +1,11 @@
-<form {{ className([formModifier, formModifier]) }}>
+<form {{ className(formModifier) }}>
   <fieldset class="dso-form-fields">
     <legend class="sr-only">{{ formLegend }}</legend>
-    {% for outerFieldset in fieldsets %}
+    {% for fieldset in fieldsets %}
       <fieldset>
-        <legend {{ className([outerFieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ outerFieldset.legend }}</legend>
-        {% for innerFieldset in outerFieldset.groups %}
-          {% render '@group-' + innerFieldset.inputType, innerFieldset %}
+        <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
+        {% for group in fieldset.groups %}
+          {% render '@group-' + group.inputType, group %}
         {% endfor %}
       </fieldset>
     {% endfor %}

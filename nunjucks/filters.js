@@ -12,5 +12,8 @@ module.exports = {
   includes: function(arr, value) {
     return arr.includes(value);
   },
+  prefix: function (arr, prefix) {
+    return arr.map(value => `${prefix}${value}`)
+  },
   ...shoppingCartFilters
 };

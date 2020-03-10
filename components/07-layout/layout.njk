@@ -24,7 +24,7 @@
   {% for row in rows %}
     <div class="row">
       {% for column in row.columns %}
-        <div class="{% for def in column %}{%if loop.index0 > 0 %} {% endif %}col-{{ def }}{% endfor %}">
+        <div {{ className(column | prefix('col-') | join(' ')) }}>
           <div class="col">{{ column | join(' ') }}</div>
         </div>
       {% endfor %}

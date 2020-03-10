@@ -17,24 +17,24 @@ module.exports = {
       context: {
         id: 'actie_open',
         open: true,
-        items: [
+        groups: [
           {
-            group: [
+            items: [
               {
-                label: "Actie"
+                label: 'Actie'
               },
               {
-                label: "Andere actie"
+                label: 'Andere actie'
               },
               {
-                label: "Nog iets anders hier"
+                label: 'Nog iets anders hier'
               }
             ]
           },
           {
-            group: [
+            items: [
               {
-                "label": "Gescheiden link"
+                label: 'Gescheiden link'
               }
             ]
           }
@@ -47,25 +47,25 @@ module.exports = {
         id: 'actie_open_checkable',
         open: true,
         modifiers: 'dso-checkable',
-        items: [
+        groups: [
           {
-            group: [
+            items: [
               {
-                label: "Actie",
+                label: 'Actie',
                 checked: true
               },
               {
-                label: "Andere actie"
+                label: 'Andere actie'
               },
               {
-                label: "Nog iets anders hier"
+                label: 'Nog iets anders hier'
               }
             ]
           },
           {
-            group: [
+            items: [
               {
-                label: "Gescheiden link"
+                label: 'Gescheiden link'
               }
             ]
           }
