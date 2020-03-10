@@ -1,0 +1,24 @@
+<div id="{{ carouselId }}" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    {% for slide in slides -%}
+      <li data-target="#{{ carouselId }}" data-slide-to="{{ loop.index0 }}" {{ className([slide.active, 'active']) }}></li>
+    {% endfor -%}
+  </ol>
+
+  <div class="carousel-inner" role="listbox">
+    {% for slide in slides -%}
+      <div {{ className('item', [slide.active, 'active']) }}>
+        <img src="{{ slide.image | path }}" alt="{{ slide.imageAlt }}" />
+      </div>
+    {% endfor -%}
+  </div>
+
+  <a href="#{{ carouselId }}" class="left carousel-control" role="button" data-slide="prev">
+    {% render '@icon', {icon: 'chevron-left icon-prev'} -%}
+    <span class="sr-only">Vorige</span>
+  </a>
+  <a href="#{{ carouselId }}" class="right carousel-control" role="button" data-slide="next">
+    {% render '@icon', {icon: 'chevron-right icon-next'} -%}
+    <span class="sr-only">Volgende</span>
+  </a>
+</div>

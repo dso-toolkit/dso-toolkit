@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT - UNRELEASED
 
+### Changed
+* Replaced Handlebars parser and templates with Nunjucks (#573)
+
 ## 9.9.0 - 02-03-2020
 
 ### Added

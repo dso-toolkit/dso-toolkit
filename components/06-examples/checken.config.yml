@@ -19,46 +19,48 @@ context:
   steps:
     title: 3. Activiteiten
     step: Stap 3 van 6
-  sections:
-  - title: Woning
-    id: panel1
-  - title: Bouwwerkzaamheden
-    id: panel2
-  - title: Plaats van het bouwwerk
-    id: panel3
-    open: true
-    formLegend: Aanvraagformulier
-    fieldsets:
-      - legend: Plaats van het bouwwerk
-        groups:
-          - id: omgevingsvergunningPostcode
-            inputType: input
-            type: text
-            label: Postcode
-            size: 8
-          - id: omgevingsvergunningHuisnummer
-            inputType: input
-            type: text
-            label: Huisnummer
-            size: 8
-          - id: omgevingsvergunningToevoeging
-            inputType: input
-            type: text
-            label: Huisnummer toevoeging
-            size: 8
-          - id: omgevingsvergunningStraatnaam
-            inputType: input
-            type: text
-            label: Straatnaam
-          - id: omgevingsvergunningWoonplaats
-            inputType: input
-            type: text
-            label: Woonplaats
-    buttons:
-    - type: submit
-      modifier: primary
-      label: Volgende stap
-  - title: Afmetingen van het bouwwerk
-    id: panel4
-  - title: Extra werkzaamheden
-    id: panel5
+  accordion:
+    sections:
+    - title: Woning
+      id: panel1
+    - title: Bouwwerkzaamheden
+      id: panel2
+    - title: Plaats van het bouwwerk
+      id: panel3
+      open: true
+      form:
+        formLegend: Aanvraagformulier
+        fieldsets:
+          - legend: Plaats van het bouwwerk
+            groups:
+              - id: omgevingsvergunningPostcode
+                inputType: input
+                type: text
+                label: Postcode
+                size: 8
+              - id: omgevingsvergunningHuisnummer
+                inputType: input
+                type: text
+                label: Huisnummer
+                size: 8
+              - id: omgevingsvergunningToevoeging
+                inputType: input
+                type: text
+                label: Huisnummer toevoeging
+                size: 8
+              - id: omgevingsvergunningStraatnaam
+                inputType: input
+                type: text
+                label: Straatnaam
+              - id: omgevingsvergunningWoonplaats
+                inputType: input
+                type: text
+                label: Woonplaats
+        buttons:
+        - type: submit
+          modifier: primary
+          label: Volgende stap
+    - title: Afmetingen van het bouwwerk
+      id: panel4
+    - title: Extra werkzaamheden
+      id: panel5

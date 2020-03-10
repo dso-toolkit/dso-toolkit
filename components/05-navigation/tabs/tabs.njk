@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+  {%- for tab in tabs %}
+    <li {{ className(tab.modifiers) }}>
+      <a href="{{ tab.url }}">{{ tab.label }}</a>
+    </li>
+  {%- endfor -%}
+</ul>

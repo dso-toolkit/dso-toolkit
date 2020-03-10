@@ -1,0 +1,14 @@
+<!-- When modal is open add .dso-modal-open to body -->
+<body {{ className('dso-modal-open', [noMaxHeight, 'dso-scripted-height']) }}>
+  <!-- Modal markup. Can be placed anywhere inside <body> -->
+  {% render '@dialog', {body: body, dialog: dialog} %}
+
+  <div class="container">
+    <!-- Page content -->
+    {% render '@form' %}
+  </div>
+
+  <!-- Polyfill for svg use[href] with external uri -->
+  <script src="{{ '/svg4everybody.min.js' | path }}"></script>
+  <script>svg4everybody();</script>
+</body>

@@ -16,7 +16,7 @@ Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 - Gebruik `<th scope="col">` voor koptitels in de kolommen.
 - Gebruik `<th scope="row">` voor koptitels in de rijen.
 
-{{frame (path '/components/preview/table-data-table') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/table-data-table' | path)} %}
 
 
 ## Wanneer gebruik je het component "table" niet
@@ -24,9 +24,9 @@ Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 ### Maak geen layout-tabel
 Gebruik een `<table>` nooit om inhoud op een pagina op te maken. Dit is ook wel bekend als een layout-tabel. Gebruik in plaats daarvan het responsive grid-systeem om inhoud op een pagina op te maken.
 
-Zie ook: [de layout documentatie]({{path '/docs/layout' }})
+Zie ook: [de layout documentatie]({{ '/docs/layout' | path }})
 
-![Voorbeeld van een layout-tabel]({{path '/docs/images/tables/layout-tabel_voorbeeld.png'}})
+![Voorbeeld van een layout-tabel]({{ '/docs/images/tables/layout-tabel_voorbeeld.png' | path }})
 
 
 ### Maak geen definition lists met "table"
@@ -34,11 +34,11 @@ Zie ook: [de layout documentatie]({{path '/docs/layout' }})
 - Gebruik een definition list als je **geen** koptitel als header boven de kolom kan plaatsen.
 - Gebruik een  `<table>` als je **wel** een koptitel boven de kolommen kunt plaatsen. De kolom kun je als een groep met een koptitel beschouwen.
 
-Zie ook: [Definition List]({{path '/components/detail/definition-list' }})
+Zie ook: [Definition List]({{ '/components/detail/definition-list' | path }})
 
-{{frame (path '/components/preview/table-definition-list') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/table-definition-list' | path)} %}
 
-{{frame (path '/components/preview/table-header') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/table-header' | path)} %}
 
 
 ## Hoe component "table" te gebruiken als data-grid
@@ -49,7 +49,7 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 - Gebruik `<th>` om koptitels in header te definiëren.
 - Specifieke keyboard interacties moeten verder worden toegevoegd voor interactieve elementen.
 
-{{frame (path '/components/preview/table-data-grid') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/table-data-grid' | path)} %}
 
 
 ### Sorteren in een data-grid
@@ -58,7 +58,7 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 - - Als je een rij sorteerbaar wilt maken, voeg dan aan `<th>` `"role=rowheader"` toe.
 - Wanneer de sortering oplopend is, geef dit bij `<th>` aan met `aria-sort="ascending"`. Bij aflopende resultaten, gebruik `aria-sort="descending"`.
 - Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met `aria-sort`.
-{{frame (path '/components/preview/table-sortable-readonly') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/table-sortable-readonly' | path)} %}
 
 
 ## Bootstrap "table"

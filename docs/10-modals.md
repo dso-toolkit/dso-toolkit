@@ -9,7 +9,7 @@ Modals zijn schermelementen die de hoofdflow van de gebruiker onderbreken. Goed 
 - **Feedback of correctie:** beslissingen bevestigen. Bijvoorbeeld: bij een "Weet je het zeker?"-moment.
 - **Aandacht punt:** de focus van de gebruiker expliciet richten op een enkel stuk inhoud, of het nu een afbeelding, artikel of video is.
 
-{{frame (path '/components/preview/dialog--valid') '.dso-dialog' }}
+{% render '@lib-frame', {path: ('/components/preview/dialog--valid' | path), element: '.dso-dialog'} %}
 
 ## Wanneer _niet_ te gebruiken
 
@@ -17,7 +17,7 @@ Modals zijn bedoeld om belangrijke bevestigingen en beslissingen te benadrukken.
 
 Een modal dient alleen gebruikt te worden voor simpele interacties. Probeer ingewikkelde interacties op andere manieren in een pagina te verwerken.
 
-{{frame (path '/components/preview/dialog--invalid') '.dso-dialog' }}
+{% render '@lib-frame', {path: ('/components/preview/dialog--invalid' | path), element: '.dso-dialog'} %}
 
 ## Gedrag en toegankelijkheid
 

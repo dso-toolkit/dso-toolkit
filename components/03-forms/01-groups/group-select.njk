@@ -1,0 +1,34 @@
+<div {{ className('form-group dso-select', [multiple, 'dso-multiple'], [state, 'dso-' + state], [required, 'dso-required']) }}>
+  <div class="dso-label-container">
+    <label for="{{ id }}" class="control-label">
+      {{ label }}
+    </label>
+    {% if infoText %}
+      {% render '@info-button', {infoOpen: infoOpen} %}
+    {% endif %}
+  </div>
+  <div class="dso-field-container">
+    <select id="{{ id }}" class="form-control"
+      {% if multiple %} multiple{% endif %}
+      {% if disabled %} disabled{% endif %}
+      {% if checked %} checked{% endif %}
+      {% if required %} required{% endif %}>
+      {% for option in options %}
+        <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
+          {% for item in option.items %}
+            <option value="{{ item.value }}"{% if item.selected %} selected{% endif %}>{{ item.label }}</option>
+          {% endfor %}
+        </optgroup>
+      {% endfor %}
+    </select>
+    {% if errorText %}
+      {% render '@error-block', {errorText: errorText} %}
+    {% endif %}
+    {% if helpText %}
+      {% render '@help-block', {helpText: helpText, id: id} %}
+    {% endif %}
+  </div>
+  {% if infoOpen %}
+    {% render '@info', {infoText: infoText} %}
+  {% endif %}
+</div>

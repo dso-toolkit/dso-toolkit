@@ -11,7 +11,7 @@ Een logo is een beeldmerk dat wordt ingezet voor de herkenbaarheid van de organi
 - De afstand tussen 'Omgevingsloket' en de 'Extra tekstregel' is 36 pixels;
 - De tekstregel lijnt links aan de 'O' van 'Omgevingsloket'.
 
-![Details logo met extra tekstregel]({{path '/docs/images/logos/logogebruik_omgevingsloket.svg'}})
+![Details logo met extra tekstregel]({{ '/docs/images/logos/logogebruik_omgevingsloket.svg' | path }})
 
 - Het logo wordt altijd linksboven op de website geplaatst
 - De breedte van het logo 'Omgevingsloket' is 256 pixels (3 koloms bij een breedte van 1440 pixels)
@@ -21,7 +21,7 @@ Een logo is een beeldmerk dat wordt ingezet voor de herkenbaarheid van de organi
 ## Hoe te gebruiken: logo en typografie
 
 Het webfont "Asap" is onderdeel van de vrij beschikbare [Google Fonts](https://fonts.google.com/specimen/Asap).
-Meer hierover in de [documentatie over typografie]({{path '/docs/typography' }}).
+Meer hierover in de [documentatie over typografie]({{ '/docs/typography' | path }}).
 
 Details mbt. het gebruik van tekst in het logo:
 - De regelafstand tussen het logo van het Omgevingsloket en de extra tekstregel is 36 pixels van basislijn tot basislijn, dit is de denkbeeldige lijn die langs de onderkant van de letter x (n, m, w en een aantal andere letters) loopt;
@@ -32,10 +32,10 @@ Details mbt. het gebruik van tekst in het logo:
 
 | Logo | Beschikbare varianten |   | SVG   |
 | ------------- |-----------|---|-------------|
-| **Beheerportaal**      | [![Logo Beheerportaal]({{path '/logos/omgevingsloket_beheerportaal.svg' }} "Logo Beheerportaal")]({{path '/logos/omgevingsloket_beheerportaal.svg' }}) | |[Download Beheerportaal logo]({{path '/logos/omgevingsloket_beheerportaal.svg'}}) |
-| **RTR**      | [![Logo RTR]({{path '/logos/omgevingsloket_rtr.svg' }} "Logo RTR")]({{path '/logos/omgevingsloket_rtr.svg' }})      | |[Download RTR logo]{{path '(/logos/omgevingsloket_rtr.svg'}}) |
-| **Samenwerken** | [![Logo Samenwerken]({{path '/logos/omgevingsloket_samenwerken.svg' }} "Logo Samenwerken")]({{path '/logos/omgevingsloket_samenwerken.svg' }})      | | [Download Samenwerken logo]({{path '/logos/omgevingsloket_samenwerken.svg'}}) |
-| **Stelselcatalogus** | [![Logo Stelselcatalogus]({{path '/logos/omgevingsloket_stelselcatalogus.svg' }} "Logo Stelselcatalogus")]({{path '/logos/omgevingsloket_stelselcatalogus.svg' }})      | |[Download Stelselcatalogus logo]({{path '/logos/omgevingsloket_stelselcatalogus.svg'}}) |
+| **Beheerportaal**      | [![Logo Beheerportaal]({{ '/logos/omgevingsloket_beheerportaal.svg' | path }} "Logo Beheerportaal")]({{ '/logos/omgevingsloket_beheerportaal.svg' | path }}) | |[Download Beheerportaal logo]({{ '/logos/omgevingsloket_beheerportaal.svg' | path }}) |
+| **RTR**      | [![Logo RTR]({{ '/logos/omgevingsloket_rtr.svg' | path }} "Logo RTR")]({{ '/logos/omgevingsloket_rtr.svg' | path }})      | |[Download RTR logo]{{ '(/logos/omgevingsloket_rtr.svg' | path }}) |
+| **Samenwerken** | [![Logo Samenwerken]({{ '/logos/omgevingsloket_samenwerken.svg' | path }} "Logo Samenwerken")]({{ '/logos/omgevingsloket_samenwerken.svg' | path }})      | | [Download Samenwerken logo]({{ '/logos/omgevingsloket_samenwerken.svg' | path }}) |
+| **Stelselcatalogus** | [![Logo Stelselcatalogus]({{ '/logos/omgevingsloket_stelselcatalogus.svg' | path }} "Logo Stelselcatalogus")]({{ '/logos/omgevingsloket_stelselcatalogus.svg' | path }})      | |[Download Stelselcatalogus logo]({{ '/logos/omgevingsloket_stelselcatalogus.svg' | path }}) |
 
 ## Gedrag en toegankelijkheid
 Zorg voor een tekstueel alternatief bij het gebruik van afbeeldingen zoals foto's, logo's visuals en infographics. Maar ook in het bijzonder voor captcha's, diagrammen, form image buttons en image map hot spots. Een tekstueel alternatief is een alt-tekst of een uitgeschreven versie. Ook zoekmachines maken gebruik van tekstalternatieven bij het indexeren van websites. Een alternatief werkt alleen goed als de beschrijving juist is.

@@ -18,7 +18,7 @@ Als de gebruiker op het punt staat een onomkeerbare actie te ondernemen is de 'A
 
 In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerbare actie.
 
-{{frame (path '/components/preview/buttons-primary') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/buttons-primary' | path)} %}
 
 - Tekst wit, Asap semibold 16
 - De rechthoekige grasgroene achtergrond (`#39870c`) heeft afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
@@ -28,7 +28,7 @@ In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerba
 
 ## Hoe te gebruiken: Secundaire buttons
 
-{{frame (path '/components/preview/buttons-default') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/buttons-default' | path)} %}
 
 - Tekst grasgroen, Asap semibold 16
 - De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen  (`#39870c`), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
@@ -41,7 +41,7 @@ Voorbeelden hiervan zijn 'wijzigen' of 'toevoegen' mits dit natuurlijk geen prim
 
 In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.
 
-{{frame (path '/components/preview/buttons-link') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/buttons-link' | path)} %}
 
 - Tekst grasgroen (`#39870c`), Asap semibold 16
 - En/of icoon in grasgroen (`#39870c`)
@@ -51,13 +51,13 @@ Door de toevoeging van de class `.btn-sm` worden buttons kleiner getoond.
 
 Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 30 pixels hoog.
 
-{{frame (path '/components/preview/buttons-small') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/buttons-small' | path)} %}
 
 ## Hoe te gebruiken: Buttons in sectieberichten
 
 Gebruik buttons in een sectiebericht om een actie uit te voeren.
 
-{{frame (path '/components/preview/buttons-in-alerts') '.dso-example-wrapper'}}
+{% render '@lib-frame', {path: ('/components/preview/buttons-in-alerts' | path)} %}
 
 ## Gedrag en toegankelijkheid
 

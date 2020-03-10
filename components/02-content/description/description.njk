@@ -1,0 +1,16 @@
+{{ textBefore }}
+<a
+  id="{{ _self.handle }}-term"
+  href="#{{ _self.handle }}-content"
+  {{ className('dso-description-term', [open, 'dso-open']) }}
+  aria-expanded="{{ true if open else false }}"
+  aria-controls="{{ _self.handle }}-content">
+  {{- term -}}
+</a>
+<span id="{{ _self.handle }}-content" class="dso-description-content">
+  {{- content -}}
+  <a href="#{{ _self.handle }}-term">
+    <span class="sr-only">Verbergen</span>
+  </a>
+</span>
+{{ textAfter }}

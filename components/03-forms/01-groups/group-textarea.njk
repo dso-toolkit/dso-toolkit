@@ -1,0 +1,28 @@
+<div {{ className('form-group', 'dso-textarea', [state, 'dso-' + state], [required, 'dso-required']) }}>
+  <div class="dso-label-container">
+    <label for="{{ id }}" class="control-label">
+      {{ label }}
+    </label>
+    {% if infoText %}
+      {% render '@info-button', {infoOpen: infoOpen} %}
+    {% endif %}
+  </div>
+  <div class="dso-field-container">
+    <textarea class="form-control" id="{{ id }}"
+      {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+      {% if rows %} rows="{{ rows }}"{% endif %}
+      {% if disabled %} disabled{% endif %}
+      {% if readonly %} readonly{% endif %}
+      {% if required %} required{% endif %}
+    >{{ value }}</textarea>
+    {% if errorText %}
+      {% render '@error-block', {errorText: errorText} %}
+    {% endif %}
+    {% if helpText %}
+      {% render '@help-block', {helpText: helpText, id: id} %}
+    {% endif %}
+  </div>
+  {% if infoOpen %}
+    {% render '@info', {infoText: infoText} %}
+  {% endif %}
+</div>
