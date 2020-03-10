@@ -1,19 +1,28 @@
 const shoppingCartFilters = require('../components/02-content/shopping-cart/shopping-cart.filters');
 
 module.exports = {
-  split: function(input, separator) {
+  split: function split(input, separator) {
     return input.split(separator);
   },
-  map: function(arr, property) {
+  map: function map(arr, property) {
     return arr.map(function (item) {
       return item[property];
     });
   },
-  includes: function(arr, value) {
+  includes: function includes(arr, value) {
     return arr.includes(value);
   },
-  prefix: function (arr, prefix) {
-    return arr.map(value => `${prefix}${value}`)
+  in: function (value, arr) {
+    return arr.includes(value);
+  },
+  find: function find(arr, property, value) {
+    return arr.find(item => item[property] === value);
+  },
+  get: function get(arr, property) {
+    return arr[property];
+  },
+  prefix: function prefix(arr, prefix) {
+    return arr.map(value => `${prefix}${value}`);
   },
   ...shoppingCartFilters
 };
