@@ -3,7 +3,7 @@ label: Zoeksuggesties
 ---
 Zoeksuggesties zijn aanbevolen resultaten die verschijnen in een dropdownmenu als gebruikers in een zoekveld typen.
 
-![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk.svg'}})
+![Details logo met extra tekstregel]({{ '/docs/images/Zoekbalk.svg' | path }})
 
 ## Gebruik
 Een goede zoeksuggestie helpt de gebruiker bij het bedenken van een zoekopdracht. Dat kan een vrije zoekopdracht zijn, zoals bij Google, of zoeken in een 'onzichtbare' lijst met vaste waarden. Denk hierbij aan een adres zoeken in een applicatie met een kaart.
@@ -23,7 +23,7 @@ De toolkit is een framework-agnostische stijlgids. Om zoeksuggesties op een digi
 ## Vormgeving
 In de onderstaande afbeelding staan specificaties voor de suggestion box die bij de zoeksuggesties hoort. In [de Vergunningcheck van het omgevingsloket](https://pre.omgevingswet.overheid.nl/checken/stap/1) is een live voorbeeld is te vinden
 
-![Details logo met extra tekstregel]({{path '/docs/images/Zoekbalk-specs.png'}})
+![Details logo met extra tekstregel]({{ '/docs/images/Zoekbalk-specs.png' | path }})
 
 ## Gedrag en toegankelijkheid
 

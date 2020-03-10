@@ -36,7 +36,6 @@ fractal.components.set('default.collator', collator.defaultCollator);
 fractal.components.set('label', 'Componenten');
 
 fractal.docs.engine(nunj);
-fractal.components.set('ext', '.njk');
 fractal.docs.set('path', path.join(__dirname, 'docs'));
 fractal.docs.set('label', 'Documentatie');
 
