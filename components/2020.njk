@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+  <head>
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <header class="col-xs-12">
+      <div>
+        Logo
+      </div>
+      <div>
+        Versie selector
+      </div>
+    </header>
+    <aside class="col-xs-3">
+      <div>
+        Zoekfilter
+      </div>
+      <nav>
+        <div>
+          Documentatie
+        </div>
+      </nav>
+      <nav>
+        <div>
+          Fundament
+        </div>
+      </nav>
+      <nav>
+        <div>
+          Componenten
+        </div>
+      </nav>
+    </aside>
+    <main class="col-xs-9">
+      <h1>Titel</h1>
+      <nav>{% render '@menu', menu %}</nav>
+      <div>Content</div>
+    </main>
+  </body>
+
+</html>

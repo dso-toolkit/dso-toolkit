@@ -1,0 +1,10 @@
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Documentatie
+        active: true
+      - label: Component
+      - label: HTML
+      - label: Context
+      - label: Assets
