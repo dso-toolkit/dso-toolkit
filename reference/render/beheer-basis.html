@@ -1,316 +1,42 @@
-<header>
-  <div class="dso-logo-bar">
-    <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
-    <div class="dso-tools-bar">
-      <div class="dso-login">
-        <a href="" class="btn btn-link"><svg class="di di-user">
-            <use href="../../dso-icons.svg#user" />
-          </svg><span>Inloggen</span></a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../_assets/images/favicon.ico" type="image/ico">
+    <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.1" type="text/css">
+    <link rel="stylesheet" href="../../_statics/custom-mandelbrot-stylesheet.css?cachebust=1.2.1" type="text/css">
+    <title>Error rendering component beheer-basis | DSO Toolkit | Component Library</title>
+  </head>
+  <body>
+    <div class="Frame Frame--full" id="frame">
+      <div class="Error Error--render">
+        <h4 class="Error-title">Error rendering component</h4>
+        <div class="Error-message Prose">
+          <p>(unknown path)
+            Template render error: (unknown path)
+            Template render error: (unknown path)
+            Error: Could not render component &#39;@icon&#39; - component not found.</p>
+        </div>
+        <code class="Error-stack">
+        <pre>Template render error: (unknown path)
+  Template render error: (unknown path)
+  Template render error: (unknown path)
+  Error: Could not render component '@icon' - component not found.
+    at Object._prettifyError (D:\dso\dso-toolkit\node_modules\nunjucks\src\lib.js:36:11)
+    at D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:567:19
+    at eval (eval at _compile (D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:637:18), <anonymous>:10:11)
+    at entity.render.then.catch.err (D:\dso\dso-toolkit\node_modules\@frctl\nunjucks\src\extensions\render.js:47:21)</pre>
+    </code>
       </div>
     </div>
-  </div>
-  <nav class="dso-navbar">
-    <div class="dso-navbar-header">
-      <button type="button" class="dso-navbar-toggle">
-        <svg class="di di-bars">
-          <use href="../../dso-icons.svg#bars" />
-        </svg> <span class="sr-only">Ga naar menu</span>
-      </button>
-    </div>
-    <ul class="dso-nav dso-nav-main">
-      <li class="dso-active">
-        <a href="#">
-          Menu titel A
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Menu titel B
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Menu titel C
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <ol class="breadcrumb">
-    <li>
-      <a href="#">Home</a>
-    </li>
-    <li class="active">Menu titel A</li>
-  </ol>
-</header>
-<main>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Titel van beheer-applicatie</h1>
-      <h2>Subtitel voor de meta-data</h2>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <dl>
-        <dt>Organisator</dt>
-        <dd>Gemeente Rotterdam</dd>
-        <dt>Verzoeknummer:</dt>
-        <dd>12123497987</dd>
-        <dt>Status:</dt>
-        <dd>Open</dd>
-        <dt>Creatie datum:</dt>
-        <dd>17-12-2019</dd>
-      </dl>
-    </div>
-    <div class="col-md-6">
-      <dl>
-        <dt>Contactpersoon:</dt>
-        <dd>Jan van Veen</dd>
-        <dt>Emailadres:</dt>
-        <dd>j.veen@testmail.nl</dd>
-        <dt>Telefoonnummer:</dt>
-        <dd>06-12345678</dd>
-      </dl>
-    </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Subtitel voor het tabeloverzicht</h2>
-      <table class="table">
-        <caption class="sr-only">Titel van de tabel voor screenreaders</caption>
-        <thead>
-          <tr>
-            <th scope="col">Ketenpartner</th>
-            <th scope="col">Toegang</th>
-            <th scope="col">Acties</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Gemeente Den Haag</td>
-            <td>Alle documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Rotterdam</td>
-            <td>Alle documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente IJsselstein</td>
-            <td>Alleen niet vertrouwelijke documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Delft</td>
-            <td>Alle documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Eindhoven</td>
-            <td>Alleen niet vertrouwelijke documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Tilburg</td>
-            <td>Alle documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Breda</td>
-            <td>Alle documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Maastricht</td>
-            <td>Alle documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Amsterdam</td>
-            <td>Alleen niet vertrouwelijke documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Gemeente Utrecht</td>
-            <td>Alleen niet vertrouwelijke documenten</td>
-            <td>
-              <button type="button" title="Bewerk" class="btn btn-link">
-                <span class="sr-only">Bewerk</span><svg class="di di-pencil">
-                  <use href="../../dso-icons.svg#pencil" />
-                </svg>
-              </button>
-              <button type="button" title="Verwijder" class="btn btn-link">
-                <span class="sr-only">Verwijder</span><svg class="di di-trash">
-                  <use href="../../dso-icons.svg#trash" />
-                </svg>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <nav aria-label="Pagina navigatie">
-        <ul class="pagination">
-          <li>
-            <a href="#" aria-label="Vorige">
-              <span class="dso-previous" aria-hidden="true"></span>
-            </a>
-          </li>
-          <li>
-            <a href="#">1</a>
-          </li>
-          <li>
-            <a href="#">2</a>
-          </li>
-          <li class="active">
-            <span>3</span>
-          </li>
-          <li>
-            <a href="#">4</a>
-          </li>
-          <li>
-            <a href="#">5</a>
-          </li>
-          <li>
-            <a href="#" aria-label="Volgende">
-              <span class="dso-next" aria-hidden="true"></span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</main>
-<footer>
-  <div class="row">
-    <div class="col-sm-6 col-md-3">
-      <h2>Service</h2>
-      <ul>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Sitemap</a></li>
-        <li><a href="#">Help</a></li>
-      </ul>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <h2>Over deze site</h2>
-      <ul>
-        <li><a href="#">Copyright</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Cookies</a></li>
-        <li><a href="#">Toegankelijkheid</a></li>
-      </ul>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <h2>Volg ons ook op</h2>
-      <ul>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+    <script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.1"></script>
+    <script src="../../dso-toolkit-scripts.js?cachebust=1.2.1"></script>
+  </body>
+</html>

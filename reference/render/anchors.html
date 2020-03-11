@@ -1,83 +1,40 @@
-<div class="anchor-example">
-  <h2 style="margin-bottom: 24px">Link</h2>
-  <div class="row">
-    <div class="col-md-3">
-      <a href="#">Link voorbeeld</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../_assets/images/favicon.ico" type="image/ico">
+    <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.1" type="text/css">
+    <link rel="stylesheet" href="../../_statics/custom-mandelbrot-stylesheet.css?cachebust=1.2.1" type="text/css">
+    <title>Error rendering component anchors | DSO Toolkit | Component Library</title>
+  </head>
+  <body>
+    <div class="Frame Frame--full" id="frame">
+      <div class="Error Error--render">
+        <h4 class="Error-title">Error rendering component</h4>
+        <div class="Error-message Prose">
+          <p>(unknown path)
+            Template render error: (unknown path) [Line 13, Column 43]
+            Error: Could not render component &#39;@icon&#39; - component not found.</p>
+        </div>
+        <code class="Error-stack">
+        <pre>Template render error: (unknown path)
+  Template render error: (unknown path) [Line 13, Column 43]
+  Error: Could not render component '@icon' - component not found.
+    at Object._prettifyError (D:\dso\dso-toolkit\node_modules\nunjucks\src\lib.js:36:11)
+    at D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:567:19
+    at eval (eval at _compile (D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:637:18), <anonymous>:51:12)
+    at entity.render.then.catch.err (D:\dso\dso-toolkit\node_modules\@frctl\nunjucks\src\extensions\render.js:47:21)</pre>
+    </code>
+      </div>
     </div>
-    <div class="col-md-3">
-      <a href="#" class="extern" target="_blank">Externe link</a>
-    </div>
-    <div class="col-md-3">
-      <a href="#" class="download">Download link</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <label>Voorbeeld in lopende tekst:</label>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-        elit. Aenean commodo ligula eget dolor. Nullam dictum
-        felis eu pede <a class="extern" href="#">
-          mollis pretium</a>. Integer tincidunt. Cras dapibus.
-        Vivamus <a class="extern" href="#">elementum</a> semper nisi. Aenean vulputate
-        eleifend tellus. Aenean leo ligula, porttitor eu,
-        consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-        dapibus in, viverra quis, feugiat a, tellus. Phasellus
-        viverra nulla ut metus varius laoreet. Quisque rutrum.
-        Aenean imperdiet. Etiam ultricies nisi vel augue.
-        Curabitur ullamcorper <a class="download" href="#">ultricies nisi</a>.
-      </p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3 example-big-font">
-      <a href="#">Link voorbeeld</a>
-    </div>
-    <div class="col-md-3 example-big-font">
-      <a href="#" class="extern" target="_blank">Externe link</a>
-    </div>
-    <div class="col-md-3 example-big-font">
-      <a href="#" class="download">Download link</a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 example-big-font">
-      <label>Voorbeeld in lopende tekst:</label>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-        elit. Aenean commodo ligula eget dolor. Nullam dictum
-        felis eu pede <a class="extern" href="#">
-          mollis pretium</a>. Integer tincidunt. Cras dapibus.
-        Vivamus <a class="extern" href="#">elementum</a> semper nisi. Aenean vulputate
-        eleifend tellus. Aenean leo ligula, porttitor eu,
-        consequat vitae, eleifend ac, enim. Aliquam lorem ante,
-        dapibus in, viverra quis, feugiat a, tellus. Phasellus
-        viverra nulla ut metus varius laoreet. Quisque rutrum.
-        Aenean imperdiet. Etiam ultricies nisi vel augue.
-        Curabitur ullamcorper <a class="download" href="#">ultricies nisi</a>.
-      </p>
-    </div>
-  </div>
-  <h2 style="margin-bottom: 24px">Visueel als buttons</h2>
-  <div class="row">
-    <div class="col-md-3">
-      <a href="#" class="btn btn-primary"><span>Anchor</span></a>
-      <a href="#" class="btn btn-default"><span>Anchor</span></a>
-    </div>
-    <div class="col-md-2">
-      <a href="#" class="btn btn-link btn-align"><span>.btn-align</span></a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <a href="#" class="btn btn-link"><span>Link button</span></a>
-      <a href="#" title="Link button" class="btn btn-link"><span class="sr-only">Link button</span><svg class="di di-info">
-          <use href="../../dso-icons.svg#info" />
-        </svg></a>
-      <a href="#" class="btn btn-link"><svg class="di di-angle-left">
-          <use href="../../dso-icons.svg#angle-left" />
-        </svg><span>Link button</span></a>
-      <a href="#" class="btn btn-link"><span>Link button</span><svg class="di di-angle-right">
-          <use href="../../dso-icons.svg#angle-right" />
-        </svg></a>
-    </div>
-  </div>
-</div>
+    <script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.1"></script>
+    <script src="../../dso-toolkit-scripts.js?cachebust=1.2.1"></script>
+  </body>
+</html>
