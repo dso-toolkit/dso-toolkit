@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ _target.label }} | {{ _config.project.title }} - Component preview</title>
+
+    <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <header class="col-xs-12">
+          <div>
+            Logo
+          </div>
+          <div>
+            Versie selector
+          </div>
+        </header>
+      </div>
+      <div class="row">
+        <aside class="col-xs-3">
+          {% render '@group-input', search %}
+          {% render '@navigation' %}
+        </aside>
+        <main class="col-xs-9">
+          <h1>Titel</h1>
+          <nav>{% render '@menu', menu %}</nav>
+          <div>Content</div>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

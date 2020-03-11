@@ -1,0 +1,18 @@
+{% for nav in navs %}
+  <nav class="dso-navigation">
+    <ul class="list-unstyled">
+      {% for item in nav.items %}
+        <li {{ className([item.items, 'dso-has-items']) }} >
+          <a href="#">{{- item.label -}}</a>
+          {% if item.items %}
+            <ul class="list-unstyled">
+              {% for subitem in item.items %}
+                <li><a href="#">{{- subitem.label -}}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endfor %}

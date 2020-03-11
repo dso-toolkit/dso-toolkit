@@ -1,0 +1,18 @@
+context:
+  navs:
+    - items:
+      - label: documentatie
+      - label: Introductie
+        items:
+          - label: Voor ontwerpers
+          - label: Voor ontwikkelaars
+          - label: Toegankelijkheid
+      - label: Versies
+        items:
+          - label: Alle versies
+    - items:
+      - label: fundament
+      - label: Grid
+      - label: Kleuren
+      - label: Logo / favicon
+      - label: Typografie
