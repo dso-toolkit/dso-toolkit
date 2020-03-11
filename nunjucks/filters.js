@@ -1,4 +1,4 @@
-const shoppingCartFilters = require('../components/02-content/shopping-cart/shopping-cart.filters');
+const shoppingCartFilters = require('../components/01-components/shopping-cart/shopping-cart.filters');
 
 module.exports = {
   split: function split(input, separator) {

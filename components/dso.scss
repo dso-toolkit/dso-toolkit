@@ -1,8 +1,8 @@
 // Extra demo styling, it includes DSO styling + styling that's needed for demonstration purposes
 @import "../src/dso";
 
-@import "03-forms/10-misc/01-buttons/buttons";
-@import "06-examples/anchors";
+@import "01-components/buttons/01-buttons/buttons";
+@import "02-examples/anchors";
 
 .dso-example-wrapper {
   border: 1px solid #ddd;
