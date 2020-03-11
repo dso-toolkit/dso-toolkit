@@ -1,40 +1,57 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="no-js">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-      window.frctl = {
-        env: 'static'
-    };
-    </script>
-    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
-    <link rel="shortcut icon" href="../../_assets/images/favicon.ico" type="image/ico">
-    <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.1" type="text/css">
-    <link rel="stylesheet" href="../../_statics/custom-mandelbrot-stylesheet.css?cachebust=1.2.1" type="text/css">
-    <title>Error rendering component buttons-small | DSO Toolkit | Component Library</title>
-  </head>
-  <body>
-    <div class="Frame Frame--full" id="frame">
-      <div class="Error Error--render">
-        <h4 class="Error-title">Error rendering component</h4>
-        <div class="Error-message Prose">
-          <p>(unknown path)
-            Template render error: (unknown path) [Line 2, Column 14]
-            Error: Could not render component &#39;@icon&#39; - component not found.</p>
-        </div>
-        <code class="Error-stack">
-        <pre>Template render error: (unknown path)
-  Template render error: (unknown path) [Line 2, Column 14]
-  Error: Could not render component '@icon' - component not found.
-    at Object._prettifyError (D:\dso\dso-toolkit\node_modules\nunjucks\src\lib.js:36:11)
-    at D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:567:19
-    at eval (eval at _compile (D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:637:18), <anonymous>:23:11)
-    at entity.render.then.catch.err (D:\dso\dso-toolkit\node_modules\@frctl\nunjucks\src\extensions\render.js:47:21)</pre>
-    </code>
-      </div>
-    </div>
-    <script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.1"></script>
-    <script src="../../dso-toolkit-scripts.js?cachebust=1.2.1"></script>
-  </body>
-</html>
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>kleine button</h2>
+  </div>
+  <div class="dso-example">
+    <table class="table">
+      <caption>Verschijningsvormen van de kleine button (<code>.btn-sm</code>).</caption>
+      <thead>
+        <tr>
+          <th scope="col">Beschrijving</th>
+          <th scope="col">Weergave</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Normaal</td>
+          <td>
+            <p><button type="button" class="btn btn-primary btn-sm"><span >kleine button</span></button>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>Hover</td>
+          <td class="example-hover">
+            <p><button type="button" class="btn btn-primary btn-sm"><span >kleine button</span></button>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>Disabled</td>
+          <td>
+            <p><button type="button" class="btn btn-primary btn-sm" disabled><span >kleine button</span></button>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>Icoon links</td>
+          <td>
+            <p><button type="button" class="btn btn-primary btn-sm"><svg class="di di-angle-left">
+                  <use href="../../dso-icons.svg#angle-left" />
+                </svg><span >kleine button</span></button>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>Icoon rechts</td>
+          <td>
+            <p><button type="button" class="btn btn-primary btn-sm"><span >kleine button</span><svg class="di di-angle-right">
+                  <use href="../../dso-icons.svg#angle-right" />
+                </svg></button>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

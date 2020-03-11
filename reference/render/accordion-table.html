@@ -1,40 +1,134 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr" class="no-js">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
-      window.frctl = {
-        env: 'static'
-    };
-    </script>
-    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
-    <link rel="shortcut icon" href="../../_assets/images/favicon.ico" type="image/ico">
-    <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.1" type="text/css">
-    <link rel="stylesheet" href="../../_statics/custom-mandelbrot-stylesheet.css?cachebust=1.2.1" type="text/css">
-    <title>Error rendering component accordion-table | DSO Toolkit | Component Library</title>
-  </head>
-  <body>
-    <div class="Frame Frame--full" id="frame">
-      <div class="Error Error--render">
-        <h4 class="Error-title">Error rendering component</h4>
-        <div class="Error-message Prose">
-          <p>(unknown path)
-            Template render error: (unknown path) [Line 5, Column 20]
-            Error: Could not render component &#39;@icon&#39; - component not found.</p>
-        </div>
-        <code class="Error-stack">
-        <pre>Template render error: (unknown path)
-  Template render error: (unknown path) [Line 5, Column 20]
-  Error: Could not render component '@icon' - component not found.
-    at Object._prettifyError (D:\dso\dso-toolkit\node_modules\nunjucks\src\lib.js:36:11)
-    at D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:567:19
-    at eval (eval at _compile (D:\dso\dso-toolkit\node_modules\nunjucks\src\environment.js:637:18), <anonymous>:13:11)
-    at entity.render.then.catch.err (D:\dso\dso-toolkit\node_modules\@frctl\nunjucks\src\extensions\render.js:47:21)</pre>
-    </code>
-      </div>
-    </div>
-    <script src="../../themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.1"></script>
-    <script src="../../dso-toolkit-scripts.js?cachebust=1.2.1"></script>
-  </body>
-</html>
+<table class="table">
+  <caption class="sr-only"></caption>
+  <thead>
+    <tr>
+      <th scope="col" width="1"></th>
+      <th scope="col">Aanvraag/melding</th>
+      <th scope="col">Status</th>
+      <th scope="col">Ingediend</th>
+      <th scope="col">Type</th>
+      <th scope="col" width="50"></th>
+      <th scope="col" width="250"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">
+        <button type="button" title="Open" class="btn btn-link"><span class="sr-only">Open</span><svg class="di di-chevron-down">
+            <use href="../../dso-icons.svg#chevron-down" />
+          </svg></button>
+      </th>
+      <td>Vergunning kappen</td>
+      <td>Verzonden</td>
+      <td>21/11/2017</td>
+      <td>Aanvraag</td>
+      <td class="text-center"><span class="dso-attachments">1 <span class="sr-only">bijlage</span></span>
+      </td>
+      <td class="text-right">
+        <button type="button" title="Bewerk" class="btn btn-link"><span class="sr-only">Bewerk</span><svg class="di di-pencil">
+            <use href="../../dso-icons.svg#pencil" />
+          </svg></button>
+        <button type="button" title="Opnieuw" class="btn btn-link"><span class="sr-only">Opnieuw</span><svg class="di di-redo">
+            <use href="../../dso-icons.svg#redo" />
+          </svg></button>
+        <button type="button" title="Kopieer" class="btn btn-link"><span class="sr-only">Kopieer</span><svg class="di di-copy">
+            <use href="../../dso-icons.svg#copy" />
+          </svg></button>
+        <button type="button" title="Verwijder" class="btn btn-link"><span class="sr-only">Verwijder</span><svg class="di di-trash">
+            <use href="../../dso-icons.svg#trash" />
+          </svg></button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <button type="button" title="Open" class="btn btn-link active"><span class="sr-only">Open</span><svg class="di di-chevron-up">
+            <use href="../../dso-icons.svg#chevron-up" />
+          </svg></button>
+      </th>
+      <td>Boom 23 kappen</td>
+      <td>
+        <button type="button" class="btn btn-link"><svg class="di di-angle-right">
+            <use href="../../dso-icons.svg#angle-right" />
+          </svg><span >Openen</span></button>
+      </td>
+      <td>15/10/2017</td>
+      <td>Verzoek</td>
+      <td class="text-center"><span class="dso-attachments">7 <span class="sr-only">bijlagen</span></span>
+        </span></td>
+      <td class="text-right">
+        <button type="button" title="Bewerk" class="btn btn-link"><span class="sr-only">Bewerk</span><svg class="di di-pencil">
+            <use href="../../dso-icons.svg#pencil" />
+          </svg></button>
+        <button type="button" title="Opnieuw" class="btn btn-link"><span class="sr-only">Opnieuw</span><svg class="di di-redo">
+            <use href="../../dso-icons.svg#redo" />
+          </svg></button>
+        <button type="button" title="Kopieer" class="btn btn-link"><span class="sr-only">Kopieer</span><svg class="di di-copy">
+            <use href="../../dso-icons.svg#copy" />
+          </svg></button>
+        <button type="button" title="Verwijder" class="btn btn-link"><span class="sr-only">Verwijder</span><svg class="di di-trash">
+            <use href="../../dso-icons.svg#trash" />
+          </svg></button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="7" class="text-center" style="line-height: 300px;">
+        Container cel
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <button type="button" title="Open" class="btn btn-link"><span class="sr-only">Open</span><svg class="di di-chevron-down">
+            <use href="../../dso-icons.svg#chevron-down" />
+          </svg></button>
+      </th>
+      <td>Pand 24 slopen</td>
+      <td>Aangevuld</td>
+      <td>13/09/2017</td>
+      <td>Melding</td>
+      <td class="text-center"><span class="dso-attachments">6 <span class="sr-only">bijlagen</span></span>
+        </span></td>
+      <td class="text-right">
+        <button type="button" title="Kopieer" class="btn btn-link"><span class="sr-only">Kopieer</span><svg class="di di-copy">
+            <use href="../../dso-icons.svg#copy" />
+          </svg></button>
+        <button type="button" title="Verwijder" class="btn btn-link"><span class="sr-only">Verwijder</span><svg class="di di-trash">
+            <use href="../../dso-icons.svg#trash" />
+          </svg></button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <button type="button" title="Open" class="btn btn-link"><span class="sr-only">Open</span><svg class="di di-chevron-down">
+            <use href="../../dso-icons.svg#chevron-down" />
+          </svg></button>
+      </th>
+      <td>Kerkstraat 10 tuin uitgraven</td>
+      <td>Ingetrokken</td>
+      <td>11/07/2017</td>
+      <td>Aanvraag</td>
+      <td></td>
+      <td class="text-right">
+        <button type="button" title="Verwijder" class="btn btn-link"><span class="sr-only">Verwijder</span><svg class="di di-trash">
+            <use href="../../dso-icons.svg#trash" />
+          </svg></button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">
+        <button type="button" title="Open" class="btn btn-link"><span class="sr-only">Open</span><svg class="di di-chevron-down">
+            <use href="../../dso-icons.svg#chevron-down" />
+          </svg></button>
+      </th>
+      <td>Grote Markt 31 kabels leggen</td>
+      <td>Concept</td>
+      <td>28/06/2017</td>
+      <td>Aanvraag</td>
+      <td></td>
+      <td class="text-right">
+        <button type="button" title="Verwijder" class="btn btn-link"><span class="sr-only">Verwijder</span><svg class="di di-trash">
+            <use href="../../dso-icons.svg#trash" />
+          </svg></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
