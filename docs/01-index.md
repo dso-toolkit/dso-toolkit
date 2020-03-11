@@ -1,5 +1,5 @@
 ---
-label: Startgids
+label: Documentatie
 ---
 # De DSO Toolkit: wat is het, voor wie is het en hoe werkt het?
 
