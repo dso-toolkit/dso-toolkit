@@ -5,5 +5,5 @@ function DsoToolkitResizeIframe(frame, element) {
   const height = measureElt.scrollHeight;
   measureElt.style.marginTop = 0;
 
-  frame.style.height = `${height + 32}px`;
+  frame.style.height = (height + 32) + 'px';
 }
