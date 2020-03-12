@@ -1,6 +1,6 @@
 .dropdown {
   &.button-ori-right {
-    float: right;
+    display: inline-block;
 
     .dropdown-menu {
       left: auto;
