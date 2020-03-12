@@ -1,5 +1,5 @@
 {%- for nav in navs %}
-  <nav class="dso-navigation">
+  <nav class="dso-treeview">
     <ul class="list-unstyled">
       {%- for item in nav.items -%}
         <li {{ className([item.items, 'dso-has-items'], [item.active, 'active']) }} >
@@ -9,7 +9,7 @@
           {%- if loop.index > 1 -%}
             <a href="#">{{- item.label -}}</a>
           {% else %}
-            <h3 class="dso-navigation-subhead">{{- item.label -}}</h3>
+            <h3 class="dso-treeview-subhead">{{- item.label -}}</h3>
           {% endif %}
           {% if item.items %}
             <ul class="list-unstyled">
