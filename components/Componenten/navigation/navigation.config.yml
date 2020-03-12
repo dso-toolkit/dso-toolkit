@@ -6,6 +6,7 @@ context:
         items:
           - label: Voor ontwerpers
           - label: Voor ontwikkelaars
+            active: true
           - label: Toegankelijkheid
       - label: Versies
         items:

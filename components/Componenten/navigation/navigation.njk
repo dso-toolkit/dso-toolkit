@@ -1,14 +1,21 @@
-{% for nav in navs %}
+{%- for nav in navs %}
   <nav class="dso-navigation">
     <ul class="list-unstyled">
-      {% for item in nav.items %}
-        <li {{ className([item.items, 'dso-has-items']) }} >
-          <a href="#">{{- item.label -}}</a>
+      {%- for item in nav.items -%}
+        <li {{ className([item.items, 'dso-has-items'], [item.active, 'active']) }} >
+          {%- if item.items %}
+            {% render '@icon', {icon: 'chevron-down'} %}
+          {% endif %}
+          {%- if loop.index > 1 -%}
+            <a href="#">{{- item.label -}}</a>
+          {% else %}
+            <span class="dso-navigation-subhead">{{- item.label -}}</span>
+          {% endif %}
           {% if item.items %}
             <ul class="list-unstyled">
-              {% for subitem in item.items %}
-                <li><a href="#">{{- subitem.label -}}</a></li>
-              {% endfor %}
+              {%- for subitem in item.items -%}
+                <li {{ className([subitem.active, 'active']) }}><a href="#">{{- subitem.label -}}</a></li>
+              {% endfor -%}
             </ul>
           {% endif %}
         </li>
