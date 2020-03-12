@@ -1,5 +1,40 @@
 .dso-navigation {
-  li a {
-    text-decoration: underline;
+  li {
+    &.active {
+      font-weight: 600;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    + li {
+      margin-top: #{$dso-unit * 2};
+    }
+
+    a {
+      color: $zwart;
+      text-decoration: underline;
+    }
+
+    &.dso-has-items {
+      ul {
+        margin-top: #{$dso-unit * 2};
+        padding-left: 3em;
+      }
+
+      .di {
+        color: $grijs-50;
+      }
+    }
+  }
+
+  .dso-navigation-subhead {
+    color: $grijs-60;
+    font-size: .75rem;
+    letter-spacing: .075em;
+    line-height: 1.66667;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
   }
 }
