@@ -13,11 +13,11 @@
     <div class="container-fluid">
       <div class="row">
         <header class="col-xs-12">
-          <div>
-            Logo
+          <div class="col-xs-6">
+            {% render '@logo' %}
           </div>
-          <div>
-            Versie selector
+          <div class="col-xs-6">
+            {% render '@version-selector', {label: 'versie 9.9.0', open: true, groups: [{items: [{label: '9.9.0'},{label: '9.8.0'},{label: 'Master'}]}]} %}
           </div>
         </header>
       </div>
