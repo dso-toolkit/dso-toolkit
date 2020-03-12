@@ -1,4 +1,4 @@
-.dso-navigation {
+.dso-treeview {
   li {
     &.active {
       font-weight: 600;
@@ -29,12 +29,14 @@
     }
   }
 
-  .dso-navigation-subhead {
+  .dso-treeview-subhead {
     color: $grijs-60;
     font-size: .75rem;
+    font-weight: 400;
     letter-spacing: .075em;
     line-height: 1.66667;
-    margin-bottom: .5rem;
+    margin-bottom: $dso-unit;
+    margin-top: #{$dso-unit * 3};
     text-transform: uppercase;
   }
 }

@@ -1,0 +1,10 @@
+{% for version in versions %}
+  <div class="dso-version-list">
+    <h2>{{ version.label }}</h2>
+    <ul class="list-unstyled">
+      {% for item in version.items %}
+        <li><a href="#">{{ item.label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
