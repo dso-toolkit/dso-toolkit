@@ -1,4 +1,19 @@
 .dropdown {
+  &.button-ori-right {
+    float: right;
+
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  header & {
+    &.button-ori-right {
+      margin-top: $u2;
+    }
+  }
+
   > .btn-default.dropdown-toggle {
     &::after {
       @include di("caret-down-grasgroen");
@@ -27,11 +42,19 @@
           text-decoration: underline;
         }
       }
+
+      .group-label {
+        font-size: (14 / 16 * 1em);
+        color: $grijs-40;
+        padding: 3px 20px;
+        text-transform: uppercase;
+      }
     }
 
     &.dso-checkable {
       li {
-        a {
+        a, 
+        .group-label {
           padding-left: $u5;
         }
 
