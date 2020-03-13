@@ -1,0 +1,29 @@
+<nav class="dso-tree-view">
+  <ul class="list-unstyled">
+    {%- for nav in navs %}
+      <li>
+        <ul>
+          {%- for item in nav.items -%}
+            <li {{ className([item.items, 'dso-has-items'], [item.active, 'active']) }} >
+              {%- if item.items %}
+                {% render '@icon', {icon: 'chevron-down'} %}
+              {% endif %}
+              {%- if loop.index > 1 -%}
+                <a href="#">{{- item.label -}}</a>
+              {% else %}
+                <h3 class="dso-tree-view-subhead">{{- item.label -}}</h3>
+              {% endif %}
+              {% if item.items %}
+                <ul class="list-unstyled">
+                  {%- for subitem in item.items -%}
+                    <li {{ className([subitem.active, 'active']) }}><a href="#">{{- subitem.label -}}</a></li>
+                  {% endfor -%}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

@@ -18,23 +18,23 @@
           </div>
           <div class="col-xs-6">
             {% render '@dropdown-button',
-              {label: 'versie 9.9.0', 
+              {label: 'versie 9.9.0',
                 modifier: 'btn-link dropdown-toggle ori',
                 icon: 'chevron-down',
                 buttonOri: 'right',
                 open: true,
                 modifiers: 'dso-checkable',
-                groups: [{groupLabel: 'Versies', items: [{label: '9.9.0', checked: 'true'},{label: '9.8.0'}]},{items: [{label: 'Master'}]},{groupLabel: 'Branche releases', items: [{label: '#500.margins-testbuilds'},{label: '#512.Link-button-hightlightbox'}]}]} 
+                groups: [{groupLabel: 'Versies', items: [{label: '9.9.0', checked: 'true'},{label: '9.8.0'}]},{items: [{label: 'Master'}]},{groupLabel: 'Branche releases', items: [{label: '#500.margins-testbuilds'},{label: '#512.Link-button-hightlightbox'}]}]}
             %}
           </div>
         </header>
       </div>
       <div class="row">
-        <aside class="col-xs-2">
+        <aside class="col-xs-3">
           {% render '@search-bar' %}
-          {% render '@treeview' %}
+          {% render '@tree-view' %}
         </aside>
-        <main class="col-xs-10">
+        <main class="col-xs-9">
           <h1>Voor ontwikkelaars</h1>
           <nav>{% render '@menu', menu %}</nav>
           <div>{{ content | safe }}}</div>

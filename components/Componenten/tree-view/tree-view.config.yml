@@ -17,3 +17,16 @@ context:
       - label: Kleuren
       - label: Logo / favicon
       - label: Typografie
+    - items:
+      - label: componenten
+      - label: Accordion
+      - label: Alerts
+      - label: Badge
+      - label: Breadcrumbs
+      - label: Buttons
+      - label: Conclusion
+    - items:
+      - label: voorbeelden
+      - label: Aanvragen
+      - label: Aanvragen upload bestanden
+      - label: Accordion label

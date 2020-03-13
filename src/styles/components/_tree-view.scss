@@ -1,4 +1,10 @@
-.dso-treeview {
+.dso-tree-view {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
   li {
     &.active {
       font-weight: 600;
@@ -29,7 +35,7 @@
     }
   }
 
-  .dso-treeview-subhead {
+  .dso-tree-view-subhead {
     color: $grijs-60;
     font-size: .75rem;
     font-weight: 400;
