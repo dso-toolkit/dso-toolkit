@@ -26,6 +26,7 @@
                 modifiers: 'dso-checkable',
                 groups: [{groupLabel: 'Versies', items: [{label: '9.9.0', checked: 'true'},{label: '9.8.0'}]},{items: [{label: 'Master'}]},{groupLabel: 'Branche releases', items: [{label: '#500.margins-testbuilds'},{label: '#512.Link-button-hightlightbox'}]}]}
             %}
+            {% render '@github-link' %}
           </div>
         </header>
       </div>
@@ -37,7 +38,7 @@
         <main class="col-xs-9">
           <h1>Voor ontwikkelaars</h1>
           <nav>{% render '@menu', menu %}</nav>
-          <div>{{ content | safe }}}</div>
+          <div>{{ content | safe }}</div>
         </main>
       </div>
     </div>
