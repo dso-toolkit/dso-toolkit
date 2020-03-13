@@ -11,25 +11,23 @@
 
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <header class="col-xs-12">
-          <div class="col-xs-6">
-            {% render '@logo' %}
-          </div>
-          <div class="col-xs-6">
-            {% render '@dropdown-button',
-              {label: 'versie 9.9.0',
-                modifier: 'btn-link dropdown-toggle ori',
-                icon: 'chevron-down',
-                buttonOri: 'right',
-                open: true,
-                modifiers: 'dso-checkable',
-                groups: [{groupLabel: 'Versies', items: [{label: '9.9.0', checked: 'true'},{label: '9.8.0'}]},{items: [{label: 'Master'}]},{groupLabel: 'Branche releases', items: [{label: '#500.margins-testbuilds'},{label: '#512.Link-button-hightlightbox'}]}]}
-            %}
-            {% render '@github-link' %}
-          </div>
-        </header>
-      </div>
+      <header class="row">
+        <div class="col-xs-6">
+          {% render '@logo' %}
+        </div>
+        <div class="col-xs-6">
+          {% render '@dropdown-button',
+            {label: 'versie 9.9.0',
+              modifier: 'btn-link dropdown-toggle ori',
+              icon: 'chevron-down',
+              buttonOri: 'right',
+              open: true,
+              modifiers: 'dso-checkable',
+              groups: [{groupLabel: 'Versies', items: [{label: '9.9.0', checked: 'true'},{label: '9.8.0'}]},{items: [{label: 'Master'}]},{groupLabel: 'Branche releases', items: [{label: '#500.margins-testbuilds'},{label: '#512.Link-button-hightlightbox'}]}]}
+          %}
+          {% render '@github-link' %}
+        </div>
+      </header>
       <div class="row">
         <aside class="col-xs-3">
           {% render '@search-bar' %}
