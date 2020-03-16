@@ -1,0 +1,9 @@
+.Header-navToggle { // sass-lint:disable-line
+  background-color: transparent;
+  border: 0;
+  color: $grasgroen;
+
+  @media (min-width: $screen-sm-min) {
+    display: none;
+  }
+}

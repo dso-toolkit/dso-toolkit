@@ -53,3 +53,9 @@ header {
     font-size: 1.4em;
   }
 }
+
+.Header-title {
+  @media screen and (max-width: $screen-sm-max) {
+    display: none;
+  }
+}

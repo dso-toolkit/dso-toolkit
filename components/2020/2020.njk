@@ -14,6 +14,10 @@
       <header class="row">
         <div class="col-xs-6">
           {% render '@logo' %}
+          <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
+              {% include 'icons/close-nav.svg' %}
+              {% include 'icons/open-nav.svg' %}
+          </button>
         </div>
         <div class="col-xs-6 text-right">
           {% render '@dropdown-button',
