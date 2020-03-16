@@ -19,8 +19,13 @@
     }
 
     a {
-      color: $zwart;
-      text-decoration: underline;
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        color: $zwart;
+        text-decoration: underline;
+      }
     }
 
     &.is-closed {
@@ -32,7 +37,9 @@
     @for $i from 1 through 4 {
       .dso-tree-depth-#{$i} {
         h4,
-        > ul > li {
+        > ul > li a {
+          -webkit-padding-start: $i + rem; // sass-lint:disable-line no-vendor-prefixes
+          padding-inline-start: $i + rem;
           padding-left: $i + rem;
         }
 
@@ -52,6 +59,10 @@
         color: $grijs-50;
       }
     }
+  }
+
+  .dso-tree-collection-label span {
+    padding-left: .75rem;
   }
 
   .dso-tree-view-subhead {
