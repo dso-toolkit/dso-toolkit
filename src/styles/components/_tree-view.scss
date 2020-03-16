@@ -6,16 +6,14 @@
   }
 
   li {
+    margin-top: #{$dso-unit * 2};
+
     &.active {
       font-weight: 600;
 
       a {
         text-decoration: none;
       }
-    }
-
-    + li {
-      margin-top: #{$dso-unit * 2};
     }
 
     a {
@@ -28,16 +26,31 @@
       }
     }
 
-    &.is-closed {
-      ul {
-        display: none;
-      }
+    .dso-entity-link {
+      padding-left: 1em;
     }
 
     &.dso-collection {
+      margin-left: -.5em;
+
+      &.is-closed {
+        ul {
+          display: none;
+        }
+
+        > a {
+          &::before {
+            @include di("chevron-right-grijs50");
+
+            content: "";
+            display: inline-block;
+          }
+        }
+      }
+
       > a {
         &::before {
-          @include di("chevron-right");
+          @include di("chevron-down-grijs50");
 
           content: "";
           display: inline-block;
@@ -46,7 +59,7 @@
 
       ul {
         margin-top: #{$dso-unit * 2};
-        padding-left: 1em;
+        padding-left: 1.5em;
       }
 
       .di {
