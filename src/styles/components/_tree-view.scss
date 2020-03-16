@@ -23,6 +23,25 @@
       text-decoration: underline;
     }
 
+    &.is-closed {
+      ul {
+        display: none;
+      }
+    }
+
+    @for $i from 1 through 4 {
+      .dso-tree-depth-#{$i} {
+        h4,
+        > ul > li {
+          padding-left: $i + rem;
+        }
+
+        h4 span {
+          margin-left: -1.75rem;
+        }
+      }
+    }
+
     &.dso-has-items {
       ul {
         margin-top: #{$dso-unit * 2};

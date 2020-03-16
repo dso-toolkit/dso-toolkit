@@ -1,8 +1,9 @@
 {% import "macros/status.nunj" as status %}
 
 {% macro tree(root, current, request) %}
-<nav class="dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">
-  <ul>
+<nav class="Tree dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">
+  <h3 class="Tree-title">{{ root.label }}</h3>
+  <ul class="Tree-items dso-tree-depth-1">
     {{ leaves(root.filter('isHidden', false).items(), root, current, 2, request) }}
   </ul>
 </nav>
@@ -11,11 +12,11 @@
 {% macro leaves(items, root, current, depth, request) %}
   {% for item in items %}
     {% if item.isCollection or (item.isComponent and not item.isCollated and item.variants().filter('isHidden', false).size > 1) %}
-      <li data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
-        <h4 class="dso-tree-view-subhead" data-role="toggle">
+      <li class="Tree-item Tree-collection dso-tree-depth-{{ depth }}" data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
+        <h4 class="Tree-collectionLabel" data-role="toggle">
           <span>{{ item.label }}</span>
         </h4>
-        <ul data-role="items">
+        <ul class="Tree-collectionItems" data-role="items">
           {% if item.isComponent and not item.isCollated %}
             {% set items = item.variants().filter('isHidden', false).items() %}
           {% else %}
@@ -24,14 +25,14 @@
           {{ leaves(items, root, current, (depth + 1), request) }}
         </ul>
       </li>
-    {% else %}
+      {% else %}
       {% set isCurrent = true if (current and (current.id == item.id)) else false %}
-      <li class="{% if isCurrent %} is-current{% endif %}"{% if isCurrent %} data-state="current"{% endif %} data-role="item">
-        <a href="{{ path( (item | url), request) }}" data-pjax>
-          <span>{{ item.label }}</span>
-          {% if item.status %}{{ status.unlabelled(item.status) }}{% endif %}
-        </a>
+        <li class="Tree-item Tree-entity{% if isCurrent %} is-current{% endif %}"{% if isCurrent %} data-state="current"{% endif %} data-role="item">
+          <a class="Tree-entityLink" href="{{ path( (item | url), request) }}" data-pjax>
+            <span>{{ item.label }}</span>
+            {% if item.status %}{{ status.unlabelled(item.status) }}{% endif %}
+          </a>
       </li>
-    {% endif %}
+      {% endif %}
   {% endfor %}
 {% endmacro %}
