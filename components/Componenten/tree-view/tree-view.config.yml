@@ -1,32 +1,38 @@
 context:
   navs:
-    - items:
-      - label: documentatie
+    - label: Documentatie
+      items:
       - label: Introductie
         items:
-          - label: Voor ontwerpers
-          - label: Voor ontwikkelaars
-            active: true
-          - label: Toegankelijkheid
+        - label: Voor ontwerpers
+        - label: Voor ontwikkelaars
+          active: true
+        - label: Toegankelijkheid
       - label: Versies
         items:
-          - label: Alle versies
-    - items:
-      - label: fundament
+        - label: Alle versies
+    - label: Fundament
+      items:
       - label: Grid
+        items:
+          - label: Bootstrap
+            items:
+            - label: Herkomst
+              items:
+              - label: Overwegingen
       - label: Kleuren
       - label: Logo / favicon
       - label: Typografie
-    - items:
-      - label: componenten
+    - label: Componenten
+      items:
       - label: Accordion
       - label: Alerts
       - label: Badge
       - label: Breadcrumbs
       - label: Buttons
       - label: Conclusion
-    - items:
-      - label: voorbeelden
+    - label: Voorbeelden
+      items:
       - label: Aanvragen
       - label: Aanvragen upload bestanden
       - label: Accordion label

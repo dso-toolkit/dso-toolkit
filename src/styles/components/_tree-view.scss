@@ -34,25 +34,19 @@
       }
     }
 
-    @for $i from 1 through 4 {
-      .dso-tree-depth-#{$i} {
-        h4,
-        > ul > li a {
-          -webkit-padding-start: $i + rem; // sass-lint:disable-line no-vendor-prefixes
-          padding-inline-start: $i + rem;
-          padding-left: $i + rem;
-        }
+    &.dso-collection {
+      > a {
+        &::before {
+          @include di("chevron-right");
 
-        h4 span {
-          margin-left: -1.75rem;
+          content: "";
+          display: inline-block;
         }
       }
-    }
 
-    &.dso-has-items {
       ul {
         margin-top: #{$dso-unit * 2};
-        padding-left: 3em;
+        padding-left: 1em;
       }
 
       .di {
