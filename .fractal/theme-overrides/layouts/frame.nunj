@@ -5,7 +5,7 @@
 
 <div class="Frame container-fluid" id="frame">
 
-    <header class="Frame-header row">
+    <header class="Frame-header row" style="border-bottom: 1px solid #ddd; margin-bottom: 0;">
         {% include 'partials/header.nunj' %}
     </header>
 
