@@ -50,8 +50,9 @@ const theme = require('@frctl/mandelbrot')({
   nav: ['docs', 'components'],
   format: 'yaml',
   styles: [
-    'default',
-    '/_statics/custom-mandelbrot-stylesheet.css'
+    // 'default',
+    // '/_statics/custom-mandelbrot-stylesheet.css',
+    '/styles/dso.css'
   ],
   scripts: [
     'default',
