@@ -1,0 +1,28 @@
+{% extends "layouts/skeleton.nunj" %}
+{% import "macros/navigation.nunj" as nav %}
+
+{% block page %}
+
+<div class="Frame container-fluid" id="frame">
+
+    <header class="Frame-header row">
+        {% include 'partials/header.nunj' %}
+    </header>
+
+    <div class="Frame-body row" data-role="body">
+
+        <div class="Frame-panel Frame-panel--main col-md-10 col-md-push-2" data-role="main">
+            <div class="Frame-inner" id="pjax-container">
+            {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        <div class="Frame-handle" data-role="frame-resize-handle"></div>
+
+        <div class="Frame-panel Frame-panel--sidebar col-md-2 col-md-pull-10" data-role="sidebar" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1">
+            {% include 'partials/navigation/navigation.nunj' %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

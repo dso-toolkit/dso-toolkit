@@ -1,0 +1,72 @@
+.dso-tree-view {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    &.active {
+      font-weight: 600;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    + li {
+      margin-top: #{$dso-unit * 2};
+    }
+
+    a {
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        color: $zwart;
+        text-decoration: underline;
+      }
+    }
+
+    &.is-closed {
+      ul {
+        display: none;
+      }
+    }
+
+    &.dso-collection {
+      > a {
+        &::before {
+          @include di("chevron-right");
+
+          content: "";
+          display: inline-block;
+        }
+      }
+
+      ul {
+        margin-top: #{$dso-unit * 2};
+        padding-left: 1em;
+      }
+
+      .di {
+        color: $grijs-50;
+      }
+    }
+  }
+
+  .dso-tree-collection-label span {
+    padding-left: .75rem;
+  }
+
+  .dso-tree-view-subhead {
+    color: $grijs-60;
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .075em;
+    line-height: 1.66667;
+    margin-bottom: $dso-unit;
+    margin-top: #{$dso-unit * 3};
+    text-transform: uppercase;
+  }
+}
