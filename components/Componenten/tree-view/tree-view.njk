@@ -1,7 +1,7 @@
 {% macro leaves(items) %}
   <ul>
     {%- for item in items -%}
-      <li {{ className('dso-collection' if item.items else 'dso-entity', [item.active, 'active']) }} >
+      <li {{ className('dso-collection' if item.items else 'dso-entity', [item.active, 'dso-is-current']) }} >
         {% if item.items %}
           <span>{{- item.label -}}</span>
         {% else %}
