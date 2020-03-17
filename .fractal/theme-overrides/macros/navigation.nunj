@@ -3,9 +3,6 @@
 {% macro tree(root, current, request) %}
 <nav class="Tree dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">
   <ul class="Tree-items">
-    <h2 class="dso-tree-view-subhead">
-      <span>{{ root.label }}</span>
-    </h2>
     {{ leaves(root.filter('isHidden', false).items(), root, current, 1, request) }}
   </ul>
 </nav>

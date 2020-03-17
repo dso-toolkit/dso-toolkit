@@ -8,21 +8,22 @@
   li {
     margin-top: #{$dso-unit * 2};
 
-    &.active {
-      font-weight: 600;
-
-      a {
-        text-decoration: none;
-      }
-    }
-
     a {
       &,
       &:hover,
       &:active,
-      &:focus {
+      &:focus,
+      &:visited {
         color: $zwart;
         text-decoration: underline;
+      }
+    }
+
+    &.is-current {
+      font-weight: 600;
+
+      a {
+        text-decoration: none;
       }
     }
 
@@ -38,7 +39,8 @@
           display: none;
         }
 
-        > a {
+        > a,
+        > span {
           &::before {
             @include di("chevron-right-grijs50");
 
@@ -48,7 +50,8 @@
         }
       }
 
-      > a {
+      > a,
+      > span {
         &::before {
           @include di("chevron-down-grijs50");
 
