@@ -3,23 +3,23 @@
 
 {% block page %}
 
-<div class="Frame container-fluid" id="frame">
+<div class="container-fluid" id="frame">
 
-    <header class="Frame-header row" style="border-bottom: 1px solid #ddd; margin-bottom: 0;">
+    <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0;">
         {% include 'partials/header.nunj' %}
     </header>
 
-    <div class="Frame-body row" data-role="body">
+    <div class="row" data-role="body">
 
-      <div class="Frame-panel Frame-panel--main col-md-10 col-md-push-2" data-role="main">
-        <div class="Frame-inner" id="pjax-container">
+      <div class="col-md-10 col-md-push-2" data-role="main">
+        <div id="pjax-container">
           {% block content %}{% endblock %}
         </div>
       </div>
 
-      <div class="Frame-handle" data-role="frame-resize-handle"></div>
+      <div data-role="frame-resize-handle"></div>
 
-      <div class="Frame-panel Frame-panel--sidebar col-md-2 col-md-pull-10" data-role="sidebar" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding-bottom: 16px; padding-top: 16px">
+      <div class="col-md-2 col-md-pull-10" data-role="sidebar" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding-bottom: 16px; padding-top: 16px">
         <div class="dso-search-bar">
           <div class="dso-search-bar-input">
             <span class="dso-search-icon" aria-hidden="true"></span>
