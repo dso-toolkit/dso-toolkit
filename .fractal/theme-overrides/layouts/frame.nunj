@@ -3,6 +3,24 @@
 
 {% block page %}
 <style type="text/css">
+  .container-fluid {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 320px;
+    overflow: hidden;
+  }
+
+  header {
+    flex-shrink: 0;
+  }
+
   div[data-role="body"] {
     display: flex;
     -ms-flex-direction: row-reverse;
@@ -21,6 +39,14 @@
     transition: all 0s ease 0s;
   }
 
+  div[data-role="main"] {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
   @media screen and (max-width: 768px) {
     div[data-role="sidebar"] {
       width: 256px !important;
@@ -37,6 +63,7 @@
 
   @media screen and (min-width: 769px) {
     div[data-role="body"] {
+      height: calc(100% - 118px);
       margin-right: 0 !important;
       transform: translate3d(0, 0, 0) !important;
     }
@@ -44,14 +71,12 @@
     div[data-role="sidebar"] {
       width: 256px !important;
     }
-  }
 
-  div[data-role="main"] {
-    flex: 1 1 auto;
-    overflow: auto;
-    padding: 0 16px;
-    position: relative;
-    z-index: 1;
+    div[data-role="sidebar"],
+    div[data-role="main"] {
+      position: relative;
+      overflow: auto;
+    }
   }
 </style>
 
