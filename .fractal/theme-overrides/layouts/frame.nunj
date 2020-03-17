@@ -2,37 +2,82 @@
 {% import "macros/navigation.nunj" as nav %}
 
 {% block page %}
+<style type="text/css">
+  div[data-role="body"] {
+    display: flex;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-left: -16px !Important;
+    margin-right: -16px !Important;
+  }
+
+  div[data-role="sidebar"] {
+    background-color: #f5f5f5;
+    border-right: 1px solid #e1e1e1;
+    flex: 0 0 auto; 
+    padding: 16px;
+    transition: all 0s ease 0s;
+  }
+
+  @media screen and (max-width: 768px) {
+    div[data-role="sidebar"] {
+      width: 256px !important;
+    }
+
+    .container-fluid.is-closed div[data-role="sidebar"] {
+      {# width: 0 !important; #}
+      transform: translate3d(-256px, 0, 0) !important;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    div[data-role="body"] {
+      margin-right: 0 !important;
+      transform: translate3d(0, 0, 0) !important;
+    }
+
+    div[data-role="sidebar"] {
+      width: 256px !important;
+    }
+  }
+
+  div[data-role="main"] {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+</style>
 
 <div class="container-fluid" id="frame">
+  <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0;">
+      {% include 'partials/header.nunj' %}
+  </header>
 
-    <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0;">
-        {% include 'partials/header.nunj' %}
-    </header>
-
-    <div class="row" data-role="body">
-
-      <div class="col-md-10 col-md-push-2" data-role="main">
-        <div id="pjax-container">
-          {% block content %}{% endblock %}
-        </div>
+  <div class="row" data-role="body">
+    <div data-role="main">
+      <div id="pjax-container">
+        {% block content %}{% endblock %}
       </div>
+    </div>
 
-      <div data-role="frame-resize-handle"></div>
-
-      <div class="col-md-2 col-md-pull-10" data-role="sidebar" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding-bottom: 16px; padding-top: 16px">
-        <div class="dso-search-bar">
+    <div data-role="sidebar">
+      <div class="dso-search-bar">
           <div class="dso-search-bar-input">
-            <span class="dso-search-icon" aria-hidden="true"></span>
-            <input type="text" placeholder="Filteren" />
-            <button type="button">
+          <span class="dso-search-icon" aria-hidden="true"></span>
+          <input type="text" placeholder="Filteren" />
+          <button type="button">
               Zoekopdracht legen
-            </button>
+          </button>
           </div>
           <button type="button" class="btn btn-default sr-only">
-            Zoeken
+          Zoeken
           </button>
-        </div>
-        {% include 'partials/navigation/navigation.nunj' %}
+      </div>
+      {% include 'partials/navigation/navigation.nunj' %}
     </div>
   </div>
 </div>
