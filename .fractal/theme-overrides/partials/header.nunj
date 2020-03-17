@@ -1,26 +1,43 @@
 <style type="text/css">
   .container-fluid svg.dso-open {
-    display: block;
+    display: inline-block;
   }
+
   .container-fluid svg.dso-closed {
     display: none;
   }
+
   .container-fluid.is-closed svg.dso-open {
     display: none;
   }
+
   .container-fluid.is-closed svg.dso-closed {
-    display: block;
+    display: inline-block;
   }
-  @media screen and (min-width: 769px) {
-  .btn {
+
+  @media screen and (max-width: 768px) {
+    .dso-logo {
       display: none;
     }
   }
+
+  .dso-logo + .btn-link {
+    margin: 16px 0;
+  }
+
+  @media screen and (min-width: 769px) {
+    .dso-logo + .btn-link {
+      display: none;
+    }
+  }
+
 </style>
 <div class="col-sm-6 col-xs-3">
-  <a href="{{ path('/') }}" class="Header-title" data-pjax>
-    <img src="{{ path('/images/omgevingswet.svg') }}" width="300" />
-  </a>
+  <div class="dso-logo">
+    <a href="{{ path('/') }}" class="Header-title" data-pjax>
+      <img src="{{ path('/images/omgevingswet.svg') }}" width="300" />
+    </a>
+  </div>
   <button class="btn btn-link" data-action="toggle-sidebar">
     <svg class="di di-times dso-open">
       <use xlink:href="{{ path('/dso-icons.svg#times') }}"></use>
