@@ -38,7 +38,8 @@
           display: none;
         }
 
-        > a {
+        > a,
+        > span {
           &::before {
             @include di("chevron-right-grijs50");
 
@@ -48,7 +49,8 @@
         }
       }
 
-      > a {
+      > a,
+      > span {
         &::before {
           @include di("chevron-down-grijs50");
 
