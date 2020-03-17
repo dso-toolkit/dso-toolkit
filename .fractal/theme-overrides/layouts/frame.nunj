@@ -9,8 +9,8 @@
     flex-direction: row-reverse;
     -ms-flex-positive: 1;
     flex-grow: 1;
-    margin-left: -16px !Important;
-    margin-right: -16px !Important;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
   }
 
   div[data-role="sidebar"] {
@@ -26,8 +26,11 @@
       width: 256px !important;
     }
 
+    .container-fluid.is-closed div[data-role="body"] {
+      margin-right: -256px !important;
+    }
+
     .container-fluid.is-closed div[data-role="sidebar"] {
-      {# width: 0 !important; #}
       transform: translate3d(-256px, 0, 0) !important;
     }
   }
