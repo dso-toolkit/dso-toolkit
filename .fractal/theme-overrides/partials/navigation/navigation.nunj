@@ -40,7 +40,7 @@
     {% for item in items %}
       {% if item.isCollection or (item.isComponent and not item.isCollated and item.variants().filter('isHidden', false).size > 1) %}
         <li class="dso-collection" data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
-          <h4 data-role="toggle">{{ item.label }}</h4>
+          <span data-role="toggle">{{ item.label }}</span>
           <ul data-role="items">
             {% if item.isComponent and not item.isCollated %}
               {% set items = item.variants().filter('isHidden', false).items() %}
@@ -62,7 +62,7 @@
   {# </ul> #}
 {% endmacro %}
 
-<nav class="dso-tree-view">
+<nav class="dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">
   <ul>
     {% if frctl.docs.size %}
       {{ tree(frctl.docs, frctl.docs.filter('isHidden', false).items(), doc, request) }}
