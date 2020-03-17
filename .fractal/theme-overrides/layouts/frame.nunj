@@ -3,6 +3,15 @@
 
 {% block page %}
 <style type="text/css">
+  html {
+    position: relative;
+    height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
   .container-fluid {
     display: -ms-flexbox;
     display: flex;
@@ -10,11 +19,11 @@
     flex-direction: column;
     -ms-flex-positive: 1;
     flex-grow: 1;
-    position: relative;
     height: 100%;
-    width: 100%;
     min-width: 320px;
     overflow: hidden;
+    position: relative;
+    width: 100%;
   }
 
   header {
@@ -64,7 +73,6 @@
   @media screen and (min-width: 769px) {
     div[data-role="body"] {
       height: calc(100% - 118px);
-      margin-right: 0 !important;
       transform: translate3d(0, 0, 0) !important;
     }
 
