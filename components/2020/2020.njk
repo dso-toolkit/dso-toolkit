@@ -15,11 +15,12 @@
         <div class="col-xs-6">
           {% render '@logo' %}
           <button class="Header-button Header-navToggle" data-action="toggle-sidebar">
-              {% include 'icons/close-nav.svg' %}
-              {% include 'icons/open-nav.svg' %}
+            {% render '@icon', {icon: 'times'}  %}
+            {% render '@icon', {icon: 'bars'}  %}
           </button>
         </div>
         <div class="col-xs-6 text-right">
+          {% render '@label', {label: 'laatste versie'} %}
           {% render '@dropdown-button',
             {label: 'versie 9.9.0',
               modifier: 'btn-link dropdown-toggle ori',
