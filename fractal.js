@@ -56,7 +56,8 @@ const theme = require('@frctl/mandelbrot')({
   scripts: [
     'default',
     '/dso-toolkit-scripts.js'
-  ]
+  ],
+  lang: 'nl'
 });
 
 theme.addLoadPath(__dirname + '/.fractal/theme-overrides');
