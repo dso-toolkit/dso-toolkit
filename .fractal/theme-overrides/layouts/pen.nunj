@@ -1,0 +1,75 @@
+{% extends "layouts/pjax.nunj" if request.isPjax else 
+  "layouts/frame.nunj" %}
+
+{% import "macros/errors.nunj" as errors %}
+
+{% set page = {
+  title: entity.title
+} %}
+
+{% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: entity.handle})) %}
+
+{% block content %}
+
+  {% if frctl.env.server and frctl.env.sync %}
+    {% set rendered = false %}
+  {% else %}
+    {% set rendered = entity.render(null, renderEnv, {
+      preview: true,
+      collate: true
+    }) | async (true) %}
+    {% if rendered | isError %}
+      {% set error = rendered %}
+      {% set renderError %}{{ errors.renderError('component', error.message) }}{% endset %}
+      {% set rendered = false %}
+    {% endif %}
+  {%- endif %}
+
+  <div class="Pen" data-behaviour="pen" id="pen-{{ entity.id }}">
+
+    {% block penContent %}
+
+      <div class="Pen-panel Pen-header">
+        <h1 class="Pen-title">
+          <a class="Pen-previewLink" href="{{ previewUrl }}" title="Component preview">
+            {{ entity.title }}
+            {% include "icons/open-in-browser.svg" %}
+          </a>
+        </h1>
+      </div>
+
+      {% if renderError -%}
+        {{ renderError }}
+      {% else %}
+
+        <div class="Browser" data-behaviour="browser" id="browser-{{ entity.id }}">
+
+          <div class="Browser-controls">
+            <ul class="Browser-tabs">
+              {% for panel in frctl
+                .theme
+                .get('panels') %}
+                <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}" data-role="tab">
+                  <a href="#browser-{{ entity.id }}-panel-{{ panel }}">
+                    {% if panel == 'html' %}HTML{% else %}{{ panel | capitalize }}
+                    {% endif %}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          {% asyncAll panel in frctl
+            .theme
+            .get('panels') %}
+          {% include 'partials/browser/panel-' + panel + '.nunj' %}
+          {% endall %}
+
+        </div>
+      {%- endif %}
+
+    {% endblock %}
+
+  </div>
+
+{% endblock %}
