@@ -15,7 +15,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
 - Steunkleuren
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Grasgroen</h2>
@@ -27,7 +27,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Grasgroen 80%</h2>
@@ -39,7 +39,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Grasgroen 40%</h2>
@@ -51,7 +51,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Grasgroen 10%</h2>
@@ -65,7 +65,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
   </div>
 </div>
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Bosgroen</h2>
@@ -77,7 +77,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Bosgroen 80%</h2>
@@ -89,7 +89,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Bosgroen 40%</h2>
@@ -101,7 +101,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Bosgroen 10%</h2>
@@ -119,7 +119,7 @@ Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustig
 Lime wordt gebruikt voor non-essential beeldmerken, bijvoorbeeld vinkjes toevoegen na een succesvolle post. Deze kleur is geen interactie kleur, in tegenstelling tot de andere groen kleuren.
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Lime</h2>
@@ -131,7 +131,7 @@ Lime wordt gebruikt voor non-essential beeldmerken, bijvoorbeeld vinkjes toevoeg
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Lime 20%</h2>
@@ -155,7 +155,7 @@ Oranje is een sterke kleur die wordt gebruikt voor aandachtspunten. Deze kleur w
 - Primaire knoppen
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Oranje</h2>
@@ -173,7 +173,7 @@ Oranje is een sterke kleur die wordt gebruikt voor aandachtspunten. Deze kleur w
 De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt zwart en verhoogt de leesbaarheid als er lange stukken tekst op de pagina staan.
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Zwart 90%</h2>
@@ -185,7 +185,7 @@ De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt 
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Zwart 60%</h2>
@@ -197,7 +197,7 @@ De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt 
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Zwart 10%</h2>
@@ -209,7 +209,7 @@ De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt 
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Zwart 5%</h2>
@@ -229,7 +229,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
 **Let op: Deze kleuren worden naast het primaire kleurenpalet gebruikt en zijn ondergeschikt.**
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Geel</h2>
@@ -241,7 +241,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Rood</h2>
@@ -253,7 +253,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Mintgroen</h2>
@@ -265,7 +265,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Mauve</h2>
@@ -279,7 +279,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
   </div>
 </div>
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Paars</h2>
@@ -291,7 +291,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Donkerblauw</h2>
@@ -303,7 +303,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Lichtblauw</h2>
@@ -315,7 +315,7 @@ De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontst
       </div>
     </div>
   </div>
-  <div class="col-md-2">
+  <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
         <h2>Bruin</h2>
