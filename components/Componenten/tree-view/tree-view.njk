@@ -3,7 +3,7 @@
     {%- for item in items -%}
       <li {{ className('dso-collection' if item.items else 'dso-entity', [item.active, 'dso-is-current']) }} >
         {% if item.items %}
-          <span>{{- item.label -}}</span>
+          <button type="button">{{- item.label -}}</button>
         {% else %}
           <a href="#">{{- item.label -}}</a>
         {% endif %}
