@@ -2,120 +2,88 @@
 {% import "macros/navigation.nunj" as nav %}
 
 {% block page %}
-<style type="text/css">
-  html {
-    position: relative;
-    height: 100%;
-  }
-
-  body {
-    height: 100%;
-  }
-
-  .container-fluid {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    height: 100%;
-    min-width: 320px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-
-  header {
-    flex-shrink: 0;
-  }
-
-  div[data-role="body"] {
-    display: flex;
-    -ms-flex-direction: row-reverse;
-    flex-direction: row-reverse;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    margin-left: -16px !important;
-    margin-right: -16px !important;
-  }
-
-  div[data-role="sidebar"] {
-    background-color: #f5f5f5;
-    border-right: 1px solid #e1e1e1;
-    flex: 0 0 auto; 
-    padding: 16px;
-    transition: all 0s ease 0s;
-  }
-
-  div[data-role="main"] {
-    flex: 1 1 auto;
-    overflow: auto;
-    padding: 0 16px;
-    position: relative;
-    z-index: 1;
-  }
-
-  @media screen and (max-width: 768px) {
-    div[data-role="sidebar"] {
-      width: 256px !important;
+  <style type="text/css">
+    .dso-toolkit-window {
+      border: 1px solid #ddd;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .container-fluid.is-closed div[data-role="body"] {
-      margin-right: -256px !important;
+    .dso-toolkit-window .dso-toolkit-titlebar-stoplight {
+      background-color: #ddd;
+      height: 24px;
     }
 
-    .container-fluid.is-closed div[data-role="sidebar"] {
-      transform: translate3d(-256px, 0, 0) !important;
-    }
-  }
-
-  @media screen and (min-width: 769px) {
-    div[data-role="body"] {
-      height: calc(100% - 118px);
-      transform: translate3d(0, 0, 0) !important;
-    }
-
-    div[data-role="sidebar"] {
-      width: 256px !important;
+    .dso-toolkit-titlebar-close,
+    .dso-toolkit-titlebar-fullscreen,
+    .dso-toolkit-titlebar-minimize {
+      display: inline-block;
+      margin: 6px 4px;
+      background-repeat: no-repeat;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOgAAAAYCAYAAADwO7FhAAAABmJLR0QA/wD/AP+gvaeTAAAETUlEQVR42u2bz0tcVxTHP+e+NzMaf3U0IG1VmpIozSaii1JwkVIXbkIpXRS6Ke1/1k1poaWLbrJIQIpQKBiSTakGWtJq0VQTnYw/Zubde7p4jlozis48cyd6P4thmPfe3DOH833n3PPOiL13WzlHoulZARif+/xc13k49Y0AJJ99er6/59vvBcDd/zD47QzE3/0gACHezoY5zy8PBAKtEQQaCLQxQaCBQBsT+zYgRRHjQByCgsrBoUNvVR3OKk5rRKbHt9GBC8L6owUABm6N+TblJdpEoICCOsE5UOcQgVSdCggigmIQE2PI+bY2cIF49nARCAI9AUVdle3lVXZWnlN6soar1HCJQ51D7V6jTJSxrz5GjKS6PQM/3v8FgJmpSToL+Ybn7FSq3J2bB+CTjz7w6hF77zYAk16tCDRLVvHmbQ8q4gAHalGXIOoAsImlWtqlVtrF7lSxlQRXs7iq3S995XDdewbWNkvcnZtnp1I91llrmyVfLglcMLKIN38CNZa0hK1iqEFkuDI0QvHmCIPvXydf7MJWLTjqVS5qLXDm5Amkd7Krfb0NnXbYWVf7epmZCnkr0BpZxZu/Lq6kGXNraZXy0lNUO5BI6Rjoo/fGOxRvDtE9MvD/S8yeuU0otLOQb+i0Rs46riQJBE5LVvHmbQ+qLgLgxR8rJFsVCsVuCv09IEoUC33Xh5E4Rq1le6WEMYKzLhOn1R1Ur/+DOAPnQRbx9pJAHzxYZX5+tSmDJicHmZgYPN3JakChvLyOq1jKf6+DEXJXupEcxLkCve8OobYGGHb/3dzLoIKIok0OWB11GtCu4oyBxLcR582rirf1Rwv73drjePz1Tw0/7x8fbbrD22q8+eviSrqxTLZruMSy8fsy6ix9ox3kcjGgRPmIvtFriIlY3XjBQUW+tym92OS5BAINnMxLAp2YOEMWbIV6ClQFVbaWnwGKiXP0XHsbU+jCxAlxLqJ7eIDyUj8milpe9ugeAA66bW2WRS/FlNerireBW2PHZsF65rzxxZ3M12013jw2idIMqFZRp5icoVausLGwxObiE1xSSSeLVIm7ixTHhnjjvWGa6+E2dtbM1OSJ3TbPWN8GBFoji3jzfJdWTCT7e8tku0L5r3We/7ZEafFPkh2HTdLj3SPDdL35VqbO6izkj+22tQFtYUSgObKKN38C3Rs6UHcweKBOEREqG2We/vqY1Z/n2Vn5B1XBEaEYms2gJ7W2GzmtDQgZ9DUmq3jzJlBVAyKYfIzEgslHSCSYQkyUjxEjqBFczYGCiIAYwKTXNsFJ3bPDTgsEsiCLePM4i+sAw+iXd2j8zKQ+f1t/aa1re5rZ2s5C3vsMbuBikFW8eROoc1WMKSBRBZGIVJB6pILdK30x6WCDXvhHKwEP9I+P+jbhWLwJ1JgOANR2tNCXDQRapx3/ZlbnUjxrCwReV4JA25RoepZoeta3GQHPBIEGAm3MfxIveNEtAGhmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAABJRU5ErkJggg==");
+      background-size: auto 12px;
+      width: 12px;
+      height: 12px;
+      border-radius: 6px;
     }
 
-    div[data-role="sidebar"],
-    div[data-role="main"] {
-      position: relative;
-      overflow: auto;
+    .dso-toolkit-titlebar-close {
+      background-position: -65px 0;
+      margin-left: 6px;
     }
-  }
-</style>
 
-<div class="container-fluid" id="frame">
-  <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0;">
-      {% include 'partials/header.nunj' %}
-  </header>
+    .dso-toolkit-titlebar-minimize {
+      background-position: -39px 0;
+    }
 
-  <div class="row" data-role="body">
-    <div data-role="main">
-      <div id="pjax-container">
-        {% block content %}{% endblock %}
+    .dso-toolkit-titlebar-fullscreen {
+      background-position: -52px 0;
+    }
+
+    .dso-toolkit-window iframe {
+      width: 100%;
+      margin-top: 16px;
+    }
+  </style>
+
+  <div class="container-fluid" id="frame">
+    <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0; height: 100px;">
+      <div class="col-sm-6 col-xs-3">
+        <a href="{{ path('/') }}" class="Header-title" data-pjax="data-pjax">
+          <img src="{{ path('/images/toolkit.svg') }}" width="300"/>
+        </a>
       </div>
-    </div>
+      <div class="col-sm-6 col-xs-9 text-right">
+        [version selector]
+        <a href="https://www.github.com/dso-toolkit/dso-toolkit" title="Ga naar de DSO-Toolkit GitHub project page" target="_blank">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTE3OEEyQTk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTE3OEEyQjk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1MTc4QTI4OTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1MTc4QTI5OTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m4QGuQAAAyRJREFUeNrEl21ojWEYx895TDPbMNlBK46IUiNmPvHBSUjaqc0H8pF5+aDUKPEBqU2NhRQpX5Rv5jWlDIWlMCv7MMSWsWwmb3tpXub4XXWdPHvc9/Gc41nu+nedc7/8r/99PffLdYdDPsvkwsgkTBwsA/PADJCnzX2gHTwBt8Hl7p537/3whn04XoDZDcpBlk+9P8AFcAghzRkJwPF4zGGw0Y9QS0mAM2AnQj77FqCzrtcwB1Hk81SYojHK4DyGuQ6mhIIrBWB9Xm7ug/6B/nZrBHBegrkFxoVGpnwBMSLR9EcEcC4qb8pP14BWcBcUgewMnF3T34VqhWMFkThLJAalwnENOAKiHpJq1FZgI2AT6HZtuxZwR9GidSHtI30jOrbawxlVX78/AbNfhHlomEUJJI89O2MqeE79T8/nk8nMBm/dK576hZgmA3cp/R4l9/UeSxiHLVIlNm4nFfT0bxyuIj7LHRTKai+zdJobwMKzcZSJb0ePV5PKN+BqAAKE47UlMnERELMM3EdYP/yrd+XYb2mOiYBiQ8OQnoRBlXrl9JZix7D1pHTazu4MoyBcnYamqAjIMTR8G4FT8LuhLsexXYYjICBiqhQBvYb6fLZIJCjPypVvaOoVAW2WcasCnL2Nq82xHJNSqlCeFcDshaPK0twkAhosjZL31QYw+1rlMpWGMArl23SBsZZO58F2tlJXmjOXS+s4WGvpMiBJT/I2PInZ6lIs9/hBsNS1hS6BG0DSqmYEDRlCXQrmy50P1oDRKTSegmNbUsA0zDMwRhPJXeCE3vWLPQMvan6X8AgIa1vcR4AkGZkDR4ejJ1UHpsaVI0g2LInpOsNFUud1rhxSV+fzC9Woz2EZkWQuja7/B+jUrgtIMpy9YCW4n4K41YfzRneW5E1KJTe4B2Zq1Q5EHEtj4U3AfEzR5SVY4l7QYQPJdN2as7RKBF0BPZqqH4VgMAMBL8Byxr7y8zCZiDlnOcEKIPmUpgB5Z2ww5RdOiiRiNajUmWda5IG6WbhsyY2fx6m8gLcoJDJFkH219M3We1+cnda93pfycZpIJEL/s/wSYADmOAwAQgdpBAAAAABJRU5ErkJggg==" alt="GitHub logo">
+        </a>
+      </div>
+    </header>
 
-    <div data-role="sidebar">
-      <div class="dso-search-bar">
+    <div class="row" data-role="body">
+      <div class="col-xs-4 col-sm-3 col-lg-2" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll">
+        <div class="dso-search-bar">
           <div class="dso-search-bar-input">
-          <span class="dso-search-icon" aria-hidden="true"></span>
-          <input type="text" placeholder="Filteren" />
-          <button type="button">
+            <span class="dso-search-icon" aria-hidden="true"></span>
+            <input type="text" placeholder="Filteren"/>
+            <button type="button">
               Zoekopdracht legen
-          </button>
+            </button>
           </div>
           <button type="button" class="btn btn-default sr-only">
-          Zoeken
+            Zoeken
           </button>
+        </div>
+        {% include 'partials/navigation/navigation.nunj' %}
       </div>
-      {% include 'partials/navigation/navigation.nunj' %}
+
+      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px); overflow-y: scroll;">
+        <div id="pjax-container">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
 {% endblock %}
