@@ -1,19 +1,4 @@
 .dropdown {
-  &.button-ori-right {
-    display: inline-block;
-
-    .dropdown-menu {
-      left: auto;
-      right: 0;
-    }
-  }
-
-  header & {
-    &.button-ori-right {
-      margin-top: $u3;
-    }
-  }
-
   > .btn-default.dropdown-toggle {
     &::after {
       @include di("caret-down-grasgroen");
@@ -43,7 +28,7 @@
         }
       }
 
-      .group-label {
+      .dso-group-label {
         color: $grijs-40;
         font-size: (14 / 16 * 1em);
         padding: 3px 20px;
@@ -54,7 +39,7 @@
     &.dso-checkable {
       li {
         a,
-        .group-label {
+        .dso-group-label {
           padding-left: $u5;
         }
 

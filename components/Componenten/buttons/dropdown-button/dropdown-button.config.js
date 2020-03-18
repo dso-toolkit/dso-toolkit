@@ -9,8 +9,7 @@ module.exports = {
   context: {
     id: 'actie',
     open: false,
-    label: 'Actie',
-    modifier: 'btn-default dropdown-toggle'
+    label: 'Actie'
   },
   variants: [
     {
