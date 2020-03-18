@@ -39,8 +39,7 @@
           display: none;
         }
 
-        > a,
-        > span {
+        > button {
           &::before {
             @include di("chevron-right-grijs50");
 
@@ -50,8 +49,11 @@
         }
       }
 
-      > a,
-      > span {
+      > button {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+
         &::before {
           @include di("chevron-down-grijs50");
 
