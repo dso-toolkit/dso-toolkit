@@ -1,4 +1,4 @@
-{% extends "layouts/pjax.nunj" if request.isPjax else 
+{% extends "layouts/pjax.nunj" if request.isPjax else
   "layouts/frame.nunj" %}
 
 {% import "macros/errors.nunj" as errors %}
@@ -29,6 +29,131 @@
 
     {% block penContent %}
 
+    <style type="text/css">
+      .Preview {
+        position: relative;
+      }
+
+      .Preview-wrapper {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        width: calc(100% + 0.625rem);
+        min-width: 200px;
+        max-width: calc(100% + 0.625rem);
+        background-color: transparent;
+      }
+
+      .Preview-resizer {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        max-width: calc(100% - 0.625rem + 1px);
+        min-width: 180px;
+        background-color: white;
+      }
+
+      .Preview-iframe {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .Pen {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        height: 100%;
+        overflow: hidden;
+        background: white;
+      }
+
+      .Pen.is-resizing {
+        cursor: grabbing;
+      }
+
+      .Pen.is-resizing .Pen-handle {
+        cursor: grabbing;
+      }
+
+      .Pen-header {
+        display: flex;
+        flex: 0 0 auto;
+        max-height: 3rem;
+        padding: 0.75rem;
+        align-items: center;
+      }
+
+      .Pen-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .Pen-previewLink svg {
+        fill: $color-link;
+        opacity: 0.75;
+      }
+
+      .Pen-previewLink:hover svg {
+        opacity: 1;
+      }
+
+      .Pen-preview {
+        flex: 0 0 auto;
+        height: 50%;
+        max-height: calc(100% - 3.75rem);
+        margin: 0 $handle-size;
+      }
+
+      .Pen-handle {
+        flex: 0 0 auto;
+        height: $handle-size;
+        margin: 0 $handle-size;
+        background: transparent url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
+        background-size: 16px 3px;
+        cursor: ns-resize;
+      }
+
+      .Pen-handle--browser {
+        display: block;
+        pointer-events: all;
+        visibility: visible;
+      }
+
+      .Pen-info {
+        flex: 1 1 auto;
+        position: relative;
+        overflow: hidden;
+        margin: $handle-size;
+        margin-top: 0;
+        border: 1px solid $color-frame-border;
+      }
+
+      .Browser-panel {
+        flex: 1 1 auto;
+        display: none;
+        overflow: auto;
+        width: 100%;
+        background-color: #f6f6f6;
+        padding: 0.75rem;
+      }
+
+      .Browser-panel.is-active {
+        display: flex;
+      }
+    </style>
+
       <div class="Pen-panel Pen-header">
         <h1 class="Pen-title">
           <a class="Pen-previewLink" href="{{ previewUrl }}" title="Component preview">
@@ -41,15 +166,20 @@
       {% if renderError -%}
         {{ renderError }}
       {% else %}
-
         <div class="Browser" data-behaviour="browser" id="browser-{{ entity.id }}">
-
-          <div class="Browser-controls">
-            <ul class="Browser-tabs">
+          <nav class="dso-navbar">
+            <div class="dso-navbar-header">
+              <button type="button" class="dso-navbar-toggle">
+                <svg class="di di-bars">
+                  <use href="../../dso-icons.svg#bars" />
+                </svg> <span class="sr-only">Ga naar menu</span>
+              </button>
+            </div>
+            <ul class="dso-nav dso-nav-main">
               {% for panel in frctl
                 .theme
                 .get('panels') %}
-                <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}" data-role="tab">
+                <li class="{% if loop.first %} dso-active {% endif %}" data-role="tab">
                   <a href="#browser-{{ entity.id }}-panel-{{ panel }}">
                     {% if panel == 'html' %}HTML{% else %}{{ panel | capitalize }}
                     {% endif %}
@@ -57,7 +187,7 @@
                 </li>
               {% endfor %}
             </ul>
-          </div>
+          </nav>
 
           {% asyncAll panel in frctl
             .theme
