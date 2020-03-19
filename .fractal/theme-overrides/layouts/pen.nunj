@@ -111,18 +111,9 @@
 
       .Pen-preview {
         flex: 0 0 auto;
-        height: 50%;
+        height: 100%;
         max-height: calc(100% - 3.75rem);
-        margin: 0 $handle-size;
-      }
-
-      .Pen-handle {
-        flex: 0 0 auto;
-        height: $handle-size;
-        margin: 0 $handle-size;
-        background: transparent url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
-        background-size: 16px 3px;
-        cursor: ns-resize;
+        width: 100%;
       }
 
       .Pen-handle--browser {
