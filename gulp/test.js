@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const util = require('gulp-util');
+const filter = require('gulp-filter');
 
 const access = require('gulp-accessibility');
 const del = require('del');
@@ -52,7 +53,10 @@ function testDom(cb) {
   return gulp.series(testAgainstReference, propegateResult)(cb);
 
   function testAgainstReference() {
+    const f = filter(['**', '!**/preview.html']);
+
     return gulp.src('build/library/components/render/*.html')
+      .pipe(f)
       .pipe(tap(function (file) {
         let filename = path.basename(file.path);
         let referenceHtml = null;

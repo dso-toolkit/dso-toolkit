@@ -18,7 +18,8 @@ ul.dso-conclusion {
 
     &.dso-success,
     &.dso-warning,
-    &.dso-forbidden {
+    &.dso-forbidden,
+    &.dso-danger {
       &::before {
         content: "";
       }
@@ -39,6 +40,12 @@ ul.dso-conclusion {
     &.dso-forbidden {
       &::before {
         @include di("forbidden", $dso-conclusion-icon-size);
+      }
+    }
+
+    &.dso-danger {
+      &::before {
+        @include di("status-danger", $dso-conclusion-icon-size);
       }
     }
 

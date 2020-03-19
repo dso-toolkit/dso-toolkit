@@ -1,0 +1,14 @@
+<footer>
+  <div class="row">
+    {%- for column in columns -%}
+      <div class="col-sm-6 col-md-3">
+        <h2>{{ column.label }}</h2>
+        <ul>
+          {%- for item in column.items -%}
+            <li><a href="#">{{ item }}</a></li>
+          {% endfor -%}
+        </ul>
+      </div>
+    {% endfor -%}
+  </div>
+</footer>

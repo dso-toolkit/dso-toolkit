@@ -1,0 +1,240 @@
+notes: |
+  Een formulier begint altijd met een `form`-element. Als een `form`-element ongewenst is kan een element met de class `.form` worden ingezet. Elke _textuele_ `input` **en** `select` zit in een `.form-group`. Elk formulier onderdeel is een _groep_ met een `label`.
+
+  Alle elementen zitten in een `fieldset` met een `legend`. De legend kan verborgen worden met een `.sr-only`. De form submit (en eventueel een form reset) staat _buiten_ de fieldset.
+
+  * Een eventuele toelichting zit in een `p.dso-help-block`. Als er een toelichting is, dient deze met een `@aria-describedby` aan de input gekoppeld te worden.
+  * Een label bij een _textuele_ `input` **of** `select` eindigt altijd met een dubbele punt.
+
+  Buttons worden uitgelijnd afhankelijk van de context:
+
+  * Buttons worden gesorteerd op belangrijkheid van rechts naar links, met de primaire actie aan de rechterkant. Wanneer knoppen gebruikt worden om door een reeks schermen te navigeren, wordt de primaire knop rechts uitgelijnd en de 'terug' actie helemaal links om de navigatie visueel te ondersteunen.
+  * Uitgezonderd zijn formulieren met één pagina en gerichte taken, buttons links uitlijnen en sorteren op belangrijkheid van links naar rechts.
+
+  De uitzonderingen worden met de modifier `.dso-single-page` op een `form` of `.form` ingezet.
+
+  #### Extra:
+  * https://getbootstrap.com/docs/3.3/css/#forms
+  * [H91: Using HTML form controls and links](https://www.w3.org/TR/WCAG20-TECHS/H91)
+status: ready
+default: form-vertical
+context:
+  formLegend: Vertical Form
+  fieldsets:
+  - legend: Contact
+    groups:
+    - id: voornaam
+      inputType: input
+      type: text
+      label: Voornaam
+      required: true
+    - id: achternaam
+      inputType: input
+      type: text
+      label: Achternaam
+      helpText: Mag ook de familienaam zijn
+    - inputType: static
+      label: Geslacht
+      value: Man
+    - id: geboortedatum
+      inputType: input
+      type: text
+      label: Geboortedatum
+      inputIcon: calendar
+    - id: email
+      inputType: input
+      type: text
+      label: E-mailadres
+      required: true
+    - id: password
+      inputType: input
+      type: text
+      label: Wachtwoord
+    - id: password_bevestig
+      inputType: input
+      type: text
+      label: Wachtwoord (bevestig)
+    - id: nieuwsbrief
+      inputType: confirm
+      label: Stuur mij de maandelijkse nieuwsbrief
+      helpText: Uw gegevens zullen niet worden gedeeld met derden
+  - legend: Bijlagen
+    groups:
+      - id: documenten
+        inputType: files
+        description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
+        files:
+          - filename: Schetsen_en_foto’s_1.pdf
+          - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
+            confidential: true
+  - legend: Beleg
+    groups:
+    - id: beleg
+      inputType: select
+      label: Beleg
+      multiple: true
+      options:
+      - optionType: Vlees
+        items:
+        - value: worst
+          label: Worst
+        - value: salami
+          label: Salami
+        - value: geit
+          label: Geit
+      - optionType: Vis
+        items:
+        - value: zalm
+          label: Zalm
+        - value: makreel
+          label: Makreel
+  - legend: Auto merk
+    groups:
+    - id: auto_merk
+      inputType: select
+      label: Type auto
+      options:
+      - optionType: Europees
+        items:
+        - value: alfa
+          label: Alfa Romeo
+        - value: fiat
+          label: Fiat
+        - value: mercedes
+          label: Mercedes
+          selected: true
+        - value: volkswagen
+          label: Volkswagen
+  - legend: Aanhanger
+    groups:
+    - id: aanhanger
+      inputType: radios
+      label: Welke aanhanger
+      options:
+      - value: bak
+        label: Bak
+      - value: caravan
+        label: Caravan
+        checked: true
+      - value: fietsendrager
+        label: Fietsendrager
+      - value: oplegger
+        label: Oplegger
+  - legend: Vraag
+    groups:
+    - id: gekke_vraag
+      inputType: textarea
+      rows: 5
+      label: Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
+      helpText: Deze vraag heeft een toelichting
+  - legend: Vraag met infobutton
+    groups:
+    - id: input-radio-infobutton
+      inputType: radios
+      label: Soms laat de vraagstelling aan duidelijkheid te wensen over. Wenst u een toelichting hierop?
+      options:
+      - value: 1
+        label: ja, de vraagstelling aan duidelijkheid te wensen over, ik wil graag een toelichting hierop
+        checked: true
+        infoOpen: false
+        infoText: |
+          Empty
+      - value: 2
+        label: nee, het is mij duidelijk
+      infoOpen: false
+      infoText: |
+        Empty
+  - legend: Vraag met infobutton uitgeklapt
+    groups:
+    - id: input-radio-infobutton-open
+      inputType: radios
+      label: Toelichting op uw vraag
+      options:
+      - value: 1
+        label: ja
+        checked: true
+        infoOpen: false
+        infoText: Empty
+      - value: 2
+        label: nee
+      infoOpen: true
+      infoText: |
+        <h4>Let op</h4>
+        <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
+  buttons:
+  - type: button
+    modifier: link
+    label: Annuleren
+  - type: submit
+    modifier: primary
+    label: Verstuur
+variants:
+- name: form-horizontal
+  context:
+    formModifier: form-horizontal
+    formLegend: Form Horizontal
+- name: multi-page
+  context:
+    formModifier: dso-multi-page
+    formLegend: Formulier met meerdere pagina's
+    fieldsets:
+    - legend: Contact
+      groups:
+      - id: voornaam
+        inputType: input
+        type: text
+        label: Voornaam
+        required: true
+    buttons:
+    - type: button
+      modifier: link
+      label: Vorige stap
+      icon: angle-left
+    - type: button
+      modifier: link
+      label: Secondaire actie
+    - type: submit
+      modifier: primary
+      label: Volgende stap
+      iconAfter: angle-right
+- name: sections
+  context:
+    formModifier: dso-sections
+    formLegend: Formulier met meerdere secties
+    fieldsets:
+    - legend: Contact
+      groups:
+      - id: voornaam
+        inputType: input
+        type: text
+        label: Voornaam
+        required: true
+    buttons:
+    - type: button
+      modifier: link
+      label: Secondaire actie
+    - type: submit
+      modifier: primary
+      label: Primaire actie
+- name: single-page
+  context:
+    formModifier: dso-single-page
+    formLegend: Een simpel formulier
+    fieldsets:
+    - legend: Invoervelden
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Invoerveld
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Invoerveld
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Primaire actie
+    - type: button
+      modifier: link
+      label: Secondaire actie

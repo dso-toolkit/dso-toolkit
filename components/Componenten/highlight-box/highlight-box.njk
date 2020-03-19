@@ -1,0 +1,12 @@
+<div {{ className('dso-highlight-box', modifier, [step or (icon and label), 'dso-has-counter']) }}>
+  {%- if step or (icon and label) %}
+    <div class="dso-step-counter">
+      {%- if icon and label %}
+        {% render '@icon', {icon: icon, label: label} %}
+      {% else %}
+        {{ step }}
+      {% endif -%}
+    </div>
+  {% endif -%}
+  {{ yield | safe }}
+</div>

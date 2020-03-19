@@ -1,0 +1,14 @@
+collated: true
+context:
+  type: button
+  label: Milieubelastende activiteit - Melding
+variants:
+  - name: button selected
+    context:
+      count: 1
+  - name: button multiple selected
+    context:
+      count: 99
+  - name: button disabled
+    context:
+      disabled: true

@@ -1,0 +1,8 @@
+<span {{ className('dso-label', [modifier, 'dso-label-' + modifier]) }}>
+  {{ label }}
+  {% if button -%}
+    <button type="button" title="{{ buttonTitle }}">
+      {%- render '@icon', {icon: button} -%}
+    </button>
+  {% endif -%}
+</span>

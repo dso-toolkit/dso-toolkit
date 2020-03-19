@@ -1,0 +1,140 @@
+{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
+
+<main>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Titel van beheer-applicatie</h1>
+      <h2>Subtitel voor de meta-data</h2>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <dl>
+        <dt>Organisator</dt>
+        <dd>Gemeente Rotterdam</dd>
+        <dt>Verzoeknummer:</dt>
+        <dd>12123497987</dd>
+        <dt>Status:</dt>
+        <dd>Open</dd>
+        <dt>Creatie datum:</dt>
+        <dd>17-12-2019</dd>
+      </dl>
+    </div>
+    <div class="col-md-6">
+      <dl>
+        <dt>Contactpersoon:</dt>
+        <dd>Jan van Veen</dd>
+        <dt>Emailadres:</dt>
+        <dd>j.veen@testmail.nl</dd>
+        <dt>Telefoonnummer:</dt>
+        <dd>06-12345678</dd>
+      </dl>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Subtitel voor het tabeloverzicht</h2>
+      <table class="table">
+        <caption class="sr-only">Titel van de tabel voor screenreaders</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ketenpartner</th>
+            <th scope="col">Toegang</th>
+            <th scope="col">Acties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gemeente Den Haag</td>
+            <td>Alle documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Rotterdam</td>
+            <td>Alle documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente IJsselstein</td>
+            <td>Alleen niet vertrouwelijke documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Delft</td>
+            <td>Alle documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Eindhoven</td>
+            <td>Alleen niet vertrouwelijke documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Tilburg</td>
+            <td>Alle documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Breda</td>
+            <td>Alle documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Maastricht</td>
+            <td>Alle documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Amsterdam</td>
+            <td>Alleen niet vertrouwelijke documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+          <tr>
+            <td>Gemeente Utrecht</td>
+            <td>Alleen niet vertrouwelijke documenten</td>
+            <td>
+              {% render '@button', {type:'button', modifier:'link', label:'Bewerk', icon:'pencil', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'link', label:'Verwijder', icon:'trash', iconOnly:true} %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      {% render '@pagination', {count:5, current:3} %}
+    </div>
+  </div>
+</main>
+
+{% render '@footer' %}

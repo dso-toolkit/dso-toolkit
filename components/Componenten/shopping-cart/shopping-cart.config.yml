@@ -1,0 +1,49 @@
+collated: true
+context:
+  items: []
+variants:
+  - name: items-collapsed
+    context:
+      collapsed: true
+      items:
+        - label: Milieubelastende activiteit - Melding
+        - label: Milieubelastende activiteit - Melding
+          additive: 2
+  - name: items
+    context:
+      items:
+        - label: Milieubelastende activiteit - Melding
+        - label: Milieubelastende activiteit - Melding
+          additive: 2
+  - name: items-edit
+    context:
+      items:
+        - label: Milieubelastende activiteit - Melding
+        - label: Milieubelastende activiteit - Melding
+          additive: 2
+          edit: true
+  - name: subitems-hidden-summary
+    context:
+      hideSummary: true
+      items:
+        - label: Milieubelastende activiteit - Melding
+          subitems:
+            - label: Wasstraat of wasplaats
+        - label: Milieubelastende activiteit - Melding
+          additive: Wasstraat om de hoek van garagebedrijf Jansen
+          edit: true
+          subitems:
+            - label: Wasstraat of wasplaats
+  - name: subitems
+    context:
+      items:
+        - label: Tankstation starten of veranderen
+          readonly: true
+          subitems:
+            - label: Tanken van diesel, benzine en andere vloeibare brandstof
+            - label: Tanken en opslaan van LPG
+        - label: Opslaan van vloeistoffen in een opslagtank
+          readonly: true
+          subitems:
+            - label: Opslaan van vloeistoffen in een ondergrondse opslagtank
+              warning: true

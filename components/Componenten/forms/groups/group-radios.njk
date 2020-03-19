@@ -1,0 +1,38 @@
+<fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}>
+  <legend class="dso-label-container">
+    <label class="control-label">
+      {{ label }}
+    </label>
+    {% if infoText %}
+      {% render '@info-button', {infoOpen: infoOpen} %}
+    {% endif %}
+  </legend>
+  <div class="dso-field-container">
+    {% for option in options %}
+      <div class="dso-selectable">
+        <input type="radio" id="{{ id }}-{{ loop.index0 }}" name="{{ id }}" value="{{ option.value }}"
+          {% if option.disabled %} disabled{% endif %}
+          {% if option.checked %} checked{% endif %}
+          {% if option.required %} required{% endif %}>
+        <label for="{{ id }}-{{ loop.index0 }}">
+          {{ option.label }}
+        </label>
+        {% if option.infoText %}
+          {% render '@info-button', {infoOpen: option.infoOpen} %}
+        {% endif %}
+        {% if option.infoOpen %}
+          {% render '@info', {infoText: option.infoText} %}
+        {% endif %}
+      </div>
+    {% endfor %}
+    {% if errorText %}
+      {% render '@error-block', {errorText: errorText} %}
+    {% endif %}
+    {% if helpText %}
+      {% render '@help-block', {helpText: helpText, id: id} %}
+    {% endif %}
+  </div>
+  {% if infoOpen %}
+    {% render '@info', {infoText: infoText} %}
+  {% endif %}
+</fieldset>

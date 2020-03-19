@@ -3,6 +3,94 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## NEXT - UNRELEASED
+
+### Changed
+* Replaced Handlebars parser and templates with Nunjucks (#573)
+* Structuur aanpassingen (#403)
+
+## 9.9.0 - 02-03-2020
+
+### Added
+* Toegankelijke structuur voor juridische documenten (#492)
+* Cards component voorzien van variant zonder dropshadow (#549)
+* Shopping cart uitbreiding (#425) **Deprecation notice, see issue**
+* Verbetering tabel documentatie (#483)
+* Attachments counter component (#532)
+* Pdf-bestanden documentatie (#550)
+* Bijzondere tekstverbeeldingen in typografie geplaatst (#530)
+* Iconen update (#563)
+* Illustraties tbv storingsschermen (#570)
+* Zoekbalk type-ahead documentatie (#366)
+
+### Changed
+* Aanpassing bootstrap container width variabelen (#420)
+* Accordion faq styling (#523)
+
+### Fixed
+* Een tertiaire button is hoger dan 24px (#524)
+
+## 9.8.0 - 21-02-2020
+
+### Fixed
+* Link gestyled als button in highlightbox met class dso-white heeft verkeerde kleuren (#512)
+* Paperclip en teller (`.dso-attachments`) worden niet wit wanneer het paneel van het accordion is uitgeklapt (#514)
+* Bij het description Icon is het kruisje nog steeds 16*16 en niet 24*24 (#516)
+* Positie info button bij een label over meerdere regels (#517)
+
+### Changed
+* Marges formulier elementen (#421)
+* Icons in (primaire, secundaire en default) buttons, verloren gegane modifiers, margins (#438)
+* Hoogte inputfields en dropdowns niet juist (#506)
+* Fieldset legend styling (#518)
+* Gebruik laatste (3.4.1) versie van bootstrap-sass (#522)
+
+### Added
+* Banners (#472)
+
+## 9.7.0 - 27-01-2020
+
+### Added
+* Voorbeeld van skelet beheerscherm met gebruik definition list en tabel (#484)
+* Iconen wijziging - indicatoren (#502) Note: Geen wijziging maar toevoeging van iconen
+* Card component (#400)
+* Accordion component uitbreiding (#457)
+
+### Changed
+* Button positionering (#401)
+
+### Fixed
+* Rendering iconen niet overal 24x24 (#497)
+* Waarschuwing (icoon) wordt niet voorgelezen in de shopping cart (#493)
+
+## 9.6.0 - 15-01-2020
+
+### Added
+* Iconen set vervangen door DSO huisstijl iconen (#480) Note: `di di-at` bestaat niet meer
+
+## 9.5.0 - 07-01-2020
+
+### Added
+* Begrippen in tekst (#240)
+* Toevoegen button component (#426)
+* Documentatie Typeahead (#366)
+
+### Changed
+* accessibility, accordion: screen reader leest afgerond / niet afgerond niet wegens decoratieve icoontjes (#309)
+* Navigatie verbeteringen (#394)
+
+## 9.4.0 - 25-11-2019
+
+### Fixed
+* Icoon bij validatie te klein (#463)
+* Modal uitzoomen geeft vreemde rendering (#456)
+
+## 9.3.0 - 11-11-2019
+
+### Added
+* Icoon .status-danger toevoegen aan conclusion component (#454)
+* Icoon bij veldvalidatie (#455)
+
 ## 9.2.0 - 28-10-2019
 
 ### Changed
