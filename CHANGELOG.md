@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Changed
+* **BREAKING**: Status iconen altijd met witte border (#586): De iconen `di-forbidden-outline`, `di-status-danger-outline`, `di-status-info-outline`, `di-status-success-outline` en `di-status-warning-outline` zijn komen te vervallen.
 * Validatie tekst onvoldoende contrast op grijze achtergrond (#580)
 * Replaced Handlebars parser and templates with Nunjucks (#573)
 * Structuur aanpassingen (#403)
