@@ -1,4 +1,4 @@
-<div class="dso-content-panel" data-role="tab-panel" id="browser-{{ entity.id }}-panel-view">
+<div data-role="tab-panel" id="browser-{{ entity.id }}-panel-view">
   <div>
     <pre>{{ entity.getPreviewContent() | async | trim | highlight(entity.editorMode | default(entity.lang)) | linkRefs(entity) }}</pre>
   </div>

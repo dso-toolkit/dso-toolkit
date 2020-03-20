@@ -49,7 +49,7 @@ const theme = require('@frctl/mandelbrot')({
   favicon: '/_assets/images/favicon.ico',
   nav: ['docs', 'components'],
   format: 'yaml',
-  panels: ['notes', 'component', 'html', 'info', 'view', 'context'],
+  panels: ['notes', 'component', 'html', 'view', 'context'], // Todo: 'info'
   styles: [
     '/styles/dso.css',
     '/_node_modules/highlight.js/styles/github.css'

@@ -25,38 +25,13 @@
     {% endif %}
   {%- endif %}
 
-  <div class="Pen" data-behaviour="pen" id="pen-{{ entity.id }}">
+  <div data-behaviour="pen" id="pen-{{ entity.id }}">
 
     {% block penContent %}
 
     <style type="text/css">
-      .dso-content-panel {
-        flex: 1 1 auto;
+      [data-role="tab-panel"]:not(.is-active) {
         display: none;
-        overflow: auto;
-        width: 100%;
-      }
-
-      .dso-content-panel.is-active {
-        display: flex;
-      }
-
-      .dso-preview,
-      .dso-preview-iframe {
-        width: 100%;
-      }
-
-      .dso-preview {
-        position: relative;
-      }
-
-      .dso-preview-iframe {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
       }
     </style>
 
@@ -70,26 +45,47 @@
       {% if renderError -%}
         {{ renderError }}
       {% else %}
+        <script>
+          function fixFrameHeight() {
+            var iframe = document.getElementById('component-preview-iframe');
+
+            setTimeout(function () {
+              var iframeHtml = iframe.contentDocument.querySelector('html');
+
+              if (iframeHtml) {
+                iframe.style.height = iframeHtml.offsetHeight + 'px';
+              }
+            }, 50);
+          }
+        </script>
         <div data-behaviour="browser" id="browser-{{ entity.id }}">
           <nav class="dso-navbar">
-            <div class="dso-navbar-header">
-              <button type="button" class="dso-navbar-toggle">
-                <svg class="di di-bars">
-                  <use href="../../dso-icons.svg#bars" />
-                </svg> <span class="sr-only">Ga naar menu</span>
-              </button>
-            </div>
             <ul class="dso-nav dso-nav-main">
-              {% for panel in frctl
-                .theme
-                .get('panels') %}
-                <li class="{% if loop.first %} is-active {% endif %}" data-role="tab">
-                  <a href="#browser-{{ entity.id }}-panel-{{ panel }}">
-                    {% if panel == 'html' %}HTML{% else %}{{ panel | capitalize }}
-                    {% endif %}
-                  </a>
-                </li>
-              {% endfor %}
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-notes">
+                  Documentatie
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-component" onclick="fixFrameHeight()">
+                  Component
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-html">
+                  HTML
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-context">
+                  Context
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-view">
+                  View
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -97,7 +93,7 @@
             {% asyncAll panel in frctl
               .theme
               .get('panels') %}
-            {% include 'partials/browser/panel-' + panel + '.nunj' %}
+              {% include 'partials/browser/panel-' + panel + '.nunj' %}
             {% endall %}
           </div>
 

@@ -57,8 +57,8 @@
     </header>
 
     <div class="row" data-role="body">
-      <div class="col-xs-4 col-sm-3 col-lg-2" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll">
-        <div class="dso-search-bar">
+      <div class="col-xs-4 col-sm-3 col-lg-2" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll;">
+        {# <div class="dso-search-bar">
           <div class="dso-search-bar-input">
             <span class="dso-search-icon" aria-hidden="true"></span>
             <input type="text" placeholder="Filteren"/>
@@ -69,11 +69,11 @@
           <button type="button" class="btn btn-default sr-only">
             Zoeken
           </button>
-        </div>
+        </div> #}
         {% include 'partials/navigation/navigation.nunj' %}
       </div>
 
-      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px)">
+      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px); overflow-y: scroll;">
         <div id="pjax-container">
           {% block content %}{% endblock %}
         </div>
