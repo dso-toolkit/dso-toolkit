@@ -1,0 +1,29 @@
+{% macro leaves(items) %}
+  <ul>
+    {%- for item in items -%}
+      <li {{ className('dso-collection' if item.items else 'dso-entity', [item.active, 'dso-is-current']) }} >
+        {% if item.items %}
+          <button type="button">{{- item.label -}}</button>
+        {% else %}
+          <a href="#">{{- item.label -}}</a>
+        {% endif %}
+        {% if item.items %}
+          <ul>
+            {{ leaves(item.items) }}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+<nav class="dso-tree-view">
+  <ul>
+    {%- for nav in navs %}
+      <li>
+        <h2 class="dso-tree-view-subhead">{{ nav.label }}</h2>
+        {{ leaves(nav.items) }}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

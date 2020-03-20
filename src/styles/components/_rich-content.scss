@@ -62,4 +62,8 @@ $rich-content-margin-bottom: $u2;
   hr {
     margin-top: $u1;
   }
+
+  img {
+    max-width: 100%;
+  }
 }
