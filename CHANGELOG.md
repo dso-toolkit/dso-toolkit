@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT - UNRELEASED
 
 ### Changed
+* **BREAKING** : Shopping cart - Button voldoet niet aan WCAG contrastverhouding (#581)
 * Replaced Handlebars parser and templates with Nunjucks (#573)
 * Structuur aanpassingen (#403)
 

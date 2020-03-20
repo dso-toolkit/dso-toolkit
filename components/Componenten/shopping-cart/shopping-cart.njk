@@ -30,7 +30,9 @@
                 {% endif %}
 
                 {% if not item.edit %}
-                  <button type="button" class="btn-link dso-edit-cart-item">Naam bewerken</button>
+                  <button type="button" class="btn-link dso-edit-cart-item">
+                    {% render '@icon', {icon:'pencil'} %}
+                  </button>
                 {% endif %}
               {% endif %}
               {% if not item.edit %}
