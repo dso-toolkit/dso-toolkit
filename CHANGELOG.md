@@ -7,10 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING**: Status iconen altijd met witte border (#586): De iconen `di-forbidden-outline`, `di-status-danger-outline`, `di-status-info-outline`, `di-status-success-outline` en `di-status-warning-outline` zijn komen te vervallen.
-* Validatie tekst onvoldoende contrast op grijze achtergrond (#580)
-* Replaced Handlebars parser and templates with Nunjucks (#573)
 * Structuur aanpassingen (#403)
 * Toolkit layout verbeteren (#499)
+* Replaced Handlebars parser and templates with Nunjucks (#573)
+
+### Fixed
+* Validatie tekst onvoldoende contrast op grijze achtergrond (#580)
+* Shopping cart bewerken knop voldoet niet aan WCAG (#581)
 
 ## 9.9.0 - 02-03-2020
 
