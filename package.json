@@ -45,6 +45,7 @@
     "gulp-tap": "2.0.0",
     "gulp-trim": "1.0.2",
     "hiff": "0.3.1",
+    "highlight.js": "^9.1.0",
     "indent": "0.0.2",
     "list-stream": "2.0.0",
     "node-sass": "4.13.1",
