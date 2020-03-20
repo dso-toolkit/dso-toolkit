@@ -78,7 +78,7 @@
         {% include 'partials/navigation/navigation.nunj' %}
       </div>
 
-      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px); overflow-y: scroll;">
+      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px)">
         <div id="pjax-container">
           {% block content %}{% endblock %}
         </div>
