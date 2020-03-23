@@ -76,22 +76,16 @@ $dso-shopping-cart-border-color: $grijs-20;
     > li {
       font-weight: 600;
       padding-left: $u2;
-      padding-right: $u6;
+      padding-right: $u10;
 
       &:first-child {
         border-top: 0;
-      }
-
-      .dso-edit-cart-item {
-        display: block;
-        font-weight: 600;
-        width: auto;
       }
     }
 
     .dso-activities, // .dso-activities is deprecated
     .dso-subitems {
-      margin-right: -$u4;
+      margin-right: -$u8;
       margin-top: $u2;
 
       li {
@@ -110,7 +104,8 @@ $dso-shopping-cart-border-color: $grijs-20;
     @extend .form-control;
   }
 
-  .dso-delete {
+  .dso-delete,
+  .dso-edit-cart-item {
     background-color: transparent;
     border: 0;
     box-shadow: none;
@@ -118,15 +113,22 @@ $dso-shopping-cart-border-color: $grijs-20;
     height: $u3;
     padding: 0;
     position: absolute;
-    right: $u2;
     text-align: center;
     top: $u2;
     width: $u3;
   }
 
+  .dso-delete {
+    right: $u2;
+  }
+
+  .dso-edit-cart-item {
+    right: $u6;
+  }
+
   .dso-edit-additive {
     font-weight: 400;
-    margin-right: -$u4;
+    margin-right: -$u8;
     margin-top: $u1;
 
     label {

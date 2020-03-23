@@ -3,11 +3,28 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## 10.0.0 - 20-03-2020
+
+### Toolkit library browser changes
+* Structuur aanpassingen (#403)
+* Toolkit layout verbeteren (#499)
+* Replaced Handlebars parser and templates with Nunjucks (#573)
+* Incorrecte language tags op dso-toolkit.nl (#422)
+* Bij openen www.dso-toolkit.nl geen redirect naar master maar naar de laatste versie (#561)
+* Toolkit 404 pagina (#509)
+
+### Added
+* Tree component (#594)
+* Dropdown button uitbreiden met label in items (#596)
 
 ### Changed
-* Replaced Handlebars parser and templates with Nunjucks (#573)
-* Structuur aanpassingen (#403)
+* **BREAKING**: Status iconen altijd met witte border (#586): De iconen `di-forbidden-outline`, `di-status-danger-outline`, `di-status-info-outline`, `di-status-success-outline` en `di-status-warning-outline` zijn komen te vervallen.
+
+### Fixed
+* Validatie tekst onvoldoende contrast op grijze achtergrond (#580)
+* Shopping cart bewerken knop voldoet niet aan WCAG (#581)
+* www.dso-toolkit.nl werkt niet in IE11 (#498)
+* img in .dso-rich-content kan te breed worden (#595)
 
 ## 9.9.0 - 02-03-2020
 

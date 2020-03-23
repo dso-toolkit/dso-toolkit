@@ -1,0 +1,107 @@
+{% extends "layouts/pjax.nunj" if request.isPjax else
+  "layouts/frame.nunj" %}
+
+{% import "macros/errors.nunj" as errors %}
+
+{% set page = {
+  title: entity.title
+} %}
+
+{% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: entity.handle})) %}
+
+{% block content %}
+
+  {% if frctl.env.server and frctl.env.sync %}
+    {% set rendered = false %}
+  {% else %}
+    {% set rendered = entity.render(null, renderEnv, {
+      preview: true,
+      collate: true
+    }) | async (true) %}
+    {% if rendered | isError %}
+      {% set error = rendered %}
+      {% set renderError %}{{ errors.renderError('component', error.message) }}{% endset %}
+      {% set rendered = false %}
+    {% endif %}
+  {%- endif %}
+
+  <div data-behaviour="pen" id="pen-{{ entity.id }}">
+
+    {% block penContent %}
+
+    <style type="text/css">
+      [data-role="tab-panel"]:not(.is-active) {
+        display: none;
+      }
+    </style>
+
+      <h1>
+        <a href="{{ previewUrl }}" title="Component preview">
+          {{ entity.title }}
+          {% include "icons/open-in-browser.svg" %}
+        </a>
+      </h1>
+
+      {% if renderError -%}
+        {{ renderError }}
+      {% else %}
+        <script>
+          function fixFrameHeight() {
+            var iframe = document.getElementById('component-preview-iframe');
+
+            setTimeout(function () {
+              var iframeHtml = iframe.contentDocument.querySelector('html');
+
+              if (iframeHtml) {
+                iframe.style.height = iframeHtml.offsetHeight + 'px';
+              }
+            }, 50);
+          }
+        </script>
+        <div data-behaviour="browser" id="browser-{{ entity.id }}">
+          <nav class="dso-navbar">
+            <ul class="dso-nav dso-nav-main">
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-notes">
+                  Documentatie
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-component" onclick="fixFrameHeight()">
+                  Component
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-html">
+                  HTML
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-context">
+                  Context
+                </a>
+              </li>
+              <li class="is-active" data-role="tab">
+                <a href="#browser-{{ entity.id }}-panel-view">
+                  View
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="dso-preview" data-behaviour="preview">
+            {% asyncAll panel in frctl
+              .theme
+              .get('panels') %}
+              {% include 'partials/browser/panel-' + panel + '.nunj' %}
+            {% endall %}
+          </div>
+
+        </div>
+      {%- endif %}
+
+    {% endblock %}
+
+  </div>
+
+{% endblock %}
