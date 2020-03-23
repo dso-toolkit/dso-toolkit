@@ -46,11 +46,7 @@
               {%- for subsection in section.sections -%}
                 <div {{ className('dso-accordion-section', [subsection.state, 'dso-' + subsection.state], [subsection.open, 'dso-open'], [subsection.sections, 'dso-nested-accordion']) }}>
                   <{{ subsection.header if subsection.header else 'div' }} class="dso-section-handle">
-                  {%- if section.type === 'button' %}
-                    <button type="button">
-                  {%- else %}
-                    <a href="#">
-                  {% endif %}
+                  <button type="button">
 
                   {%- if subsection.state %}
                     <span class="sr-only">
@@ -76,13 +72,8 @@
                     <span class="dso-attachments">{{ subsection.attachments }} <span class="sr-only">bijlage{{ '' if subsection.attachments === 1 else 'n' }}</span></span>
                   {% endif %}
 
-                  {% if type === 'button' %}
-                    </button>
-                    </{{ subsection.header if subsection.header else 'div' }}>
-                  {% else %}
-                    </a>
-                    </{{ subsection.header if subsection.header else 'div' }}>
-                  {% endif %}
+                  </button>
+                  </{{ subsection.header if subsection.header else 'div' }}>
 
                   {% if subsection.open %}
                     <div class="dso-section-body">
