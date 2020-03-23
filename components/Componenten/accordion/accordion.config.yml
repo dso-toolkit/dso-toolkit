@@ -95,7 +95,6 @@ variants:
         - title: Sectie titel (active)
           id: panel1
           header: h3
-          type: button
           richContent: |
             <p>Dit is de inhoud van <strong>Sectie titel (active)</strong></p>
             <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
@@ -103,12 +102,9 @@ variants:
         - title: Sectie titel
           id: panel2
           header: h3
-          type: button
         - title: Sectie titel
           id: panel3
           header: h3
-          type: button
         - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, ipsum eu porttitor cursus, metus ante ultricies quam, quis egestas urna justo a quam.
           id: panel4
           header: h3
-          type: button

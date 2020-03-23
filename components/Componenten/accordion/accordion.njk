@@ -2,11 +2,7 @@
   {%- for section in sections -%}
     <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
       <{{ section.header if section.header else 'div' }} class="dso-section-handle">
-      {%- if section.type === 'button' %}
-        <button type="button">
-      {% else -%}
-        <a href="#">
-      {%- endif -%}
+      <button type="button" aria-expanded={% if section.open %}"true"{% else %}"false"{%endif%}>
 
       {%- if section.state %}
         <span class="sr-only">
@@ -32,13 +28,8 @@
         <span class="dso-attachments">{{ section.attachments }} <span class="sr-only">bijlage{{ '' if section.attachments === 1 else 'n' }}</span></span>
       {% endif %}
 
-      {% if type === 'button' %}
-        </button>
-        </{{ section.header if section.header else 'div' }}>
-      {% else %}
-        </a>
-        </{{ section.header if section.header else 'div' }}>
-      {%- endif %}
+      </button>
+      </{{ section.header if section.header else 'div' }}>
 
       {%- if section.open %}
         <div class="dso-section-body">
