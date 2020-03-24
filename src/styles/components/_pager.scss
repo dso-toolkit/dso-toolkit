@@ -4,10 +4,16 @@ $dso-pager-height: $u6;
 
 .pager {
   li {
+    > a,
+    > span {
+      border-radius: $dso-button-border-radius;
+      border-width: $dso-button-border-width;
+      font-size: $dso-button-font-size;
+      font-weight: 500;
+    }
+
     a {
       border-width: $dso-pager-border-width;
-      font-size: $dso-font-size-h4;
-      font-weight: 700;
       line-height: #{$dso-pager-height - $dso-pager-border-width * 2};
       padding: 0 #{$dso-pager-height - $dso-pager-border-width};
 
