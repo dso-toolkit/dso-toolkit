@@ -42,14 +42,14 @@ context:
     id: modal-no-close
     heading: Activiteit toevoegen
     buttons:
-      - name: confirmButton
-        type: submit
-        modifier: primary
-        label: Toevoegen
       - name: cancelButton
         type: button
         modifier: link
         label: Annuleren
+      - name: confirmButton
+        type: submit
+        modifier: primary
+        label: Toevoegen
 variants:
   - name: modal-close
     label: Closable
@@ -66,22 +66,16 @@ variants:
           type: submit
           modifier: primary
           label: Indienen
-  - name: modal-single-cancel
-    label: Single cancel
-    context:
-      dialog:
-        id: modal-single-cancel
-        buttons:
-        - name: cancelButton
-          type: button
-          modifier: link
-          label: Annuleren
   - name: modal-steps
     label: Steps
     context:
       dialog:
         id: modal-steps
         buttons:
+        - name: cancelButton
+          type: button
+          modifier: link
+          label: Annuleren
         - name: previousButton
           type: button
           modifier: default
@@ -90,26 +84,6 @@ variants:
           type: button
           modifier: default
           label: Volgende
-        - name: cancelButton
-          type: button
-          modifier: link
-          label: Annuleren
-  - name: modal-confirm
-    label: Confirm
-    context:
-      body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-      dialog:
-        id: modal-confirm
-        confirm: true
-        buttons:
-        - name: yesButton
-          type: button
-          modifier: default
-          label: Ja
-        - name: noButton
-          type: button
-          modifier: default
-          label: Nee
   - name: modal-scripted-height
     label: No max height
     context:
