@@ -56,7 +56,7 @@ body.dso-modal-open {
   .dso-dialog {
     background-color: $dso-modal-content-bg;
     border: $dso-modal-border-size solid $dso-modal-content-border-color;
-    box-shadow: 0 8px 24px 0 rgba(25,25,25,0.40);
+    box-shadow: 0 8px 24px 0 rgba(25, 25, 25, .4);
   }
 
   .dso-header {
