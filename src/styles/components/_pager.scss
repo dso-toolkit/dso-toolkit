@@ -6,10 +6,7 @@ $dso-pager-height: $u6;
   li {
     > a,
     > span {
-      border-radius: $dso-button-border-radius;
-      border-width: $dso-button-border-width;
-      font-size: $dso-button-font-size;
-      font-weight: 500;
+      @include button-default-base;
     }
 
     a {
