@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Indeling tabel varianten (#605)
 * Table redesign (#564)
 * Andere indeling cards pagina's (#515)
+* **BREAKING**: Tekststructuur vervolg (#585): De classnames `dso-is-document`, `dso-is-chapter`, `dso-is-title`, `dso-is-department`, `dso-is-paragraph`, `dso-is-subparagraph`, `dso-is-subsubparagraph` en `dso-is-article` zijn komen te vervallen.
+
 
 ## 10.1.0 - 31-03-2020
 
