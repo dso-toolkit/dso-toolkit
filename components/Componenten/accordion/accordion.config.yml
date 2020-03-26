@@ -88,6 +88,101 @@ context:
       <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
     open: true
 variants:
+  - name: default met links
+    context:
+      sections:
+      - title: Oprit (div)
+        id: panel_oprit
+        type: link
+      - title: Woning (h1)
+        id: panel1
+        type: link
+        open: true
+        header: h1
+        richContent: |
+          <p>Dit is de inhoud van <strong>Woning (h1)</strong></p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+      - title: Bouwwerkzaamheden (h2)
+        id: panel2
+        type: link
+        state: success
+        header: h2
+      - title: Plaats van het bouwwerk (h3)
+        id: panel3
+        type: link
+        state: warning
+        header: h3
+        richContent: |
+          <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h3)</strong></p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+        open: true
+        sections:
+        - title: Woning (div)
+          id: panel1
+          type: link
+        - title: Bouwwerkzaamheden (h2)
+          id: panel2
+          type: link
+          open: true
+          state: success
+          header: h2
+          richContent: |
+            <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h2)</strong>. Zie de <em>Notes</em> van dit component.</p>
+        - title: Plaats van het bouwwerk (h3)
+          id: panel3
+          type: link
+          state: warning
+          header: h3
+        - title: Afmetingen van het bouwwerk (h4)
+          id: panel4
+          type: link
+          state: info
+          header: h4
+        - title: Extra werkzaamheden (h5)
+          id: panel5
+          type: link
+          state: danger
+          header: h5
+      - title: Afmetingen van het bouwwerk (h4)
+        id: panel4
+        type: link
+        state: info
+        header: h4
+      - title: Extra werkzaamheden (h5)
+        id: panel5
+        type: link
+        state: danger
+        header: h5
+        status: 5 van 8 beantwoord
+      - title: Optionele werkzaamheden (h5)
+        id: panel6
+        type: link
+        state: warning
+        header: h5
+        richContent: |
+          <p>Dit is de inhoud van <strong>Optionele werkzaamheden (h5)</strong></p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+        open: true
+        status: 6 van 8 beantwoord
+      - title: Bijgevoegde werkzaamheden (h5)
+        id: panel7
+        type: link
+        header: h5
+        attachments: 2
+      - title: Afsluitende werkzaamheden (h5)
+        id: panel8
+        type: link
+        header: h5
+        status: 7 van 8 beantwoord
+      - title: Evaluatie werkzaamheden (h5)
+        id: panel8
+        type: link
+        header: h5
+        attachments: 1
+        richContent: |
+          <p>Dit is de inhoud van <strong>Evaluatie werkzaamheden (h5)</strong></p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+        open: true
   - name: compact
     context:
       modifiers: dso-accordion-compact
@@ -107,4 +202,28 @@ variants:
           header: h3
         - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, ipsum eu porttitor cursus, metus ante ultricies quam, quis egestas urna justo a quam.
           id: panel4
+          header: h3
+  - name: compact met links
+    context:
+      modifiers: dso-accordion-compact
+      sections:
+        - title: Sectie titel (active)
+          id: panel1
+          type: link
+          header: h3
+          richContent: |
+            <p>Dit is de inhoud van <strong>Sectie titel (active)</strong></p>
+            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+          open: true
+        - title: Sectie titel
+          id: panel2
+          type: link
+          header: h3
+        - title: Sectie titel
+          id: panel3
+          type: link
+          header: h3
+        - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, ipsum eu porttitor cursus, metus ante ultricies quam, quis egestas urna justo a quam.
+          id: panel4
+          type: link
           header: h3

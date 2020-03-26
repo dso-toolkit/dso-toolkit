@@ -2,7 +2,11 @@
   {%- for section in sections -%}
     <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
       <{{ section.header if section.header else 'div' }} class="dso-section-handle">
-      <button type="button" aria-expanded={% if section.open %}"true"{% else %}"false"{%endif%}>
+      {%- if section.type === 'link' %}
+        <a href="#" aria-expanded={% if section.open %}"true"{% else %}"false"{%endif%}>
+      {% else -%}
+        <button type="button" aria-expanded={% if section.open %}"true"{% else %}"false"{%endif%}>
+      {%- endif -%}
 
       {%- if section.state %}
         <span class="sr-only">
@@ -28,8 +32,13 @@
         <span class="dso-attachments">{{ section.attachments }} <span class="sr-only">bijlage{{ '' if section.attachments === 1 else 'n' }}</span></span>
       {% endif %}
 
-      </button>
-      </{{ section.header if section.header else 'div' }}>
+      {% if section.type === 'link' %}
+        </a>
+        </{{ section.header if section.header else 'div' }}>
+      {% else %}
+        </button>
+        </{{ section.header if section.header else 'div' }}>
+      {%- endif %}
 
       {%- if section.open %}
         <div class="dso-section-body">
@@ -46,8 +55,11 @@
               {%- for subsection in section.sections -%}
                 <div {{ className('dso-accordion-section', [subsection.state, 'dso-' + subsection.state], [subsection.open, 'dso-open'], [subsection.sections, 'dso-nested-accordion']) }}>
                   <{{ subsection.header if subsection.header else 'div' }} class="dso-section-handle">
-                  <button type="button">
-
+                  {%- if section.type === 'link' %}
+                    <a href="#">
+                  {%- else %}
+                    <button type="button">
+                  {% endif %}
                   {%- if subsection.state %}
                     <span class="sr-only">
                       {%- if subsection.state === 'success' %}
@@ -72,8 +84,13 @@
                     <span class="dso-attachments">{{ subsection.attachments }} <span class="sr-only">bijlage{{ '' if subsection.attachments === 1 else 'n' }}</span></span>
                   {% endif %}
 
-                  </button>
-                  </{{ subsection.header if subsection.header else 'div' }}>
+                  {% if section.type === 'link' %}
+                    </a>
+                    </{{ subsection.header if subsection.header else 'div' }}>
+                  {% else %}
+                    </button>
+                    </{{ subsection.header if subsection.header else 'div' }}>
+                  {% endif %}
 
                   {% if subsection.open %}
                     <div class="dso-section-body">
