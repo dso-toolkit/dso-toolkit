@@ -45,10 +45,16 @@ $dso-accordion-light-border-color: $grijs-20;
       padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
       position: relative;
 
-      a {
+      a,
+      button {
+        background-color: transparent;
+        border: 0;
         color: $dso-accordion-main-color;
         display: block;
         padding-left: $dso-accordion-chevron-left-offset;
+        padding-right: 0;
+        text-align: left;
+        width: 100%;
         word-break: break-word;
 
         &::before {
@@ -116,7 +122,8 @@ $dso-accordion-light-border-color: $grijs-20;
 
       &.dso-success {
         > .dso-section-handle {
-          a::after {
+          a::after,
+          button::after {
             @include di("status-success", $dso-accordion-chevron-icon-size);
           }
         }
@@ -124,7 +131,8 @@ $dso-accordion-light-border-color: $grijs-20;
 
       &.dso-danger {
         > .dso-section-handle {
-          a::after {
+          a::after,
+          button::after {
             @include di("status-danger", $dso-accordion-chevron-icon-size);
           }
         }
@@ -132,7 +140,8 @@ $dso-accordion-light-border-color: $grijs-20;
 
       &.dso-warning {
         > .dso-section-handle {
-          a::after {
+          a::after,
+          button::after {
             @include di("status-warning", $dso-accordion-chevron-icon-size);
           }
         }
@@ -140,7 +149,8 @@ $dso-accordion-light-border-color: $grijs-20;
 
       &.dso-info {
         > .dso-section-handle {
-          a::after {
+          a::after,
+          button::after {
             @include di("status-info", $dso-accordion-chevron-icon-size);
           }
         }
@@ -155,7 +165,8 @@ $dso-accordion-light-border-color: $grijs-20;
             border: 0;
             border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
 
-            a {
+            a,
+            button {
               color: $wit;
 
               &::before {
@@ -173,7 +184,8 @@ $dso-accordion-light-border-color: $grijs-20;
           }
 
           .dso-attachments {
-            a::after {
+            a::after,
+            button::after {
               @include di-variant("paperclip-wit");
             }
           }
@@ -185,7 +197,8 @@ $dso-accordion-light-border-color: $grijs-20;
           border-radius: $dso-accordion-border-radius;
 
           > .dso-section-handle {
-            a {
+            a,
+            button {
               &::before {
                 @include di-variant("chevron-up-cannon-pink");
               }
@@ -224,6 +237,7 @@ $dso-accordion-light-border-color: $grijs-20;
 
     .dso-accordion-section {
       &.dso-open {
+        a,
         button {
           &::before {
             @include di-variant("chevron-up");
@@ -248,6 +262,7 @@ $dso-accordion-light-border-color: $grijs-20;
       padding: $u1 * 1.5 $u2 $u1 * 1.5 $u1;
       position: relative;
 
+      a,
       button {
         background: transparent;
         border: 0;
