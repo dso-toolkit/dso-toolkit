@@ -15,7 +15,7 @@
           {%- elif section.state === 'warning' %}
             waarschuwing:
           {%- elif section.state === 'danger' %}
-            gevaar:
+            fout:
           {%- elif section.state === 'info' %}
             info:
           {% endif %}
@@ -67,7 +67,7 @@
                       {%- elif subsection.state === 'warning' %}
                         waarschuwing:
                       {%- elif subsection.state === 'danger' %}
-                        gevaar:
+                        fout:
                       {%- elif subsection.state === 'info' %}
                         info:
                       {% endif %}
