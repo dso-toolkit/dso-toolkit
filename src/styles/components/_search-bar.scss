@@ -3,6 +3,11 @@ $dso-search-bar-height: $u5;
 .dso-search-bar {
   display: flex;
 
+  &.dso-search-bar-small {
+    width: 320px - $u4;
+    margin-bottom: $u2;
+  }
+
   .dso-search-bar-input {
     position: relative;
     width: 100%;

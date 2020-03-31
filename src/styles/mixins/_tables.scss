@@ -153,4 +153,11 @@
   .table {
     background-color: $body-bg;
   }
+
+  // error after filtering 
+  > tbody > tr.result-error {
+    td {
+      font-style: italic;
+    }
+  }
 }
