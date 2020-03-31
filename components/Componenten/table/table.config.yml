@@ -25,7 +25,7 @@ notes: |
   - Gebruik `<th scope="col">` voor koptitels in de kolommen.
   - Gebruik `<th scope="row">` voor koptitels in de rijen.
 
-  {% render '@lib-frame', {path: ('/components/preview/table-data-table' | path)} %}
+  {% render '@lib-frame', {path: ('../../components/preview/table-data-table' | path)} %}
 
 
   ## Wanneer gebruik je het component "table" niet
@@ -45,9 +45,9 @@ notes: |
 
   Zie ook: [Definition List]({{ '/components/detail/definition-list' | path }})
 
-  {% render '@lib-frame', {path: ('/components/preview/table-definition-list' | path)} %}
+  {% render '@lib-frame', {path: ('../../components/preview/table-definition-list' | path)} %}
 
-  {% render '@lib-frame', {path: ('/components/preview/table-header' | path)} %}
+  {% render '@lib-frame', {path: ('../../components/preview/table-header' | path)} %}
 
 
   ## Hoe component "table" te gebruiken als data-grid
@@ -58,7 +58,7 @@ notes: |
   - Gebruik `<th>` om koptitels in header te definiëren.
   - Specifieke keyboard interacties moeten verder worden toegevoegd voor interactieve elementen.
 
-  {% render '@lib-frame', {path: ('/components/preview/table-data-grid' | path)} %}
+  {% render '@lib-frame', {path: ('../../components/preview/table-data-grid' | path)} %}
 
 
   ### Sorteren in een data-grid
@@ -67,7 +67,7 @@ notes: |
   - - Als je een rij sorteerbaar wilt maken, voeg dan aan `<th>` `"role=rowheader"` toe.
   - Wanneer de sortering oplopend is, geef dit bij `<th>` aan met `aria-sort="ascending"`. Bij aflopende resultaten, gebruik `aria-sort="descending"`.
   - Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met `aria-sort`.
-  {% render '@lib-frame', {path: ('/components/preview/table-sortable-readonly' | path)} %}
+  {% render '@lib-frame', {path: ('../../components/preview/table-sortable-readonly' | path)} %}
 
 
   ## Bootstrap "table"

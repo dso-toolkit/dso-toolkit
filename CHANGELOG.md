@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Next
 
 ### Changed
+* Voorbeeld-frames tonen alle 404-pagina's (#603)
 * Modal component (#554)
 * Accordion: aria-expanded en knoppen ipv links (#482)
 * Pager herstyling (#575)
