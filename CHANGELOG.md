@@ -3,14 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## Next
+## 10.1.0 - 31-03-2020
 
 ### Changed
-* Voorbeeld-frames tonen alle 404-pagina's (#603)
-* Modal component (#554)
 * Accordion: aria-expanded en knoppen ipv links (#482)
+* Modal component (#554)
 * Pager herstyling (#575)
 * Focus style search bar gelijk aan invoervelden (#577)
+
+### Fixed
+* Voorbeeld-frames tonen alle 404-pagina's (#603)
 
 ## 10.0.0 - 20-03-2020
 
