@@ -1,13 +1,14 @@
 const shoppingCartFilters = require('../components/Componenten/shopping-cart/shopping-cart.filters');
+const path = require('path');
 
 module.exports = {
-  docPath: function docPath(path) {
-    const pathWithExtension = path.substring(path.length-4, path.length-3) === '.';
+  docPath: function docPath(inputPath) {
+    const pathWithExtension = path.extname(inputPath) !== '';
     const ext = process.env.DSO_RENDER_MODE === 'static' && !pathWithExtension
       ? '.html'
       : '';
 
-    return `../..${path}${ext}`;
+    return `../..${inputPath}${ext}`;
   },
   split: function split(input, separator) {
     return input.split(separator);
