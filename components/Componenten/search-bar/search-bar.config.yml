@@ -4,7 +4,9 @@ status: ready
 collated: true
 context:
   icon: true
+  placeholder: Voorbeeld tekst
 variants:
   - name: without-icon
     context:
       icon: false
+      placeholder: Voorbeeld tekst
