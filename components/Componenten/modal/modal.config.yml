@@ -9,7 +9,7 @@ notes: |
   - **Feedback of correctie:** beslissingen bevestigen. Bijvoorbeeld: bij een "Weet je het zeker?"-moment.
   - **Aandacht punt:** de focus van de gebruiker expliciet richten op een enkel stuk inhoud, of het nu een afbeelding, artikel of video is.
 
-  {% render '@lib-frame', {path: ('/components/preview/dialog--valid' | path), element: '.dso-dialog'} %}
+  {% render '@lib-frame', {path: ('/components/preview/dialog--valid' | docPath), element: '.dso-dialog'} %}
 
   ## Wanneer _niet_ te gebruiken
 
@@ -17,7 +17,7 @@ notes: |
 
   Een modal dient alleen gebruikt te worden voor simpele interacties. Probeer ingewikkelde interacties op andere manieren in een pagina te verwerken.
 
-  {% render '@lib-frame', {path: ('/components/preview/dialog--invalid' | path), element: '.dso-dialog'} %}
+  {% render '@lib-frame', {path: ('/components/preview/dialog--invalid' | docPath), element: '.dso-dialog'} %}
 
   ## Gedrag en toegankelijkheid
 
