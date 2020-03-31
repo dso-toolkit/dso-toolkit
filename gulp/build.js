@@ -30,7 +30,7 @@ module.exports = {
   buildWatcher: options => buildWatcher(options)
 };
 module.exports.buildSite = gulp.series(module.exports.buildToolkit({ library: true }), buildSite, trimReports, cleanUpBuild);
-module.exports.build = gulp.series(cleanBuild, module.exports.buildSite, module.exports.buildToolkit());
+module.exports.build = gulp.series(() => Promise.resolve(process.env.DSO_RENDER_MODE = 'static'), cleanBuild, module.exports.buildSite, module.exports.buildToolkit());
 
 function cleanBuild() {
   return del('build');
@@ -181,7 +181,7 @@ async function createSvgSpritesheet() {
         }));
       }));
   });
-  
+
   return new Promise((resolve, reject) => {
     gulp
       .src('src/icons/*.svg')

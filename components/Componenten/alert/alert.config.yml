@@ -30,7 +30,7 @@ notes: |
   Sectieberichten worden gebruikt om gebruikers erop te attenderen dat er iets in een deel van het scherm is gebeurd.
   Ze kunnen niet worden afgewezen en zullen pas verdwijnen als de situatie is opgelost of de gebruiker actie heeft ondernomen.
 
-  {% render '@lib-frame', {path: ('../../components/preview/alert' | path), element: '.container'} %}
+  {% render '@lib-frame', {path: ('/components/preview/alert' | docPath), element: '.container'} %}
 
   Een sectiebericht (vereist een actie):
   - Waarschuwt dat bepaalde acties gevolgen hebben;
@@ -44,7 +44,7 @@ notes: |
 
   Afhankelijk van de positie van de knop wordt de melding binnen de vragengroep of bovenaan het scherm getoond.
 
-  {% render '@lib-frame', {path: ('../../components/preview/alerts-validation' | path)} %}
+  {% render '@lib-frame', {path: ('/components/preview/alerts-validation' | docPath)} %}
 
   - De melding krijgt focus (`role=alert`) zodat deze direct door screenreaders wordt voorgelezen. In de melding staan één of meerdere anchor links naar de verplichte velden. Zodra een verplicht veld is ingevuld verdwijnt deze uit de melding.
 
@@ -61,7 +61,7 @@ notes: |
 
   Idealiter verschijnen foutmeldingen nadat de gebruiker naar het volgende veld gaat (het ingevulde veld verliest dan focus).
 
-  {% render '@lib-frame', {path: ('../../components/preview/inputs-validation' | path)} %}
+  {% render '@lib-frame', {path: ('/components/preview/inputs-validation' | docPath)} %}
 
   - **Voorkom dat inline-validatie op focus wordt weergegeven:** in dit geval wordt de foutmelding al weergegeven zonder dat de gebruiker begonnen is met typen.
   - **Valideer niet na elk getypt teken:** deze aanpak verhoogt niet alleen het aantal onnodige validatiepogingen, maar frustreert ook gebruikers. Deze regel heeft enkele uitzonderingen: het is handig om inline te valideren terwijl de gebruiker typt bij het maken van een wachtwoord (om te controleren of het wachtwoord voldoet aan de eisen), bij het maken van een gebruikersnaam (om te controleren of een naam beschikbaar is) en bij het typen van een bericht met een tekenlimiet.
@@ -73,7 +73,7 @@ notes: |
 
   Het is belangrijk om vóór het invoerveld duidelijk te maken wat de eisen zijn aan de invoer, óf automatisch de invoer te corrigeren.
 
-  {% render '@lib-frame', {path: ('../../components/preview/inputs-validation-format' | path)} %}
+  {% render '@lib-frame', {path: ('/components/preview/inputs-validation-format' | docPath)} %}
 
   - Bijvoorbeeld: Postcode (1234 AB). Het beste is om de instructie binnen het label element te plaatsen zodat de instructie, als de bezoeker op het invoerveld staat, wordt voorgelezen
 
@@ -88,14 +88,14 @@ notes: |
   Ze zijn voorwaardelijk en kunnen verschijnen of veranderen onder specifieke omstandigheden.
   Een indicator kan zelfstandig worden toegepast, maar ook in combinatie met een sectiebericht of melding.
 
-  {% render '@lib-frame', {path: ('../../components/preview/indicator-icons' | path)} %}
+  {% render '@lib-frame', {path: ('/components/preview/indicator-icons' | docPath)} %}
 
   ### Indicatoren: loaders
   Animaties tijdens het wachten -zoals een percentuele progress bar en spinner, informeren gebruikers over de huidige status van een systeem en maken het proces verdraagzamer voor de gebruiker door onzekerheid te verminderen. Gebruikers ervaren een hogere tevredenheid en zijn bereid langer te wachten als een dynamische voortgangs indicator zichtbaar is.
 
   Zichtbaarheid van de status van een systeem is een van de belangrijkste en algemeen toepasbare principes van het ontwerp van een gebruikersinterface.
 
-  {% render '@lib-frame', {path: ('../../components/preview/loaders' | path)} %}
+  {% render '@lib-frame', {path: ('/components/preview/loaders' | docPath)} %}
 
   ## Bronvermelding
   - [Nielsen Norman Group](https://www.nngroup.com/)
