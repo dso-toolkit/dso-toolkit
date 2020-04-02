@@ -1,17 +1,17 @@
 notes: |
-  Het tabel component is gebasseerd op Bootstrap's Table.
+  Het `<table>` component is gebasseerd op Bootstrap’s Table.
 
   Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
-  * Er is geen `.table-bordered` variant.
-  * Er is geen `tr.primary` en `tr.secondary`.
-  * Er is geen `.table-responsive` functionaliteit.
 
-  Een `<caption>` moet altijd worden geplaatst. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
+  - Er zijn geen `.table-bordered`, `.table-condensed` en `.table-striped` varianten.
+  - Er is geen `tr.primary` en `tr.secondary`.
+  - Er is geen `.table-responsive` functionaliteit.
+  - Er zijn geen `success`, `info`, `warning` en `danger` row-modifiers.
 
   Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
 
-  Gebruik het component `<table>` om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen.
-
+  Gebruik tabellen om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen. Gebruik een tabel nooit om inhoud op een pagina op te maken. Gebruik in plaats daarvan het gridsysteem.
+  
   Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 
   ## Hoe component "table" gebruiken als data-tabel
@@ -66,18 +66,6 @@ notes: |
   {% render '@lib-frame', {path: ('/components/preview/table-sortable-readonly' | docPath)} %}
 
 
-  ## Bootstrap "table"
-  Het `<table>` component is gebasseerd op Bootstrap’s Table.
-
-  Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
-
-  Er is geen `.table-bordered` variant.
-  Er is geen `tr.primary` en `tr.secondary`.
-  Er is geen `.table-responsive` functionaliteit.
-
-  Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
-
-
   ## Gedrag en toegankelijkheid
   - Een tabel heeft altijd een `<caption>` nodig. De caption wordt als een titel opgelezen door een screen reader. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
   - Houd de tabel zo eenvoudig mogelijk. Dit verhoogt de begrijpelijkheid van de tabel voor eindgebruikers.
@@ -102,12 +90,33 @@ variants:
     label: With caption
     context:
       showCaption: true
-  - name: striped
-    context:
-      modifier: table table-striped
   - name: hovered
     context:
       modifier: table table-hover
-  - name: condensed
+  - name: table text left aligned
+    notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-left` op een tabel zorgt ervoor dat de tekst in de cellen links wordt uitgelijnd.
     context:
-      modifier: table table-condensed
+      modifier: table dso-text-left
+  - name: table text centered
+    notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-center` op een tabel zorgt ervoor dat de tekst in de cellen wordt gecentreerd.
+    context:
+      modifier: table dso-text-center
+  - name: table text right aligned
+    notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-right` op een tabel zorgt ervoor dat de tekst in de cellen rechts wordt uitgelijnd.
+    context:
+      modifier: table dso-text-right
+  - name: column text left aligned
+    notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-left` op een cel zorgt ervoor dat de tekst in de cel links wordt uitgelijnd.
+    context:
+      modifier: table
+      columnAlign: dso-text-left
+  - name: column text centered
+    notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-center` op een cel zorgt ervoor dat de tekst in de cel wordt gecentreerd.
+    context:
+      modifier: table
+      columnAlign: dso-text-center
+  - name: column text right aligned
+    notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-right` op een cel zorgt ervoor dat de tekst in de cel rechts wordt uitgelijnd.
+    context:
+      modifier: table
+      columnAlign: dso-text-right
