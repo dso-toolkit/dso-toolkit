@@ -34,56 +34,20 @@
         <code>tr</code>
       </td>
     </tr>
-    <tr>
+    <tr {{ className([activeRow, 'active']) }}>
       <th scope="row">3</th>
       <td><a href="#taylor">Taylor</a></td>
       <td>Otwell</td>
       <td {{ className(columnAlign) }}>taylorotwell</td>
       <td>
-        <code>tr</code>
+        <code>tr{% if activeRow %}.active{% endif %}</code>
       </td>
     </tr>
-    <tr class="active">
+    <tr>
       <th scope="row">4</th>
       <td><a href="#hugo">Hugo</a></td>
       <td>Giraudel</td>
       <td {{ className(columnAlign) }}>HugoGiraudel</td>
-      <td>
-        <code>tr.active</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td><a href="#thibault">Thibault</a></td>
-      <td>Duplessis</td>
-      <td {{ className(columnAlign) }}>ornicar</td>
-      <td>
-        <code>tr</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td><a href="#juho">Juho</a></td>
-      <td>Vepsäläinen</td>
-      <td {{ className(columnAlign) }}>bebraw</td>
-      <td>
-        <code>tr</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td><a href="#alex">Alex</a></td>
-      <td>Crichton</td>
-      <td {{ className(columnAlign) }}>alexcrichton</td>
-      <td>
-        <code>tr</code>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td><a href="#josh">Josh</a></td>
-      <td>Abernathy</td>
-      <td {{ className(columnAlign) }}>joshaber</td>
       <td>
         <code>tr</code>
       </td>

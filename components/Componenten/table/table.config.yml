@@ -82,41 +82,51 @@ notes: |
   - [Digitoegankelijk](https://www.digitoegankelijk.nl)
 
 status: ready
+collated: true
 context:
+  __title: Default
   modifier: table
   caption: Overzicht van gebruikersnamen
 variants:
   - name: caption
-    label: With caption
     context:
+      __title: With caption
       showCaption: true
   - name: hovered
     context:
+      __title: Hovered & Active
       modifier: table table-hover
+      activeRow: true
   - name: table text left aligned
     notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-left` op een tabel zorgt ervoor dat de tekst in de cellen links wordt uitgelijnd.
     context:
+      __title: Table text left aligned
       modifier: table dso-text-left
   - name: table text centered
     notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-center` op een tabel zorgt ervoor dat de tekst in de cellen wordt gecentreerd.
     context:
+      __title: Table text centered
       modifier: table dso-text-center
   - name: table text right aligned
     notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-right` op een tabel zorgt ervoor dat de tekst in de cellen rechts wordt uitgelijnd.
     context:
+      __title: Table text right aligned
       modifier: table dso-text-right
   - name: column text left aligned
     notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-left` op een cel zorgt ervoor dat de tekst in de cel links wordt uitgelijnd.
     context:
+      __title: Column text left aligned
       modifier: table
       columnAlign: dso-text-left
   - name: column text centered
     notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-center` op een cel zorgt ervoor dat de tekst in de cel wordt gecentreerd.
     context:
+      __title: Column text centered
       modifier: table
       columnAlign: dso-text-center
   - name: column text right aligned
     notes: Inhoud wordt links uitgelijnd, behalve als een andere uitlijning helpt bij het lezen van de tabel. Numerieke gegevens zijn bijvoorbeeld makkelijker te lezen als ze rechts zijn uitgelijnd. De class `.dso-text-right` op een cel zorgt ervoor dat de tekst in de cel rechts wordt uitgelijnd.
     context:
+      __title: Column text right aligned
       modifier: table
       columnAlign: dso-text-right
