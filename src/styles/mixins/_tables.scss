@@ -26,11 +26,40 @@
     &.#{$state}:hover > td,
     &:hover > .#{$state},
     &.#{$state}:hover > th {
-      background-color: darken($background, 5%);
+      background-color: $table-bg-active;
+    }
+  }
+
+  .table-hover > tbody > tr {
+    &:hover > th,
+    &:hover > td {
+      background-color: $table-bg-active;
+
+      a {
+        color: $dso-table-link-color;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .table > tbody > tr {
+    &.#{$state} > th,
+    &.#{$state} > td {
+      background-color: $table-bg-active;
+
+      a {
+        color: $dso-table-link-color;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
   }
 }
-
 
 @mixin dso-table {
   // Cells
@@ -38,62 +67,81 @@
   max-width: 100%;
   width: 100%;
 
+  &.dso-text-left {
+    th,
+    td {
+      text-align: left;
+    }
+  }
+
+  &.dso-text-center {
+    th,
+    td {
+      text-align: center;
+    }
+  }
+
+  &.dso-text-right {
+    th,
+    td {
+      text-align: right;
+    }
+  }
+
+  th,
+  td {
+    &.dso-text-left {
+      text-align: left;
+    }
+
+    &.dso-text-center {
+      text-align: center;
+    }
+
+    &.dso-text-right {
+      text-align: right;
+    }
+  }
+
   > thead,
   > tbody,
   > tfoot {
     > tr {
       > th,
       > td {
-        border-top: 1px solid $table-border-color;
         line-height: $line-height-base;
-        padding: $table-cell-padding;
+        padding: ($table-cell-padding * 1.5) $table-cell-padding;
         vertical-align: top;
+
+        a {
+          text-decoration: underline;
+        }
       }
     }
   }
 
-  // DSO specific styling
-  > tbody {
+  > thead {
     > tr {
-      &:first-child {
-        > td,
-        > th {
-          border-top: 0;
-        }
-      }
-
       > td,
       > th {
-        border-top: 1px dotted $grijs-30;
-      }
-
-      &:last-child {
-        > td,
-        > th {
-          border-bottom: 1px dotted $grijs-30;
-        }
+        border-bottom: 1px solid $dso-table-header-border-color;
       }
     }
   }
-  // End DSO specific styling
+
+  > tbody,
+  > tfoot {
+    > tr {
+      > td,
+      > th {
+        border-bottom: 1px solid $table-border-color;
+      }
+    }
+  }
 
   // Bottom align for column headings
   > thead > tr > th {
-    border-bottom: 1px solid $grijs-50;
-    font-style: italic;
     vertical-align: bottom;
-  }
-
-  // Remove top border from thead by default
-  > caption + thead,
-  > colgroup + thead,
-  > thead:first-child {
-    > tr:first-child {
-      > th,
-      > td {
-        border-top: 0;
-      }
-    }
   }
 
   // Account for multiple tbody instances
