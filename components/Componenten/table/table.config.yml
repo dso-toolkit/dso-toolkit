@@ -1,17 +1,17 @@
 notes: |
-  Het tabel component is gebasseerd op Bootstrap's Table.
+  Het `<table>` component is gebasseerd op Bootstrap’s Table.
 
   Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
-  * Er is geen `.table-bordered` variant.
-  * Er is geen `tr.primary` en `tr.secondary`.
-  * Er is geen `.table-responsive` functionaliteit.
 
-  Een `<caption>` moet altijd worden geplaatst. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
+  - Er zijn geen `.table-bordered`, `.table-condensed` en `.table-striped` varianten.
+  - Er is geen `tr.primary` en `tr.secondary`.
+  - Er is geen `.table-responsive` functionaliteit.
+  - Er zijn geen `success`, `info`, `warning` en `danger` row-modifiers.
 
   Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
 
-  Gebruik het component `<table>` om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen.
-
+  Gebruik tabellen om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen. Gebruik een tabel nooit om inhoud op een pagina op te maken. Gebruik in plaats daarvan het gridsysteem.
+  
   Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 
   ## Hoe component "table" gebruiken als data-tabel
@@ -66,18 +66,6 @@ notes: |
   {% render '@lib-frame', {path: ('/components/preview/table-sortable-readonly' | docPath)} %}
 
 
-  ## Bootstrap "table"
-  Het `<table>` component is gebasseerd op Bootstrap’s Table.
-
-  Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
-
-  Er is geen `.table-bordered` variant.
-  Er is geen `tr.primary` en `tr.secondary`.
-  Er is geen `.table-responsive` functionaliteit.
-
-  Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
-
-
   ## Gedrag en toegankelijkheid
   - Een tabel heeft altijd een `<caption>` nodig. De caption wordt als een titel opgelezen door een screen reader. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
   - Houd de tabel zo eenvoudig mogelijk. Dit verhoogt de begrijpelijkheid van de tabel voor eindgebruikers.
@@ -94,20 +82,45 @@ notes: |
   - [Digitoegankelijk](https://www.digitoegankelijk.nl)
 
 status: ready
+collated: true
 context:
+  __title: Default
   modifier: table
   caption: Overzicht van gebruikersnamen
 variants:
   - name: caption
-    label: With caption
     context:
+      __title: With caption
       showCaption: true
-  - name: striped
-    context:
-      modifier: table table-striped
   - name: hovered
     context:
+      __title: Hovered & Active
       modifier: table table-hover
-  - name: condensed
+      activeRow: true
+  - name: table text left aligned
     context:
-      modifier: table table-condensed
+      __title: Table text left aligned
+      modifier: table dso-text-left
+  - name: table text centered
+    context:
+      __title: Table text centered
+      modifier: table dso-text-center
+  - name: table text right aligned
+    context:
+      __title: Table text right aligned
+      modifier: table dso-text-right
+  - name: column text left aligned
+    context:
+      __title: Column text left aligned
+      modifier: table
+      columnAlign: dso-text-left
+  - name: column text centered
+    context:
+      __title: Column text centered
+      modifier: table
+      columnAlign: dso-text-center
+  - name: column text right aligned
+    context:
+      __title: Column text right aligned
+      modifier: table
+      columnAlign: dso-text-right
