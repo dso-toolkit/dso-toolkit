@@ -124,3 +124,46 @@ variants:
       __title: Column text right aligned
       modifier: table
       columnAlign: dso-text-right
+  - name: filtering
+    notes: |
+      <p>In een tabel kan ook gefilterd worden op basis van gebruikersinvoer doormiddel van een zoekveld boven de tabel. Er wordt direct automatisch gefilterd in de tabel.</p>
+    context: 
+      __title: Filter
+      modifier: table
+      filter: true
+      icon: true
+      placeholder: Tabel doorzoeken
+      button: hidden
+      small: true
+      columnHeaders:
+        - title: Nummer
+        - title: Bron
+        - title: Uitleg 
+      rowContent:
+        - rowHeader: 1
+          bron: AQUO
+          uitleg: In de Aquo-begrippenset staan begrippen, die worden gebruikt in de watersector.   
+        - rowHeader: 2
+          bron: BesluitActiviteitenLeefomgeving
+          uitleg: Besluit Activiteiten Leefomgeving
+        - rowHeader: 3
+          bron: BesluitBouwwerkenLeefomgeving
+          uitleg: Besluit Bouwwerken Leefomgeving
+  - name: no results
+    template: noresults
+    notes: |
+      <p>In een tabel kan ook gefilterd worden op basis van gebruikersinvoer doormiddel van een zoekveld boven de tabel. Er wordt direct automatisch gefilterd in de tabel.</p>
+    context:
+      __title: Filter no results
+      modifier: table
+      filter: true
+      icon: true
+      value: abcdef
+      button: hidden
+      small: true
+      columnHeaders:
+        - title: Nummer
+        - title: Bron
+        - title: Uitleg 
+      resultError: Geen resultaten gevonden
+      cols: 3
