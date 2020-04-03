@@ -5,7 +5,7 @@ $dso-search-bar-height: $u5;
 
   &.dso-search-bar-small {
     margin-bottom: $u2;
-    width: 320px - $u4;
+    width: $dso-minimal-screen-width - $u4;
   }
 
   .dso-search-bar-input {
