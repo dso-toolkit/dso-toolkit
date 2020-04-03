@@ -3,7 +3,7 @@
     {% if icon -%}
       <span class="dso-search-icon" aria-hidden="true"></span>
     {%- endif -%}
-    <input type="text" placeholder="{{ placeholder }}" />
+    <input type="text"{% if placeholder %} placeholder="{{ placeholder }}"{% endif %}{% if value %} value="{{ value }}"{% endif %} />
     <button type="button">
       Zoekopdracht legen
     </button>

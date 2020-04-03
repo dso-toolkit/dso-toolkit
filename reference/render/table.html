@@ -577,3 +577,103 @@
 
 <!-- End: @table--column-text-right-aligned -->
 <hr />
+
+<!-- Start: @table--filtering -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Filter</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-search-bar dso-search-bar-small">
+      <div class="dso-search-bar-input">
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" placeholder="Tabel doorzoeken" />
+        <button type="button">
+          Zoekopdracht legen
+        </button>
+      </div>
+      <button type="button" class="btn btn-default sr-only">
+        Zoeken
+      </button>
+    </div>
+    <table class="table" role="grid" aria-readonly="true">
+      <caption class="sr-only">Overzicht van gebruikersnamen</caption>
+      <thead>
+        <tr role="row">
+          <th scope="col">
+            Nummer
+          </th>
+          <th scope="col">
+            Bron
+          </th>
+          <th scope="col">
+            Uitleg
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr role="row">
+          <th scope="row">1</th>
+          <td><a href="#">AQUO</a></td>
+          <td>In de Aquo-begrippenset staan begrippen, die worden gebruikt in de watersector.</td>
+        </tr>
+        <tr role="row">
+          <th scope="row">2</th>
+          <td><a href="#">BesluitActiviteitenLeefomgeving</a></td>
+          <td>Besluit Activiteiten Leefomgeving</td>
+        </tr>
+        <tr role="row">
+          <th scope="row">3</th>
+          <td><a href="#">BesluitBouwwerkenLeefomgeving</a></td>
+          <td>Besluit Bouwwerken Leefomgeving</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- End: @table--filtering -->
+<hr />
+
+<!-- Start: @table--no-results -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Filter no results</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-search-bar dso-search-bar-small">
+      <div class="dso-search-bar-input">
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" value="abcdef" />
+        <button type="button">
+          Zoekopdracht legen
+        </button>
+      </div>
+      <button type="button" class="btn btn-default sr-only">
+        Zoeken
+      </button>
+    </div>
+    <table class="table" role="grid" aria-readonly="true">
+      <caption class="sr-only">Overzicht van gebruikersnamen</caption>
+      <thead>
+        <tr role="row">
+          <th scope="col">
+            Nummer
+          </th>
+          <th scope="col">
+            Bron
+          </th>
+          <th scope="col">
+            Uitleg
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="result-error" role="row">
+          <td colspan="3">Geen resultaten gevonden</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- End: @table--no-results -->
+<hr />
