@@ -10,3 +10,14 @@ variants:
     context:
       icon: false
       placeholder: Voorbeeld tekst
+  - name: small
+    context:
+      icon: true
+      small: true
+      value: abcdef
+  - name: without button
+    context:
+      icon: true
+      button: hidden
+      small: true
+      value: abcdef
