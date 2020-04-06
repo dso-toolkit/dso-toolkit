@@ -160,13 +160,19 @@
       font-style: italic;
     }
   }
-  
+
+  // sortable table
   > thead > tr > th {
     .btn.dso-sort {
-      color: $grijs-60;
+      color: $grijs-90;
+      font-weight: 600;
 
-      &.dso-sort-active {
-        color: $grijs-90;
+      .di {
+        color: $grijs-60;
+
+        &.dso-sort-active {
+          color: $grijs-90;
+        }
       }
     }
   }

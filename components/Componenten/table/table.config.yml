@@ -167,3 +167,59 @@ variants:
         - title: Uitleg 
       resultError: Geen resultaten gevonden
       cols: 3
+  - name: sortable ascending
+    notes: |
+      <p>In het voorbeeld hieronder is de data is oplopend gesorteerd voor de kolom "Bron". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
+    context: 
+      __title: Sortable ascending
+      modifier: table
+      sortable: ascending
+      caption: Overzicht bronnen
+      columnHeaders:
+        - title: Nummer
+          sorteerbaar: ascending
+        - title: Bron
+          sorteerbaar: true
+        - title: Uitleg 
+          sorteerbaar: true
+      rowContent:
+        - rowHeader: 1
+          bron: Omgevingsbesluit  
+          uitleg: Omgevingsbesluit
+        - rowHeader: 2
+          bron: Omgevingswet
+          uitleg: Omgevingswet
+        - rowHeader: 3
+          bron: VNGBegrippenkaderGemeenten
+          uitleg: Dit is de bron waar alle VNG begrippen op gebaseerd zijn.
+        - rowHeader: 4
+          bron: BesluitActiviteitenLeefomgeving
+          uitleg: Besluit Activiteiten Leefomgeving
+  - name: descending
+    modifier: table
+    sortable: true
+    context:
+      __title: Sortable descending
+      modifier: table
+      sortable: descending
+      caption: Overzicht bronnen
+      columnHeaders:
+        - title: Nummer
+          sorteerbaar: descending
+        - title: Bron
+          sorteerbaar: true
+        - title: Uitleg 
+          sorteerbaar: true
+      rowContent:
+        - rowHeader: 4
+          bron: BesluitActiviteitenLeefomgeving
+          uitleg: Besluit Activiteiten Leefomgeving
+        - rowHeader: 3
+          bron: VNGBegrippenkaderGemeenten
+          uitleg: Dit is de bron waar alle VNG begrippen op gebaseerd zijn.
+        - rowHeader: 2
+          bron: Omgevingswet
+          uitleg: Omgevingswet
+        - rowHeader: 1
+          bron: Omgevingsbesluit  
+          uitleg: Omgevingsbesluit
