@@ -29,6 +29,36 @@
       {% endif %}
     </tbody>
   </table>
+{% elif sortable %}
+  <table {{ className(modifier) }} role="grid" aria-readonly="true">
+    <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
+    <thead>
+      <tr role="row">
+        {% for columnHeader in columnHeaders %}
+          <th scope="col" role="columnheader"{% if columnHeader.sorteerbaar === 'ascending' or columnHeader.sorteerbaar === 'descending' %} aria-sort="{{ sortable }}"{% endif %}>
+            {% if columnHeader.sorteerbaar === 'ascending' %}
+              {% render '@button', {type:'button', modifier:'link dso-sort dso-sort-active', label: columnHeader.title, iconAfter:'sort-ascending'} %}
+            {% elif columnHeader.sorteerbaar === 'descending' %}
+              {% render '@button', {type:'button', modifier:'link dso-sort dso-sort-active', label: columnHeader.title, iconAfter:'sort-descending'} %}
+            {% elif columnHeader.sorteerbaar %}
+              {% render '@button', {type:'button', modifier:'link dso-sort', label: columnHeader.title, iconAfter:'sort'} %}
+            {% endif %}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for content in rowContent %}
+        <tr {{ className(content.rowNotification) }} role="row">
+          {% if content.rowHeader %}
+            <th scope="row">{{ content.rowHeader }}</th>
+          {% endif %}
+          <td><a href="#">{{ content.bron }}</a></td>
+          <td>{{ content.uitleg }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {%else%}
   <table {{ className(modifier) }}>
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
