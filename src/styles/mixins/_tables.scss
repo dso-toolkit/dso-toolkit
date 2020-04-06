@@ -160,4 +160,14 @@
       font-style: italic;
     }
   }
+  
+  > thead > tr > th {
+    .btn.dso-sort {
+      color: $grijs-60;
+
+      &.dso-sort-active {
+        color: $grijs-90;
+      }
+    }
+  }
 }
