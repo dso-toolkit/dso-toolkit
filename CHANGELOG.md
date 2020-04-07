@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Table redesign (#564)
 
 ### Added
+* Table sorteren (#568)
 * Table filter (#567)
 
 ## 10.1.0 - 31-03-2020
