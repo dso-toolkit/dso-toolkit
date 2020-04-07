@@ -5,7 +5,7 @@
     <thead>
       <tr role="row">
         {% for columnHeader in columnHeaders %}
-          <th scope="col" {% if columnHeader.sorteerbaar %} role="columnheader" aria-sort="ascending"{% endif %}>
+          <th scope="col" {% if columnHeader.sort %} role="columnheader" aria-sort="ascending"{% endif %}>
             {{ columnHeader.title }}
           </th>
         {% endfor %}
@@ -35,12 +35,12 @@
     <thead>
       <tr role="row">
         {% for columnHeader in columnHeaders %}
-          <th scope="col" role="columnheader"{% if columnHeader.sorteerbaar === 'ascending' or columnHeader.sorteerbaar === 'descending' %} aria-sort="{{ sortable }}"{% endif %}>
-            {% if columnHeader.sorteerbaar === 'ascending' %}
+          <th scope="col" role="columnheader"{% if columnHeader.sort === 'ascending' or columnHeader.sort === 'descending' %} aria-sort="{{ sortable }}"{% endif %}>
+            {% if columnHeader.sort === 'ascending' %}
               {% render '@button', {type:'button', modifier:'link dso-sort dso-sort-active', label: columnHeader.title, iconAfter:'sort-ascending'} %}
-            {% elif columnHeader.sorteerbaar === 'descending' %}
+            {% elif columnHeader.sort === 'descending' %}
               {% render '@button', {type:'button', modifier:'link dso-sort dso-sort-active', label: columnHeader.title, iconAfter:'sort-descending'} %}
-            {% elif columnHeader.sorteerbaar %}
+            {% elif columnHeader.sort %}
               {% render '@button', {type:'button', modifier:'link dso-sort', label: columnHeader.title, iconAfter:'sort'} %}
             {% endif %}
           </th>

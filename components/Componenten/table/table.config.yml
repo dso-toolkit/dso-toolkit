@@ -59,8 +59,8 @@ notes: |
 
   ### Sorteren in een data-grid
   - Bij het gebruik van `role="grid"` wordt vanuit gegaan dat de data in het data-grid aanpasbaar is. Voeg `aria-readonly="true"` toe, als de data niet aanpasbaar is.
-  - Als je een kolom sorteerbaar wilt maken, voeg dan aan `<th>` `"role=columnheader"` toe.
-  - - Als je een rij sorteerbaar wilt maken, voeg dan aan `<th>` `"role=rowheader"` toe.
+  - Als je een kolom sort wilt maken, voeg dan aan `<th>` `"role=columnheader"` toe.
+  - - Als je een rij sort wilt maken, voeg dan aan `<th>` `"role=rowheader"` toe.
   - Wanneer de sortering oplopend is, geef dit bij `<th>` aan met `aria-sort="ascending"`. Bij aflopende resultaten, gebruik `aria-sort="descending"`.
   - Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met `aria-sort`.
   {% render '@lib-frame', {path: ('/components/preview/table-sortable-readonly' | docPath)} %}
@@ -177,11 +177,11 @@ variants:
       caption: Overzicht bronnen
       columnHeaders:
         - title: Nummer
-          sorteerbaar: ascending
+          sort: ascending
         - title: Bron
-          sorteerbaar: true
+          sort: true
         - title: Uitleg 
-          sorteerbaar: true
+          sort: true
       rowContent:
         - rowHeader: 1
           bron: Omgevingsbesluit  
@@ -205,11 +205,11 @@ variants:
       caption: Overzicht bronnen
       columnHeaders:
         - title: Nummer
-          sorteerbaar: descending
+          sort: descending
         - title: Bron
-          sorteerbaar: true
+          sort: true
         - title: Uitleg 
-          sorteerbaar: true
+          sort: true
       rowContent:
         - rowHeader: 4
           bron: BesluitActiviteitenLeefomgeving
