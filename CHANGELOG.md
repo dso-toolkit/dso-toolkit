@@ -6,7 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
-* Indeling tabel varianten in de Toolkit (#605)
+* Indeling tabel varianten (#605)
+* Table redesign (#564)
 * Andere indeling cards pagina's (#515)
 
 ## 10.1.0 - 31-03-2020
