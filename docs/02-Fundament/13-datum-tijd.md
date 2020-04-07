@@ -9,7 +9,7 @@ In een verkorte datumnotatie wordt de dag- en maandaanduiding met een cijfer van
 * 11-11-2001
 * 28-10-1975
 
-### Lange datumnotatie
+## Lange datumnotatie
 Als uit de context niet volkomen duidelijk is om welke datum het gaat, heeft het voluit schrijven van de maandnaam de voorkeur. De dag wordt als cijfer genoteerd, de naam van de maand wordt met kleine letters voluit geschreven en het jaartal bestaat uit vier cijfers.
 
 * 1 januari 2012
