@@ -3,7 +3,7 @@
   <table {{ className(modifier) }} role="grid" aria-readonly="true">
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
     <thead>
-      <tr role="row">
+      <tr>
         {% for columnHeader in columnHeaders %}
           <th scope="col" {% if columnHeader.sorteerbaar %} role="columnheader" aria-sort="ascending"{% endif %}>
             {{ columnHeader.title }}
@@ -13,12 +13,12 @@
     </thead>
     <tbody>
       {% if resultError %}
-        <tr class="result-error" role="row">
+        <tr class="result-error">
           <td colspan="{{ cols }}">{{ resultError }}</td>
         </tr>
       {% elif rowContent %}
         {% for content in rowContent %}
-          <tr {{ className(content.rowNotification) }} role="row">
+          <tr {{ className(content.rowNotification) }}>
             {% if content.rowHeader %}
               <th scope="row">{{ content.rowHeader }}</th>
             {% endif %}
