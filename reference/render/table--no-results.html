@@ -1,32 +1,34 @@
-<div class="dso-search-bar dso-search-bar-small">
-  <div class="dso-search-bar-input">
-    <span class="dso-search-icon" aria-hidden="true"></span><input type="text" value="abcdef" />
-    <button type="button">
-      Zoekopdracht legen
+<div class="dso-table-filter-wrapper">
+  <div class="dso-search-bar">
+    <div class="dso-search-bar-input">
+      <span class="dso-search-icon" aria-hidden="true"></span><input type="text" value="abcdef" />
+      <button type="button">
+        Zoekopdracht legen
+      </button>
+    </div>
+    <button type="button" class="btn btn-default sr-only">
+      Zoeken
     </button>
   </div>
-  <button type="button" class="btn btn-default sr-only">
-    Zoeken
-  </button>
+  <table class="table" role="grid" aria-readonly="true">
+    <caption class="sr-only">Overzicht van gebruikersnamen</caption>
+    <thead>
+      <tr>
+        <th scope="col">
+          Nummer
+        </th>
+        <th scope="col">
+          Bron
+        </th>
+        <th scope="col">
+          Uitleg
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="result-error">
+        <td colspan="3">Geen resultaten gevonden</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<table class="table" role="grid" aria-readonly="true">
-  <caption class="sr-only">Overzicht van gebruikersnamen</caption>
-  <thead>
-    <tr>
-      <th scope="col">
-        Nummer
-      </th>
-      <th scope="col">
-        Bron
-      </th>
-      <th scope="col">
-        Uitleg
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="result-error">
-      <td colspan="3">Geen resultaten gevonden</td>
-    </tr>
-  </tbody>
-</table>
