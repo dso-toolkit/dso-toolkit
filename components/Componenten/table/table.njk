@@ -1,34 +1,36 @@
 {%if filter %}
-  {% render '@search-bar', {icon: icon, placeholder: placeholder, value: value, button: button, small: small} %}
-  <table {{ className(modifier) }} role="grid" aria-readonly="true">
-    <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
-    <thead>
-      <tr>
-        {% for columnHeader in columnHeaders %}
-          <th scope="col" {% if columnHeader.sorteerbaar %} role="columnheader" aria-sort="ascending"{% endif %}>
-            {{ columnHeader.title }}
-          </th>
-        {% endfor %}
-      </tr>
-    </thead>
-    <tbody>
-      {% if resultError %}
-        <tr class="result-error">
-          <td colspan="{{ cols }}">{{ resultError }}</td>
+  <div class="dso-table-filter-wrapper">
+    {% render '@search-bar', {icon: icon, placeholder: placeholder, value: value, button: button} %}
+    <table {{ className(modifier) }} role="grid" aria-readonly="true">
+      <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
+      <thead>
+        <tr>
+          {% for columnHeader in columnHeaders %}
+            <th scope="col" {% if columnHeader.sorteerbaar %} role="columnheader" aria-sort="ascending"{% endif %}>
+              {{ columnHeader.title }}
+            </th>
+          {% endfor %}
         </tr>
-      {% elif rowContent %}
-        {% for content in rowContent %}
-          <tr {{ className(content.rowNotification) }}>
-            {% if content.rowHeader %}
-              <th scope="row">{{ content.rowHeader }}</th>
-            {% endif %}
-            <td><a href="#">{{ content.bron }}</a></td>
-            <td>{{ content.uitleg }}</td>
+      </thead>
+      <tbody>
+        {% if resultError %}
+          <tr class="result-error">
+            <td colspan="{{ cols }}">{{ resultError }}</td>
           </tr>
-        {% endfor %}
-      {% endif %}
-    </tbody>
-  </table>
+        {% elif rowContent %}
+          {% for content in rowContent %}
+            <tr {{ className(content.rowNotification) }}>
+              {% if content.rowHeader %}
+                <th scope="row">{{ content.rowHeader }}</th>
+              {% endif %}
+              <td><a href="#">{{ content.bron }}</a></td>
+              <td>{{ content.uitleg }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
 {%else%}
   <table {{ className(modifier) }}>
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>

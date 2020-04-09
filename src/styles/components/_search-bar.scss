@@ -3,11 +3,6 @@ $dso-search-bar-height: $u5;
 .dso-search-bar {
   display: flex;
 
-  &.dso-search-bar-small {
-    margin-bottom: $u2;
-    width: $dso-minimal-screen-width - $u4;
-  }
-
   .dso-search-bar-input {
     position: relative;
     width: 100%;
@@ -99,4 +94,9 @@ $dso-search-bar-height: $u5;
     padding: 0 $u2;
     text-align: center;
   }
+}
+
+.dso-table-filter-wrapper .dso-search-bar {
+  margin-bottom: $u2;
+  width: $dso-minimal-screen-width - $u4;
 }
