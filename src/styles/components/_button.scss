@@ -4,11 +4,15 @@
   color: $color;
 }
 
-.btn {
+@mixin button-default-base {
   border-radius: $dso-button-border-radius;
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
+}
+
+.btn {
+  @include button-default-base;
 
   &.btn-primary,
   &.btn-default {

@@ -27,11 +27,19 @@
           text-decoration: underline;
         }
       }
+
+      .dso-group-label {
+        color: $grijs-40;
+        font-size: (14 / 16 * 1em);
+        padding: 3px 20px;
+        text-transform: uppercase;
+      }
     }
 
     &.dso-checkable {
       li {
-        a {
+        a,
+        .dso-group-label {
           padding-left: $u5;
         }
 

@@ -40,13 +40,13 @@ $dso-banner-left-padding: $u6;
 
   &.alert-danger {
     .row > div::before {
-      @include di("status-danger-outline");
+      @include di("status-danger");
     }
   }
 
   &.alert-warning {
     .row > div::before {
-      @include di("status-warning-outline");
+      @include di("status-warning");
     }
   }
 

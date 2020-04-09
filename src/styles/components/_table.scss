@@ -13,6 +13,7 @@ caption {
 }
 
 th {
+  font-weight: 600;
   text-align: left;
 }
 
@@ -26,34 +27,6 @@ table.table {
 table.table,
 .dso-rich-content table {
   @include dso-table;
-}
-
-// Condensed table w/ half padding
-
-table.table,
-.dso-rich-content table {
-  &.table-condensed {
-    > thead,
-    > tbody,
-    > tfoot {
-      > tr {
-        > th,
-        > td {
-          padding: $table-condensed-cell-padding;
-        }
-      }
-    }
-  }
-}
-
-// Zebra-striping
-//
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-
-.table-striped {
-  > tbody > tr:nth-of-type(odd) {
-    background-color: $table-bg-accent;
-  }
 }
 
 // Hover effect
@@ -94,7 +67,3 @@ table {
 
 // Generate the contextual variants
 @include dso-table-row-variant("active", $table-bg-active);
-@include dso-table-row-variant("success", $dso-success-bg-color);
-@include dso-table-row-variant("info", $dso-info-bg-color);
-@include dso-table-row-variant("warning", $dso-warning-bg-color);
-@include dso-table-row-variant("danger", $dso-danger-bg-color);

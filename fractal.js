@@ -49,9 +49,10 @@ const theme = require('@frctl/mandelbrot')({
   favicon: '/_assets/images/favicon.ico',
   nav: ['docs', 'components'],
   format: 'yaml',
+  panels: ['notes', 'component', 'html', 'view', 'context'], // Todo: 'info'
   styles: [
-    'default',
-    '/_statics/custom-mandelbrot-stylesheet.css'
+    '/styles/dso.css',
+    '/_highlight.js_styles/styles/github.css'
   ],
   scripts: [
     'default',
@@ -63,5 +64,6 @@ const theme = require('@frctl/mandelbrot')({
 theme.addLoadPath(__dirname + '/.fractal/theme-overrides');
 theme.addStatic(__dirname + '/.fractal/statics', '_statics');
 theme.addStatic(__dirname + '/assets', '_assets');
+theme.addStatic(__dirname + '/node_modules/highlight.js/styles', '_highlight.js_styles');
 
 fractal.web.theme(theme);

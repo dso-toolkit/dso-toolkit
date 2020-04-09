@@ -3,11 +3,48 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## NEXT - UNRELEASED
+## NEXT
 
 ### Changed
-* Replaced Handlebars parser and templates with Nunjucks (#573)
+* Indeling tabel varianten (#605)
+* Table redesign (#564)
+* Andere indeling cards pagina's (#515)
+* **BREAKING**: Tekststructuur vervolg (#585): De classnames `dso-is-document`, `dso-is-chapter`, `dso-is-title`, `dso-is-department`, `dso-is-paragraph`, `dso-is-subparagraph`, `dso-is-subsubparagraph` en `dso-is-article` zijn komen te vervallen.
+
+
+## 10.1.0 - 31-03-2020
+
+### Changed
+* Accordion: aria-expanded en knoppen ipv links (#482)
+* Modal component (#554)
+* Pager herstyling (#575)
+* Focus style search bar gelijk aan invoervelden (#577)
+
+### Fixed
+* Voorbeeld-frames tonen alle 404-pagina's (#603)
+
+## 10.0.0 - 20-03-2020
+
+### Toolkit library browser changes
 * Structuur aanpassingen (#403)
+* Toolkit layout verbeteren (#499)
+* Replaced Handlebars parser and templates with Nunjucks (#573)
+* Incorrecte language tags op dso-toolkit.nl (#422)
+* Bij openen www.dso-toolkit.nl geen redirect naar master maar naar de laatste versie (#561)
+* Toolkit 404 pagina (#509)
+
+### Added
+* Tree component (#594)
+* Dropdown button uitbreiden met label in items (#596)
+
+### Changed
+* **BREAKING**: Status iconen altijd met witte border (#586): De iconen `di-forbidden-outline`, `di-status-danger-outline`, `di-status-info-outline`, `di-status-success-outline` en `di-status-warning-outline` zijn komen te vervallen.
+
+### Fixed
+* Validatie tekst onvoldoende contrast op grijze achtergrond (#580)
+* Shopping cart bewerken knop voldoet niet aan WCAG (#581)
+* www.dso-toolkit.nl werkt niet in IE11 (#498)
+* img in .dso-rich-content kan te breed worden (#595)
 
 ## 9.9.0 - 02-03-2020
 

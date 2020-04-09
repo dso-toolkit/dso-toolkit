@@ -5,12 +5,9 @@ $dso-modal-max-height: 70vh;
 $dso-modal-backdrop-bg: $wit;
 $dso-modal-backdrop-opacity: .2;
 $dso-modal-content-bg: $wit;
-$dso-modal-content-border-color: fade-out($zwart, .8);
 $dso-modal-border-color: #d3ddd6;
 
 $dso-modal-close-icon-size: $u4;
-
-$dso-modal-border-size: 1px;
 
 $dso-modal-header-padding: $u2;
 $dso-modal-body-padding: $u4;
@@ -21,7 +18,7 @@ body.dso-modal-open {
   &:not(.dso-scripted-height) {
     .dso-modal {
       .dso-body {
-        $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding) + (2 * $dso-modal-border-size);
+        $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding);
 
         max-height: calc(#{$dso-modal-max-height} - #{$dso-body-height + $u4} - 1.5em);
         overflow-x: auto;
@@ -55,7 +52,7 @@ body.dso-modal-open {
 .dso-modal {
   .dso-dialog {
     background-color: $dso-modal-content-bg;
-    border: $dso-modal-border-size solid $dso-modal-content-border-color;
+    box-shadow: 0 8px 24px 0 rgba(25, 25, 25, .4);
   }
 
   .dso-header {
@@ -73,8 +70,7 @@ body.dso-modal-open {
 
     .dso-close {
       background-color: transparent;
-      border: 2px solid transparent;
-      border-radius: 50%;
+      border: 0;
       height: $dso-modal-close-icon-size;
       padding: 0;
       position: absolute;
@@ -89,23 +85,6 @@ body.dso-modal-open {
         content: "";
         display: inline-block;
         vertical-align: middle;
-      }
-
-      &:hover {
-        background-color: $wit;
-        border: 2px solid $grasgroen;
-      }
-
-      &:active,
-      &.active {
-        background-color: $grasgroen;
-      }
-
-      &:active,
-      &.active {
-        &::before {
-          @include di-variant("times-wit")
-        }
       }
     }
   }

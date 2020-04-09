@@ -25,7 +25,8 @@ $dso-navigation-selected-color: $cannon-pink;
       }
     }
 
-    &.dso-active {
+    &.dso-active,
+    &.is-active {
       > a {
         @include nav-item-border($dso-navigation-selected-color);
         font-weight: bold;

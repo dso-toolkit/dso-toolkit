@@ -19,6 +19,7 @@ module.exports = {
         open: true,
         groups: [
           {
+            label: 'Acties',
             items: [
               {
                 label: 'Actie'
