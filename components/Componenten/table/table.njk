@@ -35,7 +35,7 @@
   <table {{ className(modifier) }} role="grid" aria-readonly="true">
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
     <thead>
-      <tr role="row">
+      <tr>
         {% for columnHeader in columnHeaders %}
           <th scope="col" role="columnheader"{% if columnHeader.sort === 'ascending' or columnHeader.sort === 'descending' %} aria-sort="{{ sortable }}"{% endif %}>
             {% if columnHeader.sort === 'ascending' %}
@@ -51,7 +51,7 @@
     </thead>
     <tbody>
       {% for content in rowContent %}
-        <tr {{ className(content.rowNotification) }} role="row">
+        <tr {{ className(content.rowNotification) }}>
           {% if content.rowHeader %}
             <th scope="row">{{ content.rowHeader }}</th>
           {% endif %}
