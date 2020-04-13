@@ -55,6 +55,7 @@ const theme = require('@frctl/mandelbrot')({
     '/_highlight.js_styles/styles/github.css'
   ],
   scripts: [
+    'https://cdn.jsdelivr.net/npm/vue',
     'default',
     '/dso-toolkit-scripts.js'
   ],

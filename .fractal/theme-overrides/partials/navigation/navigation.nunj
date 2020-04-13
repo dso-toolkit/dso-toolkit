@@ -39,6 +39,10 @@
   {% endfor %}
 {% endmacro %}
 
+<div id="filter-app">
+  <dso-navigation-filter></dso-navigation-filter>
+</div>
+
 <nav class="dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">
   <ul>
     {% if frctl.docs.size %}

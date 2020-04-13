@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Toolkit library browser changes
+* Componentenfilter in navigatie (#578)
+
 ### Added
 * Datum en tijdnotatie (#598)
 
