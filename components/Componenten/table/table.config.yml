@@ -169,7 +169,7 @@ variants:
       cols: 3
   - name: sortable ascending
     notes: |
-      <p>In het voorbeeld hieronder is de data is oplopend gesorteerd voor de kolom "Bron". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
+      <p>In het voorbeeld hieronder is de data oplopend gesorteerd voor de kolom "Nummer". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
     context: 
       __title: Sortable ascending
       modifier: table
@@ -196,8 +196,8 @@ variants:
           bron: BesluitActiviteitenLeefomgeving
           uitleg: Besluit Activiteiten Leefomgeving
   - name: descending
-    modifier: table
-    sortable: true
+    notes: |
+      <p>In het voorbeeld hieronder is de data aflopend gesorteerd voor de kolom "Nummer". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
     context:
       __title: Sortable descending
       modifier: table
