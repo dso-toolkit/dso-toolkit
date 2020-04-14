@@ -7,9 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Toolkit library browser changes
 * Componentenfilter in navigatie (#578)
+* Fixed: HTML in toolkit heeft geen highlighting meer (#622)
 
 ### Added
 * Datum en tijdnotatie (#598)
+* Search Bar voorzien van label (#621)
 
 ### Changed
 * Indeling tabel varianten (#605)

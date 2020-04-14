@@ -19,9 +19,9 @@ function DsoToolkitResizeIframe(frame, element) {
     template:
       '<div class="dso-search-bar">' +
         '<div class="dso-search-bar-input">' +
-          '<span class="dso-search-icon" aria-hidden="true"></span>' +
-          '<input type="text" placeholder="Filter op component" v-model.trim="input">' +
-          '<button type="button" @click="clearFilter()" title="Zoekopdracht legen">' +
+          '<label class="dso-search-icon" for="menu-filter">Filteren</label>' +
+          '<input type="text" id="menu-filter" placeholder="Filteren" v-model.trim="input">' +
+          '<button type="button" v-if="input !== \'\'" @click="clearFilter()" title="Zoekopdracht legen">' +
             'Zoekopdracht legen' +
           '</button>' +
         '</div>' +

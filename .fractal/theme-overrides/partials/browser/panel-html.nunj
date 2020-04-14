@@ -5,8 +5,9 @@
     <pre>{{ render.entity(entity.render(null, renderEnv, {preview: false, collate: false}) | async(true)) | trim }}</pre>
   {% else %}
     {% for variant in entity.variants().items() %}
-      <pre>{{ '<span class="hljs-comment">&lt;!-- ' + variant.label + ' --&gt;</span>' }}
-        {{ render.entity(variant.render(null, renderEnv, {preview: false, collate: false}) | async(true)) | trim }}
+      <pre>
+{{ '<span class="hljs-comment">&lt;!-- ' + variant.label + ' --&gt;</span>' }}
+{{ render.entity(variant.render(null, renderEnv, {preview: false, collate: false}) | async(true)) | trim -}}
       </pre>
     {% endfor %}
   {% endif %}

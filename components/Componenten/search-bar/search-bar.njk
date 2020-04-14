@@ -1,9 +1,15 @@
 <div class="dso-search-bar">
   <div class="dso-search-bar-input">
-    {% if icon -%}
-      <span class="dso-search-icon" aria-hidden="true"></span>
+    {% if label -%}
+      <label for="{{ _self.handle }}" {{ className([icon, 'dso-search-icon']) }}>
+        {{- label -}}
+      </label>
+    {% else %}
+      {% if icon -%}
+        <span class="dso-search-icon" aria-hidden="true"></span>
+      {%- endif -%}
     {%- endif -%}
-    <input type="text" placeholder="Voorbeeld tekst" />
+    <input type="text" {% if label %} id="{{ _self.handle }}"{% endif %} placeholder="{{ placeholder }}" />
     <button type="button">
       Zoekopdracht legen
     </button>
