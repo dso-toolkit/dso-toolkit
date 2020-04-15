@@ -7,13 +7,22 @@ $dso-search-bar-height: $u5;
     position: relative;
     width: 100%;
 
+    label,
+    .dso-search-icon {
+      position: absolute;
+    }
+
+    label {
+      font-size: 0;
+      margin-bottom: 0;
+    }
+
     .dso-search-icon {
       bottom: 0;
       height: $dso-search-bar-height;
       left: 0;
       line-height: $u5;
       padding: $u1;
-      position: absolute;
       text-align: center;
       top: 0;
       width: $u5;
@@ -26,6 +35,13 @@ $dso-search-bar-height: $u5;
       }
     }
 
+    label.dso-search-icon {
+      &::before {
+        font-size: 1rem;
+      }
+    }
+
+    :not(.dso-search-icon) + input,
     input:first-child {
       padding-left: $u1 - 1;
     }
