@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Datum en tijdnotatie (#598)
 * Search Bar voorzien van label (#621)
 
+### Fixed
+* Modal zonder header en footer heeft geen margin meer (#618)
+
 ### Changed
 * Indeling tabel varianten (#605)
 * Table redesign (#564)
