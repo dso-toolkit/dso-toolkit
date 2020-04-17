@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Line-height headings definiëren (#606)
+
 ## 10.2.0 - 15-04-2020
 
 ### Toolkit library browser changes

@@ -23,6 +23,18 @@ Het webfont "Asap" is onderdeel van de vrij beschikbare [Google Fonts](https://f
 | Caption           | `<span class="caption">Caption</span>` | <span class="caption">Caption</span>                                                                                                                                                                                                 |
 | Anchor            | `<a href="#">Anchor</a>`               | <a href="#" id="anchor-example">example</a><ul><li><a href="#" class="static">anchor #39870C</a></li><li><a href="#" class="static-hover">hover #676CB0</a></li><li><a href="#" class="static-visited">visited #8B4A6A</a></li></ul> |
 
+Line height samples
+
+<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h1>
+<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h2>
+<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h3>
+<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h4>
+<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h5>
+<p>
+  Lorem ipsum dolor sit amet, consectrur adipiscing elit. Aliquam viverra purus sit amet maximus semper. Quisque suscipit varius finibus. Ut accumsan ligula vitae tortor lobortis commodo sit amet id lacus. Vivamus sed quam metus. Morbi ornare quis nibh ac efficitur. ut pharetra ultrices placerat. Aliquam ornare pretium eros, vel gravida lacus aliquam id. Etiam nec faucibus urna. Quisque lacinia riss id augue ornare commodo sed et lectus. Maecenas consecttetur eget tellus at egestas. Integer eleifend lacinia dolor, vitae dapibus eros pulvinar id. Curabitur eu pretium magna, sit amet malesuada odio. Sed condimentum elit lectus, sit amet tincidunt metus sollicitudin a.
+</p>
+<p><span class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra purus sit amet maximus semper.</span></p>
+<p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra purus sit amet maximus semper.</small></p>
 <script>
   document.getElementById('anchor-example').setAttribute('href', '#' + (+new Date()));
 </script>
