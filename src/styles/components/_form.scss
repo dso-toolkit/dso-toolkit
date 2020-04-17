@@ -13,7 +13,7 @@ $dso-form-control-border-width: 1px;
 $dso-form-control-focus-border-width: 1px;
 $dso-form-control-readonly-border-width: 1px;
 $dso-form-control-focus-border-color: $bosgroen;
-$dso-form-control-height: auto;
+$dso-form-control-height: #{($padding-base-vertical + 1) * 2 + $dso-form-control-border-width * 2 + $font-size-base * 1.5};
 
 $dso-required-string: "verplicht";
 
@@ -256,7 +256,7 @@ select:not([multiple]) {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
   height: $dso-form-control-height;
-  padding: ($padding-base-vertical + 1) ($padding-base-horizontal + 2);
+  padding: $padding-base-vertical ($padding-base-horizontal + 2);
 
   &[size] {
     width: auto;
