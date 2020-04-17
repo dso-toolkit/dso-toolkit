@@ -25,16 +25,16 @@ Het webfont "Asap" is onderdeel van de vrij beschikbare [Google Fonts](https://f
 
 Line height samples
 
-<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h1>
-<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h2>
-<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h3>
-<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h4>
-<h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.</h5>
-<p>
-  Lorem ipsum dolor sit amet, consectrur adipiscing elit. Aliquam viverra purus sit amet maximus semper. Quisque suscipit varius finibus. Ut accumsan ligula vitae tortor lobortis commodo sit amet id lacus. Vivamus sed quam metus. Morbi ornare quis nibh ac efficitur. ut pharetra ultrices placerat. Aliquam ornare pretium eros, vel gravida lacus aliquam id. Etiam nec faucibus urna. Quisque lacinia riss id augue ornare commodo sed et lectus. Maecenas consecttetur eget tellus at egestas. Integer eleifend lacinia dolor, vitae dapibus eros pulvinar id. Curabitur eu pretium magna, sit amet malesuada odio. Sed condimentum elit lectus, sit amet tincidunt metus sollicitudin a.
+<h1>&lt;h1&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.&lt;/h1&gt;</h1>
+<h2>&lt;h2&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.&lt;/h2&gt;</h2>
+<h3>&lt;h3&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.&lt;/h3&gt;</h3>
+<h4>&lt;h4&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.&lt;/h4&gt;</h4>
+<h5>&lt;h5&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla nisl ante, eget ornare diam mollis at.&lt;/h5&gt;</h5>
+<p>&lt;p&gt;
+  Lorem ipsum dolor sit amet, consectrur adipiscing elit. Aliquam viverra purus sit amet maximus semper. Quisque suscipit varius finibus. Ut accumsan ligula vitae tortor lobortis commodo sit amet id lacus. Vivamus sed quam metus. Morbi ornare quis nibh ac efficitur. ut pharetra ultrices placerat. Aliquam ornare pretium eros, vel gravida lacus aliquam id. Etiam nec faucibus urna. Quisque lacinia riss id augue ornare commodo sed et lectus. Maecenas consecttetur eget tellus at egestas. Integer eleifend lacinia dolor, vitae dapibus eros pulvinar id. Curabitur eu pretium magna, sit amet malesuada odio. Sed condimentum elit lectus, sit amet tincidunt metus sollicitudin a.&lt;/p&gt;
 </p>
-<p><span class="caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra purus sit amet maximus semper.</span></p>
-<p><small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra purus sit amet maximus semper.</small></p>
+<p><span class="caption">&lt;span class="caption"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra purus sit amet maximus semper.&lt;/span&gt;</span></p>
+<p><small>&lt;small&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra purus sit amet maximus semper.&lt;/small&gt;</small></p>
 <script>
   document.getElementById('anchor-example').setAttribute('href', '#' + (+new Date()));
 </script>
