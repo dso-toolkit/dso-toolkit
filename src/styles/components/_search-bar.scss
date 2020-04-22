@@ -58,7 +58,7 @@ $dso-search-bar-height: $u5;
       display: block;
       font-size: 16px;
       height: $dso-search-bar-height;
-      line-height: 1.5;
+      line-height: $dso-search-bar-height;
       padding: 6px $u5;
       transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
       width: 100%;
