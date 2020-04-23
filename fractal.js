@@ -52,9 +52,10 @@ const theme = require('@frctl/mandelbrot')({
   panels: ['notes', 'component', 'html', 'view', 'context'], // Todo: 'info'
   styles: [
     '/styles/dso.css',
-    '/_highlight.js_styles/styles/github.css'
+    '/_highlight.js_styles/github.css'
   ],
   scripts: [
+    'https://cdn.jsdelivr.net/npm/vue',
     'default',
     '/dso-toolkit-scripts.js'
   ],

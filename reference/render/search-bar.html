@@ -2,7 +2,8 @@
 <!-- Start: @search-bar--default -->
 <div class="dso-search-bar">
   <div class="dso-search-bar-input">
-    <span class="dso-search-icon" aria-hidden="true"></span><input type="text" placeholder="Voorbeeld tekst" />
+    <label for="search-bar--default" class="dso-search-icon">Zoek op postcode</label>
+    <input type="text" id="search-bar--default" placeholder="Label met icoon" />
     <button type="button">
       Zoekopdracht legen
     </button>
@@ -15,10 +16,11 @@
 <!-- End: @search-bar--default -->
 <hr />
 
-<!-- Start: @search-bar--without-icon -->
+<!-- Start: @search-bar--label-only -->
 <div class="dso-search-bar">
   <div class="dso-search-bar-input">
-    <input type="text" placeholder="Voorbeeld tekst" />
+    <label for="search-bar--label-only">Zoek op postcode</label>
+    <input type="text" id="search-bar--label-only" placeholder="Alleen label" />
     <button type="button">
       Zoekopdracht legen
     </button>
@@ -28,5 +30,37 @@
   </button>
 </div>
 
-<!-- End: @search-bar--without-icon -->
+<!-- End: @search-bar--label-only -->
+<hr />
+
+<!-- Start: @search-bar--icon-only -->
+<div class="dso-search-bar">
+  <div class="dso-search-bar-input">
+    <span class="dso-search-icon" aria-hidden="true"></span><input type="text" placeholder="Alleen icoon" />
+    <button type="button">
+      Zoekopdracht legen
+    </button>
+  </div>
+  <button type="button" class="btn btn-default">
+    Zoeken
+  </button>
+</div>
+
+<!-- End: @search-bar--icon-only -->
+<hr />
+
+<!-- Start: @search-bar--no-icon-no-label -->
+<div class="dso-search-bar">
+  <div class="dso-search-bar-input">
+    <input type="text" placeholder="Geen icoon en geen label" />
+    <button type="button">
+      Zoekopdracht legen
+    </button>
+  </div>
+  <button type="button" class="btn btn-default">
+    Zoeken
+  </button>
+</div>
+
+<!-- End: @search-bar--no-icon-no-label -->
 <hr />
