@@ -260,6 +260,10 @@ select:not([multiple]) {
 
   &[type="text"] {
     line-height: $dso-form-control-height;
+
+    &::placeholder {
+      overflow: visible !important;
+    }
   }
 
   &[size] {
