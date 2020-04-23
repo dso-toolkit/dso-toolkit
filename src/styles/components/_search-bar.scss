@@ -72,7 +72,7 @@ $dso-search-bar-height: $u5;
       &::placeholder {
         overflow: visible;
       }
-  
+
       // sass-lint:disable no-vendor-prefixes
       &::-ms-clear {
         display: none;
