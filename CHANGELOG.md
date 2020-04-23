@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* 404 storingspagina voorbeeld toegevoegd (#608)
+
 ## 10.2.0 - 15-04-2020
 
 ### Toolkit library browser changes
