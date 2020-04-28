@@ -48,7 +48,7 @@
             </div>
           {% endif %}
           {% if section.form %}
-            {% render '@form', section.form %}
+            {% render '@forms', section.form %}
           {% endif %}
           {%- if section.sections %}
             <div {{ className('dso-accordion', section.modifiers) }}>
@@ -100,7 +100,7 @@
                         </div>
                       {% endif %}
                       {% if subsection.form %}
-                        {% render '@form', subsection.form %}
+                        {% render '@forms', subsection.form %}
                       {% endif %}
                     </div>
                   {% endif %}

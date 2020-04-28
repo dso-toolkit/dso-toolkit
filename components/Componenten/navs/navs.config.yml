@@ -1,7 +1,7 @@
 status: ready
 default: tabs
 collated: true
-label: Navigations
+label: Navigations (primary & secondary)
 context:
   __title: Hoofdnavigatie
   modifier: main

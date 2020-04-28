@@ -1,5 +1,6 @@
 status: ready
 collated: true
+label: Navigation mobile
 notes: Openen van het hamburger menu gaat door `.dso-open` naast `.dso-nav-bar` te zetten
 context:
   __title: 'Example: open/close'

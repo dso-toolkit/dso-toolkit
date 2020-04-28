@@ -36,7 +36,9 @@ notes: |
   Dit staat gebruikers toe om de verder te gaan waar ze gebleven waren. Als een modal niet is aangeroepen door een actie van een gebruiker dan moet de focus geplaatst worden op een logische locatie. Als een modal bijv. 'onPageLoad' wordt aangeroepen dan is het beste om na het sluiten van een modal de virtuele focus aan het begin van de pagina te zetten.
 status: ready
 default: modal
+# collated: false
 context:
+  __title: Default
   body: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
   dialog:
     id: modal-no-close
@@ -52,13 +54,15 @@ context:
         label: Toevoegen
 variants:
   - name: modal-close
-    label: Closable
+    # label: Closable
     context:
+      __title: Closable
       dialog:
         id: modal-close
   - name: modal-single-submit
     label: Single submit
     context:
+      __title: Single submit
       dialog:
         id: modal-single-submit
         buttons:
@@ -69,6 +73,7 @@ variants:
   - name: modal-steps
     label: Steps
     context:
+      __title: Steps
       dialog:
         id: modal-steps
         buttons:
@@ -87,6 +92,7 @@ variants:
   - name: modal-scripted-height
     label: No max height
     context:
+      __title: No max height
       body: |
         What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
