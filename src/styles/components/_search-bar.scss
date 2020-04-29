@@ -115,3 +115,8 @@ $dso-search-bar-height: $u5;
     text-align: center;
   }
 }
+
+.dso-table-filter-wrapper .dso-search-bar {
+  margin-bottom: $u2;
+  width: $dso-minimal-screen-width - $u4;
+}

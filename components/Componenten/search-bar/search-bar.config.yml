@@ -20,3 +20,10 @@ variants:
       icon: false
       label: ""
       placeholder: Geen icoon en geen label
+  - name: with-value
+    context:
+      value: abcdef
+  - name: hidden-button
+    context:
+      hideSearchButton: true
+      placeholder: Verborgen zoekknop
