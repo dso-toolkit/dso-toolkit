@@ -58,7 +58,7 @@ $dso-search-bar-height: $u5;
       display: block;
       font-size: 16px;
       height: $dso-search-bar-height;
-      line-height: 1.5;
+      line-height: $dso-search-bar-height;
       padding: 6px $u5;
       transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
       width: 100%;
@@ -67,6 +67,10 @@ $dso-search-bar-height: $u5;
         border-color: $dso-form-control-focus-border-color;
         box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-form-control-focus-border-color;
         outline: 0;
+      }
+
+      &::placeholder {
+        overflow: visible;
       }
 
       // sass-lint:disable no-vendor-prefixes

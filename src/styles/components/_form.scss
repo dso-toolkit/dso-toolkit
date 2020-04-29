@@ -256,7 +256,15 @@ select:not([multiple]) {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
   height: $dso-form-control-height;
-  padding: $padding-base-vertical #{$padding-base-horizontal + 2};
+  padding: $padding-base-vertical ($padding-base-horizontal + 2);
+
+  &[type="text"] {
+    line-height: $dso-form-control-height;
+
+    &::placeholder {
+      overflow: visible !important;
+    }
+  }
 
   &[size] {
     width: auto;
