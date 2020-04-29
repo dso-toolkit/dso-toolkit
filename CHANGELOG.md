@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 10.3.0 - 29-04-2020
+
 ### Added
 * 404 storingspagina voorbeeld toegevoegd (#608)
 * Table filter (#567)
