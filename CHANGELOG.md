@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * 404 storingspagina voorbeeld toegevoegd (#608)
 * Table filter (#567)
+* Table sorteren (#568)
 
 ### Fixed
 * Searchbar kapt onderkant letters af (#625)

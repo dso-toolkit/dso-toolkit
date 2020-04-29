@@ -1,6 +1,7 @@
 <button type="{{ type }}"
   {%- if iconOnly %} title="{{ label }}"{% endif %}
   {{ className('btn', [modifier, 'btn-' + modifier]) }}
+  {%- if roleDescription %} aria-roledescription="{{ roleDescription }}"{% endif %}
   {%- if disabled %} disabled{% endif -%}>
   {%- if icon and not(iconOnly) %}{% render '@icon', {icon: icon} -%}{% endif -%}
   <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>

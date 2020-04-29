@@ -9,7 +9,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col">
@@ -73,7 +73,7 @@
       <caption>Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col">
@@ -137,7 +137,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col">
@@ -201,7 +201,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col">
@@ -265,7 +265,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col">
@@ -329,7 +329,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col">
@@ -393,7 +393,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col" class="dso-text-left">
@@ -458,7 +458,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col" class="dso-text-center">
@@ -523,7 +523,7 @@
       <caption class="sr-only">Overzicht van gebruikersnamen</caption>
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Nummer</th>
           <th scope="col">Voornaam</th>
           <th scope="col">Achternaam</th>
           <th scope="col" class="dso-text-right">
@@ -596,7 +596,7 @@
           Zoeken
         </button>
       </div>
-      <table class="table" role="grid" aria-readonly="true">
+      <table class="table" aria-readonly="true">
         <caption class="sr-only">Overzicht van gebruikersnamen</caption>
         <thead>
           <tr>
@@ -654,7 +654,7 @@
           Zoeken
         </button>
       </div>
-      <table class="table" role="grid" aria-readonly="true">
+      <table class="table" aria-readonly="true">
         <caption class="sr-only">Overzicht van gebruikersnamen</caption>
         <thead>
           <tr>
@@ -680,4 +680,116 @@
 </div>
 
 <!-- End: @table--no-results -->
+<hr />
+
+<!-- Start: @table--sortable-ascending -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Sortable ascending</h2>
+  </div>
+  <div class="dso-example">
+    <table class="table" aria-readonly="true">
+      <caption class="sr-only">Overzicht bronnen</caption>
+      <thead>
+        <tr>
+          <th scope="col" role="columnheader" aria-sort="ascending">
+            <button type="button" class="btn btn-link dso-sort dso-sort-active" aria-roledescription="sorteer oplopend knop"><span >Nummer</span><svg class="di di-sort-ascending">
+                <use href="../../dso-icons.svg#sort-ascending" />
+              </svg></button>
+          </th>
+          <th scope="col" role="columnheader">
+            <button type="button" class="btn btn-link dso-sort" aria-roledescription="sorteer ongesorteerd knop"><span >Bron</span><svg class="di di-sort">
+                <use href="../../dso-icons.svg#sort" />
+              </svg></button>
+          </th>
+          <th scope="col" role="columnheader">
+            <button type="button" class="btn btn-link dso-sort" aria-roledescription="sorteer ongesorteerd knop"><span >Uitleg</span><svg class="di di-sort">
+                <use href="../../dso-icons.svg#sort" />
+              </svg></button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><a href="#">Omgevingsbesluit</a></td>
+          <td>Omgevingsbesluit</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><a href="#">Omgevingswet</a></td>
+          <td>Omgevingswet</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td><a href="#">VNGBegrippenkaderGemeenten</a></td>
+          <td>Dit is de bron waar alle VNG begrippen op gebaseerd zijn.</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td><a href="#">BesluitActiviteitenLeefomgeving</a></td>
+          <td>Besluit Activiteiten Leefomgeving</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- End: @table--sortable-ascending -->
+<hr />
+
+<!-- Start: @table--descending -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Sortable descending</h2>
+  </div>
+  <div class="dso-example">
+    <table class="table" aria-readonly="true">
+      <caption class="sr-only">Overzicht bronnen</caption>
+      <thead>
+        <tr>
+          <th scope="col" role="columnheader" aria-sort="descending">
+            <button type="button" class="btn btn-link dso-sort dso-sort-active" aria-roledescription="sorteer aflopend knop"><span >Nummer</span><svg class="di di-sort-descending">
+                <use href="../../dso-icons.svg#sort-descending" />
+              </svg></button>
+          </th>
+          <th scope="col" role="columnheader">
+            <button type="button" class="btn btn-link dso-sort" aria-roledescription="sorteer ongesorteerd knop"><span >Bron</span><svg class="di di-sort">
+                <use href="../../dso-icons.svg#sort" />
+              </svg></button>
+          </th>
+          <th scope="col" role="columnheader">
+            <button type="button" class="btn btn-link dso-sort" aria-roledescription="sorteer ongesorteerd knop"><span >Uitleg</span><svg class="di di-sort">
+                <use href="../../dso-icons.svg#sort" />
+              </svg></button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">4</th>
+          <td><a href="#">BesluitActiviteitenLeefomgeving</a></td>
+          <td>Besluit Activiteiten Leefomgeving</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td><a href="#">VNGBegrippenkaderGemeenten</a></td>
+          <td>Dit is de bron waar alle VNG begrippen op gebaseerd zijn.</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td><a href="#">Omgevingswet</a></td>
+          <td>Omgevingswet</td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td><a href="#">Omgevingsbesluit</a></td>
+          <td>Omgevingsbesluit</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- End: @table--descending -->
 <hr />
