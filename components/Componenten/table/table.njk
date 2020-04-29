@@ -1,7 +1,7 @@
 {%if filter %}
   <div class="dso-table-filter-wrapper">
     {% render '@search-bar', filter %}
-    <table {{ className(modifier) }} role="grid" aria-readonly="true">
+    <table {{ className(modifier) }} aria-readonly="true">
       <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
       <thead>
         <tr>
@@ -31,12 +31,42 @@
       </tbody>
     </table>
   </div>
+{% elif sortable %}
+  <table {{ className(modifier) }} aria-readonly="true">
+    <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
+    <thead>
+      <tr>
+        {% for columnHeader in columnHeaders %}
+          <th scope="col" role="columnheader"{% if columnHeader.sort === 'ascending' or columnHeader.sort === 'descending' %} aria-sort="{{ sortable }}"{% endif %}>
+            {% if columnHeader.sort === 'ascending' %}
+              {% render '@button', {type:'button', modifier:'link dso-sort dso-sort-active', label: columnHeader.title, iconAfter:'sort-ascending', roleDescription: 'sorteer oplopend knop'} %}
+            {% elif columnHeader.sort === 'descending' %}
+              {% render '@button', {type:'button', modifier:'link dso-sort dso-sort-active', label: columnHeader.title, iconAfter:'sort-descending', roleDescription: 'sorteer aflopend knop'} %}
+            {% elif columnHeader.sort %}
+              {% render '@button', {type:'button', modifier:'link dso-sort', label: columnHeader.title, iconAfter:'sort', roleDescription: 'sorteer ongesorteerd knop'} %}
+            {% endif %}
+          </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for content in rowContent %}
+        <tr {{ className(content.rowNotification) }}>
+          {% if content.rowHeader %}
+            <th scope="row">{{ content.rowHeader }}</th>
+          {% endif %}
+          <td><a href="#">{{ content.bron }}</a></td>
+          <td>{{ content.uitleg }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {%else%}
   <table {{ className(modifier) }}>
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Nummer</th>
         <th scope="col">Voornaam</th>
         <th scope="col">Achternaam</th>
         <th scope="col" {{ className(columnAlign) }}>
