@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Searchbar kapt onderkant letters af (#625)
+* Gedeelte van weergave Dropdown-button valt weg in DSO-Toolkit (#616)
 
 ## 10.2.0 - 15-04-2020
 

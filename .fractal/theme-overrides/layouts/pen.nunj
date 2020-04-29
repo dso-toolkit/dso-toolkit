@@ -50,7 +50,7 @@
             var iframe = document.getElementById('component-preview-iframe');
 
             setTimeout(function () {
-              var iframeHtml = iframe.contentDocument.querySelector('html');
+              var iframeHtml = iframe.contentDocument.querySelector('.container');
 
               if (iframeHtml) {
                 iframe.style.height = iframeHtml.offsetHeight + 'px';
