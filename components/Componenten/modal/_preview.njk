@@ -9,38 +9,44 @@
      <title>{{ _target.label }} | {{ _config.project.title }} - Component preview</title>
 
      <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
+
+    <style>
+      .dso-example-wrapper {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+
+      .dso-example {
+        position: relative;
+      }
+
+      .dso-example::before {
+        background-color: rgba(255, 255, 255, 0.8);
+        bottom: 0;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 19;
+      }
+
+      .dso-modal {
+        position: absolute !important;
+      }
+
+      .dso-modal-open::before {
+        background-color: none !important;
+        display: none !important;
+      }
+
+      .dso-dialog {
+        margin-top: 5vh !important;
+      }
+    </style>
   </head>
 
    {{ yield | safe }}
 
-  <style>
-   .dso-example {
-      position: relative;
-   }
-
-   .dso-example::before {
-      background-color: rgba(255, 255, 255, 0.8);
-      bottom: 0;
-      content: "";
-      display: block;
-      left: 0;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 19;
-   }
-
-   .dso-modal {
-      position: absolute !important;
-   }
-
-   .dso-modal-open::before {
-      background-color: none !important;
-      display: none !important;
-   }
-
-   .dso-dialog {
-      margin-top: 5vh !important; 
-   }
-  </style>
  </html>
