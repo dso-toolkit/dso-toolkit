@@ -1,7 +1,7 @@
 {%if filter %}
   <div class="dso-table-filter-wrapper">
     {% render '@search-bar', {icon: icon, placeholder: placeholder, value: value, button: button} %}
-    <table {{ className(modifier) }} role="grid" aria-readonly="true">
+    <table {{ className(modifier) }} aria-readonly="true">
       <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
       <thead>
         <tr>
@@ -32,7 +32,7 @@
     </table>
   </div>
 {% elif sortable %}
-  <table {{ className(modifier) }} role="grid" aria-readonly="true">
+  <table {{ className(modifier) }} aria-readonly="true">
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
     <thead>
       <tr>
