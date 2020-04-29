@@ -3,6 +3,7 @@ notes: |
 status: ready
 collated: true
 context:
+  __title: default
   id: input-radio
   label: Maak een keuze
   helpText: Kies een oneven getal

@@ -1,22 +1,26 @@
 collated: true
 context:
+  __title: default
   items: []
 variants:
   - name: items-collapsed
     context:
+      __title: items collapsed
       collapsed: true
       items:
         - label: Milieubelastende activiteit - Melding
         - label: Milieubelastende activiteit - Melding
           additive: 2
-  - name: items
+  - name: items-expanded
     context:
+      __title: items expanded
       items:
         - label: Milieubelastende activiteit - Melding
         - label: Milieubelastende activiteit - Melding
           additive: 2
   - name: items-edit
     context:
+      __title: edit items
       items:
         - label: Milieubelastende activiteit - Melding
         - label: Milieubelastende activiteit - Melding
@@ -24,6 +28,7 @@ variants:
           edit: true
   - name: subitems-hidden-summary
     context:
+      __title: subitems with hidden summary
       hideSummary: true
       items:
         - label: Milieubelastende activiteit - Melding
@@ -34,8 +39,9 @@ variants:
           edit: true
           subitems:
             - label: Wasstraat of wasplaats
-  - name: subitems
+  - name: subitems with warning
     context:
+      __title: subitems
       items:
         - label: Tankstation starten of veranderen
           readonly: true

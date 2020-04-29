@@ -3,20 +3,24 @@ notes: |
 status: ready
 collated: true
 context:
+  __title: default
   placeholder: Label met icoon
   icon: true
   label: Zoek op postcode
 variants:
   - name: label-only
     context:
+      __title: label only
       placeholder: Alleen label
       icon: false
   - name: icon-only
     context:
+      __title: icon only
       label: ""
       placeholder: Alleen icoon
   - name: no-icon-no-label
     context:
+      __title: no icon, no label
       icon: false
       label: ""
       placeholder: Geen icoon en geen label

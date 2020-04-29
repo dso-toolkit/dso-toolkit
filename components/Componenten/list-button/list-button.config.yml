@@ -1,14 +1,18 @@
 collated: true
 context:
+  __title: default
   type: button
   label: Milieubelastende activiteit - Melding
 variants:
   - name: button selected
     context:
+      __title: buttons selected
       count: 1
   - name: button multiple selected
     context:
+      __title: button multiple selected
       count: 99
   - name: button disabled
     context:
+      __title: button disabled
       disabled: true

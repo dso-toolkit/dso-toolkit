@@ -3,6 +3,7 @@ notes: |
 status: ready
 collated: true
 context:
+  __title: default
   id: input-checkbox
   label: Maak een keuze
   options:

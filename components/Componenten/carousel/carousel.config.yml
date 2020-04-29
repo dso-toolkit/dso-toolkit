@@ -2,6 +2,7 @@ notes: |
   Toont een carousel met x-aantal slides. Gebaseerd op Bootstrap "Carousel.js"
 status: ready
 context:
+  __title: default carousel
   carouselId: MyCarousel
   slides:
     - active: true

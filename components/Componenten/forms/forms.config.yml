@@ -19,6 +19,7 @@ notes: |
 status: ready
 default: form-vertical
 context:
+  __title: form vertical
   formLegend: Vertical Form
   fieldsets:
   - legend: Contact
@@ -171,10 +172,12 @@ context:
 variants:
 - name: form-horizontal
   context:
+    __title: form horizontal
     formModifier: form-horizontal
     formLegend: Form Horizontal
 - name: multi-page
   context:
+    __title: multipage form
     formModifier: dso-multi-page
     formLegend: Formulier met meerdere pagina's
     fieldsets:
@@ -199,6 +202,7 @@ variants:
       iconAfter: angle-right
 - name: sections
   context:
+    __title: form with sections
     formModifier: dso-sections
     formLegend: Formulier met meerdere secties
     fieldsets:
@@ -218,6 +222,7 @@ variants:
       label: Primaire actie
 - name: single-page
   context:
+    __title: single page form
     formModifier: dso-single-page
     formLegend: Een simpel formulier
     fieldsets:

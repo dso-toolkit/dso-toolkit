@@ -2,6 +2,7 @@ notes: |
   Toont een breadcrumb. Gebaseerd op de Bootstrap "Breadcrumbs" component
 status: ready
 context:
+  __title: breadcrumbs
   crumbs:
   - label: Home
     url: '#'

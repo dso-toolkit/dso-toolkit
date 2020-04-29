@@ -8,11 +8,15 @@ notes: |
   (https://getbootstrap.com/docs/3.3/components/#callout-pagination-label)
 status: ready
 collated: true
+context:
+  __title: centered
 variants:
   - name: centered_disabled
     context:
+      __title: centered with button disabled
       firstPage: true
   - name: aligned
     template: aligned
     context:
+      __title: aligned
       lastPage: true
