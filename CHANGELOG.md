@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Table filter (#567)
 * Table sorteren (#568)
 
+### Changed
+* Line-height headings definiëren (#606)
+
 ### Fixed
 * Searchbar kapt onderkant letters af (#625)
 * Gedeelte van weergave Dropdown-button valt weg in DSO-Toolkit (#616)
