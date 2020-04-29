@@ -9,12 +9,12 @@
       {% else %}
       {% for variant in entity.variants().items() %}
         <pre>
-      {% if variant.hasContext() | async -%}
-        {{ '<span class="hljs-comment">/* ' + variant.label + ' */</span>' }}
-        {{ variant.getResolvedContext()  | async | format('yaml') | highlight('yaml') }}
+      {%- if variant.hasContext() | async -%}
+{{ '<span class="hljs-comment">/* ' + variant.label + ' */</span>' }}
+{{ variant.getResolvedContext() | async | format('yaml') | highlight('yaml') | trim }}
       {%- else -%}
-        {{ '<span class="hljs-comment">/* ' + variant.label + ': No context defined */</span>' }}
-      {%- endif %}
+{{ '<span class="hljs-comment">/* ' + variant.label + ': No context defined */</span>' }}
+      {%- endif -%}
         </pre>
       {% endfor %}
     {% endif %}
