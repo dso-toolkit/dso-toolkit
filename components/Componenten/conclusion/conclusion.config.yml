@@ -3,6 +3,7 @@ default: success
 variants:
   - name: success
     context:
+      __title: succes
       items:
         - modifier: success
           label: <strong>Geen vergunning of melding nodig</strong> voor bouwactiviteit
@@ -14,6 +15,7 @@ variants:
         message: Succes melding
   - name: warning
     context:
+      __title: warning
       items:
         - modifier: warning
           label: <strong>Neem contact op</strong> met uw gemeente voor omgevingsplanactiviteit op- en uitritten
@@ -24,6 +26,7 @@ variants:
         message: Waarschuwing
   - name: forbidden
     context:
+      __title: forbidden
       items:
         - modifier: forbidden
           label: <strong>Verboden</strong> voor omgevingsplanactiviteit lichthinder

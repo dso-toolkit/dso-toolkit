@@ -4,6 +4,7 @@ notes: |
 status: ready
 default: unordered-list
 context:
+  __title: unordered list
   items:
     - text: Cras justo odio
     - text: Dapibus ac facilisis in
@@ -12,4 +13,8 @@ context:
     - paragraph: Vestibulum at eros
 variants:
   - name: ordered-list
+    context:
+      __title: ordered list
   - name: list-group
+    context:
+      __title: list group

@@ -8,18 +8,23 @@ notes: |
 status: ready
 collated: true
 context:
+  __title: default
   source: /dummy/images/avatar.png
   alt: Alternatieve tekst
 variants:
   - name: Responsive
     context:
+      __title: responsive
       modifier: img-responsive
   - name: Rounded
     context:
+      __title: rounded
       modifier: img-rounded
   - name: Circle
     context:
+      __title: circle
       modifier: img-circle
   - name: Thumbnail
     context:
+      __title: thumbnail
       modifier: img-thumbnail

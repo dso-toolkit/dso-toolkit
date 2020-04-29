@@ -9,6 +9,7 @@ notes: |
 
 status: ready
 context:
+  __title: default
   sections:
   - title: Oprit (div)
     id: panel_oprit
@@ -90,6 +91,7 @@ context:
 variants:
   - name: default met links
     context:
+      __title: default met links
       sections:
       - title: Oprit (div)
         id: panel_oprit
@@ -185,6 +187,7 @@ variants:
         open: true
   - name: compact
     context:
+      __title: compact
       modifiers: dso-accordion-compact
       sections:
         - title: Sectie titel (active)
@@ -205,6 +208,7 @@ variants:
           header: h3
   - name: compact met links
     context:
+      __title: compact met links
       modifiers: dso-accordion-compact
       sections:
         - title: Sectie titel (active)
