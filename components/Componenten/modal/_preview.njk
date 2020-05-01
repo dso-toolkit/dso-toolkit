@@ -10,7 +10,7 @@
 
      <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
 
-    <style>
+    {# <style>
       .dso-example-wrapper {
         margin-left: 8px;
         margin-right: 8px;
@@ -36,15 +36,15 @@
         position: absolute !important;
       }
 
+      .dso-modal-open {
+        overflow-y: auto !important;
+      }
+
       .dso-modal-open::before {
         background-color: none !important;
         display: none !important;
       }
-
-      .dso-dialog {
-        margin-top: 5vh !important;
-      }
-    </style>
+    </style> #}
   </head>
 
    {{ yield | safe }}
