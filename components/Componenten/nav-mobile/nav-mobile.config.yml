@@ -1,9 +1,9 @@
 status: ready
 collated: true
-label: Navigation mobile
+label: Navigations
 notes: Openen van het hamburger menu gaat door `.dso-open` naast `.dso-nav-bar` te zetten
 context:
-  __title: 'Example: open/close'
+  __title: 'Primary'
   __explanation: Verklein de viewport en gebruik de checkbox om het responsive gedrag te zien
   __switches:
     - name: state
@@ -18,9 +18,14 @@ context:
   - label: Mijn Omgevingsloket
   collapsed: true
 variants:
-  - name: open
+  - name: secondary
     context:
-      __title: Menu open
-      __explanation: Verklein de viewport om het responsive menu open te zien
+      __title: 'Secondary'
+      __explanation: null
       __switches: null
-      collapsed: false
+      modifier: sub
+      items:
+      - label: Deze locatie
+        active: true
+      - label: Regels
+      - label: Overige informatie

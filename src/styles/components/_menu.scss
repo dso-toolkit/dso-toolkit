@@ -13,6 +13,10 @@
     &:not(.dso-open) {
       > .dso-nav {
         display: none;
+
+        &.dso-nav-sub {
+          display: block;
+        }
       }
     }
   }

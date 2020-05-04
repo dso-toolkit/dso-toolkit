@@ -1,7 +1,6 @@
 notes: Externe links krijgen de class `extern` en een `target="_blank"`
 status: ready
 collated: true
-label: Link
 context:
   __title: default
   label: Home
