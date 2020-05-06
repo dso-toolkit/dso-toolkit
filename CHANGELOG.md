@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Ongewenste Styling active tertiare buttons (#511)
+
 ### Changed
 * Toolkit structuur platslaan (#604)
 
