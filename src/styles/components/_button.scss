@@ -194,7 +194,7 @@
 .btn-link {
   border: 0;
   border-radius: 0;
-  color: $grasgroen;
+  color: $dso-button-link-color;
   line-height: 1;
   padding: 0;
 
@@ -220,14 +220,19 @@
   }
 
   &:not(.btn):visited:not(:focus):not(:hover) {
-    color: $grasgroen;
+    color: $dso-button-link-color;
   }
 
   &:not([disabled]):hover {
+    color: $dso-button-link-hover-color;
     text-decoration: none;
 
     span:not(.icon) {
       text-decoration: underline;
+    }
+
+    > svg.di {
+      color: $dso-button-link-hover-color;
     }
   }
 
@@ -241,12 +246,11 @@
   &.active {
     &,
     &:focus {
-      color: $bosgroen;
+      color: $dso-button-link-active-color;
+      text-decoration: none;
 
       > svg.di {
-        background-color: $bosgroen;
-        border-color: $bosgroen;
-        color: $wit;
+        color: $dso-button-link-active-color;
       }
     }
   }
@@ -285,6 +289,15 @@
         @include di("external-link-grasgroen-40");
       }
     }
+
+    &.hover,
+    &:hover,
+    &.active,
+    &:active {
+      &::after {
+        @include di("external-link-scampi");
+      }
+    }
   }
 
   &.download {
@@ -296,6 +309,15 @@
     &[disabled] {
       &::after {
         @include di("download-grasgroen-40");
+      }
+    }
+
+    &.hover,
+    &:hover,
+    &.active,
+    &:active {
+      &::after {
+        @include di("download-scampi");
       }
     }
   }
