@@ -20,7 +20,9 @@
     {%- for nav in navs %}
       <li>
         <h2 class="dso-tree-view-subhead">{{ nav.label }}</h2>
-        {{ leaves(nav.items) }}
+        <ul>
+          {{ leaves(nav.items) }}
+        </ul>
       </li>
     {% endfor %}
   </ul>
