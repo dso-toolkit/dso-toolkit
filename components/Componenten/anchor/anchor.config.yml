@@ -1,4 +1,4 @@
-notes: Externe links krijgen de class `extern` en een `target="_blank"`
+notes: Externe links krijgen de class `extern` en een `target="_blank"` en `rel="noopener noreferrer"` 
 status: ready
 collated: true
 context:
