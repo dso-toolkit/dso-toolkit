@@ -1,54 +1,58 @@
 $rich-content-margin-bottom: $u2;
 
+// Headings
+// -------------------------
+
+h1,
+.h1 {
+  line-height: $dso-font-line-height-h1;
+}
+
+h2,
+.h2 {
+  line-height: $dso-font-line-height-h2;
+}
+
+h3,
+.h3 {
+  line-height: $dso-font-line-height-h3;
+}
+
+h4,
+.h4 {
+  line-height: $dso-font-line-height-h4;
+}
+
+h5,
+.h5 {
+  line-height: $dso-font-line-height-h5;
+}
+
+h6,
+.h6 {
+  line-height: $dso-font-line-height-h6;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-bottom: $rich-content-margin-bottom;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-bottom: $rich-content-margin-bottom;
+}
+
 %dso-rich-content,
 .dso-rich-content {
-
-  // Headings
-  // -------------------------
-
-  h1,
-  .h1 {
-    line-height: $dso-font-line-height-h1;
-  }
-
-  h2,
-  .h2 {
-    line-height: $dso-font-line-height-h2;
-  }
-
-  h3,
-  .h3 {
-    line-height: $dso-font-line-height-h3;
-  }
-
-  h4,
-  .h4 {
-    line-height: $dso-font-line-height-h4;
-  }
-
-  h5,
-  .h5 {
-    line-height: $dso-font-line-height-h5;
-  }
-
-  h1,
-  .h1,
-  h2,
-  .h2,
-  h3,
-  .h3 {
-    margin-bottom: $rich-content-margin-bottom;
-  }
-
-  h4,
-  .h4,
-  h5,
-  .h5,
-  h6,
-  .h6 {
-    margin-bottom: $rich-content-margin-bottom;
-  }
-
   // Body text
   // -------------------------
   p {

@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Marges in implementatie treeview verschillen (#638)
 * Ongewenste styling active tertiare buttons (#511)
 * Een build met nieuwe templates zonder de bijbehorende reference DOM files faalt niet (#488)
+* Line-height headings werken alleen binnen class="dso-rich-content" (#640)
 
 ### Changed
 * Toolkit structuur platslaan (#604)
