@@ -1,35 +1,41 @@
 notes: Externe links krijgen de class `extern` en een `target="_blank"`
 status: ready
 collated: true
-label: Link
 context:
+  __title: default
   label: Home
   url: "#"
 variants:
   - name: download
     context:
+      __title: download
       label: Afvalkalender 2017
       url: afvalkalender.pdf
       modifier: download
   - name: extern
     context:
+      __title: extern
       label: Een link naar Google
       url: http://www.google.nl
       modifier: extern
   - name: icon
     context:
+      __title: icon
       icon: search
       iconOnly: true
       label: Zoeken
   - name: label
     context:
+      __title: label
       label: Zoeken
   - name: iconLabel
     context:
+      __title: icon label
       icon: search
       label: zoeken
   - name: iconBadge
     context:
+      __title: icon badge
       icon: search
       iconOnly: true
       label: zoeken
@@ -37,6 +43,7 @@ variants:
         label: 4
   - name: iconLabelBadge
     context:
+      __title: icon label badge
       icon: search
       label: zoeken
       badge:

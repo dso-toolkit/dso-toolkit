@@ -1,4 +1,5 @@
 notes: |
   Counter voor attachments, toont met paperclip icoon.
 context:
+  __title: attachments counter
   count: 1

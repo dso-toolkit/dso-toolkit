@@ -1,6 +1,5 @@
 <div data-role="tab-panel" id="browser-{{ entity.id }}-panel-view">
   <div>
-    {# <pre>{{ entity.getPreviewContent() | async | trim | highlight(entity.editorMode | default(entity.lang)) | linkRefs(entity) }}</pre> #}
-    <pre>{{ entity.getPreviewContent() | async | trim }}</pre>
+    <pre>{{ entity.getPreviewContent() | async | trim | highlight('nunj') | linkRefs(entity) }}</pre>
   </div>
 </div>

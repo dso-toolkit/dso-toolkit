@@ -103,23 +103,28 @@ notes: |
 status: ready
 collated: true
 context:
+  __title: success
   modifier: success
   message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
   - name: danger
     context:
+      __title: danger
       modifier: danger
       message: Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   - name: warning
     context:
+      __title: warning
       modifier: warning
       message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
   - name: info
     context:
+      __title: info
       modifier: info
       message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.
   - name: success-button
     context:
+      __title: success with button
       modifier: success
       message: |
         <div class="dso-rich-content">
@@ -128,6 +133,7 @@ variants:
         </div>
   - name: danger-button
     context:
+      __title: danger with button
       modifier: danger
       message: |
         <div class="dso-rich-content">
@@ -136,6 +142,7 @@ variants:
         </div>
   - name: warning-button
     context:
+      __title: warning with button
       modifier: warning
       message: |
         <div class="dso-rich-content">
@@ -144,6 +151,7 @@ variants:
         </div>
   - name: info-button
     context:
+      __title: info with button
       modifier: info
       message: |
         <div class="dso-rich-content">

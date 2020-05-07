@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Toolkit structuur platslaan (#604)
+
 ## 10.3.1 - 30-04-2020
 
 ### Fixed

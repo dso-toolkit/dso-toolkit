@@ -1,0 +1,19 @@
+<nav {{ className('dso-navbar', [open, 'dso-open']) }}>
+  {% if modifier === 'main' %}
+    <div class="dso-navbar-header">
+      <button type="button" class="dso-navbar-toggle">
+        {% render '@icon', {icon: 'bars'} %}
+        <span class="sr-only">Ga naar menu</span>
+      </button>
+    </div>
+  {% endif %}
+  <ul {{ className('dso-nav', 'dso-nav-' + modifier) }}>
+    {%- for item in items %}
+      <li {{ className([item.active, 'dso-active']) }}>
+        <a href="#">
+          {{ item.label }}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</nav>
