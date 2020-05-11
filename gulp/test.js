@@ -68,7 +68,6 @@ function testDom(cb) {
           log(`reference/render/${filename} doesn't exist!`);
 
           changeCount++;
-          noop(e);
         }
 
         if (referenceHtml) {
@@ -98,8 +97,4 @@ function testDom(cb) {
       cb();
     }
   }
-}
-
-function noop() {
-  return null;
 }
