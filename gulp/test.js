@@ -65,7 +65,9 @@ function testDom(cb) {
           referenceHtml = fs.readFileSync(`reference/render/${filename}`, { encoding: 'utf-8' });
         }
         catch (e) {
-          noop(e);
+          log(`reference/render/${filename} doesn't exist!`);
+
+          changeCount++;
         }
 
         if (referenceHtml) {
@@ -95,8 +97,4 @@ function testDom(cb) {
       cb();
     }
   }
-}
-
-function noop() {
-  return null;
 }
