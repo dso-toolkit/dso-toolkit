@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Externe link mist rel="noopener noreferrer"(#623)
+
 ### Fixed
 * Marges in implementatie treeview verschillen (#638)
 * Ongewenste styling active tertiare buttons (#511)
