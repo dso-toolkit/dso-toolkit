@@ -12,6 +12,7 @@ const sass = require('gulp-sass');
 const tap = require('gulp-tap');
 const trim = require('gulp-trim');
 const svgmin = require('gulp-svgmin');
+const filter = require('gulp-filter');
 const svgstore = require('gulp-svgstore');
 const prettyData = require('gulp-pretty-data');
 const cheerio = require('gulp-cheerio');
@@ -83,8 +84,16 @@ function buildStylesWrapper(options) {
 }
 
 function copyAssets() {
+  const f = filter('**/*.svg', { restore: true });
+
   return gulp
-    .src(['assets/**','node_modules/svg4everybody/dist/svg4everybody.min.js'])
+    .src([
+      'assets/**',
+      'node_modules/svg4everybody/dist/svg4everybody.min.js'
+    ])
+    .pipe(f)
+    .pipe(svgmin())
+    .pipe(f.restore)
     .pipe(gulp.dest('build/toolkit'));
 }
 

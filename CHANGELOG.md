@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Toolkit structuur platslaan (#604)
+* Illustraties optimaliseren met svgo (#452)
 
 ## 10.3.1 - 30-04-2020
 
