@@ -2,7 +2,7 @@
   background: $wit;
   box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
   margin-bottom: $dso-whitebox-margin-bottom;
-  min-height: 520px;
+  min-height: $dso-whitebox-min-height;
   padding: $u2 $u3 0;
   position: relative;
   top: $u7;
@@ -34,7 +34,7 @@
   background: $wit;
   box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
   margin-bottom: $dso-whitebox-small-margin-bottom;
-  min-height: 200px;
+  min-height: $dso-whitebox-small-min-height;
   padding: $u3 $u2 $u2;
   position: relative;
   top: $u7;

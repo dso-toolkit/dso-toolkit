@@ -1,6 +1,6 @@
 .dso-whitebox {
   &.dso-has-counter {
-    min-height: 520 + $u5;
+    min-height: $dso-whitebox-min-height + $u5;
   }
 }
 

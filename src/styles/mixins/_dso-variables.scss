@@ -58,12 +58,14 @@ $dso-font-size-h2: 1.5rem;
 $dso-font-size-h3: 1.25rem;
 $dso-font-size-h4: 1rem;
 $dso-font-size-h5: 1rem;
+$dso-font-size-h6: 1rem;
 
 $dso-font-line-height-h1: 1.25;
 $dso-font-line-height-h2: 1.33;
 $dso-font-line-height-h3: 1.2;
 $dso-font-line-height-h4: 1.5;
 $dso-font-line-height-h5: 1.5;
+$dso-font-line-height-h6: 1.5;
 
 $dso-focus-color: $scampi;
 
@@ -132,6 +134,8 @@ $dso-highlight-box-margin-top: $u6;
 
 $dso-whitebox-margin-bottom: $u7;
 $dso-whitebox-small-margin-bottom: $u7;
+$dso-whitebox-min-height: 540px;
+$dso-whitebox-small-min-height: 200px;
 
 $dso-description-bg-color: $dso-info-bg-color;
 $dso-description-border-color: $dso-info-color;
