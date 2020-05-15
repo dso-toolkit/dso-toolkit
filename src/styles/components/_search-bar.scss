@@ -1,14 +1,13 @@
 $dso-search-bar-height: $u5;
 
 .dso-search-bar {
+  display: flex;
+
   label {
     // font-size: 0;
     margin-bottom: $u1;
+    flex-grow: 1;
     width: 100%;
-  }
-
-  .dso-search-bar-input-row {
-    display: flex;
   }
 
   .dso-search-bar-input {
@@ -23,7 +22,7 @@ $dso-search-bar-height: $u5;
       padding: $u1;
       position: absolute;
       text-align: center;
-      top: 0;
+      top: $u4;
       width: $u5;
 
       &::before {
@@ -84,7 +83,7 @@ $dso-search-bar-height: $u5;
       position: absolute;
       right: 0;
       text-align: center;
-      top: 0;
+      top: $u4;
       width: $u5;
 
       &::before {
@@ -100,8 +99,7 @@ $dso-search-bar-height: $u5;
   .dso-search-bar-input + button {
     height: $dso-search-bar-height;
     line-height: 38px;
-    margin-bottom: 0;
-    margin-left: $u1;
+    margin: $u4 0 0 $u1;
     min-width: initial;
     padding: 0 $u2;
     text-align: center;
