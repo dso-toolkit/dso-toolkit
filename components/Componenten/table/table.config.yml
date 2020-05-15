@@ -132,6 +132,7 @@ variants:
       modifier: table
       filter:
         icon: true
+        label: Filteren
         placeholder: Tabel doorzoeken
         hideSearchButton: true
       columnHeaders:
@@ -157,6 +158,7 @@ variants:
       modifier: table
       filter:
         icon: true
+        label: Filteren
         value: abcdef
         hideSearchButton: true
       columnHeaders:
