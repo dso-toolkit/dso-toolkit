@@ -1,21 +1,19 @@
 $dso-search-bar-height: $u5;
 
 .dso-search-bar {
-  display: flex;
+  label {
+    // font-size: 0;
+    margin-bottom: $u1;
+    width: 100%;
+  }
+
+  .dso-search-bar-input-row {
+    display: flex;
+  }
 
   .dso-search-bar-input {
     position: relative;
     width: 100%;
-
-    label,
-    .dso-search-icon {
-      position: absolute;
-    }
-
-    label {
-      font-size: 0;
-      margin-bottom: 0;
-    }
 
     .dso-search-icon {
       bottom: 0;
@@ -23,6 +21,7 @@ $dso-search-bar-height: $u5;
       left: 0;
       line-height: $u5;
       padding: $u1;
+      position: absolute;
       text-align: center;
       top: 0;
       width: $u5;
@@ -33,17 +32,10 @@ $dso-search-bar-height: $u5;
         content: "";
         display: inline-block;
       }
-    }
 
-    label.dso-search-icon {
-      &::before {
-        font-size: 1rem;
+      + input {
+        padding-left: $u5;
       }
-    }
-
-    :not(.dso-search-icon) + input,
-    input:first-child {
-      padding-left: $u1 - 1;
     }
 
     input {
@@ -59,7 +51,7 @@ $dso-search-bar-height: $u5;
       font-size: 16px;
       height: $dso-search-bar-height;
       line-height: $dso-search-bar-height;
-      padding: 6px $u5;
+      padding: 6px $u5 6px $u1;
       transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
       width: 100%;
 
