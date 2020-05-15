@@ -13,16 +13,7 @@ variants:
       __title: label only
       placeholder: Alleen label
       icon: false
-  # - name: icon-only
-  #   context:
-  #     __title: icon only
-  #     label: ""
-  #     placeholder: Alleen icoon
   - name: with-value
     context:
       __title: with value
       value: abcdef
-  # - name: hidden-button
-  #   context:
-  #     hideSearchButton: true
-  #     placeholder: Verborgen zoekknop
