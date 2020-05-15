@@ -4,9 +4,8 @@ $dso-search-bar-height: $u5;
   display: flex;
 
   label {
-    // font-size: 0;
-    margin-bottom: $u1;
     flex-grow: 1;
+    margin-bottom: $u1;
     width: 100%;
   }
 
