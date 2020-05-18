@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* dso-toolkit.nl: uitklapbare knopjes in navigatiebalk missen heading en aria-collapsed (#632)
+
 ## 10.4.0 - 12-05-2020
 
 ### Added
