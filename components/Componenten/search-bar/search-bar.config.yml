@@ -17,3 +17,7 @@ variants:
     context:
       __title: with value
       value: abcdef
+  - name: hidden-button
+    context:
+      hideSearchButton: true
+      placeholder: Verborgen zoekknop
