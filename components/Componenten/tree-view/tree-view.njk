@@ -7,7 +7,6 @@
             <a href="#">{{- item.label -}}</a>
           {% else %}
             <button type="button" aria-expanded={% if item.collapsed==true %}"false"{% else %}"true"{%endif%}><h3>{{- item.label -}}</h3></button>
-            {# <button type="button" aria-expanded={% if branches(item.items) %}"true"{% else %}"false"{%endif%}><h3>{{- item.label -}}</h3></button> #}
             {{ branches(item.items) }}
           {% endif %}
         </li>
