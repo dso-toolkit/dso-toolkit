@@ -27,10 +27,10 @@ $dso-search-bar-height: $u5;
 
       &::before {
         @include di("search");
-        font-size: 1rem;
 
         content: "";
         display: inline-block;
+        font-size: 1rem;
       }
 
       + input {
