@@ -2,19 +2,19 @@
 <!-- Start: @search-bar--default -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
-    <h2>default</h2>
+    <h2>Zichtbaar label met icoon</h2>
   </div>
   <div class="dso-example">
     <div class="dso-search-bar">
       <div class="dso-search-bar-input">
-        <label for="search-bar--default">Zoek op postcode</label>
-        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--default" placeholder="Label met icoon" />
+        <label for="search-bar--default">Label</label>
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--default" placeholder="Placeholder" />
         <button type="button">
           Zoekopdracht legen
         </button>
       </div>
       <button type="button" class="btn btn-default">
-        Zoeken
+        Button
       </button>
     </div>
   </div>
@@ -23,46 +23,140 @@
 <!-- End: @search-bar--default -->
 <hr />
 
-<!-- Start: @search-bar--label-only -->
+<!-- Start: @search-bar--label-no-icon -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
-    <h2>label only</h2>
+    <h2>Zichtbaar label, geen icon</h2>
   </div>
   <div class="dso-example">
     <div class="dso-search-bar">
       <div class="dso-search-bar-input">
-        <label for="search-bar--label-only">Zoek op postcode</label>
-        <input type="text" id="search-bar--label-only" placeholder="Alleen label" />
+        <label for="search-bar--label-no-icon">Label</label>
+        <input type="text" id="search-bar--label-no-icon" placeholder="Placeholder" />
         <button type="button">
           Zoekopdracht legen
         </button>
       </div>
       <button type="button" class="btn btn-default">
-        Zoeken
+        Button
       </button>
     </div>
   </div>
 </div>
 
-<!-- End: @search-bar--label-only -->
+<!-- End: @search-bar--label-no-icon -->
 <hr />
 
-<!-- Start: @search-bar--with-value -->
+<!-- Start: @search-bar--hidden-label-icon -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
-    <h2>with value</h2>
+    <h2>Verborgen label met icon</h2>
   </div>
   <div class="dso-example">
     <div class="dso-search-bar">
       <div class="dso-search-bar-input">
-        <label for="search-bar--with-value">Zoek op postcode</label>
-        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--with-value" placeholder="Label met icoon" value="abcdef" />
+        <label for="search-bar--hidden-label-icon" class="sr-only">Label</label>
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--hidden-label-icon" placeholder="Placeholder" />
         <button type="button">
           Zoekopdracht legen
         </button>
       </div>
       <button type="button" class="btn btn-default">
-        Zoeken
+        Button
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @search-bar--hidden-label-icon -->
+<hr />
+
+<!-- Start: @search-bar--hidden-label-no-icon -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>verborgen label, geen icon</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-search-bar">
+      <div class="dso-search-bar-input">
+        <label for="search-bar--hidden-label-no-icon" class="sr-only">Label</label>
+        <input type="text" id="search-bar--hidden-label-no-icon" placeholder="Placeholder" />
+        <button type="button">
+          Zoekopdracht legen
+        </button>
+      </div>
+      <button type="button" class="btn btn-default">
+        Button
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @search-bar--hidden-label-no-icon -->
+<hr />
+
+<!-- Start: @search-bar--no-label-icon -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Geen label, wel icon</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-search-bar">
+      <div class="dso-search-bar-input">
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" placeholder="Placeholder" />
+        <button type="button">
+          Zoekopdracht legen
+        </button>
+      </div>
+      <button type="button" class="btn btn-default">
+        Button
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @search-bar--no-label-icon -->
+<hr />
+
+<!-- Start: @search-bar--no-label-no-icon -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Geen label, geen icon</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-search-bar">
+      <div class="dso-search-bar-input">
+        <input type="text" placeholder="Placeholder" />
+        <button type="button">
+          Zoekopdracht legen
+        </button>
+      </div>
+      <button type="button" class="btn btn-default">
+        Button
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- End: @search-bar--no-label-no-icon -->
+<hr />
+
+<!-- Start: @search-bar--with-value -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Met waarde</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-search-bar">
+      <div class="dso-search-bar-input">
+        <label for="search-bar--with-value">Label</label>
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--with-value" placeholder="Placeholder" value="abcdef" />
+        <button type="button">
+          Zoekopdracht legen
+        </button>
+      </div>
+      <button type="button" class="btn btn-default">
+        Button
       </button>
     </div>
   </div>
@@ -74,19 +168,19 @@
 <!-- Start: @search-bar--hidden-button -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
-    <h2>default</h2>
+    <h2>Verborgen knop</h2>
   </div>
   <div class="dso-example">
     <div class="dso-search-bar">
       <div class="dso-search-bar-input">
-        <label for="search-bar--hidden-button">Zoek op postcode</label>
-        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--hidden-button" placeholder="Verborgen zoekknop" />
+        <label for="search-bar--hidden-button">Label</label>
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar--hidden-button" placeholder="Placeholder" />
         <button type="button">
           Zoekopdracht legen
         </button>
       </div>
       <button type="button" class="btn btn-default sr-only">
-        Zoeken
+        Button
       </button>
     </div>
   </div>

@@ -133,6 +133,7 @@ variants:
       filter:
         icon: true
         label: Filteren
+        hiddenLabel: true
         placeholder: Tabel doorzoeken
         hideSearchButton: true
       columnHeaders:
@@ -159,6 +160,7 @@ variants:
       filter:
         icon: true
         label: Filteren
+        hiddenLabel: true
         value: abcdef
         hideSearchButton: true
       columnHeaders:
