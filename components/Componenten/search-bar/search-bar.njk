@@ -1,11 +1,28 @@
 <div class="dso-search-bar">
   <div class="dso-search-bar-input">
-    {% if label -%}
+    {# zichtbaar label met icon #}
+    {% if label and icon and not hiddenLabel -%}
+      <label for="{{ _self.handle }}">
+        {{- label -}}
+      </label>
+      <span class="dso-search-icon" aria-hidden="true"></span>
+    {# zichtbaar label zonder icon #}
+    {% elif label and not icon and not hiddenLabel -%}
+      <label for="{{ _self.handle }}">
+        {{- label -}}
+      </label>
+    {# verborgen label met icon #}
+    {% elif label and hiddenLabel and icon -%}
+      <label for="{{ _self.handle }}" {{ className('dso-search-icon') }}>
+        {{- label -}}
+      </label>
+    {# verborgen label zonder icon #}
+    {% elif label and hiddenLabel and not icon -%}
       <label for="{{ _self.handle }}" {{ className([hiddenLabel, 'sr-only']) }}>
         {{- label -}}
       </label>
-    {% endif %}
-    {% if icon -%}
+    {# geen label met icon #}
+    {% elif not label and not hiddenLabel and icon -%}
       <span class="dso-search-icon" aria-hidden="true"></span>
     {%- endif -%}
     <input type="text" {% if label %} id="{{ _self.handle }}"{% endif %} {% if placeholder %} placeholder="{{ placeholder }}"{% endif %} {% if value %} value="{{ value }}"{% endif %} />

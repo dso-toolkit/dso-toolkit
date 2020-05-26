@@ -22,7 +22,7 @@ variants:
       hiddenLabel: true
       icon: false
   - name: no-label-icon	
-    context:	
+    context:
       __title: Geen label, wel icon	
       label: ""	
   - name: no-label-no-icon	
@@ -33,7 +33,7 @@ variants:
   - name: with-value
     context:
       __title: Met waarde
-      value: abcdef
+      value: Waarde
   - name: hidden-button
     context:
       __title: Verborgen knop

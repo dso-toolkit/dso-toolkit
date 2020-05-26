@@ -15,6 +15,7 @@ $dso-search-bar-height: $u5;
 
     .dso-search-icon {
       bottom: $u1;
+      font-size: 0;
       height: $dso-search-bar-height;
       left: 0;
       line-height: $u5;
@@ -26,6 +27,7 @@ $dso-search-bar-height: $u5;
 
       &::before {
         @include di("search");
+        font-size: 1rem;
 
         content: "";
         display: inline-block;
@@ -106,7 +108,8 @@ $dso-search-bar-height: $u5;
         top: $u4;
       }
 
-      &.sr-only {
+      &.sr-only,
+      &.dso-search-icon {
         + .dso-search-icon {
           top: 0;
 
