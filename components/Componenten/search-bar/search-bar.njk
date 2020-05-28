@@ -26,9 +26,11 @@
       <span class="dso-search-icon" aria-hidden="true"></span>
     {%- endif -%}
     <input type="text" {% if label %} id="{{ _self.handle }}"{% endif %} {% if placeholder %} placeholder="{{ placeholder }}"{% endif %} {% if value %} value="{{ value }}"{% endif %} />
-    <button type="button">
-      Zoekopdracht legen
-    </button>
+    {% if clearButton %}
+      <button type="button">
+        Zoekopdracht legen
+      </button>
+    {% endif %}
   </div>
   <button type="button" {{ className('btn btn-default', [hideSearchButton, 'sr-only']) }}>
     Button

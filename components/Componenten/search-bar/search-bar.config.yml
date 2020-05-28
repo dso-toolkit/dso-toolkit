@@ -1,5 +1,5 @@
 notes: |
-  Pas bij een waarde toont de reset-knop, initieel is deze knop verborgen
+  Pas bij een waarde toont de reset-knop, initieel is deze knop er niet.
 status: ready
 collated: true
 context:
@@ -34,6 +34,7 @@ variants:
     context:
       __title: Met waarde
       value: Waarde
+      clearButton: true
   - name: hidden-button
     context:
       __title: Verborgen knop
