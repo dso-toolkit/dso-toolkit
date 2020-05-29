@@ -21,6 +21,19 @@
     padding: $u2 - 1;
   }
 
+  .btn-link:not([disabled]) {
+    color: $zwart;
+
+    &:hover,
+    &:focus {
+      &,
+      svg.di {
+        color: $grijs-60;
+        text-decoration: underline;
+      }
+    }
+  }
+
   &:not(.dso-border):not(.dso-drop-shadow) {
     a,
     a:visited {
