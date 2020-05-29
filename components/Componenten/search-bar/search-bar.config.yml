@@ -1,33 +1,41 @@
 notes: |
-  Pas bij een waarde toont de reset-knop, initieel is deze knop verborgen
+  Pas bij een waarde toont de reset-knop, initieel is deze knop er niet.
 status: ready
 collated: true
 context:
-  __title: default
-  placeholder: Label met icoon
+  __title: Zichtbaar label met icoon
+  placeholder: Placeholder
   icon: true
-  label: Zoek op postcode
+  label: Label
 variants:
-  - name: label-only
+  - name: label-no-icon
     context:
-      __title: label only
-      placeholder: Alleen label
+      __title: Zichtbaar label, geen icon
       icon: false
-  - name: icon-only
+  - name: hidden-label-icon
     context:
-      __title: icon only
-      label: ""
-      placeholder: Alleen icoon
-  - name: no-icon-no-label
+      __title: Verborgen label met icon
+      hiddenLabel: true
+  - name: hidden-label-no-icon
     context:
-      __title: no icon, no label
+      __title: verborgen label, geen icon
+      hiddenLabel: true
       icon: false
-      label: ""
-      placeholder: Geen icoon en geen label
+  - name: no-label-icon	
+    context:
+      __title: Geen label, wel icon	
+      label: ""	
+  - name: no-label-no-icon	
+    context:	
+      __title: Geen label, geen icon
+      icon: false	
+      label: false
   - name: with-value
     context:
-      value: abcdef
+      __title: Met waarde
+      value: Waarde
+      clearButton: true
   - name: hidden-button
     context:
+      __title: Verborgen knop
       hideSearchButton: true
-      placeholder: Verborgen zoekknop

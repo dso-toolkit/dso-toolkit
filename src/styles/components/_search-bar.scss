@@ -7,22 +7,20 @@ $dso-search-bar-height: $u5;
     position: relative;
     width: 100%;
 
-    label,
-    .dso-search-icon {
-      position: absolute;
-    }
-
     label {
-      font-size: 0;
-      margin-bottom: 0;
+      flex-grow: 1;
+      margin-bottom: $u1;
+      width: 100%;
     }
 
     .dso-search-icon {
-      bottom: 0;
+      bottom: $u1;
+      font-size: 0;
       height: $dso-search-bar-height;
       left: 0;
       line-height: $u5;
       padding: $u1;
+      position: absolute;
       text-align: center;
       top: 0;
       width: $u5;
@@ -32,18 +30,12 @@ $dso-search-bar-height: $u5;
 
         content: "";
         display: inline-block;
-      }
-    }
-
-    label.dso-search-icon {
-      &::before {
         font-size: 1rem;
       }
-    }
 
-    :not(.dso-search-icon) + input,
-    input:first-child {
-      padding-left: $u1 - 1;
+      + input {
+        padding-left: $u5;
+      }
     }
 
     input {
@@ -59,7 +51,7 @@ $dso-search-bar-height: $u5;
       font-size: 16px;
       height: $dso-search-bar-height;
       line-height: $dso-search-bar-height;
-      padding: 6px $u5;
+      padding: 6px $u5 6px $u1;
       transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
       width: 100%;
 
@@ -83,7 +75,6 @@ $dso-search-bar-height: $u5;
     button {
       background-color: transparent;
       border: 0;
-      bottom: 0;
       box-shadow: none;
       color: $grasgroen;
       font-size: 0;
@@ -103,13 +94,42 @@ $dso-search-bar-height: $u5;
         font-size: $font-size-base;
       }
     }
+
+    label {
+      + .dso-search-icon {
+        top: $u4;
+
+        + input + button {
+          top: $u4;
+        }
+      }
+
+      + input + button {
+        top: $u4;
+      }
+
+      &.sr-only,
+      &.dso-search-icon {
+        + .dso-search-icon {
+          top: 0;
+
+          + input + button {
+            top: 0;
+          }
+        }
+
+        + input + button {
+          top: 0;
+        }
+      }
+    }
   }
 
   .dso-search-bar-input + button {
+    align-self: flex-end;
     height: $dso-search-bar-height;
     line-height: 38px;
-    margin-bottom: 0;
-    margin-left: $u1;
+    margin: 0 0 0 $u1;
     min-width: initial;
     padding: 0 $u2;
     text-align: center;
