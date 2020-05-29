@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Search bar met zichtbaar label (#631)
+
 ## 10.4.0 - 12-05-2020
 
 ### Added
