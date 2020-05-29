@@ -1,4 +1,7 @@
 notes: |
+  Om de content in een banner goed te tonen, moet aan de volgende voorwaarden worden voldaan:
+  - een class rich-content op de omringende div
+  - een p-tag om de content (de p-tag komt in de meeste gevallen al uit het CMS)
 status: wip
 collated: true
 context:
