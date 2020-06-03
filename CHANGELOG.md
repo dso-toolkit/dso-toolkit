@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Search bar met zichtbaar label (#631)
 * Tertiaire link op highlight box geeft te weinig contrast (#626)
+* **BREAKING**: Rich content (eventueel uit CMS afkomstig) in banner component (#641)
 
 ## 10.4.0 - 12-05-2020
 

@@ -50,10 +50,10 @@
             var iframe = document.getElementById('component-preview-iframe');
 
             setTimeout(function () {
-              var iframeHtml = iframe.contentDocument.querySelector('.container');
+              var iframeHtml = iframe.contentDocument.querySelector('.container, body');
 
               if (iframeHtml) {
-                iframe.style.height = iframeHtml.offsetHeight + 'px';
+                iframe.style.height = iframeHtml.offsetHeight + 50 + 'px';
               }
             }, 50);
           }

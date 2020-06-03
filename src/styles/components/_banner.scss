@@ -30,8 +30,7 @@ $dso-banner-left-padding: $u6;
       }
 
       @media screen and (max-width: $screen-xs-max) {
-        > span {
-          display: block;
+        > .dso-rich-content {
           width: calc(100% - #{$u3});
         }
       }

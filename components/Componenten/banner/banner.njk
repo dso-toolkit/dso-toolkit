@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-sm-12">
         {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
-        <span>
+        <div class="dso-rich-content">
           {{ message | safe }}
-        </span>
+        </div>
       </div>
     </div>
   </div>
