@@ -36,7 +36,14 @@ notes: |
 status: ready
 collated: true
 context:
+  __title: minder dan 1 minuut
   progress: 60
   value:
     min: 0
     max: 100
+variants:
+  - name: text-progressbar
+    context:
+      __title: meer dan 1 minuut
+      progress: 25
+      progressLabel: Nog ongeveer 4 minuten
