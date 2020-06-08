@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **BREAKING**: Dropdown button toegankelijk maken (#663)
+
 ### Fixed
 * tabs: mist aria (#668)
 * Favicon: tabel mist header (#661)

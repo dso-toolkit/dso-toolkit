@@ -18,21 +18,38 @@
   }
 
   .dropdown-menu {
+    .dso-group-label {
+      color: $grijs-40;
+      font-size: (14 / 16 * 1em);
+      font-weight: 400;
+      margin: 0;
+      padding: 3px 20px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
     li {
+      list-style: none;
+
       a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.5;
+        color: $grijs-90;
+        white-space: nowrap;
+        
         &:focus {
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
           text-decoration: underline;
         }
-      }
-
-      .dso-group-label {
-        color: $grijs-40;
-        font-size: (14 / 16 * 1em);
-        padding: 3px 20px;
-        text-transform: uppercase;
       }
     }
 
