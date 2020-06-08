@@ -3,16 +3,20 @@ ol.breadcrumb {
 
   list-style: none;
   margin-bottom: 0;
-  padding: 0 10px;
+  padding: 0 $u1;
 
   > li {
     float: left;
 
     + li::before {
-      color: $grijs-50;
-      content: "|";
-      float: left;
-      padding: 0 $u1;
+      border-left: 1px solid $grijs-60;
+      content: "";
+      display: inline-block;
+      height: 1em;
+      margin: 0 .5em 0 .625em;
+      position: relative;
+      top: .17em;
+      vertical-align: baseline;
     }
   }
 
