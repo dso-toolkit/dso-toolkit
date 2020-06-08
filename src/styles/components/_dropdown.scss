@@ -36,12 +36,12 @@
       list-style: none;
 
       a {
-        display: block;
-        padding: 3px 20px;
         clear: both;
+        color: $grijs-90;
+        display: block;
         font-weight: 400;
         line-height: 1.5;
-        color: $grijs-90;
+        padding: 3px 20px;
         white-space: nowrap;
         
         &:focus {
