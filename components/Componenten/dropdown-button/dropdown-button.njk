@@ -6,10 +6,10 @@
         {% if group.label %}
           <h2 class="dso-group-label">{{ group.label }}</h2>
         {% endif %}
-        <ul aria-labelledby="{{ id }}">
-          {% if loop.index0 != 0 %}
+        <ul aria-labelledby="{{ id }}" {{ className([loop.index0 != 0, 'dso-seperator']) }}>
+          {# {% if loop.index0 != 0 %}
             <li role="separator" class="divider"></li>
-          {% endif %}
+          {% endif %} #}
           {% for item in group.items %}
             <li {{ className([item.checked, 'dso-checked']) }}>
               <a href="#">{{ item.label }}</a>

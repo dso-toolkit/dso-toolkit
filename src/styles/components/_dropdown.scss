@@ -1,3 +1,5 @@
+$dso-dropdown-hor-padding: 20px;
+
 .dropdown {
   > .btn-default.dropdown-toggle {
     &::after {
@@ -23,13 +25,20 @@
       font-size: (14 / 16 * 1em);
       font-weight: 400;
       margin: 0;
-      padding: 3px 20px;
+      padding: ($u1 / 2) $dso-dropdown-hor-padding ($u1 / 4);
       text-transform: uppercase;
     }
 
     ul {
       margin: 0;
       padding: 0;
+
+      &.dso-seperator {
+        border-top: 1px solid $grijs-10;
+        margin-top: 11px;
+        overflow: hidden;
+        padding-top: 11px;
+      }
     }
 
     li {
@@ -41,13 +50,17 @@
         display: block;
         font-weight: 400;
         line-height: 1.5;
-        padding: 3px 20px;
+        padding: 3px $dso-dropdown-hor-padding;
         white-space: nowrap;
 
+        &:hover,
         &:focus {
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
+        }
+
+        &:focus {
           text-decoration: underline;
         }
       }
