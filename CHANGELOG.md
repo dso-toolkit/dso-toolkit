@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Fixed
+* tabs: mist aria (#668)
 * Favicon: tabel mist header (#661)
 * dso.nl homepage valideert niet (#669)
 

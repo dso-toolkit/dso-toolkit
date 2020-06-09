@@ -1,7 +1,23 @@
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" role="tablist">
   {%- for tab in tabs %}
     <li {{ className(tab.modifiers) }}>
-      <a href="{{ tab.url }}">{{ tab.label }}</a>
+      <a href="{{ tab.url }}" 
+        role="tab" 
+        aria-selected="{{ true if tab.modifiers=='active' else false }}" 
+        id="{{ tab.label | replace(" ", "") }}" 
+        aria-controls="{{ tab.label | replace(" ", "") }}-tab">
+        {{- tab.label -}}
+      </a>
     </li>
   {%- endfor -%}
 </ul>
+{%- for tab in tabs %}
+  <div 
+    tabindex="0" 
+    role="tabpanel" 
+    id="{{ tab.label | replace(" ", "") }}-tab"
+    aria-labelledby="{{ tab.label | replace(" ", "") }}"
+    {% if tab.modifiers!='active' %}hidden{% endif %}>
+    Inhoud {{ tab.label }}
+  </div>
+{%- endfor -%}
