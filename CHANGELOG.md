@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Favicon: tabel mist header (#661)
+
 ## 10.5.0 - 03-06-2020
 
 ### Changed
