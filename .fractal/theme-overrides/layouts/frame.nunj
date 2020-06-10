@@ -50,7 +50,7 @@
     <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0; height: 100px;">
       <div class="col-sm-6 col-xs-3">
         <a href="{{ path('/') }}" class="Header-title" data-pjax="data-pjax">
-          <img src="{{ path('/images/toolkit.svg') }}" width="300"/>
+          <img src="{{ path('/images/toolkit.svg') }}" width="300" alt="DSO Toolkit homepage" />
         </a>
       </div>
       <div class="col-sm-6 col-xs-9 text-right toolkit-injections"></div>
