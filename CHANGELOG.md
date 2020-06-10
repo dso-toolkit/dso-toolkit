@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* dso-toolkit.nl: eerste link 'index' heeft onduidelijke naam (#657)
+
 ### Changed
 * Documentatie progress-bar component (#451)
 
