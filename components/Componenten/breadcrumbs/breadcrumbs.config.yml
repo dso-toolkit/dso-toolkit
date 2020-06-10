@@ -1,5 +1,5 @@
 notes: |
-  Toont een breadcrumb. Gebaseerd op de Bootstrap "Breadcrumbs" component
+  Toont breadcrumbs (sitepad).
 status: ready
 context:
   __title: breadcrumbs

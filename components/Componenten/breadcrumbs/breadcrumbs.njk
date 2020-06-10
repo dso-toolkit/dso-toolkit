@@ -1,11 +1,33 @@
-<ol class="breadcrumb">
-  {%- for crumb in crumbs %}
-    {%- if loop.last -%}
-      <li class="active">{{ crumb.label }}</li>
-    {%- else -%}
-      <li>
-        <a href="{{ crumb.url }}">{{ crumb.label }}</a>
-      </li>
-    {%- endif -%}
-  {% endfor %}
-</ol>
+<nav aria-label="U bevindt zich hier:">
+  <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
+    {%- for crumb in crumbs %}
+      {%- if loop.last -%}
+        <li 
+          class="active" 
+          aria-current="page"
+          itemscope=""
+          itemprop="itemListElement" 
+          itemtype="http://schema.org/ListItem">
+          <span itemprop="name">
+            {{- crumb.label -}}
+          </span>
+          <meta itemprop="position" content="{{loop.index}}" />
+        </li>
+      {%- else -%}
+        <li 
+          itemscope=""
+          itemprop="itemListElement" 
+          itemtype="http://schema.org/ListItem">
+          <a
+            itemprop="item"
+            href="{{ crumb.url }}">
+            <span itemprop="name">
+              {{- crumb.label -}}
+            </span>
+          </a>
+          <meta itemprop="position" content="{{loop.index}}" />
+        </li>
+      {%- endif -%}
+    {% endfor %}
+  </ol>
+</nav>

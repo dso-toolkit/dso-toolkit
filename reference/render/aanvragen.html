@@ -45,18 +45,32 @@
       </li>
     </ul>
   </nav>
-  <ol class="breadcrumb">
-    <li>
-      <a href="#">Home</a>
-    </li>
-    <li>
-      <a href="#">Aanvragen</a>
-    </li>
-    <li>
-      <a href="#">Mijn project</a>
-    </li>
-    <li class="active">Aanvraag voorbereiden</li>
-  </ol>
+  <nav aria-label="U bevindt zich hier:">
+    <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
+      <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="#">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+      <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="#">
+          <span itemprop="name">Aanvragen</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+      <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href="#">
+          <span itemprop="name">Mijn project</span>
+        </a>
+        <meta itemprop="position" content="3" />
+      </li>
+      <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem">
+        <span itemprop="name">Aanvraag voorbereiden</span>
+        <meta itemprop="position" content="4" />
+      </li>
+    </ol>
+  </nav>
 </header>
 <main>
   <div class="row">
