@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 10.6.0 - 10-06-2020
+
 ### Fixed
 * dso-toolkit.nl: eerste link 'index' heeft onduidelijke naam (#657)
 

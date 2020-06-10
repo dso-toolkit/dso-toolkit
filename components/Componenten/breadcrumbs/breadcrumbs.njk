@@ -2,22 +2,22 @@
   <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
     {%- for crumb in crumbs %}
       {%- if loop.last -%}
-        <li 
-          class="active" 
+        <li
+          class="active"
           aria-current="page"
           itemscope=""
-          itemprop="itemListElement" 
-          itemtype="http://schema.org/ListItem">
+          itemprop="itemListElement"
+          itemtype="//schema.org/ListItem">
           <span itemprop="name">
             {{- crumb.label -}}
           </span>
           <meta itemprop="position" content="{{loop.index}}" />
         </li>
       {%- else -%}
-        <li 
+        <li
           itemscope=""
-          itemprop="itemListElement" 
-          itemtype="http://schema.org/ListItem">
+          itemprop="itemListElement"
+          itemtype="//schema.org/ListItem">
           <a
             itemprop="item"
             href="{{ crumb.url }}">
