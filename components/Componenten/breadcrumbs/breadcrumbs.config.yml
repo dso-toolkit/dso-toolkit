@@ -1,5 +1,5 @@
 notes: |
-  Toont een sitepad (breadcrumbs).
+  Toont breadcrumbs (sitepad).
 status: ready
 context:
   __title: breadcrumbs
