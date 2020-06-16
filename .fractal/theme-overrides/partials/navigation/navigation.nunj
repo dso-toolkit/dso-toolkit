@@ -18,7 +18,7 @@
       {% for item in items %}
         {% if item.isCollection or (item.isComponent and not item.isCollated and item.variants().filter('isHidden', false).size > 1) %}
           <li class="dso-collection" data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
-            <button type="button" data-role="toggle">{{ item.label }}</button>
+            <button type="button" data-role="toggle"><h3>{{ item.label }}</h3></button>
             {% if item.isComponent and not item.isCollated %}
               {% set items = item.variants().filter('isHidden', false).items() %}
             {% else %}
