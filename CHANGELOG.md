@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Badge en label verduidelijken (#662)
+
 ## 10.6.0 - 10-06-2020
 
 ### Fixed

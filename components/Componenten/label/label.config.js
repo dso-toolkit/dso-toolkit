@@ -9,42 +9,48 @@ module.exports = {
     {
       name: 'default',
       context: {
-        label: 'Default',
+        status: 'Label',
+        label: 'Label tekst'
       }
     },
     {
       name: 'info',
       context: {
-        label: 'Info',
-        modifier: 'info'
+        status: 'Info',
+        modifier: 'info',
+        label: 'Label tekst'
       }
     },
     {
       name: 'primary',
       context: {
-        label: 'Primary',
-        modifier: 'primary'
+        status: 'Primair',
+        modifier: 'primary',
+        label: 'Label tekst'
       }
     },
     {
       name: 'success',
       context: {
-        label: 'Success',
-        modifier: 'success'
+        status: 'Succes',
+        modifier: 'success',
+        label: 'Label tekst'
       }
     },
     {
       name: 'warning',
       context: {
-        label: 'Warning',
-        modifier: 'warning'
+        status: 'Waarschuwing',
+        modifier: 'warning',
+        label: 'Label tekst'
       }
     },
     {
       name: 'danger',
       context: {
-        label: 'Danger',
-        modifier: 'danger'
+        status: 'Gevaar',
+        modifier: 'danger',
+        label: 'Label tekst'
       }
     }
   ].reduce((total, variant) => total.concat([

@@ -1,1 +1,1 @@
-<span {{ className('dso-badge', [modifier, 'badge-' + modifier]) }}>{{ label }}</span>
+<span {{ className('dso-badge', [modifier, 'badge-' + modifier]) }}>{% if status -%}<span class="sr-only">{{ status }}: </span>{% endif -%}{{ label }}</span>
