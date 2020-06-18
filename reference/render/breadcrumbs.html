@@ -1,9 +1,20 @@
-<ol class="breadcrumb">
-  <li>
-    <a href="#">Home</a>
-  </li>
-  <li>
-    <a href="#">Zelf aan de slag</a>
-  </li>
-  <li class="active">Inhoud</li>
-</ol>
+<nav aria-label="U bevindt zich hier:">
+  <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
+    <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
+      <a itemprop="item" href="#">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
+      <a itemprop="item" href="#">
+        <span itemprop="name">Zelf aan de slag</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
+      <span itemprop="name">Inhoud</span>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ol>
+</nav>
