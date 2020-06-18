@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* dso.nl homepage valideert niet (#669)
+
 ### Deprecated
 * Carousel deprecated maken (#673)
 
