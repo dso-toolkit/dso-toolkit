@@ -276,6 +276,23 @@
       position: relative;
       top: -2px;
     }
+
+    &.dso-icon-prepend {
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 1.5em;
+        margin-right: $u1;
+        position: relative;
+        top: -2px;
+        vertical-align: top;
+        width: 1.5em;
+      }
+    }
   }
 
   &.extern {
@@ -298,6 +315,26 @@
         @include di("external-link-scampi");
       }
     }
+
+    &.dso-icon-prepend::before {
+      @include di("external-link");
+
+      &.disabled,
+      &[disabled] {
+        &::before {
+          @include di("external-link-grasgroen-40");
+        }
+      }
+
+      &.hover,
+      &:hover,
+      &.active,
+      &:active {
+        &::before {
+          @include di("external-link-scampi");
+        }
+      }
+    }
   }
 
   &.download {
@@ -318,6 +355,29 @@
     &:active {
       &::after {
         @include di("download-scampi");
+      }
+    }
+
+    &.dso-icon-prepend {
+      &::before {
+        @include di("download");
+        display: inline-block;
+
+        &.disabled,
+        &[disabled] {
+          &::before {
+            @include di("download-grasgroen-40");
+          }
+        }
+
+        &.hover,
+        &:hover,
+        &.active,
+        &:active {
+          &::before {
+            @include di("download-scampi");
+          }
+        }
       }
     }
   }
