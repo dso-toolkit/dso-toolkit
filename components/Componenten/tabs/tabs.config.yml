@@ -1,22 +1,20 @@
 notes: |
-  Toont navigatie-tabs. Gebaseerd op de Bootstrap nav-tabs component.
+  De rollen `tablist`, `tab` en `tabpanel` tonen de elementen `<ul>`, `<a>` en `<div>` als een verzameling tabbladen en bijbehorende tabbladen in de toegankelijkheidsboom.
 
-  Aandachtspunten:
+  De rol `presentation` voorkomt dat de `<li>`-elementen in kaart worden gebracht in de toegankelijkheidsboom.
 
-  **Links**:
+  Het `aria-selected` kenmerk geeft aan welk tabblad momenteel is geselecteerd.
 
-  * een link heeft een `aria-expanded` attribute: `true` voor een geselecteerde tab, `false` voor een niet-geselecteerde tab;
-  * een link heeft een `aria-controls` attribute met het id van de div met de inhoud van de tab;
+  Het `tabindex`-attribuut zorgt ervoor dat alleen het momenteel geselecteerde tabblad in de tabvolgorde wordt opgenomen.
 
-  Speciale aandacht voor de `.disabled` modifier op een `li`:
+  Het `hidden` attribuut verbergt alles behalve het momenteel weergegeven tabpaneel voor weergave.
 
-  Scriptend moet ervoor gezorgd worden dat de a daarin niet meer reageert;
-  Let op de tabindex (`-1`) bij een disabled tabblad;
+  Het kenmerk `aria-controls` legt een relatie tussen elk tabblad en het bijbehorende tabblad.
+
+  Het kenmerk `aria-labelledby` hergebruikt de naam van het tabblad als de toegankelijke naam van het bijbehorende tabblad.
+
+  De `click`- en `keydown`- event listeners leggen de verwachte muis- en toetsenbordgebeurtenissen vast voor het activeren van de tabbladen. Scriptend moet ervoor gezorgd worden dat de a daarin niet meer reageert.
   Zie ook https://getbootstrap.com/docs/3.3/components/#nav-disabled-links.
-
-  **Divs met de inhoud van de respectievelijke tabs**:
-  * een div met de inhoud van de respectievelijke tab heeft een `aria-labelldeby` attribute met het `id` van de link in de respectievelijke tab;
-  * een div met de inhoud van een niet geselecteerde tab heeft een attribute `hidden`.
 
 status: ready
 collated: true

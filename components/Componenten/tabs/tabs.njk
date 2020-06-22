@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs" role="tablist">
   {%- for tab in tabs %}
-    <li {{ className(tab.modifiers) }}>
+    <li {{ className(tab.modifiers) }} role="presentation">
       <a href="{{ tab.url }}" 
         role="tab" 
         aria-selected="{{ true if tab.modifiers=='active' else false }}" 
