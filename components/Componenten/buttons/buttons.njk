@@ -365,7 +365,7 @@
     <label>Uitzondering: single page (<code>.dso-single-page</code>)</label>
     <form class="dso-single-page">
       <div class="dso-form-buttons">
-        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie', icon: 'chevron-left'} %}
+        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
         {% render '@button', {type: 'button', modifier: 'link btn-align', label: 'Link button'} %}
       </div>
     </form>
@@ -373,20 +373,20 @@
     <label>Uitzondering: single page (<code>.dso-single-page</code>), met secundaire button</label>
     <form class="dso-single-page">
       <div class="dso-form-buttons">
-        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie', icon: 'chevron-left'} %}
+        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
         {% render '@button', {type: 'button', modifier: 'default', label: 'Standaard button'} %}
       </div>
     </form>
     <br>
-    <label>Buiten formulier context</label>
-    <div class="dso-form-buttons">
-      {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie', icon: 'chevron-left'} %}
-      {% render '@button', {type: 'button', modifier: 'default', label: 'Standaard button'} %}
+    <label>Buiten formulier contextt, met single page (<code>.dso-single-page</code>)</label>
+    <div class="dso-form-buttons dso-single-page">
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
+      {% render '@button', {type: 'button', modifier: 'link btn-align', label: 'Link button'} %}
     </div>
     <br>
-    <label>Buiten formulier context, met single page (<code>.dso-single-page</code>)</label>
+    <label>Buiten formulier context, met single page (<code>.dso-single-page</code>), met secundaire button</label>
     <div class="dso-form-buttons dso-single-page">
-      {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie', icon: 'chevron-left'} %}
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
       {% render '@button', {type: 'button', modifier: 'default', label: 'Standaard button'} %}
     </div>
   </div>
