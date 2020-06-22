@@ -1,16 +1,23 @@
 notes: |
-  Toont navigatie-tabs. Gebaseerd op de Bootstrap `nav-tabs` component.
+  Toont navigatie-tabs. Gebaseerd op de Bootstrap nav-tabs component.
 
-  Aandachtspunten: 
-    * een link heeft een `aria-expanded` attribute: `true` voor een geselecteerde tab, `false` voor een niet-geselecteerde tab;
-    * een link heeft een `aria-controls` attribute met het `id` van de `div` met de inhoud van de tab;
-    * een `div` met de inhoud van een niet geselecteerde tab heeft een attribute `hidden`.
+  Aandachtspunten:
+
+  **Links**:
+
+  * een link heeft een `aria-expanded` attribute: `true` voor een geselecteerde tab, `false` voor een niet-geselecteerde tab;
+  * een link heeft een `aria-controls` attribute met het id van de div met de inhoud van de tab;
 
   Speciale aandacht voor de `.disabled` modifier op een `li`:
-    * Scriptend moet ervoor gezorgd worden dat de `a` niet meer reageert;
-    * Let op de tabindex (`-1`) bij een disabled tabblad;
 
+  Scriptend moet ervoor gezorgd worden dat de a daarin niet meer reageert;
+  Let op de tabindex (`-1`) bij een disabled tabblad;
   Zie ook https://getbootstrap.com/docs/3.3/components/#nav-disabled-links.
+
+  **Divs met de inhoud van de respectievelijke tabs**:
+  * een div met de inhoud van de respectievelijke tab heeft een `aria-labelldeby` attribute met het `id` van de link in de respectievelijke tab;
+  * een div met de inhoud van een niet geselecteerde tab heeft een attribute `hidden`.
+
 status: ready
 collated: true
 context:
