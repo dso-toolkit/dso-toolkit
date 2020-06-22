@@ -11,7 +11,7 @@ notes: |
   * Buttons worden gesorteerd op belangrijkheid van rechts naar links, met de primaire actie aan de rechterkant. Wanneer knoppen gebruikt worden om door een reeks schermen te navigeren, wordt de primaire knop rechts uitgelijnd en de 'terug' actie helemaal links om de navigatie visueel te ondersteunen.
   * Uitgezonderd zijn formulieren met één pagina en gerichte taken, buttons links uitlijnen en sorteren op belangrijkheid van links naar rechts.
 
-  De uitzonderingen worden met de modifier `.dso-single-page` op een `form` of `.form` ingezet.
+  De uitzonderingen worden met de modifier `.dso-single-page` ingezet (op het bovenliggende `form` of `.form`, of op `.dso-form-buttons` zelf).
 
   #### Extra:
   * https://getbootstrap.com/docs/3.3/css/#forms
@@ -178,7 +178,6 @@ variants:
 - name: multi-page
   context:
     __title: multipage form
-    formModifier: dso-multi-page
     formLegend: Formulier met meerdere pagina's
     fieldsets:
     - legend: Contact
@@ -190,7 +189,7 @@ variants:
         required: true
     buttons:
     - type: button
-      modifier: link
+      modifier: default
       label: Vorige stap
       icon: angle-left
     - type: button
@@ -203,7 +202,6 @@ variants:
 - name: sections
   context:
     __title: form with sections
-    formModifier: dso-sections
     formLegend: Formulier met meerdere secties
     fieldsets:
     - legend: Contact

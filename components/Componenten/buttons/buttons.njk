@@ -332,45 +332,62 @@
 <br>
 <div class="row">
   <div class="col-md-12">
-    <div class="dso-rich-content">
-      <label>Margins tussen knoppen: 16px</label>
+    <div class="dso-rich-content" style="margin-bottom: 24px; margin-top: 40px;">
+      <h2>Button combinaties</h2>
+      <p>Wanneer buttons bij elkaar gegroepeerd moeten worden aangeboden, moet een <code>.dso-form-buttons</code> worden toegepast. Doorgaans zullen deze groeperingen in context van een formulier staan, maar dit is niet noodzakelijk.</p>
     </div>
   </div>
   <div class="col-md-12">
-    <br>
-    <form class="dso-sections">
+    <label>Paginering door stappen</label>
+    <form>
       <div class="dso-form-buttons">
         {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
         {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
       </div>
     </form>
     <br>
-    <form class="dso-sections">
+    <label>Met extra tertiaire button</label>
+    <form>
       <div class="dso-form-buttons">
         {% render '@button', {type: 'button', modifier: 'link btn-align', label: 'Link button'} %}
         {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
       </div>
     </form>
     <br>
-    <form class="dso-sections">
+    <label>Met secundaire button</label>
+    <form>
       <div class="dso-form-buttons">
         {% render '@button', {type: 'button', modifier: 'default', label: 'Standaard button'} %}
         {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
       </div>
     </form>
     <br>
+    <label>Uitzondering: single page (<code>.dso-single-page</code>)</label>
     <form class="dso-single-page">
       <div class="dso-form-buttons">
-        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie', icon: 'chevron-left'} %}
+        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
         {% render '@button', {type: 'button', modifier: 'link btn-align', label: 'Link button'} %}
       </div>
     </form>
     <br>
+    <label>Uitzondering: single page (<code>.dso-single-page</code>), met secundaire button</label>
     <form class="dso-single-page">
       <div class="dso-form-buttons">
-        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie', icon: 'chevron-left'} %}
+        {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
         {% render '@button', {type: 'button', modifier: 'default', label: 'Standaard button'} %}
       </div>
     </form>
+    <br>
+    <label>Buiten formulier context, met single page (<code>.dso-single-page</code>)</label>
+    <div class="dso-form-buttons dso-single-page">
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
+      {% render '@button', {type: 'button', modifier: 'link btn-align', label: 'Link button'} %}
+    </div>
+    <br>
+    <label>Buiten formulier context, met single page (<code>.dso-single-page</code>), met secundaire button</label>
+    <div class="dso-form-buttons dso-single-page">
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Primaire actie'} %}
+      {% render '@button', {type: 'button', modifier: 'default', label: 'Standaard button'} %}
+    </div>
   </div>
 </div>
