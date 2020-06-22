@@ -6,7 +6,7 @@
         {% if group.label %}
           <h2 class="dso-group-label">{{ group.label }}</h2>
         {% endif %}
-        <ul aria-labelledby="{{ id }}" {{ className([loop.index0 != 0, 'dso-separator']) }}>
+        <ul aria-labelledby="{{ id }}" {{ className([loop.index0 != 0]) }}>
           {% for item in group.items %}
             <li {{ className([item.checked, 'dso-checked']) }}>
               <a href="#">{{ item.label }}</a>

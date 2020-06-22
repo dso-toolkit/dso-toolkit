@@ -33,11 +33,11 @@ $dso-dropdown-hor-padding: 20px;
       margin: 0;
       padding: 0;
 
-      &.dso-separator {
-        border-top: 1px solid $grijs-10;
-        margin-top: 11px;
+      &:not(:last-child) {
+        border-bottom: 1px solid $grijs-10;
+        margin-bottom: 11px;
         overflow: hidden;
-        padding-top: 11px;
+        padding-bottom: 11px;
       }
     }
 
@@ -67,12 +67,12 @@ $dso-dropdown-hor-padding: 20px;
     }
 
     &.dso-checkable {
-      li {
-        a,
-        .dso-group-label {
-          padding-left: $u5;
-        }
+      a,
+      .dso-group-label {
+        padding-left: $u5;
+      }
 
+      li {
         &.dso-checked {
           a {
             &:not(:focus) {

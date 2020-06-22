@@ -19,57 +19,86 @@ module.exports = {
         open: true,
         groups: [
           {
-            label: 'Acties',
+            label: 'Versies',
             items: [
               {
-                label: 'Actie'
+                label: '10.6.0'
               },
               {
-                label: 'Andere actie'
+                label: '10.5.0'
               },
               {
-                label: 'Nog iets anders hier'
+                label: '10.4.0'
               }
             ]
           },
           {
             items: [
               {
-                label: 'Gescheiden link'
+                label: 'master'
               }
             ]
-          }
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropndown-button-toegankelijk-maken'
+              }
+            ]
+          },
         ]
       }
     },
     {
-      name: 'dropdown-open-check',
+      name: 'dropdown-open',
       context: {
-        id: 'actie_open_checkable',
+        id: 'actie_open',
         open: true,
         modifiers: 'dso-checkable',
         groups: [
           {
+            label: 'Versies',
             items: [
               {
-                label: 'Actie',
+                label: '10.6.0',
                 checked: true
               },
               {
-                label: 'Andere actie'
+                label: '10.5.0'
               },
               {
-                label: 'Nog iets anders hier'
+                label: '10.4.0'
               }
             ]
           },
           {
             items: [
               {
-                label: 'Gescheiden link'
+                label: 'master'
               }
             ]
-          }
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropndown-button-toegankelijk-maken'
+              }
+            ]
+          },
         ]
       }
     }
