@@ -49,7 +49,7 @@ module.exports = {
                 label: '#611-Pager-component-uitbreiden'
               },
               {
-                label: '#663-Dropndown-button-toegankelijk-maken'
+                label: '#663-Dropdown-button-toegankelijk-maken'
               }
             ]
           },
@@ -57,9 +57,9 @@ module.exports = {
       }
     },
     {
-      name: 'dropdown-open',
+      name: 'dropdown-open-check',
       context: {
-        id: 'actie_open',
+        id: 'actie_open_checkable',
         open: true,
         modifiers: 'dso-checkable',
         groups: [
@@ -95,7 +95,7 @@ module.exports = {
                 label: '#611-Pager-component-uitbreiden'
               },
               {
-                label: '#663-Dropndown-button-toegankelijk-maken'
+                label: '#663-Dropdown-button-toegankelijk-maken'
               }
             ]
           },
