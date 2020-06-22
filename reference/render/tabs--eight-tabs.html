@@ -1,26 +1,50 @@
-<ul class="nav nav-tabs">
-  <li class="active">
-    <a href="#">Tab 1</a>
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active" role="presentation">
+    <a href="#" role="tab" aria-selected="true" id="Tab1" aria-controls="Tab1-tab">Tab 1</a>
   </li>
-  <li>
-    <a href="#">Tab 2</a>
+  <li role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab2" aria-controls="Tab2-tab">Tab 2</a>
   </li>
-  <li>
-    <a href="#">Tab 3</a>
+  <li role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab3" aria-controls="Tab3-tab">Tab 3</a>
   </li>
-  <li>
-    <a href="#">Tab 4</a>
+  <li role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab4" aria-controls="Tab4-tab">Tab 4</a>
   </li>
-  <li>
-    <a href="#">Tab 5</a>
+  <li role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab5" aria-controls="Tab5-tab">Tab 5</a>
   </li>
-  <li>
-    <a href="#">Tab 6</a>
+  <li role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab6" aria-controls="Tab6-tab">Tab 6</a>
   </li>
-  <li>
-    <a href="#">Tab 7</a>
+  <li role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab7" aria-controls="Tab7-tab">Tab 7</a>
   </li>
-  <li class="disabled">
-    <a href="#">Tab 8</a>
+  <li class="disabled" role="presentation">
+    <a href="#" role="tab" aria-selected="false" id="Tab8" aria-controls="Tab8-tab">Tab 8</a>
   </li>
 </ul>
+<div tabindex="0" role="tabpanel" id="Tab1-tab" aria-labelledby="Tab1">
+  Inhoud Tab 1
+</div>
+<div tabindex="0" role="tabpanel" id="Tab2-tab" aria-labelledby="Tab2" hidden>
+  Inhoud Tab 2
+</div>
+<div tabindex="0" role="tabpanel" id="Tab3-tab" aria-labelledby="Tab3" hidden>
+  Inhoud Tab 3
+</div>
+<div tabindex="0" role="tabpanel" id="Tab4-tab" aria-labelledby="Tab4" hidden>
+  Inhoud Tab 4
+</div>
+<div tabindex="0" role="tabpanel" id="Tab5-tab" aria-labelledby="Tab5" hidden>
+  Inhoud Tab 5
+</div>
+<div tabindex="0" role="tabpanel" id="Tab6-tab" aria-labelledby="Tab6" hidden>
+  Inhoud Tab 6
+</div>
+<div tabindex="0" role="tabpanel" id="Tab7-tab" aria-labelledby="Tab7" hidden>
+  Inhoud Tab 7
+</div>
+<div tabindex="0" role="tabpanel" id="Tab8-tab" aria-labelledby="Tab8" hidden>
+  Inhoud Tab 8
+</div>
