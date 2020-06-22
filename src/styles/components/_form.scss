@@ -49,72 +49,37 @@ form {
       }
     }
   }
+}
 
-  &:not(.dso-single-page):not(.dso-sections) {
-    .dso-form-buttons {
-      @include clearfix;
+form.dso-single-page .dso-form-buttons,
+.form.dso-single-page .dso-form-buttons,
+.dso-single-page .dso-form-buttons {
+  .btn + .btn {
+    float: left;
+  }
+}
 
-      text-align: right;
+.dso-form-buttons {
+  @include clearfix;
 
-      .btn:not(:only-child):first-child {
-        float: left;
-      }
+  text-align: right;
+
+  .btn:not(.btn-link):not(:only-child):first-child {
+    display: block;
+    float: left;
+  }
+
+  .btn-link {
+    line-height: $dso-button-line-height;
+    padding: $dso-button-link-padding-horizontal 0;
+
+    &.btn-align {
+      line-height: calc(1.5em - 1px);
     }
   }
 
-  &.dso-sections {
-    .dso-form-buttons {
-      text-align: right;
-    }
-  }
-
-  .dso-form-buttons {
-    .btn-link {
-      line-height: $dso-button-line-height;
-      padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
-
-      &.btn-align {
-        line-height: calc(1.5em - 1px);
-      }
-    }
-
-    .btn ~ .btn {
-      margin-left: $u1;
-    }
-  }
-
-  &:not(.dso-single-page):not(.dso-sections) {
-    .dso-form-buttons {
-      @include clearfix;
-
-      text-align: right;
-
-      .btn:not(:only-child):first-child {
-        display: block;
-        float: left;
-      }
-    }
-  }
-
-  &.dso-sections {
-    .dso-form-buttons {
-      text-align: right;
-
-      .btn:not(.btn-link):not(:only-child):first-child {
-        display: block;
-        float: left;
-      }
-    }
-  }
-
-  .dso-form-buttons {
-    .btn-link {
-      padding: $dso-button-link-padding-horizontal 0;
-    }
-
-    .btn ~ .btn {
-      margin-left: $u2;
-    }
+  .btn + .btn {
+    margin-left: $u2;
   }
 }
 
