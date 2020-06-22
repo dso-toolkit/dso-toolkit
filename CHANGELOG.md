@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
-* Flexibele buttons in wizard / gebruik van form (#670)
+* **BREAKING**: Flexibele buttons in wizard / gebruik van form (#670): De classname `dso-sections` is komen te vervallen, Form-pager component is vervallen.
 
 ### Fixed
 * Favicon: tabel mist header (#661)
