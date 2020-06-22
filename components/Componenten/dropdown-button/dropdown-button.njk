@@ -1,20 +1,19 @@
 <div {{ className('dropdown', [open, 'open']) }}>
   <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{% if open %}true{% else %}false{% endif %}">{{ label }}</button>
   {% if open %}
-    <ul {{ className('dropdown-menu', modifiers) }} aria-labelledby="{{ id }}">
+    <div {{ className('dropdown-menu', modifiers) }}>
       {% for group in groups %}
-        {% if loop.index0 != 0 %}
-          <li role="separator" class="divider"></li>
-        {% endif %}
         {% if group.label %}
-          <li><span class="dso-group-label">{{ group.label }}</span></li>
+          <h2 class="dso-group-label">{{ group.label }}</h2>
         {% endif %}
-        {% for item in group.items %}
-          <li {{ className([item.checked, 'dso-checked']) }}>
-            <a href="#">{{ item.label }}</a>
-          </li>
-        {% endfor %}
+        <ul aria-labelledby="{{ id }}">
+          {% for item in group.items %}
+            <li {{ className([item.checked, 'dso-checked']) }}>
+              <a href="#">{{ item.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       {% endfor %}
-    </ul>
+    </div>
   {% endif %}
 </div>

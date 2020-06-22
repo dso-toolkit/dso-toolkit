@@ -1,3 +1,5 @@
+$dso-dropdown-hor-padding: 20px;
+
 .dropdown {
   > .btn-default.dropdown-toggle {
     &::after {
@@ -18,21 +20,49 @@
   }
 
   .dropdown-menu {
+    .dso-group-label {
+      color: $grijs-40;
+      font-size: (14 / 16 * 1em);
+      font-weight: 400;
+      margin: 0;
+      padding: ($u1 / 2) $dso-dropdown-hor-padding ($u1 / 4);
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $grijs-10;
+        margin-bottom: 11px;
+        overflow: hidden;
+        padding-bottom: 11px;
+      }
+    }
+
     li {
+      list-style: none;
+
       a {
+        clear: both;
+        color: $grijs-90;
+        display: block;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 3px $dso-dropdown-hor-padding;
+        white-space: nowrap;
+
+        &:hover,
         &:focus {
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
+        }
+
+        &:focus {
           text-decoration: underline;
         }
-      }
-
-      .dso-group-label {
-        color: $grijs-40;
-        font-size: (14 / 16 * 1em);
-        padding: 3px 20px;
-        text-transform: uppercase;
       }
     }
 
@@ -42,7 +72,14 @@
         .dso-group-label {
           padding-left: $u5;
         }
+      }
 
+      a,
+      .dso-group-label {
+        padding-left: $u5;
+      }
+
+      li {
         &.dso-checked {
           a {
             &:not(:focus) {

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING**: Flexibele buttons in wizard / gebruik van form (#670): De classname `dso-sections` is komen te vervallen, Form-pager component is vervallen.
+* **BREAKING**: Dropdown button toegankelijk maken (#663): Markup `dropdown-menu` is gewijzigd, betekenisloze `li.divider` mag niet langer gebruikt worden.
 
 ### Fixed
 * tabs: mist aria (#668)
