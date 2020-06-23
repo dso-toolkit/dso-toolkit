@@ -4,6 +4,13 @@
   {%- if roleDescription %} aria-roledescription="{{ roleDescription }}"{% endif %}
   {%- if disabled %} disabled{% endif -%}>
   {%- if icon and not(iconOnly) %}{% render '@icon', {icon: icon} -%}{% endif -%}
-  <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
+  {%- if not(iconOnly) %}{{ label }}{% endif -%}
+  {%- if modifier and iconOnly and modifier.indexOf('extern') > -1 -%}
+    <span class="sr-only">{{ label }}&#32;opent externe link</span>
+  {%- elif modifier and modifier.indexOf('extern') > -1 -%}
+    <span class="sr-only">&#32;opent externe link</span>
+  {%- elif iconOnly -%}
+    <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
+  {%- endif -%}
   {%- if iconAfter or iconOnly %}{% render '@icon', {icon: (iconAfter or icon)} -%}{% endif -%}
 </button>

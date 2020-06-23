@@ -1,4 +1,4 @@
-notes: Externe links krijgen de class `extern` en een `target="_blank"` en `rel="noopener noreferrer"` 
+notes: Externe links krijgen de class `extern` en een `target="_blank"` en `rel="noopener noreferrer"`. In de link staat eeen `span.sr-only` met de tekst 'opent externe link'.
 status: ready
 collated: true
 context:
