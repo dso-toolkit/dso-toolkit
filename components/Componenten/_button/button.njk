@@ -4,7 +4,7 @@
   {%- if roleDescription %} aria-roledescription="{{ roleDescription }}"{% endif %}
   {%- if disabled %} disabled{% endif -%}>
   {%- if icon and not(iconOnly) %}{% render '@icon', {icon: icon} -%}{% endif -%}
-  {%- if not(iconOnly) %}{{ label }}{% endif -%}
+  {%- if not(iconOnly) %}<span>{{ label }}</span>{% endif %}
   {%- if modifier and iconOnly and modifier.indexOf('extern') > -1 -%}
     <span class="sr-only">{{ label }}&#32;opent externe link</span>
   {%- elif modifier and modifier.indexOf('extern') > -1 -%}
