@@ -4,9 +4,6 @@ context:
   steps:
     title: 2. Locatie
     step: Stap 1/7
-  alert: 
-    modifier: info
-    message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   filter:
     placeholder: Zoek een adres
     icon: true
