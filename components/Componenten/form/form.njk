@@ -4,6 +4,9 @@
     {% for fieldset in fieldsets %}
       <fieldset>
         <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
+        {% if fieldset.filter %}
+          {% render '@search-bar', fieldset.filter %}
+        {% endif %}
         {% for group in fieldset.groups %}
           {% render '@group-' + group.inputType, group %}
         {% endfor %}

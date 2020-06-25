@@ -1,0 +1,42 @@
+notes: |
+status: ready
+context:
+  steps:
+    title: 3. Kies activiteiten
+    step: Stap 3/7
+  alert: 
+    modifier: info
+    message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
+  form:
+    formModifier: form-horizontal dso-sections
+    formLegend: Projectinfomatie
+    fieldsets:
+    - legend: Mijn activiteiten
+      infoText: U heeft nog geen activiteiten gekozen
+      filter:
+        placeholder: Bijvoorbeeld bouwactiviteiten
+        icon: true
+        label: Zoek uw activiteiten
+        hideSearchButton: true
+      groups:
+      - id: activiteiten
+        inputType: checkboxes
+        label: Activiteiten
+        options:
+          - value: 1
+            label: Bouwactiviteit - Melding
+          - value: 2
+            label: Milieuactiviteit - Melding
+          - value: 3
+            label: Milieuactiviteit - Aanvraag vergunning
+          - value: 4
+            label: Gebruik en het in stand houden van bouwwerken ketentest - Melding
+    buttons:
+    - type: default
+      modifier: default
+      label: Vorige stap
+      icon: chevron-left
+    - type: submit
+      modifier: primary
+      label: Volgende stap
+      iconAfter: chevron-right

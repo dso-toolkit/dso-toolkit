@@ -1,0 +1,41 @@
+notes: |
+status: ready
+context:
+  steps:
+    title: 2. Locatie
+    step: Stap 1/7
+  alert: 
+    modifier: info
+    message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
+  filter:
+    placeholder: Zoek een adres
+    icon: true
+    label: Adres
+  # form:
+  #   formModifier: form-horizontal dso-sections
+  #   formLegend: Projectinfomatie
+  #   fieldsets:
+  #   - legend: Project
+  #     groups:
+  #     - id: naam project
+  #       inputType: input
+  #       type: text
+  #       label: Wat is de naam van uw project?
+  #     - id: beschrijving project
+  #       inputType: textarea
+  #       type: text
+  #       label: Korte omschrijving van uw project
+  #     - id: kosten project
+  #       inputType: textarea
+  #       type: text
+  #       label: Wat zijn de kosten van uw project?
+  buttons:
+  - type: default
+    modifier: default
+    label: Vorige stap
+    icon: chevron-left
+  - type: submit
+    modifier: primary
+    label: Volgende stap
+    iconAfter: chevron-right
+  

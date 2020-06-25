@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Form buttons in of buiten formulieren, voor wizard werkvorm (#682)
+
 ## 10.7.0 - 23-06-2020
 
 ### Changed
