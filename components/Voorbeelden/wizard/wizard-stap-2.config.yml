@@ -8,24 +8,6 @@ context:
     placeholder: Zoek een adres
     icon: true
     label: Adres
-  # form:
-  #   formModifier: form-horizontal dso-sections
-  #   formLegend: Projectinfomatie
-  #   fieldsets:
-  #   - legend: Project
-  #     groups:
-  #     - id: naam project
-  #       inputType: input
-  #       type: text
-  #       label: Wat is de naam van uw project?
-  #     - id: beschrijving project
-  #       inputType: textarea
-  #       type: text
-  #       label: Korte omschrijving van uw project
-  #     - id: kosten project
-  #       inputType: textarea
-  #       type: text
-  #       label: Wat zijn de kosten van uw project?
   buttons:
   - type: default
     modifier: default
