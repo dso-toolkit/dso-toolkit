@@ -10,13 +10,30 @@
 <main>
   <div class="row">
     <div class="col-md-12">
-      {% render '@form-steps', {title: steps.title, step: steps.step} %}
-      {% render '@search-bar', filter %}
-      <div class="dso-map-example">
+      <div class="row">
+        <div class="col-md-12">
+          {% render '@form-steps', {title: steps.title, step: steps.step} %}
+        </div>
       </div>
-      <div class="dso-form-buttons">
-        {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
-        {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
-      </div>  
+      <div class="row">
+        <div class="col-md-12">
+          {% render '@search-bar', filter %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="dso-map-example">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="dso-form-buttons">
+            {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+            {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
+          </div>  
+        </div>
+      </div>
+    </div>
   </div>
 </main>

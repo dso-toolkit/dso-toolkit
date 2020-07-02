@@ -17,7 +17,7 @@ context:
     modifier: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   form:
-    formModifier: form-horizontal dso-sections
+    formModifier: form-horizontal
     formLegend: Projectinfomatie
     fieldsets:
     - legend: Project

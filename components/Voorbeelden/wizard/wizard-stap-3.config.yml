@@ -7,18 +7,24 @@ context:
   alert: 
     modifier: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
+  shopping-cart:
+    items:
+      - label: Milieubelastende activiteit - Melding
+      - label: Milieubelastende activiteit - Melding
+        additive: 2
   form:
-    formModifier: form-horizontal dso-sections
+    formModifier: form-vertical
     formLegend: Projectinfomatie
     fieldsets:
-    - legend: Mijn activiteiten
-      infoText: U heeft nog geen activiteiten gekozen
-      filter:
-        placeholder: Bijvoorbeeld bouwactiviteiten
-        icon: true
-        label: Zoek uw activiteiten
-        hideSearchButton: true
+    - legend: Overzicht activiteiten
       groups:
+      - id: filter
+        inputType: filter
+        filter:
+          placeholder: Bijvoorbeeld bouwactiviteiten
+          icon: true
+          label: Zoek uw activiteiten
+          hideSearchButton: true
       - id: activiteiten
         inputType: checkboxes
         label: Activiteiten

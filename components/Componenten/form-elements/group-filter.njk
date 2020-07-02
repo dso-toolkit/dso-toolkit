@@ -1,0 +1,29 @@
+<div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
+  {% if label %}
+    <div class="dso-label-container">
+      <label for="{{ id }}" class="control-label">
+        {{ label }}
+      </label>
+      {% if infoText %}
+        {% render '@info-button', {infoOpen: infoOpen} %}
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="dso-field-container">
+    {% render '@search-bar', filter %}
+    {% if inputIcon %}
+      <span class="form-control-feedback" aria-hidden="true">
+        {%- render '@icon', {icon: inputIcon} -%}
+      </span>
+    {% endif %}
+    {% if errorText %}
+      {% render '@error-block', {errorText: errorText} %}
+    {% endif %}
+    {% if helpText %}
+      {% render '@help-block', {helpText: helpText, id: id} %}
+    {% endif %}
+  </div>
+  {% if infoOpen %}
+    {% render '@info', {infoText: infoText} %}
+  {% endif %}
+</div>
