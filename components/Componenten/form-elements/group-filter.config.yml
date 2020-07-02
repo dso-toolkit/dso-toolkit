@@ -2,6 +2,11 @@ status: ready
 collated: true
 context:
   __title: default
-  id: input-text
-  type: text
-  label: Tekstveld
+  filter:
+    id: input-text
+    type: text
+    clearButton: true
+    hideSearchButton: true
+    icon: true
+    placeholder: Activiteit
+    resultsMessage: 7 activiteiten
