@@ -138,6 +138,12 @@ $dso-search-bar-height: $u5;
     padding: 0 $u2;
     text-align: center;
   }
+
+  + .dso-results {
+    color: $grijs-60;
+    font-weight: 700;
+    margin-top: $u1;
+  }
 }
 
 .dso-table-filter-wrapper .dso-search-bar {

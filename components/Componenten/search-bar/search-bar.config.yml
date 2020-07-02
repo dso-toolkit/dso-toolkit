@@ -39,3 +39,16 @@ variants:
     context:
       __title: Verborgen knop
       hideSearchButton: true
+  - name: with-results
+    context:
+      __title: Met resultaten-melding
+      hideSearchButton: true
+      value: Activiteit
+      resultsMessage: 7 activiteiten
+  - name: with-hidden-results
+    context:
+      __title: Met verborgen resultaten-melding
+      hideSearchButton: true
+      value: Activiteit
+      resultsMessage: 7 activiteiten
+      resultsHidden: true

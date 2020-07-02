@@ -36,3 +36,8 @@
     Button
   </button>
 </div>
+{% if resultsMessage -%}
+  <div {{ className('dso-results', [resultsHidden, 'sr-only']) }}>
+    {{ resultsMessage }}
+  </div>  
+{% endif %}
