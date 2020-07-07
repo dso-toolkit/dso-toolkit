@@ -16,8 +16,4 @@ $step-padding: 12px;
     font-weight: normal;
     padding-top: #{$step-padding / 2};
   }
-
-  + div {
-    clear: both;
-  }
 }
