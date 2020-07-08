@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Externe link sr-only tekst 'opent externe link' toevoegen (#679)
+
 ## 10.7.0 - 23-06-2020
 
 ### Changed
