@@ -1,6 +1,6 @@
 <div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-field-container">
-    {% render '@search-bar', filter %}
+    {% render '@search-bar', searchBar %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true">
         {%- render '@icon', {icon: inputIcon} -%}

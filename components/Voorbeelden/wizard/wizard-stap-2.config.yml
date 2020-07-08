@@ -8,13 +8,3 @@ context:
     placeholder: Zoek een adres
     icon: true
     label: Adres
-  buttons:
-  - type: default
-    modifier: default
-    label: Vorige stap
-    icon: chevron-left
-  - type: submit
-    modifier: primary
-    label: Volgende stap
-    iconAfter: chevron-right
-  

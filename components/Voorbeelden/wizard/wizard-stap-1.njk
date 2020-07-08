@@ -1,21 +1,7 @@
 <main>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="row">
-        <div class="col-md-12">
-          {% render '@form-steps', {title: steps.title, step: steps.step} %}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {% render '@alert', {modifier: alert.modifier, message: alert.message} %}
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          {% render '@form', form %}
-        </div>
-      </div>
-    </div>
-  </div>
+  {% render '@form-steps', {title: steps.title, step: steps.step} %}
+  <div class="clearfix"></div>
+  {% render '@alert', {modifier: alert.modifier, message: alert.message} %}
+  <div class="clearfix"></div>
+  {% render '@form', form %}
 </main>

@@ -4,7 +4,7 @@ context:
   steps:
     title: 3. Kies activiteiten
     step: Stap 3/7
-  alert: 
+  alert:
     modifier: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   shopping-cart:
@@ -19,7 +19,7 @@ context:
     - legend: Overzicht activiteiten
       groups:
       - id: filter
-        inputType: filter
+        inputType: search-bar
         filter:
           placeholder: Bijvoorbeeld bouwactiviteiten
           icon: true

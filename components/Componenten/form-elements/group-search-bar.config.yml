@@ -2,7 +2,7 @@ status: ready
 collated: true
 context:
   __title: default
-  filter:
+  searchBar:
     id: input-text
     type: text
     clearButton: true
