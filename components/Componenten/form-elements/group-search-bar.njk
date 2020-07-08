@@ -1,4 +1,12 @@
 <div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
+  <div class="dso-label-container">
+    <label for="{{ id }}" class="control-label">
+      {{ label }}
+    </label>
+    {% if infoText %}
+      {% render '@info-button', {infoOpen: infoOpen} %}
+    {% endif %}
+  </div>
   <div class="dso-field-container">
     {% render '@search-bar', searchBar %}
     {% if inputIcon %}

@@ -2,11 +2,52 @@ status: ready
 collated: true
 context:
   __title: default
+  label: Activiteit
   searchBar:
-    id: input-text
+    id: search-bar
     type: text
     clearButton: true
     hideSearchButton: true
     icon: true
-    placeholder: Activiteit
-    resultsMessage: 7 activiteiten
+    placeholder: Bv. boomkap
+variants:
+- name: search-bar-infobutton
+  context:
+    __title: Infobutton ingeklapt
+    __explanation:
+    - Toelichting ingeklapt
+    id: search-bar-infobutton
+    infoOpen: false
+    infoText: |
+      Closed
+- name: search-bar-infobutton-expanded
+  context:
+    __title: Infobutton uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt
+    id: search-bar-infobutton-expanded
+    infoOpen: true
+    infoText: |
+      <h4>Heading 4</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+- name: search-bar-error
+  context:
+    __title: Foutmelding
+    __explanation:
+    - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-input</code>.
+    id: search-bar-error
+    state: invalid
+    errorText: Ongeldige invoer
+- name: search-bar-help
+  context:
+    __title: Help teskt
+    __explanation:
+    - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-input</code>.
+    id: search-bar-help
+    helpText: 'Type en selecteer de activiteit'
