@@ -21,7 +21,7 @@
     <fieldset class="dso-form-fields">
       <legend class="sr-only">Projectinfomatie</legend>
       <fieldset>
-        <legend>Overzicht activiteiten</legend>
+        <legend>Filter activiteiten</legend>
         <div class="form-group dso-filter">
           <div class="dso-label-container">
             <label for="filter" class="control-label">
@@ -30,16 +30,20 @@
           <div class="dso-field-container">
             <div class="dso-search-bar">
               <div class="dso-search-bar-input">
-                <label for="search-bar--default">Label</label>
-                <span class="dso-search-icon" aria-hidden="true"></span>
-                <input type="text" id="search-bar--default" placeholder="Placeholder" />
+                <input type="text" id="filter_activiteiten" placeholder="Bijvoorbeeld bouwactiviteiten" />
+                <button type="button">
+                  Zoekopdracht legen
+                </button>
               </div>
-              <button type="button" class="btn btn-default">
+              <button type="button" class="btn btn-default sr-only">
                 Button
               </button>
             </div>
           </div>
         </div>
+      </fieldset>
+      <fieldset>
+        <legend>Overzicht activiteiten</legend>
         <fieldset class="form-group dso-checkboxes">
           <legend class="dso-label-container">
             <label class="control-label">
