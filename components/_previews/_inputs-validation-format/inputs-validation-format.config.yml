@@ -7,7 +7,7 @@ context:
       groups:
       - id: email
         inputType: input
-        type: text
+        type: email
         label: E-mailadres
         value: piet@
         state: invalid

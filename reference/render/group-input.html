@@ -21,6 +21,29 @@
 <!-- End: @group-input--default -->
 <hr />
 
+<!-- Start: @group-input--input-email -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text" aria-hidden="true">
+    <h2>Email</h2>
+    <p>Er is een <code>type="email"</code> beschikbaar die helpt bij het automatisch valideren van een veld.</p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-input-email">
+      <div class="dso-label-container">
+        <label for="input-email" class="control-label">
+          E-mailadres
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="email" id="input-email" class="form-control" value="pieter@">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-input--input-email -->
+<hr />
+
 <!-- Start: @group-input--input-text-invalid -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text" aria-hidden="true">
@@ -28,14 +51,14 @@
     <p>Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-input-text dso-invalid dso-required">
+    <div class="form-group dso-input dso-input-email dso-invalid dso-required">
       <div class="dso-label-container">
         <label for="input-text-invalid" class="control-label">
           E-mailadres
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-invalid" class="form-control" value="thomas@" required>
+        <input type="email" id="input-text-invalid" class="form-control" value="thomas@" required>
         <p class="dso-message">Ongeldig e-mailadres ingevuld</p>
         <p class="dso-help-block" id="helpTextId_input-text-invalid">Bijvoorbeeld: email@email.nl</p>
       </div>
@@ -53,14 +76,14 @@
     <p>Indien een input ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-input-text dso-valid dso-required">
+    <div class="form-group dso-input dso-input-email dso-valid dso-required">
       <div class="dso-label-container">
         <label for="input-text-valid" class="control-label">
           E-mailadres
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-valid" class="form-control" value="thomas@infoprojects.nl" required>
+        <input type="email" id="input-text-valid" class="form-control" value="thomas@infoprojects.nl" required>
         <p class="dso-help-block" id="helpTextId_input-text-valid">Bijvoorbeeld: email@email.nl</p>
       </div>
     </div>
@@ -98,14 +121,14 @@
     <h2>Met icoon</h2>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-input-text has-feedback">
+    <div class="form-group dso-input dso-input-email has-feedback">
       <div class="dso-label-container">
         <label for="input-text-icon" class="control-label">
           E-mailadres
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-icon" class="form-control">
+        <input type="email" id="input-text-icon" class="form-control">
         <span class="form-control-feedback" aria-hidden="true"><svg class="di di-at">
   <use href="../../dso-icons.svg#at" />
 </svg></span>
@@ -168,7 +191,7 @@
     <p>Toelichting ingeklapt</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-input-text">
+    <div class="form-group dso-input dso-input-email">
       <div class="dso-label-container">
         <label for="input-text-infobutton" class="control-label">
           E-mailadres
@@ -180,7 +203,7 @@
         </button>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-infobutton" class="form-control" value="thomas@">
+        <input type="email" id="input-text-infobutton" class="form-control" value="thomas@">
       </div>
     </div>
   </div>
@@ -196,7 +219,7 @@
     <p>Toelichting uitgeklapt</p>
   </div>
   <div class="dso-example">
-    <div class="form-group dso-input dso-input-text dso-required">
+    <div class="form-group dso-input dso-input-email dso-required">
       <div class="dso-label-container">
         <label for="input-text-infobutton-open" class="control-label">
           E-mailadres
@@ -208,7 +231,7 @@
         </button>
       </div>
       <div class="dso-field-container">
-        <input type="text" id="input-text-infobutton-open" class="form-control" required>
+        <input type="email" id="input-text-infobutton-open" class="form-control" required>
       </div>
       <div class="dso-info">
         <button type="button">
