@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Email input niet verwerkt in de toolkit. (#687)
+
 ## 10.8.0 - 08-07-2020
 
 ### Added
