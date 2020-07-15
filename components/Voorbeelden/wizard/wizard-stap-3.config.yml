@@ -16,10 +16,11 @@ context:
     formModifier: form-vertical
     formLegend: Projectinfomatie
     fieldsets:
-    - legend: Filter activiteiten
+    - legend: Zoek activiteiten
       groups:
       - id: filter
         inputType: search-bar
+        label: Zoekterm
         searchBar:
           placeholder: Bijvoorbeeld bouwactiviteiten
           icon: true

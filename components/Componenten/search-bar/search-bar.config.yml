@@ -44,11 +44,11 @@ variants:
       __title: Met resultaten-melding
       hideSearchButton: true
       value: Activiteit
-      resultsMessage: 7 activiteiten
+      resultsMessage: 7 gevonden resultaten
   - name: with-hidden-results
     context:
       __title: Met verborgen resultaten-melding
       hideSearchButton: true
       value: Activiteit
-      resultsMessage: 7 activiteiten
+      resultsMessage: 7 gevonden resultaten
       resultsHidden: true
