@@ -1,0 +1,11 @@
+status: ready
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Samenwerkingen
+        active: true
+      - label: Globale notificaties
+  title: Overzicht samenwerkingen
+  breadcrumbs:
+    crumbs:
