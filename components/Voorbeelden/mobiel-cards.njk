@@ -6,10 +6,12 @@
       <div class="col-md-12">
         <h1>Samenwerken aan behandelen</h1>
         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<sup id="#voetnoot14link" class="dso-footnote-reference"><a href="#voetnoot14">[14]</a></sup></p>
-        {% render '@form-steps', {title: title} -%}
       </div>
     </div>
     <div class="row">
+      <div class="col-md-8">
+        {% render '@form-steps', {title: title} -%}
+        <div class="row">
       <div class="col-md-12">
         <div class="dso-search-bar">
           <div class="dso-search-bar-input">
@@ -27,66 +29,111 @@
     <div class="row">
       <div class="col-md-12">
         <div class="dso-rich-content">
-          <ul class="dso-cards">
+          <ul class="dso-cards dso-interactions-bottom">
             <li>
                 <div class="dso-card">
-                    <a href="#">
+                    <a>
                         <div class="dso-rich-content">
                           <h2>Dakkapel Jansen</h2>
-                          <div class="row">
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Initiator:</dt>
-                                <dd>Gemeente Den Haag</dd>
-                                <dt>Verzoeknummer:</dt>
-                                <dd>27-06-2020</dd>
-                                <dt>Status:</dt>
-                                <dd>Open</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Contactpersoon:</dt>
-                                <dd>Johan Johansson</dd>
-                                <dt>Emailadres:</dt>
-                                <dd>Johan@Johansson@iceland.is</dd>
-                                <dt>Telefoonnummer:</dt>
-                                <dd>822489594</dd>
-                              </dl>
-                            </div>
-                              <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Creatiedatum:</dt>
-                                <dd>25-06-2020</dd>
-                                <dt>Laatsgewijzigd:</dt>
-                                <dd>27-06-2020</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Notificaties:</dt>
-                                <dd><span class="dso-badge badge-warning">5</span></dd>
-                                <dt>Acties:</dt>
-                                <dd><span class="dso-badge badge-warning">4</span></dd>
-                              </dl>
-                            </div>
-                          </div>
+                          <p class="caption">Aangemaakt door Gemeente Den haag op 25-06-2020</p>
+                          <hr>
+                          <dl>
+                            <dt>Laatsgewijzigd</dt>
+                            <dd>30-07-2020</dd>
+                            <dt>Notificaties</dt>
+                            <dd><span class="dso-badge badge-warning">5</span></dd>
+                            <dt>Actieverzoeken</dt>
+                            <dd><span class="dso-badge badge-warning">4</span></dd>
+                          </dl>
                         </div>
                     </a>
                     <div class="dso-card-interactions">
                       <div class="dso-card-interaction">
-                         <button type="button" title="Samenwerking wijzigen" class="btn btn-link"><span class="sr-only">Samenwerking wijzigen</span>
-                          <svg class="di di-pencil">
-                                <use href="../../dso-icons.svg#pencil" />
-                          </svg>
-                        </button>
+                         <a href="#"><svg class="di di-angle-right">
+                            <use href="../../dso-icons.svg#angle-right" />
+                            </svg>Samenwerking Openen</a>
                       </div>
+                        <div class="dso-card-interaction">
+                           <a href="#"><svg class="di di-pencil">
+                            <use href="../../dso-icons.svg#pencil" />
+                            </svg>Samenwerking wijzigen</a>
+                      </div>
+                       <div class="dso-card-interaction">
+                          <a href="#"><svg class="di di-users">
+                            <use href="../../dso-icons.svg#users" />
+                            </svg>Ketenpartners</a>
+                      </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dso-card">
+                    <a>
+                        <div class="dso-rich-content">
+                          <h2>Dakkapel Jansen</h2>
+                          <p class="caption">Aangemaakt door Gemeente Den haag op 25-06-2020</p>
+                          <hr>
+                          <dl>
+                            <dt>Laatsgewijzigd</dt>
+                            <dd>30-07-2020</dd>
+                            <dt>Notificaties</dt>
+                            <dd><span class="dso-badge badge-warning">5</span></dd>
+                            <dt>Actieverzoeken</dt>
+                            <dd><span class="dso-badge badge-warning">4</span></dd>
+                          </dl>
+                        </div>
+                    </a>
+                    <div class="dso-card-interactions">
                       <div class="dso-card-interaction">
-                        <button type="button" title="Ketenpartners samenwerking bekijken" class="btn btn-link"><span class="sr-only">Ketenpartners samenwerking bekijken</span>
-                          <svg class="di di-users">
-                                <use href="../../dso-icons.svg#users" />
-                          </svg>
-                        </button>
+                         <a href="#"><svg class="di di-angle-right">
+                            <use href="../../dso-icons.svg#angle-right" />
+                            </svg>Samenwerking Openen</a>
+                      </div>
+                        <div class="dso-card-interaction">
+                           <a href="#"><svg class="di di-pencil">
+                            <use href="../../dso-icons.svg#pencil" />
+                            </svg>Samenwerking wijzigen</a>
+                      </div>
+                       <div class="dso-card-interaction">
+                          <a href="#"><svg class="di di-users">
+                            <use href="../../dso-icons.svg#users" />
+                            </svg>Ketenpartners</a>
+                      </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dso-card">
+                    <a>
+                        <div class="dso-rich-content">
+                          <h2>Dakkapel Jansen</h2>
+                          <p class="caption">Aangemaakt door Gemeente Den haag op 25-06-2020</p>
+                          <hr>
+                          <dl>
+                            <dt>Laatsgewijzigd</dt>
+                            <dd>30-07-2020</dd>
+                            <dt>Notificaties</dt>
+                            <dd><span class="dso-badge badge-warning">5</span></dd>
+                            <dt>Actieverzoeken</dt>
+                            <dd><span class="dso-badge badge-warning">4</span></dd>
+                          </dl>
+                        </div>
+                    </a>
+                    <div class="dso-card-interactions">
+                      <div class="dso-card-interaction">
+                         <a href="#"><svg class="di di-angle-right">
+                            <use href="../../dso-icons.svg#angle-right" />
+                            </svg>Samenwerking Openen</a>
+                      </div>
+                        <div class="dso-card-interaction">
+                           <a href="#"><svg class="di di-pencil">
+                            <use href="../../dso-icons.svg#pencil" />
+                            </svg>Samenwerking wijzigen</a>
+                      </div>
+                       <div class="dso-card-interaction">
+                          <a href="#"><svg class="di di-users">
+                            <use href="../../dso-icons.svg#users" />
+                            </svg>Ketenpartners</a>
                       </div>
                     </div>
                 </div>
@@ -95,219 +142,63 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="dso-rich-content">
-          <ul class="dso-cards">
+      </div>
+      <div class="col-md-4">
+        <h2 class="dso-steps-indicator">Globale notificaties</h2>
+        <div class="row">
+          <div class="col-md-12">
+          <ul class="dso-cards dso-flat">
             <li>
-                <div class="dso-card">
-                    <a href="#">
-                        <div class="dso-rich-content">
-                          <h2>Dakkapel Jansen</h2>
-                          <div class="row">
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Initiator:</dt>
-                                <dd>Gemeente Den Haag</dd>
-                                <dt>Verzoeknummer:</dt>
-                                <dd>27-06-2020</dd>
-                                <dt>Status:</dt>
-                                <dd>Open</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Contactpersoon:</dt>
-                                <dd>Johan Johansson</dd>
-                                <dt>Emailadres:</dt>
-                                <dd>Johan@Johansson@iceland.is</dd>
-                                <dt>Telefoonnummer:</dt>
-                                <dd>822489594</dd>
-                              </dl>
-                            </div>
-                              <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Creatiedatum:</dt>
-                                <dd>25-06-2020</dd>
-                                <dt>Laatsgewijzigd:</dt>
-                                <dd>27-06-2020</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Notificaties:</dt>
-                                <dd><span class="dso-badge badge-warning">5</span></dd>
-                                <dt>Acties:</dt>
-                                <dd><span class="dso-badge badge-warning">4</span></dd>
-                              </dl>
-                            </div>
-                          </div>
-                        </div>
-                    </a>
-                    <div class="dso-card-interactions">
-                      <div class="dso-card-interaction">
-                         <button type="button" title="Samenwerking wijzigen" class="btn btn-link"><span class="sr-only">Samenwerking wijzigen</span>
-                          <svg class="di di-pencil">
-                                <use href="../../dso-icons.svg#pencil" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="dso-card-interaction">
-                        <button type="button" title="Ketenpartners samenwerking bekijken" class="btn btn-link"><span class="sr-only">Ketenpartners samenwerking bekijken</span>
-                          <svg class="di di-users">
-                                <use href="../../dso-icons.svg#users" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
+              <div class="dso-card">
+                <div class="dso-rich-content"><h5>26-10-2019 10:30 - Samenwerking gesloten</h5>
+                <p>De samenwerking “Verbouwing Hoogmade straat 7” is gesloten door Provincie Zuid Holland</p>
+                <br>
                 </div>
+                <div class="dso-card-interactions">
+                  <div class="dso-card-interaction">
+                    <button type="button" title="Link button" class="btn btn-link"><span class="sr-only">sluiten</span><svg class="di di-times">
+                        <use href="/dso-icons.svg#times" />
+                    </svg></button>
+                  </div>
+                </div>
+              </div>
             </li>
-        </ul>
+              <li>
+              <div class="dso-card">
+                <div class="dso-rich-content"><h5>26-10-2019 10:30 - Samenwerking gesloten</h5>
+                <p>De samenwerking “Verbouwing Hoogmade straat 7” is gesloten door Provincie Zuid Holland</p>
+                <br>
+                </div>
+                 <div class="dso-card-interactions">
+                  <div class="dso-card-interaction">
+                    <button type="button" title="Link button" class="btn btn-link"><span class="sr-only">sluiten</span><svg class="di di-times">
+                        <use href="/dso-icons.svg#times" />
+                    </svg></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+              <li>
+              <div class="dso-card">
+                <div class="dso-rich-content"><h5>26-10-2019 10:30 - Samenwerking gesloten</h5>
+                <p>De samenwerking “Verbouwing Hoogmade straat 7” is gesloten door Provincie Zuid Holland</p>
+                <br>
+                </div>
+                 <div class="dso-card-interactions">
+                  <div class="dso-card-interaction">
+                    <button type="button" title="Link button" class="btn btn-link"><span class="sr-only">sluiten</span><svg class="di di-times">
+                        <use href="/dso-icons.svg#times" />
+                    </svg></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="dso-rich-content">
-          <ul class="dso-cards">
-            <li>
-                <div class="dso-card">
-                    <a href="#">
-                        <div class="dso-rich-content">
-                          <h2>Dakkapel Jansen</h2>
-                          <div class="row">
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Initiator:</dt>
-                                <dd>Gemeente Den Haag</dd>
-                                <dt>Verzoeknummer:</dt>
-                                <dd>27-06-2020</dd>
-                                <dt>Status:</dt>
-                                <dd>Open</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Contactpersoon:</dt>
-                                <dd>Johan Johansson</dd>
-                                <dt>Emailadres:</dt>
-                                <dd>Johan@Johansson@iceland.is</dd>
-                                <dt>Telefoonnummer:</dt>
-                                <dd>822489594</dd>
-                              </dl>
-                            </div>
-                              <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Creatiedatum:</dt>
-                                <dd>25-06-2020</dd>
-                                <dt>Laatsgewijzigd:</dt>
-                                <dd>27-06-2020</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Notificaties:</dt>
-                                <dd><span class="dso-badge badge-warning">5</span></dd>
-                                <dt>Acties:</dt>
-                                <dd><span class="dso-badge badge-warning">4</span></dd>
-                              </dl>
-                            </div>
-                          </div>
-                        </div>
-                    </a>
-                    <div class="dso-card-interactions">
-                      <div class="dso-card-interaction">
-                         <button type="button" title="Samenwerking wijzigen" class="btn btn-link"><span class="sr-only">Samenwerking wijzigen</span>
-                          <svg class="di di-pencil">
-                                <use href="../../dso-icons.svg#pencil" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="dso-card-interaction">
-                        <button type="button" title="Ketenpartners samenwerking bekijken" class="btn btn-link"><span class="sr-only">Ketenpartners samenwerking bekijken</span>
-                          <svg class="di di-users">
-                                <use href="../../dso-icons.svg#users" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="dso-rich-content">
-          <ul class="dso-cards">
-            <li>
-                <div class="dso-card">
-                    <a href="#">
-                        <div class="dso-rich-content">
-                          <h2>Dakkapel Jansen</h2>
-                          <div class="row">
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Initiator:</dt>
-                                <dd>Gemeente Den Haag</dd>
-                                <dt>Verzoeknummer:</dt>
-                                <dd>27-06-2020</dd>
-                                <dt>Status:</dt>
-                                <dd>Open</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Contactpersoon:</dt>
-                                <dd>Johan Johansson</dd>
-                                <dt>Emailadres:</dt>
-                                <dd>Johan@Johansson@iceland.is</dd>
-                                <dt>Telefoonnummer:</dt>
-                                <dd>822489594</dd>
-                              </dl>
-                            </div>
-                              <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Creatiedatum:</dt>
-                                <dd>25-06-2020</dd>
-                                <dt>Laatsgewijzigd:</dt>
-                                <dd>27-06-2020</dd>
-                              </dl>
-                            </div>
-                            <div class="col-md-3">
-                              <dl class="dso-vertical">
-                                <dt>Notificaties:</dt>
-                                <dd><span class="dso-badge badge-warning">5</span></dd>
-                                <dt>Acties:</dt>
-                                <dd><span class="dso-badge badge-warning">4</span></dd>
-                              </dl>
-                            </div>
-                          </div>
-                        </div>
-                    </a>
-                    <div class="dso-card-interactions">
-                      <div class="dso-card-interaction">
-                         <button type="button" title="Samenwerking wijzigen" class="btn btn-link"><span class="sr-only">Samenwerking wijzigen</span>
-                          <svg class="di di-pencil">
-                                <use href="../../dso-icons.svg#pencil" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div class="dso-card-interaction">
-                        <button type="button" title="Ketenpartners samenwerking bekijken" class="btn btn-link"><span class="sr-only">Ketenpartners samenwerking bekijken</span>
-                          <svg class="di di-users">
-                                <use href="../../dso-icons.svg#users" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        </div>
-      </div>
-    </div>
+    
     <br>
     <div class="row">
       <div class="col-md-12">
