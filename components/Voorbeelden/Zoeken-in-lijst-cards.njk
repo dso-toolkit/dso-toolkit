@@ -17,19 +17,23 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-        <div class="dso-search-bar">
-          <div class="dso-search-bar-input">
-            <label for="search-bar--hidden-button">Zoeken in Lijst</label>
-            <span class="dso-search-icon" aria-hidden="true"></span>
-            <input type="text" id="search-bar--hidden-button" placeholder="Zoek op naam, datum, initiator of status" />
+            <div class="dso-search-bar">
+              <div class="dso-search-bar-input">
+                <label for="search-bar--hidden-button">Zoeken in Lijst</label>
+                <span class="dso-search-icon" aria-hidden="true"></span>
+                <input type="text" id="search-bar--hidden-button" placeholder="Zoek op naam, datum, initiator of status" />
+              </div>
+              <button type="button" class="btn btn-default sr-only">
+              Zoeken
+              </button>
+            </div>
           </div>
-          <button type="button" class="btn btn-default sr-only">
-          Zoeken
-          </button>
         </div>
-      </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h5>Actieve filters: <span class="dso-badge badge-success">Omgevingswet document</span><span class="dso-badge badge-warning">Geldige oude wetgeving</span></h5>
+          </div>
         </div>
-        <br>
         <div class="row">
           <div class="col-md-12">
             <ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
@@ -43,23 +47,41 @@
         </div>
       </div>
       <div class="col-md-4">
-        <h2 class="dso-steps-indicator">Legenda</h2>
+        <h2 class="dso-steps-indicator">Filters</h2>
         <div class="row">
           <div class="col-md-12">
-            <ul class="list-group">
-              <li class="list-group-item"><svg class="di di-status-success">
-                  <use href="../../dso-icons.svg#status-success" />
-                  </svg> <span class="dso-badge badge-success">Omgevingswet document</span>
-              </li>
-              <li class="list-group-item"><svg class="di di-status-success">
-                  <use href="../../dso-icons.svg#status-warning" />
-                  </svg> <span class="dso-badge badge-warning">Geldige oude wetgeving</span>
-              </li>
-              <li class="list-group-item"><svg class="di di-status-success">
-                  <use href="../../dso-icons.svg#status-danger" />
-                  </svg> <span class="dso-badge badge-danger">Niet geldige out wetgeving</span>
-              </li>
-            </ul>
+            <form>
+              <fieldset>
+                <legend hidden></legend>
+                  <fieldset class="form-group dso-checkboxes">
+                      <legend class="dso-label-container">
+                          <label class="control-label">
+                              Selecteer uw gewenste filter
+                          </label>
+                      </legend>
+                      <div class="dso-field-container">
+                          <div class="dso-selectable">
+                              <input type="checkbox" id="aanhanger-0" name="aanhanger" value="bak" checked>
+                              <label for="aanhanger-0">
+                                  <span class="dso-badge badge-success">Omgevingswet document</span>
+                              </label>
+                          </div>
+                          <div class="dso-selectable">
+                              <input type="checkbox" id="aanhanger-1" name="aanhanger" value="caravan" checked>
+                              <label for="aanhanger-1">
+                                  <span class="dso-badge badge-warning">Geldige oude wetgeving</span>
+                              </label>
+                          </div>
+                          <div class="dso-selectable">
+                              <input type="checkbox" id="aanhanger-2" name="aanhanger" value="fietsendrager">
+                              <label for="aanhanger-2">
+                                  <span class="dso-badge badge-danger">Niet geldige oude wetgeving</span>
+                              </label>
+                          </div>
+                      </div>
+                  </fieldset>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>

@@ -22,8 +22,8 @@ context:
         - button:
             type: button
             modifier: link
-            icon: status-success
-            label: Huidige wetgeving
+            icon: info
+            label: Extra informatie
             iconOnly: true
     - label: 'Omgevingsplan Gemeente Den Haag'
       content: 'Brouwersmolen eget iaculis nisi quam in libero.'
@@ -37,8 +37,8 @@ context:
         - button:
             type: button
             modifier: link
-            icon: status-warning
-            label: Oude geldige wetgeving
+            icon: info
+            label: Extra informatie
             iconOnly: true
     - label: 'Flora en Fauna beslissing 2019'
       content: 'Brouwersmolen eget iaculis nisi quam in libero.'
@@ -52,8 +52,8 @@ context:
         - button:
             type: button
             modifier: link
-            icon: status-danger
-            label: Wetgeving niet geldig
+            icon: info
+            label: Extra informatie
             iconOnly: true
     - label: 'Bestemmingsplan Zuiderpark'
       content: 'Zuiderpark eget iaculis nisi quam in libero.'
@@ -67,6 +67,6 @@ context:
         - button:
             type: button
             modifier: link
-            icon: status-danger
-            label: Wetgeving niet geldig
+            icon: info
+            label: Extra informatie
             iconOnly: true
