@@ -26,6 +26,26 @@
       max-width: 100%;
     }
   }
+
+  .btn-link:not([disabled]) {
+    color: $zwart;
+
+    &:hover,
+    &:focus {
+      &,
+      svg.di {
+        color: $grijs-60;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  a,
+  a:visited {
+    &:not(.btn) {
+      color: $text-color;
+    }
+  }
 }
 
 .dso-info-button {
