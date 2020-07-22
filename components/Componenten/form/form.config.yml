@@ -106,6 +106,19 @@ context:
           selected: true
         - value: volkswagen
           label: Volkswagen
+  - legend: Filter op modeltype
+    groups:
+    - id: filter_merk
+      inputType: search-bar
+      label: modeltype
+      searchBar:
+        placeholder: Bv. GTI
+        icon: true
+        id: filter_merk
+        label: modeltype
+        noLabel: true
+        hideSearchButton: true
+        clearButton: true
   - legend: Aanhanger
     groups:
     - id: aanhanger

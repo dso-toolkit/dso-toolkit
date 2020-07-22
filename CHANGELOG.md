@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+Search Bar gebruiken om te filteren in een lijst (#681)
+
+### Fixed
+* Form buttons in of buiten formulieren, voor wizard werkvorm (#682)
+
 ## 10.8.0 - 08-07-2020
 
 ### Added
