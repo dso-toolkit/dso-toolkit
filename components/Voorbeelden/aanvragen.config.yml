@@ -30,7 +30,6 @@ context:
       id: panel3
       open: true
       form:
-        formLegend: Aanvraagformulier
         fieldsets:
           - legend: Plaats van het bouwwerk
             groups:

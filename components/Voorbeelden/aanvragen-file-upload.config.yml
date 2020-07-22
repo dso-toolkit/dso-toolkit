@@ -14,7 +14,6 @@ context:
         open: true
         form:
           formModifier: form-horizontal
-          formLegend: Vertical Form
           fieldsets:
           - legend: Bijlagen
             groups:

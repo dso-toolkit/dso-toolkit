@@ -1,6 +1,5 @@
 context:
   formWithHelpText:
-    formLegend: Voorbeeld
     fieldsets:
     - legend: Contact
       legendScreenreaderOnly: true
@@ -11,7 +10,6 @@ context:
         label: Naam
         helpText: Instructie tekst buiten een tekstveld.
   formWithEmptyRequiredField:
-    formLegend: Voorbeeld
     fieldsets:
     - legend: Contact
       legendScreenreaderOnly: true

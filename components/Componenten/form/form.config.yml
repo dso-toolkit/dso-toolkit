@@ -20,7 +20,6 @@ status: ready
 default: form-vertical
 context:
   __title: form vertical
-  formLegend: Vertical Form
   fieldsets:
   - legend: Contact
     groups:
@@ -187,11 +186,9 @@ variants:
   context:
     __title: form horizontal
     formModifier: form-horizontal
-    formLegend: Form Horizontal
 - name: multi-page
   context:
     __title: multipage form
-    formLegend: Formulier met meerdere pagina's
     fieldsets:
     - legend: Contact
       groups:
@@ -215,7 +212,6 @@ variants:
 - name: sections
   context:
     __title: form with sections
-    formLegend: Formulier met meerdere secties
     fieldsets:
     - legend: Contact
       groups:
@@ -235,7 +231,6 @@ variants:
   context:
     __title: single page form
     formModifier: dso-single-page
-    formLegend: Een simpel formulier
     fieldsets:
     - legend: Invoervelden
       groups:

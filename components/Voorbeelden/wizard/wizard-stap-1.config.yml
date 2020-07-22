@@ -18,7 +18,6 @@ context:
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   form:
     formModifier: form-horizontal
-    formLegend: Projectinfomatie
     fieldsets:
     - legend: Project
       groups:
