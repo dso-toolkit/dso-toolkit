@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 10.9.0 - 22-07-2020
+
 ### Added
 * Voorbeeld pagina met componenten, Badge, Footnote, Cards, Searchbar (#690)
 
