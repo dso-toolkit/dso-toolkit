@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Voorbeeld pagina met componenten, Badge, Footnote, Cards, Searchbar (#690)
+
 ### Fixed
 * Tertiaire button en links te weinig contrast in Info component (#686)
 
