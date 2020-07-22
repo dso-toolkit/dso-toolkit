@@ -14,3 +14,37 @@
   position: absolute;
   width: 1px;
 }
+
+@mixin dso-table-responsive {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid $table-border-color;
+  margin-bottom: 0;
+  overflow-y: hidden;
+  width: 100%;
+
+  &::before {
+    content: "beweeg de tabel van links naar rechts";
+    text-align: center;
+    position: relative;
+    font-size: .8em;
+    display: block;
+    margin-bottom: $u1;
+  }
+
+  // Tighten up spacing
+  > .table {
+    margin-bottom: 0;
+
+    // Ensure the content doesn't wrap
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

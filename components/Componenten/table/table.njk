@@ -67,56 +67,21 @@
       <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
       <thead>
         <tr>
-          <th scope="col">Nummer</th>
-          <th scope="col">Voornaam</th>
-          <th scope="col">Achternaam</th>
-          <th scope="col" {{ className(columnAlign) }}>
-            GitHub gebruikersnaam 
-            {% if columnAlign === 'dso-text-left' %} (kolom links uitgelijnd)
-            {% elif columnAlign === 'dso-text-center' %} (kolom gecentreerd)
-            {% elif columnAlign === 'dso-text-right' %} (kolom rechts uitgelijnd)
-            {% endif %}
+          {% for columnHeader in columnHeaders %}
+            <th scope="col" role="columnheader">
+              {{ columnHeader.title}}
             </th>
-          <th scope="col">Modifier</th>
+          {% endfor %}
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td><a href="#fabien">Fabien</a></td>
-          <td>Potencier</td>
-          <td {{ className(columnAlign) }}>fabpot</td>
-          <td>
-            <code>tr</code>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><a href="#andrew">Andrew</a></td>
-          <td>Nesbitt</td>
-          <td {{ className(columnAlign) }}>andrew</td>
-          <td>
-            <code>tr</code>
-          </td>
-        </tr>
-        <tr {{ className([activeRow, 'active']) }}>
-          <th scope="row">3</th>
-          <td><a href="#taylor">Taylor</a></td>
-          <td>Otwell</td>
-          <td {{ className(columnAlign) }}>taylorotwell</td>
-          <td>
-            <code>tr{% if activeRow %}.active{% endif %}</code>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td><a href="#hugo">Hugo</a></td>
-          <td>Giraudel</td>
-          <td {{ className(columnAlign) }}>HugoGiraudel</td>
-          <td>
-            <code>tr</code>
-          </td>
-        </tr>
+        {% for content in rowContent %}
+          <tr {{ className(content.rowNotification) }}>
+            <th scope="row">{{ content.col1 }}</th>
+            <td><a href="#">{{ content.col2 }}</a></td>
+            <td>{{ content.col3 }}</td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>

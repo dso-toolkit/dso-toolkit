@@ -241,6 +241,24 @@ variants:
       __title: Viewport responsive
       modifier: table
       responsiveModifier: dso-table-responsive
+      caption: Data overzicht
+      columnHeaders:
+        - title: Nummer
+        - title: Link
+        - title: Beschrijving
+      rowContent:
+        - col1: 1
+          col2: Omgevingsbesluit  
+          col3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo ligula, tempor in tincidunt ac, viverra quis nisi. Integer imperdiet pretium ex sed eleifend. Vestibulum quam turpis, mattis scelerisque ligula ut, aliquam bibendum ex. Aliquam et erat a magna venenatis tempor. Sed euismod pulvinar gravida. Sed eu felis vitae quam lobortis mollis. Etiam congue tristique sapien sed pretium. Vestibulum volutpat eu tortor id dignissim. Fusce eget nisl libero. Duis quis turpis vitae lorem vestibulum luctus sed sed lorem. Phasellus aliquet suscipit ultrices. Suspendisse ullamcorper, eros quis luctus porta, velit sapien egestas nunc, et venenatis sem sapien quis elit. Proin euismod ligula nisi, quis sagittis neque consectetur eget. Sed magna odio, dictum eget efficitur vitae, tempus vel risus. Pellentesque quis ligula id elit pharetra tempus. Cras sit amet lorem non augue lobortis efficitur.
+        - col1: 2
+          col2: Omgevingswet
+          col3: Pellentesque consequat nibh vel rutrum accumsan. Etiam eu laoreet leo, non eleifend enim. Curabitur non nisi in nisl gravida pellentesque. Donec lacinia turpis a ante sodales, eget feugiat sem fringilla. Aenean ligula mi, elementum sed tellus et, eleifend faucibus velit. Morbi vitae sem quis felis tempor consectetur sit amet nec diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam dolor sem, pretium eget eleifend nec, lacinia ut lacus. Nullam sapien felis, porttitor tincidunt elementum at, pellentesque sit amet orci. Donec ac imperdiet magna, sit amet tempor leo. Nam tincidunt massa erat, eget ultrices risus elementum at.
+        - col1: 3
+          col2: VNGBegrippenkaderGemeenten
+          col3: Ut luctus purus ac lectus ultrices, id mattis quam pharetra. Nullam at imperdiet tortor. Vestibulum eu cursus nisl, ut porta quam. Ut egestas a ante sit amet varius. Quisque sit amet tempor lorem. In dictum velit dui, vitae cursus erat vulputate sagittis. Vivamus sed dui placerat, scelerisque justo gravida, fermentum turpis. Nulla facilisi. Nunc tristique tellus sed elit viverra condimentum at nec turpis. Praesent imperdiet varius dictum. Maecenas ac rutrum odio.
+        - col1: 4
+          col2: BesluitActiviteitenLeefomgeving
+          col3: Quisque sed felis enim. Duis et ultricies ex, eu interdum turpis. Duis id aliquam arcu. Ut auctor risus sit amet elit fringilla malesuada. Quisque quis commodo est. Maecenas ac ante id ligula dictum elementum. Vestibulum a justo ipsum. Mauris ut turpis suscipit, pharetra ante ac, lobortis ligula. Vestibulum eget sapien sit amet mauris cursus hendrerit. Etiam fermentum elit eget posuere feugiat. Pellentesque convallis tristique odio, eget laoreet erat dictum a. Cras ac tortor maximus, iaculis libero iaculis, pellentesque sem. Nam pretium, lorem quis scelerisque varius, tortor tellus tincidunt arcu, in lacinia leo nunc at nisl. Integer posuere neque quis luctus blandit.
   - name: viewport-out-of-bounds
     notes: |
       <p>Binnen smalle container wordt de tabel responsive</p>
@@ -248,3 +266,21 @@ variants:
       __title: Tabel breder dan zijn container
       modifier: table
       responsiveModifier: dso-table-out-of-bounds
+      caption: Data overzicht
+      columnHeaders:
+        - title: Nummer
+        - title: Link
+        - title: Beschrijving
+      rowContent:
+        - col1: 1
+          col2: Omgevingsbesluit  
+          col3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo ligula, tempor in tincidunt ac, viverra quis nisi. Integer imperdiet pretium ex sed eleifend. Vestibulum quam turpis, mattis scelerisque ligula ut, aliquam bibendum ex. Aliquam et erat a magna venenatis tempor. Sed euismod pulvinar gravida. Sed eu felis vitae quam lobortis mollis. Etiam congue tristique sapien sed pretium. Vestibulum volutpat eu tortor id dignissim. Fusce eget nisl libero. Duis quis turpis vitae lorem vestibulum luctus sed sed lorem. Phasellus aliquet suscipit ultrices. Suspendisse ullamcorper, eros quis luctus porta, velit sapien egestas nunc, et venenatis sem sapien quis elit. Proin euismod ligula nisi, quis sagittis neque consectetur eget. Sed magna odio, dictum eget efficitur vitae, tempus vel risus. Pellentesque quis ligula id elit pharetra tempus. Cras sit amet lorem non augue lobortis efficitur.
+        - col1: 2
+          col2: Omgevingswet
+          col3: Pellentesque consequat nibh vel rutrum accumsan. Etiam eu laoreet leo, non eleifend enim. Curabitur non nisi in nisl gravida pellentesque. Donec lacinia turpis a ante sodales, eget feugiat sem fringilla. Aenean ligula mi, elementum sed tellus et, eleifend faucibus velit. Morbi vitae sem quis felis tempor consectetur sit amet nec diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam dolor sem, pretium eget eleifend nec, lacinia ut lacus. Nullam sapien felis, porttitor tincidunt elementum at, pellentesque sit amet orci. Donec ac imperdiet magna, sit amet tempor leo. Nam tincidunt massa erat, eget ultrices risus elementum at.
+        - col1: 3
+          col2: VNGBegrippenkaderGemeenten
+          col3: Ut luctus purus ac lectus ultrices, id mattis quam pharetra. Nullam at imperdiet tortor. Vestibulum eu cursus nisl, ut porta quam. Ut egestas a ante sit amet varius. Quisque sit amet tempor lorem. In dictum velit dui, vitae cursus erat vulputate sagittis. Vivamus sed dui placerat, scelerisque justo gravida, fermentum turpis. Nulla facilisi. Nunc tristique tellus sed elit viverra condimentum at nec turpis. Praesent imperdiet varius dictum. Maecenas ac rutrum odio.
+        - col1: 4
+          col2: BesluitActiviteitenLeefomgeving
+          col3: Quisque sed felis enim. Duis et ultricies ex, eu interdum turpis. Duis id aliquam arcu. Ut auctor risus sit amet elit fringilla malesuada. Quisque quis commodo est. Maecenas ac ante id ligula dictum elementum. Vestibulum a justo ipsum. Mauris ut turpis suscipit, pharetra ante ac, lobortis ligula. Vestibulum eget sapien sit amet mauris cursus hendrerit. Etiam fermentum elit eget posuere feugiat. Pellentesque convallis tristique odio, eget laoreet erat dictum a. Cras ac tortor maximus, iaculis libero iaculis, pellentesque sem. Nam pretium, lorem quis scelerisque varius, tortor tellus tincidunt arcu, in lacinia leo nunc at nisl. Integer posuere neque quis luctus blandit.
