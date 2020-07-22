@@ -6,6 +6,15 @@ context:
   type: text
   label: Tekstveld
 variants:
+- name: input-email
+  context:
+    __title: Email
+    __explanation:
+    - Er is een <code>type="email"</code> beschikbaar die helpt bij het automatisch valideren van een veld.
+    id: input-email
+    type: email
+    label: E-mailadres
+    value: pieter@
 - name: input-text-invalid
   context:
     __title: Ongeldig
@@ -13,6 +22,7 @@ variants:
     - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-input</code>.
     id: input-text-invalid
+    type: email
     label: E-mailadres
     value: thomas@
     required: true
@@ -26,6 +36,7 @@ variants:
     - Indien een input ongeldig was en valide wordt gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-text-valid
+    type: email
     label: E-mailadres
     value: thomas@infoprojects.nl
     required: true
@@ -42,6 +53,7 @@ variants:
   context:
     __title: Met icoon
     id: input-text-icon
+    type: email
     label: E-mailadres
     inputIcon: at
 - name: input-text-disabled
@@ -62,6 +74,7 @@ variants:
     __explanation:
     - Toelichting ingeklapt
     id: input-text-infobutton
+    type: email
     label: E-mailadres
     value: thomas@
     infoOpen: false
@@ -73,6 +86,7 @@ variants:
     __explanation:
     - Toelichting uitgeklapt
     id: input-text-infobutton-open
+    type: email
     label: E-mailadres
     required: true
     infoOpen: true
