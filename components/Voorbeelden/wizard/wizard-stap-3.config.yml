@@ -29,11 +29,9 @@ context:
           noLabel: true
           hideSearchButton: true
           clearButton: true
-    - legend: Overzicht activiteiten
-      groups:
       - id: activiteiten
         inputType: checkboxes
-        label: Activiteiten
+        label: 4 gevonden activiteiten
         options:
           - value: 1
             label: Bouwactiviteit - Melding
