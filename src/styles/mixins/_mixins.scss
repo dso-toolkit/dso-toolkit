@@ -16,7 +16,7 @@
 }
 
 @mixin dso-table-responsive {
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line no-vendor-prefixes
   border: 1px solid $table-border-color;
   margin-bottom: 0;
   overflow-y: hidden;
@@ -24,11 +24,11 @@
 
   &::before {
     content: "beweeg de tabel van links naar rechts";
-    text-align: center;
-    position: relative;
-    font-size: .8em;
     display: block;
+    font-size: .8em;
     margin-bottom: $u1;
+    position: relative;
+    text-align: center;
   }
 
   // Tighten up spacing

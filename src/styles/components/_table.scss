@@ -77,8 +77,8 @@ table {
 .dso-table-responsive,
 .dso-table-out-of-bounds {
   min-height: .01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
-  position: relative;
   overflow-x: auto;
+  position: relative;
 }
 
 .dso-table-out-of-bounds {
