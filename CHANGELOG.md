@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Standaard Tabel Responsive maken (#491)
+
 ### Fixed
 * Tertiaire button en links te weinig contrast in Info component (#686)
 

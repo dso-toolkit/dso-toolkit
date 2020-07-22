@@ -5,10 +5,19 @@ notes: |
 
   - Er zijn geen `.table-bordered`, `.table-condensed` en `.table-striped` varianten.
   - Er is geen `tr.primary` en `tr.secondary`.
-  - Er is geen `.table-responsive` functionaliteit.
+  - De `.table-responsive` functionaliteit is omgenoemd naar `.dso-table-responsive` Zie ook hieronder.
   - Er zijn geen `success`, `info`, `warning` en `danger` row-modifiers.
 
   Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
+
+  ## Table responsive
+  Met de class `.dso-table-responsive` wordt de tabel responsive wanneer de breedte van de tabel te groot is:
+  - De breedte van tabel is gekoppeld aan de breedte van het scherm: hij wordt responsive in de smalle viewport;
+  - De breedte van tabel is gekoppeld aan de bovenliggende container.
+
+  Het zetten van de classes is de verantwoordelijkheid van de implementator.
+
+  Boven de tabel verschijnt de melding `beweeg de tabel van links naar rechts`.
 
   Gebruik tabellen om inhoud logisch te structureren, zodat het gemakkelijker wordt om relaties te zien en te begrijpen. Gebruik een tabel nooit om inhoud op een pagina op te maken. Gebruik in plaats daarvan het gridsysteem.
   
@@ -225,3 +234,17 @@ variants:
         - rowHeader: 1
           bron: Omgevingsbesluit  
           uitleg: Omgevingsbesluit
+  - name: viewport-responsive
+    notes: |
+      <p>In de smalle viewport wordt de tabel responsive</p>
+    context:
+      __title: Viewport responsive
+      modifier: table
+      responsiveModifier: dso-table-responsive
+  - name: viewport-out-of-bounds
+    notes: |
+      <p>Binnen smalle container wordt de tabel responsive</p>
+    context:
+      __title: Tabel breder dan zijn container
+      modifier: table
+      responsiveModifier: dso-table-out-of-bounds
