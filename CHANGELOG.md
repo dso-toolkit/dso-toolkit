@@ -5,7 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Changed
+### Added
+* Voorbeeld pagina met componenten, Badge, Footnote, Cards, Searchbar (#690)
+
+### Fixed
+* Tertiaire button en links te weinig contrast in Info component (#686)
 * Email input niet verwerkt in de toolkit. (#687)
 
 ## 10.8.0 - 08-07-2020
