@@ -1,4 +1,12 @@
 status: ready
 collated: true
 context:
-  status: Een moment geduld a.u.b.
+  status: Een moment geduld alstublieft.
+  id: small
+variants:
+- name: spinner-medium
+  context:
+    id: medium
+- name: spinner-large
+  context:
+    id: large
