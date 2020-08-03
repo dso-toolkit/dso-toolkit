@@ -25,15 +25,13 @@
     min-height: $u4;
 
     .dso-navbar-toggle {
-      background-color: $grasgroen-10;
-      border: 1px solid $grijs-10;
       border-radius: 4px;
-      margin: 0 0 $u1;
-      padding: $padding-base-vertical $padding-base-horizontal;
+      min-width: auto;
+      padding: #{$padding-base-vertical - 1} 0;
 
-      &:hover,
-      &:focus {
-        background-color: $grasgroen-10;
+      svg,di {
+        margin-left: $u1;
+        margin-right: $u1;
       }
 
       @media screen and (min-width: $screen-md-min) {

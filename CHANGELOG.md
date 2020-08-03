@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Menu knop bij kleine header is niet in lijn met huidige stijl (#503)
+
 ## 10.9.0 - 22-07-2020
 
 ### Added
