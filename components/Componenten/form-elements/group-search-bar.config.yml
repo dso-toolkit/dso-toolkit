@@ -8,6 +8,7 @@ context:
     type: text
     clearButton: true
     hideSearchButton: true
+    searchButtonLabel: Zoek
     icon: true
     placeholder: Bv. boomkap
 variants:

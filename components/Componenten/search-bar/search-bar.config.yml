@@ -7,6 +7,7 @@ context:
   placeholder: Placeholder
   icon: true
   label: Label
+  searchButtonLabel: Zoek
 variants:
   - name: label-no-icon
     context:

@@ -118,6 +118,7 @@ context:
         label: modeltype
         noLabel: true
         hideSearchButton: true
+        searchButtonLabel: Zoek
         clearButton: true
   - legend: Aanhanger
     groups:

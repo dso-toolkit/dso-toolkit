@@ -28,6 +28,7 @@ context:
           label: Zoek uw activiteiten
           noLabel: true
           hideSearchButton: true
+          searchButtonLabel: Zoek
           clearButton: true
       - id: activiteiten
         inputType: checkboxes

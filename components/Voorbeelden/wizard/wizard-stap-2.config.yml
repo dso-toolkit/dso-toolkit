@@ -8,3 +8,4 @@ context:
     placeholder: Zoek een adres
     icon: true
     label: Adres
+    searchButtonLabel: Zoek

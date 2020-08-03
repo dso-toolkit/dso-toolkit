@@ -136,6 +136,7 @@ variants:
         hiddenLabel: true
         placeholder: Tabel doorzoeken
         hideSearchButton: true
+        searchButtonLabel: Zoek
       columnHeaders:
         - title: Nummer
         - title: Bron
@@ -163,6 +164,7 @@ variants:
         hiddenLabel: true
         value: abcdef
         hideSearchButton: true
+        searchButtonLabel: Zoek
       columnHeaders:
         - title: Nummer
         - title: Bron
