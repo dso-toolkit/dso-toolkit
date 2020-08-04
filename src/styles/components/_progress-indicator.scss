@@ -1,4 +1,4 @@
-@mixin dso-progress-indicator($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-timescale) {
+@mixin dso-progress-indicator($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-time, $dso-progress-indicator-duration) {
   .dso-progress-indicator-#{$dso-progress-indicator-name} {
     line-height: $dso-progress-indicator-size;
 
@@ -26,7 +26,7 @@
       }
 
       &::before {
-        animation: rotation 2s $dso-progress-indicator-timescale ease 1.5s;
+        animation: rotation $dso-progress-indicator-time ease $dso-progress-indicator-duration 1.5s;
         background: $wit;
         border-radius: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} 0 0 #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
         height: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
@@ -37,7 +37,7 @@
       }
 
       &::after {
-        animation: rotation 2s $dso-progress-indicator-timescale ease;
+        animation: rotation $dso-progress-indicator-time ease $dso-progress-indicator-duration;
         background: $wit;
         border-radius: 0 #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} 0;
         height: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
@@ -50,9 +50,12 @@
   }
 }
 
-@include dso-progress-indicator(small, 24px, 2px, infinite);
-@include dso-progress-indicator(medium, 32px, 3px, infinite);
-@include dso-progress-indicator(large, 48px, 4px, infinite);
+@include dso-progress-indicator(small, 24px, 2px, 2s, infinite);
+@include dso-progress-indicator(medium, 32px, 3px, 2s, infinite);
+@include dso-progress-indicator(large, 48px, 4px, 2s, infinite);
+@include dso-progress-indicator(small-15s, 24px, 2px, 15s, 1);
+@include dso-progress-indicator(medium-15s, 32px, 3px, 15s, 1);
+@include dso-progress-indicator(large-15s, 48px, 4px, 15s, 1);
 
 span.dso-progress-indicator-label {
   vertical-align: middle;

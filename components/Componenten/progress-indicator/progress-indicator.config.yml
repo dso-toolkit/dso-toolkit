@@ -1,12 +1,31 @@
 status: ready
 collated: true
 context:
+  __title: Spinner 24px groot, onbepaalde tijd
   status: Een moment geduld alstublieft.
   id: small
 variants:
-- name: spinner-medium
+- name: spinner-medium-infinite
   context:
+    __title: Spinner 32px groot, onbepaalde tijd
     id: medium
-- name: spinner-large
+- name: spinner-large-infinite
   context:
+    __title: Spinner 48px groot, onbepaalde tijd
     id: large
+- name: spinner-small-15s
+  context:
+    __title: Spinner 24px groot, 15 seconden
+    status: Een moment geduld alstublieft.
+    id: small-15s
+    time: 15s
+- name: spinner-medium-15s
+  context:
+    __title: Spinner 32px groot, 15 seconden
+    id: medium-15s
+    time: 15s
+- name: spinner-large-15s
+  context:
+    __title: Spinner 48px groot, 15 seconden
+    id: large-15s
+    time: 15s
