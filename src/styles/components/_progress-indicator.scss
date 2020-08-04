@@ -78,14 +78,14 @@ $dso-progress-indicator-border-color: $bosgroen;
         transform-origin: #{$dso-progress-indicator-size / 2} #{$dso-progress-indicator-size / 2};
         width: #{$dso-progress-indicator-size / 2};
       }
-  
+
       &::before {
         animation: rota $dso-progress-indicator-time linear;
         border-radius: #{$dso-progress-indicator-size / 2} 0 0 #{$dso-progress-indicator-size / 2};
         border-right: 0;
         z-index: 200;
       }
-  
+
       &::after {
         animation: opa2 $dso-progress-indicator-time steps(1, end) reverse;
         border-left: 0;
@@ -119,7 +119,7 @@ $dso-progress-indicator-border-color: $bosgroen;
   }
 
   @keyframes opa {
-    0.01% {
+    .01% {
       opacity: 1;
     }
 
@@ -130,7 +130,7 @@ $dso-progress-indicator-border-color: $bosgroen;
   }
 
   @keyframes opa2 {
-    0.01%,
+    .01%,
     100% {
       opacity: 1;
     }
