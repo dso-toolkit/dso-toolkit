@@ -13,19 +13,19 @@ variants:
   context:
     __title: Spinner 48px groot, onbepaalde tijd
     id: large
-- name: spinner-small-15s
+- name: spinner-small-5s
   context:
-    __title: Spinner 24px groot, 15 seconden
+    __title: Spinner 24px groot, 5 seconden
     status: Een moment geduld alstublieft.
-    id: small-15s
-    time: 15s
-- name: spinner-medium-15s
+    id: small-5s
+    time: 5s
+- name: spinner-medium-5s
   context:
-    __title: Spinner 32px groot, 15 seconden
-    id: medium-15s
-    time: 15s
-- name: spinner-large-15s
+    __title: Spinner 32px groot, 5 seconden
+    id: medium-5s
+    time: 5s
+- name: spinner-large-5s
   context:
-    __title: Spinner 48px groot, 15 seconden
-    id: large-15s
-    time: 15s
+    __title: Spinner 48px groot, 5 seconden
+    id: large-5s
+    time: 5s

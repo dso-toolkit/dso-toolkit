@@ -1,10 +1,12 @@
+$dso-progress-indicator-border-color: $bosgroen;
+
 @mixin dso-progress-indicator($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-time, $dso-progress-indicator-duration) {
   .dso-progress-indicator-#{$dso-progress-indicator-name} {
     line-height: $dso-progress-indicator-size;
 
     .dso-progress-indicator-spinner {
       box-shadow: inset 0 0 0 $dso-progress-indicator-border-width;
-      color: $grasgroen;
+      color: $dso-progress-indicator-border-color;
       display: inline-block;
       height: $dso-progress-indicator-size;
       margin: 0 $u2 0 0;
@@ -53,9 +55,95 @@
 @include dso-progress-indicator(small, 24px, 2px, 2s, infinite);
 @include dso-progress-indicator(medium, 32px, 3px, 2s, infinite);
 @include dso-progress-indicator(large, 48px, 4px, 2s, infinite);
-@include dso-progress-indicator(small-15s, 24px, 2px, 15s, 1);
-@include dso-progress-indicator(medium-15s, 32px, 3px, 15s, 1);
-@include dso-progress-indicator(large-15s, 48px, 4px, 15s, 1);
+
+@mixin dso-progress-indicator-timed($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-time) {
+  .dso-progress-indicator-#{$dso-progress-indicator-name} {
+    line-height: $dso-progress-indicator-size;
+
+    .dso-progress-indicator-spinner {
+      display: inline-block;
+      height: $dso-progress-indicator-size;
+      margin: 0 $u2 0 0;
+      position: relative;
+      vertical-align: middle;
+      width: $dso-progress-indicator-size;
+
+      &::after,
+      &::before {
+        background: $wit;
+        border: $dso-progress-indicator-border-width solid $dso-progress-indicator-border-color;
+        content: "";
+        height: #{$dso-progress-indicator-size};
+        position: absolute;
+        transform-origin: #{$dso-progress-indicator-size / 2} #{$dso-progress-indicator-size / 2};
+        width: #{$dso-progress-indicator-size / 2};
+      }
+  
+      &::before {
+        animation: rota $dso-progress-indicator-time linear;
+        border-radius: #{$dso-progress-indicator-size / 2} 0 0 #{$dso-progress-indicator-size / 2};
+        border-right: 0;
+        z-index: 200;
+      }
+  
+      &::after {
+        animation: opa2 $dso-progress-indicator-time steps(1, end) reverse;
+        border-left: 0;
+        border-radius: 0 #{$dso-progress-indicator-size / 2} #{$dso-progress-indicator-size / 2} 0;
+        left: #{$dso-progress-indicator-size / 2};
+        opacity: 1;
+        z-index: 100;
+      }
+    }
+
+    span.dso-progress-indicator-spinner-mask {
+      animation: opa $dso-progress-indicator-time steps(1, end);
+      background: $wit;
+      display: block;
+      height: #{$dso-progress-indicator-size};
+      opacity: 0;
+      position: absolute;
+      width: #{$dso-progress-indicator-size / 2};
+      z-index: 300;
+    }
+  }
+
+  @keyframes rota {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes opa {
+    0.01% {
+      opacity: 1;
+    }
+
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes opa2 {
+    0.01%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@include dso-progress-indicator-timed(small-5s, 24px, 2px, 5s);
+@include dso-progress-indicator-timed(medium-5s, 32px, 3px, 5s);
+@include dso-progress-indicator-timed(large-5s, 48px, 4px, 5s);
 
 span.dso-progress-indicator-label {
   vertical-align: middle;
