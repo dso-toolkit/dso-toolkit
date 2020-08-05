@@ -1,4 +1,4 @@
-$dso-progress-indicator-border-color: $bosgroen;
+$dso-progress-indicator-border-color: $grasgroen;
 
 @mixin dso-progress-indicator($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-time, $dso-progress-indicator-duration) {
   .dso-progress-indicator-#{$dso-progress-indicator-name} {
