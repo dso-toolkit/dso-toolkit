@@ -1,35 +1,28 @@
 $dso-progress-indicator-border-color: $grasgroen;
+$dso-progress-indicator-looping-time: 2s;
+$dso-progress-indicator-looping-duration: infinite;
 
-@mixin dso-progress-indicator($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-time, $dso-progress-indicator-duration) {
-  .dso-progress-indicator-#{$dso-progress-indicator-name} {
+$dso-progress-indicator-timed-durations: 1, 2, 5, 10, 30, 60 !default;
+
+.dso-progress-indicator {
+  .dso-progress-indicator-spinner {
+    display: inline-block;
+    margin: 0 $u2 0 0;
+    position: relative;
+    vertical-align: middle;
+  }
+}
+
+@mixin dso-progress-indicator-looping-dims($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width) {
+  &.dso-#{$dso-progress-indicator-name} {
     line-height: $dso-progress-indicator-size;
 
     .dso-progress-indicator-spinner {
       box-shadow: inset 0 0 0 $dso-progress-indicator-border-width;
-      color: $dso-progress-indicator-border-color;
-      display: inline-block;
       height: $dso-progress-indicator-size;
-      margin: 0 $u2 0 0;
-      position: relative;
-      transform: translateZ(0);
-      vertical-align: middle;
       width: $dso-progress-indicator-size;
 
-      &,
-      &::before,
-      &::after {
-        border-radius: 50%;
-      }
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-      }
-
       &::before {
-        animation: rotation $dso-progress-indicator-time ease $dso-progress-indicator-duration 1.5s;
-        background: $wit;
         border-radius: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} 0 0 #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
         height: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
         left: -#{$dso-progress-indicator-border-width / 2};
@@ -39,8 +32,6 @@ $dso-progress-indicator-border-color: $grasgroen;
       }
 
       &::after {
-        animation: rotation $dso-progress-indicator-time ease $dso-progress-indicator-duration;
-        background: $wit;
         border-radius: 0 #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} 0;
         height: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
         left:  #{$dso-progress-indicator-size / 2 - $dso-progress-indicator-border-width / 2};
@@ -52,59 +43,95 @@ $dso-progress-indicator-border-color: $grasgroen;
   }
 }
 
-@include dso-progress-indicator(small, 24px, 2px, 2s, infinite);
-@include dso-progress-indicator(medium, 32px, 3px, 2s, infinite);
-@include dso-progress-indicator(large, 48px, 4px, 2s, infinite);
+.dso-progress-indicator-looping {
+  .dso-progress-indicator-spinner {
+    color: $dso-progress-indicator-border-color;
+    transform: translateZ(0);
 
-@mixin dso-progress-indicator-timed($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width, $dso-progress-indicator-time) {
-  .dso-progress-indicator-#{$dso-progress-indicator-name} {
+    &,
+    &::before,
+    &::after {
+      border-radius: 50%;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      animation: rotation $dso-progress-indicator-looping-time ease $dso-progress-indicator-looping-duration 1.5s;
+      background: $wit;
+    }
+
+    &::after {
+      animation: rotation $dso-progress-indicator-looping-time ease $dso-progress-indicator-looping-duration;
+      background: $wit;
+    }
+  }
+
+  &.dso-small,
+  &:not(.dso-medium):not(.dso-large) {
+    @include dso-progress-indicator-looping-dims(small, 24px, 2px);
+  }
+
+  &.dso-medium {
+    @include dso-progress-indicator-looping-dims(medium, 32px, 3px);
+  }
+
+  &.dso-large {
+    @include dso-progress-indicator-looping-dims(large, 48px, 4px);
+  }
+}
+
+@mixin dso-progress-indicator-timed-dims($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width) {
+  &.dso-#{$dso-progress-indicator-name} {
     line-height: $dso-progress-indicator-size;
 
     .dso-progress-indicator-spinner {
-      display: inline-block;
       height: $dso-progress-indicator-size;
-      margin: 0 $u2 0 0;
-      position: relative;
-      vertical-align: middle;
       width: $dso-progress-indicator-size;
 
       &::after,
       &::before {
-        background: $wit;
         border: $dso-progress-indicator-border-width solid $dso-progress-indicator-border-color;
-        content: "";
         height: #{$dso-progress-indicator-size};
-        position: absolute;
         transform-origin: #{$dso-progress-indicator-size / 2} #{$dso-progress-indicator-size / 2};
         width: #{$dso-progress-indicator-size / 2};
       }
 
       &::before {
-        animation: rota $dso-progress-indicator-time linear;
         border-radius: #{$dso-progress-indicator-size / 2} 0 0 #{$dso-progress-indicator-size / 2};
-        border-right: 0;
-        z-index: 200;
       }
 
       &::after {
-        animation: opa2 $dso-progress-indicator-time steps(1, end) reverse;
-        border-left: 0;
         border-radius: 0 #{$dso-progress-indicator-size / 2} #{$dso-progress-indicator-size / 2} 0;
         left: #{$dso-progress-indicator-size / 2};
-        opacity: 1;
-        z-index: 100;
       }
     }
 
     span.dso-progress-indicator-spinner-mask {
-      animation: opa $dso-progress-indicator-time steps(1, end);
-      background: $wit;
-      display: block;
       height: #{$dso-progress-indicator-size};
-      opacity: 0;
-      position: absolute;
       width: #{$dso-progress-indicator-size / 2};
-      z-index: 300;
+    }
+  }
+}
+
+@mixin dso-progress-indicator-duration($dso-progress-indicator-duration) {
+  &.dso-progress-indicator-duration-#{$dso-progress-indicator-duration}s {
+    .dso-progress-indicator-spinner {
+      &::before {
+        animation: rota $dso-progress-indicator-duration + s linear;
+      }
+
+      &::after {
+        animation: opa2 $dso-progress-indicator-duration + s steps(1, end) reverse;
+      }
+    }
+
+    span.dso-progress-indicator-spinner-mask {
+      animation: opa $dso-progress-indicator-duration + s steps(1, end);
     }
   }
 
@@ -141,9 +168,52 @@ $dso-progress-indicator-border-color: $grasgroen;
   }
 }
 
-@include dso-progress-indicator-timed(small-5s, 24px, 2px, 5s);
-@include dso-progress-indicator-timed(medium-5s, 32px, 3px, 5s);
-@include dso-progress-indicator-timed(large-5s, 48px, 4px, 5s);
+.dso-progress-indicator-timed {
+  .dso-progress-indicator-spinner {
+    &::after,
+    &::before {
+      background: $wit;
+      content: "";
+      position: absolute;
+    }
+
+    &::before {
+      border-right: 0 !important;
+      z-index: 200;
+    }
+
+    &::after {
+      border-left: 0 !important;
+      opacity: 1;
+      z-index: 100;
+    }
+  }
+
+  span.dso-progress-indicator-spinner-mask {
+    background: $wit;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    z-index: 300;
+  }
+
+  &.dso-small,
+  &:not(.dso-medium):not(.dso-large) {
+    @include dso-progress-indicator-timed-dims(small, 24px, 2px);
+  }
+
+  &.dso-medium {
+    @include dso-progress-indicator-timed-dims(medium, 32px, 3px);
+  }
+
+  &.dso-large {
+    @include dso-progress-indicator-timed-dims(large, 48px, 4px);
+  }
+
+  @each $val in $dso-progress-indicator-timed-durations {
+    @include dso-progress-indicator-duration($val);
+  }
+}
 
 span.dso-progress-indicator-label {
   vertical-align: middle;
@@ -158,3 +228,4 @@ span.dso-progress-indicator-label {
     transform: rotate(360deg);
   }
 }
+
