@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING**: Progress Indicator uitbreiden (#692)
 * Badge en label verduidelijken (#662)
+* Menu knop bij kleine header is niet in lijn met huidige stijl (#503)
 
 ## 10.9.0 - 22-07-2020
 
