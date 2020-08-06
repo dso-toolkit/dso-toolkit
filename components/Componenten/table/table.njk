@@ -61,6 +61,30 @@
       {% endfor %}
     </tbody>
   </table>
+{% elif responsiveModifier %}
+  <div class="{{ responsiveModifier }}">
+    <table {{ className(modifier) }}>
+      <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>
+      <thead>
+        <tr>
+          {% for columnHeader in columnHeaders %}
+            <th scope="col" role="columnheader">
+              {{ columnHeader.title}}
+            </th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for content in rowContent %}
+          <tr {{ className(content.rowNotification) }}>
+            <th scope="row">{{ content.col1 }}</th>
+            <td><a href="#">{{ content.col2 }}</a></td>
+            <td>{{ content.col3 }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {%else%}
   <table {{ className(modifier) }}>
     <caption {{ className([not showCaption, 'sr-only']) }}>{{ caption }}</caption>

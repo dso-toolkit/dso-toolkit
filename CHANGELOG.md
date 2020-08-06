@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Standaard Tabel Responsive maken (#491)
+
 ### Changed
 * **BREAKING**: Progress Indicator uitbreiden (#692)
 
