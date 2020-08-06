@@ -17,7 +17,6 @@ context:
   - title: Plaats van het bouwwerk
     id: panel3
     open: true
-    formLegend: Aanvraagformulier
     fieldsets:
       - legend: Plaats van het bouwwerk
         groups:

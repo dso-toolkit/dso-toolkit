@@ -6,10 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
+* Search Bar gebruiken om te filteren in een lijst (#681)
 * Standaard Tabel Responsive maken (#491)
+* Form buttons in of buiten formulieren, voor wizard werkvorm (#682)
 
 ### Changed
 * **BREAKING**: Progress Indicator uitbreiden (#692)
+* **BREAKING**: Verplicht geneste fieldsets eruit halen (#693)
 * Badge en label verduidelijken (#662)
 * Menu knop bij kleine header is niet in lijn met huidige stijl (#503)
 

@@ -1,0 +1,41 @@
+notes: |
+status: ready
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Home
+      - label: Vergunningcheck
+      - label: Aanvragen
+        active: true
+      - label: Regels op de kaart
+      - label: Mijn Omgevingsloket
+  steps:
+    title: 1. Project
+    step: Stap 1/7
+  alert: 
+    modifier: info
+    message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
+  form:
+    formModifier: form-horizontal
+    fieldsets:
+    - legend: Project
+      groups:
+      - id: naam project
+        inputType: input
+        type: text
+        label: Wat is de naam van uw project?
+      - id: beschrijving project
+        inputType: textarea
+        type: text
+        label: Korte omschrijving van uw project
+      - id: kosten project
+        inputType: textarea
+        type: text
+        label: Wat zijn de kosten van uw project?
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Volgende stap
+      iconAfter: chevron-right
+  

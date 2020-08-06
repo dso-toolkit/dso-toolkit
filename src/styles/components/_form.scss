@@ -32,20 +32,18 @@ form {
   }
 
   > fieldset {
-    > fieldset {
-      padding-bottom: $dso-fieldset-separator-unit;
+    padding-bottom: $dso-fieldset-separator-unit;
 
+    > legend {
+      @extend %is-h3;
+      border-bottom: 0;
+      margin-bottom: $dso-fieldset-separator-unit;
+    }
+
+    + fieldset {
       > legend {
-        @extend %is-h3;
-        border-bottom: 0;
-        margin-bottom: $dso-fieldset-separator-unit;
-      }
-
-      + fieldset {
-        > legend {
-          border-top: 1px solid $dso-fieldset-separator-color;
-          padding-top: $dso-fieldset-separator-unit;
-        }
+        border-top: 1px solid $dso-fieldset-separator-color;
+        padding-top: $dso-fieldset-separator-unit;
       }
     }
   }
@@ -86,7 +84,8 @@ form.dso-single-page .dso-form-buttons,
 .form-group {
   margin-bottom: 0;
 
-  + .form-group {
+  + .form-group,
+  + .dso-form-buttons {
     margin-top: $dso-form-group-margin;
   }
 

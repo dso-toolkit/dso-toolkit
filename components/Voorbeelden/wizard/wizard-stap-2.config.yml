@@ -1,0 +1,10 @@
+notes: |
+status: ready
+context:
+  steps:
+    title: 2. Locatie
+    step: Stap 1/7
+  filter:
+    placeholder: Zoek een adres
+    icon: true
+    label: Adres

@@ -1,0 +1,51 @@
+notes: |
+status: ready
+context:
+  steps:
+    title: 3. Kies activiteiten
+    step: Stap 3/7
+  alert:
+    modifier: info
+    message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
+  shopping-cart:
+    items:
+      - label: Milieubelastende activiteit - Melding
+      - label: Milieubelastende activiteit - Melding
+        additive: 2
+  form:
+    formModifier: form-vertical
+    fieldsets:
+    - legend: Zoek activiteiten
+      groups:
+      - id: filter
+        inputType: search-bar
+        label: Zoekterm
+        searchBar:
+          placeholder: Bijvoorbeeld bouwactiviteiten
+          icon: true
+          id: filter_activiteiten
+          label: Zoek uw activiteiten
+          noLabel: true
+          hideSearchButton: true
+          clearButton: true
+      - id: activiteiten
+        inputType: checkboxes
+        label: 4 gevonden activiteiten
+        options:
+          - value: 1
+            label: Bouwactiviteit - Melding
+          - value: 2
+            label: Milieuactiviteit - Melding
+          - value: 3
+            label: Milieuactiviteit - Aanvraag vergunning
+          - value: 4
+            label: Gebruik en het in stand houden van bouwwerken ketentest - Melding
+    buttons:
+    - type: default
+      modifier: default
+      label: Vorige stap
+      icon: chevron-left
+    - type: submit
+      modifier: primary
+      label: Volgende stap
+      iconAfter: chevron-right

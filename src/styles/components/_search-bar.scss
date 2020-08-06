@@ -3,6 +3,10 @@ $dso-search-bar-height: $u5;
 .dso-search-bar {
   display: flex;
 
+  .form-group & {
+    width: 50%;
+  }
+
   .dso-search-bar-input {
     position: relative;
     width: 100%;
@@ -134,9 +138,35 @@ $dso-search-bar-height: $u5;
     padding: 0 $u2;
     text-align: center;
   }
+
+  + .dso-results {
+    color: $grijs-60;
+    font-weight: 700;
+    margin-top: $u1;
+  }
 }
 
 .dso-table-filter-wrapper .dso-search-bar {
   margin-bottom: $u2;
   width: $dso-minimal-screen-width - $u4;
+}
+
+.dso-field-container .dso-search-bar {
+  input {
+    border-color: $bosgroen;
+  }
+
+  .dso-invalid & {
+    input {
+      border-color: $dso-field-invalid-border-color;
+
+      &:focus {
+        box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-field-invalid-border-color;
+      }
+    }
+  }
+
+  .form-horizontal & {
+    width: 100%;
+  }
 }
