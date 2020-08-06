@@ -7,12 +7,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Search Bar gebruiken om te filteren in een lijst (#681)
-
-### Fixed
+* Standaard Tabel Responsive maken (#491)
 * Form buttons in of buiten formulieren, voor wizard werkvorm (#682)
 
 ### Changed
+* **BREAKING**: Progress Indicator uitbreiden (#692)
 * **BREAKING**: Verplicht geneste fieldsets eruit halen (#693)
+* Badge en label verduidelijken (#662)
+
+## 10.9.0 - 22-07-2020
+
+### Added
+* Voorbeeld pagina met componenten, Badge, Footnote, Cards, Searchbar (#690)
+
+### Fixed
+* Tertiaire button en links te weinig contrast in Info component (#686)
+* Email input niet verwerkt in de toolkit. (#687)
 
 ## 10.8.0 - 08-07-2020
 

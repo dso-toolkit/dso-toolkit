@@ -43,7 +43,7 @@ context:
       inputIcon: calendar
     - id: email
       inputType: input
-      type: text
+      type: email
       label: E-mailadres
       required: true
     - id: password

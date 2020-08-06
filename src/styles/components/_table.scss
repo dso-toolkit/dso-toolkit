@@ -67,3 +67,26 @@ table {
 
 // Generate the contextual variants
 @include dso-table-row-variant("active", $table-bg-active);
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.dso-table-responsive,
+.dso-table-scroll-container {
+  min-height: .01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  overflow-x: auto;
+  position: relative;
+}
+
+.dso-table-scroll-container {
+  @include dso-table-responsive;
+}
+
+.dso-table-responsive {
+  @media screen and (max-width: $screen-xs-max) {
+    @include dso-table-responsive;
+  }
+}
