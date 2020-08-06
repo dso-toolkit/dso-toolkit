@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 11.0.0
+
 ### Added
 * Search Bar gebruiken om te filteren in een lijst (#681)
 * Standaard Tabel Responsive maken (#491)
