@@ -2,6 +2,19 @@ main {
   > .row {
     padding-bottom: $dso-row-vertical-space;
     padding-top: $dso-row-vertical-space;
+
+    &:not(.dso-featured):first-child {
+      padding-top: 0;
+    }
+
+    &:not(.dso-featured):last-child {
+      padding-bottom: 0;
+    }
+
+    &.dso-featured {
+      padding-bottom: $u6;
+      padding-top: $u6;
+    }
   }
 }
 
@@ -21,6 +34,10 @@ main {
     @include full-width-row($grid-gutter-width);
 
     background-color: $dso-featured-background-color;
+  }
+
+  + .dso-featured {
+    margin-top: $u3;
   }
 }
 
