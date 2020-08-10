@@ -72,18 +72,24 @@ ins {
 // Headings
 // -------------------------
 
-h1, .h1,
-h2, .h2,
-h3, .h3 {
-  margin-top: $u3;
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
   margin-bottom: $u2;
+  margin-top: $u3;
 }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-top: $u2;
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
   margin-bottom: $u2;
+  margin-top: $u2;
 }
 
 // Body text
@@ -105,8 +111,8 @@ p {
 // -------------------------
 
 .page-header {
-  padding-bottom: #{$u2 - 1};
   margin: #{$u3 * 2} 0 $u3;
+  padding-bottom: #{$u2 - 1};
   // border-bottom: 1px solid $page-header-border-color;
 }
 
@@ -122,8 +128,8 @@ ol {
 
 // Description Lists
 dl {
-  margin-top: 0; // Remove browser default
   margin-bottom: $u3;
+  margin-top: 0; // Remove browser default
 }
 
 // Misc
@@ -132,8 +138,8 @@ dl {
 
 // Blockquotes
 blockquote {
-  padding: $u2 $u3;
   margin: 0 0 $u3;
+  padding: $u2 $u3;
 }
 
 // Addresses
