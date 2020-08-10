@@ -79,7 +79,6 @@ h2,
 h3,
 .h3 {
   margin-bottom: $u2;
-  margin-top: $u3;
 }
 
 h4,
@@ -89,31 +88,17 @@ h5,
 h6,
 .h6 {
   margin-bottom: $u2;
-  margin-top: $u2;
 }
 
 // Body text
 // -------------------------
 
 p {
-  margin: 0 0 $u2;
+  margin-bottom: $u2;
 }
 
 .lead {
-  margin-bottom: $u3;
-}
-
-
-// Emphasis & misc
-// -------------------------
-
-// Page header
-// -------------------------
-
-.page-header {
-  margin: #{$u3 * 2} 0 $u3;
-  padding-bottom: #{$u2 - 1};
-  // border-bottom: 1px solid $page-header-border-color;
+  margin-bottom: $u2;
 }
 
 
@@ -128,7 +113,7 @@ ol {
 
 // Description Lists
 dl {
-  margin-bottom: $u3;
+  margin-bottom: $u2;
   margin-top: 0; // Remove browser default
 }
 
@@ -138,11 +123,11 @@ dl {
 
 // Blockquotes
 blockquote {
-  margin: 0 0 $u3;
-  padding: $u2 $u3;
+  margin: 0 0 $u2;
+  padding: $u2;
 }
 
 // Addresses
 address {
-  margin-bottom: $u3;
+  margin-bottom: $u2;
 }
