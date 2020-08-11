@@ -15,6 +15,42 @@ variants:
     type: email
     label: E-mailadres
     value: pieter@
+- name: input-date
+  context:
+    __title: Datum
+    __explanation:
+    - Er is een <code>type="date"</code> beschikbaar die een native manier van het selecteren van een datum faciliteert.
+    id: input-date
+    type: date
+    label: Datum
+    value: "1970-07-03"
+- name: input-password
+  context:
+    __title: Wachtwoord
+    __explanation:
+    - Er is een <code>type="password"</code> beschikbaar die het ingevoerde wachtwoord maskeert met bullets.
+    id: input-password
+    type: password
+    label: Wachtwoord
+    value: Welkom01
+- name: input-url
+  context:
+    __title: URL
+    __explanation:
+    - Er is een <code>type="url"</code> beschikbaar. Afhankelijk van de browserondersteuning kan het url veld automatisch worden gevalideerd wanneer het wordt verzonden. Sommige smartphones herkennen het url type en voegen ".com" toe aan het toetsenbord om overeen te komen met de url-invoer..
+    id: input-url
+    type: url
+    label: URL
+    value: https://www.aandeslagmetdeomgevingswet.nl
+- name: input-tel
+  context:
+    __title: Tel
+    __explanation:
+    - Er is een <code>type="tel"</code> beschikbaarvoor het bewerken van een regel met één regel voor het invoeren van een telefoonnummer.
+    id: input-tel
+    type: tel
+    label: Telefoon
+    value: 062451789
 - name: input-text-invalid
   context:
     __title: Ongeldig
