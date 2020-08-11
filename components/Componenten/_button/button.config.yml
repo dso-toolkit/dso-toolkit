@@ -2,5 +2,14 @@ notes: |
   Een icon button moet in de markup eerst het label en dan het icoon hebben staan.
 status: wip
 context:
+  __title: regular button
+  element: button
   type: button
   modifier: default
+variants:
+- name: input-submit
+  __title: input submit
+  context:
+    element: input
+    type: submit
+    modifier: default

@@ -1,9 +1,10 @@
-<button type="{{ type }}"
+<{%- if element %}{{ element }} {% else %}button {% endif -%} type="{{ type }}"
   {%- if iconOnly %} title="{{ label }}"{% endif %}
   {{ className('btn', [modifier, 'btn-' + modifier]) }}
   {%- if roleDescription %} aria-roledescription="{{ roleDescription }}"{% endif %}
+  {%- if value %} value="{{ value }}"{% endif -%}
   {%- if disabled %} disabled{% endif -%}>
   {%- if icon and not(iconOnly) %}{% render '@icon', {icon: icon} -%}{% endif -%}
   <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
   {%- if iconAfter or iconOnly %}{% render '@icon', {icon: (iconAfter or icon)} -%}{% endif -%}
-</button>
+</{%- if element %}{{ element }}{% else %}button{% endif -%}>
