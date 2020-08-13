@@ -1,5 +1,3 @@
-const collator = require('../../../.fractal/collator');
-
 module.exports = {
   status: 'ready',
   collated: true,

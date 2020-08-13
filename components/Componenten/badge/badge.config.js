@@ -1,4 +1,4 @@
-const collator = require('../../../.fractal/collator');
+const collator = require('../../../fractal/collator');
 
 module.exports = {
   status: 'ready',

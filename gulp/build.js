@@ -20,18 +20,30 @@ const rename = require('gulp-rename');
 const ListStream = require('list-stream');
 const css = require('css');
 const indent = require('indent');
+const { buildTheme, buildThemeWatcher } = require('./theme');
 
 const log = util.log;
 
 module.exports = {
   cleanBuild,
+  buildTheme,
+  buildThemeWatcher,
   createSvgSpritesheet,
   buildToolkit: options => gulp.series(buildStylesWrapper(options), createSvgSpritesheet, copyAssets),
   createDomReference: gulp.series(buildSite, createDomReference),
   buildWatcher: options => buildWatcher(options)
 };
-module.exports.buildSite = gulp.series(module.exports.buildToolkit({ library: true }), buildSite, trimReports, cleanUpBuild);
-module.exports.build = gulp.series(() => Promise.resolve(process.env.DSO_RENDER_MODE = 'static'), cleanBuild, module.exports.buildSite, module.exports.buildToolkit());
+
+module.exports.build = gulp.series(
+  () => Promise.resolve(process.env.DSO_RENDER_MODE = 'static'),
+  cleanBuild,
+  module.exports.buildToolkit({ library: true }),
+  buildTheme,
+  buildSite,
+  trimReports,
+  cleanUpBuild,
+  module.exports.buildToolkit()
+);
 
 function cleanBuild() {
   return del('build');

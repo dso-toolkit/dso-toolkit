@@ -19,11 +19,17 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
-    "bootstrap-sass": "3.4.1"
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "bootstrap-sass": "3.4.1",
+    "jquery": "^2.2.1",
+    "jquery-pjax": "git+https://github.com/defunkt/jquery-pjax.git",
+    "jquery-resizable-dom": "^0.16.0",
+    "rollup": "^2.23.1",
+    "select2": "^4.0.3"
   },
   "devDependencies": {
     "@frctl/fractal": "1.2.1",
-    "@frctl/mandelbrot": "1.2.1",
     "@frctl/nunjucks": "2.0.1",
     "access-sniff": "3.2.0",
     "cheerio": "1.0.0-rc.2",
