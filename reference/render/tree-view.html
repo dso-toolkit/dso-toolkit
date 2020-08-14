@@ -4,7 +4,9 @@
       <h2 class="dso-tree-view-subhead">Documentatie</h2>
       <ul>
         <li class="dso-collection">
-          <button type="button">Introductie</button>
+          <button type="button" aria-expanded="true">
+            <h3>Introductie</h3>
+          </button>
           <ul>
             <li class="dso-entity">
               <a href="#">Voor ontwerpers</a>
@@ -17,8 +19,10 @@
             </li>
           </ul>
         </li>
-        <li class="dso-collection">
-          <button type="button">Versies</button>
+        <li class="dso-collection is-closed">
+          <button type="button" aria-expanded="false">
+            <h3>Versies</h3>
+          </button>
           <ul>
             <li class="dso-entity">
               <a href="#">Alle versies</a>
@@ -31,13 +35,19 @@
       <h2 class="dso-tree-view-subhead">Fundament</h2>
       <ul>
         <li class="dso-collection">
-          <button type="button">Grid</button>
+          <button type="button" aria-expanded="true">
+            <h3>Grid</h3>
+          </button>
           <ul>
             <li class="dso-collection">
-              <button type="button">Bootstrap</button>
+              <button type="button" aria-expanded="true">
+                <h3>Bootstrap</h3>
+              </button>
               <ul>
                 <li class="dso-collection">
-                  <button type="button">Herkomst</button>
+                  <button type="button" aria-expanded="true">
+                    <h3>Herkomst</h3>
+                  </button>
                   <ul>
                     <li class="dso-entity">
                       <a href="#">Overwegingen</a>

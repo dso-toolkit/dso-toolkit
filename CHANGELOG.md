@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+Tree-view: Uitklapbare knopjes in navigatiebalk missen heading en aria-collapsed (#632)
+
 ## 11.0.0
 
 ### Added
