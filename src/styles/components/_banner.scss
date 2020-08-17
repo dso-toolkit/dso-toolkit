@@ -29,8 +29,16 @@ $dso-banner-left-padding: $u6;
         text-decoration: underline;
       }
 
-      @media screen and (max-width: $screen-xs-max) {
-        > .dso-rich-content {
+      > .dso-rich-content {
+        *:first-child {
+          margin-top: 0;
+        }
+
+        *:last-child {
+          margin-bottom: 0;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
           width: calc(100% - #{$u3});
         }
       }
