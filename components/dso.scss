@@ -11,6 +11,10 @@
   margin-right: -10px;
   padding: 10px;
 
+  &:first-child {
+    margin-top: 24px;
+  }
+
   .dso-example {
     border-top: 0;
     margin-left: -10px;
