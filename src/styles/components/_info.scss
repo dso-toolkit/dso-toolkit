@@ -20,6 +20,10 @@
   }
 
   .dso-rich-content {
+    *:first-child {
+      margin-top: 0;
+    }
+
     img {
       display: block;
       margin: $u1 auto;
