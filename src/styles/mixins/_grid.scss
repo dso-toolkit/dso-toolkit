@@ -15,6 +15,19 @@ main {
       margin-bottom: $u5;
       padding-bottom: $u6;
       padding-top: $u6;
+
+      & + .row div:not(.dso-rich-content) {
+        h1,
+        .h1,
+        h2,
+        .h2,
+        h3,
+        .h3 {
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
     }
   }
 }
