@@ -4,6 +4,8 @@ const rollup = require('rollup');
 const commonjs = require('@rollup/plugin-commonjs');
 const nodeResolve = require('@rollup/plugin-node-resolve');
 
+const { babel } = require('@rollup/plugin-babel');
+
 module.exports = {
   buildTheme: gulp.series(themeClean, themePublic, themeCompileJS),
   buildThemeWatcher
@@ -22,7 +24,11 @@ function themeCompileJS() {
     input: './theme/js/theme.js',
     plugins: [
       commonjs(),
-      nodeResolve.nodeResolve()
+      nodeResolve.nodeResolve(),
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'bundled'
+      })
     ]
   })
   .then(bundle => {

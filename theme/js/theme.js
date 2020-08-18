@@ -1,8 +1,7 @@
 'use strict';
 
-global.jQuery = require('./jquery');
+const $ = require('./jquery');
 const pjax = require('jquery-pjax');
-const $ = global.jQuery;
 const doc = $(document);
 const frctl = window.frctl || {};
 
@@ -11,6 +10,8 @@ const utils = require('./utils');
 const framer = require('./components/frame');
 const Tree = require('./components/tree');
 const Pen = require('./components/pen');
+
+require('./versions');
 
 window.fractal = {
   events: events

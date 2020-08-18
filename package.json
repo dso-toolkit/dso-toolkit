@@ -19,6 +19,7 @@
     "npm": ">=5.6.0"
   },
   "dependencies": {
+    "@rollup/plugin-babel": "^5.2.0",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "bootstrap-sass": "3.4.1",
@@ -29,6 +30,8 @@
     "select2": "^4.0.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
     "@frctl/fractal": "1.2.1",
     "@frctl/nunjucks": "2.0.1",
     "access-sniff": "3.2.0",
