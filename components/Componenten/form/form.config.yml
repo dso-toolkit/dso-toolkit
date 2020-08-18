@@ -235,11 +235,50 @@ variants:
       - id: invoer-veld-1
         inputType: input
         type: text
-        label: Invoerveld
+        label: Voornaam
       - id: invoer-veld-2
         inputType: input
         type: text
-        label: Invoerveld
+        label: Achternaam
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Primaire actie
+    - type: button
+      modifier: link
+      label: Secondaire actie
+- name: autocomplete
+  context:
+    __title: form met autocomplete
+    formModifier: dso-single-page
+    fieldsets:
+    - legend: Invoervelden
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+        autocomplete: given-name
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+        autocomplete: family-name
+      - id: invoer-veld-3
+        inputType: input
+        type: text
+        label: Adres
+        autocomplete: address-line1
+      - id: invoer-veld-4
+        inputType: input
+        type: text
+        label: Postcode
+        autocomplete: postal-code
+      - id: invoer-veld-5
+        inputType: input
+        type: text
+        label: Woonplaats
+        autocomplete: address-level2
     buttons:
     - type: submit
       modifier: primary
