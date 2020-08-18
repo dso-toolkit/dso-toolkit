@@ -14,11 +14,17 @@
       {% if checked %} checked{% endif %}
       {% if required %} required{% endif %}>
       {% for option in options %}
-        <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
+        {% if option.optionType %}
+          <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
+            {% for item in option.items %}
+              <option value="{{ item.value }}"{% if item.selected %} selected{% endif %}>{{ item.label }}</option>
+            {% endfor %}
+          </optgroup>
+        {% elif option.optionItem %}
           {% for item in option.items %}
             <option value="{{ item.value }}"{% if item.selected %} selected{% endif %}>{{ item.label }}</option>
           {% endfor %}
-        </optgroup>
+        {% endif %}
       {% endfor %}
     </select>
     {% if errorText %}

@@ -255,31 +255,59 @@ variants:
     fieldsets:
     - legend: Invoervelden
       groups:
-      - id: form-autocpmplete-invoer-veld-1
+      - id: form-autocomplete-voornaam
         inputType: input
         type: text
         label: Voornaam
         autocomplete: given-name
-      - id: form-autocpmplete-invoer-veld-2
+      - id: form-autocomplete-achternaam
         inputType: input
         type: text
         label: Achternaam
         autocomplete: family-name
-      - id: form-autocpmplete-invoer-veld-3
+      - id: form-autocomplete-straat
         inputType: input
         type: text
-        label: Adres
+        label: Straat
         autocomplete: address-line1
-      - id: form-autocpmplete-invoer-veld-4
+      - id: form-autocomplete-huisnummer
+        inputType: input
+        type: text
+        label: Huisnummer (plus letter en toevoeging)
+        autocomplete: address-line2
+      - id: form-autocomplete-postcode
         inputType: input
         type: text
         label: Postcode
         autocomplete: postal-code
-      - id: form-autocpmplete-invoer-veld-5
+      - id: form-autocomplete-woonplaats
         inputType: input
         type: text
         label: Woonplaats
         autocomplete: address-level2
+      - id: form-autocomplete-telefoon
+        inputType: input
+        type: tel
+        label: Telefoon
+        autocomplete: tel
+      - id: form-autocomplete-email
+        inputType: input
+        type: email
+        label: Email adres
+        autocomplete: e-mail
+      - id: form-autocomplete-land
+        inputType: select
+        label: Land
+        autocomplete: country
+        options:
+        - optionItem: country
+          items:
+          - value: nl
+            label: Nederland
+          - value: be
+            label: Belgie
+          - value: de
+            label: Duitsland
     buttons:
     - type: submit
       modifier: primary
