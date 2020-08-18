@@ -31,5 +31,5 @@ function getBranchLabel(item) {
 
   var versions = item.version.split('.');
 
-  return versions[0] + '.' + versions[1] + '.x';
+  return `v${versions[0]}`;
 }
