@@ -35,7 +35,7 @@ notes: |
     * Voorbeeldtekst voor .dso-succes: "Informatie bouwwerkzaamheden `<span class="sr-only">(afgerond)</span>`"
  
   ## Component in context
-  - [Aanvragen]({{ '/components/detail/aanvragen' | path }})
+  - [Aanvragen]({{ '/components/detail/aanvragen' | docPath }})
 
   ## Bronvermelding
   - U.S. Web Design System (USWDS). Components Accordion. Geraadpleegd op 20 maart 2020, van https://designsystem.digital.gov/components/accordion/
