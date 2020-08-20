@@ -23,12 +23,12 @@ context:
   fieldsets:
   - legend: Contact
     groups:
-    - id: form-default-voornaam
+    - id: voornaam
       inputType: input
       type: text
       label: Voornaam
       required: true
-    - id: form-default-achternaam
+    - id: achternaam
       inputType: input
       type: text
       label: Achternaam
@@ -36,25 +36,25 @@ context:
     - inputType: static
       label: Geslacht
       value: Man
-    - id: form-default-geboortedatum
+    - id: geboortedatum
       inputType: input
       type: text
       label: Geboortedatum
       inputIcon: calendar
-    - id: form-default-email
+    - id: email
       inputType: input
       type: email
       label: E-mailadres
       required: true
-    - id: form-default-password
+    - id: password
       inputType: input
       type: text
       label: Wachtwoord
-    - id: form-default-password_bevestig
+    - id: password_bevestig
       inputType: input
       type: text
       label: Wachtwoord (bevestig)
-    - id: form-default-nieuwsbrief
+    - id: nieuwsbrief
       inputType: confirm
       label: Stuur mij de maandelijkse nieuwsbrief
       helpText: Uw gegevens zullen niet worden gedeeld met derden
@@ -69,7 +69,7 @@ context:
             confidential: true
   - legend: Beleg
     groups:
-    - id: form-default-beleg
+    - id: beleg
       inputType: select
       label: Beleg
       multiple: true
@@ -90,7 +90,7 @@ context:
           label: Makreel
   - legend: Auto merk
     groups:
-    - id: form-default-auto_merk
+    - id: auto_merk
       inputType: select
       label: Type auto
       options:
@@ -107,7 +107,7 @@ context:
           label: Volkswagen
   - legend: Filter op type
     groups:
-    - id: form-default-filter_type
+    - id: filter_type
       inputType: search-bar
       label: Type
       searchBar:
@@ -118,7 +118,7 @@ context:
         clearButton: true
   - legend: Aanhanger
     groups:
-    - id: form-default-aanhanger
+    - id: aanhanger
       inputType: radios
       label: Welke aanhanger
       options:
@@ -133,14 +133,14 @@ context:
         label: Oplegger
   - legend: Vraag
     groups:
-    - id: form-default-gekke_vraag
+    - id: gekke_vraag
       inputType: textarea
       rows: 5
       label: Waarom heeft een tankstation dat 24 uur per dag open is een slot op de deur?
       helpText: Deze vraag heeft een toelichting
   - legend: Vraag met infobutton
     groups:
-    - id: form-default-input-radio-infobutton
+    - id: input-radio-infobutton
       inputType: radios
       label: Soms laat de vraagstelling aan duidelijkheid te wensen over. Wenst u een toelichting hierop?
       options:
@@ -157,7 +157,7 @@ context:
         Empty
   - legend: Vraag met infobutton uitgeklapt
     groups:
-    - id: form-default-input-radio-infobutton-open
+    - id: input-radio-infobutton-open
       inputType: radios
       label: Toelichting op uw vraag
       options:
@@ -190,7 +190,7 @@ variants:
     fieldsets:
     - legend: Contact
       groups:
-      - id: form-multipage-voornaam
+      - id: voornaam
         inputType: input
         type: text
         label: Voornaam
@@ -213,7 +213,7 @@ variants:
     fieldsets:
     - legend: Contact
       groups:
-      - id: form-sections-voornaam
+      - id: voornaam
         inputType: input
         type: text
         label: Voornaam
@@ -232,11 +232,11 @@ variants:
     fieldsets:
     - legend: Invoervelden
       groups:
-      - id: single-page-form-invoer-veld-1
+      - id: invoer-veld-1
         inputType: input
         type: text
         label: Voornaam
-      - id: single-page-form-invoer-veld-2
+      - id: invoer-veld-2
         inputType: input
         type: text
         label: Achternaam
@@ -255,47 +255,47 @@ variants:
     fieldsets:
     - legend: Invoervelden
       groups:
-      - id: form-autocomplete-voornaam
+      - id: voornaam
         inputType: input
         type: text
         label: Voornaam
         autocomplete: given-name
-      - id: form-autocomplete-achternaam
+      - id: achternaam
         inputType: input
         type: text
         label: Achternaam
         autocomplete: family-name
-      - id: form-autocomplete-straat
+      - id: straat
         inputType: input
         type: text
         label: Straat
         autocomplete: address-line1
-      - id: form-autocomplete-huisnummer
+      - id: huisnummer
         inputType: input
         type: text
         label: Huisnummer (plus letter en toevoeging)
         autocomplete: address-line2
-      - id: form-autocomplete-postcode
+      - id: postcode
         inputType: input
         type: text
         label: Postcode
         autocomplete: postal-code
-      - id: form-autocomplete-woonplaats
+      - id: woonplaats
         inputType: input
         type: text
         label: Woonplaats
         autocomplete: address-level2
-      - id: form-autocomplete-telefoon
+      - id: telefoon
         inputType: input
         type: tel
         label: Telefoon
         autocomplete: tel
-      - id: form-autocomplete-email
+      - id: email
         inputType: input
         type: email
         label: Email adres
         autocomplete: e-mail
-      - id: form-autocomplete-land
+      - id: land
         inputType: select
         label: Land
         autocomplete: country
