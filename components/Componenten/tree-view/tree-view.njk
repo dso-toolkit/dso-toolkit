@@ -2,11 +2,11 @@
   {% if items.length %}
     <ul>
       {%- for item in items -%}
-        <li {{ className('dso-collection' if item.items else 'dso-entity', [item.active, 'dso-is-current'], [item.collapsed==true, 'is-closed']) }} >
+        <li {{ className('dso-collection' if item.items else 'dso-entity', [item.active, 'dso-is-current'], [item.collapsed, 'is-closed']) }} >
           {% if not item.items %}
             <a href="#">{{- item.label -}}</a>
           {% else %}
-            <button type="button" aria-expanded={% if item.collapsed==true %}"false"{% else %}"true"{%endif%}><h3>{{- item.label -}}</h3></button>
+            <button type="button" aria-expanded="{{ not item.collapsed }}"><h3>{{- item.label -}}</h3></button>
             {{ branches(item.items) }}
           {% endif %}
         </li>
