@@ -2,7 +2,7 @@ ol.breadcrumb {
   @include clearfix;
 
   list-style: none;
-  margin-bottom: 0;
+  margin-bottom: $u1;
   padding: 0 $u1;
 
   > li {

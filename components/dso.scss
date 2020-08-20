@@ -11,6 +11,10 @@
   margin-right: -10px;
   padding: 10px;
 
+  &:first-child {
+    margin-top: $u3;
+  }
+
   .dso-example {
     border-top: 0;
     margin-left: -10px;
@@ -57,4 +61,12 @@
       margin: 0;
     }
   }
+
+  + hr {
+    margin: $u3 0;
+  }
+}
+
+hr + .panel {
+  margin-top: $u3;
 }

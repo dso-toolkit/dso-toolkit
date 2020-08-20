@@ -11,4 +11,6 @@
 
 .panel-body {
   @extend %dso-rich-content;
+
+  padding-bottom: 0;
 }

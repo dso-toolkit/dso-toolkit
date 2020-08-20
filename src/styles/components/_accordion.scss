@@ -206,7 +206,7 @@ $dso-accordion-light-border-color: $grijs-20;
           }
 
           > .dso-section-body {
-            padding: ($u2 - 1) ($u2 + 1) $u4; // corrections for missing borders in nested accordion
+            padding: ($u2 - 1) ($u2 + 1) $u3; // corrections for missing borders in nested accordion
           }
 
           .dso-accordion-section {
@@ -223,7 +223,7 @@ $dso-accordion-light-border-color: $grijs-20;
     }
 
     .dso-section-body {
-      padding: $u2 $u2 $u4;
+      padding: $u2 $u2 $u3;
 
       .dso-rich-content + .dso-accordion,
       .dso-accordion + .dso-rich-content {

@@ -60,3 +60,80 @@ ins {
   background-color: $dso-success-bg-color;
   text-decoration: none;
 }
+
+
+
+// __________________________________________________
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-bottom: $u2;
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-bottom: $u2;
+}
+
+// Body text
+// -------------------------
+
+p {
+  margin-bottom: $u2;
+}
+
+.lead {
+  margin-bottom: $u2;
+}
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-bottom: $u2;
+}
+
+// Description Lists
+dl {
+  margin-bottom: $u2;
+  margin-top: 0; // Remove browser default
+}
+
+// Misc
+// -------------------------
+
+
+// Blockquotes
+blockquote {
+  margin: 0 0 $u2;
+  padding: $u2;
+}
+
+// Addresses
+address {
+  margin-bottom: $u2;
+}
+
+// Rulers
+hr {
+  margin-bottom: $u1;
+  margin-top: $u1;
+}

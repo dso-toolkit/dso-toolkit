@@ -13,6 +13,16 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
     margin-top: $u3;
   }
 
+  > .dso-rich-content {
+    *:first-child {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   &::before {
     content: "";
     left: $dso-alert-horizontal-padding - 1px; // 1px border

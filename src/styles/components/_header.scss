@@ -1,5 +1,5 @@
 header {
-  margin-bottom: $u1;
+  // margin-bottom: $u1;
 
   .dso-logo-bar {
     position: relative;
@@ -34,7 +34,8 @@ header {
   }
 
   .breadcrumb {
-    margin-top: 20px;
+    margin-bottom: $u2;
+    margin-top: $u2;
   }
 
   h1 {
