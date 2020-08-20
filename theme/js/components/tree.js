@@ -54,6 +54,38 @@ class Tree {
     storage.set(`tree.${this._id}.state`, this._state);
   }
 
+  filter(value) {
+    const cleanRegex = /[ -]/g;
+    const items = $('*[data-role="item"]', this._el);
+    const collections = $('*[data-behaviour="collection"]', this._el);
+    value = (value || '').toLowerCase().replace(cleanRegex, '');
+    if (value) {
+      items.each((i, e) => {
+        const item = $(e);
+        const text = $('a, button', item).text().trim().toLowerCase().replace(cleanRegex, '');
+        if (text.indexOf(value) < 0) {
+          item.removeClass('is-filtered').hide();
+        }
+        else {
+          item.addClass('is-filtered').show();
+        }
+      });
+      collections.removeClass('is-closed').addClass('is-filtered').each((i, e) => {
+        const collection = $(e);
+        if ($('.is-filtered[data-role="item"]', collection).length > 0) {
+          collection.show();
+        }
+        else {
+          collection.hide();
+        }
+      });
+    }
+    else {
+      items.removeClass('is-filtered').show();
+      collections.removeClass('is-filtered').show();
+      this._applyState();
+    }
+  }
 }
 
 class TreeCollection {
@@ -92,6 +124,10 @@ class TreeCollection {
   }
 
   toggle() {
+    if (this._el.hasClass('is-filtered')) {
+      return false;
+    }
+
     this._isOpen ? this.close() : this.open();
     return false;
   }

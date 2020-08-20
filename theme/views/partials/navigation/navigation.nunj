@@ -39,8 +39,12 @@
   {% endif %}
 {% endmacro %}
 
-<div id="filter-app">
-  <dso-navigation-filter></dso-navigation-filter>
+<div class="dso-search-bar">
+  <div class="dso-search-bar-input">
+    <label class="dso-search-icon" for="menu-filter">Filteren</label>
+    <input type="text" id="menu-filter" placeholder="Filteren" data-filter-store="filterValue" data-clear-button="clear-menu-filter">
+    <button type="button" id="clear-menu-filter" title="Zoekopdracht legen">Zoekopdracht legen</button>
+  </div>
 </div>
 
 <nav class="dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">

@@ -9,6 +9,7 @@ const events = require('./events');
 const utils = require('./utils');
 const framer = require('./components/frame');
 const Tree = require('./components/tree');
+const Filter = require('./components/filter');
 const Pen = require('./components/pen');
 
 require('./versions');
@@ -19,6 +20,7 @@ window.fractal = {
 
 const frame = framer($('#frame'));
 const navTrees = $.map($('[data-behaviour="tree"]'), t => new Tree(t));
+new Filter($('#menu-filter'), navTrees);
 let pens = [];
 
 loadPen();

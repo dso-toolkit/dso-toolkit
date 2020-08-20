@@ -58,7 +58,6 @@ const theme = require('./theme')({
     '/_highlight.js_styles/github.css'
   ],
   scripts: [
-    'https://cdn.jsdelivr.net/npm/vue',
     'default',
     '/dso-toolkit-scripts.js'
   ],
