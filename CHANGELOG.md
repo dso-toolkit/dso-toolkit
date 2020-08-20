@@ -7,6 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Ontbrekende Input types verwerken in de toolkit (#694)
+* Clock Icon en Mail Icon toevoegen aan Toolkit (#716)
+
+### Fixed
+* Forms en group input missen autocomplete (#671)
+* Tree-view: Uitklapbare knopjes in navigatiebalk missen heading en aria-collapsed (#632)
 
 ## 11.0.0
 
