@@ -24,8 +24,7 @@ variants:
   context:
     __title: Multiple
     __explanation:
-    - Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code>
-      class gezet te worden op de div met de class <code>.dso-select</code>.
+    - Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code> class gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-multiple
     multiple: true
     helpText: Maak een keuze tussen vlees of vis
@@ -71,3 +70,15 @@ variants:
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
+- name: input-select-infobutton-open
+  context:
+    __title: Zonder `optgroup`.
+    id: input-select-items-only
+    label: Land
+    options:
+      - value: be
+        label: België
+      - value: nl
+        label: Nederland
+      - value: lux
+        label: Luxemburg
