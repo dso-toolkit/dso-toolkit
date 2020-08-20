@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Clock Icon en Mail Icon toevoegen aan Toolkit (#716)
+
 ### Fixed
-Tree-view: Uitklapbare knopjes in navigatiebalk missen heading en aria-collapsed (#632)
+* Forms en group input missen autocomplete (#671)
+* Tree-view: Uitklapbare knopjes in navigatiebalk missen heading en aria-collapsed (#632)
 
 ## 11.0.0
 

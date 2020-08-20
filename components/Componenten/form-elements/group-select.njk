@@ -1,3 +1,7 @@
+{% macro selectOption(value, label, selected) %}
+  <option value="{{ value }}"{% if selected %} selected{% endif %}>{{ label }}</option>
+{% endmacro %}
+
 <div {{ className('form-group dso-select', [multiple, 'dso-multiple'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
     <label for="{{ id }}" class="control-label">
@@ -14,11 +18,15 @@
       {% if checked %} checked{% endif %}
       {% if required %} required{% endif %}>
       {% for option in options %}
-        <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
-          {% for item in option.items %}
-            <option value="{{ item.value }}"{% if item.selected %} selected{% endif %}>{{ item.label }}</option>
-          {% endfor %}
-        </optgroup>
+        {% if option.optionType %}
+          <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
+            {% for item in option.items %}
+              {{ selectOption(item.value, item.label, item.selected) }}
+            {% endfor %}
+          </optgroup>
+        {% else %}
+          {{ selectOption(option.value, option.label, option.selected) }}
+        {% endif %}
       {% endfor %}
     </select>
     {% if errorText %}

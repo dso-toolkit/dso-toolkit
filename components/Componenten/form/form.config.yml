@@ -235,11 +235,77 @@ variants:
       - id: invoer-veld-1
         inputType: input
         type: text
-        label: Invoerveld
+        label: Voornaam
       - id: invoer-veld-2
         inputType: input
         type: text
-        label: Invoerveld
+        label: Achternaam
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Primaire actie
+    - type: button
+      modifier: link
+      label: Secondaire actie
+- name: autocomplete
+  context:
+    __title: form met autocomplete
+    __explanation: Het HTML autocomplete-attribuut wordt gebruikt om aan te geven of het invoerveld door de browser automatisch, en met welke waarde, ingevuld kan worden.
+    formModifier: dso-single-page
+    fieldsets:
+    - legend: Invoervelden
+      groups:
+      - id: voornaam
+        inputType: input
+        type: text
+        label: Voornaam
+        autocomplete: given-name
+      - id: achternaam
+        inputType: input
+        type: text
+        label: Achternaam
+        autocomplete: family-name
+      - id: straat
+        inputType: input
+        type: text
+        label: Straat
+        autocomplete: address-line1
+      - id: huisnummer
+        inputType: input
+        type: text
+        label: Huisnummer (plus letter en toevoeging)
+        autocomplete: address-line2
+      - id: postcode
+        inputType: input
+        type: text
+        label: Postcode
+        autocomplete: postal-code
+      - id: woonplaats
+        inputType: input
+        type: text
+        label: Woonplaats
+        autocomplete: address-level2
+      - id: telefoon
+        inputType: input
+        type: tel
+        label: Telefoon
+        autocomplete: tel
+      - id: email
+        inputType: input
+        type: email
+        label: Email adres
+        autocomplete: e-mail
+      - id: land
+        inputType: select
+        label: Land
+        autocomplete: country
+        options:
+          - value: nl
+            label: Nederland
+          - value: be
+            label: Belgie
+          - value: de
+            label: Duitsland
     buttons:
     - type: submit
       modifier: primary
