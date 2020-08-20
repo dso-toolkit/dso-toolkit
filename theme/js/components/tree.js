@@ -57,7 +57,6 @@ class Tree {
   filter(value) {
     const cleanRegex = /[ -]/g;
     const items = $('*[data-role="item"]', this._el);
-    const collections = $('*[data-behaviour="collection"]', this._el);
     value = (value || '').toLowerCase().replace(cleanRegex, '');
     if (value) {
       items.each((i, e) => {
@@ -70,10 +69,10 @@ class Tree {
           item.addClass('is-filtered').show();
         }
       });
-      collections.removeClass('is-closed').addClass('is-filtered').each((i, e) => {
-        const collection = $(e);
-        if ($('.is-filtered[data-role="item"]', collection).length > 0) {
+      this._collections.map(collection => {
+        if (collection.hasVisibleItem) {
           collection.show();
+          collection.open(true);
         }
         else {
           collection.hide();
@@ -82,7 +81,7 @@ class Tree {
     }
     else {
       items.removeClass('is-filtered').show();
-      collections.removeClass('is-filtered').show();
+      this._collections.map(collection => collection.show());
       this._applyState();
     }
   }
@@ -96,6 +95,7 @@ class TreeCollection {
     this._toggle = this._el.find('> [data-role="toggle"]');
     this._itemsWrapper = this._el.find('[data-role="items"]:not(> [data-behaviour] [data-role="items"])');
     this._isOpen = true;
+    this._toggle.attr('aria-expanded', 'true');
     this._toggle.on('click', this.toggle.bind(this));
   }
 
@@ -107,6 +107,10 @@ class TreeCollection {
     return this._isOpen;
   }
 
+  get hasVisibleItem() {
+    return !!this._el.find('.is-filtered').length;
+  }
+
   containsCurrentItem() {
     return !!this._itemsWrapper.find('[data-state="current"]').length;
   }
@@ -114,20 +118,26 @@ class TreeCollection {
   open(silent) {
     this._el.removeClass('is-closed');
     this._isOpen = true;
+    this._toggle.attr('aria-expanded', 'true');
     if (!silent) this._tree.saveState();
   }
 
   close(silent) {
     this._el.addClass('is-closed');
     this._isOpen = false;
+    this._toggle.attr('aria-expanded', 'false');
     if (!silent) this._tree.saveState();
   }
 
-  toggle() {
-    if (this._el.hasClass('is-filtered')) {
-      return false;
-    }
+  show() {
+    this._el.show();
+  }
 
+  hide() {
+    this._el.hide();
+  }
+
+  toggle() {
     this._isOpen ? this.close() : this.open();
     return false;
   }
