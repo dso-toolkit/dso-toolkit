@@ -1,11 +1,11 @@
 <form {{ className(formModifier) }}>
   {% for fieldset in fieldsets %}
-    <fieldset>
-      <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
+    {# <fieldset>
+      <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend> #}
       {% for group in fieldset.groups %}
         {% render '@group-' + group.inputType, merge(group, {prefix: _self.name}) %}
       {% endfor %}
-    </fieldset>
+    {# </fieldset> #}
   {% endfor %}
   {% if buttons %}
     <div class="dso-form-buttons">
