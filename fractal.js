@@ -3,11 +3,12 @@
 const path = require('path');
 
 const fractal = module.exports = require('@frctl/fractal').create();
-const collator = require('./.fractal/collator.js');
+const collator = require('./fractal/collator.js');
 
-const nunjucksFilters = require('./nunjucks/filters.js');
-const nunjucksGlobals = require('./nunjucks/globals.js');
-const nunjucksExtensions = require('./nunjucks/extensions.js');
+const nunjucksFilters = require('./fractal/nunjucks/filters.js');
+const shoppingCartFilters = require('./components/Componenten/shopping-cart/shopping-cart.filters');
+const nunjucksGlobals = require('./fractal/nunjucks/globals.js');
+const nunjucksExtensions = require('./fractal/nunjucks/extensions.js');
 
 fractal.web.set('builder.dest', __dirname + '/build/library');
 
@@ -18,7 +19,8 @@ const nunj = require("@frctl/nunjucks")({
     // Nunjucks environment opts: https://mozilla.github.io/nunjucks/api.html#configure
   },
   filters: {
-    ...nunjucksFilters
+    ...nunjucksFilters,
+    ...shoppingCartFilters
   },
   globals: {
     ...nunjucksGlobals
@@ -42,12 +44,12 @@ fractal.docs.set('label', 'Documentatie');
 
 fractal.web.set('static.path', path.join(__dirname, 'build/toolkit'));
 fractal.web.set('server.syncOptions', {
-  files: ['build/toolkit/**/*'],
+  files: ['build/toolkit/**/*', 'theme/dist/**/*'],
   notify: false
 });
 
-const theme = require('@frctl/mandelbrot')({
-  favicon: '/_assets/images/favicon.ico',
+const theme = require('./theme')({
+  favicon: '/theme/favicon.ico',
   nav: ['docs', 'components'],
   format: 'yaml',
   panels: ['notes', 'component', 'html', 'view', 'context'], // Todo: 'info'
@@ -56,16 +58,11 @@ const theme = require('@frctl/mandelbrot')({
     '/_highlight.js_styles/github.css'
   ],
   scripts: [
-    'https://cdn.jsdelivr.net/npm/vue',
-    'default',
-    '/dso-toolkit-scripts.js'
+    'default'
   ],
   lang: 'nl'
 });
 
-theme.addLoadPath(__dirname + '/.fractal/theme-overrides');
-theme.addStatic(__dirname + '/.fractal/statics', '_statics');
-theme.addStatic(__dirname + '/assets', '_assets');
 theme.addStatic(__dirname + '/node_modules/highlight.js/styles', '_highlight.js_styles');
 
 fractal.web.theme(theme);

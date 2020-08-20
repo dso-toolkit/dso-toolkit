@@ -9,6 +9,7 @@ context:
           active: true
         - label: Toegankelijkheid
       - label: Versies
+        collapsed: true
         items:
         - label: Alle versies
     - label: Fundament

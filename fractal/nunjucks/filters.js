@@ -1,4 +1,3 @@
-const shoppingCartFilters = require('../components/Componenten/shopping-cart/shopping-cart.filters');
 const path = require('path');
 
 module.exports = {
@@ -32,6 +31,5 @@ module.exports = {
   },
   prefix: function prefix(arr, prefix) {
     return arr.map(value => `${prefix}${value}`);
-  },
-  ...shoppingCartFilters
+  }
 };
