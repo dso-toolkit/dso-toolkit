@@ -16,20 +16,17 @@
           <td>Veld</td>
           <td class="plain-content">
             <form>
-              <fieldset>
-                <legend class="sr-only">Contact</legend>
-                <div class="form-group dso-input dso-input-text">
-                  <div class="dso-label-container">
-                    <label for="form-vertical-name" class="control-label">
-                      Naam
-                    </label>
-                  </div>
-                  <div class="dso-field-container">
-                    <input type="text" id="form-vertical-name" class="form-control">
-                    <p class="dso-help-block" id="helpTextId_form-vertical-name">Instructie tekst buiten een tekstveld.</p>
-                  </div>
+              <div class="form-group dso-input dso-input-text">
+                <div class="dso-label-container">
+                  <label for="name" class="control-label">
+                    Naam
+                  </label>
                 </div>
-              </fieldset>
+                <div class="dso-field-container">
+                  <input type="text" id="name" class="form-control">
+                  <p class="dso-help-block" id="helpTextId_name">Instructie tekst buiten een tekstveld.</p>
+                </div>
+              </div>
             </form>
           </td>
         </tr>
@@ -37,21 +34,18 @@
           <td>Veld met fout</td>
           <td class="plain-content">
             <form>
-              <fieldset>
-                <legend class="sr-only">Contact</legend>
-                <div class="form-group dso-input dso-input-text dso-invalid dso-required">
-                  <div class="dso-label-container">
-                    <label for="form-vertical-name2" class="control-label">
-                      Naam
-                    </label>
-                  </div>
-                  <div class="dso-field-container">
-                    <input type="text" id="form-vertical-name2" class="form-control" required>
-                    <p class="dso-message">Verplicht veld niet gevuld.</p>
-                    <p class="dso-help-block" id="helpTextId_form-vertical-name2">Instructie tekst buiten een tekstveld.</p>
-                  </div>
+              <div class="form-group dso-input dso-input-text dso-invalid dso-required">
+                <div class="dso-label-container">
+                  <label for="name2" class="control-label">
+                    Naam
+                  </label>
                 </div>
-              </fieldset>
+                <div class="dso-field-container">
+                  <input type="text" id="name2" class="form-control" required>
+                  <p class="dso-message">Verplicht veld niet gevuld</p>
+                  <p class="dso-help-block" id="helpTextId_name2">Instructie tekst buiten een tekstveld.</p>
+                </div>
+              </div>
             </form>
           </td>
         </tr>
