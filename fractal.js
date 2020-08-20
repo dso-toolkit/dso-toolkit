@@ -58,8 +58,7 @@ const theme = require('./theme')({
     '/_highlight.js_styles/github.css'
   ],
   scripts: [
-    'default',
-    '/dso-toolkit-scripts.js'
+    'default'
   ],
   lang: 'nl'
 });

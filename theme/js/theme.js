@@ -13,6 +13,7 @@ const Filter = require('./components/filter');
 const Pen = require('./components/pen');
 
 require('./versions');
+require('./resize-iframe');
 
 window.fractal = {
   events: events
