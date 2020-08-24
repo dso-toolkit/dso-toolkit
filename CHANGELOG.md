@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Progress indicator zonder witte achtergrond, enkel onbepaalde tijd ondersteunen (#734)
+
 ### 11.1.0
 
 ### Changed
