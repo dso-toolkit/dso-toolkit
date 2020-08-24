@@ -37,5 +37,13 @@ module.exports = {
     return attrs.length === 0
       ? ''
       : this.env.filters.safe(attrs.join(' '));
+  },
+  merge: function merge(...objects) {
+    return Object.assign({}, ...objects);
+  },
+  generateLocalId: function localId(prefix, id) {
+    return prefix
+      ? `${prefix}-${id}`
+      : id;
   }
 };

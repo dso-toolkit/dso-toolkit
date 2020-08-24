@@ -8,6 +8,7 @@ notes: |
   https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
 
 context:
+  id: tekeningen
   description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
   files:
     - filename: Schetsen_en_foto’s_1.pdf

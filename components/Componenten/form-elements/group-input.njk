@@ -1,6 +1,8 @@
+{% set localId = generateLocalId(prefix, id) %}
+
 <div {{ className('form-group dso-input', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
-    <label for="{{ id }}" class="control-label">
+    <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>
     {% if infoText %}
@@ -8,7 +10,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <input type="{{ type }}" id="{{ id }}" class="form-control"
+    <input type="{{ type }}" id="{{ localId }}" class="form-control"
       {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
       {% if size %} size="{{ size }}"{% endif %}
       {% if value %} value="{{ value }}"{% endif %}
@@ -26,7 +28,7 @@
       {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: id} %}
+      {% render '@help-block', {helpText: helpText, id: localId} %}
     {% endif %}
   </div>
   {% if infoOpen %}
