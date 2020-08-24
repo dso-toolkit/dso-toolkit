@@ -40,17 +40,17 @@ $dso-progress-indicator-border-color: $grasgroen;
       transform-origin: center;
 
       circle {
+        animation-duration: 8000ms;
+        animation-iteration-count: infinite;
         animation-name: progress-spinner-stroke-rotate;
+        animation-timing-function: cubic-bezier(035, 0, .25, 1);
+        fill: transparent;
+        stroke: $dso-progress-indicator-border-color;
         stroke-dasharray: 282.743px;
         stroke-width: 12.5%;
-        transition-property: stroke;
-        animation-duration: 8000ms;
-        animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
-        animation-iteration-count: infinite;
-        fill: transparent;
         transform-origin: center;
         transition: stroke-dashoffset 225ms linear;
-        stroke: $dso-progress-indicator-border-color;
+        transition-property: stroke;
       }
     }
   }
