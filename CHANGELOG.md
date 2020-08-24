@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Form, Group files: "Verwijderen" en "Vertrouwelijk selectievakje" refereren naar bestandsnaam met `aria-describedby` (#709)
+* Pagination: Huidige pagina markeren met `aria-current="page"` (#713)
 
 ### 11.1.0
 
