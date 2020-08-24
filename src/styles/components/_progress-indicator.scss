@@ -1,8 +1,4 @@
 $dso-progress-indicator-border-color: $grasgroen;
-$dso-progress-indicator-looping-time: 2s;
-$dso-progress-indicator-looping-duration: infinite;
-
-$dso-progress-indicator-timed-durations: 1, 2, 5, 10, 30, 60 !default;
 
 .dso-progress-indicator {
   .dso-progress-indicator-spinner {
@@ -24,22 +20,7 @@ $dso-progress-indicator-timed-durations: 1, 2, 5, 10, 30, 60 !default;
       &::before {
         height: $dso-progress-indicator-size;
         width: $dso-progress-indicator-size;
-        // border-radius: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} 0 0 #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
-        // height: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
-        // left: -#{$dso-progress-indicator-border-width / 2};
-        // top: -#{$dso-progress-indicator-border-width / 2};
-        // transform-origin: #{$dso-progress-indicator-size / 2 + $dso-progress-indicator-border-width / 2} #{$dso-progress-indicator-size / 2 + $dso-progress-indicator-border-width / 2};
-        // width:  #{$dso-progress-indicator-size / 2 + $dso-progress-indicator-border-width};
       }
-
-      // &::after {
-      //   border-radius: 0 #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} #{$dso-progress-indicator-size + $dso-progress-indicator-border-width} 0;
-      //   height: #{$dso-progress-indicator-size + $dso-progress-indicator-border-width};
-      //   left:  #{$dso-progress-indicator-size / 2 - $dso-progress-indicator-border-width / 2};
-      //   top: -#{$dso-progress-indicator-border-width / 2};
-      //   transform-origin: #{$dso-progress-indicator-border-width / 2}  #{$dso-progress-indicator-size / 2 + $dso-progress-indicator-border-width / 2};
-      //   width:  #{$dso-progress-indicator-size / 2 + $dso-progress-indicator-border-width};
-      // }
     }
   }
 }
@@ -47,10 +28,9 @@ $dso-progress-indicator-timed-durations: 1, 2, 5, 10, 30, 60 !default;
 .dso-progress-indicator-looping {
   .dso-progress-indicator-spinner {
     animation: progress-spinner-rotate 2000ms linear infinite;
+    line-height: 0;
 
-    &::before {
-      // content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' focusable='false' viewBox='0 0 100 100'%3E%3Ccircle cx='50%25' cy='50%25' r='42.5' style='animation-name: progress-spinner-stroke-rotate; stroke-dasharray: 282.743px; stroke-width: 12.5%25; transition-property: stroke; animation-duration: 8000ms; animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1); animation-iteration-count: infinite; fill: transparent; transform-origin: center; transition: stroke-dashoffset 225ms linear; stroke: %233f51b5;'%3E%3C/circle%3E%3C/svg%3E%0A");
-      // content: "";
+    svg {
       display: block;
       left: 0;
       overflow: visible;
@@ -58,31 +38,21 @@ $dso-progress-indicator-timed-durations: 1, 2, 5, 10, 30, 60 !default;
       top: 0;
       transform: rotate(-90deg);
       transform-origin: center;
+
+      circle {
+        animation-name: progress-spinner-stroke-rotate;
+        stroke-dasharray: 282.743px;
+        stroke-width: 12.5%;
+        transition-property: stroke;
+        animation-duration: 8000ms;
+        animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+        animation-iteration-count: infinite;
+        fill: transparent;
+        transform-origin: center;
+        transition: stroke-dashoffset 225ms linear;
+        stroke: $dso-progress-indicator-border-color;
+      }
     }
-    // color: $dso-progress-indicator-border-color;
-    // transform: translateZ(0);
-
-    // &,
-    // &::before,
-    // &::after {
-    //   border-radius: 50%;
-    // }
-
-    // &::before,
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    // }
-
-    // &::before {
-    //   animation: rotation $dso-progress-indicator-looping-time ease $dso-progress-indicator-looping-duration 1.5s;
-    //   background: $wit;
-    // }
-
-    // &::after {
-    //   animation: rotation $dso-progress-indicator-looping-time ease $dso-progress-indicator-looping-duration;
-    //   background: $wit;
-    // }
   }
 
   &.dso-small,

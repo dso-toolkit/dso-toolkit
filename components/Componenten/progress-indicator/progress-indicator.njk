@@ -1,6 +1,7 @@
 <div class="dso-progress-indicator dso-progress-indicator-{% if time %}timed dso-progress-indicator-duration-{{time}}{% else %}looping{% endif %} dso-{{- size -}}" role="progressbar" aria-valuetext="{{ status }}">
   <div class="dso-progress-indicator-spinner">
-    <img src="{{ '/images/spinner.svg' | path }}" />
+    <svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid meet' focusable='false' viewBox='0 0 100 100'><circle cx='50%' cy='50%' r='45'></circle></svg>
+    {# <img src="{{ '/images/spinner.svg' | path }}" /> #}
   </div>
   <span class="dso-progress-indicator-label">{{- status -}}</span>
 </div>
