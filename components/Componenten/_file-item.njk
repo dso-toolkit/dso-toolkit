@@ -1,9 +1,9 @@
 <li>
-  <div class="dso-filename">
+  <div class="dso-filename" id="file-filename-{{ pos }}">
     {{ filename }}
   </div>
   <div class="dso-confidential dso-selectable">
-    <input type="checkbox" id="input-confirm-{{ pos }}" name="" value="" {% if confidential %} checked {% endif %} />
+    <input type="checkbox" id="input-confirm-{{ pos }}" name="" value="" {{ attributes([confidential, 'checked']) }} aria-describedby="file-filename-{{ pos }}" />
     <label for="input-confirm-{{ pos }}">
       Vertrouwelijk
     </label>
@@ -11,5 +11,5 @@
   {% if confidential %}
     {%- render '@icon', {icon: 'status-warning'} -%}
   {% endif %}
-  {% render '@button', {label: 'Verwijder document', modifier: 'link dso-remove', type: 'button'}, true -%}
+  {% render '@button', {label: 'Verwijder document', modifier: 'link dso-remove', type: 'button', ariaDescribedby: 'file-filename-' + pos }, true -%}
 </li>

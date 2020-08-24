@@ -19,5 +19,23 @@ module.exports = {
     return classes.length === 0
       ? ''
       : this.env.filters.safe(`class="${classes.join(' ')}"`);
+  },
+  attributes: function attributes () {
+    const attrs = [...arguments].reduce((total, [condition, attribute, value]) => {
+      if (condition) {
+        if (!value) {
+          total.push(attribute);
+        }
+        else {
+          total.push(`${attribute}="${value}"`);
+        }
+      }
+
+      return total;
+    }, []);
+
+    return attrs.length === 0
+      ? ''
+      : this.env.filters.safe(attrs.join(' '));
   }
 };
