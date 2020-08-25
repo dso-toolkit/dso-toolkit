@@ -37,14 +37,14 @@ class Browser {
     tabs.on('click', e => {
       const link = $(e.target).closest('a');
       const tab = link.parent();
-      tabs.removeClass(ac);
+      tabs.removeClass(ac).find('a').attr('aria-selected', 'false');
       storage.set(`browser.selectedTabIndex`, tabs.index(tab));
-      tab.addClass(ac);
+      tab.addClass(ac).find('a').attr('aria-selected', 'true');
       this._tabPanels.removeClass(ac);
       this._tabPanels.filter(link.attr('href')).addClass(ac);
       return false;
     });
-    tabs.removeClass('is-active');
+    tabs.removeClass('is-active').find('a').attr('aria-selected', 'false');
     tabs.eq(selectedIndex).find('a').trigger('click');
   }
 
