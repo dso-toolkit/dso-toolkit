@@ -7,6 +7,7 @@
 .dso-whitebox,
 .dso-highlight-box {
   &.dso-has-counter {
+    margin-top: $dso-highlight-box-margin-top;
     padding-top: $u5;
     position: relative;
   }
