@@ -11,6 +11,7 @@ const framer = require('./components/frame');
 const Tree = require('./components/tree');
 const Filter = require('./components/filter');
 const Pen = require('./components/pen');
+const VersionSelector = require('./components/version-selector');
 
 require('./versions');
 require('./resize-iframe');
@@ -25,6 +26,8 @@ new Filter($('#menu-filter'), navTrees);
 let pens = [];
 
 loadPen();
+
+new VersionSelector();
 
 if (frctl.env == 'server') {
   doc.pjax('a[data-pjax], code a[href], .Prose a[href]:not([data-no-pjax]), .Browser a[href]:not([data-no-pjax])', '#pjax-container', {
