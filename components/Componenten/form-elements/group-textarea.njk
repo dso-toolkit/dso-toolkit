@@ -1,6 +1,8 @@
+{% set localId = generateLocalId(prefix, id) %}
+
 <div {{ className('form-group', 'dso-textarea', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
-    <label for="{{ id }}" class="control-label">
+    <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>
     {% if infoText %}
@@ -8,7 +10,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <textarea class="form-control" id="{{ id }}"
+    <textarea class="form-control" id="{{ localId }}"
       {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
       {% if rows %} rows="{{ rows }}"{% endif %}
       {% if disabled %} disabled{% endif %}
@@ -19,7 +21,7 @@
       {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: id} %}
+      {% render '@help-block', {helpText: helpText, id: localId} %}
     {% endif %}
   </div>
   {% if infoOpen %}

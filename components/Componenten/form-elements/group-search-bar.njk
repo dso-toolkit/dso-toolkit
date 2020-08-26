@@ -1,6 +1,8 @@
+{% set localId = generateLocalId(prefix, id) %}
+
 <div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
-    <label for="{{ id }}" class="control-label">
+    <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>
     {% if infoText %}
@@ -8,7 +10,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    {% render '@search-bar', searchBar %}
+    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id)}) %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true">
         {%- render '@icon', {icon: inputIcon} -%}
@@ -18,7 +20,7 @@
       {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: id} %}
+      {% render '@help-block', {helpText: helpText, id: localId} %}
     {% endif %}
   </div>
   {% if infoOpen %}

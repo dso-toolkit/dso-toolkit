@@ -1,3 +1,5 @@
+{% set localId = generateLocalId(prefix, id ) %}
+
 <fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <legend class="dso-label-container">
     <label class="control-label">
@@ -10,11 +12,11 @@
   <div class="dso-field-container">
     {% for option in options %}
       <div class="dso-selectable">
-        <input type="checkbox" id="{{ id }}-{{ loop.index0 }}" name="{{ id }}" value="{{ option.value }}"
+        <input type="checkbox" id="{{ localId }}-{{ loop.index0 }}" name="{{ id }}" value="{{ option.value }}"
           {% if option.disabled %} disabled{% endif %}
           {% if option.checked %} checked{% endif %}
           {% if option.required %} required{% endif %}>
-        <label for="{{ id }}-{{ loop.index0 }}">
+        <label for="{{ localId }}-{{ loop.index0 }}">
           {{ option.label }}
         </label>
         {% if option.infoText %}
@@ -29,7 +31,7 @@
       {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: id} %}
+      {% render '@help-block', {helpText: helpText, id: localId} %}
     {% endif %}
   </div>
   {% if infoOpen %}

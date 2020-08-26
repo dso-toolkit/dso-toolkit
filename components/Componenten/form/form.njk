@@ -3,7 +3,7 @@
     <fieldset>
       <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
       {% for group in fieldset.groups %}
-        {% render '@group-' + group.inputType, group %}
+        {% render '@group-' + group.inputType, merge(group, {prefix: _self.name}) %}
       {% endfor %}
     </fieldset>
   {% endfor %}

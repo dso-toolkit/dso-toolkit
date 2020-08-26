@@ -1,10 +1,12 @@
+{% set localId = generateLocalId(prefix, id) %}
+
 <div {{ className('form-group', 'dso-files', [required, 'dso-required']) }}>
   <div class="dso-description dso-rich-content">
     {{ description }}
   </div>
   <ul class="dso-filelist">
     {% for file in files %}
-      {% render '@file-item', {filename: file.filename, pos: loop.index0, confidential: file.confidential} %}
+      {% render '@file-item', {id: localId, filename: file.filename, pos: loop.index0, confidential: file.confidential} %}
     {% endfor %}
   </ul>
   {% if files | map('confidential') | includes(true) %}
@@ -22,8 +24,8 @@
 
   <!-- To use an input type="file" element -->
   <div class="dso-file-upload">
-    <input type="file" id="file-upload" />
-    <label class="btn btn-link" for="file-upload">
+    <input type="file" id="{{ localId }}-file-upload" />
+    <label class="btn btn-link" for="{{ localId }}-file-upload">
       {% render '@icon' , {icon: 'plus'} -%}<span>Document toevoegen</span>
     </label>
   </div>

@@ -1,10 +1,12 @@
+{% set localId = generateLocalId(prefix, id) %}
+
 {% macro selectOption(value, label, selected) %}
   <option value="{{ value }}"{% if selected %} selected{% endif %}>{{ label }}</option>
 {% endmacro %}
 
 <div {{ className('form-group dso-select', [multiple, 'dso-multiple'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
-    <label for="{{ id }}" class="control-label">
+    <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>
     {% if infoText %}
@@ -12,7 +14,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <select id="{{ id }}" class="form-control"
+    <select id="{{ localId }}" class="form-control"
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
@@ -33,7 +35,7 @@
       {% render '@error-block', {errorText: errorText} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: id} %}
+      {% render '@help-block', {helpText: helpText, id: localId} %}
     {% endif %}
   </div>
   {% if infoOpen %}
