@@ -18,8 +18,4 @@
     {%- if not modifier or modifier.indexOf('btn') === -1 %} {% endif -%}
     {%- render '@icon', {icon: iconAfter or icon} %}
   {%- endif -%}
-
-  {%- if badge %}
-    {% render '@badge', badge %}
-  {%- endif -%}
 </a>
