@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Form, Group files: "Verwijderen" en "Vertrouwelijk selectievakje" refereren naar bestandsnaam met `aria-describedby` (#709)
 * Pagination: Huidige pagina markeren met `aria-current="page"` (#713)
 * Form: Info button voorzien van aria-expanded attribuut (#707)
+* Group-select; Bij aanwezigheid helpText, dan aria-describedby op select (#711)
 
 ### Fixed
 * Documentation: In voorbeeldpagina van formulieren kunnen dubbele id's voorkomen (#730)
