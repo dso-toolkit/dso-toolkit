@@ -15,6 +15,7 @@
   </div>
   <div class="dso-field-container">
     <select id="{{ localId }}" class="form-control"
+      {% if helpText %} aria-describedby="helpTextId_{{ localId }}"{% endif %}
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
