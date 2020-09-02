@@ -1,6 +1,6 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-<fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}>
+<fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}{% if helpText %} aria-describedby="helpTextId_{{ id }}"{% endif%}>
   <legend class="dso-label-container">
     <label class="control-label">
       {{ label }}

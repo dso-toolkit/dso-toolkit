@@ -5,16 +5,14 @@ collated: true
 context:
   __title: default
   id: input-radio
-  label: Maak een keuze
-  helpText: Kies een oneven getal
+  label: Kies soort auto
+  helpText: de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper
   options:
   - value: 1
-    label: een
+    label: benzine
     checked: true
   - value: 2
-    label: twee
-  - value: 3
-    label: drie
+    label: diesel
 variants:
 - name: input-radio-required
   context:
@@ -38,12 +36,10 @@ variants:
     errorText: Foutieve keuze
     options:
     - value: 1
-      label: een
+      label: benzine
     - value: 2
-      label: twee
+      label: diesel
       checked: true
-    - value: 3
-      label: drie
 - name: input-radio-valid
   context:
     __title: Geldig
@@ -54,12 +50,10 @@ variants:
     state: valid
     options:
     - value: 1
-      label: een
+      label: benzine
       checked: true
     - value: 2
-      label: twee
-    - value: 3
-      label: drie
+      label: diesel
 - name: input-radio-disabled
   context:
     __title: Disabled
@@ -68,13 +62,10 @@ variants:
     state: valid
     options:
     - value: 1
-      label: een
+      label: benzine
       disabled: true
     - value: 2
-      label: twee
-      disabled: true
-    - value: 3
-      label: drie
+      label: diesel
       checked: true
       disabled: true
 - name: input-radio-inline
