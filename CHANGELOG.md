@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Collator: Aria-hidden verwijderd op `dso-example-text` (#708)
 * Documentation: Teksten voor labels bij anchors aangepast (#704)
 * Highlight box top margin aanpassen (#738)
+* Documentation: Verwijderen van `<p>` in Lists component (#720)
 
 ### Added
 * Form, Group files: "Verwijderen" en "Vertrouwelijk selectievakje" refereren naar bestandsnaam met `aria-describedby` (#709)

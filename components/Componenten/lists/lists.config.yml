@@ -10,7 +10,7 @@ context:
     - text: Dapibus ac facilisis in
     - text: Morbi leo risus
     - text: Porta ac consectetur ac
-    - paragraph: Vestibulum at eros
+    - text: Vestibulum at eros
 variants:
   - name: ordered-list
     context:
