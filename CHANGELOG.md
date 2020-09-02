@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Documentation: In voorbeeldpagina van formulieren kunnen dubbele id's voorkomen (#730)
+* Documentation: Geselecteerde tab markeren met `aria-selected="true"`, overige tabs markeren met `aria-selected="false"`. (#706)
 
 ### 11.1.0
 
