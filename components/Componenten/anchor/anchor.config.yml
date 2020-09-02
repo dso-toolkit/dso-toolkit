@@ -9,7 +9,7 @@ variants:
   - name: download
     context:
       __title: download
-      label: Afvalkalender 2017
+      label: Download Afvalkalender 2017
       url: afvalkalender.pdf
       modifier: download
   - name: extern
@@ -23,28 +23,13 @@ variants:
       __title: icon
       icon: search
       iconOnly: true
-      label: Zoeken
+      label: Product zoeken
   - name: label
     context:
       __title: label
-      label: Zoeken
+      label: Product zoeken
   - name: iconLabel
     context:
       __title: icon label
       icon: search
-      label: zoeken
-  - name: iconBadge
-    context:
-      __title: icon badge
-      icon: search
-      iconOnly: true
-      label: zoeken
-      badge:
-        label: 4
-  - name: iconLabelBadge
-    context:
-      __title: icon label badge
-      icon: search
-      label: zoeken
-      badge:
-        label: 4
+      label: Product zoeken
