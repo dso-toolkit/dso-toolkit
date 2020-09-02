@@ -3,9 +3,16 @@
   flex-wrap: wrap;
 
   > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+
     > .dso-highlight-box {
-      height: calc(100% - #{$dso-highlight-box-margin-top});
+      height: 100%;
       min-height: auto;
+
+      &.dso-has-counter {
+        height: calc(100% - #{$dso-highlight-box-margin-top});
+      }
     }
 
     > .dso-whitebox {
