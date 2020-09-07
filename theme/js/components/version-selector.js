@@ -17,16 +17,34 @@ class VersionSelector {
     return window.location.pathname.split('/')[1] || '';
   }
 
-  toggleSelector() {
+  _toggleSelector(e, hint) {
+    e.stopPropagation();
     const button = $('#version_selector_button');
     const dropdownMenu = $('#version_selector_dropdown_menu');
-    if (button.attr('aria-expanded') === 'true') {
+    if (button.attr('aria-expanded') === 'true' || hint === 'close') {
       dropdownMenu.hide();
       button.attr('aria-expanded', 'false');
+      $(window).off('.version-selector');
     }
     else {
       dropdownMenu.show();
       button.attr('aria-expanded', 'true');
+      $(window).on('click.version-selector', this._windowClicked.bind(this));
+      $(window).on('keydown.version-selector', this._windowKeyDown.bind(this));
+    }
+  }
+
+  _windowClicked(e) {
+    if ($(e.target).parents('.toolkit-version-selector').length === 1) {
+      return;
+    }
+
+    this._toggleSelector(e, 'close');
+  }
+
+  _windowKeyDown(e) {
+    if (e.key == 'Escape') {
+      this._toggleSelector(e, 'close');
     }
   }
 
@@ -90,7 +108,7 @@ class VersionSelector {
     $('#version_selector_branches').append(versions.topicBranches.map(createListItem));
 
     const button = $('#version_selector_button');
-    button.on('click', this.toggleSelector).trigger('click');
+    button.on('click', this._toggleSelector.bind(this)).trigger('click');
     if (this.currentVersion) {
       const versionLabel = this.currentVersion[0] === '_' ? `#${this.currentVersion.substr(1)}` : this.currentVersion;
       button.append(`<span class="sr-only">Geselecteerde versie: </span>${versionLabel}<span class="sr-only">; Selecteer versies</span>`);
