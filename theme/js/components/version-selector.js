@@ -19,14 +19,17 @@ class VersionSelector {
 
   _toggleSelector(e, hint) {
     e.stopPropagation();
+    const navItem = $('#version_selector_nav_item');
     const button = $('#version_selector_button');
     const dropdownMenu = $('#version_selector_dropdown_menu');
     if (button.attr('aria-expanded') === 'true' || hint === 'close') {
+      navItem.removeClass('open');
       dropdownMenu.hide();
       button.attr('aria-expanded', 'false');
       $(window).off('.version-selector');
     }
     else {
+      navItem.addClass('open');
       dropdownMenu.show();
       button.attr('aria-expanded', 'true');
       $(window).on('click.version-selector', this._windowClicked.bind(this));
@@ -88,20 +91,18 @@ class VersionSelector {
       return li;
     };
 
-    container.prepend(
-      '<li>' +
-      '<div class="dropdown open">' +
-      '<button type="button" class="btn btn-default dropdown-toggle" id="version_selector_button" aria-haspopup="true" aria-expanded="true" />' +
-      '<div class="dropdown-menu dso-checkable" id="version_selector_dropdown_menu">' +
-      '<h2 class="dso-group-label">Versies</h2>' +
-      '<ul aria-labelledby="version_selector_button" id="version_selector_releases"></ul>' +
-      '<ul aria-labelledby="version_selector_button" id="version_selector_master"></ul>' +
-      '<h2 class="dso-group-label">Branch releases</h2>' +
-      '<ul aria-labelledby="version_selector_button" id="version_selector_branches"></ul>' +
-      '</div>' +
-      '</div>' +
-      '</li>'
-    );
+    container.prepend(`
+      <li class="navbar-text dropdown" id="version_selector_nav_item">
+      <button type="button" class="btn btn-link dropdown-toggle" id="version_selector_button" aria-haspopup="true" aria-expanded="true" />
+      <div class="dropdown-menu dso-checkable" id="version_selector_dropdown_menu">
+      <h2 class="dso-group-label">Versies</h2>
+      <ul aria-labelledby="version_selector_button" id="version_selector_releases"></ul>
+      <ul aria-labelledby="version_selector_button" id="version_selector_master"></ul>
+      <h2 class="dso-group-label">Branch releases</h2>
+      <ul aria-labelledby="version_selector_button" id="version_selector_branches"></ul>
+      </div>
+      </li>
+    `);
 
     $('#version_selector_releases').append(versions.releases.map(createListItem));
     $('#version_selector_master').append([{ version: 'master' }].map(createListItem));
