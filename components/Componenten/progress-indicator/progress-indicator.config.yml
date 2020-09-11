@@ -1,35 +1,18 @@
 notes: |
-  De progress indicator is er in drie groottes (small: 24px, medium: 32px, large: 48px) en twee varianten: onbepaalde tijd en bepaalde tijd. 
-  Bij de variant met bepaalde tijd is voorzien in een aantal voorgedefinieerde waarden (1, 2, 5, 10, 30, 60 seconden). 
-  Deze kunnen worden overruled door het opnieuw genereren van de css bestanden vanuit scss, met deze variabele: `$dso-progress-indicator-timed-durations: 1, 2, 5, 10, 30, 60;` 
+  De progress indicator is er in drie groottes (small: 24px, medium: 32px, large: 48px). 
 status: ready
 collated: true
 context:
-  __title: Spinner 24px groot, onbepaalde tijd
+  __title: Spinner 24px groot
   status: Een moment geduld alstublieft.
   size: small
 variants:
 - name: spinner-medium-infinite
   context:
-    __title: Spinner 32px groot, onbepaalde tijd
+    __title: Spinner 32px groot
     size: medium
 - name: spinner-large-infinite
   context:
-    __title: Spinner 48px groot, onbepaalde tijd
+    __title: Spinner 48px groot
     size: large
-- name: spinner-small-2s
-  context:
-    __title: Spinner 24px groot, 2 seconden
-    status: Een moment geduld alstublieft.
-    size: small
-    time: 2s
-- name: spinner-medium-5s
-  context:
-    __title: Spinner 32px groot, 5 seconden
-    size: medium
-    time: 5s
-- name: spinner-large-10s
-  context:
-    __title: Spinner 48px groot, 10 seconden
-    size: large
-    time: 10s
+

@@ -1,36 +1,30 @@
 
 <!-- Start: @group-radios--default -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>default</h2>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios">
+    <fieldset class="form-group dso-radios" aria-describedby="helpTextId_input-radio">
       <legend class="dso-label-container">
         <label class="control-label">
-          Maak een keuze
+          Kies soort auto
         </label>
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
           <input type="radio" id="input-radio-0" name="input-radio" value="1" checked>
           <label for="input-radio-0">
-            een
+            benzine
           </label>
         </div>
         <div class="dso-selectable">
           <input type="radio" id="input-radio-1" name="input-radio" value="2">
           <label for="input-radio-1">
-            twee
+            diesel
           </label>
         </div>
-        <div class="dso-selectable">
-          <input type="radio" id="input-radio-2" name="input-radio" value="3">
-          <label for="input-radio-2">
-            drie
-          </label>
-        </div>
-        <p class="dso-help-block" id="helpTextId_input-radio">Kies een oneven getal</p>
+        <p class="dso-help-block" id="helpTextId_input-radio">de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper</p>
       </div>
     </fieldset>
   </div>
@@ -41,38 +35,32 @@
 
 <!-- Start: @group-radios--input-radio-required -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Verplicht</h2>
     <p>Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code> op de <code>.form-group.dso-radios</code></p>
     <p>Radiobuttons hebben (net zoals checkboxen) een <code>fieldset.form-group</code> als root element, geen <code>div.form-group</code></p>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios dso-required">
+    <fieldset class="form-group dso-radios dso-required" aria-describedby="helpTextId_input-radio-required">
       <legend class="dso-label-container">
         <label class="control-label">
-          Maak een keuze
+          Kies soort auto
         </label>
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
           <input type="radio" id="input-radio-required-0" name="input-radio-required" value="1" checked>
           <label for="input-radio-required-0">
-            een
+            benzine
           </label>
         </div>
         <div class="dso-selectable">
           <input type="radio" id="input-radio-required-1" name="input-radio-required" value="2">
           <label for="input-radio-required-1">
-            twee
+            diesel
           </label>
         </div>
-        <div class="dso-selectable">
-          <input type="radio" id="input-radio-required-2" name="input-radio-required" value="3">
-          <label for="input-radio-required-2">
-            drie
-          </label>
-        </div>
-        <p class="dso-help-block" id="helpTextId_input-radio-required">Kies een oneven getal</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-required">de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper</p>
       </div>
     </fieldset>
   </div>
@@ -83,38 +71,32 @@
 
 <!-- Start: @group-radios--input-radio-invalid -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Ongeldig</h2>
     <p>Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-radios</code>.</p>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios dso-invalid dso-required">
+    <fieldset class="form-group dso-radios dso-invalid dso-required" aria-describedby="helpTextId_input-radio-invalid">
       <legend class="dso-label-container">
         <label class="control-label">
-          Maak een keuze
+          Kies soort auto
         </label>
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
           <input type="radio" id="input-radio-invalid-0" name="input-radio-invalid" value="1">
           <label for="input-radio-invalid-0">
-            een
+            benzine
           </label>
         </div>
         <div class="dso-selectable">
           <input type="radio" id="input-radio-invalid-1" name="input-radio-invalid" value="2" checked>
           <label for="input-radio-invalid-1">
-            twee
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="radio" id="input-radio-invalid-2" name="input-radio-invalid" value="3">
-          <label for="input-radio-invalid-2">
-            drie
+            diesel
           </label>
         </div>
         <p class="dso-message">Foutieve keuze</p>
-        <p class="dso-help-block" id="helpTextId_input-radio-invalid">Kies een oneven getal</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-invalid">de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper</p>
       </div>
     </fieldset>
   </div>
@@ -125,37 +107,31 @@
 
 <!-- Start: @group-radios--input-radio-valid -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Geldig</h2>
     <p>Indien een radio groep ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.</p>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios dso-valid dso-required">
+    <fieldset class="form-group dso-radios dso-valid dso-required" aria-describedby="helpTextId_input-radio-valid">
       <legend class="dso-label-container">
         <label class="control-label">
-          Maak een keuze
+          Kies soort auto
         </label>
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
           <input type="radio" id="input-radio-valid-0" name="input-radio-valid" value="1" checked>
           <label for="input-radio-valid-0">
-            een
+            benzine
           </label>
         </div>
         <div class="dso-selectable">
           <input type="radio" id="input-radio-valid-1" name="input-radio-valid" value="2">
           <label for="input-radio-valid-1">
-            twee
+            diesel
           </label>
         </div>
-        <div class="dso-selectable">
-          <input type="radio" id="input-radio-valid-2" name="input-radio-valid" value="3">
-          <label for="input-radio-valid-2">
-            drie
-          </label>
-        </div>
-        <p class="dso-help-block" id="helpTextId_input-radio-valid">Kies een oneven getal</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-valid">de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper</p>
       </div>
     </fieldset>
   </div>
@@ -166,36 +142,30 @@
 
 <!-- Start: @group-radios--input-radio-disabled -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Disabled</h2>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios dso-valid dso-required">
+    <fieldset class="form-group dso-radios dso-valid dso-required" aria-describedby="helpTextId_input-radio-disabled">
       <legend class="dso-label-container">
         <label class="control-label">
-          Maak een keuze
+          Kies soort auto
         </label>
       </legend>
       <div class="dso-field-container">
         <div class="dso-selectable">
           <input type="radio" id="input-radio-disabled-0" name="input-radio-disabled" value="1" disabled>
           <label for="input-radio-disabled-0">
-            een
+            benzine
           </label>
         </div>
         <div class="dso-selectable">
-          <input type="radio" id="input-radio-disabled-1" name="input-radio-disabled" value="2" disabled>
+          <input type="radio" id="input-radio-disabled-1" name="input-radio-disabled" value="2" disabled checked>
           <label for="input-radio-disabled-1">
-            twee
+            diesel
           </label>
         </div>
-        <div class="dso-selectable">
-          <input type="radio" id="input-radio-disabled-2" name="input-radio-disabled" value="3" disabled checked>
-          <label for="input-radio-disabled-2">
-            drie
-          </label>
-        </div>
-        <p class="dso-help-block" id="helpTextId_input-radio-disabled">Kies een oneven getal</p>
+        <p class="dso-help-block" id="helpTextId_input-radio-disabled">de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper</p>
       </div>
     </fieldset>
   </div>
@@ -206,7 +176,7 @@
 
 <!-- Start: @group-radios--input-radio-inline -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Inline</h2>
     <p>Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.</p>
   </div>
@@ -241,17 +211,17 @@
 
 <!-- Start: @group-radios--input-radio-inline-info -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Infobutton</h2>
     <p>Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.</p>
   </div>
   <div class="dso-example">
-    <fieldset class="form-group dso-radios dso-required">
+    <fieldset class="form-group dso-radios dso-required" aria-describedby="helpTextId_input-radio-inline-info">
       <legend class="dso-label-container">
         <label class="control-label">
           Gaat het om de bouw van één of meer woningen?
         </label>
-        <button type="button" class="btn dso-info-button dso-open">
+        <button type="button" class="btn dso-info-button dso-open" aria-expanded="true">
           <span class="sr-only">
     Toelichting
   </span>
@@ -263,7 +233,7 @@
           <label for="input-radio-inline-info-0">
             ja
           </label>
-          <button type="button" class="btn dso-info-button dso-open">
+          <button type="button" class="btn dso-info-button dso-open" aria-expanded="true">
             <span class="sr-only">
     Toelichting
   </span>
@@ -287,7 +257,7 @@
           <label for="input-radio-inline-info-1">
             nee
           </label>
-          <button type="button" class="btn dso-info-button">
+          <button type="button" class="btn dso-info-button" aria-expanded="">
             <span class="sr-only">
     Toelichting
   </span>

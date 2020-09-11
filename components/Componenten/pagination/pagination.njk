@@ -21,7 +21,7 @@
       </li>
     {% endif %}
     <li class="active">
-      <span>{{ current }}</span>
+      <span aria-current="page">{{ current }}</span>
     </li>
     {% if current <= (count - 2) and ((current <= 3 and count <= 5) or (current !== 3 and count > 5)) %}
       <li>

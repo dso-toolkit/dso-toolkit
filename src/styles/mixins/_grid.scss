@@ -41,7 +41,12 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     height: 400px;
-    padding-top: 2rem;
+
+    &,
+    &:not(.dso-featured):first-child {
+      margin-bottom: $u4;
+      padding-top: 2rem;
+    }
   }
 
   &.dso-featured {

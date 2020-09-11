@@ -1,7 +1,9 @@
-.dso-whitebox {
-  &.dso-has-counter {
-    min-height: $dso-whitebox-min-height + $u5;
-  }
+.dso-whitebox.dso-has-counter {
+  min-height: $dso-whitebox-min-height + $u5;
+}
+
+.dso-highlight-box.dso-has-counter {
+  margin-top: $dso-highlight-box-margin-top;
 }
 
 .dso-whitebox,

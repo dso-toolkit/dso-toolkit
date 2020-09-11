@@ -5,6 +5,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 11.2.0
+
+### Changed
+* Collator: Aria-hidden verwijderd op `dso-example-text` (#708)
+* Documentation: Teksten voor labels bij anchors aangepast (#704)
+* Highlight box top margin aanpassen (#738)
+* Documentation: Verwijderen van `<p>` in Lists component (#720)
+
+### Added
+* Form, Group files: "Verwijderen" en "Vertrouwelijk selectievakje" refereren naar bestandsnaam met `aria-describedby` (#709)
+* Pagination: Huidige pagina markeren met `aria-current="page"` (#713)
+* Form: Info button voorzien van aria-expanded attribuut (#707)
+* Group-select; Bij aanwezigheid helpText, dan aria-describedby op select (#711)
+* Group-radio: Bij aanwezigheid helpText, `aria-describedby` op fieldset (#712)
+
+### Fixed
+* Documentation: In voorbeeldpagina van formulieren kunnen dubbele id's voorkomen (#730)
+* Documentation: Geselecteerde tab markeren met `aria-selected="true"`, overige tabs markeren met `aria-selected="false"`. (#706)
+* Progress indicator zonder witte achtergrond, enkel onbepaalde tijd ondersteunen (#734)
+
 ### 11.1.0
 
 ### Changed

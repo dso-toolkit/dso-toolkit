@@ -1,7 +1,7 @@
 
 <!-- Start: @group-checkboxes--default -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>default</h2>
   </div>
   <div class="dso-example">
@@ -40,7 +40,7 @@
 
 <!-- Start: @group-checkboxes--input-checkbox-required -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Verplicht</h2>
     <p>Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code> op de <code>.form-group.dso-checkboxes</code></p>
     <p>Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als root element, geen <code>div.form-group</code></p>
@@ -81,7 +81,7 @@
 
 <!-- Start: @group-checkboxes--input-checkbox-invalid -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Ongeldig</h2>
     <p>Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code> op de <code>.form-group.dso-checkboxes</code> geplaatst te worden</p>
   </div>
@@ -122,7 +122,7 @@
 
 <!-- Start: @group-checkboxes--input-checkbox-valid -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Geldig</h2>
     <p>Een ongeldige checkbox-group welke geldig is gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code></p>
   </div>
@@ -163,7 +163,7 @@
 
 <!-- Start: @group-checkboxes--input-checkbox-disabled -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Disabled</h2>
     <p>Alle <code>input[type="checkbox"]</code> moeten een <code>disabled</code> attribuut krijgen.</p>
   </div>
@@ -203,7 +203,7 @@
 
 <!-- Start: @group-checkboxes--input-checkbox-info-button -->
 <div class="dso-example-wrapper">
-  <div class="dso-example-text" aria-hidden="true">
+  <div class="dso-example-text">
     <h2>Infobutton</h2>
     <p>Een checkbox fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.</p>
   </div>
@@ -213,7 +213,7 @@
         <label class="control-label">
           Maak een keuze
         </label>
-        <button type="button" class="btn dso-info-button dso-open">
+        <button type="button" class="btn dso-info-button dso-open" aria-expanded="true">
           <span class="sr-only">
     Toelichting
   </span>
@@ -225,7 +225,7 @@
           <label for="input-checkbox-info-button-0">
             een
           </label>
-          <button type="button" class="btn dso-info-button">
+          <button type="button" class="btn dso-info-button" aria-expanded="">
             <span class="sr-only">
     Toelichting
   </span>
@@ -236,7 +236,7 @@
           <label for="input-checkbox-info-button-1">
             twee
           </label>
-          <button type="button" class="btn dso-info-button dso-open">
+          <button type="button" class="btn dso-info-button dso-open" aria-expanded="true">
             <span class="sr-only">
     Toelichting
   </span>

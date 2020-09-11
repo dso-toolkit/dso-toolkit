@@ -131,6 +131,19 @@ context:
         label: Fietsendrager
       - value: oplegger
         label: Oplegger
+    - id: input-checkbox
+      inputType: checkboxes
+      label: Maak een keuze
+      options:
+      - value: 1
+        label: een
+        id: checkbox_1
+      - value: 2
+        label: twee
+        id: checkbox_2
+      - value: 3
+        label: drie
+        id: checkbox_3
   - legend: Vraag
     groups:
     - id: gekke_vraag

@@ -62,27 +62,27 @@
           <nav class="dso-navbar">
             <ul class="dso-nav dso-nav-main">
               <li class="is-active" data-role="tab">
-                <a href="#browser-{{ entity.id }}-panel-notes">
+                <a href="#browser-{{ entity.id }}-panel-notes" aria-controls="notes-tab">
                   Documentatie
                 </a>
               </li>
               <li class="is-active" data-role="tab">
-                <a href="#browser-{{ entity.id }}-panel-component" onclick="fixFrameHeight()">
+                <a href="#browser-{{ entity.id }}-panel-component" onclick="fixFrameHeight()" aria-controls="component-tab">
                   Component
                 </a>
               </li>
               <li class="is-active" data-role="tab">
-                <a href="#browser-{{ entity.id }}-panel-html">
+                <a href="#browser-{{ entity.id }}-panel-html" aria-controls="html-tab">
                   HTML
                 </a>
               </li>
               <li class="is-active" data-role="tab">
-                <a href="#browser-{{ entity.id }}-panel-context">
+                <a href="#browser-{{ entity.id }}-panel-context" aria-controls="context-tab">
                   Context
                 </a>
               </li>
               <li class="is-active" data-role="tab">
-                <a href="#browser-{{ entity.id }}-panel-view">
+                <a href="#browser-{{ entity.id }}-panel-view" aria-controls="view-tab">
                   View
                 </a>
               </li>
