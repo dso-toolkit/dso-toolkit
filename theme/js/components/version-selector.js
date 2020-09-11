@@ -106,7 +106,7 @@ class VersionSelector {
           <ul aria-labelledby="version_selector_button" id="version_selector_releases"></ul>
           <ul aria-labelledby="version_selector_button" id="version_selector_all_versions">
             <li>
-              <a href="/master/docs/versions">Alle versies</a>
+              <a href="/master/docs/versions.html">Alle versies</a>
             </li>
           </ul>
           <h2 class="dso-group-label">Branch releases</h2>
