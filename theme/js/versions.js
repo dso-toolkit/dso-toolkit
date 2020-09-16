@@ -1,8 +1,9 @@
 const $ = require('./jquery');
+const versionSelectorService = require('./components/version-selector-service');
 
 global.getAllVersions = function getAllVersions() {
-  return $.ajax('https://www.dso-toolkit.nl/versions.json').then(function (results) {
-    return results.versions.reduce(function (branches, item) {
+  return versionSelectorService.getVersions().then(function (versions) {
+    return versions.reduce(function (branches, item) {
       var branchLabel = getBranchLabel(item);
       var branch = branches.filter(function (r) {
         return r.label === branchLabel;

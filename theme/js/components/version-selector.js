@@ -1,12 +1,12 @@
 'use strict';
 
+const versionSelectorService = require('./version-selector-service');
+
 const $ = global.jQuery;
 
 class VersionSelector {
   constructor() {
-    this._getVersions(versions => {
-      this._render(versions);
-    });
+    this._getVersions().then((versions) => this._render(versions));
   }
 
   get currentComponent() {
@@ -52,12 +52,9 @@ class VersionSelector {
     }
   }
 
-  _getVersions(callback) {
-    const versionRequest = new XMLHttpRequest();
-    versionRequest.addEventListener('load', function () {
-      const jsonVersions = JSON.parse(this.responseText);
-
-      const versions = jsonVersions.versions.reduce(
+  _getVersions() {
+    return versionSelectorService.getVersions().then((versions) =>
+      versions.reduce(
         function (total, v) {
           if (!v.branch) {
             total.releases = [v].concat(total.releases).slice(0, 5);
@@ -69,12 +66,8 @@ class VersionSelector {
           return total;
         },
         { releases: [], topicBranches: [] }
-      );
-
-      callback(versions);
-    });
-    versionRequest.open('GET', 'https://www.dso-toolkit.nl/versions.json?t=' + new Date().getTime());
-    versionRequest.send();
+      )
+    )
   }
 
   _render(versions) {
