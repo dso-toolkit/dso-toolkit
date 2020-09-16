@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Documentation: Favicon ontbreekt (#752)
+
 ### Documentation
 * Version selector rechtsbovenin (#698)
 
