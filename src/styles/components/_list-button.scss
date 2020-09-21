@@ -1,8 +1,10 @@
 .dso-list-button {
   @include state-styling($wit, $grijs-20, $grijs-90);
+  display: flex;
+  flex-wrap: wrap;
   font-weight: 600;
   margin-top: ($u1 / 2);
-  padding: #{$u1 + 2} $u2;
+  padding: #{$u2 - 1};
   text-align: left;
   white-space: normal;
   width: 100%;
@@ -38,15 +40,29 @@
     border-width: 2px;
   }
 
+  span:first-child {
+    display: flex;
+    flex-grow: 1;
+    width: calc(100% - #{$u5})
+  }
+
   svg.di {
     color: $grasgroen;
+    display: flex;
     float: right;
     height: $u3;
     width: $u3;
   }
 
   .dso-count {
+    display: flex;
     float: right;
     font-weight: 700;
+  }
+
+  .sublabel {
+    display: flex;
+    font-weight: 400;
+    width: 100%;
   }
 }
