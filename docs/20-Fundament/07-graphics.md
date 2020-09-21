@@ -3,11 +3,11 @@ label: Illustraties
 ---
 
 **Illustratieve iconen**
-- Pixelformaat: 80x80
-- Format: Scalable Vector Graphics (SVG) 1.1 (Second Edition)
-- Kleurgebruik: wordt aangeleverd in 'Grasgroen' `#39870c` rgb(57, 135, 12)
-- Toepassing: op de homepage wordt gebruik gemaakt van illustratieve iconen als aanvulling op de "veel gekozen werkzaamheden"
-- Beschikbaarheid: te downloaden uit onderstaande tabel, of te importeren vanuit de npm package
+- Pixelformaat: 80x80.
+- Format: Scalable Vector Graphics (SVG) 1.1 (Second Edition).
+- Kleurgebruik: wordt aangeleverd in 'Grasgroen' `#39870c` rgb(57, 135, 12).
+- Toepassing: op de homepage als aanvulling op veel gekozen werkzaamheden.
+- Beschikbaarheid: te downloaden uit onderstaande tabel, of te importeren vanuit de npm package.
 
 ## Beschikbare illustratieve iconen
 
