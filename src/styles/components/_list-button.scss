@@ -43,7 +43,7 @@
   span:first-child {
     display: flex;
     flex-grow: 1;
-    width: calc(100% - #{$u5})
+    width: calc(100% - #{$u5});
   }
 
   svg.di {
