@@ -1,7 +1,7 @@
 <div {{ className('dso-accordion', modifiers) }}>
   {%- for section in sections -%}
     <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
-      <{{ section.header if section.header else 'div' }} class="dso-section-handle">
+      <{{ section.header if section.header else 'h3' }} class="dso-section-handle">
       {%- if section.type === 'link' %}
         <a href="#" aria-expanded={% if section.open %}"true"{% else %}"false"{%endif%}>
       {% else -%}
@@ -34,10 +34,10 @@
 
       {% if section.type === 'link' %}
         </a>
-        </{{ section.header if section.header else 'div' }}>
+        </{{ section.header if section.header else 'h3' }}>
       {% else %}
         </button>
-        </{{ section.header if section.header else 'div' }}>
+        </{{ section.header if section.header else 'h3' }}>
       {%- endif %}
 
       {%- if section.open %}
