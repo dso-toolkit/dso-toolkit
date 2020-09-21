@@ -2,18 +2,15 @@
 label: Kleuren
 ---
 ## Primaire kleuren
-Binnen het DSO gebruiken we vaste kleuren voor bepaalde functionaliteiten. Zo kunnen
-gebruikers de functionaliteit makkelijker herkennen. Hier leest u welke kleuren u
-waarvoor gebruikt.
- 
+Als kleuren een semantische waarde hebben kunnen gebruikers functionaliteiten sneller identificeren en gebruiken. Hanteer de volgende regels per kleur.
+
 ### Groen
-Groen is de basiskleur voor het ontwerp van het DSO. Het geeft een rustige en natuurlijke
-uitstraling.
- 
+Groen is de basis kleur voor het ontwerp van het DSO en resulteert in een rustige en natuurlijke uitstraling.
+
 #### Gebruiken voor
 - Titels
 - Subtitels
-- Menutekst
+- Menu tekst
 - Secundaire knoppen
 - Steunkleuren
 
@@ -119,8 +116,7 @@ uitstraling.
 </div>
 
 ### Lime
-Gebruik de kleur lime voor niet-essentiële beeldmerken, zoals het toevoegen van vinkjes
-na een successvolle post. Het is geen interactiekleur, in tegenstelling tot andere groenkleuren.
+Lime wordt gebruikt voor non-essential beeldmerken, bijvoorbeeld vinkjes toevoegen na een succesvolle post. Deze kleur is geen interactie kleur, in tegenstelling tot de andere groen kleuren.
 
 <div class="row">
   <div class="col-xs-6 col-md-6 col-lg-3">
@@ -149,10 +145,9 @@ na een successvolle post. Het is geen interactiekleur, in tegenstelling tot ande
   </div>
 </div>
 
-### Mauve
-Mauve is een sterke kleur. Gebruik de kleur daarom voor aandachtspunten. Wees wel
-spaarzaam met het gebruik van mauve. Houd het bij essentiële onderdelen en accenten.
- 
+### Oranje
+Oranje is een sterke kleur die wordt gebruikt voor aandachtspunten. Deze kleur wordt spaarzaam gebruikt voor essentiële onderdelen en accenten.
+
 #### Gebruiken voor
 - Accenten
 - Indicatoren
@@ -163,11 +158,11 @@ spaarzaam met het gebruik van mauve. Houd het bij essentiële onderdelen en acce
   <div class="col-xs-6 col-md-6 col-lg-3">
     <div class="dso-highlight-box dso-border">
       <div class="dso-rich-content">
-        <h2>Mauve</h2>
-        <p style="background-color: #8b4a6a; width: 100%; height: 150px"></p>
+        <h2>Oranje</h2>
+        <p style="background-color: #e17000; width: 100%; height: 150px"></p>
         <ul class="list-unstyled">
-          <li>#8b4a6a</li>
-          <li>rgb(140, 75, 107)</li>
+          <li>#e17000</li>
+          <li>rgb(225, 112, 0)</li>
         </ul>
       </div>
     </div>
@@ -229,10 +224,9 @@ De bodytekst is "Zwart 90%" (#191919). "Zwart 90%" is minder intensief dan echt 
 </div>
 
 ## Secundaire kleurenpalet
-U kunt de secundaire kleuren gebruiken als u meer kleuren nodig heeft dan er primaire
-kleuren zijn. Denk bijvoorbeeld aan tabellen of grafieken waar u met kleurvariatie verschillende waarden duidelijk maakt.
- 
-**Let op: gebruik deze kleuren alleen als het niet lukt met de primaire kleuren.**
+De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontstaan vanuit de basiselementen: Aarde, Water, Lucht en Vuur. Warme en koude kleuren die de communicatiekleuren aanvullen. Deze kleuren kun je gebruiken als de communicatiekleuren niet toereikend zijn. Bijvoorbeeld in tabellen en grafieken waar meer kleurvariatie nodig is om duidelijk onderscheid te kunnen maken in verschillende waarden of legenda's. Dus nooit als steunkleur voor accenten in de reguliere opmaak. Dan gebruik je uitsluitend het primaire kleurenpalet.
+
+**Let op: Deze kleuren worden naast het primaire kleurenpalet gebruikt en zijn ondergeschikt.**
 
 <div class="row">
   <div class="col-xs-6 col-md-6 col-lg-3">
