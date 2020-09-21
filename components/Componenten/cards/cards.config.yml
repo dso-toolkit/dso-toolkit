@@ -5,24 +5,20 @@ context:
     - label: 'Brouwersmolen'
       content: 'Brouwersmolen eget iaculis nisi quam in libero.'
       interactions:
-        - toggle:
-            id: brouwersmolen
         - button:
             type: button
             modifier: link
             icon: info
-            label: Toon informatie
+            label: Toon informatie over Brouwersmolen
             iconOnly: true
     - label: 'Brouwersmolen'
       content: 'Brouwersmolen eget iaculis nisi quam in libero.'
       interactions:
-        - toggle:
-            id: brouwersmolen
         - button:
             type: button
             modifier: link
             icon: info
-            label: Toon informatie
+            label: Toon informatie over Brouwersmolen
             iconOnly: true
 variants:
   - name: interactions-bottom

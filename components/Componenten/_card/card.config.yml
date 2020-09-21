@@ -12,13 +12,11 @@ variants:
     label: Brouwersmolen
     content: Brouwersmolen eget iaculis nisi quam in libero.
     interactions:
-    - toggle:
-        id: brouwersmolen
     - button:
         type: button
         modifier: link
         icon: info
-        label: Toon informatie
+        label: Toon informatie over Brouwersmolen
         iconOnly: true
 - name: below
   context:
@@ -26,11 +24,9 @@ variants:
     label: Brouwersmolen
     content: Brouwersmolen eget iaculis nisi quam in libero.
     interactions:
-    - toggle:
-        id: brouwersmolen
     - button:
         type: button
         modifier: link
         icon: info
-        label: Toon informatie
+        label: Toon informatie over Brouwersmolen
         iconOnly: true
