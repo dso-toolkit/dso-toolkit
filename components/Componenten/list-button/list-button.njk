@@ -4,5 +4,5 @@
   {% if (count == 1) %}{% render '@icon', {icon: 'check'} %}{% endif %}
   {% if (count > 1) %}<span class="dso-count">{{ count }}x</span>{% endif %}
   {% if (count > 0) %}<span class="sr-only">geselecteerd</span>{% endif %}
-  <span class="sublabel">{{ sublabel }}</span>
+  {% if sublabel %}<span class="dso-sublabel">{{ sublabel }}</span>{% endif %}
 </button>
