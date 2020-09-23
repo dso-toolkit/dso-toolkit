@@ -77,7 +77,7 @@ variants:
     required: true
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
-    errorText: Ongeldig e-mailadres ingevuld
+    errorText: Ongeldig e-mailadres ingevuld.
 - name: input-text-valid
   context:
     __title: Geldig
