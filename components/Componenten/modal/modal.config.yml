@@ -1,19 +1,11 @@
 notes: |
+  Modals zijn schermelementen die de gebruiksflow onderbreken. Goed doordachte
+  inhoud die op het juiste moment verschijnt zorgt ervoor dat de gebruiker de ervaring heeft die hij/zij verwacht.
+  
+  ## Technische opmerkingen
+  
   De class `.dso-scripted-height` verwijdert op `.dso-body` in de large viewport de `max-height`-property.
 
-  Modals zijn schermelementen die de hoofdflow van de gebruiker onderbreken. Goed doordachte inhoud en het juiste verschijningsmoment van modals zorgen ervoor dat het bezoek van de gebruiker intuïtief verloopt en de ervaring biedt die hij of zij verwacht. Het zal helpen bij het vermijden van de constante storingsfactor van een misplaatste modal (verkeerd gebruik van een modal).
-
-  ## Varianten:
-
-  ### Single submit
-  {% render '@lib-frame', {path: ('/components/preview/dialog--dialog-single-submit' | docPath), element: '.dso-dialog'} %}
-  
-  ### Steps
-  {% render '@lib-frame', {path: ('/components/preview/dialog--dialog-steps' | docPath), element: '.dso-dialog'} %}
-  
-  ### Scripted height
-  {% render '@lib-frame', {path: ('/components/preview/dialog--dialog-scripted-height' | docPath), element: '.dso-dialog'} %}
-  
   ## Wanneer te gebruiken:
 
   - **Onderbreking:** de gebruiker dwingen een beslissing te nemen of een taak te voltooien voor een belangrijk deel van hun workflow. Stel jezelf de vraag, "wil ik de gebruiker echt onderbreken?"
@@ -24,27 +16,31 @@ notes: |
 
   ## Wanneer _niet_ te gebruiken
 
-  Modals zijn bedoeld om belangrijke bevestigingen en beslissingen te benadrukken. Het is niet wenselijk ingewikkelde interacties in een modal stoppen. Zoals een formulier, of een uitgebreide zoeklijst.
-
-  Een modal dient alleen gebruikt te worden voor simpele interacties. Probeer ingewikkelde interacties op andere manieren in een pagina te verwerken.
+  Modals zijn bedoeld om belangrijke bevestigingen en beslissingen te benadrukken. Houd het simpel: stop er geen formulier, uitgebreide zoeklijst of andere ingewikkelde interacties in. Verwerk die op andere manieren in de pagina of interface.
 
   {% render '@lib-frame', {path: ('/components/preview/dialog--invalid' | docPath), element: '.dso-dialog'} %}
 
   ## Gedrag en toegankelijkheid
-
-  1. Wanneer een modal geactiveerd wordt moet de focus verplaatst worden naar het modal. Vervolgens binnen het modal naar het eerste interactieve element.
+  Let bij het gebruik van models op de volgende punten:
+  1. Verplaats de focus naar een modal zodra die actief wordt. Binnen de modal moet de focus
+  liggen op het eerste interactieve element.
   2. Een modal moet een accessible naam hebben en zowel visueel als in de code, voor screenreaders, zichzelf presenteren als een modal.
-  3. De volgende standaard methodes moeten beschikbaar zijn voor de gebruiker om een modal te sluiten:
+  3. Een modal moet te sluiten zijn op deze manieren:
 
-      * Close button, dit mag het kruisje rechtsboven zijn of een annuleer knop in de modal footer;
-      * De escape knop sluit een modal, zodat toetsenbord gebruikers ook een modal kunnen sluiten;
-      * Buiten een modal klikken sluit ook een modal;
+      * met een close button (kruisje rechtsboven of annuleerknop in de footer)
+      * met de escapeknop op het toetsenbord
+      * buiten de modal klikken
 
-  4.  Als een modal actief is kan een gebruiker nog altijd naar de adresbalk van de browser navigeren.
-  5.  Wanneer een modal actief is moeten alle elementen die bedekt worden door het modal venster met overlay niet toegankelijk zijn. Dit betekent dat als de tabkey gebruikt wordt de focus binnen de modal blijft en het niet mogelijk is content buiten de modal te benaderen.
-  6.  Wanneer een modal dialog gesloten wordt dan moet de focus terug gaan naar het element dat de modal heeft geopend.
+  4.  Een gebruiker moet altijd nog naar de adresbalk van de browser kunnen gaan als de modal actief is.
+  5.  Is er een modal actief? Zorg dan voor dat alle elementen die bedekt worden door het
+  modalvenster met overlay niet toegankelijk zijn. Als een gebruiker de tabkey gebruikt, blijft de focus zo binnen de modal.
+  6.  Als de gebruiker de modal sluit, gaat de focus terug naar het element dat de modal heeft geopend. Zo kunnen gebruikers verdergaan waar ze gebleven waren.
 
-  Dit staat gebruikers toe om de verder te gaan waar ze gebleven waren. Als een modal niet is aangeroepen door een actie van een gebruiker dan moet de focus geplaatst worden op een logische locatie. Als een modal bijv. 'onPageLoad' wordt aangeroepen dan is het beste om na het sluiten van een modal de virtuele focus aan het begin van de pagina te zetten.
+  Is de modal niet verschenen door een actie van de gebruiker? Plaats de focus dan op een
+  logische plek.
+
+  Als een modal bijvoorbeeld 'onPageLoad' verschijnt, is het het beste om na het sluiten de
+  focus aan het begin van de pagina te zetten.
 status: ready
 default: modal
 # collated: false
