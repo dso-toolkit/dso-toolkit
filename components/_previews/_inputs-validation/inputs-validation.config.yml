@@ -21,4 +21,4 @@ context:
         required: true
         state: invalid
         helpText: Instructie tekst buiten een tekstveld.
-        errorText: Verplicht veld niet gevuld
+        errorText: Verplicht veld niet gevuld.
