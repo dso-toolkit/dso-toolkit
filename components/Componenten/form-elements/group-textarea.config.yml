@@ -17,7 +17,7 @@ variants:
     required: true
     helpText: Vul een geldige tekst in
     state: invalid
-    errorText: Dit is geen geldige tekst
+    errorText: Vul dit veld in.
 - name: input-textarea-valid
   context:
     __title: Geldig
