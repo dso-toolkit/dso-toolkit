@@ -7,11 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Tertiaire button - icon only: title attribuut verwijderen en sr-only toevoegen (#775)
+* Validatie teksten verplichte velden bij componenten (#747)
 
 ## 11.2.1
-
-### Changed
-* Validatie teksten verplichte velden bij componenten (#747)
 
 ### Fixed
 * Documentation: Favicon ontbreekt (#752)
