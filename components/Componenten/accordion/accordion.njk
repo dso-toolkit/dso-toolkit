@@ -1,4 +1,3 @@
-<form>
 <div {{ className('dso-accordion', modifiers) }}>
   {%- for section in sections -%}
     <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
@@ -114,4 +113,3 @@
     </div>
   {%- endfor %}
 </div>
-</form>

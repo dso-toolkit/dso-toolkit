@@ -1,11 +1,13 @@
 {% render '@header' %}
 
-<main>
-  <div class="clearfix">
-    <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-    {% render '@form-steps', {title: steps.title, step: steps.step} %}
-  </div>
-  {% render '@accordion', accordion %}
-</main>
+<form>
+  <main>
+    <div class="clearfix">
+      <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+      {% render '@form-steps', {title: steps.title, step: steps.step} %}
+    </div>
+    {% render '@accordion', accordion %}
+  </main>
+</form>
 
 {% render '@footer' %}

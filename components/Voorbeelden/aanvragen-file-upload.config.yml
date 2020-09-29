@@ -15,7 +15,7 @@ context:
         form:
           formModifier: form-horizontal
           fieldsets:
-          - legend: Bijlagen
+          - singleFieldset: true
             groups:
               - id: documenten
                 inputType: files
