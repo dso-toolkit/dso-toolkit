@@ -30,8 +30,9 @@ context:
       id: panel3
       open: true
       form:
+        formTag: false
         fieldsets:
-          - legend: Plaats van het bouwwerk
+          - singleFieldset: true
             groups:
               - id: omgevingsvergunningPostcode
                 inputType: input

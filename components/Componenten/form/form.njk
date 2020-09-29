@@ -1,11 +1,17 @@
-{# <form {{ className(formModifier) }}> #}
+{% if formTag !== "false" %}
+  <form {{ className(formModifier) }}>
+{% endif %}
   {% for fieldset in fieldsets %}
-    {# <fieldset>
-      <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend> #}
+    {% if fieldset.singleFieldset === "true" %}
+      <fieldset>
+      <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
+    {% endif %}
       {% for group in fieldset.groups %}
         {% render '@group-' + group.inputType, merge(group, {prefix: _self.name}) %}
       {% endfor %}
-    {# </fieldset> #}
+    {% if singleFieldset === true %}
+      </fieldset>
+    {% endif %}
   {% endfor %}
   {% if buttons %}
     <div class="dso-form-buttons">
@@ -14,4 +20,6 @@
       {% endfor %}
     </div>
   {% endif %}
-{# </form> #}
+{% if formTag !== "false" %}
+  </form>
+{% endif %}

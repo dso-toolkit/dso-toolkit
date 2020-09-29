@@ -1,23 +1,27 @@
 {% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
-<main>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Aanvragen</h1>
-      {% render '@form-steps' %}
+
+<form>
+  <main>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Aanvragen</h1>
+        {% render '@form-steps' %}
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      {% render '@accordion', accordion %}
+    <div class="row">
+      <div class="col-md-12">
+        {% render '@accordion', accordion %}
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3 col-md-push-3 col-md-offset-6">
-      {% render '@button', {label:'Volgende stap', type:'button', modifier:'primary pull-right'} %}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="dso-form-buttons">
+          {% render '@button', {label:'Vorige stap', type:'button', modifier:'default'} %}
+          {% render '@button', {label:'Volgende stap', type:'button', modifier:'primary'} %}
+        </div>
+      </div>
     </div>
-    <div class="col-md-3 col-md-pull-9">
-      {% render '@button', {label:'Vorige stap', type:'button', modifier:'default'} %}
-    </div>
-  </div>
-</main>
+  </main>
+</form>
+
 {% render '@footer' %}
