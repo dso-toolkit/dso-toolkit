@@ -6,7 +6,7 @@ context:
 variants:
   - name: button selected
     context:
-      __title: buttons selected
+      __title: button selected
       count: 1
   - name: button multiple selected
     context:
@@ -16,3 +16,22 @@ variants:
     context:
       __title: button disabled
       disabled: true
+  - name: button met optionele tekst
+    context:
+      __title: button met optionele tekst
+      sublabel: Gemeente Delft
+  - name: button met optionele tekst selected
+    context:
+      __title: button met optionele tekst selected
+      count: 1
+      sublabel: Gemeente Delft
+  - name: button met optionele tekst multiple selected
+    context:
+      __title: button met optionele tekst multiple selected
+      count: 99
+      sublabel: Gemeente Delft
+  - name: button met optionele tekst disabled
+    context:
+      __title: button met optionele tekst disabled
+      disabled: true
+      sublabel: Gemeente Delft
