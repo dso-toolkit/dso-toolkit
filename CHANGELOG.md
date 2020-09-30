@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Validatie teksten verplichte velden bij componenten (#747)
 
 ### Added
+* Voorbeeld pagina Homepage (#761)
 * List button component uitbreiden (#756)
 * Table: sr-only toevoeging in actieve row (#758)
 
