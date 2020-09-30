@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * List-button group styling (#780)
+* Documentatie bijgewerkt van alerts, modals, logo, kleuren, typografie, lay-out, illustraties en zoeksuggesties (#760)
 
 ## 11.2.1
 
