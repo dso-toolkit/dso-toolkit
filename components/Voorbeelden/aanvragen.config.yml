@@ -30,10 +30,9 @@ context:
       id: panel3
       open: true
       form:
-        skipFormTag: false
+        skipFormTag: true
         fieldsets:
-          - singleFieldset: true
-            groups:
+          - groups:
               - id: omgevingsvergunningPostcode
                 inputType: input
                 type: text
