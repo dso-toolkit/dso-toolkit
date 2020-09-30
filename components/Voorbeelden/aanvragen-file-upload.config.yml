@@ -13,7 +13,8 @@ context:
         id: panel1
         open: true
         form:
-          formModifier: form-horizontal
+          skipFormTag: false
+          # formModifier: form-horizontal
           fieldsets:
           - singleFieldset: true
             groups:
