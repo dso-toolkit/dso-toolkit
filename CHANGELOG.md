@@ -12,14 +12,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * List button component uitbreiden (#756)
+* Table: sr-only toevoeging in actieve row (#758)
 
 ### Fixed
 * List-button group styling (#780)
 
 ## 11.2.1
-
-### Added
-* Table: sr-only toevoeging in actieve row (#758)
 
 ### Fixed
 * Documentation: Favicon ontbreekt (#752)
