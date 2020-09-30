@@ -39,7 +39,7 @@ variants:
     id: input-checkbox-invalid
     required: true
     state: invalid
-    errorText: Selecteer minimaal 2 velden
+    errorText: Maak een keuze.
     options:
     - value: 1
       label: een

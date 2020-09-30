@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Tertiaire button - icon only: title attribuut verwijderen en sr-only toevoegen (#775)
+* Validatie teksten verplichte velden bij componenten (#747)
+
+### Added
+* List button component uitbreiden (#756)
+
 ### Fixed
 * List-button group styling (#780)
 

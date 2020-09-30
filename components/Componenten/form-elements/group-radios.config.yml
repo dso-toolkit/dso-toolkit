@@ -33,13 +33,12 @@ variants:
     id: input-radio-invalid
     required: true
     state: invalid
-    errorText: Foutieve keuze
+    errorText: Maak een keuze.
     options:
     - value: 1
       label: benzine
     - value: 2
       label: diesel
-      checked: true
 - name: input-radio-valid
   context:
     __title: Geldig
@@ -79,11 +78,10 @@ variants:
     required: true
     inline: true
     state: invalid
-    errorText: Foutieve keuze
+    errorText: Maak een keuze.
     options:
     - value: 1
       label: ja
-      checked: true
     - value: 2
       label: nee
 - name: input-radio-inline-info

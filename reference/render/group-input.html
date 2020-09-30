@@ -150,8 +150,8 @@
         </label>
       </div>
       <div class="dso-field-container">
-        <input type="email" id="input-text-invalid" class="form-control" value="thomas@" required>
-        <p class="dso-message">Ongeldig e-mailadres ingevuld</p>
+        <input type="email" id="input-text-invalid" class="form-control" required>
+        <p class="dso-message">Vul dit veld in.</p>
         <p class="dso-help-block" id="helpTextId_input-text-invalid">Bijvoorbeeld: email@email.nl</p>
       </div>
     </div>
@@ -159,6 +159,31 @@
 </div>
 
 <!-- End: @group-input--input-text-invalid -->
+<hr />
+
+<!-- Start: @group-input--input-text-invalid-input -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>Ongeldig - Foutieve invoer</h2>
+    <p>Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.</p>
+  </div>
+  <div class="dso-example">
+    <div class="form-group dso-input dso-input-email dso-invalid dso-required">
+      <div class="dso-label-container">
+        <label for="input-text-invalid-input" class="control-label">
+          E-mailadres
+        </label>
+      </div>
+      <div class="dso-field-container">
+        <input type="email" id="input-text-invalid-input" class="form-control" value="thomas@" required>
+        <p class="dso-message">Ongeldig e-mailadres ingevuld.</p>
+        <p class="dso-help-block" id="helpTextId_input-text-invalid-input">Bijvoorbeeld: email@email.nl</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @group-input--input-text-invalid-input -->
 <hr />
 
 <!-- Start: @group-input--input-text-valid -->

@@ -56,7 +56,7 @@ variants:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-error
     state: invalid
-    errorText: Ongeldige invoer
+    errorText: Vul dit veld in.
     searchBar:
       id: search-bar-error
       type: text

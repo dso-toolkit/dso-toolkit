@@ -60,11 +60,24 @@ variants:
     id: input-text-invalid
     type: email
     label: E-mailadres
+    required: true
+    helpText: 'Bijvoorbeeld: email@email.nl'
+    state: invalid
+    errorText: Vul dit veld in.
+- name: input-text-invalid-input
+  context:
+    __title: Ongeldig - Foutieve invoer
+    __explanation:
+    - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-input</code>.
+    id: input-text-invalid-input
+    type: email
+    label: E-mailadres
     value: thomas@
     required: true
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
-    errorText: Ongeldig e-mailadres ingevuld
+    errorText: Ongeldig e-mailadres ingevuld.
 - name: input-text-valid
   context:
     __title: Geldig
