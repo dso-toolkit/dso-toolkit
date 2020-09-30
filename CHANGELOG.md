@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
-### Added
-* Voorbeeld pagina Homepage (#761)
 
 ### Changed
 * Cards: selectievakjes verwijderen en info knopjes verduidelijken met beschrijvend sr-only (#722)
@@ -13,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Validatie teksten verplichte velden bij componenten (#747)
 
 ### Added
+* Voorbeeld pagina Homepage (#761)
 * List button component uitbreiden (#756)
 * Table: sr-only toevoeging in actieve row (#758)
 
