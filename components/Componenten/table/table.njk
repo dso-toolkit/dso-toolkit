@@ -94,7 +94,7 @@
         <th scope="col">Voornaam</th>
         <th scope="col">Achternaam</th>
         <th scope="col" {{ className(columnAlign) }}>
-          GitHub gebruikersnaam 
+          GitHub gebruikersnaam
           {% if columnAlign === 'dso-text-left' %} (kolom links uitgelijnd)
           {% elif columnAlign === 'dso-text-center' %} (kolom gecentreerd)
           {% elif columnAlign === 'dso-text-right' %} (kolom rechts uitgelijnd)
@@ -123,7 +123,12 @@
         </td>
       </tr>
       <tr {{ className([activeRow, 'active']) }}>
-        <th scope="row">3</th>
+        <th scope="row">
+          {% if activeRow %}
+          <span class="sr-only">actief</span>
+          {% endif %}
+          3
+        </th>
         <td><a href="#taylor">Taylor</a></td>
         <td>Otwell</td>
         <td {{ className(columnAlign) }}>taylorotwell</td>
