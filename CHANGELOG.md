@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * List button component uitbreiden (#756)
 
+### Fixed
+* List-button group styling (#780)
+
 ## 11.2.1
 
 ### Fixed

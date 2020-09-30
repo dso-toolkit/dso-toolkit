@@ -59,7 +59,7 @@
     }
   }
 
-  + .btn {
+  &:not(.dso-list-button) + .btn:not(.dso-list-button) {
     margin-left: $u2;
   }
 
