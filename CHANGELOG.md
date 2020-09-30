@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
+* Cards: selectievakjes verwijderen en info knopjes verduidelijken met beschrijvend sr-only (#722)
 * Tertiaire button - icon only: title attribuut verwijderen en sr-only toevoegen (#775)
 * Validatie teksten verplichte velden bij componenten (#747)
 
