@@ -1,4 +1,4 @@
-{% if formTag !== "false" %}
+{% if skipFormTag !== "false" %}
   <form {{ className(formModifier) }}>
 {% endif %}
   {% for fieldset in fieldsets %}
@@ -20,6 +20,6 @@
       {% endfor %}
     </div>
   {% endif %}
-{% if formTag !== "false" %}
+{% if skipFormTag !== "false" %}
   </form>
 {% endif %}

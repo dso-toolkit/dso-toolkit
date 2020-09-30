@@ -30,7 +30,7 @@ context:
       id: panel3
       open: true
       form:
-        formTag: false
+        skipFormTag: false
         fieldsets:
           - singleFieldset: true
             groups:
