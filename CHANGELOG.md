@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 11.3.0
+
 ### Changed
 * Cards: selectievakjes verwijderen en info knopjes verduidelijken met beschrijvend sr-only (#722)
 * Tertiaire button - icon only: title attribuut verwijderen en sr-only toevoegen (#775)
@@ -17,6 +19,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * List-button group styling (#780)
+
+### Documentation
 * Documentatie bijgewerkt van alerts, modals, logo, kleuren, typografie, lay-out, illustraties en zoeksuggesties (#760)
 
 ## 11.2.1
