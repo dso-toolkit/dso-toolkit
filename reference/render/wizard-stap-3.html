@@ -18,58 +18,61 @@
   </div>
   <div class="clearfix"></div>
   <form class="form-vertical">
-    <div class="form-group dso-filter">
-      <div class="dso-label-container">
-        <label for="form-vertical-filter" class="control-label">
-          Zoekterm
-        </label>
-      </div>
-      <div class="dso-field-container">
-        <div class="dso-search-bar">
-          <div class="dso-search-bar-input">
-            <input type="text" id="form-vertical-filter_activiteiten" placeholder="Bijvoorbeeld bouwactiviteiten" />
-            <button type="button">
-              Zoekopdracht legen
+    <fieldset>
+      <legend>Zoek activiteiten</legend>
+      <div class="form-group dso-filter">
+        <div class="dso-label-container">
+          <label for="form-vertical-filter" class="control-label">
+            Zoekterm
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <div class="dso-search-bar">
+            <div class="dso-search-bar-input">
+              <input type="text" id="form-vertical-filter_activiteiten" placeholder="Bijvoorbeeld bouwactiviteiten" />
+              <button type="button">
+                Zoekopdracht legen
+              </button>
+            </div>
+            <button type="button" class="btn btn-default sr-only">
+              Button
             </button>
           </div>
-          <button type="button" class="btn btn-default sr-only">
-            Button
-          </button>
         </div>
       </div>
-    </div>
-    <fieldset class="form-group dso-checkboxes">
-      <legend class="dso-label-container">
-        <label class="control-label">
-          4 gevonden activiteiten
-        </label>
-      </legend>
-      <div class="dso-field-container">
-        <div class="dso-selectable">
-          <input type="checkbox" id="form-vertical-activiteiten-0" name="activiteiten" value="1">
-          <label for="form-vertical-activiteiten-0">
-            Bouwactiviteit - Melding
+      <fieldset class="form-group dso-checkboxes">
+        <legend class="dso-label-container">
+          <label class="control-label">
+            4 gevonden activiteiten
           </label>
+        </legend>
+        <div class="dso-field-container">
+          <div class="dso-selectable">
+            <input type="checkbox" id="form-vertical-activiteiten-0" name="activiteiten" value="1">
+            <label for="form-vertical-activiteiten-0">
+              Bouwactiviteit - Melding
+            </label>
+          </div>
+          <div class="dso-selectable">
+            <input type="checkbox" id="form-vertical-activiteiten-1" name="activiteiten" value="2">
+            <label for="form-vertical-activiteiten-1">
+              Milieuactiviteit - Melding
+            </label>
+          </div>
+          <div class="dso-selectable">
+            <input type="checkbox" id="form-vertical-activiteiten-2" name="activiteiten" value="3">
+            <label for="form-vertical-activiteiten-2">
+              Milieuactiviteit - Aanvraag vergunning
+            </label>
+          </div>
+          <div class="dso-selectable">
+            <input type="checkbox" id="form-vertical-activiteiten-3" name="activiteiten" value="4">
+            <label for="form-vertical-activiteiten-3">
+              Gebruik en het in stand houden van bouwwerken ketentest - Melding
+            </label>
+          </div>
         </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="form-vertical-activiteiten-1" name="activiteiten" value="2">
-          <label for="form-vertical-activiteiten-1">
-            Milieuactiviteit - Melding
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="form-vertical-activiteiten-2" name="activiteiten" value="3">
-          <label for="form-vertical-activiteiten-2">
-            Milieuactiviteit - Aanvraag vergunning
-          </label>
-        </div>
-        <div class="dso-selectable">
-          <input type="checkbox" id="form-vertical-activiteiten-3" name="activiteiten" value="4">
-          <label for="form-vertical-activiteiten-3">
-            Gebruik en het in stand houden van bouwwerken ketentest - Melding
-          </label>
-        </div>
-      </div>
+      </fieldset>
     </fieldset>
     <div class="dso-form-buttons">
       <button type="default" class="btn btn-default"><svg class="di di-chevron-left">

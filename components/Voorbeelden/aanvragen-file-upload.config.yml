@@ -14,10 +14,8 @@ context:
         open: true
         form:
           skipFormTag: false
-          # formModifier: form-horizontal
           fieldsets:
-          - singleFieldset: true
-            groups:
+          - groups:
               - id: documenten
                 inputType: files
                 description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
