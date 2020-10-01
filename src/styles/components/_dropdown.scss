@@ -51,6 +51,7 @@ $dso-dropdown-hor-padding: 20px;
         font-weight: 400;
         line-height: 1.5;
         padding: 3px $dso-dropdown-hor-padding;
+        white-space: nowrap;
 
         &:hover,
         &:focus {
