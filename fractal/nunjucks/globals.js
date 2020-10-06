@@ -41,6 +41,11 @@ module.exports = {
   merge: function merge(...objects) {
     return Object.assign({}, ...objects);
   },
+  generateformPrefix: function formPrefix(title, formModifier) {
+    return title
+      ? title.replace(/\s/g, '-')
+      : formModifier;
+  },
   generateLocalId: function localId(prefix, id) {
     return prefix
       ? `${prefix}-${id}`

@@ -29,37 +29,35 @@ context:
     - title: Plaats van het bouwwerk
       id: panel3
       open: true
-      form:
-        skipFormTag: true
-        fieldsets:
-          - groups:
-              - id: omgevingsvergunningPostcode
-                inputType: input
-                type: text
-                label: Postcode
-                size: 8
-              - id: omgevingsvergunningHuisnummer
-                inputType: input
-                type: text
-                label: Huisnummer
-                size: 8
-              - id: omgevingsvergunningToevoeging
-                inputType: input
-                type: text
-                label: Huisnummer toevoeging
-                size: 8
-              - id: omgevingsvergunningStraatnaam
-                inputType: input
-                type: text
-                label: Straatnaam
-              - id: omgevingsvergunningWoonplaats
-                inputType: input
-                type: text
-                label: Woonplaats
-        buttons:
-        - type: submit
-          modifier: primary
-          label: Volgende stap
+      fieldsets:
+        - groups:
+            - id: omgevingsvergunningPostcode
+              inputType: input
+              type: text
+              label: Postcode
+              size: 8
+            - id: omgevingsvergunningHuisnummer
+              inputType: input
+              type: text
+              label: Huisnummer
+              size: 8
+            - id: omgevingsvergunningToevoeging
+              inputType: input
+              type: text
+              label: Huisnummer toevoeging
+              size: 8
+            - id: omgevingsvergunningStraatnaam
+              inputType: input
+              type: text
+              label: Straatnaam
+            - id: omgevingsvergunningWoonplaats
+              inputType: input
+              type: text
+              label: Woonplaats
+      buttons:
+      - type: submit
+        modifier: primary
+        label: Volgende stap
     - title: Afmetingen van het bouwwerk
       id: panel4
     - title: Extra werkzaamheden

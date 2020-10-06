@@ -1,25 +1,6 @@
-{% if skipFormTag !== "false" %}
-  <form {{ className(formModifier) }}>
-{% endif %}
-  {% for fieldset in fieldsets %}
-    {% if fieldset.legend.length > 0 %}
-      <fieldset>
-      <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
-    {% endif %}
-    {% for group in fieldset.groups %}
-      {% render '@group-' + group.inputType, merge(group, {prefix: _self.name}) %}
-    {% endfor %}
-    {% if fieldset.legend.length > 0 %}
-      </fieldset>
-    {% endif %}
-  {% endfor %}
-  {% if buttons %}
-    <div class="dso-form-buttons">
-      {% for button in buttons %}
-        {% render '@button', button %}
-      {% endfor %}
-    </div>
-  {% endif %}
-{% if skipFormTag !== "false" %}
-  </form>
-{% endif %}
+{% set formPrefix = generateformPrefix(__title, formModifier) %}
+
+<form {{ className(formModifier) }}>
+  {% render '@form-fieldsets', {fieldsets: fieldsets, prefix: formPrefix} %}
+  {% render '@form-buttons', {buttons: buttons} %}
+</form>
