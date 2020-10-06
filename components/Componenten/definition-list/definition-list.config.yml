@@ -44,7 +44,7 @@ variants:
       modifier: dso-emphasize-description
   - name: vertical-emphasize-description
     context:
-      __title: null
+      __title: vertical emphasize description
       __explanation: null
       modifier: dso-vertical dso-emphasize-description
   - name: columns-1-3
@@ -107,3 +107,13 @@ variants:
         - term: "Uw verzoek wordt behandeld door:"
           descriptions:
             - description: Omgevingsdienst Haaglanden
+  - name: two-columns
+    context:
+      __title: Twee kolommen
+      __explanation: null
+      modifier: dso-columns dso-2-columns
+  - name: three-columns
+    context:
+      __title: Drie kolommen
+      __explanation: null
+      modifier: dso-columns dso-3-columns
