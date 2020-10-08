@@ -7,6 +7,7 @@ $dso-definition-list-highlight-color: $grasgroen;
 dl {
   dd {
     @extend %dso-rich-content;
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
   }
 
   dd:not(:last-of-type) {
