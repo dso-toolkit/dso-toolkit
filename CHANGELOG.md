@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Header van een accordion element sluit niet altijd netjes aan (#785)
 
+### Deprecated
+* Progressblock deprecated maken (#792) **Deprecation notice, see issue**
+
 ## 11.3.0
 
 ### Changed
