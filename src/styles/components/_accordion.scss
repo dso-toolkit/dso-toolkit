@@ -105,8 +105,6 @@ $dso-accordion-light-border-color: $grijs-20;
     }
 
     .dso-accordion-section {
-      border-radius: $dso-accordion-border-radius;
-
       + .dso-accordion-section {
         margin-top: $u1 / 2;
       }
@@ -158,12 +156,9 @@ $dso-accordion-light-border-color: $grijs-20;
 
       &.dso-open {
         &:not(.dso-nested-accordion) {
-          border: 1px solid $dso-accordion-main-color;
-
           > .dso-section-handle {
             background-color: $dso-accordion-main-color;
-            border: 0;
-            border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+            border-radius: $dso-accordion-border-radius;
 
             a,
             button {
@@ -194,7 +189,7 @@ $dso-accordion-light-border-color: $grijs-20;
         &.dso-nested-accordion {
           background-color: $dso-accordion-nesting-color;
           border: 0;
-          border-radius: $dso-accordion-border-radius;
+          border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
 
           > .dso-section-handle {
             a,
@@ -206,10 +201,11 @@ $dso-accordion-light-border-color: $grijs-20;
           }
 
           > .dso-section-body {
-            padding: ($u2 - 1) ($u2 + 1) $u3; // corrections for missing borders in nested accordion
+            border: 0;
+            padding: ($u2 + $dso-accordion-border-radius - 1) ($u2 + 1) $u3; // corrections for missing borders in nested accordion
           }
 
-          .dso-accordion-section {
+          .dso-accordion-section .dso-section-body {
             background-color: $wit;
           }
         }
@@ -223,7 +219,11 @@ $dso-accordion-light-border-color: $grijs-20;
     }
 
     .dso-section-body {
-      padding: $u2 $u2 $u3;
+      border: 1px solid $dso-accordion-main-color;
+      border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+      border-top: 0;
+      margin-top: -$dso-accordion-border-radius;
+      padding: $u2 + $dso-accordion-border-radius $u2 $u3;
 
       .dso-rich-content + .dso-accordion,
       .dso-accordion + .dso-rich-content {
