@@ -7,7 +7,6 @@ $dso-definition-list-highlight-color: $grasgroen;
 dl {
   dd {
     @extend %dso-rich-content;
-    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
   }
 
   dd:not(:last-of-type) {
@@ -60,25 +59,45 @@ dl {
   }
 
   &.dso-columns {
-    break-inside: avoid;
-    column-gap: $u2;
-
     > div {
       margin-bottom: $u2;
     }
 
-    dt,
-    dd {
-      break-inside: avoid-column;
+    @media screen and (min-width: $screen-sm-min) {
+      break-inside: avoid;
+      column-gap: $u2;
+  
+      &.dso-2-columns {
+        column-count: 2;
+
+        dt {
+          width: calc(50% - #{$u1});
+        }
+
+        dd {
+          margin-left: calc(50% + #{$u1});
+        }
+      }
+    
+      &.dso-3-columns {
+        column-count: 3;
+
+        dt {
+          width: calc(50% - #{$u1});
+        }
+
+        dd {
+          margin-left: calc(50% + #{$u1});
+        }
+      }
+
+      > div {
+        dt,
+        dd {
+          break-inside: avoid-column;
+        }
+      }
     }
-  }
-
-  &.dso-2-columns {
-    column-count: 2;
-  }
-
-  &.dso-3-columns {
-    column-count: 3;
   }
 
   &:not(.dso-vertical) {
