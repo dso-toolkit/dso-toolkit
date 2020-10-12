@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * WCAG: text-overlow ellipsis weg uit toolkit (#774)
 * WCAG: white-space: nowrap weg op plekken waar het niet nodig is (#772)
+* Iconen documentatie update, process aanvragen toegevoegd (#806)
 
 ### Fixed
 * Links naar Digitoegankelijk.nl in Documentatie werken niet (#799)
