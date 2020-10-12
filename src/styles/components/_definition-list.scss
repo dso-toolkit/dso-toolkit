@@ -7,12 +7,11 @@ $dso-definition-list-highlight-color: $grasgroen;
 dl {
   dd {
     @extend %dso-rich-content;
-    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
   }
 
   dd:not(:last-of-type) {
-    // @include clearfix; // Clear the floated `dt` if an empty `dd` is present
-    padding-bottom: $dso-definition-list-vertical-space;
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+    margin-bottom: $dso-definition-list-vertical-space;
   }
 
   &.dso-columns {
@@ -23,7 +22,7 @@ dl {
     @media screen and (min-width: $screen-sm-min) {
       break-inside: avoid;
       column-gap: $u2;
-
+  
       &.dso-2-columns {
         column-count: 2;
 
@@ -35,7 +34,7 @@ dl {
           margin-left: calc(50% + #{$u1});
         }
       }
-
+    
       &.dso-3-columns {
         column-count: 3;
 
