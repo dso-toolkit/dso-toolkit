@@ -99,24 +99,6 @@ dl {
           margin-left: calc(75% + #{$dso-definition-list-gutter});
         }
       }
-
-      &.dso-columns {
-        break-inside: avoid;
-        column-gap: $u2;
-
-        dt,
-        dd {
-          break-inside: avoid-column;
-        }
-      }
-
-      &.dso-2-columns {
-        column-count: 2;
-      }
-
-      &.dso-3-columns {
-        column-count: 3;
-      }
     }
   }
 
