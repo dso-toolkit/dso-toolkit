@@ -22,7 +22,7 @@ dl {
     @media screen and (min-width: $screen-sm-min) {
       break-inside: avoid;
       column-gap: $u2;
-  
+
       &.dso-2-columns {
         column-count: 2;
 
@@ -34,7 +34,7 @@ dl {
           margin-left: calc(50% + #{$u1});
         }
       }
-    
+
       &.dso-3-columns {
         column-count: 3;
 
