@@ -2,9 +2,11 @@ $dso-accordion-main-color: $cannon-pink;
 $dso-accordion-nesting-color: #dbc8d1;
 $dso-accordion-border-radius: $u1 / 2;
 $dso-accordion-main-padding: $u2;
+$dso-accordion-small-main-padding: $u1;
 $dso-accordion-chevron-icon-size: $u3;
 $dso-accordion-chevron-space: $u1;
 $dso-accordion-chevron-left-offset: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-space;
+$dso-accordion-small-chevron-left-offset: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-space / 2;
 $dso-accordion-handle-line-height: $u3;
 $dso-accordion-handle-height: $u6;
 $dso-accordion-state-icon-size: $u3;
@@ -30,6 +32,10 @@ $dso-accordion-light-border-color: $grijs-20;
       padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
       position: relative;
 
+      @media screen and (max-width: $screen-xs-max) {
+        padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 4) $dso-accordion-small-main-padding - 1px;
+      }
+
       a,
       button {
         background-color: transparent;
@@ -42,6 +48,10 @@ $dso-accordion-light-border-color: $grijs-20;
         width: 100%;
         word-break: break-word;
 
+        @media screen and (max-width: $screen-xs-max) {
+          padding-left: $dso-accordion-small-chevron-left-offset;
+        }
+
         &::before {
           @include di("chevron-down-cannon-pink");
 
@@ -49,6 +59,10 @@ $dso-accordion-light-border-color: $grijs-20;
           display: inline-block;
           left: $u2 - 1;
           position: absolute;
+
+          @media screen and (max-width: $screen-xs-max) {
+            left: $u1 - 1;
+          }
         }
 
         &::after {
@@ -56,6 +70,10 @@ $dso-accordion-light-border-color: $grijs-20;
           position: absolute;
           right: $u3 / 2;
           top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
+
+          @media screen and (max-width: $screen-xs-max) {
+            top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 4;
+          }
         }
 
         &:hover,
