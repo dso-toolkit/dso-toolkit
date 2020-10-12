@@ -107,13 +107,71 @@ variants:
         - term: "Uw verzoek wordt behandeld door:"
           descriptions:
             - description: Omgevingsdienst Haaglanden
-  - name: two-columns
+  - name: two-columns-small-content
     context:
       __title: Twee kolommen
-      __explanation: null
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-2-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-2-columns
-  - name: three-columns
+      dsoColumns: true
+      definitions:
+        - term: "Organisator:"
+          descriptions:
+            - description: Gemeente Rotterdam
+        - term: "Verzoeknummer:"
+          descriptions:
+            - description: 12123497987
+        - term: "Status:"
+          descriptions:
+            - description: Open
+        - term: "Creatie datum:"
+          descriptions:
+            - description: 17-12-2019
+        - term: "Contactpersoon:"
+          descriptions:
+            - description: Jan van Veen
+        - term: "Emailadres:"
+          descriptions:
+            - description: j.veen@testmail.nl
+        - term: "Telefoonnummer:"
+          descriptions:
+            - description: 06-12345678
+  - name: two-columns
+    context:
+      __title: Twee kolommen, voorbeeld uitgebreide content
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-2-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
+      modifier: dso-columns dso-2-columns
+      dsoColumns: true
+  - name: three-columns-small-content
     context:
       __title: Drie kolommen
-      __explanation: null
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-3-columns
+      dsoColumns: true
+      definitions:
+        - term: "Organisator:"
+          descriptions:
+            - description: Gemeente Rotterdam
+        - term: "Verzoeknummer:"
+          descriptions:
+            - description: 12123497987
+        - term: "Status:"
+          descriptions:
+            - description: Open
+        - term: "Creatie datum:"
+          descriptions:
+            - description: 17-12-2019
+        - term: "Contactpersoon:"
+          descriptions:
+            - description: Jan van Veen
+        - term: "Emailadres:"
+          descriptions:
+            - description: j.veen@testmail.nl
+        - term: "Telefoonnummer:"
+          descriptions:
+            - description: 06-12345678
+  - name: three-columns
+    context:
+      __title: Drie kolommen, voorbeeld uitgebreide content
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
+      modifier: dso-columns dso-3-columns
+      dsoColumns: true

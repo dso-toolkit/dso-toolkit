@@ -1,5 +1,5 @@
 <dl {{ className(modifier) }}>
-  {# {% if 'dso-columns' in modifier %} #}
+  {% if dsoColumns %}
     {%- for definition in definitions %}
       <div>
         <dt>{{ definition.term }}</dt>
@@ -15,7 +15,7 @@
         {%- endif -%}
       </div>
     {% endfor -%}
-  {# {% else %}
+  {% else %}
     {%- for definition in definitions %}
       <dt>{{ definition.term }}</dt>
       {%- for description in definition.descriptions %}
@@ -29,5 +29,5 @@
         </dd>
       {%- endif -%}
     {% endfor -%}
-  {% endif %} #}
+  {% endif %}
 </dl>

@@ -15,6 +15,28 @@ dl {
     padding-bottom: $dso-definition-list-vertical-space;
   }
 
+  &.dso-columns {
+    break-inside: avoid;
+    column-gap: $u2;
+
+    > div {
+      margin-bottom: $u2;
+    }
+
+    dt,
+    dd {
+      break-inside: avoid-column;
+    }
+  }
+
+  &.dso-2-columns {
+    column-count: 2;
+  }
+
+  &.dso-3-columns {
+    column-count: 3;
+  }
+
   &:not(.dso-vertical) {
     @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
       dt {
@@ -56,24 +78,6 @@ dl {
         dd {
           margin-left: calc(75% + #{$dso-definition-list-gutter});
         }
-      }
-
-      &.dso-columns {
-        break-inside: avoid;
-        column-gap: $u2;
-
-        dt,
-        dd {
-          break-inside: avoid-column;
-        }
-      }
-
-      &.dso-2-columns {
-        column-count: 2;
-      }
-
-      &.dso-3-columns {
-        column-count: 3;
       }
     }
   }
