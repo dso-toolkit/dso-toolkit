@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* WCAG: white-space: nowrap weg op plekken waar het niet nodig is (#772)
+
 ### Fixed
 * Header van een accordion element sluit niet altijd netjes aan (#785)
 

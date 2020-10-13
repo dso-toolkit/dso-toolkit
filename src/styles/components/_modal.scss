@@ -65,7 +65,6 @@ body.dso-modal-open {
       max-width: calc(100% - #{$u3});
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
     }
 
     .dso-close {
