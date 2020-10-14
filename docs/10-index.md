@@ -66,11 +66,11 @@ Links naar relevante pagina's:
 - Data analyse voor het verbeteren van je platform (onder ontwikkeling)
 
 ## Digitale toegankelijkheid
-Per 1 juli 2018 is het _[Tijdelijk besluit digitale toegankelijkheid](https://www.digitoegankelijk.nl/beleid/wet-en-regelgeving/huidig-beleid-besluit-digitale-toegankelijkheid)_ van toepassing. Dit betekent dat elke overheidswebsite aan de digitale toegankelijkheidseisen moet voldoen. De website van [digitoegankelijk.nl](https://www.digitoegankelijk.nl) legt uit waarom dit zo belangrijk is:
+Per 1 juli 2018 is het _[Tijdelijk besluit digitale toegankelijkheid](https://www.digitoegankelijk.nl/wetgeving/wat-verplicht)_ van toepassing. Dit betekent dat elke overheidswebsite aan de digitale toegankelijkheidseisen moet voldoen. De website van [digitoegankelijk.nl](https://www.digitoegankelijk.nl) legt uit waarom dit zo belangrijk is:
 
 >Ieder mens heeft het recht om te leven als ieder ander en mee te doen in de maatschappij. Gebruikmaken van de mogelijkheden die het internet, computers en smartphones ons bieden hoort daar natuurlijk bij. Juist daarom is het belangrijk dat digitale dienstverlening toegankelijk is voor iedereen.
 >
-> -- Bron: _[Wat is digitale toegankelijkheid?](https://www.digitoegankelijk.nl/onderwerpen/wat-is-digitale-toegankelijkheid)_
+> -- Bron: _[Wat is digitale toegankelijkheid?](https://www.digitoegankelijk.nl/aanpak/wat-is-digitale-toegankelijkheid)_
 
 De eisen van digitale toegankelijkheid zijn de [Web Content Accessibility Guidelines (WCAG) versie 2.1](https://www.w3.org/TR/WCAG21/). Digitale toegankelijkheid omvat veel verschillende onderwerpen: Kleur, typografie, lay-out en code. De beste manier om de digitale toegankelijkheid te borgen binnen een team is door de verantwoordelijkheid te delen en samen een toegankelijk platform neer te zetten.
 

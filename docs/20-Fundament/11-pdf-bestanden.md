@@ -21,7 +21,7 @@ Een toegankelijke pdf heeft 2 achterliggende lagen:
 * De leesvolgorde
 
 ### Codelaag voor screenreaders en brailleleesregels
-Geef in de codelaag informatie over de rol van alle onderdelen op de pagina, zoals kop, lijst, paragraaf, etc. Zorg ervoor dat de visuele volgorde, codevolgorde en inhoudsvolgorde hetzelfde zijn. Geef tabellen een tabelcode met goede opmaak van kolomkoppen en rijkoppen. Let er ook op dat u opsommingslijsten goed opmaakt. Meer informatie over dit onderwerp vindt u op [Digitoegankelijk.nl](https://www.digitoegankelijk.nl/onderwerpen/pdf-bestanden/logische-volgorde).
+Geef in de codelaag informatie over de rol van alle onderdelen op de pagina, zoals kop, lijst, paragraaf, etc. Zorg ervoor dat de visuele volgorde, codevolgorde en inhoudsvolgorde hetzelfde zijn. Geef tabellen een tabelcode met goede opmaak van kolomkoppen en rijkoppen. Let er ook op dat u opsommingslijsten goed opmaakt. Meer informatie over dit onderwerp vindt u op [W3.org](https://www.w3.org/TR/WCAG20-TECHS/pdf.html).
 
 ### Leesvolgorde voor andere weergave
 De leesvolgorde wordt gebruikt door bijvoorbeeld slechtzienden die een pagina in 1 kolom willen zien. Let erop dat screenreaders de leesvolgorde niet gebruiken, maar de codelaag. 
@@ -43,7 +43,7 @@ Gebruik een open standaard voor uw pdf. Het is niet verplicht om die te gebruike
 [PDF-toegankelijkheid maken en controleren (Acrobat Pro)](https://helpx.adobe.com/nl/acrobat/using/create-verify-pdf-accessibility.html#check_accessibility_of_PDFs)
 
 ## Online bronnen
-* [digitoegankelijk.nl/onderwerpen/pdf-bestanden](https://www.digitoegankelijk.nl/onderwerpen/pdf-bestanden)
+* [digitoegankelijk.nl/onderwerpen/pdf-bestanden](https://www.digitoegankelijk.nl/uitleg-van-eisen/pdf-documenten)
 * [helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility](https://helpx.adobe.com/acrobat/using/create-verify-pdf-accessibility.html)
 * [documenten-en-toegankelijkheid.nl/hoe-zit-toegankelijke-pdf-elkaar](http://documenten-en-toegankelijkheid.nl/hoe-zit-toegankelijke-pdf-elkaar/)
 * [w3.org/TR/WCAG20-TECHS/pdf](https://www.w3.org/TR/WCAG20-TECHS/pdf)

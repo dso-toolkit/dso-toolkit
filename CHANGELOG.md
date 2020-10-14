@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * WCAG: white-space: nowrap weg op plekken waar het niet nodig is (#772)
 
 ### Fixed
+* Links naar Digitoegankelijk.nl in Documentatie werken niet (#799)
 * Header van een accordion element sluit niet altijd netjes aan (#785)
 
 ### Deprecated
