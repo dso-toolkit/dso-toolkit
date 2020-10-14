@@ -44,7 +44,7 @@ variants:
       modifier: dso-emphasize-description
   - name: vertical-emphasize-description
     context:
-      __title: vertical emphasize description
+      __title: Verticale modus met nadruk op beschrijving
       __explanation: null
       modifier: dso-vertical dso-emphasize-description
   - name: columns-1-3
