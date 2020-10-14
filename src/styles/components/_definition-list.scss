@@ -93,9 +93,11 @@ dl {
       }
 
       > div {
+        &,
         dt,
         dd {
           break-inside: avoid-column;
+          overflow: hidden;
         }
       }
     }
