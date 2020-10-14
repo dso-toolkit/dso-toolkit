@@ -24,25 +24,25 @@ module.exports = {
   * **Snelle herkenning:** een bekend of makkelijk te herkennen icoon zal sneller een betekenis verduidelijken, soms sneller dan een tekstlink;
   * **Vindbaarheid:** als men leert welke actie geassocieerd is met een bepaald icoon zal de aanwezigheid van het icoon voor sommige gebruikers de mogelijkheid bieden om sneller en efficienter te werken bij herhalende taken;
   * **Iconen zijn visueel aantrekkelijk:** ze kunnen meerwaarde toevoegen aan een design en het beeld esthetisch aantrekkelijker maken.
-  
+
 
   ## Hoe te gebruiken: formaten en afmetingen
   Iconen verdelen we onder in illustratieve iconen en gebruikersinterface iconen. Iconen worden aangeleverd in SVG formaat zodat het moeiteloos kan schalen op diverse schermbreedtes en altijd haarscherp blijft.
-  
+
   **Gebruikersinterface iconen**
   * Pixelformaat: 24x24
   * Format: Scalable Vector Graphics (SVG) 1.1 (Second Edition)
   * Kleurgebruik: wordt aangeleverd in zwart, kleur kan bepaald worden via CSS
 
 
-  ## Aanvragen nieuwe Iconen
+  ## Aanvragen nieuwe iconen
   Zijn de iconen in de dso-toolkit niet toereikend? Is er een specifieke icoon nodig die essentieel is voor de user-interface? Een icoon kun je op de volgende manier aanvragen. Ga naar de [github repository van de dso-toolkit](https://github.com/dso-toolkit/dso-toolkit/issues). Maak hier een nieuw issue aan en geef de volgende informatie mee:
   * Welke icoon of iconen je nodig hebt
   * Binnen welke tijdsspanne je de iconen nodig hebt
   * Email-adres indien een designer contact wil opnemen
 
 
-  Er is een icoon beschikbaar die als tijdelijke vervanging kan dienen. Deze heet wip-wip (work in progress) dit icoon is terug te vinden in de iconenlijst. 
+  Er is een icoon beschikbaar die als tijdelijke vervanging kan dienen. Deze heet wip-wip (work in progress) dit icoon is terug te vinden in de iconenlijst.
 
   ## Bronvermelding
   * [Nielsen Norman Group](https://www.nngroup.com/)
