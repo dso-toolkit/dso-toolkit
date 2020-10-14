@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Documentatie update van iconen, process aanvragen toegevoegd (#806)
 * Documentatie update van Attachment counter, Badge, Breadcrumbs (#810)
 
+### Added
+* Definition list moeten opgebroken kunnen worden in columns zonder dat de definition list zelf doorbroken wordt (#779)
+
 ### Fixed
 * Links naar Digitoegankelijk.nl in Documentatie werken niet (#799)
 * Header van een accordion element sluit niet altijd netjes aan (#785)
