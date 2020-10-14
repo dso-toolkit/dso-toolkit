@@ -110,7 +110,7 @@ variants:
   - name: two-columns-small-content
     context:
       __title: Twee kolommen
-      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-2-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-2-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen. Om ongewenste afbreek-problemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-2-columns
       dsoColumns: true
       definitions:
@@ -138,13 +138,13 @@ variants:
   - name: two-columns
     context:
       __title: Twee kolommen, voorbeeld uitgebreide content
-      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-2-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-2-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen. Om ongewenste afbreek-problemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-2-columns
       dsoColumns: true
   - name: three-columns-small-content
     context:
       __title: Drie kolommen
-      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen. Om ongewenste afbreek-problemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-3-columns
       dsoColumns: true
       definitions:
@@ -172,6 +172,6 @@ variants:
   - name: three-columns
     context:
       __title: Drie kolommen, voorbeeld uitgebreide content
-      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen.       Om ongewenste afbreek-porblemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
+      __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen. Om ongewenste afbreek-problemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-3-columns
       dsoColumns: true
