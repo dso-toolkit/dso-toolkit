@@ -63,8 +63,6 @@ body.dso-modal-open {
     h2 {
       margin: 0;
       max-width: calc(100% - #{$u3});
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .dso-close {
@@ -75,7 +73,7 @@ body.dso-modal-open {
       position: absolute;
       right: 13px;
       text-align: center;
-      top: calc(50% - #{$dso-modal-close-icon-size / 2});
+      top: $u2;
       width: $dso-modal-close-icon-size;
 
       &::before {
