@@ -8,7 +8,7 @@ notes: |
   Gebruik het paperclip-icoon in combinatie met een titel. Een attachment counter heeft geen interactie en is niet klikbaar of te verwijderen. De counter valt onder de statusmeldingen: 'indicatoren, validatoren en notificaties'.
 
   ## Gedrag en toegankelijkheid
-  * De sr-only tekst "bijlage"is een tekstalternatief voor de paperclip, neem deze dus op.
+  * De sr-only tekst "bijlage" is een tekstalternatief voor de paperclip, neem deze dus op.
   * Let op enkelvoud en meervoud: 1 bijlage, 2 bijlagen. Pas dit vanuit je javascript aan of gebruik eventueel de vorm bijlage(n)
 
   ## Component in context

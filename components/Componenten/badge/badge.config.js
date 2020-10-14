@@ -8,7 +8,7 @@ module.exports = {
   Gebruik een badge om aandacht op een element te vestigen en/of om elementen van elkaar te onderscheiden. Ook kan een badge ingezet worden als teller: zodra de teller oploopt wordt de gebruiker visueel daarop gewezen. Een badge bevat een numerieke waarde om een lopende telling of samenvatting aan te geven.
 
   ## Hoe te gebruiken
-  Gebruik badges in combinatie met tekst of een ander element om bijvoorbeeld als teller te werken. Gebruik ze dan alleen om een nummer weer te geven, eventueel met speciale tekens voor numerieke waarden zoals + en -. Een tellerbadge wordt niet gebruikt als de waarde ‘nul’ is, en is dan ook niet te zien.
+  Gebruik badges in combinatie met tekst of een ander element om bijvoorbeeld als teller te werken. Gebruik ze dan alleen om een nummer weer te geven, eventueel met speciale tekens voor numerieke waarden zoals + en -. Een tellerbadge wordt niet gebruikt als de waarde 'nul' is, en is dan ook niet te zien.
 
   Een badge heeft geen interactie en is niet klikbaar of te verwijderen. Een badge bestaat uit een label en een achtergrond. Probeer de tekst zo kort mogelijk te houden. Zet er dus geen hele zinnen in. Alleen het eerste woord heeft een hoofdletter. Een badge label kan extra informatie bevatten, zoals een categorie of type badge.
 
@@ -20,7 +20,7 @@ module.exports = {
 
   ## Component in context
   - [Zoeken-in-lijst-cards]({{ '/components/detail/zoeken-in-lijst-cards' | docPath }})
-  
+
 
   ## Bronvermelding
   - GOV.UK HMRC Assets Frontend components and patterns. Notification Badge. Geraadpleegd juli 2020, van http://hmrc.github.io/assets-frontend/components/notification-badge/index.html
