@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-## 11.4.0
+## 11.4.1
 
 ### Changed
 * Gebruik van text-overflow ellipsis minimaliseren (#774)
@@ -22,6 +22,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * Progressblock deprecaten (#792) **Deprecation notice, see PR #803**
+
+## 11.4.0
+
+* Incomplete release
 
 ## 11.3.0
 
