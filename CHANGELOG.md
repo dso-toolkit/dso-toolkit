@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Removed 
+* Progressblock verwijderen (#802)
+
 ### Changed
 * Iconen minus-square en plus-square updaten (#796)
 
