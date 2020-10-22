@@ -1,0 +1,7 @@
+<div class="dso-input-stepper">
+  {% render '@button', {type: 'button', modifier: 'link', label: minusButtonLabel, icon: 'minus-square', iconOnly: 'true', disabled: minusButtonInactive, url: '#'} %}
+  <span class="dso-input-step-counter">
+    {{ count }}
+  </span>
+  {% render '@button', {type: 'button', modifier: 'link', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive, url: '#'} %}
+</div>

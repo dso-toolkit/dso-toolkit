@@ -1,0 +1,12 @@
+.dso-input-stepper {
+  align-items: center;
+  display: flex;
+
+  .dso-input-step-counter {
+    align-self: center;
+    display: inline-block;
+    height: $u3;
+    text-align: center;
+    width: $u3;
+  }
+}

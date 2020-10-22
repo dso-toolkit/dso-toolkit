@@ -1,0 +1,23 @@
+status: ready
+notes:
+  xxx
+id: input-stepper
+collated: true
+context:
+  __title: default
+  count: 99
+  minusButtonLabel: Aantal verlagen
+  plusButtonLabel: Aantal verhogen
+variants:
+- name: input-stepper-minimum-limit
+  context:
+    __title: Minimum limit (optional)
+    count: 0
+    minusButtonInactive: true
+    minusButtonLabel: Aantal verlagen (disabled)
+- name: input-stepper-minimum-limit
+  context:
+    __title: Maximum limit (optional)
+    count: 99
+    plusButtonInactive: true
+    plusButtonLabel: Aantal verhogen (disabled)
