@@ -1,8 +1,6 @@
 $dso-accordion-main-color: $cannon-pink;
 $dso-accordion-nesting-color: #dbc8d1;
 $dso-accordion-border-radius: $u1 / 2;
-$dso-accordion-main-padding: $u2;
-$dso-accordion-small-main-padding: $u1;
 $dso-accordion-chevron-icon-size: $u3;
 $dso-accordion-chevron-space: $u1;
 $dso-accordion-chevron-left-offset: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-space;
@@ -18,6 +16,18 @@ $dso-accordion-light-chevron-left-offset: $dso-accordion-light-chevron-icon-size
 $dso-accordion-light-handle-line-height: $u3;
 $dso-accordion-light-border-color: $grijs-20;
 
+:root {
+  --horizontal-spacer-unit: 15px;
+  --vertical-spacer-unit: #{($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2};
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --horizontal-spacer-unit: 7px;
+    --vertical-spacer-unit: #{($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 4};
+  }
+}
+
 .dso-accordion {
   .dso-section-handle {
     font-weight: 600;
@@ -29,12 +39,8 @@ $dso-accordion-light-border-color: $grijs-20;
       border: 1px solid $dso-accordion-main-color;
       border-radius: $dso-accordion-border-radius;
       overflow: hidden;
-      padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
+      padding: var(--vertical-spacer-unit) var(--horizontal-spacer-unit);
       position: relative;
-
-      @media screen and (max-width: $screen-xs-max) {
-        padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 4) $dso-accordion-small-main-padding - 1px;
-      }
 
       a,
       button {
