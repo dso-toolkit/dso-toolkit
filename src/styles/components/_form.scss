@@ -192,10 +192,8 @@ select:not([multiple]) {
   .form-group & {
     @include di-variant("caret-down");
 
-    // sass-lint:disable no-vendor-prefixes
     -moz-appearance: none;
     -webkit-appearance: none;
-    // sass-lint:enable no-vendor-prefixes
 
     background-position: calc(100% - #{$u1});
     background-repeat: no-repeat;
@@ -206,7 +204,7 @@ select:not([multiple]) {
       @include di-variant("caret-down-disabled");
     }
 
-    &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+    &::-ms-expand {
       display: none;
     }
   }

@@ -16,7 +16,7 @@
 }
 
 @mixin dso-table-responsive {
-  -ms-overflow-style: -ms-autohiding-scrollbar; // sass-lint:disable-line no-vendor-prefixes
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   border: 1px solid $table-border-color;
   margin-bottom: 0;
   overflow-y: hidden;

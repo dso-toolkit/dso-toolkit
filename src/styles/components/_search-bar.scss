@@ -69,11 +69,9 @@ $dso-search-bar-height: $u5;
         overflow: visible;
       }
 
-      // sass-lint:disable no-vendor-prefixes
       &::-ms-clear {
         display: none;
       }
-      // sass-lint:enable no-vendor-prefixes
     }
 
     button {

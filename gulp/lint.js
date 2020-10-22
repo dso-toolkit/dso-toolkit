@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 
 const gulpIf = require('gulp-if');
-const sassLint = require('gulp-sass-lint');
 const isCi = require('./functions/is-ci');
 
 module.exports = {
@@ -12,16 +11,7 @@ module.exports = {
 };
 
 function lintStyles() {
-  return gulp.src('src/styles/**/*.s[ac]ss')
-    .pipe(sassLint({
-      options: {
-        formatter: 'stylish',
-        verbose: true
-      },
-      configFile: '.sass-lint.yml'
-    }))
-    .pipe(sassLint.format())
-    .pipe(gulpIf(isCi, sassLint.failOnError()));
+  return gulp.src('src/styles/**/*.s[ac]ss');
 }
 
 function lintWatcher(logger) {
