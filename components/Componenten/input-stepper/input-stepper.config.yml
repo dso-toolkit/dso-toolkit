@@ -7,6 +7,14 @@ context:
   minusButtonLabel: Aantal verlagen
   plusButtonLabel: Aantal verhogen
 variants:
+- name: input-stepper-incative
+  context:
+    __title: Inactive
+    count: 99
+    minusButtonInactive: true
+    minusButtonLabel: Aantal verlagen (disabled)
+    plusButtonInactive: true
+    plusButtonLabel: Aantal verhogen (disabled)
 - name: input-stepper-minimum-limit
   context:
     __title: Minimum limit (optional)
