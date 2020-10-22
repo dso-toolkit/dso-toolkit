@@ -2,7 +2,7 @@
 
 const gulp = require('gulp');
 
-const gulpIf = require('gulp-if');
+const stylelint = require('gulp-stylelint');
 const isCi = require('./functions/is-ci');
 
 module.exports = {
@@ -11,7 +11,14 @@ module.exports = {
 };
 
 function lintStyles() {
-  return gulp.src('src/styles/**/*.s[ac]ss');
+  return gulp.src('src/styles/**/*.s[ac]ss')
+    .pipe(stylelint({
+      failAfterError: isCi,
+      reporters: [{
+        formatter: 'string',
+        console: true
+      }]
+    }));
 }
 
 function lintWatcher(logger) {
