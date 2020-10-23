@@ -1,15 +1,18 @@
 .dso-jumbotron {
-  @include make-row;
+  @include make-row();
 
   .dso-jumbotron-title {
     @extend %is-h1;
+
     @include make-md-column(12);
+
     margin-bottom: $u2;
     margin-top: 0;
   }
 
   .dso-jumbotron-body {
     @extend %dso-rich-content;
+
     @include make-md-column(8);
   }
 

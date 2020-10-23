@@ -25,11 +25,11 @@ form,
 
       .dso-file-upload {
         input[type="file"] {
-          @include sr-only;
+          @include sr-only();
 
           &:focus {
             & + label {
-              @include tab-focus;
+              @include tab-focus();
 
               color: $grasgroen;
               text-decoration: none;
@@ -96,7 +96,7 @@ form,
           }
 
           @media screen and (max-width: $screen-sm-max) {
-            @include clearfix;
+            @include clearfix();
 
             display: block;
 

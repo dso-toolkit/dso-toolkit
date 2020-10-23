@@ -91,7 +91,6 @@ ul.nav-tabs {
         &:active,
         &:focus,
         &:hover {
-          border-bottom-color: transparent;
           border-bottom-width: 1px;
           border-color: transparent;
         }
@@ -101,7 +100,6 @@ ul.nav-tabs {
         &,
         &:focus,
         &:hover {
-          border-bottom-color: $dso-tabs-color;
           border-bottom-width: 1px;
           border-color: $dso-tabs-color;
         }

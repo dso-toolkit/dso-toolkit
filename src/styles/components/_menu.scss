@@ -40,7 +40,7 @@
     }
   }
 
-  @if($library) {
+  @if ($library) {
     #state-switch:checked ~ .dso-example & > .dso-nav {
       display: block;
     }

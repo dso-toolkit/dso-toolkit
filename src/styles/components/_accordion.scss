@@ -20,23 +20,8 @@ $dso-accordion-light-border-color: $grijs-20;
   .dso-section-handle {
     font-weight: 600;
   }
-}
 
-.dso-accordion {
   &:not(.dso-accordion-compact) {
-    .dso-accordion-section {
-      .dso-section-handle,
-      > h1.dso-section-handle,
-      > h2.dso-section-handle,
-      > h3.dso-section-handle,
-      > h4.dso-section-handle,
-      > h5.dso-section-handle {
-        font-size: 1em;
-        line-height: $dso-accordion-handle-line-height;
-        margin: 0;
-      }
-    }
-
     .dso-section-handle {
       background-color: $wit;
       border: 1px solid $dso-accordion-main-color;
@@ -105,6 +90,17 @@ $dso-accordion-light-border-color: $grijs-20;
     }
 
     .dso-accordion-section {
+      .dso-section-handle,
+      > h1.dso-section-handle,
+      > h2.dso-section-handle,
+      > h3.dso-section-handle,
+      > h4.dso-section-handle,
+      > h5.dso-section-handle {
+        font-size: 1em;
+        line-height: $dso-accordion-handle-line-height;
+        margin: 0;
+      }
+
       + .dso-accordion-section {
         margin-top: $u1 / 2;
       }
@@ -284,6 +280,7 @@ $dso-accordion-light-border-color: $grijs-20;
 
         &::before {
           @include di("chevron-down");
+
           content: "";
           display: block;
           left: $u1;

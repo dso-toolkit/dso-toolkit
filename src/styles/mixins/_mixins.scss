@@ -25,7 +25,7 @@
   &::before {
     content: "beweeg de tabel van links naar rechts";
     display: block;
-    font-size: .8em;
+    font-size: 0.8em;
     margin-bottom: $u1;
     position: relative;
     text-align: center;
@@ -42,7 +42,7 @@
       > tr {
         > th,
         > td {
-          white-space: nowrap;
+          white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
         }
       }
     }

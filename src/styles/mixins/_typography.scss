@@ -38,18 +38,18 @@ small,
 
 sub,
 sup {
-  font-size: .65em;
+  font-size: 0.65em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
 
 sup {
-  top: -.5em;
+  top: -0.5em;
 }
 
 sub {
-  bottom: -.25em;
+  bottom: -0.25em;
 }
 
 del {
@@ -61,13 +61,10 @@ ins {
   text-decoration: none;
 }
 
-
-
 // __________________________________________________
 //
 // Typography
 // --------------------------------------------------
-
 
 // Headings
 // -------------------------
@@ -101,7 +98,6 @@ p {
   margin-bottom: $u2;
 }
 
-
 // Lists
 // -------------------------
 
@@ -119,7 +115,6 @@ dl {
 
 // Misc
 // -------------------------
-
 
 // Blockquotes
 blockquote {
