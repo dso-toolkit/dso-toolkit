@@ -27,7 +27,7 @@ global.getAllVersions = function getAllVersions() {
 
 function getBranchLabel(item) {
   if (item.branch) {
-    return item.branch;
+    return item.branch === 'topic' ? 'branch releases' : item.branch;
   }
 
   var versions = item.version.split('.');
