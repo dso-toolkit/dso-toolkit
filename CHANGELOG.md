@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Voorbeeld pagina Actieverzoeken (#791)
+
 ### Removed
 * **BREAKING**: Progressblock verwijderen (#802) **Removal notice, see PR #814**
 
