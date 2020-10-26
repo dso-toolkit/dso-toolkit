@@ -26,7 +26,8 @@ $dso-fieldset-separator-color: $grijs-20;
 $dso-fieldset-separator-unit: $u4;
 
 .form,
-form {
+form,
+.dso-section-body {
   .dso-field-container {
     position: relative;
   }

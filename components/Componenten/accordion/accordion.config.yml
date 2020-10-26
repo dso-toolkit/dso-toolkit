@@ -224,6 +224,98 @@ variants:
           <p>Dit is de inhoud van <strong>Evaluatie werkzaamheden (h5)</strong></p>
           <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
         open: true
+  - name: default met formulier
+    context:
+      __title: default met formulier
+      sections:
+      - title: Stap met formulier zonder fieldset
+        id: panel1
+        open: true
+        fieldsets:
+          - groups:
+              - id: omgevingsvergunningPostcode
+                inputType: input
+                type: text
+                label: Postcode
+                size: 8
+              - id: omgevingsvergunningHuisnummer
+                inputType: input
+                type: text
+                label: Huisnummer
+                size: 8
+              - id: omgevingsvergunningToevoeging
+                inputType: input
+                type: text
+                label: Huisnummer toevoeging
+                size: 8
+              - id: omgevingsvergunningStraatnaam
+                inputType: input
+                type: text
+                label: Straatnaam
+              - id: omgevingsvergunningWoonplaats
+                inputType: input
+                type: text
+                label: Woonplaats
+              - id: type_melder
+                inputType: radios
+                label: Type melder
+                options:
+                - value: particulier
+                  label: particulier
+                - value: bedrijf
+                  label: bedrijf
+        buttons:
+        - type: submit
+          modifier: primary
+          label: Volgende stap
+      - title: Stap met formulier met meerdere fieldsets
+        id: panel6
+        open: true
+        header: h5
+        fieldsets:
+          - legend: Adresgegevens
+            groups:
+              - id: omgevingsvergunningPostcode
+                inputType: input
+                type: text
+                label: Postcode
+                size: 8
+              - id: omgevingsvergunningHuisnummer
+                inputType: input
+                type: text
+                label: Huisnummer
+                size: 8
+              - id: omgevingsvergunningToevoeging
+                inputType: input
+                type: text
+                label: Huisnummer toevoeging
+                size: 8
+              - id: omgevingsvergunningStraatnaam
+                inputType: input
+                type: text
+                label: Straatnaam
+              - id: omgevingsvergunningWoonplaats
+                inputType: input
+                type: text
+                label: Woonplaats
+          - legend: Melder gegevens
+            groups:
+              - id: type_melder
+                inputType: radios
+                label: Type melder
+                options:
+                - value: particulier
+                  label: particulier
+                - value: bedrijf
+                  label: bedrijf
+        buttons:
+        - type: button
+          modifier: link
+          label: Annuleren
+        - type: submit
+          modifier: primary
+          label: Verstuur
+
   - name: compact
     context:
       __title: compact

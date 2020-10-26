@@ -347,6 +347,189 @@
 <!-- End: @accordion--default-met-links -->
 <hr />
 
+<!-- Start: @accordion--default-met-formulier -->
+<div class="dso-example-wrapper">
+  <div class="dso-example-text">
+    <h2>default met formulier</h2>
+  </div>
+  <div class="dso-example">
+    <div class="dso-accordion">
+      <div class="dso-accordion-section dso-open">
+        <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Stap met formulier zonder fieldset
+          </button>
+        </h3>
+        <div class="dso-section-body">
+          <div class="form-group dso-input dso-input-text">
+            <div class="dso-label-container">
+              <label for="omgevingsvergunningPostcode" class="control-label">
+                Postcode
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="omgevingsvergunningPostcode" class="form-control" size="8">
+            </div>
+          </div>
+          <div class="form-group dso-input dso-input-text">
+            <div class="dso-label-container">
+              <label for="omgevingsvergunningHuisnummer" class="control-label">
+                Huisnummer
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="omgevingsvergunningHuisnummer" class="form-control" size="8">
+            </div>
+          </div>
+          <div class="form-group dso-input dso-input-text">
+            <div class="dso-label-container">
+              <label for="omgevingsvergunningToevoeging" class="control-label">
+                Huisnummer toevoeging
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="omgevingsvergunningToevoeging" class="form-control" size="8">
+            </div>
+          </div>
+          <div class="form-group dso-input dso-input-text">
+            <div class="dso-label-container">
+              <label for="omgevingsvergunningStraatnaam" class="control-label">
+                Straatnaam
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="omgevingsvergunningStraatnaam" class="form-control">
+            </div>
+          </div>
+          <div class="form-group dso-input dso-input-text">
+            <div class="dso-label-container">
+              <label for="omgevingsvergunningWoonplaats" class="control-label">
+                Woonplaats
+              </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="omgevingsvergunningWoonplaats" class="form-control">
+            </div>
+          </div>
+          <fieldset class="form-group dso-radios">
+            <legend class="dso-label-container">
+              <label class="control-label">
+                Type melder
+              </label>
+            </legend>
+            <div class="dso-field-container">
+              <div class="dso-selectable">
+                <input type="radio" id="type_melder-0" name="type_melder" value="particulier">
+                <label for="type_melder-0">
+                  particulier
+                </label>
+              </div>
+              <div class="dso-selectable">
+                <input type="radio" id="type_melder-1" name="type_melder" value="bedrijf">
+                <label for="type_melder-1">
+                  bedrijf
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="dso-form-buttons">
+            <button type="submit" class="btn btn-primary"><span >Volgende stap</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="dso-accordion-section dso-open">
+        <h5 class="dso-section-handle"><button type="button" aria-expanded="true">Stap met formulier met meerdere fieldsets
+          </button>
+        </h5>
+        <div class="dso-section-body">
+          <fieldset>
+            <legend>Adresgegevens</legend>
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="omgevingsvergunningPostcode" class="control-label">
+                  Postcode
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="omgevingsvergunningPostcode" class="form-control" size="8">
+              </div>
+            </div>
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="omgevingsvergunningHuisnummer" class="control-label">
+                  Huisnummer
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="omgevingsvergunningHuisnummer" class="form-control" size="8">
+              </div>
+            </div>
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="omgevingsvergunningToevoeging" class="control-label">
+                  Huisnummer toevoeging
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="omgevingsvergunningToevoeging" class="form-control" size="8">
+              </div>
+            </div>
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="omgevingsvergunningStraatnaam" class="control-label">
+                  Straatnaam
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="omgevingsvergunningStraatnaam" class="form-control">
+              </div>
+            </div>
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="omgevingsvergunningWoonplaats" class="control-label">
+                  Woonplaats
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="omgevingsvergunningWoonplaats" class="form-control">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Melder gegevens</legend>
+            <fieldset class="form-group dso-radios">
+              <legend class="dso-label-container">
+                <label class="control-label">
+                  Type melder
+                </label>
+              </legend>
+              <div class="dso-field-container">
+                <div class="dso-selectable">
+                  <input type="radio" id="type_melder-0" name="type_melder" value="particulier">
+                  <label for="type_melder-0">
+                    particulier
+                  </label>
+                </div>
+                <div class="dso-selectable">
+                  <input type="radio" id="type_melder-1" name="type_melder" value="bedrijf">
+                  <label for="type_melder-1">
+                    bedrijf
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </fieldset>
+          <div class="dso-form-buttons">
+            <button type="button" class="btn btn-link"><span >Annuleren</span></button>
+            <button type="submit" class="btn btn-primary"><span >Verstuur</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End: @accordion--default-met-formulier -->
+<hr />
+
 <!-- Start: @accordion--compact -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
