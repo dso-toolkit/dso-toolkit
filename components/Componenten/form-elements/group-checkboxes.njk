@@ -2,9 +2,9 @@
 
 <fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <legend class="dso-label-container">
-    <label class="control-label">
+    <span class="control-label">
       {{ label }}
-    </label>
+    </span>
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen} %}
     {% endif %}

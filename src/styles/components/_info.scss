@@ -73,7 +73,7 @@
 }
 
 @media screen and (min-width: $screen-sm-min) {
-  label.control-label + .dso-info-button {
+  .control-label + .dso-info-button {
     margin-top: #{$u1 - 1};
 
     .dso-radios &,

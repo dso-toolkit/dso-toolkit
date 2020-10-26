@@ -2,9 +2,9 @@
 
 <fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}{% if helpText %} aria-describedby="helpTextId_{{ id }}"{% endif%}>
   <legend class="dso-label-container">
-    <label class="control-label">
+    <span class="control-label">
       {{ label }}
-    </label>
+    </span>
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen} %}
     {% endif %}
