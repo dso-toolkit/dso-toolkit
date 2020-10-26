@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Iconen minus-square en plus-square updaten (#796)
 
+### Fixed
+* Labels mogen niet bestaan zonder ingesloten invoerelement of for attribuut (#819)
+
 ### Documentation
 * Versie selector voor pre-versie 10 toolkits (#697)
 
