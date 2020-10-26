@@ -1,7 +1,7 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-<div class="dso-input-stepper">
-  <div {{ className('dso-label-container', [hiddenLabel, 'sr-only']) -}}>
+<div {{ className('form-group dso-input', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
+  <div class="dso-label-container">
     <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>

@@ -1,6 +1,12 @@
 .dso-input-stepper {
-  align-items: center;
-  display: flex;
+  .dso-field-container {
+    align-items: center;
+    display: flex;
+  }
+
+  &.form-group .dso-field-container {
+    margin-top: #{$u1 - 1};
+  }
 
   .dso-input-step-counter {
     align-self: center;

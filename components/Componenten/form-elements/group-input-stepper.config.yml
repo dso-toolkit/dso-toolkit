@@ -13,6 +13,7 @@ variants:
   context:
     __title: Inactive
     label: Inactive input stepper
+    count: 99
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
     plusButtonInactive: true
@@ -28,10 +29,6 @@ variants:
   context:
     __title: Maximum limit (optional)
     label: Input stepper with maximum limit
+    count: 99
     plusButtonInactive: true
     plusButtonLabel: Aantal verhogen (disabled)
-- name: hidden-label
-  context:
-    __title: hidden label
-    label: hidden label
-    hiddenLabel: true
