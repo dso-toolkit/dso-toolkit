@@ -13,7 +13,7 @@
       </ul>
       <div class="row">
         <div class="col-md-12">
-          <div tabindex="0" role="tabpanel" id="Tab1-tab" aria-labelledby="Tab1">
+          <div role="tabpanel" id="Tab1-tab" aria-labelledby="Tab1">
             <table role="grid" class="table">
               <caption class="sr-only">Overzicht van inkomende actieverzoeken</caption>
               <thead>
@@ -72,17 +72,20 @@
         <div class="col-md-12">
           <h2>Kapvergunning Den Haag Ooimanstraat 37</h2>
           <hr>
-          <div class="row">
-            <div class="col-md-3">
-              <p><strong>Status:</strong> Open</p>
+          <dl class="dso-columns dso-2-columns">
+            <div>
+              <dt>Status:</dt>
+              <dd>Open</dd>
             </div>
-            <div class="col-md-4">
-              <p><strong>Datum:</strong> 20-10-2020</p>
+            <div>
+              <dt>Verzonden aan:</dt>
+              <dd>Gemeente Den Haag</dd>
             </div>
-            <div class="col-md-12">
-              <p><strong>Verzonden aan:</strong> Gemeente Den Haag</p>
+            <div>
+              <dt>Datum:</dt>
+              <dd>20-10-2020</dd>
             </div>
-          </div>
+          </dl>
         </div>
       </div>
       <div class="row">
@@ -92,22 +95,19 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <form>
+          <form class="dso-single-page">
             <fieldset class="dso-form-fields">
               <legend>
                 <h3>Intrekken actieverzoek</h3>
               </legend>
-              <fieldset>
-                <legend class="sr-only">Invoervelden</legend>
-                <div class="form-group dso-textarea">
-                  <div class="dso-label-container">
-                    <label for="actieverzoekMelding" class="control-label">Toelichting intrekken</label>
-                  </div>
-                  <div class="dso-field-container">
-                    <textarea id="actieverzoekMelding" name="melding" rows="6" class="form-control"></textarea>
-                  </div>
+              <div class="form-group dso-textarea">
+                <div class="dso-label-container">
+                  <label for="actieverzoekMelding" class="control-label">Toelichting intrekken</label>
                 </div>
-              </fieldset>
+                <div class="dso-field-container">
+                  <textarea id="actieverzoekMelding" name="melding" rows="6" class="form-control"></textarea>
+                </div>
+              </div>
             </fieldset>
             <div class="dso-form-buttons">
               <button type="submit" class="btn btn-primary">
