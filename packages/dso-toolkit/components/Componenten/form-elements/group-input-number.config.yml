@@ -13,6 +13,7 @@ variants:
   context:
     __title: Inactive
     label: Inactive input stepper
+    id: inactive
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
     plusButtonInactive: true
@@ -21,6 +22,7 @@ variants:
   context:
     __title: Minimum limit (optional)
     label: Input stepper with minimum limit
+    id: minimum-limit
     count: 0
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
@@ -28,10 +30,12 @@ variants:
   context:
     __title: Maximum limit (optional)
     label: Input stepper with maximum limit
+    id: maximum-limit
     plusButtonInactive: true
     plusButtonLabel: Aantal verhogen (disabled)
 - name: hidden-label
   context:
     __title: hidden label
     label: hidden label
+    id: hidden-label
     hiddenLabel: true
