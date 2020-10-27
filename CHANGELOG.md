@@ -5,8 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Removed
+* **BREAKING**: Progressblock verwijderen (#802) **Removal notice, see PR #814**
+
 ### Changed
 * Iconen minus-square en plus-square updaten (#796)
+* sass-lint vervangen met Stylelint (#805)
+* **BREAKING**: Labels mogen niet bestaan zonder ingesloten invoerelement of for attribuut (#819) **Markup change, see PR #822**
+
+### Added
+* Voorbeeld pagina Wizard stap 4 (#789)
+
+### Documentation
+* Versie selector voor pre-versie 10 toolkits (#697)
 
 ### Added
 * Nieuw component: Input Stepper (#797)

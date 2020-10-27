@@ -33,7 +33,7 @@
     }
 
     &.dso-collection {
-      margin-left: -.5em;
+      margin-left: -0.5em;
 
       &.is-closed {
         > ul {
@@ -82,14 +82,14 @@
   }
 
   .dso-tree-collection-label span {
-    padding-left: .75rem;
+    padding-left: 0.75rem;
   }
 
   .dso-tree-view-subhead {
     color: $grijs-60;
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: 400;
-    letter-spacing: .075em;
+    letter-spacing: 0.075em;
     line-height: 1.66667;
     margin-bottom: $dso-unit;
     margin-top: #{$dso-unit * 3};

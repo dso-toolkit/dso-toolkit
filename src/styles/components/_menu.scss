@@ -40,8 +40,8 @@
     }
   }
 
-  @if($library) {
-    #state-switch:checked ~ .dso-example & > .dso-nav { // sass-lint:disable-line no-ids
+  @if ($library) {
+    #state-switch:checked ~ .dso-example & > .dso-nav {
       display: block;
     }
   }
