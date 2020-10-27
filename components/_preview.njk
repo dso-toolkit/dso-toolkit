@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="nl">
-
   <head>
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ _target.label }} | {{ _config.project.title }} - Component preview</title>
-
     <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
   </head>
 
@@ -14,7 +12,7 @@
       {{ yield | safe }}
     </div>
 
-  <!-- Polyfill for svg use[href] with external uri -->
+    <!-- Polyfill for svg use[href] with external uri -->
     <script src="{{ '/svg4everybody.min.js' | path }}"></script>
     <script>svg4everybody();</script>
   </body>
