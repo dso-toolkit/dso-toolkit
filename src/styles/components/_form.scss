@@ -48,6 +48,10 @@ form,
         padding-top: $dso-fieldset-separator-unit;
       }
     }
+
+    &.form-group > legend {
+      color: $grijs-90;
+    }
   }
 }
 
