@@ -10,15 +10,12 @@ dl {
   }
 
   dd:not(:last-of-type) {
-    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+    @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
+
     margin-bottom: $dso-definition-list-vertical-space;
   }
 
   &.dso-columns {
-    > div {
-      margin-bottom: $u2;
-    }
-
     @media screen and (min-width: $screen-sm-min) {
       break-inside: avoid;
       column-gap: $u2;
@@ -56,9 +53,7 @@ dl {
         }
       }
     }
-  }
 
-  &.dso-columns {
     > div {
       margin-bottom: $u2;
     }

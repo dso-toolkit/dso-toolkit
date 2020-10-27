@@ -1,5 +1,6 @@
 .dso-list-button {
   @include state-styling($wit, $grijs-20, $grijs-90);
+
   display: flex;
   flex-wrap: wrap;
   font-weight: 600;
@@ -31,6 +32,7 @@
     &,
     &:hover {
       @include state-styling($wit, $grijs-20, $grijs-60);
+
       opacity: 1;
     }
   }

@@ -1,5 +1,5 @@
 ol.breadcrumb {
-  @include clearfix;
+  @include clearfix();
 
   list-style: none;
   margin-bottom: $u1;
@@ -13,14 +13,12 @@ ol.breadcrumb {
       content: "";
       display: inline-block;
       height: 1em;
-      margin: 0 .625em;
+      margin: 0 0.625em;
       position: relative;
-      top: .17em;
+      top: 0.17em;
       vertical-align: baseline;
     }
-  }
 
-  > li {
     &.active {
       color: $grijs-60;
     }

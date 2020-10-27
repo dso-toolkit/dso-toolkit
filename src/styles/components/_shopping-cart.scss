@@ -41,7 +41,8 @@ $dso-shopping-cart-border-color: $grijs-20;
 
   ul,
   ol {
-    @include list-unstyled;
+    @include list-unstyled();
+
     background-color: $grijs-10;
     border-radius: $dso-shopping-cart-radius;
     margin-bottom: 0;
@@ -132,7 +133,7 @@ $dso-shopping-cart-border-color: $grijs-20;
     margin-top: $u1;
 
     label {
-      @include sr-only;
+      @include sr-only();
     }
   }
 

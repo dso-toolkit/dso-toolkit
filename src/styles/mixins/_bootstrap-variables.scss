@@ -2,7 +2,6 @@
 // DSO Variables - Bootstrap overwrites
 // --------------------------------------------------
 
-
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
@@ -25,7 +24,7 @@ $link-hover-decoration: underline;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: Asap, sans-serif;
+$font-family-sans-serif: Asap, sans-serif; /* stylelint-disable-line value-keyword-case */
 
 $font-size-base: 16px;
 

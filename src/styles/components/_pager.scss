@@ -6,7 +6,7 @@ $dso-pager-height: $u6;
   li {
     > a,
     > span {
-      @include button-default-base;
+      @include button-default-base();
     }
 
     a {
