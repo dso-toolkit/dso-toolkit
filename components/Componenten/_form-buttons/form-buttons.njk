@@ -1,0 +1,7 @@
+  {% if buttons %}
+    <div class="dso-form-buttons">
+      {% for button in buttons %}
+        {% render '@button', button %}
+      {% endfor %}
+    </div>
+  {% endif %}

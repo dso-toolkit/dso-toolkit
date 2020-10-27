@@ -1,17 +1,6 @@
+{% set formPrefix = generateformPrefix(__title, formModifier) %}
+
 <form {{ className(formModifier) }}>
-  {% for fieldset in fieldsets %}
-    <fieldset>
-      <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend }}</legend>
-      {% for group in fieldset.groups %}
-        {% render '@group-' + group.inputType, merge(group, {prefix: _self.name}) %}
-      {% endfor %}
-    </fieldset>
-  {% endfor %}
-  {% if buttons %}
-    <div class="dso-form-buttons">
-      {% for button in buttons %}
-        {% render '@button', button %}
-      {% endfor %}
-    </div>
-  {% endif %}
+  {% render '@form-fieldsets', {fieldsets: fieldsets, prefix: formPrefix} %}
+  {% render '@form-buttons', {buttons: buttons} %}
 </form>
