@@ -17,6 +17,11 @@
     text-align: center;
     width: $u3;
 
+    &:focus,
+    &:active {
+      outline: 0;
+    }
+
     // Chrome, Safari, Edge, Opera
     // sass-lint:disable no-vendor-prefixes
     &::-webkit-outer-spin-button,
