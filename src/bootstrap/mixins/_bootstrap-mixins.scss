@@ -12,7 +12,7 @@
 @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/responsive-visibility";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/size";
 // @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/tab-focus";
-@mixin tab-focus { // sass-lint:disable-line no-empty-rulesets
+@mixin tab-focus {
   // do nothing, where bootstrap would manipulate focus styling
 }
 

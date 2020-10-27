@@ -11,12 +11,6 @@ $dso-search-bar-height: $u5;
     position: relative;
     width: 100%;
 
-    label {
-      flex-grow: 1;
-      margin-bottom: $u1;
-      width: 100%;
-    }
-
     .dso-search-icon {
       bottom: $u1;
       font-size: 0;
@@ -56,7 +50,7 @@ $dso-search-bar-height: $u5;
       height: $dso-search-bar-height;
       line-height: $dso-search-bar-height;
       padding: 6px $u5 6px $u1;
-      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
       width: 100%;
 
       &:focus {
@@ -69,11 +63,9 @@ $dso-search-bar-height: $u5;
         overflow: visible;
       }
 
-      // sass-lint:disable no-vendor-prefixes
       &::-ms-clear {
         display: none;
       }
-      // sass-lint:enable no-vendor-prefixes
     }
 
     button {
@@ -100,6 +92,10 @@ $dso-search-bar-height: $u5;
     }
 
     label {
+      flex-grow: 1;
+      margin-bottom: $u1;
+      width: 100%;
+
       + .dso-search-icon {
         top: $u4;
 

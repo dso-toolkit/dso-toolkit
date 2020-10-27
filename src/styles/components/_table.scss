@@ -1,10 +1,6 @@
 // Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
 // Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
 
-table {
-  background-color: $table-bg;
-}
-
 caption {
   color: $text-muted;
   padding-bottom: $table-cell-padding;
@@ -26,7 +22,7 @@ table.table {
 
 table.table,
 .dso-rich-content table {
-  @include dso-table;
+  @include dso-table();
 }
 
 // Hover effect
@@ -50,6 +46,8 @@ table col[class*="col-"] {
 }
 
 table {
+  background-color: $table-bg;
+
   td,
   th {
     &[class*="col-"] {
@@ -76,17 +74,17 @@ table {
 
 .dso-table-responsive,
 .dso-table-scroll-container {
-  min-height: .01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
   overflow-x: auto;
   position: relative;
 }
 
 .dso-table-scroll-container {
-  @include dso-table-responsive;
+  @include dso-table-responsive();
 }
 
 .dso-table-responsive {
   @media screen and (max-width: $screen-xs-max) {
-    @include dso-table-responsive;
+    @include dso-table-responsive();
   }
 }

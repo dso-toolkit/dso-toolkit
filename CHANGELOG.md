@@ -5,16 +5,55 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Removed
+* **BREAKING**: Progressblock verwijderen (#802) **Removal notice, see PR #814**
+
+### Changed
+* Iconen minus-square en plus-square updaten (#796)
+* sass-lint vervangen met Stylelint (#805)
+
+### Documentation
+* Versie selector voor pre-versie 10 toolkits (#697)
+
+## 11.4.1
+
+### Changed
+* Gebruik van text-overflow ellipsis minimaliseren (#774)
+* Gebruik van whitespace no-wrap minimaliseren (#772)
+* Documentatie update van iconen, process aanvragen toegevoegd (#806)
+* Documentatie update van Attachment counter, Badge, Breadcrumbs (#810)
+
+### Added
+* Definition lists met columns zonder onderbreking (#779)
+
+### Fixed
+* Links naar Digitoegankelijk.nl in Documentatie werken niet (#799)
+* Fix voor niet aansluiten section-handles in accordion (#785)
+
+### Deprecated
+* Progressblock deprecaten (#792) **Deprecation notice, see PR #803**
+
+## 11.4.0
+
+* Incomplete release
+
+## 11.3.0
+
 ### Changed
 * Cards: selectievakjes verwijderen en info knopjes verduidelijken met beschrijvend sr-only (#722)
 * Tertiaire button - icon only: title attribuut verwijderen en sr-only toevoegen (#775)
 * Validatie teksten verplichte velden bij componenten (#747)
 
 ### Added
+* Voorbeeld pagina Homepage (#761)
 * List button component uitbreiden (#756)
+* Table: sr-only toevoeging in actieve row (#758)
 
 ### Fixed
 * List-button group styling (#780)
+
+### Documentation
+* Documentatie bijgewerkt van alerts, modals, logo, kleuren, typografie, lay-out, illustraties en zoeksuggesties (#760)
 
 ## 11.2.1
 

@@ -1,0 +1,49 @@
+notes: |
+status: ready
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Home
+        active: true
+      - label: Vergunningcheck
+      - label: Aanvragen
+      - label: Regels op de kaart
+      - label: Mijn Omgevingsloket
+  breadcrumbs:
+    crumbs:
+      - label: Home
+        url: '#'
+  aanbouw:
+    source: /dummy/images/aanbouw_schuur_plaatsen.svg
+    label: Aanbouw of schuurplaatsen
+  slopen:
+    source: /dummy/images/slopen.svg
+    label: Slopen van een bouwwerk of gedeelte
+  dakkapel:
+    source: /dummy/images/dakkapel_plaatsen.svg
+    label: Dakkapel plaatsen
+  gevel:
+    source: /dummy/images/raam_gevel_veranderen.svg
+    label: Raam of gevel veranderen
+  kappen:
+    source: /dummy/images/boom_kappen.svg
+    label: Boom kappen of snoeien
+  andere:
+    source: /dummy/images/overigen.svg
+    label: Andere werkzaamheden
+  vergunning:
+    title: Ik wil wat veranderen aan mijn huis, tuin of bedrijf
+    description: Doe hier de Vergunningcheck om te kijken of u een vergunning nodig heeft of melding moet doen.
+    linktext: Naar Vergunningcheck
+    source: /dummy/images/bouwvakkers.png
+  aanvragen:
+    title: Direct een aanvraag of melding indienen
+    description: Weet u al voor welke activiteit(en) u een vergunning moet aanvragen of melding moet doen? Dien hier direct een aanvraag of melding in.
+    linktext: Naar Aanvragen of melding doen
+    source: /dummy/images/medewerker.png
+  kaart:
+    title: Welke wetten en regels er gelden voor mijn locatie?
+    description: Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.
+    linktext: Naar Regels op de kaart
+    source: /dummy/images/kaartmensen.png
