@@ -23,7 +23,6 @@
     }
 
     // Chrome, Safari, Edge, Opera
-    // sass-lint:disable no-vendor-prefixes
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -31,7 +30,6 @@
     }
 
     // Firefox
-    // sass-lint:disable no-vendor-prefixes
     &[type = "number"] {
       -moz-appearance: textfield;
     }
