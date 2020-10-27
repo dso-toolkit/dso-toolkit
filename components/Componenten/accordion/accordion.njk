@@ -1,7 +1,7 @@
 <div {{ className('dso-accordion', modifiers) }}>
   {%- for section in sections -%}
     <div {{ className('dso-accordion-section', [section.state, 'dso-' + section.state], [section.open, 'dso-open'], [section.sections, 'dso-nested-accordion']) }}>
-      <{{ section.header if section.header else 'div' }} class="dso-section-handle">
+      <{{ section.header if section.header else 'h3' }} class="dso-section-handle">
       {%- if section.type === 'link' %}
         <a href="#" aria-expanded={% if section.open %}"true"{% else %}"false"{%endif%}>
       {% else -%}
@@ -34,10 +34,10 @@
 
       {% if section.type === 'link' %}
         </a>
-        </{{ section.header if section.header else 'div' }}>
+        </{{ section.header if section.header else 'h3' }}>
       {% else %}
         </button>
-        </{{ section.header if section.header else 'div' }}>
+        </{{ section.header if section.header else 'h3' }}>
       {%- endif %}
 
       {%- if section.open %}
@@ -47,8 +47,9 @@
               {{ section.richContent | safe }}
             </div>
           {% endif %}
-          {% if section.form %}
-            {% render '@form', section.form %}
+          {% if section.fieldsets %}
+            {% render '@form-fieldsets', {fieldsets: section.fieldsets} %}
+            {% render '@form-buttons', {buttons: section.buttons} %}
           {% endif %}
           {%- if section.sections %}
             <div {{ className('dso-accordion', section.modifiers) }}>
@@ -99,8 +100,9 @@
                           {{ subsection.richContent | safe }}
                         </div>
                       {% endif %}
-                      {% if subsection.form %}
-                        {% render '@form', subsection.form %}
+                      {% if subsection.fieldsets %}
+                        {% render '@form-fieldsets', {fieldsets: subsection.fieldsets} %}
+                        {% render '@form-buttons', {buttons: subsection.buttons} %}
                       {% endif %}
                     </div>
                   {% endif %}
