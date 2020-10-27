@@ -4,6 +4,7 @@ collated: true
 context:
   __title: default
   label: Default
+  id: default
   type: stepper
   count: 99
   minusButtonLabel: Aantal verlagen
@@ -13,6 +14,7 @@ variants:
   context:
     __title: Inactive
     label: Inactive input stepper
+    id: inactive
     count: 99
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
@@ -22,6 +24,7 @@ variants:
   context:
     __title: Minimum limit (optional)
     label: Input stepper with minimum limit
+    id: minimum-limit
     count: 0
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
@@ -29,6 +32,7 @@ variants:
   context:
     __title: Maximum limit (optional)
     label: Input stepper with maximum limit
+    id: maximum-limit
     count: 99
     plusButtonInactive: true
     plusButtonLabel: Aantal verhogen (disabled)
