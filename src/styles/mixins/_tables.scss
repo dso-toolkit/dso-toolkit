@@ -28,9 +28,7 @@
     &.#{$state}:hover > th {
       background-color: $table-bg-active;
     }
-  }
 
-  .table-hover > tbody > tr {
     &:hover > th,
     &:hover > td {
       background-color: $table-bg-active;
@@ -139,11 +137,6 @@
     }
   }
 
-  // Bottom align for column headings
-  > thead > tr > th {
-    vertical-align: bottom;
-  }
-
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid $table-border-color;
@@ -154,7 +147,7 @@
     background-color: $body-bg;
   }
 
-  // error after filtering 
+  // error after filtering
   > tbody > tr.result-error {
     td {
       font-style: italic;
@@ -163,6 +156,9 @@
 
   // sortable table
   > thead > tr > th {
+    // Bottom align for column headings
+    vertical-align: bottom;
+
     .btn.dso-sort {
       color: $grijs-90;
       font-weight: 600;

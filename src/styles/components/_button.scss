@@ -12,12 +12,7 @@
 }
 
 .btn {
-  @include button-default-base;
-
-  &.btn-primary,
-  &.btn-default {
-    min-width: $dso-button-size;
-  }
+  @include button-default-base();
 
   &:active,
   &.active,
@@ -28,6 +23,7 @@
 
   &.btn-default,
   &.btn-primary {
+    min-width: $dso-button-size;
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
 
@@ -106,6 +102,7 @@
     &,
     &:hover {
       @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
+
       opacity: 1;
     }
   }
@@ -180,6 +177,7 @@
     &,
     &:hover {
       @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
+
       opacity: 1;
     }
   }

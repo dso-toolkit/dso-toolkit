@@ -1,5 +1,5 @@
 footer {
-  @include full-width-row;
+  @include full-width-row();
 
   background-color: $grijs-10;
   border-top: 1px solid $dso-footer-border-color;
@@ -38,7 +38,7 @@ footer {
   }
 
   ul {
-    @include list-unstyled;
+    @include list-unstyled();
 
     li {
       line-height: 2em;
