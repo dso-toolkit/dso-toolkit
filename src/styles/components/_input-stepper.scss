@@ -1,14 +1,18 @@
 .dso-input-stepper {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
+  &:not(.form-group) {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   label {
     width: 100%;
   }
 
-  .form-horizontal &.form-group .dso-field-container {
-    margin-top: -1px;
+  @media screen and (min-width: $screen-sm-min) {
+    .form-horizontal &.form-group .dso-field-container {
+      margin-top: #{$u1 - 1};
+    }
   }
 
   .dso-input-step-counter {
