@@ -20,7 +20,7 @@
       border-radius: 2px;
       color: $wit;
       content: "\f00c";
-      font: normal normal normal 16px/1 FontAwesome;
+      font: normal normal normal 16px/1 FontAwesome; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
       padding: 2px;
       position: absolute;
       right: calc(100% + 16px);
@@ -38,7 +38,7 @@
     width: 0;
 
     &:disabled + label {
-      opacity: .7;
+      opacity: 0.7;
     }
 
     &:not(:disabled) + label:hover {
@@ -56,8 +56,9 @@
       $green: green($input-border-focus);
       $blue: blue($input-border-focus);
 
-      $color-rgba: rgba($red, $green, $blue, .6);
-      @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px $color-rgba);
+      $color-rgba: rgba($red, $green, $blue, 0.6);
+
+      @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $color-rgba);
 
       background-color: $grijs-30;
       border-color: $input-border-focus;

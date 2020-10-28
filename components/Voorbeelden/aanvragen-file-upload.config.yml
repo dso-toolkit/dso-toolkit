@@ -12,11 +12,8 @@ context:
       - title: Beschrijving installatie en activiteiten
         id: panel1
         open: true
-        form:
-          formModifier: form-horizontal
-          fieldsets:
-          - legend: Bijlagen
-            groups:
+        fieldsets:
+          - groups:
               - id: documenten
                 inputType: files
                 description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
@@ -24,10 +21,10 @@ context:
                   - filename: Schetsen_en_foto’s_1.pdf
                   - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
                     confidential: true
-          buttons:
-          - type: button
-            modifier: primary
-            label: Volgende
+        buttons:
+        - type: button
+          modifier: primary
+          label: Volgende
     - title: Beschrijving grondstoffen en hulpstoffen
       id: panel2
     - title: Energiegebruik en maatregelen

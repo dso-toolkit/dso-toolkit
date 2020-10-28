@@ -46,53 +46,55 @@ status: ready
 context:
   __title: default
   sections:
-  - title: Oprit (div)
+  - title: Oprit (h2)
     id: panel_oprit
-  - title: Woning (h1)
+    header: h2
+  - title: Woning (h3)
     id: panel1
     open: true
-    header: h1
-    richContent: |
-      <p>Dit is de inhoud van <strong>Woning (h1)</strong></p>
-      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
-  - title: Bouwwerkzaamheden (h2)
-    id: panel2
-    state: success
-    header: h2
-  - title: Plaats van het bouwwerk (h3)
-    id: panel3
-    state: warning
     header: h3
     richContent: |
-      <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h3)</strong></p>
-      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+      <p>Dit is de inhoud van <strong>Woning (h2)</strong></p>
+      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+  - title: Bouwwerkzaamheden (h4)
+    id: panel2
+    state: success
+    header: h4
+  - title: Plaats van het bouwwerk (h5)
+    id: panel3
+    state: warning
+    header: h5
+    richContent: |
+      <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h4)</strong></p>
+      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
     open: true
     sections:
-    - title: Woning (div)
+    - title: Woning (h2)
       id: panel1
-    - title: Bouwwerkzaamheden (h2)
+      header: h2
+    - title: Bouwwerkzaamheden (h3)
       id: panel2
       open: true
       state: success
-      header: h2
+      header: h3
       richContent: |
-        <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h2)</strong>. Zie de <em>Notes</em> van dit component.</p>
-    - title: Plaats van het bouwwerk (h3)
+        <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h3)</strong>. Zie de <em>Notes</em> van dit component.</p>
+    - title: Plaats van het bouwwerk (h4)
       id: panel3
       state: warning
-      header: h3
-    - title: Afmetingen van het bouwwerk (h4)
+      header: h4
+    - title: Afmetingen van het bouwwerk (h5)
       id: panel4
       state: info
-      header: h4
+      header: h5
     - title: Extra werkzaamheden (h5)
       id: panel5
       state: danger
       header: h5
-  - title: Afmetingen van het bouwwerk (h4)
+  - title: Afmetingen van het bouwwerk (h5)
     id: panel4
     state: info
-    header: h4
+    header: h5
   - title: Extra werkzaamheden (h5)
     id: panel5
     state: danger
@@ -104,7 +106,7 @@ context:
     header: h5
     richContent: |
       <p>Dit is de inhoud van <strong>Optionele werkzaamheden (h5)</strong></p>
-      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
     open: true
     status: 6 van 8 beantwoord
   - title: Bijgevoegde werkzaamheden (h5)
@@ -121,70 +123,72 @@ context:
     attachments: 1
     richContent: |
       <p>Dit is de inhoud van <strong>Evaluatie werkzaamheden (h5)</strong></p>
-      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+      <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
     open: true
 variants:
   - name: default met links
     context:
       __title: default met links
       sections:
-      - title: Oprit (div)
+      - title: Oprit (h2)
         id: panel_oprit
         type: link
-      - title: Woning (h1)
+        header: h2
+      - title: Woning (h3)
         id: panel1
         type: link
         open: true
-        header: h1
+        header: h3
         richContent: |
-          <p>Dit is de inhoud van <strong>Woning (h1)</strong></p>
-          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
-      - title: Bouwwerkzaamheden (h2)
+          <p>Dit is de inhoud van <strong>Woning (h2)</strong></p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+      - title: Bouwwerkzaamheden (h4)
         id: panel2
         type: link
         state: success
-        header: h2
-      - title: Plaats van het bouwwerk (h3)
+        header: h4
+      - title: Plaats van het bouwwerk (h5)
         id: panel3
         type: link
         state: warning
-        header: h3
+        header: h5
         richContent: |
-          <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h3)</strong></p>
-          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+          <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h4)</strong></p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
         open: true
         sections:
-        - title: Woning (div)
+        - title: Woning (h2)
           id: panel1
           type: link
-        - title: Bouwwerkzaamheden (h2)
+          header: h2
+        - title: Bouwwerkzaamheden (h3)
           id: panel2
           type: link
           open: true
           state: success
-          header: h2
+          header: h3
           richContent: |
-            <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h2)</strong>. Zie de <em>Notes</em> van dit component.</p>
-        - title: Plaats van het bouwwerk (h3)
+            <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h3)</strong>. Zie de <em>Notes</em> van dit component.</p>
+        - title: Plaats van het bouwwerk (h4)
           id: panel3
           type: link
           state: warning
-          header: h3
-        - title: Afmetingen van het bouwwerk (h4)
+          header: h4
+        - title: Afmetingen van het bouwwerk (h5)
           id: panel4
           type: link
           state: info
-          header: h4
+          header: h5
         - title: Extra werkzaamheden (h5)
           id: panel5
           type: link
           state: danger
           header: h5
-      - title: Afmetingen van het bouwwerk (h4)
+      - title: Afmetingen van het bouwwerk (h5)
         id: panel4
         type: link
         state: info
-        header: h4
+        header: h5
       - title: Extra werkzaamheden (h5)
         id: panel5
         type: link
@@ -198,7 +202,7 @@ variants:
         header: h5
         richContent: |
           <p>Dit is de inhoud van <strong>Optionele werkzaamheden (h5)</strong></p>
-          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
         open: true
         status: 6 van 8 beantwoord
       - title: Bijgevoegde werkzaamheden (h5)
@@ -218,8 +222,100 @@ variants:
         attachments: 1
         richContent: |
           <p>Dit is de inhoud van <strong>Evaluatie werkzaamheden (h5)</strong></p>
-          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+          <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
         open: true
+  - name: default met formulier
+    context:
+      __title: default met formulier
+      sections:
+      - title: Stap met formulier zonder fieldset
+        id: panel1
+        open: true
+        fieldsets:
+          - groups:
+              - id: omgevingsvergunningPostcode
+                inputType: input
+                type: text
+                label: Postcode
+                size: 8
+              - id: omgevingsvergunningHuisnummer
+                inputType: input
+                type: text
+                label: Huisnummer
+                size: 8
+              - id: omgevingsvergunningToevoeging
+                inputType: input
+                type: text
+                label: Huisnummer toevoeging
+                size: 8
+              - id: omgevingsvergunningStraatnaam
+                inputType: input
+                type: text
+                label: Straatnaam
+              - id: omgevingsvergunningWoonplaats
+                inputType: input
+                type: text
+                label: Woonplaats
+              - id: type_melder
+                inputType: radios
+                label: Type melder
+                options:
+                - value: particulier
+                  label: particulier
+                - value: bedrijf
+                  label: bedrijf
+        buttons:
+        - type: submit
+          modifier: primary
+          label: Volgende stap
+      - title: Stap met formulier met meerdere fieldsets
+        id: panel6
+        open: true
+        header: h5
+        fieldsets:
+          - legend: Adresgegevens
+            groups:
+              - id: omgevingsvergunningPostcode
+                inputType: input
+                type: text
+                label: Postcode
+                size: 8
+              - id: omgevingsvergunningHuisnummer
+                inputType: input
+                type: text
+                label: Huisnummer
+                size: 8
+              - id: omgevingsvergunningToevoeging
+                inputType: input
+                type: text
+                label: Huisnummer toevoeging
+                size: 8
+              - id: omgevingsvergunningStraatnaam
+                inputType: input
+                type: text
+                label: Straatnaam
+              - id: omgevingsvergunningWoonplaats
+                inputType: input
+                type: text
+                label: Woonplaats
+          - legend: Melder gegevens
+            groups:
+              - id: type_melder
+                inputType: radios
+                label: Type melder
+                options:
+                - value: particulier
+                  label: particulier
+                - value: bedrijf
+                  label: bedrijf
+        buttons:
+        - type: button
+          modifier: link
+          label: Annuleren
+        - type: submit
+          modifier: primary
+          label: Verstuur
+
   - name: compact
     context:
       __title: compact
@@ -230,7 +326,7 @@ variants:
           header: h3
           richContent: |
             <p>Dit is de inhoud van <strong>Sectie titel (active)</strong></p>
-            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
           open: true
         - title: Sectie titel
           id: panel2
@@ -252,7 +348,7 @@ variants:
           header: h3
           richContent: |
             <p>Dit is de inhoud van <strong>Sectie titel (active)</strong></p>
-            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>div</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
+            <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
           open: true
         - title: Sectie titel
           id: panel2

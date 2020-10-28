@@ -3,7 +3,7 @@ $dso-modal-max-width: 640px;
 $dso-modal-max-height: 70vh;
 
 $dso-modal-backdrop-bg: $wit;
-$dso-modal-backdrop-opacity: .2;
+$dso-modal-backdrop-opacity: 0.2;
 $dso-modal-content-bg: $wit;
 $dso-modal-border-color: #d3ddd6;
 
@@ -52,7 +52,7 @@ body.dso-modal-open {
 .dso-modal {
   .dso-dialog {
     background-color: $dso-modal-content-bg;
-    box-shadow: 0 8px 24px 0 rgba(25, 25, 25, .4);
+    box-shadow: 0 8px 24px 0 rgba(25, 25, 25, 0.4);
   }
 
   .dso-header {
@@ -88,6 +88,7 @@ body.dso-modal-open {
 
   .dso-body {
     @extend %dso-rich-content;
+
     height: calc(100% - #{$dso-modal-body-padding * 2 + $u4} - 1.5rem);
     min-height: 1.5rem;
     padding: $dso-modal-body-padding;

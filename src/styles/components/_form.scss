@@ -26,7 +26,8 @@ $dso-fieldset-separator-color: $grijs-20;
 $dso-fieldset-separator-unit: $u4;
 
 .form,
-form {
+form,
+.dso-section-body {
   .dso-field-container {
     position: relative;
   }
@@ -36,6 +37,7 @@ form {
 
     > legend {
       @extend %is-h3;
+
       border-bottom: 0;
       margin-bottom: $dso-fieldset-separator-unit;
     }
@@ -45,6 +47,10 @@ form {
         border-top: 1px solid $dso-fieldset-separator-color;
         padding-top: $dso-fieldset-separator-unit;
       }
+    }
+
+    &.form-group > legend {
+      color: $grijs-90;
     }
   }
 }
@@ -58,7 +64,7 @@ form.dso-single-page .dso-form-buttons,
 }
 
 .dso-form-buttons {
-  @include clearfix;
+  @include clearfix();
 
   text-align: right;
 
@@ -101,8 +107,10 @@ form.dso-single-page .dso-form-buttons,
   }
 
   .control-label {
+    display: inline-block;
     font-weight: bold;
     margin-bottom: $u1;
+    max-width: 100%;
     text-align: left;
   }
 
@@ -111,7 +119,7 @@ form.dso-single-page .dso-form-buttons,
     font-size: $font-size-base;
     margin-bottom: $u1;
 
-    label {
+    .control-label {
       display: inline;
     }
   }
@@ -126,7 +134,7 @@ form.dso-single-page .dso-form-buttons,
       .control-label::after {
         color: $dso-required-color;
         content: $dso-required-string;
-        font-size: .85em;
+        font-size: 0.85em;
         font-style: italic;
         font-weight: 400;
         margin-left: 4px;
@@ -165,6 +173,7 @@ form.dso-single-page .dso-form-buttons,
 
       &::before {
         @include di("status-danger", $dso-field-invalid-icon-size);
+
         content: "";
         display: block;
         left: 0;
@@ -192,11 +201,8 @@ select:not([multiple]) {
   .form-group & {
     @include di-variant("caret-down");
 
-    // sass-lint:disable no-vendor-prefixes
     -moz-appearance: none;
     -webkit-appearance: none;
-    // sass-lint:enable no-vendor-prefixes
-
     background-position: calc(100% - #{$u1});
     background-repeat: no-repeat;
     background-size: $dso-icon-size $dso-icon-size;
@@ -206,7 +212,7 @@ select:not([multiple]) {
       @include di-variant("caret-down-disabled");
     }
 
-    &::-ms-expand { // sass-lint:disable-line no-vendor-prefixes
+    &::-ms-expand {
       display: none;
     }
   }

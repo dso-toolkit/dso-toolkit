@@ -68,12 +68,12 @@
 
   &:focus {
     background-color: transparent;
-    outline: 5px auto -webkit-focus-ring-color; // sass-lint:disable-line no-vendor-prefixes
+    outline: 5px auto -webkit-focus-ring-color;
   }
 }
 
 @media screen and (min-width: $screen-sm-min) {
-  label.control-label + .dso-info-button {
+  .control-label + .dso-info-button {
     margin-top: #{$u1 - 1};
 
     .dso-radios &,

@@ -1,4 +1,5 @@
-main {
+main,
+form {
   > .row {
     padding-bottom: $dso-row-vertical-space;
     padding-top: $dso-row-vertical-space;
@@ -60,7 +61,7 @@ main {
   }
 }
 
-.dso-banner-implementation-specific-image { // sass-lint:disable-line no-empty-rulesets
+.dso-banner-implementation-specific-image {
   // implement using background-image:
   // ----
   // background-image: url('/dummy/images/hero.png');

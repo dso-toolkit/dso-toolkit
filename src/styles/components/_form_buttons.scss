@@ -1,5 +1,5 @@
 .dso-form-buttons {
-  @include clearfix;
+  @include clearfix();
 
   text-align: right;
 

@@ -7,8 +7,9 @@ $tooltip-arrow-color: $grasgroen;
 $tooltop-max-width: 80 * $dso-unit;
 
 .tooltip {
-  @include reset-text;
+  @include reset-text();
   @include opacity(0);
+
   display: block;
   font-size: $font-size-small;
   position: absolute;
@@ -37,30 +38,7 @@ $tooltop-max-width: 80 * $dso-unit;
     margin-left: -3px;
     padding: 0 $tooltip-arrow-width;
   }
-}
 
-.tooltip-inner {
-  background-color: $wit;
-  border: $tooltip-border-size solid $grasgroen;
-  border-radius: $tooltip-border-radius;
-  color: $grasgroen;
-  display: inline-block;
-  font-size: $font-size-small;
-  line-height: 1.2em;
-  max-width: $tooltop-max-width;
-  padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
-  position: relative;
-}
-
-.tooltip-arrow {
-  border-color: transparent;
-  border-style: solid;
-  height: 0;
-  position: absolute;
-  width: 0;
-}
-
-.tooltip {
   &.top .tooltip-arrow {
     border-top-color: $tooltip-arrow-color;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
@@ -104,4 +82,25 @@ $tooltop-max-width: 80 * $dso-unit;
     left: 0;
     width: 0;
   }
+}
+
+.tooltip-inner {
+  background-color: $wit;
+  border: $tooltip-border-size solid $grasgroen;
+  border-radius: $tooltip-border-radius;
+  color: $grasgroen;
+  display: inline-block;
+  font-size: $font-size-small;
+  line-height: 1.2em;
+  max-width: $tooltop-max-width;
+  padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
+  position: relative;
+}
+
+.tooltip-arrow {
+  border-color: transparent;
+  border-style: solid;
+  height: 0;
+  position: absolute;
+  width: 0;
 }
