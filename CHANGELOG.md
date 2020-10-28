@@ -5,13 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 12.0.0
+
 ### Removed
 * **BREAKING**: Progressblock verwijderen (#802) **Removal notice, see PR #814**
 
 ### Changed
 * **BREAKING**: Fieldsets in accordion (#731) **Markup changes, see PR #784**
 * Iconen minus-square en plus-square updaten (#796)
-* sass-lint vervangen met Stylelint (#805)
+* Sass-lint vervangen met Stylelint (#805)
 * **BREAKING**: Labels mogen niet bestaan zonder ingesloten invoerelement of for attribuut (#819) **Markup change, see PR #822**
 
 ### Added
