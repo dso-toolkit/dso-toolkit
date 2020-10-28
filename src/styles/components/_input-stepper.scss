@@ -1,11 +1,14 @@
 .dso-input-stepper {
-  .dso-field-container {
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    width: 100%;
   }
 
-  &.form-group .dso-field-container {
-    margin-top: #{$u1 - 1};
+  .form-horizontal &.form-group .dso-field-container {
+    margin-top: -1px;
   }
 
   .dso-input-step-counter {

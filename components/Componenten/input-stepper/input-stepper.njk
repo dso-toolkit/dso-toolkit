@@ -1,12 +1,16 @@
 {% set localId = generateLocalId(prefix, id) %}
 
 <div class="dso-input-stepper">
-  <div {{ className('dso-label-container', [hiddenLabel, 'sr-only']) -}}>
+  {% if label %}
     <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>
-  </div>
-  <div class="dso-field-container">
-    {% render '@stepper', { id: localId, count: count, minusButtonLabel: minusButtonLabel, minusButtonInactive: minusButtonInactive, plusButtonLabel: plusButtonLabel, plusButtonInactive: plusButtonInactive } %}
-  </div>
+  {% endif %} 
+  {% render '@button', {type: 'button', modifier: 'link', label: minusButtonLabel, icon: 'minus-square', iconOnly: 'true', disabled: minusButtonInactive, url: '#'} %}
+  <input type="number" 
+          id="{{ id }}" 
+          readonly id="quantity" 
+          class="dso-input-step-counter" 
+          value="{{ count }}">
+  {% render '@button', {type: 'button', modifier: 'link', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive, url: '#'} %}
 </div>
