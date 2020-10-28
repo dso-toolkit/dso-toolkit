@@ -19,12 +19,18 @@ $dso-accordion-light-border-color: $grijs-20;
 :root {
   --horizontal-spacer-unit: 15px;
   --vertical-spacer-unit: #{($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2};
+  --dso-section-body-padding-top: #{$u2 + $dso-accordion-border-radius};
+  --dso-section-body-padding-horizontal: #{$u2};
+  --dso-section-body-padding-bottom: #{$u3};
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: $screen-xs-max) {
   :root {
     --horizontal-spacer-unit: 7px;
     --vertical-spacer-unit: #{($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 4};
+    --dso-section-body-padding-top: #{$u1 + $dso-accordion-border-radius};
+    --dso-section-body-padding-horizontal: #{$u1};
+    --dso-section-body-padding-bottom: #{$u2};
   }
 }
 
@@ -243,7 +249,7 @@ $dso-accordion-light-border-color: $grijs-20;
       border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
       border-top: 0;
       margin-top: -$dso-accordion-border-radius;
-      padding: $u2 + $dso-accordion-border-radius $u2 $u3;
+      padding: var(--dso-section-body-padding-top) var(--dso-section-body-padding-horizontal) var(--dso-section-body-padding-bottom);
 
       .dso-rich-content + .dso-accordion,
       .dso-accordion + .dso-rich-content {

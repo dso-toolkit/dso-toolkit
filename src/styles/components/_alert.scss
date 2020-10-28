@@ -3,10 +3,32 @@ $dso-alert-horizontal-padding: $u2;
 $dso-alert-vertical-padding: $u1 * 2.5 - 1px;
 $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
 
+:root {
+  --alert-horizontal-padding: #{$dso-alert-horizontal-padding};
+  --alert-vertical-padding: #{$dso-alert-vertical-padding};
+  --alert-left-padding: #{$dso-alert-left-padding};
+  --alert-icon-size: #{$dso-alert-icon-size};
+  --alert-min-height: #{2 * $dso-alert-horizontal-padding + $dso-alert-icon-size};
+  --alert-icon-position-top: #{$dso-alert-horizontal-padding - 1px};
+  --alert-icon-position-left: #{$dso-alert-horizontal-padding - 1px};
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  :root {
+    --alert-horizontal-padding: #{$dso-alert-horizontal-padding / 2};
+    --alert-vertical-padding: #{$dso-alert-vertical-padding / 2};
+    --alert-left-padding: #{$dso-alert-left-padding / 1.4};
+    --alert-icon-size: #{$dso-alert-icon-size / 1.1};
+    --alert-min-height: #{$dso-alert-horizontal-padding + $dso-alert-icon-size};
+    --alert-icon-position-top: #{($dso-alert-horizontal-padding / 2) - 1px};
+    --alert-icon-position-left: #{($dso-alert-horizontal-padding / 2) - 1px};
+  }
+}
+
 .alert {
   line-height: $u3;
-  min-height: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size;
-  padding: $dso-alert-vertical-padding $dso-alert-horizontal-padding $dso-alert-vertical-padding $dso-alert-left-padding;
+  min-height: var(--alert-min-height);
+  padding: var(--alert-vertical-padding) var(--alert-horizontal-padding) var(--alert-vertical-padding) var(--alert-left-padding);
   position: relative;
 
   &:not(:first-child) {
@@ -25,32 +47,32 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
 
   &::before {
     content: "";
-    left: $dso-alert-horizontal-padding - 1px; // 1px border
+    left: var(--alert-icon-position-left); // 1px border
     position: absolute;
-    top: $dso-alert-horizontal-padding - 1px; // 1px border
+    top: var(--alert-icon-position-top); // 1px border
   }
 
   &.alert-success {
     &::before {
-      @include di("status-success", $dso-alert-icon-size);
+      @include di("status-success", var(--alert-icon-size));
     }
   }
 
   &.alert-danger {
     &::before {
-      @include di("status-danger", $dso-alert-icon-size);
+      @include di("status-danger", var(--alert-icon-size));
     }
   }
 
   &.alert-warning {
     &::before {
-      @include di("status-warning", $dso-alert-icon-size);
+      @include di("status-warning", var(--alert-icon-size));
     }
   }
 
   &.alert-info {
     &::before {
-      @include di("status-info", $dso-alert-icon-size);
+      @include di("status-info", var(--alert-icon-size));
     }
   }
 

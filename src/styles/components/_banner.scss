@@ -1,7 +1,17 @@
 $dso-banner-left-padding: $u6;
 
+:root {
+  --banner-vertical-padding: #{$u2};
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  :root {
+    --banner-vertical-padding: #{$u1};
+  }
+}
+
 .banner {
-  padding: $u2 0;
+  padding: var(--banner-vertical-padding) 0;
   position: relative;
 
   .row {
