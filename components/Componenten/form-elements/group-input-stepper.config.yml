@@ -10,7 +10,7 @@ context:
   minusButtonLabel: Aantal verlagen
   plusButtonLabel: Aantal verhogen
 variants:
-- name: input-stepper-incative
+- name: input-stepper-inactive
   context:
     __title: Inactive
     label: Inactive input stepper
