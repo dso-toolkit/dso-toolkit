@@ -10,8 +10,9 @@
   <input type="number" 
           id="{{ id }}" 
           readonly
-          {% if min %}min="{{ min }}"{% endif %}
-          {% if max %}max="{{ max }}"{% endif %}
+          tabindex="-1"
+          {% if min %} min="{{ min }}"{% endif %}
+          {% if max %} max="{{ max }}"{% endif %}
           class="dso-input-step-counter" 
           value="{{ count }}">
   {% render '@button', {type: 'button', modifier: 'link', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive} %}

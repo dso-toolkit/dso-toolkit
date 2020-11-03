@@ -1,5 +1,5 @@
 
-<!-- Start: @input-stepper--default -->
+<!-- Start: @input-number--default -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>default</h2>
@@ -12,7 +12,7 @@
       <button type="button" class="btn btn-link"><span class="sr-only">Aantal verlagen</span><svg class="di di-minus-square">
           <use href="../../dso-icons.svg#minus-square" />
         </svg></button>
-      <input type="number" id="default" readonly class="dso-input-step-counter" value="99">
+      <input type="number" id="default" readonly tabindex="-1" class="dso-input-step-counter" value="99">
       <button type="button" class="btn btn-link"><span class="sr-only">Aantal verhogen</span><svg class="di di-plus-square">
           <use href="../../dso-icons.svg#plus-square" />
         </svg></button>
@@ -20,10 +20,10 @@
   </div>
 </div>
 
-<!-- End: @input-stepper--default -->
+<!-- End: @input-number--default -->
 <hr />
 
-<!-- Start: @input-stepper--input-stepper-inactive -->
+<!-- Start: @input-number--input-stepper-inactive -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Inactive</h2>
@@ -36,7 +36,7 @@
       <button type="button" disabled class="btn btn-link"><span class="sr-only">Aantal verlagen (disabled)</span><svg class="di di-minus-square">
           <use href="../../dso-icons.svg#minus-square" />
         </svg></button>
-      <input type="number" id="inactive" readonly class="dso-input-step-counter" value="99">
+      <input type="number" id="inactive" readonly tabindex="-1" class="dso-input-step-counter" value="99">
       <button type="button" disabled class="btn btn-link"><span class="sr-only">Aantal verhogen (disabled)</span><svg class="di di-plus-square">
           <use href="../../dso-icons.svg#plus-square" />
         </svg></button>
@@ -44,10 +44,10 @@
   </div>
 </div>
 
-<!-- End: @input-stepper--input-stepper-inactive -->
+<!-- End: @input-number--input-stepper-inactive -->
 <hr />
 
-<!-- Start: @input-stepper--input-stepper-minimum-limit -->
+<!-- Start: @input-number--input-stepper-minimum-limit -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Minimum limit (optional)</h2>
@@ -60,7 +60,7 @@
       <button type="button" disabled class="btn btn-link"><span class="sr-only">Aantal verlagen (disabled)</span><svg class="di di-minus-square">
           <use href="../../dso-icons.svg#minus-square" />
         </svg></button>
-      <input type="number" id="minimum-limit" readonly class="dso-input-step-counter" value="0">
+      <input type="number" id="minimum-limit" readonly tabindex="-1" min="0" class="dso-input-step-counter" value="0">
       <button type="button" class="btn btn-link"><span class="sr-only">Aantal verhogen</span><svg class="di di-plus-square">
           <use href="../../dso-icons.svg#plus-square" />
         </svg></button>
@@ -68,10 +68,10 @@
   </div>
 </div>
 
-<!-- End: @input-stepper--input-stepper-minimum-limit -->
+<!-- End: @input-number--input-stepper-minimum-limit -->
 <hr />
 
-<!-- Start: @input-stepper--input-stepper-maximum-limit -->
+<!-- Start: @input-number--input-stepper-maximum-limit -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>Maximum limit (optional)</h2>
@@ -84,7 +84,7 @@
       <button type="button" class="btn btn-link"><span class="sr-only">Aantal verlagen</span><svg class="di di-minus-square">
           <use href="../../dso-icons.svg#minus-square" />
         </svg></button>
-      <input type="number" id="maximum-limit" readonly class="dso-input-step-counter" value="99">
+      <input type="number" id="maximum-limit" readonly tabindex="-1" max="99" class="dso-input-step-counter" value="99">
       <button type="button" disabled class="btn btn-link"><span class="sr-only">Aantal verhogen (disabled)</span><svg class="di di-plus-square">
           <use href="../../dso-icons.svg#plus-square" />
         </svg></button>
@@ -92,10 +92,10 @@
   </div>
 </div>
 
-<!-- End: @input-stepper--input-stepper-maximum-limit -->
+<!-- End: @input-number--input-stepper-maximum-limit -->
 <hr />
 
-<!-- Start: @input-stepper--no-label -->
+<!-- Start: @input-number--no-label -->
 <div class="dso-example-wrapper">
   <div class="dso-example-text">
     <h2>no label</h2>
@@ -105,7 +105,7 @@
       <button type="button" class="btn btn-link"><span class="sr-only">Aantal verlagen</span><svg class="di di-minus-square">
           <use href="../../dso-icons.svg#minus-square" />
         </svg></button>
-      <input type="number" id="no-label" readonly class="dso-input-step-counter" value="99">
+      <input type="number" id="no-label" readonly tabindex="-1" class="dso-input-step-counter" value="99">
       <button type="button" class="btn btn-link"><span class="sr-only">Aantal verhogen</span><svg class="di di-plus-square">
           <use href="../../dso-icons.svg#plus-square" />
         </svg></button>
@@ -113,5 +113,5 @@
   </div>
 </div>
 
-<!-- End: @input-stepper--no-label -->
+<!-- End: @input-number--no-label -->
 <hr />
