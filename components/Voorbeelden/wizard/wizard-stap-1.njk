@@ -1,7 +1,7 @@
 <main>
   {% render '@form-steps', {title: steps.title, step: steps.step} %}
   <div class="clearfix"></div>
-  {% render '@alert', {modifier: alert.modifier, message: alert.message} %}
+  {% render '@alert', {modifier: alert.modifier, sronly: alert.sronly, message: alert.message} %}
   <div class="clearfix"></div>
   {% render '@form', form %}
 </main>

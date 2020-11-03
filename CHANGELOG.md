@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * NPM vervangen met Yarn (#834)
 * Bootstrap ingecheckt onder `/libs`. Geen node_modules dependency meer.
+* sr-only tekst toevoeging bij status icoon alert (#765)
 
 ## 12.0.0
 
