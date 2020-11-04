@@ -238,9 +238,28 @@ variants:
     - type: submit
       modifier: primary
       label: Primaire actie
+- name: single-page-single button
+  context:
+    __title: single page form with single button
+    formModifier: dso-single-page
+    fieldsets:
+    - legend: Invoervelden
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Primaire actie
 - name: single-page
   context:
-    __title: single page form
+    __title: single page form with multiple buttons
     formModifier: dso-single-page
     fieldsets:
     - legend: Invoervelden

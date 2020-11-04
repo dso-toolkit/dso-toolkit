@@ -58,7 +58,8 @@ form,
 form.dso-single-page .dso-form-buttons,
 .form.dso-single-page .dso-form-buttons,
 .dso-single-page .dso-form-buttons {
-  .btn + .btn {
+  .btn + .btn,
+  .btn:only-child {
     float: left;
   }
 }

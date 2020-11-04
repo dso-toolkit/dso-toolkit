@@ -25,7 +25,8 @@
 .dso-single-page {
   &.dso-form-buttons,
   .dso-form-buttons {
-    .btn + .btn {
+    .btn + .btn,
+    .btn:only-child {
       float: left;
     }
   }
