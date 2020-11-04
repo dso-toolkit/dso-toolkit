@@ -5,6 +5,8 @@ id: toggle-info
 collated: true
 context:
   __title: default
+  infoOpen: false
+  infoButtonLabel: Klik hier voor meer info
 variants:
 - name: toggle-info-active
   context:

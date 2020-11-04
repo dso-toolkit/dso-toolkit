@@ -92,11 +92,13 @@ variants:
     options:
     - value: 1
       label: een
+      infoButtonLabel: Klik hier voor meer info over antwoord een
       infoText: |
         Closed
     - value: 2
       label: twee
       infoOpen: true
+      infoButtonLabel: Klik hier voor meer info over antwoord twee
       infoText: |
         <h4>Heading 4</h4>
         <p>
@@ -107,6 +109,7 @@ variants:
     - value: 3
       label: drie
     infoOpen: true
+    infoButtonLabel: Klik hier voor meer info over deze vraag
     infoText: |
       <h4>Heading 4</h4>
       <p>
