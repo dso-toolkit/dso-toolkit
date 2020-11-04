@@ -54,8 +54,8 @@
   .dso-count {
     height: $u3;
     position: absolute;
-    right: $u2;
-    top: $u2;
+    right: #{$u2 - 1};
+    top: #{$u2 - 1};
     width: $u3;
   }
 
