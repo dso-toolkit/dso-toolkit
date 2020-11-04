@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Single button op een single-page-form ook links laten uitlijnen (#825)
+
 ## 12.0.0
 
 ### Removed
