@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Changed
+### Fixed
 * "Toelichting" wordt dubbel voorgelezen door screenreader (#813)
 
 ## 12.0.0
