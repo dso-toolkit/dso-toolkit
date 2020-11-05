@@ -1,17 +1,20 @@
 language: node_js
+cache:
+  directories:
+    - ./.yarn/cache
 node_js:
-- '10'
+- '12'
 install:
 - gem install percy-cli
-- npm install
+- yarn install --immutable
 jobs:
   include:
   - name: branch build and deployment
     if: (branch =~ /^#/ || branch = master) && type = push
     script:
-      npm run lint &&
-      npm run build &&
-      npm run test &&
+      yarn lint &&
+      yarn build &&
+      yarn test &&
       mv build dist &&
       rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
       rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
@@ -20,11 +23,11 @@ jobs:
   - name: release
     if: tag =~ /^v/
     script:
-      npm run lint &&
-      npm run build &&
-      npm run test &&
+      yarn lint &&
+      yarn build &&
+      yarn test &&
       mv build dist &&
-      npm version ${TRAVIS_TAG:1} --no-git-tag-version &&
+      yarn version --new-version ${TRAVIS_TAG:1} --no-git-tag-version &&
       rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
       rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
       ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions" &&
