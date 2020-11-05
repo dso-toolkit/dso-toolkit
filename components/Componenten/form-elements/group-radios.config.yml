@@ -98,7 +98,7 @@ variants:
       label: ja
       checked: true
       infoOpen: true
-      infoButtonLabel: Klik hier voor meer info over antwoord ja
+      infoButtonLabel: Toelichting bij antwoord
       infoText: |
         <h4>Heading 4</h4>
         <p>
@@ -108,11 +108,11 @@ variants:
         </p>
     - value: 2
       label: nee
-      infoButtonLabel: Klik hier voor meer info over antwoord nee
+      infoButtonLabel: Toelichting bij antwoord
       infoText: |
         Closed
     infoOpen: true
-    infoButtonLabel: Klik hier voor meer info over deze vraag
+    infoButtonLabel: Toelichting bij vraag
     infoText: |
       <h4>Heading 4</h4>
       <p>

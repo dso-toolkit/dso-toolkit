@@ -19,7 +19,7 @@ variants:
       - Toelichting ingeklapt
     id: search-bar-infobutton
     infoOpen: false
-    infoButtonLabel: Klik hier voor meer info
+    infoButtonLabel: Toelichting bij zoekveld
     infoText: |
       Closed
     searchBar:
@@ -36,7 +36,7 @@ variants:
       - Toelichting uitgeklapt
     id: search-bar-infobutton-expanded
     infoOpen: true
-    infoButtonLabel: Klik hier voor meer info
+    infoButtonLabel: Toelichting bij zoekveld
     infoText: |
       <h4>Heading 4</h4>
       <p>

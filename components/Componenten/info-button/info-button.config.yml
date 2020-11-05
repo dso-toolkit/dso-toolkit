@@ -6,7 +6,7 @@ collated: true
 context:
   __title: default
   infoOpen: false
-  infoButtonLabel: Klik hier voor meer info
+  infoButtonLabel: Toelichting bij optie
 variants:
 - name: toggle-info-active
   context:

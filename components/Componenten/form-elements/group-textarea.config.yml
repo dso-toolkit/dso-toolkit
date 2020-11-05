@@ -61,7 +61,7 @@ variants:
     id: input-textarea-infobutton-open
     required: true
     infoOpen: true
-    infoButtonLabel: Klik hier voor meer info over deze vraag
+    infoButtonLabel: Toelichting bij vraag
     infoText: |
       <h4>Heading 4</h4>
       <p>
