@@ -1,12 +1,7 @@
 node_modules
 *.log
-/dist
-/build
 .vscode
-assets/icons/dso-icons.svg
 *.zip
-theme/dist
-/packages
 
 # Yarn v2 ignores
 .yarn/*
