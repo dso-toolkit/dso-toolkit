@@ -101,7 +101,7 @@ function copyAssets() {
   return gulp
     .src([
       'assets/**',
-      'node_modules/svg4everybody/dist/svg4everybody.min.js'
+      require.resolve('svg4everybody/dist/svg4everybody.min.js')
     ])
     .pipe(f)
     .pipe(svgmin())
@@ -158,11 +158,8 @@ function transformSelector(selector) {
 }
 
 async function createSvgSpritesheet() {
-  const sassCompiler = sass({
-    includePaths: [
-      path.join(process.cwd(), 'node_modules')
-    ]
-  }).on('error', sass.logError);
+  const sassCompiler = sass()
+    .on('error', sass.logError);
 
   const stylesheets = await new Promise((resolve, reject) => {
     gulp.src('src/icons/*.scss')

@@ -1,4 +1,7 @@
 {
+  "ignoreFiles": [
+    "**/src/icons/**"
+  ],
   "extends": "stylelint-config-standard",
   "plugins": [
     "stylelint-scss"

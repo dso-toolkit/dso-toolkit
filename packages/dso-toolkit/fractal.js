@@ -63,6 +63,6 @@ const theme = require('./theme')({
   lang: 'nl'
 });
 
-theme.addStatic(__dirname + '/node_modules/highlight.js/styles', '_highlight.js_styles');
+theme.addStatic(path.dirname(require.resolve('highlight.js/styles/github.css')), '_highlight.js_styles');
 
 fractal.web.theme(theme);

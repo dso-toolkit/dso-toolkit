@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 const gulp = require('gulp');
+const tap = require('gulp-tap');
 
 const stylelint = require('gulp-stylelint');
 const isCi = require('./functions/is-ci');
@@ -11,7 +12,8 @@ module.exports = {
 };
 
 function lintStyles() {
-  return gulp.src('src/styles/**/*.s[ac]ss')
+  return gulp.src('src/**/*.s[ac]ss')
+    .pipe(tap(f => console.log(f.path)))
     .pipe(stylelint({
       failAfterError: isCi,
       reporters: [{

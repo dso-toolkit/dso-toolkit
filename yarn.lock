@@ -4119,9 +4119,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dso-toolkit@workspace:.":
+"dso-toolkit-monorepo@workspace:.":
   version: 0.0.0-use.local
-  resolution: "dso-toolkit@workspace:."
+  resolution: "dso-toolkit-monorepo@workspace:."
+  languageName: unknown
+  linkType: soft
+
+"dso-toolkit@workspace:packages/dso-toolkit":
+  version: 0.0.0-use.local
+  resolution: "dso-toolkit@workspace:packages/dso-toolkit"
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/preset-env": ^7.12.1
