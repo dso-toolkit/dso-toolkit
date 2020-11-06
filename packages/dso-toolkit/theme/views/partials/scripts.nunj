@@ -1,6 +1,0 @@
-{% for script in frctl.theme.get('scripts') %}
-<script src="{{ path(script) }}?cachebust={{ frctl.theme.get('version') }}"></script>
-{% endfor %}
-
-<script type="module" src="{{ path('/@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js') }}"></script>
-<script nomodule src="{{ path('/@dso-toolkit/core/dso-toolkit/dso-toolkit.js') }}"></script>
