@@ -4,25 +4,28 @@
 * [Slack chat](https://dso-toolkit.slack.com/)
 * [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/enQtNDA5Mjk5MTU5MDEyLTk5OWFmMWYwODlhMmRhMzMzN2E1NzZhNmQwYzhiNDliZGQ0NGMxMmE4MzkxM2U2NjZjNzNmZDQ0YmY3YTRiNTg)
 
-# DSO Toolkit and Component Library
-This is the repository of the DSO Toolkit and Component Library.
+# DSO Toolkit - Design System voor het Digitaal Stelsel voor de Omgevingswet
+📦🐈 This is active development trunk for DSO Toolkit: Next ⚒
 
-The toolkit is framework-agnostic and based on [Bootstrap v3.3.7](https://getbootstrap.com/docs/3.3) written in SCSS. The component library is written in Handlebars.js using Fractal. [Fractal](https://fractal.build) is a _component library & styleguide framework_.
+In this working branch `next` the Nunjucks templates are being migrated to StencilJS Components.
+
+For more information, see issue [DSO Toolkit: Web Components](https://github.com/dso-toolkit/dso-toolkit/issues/827)
 
 ## Getting started
-Releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
 
-Alpha's should be considered unstable. Beta's will not have any breaking changes.
+Stable releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
 
-### NPM registry
+### TODO: NPM registry
+
 ```
-npm install dso-toolkit
+npm install dso-toolkit --save-dev
 ```
 
 1. Add `node_modules/dso-toolkit/node_modules` and `node_modules` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
 2. Bundle `/node_modules/dso-toolkit/src/dso.scss` in your build process.
 
-### CDN
+### TODO: CDN
+
 The toolkit and component library are distributed to dso-toolkit.nl. Use the table below to resolve the branch/channel to the base url:
 
 | branch      | channel    | url                                    |
@@ -42,18 +45,9 @@ The same goes for the component library:
 ```
 
 ### Develop or mockups
-**Important notice: We recently switched to Yarn**: It's possible that you're still looking at a topic branch that uses NPM:
-* If your repository contains `package-lock.json`, continue using `npm`.
-* If you see `yarn.lock`, that means you should start using `yarn`. See below for more information.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 12 and Yarn 2.
 
-**Everytime you switch to a revision (tag, branch, commit) that uses a different package manager (yarn or npm), you need to reinstall node_modules:**
-
-```
-npx rimraf node_modules
-npm install OR yarn install
-```
-
-To develop the DSO Toolkit using components and variants or create mockups of pages, forms or components. Either install Yarn with
+Either install Yarn with
 
 ```
 npm install --global yarn
@@ -85,8 +79,6 @@ The DSO Toolkit and Component Library uses
 * `node-sass` to compile sass to css
 * `fractal` to document the toolkit
 * `yaml` to configure fractal components
-
-Fractal is configured to use `handlebars` and `yaml`.
 
 ## Further reading
 * https://www.npmjs.com/
