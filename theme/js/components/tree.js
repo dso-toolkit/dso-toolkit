@@ -1,8 +1,7 @@
-'use strict';
+import $ from 'jquery';
 
-const $ = global.jQuery;
-const storage = require('../storage');
-const events = require('../events');
+import events from '../events';
+import * as storage from '../storage';
 
 function getTreeUrl(urlPath) {
   const parser = document.createElement('a');
@@ -12,7 +11,7 @@ function getTreeUrl(urlPath) {
   return pathParts.join('/');
 }
 
-class Tree {
+export default class Tree {
 
   constructor(el) {
     this._el = $(el);
@@ -142,5 +141,3 @@ class TreeCollection {
     return false;
   }
 }
-
-module.exports = Tree;

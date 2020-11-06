@@ -1,3 +1,5 @@
-'use strict';
+import $ from 'jquery';
 
-module.exports = global.jQuery({});
+const events = $({});
+
+export default events;

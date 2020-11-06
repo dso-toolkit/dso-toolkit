@@ -1,26 +1,24 @@
-'use strict';
+import $ from 'jquery';
+import 'jquery-pjax';
 
-const $ = require('./jquery');
-const pjax = require('jquery-pjax');
+import framed from './components/frame';
+import events from './events';
+import * as utils from './utils';
+import Tree from './components/tree';
+import Filter from './components/filter';
+import Pen from './components/pen';
+import VersionSelector from './components/version-selector';
+import './versions';
+import './resize-iframe';
+
 const doc = $(document);
 const frctl = window.frctl || {};
-
-const events = require('./events');
-const utils = require('./utils');
-const framer = require('./components/frame');
-const Tree = require('./components/tree');
-const Filter = require('./components/filter');
-const Pen = require('./components/pen');
-const VersionSelector = require('./components/version-selector');
-
-require('./versions');
-require('./resize-iframe');
 
 window.fractal = {
   events: events
 };
 
-const frame = framer($('#frame'));
+const frame = framed($('#frame'));
 const navTrees = $.map($('[data-behaviour="tree"]'), t => new Tree(t));
 new Filter($('#menu-filter'), navTrees);
 let pens = [];
