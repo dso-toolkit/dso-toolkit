@@ -14,7 +14,7 @@ Releases can be found on the [GitHub Releases page](https://github.com/dso-toolk
 
 Alpha's should be considered unstable. Beta's will not have any breaking changes.
 
-### NPM
+### NPM registry
 ```
 npm install dso-toolkit
 ```
@@ -42,22 +42,45 @@ The same goes for the component library:
 ```
 
 ### Develop or mockups
-To develop the DSO Toolkit using components and variants or create mockups of pages, forms or components
+**Important notice: We recently switched to Yarn**: It's possible that you're still looking at a topic branch that uses NPM:
+* If your repository contains `package-lock.json`, continue using `npm`.
+* If you see `yarn.lock`, that means you should start using `yarn`. See below for more information.
+
+**Everytime you switch to a revision (tag, branch, commit) that uses a different package manager (yarn or npm), you need to reinstall node_modules:**
+
+```
+npx rimraf node_modules
+npm install OR yarn install
+```
+
+To develop the DSO Toolkit using components and variants or create mockups of pages, forms or components. Either install Yarn with
+
+```
+npm install --global yarn
+```
+
+or use Yarn with `npx`:
+
+```
+npx yarn <<<my commands here>>>
+```
+
 ```
 git clone git@github.com:dso-toolkit/dso-toolkit.git
 cd dso-toolkit
-npm install
-gulp
+yarn install
+yarn start
 ```
 
 A local webserver is started at http://localhost:3000/. See the [Fractal guide](https://fractal.build/) on how to develop components. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 ## Requirements
-Node 9 and NPM 5.
+Node 12. For development on the DSO Toolkit you also need Yarn.
 
 ## Dependencies
 The DSO Toolkit and Component Library uses
-* `npm` for package management
+* `npm` as the registry for node packages
+* `yarn` for package management
 * `gulp` for build automation
 * `node-sass` to compile sass to css
 * `fractal` to document the toolkit
