@@ -2,6 +2,7 @@ const del = require('del');
 const gulp = require('gulp');
 const rollup = require('rollup');
 const commonjs = require('@rollup/plugin-commonjs');
+const inject = require('@rollup/plugin-inject');
 const nodeResolve = require('@rollup/plugin-node-resolve');
 
 const { babel } = require('@rollup/plugin-babel');
@@ -23,6 +24,9 @@ function themeCompileJS() {
   return rollup.rollup({
     input: './theme/js/theme.js',
     plugins: [
+      inject({
+        jQuery: 'jquery'
+      }),
       commonjs(),
       nodeResolve.nodeResolve(),
       babel({
