@@ -85,6 +85,7 @@ function buildStylesWrapper(options) {
   return function buildStyles() {
     const sassCompiler = sass({
       includePaths: [
+        path.join(process.cwd(), '../../node_modules'),
         path.join(process.cwd(), 'libs')
       ]
     }).on('error', sass.logError);
@@ -158,7 +159,11 @@ function transformSelector(selector) {
 }
 
 async function createSvgSpritesheet() {
-  const sassCompiler = sass()
+  const sassCompiler = sass({
+    includePaths: [
+      path.join(process.cwd(), '../../node_modules')
+    ]
+  })
     .on('error', sass.logError);
 
   const stylesheets = await new Promise((resolve, reject) => {
