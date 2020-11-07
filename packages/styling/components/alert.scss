@@ -1,0 +1,223 @@
+@import "../variables";
+@import "../icons";
+
+$dso-alert-icon-size: $u4;
+$dso-alert-horizontal-padding: $u2;
+$dso-alert-vertical-padding: $u1 * 2.5 - 1px;
+$dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
+
+$dso-alert-success-bg-color: $dso-success-bg-color;
+$dso-alert-info-bg-color: $dso-info-bg-color;
+$dso-alert-warning-bg-color: $dso-warning-bg-color;
+$dso-alert-danger-bg-color: $dso-danger-bg-color;
+
+//== DSO VARIABLES: Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+$alert-padding: $u2 - 1px; // 1px border
+$alert-border-radius: 0;
+
+$state-success-text: $grijs-90;
+$state-success-bg: $dso-alert-success-bg-color;
+$state-success-border: $dso-alert-success-bg-color;
+
+$state-info-text: $grijs-90;
+$state-info-bg: $dso-alert-info-bg-color;
+$state-info-border: $dso-alert-info-bg-color;
+
+$state-warning-text: $grijs-90;
+$state-warning-bg: $dso-alert-warning-bg-color;
+$state-warning-border: $dso-alert-warning-bg-color;
+
+$state-danger-text: $grijs-90;
+$state-danger-bg: $dso-alert-danger-bg-color;
+$state-danger-border: $dso-alert-danger-bg-color;
+
+//== BOOTSTRAP VARIABLES: Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+$alert-padding:               15px !default;
+$alert-border-radius:         $border-radius-base !default;
+$alert-link-font-weight:      bold !default;
+
+$alert-success-bg:            $state-success-bg !default;
+$alert-success-text:          $state-success-text !default;
+$alert-success-border:        $state-success-border !default;
+
+$alert-info-bg:               $state-info-bg !default;
+$alert-info-text:             $state-info-text !default;
+$alert-info-border:           $state-info-border !default;
+
+$alert-warning-bg:            $state-warning-bg !default;
+$alert-warning-text:          $state-warning-text !default;
+$alert-warning-border:        $state-warning-border !default;
+
+$alert-danger-bg:             $state-danger-bg !default;
+$alert-danger-text:           $state-danger-text !default;
+$alert-danger-border:         $state-danger-border !default;
+
+
+// packages\dso-toolkit\libs\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_alerts.scss
+// Alerts
+
+@mixin alert-variant($background, $border, $text-color) {
+  color: $text-color;
+  background-color: $background;
+  border-color: $border;
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+
+  .alert-link {
+    color: darken($text-color, 10%);
+  }
+}
+
+// packages\dso-toolkit\libs\bootstrap-sass\assets\stylesheets\bootstrap\_alerts.scss
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: $alert-padding;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
+
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    color: inherit; // Specified for the h4 to prevent conflicts of changing $headings-color
+  }
+
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: $alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+// The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: ($alert-padding + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-success {
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+
+.alert-info {
+  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+
+.alert-warning {
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+// packages\dso-toolkit\src\styles\components\_alert.scss
+
+
+.alert {
+  line-height: $u3;
+  min-height: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size;
+  padding: $dso-alert-vertical-padding $dso-alert-horizontal-padding $dso-alert-vertical-padding $dso-alert-left-padding;
+  position: relative;
+
+  &:not(:first-child) {
+    margin-top: $u3;
+  }
+
+  > .dso-rich-content {
+    *:first-child {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &::before {
+    content: "";
+    left: $dso-alert-horizontal-padding - 1px; // 1px border
+    position: absolute;
+    top: $dso-alert-horizontal-padding - 1px; // 1px border
+  }
+
+  &.alert-success {
+    &::before {
+      @include di("status-success", $dso-alert-icon-size);
+    }
+  }
+
+  &.alert-danger {
+    &::before {
+      @include di("status-danger", $dso-alert-icon-size);
+    }
+  }
+
+  &.alert-warning {
+    &::before {
+      @include di("status-warning", $dso-alert-icon-size);
+    }
+  }
+
+  &.alert-info {
+    &::before {
+      @include di("status-info", $dso-alert-icon-size);
+    }
+  }
+
+  a,
+  a:visited {
+    color: $text-color;
+  }
+
+  .btn {
+    background-color: rgba(25, 25, 25, 0.05);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(25, 25, 25, 0.2);
+      color: $zwart;
+    }
+  }
+}
