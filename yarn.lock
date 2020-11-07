@@ -1324,6 +1324,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dso-toolkit/core@workspace:packages/core":
+  version: 0.0.0-use.local
+  resolution: "@dso-toolkit/core@workspace:packages/core"
+  dependencies:
+    "@dso-toolkit/styling": "workspace:packages/styling"
+    "@stencil/core": ^2.0.1
+    "@stencil/sass": ^1.3.2
+    clsx: ^1.1.1
+  languageName: unknown
+  linkType: soft
+
+"@dso-toolkit/styling@workspace:packages/styling":
+  version: 0.0.0-use.local
+  resolution: "@dso-toolkit/styling@workspace:packages/styling"
+  languageName: unknown
+  linkType: soft
+
 "@frctl/core@npm:^0.2.0":
   version: 0.2.0
   resolution: "@frctl/core@npm:0.2.0"
@@ -1545,6 +1562,24 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0||^2.0.0
   checksum: 45da6411e045d1b034242a8144f4a5e8c02ff1b68a2e0857807f5bb4b091c416f2015e075057f0f0dec200e7b35efe6ed4e301b43e365cedea09192f01a6839b
+  languageName: node
+  linkType: hard
+
+"@stencil/core@npm:^2.0.1":
+  version: 2.3.0
+  resolution: "@stencil/core@npm:2.3.0"
+  bin:
+    stencil: bin/stencil
+  checksum: fec8150c4ebe9ef92b5007834f85ecf2892b6fcc81c6f66d50170ebb7dbf72d27be7f1dfc1cb676cf8e0c9997bba9315fbc08d33978037a0f8b012638c294e85
+  languageName: node
+  linkType: hard
+
+"@stencil/sass@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "@stencil/sass@npm:1.3.2"
+  peerDependencies:
+    "@stencil/core": ^1.0.2
+  checksum: 9d917b1aae7667b5ebe6af469990eb909285151326e907f21b0a74b329f8064c631415ea38408852f34de1bb46e75ea7dcf8dd1182ee22f2546995efc2b1976e
   languageName: node
   linkType: hard
 
@@ -3129,6 +3164,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "clsx@npm:1.1.1"
+  checksum: d8ae10ac0546da19fe8c9516886f6582a64a382cf4d09ea7d36d5287cafbdab1192ab249adc2cdf0310e0b0aeac4f4142cf7c738c98d9cb68c19ba24b6f673d5
+  languageName: node
+  linkType: hard
+
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -3986,6 +4028,8 @@ __metadata:
   dependencies:
     "@babel/core": ^7.12.3
     "@babel/preset-env": ^7.12.1
+    "@dso-toolkit/core": "workspace:packages/core"
+    "@dso-toolkit/styling": "workspace:packages/styling"
     "@frctl/fractal": 1.5.0
     "@frctl/nunjucks": 2.0.5
     "@rollup/plugin-babel": ^5.2.1
