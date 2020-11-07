@@ -20,6 +20,8 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
+    "@dso-toolkit/core": "workspace:packages/core",
+    "@dso-toolkit/styling": "workspace:packages/styling",
     "@frctl/fractal": "1.5.0",
     "@frctl/nunjucks": "2.0.5",
     "@rollup/plugin-babel": "^5.2.1",

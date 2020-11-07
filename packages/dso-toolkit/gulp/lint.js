@@ -13,7 +13,6 @@ module.exports = {
 
 function lintStyles() {
   return gulp.src('src/**/*.s[ac]ss')
-    .pipe(tap(f => console.log(f.path)))
     .pipe(stylelint({
       failAfterError: isCi,
       reporters: [{
