@@ -76,6 +76,11 @@ $library: true !default;
 @import "bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 
 /*!
+ * @dso-toolkit/styling
+ */
+@import "@dso-toolkit/styling/components/alert";
+
+/*!
  * DSO Toolkit styling
  */
 @import "styles/dso";
