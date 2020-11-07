@@ -1,33 +1,8 @@
-@import "@dso-toolkit/styling/variables/colors.scss";
+@import "@dso-toolkit/styling/variables/colors";
 
 $dso-minimal-screen-width: 320px;
 
-$dso-unit: 8px;
-
-$u1: $dso-unit;
-$u2: $dso-unit * 2;
-$u3: $dso-unit * 3;
-$u4: $dso-unit * 4;
-$u5: $dso-unit * 5;
-$u6: $dso-unit * 6;
-$u7: $dso-unit * 7;
-$u8: $dso-unit * 8;
-$u9: $dso-unit * 9;
-$u10: $dso-unit * 10;
-
-$dso-font-size-h1: 2rem;
-$dso-font-size-h2: 1.5rem;
-$dso-font-size-h3: 1.25rem;
-$dso-font-size-h4: 1rem;
-$dso-font-size-h5: 1rem;
-$dso-font-size-h6: 1rem;
-
-$dso-font-line-height-h1: 1.25;
-$dso-font-line-height-h2: 1.33;
-$dso-font-line-height-h3: 1.2;
-$dso-font-line-height-h4: 1.5;
-$dso-font-line-height-h5: 1.5;
-$dso-font-line-height-h6: 1.5;
+@import "@dso-toolkit/styling/variables/units";
 
 $dso-focus-color: $scampi;
 
@@ -70,9 +45,6 @@ $dso-button-link-padding-horizontal: $dso-button-vertical-padding;
 $dso-full-width-color: $grasgroen-10;
 
 $dso-row-divider-color: #d3ddd6;
-
-$asap-font-path: "../fonts/Asap/" !default;
-$dso-icons-path: "../" !default;
 
 $dso-footer-border-color: #bcbebd;
 
