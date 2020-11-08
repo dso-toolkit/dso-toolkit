@@ -6,9 +6,6 @@ $dso-alert-horizontal-padding: $u2;
 $dso-alert-vertical-padding: $u1 * 2.5 - 1px;
 $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size - 1px; // 1px border
 
-$alert-padding:               $u2 - 1px; // 1px border
-$alert-border-radius:         0;
-
 $alert-success-bg:            $state-success-bg;
 $alert-success-text:          $state-success-text;
 $alert-success-border:        $state-success-border;
@@ -45,16 +42,15 @@ $alert-danger-border:         $state-danger-border;
 // -------------------------
 
 .alert {
-  padding: $alert-padding;
-  margin-bottom: $line-height-computed;
-  border: 1px solid transparent;
-  border-radius: $alert-border-radius;
+
 }
 
 // packages\dso-toolkit\src\styles\components\_alert.scss
 
 .alert {
+  border: 1px solid transparent;
   line-height: $u3;
+  margin-bottom: $line-height-computed;
   min-height: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size;
   padding: $dso-alert-vertical-padding $dso-alert-horizontal-padding $dso-alert-vertical-padding $dso-alert-left-padding;
   position: relative;
