@@ -8,7 +8,6 @@ $dso-alert-left-padding: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-siz
 
 $alert-padding:               $u2 - 1px; // 1px border
 $alert-border-radius:         0;
-$alert-link-font-weight:      bold !default;
 
 $alert-success-bg:            $state-success-bg;
 $alert-success-text:          $state-success-text;
@@ -34,14 +33,6 @@ $alert-danger-border:         $state-danger-border;
   color: $text-color;
   background-color: $background;
   border-color: $border;
-
-  hr {
-    border-top-color: darken($border, 5%);
-  }
-
-  .alert-link {
-    color: darken($text-color, 10%);
-  }
 }
 
 // packages\dso-toolkit\libs\bootstrap-sass\assets\stylesheets\bootstrap\_alerts.scss
@@ -58,45 +49,6 @@ $alert-danger-border:         $state-danger-border;
   margin-bottom: $line-height-computed;
   border: 1px solid transparent;
   border-radius: $alert-border-radius;
-
-  // Headings for larger alerts
-  h4 {
-    margin-top: 0;
-    color: inherit; // Specified for the h4 to prevent conflicts of changing $headings-color
-  }
-
-  // Provide class for links that match alerts
-  .alert-link {
-    font-weight: $alert-link-font-weight;
-  }
-
-  // Improve alignment and spacing of inner content
-  > p,
-  > ul {
-    margin-bottom: 0;
-  }
-
-  > p + p {
-    margin-top: 5px;
-  }
-}
-
-// Dismissible alerts
-//
-// Expand the right padding and account for the close button's positioning.
-
-// The misspelled .alert-dismissable was deprecated in 3.2.0.
-.alert-dismissable,
-.alert-dismissible {
-  padding-right: ($alert-padding + 20);
-
-  // Adjust close link position
-  .close {
-    position: relative;
-    top: -2px;
-    right: -21px;
-    color: inherit;
-  }
 }
 
 // Alternate styles
