@@ -40,16 +40,6 @@ $alert-danger-border:         $state-danger-border;
     margin-top: $u3;
   }
 
-  > .dso-rich-content {
-    *:first-child {
-      margin-top: 0;
-    }
-
-    *:last-child {
-      margin-bottom: 0;
-    }
-  }
-
   &::before {
     content: "";
     left: $dso-alert-horizontal-padding - 1px; // 1px border
@@ -86,17 +76,6 @@ $alert-danger-border:         $state-danger-border;
 
     &::before {
       @include di("status-info", $dso-alert-icon-size);
-    }
-  }
-
-  .btn {
-    background-color: rgba(25, 25, 25, 0.05);
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: rgba(25, 25, 25, 0.2);
-      color: $zwart;
     }
   }
 }
