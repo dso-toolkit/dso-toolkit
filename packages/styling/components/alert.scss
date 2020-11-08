@@ -22,30 +22,11 @@ $alert-danger-bg:             $state-danger-bg;
 $alert-danger-text:           $state-danger-text;
 $alert-danger-border:         $state-danger-border;
 
-
-// packages\dso-toolkit\libs\bootstrap-sass\assets\stylesheets\bootstrap\mixins\_alerts.scss
-// Alerts
-
 @mixin alert-variant($background, $border, $text-color) {
   color: $text-color;
   background-color: $background;
   border-color: $border;
 }
-
-// packages\dso-toolkit\libs\bootstrap-sass\assets\stylesheets\bootstrap\_alerts.scss
-//
-// Alerts
-// --------------------------------------------------
-
-
-// Base styles
-// -------------------------
-
-.alert {
-
-}
-
-// packages\dso-toolkit\src\styles\components\_alert.scss
 
 .alert {
   border: 1px solid transparent;
