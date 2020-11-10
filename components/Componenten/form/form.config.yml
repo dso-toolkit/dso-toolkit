@@ -197,32 +197,9 @@ variants:
   context:
     __title: form horizontal
     formModifier: form-horizontal
-- name: multi-page
-  context:
-    __title: multipage form
-    fieldsets:
-    - legend: Contact
-      groups:
-      - id: voornaam
-        inputType: input
-        type: text
-        label: Voornaam
-        required: true
-    buttons:
-    - type: button
-      modifier: default
-      label: Vorige stap
-      icon: angle-left
-    - type: button
-      modifier: link
-      label: Secondaire actie
-    - type: submit
-      modifier: primary
-      label: Volgende stap
-      iconAfter: angle-right
 - name: multi-page-btn-link
   context:
-    __title: multipage form with btn-link as backlink
+    __title: multipage form
     formModifier: dso-multi-page
     fieldsets:
     - legend: Contact
