@@ -7,17 +7,20 @@ collated: true
 context:
   __title: danger
   modifier: danger
+  sronly: "Fout:"
   message: <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
 variants:
   - name: warning
     context:
       __title: warning
       modifier: warning
+      sronly: "Waarschuwing:"
       message: <p>Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het Omgevingsloket. <a href="#">Meer informatie</a></p>
   - name: rich-content
     context:
       __title: rich content
       modifier: danger
+      sronly: "Fout:"
       message:
         <p>Banners zullen vaak worden ingezet voor 'one-liners', maar kunnen ook rijkere content bevatten, zoals meerdere paragrafen, en/of een geordende lijst. Zolang de markup maar aan de juiste voorschriften voldoet gaat dit prima:</p>
         <ul>
