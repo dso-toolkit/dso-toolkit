@@ -3,29 +3,36 @@
 
   text-align: right;
 
-  .btn:not(.btn-link):not(:only-child):first-child {
-    display: block;
-    float: left;
-  }
+  .btn {
+    &:not(.btn-link):not(:only-child):first-child {
+      display: block;
+      float: left;
+    }
 
-  .btn-link {
-    line-height: $dso-button-line-height;
-    padding: $dso-button-link-padding-horizontal 0;
+    & + .btn {
+      margin-left: $u2;
+    }
 
     &.btn-align {
       line-height: calc(1.5em - 1px);
     }
-  }
 
-  .btn + .btn {
-    margin-left: $u2;
+    &.btn-link {
+      line-height: $dso-button-line-height;
+      padding: $dso-button-link-padding-horizontal 0;
+    }
+
+    &.btn-previous {
+      float: left;
+    }
   }
 }
 
 .dso-single-page {
   &.dso-form-buttons,
   .dso-form-buttons {
-    .btn + .btn {
+    .btn + .btn,
+    .btn:only-child {
       float: left;
     }
   }
