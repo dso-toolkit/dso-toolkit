@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'dso-toolkit',
+  globalStyle: 'src/global-styling.scss',
   plugins: [
     sass()
   ],

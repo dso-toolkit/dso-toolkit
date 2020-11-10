@@ -5,6 +5,9 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "yarn workspace dso-toolkit start"
+    "start": "multiview [ yarn workspace dso-toolkit start ] [ yarn workspace @dso-toolkit/core start --prod ]"
+  },
+  "dependencies": {
+    "multiview": "^3.0.1"
   }
 }
