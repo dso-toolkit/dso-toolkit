@@ -8,13 +8,14 @@
 // Heads up! This reset may cause conflicts with some third-party widgets.
 // For recommendations on resolving such conflicts, see
 // https://getbootstrap.com/docs/3.4/getting-started/#third-box-sizing
-* {
-  @include box-sizing(border-box);
-}
-*:before,
-*:after {
-  @include box-sizing(border-box);
-}
+// Moved to @dso-toolkit/styling/scaffolding/normalize.scss
+// * {
+//   @include box-sizing(border-box);
+// }
+// *:before,
+// *:after {
+//   @include box-sizing(border-box);
+// }
 
 
 // Body reset

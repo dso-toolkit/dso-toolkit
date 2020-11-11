@@ -1,3 +1,4 @@
 {
-  "name": "@dso-toolkit/styling"
+  "name": "@dso-toolkit/styling",
+  "main": "index.scss"
 }

@@ -98,3 +98,16 @@ h6,
     margin-bottom: #{$rich-content-margin-bottom / 2};
   }
 }
+
+dso-alert,
+.alert {
+  > .dso-rich-content {
+    *:first-child {
+      margin-top: 0;
+    }
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

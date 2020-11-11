@@ -22,7 +22,7 @@
 @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/vendor-prefixes";
 
 // Components
-@import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/alerts";
+// @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/alerts"; -> moved to @dso-toolkit/styling
 @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/buttons";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/panels";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/mixins/pagination";
