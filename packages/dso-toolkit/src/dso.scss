@@ -13,8 +13,13 @@
 
 $library: true !default;
 
+$dso-icons-path: '../' !default;
+$asap-font-path: "../fonts/Asap/" !default;
+
 @import "styles/mixins/dso-variables";
 @import "styles/mixins/bootstrap-variables";
+
+@import "@dso-toolkit/styling/scaffolding";
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
@@ -56,7 +61,7 @@ $library: true !default;
 //@import "bootstrap-sass/assets/stylesheets/bootstrap/badges";
 //@import "bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
-@import "bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+// @import "bootstrap-sass/assets/stylesheets/bootstrap/alerts"; -> moved to @dso-toolkit/styling
 // @import "bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/media";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/list-group";
@@ -74,6 +79,14 @@ $library: true !default;
 // Utility classes
 @import "bootstrap-sass/assets/stylesheets/bootstrap/utilities";
 @import "bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+/*!
+ * @dso-toolkit/styling
+ * Note to self: This is a temporary solution, in the end developers will not
+ * install dso-toolkit but install @dso-toolkit/styling, and then the fractal library
+ * will only import styling and web components through <link> and <script>
+ */
+@import "@dso-toolkit/styling/components";
 
 /*!
  * DSO Toolkit styling

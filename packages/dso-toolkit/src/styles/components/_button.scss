@@ -11,6 +11,20 @@
   font-weight: 500;
 }
 
+dso-alert,
+.alert {
+  .btn {
+    background-color: rgba(25, 25, 25, 0.05);
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: rgba(25, 25, 25, 0.2);
+      color: $zwart;
+    }
+  }
+}
+
 .btn {
   @include button-default-base();
 

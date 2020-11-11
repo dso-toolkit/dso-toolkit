@@ -6,20 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-
+    interface DsoAlert {
+        "level": 'success' | 'info' | 'warning' | 'danger';
+    }
 }
 declare global {
+    interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
+    }
+    var HTMLDsoAlertElement: {
+        prototype: HTMLDsoAlertElement;
+        new (): HTMLDsoAlertElement;
+    };
     interface HTMLElementTagNameMap {
+        "dso-alert": HTMLDsoAlertElement;
     }
 }
 declare namespace LocalJSX {
+    interface DsoAlert {
+        "level"?: 'success' | 'info' | 'warning' | 'danger';
+    }
     interface IntrinsicElements {
+        "dso-alert": DsoAlert;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
         }
     }
 }
