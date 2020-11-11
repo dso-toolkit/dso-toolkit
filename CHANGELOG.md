@@ -7,7 +7,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * NPM vervangen met Yarn (#834)
-* Bootstrap ingecheckt onder `/libs`. Geen node_modules dependency meer.
+* Bootstrap ingecheckt onder `/libs`: Geen node_modules dependency meer (#835)
+
+### Added
+* Nieuw component: Input Number (#797)
 
 ## 12.0.0
 
@@ -27,9 +30,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Documentation
 * Versie selector voor pre-versie 10 toolkits (#697)
 * Viewport meta-tag toevoegen aan component pagina's in de toolkit (#816)
-
-### Added
-* Nieuw component: Input Stepper (#797)
 
 ## 11.4.1
 
