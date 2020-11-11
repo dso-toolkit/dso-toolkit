@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DsoAlert {
-        "level": string;
+        "level": 'success' | 'info' | 'warning' | 'danger';
     }
 }
 declare global {
@@ -23,7 +23,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DsoAlert {
-        "level"?: string;
+        "level"?: 'success' | 'info' | 'warning' | 'danger';
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;

@@ -8,7 +8,7 @@ import clsx from 'clsx';
 })
 export class Alert {
   @Prop()
-  level: string;
+  level: 'success' | 'info' | 'warning' | 'danger';
 
   render() {
     return (
