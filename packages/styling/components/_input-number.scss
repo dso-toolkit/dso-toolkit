@@ -1,0 +1,44 @@
+.dso-input-number {
+  &:not(.form-group) {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  label {
+    width: 100%;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    .form-horizontal &.form-group .dso-field-container {
+      margin-top: #{$u1 - 1};
+    }
+  }
+
+  .dso-input-step-counter {
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    height: $u3;
+    text-align: center;
+    width: $u3;
+
+    &:focus,
+    &:active {
+      outline: 0;
+    }
+
+    // Chrome, Safari, Edge, Opera
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    // Firefox
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
