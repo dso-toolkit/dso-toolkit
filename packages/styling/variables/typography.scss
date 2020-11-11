@@ -1,12 +1,12 @@
-$font-family-sans-serif:  Asap, sans-serif; /* stylelint-disable-line value-keyword-case */
-$font-family-serif:       Georgia, "Times New Roman", Times, serif;
-//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
-$font-family-base:        $font-family-sans-serif;
+/* stylelint-disable value-keyword-case */
+$font-family-sans-serif: Asap, sans-serif;
+$font-family-serif: Georgia, "Times New Roman", Times, serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
 
-$font-size-base:          16px;
-$font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
-$font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
+$font-size-base: 16px;
+$font-size-large: ceil(($font-size-base * 1.25));
+$font-size-small: ceil(($font-size-base * 0.85));
 
 $font-size-h1: $dso-font-size-h1;
 $font-size-h2: $dso-font-size-h2;
@@ -15,13 +15,10 @@ $font-size-h4: $dso-font-size-h4;
 $font-size-h5: $dso-font-size-h5;
 $font-size-h6: $dso-font-size-h5;
 
-//** Unit-less `line-height` for use in components like buttons.
 $line-height-base: 1.5;
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+$line-height-computed: floor(($font-size-base * $line-height-base));
 
-//** By default, this inherits from the `<body>`.
 $headings-font-family: "Asap", sans-serif;
 $headings-font-weight: bold;
-$headings-line-height:    1.1;
+$headings-line-height: 1.1;
 $headings-color: $bosgroen;
