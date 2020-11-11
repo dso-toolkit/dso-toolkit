@@ -7,3 +7,11 @@ node_modules
 assets/icons/dso-icons.svg
 *.zip
 theme/dist
+
+# Yarn v2 ignores
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

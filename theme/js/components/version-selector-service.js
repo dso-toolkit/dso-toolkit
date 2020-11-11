@@ -1,23 +1,19 @@
-"use strict";
+import $ from 'jquery';
 
-const $ = require("../jquery");
-
-class VersionSelectorService {
+export default class VersionSelectorService {
   static _versionsPromise;
 
   static getVersions = function () {
-    if (this._versionsPromise) {
-      return this._versionsPromise;
+    if (VersionSelectorService._versionsPromise) {
+      return VersionSelectorService._versionsPromise;
     }
 
-    this._versionsPromise = $.ajax(
+    VersionSelectorService._versionsPromise = $.ajax(
       'https://www.dso-toolkit.nl/versions.json?t=' + new Date().getTime()
     ).then((results) => {
       return results.versions;
     });
 
-    return this._versionsPromise;
+    return VersionSelectorService._versionsPromise;
   };
 }
-
-module.exports = VersionSelectorService;

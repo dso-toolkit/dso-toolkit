@@ -1,19 +1,12 @@
-'use strict';
+import $ from 'jquery';
 
-const $ = global.jQuery;
-const storage = require('../storage');
-const utils = require('../utils');
-const events = require('../events');
-const config = require('../config');
+import events from '../events';
+import * as storage from '../storage';
+import * as utils from '../utils';
 
-module.exports = function (element) {
-
-  const win = $(window);
-  const doc = $(document);
+export default function frame(element) {
   const el = $(element);
-  const id = el[0].id;
   const dir = $('html').attr('dir');
-  const header = el.find('> [data-role="header"]');
   const body = el.find('> [data-role="body"]');
   const toggle = el.find('[data-action="toggle-sidebar"]');
   const sidebar = body.children('[data-role="sidebar"]');
@@ -51,36 +44,11 @@ module.exports = function (element) {
     }
   });
 
-  sidebar.resizable({
-    handleSelector: handle,
-    resizeHeight: false,
-    onDragStart: e => {
-      el.addClass('is-resizing');
-      events.trigger('start-dragging');
-    },
-    onDragEnd: e => {
-      setSidebarWidth(sidebar.outerWidth());
-      el.removeClass('is-resizing');
-      events.trigger('end-dragging');
-      if (sidebarState === 'closed') {
-        dragOccuring = false;
-        openSidebar();
-      }
-    },
-    resizeWidthFrom: dir === 'rtl' ? 'left' : 'right'
-  });
-
   sidebar.on('scroll', utils.debounce((e) => {
     storage.set(`frame.scrollPos`, sidebar.scrollTop());
   }, 50));
 
   toggle.on('click', toggleSidebar);
-
-  win.on('resize', () => {
-    if (sidebarState == 'open' && doc.outerWidth() < (sidebarWidth + 50)) {
-      // setSidebarWidth(doc.outerWidth() - 50);
-    }
-  });
 
   // Global event listeners
 
@@ -125,7 +93,7 @@ module.exports = function (element) {
     body.css({
       marginRight: 0,
       marginLeft: 0,
-      transition: '.3s ease all',
+      transition: '0.3s ease all',
       transform: `translate3d(0, 0, 0)`
     });
     sidebarState = 'open';
@@ -158,4 +126,4 @@ module.exports = function (element) {
       main.removeClass('is-loading');
     }
   }
-};
+}

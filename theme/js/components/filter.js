@@ -1,7 +1,6 @@
-"use strict";
-const $ = global.jQuery;
+import $ from 'jquery';
 
-class Filter {
+export default class Filter {
   constructor(filterInput, filteredItems) {
     this.filterInput = filterInput;
     this.filteredItems = filteredItems;
@@ -24,5 +23,3 @@ class Filter {
     this.filteredItems.map(item => item.filter(value));
   }
 }
-
-module.exports = Filter;

@@ -1,0 +1,37 @@
+notes: |
+status: ready
+context:
+  tabNav:
+    tabs:
+      - label: Ontvangen
+        url: '#'
+        modifiers: disabled
+      - label: Verzonden
+        url: '#'
+        modifiers: active
+  definitionList:
+    modifier: dso-columns dso-2-columns
+    dsoColumns: true
+    definitions:
+      - term: "Status:"
+        descriptions:
+          - description: Open
+      - term: "Verzonden aan:"
+        descriptions:
+          - description: Gemeente Den Haag
+      - term: "Datum:"
+        descriptions:
+          - description: 20-10-2020
+  formContent:
+    formModifier: dso-single-page
+    fieldsets:
+    - legend: Intrekken actieverzoek
+      groups:
+      - id: actieverzoekMelding
+        inputType: textarea
+        label: Toelichting intrekken
+        rows: 6
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Actieverzoek intrekken

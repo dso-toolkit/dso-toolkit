@@ -1,14 +1,12 @@
-'use strict';
+import $ from 'jquery';
 
-const $ = global.jQuery;
-const storage = require('../storage');
-const events = require('../events');
-const Preview = require('./preview');
-const Browser = require('./browser');
-const resizeable = require('jquery-resizable-dom/dist/jquery-resizable.js');
+import events from '../events';
+import * as storage from '../storage';
 
-class Pen {
+import Browser from './browser';
+import Preview from './preview';
 
+export default class Pen {
   constructor(el) {
     this._el = $(el);
     this._id = this._el[0].id;
@@ -47,49 +45,5 @@ class Pen {
         return false;
       }
     });
-
-    this._previewPanel.resizable({
-      handleSelector: this._handle,
-      resizeWidth: false,
-      onDragStart: () => {
-        this._el.addClass('is-resizing');
-        preview.disableEvents();
-        events.trigger('start-dragging');
-      },
-      onDragEnd: () => {
-        this._el.removeClass('is-resizing');
-        preview.enableEvents();
-        events.trigger('end-dragging');
-        if (dblClick) {
-          if (state === 'closed') {
-            this._previewPanel.css('height', storage.get(`pen.onClosedHeight`, initialHeight));
-            state = 'open';
-            storage.set(`pen.previewState`, 'open');
-          } else {
-            storage.set(`pen.onClosedHeight`, this._previewPanel.outerHeight());
-            this._previewPanel.css({
-              'height': '100%',
-              'transition': '.3s ease all'
-            });
-            state = 'closed';
-            storage.set(`pen.previewState`, 'closed');
-          }
-        } else {
-          if (state !== 'closed') {
-            storage.set(`pen.previewHeight`, this._previewPanel.outerHeight());
-          } else {
-            setTimeout(() => {
-              if (!dblClick) {
-                state = 'open';
-                storage.set(`pen.previewState`, 'open');
-                storage.set(`pen.previewHeight`, this._previewPanel.outerHeight());
-              }
-            }, 400);
-          }
-        }
-      }
-    });
   }
 }
-
-module.exports = Pen;

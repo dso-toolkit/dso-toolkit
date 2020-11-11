@@ -5,20 +5,28 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* NPM vervangen met Yarn (#834)
+* Bootstrap ingecheckt onder `/libs`. Geen node_modules dependency meer.
+
+## 12.0.0
+
 ### Removed
 * **BREAKING**: Progressblock verwijderen (#802) **Removal notice, see PR #814**
 
 ### Changed
 * **BREAKING**: Fieldsets in accordion (#731) **Markup changes, see PR #784**
 * Iconen minus-square en plus-square updaten (#796)
-* sass-lint vervangen met Stylelint (#805)
+* Sass-lint vervangen met Stylelint (#805)
 * **BREAKING**: Labels mogen niet bestaan zonder ingesloten invoerelement of for attribuut (#819) **Markup change, see PR #822**
 
 ### Added
 * Voorbeeld pagina Wizard stap 4 (#789)
+* Voorbeeld pagina Actieverzoeken (#791)
 
 ### Documentation
 * Versie selector voor pre-versie 10 toolkits (#697)
+* Viewport meta-tag toevoegen aan component pagina's in de toolkit (#816)
 
 ### Added
 * Nieuw component: Input Stepper (#797)
