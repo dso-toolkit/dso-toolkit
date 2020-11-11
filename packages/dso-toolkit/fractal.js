@@ -44,7 +44,11 @@ fractal.docs.set('label', 'Documentatie');
 
 fractal.web.set('static.path', path.join(__dirname, 'build/toolkit'));
 fractal.web.set('server.syncOptions', {
-  files: ['build/toolkit/**/*', 'theme/dist/**/*'],
+  files: [
+    'build/toolkit/**/*',
+    'theme/dist/**/*',
+    '../core/dist/**/*' // :( using require.resolve() gives a path gulp doesn't work with
+  ],
   notify: false
 });
 
