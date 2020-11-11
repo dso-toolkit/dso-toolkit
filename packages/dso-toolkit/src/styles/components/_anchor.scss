@@ -8,6 +8,14 @@ dso-alert,
   }
 }
 
+dso-alert,
+.alert {
+  a,
+  a:visited {
+    color: $text-color;
+  }
+}
+
 a {
   text-decoration: underline;
 

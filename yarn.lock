@@ -6091,6 +6091,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"heartbeats@npm:~3.1.0":
+  version: 3.1.5
+  resolution: "heartbeats@npm:3.1.5"
+  checksum: 13df0d0865d405b3662b98764ce9b224bfecedb978e9a6cb4de79905e2ebdf7b28d72c9b374f35d8df8113a072d1ee0f27b95ad451d7927055be8e0b2ea52858
+  languageName: node
+  linkType: hard
+
 "hiff@npm:0.3.1":
   version: 0.3.1
   resolution: "hiff@npm:0.3.1"
@@ -7287,6 +7294,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"keypress@npm:0.2.1":
+  version: 0.2.1
+  resolution: "keypress@npm:0.2.1"
+  checksum: 58e7a757c806feed7800789a926721351eba50201da6db0d9646a43c855efadac3efe69b9ed0ea53dcef3f0b4bf4e76b4d2ab72f51a60af16cb335dd5ad03c30
+  languageName: node
+  linkType: hard
+
 "kind-of@npm:^1.1.0":
   version: 1.1.0
   resolution: "kind-of@npm:1.1.0"
@@ -8124,6 +8138,23 @@ fsevents@~2.1.2:
     arrify: ^2.0.1
     minimatch: ^3.0.4
   checksum: c1ba3c9b68e7840cdb4d5d2998eeb68a88ef14a09ce03bd392738529665147a6ec6970d8bf9e7fbac618bb58c2a615f190c048f97c290e36fb4890a3ef78991e
+  languageName: node
+  linkType: hard
+
+"multiview@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "multiview@npm:3.0.1"
+  dependencies:
+    columns: 0.8.0
+    event-transmitter: 2.0.0
+    keypress: 0.2.1
+    protogram: 1.1.3
+    protogram-help: 1.0.2
+    tree-kill: ^1.2.2
+    unparse-args: 1.0.1
+  bin:
+    multiview: cli.js
+  checksum: df8319c1f8bdd7c3fbdf8f17875ceaa470318f4c90d53c335a495af5897cc8ba3020efd4aae0f233d110e910a8006891a1eded589d4d275d5179d822c115560e
   languageName: node
   linkType: hard
 
@@ -11779,6 +11810,15 @@ resolve@^1.17.0:
   languageName: node
   linkType: hard
 
+"tree-kill@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "tree-kill@npm:1.2.2"
+  bin:
+    tree-kill: cli.js
+  checksum: 967643efa4a231868232ea9d046c3ba7494ea6061fbb1e661c699b43ca0f0a14dad0782a631d915959d562830035166bab80ed726f9fe33b838af8a7516624ed
+  languageName: node
+  linkType: hard
+
 "trim-newlines@npm:^1.0.0":
   version: 1.0.0
   resolution: "trim-newlines@npm:1.0.0"
@@ -12176,6 +12216,15 @@ typescript@4.1.2:
   languageName: node
   linkType: hard
 
+"unparse-args@npm:1.0.1, unparse-args@npm:~1.0.1":
+  version: 1.0.1
+  resolution: "unparse-args@npm:1.0.1"
+  dependencies:
+    shell-escape: ~0.1.0
+  checksum: ad378b0d2fc82d39fe9ff516418a4596f71085bf74d9013158f9fdcf770cd2601ba7ea2b8ad3696b0799297c60cf7aa1e00f7c5df3de60ddb79c166d5be70189
+  languageName: node
+  linkType: hard
+
 "unpipe@npm:1.0.0, unpipe@npm:~1.0.0":
   version: 1.0.0
   resolution: "unpipe@npm:1.0.0"
@@ -12467,6 +12516,15 @@ typescript@4.1.2:
     strip-ansi: ^3.0.0
     wrap-ansi: ^2.0.0
   checksum: 7f51deb180b6f34f3a5abfb9de70c3a3210ed01ca02d2c863a2dcda699837413042ee30eb6364b6fb48ee6af39db8c85d2f43ee2b144bca3555381b4d4da97c1
+  languageName: node
+  linkType: hard
+
+"wcwidth.js@npm:~1.0.0":
+  version: 1.0.0
+  resolution: "wcwidth.js@npm:1.0.0"
+  dependencies:
+    defaults: ^1.0.0
+  checksum: f75eb8c1fdb6284406a686a9967a1d900d19d0e9bf2dfd3edb4e25d3fc9ed0fbd58b34881b6d3354d333dbf02f216bb6172cb0db86d210d68b159a79f82bc785
   languageName: node
   linkType: hard
 
