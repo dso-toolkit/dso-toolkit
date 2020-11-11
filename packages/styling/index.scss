@@ -1,6 +1,6 @@
-@import "./partials/normalize";
+@import "variables";
+@import "icons";
 
-@import "./variables";
-@import "./icons";
+@import "scaffolding";
 
-@import "./components/alert";
+@import "components";

@@ -1,6 +1,6 @@
 :host {
   display: block;
 
-  @import "~@dso-toolkit/styling/partials/normalize";
+  @import "~@dso-toolkit/styling/scaffolding";
   @import "~@dso-toolkit/styling/components/alert";
 }

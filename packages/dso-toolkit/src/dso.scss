@@ -19,6 +19,8 @@ $asap-font-path: "../fonts/Asap/" !default;
 @import "styles/mixins/dso-variables";
 @import "styles/mixins/bootstrap-variables";
 
+@import "@dso-toolkit/styling/scaffolding";
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -84,7 +86,7 @@ $asap-font-path: "../fonts/Asap/" !default;
  * install dso-toolkit but install @dso-toolkit/styling, and then the fractal library
  * will only import styling and web components through <link> and <script>
  */
-@import "@dso-toolkit/styling/components/alert";
+@import "@dso-toolkit/styling/components";
 
 /*!
  * DSO Toolkit styling
