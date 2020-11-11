@@ -32,6 +32,11 @@
     "declaration-property-value-disallowed-list": {
       "text-overflow": ["ellipsis"],
       "white-space": ["nowrap"]
-    }
+    },
+    "selector-type-no-unknown": [
+      true, {
+        "ignore": ["custom-elements"]
+      }
+    ]
   }
 }

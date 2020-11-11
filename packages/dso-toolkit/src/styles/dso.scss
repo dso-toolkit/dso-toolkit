@@ -6,11 +6,11 @@
 @import "mixins/tables";
 @import "mixins/typography";
 
-@import "icons/di";
+@import "@dso-toolkit/styling/icons";
 
 @import "components/accordion";
 @import "components/attachments-counter";
-@import "components/alert";
+// @import "components/alert"; -> Moved to @dso-toolkit/styling
 @import "components/anchor";
 @import "components/badge";
 @import "components/banner";

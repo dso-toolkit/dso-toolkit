@@ -11,36 +11,6 @@ $brand-info:            $grasgroen;
 $brand-warning:         $oranje;
 $brand-danger:          $oranje;
 
-//== Scaffolding
-//
-//## Settings for some of the most global styles.
-
-$text-color: $grijs-90;
-$link-color: $grasgroen;
-$link-hover-color: $dso-anchor-hover-color;
-$link-hover-decoration: underline;
-
-//== Typography
-//
-//## Font, line-height, and color for body text, headings, and more.
-
-$font-family-sans-serif: Asap, sans-serif; /* stylelint-disable-line value-keyword-case */
-
-$font-size-base: 16px;
-
-$font-size-h1: $dso-font-size-h1;
-$font-size-h2: $dso-font-size-h2;
-$font-size-h3: $dso-font-size-h3;
-$font-size-h4: $dso-font-size-h4;
-$font-size-h5: $dso-font-size-h5;
-$font-size-h6: $dso-font-size-h5;
-
-$line-height-base: 1.5;
-
-$headings-font-family: "Asap", sans-serif;
-$headings-font-weight: bold;
-$headings-color: $bosgroen;
-
 //== Iconography
 //
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
@@ -184,29 +154,6 @@ $pager-disabled-color: $grasgroen-40;
 //== Modals
 //
 //##
-
-//== Alerts
-//
-//## Define alert colors, border radius, and padding.
-
-$alert-padding: $u2 - 1px; // 1px border
-$alert-border-radius: 0;
-
-$state-success-text: $grijs-90;
-$state-success-bg: $dso-alert-success-bg-color;
-$state-success-border: $dso-alert-success-bg-color;
-
-$state-info-text: $grijs-90;
-$state-info-bg: $dso-alert-info-bg-color;
-$state-info-border: $dso-alert-info-bg-color;
-
-$state-warning-text: $grijs-90;
-$state-warning-bg: $dso-alert-warning-bg-color;
-$state-warning-border: $dso-alert-warning-bg-color;
-
-$state-danger-text: $grijs-90;
-$state-danger-bg: $dso-alert-danger-bg-color;
-$state-danger-border: $dso-alert-danger-bg-color;
 
 //== Progress bars
 //

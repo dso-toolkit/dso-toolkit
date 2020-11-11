@@ -1,5 +1,6 @@
 $dso-anchor-spacer-width: 4px;
 
+dso-alert,
 .alert,
 .dso-highlight-box,
 .dso-rich-content > :not(table),
@@ -11,6 +12,14 @@ $dso-anchor-spacer-width: 4px;
     &:focus {
       text-decoration: none;
     }
+  }
+}
+
+dso-alert,
+.alert {
+  a,
+  a:visited {
+    color: $text-color;
   }
 }
 

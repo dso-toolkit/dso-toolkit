@@ -132,11 +132,17 @@ function buildWatcher(options) {
   options = options || {};
 
   return logger => {
-    gulp.watch(['components/**/*.scss', 'src/dso.scss', 'src/styles/**/*.scss']).on('all', function (event, path, stats) {
-      logger('styles', event, path);
+    gulp.watch([
+      'components/**/*.scss',
+      'src/dso.scss',
+      'src/styles/**/*.scss',
+      '../styling/**/*.scss' // :( using require.resolve() gives a path gulp doesn't work with
+    ])
+      .on('all', function (event, path, stats) {
+        logger('styles', event, path);
 
-      return buildStylesWrapper(options)();
-    });
+        return buildStylesWrapper(options)();
+      });
 
     gulp.watch('assets/**/*').on('all', function (event, path, stats) {
       logger('assets', event, path);
