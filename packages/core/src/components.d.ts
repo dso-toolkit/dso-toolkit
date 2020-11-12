@@ -9,6 +9,10 @@ export namespace Components {
     interface DsoAlert {
         "level": 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoBadge {
+        "level"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+        "status"?: string;
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -17,16 +21,28 @@ declare global {
         prototype: HTMLDsoAlertElement;
         new (): HTMLDsoAlertElement;
     };
+    interface HTMLDsoBadgeElement extends Components.DsoBadge, HTMLStencilElement {
+    }
+    var HTMLDsoBadgeElement: {
+        prototype: HTMLDsoBadgeElement;
+        new (): HTMLDsoBadgeElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
+        "dso-badge": HTMLDsoBadgeElement;
     }
 }
 declare namespace LocalJSX {
     interface DsoAlert {
         "level"?: 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoBadge {
+        "level"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+        "status"?: string;
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
+        "dso-badge": DsoBadge;
     }
 }
 export { LocalJSX as JSX };
@@ -34,6 +50,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
+            "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
         }
     }
 }
