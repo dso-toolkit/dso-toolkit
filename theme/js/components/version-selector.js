@@ -1,10 +1,8 @@
-'use strict';
+import $ from 'jquery';
 
-const versionSelectorService = require('./version-selector-service');
+import VersionSelectorService from './version-selector-service';
 
-const $ = global.jQuery;
-
-class VersionSelector {
+export default class VersionSelector {
   constructor() {
     this._getVersions().then((versions) => this._render(versions));
   }
@@ -53,7 +51,7 @@ class VersionSelector {
   }
 
   _getVersions() {
-    return versionSelectorService.getVersions().then((versions) =>
+    return VersionSelectorService.getVersions().then((versions) =>
       versions.reduce(
         function (total, v) {
           if (!v.branch) {
@@ -130,5 +128,3 @@ class VersionSelector {
     }
   }
 }
-
-module.exports = VersionSelector;

@@ -1,4 +1,4 @@
-global.DsoToolkitResizeIframe = function (frame, element) {
+window.DsoToolkitResizeIframe = function (frame, element) {
   const measureElt = typeof element === 'string'
     ? frame.contentWindow.document.querySelector(element)
     : frame.contentWindow.document.body;

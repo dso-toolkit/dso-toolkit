@@ -85,7 +85,7 @@ function buildStylesWrapper(options) {
   return function buildStyles() {
     const sassCompiler = sass({
       includePaths: [
-        path.join(process.cwd(), 'node_modules')
+        path.join(process.cwd(), 'libs')
       ]
     }).on('error', sass.logError);
 
