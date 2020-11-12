@@ -19,7 +19,7 @@ Alpha's should be considered unstable. Beta's will not have any breaking changes
 npm install dso-toolkit
 ```
 
-1. Add `node_modules/dso-toolkit/node_modules` and `node_modules` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
+1. Add `node_modules/dso-toolkit/libs` and `node_modules` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
 2. Bundle `/node_modules/dso-toolkit/src/dso.scss` in your build process.
 
 ### CDN
