@@ -63,6 +63,7 @@ variants:
     id: input-select-multiple-open
     required: true
     infoOpen: true
+    infoButtonLabel: Toelichting bij vraag
     infoText: |
       <h4>Heading 4</h4>
       <p>

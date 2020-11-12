@@ -6,7 +6,7 @@
       {{ label }}
     </span>
     {% if infoText %}
-      {% render '@info-button', {infoOpen: infoOpen} %}
+      {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
   </legend>
   <div class="dso-field-container">
@@ -20,7 +20,7 @@
           {{ option.label }}
         </label>
         {% if option.infoText %}
-          {% render '@info-button', {infoOpen: option.infoOpen} %}
+          {% render '@info-button', {infoOpen: option.infoOpen, infoButtonLabel: option.infoButtonLabel} %}
         {% endif %}
         {% if option.infoOpen %}
           {% render '@info', {infoText: option.infoText} %}

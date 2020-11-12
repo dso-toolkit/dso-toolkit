@@ -1,5 +1,9 @@
 <button type="button" {{ className('btn dso-info-button', [infoOpen, 'dso-open']) }} aria-expanded="{{ infoOpen }}">
   <span class="sr-only">
-    Toelichting
+    {%- if infoButtonLabel -%}
+      {{ infoButtonLabel }}
+    {%- else -%}
+      Toelichting bij deze optie
+    {%- endif -%}
   </span>
 </button>
