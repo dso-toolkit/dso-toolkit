@@ -1,8 +1,7 @@
 <button type="{{ type }}" {{ className('btn', 'dso-list-button', [count > 0, 'dso-selected']) }} {% if disabled %} disabled{% endif %}>
-
   <span>{{ label }}</span>
+  {% if sublabel %}<span class="dso-sublabel">{{ sublabel }}</span>{% endif %}
   {% if (count == 1) %}{% render '@icon', {icon: 'check'} %}{% endif %}
   {% if (count > 1) %}<span class="dso-count">{{ count }}x</span>{% endif %}
   {% if (count > 0) %}<span class="sr-only">geselecteerd</span>{% endif %}
-  {% if sublabel %}<span class="dso-sublabel">{{ sublabel }}</span>{% endif %}
 </button>
