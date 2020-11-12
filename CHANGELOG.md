@@ -8,6 +8,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * "Toelichting" wordt dubbel voorgelezen door screenreader (#813)
 
+### Changed
+* NPM vervangen met Yarn (#834)
+* Bootstrap ingecheckt onder `/libs`: Geen node_modules dependency meer (#835)
+* **BREAKING**: sr-only tekst toevoeging bij status icoon alert (#765) **Markup changes, see PR #847**
+* **BREAKING**: List-button volgorde is niet logisch (#829) **Markup changes, see PR #831**
+
+### Added
+* Nieuw component: Input Number (#797)
+
 ## 12.0.0
 
 ### Removed

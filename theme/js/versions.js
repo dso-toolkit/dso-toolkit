@@ -1,8 +1,7 @@
-const $ = require('./jquery');
-const versionSelectorService = require('./components/version-selector-service');
+import VersionSelectorService from './components/version-selector-service';
 
-global.getAllVersions = function getAllVersions() {
-  return versionSelectorService.getVersions().then(function (versions) {
+window.getAllVersions = function getAllVersions() {
+  return VersionSelectorService.getVersions().then(function (versions) {
     return versions.reduce(function (branches, item) {
       var branchLabel = getBranchLabel(item);
       var branch = branches.filter(function (r) {
