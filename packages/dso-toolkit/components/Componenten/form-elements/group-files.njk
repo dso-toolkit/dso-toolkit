@@ -10,7 +10,7 @@
     {% endfor %}
   </ul>
   {% if files | map('confidential') | includes(true) %}
-    {% render '@alert', {modifier: 'warning', message:'
+    {% render '@alert', {modifier: 'warning', sronly: 'Waarschuwing:', message:'
       <div class="dso-rich-content">
         <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
         <ol>
