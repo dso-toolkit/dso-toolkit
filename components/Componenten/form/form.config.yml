@@ -161,11 +161,13 @@ context:
         label: ja, de vraagstelling aan duidelijkheid te wensen over, ik wil graag een toelichting hierop
         checked: true
         infoOpen: false
+        infoButtonLabel: Toelichting bij antwoord
         infoText: |
           Empty
       - value: 2
         label: nee, het is mij duidelijk
       infoOpen: false
+      infoButtonLabel: Toelichting bij vraag
       infoText: |
         Empty
   - legend: Vraag met infobutton uitgeklapt
@@ -178,10 +180,12 @@ context:
         label: ja
         checked: true
         infoOpen: false
+        infoButtonLabel: Toelichting bij antwoord
         infoText: Empty
       - value: 2
         label: nee
       infoOpen: true
+      infoButtonLabel: Toelichting bij vraag
       infoText: |
         <h4>Let op</h4>
         <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
