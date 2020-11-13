@@ -41,11 +41,12 @@ context:
             label: Milieuactiviteit - Aanvraag vergunning
           - value: 4
             label: Gebruik en het in stand houden van bouwwerken ketentest - Melding
-    buttons:
-    - type: default
-      modifier: default
+    asideButtons:
+    - type: link
+      modifier: link
       label: Vorige stap
       icon: chevron-left
+    buttons:
     - type: submit
       modifier: primary
       label: Volgende stap

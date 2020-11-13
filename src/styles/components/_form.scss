@@ -58,7 +58,7 @@ form,
 form.dso-single-page .dso-form-buttons,
 .form.dso-single-page .dso-form-buttons,
 .dso-single-page .dso-form-buttons {
-  .btn + .btn {
+  .btn {
     float: left;
   }
 }
@@ -67,11 +67,6 @@ form.dso-single-page .dso-form-buttons,
   @include clearfix();
 
   text-align: right;
-
-  .btn:not(.btn-link):not(:only-child):first-child {
-    display: block;
-    float: left;
-  }
 
   .btn-link {
     line-height: $dso-button-line-height;

@@ -1,7 +1,24 @@
-  {% if buttons %}
-    <div class="dso-form-buttons">
-      {% for button in buttons %}
-        {% render '@button', button %}
-      {% endfor %}
-    </div>
-  {% endif %}
+{% if buttons %}
+  <div class="dso-form-buttons">
+    {% if buttons.type %}
+      <div class="dso-aside">
+        [aside]
+        {# {% for asidebutton in buttonsaside %}
+          {% render '@button', asidebutton %}
+        {% endfor %} #}
+      </div>
+    {% endif %}
+
+    {% if asideButtons %}
+      <div class="dso-aside">
+        {% for button in asideButtons %}
+          {% render '@button', button %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% for button in buttons %}
+      {% render '@button', button %}
+    {% endfor %}
+  </div>
+{% endif %}
