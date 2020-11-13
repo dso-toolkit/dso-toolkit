@@ -6,7 +6,7 @@ context:
     step: Stap 4 van 4
   alert:
     modifier: warning
-    sronly: "Waarschuwing:"
+    status: "Waarschuwing:"
     message: Bedrijf veranderen of uitbreiden? Dan hoeft u voor bestaande milieubelastende activiteiten die niet veranderen geen vergunning aan te vragen, melding te doen of informatie te geven.
   werkzaamheden:
     items:

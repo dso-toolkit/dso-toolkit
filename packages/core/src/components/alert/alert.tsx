@@ -8,11 +8,19 @@ import clsx from 'clsx';
 })
 export class Alert {
   @Prop()
-  level: 'success' | 'info' | 'warning' | 'danger';
+  status!: 'success' | 'info' | 'warning' | 'danger';
+
+  private static statusMap = new Map<string, string>([
+    ['success', 'Gelukt:'],
+    ['info', 'Opmerking:'],
+    ['warning', 'Waarschuwing:'],
+    ['danger', 'Fout:']
+  ]);
 
   render() {
     return (
-      <div class={clsx('alert', { [`alert-${this.level}`]: this.level })} role="alert">
+      <div class={clsx('alert', `alert-${this.status}`)} role="alert">
+        <span class="sr-only">{Alert.statusMap.get(this.status)}</span>
         <slot></slot>
       </div>
     );
