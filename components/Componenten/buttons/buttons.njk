@@ -341,7 +341,9 @@
     <h3 class="dso-example-label">Paginering door stappen</h3>
     <form>
       <div class="dso-form-buttons">
-        {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+        <div class="dso-aside">
+          {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige stap', icon: 'chevron-left'} %}
+        </div>
         {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
       </div>
     </form>

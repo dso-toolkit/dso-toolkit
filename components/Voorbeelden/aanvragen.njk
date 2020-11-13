@@ -16,7 +16,9 @@
     <div class="row">
       <div class="col-md-12">
         <div class="dso-form-buttons">
-          {% render '@button', {label:'Vorige stap', type:'button', modifier:'default'} %}
+          <div class="dso-aside">
+            {% render '@button', {label:'Vorige stap', type:'button', modifier:'link'} %}
+          </div>
           {% render '@button', {label:'Volgende stap', type:'button', modifier:'primary'} %}
         </div>
       </div>
