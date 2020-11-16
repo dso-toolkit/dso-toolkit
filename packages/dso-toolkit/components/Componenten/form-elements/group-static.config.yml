@@ -11,6 +11,7 @@ variants:
   context:
     __title: Static infobutton
     infoOpen: false
+    infoButtonLabel: Toelichting bij vraag
     infoText: |
       Closed
     __explanation: false
@@ -18,6 +19,7 @@ variants:
   context:
     __title: Static infobutton uitgeklapt
     infoOpen: true
+    infoButtonLabel: Toelichting bij vraag
     infoText: |
       <h4>Heading 4</h4>
       <p>
