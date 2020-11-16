@@ -1,8 +1,8 @@
 <div {{ className('alert', [modifier, 'alert-' + modifier]) }} role="alert">
-  <span class="sr-only">{{ sronly }}</span>
+  <span class="sr-only">{{ status }}:</span>
   {{ message | safe }}
 </div>
 
-<dso-alert level="{{ modifier }}">
+<dso-alert status="{{ modifier }}">
   {{ message | safe }}
 </dso-alert>

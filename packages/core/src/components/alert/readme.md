@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                           | Default     |
-| -------- | --------- | ----------- | ---------------------------------------------- | ----------- |
-| `level`  | `level`   |             | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
+| Property              | Attribute | Description | Type                                           | Default     |
+| --------------------- | --------- | ----------- | ---------------------------------------------- | ----------- |
+| `status` _(required)_ | `status`  |             | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
 
 
 ----------------------------------------------

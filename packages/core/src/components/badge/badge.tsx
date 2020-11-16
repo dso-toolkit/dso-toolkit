@@ -8,7 +8,7 @@ import clsx from 'clsx';
 })
 export class Badge {
   @Prop()
-  level?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+  level!: 'primary' | 'success' | 'info' | 'warning' | 'danger';
 
   @Prop()
   status?: string;
