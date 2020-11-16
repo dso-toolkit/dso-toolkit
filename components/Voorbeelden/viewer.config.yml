@@ -1,0 +1,22 @@
+notes: |
+status: ready
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Home
+      - label: Vergunningcheck
+      - label: Aanvragen
+        active: true
+      - label: Regels op de kaart
+      - label: Mijn Omgevingsloket
+  breadcrumbs:
+    crumbs:
+  submenu:
+    modifier: sub
+    items:
+      - label: GebiedsInfo
+      - label: Regelgeving
+        active: true
+      - label: Beleid
+  

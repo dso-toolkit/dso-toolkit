@@ -1,0 +1,36 @@
+{% render '@header', {
+  menu: menu,
+  breadcrumbs: breadcrumbs
+} %}
+<main>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Gemeente Heiloo</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Gemeente in Noord-Holland</h5>
+          <span class="dso-label">
+            <span class="sr-only">Label: </span>Oefen kappen van een boom
+            <button type="button" title="Verwijder">
+              <svg class="di di-times">
+                <use href="/dso-icons.svg#times"/>
+              </svg>
+            </button>
+          </span>
+          {% render '@button', {label:'Filters', type:'button', modifier:'link', icon:'angle-right'} %}
+        </div>
+        <div class="col-md-6">
+          {% render '@button', {label:'Anders zoeken', type:'button', modifier:'link', iconAfter:'angle-down'} %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {% render '@navigations', submenu %}
+          {% render '@button', {label:'Bekijk selectie', type:'button', modifier:'default'} %}
+        </div>
+        <div></div>
+      </div>
+    </main>
+
+    {% render '@footer' %}
