@@ -9,8 +9,7 @@
 
 | Property | Attribute | Description | Type                                                                     | Default     |
 | -------- | --------- | ----------- | ------------------------------------------------------------------------ | ----------- |
-| `level`  | `level`   |             | `"danger" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `status` | `status`  |             | `string \| undefined`                                                    | `undefined` |
+| `status` | `status`  |             | `"danger" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ----------------------------------------------
