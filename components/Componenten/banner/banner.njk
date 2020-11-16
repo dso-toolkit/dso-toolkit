@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-      <span class="sr-only">{{ sronly }}</span>
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
         <div class="dso-rich-content">
+          <span class="sr-only">{{ sronly }}</span>
           {{ message | safe }}
         </div>
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
       </div>
     </div>
   </div>
