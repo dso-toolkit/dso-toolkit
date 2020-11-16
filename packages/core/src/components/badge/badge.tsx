@@ -8,17 +8,20 @@ import clsx from 'clsx';
 })
 export class Badge {
   @Prop()
-  level?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+  status?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
 
-  @Prop()
-  status?: string;
+  private static statusMap = new Map<string, string>([
+    ['primary', 'Primair'],
+    ['success', 'Gelukt'],
+    ['info', 'Opmerking'],
+    ['warning', 'Waarschuwing'],
+    ['danger', 'Fout']
+  ]);
 
   render() {
     return (
-      <span class={clsx('dso-badge', { [`badge-${this.level}`]: this.level })}>
-        {this.status && (
-          <span class="sr-only">{this.status}: </span>
-        )}
+      <span class={clsx('dso-badge', { [`badge-${this.status}`]: this.status })}>
+        <span class="sr-only">{this.status ? Badge.statusMap.get(this.status) : 'Badge'}: </span>
         <slot></slot>
       </span>
     );
