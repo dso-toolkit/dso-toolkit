@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 ### Changed
-* **BREAKING**: Single button op een single-page-form ook links laten uitlijnen. (#825) **Build changes, see PR #871**
+* Single button op een single-page-form ook links laten uitlijnen. (#825)
 * **BREAKING**: Button positionering wizard issues (#841) **Build changes, see PR #871**
 
 ## 13.0.0
