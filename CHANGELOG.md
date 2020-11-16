@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Diverse library en build fixes (#890)
 * WCAG Navbalk verbeteren (#833)
+* **BREAKING**: sr-only tekst toevoeging bij status icoon banner (#767) **Markup changes, see PR #848**
 
 ### Fixed
 Search Bar border kleur gelijk maken aan invoerveld (#846)
@@ -28,7 +29,6 @@ Search Bar border kleur gelijk maken aan invoerveld (#846)
 * **BREAKING**: Bootstrap ingecheckt onder `/libs`: Geen node_modules dependency meer (#835) **Build changes, see PR #868**
 * **BREAKING**: sr-only tekst toevoeging bij status icoon alert (#765) **Markup changes, see PR #847**
 * **BREAKING**: List-button volgorde is niet logisch (#829) **Markup changes, see PR #831**
-* **BREAKING**: sr-only tekst toevoeging bij status icoon banner (#767) **Markup changes, see PR #848**
 
 ### Added
 * Nieuw component: Input Number (#797)
