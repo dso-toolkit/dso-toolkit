@@ -15,17 +15,17 @@
         <tr>
           <td>1 veld fout</td>
           <td class="plain-content">
-            {% render '@alert', {modifier: 'danger', sronly: 'Fout:', message: '
+            <dso-alert status="danger">
               <div class="dso-rich-content">
                 <p><a href="#">[Label]</a> is een verplicht veld.</p>
               </div>
-            '} %}
+            </dso-alert>
           </td>
         </tr>
         <tr>
           <td>Meerdere velden fout</td>
           <td class="plain-content">
-            {% render '@alert', {modifier: 'danger', sronly: 'Fout:', message: '
+            <dso-alert status="danger">
               <div class="dso-rich-content">
                 <p>Een aantal velden is niet goed ingevuld.</p>
                 <ul>
@@ -33,7 +33,7 @@
                   <li><a href="#">[Label]</a> is niet goed ingevuld.</li>
                 </ul>
               </div>
-            '} %}
+            </dso-alert>
           </td>
         </tr>
       </tbody>

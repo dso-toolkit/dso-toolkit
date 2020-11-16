@@ -1,7 +1,9 @@
 <main>
   {% render '@form-steps', steps %}
   <div class="clearfix"></div>
-  {% render '@alert', alert %}
+  <dso-alert status="{{ alert.modifier }}">
+    {{ alert.message }}
+  </dso-alert>
   <h3>Werkzaamheden</h3>
   <h4>Gas opslaan in een opslagtank</h4>
   <span>Voor 'gas opslaan in een opslagtank' moet u het volgende doen:</span>

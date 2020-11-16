@@ -1,7 +1,9 @@
 <main>
   {% render '@form-steps', {title: steps.title, step: steps.step} %}
   <div class="clearfix"></div>
-  {% render '@alert', {modifier: alert.modifier, sronly: alert.sronly, message: alert.message} %}
+  <dso-alert status="{{ alert.modifier }}">
+    {{ alert.message }}
+  </dso-alert>
   <div class="clearfix"></div>
   {% render '@form', form %}
 </main>
