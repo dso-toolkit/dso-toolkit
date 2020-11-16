@@ -10,7 +10,7 @@
     {% endfor %}
   </ul>
   {% if files | map('confidential') | includes(true) %}
-    {% render '@alert', {modifier: 'warning', sronly: 'Waarschuwing:', message:'
+    <dso-alert status="warning">
       <div class="dso-rich-content">
         <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
         <ol>
@@ -19,7 +19,7 @@
         </ol>
         <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
       </div>
-    '} %}
+    </dso-alert>
   {% endif %}
 
   <!-- To use an input type="file" element -->
