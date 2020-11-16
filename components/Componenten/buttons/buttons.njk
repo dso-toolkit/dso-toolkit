@@ -334,7 +334,14 @@
   <div class="col-md-12">
     <div class="dso-rich-content" style="margin-bottom: 24px; margin-top: 40px;">
       <h2>Button combinaties</h2>
-      <p>Wanneer buttons bij elkaar gegroepeerd moeten worden aangeboden, moet een <code>.dso-form-buttons</code> worden toegepast. Doorgaans zullen deze groeperingen in context van een formulier staan, maar dit is niet noodzakelijk.</p>
+      <p>
+        Wanneer buttons bij elkaar gegroepeerd moeten worden aangeboden, moet een <code>.dso-form-buttons</code> worden toegepast. 
+        Doorgaans zullen deze groeperingen in context van een formulier staan, maar dit is niet noodzakelijk.
+      </p>
+      <p>
+        Als buttons links uitgelijnd moeten worden, worden deze gegroepeerd in een <code>div.dso-aside</code>. 
+        Uitzondering: dit is niet nodig in een <code>.dso-single-page</code>, daar worden de knoppen al links uitgelijnd.
+      </p>
     </div>
   </div>
   <div class="col-md-12">
@@ -344,6 +351,17 @@
         <div class="dso-aside">
           {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige stap', icon: 'chevron-left'} %}
         </div>
+        {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
+      </div>
+    </form>
+    <br>
+    <h3 class="dso-example-label">Paginering door stappen met extra tertiaire button</h3>
+    <form>
+      <div class="dso-form-buttons">
+        <div class="dso-aside">
+          {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige stap', icon: 'chevron-left'} %}
+        </div>
+        {% render '@button', {type: 'button', modifier: 'link btn-align', label: 'Link button'} %}
         {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
       </div>
     </form>
