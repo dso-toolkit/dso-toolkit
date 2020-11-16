@@ -6,12 +6,8 @@
   </span>
   </h2>
   <div class="clearfix"></div>
-  <div class="alert alert-info" role="alert">
-    <span class="sr-only">Opmerking:</span>
-    Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
-  </div>
-  <dso-alert level="info">
-    Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
+  <dso-alert status="info">
+    Hulp nodig bij kiezen? Doe dan eerst de &lt;a href=&quot;#&quot;&gt;Vergunningscheck&lt;/a&gt;.
   </dso-alert>
   <div class="clearfix"></div>
   <h2>Mijn activiteiten</h2>
@@ -79,9 +75,11 @@
       </fieldset>
     </fieldset>
     <div class="dso-form-buttons">
-      <button type="default" class="btn btn-default"><svg class="di di-chevron-left">
-          <use href="../../dso-icons.svg#chevron-left" />
-        </svg><span >Vorige stap</span></button>
+      <div class="dso-aside">
+        <button type="link" class="btn btn-link"><svg class="di di-chevron-left">
+            <use href="../../dso-icons.svg#chevron-left" />
+          </svg><span >Vorige stap</span></button>
+      </div>
       <button type="submit" class="btn btn-primary"><span >Volgende stap</span><svg class="di di-chevron-right">
           <use href="../../dso-icons.svg#chevron-right" />
         </svg></button>
