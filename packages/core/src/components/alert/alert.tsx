@@ -11,16 +11,21 @@ export class Alert {
   status!: 'success' | 'info' | 'warning' | 'danger';
 
   private static statusMap = new Map<string, string>([
-    ['success', 'Gelukt:'],
-    ['info', 'Opmerking:'],
-    ['warning', 'Waarschuwing:'],
-    ['danger', 'Fout:']
+    ['success', 'Gelukt'],
+    ['info', 'Opmerking'],
+    ['warning', 'Waarschuwing'],
+    ['danger', 'Fout']
   ]);
 
   render() {
+    const status = Alert.statusMap.get(this.status);
+    if (!status) {
+      throw new Error(`Invalid status ${this.status}`);
+    }
+
     return (
       <div class={clsx('alert', `alert-${this.status}`)} role="alert">
-        <span class="sr-only">{Alert.statusMap.get(this.status)}</span>
+        <span class="sr-only">{status}:</span>
         <slot></slot>
       </div>
     );

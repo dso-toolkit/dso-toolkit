@@ -12,7 +12,7 @@ variants:
             - <strong>Let op:</strong> Misschien mag u nog niet gelijk gaan bouwen!
       alert:
         modifier: success
-        status: "Gelukt:"
+        status: Gelukt
         message: Succes melding
   - name: warning
     context:
@@ -24,7 +24,7 @@ variants:
           label: <strong>Informatie geven</strong> voor milieubelastende activiteit
       alert:
         modifier: warning
-        status: "Waarschuwing:"
+        status: Waarschuwing
         message: Waarschuwing
   - name: forbidden
     context:
