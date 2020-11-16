@@ -55,14 +55,6 @@ form,
   }
 }
 
-form.dso-single-page .dso-form-buttons,
-.form.dso-single-page .dso-form-buttons,
-.dso-single-page .dso-form-buttons {
-  .btn {
-    float: left;
-  }
-}
-
 .dso-form-buttons {
   @include clearfix();
 
