@@ -6,8 +6,8 @@ export default class Browser {
 
   constructor(el) {
     this._el = $(el);
-    this._tabs = this._el.find('[data-role="tab"]');
-    this._tabPanels = this._el.find('[data-role="tab-panel"]');
+    this._tabs = this._el.find('.dso-browser-navbar-item');
+    this._tabPanels = this._el.find('.dso-browser-navbar-item-panel');
     this._fileSwitcher = this._el.find('[data-role="switcher"]');
     this._codeViews = this._el.find('[data-role="code"]');
     this._resourcePreview = this._el.find('[data-role="resource-preview"]');
@@ -25,8 +25,8 @@ export default class Browser {
       tabs.removeClass(ac).find('a').attr('aria-selected', 'false');
       set(`browser.selectedTabIndex`, tabs.index(tab));
       tab.addClass(ac).find('a').attr('aria-selected', 'true');
-      this._tabPanels.removeClass(ac);
-      this._tabPanels.filter(link.attr('href')).addClass(ac);
+      this._tabPanels.removeClass(ac).removeAttr('aria-current');
+      this._tabPanels.filter(link.attr('href')).addClass(ac).attr('aria-current', true);
       return false;
     });
     tabs.removeClass('is-active').find('a').attr('aria-selected', 'false');

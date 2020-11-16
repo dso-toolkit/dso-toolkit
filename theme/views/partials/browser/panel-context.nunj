@@ -1,4 +1,4 @@
-<div data-role="tab-panel" id="browser-{{ entity.id }}-panel-context" aria-labelledby="context-tab">
+<div class="dso-browser-navbar-item-panel" id="browser-{{ entity.id }}-panel-context" aria-labelledby="context-tab">
   <div>
     {% if not entity.isCollated or entity.isVariant or entity.variants().size == 1 %}
       {% if entity.hasContext() | async %}
