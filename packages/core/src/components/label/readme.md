@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                        | Default     |
-| -------- | --------- | ----------- | ----------------------------------------------------------- | ----------- |
-| `button` | `button`  |             | `boolean`                                                   | `undefined` |
-| `level`  | `level`   |             | `"danger" \| "info" \| "primary" \| "success" \| "warning"` | `undefined` |
+| Property | Attribute | Description | Type                                                                     | Default     |
+| -------- | --------- | ----------- | ------------------------------------------------------------------------ | ----------- |
+| `button` | `button`  |             | `boolean \| undefined`                                                   | `undefined` |
+| `status` | `status`  |             | `"danger" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ----------------------------------------------

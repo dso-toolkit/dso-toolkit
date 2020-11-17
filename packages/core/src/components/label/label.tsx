@@ -8,17 +8,23 @@ import clsx from 'clsx';
 })
 export class Label {
   @Prop()
-  level?: 'primary' | 'info' |  'primary' | 'success' | 'warning' | 'danger';
+  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
-  // @Prop()
-  // status?: string;
+  private static statusMap = new Map<string, string>([
+    ['primary', 'Primair'],
+    ['info', 'Info'],
+    ['success', 'Succes'],
+    ['warning', 'Waarschuwing'],
+    ['danger', 'Gevaar']
+  ]);
 
   @Prop()
   button?: boolean;
 
   render() {
     return (
-      <span class={clsx('dso-label', { [`dso-label-${this.level}`]: this.level })}>
+      <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status } )}>
+        <span class="sr-only">{this.status ? Label.statusMap.get(this.status) : `Label`} : </span>
         {this.button && (
           <button type="button">
             <svg class="di di-times">
