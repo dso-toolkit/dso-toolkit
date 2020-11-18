@@ -213,6 +213,10 @@
     top: -2px;
   }
 
+  .dso-field-container & {
+    margin-top: -$u2;
+  }
+
   svg.di + span:not(.sr-only),
   span:not(.sr-only) + svg.di {
     margin-left: $u1;

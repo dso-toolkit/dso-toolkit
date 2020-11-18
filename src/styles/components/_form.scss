@@ -272,10 +272,16 @@ select:not([multiple]) {
 
     &.dso-static {
       .dso-field-container {
+        display: flex;
+        flex-direction: row;
         margin-bottom: 0;
         min-height: $line-height-computed + $font-size-base;
         padding-bottom: $padding-base-vertical + 1;
         padding-top: $padding-base-vertical + 1;
+
+        p {
+          flex-grow: 1;
+        }
       }
     }
 
