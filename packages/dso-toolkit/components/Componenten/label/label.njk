@@ -9,4 +9,12 @@
 
 <dso-label {{ attributes([modifier, 'status', modifier], [button, 'button', button]) }}>
   {{ label }}
+
+  {% if button %}
+    <button type="button" title="{{ buttonTitle }}">
+      <svg class="di di-times">
+        <use href="/dso-icons.svg#times"></use>
+      </svg>
+    </button>
+  {% endif %}
 </dso-label>

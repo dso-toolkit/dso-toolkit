@@ -14,7 +14,6 @@ export namespace Components {
         "status"?: string;
     }
     interface DsoLabel {
-        "button"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
 }
@@ -52,7 +51,6 @@ declare namespace LocalJSX {
         "status"?: string;
     }
     interface DsoLabel {
-        "button"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
     interface IntrinsicElements {

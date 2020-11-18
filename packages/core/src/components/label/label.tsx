@@ -6,7 +6,6 @@ import clsx from 'clsx';
   styleUrl: 'label.scss',
   shadow: true
 })
-
 export class Label {
   @Prop()
   status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -19,20 +18,10 @@ export class Label {
     ['danger', 'Gevaar']
   ]);
 
-  @Prop()
-  button?: boolean;
-
   render() {
     return (
       <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status } )}>
         <span class="sr-only">{this.status ? Label.statusMap.get(this.status) : `Label`}: </span>
-        {this.button && (
-          <button type="button">
-            <svg class="di di-times">
-              <use href="/dso-icons.svg#times"></use>
-            </svg>
-          </button>
-        )}
         <slot></slot>
       </span>
     );
