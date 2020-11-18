@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Voorbeeld schermen Aanvragen stap 7 'Verzoeken indienen' opnemen in toolkit (#826)
+
 ## 14.0.0
 
 ### Changed
