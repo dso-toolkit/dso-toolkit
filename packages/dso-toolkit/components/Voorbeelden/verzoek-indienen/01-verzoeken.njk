@@ -1,4 +1,4 @@
-{% render '@header' %}
+{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
 
 <main>
   <form class="form-horizontal">
@@ -6,7 +6,8 @@
       <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
       {% render '@form-steps', {title: steps.title, step: steps.step} %}
     </div>
-    {% render '@accordion', accordion %}
+    {% render '@alert', {modifier: alert.modifier, sronly: alert.sronly, message: alert.message} %}
+  {% render '@accordion', accordion %}
   </form>
 </main>
 
