@@ -103,6 +103,9 @@
                           {{ subsection.richContent | safe }}
                         </div>
                       {% endif %}
+                      {% if subsection.definitions %}
+                        {% render '@definition-list', {definitions: subsection.definitions} %}
+                      {% endif %}
                       {% if subsection.fieldsets %}
                         {% render '@form-fieldsets', {fieldsets: subsection.fieldsets} %}
                         {% render '@form-buttons', {buttons: subsection.buttons} %}
