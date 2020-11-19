@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Voorbeeld schermen Aanvragen stap 7 'Verzoeken indienen' opnemen in toolkit (#826)
+* Bewerkenknop in group static toevoegen (#881)
+* Definition-list in accordion (#882)
 
 ## 14.0.0
 
