@@ -1,6 +1,9 @@
 // Order matters: packages\dso-toolkit\libs\bootstrap-sass\assets\stylesheets\bootstrap\_variables.scss
 @import "variables/units";
 @import "variables/colors";
-@import "variables/typography";
 @import "variables/scaffolding";
+@import "variables/typography";
+@import "variables/media-queries-breakpoints";
+@import "variables/grid-system";
+@import "variables/container-sizes";
 @import "variables/states";

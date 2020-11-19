@@ -46,11 +46,11 @@
 @import "bootstrap/mixins/gradients";
 
 // Layout
-@import "bootstrap/mixins/clearfix";
+// @import "bootstrap/mixins/clearfix"; -> Moved to @dso-toolkit/styling
 @import "bootstrap/mixins/center-block";
 @import "bootstrap/mixins/nav-vertical-align";
-@import "bootstrap/mixins/grid-framework";
-@import "bootstrap/mixins/grid";
+// @import "bootstrap/mixins/grid-framework"; -> Moved to @dso-toolkit/styling
+// @import "bootstrap/mixins/grid"; -> Moved to @dso-toolkit/styling
 
 // Reset and dependencies
 @import "../src/styles/mixins/dso-normalize";
@@ -60,7 +60,7 @@
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
 @import "bootstrap/code";
-@import "bootstrap/grid";
+// @import "bootstrap/grid"; -> Moved to @dso-toolkit/styling
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
 
