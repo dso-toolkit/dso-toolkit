@@ -1,5 +1,5 @@
 notes: |
-order: 1
+order: 2
 status: ready
 context:
   menu:
@@ -24,10 +24,10 @@ context:
     fieldsets:
     - legend: Verzoek 1
       groups:
-      - inputType: static
+      - inputType: input
+        type: text
         label: "Verzoek 1:"
         value: Object Laan van Eik en Duinen 125, 's-Gravenhage 1
-        edit: true
       - inputType: static
         label: "Indienen bij:"
         value: Hoogheemraadschap van Delfland
