@@ -1,3 +1,5 @@
+@import "../variables";
+
 $dso-label-default-bg-color: $lime-20;
 $dso-label-default-color: $bosgroen;
 $dso-label-default-button-border-color: $bosgroen;
@@ -45,121 +47,33 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
   line-height: 1em;
   padding: #{$u1 / 2} $u1;
 
-  button {
-    background: none;
-    border: 0;
-    border-left-color: $dso-label-default-button-border-color;
-    border-left-style: solid;
-    border-left-width: 1px;
-    border-radius: 0 #{$u1 / 2} #{$u1 / 2} 0;
-    float: right;
-    margin-bottom: -$u1 / 2;
-    margin-left: $u1;
-    margin-right: -$u1;
-    margin-top: -$u1 / 2;
-    padding: #{$u1 / 2} $u1;
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: $dso-label-default-button-hover-background-color;
-      border-left-color: $dso-label-default-button-hover-border-color;
-      color: $dso-label-default-button-hover-color;
-    }
-
-    > svg.di {
-      display: block;
-      margin: $u1 / -2;
-    }
-  }
-
   &.dso-label-info {
     background-color: $dso-label-info-bg-color;
     border: 1px solid $dso-label-info-button-hover-border-color;
     color: $dso-label-info-color;
-
-    button {
-      border-left-color: $grijs-90;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $dso-label-info-button-hover-background-color;
-        border-left-color: $dso-label-info-button-hover-border-color;
-        color: $dso-label-info-button-hover-color;
-      }
-    }
   }
 
   &.dso-label-primary {
     background-color: $dso-label-primary-bg-color;
     border: 1px solid $dso-label-primary-button-hover-border-color;
     color: $wit;
-
-    button {
-      border-left-color: $wit;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $dso-label-primary-button-hover-background-color;
-        border-left-color: $dso-label-primary-button-hover-border-color;
-        color: $dso-label-primary-button-hover-color;
-      }
-    }
   }
 
   &.dso-label-success {
     background-color: $dso-label-success-bg-color;
     border: 1px solid $dso-label-success-button-hover-border-color;
     color: $wit;
-
-    button {
-      border-left-color: $wit;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $dso-label-success-button-hover-background-color;
-        border-left-color: $dso-label-success-button-hover-border-color;
-        color: $dso-label-success-button-hover-color;
-      }
-    }
   }
 
   &.dso-label-warning {
     background-color: $dso-label-warning-bg-color;
     border: 1px solid $dso-label-warning-button-hover-border-color;
     color: $dso-label-warning-color;
-
-    button {
-      border-left-color: $dso-label-warning-button-border-color;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $dso-label-warning-button-hover-background-color;
-        border-left-color: $dso-label-warning-button-hover-border-color;
-        color: $dso-label-warning-button-hover-color;
-      }
-    }
   }
 
   &.dso-label-danger {
     background-color: $dso-label-danger-bg-color;
     border: 1px solid $dso-label-danger-button-hover-border-color;
     color: $dso-label-danger-color;
-
-    button {
-      border-left-color: $wit;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $dso-label-danger-button-hover-background-color;
-        border-left-color: $dso-label-danger-button-hover-border-color;
-        color: $dso-label-danger-button-hover-color;
-      }
-    }
   }
 }
