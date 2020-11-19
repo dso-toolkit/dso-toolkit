@@ -1,7 +1,7 @@
 module.exports = {
   status: 'ready',
   collated: true,
-  collator: (markup, item) => `<div class="col-xs-6${item.order % 2 === 1 ? ' text-right' : ''}"><p>\n${markup}\n</p></div>`,
+  collator: (markup, item) => `<div class="col-xs-6${item.order % 2 === 1 ? ' text-right' : ''}"><p>${markup}</p></div>`,
   default: 'default',
   variants: [
     {
