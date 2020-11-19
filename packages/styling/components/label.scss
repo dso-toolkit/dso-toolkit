@@ -75,17 +75,5 @@ $dso-label-danger-button-hover-color: $dso-danger-color;
     background-color: $dso-label-danger-bg-color;
     border: 1px solid $dso-label-danger-button-hover-border-color;
     color: $dso-label-danger-color;
-
-    button {
-      border-left-color: $wit;
-
-      &:hover,
-      &:focus,
-      &:active {
-        background-color: $dso-label-danger-button-hover-background-color;
-        border-left-color: $dso-label-danger-button-hover-border-color;
-        color: $dso-label-danger-button-hover-color;
-      }
-    }
   }
 }
