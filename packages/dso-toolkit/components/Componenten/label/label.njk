@@ -6,3 +6,13 @@
     </button>
   {%- endif %}
 </span>
+
+<dso-label {{ attributes([modifier, 'status', modifier]) }}>
+  {{ label }}
+
+  {% if button %}
+    <button type="button" title="{{ buttonTitle }}">
+      {%- render '@icon', {icon: button} -%}
+    </button>
+  {% endif %}
+</dso-label>

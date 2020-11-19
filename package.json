@@ -5,7 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "multiview [ yarn workspace dso-toolkit start ] [ yarn workspace @dso-toolkit/core start --prod ]"
+    "start": "multiview [ yarn workspace dso-toolkit start ] [ yarn workspace @dso-toolkit/core start --prod ]",
+    "reference:dom": "yarn workspace dso-toolkit gulp reference:dom"
   },
   "dependencies": {
     "multiview": "^3.0.1"
