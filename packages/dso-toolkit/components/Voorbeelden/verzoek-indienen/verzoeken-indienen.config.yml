@@ -36,7 +36,14 @@ context:
           - description: Ja
       fieldsets:
         - groups:
-          - id: teolichting
+          - id: toelichting
             inputType: textarea
             rows: 5
             label: Ruimte om uw verzoek toe te lichten
+  form:
+    fieldsets:
+    - modifier: form-vertical
+      groups:
+      - id: confirm
+        inputType: confirm
+        label: Hierbij verklaar ik alle vragen naar waarheid te hebben ingevuld.
