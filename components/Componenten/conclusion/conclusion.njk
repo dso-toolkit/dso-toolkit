@@ -12,7 +12,7 @@
             <li>{{ subItem | safe }}</li>
           {% endfor -%}
         </ul>
-      {% endif -%}
+      {% endif %}
 
       {%- if item.info %}
         {% render '@info', item.info, true %}
