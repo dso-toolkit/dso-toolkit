@@ -10,8 +10,7 @@ export namespace Components {
         "status": 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoBadge {
-        "level": 'primary' | 'success' | 'info' | 'warning' | 'danger';
-        "status"?: string;
+        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -47,8 +46,7 @@ declare namespace LocalJSX {
         "status": 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoBadge {
-        "level": 'primary' | 'success' | 'info' | 'warning' | 'danger';
-        "status"?: string;
+        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
