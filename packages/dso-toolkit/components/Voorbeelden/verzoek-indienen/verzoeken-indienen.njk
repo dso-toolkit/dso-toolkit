@@ -1,0 +1,19 @@
+{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
+<main>
+  <form class="form-horizontal">
+    <div class="clearfix">
+      <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+      {% render '@form-steps', steps %}
+    </div>
+    {% render '@accordion', accordion %}
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
+      </div>
+      {% render '@button', {type: 'button', modifier: 'default', label: 'Downloaden'} %}
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Indienen'} %}
+    </div>
+  </form>
+</main>
+
+{% render '@footer' %}
