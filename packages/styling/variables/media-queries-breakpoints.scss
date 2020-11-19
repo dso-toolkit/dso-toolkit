@@ -1,33 +1,16 @@
 // Extra small screen / phone
-//** Deprecated `$screen-xs` as of v3.0.1
-$screen-xs:                  480px !default;
-//** Deprecated `$screen-xs-min` as of v3.2.0
-$screen-xs-min:              $screen-xs !default;
-//** Deprecated `$screen-phone` as of v3.0.1
-$screen-phone:               $screen-xs-min !default;
+$screen-xs-min: 480px !default; //** Deprecated `$screen-xs-min` as of v3.2.0, only used in _navbar.scss
 
 // Small screen / tablet
-//** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  768px !default;
-$screen-sm-min:              $screen-sm !default;
-//** Deprecated `$screen-tablet` as of v3.0.1
-$screen-tablet:              $screen-sm-min !default;
+$screen-sm-min: 768px !default;
 
 // Medium screen / desktop
-//** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  992px !default;
-$screen-md-min:              $screen-md !default;
-//** Deprecated `$screen-desktop` as of v3.0.1
-$screen-desktop:             $screen-md-min !default;
+$screen-md-min: 992px !default;
 
 // Large screen / wide desktop
-//** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1200px !default;
-$screen-lg-min:              $screen-lg !default;
-//** Deprecated `$screen-lg-desktop` as of v3.0.1
-$screen-lg-desktop:          $screen-lg-min !default;
+$screen-lg-min: 1200px !default;
 
 // So media queries don't overlap when required, provide a maximum
-$screen-xs-max:              ($screen-sm-min - 1) !default;
-$screen-sm-max:              ($screen-md-min - 1) !default;
-$screen-md-max:              ($screen-lg-min - 1) !default;
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
