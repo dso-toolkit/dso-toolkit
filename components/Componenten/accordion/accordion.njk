@@ -47,6 +47,9 @@
               {{ section.richContent | safe }}
             </div>
           {% endif %}
+          {% if section.definitions %}
+            {% render '@definition-list', {definitions: section.definitions} %}
+          {% endif %}
           {% if section.fieldsets %}
             {% render '@form-fieldsets', {fieldsets: section.fieldsets} %}
             {% render '@form-buttons', {buttons: section.buttons} %}
