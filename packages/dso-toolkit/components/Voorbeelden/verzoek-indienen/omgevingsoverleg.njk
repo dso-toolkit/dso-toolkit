@@ -1,0 +1,24 @@
+{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
+<main>
+  <form>
+    <div class="clearfix">
+      <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+      {% render '@form-steps', steps %}
+    </div>
+    {% render '@form', form %}
+    {% render '@highlight-box', highlightbox %}
+    <hr>
+    {% render '@definition-list', definitionlist1 %}
+    <hr>
+    {% render '@definition-list', definitionlist2 %}
+    <hr>
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige stap', icon: 'chevron-left'} %}
+      </div>
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
+    </div>
+  </form>
+</main>
+
+{% render '@footer' %}
