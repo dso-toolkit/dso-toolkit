@@ -19,9 +19,13 @@ export class Label {
   ]);
 
   render() {
+    const status = this.status && Label.statusMap.get(this.status);
+
     return (
       <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status } )}>
-        <span class="sr-only">{this.status ? Label.statusMap.get(this.status) : `Label`}: </span>
+        {status && (
+          <span class="sr-only">{status}: </span>
+        )}
         <slot></slot>
       </span>
     );
