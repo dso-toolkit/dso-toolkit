@@ -12,9 +12,7 @@
 
   {% if button %}
     <button type="button" title="{{ buttonTitle }}">
-      <svg class="di di-times">
-        <use href="/dso-icons.svg#times"></use>
-      </svg>
+      {%- render '@icon', {icon: button} -%}
     </button>
   {% endif %}
 </dso-label>
