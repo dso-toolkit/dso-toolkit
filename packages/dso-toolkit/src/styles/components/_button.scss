@@ -147,6 +147,112 @@ dso-alert,
   }
 }
 
+.dso-label,
+dso-label {
+  button {
+    background: none;
+    border: 0;
+    border-left-color: $dso-label-default-button-border-color;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-radius: 0 #{$u1 / 2} #{$u1 / 2} 0;
+    float: right;
+    margin-bottom: -$u1 / 2;
+    margin-left: $u1;
+    margin-right: -$u1;
+    margin-top: -$u1 / 2;
+    padding: #{$u1 / 2} $u1;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $dso-label-default-button-hover-background-color;
+      border-left-color: $dso-label-default-button-hover-border-color;
+      color: $dso-label-default-button-hover-color;
+    }
+
+    > svg.di {
+      display: block;
+      margin: $u1 / -2;
+    }
+  }
+}
+
+.dso-label.dso-label-info,
+dso-label[status="info"] {
+  button {
+    border-left-color: $grijs-90;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $dso-label-info-button-hover-background-color;
+      border-left-color: $dso-label-info-button-hover-border-color;
+      color: $dso-label-info-button-hover-color;
+    }
+  }
+}
+
+.dso-label.dso-label-primary,
+dso-label[status="primary"] {
+  button {
+    border-left-color: $wit;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $dso-label-primary-button-hover-background-color;
+      border-left-color: $dso-label-primary-button-hover-border-color;
+      color: $dso-label-primary-button-hover-color;
+    }
+  }
+}
+
+.dso-label.dso-label-success,
+dso-label[status="success"] {
+  button {
+    border-left-color: $wit;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $dso-label-success-button-hover-background-color;
+      border-left-color: $dso-label-success-button-hover-border-color;
+      color: $dso-label-success-button-hover-color;
+    }
+  }
+}
+
+.dso-label.dso-label-warning,
+dso-label[status="warning"] {
+  button {
+    border-left-color: $dso-label-warning-button-border-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $dso-label-warning-button-hover-background-color;
+      border-left-color: $dso-label-warning-button-hover-border-color;
+      color: $dso-label-warning-button-hover-color;
+    }
+  }
+}
+
+.dso-label.dso-label-danger,
+dso-label[status="danger"] {
+  button {
+    border-left-color: $wit;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $dso-label-danger-button-hover-background-color;
+      border-left-color: $dso-label-danger-button-hover-border-color;
+      color: $dso-label-danger-button-hover-color;
+    }
+  }
+}
+
 .btn {
   @include button-default-base();
 
