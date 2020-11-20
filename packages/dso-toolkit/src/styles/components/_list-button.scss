@@ -1,5 +1,5 @@
 .dso-list-button {
-  @include state-styling($wit, $grijs-20, $grijs-90);
+  @include button-state-styling($wit, $grijs-20, $grijs-90);
 
   font-weight: 600;
   margin-top: ($u1 / 2);
@@ -15,14 +15,14 @@
 
   &:hover,
   &:focus {
-    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+    @include button-state-styling($wit, $dso-button-default-hover-color, $grijs-90);
   }
 
   &:active,
   &.active {
     &,
     &:hover {
-      @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+      @include button-state-styling($wit, $dso-button-default-hover-color, $grijs-90);
     }
   }
 
@@ -30,7 +30,7 @@
   &[disabled] {
     &,
     &:hover {
-      @include state-styling($wit, $grijs-20, $grijs-60);
+      @include button-state-styling($wit, $grijs-20, $grijs-60);
 
       opacity: 1;
     }

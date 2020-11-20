@@ -31,7 +31,7 @@
 
 // Components
 // @import "bootstrap/mixins/alerts"; -> moved to @dso-toolkit/styling
-@import "bootstrap/mixins/buttons";
+// @import "bootstrap/mixins/buttons"; -> Moved to @dso-toolkit/styling
 @import "bootstrap/mixins/panels";
 @import "bootstrap/mixins/pagination";
 @import "bootstrap/mixins/list-group";
@@ -62,7 +62,7 @@
 @import "bootstrap/code";
 // @import "bootstrap/grid"; -> Moved to @dso-toolkit/styling
 @import "bootstrap/forms";
-@import "bootstrap/buttons";
+// @import "bootstrap/buttons"; -> Moved to @dso-toolkit/styling
 
 // Components
 @import "bootstrap/component-animations";

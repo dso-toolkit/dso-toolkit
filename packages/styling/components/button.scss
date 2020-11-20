@@ -1,14 +1,82 @@
-@mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
-  background-color: $background-color;
-  border-color: $border-color;
-  color: $color;
-}
+@import "../variables";
+
+$btn-default-color: $grasgroen;
+$btn-default-bg: $wit;
+$btn-default-border: $grasgroen;
+
+$btn-primary-color: $wit;
+$btn-primary-bg: $grasgroen;
+$btn-primary-border: $grasgroen;
+
+$btn-link-disabled-color: lighten(#000, 46.7%);
+
+$dso-button-border-radius: $border-radius-base;
+$dso-button-border-width: 1px;
+
+$dso-button-size: $u7;
+$dso-button-line-height: $u3;
+$dso-button-vertical-padding: $u1 * 1.5 - $dso-button-border-width;
+$dso-button-horizontal-padding: $u2 - $dso-button-border-width;
+
+$dso-button-font-size: 1em;
+
+$dso-button-default-color: $wit;
+$dso-button-default-hover-color: $grasgroen;
+$dso-button-default-active-color: $bosgroen;
+$dso-button-default-disabled-color: $grasgroen-40;
+
+$dso-button-primary-color: $grasgroen;
+$dso-button-primary-hover-color: $bosgroen;
+$dso-button-primary-active-color: $bosgroen-130;
+$dso-button-primary-disabled-color: $grasgroen-40;
+
+$dso-button-link-color: $grasgroen;
+$dso-button-link-hover-color: $scampi;
+$dso-button-link-active-color: $scampi;
+
+$dso-button-link-padding-horizontal: $dso-button-vertical-padding;
+
+$dso-label-default-button-border-color: $bosgroen;
+$dso-label-default-button-hover-background-color: $wit;
+$dso-label-default-button-hover-border-color: $lime-20;
+$dso-label-default-button-hover-color: $bosgroen;
+
+$dso-label-info-button-border-color: $grijs-90;
+$dso-label-info-button-hover-background-color: $wit;
+$dso-label-info-button-hover-border-color: $dso-info-color;
+$dso-label-info-button-hover-color: $zwart;
+
+$dso-label-primary-button-border-color: $wit;
+$dso-label-primary-button-hover-background-color: $wit;
+$dso-label-primary-button-hover-border-color: $bosgroen;
+$dso-label-primary-button-hover-color: $bosgroen;
+
+$dso-label-success-button-border-color: $wit;
+$dso-label-success-button-hover-background-color: $wit;
+$dso-label-success-button-hover-border-color: $dso-success-color;
+$dso-label-success-button-hover-color: $grasgroen;
+
+$dso-label-warning-button-border-color: #191919;
+$dso-label-warning-button-hover-background-color: $wit;
+$dso-label-warning-button-hover-border-color: $dso-warning-color;
+$dso-label-warning-button-hover-color: $zwart;
+
+$dso-label-danger-button-border-color: $wit;
+$dso-label-danger-button-hover-background-color: $wit;
+$dso-label-danger-button-hover-border-color: $dso-danger-color;
+$dso-label-danger-button-hover-color: $dso-danger-color;
 
 @mixin button-default-base {
   border-radius: $dso-button-border-radius;
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
+}
+
+@mixin button-state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
 }
 
 dso-alert,
@@ -59,7 +127,7 @@ dso-label {
 .dso-label.dso-label-info,
 dso-label[status="info"] {
   button {
-    border-left-color: $grijs-90;
+    border-left-color: $dso-label-info-button-border-color;
 
     &:hover,
     &:focus,
@@ -74,7 +142,7 @@ dso-label[status="info"] {
 .dso-label.dso-label-primary,
 dso-label[status="primary"] {
   button {
-    border-left-color: $wit;
+    border-left-color: $dso-label-primary-button-border-color;
 
     &:hover,
     &:focus,
@@ -89,7 +157,7 @@ dso-label[status="primary"] {
 .dso-label.dso-label-success,
 dso-label[status="success"] {
   button {
-    border-left-color: $wit;
+    border-left-color: $dso-label-success-button-border-color;
 
     &:hover,
     &:focus,
@@ -119,7 +187,7 @@ dso-label[status="warning"] {
 .dso-label.dso-label-danger,
 dso-label[status="danger"] {
   button {
-    border-left-color: $wit;
+    border-left-color: $dso-label-danger-button-border-color;
 
     &:hover,
     &:focus,
@@ -134,11 +202,34 @@ dso-label[status="danger"] {
 .btn {
   @include button-default-base();
 
+  border: $dso-button-border-width solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $btn-default-color;
+    text-decoration: none;
+  }
+
   &:active,
-  &.active,
-  &:active:hover,
-  &.active:hover {
-    box-shadow: none;
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    opacity: .65;
   }
 
   &.btn-default,
@@ -198,30 +289,41 @@ dso-label[status="danger"] {
   }
 }
 
+a.btn {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+}
+
 .btn-default {
+  @include button-state-styling($btn-default-bg, $btn-default-border, $btn-default-color);
+
   &:not(.btn):visited:not(:focus):not(:hover) {
     color: $btn-default-color;
   }
 
   &:hover,
   &:focus {
-    @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
+    @include button-state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
   }
 
   &:active,
   &.active {
     &,
     &:hover,
+    &:focus,
     &:not(.btn):visited {
-      @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
+      @include button-state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
     }
   }
 
   &.disabled,
   &[disabled] {
     &,
-    &:hover {
-      @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
+    &:hover,
+    &:focus {
+      @include button-state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
 
       opacity: 1;
     }
@@ -269,10 +371,10 @@ dso-label[status="danger"] {
 }
 
 .btn-primary {
-  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+  @include button-state-styling($btn-primary-bg, $btn-primary-border, $btn-primary-color);
 
   &:hover {
-    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
+    @include button-state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
   }
 
   &:not(.btn):visited:not(:focus):not(:hover) {
@@ -280,23 +382,25 @@ dso-label[status="danger"] {
   }
 
   &:focus {
-    @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+    @include button-state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
   }
 
   &:active,
   &.active {
     &,
     &:hover,
+    &:focus,
     &:not(.btn):visited {
-      @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+      @include button-state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
     }
   }
 
   &.disabled,
   &[disabled] {
     &,
-    &:hover {
-      @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
+    &:hover,
+    &:focus {
+      @include button-state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
 
       opacity: 1;
     }
@@ -357,6 +461,37 @@ dso-label[status="danger"] {
 
     > svg.di {
       color: $dso-button-link-hover-color;
+    }
+  }
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
     }
   }
 

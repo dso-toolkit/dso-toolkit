@@ -5,11 +5,6 @@
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
-$brand-primary:         $bosgroen;
-$brand-success:         $grasgroen;
-$brand-info:            $grasgroen;
-$brand-warning:         $oranje;
-$brand-danger:          $oranje;
 
 //== Iconography
 //
@@ -29,16 +24,6 @@ $table-border-color: $grijs-30;
 //== Buttons
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
-
-$btn-default-color: $grasgroen;
-$btn-default-bg: $wit;
-$btn-default-border: $grasgroen;
-
-$btn-primary-color: $wit;
-$btn-primary-bg: $oranje;
-$btn-primary-border: $oranje;
-
-$btn-border-radius-base: 24px;
 
 //== Forms
 //
@@ -86,7 +71,6 @@ $dropdown-link-hover-bg: $grasgroen;
 //== Container sizes
 //
 //## Define the maximum width of `.container` for different screen sizes.
-
 
 //== Navbar
 //
