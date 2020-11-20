@@ -1,3 +1,6 @@
+meta:
+  webComponent: true
+  markup: true
 notes: |
   Er zijn drie soorten statusmeldingen:
   - notificaties

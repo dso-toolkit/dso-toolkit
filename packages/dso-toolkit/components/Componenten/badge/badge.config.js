@@ -1,6 +1,10 @@
 const collator = require('../../../fractal/collator');
 
 module.exports = {
+  meta: {
+    webComponent: true,
+    markup: true
+  },
   notes: `
   Een badge geeft de status aan van een systeem. Ook vestigt de badge aandacht op een numerieke waarde of markeert het een element. De badge valt onder de statusmeldingen.
 

@@ -5,7 +5,10 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "multiview [ yarn workspace dso-toolkit start ] [ yarn workspace @dso-toolkit/core start --prod ]",
+    "start": "multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
+    "start-fractal": "yarn workspace dso-toolkit start",
+    "start-stencil": "yarn workspace @dso-toolkit/core start",
+    "build-stencil": "yarn workspace @dso-toolkit/core build",
     "reference:dom": "yarn workspace dso-toolkit gulp reference:dom"
   },
   "dependencies": {

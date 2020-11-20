@@ -1608,6 +1608,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cheerio@npm:^0.22.22":
+  version: 0.22.22
+  resolution: "@types/cheerio@npm:0.22.22"
+  dependencies:
+    "@types/node": "*"
+  checksum: a83ba86ee9dcbc9bb9d2e03cf8ad82fcfcede21159da17574a48c4e1b5af0a588be75239db272b0548ba6e4bdb4458c06d93b7484ac2200565d00ab055663343
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:*, @types/estree@npm:0.0.39":
   version: 0.0.39
   resolution: "@types/estree@npm:0.0.39"
@@ -1663,6 +1672,13 @@ __metadata:
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
   checksum: 4a8f720afac47b474d3f2eece312340e72bc31bc9561cda37b596ce2ed218c0099765d302625bb67d659a8452a1f93d514f4863c11c7ebaf65430428687dc426
+  languageName: node
+  linkType: hard
+
+"@types/prettier@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@types/prettier@npm:2.1.5"
+  checksum: bc6271235d881fa49b2f03e8e9242a7be8ecbcdcffeb7e31347afd0343f5f5e372ce65fe257e44254156737935c9249c9722cbe991dfad9aab72056c6acdbdaa
   languageName: node
   linkType: hard
 
@@ -4227,6 +4243,8 @@ __metadata:
     "@rollup/plugin-commonjs": ^16.0.0
     "@rollup/plugin-inject": ^4.0.2
     "@rollup/plugin-node-resolve": ^10.0.0
+    "@types/cheerio": ^0.22.22
+    "@types/prettier": ^2.1.5
     access-sniff: 3.2.0
     cheerio: 1.0.0-rc.3
     css: 3.0.0
@@ -4253,6 +4271,7 @@ __metadata:
     jquery-pjax: "git+https://github.com/defunkt/jquery-pjax.git"
     list-stream: 2.0.0
     node-sass: 5.0.0
+    prettier: ^2.2.0
     pretty: 2.0.0
     rollup: ^2.33.1
     stylelint: 13.7.2
@@ -9700,6 +9719,15 @@ fsevents@~2.1.2:
   version: 1.0.4
   resolution: "prepend-http@npm:1.0.4"
   checksum: f723f34a23394b568a9ff0cd502bdda244b343c03b12a259343566eab1184cf41a6c7e9975d9e6010ccb2901b7c428d296e56a67a72d0a6ecb0f13531a3fa44e
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "prettier@npm:2.2.0"
+  bin:
+    prettier: bin-prettier.js
+  checksum: fe7e2ac725d3b067204700c5fcee415a90e1c1ab01735a7748bce791db61a3242939a032bfe5f8faa2c054571f4e9bac266b766e483648511af72f69fb041a6c
   languageName: node
   linkType: hard
 
