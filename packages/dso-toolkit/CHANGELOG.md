@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Diverse library en build fixes (#890)
+
 ## 14.0.0
 
 ### Changed

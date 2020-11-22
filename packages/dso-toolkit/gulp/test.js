@@ -18,7 +18,24 @@ function testDom(cb) {
   return gulp.series(testAgainstReference, propegateResult)(cb);
 
   function testAgainstReference() {
-    const f = filter(['**', '!**/preview.html']);
+    const files = fs.readdirSync('build/library/components/render');
+    const f = filter(({ basename, extname }) => {
+      const handle = path.basename(basename, extname);
+
+      if (handle === 'preview') {
+        return false;
+      }
+
+      if (handle.includes('--')) {
+        return true;
+      }
+
+      if (files.some(file => file.includes(`${handle}--`))) {
+        return false;
+      }
+
+      return true;
+    });
 
     return gulp.src('build/library/components/render/*.html')
       .pipe(f)

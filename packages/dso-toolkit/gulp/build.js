@@ -119,6 +119,10 @@ function createDomReference() {
       const f = filter(({ basename, extname }) => {
         const handle = path.basename(basename, extname);
 
+        if (handle === 'preview') {
+          return false;
+        }
+
         if (handle.includes('--')) {
           return true;
         }

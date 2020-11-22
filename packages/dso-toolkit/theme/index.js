@@ -23,7 +23,7 @@ module.exports = function (options) {
     favicon: null
   });
 
-  config.nav = config.nav || ['components', 'docs', 'assets'];
+  config.nav = config.nav || ['components', 'docs'];
   config.styles = [].concat(config.styles).concat(config.stylesheet).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/${config.skin}.css` : url));
   config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/theme.js` : url));
   config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
@@ -45,17 +45,6 @@ module.exports = function (options) {
 
   theme.addRoute('/components', {
     redirect: '/'
-  });
-
-  theme.addRoute('/assets', {
-    redirect: '/'
-  });
-
-  theme.addRoute('/assets/:name', {
-    handle: 'asset-source',
-    view: 'pages/assets.nunj'
-  }, function (app) {
-    return app.assets.visible().map(asset => ({ name: asset.name }));
   });
 
   theme.addRoute('/components/preview/:handle', {
