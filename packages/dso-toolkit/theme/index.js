@@ -20,7 +20,7 @@ module.exports = function (options) {
   });
 
   config.panels = config.panels || ['html', 'view', 'context', 'resources', 'info', 'notes'];
-  config.nav = config.nav || ['components', 'docs', 'assets'];
+  config.nav = config.nav || ['components', 'docs'];
   config.styles = [].concat(config.styles).concat(config.stylesheet).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/${config.skin}.css` : url));
   config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/theme.js` : url));
   config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
@@ -44,17 +44,6 @@ module.exports = function (options) {
     redirect: '/'
   });
 
-  theme.addRoute('/assets', {
-    redirect: '/'
-  });
-
-  theme.addRoute('/assets/:name', {
-    handle: 'asset-source',
-    view: 'pages/assets.nunj'
-  }, function (app) {
-    return app.assets.visible().map(asset => ({ name: asset.name }));
-  });
-
   theme.addRoute('/components/preview/:handle', {
     handle: 'preview',
     view: 'pages/components/preview.nunj'
@@ -69,17 +58,6 @@ module.exports = function (options) {
     handle: 'component',
     view: 'pages/components/detail.nunj'
   }, getHandles);
-
-  theme.addRoute('/components/raw/:handle/:asset', {
-    handle: 'component-resource',
-    static: function (params, app) {
-      const component = app.components.find(`@${params.handle}`);
-      if (component) {
-        return Path.join(component.viewDir, params.asset);
-      }
-      throw new Error('Component not found');
-    }
-  }, getResources);
 
   theme.addRoute('/docs/:path([^\?]+?)', {
     handle: 'page',
@@ -108,19 +86,6 @@ module.exports = function (options) {
     });
     handles = handles.map(h => ({ handle: h }));
     return handles;
-  }
-
-  function getResources(app) {
-    let params = [];
-    app.components.flatten().each(comp => {
-      params = params.concat(comp.resources().flatten().toArray().map(res => {
-        return {
-          handle: comp.handle,
-          asset: res.base
-        }
-      }));
-    });
-    return params;
   }
 
   return theme;

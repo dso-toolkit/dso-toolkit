@@ -1,8 +1,6 @@
 /* eslint-env node */
 
 const gulp = require('gulp');
-const tap = require('gulp-tap');
-
 const stylelint = require('gulp-stylelint');
 const isCi = require('./functions/is-ci');
 
