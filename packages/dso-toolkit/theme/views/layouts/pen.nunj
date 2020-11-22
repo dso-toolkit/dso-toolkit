@@ -99,7 +99,7 @@
 
           <div class="dso-preview" data-behaviour="preview">
             {% asyncAll panel in panels(entity) %}
-            {% include 'partials/browser/panel-' + panel + '.nunj' %}
+              {% include 'partials/browser/panel-' + panel + '.nunj' %}
             {% endall %}
           </div>
         </div>

@@ -115,7 +115,23 @@ function createDomReference() {
     .then(function () {
       log('Copied reference component files');
 
+      const files = fse.readdirSync('build/library/components/render');
+      const f = filter(({ basename, extname }) => {
+        const handle = path.basename(basename, extname);
+
+        if (handle.includes('--')) {
+          return true;
+        }
+
+        if (files.some(file => file.includes(`${handle}--`))) {
+          return false;
+        }
+
+        return true;
+      });
+
       return gulp.src('build/library/components/render/*.html')
+        .pipe(f)
         .pipe(tap(function (file) {
           let html = file.contents.toString();
           let prettied = pretty(html, { ocd: true, newlines: '\r\n', eol: '\r\n', end_with_newline: true });

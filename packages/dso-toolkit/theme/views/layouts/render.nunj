@@ -10,5 +10,9 @@
 } %}
 {% block content -%}{% import "macros/errors.nunj" as errors -%}{{ errors.renderError('component', error.message, error.stack) }}{% endblock %}
 {%- else -%}
+{% if entity.meta.webComponent and entity.meta.markup %}
+{{ hydrate(rendered) | async(true) }}
+{% else %}
 {{ rendered }}
+{% endif %}
 {%- endif %}

@@ -7,6 +7,7 @@
   "scripts": {
     "start": "multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
     "start-fractal": "yarn workspace dso-toolkit start",
+    "build-fractal": "yarn workspace dso-toolkit build",
     "start-stencil": "yarn workspace @dso-toolkit/core start",
     "build-stencil": "yarn workspace @dso-toolkit/core build",
     "reference:dom": "yarn workspace dso-toolkit gulp reference:dom"
