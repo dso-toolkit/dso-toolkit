@@ -1,7 +1,6 @@
 /* eslint-env node */
 
 const gulp = require('gulp');
-
 const stylelint = require('gulp-stylelint');
 const isCi = require('./functions/is-ci');
 
