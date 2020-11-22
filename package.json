@@ -10,7 +10,7 @@
     "build-fractal": "yarn workspace dso-toolkit build",
     "start-stencil": "yarn workspace @dso-toolkit/core start",
     "build-stencil": "yarn workspace @dso-toolkit/core build",
-    "reference:dom": "yarn workspace dso-toolkit gulp reference:dom"
+    "reference:dom": "yarn workspace @dso-toolkit/core build --prod && yarn workspace dso-toolkit gulp reference:dom"
   },
   "dependencies": {
     "multiview": "^3.0.1"
