@@ -1,9 +1,8 @@
 <dso-label {{ attributes([modifier, 'status', modifier]) }}>
   {{ label }}
-
-  {% if button %}
+  {% if button -%}
     <button type="button" title="{{ buttonTitle }}">
-      {%- render '@icon', {icon: button} -%}
+      {% render '@icon', {icon: button} %}
     </button>
-  {% endif %}
+  {% endif -%}
 </dso-label>
