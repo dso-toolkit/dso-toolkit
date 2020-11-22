@@ -78,7 +78,14 @@ module.exports = function (options) {
         : ['notes', 'component', 'html', 'view', 'context'];
     });
 
-    env.engine.addGlobal('hydrate', async function (html) {
+    env.engine.addGlobal('hydrate', async function (html, options) {
+      options = Object.assign(
+        {
+          stripRoot: true
+        },
+        options || {}
+      );
+
       const result = await renderToString(html, {
         clientHydrateAnnotations: false,
         prettyHtml: false,
@@ -91,18 +98,19 @@ module.exports = function (options) {
       });
       const $ = cheerio.load(result.html);
 
-      const markup = $('body > *')
-        .find('[class*="sc-"]')
-          .removeClass(function (index, className) {
-            return className
-              .split(' ')
-              .filter(c => c.startsWith('sc-'))
-              .join(' ');
-          })
-        .end()
-        .html();
+      $('[class*="sc-"]').removeClass(function (index, className) {
+        return className
+          .split(' ')
+          .filter(c => c.startsWith('sc-'))
+          .join(' ');
+      });
 
-      return prettier.format(markup, {
+      $('.hydrated')
+        .removeClass('hydrated')
+        .find('[class=""]')
+        .removeAttr('class');
+
+      return prettier.format($(options.stripRoot ? 'body > *' : 'body').html(), {
         printWidth: 120,
         parser: 'html'
       });
