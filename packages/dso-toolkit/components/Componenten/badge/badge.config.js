@@ -36,43 +36,37 @@ module.exports = {
   collated: true,
   collator: collator.inlineCollator,
   context: {
-    status: 'Badge',
     label: 'Badge tekst'
   },
   variants: [
     {
       name: 'badge-info',
       context: {
-        status: 'Info',
-        modifier: 'info'
+        status: 'info'
       }
     },
     {
       name: 'badge-primary',
       context: {
-        status: 'Primair',
-        modifier: 'primary'
+        status: 'primary'
       }
     },
     {
       name: 'badge-success',
       context: {
-        status: 'Succes',
-        modifier: 'success'
+        status: 'success'
       }
     },
     {
       name: 'badge-warning',
       context: {
-        status: 'Waarschuwing',
-        modifier: 'warning'
+        status: 'warning'
       }
     },
     {
       name: 'badge-danger',
       context: {
-        status: 'Gevaar',
-        modifier: 'danger'
+        status: 'danger'
       }
     }
   ]
