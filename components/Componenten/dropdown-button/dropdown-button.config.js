@@ -8,6 +8,7 @@ module.exports = {
   default: 'dropdown',
   context: {
     id: 'actie',
+    modifier: 'default',
     open: false,
     label: 'Actie'
   },

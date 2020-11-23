@@ -33,7 +33,11 @@
     {% endif %}
   </div>
   <button type="button" {{ className('btn btn-default', [hideSearchButton, 'sr-only']) }}>
-    Button
+    {% if buttonLabel -%}
+      { buttonLabel }
+    {% else -%}
+      Button
+    {% endif %}
   </button>
 </div>
 {% if resultsMessage -%}

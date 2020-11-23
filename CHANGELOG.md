@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Diverse library en build fixes (#890)
+* Voorbeeld Wizard stap 2 uitbreiden (#845)
+
+### Added
+* Dropdown-button ook als tertiaire button kunnen inzetten (#894)
 
 ## 14.0.0
 

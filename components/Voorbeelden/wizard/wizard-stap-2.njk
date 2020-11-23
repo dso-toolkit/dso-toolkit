@@ -1,23 +1,46 @@
 <style>
   .dso-map-example {
-    background-image: url("{{ '/dummy/images/google-map-background.jpg' | path }}");
+    background-image: url("{{ '/dummy/images/map-lved125.png' | path }}");
     background-size: cover;
-    height: 300px;
+    height: 400px;
     margin: 32px 0;
     width: 100%;
   }
 </style>
 <main>
   {% render '@form-steps', steps %}
-  <div class="clearfix"></div>
-  {% render '@search-bar', filter %}
-  <div class="clearfix"></div>
-  <div class="dso-map-example"></div>
-  <div class="clearfix"></div>
-  <div class="dso-form-buttons">
-    <div class="dso-aside">
-      {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+  <form>
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Coordinaten</h3>
+      </div>
+      <div class="col-md-3 text-right">
+        {% render '@dropdown-button', dropdownButton %}
+      </div>
     </div>
-    {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
-  </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-3">
+        {% render '@group-select', typeSelect %}
+      </div>
+      <div class="col-md-4">
+        {% render '@group-input', inputLatt %}
+      </div>
+      <div class="col-md-4">
+        {% render '@group-input', inputLong %}
+      </div>
+      <div class="col-md-1">
+        {% render '@button', {label:'Zoeken', type:'button', modifier :'default btn-sm'} %}
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="dso-map-example"></div>
+    <div class="clearfix"></div>
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige stap', icon: 'chevron-left'} %}
+      </div>
+      {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
+    </div>
+  </form>
 </main>
