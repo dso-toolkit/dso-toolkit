@@ -20,6 +20,7 @@ context:
     - groups:
       - id: verzoek
         inputType: radios
+        inline: true
         label: Wilt u uw verzoeken definitief of als Omgevingsoverleg indienen?
         options:
         - value: Omgevingsoverleg
