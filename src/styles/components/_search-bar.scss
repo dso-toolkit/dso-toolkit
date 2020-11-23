@@ -140,10 +140,10 @@ $dso-search-bar-height: $u5;
     font-weight: 700;
     margin-top: $u1;
   }
-}
 
-.dso-invalid .dso-search-bar-input input {
-  border-color: $dso-field-invalid-border-color;
+  &.dso-invalid .dso-search-bar-input input {
+    border-color: $dso-field-invalid-border-color;
+  }
 }
 
 .dso-table-filter-wrapper .dso-search-bar {
