@@ -43,17 +43,11 @@ form,
     }
 
     + fieldset {
-      // margin-top: $dso-fieldset-separator-unit;
-
       > legend {
         border-top: 1px solid $dso-fieldset-separator-color;
         padding-top: $dso-fieldset-separator-unit;
       }
     }
-
-    // &:last-child {
-    //   padding-bottom: $dso-fieldset-separator-unit;
-    // }
 
     &.form-group legend {
       color: $legend-color;
