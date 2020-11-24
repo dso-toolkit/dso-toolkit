@@ -33,8 +33,6 @@ form,
   }
 
   fieldset {
-    padding-bottom: $dso-fieldset-separator-unit;
-
     > legend {
       @extend %is-h3;
 
@@ -43,14 +41,16 @@ form,
     }
 
     + fieldset {
+      margin-top: $dso-fieldset-separator-unit;
+
       > legend {
         border-top: 1px solid $dso-fieldset-separator-color;
         padding-top: $dso-fieldset-separator-unit;
       }
     }
 
-    &.form-group > legend {
-      color: $grijs-90;
+    &.form-group legend {
+      color: $legend-color;
     }
 
     fieldset {
@@ -58,6 +58,11 @@ form,
 
       > legend {
         border-top: 0;
+        padding-top: 0;
+      }
+
+      + fieldset {
+        margin-top: 0;
         padding-top: 0;
       }
     }
