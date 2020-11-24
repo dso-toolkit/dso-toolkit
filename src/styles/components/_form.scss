@@ -52,6 +52,15 @@ form,
     &.form-group > legend {
       color: $grijs-90;
     }
+
+    fieldset {
+      padding-bottom: 0;
+
+      > legend {
+        border-top: 0;
+        padding-top: 0;
+      }
+    }
   }
 }
 
