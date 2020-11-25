@@ -18,7 +18,9 @@ $dso-banner-left-padding: $u6;
       }
 
       button {
-        float: right;
+        position: absolute;
+        right: $u2;
+        top: 0;
 
         svg.di {
           color: $zwart;
@@ -30,6 +32,29 @@ $dso-banner-left-padding: $u6;
       }
 
       > .dso-rich-content {
+        padding-right: $u3;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: $zwart;
+          display: inline-block;
+          font-size: 1rem;
+          line-height: $line-height-base;
+          margin-bottom: 0;
+
+          + p {
+            display: inline;
+
+            + * {
+              margin-top: $u2;
+            }
+          }
+        }
+
         *:first-child {
           margin-top: 0;
         }
