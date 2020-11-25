@@ -1,10 +1,13 @@
+@import "../variables";
+
+$progress-bar-bg: $grasgroen;
+$progress-bar-color: #fff;
+
 $dso-progress-bar-height: $u2;
 $dso-progress-bar-margin: $u1;
 $dso-progress-bar-bg: $wit;
 $dso-progress-bar-color: $grasgroen;
-// -------------------------
 
-// Outer container
 .progress {
   background-color: $dso-progress-bar-bg;
   border: 1px solid  $dso-progress-bar-color;
@@ -13,7 +16,6 @@ $dso-progress-bar-color: $grasgroen;
   position: relative;
 }
 
-// Bar of progress
 .progress-bar {
   background-color: $progress-bar-bg;
   color: $progress-bar-color;

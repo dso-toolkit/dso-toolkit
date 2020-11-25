@@ -15,6 +15,12 @@ export namespace Components {
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoProgressBar {
+        "progress": number;
+        "progressLabel"?: string;
+        "valueMax": number;
+        "valueMin": number;
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -35,10 +41,17 @@ declare global {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
+    }
+    var HTMLDsoProgressBarElement: {
+        prototype: HTMLDsoProgressBarElement;
+        new (): HTMLDsoProgressBarElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-label": HTMLDsoLabelElement;
+        "dso-progress-bar": HTMLDsoProgressBarElement;
     }
 }
 declare namespace LocalJSX {
@@ -51,10 +64,17 @@ declare namespace LocalJSX {
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoProgressBar {
+        "progress": number;
+        "progressLabel"?: string;
+        "valueMax": number;
+        "valueMin": number;
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-badge": DsoBadge;
         "dso-label": DsoLabel;
+        "dso-progress-bar": DsoProgressBar;
     }
 }
 export { LocalJSX as JSX };
@@ -64,6 +84,7 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
         }
     }
 }
