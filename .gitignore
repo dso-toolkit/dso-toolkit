@@ -10,3 +10,8 @@ node_modules
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+# Master/next ignores
+theme/dist/*
+build/*
+packages/dso-toolkit/hydrate
