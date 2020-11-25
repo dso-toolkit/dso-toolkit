@@ -1,5 +1,5 @@
 notes: |
-  Het `<table>` component is gebasseerd op Bootstrap’s Table.
+  Het `<table>` component is gebasseerd op Bootstrap's Table.
 
   Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
 
@@ -24,7 +24,7 @@ notes: |
 
   ## Hoe component "table" gebruiken als data-tabel
   - Bij het weergeven van logisch gestructureerde informatie
-  - Bij het weergeven van “key-value pairs”.
+  - Bij het weergeven van "key-value pairs".
   - Wanneer je **wel** headers kan toekennen.
   - Wanneer er **geen** interactieve elementen zijn om de tabel aan te passen.
   - Een data tabel is daarmee een statische weergave van informatie.
