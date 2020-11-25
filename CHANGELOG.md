@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 Search Bar border kleur gelijk maken aan invoerveld (#846)
 
+### Documentation
+* fixed dead-links in start documentatie pagina en kleine tekst wijzigingen (#879)
+
 ## 14.0.0
 
 ### Changed
