@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Diverse library en build fixes (#890)
+* WCAG Navbalk verbeteren (#833)
 
 ## 14.0.0
 

@@ -1,6 +1,6 @@
 {% import "macros/render.nunj" as render %}
 
-<div data-role="tab-panel" id="browser-{{ entity.id }}-panel-html" aria-labelledby="html-tab">
+<div class="dso-browser-navbar-item-panel" id="browser-{{ entity.id }}-panel-html" aria-labelledby="html-tab">
   {% if not entity.isCollated or entity.isVariant or entity.variants().size == 1 %}
     <pre>{{ render.entity(entity.render(null, renderEnv, {preview: false, collate: false}) | async(true)) | trim }}</pre>
   {% else %}
