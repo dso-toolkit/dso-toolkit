@@ -11,11 +11,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Diverse library en build fixes (#890)
 * WCAG Navbalk verbeteren (#833)
+* **BREAKING**: Heading toevoeging bij banner om een beschrijving te geven bij het icoon (#767) **Markup changes, see PR #848**
+
+### Toolkit library browser changes
+* Herstel de navigatie scroll positie na navigatie (#832)
+* "Alle versies" in version selector geeft niet alle versies (#904)
 
 ### Fixed
 Search Bar border kleur gelijk maken aan invoerveld (#846)
 
 ### Documentation
+* fixed dead-links in start documentatie pagina en kleine tekst wijzigingen (#879)
 * Documentatie Anchor, Cards, Definition list toegevoegd (#872)
 
 ## 14.0.0
