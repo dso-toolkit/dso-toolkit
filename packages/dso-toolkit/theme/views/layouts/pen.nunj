@@ -30,7 +30,7 @@
     {% block penContent %}
 
     <style type="text/css">
-      [data-role="tab-panel"]:not(.is-active) {
+      .dso-browser-navbar-item-panel:not(.is-active) {
         display: none;
       }
     </style>
@@ -61,27 +61,27 @@
         <div data-behaviour="browser" id="browser-{{ entity.id }}">
           <nav class="dso-navbar">
             <ul class="dso-nav dso-nav-main">
-              <li class="is-active" data-role="tab">
+              <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-notes" aria-controls="notes-tab">
                   Documentatie
                 </a>
               </li>
-              <li class="is-active" data-role="tab">
+              <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-component" onclick="fixFrameHeight()" aria-controls="component-tab">
                   Component
                 </a>
               </li>
-              <li class="is-active" data-role="tab">
+              <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-html" aria-controls="html-tab">
                   HTML
                 </a>
               </li>
-              <li class="is-active" data-role="tab">
+              <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-context" aria-controls="context-tab">
                   Context
                 </a>
               </li>
-              <li class="is-active" data-role="tab">
+              <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-view" aria-controls="view-tab">
                   View
                 </a>
