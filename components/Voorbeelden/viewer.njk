@@ -1,53 +1,62 @@
 <style>
-    .dso-map-example {
-        background-image: url("../../dummy/images/viewer.png");
-        background-size: cover;
-        width: 100%;
-        height: 900px;
+  .dso-map-example {
+    background-image: url("../../dummy/images/viewer.png");
+    background-size: cover;
+    width: 100%;
+    height: 900px;
 
-    }
+  }
 </style>
-{% render '@header', {
-  menu: menu,
-  breadcrumbs: breadcrumbs
-} %}
+{% render '@header', { menu: menu,breadcrumbs: breadcrumbs } %}
 <main>
 
   <div class="row">
     <div class="col-md-6">
       <h1>Gemeente Heiloo</h1>
+
       <div class="row">
         <div class="col-md-6">
-          <p><b>Gemeente in Noord-Holland</b></p>
-          <span class="dso-label">
-            <span class="sr-only">Label: </span>Oefen kappen van een boom
-            <button type="button" title="Verwijder">
-              <svg class="di di-times">
-                <use href="/dso-icons.svg#times"/>
-              </svg>
-            </button>
-          </span>
-          {% render '@button', {label:'Filters', type:'button', modifier:'link', icon:'angle-right'} %}
+          <p>
+            <b>Gemeente in Noord-Holland</b>
+          </p>
         </div>
         <div class="col-md-6 text-right">
           {% render '@button', {label:'Anders zoeken', type:'button', modifier:'link', iconAfter:'angle-down'} %}
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <span class="dso-label">
+            <span class="sr-only">Label: </span>Oefen kappen van een boom
+            <button type="button" title="Verwijder">
+              <svg class="di di-times">
+                <use href="../../dso-icons.svg#times"/>
+              </svg>
+            </button>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          {% render '@button', {label:'Filters', type:'button', modifier:'link', icon:'angle-right'} %}
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-md-12">
           {% render '@navigations',
           submenu %}
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-12 text-right">
-            {% render '@button', {
-            label: 'Bekijk selectie',
-            type: 'button',
-            modifier: 'default'
-          } %}
+          {% render '@button', {label: 'Bekijk selectie',type: 'button', modifier: 'default'} %}
         </div>
       </div>
+
       <div class="row">
         <div class="col-md-12">
           <div class="dso-accordion">
@@ -75,9 +84,12 @@
         </div>
       </div>
     </div>
+
     <div class="col-md-6">
       <div class="dso-map-example"></div>
     </div>
-  </main>
+  </div>
 
-  {% render '@footer' %}
+</main>
+
+{% render '@footer' %}
