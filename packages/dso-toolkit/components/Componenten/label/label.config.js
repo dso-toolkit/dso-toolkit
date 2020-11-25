@@ -1,4 +1,8 @@
 module.exports = {
+  meta: {
+    webComponent: true,
+    markup: true,
+  },
   status: 'ready',
   collated: true,
   collator: (markup, item) => `<div class="col-xs-6${item.order % 2 === 1 ? ' text-right' : ''}"><p>${markup}</p></div>`,
@@ -7,47 +11,41 @@ module.exports = {
     {
       name: 'default',
       context: {
-        status: 'Label',
         label: 'Label tekst'
       }
     },
     {
       name: 'info',
       context: {
-        status: 'Info',
-        modifier: 'info',
+        status: 'info',
         label: 'Label tekst'
       }
     },
     {
       name: 'primary',
       context: {
-        status: 'Primair',
-        modifier: 'primary',
+        status: 'primary',
         label: 'Label tekst'
       }
     },
     {
       name: 'success',
       context: {
-        status: 'Succes',
-        modifier: 'success',
+        status: 'success',
         label: 'Label tekst'
       }
     },
     {
       name: 'warning',
       context: {
-        status: 'Waarschuwing',
-        modifier: 'warning',
+        status: 'warning',
         label: 'Label tekst'
       }
     },
     {
       name: 'danger',
       context: {
-        status: 'Gevaar',
-        modifier: 'danger',
+        status: 'danger',
         label: 'Label tekst'
       }
     }

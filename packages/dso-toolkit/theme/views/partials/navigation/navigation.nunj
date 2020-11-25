@@ -30,7 +30,7 @@
           {% set isCurrent = true if (current and (current.id == item.id)) else false %}
           <li class="dso-entity{% if isCurrent %} is-current{% endif %}"{% if isCurrent %} data-state="current"{% endif %} data-role="item">
             <a href="{{ path( (item | url), request) }}" data-pjax>
-              {{ item.label }}
+              {{ item.label }}{% if item.meta.webComponent %} <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>{% endif %}
             </a>
           </li>
         {% endif %}
