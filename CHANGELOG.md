@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Diverse library en build fixes (#890)
 * WCAG Navbalk verbeteren (#833)
-* **BREAKING**: sr-only tekst toevoeging bij status icoon banner (#767) **Markup changes, see PR #848**
+* **BREAKING**: Heading toevoeging bij banner om een beschrijving te geven bij het icoon (#767) **Markup changes, see PR #848**
 
 ### Fixed
 Search Bar border kleur gelijk maken aan invoerveld (#846)

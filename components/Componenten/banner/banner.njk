@@ -3,7 +3,14 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="dso-rich-content">
-          <span class="sr-only">{{ sronly }}</span>
+          <h2>
+          {% if modifier === "danger" -%}
+            Storingsmelding:
+          {%- endif %}
+          {%- if modifier === "warning" -%}
+            Onderhoudsmelding:
+          {%- endif %}
+          </h2>
           {{ message | safe }}
         </div>
         {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
