@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Toolkit library browser changes
 * Herstel de navigatie scroll positie na navigatie (#832)
+* "Alle versies" in version selector geeft niet alle versies (#904)
 
 ### Fixed
 Search Bar border kleur gelijk maken aan invoerveld (#846)
