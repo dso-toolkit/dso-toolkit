@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Diverse library en build fixes (#890)
 * WCAG Navbalk verbeteren (#833)
 
+### Fixed
+Search Bar border kleur gelijk maken aan invoerveld (#846)
+
 ## 14.0.0
 
 ### Changed
