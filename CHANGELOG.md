@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * WCAG Navbalk verbeteren (#833)
 * **BREAKING**: Heading toevoeging bij banner om een beschrijving te geven bij het icoon (#767) **Markup changes, see PR #848**
 
+### Toolkit library browser changes
+* Herstel de navigatie scroll positie na navigatie (#832)
+
 ### Fixed
 Search Bar border kleur gelijk maken aan invoerveld (#846)
 
