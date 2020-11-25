@@ -28,7 +28,7 @@ notes: |
   - Visueel heeft de card ronde hoeken en een lichte drop shadow.
   
   ## Gedrag en toegankelijkheid
-  * Geef het informatieknopje het sr-only tekstalternatief "toon informatie over [titel cards]". Zo voegt u de titel aan het tekstalternatief toe. Screenreadergebruikers snappen zo welke card bij het knopje hoort. Dat voorkomt misverstanden.
+  * Geef het informatieknopje het `sr-only`tekstalternatief "toon informatie over [titel cards]". Zo voegt u de titel aan het tekstalternatief toe. Screenreadergebruikers snappen zo welke card bij het knopje hoort. Dat voorkomt misverstanden.
   
   ## Component in context
   - [Zoeken-in-lijst-cards]({{ '/components/detail/zoeken-in-lijst-cards' | docPath }})
@@ -36,6 +36,7 @@ notes: |
   ## Bronvermelding
   - NN/g Nielsen Norman Group. Cards: UI-Component Definition Geraadpleegd op 20 maart 2020, van https://www.nngroup.com/articles/cards-component/
   - U.S. Web Design System (USWDS). Cards contain content and actions about a single subject. Geraadpleegd op 20 maart 2020, van https://designsystem.digital.gov/components/card/
+status: ready
 context:
   cards:
     - label: Omgevingsplan Nieuwegein
