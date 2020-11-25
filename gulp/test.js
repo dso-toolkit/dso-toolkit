@@ -1,51 +1,16 @@
 /* eslint-env node */
 
 const gulp = require('gulp');
-const util = require('gulp-util');
+const log = require('fancy-log');
 const filter = require('gulp-filter');
-
-const access = require('gulp-accessibility');
-const del = require('del');
 const fs = require('fs');
 const hiff = require('hiff');
 const path = require('path');
-const rename = require('gulp-rename');
 const tap = require('gulp-tap');
 
-const log = util.log;
-
 module.exports = {
-  testAccessibility: gulp.series(clean, testAccessibility),
   testDom
 };
-
-function clean() {
-  return del('wcag');
-}
-
-function testAccessibility() {
-  let a = access({
-    accessibilityLevel: 'WCAG2AA',
-    force: true,
-    reportLevels: {
-      notice: true,
-      warning: true,
-      error: true
-    }
-  }).on('error', function () {
-    process.exit(1);
-  });
-
-  return gulp.src(['build/library/components/preview/*.html'].concat(['*--*', 'button'].map(f => `!build/library/components/preview/${f}.html`)))
-    .pipe(a)
-    .pipe(access.report({
-      reportType: 'json'
-    }))
-    .pipe(rename({
-      extname: '.json'
-    }))
-    .pipe(gulp.dest('wcag'));
-}
 
 function testDom(cb) {
   let changeCount = 0;
@@ -53,7 +18,24 @@ function testDom(cb) {
   return gulp.series(testAgainstReference, propegateResult)(cb);
 
   function testAgainstReference() {
-    const f = filter(['**', '!**/preview.html']);
+    const files = fs.readdirSync('build/library/components/render');
+    const f = filter(({ basename, extname }) => {
+      const handle = path.basename(basename, extname);
+
+      if (handle === 'preview') {
+        return false;
+      }
+
+      if (handle.includes('--')) {
+        return true;
+      }
+
+      if (files.some(file => file.includes(`${handle}--`))) {
+        return false;
+      }
+
+      return true;
+    });
 
     return gulp.src('build/library/components/render/*.html')
       .pipe(f)
@@ -65,7 +47,7 @@ function testDom(cb) {
           referenceHtml = fs.readFileSync(`reference/render/${filename}`, { encoding: 'utf-8' });
         }
         catch (e) {
-          log(`reference/render/${filename} doesn't exist!`);
+          log.error(`reference/render/${filename} doesn't exist!`);
 
           changeCount++;
         }

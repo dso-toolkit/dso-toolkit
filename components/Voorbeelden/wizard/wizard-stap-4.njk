@@ -22,11 +22,13 @@
   <h3>Tip: Start een aanvraag</h3>
   <p>U kunt vanuit deze Vergunningcheck beginnen met het indienen van uw aanvraag. Ga daarvoor naar Aanvragen en vul een projectnaam in. Zodra u dat gedaan heeft, worden uw locatie en activiteiten opgeslagen. Die hoeft u dan niet meer in te vullen als u later verdergaat.</p>
   <div class="row">
-    <div class="col-md-3 col-md-push-3 col-md-offset-6">
-      {% render '@button', {label:'Naar aanvragen', type:'button', modifier:'primary pull-right'} %}
-    </div>
-    <div class="col-md-3 col-md-pull-9">
-      {% render '@button', {label:'Vorige stap', type:'button', modifier:'link btn-align', icon: 'chevron-left'} %}
+    <div class="col-md-12">
+      <div class="dso-form-buttons">
+        <div class="dso-aside">
+          {% render '@button', {label:'Vorige stap', type:'button', modifier:'link btn-align', icon: 'chevron-left'} %}
+        </div>
+        {% render '@button', {label:'Naar aanvragen', type:'button', modifier:'primary pull-right'} %}
+      </div>
     </div>
   </div>
   <hr>

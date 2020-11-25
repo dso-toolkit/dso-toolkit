@@ -1,4 +1,4 @@
-<div data-role="tab-panel" id="browser-{{ entity.id }}-panel-component" aria-labelledby="component-tab">
+<div class="dso-browser-navbar-item-panel" id="browser-{{ entity.id }}-panel-component" aria-labelledby="component-tab">
   <iframe
     id="component-preview-iframe"
     class="dso-preview-iframe"

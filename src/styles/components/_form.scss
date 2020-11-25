@@ -32,8 +32,8 @@ form,
     position: relative;
   }
 
-  > fieldset {
-    padding-bottom: $dso-fieldset-separator-unit;
+  fieldset {
+    margin-bottom: $dso-fieldset-separator-unit;
 
     > legend {
       @extend %is-h3;
@@ -49,17 +49,24 @@ form,
       }
     }
 
-    &.form-group > legend {
-      color: $grijs-90;
+    &.form-group legend {
+      color: $legend-color;
     }
-  }
-}
 
-form.dso-single-page .dso-form-buttons,
-.form.dso-single-page .dso-form-buttons,
-.dso-single-page .dso-form-buttons {
-  .btn + .btn {
-    float: left;
+    fieldset {
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      > legend {
+        border-top: 0;
+        padding-top: 0;
+      }
+
+      + fieldset {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
   }
 }
 
@@ -67,11 +74,6 @@ form.dso-single-page .dso-form-buttons,
   @include clearfix();
 
   text-align: right;
-
-  .btn:not(.btn-link):not(:only-child):first-child {
-    display: block;
-    float: left;
-  }
 
   .btn-link {
     line-height: $dso-button-line-height;
