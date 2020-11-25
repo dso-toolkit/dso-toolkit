@@ -1,9 +1,9 @@
 <style>
   .dso-map-example {
-    background-image: url("{{ '/dummy/images/google-map-background.jpg' | path }}"); 
+    background-image: url("{{ '/dummy/images/google-map-background.jpg' | path }}");
     background-size: cover;
     height: 300px;
-    margin: 32px 0; 
+    margin: 32px 0;
     width: 100%;
   }
 </style>
@@ -15,7 +15,9 @@
   <div class="dso-map-example"></div>
   <div class="clearfix"></div>
   <div class="dso-form-buttons">
-    {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+    <div class="dso-aside">
+      {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+    </div>
     {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
-  </div>  
+  </div>
 </main>

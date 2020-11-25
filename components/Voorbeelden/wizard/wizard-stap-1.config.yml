@@ -13,8 +13,9 @@ context:
   steps:
     title: 1. Project
     step: Stap 1/7
-  alert: 
+  alert:
     modifier: info
+    sronly: "Opmerking:"
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   form:
     formModifier: form-horizontal
@@ -38,4 +39,3 @@ context:
       modifier: primary
       label: Volgende stap
       iconAfter: chevron-right
-  

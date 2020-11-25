@@ -2,7 +2,7 @@
   <div class="dso-label-container">
     <span class="control-label">{{ label }}</span>
     {% if infoText %}
-      {% render '@info-button', {infoOpen: infoOpen} %}
+      {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
   </div>
   <div class="dso-field-container">

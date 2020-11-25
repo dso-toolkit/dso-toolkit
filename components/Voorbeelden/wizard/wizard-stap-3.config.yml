@@ -6,6 +6,7 @@ context:
     step: Stap 3/7
   alert:
     modifier: info
+    sronly: "Opmerking:"
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   shopping-cart:
     items:
@@ -40,11 +41,12 @@ context:
             label: Milieuactiviteit - Aanvraag vergunning
           - value: 4
             label: Gebruik en het in stand houden van bouwwerken ketentest - Melding
-    buttons:
-    - type: default
-      modifier: default
+    asideButtons:
+    - type: link
+      modifier: link
       label: Vorige stap
       icon: chevron-left
+    buttons:
     - type: submit
       modifier: primary
       label: Volgende stap

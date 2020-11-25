@@ -1,15 +1,13 @@
 /* eslint-env node */
 
 const gulp = require('gulp');
-const util = require('gulp-util');
+const log = require('fancy-log');
 
 const fractal = require('./fractal.js');
 
 const { lintStyles, lintWatcher } = require('./gulp/lint');
 const { build, buildTheme, buildThemeWatcher, cleanBuild, createSvgSpritesheet, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
 const { testDom } = require('./gulp/test');
-
-const log = util.log;
 
 gulp.task('clean', cleanBuild);
 gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), buildTheme, fractalDev, watch));
@@ -34,7 +32,7 @@ function fractalDev() {
   const server = fractal.web.server({
     sync: true
   });
-  server.on('error', err => log(err.message));
+  server.on('error', err => log.error(err.message));
 
   return server.start().then(() => {
     log(`Fractal server is now running at ${server.url}`);
