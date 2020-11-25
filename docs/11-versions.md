@@ -25,20 +25,26 @@ Onderstaand overzicht toont alle releases van de DSO Toolkit.
 <div id="versions-container"></div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function(event) { 
+  document.addEventListener("DOMContentLoaded", function () {
     getAllVersions().then(function (releases) {
-      var $versionsContainer = $('#versions-container');
-
+      const versionsContainer = document.querySelector("#versions-container");
       releases.forEach(function (release) {
-        var $col = $('<div><h3>' + release.label + '</h3><ul></ul></div>');
-        var $list = $col.find('ul');
-
-        release.versions.reverse().forEach(function (version, index) {
-          $list.append($('<li><a href="/' + version.version + '">' + (version.label || version.version) + '</a></li>'));
+        const div = document.createElement("div");
+        versionsContainer.appendChild(div);
+        const h3 = document.createElement("h3");
+        div.appendChild(h3);
+        h3.textContent = release.label;
+        const ul = document.createElement("ul");
+        div.appendChild(ul);
+        release.versions.reverse().forEach(function (version) {
+          const li = document.createElement("li");
+          ul.appendChild(li);
+          const a = document.createElement("a");
+          li.appendChild(a);
+          a.setAttribute("href", "/" + version.version);
+          a.textContent = version.label || version.version;
         });
-
-        $versionsContainer.append($col);
-      })
+      });
     });
   });
 </script>
