@@ -1,8 +1,12 @@
 'use strict';
 
+const cheerio = require('cheerio');
+const prettier = require('prettier');
 const Path = require('path');
 const _ = require('lodash');
 const Theme = require('@frctl/fractal').WebTheme;
+
+const { renderToString } = require('../hydrate');
 
 module.exports = function (options) {
 
@@ -19,7 +23,6 @@ module.exports = function (options) {
     favicon: null
   });
 
-  config.panels = config.panels || ['html', 'view', 'context', 'resources', 'info', 'notes'];
   config.nav = config.nav || ['components', 'docs'];
   config.styles = [].concat(config.styles).concat(config.stylesheet).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/${config.skin}.css` : url));
   config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/theme.js` : url));
@@ -68,6 +71,50 @@ module.exports = function (options) {
 
   theme.on('init', function (env, app) {
     require('./filters')(theme, env, app);
+
+    env.engine.addGlobal('panels', function (entity) {
+      return entity.meta.webComponent && entity.meta.markup
+        ? ['notes', 'component', 'html', 'statified', 'view', 'context']
+        : ['notes', 'component', 'html', 'view', 'context'];
+    });
+
+    env.engine.addGlobal('hydrate', async function (html, options) {
+      options = Object.assign(
+        {
+          stripRoot: true
+        },
+        options || {}
+      );
+
+      const result = await renderToString(html, {
+        clientHydrateAnnotations: false,
+        prettyHtml: false,
+        removeHtmlComments: true,
+        removeAttributeQuotes: false,
+        removeBooleanAttributeQuotes: true,
+        removeEmptyAttributes: true,
+        removeScripts: true,
+        removeUnusedStyles: false
+      });
+      const $ = cheerio.load(result.html);
+
+      $('[class*="sc-"]').removeClass(function (index, className) {
+        return className
+          .split(' ')
+          .filter(c => c.startsWith('sc-'))
+          .join(' ');
+      });
+
+      $('.hydrated')
+        .removeClass('hydrated')
+        .find('[class=""]')
+        .removeAttr('class');
+
+      return prettier.format($(options.stripRoot ? 'body > *' : 'body').html(), {
+        printWidth: 120,
+        parser: 'html'
+      });
+    });
   });
 
   let handles = null;

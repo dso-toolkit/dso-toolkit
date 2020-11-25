@@ -56,7 +56,6 @@ const theme = require('./theme')({
   favicon: '/theme/favicon.ico',
   nav: ['docs', 'components'],
   format: 'yaml',
-  panels: ['notes', 'component', 'html', 'view', 'context'], // Todo: 'info'
   styles: [
     '/styles/dso.css',
     '/_highlight.js_styles/github.css'

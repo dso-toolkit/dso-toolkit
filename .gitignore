@@ -14,3 +14,4 @@ node_modules
 # Master/next ignores
 theme/dist/*
 build/*
+packages/dso-toolkit/hydrate

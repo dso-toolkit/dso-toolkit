@@ -1,6 +1,10 @@
 const collator = require('../../../fractal/collator');
 
 module.exports = {
+  meta: {
+    webComponent: true,
+    markup: true
+  },
   notes: `
   Een badge geeft de status aan van een systeem. Ook vestigt de badge aandacht op een numerieke waarde of markeert het een element. De badge valt onder de statusmeldingen.
 
@@ -32,43 +36,37 @@ module.exports = {
   collated: true,
   collator: collator.inlineCollator,
   context: {
-    status: 'Badge',
     label: 'Badge tekst'
   },
   variants: [
     {
       name: 'badge-info',
       context: {
-        status: 'Info',
-        modifier: 'info'
+        status: 'info'
       }
     },
     {
       name: 'badge-primary',
       context: {
-        status: 'Primair',
-        modifier: 'primary'
+        status: 'primary'
       }
     },
     {
       name: 'badge-success',
       context: {
-        status: 'Succes',
-        modifier: 'success'
+        status: 'success'
       }
     },
     {
       name: 'badge-warning',
       context: {
-        status: 'Waarschuwing',
-        modifier: 'warning'
+        status: 'warning'
       }
     },
     {
       name: 'badge-danger',
       context: {
-        status: 'Gevaar',
-        modifier: 'danger'
+        status: 'danger'
       }
     }
   ]
