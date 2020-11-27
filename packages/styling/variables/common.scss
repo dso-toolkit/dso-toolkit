@@ -1,26 +1,20 @@
-$padding-base-vertical: 6px !default;
-$padding-base-horizontal: 12px !default;
+$padding-base-vertical: 6px;
+$padding-base-horizontal: 12px;
 
-$padding-large-vertical: 10px !default;
-$padding-large-horizontal: 16px !default;
+$padding-large-vertical: 10px;
+$padding-large-horizontal: 16px;
 
-$padding-small-vertical: 5px !default;
-$padding-small-horizontal: 10px !default;
+$padding-small-vertical: 5px;
+$padding-small-horizontal: 10px;
 
-$padding-xs-vertical: 1px !default;
-$padding-xs-horizontal: 5px !default;
+$line-height-large: 1.3333333;
+$line-height-small: 1.5;
 
-$line-height-large: 1.3333333 !default; // extra decimals for Win 8.1 Chrome
-$line-height-small: 1.5 !default;
+$border-radius-base: 4px;
+$border-radius-large: 6px;
+$border-radius-small: 3px;
 
-$border-radius-base: 4px !default;
-$border-radius-large: 6px !default;
-$border-radius-small: 3px !default;
+$component-active-color: #fff;
+$component-active-bg: $brand-primary;
 
-//** Global color for active items (e.g., navs or dropdowns).
-$component-active-color: #fff !default;
-//** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg: $brand-primary !default;
-
-//** Width of the `border` for generating carets that indicate dropdowns.
-$caret-width-base: 4px !default;
+$caret-width-base: 4px;

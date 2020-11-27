@@ -38,10 +38,6 @@ $scampi:                #676cb0;
 
 $opac10:                rgba(0, 0, 0, 0.1);
 
-$dso-success-color:     $grasgroen;
-$dso-info-color:        #6ca4d9;
-$dso-warning-color:     #dcd400;
-$dso-danger-color:      #ce3f51;
 $dso-invalid-color:     #b62f41;
 
 $dso-success-bg-color:  $lime-20;
@@ -52,7 +48,7 @@ $dso-danger-bg-color:   #f5d8dc;
 ////
 
 $brand-primary: $bosgroen;
-$brand-success: $dso-success-color;
-$brand-info: $dso-info-color;
-$brand-warning: $dso-warning-color;
-$brand-danger: $dso-danger-color;
+$brand-success: $grasgroen;
+$brand-info: #6ca4d9;
+$brand-warning:  #dcd400;
+$brand-danger: #ce3f51;
