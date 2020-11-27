@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 15.0.1
+
+### Fixed
+* Formulier met `fieldset.form-group` + `fieldset.form-group` toont onterecht een horizontale lijn (#909)
+
 ## 15.0.0
 
 ### Fixed
