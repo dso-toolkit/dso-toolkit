@@ -98,12 +98,12 @@ $dso-selectable-focus-border-width: 3px;
 
     .dso-invalid & {
       + label::before {
-        box-shadow: 0 0 0 2px $dso-danger-color;
+        box-shadow: 0 0 0 2px $brand-danger;
       }
 
       &:focus {
         + label::before {
-          box-shadow: 0 0 0 3px $dso-danger-color;
+          box-shadow: 0 0 0 3px $brand-danger;
           height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
           left: $dso-selectable-focus-border-width;
           top: $dso-selectable-focus-border-width;
@@ -147,7 +147,7 @@ $dso-selectable-focus-border-width: 3px;
 
     .dso-invalid & {
       &:checked + label::after {
-        border-color: $dso-danger-color;
+        border-color: $brand-danger;
       }
     }
   }
@@ -183,7 +183,7 @@ $dso-selectable-focus-border-width: 3px;
 
     .dso-invalid & {
       &:checked + label::after {
-        background-color: $dso-danger-color;
+        background-color: $brand-danger;
       }
     }
   }

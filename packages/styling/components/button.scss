@@ -13,7 +13,7 @@ $btn-link-disabled-color: lighten(#000, 46.7%);
 $dso-button-border-radius: $border-radius-base;
 $dso-button-border-width: 1px;
 
-$dso-button-size: $u7;
+$dso-button-min-width: $u7;
 $dso-button-line-height: $u3;
 $dso-button-vertical-padding: $u1 * 1.5 - $dso-button-border-width;
 $dso-button-horizontal-padding: $u2 - $dso-button-border-width;
@@ -43,7 +43,7 @@ $dso-label-default-button-hover-color: $bosgroen;
 
 $dso-label-info-button-border-color: $grijs-90;
 $dso-label-info-button-hover-background-color: $wit;
-$dso-label-info-button-hover-border-color: $dso-info-color;
+$dso-label-info-button-hover-border-color: $brand-info;
 $dso-label-info-button-hover-color: $zwart;
 
 $dso-label-primary-button-border-color: $wit;
@@ -53,18 +53,18 @@ $dso-label-primary-button-hover-color: $bosgroen;
 
 $dso-label-success-button-border-color: $wit;
 $dso-label-success-button-hover-background-color: $wit;
-$dso-label-success-button-hover-border-color: $dso-success-color;
+$dso-label-success-button-hover-border-color: $brand-success;
 $dso-label-success-button-hover-color: $grasgroen;
 
 $dso-label-warning-button-border-color: #191919;
 $dso-label-warning-button-hover-background-color: $wit;
-$dso-label-warning-button-hover-border-color: $dso-warning-color;
+$dso-label-warning-button-hover-border-color: $brand-warning;
 $dso-label-warning-button-hover-color: $zwart;
 
 $dso-label-danger-button-border-color: $wit;
 $dso-label-danger-button-hover-background-color: $wit;
-$dso-label-danger-button-hover-border-color: $dso-danger-color;
-$dso-label-danger-button-hover-color: $dso-danger-color;
+$dso-label-danger-button-hover-border-color: $brand-danger;
+$dso-label-danger-button-hover-color: $brand-danger;
 
 @mixin button-default-base {
   border-radius: $dso-button-border-radius;
@@ -234,7 +234,7 @@ dso-label[status="danger"] {
 
   &.btn-default,
   &.btn-primary {
-    min-width: $dso-button-size;
+    min-width: $dso-button-min-width;
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
 
