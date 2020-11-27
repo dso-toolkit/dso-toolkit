@@ -1,3 +1,6 @@
+meta:
+  webComponent: true
+  markup: true
 notes: |
   Er zijn drie soorten statusmeldingen:
   - notificaties
@@ -99,33 +102,28 @@ status: ready
 collated: true
 context:
   __title: success
-  modifier: success
-  status: Gelukt
+  status: success
   message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
   - name: danger
     context:
       __title: danger
-      modifier: danger
-      status: Fout
+      status: danger
       message: Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   - name: warning
     context:
       __title: warning
-      modifier: warning
-      status: Waarschuwing
+      status: warning
       message: Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.
   - name: info
     context:
       __title: info
-      modifier: info
-      status: Opmerking
+      status: info
       message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.
   - name: success-button
     context:
       __title: success with button
-      modifier: success
-      status: Gelukt
+      status: success
       message: |
         <div class="dso-rich-content">
           <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
@@ -134,8 +132,7 @@ variants:
   - name: danger-button
     context:
       __title: danger with button
-      modifier: danger
-      status: Fout
+      status: danger
       message: |
         <div class="dso-rich-content">
           <p>Dit is een foutmelding. Deze wordt getoond als er iets is misgegaan.</p>
@@ -144,8 +141,7 @@ variants:
   - name: warning-button
     context:
       __title: warning with button
-      modifier: warning
-      status: Waarschuwing
+      status: warning
       message: |
         <div class="dso-rich-content">
           <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>
@@ -154,8 +150,7 @@ variants:
   - name: info-button
     context:
       __title: info with button
-      modifier: info
-      status: Opmerking
+      status: info
       message: |
         <div class="dso-rich-content">
           <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>

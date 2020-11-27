@@ -42,7 +42,7 @@ form,
       margin-bottom: $dso-fieldset-separator-unit;
     }
 
-    + fieldset {
+    + fieldset:not(.form-group) {
       > legend {
         border-top: 1px solid $dso-fieldset-separator-color;
         padding-top: $dso-fieldset-separator-unit;
