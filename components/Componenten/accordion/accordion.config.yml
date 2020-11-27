@@ -238,6 +238,22 @@ variants:
                 type: text
                 label: Postcode
                 size: 8
+              - id: brandstof
+                label: Brandstof
+                inputType: radios
+                options:
+                - value: 1
+                  label: benzine
+                - value: 2
+                  label: diesel
+              - id: schrijfwaar
+                label: Schrijfwaar
+                inputType: radios
+                options:
+                - value: 1
+                  label: pen
+                - value: 2
+                  label: potlood
               - id: omgevingsvergunningHuisnummer
                 inputType: input
                 type: text
