@@ -11,8 +11,7 @@ variants:
             - <strong>Let op:</strong> Soms is er wel een omgevingsvergunning omgevingsplanactiviteit bouwen nodig.
             - <strong>Let op:</strong> Misschien mag u nog niet gelijk gaan bouwen!
       alert:
-        modifier: success
-        status: Gelukt
+        status: success
         message: Succes melding
   - name: warning
     context:
@@ -23,8 +22,7 @@ variants:
         - modifier: danger
           label: <strong>Informatie geven</strong> voor milieubelastende activiteit
       alert:
-        modifier: warning
-        status: Waarschuwing
+        status: warning
         message: Waarschuwing
   - name: forbidden
     context:

@@ -14,8 +14,7 @@ context:
     title: 1. Project
     step: Stap 1/7
   alert:
-    modifier: info
-    status: Opmerking
+    status: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   form:
     formModifier: form-horizontal
