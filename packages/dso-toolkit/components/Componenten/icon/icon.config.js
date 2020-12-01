@@ -15,7 +15,6 @@ module.exports = {
     * Als de toolkit scss files worden gecompileerd, moet de implementatie zorg dragen dat uiteindelijk \`node_modules/dso-toolkit/dist/library/dso-icons.svg\` wordt gebundled;
     * Als de toolkit via de CDN wordt gebruikt werken SVG iconen direct;
     * Als de toolkit de CSS uit de NPM package gebruikt moeten de bundlers/loaders rekening houden dat de SVG files worden meegenomen in de build;
-  * IE11 heeft geen support voor \`use href\` naar een externe URI of data URI. Elke implementatie van de toolkit moet deze tekortkoming compenseren. De library is ook een implementatie van de toolkit en maakt gebruik van www.dso-toolkit.nl) maakt gebruik van [svg4everybody](https://github.com/jonathantneal/svg4everybody).
 
 
   ## De voordelen van goed ontworpen iconen

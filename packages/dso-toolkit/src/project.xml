@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<project
-  name    = "DSO Toolkit"
-  alias   = "dso_toolkit"
-  aspnet  = "true"
-  dbarch  = "none"
-  version = "0.0.0"
-  />

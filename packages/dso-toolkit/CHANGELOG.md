@@ -5,9 +5,29 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 15.0.1
+
+### Fixed
+* Formulier met `fieldset.form-group` + `fieldset.form-group` toont onterecht een horizontale lijn (#909)
+
+## 15.0.0
+
+### Fixed
+* Fieldset legends in wizard accordion worden niet gestyled (#896)
+* Search Bar border kleur gelijk maken aan invoerveld (#846)
+
 ### Changed
+* **BREAKING**: Heading toevoeging bij banner om een beschrijving te geven bij het icoon (#767) **Markup changes, see PR #848**
+
+### Documentation
+* Dode links in start documentatie pagina en kleine tekst wijzigingen (#879)
+* Documentatie Anchor, Banner, Cards, Definition list toegevoegd (#872)
+
+### Toolkit library browser changes
+* Toegankelijkheid Navigatiebalk verbeteren (#833)
 * Diverse library en build fixes (#890)
-* WCAG Navbalk verbeteren (#833)
+* Herstel de navigatie scroll positie na navigatie (#832)
+* "Alle versies" in version selector geeft niet alle versies (#904)
 
 ## 14.0.0
 

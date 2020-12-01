@@ -39,7 +39,7 @@
     </header>
 
     <div class="row" data-role="body">
-      <div class="col-xs-4 col-sm-3 col-lg-2" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll;">
+      <div class="col-xs-4 col-sm-3 col-lg-2" id="navigation-container" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll;">
         {# <div class="dso-search-bar">
           <div class="dso-search-bar-input">
             <span class="dso-search-icon" aria-hidden="true"></span>

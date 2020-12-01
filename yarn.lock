@@ -4114,7 +4114,6 @@ __metadata:
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
     stylelint-scss: 3.18.0
-    svg4everybody: 2.1.9
   languageName: unknown
   linkType: soft
 
@@ -11110,13 +11109,6 @@ resolve@^1.17.0:
   version: 1.0.0
   resolution: "svg-tags@npm:1.0.0"
   checksum: 8f19e7b2b53e78b746675ff0782b7fd2c3a00e589b8017adaadc1b91b85dfa4a874c8c67bed4e88e61b6a42c7abf392d158cc3184320b9b5cbdbf26711b7b643
-  languageName: node
-  linkType: hard
-
-"svg4everybody@npm:2.1.9":
-  version: 2.1.9
-  resolution: "svg4everybody@npm:2.1.9"
-  checksum: 9bc51c0beae6ba06d8f08897693f9e102e24f8d740339a77ca59b072cb5c0f6339fb4d3548b22789c1677fd861f36a412faa63f949f5759ce2a733089e896556
   languageName: node
   linkType: hard
 

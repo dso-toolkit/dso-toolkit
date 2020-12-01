@@ -11,7 +11,7 @@ notes: |
   Het is mogelijk om een accordion in een accordion te plaatsen. Er moet dan wel `.dso-nested-accordion` op de `.dso-accordion-section` worden gezet.
 
   ## Wanneer te gebruiken
-  Gebruik een accordion bij lange pagina’s met veel content om scrollen te verminderen. De titels vormen voor de gebruiker een informatiestructuur die makkelijk te overzien is. Ook wordt een pagina makkelijker leesbaar als je delen van de content kunt verbergen.
+  Gebruik een accordion bij lange pagina's met veel content om scrollen te verminderen. De titels vormen voor de gebruiker een informatiestructuur die makkelijk te overzien is. Ook wordt een pagina makkelijker leesbaar als je delen van de content kunt verbergen.
 
   In sommige gevallen is een accordion beter dan anchors omdat de informatiestructuur behouden blijft. Accordions zijn ook beter bij mobiele weergave, waar de ruimte op de pagina beperkt is.
 
@@ -238,6 +238,22 @@ variants:
                 type: text
                 label: Postcode
                 size: 8
+              - id: brandstof
+                label: Brandstof
+                inputType: radios
+                options:
+                - value: 1
+                  label: benzine
+                - value: 2
+                  label: diesel
+              - id: schrijfwaar
+                label: Schrijfwaar
+                inputType: radios
+                options:
+                - value: 1
+                  label: pen
+                - value: 2
+                  label: potlood
               - id: omgevingsvergunningHuisnummer
                 inputType: input
                 type: text

@@ -35,6 +35,10 @@ variants:
       __title: Met waarde
       value: Waarde
       clearButton: true
+  - name: invalid
+    context:
+      __title: Invalid
+      modifier: dso-invalid
   - name: hidden-button
     context:
       __title: Verborgen knop

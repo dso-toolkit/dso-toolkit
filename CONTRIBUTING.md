@@ -1,7 +1,8 @@
 # Contributing to the DSO Toolkit and DSO Component Library
-This repository houses two projects:
-* The toolkit in `src/` and `assets/`
-* A component library in `docs/` and `components/`
+This repository houses several projects:
+* `/packages/dso-toolkit`: A component library
+* `/packages/styling`: A CSS implementation written in SCSS
+* `/packages/core`: A Web Component implementation written in Stencil Components
 
 This project uses [Semantic Versioning](http://semver.org/).
 
@@ -26,19 +27,11 @@ Properly label the issue as a bug, improvement, new feature.
 ### 3. Contribute
 * Take note of the codestyle, we are using linters.
 * Add an entry to the CHANGELOG.md.
-* When changing the toolkit, try to demonstrate the change using the component library (new components or variants)
-* Run `gulp test:dom`. Commit new/changed reference DOM files using `gulp reference:dom`.
+* When changing the toolkit, demonstrate the change using the component library (new components or variants)
+* Run `yarn test`. Commit new/changed reference DOM files using `yarn reference:dom`.
 
 ### 4. Create a pull request
 Create a pull request to the target version branch, most likely `master`. A maintainer will review your changes, merge them, and close the issue.
 
 ## Reviewing
 When reviewing a pull request, make sure the items in __step 3. Contribute__ are checked. Pay special attention to the changelog and (if needed) reference DOM files.
-
-## Building a static component library
-To build a static version:
-```
-gulp build
-```
-
-This will generate static a static site component library (`/assets`, `/components` and `/docs`) AND toolkit (`/src`).
