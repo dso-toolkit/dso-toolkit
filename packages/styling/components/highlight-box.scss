@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins/step-counter";
 
 .dso-highlight-box {
   background-color: $grijs-10;
@@ -43,5 +44,14 @@
         color: $text-color;
       }
     }
+  }
+
+  &.dso-has-counter {
+    padding-top: $u5;
+    position: relative;
+  }
+
+  .dso-step-counter {
+    @include step-counter();
   }
 }

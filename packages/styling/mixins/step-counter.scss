@@ -1,0 +1,44 @@
+@import "../variables";
+
+$dso-highlight-box-margin-top: $u6;
+$dso-whitebox-margin-bottom: $u7;
+$dso-whitebox-small-margin-bottom: $u7;
+$dso-whitebox-min-height: 540px;
+$dso-whitebox-small-min-height: 200px;
+
+@mixin step-counter() {
+  background-color: $grasgroen;
+  border: $u1 solid $lime;
+  border-radius: 50%;
+  box-sizing: content-box;
+  color: $wit;
+  font-size: 1.25em;
+  font-weight: 500;
+  height: $u4;
+  left: $u2;
+  line-height: $u4;
+  position: absolute;
+  text-align: center;
+  top: -$u3;
+  width: $u4;
+}
+
+.dso-whitebox.dso-has-counter {
+  min-height: $dso-whitebox-min-height + $u5;
+}
+
+.dso-highlight-box.dso-has-counter {
+  margin-top: $dso-highlight-box-margin-top;
+}
+
+.dso-whitebox {
+  &.dso-has-counter {
+    padding-top: $u5;
+    position: relative;
+  }
+
+  .dso-step-counter,
+  .dso-whitebox-counter { //dso-whitebox-counter deprecated?
+    @include step-counter();
+  }
+}
