@@ -2,7 +2,7 @@
   {% render '@form-steps', steps %}
   <div class="clearfix"></div>
   <dso-alert status="{{ alert.status }}">
-    {{ alert.message }}
+    {{ alert.message | safe }}
   </dso-alert>
   <h3>Werkzaamheden</h3>
   <h4>Gas opslaan in een opslagtank</h4>
