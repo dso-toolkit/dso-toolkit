@@ -99,8 +99,7 @@ function copyAssets() {
 
   return gulp
     .src([
-      'assets/**',
-      require.resolve('svg4everybody/dist/svg4everybody.min.js')
+      'assets/**'
     ])
     .pipe(f)
     .pipe(svgmin())
