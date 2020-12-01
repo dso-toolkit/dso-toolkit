@@ -1,3 +1,10 @@
+@import "../variables";
+
+$dso-whitebox-margin-bottom: $u7;
+$dso-whitebox-small-margin-bottom: $u7;
+$dso-whitebox-min-height: 540px;
+$dso-whitebox-small-min-height: 200px;
+
 .dso-whitebox.dso-has-counter {
   min-height: $dso-whitebox-min-height + $u5;
 }

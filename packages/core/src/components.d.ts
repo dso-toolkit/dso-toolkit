@@ -12,6 +12,12 @@ export namespace Components {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoHighlightBox {
+        "icon"?: string;
+        "label"?: string;
+        "modifier"?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
+        "step": number;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -29,6 +35,12 @@ declare global {
         prototype: HTMLDsoBadgeElement;
         new (): HTMLDsoBadgeElement;
     };
+    interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
+    }
+    var HTMLDsoHighlightBoxElement: {
+        prototype: HTMLDsoHighlightBoxElement;
+        new (): HTMLDsoHighlightBoxElement;
+    };
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
     }
     var HTMLDsoLabelElement: {
@@ -38,6 +50,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-badge": HTMLDsoBadgeElement;
+        "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-label": HTMLDsoLabelElement;
     }
 }
@@ -48,12 +61,19 @@ declare namespace LocalJSX {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoHighlightBox {
+        "icon"?: string;
+        "label"?: string;
+        "modifier"?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
+        "step": number;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-badge": DsoBadge;
+        "dso-highlight-box": DsoHighlightBox;
         "dso-label": DsoLabel;
     }
 }
@@ -63,6 +83,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
+            "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
         }
     }
