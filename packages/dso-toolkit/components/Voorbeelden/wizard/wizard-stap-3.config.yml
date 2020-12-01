@@ -5,8 +5,7 @@ context:
     title: 3. Kies activiteiten
     step: Stap 3/7
   alert:
-    modifier: info
-    status: Opmerking
+    status: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   shopping-cart:
     items:
