@@ -5,11 +5,16 @@
 * [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/enQtNDA5Mjk5MTU5MDEyLTk5OWFmMWYwODlhMmRhMzMzN2E1NzZhNmQwYzhiNDliZGQ0NGMxMmE4MzkxM2U2NjZjNzNmZDQ0YmY3YTRiNTg)
 
 # DSO Toolkit - Design System voor het Digitaal Stelsel voor de Omgevingswet
-📦🐈 This is active development trunk for DSO Toolkit: Next ⚒
 
-In this working branch `next` the Nunjucks templates are being migrated to StencilJS Components.
+De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er twee implementaties geleverd: CSS en Web Components. De Web Components krijgen voor Angular en React wrappers, zie issue #915.
 
-For more information, see issue [DSO Toolkit: Web Components](https://github.com/dso-toolkit/dso-toolkit/issues/827)
+De deliverables van de DSO Toolkit:
+* **Handleiding**: Een handleiding voor elke versie op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/)
+* **CDN**: Een CDN op https://cdn.dso-toolkit.nl/, voor documentatie zie verderop in deze README
+* **NPM package `@dso-toolkit/styling`**: Een incomplete CSS implementatie van de DSO stijlset geschreven in SCSS
+* **NPM package `dso-toolkit`**: De handleiding en complete CSS implementatie van de DSO stijlset.
+
+We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-toolkit/styling`. Zodra die verhuizing is afgerond zal `dso-toolkit` worden deprecated en moeten implementaties overstappen naar `@dso-toolkit/styling`. De componenten zoals die worden aangeboden op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/) blijven functioneren. Voor meer informatie zie #827
 
 ## Getting started
 
