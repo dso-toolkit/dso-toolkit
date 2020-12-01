@@ -10,6 +10,7 @@ import Pen from './components/pen';
 import VersionSelector from './components/version-selector';
 import './versions';
 import './resize-iframe';
+import './restore-nav-scroll';
 
 const doc = $(document);
 const frctl = window.frctl || {};
