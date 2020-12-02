@@ -1,3 +1,12 @@
-<dso-highlight-box modifier="{{ modifier }}" step="{{ step }}" icon="{{ icon }}" label="{{ label }}">
+<dso-highlight-box
+  {% if modifier %} modifier="{{ modifier }}"{% endif %}
+  {% if step %}step="{{ step }}"{% endif %}
+  {% if icon %}icon="{{ icon }}"{% endif %}
+  {% if label %}label="{{ label }}"{% endif %}
+  >
+  {# <svg slot="icon" /> #}
+  {%- if icon and label %}
+    {% render '@icon', {icon: icon, label: label, slotAttr: 'highlightboxIcon'} %}
+  {% endif -%}
   {{ yield | safe }}
 </dso-highlight-box>

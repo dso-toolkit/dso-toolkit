@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property            | Attribute  | Description | Type                                                                            | Default     |
-| ------------------- | ---------- | ----------- | ------------------------------------------------------------------------------- | ----------- |
-| `icon`              | `icon`     |             | `string \| undefined`                                                           | `undefined` |
-| `label`             | `label`    |             | `string \| undefined`                                                           | `undefined` |
-| `modifier`          | `modifier` |             | `"dso-border" \| "dso-drop-shadow" \| "dso-white" \| "dso-yellow" \| undefined` | `undefined` |
-| `step` _(required)_ | `step`     |             | `number`                                                                        | `undefined` |
+| Property   | Attribute  | Description | Type                                                                            | Default     |
+| ---------- | ---------- | ----------- | ------------------------------------------------------------------------------- | ----------- |
+| `icon`     | `icon`     |             | `string \| undefined`                                                           | `undefined` |
+| `label`    | `label`    |             | `string \| undefined`                                                           | `undefined` |
+| `modifier` | `modifier` |             | `"dso-border" \| "dso-drop-shadow" \| "dso-white" \| "dso-yellow" \| undefined` | `undefined` |
+| `step`     | `step`     |             | `number \| undefined`                                                           | `undefined` |
 
 
 ----------------------------------------------

@@ -11,7 +11,7 @@ export class HighlightBox {
   modifier?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
 
   @Prop()
-  step!: number;
+  step?: number;
 
   @Prop()
   icon?: string;
@@ -29,7 +29,7 @@ export class HighlightBox {
                 this.step
               )
               : (
-                <slot name="icon"></slot>
+                <slot name="highlightboxIcon"></slot>
               )
             }
           </div>

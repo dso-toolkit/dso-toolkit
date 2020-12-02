@@ -16,7 +16,7 @@ export namespace Components {
         "icon"?: string;
         "label"?: string;
         "modifier"?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
-        "step": number;
+        "step"?: number;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -65,7 +65,7 @@ declare namespace LocalJSX {
         "icon"?: string;
         "label"?: string;
         "modifier"?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
-        "step": number;
+        "step"?: number;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
