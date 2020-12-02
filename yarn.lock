@@ -3856,7 +3856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css@npm:3.0.0, css@npm:^3.0.0":
+"css@npm:^3.0.0":
   version: 3.0.0
   resolution: "css@npm:3.0.0"
   dependencies:
@@ -4255,27 +4255,20 @@ __metadata:
     "@types/fancy-log": ^1.3.1
     "@types/prettier": ^2.1.5
     cheerio: 1.0.0-rc.3
-    css: 3.0.0
     del: 6.0.0
     fancy-log: ^1.3.3
     fs-extra: 9.0.1
     gulp: 4.0.2
-    gulp-cheerio: 1.0.0
     gulp-filter: 6.0.0
-    gulp-pretty-data: 0.1.2
-    gulp-rename: 2.0.0
     gulp-sass: 4.1.0
     gulp-stylelint: 13.0.0
     gulp-svgmin: 3.0.0
-    gulp-svgstore: 7.0.1
     gulp-tap: 2.0.0
     gulp-trim: 1.0.2
     hiff: 0.3.1
     highlight.js: ^10.3.2
-    indent: 0.0.2
     jquery: ^2.2.4
     jquery-pjax: "git+https://github.com/defunkt/jquery-pjax.git"
-    list-stream: 2.0.0
     node-sass: 5.0.0
     prettier: ^2.2.0
     pretty: 2.0.0
@@ -5658,7 +5651,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gulp-cheerio@npm:1.0.0, gulp-cheerio@npm:^1.0.0":
+"gulp-cheerio@npm:^1.0.0":
   version: 1.0.0
   resolution: "gulp-cheerio@npm:1.0.0"
   dependencies:
@@ -5708,7 +5701,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gulp-pretty-data@npm:0.1.2, gulp-pretty-data@npm:^0.1.2":
+"gulp-pretty-data@npm:^0.1.2":
   version: 0.1.2
   resolution: "gulp-pretty-data@npm:0.1.2"
   dependencies:
@@ -5721,7 +5714,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gulp-rename@npm:2.0.0, gulp-rename@npm:^2.0.0":
+"gulp-rename@npm:^2.0.0":
   version: 2.0.0
   resolution: "gulp-rename@npm:2.0.0"
   checksum: eef6e0405e8056b78e764b1d70e1d1d6c464251ef8aea695dd31813ce3dff61880289d73b32ec4a2749eab7085cc1f2b33befe2a8a5436cf75b74ed21c7097a9
@@ -5770,7 +5763,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gulp-svgstore@npm:7.0.1, gulp-svgstore@npm:^7.0.1":
+"gulp-svgstore@npm:^7.0.1":
   version: 7.0.1
   resolution: "gulp-svgstore@npm:7.0.1"
   dependencies:
@@ -6215,7 +6208,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"indent@npm:0.0.2, indent@npm:^0.0.2":
+"indent@npm:^0.0.2":
   version: 0.0.2
   resolution: "indent@npm:0.0.2"
   checksum: 33b9ebfbf1feaba365442c05137bb478839bd9d3aad9282c0cd0515b3e381cabc1df42cc294667b8b4671395053312f8eae3aab57a2ae90858b28101871cc86e
@@ -7305,7 +7298,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"list-stream@npm:2.0.0, list-stream@npm:^2.0.0":
+"list-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "list-stream@npm:2.0.0"
   dependencies:

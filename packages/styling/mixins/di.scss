@@ -1,5 +1,7 @@
 @import "../variables/icon";
 
+$dso-icons-path: "./dist/assets/" !default;
+
 @mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align) {
   background: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
   background-position: center;
