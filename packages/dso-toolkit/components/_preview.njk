@@ -12,10 +12,6 @@
       {{ yield | safe }}
     </div>
 
-    <!-- Polyfill for svg use[href] with external uri -->
-    <script src="{{ '/svg4everybody.min.js' | path }}"></script>
-    <script>svg4everybody();</script>
-
     <script type="module" src="/@dso-toolkit_core/dso-toolkit/dso-toolkit.esm.js"></script>
     <script nomodule src="/@dso-toolkit_core/dso-toolkit/dso-toolkit.js"></script>
 

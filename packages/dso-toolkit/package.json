@@ -59,7 +59,6 @@
     "rollup": "^2.33.1",
     "stylelint": "13.7.2",
     "stylelint-config-standard": "20.0.0",
-    "stylelint-scss": "3.18.0",
-    "svg4everybody": "2.1.9"
+    "stylelint-scss": "3.18.0"
   }
 }

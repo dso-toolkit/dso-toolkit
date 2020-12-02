@@ -93,8 +93,8 @@ dso-alert,
   }
 }
 
-.dso-label,
-dso-label {
+dso-label,
+.dso-label {
   button {
     background: none;
     border: 0;
@@ -124,8 +124,8 @@ dso-label {
   }
 }
 
-.dso-label.dso-label-info,
-dso-label[status="info"] {
+dso-label[status="info"],
+.dso-label.dso-label-info {
   button {
     border-left-color: $dso-label-info-button-border-color;
 
@@ -139,8 +139,8 @@ dso-label[status="info"] {
   }
 }
 
-.dso-label.dso-label-primary,
-dso-label[status="primary"] {
+dso-label[status="primary"],
+.dso-label.dso-label-primary {
   button {
     border-left-color: $dso-label-primary-button-border-color;
 
@@ -154,8 +154,8 @@ dso-label[status="primary"] {
   }
 }
 
-.dso-label.dso-label-success,
-dso-label[status="success"] {
+dso-label[status="success"],
+.dso-label.dso-label-success {
   button {
     border-left-color: $dso-label-success-button-border-color;
 
@@ -169,8 +169,8 @@ dso-label[status="success"] {
   }
 }
 
-.dso-label.dso-label-warning,
-dso-label[status="warning"] {
+dso-label[status="warning"],
+.dso-label.dso-label-warning {
   button {
     border-left-color: $dso-label-warning-button-border-color;
 
@@ -184,8 +184,8 @@ dso-label[status="warning"] {
   }
 }
 
-.dso-label.dso-label-danger,
-dso-label[status="danger"] {
+dso-label[status="danger"],
+.dso-label.dso-label-danger {
   button {
     border-left-color: $dso-label-danger-button-border-color;
 

@@ -18,9 +18,7 @@ Het Omgevingsloket wordt ontwikkeld vanuit het gebruikersperspectief, daarom zij
 Links naar relevante pagina's:
 - [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
 - [Templates]({{ '/components/detail/aanvragen' | path }})
-- Digitale toegankelijkheid (onder ontwikkeling)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
-- Sketch library (onder ontwikkeling)
 
 ### Ontwerper
 Om te beginnen is er een Sketch library waar alle componenten staan die ook in de toolkit staan. Hoe deze componenten moeten worden toegepast is terug te vinden in de toolkit. Onzeker of het juiste component in de juiste context gebruikt wordt? Raadpleeg dan de toolkit. De templates zijn voorbeeld pagina's die al live staan op het Omgevingsloket. Dit kan helpen om meer over pagina structurering en indeling te leren van het Omgevingsloket.
@@ -32,13 +30,11 @@ Probeer te voorkomen dat er onderdelen gemaakt worden die al bestaan. Ontkom je 
 Als je nieuwe componenten wilt toe gaan voegen aan de toolkit, lees dan de sectie over Digitale toegankelijkheid door. Bekijk aan welke guidelines het nieuwe component moet voldoen.
 
 Links naar relevante pagina's:
-- [Kleurgebruik]({{ '/docs/colors' | path }})
-- [Typografie]({{ '/docs/typography' | path }})
-- [Lay-out]({{ '/docs/layout' | path }})
+- [Kleurgebruik]({{ '/docs/fundament/colors' | path }})
+- [Typografie]({{ '/docs/fundament/typography' | path }})
+- [Lay-out]({{ '/docs/fundament/layout' | path }})
 - [Templates]({{ '/components/detail/aanvragen' | path }})
-- Digitale toegankelijkheid (onder ontwikkeling)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
-- Sketch library (onder ontwikkeling)
 
 ### Developer
 Als developer wil je voorkomen dat er dubbel werk uitgevoerd wordt. de toolkit geeft een css basis met alle _Do's and Dont's_ over het front-end ontwerp. Neem de documentatie pagina's over lay-out, kleur, en typography door.
@@ -47,11 +43,10 @@ Speciale aandacht is vereist voor de digitale toegankelijkheid, dit is een onder
 
 Links naar relevante pagina's:
 - [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Kleurgebruik]({{ '/docs/colors' | path }})
-- [Typografie]({{ '/docs/typography' | path }})
-- [Lay-out]({{ '/docs/layout' | path }})
+- [Kleurgebruik]({{ '/docs/fundament/colors' | path }})
+- [Typografie]({{ '/docs/fundament/typography' | path }})
+- [Lay-out]({{ '/docs/fundament/layout' | path }})
 - [Templates]({{ '/components/detail/aanvragen' | path }})
-- Digitale toegankelijkheid (onder ontwikkeling)
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
 
 ## Een platform, proces of dienst is nooit af, daarom iteratief ontwerpen.
@@ -74,7 +69,7 @@ Per 1 juli 2018 is het _[Tijdelijk besluit digitale toegankelijkheid](https://ww
 
 De eisen van digitale toegankelijkheid zijn de [Web Content Accessibility Guidelines (WCAG) versie 2.1](https://www.w3.org/TR/WCAG21/). Digitale toegankelijkheid omvat veel verschillende onderwerpen: Kleur, typografie, lay-out en code. De beste manier om de digitale toegankelijkheid te borgen binnen een team is door de verantwoordelijkheid te delen en samen een toegankelijk platform neer te zetten.
 
-In de toolkit is een sectie over digitale toegankelijkheid (onder ontwikkeling) ingericht waar uitleg en hulp wordt gegeven om te helpen bij het voldoen aan de eisen en richtlijnen van de digitale toegankelijkheid.
+In de toolkit is er documentatie (bij enkele componenten nog in ontwikkeling) waar uitleg en hulp wordt gegeven per component om te helpen bij het voldoen aan de eisen en richtlijnen van de digitale toegankelijkheid.
 
 ## Disclaimer
 De DSO Toolkit is bedoeld voor gebruik binnen het programma Aan de slag met de Omgevingswet. Het is daarom niet toegestaan dat derden - zonder voorafgaande schriftelijke toestemming van het programma Aan de slag met de Omgevingswet - de informatie en/of de huisstijl kopiëren, vermenigvuldigen, bewerken of doorleveren anders dan voor persoonlijk, niet-commercieel gebruik.

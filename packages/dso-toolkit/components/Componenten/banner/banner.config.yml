@@ -1,8 +1,9 @@
 notes: |
   Om de content in een banner goed te tonen, moet aan de volgende voorwaarden worden voldaan:
   - een class `.dso-rich-content` op de omringende `<div>`
+  - een `<h2>`-heading met een indicatie van 'Storingsmelding:' of 'Onderhoudsmelding:' 
   - een `<p>`-tag om de paragrafen
-status: wip
+status: ready
 collated: true
 context:
   __title: danger

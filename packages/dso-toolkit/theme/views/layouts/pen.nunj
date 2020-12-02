@@ -69,7 +69,8 @@
                 <a href="#browser-{{ entity.id }}-panel-component" onclick="fixFrameHeight()" aria-controls="component-tab">
                   Component
                   {% if entity.meta.webComponent %}
-                    <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>{% endif %}
+                    <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+                  {% endif %}
                 </a>
               </li>
               <li class="is-active dso-browser-navbar-item">
