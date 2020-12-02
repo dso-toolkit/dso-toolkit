@@ -4,9 +4,8 @@
   {% if icon %}icon="{{ icon }}"{% endif %}
   {% if label %}label="{{ label }}"{% endif %}
   >
-  {# <svg slot="icon" /> #}
   {%- if icon and label %}
-    {% render '@icon', {icon: icon, label: label, slotAttr: 'highlightboxIcon'} %}
+    {% render '@icon', {icon: icon, slotAttr: 'highlightboxIcon'} %}
   {% endif -%}
   {{ yield | safe }}
 </dso-highlight-box>
