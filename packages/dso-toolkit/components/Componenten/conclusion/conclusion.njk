@@ -21,7 +21,7 @@
   {% endfor -%}
 </ul>
 {% if alert %}
-  <dso-alert status="{{ alert.modifier }}">
+  <dso-alert status="{{ alert.status }}">
     {{ alert.message }}
   </dso-alert>
 {% endif %}

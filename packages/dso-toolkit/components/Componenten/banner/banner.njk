@@ -2,10 +2,18 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
         <div class="dso-rich-content">
+          <h2>
+          {% if modifier === "danger" -%}
+            Storingsmelding:
+          {%- endif %}
+          {%- if modifier === "warning" -%}
+            Onderhoudsmelding:
+          {%- endif %}
+          </h2>
           {{ message | safe }}
         </div>
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
       </div>
     </div>
   </div>

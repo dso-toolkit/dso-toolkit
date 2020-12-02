@@ -64,7 +64,7 @@ context:
         inputType: files
         description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
         files:
-          - filename: Schetsen_en_foto’s_1.pdf
+          - filename: Schetsen_en_foto's_1.pdf
           - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
             confidential: true
   - legend: Beleg
@@ -331,3 +331,31 @@ variants:
     - type: button
       modifier: link
       label: Secondaire actie
+- name: simple-form
+  context:
+    __title: Simpel form
+    __explanation: Een formulier waar <code>.form-group</code> direct in <code>&lt;form&gt;</code> staat.
+    formModifier: form-horizontal
+    fieldsets:
+    - groups:
+      - id: plat-dak
+        label: Heeft de dakkapel een plat dak?
+        inputType: radios
+        inline: true
+        options:
+          - value: 1
+            label: Ja
+          - value: 0
+            label: Nee
+      - id: afstand
+        label: Wat is de afstand tussen de zijkanten van de dakkapel en de zijranden van het dak?
+        inputType: checkboxes
+        options:
+        - id: minder
+          label: 50 cm of minder
+        - id: meer
+          label: meer dan 50 cm
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Volgende
