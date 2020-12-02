@@ -1,0 +1,6 @@
+:host {
+  display: block;
+
+  @import "~@dso-toolkit/styling/scaffolding";
+  @import "~@dso-toolkit/styling/components/attachments-counter";
+}
