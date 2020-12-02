@@ -2,7 +2,7 @@
   {%- if step or (icon and label) %}
     <div class="dso-step-counter">
       {%- if icon and label %}
-        {% render '@icon', {icon: icon, label: label} %}
+        <dso-icon icon="{{ icon }}"></dso-icon>
       {% else %}
         {{ step }}
       {% endif -%}

@@ -2,7 +2,7 @@
   {{ label }}
   {% if button -%}
     <button type="button" title="{{ buttonTitle }}">
-      {% render '@icon', {icon: button} %}
+      <dso-icon icon="{{ button }}"></dso-icon>
     </button>
   {% endif -%}
 </dso-label>

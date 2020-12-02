@@ -1,6 +1,6 @@
 <a href="{{ url }}"{% if iconOnly %} title="{{ label }}"{% endif %} {{ className(modifier) }} {% if modifier and modifier.indexOf('extern') > -1 %}target="_blank" rel="noopener noreferrer"{% endif %}>
   {%- if icon and not iconOnly %}
-    {%- render '@icon', {icon: icon} -%}
+    <dso-icon icon="{{ icon }}"></dso-icon>
     {%- if not modifier or modifier.indexOf('btn') === -1 %} {% endif -%}
   {%- endif -%}
 
@@ -14,8 +14,8 @@
     <span class="sr-only">(opent in nieuw venster)</span>
   {%- endif -%}
 
-  {%- if iconAfter or iconOnly %}
+  {%- if iconAfter or iconOnly -%}
     {%- if not modifier or modifier.indexOf('btn') === -1 %} {% endif -%}
-    {%- render '@icon', {icon: iconAfter or icon} %}
+    <dso-icon icon="{{ iconAfter or icon }}"></dso-icon>
   {%- endif -%}
 </a>

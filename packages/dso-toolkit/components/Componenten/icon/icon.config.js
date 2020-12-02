@@ -4,7 +4,10 @@ const path = require('path');
 const icons = getIcons();
 
 module.exports = {
-  label: 'Icons',
+  meta: {
+    webComponent: true,
+    markup: true
+  },
   notes: `
   Iconen moeten betekenis geven aan een grafische gebruikersinterface. Iconen zijn een visuele  presentatie van een object, idee of actie. Als dat object, idee of die actie niet direct duidelijk is voor de gebruiker heeft het icoon ook weinig toegevoegde waarde en kan zelfs leiden tot verwarring en frustratie wat de gebruiker hindert bij het uitvoeren van een taak. Het herkennen en begrijpen van een icoon is afhankelijk van een eerdere ervaring van de gebruiker. Iconen kunnen gebruikers helpen taken te herkennen en onthouden. Doordat een standaard gebruik van iconen ontbreekt zijn labels nodig om de betekenis van een icoon te verduidelijken.
 
@@ -41,7 +44,7 @@ module.exports = {
   * Email-adres indien een designer contact wil opnemen
 
 
-  Er is een icoon beschikbaar die als tijdelijke vervanging kan dienen. Deze heet wip-wip (work in progress) dit icoon is terug te vinden in de iconenlijst.
+  Er is een icoon beschikbaar die als tijdelijke vervanging kan dienen. Deze heet \`wip-wip\` (work in progress) dit icoon is terug te vinden in de iconenlijst.
 
   ## Bronvermelding
   * [Nielsen Norman Group](https://www.nngroup.com/)
@@ -57,7 +60,7 @@ module.exports = {
 
 function getIcons() {
   return fs
-    .readdirSync('src/icons')
+    .readdirSync(path.join(path.dirname(require.resolve('@dso-toolkit/styling')), 'icons'))
     .filter(icon => icon.split('.').pop().toLowerCase() === 'svg')
     .map(icon => path.basename(icon, '.svg'));
 }

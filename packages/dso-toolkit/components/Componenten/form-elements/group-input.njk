@@ -21,7 +21,7 @@
     >
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true">
-        {%- render '@icon', {icon: inputIcon} -%}
+        <dso-icon icon="{{ inputIcon }}"></dso-icon>
       </span>
     {% endif %}
     {% if errorText %}
