@@ -29,7 +29,7 @@
       {%- endif %}
 
       {% if section.attachments %}
-        <dso-attachments-counter count="{{ section.attachments }}">{{ section.attachments }}</dso-attachments-counter>
+        <dso-attachments-counter count="{{ section.attachments }}">{{ section.attachments }} </dso-attachments-counter>
       {% endif %}
 
       {% if section.type === 'link' %}
@@ -82,7 +82,7 @@
                   {% endif %}
 
                   {% if subsection.attachments %}
-                    <dso-attachments-counter count="{{ subsection.attachments }}">{{ subsection.attachments }}</dso-attachments-counter>
+                    <dso-attachments-counter count="{{ subsection.attachments }}">{{ subsection.attachments }} </dso-attachments-counter>
                   {% endif %}
 
                   {% if section.type === 'link' %}
