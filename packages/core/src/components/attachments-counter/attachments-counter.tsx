@@ -12,8 +12,7 @@ export class AttachmentsCounter {
   render() {
     return(
       <span class="dso-attachments">
-        <slot></slot>
-        <span class="sr-only">bijlage{this.count !== 1 ? 'n' : ''}</span>
+        {this.count} <span class="sr-only">bijlage{this.count !== 1 ? 'n' : ''}</span>
       </span>
     );
   }

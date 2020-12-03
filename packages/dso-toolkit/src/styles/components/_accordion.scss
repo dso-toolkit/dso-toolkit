@@ -74,17 +74,11 @@ $dso-accordion-light-border-color: $grijs-20;
 
         dso-attachments-counter,
         .dso-attachments {
-          color: $grijs-60;
           display: block;
           float: right;
-          font-weight: 400;
-          text-decoration: none;
 
           &::after {
             @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
-
-            content: "";
-            display: inline-block;
           }
         }
       }
@@ -167,7 +161,7 @@ $dso-accordion-light-border-color: $grijs-20;
 
               dso-attachments-counter,
               .dso-attachments {
-                color: $wit;
+                --dso-attachments-counter-color: #{$wit};
 
                 &::after {
                   @include di-variant("paperclip-wit");
