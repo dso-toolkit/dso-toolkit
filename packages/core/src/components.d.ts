@@ -13,10 +13,13 @@ export namespace Components {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoHighlightBox {
+        "border"?: boolean;
+        "dropShadow"?: boolean;
         "icon"?: string;
         "label"?: string;
-        "modifier"?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
         "step"?: number;
+        "white"?: boolean;
+        "yellow"?: boolean;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -62,10 +65,13 @@ declare namespace LocalJSX {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoHighlightBox {
+        "border"?: boolean;
+        "dropShadow"?: boolean;
         "icon"?: string;
         "label"?: string;
-        "modifier"?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
         "step"?: number;
+        "white"?: boolean;
+        "yellow"?: boolean;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';

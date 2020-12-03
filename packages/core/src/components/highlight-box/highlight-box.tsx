@@ -8,7 +8,16 @@ import clsx from 'clsx';
 })
 export class HighlightBox {
   @Prop()
-  modifier?: 'dso-yellow' | 'dso-border' | 'dso-white' | 'dso-drop-shadow';
+  yellow?: boolean;
+
+  @Prop()
+  border?: boolean;
+
+  @Prop()
+  white?: boolean;
+
+  @Prop()
+  dropShadow?: boolean;
 
   @Prop()
   step?: number;
@@ -20,8 +29,19 @@ export class HighlightBox {
   label?: string;
 
   render() {
+    const classes = clsx(
+      'dso-highlight-box',
+      {
+        'dso-yellow': this.yellow,
+        'dso-border': this.border,
+        'dso-white': this.white,
+        'dso-drop-shadow': this.dropShadow,
+        'dso-has-counter': this.step || (this.icon && this.label)
+      }
+    );
+
     return (
-      <div class={ clsx('dso-highlight-box', this.modifier, {[`dso-has-counter`]: this.step || (this.icon && this.label) } )}>
+      <div class={classes}>
         {(this.step || (this.icon && this.label)) && (
           <div class="dso-step-counter">
             {this.step

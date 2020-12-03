@@ -1,9 +1,13 @@
 <dso-highlight-box
-  {% if modifier %} modifier="{{ modifier }}"{% endif %}
+  {# {% if modifier %} modifier="{{ modifier }}"{% endif %} #}
+  {% if yellow %} yellow{% endif %}
+  {% if border %} border{% endif %}
+  {% if white %} white{% endif %}
+  {% if dropShadow %} drop-shadow{% endif %}
   {% if step %}step="{{ step }}"{% endif %}
   {% if icon %}icon="{{ icon }}"{% endif %}
   {% if label %}label="{{ label }}"{% endif %}
-  >
+>
   {%- if icon and label %}
     {% render '@icon', {icon: icon, slotAttr: 'highlightboxIcon'} %}
   {% endif -%}

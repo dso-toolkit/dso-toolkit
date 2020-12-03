@@ -24,19 +24,20 @@ context:
 variants:
   - name: yellow
     context:
-      modifier: dso-yellow
+      yellow: true
   - name: bordered
     context:
-      modifier: dso-border
+      border: true
   - name: white-drop-shadow
     context:
-      modifier: dso-white dso-drop-shadow
+      white: true
+      dropShadow: true
   - name: Step indicator
     context:
-      modifier: dso-yellow
+      yellow: true
       step: 2
   - name: Icon indicator
     context:
-      modifier: dso-yellow
+      yellow: true
       icon: plus
       label: Plus
