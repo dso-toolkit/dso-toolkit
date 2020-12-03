@@ -1,7 +1,44 @@
-<ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
+<dso-cards
+  {% if flat %} flat{% endif %}
+  {% if interactionsLocation %} interactionsLocation="{{ interactionsLocation }}"{% endif %}
+ >
+  {% for card in cards %}
+    <dso-card>
+      <div class="dso-card">
+        <a href="#">
+          <div class="dso-rich-content">
+            <h2>{{ card.label }}</h2>
+            <p>{{ card.content | safe }}</p>
+          </div>
+        </a>
+        {# {% if interactions %}
+          <dso-card-interactions name="interactions">
+            {% for interaction in interactions %}
+              <dso-card-interaction>
+                {% if interaction.toggle %}
+                  <label slot="label">
+                    <input type="checkbox" name="{{ interaction.toggle.id }}" />
+                    <span class="sr-only">{{ label }}</span>
+                  </label>
+                {% endif %}
+                {% if interaction.button %}
+                  <template slot="button">
+                    {% render '@button', interaction.button -%}
+                  </template>
+                {% endif %}
+              </dso-card-interaction>
+            {% endfor %}
+          </dso-card-interactions>
+        {% endif %} #}
+      </div>
+    </dso-card>
+  {% endfor %}
+</dso-cards>
+
+{# <ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
   {% for card in cards %}
     <li>
       {% render '@card', card %}
     </li>
   {% endfor %}
-</ul>
+</ul> #}

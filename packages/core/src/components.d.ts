@@ -24,6 +24,11 @@ export namespace Components {
     }
     interface DsoIcon {
         "icon": string;
+    interface DsoCard {
+    }
+    interface DsoCards {
+        "flat"?: boolean;
+        "interactionsLocation"?: string;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -64,6 +69,17 @@ declare global {
     var HTMLDsoIconElement: {
         prototype: HTMLDsoIconElement;
         new (): HTMLDsoIconElement;
+    interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
+    }
+    var HTMLDsoCardElement: {
+        prototype: HTMLDsoCardElement;
+        new (): HTMLDsoCardElement;
+    };
+    interface HTMLDsoCardsElement extends Components.DsoCards, HTMLStencilElement {
+    }
+    var HTMLDsoCardsElement: {
+        prototype: HTMLDsoCardsElement;
+        new (): HTMLDsoCardsElement;
     };
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
     }
@@ -83,6 +99,8 @@ declare global {
         "dso-badge": HTMLDsoBadgeElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
+        "dso-card": HTMLDsoCardElement;
+        "dso-cards": HTMLDsoCardsElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
     }
@@ -106,6 +124,11 @@ declare namespace LocalJSX {
     }
     interface DsoIcon {
         "icon": string;
+    interface DsoCard {
+    }
+    interface DsoCards {
+        "flat"?: boolean;
+        "interactionsLocation"?: string;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -121,6 +144,8 @@ declare namespace LocalJSX {
         "dso-badge": DsoBadge;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
+        "dso-card": DsoCard;
+        "dso-cards": DsoCards;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
     }
@@ -134,6 +159,8 @@ declare module "@stencil/core" {
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
+            "dso-cards": LocalJSX.DsoCards & JSXBase.HTMLAttributes<HTMLDsoCardsElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
         }

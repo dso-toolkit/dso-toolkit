@@ -1,3 +1,6 @@
+meta:
+  webComponent: true
+  markup: true
 notes: |
   Cards zijn containers voor korte stukken informatie die met elkaar te maken hebben. Qua grootte en vorm lijken ze op speelkaarten. Ze hebben de volgende eigenschappen:
   - Cards zijn een visuele groep van verschillende elementen. Meestal gaat het om beeld en tekst, maar het kunnen ook andere elementen zijn.
@@ -65,4 +68,4 @@ variants:
       interactionsLocation: bottom
   - name: flat
     context:
-      modifiers: dso-flat
+      flat: true
