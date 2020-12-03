@@ -11,11 +11,12 @@
             <p>{{ card.content | safe }}</p>
           </div>
         </a>
-        {# {% if interactions %}
-          <dso-card-interactions name="interactions">
-            {% for interaction in interactions %}
+        {% if card.interactions %}
+          <dso-card-interactions>
+            {% for interaction in card.interactions %}
               <dso-card-interaction>
                 {% if interaction.toggle %}
+                  toggle
                   <label slot="label">
                     <input type="checkbox" name="{{ interaction.toggle.id }}" />
                     <span class="sr-only">{{ label }}</span>
@@ -29,7 +30,7 @@
               </dso-card-interaction>
             {% endfor %}
           </dso-card-interactions>
-        {% endif %} #}
+        {% endif %}
       </div>
     </dso-card>
   {% endfor %}
