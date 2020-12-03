@@ -18,7 +18,6 @@ export class ProgressBar {
   @Prop()
   valueMax!: number;
 
-
   render() {
     const progressWidth = {
       width: `${this.progress}%`
