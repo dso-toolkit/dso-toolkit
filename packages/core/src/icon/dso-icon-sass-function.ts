@@ -12,8 +12,10 @@ export const dsoIcon = {
       throw new TypeError('Expected $icon to be of type String');
     }
 
-    const svg = readFileSync(resolve(iconsPath, `${icon.getValue()}.svg`)).toString('UTF-8');
+    const path = resolve(iconsPath, `${icon.getValue()}.svg`);
+    const svg = readFileSync(path).toString('UTF-8');
+    const dataUri = svgToDataUri(svg);
 
-    return new sass.types.String(`url("${svgToDataUri(svg)}")`);
+    return new sass.types.String(`url("${dataUri}")`);
   }
 };

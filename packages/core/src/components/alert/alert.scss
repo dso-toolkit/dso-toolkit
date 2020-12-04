@@ -1,10 +1,10 @@
 :host {
   display: block;
 
-  --di-status-success: dso-icon("status-success");
-  --di-status-danger: dso-icon("status-danger");
-  --di-status-warning: dso-icon("status-warning");
-  --di-status-info: dso-icon("status-info");
+  --di-status-success: #{dso-icon("status-success")};
+  --di-status-danger: #{dso-icon("status-danger")};
+  --di-status-warning: #{dso-icon("status-warning")};
+  --di-status-info: #{dso-icon("status-info")};
 
   @import "~@dso-toolkit/styling/scaffolding/normalize";
   @import "~@dso-toolkit/styling/scaffolding/sr-only";

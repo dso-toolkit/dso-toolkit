@@ -1,7 +1,7 @@
 @import "~@dso-toolkit/styling/variables/icon";
 
 @mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align) {
-  --dso-icon: var(--#{icon});
+  --dso-icon: var(--di-#{$icon});
 
   background: var(--dso-icon) no-repeat;
   background-position: center;
@@ -12,5 +12,5 @@
 }
 
 @mixin di-variant($icon) {
-  --dso-icon: var(--#{$icon});
+  --dso-icon: var(--di-#{$icon});
 }
