@@ -19,10 +19,10 @@ export namespace Components {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
     interface DsoProgressBar {
+        "max": number;
+        "min": number;
         "progress": number;
         "progressLabel"?: string;
-        "valueMax": number;
-        "valueMin": number;
     }
 }
 declare global {
@@ -78,10 +78,10 @@ declare namespace LocalJSX {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
     interface DsoProgressBar {
+        "max"?: number;
+        "min"?: number;
         "progress": number;
         "progressLabel"?: string;
-        "valueMax": number;
-        "valueMin": number;
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;

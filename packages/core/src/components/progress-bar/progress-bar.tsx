@@ -13,20 +13,27 @@ export class ProgressBar {
   progress!: number;
 
   @Prop()
-  valueMin!: number;
+  min = 0;
 
   @Prop()
-  valueMax!: number;
+  max = 100;
 
   render() {
-    const progressWidth = {
-      width: `${this.progress}%`
-    }
+    const progress = Math.round(this.progress / this.max * 100);
 
     return (
       <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow={this.progress} aria-valuemin={this.valueMin} aria-valuemax={this.valueMax} style={progressWidth}>
-          {this.progressLabel ? <span>{this.progressLabel}</span> : <span>{this.progress}%</span>}
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={this.min}
+          aria-valuemax={this.max}
+          style={{ width: `${progress}%` }}
+        >
+          <span>
+            <slot>{`${progress}%`}</slot>
+          </span>
         </div>
       </div>
     );
