@@ -47,11 +47,8 @@
   }
 
   &.dso-has-counter {
-    padding-top: $u5;
-    position: relative;
+    margin-top: $dso-highlight-box-margin-top;
   }
 
-  .dso-step-counter {
-    @include step-counter();
-  }
+  @include step-counter();
 }

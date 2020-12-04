@@ -1,6 +1,7 @@
 :host {
   display: block;
 
-  @import "~@dso-toolkit/styling/scaffolding";
+  @import "~@dso-toolkit/styling/scaffolding/normalize";
+
   @import "~@dso-toolkit/styling/components/highlight-box";
 }

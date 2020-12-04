@@ -1,4 +1,4 @@
-# dso-hightlight-box
+# dso-highlight-box
 
 
 
