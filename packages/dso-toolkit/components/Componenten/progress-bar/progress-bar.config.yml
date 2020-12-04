@@ -1,3 +1,6 @@
+meta:
+  webComponent: true
+  markup: true
 notes: |
   Voortgangsindicatoren informeren gebruikers over de status van lopende processen, zoals het laden de pagina, het indienen van een formulier of het uploaden van bestanden. Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren. 
 
@@ -47,3 +50,10 @@ variants:
       __title: meer dan 1 minuut
       progress: 25
       progressLabel: Nog ongeveer 4 minuten
+  - name: non-default-values
+    context:
+      __title: Niet-standaard waarden
+      progress: 3
+      progressLabel: 3/4
+      value:
+        max: 4
