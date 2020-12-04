@@ -2,7 +2,9 @@ $dso-pager-icon-space: $dso-unit / 2;
 $dso-pager-border-width: $dso-button-border-width;
 $dso-pager-height: $u6;
 
-.pager {
+.pager { // DEPRECATED
+  background-color: $brand-danger;
+
   li {
     > a,
     > span {
