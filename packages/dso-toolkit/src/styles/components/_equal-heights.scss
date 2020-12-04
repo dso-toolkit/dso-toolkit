@@ -11,7 +11,7 @@
       min-height: auto;
 
       &.dso-has-counter {
-        height: calc(100% - #{$dso-highlight-box-margin-top});
+        height: calc(100% - #{$dso-shared-equal-heights-highlight-box-height});
       }
     }
 
