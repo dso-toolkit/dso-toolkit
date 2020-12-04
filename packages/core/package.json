@@ -25,7 +25,9 @@
     "@dso-toolkit/styling": "workspace:packages/styling",
     "@stencil/core": "2.3.0",
     "@stencil/sass": "1.4.1",
+    "@types/cheerio": "0.22.22",
     "@types/sass": "1.16.0",
+    "cheerio": "1.0.0-rc.3",
     "clsx": "1.1.1",
     "mini-svg-data-uri": "1.2.3"
   }

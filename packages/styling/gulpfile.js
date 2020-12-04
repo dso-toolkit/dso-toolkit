@@ -99,8 +99,8 @@ async function createSvgSpritesheet() {
 
             if (stylesheet) {
               const style = $('<style>')
-              .attr('type', 'text/css')
-              .html(`\n${indent(stylesheet.style, 4)}\n  `); // last two spaces are indent fix
+                .attr('type', 'text/css')
+                .html(`\n${indent(stylesheet.style, 4)}\n  `); // last two spaces are indent fix
 
               symbol.before(style);
             }
