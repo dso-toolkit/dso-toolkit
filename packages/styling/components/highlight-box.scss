@@ -1,6 +1,8 @@
 @import "../variables";
 @import "../mixins/step-counter";
 
+$dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
+
 .dso-highlight-box {
   background-color: $grijs-10;
   margin-top: $u2;
