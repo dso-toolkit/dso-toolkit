@@ -25,3 +25,9 @@
     {% endfor %}
   </ul>
 </nav>
+
+<dso-tree>
+  {%- for nav in navs %}
+    <dso-tree-branch label="{{ nav.label }}" items="{{ nav.items }}"></dso-tree-branch>
+  {% endfor %}
+</dso-tree>

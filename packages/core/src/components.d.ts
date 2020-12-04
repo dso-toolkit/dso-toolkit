@@ -15,6 +15,19 @@ export namespace Components {
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoTree {
+    }
+    interface DsoTreeBranch {
+        "items": [];
+        "label": string;
+    }
+    interface DsoTreeItem {
+        "item": {
+    active: boolean;
+    collapsed: boolean;
+    items: [];
+  };
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -35,10 +48,31 @@ declare global {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoTreeElement extends Components.DsoTree, HTMLStencilElement {
+    }
+    var HTMLDsoTreeElement: {
+        prototype: HTMLDsoTreeElement;
+        new (): HTMLDsoTreeElement;
+    };
+    interface HTMLDsoTreeBranchElement extends Components.DsoTreeBranch, HTMLStencilElement {
+    }
+    var HTMLDsoTreeBranchElement: {
+        prototype: HTMLDsoTreeBranchElement;
+        new (): HTMLDsoTreeBranchElement;
+    };
+    interface HTMLDsoTreeItemElement extends Components.DsoTreeItem, HTMLStencilElement {
+    }
+    var HTMLDsoTreeItemElement: {
+        prototype: HTMLDsoTreeItemElement;
+        new (): HTMLDsoTreeItemElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-label": HTMLDsoLabelElement;
+        "dso-tree": HTMLDsoTreeElement;
+        "dso-tree-branch": HTMLDsoTreeBranchElement;
+        "dso-tree-item": HTMLDsoTreeItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -51,10 +85,26 @@ declare namespace LocalJSX {
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoTree {
+    }
+    interface DsoTreeBranch {
+        "items": [];
+        "label": string;
+    }
+    interface DsoTreeItem {
+        "item": {
+    active: boolean;
+    collapsed: boolean;
+    items: [];
+  };
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-badge": DsoBadge;
         "dso-label": DsoLabel;
+        "dso-tree": DsoTree;
+        "dso-tree-branch": DsoTreeBranch;
+        "dso-tree-item": DsoTreeItem;
     }
 }
 export { LocalJSX as JSX };
@@ -64,6 +114,9 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-tree": LocalJSX.DsoTree & JSXBase.HTMLAttributes<HTMLDsoTreeElement>;
+            "dso-tree-branch": LocalJSX.DsoTreeBranch & JSXBase.HTMLAttributes<HTMLDsoTreeBranchElement>;
+            "dso-tree-item": LocalJSX.DsoTreeItem & JSXBase.HTMLAttributes<HTMLDsoTreeItemElement>;
         }
     }
 }
