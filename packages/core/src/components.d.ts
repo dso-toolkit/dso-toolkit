@@ -15,6 +15,13 @@ export namespace Components {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoHighlightBox {
+        "border"?: boolean;
+        "dropShadow"?: boolean;
+        "step"?: number;
+        "white"?: boolean;
+        "yellow"?: boolean;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -43,6 +50,12 @@ declare global {
         prototype: HTMLDsoBadgeElement;
         new (): HTMLDsoBadgeElement;
     };
+    interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
+    }
+    var HTMLDsoHighlightBoxElement: {
+        prototype: HTMLDsoHighlightBoxElement;
+        new (): HTMLDsoHighlightBoxElement;
+    };
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
     }
     var HTMLDsoLabelElement: {
@@ -59,6 +72,7 @@ declare global {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-badge": HTMLDsoBadgeElement;
+        "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
     }
@@ -73,6 +87,13 @@ declare namespace LocalJSX {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoHighlightBox {
+        "border"?: boolean;
+        "dropShadow"?: boolean;
+        "step"?: number;
+        "white"?: boolean;
+        "yellow"?: boolean;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -85,6 +106,7 @@ declare namespace LocalJSX {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-badge": DsoBadge;
+        "dso-highlight-box": DsoHighlightBox;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
     }
@@ -96,6 +118,7 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
+            "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
         }
