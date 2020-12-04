@@ -22,7 +22,6 @@ export namespace Components {
         "max": number;
         "min": number;
         "progress": number;
-        "progressLabel"?: string;
     }
 }
 declare global {
@@ -81,7 +80,6 @@ declare namespace LocalJSX {
         "max"?: number;
         "min"?: number;
         "progress": number;
-        "progressLabel"?: string;
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;

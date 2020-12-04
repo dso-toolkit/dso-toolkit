@@ -7,9 +7,6 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class ProgressBar {
   @Prop()
-  progressLabel?: string;
-
-  @Prop()
   progress!: number;
 
   @Prop()
