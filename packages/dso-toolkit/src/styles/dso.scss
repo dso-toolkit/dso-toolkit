@@ -1,10 +1,10 @@
 @import "mixins/mixins";
 @import "mixins/extends";
-@import "mixins/font-asap";
+// @import "mixins/font-asap"; -> Moved to @dso-toolkit/assets/fonts
 @import "mixins/full-width-row";
 @import "mixins/grid";
 @import "mixins/tables";
-@import "mixins/typography";
+// @import "mixins/typography"; -> Moved to @dso-toolkit/styling/scaffolding
 
 // @import "icons/di"; -> Moved to @dso-toolkit/styling
 

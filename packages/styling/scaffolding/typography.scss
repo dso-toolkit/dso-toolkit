@@ -1,0 +1,212 @@
+@import "../variables";
+@import "../mixins/clearfix";
+@import "../mixins/list-unstyled";
+@import "../mixins/text-overflow";
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  color: $text-color;
+  background-color: $body-bg;
+}
+
+h1 {
+  @extend %is-h1;
+}
+
+h2 {
+  @extend %is-h2;
+}
+
+h3 {
+  @extend %is-h3;
+}
+
+h4 {
+  @extend %is-h4;
+}
+
+h5 {
+  @extend %is-h5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+}
+
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+  margin-top: $line-height-computed;
+  margin-bottom: $u2;
+}
+
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
+  margin-top: ($line-height-computed / 2);
+  margin-bottom: $u2;
+}
+
+p {
+  margin: 0 0 $u2;
+}
+
+small,
+.small {
+  font-size: $font-size-small;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: $u2;
+
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+.list-unstyled {
+  @include list-unstyled;
+}
+
+dl {
+  margin-bottom: $u2;
+  margin-top: 0; // Remove browser default
+}
+
+dt,
+dd {
+  line-height: $line-height-base;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+.dl-horizontal {
+  dd {
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: $dl-horizontal-breakpoint) {
+    dt {
+      float: left;
+      width: ($dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      @include text-overflow;
+    }
+    dd {
+      margin-left: $dl-horizontal-offset;
+    }
+  }
+}
+
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+}
+
+blockquote {
+  padding: $u2;
+  margin: 0 0 $u2;
+  font-size: $blockquote-font-size;
+  border-left: 5px solid $blockquote-border-color;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: $line-height-base;
+    color: $blockquote-small-color;
+
+    &:before {
+      content: "\2014 \00A0"; // em dash, nbsp
+    }
+  }
+}
+
+// Mind Bootstrap's .caption class: node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_thumbnails.scss
+.caption {
+  font-style: italic;
+}
+
+sub,
+sup {
+  font-size: 0.65em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+del {
+  background-color: $dso-danger-bg-color;
+}
+
+ins {
+  background-color: $dso-success-bg-color;
+  text-decoration: none;
+}
+
+hr {
+  margin-bottom: $u1;
+  margin-top: $u1;
+}

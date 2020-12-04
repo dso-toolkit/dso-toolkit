@@ -1,6 +1,7 @@
+@import "../assets/fonts/font-asap";
+
 /* stylelint-disable value-keyword-case */
 $font-family-sans-serif: Asap, sans-serif;
-$font-family-serif: Georgia, "Times New Roman", Times, serif;
 $font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base: $font-family-sans-serif;
 
@@ -8,17 +9,15 @@ $font-size-base: 16px;
 $font-size-large: ceil(($font-size-base * 1.25));
 $font-size-small: ceil(($font-size-base * 0.85));
 
-$font-size-h1: $dso-font-size-h1;
-$font-size-h2: $dso-font-size-h2;
-$font-size-h3: $dso-font-size-h3;
-$font-size-h4: $dso-font-size-h4;
-$font-size-h5: $dso-font-size-h5;
-$font-size-h6: $dso-font-size-h5;
-
 $line-height-base: 1.5;
 $line-height-computed: floor(($font-size-base * $line-height-base));
 
 $headings-font-family: "Asap", sans-serif;
-$headings-font-weight: bold;
 $headings-line-height: 1.1;
-$headings-color: $bosgroen;
+
+$component-offset-horizontal: 180px;
+$dl-horizontal-offset: $component-offset-horizontal;
+$dl-horizontal-breakpoint: $grid-float-breakpoint;
+$blockquote-small-color: $gray-light;
+$blockquote-font-size: ($font-size-base * 1.25);
+$blockquote-border-color: $gray-lighter;

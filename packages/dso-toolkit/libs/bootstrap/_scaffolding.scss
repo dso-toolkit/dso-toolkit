@@ -21,18 +21,20 @@
 
 // Body reset
 
-html {
-  font-size: 10px;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+// html {
+//   font-size: 10px;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// }
+// -> Moved to @dso-toolkit/styling/scaffolding/typography
 
-body {
-  font-family: $font-family-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $text-color;
-  background-color: $body-bg;
-}
+// body {
+//   font-family: $font-family-base;
+//   font-size: $font-size-base;
+//   line-height: $line-height-base;
+//   color: $text-color;
+//   background-color: $body-bg;
+// }
+// -> Moved to @dso-toolkit/styling/scaffolding/typography
 
 // Reset fonts for relevant elements
 input,
