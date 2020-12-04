@@ -1,0 +1,9 @@
+:host {
+  display: inline-block;
+
+  @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/styling/scaffolding/sr-only";
+
+  @import "../../icon/di";
+  @import "~@dso-toolkit/styling/components/attachments-counter";
+}

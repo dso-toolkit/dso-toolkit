@@ -1,3 +1,8 @@
+@import "../variables";
+@import "../mixins/step-counter";
+
+$dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
+
 .dso-highlight-box {
   background-color: $grijs-10;
   margin-top: $u2;
@@ -44,13 +49,9 @@
     }
   }
 
-  > .dso-rich-content {
-    *:first-child {
-      margin-top: 0;
-    }
-
-    *:last-child {
-      margin-bottom: 0;
-    }
+  &.dso-has-counter {
+    margin-top: $dso-highlight-box-margin-top;
   }
+
+  @include step-counter();
 }
