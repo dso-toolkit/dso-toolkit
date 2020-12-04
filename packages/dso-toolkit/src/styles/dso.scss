@@ -9,7 +9,7 @@
 @import "@dso-toolkit/styling/icons";
 
 @import "components/accordion";
-@import "components/attachments-counter";
+// @import "components/attachments-counter"; -> Moved to @dso-toolkit/styling
 // @import "components/alert"; -> Moved to @dso-toolkit/styling
 @import "components/anchor";
 // @import "components/badge"; -> Moved to @dso-toolkit/styling
@@ -41,7 +41,7 @@
 @import "components/pager";
 @import "components/pagination";
 @import "components/panel";
-@import "components/progress-bar";
+// @import "components/progress-bar"; -> Moved to @dso-toolkit/styling
 @import "components/progress-indicator";
 @import "components/rich-content";
 @import "components/search-bar";
