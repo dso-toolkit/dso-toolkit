@@ -6,11 +6,7 @@
   ) }}
   {{ className('btn', [modifier, 'btn-' + modifier]) -}}
 >
-  {%- if icon and not(iconOnly) -%}
-    <dso-icon icon="{{ icon }}"></dso-icon>
-  {%- endif -%}
+  {%- if icon and not(iconOnly) %}<dso-icon icon="{{ icon }}"></dso-icon>{% endif -%}
   <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
-  {%- if iconAfter or iconOnly -%}
-    <dso-icon icon="{{ iconAfter or icon }}"></dso-icon>
-  {%- endif -%}
+  {%- if iconAfter or iconOnly %}<dso-icon icon="{{ iconAfter or icon }}"></dso-icon>{% endif -%}
 </button>
