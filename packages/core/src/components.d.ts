@@ -18,8 +18,6 @@ export namespace Components {
     interface DsoHighlightBox {
         "border"?: boolean;
         "dropShadow"?: boolean;
-        "icon"?: string;
-        "label"?: string;
         "step"?: number;
         "white"?: boolean;
         "yellow"?: boolean;
@@ -92,8 +90,6 @@ declare namespace LocalJSX {
     interface DsoHighlightBox {
         "border"?: boolean;
         "dropShadow"?: boolean;
-        "icon"?: string;
-        "label"?: string;
         "step"?: number;
         "white"?: boolean;
         "yellow"?: boolean;

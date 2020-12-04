@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
 import clsx from 'clsx';
 
 @Component({
@@ -22,13 +22,11 @@ export class HighlightBox {
   @Prop()
   step?: number;
 
-  @Prop()
-  icon?: string;
-
-  @Prop()
-  label?: string;
+  @Element()
+  private element!: HTMLElement;
 
   render() {
+    const hasCounter = this.step || !!this.element.querySelector('[slot=icon]');
     const classes = clsx(
       'dso-highlight-box',
       {
@@ -36,22 +34,17 @@ export class HighlightBox {
         'dso-border': this.border,
         'dso-white': this.white,
         'dso-drop-shadow': this.dropShadow,
-        'dso-has-counter': this.step || (this.icon && this.label)
+        'dso-has-counter': hasCounter
       }
     );
 
     return (
       <div class={classes}>
-        {(this.step || (this.icon && this.label)) && (
+        {hasCounter && (
           <div class="dso-step-counter">
-            {this.step
-              ? (
-                this.step
-              )
-              : (
-                <slot name="highlightboxIcon"></slot>
-              )
-            }
+            {this.step ?? (
+              <slot name="icon"></slot>
+            )}
           </div>
         )}
         <slot></slot>
