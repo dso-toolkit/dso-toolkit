@@ -27,6 +27,12 @@
       width: 160px;
     }
   }
+
+  &.dso-has-counter {
+    min-height: $dso-whitebox-min-height + $u5;
+  }
+
+  @include step-counter();
 }
 
 .dso-whitebox-small {

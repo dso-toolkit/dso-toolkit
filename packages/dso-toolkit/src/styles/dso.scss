@@ -27,7 +27,7 @@
 @import "components/form";
 @import "components/form_buttons";
 @import "components/header";
-@import "components/highlight-box";
+// @import "components/highlight-box"; -> Moved to @dso-toolkit/styling
 @import "components/image";
 @import "components/info";
 @import "components/input-number";
@@ -47,7 +47,7 @@
 @import "components/search-bar";
 @import "components/selectables";
 @import "components/shopping-cart";
-@import "components/step-counter";
+// @import "components/step-counter"; -> Moved to @dso-toolkit/styling
 @import "components/steps";
 @import "components/table";
 @import "components/tabs";
