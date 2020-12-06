@@ -12,9 +12,7 @@
   <div class="dso-field-container">
     {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id)}) %}
     {% if inputIcon %}
-      <span class="form-control-feedback" aria-hidden="true">
-        {%- render '@icon', {icon: inputIcon} -%}
-      </span>
+      <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
     {% if errorText %}
       {% render '@error-block', {errorText: errorText} %}
