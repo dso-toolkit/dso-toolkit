@@ -6,7 +6,7 @@
 @import "mixins/tables";
 @import "mixins/typography";
 
-@import "@dso-toolkit/styling/icons";
+// @import "icons/di"; -> Moved to @dso-toolkit/styling
 
 @import "components/accordion";
 // @import "components/attachments-counter"; -> Moved to @dso-toolkit/styling

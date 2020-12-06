@@ -6,7 +6,7 @@ const log = require('fancy-log');
 const fractal = require('./fractal.js');
 
 const { lintStyles, lintWatcher } = require('./gulp/lint');
-const { build, buildTheme, buildThemeWatcher, cleanBuild, createSvgSpritesheet, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
+const { build, buildTheme, buildThemeWatcher, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
 const { testDom } = require('./gulp/test');
 
 gulp.task('clean', cleanBuild);
@@ -15,7 +15,6 @@ gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), buildT
 gulp.task('lint', lintStyles);
 gulp.task('build', build);
 gulp.task('build:theme', buildTheme);
-gulp.task('spritesheet', createSvgSpritesheet)
 gulp.task('test', gulp.series(testDom));
 gulp.task('test:dom', testDom);
 gulp.task('reference:dom', createDomReference);

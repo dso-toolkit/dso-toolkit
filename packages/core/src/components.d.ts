@@ -22,6 +22,9 @@ export namespace Components {
         "white"?: boolean;
         "yellow"?: boolean;
     }
+    interface DsoIcon {
+        "icon": string;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -56,6 +59,12 @@ declare global {
         prototype: HTMLDsoHighlightBoxElement;
         new (): HTMLDsoHighlightBoxElement;
     };
+    interface HTMLDsoIconElement extends Components.DsoIcon, HTMLStencilElement {
+    }
+    var HTMLDsoIconElement: {
+        prototype: HTMLDsoIconElement;
+        new (): HTMLDsoIconElement;
+    };
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
     }
     var HTMLDsoLabelElement: {
@@ -73,6 +82,7 @@ declare global {
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
+        "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
     }
@@ -94,6 +104,9 @@ declare namespace LocalJSX {
         "white"?: boolean;
         "yellow"?: boolean;
     }
+    interface DsoIcon {
+        "icon": string;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -107,6 +120,7 @@ declare namespace LocalJSX {
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-badge": DsoBadge;
         "dso-highlight-box": DsoHighlightBox;
+        "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
     }
@@ -119,6 +133,7 @@ declare module "@stencil/core" {
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
+            "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
         }
