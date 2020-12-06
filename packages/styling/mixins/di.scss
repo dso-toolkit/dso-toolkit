@@ -1,9 +1,6 @@
-@import "./variables";
+@import "../variables/icon";
 
-$dso-icons-path: "./dist/assets/" !default;
-
-$dso-icon-size: 1.5em;
-$dso-icon-vertical-align: top;
+$dso-icons-path: '../' !default;
 
 @mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align) {
   background: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
@@ -16,10 +13,4 @@ $dso-icon-vertical-align: top;
 
 @mixin di-variant($icon) {
   background-image: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}");
-}
-
-svg.di {
-  height: $dso-icon-size;
-  vertical-align: $dso-icon-vertical-align;
-  width: $dso-icon-size;
 }

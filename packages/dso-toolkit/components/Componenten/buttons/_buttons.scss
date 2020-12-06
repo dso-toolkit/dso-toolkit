@@ -46,6 +46,7 @@
       &:hover {
         color: $grasgroen;
 
+        > dso-icon,
         > svg.di {
           background-color: $wit;
           border-color: $grasgroen;
@@ -59,6 +60,7 @@
           color: $grasgroen-40;
           opacity: 1;
 
+          > dso-icon,
           > svg.di {
             background-color: $wit;
             border-color: $grasgroen-40;

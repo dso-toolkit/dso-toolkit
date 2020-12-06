@@ -1,0 +1,18 @@
+diff --git a/node_modules/@stencil/core/sys/node/index.js b/node_modules/@stencil/core/sys/node/index.js
+index fd6c47a..83fc275 100644
+--- a/node_modules/@stencil/core/sys/node/index.js
++++ b/node_modules/@stencil/core/sys/node/index.js
+@@ -92,8 +92,11 @@ async function nodeCopyTasks(e, t) {
+    }))));
+   } catch (e) {}
+   for (;s.length > 0; ) {
+-   const e = s.splice(0, 100);
+-   await Promise.all(e.map((e => copyFile(e.src, e.dest))));
++    // const e = s.splice(0, 100);
++    // await Promise.all(e.map((e => copyFile(e.src, e.dest))));
++    for (const e of s.splice(0, 100)) {
++     await copyFile(e.src, e.dest);
++   }
+   }
+  } catch (e) {
+   catchError(r.diagnostics, e);

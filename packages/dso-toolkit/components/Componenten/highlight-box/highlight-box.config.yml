@@ -16,9 +16,7 @@ context:
       <a href="#" class="btn btn-default">Secundaire button</a>
       <a href="#" class="btn btn-link btn-align">
         Tertiaire button
-        <svg class="di di-chevron-down">
-          <use href="../../dso-icons.svg#chevron-down"></use>
-        </svg>
+        <dso-icon icon="chevron-down"></dso-icon>
       </a>
     </div>
 variants:
