@@ -117,6 +117,7 @@ dso-label,
       color: $dso-label-default-button-hover-color;
     }
 
+    > dso-icon,
     > svg.di {
       display: block;
       margin: $u1 / -2;
@@ -238,11 +239,13 @@ dso-label[status="danger"],
     line-height: $dso-button-line-height;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
 
+    dso-icon,
     svg.di {
       margin-left: -$u1;
       margin-right: $u1;
     }
 
+    span + dso-icon,
     span + svg.di {
       margin-left: $u1;
       margin-right: -$u1;
@@ -251,6 +254,7 @@ dso-label[status="danger"],
     &.btn-sm {
       line-height: $u2;
 
+      dso-icon,
       svg.di {
         margin-bottom: -$u1 / 2;
         margin-top: -$u1 / 2;
@@ -437,11 +441,14 @@ a.btn {
     top: -2px;
   }
 
+  dso-icon + span:not(.sr-only),
   svg.di + span:not(.sr-only),
+  span:not(.sr-only) + dso-icon,
   span:not(.sr-only) + svg.di {
     margin-left: $u1;
   }
 
+  dso-icon,
   svg.di,
   span {
     vertical-align: middle;
@@ -459,6 +466,7 @@ a.btn {
       text-decoration: underline;
     }
 
+    > dso-icon,
     > svg.di {
       color: $dso-button-link-hover-color;
     }
@@ -508,6 +516,7 @@ a.btn {
       color: $dso-button-link-active-color;
       text-decoration: none;
 
+      > dso-icon,
       > svg.di {
         color: $dso-button-link-active-color;
       }
@@ -522,6 +531,7 @@ a.btn {
       opacity: 1;
     }
 
+    > dso-icon,
     > svg.di {
       background-color: $wit;
       border-color: $grasgroen-40;

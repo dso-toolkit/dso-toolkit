@@ -1,11 +1,17 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
+import { dsoIcon } from './src/icon/dso-icon-sass-function';
+
 export const config: Config = {
   namespace: 'dso-toolkit',
   globalStyle: 'src/global-styling.scss',
   plugins: [
-    sass()
+    sass({
+      functions: {
+        ...dsoIcon
+      }
+    })
   ],
   outputTargets: [
     {

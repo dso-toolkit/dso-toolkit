@@ -14,6 +14,7 @@ $dso-shopping-cart-border-color: $grijs-20;
     text-align: left;
     width: 100%;
 
+    dso-icon,
     svg.di {
       margin-right: $u1;
     }
@@ -64,6 +65,7 @@ $dso-shopping-cart-border-color: $grijs-20;
     padding-top: $u2;
     position: relative;
 
+    > dso-icon,
     > svg.di {
       float: left;
       height: $u3;

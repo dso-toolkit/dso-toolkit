@@ -34,6 +34,7 @@ form,
               color: $grasgroen;
               text-decoration: none;
 
+              > dso-icon,
               > svg.di {
                 background-color: $grasgroen;
                 color: $wit;
@@ -83,6 +84,7 @@ form,
             margin: #{$u1 / 2} 0;
           }
 
+          > dso-icon,
           > svg.di {
             flex: 0 0 24px;
             height: 24px;
@@ -101,6 +103,7 @@ form,
             display: block;
 
             .dso-confidential,
+            > dso-icon,
             > svg.di,
             .dso-remove {
               display: block;

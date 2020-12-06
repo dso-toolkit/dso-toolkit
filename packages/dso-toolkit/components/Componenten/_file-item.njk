@@ -9,7 +9,7 @@
     </label>
   </div>
   {% if confidential %}
-    {%- render '@icon', {icon: 'status-warning'} -%}
+    <dso-icon icon="status-warning"></dso-icon>
   {% endif %}
   {% render '@button', {label: 'Verwijder document', modifier: 'link dso-remove', type: 'button', ariaDescribedby: id + '-file-filename-' + pos }, true -%}
 </li>
