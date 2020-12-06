@@ -1,6 +1,14 @@
 :host {
   display: block;
 
-  @import "~@dso-toolkit/styling/scaffolding";
+  --di-status-success: #{dso-icon("status-success")};
+  --di-status-danger: #{dso-icon("status-danger")};
+  --di-status-warning: #{dso-icon("status-warning")};
+  --di-status-info: #{dso-icon("status-info")};
+
+  @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/styling/scaffolding/sr-only";
+
+  @import "../../icon/di";
   @import "~@dso-toolkit/styling/components/alert";
 }
