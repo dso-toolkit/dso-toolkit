@@ -50,6 +50,12 @@ $dso-navigation-selected-color: $cannon-pink;
         line-height: 1;
         margin-top: $u1;
         padding: $u1 $u2 #{$u1 - 1px};
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }
