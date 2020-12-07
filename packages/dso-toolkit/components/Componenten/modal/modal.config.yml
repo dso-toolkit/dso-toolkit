@@ -1,47 +1,45 @@
 notes: |
-  Modals zijn schermelementen die de gebruiksflow onderbreken. Goed doordachte
-  inhoud die op het juiste moment verschijnt zorgt ervoor dat de gebruiker de ervaring heeft die hij/zij verwacht.
+  Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt wanneer de gebruiker zijn aandacht moet richten op belangrijke informatie. Bijvoorbeeld een modal met een waarschuwing om te voorkomen dat gebruikers per ongeluk een destructieve actie uitvoeren zonder dat ze het resultaat begrijpen.
   
   ## Technische opmerkingen
+  De class `.dso-scripted-height` verwijdert op `.dso-body` in de large viewport de max-height-property.
   
-  De class `.dso-scripted-height` verwijdert op `.dso-body` in de large viewport de `max-height`-property.
-
-  ## Wanneer te gebruiken:
-
-  - **Onderbreking:** de gebruiker dwingen een beslissing te nemen of een taak te voltooien voor een belangrijk deel van hun workflow. Stel jezelf de vraag, "wil ik de gebruiker echt onderbreken?"
-  - **Feedback of correctie:** beslissingen bevestigen. Bijvoorbeeld: bij een "Weet je het zeker?"-moment.
-  - **Aandacht punt:** de focus van de gebruiker expliciet richten op een enkel stuk inhoud, of het nu een afbeelding, artikel of video is.
-
-  {% render '@lib-frame', {path: ('/components/preview/dialog--valid' | docPath), element: '.dso-dialog'} %}
-
-  ## Wanneer _niet_ te gebruiken
-
-  Modals zijn bedoeld om belangrijke bevestigingen en beslissingen te benadrukken. Houd het simpel: stop er geen formulier, uitgebreide zoeklijst of andere ingewikkelde interacties in. Verwerk die op andere manieren in de pagina of interface.
-
-  {% render '@lib-frame', {path: ('/components/preview/dialog--invalid' | docPath), element: '.dso-dialog'} %}
-
+  ## Wanneer te gebruiken
+  - **Onderbreken:** Gebruik een modal om informatie op te vragen of weer te geven die nodig is om verder te gaan met een door de gebruiker gestart proces.
+  - **Informeren:** Gebruik een modal om de gebruiker te informeren, bijvoorbeeld over belangrijke waarschuwingen, een systeemfout of gevolg van een gebruikersactie.
+  - **Bevestigen:** Gebruik een modal om een beslissing van de gebruiker af te dwingen, bijvoorbeeld met de tekst "Weet u het zeker?"". Beschrijf duidelijk welke actie wordt bevestigd. Leg ook de mogelijke gevolgen uit.
+  
+  ## Wanneer niet te gebruiken
+  Modals zijn zeer storend en blokkeren de flow totdat de gebruiker ze verwijdert. Gebruik een modal alleen als de informatie een directe relatie heeft met de huidige taak.
+  
+  Gebruik een modal alleen voor simpele interacties. Vermijd modals voor complexe interacties of besluitvorming waar aanvullende informatie nodig is die niet in de modal staat. Plaats dus geen lange formulieren of 'check-out' stappen in een modal.
+  
+  ## Hoe te gebruiken
+  - Houd de titel eenvoudig, zodat de gebruiker direct begrijpt wat er van hem wordt gevraagd door de titel te lezen.
+  - Zorg voor korte en bondige teksten in de modal.
+  - Button labels moeten de gebruiker duidelijk vertellen wat er gebeurt als ze erop klikken.
+  - Gebruik geen modal bovenop een ander modal. Als de flow een tweede modal vereist is die vaak te complex om in een modal te plaatsen.
+  
   ## Gedrag en toegankelijkheid
-  Let bij het gebruik van models op de volgende punten:
-  1. Verplaats de focus naar een modal zodra die actief wordt. Binnen de modal moet de focus
-  liggen op het eerste interactieve element.
-  2. Een modal moet een accessible naam hebben en zowel visueel als in de code, voor screenreaders, zichzelf presenteren als een modal.
-  3. Een modal moet te sluiten zijn op deze manieren:
-
-      * met een close button (kruisje rechtsboven of annuleerknop in de footer)
-      * met de escapeknop op het toetsenbord
-      * buiten de modal klikken
-
-  4.  Een gebruiker moet altijd nog naar de adresbalk van de browser kunnen gaan als de modal actief is.
-  5.  Is er een modal actief? Zorg dan voor dat alle elementen die bedekt worden door het
-  modalvenster met overlay niet toegankelijk zijn. Als een gebruiker de tabkey gebruikt, blijft de focus zo binnen de modal.
-  6.  Als de gebruiker de modal sluit, gaat de focus terug naar het element dat de modal heeft geopend. Zo kunnen gebruikers verdergaan waar ze gebleven waren.
-
-  Is de modal niet verschenen door een actie van de gebruiker? Plaats de focus dan op een
-  logische plek.
-
-  Als een modal bijvoorbeeld 'onPageLoad' verschijnt, is het het beste om na het sluiten de
-  focus aan het begin van de pagina te zetten.
-status: ready
+  **Algemeen**
+  - Aria-label of aria-labelledby geeft de modal een toegankelijke naam.
+  - Aria-describedby verwijst naar de inhoud waarin het doel van de modal wordt beschreven. Daarvoor moet er vaste tekst aanwezig zijn die het doel beschrijft.
+  - Wanneer een modal verschijnt, moet de focus verplaatst worden naar de modal. Als er interactieve elementen in de modal staan, wordt de focus op het eerste element gezet.
+  - De tab focus moet beperkt zijn tot de modal (keyboard trap).
+  - Een modal kan gesloten worden door op de sluitknop te klikken. Ook kan een modal gesloten worden door op de ESC-toets te drukken of door buiten de modal te klikken.
+  - Wanneer de modal wordt gesloten, moet de focus, indien mogelijk, teruggezet worden naar de positie die hij had voordat de modal werd geopend.
+  - Valideer eventuele invoer van een gebruiker voordat de modal wordt gesloten. Als een validatiefout optreed, moet de modal open blijven en wordt er een alert en/of inline foutmelding gegeven bij het betreffende invoerveld.
+  
+  **Dialog vs Alertdialog**
+  Is een modal bedoeld om gebruikers te onderbreken met dringende informatie, details of acties? Gebruik dan de `role="alertdialog"`. In andere gevallen gebruik je `role="dialog"`.
+  
+  In tegenstelling tot gewone meldingen moet er tenminste één interactief element in een alertdialog staan. Zet de focus daarop als de modal verschijnt. Meestal is dit een actie om te bevestigen, sluiten of annuleren. Er kunnen ook andere interactieve elementen in een alertdialog staan, zoals invoervelden, checkboxen en radio selecties. Waar de focus gezet moet worden is afhankelijk van het doel van de modal.
+  
+  ## Bronvermelding
+  - Nielsen Norman Group (2017, 23 April). Modal & Nonmodal Dialogs. Geraadpleegd op 13 oktober 2020, via https://www.nngroup.com/articles/modal-nonmodal-dialog/
+  - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/indicators-validations-notifications/
+  - Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via https://www.w3.org/WAI/standards-guidelines/wcag/
+  status: ready
 default: modal
 # collated: false
 context:
