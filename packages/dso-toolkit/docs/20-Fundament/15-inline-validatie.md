@@ -35,9 +35,6 @@ Er zullen natuurlijk situaties zijn waarin inline validatie niet mogelijk is. Da
      * Als een gebruiker een gebruikersnaam maakt, om te controleren of een naam beschikbaar is.
      * Als een gebruiker een bericht typt met een tekenlimiet.
  
-## Component in context
-**Nog aanpassen**
- 
 ## Bronvermelding
 - UX movement (2011, 24 February). Why Long Forms Need Instant Inline Validation. Geraadpleegd op 13 oktober 2020, via https://uxmovement.com/forms/why-long-forms-need-instant-inline-validation/
 - Nielsen Norman Group (2019, 03 February). How to Report Errors in Forms. Geraadpleegd op 13 oktober 2020, via https://www.nngroup.com/articles/errors-forms-design-guidelines/
