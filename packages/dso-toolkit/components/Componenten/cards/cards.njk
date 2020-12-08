@@ -4,34 +4,36 @@
  >
   {% for card in cards %}
     <dso-card>
-      <div class="dso-card">
-        <a href="#">
-          <div class="dso-rich-content">
-            <h2>{{ card.label }}</h2>
-            <p>{{ card.content | safe }}</p>
-          </div>
-        </a>
-        {% if card.interactions %}
-          <dso-card-interactions>
-            {% for interaction in card.interactions %}
-              <dso-card-interaction>
-                {% if interaction.toggle %}
-                  toggle
-                  <label slot="label">
-                    <input type="checkbox" name="{{ interaction.toggle.id }}" />
-                    <span class="sr-only">{{ label }}</span>
-                  </label>
-                {% endif %}
-                {% if interaction.button %}
-                  <template slot="button">
-                    {% render '@button', interaction.button -%}
-                  </template>
-                {% endif %}
-              </dso-card-interaction>
-            {% endfor %}
-          </dso-card-interactions>
-        {% endif %}
-      </div>
+      <li>
+        <div class="dso-card">
+          <a href="#">
+            <div class="dso-rich-content">
+              <h2>{{ card.label }}</h2>
+              <p>{{ card.content | safe }}</p>
+            </div>
+          </a>
+          {% if card.interactions %}
+            <dso-card-interactions>
+              {% for interaction in card.interactions %}
+                <dso-card-interaction>
+                  {# {% if interaction.toggle %}
+                    toggle
+                    <label slot="label">
+                      <input type="checkbox" name="{{ interaction.toggle.id }}" />
+                      <span class="sr-only">{{ label }}</span>
+                    </label>
+                  {% endif %} #}
+                  {# {% if interaction.type %} #}
+                    <template slot="interaction">
+                      {% render '@button', interaction.button -%}
+                    </template>
+                  {# {% endif %} #}
+                </dso-card-interaction>
+              {% endfor %}
+            </dso-card-interactions>
+          {% endif %}
+        </div>
+      </li>
     </dso-card>
   {% endfor %}
 </dso-cards>

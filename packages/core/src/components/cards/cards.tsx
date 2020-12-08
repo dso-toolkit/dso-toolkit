@@ -17,7 +17,6 @@ export class Cards {
     return (
       <ul class={clsx('dso-cards', {[`dso-flat`]: this.flat}, {[`dso-interactions-${this.interactionsLocation}`]: this.interactionsLocation})}>
         <slot></slot>
-        {/* <li>Pieter gek</li> */}
       </ul>
     )
   }
