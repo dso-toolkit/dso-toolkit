@@ -28,6 +28,8 @@ export namespace Components {
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoLogo {
+    }
     interface DsoProgressBar {
         "max": number;
         "min": number;
@@ -71,6 +73,12 @@ declare global {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoLogoElement extends Components.DsoLogo, HTMLStencilElement {
+    }
+    var HTMLDsoLogoElement: {
+        prototype: HTMLDsoLogoElement;
+        new (): HTMLDsoLogoElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -84,6 +92,7 @@ declare global {
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
+        "dso-logo": HTMLDsoLogoElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
     }
 }
@@ -110,6 +119,8 @@ declare namespace LocalJSX {
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoLogo {
+    }
     interface DsoProgressBar {
         "max"?: number;
         "min"?: number;
@@ -122,6 +133,7 @@ declare namespace LocalJSX {
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
+        "dso-logo": DsoLogo;
         "dso-progress-bar": DsoProgressBar;
     }
 }
@@ -135,6 +147,7 @@ declare module "@stencil/core" {
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-logo": LocalJSX.DsoLogo & JSXBase.HTMLAttributes<HTMLDsoLogoElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
         }
     }
