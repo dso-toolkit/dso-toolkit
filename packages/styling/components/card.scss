@@ -35,7 +35,7 @@ dso-card,
   }
 }
 
-li + li,
+.dso-cards > li + li,
 dso-card + dso-card > li {
   border-top: 1px solid $grijs-10;
 }
