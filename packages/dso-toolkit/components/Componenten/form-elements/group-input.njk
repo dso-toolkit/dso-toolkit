@@ -8,6 +8,9 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
     <input type="{{ type }}" id="{{ localId }}" class="form-control"
