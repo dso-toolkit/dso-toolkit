@@ -84,6 +84,11 @@ export namespace Components {
         "min": number;
         "progress": number;
     }
+    interface DsoWhitebox {
+        "label"?: string;
+        "small"?: boolean;
+        "step"?: number;
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -134,6 +139,12 @@ declare global {
         prototype: HTMLDsoProgressBarElement;
         new (): HTMLDsoProgressBarElement;
     };
+    interface HTMLDsoWhiteboxElement extends Components.DsoWhitebox, HTMLStencilElement {
+    }
+    var HTMLDsoWhiteboxElement: {
+        prototype: HTMLDsoWhiteboxElement;
+        new (): HTMLDsoWhiteboxElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
@@ -143,6 +154,7 @@ declare global {
         "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
+        "dso-whitebox": HTMLDsoWhiteboxElement;
     }
 }
 declare namespace LocalJSX {
@@ -223,6 +235,11 @@ declare namespace LocalJSX {
         "min"?: number;
         "progress": number;
     }
+    interface DsoWhitebox {
+        "label"?: string;
+        "small"?: boolean;
+        "step"?: number;
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
@@ -232,6 +249,7 @@ declare namespace LocalJSX {
         "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
+        "dso-whitebox": DsoWhitebox;
     }
 }
 export { LocalJSX as JSX };
@@ -246,6 +264,7 @@ declare module "@stencil/core" {
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
+            "dso-whitebox": LocalJSX.DsoWhitebox & JSXBase.HTMLAttributes<HTMLDsoWhiteboxElement>;
         }
     }
 }
