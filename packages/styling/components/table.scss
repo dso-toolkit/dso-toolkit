@@ -1,4 +1,5 @@
 @import "../variables";
+@import "../mixins/rich-content";
 
 //== Tables
 //
@@ -254,7 +255,7 @@ th {
 table.table {
   td:not(.plain-content),
   th {
-    @extend %dso-rich-content;
+    @include dso-rich-content();
   }
 }
 
