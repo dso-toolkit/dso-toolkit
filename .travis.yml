@@ -12,7 +12,7 @@ install:
 jobs:
   include:
   - name: branch build and deployment
-    if: (branch =~ /^#/ || branch = master) && type = push
+    if: (branch =~ /^#/ || branch = master || branch = next) && type = push
     script:
       yarn lint &&
       yarn build &&
