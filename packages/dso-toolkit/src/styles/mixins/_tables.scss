@@ -1,176 +1,177 @@
 // Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
 // Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
 
-@mixin dso-table-row-variant($state, $background) {
-  // Exact selectors below required to override `.table-striped` and prevent
-  // inheritance to nested tables.
-  .dso-rich-content table > thead > tr,
-  .dso-rich-content table > tbody > tr,
-  .dso-rich-content table > tfoot > tr,
-  .table > thead > tr,
-  .table > tbody > tr,
-  .table > tfoot > tr {
-    > td.#{$state},
-    > th.#{$state},
-    &.#{$state} > td,
-    &.#{$state} > th {
-      background-color: $background;
-    }
-  }
+// verhuisd naar @dso-toolkit/styling/mixins/table.scss
 
-  // Hover states for `.table-hover`
-  // Note: this is not available for cells or rows within `thead` or `tfoot`.
-  .table-hover > tbody > tr {
-    > td.#{$state}:hover,
-    > th.#{$state}:hover,
-    &.#{$state}:hover > td,
-    &:hover > .#{$state},
-    &.#{$state}:hover > th {
-      background-color: $table-bg-active;
-    }
+// @mixin dso-table-row-variant($state, $background) {
+//   // Exact selectors below required to override `.table-striped` and prevent
+//   // inheritance to nested tables.
+//   .dso-rich-content table > thead > tr,
+//   .dso-rich-content table > tbody > tr,
+//   .dso-rich-content table > tfoot > tr,
+//   .table > thead > tr,
+//   .table > tbody > tr,
+//   .table > tfoot > tr {
+//     > td.#{$state},
+//     > th.#{$state},
+//     &.#{$state} > td,
+//     &.#{$state} > th {
+//       background-color: $background;
+//     }
+//   }
 
-    &:hover > th,
-    &:hover > td {
-      background-color: $table-bg-active;
+//   // Hover states for `.table-hover`
+//   // Note: this is not available for cells or rows within `thead` or `tfoot`.
+//   .table-hover > tbody > tr {
+//     > td.#{$state}:hover,
+//     > th.#{$state}:hover,
+//     &.#{$state}:hover > td,
+//     &:hover > .#{$state},
+//     &.#{$state}:hover > th {
+//       background-color: $table-bg-active;
+//     }
 
-      a {
-        color: $dso-table-link-color;
+//     &:hover > th,
+//     &:hover > td {
+//       background-color: $table-bg-active;
 
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-  }
+//       a {
+//         color: $dso-table-link-color;
 
-  .table > tbody > tr {
-    &.#{$state} > th,
-    &.#{$state} > td {
-      background-color: $table-bg-active;
+//         &:hover {
+//           text-decoration: none;
+//         }
+//       }
+//     }
+//   }
 
-      a {
-        color: $dso-table-link-color;
+//   .table > tbody > tr {
+//     &.#{$state} > th,
+//     &.#{$state} > td {
+//       background-color: $table-bg-active;
 
-        &:hover {
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
+//       a {
+//         color: $dso-table-link-color;
 
-@mixin dso-table {
-  // Cells
-  margin-bottom: $line-height-computed;
-  max-width: 100%;
-  width: 100%;
+//         &:hover {
+//           text-decoration: none;
+//         }
+//       }
+//     }
+//   }
+// }
 
-  &.dso-text-left {
-    th,
-    td {
-      text-align: left;
-    }
-  }
+// @mixin dso-table {
+//   // Cells
+//   margin-bottom: $line-height-computed;
+//   max-width: 100%;
+//   width: 100%;
 
-  &.dso-text-center {
-    th,
-    td {
-      text-align: center;
-    }
-  }
+//   &.dso-text-left {
+//     th,
+//     td {
+//       text-align: left;
+//     }
+//   }
 
-  &.dso-text-right {
-    th,
-    td {
-      text-align: right;
-    }
-  }
+//   &.dso-text-center {
+//     th,
+//     td {
+//       text-align: center;
+//     }
+//   }
 
-  th,
-  td {
-    &.dso-text-left {
-      text-align: left;
-    }
+//   &.dso-text-right {
+//     th,
+//     td {
+//       text-align: right;
+//     }
+//   }
 
-    &.dso-text-center {
-      text-align: center;
-    }
+//   th,
+//   td {
+//     &.dso-text-left {
+//       text-align: left;
+//     }
 
-    &.dso-text-right {
-      text-align: right;
-    }
-  }
+//     &.dso-text-center {
+//       text-align: center;
+//     }
 
-  > thead,
-  > tbody,
-  > tfoot {
-    > tr {
-      > th,
-      > td {
-        line-height: $line-height-base;
-        padding: ($table-cell-padding * 1.5) $table-cell-padding;
-        vertical-align: top;
+//     &.dso-text-right {
+//       text-align: right;
+//     }
+//   }
 
-        a {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+//   > thead,
+//   > tbody,
+//   > tfoot {
+//     > tr {
+//       > th,
+//       > td {
+//         line-height: $line-height-base;
+//         padding: ($table-cell-padding * 1.5) $table-cell-padding;
+//         vertical-align: top;
 
-  > thead {
-    > tr {
-      > td,
-      > th {
-        border-bottom: 1px solid $dso-table-header-border-color;
-      }
-    }
-  }
+//         a {
+//           text-decoration: underline;
+//         }
+//       }
+//     }
+//   }
 
-  > tbody,
-  > tfoot {
-    > tr {
-      > td,
-      > th {
-        border-bottom: 1px solid $table-border-color;
-      }
-    }
-  }
+//   > thead {
+//     > tr {
+//       > td,
+//       > th {
+//         border-bottom: 1px solid $dso-table-header-border-color;
+//       }
+//     }
+//   }
 
-  // Account for multiple tbody instances
-  > tbody + tbody {
-    border-top: 2px solid $table-border-color;
-  }
+//   > tbody,
+//   > tfoot {
+//     > tr {
+//       > td,
+//       > th {
+//         border-bottom: 1px solid $table-border-color;
+//       }
+//     }
+//   }
 
-  // Nesting
-  .table {
-    background-color: $body-bg;
-  }
+//   // Account for multiple tbody instances
+//   > tbody + tbody {
+//     border-top: 2px solid $table-border-color;
+//   }
 
-  // error after filtering
-  > tbody > tr.result-error {
-    td {
-      font-style: italic;
-    }
-  }
+//   // Nesting
+//   .table {
+//     background-color: $body-bg;
+//   }
 
-  // sortable table
-  > thead > tr > th {
-    // Bottom align for column headings
-    vertical-align: bottom;
+//   // error after filtering
+//   > tbody > tr.result-error {
+//     td {
+//       font-style: italic;
+//     }
+//   }
 
-    .btn.dso-sort {
-      color: $grijs-90;
-      font-weight: 600;
+//   // sortable table
+//   > thead > tr > th {
+//     // Bottom align for column headings
+//     vertical-align: bottom;
 
-      dso-icon,
-      svg.di {
-        color: $grijs-60;
+//     .btn.dso-sort {
+//       color: $grijs-90;
+//       font-weight: 600;
 
-        &.dso-sort-active {
-          color: $grijs-90;
-        }
-      }
-    }
-  }
-}
+//       .di {
+//         color: $grijs-60;
+
+//         &.dso-sort-active {
+//           color: $grijs-90;
+//         }
+//       }
+//     }
+//   }
+// }
