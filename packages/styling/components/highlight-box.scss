@@ -26,6 +26,15 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
     padding: $u2 - 1;
   }
 
+  &.dso-has-counter {
+    margin-top: $dso-highlight-box-margin-top;
+  }
+
+  @include step-counter();
+}
+
+.dso-highlight-box,
+dso-highlight-box {
   .btn-link:not([disabled]) {
     color: $zwart;
 
@@ -39,19 +48,14 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
       }
     }
   }
+}
 
-  &:not(.dso-border):not(.dso-drop-shadow) {
-    a,
-    a:visited {
-      &:not(.btn) {
-        color: $text-color;
-      }
+.dso-highlight-box:not(.dso-border):not(.dso-drop-shadow),
+dso-highlight-box:not([border]):not([drop-shadow]) {
+  a,
+  a:visited {
+    &:not(.btn) {
+      color: $text-color;
     }
   }
-
-  &.dso-has-counter {
-    margin-top: $dso-highlight-box-margin-top;
-  }
-
-  @include step-counter();
 }

@@ -4,7 +4,7 @@
     class="dso-preview-iframe"
     onload="fixFrameHeight()"
     data-role="window"
-    src="{{ previewUrl }}"
+    src="{{ previewUrl }}?inline=1"
     style="width: 100%;"
     sandbox="allow-same-origin allow-scripts allow-forms allow-modals"
     {% if entity.display %}

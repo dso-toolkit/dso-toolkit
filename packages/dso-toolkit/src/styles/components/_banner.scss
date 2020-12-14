@@ -1,5 +1,11 @@
 $dso-banner-left-padding: $u6;
 
+@mixin banner-variant($background, $border, $text-color) {
+  color: $text-color;
+  background-color: $background;
+  border-color: $border;
+}
+
 .banner {
   padding: $u2 0;
   position: relative;
@@ -72,12 +78,16 @@ $dso-banner-left-padding: $u6;
   }
 
   &.alert-danger {
+    @include banner-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+
     .row > div::before {
       @include di("status-danger");
     }
   }
 
   &.alert-warning {
+    @include banner-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+
     .row > div::before {
       @include di("status-warning");
     }

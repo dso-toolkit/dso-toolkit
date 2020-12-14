@@ -163,7 +163,8 @@
       color: $grijs-90;
       font-weight: 600;
 
-      .di {
+      dso-icon,
+      svg.di {
         color: $grijs-60;
 
         &.dso-sort-active {
