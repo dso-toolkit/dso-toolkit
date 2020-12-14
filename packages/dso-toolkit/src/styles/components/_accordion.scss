@@ -76,7 +76,9 @@ $dso-accordion-light-border-color: $grijs-20;
         .dso-attachments {
           display: block;
           float: right;
+        }
 
+        .dso-attachments {
           &::after {
             @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
           }
@@ -159,22 +161,18 @@ $dso-accordion-light-border-color: $grijs-20;
                 @include di-variant("chevron-up-wit");
               }
 
-              dso-attachments-counter,
-              .dso-attachments {
+              dso-attachments-counter {
                 --dso-attachments-counter-color: #{$wit};
+                --dso-icon: var(--di-paperclip-wit);
+              }
+
+              .dso-attachments {
+                color: $wit;
 
                 &::after {
                   @include di-variant("paperclip-wit");
                 }
               }
-            }
-          }
-
-          dso-attachments-counter,
-          .dso-attachments {
-            a::after,
-            button::after {
-              @include di-variant("paperclip-wit");
             }
           }
         }

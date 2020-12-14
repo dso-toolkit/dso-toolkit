@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "postinstall": "patch-package",
-    "start": "multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
+    "start": "yarn build-styling && multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
+    "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build",
     "start-fractal": "yarn workspace dso-toolkit start",
     "build-fractal": "yarn workspace dso-toolkit build",
     "start-stencil": "yarn workspace @dso-toolkit/core start",

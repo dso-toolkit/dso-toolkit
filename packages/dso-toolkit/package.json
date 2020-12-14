@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
+    "copy-styling": "gulp copy-styling",
     "gulp": "gulp",
     "lint": "gulp lint",
     "test": "gulp test"
@@ -14,6 +15,7 @@
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
+  "homepage": "https://www.dso-toolkit.nl/",
   "engines": {
     "node": ">=12.0.0"
   },

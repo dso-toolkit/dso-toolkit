@@ -2,6 +2,7 @@
   display: inline-block;
 
   --di-paperclip-grijs: #{dso-icon("paperclip", "grijs")};
+  --di-paperclip-wit: #{dso-icon("paperclip", "wit")};
 
   @import "~@dso-toolkit/styling/scaffolding/normalize";
   @import "~@dso-toolkit/styling/scaffolding/sr-only";

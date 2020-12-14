@@ -46,30 +46,73 @@
   <div class="row dso-featured">
     <div class="col-xs-12">
       <h2>De stappen</h1>
-
-      {% for row in rows %}
-        {% set rowNumber = loop.index0 %}
-
-        <div class="row dso-equal-heights">
-          {% for col in row.cols %}
-            <div class="col-md-3 col-sm-6">
-              <dso-highlight-box white drop-shadow step="{{loop.index + (rowNumber * 4)}}">
-                <div class="dso-rich-content">
-                  <h3>{{ col.header }}</h3>
-                  <p>{{ col.body | safe }}</p>
-                </div>
-              </dso-highlight-box>
+      <div class="row dso-equal-heights">
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="1" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Project aanmaken</h3>
+              <p>Maak eerst een project aan. Deze vindt u daarna terug in <a href="#">Mijn omgevingsloket</a>.</p>
             </div>
-          {% endfor %}
+          </dso-highlight-box>
         </div>
-      {% endfor %}
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="2" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Locatie</h3>
+              <p>Kies de locatie voor uw bouwactiviteit(en).</p>
+            </div>
+          </dso-highlight-box>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="3" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Activiteiten</h3>
+              <p>Kies de activiteiten van uw project.</p>
+            </div>
+          </dso-highlight-box>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="4" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Vragen beantwoorden</h3>
+              <p>Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer relevant zijn vallen vanzelf weg.</p>
+            </div>
+          </dso-highlight-box>
+        </div>
+      </div>
+      <div class="row dso-equal-heights">
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="5" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Documenten toevoegen</h3>
+              <p>Voeg alle benodigde documenten toe.</p>
+            </div>
+          </dso-highlight-box>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="6" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Uw gegevens</h3>
+              <p>Controleer uw gegevens en vul aan waar nodig.</p>
+            </div>
+          </dso-highlight-box>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <dso-highlight-box step="7" white drop-shadow>
+            <div class="dso-rich-content">
+              <h3>Verzoek samenstellen</h3>
+              <p>In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief verzoek wordt verstuurd.</p>
+            </div>
+          </dso-highlight-box>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row dso-equal-heights">
     <div class="col-xs-12">
       <h2>Wat gebeurt er nadat mijn verzoek is verstuurd?</h2>
     </div>
-    <div class="col-xs-12 col-sm-4"> 
+    <div class="col-xs-12 col-sm-4">
       <dso-highlight-box white drop-shadow>
         <div class="dso-rich-content">
           <h3>Besluitperiode</h3>
@@ -77,7 +120,7 @@
         </div>
       </dso-highlight-box>
     </div>
-    <div class="col-xs-12 col-sm-4"> 
+    <div class="col-xs-12 col-sm-4">
       <dso-highlight-box white drop-shadow>
         <div class="dso-rich-content">
           <h3>Aanvullen verzoek</h3>
@@ -85,7 +128,7 @@
         </div>
       </dso-highlight-box>
     </div>
-    <div class="col-xs-12 col-sm-4"> 
+    <div class="col-xs-12 col-sm-4">
       <dso-highlight-box white drop-shadow>
         <div class="dso-rich-content">
           <h3>Bezwaar en beroep</h3>
