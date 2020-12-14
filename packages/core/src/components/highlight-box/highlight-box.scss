@@ -5,3 +5,22 @@
 
   @import "~@dso-toolkit/styling/components/highlight-box";
 }
+
+:host-context(.row.dso-equal-heights) {
+  @import "~@dso-toolkit/styling/variables";
+
+  height: 100%;
+  min-height: auto;
+
+  > .dso-highlight-box {
+    min-height: auto;
+
+    &.dso-has-counter {
+      height: calc(100% - #{$dso-shared-equal-heights-highlight-box-height});
+    }
+
+    &:not(.dso-has-counter) {
+      height: calc(100% - #{$u2});
+    }
+  }
+}

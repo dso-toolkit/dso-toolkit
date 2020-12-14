@@ -14,26 +14,32 @@ jobs:
   - name: branch build and deployment
     if: (branch =~ /^#/ || branch = master || branch = next) && type = push
     script:
-      yarn lint &&
-      yarn build &&
-      yarn test &&
-      mv build dist &&
-      rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-      rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
+      yarn workspace @dso-toolkit/styling build &&
+      yarn workspace @dso-toolkit/core build &&
+      yarn workspace dso-toolkit lint &&
+      yarn workspace dso-toolkit build &&
+      yarn workspace dso-toolkit test &&
+      yarn workspace dso-toolkit copy-styling &&
+      mv packages/dso-toolkit/build packages/dso-toolkit/dist &&
+      rsync -e "ssh -p ${DEPLOY_PORT}" --delete -r ./packages/dso-toolkit/dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
+      rsync -e "ssh -p ${DEPLOY_PORT}" --delete -r ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
       ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions" &&
-      percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" dist/library/
+      percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" packages/dso-toolkit/dist/library/ --enable_javascript
   - name: release
     if: tag =~ /^v/
     script:
-      yarn lint &&
-      yarn build &&
-      yarn test &&
-      mv build dist &&
-      yarn version ${TRAVIS_TAG:1} &&
-      rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-      rsync -e "ssh -p ${DEPLOY_PORT}" --delete --verbose -r ./dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
+      yarn workspace @dso-toolkit/styling build &&
+      yarn workspace @dso-toolkit/core build &&
+      yarn workspace dso-toolkit lint &&
+      yarn workspace dso-toolkit build &&
+      yarn workspace dso-toolkit test &&
+      yarn workspace dso-toolkit copy-styling &&
+      mv packages/dso-toolkit/build packages/dso-toolkit/dist &&
+      yarn workspace dso-toolkit version ${TRAVIS_TAG:1} &&
+      rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
+      rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
       ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions" &&
-      zip -r --exclude="*.git*" --exclude="node_modules*" dso-toolkit-${TRAVIS_TAG:1}.zip .
+      zip --recurse-paths --no-dir-entries --quiet --exclude="node_modules*" dso-toolkit-${TRAVIS_TAG:1}.zip ./packages/dso-toolkit
     deploy:
     - provider: releases
       edge: true
@@ -42,6 +48,8 @@ jobs:
       on:
         tags: true
     - provider: npm
+      tag: next
+      src: packages/dso-toolkit
       edge: true
       email: thomas@infoprojects.nl
       api_token: $DEPLOY_NPM_TOKEN

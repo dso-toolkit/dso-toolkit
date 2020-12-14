@@ -1,4 +1,4 @@
-# Contributing to the DSO Toolkit and DSO Component Library
+# Contributing to the DSO Toolkit
 This repository houses several projects:
 * `/packages/dso-toolkit`: A component library
 * `/packages/styling`: A CSS implementation written in SCSS

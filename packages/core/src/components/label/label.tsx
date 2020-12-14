@@ -27,6 +27,7 @@ export class Label {
           <span class="sr-only">{status}: </span>
         )}
         <slot></slot>
+        <slot name="action"></slot>
       </span>
     );
   }

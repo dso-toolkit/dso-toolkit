@@ -78,15 +78,8 @@ module.exports = function (options) {
         : ['notes', 'component', 'html', 'view', 'context'];
     });
 
-    env.engine.addGlobal('hydrate', async function (html, options) {
-      options = Object.assign(
-        {
-          stripRoot: true
-        },
-        options || {}
-      );
-
-      const result = await renderToString(html, {
+    const hydrate = async function (html, options) {
+      const result = await renderToString(html, Object.assign({
         clientHydrateAnnotations: false,
         prettyHtml: false,
         removeHtmlComments: true,
@@ -95,7 +88,7 @@ module.exports = function (options) {
         removeEmptyAttributes: true,
         removeScripts: true,
         removeUnusedStyles: false
-      });
+      }, options || {}));
       const $ = cheerio.load(result.html);
 
       $('[class*="sc-"]').removeClass(function (index, className) {
@@ -109,6 +102,98 @@ module.exports = function (options) {
         .removeClass('hydrated')
         .find('[class=""]')
         .removeAttr('class');
+
+      $('slot-fb')
+        .each((index, element) => {
+          const $element = $(element);
+
+          if (element.nextSibling) {
+            $element.remove();
+          }
+          else {
+            $element.replaceWith($element.html());
+          }
+        });
+
+      return $;
+    };
+
+    env.engine.addGlobal('hydrateForPreview', async function (html) {
+      const $ = cheerio.load(html);
+
+      const dsoCustomElements = $('*')
+        .filter((index, element) => /^dso-/i.test(element.tagName))
+        .get();
+
+      if (dsoCustomElements.length === 0) {
+        return html;
+      }
+
+      const $raw = $('body > *:not(script):not(style):not(link)');
+      const raw = $.html($raw);
+
+      const $hydrated = await hydrate(html, {
+        removeHtmlComments: true,
+        removeAttributeQuotes: false,
+        removeBooleanAttributeQuotes: false,
+        removeEmptyAttributes: false,
+        removeScripts: false,
+        removeUnusedStyles: false
+      });
+
+      $hydrated('style[sty-id]').remove();
+
+      $hydrated('[slot]').removeAttr('slot');
+
+      $hydrated('*')
+        .filter((index, element) => /^dso-/i.test(element.tagName))
+        .get()
+        .sort((a, b) => {
+          const $a = $hydrated(a);
+          const $b = $hydrated(b);
+
+          if ($a.parents().length - $b.parents().length > 0) {
+            return -1;
+          }
+
+          if ($a.parents().length - $b.parents().length < 0) {
+              return 1;
+          }
+
+          return 0;
+        })
+        .forEach(element => {
+          const $element = $hydrated(element);
+
+          $element.replaceWith($element.html());
+        });
+
+      $hydrated('svg.di use[href^="/icon-assets/"]').each((index, element) => {
+        const $element = $hydrated(element);
+        const href = $element.attr('href');
+
+        $element.attr('href', href.replace('/icon-assets/', '../../'));
+      });
+
+      $hydrated('body')
+        .append('<hr>')
+        .append(raw);
+
+      return prettier.format($hydrated.html(), {
+        printWidth: 120,
+        parser: 'html'
+      });
+    });
+
+    env.engine.addGlobal('hydrate', async function (html, options) {
+      options = Object.assign(
+        {
+          stripRoot: true
+        },
+        options || {}
+      );
+
+      const $ = await hydrate(html);
 
       return prettier.format($(options.stripRoot ? 'body > *' : 'body').html(), {
         printWidth: 120,

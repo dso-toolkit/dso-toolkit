@@ -12,3 +12,9 @@
   @import "../../icon/di";
   @import "~@dso-toolkit/styling/components/alert";
 }
+
+:host(:not(:first-child)) {
+  @import "~@dso-toolkit/styling/variables";
+
+  margin-top: $u3;
+}

@@ -2,4 +2,9 @@
   @import "~@dso-toolkit/styling/scaffolding/normalize";
 
   @import "~@dso-toolkit/styling/components/icon";
+
+  display: inline-block;
+  height: $dso-icon-size;
+  vertical-align: $dso-icon-vertical-align;
+  width: $dso-icon-size;
 }
