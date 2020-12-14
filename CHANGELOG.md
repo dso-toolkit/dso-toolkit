@@ -5,9 +5,72 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 16.0.0 - 2020-12-14
+
+### Added
+* **core + styling:** Alert ([#838](https://github.com/dso-toolkit/dso-toolkit/issues/838))
+* **core + styling:** Badge ([#852](https://github.com/dso-toolkit/dso-toolkit/issues/852))
+* **core + styling:** Attachments Counter ([#854](https://github.com/dso-toolkit/dso-toolkit/issues/854))
+* **core + styling:** Progress Bar ([#860](https://github.com/dso-toolkit/dso-toolkit/issues/860))
+* **core + styling:** Label ([#861](https://github.com/dso-toolkit/dso-toolkit/issues/861))
+* **core + styling:** Highlight Box ([#863](https://github.com/dso-toolkit/dso-toolkit/issues/863))
+* **core + styling:** Icon ([#886](https://github.com/dso-toolkit/dso-toolkit/issues/886))
+* **styling:** Grid en Clearfix ([#855](https://github.com/dso-toolkit/dso-toolkit/issues/855))
+
+### Changed
+* **dso-toolkit:** Bootstrap cleanup ([#853](https://github.com/dso-toolkit/dso-toolkit/issues/914))
+
+### Chores
+* Yarn Workspaces ([#836](https://github.com/dso-toolkit/dso-toolkit/issues/836))
+* Branch "next" maken + README.md bijwerken ([#837](https://github.com/dso-toolkit/dso-toolkit/issues/837))
+* Packages "@dso-toolkit/core" en "@dso-toolkit/styling" opstarten ([#844](https://github.com/dso-toolkit/dso-toolkit/issues/844))
+* Web Components: Statificeren tbv. Markup voorschriften ([#888](https://github.com/dso-toolkit/dso-toolkit/issues/888))
+* `.ignore` opruimen ([#914](https://github.com/dso-toolkit/dso-toolkit/issues/914))
+* svg4everybody verwijderen ([#916](https://github.com/dso-toolkit/dso-toolkit/issues/916))
+
+## 15.0.1
+
+### Fixed
+* Formulier met `fieldset.form-group` + `fieldset.form-group` toont onterecht een horizontale lijn (#909)
+
+## 15.0.0
+
+### Fixed
+* Fieldset legends in wizard accordion worden niet gestyled (#896)
+* Search Bar border kleur gelijk maken aan invoerveld (#846)
+
+### Changed
+* **BREAKING**: Heading toevoeging bij banner om een beschrijving te geven bij het icoon (#767) **Markup changes, see PR #848**
+
+### Documentation
+* Dode links in start documentatie pagina en kleine tekst wijzigingen (#879)
+* Documentatie Anchor, Banner, Cards, Definition list toegevoegd (#872)
+
+### Toolkit library browser changes
+* Toegankelijkheid Navigatiebalk verbeteren (#833)
+* Diverse library en build fixes (#890)
+* Herstel de navigatie scroll positie na navigatie (#832)
+* "Alle versies" in version selector geeft niet alle versies (#904)
+
+## 14.0.0
+
+### Changed
+* Single button op een single-page-form ook links laten uitlijnen. (#825)
+* **BREAKING**: Button positionering wizard issues (#841) **Markup changes, see PR #871**
+
+## 13.0.0
+
 ### Changed
 * NPM vervangen met Yarn (#834)
-* Bootstrap ingecheckt onder `/libs`. Geen node_modules dependency meer.
+* **BREAKING**: Bootstrap ingecheckt onder `/libs`: Geen node_modules dependency meer (#835) **Build changes, see PR #868**
+* **BREAKING**: sr-only tekst toevoeging bij status icoon alert (#765) **Markup changes, see PR #847**
+* **BREAKING**: List-button volgorde is niet logisch (#829) **Markup changes, see PR #831**
+
+### Added
+* Nieuw component: Input Number (#797)
+
+### Fixed
+* "Toelichting" wordt dubbel voorgelezen door screenreader (#813)
 
 ## 12.0.0
 
