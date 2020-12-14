@@ -1,3 +1,14 @@
+@import "../variables";
+@import "../mixins/opacity";
+@import "../mixins/reset-text";
+
+$tooltip-arrow-color:         $tooltip-bg;
+$tooltip-arrow-width:         5px;
+$tooltip-bg:                  #000;
+$tooltip-color:               #fff;
+$tooltip-max-width:           200px;
+$tooltip-opacity:             .9;
+
 $tooltip-padding-vertical: $dso-unit;
 $tooltip-padding-horizontal: #{$dso-unit / 2};
 $tooltip-border-size: 1px;
