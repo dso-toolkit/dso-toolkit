@@ -20,7 +20,7 @@ We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-tool
 
 Stable releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
 
-### TODO: NPM registry
+### NPM registry
 
 ```
 npm install dso-toolkit --save-dev
@@ -29,7 +29,9 @@ npm install dso-toolkit --save-dev
 1. Add `node_modules/dso-toolkit/libs` and `node_modules` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
 2. Bundle `/node_modules/dso-toolkit/src/dso.scss` in your build process.
 
-### TODO: CDN
+The Web Components are not yet available as NPM package, see [#827](https://github.com/dso-toolkit/dso-toolkit/issues/827) and [#885](https://github.com/dso-toolkit/dso-toolkit/issues/885). In the meantime you could use the `<script>`-tag mentioned below.
+
+### CDN
 
 The toolkit and component library are distributed to dso-toolkit.nl. Use the table below to resolve the branch/channel to the base url:
 
@@ -48,6 +50,15 @@ The same goes for the component library:
 ```html
 <link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|VERSION]/styles/dso.css" />
 ```
+
+For Web Components:
+
+```html
+<script type="module" src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.esm.js"></script>
+<script nomodule src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.js"></script>
+```
+
+The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
 
 ### Develop or mockups
 To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 12 and Yarn 2.

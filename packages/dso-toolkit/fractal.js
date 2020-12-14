@@ -72,6 +72,6 @@ theme.addStatic(path.dirname(require.resolve('highlight.js/styles/github.css')),
 // This is not the right way to include this, because require.resolve() follows the "main"
 // property. It just happens to work because we're getting path.dirname() from it and taking
 // it from there.
-theme.addStatic(path.dirname(require.resolve('@dso-toolkit/core')), '@dso-toolkit_core');
+theme.addStatic(path.dirname(require.resolve('@dso-toolkit/core')), '@dso-toolkit/core');
 
 fractal.web.theme(theme);
