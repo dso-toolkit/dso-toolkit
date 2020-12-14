@@ -1,3 +1,1 @@
-<div {{ className('dso-progress-indicator', 'dso-progress-indicator-looping', [size, 'dso-' + size]) }} role="progressbar" aria-valuetext="{{ status }}">
-  <div class="dso-progress-indicator-spinner"></div><span class="dso-progress-indicator-label">{{- status -}}</span>
-</div>
+<dso-progress-indicator size="{{ size }}" status="{{ status }}">{{ status }}</dso-progress-indicator>
