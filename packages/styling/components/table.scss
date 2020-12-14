@@ -1,36 +1,18 @@
 @import "../variables";
 @import "../mixins/rich-content";
 
-//== Tables
-//
-//## Customizes the `.table` component with basic values, each used across all table variations.
+$table-cell-padding: $u1;
 
-//** Padding for `<th>`s and `<td>`s.
-$table-cell-padding:            8px !default;
-//** Padding for cells in `.table-condensed`.
-$table-condensed-cell-padding:  5px !default;
+$table-bg: transparent;
+$table-bg-hover: $grijs-10;
+$table-bg-active: $grijs-10;
 
-//** Default background color used for all tables.
-$table-bg:                      transparent !default;
-//** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
-//** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
-$table-bg-active:               $table-bg-hover !default;
-
-//** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+$table-border-color: $grijs-30;
 
 $dso-table-link-color: $grijs-90;
 $dso-table-header-border-color: $grijs-60;
 
-
-// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
-// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
-
 @mixin dso-table-row-variant($state, $background) {
-  // Exact selectors below required to override `.table-striped` and prevent
-  // inheritance to nested tables.
   .dso-rich-content table > thead > tr,
   .dso-rich-content table > tbody > tr,
   .dso-rich-content table > tfoot > tr,
@@ -45,8 +27,6 @@ $dso-table-header-border-color: $grijs-60;
     }
   }
 
-  // Hover states for `.table-hover`
-  // Note: this is not available for cells or rows within `thead` or `tfoot`.
   .table-hover > tbody > tr {
     > td.#{$state}:hover,
     > th.#{$state}:hover,
@@ -89,7 +69,6 @@ $dso-table-header-border-color: $grijs-60;
 // mixins
 
 @mixin dso-table() {
-  // Cells
   margin-bottom: $line-height-computed;
   max-width: 100%;
   width: 100%;
@@ -166,33 +145,29 @@ $dso-table-header-border-color: $grijs-60;
     }
   }
 
-  // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid $table-border-color;
   }
 
-  // Nesting
   .table {
     background-color: $body-bg;
   }
 
-  // error after filtering
   > tbody > tr.result-error {
     td {
       font-style: italic;
     }
   }
 
-  // sortable table
   > thead > tr > th {
-    // Bottom align for column headings
     vertical-align: bottom;
 
     .btn.dso-sort {
       color: $grijs-90;
       font-weight: 600;
 
-      .di {
+      dso-icon,
+      svg.di {
         color: $grijs-60;
 
         &.dso-sort-active {
@@ -219,11 +194,9 @@ $dso-table-header-border-color: $grijs-60;
     text-align: center;
   }
 
-  // Tighten up spacing
   > .table {
     margin-bottom: 0;
 
-    // Ensure the content doesn't wrap
     > thead,
     > tbody,
     > tfoot {
@@ -237,11 +210,8 @@ $dso-table-header-border-color: $grijs-60;
   }
 }
 
-// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_tables.scss
-// Based on bootstrap-sass/assets/stylesheets/bootstrap/mixins/_table-row.scss
-
 caption {
-  color: $text-muted;
+  //color: $text-muted;
   padding-bottom: $table-cell-padding;
   padding-top: $table-cell-padding;
   text-align: left;
@@ -264,19 +234,11 @@ table.table,
   @include dso-table();
 }
 
-// Hover effect
-//
-// Placed here since it has to come after the potential zebra striping
-
 .table-hover {
   > tbody > tr:hover {
     background-color: $table-bg-hover;
   }
 }
-
-// Table cell sizing
-//
-// Reset default table behavior
 
 table col[class*="col-"] {
   display: table-column;
