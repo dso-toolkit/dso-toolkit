@@ -91,6 +91,10 @@ export namespace Components {
         "min": number;
         "progress": number;
     }
+    interface DsoTooltip {
+        "label"?: string;
+        "position"?: string;
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -141,6 +145,12 @@ declare global {
         prototype: HTMLDsoProgressBarElement;
         new (): HTMLDsoProgressBarElement;
     };
+    interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
+    }
+    var HTMLDsoTooltipElement: {
+        prototype: HTMLDsoTooltipElement;
+        new (): HTMLDsoTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
@@ -150,6 +160,7 @@ declare global {
         "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
+        "dso-tooltip": HTMLDsoTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -237,6 +248,10 @@ declare namespace LocalJSX {
         "min"?: number;
         "progress": number;
     }
+    interface DsoTooltip {
+        "label"?: string;
+        "position"?: string;
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
@@ -246,6 +261,7 @@ declare namespace LocalJSX {
         "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
+        "dso-tooltip": DsoTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -260,6 +276,7 @@ declare module "@stencil/core" {
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
+            "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
         }
     }
 }
