@@ -16,6 +16,11 @@ variants:
     context:
       __title: button disabled
       disabled: true
+  - name: button met input number
+    context:
+      __title: button met input number
+      count: 99
+      inputNumber: true
   - name: button met optionele tekst
     context:
       __title: button met optionele tekst

@@ -1,6 +1,7 @@
 <button type="{{ type }}" {{ className('btn', 'dso-list-button', [count > 0, 'dso-selected']) }} {% if disabled %} disabled{% endif %}>
   <span>{{ label }}</span>
   {% if sublabel %}<span class="dso-sublabel">{{ sublabel }}</span>{% endif %}
+  {% if inputnumber %}{@render 'input-number'}{% endif %}
   {% if (count == 1) -%}
     <dso-icon icon="check"></dso-icon>
   {%- endif %}
