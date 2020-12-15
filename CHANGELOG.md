@@ -91,6 +91,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Versie selector voor pre-versie 10 toolkits (#697)
 * Viewport meta-tag toevoegen aan component pagina's in de toolkit (#816)
 
+### Added
+* Nieuw component: Input Stepper (#797)
+
 ## 11.4.1
 
 ### Changed

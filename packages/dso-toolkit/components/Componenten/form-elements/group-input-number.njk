@@ -1,0 +1,12 @@
+{% set localId = generateLocalId(prefix, id) %}
+
+<div {{ className('form-group dso-input', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
+  <div class="dso-label-container">
+    <label for="{{ localId }}" class="control-label">
+      {{ label }}
+    </label>
+  </div>
+  <div class="dso-field-container">
+    {% render '@input-number', { id: localId, count: count, minusButtonLabel: minusButtonLabel, minusButtonInactive: minusButtonInactive, plusButtonLabel: plusButtonLabel, plusButtonInactive: plusButtonInactive } %}
+  </div>
+</div>
