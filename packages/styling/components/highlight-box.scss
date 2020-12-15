@@ -36,8 +36,20 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
 .dso-highlight-box,
 dso-highlight-box {
   .btn-link:not([disabled]) {
-    color: $zwart;
+    color: $grasgroen;
+  }
+}
 
+.dso-highlight-box:not(.dso-border):not(.dso-drop-shadow),
+dso-highlight-box:not([border]):not([drop-shadow]) {
+  .btn-link:not([disabled]) {
+    color: $zwart;
+  }
+}
+
+.dso-highlight-box,
+dso-highlight-box {
+  .btn-link:not([disabled]) {
     &:hover,
     &:focus {
       &,
