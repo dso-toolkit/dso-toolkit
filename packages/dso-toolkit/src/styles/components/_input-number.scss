@@ -1,0 +1,86 @@
+.dso-input-number {
+  &:not(.form-group) {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .dso-btn-group > & {
+    @include state-styling($wit, $grijs-20, $grijs-90);
+
+    border-style: solid;
+    border-width: 1px;
+    flex-wrap: nowrap;
+    padding: $u2;
+
+    @media screen and (max-width: $screen-xs-max) {
+      justify-content: center;
+    }
+  }
+
+  .dso-btn-group > *:hover + &,
+  .dso-btn-group > *:focus + & {
+    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+  }
+
+  .dso-btn-group > *.dso-selected + & {
+    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+
+    border-width: 2px;
+  }
+
+  .dso-btn-group > *:active + &,
+  .dso-btn-group > *.active + & {
+    &,
+    &:hover {
+      @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+    }
+  }
+
+  .dso-btn-group > *.disabled + &,
+  .dso-btn-group > *[disabled] + & {
+    &,
+    &:hover {
+      @include state-styling($wit, $grijs-20, $grijs-60);
+
+      opacity: 1;
+    }
+  }
+
+  label {
+    width: 100%;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    .form-horizontal &.form-group .dso-field-container {
+      margin-top: #{$u1 - 1};
+    }
+  }
+
+  .dso-input-step-counter {
+    align-self: center;
+    background-color: transparent;
+    border: 0;
+    display: inline-block;
+    height: $u3;
+    text-align: center;
+    width: $u3;
+
+    &:focus,
+    &:active {
+      outline: 0;
+    }
+
+    // Chrome, Safari, Edge, Opera
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    // Firefox
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
