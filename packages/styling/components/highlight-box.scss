@@ -17,7 +17,7 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
   }
 
   &.dso-drop-shadow {
-    box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
+    box-shadow: 0 4px 8px 0 rgba(0, 0 , 0, .2);
   }
 
   &.dso-border {
