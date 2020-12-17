@@ -8,46 +8,9 @@ De DSO Toolkit is een set van ontwerpprincipes, componenten, en templates waarme
 ## Waar kan de DSO Toolkit mij bij helpen?
 Per teamrol is beschreven welke secties, tools, en ondersteunende middelen interessant zijn.
 
-### Productowner
-De toolkit is een collectie van alle visuele onderdelen zoals templates, componenten, Sketch libraries, inzicht in veel voorkomende fouten. Deze kunnen gebruikt worden zodat teams assets niet van de grond af hoeft op te bouwen.
-
-Besteed extra aandacht aan de sectie over digitale toegankelijkheid. Om de toegankelijkheid succesvol te borgen moet een heel team zich verantwoordelijk voelen en dit controleren in zijn of haar aspect van het werk.
-
-Het Omgevingsloket wordt ontwikkeld vanuit het gebruikersperspectief, daarom zijn de persona's van de verschillende gebruikers beschikbaar. Neem de tijd om het platform door te nemen, om vervolgens je team te briefen over welke secties handig en interessant zijn voor de verschillende specialisaties binnen je team.
-
-Links naar relevante pagina's:
-- [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Templates]({{ '/components/detail/aanvragen' | path }})
-- [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
-
-### Ontwerper
-Om te beginnen is er een Sketch library waar alle componenten staan die ook in de toolkit staan. Hoe deze componenten moeten worden toegepast is terug te vinden in de toolkit. Onzeker of het juiste component in de juiste context gebruikt wordt? Raadpleeg dan de toolkit. De templates zijn voorbeeld pagina's die al live staan op het Omgevingsloket. Dit kan helpen om meer over pagina structurering en indeling te leren van het Omgevingsloket.
-
-Als ontwerper kun je pagina's direct ontwerpen met de toolkit. De toolkit maakt gebruik van [Fractal](https://www.fractal.build). Fractal maakt op zijn beurt weer gebruik van de [handlebars.js](https://handlebarsjs.com/) templating engine.
-
-Probeer te voorkomen dat er onderdelen gemaakt worden die al bestaan. Ontkom je er toch niet aan om een nieuw component te maken dat opgenomen zou moeten worden in de toolkit, bekijk dan de procespagina van de toolkit. Hier staat hoe je nieuwe componenten kunt toevoegen of updates op bestaande componenten kan doorvoeren.
-
-Als je nieuwe componenten wilt toe gaan voegen aan de toolkit, lees dan de sectie over Digitale toegankelijkheid door. Bekijk aan welke guidelines het nieuwe component moet voldoen.
-
-Links naar relevante pagina's:
-- [Kleurgebruik]({{ '/docs/fundament/colors' | path }})
-- [Typografie]({{ '/docs/fundament/typography' | path }})
-- [Lay-out]({{ '/docs/fundament/layout' | path }})
-- [Templates]({{ '/components/detail/aanvragen' | path }})
-- [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
-
-### Developer
-Als developer wil je voorkomen dat er dubbel werk uitgevoerd wordt. de toolkit geeft een css basis met alle _Do's and Dont's_ over het front-end ontwerp. Neem de documentatie pagina's over lay-out, kleur, en typography door.
-
-Speciale aandacht is vereist voor de digitale toegankelijkheid, dit is een onderwerp met een grote invloed op de bouw van het beoogde platform.
-
-Links naar relevante pagina's:
-- [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Kleurgebruik]({{ '/docs/fundament/colors' | path }})
-- [Typografie]({{ '/docs/fundament/typography' | path }})
-- [Lay-out]({{ '/docs/fundament/layout' | path }})
-- [Templates]({{ '/components/detail/aanvragen' | path }})
-- [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
+- [Developers]({{ '/docs/voor-developers' | path }})
+- [Ontwerpers]({{ '/docs/voor-ontwerpers' | path }})
+- [Productowners]({{ '/docs/voor-productowners' | path }})
 
 ## Een platform, proces of dienst is nooit af, daarom iteratief ontwerpen.
 Iteratief ontwerpen is een continu verbeteringsproces van een website, product of dienst. Dit wordt georganiseerd door verschillende cycli van tests en gebruikersevaluaties te organiseren, om verbeteringen te vinden, te verwerken en vervolgens weer te testen.
