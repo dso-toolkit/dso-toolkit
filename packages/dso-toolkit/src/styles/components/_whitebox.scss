@@ -1,6 +1,9 @@
+$dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0 , 0, .2);
+$dso-whitebox-box-shadow: 0 4px 8px 0 rgba(0, 0 , 0, .2);
+
 .dso-whitebox {
   background: $wit;
-  box-shadow: 0 4px 8px 0 rgba(0, 0 , 0, .2);
+  box-shadow: $dso-whitebox-box-shadow;
   margin-bottom: $dso-whitebox-margin-bottom;
   padding: $u2 $u3;
   position: relative;
@@ -33,7 +36,7 @@
 
 .dso-whitebox-small {
   background: $wit;
-  box-shadow: 0 4px 8px 0 rgba(0, 0 , 0, .2);
+  box-shadow: $dso-whitebox-box-shadow;
   margin-bottom: $dso-whitebox-small-margin-bottom;
   min-height: $dso-whitebox-small-min-height;
   padding: $u3 $u2 $u2;
