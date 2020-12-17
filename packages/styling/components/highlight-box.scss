@@ -2,7 +2,7 @@
 @import "../mixins/step-counter";
 
 $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
-$dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0 , 0, .2);
+$dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 .dso-highlight-box {
   background-color: $grijs-10;
