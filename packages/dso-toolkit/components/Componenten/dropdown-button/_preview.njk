@@ -7,33 +7,17 @@
     <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
 
     <style type="text/css">
-      ol {
-        list-style: none;
-        margin-left: 0;
-        padding-left: 0;
-        margin: 0 auto 200px 0;
-      }
-
-      ol::after {
-        content: "";
-        clear: both;
-        display: block;
-      }
-
-      ol > li {
-        display: block;
-        float: left;
-        width: 33%;
-        padding: 8px 8px 200px;
+      div.row > div {
+        min-height: 400px;
       }
     </style>
   </head>
 
   <body>
     <div class="container">
-      <ol>
+      <div class="row">
         {{ yield | safe }}
-      </ol>
+      </div>
     </div>
 
     <script type="module" src="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js' | path }}"></script>
