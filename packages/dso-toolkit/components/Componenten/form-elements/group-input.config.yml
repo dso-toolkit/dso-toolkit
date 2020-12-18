@@ -89,6 +89,20 @@ variants:
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
     errorText: Ongeldig e-mailadres ingevuld.
+- name: input-text-invalid-aria
+  context:
+    __title: Ongeldig - met aria-invalid
+    __explanation:
+    - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-input</code>.
+    id: input-text-invalid
+    type: email
+    label: E-mailadres
+    required: true
+    helpText: 'Bijvoorbeeld: email@email.nl'
+    state: invalid
+    errorText: Vul dit veld in.
+    ariaInvalid: true
 - name: input-text-valid
   context:
     __title: Geldig
