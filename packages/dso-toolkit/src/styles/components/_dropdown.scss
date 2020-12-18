@@ -51,6 +51,7 @@ $dso-dropdown-hor-padding: 20px;
         font-weight: 400;
         line-height: 1.5;
         padding: 3px $dso-dropdown-hor-padding;
+        text-decoration: none;
         white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
 
         &:hover,
@@ -58,6 +59,7 @@ $dso-dropdown-hor-padding: 20px;
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
+          text-decoration: underline;
         }
 
         &:focus {

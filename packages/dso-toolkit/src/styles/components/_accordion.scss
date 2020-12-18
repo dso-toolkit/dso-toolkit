@@ -39,6 +39,7 @@ $dso-accordion-light-border-color: $grijs-20;
         padding-left: $dso-accordion-chevron-left-offset;
         padding-right: 0;
         text-align: left;
+        text-decoration: none;
         width: 100%;
         word-break: break-word;
 
@@ -280,6 +281,15 @@ $dso-accordion-light-border-color: $grijs-20;
           display: block;
           left: $u1;
           position: absolute;
+        }
+      }
+
+      a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
         }
       }
     }

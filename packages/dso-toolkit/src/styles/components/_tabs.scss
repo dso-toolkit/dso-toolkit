@@ -53,6 +53,7 @@ ul.nav-tabs {
       min-height: $dso-tabs-height;
       padding: $dso-tabs-horizontal-padding $dso-tabs-vertical-padding;
       position: relative;
+      text-decoration: none;
 
       &:hover {
         border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
