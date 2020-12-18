@@ -10,7 +10,7 @@ Per teamrol is beschreven welke secties, tools, en ondersteunende middelen inter
 
 - [Developers]({{ '/docs/voor-developers' | path }})
 - [Ontwerpers]({{ '/docs/voor-ontwerpers' | path }})
-- [Productowners]({{ '/docs/voor-productowners' | path }})
+- [Product owners]({{ '/docs/voor-productowners' | path }})
 
 ## Een platform, proces of dienst is nooit af, daarom iteratief ontwerpen.
 Iteratief ontwerpen is een continu verbeteringsproces van een website, product of dienst. Dit wordt georganiseerd door verschillende cycli van tests en gebruikersevaluaties te organiseren, om verbeteringen te vinden, te verwerken en vervolgens weer te testen.

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Documentation
+* Start documentatie opsplitsen naar verschillende rollen (developers, ontwerpers, product owners) ([#945](https://github.com/dso-toolkit/dso-toolkit/issues/945))
+
 ## 16.0.0 - 2020-12-14
 
 ### Added
