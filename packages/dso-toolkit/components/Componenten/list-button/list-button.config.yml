@@ -8,10 +8,6 @@ variants:
     context:
       __title: button selected
       count: 1
-  - name: button multiple selected
-    context:
-      __title: button multiple selected
-      count: 99
   - name: button disabled
     context:
       __title: button disabled
@@ -35,11 +31,6 @@ variants:
       __title: button met extra label selected
       count: 1
       sublabel: Gemeente Delft
-  - name: button met extra label multiple selected
-    context:
-      __title: button met extra label multiple selected
-      count: 99
-      sublabel: Gemeente Delft
   - name: button met extra label en input number
     context:
       __title: button met extra label en input number
@@ -61,21 +52,12 @@ variants:
     context:
       __title: button met optionele tekst selected
       count: 1
-      sublabel: Gemeente Delft
       subcontent: |
         Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
   - name: button met optionele tekst disabled
     context:
       __title: button met optionele tekst disabled
       disabled: true
-      sublabel: Gemeente Delft
-      subcontent: |
-        Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
-  - name: button met optionele tekst multiple selected
-    context:
-      __title: button met optionele tekst multiple selected
-      count: 99
-      sublabel: Gemeente Delft
       subcontent: |
         Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
   - name: button met optionele tekst en input number
@@ -83,13 +65,11 @@ variants:
       __title: button met optionele tekst en input number
       count: 2
       inputNumber: true
-      sublabel: Gemeente Delft
       subcontent: |
         Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
   - name: button met lange optionele tekst
     context:
       __title: button met lange optionele tekst
-      sublabel: Gemeente Delft
       subcontent: |
         Bevat: Reinigen <mark>van</mark> opslagtanks verpakkingen voertuigen of containers voor gevaarlijke stoffen;
         Verwerken <mark>van</mark> bedrijfsafvalstoffen en gevaarlijke afvalstoffen;
@@ -112,6 +92,54 @@ variants:
       __title: button met lange optionele tekst en input number
       count: 2
       inputNumber: true
+      subcontent: |
+        Bevat: Reinigen <mark>van</mark> opslagtanks verpakkingen voertuigen of containers voor gevaarlijke stoffen;
+        Verwerken <mark>van</mark> bedrijfsafvalstoffen en gevaarlijke afvalstoffen;
+        Bedrijf voor teelt en kweek <mark>van</mark> waterplanten en waterdieren;
+        Verbranden <mark>van</mark> afvalstoffen in een ippc-installatie;
+        Gebruik <mark>van</mark> ontplofbare stoffen of voorwerpen op militaire objecten;
+        Af<mark>van</mark>gen kooldioxide voor ondergrondse opslag;
+        Opslaan, herverpakken en bewerken <mark>van</mark> vuurwerk en pyrotechnische artikelen voor theatergebruik;
+        Maken <mark>van</mark> cokes;
+        Lozen op oppervlaktewaterlichaam <mark>van</mark> afvalwater bij telen <mark>van</mark> gewassen in gebouw;
+        Voorziening voor het oefenen <mark>van</mark> brandbestrijdingstechnieken;
+        Op of in de bodem brengen <mark>van</mark> bedrijfsafvalstoffen of gevaarlijke afvalstoffen buiten stortplaatsen;
+        Verbranden <mark>van</mark> afvalstoffen anders dan in een ippc-installatie;
+        Opslaan <mark>van</mark> vloeistoffen in een opslagtank;
+        Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
+        Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
+        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
+  - name: button met optionele tekst en extra label
+    context:
+      __title: button met optionele tekst en extra label
+      sublabel: Gemeente Delft
+      subcontent: |
+        Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
+  - name: button met optionele tekst en extra label selected
+    context:
+      __title: button met optionele tekst en extra label selected
+      count: 1
+      sublabel: Gemeente Delft
+      subcontent: |
+        Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
+  - name: button met optionele tekst en extra label disabled
+    context:
+      __title: button met optionele tekst en extra label disabled
+      disabled: true
+      sublabel: Gemeente Delft
+      subcontent: |
+        Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
+  - name: button met optionele tekst en input number en extra label
+    context:
+      __title: button met optionele tekst en input number en extra label
+      count: 2
+      inputNumber: true
+      sublabel: Gemeente Delft
+      subcontent: |
+        Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
+  - name: button met lange optionele tekst en extra label
+    context:
+      __title: button met lange optionele tekst en extra label
       sublabel: Gemeente Delft
       subcontent: |
         Bevat: Reinigen <mark>van</mark> opslagtanks verpakkingen voertuigen of containers voor gevaarlijke stoffen;
@@ -130,4 +158,26 @@ variants:
         Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
         Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
         Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
-
+  - name: button met lange optionele tekst en input number en extra label
+    context:
+      __title: button met lange optionele tekst en input number en extra label
+      count: 2
+      inputNumber: true
+      sublabel: Gemeente Delft
+      subcontent: |
+        Bevat: Reinigen <mark>van</mark> opslagtanks verpakkingen voertuigen of containers voor gevaarlijke stoffen;
+        Verwerken <mark>van</mark> bedrijfsafvalstoffen en gevaarlijke afvalstoffen;
+        Bedrijf voor teelt en kweek <mark>van</mark> waterplanten en waterdieren;
+        Verbranden <mark>van</mark> afvalstoffen in een ippc-installatie;
+        Gebruik <mark>van</mark> ontplofbare stoffen of voorwerpen op militaire objecten;
+        Af<mark>van</mark>gen kooldioxide voor ondergrondse opslag;
+        Opslaan, herverpakken en bewerken <mark>van</mark> vuurwerk en pyrotechnische artikelen voor theatergebruik;
+        Maken <mark>van</mark> cokes;
+        Lozen op oppervlaktewaterlichaam <mark>van</mark> afvalwater bij telen <mark>van</mark> gewassen in gebouw;
+        Voorziening voor het oefenen <mark>van</mark> brandbestrijdingstechnieken;
+        Op of in de bodem brengen <mark>van</mark> bedrijfsafvalstoffen of gevaarlijke afvalstoffen buiten stortplaatsen;
+        Verbranden <mark>van</mark> afvalstoffen anders dan in een ippc-installatie;
+        Opslaan <mark>van</mark> vloeistoffen in een opslagtank;
+        Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
+        Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
+        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
