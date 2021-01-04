@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Documentation
 * Start documentatie opsplitsen naar verschillende rollen (developers, ontwerpers, product owners) ([#945](https://github.com/dso-toolkit/dso-toolkit/issues/945))
+* Dubbele previews bij componenten labelen met type ([#947](https://github.com/dso-toolkit/dso-toolkit/issues/947))
 
 ## 16.0.0 - 2020-12-14
 

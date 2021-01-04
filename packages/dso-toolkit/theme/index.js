@@ -129,6 +129,7 @@ module.exports = function (options) {
         return html;
       }
 
+      $('.container').prepend('<h2>Web Component preview</h2>');
       const $raw = $('body > *:not(script):not(style):not(link)');
       const raw = $.html($raw);
 
@@ -176,8 +177,11 @@ module.exports = function (options) {
       });
 
       $hydrated('body')
-        .append('<hr>')
-        .append(raw);
+        .find('.container')
+          .prepend('<h2>Markup component preview</h2>')
+        .end()
+        .prepend('<hr id="custom-elements-raw">')
+        .prepend(raw);
 
       return prettier.format($hydrated.html(), {
         printWidth: 120,
