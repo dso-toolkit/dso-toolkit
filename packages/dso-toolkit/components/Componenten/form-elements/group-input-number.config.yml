@@ -5,7 +5,6 @@ context:
   __title: default
   label: Default
   id: default
-  type: number
   count: 99
   minusButtonLabel: Aantal verlagen
   plusButtonLabel: Aantal verhogen
