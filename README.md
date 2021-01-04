@@ -14,7 +14,7 @@ De deliverables van de DSO Toolkit:
 * **NPM package `@dso-toolkit/styling`**: Een incomplete CSS implementatie van de DSO stijlset geschreven in SCSS
 * **NPM package `dso-toolkit`**: De handleiding en complete CSS implementatie van de DSO stijlset.
 
-We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-toolkit/styling`. Zodra die verhuizing is afgerond zal `dso-toolkit` worden deprecated en moeten implementaties overstappen naar `@dso-toolkit/styling`. De componenten zoals die worden aangeboden op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/) blijven functioneren. Voor meer informatie zie #827
+We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-toolkit/styling`. Zodra die verhuizing is afgerond zal `dso-toolkit` worden deprecated en moeten implementaties overstappen naar `@dso-toolkit/styling`. De componenten zoals die worden aangeboden op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/) blijven functioneren. Voor meer informatie zie [#827](https://github.com/dso-toolkit/dso-toolkit/issues/#827)
 
 ## Getting started
 
