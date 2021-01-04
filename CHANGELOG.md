@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 16.0.1 - 2020-01-04
+
 ## Fixed
 * **dso-toolkit:** Input number opnieuw toegevoegd ([#946](https://github.com/dso-toolkit/dso-toolkit/issues/946))
 * **dso-toolkit:** Fixed: NPM releases komen onder tag 'next' ([#953](https://github.com/dso-toolkit/dso-toolkit/issues/953))
