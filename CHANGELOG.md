@@ -7,7 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Fixed
 * **dso-toolkit:** Input number opnieuw toegevoegd ([#946](https://github.com/dso-toolkit/dso-toolkit/issues/946))
-* **dso-toolkit:**: Fixed: NPM releases komen onder tag 'next' ([#953](https://github.com/dso-toolkit/dso-toolkit/issues/953))
+* **dso-toolkit:** Fixed: NPM releases komen onder tag 'next' ([#953](https://github.com/dso-toolkit/dso-toolkit/issues/953))
+* **dso-toolkit:** README.md met NPM package publiceren ([#954](https://github.com/dso-toolkit/dso-toolkit/issues/954))
 
 ### Documentation
 * Start documentatie opsplitsen naar verschillende rollen (developers, ontwerpers, product owners) ([#945](https://github.com/dso-toolkit/dso-toolkit/issues/945))
