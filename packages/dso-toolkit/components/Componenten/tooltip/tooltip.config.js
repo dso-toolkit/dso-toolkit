@@ -1,4 +1,8 @@
 module.exports = {
+  meta: {
+    webComponent: true,
+    markup: true
+  }, 
   notes: `
 * \`.fade\` en \`.in\` zijn standaard Bootstrap classes die betrekking hebben op animatie en het al dan niet tonen van componenten.
 * Positionering van de tooltip moet via scripting worden gedaan. Bijvoorbeeld het tooltip component van \`react-bootstrap\` biedt hier standaard ondersteuning voor.
