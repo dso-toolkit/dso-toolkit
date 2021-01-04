@@ -144,6 +144,10 @@ context:
       - value: 3
         label: drie
         id: checkbox_3
+    - id: input-number-voorbeeld
+      inputType: input-number
+      label: Aantal
+      count: 0
   - legend: Vraag
     groups:
     - id: gekke_vraag
