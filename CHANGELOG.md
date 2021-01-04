@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Heading in Alert altijd dezelfde styling meegeven (#952)
+
 ## 16.0.0 - 2020-12-14
 
 ### Added
