@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ## Changed
+* **dso-toolkit:** Toelichting direct onder/na de vraag ([#906](https://github.com/dso-toolkit/dso-toolkit/issues/906))
 * **dso-toolkit + styling:** Consequente styling van anchor links in lopende tekst ([#895](https://github.com/dso-toolkit/dso-toolkit/issues/895))
 
 ### Fixed
@@ -13,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * **styling:** Pager deprecaten ([#910](https://github.com/dso-toolkit/dso-toolkit/issues/910)) **Deprecation notice, see PR ([#924](https://github.com/dso-toolkit/dso-toolkit/pull/924))**
+
 
 ## 16.0.1 - 2020-01-04
 
