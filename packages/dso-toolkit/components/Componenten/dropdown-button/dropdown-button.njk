@@ -1,8 +1,5 @@
 <div {{ className('dropdown', [open, 'open']) }}>
-  <button type="button"{{ className('btn', [modifier, 'btn-' + modifier], 'dropdown-toggle') -}} id="{{ id }}" aria-haspopup="true" aria-expanded="{% if open %}true{% else %}false{% endif %}">
-    {{- label -}}
-    {%- if iconAfter or iconOnly %}{% render '@icon', {icon: (iconAfter or icon)} -%}{% endif -%}
-  </button>
+  {% render '@button', {type: 'button', modifier: modifier, label: label, iconAfter: iconAfter} %}
   {% if open %}
     <div {{ className('dropdown-menu', modifiers) }}>
       {% for group in groups %}

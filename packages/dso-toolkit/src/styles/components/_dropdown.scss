@@ -20,6 +20,8 @@ $dso-dropdown-hor-padding: 20px;
   }
 
   .dropdown-menu {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
+
     .dso-group-label {
       color: $grijs-40;
       font-size: (14 / 16 * 1em);
@@ -36,7 +38,6 @@ $dso-dropdown-hor-padding: 20px;
       &:not(:last-child) {
         border-bottom: 1px solid $grijs-10;
         margin-bottom: 11px;
-        overflow: hidden;
         padding-bottom: 11px;
       }
     }
@@ -53,6 +54,7 @@ $dso-dropdown-hor-padding: 20px;
         font-weight: 400;
         line-height: 1.5;
         padding: 3px $dso-dropdown-hor-padding;
+        text-decoration: none;
         white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
 
         &:hover,
@@ -60,6 +62,7 @@ $dso-dropdown-hor-padding: 20px;
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
+          text-decoration: none;
         }
       }
     }
@@ -100,27 +103,10 @@ $dso-dropdown-hor-padding: 20px;
   }
 
   &.open {
-    > .btn-default.dropdown-toggle {
+    > .btn-default {
       background-color: $grasgroen;
       border-color: $grasgroen;
       color: $wit;
-
-      &::after {
-        @include di-variant("caret-down-wit");
-      }
-
-      &:hover {
-        background-color: $bosgroen;
-        border-color: $bosgroen;
-        color: $wit;
-      }
-
-      &:focus {
-        background-color: $grasgroen;
-        border-color: $grasgroen;
-        color: $wit;
-        text-decoration: underline;
-      }
     }
   }
 }

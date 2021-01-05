@@ -108,7 +108,7 @@ module.exports = {
         id: 'actie_default',
         modifier: 'default',
         open: false,
-        iconAfter: null
+        iconAfter: 'caret-down'
       }
     },
     {
@@ -117,7 +117,7 @@ module.exports = {
         id: 'actie_default_open',
         modifier: 'default',
         open: true,
-        iconAfter: null,
+        iconAfter: 'caret-down',
         groups: [
           {
             label: 'Versies',
@@ -163,7 +163,7 @@ module.exports = {
         id: 'actie_default_open_checkable',
         modifier: 'default',
         open: true,
-        iconAfter: null,
+        iconAfter: 'caret-down',
         modifiers: 'dso-checkable',
         groups: [
           {
