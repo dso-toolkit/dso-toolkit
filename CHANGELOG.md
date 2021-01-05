@@ -8,6 +8,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Heading in Alert altijd dezelfde styling meegeven (#952)
 
+## 16.0.1 - 2020-01-04
+
+## Fixed
+* **dso-toolkit:** Input number opnieuw toegevoegd ([#946](https://github.com/dso-toolkit/dso-toolkit/issues/946))
+* **dso-toolkit:** Fixed: NPM releases komen onder tag 'next' ([#953](https://github.com/dso-toolkit/dso-toolkit/issues/953))
+* **dso-toolkit:** README.md met NPM package publiceren ([#954](https://github.com/dso-toolkit/dso-toolkit/issues/954))
+
+### Documentation
+* Start documentatie opsplitsen naar verschillende rollen (developers, ontwerpers, product owners) ([#945](https://github.com/dso-toolkit/dso-toolkit/issues/945))
+* Dubbele previews bij componenten labelen met type ([#947](https://github.com/dso-toolkit/dso-toolkit/issues/947))
+
 ## 16.0.0 - 2020-12-14
 
 ### Added

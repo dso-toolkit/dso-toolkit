@@ -313,6 +313,7 @@ select:not([multiple]) {
     }
 
     @media screen and (min-width: $screen-sm-min) {
+      &.dso-input-number,
       &.dso-checkboxes,
       &.dso-radios {
         .dso-field-container {
