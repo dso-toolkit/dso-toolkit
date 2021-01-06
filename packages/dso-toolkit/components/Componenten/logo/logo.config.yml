@@ -1,1 +1,4 @@
 status: ready
+meta:
+  webComponent: true
+  markup: true
