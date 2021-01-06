@@ -35,8 +35,8 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
 
 .dso-highlight-box.dso-yellow,
 dso-highlight-box[yellow],
-.dso-highlight-box:not(.dso-border),
-dso-highlight-box:not([border]) {
+.dso-highlight-box:not(.dso-border):not(.dso-white),
+dso-highlight-box:not([border]):not([white]) {
   .btn-link:not([disabled]) {
     color: $grijs-90;
 
