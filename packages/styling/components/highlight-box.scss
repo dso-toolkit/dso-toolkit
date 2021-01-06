@@ -36,7 +36,23 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
 .dso-highlight-box,
 dso-highlight-box {
   .btn-link:not([disabled]) {
-    color: $zwart;
+    color: $grasgroen;
+
+    &:hover,
+    &:focus {
+      &,
+      dso-icon,
+      svg.di {
+        color: $scampi;
+      }
+    }
+  }
+}
+
+.dso-highlight-box:not(.dso-border):not(.dso-drop-shadow),
+dso-highlight-box:not([border]):not([drop-shadow]) {
+  .btn-link:not([disabled]) {
+    color: $grijs-90;
 
     &:hover,
     &:focus {
@@ -44,6 +60,19 @@ dso-highlight-box {
       dso-icon,
       svg.di {
         color: $grijs-60;
+      }
+    }
+  }
+}
+
+.dso-highlight-box,
+dso-highlight-box {
+  .btn-link:not([disabled]) {
+    &:hover,
+    &:focus {
+      &,
+      dso-icon,
+      svg.di {
         text-decoration: underline;
       }
     }
