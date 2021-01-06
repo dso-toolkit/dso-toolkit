@@ -1,25 +1,19 @@
 $rich-content-margin-bottom: $u2;
 
 @mixin dso-rich-content() {
-  // Body text
-  // -------------------------
   p {
     margin: 0 0 $rich-content-margin-bottom;
   }
 
-  // Unordered and Ordered lists
   ul,
   ol {
     margin-bottom: $rich-content-margin-bottom;
   }
 
-  // Pre
-  // -------------------------
   pre {
     margin: 0 0 $rich-content-margin-bottom;
   }
 
-  // Blockquotes
   blockquote {
     padding: $rich-content-margin-bottom $line-height-computed;
   }
