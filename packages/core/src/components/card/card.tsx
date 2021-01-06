@@ -10,6 +10,7 @@ export class Card {
     return (
       <li>
         <slot></slot>
+        <slot name="interactions"></slot>
       </li>
     )
   }

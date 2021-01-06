@@ -9,7 +9,7 @@ export class CardInteraction {
   render() {
     return (
       <div class="dso-card-interaction">
-        <slot name="interaction"></slot>
+        <slot></slot>
       </div>
     )
   }

@@ -23,11 +23,9 @@
                       <span class="sr-only">{{ label }}</span>
                     </label>
                   {% endif %} #}
-                  {# {% if interaction.type %} #}
-                    <template slot="interaction">
-                      {% render '@button', interaction.button -%}
-                    </template>
-                  {# {% endif %} #}
+                  {% if interaction.button %}
+                    {% render '@button', interaction.button -%}
+                  {% endif %}
                 </dso-card-interaction>
               {% endfor %}
             </dso-card-interactions>

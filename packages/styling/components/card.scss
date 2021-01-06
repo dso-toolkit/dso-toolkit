@@ -4,12 +4,13 @@ $dso-cards-box-shadow-color: rgba(0, 0, 0, 0.5);
 
 dso-card,
 .dso-card {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 
   > a {
-    display: flex;
+    flex-grow: 1;
     padding: $u2 $u2 $u1;
-    width: 100%;
 
     &,
     &:not(.btn):visited,

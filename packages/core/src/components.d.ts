@@ -15,15 +15,6 @@ export namespace Components {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface DsoHighlightBox {
-        "border"?: boolean;
-        "dropShadow"?: boolean;
-        "step"?: number;
-        "white"?: boolean;
-        "yellow"?: boolean;
-    }
-    interface DsoIcon {
-        "icon": string;
     interface DsoCard {
     }
     interface DsoCardInteraction {
@@ -33,6 +24,16 @@ export namespace Components {
     interface DsoCards {
         "flat"?: boolean;
         "interactionsLocation"?: string;
+    }
+    interface DsoHighlightBox {
+        "border"?: boolean;
+        "dropShadow"?: boolean;
+        "step"?: number;
+        "white"?: boolean;
+        "yellow"?: boolean;
+    }
+    interface DsoIcon {
+        "icon": string;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -62,17 +63,6 @@ declare global {
         prototype: HTMLDsoBadgeElement;
         new (): HTMLDsoBadgeElement;
     };
-    interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
-    }
-    var HTMLDsoHighlightBoxElement: {
-        prototype: HTMLDsoHighlightBoxElement;
-        new (): HTMLDsoHighlightBoxElement;
-    };
-    interface HTMLDsoIconElement extends Components.DsoIcon, HTMLStencilElement {
-    }
-    var HTMLDsoIconElement: {
-        prototype: HTMLDsoIconElement;
-        new (): HTMLDsoIconElement;
     interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
     }
     var HTMLDsoCardElement: {
@@ -97,6 +87,18 @@ declare global {
         prototype: HTMLDsoCardsElement;
         new (): HTMLDsoCardsElement;
     };
+    interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
+    }
+    var HTMLDsoHighlightBoxElement: {
+        prototype: HTMLDsoHighlightBoxElement;
+        new (): HTMLDsoHighlightBoxElement;
+    };
+    interface HTMLDsoIconElement extends Components.DsoIcon, HTMLStencilElement {
+    }
+    var HTMLDsoIconElement: {
+        prototype: HTMLDsoIconElement;
+        new (): HTMLDsoIconElement;
+    };
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
     }
     var HTMLDsoLabelElement: {
@@ -113,12 +115,12 @@ declare global {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-badge": HTMLDsoBadgeElement;
-        "dso-highlight-box": HTMLDsoHighlightBoxElement;
-        "dso-icon": HTMLDsoIconElement;
         "dso-card": HTMLDsoCardElement;
         "dso-card-interaction": HTMLDsoCardInteractionElement;
         "dso-card-interactions": HTMLDsoCardInteractionsElement;
         "dso-cards": HTMLDsoCardsElement;
+        "dso-highlight-box": HTMLDsoHighlightBoxElement;
+        "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
     }
@@ -133,15 +135,6 @@ declare namespace LocalJSX {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
-    interface DsoHighlightBox {
-        "border"?: boolean;
-        "dropShadow"?: boolean;
-        "step"?: number;
-        "white"?: boolean;
-        "yellow"?: boolean;
-    }
-    interface DsoIcon {
-        "icon": string;
     interface DsoCard {
     }
     interface DsoCardInteraction {
@@ -151,6 +144,16 @@ declare namespace LocalJSX {
     interface DsoCards {
         "flat"?: boolean;
         "interactionsLocation"?: string;
+    }
+    interface DsoHighlightBox {
+        "border"?: boolean;
+        "dropShadow"?: boolean;
+        "step"?: number;
+        "white"?: boolean;
+        "yellow"?: boolean;
+    }
+    interface DsoIcon {
+        "icon": string;
     }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
@@ -164,12 +167,12 @@ declare namespace LocalJSX {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-badge": DsoBadge;
-        "dso-highlight-box": DsoHighlightBox;
-        "dso-icon": DsoIcon;
         "dso-card": DsoCard;
         "dso-card-interaction": DsoCardInteraction;
         "dso-card-interactions": DsoCardInteractions;
         "dso-cards": DsoCards;
+        "dso-highlight-box": DsoHighlightBox;
+        "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
     }
@@ -181,12 +184,12 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
-            "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
-            "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-interaction": LocalJSX.DsoCardInteraction & JSXBase.HTMLAttributes<HTMLDsoCardInteractionElement>;
             "dso-card-interactions": LocalJSX.DsoCardInteractions & JSXBase.HTMLAttributes<HTMLDsoCardInteractionsElement>;
             "dso-cards": LocalJSX.DsoCards & JSXBase.HTMLAttributes<HTMLDsoCardsElement>;
+            "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
+            "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
         }
