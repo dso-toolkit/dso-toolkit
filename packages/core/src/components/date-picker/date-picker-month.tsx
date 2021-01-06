@@ -1,6 +1,6 @@
 import { h, FunctionalComponent } from "@stencil/core"
-import { DuetDateFormatter } from "./date-adapter"
-import { DuetLocalizedText } from "./date-localization"
+import { DsoDateFormatter } from "./date-adapter"
+import { DsoLocalizedText } from "./date-localization"
 import { DatePickerDay, DatePickerDayProps } from "./date-picker-day"
 import { getViewOfMonth, inRange, DaysOfWeek, isEqual } from "./date-utils"
 
@@ -25,11 +25,11 @@ type DatePickerMonthProps = {
   selectedDate: Date | undefined
   focusedDate: Date
   labelledById: string
-  localization: DuetLocalizedText
+  localization: DsoLocalizedText
   firstDayOfWeek: DaysOfWeek
   min?: Date
   max?: Date
-  dateFormatter: DuetDateFormatter
+  dateFormatter: DsoDateFormatter
   onDateSelect: DatePickerDayProps["onDaySelect"]
   onKeyboardNavigation: DatePickerDayProps["onKeyboardNavigation"]
   focusedDayRef: (element: HTMLButtonElement) => void
@@ -57,7 +57,7 @@ export const DatePickerMonth: FunctionalComponent<DatePickerMonthProps> = ({
 
   return (
     <table
-      class="duet-date__table"
+      class="dso-date__table"
       role="grid"
       aria-labelledby={labelledById}
       // @ts-ignore
@@ -67,19 +67,19 @@ export const DatePickerMonth: FunctionalComponent<DatePickerMonthProps> = ({
       <thead>
         <tr>
           {mapWithOffset(localization.dayNames, firstDayOfWeek, dayName => (
-            <th class="duet-date__table-header" scope="col">
+            <th class="dso-date__table-header" scope="col">
               <span aria-hidden="true">{dayName.substr(0, 2)}</span>
-              <span class="duet-date__vhidden">{dayName}</span>
+              <span class="dso-date__vhidden">{dayName}</span>
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {chunk(days, 7).map(week => (
-          <tr class="duet-date__row">
+          <tr class="dso-date__row">
             {week.map(day => (
               <td
-                class="duet-date__cell"
+                class="dso-date__cell"
                 role="gridcell"
                 aria-selected={isEqual(day, selectedDate) ? "true" : undefined}
               >

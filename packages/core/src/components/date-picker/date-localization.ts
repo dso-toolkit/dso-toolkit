@@ -1,7 +1,7 @@
 type MonthsNames = [string, string, string, string, string, string, string, string, string, string, string, string]
 type DayNames = [string, string, string, string, string, string, string]
 
-export type DuetLocalizedText = {
+export type DsoLocalizedText = {
   buttonLabel: string
   selectedDateMessage: string
   prevMonthLabel: string
@@ -16,7 +16,7 @@ export type DuetLocalizedText = {
   monthNamesShort: MonthsNames
 }
 
-const localization: DuetLocalizedText = {
+const localization: DsoLocalizedText = {
   buttonLabel: "Choose date",
   selectedDateMessage: "Selected date is",
   prevMonthLabel: "Previous month",

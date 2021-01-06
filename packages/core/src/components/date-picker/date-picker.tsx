@@ -10,7 +10,8 @@ import {
   State,
   Listen,
   Method,
-} from "@stencil/core"
+} from '@stencil/core'
+
 import {
   addDays,
   startOfWeek,
@@ -25,11 +26,11 @@ import {
   parseISODate,
   createIdentifier,
   DaysOfWeek,
-} from "./date-utils"
-import { DatePickerInput } from "./date-picker-input"
-import { DatePickerMonth } from "./date-picker-month"
-import defaultLocalization, { DuetLocalizedText } from "./date-localization"
-import isoAdapter, { DuetDateAdapter } from "./date-adapter"
+} from './date-utils'
+import { DatePickerInput } from './date-picker-input'
+import { DatePickerMonth } from './date-picker-month'
+import defaultLocalization, { DsoLocalizedText } from './date-localization'
+import isoAdapter, { DsoDateAdapter } from './date-adapter'
 
 function range(from: number, to: number) {
   var result: number[] = []
@@ -53,28 +54,28 @@ const keyCode = {
   DOWN: 40,
 }
 
-export type DuetDatePickerChangeEvent = {
-  component: "duet-date-picker"
+export type DsoDatePickerChangeEvent = {
+  component: "dso-date-picker"
   valueAsDate: Date
   value: string
 }
-export type DuetDatePickerDirection = "left" | "right"
+export type DsoDatePickerDirection = "left" | "right"
 
 const TRANSITION_MS = 300
 
 @Component({
-  tag: "duet-date-picker",
-  styleUrl: "duet-date-picker.scss",
+  tag: "dso-date-picker",
+  styleUrl: "date-picker.scss",
   shadow: false,
   scoped: false,
 })
-export class DuetDatePicker implements ComponentInterface {
+export class DsoDatePicker implements ComponentInterface {
   /**
    * Own Properties
    */
-  private monthSelectId = createIdentifier("DuetDateMonth")
-  private yearSelectId = createIdentifier("DuetDateYear")
-  private dialogLabelId = createIdentifier("DuetDateLabel")
+  private monthSelectId = createIdentifier("DsoDateMonth")
+  private yearSelectId = createIdentifier("DsoDateYear")
+  private dialogLabelId = createIdentifier("DsoDateLabel")
 
   private datePickerButton: HTMLButtonElement | undefined;
   private firstFocusableElement: HTMLElement | undefined;
@@ -114,7 +115,7 @@ export class DuetDatePicker implements ComponentInterface {
    * This setting can be useful when the input is smaller than the opening date picker
    * would be as by default the picker always opens towards right.
    */
-  @Prop() direction: DuetDatePickerDirection = "right"
+  @Prop() direction: DsoDatePickerDirection = "right"
 
   /**
    * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
@@ -143,7 +144,7 @@ export class DuetDatePicker implements ComponentInterface {
    * Button labels, day names, month names, etc, used for localization.
    * Default is English.
    */
-  @Prop() localization: DuetLocalizedText = defaultLocalization
+  @Prop() localization: DsoLocalizedText = defaultLocalization
 
   /**
    * Date adapter, for custom parsing/formatting.
@@ -151,7 +152,7 @@ export class DuetDatePicker implements ComponentInterface {
    * and a `format` function which accepts a `Date` and returns a `string`.
    * Default is IS0-8601 parsing and formatting.
    */
-  @Prop() dateAdapter: DuetDateAdapter = isoAdapter
+  @Prop() dateAdapter: DsoDateAdapter = isoAdapter
 
   /**
    * Events section.
@@ -160,7 +161,7 @@ export class DuetDatePicker implements ComponentInterface {
   /**
    * Event emitted when a date is selected.
    */
-  @Event() duetChange!: EventEmitter<DuetDatePickerChangeEvent>
+  @Event() dsoChange!: EventEmitter<DsoDatePickerChangeEvent>
 
   /**
    * Component event handling.
@@ -419,8 +420,8 @@ export class DuetDatePicker implements ComponentInterface {
 
   private setValue(date: Date) {
     this.value = printISODate(date)
-    this.duetChange.emit({
-      component: "duet-date-picker",
+    this.dsoChange.emit({
+      component: "dso-date-picker",
       value: this.value,
       valueAsDate: date,
     })
@@ -463,7 +464,7 @@ export class DuetDatePicker implements ComponentInterface {
 
     return (
       <Host>
-        <div class="duet-date">
+        <div class="dso-date">
           <DatePickerInput
             formattedValue={formattedDate}
             onClick={this.toggleOpen}
@@ -474,7 +475,7 @@ export class DuetDatePicker implements ComponentInterface {
 
           <div
             class={{
-              "duet-date__dialog": true,
+              "dso-date__dialog": true,
               "is-left": this.direction === "left",
               "is-active": this.open,
             }}
@@ -487,11 +488,11 @@ export class DuetDatePicker implements ComponentInterface {
             onTouchEnd={this.handleTouchEnd}
           >
             <div
-              class="duet-date__dialog-content"
+              class="dso-date__dialog-content"
               onKeyDown={this.handleEscKey}
               ref={element => (this.dialogWrapperNode = element)}
             >
-              <div class="duet-date__vhidden duet-date__instructions" aria-live="polite">
+              <div class="dso-date__vhidden dso-date__instructions" aria-live="polite">
                 {this.localization.keyboardInstruction}
               </div>
               {/**
@@ -501,10 +502,10 @@ export class DuetDatePicker implements ComponentInterface {
                * in Stencil. See issue: https://github.com/ionic-team/stencil/issues/2628
                */}
               {/* @ts-ignore */}
-              <div class="duet-date__mobile" onFocusin={this.disableActiveFocus}>
-                <label class="duet-date__mobile-heading">{this.localization.calendarHeading}</label>
+              <div class="dso-date__mobile" onFocusin={this.disableActiveFocus}>
+                <label class="dso-date__mobile-heading">{this.localization.calendarHeading}</label>
                 <button
-                  class="duet-date__close"
+                  class="dso-date__close"
                   ref={element => (this.firstFocusableElement = element)}
                   onKeyDown={this.handleFirstFocusableKeydown}
                   onClick={() => this.hide()}
@@ -521,23 +522,23 @@ export class DuetDatePicker implements ComponentInterface {
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path d="M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z" />
                   </svg>
-                  <span class="duet-date__vhidden">{this.localization.closeLabel}</span>
+                  <span class="dso-date__vhidden">{this.localization.closeLabel}</span>
                 </button>
               </div>
               {/* @ts-ignore */}
-              <div class="duet-date__header" onFocusin={this.disableActiveFocus}>
+              <div class="dso-date__header" onFocusin={this.disableActiveFocus}>
                 <div>
-                  <h2 id={this.dialogLabelId} class="duet-date__vhidden" aria-live="polite">
+                  <h2 id={this.dialogLabelId} class="dso-date__vhidden" aria-live="polite">
                     {this.localization.monthNames[focusedMonth]} {this.focusedDay.getFullYear()}
                   </h2>
 
-                  <label htmlFor={this.monthSelectId} class="duet-date__vhidden">
+                  <label htmlFor={this.monthSelectId} class="dso-date__vhidden">
                     {this.localization.monthSelectLabel}
                   </label>
-                  <div class="duet-date__select">
+                  <div class="dso-date__select">
                     <select
                       id={this.monthSelectId}
-                      class="duet-date__select--month"
+                      class="dso-date__select--month"
                       ref={element => (this.monthSelectNode = element)}
                       onChange={this.handleMonthSelect}
                     >
@@ -547,7 +548,7 @@ export class DuetDatePicker implements ComponentInterface {
                         </option>
                       ))}
                     </select>
-                    <div class="duet-date__select-label" aria-hidden="true">
+                    <div class="dso-date__select-label" aria-hidden="true">
                       <span>{this.localization.monthNamesShort[focusedMonth]}</span>
                       <svg
                         fill="currentColor"
@@ -561,18 +562,18 @@ export class DuetDatePicker implements ComponentInterface {
                     </div>
                   </div>
 
-                  <label htmlFor={this.yearSelectId} class="duet-date__vhidden">
+                  <label htmlFor={this.yearSelectId} class="dso-date__vhidden">
                     {this.localization.yearSelectLabel}
                   </label>
-                  <div class="duet-date__select">
-                    <select id={this.yearSelectId} class="duet-date__select--year" onChange={this.handleYearSelect}>
+                  <div class="dso-date__select">
+                    <select id={this.yearSelectId} class="dso-date__select--year" onChange={this.handleYearSelect}>
                       {range(minYear, maxYear).map(year => (
                         <option key={year} selected={year === focusedYear}>
                           {year}
                         </option>
                       ))}
                     </select>
-                    <div class="duet-date__select-label" aria-hidden="true">
+                    <div class="dso-date__select-label" aria-hidden="true">
                       <span>{this.focusedDay.getFullYear()}</span>
                       <svg
                         fill="currentColor"
@@ -587,9 +588,9 @@ export class DuetDatePicker implements ComponentInterface {
                   </div>
                 </div>
 
-                <div class="duet-date__nav">
+                <div class="dso-date__nav">
                   <button
-                    class="duet-date__prev"
+                    class="dso-date__prev"
                     onClick={this.handlePreviousMonthClick}
                     disabled={prevMonthDisabled}
                     type="button"
@@ -604,10 +605,10 @@ export class DuetDatePicker implements ComponentInterface {
                     >
                       <path d="M14.71 15.88L10.83 12l3.88-3.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L8.71 11.3c-.39.39-.39 1.02 0 1.41l4.59 4.59c.39.39 1.02.39 1.41 0 .38-.39.39-1.03 0-1.42z" />
                     </svg>
-                    <span class="duet-date__vhidden">{this.localization.prevMonthLabel}</span>
+                    <span class="dso-date__vhidden">{this.localization.prevMonthLabel}</span>
                   </button>
                   <button
-                    class="duet-date__next"
+                    class="dso-date__next"
                     onClick={this.handleNextMonthClick}
                     disabled={nextMonthDisabled}
                     type="button"
@@ -622,7 +623,7 @@ export class DuetDatePicker implements ComponentInterface {
                     >
                       <path d="M9.29 15.88L13.17 12 9.29 8.12c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0l4.59 4.59c.39.39.39 1.02 0 1.41L10.7 17.3c-.39.39-1.02.39-1.41 0-.38-.39-.39-1.03 0-1.42z" />
                     </svg>
-                    <span class="duet-date__vhidden">{this.localization.nextMonthLabel}</span>
+                    <span class="dso-date__vhidden">{this.localization.nextMonthLabel}</span>
                   </button>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import { h, FunctionalComponent } from "@stencil/core"
-import { DuetDateFormatter } from "./date-adapter"
+import { DsoDateFormatter } from "./date-adapter"
 import { isEqual } from "./date-utils"
 
 export type DatePickerDayProps = {
@@ -8,7 +8,7 @@ export type DatePickerDayProps = {
   day: Date
   inRange: boolean
   onDaySelect: (event: MouseEvent, day: Date) => void
-  dateFormatter: DuetDateFormatter
+  dateFormatter: DsoDateFormatter
   onKeyboardNavigation: (event: KeyboardEvent) => void
   focusedDayRef?: (element: HTMLButtonElement) => void
 }
@@ -35,7 +35,7 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
   return (
     <button
       class={{
-        "duet-date__day": true,
+        "dso-date__day": true,
         "is-outside": isOutsideRange,
         "is-disabled": isDisabled,
         "is-today": isToday,
@@ -52,7 +52,7 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
       }}
     >
       <span aria-hidden="true">{day.getDate()}</span>
-      <span class="duet-date__vhidden">{dateFormatter(day)}</span>
+      <span class="dso-date__vhidden">{dateFormatter(day)}</span>
     </button>
   )
 }

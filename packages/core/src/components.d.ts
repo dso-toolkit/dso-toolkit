@@ -5,10 +5,10 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { DuetDatePickerChangeEvent, DuetDatePickerDirection } from "./components/date-picker/duet-date-picker";
+import { DsoDatePickerChangeEvent, DsoDatePickerDirection } from "./components/date-picker/date-picker";
 import { DaysOfWeek } from "./components/date-picker/date-utils";
-import { DuetLocalizedText } from "./components/date-picker/date-localization";
-import { DuetDateAdapter } from "./components/date-picker/date-adapter";
+import { DsoLocalizedText } from "./components/date-picker/date-localization";
+import { DsoDateAdapter } from "./components/date-picker/date-adapter";
 export namespace Components {
     interface DsoAlert {
         "status": 'success' | 'info' | 'warning' | 'danger';
@@ -18,6 +18,48 @@ export namespace Components {
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface DsoDatePicker {
+        /**
+          * Date adapter, for custom parsing/formatting. Must be object with a `parse` function which accepts a `string` and returns a `Date`, and a `format` function which accepts a `Date` and returns a `string`. Default is IS0-8601 parsing and formatting.
+         */
+        "dateAdapter": DsoDateAdapter;
+        /**
+          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
+         */
+        "direction": DsoDatePickerDirection;
+        /**
+          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
+         */
+        "disabled": boolean;
+        /**
+          * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "firstDayOfWeek": DaysOfWeek;
+        /**
+          * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
+         */
+        "hide": (moveFocusToButton?: boolean) => Promise<void>;
+        /**
+          * Button labels, day names, month names, etc, used for localization. Default is English.
+         */
+        "localization": DsoLocalizedText;
+        /**
+          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the min property.
+         */
+        "max": string;
+        /**
+          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the max property.
+         */
+        "min": string;
+        /**
+          * Show the calendar modal, moving focus to the calendar inside.
+         */
+        "show": () => Promise<void>;
+        /**
+          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "value": string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -36,48 +78,6 @@ export namespace Components {
         "max": number;
         "min": number;
         "progress": number;
-    }
-    interface DuetDatePicker {
-        /**
-          * Date adapter, for custom parsing/formatting. Must be object with a `parse` function which accepts a `string` and returns a `Date`, and a `format` function which accepts a `Date` and returns a `string`. Default is IS0-8601 parsing and formatting.
-         */
-        "dateAdapter": DuetDateAdapter;
-        /**
-          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
-         */
-        "direction": DuetDatePickerDirection;
-        /**
-          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-         */
-        "disabled": boolean;
-        /**
-          * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
-         */
-        "firstDayOfWeek": DaysOfWeek;
-        /**
-          * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
-         */
-        "hide": (moveFocusToButton?: boolean) => Promise<void>;
-        /**
-          * Button labels, day names, month names, etc, used for localization. Default is English.
-         */
-        "localization": DuetLocalizedText;
-        /**
-          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the min property.
-         */
-        "max": string;
-        /**
-          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the max property.
-         */
-        "min": string;
-        /**
-          * Show the calendar modal, moving focus to the calendar inside.
-         */
-        "show": () => Promise<void>;
-        /**
-          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
-         */
-        "value": string;
     }
 }
 declare global {
@@ -98,6 +98,12 @@ declare global {
     var HTMLDsoBadgeElement: {
         prototype: HTMLDsoBadgeElement;
         new (): HTMLDsoBadgeElement;
+    };
+    interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
+    }
+    var HTMLDsoDatePickerElement: {
+        prototype: HTMLDsoDatePickerElement;
+        new (): HTMLDsoDatePickerElement;
     };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
@@ -123,21 +129,15 @@ declare global {
         prototype: HTMLDsoProgressBarElement;
         new (): HTMLDsoProgressBarElement;
     };
-    interface HTMLDuetDatePickerElement extends Components.DuetDatePicker, HTMLStencilElement {
-    }
-    var HTMLDuetDatePickerElement: {
-        prototype: HTMLDuetDatePickerElement;
-        new (): HTMLDuetDatePickerElement;
-    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-badge": HTMLDsoBadgeElement;
+        "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
-        "duet-date-picker": HTMLDuetDatePickerElement;
     }
 }
 declare namespace LocalJSX {
@@ -149,6 +149,44 @@ declare namespace LocalJSX {
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface DsoDatePicker {
+        /**
+          * Date adapter, for custom parsing/formatting. Must be object with a `parse` function which accepts a `string` and returns a `Date`, and a `format` function which accepts a `Date` and returns a `string`. Default is IS0-8601 parsing and formatting.
+         */
+        "dateAdapter"?: DsoDateAdapter;
+        /**
+          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
+         */
+        "direction"?: DsoDatePickerDirection;
+        /**
+          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
+         */
+        "disabled"?: boolean;
+        /**
+          * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
+         */
+        "firstDayOfWeek"?: DaysOfWeek;
+        /**
+          * Button labels, day names, month names, etc, used for localization. Default is English.
+         */
+        "localization"?: DsoLocalizedText;
+        /**
+          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the min property.
+         */
+        "max"?: string;
+        /**
+          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the max property.
+         */
+        "min"?: string;
+        /**
+          * Event emitted when a date is selected.
+         */
+        "onDsoChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
+        /**
+          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "value"?: string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -168,53 +206,15 @@ declare namespace LocalJSX {
         "min"?: number;
         "progress": number;
     }
-    interface DuetDatePicker {
-        /**
-          * Date adapter, for custom parsing/formatting. Must be object with a `parse` function which accepts a `string` and returns a `Date`, and a `format` function which accepts a `Date` and returns a `string`. Default is IS0-8601 parsing and formatting.
-         */
-        "dateAdapter"?: DuetDateAdapter;
-        /**
-          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
-         */
-        "direction"?: DuetDatePickerDirection;
-        /**
-          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-         */
-        "disabled"?: boolean;
-        /**
-          * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
-         */
-        "firstDayOfWeek"?: DaysOfWeek;
-        /**
-          * Button labels, day names, month names, etc, used for localization. Default is English.
-         */
-        "localization"?: DuetLocalizedText;
-        /**
-          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the min property.
-         */
-        "max"?: string;
-        /**
-          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the max property.
-         */
-        "min"?: string;
-        /**
-          * Event emitted when a date is selected.
-         */
-        "onDuetChange"?: (event: CustomEvent<DuetDatePickerChangeEvent>) => void;
-        /**
-          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
-         */
-        "value"?: string;
-    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-badge": DsoBadge;
+        "dso-date-picker": DsoDatePicker;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
-        "duet-date-picker": DuetDatePicker;
     }
 }
 export { LocalJSX as JSX };
@@ -224,11 +224,11 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
+            "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
-            "duet-date-picker": LocalJSX.DuetDatePicker & JSXBase.HTMLAttributes<HTMLDuetDatePickerElement>;
         }
     }
 }

@@ -1,20 +1,20 @@
 // ---------------------------------------------
-// DUET DATE PICKER
+// DSO DATE PICKER
 // ---------------------------------------------
 
-.duet-date *,
-.duet-date *::before,
-.duet-date *::after {
+.dso-date *,
+.dso-date *::before,
+.dso-date *::after {
   box-sizing: border-box;
   margin: 0;
   width: auto;
 }
 
-.duet-date {
+.dso-date {
   box-sizing: border-box;
-  color: var(--duet-color-text);
+  color: var(--dso-color-text);
   display: block;
-  font-family: var(--duet-font);
+  font-family: var(--dso-font);
   margin: 0;
   position: relative;
   text-align: left;
@@ -22,22 +22,22 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ TOGGLE
+// dso DATE PICKER __ TOGGLE
 // ---------------------------------------------
 
-.duet-date__toggle {
+.dso-date__toggle {
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-user-select: none;
   align-items: center;
   appearance: none;
-  background: var(--duet-color-button);
+  background: var(--dso-color-button);
   border: 0;
   border-radius: 0;
-  border-bottom-right-radius: var(--duet-radius);
-  border-top-right-radius: var(--duet-radius);
+  border-bottom-right-radius: var(--dso-radius);
+  border-top-right-radius: var(--dso-radius);
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.1);
-  color: var(--duet-color-text);
+  color: var(--dso-color-text);
   cursor: pointer;
   display: flex;
   height: calc(100% - 4px);
@@ -51,7 +51,7 @@
   z-index: 2;
 }
 
-.duet-date__toggle-icon {
+.dso-date__toggle-icon {
   display: flex;
   flex-basis: 100%;
   justify-content: center;
@@ -59,10 +59,10 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ DIALOG
+// dso DATE PICKER __ DIALOG
 // ---------------------------------------------
 
-.duet-date__dialog {
+.dso-date__dialog {
   display: flex;
   left: 0;
   min-width: 320px;
@@ -75,10 +75,10 @@
   visibility: hidden;
   width: 100%;
   will-change: transform, opacity, visibility;
-  z-index: var(--duet-z-index);
+  z-index: var(--dso-z-index);
 
   @media (max-width: 35.9375em) {
-    background: var(--duet-color-overlay);
+    background: var(--dso-color-overlay);
     bottom: 0;
     position: fixed;
     right: 0;
@@ -101,10 +101,10 @@
   }
 }
 
-.duet-date__dialog-content {
-  background: var(--duet-color-surface);
+.dso-date__dialog-content {
+  background: var(--dso-color-surface);
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: var(--duet-radius);
+  border-radius: var(--dso-radius);
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
   margin-left: auto;
   margin-top: 8px;
@@ -114,13 +114,13 @@
   position: relative;
   transform: none;
   width: 100%;
-  z-index: var(--duet-z-index);
+  z-index: var(--dso-z-index);
 
   @media (max-width: 35.9375em) {
     border: 0;
     border-radius: 0;
-    border-top-left-radius: var(--duet-radius);
-    border-top-right-radius: var(--duet-radius);
+    border-top-left-radius: var(--dso-radius);
+    border-top-right-radius: var(--dso-radius);
     bottom: 0;
     left: 0;
     margin: 0;
@@ -143,23 +143,23 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ TABLE
+// dso DATE PICKER __ TABLE
 // ---------------------------------------------
 
-.duet-date__table {
+.dso-date__table {
   border-collapse: collapse;
   border-spacing: 0;
-  color: var(--duet-color-text);
+  color: var(--dso-color-text);
   font-size: 1rem;
-  font-weight: var(--duet-font-normal);
+  font-weight: var(--dso-font-normal);
   line-height: 1.25;
   text-align: center;
   width: 100%;
 }
 
-.duet-date__table-header {
+.dso-date__table-header {
   font-size: 0.75rem;
-  font-weight: var(--duet-font-bold);
+  font-weight: var(--dso-font-bold);
   letter-spacing: 1px;
   line-height: 1.25;
   padding-bottom: 8px;
@@ -167,24 +167,24 @@
   text-transform: uppercase;
 }
 
-.duet-date__cell {
+.dso-date__cell {
   text-align: center;
 }
 
-.duet-date__day {
+.dso-date__day {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
   border: 0;
   border-radius: 50%;
-  color: var(--duet-color-text);
+  color: var(--dso-color-text);
   cursor: pointer;
   display: inline-block;
-  font-family: var(--duet-font);
+  font-family: var(--dso-font);
   font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
-  font-weight: var(--duet-font-normal);
+  font-weight: var(--dso-font-normal);
   height: 36px;
   line-height: 1.25;
   padding: 0 0 1px;
@@ -195,14 +195,14 @@
   z-index: 1;
 
   &.is-today {
-    box-shadow: 0 0 0 1px var(--duet-color-primary);
+    box-shadow: 0 0 0 1px var(--dso-color-primary);
     position: relative;
     z-index: 200;
   }
 
   &:hover::before,
   &.is-today::before {
-    background: var(--duet-color-primary);
+    background: var(--dso-color-primary);
     border-radius: 50%;
     bottom: 0;
     content: "";
@@ -215,28 +215,28 @@
 
   [aria-selected="true"] &,
   &:focus {
-    background: var(--duet-color-primary);
+    background: var(--dso-color-primary);
     box-shadow: none;
-    color: var(--duet-color-text-active);
+    color: var(--dso-color-text-active);
     outline: 0;
   }
 
   &:active {
-    background: var(--duet-color-primary);
-    box-shadow: 0 0 5px var(--duet-color-primary);
-    color: var(--duet-color-text-active);
+    background: var(--dso-color-primary);
+    box-shadow: 0 0 5px var(--dso-color-primary);
+    color: var(--dso-color-text-active);
     z-index: 200;
   }
 
   &:focus {
-    box-shadow: 0 0 5px var(--duet-color-primary);
+    box-shadow: 0 0 5px var(--dso-color-primary);
     z-index: 200;
   }
 
   &.is-disabled {
     background: transparent;
     box-shadow: none;
-    color: var(--duet-color-text);
+    color: var(--dso-color-text);
     cursor: default;
     opacity: 0.5;
 
@@ -246,9 +246,9 @@
   }
 
   &.is-outside {
-    background: var(--duet-color-button);
+    background: var(--dso-color-button);
     box-shadow: none;
-    color: var(--duet-color-text);
+    color: var(--dso-color-text);
     cursor: default;
     opacity: 0.6;
     pointer-events: none;
@@ -260,10 +260,10 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ HEADER
+// dso DATE PICKER __ HEADER
 // ---------------------------------------------
 
-.duet-date__header {
+.dso-date__header {
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -272,23 +272,23 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ NAVIGATION
+// dso DATE PICKER __ NAVIGATION
 // ---------------------------------------------
 
-.duet-date__nav {
+.dso-date__nav {
   white-space: nowrap;
 }
 
-.duet-date__prev,
-.duet-date__next {
+.dso-date__prev,
+.dso-date__next {
   -moz-appearance: none;
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background: var(--duet-color-button);
+  background: var(--dso-color-button);
   border: 0;
   border-radius: 50%;
-  color: var(--duet-color-text);
+  color: var(--dso-color-text);
   cursor: pointer;
   display: inline-flex;
   height: 32px;
@@ -304,7 +304,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--duet-color-primary);
+    box-shadow: 0 0 0 2px var(--dso-color-primary);
     outline: 0;
   }
 
@@ -323,10 +323,10 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ SELECT
+// dso DATE PICKER __ SELECT
 // ---------------------------------------------
 
-.duet-date__select {
+.dso-date__select {
   display: inline-flex;
   margin-top: 4px;
   position: relative;
@@ -346,19 +346,19 @@
     width: 100%;
     z-index: 2;
 
-    &:focus + .duet-date__select-label {
-      box-shadow: 0 0 0 2px var(--duet-color-primary);
+    &:focus + .dso-date__select-label {
+      box-shadow: 0 0 0 2px var(--dso-color-primary);
     }
   }
 }
 
-.duet-date__select-label {
+.dso-date__select-label {
   align-items: center;
-  border-radius: var(--duet-radius);
-  color: var(--duet-color-text);
+  border-radius: var(--dso-radius);
+  color: var(--dso-color-text);
   display: flex;
   font-size: 1.25rem;
-  font-weight: var(--duet-font-bold);
+  font-weight: var(--dso-font-bold);
   line-height: 1.25;
   padding: 0 4px 0 8px;
   pointer-events: none;
@@ -373,10 +373,10 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ MOBILE
+// dso DATE PICKER __ MOBILE
 // ---------------------------------------------
 
-.duet-date__mobile {
+.dso-date__mobile {
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
@@ -402,9 +402,9 @@
   }
 }
 
-.duet-date__mobile-heading {
+.dso-date__mobile-heading {
   display: inline-block;
-  font-weight: var(--duet-font-bold);
+  font-weight: var(--dso-font-bold);
   max-width: 84%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -416,17 +416,17 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ CLOSE
+// dso DATE PICKER __ CLOSE
 // ---------------------------------------------
 
-.duet-date__close {
+.dso-date__close {
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background: var(--duet-color-button);
+  background: var(--dso-color-button);
   border: 0;
   border-radius: 50%;
-  color: var(--duet-color-text);
+  color: var(--dso-color-text);
   cursor: pointer;
   display: flex;
   height: 24px;
@@ -439,7 +439,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--duet-color-primary);
+    box-shadow: 0 0 0 2px var(--dso-color-primary);
     outline: none;
 
     @media (min-width: 36em) {
@@ -453,10 +453,10 @@
 }
 
 // ---------------------------------------------
-// DUET DATE PICKER __ VISUALLY HIDDEN
+// dso DATE PICKER __ VISUALLY HIDDEN
 // ---------------------------------------------
 
-.duet-date__vhidden {
+.dso-date__vhidden {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;

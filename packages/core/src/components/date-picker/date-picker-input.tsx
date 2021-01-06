@@ -1,9 +1,9 @@
 import { h, FunctionalComponent } from "@stencil/core"
-import { DuetLocalizedText } from "./date-localization"
+import { DsoLocalizedText } from "./date-localization"
 
 type DatePickerInputProps = {
   formattedValue: string | undefined
-  localization: DuetLocalizedText
+  localization: DsoLocalizedText
   disabled: boolean
   onClick: (event: MouseEvent) => void
   buttonRef: (element: HTMLButtonElement | undefined) => void
@@ -17,10 +17,10 @@ export const DatePickerInput: FunctionalComponent<DatePickerInputProps> = ({
   buttonRef,
 }) => {
   return (
-    <div class="duet-date__input-wrapper">
+    <div class="dso-date__input-wrapper">
       <slot />
-      <button class="duet-date__toggle" onClick={onClick} disabled={disabled} ref={buttonRef} type="button">
-        <span class="duet-date__toggle-icon">
+      <button class="dso-date__toggle" onClick={onClick} disabled={disabled} ref={buttonRef} type="button">
+        <span class="dso-date__toggle-icon">
           <svg aria-hidden="true" height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
             <g fill="none" fill-rule="evenodd" transform="translate(2 2)">
               <path
@@ -41,7 +41,7 @@ export const DatePickerInput: FunctionalComponent<DatePickerInputProps> = ({
             </g>
           </svg>
         </span>
-        <span class="duet-date__vhidden">
+        <span class="dso-date__vhidden">
           {localization.buttonLabel}
           {formattedValue && (
             <span>
