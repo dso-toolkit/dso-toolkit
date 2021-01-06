@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Deprecated
+* **styling:** Pager deprecaten ([#910](https://github.com/dso-toolkit/dso-toolkit/issues/910)) **Deprecation notice, see PR ([#924](https://github.com/dso-toolkit/dso-toolkit/pull/924))**
+
 ## 16.0.1 - 2020-01-04
 
 ## Fixed
