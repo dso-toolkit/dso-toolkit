@@ -33,24 +33,10 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
   @include step-counter();
 }
 
-.dso-highlight-box,
-dso-highlight-box {
-  .btn-link:not([disabled]) {
-    color: $grasgroen;
-
-    &:hover,
-    &:focus {
-      &,
-      dso-icon,
-      svg.di {
-        color: $scampi;
-      }
-    }
-  }
-}
-
-.dso-highlight-box:not(.dso-border):not(.dso-drop-shadow),
-dso-highlight-box:not([border]):not([drop-shadow]) {
+.dso-highlight-box.dso-yellow,
+dso-highlight-box[yellow],
+.dso-highlight-box:not(.dso-border),
+dso-highlight-box:not([border]) {
   .btn-link:not([disabled]) {
     color: $grijs-90;
 
@@ -60,20 +46,6 @@ dso-highlight-box:not([border]):not([drop-shadow]) {
       dso-icon,
       svg.di {
         color: $grijs-60;
-      }
-    }
-  }
-}
-
-.dso-highlight-box,
-dso-highlight-box {
-  .btn-link:not([disabled]) {
-    &:hover,
-    &:focus {
-      &,
-      dso-icon,
-      svg.di {
-        text-decoration: underline;
       }
     }
   }
