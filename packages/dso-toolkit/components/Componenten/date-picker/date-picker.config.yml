@@ -1,0 +1,19 @@
+meta:
+  webComponent: true
+collated: true
+context:
+  label: Datumveld
+  id: initial
+variants:
+  - name: disabled
+    context:
+      id: disabled
+      disabled: true
+  - name: showButton
+    context:
+      id: showButton
+      showButton: true
+  - name: predefined-value
+    context:
+      id: predefinedValue
+      value: 15-11-2020

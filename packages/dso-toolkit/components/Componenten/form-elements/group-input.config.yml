@@ -19,7 +19,7 @@ variants:
   context:
     __title: Datum
     __explanation:
-    - Er is een <code>type="date"</code> beschikbaar die een native manier van het selecteren van een datum faciliteert.
+    - Voor een date picker maken we gebruik van een custom element en <strong>niet</strong> van <code>input type="date"</code>
     id: input-date
     type: date
     label: Datum

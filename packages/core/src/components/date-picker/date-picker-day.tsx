@@ -1,6 +1,5 @@
 import { h, FunctionalComponent } from "@stencil/core"
-import { DsoDateFormatter } from "./date-adapter"
-import { isEqual } from "./date-utils"
+import { isEqual, printDutchDate } from "./date-utils"
 
 export type DatePickerDayProps = {
   focusedDay: Date
@@ -8,7 +7,6 @@ export type DatePickerDayProps = {
   day: Date
   inRange: boolean
   onDaySelect: (event: MouseEvent, day: Date) => void
-  dateFormatter: DsoDateFormatter
   onKeyboardNavigation: (event: KeyboardEvent) => void
   focusedDayRef?: (element: HTMLButtonElement) => void
 }
@@ -20,8 +18,7 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
   onDaySelect,
   onKeyboardNavigation,
   focusedDayRef,
-  inRange,
-  dateFormatter,
+  inRange
 }) => {
   const isToday = isEqual(day, today)
   const isFocused = isEqual(day, focusedDay)
@@ -52,7 +49,7 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
       }}
     >
       <span aria-hidden="true">{day.getDate()}</span>
-      <span class="dso-date__vhidden">{dateFormatter(day)}</span>
+      <span class="dso-date__vhidden">{printDutchDate(day)}</span>
     </button>
   )
 }

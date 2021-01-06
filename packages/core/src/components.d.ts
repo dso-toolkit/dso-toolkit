@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection } from "./components/date-picker/date-picker";
 import { DaysOfWeek } from "./components/date-picker/date-utils";
 import { DsoLocalizedText } from "./components/date-picker/date-localization";
-import { DsoDateAdapter } from "./components/date-picker/date-adapter";
 export namespace Components {
     interface DsoAlert {
         "status": 'success' | 'info' | 'warning' | 'danger';
@@ -21,17 +20,9 @@ export namespace Components {
     }
     interface DsoDatePicker {
         /**
-          * Date adapter, for custom parsing/formatting. Must be object with a `parse` function which accepts a `string` and returns a `Date`, and a `format` function which accepts a `Date` and returns a `string`. Default is IS0-8601 parsing and formatting.
-         */
-        "dateAdapter": DsoDateAdapter;
-        /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
          */
         "direction": DsoDatePickerDirection;
-        /**
-          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-         */
-        "disabled": boolean;
         /**
           * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
@@ -56,10 +47,6 @@ export namespace Components {
           * Show the calendar modal, moving focus to the calendar inside.
          */
         "show": () => Promise<void>;
-        /**
-          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
-         */
-        "value": string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -152,17 +139,9 @@ declare namespace LocalJSX {
     }
     interface DsoDatePicker {
         /**
-          * Date adapter, for custom parsing/formatting. Must be object with a `parse` function which accepts a `string` and returns a `Date`, and a `format` function which accepts a `Date` and returns a `string`. Default is IS0-8601 parsing and formatting.
-         */
-        "dateAdapter"?: DsoDateAdapter;
-        /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
          */
         "direction"?: DsoDatePickerDirection;
-        /**
-          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
-         */
-        "disabled"?: boolean;
         /**
           * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
          */
@@ -183,10 +162,6 @@ declare namespace LocalJSX {
           * Event emitted when a date is selected.
          */
         "onDsoChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
-        /**
-          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
-         */
-        "value"?: string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;

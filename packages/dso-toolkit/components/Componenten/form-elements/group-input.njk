@@ -10,15 +10,21 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <input type="{{ type }}" id="{{ localId }}" class="form-control"
-      {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
-      {% if size %} size="{{ size }}"{% endif %}
-      {% if value %} value="{{ value }}"{% endif %}
-      {% if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
-      {% if disabled %} disabled{% endif %}
-      {% if readonly %} readonly{% endif %}
-      {% if required %} required{% endif %}
-    >
+    {% if type == 'date' %}
+      <dso-date-picker>
+        <input type="text" id="{{ localId }}" value="{{ value }}">
+      </dso-date-picker>
+    {% else %}
+      <input type="{{ type }}" id="{{ localId }}" class="form-control"
+        {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+        {% if size %} size="{{ size }}"{% endif %}
+        {% if value %} value="{{ value }}"{% endif %}
+        {% if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
+        {% if disabled %} disabled{% endif %}
+        {% if readonly %} readonly{% endif %}
+        {% if required %} required{% endif %}
+      >
+    {% endif %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}

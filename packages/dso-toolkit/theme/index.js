@@ -118,14 +118,14 @@ module.exports = function (options) {
       return $;
     };
 
-    env.engine.addGlobal('hydrateForPreview', async function (html) {
+    env.engine.addGlobal('hydrateForPreview', async function (html, markup) {
       const $ = cheerio.load(html);
 
       const dsoCustomElements = $('*')
         .filter((index, element) => /^dso-/i.test(element.tagName))
         .get();
 
-      if (dsoCustomElements.length === 0) {
+      if (dsoCustomElements.length === 0 || markup === false) {
         return html;
       }
 

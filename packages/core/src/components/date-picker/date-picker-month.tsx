@@ -1,5 +1,4 @@
 import { h, FunctionalComponent } from "@stencil/core"
-import { DsoDateFormatter } from "./date-adapter"
 import { DsoLocalizedText } from "./date-localization"
 import { DatePickerDay, DatePickerDayProps } from "./date-picker-day"
 import { getViewOfMonth, inRange, DaysOfWeek, isEqual } from "./date-utils"
@@ -29,7 +28,6 @@ type DatePickerMonthProps = {
   firstDayOfWeek: DaysOfWeek
   min?: Date
   max?: Date
-  dateFormatter: DsoDateFormatter
   onDateSelect: DatePickerDayProps["onDaySelect"]
   onKeyboardNavigation: DatePickerDayProps["onKeyboardNavigation"]
   focusedDayRef: (element: HTMLButtonElement) => void
@@ -45,12 +43,11 @@ export const DatePickerMonth: FunctionalComponent<DatePickerMonthProps> = ({
   firstDayOfWeek,
   min,
   max,
-  dateFormatter,
   onDateSelect,
   onKeyboardNavigation,
   focusedDayRef,
   onMouseDown,
-  onFocusIn,
+  onFocusIn
 }) => {
   const today = new Date()
   const days = getViewOfMonth(focusedDate, firstDayOfWeek)
@@ -89,7 +86,6 @@ export const DatePickerMonth: FunctionalComponent<DatePickerMonthProps> = ({
                   focusedDay={focusedDate}
                   inRange={inRange(day, min, max)}
                   onDaySelect={onDateSelect}
-                  dateFormatter={dateFormatter}
                   onKeyboardNavigation={onKeyboardNavigation}
                   focusedDayRef={focusedDayRef}
                 />

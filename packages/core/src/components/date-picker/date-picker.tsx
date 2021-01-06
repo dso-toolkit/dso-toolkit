@@ -22,15 +22,13 @@ import {
   inRange,
   endOfMonth,
   startOfMonth,
-  printISODate,
-  parseISODate,
+  printDutchDate,
+  parseDutchDate,
   createIdentifier,
-  DaysOfWeek,
+  DaysOfWeek
 } from './date-utils'
-import { DatePickerInput } from './date-picker-input'
 import { DatePickerMonth } from './date-picker-month'
 import defaultLocalization, { DsoLocalizedText } from './date-localization'
-import isoAdapter, { DsoDateAdapter } from './date-adapter'
 
 function range(from: number, to: number) {
   var result: number[] = []
@@ -56,18 +54,19 @@ const keyCode = {
 
 export type DsoDatePickerChangeEvent = {
   component: "dso-date-picker"
-  valueAsDate: Date
+  valueAsDate: Date | undefined
   value: string
 }
 export type DsoDatePickerDirection = "left" | "right"
 
+const DISALLOWED_CHARACTERS = /[^0-9\.\/\-]+/g
 const TRANSITION_MS = 300
 
 @Component({
   tag: "dso-date-picker",
   styleUrl: "date-picker.scss",
-  shadow: false,
-  scoped: false,
+  shadow: true,
+  scoped: false
 })
 export class DsoDatePicker implements ComponentInterface {
   /**
@@ -76,6 +75,8 @@ export class DsoDatePicker implements ComponentInterface {
   private monthSelectId = createIdentifier("DsoDateMonth")
   private yearSelectId = createIdentifier("DsoDateYear")
   private dialogLabelId = createIdentifier("DsoDateLabel")
+
+  private datePickerInput!: HTMLInputElement;
 
   private datePickerButton: HTMLButtonElement | undefined;
   private firstFocusableElement: HTMLElement | undefined;
@@ -87,6 +88,29 @@ export class DsoDatePicker implements ComponentInterface {
 
   private initialTouchX: number | undefined;
   private initialTouchY: number | undefined;
+
+  /**
+   * Getters/setters slaved to <input type="text"> element
+   */
+
+  /**
+   * Makes the date picker input component disabled. This prevents users from being able to
+   * interact with the input, and conveys its inactive state to assistive technologies.
+   */
+  private get disabled() {
+    return this.datePickerInput.disabled;
+  }
+
+  /**
+   * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+   */
+  private get value() {
+    return this.datePickerInput.value;
+  }
+
+  private set value(value: string) {
+    this.datePickerInput.value = value;
+  }
 
   /**
    * Reference to host HTML element.
@@ -105,22 +129,11 @@ export class DsoDatePicker implements ComponentInterface {
    */
 
   /**
-   * Makes the date picker input component disabled. This prevents users from being able to
-   * interact with the input, and conveys its inactive state to assistive technologies.
-   */
-  @Prop({ reflect: true }) disabled: boolean = false
-
-  /**
    * Forces the opening direction of the calendar modal to be always left or right.
    * This setting can be useful when the input is smaller than the opening date picker
    * would be as by default the picker always opens towards right.
    */
   @Prop() direction: DsoDatePickerDirection = "right"
-
-  /**
-   * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
-   */
-  @Prop({ mutable: true, reflect: true }) value: string = ""
 
   /**
    * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
@@ -145,14 +158,6 @@ export class DsoDatePicker implements ComponentInterface {
    * Default is English.
    */
   @Prop() localization: DsoLocalizedText = defaultLocalization
-
-  /**
-   * Date adapter, for custom parsing/formatting.
-   * Must be object with a `parse` function which accepts a `string` and returns a `Date`,
-   * and a `format` function which accepts a `Date` and returns a `string`.
-   * Default is IS0-8601 parsing and formatting.
-   */
-  @Prop() dateAdapter: DsoDateAdapter = isoAdapter
 
   /**
    * Events section.
@@ -205,7 +210,7 @@ export class DsoDatePicker implements ComponentInterface {
    */
   @Method() async show() {
     this.open = true
-    this.setFocusedDay(parseISODate(this.value) || new Date())
+    this.setFocusedDay(parseDutchDate(this.value) || new Date())
 
     if (typeof this.focusTimeoutId !== 'undefined') {
       clearTimeout(this.focusTimeoutId)
@@ -281,7 +286,7 @@ export class DsoDatePicker implements ComponentInterface {
   }
 
   private setFocusedDay(day: Date) {
-    this.focusedDay = clamp(day, parseISODate(this.min), parseISODate(this.max))
+    this.focusedDay = clamp(day, parseDutchDate(this.min), parseDutchDate(this.max))
   }
 
   private toggleOpen = (e: Event) => {
@@ -398,7 +403,7 @@ export class DsoDatePicker implements ComponentInterface {
   }
 
   private handleDaySelect = (_event: MouseEvent, day: Date) => {
-    if (!inRange(day, parseISODate(this.min), parseISODate(this.max))) {
+    if (!inRange(day, parseDutchDate(this.min), parseDutchDate(this.max))) {
       return
     }
 
@@ -418,8 +423,20 @@ export class DsoDatePicker implements ComponentInterface {
     this.setYear(parseInt(e.target.value, 10))
   }
 
-  private setValue(date: Date) {
-    this.value = printISODate(date)
+  private handleInputChange = (e: Event) => {
+    const target = e.target as HTMLInputElement
+
+    // clean up any invalid characters
+    target.value = target.value.replace(DISALLOWED_CHARACTERS, "")
+
+    const parsed = parseDutchDate(target.value)
+    if (parsed || target.value === "") {
+      this.setValue(parsed)
+    }
+  }
+
+  private setValue(date: Date | undefined) {
+    this.value = printDutchDate(date)
     this.dsoChange.emit({
       component: "dso-date-picker",
       value: this.value,
@@ -435,19 +452,29 @@ export class DsoDatePicker implements ComponentInterface {
     }
   }
 
+  componentWillLoad() {
+    const input = this.element.querySelector<HTMLInputElement>('input[type="text"]');
+    if (!input) {
+      throw new Error('Missing <input type="text"> element');
+    }
+
+    this.datePickerInput = input;
+    input.addEventListener('input', event => this.handleInputChange(event));
+  }
+
   /**
    * render() function
    * Always the last one in the class.
    */
   render() {
-    const valueAsDate = parseISODate(this.value)
-    const formattedDate = valueAsDate && this.dateAdapter.format(valueAsDate)
+    const valueAsDate = parseDutchDate(this.value)
+    const formattedDate = valueAsDate && printDutchDate(valueAsDate)
     const selectedYear = (valueAsDate || this.focusedDay).getFullYear()
     const focusedMonth = this.focusedDay.getMonth()
     const focusedYear = this.focusedDay.getFullYear()
 
-    const minDate = parseISODate(this.min)
-    const maxDate = parseISODate(this.max)
+    const minDate = parseDutchDate(this.min)
+    const maxDate = parseDutchDate(this.max)
     const prevMonthDisabled =
       minDate != null && minDate.getMonth() === focusedMonth && minDate.getFullYear() === focusedYear
     const nextMonthDisabled =
@@ -465,13 +492,22 @@ export class DsoDatePicker implements ComponentInterface {
     return (
       <Host>
         <div class="dso-date">
-          <DatePickerInput
-            formattedValue={formattedDate}
-            onClick={this.toggleOpen}
-            disabled={this.disabled}
-            localization={this.localization}
-            buttonRef={element => (this.datePickerButton = element)}
-          />
+          <div class="dso-date__input-wrapper">
+            <slot />
+            <button type="button" class="dso-date__toggle" onClick={this.toggleOpen} disabled={this.disabled} ref={element => (this.datePickerButton = element)}>
+              <span class="dso-date__toggle-icon">
+                <dso-icon icon="calendar"></dso-icon>
+              </span>
+              <span class="dso-date__vhidden">
+                {this.localization.buttonLabel}
+                {formattedDate && (
+                  <span>
+                    , {this.localization.selectedDateMessage} {formattedDate}
+                  </span>
+                )}
+              </span>
+            </button>
+          </div>
 
           <div
             class={{
@@ -638,7 +674,6 @@ export class DsoDatePicker implements ComponentInterface {
                 focusedDayRef={this.processFocusedDayNode}
                 min={minDate}
                 max={maxDate}
-                dateFormatter={this.dateAdapter.format}
               />
             </div>
           </div>
