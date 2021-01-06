@@ -17,31 +17,53 @@ export type DsoLocalizedText = {
 }
 
 const localization: DsoLocalizedText = {
-  buttonLabel: "Choose date",
-  selectedDateMessage: "Selected date is",
-  prevMonthLabel: "Previous month",
-  nextMonthLabel: "Next month",
-  monthSelectLabel: "Month",
-  yearSelectLabel: "Year",
-  closeLabel: "Close window",
-  keyboardInstruction: "You can use arrow keys to navigate dates",
-  calendarHeading: "Choose a date",
-  dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-  monthNames: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+  buttonLabel: 'Kies datum',
+  selectedDateMessage: 'Geselecteerde datum is',
+  prevMonthLabel: 'Vorige maand',
+  nextMonthLabel: 'Volgende maand',
+  monthSelectLabel: 'Maand',
+  yearSelectLabel: 'Jaar',
+  closeLabel: 'Sluit window',
+  keyboardInstruction:
+    'Gebruik de pijltjestoetsen om een dag te kiezen',
+  calendarHeading: 'Kies een datum',
+  dayNames: [
+    'Zondag',
+    'Maandag',
+    'Dinsdag',
+    'Woensdag',
+    'Donderdag',
+    'Vrijdag',
+    'Zaterdag'
   ],
-  monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  monthNames: [
+    'Januari',
+    'Februari',
+    'Maart',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Augustus',
+    'September',
+    'Oktober',
+    'November',
+    'December'
+  ],
+  monthNamesShort: [
+    'Jan',
+    'Feb',
+    'Mrt',
+    'Apr',
+    'Mei',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Okt',
+    'Nov',
+    'Dec'
+  ]
 }
 
 export default localization
