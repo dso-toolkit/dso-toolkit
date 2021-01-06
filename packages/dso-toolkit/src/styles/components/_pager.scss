@@ -3,7 +3,7 @@ $dso-pager-border-width: $dso-button-border-width;
 $dso-pager-height: $u6;
 
 .pager { // DEPRECATED
-  background-color: $brand-danger;
+  background-color: $dso-invalid-color;
 
   li {
     > a,
