@@ -17,14 +17,14 @@ footer {
   }
 
   a {
+    @include anchor-reverse();
+
     color: $bosgroen;
-    text-decoration: none;
 
     &:hover,
     &.active,
     &:active {
       color: $grijs-90;
-      text-decoration: underline;
     }
 
     &:visited {

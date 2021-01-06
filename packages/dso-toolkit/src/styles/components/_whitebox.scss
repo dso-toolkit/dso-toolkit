@@ -67,7 +67,7 @@
   }
 
   a {
-    text-decoration: none;
+    @include anchor-clean();
 
     &:hover {
       .dso-whitebox-link {

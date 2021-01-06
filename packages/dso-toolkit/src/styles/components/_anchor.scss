@@ -25,6 +25,17 @@ dso-alert,
 }
 
 a {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
   &:not(.btn):visited {
     color: $dso-anchor-visited-color;
   }
@@ -61,11 +72,6 @@ a {
 sup,
 sub {
   a {
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
+    @include anchor-reverse();
   }
 }

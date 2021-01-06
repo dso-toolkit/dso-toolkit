@@ -46,16 +46,12 @@ $dso-navigation-selected-color: $cannon-pink;
       }
 
       > a {
+        @include anchor-reverse();
+
         font-size: 1.25em;
         line-height: 1;
         margin-top: $u1;
         padding: $u1 $u2 #{$u1 - 1px};
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-        }
       }
     }
   }
@@ -65,15 +61,11 @@ $dso-navigation-selected-color: $cannon-pink;
       display: inline-block;
 
       > a {
+        @include anchor-reverse();
+
         font-size: $font-size-base;
         margin-top: ($u1 / 2);
         padding: ($u1 / 2) $u1 #{$u1 / 2 - 1px};
-        text-decoration: none;
-
-        &:hover,
-        &:focus {
-          text-decoration: underline;
-        }
       }
     }
   }
