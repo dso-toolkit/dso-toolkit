@@ -2,11 +2,11 @@ import { h, FunctionalComponent } from "@stencil/core"
 import { DuetLocalizedText } from "./date-localization"
 
 type DatePickerInputProps = {
-  formattedValue: string
+  formattedValue: string | undefined
   localization: DuetLocalizedText
   disabled: boolean
   onClick: (event: MouseEvent) => void
-  buttonRef: (element: HTMLButtonElement) => void
+  buttonRef: (element: HTMLButtonElement | undefined) => void
 }
 
 export const DatePickerInput: FunctionalComponent<DatePickerInputProps> = ({

@@ -28,7 +28,7 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
   const isDisabled = day.getMonth() !== focusedDay.getMonth()
   const isOutsideRange = !inRange
 
-  function handleClick(e) {
+  function handleClick(e: MouseEvent) {
     onDaySelect(e, day)
   }
 

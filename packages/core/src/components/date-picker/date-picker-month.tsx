@@ -22,7 +22,7 @@ function mapWithOffset<T, U>(array: T[], startingOffset: number, mapFn: (item: T
 }
 
 type DatePickerMonthProps = {
-  selectedDate: Date
+  selectedDate: Date | undefined
   focusedDate: Date
   labelledById: string
   localization: DuetLocalizedText

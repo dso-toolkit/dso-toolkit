@@ -76,21 +76,21 @@ export class DuetDatePicker implements ComponentInterface {
   private yearSelectId = createIdentifier("DuetDateYear")
   private dialogLabelId = createIdentifier("DuetDateLabel")
 
-  private datePickerButton: HTMLButtonElement
-  private firstFocusableElement: HTMLElement
-  private monthSelectNode: HTMLElement
-  private dialogWrapperNode: HTMLElement
-  private focusedDayNode: HTMLButtonElement
+  private datePickerButton: HTMLButtonElement | undefined;
+  private firstFocusableElement: HTMLElement | undefined;
+  private monthSelectNode: HTMLElement | undefined;
+  private dialogWrapperNode: HTMLElement | undefined;
+  private focusedDayNode: HTMLButtonElement | undefined;
 
-  private focusTimeoutId: ReturnType<typeof setTimeout>
+  private focusTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
-  private initialTouchX: number = null
-  private initialTouchY: number = null
+  private initialTouchX: number | undefined;
+  private initialTouchY: number | undefined;
 
   /**
    * Reference to host HTML element.
    */
-  @Element() element: HTMLElement
+  @Element() element!: HTMLElement
 
   /**
    * State() variables
@@ -160,7 +160,7 @@ export class DuetDatePicker implements ComponentInterface {
   /**
    * Event emitted when a date is selected.
    */
-  @Event() duetChange: EventEmitter<DuetDatePickerChangeEvent>
+  @Event() duetChange!: EventEmitter<DuetDatePickerChangeEvent>
 
   /**
    * Component event handling.
@@ -188,7 +188,7 @@ export class DuetDatePicker implements ComponentInterface {
     //    and open the new one. this means we can't stopPropagation() on the button itself
     //
     // this was the only satisfactory combination of things to get the above to work
-    if (this.dialogWrapperNode.contains(target) || this.datePickerButton.contains(target)) {
+    if (this.dialogWrapperNode?.contains(target) || this.datePickerButton?.contains(target)) {
       return
     }
 
@@ -206,8 +206,11 @@ export class DuetDatePicker implements ComponentInterface {
     this.open = true
     this.setFocusedDay(parseISODate(this.value) || new Date())
 
-    clearTimeout(this.focusTimeoutId)
-    this.focusTimeoutId = setTimeout(() => this.monthSelectNode.focus(), TRANSITION_MS)
+    if (typeof this.focusTimeoutId !== 'undefined') {
+      clearTimeout(this.focusTimeoutId)
+    }
+
+    this.focusTimeoutId = setTimeout(() => this.monthSelectNode?.focus(), TRANSITION_MS)
   }
 
   /**
@@ -219,11 +222,13 @@ export class DuetDatePicker implements ComponentInterface {
 
     // in cases where calendar is quickly shown and hidden
     // we should avoid moving focus to the button
-    clearTimeout(this.focusTimeoutId)
+    if (typeof this.focusTimeoutId !== 'undefined') {
+      clearTimeout(this.focusTimeoutId)
+    }
 
     if (moveFocusToButton) {
       // iOS VoiceOver needs to wait for all transitions to finish.
-      setTimeout(() => this.datePickerButton.focus(), TRANSITION_MS + 200)
+      setTimeout(() => this.datePickerButton?.focus(), TRANSITION_MS + 200)
     }
   }
 
@@ -301,8 +306,8 @@ export class DuetDatePicker implements ComponentInterface {
 
   private handleTouchEnd = (event: TouchEvent) => {
     const touch = event.changedTouches[0]
-    const distX = touch.pageX - this.initialTouchX // get horizontal dist traveled
-    const distY = touch.pageY - this.initialTouchY // get vertical dist traveled
+    const distX = touch.pageX - this.initialTouchX! // get horizontal dist traveled
+    const distY = touch.pageY - this.initialTouchY! // get vertical dist traveled
     const threshold = 70
 
     const isHorizontalSwipe = Math.abs(distX) >= threshold && Math.abs(distY) <= threshold
@@ -315,8 +320,8 @@ export class DuetDatePicker implements ComponentInterface {
       event.preventDefault()
     }
 
-    this.initialTouchY = null
-    this.initialTouchX = null
+    this.initialTouchY = undefined
+    this.initialTouchX = undefined
   }
 
   private handleNextMonthClick = (event: MouseEvent) => {
@@ -332,7 +337,7 @@ export class DuetDatePicker implements ComponentInterface {
   private handleFirstFocusableKeydown = (event: KeyboardEvent) => {
     // this ensures focus is trapped inside the dialog
     if (event.keyCode === keyCode.TAB && event.shiftKey) {
-      this.focusedDayNode.focus()
+      this.focusedDayNode?.focus()
       event.preventDefault()
     }
   }
@@ -342,7 +347,7 @@ export class DuetDatePicker implements ComponentInterface {
     // differently to other keyboard interactions
     if (event.keyCode === keyCode.TAB && !event.shiftKey) {
       event.preventDefault()
-      this.firstFocusableElement.focus()
+      this.firstFocusableElement?.focus()
       return
     }
 
@@ -404,11 +409,11 @@ export class DuetDatePicker implements ComponentInterface {
     }
   }
 
-  private handleMonthSelect = e => {
+  private handleMonthSelect = (e: any) => { // Todo
     this.setMonth(parseInt(e.target.value, 10))
   }
 
-  private handleYearSelect = e => {
+  private handleYearSelect = (e: any) => { // Todo
     this.setYear(parseInt(e.target.value, 10))
   }
 

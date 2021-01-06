@@ -10,7 +10,7 @@ export enum DaysOfWeek {
   Saturday = 6,
 }
 
-export function createDate(year: string, month: string, day: string): Date {
+export function createDate(year: string, month: string, day: string): Date | undefined {
   var dayInt = parseInt(day, 10)
   var monthInt = parseInt(month, 10)
   var yearInt = parseInt(year, 10)
@@ -33,7 +33,7 @@ export function createDate(year: string, month: string, day: string): Date {
 /**
  * @param value date string in ISO format YYYY-MM-DD
  */
-export function parseISODate(value: string): Date {
+export function parseISODate(value: string): Date | undefined {
   if (!value) {
     return
   }
@@ -74,8 +74,8 @@ export function printISODate(date: Date): string {
 /**
  * Compare if two dates are equal in terms of day, month, and year
  */
-export function isEqual(a: Date, b: Date): boolean {
-  if (a == null || b == null) {
+export function isEqual(a: Date | undefined, b: Date | undefined): boolean {
+  if (!a || !b) {
     return false
   }
 
@@ -206,6 +206,6 @@ export function chr4() {
  * Create random identifier with a prefix
  * @param prefix
  */
-export function createIdentifier(prefix) {
+export function createIdentifier(prefix: string): string {
   return `${prefix}-${chr4()}${chr4()}-${chr4()}-${chr4()}-${chr4()}-${chr4()}${chr4()}${chr4()}`
 }
