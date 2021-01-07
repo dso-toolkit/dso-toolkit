@@ -12,6 +12,9 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
     <select id="{{ localId }}" class="form-control"
@@ -40,6 +43,6 @@
     {% endif %}
   </div>
   {% if infoOpen %}
-    {% render '@info', {infoText: infoText} %}
+    {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </div>
