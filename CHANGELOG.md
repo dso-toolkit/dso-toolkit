@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ## Changed
-* **dso-toolkit + styling:** Anchor/tekst links verschillende styling ([#895](https://github.com/dso-toolkit/dso-toolkit/issues/895))
+* **dso-toolkit + styling:** Consequente styling van anchor links in lopende tekst ([#895](https://github.com/dso-toolkit/dso-toolkit/issues/895))
 
 ### Fixed
 * **styling:** Tertiaire button grasgroen in highlightbox met witte achtergrond ([#925](https://github.com/dso-toolkit/dso-toolkit/issues/925))

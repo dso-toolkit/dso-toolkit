@@ -1,22 +1,6 @@
 $dso-anchor-spacer-width: 4px;
 
 dso-alert,
-.alert,
-dso-highlight-box,
-.dso-highlight-box,
-.dso-rich-content > :not(table),
-.dso-info:not(.dso-accordion-section) {
-  a:not(.btn) {
-    text-decoration: underline;
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-    }
-  }
-}
-
-dso-alert,
 .alert {
   a,
   a:visited {
@@ -62,10 +46,6 @@ a {
         @include di("external-link");
       }
     }
-  }
-
-  &.btn {
-    text-decoration: none;
   }
 }
 
