@@ -189,9 +189,12 @@ context:
       - value: 2
         label: nee
       infoOpen: true
-      infoButtonLabel: Toelichting bij vraag
+      infoButtonLabel: Toelichting op uw vraag
       infoText: |
-        <h4>Let op</h4>
+        <h4>Toelichting bij vraag: "Toelichting op uw vraag"</h4>
+        <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
+      infoTextDeprecated: |
+        <h4>Toelichting bij vraag: "Toelichting op uw vraag" - BINNENKORT DEPRECATED</h4>
         <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
   buttons:
   - type: button
