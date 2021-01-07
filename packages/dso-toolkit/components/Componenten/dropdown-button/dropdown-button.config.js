@@ -9,7 +9,8 @@ module.exports = {
   context: {
     id: 'actie',
     modifier: 'link',
-    open: false,
+    ariaPopup: true,
+    ariaExpanded: false,
     label: 'Actie',
     iconAfter: 'chevron-down'
   },
@@ -18,7 +19,7 @@ module.exports = {
       name: 'dropdown-link-open',
       context: {
         id: 'actie_open_link',
-        open: true,
+        ariaExpanded: true,
         groups: [
           {
             label: 'Versies',
@@ -62,13 +63,15 @@ module.exports = {
       name: 'dropdown-link-open-selectable',
       context: {
         id: 'actie_open_link_selectable',
-        open: true,
+        ariaExpanded: true,
+        modifiers: 'dso-checkable',
         groups: [
           {
             label: 'Versies',
             items: [
               {
-                label: '10.6.0'
+                label: '10.6.0',
+                checked: true
               },
               {
                 label: '10.5.0'
@@ -107,7 +110,7 @@ module.exports = {
       context: {
         id: 'actie_default',
         modifier: 'default',
-        open: false,
+        ariaExpanded: false,
         iconAfter: 'caret-down'
       }
     },
@@ -116,7 +119,7 @@ module.exports = {
       context: {
         id: 'actie_default_open',
         modifier: 'default',
-        open: true,
+        ariaExpanded: true,
         iconAfter: 'caret-down',
         groups: [
           {
@@ -162,7 +165,7 @@ module.exports = {
       context: {
         id: 'actie_default_open_checkable',
         modifier: 'default',
-        open: true,
+        ariaExpanded: true,
         iconAfter: 'caret-down',
         modifiers: 'dso-checkable',
         groups: [

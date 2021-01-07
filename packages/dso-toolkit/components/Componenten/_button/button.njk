@@ -2,7 +2,9 @@
   {{- attributes(
     [roleDescription, 'aria-roledescription', roleDescription],
     [disabled, 'disabled'],
-    [ariaDescribedby, 'aria-describedby', ariaDescribedby]
+    [ariaDescribedby, 'aria-describedby', ariaDescribedby],
+    [ariaPopup, 'aria-haspopup', ariaPopup],
+    [ariaExpanded, 'aria-expanded', ariaExpanded]
   ) }}
   {{ className('btn', [modifier, 'btn-' + modifier]) -}}
 >
