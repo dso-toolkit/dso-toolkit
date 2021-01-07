@@ -66,11 +66,13 @@
     text-align: center;
   }
 
-  a:hover {
-    text-decoration: none;
+  a {
+    @include anchor-clean();
 
-    .dso-whitebox-link {
-      border-bottom: #{$u1 / 2} solid $grasgroen;
+    &:hover {
+      .dso-whitebox-link {
+        border-bottom: #{$u1 / 2} solid $grasgroen;
+      }
     }
   }
 }

@@ -30,6 +30,10 @@ $dso-accordion-light-border-color: $grijs-20;
       padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
       position: relative;
 
+      a {
+        @include anchor-clean();
+      }
+
       a,
       button {
         background-color: transparent;
@@ -62,7 +66,6 @@ $dso-accordion-light-border-color: $grijs-20;
         &:active,
         &.active {
           color: $dso-accordion-main-color;
-          text-decoration: none;
         }
 
         .dso-status {
@@ -281,6 +284,10 @@ $dso-accordion-light-border-color: $grijs-20;
           left: $u1;
           position: absolute;
         }
+      }
+
+      a {
+        @include anchor-reverse();
       }
     }
   }
