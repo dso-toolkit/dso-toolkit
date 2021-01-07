@@ -36,8 +36,7 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
 .dso-highlight-box,
 dso-highlight-box {
   .btn-link:not([disabled]) {
-    &:hover,
-    &:focus {
+    &:hover {
       &,
       dso-icon,
       svg.di {
