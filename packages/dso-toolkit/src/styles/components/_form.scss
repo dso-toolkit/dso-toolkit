@@ -15,6 +15,8 @@ $dso-form-control-readonly-border-width: 1px;
 $dso-form-control-focus-border-color: $bosgroen;
 $dso-form-control-height: #{($padding-base-vertical + 1) * 2 + $dso-form-control-border-width * 2 + $font-size-base * 1.5};
 
+$dso-date-picker-height: #{($padding-base-vertical + 1) * 2 + $font-size-base * 1.5};
+
 $dso-required-string: "verplicht";
 
 $dso-toggle-close-icon-size: $u4;
@@ -225,7 +227,8 @@ select:not([multiple]) {
   }
 }
 
-.form-control {
+.form-control,
+dso-date-picker input[type="text"] {
   border-width: $dso-form-control-border-width;
   box-shadow: none;
   height: $dso-form-control-height;
@@ -256,6 +259,15 @@ select:not([multiple]) {
   &[readonly] {
     border-width: $dso-form-control-readonly-border-width;
   }
+}
+
+dso-date-picker input[type="text"] {
+  border-width: 0;
+  border-radius: $dso-button-border-radius;
+  display: flex;
+  flex-grow: 1;
+  height: $dso-date-picker-height;
+  width: calc(100% - #{$dso-date-picker-height});
 }
 
 .form-horizontal {

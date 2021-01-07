@@ -2,21 +2,33 @@
 // DSO DATE PICKER
 // ---------------------------------------------
 
+$u1: 8px;
+$bosgroen: #275937;
+$grasgroen: #39870c;
+$wit: #fff;
+
+$date-picker-color-primary: $bosgroen;
+$date-picker-color-text: #191919; //grijs-90
+$date-picker-color-text-active: $wit;
+$date-picker-color-placeholder: #666; //grijs-60
+$date-picker-color-icon: $grasgroen;
+$date-picker-color-button: $grasgroen;
+$date-picker-color-button-bg: transparent;
+$date-picker-color-select: $grasgroen;
+$date-picker-color-surface: $wit;
+$date-picker-color-overlay: rgba(0, 0, 0, 0.8);
+
+$date-picker-font:  Asap, sans-serif;
+$date-picker-font-normal: 400;
+$date-picker-font-bold: 600;
+
+$dso-date-picker-height: 38px;
+$date-picker-radius: 4px;
+$date-picker-z-index: 600;
+
 :host {
-  --dso-color-primary: #005fcc;
-  --dso-color-text: #333;
-  --dso-color-text-active: #fff;
-  --dso-color-placeholder: #666;
-  --dso-color-button: #f5f5f5;
-  --dso-color-surface: #fff;
-  --dso-color-overlay: rgba(0, 0, 0, 0.8);
-
-  --dso-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --dso-font-normal: 400;
-  --dso-font-bold: 600;
-
-  --dso-radius: 4px;
-  --dso-z-index: 600;
+  display: flex;
+  flex-grow: 0;
 }
 
 .dso-date *,
@@ -28,14 +40,21 @@
 }
 
 .dso-date {
+  border: 1px solid $bosgroen;
+  border-radius: $date-picker-radius;
   box-sizing: border-box;
-  color: var(--dso-color-text);
-  display: block;
-  font-family: var(--dso-font);
+  color: $date-picker-color-text;
+  display: inline-block;
+  font-family: $date-picker-font;
   margin: 0;
   position: relative;
   text-align: left;
   width: 100%;
+}
+
+.dso-date__input-wrapper {
+  height: 100%;
+  position: relative;
 }
 
 // ---------------------------------------------
@@ -48,23 +67,24 @@
   -webkit-user-select: none;
   align-items: center;
   appearance: none;
-  background: var(--dso-color-button);
+  background: $date-picker-color-button-bg;
   border: 0;
   border-radius: 0;
-  border-bottom-right-radius: var(--dso-radius);
-  border-top-right-radius: var(--dso-radius);
-  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.1);
-  color: var(--dso-color-text);
+  border-bottom-right-radius: $date-picker-radius;
+  border-top-right-radius: $date-picker-radius;
+  color: $date-picker-color-icon;
   cursor: pointer;
   display: flex;
-  height: calc(100% - 4px);
+  flex-grow: 0;
+  height: $dso-date-picker-height;
   justify-content: center;
   padding: 0;
   position: absolute;
-  right: 2px;
-  top: 2px;
+  right: 0;
+  transform: translateY(-50%);
+  top: 50%;
   user-select: none;
-  width: 21px;
+  width: $dso-date-picker-height;
   z-index: 2;
 }
 
@@ -73,6 +93,7 @@
   flex-basis: 100%;
   justify-content: center;
   align-items: center;
+  margin: 0 $u1;
 }
 
 // ---------------------------------------------
@@ -92,10 +113,10 @@
   visibility: hidden;
   width: 100%;
   will-change: transform, opacity, visibility;
-  z-index: var(--dso-z-index);
+  z-index: $date-picker-z-index;
 
   @media (max-width: 35.9375em) {
-    background: var(--dso-color-overlay);
+    background: $date-picker-color-overlay;
     bottom: 0;
     position: fixed;
     right: 0;
@@ -119,25 +140,26 @@
 }
 
 .dso-date__dialog-content {
-  background: var(--dso-color-surface);
+  background: $date-picker-color-surface;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: var(--dso-radius);
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: $date-picker-radius;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
   margin-left: auto;
+  margin-right: -1px;
   margin-top: 8px;
   max-width: 310px;
   min-width: 290px;
-  padding: 16px 16px 20px;
+  padding: 16px;
   position: relative;
   transform: none;
   width: 100%;
-  z-index: var(--dso-z-index);
+  z-index: $date-picker-z-index;
 
   @media (max-width: 35.9375em) {
     border: 0;
     border-radius: 0;
-    border-top-left-radius: var(--dso-radius);
-    border-top-right-radius: var(--dso-radius);
+    border-top-left-radius: $date-picker-radius;
+    border-top-right-radius: $date-picker-radius;
     bottom: 0;
     left: 0;
     margin: 0;
@@ -166,26 +188,27 @@
 .dso-date__table {
   border-collapse: collapse;
   border-spacing: 0;
-  color: var(--dso-color-text);
+  color: $date-picker-color-text;
   font-size: 1rem;
-  font-weight: var(--dso-font-normal);
+  font-weight: $date-picker-font-normal;
   line-height: 1.25;
   text-align: center;
   width: 100%;
 }
 
 .dso-date__table-header {
-  font-size: 0.75rem;
-  font-weight: var(--dso-font-bold);
-  letter-spacing: 1px;
-  line-height: 1.25;
-  padding-bottom: 8px;
+  font-size: 0.875em;
+  font-weight: $date-picker-font-bold;
+  height: 36px;
+  line-height: 36px;
   text-decoration: none;
   text-transform: uppercase;
 }
 
 .dso-date__cell {
+  height: 40px;
   text-align: center;
+  width: 40px;
 }
 
 .dso-date__day {
@@ -195,65 +218,65 @@
   background: transparent;
   border: 0;
   border-radius: 50%;
-  color: var(--dso-color-text);
+  box-shadow: 0 0 0 1px transparent;
+  color: $date-picker-color-text;
   cursor: pointer;
   display: inline-block;
-  font-family: var(--dso-font);
+  font-family: $date-picker-font;
   font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
-  font-weight: var(--dso-font-normal);
-  height: 36px;
-  line-height: 1.25;
+  font-weight: $date-picker-font-normal;
+  height: 38px;
+  line-height: 38px;
   padding: 0 0 1px;
   position: relative;
   text-align: center;
   vertical-align: middle;
-  width: 36px;
+  width: 38px;
   z-index: 1;
 
   &.is-today {
-    box-shadow: 0 0 0 1px var(--dso-color-primary);
-    position: relative;
-    z-index: 200;
+    background: transparent;
+    box-shadow: 0 0 0 1px $date-picker-color-button;
   }
 
-  &:hover::before,
-  &.is-today::before {
-    background: var(--dso-color-primary);
-    border-radius: 50%;
-    bottom: 0;
-    content: "";
-    left: 0;
-    opacity: 0.06;
-    position: absolute;
-    right: 0;
-    top: 0;
+  &:hover {
+    background: $date-picker-color-button;
+    box-shadow: 0 0 0 1px $date-picker-color-button;
+    color: $wit;
   }
+  
+  // &:hover::before,
+  // &.is-today::before {
+  //   background: $date-picker-color-primary;
+  //   border-radius: 50%;
+  //   bottom: 0;
+  //   content: "";
+  //   left: 0;
+  //   opacity: 0;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  // }
 
   [aria-selected="true"] &,
   &:focus {
-    background: var(--dso-color-primary);
+    background: $date-picker-color-button;
     box-shadow: none;
-    color: var(--dso-color-text-active);
+    color: $date-picker-color-text-active;
     outline: 0;
   }
 
   &:active {
-    background: var(--dso-color-primary);
-    box-shadow: 0 0 5px var(--dso-color-primary);
-    color: var(--dso-color-text-active);
-    z-index: 200;
-  }
-
-  &:focus {
-    box-shadow: 0 0 5px var(--dso-color-primary);
-    z-index: 200;
+    background: $date-picker-color-button;
+    box-shadow: 0 0 5px $date-picker-color-button;
+    color: $date-picker-color-text-active;
   }
 
   &.is-disabled {
     background: transparent;
     box-shadow: none;
-    color: var(--dso-color-text);
+    color: $date-picker-color-text;
     cursor: default;
     opacity: 0.5;
 
@@ -263,9 +286,9 @@
   }
 
   &.is-outside {
-    background: var(--dso-color-button);
+    background: $date-picker-color-button-bg;
     box-shadow: none;
-    color: var(--dso-color-text);
+    color: $date-picker-color-text;
     cursor: default;
     opacity: 0.6;
     pointer-events: none;
@@ -302,17 +325,17 @@
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background: var(--dso-color-button);
-  border: 0;
-  border-radius: 50%;
-  color: var(--dso-color-text);
+  background: $date-picker-color-button-bg;
+  border: 1px solid $date-picker-color-button;
+  border-radius: $date-picker-radius;
+  color: $date-picker-color-button;
   cursor: pointer;
   display: inline-flex;
+  font-size: 1em;
   height: 32px;
   justify-content: center;
   margin-left: 8px;
   padding: 0;
-  transition: background-color 300ms ease;
   width: 32px;
 
   @media (max-width: 35.9375em) {
@@ -320,8 +343,13 @@
     width: 40px;
   }
 
+  &:hover {
+    background-color: $date-picker-color-button;
+    color: $wit;
+  }
+
   &:focus {
-    box-shadow: 0 0 0 2px var(--dso-color-primary);
+    box-shadow: 0 0 0 2px $date-picker-color-primary;
     outline: 0;
   }
 
@@ -345,7 +373,8 @@
 
 .dso-date__select {
   display: inline-flex;
-  margin-top: 4px;
+  height: $u1 * 4;
+  line-height: $u1 * 4;
   position: relative;
 
   span {
@@ -353,6 +382,7 @@
   }
 
   select {
+    color: $date-picker-color-primary;
     cursor: pointer;
     font-size: 1rem;
     height: 100%;
@@ -364,24 +394,27 @@
     z-index: 2;
 
     &:focus + .dso-date__select-label {
-      box-shadow: 0 0 0 2px var(--dso-color-primary);
+      box-shadow: 0 0 0 2px $date-picker-color-primary;
     }
   }
 }
 
 .dso-date__select-label {
   align-items: center;
-  border-radius: var(--dso-radius);
-  color: var(--dso-color-text);
+  border-radius: $date-picker-radius;
+  color: $date-picker-color-select;
   display: flex;
-  font-size: 1.25rem;
-  font-weight: var(--dso-font-bold);
-  line-height: 1.25;
   padding: 0 4px 0 8px;
   pointer-events: none;
   position: relative;
   width: 100%;
   z-index: 1;
+
+  span {
+    font-size: 1.25rem;
+    font-weight: $date-picker-font-bold;
+    line-height: 1.25;
+  }
 
   svg {
     width: 16px;
@@ -421,7 +454,7 @@
 
 .dso-date__mobile-heading {
   display: inline-block;
-  font-weight: var(--dso-font-bold);
+  font-weight: $date-picker-font-bold;
   max-width: 84%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -440,10 +473,10 @@
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background: var(--dso-color-button);
+  background: $date-picker-color-button;
   border: 0;
   border-radius: 50%;
-  color: var(--dso-color-text);
+  color: $date-picker-color-text;
   cursor: pointer;
   display: flex;
   height: 24px;
@@ -456,7 +489,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px var(--dso-color-primary);
+    box-shadow: 0 0 0 2px $date-picker-color-primary;
     outline: none;
 
     @media (min-width: 36em) {
