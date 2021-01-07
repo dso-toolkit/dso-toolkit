@@ -81,13 +81,15 @@ export class DsoDatePicker implements ComponentInterface {
   private datePickerButton: HTMLButtonElement | undefined;
   private firstFocusableElement: HTMLElement | undefined;
   private monthSelectNode: HTMLElement | undefined;
-  private dialogWrapperNode: HTMLElement | undefined;
   private focusedDayNode: HTMLButtonElement | undefined;
 
   private focusTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
   private initialTouchX: number | undefined;
   private initialTouchY: number | undefined;
+
+  private localization: DsoLocalizedText = defaultLocalization
+  private firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday
 
   /**
    * Getters/setters slaved to <input type="text"> element
@@ -102,7 +104,7 @@ export class DsoDatePicker implements ComponentInterface {
   }
 
   /**
-   * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+   * Date value. Must be in Dutch date format: DD-MM-YYYY.
    */
   private get value() {
     return this.datePickerInput.value;
@@ -136,28 +138,16 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop() direction: DsoDatePickerDirection = "right"
 
   /**
-   * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+   * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the max property.
    */
   @Prop() min: string = ""
 
   /**
-   * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD.
+   * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the min property.
    */
   @Prop() max: string = ""
-
-  /**
-   * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc.
-   * Default is Monday.
-   */
-  @Prop() firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday
-
-  /**
-   * Button labels, day names, month names, etc, used for localization.
-   * Default is English.
-   */
-  @Prop() localization: DsoLocalizedText = defaultLocalization
 
   /**
    * Events section.
@@ -177,25 +167,12 @@ export class DsoDatePicker implements ComponentInterface {
       return
     }
 
-    const target = e.target as Node
+    const path = e.composedPath();
 
-    // TODO: stopPropagation only on open??
-
-    // the dialog and the button aren't considered clicks outside.
-    // dialog for obvious reasons, but the button needs to be skipped
-    // so that two things are possible:
-    //
-    // a) clicking again on the button when dialog is open should close the modal.
-    //    without skipping the button here, we would see a click outside
-    //    _and_ a click on the button, so the `open` state goes
-    //    open -> close (click outside) -> open (click button)
-    //
-    // b) clicking another date picker's button should close the current calendar
-    //    and open the new one. this means we can't stopPropagation() on the button itself
-    //
-    // this was the only satisfactory combination of things to get the above to work
-    if (this.dialogWrapperNode?.contains(target) || this.datePickerButton?.contains(target)) {
-      return
+    for (const target of path) {
+      if (target instanceof Node && this.element.shadowRoot?.contains(target)) {
+        return;
+      }
     }
 
     this.hide(false)
@@ -526,7 +503,6 @@ export class DsoDatePicker implements ComponentInterface {
             <div
               class="dso-date__dialog-content"
               onKeyDown={this.handleEscKey}
-              ref={element => (this.dialogWrapperNode = element)}
             >
               <div class="dso-date__vhidden dso-date__instructions" aria-live="polite">
                 {this.localization.keyboardInstruction}

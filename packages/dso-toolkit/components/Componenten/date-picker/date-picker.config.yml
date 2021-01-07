@@ -17,3 +17,8 @@ variants:
     context:
       id: predefinedValue
       value: 15-11-2020
+  - name: min-max
+    context:
+      id: min-max
+      min: 1-1-2020
+      max: 31-1-2020

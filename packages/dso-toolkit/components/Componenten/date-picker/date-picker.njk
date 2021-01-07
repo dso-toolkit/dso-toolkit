@@ -1,7 +1,10 @@
 <label for="{{ id }}-input">
   {{ label }}
 </label>
-<dso-date-picker id="{{ id }}">
+<dso-date-picker id="{{ id }}" {{ attributes(
+  [min, 'min', min],
+  [max, 'max', max]
+)}}>
   <input type="text" id="{{ id }}-input" {{ attributes(
     [disabled, 'disabled'],
     [value, 'value', value]

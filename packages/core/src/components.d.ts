@@ -6,8 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection } from "./components/date-picker/date-picker";
-import { DaysOfWeek } from "./components/date-picker/date-utils";
-import { DsoLocalizedText } from "./components/date-picker/date-localization";
 export namespace Components {
     interface DsoAlert {
         "status": 'success' | 'info' | 'warning' | 'danger';
@@ -24,23 +22,15 @@ export namespace Components {
          */
         "direction": DsoDatePickerDirection;
         /**
-          * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
-         */
-        "firstDayOfWeek": DaysOfWeek;
-        /**
           * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
          */
         "hide": (moveFocusToButton?: boolean) => Promise<void>;
         /**
-          * Button labels, day names, month names, etc, used for localization. Default is English.
-         */
-        "localization": DsoLocalizedText;
-        /**
-          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the min property.
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
         "max": string;
         /**
-          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the max property.
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
          */
         "min": string;
         /**
@@ -143,19 +133,11 @@ declare namespace LocalJSX {
          */
         "direction"?: DsoDatePickerDirection;
         /**
-          * Which day is considered first day of the week? `0` for Sunday, `1` for Monday, etc. Default is Monday.
-         */
-        "firstDayOfWeek"?: DaysOfWeek;
-        /**
-          * Button labels, day names, month names, etc, used for localization. Default is English.
-         */
-        "localization"?: DsoLocalizedText;
-        /**
-          * Maximum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the min property.
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
         "max"?: string;
         /**
-          * Minimum date allowed to be picked. Must be in IS0-8601 format: YYYY-MM-DD. This setting can be used alone or together with the max property.
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
          */
         "min"?: string;
         /**
