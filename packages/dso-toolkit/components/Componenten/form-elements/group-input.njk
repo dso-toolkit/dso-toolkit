@@ -11,9 +11,18 @@
   </div>
   <div class="dso-field-container">
     {% if type == 'date' %}
-      <dso-date-picker>
-        <input type="text" id="{{ localId }}" value="{{ value }}">
+      <dso-date-picker id="{{ localId }}" {{ attributes(
+        [min, 'min', min],
+        [max, 'max', max]
+      )}}>
+        <input type="text" id="{{ localId }}" {{ attributes(
+          [disabled, 'disabled'],
+          [value, 'value', value]
+        )}}>
       </dso-date-picker>
+      {# <dso-date-picker>
+        <input type="text" id="{{ localId }}" value="{{ value }}">
+      </dso-date-picker> #}
     {% else %}
       <input type="{{ type }}" id="{{ localId }}" class="form-control"
         {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}

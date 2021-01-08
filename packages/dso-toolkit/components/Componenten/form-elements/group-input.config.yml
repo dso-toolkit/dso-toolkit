@@ -24,6 +24,17 @@ variants:
     type: date
     label: Datum
     value: "1970-07-03"
+- name: input-date-invalid
+  context:
+    __title: Datum invalid
+    __explanation:
+    - Voor een date picker maken we gebruik van een custom element en <strong>niet</strong> van <code>input type="date"</code>
+    id: input-date
+    type: date
+    label: Datum
+    value: "1-1-1"
+    state: invalid
+    errorText: Vul de datum in met de juiste notatie (dd-mm-jjjj).
 - name: input-password
   context:
     __title: Wachtwoord
