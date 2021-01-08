@@ -120,7 +120,6 @@ module.exports = {
         id: 'actie_default_open',
         modifier: 'default',
         ariaExpanded: true,
-        iconAfter: 'caret-down',
         groups: [
           {
             label: 'Versies',
@@ -166,7 +165,107 @@ module.exports = {
         id: 'actie_default_open_checkable',
         modifier: 'default',
         ariaExpanded: true,
-        iconAfter: 'caret-down',
+        modifiers: 'dso-checkable',
+        groups: [
+          {
+            label: 'Versies',
+            items: [
+              {
+                label: '10.6.0',
+                checked: true
+              },
+              {
+                label: '10.5.0'
+              },
+              {
+                label: '10.4.0'
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                label: 'master'
+              }
+            ]
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropdown-button-toegankelijk-maken'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      name: 'dropdown-open-check',
+      context: {
+        id: 'actie_default',
+        modifier: 'primary',
+        ariaExpanded: false,
+        iconAfter: 'caret-down'
+      }
+    },
+    {
+      name: 'dropdown-open',
+      context: {
+        id: 'actie_primary_open',
+        modifier: 'primary',
+        ariaExpanded: true,
+        groups: [
+          {
+            label: 'Versies',
+            items: [
+              {
+                label: '10.6.0'
+              },
+              {
+                label: '10.5.0'
+              },
+              {
+                label: '10.4.0'
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                label: 'master'
+              }
+            ]
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropdown-button-toegankelijk-maken'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      name: 'dropdown-primary-check',
+      context: {
+        id: 'actie_default_open_checkable',
+        modifier: 'primary',
+        ariaExpanded: true,
         modifiers: 'dso-checkable',
         groups: [
           {
