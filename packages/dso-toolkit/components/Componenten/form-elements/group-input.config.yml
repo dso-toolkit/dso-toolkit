@@ -95,7 +95,7 @@ variants:
     __explanation:
     - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-input</code>.
-    id: input-text-invalid
+    id: input-text-invalid-aria
     type: email
     label: E-mailadres
     required: true
