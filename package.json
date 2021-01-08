@@ -1,10 +1,11 @@
 {
   "name": "dso-toolkit-monorepo",
   "private": true,
-  "workspaces": [
-    "packages/*",
-    "tests/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "postinstall": "patch-package",
     "start": "yarn build-styling && multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
@@ -20,5 +21,9 @@
     "multiview": "^3.0.1",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0"
+  },
+  "resolutions": {
+    "@types/estree": "0.0.45",
+    "@types/react": "17.0.0"
   }
 }
