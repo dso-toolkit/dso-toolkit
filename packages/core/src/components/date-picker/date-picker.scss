@@ -27,14 +27,6 @@ $dso-date-picker-height: 38px;
 $date-picker-radius: $u1 / 2;
 $date-picker-z-index: 600;
 
-:host {
-  &:disabled {
-    .dso-date {
-      color: $date-picker-color-nav-button-disabled;
-    }
-  }
-}
-
 .dso-date *,
 .dso-date *::before,
 .dso-date *::after {
