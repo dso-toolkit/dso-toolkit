@@ -208,7 +208,6 @@ $date-picker-z-index: 600;
   cursor: pointer;
   display: inline-block;
   font-family: $date-picker-font;
-  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
   font-weight: $date-picker-font-normal;
   height: 38px;
@@ -242,7 +241,7 @@ $date-picker-z-index: 600;
   &.is-outside {
     background: $date-picker-color-button-disabled;
     box-shadow: none;
-    color: $date-picker-color-text;
+    color: #666;
     cursor: default;
     pointer-events: none;
 
@@ -262,6 +261,10 @@ $date-picker-z-index: 600;
   justify-content: space-between;
   margin-bottom: 16px;
   width: 100%;
+
+  span {
+    font-size: 0.875rem;
+  }
 }
 
 // ---------------------------------------------
@@ -299,11 +302,6 @@ $date-picker-z-index: 600;
   &:hover {
     background-color: $date-picker-color-button;
     color: $date-picker-color-text-active;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px $date-picker-color-primary;
-    outline: 0;
   }
 
   &:active:focus {
@@ -392,6 +390,7 @@ $date-picker-z-index: 600;
   align-items: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   display: flex;
+  font-size: 1em;
   justify-content: space-between;
   margin-bottom: 20px;
   margin-left: -10%;
@@ -408,8 +407,8 @@ $date-picker-z-index: 600;
     overflow: visible;
     padding: 0;
     position: absolute;
-    right: -8px;
-    top: -8px;
+    right: -16px;
+    top: -16px;
     width: auto;
   }
 }
@@ -435,23 +434,26 @@ $date-picker-z-index: 600;
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background-color: transparent;
+  background-color: $wit;
   border: 0;
+  border-radius: 50%;
   color: $date-picker-color-icon;
   cursor: pointer;
   display: flex;
   font-size: 1em;
   height: $u1 * 4;
   justify-content: center;
+  margin-right: -4px;
   padding: 0;
   width: $u1 * 4;
 
   @media (min-width: 36em) {
+    margin-right: 0;
     opacity: 0;
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px $grasgroen;
+    box-shadow: 0 0 0 2px $bosgroen;
     outline: none;
 
     @media (min-width: 36em) {
