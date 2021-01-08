@@ -10,28 +10,28 @@ $wit: #fff;
 $date-picker-color-primary: $bosgroen;
 $date-picker-color-text: #191919; //grijs-90
 $date-picker-color-text-active: $wit;
-$date-picker-color-placeholder: #666; //grijs-60
 $date-picker-color-icon: $grasgroen;
 $date-picker-color-button: $grasgroen;
 $date-picker-color-button-bg: transparent;
-$date-picker-color-nav-button-disabled: #afcf9d;
+$date-picker-color-nav-button-disabled: #afcf9d; //grasgroen-40
 $date-picker-color-button-disabled: #f2f2f2; //grijs-5
 $date-picker-color-select: $grasgroen;
 $date-picker-color-surface: $wit;
-$date-picker-color-overlay: rgba(0, 0, 0, 0.8);
+$date-picker-color-overlay: rgba(25, 25, 25, 0.5);
 
 $date-picker-font: Asap, sans-serif;
 $date-picker-font-normal: 400;
 $date-picker-font-bold: 600;
 
 $dso-date-picker-height: 38px;
-$date-picker-radius: 4px;
+$date-picker-radius: $u1 / 2;
 $date-picker-z-index: 600;
 
-dso-date-picker,
-.dso-date-picker {
+:host {
   &:disabled {
-    color: $date-picker-color-nav-button-disabled;
+    .dso-date {
+      color: $date-picker-color-nav-button-disabled;
+    }
   }
 }
 
@@ -82,14 +82,11 @@ dso-date-picker,
   user-select: none;
   width: $dso-date-picker-height;
   z-index: 2;
-}
 
-.dso-date__toggle-icon {
-  display: flex;
-  flex-basis: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 0 $u1;
+  &:disabled {
+    color: $date-picker-color-nav-button-disabled;
+    cursor: pointer;
+  }
 }
 
 // ---------------------------------------------
@@ -114,6 +111,7 @@ dso-date-picker,
     background: $date-picker-color-overlay;
     bottom: 0;
     position: fixed;
+    left: 0;
     right: 0;
     top: 0;
     transform: translateZ(0);
@@ -238,7 +236,7 @@ dso-date-picker,
   &:hover {
     background: $date-picker-color-button;
     box-shadow: 0 0 0 1px $date-picker-color-button;
-    color: $wit;
+    color: $date-picker-color-text-active;
   }
 
   [aria-selected="true"] &,
@@ -308,7 +306,7 @@ dso-date-picker,
 
   &:hover {
     background-color: $date-picker-color-button;
-    color: $wit;
+    color: $date-picker-color-text-active;
   }
 
   &:focus {
@@ -445,32 +443,28 @@ dso-date-picker,
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background: $date-picker-color-button;
+  background-color: transparent;
   border: 0;
-  border-radius: 50%;
-  color: $date-picker-color-text;
+  color: $date-picker-color-icon;
   cursor: pointer;
   display: flex;
-  height: 24px;
+  font-size: 1em;
+  height: $u1 * 4;
   justify-content: center;
   padding: 0;
-  width: 24px;
+  width: $u1 * 4;
 
   @media (min-width: 36em) {
     opacity: 0;
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px $date-picker-color-primary;
+    box-shadow: 0 0 0 2px $grasgroen;
     outline: none;
 
     @media (min-width: 36em) {
       opacity: 1;
     }
-  }
-
-  svg {
-    margin: 0 auto;
   }
 }
 
