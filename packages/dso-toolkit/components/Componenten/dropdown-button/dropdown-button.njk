@@ -1,5 +1,5 @@
 <div {{ className('dropdown', [open, 'open']) }}>
-  {% render '@button', {type: 'button', modifier: modifier, label: label, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
+  {% render '@button', {type: 'button', modifier: modifier, label: label, id: id, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
   {% if open %}
     <div {{ className('dropdown-menu', modifiers) }}>
       {% for group in groups %}

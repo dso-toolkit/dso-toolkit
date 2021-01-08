@@ -18,7 +18,7 @@ module.exports = {
     {
       name: 'dropdown-link-open',
       context: {
-        id: 'actie_open_link',
+        id: 'dropdown-link-open',
         open: true,
         groups: [
           {
@@ -62,7 +62,7 @@ module.exports = {
     {
       name: 'dropdown-link-open-selectable',
       context: {
-        id: 'actie_open_link_selectable',
+        id: 'dropdown-link-open-selectable',
         open: true,
         modifiers: 'dso-checkable',
         groups: [
@@ -106,18 +106,18 @@ module.exports = {
       }
     },
     {
-      name: 'dropdown-open-check',
+      name: 'dropdown-default-button',
       context: {
-        id: 'actie_default',
+        id: 'dropdown_default_button',
         modifier: 'default',
         open: false,
         iconAfter: 'caret-down'
       }
     },
     {
-      name: 'dropdown-open',
+      name: 'dropdown-default-button-open',
       context: {
-        id: 'actie_default_open',
+        id: 'dropdown_default_button_open',
         modifier: 'default',
         open: true,
         groups: [
@@ -160,9 +160,9 @@ module.exports = {
       }
     },
     {
-      name: 'dropdown-open-check',
+      name: 'dropdown-default-button-open-checkable',
       context: {
-        id: 'actie_default_open_checkable',
+        id: 'dropdown_default_button_open_checkable',
         modifier: 'default',
         open: true,
         modifiers: 'dso-checkable',
@@ -207,18 +207,18 @@ module.exports = {
       }
     },
     {
-      name: 'dropdown-open-check',
+      name: 'dropdown-primary-button',
       context: {
-        id: 'actie_default',
+        id: 'dropdown_primary_button',
         modifier: 'primary',
         open: false,
         iconAfter: 'caret-down'
       }
     },
     {
-      name: 'dropdown-open',
+      name: 'dropdown-primary-button-open',
       context: {
-        id: 'actie_primary_open',
+        id: 'dropdown_primary_button_open',
         modifier: 'primary',
         open: true,
         groups: [
@@ -261,9 +261,9 @@ module.exports = {
       }
     },
     {
-      name: 'dropdown-primary-check',
+      name: 'dropdown-primary-button-open-checkable',
       context: {
-        id: 'actie_default_open_checkable',
+        id: 'dropdown_primary_button_open_checkable',
         modifier: 'primary',
         open: true,
         modifiers: 'dso-checkable',
