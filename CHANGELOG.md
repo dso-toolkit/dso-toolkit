@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
-* List-button multiple selection aanpassen en uitbreiden met extra inhoud (#798)
+* **dso-toolkit:** List-button multiple selection aanpassen en uitbreiden met extra inhoud ([#798](https://github.com/dso-toolkit/dso-toolkit/issues/798))
 
 ## Changed
 * **dso-toolkit:** Toelichting direct onder/na de vraag ([#906](https://github.com/dso-toolkit/dso-toolkit/issues/906))
