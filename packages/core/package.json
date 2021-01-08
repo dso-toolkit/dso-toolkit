@@ -24,6 +24,7 @@
   "devDependencies": {
     "@dso-toolkit/styling": "workspace:packages/styling",
     "@stencil/core": "2.3.0",
+    "@stencil/react-output-target": "0.0.9",
     "@stencil/sass": "1.4.1",
     "@types/cheerio": "0.22.22",
     "@types/sass": "1.16.0",
