@@ -222,17 +222,6 @@ dso-label[status="danger"],
     }
   }
 
-  .dropdown.open > & {
-    &:active,
-    &.active {
-      &,
-      &:hover,
-      &:not(.btn):visited {
-        @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
-      }
-    }
-  }
-
   &.disabled,
   &[disabled] {
     &,

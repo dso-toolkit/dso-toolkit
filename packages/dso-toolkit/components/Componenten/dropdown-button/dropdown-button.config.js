@@ -9,8 +9,8 @@ module.exports = {
   context: {
     id: 'actie',
     modifier: 'link',
-    ariaPopup: true,
-    ariaExpanded: false,
+    ariaHasPopup: true,
+    open: false,
     label: 'Actie',
     iconAfter: 'chevron-down'
   },
@@ -19,7 +19,7 @@ module.exports = {
       name: 'dropdown-link-open',
       context: {
         id: 'actie_open_link',
-        ariaExpanded: true,
+        open: true,
         groups: [
           {
             label: 'Versies',
@@ -63,7 +63,7 @@ module.exports = {
       name: 'dropdown-link-open-selectable',
       context: {
         id: 'actie_open_link_selectable',
-        ariaExpanded: true,
+        open: true,
         modifiers: 'dso-checkable',
         groups: [
           {
@@ -110,7 +110,7 @@ module.exports = {
       context: {
         id: 'actie_default',
         modifier: 'default',
-        ariaExpanded: false,
+        open: false,
         iconAfter: 'caret-down'
       }
     },
@@ -119,7 +119,7 @@ module.exports = {
       context: {
         id: 'actie_default_open',
         modifier: 'default',
-        ariaExpanded: true,
+        open: true,
         groups: [
           {
             label: 'Versies',
@@ -164,7 +164,7 @@ module.exports = {
       context: {
         id: 'actie_default_open_checkable',
         modifier: 'default',
-        ariaExpanded: true,
+        open: true,
         modifiers: 'dso-checkable',
         groups: [
           {
@@ -211,7 +211,7 @@ module.exports = {
       context: {
         id: 'actie_default',
         modifier: 'primary',
-        ariaExpanded: false,
+        open: false,
         iconAfter: 'caret-down'
       }
     },
@@ -220,7 +220,7 @@ module.exports = {
       context: {
         id: 'actie_primary_open',
         modifier: 'primary',
-        ariaExpanded: true,
+        open: true,
         groups: [
           {
             label: 'Versies',
@@ -265,7 +265,7 @@ module.exports = {
       context: {
         id: 'actie_default_open_checkable',
         modifier: 'primary',
-        ariaExpanded: true,
+        open: true,
         modifiers: 'dso-checkable',
         groups: [
           {
