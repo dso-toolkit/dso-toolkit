@@ -262,12 +262,9 @@ dso-date-picker input[type="text"] {
 }
 
 dso-date-picker input[type="text"] {
-  border-width: 0;
-  border-radius: $dso-button-border-radius;
-  display: flex;
-  flex-grow: 1;
+  @extend .form-control;
+
   height: $dso-date-picker-height;
-  width: calc(100% - #{$dso-date-picker-height});
 }
 
 .form-horizontal {
