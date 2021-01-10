@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { DsoDatePickerChangeEvent, DsoDatePickerDirection } from "./components/date-picker/date-picker";
 export namespace Components {
     interface DsoAlert {
         "status": 'success' | 'info' | 'warning' | 'danger';
@@ -14,6 +15,28 @@ export namespace Components {
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface DsoDatePicker {
+        /**
+          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
+         */
+        "direction": DsoDatePickerDirection;
+        /**
+          * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
+         */
+        "hide": (moveFocusToButton?: boolean) => Promise<void>;
+        /**
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
+         */
+        "max": string;
+        /**
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
+         */
+        "min": string;
+        /**
+          * Show the calendar modal, moving focus to the calendar inside.
+         */
+        "show": () => Promise<void>;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -53,6 +76,12 @@ declare global {
         prototype: HTMLDsoBadgeElement;
         new (): HTMLDsoBadgeElement;
     };
+    interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
+    }
+    var HTMLDsoDatePickerElement: {
+        prototype: HTMLDsoDatePickerElement;
+        new (): HTMLDsoDatePickerElement;
+    };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
     var HTMLDsoHighlightBoxElement: {
@@ -81,6 +110,7 @@ declare global {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-badge": HTMLDsoBadgeElement;
+        "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
@@ -96,6 +126,24 @@ declare namespace LocalJSX {
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface DsoDatePicker {
+        /**
+          * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
+         */
+        "direction"?: DsoDatePickerDirection;
+        /**
+          * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
+         */
+        "max"?: string;
+        /**
+          * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
+         */
+        "min"?: string;
+        /**
+          * Event emitted when a date is selected.
+         */
+        "onDsoChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -119,6 +167,7 @@ declare namespace LocalJSX {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-badge": DsoBadge;
+        "dso-date-picker": DsoDatePicker;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
@@ -132,6 +181,7 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
+            "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
