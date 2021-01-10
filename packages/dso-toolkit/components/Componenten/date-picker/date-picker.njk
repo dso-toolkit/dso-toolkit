@@ -1,0 +1,24 @@
+<label for="{{ id }}-input">
+  {{ label }}
+</label>
+<dso-date-picker id="{{ id }}" {{ attributes(
+  [min, 'min', min],
+  [max, 'max', max]
+)}}>
+  <input type="text" id="{{ id }}-input" {{ attributes(
+    [disabled, 'disabled'],
+    [value, 'value', value]
+  )}}>
+</dso-date-picker>
+
+{% if showButton %}
+  <br><button type="button" class="btn btn-default btn-sm" id="{{ id }}-show-button">Open date picker met script</button>
+
+  <script>
+    const button = document.getElementById('{{ id }}-show-button');
+
+    button.addEventListener('click', function() {
+      document.getElementById('{{ id }}').show();
+    });
+  </script>
+{% endif %}
