@@ -24,6 +24,8 @@ ol.breadcrumb {
     }
 
     > a {
+      @include anchor-reverse();
+
       color: $bosgroen;
     }
   }

@@ -7,6 +7,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core:** Nieuw component: Date Picker ([#877](https://github.com/dso-toolkit/dso-toolkit/issues/877))
+* **dso-toolkit:** List-button multiple selection aanpassen en uitbreiden met extra inhoud ([#798](https://github.com/dso-toolkit/dso-toolkit/issues/798))
+
+## Changed
+* **dso-toolkit:** Toelichting direct onder/na de vraag ([#906](https://github.com/dso-toolkit/dso-toolkit/issues/906))
+* **dso-toolkit + styling:** Consequente styling van anchor links in lopende tekst ([#895](https://github.com/dso-toolkit/dso-toolkit/issues/895))
+* **BREAKING:** **dso-toolkit + styling:** "Grote" Whiteboxes aanpassingen ([#929](https://github.com/dso-toolkit/dso-toolkit/issues/929)) **Markup changes, see PR ([#948](https://github.com/dso-toolkit/dso-toolkit/issues/948))**
+
+### Fixed
+* **styling:** Tertiaire button grasgroen in highlightbox met witte achtergrond ([#925](https://github.com/dso-toolkit/dso-toolkit/issues/925))
+
+### Deprecated
+* **styling:** Pager deprecaten ([#910](https://github.com/dso-toolkit/dso-toolkit/issues/910)) **Deprecation notice, see PR ([#924](https://github.com/dso-toolkit/dso-toolkit/pull/924))**
+
+### Documentation
+* **dso-toolkit:** Documentatie Alert, Banner, Modal en Forms geüpdatet, en inline validatie en strategie meldingen toegevoegd  ([#680](https://github.com/dso-toolkit/dso-toolkit/issues/680))
 
 ## 16.0.1 - 2020-01-04
 
@@ -16,8 +31,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** README.md met NPM package publiceren ([#954](https://github.com/dso-toolkit/dso-toolkit/issues/954))
 
 ### Documentation
-* Start documentatie opsplitsen naar verschillende rollen (developers, ontwerpers, product owners) ([#945](https://github.com/dso-toolkit/dso-toolkit/issues/945))
-* Dubbele previews bij componenten labelen met type ([#947](https://github.com/dso-toolkit/dso-toolkit/issues/947))
+* **dso-toolkit:** Start documentatie opsplitsen naar verschillende rollen (developers, ontwerpers, product owners) ([#945](https://github.com/dso-toolkit/dso-toolkit/issues/945))
+* **dso-toolkit:** Dubbele previews bij componenten labelen met type ([#947](https://github.com/dso-toolkit/dso-toolkit/issues/947))
 
 ## 16.0.0 - 2020-12-14
 

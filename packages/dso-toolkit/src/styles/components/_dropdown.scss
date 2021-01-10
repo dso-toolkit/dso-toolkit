@@ -45,6 +45,8 @@ $dso-dropdown-hor-padding: 20px;
       list-style: none;
 
       a {
+        @include anchor-reverse();
+
         clear: both;
         color: $grijs-90;
         display: block;
@@ -58,10 +60,6 @@ $dso-dropdown-hor-padding: 20px;
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
-        }
-
-        &:focus {
-          text-decoration: underline;
         }
       }
     }

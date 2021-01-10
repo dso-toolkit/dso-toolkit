@@ -40,6 +40,12 @@ form,
 
       border-bottom: 0;
       margin-bottom: $dso-fieldset-separator-unit;
+
+      .dso-info {
+        font-weight: 400;
+        margin-bottom: $u2;
+        margin-top: $u1;
+      }
     }
 
     + fieldset:not(.form-group) {
@@ -104,7 +110,7 @@ form,
 
   .dso-selectable > .dso-info {
     float: none;
-    margin: $u1 $u2 #{$u1 * -1} #{$u4 * -1};
+    margin: $u1 $u2 0 #{$u4 * -1};
     width: calc(100% + #{$u4});
   }
 
