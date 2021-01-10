@@ -1,20 +1,13 @@
-// ---------------------------------------------
-// DSO DATE PICKER
-// ---------------------------------------------
-
-$u1: 8px;
-$bosgroen: #275937;
-$grasgroen: #39870c;
-$wit: #fff;
+@import "~@dso-toolkit/styling/variables";
 
 $date-picker-color-primary: $bosgroen;
-$date-picker-color-text: #191919; //grijs-90
+$date-picker-color-text: $grijs-90;
 $date-picker-color-text-active: $wit;
 $date-picker-color-icon: $grasgroen;
 $date-picker-color-button: $grasgroen;
 $date-picker-color-button-bg: transparent;
-$date-picker-color-nav-button-disabled: #afcf9d; //grasgroen-40
-$date-picker-color-button-disabled: #f2f2f2; //grijs-5
+$date-picker-color-nav-button-disabled: $grasgroen-40;
+$date-picker-color-button-disabled: $grijs-5;
 $date-picker-color-select: $grasgroen;
 $date-picker-color-surface: $wit;
 $date-picker-color-overlay: rgba(25, 25, 25, 0.5);
@@ -26,6 +19,10 @@ $date-picker-font-bold: 600;
 $dso-date-picker-height: 38px;
 $date-picker-radius: $u1 / 2;
 $date-picker-z-index: 600;
+
+:host {
+  display: block;
+}
 
 .dso-date *,
 .dso-date *::before,

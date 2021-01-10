@@ -4,10 +4,10 @@
 <dso-date-picker id="showButton">
   <input type="text" id="showButton-input">
 </dso-date-picker>
-<br><button type="button" class="btn btn-default btn-sm" id="showButton-show-button">Show date picker</button>
+<br><button type="button" class="btn btn-default btn-sm" id="showButton-show-button">Open date picker met script</button>
 <script>
-  const button = document.getElementById('showButton-show-button')
+  const button = document.getElementById('showButton-show-button');
   button.addEventListener('click', function() {
-    document.getElementById('showButton').show()
+    document.getElementById('showButton').show();
   });
 </script>

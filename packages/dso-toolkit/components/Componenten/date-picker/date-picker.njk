@@ -12,13 +12,13 @@
 </dso-date-picker>
 
 {% if showButton %}
-  <br><button type="button" class="btn btn-default btn-sm" id="{{ id }}-show-button">Show date picker</button>
+  <br><button type="button" class="btn btn-default btn-sm" id="{{ id }}-show-button">Open date picker met script</button>
 
   <script>
-    const button = document.getElementById('{{ id }}-show-button')
+    const button = document.getElementById('{{ id }}-show-button');
 
     button.addEventListener('click', function() {
-      document.getElementById('{{ id }}').show()
+      document.getElementById('{{ id }}').show();
     });
   </script>
 {% endif %}
