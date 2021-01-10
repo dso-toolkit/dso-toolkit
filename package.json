@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "packages/react/test-app"
     ]
   },
   "scripts": {
@@ -12,8 +13,9 @@
     "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build",
     "start-fractal": "yarn workspace dso-toolkit start",
     "build-fractal": "yarn workspace dso-toolkit build",
-    "start-stencil": "yarn workspace @dso-toolkit/core start",
-    "build-stencil": "yarn workspace @dso-toolkit/core build",
+    "start-core": "yarn workspace @dso-toolkit/core start",
+    "build-core": "yarn workspace @dso-toolkit/core build",
+    "build-react": "yarn workspace @dso-toolkit/react build",
     "build-styling": "yarn workspace @dso-toolkit/styling build",
     "reference:dom": "yarn workspace @dso-toolkit/core build --prod && yarn workspace dso-toolkit gulp reference:dom"
   },

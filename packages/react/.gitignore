@@ -1,3 +1,4 @@
 /dist
+/dist-transpiled
 /src/react-component-lib
 /src/components.ts
