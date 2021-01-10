@@ -16,7 +16,7 @@
       } %}
       {% block content -%}{% import "macros/errors.nunj" as errors -%}{{ errors.renderError('component', error.message, error.stack) }}{% endblock %}
     {%- else -%}
-      {{ hydrateForPreview(rendered, not not entity.meta.markup) | async(true) }}
+      {{ hydrateForPreview(rendered, entity) | async(true) }}
     {%- endif %}
   {% else %}
     <iframe
