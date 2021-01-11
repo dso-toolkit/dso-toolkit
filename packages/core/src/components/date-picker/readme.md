@@ -18,7 +18,7 @@ Based on the [Duet Date Picker](https://duetds.github.io/date-picker/).
 | `name`       | `name`       | Name of the date picker input.                                                                                                                                                                                                 | `string`              | `"date"`    |
 | `required`   | `required`   | Should the input be marked as required?                                                                                                                                                                                        | `boolean`             | `false`     |
 | `role`       | `role`       | Defines a specific role attribute for the date picker input.                                                                                                                                                                   | `string \| undefined` | `undefined` |
-| `value`      | `value`      | Date value. Must be in IS0-8601 format: YYYY-MM-DD.                                                                                                                                                                            | `string`              | `""`        |
+| `value`      | `value`      | Date value. Must be in Dutch date format: DD-MM-YYYY.                                                                                                                                                                          | `string`              | `""`        |
 
 
 ## Events

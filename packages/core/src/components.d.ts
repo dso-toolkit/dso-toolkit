@@ -62,7 +62,7 @@ export namespace Components {
          */
         "show": () => Promise<void>;
         /**
-          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+          * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value": string;
     }
@@ -201,7 +201,7 @@ declare namespace LocalJSX {
          */
         "role"?: string | undefined;
         /**
-          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+          * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value"?: string;
     }
