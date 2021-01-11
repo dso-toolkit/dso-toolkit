@@ -264,6 +264,10 @@ select:not([multiple]) {
   }
 }
 
+dso-date-picker input[type="text"] {
+  @extend .form-control;
+}
+
 .form-horizontal {
   .form-group {
     > .dso-label-container {

@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
+* **core:** Nieuw component: Date Picker ([#877](https://github.com/dso-toolkit/dso-toolkit/issues/877))
 * **dso-toolkit:** List-button multiple selection aanpassen en uitbreiden met extra inhoud ([#798](https://github.com/dso-toolkit/dso-toolkit/issues/798))
 
 ## Changed
