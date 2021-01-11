@@ -57,6 +57,9 @@ export type DsoDatePickerChangeEvent = {
   valueAsDate: Date | undefined
   value: string
 }
+export type DsoDatePickerFocusEvent = {
+  component: "dso-date-picker"
+}
 export type DsoDatePickerDirection = "left" | "right"
 
 const DISALLOWED_CHARACTERS = /[^0-9\.\/\-]+/g
@@ -76,9 +79,8 @@ export class DsoDatePicker implements ComponentInterface {
   private yearSelectId = createIdentifier("DsoDateYear")
   private dialogLabelId = createIdentifier("DsoDateLabel")
 
-  private datePickerInput!: HTMLInputElement;
-
   private datePickerButton: HTMLButtonElement | undefined;
+  private datePickerInput: HTMLInputElement | undefined;
   private firstFocusableElement: HTMLElement | undefined;
   private monthSelectNode: HTMLElement | undefined;
   private focusedDayNode: HTMLButtonElement | undefined;
@@ -90,29 +92,6 @@ export class DsoDatePicker implements ComponentInterface {
 
   private localization: DsoLocalizedText = defaultLocalization
   private firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday
-
-  /**
-   * Getters/setters slaved to <input type="text"> element
-   */
-
-  /**
-   * Makes the date picker input component disabled. This prevents users from being able to
-   * interact with the input, and conveys its inactive state to assistive technologies.
-   */
-  private get disabled() {
-    return this.datePickerInput.disabled;
-  }
-
-  /**
-   * Date value. Must be in Dutch date format: DD-MM-YYYY.
-   */
-  private get value() {
-    return this.datePickerInput.value;
-  }
-
-  private set value(value: string) {
-    this.datePickerInput.value = value;
-  }
 
   /**
    * Reference to host HTML element.
@@ -131,6 +110,27 @@ export class DsoDatePicker implements ComponentInterface {
    */
 
   /**
+   * Name of the date picker input.
+   */
+  @Prop() name: string = "date"
+
+  /**
+   * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
+   */
+  @Prop() identifier: string | undefined;
+
+  /**
+   * Makes the date picker input component disabled. This prevents users from being able to
+   * interact with the input, and conveys its inactive state to assistive technologies.
+   */
+  @Prop({ reflect: true }) disabled: boolean = false
+
+  /**
+   * Defines a specific role attribute for the date picker input.
+   */
+  @Prop() role: string | undefined
+
+  /**
    * Forces the opening direction of the calendar modal to be always left or right.
    * This setting can be useful when the input is smaller than the opening date picker
    * would be as by default the picker always opens towards right.
@@ -138,16 +138,26 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop() direction: DsoDatePickerDirection = "right"
 
   /**
+   * Should the input be marked as required?
+   */
+  @Prop() required: boolean = false
+
+  /**
+   * Date value. Must be in Dutch date format: DD-MM-YYYY.
+   */
+  @Prop({ reflect: true }) value: string = ""
+
+  /**
    * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the max property.
    */
-  @Prop() min: string = ""
+  @Prop() min: string | undefined
 
   /**
    * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
    * This setting can be used alone or together with the min property.
    */
-  @Prop() max: string = ""
+  @Prop() max: string | undefined
 
   /**
    * Events section.
@@ -156,7 +166,17 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Event emitted when a date is selected.
    */
-  @Event() dsoChange!: EventEmitter<DsoDatePickerChangeEvent>
+  @Event() dateChange!: EventEmitter<DsoDatePickerChangeEvent>
+
+  /**
+   * Event emitted the date picker input is blurred.
+   */
+  @Event() dsoBlur!: EventEmitter<DsoDatePickerFocusEvent>
+
+  /**
+   * Event emitted the date picker input is focused.
+   */
+  @Event() dsoFocus!: EventEmitter<DsoDatePickerFocusEvent>
 
   /**
    * Component event handling.
@@ -176,6 +196,13 @@ export class DsoDatePicker implements ComponentInterface {
     }
 
     this.hide(false)
+  }
+
+  /**
+   * Sets focus on the date picker's input. Use this method instead of the global `focus()`.
+   */
+  @Method() async setFocus() {
+    return this.datePickerInput?.focus()
   }
 
   /**
@@ -275,6 +302,22 @@ export class DsoDatePicker implements ComponentInterface {
     if (event.keyCode === keyCode.ESC) {
       this.hide()
     }
+  }
+
+  private handleBlur = (event: Event) => {	
+    event.stopPropagation()
+
+    this.dsoBlur.emit({
+      component: "dso-date-picker",
+    })
+  }
+
+  private handleFocus = (event: Event) => {
+    event.stopPropagation()
+
+    this.dsoFocus.emit({
+      component: "dso-date-picker",
+    })
   }
 
   private handleTouchStart = (event: TouchEvent) => {
@@ -414,7 +457,7 @@ export class DsoDatePicker implements ComponentInterface {
 
   private setValue(date: Date | undefined) {
     this.value = printDutchDate(date)
-    this.dsoChange.emit({
+    this.dateChange.emit({
       component: "dso-date-picker",
       value: this.value,
       valueAsDate: date,
@@ -427,16 +470,6 @@ export class DsoDatePicker implements ComponentInterface {
     if (this.activeFocus && this.open) {
       setTimeout(() => element.focus(), 0)
     }
-  }
-
-  componentWillLoad() {
-    const input = this.element.querySelector<HTMLInputElement>('input[type="text"]');
-    if (!input) {
-      throw new Error('Missing <input type="text"> element');
-    }
-
-    this.datePickerInput = input;
-    input.addEventListener('input', event => this.handleInputChange(event));
   }
 
   /**
@@ -470,7 +503,21 @@ export class DsoDatePicker implements ComponentInterface {
       <Host>
         <div class="dso-date">
           <div class="dso-date__input-wrapper">
-            <slot />
+            <input
+              class="dso-date__input"
+              value={formattedDate}
+              placeholder={this.localization.placeholder}
+              id={this.identifier}
+              disabled={this.disabled}
+              role={this.role}
+              required={this.required ? true : undefined}
+              aria-autocomplete="none"
+              onInput={this.handleInputChange}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              autoComplete="off"
+              ref={element => (this.datePickerInput = element)}
+            />
             <button type="button" class="dso-date__toggle" onClick={this.toggleOpen} disabled={this.disabled} ref={element => (this.datePickerButton = element)}>
               <span class="dso-date__toggle-icon">
                 <dso-icon icon="calendar"></dso-icon>

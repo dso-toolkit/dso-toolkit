@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core:** Nieuw component: Date Picker ([#877](https://github.com/dso-toolkit/dso-toolkit/issues/877))
+* **core + styling + react:**: React bindings en `.form-control` naar `@dso-toolkit/styling` ([#915](https://github.com/dso-toolkit/dso-toolkit/issues/915))
 * **dso-toolkit:** List-button multiple selection aanpassen en uitbreiden met extra inhoud ([#798](https://github.com/dso-toolkit/dso-toolkit/issues/798))
 
 ## Changed

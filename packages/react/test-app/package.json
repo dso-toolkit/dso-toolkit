@@ -1,0 +1,36 @@
+{
+  "name": "dso-toolkit-react-test",
+  "private": true,
+  "dependencies": {
+    "@dso-toolkit/core": "workspace:packages/core",
+    "@dso-toolkit/react": "workspace:packages/react",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "dso-toolkit": "workspace:packages/dso-toolkit",
+    "ncp": "^2.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.2.1"
+  },
+  "scripts": {
+    "copy": "node scripts/copy.js",
+    "start": "yarn copy && react-scripts start",
+    "build": "yarn copy && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

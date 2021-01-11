@@ -11,9 +11,15 @@
   </head>
   <body>
     <div>
-      <dso-date-picker>
-        <input type="text">
-      </dso-date-picker>
+      <dso-date-picker></dso-date-picker>
+      <pre id="date-picker-output">[change date]</pre>
+      <script>
+        const datePicker = document.querySelector('dso-date-picker');
+        const datePickerOutput = document.getElementById('date-picker-output');
+        datePicker.addEventListener('dateChange', event => {
+          datePickerOutput.innerHTML = JSON.stringify(event.detail);
+        })
+      </script>
     </div>
     <div>
       <dso-alert status="success">

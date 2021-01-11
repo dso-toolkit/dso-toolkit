@@ -1,4 +1,5 @@
 @import "~@dso-toolkit/styling/variables";
+@import "~@dso-toolkit/styling/mixins/form-control";
 
 $date-picker-color-primary: $bosgroen;
 $date-picker-color-text: $grijs-90;
@@ -41,6 +42,10 @@ $date-picker-z-index: 600;
   position: relative;
   text-align: left;
   width: 100%;
+}
+
+.dso-date__input {
+  @include form-control();
 }
 
 // ---------------------------------------------
