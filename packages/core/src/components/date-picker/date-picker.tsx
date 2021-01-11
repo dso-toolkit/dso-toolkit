@@ -143,7 +143,7 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop() required: boolean = false
 
   /**
-   * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+   * Date value. Must be in Dutch date format: DD-MM-YYYY.
    */
   @Prop({ reflect: true }) value: string = ""
 

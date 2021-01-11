@@ -19,7 +19,7 @@ export type DsoLocalizedText = {
 
 const localization: DsoLocalizedText = {
   buttonLabel: 'Kies datum',
-  placeholder: 'DD-MM-YYYY',
+  placeholder: 'dd-mm-jjjj',
   selectedDateMessage: 'Geselecteerde datum is',
   prevMonthLabel: 'Vorige maand',
   nextMonthLabel: 'Volgende maand',

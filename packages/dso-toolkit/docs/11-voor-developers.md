@@ -27,7 +27,7 @@ Nu we begonnen zijn met het aanbieden van Web Components zijn we `dso-toolkit` a
 
 ### Assets
 
-Voor het maken van Web Components maken we gebruik van StencilJS. StencilJS is een compiler die Web Components genereert. Tijdens de run-time van de Web Components is er geen StencilJS nodig of actief.
+Voor het maken van Web Components maken we gebruik van StencilJS. StencilJS is een compiler die Web Components genereert. Tijdens de runtime van de Web Components is er geen StencilJS nodig of actief.
 
 StencilJS faciliteert ook in het bundlen van assets die een component mogelijk nodig heeft. Hoewel het bundlen *naar* een Web Component library (`@dso-toolkit/core`) vlekkeloos verloopt leert de ervaring dat het bundlen van assets *uit* de Web Component library (`@dso-toolkit/core`) naar de applicatie zeer stroef verloopt.
 
@@ -89,9 +89,9 @@ defineCustomElements();
 ```
 
 ### CSS + Web Components + Framework specific bindings
-Als er gebruik wordt gemaakt van een framework (Angular/React) heeft deze methode de voorkeur. Op dit moment is er alleen een React specific binding, Angular zal niet veel langer op zich laten wachten.
+Als er gebruik wordt gemaakt van een framework (Angular/React) heeft deze methode de voorkeur. Op dit moment is er alleen een React specific binding, Angular staat op korte termijn gepland.
 
-Hetzelfde als "CSS + Web Components" maar dan wordt niet meer direct het Web Component aangeroepen maar een framework specifiek component. Het voordeel is dat voor non-scalar data (Geen string of nummer) geen wrapper componenten hoeven worden geschreven. Zie de Stencil Documentatie voor meer informatie: https://stenciljs.com/docs/overview.
+Hetzelfde als "CSS + Web Components" maar dan wordt niet meer direct het Web Component aangeroepen maar een framework specifiek component. Het voordeel is dat voor non-scalar data (geen tekst of nummer) geen wrapper componenten hoeven worden geschreven. Zie de Stencil Documentatie voor meer informatie: https://stenciljs.com/docs/overview.
 
 Zie instructies voor CSS, daarnaast:
 
@@ -99,7 +99,7 @@ Zie instructies voor CSS, daarnaast:
 npm install @dso-toolkit/core @dso-toolkit/react
 ```
 
-`@dso-toolkit/react` heeft een peer dependency op `@dso-toolkit/core`, vandaar dat deze expliciet in het project als dependency opgenomen moet worden. Zie een voorbeeld React applicatie: https://github.com/dso-toolkit/dso-toolkit/tree/master/packages/react/test-app. Let op het kopieren van assets. In de voorbeeld React applicatie is dat met een node script gedaan, zie `package.json` script `copy`.
+`@dso-toolkit/react` heeft een peer dependency op `@dso-toolkit/core`, vandaar dat deze expliciet in het project als dependency opgenomen moet worden. Zie een voorbeeld React applicatie: https://github.com/dso-toolkit/dso-toolkit/tree/master/packages/react/test-app. Let op het kopiëren van assets. In de voorbeeld React applicatie is dat met een node script gedaan, zie `package.json` script `copy`.
 
 ```javascript
 import React from 'react';

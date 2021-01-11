@@ -44,7 +44,7 @@ export function parseDutchDate(value: string | undefined): Date | undefined {
 }
 
 /**
- * print date in format YYYY-MM-DD
+ * print date in format DD-MM-YYYY
  * @param date
  */
 export function printDutchDate(date: Date | undefined): string {
