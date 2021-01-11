@@ -2,25 +2,7 @@
   <div class="dso-logo-bar">
     {% render '@logo' %}
     <div class="dso-tools-bar">
-      <div class="dso-login dropdown open">
-        <a type="button" class="btn btn-link dropdown-toggle" id="actie_open" aria-haspopup="true" aria-expanded="true">
-          <dso-icon icon="user"></dso-icon>
-          <span>O. tester</span>
-        </a>
-        <div class="dropdown-menu">
-          <ul aria-labelledby="actie_open">
-            <li>
-              <a href="#">Mijn Omgevingsloket</a>
-            </li>
-            <li>
-              <a href="#">Mijn profiel</a>
-            </li>
-            <li>
-              <a href="#">Uitloggen</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      {% render '@dropdown-button', dropdownButton %}
     </div>
   </div>
   {% render '@navigations', menu -%}

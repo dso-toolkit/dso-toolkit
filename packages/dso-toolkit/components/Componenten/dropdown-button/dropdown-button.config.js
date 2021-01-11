@@ -11,8 +11,7 @@ module.exports = {
     modifier: 'link',
     ariaHasPopup: true,
     open: false,
-    label: 'Actie',
-    iconAfter: 'chevron-down'
+    label: 'Actie'
   },
   variants: [
     {
@@ -110,8 +109,7 @@ module.exports = {
       context: {
         id: 'dropdown_default_button',
         modifier: 'default',
-        open: false,
-        iconAfter: 'caret-down'
+        open: false
       }
     },
     {
@@ -211,8 +209,7 @@ module.exports = {
       context: {
         id: 'dropdown_primary_button',
         modifier: 'primary',
-        open: false,
-        iconAfter: 'caret-down'
+        open: false
       }
     },
     {
