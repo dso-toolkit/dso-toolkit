@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { DsoDatePickerChangeEvent, DsoDatePickerDirection } from "./components/date-picker/date-picker";
+import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 export namespace Components {
     interface DsoAlert {
         "status": 'success' | 'info' | 'warning' | 'danger';
@@ -22,21 +22,49 @@ export namespace Components {
          */
         "direction": DsoDatePickerDirection;
         /**
+          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
+         */
+        "disabled": boolean;
+        /**
           * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
          */
         "hide": (moveFocusToButton?: boolean) => Promise<void>;
         /**
+          * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
+         */
+        "identifier": string | undefined;
+        /**
           * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
-        "max": string;
+        "max": string | undefined;
         /**
           * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
          */
-        "min": string;
+        "min": string | undefined;
+        /**
+          * Name of the date picker input.
+         */
+        "name": string;
+        /**
+          * Should the input be marked as required?
+         */
+        "required": boolean;
+        /**
+          * Defines a specific role attribute for the date picker input.
+         */
+        "role": string | undefined;
+        /**
+          * Sets focus on the date picker's input. Use this method instead of the global `focus()`.
+         */
+        "setFocus": () => Promise<void | undefined>;
         /**
           * Show the calendar modal, moving focus to the calendar inside.
          */
         "show": () => Promise<void>;
+        /**
+          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "value": string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -133,17 +161,49 @@ declare namespace LocalJSX {
          */
         "direction"?: DsoDatePickerDirection;
         /**
+          * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
+         */
+        "disabled"?: boolean;
+        /**
+          * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
+         */
+        "identifier"?: string | undefined;
+        /**
           * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
-        "max"?: string;
+        "max"?: string | undefined;
         /**
           * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the max property.
          */
-        "min"?: string;
+        "min"?: string | undefined;
+        /**
+          * Name of the date picker input.
+         */
+        "name"?: string;
         /**
           * Event emitted when a date is selected.
          */
-        "onDsoChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
+        "onDateChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
+        /**
+          * Event emitted the date picker input is blurred.
+         */
+        "onDsoBlur"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        /**
+          * Event emitted the date picker input is focused.
+         */
+        "onDsoFocus"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        /**
+          * Should the input be marked as required?
+         */
+        "required"?: boolean;
+        /**
+          * Defines a specific role attribute for the date picker input.
+         */
+        "role"?: string | undefined;
+        /**
+          * Date value. Must be in IS0-8601 format: YYYY-MM-DD.
+         */
+        "value"?: string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
