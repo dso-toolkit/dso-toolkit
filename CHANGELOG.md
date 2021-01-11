@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 17.0.1
+
+17.0.0 was a failed release.
+
 ### Added
 * **core:** Nieuw component: Date Picker ([#877](https://github.com/dso-toolkit/dso-toolkit/issues/877))
 * **core + styling + react:**: React bindings en `.form-control` naar `@dso-toolkit/styling` ([#915](https://github.com/dso-toolkit/dso-toolkit/issues/915))
@@ -14,7 +18,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Toelichting direct onder/na de vraag ([#906](https://github.com/dso-toolkit/dso-toolkit/issues/906))
 * **dso-toolkit + styling:** Consequente styling van anchor links in lopende tekst ([#895](https://github.com/dso-toolkit/dso-toolkit/issues/895))
 * **BREAKING:** **dso-toolkit + styling:** "Grote" Whiteboxes aanpassingen ([#929](https://github.com/dso-toolkit/dso-toolkit/issues/929)) **Markup changes, see PR ([#948](https://github.com/dso-toolkit/dso-toolkit/issues/948))**
-* **BREAKING:** **dso-toolkit + styling:** Dropdown-button ook als tertiaire button kunnen inzetten ([#894](https://github.com/dso-toolkit/dso-toolkit/issues/894)) **Markup changes, see PR ([#950](https://github.com/dso-toolkit/dso-toolkit/issues/950))**
+* **BREAKING:** **dso-toolkit + styling:** Dropdown-button ook als tertiaire button kunnen inzetten ([#894](https://github.com/dso-toolkit/dso-toolkit/issues/894)) **Markup changes, see PR ([#966](https://github.com/dso-toolkit/dso-toolkit/pull/966))**
+* **BREAKING:** **dso-toolkit + styling:** Dropdown voorbeeld met `btn-default` button gebruikt verkeerde markup ([#957](https://github.com/dso-toolkit/dso-toolkit/issues/957)) **Markup changes, see PR ([#966](https://github.com/dso-toolkit/dso-toolkit/pull/966))**
 
 ### Fixed
 * **styling:** Tertiaire button grasgroen in highlightbox met witte achtergrond ([#925](https://github.com/dso-toolkit/dso-toolkit/issues/925))
