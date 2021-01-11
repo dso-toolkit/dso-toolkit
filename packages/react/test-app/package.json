@@ -7,14 +7,17 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "dso-toolkit": "workspace:packages/dso-toolkit",
+    "ncp": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "rimraf": "^3.0.2",
     "typescript": "^3.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "copy": "node scripts/copy.js",
+    "start": "yarn copy && react-scripts start",
+    "build": "yarn copy && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -29,8 +32,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@mdx-js/react": "^1.6.22"
   }
 }

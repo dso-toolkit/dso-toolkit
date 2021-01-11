@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { DsoAlert, DsoDatePicker } from '@dso-toolkit/react';
 
 function App() {
