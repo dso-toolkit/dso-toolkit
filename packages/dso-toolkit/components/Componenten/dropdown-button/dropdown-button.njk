@@ -1,5 +1,5 @@
 <div {{ className('dropdown', [open, 'open']) }}>
-  <button type="button" class="btn btn-default dropdown-toggle" id="{{ id }}" aria-haspopup="true" aria-expanded="{% if open %}true{% else %}false{% endif %}">{{ label }}</button>
+  {% render '@button', {type: 'button', modifier: modifier, label: label, id: id, icon: icon, iconAfter: iconAfter, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
   {% if open %}
     <div {{ className('dropdown-menu', modifiers) }}>
       {% for group in groups %}
