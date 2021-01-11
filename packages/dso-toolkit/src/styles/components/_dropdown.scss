@@ -12,6 +12,9 @@ $dso-dropdown-hor-padding: 20px;
   > .btn-link {
     &::after {
       @include di("chevron-down");
+
+      position: relative;
+      top: -2px;
     }
 
     &:hover {
