@@ -40,7 +40,7 @@
           display: none;
         }
 
-        > button {
+        > h3 {
           &::before {
             @include di("chevron-right-grijs50");
 
