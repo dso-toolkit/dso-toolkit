@@ -50,10 +50,11 @@
         }
       }
 
-      > button {
-        background-color: transparent;
-        border: 0;
-        padding: 0;
+      > h3 {
+        color: $zwart;
+        display: inline;
+        font-size: 1em;
+        font-weight: normal;
 
         &::before {
           @include di("chevron-down-grijs50");
@@ -62,11 +63,10 @@
           display: inline-block;
         }
 
-        h3 {
-          color: $zwart;
-          display: inline;
-          font-size: 1em;
-          font-weight: normal;
+        button {
+          background-color: transparent;
+          border: 0;
+          padding: 0;
         }
       }
 
