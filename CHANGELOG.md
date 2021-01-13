@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Deprecated
+* **styling:** Toelichting vraag onder antwoorden ([#920](https://github.com/dso-toolkit/dso-toolkit/issues/920)) **Deprecation notice, see PR ([#972](https://github.com/dso-toolkit/dso-toolkit/pull/972))**
+
 ## 17.0.1
 
 17.0.0 was a failed release.
