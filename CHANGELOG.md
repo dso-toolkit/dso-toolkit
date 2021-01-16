@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core:** Geen assets meer bij Icon component ([#968](https://github.com/dso-toolkit/dso-toolkit/issues/968))
+
 ## 17.0.1
 
 17.0.0 was a failed release.
