@@ -229,7 +229,8 @@ $date-picker-z-index: 600;
     width: $dso-date-picker-dim - 2;
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     background: $date-picker-color-button;
     color: $date-picker-color-text-active;
   }
@@ -312,6 +313,7 @@ $date-picker-z-index: 600;
   background: $date-picker-color-button-bg;
   border: 1px solid $date-picker-color-button;
   border-radius: $date-picker-radius;
+  box-sizing: border-box;
   color: $date-picker-color-button;
   cursor: pointer;
   display: inline-flex;
@@ -327,13 +329,15 @@ $date-picker-z-index: 600;
     width: 40px;
   }
 
-  &:hover {
+  &:hover,
+  &:active {
     background-color: $date-picker-color-button;
     color: $date-picker-color-text-active;
   }
 
-  &:active:focus {
-    box-shadow: none;
+  &:focus {
+    background: $date-picker-color-button-bg;
+    color: $date-picker-color-button;
   }
 
   &:disabled {
@@ -357,8 +361,8 @@ $date-picker-z-index: 600;
 
 .dso-date__select {
   display: inline-flex;
-  height: $u1 * 4;
-  line-height: $u1 * 4;
+  height: $u1 * 4 - 4;
+  line-height: $u1 * 4 - 4;
   position: relative;
 
   span {
