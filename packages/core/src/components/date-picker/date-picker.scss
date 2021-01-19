@@ -17,7 +17,7 @@ $date-picker-font: Asap, sans-serif;
 $date-picker-font-normal: 400;
 $date-picker-font-bold: 600;
 
-$dso-date-picker-height: 38px;
+$dso-date-picker-dim: 38px;
 $date-picker-radius: $u1 / 2;
 $date-picker-z-index: 600;
 
@@ -64,7 +64,7 @@ $date-picker-z-index: 600;
   color: $date-picker-color-icon;
   cursor: pointer;
   display: flex;
-  height: $dso-date-picker-height;
+  height: $dso-date-picker-dim;
   justify-content: center;
   padding: 0;
   position: absolute;
@@ -72,7 +72,7 @@ $date-picker-z-index: 600;
   transform: translateY(-50%);
   top: 50%;
   user-select: none;
-  width: $dso-date-picker-height;
+  width: $dso-date-picker-dim;
   z-index: 2;
 
   &:disabled {
@@ -177,6 +177,8 @@ $date-picker-z-index: 600;
   font-size: 1rem;
   font-weight: $date-picker-font-normal;
   line-height: 1.25;
+  min-width: ($dso-date-picker-dim + 2) * 7;
+  table-layout: fixed;
   text-align: center;
   width: 100%;
 }
@@ -191,9 +193,10 @@ $date-picker-z-index: 600;
 }
 
 .dso-date__cell {
-  height: 40px;
+  height: $dso-date-picker-dim + 2;
+  padding: 1px;
   text-align: center;
-  width: 40px;
+  width: $dso-date-picker-dim + 2;
 }
 
 .dso-date__day {
@@ -210,32 +213,49 @@ $date-picker-z-index: 600;
   font-family: $date-picker-font;
   font-variant-numeric: tabular-nums;
   font-weight: $date-picker-font-normal;
-  height: 38px;
-  line-height: 38px;
-  padding: 0 0 1px;
+  height: $dso-date-picker-dim;
+  line-height: 0;
+  padding: 0;
   position: relative;
   text-align: center;
   vertical-align: middle;
-  width: 38px;
+  width: $dso-date-picker-dim;
   z-index: 1;
 
   &.is-today {
     background: transparent;
+    height: $dso-date-picker-dim - 2;
     box-shadow: 0 0 0 1px $date-picker-color-button;
+    width: $dso-date-picker-dim - 2;
   }
 
   &:hover {
     background: $date-picker-color-button;
-    box-shadow: 0 0 0 1px $date-picker-color-button;
     color: $date-picker-color-text-active;
   }
 
-  [aria-selected="true"] &,
   &:focus {
-    background: $date-picker-color-button;
-    box-shadow: none;
-    color: $date-picker-color-text-active;
+    background: transparent;
+    box-shadow: 0 0 0 2px $bosgroen;
+    color: $date-picker-color-text;
+    height: $dso-date-picker-dim - 4;
     outline: 0;
+    width: $dso-date-picker-dim - 4;
+  }
+
+  [aria-selected="true"] & {
+    background: $date-picker-color-button;
+    color: $date-picker-color-text-active;
+
+    &:focus {
+      background: transparent;
+
+      span[aria-hidden="true"] {
+        background: $date-picker-color-button;
+        border: 1px solid $wit;
+        line-height: $dso-date-picker-dim - 6;
+      }
+    }
   }
 
   &.is-outside {
@@ -248,6 +268,14 @@ $date-picker-z-index: 600;
     &.is-disabled {
       background: $wit;
     }
+  }
+
+  span[aria-hidden="true"] {
+    border-radius: 50%;
+    display: inline-block;
+    height: $dso-date-picker-dim - 4;
+    line-height: $dso-date-picker-dim - 4;
+    width: $dso-date-picker-dim - 4;
   }
 }
 
