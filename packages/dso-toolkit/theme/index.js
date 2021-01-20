@@ -78,7 +78,7 @@ module.exports = function (options) {
         : ['notes', 'component', 'html', 'view', 'context'];
     });
 
-    const hydrate = async function (html, options) {
+    async function hydrate(html, options) {
       const result = await renderToString(html, Object.assign({
         clientHydrateAnnotations: false,
         prettyHtml: false,
@@ -116,24 +116,39 @@ module.exports = function (options) {
         });
 
       return $;
-    };
+    }
 
     env.engine.addGlobal('hydrateForPreview', async function (html, entity) {
+      const components = [...entity._app._components.components()._fileTree._items].find(c => c.name === 'componenten');
+      const webComponents = [];
+
+      for (const item of components._items) {
+        if (item.configData && item.configData.meta && typeof item.configData.meta.webComponent === 'string' && item.configData.meta.webComponent !== '' && !item.configData.meta.markup) {
+          webComponents.push(item.configData.meta.webComponent);
+        }
+      }
+
       const $ = cheerio.load(html);
 
       const dsoCustomElements = $('*')
-        .filter((index, element) => /^dso-/i.test(element.tagName))
+        .filter((index, element) => /^dso-/i.test(element.tagName) && !webComponents.includes(element.tagName.toLowerCase()))
         .get();
 
       if (dsoCustomElements.length === 0 || (entity.meta.webComponent && !entity.meta.markup)) {
         return html;
       }
 
+      for (const webComponent of webComponents) {
+        $(webComponent).each(function (index, element) {
+          element.name = `skip-${element.name}`;
+        });
+      }
+
       $('.container').prepend('<h2>Web Component preview</h2>');
       const $raw = $('body > *:not(script):not(style):not(link)');
       const raw = $.html($raw);
 
-      const $hydrated = await hydrate(html, {
+      const $hydrated = await hydrate($.html(), {
         removeHtmlComments: true,
         removeAttributeQuotes: false,
         removeBooleanAttributeQuotes: false,
@@ -158,7 +173,7 @@ module.exports = function (options) {
           }
 
           if ($a.parents().length - $b.parents().length < 0) {
-              return 1;
+            return 1;
           }
 
           return 0;
@@ -182,6 +197,12 @@ module.exports = function (options) {
         .end()
         .prepend('<hr id="custom-elements-raw">')
         .prepend(raw);
+
+      for (const webComponent of webComponents) {
+        $hydrated(`skip-${webComponent}`).each(function (index, element) {
+          element.name = webComponent;
+        });
+      }
 
       return prettier.format($hydrated.html(), {
         printWidth: 120,

@@ -146,7 +146,7 @@ const icons = [
   { alias: 'users', svg: users },
   { alias: 'water', svg: water },
   { alias: 'wip-wip', svg: wipWip }
-] as const;
+];
 
 @Component({
   tag: 'dso-icon',
