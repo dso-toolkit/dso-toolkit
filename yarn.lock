@@ -7444,11 +7444,9 @@ __metadata:
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     dso-toolkit: "workspace:packages/dso-toolkit"
-    ncp: ^2.0.0
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.1
-    rimraf: ^3.0.2
     typescript: ^3.2.1
   languageName: unknown
   linkType: soft
@@ -13784,15 +13782,6 @@ fsevents@~2.1.2:
   version: 1.4.0
   resolution: "natural-compare@npm:1.4.0"
   checksum: 2daf93d9bb516eddb06e2e80657a605af2e494d47c65d090ba43691aaffbc41f520840f1c9d3b7b641977af950217a4ab6ffb85bafcd5dfa8ba6fe4e68c43b53
-  languageName: node
-  linkType: hard
-
-"ncp@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ncp@npm:2.0.0"
-  bin:
-    ncp: ./bin/ncp
-  checksum: a751e4c94bc810b34b81c8cad288b90ac59fa83890e701483fd70f800d3c2228bea9eff84d1c034074cd1b393cec40696c04558a70b17476eba7acb06e20e71c
   languageName: node
   linkType: hard
 

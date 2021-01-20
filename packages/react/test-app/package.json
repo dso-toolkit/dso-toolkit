@@ -7,17 +7,14 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "dso-toolkit": "workspace:packages/dso-toolkit",
-    "ncp": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "rimraf": "^3.0.2",
     "typescript": "^3.2.1"
   },
   "scripts": {
-    "copy": "node scripts/copy.js",
-    "start": "yarn copy && react-scripts start",
-    "build": "yarn copy && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
