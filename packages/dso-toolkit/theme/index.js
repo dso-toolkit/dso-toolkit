@@ -172,29 +172,6 @@ module.exports = function (options) {
 
       $hydrated('[slot]').removeAttr('slot');
 
-      $hydrated('*')
-        .filter((index, element) => /^dso-/i.test(element.tagName))
-        .get()
-        .sort((a, b) => {
-          const $a = $hydrated(a);
-          const $b = $hydrated(b);
-
-          if ($a.parents().length - $b.parents().length > 0) {
-            return -1;
-          }
-
-          if ($a.parents().length - $b.parents().length < 0) {
-            return 1;
-          }
-
-          return 0;
-        })
-        .forEach(element => {
-          const $element = $hydrated(element);
-
-          $element.replaceWith($element.html());
-        });
-
       $hydrated('svg.di use[href^="/icon-assets/"]').each((index, element) => {
         const $element = $hydrated(element);
         const href = $element.attr('href');
