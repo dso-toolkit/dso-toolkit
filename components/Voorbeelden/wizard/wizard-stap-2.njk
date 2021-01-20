@@ -19,7 +19,21 @@
       </div>
     </div>
     <div class="clearfix"></div>
-    <div class="row">
+    <div class="row dso-justify-form-groups">
+      <div>
+        {% render '@group-select', typeSelect %}
+      </div>
+      <div>
+        {% render '@group-input', inputLatt %}
+      </div>
+      <div>
+        {% render '@group-input', inputLong %}
+      </div>
+      <div class="dso-form-buttons">
+        {% render '@button', {label:'Zoeken', type:'button', modifier :'default btn-sm'} %}
+      </div>
+    </div>
+    {# <div class="row">
       <div class="col-md-3">
         {% render '@group-select', typeSelect %}
       </div>
@@ -32,7 +46,7 @@
       <div class="col-md-1">
         {% render '@button', {label:'Zoeken', type:'button', modifier :'default btn-sm'} %}
       </div>
-    </div>
+    </div> #}
     <div class="clearfix"></div>
     <div class="dso-map-example"></div>
     <div class="clearfix"></div>

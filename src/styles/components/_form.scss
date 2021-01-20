@@ -28,6 +28,21 @@ $dso-fieldset-separator-unit: $u4;
 .form,
 form,
 .dso-section-body {
+  .dso-justify-form-groups {
+    display: flex;
+
+    > div {
+      flex: 1 1 0;
+      padding-left: $u2;
+      padding-right: $u2;
+
+      &.dso-form-buttons {
+        align-self: flex-end;
+        flex: 0 0 0;
+      }
+    }
+  }
+
   .dso-field-container {
     position: relative;
   }
