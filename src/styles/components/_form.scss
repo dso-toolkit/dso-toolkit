@@ -41,6 +41,11 @@ form,
         flex: 0 0 0;
       }
     }
+
+    .form-group + .form-group,
+    .form-group + .dso-form-buttons {
+      margin-top: 0;
+    }
   }
 
   .dso-field-container {
