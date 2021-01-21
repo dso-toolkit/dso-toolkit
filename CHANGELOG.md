@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit** Banner: ruimte tussen h2 en p onafhankelijk maken van eventuele whitespace ([#973](https://github.com/dso-toolkit/dso-toolkit/issues/973))
+
 ### Changed
 * **dso-toolkit + styling:** Heading in Alert altijd dezelfde styling meegeven ([#952](https://github.com/dso-toolkit/dso-toolkit/issues/952))
 
