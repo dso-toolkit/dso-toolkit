@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **dso-toolkit:** Bewerkenknop in group static toevoegen ([#8881](https://github.com/dso-toolkit/dso-toolkit/issues/8881))
+* **dso-toolkit:** Definition-list in accordion ([#882](https://github.com/dso-toolkit/dso-toolkit/issues/882))
 
 ## 17.0.1
 
