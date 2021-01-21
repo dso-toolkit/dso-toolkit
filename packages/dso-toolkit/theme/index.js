@@ -172,12 +172,10 @@ module.exports = function (options) {
       $hydrated('[slot]').removeAttr('slot');
 
       $hydrated('*')
-        .filter((index, element) => /^dso-/i.test(element.tagName))
+        .filter((index, element) => /^dso-/i.test(element.tagName) && !webComponents.includes(element.tagName.toLowerCase()))
         .get()
-        .sort((a, b) => {
-          const $a = $hydrated(a);
-          const $b = $hydrated(b);
-
+        .map(element => $hydrated(element))
+        .sort(($a, $b) => {
           if ($a.parents().length - $b.parents().length > 0) {
             return -1;
           }
@@ -188,9 +186,7 @@ module.exports = function (options) {
 
           return 0;
         })
-        .forEach(element => {
-          const $element = $hydrated(element);
-
+        .forEach($element => {
           $element.replaceWith($element.html());
         });
 
