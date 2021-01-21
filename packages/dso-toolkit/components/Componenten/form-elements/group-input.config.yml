@@ -19,11 +19,22 @@ variants:
   context:
     __title: Datum
     __explanation:
-    - Er is een <code>type="date"</code> beschikbaar die een native manier van het selecteren van een datum faciliteert.
+    - Voor een date picker maken we gebruik van een custom element en <strong>niet</strong> van <code>input type="date"</code>
     id: input-date
     type: date
     label: Datum
     value: "1970-07-03"
+- name: input-date-invalid
+  context:
+    __title: Datum invalid
+    __explanation:
+    - Voor een date picker maken we gebruik van een custom element en <strong>niet</strong> van <code>input type="date"</code>
+    id: input-date
+    type: date
+    label: Datum
+    value: "1-1-1"
+    state: invalid
+    errorText: Vul de datum in met de juiste notatie (dd-mm-jjjj).
 - name: input-password
   context:
     __title: Wachtwoord
@@ -142,7 +153,14 @@ variants:
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag
     infoText: |
-      <h4>Heading 4</h4>
+      <h4>Toelichting bij vraag: "E-mailadres"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    infoTextDeprecated: |
+      <h4>Toelichting bij vraag: "E-mailadres" - BINNENKORT DEPRECATED</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.

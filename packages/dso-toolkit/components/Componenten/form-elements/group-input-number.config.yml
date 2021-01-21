@@ -13,7 +13,6 @@ variants:
     __title: Inactive
     label: Inactive input number
     id: inactive
-    count: 99
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
     plusButtonInactive: true
@@ -31,6 +30,10 @@ variants:
     __title: Maximum limit (optional)
     label: Input number with maximum limit
     id: maximum-limit
-    count: 99
     plusButtonInactive: true
     plusButtonLabel: Aantal verhogen (disabled)
+- name: no-label
+  context:
+    __title: no label
+    label: null
+    id: no-label

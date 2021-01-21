@@ -8,17 +8,29 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
-    <input type="{{ type }}" id="{{ localId }}" class="form-control"
-      {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
-      {% if size %} size="{{ size }}"{% endif %}
-      {% if value %} value="{{ value }}"{% endif %}
-      {% if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
-      {% if disabled %} disabled{% endif %}
-      {% if readonly %} readonly{% endif %}
-      {% if required %} required{% endif %}
-    >
+    {% if type == 'date' %}
+      <dso-date-picker identifier="{{ localId }}" {{ attributes(
+        [min, 'min', min],
+        [max, 'max', max],
+        [disabled, 'disabled'],
+        [value, 'value', value]
+      )}}></dso-date-picker>
+    {% else %}
+      <input type="{{ type }}" id="{{ localId }}" class="form-control"
+        {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
+        {% if size %} size="{{ size }}"{% endif %}
+        {% if value %} value="{{ value }}"{% endif %}
+        {% if autocomplete %} autocomplete="{{ autocomplete }}"{% endif %}
+        {% if disabled %} disabled{% endif %}
+        {% if readonly %} readonly{% endif %}
+        {% if required %} required{% endif %}
+      >
+    {% endif %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
@@ -30,6 +42,6 @@
     {% endif %}
   </div>
   {% if infoOpen %}
-    {% render '@info', {infoText: infoText} %}
+    {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </div>

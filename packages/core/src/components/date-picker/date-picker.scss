@@ -1,0 +1,480 @@
+@import "~@dso-toolkit/styling/variables";
+@import "~@dso-toolkit/styling/mixins/form-control";
+
+$date-picker-color-primary: $bosgroen;
+$date-picker-color-text: $grijs-90;
+$date-picker-color-text-active: $wit;
+$date-picker-color-icon: $grasgroen;
+$date-picker-color-button: $grasgroen;
+$date-picker-color-button-bg: transparent;
+$date-picker-color-nav-button-disabled: $grasgroen-40;
+$date-picker-color-button-disabled: $grijs-5;
+$date-picker-color-select: $grasgroen;
+$date-picker-color-surface: $wit;
+$date-picker-color-overlay: rgba(25, 25, 25, 0.5);
+
+$date-picker-font: Asap, sans-serif;
+$date-picker-font-normal: 400;
+$date-picker-font-bold: 600;
+
+$dso-date-picker-height: 38px;
+$date-picker-radius: $u1 / 2;
+$date-picker-z-index: 600;
+
+:host {
+  display: block;
+}
+
+.dso-date *,
+.dso-date *::before,
+.dso-date *::after {
+  box-sizing: border-box;
+  margin: 0;
+  width: auto;
+}
+
+.dso-date {
+  box-sizing: border-box;
+  color: $date-picker-color-text;
+  display: block;
+  font-family: $date-picker-font;
+  margin: 0;
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
+
+.dso-date__input {
+  @include form-control();
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ TOGGLE
+// ---------------------------------------------
+
+.dso-date__toggle {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-user-select: none;
+  align-items: center;
+  appearance: none;
+  background: $date-picker-color-button-bg;
+  border: 0;
+  border-radius: 0;
+  border-bottom-right-radius: $date-picker-radius;
+  border-top-right-radius: $date-picker-radius;
+  color: $date-picker-color-icon;
+  cursor: pointer;
+  display: flex;
+  height: $dso-date-picker-height;
+  justify-content: center;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  top: 50%;
+  user-select: none;
+  width: $dso-date-picker-height;
+  z-index: 2;
+
+  &:disabled {
+    color: $date-picker-color-nav-button-disabled;
+    cursor: pointer;
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ DIALOG
+// ---------------------------------------------
+
+.dso-date__dialog {
+  display: flex;
+  right: 0;
+  min-width: 320px;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  transform: scale(0.96) translateZ(0) translateY(-20px);
+  transform-origin: top right;
+  transition: transform 300ms ease, opacity 300ms ease, visibility 300ms ease;
+  visibility: hidden;
+  will-change: transform, opacity, visibility;
+  z-index: $date-picker-z-index;
+
+  @media (max-width: 35.9375em) {
+    background: $date-picker-color-overlay;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translateZ(0);
+    transform-origin: bottom center;
+  }
+
+  &.is-left {
+    left: auto;
+    right: 0;
+    width: auto;
+  }
+
+  &.is-active {
+    opacity: 1;
+    // The value of 1.0001 fixes a Chrome glitch with scaling
+    transform: scale(1.0001) translateZ(0) translateY(0);
+    visibility: visible;
+  }
+}
+
+.dso-date__dialog-content {
+  background: $date-picker-color-surface;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: $date-picker-radius;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
+  margin-left: auto;
+  margin-right: -1px;
+  margin-top: 8px;
+  max-width: 310px;
+  min-width: 290px;
+  padding: 16px;
+  position: relative;
+  transform: none;
+  width: 100%;
+  z-index: $date-picker-z-index;
+
+  @media (max-width: 35.9375em) {
+    border: 0;
+    border-radius: 0;
+    border-top-left-radius: $date-picker-radius;
+    border-top-right-radius: $date-picker-radius;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    max-width: none;
+    min-height: 26em;
+    opacity: 0;
+    padding: 0 8% 20px;
+    position: absolute;
+    transform: translateZ(0) translateY(100%);
+    transition: transform 400ms ease, opacity 400ms ease, visibility 400ms ease;
+    visibility: hidden;
+    will-change: transform, opacity, visibility;
+
+    .is-active & {
+      opacity: 1;
+      transform: translateZ(0) translateY(0);
+      visibility: visible;
+    }
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ TABLE
+// ---------------------------------------------
+
+.dso-date__table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: $date-picker-color-text;
+  font-size: 1rem;
+  font-weight: $date-picker-font-normal;
+  line-height: 1.25;
+  text-align: center;
+  width: 100%;
+}
+
+.dso-date__table-header {
+  font-size: 0.875em;
+  font-weight: $date-picker-font-bold;
+  height: 36px;
+  line-height: 36px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.dso-date__cell {
+  height: 40px;
+  text-align: center;
+  width: 40px;
+}
+
+.dso-date__day {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px transparent;
+  color: $date-picker-color-text;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $date-picker-font;
+  font-variant-numeric: tabular-nums;
+  font-weight: $date-picker-font-normal;
+  height: 38px;
+  line-height: 38px;
+  padding: 0 0 1px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  width: 38px;
+  z-index: 1;
+
+  &.is-today {
+    background: transparent;
+    box-shadow: 0 0 0 1px $date-picker-color-button;
+  }
+
+  &:hover {
+    background: $date-picker-color-button;
+    box-shadow: 0 0 0 1px $date-picker-color-button;
+    color: $date-picker-color-text-active;
+  }
+
+  [aria-selected="true"] &,
+  &:focus {
+    background: $date-picker-color-button;
+    box-shadow: none;
+    color: $date-picker-color-text-active;
+    outline: 0;
+  }
+
+  &.is-outside {
+    background: $date-picker-color-button-disabled;
+    box-shadow: none;
+    color: #666;
+    cursor: default;
+    pointer-events: none;
+
+    &.is-disabled {
+      background: $wit;
+    }
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ HEADER
+// ---------------------------------------------
+
+.dso-date__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  width: 100%;
+
+  span {
+    font-size: 0.875rem;
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ NAVIGATION
+// ---------------------------------------------
+
+.dso-date__nav {
+  white-space: nowrap;
+}
+
+.dso-date__prev,
+.dso-date__next {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  align-items: center;
+  appearance: none;
+  background: $date-picker-color-button-bg;
+  border: 1px solid $date-picker-color-button;
+  border-radius: $date-picker-radius;
+  color: $date-picker-color-button;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1em;
+  height: 32px;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 0;
+  width: 32px;
+
+  @media (max-width: 35.9375em) {
+    height: 40px;
+    width: 40px;
+  }
+
+  &:hover {
+    background-color: $date-picker-color-button;
+    color: $date-picker-color-text-active;
+  }
+
+  &:active:focus {
+    box-shadow: none;
+  }
+
+  &:disabled {
+    &,
+    &:hover {
+      background-color: #fff;
+      border-color: $date-picker-color-nav-button-disabled;
+      color: $date-picker-color-nav-button-disabled;
+      opacity: 1;
+    }
+  }
+
+  svg {
+    margin: 0 auto;
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ SELECT
+// ---------------------------------------------
+
+.dso-date__select {
+  display: inline-flex;
+  height: $u1 * 4;
+  line-height: $u1 * 4;
+  position: relative;
+
+  span {
+    margin-right: 4px;
+  }
+
+  select {
+    color: $date-picker-color-primary;
+    cursor: pointer;
+    font-size: 1rem;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+    &:focus + .dso-date__select-label {
+      box-shadow: 0 0 0 2px $date-picker-color-primary;
+    }
+
+    &:disabled {
+      color: $date-picker-color-nav-button-disabled;
+    }
+  }
+}
+
+.dso-date__select-label {
+  align-items: center;
+  border-radius: $date-picker-radius;
+  color: $date-picker-color-select;
+  display: flex;
+  padding: 0 4px 0 8px;
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  span {
+    font-size: 1.25rem;
+    font-weight: $date-picker-font-bold;
+    line-height: 1.25;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ MOBILE
+// ---------------------------------------------
+
+.dso-date__mobile {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  font-size: 1em;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-left: -10%;
+  overflow: hidden;
+  padding: 12px 20px;
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 120%;
+
+  @media (min-width: 36em) {
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    width: auto;
+  }
+}
+
+.dso-date__mobile-heading {
+  display: inline-block;
+  font-weight: $date-picker-font-bold;
+  max-width: 84%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  @media (min-width: 36em) {
+    display: none;
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ CLOSE
+// ---------------------------------------------
+
+.dso-date__close {
+  -webkit-appearance: none;
+  align-items: center;
+  appearance: none;
+  background-color: $wit;
+  border: 0;
+  border-radius: 50%;
+  color: $date-picker-color-icon;
+  cursor: pointer;
+  display: flex;
+  font-size: 1em;
+  height: $u1 * 4;
+  justify-content: center;
+  margin-right: -4px;
+  padding: 0;
+  width: $u1 * 4;
+
+  @media (min-width: 36em) {
+    margin-right: 0;
+    opacity: 0;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $bosgroen;
+    outline: none;
+
+    @media (min-width: 36em) {
+      opacity: 1;
+    }
+  }
+}
+
+// ---------------------------------------------
+// dso DATE PICKER __ VISUALLY HIDDEN
+// ---------------------------------------------
+
+.dso-date__vhidden {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}

@@ -44,6 +44,8 @@ ul.nav-tabs {
 
     // Actual tabs (as links)
     > a {
+      @include anchor-clean();
+
       border: 1px solid transparent;
       border-radius: $dso-tabs-border-radius $dso-tabs-border-radius 0 0;
       color: $dso-tabs-text-color;

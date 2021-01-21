@@ -46,6 +46,8 @@ $dso-navigation-selected-color: $cannon-pink;
       }
 
       > a {
+        @include anchor-reverse();
+
         font-size: 1.25em;
         line-height: 1;
         margin-top: $u1;
@@ -59,6 +61,8 @@ $dso-navigation-selected-color: $cannon-pink;
       display: inline-block;
 
       > a {
+        @include anchor-reverse();
+
         font-size: $font-size-base;
         margin-top: ($u1 / 2);
         padding: ($u1 / 2) $u1 #{$u1 / 2 - 1px};

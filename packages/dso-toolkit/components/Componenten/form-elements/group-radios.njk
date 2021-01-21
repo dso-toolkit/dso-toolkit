@@ -8,6 +8,9 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </legend>
   <div class="dso-field-container">
     {% for option in options %}
@@ -35,6 +38,6 @@
     {% endif %}
   </div>
   {% if infoOpen %}
-    {% render '@info', {infoText: infoText} %}
+    {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </fieldset>

@@ -9,12 +9,6 @@ $dso-required-color: $grijs-60;
 
 $dso-form-group-margin: $u4;
 
-$dso-form-control-border-width: 1px;
-$dso-form-control-focus-border-width: 1px;
-$dso-form-control-readonly-border-width: 1px;
-$dso-form-control-focus-border-color: $bosgroen;
-$dso-form-control-height: #{($padding-base-vertical + 1) * 2 + $dso-form-control-border-width * 2 + $font-size-base * 1.5};
-
 $dso-required-string: "verplicht";
 
 $dso-toggle-close-icon-size: $u4;
@@ -40,6 +34,12 @@ form,
 
       border-bottom: 0;
       margin-bottom: $dso-fieldset-separator-unit;
+
+      .dso-info {
+        font-weight: 400;
+        margin-bottom: $u2;
+        margin-top: $u1;
+      }
     }
 
     + fieldset:not(.form-group) {
@@ -104,7 +104,7 @@ form,
 
   .dso-selectable > .dso-info {
     float: none;
-    margin: $u1 $u2 #{$u1 * -1} #{$u4 * -1};
+    margin: $u1 $u2 0 #{$u4 * -1};
     width: calc(100% + #{$u4});
   }
 
@@ -222,39 +222,6 @@ select:not([multiple]) {
 
   .form-group.dso-invalid & {
     @include di-variant("caret-down-invalid");
-  }
-}
-
-.form-control {
-  border-width: $dso-form-control-border-width;
-  box-shadow: none;
-  height: $dso-form-control-height;
-  padding: $padding-base-vertical ($padding-base-horizontal + 2);
-
-  &[type="text"] {
-    line-height: $dso-form-control-height;
-
-    &::placeholder {
-      overflow: visible !important;
-    }
-  }
-
-  &[size] {
-    width: auto;
-  }
-
-  &:focus {
-    border-color: $dso-form-control-focus-border-color;
-    box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-form-control-focus-border-color;
-  }
-
-  &[disabled] {
-    border-color: $dso-input-disabled-border-color;
-    color: $dso-input-disabled-color;
-  }
-
-  &[readonly] {
-    border-width: $dso-form-control-readonly-border-width;
   }
 }
 

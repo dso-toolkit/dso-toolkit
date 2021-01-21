@@ -2,26 +2,7 @@
   <div class="dso-logo-bar">
     {% render '@logo' %}
     <div class="dso-tools-bar">
-      <div class="dso-login dropdown open">
-        <a type="button" class="btn btn-link dropdown-toggle" id="actie_open" aria-haspopup="true" aria-expanded="true">
-          <dso-icon icon="user"></dso-icon>
-          <span>O. tester</span>
-          <dso-icon icon="chevron-down"></dso-icon>
-        </a>
-        <div class="dropdown-menu">
-          <ul aria-labelledby="actie_open">
-            <li>
-              <a href="#">Mijn Omgevingsloket</a>
-            </li>
-            <li>
-              <a href="#">Mijn profiel</a>
-            </li>
-            <li>
-              <a href="#">Uitloggen</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      {% render '@dropdown-button', dropdownButton %}
     </div>
   </div>
   {% render '@navigations', menu -%}
@@ -49,7 +30,7 @@
     </div>
   </div>
   <h1 class="text-center">Waarmee kunnen we u helpen?</h1>
-  <div class="row dso-featured">
+  <div class="row dso-equal-heights dso-featured">
     <div class="col-md-4 col-sm-6 col-xs-12">
       {% render '@whitebox-regular', {title: vergunning.title, description: vergunning.description, linktext: vergunning.linktext, source: vergunning.source} -%}
     </div>
