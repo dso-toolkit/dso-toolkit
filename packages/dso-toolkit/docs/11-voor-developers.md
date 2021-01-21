@@ -27,13 +27,7 @@ Nu we begonnen zijn met het aanbieden van Web Components zijn we `dso-toolkit` a
 
 ### Assets
 
-Voor het maken van Web Components maken we gebruik van StencilJS. StencilJS is een compiler die Web Components genereert. Tijdens de runtime van de Web Components is er geen StencilJS nodig of actief.
-
-StencilJS faciliteert ook in het bundlen van assets die een component mogelijk nodig heeft. Hoewel het bundlen *naar* een Web Component library (`@dso-toolkit/core`) vlekkeloos verloopt leert de ervaring dat het bundlen van assets *uit* de Web Component library (`@dso-toolkit/core`) naar de applicatie zeer stroef verloopt.
-
-Daarom gaan we Web Component specifieke assets zoals images of SVG's inline bundlen. Dit maakt het makkelijker voor implementatoren om gebruik te maken van Web Components.
-
-Maar zover zijn we nog niet, zie issue [#968](https://github.com/dso-toolkit/dso-toolkit/issues/968).
+Voor het maken van Web Components maken we gebruik van StencilJS. StencilJS is een compiler die Web Components genereert. Tijdens de runtime van de Web Components is er geen StencilJS nodig of actief. Tijdens het compilen van de componenten zorgen we ervoor dat de assets worden inlined, en waar nodig zelfs tree-shakable.
 
 ### Getting started
 

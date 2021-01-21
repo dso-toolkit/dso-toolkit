@@ -2,7 +2,7 @@ const collator = require('../../../fractal/collator');
 
 module.exports = {
   meta: {
-    webComponent: true,
+    webComponent: 'dso-badge',
     markup: true
   },
   notes: `
