@@ -41,6 +41,11 @@ $dso-banner-left-padding: $u6;
       > .dso-rich-content {
         padding-right: $u3;
 
+        > h2:first-child {
+          float: left;
+          margin-right: $dso-unit;
+        }
+
         h1,
         h2,
         h3,
@@ -48,7 +53,6 @@ $dso-banner-left-padding: $u6;
         h5,
         h6 {
           color: $zwart;
-          display: inline-block;
           font-size: 1rem;
           line-height: $line-height-base;
           margin-bottom: 0;
