@@ -157,7 +157,6 @@ module.exports = function (options) {
 
       const $raw = $('body > *:not(script):not(style):not(link)');
       const raw = $.html($raw);
-
       const $hydrated = await hydrate($.html(), webComponents, {
         removeHtmlComments: true,
         removeAttributeQuotes: false,
@@ -171,6 +170,29 @@ module.exports = function (options) {
       $hydrated('style[sty-id]').remove();
 
       $hydrated('[slot]').removeAttr('slot');
+
+      $hydrated('*')
+        .filter((index, element) => /^dso-/i.test(element.tagName))
+        .get()
+        .sort((a, b) => {
+          const $a = $hydrated(a);
+          const $b = $hydrated(b);
+
+          if ($a.parents().length - $b.parents().length > 0) {
+            return -1;
+          }
+
+          if ($a.parents().length - $b.parents().length < 0) {
+            return 1;
+          }
+
+          return 0;
+        })
+        .forEach(element => {
+          const $element = $hydrated(element);
+
+          $element.replaceWith($element.html());
+        });
 
       $hydrated('svg.di use[href^="/icon-assets/"]').each((index, element) => {
         const $element = $hydrated(element);
@@ -188,7 +210,9 @@ module.exports = function (options) {
         .find('.container:first-child')
           .prepend('<h2>Web Component preview</h2>');;
 
-      return prettier.format($hydrated.html(), {
+      const result = $hydrated.html();
+
+      return prettier.format(result, {
         printWidth: 120,
         parser: 'html'
       });
