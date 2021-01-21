@@ -7,6 +7,13 @@ context:
   __explanation:
   - Een static input kan informatie tonen die van belang is in een formulier zonder dat er een keuze gemaakt dient te worden.
 variants:
+- name: static-editbutton
+  context:
+    __title: Static edit button
+    infoOpen: false
+    infoButtonLabel: Toelichting bij vraag
+    edit: true
+    __explanation: false
 - name: static-infobutton
   context:
     __title: Static infobutton
