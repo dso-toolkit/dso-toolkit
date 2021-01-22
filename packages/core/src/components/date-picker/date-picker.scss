@@ -3,6 +3,7 @@
 
 $date-picker-color-primary: $bosgroen;
 $date-picker-color-text: $grijs-90;
+$date-picker-color-text-disabled: $grijs-60;
 $date-picker-color-text-active: $wit;
 $date-picker-color-icon: $grasgroen;
 $date-picker-color-button: $grasgroen;
@@ -262,12 +263,17 @@ $date-picker-z-index: 600;
   &.is-outside {
     background: $date-picker-color-button-disabled;
     box-shadow: none;
-    color: #666;
+    color: $date-picker-color-text-disabled;
     cursor: default;
     pointer-events: none;
+  }
 
-    &.is-disabled {
-      background: $wit;
+  &.is-disabled {
+    background: $wit;
+    cursor: default;
+
+    &:hover {
+      color: $date-picker-color-text-disabled;
     }
   }
 
