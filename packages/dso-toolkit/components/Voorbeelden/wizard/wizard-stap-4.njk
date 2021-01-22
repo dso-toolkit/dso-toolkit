@@ -1,30 +1,49 @@
 <main>
-  {% render '@form-steps', steps %}
-  <div class="clearfix"></div>
-  <dso-alert status="{{ alert.status }}">
-    {{ alert.message | safe }}
-  </dso-alert>
-  <h3>Werkzaamheden</h3>
-  <h4>Gas opslaan in een opslagtank</h4>
-  <span>Voor 'gas opslaan in een opslagtank' moet u het volgende doen:</span>
-  {% render '@conclusion', werkzaamheden %}
-  <div class="clearfix"></div>
-  <h4>Tankstation</h4>
-  <span>Voor 'tankstation' moet u het volgende doen:</span>
-  {% render '@conclusion', tankstation %}
-  <div class="clearfix"></div>
-  <h4>Wasstraat of wasplaats voor auto's, bussen, treinen en trams</h4>
-  <span>Voor 'wasstraat of wasplaats voor auto's, bussen, treinen en trams' moet u het volgende doen:</span>
-  {% render '@conclusion', wasstraat %}
-  <div class="clearfix"></div>
-  <hr>
-  <h3>Resultaat Vergunningcheck downloaden</h3>
-  <p>U kunt de resultaten van deze Vergunningcheck downloaden als PDF bestand. U kunt geen rechten ontlenen aan de inhoud van het bestand.</p>
-  {% render '@button', {type: 'button', modifier: 'default', label: 'Download PDF'} %}
-  <h3>Tip: Start een aanvraag</h3>
-  <p>U kunt vanuit deze Vergunningcheck beginnen met het indienen van uw aanvraag. Ga daarvoor naar Aanvragen en vul een projectnaam in. Zodra u dat gedaan heeft, worden uw locatie en activiteiten opgeslagen. Die hoeft u dan niet meer in te vullen als u later verdergaat.</p>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-xs-12">
+      {% render '@form-steps', steps %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+        <dso-alert status="{{ alert.status }}">
+          {{ alert.message | safe }}
+        </dso-alert>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Werkzaamheden</h3>
+      <h4>Gas opslaan in een opslagtank</h4>
+      <span>Voor 'gas opslaan in een opslagtank' moet u het volgende doen:</span>
+      {% render '@conclusion', werkzaamheden %}
+      
+      <h4>Tankstation</h4>
+      <span>Voor 'tankstation' moet u het volgende doen:</span>
+      {% render '@conclusion', tankstation %}
+      
+      <h4>Wasstraat of wasplaats voor auto's, bussen, treinen en trams</h4>
+      <span>Voor 'wasstraat of wasplaats voor auto's, bussen, treinen en trams' moet u het volgende doen:</span>
+      {% render '@conclusion', wasstraat %}
+      
+      <hr>
+      <h3>Resultaat Vergunningcheck downloaden</h3>
+      <p>U kunt de resultaten van deze Vergunningcheck downloaden als PDF bestand. U kunt geen rechten ontlenen aan de inhoud van het bestand.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {% render '@button', {type: 'button', modifier: 'default', label: 'Download PDF'} %}
+    </div>
+  </div>
+   <div class="row">
+    <div class="col-xs-12">
+      <h3>Tip: Start een aanvraag</h3>
+      <p>U kunt vanuit deze Vergunningcheck beginnen met het indienen van uw aanvraag. Ga daarvoor naar Aanvragen en vul een projectnaam in. Zodra u dat gedaan heeft, worden uw locatie en activiteiten opgeslagen. Die hoeft u dan niet meer in te vullen als u later verdergaat.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
       <div class="dso-form-buttons">
         <div class="dso-aside">
           {% render '@button', {label:'Vorige stap', type:'button', modifier:'link btn-align', icon: 'chevron-left'} %}
@@ -33,6 +52,10 @@
       </div>
     </div>
   </div>
-  <hr>
-  <p><em class="text-muted">De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een algemene indruk of er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met veel aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u geen absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog) niet in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere vergunningen moet aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan contact op te nemen met uw gemeente en/of waterschap.</em></p>
+  <div class="row">
+    <div class="col-xs-12">
+      <hr>
+      <p><em class="text-muted">De Vergunningcheck is een serviceproduct van de Nederlandse overheid. Het geeft u een algemene indruk of er voor uw activiteit een vergunning of melding nodig is. De makers van de Vergunningcheck hebben met veel aandacht gewerkt aan de vragen en antwoorden. Toch geeft het resultaat van de Vergunningcheck u geen absolute zekerheid. Bijvoorbeeld doordat sommige activiteiten of combinaties van activiteiten (nog) niet in de Vergunningcheck staan. Of doordat er nog andere regels zijn waardoor u nog andere vergunningen moet aanvragen of andere meldingen moet doen. U kunt daarom geen rechten ontlenen aan deze Vergunningcheck. Wilt u zeker weten of en hoe u uw activiteit kunt uitvoeren? Dan raden wij u aan contact op te nemen met uw gemeente en/of waterschap.</em></p>
+    </div>
+  </div>
 </main>
