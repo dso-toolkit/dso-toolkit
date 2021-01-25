@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
-* **dso-toolkit** Toevoeging aria-invalid attribuut op invalid inputs ([#893](https://github.com/dso-toolkit/dso-toolkit/issues/893))
+* **BREAKING:** **dso-toolkit** Toevoeging aria-invalid attribuut op invalid inputs ([#893](https://github.com/dso-toolkit/dso-toolkit/issues/893)) **Markup changes, see PR ([#985](https://github.com/dso-toolkit/dso-toolkit/pull/985))**
 
 ## 17.1.0
 
