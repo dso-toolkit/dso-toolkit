@@ -40,23 +40,6 @@ variants:
     id: input-checkbox-invalid
     label: Group checkboxes - Ongeldig
     required: true
-    state: invalid
-    errorText: Maak een keuze
-    options:
-    - value: 1
-      label: een
-    - value: 2
-      label: twee
-    - value: 3
-      label: drie
-- name: input-checkbox-invalid-aria
-  context:
-    __title: Ongeldig - met aria-invalid
-    __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
-      op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
-    id: input-checkbox-invalid-aria
-    label: Group checkboxes - Ongeldig met aria-invalid
-    required: true
     ariaInvalid: true
     state: invalid
     errorText: Maak een keuze

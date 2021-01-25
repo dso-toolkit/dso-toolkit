@@ -40,18 +40,6 @@ variants:
     required: true
     helpText: Maak een keuze tussen vlees of vis
     state: invalid
-    errorText: Maak een keuze.
-- name: input-select-invalid-aria
-  context:
-    __title: Ongeldig - met aria-invalid
-    __explanation:
-    - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
-      gezet te worden op de div met de class <code>.dso-select</code>.
-    id: input-select-invalid-aria
-    label: Group select - Ongeldig met aria-invalid
-    required: true
-    helpText: Maak een keuze tussen vlees of vis
-    state: invalid
     ariaInvalid: true
     errorText: Maak een keuze.
 - name: input-select-valid

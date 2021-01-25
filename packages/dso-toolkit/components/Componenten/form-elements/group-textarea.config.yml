@@ -18,18 +18,6 @@ variants:
     required: true
     helpText: Vul een geldige tekst in
     state: invalid
-    errorText: Vul dit veld in.
-- name: input-textarea-invalid-aria
-  context:
-    __title: Ongeldig - met aria-invalid
-    __explanation:
-    - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
-      gezet te worden op de div met de class <code>.dso-textarea</code>.
-    id: input-textarea-invalid-aria
-    label: Group textarea - Ongeldig met aria-invalid
-    required: true
-    helpText: Vul een geldige tekst in
-    state: invalid
     ariaInvalid: true
     errorText: Vul dit veld in.
 - name: input-textarea-valid

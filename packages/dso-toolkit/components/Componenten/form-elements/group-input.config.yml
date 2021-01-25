@@ -34,6 +34,7 @@ variants:
     label: Group input - Datum ongeldig
     value: "1-1-1"
     state: invalid
+    ariaInvalid: true
     errorText: Vul de datum in met de juiste notatie (dd-mm-jjjj).
 - name: input-password
   context:
@@ -72,6 +73,7 @@ variants:
     type: email
     label: Group input - Email ongeldig
     required: true
+    ariaInvalid: true
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
     errorText: Vul dit veld in.
@@ -86,23 +88,10 @@ variants:
     label: Group input - Email ongeldig foutieve invoer
     value: thomas@
     required: true
+    ariaInvalid: true
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
     errorText: Ongeldig e-mailadres ingevuld.
-- name: input-text-invalid-aria
-  context:
-    __title: Ongeldig - met aria-invalid
-    __explanation:
-    - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class
-      gezet te worden op de div met de class <code>.dso-input</code>.
-    id: input-text-invalid-aria
-    type: email
-    label: Group input - Email ongeldig met aria-invalid
-    required: true
-    helpText: 'Bijvoorbeeld: email@email.nl'
-    state: invalid
-    errorText: Vul dit veld in.
-    ariaInvalid: true
 - name: input-text-valid
   context:
     __title: Geldig
