@@ -18,7 +18,8 @@
         <input type="checkbox" id="{{ localId }}-{{ loop.index0 }}" name="{{ id }}" value="{{ option.value }}"
           {% if option.disabled %} disabled{% endif %}
           {% if option.checked %} checked{% endif %}
-          {% if option.required %} required{% endif %}>
+          {% if option.required %} required{% endif %}
+          {% if ariaInvalid %} aria-invalid="true"{% endif %}>
         <label for="{{ localId }}-{{ loop.index0 }}">
           {{ option.label }}
         </label>

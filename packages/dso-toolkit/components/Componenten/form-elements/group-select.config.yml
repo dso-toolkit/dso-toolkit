@@ -3,7 +3,7 @@ collated: true
 context:
   __title: default
   id: input-select
-  label: Kies uw beleg
+  label: Group select - Default
   options:
   - optionType: Vlees
     items:
@@ -26,6 +26,7 @@ variants:
     __explanation:
     - Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code> class gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-multiple
+    label: Group select - Multiple
     multiple: true
     helpText: Maak een keuze tussen vlees of vis
 - name: input-select-invalid
@@ -35,9 +36,23 @@ variants:
     - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-invalid
+    label: Group select - Ongeldig
     required: true
     helpText: Maak een keuze tussen vlees of vis
     state: invalid
+    errorText: Maak een keuze.
+- name: input-select-invalid-aria
+  context:
+    __title: Ongeldig - met aria-invalid
+    __explanation:
+    - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-select</code>.
+    id: input-select-invalid-aria
+    label: Group select - Ongeldig met aria-invalid
+    required: true
+    helpText: Maak een keuze tussen vlees of vis
+    state: invalid
+    ariaInvalid: true
     errorText: Maak een keuze.
 - name: input-select-valid
   context:
@@ -46,6 +61,7 @@ variants:
     - Indien een select ongeldig was en valide wordt gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-select-valid
+    label: Group select - Geldig
     required: true
     state: valid
     helpText: Maak een keuze tussen vlees of vis
@@ -53,6 +69,7 @@ variants:
   context:
     __title: Disabled
     id: input-select-disabled
+    label: Group select - Disabled
     required: true
     disabled: true
 - name: input-select-infobutton-open

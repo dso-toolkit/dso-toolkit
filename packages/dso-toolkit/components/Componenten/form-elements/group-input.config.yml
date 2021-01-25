@@ -4,7 +4,7 @@ context:
   __title: default
   id: input-text
   type: text
-  label: Tekstveld
+  label: Group input - Default
 variants:
 - name: input-email
   context:
@@ -13,7 +13,7 @@ variants:
     - Er is een <code>type="email"</code> beschikbaar die helpt bij het automatisch valideren van een veld.
     id: input-email
     type: email
-    label: E-mailadres
+    label: Group input - Email
     value: pieter@
 - name: input-date
   context:
@@ -22,7 +22,7 @@ variants:
     - Voor een date picker maken we gebruik van een custom element en <strong>niet</strong> van <code>input type="date"</code>
     id: input-date
     type: date
-    label: Datum
+    label: Group input - Datum
     value: "1970-07-03"
 - name: input-date-invalid
   context:
@@ -31,7 +31,7 @@ variants:
     - Voor een date picker maken we gebruik van een custom element en <strong>niet</strong> van <code>input type="date"</code>
     id: input-date
     type: date
-    label: Datum
+    label: Group input - Datum ongeldig
     value: "1-1-1"
     state: invalid
     errorText: Vul de datum in met de juiste notatie (dd-mm-jjjj).
@@ -42,7 +42,7 @@ variants:
     - Er is een <code>type="password"</code> beschikbaar die het ingevoerde wachtwoord maskeert met bullets.
     id: input-password
     type: password
-    label: Wachtwoord
+    label: Group input - Wachtwoord
     value: Welkom01
 - name: input-url
   context:
@@ -51,7 +51,7 @@ variants:
     - Er is een <code>type="url"</code> beschikbaar. Afhankelijk van de browserondersteuning kan het url veld automatisch worden gevalideerd wanneer het wordt verzonden. Sommige smartphones herkennen het url type en voegen ".com" toe aan het toetsenbord om overeen te komen met de url-invoer..
     id: input-url
     type: url
-    label: URL
+    label: Group input - URL
     value: https://www.aandeslagmetdeomgevingswet.nl
 - name: input-tel
   context:
@@ -60,7 +60,7 @@ variants:
     - Er is een <code>type="tel"</code> beschikbaarvoor het bewerken van een regel met één regel voor het invoeren van een telefoonnummer.
     id: input-tel
     type: tel
-    label: Telefoon
+    label: Group input - Telefoon
     value: 062451789
 - name: input-text-invalid
   context:
@@ -70,7 +70,7 @@ variants:
       gezet te worden op de div met de class <code>.dso-input</code>.
     id: input-text-invalid
     type: email
-    label: E-mailadres
+    label: Group input - Email ongeldig
     required: true
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
@@ -83,7 +83,7 @@ variants:
       gezet te worden op de div met de class <code>.dso-input</code>.
     id: input-text-invalid-input
     type: email
-    label: E-mailadres
+    label: Group input - Email ongeldig foutieve invoer
     value: thomas@
     required: true
     helpText: 'Bijvoorbeeld: email@email.nl'
@@ -97,7 +97,7 @@ variants:
       gezet te worden op de div met de class <code>.dso-input</code>.
     id: input-text-invalid-aria
     type: email
-    label: E-mailadres
+    label: Group input - Email ongeldig met aria-invalid
     required: true
     helpText: 'Bijvoorbeeld: email@email.nl'
     state: invalid
@@ -111,7 +111,7 @@ variants:
       <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-text-valid
     type: email
-    label: E-mailadres
+    label: Group input - Email geldig
     value: thomas@infoprojects.nl
     required: true
     state: valid
@@ -120,7 +120,6 @@ variants:
   context:
     __title: Placeholder
     id: input-text-placeholder
-    label: Naam
     placeholder: Voornaam Achternaam
     required: true
 - name: input-text-icon
@@ -128,19 +127,19 @@ variants:
     __title: Met icoon
     id: input-text-icon
     type: email
-    label: E-mailadres
+    label: Group input - Email
     inputIcon: email
 - name: input-text-disabled
   context:
     __title: Disabled
     id: input-text-disabled
-    label: Naam
+    label: Group input - Disabled
     disabled: true
 - name: input-text-readonly
   context:
     __title: Readonly
     id: input-text-readonly
-    label: Naam
+    label: Group input - Readonly
     readonly: true
 - name: input-text-infobutton
   context:
@@ -149,7 +148,7 @@ variants:
     - Toelichting ingeklapt
     id: input-text-infobutton
     type: email
-    label: E-mailadres
+    label: Group input - Email
     value: thomas@
     infoOpen: false
     infoButtonLabel: Toelichting bij vraag
@@ -162,7 +161,7 @@ variants:
     - Toelichting uitgeklapt
     id: input-text-infobutton-open
     type: email
-    label: E-mailadres
+    label: Group input - Email
     required: true
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag

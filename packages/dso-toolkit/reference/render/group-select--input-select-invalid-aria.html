@@ -1,11 +1,11 @@
 <div class="form-group dso-select dso-invalid dso-required">
   <div class="dso-label-container">
-    <label for="input-select-invalid" class="control-label">
-      Group select - Ongeldig
+    <label for="input-select-invalid-aria" class="control-label">
+      Group select - Ongeldig met aria-invalid
     </label>
   </div>
   <div class="dso-field-container">
-    <select id="input-select-invalid" class="form-control" aria-describedby="helpTextId_input-select-invalid" required>
+    <select id="input-select-invalid-aria" class="form-control" aria-describedby="helpTextId_input-select-invalid-aria" required aria-invalid="true">
       <optgroup label="Vlees">
         <option value="worst">Worst</option>
         <option value="salami">Salami</option>
@@ -17,6 +17,6 @@
       </optgroup>
     </select>
     <p class="dso-message">Maak een keuze.</p>
-    <p class="dso-help-block" id="helpTextId_input-select-invalid">Maak een keuze tussen vlees of vis</p>
+    <p class="dso-help-block" id="helpTextId_input-select-invalid-aria">Maak een keuze tussen vlees of vis</p>
   </div>
 </div>

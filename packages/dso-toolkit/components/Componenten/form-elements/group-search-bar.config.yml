@@ -3,7 +3,7 @@ collated: true
 context:
   __title: default
   id: search-bar
-  label: Activiteit
+  label: Group search bar - Default
   searchBar:
     id: search-bar
     type: text
@@ -64,7 +64,25 @@ variants:
     __explanation:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-error
+    label: Group search bar - Ongeldig
     state: invalid
+    errorText: Vul dit veld in.
+    searchBar:
+      id: search-bar-error
+      type: text
+      clearButton: true
+      hideSearchButton: true
+      icon: true
+      placeholder: Bv. boomkap
+- name: search-bar-error
+  context:
+    __title: Foutmelding - Ongeldig met aria-invalid
+    __explanation:
+      - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
+    id: search-bar-error-aria-invalid
+    label: Group search bar - Ongeldig met aria-invalid
+    state: invalid
+    ariaInvalid: true
     errorText: Vul dit veld in.
     searchBar:
       id: search-bar-error
@@ -75,7 +93,7 @@ variants:
       placeholder: Bv. boomkap
 - name: search-bar-help
   context:
-    __title: Help teskt
+    __title: Help tekst
     __explanation:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-help

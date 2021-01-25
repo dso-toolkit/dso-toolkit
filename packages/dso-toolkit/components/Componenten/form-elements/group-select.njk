@@ -22,7 +22,8 @@
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
-      {% if required %} required{% endif %}>
+      {% if required %} required{% endif %}
+      {% if ariaInvalid %} aria-invalid="true"{% endif %}>
       {% for option in options %}
         {% if option.optionType %}
           <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>

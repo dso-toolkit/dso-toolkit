@@ -5,7 +5,7 @@ collated: true
 context:
   __title: default
   id: input-textarea
-  label: Wilt u nog wat kwijt?
+  label: Group textarea - Default
 variants:
 - name: input-textarea-invalid
   context:
@@ -14,9 +14,23 @@ variants:
     - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-textarea</code>.
     id: input-textarea-invalid
+    label: Group textarea - Ongeldig
     required: true
     helpText: Vul een geldige tekst in
     state: invalid
+    errorText: Vul dit veld in.
+- name: input-textarea-invalid-aria
+  context:
+    __title: Ongeldig - met aria-invalid
+    __explanation:
+    - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-textarea</code>.
+    id: input-textarea-invalid-aria
+    label: Group textarea - Ongeldig met aria-invalid
+    required: true
+    helpText: Vul een geldige tekst in
+    state: invalid
+    ariaInvalid: true
     errorText: Vul dit veld in.
 - name: input-textarea-valid
   context:
@@ -25,6 +39,7 @@ variants:
     - Indien een textarea ongeldig was en valide wordt gemaakt, dient
       de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-textarea-valid
+    label: Group textarea - Geldig
     required: true
     state: valid
     helpText: Minimaal 6 tekens waarvan 1 leesteken
@@ -45,12 +60,14 @@ variants:
   context:
     __title: Disabled
     id: input-textarea-disabled
+    label: Group textarea - Disabled
     required: true
     disabled: true
 - name: input-textarea-readonly
   context:
     __title: Readonly
     id: input-textarea-readonly
+    label: Group textarea - Readonly
     required: true
     readonly: true
 - name: input-textarea-infobutton-open

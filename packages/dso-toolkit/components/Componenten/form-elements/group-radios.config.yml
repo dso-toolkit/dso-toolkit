@@ -5,7 +5,7 @@ collated: true
 context:
   __title: default
   id: input-radio
-  label: Kies soort auto
+  label: Group radios - Default
   helpText: de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper
   options:
   - value: 1
@@ -23,6 +23,7 @@ variants:
     - Radiobuttons hebben (net zoals checkboxen) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
     id: input-radio-required
+    label: Group radios - Verplicht
     required: true
 - name: input-radio-invalid
   context:
@@ -31,7 +32,25 @@ variants:
     - Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code>
       class gezet te worden op de div met de class <code>.dso-radios</code>.
     id: input-radio-invalid
+    label: Group radios - Ongeldig
     required: true
+    state: invalid
+    errorText: Maak een keuze.
+    options:
+    - value: 1
+      label: benzine
+    - value: 2
+      label: diesel
+- name: input-radio-invalid-aria
+  context:
+    __title: Ongeldig - met aria-invalid
+    __explanation:
+    - Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code>
+      class gezet te worden op de div met de class <code>.dso-radios</code>.
+    id: input-radio-invalid-aria
+    label: Group radios - Ongeldig met aria-invalid
+    required: true
+    ariaInvalid: true
     state: invalid
     errorText: Maak een keuze.
     options:
@@ -45,6 +64,7 @@ variants:
     __explanation:
     - Indien een radio groep ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-radio-valid
+    label: Group radios - Geldig
     required: true
     state: valid
     options:
@@ -57,6 +77,7 @@ variants:
   context:
     __title: Disabled
     id: input-radio-disabled
+    label: Group radios - Disabled
     required: true
     state: valid
     options:
@@ -73,7 +94,7 @@ variants:
     __explanation:
     - Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.
     id: input-radio-inline
-    label: Gaat het om de bouw van één of meer woningen?
+    label: Group radios - Inline
     helpText: ""
     required: true
     inline: true
@@ -90,7 +111,7 @@ variants:
     __explanation:
     - Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-radio-inline-info
-    label: Gaat het om de bouw van één of meer woningen?
+    label: Group radios - Inline
     required: true
     helpText: Antwoord hier met "Ja" of "Nee"
     options:

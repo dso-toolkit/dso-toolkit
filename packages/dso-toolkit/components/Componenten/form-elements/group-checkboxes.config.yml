@@ -5,7 +5,7 @@ collated: true
 context:
   __title: default
   id: input-checkbox
-  label: Maak een keuze
+  label: Group checkboxes - Default
   options:
   - value: 1
     label: een
@@ -23,6 +23,7 @@ variants:
     - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
     id: input-checkbox-required
+    label: Group checkboxes - Verplicht
     required: true
     options:
     - value: 1
@@ -37,13 +38,31 @@ variants:
     __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
       op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
     id: input-checkbox-invalid
+    label: Group checkboxes - Ongeldig
     required: true
     state: invalid
-    errorText: Maak een keuze.
+    errorText: Maak een keuze
     options:
     - value: 1
       label: een
-      checked: true
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+- name: input-checkbox-invalid-aria
+  context:
+    __title: Ongeldig - met aria-invalid
+    __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
+      op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
+    id: input-checkbox-invalid-aria
+    label: Group checkboxes - Ongeldig met aria-invalid
+    required: true
+    ariaInvalid: true
+    state: invalid
+    errorText: Maak een keuze
+    options:
+    - value: 1
+      label: een
     - value: 2
       label: twee
     - value: 3
@@ -54,6 +73,7 @@ variants:
     __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
     id: input-checkbox-valid
+    label: Group checkboxes - Geldig
     required: true
     helpText: Selecteer alle even getallen
     state: valid
@@ -70,6 +90,7 @@ variants:
     __title: Disabled
     __explanation: Alle <code>input[type="checkbox"]</code> moeten een <code>disabled</code> attribuut krijgen.
     id: input-checkbox-disabled
+    label: Group checkboxes - Disabled
     required: true
     options:
     - value: 1
