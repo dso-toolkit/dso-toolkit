@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **dso-toolkit** Vaste toelichting als variant bij info.njk ([#907](https://github.com/dso-toolkit/dso-toolkit/issues/907))
+
 ## 17.1.0
 
 ### Fixed
