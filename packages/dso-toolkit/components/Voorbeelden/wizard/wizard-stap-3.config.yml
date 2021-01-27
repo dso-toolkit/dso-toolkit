@@ -7,39 +7,34 @@ context:
   alert:
     status: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
-  shopping-cart:
+  shoppingcart:
     items:
-      - label: Milieubelastende activiteit - Melding
-      - label: Milieubelastende activiteit - Melding
-        additive: 2
-  form:
-    formModifier: form-vertical
-    fieldsets:
-    - legend: Zoek activiteiten
-      groups:
-      - id: filter
-        inputType: search-bar
-        label: Zoekterm
-        searchBar:
-          placeholder: Bijvoorbeeld bouwactiviteiten
-          icon: true
-          id: filter_activiteiten
-          label: Zoek uw activiteiten
-          noLabel: true
-          hideSearchButton: true
-          clearButton: true
-      - id: activiteiten
-        inputType: checkboxes
-        label: 4 gevonden activiteiten
-        options:
-          - value: 1
-            label: Bouwactiviteit - Melding
-          - value: 2
-            label: Milieuactiviteit - Melding
-          - value: 3
-            label: Milieuactiviteit - Aanvraag vergunning
-          - value: 4
-            label: Gebruik en het in stand houden van bouwwerken ketentest - Melding
+      - label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning
+        additive: 1
+    collapsed: true
+  search:
+    inputType: search-bar
+    label: Zoek uw activiteiten
+    placeholder: Bijvoorbeeld bouwactiviteiten
+    icon: true
+    id: filter_activiteiten
+    hideSearchButton: true
+    clearButton: true
+    searchBar:
+        placeholder: Bijvoorbeeld bouwactiviteiten
+        icon: true
+        id: filter_activiteiten
+        label: Zoek uw activiteiten
+        noLabel: true
+        hideSearchButton: true
+        clearButton: true
+  listbutton:
+  - type: button
+    label: Milieubelastende activiteit - Melding
+    sublabel: Gemeente Delft
+  - type: button
+    label: Milieubelastende activiteit - Melding
+    sublabel: Gemeente Delft
     asideButtons:
     - type: link
       modifier: link

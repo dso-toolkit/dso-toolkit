@@ -1,11 +1,101 @@
 <main>
-  {% render '@form-steps', steps %}
-  <div class="clearfix"></div>
-  <dso-alert status="{{ alert.status }}">
-    {{ alert.message | safe }}
-  </dso-alert>
-  <div class="clearfix"></div>
-  {% render '@shopping-cart' %}
-  <div class="clearfix"></div>
-  {% render '@form', form %}
+  <div class="row">
+    <div class="col-xs-12">
+      {% render '@form-steps', steps %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <form class="form-vertical">
+        <div class="row">
+          <div class="col-xs-12">
+            <dso-alert status="{{ alert.status }}">
+              {{ alert.message | safe }}
+            </dso-alert>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            {% render '@shopping-cart', shoppingcart %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="dso-highlight-box">
+              <div class="dso-rich-content">
+                {% render '@search-bar', search %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-3">
+            <h4>Filters</h4>
+            <fieldset class="form-group dso-checkboxes">
+              <legend class="dso-label-container">
+                <label class="control-label" for="governance-filter-options">Bestuurslaag</label>
+              </legend>
+              <div id="governance-filter-options" class="dso-field-container">
+                <div class="dso-selectable">
+                  <input type="checkbox" id="governance-option-REALM" name="input-checkbox" value="REALM">
+                  <label for="governance-option-REALM">Rijk (18)</label>
+                </div>
+                <div class="dso-selectable">
+                  <input type="checkbox" id="governance-option-MUNICIPALITY" name="input-checkbox" value="MUNICIPALITY">
+                  <label for="governance-option-MUNICIPALITY">Gemeente (4)</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="form-group dso-checkboxes">
+              <legend class="dso-label-container">
+                <label class="control-label" for="permission-filter-options">Toestemming</label>
+              </legend>
+              <div id="permission-filter-options" class="dso-field-container">
+                <div class="dso-selectable">
+                  <input type="checkbox" id="permission-option-Aanvraag vergunning" name="input-checkbox" value="Aanvraag vergunning">
+                  <label for="permission-option-Aanvraag vergunning">Aanvraag vergunning (11)</label>
+                </div>
+                <div class="dso-selectable">
+                  <input type="checkbox" id="permission-option-Aanvraag maatwerkvoorschrift" name="input-checkbox" value="Aanvraag maatwerkvoorschrift">
+                  <label for="permission-option-Aanvraag maatwerkvoorschrift">Aanvraag maatwerkvoorschrift (3)</label>
+                </div>
+                <div class="dso-selectable"><input type="checkbox" id="permission-option-Melding" name="input-checkbox" value="Melding">
+                  <label for="permission-option-Melding">Melding (7)</label>
+                </div>
+                <div class="dso-selectable"><input type="checkbox" id="permission-option-Informatie" name="input-checkbox" value="Informatie">
+                  <label for="permission-option-Informatie">Informatie (1)</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <fieldset class="form-group">
+              <legend>
+                <label>
+                  <h4>5 activiteiten</h4>
+                  <div class="dso-field-container">
+                    {% render '@list-button', {type: 'button', label: 'Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning', sublabel: 'Rijk', count: '1'} %}
+                    {% render '@list-button', {type: 'button', label: 'Bouwen dakkapel - Aanvraag vergunning', sublabel: 'Gemeente'} %}
+                    {% render '@list-button', {type: 'button', label: 'In stand houden van bouwwerken - Melding', sublabel: 'Gemeente'} %}
+                    {% render '@list-button', {type: 'button', label: 'Milieubelastende activiteit - Aanvraag vergunning', sublabel: 'Gemeente'} %}
+                    {% render '@list-button', {type: 'button', label: 'Opslaan van vloeistoffen in opslagtanks of in tankcontainers of verpakkingen gebruikt als opslagtank  - Aanvraag vergunning', sublabel: 'Rijk'} %}
+                  </div>
+                </label>
+              </legend>
+            </fieldset>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="dso-form-buttons">
+              <div class="dso-aside">
+                {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+              </div>
+              {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </main>
