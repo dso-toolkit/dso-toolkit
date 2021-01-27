@@ -13,33 +13,35 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <table class="table">
-        <caption class="sr-only">Table met alle samenwerkingen</caption>
-        <thead>
-          <tr>
-            <th scope="col">Naam samenwerking</th>
-            <th scope="col">Status</th>
-            <th scope="col">Initiator</th>
-            <th scope="col">Verzoeknummer</th>
-            <th scope="col">Vertrouwelijkheid</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="#fabien" ><b>Aanleg rondweg Leiden</b></a></td>
-            <td>Open</td>
-            <td>Gemeente Den Haag</td>
-            <td>123456789123</td>
-            <td>Geheim</td>
-            <td>{% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gebruikers', icon:'users', iconOnly:true} %}</td>
-            <td>{% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gegevens wijzigen', icon:'pencil', iconOnly:true} %}</td>
-            <td>{% render '@button', {type:'button', modifier:'link pull-right', label:'Openen', icon:'angle-right'} %}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="dso-table-responsive">
+        <table class="table">
+          <caption class="sr-only">Table met alle samenwerkingen</caption>
+          <thead>
+            <tr>
+              <th scope="col">Naam samenwerking</th>
+              <th scope="col">Status</th>
+              <th scope="col">Initiator</th>
+              <th scope="col">Verzoeknummer</th>
+              <th scope="col">Vertrouwelijkheid</th>
+              <th>Acties</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#fabien" ><b>Aanleg rondweg Leiden</b></a></td>
+              <td>Open</td>
+              <td>Gemeente Den Haag</td>
+              <td>123456789123</td>
+              <td>Geheim</td>
+              <td class="text-right">
+                {% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gebruikers', icon:'users', iconOnly:true} %}
+                {% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gegevens wijzigen', icon:'pencil', iconOnly:true} %}
+                {% render '@button', {type:'button', modifier:'link', label:'Openen', icon:'angle-right'} %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </main>
