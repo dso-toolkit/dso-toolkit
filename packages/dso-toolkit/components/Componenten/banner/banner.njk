@@ -1,20 +1,4 @@
-<section {{ className('banner', [modifier, 'alert-' + modifier]) }} role="alert">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="dso-rich-content">
-          <h2>
-          {% if modifier === "danger" -%}
-            Storingsmelding:
-          {%- endif %}
-          {%- if modifier === "warning" -%}
-            Onderhoudsmelding:
-          {%- endif %}
-          </h2>
-          {{ message | safe }}
-        </div>
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
-      </div>
-    </div>
-  </div>
-</section>
+<dso-banner status="{{ status }}">
+  {{ message | safe }}
+  {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true, slotName: 'button'} -%}
+</dso-banner>

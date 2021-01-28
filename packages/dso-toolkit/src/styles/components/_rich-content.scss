@@ -133,3 +133,10 @@ dso-highlight-box,
     }
   }
 }
+
+dso-banner,
+.dso-banner:not(.row) {
+  *:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+}

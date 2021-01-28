@@ -133,6 +133,21 @@ dso-label[status="danger"],
   }
 }
 
+dso-banner {
+  position: relative;
+
+  > button {
+    position: absolute;
+    right: $u2;
+    top: 0;
+
+    dso-icon,
+    svg.di {
+      color: $zwart;
+    }
+  }
+}
+
 .btn {
   @include button-default-base();
 

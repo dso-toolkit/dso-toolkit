@@ -1,4 +1,14 @@
+@import "../variables";
+
 $dso-banner-left-padding: $u6;
+
+$banner-warning-bg: $state-warning-bg;
+$banner-warning-text: $state-warning-text;
+$banner-warning-border: $state-warning-border;
+
+$banner-danger-bg: $state-danger-bg;
+$banner-danger-text: $state-danger-text;
+$banner-danger-border: $state-danger-border;
 
 @mixin banner-variant($background, $border, $text-color) {
   color: $text-color;
@@ -6,7 +16,9 @@ $dso-banner-left-padding: $u6;
   border-color: $border;
 }
 
-.banner {
+.banner,
+dso-banner,
+.dso-banner:not(.row) {
   padding: $u2 0;
   position: relative;
 
@@ -82,7 +94,7 @@ $dso-banner-left-padding: $u6;
   }
 
   &.alert-danger {
-    @include banner-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+    @include banner-variant($banner-danger-bg, $banner-danger-border, $banner-danger-text);
 
     .row > div::before {
       @include di("status-danger");
@@ -90,7 +102,7 @@ $dso-banner-left-padding: $u6;
   }
 
   &.alert-warning {
-    @include banner-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+    @include banner-variant($banner-warning-bg, $banner-warning-border, $banner-warning-text);
 
     .row > div::before {
       @include di("status-warning");
