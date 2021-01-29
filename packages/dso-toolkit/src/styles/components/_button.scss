@@ -9,7 +9,9 @@
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
+  text-align: left;
   text-decoration: none;
+  white-space: normal;
 }
 
 dso-alert,

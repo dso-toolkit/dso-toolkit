@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **styling** Buttons wrappen niet waardoor deze buiten elementen vallen ([#990](https://github.com/dso-toolkit/dso-toolkit/issues/990))
+
 ## 18.0.0
 
 ### Fixed
