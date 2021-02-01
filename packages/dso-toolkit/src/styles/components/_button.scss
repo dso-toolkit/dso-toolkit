@@ -338,6 +338,7 @@ dso-label[status="danger"],
   table.table & {
     position: relative;
     top: -2px;
+    white-space: nowrap;
   }
 
   .dso-static .dso-field-container & {
