@@ -338,7 +338,7 @@ dso-label[status="danger"],
   table.table & {
     position: relative;
     top: -2px;
-    white-space: nowrap;
+    white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
   }
 
   .dso-static .dso-field-container & {
