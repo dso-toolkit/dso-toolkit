@@ -1,18 +1,34 @@
 {% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
 <main>
   <form class="form-horizontal">
-    <div class="clearfix">
-      <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-      {% render '@form-steps', steps %}
-    </div>
-    {% render '@accordion', accordion %}
-    {% render '@form', form %}
-    <div class="dso-form-buttons">
-      <div class="dso-aside">
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="clearfix">
+          <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+          {% render '@form-steps', steps %}
+        </div>
       </div>
-      {% render '@button', {type: 'button', modifier: 'default', label: 'Downloaden'} %}
-      {% render '@button', {type: 'button', modifier: 'primary', label: 'Indienen'} %}
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@accordion', accordion %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@form', form %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="dso-form-buttons">
+          <div class="dso-aside">
+            {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
+          </div>
+          {% render '@button', {type: 'button', modifier: 'default', label: 'Downloaden'} %}
+          {% render '@button', {type: 'button', modifier: 'primary', label: 'Indienen'} %}
+        </div>
+      </div>
     </div>
   </form>
 </main>
