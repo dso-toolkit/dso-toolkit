@@ -34,7 +34,10 @@ form,
     > div {
       flex: 1 1 0;
       padding-left: $u2;
-      padding-right: $u2;
+
+      &:first-child {
+        padding-left: 0;
+      }
 
       &.dso-form-buttons {
         align-self: flex-end;
