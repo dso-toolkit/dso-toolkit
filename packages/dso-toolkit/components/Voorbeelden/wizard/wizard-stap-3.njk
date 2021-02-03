@@ -1,11 +1,26 @@
 <main>
-  {% render '@form-steps', steps %}
-  <div class="clearfix"></div>
-  <dso-alert status="{{ alert.status }}">
-    {{ alert.message | safe }}
-  </dso-alert>
-  <div class="clearfix"></div>
-  {% render '@shopping-cart' %}
-  <div class="clearfix"></div>
-  {% render '@form', form %}
+  <form>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@form-steps', steps %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <dso-alert status="{{ alert.status }}">
+          {{ alert.message | safe }}
+        </dso-alert>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@shopping-cart' %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@form', form %}
+      </div>
+    </div>
+  </form>
 </main>

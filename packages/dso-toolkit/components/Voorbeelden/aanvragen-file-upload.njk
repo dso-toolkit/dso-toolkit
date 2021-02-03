@@ -2,11 +2,21 @@
 
 <main>
   <form class="form-horizontal">
-    <div class="clearfix">
-      <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-      {% render '@form-steps', {title: steps.title, step: steps.step} %}
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+      {# </div>
     </div>
-    {% render '@accordion', accordion %}
+    <div class="row">
+      <div class="col-xs-12"> #}
+        {% render '@form-steps', {title: steps.title, step: steps.step} %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@accordion', accordion %}
+      </div>
+    </div>
   </form>
 </main>
 
