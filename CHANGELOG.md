@@ -63,6 +63,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **dso-toolkit** Info-component zonder sluitmogelijkheid ([#907](https://github.com/dso-toolkit/dso-toolkit/issues/907))
 
+### Fixed
+* Voorbeeld pagina's updates en fixes (#928)
+
 ## 17.1.0
 
 ### Fixed
