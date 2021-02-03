@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Voorbeeld pagina's updates en fixes (#928)
+
 ## 17.1.0
 
 ### Fixed
