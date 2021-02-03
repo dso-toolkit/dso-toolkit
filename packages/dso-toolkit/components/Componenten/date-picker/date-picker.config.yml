@@ -1,5 +1,5 @@
 meta:
-  webComponent: true
+  webComponent: dso-date-picker
 collated: true
 context:
   label: Default

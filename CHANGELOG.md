@@ -8,6 +8,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING** **dso-toolkit:** Tree view: h3 buiten button ([#933](https://github.com/dso-toolkit/dso-toolkit/issues/933)) **Markup changes, see PR ([#971](https://github.com/dso-toolkit/dso-toolkit/pull/971))**
 
+### Added
+* **dso-toolkit** Info-component zonder sluitmogelijkheid ([#907](https://github.com/dso-toolkit/dso-toolkit/issues/907))
+
+## 17.1.0
+
+### Fixed
+* **dso-toolkit** Banner: ruimte tussen h2 en p onafhankelijk maken van eventuele whitespace ([#973](https://github.com/dso-toolkit/dso-toolkit/issues/973))
+
+### Changed
+* **dso-toolkit + styling:** Heading in Alert altijd dezelfde styling meegeven ([#952](https://github.com/dso-toolkit/dso-toolkit/issues/952))
+
+### Added
+* **dso-toolkit:** Bewerkenknop in group static toevoegen ([#881](https://github.com/dso-toolkit/dso-toolkit/issues/881))
+* **dso-toolkit:** Definition-list in accordion ([#882](https://github.com/dso-toolkit/dso-toolkit/issues/882))
+* **core:** Geen assets meer bij Icon component ([#968](https://github.com/dso-toolkit/dso-toolkit/issues/968))
+
 ## 17.0.1
 
 17.0.0 was a failed release.

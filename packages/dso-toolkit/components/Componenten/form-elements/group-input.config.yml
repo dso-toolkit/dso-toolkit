@@ -115,7 +115,7 @@ variants:
     id: input-text-icon
     type: email
     label: E-mailadres
-    inputIcon: at
+    inputIcon: email
 - name: input-text-disabled
   context:
     __title: Disabled

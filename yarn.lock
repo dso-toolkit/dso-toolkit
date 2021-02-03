@@ -1783,6 +1783,7 @@ __metadata:
     cheerio: 1.0.0-rc.3
     clsx: 1.1.1
     mini-svg-data-uri: 1.2.3
+    stencil-inline-svg: 1.0.1
     ts-node: 9.1.1
     typescript: 4.1.2
   languageName: unknown
@@ -7443,11 +7444,9 @@ __metadata:
     "@types/react": ^17.0.0
     "@types/react-dom": ^17.0.0
     dso-toolkit: "workspace:packages/dso-toolkit"
-    ncp: ^2.0.0
     react: ^17.0.1
     react-dom: ^17.0.1
     react-scripts: 4.0.1
-    rimraf: ^3.0.2
     typescript: ^3.2.1
   languageName: unknown
   linkType: soft
@@ -13786,15 +13785,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"ncp@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ncp@npm:2.0.0"
-  bin:
-    ncp: ./bin/ncp
-  checksum: a751e4c94bc810b34b81c8cad288b90ac59fa83890e701483fd70f800d3c2228bea9eff84d1c034074cd1b393cec40696c04558a70b17476eba7acb06e20e71c
-  languageName: node
-  linkType: hard
-
 "needle@npm:^2.5.0":
   version: 2.5.2
   resolution: "needle@npm:2.5.2"
@@ -18862,6 +18852,13 @@ resolve@^1.17.0:
   version: 1.1.1
   resolution: "stealthy-require@npm:1.1.1"
   checksum: f24a9bc613817dea37afcbf64578f2ba0195916d906ebdaa1c1d5b8e9d51fd462cbf4c61ae04217babd0cf662e6c0115fd972dffa8e62a7f6f44f3109fb4c796
+  languageName: node
+  linkType: hard
+
+"stencil-inline-svg@npm:1.0.1":
+  version: 1.0.1
+  resolution: "stencil-inline-svg@npm:1.0.1"
+  checksum: 40c1cd79e393091a12ddb4343737509a1dc429316471bd63ad0a185c025e96d59ebf9be44561c88b0f12e5ea3928d90ff16ff33f4598c4c49b555f1490741e53
   languageName: node
   linkType: hard
 

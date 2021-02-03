@@ -78,8 +78,15 @@ module.exports = function (options) {
         : ['notes', 'component', 'html', 'view', 'context'];
     });
 
-    const hydrate = async function (html, options) {
-      const result = await renderToString(html, Object.assign({
+    async function hydrate(html, webComponents, renderOptions) {
+      const $html = cheerio.load(html);
+      for (const webComponent of webComponents) {
+        $html(webComponent).each(function (index, element) {
+          element.name = `skip-${element.name}`;
+        });
+      }
+
+      const result = await renderToString($html.html(), Object.assign({
         clientHydrateAnnotations: false,
         prettyHtml: false,
         removeHtmlComments: true,
@@ -88,8 +95,14 @@ module.exports = function (options) {
         removeEmptyAttributes: true,
         removeScripts: true,
         removeUnusedStyles: false
-      }, options || {}));
+      }, renderOptions || {}));
       const $ = cheerio.load(result.html);
+
+      for (const webComponent of webComponents) {
+        $(`skip-${webComponent}`).each(function (index, element) {
+          element.name = webComponent;
+        });
+      }
 
       $('[class*="sc-"]').removeClass(function (index, className) {
         return className
@@ -116,24 +129,35 @@ module.exports = function (options) {
         });
 
       return $;
-    };
+    }
 
     env.engine.addGlobal('hydrateForPreview', async function (html, entity) {
-      const $ = cheerio.load(html);
-
-      const dsoCustomElements = $('*')
-        .filter((index, element) => /^dso-/i.test(element.tagName))
-        .get();
-
-      if (dsoCustomElements.length === 0 || (entity.meta.webComponent && !entity.meta.markup)) {
+      if (entity.meta.webComponent && !entity.meta.markup) {
         return html;
       }
 
-      $('.container').prepend('<h2>Web Component preview</h2>');
+      const components = [...entity._app._components.components()._fileTree._items].find(c => c.name === 'componenten');
+      const webComponents = [];
+
+      for (const item of components._items) {
+        if (item.configData && item.configData.meta && typeof item.configData.meta.webComponent === 'string' && item.configData.meta.webComponent !== '' && !item.configData.meta.markup) {
+          webComponents.push(item.configData.meta.webComponent);
+        }
+      }
+
+      const $ = cheerio.load(html);
+
+      const dsoCustomElements = $('*')
+        .filter((index, element) => /^dso-/i.test(element.tagName) && !webComponents.includes(element.tagName.toLowerCase()))
+        .get();
+
+      if (dsoCustomElements.length === 0) {
+        return html;
+      }
+
       const $raw = $('body > *:not(script):not(style):not(link)');
       const raw = $.html($raw);
-
-      const $hydrated = await hydrate(html, {
+      const $hydrated = await hydrate($.html(), webComponents, {
         removeHtmlComments: true,
         removeAttributeQuotes: false,
         removeBooleanAttributeQuotes: false,
@@ -142,30 +166,27 @@ module.exports = function (options) {
         removeUnusedStyles: false
       });
 
+      $hydrated('html').removeAttr('data-stencil-build');
       $hydrated('style[sty-id]').remove();
 
       $hydrated('[slot]').removeAttr('slot');
 
       $hydrated('*')
-        .filter((index, element) => /^dso-/i.test(element.tagName))
+        .filter((index, element) => /^dso-/i.test(element.tagName) && !webComponents.includes(element.tagName.toLowerCase()))
         .get()
-        .sort((a, b) => {
-          const $a = $hydrated(a);
-          const $b = $hydrated(b);
-
+        .map(element => $hydrated(element))
+        .sort(($a, $b) => {
           if ($a.parents().length - $b.parents().length > 0) {
             return -1;
           }
 
           if ($a.parents().length - $b.parents().length < 0) {
-              return 1;
+            return 1;
           }
 
           return 0;
         })
-        .forEach(element => {
-          const $element = $hydrated(element);
-
+        .forEach($element => {
           $element.replaceWith($element.html());
         });
 
@@ -181,15 +202,19 @@ module.exports = function (options) {
           .prepend('<h2>Markup component preview</h2>')
         .end()
         .prepend('<hr id="custom-elements-raw">')
-        .prepend(raw);
+        .prepend(raw)
+        .find('.container:first-child')
+          .prepend('<h2>Web Component preview</h2>');;
 
-      return prettier.format($hydrated.html(), {
+      const result = $hydrated.html();
+
+      return prettier.format(result, {
         printWidth: 120,
         parser: 'html'
       });
     });
 
-    env.engine.addGlobal('hydrate', async function (html, options) {
+    env.engine.addGlobal('hydrate', async function (html, entity, options) {
       options = Object.assign(
         {
           stripRoot: true
@@ -197,9 +222,19 @@ module.exports = function (options) {
         options || {}
       );
 
-      const $ = await hydrate(html);
+      const components = [...entity._app._components.components()._fileTree._items].find(c => c.name === 'componenten');
+      const webComponents = [];
 
-      return prettier.format($(options.stripRoot ? 'body > *' : 'body').html(), {
+      for (const item of components._items) {
+        if (item.configData && item.configData.meta && typeof item.configData.meta.webComponent === 'string' && item.configData.meta.webComponent !== '' && !item.configData.meta.markup) {
+          webComponents.push(item.configData.meta.webComponent);
+        }
+      }
+
+      const $ = await hydrate(html, webComponents);
+      const markup = $.html($(options.stripRoot ? 'body > *' : 'body'));
+
+      return prettier.format(markup, {
         printWidth: 120,
         parser: 'html'
       });
