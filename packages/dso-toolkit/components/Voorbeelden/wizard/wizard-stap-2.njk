@@ -8,16 +8,31 @@
   }
 </style>
 <main>
-  {% render '@form-steps', steps %}
-  <div class="clearfix"></div>
-  {% render '@search-bar', filter %}
-  <div class="clearfix"></div>
-  <div class="dso-map-example"></div>
-  <div class="clearfix"></div>
-  <div class="dso-form-buttons">
-    <div class="dso-aside">
-      {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+  <form>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@form-steps', steps %}
+      </div>
     </div>
-    {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
-  </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@search-bar', filter %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="dso-map-example"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="dso-form-buttons">
+          <div class="dso-aside">
+            {% render '@button', {type: 'button', modifier: 'default', label: 'Vorige stap', icon: 'chevron-left'} %}
+          </div>
+          {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende stap', iconAfter: 'chevron-right'} %}
+        </div>
+      </div>
+    </div>
+  </form>
 </main>
