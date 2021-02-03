@@ -5,11 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:**: Date Picker focus styling verbeteren ([#964](https://github.com/dso-toolkit/dso-toolkit/issues/964))
+
 ### Changed
 * **BREAKING** **dso-toolkit:** Tree view: h3 buiten button ([#933](https://github.com/dso-toolkit/dso-toolkit/issues/933)) **Markup changes, see PR ([#971](https://github.com/dso-toolkit/dso-toolkit/pull/971))**
 
 ### Added
-* **core:**: Date Picker focus styling verbeteren ([#964](https://github.com/dso-toolkit/dso-toolkit/issues/964))
 * **dso-toolkit** Info-component zonder sluitmogelijkheid ([#907](https://github.com/dso-toolkit/dso-toolkit/issues/907))
 
 ## 17.1.0
