@@ -7,7 +7,7 @@
         {% if disabled %} disabled{% endif %}
         {% if checked %} checked{% endif %}
         {% if required %} required{% endif %}
-        {% if ariaInvalid %} aria-invalid="true"{% endif %}>
+        {% if state == "invalid" %} aria-invalid="true"{% endif %}>
       <label for="{{ localId }}">
         {{ label }}
       </label>

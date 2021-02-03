@@ -18,7 +18,6 @@ variants:
     required: true
     helpText: Vul een geldige tekst in
     state: invalid
-    ariaInvalid: true
     errorText: Vul dit veld in.
 - name: input-textarea-valid
   context:

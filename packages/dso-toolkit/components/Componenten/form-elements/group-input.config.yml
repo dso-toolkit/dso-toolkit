@@ -34,7 +34,6 @@ variants:
     label: Group input - Datum ongeldig
     value: "1-1-1"
     state: invalid
-    ariaInvalid: true
     errorText: Vul de datum in met de juiste notatie (dd-mm-jjjj).
 - name: input-password
   context:

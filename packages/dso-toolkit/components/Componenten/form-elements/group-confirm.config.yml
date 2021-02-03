@@ -21,7 +21,6 @@ variants:
       class gezet te worden op de div met de class <code>.dso-checkboxes</code>.
     id: input-confirm-invalid
     required: true
-    ariaInvalid: true
     state: invalid
     errorText: Maak een keuze.
 - name: input-confirm-valid

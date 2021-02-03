@@ -34,7 +34,6 @@ variants:
     id: input-radio-invalid
     label: Group radios - Ongeldig
     required: true
-    ariaInvalid: true
     state: invalid
     errorText: Maak een keuze.
     options:

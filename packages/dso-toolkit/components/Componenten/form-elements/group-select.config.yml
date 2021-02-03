@@ -40,7 +40,6 @@ variants:
     required: true
     helpText: Maak een keuze tussen vlees of vis
     state: invalid
-    ariaInvalid: true
     errorText: Maak een keuze.
 - name: input-select-valid
   context:

@@ -19,7 +19,7 @@
       {% if disabled %} disabled{% endif %}
       {% if readonly %} readonly{% endif %}
       {% if required %} required{% endif %}
-      {% if ariaInvalid %} aria-invalid="true"{% endif %}
+      {% if state == "invalid" %} aria-invalid="true"{% endif %}
     >{{ value }}</textarea>
     {% if errorText %}
       {% render '@error-block', {errorText: errorText} %}

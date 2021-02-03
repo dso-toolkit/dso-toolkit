@@ -40,7 +40,6 @@ variants:
     id: input-checkbox-invalid
     label: Group checkboxes - Ongeldig
     required: true
-    ariaInvalid: true
     state: invalid
     errorText: Maak een keuze
     options:
