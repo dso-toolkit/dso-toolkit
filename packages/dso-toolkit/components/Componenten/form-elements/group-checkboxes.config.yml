@@ -23,7 +23,7 @@ variants:
     - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
     id: input-checkbox-required
-    label: Group checkboxes - Verplicht
+    label: Group checkboxes - Required
     required: true
     options:
     - value: 1
@@ -38,7 +38,7 @@ variants:
     __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
       op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
     id: input-checkbox-invalid
-    label: Group checkboxes - Ongeldig
+    label: Group checkboxes - Invalid
     required: true
     state: invalid
     errorText: Maak een keuze
@@ -55,7 +55,7 @@ variants:
     __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
     id: input-checkbox-valid
-    label: Group checkboxes - Geldig
+    label: Group checkboxes - Valid
     required: true
     helpText: Selecteer alle even getallen
     state: valid

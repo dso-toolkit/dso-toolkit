@@ -14,7 +14,7 @@ variants:
     - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-textarea</code>.
     id: input-textarea-invalid
-    label: Group textarea - Ongeldig
+    label: Group textarea - Invalid
     required: true
     helpText: Vul een geldige tekst in
     state: invalid
@@ -26,7 +26,7 @@ variants:
     - Indien een textarea ongeldig was en valide wordt gemaakt, dient
       de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-textarea-valid
-    label: Group textarea - Geldig
+    label: Group textarea - Valid
     required: true
     state: valid
     helpText: Minimaal 6 tekens waarvan 1 leesteken

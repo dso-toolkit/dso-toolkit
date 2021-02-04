@@ -64,7 +64,7 @@ variants:
     __explanation:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-error
-    label: Group search bar - Ongeldig
+    label: Group search bar - Invalid
     state: invalid
     errorText: Vul dit veld in.
     searchBar:

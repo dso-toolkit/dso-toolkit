@@ -36,7 +36,7 @@ variants:
     - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-invalid
-    label: Group select - Ongeldig
+    label: Group select - Invalid
     required: true
     helpText: Maak een keuze tussen vlees of vis
     state: invalid
@@ -48,7 +48,7 @@ variants:
     - Indien een select ongeldig was en valide wordt gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-select-valid
-    label: Group select - Geldig
+    label: Group select - Valid
     required: true
     state: valid
     helpText: Maak een keuze tussen vlees of vis
@@ -86,7 +86,7 @@ variants:
   context:
     __title: Zonder `optgroup`.
     id: input-select-items-only
-    label: Land
+    label: Group select - no opt-group
     options:
       - value: be
         label: België
