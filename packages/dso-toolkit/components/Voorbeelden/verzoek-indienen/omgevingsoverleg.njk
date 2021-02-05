@@ -1,0 +1,34 @@
+{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
+<main>
+  <form>
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        {% render '@form-steps', steps %}
+        {% render '@form', form %}
+        {% render '@highlight-box', highlightbox %}
+        <hr>
+        {% render '@definition-list', definitionlist1 %}
+        <hr>
+        {% render '@definition-list', definitionlist2 %}
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="dso-form-buttons">
+          <div class="dso-aside">
+            {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
+          </div>
+          {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende', iconAfter: 'chevron-right'} %}
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
+
+{% render '@footer' %}
