@@ -3,7 +3,7 @@
 <main>
   <div>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <h1>Zoeken in wetgeving</h1>
         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<sup id="#voetnoot14link" class="dso-footnote-reference"><a href="#voetnoot14">[14]</a></sup></p>
       </div>
@@ -11,12 +11,12 @@
     <div class="row">
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-xs-12">
             {% render '@form-steps', {title: title} -%}
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-xs-12">
             <div class="dso-search-bar">
               <div class="dso-search-bar-input">
                 <label for="search-bar--hidden-button">Zoeken in Lijst</label>
@@ -30,12 +30,12 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-xs-12">
             <h5>Actieve filters: <dso-badge status="success">Omgevingswet document</dso-badge><dso-badge status="warning">Geldige oude wetgeving</dso-badge></h5>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-xs-12">
             <ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
               {% for card in cards %}
                 <li>
@@ -48,12 +48,12 @@
       </div>
       <div class="col-md-4">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-xs-12">
             <h2 class="dso-steps-indicator">Filters</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-xs-12">
             <form>
               <fieldset>
                 <legend hidden></legend>
@@ -92,7 +92,7 @@
     </div>
     <br>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <ol class="dso-footnotes">
           <li class="dso-footnote" id="voetnoot14">14. <a href="#voetnoot14link" class="dso-footnote-backlink" aria-label="Terug naar voetnoot 14" title="Terug naar voetnoot 14"></a> Foreest Groen Consult (2018) Quickscan natuuronderzoek Ontwikkeling Herveld-Noord. 26 juli 2018.</li>
         </ol>
