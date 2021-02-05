@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Definition-list (in accordion) geen padding bij lange dt ([#979](https://github.com/dso-toolkit/dso-toolkit/issues/979))
 
 ### Changed
+* **BREAKING:** **dso-toolkit** Toevoeging aria-invalid attribuut op invalid inputs ([#893](https://github.com/dso-toolkit/dso-toolkit/issues/893)) **Markup changes, see PR ([#985](https://github.com/dso-toolkit/dso-toolkit/pull/985))**
 * **BREAKING** **dso-toolkit:** Tree view: h3 buiten button ([#933](https://github.com/dso-toolkit/dso-toolkit/issues/933)) **Markup changes, see PR ([#971](https://github.com/dso-toolkit/dso-toolkit/pull/971))**
 
 ### Added
