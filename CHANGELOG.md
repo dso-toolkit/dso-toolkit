@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 18.0.0
+
 ### Fixed
 * **core:**: Date Picker focus styling verbeteren ([#964](https://github.com/dso-toolkit/dso-toolkit/issues/964))
 * **dso-toolkit:** Navigatie van Toolkit aanpassen aan gewijzigde treeview markup ([#992](https://github.com/dso-toolkit/dso-toolkit/issues/992))
