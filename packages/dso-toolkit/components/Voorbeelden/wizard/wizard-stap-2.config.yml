@@ -4,17 +4,33 @@ context:
   steps:
     title: 2. Locatie
     step: Stap 1/7
-  filter:
-    placeholder: Zoek een adres
+  dropdownButton:
+    modifier: link
+    label: 'Meer zoekopties'
+    iconAfter: chevron-down
+    items:
+      - label: Adres
+      - label: Postcode en huisnummer
+      - label: Kadastraal nummer
+      - label: Coordinaten
+      - Label: Teken een gebied op de kaart
+  typeSelect:
+    id: type
+    inputType: select
+    label: Type
+    options:
+      - value: rd
+        label: RD
+      - value: wgs84
+        label: WGS84
+        selected: true
+  inputLatt:
+    placeholder: hoi
+    value: 52.07066496
     icon: true
-    label: Adres
-    asideButtons:
-    - type: link
-      modifier: link
-      label: Vorige stap
-      icon: chevron-left
-    buttons:
-    - type: submit
-      modifier: primary
-      label: Volgende stap
-      iconAfter: chevron-right
+    label: Lattitude
+    hideSearchButton: true
+  inputLong:
+    value: 4.26389251
+    icon: true
+    label: Longitude
