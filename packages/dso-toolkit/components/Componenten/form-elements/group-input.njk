@@ -29,6 +29,7 @@
         {% if disabled %} disabled{% endif %}
         {% if readonly %} readonly{% endif %}
         {% if required %} required{% endif %}
+        {% if state == "invalid" %} aria-invalid="true"{% endif %}
       >
     {% endif %}
     {% if inputIcon %}

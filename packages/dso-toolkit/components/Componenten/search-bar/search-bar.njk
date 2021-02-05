@@ -25,7 +25,7 @@
     {% elif not label and not hiddenLabel and icon -%}
       <span class="dso-search-icon" aria-hidden="true"></span>
     {%- endif -%}
-    <input type="text" {% if id or label %} id="{{ id or _self.handle }}"{% endif %} {% if placeholder %} placeholder="{{ placeholder }}"{% endif %} {% if value %} value="{{ value }}"{% endif %} />
+    <input type="text" {% if id or label %} id="{{ id or _self.handle }}"{% endif %} {% if placeholder %} placeholder="{{ placeholder }}"{% endif %} {% if value %} value="{{ value }}"{% endif %} {% if state == "invalid" %} aria-invalid="true"{% endif %} />
     {% if clearButton %}
       <button type="button">
         Zoekopdracht legen
@@ -43,5 +43,5 @@
 {% if resultsMessage -%}
   <div {{ className('dso-results', [resultsHidden, 'sr-only']) }} aria-live="polite">
     {{ resultsMessage }}
-  </div>  
+  </div>
 {% endif %}
