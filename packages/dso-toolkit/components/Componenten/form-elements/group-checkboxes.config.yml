@@ -16,7 +16,7 @@ context:
 variants:
 - name: input-checkbox-required
   context:
-    __title: Verplicht
+    __title: required
     __explanation:
     - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
       op de <code>.form-group.dso-checkboxes</code>
@@ -34,7 +34,7 @@ variants:
       label: drie
 - name: input-checkbox-invalid
   context:
-    __title: Ongeldig
+    __title: invalid
     __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
       op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
     id: input-checkbox-invalid
@@ -51,7 +51,7 @@ variants:
       label: drie
 - name: input-checkbox-valid
   context:
-    __title: Geldig
+    __title: valid
     __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
     id: input-checkbox-valid

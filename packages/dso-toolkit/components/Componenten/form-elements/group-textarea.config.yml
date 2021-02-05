@@ -9,7 +9,7 @@ context:
 variants:
 - name: input-textarea-invalid
   context:
-    __title: Ongeldig
+    __title: invalid
     __explanation:
     - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-textarea</code>.
@@ -21,7 +21,7 @@ variants:
     errorText: Vul dit veld in.
 - name: input-textarea-valid
   context:
-    __title: Geldig
+    __title: valid
     __explanation:
     - Indien een textarea ongeldig was en valide wordt gemaakt, dient
       de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
@@ -33,33 +33,33 @@ variants:
     value: Ik heb wat ingevuld
 - name: input-textarea-rows6
   context:
-    __title: Een textarea met 6 rijen
+    __title: een textarea met 6 rijen
     __explanation: Een textarea zonder <code>rows</code> attribuut krijgt een standaard hoogte. De implementator kan met <code>rows</code> de hoogte van de textarea sturen
     id: input-textarea-rows6
     rows: 6
 - name: input-textarea-placeholder
   context:
-    __title: Placeholder
+    __title: placeholder
     id: input-textarea-placeholder
     placeholder: Bijvoorbeeld; vragen over de toolkit
     required: true
 - name: input-textarea-disabled
   context:
-    __title: Disabled
+    __title: disabled
     id: input-textarea-disabled
     label: Group textarea - Disabled
     required: true
     disabled: true
 - name: input-textarea-readonly
   context:
-    __title: Readonly
+    __title: readonly
     id: input-textarea-readonly
     label: Group textarea - Readonly
     required: true
     readonly: true
 - name: input-textarea-infobutton-open
   context:
-    __title: Infobutton uitgeklapt
+    __title: infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
     id: input-textarea-infobutton-open

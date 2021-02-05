@@ -16,7 +16,7 @@ context:
 variants:
 - name: input-radio-required
   context:
-    __title: Verplicht
+    __title: required
     __explanation:
     - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
       op de <code>.form-group.dso-radios</code>
@@ -27,7 +27,7 @@ variants:
     required: true
 - name: input-radio-invalid
   context:
-    __title: Ongeldig
+    __title: invalid
     __explanation:
     - Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code>
       class gezet te worden op de div met de class <code>.dso-radios</code>.
@@ -43,7 +43,7 @@ variants:
       label: diesel
 - name: input-radio-valid
   context:
-    __title: Geldig
+    __title: valid
     __explanation:
     - Indien een radio groep ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-radio-valid
@@ -58,7 +58,7 @@ variants:
       label: diesel
 - name: input-radio-disabled
   context:
-    __title: Disabled
+    __title: disabled
     id: input-radio-disabled
     label: Group radios - Disabled
     required: true
@@ -73,7 +73,7 @@ variants:
       disabled: true
 - name: input-radio-inline
   context:
-    __title: Inline
+    __title: inline
     __explanation:
     - Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.
     id: input-radio-inline
@@ -90,7 +90,7 @@ variants:
       label: nee
 - name: input-radio-inline-info
   context:
-    __title: Infobutton
+    __title: infobutton
     __explanation:
     - Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-radio-inline-info

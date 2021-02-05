@@ -22,7 +22,7 @@ context:
 variants:
 - name: input-select-multiple
   context:
-    __title: Multiple
+    __title: multiple
     __explanation:
     - Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code> class gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-multiple
@@ -31,7 +31,7 @@ variants:
     helpText: Maak een keuze tussen vlees of vis
 - name: input-select-invalid
   context:
-    __title: Ongeldig
+    __title: invalid
     __explanation:
     - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-select</code>.
@@ -43,7 +43,7 @@ variants:
     errorText: Maak een keuze.
 - name: input-select-valid
   context:
-    __title: Geldig
+    __title: valid
     __explanation:
     - Indien een select ongeldig was en valide wordt gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
@@ -54,14 +54,14 @@ variants:
     helpText: Maak een keuze tussen vlees of vis
 - name: input-select-disabled
   context:
-    __title: Disabled
+    __title: disabled
     id: input-select-disabled
     label: Group select - Disabled
     required: true
     disabled: true
 - name: input-select-infobutton-open
   context:
-    __title: Infobutton uitgeklapt
+    __title: infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
     id: input-select-multiple-open
@@ -84,7 +84,7 @@ variants:
       </p>
 - name: input-select-infobutton-open
   context:
-    __title: Zonder `optgroup`.
+    __title: zonder `optgroup`.
     id: input-select-items-only
     label: Group select - no opt-group
     options:
