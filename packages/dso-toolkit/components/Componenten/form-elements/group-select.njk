@@ -12,6 +12,9 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
     <select id="{{ localId }}" class="form-control"
@@ -19,7 +22,8 @@
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
-      {% if required %} required{% endif %}>
+      {% if required %} required{% endif %}
+      {% if state == "invalid" %} aria-invalid="true"{% endif %}>
       {% for option in options %}
         {% if option.optionType %}
           <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
@@ -40,6 +44,6 @@
     {% endif %}
   </div>
   {% if infoOpen %}
-    {% render '@info', {infoText: infoText} %}
+    {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </div>

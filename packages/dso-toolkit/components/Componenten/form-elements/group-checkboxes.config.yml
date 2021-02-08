@@ -5,7 +5,7 @@ collated: true
 context:
   __title: default
   id: input-checkbox
-  label: Maak een keuze
+  label: Group checkboxes - Default
   options:
   - value: 1
     label: een
@@ -16,13 +16,14 @@ context:
 variants:
 - name: input-checkbox-required
   context:
-    __title: Verplicht
+    __title: required
     __explanation:
     - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
       op de <code>.form-group.dso-checkboxes</code>
     - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
     id: input-checkbox-required
+    label: Group checkboxes - Required
     required: true
     options:
     - value: 1
@@ -33,27 +34,28 @@ variants:
       label: drie
 - name: input-checkbox-invalid
   context:
-    __title: Ongeldig
+    __title: invalid
     __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
       op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
     id: input-checkbox-invalid
+    label: Group checkboxes - Invalid
     required: true
     state: invalid
-    errorText: Maak een keuze.
+    errorText: Maak een keuze
     options:
     - value: 1
       label: een
-      checked: true
     - value: 2
       label: twee
     - value: 3
       label: drie
 - name: input-checkbox-valid
   context:
-    __title: Geldig
+    __title: valid
     __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
     id: input-checkbox-valid
+    label: Group checkboxes - Valid
     required: true
     helpText: Selecteer alle even getallen
     state: valid
@@ -70,6 +72,7 @@ variants:
     __title: Disabled
     __explanation: Alle <code>input[type="checkbox"]</code> moeten een <code>disabled</code> attribuut krijgen.
     id: input-checkbox-disabled
+    label: Group checkboxes - Disabled
     required: true
     options:
     - value: 1
@@ -100,7 +103,7 @@ variants:
       infoOpen: true
       infoButtonLabel: Toelichting bij antwoord
       infoText: |
-        <h4>Heading 4</h4>
+        <h4>Toelichting bij antwoord: "twee"</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
           Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
@@ -111,7 +114,14 @@ variants:
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag
     infoText: |
-      <h4>Heading 4</h4>
+      <h4>Toelichting bij vraag: "Maak een keuze"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    infoTextDeprecated: |
+      <h4>Toelichting bij vraag: "Maak een keuze" - BINNENKORT DEPRECATED</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.

@@ -1,25 +1,79 @@
 $dso-dropdown-hor-padding: 20px;
 
 .dropdown {
-  > .btn-default.dropdown-toggle {
+  > .btn {
     &::after {
-      @include di("caret-down-grasgroen");
-
       content: "";
       display: inline-block;
       margin-left: $u1;
-      width: 10px;
+    }
+  }
+
+  > .btn-link {
+    &::after {
+      @include di("chevron-down");
+
+      position: relative;
+      top: -2px;
+    }
+
+    &:hover {
+      &::after {
+        @include di-variant("chevron-down-scampi");
+      }
+    }
+  }
+
+  > .btn-default {
+    &::after {
+      @include di("chevron-down");
     }
 
     &:hover,
     &:focus {
       &::after {
-        @include di-variant("caret-down-wit");
+        @include di-variant("chevron-down-wit");
+      }
+    }
+  }
+
+  > .btn-primary {
+    &::after {
+      @include di("chevron-down-wit");
+    }
+  }
+
+  &.open {
+    > .btn-link {
+      &::after {
+        @include di-variant("chevron-up");
+      }
+
+      &:hover::after {
+        @include di-variant("chevron-up-scampi");
+      }
+    }
+
+    > .btn-default {
+      &::after {
+        @include di-variant("chevron-up");
+      }
+
+      &:hover::after {
+        @include di-variant("chevron-up-wit");
+      }
+    }
+
+    > .btn-primary {
+      &::after {
+        @include di-variant("chevron-up-wit");
       }
     }
   }
 
   .dropdown-menu {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
+
     .dso-group-label {
       color: $grijs-40;
       font-size: (14 / 16 * 1em);
@@ -36,7 +90,6 @@ $dso-dropdown-hor-padding: 20px;
       &:not(:last-child) {
         border-bottom: 1px solid $grijs-10;
         margin-bottom: 11px;
-        overflow: hidden;
         padding-bottom: 11px;
       }
     }
@@ -45,12 +98,15 @@ $dso-dropdown-hor-padding: 20px;
       list-style: none;
 
       a {
+        @include anchor-reverse();
+
         clear: both;
         color: $grijs-90;
         display: block;
         font-weight: 400;
         line-height: 1.5;
         padding: 3px $dso-dropdown-hor-padding;
+        text-decoration: none;
         white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
 
         &:hover,
@@ -58,10 +114,7 @@ $dso-dropdown-hor-padding: 20px;
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
-        }
-
-        &:focus {
-          text-decoration: underline;
+          text-decoration: none;
         }
       }
     }
@@ -97,31 +150,6 @@ $dso-dropdown-hor-padding: 20px;
             }
           }
         }
-      }
-    }
-  }
-
-  &.open {
-    > .btn-default.dropdown-toggle {
-      background-color: $grasgroen;
-      border-color: $grasgroen;
-      color: $wit;
-
-      &::after {
-        @include di-variant("caret-down-wit");
-      }
-
-      &:hover {
-        background-color: $bosgroen;
-        border-color: $bosgroen;
-        color: $wit;
-      }
-
-      &:focus {
-        background-color: $grasgroen;
-        border-color: $grasgroen;
-        color: $wit;
-        text-decoration: underline;
       }
     }
   }

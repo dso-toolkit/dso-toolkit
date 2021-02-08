@@ -8,9 +8,12 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
-    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id)}) %}
+    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id), state: state}) %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
@@ -22,6 +25,6 @@
     {% endif %}
   </div>
   {% if infoOpen %}
-    {% render '@info', {infoText: infoText} %}
+    {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </div>

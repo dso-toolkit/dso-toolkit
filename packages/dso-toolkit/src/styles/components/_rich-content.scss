@@ -110,6 +110,14 @@ dso-alert,
     *:last-child {
       margin-bottom: 0;
     }
+
+    #{$headings} {
+      color: $zwart;
+      font-size: 1em;
+      line-height: $line-height-base;
+      margin-bottom: $u1;
+      margin-top: $u1;
+    }
   }
 }
 

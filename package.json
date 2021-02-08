@@ -1,17 +1,21 @@
 {
   "name": "dso-toolkit-monorepo",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packages/react/test-app"
+    ]
+  },
   "scripts": {
     "postinstall": "patch-package",
     "start": "yarn build-styling && multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
-    "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build",
+    "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build && yarn workspace @dso-toolkit/react build",
     "start-fractal": "yarn workspace dso-toolkit start",
     "build-fractal": "yarn workspace dso-toolkit build",
-    "start-stencil": "yarn workspace @dso-toolkit/core start",
-    "build-stencil": "yarn workspace @dso-toolkit/core build",
+    "start-core": "yarn workspace @dso-toolkit/core start",
+    "build-core": "yarn workspace @dso-toolkit/core build",
+    "build-react": "yarn workspace @dso-toolkit/react build",
     "build-styling": "yarn workspace @dso-toolkit/styling build",
     "reference:dom": "yarn workspace @dso-toolkit/core build --prod && yarn workspace dso-toolkit gulp reference:dom"
   },
@@ -19,5 +23,9 @@
     "multiview": "^3.0.1",
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0"
+  },
+  "resolutions": {
+    "@types/estree": "0.0.45",
+    "@types/react": "17.0.0"
   }
 }
