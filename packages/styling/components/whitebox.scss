@@ -52,6 +52,16 @@ $dso-whitebox-small-min-height: 200px;
   position: relative;
   top: $u7;
 
+  a {
+    text-decoration: none;
+
+    &:hover {
+      .dso-whitebox-link {
+        border-bottom: #{$u1 / 2} solid $grasgroen;
+      }
+    }
+  }
+
   .dso-whitebox-icon {
     display: block;
     margin-bottom: $u2;
@@ -72,14 +82,6 @@ $dso-whitebox-small-min-height: 200px;
     line-height: 1.167;
     padding-bottom: #{$u1 / 2};
     text-align: center;
-  }
-
-  a:hover {
-    text-decoration: none;
-
-    .dso-whitebox-link {
-      border-bottom: #{$u1 / 2} solid $grasgroen;
-    }
   }
 }
 
