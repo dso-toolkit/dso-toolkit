@@ -137,6 +137,7 @@ declare global {
     var HTMLDsoCardsElement: {
         prototype: HTMLDsoCardsElement;
         new (): HTMLDsoCardsElement;
+    };
     interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
     }
     var HTMLDsoDatePickerElement: {
@@ -201,6 +202,7 @@ declare namespace LocalJSX {
     interface DsoCards {
         "flat"?: boolean;
         "interactionsLocation"?: string;
+    }
     interface DsoDatePicker {
         /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.

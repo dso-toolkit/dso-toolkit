@@ -3,7 +3,9 @@
   {% if interactionsLocation %} interactionsLocation="{{ interactionsLocation }}"{% endif %}
  >
   {% for card in cards %}
-    <dso-card>
+    <dso-card
+      {% if cards.interactionsLocation %} interactionsLocation="{{ cards.interactionsLocation }}"{% endif %}
+      >
       <li>
         <div class="dso-card">
           <a href="#">
