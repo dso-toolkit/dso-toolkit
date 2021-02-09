@@ -1,13 +1,5 @@
 @import "../variables";
 
-$progress-bar-bg: $grasgroen;
-$progress-bar-color: #fff;
-
-$dso-progress-bar-height: $u2;
-$dso-progress-bar-margin: $u1;
-$dso-progress-bar-bg: $wit;
-$dso-progress-bar-color: $grasgroen;
-
 .dso-progress-indicator {
   .dso-progress-indicator-spinner {
     display: inline-block;
