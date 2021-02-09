@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + styling:** Progress Indicator ([#939](https://github.com/dso-toolkit/dso-toolkit/issues/939))
+
 ## 18.0.0
 
 ### Fixed
