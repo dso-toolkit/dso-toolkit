@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'dso-card',
@@ -6,11 +6,25 @@ import { Component, h } from '@stencil/core';
 })
 
 export class Card {
+  @Prop()
+  label?: string;
+
+  @Prop()
+  content?: string;
+
+  @Prop()
+  interactions?: string;
+
   render() {
     return (
       <li>
-        <slot></slot>
-        <slot name="interactions"></slot>
+        <div class="dso-card">
+          <a href="#">
+            <h2>{this.label}</h2>
+            <p>{this.content}</p>
+          </a>
+          <slot name="interactions"></slot>
+        </div>
       </li>
     )
   }

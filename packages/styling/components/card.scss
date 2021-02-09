@@ -34,6 +34,16 @@ dso-card,
       }
     }
   }
+
+  &:not([dso-interactions-bottom]) {
+    display: flex;
+    flex-direction: row;
+
+    .dso-card-interactions {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
 }
 
 .dso-cards > li + li,

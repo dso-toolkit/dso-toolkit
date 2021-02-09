@@ -1,4 +1,16 @@
-<div class="dso-card">
+<dso-card>
+  <a href="#">
+    <div class="dso-rich-content">
+      <h2>{{ label }}</h2>
+      <p>{{ content | safe }}</p>
+    </div>
+  </a>
+  {% if interactions %}je zus
+    <dso-card-interactions interactions="interactions">je moeder</dso-card-interactions>
+  {% endif %}
+</dso-card>
+
+{# <div class="dso-card">
   <a href="#">
     <div class="dso-rich-content">
       <h2>{{ label }}</h2>
@@ -22,4 +34,4 @@
       {% endfor %}
     </div>
   {% endif %}
-</div>
+</div> #}
