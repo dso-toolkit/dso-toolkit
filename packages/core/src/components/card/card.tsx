@@ -12,9 +12,6 @@ export class Card {
   @Prop()
   content?: string;
 
-  @Prop()
-  interactions?: string;
-
   render() {
     return (
       <li>
@@ -23,7 +20,7 @@ export class Card {
             <h2>{this.label}</h2>
             <p>{this.content}</p>
           </a>
-          <slot name="interactions"></slot>
+          <dso-card-interactions />
         </div>
       </li>
     )

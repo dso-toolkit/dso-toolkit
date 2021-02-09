@@ -18,13 +18,14 @@ export namespace Components {
     }
     interface DsoCard {
         "content"?: string;
-        "interactions"?: string;
         "label"?: string;
     }
     interface DsoCardInteraction {
+        "icon"?: string;
+        "label"?: string;
+        "modifier"?: string;
     }
     interface DsoCardInteractions {
-        "interactions"?: string;
     }
     interface DsoCards {
         "flat"?: boolean;
@@ -199,13 +200,14 @@ declare namespace LocalJSX {
     }
     interface DsoCard {
         "content"?: string;
-        "interactions"?: string;
         "label"?: string;
     }
     interface DsoCardInteraction {
+        "icon"?: string;
+        "label"?: string;
+        "modifier"?: string;
     }
     interface DsoCardInteractions {
-        "interactions"?: string;
     }
     interface DsoCards {
         "flat"?: boolean;

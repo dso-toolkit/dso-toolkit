@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'dso-card-interactions',
@@ -6,14 +6,10 @@ import { Component, Prop, h } from '@stencil/core';
   shadow: true
 })
 export class CardInteractions {
-  @Prop()
-  interactions?: string;
-  
   render() {
     return (
       <div class="dso-card-interactions">
-        [dso-card-interactions.tsx]
-        <slot></slot>
+        <dso-card-interaction label="label" modifier="modifier" icon="info"></dso-card-interaction>
       </div>
     )
   }
