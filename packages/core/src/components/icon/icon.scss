@@ -1,10 +1,14 @@
 :host {
   @import "~@dso-toolkit/styling/scaffolding/normalize";
 
-  @import "~@dso-toolkit/styling/components/icon";
+  @import "~@dso-toolkit/styling/variables/icon";
 
   display: inline-block;
   height: $dso-icon-size;
   vertical-align: $dso-icon-vertical-align;
   width: $dso-icon-size;
+}
+
+.icon-container {
+  display: block;
 }

@@ -21,9 +21,9 @@ module.exports = {
       : this.env.filters.safe(`class="${classes.join(' ')}"`);
   },
   attributes: function attributes () {
-    const attrs = [...arguments].reduce((total, [condition, attribute, value]) => {
-      if (condition) {
-        if (!value) {
+    const attrs = [...arguments].reduce((total, [condition, attribute, value, asBool]) => {
+      if (condition || (typeof value !== 'undefined' && asBool)) {
+        if (!value && !asBool) {
           total.push(attribute);
         }
         else {

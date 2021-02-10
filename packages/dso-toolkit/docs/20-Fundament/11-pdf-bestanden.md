@@ -2,7 +2,7 @@
 label: Pdf-bestanden
 ---
 
-Voor online documenten zoals pdf gelden dezelfde toegankelijkheidseisen als voor andere webcontent. Ze moeten dus aan de eisen van WCAG 2.1 (niveau AA) voldoen. Op deze pagina leest u wat de belangrijkste eisen zijn en hoe u zorgt dat uw pdf’s daaraan voldoen.
+Voor online documenten zoals pdf gelden dezelfde toegankelijkheidseisen als voor andere webcontent. Ze moeten dus aan de eisen van WCAG 2.1 (niveau AA) voldoen. Op deze pagina leest u wat de belangrijkste eisen zijn en hoe u zorgt dat uw pdf's daaraan voldoen.
 
 ## Documenttitel in titelbalk
 Zet een beschrijvende, zichtbare documenttitel in de titelbalk. Een goede titel geeft een korte beschrijving van de inhoud van het document
@@ -24,7 +24,7 @@ Een toegankelijke pdf heeft 2 achterliggende lagen:
 Geef in de codelaag informatie over de rol van alle onderdelen op de pagina, zoals kop, lijst, paragraaf, etc. Zorg ervoor dat de visuele volgorde, codevolgorde en inhoudsvolgorde hetzelfde zijn. Geef tabellen een tabelcode met goede opmaak van kolomkoppen en rijkoppen. Let er ook op dat u opsommingslijsten goed opmaakt. Meer informatie over dit onderwerp vindt u op [W3.org](https://www.w3.org/TR/WCAG20-TECHS/pdf.html).
 
 ### Leesvolgorde voor andere weergave
-De leesvolgorde wordt gebruikt door bijvoorbeeld slechtzienden die een pagina in 1 kolom willen zien. Let erop dat screenreaders de leesvolgorde niet gebruiken, maar de codelaag. 
+De leesvolgorde wordt gebruikt door bijvoorbeeld slechtzienden die een pagina in 1 kolom willen zien. Let erop dat screenreaders de leesvolgorde niet gebruiken, maar de codelaag.
 
 ## Metadata
 In de metadata staat informatie over het document, zoals:

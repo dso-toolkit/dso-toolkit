@@ -9,6 +9,7 @@
   border-width: $dso-button-border-width;
   font-size: $dso-button-font-size;
   font-weight: 500;
+  text-decoration: none;
 }
 
 dso-alert,
@@ -335,6 +336,10 @@ dso-label[status="danger"],
   table.table & {
     position: relative;
     top: -2px;
+  }
+
+  .dso-static .dso-field-container & {
+    margin-top: -$u2;
   }
 
   dso-icon + span:not(.sr-only),

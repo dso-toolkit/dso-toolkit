@@ -2,6 +2,7 @@
 @import "../mixins/step-counter";
 
 $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
+$dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 .dso-highlight-box {
   background-color: $grijs-10;
@@ -17,7 +18,7 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
   }
 
   &.dso-drop-shadow {
-    box-shadow: 0 6px $u1 0 $opac10, 0 6px $u1 0 $opac10;
+    box-shadow: $dso-highlight-box-box-shadow;
   }
 
   &.dso-border {
@@ -36,7 +37,22 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
 .dso-highlight-box,
 dso-highlight-box {
   .btn-link:not([disabled]) {
-    color: $zwart;
+    &:hover {
+      &,
+      dso-icon,
+      svg.di {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.dso-highlight-box.dso-yellow,
+dso-highlight-box[yellow],
+.dso-highlight-box:not(.dso-border):not(.dso-white),
+dso-highlight-box:not([border]):not([white]) {
+  .btn-link:not([disabled]) {
+    color: $grijs-90;
 
     &:hover,
     &:focus {
@@ -44,14 +60,10 @@ dso-highlight-box {
       dso-icon,
       svg.di {
         color: $grijs-60;
-        text-decoration: underline;
       }
     }
   }
-}
 
-.dso-highlight-box:not(.dso-border):not(.dso-drop-shadow),
-dso-highlight-box:not([border]):not([drop-shadow]) {
   a,
   a:visited {
     &:not(.btn) {

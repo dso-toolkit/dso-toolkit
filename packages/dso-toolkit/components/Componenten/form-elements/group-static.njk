@@ -4,11 +4,17 @@
     {% if infoText %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText} %}
+    {% endif %}
   </div>
   <div class="dso-field-container">
     <p>{{ value }}</p>
+    {% if edit %}
+      {% render '@button', {type: 'button', modifier: 'link', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}
+    {% endif %}
   </div>
   {% if infoOpen %}
-    {% render '@info', {infoText: infoText} %}
+    {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </div>

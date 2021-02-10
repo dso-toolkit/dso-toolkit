@@ -6,7 +6,7 @@
           {% if not item.items %}
             <a href="#">{{- item.label -}}</a>
           {% else %}
-            <button type="button" aria-expanded="{{ not item.collapsed }}"><h3>{{- item.label -}}</h3></button>
+            <h3><button type="button" aria-expanded="{{ not item.collapsed }}">{{- item.label -}}</button></h3>
             {{ branches(item.items) }}
           {% endif %}
         </li>
