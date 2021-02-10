@@ -17,13 +17,8 @@ export namespace Components {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoCard {
-        "content"?: string;
-        "label"?: string;
     }
     interface DsoCardInteraction {
-        "icon"?: string;
-        "label"?: string;
-        "modifier"?: string;
     }
     interface DsoCardInteractions {
     }
@@ -199,13 +194,8 @@ declare namespace LocalJSX {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoCard {
-        "content"?: string;
-        "label"?: string;
     }
     interface DsoCardInteraction {
-        "icon"?: string;
-        "label"?: string;
-        "modifier"?: string;
     }
     interface DsoCardInteractions {
     }

@@ -1,43 +1,24 @@
-<dso-cards
-  {% if flat %} flat{% endif %}
-  {% if interactionsLocation %} interactionsLocation="{{ interactionsLocation }}"{% endif %}
- >
+<dso-cards {{ attributes([flat, 'flat'], [interactionsLocation, 'interactions-location', interactionsLocation]) }}>
   {% for card in cards %}
-    <dso-card interactionsLocation="{{ interactionsLocation }}" label="{{ card.label }}" content="{{ card.content | safe}}" interactions="{{ card.interactions }}">
-      {# <div class="dso-card">
-        <a href="#">
-          <div class="dso-rich-content">
-            <h2>{{ card.label }}</h2>
-            <p>{{ card.content | safe }}</p>
-          </div>
-        </a>
-        {% if card.interactions %}
-          <dso-card-interactions>
-            {% for interaction in card.interactions %}
-              <dso-card-interaction>
-                {% if interaction.toggle %}
-                  toggle
-                  <label slot="label">
-                    <input type="checkbox" name="{{ interaction.toggle.id }}" />
-                    <span class="sr-only">{{ label }}</span>
-                  </label>
-                {% endif %}
-                {% if interaction.button %}
-                  {% render '@button', interaction.button -%}
-                {% endif %}
-              </dso-card-interaction>
-            {% endfor %}
-          </dso-card-interactions>
-        {% endif %}
-      </div> #}
+    <dso-card>
+      <a href="#">
+        <div class="dso-rich-content">
+          <h2>{{ card.label }}</h2>
+          <p>{{ card.content | safe }}</p>
+        </div>
+      </a>
+      {% if cards.interactions.length > 0 %}
+        <dso-card-interactions>
+          {% for interaction in cards.interactions %}
+            <dso-card-interaction>
+              <button type="button" class="btn btn-link">
+                <span class="sr-only">{this.label}</span>
+                <dso-icon icon={icon}></dso-icon>
+              </button>
+            </dso-card-interaction>
+          {% endfor %}
+        </dso-card-interactions>
+      {% endif %}
     </dso-card>
   {% endfor %}
 </dso-cards>
-
-{# <ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
-  {% for card in cards %}
-    <li>
-      {% render '@card', card %}
-    </li>
-  {% endfor %}
-</ul> #}

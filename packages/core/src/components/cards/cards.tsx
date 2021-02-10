@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Element } from '@stencil/core';
 import clsx from 'clsx';
 
 @Component({
@@ -13,10 +13,21 @@ export class Cards {
   @Prop()
   interactionsLocation?: string;
 
+  @Element()
+  host!: HTMLElement;
+
+  children!: Element[];
+
+  componentWillLoad() {
+    this.children = Array.from(this.host.children);
+  }
+
   render() {
     return (
       <ul class={clsx('dso-cards', {[`dso-flat`]: this.flat}, {[`dso-interactions-${this.interactionsLocation}`]: this.interactionsLocation})}>
-        <slot></slot>
+        {this.children.map(c => (
+          <li innerHTML={c.outerHTML}></li>
+        ))}
       </ul>
     )
   }
