@@ -36,7 +36,7 @@ module.exports.build = gulp.series(
 );
 
 function cleanBuild() {
-  return del('build');
+  return del('dist');
 }
 
 function buildSite() {
@@ -60,13 +60,13 @@ function buildSite() {
 
 function trimReports() {
   return gulp
-    .src('build/library/components/preview/*.html')
+    .src('dist/library/components/preview/*.html')
     .pipe(trim())
-    .pipe(gulp.dest('build/library/components/preview'));
+    .pipe(gulp.dest('dist/library/components/preview'));
 }
 
 function cleanUpBuild() {
-  return del(['build/toolkit/dummy', 'build/toolkit/docs']);
+  return del(['dist/toolkit/dummy', 'dist/toolkit/docs']);
 }
 
 function buildStylesWrapper(options) {
@@ -82,7 +82,7 @@ function buildStylesWrapper(options) {
 
     return gulp.src(`${options.library || options.dev ? 'components' : 'src'}/*.s[ac]ss`)
       .pipe(sassCompiler)
-      .pipe(gulp.dest('build/toolkit/styles'));
+      .pipe(gulp.dest('dist/toolkit/styles'));
   };
 }
 
@@ -97,7 +97,7 @@ function copyAssets() {
     .pipe(svgmin())
     .pipe(f.restore)
     .pipe(gulp.src(path.resolve(path.dirname(require.resolve('@dso-toolkit/styling')), 'dist', 'dso-icons.svg')))
-    .pipe(gulp.dest('build/toolkit'));
+    .pipe(gulp.dest('dist/toolkit'));
 }
 
 function createDomReference() {
@@ -107,7 +107,7 @@ function createDomReference() {
     .then(function () {
       log('Copied reference component files');
 
-      const files = fse.readdirSync('build/library/components/render');
+      const files = fse.readdirSync('dist/library/components/render');
       const f = filter(({ basename, extname }) => {
         const handle = path.basename(basename, extname);
 
@@ -126,7 +126,7 @@ function createDomReference() {
         return true;
       });
 
-      return gulp.src('build/library/components/render/*.html')
+      return gulp.src('dist/library/components/render/*.html')
         .pipe(f)
         .pipe(tap(function (file) {
           let html = file.contents.toString();

@@ -1,0 +1,65 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="iyiw1zs3" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Default | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <form class="form-horizontal">
+        <div class="form-group dso-input-number">
+          <div class="dso-label-container">
+            <label for="default" class="control-label"> Default </label>
+          </div>
+          <div class="dso-field-container">
+            <div class="dso-input-number">
+              <button type="button" class="btn btn-link">
+                <span class="sr-only">Aantal verlagen</span><dso-icon icon="minus-square"></dso-icon>
+              </button>
+
+              <input type="number" id="default" class="dso-input-step-counter" tabindex="-1" value="99" readonly />
+              <button type="button" class="btn btn-link">
+                <span class="sr-only">Aantal verhogen</span><dso-icon icon="plus-square"></dso-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="hidden">VALIDATOR_ONLY</button>
+      </form>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <form class="form-horizontal">
+        <div class="form-group dso-input-number">
+          <div class="dso-label-container"><label for="default" class="control-label"> Default </label></div>
+          <div class="dso-field-container">
+            <div class="dso-input-number">
+              <button type="button" class="btn btn-link">
+                <span class="sr-only">Aantal verlagen</span
+                ><svg class="di minus-square"><use href="../../dso-icons.svg#minus-square" /></svg>
+              </button>
+              <input type="number" id="default" class="dso-input-step-counter" tabindex="-1" value="99" readonly />
+              <button type="button" class="btn btn-link">
+                <span class="sr-only">Aantal verhogen</span
+                ><svg class="di plus-square"><use href="../../dso-icons.svg#plus-square" /></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="hidden">VALIDATOR_ONLY</button>
+      </form>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

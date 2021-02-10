@@ -1,0 +1,998 @@
+<svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="2105 0 4252 32">
+  <!-- START: air -->
+  <view id="img-air" viewBox="5 0 32 32"/>
+  <g transform="translate(5)">
+    <use href="#air"/>
+  </g>
+  <symbol id="air" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M24 8a.6.6 0 01-.38.56h-.1A8.18 8.18 0 0021 10c-.21.55.33 2.11.77 3a.61.61 0 01-.12.71.63.63 0 01-.39.17 4.8 4.8 0 00-4-2.15H17a4.58 4.58 0 00-.37-.69A3.07 3.07 0 0019 8.62a2.24 2.24 0 00.06-.52V8v-.1a2.24 2.24 0 00-.06-.52 3.07 3.07 0 00-6 0 2.24 2.24 0 00-.06.52v.2a.77.77 0 000 .15 6.49 6.49 0 00-4.51.35h-.06A.61.61 0 018 8.09v-.18a.61.61 0 01.37-.48h.11A13.68 13.68 0 0011.08 6a9.37 9.37 0 00-.86-3 .62.62 0 01.83-.81 9.12 9.12 0 002.8.89H14A6.79 6.79 0 0015.42.42a.61.61 0 011.15 0 8.43 8.43 0 001.65 2.76h.13a7.76 7.76 0 002.58-.91.61.61 0 01.84.81c-.44.89-1 2.45-.77 3a8.18 8.18 0 002.48 1.33h.1A.6.6 0 0124 8zM10.68 22.34a5.15 5.15 0 01-3.12 1 4.72 4.72 0 01-4.81-3.76l-.14-.45h-.5A2 2 0 010 17.24a2 2 0 012.11-1.92 2.17 2.17 0 011.32.43l.4.29.37-.32a5 5 0 012.18-1.09l.44-.24V14a4.17 4.17 0 014.35-4 4.24 4.24 0 014.3 3.43l.1.67.69-.25a3 3 0 011-.17A2.64 2.64 0 0120 16.19a2.32 2.32 0 010 .46l-.08.38.38.18a2.93 2.93 0 011.7 2.62 3.12 3.12 0 01-3.24 3 3.52 3.52 0 01-1.71-.45l-.58-.38-.26.58a2.58 2.58 0 01-4.62 0l-.3-.68z"/>
+  </symbol>
+  <!-- END: air -->
+  <!-- START: angle-down -->
+  <view id="img-angle-down" viewBox="47 0 32 32"/>
+  <g transform="translate(47)">
+    <use href="#angle-down"/>
+  </g>
+  <symbol id="angle-down" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 15l-4.71-4.4a.9.9 0 010-1.33 1.07 1.07 0 011.42 0L12 12.35l3.29-3.08a1.07 1.07 0 011.42 0 .9.9 0 010 1.33z"/>
+  </symbol>
+  <!-- END: angle-down -->
+  <!-- START: angle-left -->
+  <view id="img-angle-left" viewBox="89 0 32 32"/>
+  <g transform="translate(89)">
+    <use href="#angle-left"/>
+  </g>
+  <symbol id="angle-left" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M13.65 17a.91.91 0 01-.66-.29L8.59 12 13 7.29a.89.89 0 011.32 0 1 1 0 010 1.42L11.23 12l3.08 3.29a1 1 0 010 1.42.91.91 0 01-.66.29z"/>
+  </symbol>
+  <!-- END: angle-left -->
+  <!-- START: angle-right -->
+  <view id="img-angle-right" viewBox="131 0 32 32"/>
+  <g transform="translate(131)">
+    <use href="#angle-right"/>
+  </g>
+  <symbol id="angle-right" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M9.94 17a1 1 0 01-.67-.29 1.07 1.07 0 010-1.42L12.35 12 9.27 8.71a1.07 1.07 0 010-1.42.9.9 0 011.33 0L15 12l-4.4 4.71a1 1 0 01-.66.29z"/>
+  </symbol>
+  <!-- END: angle-right -->
+  <!-- START: angle-up -->
+  <view id="img-angle-up" viewBox="173 0 32 32"/>
+  <g transform="translate(173)">
+    <use href="#angle-up"/>
+  </g>
+  <symbol id="angle-up" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M16 14.59a1.06 1.06 0 01-.71-.28L12 11.23l-3.29 3.08a1 1 0 01-1.42 0 .89.89 0 010-1.32L12 8.59 16.71 13a.89.89 0 010 1.32 1.06 1.06 0 01-.71.27z"/>
+  </symbol>
+  <!-- END: angle-up -->
+  <!-- START: balloon -->
+  <view id="img-balloon" viewBox="215 0 32 32"/>
+  <g transform="translate(215)">
+    <use href="#balloon"/>
+  </g>
+  <symbol id="balloon" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M13 23a.92.92 0 01-.36-.07A1 1 0 0112 22v-4H1a1 1 0 01-1-1V1a1 1 0 011-1h22a1 1 0 011 1v16a1 1 0 01-1 1h-5.07l-4.19 4.67A1 1 0 0113 23zM2 16h11a1 1 0 011 1v2.39l2.74-3.06a1 1 0 01.74-.33H22V2H2zM20 5a1 1 0 00-1-1H5a1 1 0 000 2h14a1 1 0 001-1zm0 4a1 1 0 00-1-1H5a1 1 0 000 2h14a1 1 0 001-1zm-4 4a1 1 0 00-1-1H5a1 1 0 000 2h10a1 1 0 001-1z"/>
+  </symbol>
+  <!-- END: balloon -->
+  <!-- START: bars -->
+  <view id="img-bars" viewBox="257 0 32 32"/>
+  <g transform="translate(257)">
+    <use href="#bars"/>
+  </g>
+  <symbol id="bars" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M22 7.2a.8.8 0 01-.8.8H2.8a.8.8 0 01-.8-.8V5.8a.8.8 0 01.8-.8h18.4a.8.8 0 01.8.8zm0 3.6a.8.8 0 00-.8-.8H2.8a.8.8 0 00-.8.8v1.4a.8.8 0 00.8.8h18.4a.8.8 0 00.8-.8zm0 5a.8.8 0 00-.8-.8H2.8a.8.8 0 00-.8.8v1.4a.8.8 0 00.8.8h18.4a.8.8 0 00.8-.8z"/>
+  </symbol>
+  <!-- END: bars -->
+  <!-- START: buildings -->
+  <view id="img-buildings" viewBox="299 0 32 32"/>
+  <g transform="translate(299)">
+    <use href="#buildings"/>
+  </g>
+  <symbol id="buildings" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 24H0V9h12zm-2-13H8v2h2zm0 3H8v2h2zm0 3H8v2h2zm-6-6H2v2h2zm3 0H5v2h2zm-3 3H2v2h2zm3 0H5v2h2zm-3 3H2v2h2zm3 0H5v2h2zm0 4H5v3h2zM24 6h-5V0L7 2v6h6v16h6v-1h5zm-4 15h-2v-2h2zm0-3h-2v-2h2zm0-3h-2v-2h2zm0-3h-2v-2h2zm0-3h-2V7h2zm3 12h-2v-2h2zm0-3h-2v-2h2zm0-3h-2v-2h2zm0-3h-2v-2h2zm0-3h-2V7h2z"/>
+  </symbol>
+  <!-- END: buildings -->
+  <!-- START: calendar -->
+  <view id="img-calendar" viewBox="341 0 32 32"/>
+  <g transform="translate(341)">
+    <use href="#calendar"/>
+  </g>
+  <symbol id="calendar" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7 4.84a.16.16 0 01-.16.16H5.16A.16.16 0 015 4.84V1.16A.16.16 0 015.16 1h1.68a.16.16 0 01.16.16zm12-3.68a.16.16 0 00-.16-.16h-1.68a.16.16 0 00-.16.16v3.68a.16.16 0 00.16.16h1.68a.16.16 0 00.16-.16zM23 5v17a1 1 0 01-1 1H2a1 1 0 01-1-1V5a1 1 0 011-1h2v1a1.09 1.09 0 001 1h2a1.06 1.06 0 001-1V4h8v1a1.07 1.07 0 001 1h2a1.05 1.05 0 001-1V4h2a1 1 0 011 1zm-2 5.55a.54.54 0 00-.53-.55H3.53a.54.54 0 00-.53.55v9.9a.54.54 0 00.53.55h16.94a.54.54 0 00.53-.55z"/>
+  </symbol>
+  <!-- END: calendar -->
+  <!-- START: caret-down, caret-down-grasgroen, caret-down-disabled, caret-down-invalid, caret-down-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-caret-down + g {
+      color: #275937;
+    }
+
+    #img-caret-down-grasgroen + g {
+      color: #39870c;
+    }
+
+    #img-caret-down-disabled + g {
+      color: #999;
+    }
+
+    #img-caret-down-invalid + g {
+      color: #ce3f51;
+    }
+
+    #img-caret-down-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-caret-down" viewBox="383 0 32 32"/>
+  <g transform="translate(383)">
+    <use href="#caret-down"/>
+  </g>
+  <view id="img-caret-down-grasgroen" viewBox="425 0 32 32"/>
+  <g transform="translate(425)">
+    <use href="#caret-down"/>
+  </g>
+  <view id="img-caret-down-disabled" viewBox="467 0 32 32"/>
+  <g transform="translate(467)">
+    <use href="#caret-down"/>
+  </g>
+  <view id="img-caret-down-invalid" viewBox="509 0 32 32"/>
+  <g transform="translate(509)">
+    <use href="#caret-down"/>
+  </g>
+  <view id="img-caret-down-wit" viewBox="551 0 32 32"/>
+  <g transform="translate(551)">
+    <use href="#caret-down"/>
+  </g>
+  <symbol id="caret-down" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M19.71 10l-6.63 6.6a1.35 1.35 0 01-1.9 0L4.3 9.93C3.77 9.42 4 9 4.71 9h14.57c.72 0 .95.43.43 1z"/>
+  </symbol>
+  <!-- END: caret-down, caret-down-grasgroen, caret-down-disabled, caret-down-invalid, caret-down-wit -->
+  <!-- START: check, check-grasgroen, check-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-check + g {
+      color: #275937;
+    }
+
+    #img-check-grasgroen + g {
+      color: #39870c;
+    }
+
+    #img-check-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-check" viewBox="593 0 32 32"/>
+  <g transform="translate(593)">
+    <use href="#check"/>
+  </g>
+  <view id="img-check-grasgroen" viewBox="635 0 32 32"/>
+  <g transform="translate(635)">
+    <use href="#check"/>
+  </g>
+  <view id="img-check-wit" viewBox="677 0 32 32"/>
+  <g transform="translate(677)">
+    <use href="#check"/>
+  </g>
+  <symbol id="check" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M10.11 18l-4.82-4.69A.92.92 0 015.3 12a1 1 0 011.41 0l3.4 3.3 7.18-7a1 1 0 011.41 0 .92.92 0 010 1.35z"/>
+  </symbol>
+  <!-- END: check, check-grasgroen, check-wit -->
+  <!-- START: chevron-down, chevron-down-cannon-pink, chevron-down-wit, chevron-down-grijs50 -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-chevron-down + g {
+      color: #39870c;
+    }
+
+    #img-chevron-down-cannon-pink + g {
+      color: #8b4a6a;
+    }
+
+    #img-chevron-down-wit + g {
+      color: #fff;
+    }
+
+    #img-chevron-down-grijs50 + g {
+      color: #7f7f7f;
+    }
+  </style>
+  <view id="img-chevron-down" viewBox="719 0 32 32"/>
+  <g transform="translate(719)">
+    <use href="#chevron-down"/>
+  </g>
+  <view id="img-chevron-down-cannon-pink" viewBox="761 0 32 32"/>
+  <g transform="translate(761)">
+    <use href="#chevron-down"/>
+  </g>
+  <view id="img-chevron-down-wit" viewBox="803 0 32 32"/>
+  <g transform="translate(803)">
+    <use href="#chevron-down"/>
+  </g>
+  <view id="img-chevron-down-grijs50" viewBox="845 0 32 32"/>
+  <g transform="translate(845)">
+    <use href="#chevron-down"/>
+  </g>
+  <symbol id="chevron-down" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 16L5.29 9.63a.93.93 0 010-1.35 1 1 0 011.42 0l5.29 5 5.29-5a1 1 0 011.42 0 .91.91 0 010 1.34z"/>
+  </symbol>
+  <!-- END: chevron-down, chevron-down-cannon-pink, chevron-down-wit, chevron-down-grijs50 -->
+  <!-- START: chevron-left -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-chevron-left + g {
+      color: #39870c;
+    }
+  </style>
+  <view id="img-chevron-left" viewBox="887 0 32 32"/>
+  <g transform="translate(887)">
+    <use href="#chevron-left"/>
+  </g>
+  <symbol id="chevron-left" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M15.05 19a.93.93 0 01-.67-.29L8 12l6.37-6.71a.93.93 0 011.35 0 1 1 0 010 1.42l-5 5.29 5 5.29a1 1 0 010 1.42.93.93 0 01-.67.29z"/>
+  </symbol>
+  <!-- END: chevron-left -->
+  <!-- START: chevron-right, chevron-right-grijs50 -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-chevron-right + g {
+      color: #39870c;
+    }
+
+    #img-chevron-right-grijs50 + g {
+      color: #7f7f7f;
+    }
+  </style>
+  <view id="img-chevron-right" viewBox="929 0 32 32"/>
+  <g transform="translate(929)">
+    <use href="#chevron-right"/>
+  </g>
+  <view id="img-chevron-right-grijs50" viewBox="971 0 32 32"/>
+  <g transform="translate(971)">
+    <use href="#chevron-right"/>
+  </g>
+  <symbol id="chevron-right" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M9 19a.93.93 0 01-.67-.29 1 1 0 010-1.42l5-5.29-5-5.29a1 1 0 010-1.42.93.93 0 011.35 0L16 12l-6.38 6.71A.93.93 0 019 19z"/>
+  </symbol>
+  <!-- END: chevron-right, chevron-right-grijs50 -->
+  <!-- START: chevron-up, chevron-up-cannon-pink, chevron-up-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-chevron-up + g {
+      color: #39870c;
+    }
+
+    #img-chevron-up-cannon-pink + g {
+      color: #8b4a6a;
+    }
+
+    #img-chevron-up-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-chevron-up" viewBox="1013 0 32 32"/>
+  <g transform="translate(1013)">
+    <use href="#chevron-up"/>
+  </g>
+  <view id="img-chevron-up-cannon-pink" viewBox="1055 0 32 32"/>
+  <g transform="translate(1055)">
+    <use href="#chevron-up"/>
+  </g>
+  <view id="img-chevron-up-wit" viewBox="1097 0 32 32"/>
+  <g transform="translate(1097)">
+    <use href="#chevron-up"/>
+  </g>
+  <symbol id="chevron-up" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18 16a1 1 0 01-.71-.28l-5.29-5-5.29 5a1 1 0 01-1.42 0 .93.93 0 010-1.35L12 8l6.71 6.38a.91.91 0 010 1.34A1 1 0 0118 16z"/>
+  </symbol>
+  <!-- END: chevron-up, chevron-up-cannon-pink, chevron-up-wit -->
+  <!-- START: circle-notch -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-circle-notch + g {
+      color: #39870c;
+    }
+  </style>
+  <view id="img-circle-notch" viewBox="1139 0 32 32"/>
+  <g transform="translate(1139)">
+    <use href="#circle-notch"/>
+  </g>
+  <symbol id="circle-notch" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 23A11.11 11.11 0 019.8 1a1 1 0 011.2.81A1 1 0 0110.2 3 9.09 9.09 0 0012 21a9.09 9.09 0 001.8-18 1 1 0 01-.8-1.19A1 1 0 0114.2 1 11.11 11.11 0 0112 23z"/>
+  </symbol>
+  <!-- END: circle-notch -->
+  <!-- START: clock -->
+  <view id="img-clock" viewBox="1181 0 32 32"/>
+  <g transform="translate(1181)">
+    <use href="#clock"/>
+  </g>
+  <symbol id="clock" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 3a9 9 0 11-9 9 9 9 0 019-9m0-2a11 11 0 1011 11A11 11 0 0012 1zm1 11V6.17a1 1 0 00-2 0v5.42l-3.21 3.2a1 1 0 000 1.42 1 1 0 001.42 0l3.49-3.5a.91.91 0 00.22-.33A.84.84 0 0013 12z"/>
+  </symbol>
+  <!-- END: clock -->
+  <!-- START: copy -->
+  <view id="img-copy" viewBox="1223 0 32 32"/>
+  <g transform="translate(1223)">
+    <use href="#copy"/>
+  </g>
+  <symbol id="copy" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18 1h-7a2 2 0 00-2 2v2H3a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2v-2h6a2 2 0 002-2V6zm-1 2.06L20.94 7H17zM13 21H3V7h6v10a2 2 0 002 2h2zm8-4H11V3h4v6h6z"/>
+  </symbol>
+  <!-- END: copy -->
+  <!-- START: crown -->
+  <view id="img-crown" viewBox="1265 0 32 32"/>
+  <g transform="translate(1265)">
+    <use href="#crown"/>
+  </g>
+  <symbol id="crown" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M22 9l-2.86 9H4.86L2 9l5.53 3a1.91 1.91 0 101-.08L12 8l3.42 3.85a1.9 1.9 0 101 .08zM12 7a2 2 0 10-2-2 2 2 0 002 2zM4 9a2 2 0 10-2-2 2 2 0 002 2zm16 0a2 2 0 10-2-2 2 2 0 002 2zM5.53 20.68A.47.47 0 006 21h12a.5.5 0 00.44-.32l.45-1.36a.23.23 0 00-.23-.32H5.33a.23.23 0 00-.23.32z"/>
+  </symbol>
+  <!-- END: crown -->
+  <!-- START: cultural -->
+  <view id="img-cultural" viewBox="1307 0 32 32"/>
+  <g transform="translate(1307)">
+    <use href="#cultural"/>
+  </g>
+  <symbol id="cultural" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M6 18H4v-8h2zm4-8H8v8h2zm6 0h-2v8h2zm4 0h-2v8h2zm1 11v-2H3v2H1v2h22v-2zm.09-12H2.92c-1 0-1.21-.45-.53-1l8.2-6.6a2.12 2.12 0 012.49 0L21.6 8c.69.56.46 1-.51 1zM14 6a2 2 0 10-2 2 2 2 0 002-2z"/>
+  </symbol>
+  <!-- END: cultural -->
+  <!-- START: download, download-scampi, download-wit, download-grasgroen-40 -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-download + g {
+      color: #39870c;
+    }
+
+    #img-download-scampi + g {
+      color: #676cb0;
+    }
+
+    #img-download-wit + g {
+      color: #fff;
+    }
+
+    #img-download-grasgroen-40 + g {
+      color: #afcf9d;
+    }
+  </style>
+  <view id="img-download" viewBox="1349 0 32 32"/>
+  <g transform="translate(1349)">
+    <use href="#download"/>
+  </g>
+  <view id="img-download-scampi" viewBox="1391 0 32 32"/>
+  <g transform="translate(1391)">
+    <use href="#download"/>
+  </g>
+  <view id="img-download-wit" viewBox="1433 0 32 32"/>
+  <g transform="translate(1433)">
+    <use href="#download"/>
+  </g>
+  <view id="img-download-grasgroen-40" viewBox="1475 0 32 32"/>
+  <g transform="translate(1475)">
+    <use href="#download"/>
+  </g>
+  <symbol id="download" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18.72 10.44L12 17l-6.7-6.52c-.5-.48-.3-.85.33-.85H8.5V1.82A.8.8 0 019.28 1h5.44a.8.8 0 01.78.82v7.79h2.87c.63-.01.83.39.35.83zM1 17v6h22v-6zm16 3a2 2 0 11-2-2 2 2 0 012 2zm5 0a2 2 0 11-2-2 2 2 0 012 2z"/>
+  </symbol>
+  <!-- END: download, download-scampi, download-wit, download-grasgroen-40 -->
+  <!-- START: email -->
+  <view id="img-email" viewBox="1517 0 32 32"/>
+  <g transform="translate(1517)">
+    <use href="#email"/>
+  </g>
+  <symbol id="email" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M23 3H1a1 1 0 00-1 1v16a1 1 0 001 1h22a1 1 0 001-1V4a1 1 0 00-1-1zm-2.61 2l-8.08 6.38a.59.59 0 01-.73 0L3.59 5zM2 19V6.28L10.35 13a2.62 2.62 0 001.57.52 2.53 2.53 0 001.68-.62L22 6.27V19z"/>
+  </symbol>
+  <!-- END: email -->
+  <!-- START: exclamation -->
+  <view id="img-exclamation" viewBox="1559 0 32 32"/>
+  <g transform="translate(1559)">
+    <use href="#exclamation"/>
+  </g>
+  <symbol id="exclamation" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 17a1.92 1.92 0 01-2-1.82V2.82A1.92 1.92 0 0112 1a1.92 1.92 0 012 1.82v12.36A1.92 1.92 0 0112 17zm0 2a2 2 0 102 2 2 2 0 00-2-2z"/>
+  </symbol>
+  <!-- END: exclamation -->
+  <!-- START: external-link, external-link-scampi, external-link-wit, external-link-grasgroen-40 -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-external-link + g {
+      color: #39870c;
+    }
+
+    #img-external-link-scampi + g {
+      color: #676cb0;
+    }
+
+    #img-external-link-wit + g {
+      color: #fff;
+    }
+
+    #img-external-link-grasgroen-40 + g {
+      color: #afcf9d;
+    }
+  </style>
+  <view id="img-external-link" viewBox="1601 0 32 32"/>
+  <g transform="translate(1601)">
+    <use href="#external-link"/>
+  </g>
+  <view id="img-external-link-scampi" viewBox="1643 0 32 32"/>
+  <g transform="translate(1643)">
+    <use href="#external-link"/>
+  </g>
+  <view id="img-external-link-wit" viewBox="1685 0 32 32"/>
+  <g transform="translate(1685)">
+    <use href="#external-link"/>
+  </g>
+  <view id="img-external-link-grasgroen-40" viewBox="1727 0 32 32"/>
+  <g transform="translate(1727)">
+    <use href="#external-link"/>
+  </g>
+  <symbol id="external-link" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M19 6v3.69c0 .33-.2.41-.43.17l-1.51-1.51-3.35 3.36a1 1 0 01-1.42 0 1 1 0 010-1.42l3.36-3.35-1.51-1.51C13.9 5.19 14 5 14.31 5H19v1zm-1 11v-4a1 1 0 00-2 0v4a1 1 0 01-1 1H7a1 1 0 01-1-1V9a1 1 0 011-1h4a1 1 0 000-2H7a3 3 0 00-3 3v8a3 3 0 003 3h8a3 3 0 003-3z"/>
+  </symbol>
+  <!-- END: external-link, external-link-scampi, external-link-wit, external-link-grasgroen-40 -->
+  <!-- START: eye-slash -->
+  <view id="img-eye-slash" viewBox="1769 0 32 32"/>
+  <g transform="translate(1769)">
+    <use href="#eye-slash"/>
+  </g>
+  <symbol id="eye-slash" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18.72 6.7l3-3-1.43-1.41L17 5.55A9.91 9.91 0 0012 4C5.37 4 0 12.5 0 12.5a26.34 26.34 0 004.74 5.35L2 20.54 3.46 22l2.89-2.89A10.3 10.3 0 0012 21c6.63 0 12-8.5 12-8.5a26.13 26.13 0 00-5.28-5.8zM2.44 12.5C4.29 10 8.13 6 12 6a7.61 7.61 0 013.57 1l-.82.81a5 5 0 00-5.43 0A2.91 2.91 0 0112.63 10L9 13.64A3 3 0 017 12a5 5 0 00.83 2.75l-1.67 1.68a23.7 23.7 0 01-3.72-3.93zM12 19a8.16 8.16 0 01-4.2-1.38l1.45-1.45a5 5 0 006.92-6.92l1.11-1.12a22.62 22.62 0 014.28 4.37C19.71 15 15.87 19 12 19z"/>
+  </symbol>
+  <!-- END: eye-slash -->
+  <!-- START: eye -->
+  <view id="img-eye" viewBox="1811 0 32 32"/>
+  <g transform="translate(1811)">
+    <use href="#eye"/>
+  </g>
+  <symbol id="eye" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 6c3.87 0 7.71 4 9.56 6.5C19.71 15 15.87 19 12 19s-7.71-4-9.56-6.5C4.29 10 8.13 6 12 6m0-2C5.37 4 0 12.5 0 12.5S5.37 21 12 21s12-8.5 12-8.5S18.63 4 12 4zm0 3a5 5 0 00-2.68.79A3 3 0 117 12a5 5 0 105-5z"/>
+  </symbol>
+  <!-- END: eye -->
+  <!-- START: filter -->
+  <view id="img-filter" viewBox="1853 0 32 32"/>
+  <g transform="translate(1853)">
+    <use href="#filter"/>
+  </g>
+  <symbol id="filter" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M21 3.45a.45.45 0 00-.45-.45H3.45a.45.45 0 00-.45.45v1.9a1.31 1.31 0 00.31.78l6.38 6.59a1.26 1.26 0 01.31.78v4.17a1 1 0 00.36.73l3.28 2.52c.2.16.36.07.36-.18v-7.25a1.31 1.31 0 01.31-.78l6.38-6.58a1.31 1.31 0 00.31-.78z"/>
+  </symbol>
+  <!-- END: filter -->
+  <!-- START: forbidden -->
+  <view id="img-forbidden" viewBox="1895 0 32 32"/>
+  <g transform="translate(1895)">
+    <use href="#forbidden"/>
+  </g>
+  <symbol id="forbidden" viewBox="0 0 24 24">
+    <path d="M12 1a11 11 0 1011 11A11 11 0 0012 1zm8.25 11a8.19 8.19 0 01-1.53 4.77L7.23 5.28a8.24 8.24 0 0113 6.72zm-16.5 0a8.19 8.19 0 011.53-4.77l11.49 11.49A8.24 8.24 0 013.75 12z" fill="#ce3f51"/>
+    <path d="M12 1A11 11 0 111 12 11 11 0 0112 1m6.72 15.77A8.24 8.24 0 007.23 5.28l11.49 11.49M12 20.25a8.19 8.19 0 004.77-1.53L5.28 7.23a8.24 8.24 0 006.72 13M12 0a12 12 0 1012 12A12 12 0 0012 0zM8.84 5.48A7.18 7.18 0 0112 4.75 7.26 7.26 0 0119.25 12a7.18 7.18 0 01-.73 3.16L8.84 5.48zM12 19.25A7.26 7.26 0 014.75 12a7.18 7.18 0 01.73-3.16l9.68 9.68a7.18 7.18 0 01-3.16.73z" fill="#fff"/>
+  </symbol>
+  <!-- END: forbidden -->
+  <!-- START: house -->
+  <view id="img-house" viewBox="1937 0 32 32"/>
+  <g transform="translate(1937)">
+    <use href="#house"/>
+  </g>
+  <symbol id="house" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M17.67 12a.33.33 0 01.33.33v4.34a.33.33 0 01-.33.33h-5.34a.33.33 0 01-.33-.33v-4.34a.33.33 0 01.33-.33h5.34zm4.17-1.58l-9.58-8.33a.42.42 0 00-.52 0l-9.58 8.33a.52.52 0 00-.07.66H4v10.5a.42.42 0 00.42.42h15.16a.42.42 0 00.42-.42V11.09h1.91a.52.52 0 00-.07-.67zM10 19.67a.33.33 0 01-.33.33H6.33a.33.33 0 01-.33-.33v-7.34a.33.33 0 01.33-.33h3.34a.33.33 0 01.33.33z"/>
+  </symbol>
+  <!-- END: house -->
+  <!-- START: info-active, info-active-bosgroen, info-active-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-info-active + g {
+      color: #39870c;
+    }
+
+    #img-info-active-bosgroen + g {
+      color: #275937;
+    }
+
+    #img-info-active-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-info-active" viewBox="1979 0 32 32"/>
+  <g transform="translate(1979)">
+    <use href="#info-active"/>
+  </g>
+  <view id="img-info-active-bosgroen" viewBox="2021 0 32 32"/>
+  <g transform="translate(2021)">
+    <use href="#info-active"/>
+  </g>
+  <view id="img-info-active-wit" viewBox="2063 0 32 32"/>
+  <g transform="translate(2063)">
+    <use href="#info-active"/>
+  </g>
+  <symbol id="info-active" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M23 12A11 11 0 1112 1a11 11 0 0111 11zM12 9a1 1 0 10-1-1 1 1 0 001 1zm1 7.79v-5.58A1.12 1.12 0 0012 10a1.12 1.12 0 00-1 1.21v5.58A1.12 1.12 0 0012 18a1.12 1.12 0 001-1.21z"/>
+  </symbol>
+  <!-- END: info-active, info-active-bosgroen, info-active-wit -->
+  <!-- START: info-i, info-i-bosgroen, info-i-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-info-i + g {
+      color: #39870c;
+    }
+
+    #img-info-i-bosgroen + g {
+      color: #275937;
+    }
+
+    #img-info-i-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-info-i" viewBox="2105 0 32 32"/>
+  <g transform="translate(2105)">
+    <use href="#info-i"/>
+  </g>
+  <view id="img-info-i-bosgroen" viewBox="2147 0 32 32"/>
+  <g transform="translate(2147)">
+    <use href="#info-i"/>
+  </g>
+  <view id="img-info-i-wit" viewBox="2189 0 32 32"/>
+  <g transform="translate(2189)">
+    <use href="#info-i"/>
+  </g>
+  <symbol id="info-i" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M11 8a1 1 0 111 1 1 1 0 01-1-1zm2 8.79v-5.58A1.12 1.12 0 0012 10a1.12 1.12 0 00-1 1.21v5.58A1.12 1.12 0 0012 18a1.12 1.12 0 001-1.21z"/>
+  </symbol>
+  <!-- END: info-i, info-i-bosgroen, info-i-wit -->
+  <!-- START: info, info-bosgroen, info-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-info + g {
+      color: #39870c;
+    }
+
+    #img-info-bosgroen + g {
+      color: #275937;
+    }
+
+    #img-info-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-info" viewBox="2231 0 32 32"/>
+  <g transform="translate(2231)">
+    <use href="#info"/>
+  </g>
+  <view id="img-info-bosgroen" viewBox="2273 0 32 32"/>
+  <g transform="translate(2273)">
+    <use href="#info"/>
+  </g>
+  <view id="img-info-wit" viewBox="2315 0 32 32"/>
+  <g transform="translate(2315)">
+    <use href="#info"/>
+  </g>
+  <symbol id="info" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 3a9 9 0 11-9 9 9 9 0 019-9m0-2a11 11 0 1011 11A11 11 0 0012 1zm0 8a1 1 0 10-1-1 1 1 0 001 1zm1 7.79v-5.58A1.12 1.12 0 0012 10a1.12 1.12 0 00-1 1.21v5.58A1.12 1.12 0 0012 18a1.12 1.12 0 001-1.21z"/>
+  </symbol>
+  <!-- END: info, info-bosgroen, info-wit -->
+  <!-- START: infrastructure -->
+  <view id="img-infrastructure" viewBox="2357 0 32 32"/>
+  <g transform="translate(2357)">
+    <use href="#infrastructure"/>
+  </g>
+  <symbol id="infrastructure" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7.86 8l8.2.05L22 23H2zm2.76 5h2.71l-.86-4h-1.13zm3.87 9l-1.18-6h-2.58l-1 6zM1 1v9h2.52a9 9 0 0117 0H23V1z"/>
+  </symbol>
+  <!-- END: infrastructure -->
+  <!-- START: label -->
+  <view id="img-label" viewBox="2399 0 32 32"/>
+  <g transform="translate(2399)">
+    <use href="#label"/>
+  </g>
+  <symbol id="label" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M23.28 2.33A2.82 2.82 0 0124 4.07v5.09a3 3 0 01-.69 1.77L11.46 23.68a1 1 0 01-1.41 0L.29 14a1 1 0 010-1.41L13.07.69A3 3 0 0114.84 0h5.09a2.82 2.82 0 011.74.72zM19 7a2 2 0 002-2 2 2 0 10-2 2z"/>
+  </symbol>
+  <!-- END: label -->
+  <!-- START: landscape -->
+  <view id="img-landscape" viewBox="2441 0 32 32"/>
+  <g transform="translate(2441)">
+    <use href="#landscape"/>
+  </g>
+  <symbol id="landscape" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M8 0l3 11H0l3-9 3 1zm13 9l-3-1-4 7 10 3V6zM5 16c1 .56 4.5 2.74 4.81 3 0 0-8.81 4-9.81 5h17.65c2-3 3-5 2-6S9.79 15.25 10 15c.46-.55 5-4 5-4h-2s-9.17 4.36-8 5zM22 3a.46.46 0 01-.28.42h-.08a6.08 6.08 0 00-1.86 1 4.39 4.39 0 00.58 2.25.47.47 0 01-.09.54.46.46 0 01-.54.07 6 6 0 00-1.93-.68h-.11a6.37 6.37 0 00-1.23 2.07A.48.48 0 0116 9a.48.48 0 01-.42-.31 5 5 0 00-1.06-2h-.12a7.19 7.19 0 00-2.1.66.44.44 0 01-.51-.08.48.48 0 01-.11-.52 7.08 7.08 0 00.65-2.25 11.24 11.24 0 00-1.94-1h-.08a.46.46 0 01-.31-.44V3a.46.46 0 01.29-.37h.08a11.24 11.24 0 001.94-1A5 5 0 0012 0h8a3 3 0 00-.28 1.54 6.08 6.08 0 001.86 1h.08A.46.46 0 0122 3zm-3.69 0v-.07a1.61 1.61 0 000-.39 2.31 2.31 0 00-4.52 0 1.61 1.61 0 000 .39v.14a1.61 1.61 0 000 .39 2.31 2.31 0 004.52 0 1.61 1.61 0 000-.39V3z"/>
+  </symbol>
+  <!-- END: landscape -->
+  <!-- START: location -->
+  <view id="img-location" viewBox="2483 0 32 32"/>
+  <g transform="translate(2483)">
+    <use href="#location"/>
+  </g>
+  <symbol id="location" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 24c-1.11 0-8-9-8-16a8.28 8.28 0 018-8c4 0 8 4 8 8 0 7-6.86 16-8 16zm0-21a5 5 0 105 5 5 5 0 00-5-5z"/>
+  </symbol>
+  <!-- END: location -->
+  <!-- START: lock -->
+  <view id="img-lock" viewBox="2525 0 32 32"/>
+  <g transform="translate(2525)">
+    <use href="#lock"/>
+  </g>
+  <symbol id="lock" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18.14 9H17V7A5 5 0 007 7v2H5.86A1.87 1.87 0 004 10.86v8.28A1.87 1.87 0 005.86 21h12.28A1.87 1.87 0 0020 19.14v-8.28A1.87 1.87 0 0018.14 9zM9 7a3 3 0 016 0v2H9zm4.74 9.66a1.52 1.52 0 01.26.84 1.5 1.5 0 11-2.75-.84 2.49 2.49 0 01-1.25-2 2.5 2.5 0 113.74 2z"/>
+  </symbol>
+  <!-- END: lock -->
+  <!-- START: magnet -->
+  <view id="img-magnet" viewBox="2567 0 32 32"/>
+  <g transform="translate(2567)">
+    <use href="#magnet"/>
+  </g>
+  <symbol id="magnet" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 23C6.49 23 2 18.19 2 12.28V9h5v3.28a5.31 5.31 0 005 5.57 5.31 5.31 0 005-5.57V9h5v3.28C22 18.19 17.51 23 12 23zM22 2h-5v5h5zM7 2H2v5h5z"/>
+  </symbol>
+  <!-- END: magnet -->
+  <!-- START: map-location -->
+  <view id="img-map-location" viewBox="2609 0 32 32"/>
+  <g transform="translate(2609)">
+    <use href="#map-location"/>
+  </g>
+  <symbol id="map-location" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M19 15c-.7 0-5-5.63-5-10a5.18 5.18 0 015-5 5.38 5.38 0 015 5c0 4.38-4.29 10-5 10zm0-13.12A3.13 3.13 0 1022.13 5 3.12 3.12 0 0019 1.88zM20.68 16l1.23 5.77-4-1.35-.39-4.42-2-3 .62 7.49-3.22 1.3v-9.4l1.08-.84.33-.24-.85-1.6-.39.29-1.09.82-3.51-2.64A1 1 0 008.12 8a1.09 1.09 0 00-.4 0L3.28 9.63a.93.93 0 00-.57.66L0 22.92a.9.9 0 00.28.86.86.86 0 00.61.22.92.92 0 00.28 0l5.75-2 4.75 1.91a.78.78 0 00.6 0L17.08 22l5.75 2a.87.87 0 00.28.05.86.86 0 00.59-.23.9.9 0 00.28-.86L22.08 14zM6.11 20.42l-4 1.35 2.24-10.62L7 10.21zm5 1.37l-3.22-1.3.82-9.91 2.4 1.81z"/>
+  </symbol>
+  <!-- END: map-location -->
+  <!-- START: marker -->
+  <view id="img-marker" viewBox="2651 0 32 32"/>
+  <g transform="translate(2651)">
+    <use href="#marker"/>
+  </g>
+  <symbol id="marker" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M10.79 22l-1.2 1.24a.89.89 0 01-.73.24l-3.63-.65-1 1.05a.42.42 0 01-.61 0l-.48-.5-.58.46a.67.67 0 01-.38.18H.33a.43.43 0 01-.18-.75l1.39-1.54-.47-.49a.47.47 0 010-.65l1-1-.63-3.78a1 1 0 01.21-.81l1.2-1.25zM23.91 5.12a.53.53 0 00-.06-.67L19.72.16a.48.48 0 00-.65-.06L4.37 12.16l7.94 8.26z"/>
+  </symbol>
+  <!-- END: marker -->
+  <!-- START: measurement -->
+  <view id="img-measurement" viewBox="2693 0 32 32"/>
+  <g transform="translate(2693)">
+    <use href="#measurement"/>
+  </g>
+  <symbol id="measurement" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20 2a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4a2 2 0 012-2h16m0-2H4a4 4 0 00-4 4v16a4 4 0 004 4h16a4 4 0 004-4V4a4 4 0 00-4-4zM6 19V5a1 1 0 00-2 0v14a1 1 0 002 0zm14 0V5a1 1 0 00-2 0v14a1 1 0 002 0zm-9-9.08a.33.33 0 01-.11-.28 2.41 2.41 0 01.18-.93 5.77 5.77 0 01.49-.9c.1-.14.2-.28.3-.4.19-.27.33-.48.42-.64a.94.94 0 00.14-.45c0-.46-.24-.69-.73-.69a1.3 1.3 0 00-.46.08 3.26 3.26 0 00-.43.2.52.52 0 01-.22.1c-.08 0-.17-.06-.27-.19a2.3 2.3 0 01-.25-.44A1 1 0 0110 5a.81.81 0 01.58-.75A3.18 3.18 0 0111.86 4a2.1 2.1 0 011.57.59A2.23 2.23 0 0114 6.2a2.34 2.34 0 01-.25 1.14 4.23 4.23 0 01-.68.93l-.17.19a5 5 0 00-.51.63 1.42 1.42 0 00-.23.58.36.36 0 01-.15.26.69.69 0 01-.37.07h-.23a.7.7 0 01-.41-.08zM17 18l-2-2v1H9v-1l-2 2 2 2v-1h6v1zm-5-7a1 1 0 101 1 1 1 0 00-1-1z"/>
+  </symbol>
+  <!-- END: measurement -->
+  <!-- START: minus-square -->
+  <view id="img-minus-square" viewBox="2735 0 32 32"/>
+  <g transform="translate(2735)">
+    <use href="#minus-square"/>
+  </g>
+  <symbol id="minus-square" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18 4a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h12m0-2H6a4 4 0 00-4 4v12a4 4 0 004 4h12a4 4 0 004-4V6a4 4 0 00-4-4zm-1 10a.92.92 0 00-.81-1H7.81A.92.92 0 007 12a.92.92 0 00.81 1h8.38a.92.92 0 00.81-1z"/>
+  </symbol>
+  <!-- END: minus-square -->
+  <!-- START: more -->
+  <view id="img-more" viewBox="2777 0 32 32"/>
+  <g transform="translate(2777)">
+    <use href="#more"/>
+  </g>
+  <symbol id="more" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M6 10a2 2 0 102 2 2 2 0 00-2-2zm12 0a2 2 0 102 2 2 2 0 00-2-2zm-6 0a2 2 0 102 2 2 2 0 00-2-2z"/>
+  </symbol>
+  <!-- END: more -->
+  <!-- START: municipality -->
+  <view id="img-municipality" viewBox="2819 0 32 32"/>
+  <g transform="translate(2819)">
+    <use href="#municipality"/>
+  </g>
+  <symbol id="municipality" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M22.92 16a.26.26 0 010 .33h-.67v5.5a.21.21 0 01-.21.21h-8.12a.21.21 0 01-.21-.21v-5.55H13a.26.26 0 010-.33l1.19-1H8.92a.21.21 0 01-.21-.21V9.28H8a.26.26 0 010-.33L13 5a.24.24 0 01.26 0l4.66 4a.26.26 0 010 .33h-.67v3.29L18 12a.24.24 0 01.26 0L20 13.52v-1.31a2.35 2.35 0 01-2-2.44C18 6.36 19.67 4 20.5 4S23 6.36 23 9.77a2.35 2.35 0 01-2 2.44v2.15zm-12 1l-4.7-4A.21.21 0 006 13l-4.92 4a.26.26 0 000 .33h.67v5.51a.21.21 0 00.21.21h8.16a.21.21 0 00.21-.21v-5.5H11a.25.25 0 00-.08-.34zM3 12.41c0 .79 4 .79 4 0a1.4 1.4 0 00-1-1.21v-2a2.35 2.35 0 002-2.43C8 3.36 6.33 1 5.5 1S3 3.36 3 6.77a2.35 2.35 0 002 2.44V11c-1.1 0-2 .63-2 1.41z"/>
+  </symbol>
+  <!-- END: municipality -->
+  <!-- START: nature -->
+  <view id="img-nature" viewBox="2861 0 32 32"/>
+  <g transform="translate(2861)">
+    <use href="#nature"/>
+  </g>
+  <symbol id="nature" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M23 22.41c0 .79-22 .79-22 0 0-.3.74-.58 2-.81v-2.39a2.35 2.35 0 01-2-2.44C1 13.36 2.67 11 3.5 11S6 13.36 6 16.77a2.35 2.35 0 01-2 2.44v2.24a61.55 61.55 0 018-.45c1.8 0 3.5.06 5 .16v-4.73a4.29 4.29 0 01-3.37-2.65 7 7 0 001-9.95C15.75 1.43 17.14 0 18 0c1.69 0 5 4.72 5 11.55a4.72 4.72 0 01-4 4.88v4.89c2.44.26 4 .68 4 1.09zM11 18v-5.1a5 5 0 10-1 .1v5.05c-1.72.16-3 .71-3 1.36s8 .79 8 0S13.21 18 11 18z"/>
+  </symbol>
+  <!-- END: nature -->
+  <!-- START: paperclip, paperclip-grijs, paperclip-wit -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-paperclip + g {
+      color: #275937;
+    }
+
+    #img-paperclip-grijs + g {
+      color: #666;
+    }
+
+    #img-paperclip-wit + g {
+      color: #fff;
+    }
+  </style>
+  <view id="img-paperclip" viewBox="2903 0 32 32"/>
+  <g transform="translate(2903)">
+    <use href="#paperclip"/>
+  </g>
+  <view id="img-paperclip-grijs" viewBox="2945 0 32 32"/>
+  <g transform="translate(2945)">
+    <use href="#paperclip"/>
+  </g>
+  <view id="img-paperclip-wit" viewBox="2987 0 32 32"/>
+  <g transform="translate(2987)">
+    <use href="#paperclip"/>
+  </g>
+  <symbol id="paperclip" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M21.88 8.94L10 20.6A4.63 4.63 0 016.62 22a5.78 5.78 0 01-4.05-1.81 5.34 5.34 0 010-7.56l9.3-9.26a1 1 0 111.48 1.48l-9.3 9.26a3.26 3.26 0 000 4.6 3.79 3.79 0 002.58 1.21 2.55 2.55 0 001.85-.81L20.4 7.46a1.83 1.83 0 00.5-1.39 2.24 2.24 0 00-.63-1.44 1.85 1.85 0 00-2.61 0L7.43 14.73a.48.48 0 000 .67.48.48 0 00.34.14.46.46 0 00.34-.14l7.36-7.28a1 1 0 011.48 0A1 1 0 0117 9.6l-7.4 7.28a2.66 2.66 0 01-3.65 0 2.55 2.55 0 010-3.63l10.22-10.1a4 4 0 015.59 0A4.31 4.31 0 0123 6a3.89 3.89 0 01-1.12 2.94z"/>
+  </symbol>
+  <!-- END: paperclip, paperclip-grijs, paperclip-wit -->
+  <!-- START: parking -->
+  <view id="img-parking" viewBox="3029 0 32 32"/>
+  <g transform="translate(3029)">
+    <use href="#parking"/>
+  </g>
+  <symbol id="parking" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-2.91 8.4a2.93 2.93 0 01-.63 1 4 4 0 01-1.26.84 4.6 4.6 0 01-1.73.29H11v3.07H8.51V7.17h4a6.5 6.5 0 011.49.16 3.42 3.42 0 011.1.47 2.41 2.41 0 01.87 1 3.06 3.06 0 01.3 1.41 3.57 3.57 0 01-.18 1.19zm-2.51-1.88a1.15 1.15 0 01.21.69 2 2 0 01-.1.69 1.17 1.17 0 01-.34.48 1.47 1.47 0 01-.68.31 5.81 5.81 0 01-1 .07H11V8.94h1.38a2.26 2.26 0 01.74.17 1.21 1.21 0 01.46.41zM19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-2.91 8.4a2.93 2.93 0 01-.63 1 4 4 0 01-1.26.84 4.6 4.6 0 01-1.73.29H11v3.07H8.51V7.17h4a6.5 6.5 0 011.49.16 3.42 3.42 0 011.1.47 2.41 2.41 0 01.87 1 3.06 3.06 0 01.3 1.41 3.57 3.57 0 01-.18 1.19zm-2.51-1.88a1.15 1.15 0 01.21.69 2 2 0 01-.1.69 1.17 1.17 0 01-.34.48 1.47 1.47 0 01-.68.31 5.81 5.81 0 01-1 .07H11V8.94h1.38a2.26 2.26 0 01.74.17 1.21 1.21 0 01.46.41z"/>
+  </symbol>
+  <!-- END: parking -->
+  <!-- START: pencil -->
+  <view id="img-pencil" viewBox="3071 0 32 32"/>
+  <g transform="translate(3071)">
+    <use href="#pencil"/>
+  </g>
+  <symbol id="pencil" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M16.27 3.2l4.56 4.54L8 20.52 3.43 16zm6.27.8L20 1.46a1.4 1.4 0 00-2-.1l-.87.86 4.58 4.57.87-.86A1.4 1.4 0 0022.54 4zM1 22.35a.4.4 0 00.1.5.4.4 0 00.5.1l5.44-1.49-4.53-4.56z"/>
+  </symbol>
+  <!-- END: pencil -->
+  <!-- START: pin -->
+  <view id="img-pin" viewBox="3113 0 32 32"/>
+  <g transform="translate(3113)">
+    <use href="#pin"/>
+  </g>
+  <symbol id="pin" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M15.34 14.44L14 22.5a1.5 1.5 0 01-3 0l-1.34-8.06a7.5 7.5 0 115.68 0zm-1.11-2.57a5.68 5.68 0 01-4.59-9.7 6 6 0 108.3 7.74 5.63 5.63 0 01-3.71 1.96z"/>
+  </symbol>
+  <!-- END: pin -->
+  <!-- START: plus-square -->
+  <view id="img-plus-square" viewBox="3155 0 32 32"/>
+  <g transform="translate(3155)">
+    <use href="#plus-square"/>
+  </g>
+  <symbol id="plus-square" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M18 4a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h12m0-2H6a4 4 0 00-4 4v12a4 4 0 004 4h12a4 4 0 004-4V6a4 4 0 00-4-4zm-1.81 9H13V7.81A.92.92 0 0012 7a.92.92 0 00-1 .81V11H7.81A.92.92 0 007 12a.92.92 0 00.81 1H11v3.19a.92.92 0 001 .81.92.92 0 001-.81V13h3.19a.92.92 0 00.81-1 .92.92 0 00-.81-1z"/>
+  </symbol>
+  <!-- END: plus-square -->
+  <!-- START: plus -->
+  <view id="img-plus" viewBox="3197 0 32 32"/>
+  <g transform="translate(3197)">
+    <use href="#plus"/>
+  </g>
+  <symbol id="plus" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M17.87 11H13V6.13A1.08 1.08 0 0012 5a1.08 1.08 0 00-1 1.13V11H6.13A1.08 1.08 0 005 12a1.08 1.08 0 001.13 1H11v4.87A1.08 1.08 0 0012 19a1.08 1.08 0 001-1.13V13h4.87A1.08 1.08 0 0019 12a1.08 1.08 0 00-1.13-1z"/>
+  </symbol>
+  <!-- END: plus -->
+  <!-- START: print -->
+  <view id="img-print" viewBox="3239 0 32 32"/>
+  <g transform="translate(3239)">
+    <use href="#print"/>
+  </g>
+  <symbol id="print" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M21.33 9H18V4a2 2 0 00-2-2H6a2 2 0 00-2 2v5H2.67a.67.67 0 00-.67.67v6.66a.67.67 0 00.67.67h1l-.66 2.75a1.87 1.87 0 002 2.25h11.91a1.87 1.87 0 002-2.25L18.29 17h3a.67.67 0 00.67-.67V9.67a.67.67 0 00-.63-.67zM6 4h10v5H6zm13.5 10a1.5 1.5 0 111.5-1.5 1.5 1.5 0 01-1.5 1.5zm-3.67 1L17 19.89l-.09.11H5.17l-.1-.11L6.21 15z"/>
+  </symbol>
+  <!-- END: print -->
+  <!-- START: redo -->
+  <view id="img-redo" viewBox="3281 0 32 32"/>
+  <g transform="translate(3281)">
+    <use href="#redo"/>
+  </g>
+  <symbol id="redo" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12.3 3a9.43 9.43 0 016.61 2.67l1.49-1.48c.33-.33.6-.22.6.25v4.7a.85.85 0 01-.86.86h-4.7c-.47 0-.58-.27-.25-.6l2.28-2.29A7.32 7.32 0 0012.3 5a7.12 7.12 0 00-7.23 7 7.12 7.12 0 007.23 7 7.22 7.22 0 006.7-4.38 1 1 0 011.34-.55 1 1 0 01.57 1.31A9.27 9.27 0 0112.3 21 9.16 9.16 0 013 12a9.16 9.16 0 019.3-9z"/>
+  </symbol>
+  <!-- END: redo -->
+  <!-- START: search -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-search + g {
+      color: #39870c;
+    }
+  </style>
+  <view id="img-search" viewBox="3323 0 32 32"/>
+  <g transform="translate(3323)">
+    <use href="#search"/>
+  </g>
+  <symbol id="search" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20.71 19.29L16.46 15A7.52 7.52 0 1015 16.46l4.25 4.25a1 1 0 001.42 0 1 1 0 00.04-1.42zM5 10.5a5.5 5.5 0 115.5 5.5A5.51 5.51 0 015 10.5z"/>
+  </symbol>
+  <!-- END: search -->
+  <!-- START: sitemap -->
+  <view id="img-sitemap" viewBox="3365 0 32 32"/>
+  <g transform="translate(3365)">
+    <use href="#sitemap"/>
+  </g>
+  <symbol id="sitemap" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M23.2 17H22v-5h-9V7h1.2a.8.8 0 00.8-.8V1.8a.8.8 0 00-.8-.8H9.8a.8.8 0 00-.8.8v4.4a.8.8 0 00.8.8H11v5H2v5H.8a.8.8 0 00-.8.8v4.4a.8.8 0 00.8.8h4.4a.8.8 0 00.8-.8v-4.4a.8.8 0 00-.8-.8H4v-3h7v3H9.8a.8.8 0 00-.8.8v4.4a.8.8 0 00.8.8h4.4a.8.8 0 00.8-.8v-4.4a.8.8 0 00-.8-.8H13v-3h7v3h-1.2a.8.8 0 00-.8.8v4.4a.8.8 0 00.8.8h4.4a.8.8 0 00.8-.8v-4.4a.8.8 0 00-.8-.8z"/>
+  </symbol>
+  <!-- END: sitemap -->
+  <!-- START: soil -->
+  <view id="img-soil" viewBox="3407 0 32 32"/>
+  <g transform="translate(3407)">
+    <use href="#soil"/>
+  </g>
+  <symbol id="soil" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M14.09 6.55a3.32 3.32 0 010-1.65 2.14 2.14 0 012-1.79c.5-.07 1-.09 1.52-.11.3 0 .4.09.38.39-.06.6-.09 1.21-.21 1.81A2.13 2.13 0 0115.87 7c-.44.05-1.62-.13-1.78-.45zm-3.18 0a3.32 3.32 0 000-1.65 2.14 2.14 0 00-2-1.79C8.4 3 7.89 3 7.38 3c-.3 0-.4.09-.38.39.06.6.09 1.21.21 1.81A2.13 2.13 0 009.13 7c.44.05 1.62-.13 1.78-.45zM13 10.89a2.12 2.12 0 001.8 1.91 15.48 15.48 0 001.8.2c.31 0 .4-.08.39-.39 0-.5-.05-1-.12-1.52a2.14 2.14 0 00-1.8-2 3.39 3.39 0 00-1.64 0c-.31.17-.43 1.35-.43 1.8zm9 9l-1-1c0-1-1-1-2-1s-2-1.06-4-1.06A5.13 5.13 0 0012 15c-1.34-3-1.68-4.33-1.68-4.9 0-1.67 2-1.69 2.05-1.69a.72.72 0 000-1.44C11.22 7 9 8.07 9 10.13a18.32 18.32 0 001.67 5.1 2.19 2.19 0 00-.67.45s-4 0-4.8 1.94l-.37.38-.4-.3c-.37-.29-.83 1.15-1.32 1.15C2 18.8 1 20.88 1 20.86V23h22v-2.14c0-1.15 0-1.02-1-1.02z"/>
+  </symbol>
+  <!-- END: soil -->
+  <!-- START: sort-ascending -->
+  <view id="img-sort-ascending" viewBox="3449 0 32 32"/>
+  <g transform="translate(3449)">
+    <use href="#sort-ascending"/>
+  </g>
+  <symbol id="sort-ascending" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 4a1.47 1.47 0 01.91.36c.53.44 4.31 3.68 5.66 4.84a1.07 1.07 0 01.4.57A1.07 1.07 0 0117.8 11H6.2A1.07 1.07 0 015 9.77a1.07 1.07 0 01.4-.57c1.38-1.2 5.16-4.4 5.69-4.84A1.47 1.47 0 0112 4z"/>
+  </symbol>
+  <!-- END: sort-ascending -->
+  <!-- START: sort-descending -->
+  <view id="img-sort-descending" viewBox="3491 0 32 32"/>
+  <g transform="translate(3491)">
+    <use href="#sort-descending"/>
+  </g>
+  <symbol id="sort-descending" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 21a1.47 1.47 0 01-.91-.36c-.53-.44-4.31-3.64-5.66-4.84A1 1 0 016.2 14h11.6a1 1 0 01.77 1.8c-1.35 1.16-5.13 4.4-5.66 4.84A1.47 1.47 0 0112 21z"/>
+  </symbol>
+  <!-- END: sort-descending -->
+  <!-- START: sort -->
+  <view id="img-sort" viewBox="3533 0 32 32"/>
+  <g transform="translate(3533)">
+    <use href="#sort"/>
+  </g>
+  <symbol id="sort" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 21a1.47 1.47 0 01-.91-.36c-.53-.44-4.31-3.64-5.66-4.84A1 1 0 016.2 14h11.6a1 1 0 01.77 1.8c-1.35 1.16-5.13 4.4-5.66 4.84A1.47 1.47 0 0112 21zm0-17a1.47 1.47 0 00-.91.36C10.56 4.8 6.78 8 5.43 9.2a1.07 1.07 0 00-.4.57A1.07 1.07 0 006.2 11h11.6A1.07 1.07 0 0019 9.77a1.07 1.07 0 00-.4-.57c-1.38-1.2-5.16-4.4-5.69-4.84A1.47 1.47 0 0012 4z"/>
+  </symbol>
+  <!-- END: sort -->
+  <!-- START: status-danger -->
+  <view id="img-status-danger" viewBox="3575 0 32 32"/>
+  <g transform="translate(3575)">
+    <use href="#status-danger"/>
+  </g>
+  <symbol id="status-danger" viewBox="0 0 24 24">
+    <path d="M22.6 18.51c.86 1.37.29 2.49-1.25 2.49H2.65c-1.54 0-2.11-1.12-1.25-2.49L10.44 4a1.7 1.7 0 013.12 0z" fill="#ce3f51"/>
+    <path d="M12 3a1.9 1.9 0 011.56 1l9 14.48c.86 1.37.29 2.49-1.25 2.49H2.65C1.11 21 .54 19.88 1.4 18.51L10.44 4A1.9 1.9 0 0112 3m0-1a2.89 2.89 0 00-2.4 1.5L.55 18a2.75 2.75 0 00-.28 2.81A2.59 2.59 0 002.65 22h18.7a2.59 2.59 0 002.38-1.21 2.75 2.75 0 00-.28-2.79L14.4 3.5A2.89 2.89 0 0012 2z" fill="#fff"/>
+    <path d="M12 16a1 1 0 01-1-.91V8.91a1 1 0 012 0v6.18a1 1 0 01-1 .91zm0 1a1 1 0 101 1 1 1 0 00-1-1z" fill="#fff"/>
+  </symbol>
+  <!-- END: status-danger -->
+  <!-- START: status-info -->
+  <view id="img-status-info" viewBox="3617 0 32 32"/>
+  <g transform="translate(3617)">
+    <use href="#status-info"/>
+  </g>
+  <symbol id="status-info" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="11" fill="#2b5780"/>
+    <path d="M12 1A11 11 0 111 12 11 11 0 0112 1m0-1a12 12 0 1012 12A12 12 0 0012 0z" fill="#fff"/>
+    <path d="M11 8a1 1 0 111 1 1 1 0 01-1-1zm2 8.79v-5.58A1.12 1.12 0 0012 10a1.12 1.12 0 00-1 1.21v5.58A1.12 1.12 0 0012 18a1.12 1.12 0 001-1.21z" fill="#fff"/>
+  </symbol>
+  <!-- END: status-info -->
+  <!-- START: status-success -->
+  <view id="img-status-success" viewBox="3659 0 32 32"/>
+  <g transform="translate(3659)">
+    <use href="#status-success"/>
+  </g>
+  <symbol id="status-success" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="11" fill="#39870c"/>
+    <path d="M12 1A11 11 0 111 12 11 11 0 0112 1m0-1a12 12 0 1012 12A12 12 0 0012 0z" fill="#fff"/>
+    <path d="M10.11 18l-4.82-4.69A.92.92 0 015.3 12a1 1 0 011.41 0l3.4 3.3 7.18-7a1 1 0 011.41 0 .92.92 0 010 1.35z" fill="#fff"/>
+  </symbol>
+  <!-- END: status-success -->
+  <!-- START: status-warning -->
+  <view id="img-status-warning" viewBox="3701 0 32 32"/>
+  <g transform="translate(3701)">
+    <use href="#status-warning"/>
+  </g>
+  <symbol id="status-warning" viewBox="0 0 24 24">
+    <path d="M22.6 18.51c.86 1.37.29 2.49-1.25 2.49H2.65c-1.54 0-2.11-1.12-1.25-2.49L10.44 4a1.7 1.7 0 013.12 0z" fill="#dcd400"/>
+    <path d="M12 3a1.9 1.9 0 011.56 1l9 14.48c.86 1.37.29 2.49-1.25 2.49H2.65C1.11 21 .54 19.88 1.4 18.51L10.44 4A1.9 1.9 0 0112 3m0-1a2.89 2.89 0 00-2.4 1.5L.55 18a2.75 2.75 0 00-.28 2.81A2.59 2.59 0 002.65 22h18.7a2.59 2.59 0 002.38-1.21 2.75 2.75 0 00-.28-2.79L14.4 3.5A2.89 2.89 0 0012 2z" fill="#fff"/>
+    <path d="M11.73 15.85a1 1 0 01-1-.91V8.76a1 1 0 012 0v6.18a1 1 0 01-1 .91zm0 1a1 1 0 101 1 1 1 0 00-1-1z"/>
+  </symbol>
+  <!-- END: status-warning -->
+  <!-- START: table -->
+  <view id="img-table" viewBox="3743 0 32 32"/>
+  <g transform="translate(3743)">
+    <use href="#table"/>
+  </g>
+  <symbol id="table" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20 0H4a4 4 0 00-4 4v16a4 4 0 004 4h16a4 4 0 004-4V4a4 4 0 00-4-4zM2 20V8h5v14H4a2 2 0 01-2-2zm7 2V8h6v14zm11 0h-3V8h5v12a2 2 0 01-2 2zM2 6V4a2 2 0 012-2h16a2 2 0 012 2v2z"/>
+  </symbol>
+  <!-- END: table -->
+  <!-- START: times, times-bosgroen, times-wit, times-zwart -->
+  <style type="text/css">
+    /* stylelint-disable value-keyword-case */
+
+    #img-times + g {
+      color: #39870c;
+    }
+
+    #img-times-bosgroen + g {
+      color: #275937;
+    }
+
+    #img-times-wit + g {
+      color: #fff;
+    }
+
+    #img-times-zwart + g {
+      color: #000;
+    }
+  </style>
+  <view id="img-times" viewBox="3785 0 32 32"/>
+  <g transform="translate(3785)">
+    <use href="#times"/>
+  </g>
+  <view id="img-times-bosgroen" viewBox="3827 0 32 32"/>
+  <g transform="translate(3827)">
+    <use href="#times"/>
+  </g>
+  <view id="img-times-wit" viewBox="3869 0 32 32"/>
+  <g transform="translate(3869)">
+    <use href="#times"/>
+  </g>
+  <view id="img-times-zwart" viewBox="3911 0 32 32"/>
+  <g transform="translate(3911)">
+    <use href="#times"/>
+  </g>
+  <symbol id="times" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M13.36 12l3.3-3.3a1 1 0 10-1.36-1.36l-3.3 3.3-3.3-3.3A1 1 0 107.34 8.7l3.3 3.3-3.3 3.3a1 1 0 101.36 1.36l3.3-3.3 3.3 3.3a1 1 0 101.36-1.36z"/>
+  </symbol>
+  <!-- END: times, times-bosgroen, times-wit, times-zwart -->
+  <!-- START: trash -->
+  <view id="img-trash" viewBox="3953 0 32 32"/>
+  <g transform="translate(3953)">
+    <use href="#trash"/>
+  </g>
+  <symbol id="trash" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M19 2v3H5V2h4V1h6v1zm0 6.16v13.68A1.16 1.16 0 0117.84 23H6.16A1.16 1.16 0 015 21.84V8.16A1.16 1.16 0 016.16 7h11.68A1.16 1.16 0 0119 8.16zM9 9.6a.6.6 0 00-.6-.6h-.8a.6.6 0 00-.6.6v10.8a.6.6 0 00.6.6h.8a.6.6 0 00.6-.6zm4 0a.6.6 0 00-.6-.6h-.8a.6.6 0 00-.6.6v10.8a.6.6 0 00.6.6h.8a.6.6 0 00.6-.6zm4 0a.6.6 0 00-.6-.6h-.8a.6.6 0 00-.6.6v10.8a.6.6 0 00.6.6h.8a.6.6 0 00.6-.6z"/>
+  </symbol>
+  <!-- END: trash -->
+  <!-- START: undo -->
+  <view id="img-undo" viewBox="3995 0 32 32"/>
+  <g transform="translate(3995)">
+    <use href="#undo"/>
+  </g>
+  <symbol id="undo" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M11.63 1a11.49 11.49 0 00-8.08 3.27L1.74 2.46c-.41-.41-.74-.27-.74.3v5.75a1 1 0 001 1.05h5.79c.58 0 .72-.34.31-.74L5.31 6a8.94 8.94 0 016.32-2.59A8.71 8.71 0 0120.47 12a8.71 8.71 0 01-8.84 8.56 8.82 8.82 0 01-8.2-5.35 1.27 1.27 0 00-1.64-.68 1.22 1.22 0 00-.7 1.6A11.34 11.34 0 0011.63 23 11.2 11.2 0 0023 12 11.2 11.2 0 0011.63 1z"/>
+  </symbol>
+  <!-- END: undo -->
+  <!-- START: user-line -->
+  <view id="img-user-line" viewBox="4037 0 32 32"/>
+  <g transform="translate(4037)">
+    <use href="#user-line"/>
+  </g>
+  <symbol id="user-line" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M11.91 12h.18A4.93 4.93 0 0017 7.09v-.18A4.93 4.93 0 0012.09 2h-.18A4.93 4.93 0 007 6.91v.18A4.93 4.93 0 0011.91 12zM9 6.91A2.92 2.92 0 0111.91 4h.18A2.92 2.92 0 0115 6.91v.18A2.92 2.92 0 0112.09 10h-.18A2.92 2.92 0 019 7.09zm11.86 12.82l-2.19-5.4a4.63 4.63 0 00-3-2.26A6.8 6.8 0 018.51 12a4.82 4.82 0 00-3.18 2.33l-2.19 5.4C2.75 20.81 3.17 22 4.51 22h15c1.32 0 1.74-1.19 1.35-2.27zM5.2 20l2-4.87a2.29 2.29 0 011.18-.94 8.75 8.75 0 003.84.88 8.82 8.82 0 003.65-.8 2.08 2.08 0 011 .84l2 4.89z"/>
+  </symbol>
+  <!-- END: user-line -->
+  <!-- START: user -->
+  <view id="img-user" viewBox="4079 0 32 32"/>
+  <g transform="translate(4079)">
+    <use href="#user"/>
+  </g>
+  <symbol id="user" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M7 7.09v-.18A4.93 4.93 0 0111.91 2h.18A4.93 4.93 0 0117 6.91v.18A4.93 4.93 0 0112.09 12h-.18A4.93 4.93 0 017 7.09zm13.86 12.64l-2.19-5.11a4.62 4.62 0 00-3-2.25 6.83 6.83 0 01-7.21-.08 4.82 4.82 0 00-3.18 2.33l-2.14 5.11C2.75 20.81 3.17 22 4.51 22h15c1.32 0 1.74-1.19 1.35-2.27z"/>
+  </symbol>
+  <!-- END: user -->
+  <!-- START: users -->
+  <view id="img-users" viewBox="4121 0 32 32"/>
+  <g transform="translate(4121)">
+    <use href="#users"/>
+  </g>
+  <symbol id="users" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M5 7.09v-.18A4.93 4.93 0 019.91 2h.18a4.92 4.92 0 014.77 3.81 2.86 2.86 0 012-.81h.3A2.86 2.86 0 0120 7.85v.3A2.86 2.86 0 0117.15 11h-.3a2.83 2.83 0 01-2.5-1.52A4.9 4.9 0 0110.09 12h-.18A4.93 4.93 0 015 7.09zm17.91 9.51l-1.46-3.16a3.06 3.06 0 00-2-1.39 4.87 4.87 0 01-4.78-.05 5.1 5.1 0 00-.94.37 6.83 6.83 0 01-7.21-.08 4.82 4.82 0 00-3.18 2.33l-2.2 5.11C.75 20.81 1.17 22 2.51 22h15c1.34 0 1.76-1.19 1.37-2.27L18.12 18H22a1 1 0 00.91-1.4z"/>
+  </symbol>
+  <!-- END: users -->
+  <!-- START: water -->
+  <view id="img-water" viewBox="4163 0 32 32"/>
+  <g transform="translate(4163)">
+    <use href="#water"/>
+  </g>
+  <symbol id="water" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20 15.33C20 19 16.42 22 12 22s-8-3-8-6.67c0-3.11 3.72-7.18 6-10A11.15 11.15 0 0012 2a11.15 11.15 0 002 3.33c2.28 2.82 6 6.89 6 10zM9.09 16.5A5.12 5.12 0 017.47 12 4.69 4.69 0 006 15.43 4.42 4.42 0 0010.24 20 4.2 4.2 0 0014 17.49c-1.31.9-3.36.51-4.91-.99z"/>
+  </symbol>
+  <!-- END: water -->
+  <!-- START: wip-wip -->
+  <view id="img-wip-wip" viewBox="4205 0 32 32"/>
+  <g transform="translate(4205)">
+    <use href="#wip-wip"/>
+  </g>
+  <symbol id="wip-wip" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 3a9 9 0 11-9 9 9 9 0 019-9m0-2a11 11 0 1011 11A11 11 0 0012 1zm7 9a1.08 1.08 0 00-1.13-1H6.13A1.08 1.08 0 005 10a1.08 1.08 0 001.13 1h11.74A1.08 1.08 0 0019 10zm0 4a1.08 1.08 0 00-1.13-1H6.13A1.08 1.08 0 005 14a1.08 1.08 0 001.13 1h11.74A1.08 1.08 0 0019 14z"/>
+  </symbol>
+  <!-- END: wip-wip -->
+</svg>

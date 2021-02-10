@@ -1,0 +1,47 @@
+:host {
+  /* stylelint-disable value-keyword-case */
+}
+:host *,
+:host *::after,
+:host *::before {
+  box-sizing: border-box;
+}
+:host .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+:host .dso-badge {
+  background-color: #666;
+  border-radius: 1em;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 1em;
+  padding: 4px 8px;
+}
+:host .dso-badge.badge-info {
+  background-color: #6ca4d9;
+  color: #191919;
+}
+:host .dso-badge.badge-primary {
+  background-color: #275937;
+  color: #fff;
+}
+:host .dso-badge.badge-success {
+  background-color: #39870c;
+  color: #fff;
+}
+:host .dso-badge.badge-warning {
+  background-color: #dcd400;
+  color: #191919;
+}
+:host .dso-badge.badge-danger {
+  background-color: #ce3f51;
+  color: #fff;
+}

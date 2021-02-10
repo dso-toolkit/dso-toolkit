@@ -1,0 +1,16 @@
+:host {
+  display: inline-block;
+  height: 1.5em;
+  vertical-align: top;
+  width: 1.5em;
+}
+:host *,
+:host *::after,
+:host *::before {
+  box-sizing: border-box;
+}
+:host svg.di {
+  height: 1.5em;
+  vertical-align: top;
+  width: 1.5em;
+}

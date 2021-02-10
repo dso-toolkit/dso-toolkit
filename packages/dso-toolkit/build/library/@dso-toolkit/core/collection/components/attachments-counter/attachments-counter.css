@@ -1,0 +1,39 @@
+:host {
+  display: inline-block;
+  --di-paperclip-grijs: url("data:image/svg+xml,%3csvg id='paperclip' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' style='color: %23666%3b'%3e %3cpath fill='currentColor' d='M21.88%2c8.94%2c10%2c20.6A4.63%2c4.63%2c0%2c0%2c1%2c6.62%2c22h0a5.78%2c5.78%2c0%2c0%2c1-4.05-1.81%2c5.34%2c5.34%2c0%2c0%2c1%2c0-7.56l9.3-9.26a1%2c1%2c0%2c1%2c1%2c1.48%2c1.48l-9.3%2c9.26h0a3.26%2c3.26%2c0%2c0%2c0%2c0%2c4.6%2c3.79%2c3.79%2c0%2c0%2c0%2c2.58%2c1.21%2c2.55%2c2.55%2c0%2c0%2c0%2c1.85-.81h0L20.4%2c7.46a1.83%2c1.83%2c0%2c0%2c0%2c.5-1.39%2c2.24%2c2.24%2c0%2c0%2c0-.63-1.44%2c1.85%2c1.85%2c0%2c0%2c0-2.61%2c0h0L7.43%2c14.73a.48.48%2c0%2c0%2c0%2c0%2c.67.48.48%2c0%2c0%2c0%2c.34.14.46.46%2c0%2c0%2c0%2c.34-.14l7.36-7.28a1%2c1%2c0%2c0%2c1%2c1.48%2c0A1%2c1%2c0%2c0%2c1%2c17%2c9.6h0L9.6%2c16.88h0a2.66%2c2.66%2c0%2c0%2c1-3.65%2c0%2c2.55%2c2.55%2c0%2c0%2c1%2c0-3.63L16.17%2c3.15a4%2c4%2c0%2c0%2c1%2c5.59%2c0A4.31%2c4.31%2c0%2c0%2c1%2c23%2c6%2c3.89%2c3.89%2c0%2c0%2c1%2c21.88%2c8.94Z'/%3e %3c/svg%3e");
+  --di-paperclip-wit: url("data:image/svg+xml,%3csvg id='paperclip' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' style='color: white%3b'%3e %3cpath fill='currentColor' d='M21.88%2c8.94%2c10%2c20.6A4.63%2c4.63%2c0%2c0%2c1%2c6.62%2c22h0a5.78%2c5.78%2c0%2c0%2c1-4.05-1.81%2c5.34%2c5.34%2c0%2c0%2c1%2c0-7.56l9.3-9.26a1%2c1%2c0%2c1%2c1%2c1.48%2c1.48l-9.3%2c9.26h0a3.26%2c3.26%2c0%2c0%2c0%2c0%2c4.6%2c3.79%2c3.79%2c0%2c0%2c0%2c2.58%2c1.21%2c2.55%2c2.55%2c0%2c0%2c0%2c1.85-.81h0L20.4%2c7.46a1.83%2c1.83%2c0%2c0%2c0%2c.5-1.39%2c2.24%2c2.24%2c0%2c0%2c0-.63-1.44%2c1.85%2c1.85%2c0%2c0%2c0-2.61%2c0h0L7.43%2c14.73a.48.48%2c0%2c0%2c0%2c0%2c.67.48.48%2c0%2c0%2c0%2c.34.14.46.46%2c0%2c0%2c0%2c.34-.14l7.36-7.28a1%2c1%2c0%2c0%2c1%2c1.48%2c0A1%2c1%2c0%2c0%2c1%2c17%2c9.6h0L9.6%2c16.88h0a2.66%2c2.66%2c0%2c0%2c1-3.65%2c0%2c2.55%2c2.55%2c0%2c0%2c1%2c0-3.63L16.17%2c3.15a4%2c4%2c0%2c0%2c1%2c5.59%2c0A4.31%2c4.31%2c0%2c0%2c1%2c23%2c6%2c3.89%2c3.89%2c0%2c0%2c1%2c21.88%2c8.94Z'/%3e %3c/svg%3e");
+  /* stylelint-disable value-keyword-case */
+}
+:host *,
+:host *::after,
+:host *::before {
+  box-sizing: border-box;
+}
+:host .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+:host .dso-attachments {
+  color: var(--dso-attachments-counter-color, #666);
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+  /* stylelint-disable-line declaration-property-value-disallowed-list */
+}
+:host .dso-attachments::after {
+  background: var(--dso-icon, var(--di-paperclip-grijs)) no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 1.5em;
+  vertical-align: top;
+  width: 1.5em;
+  content: "";
+  display: inline-block;
+}

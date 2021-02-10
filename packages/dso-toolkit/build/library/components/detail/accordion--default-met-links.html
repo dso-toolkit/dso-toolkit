@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../theme/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="../../styles/dso.css?cachebust=" type="text/css">
+
+<link rel="stylesheet" href="../../_highlight.js_styles/github.css?cachebust=" type="text/css">
+
+
+<title>Accordion: Default Met Links | DSO Toolkit | Component Library</title>
+
+  </head>
+
+  <body>
+  
+  <script>
+    function addCss(fileName) {
+
+      var head = document.head;
+      var link = document.createElement("link");
+
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.href = fileName;
+
+      head.appendChild(link);
+    }
+
+    addCss("../../css/library-only.css");
+  </script>
+
+  <div class="container-fluid" id="frame">
+    <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0; height: 100px;">
+      <div class="col-sm-6 col-xs-3">
+        <a href="../../index.html" class="Header-title" data-pjax="data-pjax">
+          <img src="../../images/toolkit.svg" width="300" alt="DSO Toolkit homepage" />
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-9 text-right">
+        <nav class="navbar navbar-right">
+          <ul class="nav navbar-nav toolkit-version-selector">
+            <li>
+              <a href="https://www.github.com/dso-toolkit/dso-toolkit" target="_blank" rel="noreferrer noopener">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTE3OEEyQTk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTE3OEEyQjk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1MTc4QTI4OTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1MTc4QTI5OTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m4QGuQAAAyRJREFUeNrEl21ojWEYx895TDPbMNlBK46IUiNmPvHBSUjaqc0H8pF5+aDUKPEBqU2NhRQpX5Rv5jWlDIWlMCv7MMSWsWwmb3tpXub4XXWdPHvc9/Gc41nu+nedc7/8r/99PffLdYdDPsvkwsgkTBwsA/PADJCnzX2gHTwBt8Hl7p537/3whn04XoDZDcpBlk+9P8AFcAghzRkJwPF4zGGw0Y9QS0mAM2AnQj77FqCzrtcwB1Hk81SYojHK4DyGuQ6mhIIrBWB9Xm7ug/6B/nZrBHBegrkFxoVGpnwBMSLR9EcEcC4qb8pP14BWcBcUgewMnF3T34VqhWMFkThLJAalwnENOAKiHpJq1FZgI2AT6HZtuxZwR9GidSHtI30jOrbawxlVX78/AbNfhHlomEUJJI89O2MqeE79T8/nk8nMBm/dK576hZgmA3cp/R4l9/UeSxiHLVIlNm4nFfT0bxyuIj7LHRTKai+zdJobwMKzcZSJb0ePV5PKN+BqAAKE47UlMnERELMM3EdYP/yrd+XYb2mOiYBiQ8OQnoRBlXrl9JZix7D1pHTazu4MoyBcnYamqAjIMTR8G4FT8LuhLsexXYYjICBiqhQBvYb6fLZIJCjPypVvaOoVAW2WcasCnL2Nq82xHJNSqlCeFcDshaPK0twkAhosjZL31QYw+1rlMpWGMArl23SBsZZO58F2tlJXmjOXS+s4WGvpMiBJT/I2PInZ6lIs9/hBsNS1hS6BG0DSqmYEDRlCXQrmy50P1oDRKTSegmNbUsA0zDMwRhPJXeCE3vWLPQMvan6X8AgIa1vcR4AkGZkDR4ejJ1UHpsaVI0g2LInpOsNFUud1rhxSV+fzC9Woz2EZkWQuja7/B+jUrgtIMpy9YCW4n4K41YfzRneW5E1KJTe4B2Zq1Q5EHEtj4U3AfEzR5SVY4l7QYQPJdN2as7RKBF0BPZqqH4VgMAMBL8Byxr7y8zCZiDlnOcEKIPmUpgB5Z2ww5RdOiiRiNajUmWda5IG6WbhsyY2fx6m8gLcoJDJFkH219M3We1+cnda93pfycZpIJEL/s/wSYADmOAwAQgdpBAAAAABJRU5ErkJggg==" alt="Open source code repository op GitHub">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="row" data-role="body">
+      <div class="col-xs-4 col-sm-3 col-lg-2" id="navigation-container" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll;">
+        
+        
+
+
+
+<div class="dso-search-bar">
+  <div class="dso-search-bar-input">
+    <label class="dso-search-icon" for="menu-filter">Filteren</label>
+    <input type="text" id="menu-filter" placeholder="Filteren" data-filter-store="filterValue" data-clear-button="clear-menu-filter">
+    <button type="button" id="clear-menu-filter" title="Zoekopdracht legen">Zoekopdracht legen</button>
+  </div>
+</div>
+
+<nav class="dso-tree-view" data-behaviour="tree" id="tree-">
+  <ul>
+    
+      
+  
+    <li>
+      
+      
+        <a href="../../index.html">Documentatie</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../../docs/voor-developers.html">Voor developers</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../../docs/voor-ontwerpers.html">Voor ontwerpers</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../../docs/voor-productowners.html">Voor de product owner</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../../docs/versions.html">Versies</a>
+      
+    </li>
+  
+    <li>
+      
+        <h2 class="dso-tree-view-subhead">Fundament</h2>
+        
+  
+    <ul>
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/logo.html" data-pjax>
+              Logo
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/colors.html" data-pjax>
+              Kleuren
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/typography.html" data-pjax>
+              Typografie
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/layout.html" data-pjax>
+              Lay-out
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/favicon.html" data-pjax>
+              Favicon
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/graphics.html" data-pjax>
+              Illustraties
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/pdf-bestanden.html" data-pjax>
+              Pdf-bestanden
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/zoek-suggestie.html" data-pjax>
+              Zoeksuggesties
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../docs/fundament/datum-tijd.html" data-pjax>
+              Datum en tijd
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+      
+      
+    </li>
+  
+
+    
+
+    
+      
+  
+    <li>
+      
+        <h2 class="dso-tree-view-subhead">Componenten</h2>
+        
+  
+    <ul>
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="accordion.html" data-pjax>
+              Accordion
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="alert.html" data-pjax>
+              Alert <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="anchor.html" data-pjax>
+              Anchor
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="attachments-counter.html" data-pjax>
+              Attachments Counter <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="badge.html" data-pjax>
+              Badge <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="banner.html" data-pjax>
+              Banner
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="breadcrumbs.html" data-pjax>
+              Breadcrumbs
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="buttons.html" data-pjax>
+              Buttons
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="cards.html" data-pjax>
+              Cards
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="conclusion.html" data-pjax>
+              Conclusion
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="definition-list.html" data-pjax>
+              Definition List
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="description.html" data-pjax>
+              Description
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="dropdown-button.html" data-pjax>
+              Dropdown Button
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="footnotes.html" data-pjax>
+              Footnotes
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="form.html" data-pjax>
+              Form
+            </a>
+          </li>
+        
+      
+        
+          <li class="dso-collection" data-behaviour="collection" id="tree-components-collection-form-elements">
+            <button type="button" data-role="toggle"><h3>Form Elements</h3></button>
+            
+              
+            
+            
+  
+    <ul data-role="items">
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-checkboxes.html" data-pjax>
+              Group Checkboxes
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-confirm.html" data-pjax>
+              Group Confirm
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-files.html" data-pjax>
+              Group Files
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-input.html" data-pjax>
+              Group Input
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-input-number.html" data-pjax>
+              Group Input Number
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-radios.html" data-pjax>
+              Group Radios
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-search-bar.html" data-pjax>
+              Group Search Bar
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-select.html" data-pjax>
+              Group Select
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-static.html" data-pjax>
+              Group Static
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="group-textarea.html" data-pjax>
+              Group Textarea
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="form-steps.html" data-pjax>
+              Form Steps
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="highlight-box.html" data-pjax>
+              Highlight Box <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="icon.html" data-pjax>
+              Icon <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="image.html" data-pjax>
+              Image
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="info.html" data-pjax>
+              Info
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="info-button.html" data-pjax>
+              Info Button
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="input-number.html" data-pjax>
+              Input Number
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="jumbotron.html" data-pjax>
+              Jumbotron
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="label.html" data-pjax>
+              Label <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="list-button.html" data-pjax>
+              List Button
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="lists.html" data-pjax>
+              Lists
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="logo.html" data-pjax>
+              Logo
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="modal.html" data-pjax>
+              Modal
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="navigations.html" data-pjax>
+              Navigations
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="pagination.html" data-pjax>
+              Pagination
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="panel.html" data-pjax>
+              Panel
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="progress-bar.html" data-pjax>
+              Progress Bar <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="progress-indicator.html" data-pjax>
+              Progress Indicator
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="rich-content.html" data-pjax>
+              Rich Content
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="search-bar.html" data-pjax>
+              Search Bar
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="shopping-cart.html" data-pjax>
+              Shopping Cart
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="table.html" data-pjax>
+              Table
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="tabs.html" data-pjax>
+              Tabs
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="tooltip.html" data-pjax>
+              Tooltip
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="tree-view.html" data-pjax>
+              Tree View
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="whitebox.html" data-pjax>
+              Whitebox <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+      
+      
+    </li>
+  
+    <li>
+      
+        <h2 class="dso-tree-view-subhead">Voorbeelden</h2>
+        
+  
+    <ul>
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="404pagina.html" data-pjax>
+              404 Pagina
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="aanvragen.html" data-pjax>
+              Aanvragen
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="aanvragen-file-upload.html" data-pjax>
+              Aanvragen File Upload
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="accordion-table.html" data-pjax>
+              Accordion Table
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="actieverzoeken.html" data-pjax>
+              Actieverzoeken
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="anchors.html" data-pjax>
+              Link
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="beheer-basis.html" data-pjax>
+              Beheer Basis
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="footer.html" data-pjax>
+              Footer
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="full-width.html" data-pjax>
+              Full Width
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="header.html" data-pjax>
+              Header
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="homepage.html" data-pjax>
+              Homepage
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="landingspagina.html" data-pjax>
+              Landingspagina
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="layout.html" data-pjax>
+              Lay-out
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="pagina-met-banner.html" data-pjax>
+              Pagina met banner
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="row-equal-heights.html" data-pjax>
+              Row Equal Heights
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="samenwerken.html" data-pjax>
+              Samenwerken
+            </a>
+          </li>
+        
+      
+        
+          <li class="dso-collection" data-behaviour="collection" id="tree-components-collection-wizard">
+            <button type="button" data-role="toggle"><h3>Wizard</h3></button>
+            
+              
+            
+            
+  
+    <ul data-role="items">
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="wizard-stap-1.html" data-pjax>
+              Wizard Stap 1
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="wizard-stap-2.html" data-pjax>
+              Wizard Stap 2
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="wizard-stap-3.html" data-pjax>
+              Wizard Stap 3
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="wizard-stap-4.html" data-pjax>
+              Wizard Stap 4
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="zoeken-in-lijst-cards.html" data-pjax>
+              Zoeken In Lijst Cards
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+      
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+
+      </div>
+
+      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px); overflow-y: scroll;">
+        <div id="pjax-container">
+          
+  
+    
+    
+
+  <div data-behaviour="pen" id="pen-062f0cb4d6fc4e463b760ad1bab58da0">
+    
+      <style type="text/css">
+        .dso-browser-navbar-item-panel:not(.is-active) {
+          display: none;
+        }
+      </style>
+
+      <h1>
+        <a href="../preview/accordion--default-met-links.html" title="Component preview">
+          Accordion: Default Met Links
+          <svg fill="#000000" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h4v-2H5V8h14v10h-4v2h4c1.1 0 2-.9 2-2V6c0-1.1-.89-2-2-2zm-7 6l-4 4h3v6h2v-6h3l-4-4z"/>
+</svg>
+
+        </a>
+      </h1>
+
+      
+        <script>
+          function fixFrameHeight() {
+            var iframe = document.getElementById('component-preview-iframe');
+
+            setTimeout(function () {
+              var iframeHtml = iframe
+                .contentDocument
+                .querySelector('.container, body');
+
+              if (iframeHtml) {
+                iframe.style.height = iframeHtml.offsetHeight + 50 + 'px';
+              }
+            }, 50);
+          }
+        </script>
+
+        <div data-behaviour="browser" id="browser-062f0cb4d6fc4e463b760ad1bab58da0">
+          <nav class="dso-navbar">
+            <ul class="dso-nav dso-nav-main">
+              <li class="is-active dso-browser-navbar-item">
+                <a href="#browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-notes" aria-controls="notes-tab">
+                  Documentatie
+                </a>
+              </li>
+              <li class="is-active dso-browser-navbar-item">
+                <a href="#browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-component" onclick="fixFrameHeight()" aria-controls="component-tab">
+                  Component
+                  
+                </a>
+              </li>
+              <li class="is-active dso-browser-navbar-item">
+                <a href="#browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-html" aria-controls="html-tab">
+                  HTML
+                </a>
+              </li>
+              
+              <li class="is-active dso-browser-navbar-item">
+                <a href="#browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-context" aria-controls="context-tab">
+                  Context
+                </a>
+              </li>
+              <li class="is-active dso-browser-navbar-item">
+                <a href="#browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-view" aria-controls="view-tab">
+                  View
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="dso-preview" data-behaviour="preview">
+            
+              <div class="dso-browser-navbar-item-panel" id="browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-notes" aria-labelledby="notes-tab">
+  <div class="dso-rich-content">
+    
+      <p>Het accordioncomponent is een lijst met uitklapbare titels. Gebruikers kunnen hiermee delen van content in- en uitklappen. Doordat alleen de titels zichtbaar zijn ziet de gebruiker snel wat belangrijk is om te lezen.</p>
+<h2 id="technische-opmerkingen">Technische opmerkingen</h2>
+<p>Een accordion (<code>.dso-accordion</code>) bestaat uit secties (<code>.dso-accordion-section</code>). Een sectie heeft een handle (<code>.dso-section-handle</code>) en body (<code>.dso-section-body</code>).</p>
+<p>Een accordion section in de state “open” moet een <code>.dso-open</code> class op <code>.dso-accordion-section</code> krijgen. Dit zorgt voor het “chevron-up”-icoon. Ook als het <code>.dso-accordion-section</code> element niet in het DOM staat, moet een open accordion altijd <code>.dso-open</code> krijgen.</p>
+<p>Er zijn 4 modifiers: <code>.dso-succes</code>, <code>.dso-warning</code>, <code>.dso-info</code> en <code>.dso-danger</code> die op de <code>.dso-accordion-section</code> kunnen.</p>
+<p>Het is mogelijk om een accordion in een accordion te plaatsen. Er moet dan wel <code>.dso-nested-accordion</code> op de <code>.dso-accordion-section</code> worden gezet.</p>
+<h2 id="wanneer-te-gebruiken">Wanneer te gebruiken</h2>
+<p>Gebruik een accordion bij lange pagina’s met veel content om scrollen te verminderen. De titels vormen voor de gebruiker een informatiestructuur die makkelijk te overzien is. Ook wordt een pagina makkelijker leesbaar als je delen van de content kunt verbergen.</p>
+<p>In sommige gevallen is een accordion beter dan anchors omdat de informatiestructuur behouden blijft. Accordions zijn ook beter bij mobiele weergave, waar de ruimte op de pagina beperkt is.</p>
+<h2 id="wanneer-niet-te-gebruiken">Wanneer niet te gebruiken</h2>
+<p>Gebruik een accordion niet als alle content zichtbaar moet zijn om vragen van gebruikers te beantwoorden. De relevantie van de content is dan belangrijker dan de totale lengte van de pagina.</p>
+<h2 id="hoe-te-gebruiken">Hoe te gebruiken</h2>
+<p>Zorg dat de gebruiker meerdere delen tegelijk kan openen. De delen van een accordion hebben twee verschillende posities: ingeklapt en uitgeklapt. De posities zijn af te lezen aan de chevron. Wijst de chevron naar beneden, dan is de accordion ingeklapt. Wijst de chevron naar boven, dan is de accordion uitgeklapt. De accordion kan ook genest gebruikt worden.</p>
+<h2 id="gedrag-en-toegankelijkheid">Gedrag en toegankelijkheid</h2>
+<p>Let bij implementatie van het accordion op het volgende:</p>
+<ul>
+<li>Gebruik voor de uitklapbare knoppen <code>&lt;button&gt;</code>.</li>
+<li>Geef deze knoppen een heading op het juiste niveau.<ul>
+<li>Meestal is dat 1 niveau onder het niveau van de heading die boven het accordion staat. Stel dat het accordion direct onder de paginatitel staat (dat is een <code>&lt;h1&gt;</code>). Dan krijgt de knop <code>&lt;h2&gt;</code>.</li>
+<li>In een genest accordion heeft de geneste knop een heading van 1 niveau onder de heading van de bovenliggende knop. Stel dat de bovenliggende knop een <code>&lt;h2&gt;</code> heeft. Dan krijgt de geneste knop een <code>&lt;h3&gt;</code>.</li>
+</ul>
+</li>
+<li>Geef de knoppen het aria-expanded attribuut. Screenreaders hebben dit attribuut nodig om te bepalen of een knop is ingeklapt of uitgeklapt.</li>
+<li>Zorg dat je javascript het aria-expanded attribuut op “true” zet bij het uitklappen en op “false” bij het inklappen.</li>
+<li>Zorg daarnaast dat je javascript de modifier .dso-open meegeeft (zie html) aan de bovenliggende div van een uitgeklapte knop. De javascript moet de modifier weer weghalen bij het inklappen. Daarmee zorg je dat het verschil tussen een ingeklapte knop en een uitgeklapte knop goed zichtbaar is.</li>
+<li>Voegt u via een modifier een statusicoon toe aan de uitklapbare knop (.dso-succes, .dso-warning, .dso-info of .dso-danger)? Let dan op de volgende dingen:<ul>
+<li>Beschrijf de betekenis van het statusicoon in de context van de accordion met een .sr-only span. Plaats deze in de tekst van de knop.</li>
+<li>Voorbeeldtekst voor .dso-succes: “Informatie bouwwerkzaamheden <code>&lt;span class=&quot;sr-only&quot;&gt;(afgerond)&lt;/span&gt;</code>“</li>
+</ul>
+</li>
+</ul>
+<h2 id="component-in-context">Component in context</h2>
+<ul>
+<li><a href="../../components/detail/aanvragen">Aanvragen</a></li>
+</ul>
+<h2 id="bronvermelding">Bronvermelding</h2>
+<ul>
+<li>U.S. Web Design System (USWDS). Components Accordion. Geraadpleegd op 20 maart 2020, van <a href="https://designsystem.digital.gov/components/accordion/">https://designsystem.digital.gov/components/accordion/</a></li>
+<li>NN/g Nielsen Norman Group. Accordions complex content. Geraadpleegd op 20 maart 2020, van <a href="https://www.nngroup.com/articles/accordions-complex-content">https://www.nngroup.com/articles/accordions-complex-content</a></li>
+<li>W3C. (2019, 14 augustus). WAI-ARIA Authoring Practices 1.1: 3.1 Accordion (Sections With Show/Hide Functionality)Geraadpleegd op 23 juli 2020, van <a href="https://www.w3.org/TR/wai-aria-practices/#accordion">https://www.w3.org/TR/wai-aria-practices/#accordion</a></li>
+</ul>
+
+    
+  </div>
+</div>
+
+            
+              <div class="dso-browser-navbar-item-panel" id="browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-component" aria-labelledby="component-tab">
+  <iframe
+    id="component-preview-iframe"
+    class="dso-preview-iframe"
+    onload="fixFrameHeight()"
+    data-role="window"
+    src="../preview/accordion--default-met-links.html?inline=1"
+    style="width: 100%;"
+    sandbox="allow-same-origin allow-scripts allow-forms allow-modals"
+    
+      style=""
+    
+    marginwidth="0"
+    marginheight="0"
+    frameborder="0"
+    vspace="0"
+    hspace="0"
+  ></iframe>
+</div>
+
+            
+              
+
+<div class="dso-browser-navbar-item-panel" id="browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-html" aria-labelledby="html-tab">
+  
+    <pre><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+                Oprit (h2)
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-open&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+                Woning (h3)
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dit is de inhoud van <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Woning (h2)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.dso-accordion.handle<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;<span class="hljs-name">s</span></span> te waarborgen staan alle varianten in het DOM (<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h4<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h5<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-success&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                    succes:
+                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                Bouwwerkzaamheden (h4)
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-warning dso-open dso-nested-accordion&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                    waarschuwing:
+                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                Plaats van het bouwwerk (h5)
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dit is de inhoud van <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Plaats van het bouwwerk (h4)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.dso-accordion.handle<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;<span class="hljs-name">s</span></span> te waarborgen staan alle varianten in het DOM (<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h4<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h5<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>Woning (h2)
+
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-success dso-open&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                                succes:
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                            Bouwwerkzaamheden (h3)
+
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dit is een geneste accordion. De inhoud is van <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Bouwwerkzaamheden (h3)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>. Zie de <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> van dit component.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-warning&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                                waarschuwing:
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                            Plaats van het bouwwerk (h4)
+
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-info&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                                info:
+
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                            Afmetingen van het bouwwerk (h5)
+
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-danger&quot;</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                                fout:
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                            Extra werkzaamheden (h5)
+
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-info&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                    info:
+
+                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                Afmetingen van het bouwwerk (h5)
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-danger&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                    fout:
+                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                Extra werkzaamheden (h5)
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-status&quot;</span>&gt;</span>5 van 8 beantwoord<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-warning dso-open&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                    waarschuwing:
+                <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                Optionele werkzaamheden (h5)
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-status&quot;</span>&gt;</span>6 van 8 beantwoord<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dit is de inhoud van <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Optionele werkzaamheden (h5)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.dso-accordion.handle<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;<span class="hljs-name">s</span></span> te waarborgen staan alle varianten in het DOM (<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h4<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h5<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+                Bijgevoegde werkzaamheden (h5)
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">dso-attachments-counter</span> <span class="hljs-attr">count</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dso-attachments-counter</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+                Afsluitende werkzaamheden (h5)
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-status&quot;</span>&gt;</span>7 van 8 beantwoord<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-accordion-section dso-open&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">h5</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-handle&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+                Evaluatie werkzaamheden (h5)
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">dso-attachments-counter</span> <span class="hljs-attr">count</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dso-attachments-counter</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">h5</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Dit is de inhoud van <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Evaluatie werkzaamheden (h5)<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.dso-accordion.handle<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;<span class="hljs-name">s</span></span> te waarborgen staan alle varianten in het DOM (<span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h2<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h3<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h4<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>, <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>h5<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+  
+</div>
+
+            
+              <div class="dso-browser-navbar-item-panel" id="browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-view" aria-labelledby="view-tab">
+  <div>
+    <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-variable">{{ className(&#x27;dso-accordion&#x27;, modifiers) }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+  </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">for</span></span> section <span class="hljs-keyword">in</span> sections -%}</span><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-variable">{{ className(&#x27;dso-accordion-section&#x27;, [section.state, &#x27;dso-&#x27; + section.state], [section.open, &#x27;dso-open&#x27;], [section.sections, &#x27;dso-nested-accordion&#x27;]) }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+      &lt;</span><span class="hljs-template-variable">{{ section.header if section.header else &#x27;h3&#x27; }}</span><span class="xml"> class=&quot;dso-section-handle&quot;&gt;
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> section.type === &#x27;link&#x27; %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.open %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">true</span>&quot;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">false</span>&quot;</span></span><span class="hljs-template-tag">{%<span class="hljs-name"><span class="hljs-name">endif</span></span>%}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> -%}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">aria-expanded</span>=</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.open %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">true</span>&quot;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">false</span>&quot;</span></span><span class="hljs-template-tag">{%<span class="hljs-name"><span class="hljs-name">endif</span></span>%}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">endif</span></span> -%}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> section.state %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+          </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> section.state === &#x27;success&#x27; %}</span><span class="xml">
+            succes:
+          </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">elif</span></span> section.state === &#x27;warning&#x27; %}</span><span class="xml">
+            waarschuwing:
+          </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">elif</span></span> section.state === &#x27;danger&#x27; %}</span><span class="xml">
+            fout:
+          </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">elif</span></span> section.state === &#x27;info&#x27; %}</span><span class="xml">
+            info:
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> -%}</span><span class="xml">
+
+      </span><span class="hljs-template-variable">{{ section.title }}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.status %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-status&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{ section.status }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.attachments %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">dso-attachments-counter</span> <span class="hljs-attr">count</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ section.attachments }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dso-attachments-counter</span>&gt;</span>
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.type === &#x27;link&#x27; %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+        &lt;/</span><span class="hljs-template-variable">{{ section.header if section.header else &#x27;h3&#x27; }}</span><span class="xml">&gt;
+      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+        &lt;/</span><span class="hljs-template-variable">{{ section.header if section.header else &#x27;h3&#x27; }}</span><span class="xml">&gt;
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> section.open %}</span><span class="xml">
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.richContent %}</span><span class="xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+              </span><span class="hljs-template-variable">{{ section.richContent | safe }}</span><span class="xml">
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.fieldsets %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> &#x27;<a href="form-fieldsets.html">@form-fieldsets</a>&#x27;, {fieldsets: section.fieldsets} %}</span><span class="xml">
+            </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> &#x27;<a href="form-buttons.html">@form-buttons</a>&#x27;, {buttons: section.buttons} %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+          </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> section.sections %}</span><span class="xml">
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-variable">{{ className(&#x27;dso-accordion&#x27;, section.modifiers) }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+              </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">for</span></span> subsection <span class="hljs-keyword">in</span> section.sections -%}</span><span class="xml">
+                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> </span></span><span class="hljs-template-variable">{{ className(&#x27;dso-accordion-section&#x27;, [subsection.state, &#x27;dso-&#x27; + subsection.state], [subsection.open, &#x27;dso-open&#x27;], [subsection.sections, &#x27;dso-nested-accordion&#x27;]) }}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+                  &lt;</span><span class="hljs-template-variable">{{ subsection.header if subsection.header else &#x27;div&#x27; }}</span><span class="xml"> class=&quot;dso-section-handle&quot;&gt;
+                  </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> section.type === &#x27;link&#x27; %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#&quot;</span> <span class="hljs-attr">aria-expanded</span>=</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.open %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">true</span>&quot;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">false</span>&quot;</span></span><span class="hljs-template-tag">{%<span class="hljs-name"><span class="hljs-name">endif</span></span>%}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+                  </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">aria-expanded</span>=</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.open %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">true</span>&quot;</span></span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml"><span class="hljs-tag">&quot;<span class="hljs-attr">false</span>&quot;</span></span><span class="hljs-template-tag">{%<span class="hljs-name"><span class="hljs-name">endif</span></span>%}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+                  </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.state %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;sr-only&quot;</span>&gt;</span>
+                      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.state === &#x27;success&#x27; %}</span><span class="xml">
+                        succes:
+                      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">elif</span></span> subsection.state === &#x27;warning&#x27; %}</span><span class="xml">
+                        waarschuwing:
+                      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">elif</span></span> subsection.state === &#x27;danger&#x27; %}</span><span class="xml">
+                        fout:
+                      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">elif</span></span> subsection.state === &#x27;info&#x27; %}</span><span class="xml">
+                        info:
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> -%}</span><span class="xml">
+
+                  </span><span class="hljs-template-variable">{{ subsection.title }}</span><span class="xml">
+
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.status %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-status&quot;</span>&gt;</span></span><span class="hljs-template-variable">{{ subsection.status }}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.attachments %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">dso-attachments-counter</span> <span class="hljs-attr">count</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">{{ subsection.attachments }}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dso-attachments-counter</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> section.type === &#x27;link&#x27; %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+                    &lt;/</span><span class="hljs-template-variable">{{ subsection.header if subsection.header else &#x27;div&#x27; }}</span><span class="xml">&gt;
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">else</span></span> %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    &lt;/</span><span class="hljs-template-variable">{{ subsection.header if subsection.header else &#x27;div&#x27; }}</span><span class="xml">&gt;
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.open %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-section-body&quot;</span>&gt;</span>
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.richContent %}</span><span class="xml">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dso-rich-content&quot;</span>&gt;</span>
+                          </span><span class="hljs-template-variable">{{ subsection.richContent | safe }}</span><span class="xml">
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">if</span></span> subsection.fieldsets %}</span><span class="xml">
+                        </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> &#x27;<a href="form-fieldsets.html">@form-fieldsets</a>&#x27;, {fieldsets: subsection.fieldsets} %}</span><span class="xml">
+                        </span><span class="hljs-template-tag">{% <span class="hljs-name">render</span> &#x27;<a href="form-buttons.html">@form-buttons</a>&#x27;, {buttons: subsection.buttons} %}</span><span class="xml">
+                      </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                  </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+              </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">endfor</span></span> %}</span><span class="xml">
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+          </span><span class="hljs-template-tag">{% <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">endif</span></span> %}</span><span class="xml">
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  </span><span class="hljs-template-tag">{%- <span class="hljs-name"><span class="hljs-name">endfor</span></span> %}</span><span class="xml">
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></pre>
+  </div>
+</div>
+
+            
+              <div class="dso-browser-navbar-item-panel" id="browser-062f0cb4d6fc4e463b760ad1bab58da0-panel-context" aria-labelledby="context-tab">
+  <div>
+    
+      
+        <pre><span class="hljs-attr">__title:</span> <span class="hljs-string">default</span> <span class="hljs-string">met</span> <span class="hljs-string">links</span>
+<span class="hljs-attr">sections:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Oprit</span> <span class="hljs-string">(h2)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel_oprit</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h2</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Woning</span> <span class="hljs-string">(h3)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel1</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">open:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h3</span>
+    <span class="hljs-attr">richContent:</span> <span class="hljs-string">&gt;
+      &lt;p&gt;Dit is de inhoud van &lt;strong&gt;Woning (h2)&lt;/strong&gt;&lt;/p&gt;
+</span>
+      <span class="hljs-string">&lt;p&gt;Semantisch</span> <span class="hljs-string">klopt</span> <span class="hljs-string">deze</span> <span class="hljs-string">pagina</span> <span class="hljs-string">niet,</span> <span class="hljs-string">maar</span> <span class="hljs-string">om</span> <span class="hljs-string">de</span> <span class="hljs-string">styling</span> <span class="hljs-string">voor</span> <span class="hljs-string">de</span>
+      <span class="hljs-string">verschillende</span> <span class="hljs-string">&lt;code&gt;.dso-accordion.handle&lt;/code&gt;s</span> <span class="hljs-string">te</span> <span class="hljs-string">waarborgen</span> <span class="hljs-string">staan</span> <span class="hljs-string">alle</span>
+      <span class="hljs-string">varianten</span> <span class="hljs-string">in</span> <span class="hljs-string">het</span> <span class="hljs-string">DOM</span> <span class="hljs-string">(&lt;code&gt;h2&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h3&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h4&lt;/code&gt;,</span>
+      <span class="hljs-string">&lt;code&gt;h5&lt;/code&gt;)&lt;/p&gt;</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Bouwwerkzaamheden</span> <span class="hljs-string">(h4)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel2</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">success</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h4</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Plaats</span> <span class="hljs-string">van</span> <span class="hljs-string">het</span> <span class="hljs-string">bouwwerk</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel3</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">warning</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+    <span class="hljs-attr">richContent:</span> <span class="hljs-string">&gt;
+      &lt;p&gt;Dit is de inhoud van &lt;strong&gt;Plaats van het bouwwerk (h4)&lt;/strong&gt;&lt;/p&gt;
+</span>
+      <span class="hljs-string">&lt;p&gt;Semantisch</span> <span class="hljs-string">klopt</span> <span class="hljs-string">deze</span> <span class="hljs-string">pagina</span> <span class="hljs-string">niet,</span> <span class="hljs-string">maar</span> <span class="hljs-string">om</span> <span class="hljs-string">de</span> <span class="hljs-string">styling</span> <span class="hljs-string">voor</span> <span class="hljs-string">de</span>
+      <span class="hljs-string">verschillende</span> <span class="hljs-string">&lt;code&gt;.dso-accordion.handle&lt;/code&gt;s</span> <span class="hljs-string">te</span> <span class="hljs-string">waarborgen</span> <span class="hljs-string">staan</span> <span class="hljs-string">alle</span>
+      <span class="hljs-string">varianten</span> <span class="hljs-string">in</span> <span class="hljs-string">het</span> <span class="hljs-string">DOM</span> <span class="hljs-string">(&lt;code&gt;h2&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h3&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h4&lt;/code&gt;,</span>
+      <span class="hljs-string">&lt;code&gt;h5&lt;/code&gt;)&lt;/p&gt;</span>
+    <span class="hljs-attr">open:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">sections:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Woning</span> <span class="hljs-string">(h2)</span>
+        <span class="hljs-attr">id:</span> <span class="hljs-string">panel1</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+        <span class="hljs-attr">header:</span> <span class="hljs-string">h2</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Bouwwerkzaamheden</span> <span class="hljs-string">(h3)</span>
+        <span class="hljs-attr">id:</span> <span class="hljs-string">panel2</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+        <span class="hljs-attr">open:</span> <span class="hljs-literal">true</span>
+        <span class="hljs-attr">state:</span> <span class="hljs-string">success</span>
+        <span class="hljs-attr">header:</span> <span class="hljs-string">h3</span>
+        <span class="hljs-attr">richContent:</span> <span class="hljs-string">&gt;
+          &lt;p&gt;Dit is een geneste accordion. De inhoud is van
+          &lt;strong&gt;Bouwwerkzaamheden (h3)&lt;/strong&gt;. Zie de &lt;em&gt;Notes&lt;/em&gt; van dit
+          component.&lt;/p&gt;
+</span>      <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Plaats</span> <span class="hljs-string">van</span> <span class="hljs-string">het</span> <span class="hljs-string">bouwwerk</span> <span class="hljs-string">(h4)</span>
+        <span class="hljs-attr">id:</span> <span class="hljs-string">panel3</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+        <span class="hljs-attr">state:</span> <span class="hljs-string">warning</span>
+        <span class="hljs-attr">header:</span> <span class="hljs-string">h4</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Afmetingen</span> <span class="hljs-string">van</span> <span class="hljs-string">het</span> <span class="hljs-string">bouwwerk</span> <span class="hljs-string">(h5)</span>
+        <span class="hljs-attr">id:</span> <span class="hljs-string">panel4</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+        <span class="hljs-attr">state:</span> <span class="hljs-string">info</span>
+        <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Extra</span> <span class="hljs-string">werkzaamheden</span> <span class="hljs-string">(h5)</span>
+        <span class="hljs-attr">id:</span> <span class="hljs-string">panel5</span>
+        <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+        <span class="hljs-attr">state:</span> <span class="hljs-string">danger</span>
+        <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Afmetingen</span> <span class="hljs-string">van</span> <span class="hljs-string">het</span> <span class="hljs-string">bouwwerk</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel4</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">info</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Extra</span> <span class="hljs-string">werkzaamheden</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel5</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">danger</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+    <span class="hljs-attr">status:</span> <span class="hljs-number">5</span> <span class="hljs-string">van</span> <span class="hljs-number">8</span> <span class="hljs-string">beantwoord</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Optionele</span> <span class="hljs-string">werkzaamheden</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel6</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">state:</span> <span class="hljs-string">warning</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+    <span class="hljs-attr">richContent:</span> <span class="hljs-string">&gt;
+      &lt;p&gt;Dit is de inhoud van &lt;strong&gt;Optionele werkzaamheden (h5)&lt;/strong&gt;&lt;/p&gt;
+</span>
+      <span class="hljs-string">&lt;p&gt;Semantisch</span> <span class="hljs-string">klopt</span> <span class="hljs-string">deze</span> <span class="hljs-string">pagina</span> <span class="hljs-string">niet,</span> <span class="hljs-string">maar</span> <span class="hljs-string">om</span> <span class="hljs-string">de</span> <span class="hljs-string">styling</span> <span class="hljs-string">voor</span> <span class="hljs-string">de</span>
+      <span class="hljs-string">verschillende</span> <span class="hljs-string">&lt;code&gt;.dso-accordion.handle&lt;/code&gt;s</span> <span class="hljs-string">te</span> <span class="hljs-string">waarborgen</span> <span class="hljs-string">staan</span> <span class="hljs-string">alle</span>
+      <span class="hljs-string">varianten</span> <span class="hljs-string">in</span> <span class="hljs-string">het</span> <span class="hljs-string">DOM</span> <span class="hljs-string">(&lt;code&gt;h2&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h3&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h4&lt;/code&gt;,</span>
+      <span class="hljs-string">&lt;code&gt;h5&lt;/code&gt;)&lt;/p&gt;</span>
+    <span class="hljs-attr">open:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">status:</span> <span class="hljs-number">6</span> <span class="hljs-string">van</span> <span class="hljs-number">8</span> <span class="hljs-string">beantwoord</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Bijgevoegde</span> <span class="hljs-string">werkzaamheden</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel7</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+    <span class="hljs-attr">attachments:</span> <span class="hljs-number">2</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Afsluitende</span> <span class="hljs-string">werkzaamheden</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel8</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+    <span class="hljs-attr">status:</span> <span class="hljs-number">7</span> <span class="hljs-string">van</span> <span class="hljs-number">8</span> <span class="hljs-string">beantwoord</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">title:</span> <span class="hljs-string">Evaluatie</span> <span class="hljs-string">werkzaamheden</span> <span class="hljs-string">(h5)</span>
+    <span class="hljs-attr">id:</span> <span class="hljs-string">panel8</span>
+    <span class="hljs-attr">type:</span> <span class="hljs-string">link</span>
+    <span class="hljs-attr">header:</span> <span class="hljs-string">h5</span>
+    <span class="hljs-attr">attachments:</span> <span class="hljs-number">1</span>
+    <span class="hljs-attr">richContent:</span> <span class="hljs-string">&gt;
+      &lt;p&gt;Dit is de inhoud van &lt;strong&gt;Evaluatie werkzaamheden (h5)&lt;/strong&gt;&lt;/p&gt;
+</span>
+      <span class="hljs-string">&lt;p&gt;Semantisch</span> <span class="hljs-string">klopt</span> <span class="hljs-string">deze</span> <span class="hljs-string">pagina</span> <span class="hljs-string">niet,</span> <span class="hljs-string">maar</span> <span class="hljs-string">om</span> <span class="hljs-string">de</span> <span class="hljs-string">styling</span> <span class="hljs-string">voor</span> <span class="hljs-string">de</span>
+      <span class="hljs-string">verschillende</span> <span class="hljs-string">&lt;code&gt;.dso-accordion.handle&lt;/code&gt;s</span> <span class="hljs-string">te</span> <span class="hljs-string">waarborgen</span> <span class="hljs-string">staan</span> <span class="hljs-string">alle</span>
+      <span class="hljs-string">varianten</span> <span class="hljs-string">in</span> <span class="hljs-string">het</span> <span class="hljs-string">DOM</span> <span class="hljs-string">(&lt;code&gt;h2&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h3&lt;/code&gt;,</span> <span class="hljs-string">&lt;code&gt;h4&lt;/code&gt;,</span>
+      <span class="hljs-string">&lt;code&gt;h5&lt;/code&gt;)&lt;/p&gt;</span>
+    <span class="hljs-attr">open:</span> <span class="hljs-literal">true</span>
+</pre>
+      
+      
+  </div>
+</div>
+
+            
+          </div>
+        </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+<script src="../../theme/theme.js?cachebust="></script>
+
+
+<script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+<script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+
+
+  </body>
+</html>

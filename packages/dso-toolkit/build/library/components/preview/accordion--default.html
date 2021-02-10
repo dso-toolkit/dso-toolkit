@@ -1,0 +1,341 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="musb67gi" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Default | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <div class="dso-accordion">
+        <div class="dso-accordion-section">
+          <h2 class="dso-section-handle"><button type="button" aria-expanded="false">Oprit (h2)</button></h2>
+        </div>
+        <div class="dso-accordion-section dso-open">
+          <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Woning (h3)</button></h3>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Woning (h2)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dso-accordion-section dso-success">
+          <h4 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              <span class="sr-only"> succes: </span>
+              Bouwwerkzaamheden (h4)
+            </button>
+          </h4>
+        </div>
+        <div class="dso-accordion-section dso-warning dso-open dso-nested-accordion">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="true">
+              <span class="sr-only"> waarschuwing: </span>
+              Plaats van het bouwwerk (h5)
+            </button>
+          </h5>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h4)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+
+            <div class="dso-accordion">
+              <div class="dso-accordion-section">
+                <h2 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">Woning (h2)</button>
+                </h2>
+              </div>
+              <div class="dso-accordion-section dso-success dso-open">
+                <h3 class="dso-section-handle">
+                  <button type="button" aria-expanded="true">
+                    <span class="sr-only"> succes: </span>
+                    Bouwwerkzaamheden (h3)
+                  </button>
+                </h3>
+
+                <div class="dso-section-body">
+                  <div class="dso-rich-content">
+                    <p>
+                      Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h3)</strong>. Zie de
+                      <em>Notes</em> van dit component.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="dso-accordion-section dso-warning">
+                <h4 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">
+                    <span class="sr-only"> waarschuwing: </span>
+                    Plaats van het bouwwerk (h4)
+                  </button>
+                </h4>
+              </div>
+              <div class="dso-accordion-section dso-info">
+                <h5 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">
+                    <span class="sr-only"> info: </span>
+                    Afmetingen van het bouwwerk (h5)
+                  </button>
+                </h5>
+              </div>
+              <div class="dso-accordion-section dso-danger">
+                <h5 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">
+                    <span class="sr-only"> fout: </span>
+                    Extra werkzaamheden (h5)
+                  </button>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dso-accordion-section dso-info">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              <span class="sr-only"> info: </span>
+              Afmetingen van het bouwwerk (h5)
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section dso-danger">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              <span class="sr-only"> fout: </span>
+              Extra werkzaamheden (h5)
+
+              <span class="dso-status">5 van 8 beantwoord</span>
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section dso-warning dso-open">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="true">
+              <span class="sr-only"> waarschuwing: </span>
+              Optionele werkzaamheden (h5)
+
+              <span class="dso-status">6 van 8 beantwoord</span>
+            </button>
+          </h5>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Optionele werkzaamheden (h5)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dso-accordion-section">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              Bijgevoegde werkzaamheden (h5)
+
+              <dso-attachments-counter count="2"></dso-attachments-counter>
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              Afsluitende werkzaamheden (h5)
+
+              <span class="dso-status">7 van 8 beantwoord</span>
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section dso-open">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="true">
+              Evaluatie werkzaamheden (h5)
+
+              <dso-attachments-counter count="1"></dso-attachments-counter>
+            </button>
+          </h5>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Evaluatie werkzaamheden (h5)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <div class="dso-accordion">
+        <div class="dso-accordion-section">
+          <h2 class="dso-section-handle"><button type="button" aria-expanded="false">Oprit (h2)</button></h2>
+        </div>
+        <div class="dso-accordion-section dso-open">
+          <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Woning (h3)</button></h3>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Woning (h2)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dso-accordion-section dso-success">
+          <h4 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              <span class="sr-only"> succes: </span> Bouwwerkzaamheden (h4)
+            </button>
+          </h4>
+        </div>
+        <div class="dso-accordion-section dso-warning dso-open dso-nested-accordion">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="true">
+              <span class="sr-only"> waarschuwing: </span> Plaats van het bouwwerk (h5)
+            </button>
+          </h5>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Plaats van het bouwwerk (h4)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+            <div class="dso-accordion">
+              <div class="dso-accordion-section">
+                <h2 class="dso-section-handle"><button type="button" aria-expanded="false">Woning (h2)</button></h2>
+              </div>
+              <div class="dso-accordion-section dso-success dso-open">
+                <h3 class="dso-section-handle">
+                  <button type="button" aria-expanded="true">
+                    <span class="sr-only"> succes: </span> Bouwwerkzaamheden (h3)
+                  </button>
+                </h3>
+                <div class="dso-section-body">
+                  <div class="dso-rich-content">
+                    <p>
+                      Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h3)</strong>. Zie de
+                      <em>Notes</em> van dit component.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="dso-accordion-section dso-warning">
+                <h4 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">
+                    <span class="sr-only"> waarschuwing: </span> Plaats van het bouwwerk (h4)
+                  </button>
+                </h4>
+              </div>
+              <div class="dso-accordion-section dso-info">
+                <h5 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">
+                    <span class="sr-only"> info: </span> Afmetingen van het bouwwerk (h5)
+                  </button>
+                </h5>
+              </div>
+              <div class="dso-accordion-section dso-danger">
+                <h5 class="dso-section-handle">
+                  <button type="button" aria-expanded="false">
+                    <span class="sr-only"> fout: </span> Extra werkzaamheden (h5)
+                  </button>
+                </h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dso-accordion-section dso-info">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              <span class="sr-only"> info: </span> Afmetingen van het bouwwerk (h5)
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section dso-danger">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              <span class="sr-only"> fout: </span> Extra werkzaamheden (h5)
+              <span class="dso-status">5 van 8 beantwoord</span>
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section dso-warning dso-open">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="true">
+              <span class="sr-only"> waarschuwing: </span> Optionele werkzaamheden (h5)
+              <span class="dso-status">6 van 8 beantwoord</span>
+            </button>
+          </h5>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Optionele werkzaamheden (h5)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dso-accordion-section">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              Bijgevoegde werkzaamheden (h5)
+              <span class="dso-attachments">2 <span class="sr-only">bijlagen</span></span>
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="false">
+              Afsluitende werkzaamheden (h5) <span class="dso-status">7 van 8 beantwoord</span>
+            </button>
+          </h5>
+        </div>
+        <div class="dso-accordion-section dso-open">
+          <h5 class="dso-section-handle">
+            <button type="button" aria-expanded="true">
+              Evaluatie werkzaamheden (h5) <span class="dso-attachments">1 <span class="sr-only">bijlage</span></span>
+            </button>
+          </h5>
+          <div class="dso-section-body">
+            <div class="dso-rich-content">
+              <p>Dit is de inhoud van <strong>Evaluatie werkzaamheden (h5)</strong></p>
+              <p>
+                Semantisch klopt deze pagina niet, maar om de styling voor de verschillende
+                <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>,
+                <code>h3</code>, <code>h4</code>, <code>h5</code>)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

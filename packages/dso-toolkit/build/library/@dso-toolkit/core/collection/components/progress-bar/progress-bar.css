@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  /* stylelint-disable value-keyword-case */
+}
+:host *,
+:host *::after,
+:host *::before {
+  box-sizing: border-box;
+}
+:host .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+:host .progress {
+  background-color: #fff;
+  border: 1px solid #39870c;
+  height: 16px;
+  margin-bottom: calc(16px + 1em);
+  position: relative;
+}
+:host .progress-bar {
+  background-color: #39870c;
+  color: #fff;
+  float: left;
+  font-size: 14px;
+  height: 100%;
+  line-height: 16px;
+  text-align: center;
+  width: 0%;
+}
+:host .progress-bar > span:not(.sr-only) {
+  color: #191919;
+  left: 0;
+  position: absolute;
+  top: calc(100% + 8px);
+}

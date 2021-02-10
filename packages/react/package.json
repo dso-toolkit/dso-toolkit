@@ -1,0 +1,34 @@
+{
+  "name": "@dso-toolkit/react",
+  "version": "17.0.0-rc2",
+  "description": "React specific wrapper for @dso-toolkit/core web components",
+  "homepage": "https://www.dso-toolkit.nl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dso-toolkit/dso-toolkit.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf dist",
+    "compile": "tsc --project ."
+  },
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "rimraf": "3.0.2",
+    "tslib": "2.1.0",
+    "typescript": "4.1.2"
+  },
+  "peerDependencies": {
+    "@dso-toolkit/core": "*",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}

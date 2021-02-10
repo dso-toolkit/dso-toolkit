@@ -1,0 +1,83 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="ikpoyi8k" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Status Info | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+    <style type="text/css">
+      .icon-container {
+        margin: 0 auto;
+        max-width: 600px;
+      }
+
+      ol {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding-left: 0;
+      }
+
+      ol::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      li {
+        border: 5px solid #fff;
+        background-color: #ddd;
+        width: 25%;
+        padding: 8px;
+        text-align: center;
+      }
+
+      @media (max-width: 650px) {
+        li {
+          width: 33%;
+        }
+      }
+
+      @media (max-width: 400px) {
+        li {
+          width: 50%;
+        }
+      }
+
+      ol li div {
+        margin-bottom: 8px;
+      }
+
+      li dso-icon,
+      li svg.di {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <div class="dso-rich-content icon-container">
+        <ol>
+          <dso-icon icon="status-info"></dso-icon>
+        </ol>
+      </div>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <div class="dso-rich-content icon-container">
+        <ol>
+          <svg class="di status-info"><use href="../../dso-icons.svg#status-info" /></svg>
+        </ol>
+      </div>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

@@ -1,0 +1,733 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="vg52h5td" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Group Input | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <form class="form-horizontal">
+        <!-- Start: @group-input--default -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>default</h2>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="input-text" class="control-label"> Tekstveld </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="input-text" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--default -->
+        <hr />
+
+        <!-- Start: @group-input--input-email -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Email</h2>
+            <p>
+              Er is een <code>type=&quot;email&quot;</code> beschikbaar die helpt bij het automatisch valideren van een
+              veld.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email">
+              <div class="dso-label-container">
+                <label for="input-email" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-email" class="form-control" value="pieter@" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-email -->
+        <hr />
+
+        <!-- Start: @group-input--input-date -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Datum</h2>
+            <p>
+              Er is een <code>type=&quot;date&quot;</code> beschikbaar die een native manier van het selecteren van een
+              datum faciliteert.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-date">
+              <div class="dso-label-container">
+                <label for="input-date" class="control-label"> Datum </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="date" id="input-date" class="form-control" value="1970-07-03" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-date -->
+        <hr />
+
+        <!-- Start: @group-input--input-password -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Wachtwoord</h2>
+            <p>
+              Er is een <code>type=&quot;password&quot;</code> beschikbaar die het ingevoerde wachtwoord maskeert met
+              bullets.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-password">
+              <div class="dso-label-container">
+                <label for="input-password" class="control-label"> Wachtwoord </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="password" id="input-password" class="form-control" value="Welkom01" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-password -->
+        <hr />
+
+        <!-- Start: @group-input--input-url -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>URL</h2>
+            <p>
+              Er is een <code>type=&quot;url&quot;</code> beschikbaar. Afhankelijk van de browserondersteuning kan het
+              url veld automatisch worden gevalideerd wanneer het wordt verzonden. Sommige smartphones herkennen het url
+              type en voegen &quot;.com&quot; toe aan het toetsenbord om overeen te komen met de url-invoer..
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-url">
+              <div class="dso-label-container">
+                <label for="input-url" class="control-label"> URL </label>
+              </div>
+              <div class="dso-field-container">
+                <input
+                  type="url"
+                  id="input-url"
+                  class="form-control"
+                  value="https://www.aandeslagmetdeomgevingswet.nl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-url -->
+        <hr />
+
+        <!-- Start: @group-input--input-tel -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Tel</h2>
+            <p>
+              Er is een <code>type=&quot;tel&quot;</code> beschikbaarvoor het bewerken van een regel met &#xE9;&#xE9;n
+              regel voor het invoeren van een telefoonnummer.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-tel">
+              <div class="dso-label-container">
+                <label for="input-tel" class="control-label"> Telefoon </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="tel" id="input-tel" class="form-control" value="062451789" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-tel -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-invalid -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Ongeldig</h2>
+            <p>
+              Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met
+              de class <code>.dso-input</code>.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-invalid dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-invalid" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-invalid" class="form-control" required />
+
+                <p class="dso-message">Vul dit veld in.</p>
+
+                <p class="dso-help-block" id="helpTextId_input-text-invalid">Bijvoorbeeld: email@email.nl</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-invalid -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-invalid-input -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Ongeldig - Foutieve invoer</h2>
+            <p>
+              Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met
+              de class <code>.dso-input</code>.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-invalid dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-invalid-input" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-invalid-input" class="form-control" value="thomas@" required />
+
+                <p class="dso-message">Ongeldig e-mailadres ingevuld.</p>
+
+                <p class="dso-help-block" id="helpTextId_input-text-invalid-input">Bijvoorbeeld: email@email.nl</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-invalid-input -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-valid -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Geldig</h2>
+            <p>
+              Indien een input ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen
+              te worden door de class <code>.dso-valid</code>.
+            </p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-valid dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-valid" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input
+                  type="email"
+                  id="input-text-valid"
+                  class="form-control"
+                  value="thomas@infoprojects.nl"
+                  required
+                />
+
+                <p class="dso-help-block" id="helpTextId_input-text-valid">Bijvoorbeeld: email@email.nl</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-valid -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-placeholder -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Placeholder</h2>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-placeholder" class="control-label"> Naam </label>
+              </div>
+              <div class="dso-field-container">
+                <input
+                  type="text"
+                  id="input-text-placeholder"
+                  class="form-control"
+                  placeholder="Voornaam Achternaam"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-placeholder -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-icon -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Met icoon</h2>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email has-feedback">
+              <div class="dso-label-container">
+                <label for="input-text-icon" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-icon" class="form-control" />
+
+                <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="at"></dso-icon></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-icon -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-disabled -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Disabled</h2>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="input-text-disabled" class="control-label"> Naam </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="input-text-disabled" class="form-control" disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-disabled -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-readonly -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Readonly</h2>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="input-text-readonly" class="control-label"> Naam </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="input-text-readonly" class="form-control" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-readonly -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-infobutton -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Infobutton</h2>
+            <p>Toelichting ingeklapt</p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email">
+              <div class="dso-label-container">
+                <label for="input-text-infobutton" class="control-label"> E-mailadres </label>
+
+                <button type="button" class="btn dso-info-button" aria-expanded="false">
+                  <span class="sr-only">Toelichting bij vraag</span>
+                </button>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-infobutton" class="form-control" value="thomas@" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-infobutton -->
+        <hr />
+
+        <!-- Start: @group-input--input-text-infobutton-open -->
+
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Infobutton uitgeklapt</h2>
+            <p>Toelichting uitgeklapt</p>
+          </div>
+
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-infobutton-open" class="control-label"> E-mailadres </label>
+
+                <button type="button" class="btn dso-info-button dso-open" aria-expanded="true">
+                  <span class="sr-only">Toelichting bij vraag</span>
+                </button>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-infobutton-open" class="form-control" required />
+              </div>
+
+              <div class="dso-info">
+                <button type="button">
+                  <span class="sr-only">Sluiten</span>
+                </button>
+                <div class="dso-rich-content">
+                  <h4>Heading 4</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit
+                    arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl
+                    lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius. Praesent
+                    consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus
+                    fringilla lectus.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End: @group-input--input-text-infobutton-open -->
+        <hr />
+
+        <button type="submit" class="hidden">VALIDATOR_ONLY</button>
+      </form>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <form class="form-horizontal">
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text"><h2>default</h2></div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container"><label for="input-text" class="control-label"> Tekstveld </label></div>
+              <div class="dso-field-container"><input type="text" id="input-text" class="form-control" /></div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Email</h2>
+            <p>
+              Er is een <code>type=&quot;email&quot;</code> beschikbaar die helpt bij het automatisch valideren van een
+              veld.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email">
+              <div class="dso-label-container">
+                <label for="input-email" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-email" class="form-control" value="pieter@" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Datum</h2>
+            <p>
+              Er is een <code>type=&quot;date&quot;</code> beschikbaar die een native manier van het selecteren van een
+              datum faciliteert.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-date">
+              <div class="dso-label-container"><label for="input-date" class="control-label"> Datum </label></div>
+              <div class="dso-field-container">
+                <input type="date" id="input-date" class="form-control" value="1970-07-03" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Wachtwoord</h2>
+            <p>
+              Er is een <code>type=&quot;password&quot;</code> beschikbaar die het ingevoerde wachtwoord maskeert met
+              bullets.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-password">
+              <div class="dso-label-container">
+                <label for="input-password" class="control-label"> Wachtwoord </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="password" id="input-password" class="form-control" value="Welkom01" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>URL</h2>
+            <p>
+              Er is een <code>type=&quot;url&quot;</code> beschikbaar. Afhankelijk van de browserondersteuning kan het
+              url veld automatisch worden gevalideerd wanneer het wordt verzonden. Sommige smartphones herkennen het url
+              type en voegen &quot;.com&quot; toe aan het toetsenbord om overeen te komen met de url-invoer..
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-url">
+              <div class="dso-label-container"><label for="input-url" class="control-label"> URL </label></div>
+              <div class="dso-field-container">
+                <input
+                  type="url"
+                  id="input-url"
+                  class="form-control"
+                  value="https://www.aandeslagmetdeomgevingswet.nl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Tel</h2>
+            <p>
+              Er is een <code>type=&quot;tel&quot;</code> beschikbaarvoor het bewerken van een regel met &#xE9;&#xE9;n
+              regel voor het invoeren van een telefoonnummer.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-tel">
+              <div class="dso-label-container"><label for="input-tel" class="control-label"> Telefoon </label></div>
+              <div class="dso-field-container">
+                <input type="tel" id="input-tel" class="form-control" value="062451789" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Ongeldig</h2>
+            <p>
+              Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met
+              de class <code>.dso-input</code>.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-invalid dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-invalid" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-invalid" class="form-control" required />
+                <p class="dso-message">Vul dit veld in.</p>
+                <p class="dso-help-block" id="helpTextId_input-text-invalid">Bijvoorbeeld: email@email.nl</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Ongeldig - Foutieve invoer</h2>
+            <p>
+              Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met
+              de class <code>.dso-input</code>.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-invalid dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-invalid-input" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-invalid-input" class="form-control" value="thomas@" required />
+                <p class="dso-message">Ongeldig e-mailadres ingevuld.</p>
+                <p class="dso-help-block" id="helpTextId_input-text-invalid-input">Bijvoorbeeld: email@email.nl</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Geldig</h2>
+            <p>
+              Indien een input ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen
+              te worden door de class <code>.dso-valid</code>.
+            </p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-valid dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-valid" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input
+                  type="email"
+                  id="input-text-valid"
+                  class="form-control"
+                  value="thomas@infoprojects.nl"
+                  required
+                />
+                <p class="dso-help-block" id="helpTextId_input-text-valid">Bijvoorbeeld: email@email.nl</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text"><h2>Placeholder</h2></div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-placeholder" class="control-label"> Naam </label>
+              </div>
+              <div class="dso-field-container">
+                <input
+                  type="text"
+                  id="input-text-placeholder"
+                  class="form-control"
+                  placeholder="Voornaam Achternaam"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text"><h2>Met icoon</h2></div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email has-feedback">
+              <div class="dso-label-container">
+                <label for="input-text-icon" class="control-label"> E-mailadres </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-icon" class="form-control" />
+                <span class="form-control-feedback" aria-hidden="true"
+                  ><svg class="di at"><use href="../../dso-icons.svg#at" /></svg
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text"><h2>Disabled</h2></div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="input-text-disabled" class="control-label"> Naam </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="input-text-disabled" class="form-control" disabled />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text"><h2>Readonly</h2></div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-text">
+              <div class="dso-label-container">
+                <label for="input-text-readonly" class="control-label"> Naam </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="text" id="input-text-readonly" class="form-control" readonly />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Infobutton</h2>
+            <p>Toelichting ingeklapt</p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email">
+              <div class="dso-label-container">
+                <label for="input-text-infobutton" class="control-label"> E-mailadres </label>
+                <button type="button" class="btn dso-info-button" aria-expanded="false">
+                  <span class="sr-only">Toelichting bij vraag</span>
+                </button>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-infobutton" class="form-control" value="thomas@" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="dso-example-wrapper">
+          <div class="dso-example-text">
+            <h2>Infobutton uitgeklapt</h2>
+            <p>Toelichting uitgeklapt</p>
+          </div>
+          <div class="dso-example">
+            <div class="form-group dso-input dso-input-email dso-required">
+              <div class="dso-label-container">
+                <label for="input-text-infobutton-open" class="control-label"> E-mailadres </label>
+                <button type="button" class="btn dso-info-button dso-open" aria-expanded="true">
+                  <span class="sr-only">Toelichting bij vraag</span>
+                </button>
+              </div>
+              <div class="dso-field-container">
+                <input type="email" id="input-text-infobutton-open" class="form-control" required />
+              </div>
+              <div class="dso-info">
+                <button type="button"><span class="sr-only">Sluiten</span></button>
+                <div class="dso-rich-content">
+                  <h4>Heading 4</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit
+                    arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl
+                    lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius. Praesent
+                    consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus
+                    fringilla lectus.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <button type="submit" class="hidden">VALIDATOR_ONLY</button>
+      </form>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

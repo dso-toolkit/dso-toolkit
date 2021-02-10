@@ -18,7 +18,7 @@ function testDom(cb) {
   return gulp.series(testAgainstReference, propegateResult)(cb);
 
   function testAgainstReference() {
-    const files = fs.readdirSync('build/library/components/render');
+    const files = fs.readdirSync('dist/library/components/render');
     const f = filter(({ basename, extname }) => {
       const handle = path.basename(basename, extname);
 
@@ -37,7 +37,7 @@ function testDom(cb) {
       return true;
     });
 
-    return gulp.src('build/library/components/render/*.html')
+    return gulp.src('dist/library/components/render/*.html')
       .pipe(f)
       .pipe(tap(function (file) {
         let filename = path.basename(file.path);

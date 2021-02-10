@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    window.frctl = {
+        env: 'static'
+    };
+    </script>
+    <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
+    <link rel="shortcut icon" href="../../theme/favicon.ico" type="image/ico">
+
+<link rel="stylesheet" href="../../styles/dso.css?cachebust=" type="text/css">
+
+<link rel="stylesheet" href="../../_highlight.js_styles/github.css?cachebust=" type="text/css">
+
+
+<title>Zoeksuggesties | DSO Toolkit | Component Library</title>
+
+  </head>
+
+  <body>
+  
+  <script>
+    function addCss(fileName) {
+
+      var head = document.head;
+      var link = document.createElement("link");
+
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.href = fileName;
+
+      head.appendChild(link);
+    }
+
+    addCss("../../css/library-only.css");
+  </script>
+
+  <div class="container-fluid" id="frame">
+    <header class="row" style="border-bottom: 1px solid #ccc; margin-bottom: 0; height: 100px;">
+      <div class="col-sm-6 col-xs-3">
+        <a href="../../index.html" class="Header-title" data-pjax="data-pjax">
+          <img src="../../images/toolkit.svg" width="300" alt="DSO Toolkit homepage" />
+        </a>
+      </div>
+      <div class="col-sm-6 col-xs-9 text-right">
+        <nav class="navbar navbar-right">
+          <ul class="nav navbar-nav toolkit-version-selector">
+            <li>
+              <a href="https://www.github.com/dso-toolkit/dso-toolkit" target="_blank" rel="noreferrer noopener">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTE3OEEyQTk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTE3OEEyQjk5QTAxMUUyOUExNUJDMTA0NkE4OTA0RCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU1MTc4QTI4OTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU1MTc4QTI5OTlBMDExRTI5QTE1QkMxMDQ2QTg5MDREIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+m4QGuQAAAyRJREFUeNrEl21ojWEYx895TDPbMNlBK46IUiNmPvHBSUjaqc0H8pF5+aDUKPEBqU2NhRQpX5Rv5jWlDIWlMCv7MMSWsWwmb3tpXub4XXWdPHvc9/Gc41nu+nedc7/8r/99PffLdYdDPsvkwsgkTBwsA/PADJCnzX2gHTwBt8Hl7p537/3whn04XoDZDcpBlk+9P8AFcAghzRkJwPF4zGGw0Y9QS0mAM2AnQj77FqCzrtcwB1Hk81SYojHK4DyGuQ6mhIIrBWB9Xm7ug/6B/nZrBHBegrkFxoVGpnwBMSLR9EcEcC4qb8pP14BWcBcUgewMnF3T34VqhWMFkThLJAalwnENOAKiHpJq1FZgI2AT6HZtuxZwR9GidSHtI30jOrbawxlVX78/AbNfhHlomEUJJI89O2MqeE79T8/nk8nMBm/dK576hZgmA3cp/R4l9/UeSxiHLVIlNm4nFfT0bxyuIj7LHRTKai+zdJobwMKzcZSJb0ePV5PKN+BqAAKE47UlMnERELMM3EdYP/yrd+XYb2mOiYBiQ8OQnoRBlXrl9JZix7D1pHTazu4MoyBcnYamqAjIMTR8G4FT8LuhLsexXYYjICBiqhQBvYb6fLZIJCjPypVvaOoVAW2WcasCnL2Nq82xHJNSqlCeFcDshaPK0twkAhosjZL31QYw+1rlMpWGMArl23SBsZZO58F2tlJXmjOXS+s4WGvpMiBJT/I2PInZ6lIs9/hBsNS1hS6BG0DSqmYEDRlCXQrmy50P1oDRKTSegmNbUsA0zDMwRhPJXeCE3vWLPQMvan6X8AgIa1vcR4AkGZkDR4ejJ1UHpsaVI0g2LInpOsNFUud1rhxSV+fzC9Woz2EZkWQuja7/B+jUrgtIMpy9YCW4n4K41YfzRneW5E1KJTe4B2Zq1Q5EHEtj4U3AfEzR5SVY4l7QYQPJdN2as7RKBF0BPZqqH4VgMAMBL8Byxr7y8zCZiDlnOcEKIPmUpgB5Z2ww5RdOiiRiNajUmWda5IG6WbhsyY2fx6m8gLcoJDJFkH219M3We1+cnda93pfycZpIJEL/s/wSYADmOAwAQgdpBAAAAABJRU5ErkJggg==" alt="Open source code repository op GitHub">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="row" data-role="body">
+      <div class="col-xs-4 col-sm-3 col-lg-2" id="navigation-container" style="background-color: #f5f5f5; border-right: 1px solid #e1e1e1; padding: 16px; height: calc(100vh - 100px); overflow-y: scroll;">
+        
+        
+
+
+
+<div class="dso-search-bar">
+  <div class="dso-search-bar-input">
+    <label class="dso-search-icon" for="menu-filter">Filteren</label>
+    <input type="text" id="menu-filter" placeholder="Filteren" data-filter-store="filterValue" data-clear-button="clear-menu-filter">
+    <button type="button" id="clear-menu-filter" title="Zoekopdracht legen">Zoekopdracht legen</button>
+  </div>
+</div>
+
+<nav class="dso-tree-view" data-behaviour="tree" id="tree-">
+  <ul>
+    
+      
+  
+    <li>
+      
+      
+        <a href="../../index.html">Documentatie</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../voor-developers.html">Voor developers</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../voor-ontwerpers.html">Voor ontwerpers</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../voor-productowners.html">Voor de product owner</a>
+      
+    </li>
+  
+    <li>
+      
+      
+        <a href="../versions.html">Versies</a>
+      
+    </li>
+  
+    <li>
+      
+        <h2 class="dso-tree-view-subhead">Fundament</h2>
+        
+  
+    <ul>
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="logo.html" data-pjax>
+              Logo
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="colors.html" data-pjax>
+              Kleuren
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="typography.html" data-pjax>
+              Typografie
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="layout.html" data-pjax>
+              Lay-out
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="favicon.html" data-pjax>
+              Favicon
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="graphics.html" data-pjax>
+              Illustraties
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="pdf-bestanden.html" data-pjax>
+              Pdf-bestanden
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity is-current" data-state="current" data-role="item">
+            <a href="" data-pjax>
+              Zoeksuggesties
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="datum-tijd.html" data-pjax>
+              Datum en tijd
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+      
+      
+    </li>
+  
+
+    
+
+    
+      
+  
+    <li>
+      
+        <h2 class="dso-tree-view-subhead">Componenten</h2>
+        
+  
+    <ul>
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/accordion.html" data-pjax>
+              Accordion
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/alert.html" data-pjax>
+              Alert <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/anchor.html" data-pjax>
+              Anchor
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/attachments-counter.html" data-pjax>
+              Attachments Counter <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/badge.html" data-pjax>
+              Badge <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/banner.html" data-pjax>
+              Banner
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/breadcrumbs.html" data-pjax>
+              Breadcrumbs
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/buttons.html" data-pjax>
+              Buttons
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/cards.html" data-pjax>
+              Cards
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/conclusion.html" data-pjax>
+              Conclusion
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/definition-list.html" data-pjax>
+              Definition List
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/description.html" data-pjax>
+              Description
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/dropdown-button.html" data-pjax>
+              Dropdown Button
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/footnotes.html" data-pjax>
+              Footnotes
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/form.html" data-pjax>
+              Form
+            </a>
+          </li>
+        
+      
+        
+          <li class="dso-collection" data-behaviour="collection" id="tree-components-collection-form-elements">
+            <button type="button" data-role="toggle"><h3>Form Elements</h3></button>
+            
+              
+            
+            
+  
+    <ul data-role="items">
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-checkboxes.html" data-pjax>
+              Group Checkboxes
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-confirm.html" data-pjax>
+              Group Confirm
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-files.html" data-pjax>
+              Group Files
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-input.html" data-pjax>
+              Group Input
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-input-number.html" data-pjax>
+              Group Input Number
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-radios.html" data-pjax>
+              Group Radios
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-search-bar.html" data-pjax>
+              Group Search Bar
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-select.html" data-pjax>
+              Group Select
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-static.html" data-pjax>
+              Group Static
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/group-textarea.html" data-pjax>
+              Group Textarea
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/form-steps.html" data-pjax>
+              Form Steps
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/highlight-box.html" data-pjax>
+              Highlight Box <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/icon.html" data-pjax>
+              Icon <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/image.html" data-pjax>
+              Image
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/info.html" data-pjax>
+              Info
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/info-button.html" data-pjax>
+              Info Button
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/input-number.html" data-pjax>
+              Input Number
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/jumbotron.html" data-pjax>
+              Jumbotron
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/label.html" data-pjax>
+              Label <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/list-button.html" data-pjax>
+              List Button
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/lists.html" data-pjax>
+              Lists
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/logo.html" data-pjax>
+              Logo
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/modal.html" data-pjax>
+              Modal
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/navigations.html" data-pjax>
+              Navigations
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/pagination.html" data-pjax>
+              Pagination
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/panel.html" data-pjax>
+              Panel
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/progress-bar.html" data-pjax>
+              Progress Bar <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/progress-indicator.html" data-pjax>
+              Progress Indicator
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/rich-content.html" data-pjax>
+              Rich Content
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/search-bar.html" data-pjax>
+              Search Bar
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/shopping-cart.html" data-pjax>
+              Shopping Cart
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/table.html" data-pjax>
+              Table
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/tabs.html" data-pjax>
+              Tabs
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/tooltip.html" data-pjax>
+              Tooltip
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/tree-view.html" data-pjax>
+              Tree View
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/whitebox.html" data-pjax>
+              Whitebox <span class="sr-only">(Web Component)</span><span aria-hidden="true">🚀</span>
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+      
+      
+    </li>
+  
+    <li>
+      
+        <h2 class="dso-tree-view-subhead">Voorbeelden</h2>
+        
+  
+    <ul>
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/404pagina.html" data-pjax>
+              404 Pagina
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/aanvragen.html" data-pjax>
+              Aanvragen
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/aanvragen-file-upload.html" data-pjax>
+              Aanvragen File Upload
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/accordion-table.html" data-pjax>
+              Accordion Table
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/actieverzoeken.html" data-pjax>
+              Actieverzoeken
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/anchors.html" data-pjax>
+              Link
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/beheer-basis.html" data-pjax>
+              Beheer Basis
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/footer.html" data-pjax>
+              Footer
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/full-width.html" data-pjax>
+              Full Width
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/header.html" data-pjax>
+              Header
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/homepage.html" data-pjax>
+              Homepage
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/landingspagina.html" data-pjax>
+              Landingspagina
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/layout.html" data-pjax>
+              Lay-out
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/pagina-met-banner.html" data-pjax>
+              Pagina met banner
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/row-equal-heights.html" data-pjax>
+              Row Equal Heights
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/samenwerken.html" data-pjax>
+              Samenwerken
+            </a>
+          </li>
+        
+      
+        
+          <li class="dso-collection" data-behaviour="collection" id="tree-components-collection-wizard">
+            <button type="button" data-role="toggle"><h3>Wizard</h3></button>
+            
+              
+            
+            
+  
+    <ul data-role="items">
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/wizard-stap-1.html" data-pjax>
+              Wizard Stap 1
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/wizard-stap-2.html" data-pjax>
+              Wizard Stap 2
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/wizard-stap-3.html" data-pjax>
+              Wizard Stap 3
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/wizard-stap-4.html" data-pjax>
+              Wizard Stap 4
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+          </li>
+        
+      
+        
+          
+          <li class="dso-entity" data-role="item">
+            <a href="../../components/detail/zoeken-in-lijst-cards.html" data-pjax>
+              Zoeken In Lijst Cards
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+
+      
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+
+      </div>
+
+      <div class="col-xs-8 col-sm-9 col-lg-10" data-role="main" style="height: calc(100vh - 100px); overflow-y: scroll;">
+        <div id="pjax-container">
+          
+
+<div class="Document">
+
+    <div class="Document-header">
+        
+        <h1 class="Document-title">Zoeksuggesties</h1>
+        
+
+
+        
+    </div>
+
+    <div class="Document-content">
+
+    
+  <div class="dso-rich-content">
+    
+      
+      
+        
+        
+          <p>Zoeksuggesties zijn aanbevolen resultaten die verschijnen in een dropdown als gebruikers in een zoekveld typen.</p>
+<p><img src="../images/Zoekbalk.svg" alt="Details logo met extra tekstregel"></p>
+<h2 id="hoe-te-gebruiken">Hoe te gebruiken</h2>
+<p>Een goede zoeksuggestie helpt de gebruiker bij het bedenken van een zoekopdracht. Dat kan
+een vrije zoekopdracht zijn, zoals bij Google, of zoeken in een ‘onzichtbare’ lijst met vaste waarden. Denk hierbij aan een adres zoeken in een applicatie met een kaart.</p>
+<p>Zoeksuggesties gebruiken heeft de volgende voordelen voor een gebruiker:</p>
+<ul>
+<li>Betere zoekresultaten door gebruik van relevante suggesties.</li>
+<li>De gebruiker kan sneller zoeken.</li>
+<li>Minder typefouten doordat de gebruikers niet zelf hoeven te typen.</li>
+<li>Het kost de gebruiker minder inspanning doordat het systeem een deel van het werk overneemt.</li>
+</ul>
+<h2 id="geen-markupvoorbeeld-in-de-toolkit">Geen markupvoorbeeld in de toolkit</h2>
+<p>De toolkit is een framework-agnostische stijlgids. Om zoeksuggesties op een digitaal toegankelijke manier te bouwen, heeft u een script framework nodig. De toolkit kan dit niet leveren. Wel vindt u in de toolkit eisen aan de vormgeving en eisen voor het functionele gedrag van de zoeksuggesties.</p>
+<h2 id="vormgeving">Vormgeving</h2>
+<p>In de onderstaande afbeelding staan specificaties voor de suggestion box die bij de zoeksuggesties hoort. In <a href="https://pre.omgevingswet.overheid.nl/checken/stap/1">de Vergunningcheck van het omgevingsloket</a> is een live voorbeeld is te vinden</p>
+<p><img src="../images/Zoekbalk-specs.png" alt="Details logo met extra tekstregel"></p>
+<h2 id="gedrag-en-toegankelijkheid">Gedrag en toegankelijkheid</h2>
+<ul>
+<li>Geef maximaal 10 suggesties. Zo houden we de lijst compact en zijn er geen scrollbars te zien.</li>
+<li>Breek een zoeksuggestie nooit af. Past een zin niet binnen de breedte van de lijst? Laat de zin dan verdergaan op de volgende regel.</li>
+<li>Maak het mogelijk dat gebruikers met de pijltoetsen door het menu kunnen navigeren en met enter een resultaat kunnen kiezen.</li>
+<li>Geef de zoeksuggestie een duidelijke hover state met een ‘hand’-cursor.</li>
+<li>Toon eerdere zoekopdrachten als de gebruiker in het veld focust. Deze stap is optioneel.</li>
+</ul>
+<h3 id="tekst-highlighten">Tekst highlighten</h3>
+<p>Een zoeksuggestie bestaat uit twee delen: het gedeelte dat de gebruiker typt en het gedeelte dat het systeem aanvult.</p>
+<p>Dit verschil moet duidelijk zichtbaar zijn. Zo kan de gebruiker makkelijk zien welk deel het systeem aanvult.</p>
+<p>Zorg ervoor dat wat de gebruiker typt, in bold zichtbaar is. Zo kan de gebruiker op meerdere elementen uit de zoeksuggestie zoeken. Dingen die niet in bold staan, zijn aanvullingen vanuit het systeem. Bijvoorbeeld:</p>
+<ul>
+<li><strong>Rijnstraat 51</strong> , 1234 gt, Amsterdam</li>
+<li>Rijnstraat, <strong>1234 gt</strong>, Amsterdam</li>
+<li>Rijnstraat, 1234 gt, <strong>Amsterdam</strong></li>
+</ul>
+<p>Of zelfs een combinatie van meerdere elementen.</p>
+<ul>
+<li><strong>Rijnstraat</strong>, 1234gt,s <strong>Amsterdam</strong></li>
+</ul>
+<p>Dit zorgt ervoor dat een gebruiker altijd snel resultaten kan scannen op zijn ingevulde zoekopdracht.</p>
+<h3 id="screenreader">Screenreader</h3>
+<p>Zoeksuggesties moeten ook waar te nemen zijn door mensen die een bijvoorbeeld screenreader gebruiken. Zorg ervoor dat de screenreader in ieder geval de volgende informatie aangeeft:</p>
+<ul>
+<li>Geef het label en de placeholder een duidelijke en begrijpelijke tekst, omdat die worden opgelezen. Geef een inputveld een role=combobox mee. Dit helpt de gebruiker bij het herkennen van het inputveld.</li>
+<li>Geef een melding met hoeveel beschikbare resultaten er zijn als een gebruiker stopt met typen. Dat geldt voor als de gebruiker klaar is met typen of als hij halverwege stopt. Geef maximaal 10 beschikbare resultaten. Geef ook een indicatie dat de lijst navigeerbaar is met de pijltoetsen en de enterknop.</li>
+<li>Laat de screenreader een resultaat voorlezen als een gebruiker erboven hovert.</li>
+<li>Sluit af met een bevestiging als een gebruiker een selectie bevestigt. Bijvoorbeeld ‘Geselecteerd: …’</li>
+</ul>
+<p>Zie de <a href="https://pre.omgevingswet.overheid.nl/checken/stap/1">de Vergunningcheck op het Omgevingsloket</a> voor een live voorbeeld.</p>
+<h3 id="goed-meten">Goed meten</h3>
+<p>Meet het gebruik van zoekvelden en de resultaten goed. Met de inzichten die daaruit komen, kunt u de zoekmachine blijven verbeteren. Zo krijgt de gebruiker een optimale ervaring.</p>
+
+        
+      
+    
+  </div>
+
+
+    </div>
+
+</div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+<script src="../../theme/theme.js?cachebust="></script>
+
+
+<script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+<script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+
+
+  </body>
+</html>

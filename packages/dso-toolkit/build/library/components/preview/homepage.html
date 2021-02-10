@@ -1,0 +1,487 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="ab1syteq" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Default | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <header>
+        <div class="dso-logo-bar">
+          <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
+          <div class="dso-tools-bar">
+            <div class="dso-login dropdown open">
+              <a
+                type="button"
+                class="btn btn-link dropdown-toggle"
+                id="actie_open"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
+                <dso-icon icon="user"></dso-icon>
+                <span>O. tester</span>
+                <dso-icon icon="chevron-down"></dso-icon>
+              </a>
+              <div class="dropdown-menu">
+                <ul aria-labelledby="actie_open">
+                  <li>
+                    <a href="#">Mijn Omgevingsloket</a>
+                  </li>
+                  <li>
+                    <a href="#">Mijn profiel</a>
+                  </li>
+                  <li>
+                    <a href="#">Uitloggen</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="dso-navbar">
+          <div class="dso-navbar-header">
+            <button type="button" class="dso-navbar-toggle btn btn-default">
+              <dso-icon icon="bars"></dso-icon>
+              <span class="sr-only">Ga naar menu</span>
+            </button>
+          </div>
+
+          <ul class="dso-nav dso-nav-main">
+            <li class="dso-active">
+              <a href="#"> Home </a>
+            </li>
+            <li>
+              <a href="#"> Vergunningcheck </a>
+            </li>
+            <li>
+              <a href="#"> Aanvragen </a>
+            </li>
+            <li>
+              <a href="#"> Regels op de kaart </a>
+            </li>
+            <li>
+              <a href="#"> Mijn Omgevingsloket </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div
+          class="row dso-banner dso-banner-implementation-specific-image"
+          style="background-image: url('../../dummy/images/hands-on-trackpad.jpg')"
+        >
+          <!-- @Developers: Voeg dus geen inline styling toe maar genereer de betreffende styling in een class, zoals bv. `.dso-banner-implementation-specific image`. Inline styling doet het niet goed bij de Webrichtlijnen -->
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <dso-whitebox small label="Aanbouw of schuurplaatsen">
+              <img src="../../dummy/images/aanbouw_schuur_plaatsen.svg" slot="img" />
+            </dso-whitebox>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <dso-whitebox small label="Slopen van een bouwwerk of gedeelte">
+              <img src="../../dummy/images/slopen.svg" slot="img" />
+            </dso-whitebox>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <dso-whitebox small label="Dakkapel plaatsen">
+              <img src="../../dummy/images/dakkapel_plaatsen.svg" slot="img" />
+            </dso-whitebox>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <dso-whitebox small label="Raam of gevel veranderen">
+              <img src="../../dummy/images/raam_gevel_veranderen.svg" slot="img" />
+            </dso-whitebox>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <dso-whitebox small label="Boom kappen of snoeien">
+              <img src="../../dummy/images/boom_kappen.svg" slot="img" />
+            </dso-whitebox>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <dso-whitebox small label="Andere werkzaamheden">
+              <img src="../../dummy/images/overigen.svg" slot="img" />
+            </dso-whitebox>
+          </div>
+        </div>
+        <h1 class="text-center">Waarmee kunnen we u helpen?</h1>
+        <div class="row dso-featured">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox">
+              <div class="dso-whitebox-title">
+                <h2>Ik wil wat veranderen aan mijn huis, tuin of bedrijf</h2>
+              </div>
+              <div class="dso-whitebox-link">
+                <a href="#" class="btn btn-link"
+                  ><dso-icon icon="angle-right"></dso-icon><span>Naar Vergunningcheck</span></a
+                >
+              </div>
+              <div class="dso-whitebox-icon">
+                <img src="../../dummy/images/bouwvakkers.png" alt="Indienen" />
+              </div>
+              <div class="dso-rich-content">
+                <p>Doe hier de Vergunningcheck om te kijken of u een vergunning nodig heeft of melding moet doen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox">
+              <div class="dso-whitebox-title">
+                <h2>Direct een aanvraag of melding indienen</h2>
+              </div>
+              <div class="dso-whitebox-link">
+                <a href="#" class="btn btn-link"
+                  ><dso-icon icon="angle-right"></dso-icon><span>Naar Aanvragen of melding doen</span></a
+                >
+              </div>
+              <div class="dso-whitebox-icon">
+                <img src="../../dummy/images/medewerker.png" alt="Indienen" />
+              </div>
+              <div class="dso-rich-content">
+                <p>
+                  Weet u al voor welke activiteit(en) u een vergunning moet aanvragen of melding moet doen? Dien hier
+                  direct een aanvraag of melding in.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox">
+              <div class="dso-whitebox-title">
+                <h2>Welke wetten en regels er gelden voor mijn locatie?</h2>
+              </div>
+              <div class="dso-whitebox-link">
+                <a href="#" class="btn btn-link"
+                  ><dso-icon icon="angle-right"></dso-icon><span>Naar Regels op de kaart</span></a
+                >
+              </div>
+              <div class="dso-whitebox-icon">
+                <img src="../../dummy/images/kaartmensen.png" alt="Indienen" />
+              </div>
+              <div class="dso-rich-content">
+                <p>
+                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u
+                  de aanvraag of melding direct indienen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row dso-equal-heights">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <dso-highlight-box border>
+              <h2>Maatregelen op maat</h2>
+              <p>
+                Bij Maatregelen op maat kunt u een handig overzicht maken voor alle milieu maatregelen die van
+                toepassing zijn voor uw bedrijf
+              </p>
+              <a href="#" class="btn btn-link">
+                <dso-icon icon="chevron-right"></dso-icon>
+                <span>Naar Maatregelen op maat</span>
+              </a>
+            </dso-highlight-box>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <dso-highlight-box border>
+              <h2>Meer informatie?</h2>
+              <p>
+                Wilt u meer weten? Vragen over vergunningen en meldingen stelt u aan uw gemeente. Op de site
+                <a href="#" class="extern">Aan de slag met de omgevingswet</a> vindt u meer informatie over de
+                uitvoering van de Omgevingswet.
+              </p>
+            </dso-highlight-box>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <h2>Huidige Voorzieningen</h2>
+            <div>
+              <a href="#" class="btn btn-link">
+                <dso-icon icon="chevron-right"></dso-icon>
+                <span>Omgevingsloket.nl</span>
+              </a>
+              <br />
+              <br />
+              <a href="#" class="btn btn-link">
+                <dso-icon icon="chevron-right"></dso-icon>
+                <span>Aimonline.nl</span>
+              </a>
+              <br />
+              <br />
+              <a href="#" class="btn btn-link">
+                <dso-icon icon="chevron-right"></dso-icon>
+                <span>Ruimtelijkeplannen.nl</span>
+              </a>
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <h2>Service</h2>
+            <ul>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h2>Over deze site</h2>
+            <ul>
+              <li><a href="#">Copyright</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Toegankelijkheid</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h2>Volg ons ook op</h2>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <header>
+        <div class="dso-logo-bar">
+          <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
+          <div class="dso-tools-bar">
+            <div class="dso-login dropdown open">
+              <a
+                type="button"
+                class="btn btn-link dropdown-toggle"
+                id="actie_open"
+                aria-haspopup="true"
+                aria-expanded="true"
+              >
+                <svg class="di user"><use href="../../dso-icons.svg#user" /></svg> <span>O. tester</span>
+                <svg class="di chevron-down"><use href="../../dso-icons.svg#chevron-down" /></svg>
+              </a>
+              <div class="dropdown-menu">
+                <ul aria-labelledby="actie_open">
+                  <li><a href="#">Mijn Omgevingsloket</a></li>
+                  <li><a href="#">Mijn profiel</a></li>
+                  <li><a href="#">Uitloggen</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="dso-navbar">
+          <div class="dso-navbar-header">
+            <button type="button" class="dso-navbar-toggle btn btn-default">
+              <svg class="di bars"><use href="../../dso-icons.svg#bars" /></svg>
+              <span class="sr-only">Ga naar menu</span>
+            </button>
+          </div>
+          <ul class="dso-nav dso-nav-main">
+            <li class="dso-active"><a href="#"> Home </a></li>
+            <li><a href="#"> Vergunningcheck </a></li>
+            <li><a href="#"> Aanvragen </a></li>
+            <li><a href="#"> Regels op de kaart </a></li>
+            <li><a href="#"> Mijn Omgevingsloket </a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div
+          class="row dso-banner dso-banner-implementation-specific-image"
+          style="background-image: url('../../dummy/images/hands-on-trackpad.jpg')"
+        >
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox-small">
+              <a href="#"
+                ><span class="dso-whitebox-icon"><img src="../../dummy/images/aanbouw_schuur_plaatsen.svg" /></span
+                ><span class="dso-whitebox-link">Aanbouw of schuurplaatsen</span></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox-small">
+              <a href="#"
+                ><span class="dso-whitebox-icon"><img src="../../dummy/images/slopen.svg" /></span
+                ><span class="dso-whitebox-link">Slopen van een bouwwerk of gedeelte</span></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox-small">
+              <a href="#"
+                ><span class="dso-whitebox-icon"><img src="../../dummy/images/dakkapel_plaatsen.svg" /></span
+                ><span class="dso-whitebox-link">Dakkapel plaatsen</span></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox-small">
+              <a href="#"
+                ><span class="dso-whitebox-icon"><img src="../../dummy/images/raam_gevel_veranderen.svg" /></span
+                ><span class="dso-whitebox-link">Raam of gevel veranderen</span></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox-small">
+              <a href="#"
+                ><span class="dso-whitebox-icon"><img src="../../dummy/images/boom_kappen.svg" /></span
+                ><span class="dso-whitebox-link">Boom kappen of snoeien</span></a
+              >
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox-small">
+              <a href="#"
+                ><span class="dso-whitebox-icon"><img src="../../dummy/images/overigen.svg" /></span
+                ><span class="dso-whitebox-link">Andere werkzaamheden</span></a
+              >
+            </div>
+          </div>
+        </div>
+        <h1 class="text-center">Waarmee kunnen we u helpen?</h1>
+        <div class="row dso-featured">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox">
+              <div class="dso-whitebox-title"><h2>Ik wil wat veranderen aan mijn huis, tuin of bedrijf</h2></div>
+              <div class="dso-whitebox-link">
+                <a href="#" class="btn btn-link"
+                  ><svg class="di angle-right"><use href="../../dso-icons.svg#angle-right" /></svg
+                  ><span>Naar Vergunningcheck</span></a
+                >
+              </div>
+              <div class="dso-whitebox-icon"><img src="../../dummy/images/bouwvakkers.png" alt="Indienen" /></div>
+              <div class="dso-rich-content">
+                <p>Doe hier de Vergunningcheck om te kijken of u een vergunning nodig heeft of melding moet doen.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox">
+              <div class="dso-whitebox-title"><h2>Direct een aanvraag of melding indienen</h2></div>
+              <div class="dso-whitebox-link">
+                <a href="#" class="btn btn-link"
+                  ><svg class="di angle-right"><use href="../../dso-icons.svg#angle-right" /></svg
+                  ><span>Naar Aanvragen of melding doen</span></a
+                >
+              </div>
+              <div class="dso-whitebox-icon"><img src="../../dummy/images/medewerker.png" alt="Indienen" /></div>
+              <div class="dso-rich-content">
+                <p>
+                  Weet u al voor welke activiteit(en) u een vergunning moet aanvragen of melding moet doen? Dien hier
+                  direct een aanvraag of melding in.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-whitebox">
+              <div class="dso-whitebox-title"><h2>Welke wetten en regels er gelden voor mijn locatie?</h2></div>
+              <div class="dso-whitebox-link">
+                <a href="#" class="btn btn-link"
+                  ><svg class="di angle-right"><use href="../../dso-icons.svg#angle-right" /></svg
+                  ><span>Naar Regels op de kaart</span></a
+                >
+              </div>
+              <div class="dso-whitebox-icon"><img src="../../dummy/images/kaartmensen.png" alt="Indienen" /></div>
+              <div class="dso-rich-content">
+                <p>
+                  Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u
+                  de aanvraag of melding direct indienen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row dso-equal-heights">
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-highlight-box dso-border">
+              <h2>Maatregelen op maat</h2>
+              <p>
+                Bij Maatregelen op maat kunt u een handig overzicht maken voor alle milieu maatregelen die van
+                toepassing zijn voor uw bedrijf
+              </p>
+              <a href="#" class="btn btn-link">
+                <svg class="di chevron-right"><use href="../../dso-icons.svg#chevron-right" /></svg>
+                <span>Naar Maatregelen op maat</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="dso-highlight-box dso-border">
+              <h2>Meer informatie?</h2>
+              <p>
+                Wilt u meer weten? Vragen over vergunningen en meldingen stelt u aan uw gemeente. Op de site
+                <a href="#" class="extern">Aan de slag met de omgevingswet</a> vindt u meer informatie over de
+                uitvoering van de Omgevingswet.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <h2>Huidige Voorzieningen</h2>
+            <div>
+              <a href="#" class="btn btn-link">
+                <svg class="di chevron-right"><use href="../../dso-icons.svg#chevron-right" /></svg>
+                <span>Omgevingsloket.nl</span>
+              </a>
+              <br />
+              <br />
+              <a href="#" class="btn btn-link">
+                <svg class="di chevron-right"><use href="../../dso-icons.svg#chevron-right" /></svg>
+                <span>Aimonline.nl</span>
+              </a>
+              <br />
+              <br />
+              <a href="#" class="btn btn-link">
+                <svg class="di chevron-right"><use href="../../dso-icons.svg#chevron-right" /></svg>
+                <span>Ruimtelijkeplannen.nl</span>
+              </a>
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <h2>Service</h2>
+            <ul>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h2>Over deze site</h2>
+            <ul>
+              <li><a href="#">Copyright</a></li>
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Toegankelijkheid</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h2>Volg ons ook op</h2>
+            <ul>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

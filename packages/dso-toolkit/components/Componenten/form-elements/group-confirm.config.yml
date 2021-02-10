@@ -7,7 +7,7 @@ context:
 variants:
 - name: input-confirm-required
   context:
-    __title: Verplicht
+    __title: required
     __explanation:
     - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
       op de <code>.form-group.dso-confirm</code>
@@ -15,7 +15,7 @@ variants:
     required: true
 - name: input-confirm-invalid
   context:
-    __title: Ongeldig
+    __title: invalid
     __explanation:
     - Indien een confirm ongeldig is, dient er een <code>.dso-invalid</code>
       class gezet te worden op de div met de class <code>.dso-checkboxes</code>.
@@ -25,7 +25,7 @@ variants:
     errorText: Maak een keuze.
 - name: input-confirm-valid
   context:
-    __title: Geldig
+    __title: valid
     __explanation:
     - Indien een confirm ongeldig was en valide wordt gemaakt,
       dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
@@ -35,7 +35,7 @@ variants:
     checked: true
 - name: input-confirm-disabled
   context:
-    __title: Disabled
+    __title: disabled
     id: input-confirm-disabled
     required: true
     disabled: true

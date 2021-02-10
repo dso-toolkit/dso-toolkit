@@ -1,0 +1,90 @@
+:host {
+  display: block;
+  /* stylelint-disable value-keyword-case */
+}
+:host *,
+:host *::after,
+:host *::before {
+  box-sizing: border-box;
+}
+:host .dso-whitebox {
+  background: #fff;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 56px;
+  min-height: 540px;
+  padding: 16px 24px 0;
+  position: relative;
+  top: 56px;
+}
+:host .dso-whitebox .dso-whitebox-title h2 {
+  margin: 0 0 48px;
+}
+:host .dso-whitebox .dso-whitebox-link {
+  margin-bottom: 32px;
+  text-align: center;
+}
+:host .dso-whitebox .dso-whitebox-icon {
+  margin-bottom: 32px;
+  text-align: center;
+}
+:host .dso-whitebox .dso-whitebox-icon img {
+  height: 160px;
+  width: 160px;
+}
+:host .dso-whitebox.dso-has-counter {
+  min-height: 580px;
+}
+:host .dso-whitebox.dso-has-counter {
+  padding-top: 40px;
+  position: relative;
+}
+:host .dso-whitebox .dso-step-counter {
+  background-color: #39870c;
+  border: 8px solid #79b929;
+  border-radius: 50%;
+  box-sizing: content-box;
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 500;
+  height: 32px;
+  left: 16px;
+  line-height: 32px;
+  position: absolute;
+  text-align: center;
+  top: -24px;
+  width: 32px;
+}
+:host .dso-whitebox-small {
+  background: #fff;
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 56px;
+  min-height: 200px;
+  padding: 24px 16px 16px;
+  position: relative;
+  top: 56px;
+}
+:host .dso-whitebox-small a {
+  text-decoration: none;
+}
+:host .dso-whitebox-small a:hover .dso-whitebox-link {
+  border-bottom: 4px solid #39870c;
+}
+:host .dso-whitebox-small .dso-whitebox-icon {
+  display: block;
+  margin-bottom: 16px;
+  text-align: center;
+}
+:host .dso-whitebox-small .dso-whitebox-icon img {
+  height: 80px;
+  width: 80px;
+}
+:host .dso-whitebox-small .dso-whitebox-link {
+  border-bottom: 4px solid transparent;
+  color: #39870c;
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.167;
+  padding-bottom: 4px;
+  text-align: center;
+}

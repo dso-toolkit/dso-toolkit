@@ -1,0 +1,78 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="dcdlgygb" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi Page | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+
+      <form>
+        <fieldset>
+          <legend>Contact</legend>
+
+          <div class="form-group dso-input dso-input-text dso-required">
+            <div class="dso-label-container">
+              <label for="multipage-form-voornaam" class="control-label"> Voornaam </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="multipage-form-voornaam" class="form-control" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="dso-form-buttons">
+          <div class="dso-aside">
+            <button type="button" class="btn btn-link">
+              <dso-icon icon="angle-left"></dso-icon><span>Vorige stap</span>
+            </button>
+          </div>
+
+          <button type="button" class="btn btn-link"><span>Secondaire actie</span></button>
+
+          <button type="submit" class="btn btn-primary">
+            <span>Volgende stap</span><dso-icon icon="angle-right"></dso-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <form>
+        <fieldset>
+          <legend>Contact</legend>
+          <div class="form-group dso-input dso-input-text dso-required">
+            <div class="dso-label-container">
+              <label for="multipage-form-voornaam" class="control-label"> Voornaam </label>
+            </div>
+            <div class="dso-field-container">
+              <input type="text" id="multipage-form-voornaam" class="form-control" required />
+            </div>
+          </div>
+        </fieldset>
+        <div class="dso-form-buttons">
+          <div class="dso-aside">
+            <button type="button" class="btn btn-link">
+              <svg class="di angle-left"><use href="../../dso-icons.svg#angle-left" /></svg><span>Vorige stap</span>
+            </button>
+          </div>
+          <button type="button" class="btn btn-link"><span>Secondaire actie</span></button>
+          <button type="submit" class="btn btn-primary">
+            <span>Volgende stap</span><svg class="di angle-right"><use href="../../dso-icons.svg#angle-right" /></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

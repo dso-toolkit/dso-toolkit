@@ -50,6 +50,19 @@
     width: 100%;
   }
 
+  .dso-subcontent {
+    color: $grijs-60;
+    font-weight: 400;
+    padding: $u2 0 0 $u2;
+
+    mark {
+      background-color: transparent;
+      color: $grijs-60;
+      font-weight: 700;
+      padding: 0;
+    }
+  }
+
   dso-icon,
   svg.di,
   .dso-count {
@@ -68,5 +81,9 @@
 
   .dso-count {
     font-weight: 700;
+  }
+
+  .dso-btn-group & {
+    padding-right: #{$u2 - 1};
   }
 }

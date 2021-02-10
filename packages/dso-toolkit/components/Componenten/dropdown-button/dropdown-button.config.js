@@ -3,19 +3,21 @@ module.exports = {
   status: 'ready',
   collated: true,
   collator: function (markup, item) {
-    return `<li>${markup}</li>`;
+    return `<div class="col-md-4 col-sm-6 col-xs-12">${markup}</div>`;
   },
-  default: 'dropdown',
+  default: 'dropdown-link',
   context: {
     id: 'actie',
+    modifier: 'link',
+    ariaHasPopup: true,
     open: false,
     label: 'Actie'
   },
   variants: [
     {
-      name: 'dropdown-open',
+      name: 'dropdown-link-open',
       context: {
-        id: 'actie_open',
+        id: 'dropdown-link-open',
         open: true,
         groups: [
           {
@@ -57,9 +59,209 @@ module.exports = {
       }
     },
     {
-      name: 'dropdown-open-check',
+      name: 'dropdown-link-open-selectable',
       context: {
-        id: 'actie_open_checkable',
+        id: 'dropdown-link-open-selectable',
+        open: true,
+        modifiers: 'dso-checkable',
+        groups: [
+          {
+            label: 'Versies',
+            items: [
+              {
+                label: '10.6.0',
+                checked: true
+              },
+              {
+                label: '10.5.0'
+              },
+              {
+                label: '10.4.0'
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                label: 'master'
+              }
+            ]
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropdown-button-toegankelijk-maken'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      name: 'dropdown-default-button',
+      context: {
+        id: 'dropdown_default_button',
+        modifier: 'default',
+        open: false
+      }
+    },
+    {
+      name: 'dropdown-default-button-open',
+      context: {
+        id: 'dropdown_default_button_open',
+        modifier: 'default',
+        open: true,
+        groups: [
+          {
+            label: 'Versies',
+            items: [
+              {
+                label: '10.6.0'
+              },
+              {
+                label: '10.5.0'
+              },
+              {
+                label: '10.4.0'
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                label: 'master'
+              }
+            ]
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropdown-button-toegankelijk-maken'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      name: 'dropdown-default-button-open-checkable',
+      context: {
+        id: 'dropdown_default_button_open_checkable',
+        modifier: 'default',
+        open: true,
+        modifiers: 'dso-checkable',
+        groups: [
+          {
+            label: 'Versies',
+            items: [
+              {
+                label: '10.6.0',
+                checked: true
+              },
+              {
+                label: '10.5.0'
+              },
+              {
+                label: '10.4.0'
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                label: 'master'
+              }
+            ]
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropdown-button-toegankelijk-maken'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      name: 'dropdown-primary-button',
+      context: {
+        id: 'dropdown_primary_button',
+        modifier: 'primary',
+        open: false
+      }
+    },
+    {
+      name: 'dropdown-primary-button-open',
+      context: {
+        id: 'dropdown_primary_button_open',
+        modifier: 'primary',
+        open: true,
+        groups: [
+          {
+            label: 'Versies',
+            items: [
+              {
+                label: '10.6.0'
+              },
+              {
+                label: '10.5.0'
+              },
+              {
+                label: '10.4.0'
+              }
+            ]
+          },
+          {
+            items: [
+              {
+                label: 'master'
+              }
+            ]
+          },
+          {
+            label: 'Branch releases',
+            items: [
+              {
+                label: '#500-Margins-Testbuilds'
+              },
+              {
+                label: '#611-Pager-component-uitbreiden'
+              },
+              {
+                label: '#663-Dropdown-button-toegankelijk-maken'
+              }
+            ]
+          },
+        ]
+      }
+    },
+    {
+      name: 'dropdown-primary-button-open-checkable',
+      context: {
+        id: 'dropdown_primary_button_open_checkable',
+        modifier: 'primary',
         open: true,
         modifiers: 'dso-checkable',
         groups: [

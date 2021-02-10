@@ -1,0 +1,19 @@
+{
+  "entries": [
+    "./components/alert/alert.js",
+    "./components/attachments-counter/attachments-counter.js",
+    "./components/badge/badge.js",
+    "./components/highlight-box/highlight-box.js",
+    "./components/icon/icon.js",
+    "./components/label/label.js",
+    "./components/progress-bar/progress-bar.js",
+    "./components/whitebox/whitebox.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.3.0",
+    "typescriptVersion": "4.0.5"
+  },
+  "collections": [],
+  "bundles": []
+}

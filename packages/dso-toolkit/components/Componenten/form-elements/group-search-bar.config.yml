@@ -3,7 +3,7 @@ collated: true
 context:
   __title: default
   id: search-bar
-  label: Activiteit
+  label: Group search bar - Default
   searchBar:
     id: search-bar
     type: text
@@ -38,7 +38,14 @@ variants:
     infoOpen: true
     infoButtonLabel: Toelichting bij zoekveld
     infoText: |
-      <h4>Heading 4</h4>
+      <h4>Toelichting bij vraag: "Activiteit"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    infoTextDeprecated: |
+      <h4>Toelichting bij vraag: "Activiteit" - BINNENKORT DEPRECATED</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
@@ -57,6 +64,7 @@ variants:
     __explanation:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-error
+    label: Group search bar - Invalid
     state: invalid
     errorText: Vul dit veld in.
     searchBar:
@@ -68,7 +76,7 @@ variants:
       placeholder: Bv. boomkap
 - name: search-bar-help
   context:
-    __title: Help teskt
+    __title: Help tekst
     __explanation:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-help

@@ -1,0 +1,91 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="hsh9iunm" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Items Expanded | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <h2>Mijn activiteiten</h2>
+
+      <div class="dso-shopping-cart">
+        <div class="dso-contents">
+          <button type="button" class="dso-status">
+            <dso-icon icon="chevron-up"></dso-icon>U heeft 2 activiteiten gekozen
+          </button>
+
+          <ul class="dso-items">
+            <li>
+              Milieubelastende activiteit - Melding
+
+              <button type="button" class="btn btn-link dso-edit-cart-item">
+                <span class="sr-only">Naam bewerken</span><dso-icon icon="pencil"></dso-icon>
+              </button>
+
+              <button type="button" class="dso-delete" title="Verwijder">
+                <dso-icon icon="trash"></dso-icon>
+              </button>
+            </li>
+
+            <li>
+              Milieubelastende activiteit - Melding
+              <span class="dso-additive">2</span>
+
+              <button type="button" class="btn btn-link dso-edit-cart-item">
+                <span class="sr-only">Naam bewerken</span><dso-icon icon="pencil"></dso-icon>
+              </button>
+
+              <button type="button" class="dso-delete" title="Verwijder">
+                <dso-icon icon="trash"></dso-icon>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <h2>Mijn activiteiten</h2>
+      <div class="dso-shopping-cart">
+        <div class="dso-contents">
+          <button type="button" class="dso-status">
+            <svg class="di chevron-up"><use href="../../dso-icons.svg#chevron-up" /></svg>U heeft 2 activiteiten gekozen
+          </button>
+          <ul class="dso-items">
+            <li>
+              Milieubelastende activiteit - Melding
+              <button type="button" class="btn btn-link dso-edit-cart-item">
+                <span class="sr-only">Naam bewerken</span
+                ><svg class="di pencil"><use href="../../dso-icons.svg#pencil" /></svg>
+              </button>
+              <button type="button" class="dso-delete" title="Verwijder">
+                <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+              </button>
+            </li>
+            <li>
+              Milieubelastende activiteit - Melding <span class="dso-additive">2</span>
+              <button type="button" class="btn btn-link dso-edit-cart-item">
+                <span class="sr-only">Naam bewerken</span
+                ><svg class="di pencil"><use href="../../dso-icons.svg#pencil" /></svg>
+              </button>
+              <button type="button" class="dso-delete" title="Verwijder">
+                <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

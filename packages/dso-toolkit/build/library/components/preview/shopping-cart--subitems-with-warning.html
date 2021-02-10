@@ -1,0 +1,125 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="mgfhzt3m" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Subitems With Warning | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <h2>Mijn activiteiten</h2>
+
+      <div class="dso-shopping-cart">
+        <div class="dso-contents">
+          <button type="button" class="dso-status">
+            <dso-icon icon="chevron-up"></dso-icon>U heeft 3 activiteiten gekozen
+          </button>
+
+          <ul class="dso-items">
+            <li>
+              Tankstation starten of veranderen
+
+              <button type="button" class="dso-delete" title="Verwijder">
+                <dso-icon icon="trash"></dso-icon>
+              </button>
+
+              <ul class="dso-subitems">
+                <li>
+                  Tanken van diesel, benzine en andere vloeibare brandstof
+                  <button type="button" class="dso-delete" title="Verwijder">
+                    <dso-icon icon="trash"></dso-icon>
+                  </button>
+                </li>
+
+                <li>
+                  Tanken en opslaan van LPG
+                  <button type="button" class="dso-delete" title="Verwijder">
+                    <dso-icon icon="trash"></dso-icon>
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <dso-icon icon="status-warning"></dso-icon><span class="sr-only">waarschuwing</span>
+              Opslaan van vloeistoffen in een opslagtank
+
+              <button type="button" class="dso-delete" title="Verwijder">
+                <dso-icon icon="trash"></dso-icon>
+              </button>
+
+              <ul class="dso-subitems">
+                <li>
+                  <dso-icon icon="status-warning"></dso-icon><span class="sr-only">waarschuwing</span>
+                  Opslaan van vloeistoffen in een ondergrondse opslagtank
+                  <button type="button" class="dso-delete" title="Verwijder">
+                    <dso-icon icon="trash"></dso-icon>
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <h2>Mijn activiteiten</h2>
+      <div class="dso-shopping-cart">
+        <div class="dso-contents">
+          <button type="button" class="dso-status">
+            <svg class="di chevron-up"><use href="../../dso-icons.svg#chevron-up" /></svg>U heeft 3 activiteiten gekozen
+          </button>
+          <ul class="dso-items">
+            <li>
+              Tankstation starten of veranderen
+              <button type="button" class="dso-delete" title="Verwijder">
+                <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+              </button>
+              <ul class="dso-subitems">
+                <li>
+                  Tanken van diesel, benzine en andere vloeibare brandstof
+                  <button type="button" class="dso-delete" title="Verwijder">
+                    <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+                  </button>
+                </li>
+                <li>
+                  Tanken en opslaan van LPG
+                  <button type="button" class="dso-delete" title="Verwijder">
+                    <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <svg class="di status-warning"><use href="../../dso-icons.svg#status-warning" /></svg
+              ><span class="sr-only">waarschuwing</span> Opslaan van vloeistoffen in een opslagtank
+              <button type="button" class="dso-delete" title="Verwijder">
+                <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+              </button>
+              <ul class="dso-subitems">
+                <li>
+                  <svg class="di status-warning"><use href="../../dso-icons.svg#status-warning" /></svg
+                  ><span class="sr-only">waarschuwing</span> Opslaan van vloeistoffen in een ondergrondse opslagtank
+                  <button type="button" class="dso-delete" title="Verwijder">
+                    <svg class="di trash"><use href="../../dso-icons.svg#trash" /></svg>
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

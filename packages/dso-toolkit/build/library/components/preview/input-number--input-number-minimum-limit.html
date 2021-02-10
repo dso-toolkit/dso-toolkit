@@ -1,0 +1,65 @@
+
+
+
+<!DOCTYPE html>
+<html lang="nl" data-stencil-build="uev0ptj7" class>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Input Number Minimum Limit | DSO Toolkit | Component Library - Component preview</title>
+    <link rel="stylesheet" href="../../styles/dso.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Web Component preview</h2>
+      <div class="dso-input-number">
+        <label for="minimum-limit" class="control-label"> Input number with minimum limit </label>
+
+        <button type="button" disabled class="btn btn-link">
+          <span class="sr-only">Aantal verlagen (disabled)</span><dso-icon icon="minus-square"></dso-icon>
+        </button>
+
+        <input
+          type="number"
+          id="minimum-limit"
+          class="dso-input-step-counter"
+          tabindex="-1"
+          min="0"
+          value="0"
+          readonly
+        />
+        <button type="button" class="btn btn-link">
+          <span class="sr-only">Aantal verhogen</span><dso-icon icon="plus-square"></dso-icon>
+        </button>
+      </div>
+    </div>
+    <hr id="custom-elements-raw" />
+    <div class="container">
+      <h2>Markup component preview</h2>
+      <div class="dso-input-number">
+        <label for="minimum-limit" class="control-label"> Input number with minimum limit </label>
+        <button type="button" disabled class="btn btn-link">
+          <span class="sr-only">Aantal verlagen (disabled)</span
+          ><svg class="di minus-square"><use href="../../dso-icons.svg#minus-square" /></svg>
+        </button>
+        <input
+          type="number"
+          id="minimum-limit"
+          class="dso-input-step-counter"
+          tabindex="-1"
+          min="0"
+          value="0"
+          readonly
+        />
+        <button type="button" class="btn btn-link">
+          <span class="sr-only">Aantal verhogen</span
+          ><svg class="di plus-square"><use href="../../dso-icons.svg#plus-square" /></svg>
+        </button>
+      </div>
+    </div>
+    <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+  </body>
+</html>
+
+

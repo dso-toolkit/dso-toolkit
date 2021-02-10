@@ -1,7 +1,7 @@
 module.exports = {
   meta: {
-    webComponent: true,
-    markup: true,
+    webComponent: 'dso-label',
+    markup: true
   },
   status: 'ready',
   collated: true,
