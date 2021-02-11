@@ -88,7 +88,6 @@ export default class VersionSelector {
       <li class="navbar-text dropdown" id="version_selector_nav_item">
         <button type="button" class="btn btn-link" id="version_selector_button" aria-haspopup="true" aria-expanded="true">
           <span class="label"></span>
-          <dso-icon icon="chevron-down"></dso-icon>
         </button>
         <div class="dropdown-menu dso-checkable" id="version_selector_dropdown_menu">
           <h2 class="dso-group-label">Versies</h2>

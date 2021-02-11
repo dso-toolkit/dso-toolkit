@@ -10,7 +10,7 @@ const shoppingCartFilters = require('./components/Componenten/shopping-cart/shop
 const nunjucksGlobals = require('./fractal/nunjucks/globals.js');
 const nunjucksExtensions = require('./fractal/nunjucks/extensions.js');
 
-fractal.web.set('builder.dest', __dirname + '/build/library');
+fractal.web.set('builder.dest', __dirname + '/dist/library');
 
 fractal.set('project.title', 'DSO Toolkit | Component Library');
 
@@ -42,10 +42,10 @@ fractal.docs.engine(nunj);
 fractal.docs.set('path', path.join(__dirname, 'docs'));
 fractal.docs.set('label', 'Documentatie');
 
-fractal.web.set('static.path', path.join(__dirname, 'build/toolkit'));
+fractal.web.set('static.path', path.join(__dirname, 'dist/toolkit'));
 fractal.web.set('server.syncOptions', {
   files: [
-    'build/toolkit/**/*',
+    'dist/toolkit/**/*',
     'theme/dist/**/*',
     '../core/dist/**/*' // :( using require.resolve() gives a path gulp doesn't work with
   ],

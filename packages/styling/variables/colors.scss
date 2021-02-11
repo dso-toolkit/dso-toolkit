@@ -55,3 +55,12 @@ $gray-dark:             lighten($gray-base, 20%);   // #333
 $gray:                  lighten($gray-base, 33.5%); // #555
 $gray-light:            lighten($gray-base, 46.7%); // #777
 $gray-lighter:          lighten($gray-base, 93.5%); // #eee
+
+$input-color-placeholder: $grijs-60;
+$input-bg:              #fff;
+$input-color:           $grijs-90;
+$input-border:          $bosgroen;
+$input-bg-disabled:     $wit;
+
+$dso-input-disabled-color: $grijs-40;
+$dso-input-disabled-border-color: $grijs-10

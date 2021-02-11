@@ -458,6 +458,10 @@ dso-label[status="danger"] {
     top: -2px;
   }
 
+  .dso-static .dso-field-container & {
+    margin-top: -$u2;
+  }
+
   dso-icon + span:not(.sr-only),
   svg.di + span:not(.sr-only),
   span:not(.sr-only) + dso-icon,

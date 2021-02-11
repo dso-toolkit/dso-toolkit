@@ -331,7 +331,26 @@ variants:
         - type: submit
           modifier: primary
           label: Verstuur
-
+  - name: default met definition-list
+    context:
+      __title: default met definition-list
+      sections:
+      - title: Stap met definition-list
+        id: panel1
+        open: true
+        definitions:
+        - term: "Indienen bij:"
+          descriptions:
+            - description: Gemeente Den Haag
+        - term: "Soort:"
+          descriptions:
+            - description: Melding
+        - term: "Bevat:"
+          descriptions:
+            - description: Milieubelastende activiteit - Vergunning (Gemeente)
+        - term: "Omgevingsoverleg mogelijk:"
+          descriptions:
+            - description: Ja
   - name: compact
     context:
       __title: compact

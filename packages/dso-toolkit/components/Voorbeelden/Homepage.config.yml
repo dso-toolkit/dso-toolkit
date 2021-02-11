@@ -10,6 +10,19 @@ context:
       - label: Aanvragen
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
+  dropdownButton:
+    id: actie
+    modifier: link
+    ariaHasPopup: true
+    open: true
+    label: O. tester
+    icon: user
+    groups:
+      - group:
+        items:
+          - label: Mijn Omgevingsloket
+          - label: Mijn profiel
+          - label: Uitloggen
   breadcrumbs:
     crumbs:
       - label: Home

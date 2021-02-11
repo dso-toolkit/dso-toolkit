@@ -1,0 +1,56 @@
+@import "@dso-toolkit/styling/variables/colors";
+
+$dso-minimal-screen-width: 320px;
+
+@import "@dso-toolkit/styling/variables/units";
+
+$dso-focus-color: $scampi;
+
+// component kleuren
+$dso-anchor-visited-color: $cannon-pink;
+
+$dso-button-size: $u7;
+
+$dso-button-border-radius: 4px;
+$dso-button-border-width: 1px;
+$dso-button-line-height: $u3;
+$dso-button-margin-bottom: 1px;
+$dso-button-horizontal-padding: $u2 - $dso-button-border-width;
+$dso-button-vertical-padding: $u1 * 1.5 - $dso-button-border-width;
+
+$dso-button-font-size: 1em;
+
+$dso-button-primary: $grasgroen;
+$dso-button-primary-color: $grasgroen;
+$dso-button-primary-hover-color: $bosgroen;
+$dso-button-primary-active-color: $bosgroen-130;
+$dso-button-primary-disabled-color: $grasgroen-40;
+
+$dso-button-default-color: $wit;
+$dso-button-default-hover-color: $grasgroen;
+$dso-button-default-active-color: $bosgroen;
+$dso-button-default-disabled-color: $grasgroen-40;
+
+$dso-button-link-color: $grasgroen;
+$dso-button-link-hover-color: $scampi;
+$dso-button-link-active-color: $scampi;
+
+$dso-button-link-size: $u4;
+$dso-button-link-padding-horizontal: $dso-button-vertical-padding;
+
+$dso-full-width-color: $grasgroen-10;
+
+$dso-row-divider-color: #d3ddd6;
+
+$dso-footer-border-color: #bcbebd;
+
+$dso-whitebox-margin-bottom: $u7;
+$dso-whitebox-small-margin-bottom: $u7;
+$dso-whitebox-min-height: 540px;
+$dso-whitebox-small-min-height: 200px;
+
+$dso-description-bg-color: $dso-info-bg-color;
+$dso-description-border-color: $dso-info-color;
+
+$dso-table-link-color: $grijs-90;
+$dso-table-header-border-color: $grijs-60;
