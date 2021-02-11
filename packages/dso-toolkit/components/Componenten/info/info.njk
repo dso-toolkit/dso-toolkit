@@ -1,7 +1,9 @@
 <div class="dso-info">
-  <button type="button">
-    <span class="sr-only">Sluiten</span>
-  </button>
+  {% if not static %}
+    <button type="button">
+      <span class="sr-only">Sluiten</span>
+    </button>
+  {% endif %}
   <div class="dso-rich-content">
     {{ infoText | safe }}
   </div>

@@ -13,7 +13,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id)}) %}
+    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id), state: state}) %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
