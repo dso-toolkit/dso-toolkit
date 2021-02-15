@@ -66,7 +66,7 @@
   </nav>
 </header>
 <main>
-  <form class="form-horizontal">
+  <form>
     <div class="row">
       <div class="col-xs-12">
         <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
@@ -80,87 +80,69 @@
     Stap 7 van 7
   </span>
         </h2>
-        <dso-alert status="info">
-          We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.
-        </dso-alert>
-        <button type="button" class="btn btn-link"><span >Ergens anders indienen</span></button>
-        <hr>
-        <form class="form-horizontal">
-          <fieldset>
-            <legend>Verzoek 1</legend>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Verzoek 1:</span>
+        <form class="form-vertical">
+          <fieldset class="form-group dso-radios dso-inline">
+            <legend class="dso-label-container">
+              <span class="control-label">
+      Wilt u uw verzoeken definitief of als Omgevingsoverleg indienen?
+    </span>
+            </legend>
+            <div class="dso-field-container">
+              <div class="dso-selectable">
+                <input type="radio" id="form-vertical-verzoek-0" name="verzoek" value="Omgevingsoverleg">
+                <label for="form-vertical-verzoek-0">
+                  Omgevingsoverleg
+                </label>
               </div>
-              <div class="dso-field-container">
-                <p>Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1</p>
-                <button type="button" class="btn btn-link"><span class="sr-only">Link button</span>
-                  <dso-icon icon="pencil"></dso-icon></button>
-              </div>
-            </div>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Indienen bij:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Hoogheemraadschap van Delfland</p>
-              </div>
-            </div>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Soort:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Aanvraag vergunning</p>
-              </div>
-            </div>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Bevat:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Milieubelastende activiteit - Vergunning (Gemeente)</p>
-              </div>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Verzoek 2</legend>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Verzoek 2:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1</p>
-                <button type="button" class="btn btn-link"><span class="sr-only">Link button</span>
-                  <dso-icon icon="pencil"></dso-icon></button>
-              </div>
-            </div>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Indienen bij:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Gemeente Den Haag</p>
-              </div>
-            </div>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Soort:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Melding</p>
-              </div>
-            </div>
-            <div class="form-group dso-static">
-              <div class="dso-label-container">
-                <span class="control-label">Bevat:</span>
-              </div>
-              <div class="dso-field-container">
-                <p>Milieubelastende activiteit - Vergunning (Gemeente)</p>
+              <div class="dso-selectable">
+                <input type="radio" id="form-vertical-verzoek-1" name="verzoek" value="definitiefverzoek">
+                <label for="form-vertical-verzoek-1">
+                  Definitief verzoek
+                </label>
               </div>
             </div>
           </fieldset>
         </form>
+        <dso-highlight-box>
+          <div class="dso-rich-content">
+            <p>
+              Als u wilt, kunt u een aanvraag doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt met uw gemeente, waterschap of provincie en andere betrokkenen. Samen kijkt u dan naar hoe haalbaar uw plan is, en hoe u uw plan het beste mogelijk kunt maken. Bij elk verzoek staat aangegeven of het mogelijk is om een Omgevingsoverleg in te dienen.
+            </p>
+            <p>
+              Twijfelt u over uw plan, of heeft u een vraag? Neem dan contact op met uw gemeente, waterschap of provincie.
+            </p>
+            <p>
+              Let op: kijk altijd eerst op de website van <em>Gemeente Den Haag</em> voor de mogelijke kosten van een Omgevingsoverleg.
+            </p>
+          </div>
+        </dso-highlight-box>
+        <hr>
+        <dl>
+          <dt>Verzoek 1:</dt>
+          <dd>Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1</dd>
+          <dt>Indienen bij:</dt>
+          <dd>Hoogheemraadschap van Delfland</dd>
+          <dt>Soort:</dt>
+          <dd>Aanvraag vergunning</dd>
+          <dt>Bevat:</dt>
+          <dd>Milieubelastende activiteit - Vergunning (Gemeente)</dd>
+          <dt>Omgevingsoverleg mogelijk:</dt>
+          <dd>Nee</dd>
+        </dl>
+        <hr>
+        <dl>
+          <dt>Verzoek 2:</dt>
+          <dd>Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 2</dd>
+          <dt>Indienen bij:</dt>
+          <dd>Gemeente Den Haag</dd>
+          <dt>Soort:</dt>
+          <dd>Melding</dd>
+          <dt>Bevat:</dt>
+          <dd>Milieubelastende activiteit - Vergunning (Gemeente)</dd>
+          <dt>Omgevingsoverleg mogelijk:</dt>
+          <dd>Ja</dd>
+        </dl>
+        <hr>
       </div>
     </div>
     <div class="row">
