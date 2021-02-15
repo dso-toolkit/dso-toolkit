@@ -15,7 +15,7 @@ context:
     title: 7. Verzoeken indienen
     step: Stap 7 van 7
   alert:
-    modifier: info
+    status: info
     sronly: "Opmerking:"
     message: |
       We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.

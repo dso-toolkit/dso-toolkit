@@ -14,15 +14,15 @@ context:
   steps:
     title: 7. Verzoeken indienen
     step: Stap 7 van 7
-  alert:
-    modifier: warning
+  alerts:
+  - status: warning
     sronly: "Waarschuwing:"
     message: |
       Verander de instantie alleen als u zeker weet dat die niet klopt. Als u iets verandert, duurt het afhandelen van uw aanvraag mogelijk langer.
-  # - modifier: info
-  #   sronly: "Opmerking:"
-  #   message: |
-  #     We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.
+  - status: info
+    sronly: "Opmerking:"
+    message: |
+      We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.
   form:
     formModifier: form-horizontal
     fieldsets:

@@ -9,7 +9,11 @@
     <div class="row">
       <div class="col-xs-12">
         {% render '@form-steps', steps %}
-        {% render '@alert', alert %}
+        {% for alert in alerts %}
+          <dso-alert status="{{ alert.status }}">
+            {{ alert.message | safe }}
+          </dso-alert>
+        {% endfor %}
         {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
         <hr>
         {% render '@form', form %}
