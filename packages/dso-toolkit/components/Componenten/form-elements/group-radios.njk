@@ -1,8 +1,9 @@
 {% set localId = generateLocalId(prefix, id) %}
 
 <fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}{% if helpText %} aria-describedby="helpTextId_{{ id }}"{% endif%}>
-  <legend class="dso-label-container">
-    <span class="control-label">
+  <legend class="sr-only">{{ label }}</legend>
+  <div class="dso-label-container">
+    <span class="control-label" aria-hidden>
       {{ label }}
     </span>
     {% if infoText %}
@@ -11,7 +12,7 @@
     {% if infoOpen %}
       {% render '@info', {infoText: infoText} %}
     {% endif %}
-  </legend>
+  </div>
   <div class="dso-field-container">
     {% for option in options %}
       <div class="dso-selectable">

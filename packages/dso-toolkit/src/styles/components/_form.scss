@@ -34,8 +34,10 @@ form,
 
       border-bottom: 0;
       margin-bottom: $dso-fieldset-separator-unit;
+    }
 
-      .dso-info {
+    .dso-label-container {
+      > .dso-info {
         font-weight: 400;
         margin-bottom: $u2;
         margin-top: $u1;
@@ -56,11 +58,6 @@ form,
     fieldset {
       margin-bottom: 0;
       padding-bottom: 0;
-
-      > legend {
-        border-top: 0;
-        padding-top: 0;
-      }
 
       + fieldset {
         margin-top: 0;
@@ -116,14 +113,21 @@ form,
     text-align: left;
   }
 
+  legend.dso-label-container,
+  legend + .dso-label-container {
+    .control-label {
+      display: inline;
+    }
+  }
+
   legend.dso-label-container {
     border-bottom: 0;
     font-size: $font-size-base;
     margin-bottom: $u1;
+  }
 
-    .control-label {
-      display: inline;
-    }
+  legend + .dso-label-container {
+    margin-bottom: $u1;
   }
 
   &.dso-required {
@@ -231,7 +235,7 @@ select:not([multiple]) {
       @include make-sm-column($dso-label-column);
     }
 
-    > legend.dso-label-container {
+    > legend + .dso-label-container {
       margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
     }
 
