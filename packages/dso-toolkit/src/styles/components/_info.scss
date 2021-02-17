@@ -76,5 +76,10 @@
 @media screen and (min-width: $screen-sm-min) {
   .control-label + .dso-info-button {
     margin-top: #{$u1 - 1};
+
+    .dso-radios &,
+    .dso-checkboxes & {
+      margin-top: 0;
+    }
   }
 }
