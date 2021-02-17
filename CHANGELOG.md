@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 19.0.0
 
 ### Fixed
 * **BREAKING:** **dso-toolkit:** dso-info moet buiten legend staan ([#996](https://github.com/dso-toolkit/dso-toolkit/issues/996)) **Markup changes, see PR ([#997](https://github.com/dso-toolkit/dso-toolkit/pull/997))**
