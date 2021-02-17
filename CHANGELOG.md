@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+
 ### Fixed
-* **styling** Buttons wrappen niet waardoor deze buiten elementen vallen ([#990](https://github.com/dso-toolkit/dso-toolkit/issues/990))
+* **BREAKING:** **dso-toolkit:** dso-info moet buiten legend staan ([#996](https://github.com/dso-toolkit/dso-toolkit/issues/996)) **Markup changes, see PR ([#997](https://github.com/dso-toolkit/dso-toolkit/pull/997))**
+* **BREAKING:** **dso-toolkit:** Button text wordt dubbel voorgelezen ([#903](https://github.com/dso-toolkit/dso-toolkit/issues/903)) **Fixed by changes from issue ([#996](https://github.com/dso-toolkit/dso-toolkit/issues/996))**
+* **styling:** Buttons wrappen niet waardoor deze buiten elementen vallen ([#990](https://github.com/dso-toolkit/dso-toolkit/issues/990))
 
 ## 18.0.0
 
