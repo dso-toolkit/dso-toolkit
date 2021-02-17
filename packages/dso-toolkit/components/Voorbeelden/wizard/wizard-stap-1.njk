@@ -2,17 +2,9 @@
   <div class="row">
     <div class="col-xs-12">
       {% render '@form-steps', {title: steps.title, step: steps.step} %}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
       <dso-alert status="{{ alert.status }}">
         {{ alert.message | safe }}
       </dso-alert>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
       {% render '@form', form %}
     </div>
   </div>

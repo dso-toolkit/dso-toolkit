@@ -6,15 +6,7 @@
       <div class="col-xs-12">
         <h1>Aanvragen</h1>
         {% render '@form-steps' %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         {% render '@accordion', accordion %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         <div class="dso-form-buttons">
           <div class="dso-aside">
             {% render '@button', {label:'Vorige stap', type:'button', modifier:'link', icon: 'chevron-left'} %}

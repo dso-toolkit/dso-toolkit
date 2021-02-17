@@ -3,22 +3,10 @@
     <div class="row">
       <div class="col-xs-12">
         {% render '@form-steps', steps %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         <dso-alert status="{{ alert.status }}">
           {{ alert.message | safe }}
         </dso-alert>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         {% render '@shopping-cart' %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         {% render '@form', form %}
       </div>
     </div>

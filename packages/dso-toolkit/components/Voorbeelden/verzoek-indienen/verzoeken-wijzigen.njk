@@ -4,10 +4,6 @@
     <div class="row">
       <div class="col-xs-12">
         <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         {% render '@form-steps', steps %}
         <dso-alert status="{{ alert.status }}">
           {{ alert.message | safe }}
@@ -15,10 +11,6 @@
         {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
         <hr>
         {% render '@form', form %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
         <div class="dso-form-buttons">
           <div class="dso-aside">
             {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
