@@ -18,7 +18,11 @@ $dso-accordion-light-border-color: $grijs-20;
 
 .dso-accordion {
   margin-bottom: $u4;
-  
+
+  .dso-accordion {
+    margin-bottom: 0;
+  }
+
   .dso-section-handle {
     font-weight: 600;
   }
