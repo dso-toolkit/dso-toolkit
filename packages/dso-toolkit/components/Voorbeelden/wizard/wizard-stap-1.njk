@@ -1,11 +1,7 @@
 <main>
-  <div class="row">
-    <div class="col-xs-12">
-      {% render '@form-steps', {title: steps.title, step: steps.step} %}
-      <dso-alert status="{{ alert.status }}">
-        {{ alert.message | safe }}
-      </dso-alert>
-      {% render '@form', form %}
-    </div>
-  </div>
+  {% render '@form-steps', {title: steps.title, step: steps.step} %}
+  <dso-alert status="{{ alert.status }}">
+    {{ alert.message | safe }}
+  </dso-alert>
+  {% render '@form', form %}
 </main>

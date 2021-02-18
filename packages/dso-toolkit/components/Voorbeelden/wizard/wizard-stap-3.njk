@@ -1,14 +1,10 @@
 <main>
   <form>
-    <div class="row">
-      <div class="col-xs-12">
-        {% render '@form-steps', steps %}
-        <dso-alert status="{{ alert.status }}">
-          {{ alert.message | safe }}
-        </dso-alert>
-        {% render '@shopping-cart' %}
-        {% render '@form', form %}
-      </div>
-    </div>
+    {% render '@form-steps', steps %}
+    <dso-alert status="{{ alert.status }}">
+      {{ alert.message | safe }}
+    </dso-alert>
+    {% render '@shopping-cart' %}
+    {% render '@form', form %}
   </form>
 </main>
