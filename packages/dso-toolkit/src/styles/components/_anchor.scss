@@ -1,13 +1,5 @@
 $dso-anchor-spacer-width: 4px;
 
-dso-alert,
-.alert {
-  a,
-  a:visited {
-    color: $text-color;
-  }
-}
-
 a {
   text-decoration: underline;
 
@@ -53,5 +45,22 @@ sup,
 sub {
   a {
     @include anchor-reverse();
+  }
+}
+
+dso-alert,
+.alert {
+  a {
+    &,
+    &:not(.btn):visited {
+      color: $text-color;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $text-color;
+      text-decoration: none;
+    }
   }
 }

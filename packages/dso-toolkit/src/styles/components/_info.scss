@@ -50,6 +50,12 @@
     &:not(.btn) {
       color: $text-color;
     }
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
   }
 }
 
