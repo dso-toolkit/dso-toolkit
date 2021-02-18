@@ -47,3 +47,15 @@ context:
       - id: confirm
         inputType: confirm
         label: Hierbij verklaar ik alle vragen naar waarheid te hebben ingevuld.
+    asideButtons:
+    - type: button
+      modifier: link
+      label: Vorige 
+      icon: chevron-left
+    buttons:
+    - type: button
+      modifier: default
+      label: Downloaden
+    - type: submit
+      modifier: primary
+      label: Indienen
