@@ -1,16 +1,16 @@
 main,
 form {
   > .row {
-    padding-bottom: $dso-row-vertical-space;
-    padding-top: $dso-row-vertical-space;
+    // padding-bottom: $dso-row-vertical-space;
+    // padding-top: $dso-row-vertical-space;
 
-    &:not(.dso-featured):first-child {
-      padding-top: 0;
-    }
+    // &:not(.dso-featured):first-child {
+    //   padding-top: 0;
+    // }
 
-    &:not(.dso-featured):last-child {
-      padding-bottom: 0;
-    }
+    // &:not(.dso-featured):last-child {
+    //   padding-bottom: 0;
+    // }
 
     &.dso-featured {
       margin-bottom: $u5;
