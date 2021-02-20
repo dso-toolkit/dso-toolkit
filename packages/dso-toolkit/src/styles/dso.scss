@@ -3,7 +3,7 @@
 @import "mixins/font-asap";
 @import "mixins/full-width-row";
 @import "mixins/grid";
-@import "mixins/tables";
+// @import "mixins/tables"; -> Moved to @dso-toolkit/styling
 @import "mixins/typography";
 
 // @import "icons/di"; -> Moved to @dso-toolkit/styling
@@ -50,7 +50,7 @@
 @import "components/shopping-cart";
 // @import "components/step-counter"; -> Moved to @dso-toolkit/styling
 @import "components/steps";
-@import "components/table";
+// @import "components/table"; -> Moved to @dso-toolkit/styling
 @import "components/tabs";
 @import "components/tooltip";
 @import "components/tree-view";
