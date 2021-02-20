@@ -30,12 +30,4 @@ $rich-content-margin-bottom: $u2;
   img {
     max-width: 100%;
   }
-
-  > :first-child {
-    margin-top: $rich-content-margin-bottom / 2;
-  }
-
-  > :last-child {
-    margin-bottom: $rich-content-margin-bottom / 2;
-  }
 }
