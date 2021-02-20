@@ -86,21 +86,7 @@ $caret-width-large:         5px !default;
 //
 //## Customizes the `.table` component with basic values, each used across all table variations.
 
-//** Padding for `<th>`s and `<td>`s.
-$table-cell-padding:            8px !default;
-//** Padding for cells in `.table-condensed`.
-$table-condensed-cell-padding:  5px !default;
-
-//** Default background color used for all tables.
-$table-bg:                      transparent !default;
-//** Background color used for `.table-striped`.
-$table-bg-accent:               #f9f9f9 !default;
-//** Background color used for `.table-hover`.
-$table-bg-hover:                #f5f5f5 !default;
-$table-bg-active:               $table-bg-hover !default;
-
-//** Border color for table and cell borders.
-$table-border-color:            #ddd !default;
+// Merged into @dso-toolkit/styling/components/table
 
 
 //== Buttons
@@ -673,7 +659,7 @@ $pre-scrollable-max-height:   340px !default;
 //** Horizontal offset for forms and lists.
 $component-offset-horizontal: 180px !default;
 //** Text muted color
-$text-muted:                  $gray-light !default;
+// $text-muted:                  $gray-light !default; -> Moved to @dso-toolkit/styling/variables
 //** Abbreviations and acronyms border color
 $abbr-border-color:           $gray-light !default;
 //** Headings small color

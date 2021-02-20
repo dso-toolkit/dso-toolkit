@@ -1,0 +1,33 @@
+$rich-content-margin-bottom: $u2;
+
+@mixin rich-content {
+  p {
+    margin: 0 0 $rich-content-margin-bottom;
+  }
+
+  ul,
+  ol {
+    margin-bottom: $rich-content-margin-bottom;
+  }
+
+  pre {
+    margin: 0 0 $rich-content-margin-bottom;
+  }
+
+  blockquote {
+    padding: $rich-content-margin-bottom $line-height-computed;
+  }
+
+  dso-highlight-box,
+  .dso-highlight-box {
+    margin-bottom: $line-height-computed;
+  }
+
+  hr {
+    margin-top: $u1;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}

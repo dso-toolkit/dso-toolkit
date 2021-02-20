@@ -1,0 +1,200 @@
+@import "../variables";
+@import "../mixins/rich-content";
+@import "../mixins/table-responsive.scss";
+@import "../mixins/table-row-variant";
+
+$table-cell-padding: $u1;
+$table-bg: transparent;
+$table-bg-hover: $grijs-10;
+$table-bg-active: $grijs-10;
+$table-border-color: $grijs-30;
+$table-link-color: $grijs-90;
+$table-header-border-color: $grijs-60;
+
+caption {
+  color: $text-muted;
+  padding-bottom: $table-cell-padding;
+  padding-top: $table-cell-padding;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  text-align: left;
+}
+
+table.table {
+  td:not(.plain-content),
+  th {
+    @include rich-content();
+  }
+}
+
+table.table,
+.dso-rich-content table {
+  margin-bottom: $line-height-computed;
+  max-width: 100%;
+  width: 100%;
+
+  &.dso-text-left {
+    th,
+    td {
+      text-align: left;
+    }
+  }
+
+  &.dso-text-center {
+    th,
+    td {
+      text-align: center;
+    }
+  }
+
+  &.dso-text-right {
+    th,
+    td {
+      text-align: right;
+    }
+  }
+
+  th,
+  td {
+    &.dso-text-left {
+      text-align: left;
+    }
+
+    &.dso-text-center {
+      text-align: center;
+    }
+
+    &.dso-text-right {
+      text-align: right;
+    }
+  }
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        line-height: $line-height-base;
+        padding: ($table-cell-padding * 1.5) $table-cell-padding;
+        vertical-align: top;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  > thead {
+    > tr {
+      > td,
+      > th {
+        border-bottom: 1px solid $table-header-border-color;
+      }
+    }
+  }
+
+  > tbody,
+  > tfoot {
+    > tr {
+      > td,
+      > th {
+        border-bottom: 1px solid $table-border-color;
+      }
+    }
+  }
+
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: $body-bg;
+  }
+
+  // error after filtering
+  > tbody > tr.result-error {
+    td {
+      font-style: italic;
+    }
+  }
+
+  // sortable table
+  > thead > tr > th {
+    // Bottom align for column headings
+    vertical-align: bottom;
+
+    .btn.dso-sort {
+      color: $grijs-90;
+      font-weight: 600;
+
+      dso-icon,
+      svg.di {
+        color: $grijs-60;
+
+        &.dso-sort-active {
+          color: $grijs-90;
+        }
+      }
+    }
+  }
+}
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  display: table-column;
+  float: none;
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+}
+
+table {
+  background-color: $table-bg;
+
+  td,
+  th {
+    &[class*="col-"] {
+      display: table-cell;
+      float: none;
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+    }
+  }
+}
+
+// Generate the contextual variants
+@include table-row-variant("active", $table-bg-active);
+
+.dso-table-responsive,
+.dso-table-scroll-container {
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  overflow-x: auto;
+  position: relative;
+}
+
+.dso-table-scroll-container {
+  @include table-responsive();
+}
+
+.dso-table-responsive {
+  @media screen and (max-width: $screen-xs-max) {
+    @include table-responsive();
+  }
+}
