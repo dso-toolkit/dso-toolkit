@@ -1,3 +1,7 @@
+.dso-field-container + .dso-info {
+  background-color: $dso-invalid-color !important;
+}
+
 .dso-info:not(.dso-accordion-section) {
   background-color: $grijs-10;
   padding: $u2 $u4 $u2 $u2;
