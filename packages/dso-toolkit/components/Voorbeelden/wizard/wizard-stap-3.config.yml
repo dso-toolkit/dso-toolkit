@@ -7,46 +7,59 @@ context:
   alert:
     status: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
-  shopping-cart:
+  shoppingcart:
     items:
-      - label: Milieubelastende activiteit - Melding
-      - label: Milieubelastende activiteit - Melding
-        additive: 2
-  form:
-    formModifier: form-vertical
-    fieldsets:
-    - legend: Zoek activiteiten
-      groups:
-      - id: filter
-        inputType: search-bar
-        label: Zoekterm
-        searchBar:
-          placeholder: Bijvoorbeeld bouwactiviteiten
-          icon: true
-          id: filter_activiteiten
-          label: Zoek uw activiteiten
-          noLabel: true
-          hideSearchButton: true
-          clearButton: true
-      - id: activiteiten
-        inputType: checkboxes
-        label: 4 gevonden activiteiten
-        options:
-          - value: 1
-            label: Bouwactiviteit - Melding
-          - value: 2
-            label: Milieuactiviteit - Melding
-          - value: 3
-            label: Milieuactiviteit - Aanvraag vergunning
-          - value: 4
-            label: Gebruik en het in stand houden van bouwwerken ketentest - Melding
-    asideButtons:
-    - type: link
-      modifier: link
-      label: Vorige stap
-      icon: chevron-left
-    buttons:
-    - type: submit
-      modifier: primary
-      label: Volgende stap
-      iconAfter: chevron-right
+      - label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning
+        additive: 1
+    collapsed: true
+  search:
+    inputType: search-bar
+    label: Zoek uw activiteiten
+    placeholder: Bijvoorbeeld bouwactiviteiten
+    icon: true
+    id: filter_activiteiten
+    hideSearchButton: true
+    clearButton: true
+  formFacets:
+  - legend: Filters
+    groups:
+    - id: facets 
+      inputType: checkboxes
+      label: Maak een keuze
+      options:
+      - value: 1
+        label: een
+        id: checkbox_1
+      - value: 2
+        label: twee
+        id: checkbox_2
+      - value: 3
+        label: drie
+        id: checkbox_3
+  listButtons:
+  - type: button
+    label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning
+    sublabel: 'Rijk'
+    count: '1'
+  - type: button
+    label: Bouwen dakkapel - Aanvraag vergunning
+    sublabel: Gemeente
+  - type: button
+    label: In stand houden van bouwwerken - Melding
+    sublabel: Gemeente
+  - type: button
+    label: Milieubelastende activiteit - Aanvraag vergunning
+    sublabel: Gemeente
+  - type: button
+    label: Opslaan van vloeistoffen in opslagtanks of in tankcontainers of verpakkingen gebruikt als opslagtank  - Aanvraag vergunning
+    sublabel: Rijk
+  asideButtons:
+  - type: link
+    modifier: link
+    label: Vorige stap
+    icon: chevron-left
+  buttons:
+  - type: submit
+    modifier: primary
+    label: Volgende stap
+    iconAfter: chevron-right

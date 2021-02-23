@@ -118,11 +118,15 @@ form,
   }
 }
 
+.form-group + .dso-form-buttons,
+.row + .dso-form-buttons {
+  margin-top: $dso-form-group-margin;
+}
+
 .form-group {
   margin-bottom: 0;
 
-  + .form-group,
-  + .dso-form-buttons {
+  + .form-group {
     margin-top: $dso-form-group-margin;
   }
 
