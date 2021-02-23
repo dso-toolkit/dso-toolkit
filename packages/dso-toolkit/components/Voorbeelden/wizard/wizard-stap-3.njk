@@ -15,12 +15,14 @@
         {% render '@form-fieldsets', {fieldsets: formFacets} %}
       </div>
       <div class="col-xs-12 col-sm-9">
-        <legend>
-          5 activiteiten
-        </legend>
-        {% for listButton in listButtons %}
-          {% render '@list-button', listButton %}
-        {% endfor %}
+        <fieldset>
+          <legend>
+            5 activiteiten
+          </legend>
+          {% for listButton in listButtons %}
+            {% render '@list-button', listButton %}
+          {% endfor %}
+        </fieldset>
       </div>
     </div>
     {% render '@form-buttons', {buttons: buttons, asideButtons: asideButtons} %}

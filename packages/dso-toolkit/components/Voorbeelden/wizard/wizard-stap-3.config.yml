@@ -25,17 +25,30 @@ context:
     groups:
     - id: facets 
       inputType: checkboxes
-      label: Maak een keuze
+      label: Bestuurslaag
       options:
       - value: 1
-        label: een
+        label: Rijk (18)
         id: checkbox_1
       - value: 2
-        label: twee
+        label: Gemeente (4)
         id: checkbox_2
-      - value: 3
-        label: drie
+    - id: facets
+      inputType: checkboxes
+      label: Toestemming
+      options:
+      - value: 1
+        label: Aanvraag vergunning (11)
         id: checkbox_3
+      - value: 2
+        label: Aanvraag maatwerkvoorschrift (3)
+        id: checkbox_4
+      - value: 3
+        label: Melding (7)
+        id: checkbox_5
+      - value: 4
+        label: Informatie (1)
+        id: checkbox_6
   listButtons:
   - type: button
     label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning
