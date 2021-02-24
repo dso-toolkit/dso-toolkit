@@ -1,21 +1,10 @@
 main,
 form {
   > .dso-rich-content {
-    margin-bottom: $u5;
+    margin-bottom: $dso-vertical-spacing-large;
   }
 
   > .row {
-    // padding-bottom: $dso-row-vertical-space;
-    // padding-top: $dso-row-vertical-space;
-
-    // &:not(.dso-featured):first-child {
-    //   padding-top: 0;
-    // }
-
-    // &:not(.dso-featured):last-child {
-    //   padding-bottom: 0;
-    // }
-
     &.dso-featured {
       margin-bottom: $u5;
       padding-bottom: $u6;
