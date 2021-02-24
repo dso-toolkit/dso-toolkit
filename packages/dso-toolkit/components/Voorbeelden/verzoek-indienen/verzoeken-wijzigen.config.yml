@@ -52,3 +52,13 @@ context:
       - inputType: static
         label: "Bevat:"
         value: Milieubelastende activiteit - Vergunning (Gemeente)
+    asideButtons:
+    - type: link
+      modifier: link
+      label: Vorige
+      icon: chevron-left
+    buttons:
+    - type: submit
+      modifier: primary
+      label: Volgende
+      iconAfter: chevron-right
