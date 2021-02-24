@@ -74,3 +74,13 @@ context:
     - term: "Omgevingsoverleg mogelijk:"
       descriptions:
         - description: Ja
+  asideButtons:
+  - type: link
+    modifier: link
+    label: Vorige
+    icon: chevron-left
+  buttons:
+  - type: submit
+    modifier: primary
+    label: Volgende
+    iconAfter: chevron-right

@@ -3,19 +3,17 @@
   <form>
     <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
     {% render '@form-steps', steps %}
-    {% render '@form', form %}
+    {% render '@form-fieldsets', form %}
     {% render '@highlight-box', highlightbox %}
-    <hr>
     {% render '@definition-list', definitionlist1 %}
-    <hr>
     {% render '@definition-list', definitionlist2 %}
-    <hr>
-    <div class="dso-form-buttons">
+    {% render '@form-buttons', {buttons: buttons, asideButtons: asideButtons} %}
+    {# <div class="dso-form-buttons">
       <div class="dso-aside">
         {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
       </div>
       {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende', iconAfter: 'chevron-right'} %}
-    </div>
+    </div> #}
   </form>
 </main>
 
