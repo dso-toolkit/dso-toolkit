@@ -1,5 +1,9 @@
 main,
 form {
+  > .dso-rich-content {
+    margin-bottom: $u5;
+  }
+
   > .row {
     // padding-bottom: $dso-row-vertical-space;
     // padding-top: $dso-row-vertical-space;
@@ -59,10 +63,6 @@ form {
   + .dso-featured {
     margin-top: $u3;
   }
-}
-
-main > .dso-rich-content {
-  margin-bottom: $u5;
 }
 
 .dso-banner-implementation-specific-image {
