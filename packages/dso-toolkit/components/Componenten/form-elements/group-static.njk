@@ -8,8 +8,8 @@
       {% render '@info', {infoText: infoText} %}
     {% endif %}
   </div>
-  <div class="dso-field-container">
-    <p>{{ value }}</p>
+  <div {{ className('dso-field-container', [edit, 'dso-edit']) }}>
+    {{ value | safe }}
     {% if edit %}
       {% render '@button', {type: 'button', modifier: 'link', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}
     {% endif %}
