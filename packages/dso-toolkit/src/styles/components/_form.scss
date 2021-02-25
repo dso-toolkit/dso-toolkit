@@ -131,6 +131,15 @@ form,
     margin-top: $dso-form-group-margin;
   }
 
+  &:not(.dso-static) + .form-group.dso-static,
+  &.dso-static + .form-group:not(.dso-static) {
+    margin-top: $dso-form-group-margin / 2;
+  }
+
+  .form-group.dso-edit + & {
+    margin-top: 0;
+  }
+
   > .dso-info {
     float: left;
     margin: $u2 0;
