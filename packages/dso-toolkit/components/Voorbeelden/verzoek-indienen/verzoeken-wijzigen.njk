@@ -6,8 +6,11 @@
     <dso-alert status="{{ alert.status }}">
       {{ alert.message | safe }}
     </dso-alert>
-    {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
-    <hr>
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
+      </div>
+    </div>
     {% render '@form', form %}
   </form>
 </main>

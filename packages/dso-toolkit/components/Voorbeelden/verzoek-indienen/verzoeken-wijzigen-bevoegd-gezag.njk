@@ -8,8 +8,11 @@
         {{ alert.message | safe }}
       </dso-alert>
     {% endfor %}
-    {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
-    <hr>
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
+      </div>
+    </div>
     {% render '@form', form %}
     <div class="dso-form-buttons">
       <div class="dso-aside">
