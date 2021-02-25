@@ -18,20 +18,18 @@
       </div>
     </div>
     <div class="dso-highlight-box">
-      <div class="dso-rich-content">
-        <div class="dso-search-bar">
-          <div class="dso-search-bar-input">
-            <label for="filter_activiteiten">Zoek uw activiteiten</label>
-            <span class="dso-search-icon" aria-hidden="true"></span>
-            <input type="text" id="filter_activiteiten" placeholder="Bijvoorbeeld bouwactiviteiten" />
-            <button type="button">
-              Zoekopdracht legen
-            </button>
-          </div>
-          <button type="button" class="btn btn-default sr-only">
-            Button
+      <div class="dso-search-bar">
+        <div class="dso-search-bar-input">
+          <label for="filter_activiteiten">Zoek uw activiteiten</label>
+          <span class="dso-search-icon" aria-hidden="true"></span>
+          <input type="text" id="filter_activiteiten" placeholder="Bijvoorbeeld bouwactiviteiten" />
+          <button type="button">
+            Zoekopdracht legen
           </button>
         </div>
+        <button type="button" class="btn btn-default sr-only">
+          Button
+        </button>
       </div>
     </div>
     <div class="row">
@@ -39,11 +37,12 @@
         <fieldset>
           <legend>Filters</legend>
           <fieldset class="form-group dso-checkboxes">
-            <legend class="dso-label-container">
-              <span class="control-label">
+            <legend class="sr-only">Bestuurslaag</legend>
+            <div class="dso-label-container">
+              <span class="control-label" aria-hidden>
       Bestuurslaag
     </span>
-            </legend>
+            </div>
             <div class="dso-field-container">
               <div class="dso-selectable">
                 <input type="checkbox" id="facets-0" name="facets" value="1">
@@ -60,11 +59,12 @@
             </div>
           </fieldset>
           <fieldset class="form-group dso-checkboxes">
-            <legend class="dso-label-container">
-              <span class="control-label">
+            <legend class="sr-only">Toestemming</legend>
+            <div class="dso-label-container">
+              <span class="control-label" aria-hidden>
       Toestemming
     </span>
-            </legend>
+            </div>
             <div class="dso-field-container">
               <div class="dso-selectable">
                 <input type="checkbox" id="facets-0" name="facets" value="1">
