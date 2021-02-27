@@ -99,6 +99,10 @@ $dso-accordion-light-border-color: $grijs-20;
         font-size: 1em;
         line-height: $dso-accordion-handle-line-height;
         margin: 0;
+
+        a:active {
+          text-decoration: none;
+        }
       }
 
       + .dso-accordion-section {
@@ -272,10 +276,6 @@ $dso-accordion-light-border-color: $grijs-20;
           color: $dso-accordion-light-main-color;
         }
 
-        &:focus {
-          text-decoration: underline;
-        }
-
         &::before {
           @include di("chevron-down");
 
@@ -287,7 +287,12 @@ $dso-accordion-light-border-color: $grijs-20;
       }
 
       a {
-        @include anchor-reverse();
+        &,
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: none;
+        }
       }
     }
   }
