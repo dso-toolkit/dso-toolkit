@@ -36,6 +36,12 @@ $dso-banner-left-padding: $u6;
 
       a {
         text-decoration: underline;
+
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: none;
+        }
       }
 
       > .dso-rich-content {

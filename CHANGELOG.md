@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit + styling:** Anchor styling aanpassingen voor componenten met gekleurde achtergrond ([#1009](https://github.com/dso-toolkit/dso-toolkit/issues/1009))
+
 ### Changed
-* **dso-toolkit + styling**: Moved table styling
+* **dso-toolkit + styling**: Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
 
 ## 19.0.0
 

@@ -69,5 +69,11 @@ dso-highlight-box:not([border]):not([white]) {
     &:not(.btn) {
       color: $text-color;
     }
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
   }
 }
