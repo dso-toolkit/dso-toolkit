@@ -1,5 +1,8 @@
+@import "~@dso-toolkit/styling/scaffolding/normalize";
+
 :host {
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
-  
-  @import "~@dso-toolkit/styling/components/tooltip";
+  display: block;
 }
+
+@import "~@dso-toolkit/styling/components/tooltip";
+
