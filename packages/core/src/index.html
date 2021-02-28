@@ -11,6 +11,47 @@
   </head>
   <body>
     <div>
+      <button type="button">
+        <span>Hover or focus me</span>
+        <dso-tooltip position="top" active>
+          Top
+        </dso-tooltip>
+      </button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+      <button type="button">
+        <span>Hover or focus me</span>
+        <dso-tooltip position="right" active>
+          Right
+        </dso-tooltip>
+      </button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div>
+      <button type="button">
+        <span>Hover or focus me</span>
+        <dso-tooltip position="bottom" active>
+          Bottom
+        </dso-tooltip>
+      </button>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div style="padding-left: 100px; padding-bottom: 50px;">
+      <button type="button">
+        <span>Hover or focus me</span>
+        <dso-tooltip position="left" active>
+          Left
+        </dso-tooltip>
+      </button>
+    </div>
+    <div>
       <dso-date-picker></dso-date-picker>
       <pre id="date-picker-output">[change date]</pre>
       <script>
@@ -138,18 +179,6 @@
     </div>
     <div>
       <dso-progress-bar progress="60">Voortgang</dso-progress-bar>
-    </div>
-    <div>
-      <dso-tooltip position="top" label="Tooltip top"></dso-tooltip>
-    </div>
-    <div>
-      <dso-tooltip position="right" label="Tooltip right"></dso-tooltip>
-    </div>
-    <div>
-      <dso-tooltip position="bottom" label="Tooltip bottom"></dso-tooltip>
-    </div>
-    <div>
-      <dso-tooltip position="left" label="Tooltip left"></dso-tooltip>
     </div>
   </body>
 </html>

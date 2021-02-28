@@ -92,8 +92,12 @@ export namespace Components {
         "progress": number;
     }
     interface DsoTooltip {
-        "label"?: string;
-        "position"?: string;
+        "activate": () => Promise<void>;
+        "active": boolean;
+        "deactivate": () => Promise<void>;
+        "for"?: string | HTMLElement;
+        "noArrow": boolean;
+        "position": 'top' | 'right' | 'bottom' | 'left';
     }
 }
 declare global {
@@ -249,8 +253,10 @@ declare namespace LocalJSX {
         "progress": number;
     }
     interface DsoTooltip {
-        "label"?: string;
-        "position"?: string;
+        "active"?: boolean;
+        "for"?: string | HTMLElement;
+        "noArrow"?: boolean;
+        "position"?: 'top' | 'right' | 'bottom' | 'left';
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;

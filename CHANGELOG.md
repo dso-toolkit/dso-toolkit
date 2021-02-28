@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **core + styling:** Tooltip ([#940](https://github.com/dso-toolkit/dso-toolkit/issues/940))
+
 ### Fixed
 * **dso-toolkit:** Accordion anchor styling aanpassingen ([#1008](https://github.com/dso-toolkit/dso-toolkit/issues/1008))
 * **dso-toolkit + styling:** Anchor styling aanpassingen voor componenten met gekleurde achtergrond ([#1009](https://github.com/dso-toolkit/dso-toolkit/issues/1009))

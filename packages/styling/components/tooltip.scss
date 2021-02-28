@@ -25,6 +25,7 @@ $tooltop-max-width: 80 * $dso-unit;
   font-size: $font-size-small;
   position: absolute;
   z-index: $zindex-tooltip;
+  transition: opacity .15s linear;
 
   &.in {
     @include opacity($tooltip-opacity);
@@ -50,48 +51,38 @@ $tooltop-max-width: 80 * $dso-unit;
     padding: 0 $tooltip-arrow-width;
   }
 
-  &.top .tooltip-arrow {
-    border-top-color: $tooltip-arrow-color;
-    border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -$tooltip-arrow-width;
-  }
-
-  &.right .tooltip-arrow {
-    border-right-color: $tooltip-arrow-color;
-    border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
-    left: 0;
-    margin-top: -$tooltip-arrow-width;
-    top: 50%;
-  }
-
-  &.left .tooltip-arrow {
-    border-left-color: $tooltip-arrow-color;
-    border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
-    margin-top: -$tooltip-arrow-width;
-    right: 0;
-    top: 50%;
-  }
-
-  &.bottom .tooltip-arrow {
-    border-bottom-color: $tooltip-arrow-color;
-    border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
-    left: 50%;
-    margin-left: -$tooltip-arrow-width;
-    top: 0;
-  }
-
-  &.no-arrow .tooltip-inner::after {
-    border: 0;
-    left: 0;
-    width: 0;
-  }
-
-  &.no-arrow .tooltip-inner::before {
-    border: 0;
-    left: 0;
-    width: 0;
+  &:not(.no-arrow) {
+    &.top .tooltip-arrow {
+      border-top-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -$tooltip-arrow-width;
+    }
+  
+    &.right .tooltip-arrow {
+      border-right-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+      left: 0;
+      margin-top: -$tooltip-arrow-width;
+      top: 50%;
+    }
+  
+    &.left .tooltip-arrow {
+      border-left-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+      margin-top: -$tooltip-arrow-width;
+      right: 0;
+      top: 50%;
+    }
+  
+    &.bottom .tooltip-arrow {
+      border-bottom-color: $tooltip-arrow-color;
+      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+      left: 50%;
+      margin-left: -$tooltip-arrow-width;
+      top: 0;
+    }
   }
 }
 
