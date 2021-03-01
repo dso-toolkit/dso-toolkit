@@ -1,6 +1,14 @@
-<dso-tooltip position="bottom" label="Ik sta onder de content.">
-  <div class="tooltip bottom fade in" role="tooltip">
-    <div class="tooltip-arrow"></div>
-    <div class="tooltip-inner">Ik sta onder de content.</div>
-  </div>
+
+<!-- Impliciet: Geen @for attribute dus target is direct parent -->
+<button type="button">
+  <dso-icon icon="plus"></dso-icon>
+  <dso-tooltip position="bottom">
+    Ik sta onder de content.
+  </dso-tooltip>
+</button>
+
+<!-- Expliciet: @for attribute met verwijzing naar ander element -->
+<input type="text" id="demo-bottom">
+<dso-tooltip position="bottom" for="demo-bottom">
+  Ik sta onder de content.
 </dso-tooltip>
