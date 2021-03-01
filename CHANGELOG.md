@@ -10,7 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + styling:** Anchor styling aanpassingen voor componenten met gekleurde achtergrond ([#1009](https://github.com/dso-toolkit/dso-toolkit/issues/1009))
 
 ### Changed
-* **dso-toolkit + styling**: Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
+* **dso-toolkit + styling:** Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
+* **dso-toolkit + core:** Alert role="alert" instelbaar door prop ([#986](https://github.com/dso-toolkit/dso-toolkit/issues/986))
 
 ### Deprecated
 * **dso-toolkit:** Toelichting vraag onder antwoorden deprecaten ([#920](https://github.com/dso-toolkit/dso-toolkit/issues/920)) **Deprecation notice, see PR ([#1017](https://github.com/dso-toolkit/dso-toolkit/pull/1017))**

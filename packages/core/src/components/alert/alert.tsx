@@ -10,6 +10,9 @@ export class Alert {
   @Prop()
   status!: 'success' | 'info' | 'warning' | 'danger';
 
+  @Prop()
+  roleAlert?: boolean;
+
   private static statusMap = new Map<string, string>([
     ['success', 'Gelukt'],
     ['info', 'Opmerking'],
@@ -24,7 +27,7 @@ export class Alert {
     }
 
     return (
-      <div class={clsx('alert', `alert-${this.status}`)} role="alert">
+      <div class={clsx('alert', `alert-${this.status}`)} role={this.roleAlert ? 'alert' : undefined}>
         <span class="sr-only">{status}:</span>
         <slot></slot>
       </div>

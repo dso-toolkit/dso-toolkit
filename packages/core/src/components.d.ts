@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 export namespace Components {
     interface DsoAlert {
+        "roleAlert"?: boolean;
         "status": 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoAttachmentsCounter {
@@ -147,6 +148,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DsoAlert {
+        "roleAlert"?: boolean;
         "status": 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoAttachmentsCounter {

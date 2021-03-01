@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property              | Attribute | Description | Type                                           | Default     |
-| --------------------- | --------- | ----------- | ---------------------------------------------- | ----------- |
-| `status` _(required)_ | `status`  |             | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
+| Property              | Attribute    | Description | Type                                           | Default     |
+| --------------------- | ------------ | ----------- | ---------------------------------------------- | ----------- |
+| `roleAlert`           | `role-alert` |             | `boolean \| undefined`                         | `undefined` |
+| `status` _(required)_ | `status`     |             | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
 
 
 ----------------------------------------------

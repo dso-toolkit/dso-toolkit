@@ -55,6 +55,12 @@ context:
   status: success
   message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
 variants:
+  - name: with-role-alert
+    context:
+      __title: met role alert
+      status: success
+      message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
+      roleAlert: true
   - name: danger
     context:
       __title: danger
