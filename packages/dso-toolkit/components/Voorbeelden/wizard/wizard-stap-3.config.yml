@@ -8,6 +8,8 @@ context:
     status: info
     message: Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.
   shoppingcart:
+    shoppingcartTitle: Mijn activiteiten
+    shoppingcartTitleTag: h3
     items:
       - label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning
         additive: 1
@@ -21,7 +23,8 @@ context:
     hideSearchButton: true
     clearButton: true
   formFacets:
-  - legend: Filters
+  - legend: |
+      <h4>Filters</h4>
     groups:
     - id: facets 
       inputType: checkboxes
