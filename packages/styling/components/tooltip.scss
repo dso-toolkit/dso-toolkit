@@ -1,18 +1,12 @@
 @import "../variables";
 @import "../mixins/reset-text";
 
-$tooltip-bg:                  #000;
-$tooltip-arrow-color:         $tooltip-bg;
-$tooltip-arrow-width:         5px;
-$tooltip-color:               #fff;
-$tooltip-max-width:           200px;
-$tooltip-opacity:             .9;
-
+$tooltip-arrow-width: 5px;
+$tooltip-opacity: 0.9;
 $tooltip-padding-vertical: $dso-unit;
-$tooltip-padding-horizontal: #{$dso-unit / 2};
+$tooltip-padding-horizontal: $dso-unit / 2;
 $tooltip-border-size: 1px;
-$tooltip-border-radius: #{$dso-unit / 2};
-$tooltip-arrow-size: $u2;
+$tooltip-border-radius: $dso-unit / 2;
 $tooltip-arrow-color: $grasgroen;
 $tooltop-max-width: 80 * $dso-unit;
 
