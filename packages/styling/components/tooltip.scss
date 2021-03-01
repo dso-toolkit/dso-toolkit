@@ -1,5 +1,4 @@
 @import "../variables";
-@import "../mixins/opacity";
 @import "../mixins/reset-text";
 
 $tooltip-bg:                  #000;
@@ -19,7 +18,7 @@ $tooltop-max-width: 80 * $dso-unit;
 
 .tooltip {
   @include reset-text();
-  @include opacity(0);
+  opacity: 0;
 
   display: block;
   font-size: $font-size-small;
@@ -28,7 +27,7 @@ $tooltop-max-width: 80 * $dso-unit;
   transition: opacity .15s linear;
 
   &.in {
-    @include opacity($tooltip-opacity);
+    opacity: $tooltip-opacity;
   }
 
   &.top {

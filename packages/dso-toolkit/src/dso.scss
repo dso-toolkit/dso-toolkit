@@ -18,6 +18,8 @@ $asap-font-path: "../fonts/Asap/" !default;
 @import "styles/mixins/dso-variables";
 @import "styles/mixins/bootstrap-variables";
 
+@import "@dso-toolkit/styling/mixins/reset-text";
+
 @import "@dso-toolkit/styling/scaffolding";
 @import "@dso-toolkit/styling/grid";
 
