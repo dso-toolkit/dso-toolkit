@@ -11,45 +11,81 @@
   </head>
   <body>
     <div>
-      <button type="button">
-        <span>Hover or focus me</span>
-        <dso-tooltip position="top" active>
-          Top
-        </dso-tooltip>
-      </button>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <div>
-      <button type="button">
-        <span>Hover or focus me</span>
-        <dso-tooltip position="right" active>
-          Right
-        </dso-tooltip>
-      </button>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <div>
-      <button type="button">
-        <span>Hover or focus me</span>
-        <dso-tooltip position="bottom" active>
-          Bottom
-        </dso-tooltip>
-      </button>
-    </div>
-    <br>
-    <hr>
-    <br>
-    <div style="padding-left: 100px; padding-bottom: 50px;">
-      <button type="button">
-        <span>Hover or focus me</span>
-        <dso-tooltip position="left" active>
-          Left
-        </dso-tooltip>
-      </button>
+      <style>
+        td {
+          padding: 40px;
+        }
+      </style>
+      <table>
+        <tr>
+          <td>
+            <button type="button">
+              <span>Hover or focus me</span>
+              <dso-tooltip position="top">
+                Top
+              </dso-tooltip>
+            </button>
+          </td>
+          <td>
+            <button type="button">
+              <span>Hover or focus me</span>
+              <dso-tooltip position="right">
+                Right
+              </dso-tooltip>
+            </button>
+          </td>
+          <td>
+            <button type="button">
+              <span>Hover or focus me</span>
+              <dso-tooltip position="bottom">
+                Bottom
+              </dso-tooltip>
+            </button>
+          </td>
+          <td>
+            <button type="button">
+              <span>Hover or focus me</span>
+              <dso-tooltip position="left">
+                Left
+              </dso-tooltip>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" id="sibling-top">
+              <span>Hover or focus me</span>
+            </button>
+            <dso-tooltip for="sibling-top" position="top">
+              Top
+            </dso-tooltip>
+          </td>
+          <td>
+            <button type="button" id="sibling-right">
+              <span>Hover or focus me</span>
+            </button>
+            <dso-tooltip for="sibling-right" position="right">
+              Right
+            </dso-tooltip>
+          </td>
+          <td>
+            <button type="button" id="sibling-bottom">
+              <span>Hover or focus me</span>
+            </button>
+            <dso-tooltip for="sibling-bottom" position="bottom">
+              Bottom
+            </dso-tooltip>
+          </td>
+          <td>
+            <button type="button" id="sibling-left">
+              <span>Hover or focus me</span>
+            </button>
+            <dso-tooltip for="sibling-left" position="left">
+              Left
+            </dso-tooltip>
+          </td>
+        </tr>
+      </table>
     </div>
     <div>
       <dso-date-picker></dso-date-picker>

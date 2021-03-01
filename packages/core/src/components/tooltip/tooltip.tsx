@@ -1,4 +1,5 @@
-import { Component, h, Prop, Element, State, Method } from '@stencil/core';
+import { createPopper, Instance as PopperInstance } from '@popperjs/core';
+import { Component, h, Prop, Element, Method } from '@stencil/core';
 import clsx from 'clsx';
 
 @Component({
@@ -19,11 +20,12 @@ export class Tooltip {
   @Element()
   element!: HTMLElement;
 
-  @Prop({ reflect: true })
+  @Prop({ reflect: true, mutable: true })
   active = false;
 
-  @State()
   private target: HTMLElement | undefined;
+
+  private popper: PopperInstance | undefined;
 
   private callbacks: TooltipCallbacks | undefined;
 
@@ -37,23 +39,36 @@ export class Tooltip {
     this.active = false;
   }
 
-  connectedCallback(): void {
+  componentDidLoad(): void {
+    if (this.popper) {
+      return;
+    }
+
+    const tooltip = this.element.shadowRoot?.querySelector('.tooltip');
+    if (!(tooltip instanceof HTMLElement)) {
+      throw new Error('tooltip element is not instanceof HTMLElement');
+    }
+
     this.target = this.getTarget();
 
-    if (this.target) {
-      this.callbacks = {
-        activate: () => this.active = true,
-        deactivate: () => this.active = false
-      };
+    this.popper = createPopper(this.target, tooltip, {
+      placement: this.position
+    });
 
-      this.target.addEventListener('mouseenter', this.callbacks.activate);
-      this.target.addEventListener('mouseleave', this.callbacks.deactivate);
-      this.target.addEventListener('focus', this.callbacks.activate);
-      this.target.addEventListener('blur', this.callbacks.deactivate);
-    }
+    this.callbacks = {
+      activate: () => this.active = true,
+      deactivate: () => this.active = false
+    };
+
+    this.target.addEventListener('mouseenter', this.callbacks.activate);
+    this.target.addEventListener('mouseleave', this.callbacks.deactivate);
+    this.target.addEventListener('focus', this.callbacks.activate);
+    this.target.addEventListener('blur', this.callbacks.deactivate);
   }
 
-  disconnectedCallback() {
+  disconnectedCallback(): void {
+    this.popper?.destroy();
+
     if (this.target && this.callbacks) {
       this.target.removeEventListener('mouseenter', this.callbacks.activate);
       this.target.removeEventListener('mouseleave', this.callbacks.deactivate);
@@ -67,8 +82,10 @@ export class Tooltip {
 
   render() {
     return (
-      <div class={clsx('tooltip fade', this.position, { in: this.active || !this.target, 'no-arrow': this.noArrow })} role="tooltip">
-        <div class="tooltip-arrow"></div>
+      <div class={clsx('tooltip', { in: this.active })} role="tooltip">
+        {!this.noArrow && (
+          <div class="tooltip-arrow"></div>
+        )}
         <div class="tooltip-inner">
           <slot></slot>
         </div>
@@ -76,16 +93,26 @@ export class Tooltip {
     );
   }
 
-  private getTarget(): HTMLElement | undefined {
+  private getTarget(): HTMLElement {
     if (this.for instanceof HTMLElement) {
       return this.for;
     }
 
     if (typeof this.for === 'string') {
-      return document.getElementById(this.for) ?? undefined;
+      const reference = document.getElementById(this.for);
+      if (!reference) {
+        throw new Error(`Unable to find reference with id ${this.for}`);
+      }
+
+      return reference;
     }
 
-    return this.element.parentElement ?? undefined;
+    const { parentElement } = this.element;
+    if (!parentElement) {
+      throw new Error('No reference given with [for] attribute but no parent found either')
+    }
+
+    return parentElement;
   }
 }
 

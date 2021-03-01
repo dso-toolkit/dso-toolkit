@@ -1,1 +1,13 @@
-<dso-tooltip position="{{ position }}" label="{{ label }}" />
+<!-- Impliciet: Geen @for attribute dus target is direct parent -->
+<button type="button">
+  <dso-icon icon="plus"></dso-icon>
+  <dso-tooltip position="{{ position }}">
+    {{ label }}
+  </dso-tooltip>
+</button>
+
+<!-- Expliciet: @for attribute met verwijzing naar ander element -->
+<input type="text" id="demo-{{ position }}">
+<dso-tooltip position="{{ position }}" for="demo-{{ position }}">
+  {{ label }}
+</dso-tooltip>
