@@ -106,7 +106,7 @@ form,
   text-align: right;
 
   &:last-child {
-    margin-bottom: $dso-vertical-spacing-large;
+    margin-bottom: $dso-vertical-spacing-xlarge;
   }
 
   .btn-link {
@@ -145,7 +145,7 @@ form,
   + ol,
   + ul,
   + div:not(.form-group):not(.dso-form-buttons) {
-    margin-top: $dso-vertical-spacing-large;
+    margin-top: $dso-vertical-spacing-xlarge;
   }
 
   > .dso-info {
