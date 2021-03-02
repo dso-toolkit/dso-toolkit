@@ -38,6 +38,7 @@ context:
           <p>
             Let op: kijk altijd eerst op de website van <em>Gemeente Den Haag</em> voor de mogelijke kosten van een Omgevingsoverleg.
           </p>
+        static: true
   definitionlist1:
     definitions:
     - term: "Verzoek 1:"
