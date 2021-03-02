@@ -167,3 +167,21 @@ variants:
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
+- name: input-text-infobutton-static
+  context:
+    __title: infobutton uitgeklapt
+    __explanation:
+    - Vaste toelichting
+    id: input-text-infobutton-static
+    type: email
+    label: Group input - type Email
+    required: true
+    infoOpen: true
+    infoText: |
+      <h4>Toelichting bij vraag: "E-mailadres"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    static: true

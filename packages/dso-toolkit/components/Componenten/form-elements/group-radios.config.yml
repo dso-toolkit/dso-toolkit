@@ -131,12 +131,12 @@ variants:
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
-- name: input-radio-inline-info
+- name: input-radio-static-info
   context:
-    __title: infobutton
+    __title: Vaste toelichting
     __explanation:
-    - Een radio fieldset kan naast een info button ook een vaste toelichting krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
-    id: input-radio-inline-info
+    - Een radio fieldset kan ook een vaste toelichting krijgen, naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
+    id: input-radio-static-info
     label: Group radios - Inline
     required: true
     helpText: Antwoord hier met "Ja" of "Nee"
@@ -145,7 +145,6 @@ variants:
       label: ja
       checked: true
       infoOpen: true
-      infoButtonLabel: Toelichting bij antwoord
       infoText: |
         <h4>Toelichting bij antwoord: "ja"</h4>
         <p>
@@ -156,11 +155,7 @@ variants:
       static: true
     - value: 2
       label: nee
-      infoButtonLabel: Toelichting bij antwoord
-      infoText: |
-        Closed
     infoOpen: true
-    infoButtonLabel: Toelichting bij vraag
     infoText: |
       <h4>Toelichting bij vraag: "Gaat het om de bouw van één of meer woningen?" </h4>
       <p>
