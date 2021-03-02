@@ -9,11 +9,11 @@
     <label for="{{ localId }}" class="control-label">
       {{ label }}
     </label>
-    {% if infoText %}
+    {% if infoText and not static %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText} %}
+      {% render '@info', {infoText: infoText, static: static} %}
     {% endif %}
   </div>
   <div class="dso-field-container">

@@ -1,11 +1,11 @@
 <div {{ className('form-group dso-static', [edit, 'dso-edit']) }}>
   <div class="dso-label-container">
     <span class="control-label">{{ label }}</span>
-    {% if infoText %}
+    {% if infoText and not static %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText} %}
+      {% render '@info', {infoText: infoText, static: static} %}
     {% endif %}
   </div>
   <div class="dso-field-container">
