@@ -154,3 +154,11 @@ $dso-dropdown-hor-padding: 20px;
     }
   }
 }
+
+.text-right {
+  &.dropdown-menu,
+  & .dropdown-menu {
+    left: auto;
+    right: 0;
+  }
+}
