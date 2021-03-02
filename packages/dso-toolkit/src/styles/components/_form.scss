@@ -140,6 +140,14 @@ form,
     margin-top: 0;
   }
 
+  + dl,
+  + table,
+  + ol,
+  + ul,
+  + div:not(.form-group):not(.dso-form-buttons) {
+    margin-top: $dso-vertical-spacing-large;
+  }
+
   > .dso-info {
     float: left;
     margin: $u2 0;
