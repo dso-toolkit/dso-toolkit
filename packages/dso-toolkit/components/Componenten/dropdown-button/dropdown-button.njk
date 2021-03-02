@@ -1,4 +1,4 @@
-<div {{ className('dropdown', [open, 'open'], [align, 'text-' + align]) }}>
+<div {{ className('dropdown', [open, 'open'], [align, 'dso-dropdown-' + align]) }}>
   {% render '@button', {type: 'button', modifier: modifier, label: label, id: id, icon: icon, iconAfter: iconAfter, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
   {% if open %}
     <div {{ className('dropdown-menu', modifiers) }}>
