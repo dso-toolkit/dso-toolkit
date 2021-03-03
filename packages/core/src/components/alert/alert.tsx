@@ -7,9 +7,15 @@ import clsx from 'clsx';
   shadow: true
 })
 export class Alert {
+  /**
+   * Set status of alert
+   */
   @Prop()
   status!: 'success' | 'info' | 'warning' | 'danger';
 
+  /**
+   * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
+   */
   @Prop()
   roleAlert?: boolean;
 
