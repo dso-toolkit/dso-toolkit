@@ -78,8 +78,20 @@ export class Tooltip {
     });
 
     this.callbacks = {
-      activate: () => this.active = true,
-      deactivate: () => this.active = false
+      activate: () => {
+        this.active = true;
+
+        this.popper?.setOptions({
+          modifiers: [{ name: 'eventListeners', enabled: true }],
+        });
+      },
+      deactivate: () => {
+        this.active = false;
+
+        this.popper?.setOptions({
+          modifiers: [{ name: 'eventListeners', enabled: false }],
+        });
+      }
     };
 
     this.target.addEventListener('mouseenter', this.callbacks.activate);
@@ -100,6 +112,12 @@ export class Tooltip {
 
     this.callbacks = undefined;
     this.target = undefined;
+  }
+
+  componentDidRender() {
+    if (this.active) {
+      this.popper?.update();
+    }
   }
 
   render() {

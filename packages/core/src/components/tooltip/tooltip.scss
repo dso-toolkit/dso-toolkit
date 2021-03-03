@@ -18,10 +18,9 @@ $tooltop-max-width: 80 * $dso-unit;
   font-size: $font-size-small;
   position: absolute;
   z-index: $zindex-tooltip;
-  transition: opacity .15s linear;
 
   &:not(.in) {
-    opacity: 0;
+    display: none;
   }
 
   &[data-popper-placement="top"] {
