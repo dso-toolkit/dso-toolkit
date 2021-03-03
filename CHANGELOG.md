@@ -11,8 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** dso-info buiten legend gebruikt aria-hidden ipv aria-hidden="true" ([#1031](https://github.com/dso-toolkit/dso-toolkit/issues/1031))
 
 ### Changed
+* **dso-toolkit + core + styling:** Web component Tooltip ([#940](https://github.com/dso-toolkit/dso-toolkit/issues/940))
 * **dso-toolkit + styling:** Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
-* **BREAKING:** **dso-toolkit + core:** Alert role="alert" instelbaar door prop ([#986](https://github.com/dso-toolkit/dso-toolkit/issues/986)) **Markup changes, see PR ([#1025](https://github.com/dso-toolkit/dso-toolkit/pull/1025))**
+* **BREAKING:** **dso-toolkit + core:** Op web component Alert moet role="alert" instelbaar zijn ([#986](https://github.com/dso-toolkit/dso-toolkit/issues/986)) **Markup changes, see PR ([#1025](https://github.com/dso-toolkit/dso-toolkit/pull/1025))**
 * **dso-toolkit + styling**: Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
 
 ### Added

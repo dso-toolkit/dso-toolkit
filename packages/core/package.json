@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@dso-toolkit/styling": "workspace:packages/styling",
+    "@popperjs/core": "^2.8.6",
     "@stencil/core": "2.3.0",
     "@stencil/react-output-target": "0.0.9",
     "@stencil/sass": "1.4.1",

@@ -1,0 +1,97 @@
+@import "~@dso-toolkit/styling/scaffolding/normalize";
+
+@import "~@dso-toolkit/styling/variables";
+
+$tooltip-arrow-width: 5px;
+$tooltip-padding-vertical: $dso-unit;
+$tooltip-padding-horizontal: $dso-unit / 2;
+$tooltip-border-size: 1px;
+$tooltip-border-radius: $dso-unit / 2;
+$tooltip-arrow-color: $grasgroen;
+$tooltop-max-width: 80 * $dso-unit;
+
+:host {
+  display: block;
+}
+
+.tooltip {
+  font-size: $font-size-small;
+  position: absolute;
+  z-index: $zindex-tooltip;
+
+  &:not(.in) {
+    display: none;
+  }
+
+  &[data-popper-placement="top"] {
+    margin-top: -3px;
+    padding: $tooltip-arrow-width 0;
+
+    .tooltip-arrow {
+      border-top-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -$tooltip-arrow-width;
+    }
+  }
+
+  &[data-popper-placement="right"] {
+    margin-left: 3px;
+    padding: 0 $tooltip-arrow-width;
+
+    .tooltip-arrow {
+      border-right-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+      left: 0;
+      margin-top: -$tooltip-arrow-width;
+      top: 50%;
+    }
+  }
+
+  &[data-popper-placement="bottom"] {
+    margin-top: 3px;
+    padding: $tooltip-arrow-width 0;
+
+    .tooltip-arrow {
+      border-bottom-color: $tooltip-arrow-color;
+      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+      left: 50%;
+      margin-left: -$tooltip-arrow-width;
+      top: 0;
+    }
+  }
+
+  &[data-popper-placement="left"] {
+    margin-left: -3px;
+    padding: 0 $tooltip-arrow-width;
+
+    .tooltip-arrow {
+      border-left-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+      margin-top: -$tooltip-arrow-width;
+      right: 0;
+      top: 50%;
+    }
+  }
+}
+
+.tooltip-inner {
+  background-color: $wit;
+  border: $tooltip-border-size solid $grasgroen;
+  border-radius: $tooltip-border-radius;
+  color: $grasgroen;
+  display: inline-block;
+  font-size: $font-size-small;
+  line-height: 1.2em;
+  max-width: $tooltop-max-width;
+  padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
+}
+
+.tooltip-arrow {
+  border-color: transparent;
+  border-style: solid;
+  height: 0;
+  position: absolute;
+  width: 0;
+}

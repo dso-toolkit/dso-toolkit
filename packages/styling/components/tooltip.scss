@@ -1,0 +1,101 @@
+@import "../variables";
+@import "../mixins/reset-text";
+
+$tooltip-arrow-width: 5px;
+$tooltip-opacity: 0.9;
+$tooltip-padding-vertical: $dso-unit;
+$tooltip-padding-horizontal: $dso-unit / 2;
+$tooltip-border-size: 1px;
+$tooltip-border-radius: $dso-unit / 2;
+$tooltip-arrow-color: $grasgroen;
+$tooltop-max-width: 80 * $dso-unit;
+
+.tooltip {
+  @include reset-text();
+  opacity: 0;
+
+  display: block;
+  font-size: $font-size-small;
+  position: absolute;
+  z-index: $zindex-tooltip;
+  transition: opacity .15s linear;
+
+  &.in {
+    opacity: $tooltip-opacity;
+  }
+
+  &.top {
+    margin-top: -3px;
+    padding: $tooltip-arrow-width 0;
+  }
+
+  &.right {
+    margin-left: 3px;
+    padding: 0 $tooltip-arrow-width;
+  }
+
+  &.bottom {
+    margin-top: 3px;
+    padding: $tooltip-arrow-width 0;
+  }
+
+  &.left {
+    margin-left: -3px;
+    padding: 0 $tooltip-arrow-width;
+  }
+
+  &:not(.no-arrow) {
+    &.top .tooltip-arrow {
+      border-top-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -$tooltip-arrow-width;
+    }
+  
+    &.right .tooltip-arrow {
+      border-right-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+      left: 0;
+      margin-top: -$tooltip-arrow-width;
+      top: 50%;
+    }
+  
+    &.left .tooltip-arrow {
+      border-left-color: $tooltip-arrow-color;
+      border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+      margin-top: -$tooltip-arrow-width;
+      right: 0;
+      top: 50%;
+    }
+  
+    &.bottom .tooltip-arrow {
+      border-bottom-color: $tooltip-arrow-color;
+      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+      left: 50%;
+      margin-left: -$tooltip-arrow-width;
+      top: 0;
+    }
+  }
+}
+
+.tooltip-inner {
+  background-color: $wit;
+  border: $tooltip-border-size solid $grasgroen;
+  border-radius: $tooltip-border-radius;
+  color: $grasgroen;
+  display: inline-block;
+  font-size: $font-size-small;
+  line-height: 1.2em;
+  max-width: $tooltop-max-width;
+  padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
+  position: relative;
+}
+
+.tooltip-arrow {
+  border-color: transparent;
+  border-style: solid;
+  height: 0;
+  position: absolute;
+  width: 0;
+}

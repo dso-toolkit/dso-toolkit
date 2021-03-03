@@ -1775,6 +1775,7 @@ __metadata:
   resolution: "@dso-toolkit/core@workspace:packages/core"
   dependencies:
     "@dso-toolkit/styling": "workspace:packages/styling"
+    "@popperjs/core": ^2.8.6
     "@stencil/core": 2.3.0
     "@stencil/react-output-target": 0.0.9
     "@stencil/sass": 1.4.1
@@ -2297,6 +2298,13 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: cd70f32552ba053dbeefe605027c8fd97e435c0ff6d4cddb5e367d02444e3ed04f1d7fb9dca516780788c2cb17c640dcd353f0ec60412cd774f1bf0ce2d34f8a
+  languageName: node
+  linkType: hard
+
+"@popperjs/core@npm:^2.8.6":
+  version: 2.8.6
+  resolution: "@popperjs/core@npm:2.8.6"
+  checksum: 1e3259c2aa915dbd5721d7b056e71425fda5103b9c449448d3801a05a94ec0c19d88109a5ded98bfebc887c4151ef073b3074a0b638bc7c1ba71c554678374af
   languageName: node
   linkType: hard
 

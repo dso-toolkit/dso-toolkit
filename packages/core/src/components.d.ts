@@ -91,6 +91,32 @@ export namespace Components {
         "min": number;
         "progress": number;
     }
+    interface DsoTooltip {
+        /**
+          * Activate the tooltip (Sets the `active` attribute)
+         */
+        "activate": () => Promise<void>;
+        /**
+          * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
+         */
+        "active": boolean;
+        /**
+          * Deactivate the tooltip (Removes the `active` attribute)
+         */
+        "deactivate": () => Promise<void>;
+        /**
+          * Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown.
+         */
+        "for"?: string | HTMLElement;
+        /**
+          * Set attribute `no-arrow` to hide the arrow
+         */
+        "noArrow": boolean;
+        /**
+          * Set position of tooltip relative to target
+         */
+        "position": 'top' | 'right' | 'bottom' | 'left';
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -141,6 +167,12 @@ declare global {
         prototype: HTMLDsoProgressBarElement;
         new (): HTMLDsoProgressBarElement;
     };
+    interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
+    }
+    var HTMLDsoTooltipElement: {
+        prototype: HTMLDsoTooltipElement;
+        new (): HTMLDsoTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
@@ -150,6 +182,7 @@ declare global {
         "dso-icon": HTMLDsoIconElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
+        "dso-tooltip": HTMLDsoTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -237,6 +270,24 @@ declare namespace LocalJSX {
         "min"?: number;
         "progress": number;
     }
+    interface DsoTooltip {
+        /**
+          * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
+         */
+        "active"?: boolean;
+        /**
+          * Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown.
+         */
+        "for"?: string | HTMLElement;
+        /**
+          * Set attribute `no-arrow` to hide the arrow
+         */
+        "noArrow"?: boolean;
+        /**
+          * Set position of tooltip relative to target
+         */
+        "position"?: 'top' | 'right' | 'bottom' | 'left';
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
@@ -246,6 +297,7 @@ declare namespace LocalJSX {
         "dso-icon": DsoIcon;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
+        "dso-tooltip": DsoTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -260,6 +312,7 @@ declare module "@stencil/core" {
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
+            "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
         }
     }
 }
