@@ -13,7 +13,17 @@ Een inline validatie informeert de gebruiker over fouten die relevant zijn voor 
 Er verschijnt meteen een foutmelding onder het betreffende invoerveld als de gebruiker de focus verplaatst of het formulier indient. Deze vorm van validatie wordt toegepast op alle formulierelementen.
 
 **Verplicht invoerformaat**
-Net als de verplichte velden, kunnen er ook verplichte invoerformaten zijn. Bijvoorbeeld een e-mailadres dat de vorm `naam@domein.nl` moet hebben. Het is belangrijk om vóór het invoerveld duidelijk te maken wat de eisen zijn aan de invoer, óf automatisch de invoer te corrigeren. Bijvoorbeeld: Postcode (1234 AB). Het beste is om de instructie binnen het label-element te plaatsen zodat de instructie, als de bezoeker op het invoerveld staat, wordt voorgelezen.
+Net als de verplichte velden, kunnen er ook verplichte invoerformaten zijn. Bijvoorbeeld een e-mailadres dat de vorm `naam@domein.nl` moet hebben. Het is belangrijk om vóór het invoerveld duidelijk te maken wat de eisen zijn aan de invoer, óf automatisch de invoer te corrigeren. Bijvoorbeeld: Postcode (1234 AB). Het beste is om de instructie binnen het label-element te plaatsen. Daardoor wordt de instructie voorgelezen als de bezoeker op het invoerveld staat.
+Hoe een veld valideert, hangt af van de functie van het veld en hoe developers het veld laten valideren. Er is daarom ook geen standaard oplossing voor. Daarom staan hieronder richtlijnen om als startpunt te gebruiken.
+
+Richtlijnen:
+- Controleer of de melding overeenkomt met de veldvalidatie die de ontwikkelaar heeft gemaakt.
+- Vermeld de actie die de gebruiker moet doen zo concreet mogelijk.
+- Gebruik correcte spelling.
+- Gebruik waar mogelijk simpele taal op B1-niveau.
+- Kies de regex of melding die het beste in de context past.
+- Bij validatiefouten hoef je niet te zeggen wat er fout is. Het mag wel, als dat wenselijk is in de context.
+- Laat je regex en meldingen altijd dubbelchecken door een copywriter/webredacteur.
 
 ## Wanneer niet te gebruiken
 Idealiter zouden alle formulierelementen inline validatie hebben. Dat wil zeggen: zodra de gebruiker 'klaar' is, wordt er bij het betreffende invoerveld meteen aangegeven of er in het veld een fout staat.

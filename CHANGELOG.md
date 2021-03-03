@@ -21,6 +21,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * **dso-toolkit:** Toelichting vraag onder antwoorden deprecaten ([#920](https://github.com/dso-toolkit/dso-toolkit/issues/920)) **Deprecation notice, see PR ([#1017](https://github.com/dso-toolkit/dso-toolkit/pull/1017))**
 
+### Documentation
+* **dso-toolkit:** Documentatie inline validatie geüpdatet ([#1018](https://github.com/dso-toolkit/dso-toolkit/issues/1018))
+
 ## 19.0.0
 
 ### Fixed
