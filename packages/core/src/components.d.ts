@@ -8,6 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 export namespace Components {
     interface DsoAlert {
+        /**
+          * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
+         */
+        "roleAlert"?: boolean;
+        /**
+          * Set status of alert
+         */
         "status": 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoAttachmentsCounter {
@@ -147,6 +154,13 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DsoAlert {
+        /**
+          * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
+         */
+        "roleAlert"?: boolean;
+        /**
+          * Set status of alert
+         */
         "status": 'success' | 'info' | 'warning' | 'danger';
     }
     interface DsoAttachmentsCounter {

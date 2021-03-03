@@ -10,7 +10,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + styling:** Anchor styling aanpassingen voor componenten met gekleurde achtergrond ([#1009](https://github.com/dso-toolkit/dso-toolkit/issues/1009))
 
 ### Changed
+* **dso-toolkit + styling:** Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
+* **BREAKING:** **dso-toolkit + core:** Alert role="alert" instelbaar door prop ([#986](https://github.com/dso-toolkit/dso-toolkit/issues/986)) **Markup changes, see PR ([#1025](https://github.com/dso-toolkit/dso-toolkit/pull/1025))**
 * **dso-toolkit + styling**: Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
+
 ### Added
 * **styling:** Variabelen voor verticale marges ([#1042](https://github.com/dso-toolkit/dso-toolkit/issues/1042))
 
