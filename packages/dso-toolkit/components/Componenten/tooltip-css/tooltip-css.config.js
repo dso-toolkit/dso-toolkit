@@ -8,28 +8,28 @@ module.exports = {
   collated: true,
   collator: (markup, item) => `<div style="position: relative; height: 4em;">${markup}</div>`,
   context: {
-    label: 'Onder',
+    label: 'Boven',
     position: 'top'
   },
   variants: [
     {
       name: 'tooltip-left',
       context: {
-        label: 'Ik sta links van de content.',
+        label: 'Ik sta links van de inhoud',
         position: 'left'
       }
     },
     {
       name: 'tooltip-right',
       context: {
-        label: 'Ik sta rechts van de content.',
+        label: 'Ik sta rechts van de inhoud',
         position: 'right'
       }
     },
     {
       name: 'tooltip-bottom',
       context: {
-        label: 'Ik sta onder de content.',
+        label: 'Ik sta onder de inhoud',
         position: 'bottom'
       }
     }

@@ -2,7 +2,7 @@ module.exports = {
   label: 'Tooltip (Web Component)',
   meta: {
     webComponent: 'dso-tooltip'
-  }, 
+  },
   notes: `
 Een tooltip hoort bij een \`target\` element. Dit kan aangegeven worden met het attribuut \`for\`. Dit kan een \`string\` zijn met een id of een \`HTMLElement\`. Zonder \`target\` wordt de parent van \`<dso-tooltip>\` gebruikt.
 
@@ -20,21 +20,21 @@ Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaa
     {
       name: 'tooltip-left',
       context: {
-        label: 'Ik sta links van de content.',
+        label: 'Ik sta links van de inhoud',
         position: 'left'
       }
     },
     {
       name: 'tooltip-right',
       context: {
-        label: 'Ik sta rechts van de content.',
+        label: 'Ik sta rechts van de inhoud',
         position: 'right'
       }
     },
     {
       name: 'tooltip-bottom',
       context: {
-        label: 'Ik sta onder de content.',
+        label: 'Ik sta onder de inhoud',
         position: 'bottom'
       }
     }
