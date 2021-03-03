@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** Accordion anchor styling aanpassingen ([#1008](https://github.com/dso-toolkit/dso-toolkit/issues/1008))
 * **dso-toolkit + styling:** Anchor styling aanpassingen voor componenten met gekleurde achtergrond ([#1009](https://github.com/dso-toolkit/dso-toolkit/issues/1009))
+* **dso-toolkit:** dso-info buiten legend gebruikt aria-hidden ipv aria-hidden="true" ([#1031](https://github.com/dso-toolkit/dso-toolkit/issues/1031))
 
 ### Changed
 * **dso-toolkit + styling:** Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
