@@ -3,7 +3,7 @@
 <fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
-    <span class="control-label" aria-hidden>
+    <span class="control-label" aria-hidden="true">
       {{ label }}
     </span>
     {% if infoText %}

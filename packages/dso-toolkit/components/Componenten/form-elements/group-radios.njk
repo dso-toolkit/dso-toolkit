@@ -3,7 +3,7 @@
 <fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}{% if helpText %} aria-describedby="helpTextId_{{ id }}"{% endif%}>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
-    <span class="control-label" aria-hidden>
+    <span class="control-label" aria-hidden="true">
       {{ label }}
     </span>
     {% if infoText %}
