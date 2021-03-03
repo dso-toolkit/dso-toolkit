@@ -1,5 +1,5 @@
 module.exports = {
-  notes: 'Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component. Class `text-right` op de parent van of op `.dropdown` zelf zorgt voor een rechter uitlijning.',
+  notes: 'Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component. Class `dso-dropdown-right` op de parent van of op `.dropdown` zelf zorgt voor een rechter uitlijning.',
   status: 'ready',
   collated: true,
   collator: function (markup, item) {
