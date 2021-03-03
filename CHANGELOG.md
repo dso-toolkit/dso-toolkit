@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 20.0.0
 
-### Added
+### Fixed
 * **dso-toolkit:** Definition lists in geneste accordion ([#1034](https://github.com/dso-toolkit/dso-toolkit/issues/1034))
 
 ### Fixed
