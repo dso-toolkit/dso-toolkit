@@ -8,36 +8,58 @@ import clsx from 'clsx';
   shadow: true
 })
 export class Tooltip {
+  /**
+   * Set position of tooltip relative to target
+   */
   @Prop()
   position: 'top' | 'right' | 'bottom' | 'left' = 'top';
 
+  /**
+   * Specify target element that the tooltip will describe and listens to for events.
+   * * `undefined`: The direct parent is used.
+   * * `string`: The element is located using `document.getElementById()`
+   * * `HTMLElement`: Pass the target element directly
+   * If the element is not found an Error is thrown.
+   */
   @Prop()
   for?: string | HTMLElement;
 
+  /**
+   * Set attribute `no-arrow` to hide the arrow
+   */
   @Prop()
   noArrow = false;
 
-  @Element()
-  element!: HTMLElement;
-
+  /**
+   * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
+   */
   @Prop({ reflect: true, mutable: true })
   active = false;
+
+  /**
+   * Activate the tooltip (Sets the `active` attribute)
+   */
+  @Method()
+  async activate(): Promise<void> {
+    this.active = true;
+  }
+
+  /**
+   * Deactivate the tooltip (Removes the `active` attribute)
+   */
+  @Method()
+  async deactivate(): Promise<void> {
+    this.active = false;
+  }
+
+  @Element()
+  element!: HTMLElement;
 
   private target: HTMLElement | undefined;
 
   private popper: PopperInstance | undefined;
 
   private callbacks: TooltipCallbacks | undefined;
-
-  @Method()
-  async activate(): Promise<void> {
-    this.active = true;
-  }
-
-  @Method()
-  async deactivate(): Promise<void> {
-    this.active = false;
-  }
 
   componentDidLoad(): void {
     if (this.popper) {

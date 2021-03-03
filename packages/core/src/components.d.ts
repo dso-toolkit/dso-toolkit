@@ -92,11 +92,29 @@ export namespace Components {
         "progress": number;
     }
     interface DsoTooltip {
+        /**
+          * Activate the tooltip (Sets the `active` attribute)
+         */
         "activate": () => Promise<void>;
+        /**
+          * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
+         */
         "active": boolean;
+        /**
+          * Deactivate the tooltip (Removes the `active` attribute)
+         */
         "deactivate": () => Promise<void>;
+        /**
+          * Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown.
+         */
         "for"?: string | HTMLElement;
+        /**
+          * Set attribute `no-arrow` to hide the arrow
+         */
         "noArrow": boolean;
+        /**
+          * Set position of tooltip relative to target
+         */
         "position": 'top' | 'right' | 'bottom' | 'left';
     }
 }
@@ -253,9 +271,21 @@ declare namespace LocalJSX {
         "progress": number;
     }
     interface DsoTooltip {
+        /**
+          * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
+         */
         "active"?: boolean;
+        /**
+          * Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown.
+         */
         "for"?: string | HTMLElement;
+        /**
+          * Set attribute `no-arrow` to hide the arrow
+         */
         "noArrow"?: boolean;
+        /**
+          * Set position of tooltip relative to target
+         */
         "position"?: 'top' | 'right' | 'bottom' | 'left';
     }
     interface IntrinsicElements {
