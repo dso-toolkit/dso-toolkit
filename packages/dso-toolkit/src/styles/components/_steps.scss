@@ -5,9 +5,7 @@ $step-padding: 12px;
   @extend %is-h2;
 
   border-bottom: 1px solid $bosgroen-60;
-  float: left;
   padding-bottom: $step-indicator-padding;
-  width: 100%;
 
   span.dso-step {
     color: $grasgroen;

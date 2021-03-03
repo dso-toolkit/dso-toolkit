@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING:** **dso-toolkit:** Aanpassen edit mogelijkheid bij group static ([#1036](https://github.com/dso-toolkit/dso-toolkit/issues/1036)) **Markup changes, see PR ([#1038](https://github.com/dso-toolkit/dso-toolkit/pull/1038))**
 * **dso-toolkit:** Shopping-cart : aanpasbare titel en heading ([#1040](https://github.com/dso-toolkit/dso-toolkit/issues/1040))
 * **dso-toolkit:** Toelichting onder formelementen moet ook "static" kunnen zijn. ([#1030](https://github.com/dso-toolkit/dso-toolkit/issues/1030))
+* **dso-toolkit:** Steps component: de gebruikte clear oplossing is niet nodig ([#1045](https://github.com/dso-toolkit/dso-toolkit/issues/1045))
 
 ### Added
 * **dso-toolkit:** Horizontale plaatsing form-groups en dso-form-buttons ([#1046](https://github.com/dso-toolkit/dso-toolkit/issues/1046))
