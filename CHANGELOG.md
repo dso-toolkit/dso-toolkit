@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## 20.0.0
 
+### Changed
+* **dso-toolkit:** Headings in legend moeten geen margins hebben ([#1032](https://github.com/dso-toolkit/dso-toolkit/issues/1032))
+
 ### Fixed
 * **dso-toolkit:** dso-info buiten legend gebruikt aria-hidden ipv aria-hidden="true" ([#1031](https://github.com/dso-toolkit/dso-toolkit/issues/1031))
 
