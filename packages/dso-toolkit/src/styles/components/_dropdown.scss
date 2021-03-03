@@ -59,7 +59,8 @@ $dso-dropdown-hor-padding: 20px;
         @include di-variant("chevron-up");
       }
 
-      &:hover::after {
+      &:hover::after,
+      &:focus::after {
         @include di-variant("chevron-up-wit");
       }
     }
@@ -153,4 +154,15 @@ $dso-dropdown-hor-padding: 20px;
       }
     }
   }
+}
+
+.dso-dropdown-right {
+  text-align: right;
+}
+
+.navbar-right .dropdown-menu,
+.dso-dropdown-right.dropdown-menu,
+.dso-dropdown-right .dropdown-menu {
+  left: auto;
+  right: 0;
 }

@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + styling**: Moved table styling ([#935](https://github.com/dso-toolkit/dso-toolkit/issues/935))
 
 ### Added
+* **dso-toolkit** Dropdown menu rechts uit kunnen lijnen ([#961](https://github.com/dso-toolkit/dso-toolkit/issues/#961))
 * **styling:** Variabelen voor verticale marges ([#1042](https://github.com/dso-toolkit/dso-toolkit/issues/1042))
 
 ### Deprecated
