@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **dso-toolkit:** Horizontale plaatsing form-groups en dso-form-buttons ([#1046](https://github.com/dso-toolkit/dso-toolkit/issues/1046))
+* **dso-toolkit:** Definition lists in geneste accordion ([#1034](https://github.com/dso-toolkit/dso-toolkit/issues/1034))
 
 ## 20.0.0
 
