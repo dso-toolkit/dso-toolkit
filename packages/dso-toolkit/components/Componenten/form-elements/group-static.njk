@@ -1,4 +1,4 @@
-<div class="form-group dso-static">
+<div {{ className('form-group dso-static', [edit, 'dso-edit']) }}>
   <div class="dso-label-container">
     <span class="control-label">{{ label }}</span>
     {% if infoText %}
@@ -9,7 +9,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <p>{{ value }}</p>
+    {{ value | safe }}
     {% if edit %}
       {% render '@button', {type: 'button', modifier: 'link', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}
     {% endif %}

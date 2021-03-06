@@ -12,6 +12,8 @@ variants:
     __title: Static edit button
     infoOpen: false
     infoButtonLabel: Toelichting bij vraag
+    value: |
+      <p>Het zichtbare spectrum is het gedeelte van het elektromagnetisch spectrum dat gezien kan worden door het menselijk oog.</p><p>Elektromagnetische straling binnen dit spectrum wordt ook wel zichtbaar licht genoemd.</p>
     edit: true
     __explanation: false
 - name: static-infobutton

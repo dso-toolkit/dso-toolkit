@@ -341,10 +341,6 @@ dso-label[status="danger"],
     white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
   }
 
-  .dso-static .dso-field-container & {
-    margin-top: -$u2;
-  }
-
   dso-icon + span:not(.sr-only),
   svg.di + span:not(.sr-only),
   span:not(.sr-only) + dso-icon,
