@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 ### Changed
 * **dso-toolkit:** Margin onder tabs ([#1027](https://github.com/dso-toolkit/dso-toolkit/issues/1027))
+* **dso-toolkit:** Instelbare buttontekst mogelijk maken bij search-bar ([#1037](https://github.com/dso-toolkit/dso-toolkit/issues/1037))
 
 ## 20.0.0
 
