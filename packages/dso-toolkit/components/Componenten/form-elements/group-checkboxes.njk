@@ -6,11 +6,11 @@
     <span class="control-label" aria-hidden="true">
       {{ label }}
     </span>
-    {% if infoText %}
+    {% if infoText and not static %}
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText} %}
+      {% render '@info', {infoText: infoText, static: static} %}
     {% endif %}
   </div>
   <div class="dso-field-container">
@@ -24,11 +24,11 @@
         <label for="{{ localId }}-{{ loop.index0 }}">
           {{ option.label }}
         </label>
-        {% if option.infoText %}
+        {% if option.infoText and not option.static %}
           {% render '@info-button', {infoOpen: option.infoOpen, infoButtonLabel: option.infoButtonLabel} %}
         {% endif %}
         {% if option.infoOpen %}
-          {% render '@info', {infoText: option.infoText} %}
+          {% render '@info', {infoText: option.infoText, static: option.static} %}
         {% endif %}
       </div>
     {% endfor %}
