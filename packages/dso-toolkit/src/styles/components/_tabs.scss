@@ -5,11 +5,13 @@ $dso-tabs-border-radius: 4px;
 $dso-tabs-height: 56px;
 $dso-tabs-horizontal-padding: $u2 - 1px;
 $dso-tabs-vertical-padding: $u3 - 1px;
+$dso-tabs-margin-bottom: $dso-vertical-spacing-large;
 
 ul.nav-tabs {
   border-bottom: 1px solid $nav-tabs-border-color;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: $dso-tabs-margin-bottom;
 
   @media screen and (min-width: $screen-sm-min) {
     border-bottom: 1px solid $grasgroen;
