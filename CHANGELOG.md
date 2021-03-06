@@ -7,14 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **dso-toolkit:** Margin onder tabs ([#1027](https://github.com/dso-toolkit/dso-toolkit/issues/1027))
 * **dso-toolkit:** Instelbare buttontekst mogelijk maken bij search-bar ([#1037](https://github.com/dso-toolkit/dso-toolkit/issues/1037))
+* **dso-toolkit:** Headings in legend moeten geen margins hebben ([#1032](https://github.com/dso-toolkit/dso-toolkit/issues/1032))
 
 ### Added
 * **dso-toolkit:** Horizontale plaatsing form-groups en dso-form-buttons ([#1046](https://github.com/dso-toolkit/dso-toolkit/issues/1046))
 
 ## 20.0.0
-
-### Changed
-* **dso-toolkit:** Headings in legend moeten geen margins hebben ([#1032](https://github.com/dso-toolkit/dso-toolkit/issues/1032))
 
 ### Fixed
 * **dso-toolkit:** dso-info buiten legend gebruikt aria-hidden ipv aria-hidden="true" ([#1031](https://github.com/dso-toolkit/dso-toolkit/issues/1031))
