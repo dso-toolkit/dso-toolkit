@@ -1,6 +1,8 @@
 collated: true
 context:
   __title: default
+  shoppingcartTitle: Mijn activiteiten
+  shoppingcartTitleTag: h2
   items: []
 variants:
   - name: items-collapsed

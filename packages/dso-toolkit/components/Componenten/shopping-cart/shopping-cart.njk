@@ -1,4 +1,8 @@
-<h2>Mijn activiteiten</h2>
+{% if shoppingcartTitleTag == 'h2' %}
+  <h2>{{ shoppingcartTitle }}</h2>
+{% else %}
+  <h3>{{ shoppingcartTitle }}</h3>
+{% endif %}
 
 <div class="dso-shopping-cart">
   <div class="dso-contents">
