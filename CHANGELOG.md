@@ -8,8 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Margin onder tabs ([#1027](https://github.com/dso-toolkit/dso-toolkit/issues/1027))
 * **dso-toolkit:** Instelbare buttontekst mogelijk maken bij search-bar ([#1037](https://github.com/dso-toolkit/dso-toolkit/issues/1037))
 * **dso-toolkit:** Headings in legend moeten geen margins hebben ([#1032](https://github.com/dso-toolkit/dso-toolkit/issues/1032))
-* **BREAKING:** **dso-toolkit:** Aanpassen edit mogelijkheid bij group static ([#1036](https://github.com/dso-toolkit/dso-toolkit/issues/1036))
-### Fixed
+* **BREAKING:** **dso-toolkit:** Aanpassen edit mogelijkheid bij group static ([#1036](https://github.com/dso-toolkit/dso-toolkit/issues/1036)) **Markup changes, see PR ([#1038](https://github.com/dso-toolkit/dso-toolkit/pull/1038))**
 
 ### Added
 * **dso-toolkit:** Horizontale plaatsing form-groups en dso-form-buttons ([#1046](https://github.com/dso-toolkit/dso-toolkit/issues/1046))
