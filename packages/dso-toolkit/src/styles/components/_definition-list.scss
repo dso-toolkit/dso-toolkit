@@ -5,6 +5,18 @@ $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 $dso-definition-list-highlight-color: $grasgroen;
 
 dl {
+  + dl {
+    &::before {
+      border-bottom: 1px solid $grijs-10;
+      content: " ";
+      display: block;
+      float: left;
+      height: $dso-definition-list-vertical-space;
+      margin-bottom: $dso-definition-list-vertical-space * 2;
+      width: 100%;
+    }
+  }
+
   .dso-section-body &:last-child {
     margin-bottom: 0;
   }

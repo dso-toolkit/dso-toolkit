@@ -102,7 +102,12 @@ form,
 .dso-form-buttons {
   @include clearfix();
 
+  margin-bottom: $dso-vertical-spacing-medium;
   text-align: right;
+
+  &:last-child {
+    margin-bottom: $dso-vertical-spacing-xlarge;
+  }
 
   .btn-link {
     line-height: $dso-button-line-height;
@@ -121,9 +126,26 @@ form,
 .form-group {
   margin-bottom: 0;
 
-  + .form-group,
+  + .form-group:not(.dso-static),
   + .dso-form-buttons {
     margin-top: $dso-form-group-margin;
+  }
+
+  &:not(.dso-static) + .form-group.dso-static,
+  &.dso-static + .form-group:not(.dso-static) {
+    margin-top: $dso-form-group-margin / 2;
+  }
+
+  .form-group.dso-edit + & {
+    margin-top: 0;
+  }
+
+  + dl,
+  + table,
+  + ol,
+  + ul,
+  + div:not(.form-group):not(.dso-form-buttons) {
+    margin-top: $dso-vertical-spacing-xlarge;
   }
 
   > .dso-info {

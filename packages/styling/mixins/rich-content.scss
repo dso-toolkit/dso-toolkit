@@ -1,4 +1,4 @@
-$rich-content-margin-bottom: $u2;
+$rich-content-margin-bottom: $dso-vertical-spacing-medium;
 
 @mixin rich-content {
   p {
@@ -24,7 +24,7 @@ $rich-content-margin-bottom: $u2;
   }
 
   hr {
-    margin-top: $u1;
+    margin-top: $dso-vertical-spacing-medium;
   }
 
   img {
