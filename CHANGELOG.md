@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
+
+### Fixed
+* **dso-toolkit:** Refactoring voorbeeldtemplates: correctie markup link-list homepage ([#1041](https://github.com/dso-toolkit/dso-toolkit/issues/1041))
+
 ### Changed
 * **dso-toolkit:** Margin onder tabs ([#1027](https://github.com/dso-toolkit/dso-toolkit/issues/1027))
 * **dso-toolkit:** Instelbare buttontekst mogelijk maken bij search-bar ([#1037](https://github.com/dso-toolkit/dso-toolkit/issues/1037))
@@ -12,13 +16,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Shopping-cart : aanpasbare titel en heading ([#1040](https://github.com/dso-toolkit/dso-toolkit/issues/1040))
 * **dso-toolkit:** Toelichting onder formelementen moet ook "static" kunnen zijn. ([#1030](https://github.com/dso-toolkit/dso-toolkit/issues/1030))
 * **dso-toolkit:** Steps component: de gebruikte clear oplossing is niet nodig ([#1045](https://github.com/dso-toolkit/dso-toolkit/issues/1045))
+* **BREAKING:** **dso-toolkit:** Refactoring voorbeeldtemplates : Bijstellingen styling en markup ([#993](https://github.com/dso-toolkit/dso-toolkit/issues/993)) **Markup changes, see PR ([#1020](https://github.com/dso-toolkit/dso-toolkit/pull/1020))**
 
 ### Added
 * **dso-toolkit:** Horizontale plaatsing form-groups en dso-form-buttons ([#1046](https://github.com/dso-toolkit/dso-toolkit/issues/1046))
 * **dso-toolkit:** Definition lists in geneste accordion ([#1034](https://github.com/dso-toolkit/dso-toolkit/issues/1034))
 
-### Fixed
-* **dso-toolkit:** Refactoring voorbeeldtemplates: correctie markup link-list homepage ([#1041](https://github.com/dso-toolkit/dso-toolkit/issues/1041))
+### Documentation
+* **dso-toolkit:** Refactoring voorbeeldtemplates : Aanvragen stap 7 (Verzoeken indienen) ([#826](https://github.com/dso-toolkit/dso-toolkit/issues/826))
+* **dso-toolkit:** Refactoring voorbeeldtemplates : Wizard stap 2 (Locatie) ([#845](https://github.com/dso-toolkit/dso-toolkit/issues/845))
+* **dso-toolkit:** Refactoring voorbeeldtemplates : Wizard Stap 3 (Kies activiteiten) ([#787](https://github.com/dso-toolkit/dso-toolkit/issues/787))
+* **dso-toolkit:** Refactoring voorbeeldtemplates : Wizard stap 4 (Resultaat) ([#967](https://github.com/dso-toolkit/dso-toolkit/issues/967))
+* **dso-toolkit:** Refactoring voorbeeldtemplates : responsive aanpassingen en inhoudelijke updates ([#928](https://github.com/dso-toolkit/dso-toolkit/issues/928))
 
 ## 20.0.0
 
@@ -62,9 +71,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **dso-toolkit** Info-component zonder sluitmogelijkheid ([#907](https://github.com/dso-toolkit/dso-toolkit/issues/907))
-
-### Fixed
-* Voorbeeld pagina's updates en fixes (#928)
 
 ## 17.1.0
 
