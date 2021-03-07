@@ -1,53 +1,77 @@
 <style>
   .dso-map-example {
-    background-image: url("../../dummy/images/google-map-background.jpg");
+    background-image: url("../../dummy/images/map-lved125.png");
     background-size: cover;
-    height: 300px;
+    height: 400px;
     margin: 32px 0;
     width: 100%;
   }
 </style>
 <main>
-  <div class="row">
-    <div class="col-xs-12">
-      <h2 class="dso-steps-indicator">
-        2. Locatie
-        <span class="dso-step">
+  <h2 class="dso-steps-indicator">
+    2. Locatie
+    <span class="dso-step">
     Stap 1/7
   </span>
-      </h2>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="dso-search-bar">
-        <div class="dso-search-bar-input">
-          <label for="search-bar--default">Adres</label>
-          <span class="dso-search-icon" aria-hidden="true"></span>
-          <input type="text" id="search-bar--default" placeholder="Zoek een adres" />
+  </h2>
+  <form>
+    <div class="row">
+      <div class="col-md-9">
+        <h3>Coordinaten</h3>
+      </div>
+      <div class="col-md-3 text-right">
+        <div class="dropdown">
+          <button type="button" aria-expanded="false" class="btn btn-link"><span >Meer zoekopties</span></button>
         </div>
-        <button type="button" class="btn btn-default">
-          Button
+      </div>
+    </div>
+    <div class="dso-justify-form-groups">
+      <div class="form-group dso-select">
+        <div class="dso-label-container">
+          <label for="type" class="control-label">
+            Type
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <select id="type" class="form-control">
+            <option value="rd">RD</option>
+            <option value="wgs84" selected>WGS84</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group dso-input">
+        <div class="dso-label-container">
+          <label for="" class="control-label">
+            Lattitude
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="" id="" class="form-control" value="52.07066496">
+        </div>
+      </div>
+      <div class="form-group dso-input">
+        <div class="dso-label-container">
+          <label for="" class="control-label">
+            Longitude
+          </label>
+        </div>
+        <div class="dso-field-container">
+          <input type="" id="" class="form-control" value="4.26389251">
+        </div>
+      </div>
+      <div class="dso-form-buttons">
+        <button type="button" class="btn btn-default btn-sm"><span >Zoeken</span></button>
+      </div>
+    </div>
+    <div class="dso-map-example"></div>
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        <button type="button" class="btn btn-link">
+          <dso-icon icon="chevron-left"></dso-icon><span >Vorige stap</span>
         </button>
       </div>
+      <button type="submit" class="btn btn-primary"><span >Volgende stap</span>
+        <dso-icon icon="chevron-right"></dso-icon></button>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="dso-map-example"></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="dso-form-buttons">
-        <div class="dso-aside">
-          <button type="button" class="btn btn-default">
-            <dso-icon icon="chevron-left"></dso-icon><span >Vorige stap</span>
-          </button>
-        </div>
-        <button type="button" class="btn btn-primary"><span >Volgende stap</span>
-          <dso-icon icon="chevron-right"></dso-icon></button>
-      </div>
-    </div>
-  </div>
+  </form>
 </main>
