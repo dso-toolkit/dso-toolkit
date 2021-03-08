@@ -217,7 +217,7 @@ module.exports = function (options) {
     env.engine.addGlobal('hydrate', async function (html, entity, options) {
       options = Object.assign(
         {
-          stripRoot: true
+          stripRoot: false
         },
         options || {}
       );
@@ -232,7 +232,7 @@ module.exports = function (options) {
       }
 
       const $ = await hydrate(html, webComponents);
-      const markup = $.html($(options.stripRoot ? 'body > *' : 'body'));
+      const markup = $.html($(options.stripRoot ? 'body > * > *' : 'body > *'));
 
       return prettier.format(markup, {
         printWidth: 120,
