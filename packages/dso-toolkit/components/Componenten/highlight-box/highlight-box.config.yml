@@ -4,7 +4,7 @@ meta:
 status: ready
 notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>dso-yellow</code>) en met grijze border (modifier <code>dso-border</code>).
 context:
-  __title: default
+  __title: Standaard
   yield: |
     <div class="dso-rich-content">
       <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
@@ -22,20 +22,25 @@ context:
 variants:
   - name: yellow
     context:
+      __title: Geel
       yellow: true
   - name: bordered
     context:
+      __title: Met rand
       border: true
   - name: white-drop-shadow
     context:
+      __title: Wit met schaduw
       white: true
       dropShadow: true
   - name: Step indicator
     context:
+      __title: Met step indicator
       yellow: true
       step: 2
   - name: Icon indicator
     context:
+      __title: Met icoon
       yellow: true
       icon: plus
       label: Plus

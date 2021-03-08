@@ -5,12 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit:** Op highlight box pagina hebben alle voorbeelden titel "Default" ([#1048](https://github.com/dso-toolkit/dso-toolkit/issues/1048))
+
 ## 21.1.0
 
 ### Fixed
 * **dso-toolkit:** In het menu gaan collectie's niet meer open/dicht ([#1057](https://github.com/dso-toolkit/dso-toolkit/issues/1057))
 * **dso-toolkit:** In "Markup" tabblad van componenten niet de webcomponent markup herhalen ([#1044](https://github.com/dso-toolkit/dso-toolkit/issues/1044))
 * **dso-toolkit:** Wizard stap 2: afbeelding kaart mist ([#1056](https://github.com/dso-toolkit/dso-toolkit/issues/1056))
+* **dso-toolkit:** Op highlight box pagina hebben alle voorbeelden titel "Default" ([#1048](https://github.com/dso-toolkit/dso-toolkit/issues/1048))
 
 ## 21.0.0
 
