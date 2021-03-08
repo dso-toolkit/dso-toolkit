@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 21.1.0
+
 ### Fixed
 * **dso-toolkit:** In het menu gaan collectie's niet meer open/dicht ([#1057](https://github.com/dso-toolkit/dso-toolkit/issues/1057))
 * **dso-toolkit:** In "Markup" tabblad van componenten niet de webcomponent markup herhalen ([#1044](https://github.com/dso-toolkit/dso-toolkit/issues/1044))
