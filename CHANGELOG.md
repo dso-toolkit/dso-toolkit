@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+* **dso-toolkit:** Wizard stap 2: afbeelding kaart mist ([#1056](https://github.com/dso-toolkit/dso-toolkit/issues/1056))
+
 ## 21.0.0
 
 ### Fixed
