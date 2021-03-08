@@ -91,7 +91,7 @@ class TreeCollection {
   constructor(el, tree) {
     this._tree = tree;
     this._el = $(el);
-    this._toggle = this._el.find('> [data-role="toggle"]');
+    this._toggle = this._el.find('> h3 > [data-role="toggle"]');
     this._itemsWrapper = this._el.find('[data-role="items"]:not(> [data-behaviour] [data-role="items"])');
     this._isOpen = true;
     this._toggle.attr('aria-expanded', 'true');
