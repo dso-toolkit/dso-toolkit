@@ -1,0 +1,21 @@
+{% render '@header', {menu: menu, breadcrumbs: []} -%}
+<body {{ className('dso-modal-open', [noMaxHeight, 'dso-scripted-height']) }}>
+<div class="dso-modal" tabindex="-1" role="dialog" aria-labelledby="modal-dialog">
+  <div class="dso-dialog" role="document">
+    <div class="dso-body">
+      <div class="dso-progress-indicator dso-progress-indicator-looping dso-small" role="progressbar" aria-valuetext="Een moment geduld alstublieft.">
+        <div class="dso-progress-indicator-spinner"></div>
+        <span class="dso-progress-indicator-label">Een moment geduld alstublieft.</span>
+      </div>
+    </div>
+  </div>
+</div>
+<main>
+  {% render '@form-steps', {title: steps.title, step: steps.step} %}
+  <dso-alert status="{{ alert.status }}">
+    {{ alert.message | safe }}
+  </dso-alert>
+  {% render '@form', form %}
+</main>
+</body>
+{% render '@footer' %}
