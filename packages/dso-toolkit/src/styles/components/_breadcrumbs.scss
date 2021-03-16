@@ -6,17 +6,17 @@ ol.breadcrumb {
   padding: 0 $u1;
 
   > li {
+    display: flex;
     float: left;
 
     + li::before {
-      border-left: 1px solid $grijs-60;
-      content: "";
+      color: $grijs-60;
+      content: "/";
       display: inline-block;
+      font-weight: 700;
       height: 1em;
-      margin: 0 0.625em;
+      margin: 0 4px;
       position: relative;
-      top: 0.17em;
-      vertical-align: baseline;
     }
 
     &.active {
@@ -26,7 +26,7 @@ ol.breadcrumb {
     > a {
       @include anchor-reverse();
 
-      color: $bosgroen;
+      color: $grasgroen;
     }
   }
 }
