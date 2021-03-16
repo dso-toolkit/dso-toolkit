@@ -26,7 +26,10 @@ ol.breadcrumb {
     > a {
       @include anchor-reverse();
 
-      color: $grasgroen;
+      &,
+      &:visited {
+        color: $grasgroen;
+      }
     }
   }
 }
