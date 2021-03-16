@@ -19,170 +19,29 @@ notes: |
 status: ready
 collated: true
 context:
-  __title: Two tabs
+  __title: Standaard
   tabs:
-    - label: Tab 1
+    - label: Zoek op adres
       url: '#'
       modifiers: active
-    - label: Tab 2
+    - label: Postcode en huisnummer
       url: '#'
-      modifiers: disabled
+    - label: Kadastraal nummer
+      url: '#'
+    - label: Coordinaten
+      url: '#'
 variants:
-  - name: Three tabs
+  - name: tab disabled
     context:
-      __title: Three tabs
+      __title: Tab deactief
       tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-        modifiers: disabled
-
-  - name: Four tabs
-    context:
-      __title: Four tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-        modifiers: disabled
-
-  - name: Five tabs
-    context:
-      __title: Five tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-      - label: Tab 5
-        url: '#'
-        modifiers: disabled
-
-  - name: Six tabs
-    context:
-      __title: Six tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-      - label: Tab 5
-        url: '#'
-      - label: Tab 6
-        url: '#'
-        modifiers: disabled
-
-  - name: Seven tabs
-    context:
-      __title: Seven tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-      - label: Tab 5
-        url: '#'
-      - label: Tab 6
-        url: '#'
-      - label: Tab 7
-        url: '#'
-        modifiers: disabled
-
-  - name: Eight tabs
-    context:
-      __title: Eight tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-      - label: Tab 5
-        url: '#'
-      - label: Tab 6
-        url: '#'
-      - label: Tab 7
-        url: '#'
-      - label: Tab 8
-        url: '#'
-        modifiers: disabled
-
-  - name: Nine tabs
-    context:
-      __title: Nine tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-      - label: Tab 5
-        url: '#'
-      - label: Tab 6
-        url: '#'
-      - label: Tab 7
-        url: '#'
-      - label: Tab 8
-        url: '#'
-      - label: Tab 9
-        url: '#'
-        modifiers: disabled
-
-  - name: Ten tabs
-    context:
-      __title: Ten tabs
-      tabs:
-      - label: Tab 1
-        url: '#'
-        modifiers: active
-      - label: Tab 2
-        url: '#'
-      - label: Tab 3
-        url: '#'
-      - label: Tab 4
-        url: '#'
-      - label: Tab 5
-        url: '#'
-      - label: Tab 6
-        url: '#'
-      - label: Tab 7
-        url: '#'
-      - label: Tab 8
-        url: '#'
-      - label: Tab 9
-        url: '#'
-      - label: Tab 10
-        url: '#'
+        - label: Zoek op adres
+          url: '#'
+        - label: Postcode en huisnummer
+          url: '#'
+          modifiers: active
+        - label: Kadastraal nummer
+          url: '#'
+        - label: Coordinaten
+          url: '#'
+          modifiers: disabled
