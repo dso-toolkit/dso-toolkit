@@ -38,3 +38,6 @@ context:
       modifier: primary
       label: Volgende stap
       iconAfter: chevron-right
+  indicator:
+    status: Een moment geduld alstubliefts.
+    size: small
