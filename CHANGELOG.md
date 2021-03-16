@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **dso-toolkit:** Breadcrumbs aanpassingen ([#1023](https://github.com/dso-toolkit/dso-toolkit/issues/1023))
+
 ## 21.1.0
 
 ### Fixed
