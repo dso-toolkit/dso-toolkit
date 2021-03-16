@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit:** Op highlight box pagina hebben alle voorbeelden titel "Default" ([#1048](https://github.com/dso-toolkit/dso-toolkit/issues/1048))
+
 ### Changed
 * **dso-toolkit:** Breadcrumbs aanpassingen ([#1023](https://github.com/dso-toolkit/dso-toolkit/issues/1023))
 
