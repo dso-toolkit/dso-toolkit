@@ -1,6 +1,6 @@
 label: Lay-out
 notes: |
-  Voor meer informatie zie [Bootstrap Grid system](https://getbootstrap.com/docs/3.3/css/#grid) documentatie
+  Voor meer informatie over het gebruik van de classes `.row`, `.col-xx-xx` zie [documentatie over lay-out]({{ '/docs/fundament/layout' | docPath }})
 status: ready
 collated: true
 context:
