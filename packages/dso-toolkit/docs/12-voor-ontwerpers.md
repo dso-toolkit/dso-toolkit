@@ -14,5 +14,5 @@ Als je nieuwe componenten wilt toe gaan voegen aan de toolkit, lees dan de secti
 - [Kleurgebruik]({{ '/docs/fundament/colors' | path }})
 - [Typografie]({{ '/docs/fundament/typography' | path }})
 - [Lay-out]({{ '/docs/fundament/layout' | path }})
-- [Templates]({{ '/components/detail/aanvragen' | path }})
+- [Templates]({{ '/components/detail/activiteiten' | path }})
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)

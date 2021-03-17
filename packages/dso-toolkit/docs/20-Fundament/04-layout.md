@@ -69,7 +69,7 @@ Als het bijvoorbeeld de bedoeling is dat 2 onderdelen in 2/1 verhouding naast el
   </div>
 </div>
 ```
-NB: `.row` en `.col-*` worden alléén gebruikt voor horizontale positionering van onderdelen, en om responsive gedrag te programmeren. Plaats daarom niet elk willekeurig component in  `.row` en `.col-*`  als er geen responsive gedrag nodig is. Dit houdt de markup simpel en zuiver. De pagina [Wizard stap 3]({{ '/components/detail/wizard-stap-3' | path }}) is een goed voorbeeld wanneer `.row` en `.col-*` gebruikt moet worden om responsive gedrag te creëeren en wanneer niet. De classes `.row` en `.col-*` verzorgen niét de verticale ruimte tussen onderdelen, die volgt uit de onderdelen zelf.
+NB: `.row` en `.col-*` worden alléén gebruikt voor horizontale positionering van onderdelen, en om responsive gedrag te programmeren. Plaats daarom niet elk willekeurig component in  `.row` en `.col-*`  als er geen responsive gedrag nodig is. Dit houdt de markup simpel en zuiver. De pagina [Aanvragen > Activiteiten]({{ '/components/detail/activiteiten' | path }}) is een goed voorbeeld wanneer `.row` en `.col-*` gebruikt moet worden om responsive gedrag te creëeren en wanneer niet. De classes `.row` en `.col-*` verzorgen niét de verticale ruimte tussen onderdelen, die volgt uit de onderdelen zelf.
 
 ## Breakpoints en viewports
 Voor het responsive gedrag van de pagina en de onderdelen gelden 4 breakpoints, die de volgende viewport-classificaties opleveren:

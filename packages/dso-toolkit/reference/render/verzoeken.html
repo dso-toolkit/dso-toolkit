@@ -74,6 +74,9 @@
     Stap 7 van 7
   </span>
     </h2>
+    <dso-alert status="warning">
+      Verander de instantie alleen als u zeker weet dat die niet klopt. Als u iets verandert, duurt het afhandelen van uw aanvraag mogelijk langer.
+    </dso-alert>
     <dso-alert status="info">
       We hebben van uw aanvraag meerdere verzoeken gemaakt. Hier ziet u waar u de verzoeken indient.
     </dso-alert>
@@ -85,22 +88,27 @@
     <form class="form-horizontal">
       <fieldset>
         <legend>Verzoek 1</legend>
-        <div class="form-group dso-static dso-edit">
+        <div class="form-group dso-input dso-input-text">
           <div class="dso-label-container">
-            <span class="control-label">Verzoek 1:</span>
+            <label for="form-horizontal-undefined" class="control-label">
+              Verzoek 1:
+            </label>
           </div>
           <div class="dso-field-container">
-            Object Laan van Eik en Duinen 125, 's-Gravenhage 1
-            <button type="button" class="btn btn-link"><span class="sr-only">Link button</span>
-              <dso-icon icon="pencil"></dso-icon></button>
+            <input type="text" id="form-horizontal-undefined" class="form-control" value="Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1">
           </div>
         </div>
-        <div class="form-group dso-static">
+        <div class="form-group dso-select">
           <div class="dso-label-container">
-            <span class="control-label">Indienen bij:</span>
+            <label for="form-horizontal-undefined" class="control-label">
+              Indienen bij:
+            </label>
           </div>
           <div class="dso-field-container">
-            Hoogheemraadschap van Delfland
+            <select id="form-horizontal-undefined" class="form-control">
+              <option value="delfland">Hoogheemraadschap van Delfland</option>
+              <option value="denhaag">Gemeente Den Haag</option>
+            </select>
           </div>
         </div>
         <div class="form-group dso-static">
@@ -132,12 +140,17 @@
               <dso-icon icon="pencil"></dso-icon></button>
           </div>
         </div>
-        <div class="form-group dso-static">
+        <div class="form-group dso-select">
           <div class="dso-label-container">
-            <span class="control-label">Indienen bij:</span>
+            <label for="form-horizontal-undefined" class="control-label">
+              Indienen bij:
+            </label>
           </div>
           <div class="dso-field-container">
-            Gemeente Den Haag
+            <select id="form-horizontal-undefined" class="form-control">
+              <option value="denhaag">Gemeente Den Haag</option>
+              <option value="delfland">Hoogheemraadschap van Delfland</option>
+            </select>
           </div>
         </div>
         <div class="form-group dso-static">
@@ -157,16 +170,16 @@
           </div>
         </div>
       </fieldset>
-      <div class="dso-form-buttons">
-        <div class="dso-aside">
-          <button type="link" class="btn btn-link">
-            <dso-icon icon="chevron-left"></dso-icon><span >Vorige</span>
-          </button>
-        </div>
-        <button type="submit" class="btn btn-primary"><span >Volgende</span>
-          <dso-icon icon="chevron-right"></dso-icon></button>
-      </div>
     </form>
+    <div class="dso-form-buttons">
+      <div class="dso-aside">
+        <button type="button" class="btn btn-link">
+          <dso-icon icon="chevron-left"></dso-icon><span >Vorige</span>
+        </button>
+      </div>
+      <button type="button" class="btn btn-primary"><span >Volgende</span>
+        <dso-icon icon="chevron-right"></dso-icon></button>
+    </div>
   </form>
 </main>
 <footer>
