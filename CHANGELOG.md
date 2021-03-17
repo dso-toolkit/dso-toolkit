@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **dso-toolkit:** Breadcrumbs aanpassingen ([#1023](https://github.com/dso-toolkit/dso-toolkit/issues/1023))
 
+### Documentation
+* **dso-toolkit:** Uitleg gebruik classes cols en rows ([#977](https://github.com/dso-toolkit/dso-toolkit/issues/977))
+
 ## 21.1.0
 
 ### Fixed
