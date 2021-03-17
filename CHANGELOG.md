@@ -7,10 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **dso-toolkit:** Op highlight box pagina hebben alle voorbeelden titel "Default" ([#1048](https://github.com/dso-toolkit/dso-toolkit/issues/1048))
-**dso-toolkit:** Tabs niet over de volledige breedte ([#1059](https://github.com/dso-toolkit/dso-toolkit/issues/1059))
 
 ### Changed
+* **dso-toolkit:** Structuur voorbeeldpagina's aanbrengen ([#1016](https://github.com/dso-toolkit/dso-toolkit/issues/1016))
 * **dso-toolkit:** Breadcrumbs aanpassingen ([#1023](https://github.com/dso-toolkit/dso-toolkit/issues/1023))
+* **dso-toolkit:** Tabs niet over de volledige breedte ([#1059](https://github.com/dso-toolkit/dso-toolkit/issues/1059))
 
 ### Documentation
 * **dso-toolkit:** Uitleg gebruik classes cols en rows ([#977](https://github.com/dso-toolkit/dso-toolkit/issues/977))

@@ -10,5 +10,5 @@ Het Omgevingsloket wordt ontwikkeld vanuit het gebruikersperspectief, daarom zij
 
 ## Links naar relevante pagina's:
 - [README (English)](https://github.com/dso-toolkit/dso-toolkit/blob/master/README.md)
-- [Templates]({{ '/components/detail/aanvragen' | path }})
+- [Templates]({{ '/components/detail/activiteiten' | path }})
 - [Meewerken aan de toolkit](https://github.com/dso-toolkit/dso-toolkit/blob/master/CONTRIBUTING.md)
