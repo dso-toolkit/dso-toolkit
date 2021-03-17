@@ -4,11 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
-### Changed
-**dso-toolkit:** Tabs niet over de volledige breedte ([#1059](https://github.com/dso-toolkit/dso-toolkit/issues/1059))
 
 ### Fixed
 * **dso-toolkit:** Op highlight box pagina hebben alle voorbeelden titel "Default" ([#1048](https://github.com/dso-toolkit/dso-toolkit/issues/1048))
+**dso-toolkit:** Tabs niet over de volledige breedte ([#1059](https://github.com/dso-toolkit/dso-toolkit/issues/1059))
 
 ### Changed
 * **dso-toolkit:** Breadcrumbs aanpassingen ([#1023](https://github.com/dso-toolkit/dso-toolkit/issues/1023))
