@@ -24,7 +24,6 @@ ul.nav-tabs {
 
   > li {
     border-color: $dso-tabs-color;
-    flex: 1;
     float: none;
     font-weight: bold;
     // Make the list-items overlay the bottom border
@@ -32,7 +31,6 @@ ul.nav-tabs {
     min-height: $dso-tabs-height;
 
     @media screen and (max-width: $screen-xs-max) {
-      flex: 0;
       margin: 10px 0;
 
       &:first-child {
