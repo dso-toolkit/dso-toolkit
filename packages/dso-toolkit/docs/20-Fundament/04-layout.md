@@ -1,10 +1,56 @@
 ---
 label: Lay-out
 ---
-## Horizontale lay-out
-Om structuur en consistentie te creëren wordt voor de horizontale verdeling de 12 koloms structuur van het [Bootstrap 3 grid](https://getbootstrap.com/docs/3.3/css/#grid) gebruikt. Met dit systeem kunnen onderdelen op de pagina worden gepositioneerd en kan worden geprogrammeerd wat het responsive gedrag van deze positionering is.
 
-### Basics
+## Algemene pagina opbouw
+
+### Basis
+Niet-interactieve pagina's hebben de volgende structuur als basis:
+```
+<body>
+  <div class="container">
+    <header></header>
+    <main>
+      <h1></h1>
+      <div class="row">
+        <div class="col-sm-6"></div>
+      </div>
+    </main>
+    <footer></footer>
+  </div>
+</body>
+```
+
+### Interactieve pagina's
+Interactieve pagina's (dus, met een `<form>`) hanteren de volgende structuur:
+```
+<body>
+  <div class="container">
+    <header></header>
+    <main>
+      <form>
+        <h1></h1>
+        <h2 class="dso-steps-indicator"></h2>
+        <div class="dso-alert"></div>
+        <div class="row">
+          <div class="col-md-8"></div>
+          <div class="col-md-4"></div>
+        </div>
+        <div class="dso-form-buttons"></div>
+      </form>
+    </main>
+    <footer></footer>
+  </div>
+</body>
+```
+
+## Verticale lay-out
+Voor de verticale layout en hiërarchie wordt het 8px grid gebruikt. Het 8px grid betekent het volgende: gebruik increments van 8px om de grootte van en ruimte tussen de elementen te tonen op een pagina. Dus height, width, padding, margin bestaan allemaal uit increments van 8.
+
+## Horizontale lay-out
+Voor de horizontale verdeling wordt de 12 koloms structuur van het [Bootstrap 3 grid](https://getbootstrap.com/docs/3.3/css/#grid) gebruikt. Met dit systeem kunnen onderdelen op de pagina worden gepositioneerd en kan worden geprogrammeerd wat het responsive gedrag van deze positionering is.
+
+### Grid basis
 Voor het bepalen van de positionering van pagina-onderdelen zijn de volgende classes relevant:
 
 `.container` : in DSO applicaties staat deze direct in de `<body>` van de pagina: alle andere pagina-onderdelen bevinden zich hierin;
@@ -13,16 +59,16 @@ Voor het bepalen van de positionering van pagina-onderdelen zijn de volgende cla
 
 Elke rij bestaat uit 12 denkbeeldige kolommen, elke rij wordt gevuld van links naar rechts. Op dit stramien van 12 kolommen kunnen onderdelen worden gepositioneerd. Dit gebeurt door `<div>`s te maken met de classes `.col-xs-*`, `.col-sm-*`, `.col-md-*`, `.col-lg-*`.
 
-Als het bijvoorbeeld de bedoeling is dat 2 onderdelen in 50%/50% verhouding naast elkaar komen te staan, gebeurt dit als volgt:
+Als het bijvoorbeeld de bedoeling is dat 2 onderdelen in 2/1 verhouding naast elkaar komen te staan, gebeurt dit als volgt:
 ```
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">Onderdeel</div>
-    <div class="col-sm-6">Onderdeel</div>
+    <div class="col-sm-8">Onderdeel</div>
+    <div class="col-sm-4">Onderdeel</div>
   </div>
 </div>
 ```
-NB: `.row` en `.col-*` worden alléén gebruikt voor horizontale positionering van onderdelen, en om responsive gedrag te programmeren. Deze classes verzorgen niét de verticale ruimte tussen onderdelen, die volgt uit de onderdelen zelf.
+NB: `.row` en `.col-*` worden alléén gebruikt voor horizontale positionering van onderdelen, en om responsive gedrag te programmeren. Plaats daarom niet elk willekeurig component in  `.row` en `.col-*`  als er geen responsive gedrag nodig is. Dit houdt de markup simpel en zuiver. De pagina [Wizard stap 3]({{ '/components/detail/wizard-stap-3' | path }}) is een goed voorbeeld wanneer `.row` en `.col-*` gebruikt moet worden om responsive gedrag te creëeren en wanneer niet. De classes `.row` en `.col-*` verzorgen niét de verticale ruimte tussen onderdelen, die volgt uit de onderdelen zelf.
 
 ## Breakpoints en viewports
 Voor het responsive gedrag van de pagina en de onderdelen gelden 4 breakpoints, die de volgende viewport-classificaties opleveren:
@@ -60,6 +106,3 @@ Op de homepage staat een aantal 'whiteboxes', in een `.row`. Deze onderdelen heb
 - `col-md-4` : in de large viewport (vanaf het 'medium' breakpoint) neemt dit onderdeel 4 kolommen in beslag;
 - `col-sm-6` : in de medium viewport (vanaf het 'small' breakpoint) neemt dit onderdeel 6 kolommen in beslag;
 - `col-xs-12` : in de small viewport (totaan het 'small' breakpoint) neemt dit onderdeel de volledige breedte van de `.row` in beslag;
-
-## Verticale lay-out
-Voor de verticale layout en hiërarchie wordt het 8px grid gebruikt. Het 8px grid betekent het volgende: Gebruik increments van 8px om de grootte van en ruimte tussen de elementen te tonen op een pagina. Dus height, width, padding, margin bestaan allemaal uit increments van 8.
