@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 21.2.0
+
 ### Fixed
 * **dso-toolkit:** Op highlight box pagina hebben alle voorbeelden titel "Default" ([#1048](https://github.com/dso-toolkit/dso-toolkit/issues/1048))
 
