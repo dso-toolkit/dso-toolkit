@@ -59,10 +59,10 @@ ul.nav-tabs {
       &:hover {
         border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
       }
+    }
 
-      &:visited {
-        color: $dso-tabs-text-color;
-      }
+    &:not(.disabled) > a:visited {
+      color: $dso-tabs-text-color;
     }
 
     a:active,
