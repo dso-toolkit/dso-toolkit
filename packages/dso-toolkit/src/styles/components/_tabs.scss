@@ -61,6 +61,10 @@ ul.nav-tabs {
       }
     }
 
+    &:not(.disabled) > a:visited {
+      color: $dso-tabs-text-color;
+    }
+
     a:active,
     a:focus,
     a:hover {
@@ -75,7 +79,8 @@ ul.nav-tabs {
       &,
       &:active,
       &:focus,
-      &:hover {
+      &:hover,
+      &:visited {
         background-color: $wit;
         border: 1px solid $dso-tabs-color;
         border-bottom-color: $wit;

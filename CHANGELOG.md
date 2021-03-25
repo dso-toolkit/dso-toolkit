@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit:** Visited state in Tabs verwijderen ([#1073](https://github.com/dso-toolkit/dso-toolkit/issues/1073))
 * **styling:** Alert responsive styling op smalle viewport ([#1064](https://github.com/dso-toolkit/dso-toolkit/issues/1064))
 
 ## 21.2.0
