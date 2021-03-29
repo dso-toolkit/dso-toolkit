@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **dso-toolkit + styling:** H1 Anchor bovenaan toolkit herontwerp ([#1049](https://github.com/dso-toolkit/dso-toolkit/issues/1049))
+
 ### Fixed
 * **dso-toolkit:** Visited state in Tabs verwijderen ([#1073](https://github.com/dso-toolkit/dso-toolkit/issues/1073))
 * **styling:** Alert responsive styling op smalle viewport ([#1064](https://github.com/dso-toolkit/dso-toolkit/issues/1064))
