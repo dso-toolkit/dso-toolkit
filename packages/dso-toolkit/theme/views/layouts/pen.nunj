@@ -29,12 +29,25 @@
         .dso-browser-navbar-item-panel:not(.is-active) {
           display: none;
         }
+
+        .component-preview svg {
+          height: 24px;
+          width: 24px;
+        }
+
+        .component-preview svg,
+        .component-preview:hover svg,
+        .component-preview:active svg,
+        .component-preview:visited svg {
+          color: #39870c;
+        }
       </style>
 
       <h1>
-        <a href="{{ previewUrl }}" title="Component preview">
-          {{ entity.title }}
-          {% include "icons/open-in-browser.svg" %}
+        {{ entity.title }}
+        <a href="{{ previewUrl }}" title="Component preview" class="component-preview" target="_blank" rel="noopener noreferrer">
+          <span class="sr-only"> opent in nieuw tabblad </span>
+          {% include "icons/new-window.svg" %}
         </a>
       </h1>
 
