@@ -1,5 +1,41 @@
 module.exports = {
-  notes: 'Toont een dropdown met daarin een gevulde uitklapper. Gebaseerd op de Bootstrap "Dropdowns" component. Class `dso-dropdown-right` op de parent van of op `.dropdown` zelf zorgt voor een rechter uitlijning.',
+  notes: `
+  **Implementatie:**
+  
+  Het openen en sluiten van de dropdown button moet worden ondersteund met muis-, touch- en toetsenbordbediening. De scripting zal zelf geimplementeerd moeten worden. 
+
+  \`button\` en \`dropdown-menu\` staan in een \`div.dropdown\`. Het \`dropdown-menu\` wordt getoond wanneer \`div.dropdown\` de class \`.open\` heeft.
+  
+  **Dropdown-button ingeklapt:**
+
+  \`div.dropdown\` geen class \`.open\`
+  
+  \`button\` attributes \`aria-haspopup="true"\` en \`aria-expanded="false"\`
+  
+  Markup:
+  \`\`\`
+  <div class="dropdown">
+    <button type="button" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
+    <div class="dropdown-menu">
+  </div>
+  \`\`\`
+  
+  **Dropdown-button ingeklapt:**
+
+  \`div.dropdown\` heeft class \`.open\`
+  
+  \`button\` attributes \`aria-haspopup="true"\` en \`aria-expanded="true"\`
+  
+  Markup:
+  \`\`\`
+  <div class="dropdown open">
+    <button type="button" aria-haspopup="true" aria-expanded="true" class="btn btn-link">
+    <div class="dropdown-menu">
+  </div>
+  \`\`\`
+  
+  Note: de \`button\` kan naar behoeve de classes 'btn-link', \`btn-default\` en \`btn-primary\` hebben.
+  `,
   status: 'ready',
   collated: true,
   collator: function (markup, item) {

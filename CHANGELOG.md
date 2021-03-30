@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + styling:** Herontwerp link bij H1 om component preview te openen ([#1049](https://github.com/dso-toolkit/dso-toolkit/issues/1049))
 * **dso-toolkit:** Visited state in Tabs verwijderen ([#1073](https://github.com/dso-toolkit/dso-toolkit/issues/1073))
 * **styling:** Alert responsive styling op smalle viewport ([#1064](https://github.com/dso-toolkit/dso-toolkit/issues/1064))
+* **dso-toolkit:** Dropdown is niet met pijltjes te navigeren. ([#875](https://github.com/dso-toolkit/dso-toolkit/issues/875))
 
 ### Fixed
 * **dso-toolkit:** Group checkboxes: bad value bij aria-expanded ([#1078](https://github.com/dso-toolkit/dso-toolkit/issues/1078))
