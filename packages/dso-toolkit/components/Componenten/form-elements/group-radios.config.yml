@@ -112,6 +112,7 @@ variants:
         </p>
     - value: 2
       label: nee
+      infoOpen: false
       infoButtonLabel: Toelichting bij antwoord
       infoText: |
         Closed

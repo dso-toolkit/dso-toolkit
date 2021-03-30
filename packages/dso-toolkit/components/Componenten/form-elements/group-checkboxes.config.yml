@@ -95,6 +95,7 @@ variants:
     options:
     - value: 1
       label: een
+      infoOpen: false
       infoButtonLabel: Toelichting bij antwoord
       infoText: |
         Closed
@@ -137,6 +138,7 @@ variants:
     options:
     - value: 1
       label: een
+      infoOpen: false
       infoButtonLabel: Toelichting bij antwoord
       infoText: |
         Closed

@@ -1,4 +1,7 @@
-<button type="button" {{ className('btn dso-info-button', [infoOpen, 'dso-open']) }} aria-expanded="{{ infoOpen }}">
+<button type="button"
+  {{ className('btn dso-info-button', [infoOpen, 'dso-open']) }}
+  {{ attributes([infoOpen, 'aria-expanded', not(not(infoOpen)), true]) }}
+>
   <span class="sr-only">
     {%- if infoButtonLabel -%}
       {{ infoButtonLabel }}
