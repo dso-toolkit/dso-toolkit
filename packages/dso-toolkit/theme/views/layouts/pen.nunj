@@ -30,26 +30,35 @@
           display: none;
         }
 
-        .component-preview svg {
-          height: 24px;
-          width: 24px;
+        .entity-title {
+          display: inline-block;
+          margin-right: 8px;
         }
 
-        .component-preview svg,
-        .component-preview:hover svg,
-        .component-preview:active svg,
-        .component-preview:visited svg {
+        .component-preview svg {
+          height: 16px;
+          margin-left: 8px;
+          vertical-align: -2px;
+          width: 16px;
+        }
+
+        a.component-preview,
+        a.component-preview:visited {
           color: #39870c;
+        }
+
+        a.component-preview:hover,
+        a.component-preview:focus {
+          color: #676cb0;
         }
       </style>
 
-      <h1>
+      <h1 class="entity-title">
         {{ entity.title }}
-        <a href="{{ previewUrl }}" title="Component preview" class="component-preview" target="_blank" rel="noopener noreferrer">
-          <span class="sr-only"> opent in nieuw tabblad </span>
-          {% include "icons/new-window.svg" %}
-        </a>
       </h1>
+      <a href="{{ previewUrl }}" class="component-preview" target="_blank" rel="noopener noreferrer">
+        Component preview<span class="sr-only"> opent in nieuw tabblad </span>{% include "icons/new-window.svg" %}
+      </a>
 
       {% if renderError -%}
         {{ renderError }}
