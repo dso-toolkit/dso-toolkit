@@ -29,14 +29,36 @@
         .dso-browser-navbar-item-panel:not(.is-active) {
           display: none;
         }
+
+        .entity-title {
+          display: inline-block;
+          margin-right: 8px;
+        }
+
+        .component-preview svg {
+          height: 16px;
+          margin-left: 8px;
+          vertical-align: -2px;
+          width: 16px;
+        }
+
+        a.component-preview,
+        a.component-preview:visited {
+          color: #39870c;
+        }
+
+        a.component-preview:hover,
+        a.component-preview:focus {
+          color: #676cb0;
+        }
       </style>
 
-      <h1>
-        <a href="{{ previewUrl }}" title="Component preview">
-          {{ entity.title }}
-          {% include "icons/open-in-browser.svg" %}
-        </a>
+      <h1 class="entity-title">
+        {{ entity.title }}
       </h1>
+      <a href="{{ previewUrl }}" class="component-preview" target="_blank" rel="noopener noreferrer">
+        Component preview<span class="sr-only"> opent in nieuw tabblad </span>{% include "icons/new-window.svg" %}
+      </a>
 
       {% if renderError -%}
         {{ renderError }}

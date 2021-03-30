@@ -45,6 +45,7 @@ import minusSquare from '@dso-toolkit/styling/icons/minus-square.svg';
 import more from '@dso-toolkit/styling/icons/more.svg';
 import municipality from '@dso-toolkit/styling/icons/municipality.svg';
 import nature from '@dso-toolkit/styling/icons/nature.svg';
+import newWindow from '@dso-toolkit/styling/icons/new-window.svg';
 import paperclip from '@dso-toolkit/styling/icons/paperclip.svg';
 import parking from '@dso-toolkit/styling/icons/parking.svg';
 import pencil from '@dso-toolkit/styling/icons/pencil.svg';
@@ -119,6 +120,7 @@ const icons = [
   { alias: 'more', svg: more },
   { alias: 'municipality', svg: municipality },
   { alias: 'nature', svg: nature },
+  { alias: 'new-window', svg: newWindow },
   { alias: 'paperclip', svg: paperclip },
   { alias: 'parking', svg: parking },
   { alias: 'pencil', svg: pencil },
