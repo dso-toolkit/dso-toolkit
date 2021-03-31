@@ -206,10 +206,6 @@ module.exports = function (options) {
         .find('.toolkit-example-container:first-child')
           .prepend('<h2>Web Component preview</h2>');
 
-      $hydrated
-        .find('.toolkit-example-container')
-        .removeClass('toolkit-example-container');
-
       const result = $hydrated.html();
 
       return prettier.format(result, {
