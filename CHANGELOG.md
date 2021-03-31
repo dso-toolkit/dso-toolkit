@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Documentation
 * **dso-toolkit:** Dropdown is niet met pijltjes te navigeren ([#875](https://github.com/dso-toolkit/dso-toolkit/issues/875))
+* Werkflow uitwerken in CONTRIBUTING.md ([#505](https://github.com/dso-toolkit/dso-toolkit/issues/505))
 
 ## 21.2.0
 
