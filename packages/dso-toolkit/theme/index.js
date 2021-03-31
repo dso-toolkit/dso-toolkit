@@ -204,7 +204,11 @@ module.exports = function (options) {
         .prepend('<hr id="custom-elements-raw">')
         .prepend(raw)
         .find('.dso-example-container:first-child')
-          .prepend('<h2>Web Component preview</h2>');;
+          .prepend('<h2>Web Component preview</h2>');
+
+      $hydrated
+        .find('.dso-example-container')
+        .removeClass('dso-example-container');
 
       const result = $hydrated.html();
 
