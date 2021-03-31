@@ -132,3 +132,60 @@ hr {
   margin-bottom: $dso-vertical-spacing-medium;
   margin-top: $dso-vertical-spacing-medium;
 }
+
+dso-banner,
+.banner,
+.dso-banner:not(.row) {
+  .row {
+    > div {
+      line-height: $u3;
+      padding-left: $dso-banner-left-padding;
+      position: relative;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        left: $u2;
+        position: absolute;
+      }
+
+      > .dso-rich-content {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: $zwart;
+          font-size: 1rem;
+          line-height: $line-height-base;
+          margin-bottom: 0;
+
+          + p {
+            display: inline;
+
+            + *:not(button[slot="button"]) {
+              margin-top: $u2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+dso-banner[status="danger"],
+.banner.alert-danger,
+.dso-banner:not(.row).alert-danger {
+  .row > div::before {
+    @include di("status-danger");
+  }
+}
+
+dso-banner[status="warning"],
+.banner.alert-warning,
+.dso-banner:not(.row).alert-warning {
+  .row > div::before {
+    @include di("status-warning");
+  }
+}

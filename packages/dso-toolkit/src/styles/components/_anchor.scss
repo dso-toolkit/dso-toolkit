@@ -64,3 +64,22 @@ dso-alert,
     }
   }
 }
+
+.banner,
+dso-banner,
+.dso-banner:not(.row) {
+  a {
+    text-decoration: underline;
+
+    &,
+    &:visited {
+      color: $text-color;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
