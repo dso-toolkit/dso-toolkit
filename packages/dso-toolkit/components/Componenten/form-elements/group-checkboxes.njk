@@ -39,7 +39,7 @@
       {% render '@help-block', {helpText: helpText, id: localId} %}
     {% endif %}
   </div>
-  {% if infoOpen %}
+  {% if infoOpen and infoTextDeprecated %}
     {% render '@info', {infoText: infoTextDeprecated} %}
   {% endif %}
 </fieldset>
