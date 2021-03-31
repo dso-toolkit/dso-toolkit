@@ -42,7 +42,7 @@
   }
 
   @if ($library) {
-    #state-switch:checked ~ .dso-example & > .dso-nav {
+    #state-switch:checked ~ .-toolkit-example & > .dso-nav {
       display: block;
     }
   }
