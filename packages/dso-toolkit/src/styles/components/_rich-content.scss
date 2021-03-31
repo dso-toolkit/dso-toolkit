@@ -99,3 +99,35 @@ dso-highlight-box,
     }
   }
 }
+
+dso-banner,
+.banner,
+.dso-banner:not(.row) {
+  padding: $u2 0;
+  position: relative;
+
+  .row {
+    > div {
+      > .dso-rich-content {
+        padding-right: $u3;
+
+        > h2:first-child {
+          float: left;
+          margin-right: $dso-unit;
+        }
+
+        *:first-child {
+          margin-top: 0;
+        }
+
+        *:last-child {
+          margin-bottom: 0;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+          width: calc(100% - #{$u3});
+        }
+      }
+    }
+  }
+}

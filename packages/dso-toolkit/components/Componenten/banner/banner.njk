@@ -1,13 +1,13 @@
-<section {{ className('banner', [modifier, 'alert-' + modifier]) }} role="alert">
+<dso-banner status="{{ status }}">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <div class="dso-rich-content">
           <h2>
-          {% if modifier === "danger" -%}
+          {% if status === "danger" -%}
             Storingsmelding:
           {%- endif %}
-          {%- if modifier === "warning" -%}
+          {%- if status === "warning" -%}
             Onderhoudsmelding:
           {%- endif %}
           </h2>
@@ -17,4 +17,4 @@
       </div>
     </div>
   </div>
-</section>
+</dso-banner>

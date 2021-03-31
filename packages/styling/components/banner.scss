@@ -1,0 +1,35 @@
+@import "../variables";
+
+$dso-banner-left-padding: $u6;
+
+$banner-warning-bg: $state-warning-bg;
+$banner-warning-text: $state-warning-text;
+$banner-warning-border: $state-warning-border;
+
+$banner-danger-bg: $state-danger-bg;
+$banner-danger-text: $state-danger-text;
+$banner-danger-border: $state-danger-border;
+
+@mixin banner-variant($background, $border, $text-color) {
+  color: $text-color;
+  background-color: $background;
+  border-color: $border;
+}
+
+.banner {
+  background-color: $dso-invalid-color !important;
+}
+
+.banner,
+.dso-banner:not(.row) {
+  padding: $u2 0;
+  position: relative;
+
+  &.alert-danger {
+    @include banner-variant($banner-danger-bg, $banner-danger-border, $banner-danger-text);
+  }
+
+  &.alert-warning {
+    @include banner-variant($banner-warning-bg, $banner-warning-border, $banner-warning-text);
+  }
+}

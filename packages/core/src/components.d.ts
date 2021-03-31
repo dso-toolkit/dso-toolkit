@@ -23,6 +23,9 @@ export namespace Components {
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
     }
+    interface DsoBanner {
+        "status": 'warning' | 'danger';
+    }
     interface DsoDatePicker {
         /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
@@ -137,6 +140,12 @@ declare global {
         prototype: HTMLDsoBadgeElement;
         new (): HTMLDsoBadgeElement;
     };
+    interface HTMLDsoBannerElement extends Components.DsoBanner, HTMLStencilElement {
+    }
+    var HTMLDsoBannerElement: {
+        prototype: HTMLDsoBannerElement;
+        new (): HTMLDsoBannerElement;
+    };
     interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
     }
     var HTMLDsoDatePickerElement: {
@@ -177,6 +186,7 @@ declare global {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-badge": HTMLDsoBadgeElement;
+        "dso-banner": HTMLDsoBannerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
@@ -201,6 +211,9 @@ declare namespace LocalJSX {
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+    }
+    interface DsoBanner {
+        "status": 'warning' | 'danger';
     }
     interface DsoDatePicker {
         /**
@@ -292,6 +305,7 @@ declare namespace LocalJSX {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-badge": DsoBadge;
+        "dso-banner": DsoBanner;
         "dso-date-picker": DsoDatePicker;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
@@ -307,6 +321,7 @@ declare module "@stencil/core" {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
+            "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
