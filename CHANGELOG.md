@@ -296,7 +296,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 11.2.0
 
 ### Changed
-* Collator: Aria-hidden verwijderd op `-toolkit-example-text` (#708)
+* Collator: Aria-hidden verwijderd op `dso-example-text` (#708)
 * Documentation: Teksten voor labels bij anchors aangepast (#704)
 * Highlight box top margin aanpassen (#738)
 * Documentation: Verwijderen van `<p>` in Lists component (#720)

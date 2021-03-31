@@ -198,17 +198,17 @@ module.exports = function (options) {
       });
 
       $hydrated('body')
-        .find('.-toolkit-example-container')
+        .find('.toolkit-example-container')
           .prepend('<h2>Markup component preview</h2>')
         .end()
         .prepend('<hr id="custom-elements-raw">')
         .prepend(raw)
-        .find('.-toolkit-example-container:first-child')
+        .find('.toolkit-example-container:first-child')
           .prepend('<h2>Web Component preview</h2>');
 
       $hydrated
-        .find('.-toolkit-example-container')
-        .removeClass('-toolkit-example-container');
+        .find('.toolkit-example-container')
+        .removeClass('toolkit-example-container');
 
       const result = $hydrated.html();
 

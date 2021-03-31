@@ -4,7 +4,7 @@
 @import "Componenten/buttons/buttons";
 @import "Voorbeelden/anchors";
 
-.-toolkit-example-wrapper {
+.toolkit-example-wrapper {
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-left: -10px;
@@ -15,7 +15,7 @@
     margin-top: $u3;
   }
 
-  .-toolkit-example {
+  .toolkit-example {
     border-top: 0;
     margin-left: -10px;
     margin-right: -10px;
@@ -32,12 +32,12 @@
       margin-top: 5px;
     }
 
-    & ~ .-toolkit-example {
+    & ~ .toolkit-example {
       border-top: 1px solid #ddd;
     }
   }
 
-  .-toolkit-example-text {
+  .toolkit-example-text {
     background-color: #eee;
     border-bottom: 1px solid #ddd;
     margin-left: -10px;
@@ -67,7 +67,7 @@
   }
 }
 
-h3.-toolkit-example-label {
+h3.toolkit-example-label {
   color: $zwart;
   font-size: 1em;
   margin-bottom: $u1;
