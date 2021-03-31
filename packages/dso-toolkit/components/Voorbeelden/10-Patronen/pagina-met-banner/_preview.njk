@@ -8,7 +8,9 @@
   </head>
 
   <body>
-    {{ yield | safe }}
+    <div class="dso-example-container">
+      {{ yield | safe }}
+    </div>
 
     <script type="module" src="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js' | path }}"></script>
     <script nomodule src="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.js' | path }}"></script>

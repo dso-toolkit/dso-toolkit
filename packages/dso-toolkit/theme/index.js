@@ -198,12 +198,12 @@ module.exports = function (options) {
       });
 
       $hydrated('body')
-        .find('.container')
+        .find('.dso-example-container')
           .prepend('<h2>Markup component preview</h2>')
         .end()
         .prepend('<hr id="custom-elements-raw">')
         .prepend(raw)
-        .find('.container:first-child')
+        .find('.dso-example-container:first-child')
           .prepend('<h2>Web Component preview</h2>');;
 
       const result = $hydrated.html();
