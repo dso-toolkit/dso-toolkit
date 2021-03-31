@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** Group checkboxes: bad value bij aria-expanded ([#1078](https://github.com/dso-toolkit/dso-toolkit/issues/1078))
 
+### Documentation
+* **dso-toolkit:** Dropdown is niet met pijltjes te navigeren ([#875](https://github.com/dso-toolkit/dso-toolkit/issues/875))
+
 ## 21.2.0
 
 ### Fixed
