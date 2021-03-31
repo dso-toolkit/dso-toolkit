@@ -5,8 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 21.3.0
+
 ### Added
-* **dso-toolkit + core + styling:** Nieuw webcomponent - Banner ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857))
+* **dso-toolkit + core + styling:** Web component Banner ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857))
 
 ### Changed
 * **dso-toolkit + styling:** Herontwerp link bij H1 om component preview te openen ([#1049](https://github.com/dso-toolkit/dso-toolkit/issues/1049))
