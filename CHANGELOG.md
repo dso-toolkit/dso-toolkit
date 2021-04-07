@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **dso-toolkit + styling:** Scheidingslijnen styling consistent ([#1024](https://github.com/dso-toolkit/dso-toolkit/issues/1024))
+
 ## 22.0.0
 
 Note: This release was first released as v21.3.0. We missed that [#857](https://github.com/dso-toolkit/dso-toolkit/issues/857)
