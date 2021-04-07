@@ -139,7 +139,6 @@ dso-banner,
   .row {
     > div {
       line-height: $u3;
-      padding-left: $dso-banner-left-padding;
       position: relative;
 
       &::before {
@@ -147,6 +146,7 @@ dso-banner,
         display: inline-block;
         left: $u2;
         position: absolute;
+        top: 0;
       }
 
       > .dso-rich-content {
@@ -169,6 +169,30 @@ dso-banner,
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: #{$screen-xs-min + 1}) {
+  dso-banner,
+  .banner,
+  .dso-banner:not(.row) {
+    .row {
+      > div {
+        padding-left: $dso-banner-left-padding;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-xs-min) {
+  dso-banner,
+  .banner,
+  .dso-banner:not(.row) {
+    .row {
+      > div {
+        padding-top: $dso-banner-small-padding-top;
       }
     }
   }
