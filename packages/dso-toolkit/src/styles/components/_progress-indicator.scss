@@ -5,12 +5,20 @@
     position: relative;
     vertical-align: middle;
   }
+
+  &.dso-block {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &.dso-gray {
+      background-color: $grijs-10;
+    }
+  }
 }
 
 @mixin dso-progress-indicator-looping-dims($dso-progress-indicator-name, $dso-progress-indicator-size, $dso-progress-indicator-border-width) {
   &.dso-#{$dso-progress-indicator-name} {
-    line-height: $dso-progress-indicator-size;
-
     .dso-progress-indicator-spinner {
       height: $dso-progress-indicator-size;
       width: $dso-progress-indicator-size;
@@ -26,19 +34,32 @@
 .dso-progress-indicator-looping {
   .dso-progress-indicator-spinner {
     background-image: url("data:image/svg+xml,%3Csvg class='spinner' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E .spinner %7B animation: rotator 8s linear infinite; transform-origin: center; %7D @keyframes rotator %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D .path %7B stroke-dasharray: 265; stroke-dashoffset: 0; transform-origin: center; stroke: %2339870c; animation: dash 2s ease-in-out infinite; %7D @keyframes dash %7B 0%25 %7B stroke-dashoffset: 265; %7D 50%25 %7B stroke-dashoffset: 65; transform:rotate(90deg); %7D 100%25 %7B stroke-dashoffset: 265; transform:rotate(360deg); %7D %3C/style%3E%3Ccircle class='path' fill='none' stroke-width='10' stroke-linecap='butt' cx='50' cy='50' r='45'%3E%3C/circle%3E%3C/svg%3E");
+    background-repeat: no-repeat;
   }
 
   &.dso-small,
   &:not(.dso-medium):not(.dso-large) {
     @include dso-progress-indicator-looping-dims(small, 24px, 2px);
+
+    &.dso-block {
+      padding: $u1 * 1.5 $u2;
+    }
   }
 
   &.dso-medium {
     @include dso-progress-indicator-looping-dims(medium, 32px, 3px);
+
+    &.dso-block {
+      padding: $u2;
+    }
   }
 
   &.dso-large {
     @include dso-progress-indicator-looping-dims(large, 48px, 4px);
+
+    &.dso-block {
+      padding: $u3 $u2;
+    }
   }
 
   .dso-progress-indicator-spinner-mask {
