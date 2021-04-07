@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit:** Shopping Cart subitems hebben niet voldoende padding aan de rechterkant ([#1084](https://github.com/dso-toolkit/dso-toolkit/issues/1084))
+
 ### Changed
 * **dso-toolkit + styling:** Scheidingslijnen styling consistent ([#1024](https://github.com/dso-toolkit/dso-toolkit/issues/1024))
 

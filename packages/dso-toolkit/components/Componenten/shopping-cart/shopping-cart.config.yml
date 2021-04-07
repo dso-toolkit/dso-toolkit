@@ -28,6 +28,22 @@ variants:
         - label: Milieubelastende activiteit - Melding
           additive: 2
           edit: true
+  - name: subitems
+    context:
+      __title: subitems
+      items:
+        - label: Milieubelastende activiteit - Melding
+          subitems:
+            - label: Wasstraat of wasplaats
+        - label: Milieubelastende activiteit - Melding
+          additive: Wasstraat om de hoek van garagebedrijf Jansen
+          edit: true
+          subitems:
+            - label: Wasstraat of wasplaats
+        - label: Milieubelastende activiteit gereguleerd in het omgevingsplan - Informatie (Rijk)
+          readonly: true
+          subitems:
+            - label: Koelwater, niet afkomstig van een milieubelastende activiteit die is aangewezen in hoofdstuk 3 van het Besluit activiteiten, lozen in het riool of op of in de bodem.
   - name: subitems-hidden-summary
     context:
       __title: subitems with hidden summary
@@ -43,7 +59,7 @@ variants:
             - label: Wasstraat of wasplaats
   - name: subitems with warning
     context:
-      __title: subitems
+      __title: subitems with warning
       items:
         - label: Tankstation starten of veranderen
           readonly: true
