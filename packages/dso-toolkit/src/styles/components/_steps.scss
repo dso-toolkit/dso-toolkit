@@ -4,7 +4,7 @@ $step-padding: 12px;
 .dso-steps-indicator {
   @extend %is-h2;
 
-  border-bottom: 1px solid $bosgroen-60;
+  border-bottom: 1px solid $grijs-20;
   padding-bottom: $step-indicator-padding;
 
   span.dso-step {

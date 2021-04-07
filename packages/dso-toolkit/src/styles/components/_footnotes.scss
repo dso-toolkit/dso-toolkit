@@ -1,7 +1,7 @@
 .dso-footnotes {
   @include list-unstyled();
 
-  border-top: 1px solid $grijs-40;
+  border-top: 1px solid $grijs-20;
   padding-top: #{$dso-unit * 1.5};
 
   .dso-footnote-backlink::after {
