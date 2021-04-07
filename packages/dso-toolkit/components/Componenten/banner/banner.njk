@@ -13,7 +13,12 @@
           </h2>
           {{ message | safe }}
         </div>
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten', icon: 'times', iconOnly: true} -%}
+        {% if status === "danger" -%}
+          {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten storingsmelding', icon: 'times', iconOnly: true} -%}
+        {%- endif %}
+        {%- if status === "warning" -%}
+          {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten onderhoudsmelding', icon: 'times', iconOnly: true} -%}
+        {%- endif %}
       </div>
     </div>
   </div>

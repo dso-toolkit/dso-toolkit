@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit + styling:** Scheidingslijnen styling consistent ([#1024](https://github.com/dso-toolkit/dso-toolkit/issues/1024))
+* **dso-toolkit + styling:** Banner; Responsive ontwerp ([#768](https://github.com/dso-toolkit/dso-toolkit/issues/768))
 
 ## 21.3.0
 
