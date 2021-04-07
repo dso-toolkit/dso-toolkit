@@ -124,8 +124,8 @@ dso-banner,
           margin-bottom: 0;
         }
 
-        @media screen and (max-width: $screen-xs-max) {
-          width: calc(100% - #{$u3});
+        @media screen and (max-width: $screen-xs-min) {
+          padding-right: 0;
         }
       }
     }
