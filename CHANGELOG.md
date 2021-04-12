@@ -5,7 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-## 21.3.0
+## 22.0.0
+
+Note: This release was first released as v21.3.0. We missed that [#857](https://github.com/dso-toolkit/dso-toolkit/issues/857)
+ was a breaking change, so we re-released this version with updated CHANGELOG instructions.
 
 ### Added
 * **dso-toolkit + core + styling:** Web component Banner ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857))
@@ -21,6 +24,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Documentation
 * **dso-toolkit:** Dropdown is niet met pijltjes te navigeren ([#875](https://github.com/dso-toolkit/dso-toolkit/issues/875))
 * Werkflow uitwerken in CONTRIBUTING.md ([#505](https://github.com/dso-toolkit/dso-toolkit/issues/505))
+
+### Deprecated
+* **dso-toolkit + styling:** Banner: `.banner` class deprecaten ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857)) **Deprecation notice, see PR ([#1082](https://github.com/dso-toolkit/dso-toolkit/pull/1082))**
 
 ## 21.2.0
 
