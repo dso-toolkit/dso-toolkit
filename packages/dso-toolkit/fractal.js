@@ -42,7 +42,7 @@ fractal.docs.engine(nunj);
 fractal.docs.set('path', path.join(__dirname, 'docs'));
 fractal.docs.set('label', 'Documentatie');
 
-fractal.web.set('server.port', 53000);
+fractal.web.set('server.port', 43000);
 fractal.web.set('static.path', path.join(__dirname, 'dist/toolkit'));
 fractal.web.set('server.syncOptions', {
   files: [

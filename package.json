@@ -9,21 +9,16 @@
   },
   "scripts": {
     "postinstall": "patch-package",
-    "start": "yarn build-styling && multiview [ yarn workspace @dso-toolkit/core start ] [ yarn workspace dso-toolkit start ]",
-    "storybook": "multiview [ yarn workspace @dso-toolkit/core start --dev ] [ yarn workspace @dso-toolkit/core storybook ]",
-    "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build && yarn workspace @dso-toolkit/react build",
-    "start-fractal": "yarn workspace dso-toolkit start",
-    "build-fractal": "yarn workspace dso-toolkit build",
-    "start-core": "yarn workspace @dso-toolkit/core start",
-    "build-core": "yarn workspace @dso-toolkit/core build",
-    "build-react": "yarn workspace @dso-toolkit/react build",
+    "fractal": "yarn build-styling && yarn workspace @dso-toolkit/core clear && yarn node scripts/fractal.js",
+    "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build",
     "build-styling": "yarn workspace @dso-toolkit/styling build",
-    "reference:dom": "yarn workspace @dso-toolkit/core build --prod && yarn workspace dso-toolkit gulp reference:dom"
+    "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom"
   },
   "dependencies": {
-    "multiview": "^3.0.1",
+    "concurrently": "^6.0.2",
     "patch-package": "^6.2.2",
-    "postinstall-postinstall": "^2.1.0"
+    "postinstall-postinstall": "^2.1.0",
+    "wait-on": "^5.3.0"
   },
   "resolutions": {
     "@babel/helper-create-class-features-plugin": "^7.12.13",

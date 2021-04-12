@@ -61,7 +61,7 @@ For Web Components:
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
 
 ### Develop or mockups
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 12 and Yarn 2.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 12 and Yarn 2. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Either install Yarn with
 
@@ -79,10 +79,42 @@ npx yarn <<<my commands here>>>
 git clone git@github.com:dso-toolkit/dso-toolkit.git
 cd dso-toolkit
 yarn install
-yarn start
 ```
 
-A local webserver is started at http://localhost:3000/. See the [Fractal guide](https://fractal.build/) on how to develop components. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+### Environments
+
+DSO Toolkit development can be done in 3 environments:
+
+#### `fractal`
+The classic environment with Fractal and Stencil. Can only be started from the root of the repository, because it needs two packages (`@dso-toolkit/core` and `dso-toolkit`) running:
+
+```
+yarn fractal
+```
+
+Fractal is started at http://localhost:43000/, Stencil is running on http://localhost:53333. See the [Fractal guide](https://fractal.build/) for more information on Fractal.
+
+#### `development`
+This environment is used to develop new Web Components. Together with Storybook, Stencil is started in dev mode
+
+```
+yarn workspace @dso-toolkit/core start
+```
+
+Two webservers are started: Stencil's http://localhost:53333 and Storybook is running on http://localhost:56106. You only need to open Storybook, the Stencil process is used for Hot Module Reloading (HMR).
+
+#### `cypress`
+To write tests the following processes are started:
+
+* Stencil, in prod mode
+* Storybook, in cypress mode
+* Cypress GUI
+
+```
+yarn workspace @dso-toolkit/core cypress
+```
+
+This will start Stencil on http://localhost:53333, Storybook on http://localhost:56106 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
 ## Requirements
 Node 12. For development on the DSO Toolkit you also need Yarn.
@@ -109,7 +141,7 @@ The DSO Toolkit and Component Library uses
 
 Ports used during development:
 
-* 53000 - Fractal
+* 43000 - Fractal
 * 53100 - React test app
 * 53333 - Stencil
 * 56106 - Storybook
