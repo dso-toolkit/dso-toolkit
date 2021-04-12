@@ -9,7 +9,8 @@
   },
   "scripts": {
     "postinstall": "patch-package",
-    "start": "yarn build-styling && multiview [ yarn workspace @dso-toolkit/core start --prod ] [ yarn workspace dso-toolkit start ]",
+    "start": "yarn build-styling && multiview [ yarn workspace @dso-toolkit/core start ] [ yarn workspace dso-toolkit start ]",
+    "storybook": "multiview [ yarn workspace @dso-toolkit/core start --dev ] [ yarn workspace @dso-toolkit/core storybook ]",
     "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build && yarn workspace @dso-toolkit/react build",
     "start-fractal": "yarn workspace dso-toolkit start",
     "build-fractal": "yarn workspace dso-toolkit build",
@@ -25,6 +26,9 @@
     "postinstall-postinstall": "^2.1.0"
   },
   "resolutions": {
+    "@babel/helper-create-class-features-plugin": "^7.12.13",
+    "@babel/helper-replace-supers": "^7.12.13",
+    "@babel/plugin-transform-classes": "^7.12.13",
     "@types/estree": "0.0.45",
     "@types/react": "17.0.0"
   }

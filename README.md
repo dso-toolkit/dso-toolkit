@@ -104,3 +104,12 @@ The DSO Toolkit and Component Library uses
 * http://semver.org/
 * http://handlebarsjs.com/
 * http://www.yaml.org/
+
+## Ports
+
+Ports used during development:
+
+* 53000 - Fractal
+* 53100 - React test app
+* 53333 - Stencil
+* 56106 - Storybook

@@ -11,28 +11,42 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/dso-toolkit/dso-toolkit.js",
   "files": [
-    "dist/",
-    "loader/"
+    "/dist/!(**/*.stories.*)",
+    "/loader"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
+    "build": "stencil build --docs-readme",
+    "start": "stencil build --watch --serve --no-open",
     "stencil": "stencil",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "storybook": "start-storybook --static-dir ./dist --port 56106"
   },
   "devDependencies": {
+    "@babel/core": "^7.13.14",
     "@dso-toolkit/styling": "workspace:packages/styling",
     "@popperjs/core": "^2.8.6",
     "@stencil/core": "2.3.0",
     "@stencil/react-output-target": "0.0.9",
     "@stencil/sass": "1.4.1",
+    "@storybook/addon-essentials": "^6.2.5",
+    "@storybook/addons": "^6.2.5",
+    "@storybook/web-components": "^6.2.5",
     "@types/cheerio": "0.22.22",
     "@types/sass": "1.16.0",
+    "@types/uuid": "^8.3.0",
+    "@whitespace/storybook-addon-html": "^5.0.0",
+    "babel-loader": "^8.2.2",
     "cheerio": "1.0.0-rc.3",
     "clsx": "1.1.1",
+    "http-proxy-middleware": "^1.0.6",
+    "lit-html": "^1.3.0",
     "mini-svg-data-uri": "1.2.3",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "stencil-inline-svg": "1.0.1",
     "ts-node": "9.1.1",
-    "typescript": "4.1.2"
+    "typescript": "4.1.2",
+    "uuid": "^8.3.2",
+    "webpack": ">=2"
   }
 }
