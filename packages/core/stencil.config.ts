@@ -7,6 +7,9 @@ import { dsoIcon } from './src/icon/dso-icon-sass-function';
 
 export const config: Config = {
   namespace: 'dso-toolkit',
+  devServer: {
+    port: 53333
+  },
   globalStyle: 'src/global-styling.scss',
   plugins: [
     inlineSvg(),
