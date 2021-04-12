@@ -4,7 +4,7 @@ import { html, TemplateResult, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { v1 as uuidv4 } from 'uuid';
 
-import { DsoDatePickerChangeEvent } from './date-picker';
+import type { DsoDatePickerChangeEvent } from './date-picker';
 
 // @ts-ignore
 import readme from './readme.md';

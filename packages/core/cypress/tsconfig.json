@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "es5",
+      "dom"
+    ],
+    "types": [
+      "@dso-toolkit/core",
+      "cypress",
+      "cypress-axe",
+      "cypress-real-events"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
