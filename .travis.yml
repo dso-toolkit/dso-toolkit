@@ -28,15 +28,23 @@ jobs:
   - name: release
     if: tag =~ /^v/
     script:
+      yarn config set npmAuthToken "${DEPLOY_NPM_TOKEN}" &&
       yarn workspace @dso-toolkit/styling build &&
       yarn workspace @dso-toolkit/core build &&
+      yarn workspace @dso-toolkit/react build &&
       yarn workspace dso-toolkit lint &&
       yarn workspace dso-toolkit build &&
       yarn workspace dso-toolkit test &&
       yarn workspace dso-toolkit copy-styling &&
       cp --recursive packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core &&
       cp README.md packages/dso-toolkit &&
-      yarn workspace dso-toolkit version ${TRAVIS_TAG:1} &&
+      yarn workspace @dso-toolkit/core version ${TRAVIS_TAG:1} --deferred &&
+      yarn workspace @dso-toolkit/react version ${TRAVIS_TAG:1} --deferred &&
+      yarn workspace dso-toolkit version ${TRAVIS_TAG:1} --deferred &&
+      yarn version apply --all &&
+      yarn workspace @dso-toolkit/core npm publish --access public &&
+      yarn workspace @dso-toolkit/react npm publish --access public &&
+      yarn workspace dso-toolkit npm publish --access public &&
       rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
       rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
       ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions" &&
@@ -46,13 +54,6 @@ jobs:
       edge: true
       token: $DEPLOY_GITHUB_TOKEN
       file: dso-toolkit-${TRAVIS_TAG:1}.zip
-      on:
-        tags: true
-    - provider: npm
-      src: packages/dso-toolkit
-      edge: true
-      email: thomas@infoprojects.nl
-      api_token: $DEPLOY_NPM_TOKEN
       on:
         tags: true
 before_install:

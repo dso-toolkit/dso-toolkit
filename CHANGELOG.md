@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **dso-toolkit:** Variant toevoegen voor Progress Indicator ([#1083](https://github.com/dso-toolkit/dso-toolkit/issues/1083))
+* **core + react:** Automatisch `@dso-toolkit/core` en `@dso-toolkit/react` publiceren naar NPM ([#885](https://github.com/dso-toolkit/dso-toolkit/issues/885))
 
 ### Fixed
 * **dso-toolkit:** Shopping Cart subitems hebben niet voldoende padding aan de rechterkant ([#1084](https://github.com/dso-toolkit/dso-toolkit/issues/1084))
