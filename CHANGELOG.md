@@ -11,7 +11,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** Shopping Cart subitems hebben niet voldoende padding aan de rechterkant ([#1084](https://github.com/dso-toolkit/dso-toolkit/issues/1084))
 
-
 ### Changed
 * **dso-toolkit + styling:** Scheidingslijnen styling consistent ([#1024](https://github.com/dso-toolkit/dso-toolkit/issues/1024))
 * **dso-toolkit + styling:** Banner; Responsive ontwerp ([#768](https://github.com/dso-toolkit/dso-toolkit/issues/768))
@@ -20,7 +19,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 Note: This release was first released as v21.3.0. We missed that [#857](https://github.com/dso-toolkit/dso-toolkit/issues/857)
  was a breaking change, so we re-released this version with updated CHANGELOG instructions.
-
 
 ### Added
 * **dso-toolkit + core + styling:** Web component Banner ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857))
