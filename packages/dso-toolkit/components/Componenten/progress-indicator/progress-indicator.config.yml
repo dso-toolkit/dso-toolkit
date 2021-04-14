@@ -1,18 +1,40 @@
 notes: |
-  De progress indicator is er in drie groottes (small: 24px, medium: 32px, large: 48px). 
+  De progress indicator is er in drie groottes (`dso-small`: 24px, `dso-medium`: 32px, `dso-large`: 48px);
+
+  * toevoeging class `dso-block` zorgt voor horizontaal en verticaal gecentreerde progress-indicator;
+  * icm. class `dso-small` zorgt dit voor een (afhankelijk van de inhoud minimaal) 48px hoge progress indicator;
+  * icm. class `dso-medium` zorgt dit voor een (afhankelijk van de inhoud minimaal) 64px hoge progress indicator;
+  * icm. class `dso-large` zorgt dit voor een (afhankelijk van de inhoud minimaal) 96px hoge progress indicator;
+  * icm. class `dso-gray` zorgt dit voor een lichtgrijze achtergrond.
+
 status: ready
 collated: true
 context:
-  __title: Spinner 24px groot
+  __title: Spinner small (24px)
   status: Een moment geduld alstublieft.
   size: small
 variants:
 - name: spinner-medium-infinite
   context:
-    __title: Spinner 32px groot
+    __title: Spinner medium (32px)
     size: medium
 - name: spinner-large-infinite
   context:
-    __title: Spinner 48px groot
+    __title: Spinner large (48px)
     size: large
-
+- name: spinner-small-block
+  context:
+    __title: Spinner small - gecentreerd blok
+    size: small
+    block: true
+- name: spinner-medium-block-background
+  context:
+    __title: Spinner medium - gecentreerd blok met achtergrond
+    size: medium
+    block: true
+    color: gray
+- name: spinner-large-block
+  context:
+    __title: Spinner large - gecentreerd blok
+    size: large
+    block: true
