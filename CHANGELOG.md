@@ -21,7 +21,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Note: This release was first released as v21.3.0. We missed that [#857](https://github.com/dso-toolkit/dso-toolkit/issues/857)
  was a breaking change, so we re-released this version with updated CHANGELOG instructions.
 
-## 21.3.0
 
 ### Added
 * **dso-toolkit + core + styling:** Web component Banner ([#857](https://github.com/dso-toolkit/dso-toolkit/issues/857))
