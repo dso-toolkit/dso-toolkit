@@ -41,6 +41,28 @@ form,
               }
             }
           }
+
+          &[disabled] {
+            + label {
+              &,
+              &:hover {
+                background-color: $input-bg;
+                border-color: $grasgroen-40;
+                color: $grasgroen-40;
+                cursor: default;
+              }
+            }
+
+            &:focus {
+              + label {
+                > dso-icon,
+                > svg.di {
+                  background-color: $input-bg;
+                  color: $grasgroen-40;
+                }
+              }
+            }
+          }
         }
       }
 
@@ -114,6 +136,10 @@ form,
               width: calc(100% - #{$u8});
             }
           }
+        }
+
+        + .dso-file-upload {
+          margin-top: $u2;
         }
       }
     }
