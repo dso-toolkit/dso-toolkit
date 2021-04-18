@@ -1,0 +1,34 @@
+@import "~@dso-toolkit/styling/scaffolding/normalize";
+
+:host {
+  border: 1px solid green;
+  display: block;
+  width: 300px;
+  transition: transform 300ms ease;
+  background-color: #fff;
+  position: absolute;
+}
+
+:host([open]) {
+  transform: translateX(-100%);
+}
+
+.controls {
+  position: relative;
+  left: -100px;
+}
+
+header, .content {
+  padding: 16px;
+}
+
+header {
+  border-bottom: 1px solid green;
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+  }
+}

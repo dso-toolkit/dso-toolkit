@@ -1,0 +1,48 @@
+{
+  "name": "@dso-toolkit/leaflet-plugins",
+  "version": "0.0.0",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "browser": "./dist/leaflet-plugins.js",
+      "import": "./dist/leaflet-plugins.js",
+      "require": "./dist/leaflet-plugins.cjs.js",
+      "umd": "./dist/leaflet-plugins.umd.js"
+    },
+    "./": "./",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/leaflet-plugins.cjs.js",
+  "unpkg": "dist/leaflet-plugins.js",
+  "module": "dist/leaflet-plugins.js",
+  "source": "src/leaflet-plugins.ts",
+  "browser": "dist/leaflet-plugins.umd.js",
+  "types": "dist/leaflet-plugins.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "klap build",
+    "prepublishOnly": "klap build",
+    "start": "klap start",
+    "watch": "klap watch"
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.7.0",
+    "klap": "^6.1.5",
+    "leaflet": "1.7.1",
+    "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "@dso-toolkit/core": "*",
+    "leaflet": "1.7.1"
+  },
+  "klap": {
+    "example": "public/index.ts",
+    "port": "41234"
+  },
+  "dependencies": {
+    "lit-html": "^1.3.0"
+  }
+}
