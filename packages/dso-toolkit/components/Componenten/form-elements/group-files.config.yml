@@ -66,3 +66,10 @@ variants:
     - filename: Bestandsnaam.pdf
     - filename: Bestandsnaam.pdf
       confidential: true
+- name: group-file-description
+  context:
+    __title: Description (deprecated)
+    id: group-file-description
+    label: Group File - Description (Deprecated)
+    required: true
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius. Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
