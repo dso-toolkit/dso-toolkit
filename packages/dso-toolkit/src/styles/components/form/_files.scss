@@ -1,12 +1,5 @@
 form,
 .form {
-  &.form-horizontal {
-    .form-group.dso-files {
-      padding-left: $grid-gutter-width / 2;
-      padding-right: $grid-gutter-width / 2;
-    }
-  }
-
   .form-group {
     &.dso-files {
       .dso-remove {
