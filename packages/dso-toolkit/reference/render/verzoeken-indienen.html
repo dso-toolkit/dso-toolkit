@@ -105,6 +105,52 @@
               <textarea class="form-control" id="toelichting" rows="5"></textarea>
             </div>
           </div>
+          <fieldset>
+            <legend>Bijlagen</legend>
+            <div class="form-group dso-files">
+              <div class="dso-description dso-rich-content">
+              </div>
+              <div class="dso-label-container">
+                <label for="documenten1" class="control-label">
+                  Vraag om bijlage
+                </label>
+                <button type="button" class="btn dso-info-button" aria-expanded="false">
+                  <span class="sr-only">Toelichting bij Vraag om bijlage</span>
+                </button>
+              </div>
+              <div class="dso-field-container">
+                <ul class="dso-filelist">
+                  <li>
+                    <div class="dso-filename" id="documenten1-file-filename-0">
+                      Bestand.pdf
+                    </div>
+                    <div class="dso-confidential dso-selectable">
+                      <input type="checkbox" id="documenten1-input-confirm-0" name="" value="" aria-describedby="documenten1-file-filename-0" />
+                      <label for="documenten1-input-confirm-0">
+                        Vertrouwelijk
+                      </label>
+                    </div>
+                    <button type="button" aria-describedby="documenten1-file-filename-0" class="btn btn-link dso-remove"><span >Verwijder document</span></button>
+                  </li>
+                </ul>
+
+                <!-- To use an input type="file" element -->
+                <div class="dso-file-upload">
+                  <input type="file" id="documenten1-file-upload" />
+                  <label class="btn btn-default" for="documenten1-file-upload">
+                    <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Or to trigger the upload using a button element (not recommended) -->
+
+              <!--
+    <button type="button"
+  class="btn btn-link"><dso-icon icon="plus"></dso-icon><span >Document toevoegen</span></button>
+  -->
+            </div>
+          </fieldset>
         </div>
       </div>
     </div>

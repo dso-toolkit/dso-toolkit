@@ -40,6 +40,16 @@ context:
             inputType: textarea
             rows: 5
             label: Ruimte om uw verzoek toe te lichten
+        - legend: Bijlagen
+          groups:
+            - id: documenten1
+              label: Vraag om bijlage
+              inputType: files
+              infoOpen: false
+              infoButtonLabel: Toelichting bij Vraag om bijlage
+              infoText: none
+              files:
+                - filename: Bestand.pdf
   form:
     fieldsets:
     - modifier: form-vertical
@@ -50,7 +60,7 @@ context:
     asideButtons:
     - type: button
       modifier: link
-      label: Vorige 
+      label: Vorige
       icon: chevron-left
     buttons:
     - type: button
