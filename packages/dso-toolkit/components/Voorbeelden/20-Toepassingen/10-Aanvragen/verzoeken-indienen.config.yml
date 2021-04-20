@@ -40,8 +40,7 @@ context:
             inputType: textarea
             rows: 5
             label: Ruimte om uw verzoek toe te lichten
-        - legend: Bijlagen
-          groups:
+        - groups:
             - id: documenten1
               label: Vraag om bijlage
               inputType: files
