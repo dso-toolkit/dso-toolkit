@@ -18,8 +18,6 @@ context:
     sections:
     - title: "Verzoek 1: Object Laan van Eik en Duinen 125, 's-Gravenhage 1"
       id: panel1
-    - title: "Verzoek 2: Object Laan van Eik en Duinen 125, 's-Gravenhage 2"
-      id: panel2
       open: true
       definitions:
       - term: "Indienen bij:"
@@ -27,15 +25,16 @@ context:
           - description: Gemeente Den Haag
       - term: "Soort:"
         descriptions:
-          - description: Melding
+          - description: Aanvraag vergunning
       - term: "Bevat:"
         descriptions:
           - description: Milieubelastende activiteit - Vergunning (Gemeente)
-      - term: "Omgevingsoverleg mogelijk:"
+      - term: "Doel:"
         descriptions:
-          - description: Ja
+          - description: Definitief verzoek
       fieldsets:
-        - groups:
+        - legend: Verzoek
+          groups:
           - id: toelichting
             inputType: textarea
             rows: 5
@@ -49,6 +48,13 @@ context:
               infoText: none
               files:
                 - filename: Bestand.pdf
+        - legend: Vragengroep titel
+          groups:
+          - id: classificatie
+            inputType: input
+            label: Vraag met classificatie 'verzoek'
+    - title: "Verzoek 2: Object Laan van Eik en Duinen 125, 's-Gravenhage 2"
+      id: panel2
   form:
     fieldsets:
     - modifier: form-vertical
@@ -63,8 +69,9 @@ context:
       icon: chevron-left
     buttons:
     - type: button
-      modifier: default
+      modifier: link
       label: Downloaden
+      icon: download
     - type: submit
       modifier: primary
       label: Indienen

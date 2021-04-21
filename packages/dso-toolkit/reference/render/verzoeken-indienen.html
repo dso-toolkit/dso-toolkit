@@ -75,13 +75,8 @@
   </span>
     </h2>
     <div class="dso-accordion">
-      <div class="dso-accordion-section">
-        <h3 class="dso-section-handle"><button type="button" aria-expanded="false">Verzoek 1: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1
-          </button>
-        </h3>
-      </div>
       <div class="dso-accordion-section dso-open">
-        <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Verzoek 2: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 2
+        <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Verzoek 1: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1
           </button>
         </h3>
         <div class="dso-section-body">
@@ -89,22 +84,25 @@
             <dt>Indienen bij:</dt>
             <dd>Gemeente Den Haag</dd>
             <dt>Soort:</dt>
-            <dd>Melding</dd>
+            <dd>Aanvraag vergunning</dd>
             <dt>Bevat:</dt>
             <dd>Milieubelastende activiteit - Vergunning (Gemeente)</dd>
-            <dt>Omgevingsoverleg mogelijk:</dt>
-            <dd>Ja</dd>
+            <dt>Doel:</dt>
+            <dd>Definitief verzoek</dd>
           </dl>
-          <div class="form-group dso-textarea">
-            <div class="dso-label-container">
-              <label for="toelichting" class="control-label">
-                Ruimte om uw verzoek toe te lichten
-              </label>
+          <fieldset>
+            <legend>Verzoek</legend>
+            <div class="form-group dso-textarea">
+              <div class="dso-label-container">
+                <label for="toelichting" class="control-label">
+                  Ruimte om uw verzoek toe te lichten
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <textarea class="form-control" id="toelichting" rows="5"></textarea>
+              </div>
             </div>
-            <div class="dso-field-container">
-              <textarea class="form-control" id="toelichting" rows="5"></textarea>
-            </div>
-          </div>
+          </fieldset>
           <div class="form-group dso-files">
             <div class="dso-description dso-rich-content">
             </div>
@@ -148,7 +146,25 @@
   class="btn btn-link"><dso-icon icon="plus"></dso-icon><span >Document toevoegen</span></button>
   -->
           </div>
+          <fieldset>
+            <legend>Vragengroep titel</legend>
+            <div class="form-group dso-input">
+              <div class="dso-label-container">
+                <label for="classificatie" class="control-label">
+                  Vraag met classificatie &#39;verzoek&#39;
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="" id="classificatie" class="form-control">
+              </div>
+            </div>
+          </fieldset>
         </div>
+      </div>
+      <div class="dso-accordion-section">
+        <h3 class="dso-section-handle"><button type="button" aria-expanded="false">Verzoek 2: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 2
+          </button>
+        </h3>
       </div>
     </div>
     <form>
@@ -168,7 +184,9 @@
             <dso-icon icon="chevron-left"></dso-icon><span >Vorige</span>
           </button>
         </div>
-        <button type="button" class="btn btn-default"><span >Downloaden</span></button>
+        <button type="button" class="btn btn-link">
+          <dso-icon icon="download"></dso-icon><span >Downloaden</span>
+        </button>
         <button type="submit" class="btn btn-primary"><span >Indienen</span></button>
       </div>
     </form>
