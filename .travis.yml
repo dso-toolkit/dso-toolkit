@@ -3,7 +3,7 @@ cache:
   directories:
     - ./.yarn/cache
 node_js:
-- '12'
+- '14'
 git:
   depth: false
 install:

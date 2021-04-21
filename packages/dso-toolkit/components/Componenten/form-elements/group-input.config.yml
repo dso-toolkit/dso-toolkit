@@ -61,7 +61,7 @@ variants:
     id: input-tel
     type: tel
     label: Group input - type Tel
-    value: 062451789
+    value: "062451789"
 - name: input-text-invalid
   context:
     __title: invalid
