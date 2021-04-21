@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Node 14 en diverse package updates, zie ([#1095](https://github.com/dso-toolkit/dso-toolkit/issues/1095))
+
 ## 22.1.0
 
 ### Added

@@ -9,6 +9,7 @@
   },
   "scripts": {
     "postinstall": "patch-package",
+    "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules packages/react/test-app/node_modules packages/styling/node_modules",
     "fractal": "yarn build-styling && yarn workspace @dso-toolkit/core clear && yarn node scripts/fractal.js",
     "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build",
     "build-styling": "yarn workspace @dso-toolkit/styling build",
@@ -16,7 +17,7 @@
   },
   "dependencies": {
     "concurrently": "^6.0.2",
-    "patch-package": "^6.2.2",
+    "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "wait-on": "^5.3.0"
   },
@@ -25,6 +26,6 @@
     "@babel/helper-replace-supers": "^7.12.13",
     "@babel/plugin-transform-classes": "^7.12.13",
     "@types/estree": "0.0.45",
-    "@types/react": "17.0.0"
+    "@types/react": "17.0.3"
   }
 }

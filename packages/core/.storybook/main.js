@@ -1,6 +1,10 @@
 const { sep } = require('path');
 
 module.exports = {
+  features: {
+    // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
+    postcss: false
+  },
   addons: [
     {
       name: '@storybook/addon-docs',

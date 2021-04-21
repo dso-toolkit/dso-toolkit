@@ -61,7 +61,7 @@ For Web Components:
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
 
 ### Develop or mockups
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 12 and Yarn 2. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 14 and Yarn 2. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Either install Yarn with
 
@@ -117,7 +117,7 @@ yarn workspace @dso-toolkit/core cypress
 This will start Stencil on http://localhost:53333, Storybook on http://localhost:56106 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
 ## Requirements
-Node 12. For development on the DSO Toolkit you also need Yarn.
+Node 14. For development on the DSO Toolkit you also need Yarn.
 
 ## Dependencies
 The DSO Toolkit and Component Library uses
