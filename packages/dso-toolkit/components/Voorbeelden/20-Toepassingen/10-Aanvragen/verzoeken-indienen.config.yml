@@ -15,6 +15,7 @@ context:
     title: 7. Verzoeken indienen
     step: Stap 7 van 7
   accordion:
+    modifiers: form-horizontal
     sections:
     - title: "Verzoek 1: Object Laan van Eik en Duinen 125, 's-Gravenhage 1"
       id: panel1
@@ -39,7 +40,8 @@ context:
             inputType: textarea
             rows: 5
             label: Ruimte om uw verzoek toe te lichten
-        - groups:
+        - legend: Bijlage
+          groups:
             - id: documenten1
               label: Vraag om bijlage
               inputType: files
