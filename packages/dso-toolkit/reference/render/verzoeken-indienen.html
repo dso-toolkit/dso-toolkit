@@ -46,22 +46,6 @@
   </nav>
   <nav aria-label="U bevindt zich hier:">
     <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
-      <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Home</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Zelf aan de slag</span>
-        </a>
-        <meta itemprop="position" content="2" />
-      </li>
-      <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <span itemprop="name">Inhoud</span>
-        <meta itemprop="position" content="3" />
-      </li>
     </ol>
   </nav>
 </header>
@@ -103,51 +87,49 @@
               </div>
             </div>
           </fieldset>
-          <fieldset>
-            <legend>Bijlage</legend>
-            <div class="form-group dso-files">
-              <div class="dso-description dso-rich-content">
-              </div>
-              <div class="dso-label-container">
-                <label for="documenten1" class="control-label">
-                  Vraag om bijlage
+          <fieldset class="form-group dso-files">
+            <div class="dso-description dso-rich-content">
+            </div>
+            <legend class="sr-only">Vraag om bijlage</legend>
+            <div class="dso-label-container">
+              <label for="documenten1" class="control-label" aria-hidden="true">
+                Vraag om bijlage
+              </label>
+              <button type="button" class="btn dso-info-button" aria-expanded="false">
+                <span class="sr-only">Toelichting bij Vraag om bijlage</span>
+              </button>
+            </div>
+            <div class="dso-field-container">
+              <ul class="dso-filelist">
+                <li>
+                  <div class="dso-filename" id="documenten1-file-filename-0">
+                    Bestand.pdf
+                  </div>
+                  <div class="dso-confidential dso-selectable">
+                    <input type="checkbox" id="documenten1-input-confirm-0" name="" value="" aria-describedby="documenten1-file-filename-0" />
+                    <label for="documenten1-input-confirm-0">
+                      Vertrouwelijk
+                    </label>
+                  </div>
+                  <button type="button" aria-describedby="documenten1-file-filename-0" class="btn btn-link dso-remove"><span >Verwijder document</span></button>
+                </li>
+              </ul>
+
+              <!-- To use an input type="file" element -->
+              <div class="dso-file-upload">
+                <input type="file" id="documenten1-file-upload" />
+                <label class="btn btn-default" for="documenten1-file-upload">
+                  <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
                 </label>
-                <button type="button" class="btn dso-info-button" aria-expanded="false">
-                  <span class="sr-only">Toelichting bij Vraag om bijlage</span>
-                </button>
               </div>
-              <div class="dso-field-container">
-                <ul class="dso-filelist">
-                  <li>
-                    <div class="dso-filename" id="documenten1-file-filename-0">
-                      Bestand.pdf
-                    </div>
-                    <div class="dso-confidential dso-selectable">
-                      <input type="checkbox" id="documenten1-input-confirm-0" name="" value="" aria-describedby="documenten1-file-filename-0" />
-                      <label for="documenten1-input-confirm-0">
-                        Vertrouwelijk
-                      </label>
-                    </div>
-                    <button type="button" aria-describedby="documenten1-file-filename-0" class="btn btn-link dso-remove"><span >Verwijder document</span></button>
-                  </li>
-                </ul>
+            </div>
 
-                <!-- To use an input type="file" element -->
-                <div class="dso-file-upload">
-                  <input type="file" id="documenten1-file-upload" />
-                  <label class="btn btn-default" for="documenten1-file-upload">
-                    <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
-                  </label>
-                </div>
-              </div>
+            <!-- Or to trigger the upload using a button element (not recommended) -->
 
-              <!-- Or to trigger the upload using a button element (not recommended) -->
-
-              <!--
+            <!--
     <button type="button"
   class="btn btn-link"><dso-icon icon="plus"></dso-icon><span >Document toevoegen</span></button>
   -->
-            </div>
           </fieldset>
           <fieldset>
             <legend>Vragengroep titel</legend>
@@ -162,6 +144,9 @@
               </div>
             </div>
           </fieldset>
+          <div class="dso-form-buttons">
+            <button type="button" class="btn btn-primary"><span >Volgende</span></button>
+          </div>
         </div>
       </div>
       <div class="dso-accordion-section">
@@ -170,6 +155,12 @@
         </h3>
       </div>
     </div>
+    <dso-highlight-box>
+      <div class="dso-rich-content">
+        <h3>Kosten</h3>
+        <p>De kosten van een aanvraag zijn verschillend. Kijk op de website van uw gemeente, waterschap of provincie voor de precieze kosten.</p>
+      </div>
+    </dso-highlight-box>
     <form>
       <div class="form-group dso-confirm">
         <div class="dso-field-container">

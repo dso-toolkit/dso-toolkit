@@ -27,12 +27,12 @@
           Vergunningcheck
         </a>
       </li>
-      <li>
+      <li class="dso-active">
         <a href="#">
           Aanvragen
         </a>
       </li>
-      <li class="dso-active">
+      <li>
         <a href="#">
           Regels op de kaart
         </a>
@@ -46,16 +46,6 @@
   </nav>
   <nav aria-label="U bevindt zich hier:">
     <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
-      <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Home</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <span itemprop="name">Checken</span>
-        <meta itemprop="position" content="2" />
-      </li>
     </ol>
   </nav>
 </header>
@@ -68,6 +58,7 @@
     Stap 5 van 7
   </span>
     </h2>
+    <h3>Milieubelastende activiteit - Vergunning (Gemeente)</h3>
     <div class="dso-accordion">
       <div class="dso-accordion-section dso-open dso-nested-accordion">
         <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Veehouderij
@@ -82,12 +73,15 @@
                 </button>
               </div>
               <div class="dso-section-body">
-                <div class="form-group dso-files">
+                <div class="dso-rich-content">
+                  <p>Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).</p>
+                </div>
+                <fieldset class="form-group dso-files">
                   <div class="dso-description dso-rich-content">
-                    Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
                   </div>
+                  <legend class="sr-only"></legend>
                   <div class="dso-label-container">
-                    <label for="documenten" class="control-label">
+                    <label for="documenten" class="control-label" aria-hidden="true">
                     </label>
                   </div>
                   <div class="dso-field-container">
@@ -144,7 +138,7 @@
     <button type="button"
   class="btn btn-link"><dso-icon icon="plus"></dso-icon><span >Document toevoegen</span></button>
   -->
-                </div>
+                </fieldset>
                 <div class="dso-form-buttons">
                   <button type="button" class="btn btn-primary"><span >Volgende</span></button>
                 </div>

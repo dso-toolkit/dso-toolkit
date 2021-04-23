@@ -1,11 +1,12 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-<div {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
+<fieldset {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-description dso-rich-content">
     {{ description }}
   </div>
+  <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
-    <label for="{{ localId }}" class="control-label">
+    <label for="{{ localId }}" class="control-label" aria-hidden="true">
       {{ label }}
     </label>
     {% if infoText and not static %}
@@ -52,4 +53,4 @@
   <!--
     {% render '@button', {label: 'Document toevoegen', modifier: 'link', type: 'button', icon: 'plus'} %}
   -->
-</div>
+</fieldset>

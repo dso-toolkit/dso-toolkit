@@ -40,8 +40,7 @@ context:
             inputType: textarea
             rows: 5
             label: Ruimte om uw verzoek toe te lichten
-        - legend: Bijlage
-          groups:
+        - groups:
             - id: documenten1
               label: Vraag om bijlage
               inputType: files
@@ -55,6 +54,10 @@ context:
           - id: classificatie
             inputType: input
             label: Vraag met classificatie 'verzoek'
+      buttons:
+      - type: button
+        modifier: primary
+        label: Volgende
     - title: "Verzoek 2: Object Laan van Eik en Duinen 125, 's-Gravenhage 2"
       id: panel2
   form:
