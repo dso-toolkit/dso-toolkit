@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Node 14 en diverse package updates, zie ([#1095](https://github.com/dso-toolkit/dso-toolkit/issues/1095))
+* **BREAKING:** **dso-toolkit:** Group Files component uitbreiding ([#1070](https://github.com/dso-toolkit/dso-toolkit/issues/1070)) **Markup changes, see PR ([#1093](https://github.com/dso-toolkit/dso-toolkit/pull/1093))**
 
 ## 22.1.0
 

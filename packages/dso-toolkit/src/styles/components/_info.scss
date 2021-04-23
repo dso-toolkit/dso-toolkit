@@ -88,7 +88,8 @@
     margin-top: #{$u1 - 1};
 
     .dso-radios &,
-    .dso-checkboxes & {
+    .dso-checkboxes &,
+    .dso-files & {
       margin-top: 0;
     }
   }
