@@ -1,3 +1,174 @@
+@import "~@dso-toolkit/styling/scaffolding/sr-only";
+@import "~@dso-toolkit/styling/variables";
+
 :host {
   display: block;
+  margin-top: $u4;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+
+  .control-label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: $u1;
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+// SELECTABLES, unable to import
+$dso-selectable-size: $u3;
+$dso-selectable-border-width: 2px;
+$dso-selectable-focus-border-width: 3px;
+
+$dso-form-control-focus-border-color: $bosgroen;
+
+.dso-selectable {
+  padding: 0 0 0 $u4;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: $u1;
+  }
+
+  label {
+    font-weight: 400;
+    line-height: $dso-selectable-size;
+    margin: 0;
+  }
+
+  input[type="checkbox"][disabled] {
+    &,
+    &:active,
+    &:focus {
+      + label {
+        &::before {
+          background-color: $wit;
+          box-shadow: 0 0 0 $dso-selectable-border-width $dso-input-disabled-border-color;
+        }
+      }
+    }
+  }
+
+  input[type="checkbox"][disabled] + label::after {
+    border-color: $grasgroen-40;
+  }
+
+  input[type="checkbox"] {
+    height: $dso-selectable-size;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: $dso-selectable-size;
+    z-index: 1;
+    zoom: 1;
+
+    &:not([disabled]) {
+      cursor: pointer;
+    }
+
+    + label {
+      display: inline;
+      font-style: normal;
+      padding-left: 0;
+
+      &::before {
+        background: $wit;
+        border: 0;
+        box-shadow: 0 0 0 $dso-selectable-border-width $bosgroen;
+        content: "";
+        height: $dso-selectable-size - 2 * $dso-selectable-border-width;
+        left: $dso-selectable-border-width;
+        position: absolute;
+        top: $dso-selectable-border-width;
+        width: $dso-selectable-size - 2 * $dso-selectable-border-width;
+      }
+    }
+
+    &:focus {
+      outline: 0;
+
+      + label::before {
+        box-shadow: 0 0 0 $dso-selectable-focus-border-width $dso-form-control-focus-border-color;
+        height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
+        left: $dso-selectable-focus-border-width;
+        top: $dso-selectable-focus-border-width;
+        width: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
+      }
+    }
+
+    &:active,
+    &.active {
+      + label::before {
+        background-color: $grasgroen-10;
+        box-shadow: 0 0 0 1px $bosgroen;
+        height: $dso-selectable-size - 2px;
+        left: 1px;
+        top: 1px;
+        width: $dso-selectable-size - 2px;
+      }
+    }
+
+    .dso-invalid & {
+      + label::before {
+        box-shadow: 0 0 0 2px $dso-danger-color;
+      }
+
+      &:focus {
+        + label::before {
+          box-shadow: 0 0 0 3px $dso-danger-color;
+          height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
+          left: $dso-selectable-focus-border-width;
+          top: $dso-selectable-focus-border-width;
+          width: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
+        }
+      }
+    }
+  }
+
+  input[type="checkbox"] {
+    + label {
+      &::before {
+        border-radius: 4px;
+      }
+
+      &::after {
+        background: transparent;
+        border: solid;
+        border-top-color: transparent;
+        border-width: 0 0 3px 3px;
+        content: "";
+        height: 8px;
+        left: 6px;
+        opacity: 0;
+        position: absolute;
+        top: 6px;
+        transform: rotate(-45deg);
+        width: 13px;
+        zoom: 1;
+      }
+    }
+
+    &:checked {
+      + label {
+        &::after {
+          border-color: $grasgroen;
+          opacity: 1;
+        }
+      }
+    }
+
+    .dso-invalid & {
+      &:checked + label::after {
+        border-color: $dso-danger-color;
+      }
+    }
+  }
 }

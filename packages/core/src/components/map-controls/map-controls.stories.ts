@@ -13,13 +13,13 @@ import { Overlay } from '../map-overlays/map-overlays';
  * being storied can't handle that
  * @param checked
  * Storybook input.
- * 
- * @param items 
+ *
+ * @param items
  * Array to map from.
- * 
- * @param selector 
+ *
+ * @param selector
  * Identifier function to map Storybook values with.
- * 
+ *
  * @returns
  * New array with original values from `items`.
  */
@@ -43,7 +43,7 @@ function checkFix<T>(
 
 const template: ArgsStoryFn<TemplateResult> = ({ zoomIn, zoomOut, open, baseLayers, selectedBaseLayer, overlays, checkedOverlays }: any) => {
   return html`
-    <div class="dsosb-map-container-mock" style="float: right;">
+    <div class="dsosb-map-container-mock" style="background-color: #efefef; height: 500px; position: relative; overflow: hidden">
       <dso-map-controls
         @zoomIn=${zoomIn}
         @zoomOut=${zoomOut}
