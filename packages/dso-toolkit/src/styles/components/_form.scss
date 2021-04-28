@@ -39,10 +39,13 @@ form,
       }
     }
 
-    .form-group + .form-group,
-    .form-group + .dso-form-buttons {
-      margin-bottom: 0;
-      margin-top: 0;
+    .form-group {
+      &,
+      + .form-group,
+      + .dso-form-buttons {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
     }
   }
 
