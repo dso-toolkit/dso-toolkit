@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 23.0.0
+
 ### Added
 * **core + dso-toolkit + styling** Nieuwe iconen voor gebruik in kaart ([#1099](https://github.com/dso-toolkit/dso-toolkit/issues/1099))
 
@@ -12,6 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Node 14 en diverse package updates, zie ([#1095](https://github.com/dso-toolkit/dso-toolkit/issues/1095))
 * **BREAKING:** **dso-toolkit:** Group Files component uitbreiding ([#1070](https://github.com/dso-toolkit/dso-toolkit/issues/1070)) **Markup changes, see PR ([#1093](https://github.com/dso-toolkit/dso-toolkit/pull/1093))**
 * **dso-toolkit:** Geen lege breadcrumbs in voorbeeldpagina's ([#1102](https://github.com/dso-toolkit/dso-toolkit/issues/1102))
+* **dso-toolkit:** Favicon updaten en meer formaten toevoegen ([#1010](https://github.com/dso-toolkit/dso-toolkit/issues/1010))
+
 
 ## 22.1.0
 
