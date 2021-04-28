@@ -44,29 +44,9 @@
       </li>
     </ul>
   </nav>
-  <nav aria-label="U bevindt zich hier:">
-    <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
-      <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Home</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Zelf aan de slag</span>
-        </a>
-        <meta itemprop="position" content="2" />
-      </li>
-      <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
-        <span itemprop="name">Inhoud</span>
-        <meta itemprop="position" content="3" />
-      </li>
-    </ol>
-  </nav>
 </header>
 <main>
-  <form class="form-horizontal">
+  <form>
     <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
     <h2 class="dso-steps-indicator">
       7. Verzoeken indienen
@@ -74,14 +54,9 @@
     Stap 7 van 7
   </span>
     </h2>
-    <div class="dso-accordion">
-      <div class="dso-accordion-section">
-        <h3 class="dso-section-handle"><button type="button" aria-expanded="false">Verzoek 1: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1
-          </button>
-        </h3>
-      </div>
+    <div class="dso-accordion form-horizontal">
       <div class="dso-accordion-section dso-open">
-        <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Verzoek 2: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 2
+        <h3 class="dso-section-handle"><button type="button" aria-expanded="true">Verzoek 1: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 1
           </button>
         </h3>
         <div class="dso-section-body">
@@ -89,25 +64,99 @@
             <dt>Indienen bij:</dt>
             <dd>Gemeente Den Haag</dd>
             <dt>Soort:</dt>
-            <dd>Melding</dd>
+            <dd>Aanvraag vergunning</dd>
             <dt>Bevat:</dt>
             <dd>Milieubelastende activiteit - Vergunning (Gemeente)</dd>
-            <dt>Omgevingsoverleg mogelijk:</dt>
-            <dd>Ja</dd>
+            <dt>Doel:</dt>
+            <dd>Definitief verzoek</dd>
           </dl>
-          <div class="form-group dso-textarea">
+          <fieldset>
+            <legend>Verzoek</legend>
+            <div class="form-group dso-textarea">
+              <div class="dso-label-container">
+                <label for="toelichting" class="control-label">
+                  Ruimte om uw verzoek toe te lichten
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <textarea class="form-control" id="toelichting" rows="5"></textarea>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="form-group dso-files">
+            <div class="dso-description dso-rich-content">
+            </div>
+            <legend class="sr-only">Vraag om bijlage</legend>
             <div class="dso-label-container">
-              <label for="toelichting" class="control-label">
-                Ruimte om uw verzoek toe te lichten
+              <label for="documenten1" class="control-label" aria-hidden="true">
+                Vraag om bijlage
               </label>
+              <button type="button" class="btn dso-info-button" aria-expanded="false">
+                <span class="sr-only">Toelichting bij Vraag om bijlage</span>
+              </button>
             </div>
             <div class="dso-field-container">
-              <textarea class="form-control" id="toelichting" rows="5"></textarea>
+              <ul class="dso-filelist">
+                <li>
+                  <div class="dso-filename" id="documenten1-file-filename-0">
+                    Bestand.pdf
+                  </div>
+                  <div class="dso-confidential dso-selectable">
+                    <input type="checkbox" id="documenten1-input-confirm-0" name="" value="" aria-describedby="documenten1-file-filename-0" />
+                    <label for="documenten1-input-confirm-0">
+                      Vertrouwelijk
+                    </label>
+                  </div>
+                  <button type="button" aria-describedby="documenten1-file-filename-0" class="btn btn-link dso-remove"><span >Verwijder document</span></button>
+                </li>
+              </ul>
+
+              <!-- To use an input type="file" element -->
+              <div class="dso-file-upload">
+                <input type="file" id="documenten1-file-upload" />
+                <label class="btn btn-default" for="documenten1-file-upload">
+                  <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
+                </label>
+              </div>
             </div>
+
+            <!-- Or to trigger the upload using a button element (not recommended) -->
+
+            <!--
+    <button type="button"
+  class="btn btn-link"><dso-icon icon="plus"></dso-icon><span >Document toevoegen</span></button>
+  -->
+          </fieldset>
+          <fieldset>
+            <legend>Vragengroep titel</legend>
+            <div class="form-group dso-input">
+              <div class="dso-label-container">
+                <label for="classificatie" class="control-label">
+                  Vraag met classificatie &#39;verzoek&#39;
+                </label>
+              </div>
+              <div class="dso-field-container">
+                <input type="" id="classificatie" class="form-control">
+              </div>
+            </div>
+          </fieldset>
+          <div class="dso-form-buttons">
+            <button type="button" class="btn btn-primary"><span >Volgende</span></button>
           </div>
         </div>
       </div>
+      <div class="dso-accordion-section">
+        <h3 class="dso-section-handle"><button type="button" aria-expanded="false">Verzoek 2: Object Laan van Eik en Duinen 125, &#39;s-Gravenhage 2
+          </button>
+        </h3>
+      </div>
     </div>
+    <dso-highlight-box>
+      <div class="dso-rich-content">
+        <h3>Kosten</h3>
+        <p>De kosten van een aanvraag zijn verschillend. Kijk op de website van uw gemeente, waterschap of provincie voor de precieze kosten.</p>
+      </div>
+    </dso-highlight-box>
     <form>
       <div class="form-group dso-confirm">
         <div class="dso-field-container">
@@ -125,7 +174,9 @@
             <dso-icon icon="chevron-left"></dso-icon><span >Vorige</span>
           </button>
         </div>
-        <button type="button" class="btn btn-default"><span >Downloaden</span></button>
+        <button type="button" class="btn btn-link">
+          <dso-icon icon="download"></dso-icon><span >Downloaden</span>
+        </button>
         <button type="submit" class="btn btn-primary"><span >Indienen</span></button>
       </div>
     </form>

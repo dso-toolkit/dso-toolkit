@@ -15,11 +15,10 @@ context:
     title: 7. Verzoeken indienen
     step: Stap 7 van 7
   accordion:
+    modifiers: form-horizontal
     sections:
     - title: "Verzoek 1: Object Laan van Eik en Duinen 125, 's-Gravenhage 1"
       id: panel1
-    - title: "Verzoek 2: Object Laan van Eik en Duinen 125, 's-Gravenhage 2"
-      id: panel2
       open: true
       definitions:
       - term: "Indienen bij:"
@@ -27,19 +26,40 @@ context:
           - description: Gemeente Den Haag
       - term: "Soort:"
         descriptions:
-          - description: Melding
+          - description: Aanvraag vergunning
       - term: "Bevat:"
         descriptions:
           - description: Milieubelastende activiteit - Vergunning (Gemeente)
-      - term: "Omgevingsoverleg mogelijk:"
+      - term: "Doel:"
         descriptions:
-          - description: Ja
+          - description: Definitief verzoek
       fieldsets:
-        - groups:
+        - legend: Verzoek
+          groups:
           - id: toelichting
             inputType: textarea
             rows: 5
             label: Ruimte om uw verzoek toe te lichten
+        - groups:
+            - id: documenten1
+              label: Vraag om bijlage
+              inputType: files
+              infoOpen: false
+              infoButtonLabel: Toelichting bij Vraag om bijlage
+              infoText: none
+              files:
+                - filename: Bestand.pdf
+        - legend: Vragengroep titel
+          groups:
+          - id: classificatie
+            inputType: input
+            label: Vraag met classificatie 'verzoek'
+      buttons:
+      - type: button
+        modifier: primary
+        label: Volgende
+    - title: "Verzoek 2: Object Laan van Eik en Duinen 125, 's-Gravenhage 2"
+      id: panel2
   form:
     fieldsets:
     - modifier: form-vertical
@@ -50,12 +70,13 @@ context:
     asideButtons:
     - type: button
       modifier: link
-      label: Vorige 
+      label: Vorige
       icon: chevron-left
     buttons:
     - type: button
-      modifier: default
+      modifier: link
       label: Downloaden
+      icon: download
     - type: submit
       modifier: primary
       label: Indienen

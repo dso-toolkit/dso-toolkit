@@ -1,12 +1,5 @@
 form,
 .form {
-  &.form-horizontal {
-    .form-group.dso-files {
-      padding-left: $grid-gutter-width / 2;
-      padding-right: $grid-gutter-width / 2;
-    }
-  }
-
   .form-group {
     &.dso-files {
       .dso-remove {
@@ -41,7 +34,33 @@ form,
               }
             }
           }
+
+          &[disabled] {
+            + label {
+              &,
+              &:hover {
+                background-color: $input-bg;
+                border-color: $grasgroen-40;
+                color: $grasgroen-40;
+                cursor: default;
+              }
+            }
+
+            &:focus {
+              + label {
+                > dso-icon,
+                > svg.di {
+                  background-color: $input-bg;
+                  color: $grasgroen-40;
+                }
+              }
+            }
+          }
         }
+      }
+
+      .dso-description {
+        background-color: $dso-invalid-color;
       }
 
       .dso-description + .dso-filelist {
@@ -114,6 +133,10 @@ form,
               width: calc(100% - #{$u8});
             }
           }
+        }
+
+        + .dso-file-upload {
+          margin-top: $u2;
         }
       }
     }

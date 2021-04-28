@@ -1,37 +1,56 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-<div {{ className('form-group', 'dso-files', [required, 'dso-required']) }}>
+<fieldset {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-description dso-rich-content">
     {{ description }}
   </div>
-  <ul class="dso-filelist">
-    {% for file in files %}
-      {% render '@file-item', {id: localId, filename: file.filename, pos: loop.index0, confidential: file.confidential} %}
-    {% endfor %}
-  </ul>
-  {% if files | map('confidential') | includes(true) %}
-    <dso-alert status="warning">
-      <div class="dso-rich-content">
-        <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
-        <ol>
-          <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
-          <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
-        </ol>
-        <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
-      </div>
-    </dso-alert>
-  {% endif %}
-
-  <!-- To use an input type="file" element -->
-  <div class="dso-file-upload">
-    <input type="file" id="{{ localId }}-file-upload" />
-    <label class="btn btn-link" for="{{ localId }}-file-upload">
-      <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
+  <legend class="sr-only">{{ label }}</legend>
+  <div class="dso-label-container">
+    <label for="{{ localId }}" class="control-label" aria-hidden="true">
+      {{ label }}
     </label>
+    {% if infoText and not static %}
+      {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
+    {% endif %}
+    {% if infoOpen %}
+      {% render '@info', {infoText: infoText, static: static} %}
+    {% endif %}
+  </div>
+  <div class="dso-field-container">
+    <ul class="dso-filelist">
+      {% for file in files %}
+        {% render '@file-item', {id: localId, filename: file.filename, pos: loop.index0, confidential: file.confidential} %}
+      {% endfor %}
+    </ul>
+    {% if files %}
+      {% if files | map('confidential') | includes(true) %}
+        <dso-alert status="warning">
+          <div class="dso-rich-content">
+            <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
+            <ol>
+              <li>Voeg ook een publiceerbaar document zonder vertrouwelijke informatie toe.</li>
+              <li>Geef per document de reden op als toelichting op het verzoek in de laatste stap van uw aanvraag.</li>
+            </ol>
+            <p>Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.</p>
+          </div>
+        </dso-alert>
+      {% endif %}
+    {% endif %}
+
+    <!-- To use an input type="file" element -->
+    <div class="dso-file-upload">
+      <input type="file" id="{{ localId }}-file-upload" {% if disabled %} disabled{% endif %} />
+      <label class="btn btn-default" for="{{ localId }}-file-upload">
+        <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
+      </label>
+    </div>
+    {% if errorText %}
+      {% render '@error-block', {errorText: errorText} %}
+    {% endif %}
   </div>
 
   <!-- Or to trigger the upload using a button element (not recommended) -->
   <!--
     {% render '@button', {label: 'Document toevoegen', modifier: 'link', type: 'button', icon: 'plus'} %}
   -->
-</div>
+</fieldset>

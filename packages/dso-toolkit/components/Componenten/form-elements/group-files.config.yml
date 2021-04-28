@@ -6,11 +6,70 @@ notes: |
   Zie de comments in de HTML. Het gebruik van een `input[type="file"]` is semantisch correcter en voorkomt mogelijke _clickjacking_ warnings in Firefox. Het afhandelen van de upload kan aan `onchange` worden gehangen.
 
   https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
-
+collated: true
 context:
-  id: tekeningen
-  description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
-  files:
-    - filename: Schetsen_en_foto's_1.pdf
-    - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg
+  __title: default
+  id: group-file-default
+  label: Group files - Default
+variants:
+- name: group-file-required
+  context:
+    __title: required
+    id: group-file-required
+    label: Group files - Required
+    required: true
+- name: group-file-invalid
+  context:
+    __title: invalid
+    id: group-file-invalid
+    label: Group files - Invalid
+    required: true
+    state: invalid
+    errorText: Voeg een document toe.
+- name: group-file-valid
+  context:
+    __title: valid
+    id: group-file-valid
+    label: Group files - Valid
+    required: true
+    state: valid
+    files:
+    - filename: Bestandsnaam.pdf
+- name: group-file-disabled
+  context:
+    __title: disabled
+    id: group-file-disabled
+    label: Group files - Disabled
+    required: true
+    disabled: true
+- name: group-file-explanation
+  context:
+    __title: explanation
+    id: group-file-explanation
+    label: Group files - Explanation
+    required: true
+    infoOpen: true
+    infoButtonLabel: Toelichting bij vraag
+    infoText: |
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+- name: group-file-confidential
+  context:
+    __title: confidential
+    id: group-file-confidential
+    label: Group files - Confidential
+    required: true
+    files:
+    - filename: Bestandsnaam.pdf
+    - filename: Bestandsnaam.pdf
       confidential: true
+- name: group-file-description
+  context:
+    __title: Description (deprecated)
+    id: group-file-description
+    label: Group files - Description (Deprecated)
+    required: true
+    description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius. Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
