@@ -36,6 +36,7 @@ import infrastructure from '@dso-toolkit/styling/icons/infrastructure.svg';
 import label from '@dso-toolkit/styling/icons/label.svg';
 import landscape from '@dso-toolkit/styling/icons/landscape.svg';
 import location from '@dso-toolkit/styling/icons/location.svg';
+import locationOutline from '@dso-toolkit/styling/icons/location-outline.svg';
 import lock from '@dso-toolkit/styling/icons/lock.svg';
 import magnet from '@dso-toolkit/styling/icons/magnet.svg';
 import mapLocation from '@dso-toolkit/styling/icons/map-location.svg';
@@ -50,11 +51,13 @@ import paperclip from '@dso-toolkit/styling/icons/paperclip.svg';
 import parking from '@dso-toolkit/styling/icons/parking.svg';
 import pencil from '@dso-toolkit/styling/icons/pencil.svg';
 import pin from '@dso-toolkit/styling/icons/pin.svg';
+import pinOutline from '@dso-toolkit/styling/icons/pin-outline.svg';
 import plusSquare from '@dso-toolkit/styling/icons/plus-square.svg';
 import plus from '@dso-toolkit/styling/icons/plus.svg';
 import print from '@dso-toolkit/styling/icons/print.svg';
 import redo from '@dso-toolkit/styling/icons/redo.svg';
 import search from '@dso-toolkit/styling/icons/search.svg';
+import scale from '@dso-toolkit/styling/icons/scale.svg';
 import sitemap from '@dso-toolkit/styling/icons/sitemap.svg';
 import soil from '@dso-toolkit/styling/icons/soil.svg';
 import sortAscending from '@dso-toolkit/styling/icons/sort-ascending.svg';
@@ -111,6 +114,7 @@ const icons = [
   { alias: 'label', svg: label },
   { alias: 'landscape', svg: landscape },
   { alias: 'location', svg: location },
+  { alias: 'location-outline', svg: locationOutline },
   { alias: 'lock', svg: lock },
   { alias: 'magnet', svg: magnet },
   { alias: 'map-location', svg: mapLocation },
@@ -125,10 +129,12 @@ const icons = [
   { alias: 'parking', svg: parking },
   { alias: 'pencil', svg: pencil },
   { alias: 'pin', svg: pin },
+  { alias: 'pin-outline', svg: pinOutline },
   { alias: 'plus-square', svg: plusSquare },
   { alias: 'plus', svg: plus },
   { alias: 'print', svg: print },
   { alias: 'redo', svg: redo },
+  { alias: 'scale', svg: scale },
   { alias: 'search', svg: search },
   { alias: 'sitemap', svg: sitemap },
   { alias: 'soil', svg: soil },

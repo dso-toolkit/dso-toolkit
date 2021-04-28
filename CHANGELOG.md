@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + dso-toolkit + styling** Nieuwe iconen voor gebruik in kaart ([#1099](https://github.com/dso-toolkit/dso-toolkit/issues/1099))
+
 ### Changed
 * Node 14 en diverse package updates, zie ([#1095](https://github.com/dso-toolkit/dso-toolkit/issues/1095))
 
