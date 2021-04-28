@@ -10,19 +10,19 @@ collated: true
 context:
   __title: default
   id: group-file-default
-  label: Group File - Default
+  label: Group files - Default
 variants:
 - name: group-file-required
   context:
     __title: required
     id: group-file-required
-    label: Group File - Required
+    label: Group files - Required
     required: true
 - name: group-file-invalid
   context:
     __title: invalid
     id: group-file-invalid
-    label: Group File - Invalid
+    label: Group files - Invalid
     required: true
     state: invalid
     errorText: Voeg een document toe.
@@ -30,7 +30,7 @@ variants:
   context:
     __title: valid
     id: group-file-valid
-    label: Group File - Valid
+    label: Group files - Valid
     required: true
     state: valid
     files:
@@ -39,14 +39,14 @@ variants:
   context:
     __title: disabled
     id: group-file-disabled
-    label: Group File - Disabled
+    label: Group files - Disabled
     required: true
     disabled: true
 - name: group-file-explanation
   context:
     __title: explanation
     id: group-file-explanation
-    label: Group File - Explanation
+    label: Group files - Explanation
     required: true
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag
@@ -60,7 +60,7 @@ variants:
   context:
     __title: confidential
     id: group-file-confidential
-    label: Group File - Confidential
+    label: Group files - Confidential
     required: true
     files:
     - filename: Bestandsnaam.pdf
@@ -70,6 +70,6 @@ variants:
   context:
     __title: Description (deprecated)
     id: group-file-description
-    label: Group File - Description (Deprecated)
+    label: Group files - Description (Deprecated)
     required: true
     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius. Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
