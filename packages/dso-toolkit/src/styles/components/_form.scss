@@ -54,7 +54,7 @@ form,
   }
 
   fieldset {
-    margin-bottom: $dso-fieldset-separator-unit;
+    margin-bottom: $u2;
 
     > legend {
       @extend %is-h3;
