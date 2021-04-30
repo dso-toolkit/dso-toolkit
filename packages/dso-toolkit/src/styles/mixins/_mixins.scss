@@ -15,6 +15,7 @@
   width: 1px;
 }
 
+// Also moved to @dso-toolkit/styling/mixins/anchor
 @mixin anchor-clean {
   text-decoration: none;
 
@@ -37,3 +38,4 @@
     text-decoration: underline;
   }
 }
+////
