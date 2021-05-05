@@ -3,7 +3,7 @@ order: 30
 status: ready
 context:
   steps:
-    title: 2. Locatie
+    subtitle: 2. Locatie
     step: Stap 1/7
   dropdownButton:
     modifier: link

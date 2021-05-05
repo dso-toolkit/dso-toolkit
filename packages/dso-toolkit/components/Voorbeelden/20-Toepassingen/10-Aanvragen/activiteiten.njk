@@ -1,6 +1,6 @@
 <main>
   <form>
-    {% render '@form-steps', steps %}
+    {% render '@application-heading', steps %}
     <dso-alert status="{{ alert.status }}">
       {{ alert.message | safe }}
     </dso-alert>
@@ -15,7 +15,7 @@
       <div class="col-xs-12 col-sm-9">
         <fieldset>
           <legend>
-            <h4>5 activiteiten</h4> 
+            <h4>5 activiteiten</h4>
           </legend>
           {% for listButton in listButtons %}
             {% render '@list-button', listButton %}

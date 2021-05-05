@@ -1,5 +1,5 @@
 <main>
-  {% render '@form-steps', {title: steps.title, step: steps.step} %}
+  {% render '@application-heading', {subtitle: steps.title, step: steps.step} %}
   <dso-alert status="{{ alert.status }}">
     {{ alert.message | safe }}
   </dso-alert>

@@ -1,18 +1,24 @@
-$step-indicator-padding: 12px;
+$step-indicator-padding: 16px;
 $step-padding: 12px;
 
 .dso-steps-indicator {
   @extend %is-h2;
 
   border-bottom: 1px solid $grijs-20;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: $u2;
   padding-bottom: $step-indicator-padding;
 
   span.dso-step {
     color: $grasgroen;
     display: block;
-    float: right;
+    flex: 1 0;
+    flex-basis: auto;
     font-size: 1rem;
     font-weight: normal;
     padding-top: #{$step-padding / 2};
+    text-align: right;
   }
 }

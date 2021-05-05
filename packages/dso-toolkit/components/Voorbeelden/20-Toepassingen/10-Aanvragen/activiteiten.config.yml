@@ -3,7 +3,7 @@ order: 40
 status: ready
 context:
   steps:
-    title: 3. Kies activiteiten
+    subtitle: 3. Kies activiteiten
     step: Stap 3/7
   alert:
     status: info
@@ -27,7 +27,7 @@ context:
   - legend: |
       <h4>Filters</h4>
     groups:
-    - id: facets 
+    - id: facets
       inputType: checkboxes
       label: Bestuurslaag
       options:

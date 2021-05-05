@@ -12,7 +12,8 @@ context:
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
   steps:
-    title: 7. Verzoeken indienen
+    title: Object Laan van Eik en Duinen 125, Den Haag
+    subtitle: 7. Verzoeken indienen
     step: Stap 7 van 7
   accordion:
     modifiers: form-horizontal

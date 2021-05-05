@@ -2,8 +2,7 @@
 
 <main>
   <form>
-    <h1>Aanvragen</h1>
-    {% render '@form-steps' %}
+    {% render '@application-heading', {title: 'Aanvragen'} %}
     {% render '@accordion', accordion %}
     <div class="dso-form-buttons">
       <div class="dso-aside">

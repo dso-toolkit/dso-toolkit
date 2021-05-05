@@ -2,7 +2,7 @@ notes: |
 status: ready
 context:
   steps:
-    title: 4. Resultaat
+    subtitle: 4. Resultaat
     step: Stap 4 van 4
   alert:
     status: warning

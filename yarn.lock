@@ -3119,7 +3119,6 @@ __metadata:
     "@stencil/core": 2.5.2
     "@stencil/react-output-target": 0.0.9
     "@stencil/sass": 1.4.1
-    "@stencil/store": ^1.4.1
     "@storybook/addon-a11y": ^6.2.8
     "@storybook/addon-essentials": ^6.2.8
     "@storybook/addons": ^6.2.8
@@ -4120,15 +4119,6 @@ __metadata:
   peerDependencies:
     "@stencil/core": ">=1.0.2"
   checksum: a41ae864c6f0d51fbb8eb5c6ad388c778cdeec4a26f9f0f3da202b7ebdcc36e8c5d1539263b7999004fefa28a28a7d1131a74d333fe4e9da27f0d6b207d62390
-  languageName: node
-  linkType: hard
-
-"@stencil/store@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@stencil/store@npm:1.4.1"
-  peerDependencies:
-    "@stencil/core": ">=1.9.0"
-  checksum: cfcf30b4658cd4c665af98282b14ca172ae04e7a05b74b0f587c239e10a45cdaa20cbc3687b6d741c57b96cbb4ffd3abb3a82babe1dc1b81831933c91f35d17d
   languageName: node
   linkType: hard
 
