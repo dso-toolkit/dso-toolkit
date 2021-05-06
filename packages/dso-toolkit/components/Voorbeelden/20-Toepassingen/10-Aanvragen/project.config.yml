@@ -12,7 +12,8 @@ context:
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
   steps:
-    title: 1. Project
+    title: H1 nog te bepalen
+    subtitle: 1. Project
     step: Stap 1/7
   alert:
     status: info

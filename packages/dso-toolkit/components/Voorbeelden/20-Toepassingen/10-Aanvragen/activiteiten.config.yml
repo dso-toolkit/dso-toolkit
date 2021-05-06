@@ -3,6 +3,7 @@ order: 40
 status: ready
 context:
   steps:
+    title: H1 nog te bepalen
     subtitle: 3. Kies activiteiten
     step: Stap 3/7
   alert:

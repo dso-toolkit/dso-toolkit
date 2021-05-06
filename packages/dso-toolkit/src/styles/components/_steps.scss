@@ -1,15 +1,17 @@
-$step-indicator-padding: 16px;
 $step-padding: 12px;
+
+.dso-app-heading {
+  border-bottom: 1px solid $grijs-20;
+  margin-bottom: $u2;
+}
 
 .dso-steps-indicator {
   @extend %is-h2;
 
-  border-bottom: 1px solid $grijs-20;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: $u2;
-  padding-bottom: $step-indicator-padding;
 
   span.dso-step {
     color: $grasgroen;
