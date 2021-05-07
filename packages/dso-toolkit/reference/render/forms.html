@@ -1,0 +1,28 @@
+<h1>Formulieren</h1>
+<p><i>Individuele formulier elementen en hun specifieke richtlijnen staan onder componenten.</i></p>
+<p>Een formulier is een groep gerelateerde invoerelementen waarmee gebruikers antwoord kunnen geven op gestelde vragen. Formulieren kunnen eenvoudig of complex zijn en bestaan uit een of meerdere pagina’s, accordions of modals, afhankelijk van het gebruik en de situatie.</p>
+<hr />
+<p><a href="https://dso-toolkit.nl/master/components/detail/form.html"><i>Hoe verhoud het component zich met het patroon?</i></a></p>
+<h2>Accordion formulieren</h2>
+<img src="/docs/images/accordion-formulier.png" style="width: 100%;" />
+<p>In accordion formulieren worden groepen van gerelateerde vragen dynamisch weergegeven en verborgen op een enkele pagina. Hierdoor kunnen gebruikers hun aandacht op één set vragen richten, zonder dat ze tussen verschillende pagina’s hoeven te navigeren.</p>
+<h3>Technische opmerkingen</h3>
+<p><i>Elke accordion bevat een (deel van het) formulier met type="submit" op de volgende button. Hierdoor wordt een submit event afgevuurd bij een 'enter' in het formulier (dit is default gedrag wat in elke browser hetzelfde werkt).</i></p>
+<p><i>Op het moment dat de actieve sectie wordt gesloten, zal de volgende sectie worden geopend. Als het de laatste sectie op de pagina betreft wordt er genavigeerd naar de volgende pagina.</i></p>
+<h3>Wanneer te gebruiken</h3>
+<p>Gebruik een accordion formulier om complexe formulieren te structureren en voltooiingssnelheid en laadtijden te verbeteren.</p>
+<h3>Wanneer niet te gebruiken</h3>
+<p>Gebruik geen accordion formulieren in een modal.</p>
+<h3>Hoe te gebruiken</h3>
+<p>Als er gebruik gemaakt wordt van een accordion formulier is het essentieel om in het ontwerp rekening te houden met de technische implementatie.</p>
+<p>Zo is het belangrijk het gedrag van accordions te beperken, zodat slechts één sectie open kan staan. (Op het moment dat een nieuwe sectie wordt geopend, wordt de actieve sectie gesloten.) Door in de actieve sectie ook een primaire button te plaatsen is het voor de meeste gebruikers duidelijk dat alleen de invoerelementen van de actieve sectie worden verzonden.</p>
+<h3>Gedrag en toegankelijkheid</h3>
+<p>ntb</p>
+<h3>Validatie</h3>
+<p>Als het formulier accordions gebruikt, moet het duidelijk zijn waar de foutieve invoerelementen zich bevinden. Hiervoor tonen we een indicator-icoon op de betreffende accordion heading. Let op: bij geneste accordions moet ook de bovenliggende accordion een icoon krijgen. Zo is het fout ingevulde invoerveld te herleiden als de accordion is dichtgeklapt.</p>
+<h3>Bronnen</h3>
+<ul>
+  <li>Luke Wroblewski (2010, 21 september). Testing Accordion Forms. Geraadpleegd op 9 april 2021, via <a href="https://www.lukew.com/ff/entry.asp?1190">https://www.lukew.com/ff/entry.asp?1190</a></li>
+  <li>Baymard Institute (2014, 21 oktober). Form Usability: The Pitfalls of Inline Accordion and Tab Designs. Geraadpleegd op 9 april 2021, via <a href="https://baymard.com/blog/accordion-and-tab-design">https://baymard.com/blog/accordion-and-tab-design</a></li>
+  <li>Nielsen Norman Group (2014, 14 Mei). Accordions Are Not Always the Answer for Complex Content on Desktops. Geraadpleegd op 9 april 2021, via <a href="https://www.nngroup.com/articles/accordions-complex-content/">https://www.nngroup.com/articles/accordions-complex-content/</a></li>
+</ul>
