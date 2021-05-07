@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Verticale (onder)marge van form-groups ([#1091](https://github.com/dso-toolkit/dso-toolkit/issues/1091))
 * **dso-toolkit:** Verticale (onder)marge van dso-search-bar ([#1092](https://github.com/dso-toolkit/dso-toolkit/issues/1092))
 * **dso-toolkit:** Group componenten hoeven niet zo genoemd te worden ([#1128](https://github.com/dso-toolkit/dso-toolkit/issues/1128))
+* **dso-toolkit:** Component "Applicatie heading" ([#1113](https://github.com/dso-toolkit/dso-toolkit/issues/1113))
 
 ## 23.0.0
 
