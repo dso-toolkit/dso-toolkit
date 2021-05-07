@@ -233,12 +233,12 @@ variants:
         open: true
         fieldsets:
           - groups:
-              - id: omgevingsvergunningPostcode
+              - id: default_form1
                 inputType: input
                 type: text
                 label: Postcode
                 size: 8
-              - id: brandstof
+              - id: default_form2
                 label: Brandstof
                 inputType: radios
                 options:
@@ -246,7 +246,7 @@ variants:
                   label: benzine
                 - value: 2
                   label: diesel
-              - id: schrijfwaar
+              - id: default_form3
                 label: Schrijfwaar
                 inputType: radios
                 options:
@@ -254,25 +254,25 @@ variants:
                   label: pen
                 - value: 2
                   label: potlood
-              - id: omgevingsvergunningHuisnummer
+              - id: default_form4
                 inputType: input
                 type: text
                 label: Huisnummer
                 size: 8
-              - id: omgevingsvergunningToevoeging
+              - id: default_form5
                 inputType: input
                 type: text
                 label: Huisnummer toevoeging
                 size: 8
-              - id: omgevingsvergunningStraatnaam
+              - id: default_form6
                 inputType: input
                 type: text
                 label: Straatnaam
-              - id: omgevingsvergunningWoonplaats
+              - id: default_form7
                 inputType: input
                 type: text
                 label: Woonplaats
-              - id: type_melder
+              - id: default_form8
                 inputType: radios
                 label: Type melder
                 options:
@@ -291,26 +291,26 @@ variants:
         fieldsets:
           - legend: Adresgegevens
             groups:
-              - id: omgevingsvergunningPostcode
+              - id: default_form-fieldsets1
                 inputType: input
                 type: text
                 label: Postcode
                 size: 8
-              - id: omgevingsvergunningHuisnummer
+              - id: default_form-fieldsets2
                 inputType: input
                 type: text
                 label: Huisnummer
                 size: 8
-              - id: omgevingsvergunningToevoeging
+              - id: default_form-fieldsets3
                 inputType: input
                 type: text
                 label: Huisnummer toevoeging
                 size: 8
-              - id: omgevingsvergunningStraatnaam
+              - id: default_form-fieldsets4
                 inputType: input
                 type: text
                 label: Straatnaam
-              - id: omgevingsvergunningWoonplaats
+              - id: default_form-fieldsets5
                 inputType: input
                 type: text
                 label: Woonplaats
