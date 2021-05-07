@@ -1,13 +1,13 @@
 @import "../variables";
 @import "../mixins/reset-text";
 
-$tooltip-arrow-width: 5px;
+$tooltip-arrow-width: 6px;
 $tooltip-opacity: 0.9;
-$tooltip-padding-vertical: $dso-unit;
-$tooltip-padding-horizontal: $dso-unit / 2;
-$tooltip-border-size: 1px;
+$tooltip-padding-vertical: $u2;
+$tooltip-padding-horizontal: $u1;
+// $tooltip-border-size: 1px;
 $tooltip-border-radius: $dso-unit / 2;
-$tooltip-arrow-color: $grasgroen;
+$tooltip-arrow-color: $wit;
 $tooltop-max-width: 80 * $dso-unit;
 
 .tooltip {
@@ -52,7 +52,7 @@ $tooltop-max-width: 80 * $dso-unit;
       left: 50%;
       margin-left: -$tooltip-arrow-width;
     }
-  
+
     &.right .tooltip-arrow {
       border-right-color: $tooltip-arrow-color;
       border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
@@ -60,7 +60,7 @@ $tooltop-max-width: 80 * $dso-unit;
       margin-top: -$tooltip-arrow-width;
       top: 50%;
     }
-  
+
     &.left .tooltip-arrow {
       border-left-color: $tooltip-arrow-color;
       border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
@@ -68,7 +68,7 @@ $tooltop-max-width: 80 * $dso-unit;
       right: 0;
       top: 50%;
     }
-  
+
     &.bottom .tooltip-arrow {
       border-bottom-color: $tooltip-arrow-color;
       border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
@@ -80,8 +80,9 @@ $tooltop-max-width: 80 * $dso-unit;
 }
 
 .tooltip-inner {
+  @include box-shadow(1px 2px 4px 0 rgba(0, 0, 0, .5));
   background-color: $wit;
-  border: $tooltip-border-size solid $grasgroen;
+  // border: $tooltip-border-size solid $grasgroen;
   border-radius: $tooltip-border-radius;
   color: $grasgroen;
   display: inline-block;
