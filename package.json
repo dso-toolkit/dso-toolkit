@@ -10,15 +10,13 @@
   "scripts": {
     "postinstall": "patch-package",
     "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules packages/react/test-app/node_modules packages/styling/node_modules",
-    "fractal": "yarn build-styling && yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=fractal yarn node scripts/fractal.js",
-    "leaflet": "yarn build-styling && yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=leaflet yarn node scripts/leaflet.js",
+    "fractal": "yarn build-styling && yarn workspace @dso-toolkit/core clear && yarn node scripts/fractal.js",
     "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build",
     "build-styling": "yarn workspace @dso-toolkit/styling build",
     "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom"
   },
   "dependencies": {
     "concurrently": "^6.0.2",
-    "cross-env": "^7.0.3",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "wait-on": "^5.3.0"

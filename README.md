@@ -83,7 +83,7 @@ yarn install
 
 ### Environments
 
-Depending on the work being done, development can be done in several environments:
+DSO Toolkit development can be done in 3 environments:
 
 #### `fractal`
 The classic environment with Fractal and Stencil. Can only be started from the root of the repository, because it needs two packages (`@dso-toolkit/core` and `dso-toolkit`) running:
@@ -116,16 +116,6 @@ yarn workspace @dso-toolkit/core cypress
 
 This will start Stencil on http://localhost:53333, Storybook on http://localhost:56106 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
-#### `leaflet`
-
-Like `fractal`, development of Leaflet plugins is package transcendent. Run the following command from root:
-
-```
-yarn leaflet
-```
-
-This will start Stencil (http://localhost:53333) and Storybook (http://localhost:56106) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234.
-
 ## Requirements
 Node 14. For development on the DSO Toolkit you also need Yarn.
 
@@ -155,4 +145,3 @@ Ports used during development:
 * 53100 - React test app
 * 53333 - Stencil
 * 56106 - Storybook
-* 41234 - Leaflet plugins dev app
