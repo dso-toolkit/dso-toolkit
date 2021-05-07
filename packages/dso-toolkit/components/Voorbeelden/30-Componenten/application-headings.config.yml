@@ -13,3 +13,14 @@ variants:
       __title: Met subtitel en stappen
       subtitle: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
       step: Stap x van x
+  - name: only-substitel
+    context:
+      __title: Alleen subtitel
+      title:
+      subtitle: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+  - name: only-substitel-steps
+    context:
+      __title: Alleen subtitel en stappen
+      title:
+      subtitle: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+      step: Stap x van x

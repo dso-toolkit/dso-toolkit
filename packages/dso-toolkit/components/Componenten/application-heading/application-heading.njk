@@ -1,5 +1,7 @@
 <div class="dso-app-heading">
-  <h1>{{ title }}</h1>
+  {% if title %}
+    <h1>{{ title }}</h1>
+  {% endif %}
   {% if subtitle %}
     <h2 class="dso-steps-indicator">
       {{ subtitle }}

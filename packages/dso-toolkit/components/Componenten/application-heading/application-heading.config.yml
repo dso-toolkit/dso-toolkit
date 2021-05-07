@@ -12,3 +12,14 @@ variants:
       __title: Met subtitel en stappen
       subtitle: H2 Subtitel
       step: Stap x van x
+  - name: only-substitel
+    context:
+      __title: Alleen subtitel
+      title:
+      subtitle: H2 Subtitel
+  - name: only-substitel-steps
+    context:
+      __title: Alleen subtitel en stappen
+      title:
+      subtitle: H2 Subtitel
+      step: Stap x van x
