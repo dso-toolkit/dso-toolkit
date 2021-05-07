@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit:** Accordion voorbeeld pagina bevat invalide HTML ([#1124](https://github.com/dso-toolkit/dso-toolkit/pull/1124))
+
 ### Changed
 * **dso-toolkit:** Verticale (onder)marge van form-groups ([#1091](https://github.com/dso-toolkit/dso-toolkit/issues/1091))
 
