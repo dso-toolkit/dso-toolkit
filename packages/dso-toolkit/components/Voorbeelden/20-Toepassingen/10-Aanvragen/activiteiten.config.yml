@@ -3,8 +3,8 @@ order: 40
 status: ready
 context:
   steps:
-    title: H1 nog te bepalen
-    subtitle: 3. Kies activiteiten
+    title: Aanvraag Laan van Eik en Duinen 125, Den Haag
+    subtitle: 3. Activiteiten
     step: Stap 3/7
   alert:
     status: info

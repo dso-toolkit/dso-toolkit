@@ -2,25 +2,10 @@ notes: |
 order: 50
 status: ready
 context:
-  menu:
-    modifier: main
-    items:
-      - label: Home
-      - label: Vergunningcheck
-      - label: Aanvragen
-        active: true
-      - label: Regels op de kaart
-      - label: Mijn Omgevingsloket
-  breadcrumbs:
-    crumbs:
-      - label: Home
-        url: '#'
-      - label: Aanvragen
-        url: '#'
-      - label: Mijn project
-        url: '#'
-      - label: Aanvraag voorbereiden
-        url: '#'
+  steps:
+    title: Aanvraag Laan van Eik en Duinen 125, Den Haag
+    subtitle: 4. Vragen
+    step: Stap 4/7
   accordion:
     sections:
     - title: Woning

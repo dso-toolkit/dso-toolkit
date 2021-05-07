@@ -3,9 +3,9 @@ order: 30
 status: ready
 context:
   steps:
-    title: H1 nog te bepalen
+    title: Aanvraag Laan van Eik en Duinen 125, Den Haag
     subtitle: 2. Locatie
-    step: Stap 1/7
+    step: Stap 2/7
   dropdownButton:
     modifier: link
     label: 'Meer zoekopties'

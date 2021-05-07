@@ -9,8 +9,9 @@ context:
         active: true
       - label: Acties overzicht
       - label: Notificatie overzicht
-  title: Samenwerken aan behandelen
-  subtitle: Overzicht samenwerkingen
+  steps:
+    title: Samenwerken aan behandelen
+    subtitle: Overzicht samenwerkingen
   sections:
   - title: Woning
     id: panel1

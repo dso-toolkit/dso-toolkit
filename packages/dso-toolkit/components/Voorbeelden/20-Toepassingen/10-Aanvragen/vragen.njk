@@ -1,8 +1,6 @@
-{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
-
 <main>
   <form>
-    {% render '@application-heading', {title: 'Aanvragen'} %}
+    {% render '@application-heading', steps %}
     {% render '@accordion', accordion %}
     <div class="dso-form-buttons">
       <div class="dso-aside">
@@ -12,5 +10,3 @@
     </div>
   </form>
 </main>
-
-{% render '@footer' %}

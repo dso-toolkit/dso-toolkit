@@ -2,9 +2,6 @@ notes: |
 order: 10
 status: ready
 context:
-  steps:
-    title: H1 nog te bepalen
-    subtitle: Actieverzoeken
   tabNav:
     tabs:
       - label: Ontvangen
