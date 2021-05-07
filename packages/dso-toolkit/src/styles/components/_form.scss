@@ -39,10 +39,13 @@ form,
       }
     }
 
-    .form-group + .form-group,
-    .form-group + .dso-form-buttons {
-      margin-bottom: 0;
-      margin-top: 0;
+    .form-group {
+      &,
+      + .form-group,
+      + .dso-form-buttons {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
     }
   }
 
@@ -51,7 +54,7 @@ form,
   }
 
   fieldset {
-    margin-bottom: $dso-fieldset-separator-unit;
+    margin-bottom: $u2;
 
     > legend {
       @extend %is-h3;
@@ -124,8 +127,6 @@ form,
 }
 
 .form-group {
-  margin-bottom: 0;
-
   + .form-group:not(.dso-static),
   + .dso-form-buttons {
     margin-top: $dso-form-group-margin;
