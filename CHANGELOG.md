@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Tooltips nieuwe styling smalle variant ([#1120](https://github.com/dso-toolkit/dso-toolkit/issues/1120))
 * **core + dso-toolkit + styling:** Label herontwerp en Label Group ([#809](https://github.com/dso-toolkit/dso-toolkit/issues/809))
 
+### Added
+* **dso-toolkit:** Patroonpagina over submitgedrag in accordion ([#1119](https://github.com/dso-toolkit/dso-toolkit/issues/1119))
+
 ## 24.2.2
 
 ### Fixed
