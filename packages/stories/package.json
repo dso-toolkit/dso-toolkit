@@ -1,0 +1,25 @@
+{
+  "name": "@dso-toolkit/stories",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "source": "src/index.ts",
+  "module": "dist/stories.module.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "microbundle watch",
+    "build": "rimraf dist && microbundle"
+  },
+  "devDependencies": {
+    "@storybook/client-api": "^6.2.9",
+    "microbundle": "^0.13.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "rimraf": "^3.0.2",
+    "uuid": "^8.3.2"
+  },
+  "peerDependencies": {
+    "@storybook/addon-actions": "*",
+    "@storybook/addons": "*"
+  }
+}

@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions';
+import { labelStories } from '@dso-toolkit/stories';
 import { ArgsStoryFn } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
 import { html, nothing, TemplateResult } from 'lit-html';
@@ -20,44 +20,9 @@ const template: ArgsStoryFn<TemplateResult> = ({ status, label, button }: any) =
   </dso-label>
 `;
 
-const stories = storiesOf('Label', module)
-  .addParameters({
-    docs: {
-      page: readme
-    },
-    argTypes: {
-      status: {
-        options: [undefined, 'primary', 'success', 'info', 'warning', 'danger'],
-        control: {
-          type: 'select',
-        }
-      },
-      button: {
-        control: {
-          disable: true
-        }
-      }
-    },
-    args: {
-      label: 'Label'
-    }
-  });
-
-stories.add(
-  'default',
+labelStories({
+  module,
+  storiesOf,
+  readme,
   template
-);
-
-stories.add(
-  'with action',
-  template,
-  {
-    args: {
-      button: {
-        title: 'Verwijder',
-        icon: 'times',
-        onClick: action('action activated')
-      }
-    }
-  }
-);
+});

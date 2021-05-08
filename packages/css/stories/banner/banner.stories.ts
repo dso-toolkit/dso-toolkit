@@ -2,12 +2,10 @@ import { bannerStories } from '@dso-toolkit/stories';
 import { ArgsStoryFn } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-
-// @ts-ignore
-import readme from './readme.md';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
 const template: ArgsStoryFn<TemplateResult> = ({ status, richContent, onClick }: any) => html`
-  <dso-banner status=${status}>
+  <section class="dso-banner ${ifDefined(status ? 'alert-' + status : '')}" role="alert">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -19,7 +17,7 @@ const template: ArgsStoryFn<TemplateResult> = ({ status, richContent, onClick }:
         </div>
       </div>
     </div>
-  </dso-banner>
+  </section>
 `;
 
 const warningRichContent = html`
@@ -75,7 +73,6 @@ const dangerWithHeadingsRichContent = html`
 bannerStories({
   module,
   storiesOf,
-  readme,
   template,
   warningRichContent,
   dangerRichContent,

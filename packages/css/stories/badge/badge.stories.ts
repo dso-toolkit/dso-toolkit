@@ -2,17 +2,17 @@ import { badgeStories } from '@dso-toolkit/stories';
 import { ArgsStoryFn } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-
-// @ts-ignore
-import readme from './readme.md';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
 const template: ArgsStoryFn<TemplateResult> = ({ status, message }: any) => html`
-  <dso-badge status=${status}>${message}</dso-badge>
+  <span class="dso-badge ${ifDefined(status ? 'badge-' + status : '')}">
+    <span class="sr-only">${status ? status : 'Badge'}: </span>
+    ${message}
+  </span>
 `;
 
 badgeStories({
-  module,
   storiesOf,
-  readme,
+  module,
   template
 });

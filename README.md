@@ -144,4 +144,5 @@ Ports used during development:
 * 43000 - Fractal
 * 53100 - React test app
 * 53333 - Stencil
-* 56106 - Storybook
+* 56106 - Storybook for Web Components
+* 56206 - Storybook for CSS components

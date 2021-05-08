@@ -1,25 +1,24 @@
 import { highlightBoxStories } from '@dso-toolkit/stories';
 import { ArgsStoryFn } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { html, nothing, TemplateResult } from 'lit-html';
+import { classMap } from 'lit-html/directives/class-map.js';
 
-// @ts-ignore
-import readme from './readme.md';
-
-const template: ArgsStoryFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, icon, richContent }: any) => html`
-  <dso-highlight-box
-    ?yellow=${yellow}
-    ?white=${white}
-    ?drop-shadow=${dropShadow}
-    ?border=${border}
-    step=${ifDefined(typeof step === 'number' && step > 0 ? step : undefined)}
-  >
+const template: ArgsStoryFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, hasCounter, icon, richContent }: any) => html`
+  <div class="dso-highlight-box ${classMap({'dso-yellow': yellow, 'dso-white': white, 'dso-drop-shadow': dropShadow, 'dso-border': border})}">
+    ${hasCounter && html`
+      <div class="dso-step-counter">
+        ${step
+          ? nothing
+          : html`<slot name="icon"></slot>`
+        }
+      </div>
+    `}
     ${icon && html`
       <dso-icon slot="icon" icon=${icon}></dso-icon>
     `}
     ${richContent}
-  </dso-highlight-box>
+  </div>
 `;
 
 const richContent = html`
@@ -41,7 +40,6 @@ const richContent = html`
 highlightBoxStories({
   module,
   storiesOf,
-  readme,
   template,
   richContent
 });
