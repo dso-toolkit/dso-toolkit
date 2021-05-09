@@ -11,12 +11,16 @@ const indent = require('indent');
 const svgmin = require('gulp-svgmin');
 const log = require('fancy-log');
 
+const distPath = 'dist';
+const dsoToolkitStylingPath = path.dirname(require.resolve('@dso-toolkit/styling'));
+const iconsPath = path.resolve(dsoToolkitStylingPath, 'icons');
+
 gulp.task('build', createSvgSpritesheet);
 
 gulp.task('default', gulp.series(createSvgSpritesheet, watcher));
 
 function watcher() {
-  gulp.watch('icons/*.(svg|scss)').on('all', function (event, path, stats) {
+  gulp.watch(`*.(svg|scss)`, { cwd: iconsPath }).on('all', function (event, path, stats) {
     log('icons', event, path);
 
     return createSvgSpritesheet();
@@ -28,7 +32,7 @@ async function createSvgSpritesheet() {
     .on('error', sass.logError);
 
   const stylesheets = await new Promise((resolve, reject) => {
-    gulp.src('icons/*.scss')
+    gulp.src(`${iconsPath}/*.scss`)
       .pipe(sassCompiler)
       .pipe(ListStream.obj((error, data) => {
         if (error) {
@@ -68,7 +72,7 @@ async function createSvgSpritesheet() {
 
   return new Promise((resolve, reject) => {
     gulp
-      .src('icons/*.svg')
+      .src(`${iconsPath}/*.svg`)
       .pipe(svgmin({
         js2svg: {
           pretty: true
@@ -141,7 +145,7 @@ async function createSvgSpritesheet() {
         }
       }))
       .pipe(rename('dso-icons.svg'))
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest(distPath))
       .on('end', resolve)
       .on('error', reject);
     });

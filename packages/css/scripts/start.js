@@ -11,6 +11,11 @@ concurrently(
       prefixColor: 'bgWhite'
     },
     {
+      name: 'gulp',
+      command: 'yarn bin:gulp',
+      prefixColor: 'bgRed'
+    },
+    {
       name: 'storybook',
       command: 'wait-on file:./dist/dso.css && yarn bin:start-storybook --static-dir ./dist --port 56206',
       prefixColor: 'bgMagenta'

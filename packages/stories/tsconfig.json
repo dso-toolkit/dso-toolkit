@@ -4,6 +4,7 @@
     "experimentalDecorators": true,
     "module": "ESNext",
     "target": "ESNext",
+    "skipLibCheck": true,
     "lib": [
       "dom",
       "es2017"
