@@ -10,6 +10,9 @@
     "start": "microbundle watch",
     "build": "rimraf dist && microbundle"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@storybook/client-api": "^6.2.9",
     "microbundle": "^0.13.0",
