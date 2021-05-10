@@ -5,6 +5,9 @@ import { html, TemplateResult, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
+// @ts-ignore
+import readme from './readme.md';
+
 const template: ArgsStoryFn<TemplateResult> = ({ status, message, onClick, withRoleAlert, withButton }: any) => html`
   <div class="alert alert-${status}" role="${ifDefined(withRoleAlert ? 'alert' : undefined)}">
     <span class="sr-only">${status}:</span>
@@ -23,5 +26,6 @@ const template: ArgsStoryFn<TemplateResult> = ({ status, message, onClick, withR
 alertStories({
   module,
   storiesOf,
+  readme,
   template
 });

@@ -4,6 +4,9 @@ import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
+// @ts-ignore
+import readme from './readme.md';
+
 const template: ArgsStoryFn<TemplateResult> = ({ status, richContent, onClick }: any) => html`
   <section class="dso-banner ${ifDefined(status ? 'alert-' + status : '')}" role="alert">
     <div class="container">
@@ -73,6 +76,7 @@ const dangerWithHeadingsRichContent = html`
 bannerStories({
   module,
   storiesOf,
+  readme,
   template,
   warningRichContent,
   dangerRichContent,

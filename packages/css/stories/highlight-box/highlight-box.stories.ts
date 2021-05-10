@@ -4,6 +4,9 @@ import { storiesOf } from '@storybook/web-components';
 import { html, nothing, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 
+// @ts-ignore
+import readme from './readme.md';
+
 const template: ArgsStoryFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, hasCounter, icon, richContent }: any) => html`
   <div class="dso-highlight-box ${classMap({'dso-yellow': yellow, 'dso-white': white, 'dso-drop-shadow': dropShadow, 'dso-border': border})}">
     ${hasCounter && html`
@@ -40,6 +43,7 @@ const richContent = html`
 highlightBoxStories({
   module,
   storiesOf,
+  readme,
   template,
   richContent
 });
