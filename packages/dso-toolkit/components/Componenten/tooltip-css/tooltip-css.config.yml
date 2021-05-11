@@ -1,0 +1,36 @@
+notes: |
+  * `.fade` en `.in` zijn standaard Bootstrap classes die betrekking hebben op animatie en het al dan niet tonen van componenten.
+  * Positionering van de tooltip moet via scripting worden gedaan. Bijvoorbeeld het tooltip component van `react-bootstrap` biedt hier standaard ondersteuning voor.
+  Zie: https://react-bootstrap.github.io/components/overlays/#tooltips
+collated: true
+context:
+  __title: Tooltip top
+  label: 'Boven'
+  position: 'top'
+variants:
+  - name: 'tooltip-left'
+    context:
+      __title: Tooltip left
+      label: 'Ik sta links van de inhoud'
+      position: 'left'
+  - name: 'tooltip-right'
+    context:
+      __title: Tooltip right
+      label: 'Ik sta rechts van de inhoud'
+      position: 'right'
+  - name: 'tooltip-bottom'
+    context:
+      __title: Tooltip bottom
+      label: 'Ik sta onder de inhoud'
+      position: 'bottom'
+  - name: 'tooltip-breed'
+    context:
+      __title: Tooltip wide
+      label: 'Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.'
+      position: 'left'
+  - name: 'tooltip-smal'
+    context:
+      __title: Tooltip small
+      label: 'Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.'
+      position: 'left'
+      small: true

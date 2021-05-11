@@ -5,16 +5,17 @@ $tooltip-arrow-width: 6px;
 $tooltip-opacity: 0.9;
 $tooltip-padding-vertical: $u2;
 $tooltip-padding-horizontal: $u1;
-// $tooltip-border-size: 1px;
 $tooltip-border-radius: $dso-unit / 2;
 $tooltip-arrow-color: $wit;
 $tooltop-max-width: 80 * $dso-unit;
+$tooltip-max-width-small: 40 * $dso-unit;
 
 .tooltip {
   @include reset-text();
   opacity: 0;
 
   display: block;
+  filter: drop-shadow(1px 2px 4px rgba(0, 0, 0, .5));
   font-size: $font-size-small;
   position: absolute;
   z-index: $zindex-tooltip;
@@ -80,17 +81,18 @@ $tooltop-max-width: 80 * $dso-unit;
 }
 
 .tooltip-inner {
-  @include box-shadow(1px 2px 4px 0 rgba(0, 0, 0, .5));
   background-color: $wit;
-  // border: $tooltip-border-size solid $grasgroen;
   border-radius: $tooltip-border-radius;
-  color: $grasgroen;
+  color: $grijs-90;
   display: inline-block;
-  font-size: $font-size-small;
-  line-height: 1.2em;
+  font-size: $font-size-base;
   max-width: $tooltop-max-width;
   padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
   position: relative;
+
+  &.small-width {
+    max-width: $tooltip-max-width-small;
+  }
 }
 
 .tooltip-arrow {
