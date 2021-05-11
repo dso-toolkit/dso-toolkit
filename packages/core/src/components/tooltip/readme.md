@@ -13,6 +13,7 @@
 | `for`      | `for`      | Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown. | `HTMLElement \| string \| undefined`     | `undefined` |
 | `noArrow`  | `no-arrow` | Set attribute `no-arrow` to hide the arrow                                                                                                                                                                                                                                                        | `boolean`                                | `false`     |
 | `position` | `position` | Set position of tooltip relative to target                                                                                                                                                                                                                                                        | `"bottom" \| "left" \| "right" \| "top"` | `'top'`     |
+| `small`    | `small`    | Defines if the tooltip has a smaller max-width                                                                                                                                                                                                                                                    | `boolean \| undefined`                   | `undefined` |
 
 
 ## Methods

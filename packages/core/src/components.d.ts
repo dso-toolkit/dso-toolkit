@@ -141,6 +141,10 @@ export namespace Components {
           * Set position of tooltip relative to target
          */
         "position": 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Defines if the tooltip has a smaller max-width
+         */
+        "small"?: boolean;
     }
 }
 declare global {
@@ -366,6 +370,10 @@ declare namespace LocalJSX {
           * Set position of tooltip relative to target
          */
         "position"?: 'top' | 'right' | 'bottom' | 'left';
+        /**
+          * Defines if the tooltip has a smaller max-width
+         */
+        "small"?: boolean;
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;

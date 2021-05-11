@@ -1,0 +1,14 @@
+
+<!-- Impliciet: Geen @for attribute dus target is direct parent -->
+<button type="button">
+  <dso-icon icon="plus"></dso-icon>
+  <dso-tooltip position="left" small="true">
+    Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.
+  </dso-tooltip>
+</button>
+
+<!-- Expliciet: @for attribute met verwijzing naar ander element -->
+<input type="text" id="demo-left">
+<dso-tooltip position="left" small="true" for="demo-left">
+  Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.
+</dso-tooltip>

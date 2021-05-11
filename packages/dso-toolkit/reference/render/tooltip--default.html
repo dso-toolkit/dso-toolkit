@@ -2,13 +2,13 @@
 <!-- Impliciet: Geen @for attribute dus target is direct parent -->
 <button type="button">
   <dso-icon icon="plus"></dso-icon>
-  <dso-tooltip position="top">
+  <dso-tooltip position="top" small="false">
     Boven
   </dso-tooltip>
 </button>
 
 <!-- Expliciet: @for attribute met verwijzing naar ander element -->
 <input type="text" id="demo-top">
-<dso-tooltip position="top" for="demo-top">
+<dso-tooltip position="top" small="false" for="demo-top">
   Boven
 </dso-tooltip>
