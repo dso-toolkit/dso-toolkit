@@ -20,7 +20,7 @@ notes: |
 
   ## Hoe te gebruiken
   Zorg dat de gebruiker meerdere delen tegelijk kan openen. De delen van een accordion hebben twee verschillende posities: ingeklapt en uitgeklapt. De posities zijn af te lezen aan de chevron. Wijst de chevron naar beneden, dan is de accordion ingeklapt. Wijst de chevron naar boven, dan is de accordion uitgeklapt. De accordion kan ook genest gebruikt worden.
- 
+
   ## Gedrag en toegankelijkheid
   Let bij implementatie van het accordion op het volgende:
   * Gebruik voor de uitklapbare knoppen `<button>`.
@@ -33,7 +33,7 @@ notes: |
   * Voegt u via een modifier een statusicoon toe aan de uitklapbare knop (.dso-succes, .dso-warning, .dso-info of .dso-danger)? Let dan op de volgende dingen:
     * Beschrijf de betekenis van het statusicoon in de context van de accordion met een .sr-only span. Plaats deze in de tekst van de knop.
     * Voorbeeldtekst voor .dso-succes: "Informatie bouwwerkzaamheden `<span class="sr-only">(afgerond)</span>`"
- 
+
   ## Component in context
   - [Aanvragen]({{ '/components/detail/aanvragen' | docPath }})
 
@@ -50,18 +50,18 @@ context:
     id: panel_oprit
     header: h2
   - title: Woning (h3)
-    id: panel1
+    id: default_panel1
     open: true
     header: h3
     richContent: |
       <p>Dit is de inhoud van <strong>Woning (h2)</strong></p>
       <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
   - title: Bouwwerkzaamheden (h4)
-    id: panel2
+    id: default_panel2
     state: success
     header: h4
   - title: Plaats van het bouwwerk (h5)
-    id: panel3
+    id: default_panel3
     state: warning
     header: h5
     richContent: |
@@ -70,38 +70,38 @@ context:
     open: true
     sections:
     - title: Woning (h2)
-      id: panel1
+      id: default_subpanel1
       header: h2
     - title: Bouwwerkzaamheden (h3)
-      id: panel2
+      id: default_subpanel2
       open: true
       state: success
       header: h3
       richContent: |
         <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h3)</strong>. Zie de <em>Notes</em> van dit component.</p>
     - title: Plaats van het bouwwerk (h4)
-      id: panel3
+      id: default_subpanel3
       state: warning
       header: h4
     - title: Afmetingen van het bouwwerk (h5)
-      id: panel4
+      id: default_subpanel4
       state: info
       header: h5
     - title: Extra werkzaamheden (h5)
-      id: panel5
+      id: default_subpanel5
       state: danger
       header: h5
   - title: Afmetingen van het bouwwerk (h5)
-    id: panel4
+    id: default_panel4
     state: info
     header: h5
   - title: Extra werkzaamheden (h5)
-    id: panel5
+    id: default_panel5
     state: danger
     header: h5
     status: 5 van 8 beantwoord
   - title: Optionele werkzaamheden (h5)
-    id: panel6
+    id: default_panel6
     state: warning
     header: h5
     richContent: |
@@ -110,15 +110,15 @@ context:
     open: true
     status: 6 van 8 beantwoord
   - title: Bijgevoegde werkzaamheden (h5)
-    id: panel7
+    id: default_panel7
     header: h5
     attachments: 2
   - title: Afsluitende werkzaamheden (h5)
-    id: panel8
+    id: default_panel8
     header: h5
     status: 7 van 8 beantwoord
   - title: Evaluatie werkzaamheden (h5)
-    id: panel8
+    id: default_panel9
     header: h5
     attachments: 1
     richContent: |
@@ -131,11 +131,11 @@ variants:
       __title: default met links
       sections:
       - title: Oprit (h2)
-        id: panel_oprit
+        id: default-links_panel1
         type: link
         header: h2
       - title: Woning (h3)
-        id: panel1
+        id: default-links_panel2
         type: link
         open: true
         header: h3
@@ -143,12 +143,12 @@ variants:
           <p>Dit is de inhoud van <strong>Woning (h2)</strong></p>
           <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
       - title: Bouwwerkzaamheden (h4)
-        id: panel2
+        id: default-links_panel3
         type: link
         state: success
         header: h4
       - title: Plaats van het bouwwerk (h5)
-        id: panel3
+        id: default-links_panel4
         type: link
         state: warning
         header: h5
@@ -158,11 +158,11 @@ variants:
         open: true
         sections:
         - title: Woning (h2)
-          id: panel1
+          id: default-links_subpanel1
           type: link
           header: h2
         - title: Bouwwerkzaamheden (h3)
-          id: panel2
+          id: default-links_subpanel2
           type: link
           open: true
           state: success
@@ -170,33 +170,33 @@ variants:
           richContent: |
             <p>Dit is een geneste accordion. De inhoud is van <strong>Bouwwerkzaamheden (h3)</strong>. Zie de <em>Notes</em> van dit component.</p>
         - title: Plaats van het bouwwerk (h4)
-          id: panel3
+          id: default-links_subpanel3
           type: link
           state: warning
           header: h4
         - title: Afmetingen van het bouwwerk (h5)
-          id: panel4
+          id: default-links_subpanel4
           type: link
           state: info
           header: h5
         - title: Extra werkzaamheden (h5)
-          id: panel5
+          id: default-links_subpanel5
           type: link
           state: danger
           header: h5
       - title: Afmetingen van het bouwwerk (h5)
-        id: panel4
+        id: default-links_panel5
         type: link
         state: info
         header: h5
       - title: Extra werkzaamheden (h5)
-        id: panel5
+        id: default-links_panel6
         type: link
         state: danger
         header: h5
         status: 5 van 8 beantwoord
       - title: Optionele werkzaamheden (h5)
-        id: panel6
+        id: default-links_panel7
         type: link
         state: warning
         header: h5
@@ -206,17 +206,17 @@ variants:
         open: true
         status: 6 van 8 beantwoord
       - title: Bijgevoegde werkzaamheden (h5)
-        id: panel7
+        id: default-links_panel8
         type: link
         header: h5
         attachments: 2
       - title: Afsluitende werkzaamheden (h5)
-        id: panel8
+        id: default-links_panel9
         type: link
         header: h5
         status: 7 van 8 beantwoord
       - title: Evaluatie werkzaamheden (h5)
-        id: panel8
+        id: default-links_panel10
         type: link
         header: h5
         attachments: 1
@@ -229,16 +229,16 @@ variants:
       __title: default met formulier
       sections:
       - title: Stap met formulier zonder fieldset
-        id: panel1
+        id: default-formulier_panel1
         open: true
         fieldsets:
           - groups:
-              - id: omgevingsvergunningPostcode
+              - id: default_form1
                 inputType: input
                 type: text
                 label: Postcode
                 size: 8
-              - id: brandstof
+              - id: default_form2
                 label: Brandstof
                 inputType: radios
                 options:
@@ -246,7 +246,7 @@ variants:
                   label: benzine
                 - value: 2
                   label: diesel
-              - id: schrijfwaar
+              - id: default_form3
                 label: Schrijfwaar
                 inputType: radios
                 options:
@@ -254,25 +254,25 @@ variants:
                   label: pen
                 - value: 2
                   label: potlood
-              - id: omgevingsvergunningHuisnummer
+              - id: default_form4
                 inputType: input
                 type: text
                 label: Huisnummer
                 size: 8
-              - id: omgevingsvergunningToevoeging
+              - id: default_form5
                 inputType: input
                 type: text
                 label: Huisnummer toevoeging
                 size: 8
-              - id: omgevingsvergunningStraatnaam
+              - id: default_form6
                 inputType: input
                 type: text
                 label: Straatnaam
-              - id: omgevingsvergunningWoonplaats
+              - id: default_form7
                 inputType: input
                 type: text
                 label: Woonplaats
-              - id: type_melder
+              - id: default_form8
                 inputType: radios
                 label: Type melder
                 options:
@@ -285,32 +285,32 @@ variants:
           modifier: primary
           label: Volgende stap
       - title: Stap met formulier met meerdere fieldsets
-        id: panel6
+        id: default-formulier_panel2
         open: true
         header: h5
         fieldsets:
           - legend: Adresgegevens
             groups:
-              - id: omgevingsvergunningPostcode
+              - id: default_form-fieldsets1
                 inputType: input
                 type: text
                 label: Postcode
                 size: 8
-              - id: omgevingsvergunningHuisnummer
+              - id: default_form-fieldsets2
                 inputType: input
                 type: text
                 label: Huisnummer
                 size: 8
-              - id: omgevingsvergunningToevoeging
+              - id: default_form-fieldsets3
                 inputType: input
                 type: text
                 label: Huisnummer toevoeging
                 size: 8
-              - id: omgevingsvergunningStraatnaam
+              - id: default_form-fieldsets4
                 inputType: input
                 type: text
                 label: Straatnaam
-              - id: omgevingsvergunningWoonplaats
+              - id: default_form-fieldsets5
                 inputType: input
                 type: text
                 label: Woonplaats
@@ -336,7 +336,7 @@ variants:
       __title: default met definition-list
       sections:
       - title: Stap met definition-list
-        id: panel1
+        id: default-definition-list_panel1
         open: true
         definitions:
         - term: "Indienen bij:"
@@ -357,20 +357,20 @@ variants:
       modifiers: dso-accordion-compact
       sections:
         - title: Sectie titel (active)
-          id: panel1
+          id: default-compact_panel1
           header: h3
           richContent: |
             <p>Dit is de inhoud van <strong>Sectie titel (active)</strong></p>
             <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
           open: true
         - title: Sectie titel
-          id: panel2
+          id: default-compact_panel2
           header: h3
         - title: Sectie titel
-          id: panel3
+          id: default-compact_panel3
           header: h3
         - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, ipsum eu porttitor cursus, metus ante ultricies quam, quis egestas urna justo a quam.
-          id: panel4
+          id: default-compact_panel4
           header: h3
   - name: compact met links
     context:
@@ -378,7 +378,7 @@ variants:
       modifiers: dso-accordion-compact
       sections:
         - title: Sectie titel (active)
-          id: panel1
+          id: default-compact-links_panel1
           type: link
           header: h3
           richContent: |
@@ -386,14 +386,14 @@ variants:
             <p>Semantisch klopt deze pagina niet, maar om de styling voor de verschillende <code>.dso-accordion.handle</code>s te waarborgen staan alle varianten in het DOM (<code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>)</p>
           open: true
         - title: Sectie titel
-          id: panel2
+          id: default-compact-links_panel2
           type: link
           header: h3
         - title: Sectie titel
-          id: panel3
+          id: default-compact-links_panel3
           type: link
           header: h3
         - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula, ipsum eu porttitor cursus, metus ante ultricies quam, quis egestas urna justo a quam.
-          id: panel4
+          id: default-compact-links_panel4
           type: link
           header: h3
