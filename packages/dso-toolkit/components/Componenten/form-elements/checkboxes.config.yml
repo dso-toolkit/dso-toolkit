@@ -1,0 +1,166 @@
+notes: |
+  Een checkbox group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
+status: ready
+collated: true
+context:
+  __title: default
+  id: input-checkbox
+  label: Checkboxes - Default
+  options:
+  - value: 1
+    label: een
+  - value: 2
+    label: twee
+  - value: 3
+    label: drie
+variants:
+- name: input-checkbox-required
+  context:
+    __title: required
+    __explanation:
+    - Een verplichte keuze wordt in de markup aangegeven met <code>.dso-required</code>
+      op de <code>.form-group.dso-checkboxes</code>
+    - Checkboxes hebben (net zoals radio's) een <code>fieldset.form-group</code> als
+      root element, geen <code>div.form-group</code>
+    id: input-checkbox-required
+    label: Checkboxes - Required
+    required: true
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+- name: input-checkbox-invalid
+  context:
+    __title: invalid
+    __explanation: Indien een checkbox groep ongeldig is, dient er <code>.dso-invalid</code>
+      op de <code>.form-group.dso-checkboxes</code> geplaatst te worden
+    id: input-checkbox-invalid
+    label: Checkboxes - Invalid
+    required: true
+    state: invalid
+    errorText: Maak een keuze
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+- name: input-checkbox-valid
+  context:
+    __title: valid
+    __explanation: Een ongeldige checkbox-group welke geldig is gemaakt, dient de
+      <code>.dso-invalid</code> class vervangen te worden door <code>.dso-valid</code>
+    id: input-checkbox-valid
+    label: Checkboxes - Valid
+    required: true
+    helpText: Selecteer alle even getallen
+    state: valid
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+      checked: true
+    - value: 3
+      label: drie
+- name: input-checkbox-disabled
+  context:
+    __title: Disabled
+    __explanation: Alle <code>input[type="checkbox"]</code> moeten een <code>disabled</code> attribuut krijgen.
+    id: input-checkbox-disabled
+    label: Checkboxes - Disabled
+    required: true
+    options:
+    - value: 1
+      label: een
+      disabled: true
+      checked: true
+    - value: 2
+      label: twee
+      disabled: true
+    - value: 3
+      label: drie
+      disabled: true
+- name: input-checkbox-info-button
+  context:
+    __title: Infobutton
+    __explanation:
+    - Een checkbox fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
+    id: input-checkbox-info-button
+    required: true
+    options:
+    - value: 1
+      label: een
+      infoOpen: false
+      infoButtonLabel: Toelichting bij antwoord
+      infoText: |
+        Closed
+    - value: 2
+      label: twee
+      infoOpen: true
+      infoButtonLabel: Toelichting bij antwoord
+      infoText: |
+        <h4>Toelichting bij antwoord: "twee"</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+          Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+        </p>
+    - value: 3
+      label: drie
+    infoOpen: true
+    infoButtonLabel: Toelichting bij vraag
+    infoText: |
+      <h4>Toelichting bij vraag: "Maak een keuze"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    infoTextDeprecated: |
+      <h4>Toelichting bij vraag: "Maak een keuze" [DEPRECATED]</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+- name: input-checkbox-static-info
+  context:
+    __title: Vaste toelichting
+    __explanation:
+    - Een checkbox fieldset kan ook een vaste toelichting krijgen, naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
+    id: input-checkbox-static-info
+    required: true
+    options:
+    - value: 1
+      label: een
+      infoOpen: false
+      infoButtonLabel: Toelichting bij antwoord
+      infoText: |
+        Closed
+    - value: 2
+      label: twee
+      infoOpen: true
+      infoText: |
+        <h4>Toelichting bij antwoord: "twee"</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+          Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+        </p>
+      static: true
+    - value: 3
+      label: drie
+    infoOpen: true
+    infoText: |
+      <h4>Toelichting bij vraag: "Maak een keuze"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    static: true

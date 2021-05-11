@@ -3,7 +3,7 @@ collated: true
 context:
   __title: default
   id: search-bar
-  label: Group search bar - Default
+  label: Search bar - Default
   searchBar:
     id: search-bar
     type: text
@@ -86,7 +86,7 @@ variants:
     __explanation:
       - Indien een input ongeldig is, dient er een <code>.dso-invalid</code> class gezet te worden op de div met de class <code>.dso-input</code>.
     id: search-bar-error
-    label: Group search bar - Invalid
+    label: Search bar - Invalid
     state: invalid
     errorText: Vul dit veld in.
     searchBar:

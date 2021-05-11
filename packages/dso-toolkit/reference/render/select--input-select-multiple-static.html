@@ -1,11 +1,11 @@
-<div class="form-group dso-filter">
+<div class="form-group dso-select dso-required">
   <div class="dso-label-container">
-    <label for="search-bar-infobutton-static" class="control-label">
-      Search bar - Default
+    <label for="input-select-multiple-static" class="control-label">
+      Select - Default
     </label>
     <div class="dso-info">
       <div class="dso-rich-content">
-        <h4>Toelichting bij vraag: "Activiteit"</h4>
+        <h4>Toelichting bij vraag: "Kies uw beleg"</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
           Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
@@ -15,17 +15,17 @@
     </div>
   </div>
   <div class="dso-field-container">
-    <div class="dso-search-bar">
-      <div class="dso-search-bar-input">
-        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" id="search-bar-infobutton-static" placeholder="Bv. boomkap" />
-        <button type="button">
-          Zoekopdracht legen
-        </button>
-      </div>
-      <button type="button" class="btn btn-default sr-only">
-        Button
-      </button>
-    </div>
+    <select id="input-select-multiple-static" class="form-control" required>
+      <optgroup label="Vlees">
+        <option value="worst">Worst</option>
+        <option value="salami">Salami</option>
+        <option value="geit">Geit</option>
+      </optgroup>
+      <optgroup label="Vis">
+        <option value="zalm">Zalm</option>
+        <option value="makreel">Makreel</option>
+      </optgroup>
+    </select>
   </div>
   <div class="dso-info">
     <button type="button">

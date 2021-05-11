@@ -4,7 +4,7 @@
     <legend {{ className([fieldset.legendScreenreaderOnly, 'sr-only']) }}>{{ fieldset.legend | safe }}</legend>
   {% endif %}
   {% for group in fieldset.groups %}
-    {% render '@group-' + group.inputType, merge(group, {prefix: prefix}) %}
+    {% render '@' + group.inputType, merge(group, {prefix: prefix}) %}
   {% endfor %}
   {% if fieldset.legend.length > 0 %}
     </fieldset>
