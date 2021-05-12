@@ -1,112 +1,99 @@
+notes: |
+  'Attribuut `@rows` is optioneel'
+label: Textarea
 status: ready
 collated: true
 context:
   __title: default
-  id: input-select
-  label: Select - Default
-  options:
-  - optionType: Vlees
-    items:
-    - value: worst
-      label: Worst
-    - value: salami
-      label: Salami
-    - value: geit
-      label: Geit
-  - optionType: Vis
-    items:
-    - value: zalm
-      label: Zalm
-    - value: makreel
-      label: Makreel
+  id: input-textarea
+  label: Textarea - Default
 variants:
-- name: input-select-multiple
-  context:
-    __title: multiple
-    __explanation:
-    - Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code> class gezet te worden op de div met de class <code>.dso-select</code>.
-    id: input-select-multiple
-    label: Select - Multiple
-    multiple: true
-    helpText: Maak een keuze tussen vlees of vis
-- name: input-select-invalid
+- name: input-textarea-invalid
   context:
     __title: invalid
     __explanation:
-    - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
-      gezet te worden op de div met de class <code>.dso-select</code>.
-    id: input-select-invalid
-    label: Select - Invalid
+    - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
+      gezet te worden op de div met de class <code>.dso-textarea</code>.
+    id: input-textarea-invalid
+    label: Textarea - Invalid
     required: true
-    helpText: Maak een keuze tussen vlees of vis
+    helpText: Vul een geldige tekst in
     state: invalid
-    errorText: Maak een keuze.
-- name: input-select-valid
+    errorText: Vul dit veld in.
+- name: input-textarea-valid
   context:
     __title: valid
     __explanation:
-    - Indien een select ongeldig was en valide wordt gemaakt, dient de
-      <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
-    id: input-select-valid
-    label: Select - Valid
+    - Indien een textarea ongeldig was en valide wordt gemaakt, dient
+      de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
+    id: input-textarea-valid
+    label: Textarea - Valid
     required: true
     state: valid
-    helpText: Maak een keuze tussen vlees of vis
-- name: input-select-disabled
+    helpText: Minimaal 6 tekens waarvan 1 leesteken
+    value: Ik heb wat ingevuld
+- name: input-textarea-rows6
+  context:
+    __title: een textarea met 6 rijen
+    __explanation: Een textarea zonder <code>rows</code> attribuut krijgt een standaard hoogte. De implementator kan met <code>rows</code> de hoogte van de textarea sturen
+    id: input-textarea-rows6
+    rows: 6
+- name: input-textarea-placeholder
+  context:
+    __title: placeholder
+    id: input-textarea-placeholder
+    placeholder: Bijvoorbeeld; vragen over de toolkit
+    required: true
+- name: input-textarea-disabled
   context:
     __title: disabled
-    id: input-select-disabled
-    label: Select - Disabled
+    id: input-textarea-disabled
+    label: Textarea - Disabled
     required: true
     disabled: true
-- name: input-select-infobutton-open
+- name: input-textarea-readonly
+  context:
+    __title: readonly
+    id: input-textarea-readonly
+    label: Textarea - Readonly
+    required: true
+    readonly: true
+- name: input-textarea-infobutton-open
   context:
     __title: infobutton uitgeklapt
     __explanation:
     - Toelichting uitgeklapt
-    id: input-select-multiple-open
+    id: input-textarea-infobutton-open
     required: true
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag
     infoText: |
-      <h4>Toelichting bij vraag: "Kies uw beleg"</h4>
+      <h4>Toelichting bij vraag: "Wilt u nog wat kwijt?"</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
     infoTextDeprecated: |
-      <h4>Toelichting bij vraag: "Kies uw beleg" [DEPRECATED]</h4>
+      <h4>Toelichting bij vraag: "Wilt u nog wat kwijt?" [DEPRECATED]</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
-- name: input-select-multiple-static
+- name: input-textarea-infobutton-static
   context:
-    __title: Vaste toelichting
+    __title: vaste toelichting
     __explanation:
     - Vaste toelichting
-    id: input-select-multiple-static
+    id: input-textarea-infobutton-static
     required: true
     infoOpen: true
     infoText: |
-      <h4>Toelichting bij vraag: "Kies uw beleg"</h4>
+      <h4>Toelichting bij vraag: "Wilt u nog wat kwijt?"</h4>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
     static: true
-- name: input-select-items-only
-  context:
-    __title: zonder `optgroup`.
-    id: input-select-items-only
-    label: Select - no opt-group
-    options:
-      - value: be
-        label: België
-      - value: nl
-        label: Nederland
-      - value: lux
-        label: Luxemburg

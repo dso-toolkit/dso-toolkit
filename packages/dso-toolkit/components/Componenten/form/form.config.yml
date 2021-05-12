@@ -148,7 +148,7 @@ context:
   - legend: Filter op type
     groups:
     - id: filter_type
-      inputType: group-search-bar
+      inputType: search-bar
       label: Type
       searchBar:
         placeholder: Bv. GTI
@@ -185,7 +185,7 @@ context:
         label: drie
         id: checkbox_3
     - id: input-number-voorbeeld
-      inputType: group-input-number
+      inputType: input-number
       label: Aantal
       count: 0
   - legend: Vraag

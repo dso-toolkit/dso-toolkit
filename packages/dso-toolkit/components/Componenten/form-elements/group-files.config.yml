@@ -6,6 +6,7 @@ notes: |
   Zie de comments in de HTML. Het gebruik van een `input[type="file"]` is semantisch correcter en voorkomt mogelijke _clickjacking_ warnings in Firefox. Het afhandelen van de upload kan aan `onchange` worden gehangen.
 
   https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+label: Files
 collated: true
 context:
   __title: default
