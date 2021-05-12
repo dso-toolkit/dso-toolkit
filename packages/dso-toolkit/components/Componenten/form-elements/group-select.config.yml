@@ -1,9 +1,10 @@
+label: Select
 status: ready
 collated: true
 context:
   __title: default
   id: input-select
-  label: Group select - Default
+  label: Select - Default
   options:
   - optionType: Vlees
     items:
@@ -26,7 +27,7 @@ variants:
     __explanation:
     - Indien een multiple select gewenst is, dient er een <code>.dso-multiple</code> class gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-multiple
-    label: Group select - Multiple
+    label: Select - Multiple
     multiple: true
     helpText: Maak een keuze tussen vlees of vis
 - name: input-select-invalid
@@ -36,7 +37,7 @@ variants:
     - Indien een select ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-select</code>.
     id: input-select-invalid
-    label: Group select - Invalid
+    label: Select - Invalid
     required: true
     helpText: Maak een keuze tussen vlees of vis
     state: invalid
@@ -48,7 +49,7 @@ variants:
     - Indien een select ongeldig was en valide wordt gemaakt, dient de
       <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-select-valid
-    label: Group select - Valid
+    label: Select - Valid
     required: true
     state: valid
     helpText: Maak een keuze tussen vlees of vis
@@ -56,7 +57,7 @@ variants:
   context:
     __title: disabled
     id: input-select-disabled
-    label: Group select - Disabled
+    label: Select - Disabled
     required: true
     disabled: true
 - name: input-select-infobutton-open
@@ -102,7 +103,7 @@ variants:
   context:
     __title: zonder `optgroup`.
     id: input-select-items-only
-    label: Group select - no opt-group
+    label: Select - no opt-group
     options:
       - value: be
         label: België

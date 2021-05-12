@@ -1,11 +1,12 @@
 notes: |
   Een radio group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
+label: Radios
 status: ready
 collated: true
 context:
   __title: default
   id: input-radio
-  label: Group radios - Default
+  label: Radios - Default
   helpText: de meeste mensen kiezen benzine maar vanaf 50000 km per jaar is diesel goedkoper
   options:
   - value: 1
@@ -23,7 +24,7 @@ variants:
     - Radiobuttons hebben (net zoals checkboxen) een <code>fieldset.form-group</code> als
       root element, geen <code>div.form-group</code>
     id: input-radio-required
-    label: Group radios - Required
+    label: Radios - Required
     required: true
 - name: input-radio-invalid
   context:
@@ -32,7 +33,7 @@ variants:
     - Indien een radio groep ongeldig is, dient er een <code>.dso-invalid</code>
       class gezet te worden op de div met de class <code>.dso-radios</code>.
     id: input-radio-invalid
-    label: Group radios - Invalid
+    label: Radios - Invalid
     required: true
     state: invalid
     errorText: Maak een keuze.
@@ -47,7 +48,7 @@ variants:
     __explanation:
     - Indien een radio groep ongeldig was en valide wordt gemaakt, dient de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-radio-valid
-    label: Group radios - Valid
+    label: Radios - Valid
     required: true
     state: valid
     options:
@@ -60,7 +61,7 @@ variants:
   context:
     __title: disabled
     id: input-radio-disabled
-    label: Group radios - Disabled
+    label: Radios - Disabled
     required: true
     state: valid
     options:
@@ -77,7 +78,7 @@ variants:
     __explanation:
     - Een keuze selectie tussen <code>ja</code> en <code>nee</code> vraagt om een inline variant. Dit is te bereiken door <code>.dso-inline</code> op <code>.dso-radios</code> te zetten.
     id: input-radio-inline
-    label: Group radios - Inline - Invalid
+    label: Radios - Inline - Invalid
     helpText: ""
     required: true
     inline: true
@@ -94,7 +95,7 @@ variants:
     __explanation:
     - Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-radio-inline-info
-    label: Group radios - Inline
+    label: Radios - Inline
     required: true
     helpText: Antwoord hier met "Ja" of "Nee"
     options:
@@ -138,7 +139,7 @@ variants:
     __explanation:
     - Een radio fieldset kan ook een vaste toelichting krijgen, naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-radio-static-info
-    label: Group radios - Inline
+    label: Radios - Inline
     required: true
     helpText: Antwoord hier met "Ja" of "Nee"
     options:

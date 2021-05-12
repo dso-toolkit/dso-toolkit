@@ -6,47 +6,48 @@ notes: |
   Zie de comments in de HTML. Het gebruik van een `input[type="file"]` is semantisch correcter en voorkomt mogelijke _clickjacking_ warnings in Firefox. Het afhandelen van de upload kan aan `onchange` worden gehangen.
 
   https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+label: Files
 collated: true
 context:
   __title: default
-  id: group-file-default
-  label: Group files - Default
+  id: input-file-default
+  label: Files - Default
 variants:
-- name: group-file-required
+- name: input-file-required
   context:
     __title: required
-    id: group-file-required
-    label: Group files - Required
+    id: input-file-required
+    label: Files - Required
     required: true
-- name: group-file-invalid
+- name: input-file-invalid
   context:
     __title: invalid
-    id: group-file-invalid
-    label: Group files - Invalid
+    id: input-file-invalid
+    label: Files - Invalid
     required: true
     state: invalid
     errorText: Voeg een document toe.
-- name: group-file-valid
+- name: input-file-valid
   context:
     __title: valid
-    id: group-file-valid
-    label: Group files - Valid
+    id: input-file-valid
+    label: Files - Valid
     required: true
     state: valid
     files:
     - filename: Bestandsnaam.pdf
-- name: group-file-disabled
+- name: input-file-disabled
   context:
     __title: disabled
-    id: group-file-disabled
-    label: Group files - Disabled
+    id: input-file-disabled
+    label: Files - Disabled
     required: true
     disabled: true
-- name: group-file-explanation
+- name: input-file-explanation
   context:
     __title: explanation
-    id: group-file-explanation
-    label: Group files - Explanation
+    id: input-file-explanation
+    label: Files - Explanation
     required: true
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag
@@ -56,20 +57,20 @@ variants:
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
-- name: group-file-confidential
+- name: input-file-confidential
   context:
     __title: confidential
-    id: group-file-confidential
-    label: Group files - Confidential
+    id: input-file-confidential
+    label: Files - Confidential
     required: true
     files:
     - filename: Bestandsnaam.pdf
     - filename: Bestandsnaam.pdf
       confidential: true
-- name: group-file-description
+- name: input-file-description
   context:
     __title: Description (deprecated)
-    id: group-file-description
-    label: Group files - Description (Deprecated)
+    id: input-file-description
+    label: Files - Description (Deprecated)
     required: true
     description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est. Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius. Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.

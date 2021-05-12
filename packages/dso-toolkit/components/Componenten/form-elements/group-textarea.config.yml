@@ -1,11 +1,12 @@
 notes: |
   'Attribuut `@rows` is optioneel'
+label: Textarea
 status: ready
 collated: true
 context:
   __title: default
   id: input-textarea
-  label: Group textarea - Default
+  label: Textarea - Default
 variants:
 - name: input-textarea-invalid
   context:
@@ -14,7 +15,7 @@ variants:
     - Indien een textarea ongeldig is, dient er een <code>.dso-invalid</code> class
       gezet te worden op de div met de class <code>.dso-textarea</code>.
     id: input-textarea-invalid
-    label: Group textarea - Invalid
+    label: Textarea - Invalid
     required: true
     helpText: Vul een geldige tekst in
     state: invalid
@@ -26,7 +27,7 @@ variants:
     - Indien een textarea ongeldig was en valide wordt gemaakt, dient
       de <code>.dso-invalid</code> class vervangen te worden door de class <code>.dso-valid</code>.
     id: input-textarea-valid
-    label: Group textarea - Valid
+    label: Textarea - Valid
     required: true
     state: valid
     helpText: Minimaal 6 tekens waarvan 1 leesteken
@@ -47,14 +48,14 @@ variants:
   context:
     __title: disabled
     id: input-textarea-disabled
-    label: Group textarea - Disabled
+    label: Textarea - Disabled
     required: true
     disabled: true
 - name: input-textarea-readonly
   context:
     __title: readonly
     id: input-textarea-readonly
-    label: Group textarea - Readonly
+    label: Textarea - Readonly
     required: true
     readonly: true
 - name: input-textarea-infobutton-open
