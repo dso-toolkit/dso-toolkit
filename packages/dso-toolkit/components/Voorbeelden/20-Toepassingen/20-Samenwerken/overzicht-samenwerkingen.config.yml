@@ -2,14 +2,16 @@ notes: |
 order: 20
 status: ready
 context:
-  menu: 
+  menu:
     modifier: main
-    items: 
+    items:
       - label: Samenwerkingen
         active: true
       - label: Acties overzicht
       - label: Notificatie overzicht
-  title: Overzicht samenwerkingen
+  appheading:
+    title: Samenwerken aan behandelen
+    subtitle: Overzicht samenwerkingen
   sections:
   - title: Woning
     id: panel1

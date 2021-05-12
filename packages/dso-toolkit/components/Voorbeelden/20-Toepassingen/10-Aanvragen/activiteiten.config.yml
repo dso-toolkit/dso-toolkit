@@ -2,8 +2,9 @@ notes: |
 order: 40
 status: ready
 context:
-  steps:
-    title: 3. Kies activiteiten
+  appheading:
+    title: Aanvraag Laan van Eik en Duinen 125, Den Haag
+    subtitle: 3. Activiteiten
     step: Stap 3/7
   alert:
     status: info
@@ -27,7 +28,7 @@ context:
   - legend: |
       <h4>Filters</h4>
     groups:
-    - id: facets 
+    - id: facets
       inputType: checkboxes
       label: Bestuurslaag
       options:

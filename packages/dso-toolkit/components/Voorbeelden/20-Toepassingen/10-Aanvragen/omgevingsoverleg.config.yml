@@ -2,18 +2,10 @@ notes: |
 order: 80
 status: ready
 context:
-  menu:
-    modifier: main
-    items:
-      - label: Home
-      - label: Vergunningcheck
-      - label: Aanvragen
-        active: true
-      - label: Regels op de kaart
-      - label: Mijn Omgevingsloket
-  steps:
-    title: 7. Verzoeken indienen
-    step: Stap 7 van 7
+  appheading:
+    title: Aanvraag Laan van Eik en Duinen 125, Den Haag
+    subtitle: 7. Verzoeken indienen
+    step: Stap 7/7
   form:
     formModifier: form-vertical
     fieldsets:

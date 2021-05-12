@@ -1,8 +1,6 @@
-{% render '@header', {menu: menu, breadcrumbs: []} %}
 <main>
   <form>
-    <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-    {% render '@form-steps', steps %}
+    {% render '@application-heading', appheading %}
     {% render '@accordion', accordion %}
     <dso-highlight-box>
       <div class="dso-rich-content">
@@ -13,5 +11,3 @@
     {% render '@form', form %}
   </form>
 </main>
-
-{% render '@footer' %}

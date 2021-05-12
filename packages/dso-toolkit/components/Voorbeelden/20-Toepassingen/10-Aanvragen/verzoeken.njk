@@ -1,8 +1,6 @@
-{% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
 <main>
   <form class="form-horizontal">
-    <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-    {% render '@form-steps', steps %}
+    {% render '@application-heading', appheading %}
     {% for alert in alerts %}
       <dso-alert status="{{ alert.status }}">
         {{ alert.message | safe }}
@@ -22,5 +20,3 @@
     </div>
   </form>
 </main>
-
-{% render '@footer' %}

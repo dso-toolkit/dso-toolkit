@@ -1,12 +1,7 @@
-{% render '@header', {menu: menu, breadcrumbs: []} %}
-
 <main>
   <form>
-    <h1>Object Laan van Eik en Duinen 125, Den Haag</h1>
-    {% render '@form-steps', {title: steps.title, step: steps.step} %}
+    {% render '@application-heading', {title: appheading.title, subtitle: appheading.subtitle, step: appheading.step} %}
     <h3>Milieubelastende activiteit - Vergunning (Gemeente)</h3>
     {% render '@accordion', accordion %}
   </form>
 </main>
-
-{% render '@footer' %}
