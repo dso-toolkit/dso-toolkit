@@ -2,8 +2,10 @@ $dso-search-bar-height: $u5;
 
 .dso-search-bar {
   display: flex;
+  margin-bottom: 16px;
 
   .form-group & {
+    margin-bottom: 0;
     width: 50%;
   }
 
