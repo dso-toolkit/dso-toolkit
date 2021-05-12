@@ -3,7 +3,7 @@ context:
   __title: default
   title: H1 Paginatitel
 variants:
-  - name: with-substitel
+  - name: with-subtitle
     context:
       __title: Met subtitel
       subtitle: H2 Subtitel
@@ -17,7 +17,7 @@ variants:
       __title: Alleen subtitel
       title:
       subtitle: H2 Subtitel
-  - name: just-substitle-and-steps
+  - name: just-subtitle-and-steps
     context:
       __title: Alleen subtitel en stappen
       title:

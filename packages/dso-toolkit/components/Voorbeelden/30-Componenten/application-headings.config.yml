@@ -4,7 +4,7 @@ context:
   __title: default
   title: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
 variants:
-  - name: with-substitel
+  - name: with-subtitel
     context:
       __title: Met subtitel
       subtitle: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
@@ -13,12 +13,12 @@ variants:
       __title: Met subtitel en stappen
       subtitle: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
       step: Stap x van x
-  - name: only-substitel
+  - name: just-subtitel
     context:
       __title: Alleen subtitel
       title:
       subtitle: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-  - name: only-substitel-steps
+  - name: just-subtitel-and-steps
     context:
       __title: Alleen subtitel en stappen
       title:
