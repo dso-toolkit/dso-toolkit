@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit:** Verticale (onder)marge van form-groups ([#1091](https://github.com/dso-toolkit/dso-toolkit/issues/1091))
+* **dso-toolkit:** Group componenten hoeven niet zo genoemd te worden ([#1128](https://github.com/dso-toolkit/dso-toolkit/issues/1128))
 
 ## 23.0.0
 
