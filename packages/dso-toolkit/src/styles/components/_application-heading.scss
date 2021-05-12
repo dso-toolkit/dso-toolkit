@@ -5,13 +5,14 @@ $step-padding: 12px;
   margin-bottom: $u2;
 }
 
-.dso-steps-indicator {
-  @extend %is-h2;
+h2 {
+  margin-top: $u2;
+}
 
+.dso-steps-indicator {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: $u2;
 
   span.dso-step {
     color: $grasgroen;

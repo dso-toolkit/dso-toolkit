@@ -3,7 +3,7 @@
     <h1>{{ title }}</h1>
   {% endif %}
   {% if subtitle %}
-    <h2 class="dso-steps-indicator">
+    <h2 {{ className([step, 'dso-steps-indicator']) }}>
       {{ subtitle }}
       {% if step %}
         <span class="dso-step">
