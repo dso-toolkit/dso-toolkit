@@ -6,7 +6,7 @@ context:
       - label: Regels op de kaart
       - label: Zoeken in wetgeving
         active: true
-  steps:
+  appheading:
     subtitle: Wetgeving Gemeente Den Haag
   breadcrumbs:
     crumbs:

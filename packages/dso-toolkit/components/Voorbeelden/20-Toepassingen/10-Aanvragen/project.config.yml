@@ -11,7 +11,7 @@ context:
         active: true
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
-  steps:
+  appheading:
     title: Aanvragen
     subtitle: 1. Project
     step: Stap 1/7

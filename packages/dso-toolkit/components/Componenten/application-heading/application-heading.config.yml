@@ -7,17 +7,17 @@ variants:
     context:
       __title: Met subtitel
       subtitle: H2 Subtitel
-  - name: with-subtitel-and-steps
+  - name: with-subtitle-and-steps
     context:
       __title: Met subtitel en stappen
       subtitle: H2 Subtitel
       step: Stap x van x
-  - name: only-substitel
+  - name: just-subtitle
     context:
       __title: Alleen subtitel
       title:
       subtitle: H2 Subtitel
-  - name: only-substitel-steps
+  - name: just-substitle-and-steps
     context:
       __title: Alleen subtitel en stappen
       title:

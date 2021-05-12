@@ -2,7 +2,7 @@ notes: |
 order: 50
 status: ready
 context:
-  steps:
+  appheading:
     title: Aanvraag Laan van Eik en Duinen 125, Den Haag
     subtitle: 4. Vragen
     step: Stap 4/7

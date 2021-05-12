@@ -1,7 +1,7 @@
 notes: |
 status: ready
 context:
-  steps:
+  appheading:
     title: Vergunningcheck
     subtitle: 4. Resultaat
     step: Stap 4/4

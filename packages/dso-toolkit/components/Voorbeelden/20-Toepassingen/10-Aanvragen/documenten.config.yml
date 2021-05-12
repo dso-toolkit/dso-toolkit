@@ -1,7 +1,7 @@
 status: ready
 order: 60
 context:
-  steps:
+  appheading:
     title: Aanvraag Laan van Eik en Duinen 125, Den Haag
     subtitle: 5. Documenten
     step: Stap 5/7

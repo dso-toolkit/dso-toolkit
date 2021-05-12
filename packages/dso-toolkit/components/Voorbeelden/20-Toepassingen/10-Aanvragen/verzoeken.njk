@@ -1,6 +1,6 @@
 <main>
   <form class="form-horizontal">
-    {% render '@application-heading', steps %}
+    {% render '@application-heading', appheading %}
     {% for alert in alerts %}
       <dso-alert status="{{ alert.status }}">
         {{ alert.message | safe }}

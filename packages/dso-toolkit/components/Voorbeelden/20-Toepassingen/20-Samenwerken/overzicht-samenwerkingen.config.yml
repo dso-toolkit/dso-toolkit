@@ -9,7 +9,7 @@ context:
         active: true
       - label: Acties overzicht
       - label: Notificatie overzicht
-  steps:
+  appheading:
     title: Samenwerken aan behandelen
     subtitle: Overzicht samenwerkingen
   sections:
