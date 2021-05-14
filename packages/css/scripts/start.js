@@ -8,7 +8,7 @@ concurrently(
     {
       name: 'sass',
       command: 'yarn bin:sass --watch src/dso.scss dist/dso.css',
-      prefixColor: 'bgWhite'
+      prefixColor: 'bgBlue'
     },
     {
       name: 'gulp',

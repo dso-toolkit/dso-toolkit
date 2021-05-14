@@ -5,7 +5,7 @@ concurrently(
     {
       name: 'stencil',
       command: 'yarn workspace @dso-toolkit/core stencil build --watch --serve --no-open',
-      prefixColor: 'bgWhite'
+      prefixColor: 'bgCyan'
     },
     {
       name: 'fractal',

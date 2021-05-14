@@ -2,19 +2,22 @@
   "name": "@dso-toolkit/stories",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
+  "main": "dist/stories.js",
   "source": "src/index.ts",
   "module": "dist/stories.module.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "start": "microbundle watch",
-    "build": "rimraf dist && microbundle"
+    "start": "yarn node scripts/start.js",
+    "build": "rimraf dist && microbundle",
+    "bin:rimraf": "rimraf",
+    "bin:microbundle": "microbundle"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
-    "@storybook/client-api": "^6.2.9",
+    "@storybook/client-api": "6.2.9",
+    "concurrently": "^6.0.2",
     "microbundle": "^0.13.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

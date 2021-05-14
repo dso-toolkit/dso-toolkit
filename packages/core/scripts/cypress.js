@@ -5,7 +5,7 @@ concurrently(
     {
       name: 'stencil',
       command: 'yarn bin:stencil build --watch',
-      prefixColor: 'bgWhite'
+      prefixColor: 'bgCyan'
     },
     {
       name: 'storybook',
