@@ -1,24 +1,22 @@
 # @dso-toolkit/styling
 
+Dit project bevat een SCSS implementatie van het DSO Design System en wordt als basis gebruikt voor `@dso-toolkit/css` voor het compilen van een CSS implementatie en `@dso-toolkit/core` voor Web Components.
+
+De Public API is nog onder voorbehoud.
+
+Om dit project te gebruiken moet de consument twee mixins voor het gebruik van iconen definieren:
+* `@mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align)`
+* `@mixin di-variant($icon)`
+
+Voor inspiratie:
+* `packages/core/src/icon/di.scss`
+* `packages/css/src/mixins/di.scss`
+
 ⚠️ **WIP** - Do not use this project, see [issue #827](https://github.com/dso-toolkit/dso-toolkit/issues/827). ⚠️
-
-Dit project bevat een SCSS implementatie van het DSO Design System.
-
-Er zijn twee deliverables:
-* Een CSS implementatie waar de consument de bijbehorende markup voor moet genereren.
-* Losse component stylesheets. Deze worden voor de Web Components in `@dso-toolkit/core` gebruikt.
-
-## Public API
-
-* `dist/dso-icons.svg`
-* `dist/dso.css`
-* `dso.scss`
 
 ## Iconen
 
-Iconen staat in `icons/`. De iconen worden gebundeld tot een spritesheet. Naast de losse iconen kan een SCSS stylesheet staan.
-
-Component stylesheets mogen **geen verwijzing naar een `di()` implementatie bevatten**. Zie het kopje "`di()` en `di-variant()`" voor meer informatie.
+Iconen staat in `icons/`.
 
 ### Stylesheet
 
@@ -40,13 +38,13 @@ De spritesheet bevat alle iconen met hun gestylde varianten die in `icons/` staa
 
 ### `di()` en `di-variant()`
 
-Deze mixins vallen niet onder de Public API van de DSO Toolkit en mogen alleen door DSO Toolkit maintainers worden ingezet. Deze mixins hebben niets te maken met het DSO Icon component! Zowel het CSS `svg.di` Component als het `<dso-icon>` Web Component.
+Deze mixins vallen niet onder de Public API van de DSO Toolkit en mogen alleen door DSO Toolkit maintainers worden ingezet. Deze mixins hebben niets te maken met het DSO Icon component. Zowel het CSS `svg.di` Component als het `<dso-icon>` Web Component.
 
 Deze mixins geven de toolkit maintainer de mogelijkheid om iconen in componenten te plaatsen waar een implementator geen invloed op heeft. Bijvoorbeeld bij het Alert component. De juiste iconen staan er al voor de juiste varianten. Dit geeft een uniforme inzet van de iconen over de verschillende applicaties. Daarnaast kan het gebruik van deze iconen centraal worden beheerd. Bij een nieuw icoon in een bestaand component hoeven consumenten van de toolkit alleen maar een update van de toolkit te doen in plaats van code te modificeren.
 
 Binnen de toolkit bestaan twee implementaties:
 
-* Een `background-image` implementatie voor de CSS deliverable.
+* Een `background-image` implementatie voor de CSS implementatie in `@dso-toolkit/css`.
 * Een `dataUri` implementatie in `@dso-toolkit/core` voor de Web Components.
 
 Een component stylesheet mag geen verwijzing hebben naar een implementatie. Waar een component stylesheet wordt geimporteerd moet bepaald worden welke implementatie er geldt:

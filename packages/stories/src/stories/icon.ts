@@ -1,11 +1,11 @@
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
 export function iconStories({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoryParameters) {
+}: StoriesParameters) {
   const stories = storiesOf('Icon', mainModule)
     .addParameters({
       docs: {

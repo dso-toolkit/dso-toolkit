@@ -1,11 +1,11 @@
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
 export function progressBarStories({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoryParameters) {
+}: StoriesParameters) {
   const stories = storiesOf('Progress Bar', mainModule)
     .addParameters({
       docs: {

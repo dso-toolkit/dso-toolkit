@@ -1,13 +1,13 @@
 import { v1 as uuidv4 } from 'uuid';
 
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
 export function datePickerStories({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoryParameters) {
+}: StoriesParameters) {
   const stories = storiesOf('Date Picker', mainModule)
     .addParameters({
       docs: {

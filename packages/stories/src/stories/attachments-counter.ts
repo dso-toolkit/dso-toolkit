@@ -1,11 +1,11 @@
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
 export function attachmentsCounterStories({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoryParameters) {
+}: StoriesParameters) {
   const stories = storiesOf('Attachments Counter', mainModule)
     .addParameters({
       docs: {

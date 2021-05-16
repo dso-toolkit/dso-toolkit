@@ -1,6 +1,6 @@
 import { ClientApi } from '@storybook/client-api';
 
-export interface StoryParameters {
+export interface StoriesParameters {
   module: NodeModule;
   storiesOf: any;
   readme: string;

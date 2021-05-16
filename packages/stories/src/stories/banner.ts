@@ -1,6 +1,6 @@
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
-interface BannerStoriesParameters extends StoryParameters {
+interface BannerStoriesParameters extends StoriesParameters {
   warningRichContent: any;
   richWarningRichContent: any;
   dangerRichContent: any;

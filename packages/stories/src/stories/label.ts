@@ -1,13 +1,13 @@
 import { action } from '@storybook/addon-actions';
 
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
 export function labelStories({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoryParameters) {
+}: StoriesParameters) {
   const stories = storiesOf('Label', mainModule)
     .addParameters({
       docs: {

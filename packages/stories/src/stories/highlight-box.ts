@@ -1,6 +1,6 @@
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
-export interface HighlightBoxStoriesParameters extends StoryParameters {
+export interface HighlightBoxStoriesParameters extends StoriesParameters {
   richContent: any;
 }
 

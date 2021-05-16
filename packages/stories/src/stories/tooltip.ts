@@ -1,10 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { StoryParameters } from '../story-parameters';
+import { StoriesParameters } from '../story-parameters';
 
 export const tooltipPositions = ['top', 'right', 'bottom', 'left'] as const;
 
-export interface TooltipStoryParameters extends Omit<StoryParameters, 'template'> {
+export interface TooltipStoriesParameters extends Omit<StoriesParameters, 'template'> {
   asChildTemplate: any;
   asSiblingTemplate: any;
 }
@@ -21,7 +21,7 @@ export function tooltipStories({
   readme,
   asChildTemplate,
   asSiblingTemplate
-}: TooltipStoryParameters) {
+}: TooltipStoriesParameters) {
   const stories = storiesOf('Tooltip', mainModule)
     .addParameters({
       docs: {
