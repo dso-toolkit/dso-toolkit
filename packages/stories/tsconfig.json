@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "experimentalDecorators": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "moduleResolution": "node",
+    "paths": {
+      "@core": ["./src/core"],
+      "@core/*": ["./src/core/*"]
+    }
+  },
+  "include": [
+    "node_modules/microbundle/index.d.ts",
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

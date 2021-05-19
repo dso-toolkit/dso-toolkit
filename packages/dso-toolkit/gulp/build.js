@@ -96,7 +96,7 @@ function copyAssets() {
     .pipe(f)
     .pipe(svgmin())
     .pipe(f.restore)
-    .pipe(gulp.src(path.resolve(path.dirname(require.resolve('@dso-toolkit/styling')), 'dist', 'dso-icons.svg')))
+    .pipe(gulp.src(path.resolve(path.dirname(require.resolve('@dso-toolkit/css')), 'dso-icons.svg')))
     .pipe(gulp.dest('dist/toolkit'));
 }
 

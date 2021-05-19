@@ -61,7 +61,7 @@ For Web Components:
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
 
 ### Develop or mockups
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 14 and Yarn 2. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 14 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Either install Yarn with
 
@@ -86,7 +86,7 @@ yarn install
 DSO Toolkit development can be done in 3 environments:
 
 #### `fractal`
-The classic environment with Fractal and Stencil. Can only be started from the root of the repository, because it needs two packages (`@dso-toolkit/core` and `dso-toolkit`) running:
+The classic environment with Fractal and Stencil. Because this environment needs two packages (`@dso-toolkit/core` and `dso-toolkit`) running, this command only be started from the root of the repository, :
 
 ```
 yarn fractal
@@ -95,13 +95,35 @@ yarn fractal
 Fractal is started at http://localhost:43000/, Stencil is running on http://localhost:53333. See the [Fractal guide](https://fractal.build/) for more information on Fractal.
 
 #### `development`
-This environment is used to develop new Web Components. Together with Storybook, Stencil is started in dev mode
+This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/stories` (`/packages/stories`). All the implementations have a devDependency on `@dso-toolkit/stories`.
+
+The easiest way to start this environment is with one of the following commands:
+
+```
+yarn start:core
+yarn start:css
+yarn start:all
+```
+
+This will start `@dso-toolkit/stories` in watch mode and run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
+
+The following processes are started:
+* **core**: `@dso-toolkit/stories` in watch mode, Stencil in development mode for Web Components, and Storybook
+* **css**: `@dso-toolkit/stories` in watch mode, Gulp in watch mode for the SVG spritesheet, dart-sass in watch mode for CSS compilation, and Storybook
+
+Alternatively, you can start a specific implementation with:
 
 ```
 yarn workspace @dso-toolkit/core start
+yarn workspace @dso-toolkit/css start
 ```
 
-Two webservers are started: Stencil's http://localhost:53333 and Storybook is running on http://localhost:56106. You only need to open Storybook, the Stencil process is used for Hot Module Reloading (HMR).
+but then you need to make sure that `@dso-toolkit/stories` is running in watch mode or already built:
+
+```
+yarn workspace @dso-toolkit/stories start
+yarn workspace @dso-toolkit/stories build
+```
 
 #### `cypress`
 To write tests the following processes are started:
@@ -144,4 +166,5 @@ Ports used during development:
 * 43000 - Fractal
 * 53100 - React test app
 * 53333 - Stencil
-* 56106 - Storybook
+* 56106 - Storybook for Web Components
+* 56206 - Storybook for CSS components

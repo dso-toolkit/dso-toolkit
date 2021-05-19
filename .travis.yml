@@ -14,7 +14,8 @@ jobs:
   - name: branch build and deployment
     if: (branch =~ /^#/ || branch = master || branch = next) && type = push
     script:
-      yarn workspace @dso-toolkit/styling build &&
+      yarn workspace @dso-toolkit/css build &&
+      yarn workspace @dso-toolkit/stories build &&
       yarn workspace @dso-toolkit/core build &&
       yarn workspace dso-toolkit lint &&
       yarn workspace dso-toolkit build &&
@@ -29,7 +30,8 @@ jobs:
     if: tag =~ /^v/
     script:
       yarn config set npmAuthToken "${DEPLOY_NPM_TOKEN}" &&
-      yarn workspace @dso-toolkit/styling build &&
+      yarn workspace @dso-toolkit/css build &&
+      yarn workspace @dso-toolkit/stories build &&
       yarn workspace @dso-toolkit/core build &&
       yarn workspace @dso-toolkit/react build &&
       yarn workspace dso-toolkit lint &&

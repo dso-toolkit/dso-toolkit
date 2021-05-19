@@ -11,6 +11,11 @@
  * See https://github.com/dso-toolkit/dso-toolkit/issues/105 for more information
 */
 
+// Borrow DSO Icon mixin from @dso-toolkit/css
+$dso-icons-path: '../';
+
+@import "../../css/src/mixins/di";
+
 $library: true !default;
 
 $asap-font-path: "../fonts/Asap/" !default;

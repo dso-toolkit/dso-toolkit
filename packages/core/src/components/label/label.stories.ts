@@ -1,5 +1,4 @@
-import { action } from '@storybook/addon-actions';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfLabel, LabelArgs, LabelTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, nothing, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -7,7 +6,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ status, label, button }: any) => html`
+const template: LabelTemplateFn<TemplateResult> = ({ status, label, button }: LabelArgs) => html`
   <dso-label status=${ifDefined(status)}>
     ${label}
     ${button
@@ -20,44 +19,9 @@ const template: ArgsStoryFn<TemplateResult> = ({ status, label, button }: any) =
   </dso-label>
 `;
 
-const stories = storiesOf('Label', module)
-  .addParameters({
-    docs: {
-      page: readme
-    },
-    argTypes: {
-      status: {
-        options: [undefined, 'primary', 'success', 'info', 'warning', 'danger'],
-        control: {
-          type: 'select',
-        }
-      },
-      button: {
-        control: {
-          disable: true
-        }
-      }
-    },
-    args: {
-      label: 'Label'
-    }
-  });
-
-stories.add(
-  'default',
+storiesOfLabel<TemplateResult>({
+  module,
+  storiesOf,
+  readme,
   template
-);
-
-stories.add(
-  'with action',
-  template,
-  {
-    args: {
-      button: {
-        title: 'Verwijder',
-        icon: 'times',
-        onClick: action('action activated')
-      }
-    }
-  }
-);
+});
