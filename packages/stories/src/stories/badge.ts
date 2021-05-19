@@ -1,7 +1,7 @@
 import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface BadgeArgs {
-  status: string;
+  status?: string;
   message: string;
 }
 
