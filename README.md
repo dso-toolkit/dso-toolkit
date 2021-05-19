@@ -95,7 +95,7 @@ yarn fractal
 Fractal is started at http://localhost:43000/, Stencil is running on http://localhost:53333. See the [Fractal guide](https://fractal.build/) for more information on Fractal.
 
 #### `development`
-This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/stories` (`/packages/stories`). All the implementations have a devDependency to `@dso-toolkit/stories`.
+This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/stories` (`/packages/stories`). All the implementations have a devDependency on `@dso-toolkit/stories`.
 
 The easiest way to start this environment is with one of the following commands:
 
@@ -105,7 +105,7 @@ yarn start:css
 yarn start:all
 ```
 
-This will start `@dso-toolkit/stories` in watch mode and run the applicable Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
+This will start `@dso-toolkit/stories` in watch mode and run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
 
 The following processes are started:
 * **core**: `@dso-toolkit/stories` in watch mode, Stencil in development mode for Web Components, and Storybook

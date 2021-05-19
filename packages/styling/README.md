@@ -16,7 +16,7 @@ Voor inspiratie:
 
 ## Iconen
 
-Iconen staat in `icons/`.
+Iconen staan in `icons/`.
 
 ### Stylesheet
 
