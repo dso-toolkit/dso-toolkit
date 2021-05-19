@@ -1,13 +1,12 @@
 import { storiesOfBanner, BannerArgs, BannerTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
 
 // @ts-ignore
 import readme from './readme.md';
 
 const template: BannerTemplateFn<TemplateResult> = ({ status, richContent, onClick }: BannerArgs<TemplateResult>) => html`
-  <section class="dso-banner ${ifDefined(status ? 'alert-' + status : '')}" role="alert">
+  <section class="dso-banner ${status ? `alert-${status}` : ''}" role="alert">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">

@@ -1,7 +1,7 @@
 import { storiesOfHighlightBox, HighlightBoxArgs, HighlightBoxTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { classMap } from 'lit-html/directives/class-map';
 
 // @ts-ignore
 import readme from './readme.md';
