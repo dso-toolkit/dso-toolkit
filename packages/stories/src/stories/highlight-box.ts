@@ -1,16 +1,33 @@
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
-export interface HighlightBoxStoriesParameters extends StoriesParameters {
-  richContent: any;
+export interface HighlightBoxArgs<TemplateFnReturnType> {
+  yellow: boolean;
+  white: boolean;
+  dropShadow: boolean;
+  border: boolean;
+  step?: number;
+  icon?: string;
+  richContent: TemplateFnReturnType;
 }
 
-export function highlightBoxStories({
+export interface HighlightBoxTemplateFn<TemplateFnReturnType> extends TemplateFn<HighlightBoxArgs<TemplateFnReturnType>, TemplateFnReturnType> {
+}
+
+export interface HighlightBoxParameters<TemplateFnReturnType> extends Parameters<HighlightBoxArgs<TemplateFnReturnType>, TemplateFnReturnType> {
+}
+
+export interface HighlightBoxExtraParameters<TemplateFnReturnType> {
+  richContent: TemplateFnReturnType;
+}
+
+export function storiesOfHighlightBox<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
-  template,
+  template
+}: HighlightBoxParameters<TemplateFnReturnType>, {
   richContent
-}: HighlightBoxStoriesParameters) {
+}: HighlightBoxExtraParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Highlight Box', mainModule)
     .addParameters({
       docs: {
@@ -63,12 +80,12 @@ export function highlightBoxStories({
 
   stories.add(
     'default',
-    template
+    template as any
   );
 
   stories.add(
     'yellow',
-    template,
+    template as any,
     {
       args: {
         yellow: true
@@ -78,7 +95,7 @@ export function highlightBoxStories({
 
   stories.add(
     'white with dropshadow',
-    template,
+    template as any,
     {
       args: {
         white: true,
@@ -89,7 +106,7 @@ export function highlightBoxStories({
 
   stories.add(
     'with border',
-    template,
+    template as any,
     {
       args: {
         border: true
@@ -99,7 +116,7 @@ export function highlightBoxStories({
 
   stories.add(
     'with step',
-    template,
+    template as any,
     {
       args: {
         yellow: true,
@@ -110,7 +127,7 @@ export function highlightBoxStories({
 
   stories.add(
     'with icon',
-    template,
+    template as any,
     {
       args: {
         yellow: true,

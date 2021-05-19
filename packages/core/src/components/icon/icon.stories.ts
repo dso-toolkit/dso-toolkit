@@ -1,16 +1,15 @@
-import { iconStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfIcon, IconArgs, IconTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ icon }: any) => html`
+const template: IconTemplateFn<TemplateResult> = ({ icon }: IconArgs) => html`
   <dso-icon icon=${icon}></dso-icon>
 `;
 
-iconStories({
+storiesOfIcon<TemplateResult>({
   module,
   storiesOf,
   readme,

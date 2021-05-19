@@ -1,11 +1,22 @@
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
-export function badgeStories({
+export interface BadgeArgs {
+  status: string;
+  message: string;
+}
+
+export interface BadgeTemplateFn<TemplateFnReturnType> extends TemplateFn<BadgeArgs, TemplateFnReturnType> {
+}
+
+export interface BadgeParameters<TemplateFnReturnType> extends Parameters<BadgeArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfBadge<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: BadgeParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Badge', mainModule)
     .addParameters({
       docs: {
@@ -23,7 +34,7 @@ export function badgeStories({
 
   stories.add(
     'plain',
-    template,
+    template as any,
     {
       args: {
         message: 'Plain'
@@ -33,7 +44,7 @@ export function badgeStories({
 
   stories.add(
     'primary',
-    template,
+    template as any,
     {
       args: {
         status: 'primary',
@@ -44,7 +55,7 @@ export function badgeStories({
 
   stories.add(
     'success',
-    template,
+    template as any,
     {
       args: {
         status: 'success',
@@ -55,7 +66,7 @@ export function badgeStories({
 
   stories.add(
     'info',
-    template,
+    template as any,
     {
       args: {
         status: 'info',
@@ -66,7 +77,7 @@ export function badgeStories({
 
   stories.add(
     'warning',
-    template,
+    template as any,
     {
       args: {
         status: 'warning',
@@ -77,7 +88,7 @@ export function badgeStories({
 
   stories.add(
     'danger',
-    template,
+    template as any,
     {
       args: {
         status: 'danger',

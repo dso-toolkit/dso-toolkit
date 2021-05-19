@@ -1,5 +1,4 @@
-import { bannerStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfBanner, BannerArgs, BannerTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -7,7 +6,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ status, richContent, onClick }: any) => html`
+const template: BannerTemplateFn<TemplateResult> = ({ status, richContent, onClick }: BannerArgs<TemplateResult>) => html`
   <section class="dso-banner ${ifDefined(status ? 'alert-' + status : '')}" role="alert">
     <div class="container">
       <div class="row">
@@ -15,7 +14,9 @@ const template: ArgsStoryFn<TemplateResult> = ({ status, richContent, onClick }:
           ${richContent}
           <button type="button" class="btn btn-link" @click=${onClick}>
             <span class="sr-only">Sluiten</span>
-            <dso-icon icon="times"></dso-icon>
+            <svg class="di di-times">
+              <use href="dso-icons.svg#times" />
+            </svg>
           </button>
         </div>
       </div>
@@ -73,13 +74,17 @@ const dangerWithHeadingsRichContent = html`
   </div>
 `;
 
-bannerStories({
-  module,
-  storiesOf,
-  readme,
-  template,
-  warningRichContent,
-  dangerRichContent,
-  richWarningRichContent,
-  dangerWithHeadingsRichContent
-});
+storiesOfBanner(
+  {
+    module,
+    storiesOf,
+    readme,
+    template
+  },
+  {
+    warningRichContent,
+    dangerRichContent,
+    richWarningRichContent,
+    dangerWithHeadingsRichContent
+  }
+);

@@ -1,13 +1,29 @@
-import { action } from '@storybook/addon-actions';
+import { action, HandlerFunction } from '@storybook/addon-actions';
 
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
-export function labelStories({
+export interface LabelArgs {
+  status?: string;
+  label: string;
+  button?: {
+    title: string;
+    icon: string;
+    onClick: HandlerFunction;
+  };
+}
+
+export interface LabelTemplateFn<TemplateFnReturnType> extends TemplateFn<LabelArgs, TemplateFnReturnType> {
+}
+
+export interface LabelParameters<TemplateFnReturnType> extends Parameters<LabelArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfLabel<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: LabelParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Label', mainModule)
     .addParameters({
       docs: {
@@ -33,12 +49,12 @@ export function labelStories({
 
   stories.add(
     'default',
-    template
+    template as any
   );
 
   stories.add(
     'with action',
-    template,
+    template as any,
     {
       args: {
         button: {

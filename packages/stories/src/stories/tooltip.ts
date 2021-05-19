@@ -1,13 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
 export const tooltipPositions = ['top', 'right', 'bottom', 'left'] as const;
-
-export interface TooltipStoriesParameters extends Omit<StoriesParameters, 'template'> {
-  asChildTemplate: any;
-  asSiblingTemplate: any;
-}
 
 export interface TooltipArgs {
   position: typeof tooltipPositions;
@@ -15,13 +10,24 @@ export interface TooltipArgs {
   id?: string;
 }
 
-export function tooltipStories({
+export interface AsChildTooltipTemplateFn<TemplateFnReturnType> extends TemplateFn<TooltipArgs, TemplateFnReturnType> {
+}
+
+export interface AsSiblingTooltipTemplateFn<TemplateFnReturnType> extends TemplateFn<TooltipArgs, TemplateFnReturnType> {
+}
+
+export interface TooltipParameters<TemplateFnReturnType> extends Omit<Parameters<TooltipArgs, TemplateFnReturnType>, 'template'> {
+  asChildTemplate: AsSiblingTooltipTemplateFn<TemplateFnReturnType>;
+  asSiblingTemplate: AsSiblingTooltipTemplateFn<TemplateFnReturnType>;
+}
+
+export function storiesOfTooltip<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   asChildTemplate,
   asSiblingTemplate
-}: TooltipStoriesParameters) {
+}: TooltipParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Tooltip', mainModule)
     .addParameters({
       docs: {
@@ -39,7 +45,7 @@ export function tooltipStories({
 
   stories.add(
     'as child',
-    asChildTemplate,
+    asChildTemplate as any,
     {
       args: {
         position: 'right'
@@ -49,7 +55,7 @@ export function tooltipStories({
 
   stories.add(
     'as sibling',
-    asSiblingTemplate,
+    asSiblingTemplate as any,
     {
       args: {
         id: uuidv4(),

@@ -1,11 +1,24 @@
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
-export function progressBarStories({
+export interface ProgressBarArgs {
+  progress: number;
+  label?: string;
+  min?: number;
+  max?: number;
+}
+
+export interface ProgressBarTemplateFn<TemplateFnReturnType> extends TemplateFn<ProgressBarArgs, TemplateFnReturnType> {
+}
+
+export interface ProgressBarParameters<TemplateFnReturnType> extends Parameters<ProgressBarArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfProgressBar<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: ProgressBarParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Progress Bar', mainModule)
     .addParameters({
       docs: {
@@ -27,7 +40,7 @@ export function progressBarStories({
 
   stories.add(
     'default',
-    template,
+    template as any,
     {
       args: {
         progress: 30
@@ -37,7 +50,7 @@ export function progressBarStories({
 
   stories.add(
     'with label',
-    template,
+    template as any,
     {
       args: {
         progress: 60,
@@ -48,7 +61,7 @@ export function progressBarStories({
 
   stories.add(
     'arbitrary values',
-    template,
+    template as any,
     {
       args: {
         progress: 3,

@@ -1,5 +1,4 @@
-import { alertStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfAlert, AlertArgs, AlertTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult, nothing } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
@@ -7,11 +6,11 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ status, message, onClick, withRoleAlert, withButton }: any) => html`
+const template: AlertTemplateFn<TemplateResult> = ({ status, message, onClick, withRoleAlert, withButton }: AlertArgs) => html`
   <dso-alert status=${status} ?role-alert=${withRoleAlert}>
     <div class="dso-rich-content">
       <p>${unsafeHTML(message)}</p>
-      ${onClick && withButton
+      ${withButton
         ? html`
           <button type="button" class="btn" @click=${onClick}>Button</button>
         `
@@ -21,7 +20,7 @@ const template: ArgsStoryFn<TemplateResult> = ({ status, message, onClick, withR
   </dso-alert>
 `;
 
-alertStories({
+storiesOfAlert<TemplateResult>({
   module,
   storiesOf,
   readme,

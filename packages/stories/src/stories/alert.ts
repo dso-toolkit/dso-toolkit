@@ -1,11 +1,27 @@
-import { StoriesParameters } from '../story-parameters';
+import { HandlerFunction } from '@storybook/addon-actions';
 
-export function alertStories({
+import { Parameters, TemplateFn } from '@core';
+
+export interface AlertArgs {
+  status: string;
+  message: string;
+  onClick: HandlerFunction;
+  withRoleAlert: boolean;
+  withButton: boolean;
+}
+
+export interface AlertTemplateFn<TemplateFnReturnType> extends TemplateFn<AlertArgs, TemplateFnReturnType> {
+}
+
+export interface AlertParameters<TemplateFnReturnType> extends Parameters<AlertArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfAlert<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: AlertParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Alert', mainModule)
     .addParameters({
       docs: {
@@ -46,7 +62,7 @@ export function alertStories({
 
   stories.add(
     'success',
-    template,
+    template as any,
     {
       args: {
         status: 'success',
@@ -57,7 +73,7 @@ export function alertStories({
 
   stories.add(
     'info',
-    template,
+    template as any,
     {
       args: {
         status: 'info',
@@ -68,7 +84,7 @@ export function alertStories({
 
   stories.add(
     'warning',
-    template,
+    template as any,
     {
       args: {
         status: 'warning',
@@ -79,7 +95,7 @@ export function alertStories({
 
   stories.add(
     'danger',
-    template,
+    template as any,
     {
       args: {
         status: 'danger',

@@ -1,25 +1,24 @@
-import { highlightBoxStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfHighlightBox, HighlightBoxArgs, HighlightBoxTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
-import { html, nothing, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, hasCounter, icon, richContent }: any) => html`
-  <div class="dso-highlight-box ${classMap({'dso-yellow': yellow, 'dso-white': white, 'dso-drop-shadow': dropShadow, 'dso-border': border})}">
-    ${hasCounter && html`
-      <div class="dso-step-counter">
-        ${step
-          ? nothing
-          : html`<slot name="icon"></slot>`
-        }
-      </div>
-    `}
-    ${icon && html`
-      <dso-icon slot="icon" icon=${icon}></dso-icon>
-    `}
+const template: HighlightBoxTemplateFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBoxArgs<TemplateResult>) => html`
+  <div class="dso-highlight-box ${classMap({ 'dso-yellow': yellow, 'dso-white': white, 'dso-drop-shadow': dropShadow, 'dso-border': border, 'dso-has-counter': !!(step || icon) })}">
+    ${
+      (step || icon) && html`
+        <div class="dso-step-counter">
+          ${step ?? html`
+            <svg class="di di-${icon}">
+              <use href="dso-icons.svg#${icon}" />
+            </svg>
+          `}
+        </div>
+      `
+    }
     ${richContent}
   </div>
 `;
@@ -40,10 +39,14 @@ const richContent = html`
   </div>
 `;
 
-highlightBoxStories({
-  module,
-  storiesOf,
-  readme,
-  template,
-  richContent
-});
+storiesOfHighlightBox(
+  {
+    module,
+    storiesOf,
+    readme,
+    template
+  },
+  {
+    richContent
+  }
+);

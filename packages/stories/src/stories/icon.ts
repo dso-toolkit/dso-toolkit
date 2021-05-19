@@ -1,11 +1,21 @@
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
-export function iconStories({
+export interface IconArgs {
+  icon: string;
+}
+
+export interface IconTemplateFn<TemplateFnReturnType> extends TemplateFn<IconArgs, TemplateFnReturnType> {
+}
+
+export interface IconParameters<TemplateFnReturnType> extends Parameters<IconArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfIcon<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: IconParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Icon', mainModule)
     .addParameters({
       docs: {
@@ -26,7 +36,7 @@ export function iconStories({
 
   stories.add(
     'Icon',
-    template,
+    template as any,
     {
       args: {
         icon: 'user'

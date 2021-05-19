@@ -1,5 +1,4 @@
-import { progressBarStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfProgressBar, ProgressBarArgs, ProgressBarTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -7,7 +6,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ progress, label, min, max }: any) => html`
+const template: ProgressBarTemplateFn<TemplateResult> = ({ progress, label, min, max }: ProgressBarArgs) => html`
   <dso-progress-bar
     progress=${progress}
     min=${ifDefined(min || undefined)}
@@ -15,7 +14,7 @@ const template: ArgsStoryFn<TemplateResult> = ({ progress, label, min, max }: an
   >${label ?? ''}</dso-progress-bar>
 `;
 
-progressBarStories({
+storiesOfProgressBar<TemplateResult>({
   module,
   storiesOf,
   readme,

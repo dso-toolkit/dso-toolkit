@@ -1,12 +1,11 @@
-import { bannerStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfBanner, BannerArgs, BannerTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ status, richContent, onClick }: any) => html`
+const template: BannerTemplateFn<TemplateResult> = ({ status, richContent, onClick }: BannerArgs<TemplateResult>) => html`
   <dso-banner status=${status}>
     <div class="container">
       <div class="row">
@@ -72,13 +71,17 @@ const dangerWithHeadingsRichContent = html`
   </div>
 `;
 
-bannerStories({
-  module,
-  storiesOf,
-  readme,
-  template,
-  warningRichContent,
-  dangerRichContent,
-  richWarningRichContent,
-  dangerWithHeadingsRichContent
-});
+storiesOfBanner<TemplateResult>(
+  {
+    module,
+    storiesOf,
+    readme,
+    template
+  },
+  {
+    warningRichContent,
+    dangerRichContent,
+    richWarningRichContent,
+    dangerWithHeadingsRichContent
+  }
+);

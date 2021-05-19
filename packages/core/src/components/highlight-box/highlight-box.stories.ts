@@ -1,5 +1,4 @@
-import { highlightBoxStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfHighlightBox, HighlightBoxArgs, HighlightBoxTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -7,7 +6,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, icon, richContent }: any) => html`
+const template: HighlightBoxTemplateFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBoxArgs<TemplateResult>) => html`
   <dso-highlight-box
     ?yellow=${yellow}
     ?white=${white}
@@ -38,10 +37,14 @@ const richContent = html`
   </div>
 `;
 
-highlightBoxStories({
-  module,
-  storiesOf,
-  readme,
-  template,
-  richContent
-});
+storiesOfHighlightBox<TemplateResult>(
+  {
+    module,
+    storiesOf,
+    readme,
+    template,
+  },
+  {
+    richContent
+  }
+);

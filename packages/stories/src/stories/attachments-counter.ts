@@ -1,11 +1,21 @@
-import { StoriesParameters } from '../story-parameters';
+import { TemplateFn, Parameters } from '@core';
 
-export function attachmentsCounterStories({
+export interface AttachmentsCounterArgs {
+  count: number;
+}
+
+export interface AttachmentsCounterTemplateFn<TemplateFnReturnType> extends TemplateFn<AttachmentsCounterArgs, TemplateFnReturnType> {
+}
+
+export interface AttachmentsCounterParameters<TemplateFnReturnType> extends Parameters<AttachmentsCounterArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfAttachmentsCounter<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: AttachmentsCounterParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Attachments Counter', mainModule)
     .addParameters({
       docs: {
@@ -22,7 +32,7 @@ export function attachmentsCounterStories({
 
   stories.add(
     'Attachments Counter',
-    template,
+    template as any,
     {
       args: {
         count: 3

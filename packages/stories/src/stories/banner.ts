@@ -1,22 +1,37 @@
-import { StoriesParameters } from '../story-parameters';
+import { HandlerFunction } from '@storybook/addon-actions';
 
-interface BannerStoriesParameters extends StoriesParameters {
-  warningRichContent: any;
-  richWarningRichContent: any;
-  dangerRichContent: any;
-  dangerWithHeadingsRichContent: any;
+import { Parameters, TemplateFn } from '@core';
+
+export interface BannerArgs<TemplateFnReturnType> {
+  status: string;
+  richContent: TemplateFnReturnType;
+  onClick: HandlerFunction;
 }
 
-export function bannerStories({
-  storiesOf,
+export interface BannerTemplateFn<TemplateFnReturnType> extends TemplateFn<BannerArgs<TemplateFnReturnType>, TemplateFnReturnType> {
+}
+
+export interface BannerParameters<TemplateFnReturnType> extends Parameters<BannerArgs<TemplateFnReturnType>, TemplateFnReturnType> {
+}
+
+export interface BannerExtraParameters<TemplateFnReturnType> {
+  warningRichContent: TemplateFnReturnType;
+  richWarningRichContent: TemplateFnReturnType;
+  dangerRichContent: TemplateFnReturnType;
+  dangerWithHeadingsRichContent: TemplateFnReturnType;
+}
+
+export function storiesOfBanner<TemplateFnReturnType>({
   module: mainModule,
+  storiesOf,
   readme,
-  template,
+  template
+}: BannerParameters<TemplateFnReturnType>, {
   warningRichContent,
   richWarningRichContent,
   dangerRichContent,
   dangerWithHeadingsRichContent
-}: BannerStoriesParameters) {
+}: BannerExtraParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Banner', mainModule)
     .addParameters({
       docs: {
@@ -42,7 +57,7 @@ export function bannerStories({
 
   stories.add(
     'warning',
-    template,
+    template as any,
     {
       args: {
         status: 'warning',
@@ -53,7 +68,7 @@ export function bannerStories({
 
   stories.add(
     'danger',
-    template,
+    template as any,
     {
       args: {
         status: 'danger',
@@ -64,7 +79,7 @@ export function bannerStories({
 
   stories.add(
     'rich warning',
-    template,
+    template as any,
     {
       args: {
         status: 'warning',
@@ -75,7 +90,7 @@ export function bannerStories({
 
   stories.add(
     'danger with headings',
-    template,
+    template as any,
     {
       args: {
         status: 'danger',

@@ -9,7 +9,11 @@
       "dom",
       "es2017"
     ],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "paths": {
+      "@core": ["./src/core"],
+      "@core/*": ["./src/core/*"]
+    }
   },
   "include": [
     "node_modules/microbundle/index.d.ts",

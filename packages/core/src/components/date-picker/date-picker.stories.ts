@@ -1,5 +1,4 @@
-import { datePickerStories } from '@dso-toolkit/stories';
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfDatePicker, DatePickerArgs, DatePickerTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -9,7 +8,7 @@ import type { DsoDatePickerChangeEvent } from './date-picker';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: ArgsStoryFn<TemplateResult> = ({ id, label, onDateChange, value, min, max, disabled, showExternalButton }: any) => html`
+const template: DatePickerTemplateFn<TemplateResult> = ({ id, label, onDateChange, value, min, max, disabled, showExternalButton }: DatePickerArgs) => html`
   <label for=${id}>${label}</label>
   <dso-date-picker
     @dateChange=${(e: CustomEvent<DsoDatePickerChangeEvent>) => onDateChange(e.detail)}
@@ -28,7 +27,7 @@ const template: ArgsStoryFn<TemplateResult> = ({ id, label, onDateChange, value,
     : nothing}
 `;
 
-datePickerStories({
+storiesOfDatePicker<TemplateResult>({
   module,
   storiesOf,
   readme,

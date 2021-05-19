@@ -1,13 +1,31 @@
+import { HandlerFunction } from '@storybook/addon-actions';
 import { v1 as uuidv4 } from 'uuid';
 
-import { StoriesParameters } from '../story-parameters';
+import { Parameters, TemplateFn } from '@core';
 
-export function datePickerStories({
+export interface DatePickerArgs {
+  id: string;
+  label: string;
+  onDateChange: HandlerFunction;
+  value?: string;
+  min?: number;
+  max?: number;
+  disabled: boolean;
+  showExternalButton: boolean;
+}
+
+export interface DatePickerTemplateFn<TemplateFnReturnType> extends TemplateFn<DatePickerArgs, TemplateFnReturnType> {
+}
+
+export interface DatePickerParameters<TemplateFnReturnType> extends Parameters<DatePickerArgs, TemplateFnReturnType> {
+}
+
+export function storiesOfDatePicker<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: StoriesParameters) {
+}: DatePickerParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Date Picker', mainModule)
     .addParameters({
       docs: {
@@ -42,7 +60,7 @@ export function datePickerStories({
 
   stories.add(
     'default',
-    template,
+    template as any,
     {
       args: {
         id: uuidv4()
@@ -52,7 +70,7 @@ export function datePickerStories({
 
   stories.add(
     'disabled',
-    template,
+    template as any,
     {
       args: {
         id: uuidv4(),
@@ -63,7 +81,7 @@ export function datePickerStories({
 
   stories.add(
     'with value',
-    template,
+    template as any,
     {
       args: {
         id: uuidv4(),
@@ -74,7 +92,7 @@ export function datePickerStories({
 
   stories.add(
     'with min and max',
-    template,
+    template as any,
     {
       args: {
         id: uuidv4(),
