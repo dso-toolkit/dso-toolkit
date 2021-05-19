@@ -43,6 +43,11 @@ export function storiesOfHighlightBox<TemplateFnReturnType>({
         richContent
       },
       argTypes: {
+        richContent: {
+          control: {
+            disable: true
+          }
+        },
         yellow: {
           control: {
             type: 'boolean'
