@@ -1,16 +1,13 @@
 notes: |
   Het `dso-card` component mag alleen in het `dso-cards` worden gebruikt.
 collated: true
+context:
+  label: Card title
+  content: |
+    <p>Een korte voorbeeldtekst om voort te bouwen op de titel en het grootste deel van de kaartinhoud te vormen.</p>
 variants:
-- name: default
-  context:
-    label: Omgevingsplan Nieuwegein
-    content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing
-      elit.
 - name: aside
   context:
-    label: Brouwersmolen
-    content: Brouwersmolen eget iaculis nisi quam in libero.
     interactions:
     - button:
         type: button
@@ -21,8 +18,6 @@ variants:
 - name: below
   context:
     interactionsOri: below
-    label: Brouwersmolen
-    content: Brouwersmolen eget iaculis nisi quam in libero.
     interactions:
     - button:
         type: button
