@@ -22,14 +22,14 @@ export default class Browser {
     tabs.on('click', e => {
       const link = $(e.target).closest('a');
       const tab = link.parent();
-      tabs.removeClass(ac).find('a').attr('aria-selected', 'false');
+      tabs.removeClass(ac).find('a').attr('aria-selected', 'false').removeAttr('aria-current');
       set(`browser.selectedTabIndex`, tabs.index(tab));
-      tab.addClass(ac).find('a').attr('aria-selected', 'true');
+      tab.addClass(ac).find('a').attr('aria-selected', 'true').attr('aria-current', 'page');
       this._tabPanels.removeClass(ac).removeAttr('aria-current');
       this._tabPanels.filter(link.attr('href')).addClass(ac).attr('aria-current', true);
       return false;
     });
-    tabs.removeClass('is-active').find('a').attr('aria-selected', 'false');
+    tabs.removeClass('is-active').find('a').attr('aria-selected', 'false').removeAttr('aria-current');
     tabs.eq(selectedIndex).find('a').trigger('click');
   }
 }
