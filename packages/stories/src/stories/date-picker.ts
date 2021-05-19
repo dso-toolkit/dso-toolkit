@@ -1,7 +1,7 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 import { v1 as uuidv4 } from 'uuid';
 
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface DatePickerArgs {
   id: string;
@@ -60,7 +60,7 @@ export function storiesOfDatePicker<TemplateFnReturnType>({
 
   stories.add(
     'default',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         id: uuidv4()
@@ -70,7 +70,7 @@ export function storiesOfDatePicker<TemplateFnReturnType>({
 
   stories.add(
     'disabled',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         id: uuidv4(),
@@ -81,7 +81,7 @@ export function storiesOfDatePicker<TemplateFnReturnType>({
 
   stories.add(
     'with value',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         id: uuidv4(),
@@ -92,7 +92,7 @@ export function storiesOfDatePicker<TemplateFnReturnType>({
 
   stories.add(
     'with min and max',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         id: uuidv4(),

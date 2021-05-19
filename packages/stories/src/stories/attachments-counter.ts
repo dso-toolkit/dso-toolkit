@@ -1,4 +1,4 @@
-import { TemplateFn, Parameters } from '@core';
+import { bindTemplate, TemplateFn, Parameters } from '@core';
 
 export interface AttachmentsCounterArgs {
   count: number;
@@ -32,7 +32,7 @@ export function storiesOfAttachmentsCounter<TemplateFnReturnType>({
 
   stories.add(
     'Attachments Counter',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         count: 3

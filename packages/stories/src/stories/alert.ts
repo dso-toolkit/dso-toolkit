@@ -1,6 +1,6 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface AlertArgs {
   status: string;
@@ -62,7 +62,7 @@ export function storiesOfAlert<TemplateFnReturnType>({
 
   stories.add(
     'success',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'success',
@@ -73,7 +73,7 @@ export function storiesOfAlert<TemplateFnReturnType>({
 
   stories.add(
     'info',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'info',
@@ -84,7 +84,7 @@ export function storiesOfAlert<TemplateFnReturnType>({
 
   stories.add(
     'warning',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'warning',
@@ -95,7 +95,7 @@ export function storiesOfAlert<TemplateFnReturnType>({
 
   stories.add(
     'danger',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'danger',

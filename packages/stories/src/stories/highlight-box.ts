@@ -1,4 +1,4 @@
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface HighlightBoxArgs<TemplateFnReturnType> {
   yellow: boolean;
@@ -80,12 +80,12 @@ export function storiesOfHighlightBox<TemplateFnReturnType>({
 
   stories.add(
     'default',
-    template as any
+    bindTemplate(template)
   );
 
   stories.add(
     'yellow',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         yellow: true
@@ -95,7 +95,7 @@ export function storiesOfHighlightBox<TemplateFnReturnType>({
 
   stories.add(
     'white with dropshadow',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         white: true,
@@ -106,7 +106,7 @@ export function storiesOfHighlightBox<TemplateFnReturnType>({
 
   stories.add(
     'with border',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         border: true
@@ -116,7 +116,7 @@ export function storiesOfHighlightBox<TemplateFnReturnType>({
 
   stories.add(
     'with step',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         yellow: true,
@@ -127,7 +127,7 @@ export function storiesOfHighlightBox<TemplateFnReturnType>({
 
   stories.add(
     'with icon',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         yellow: true,

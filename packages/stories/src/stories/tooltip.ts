@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export const tooltipPositions = ['top', 'right', 'bottom', 'left'] as const;
 
@@ -45,7 +45,7 @@ export function storiesOfTooltip<TemplateFnReturnType>({
 
   stories.add(
     'as child',
-    asChildTemplate as any,
+    bindTemplate(asChildTemplate),
     {
       args: {
         position: 'right'
@@ -55,7 +55,7 @@ export function storiesOfTooltip<TemplateFnReturnType>({
 
   stories.add(
     'as sibling',
-    asSiblingTemplate as any,
+    bindTemplate(asSiblingTemplate),
     {
       args: {
         id: uuidv4(),

@@ -1,4 +1,4 @@
-import { ClientStoryApi } from '@storybook/addons';
+import { ArgsStoryFn, ClientStoryApi } from '@storybook/addons';
 
 /**
  * Interface which stories need to extend and every component then implements.
@@ -19,4 +19,14 @@ export interface Parameters<ComponentArgs, TemplateFnReturnType> {
   module: NodeModule;
   storiesOf: ClientStoryApi<TemplateFnReturnType>['storiesOf'];
   readme: string;
+}
+
+export function bindTemplate<Args, TemplateFnReturnType>(template: TemplateFn<Args, TemplateFnReturnType>): ArgsStoryFn<TemplateFnReturnType> {
+  return a => {
+    if (!a) {
+      throw new Error(`No args found, always provide args or empty object`);
+    }
+
+    return template(a as any);
+  };
 }

@@ -1,4 +1,4 @@
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface BadgeArgs {
   status: string;
@@ -34,7 +34,7 @@ export function storiesOfBadge<TemplateFnReturnType>({
 
   stories.add(
     'plain',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         message: 'Plain'
@@ -44,7 +44,7 @@ export function storiesOfBadge<TemplateFnReturnType>({
 
   stories.add(
     'primary',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'primary',
@@ -55,7 +55,7 @@ export function storiesOfBadge<TemplateFnReturnType>({
 
   stories.add(
     'success',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'success',
@@ -66,7 +66,7 @@ export function storiesOfBadge<TemplateFnReturnType>({
 
   stories.add(
     'info',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'info',
@@ -77,7 +77,7 @@ export function storiesOfBadge<TemplateFnReturnType>({
 
   stories.add(
     'warning',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'warning',
@@ -88,7 +88,7 @@ export function storiesOfBadge<TemplateFnReturnType>({
 
   stories.add(
     'danger',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         status: 'danger',

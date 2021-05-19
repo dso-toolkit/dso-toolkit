@@ -1,4 +1,4 @@
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface ProgressBarArgs {
   progress: number;
@@ -40,7 +40,7 @@ export function storiesOfProgressBar<TemplateFnReturnType>({
 
   stories.add(
     'default',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         progress: 30
@@ -50,7 +50,7 @@ export function storiesOfProgressBar<TemplateFnReturnType>({
 
   stories.add(
     'with label',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         progress: 60,
@@ -61,7 +61,7 @@ export function storiesOfProgressBar<TemplateFnReturnType>({
 
   stories.add(
     'arbitrary values',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         progress: 3,

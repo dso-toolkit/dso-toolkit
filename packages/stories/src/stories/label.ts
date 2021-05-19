@@ -1,6 +1,6 @@
 import { action, HandlerFunction } from '@storybook/addon-actions';
 
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface LabelArgs {
   status?: string;
@@ -49,12 +49,12 @@ export function storiesOfLabel<TemplateFnReturnType>({
 
   stories.add(
     'default',
-    template as any
+    bindTemplate(template)
   );
 
   stories.add(
     'with action',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         button: {

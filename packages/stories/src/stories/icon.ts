@@ -1,4 +1,4 @@
-import { Parameters, TemplateFn } from '@core';
+import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface IconArgs {
   icon: string;
@@ -36,7 +36,7 @@ export function storiesOfIcon<TemplateFnReturnType>({
 
   stories.add(
     'Icon',
-    template as any,
+    bindTemplate(template),
     {
       args: {
         icon: 'user'
