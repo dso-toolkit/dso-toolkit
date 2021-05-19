@@ -22,7 +22,7 @@ const template: AlertTemplateFn<TemplateResult> = ({ status, message, onClick, w
   </div>
 `;
 
-storiesOfAlert({
+storiesOfAlert<TemplateResult>({
   module,
   storiesOf,
   readme,

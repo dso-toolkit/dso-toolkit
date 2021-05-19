@@ -10,15 +10,12 @@ export interface TooltipArgs {
   id?: string;
 }
 
-export interface AsChildTooltipTemplateFn<TemplateFnReturnType> extends TemplateFn<TooltipArgs, TemplateFnReturnType> {
-}
-
-export interface AsSiblingTooltipTemplateFn<TemplateFnReturnType> extends TemplateFn<TooltipArgs, TemplateFnReturnType> {
+export interface TooltipTemplateFn<TemplateFnReturnType> extends TemplateFn<TooltipArgs, TemplateFnReturnType> {
 }
 
 export interface TooltipParameters<TemplateFnReturnType> extends Omit<Parameters<TooltipArgs, TemplateFnReturnType>, 'template'> {
-  asChildTemplate: AsSiblingTooltipTemplateFn<TemplateFnReturnType>;
-  asSiblingTemplate: AsSiblingTooltipTemplateFn<TemplateFnReturnType>;
+  asChildTemplate: TooltipTemplateFn<TemplateFnReturnType>;
+  asSiblingTemplate: TooltipTemplateFn<TemplateFnReturnType>;
 }
 
 export function storiesOfTooltip<TemplateFnReturnType>({

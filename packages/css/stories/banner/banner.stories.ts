@@ -74,7 +74,7 @@ const dangerWithHeadingsRichContent = html`
   </div>
 `;
 
-storiesOfBanner(
+storiesOfBanner<TemplateResult>(
   {
     module,
     storiesOf,

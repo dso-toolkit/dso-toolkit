@@ -39,7 +39,7 @@ const richContent = html`
   </div>
 `;
 
-storiesOfHighlightBox(
+storiesOfHighlightBox<TemplateResult>(
   {
     module,
     storiesOf,

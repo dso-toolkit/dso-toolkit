@@ -11,7 +11,7 @@ const template: AttachmentsCounterTemplateFn<TemplateResult> = ({ count }: Attac
   </span>
 `;
 
-storiesOfAttachmentsCounter({
+storiesOfAttachmentsCounter<TemplateResult>({
   module,
   storiesOf,
   readme,

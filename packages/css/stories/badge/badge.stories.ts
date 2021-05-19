@@ -13,7 +13,7 @@ const template: BadgeTemplateFn<TemplateResult> = ({ status, message }: BadgeArg
   </span>
 `;
 
-storiesOfBadge({
+storiesOfBadge<TemplateResult>({
   storiesOf,
   module,
   readme,
