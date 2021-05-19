@@ -14,8 +14,8 @@ export interface TooltipTemplateFn<TemplateFnReturnType> extends TemplateFn<Tool
 }
 
 export interface TooltipParameters<TemplateFnReturnType> extends Omit<Parameters<TooltipArgs, TemplateFnReturnType>, 'template'> {
-  asChildTemplate: TooltipTemplateFn<TemplateFnReturnType>;
-  asSiblingTemplate: TooltipTemplateFn<TemplateFnReturnType>;
+  asChildTemplate?: TooltipTemplateFn<TemplateFnReturnType>;
+  asSiblingTemplate?: TooltipTemplateFn<TemplateFnReturnType>;
 }
 
 export function storiesOfTooltip<TemplateFnReturnType>({
@@ -40,24 +40,28 @@ export function storiesOfTooltip<TemplateFnReturnType>({
       }
     });
 
-  stories.add(
-    'as child',
-    bindTemplate(asChildTemplate),
-    {
-      args: {
-        position: 'right'
+  if (asChildTemplate) {
+    stories.add(
+      'as child',
+      bindTemplate(asChildTemplate),
+      {
+        args: {
+          position: 'right'
+        }
       }
-    }
-  );
+    );
+  }
 
-  stories.add(
-    'as sibling',
-    bindTemplate(asSiblingTemplate),
-    {
-      args: {
-        id: uuidv4(),
-        position: 'bottom'
+  if (asSiblingTemplate) {
+    stories.add(
+      'as sibling',
+      bindTemplate(asSiblingTemplate),
+      {
+        args: {
+          id: uuidv4(),
+          position: 'bottom'
+        }
       }
-    }
-  );
+    );
+  }
 }

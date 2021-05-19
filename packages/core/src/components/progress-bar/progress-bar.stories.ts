@@ -9,8 +9,8 @@ import readme from './readme.md';
 const template: ProgressBarTemplateFn<TemplateResult> = ({ progress, label, min, max }: ProgressBarArgs) => html`
   <dso-progress-bar
     progress=${progress}
-    min=${ifDefined(min || undefined)}
-    max=${ifDefined(max || undefined)}
+    min=${ifDefined(min)}
+    max=${ifDefined(max)}
   >${label ?? ''}</dso-progress-bar>
 `;
 

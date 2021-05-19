@@ -7,9 +7,16 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 // @ts-ignore
 import readme from './readme.md';
 
+const statusMap = new Map<string, string>([
+  ['success', 'Gelukt'],
+  ['info', 'Opmerking'],
+  ['warning', 'Waarschuwing'],
+  ['danger', 'Fout']
+]);
+
 const template: AlertTemplateFn<TemplateResult> = ({ status, message, onClick, withRoleAlert, withButton }: AlertArgs) => html`
   <div class="alert alert-${status}" role="${ifDefined(withRoleAlert ? 'alert' : undefined)}">
-    <span class="sr-only">${status}:</span>
+    <span class="sr-only">${statusMap.get(status)}:</span>
     <div class="dso-rich-content">
       <p>${unsafeHTML(message)}</p>
       ${withButton
