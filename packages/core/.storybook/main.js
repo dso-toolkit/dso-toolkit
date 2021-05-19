@@ -19,7 +19,7 @@ module.exports = {
   stories: [
     '../src/**/*.stories.ts'
   ],
-  previewHead: head => process.env.DSO_ENV === 'development' || process.env.DSO_ENV === 'cypress' // Todo: 'production'
+  previewHead: head => process.env.DSO_ENV === 'development' || process.env.DSO_ENV === 'cypress' || process.env.DSO_ENV === 'leaflet' || process.env.DSO_ENV === 'react-leaflet' // Todo: 'production'
     ? (`
       ${head}
       <link rel="stylesheet" href="./dso-toolkit/dso-toolkit.css" />

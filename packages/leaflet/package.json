@@ -1,0 +1,54 @@
+{
+  "name": "@dso-toolkit/leaflet",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "browser": "./dist/leaflet.js",
+      "import": "./dist/leaflet.js"
+    },
+    "./": "./",
+    "./package.json": "./package.json"
+  },
+  "unpkg": "dist/leaflet.js",
+  "module": "dist/leaflet.js",
+  "source": "src/index.ts",
+  "types": "dist/leaflet.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "yarn node scripts/run.js --start",
+    "watch": "yarn node scripts/run.js --watch",
+    "build": "yarn node scripts/run.js --build",
+    "bin:klap": "klap",
+    "bin:sass": "sass"
+  },
+  "dependencies": {
+    "lit-html": "^1.3.0"
+  },
+  "devDependencies": {
+    "@dso-toolkit/core": "workspace:packages/core",
+    "@dso-toolkit/leaflet": "workspace:packages/leaflet",
+    "@types/fs-extra": "^9.0.11",
+    "@types/leaflet": "^1.7.1",
+    "concurrently": "^6.2.0",
+    "fs-extra": "^10.0.0",
+    "klap": "^7.0.4",
+    "leaflet": "1.7.1",
+    "minimist": "^1.2.5",
+    "rimraf": "^3.0.2",
+    "sass": "^1.34.1",
+    "typescript": "4.2.4",
+    "wait-on": "^5.3.0"
+  },
+  "peerDependencies": {
+    "@dso-toolkit/core": "*",
+    "@dso-toolkit/leaflet": "*",
+    "leaflet": "1.7.1"
+  },
+  "klap": {
+    "example": "public/index.ts",
+    "port": "41234"
+  }
+}

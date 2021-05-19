@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
+import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
+import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 export namespace Components {
     interface DsoAlert {
@@ -100,6 +102,18 @@ export namespace Components {
         "compact"?: boolean;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+    }
+    interface DsoMapBaseLayers {
+        "baseLayers": BaseLayer[];
+        "selectedBaseLayer": BaseLayer | undefined;
+    }
+    interface DsoMapControls {
+        "disableZoom"?: 'in' | 'out' | 'both';
+        "open": boolean;
+    }
+    interface DsoMapOverlays {
+        "checkedOverlays": Overlay[];
+        "overlays": Overlay[];
     }
     interface DsoProgressBar {
         "max": number;
@@ -210,6 +224,24 @@ declare global {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoMapBaseLayersElement extends Components.DsoMapBaseLayers, HTMLStencilElement {
+    }
+    var HTMLDsoMapBaseLayersElement: {
+        prototype: HTMLDsoMapBaseLayersElement;
+        new (): HTMLDsoMapBaseLayersElement;
+    };
+    interface HTMLDsoMapControlsElement extends Components.DsoMapControls, HTMLStencilElement {
+    }
+    var HTMLDsoMapControlsElement: {
+        prototype: HTMLDsoMapControlsElement;
+        new (): HTMLDsoMapControlsElement;
+    };
+    interface HTMLDsoMapOverlaysElement extends Components.DsoMapOverlays, HTMLStencilElement {
+    }
+    var HTMLDsoMapOverlaysElement: {
+        prototype: HTMLDsoMapOverlaysElement;
+        new (): HTMLDsoMapOverlaysElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -239,6 +271,9 @@ declare global {
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
+        "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
+        "dso-map-controls": HTMLDsoMapControlsElement;
+        "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-tooltip": HTMLDsoTooltipElement;
@@ -340,6 +375,22 @@ declare namespace LocalJSX {
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
+    interface DsoMapBaseLayers {
+        "baseLayers": BaseLayer[];
+        "onBaseLayerChange"?: (event: CustomEvent<BaseLayer>) => void;
+        "selectedBaseLayer"?: BaseLayer | undefined;
+    }
+    interface DsoMapControls {
+        "disableZoom"?: 'in' | 'out' | 'both';
+        "onZoomIn"?: (event: CustomEvent<MouseEvent>) => void;
+        "onZoomOut"?: (event: CustomEvent<MouseEvent>) => void;
+        "open"?: boolean;
+    }
+    interface DsoMapOverlays {
+        "checkedOverlays"?: Overlay[];
+        "onCheckedOverlaysChange"?: (event: CustomEvent<Overlay[]>) => void;
+        "overlays": Overlay[];
+    }
     interface DsoProgressBar {
         "max"?: number;
         "min"?: number;
@@ -391,6 +442,9 @@ declare namespace LocalJSX {
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
+        "dso-map-base-layers": DsoMapBaseLayers;
+        "dso-map-controls": DsoMapControls;
+        "dso-map-overlays": DsoMapOverlays;
         "dso-progress-bar": DsoProgressBar;
         "dso-selectable": DsoSelectable;
         "dso-tooltip": DsoTooltip;
@@ -410,6 +464,9 @@ declare module "@stencil/core" {
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
+            "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
+            "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;

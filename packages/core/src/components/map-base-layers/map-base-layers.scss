@@ -1,0 +1,29 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+:host {
+  display: block;
+}
+
+@include box-sizing();
+
+.sr-only {
+  @include sr-only();
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+
+  .control-label {
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: $u1;
+    max-width: 100%;
+    text-align: left;
+  }
+}

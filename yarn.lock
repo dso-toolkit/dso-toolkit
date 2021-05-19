@@ -3327,6 +3327,55 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@dso-toolkit/leaflet@workspace:packages/leaflet":
+  version: 0.0.0-use.local
+  resolution: "@dso-toolkit/leaflet@workspace:packages/leaflet"
+  dependencies:
+    "@dso-toolkit/core": "workspace:packages/core"
+    "@dso-toolkit/leaflet": "workspace:packages/leaflet"
+    "@types/fs-extra": ^9.0.11
+    "@types/leaflet": ^1.7.1
+    concurrently: ^6.2.0
+    fs-extra: ^10.0.0
+    klap: ^7.0.4
+    leaflet: 1.7.1
+    lit-html: ^1.3.0
+    minimist: ^1.2.5
+    rimraf: ^3.0.2
+    sass: ^1.34.1
+    typescript: 4.2.4
+    wait-on: ^5.3.0
+  peerDependencies:
+    "@dso-toolkit/core": "*"
+    "@dso-toolkit/leaflet": "*"
+    leaflet: 1.7.1
+  languageName: unknown
+  linkType: soft
+
+"@dso-toolkit/react-leaflet@workspace:packages/react-leaflet":
+  version: 0.0.0-use.local
+  resolution: "@dso-toolkit/react-leaflet@workspace:packages/react-leaflet"
+  dependencies:
+    "@react-leaflet/core": ^1.1.0
+    "@types/fs-extra": ^9.0.11
+    "@types/leaflet": ^1.7.1
+    "@types/react": ^17.0.3
+    "@types/react-dom": ^17.0.3
+    concurrently: ^6.2.0
+    copy-and-watch: ^0.1.5
+    fs-extra: ^10.0.0
+    klap: ^7.0.4
+    react-leaflet: ^3.2.0
+    typescript: 4.2.4
+  peerDependencies:
+    "@dso-toolkit/core": "*"
+    "@dso-toolkit/leaflet": "*"
+    leaflet: 1.7.1
+    react: ^16.14.0
+    react-dom: ^16.14.0
+  languageName: unknown
+  linkType: soft
+
 "@dso-toolkit/react@workspace:packages/react":
   version: 0.0.0-use.local
   resolution: "@dso-toolkit/react@workspace:packages/react"
@@ -4094,6 +4143,17 @@ __metadata:
     react: 15.x || 16.x || 16.4.0-alpha.0911da3
     react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
   checksum: 7fedb32b5f589d0de236f83af7a0098bef93327925ac3dc090026ce79f6571005207d872fb01378ef00dfcd6e9ed0f0583755c5817ae9d85f3fd6d5b34b84417
+  languageName: node
+  linkType: hard
+
+"@react-leaflet/core@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@react-leaflet/core@npm:1.1.0"
+  peerDependencies:
+    leaflet: ^1.7.1
+    react: ^17.0.1
+    react-dom: ^17.0.1
+  checksum: 4e52e24efc34ef695299e52456ca39f09bb85259b61432280ce1f6644e9624ae3435b1a6f745e904420fcc6b1e7e65e6e034e992c60d5d83d23c4f534edd73b1
   languageName: node
   linkType: hard
 
@@ -5738,6 +5798,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/fs-extra@npm:^9.0.11":
+  version: 9.0.11
+  resolution: "@types/fs-extra@npm:9.0.11"
+  dependencies:
+    "@types/node": "*"
+  checksum: e7a4df27880c525cf12c2d16a4fafb0b68b27c74e24cd4d0d637c56e9be27795efdd89cfc85de751ad1edfdcf1b3eb0bf97231eba90c91086825659de4ab8c72
+  languageName: node
+  linkType: hard
+
+"@types/geojson@npm:*":
+  version: 7946.0.7
+  resolution: "@types/geojson@npm:7946.0.7"
+  checksum: b0a614f58a169069d9978af24c4b816bc7140a722829d8786ad1ff22d8362b429c56170326c836ce661a0307f8e35820a055966c2eedc21b62671a56c472263e
+  languageName: node
+  linkType: hard
+
 "@types/glob-base@npm:^0.3.0":
   version: 0.3.0
   resolution: "@types/glob-base@npm:0.3.0"
@@ -5904,6 +5980,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 3aaf557d5b82e733d5a17b7f55af5d6be953363c3a594f006d64265790fe87c301c6e1400c0b6b1cf72add50a0ceddc25afb8231ab8302a2e5b6ebfbfac30e5d
+  languageName: node
+  linkType: hard
+
+"@types/leaflet@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "@types/leaflet@npm:1.7.1"
+  dependencies:
+    "@types/geojson": "*"
+  checksum: ad5f4ef6a0583e5874b55022cdede4069edf9f72bbe72c58908bad34bce674aff845d6409817b67a5a70c75c61c0e06b96514f46989e1e2f2659bbb7da97c786
   languageName: node
   linkType: hard
 
@@ -9332,6 +9417,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chokidar@npm:3.4.1":
+  version: 3.4.1
+  resolution: "chokidar@npm:3.4.1"
+  dependencies:
+    anymatch: ~3.1.1
+    braces: ~3.0.2
+    fsevents: ~2.1.2
+    glob-parent: ~5.1.0
+    is-binary-path: ~2.1.0
+    is-glob: ~4.0.1
+    normalize-path: ~3.0.0
+    readdirp: ~3.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  checksum: fdbeae89bdd7832acb0b7a5192b7d6ec1a81aff915609b0b6ff110e58fa211d793fed16ce41ccd9d4c6c7786db1b97cd88984bfe2b87303f04aa6bf0f31feaaa
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.1":
   version: 3.5.1
   resolution: "chokidar@npm:3.5.1"
@@ -9834,7 +9938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors@npm:^1.1.2":
+"colors@npm:1.4.0, colors@npm:^1.1.2":
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
   checksum: a0f266ac041a9774d92cc9624a984707678d2eeec125d54e8d8231075ce36c24c5352fb5d0f90c6ee420d0f63e354417cec716386ad341309334aad18e32b933
@@ -10058,6 +10162,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concurrently@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "concurrently@npm:6.2.0"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.16.1
+    lodash: ^4.17.21
+    read-pkg: ^5.2.0
+    rxjs: ^6.6.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^16.2.0
+  bin:
+    concurrently: bin/concurrently.js
+  checksum: e75f311dc77ee1b486ebb65d513e1e719cc2b7589f08f2f6263b93d7d71c72609ce8c57ed3a0f791484be7e5b4435621c7d5e6d190d076c76d593bdcdb9aaf08
+  languageName: node
+  linkType: hard
+
 "condense-newlines@npm:^0.2.1":
   version: 0.2.1
   resolution: "condense-newlines@npm:0.2.1"
@@ -10197,6 +10320,20 @@ __metadata:
   version: 0.4.1
   resolution: "cookie@npm:0.4.1"
   checksum: b8e0928e3e7aba013087974b33a6eec730b0a68b7ec00fc3c089a56ba2883bcf671252fc2ed64775aa1ca64796b6e1f6fdddba25a66808aef77614d235fd3e06
+  languageName: node
+  linkType: hard
+
+"copy-and-watch@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "copy-and-watch@npm:0.1.5"
+  dependencies:
+    chokidar: 3.4.1
+    colors: 1.4.0
+    glob: 7.1.6
+    glob-parent: 5.1.1
+  bin:
+    copy-and-watch: bin/copy-and-watch
+  checksum: a8de9d7f2f2cd9b6ece117d5a5d6141df3707fa009e9a1aa62a09e905c1a4b92d693d03d71c5393e5fbce036a46fd2d9ab177e2443b64a0cd925d7b9f1837624
   languageName: node
   linkType: hard
 
@@ -11708,6 +11845,7 @@ __metadata:
   resolution: "dso-toolkit-monorepo@workspace:."
   dependencies:
     concurrently: ^6.0.2
+    cross-env: ^7.0.3
     minimist: ^1.2.5
     patch-package: ^6.4.7
     postinstall-postinstall: ^2.1.0
@@ -13780,6 +13918,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "fs-extra@npm:10.0.0"
+  dependencies:
+    graceful-fs: ^4.2.0
+    jsonfile: ^6.0.1
+    universalify: ^2.0.0
+  checksum: 84632d143fe3125b8c3c2b1fedbbdfcfb84fc3e087522b4e138cc07edf574619925713a6609f6d5e53ede2e31ab319c7d528ea4a4a770ba6622a16bf4447cd8b
+  languageName: node
+  linkType: hard
+
 "fs-extra@npm:^7.0.0, fs-extra@npm:^7.0.1":
   version: 7.0.1
   resolution: "fs-extra@npm:7.0.1"
@@ -14157,6 +14306,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"glob-parent@npm:5.1.1, glob-parent@npm:^5.0.0, glob-parent@npm:~5.1.0":
+  version: 5.1.1
+  resolution: "glob-parent@npm:5.1.1"
+  dependencies:
+    is-glob: ^4.0.1
+  checksum: 2af6e196fba4071fb07ba261366e446ba2b320e6db0a2069cf8e12117c5811abc6721f08546148048882d01120df47e56aa5a965517a6e5ba19bfeb792655119
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^2.0.0":
   version: 2.0.0
   resolution: "glob-parent@npm:2.0.0"
@@ -14173,15 +14331,6 @@ fsevents@~2.1.2:
     is-glob: ^3.1.0
     path-dirname: ^1.0.0
   checksum: 2827ec4405295b660d5ec3e400d84d548a22fc38c3de8fb4586258248bb24afc4515f377935fd80b8397debeb56ffe0d2f4e91233e3a1377fe0d1ddbceb605fc
-  languageName: node
-  linkType: hard
-
-"glob-parent@npm:^5.0.0, glob-parent@npm:~5.1.0":
-  version: 5.1.1
-  resolution: "glob-parent@npm:5.1.1"
-  dependencies:
-    is-glob: ^4.0.1
-  checksum: 2af6e196fba4071fb07ba261366e446ba2b320e6db0a2069cf8e12117c5811abc6721f08546148048882d01120df47e56aa5a965517a6e5ba19bfeb792655119
   languageName: node
   linkType: hard
 
@@ -14251,6 +14400,20 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"glob@npm:7.1.6, glob@npm:^7.1.4, glob@npm:^7.1.6":
+  version: 7.1.6
+  resolution: "glob@npm:7.1.6"
+  dependencies:
+    fs.realpath: ^1.0.0
+    inflight: ^1.0.4
+    inherits: 2
+    minimatch: ^3.0.4
+    once: ^1.3.0
+    path-is-absolute: ^1.0.0
+  checksum: 789977b52432865bd63846da5c75a6efc2c56abdc0cb5ffcdb8e91eeb67a58fa5594c1195d18b2b4aff99675b0739ed6bd61024b26562e0cca18c8f993efdc82
+  languageName: node
+  linkType: hard
+
 "glob@npm:^7.0.0, glob@npm:^7.0.3, glob@npm:^7.0.5, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:~7.1.1":
   version: 7.1.3
   resolution: "glob@npm:7.1.3"
@@ -14262,20 +14425,6 @@ fsevents@~2.1.2:
     once: ^1.3.0
     path-is-absolute: ^1.0.0
   checksum: d9d1460afd650e0183bdf63a2b013ed5d29bddd7423699d6fdac30f4971bd0c3666c98b8074e9bf6b12b8f24fd21943cd6417c4947522a5a108e13c688149776
-  languageName: node
-  linkType: hard
-
-"glob@npm:^7.1.4, glob@npm:^7.1.6":
-  version: 7.1.6
-  resolution: "glob@npm:7.1.6"
-  dependencies:
-    fs.realpath: ^1.0.0
-    inflight: ^1.0.4
-    inherits: 2
-    minimatch: ^3.0.4
-    once: ^1.3.0
-    path-is-absolute: ^1.0.0
-  checksum: 789977b52432865bd63846da5c75a6efc2c56abdc0cb5ffcdb8e91eeb67a58fa5594c1195d18b2b4aff99675b0739ed6bd61024b26562e0cca18c8f993efdc82
   languageName: node
   linkType: hard
 
@@ -17802,6 +17951,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"klap@npm:^7.0.4":
+  version: 7.0.4
+  resolution: "klap@npm:7.0.4"
+  bin:
+    klap: cli.js
+  checksum: 0515b75f7795fea5874b254182558b0655c6bc1cb915c48020d0e478039ce3606eaa00e433716533fe40ea7c1a8d30268ddf408b80685dfbe84db0342f095a14
+  languageName: node
+  linkType: hard
+
 "klaw-sync@npm:^6.0.0":
   version: 6.0.0
   resolution: "klaw-sync@npm:6.0.0"
@@ -17940,6 +18098,13 @@ fsevents@~2.1.2:
   dependencies:
     flush-write-stream: ^1.0.2
   checksum: 8cac773a199e178e2904cc2bf5392c841b825dbe49394da8ee062d69d6399a6931f6fc6b4c399e3c94f171e8f002e7b539beea9e90c0b4bc79711838bb6b2558
+  languageName: node
+  linkType: hard
+
+"leaflet@npm:1.7.1":
+  version: 1.7.1
+  resolution: "leaflet@npm:1.7.1"
+  checksum: 7a841174dc3c8e135a2ba9a81cdd8145ef4c00e516eb558281ea47b20499f94ddab58a76a72ee15104e0dce88a07ae91fe933cfab75b569c5ed0770497aa7d99
   languageName: node
   linkType: hard
 
@@ -22961,6 +23126,19 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"react-leaflet@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-leaflet@npm:3.2.0"
+  dependencies:
+    "@react-leaflet/core": ^1.1.0
+  peerDependencies:
+    leaflet: ^1.7.1
+    react: ^17.0.1
+    react-dom: ^17.0.1
+  checksum: fb0cb3a90ea78180a21bacbb13e327c05a6a4b7858252369029e1bdd10d22f6eb429d3cbbab47546d9c1374300f03a407dd2db20e4e5570bef5da790af5e60e3
+  languageName: node
+  linkType: hard
+
 "react-lifecycles-compat@npm:^3.0.4":
   version: 3.0.4
   resolution: "react-lifecycles-compat@npm:3.0.4"
@@ -23271,6 +23449,15 @@ fsevents@~2.1.2:
     micromatch: ^3.1.10
     readable-stream: ^2.0.2
   checksum: 00b5209ee5278ba6faa2fbcabb817e8f64a498ff7fee8cfd30634a04140e673375582812c67c59e25ee3ee9979687b1c832f33e1bbacd8ac3340bab0645b8374
+  languageName: node
+  linkType: hard
+
+"readdirp@npm:~3.4.0":
+  version: 3.4.0
+  resolution: "readdirp@npm:3.4.0"
+  dependencies:
+    picomatch: ^2.2.1
+  checksum: 0159f43eb0a90cf4fde5989b607e0a6bef4e6332dc8648f1b50fbc013f1158e1d021bcfd6dad1dc2895da2bb14cdac408239d047e3d61a01dd3a44376e6ec1f1
   languageName: node
   linkType: hard
 
@@ -24457,6 +24644,17 @@ fsevents@~2.1.2:
   bin:
     sass: sass.js
   checksum: 8ff7460bfe2836b14836d22e9bfb3218870c606e1da1edc780ca6fd9a01aa08ec86b6e631d288a764d9d1959980f8feb9ba376eebcef0316db860c1c7a3d8cb3
+  languageName: node
+  linkType: hard
+
+"sass@npm:^1.34.1":
+  version: 1.34.1
+  resolution: "sass@npm:1.34.1"
+  dependencies:
+    chokidar: ">=3.0.0 <4.0.0"
+  bin:
+    sass: sass.js
+  checksum: 5feb6de5ee50440da1764756b4ccd3060f6b091453579a2ab2854a9d7f6ff5b03dce01cd5bbe2d9cf916a68a581fc15203b66a9d3dc4b95709541ec43fd9eaca
   languageName: node
   linkType: hard
 
