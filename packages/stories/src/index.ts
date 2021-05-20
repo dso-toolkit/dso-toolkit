@@ -2,6 +2,7 @@ export * from './stories/alert';
 export * from './stories/attachments-counter';
 export * from './stories/badge';
 export * from './stories/banner';
+export * from './stories/breadcrumb';
 export * from './stories/date-picker';
 export * from './stories/highlight-box';
 export * from './stories/icon';
