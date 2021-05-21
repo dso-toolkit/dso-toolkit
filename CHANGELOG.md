@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changes
+* **dso-toolkit:** Breadcrumb: Slashes moeten niet worden voorgelezen door een screenreader ([#1133](https://github.com/dso-toolkit/dso-toolkit/issues/1133))
+
 ## 24.0.0
 
 ### Fixed
