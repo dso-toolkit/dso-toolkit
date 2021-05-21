@@ -1,8 +1,11 @@
-import { ArgsStoryFn } from '@storybook/addons';
+import { storiesOfFootnotes, FootnotesTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
-const template: ArgsStoryFn<TemplateResult> = () => html`
+// @ts-ignore
+import readme from './readme.md';
+
+const template: FootnotesTemplateFn<TemplateResult> = () => html`
   <p>In juli 2018 is er een quick scan natuur uitgevoerd voor het plangebied<sup id="#voetnoot14link" class="dso-footnote-reference"><a href="#voetnoot14">[14]</a></sup>. Dit onderzoek is een actualisatie van een eerder door Blom Ecologie uitgevoerd oriënterend onderzoek dat vanwege de datum van uitvoering haar geldigheid was verloren. In januari 2019 is dit onderzoek aangevuld<sup id="#voetnoot15link" class="dso-footnote-reference"><a href="#voetnoot15">[15]</a></sup> met vrije kavel, welke eveneens onderdeel zijn van dit bestemmingsplan.</p>
 
   <ol class="dso-footnotes">
@@ -11,11 +14,9 @@ const template: ArgsStoryFn<TemplateResult> = () => html`
   </ol>
 `;
 
-const stories = storiesOf('Footnotes (HTML)', module)
-  .addParameters({
-  });
-
-stories.add(
-  'footnotes',
+storiesOfFootnotes<TemplateResult>({
+  module,
+  storiesOf,
+  readme,
   template
-);
+});
