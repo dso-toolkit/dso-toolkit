@@ -3,7 +3,6 @@ import { bindTemplate, Parameters, TemplateFn } from '@core';
 export interface Breadcrumb {
   label: string;
   url?: string;
-  position: number;
 }
 
 export interface BreadcrumbsArgs {
@@ -40,17 +39,14 @@ export function storiesOfBreadcrumbs<TemplateFnReturnType>({
     breadcrumbs: [
       {
         label: 'Home',
-        url: '#',
-        position: 1
+        url: '#'
       },
       {
         label: 'Zelf aan de slag',
-        url: '#',
-        position: 2
+        url: '#'
       },
       {
-        label: 'Inhoud',
-        position: 2
+        label: 'Inhoud'
       }
     ]
   };

@@ -35,7 +35,7 @@ const template: BreadcrumbsTemplateFn<TemplateResult> = ({ breadcrumbs }: Breadc
                 </a>
               `
             }
-            <meta itemprop="position" content=${breadcrumb.position}>
+            <meta itemprop="position" content=${index + 1}>
           </li>
         `;
       })}
