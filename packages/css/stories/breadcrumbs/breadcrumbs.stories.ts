@@ -1,4 +1,4 @@
-import { storiesOfBreadcrumb, BreadcrumbArgs, BreadcrumbTemplateFn } from '@dso-toolkit/stories';
+import { storiesOfBreadcrumbs, BreadcrumbsArgs, BreadcrumbsTemplateFn as BreadcrumbsTemplateFn } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
@@ -6,7 +6,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: BreadcrumbTemplateFn<TemplateResult> = ({ breadcrumbs }: BreadcrumbArgs) => html`
+const template: BreadcrumbsTemplateFn<TemplateResult> = ({ breadcrumbs }: BreadcrumbsArgs) => html`
   <nav aria-label="U bevindt zich hier:">
     <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
       ${breadcrumbs.map((breadcrumb, index) => {
@@ -43,7 +43,7 @@ const template: BreadcrumbTemplateFn<TemplateResult> = ({ breadcrumbs }: Breadcr
   </nav>
 `;
 
-storiesOfBreadcrumb<TemplateResult>({
+storiesOfBreadcrumbs<TemplateResult>({
   module,
   storiesOf,
   readme,

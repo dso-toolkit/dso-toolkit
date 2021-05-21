@@ -6,22 +6,22 @@ export interface Breadcrumb {
   position: number;
 }
 
-export interface BreadcrumbArgs {
+export interface BreadcrumbsArgs {
   breadcrumbs: Breadcrumb[];
 }
 
-export interface BreadcrumbTemplateFn<TemplateFnReturnType> extends TemplateFn<BreadcrumbArgs, TemplateFnReturnType> {
+export interface BreadcrumbsTemplateFn<TemplateFnReturnType> extends TemplateFn<BreadcrumbsArgs, TemplateFnReturnType> {
 }
 
-export interface BreadcrumbParameters<TemplateFnReturnType> extends Parameters<BreadcrumbArgs, TemplateFnReturnType> {
+export interface BreadcrumbsParameters<TemplateFnReturnType> extends Parameters<BreadcrumbsArgs, TemplateFnReturnType> {
 }
 
-export function storiesOfBreadcrumb<TemplateFnReturnType>({
+export function storiesOfBreadcrumbs<TemplateFnReturnType>({
   module: mainModule,
   storiesOf,
   readme,
   template
-}: BreadcrumbParameters<TemplateFnReturnType>) {
+}: BreadcrumbsParameters<TemplateFnReturnType>) {
   const stories = storiesOf('Breadcrumb', mainModule)
     .addParameters({
       docs: {
@@ -36,7 +36,7 @@ export function storiesOfBreadcrumb<TemplateFnReturnType>({
       }
     });
 
-  const args: BreadcrumbArgs = {
+  const args: BreadcrumbsArgs = {
     breadcrumbs: [
       {
         label: 'Home',
