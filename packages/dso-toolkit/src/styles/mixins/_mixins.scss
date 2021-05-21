@@ -14,28 +14,3 @@
   position: absolute;
   width: 1px;
 }
-
-// Also moved to @dso-toolkit/styling/mixins/anchor
-@mixin anchor-clean {
-  text-decoration: none;
-
-  &:hover,
-  &:focus {
-    text-decoration: none;
-  }
-
-  &:active {
-    text-decoration: underline;
-  }
-}
-
-@mixin anchor-reverse {
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: underline;
-  }
-}
-////
