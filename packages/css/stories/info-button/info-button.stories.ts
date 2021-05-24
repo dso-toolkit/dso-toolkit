@@ -6,7 +6,7 @@ import { classMap } from 'lit-html/directives/class-map';
 // @ts-ignore
 import readme from './readme.md';
 
-const infoButtonTemplate = ({ active, label, onClick }: InfoButton) => html`
+export const infoButtonTemplate = ({ active, label, onClick }: InfoButton) => html`
   <button
     type="button"
     class="btn dso-info-button ${classMap({ 'dso-open': !!active })}"

@@ -390,9 +390,9 @@ variants:
         inputType: radios
         inline: true
         options:
-          - value: 1
+          - value: '1'
             label: Ja
-          - value: 0
+          - value: '0'
             label: Nee
       - id: afstand
         label: Wat is de afstand tussen de zijkanten van de dakkapel en de zijranden van het dak?

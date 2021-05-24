@@ -1,0 +1,7 @@
+.dso-selectable {
+  @include selectable_root();
+
+  &:not(:last-child) {
+    @include selectable_notLastChild();
+  }
+}

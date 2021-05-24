@@ -9,7 +9,8 @@
 
 | Property | Attribute | Description | Type                   | Default     |
 | -------- | --------- | ----------- | ---------------------- | ----------- |
-| `static` | `static`  |             | `boolean \| undefined` | `undefined` |
+| `active` | `active`  |             | `boolean \| undefined` | `undefined` |
+| `fixed`  | `fixed`   |             | `boolean \| undefined` | `undefined` |
 
 
 ## Events
@@ -18,6 +19,19 @@
 | ------- | ----------- | ------------------------- |
 | `close` |             | `CustomEvent<MouseEvent>` |
 
+
+## Dependencies
+
+### Used by
+
+ - [dso-selectable](../selectable)
+
+### Graph
+```mermaid
+graph TD;
+  dso-selectable --> dso-info
+  style dso-info fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

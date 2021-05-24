@@ -12,4 +12,5 @@ export * from './stories/info-button';
 export * from './stories/info';
 export * from './stories/label';
 export * from './stories/progress-bar';
+export * from './stories/selectable';
 export * from './stories/tooltip';

@@ -5,9 +5,10 @@ import { html, TemplateResult } from 'lit-html';
 // @ts-ignore
 import readme from './readme.md';
 
-const infoTemplate = ({ fixed, richContent, onClose }: Info<TemplateResult>) => html`
+const infoTemplate = ({ fixed, active, richContent, onClose }: Info<TemplateResult>) => html`
   <dso-info
     ?fixed=${fixed}
+    ?active=${active}
     @close=${onClose}
   >
     ${richContent}
@@ -35,7 +36,7 @@ storiesOfInfo({
   module,
   storiesOf,
   readme,
-  template: ({ fixed, richContent, close }: InfoArgs<TemplateResult>) => infoTemplate({ fixed, richContent, onClose: close })
+  template: ({ fixed, active, richContent, close }: InfoArgs<TemplateResult>) => infoTemplate({ fixed, active, richContent, onClose: close })
 }, {
   richContent
 });

@@ -1,0 +1,32 @@
+collated: true
+context:
+  type: radio
+  label: Label
+variants:
+  - name: invalid
+    context:
+      invalid: true
+  - name: disabled
+    context:
+      disabled: true
+  - name: required
+    context:
+      required: true
+  - name: checked
+    context:
+      required: true
+  - name: info-closed
+    context:
+      infoText: |
+        <p>Deze informatie is pas zichtbaar als de informatie-button wordt geactiveerd</p>
+  - name: info
+    context:
+      infoOpen: true
+      infoText: |
+        <p>Toelichting bij optie</p>
+  - name: info-closed
+    context:
+      infoStatic: true
+      infoText: |
+        <p>Deze toelichting kan niet worden gesloten</p>
+

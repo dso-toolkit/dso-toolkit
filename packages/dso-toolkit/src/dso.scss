@@ -39,6 +39,7 @@ $asap-font-path: "../fonts/Asap/" !default;
 // Import namespaced stylesheets first
 @import "@dso-toolkit/styling/modules/components/info";
 @import "@dso-toolkit/styling/modules/components/info-button";
+@import "@dso-toolkit/styling/modules/components/selectable";
 
 // Components
 @import "@dso-toolkit/styling/components";

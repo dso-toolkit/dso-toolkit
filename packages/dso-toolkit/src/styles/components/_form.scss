@@ -152,12 +152,6 @@ form,
     margin: $u2 0;
   }
 
-  .dso-selectable > .dso-info {
-    float: none;
-    margin: $u1 $u2 0 #{$u4 * -1};
-    width: calc(100% + #{$u4});
-  }
-
   .control-label {
     display: inline-block;
     font-weight: bold;
@@ -181,6 +175,24 @@ form,
 
   legend + .dso-label-container {
     margin-bottom: $u1;
+  }
+
+  &.dso-radios {
+    &.dso-inline {
+      .dso-selectable {
+        @include selectable_inline(".dso-selectable");
+      }
+    }
+  }
+
+  &.dso-radios,
+  &.dso-checkboxes,
+  &.dso-confirm {
+    &.dso-invalid {
+      .dso-selectable {
+        @include selectable_invalid();
+      }
+    }
   }
 
   &.dso-required {

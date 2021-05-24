@@ -1,0 +1,105 @@
+export interface SelectableChangeEvent extends Event {
+}
+
+import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate } from '@stencil/core';
+
+@Component({
+  tag: 'dso-selectable',
+  styleUrl: 'selectable.scss',
+  shadow: true
+})
+export class Selectable {
+  @Prop()
+  type!: 'checkbox' | 'radio';
+
+  @Prop()
+  identifier!: string;
+
+  @Prop()
+  name?: string;
+
+  @Prop()
+  value!: string;
+
+  @Prop()
+  invalid?: boolean;
+
+  @Prop()
+  disabled?: boolean;
+
+  @Prop()
+  required?: boolean;
+
+  @Prop()
+  checked?: boolean;
+
+  @Prop()
+  infoFixed?: boolean;
+
+  @Event({
+    eventName: 'dsoChange'
+  })
+  change!: EventEmitter<SelectableChangeEvent>;
+
+  @Element()
+  host!: HTMLElement;
+
+  @State()
+  infoActive = false;
+
+  private mutationObserver?: MutationObserver;
+
+  componentDidLoad() {
+    this.mutationObserver?.disconnect();
+
+    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+    this.mutationObserver.observe(this.host, {
+      childList: true
+    });
+  }
+
+  disconnectedCallback() {
+    this.mutationObserver?.disconnect();
+  }
+
+  render() {
+    const hasInfo = this.host.querySelector('[slot="info"]');
+
+    return (
+      <Fragment>
+        <input
+          type={this.type}
+          id={this.identifier}
+          value={this.value}
+          name={this.name}
+          aria-invalid={this.invalid?.toString() ?? undefined}
+          disabled={this.disabled}
+          required={this.required}
+          checked={this.checked}
+          onChange={e => this.change.emit(e)}
+        />
+        <label htmlFor={this.identifier}>
+          <slot></slot>
+        </label>
+        {hasInfo && (
+          <Fragment>
+            {!this.infoFixed && (
+              <dso-info-button
+                active={this.infoActive}
+                onToggle={e => this.infoActive = e.detail.active}
+              ></dso-info-button>
+            )}
+            <dso-info
+              fixed={this.infoFixed}
+              active={this.infoActive}
+              onClose={() => this.infoActive = false}
+            >
+              <slot name="info"></slot>
+            </dso-info>
+          </Fragment>
+        )}
+        <slot name="info"></slot>
+      </Fragment>
+    );
+  }
+}

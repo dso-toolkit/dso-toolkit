@@ -5,7 +5,7 @@ import { html, nothing, TemplateResult } from 'lit-html';
 // @ts-ignore
 import readme from './readme.md';
 
-const infoTemplate = ({ fixed, richContent, onClose }: Info<TemplateResult>) => html`
+export const infoTemplate = ({ fixed, richContent, onClose }: Info<TemplateResult>) => html`
   <div class="dso-info">
     ${fixed
       ? html`
