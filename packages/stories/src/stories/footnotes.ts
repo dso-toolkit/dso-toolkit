@@ -1,14 +1,6 @@
-import { HandlerFunction } from '@storybook/addon-actions';
-
 import { bindTemplate, Parameters, TemplateFn } from '@core';
 
-export interface FootnotesArgs {
-  status: string;
-  message: string;
-  onClick: HandlerFunction;
-  withRoleAlert: boolean;
-  withButton: boolean;
-}
+export interface FootnotesArgs {}
 
 export interface FootnotesTemplateFn<TemplateFnReturnType> extends TemplateFn<FootnotesArgs, TemplateFnReturnType> {
 }
