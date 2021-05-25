@@ -1,6 +1,7 @@
 import { bindTemplate, Parameters, TemplateFn } from '@core';
 
-export interface FootnotesArgs {}
+export interface FootnotesArgs {
+}
 
 export interface FootnotesTemplateFn<TemplateFnReturnType> extends TemplateFn<FootnotesArgs, TemplateFnReturnType> {
 }
