@@ -5,11 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Added
-* **css + dso-toolkit + stories + styling** Storybook HTML - Footnotes ([#1110](https://github.com/dso-toolkit/dso-toolkit/issues/1110))
-
-### Changes
+### Changed
 * **dso-toolkit:** Breadcrumb: Slashes moeten niet worden voorgelezen door een screenreader ([#1133](https://github.com/dso-toolkit/dso-toolkit/issues/1133))
+* **css + dso-toolkit + stories + styling** Storybook HTML - Footnotes ([#1110](https://github.com/dso-toolkit/dso-toolkit/issues/1110))
 
 ## 24.0.0
 
