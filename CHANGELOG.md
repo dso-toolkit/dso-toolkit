@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit + stories + styling** Storybook HTML - Footnotes ([#1110](https://github.com/dso-toolkit/dso-toolkit/issues/1110))
 * **css + dso-toolkit + stories + styling** Storybook HTML - Description ([#1109](https://github.com/dso-toolkit/dso-toolkit/issues/1109))
 
+* **dso-toolkit:** Navigations:aria-current='page' toevoegen ([#1131](https://github.com/dso-toolkit/dso-toolkit/issues/1131))
 ## 24.0.0
 
 ### Fixed
