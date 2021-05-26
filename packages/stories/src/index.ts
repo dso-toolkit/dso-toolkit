@@ -4,6 +4,7 @@ export * from './stories/badge';
 export * from './stories/banner';
 export * from './stories/breadcrumbs';
 export * from './stories/date-picker';
+export * from './stories/description';
 export * from './stories/footnotes';
 export * from './stories/highlight-box';
 export * from './stories/icon';
