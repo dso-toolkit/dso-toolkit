@@ -14,6 +14,16 @@ $dso-modal-body-padding: $u4;
 $dso-modal-footer-padding: $u4;
 $dso-modal-footer-button-height: $u6;
 
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 body.dso-modal-open {
   &:not(.dso-scripted-height) {
     .dso-modal {
@@ -125,16 +135,6 @@ body.dso-modal-open {
     right: 0;
     top: 0;
     z-index: $dso-modal-z-index;
-
-    @keyframes slideInFromTop {
-      0% {
-        opacity: 0;
-      }
-
-      100% {
-        opacity: 1;
-      }
-    }
 
     .dso-dialog {
       animation: 1s ease-out 0s 1 slideInFromTop;
