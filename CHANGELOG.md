@@ -9,8 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Breadcrumb: Slashes moeten niet worden voorgelezen door een screenreader ([#1133](https://github.com/dso-toolkit/dso-toolkit/issues/1133))
 * **css + dso-toolkit + stories + styling** Storybook HTML - Footnotes ([#1110](https://github.com/dso-toolkit/dso-toolkit/issues/1110))
 * **css + dso-toolkit + stories + styling** Storybook HTML - Description ([#1109](https://github.com/dso-toolkit/dso-toolkit/issues/1109))
-
-* **dso-toolkit:** Navigations:aria-current='page' toevoegen ([#1131](https://github.com/dso-toolkit/dso-toolkit/issues/1131))
+* **dso-toolkit:** Navigations: aria-current="page" toevoegen ([#1131](https://github.com/dso-toolkit/dso-toolkit/issues/1131))
+* **dso-toolkit:** Navigations: aria-expanded en label hamburger knopje aanpassen ([#1134](https://github.com/dso-toolkit/dso-toolkit/issues/1134))
 
 ### Fixed
 * **dso-toolkit**: Recente `dso.css` is niet te bundlen met Angular v12 ([#1140](https://github.com/dso-toolkit/dso-toolkit/issues/1140))
