@@ -8,6 +8,8 @@ export * from './stories/description';
 export * from './stories/footnotes';
 export * from './stories/highlight-box';
 export * from './stories/icon';
+export * from './stories/info-button';
+export * from './stories/info';
 export * from './stories/label';
 export * from './stories/progress-bar';
 export * from './stories/tooltip';
