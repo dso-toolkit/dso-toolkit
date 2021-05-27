@@ -14,8 +14,6 @@ $dso-required-string: "verplicht";
 $dso-toggle-close-icon-size: $u4;
 $dso-toggle-header-margin: 12px;
 
-$dso-button-info-size: $u2;
-
 $dso-fieldset-separator-color: $grijs-20;
 $dso-fieldset-separator-unit: $u4;
 
@@ -369,6 +367,14 @@ select:not([multiple]) {
       }
     }
   }
+}
+
+.dso-field-container + .dso-info {
+  background-color: $dso-invalid-color !important;
+}
+
+.control-label + .dso-info-button {
+  @include info-button_controlLabelSibling();
 }
 
 @import "./form/files";

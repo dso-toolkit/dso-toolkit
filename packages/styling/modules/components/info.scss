@@ -1,0 +1,62 @@
+@import "../../variables";
+
+@mixin info_root() {
+  background-color: $grijs-10;
+  padding: $u2 $u4 $u2 $u2;
+  position: relative;
+
+  > button {
+    background-color: transparent;
+    border-style: none;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &::before {
+      @include di("times-bosgroen");
+
+      content: "";
+      display: inline-block;
+    }
+  }
+
+  .dso-rich-content {
+    *:first-child {
+      margin-top: 0;
+    }
+
+    img {
+      display: block;
+      margin: $u1 auto;
+      max-width: 100%;
+    }
+  }
+
+  .btn-link:not([disabled]) {
+    color: $zwart;
+
+    &:hover,
+    &:focus {
+      &,
+      dso-icon,
+      svg.di {
+        color: $grijs-60;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  a,
+  a:visited {
+    &:not(.btn) {
+      color: $text-color;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
