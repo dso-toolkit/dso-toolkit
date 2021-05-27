@@ -34,6 +34,7 @@
     "@storybook/addon-a11y": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addons": "6.2.9",
+    "@storybook/theming": "6.2.9",
     "@storybook/web-components": "6.2.9",
     "@types/concurrently": "^6.0.1",
     "@types/sass": "1.16.0",
