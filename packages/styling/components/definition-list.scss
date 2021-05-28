@@ -1,3 +1,5 @@
+@import "../mixins/rich-content";
+
 $dso-definition-list-gutter: $u2;
 $dso-definition-list-vertical-space: $u2;
 $dso-definition-list-term-width: 200px;
@@ -22,7 +24,7 @@ dl {
   }
 
   dd {
-    @extend %dso-rich-content;
+    @include rich-content;
     @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
 
     p:last-child {
