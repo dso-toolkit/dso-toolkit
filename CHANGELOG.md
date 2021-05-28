@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## Fixed
+* **dso-toolkit:** Invalid CSS3 ([#1150](https://github.com/dso-toolkit/dso-toolkit/issues/1150))
+* **dso-toolkit:** Shopping cart bevat `:has()` selector ([#1141](https://github.com/dso-toolkit/dso-toolkit/issues/1141))
+* **dso-toolkit:** Angular 12 is unable to bundle `dso.css` ([#1152](https://github.com/dso-toolkit/dso-toolkit/issues/1152))
+
 ## 24.1.0
 
 ### Changed

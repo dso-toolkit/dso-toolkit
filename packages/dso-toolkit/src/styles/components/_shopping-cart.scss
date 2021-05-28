@@ -34,10 +34,6 @@ $dso-shopping-cart-border-color: $grijs-20;
     + .dso-warning {
       margin-top: $u2;
     }
-
-    &:has(.dso-items) {
-      background-color: $zwart;
-    }
   }
 
   ul,
