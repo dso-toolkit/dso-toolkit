@@ -164,7 +164,7 @@ dso-banner,
           + p {
             display: inline;
 
-            + *:not(button[slot="button"]) {
+            + * {
               margin-top: $u2;
             }
           }
