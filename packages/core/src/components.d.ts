@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
+import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 export namespace Components {
     interface DsoAlert {
         /**
@@ -86,6 +87,13 @@ export namespace Components {
     interface DsoIcon {
         "icon": string;
     }
+    interface DsoInfo {
+        "static"?: boolean;
+    }
+    interface DsoInfoButton {
+        "active"?: boolean;
+        "label": string;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -164,6 +172,18 @@ declare global {
         prototype: HTMLDsoIconElement;
         new (): HTMLDsoIconElement;
     };
+    interface HTMLDsoInfoElement extends Components.DsoInfo, HTMLStencilElement {
+    }
+    var HTMLDsoInfoElement: {
+        prototype: HTMLDsoInfoElement;
+        new (): HTMLDsoInfoElement;
+    };
+    interface HTMLDsoInfoButtonElement extends Components.DsoInfoButton, HTMLStencilElement {
+    }
+    var HTMLDsoInfoButtonElement: {
+        prototype: HTMLDsoInfoButtonElement;
+        new (): HTMLDsoInfoButtonElement;
+    };
     interface HTMLDsoLabelElement extends Components.DsoLabel, HTMLStencilElement {
     }
     var HTMLDsoLabelElement: {
@@ -190,6 +210,8 @@ declare global {
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
+        "dso-info": HTMLDsoInfoElement;
+        "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-tooltip": HTMLDsoTooltipElement;
@@ -275,6 +297,15 @@ declare namespace LocalJSX {
     interface DsoIcon {
         "icon": string;
     }
+    interface DsoInfo {
+        "onClose"?: (event: CustomEvent<MouseEvent>) => void;
+        "static"?: boolean;
+    }
+    interface DsoInfoButton {
+        "active"?: boolean;
+        "label"?: string;
+        "onToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
+    }
     interface DsoLabel {
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
@@ -309,6 +340,8 @@ declare namespace LocalJSX {
         "dso-date-picker": DsoDatePicker;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
+        "dso-info": DsoInfo;
+        "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
         "dso-tooltip": DsoTooltip;
@@ -325,6 +358,8 @@ declare module "@stencil/core" {
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
+            "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;

@@ -1,0 +1,16 @@
+@import "../../icon/di";
+
+@import "~@dso-toolkit/styling/modules/components/info-button";
+@import "~@dso-toolkit/styling/scaffolding/normalize";
+@import "~@dso-toolkit/styling/scaffolding/sr-only";
+
+:host {
+  display: inline-block;
+
+  --di-info: #{dso-icon("info")};
+  --di-info-active: #{dso-icon("info-active")};
+}
+
+button {
+  @include info-button_button();
+}

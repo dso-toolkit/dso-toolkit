@@ -2,7 +2,7 @@
 
 $dso-button-info-size: $u2;
 
-@mixin info-button_root() {
+@mixin info-button_button() {
   @include di("info");
 
   margin-left: $u1;

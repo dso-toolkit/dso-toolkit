@@ -1,22 +1,17 @@
 import { storiesOfInfo, Info, InfoArgs } from '@dso-toolkit/stories';
 import { storiesOf } from '@storybook/web-components';
-import { html, nothing, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 
 // @ts-ignore
 import readme from './readme.md';
 
 const infoTemplate = ({ fixed, richContent, onClose }: Info<TemplateResult>) => html`
-  <div class="dso-info">
-    ${fixed
-      ? html`
-        <button type="button" @click=${onClose}>
-          <span class="sr-only">Sluiten</span>
-        </button>
-      `
-      : nothing
-    }
+  <dso-info
+    ?fixed=${fixed}
+    @close=${onClose}
+  >
     ${richContent}
-  </div>
+  </dso-info>
 `;
 
 const richContent = html`
@@ -36,7 +31,7 @@ const richContent = html`
   </div>
 `;
 
-storiesOfInfo<TemplateResult>({
+storiesOfInfo({
   module,
   storiesOf,
   readme,
