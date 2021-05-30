@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "copy-styling": "gulp copy-styling",
+    "copy-libs": "gulp copy-libs",
     "gulp": "gulp",
     "lint": "gulp lint",
     "test": "gulp test"

@@ -1,0 +1,3 @@
+.dso-info:not(.dso-accordion-section) {
+  @include info_root();
+}

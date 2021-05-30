@@ -8,7 +8,7 @@ const fractal = require('./fractal.js');
 const { lintStyles, lintWatcher } = require('./gulp/lint');
 const { build, buildTheme, buildThemeWatcher, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
 const { testDom } = require('./gulp/test');
-const { copyStyling } = require('./gulp/copy-styling');
+const { copyLibs } = require('./gulp/copy-libs');
 
 gulp.task('clean', cleanBuild);
 gulp.task('default', gulp.series(cleanBuild, buildToolkit({ dev: true }), buildTheme, fractalDev, watch));
@@ -20,7 +20,7 @@ gulp.task('test', gulp.series(testDom));
 gulp.task('test:dom', testDom);
 gulp.task('reference:dom', createDomReference);
 
-gulp.task('copy-styling', copyStyling);
+gulp.task('copy-libs', copyLibs);
 
 function watch() {
   const changeLogger = (type, event, path) => log(`${event} detected: ${path}. Recompiling ${type}`);

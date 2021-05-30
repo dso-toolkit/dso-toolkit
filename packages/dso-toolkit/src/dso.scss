@@ -14,7 +14,7 @@
 // Borrow DSO Icon mixin from @dso-toolkit/css
 $dso-icons-path: '../';
 
-@import "../../css/src/mixins/di";
+@import "@dso-toolkit/css/src/mixins/di";
 
 $library: true !default;
 
@@ -36,6 +36,11 @@ $asap-font-path: "../fonts/Asap/" !default;
  * install dso-toolkit but install @dso-toolkit/styling, and then the fractal library
  * will only import styling and web components through <link> and <script>
  */
+// Import namespaced stylesheets first
+@import "@dso-toolkit/styling/modules/components/info";
+@import "@dso-toolkit/styling/modules/components/info-button";
+
+// Components
 @import "@dso-toolkit/styling/components";
 
 /*!

@@ -1,0 +1,10 @@
+@import "../../icon/di";
+@import "~@dso-toolkit/styling/modules/components/info";
+
+:host {
+  @import "~@dso-toolkit/styling/scaffolding/normalize";
+
+  display: block;
+
+  @include info_root();
+}
