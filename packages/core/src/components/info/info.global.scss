@@ -1,0 +1,7 @@
+@use "~@dso-toolkit/styling/modules/components/info";
+
+dso-info {
+  .dso-rich-content[slot="info"] {
+    @include info.info_richContent();
+  }
+}

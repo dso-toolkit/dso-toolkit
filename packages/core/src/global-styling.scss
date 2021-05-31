@@ -1,12 +1,6 @@
 @import "./icon/di";
 
-@import "~@dso-toolkit/styling/modules/components/info";
-
 @import "~@dso-toolkit/styling";
 
-dso-selectable,
-dso-info {
-  .dso-rich-content {
-    @include info_richContent();
-  }
-}
+@import "components/info/info.global";
+@import "components/selectable/selectable.global";
