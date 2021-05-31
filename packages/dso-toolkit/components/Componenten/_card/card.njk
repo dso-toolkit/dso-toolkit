@@ -1,9 +1,9 @@
 <div class="dso-card">
   <h2>
     <a href="#">
-      {{ label }}
+      {{- label -}}
+      <dso-icon icon="chevron-right"></dso-icon>
     </a>
-    <dso-icon icon="chevron-right"></dso-icon>
   </h2>
   {% if interactions %}
     <div class="dso-card-interactions">
@@ -17,7 +17,6 @@
           {% endif %}
           {% if interaction.button %}
             {% render '@button', interaction.button -%}
-            Ingediend
           {% endif %}
         </div>
       {% endfor %}
@@ -25,6 +24,5 @@
   {% endif %}
   <div class="dso-rich-content">
     {{ content | safe }}
-    {# <p>{{ content | safe }}</p> #}
   </div>
 </div>

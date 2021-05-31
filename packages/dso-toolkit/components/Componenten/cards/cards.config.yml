@@ -42,7 +42,7 @@ context:
     - label: Card title
       content: |
         <p>Een korte voorbeeldtekst om voort te bouwen op de titel en het grootste deel van de kaartinhoud te vormen.</p>
-    - label: Card title
+    - label: Card met een hele lange titel die ook over meerdere regels kan lopen als dat nodig is
       content: |
         <dl>
           <dt>Term:</dt>
@@ -58,22 +58,18 @@ context:
             type: button
             modifier: link
             icon: info
-            label: Toon informatie over Brouwersmolen
-            iconOnly: true
-    - label: Card title
+            label: Button
+    - label: Card met een hele lange titel die ook over meerdere regels kan lopen als dat nodig is
       content: |
-        <p>Een korte voorbeeldtekst om voort te bouwen op de titel en het grootste deel van de kaartinhoud te vormen.</p>
+        <dl>
+          <dt>Term:</dt>
+          <dd>Korte beschrijving van de term.</dd>
+          <dt>Term:</dt>
+          <dd>Een lange beschrijving van de term kan over meerdere regels lopen als dat nodig is.</dd>
+        </dl>
       interactions:
         - button:
             type: button
             modifier: link
             icon: info
-            label: Toon informatie over Brouwersmolen
-            iconOnly: true
-variants:
-  - name: interactions-bottom
-    context:
-      interactionsLocation: bottom
-  - name: flat
-    context:
-      modifiers: dso-flat
+            label: Button

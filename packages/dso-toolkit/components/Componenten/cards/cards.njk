@@ -1,4 +1,4 @@
-<ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
+<ul {{ className('dso-cards', modifiers) }}>
   {% for card in cards %}
     <li>
       {% render '@card', card %}
