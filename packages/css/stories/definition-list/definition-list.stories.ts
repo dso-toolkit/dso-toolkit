@@ -8,7 +8,7 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 import readme from './readme.md';
 
 const definitionTemplate = ({ term, descriptions }: Definition) => html`
-  <dt>${term}</dt>
+  <dt>${term}:</dt>
   ${descriptions.map(description => html`
     <dd>${unsafeHTML(description)}</dd>
   `)}

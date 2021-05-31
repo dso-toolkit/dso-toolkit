@@ -24,7 +24,7 @@ dl {
   }
 
   dd {
-    @include rich-content;
+    @include rich-content();
     @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
 
     p:last-child {
