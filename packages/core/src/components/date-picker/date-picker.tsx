@@ -1,3 +1,5 @@
+import { createIdentifier } from '../../utils/create-identifier';
+
 import {
   Component,
   ComponentInterface,
@@ -24,7 +26,6 @@ import {
   startOfMonth,
   printDutchDate,
   parseDutchDate,
-  createIdentifier,
   DaysOfWeek
 } from './date-utils'
 import { DatePickerMonth } from './date-picker-month'

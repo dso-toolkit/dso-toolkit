@@ -33,7 +33,7 @@ const template: SelectableTemplateFn<TemplateResult> = ({
 }: SelectableArgs<TemplateResult>) => html`
   <dso-selectable
     type=${type}
-    identifier=${id}
+    identifier=${ifDefined(id || undefined)}
     value=${value}
     name=${ifDefined(name)}
     @dsoChange=${(e: CustomEvent<Event>) => onChange(e.detail)}

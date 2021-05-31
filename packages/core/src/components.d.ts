@@ -107,7 +107,7 @@ export namespace Components {
     interface DsoSelectable {
         "checked"?: boolean;
         "disabled"?: boolean;
-        "identifier": string;
+        "identifier"?: string;
         "infoFixed"?: boolean;
         "invalid"?: boolean;
         "name"?: string;
@@ -338,7 +338,7 @@ declare namespace LocalJSX {
     interface DsoSelectable {
         "checked"?: boolean;
         "disabled"?: boolean;
-        "identifier": string;
+        "identifier"?: string;
         "infoFixed"?: boolean;
         "invalid"?: boolean;
         "name"?: string;
