@@ -14,7 +14,7 @@ function copyStyling() {
 
 function copyCss() {
   const cssDir = resolve(__dirname, '../../css', '**/*.scss');
-console.log(cssDir);
+
   return gulp.src(cssDir)
     .pipe(gulp.dest('libs/@dso-toolkit/css'))
 }

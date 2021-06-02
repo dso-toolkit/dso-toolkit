@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 24.2.1
+
+### Fixed
+* **dso-toolkit:** @dso-toolkit/css `di.scss` mixin zit niet in `dso-toolkit` npm package ([#1155](https://github.com/dso-toolkit/dso-toolkit/issues/1155))
+
+## 24.2.0
+
 ## Fixed
 * **dso-toolkit:** Invalid CSS3 ([#1150](https://github.com/dso-toolkit/dso-toolkit/issues/1150))
 * **dso-toolkit:** Shopping cart bevat `:has()` selector ([#1141](https://github.com/dso-toolkit/dso-toolkit/issues/1141))
