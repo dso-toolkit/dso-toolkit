@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 24.2.2
+
+### Fixed
+* **dso-toolkit:** `$dso-icons-path` is niet meer te overriden ([#1156](https://github.com/dso-toolkit/dso-toolkit/issues/1156))
+
 ## 24.2.1
 
 ### Fixed

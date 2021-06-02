@@ -12,7 +12,7 @@
 */
 
 // Borrow DSO Icon mixin from @dso-toolkit/css
-$dso-icons-path: '../';
+$dso-icons-path: '../' !default;
 
 @import "@dso-toolkit/css/src/mixins/di";
 
@@ -37,8 +37,7 @@ $asap-font-path: "../fonts/Asap/" !default;
  * will only import styling and web components through <link> and <script>
  */
 // Import namespaced stylesheets first
-@import "@dso-toolkit/styling/modules/components/info";
-@import "@dso-toolkit/styling/modules/components/info-button";
+@import "namespaced-stylesheets";
 
 // Components
 @import "@dso-toolkit/styling/components";
