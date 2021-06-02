@@ -1,14 +1,33 @@
+@import "../../variables";
+
+$dso-selectable-valid-marker-color: $grasgroen; // dot for radio and checkmark for checkbox
+$dso-selectable-valid-color: $bosgroen;
+$dso-selectable-invalid-color: $dso-danger-color;
+$dso-selectable-active-background-color: $grasgroen-10;
+$dso-selectable-disabled-color: $dso-input-disabled-border-color;
 $dso-selectable-size: $u3;
 $dso-selectable-border-width: 2px;
 $dso-selectable-focus-border-width: 3px;
 
-.dso-selectable {
+@mixin selectable_invalid() {
+  --dso-selectable-color: #{$dso-selectable-invalid-color};
+}
+
+@mixin selectable_notLastChild() {
+  margin-bottom: $u1;
+}
+
+@mixin selectable_inline($siblingSelectableSelector) {
+  display: inline-block;
+
+  + #{$siblingSelectableSelector} {
+    margin-left: $u3;
+  }
+}
+
+@mixin selectable_root() {
   padding: 0 0 0 $u4;
   position: relative;
-
-  &:not(:last-child) {
-    margin-bottom: $u1;
-  }
 
   label {
     font-weight: 400;
@@ -24,18 +43,10 @@ $dso-selectable-focus-border-width: 3px;
       + label {
         &::before {
           background-color: $wit;
-          box-shadow: 0 0 0 $dso-selectable-border-width $dso-input-disabled-border-color;
+          box-shadow: 0 0 0 $dso-selectable-border-width $dso-selectable-disabled-color;
         }
       }
     }
-  }
-
-  input[type="checkbox"][disabled] + label::after {
-    border-color: $grasgroen-40;
-  }
-
-  input[type="radio"][disabled] + label::after {
-    background-color: $grasgroen-40;
   }
 
   input[type="checkbox"],
@@ -62,7 +73,7 @@ $dso-selectable-focus-border-width: 3px;
       &::before {
         background: $wit;
         border: 0;
-        box-shadow: 0 0 0 $dso-selectable-border-width $bosgroen;
+        box-shadow: 0 0 0 $dso-selectable-border-width var(--dso-selectable-color, $dso-selectable-valid-color);
         content: "";
         height: $dso-selectable-size - 2 * $dso-selectable-border-width;
         left: $dso-selectable-border-width;
@@ -76,7 +87,7 @@ $dso-selectable-focus-border-width: 3px;
       outline: 0;
 
       + label::before {
-        box-shadow: 0 0 0 $dso-selectable-focus-border-width $dso-form-control-focus-border-color;
+        box-shadow: 0 0 0 $dso-selectable-focus-border-width var(--dso-selectable-color, $dso-selectable-valid-color);
         height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
         left: $dso-selectable-focus-border-width;
         top: $dso-selectable-focus-border-width;
@@ -87,28 +98,12 @@ $dso-selectable-focus-border-width: 3px;
     &:active,
     &.active {
       + label::before {
-        background-color: $grasgroen-10;
-        box-shadow: 0 0 0 1px $bosgroen;
+        background-color: $dso-selectable-active-background-color;
+        box-shadow: 0 0 0 1px $dso-selectable-valid-color;
         height: $dso-selectable-size - 2px;
         left: 1px;
         top: 1px;
         width: $dso-selectable-size - 2px;
-      }
-    }
-
-    .dso-invalid & {
-      + label::before {
-        box-shadow: 0 0 0 2px $dso-danger-color;
-      }
-
-      &:focus {
-        + label::before {
-          box-shadow: 0 0 0 3px $dso-danger-color;
-          height: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
-          left: $dso-selectable-focus-border-width;
-          top: $dso-selectable-focus-border-width;
-          width: $dso-selectable-size - 2 * $dso-selectable-focus-border-width;
-        }
       }
     }
   }
@@ -139,15 +134,9 @@ $dso-selectable-focus-border-width: 3px;
     &:checked {
       + label {
         &::after {
-          border-color: $grasgroen;
+          border-color: var(--dso-selectable-color, $dso-selectable-valid-marker-color);
           opacity: 1;
         }
-      }
-    }
-
-    .dso-invalid & {
-      &:checked + label::after {
-        border-color: $dso-danger-color;
       }
     }
   }
@@ -175,24 +164,16 @@ $dso-selectable-focus-border-width: 3px;
     &:checked {
       + label {
         &::after {
-          background-color: $grasgroen;
+          background-color: var(--dso-selectable-color, $dso-selectable-valid-marker-color);
           opacity: 1;
         }
       }
     }
-
-    .dso-invalid & {
-      &:checked + label::after {
-        background-color: $dso-danger-color;
-      }
-    }
   }
 
-  .dso-radios.dso-inline & {
-    display: inline-block;
-
-    + .dso-selectable {
-      margin-left: $u3;
-    }
+  > .dso-info {
+    float: none;
+    margin: $u1 $u2 0 #{$u4 * -1};
+    width: calc(100% + #{$u4});
   }
 }

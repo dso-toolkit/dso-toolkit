@@ -4,12 +4,14 @@ import { bindTemplate, TemplateFn, Parameters } from '@core';
 
 export interface Info<TemplateFnReturnType> {
   fixed?: boolean;
+  active?: boolean;
   richContent: TemplateFnReturnType;
   onClose: (e: MouseEvent) => void;
 }
 
 export interface InfoArgs<TemplateFnReturnType> {
   fixed?: boolean;
+  active?: boolean;
   richContent: TemplateFnReturnType;
   close: HandlerFunction;
 }
@@ -42,6 +44,11 @@ export function storiesOfInfo<TemplateFnReturnType>({
       },
       argTypes: {
         fixed: {
+          control: {
+            type: 'boolean'
+          }
+        },
+        active: {
           control: {
             type: 'boolean'
           }

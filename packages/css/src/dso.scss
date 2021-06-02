@@ -1,6 +1,7 @@
 // Import namespaced stylesheets, import these first so globally available
 @import "../../styling/modules/components/info";
 @import "../../styling/modules/components/info-button";
+@import "../../styling/modules/components/selectable";
 
 // Mixins
 @import "mixins/di";
@@ -11,3 +12,4 @@
 // Components
 @import "components/info/info";
 @import "components/info-button/info-button";
+@import "components/selectable/selectable";

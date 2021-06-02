@@ -1,4 +1,4 @@
-import { h, Component, Event, Fragment, Prop, EventEmitter } from '@stencil/core';
+import { h, Component, Event, Prop, EventEmitter, Fragment } from '@stencil/core';
 
 @Component({
   tag: 'dso-info',
@@ -6,8 +6,11 @@ import { h, Component, Event, Fragment, Prop, EventEmitter } from '@stencil/core
   shadow: true
 })
 export class Info {
-  @Prop()
-  static?: boolean;
+  @Prop({ reflect: true })
+  fixed?: boolean;
+
+  @Prop({ reflect: true })
+  active?: boolean;
 
   @Event()
   close!: EventEmitter<MouseEvent>;
@@ -15,7 +18,7 @@ export class Info {
   render() {
     return (
       <Fragment>
-        {!this.static && (
+        {!this.fixed && (
           <button type="button" onClick={e => this.close.emit(e)}>
             <span class="sr-only">Sluiten</span>
           </button>

@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
+import { SelectableChangeEvent } from "./components/selectable/selectable";
 export namespace Components {
     interface DsoAlert {
         /**
@@ -88,7 +89,8 @@ export namespace Components {
         "icon": string;
     }
     interface DsoInfo {
-        "static"?: boolean;
+        "active"?: boolean;
+        "fixed"?: boolean;
     }
     interface DsoInfoButton {
         "active"?: boolean;
@@ -101,6 +103,18 @@ export namespace Components {
         "max": number;
         "min": number;
         "progress": number;
+    }
+    interface DsoSelectable {
+        "checked"?: boolean;
+        "describedById"?: string;
+        "disabled"?: boolean;
+        "identifier"?: string;
+        "infoFixed"?: boolean;
+        "invalid"?: boolean;
+        "name"?: string;
+        "required"?: boolean;
+        "type": 'checkbox' | 'radio';
+        "value": string;
     }
     interface DsoTooltip {
         /**
@@ -196,6 +210,12 @@ declare global {
         prototype: HTMLDsoProgressBarElement;
         new (): HTMLDsoProgressBarElement;
     };
+    interface HTMLDsoSelectableElement extends Components.DsoSelectable, HTMLStencilElement {
+    }
+    var HTMLDsoSelectableElement: {
+        prototype: HTMLDsoSelectableElement;
+        new (): HTMLDsoSelectableElement;
+    };
     interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
     }
     var HTMLDsoTooltipElement: {
@@ -214,6 +234,7 @@ declare global {
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
+        "dso-selectable": HTMLDsoSelectableElement;
         "dso-tooltip": HTMLDsoTooltipElement;
     }
 }
@@ -298,8 +319,9 @@ declare namespace LocalJSX {
         "icon": string;
     }
     interface DsoInfo {
+        "active"?: boolean;
+        "fixed"?: boolean;
         "onClose"?: (event: CustomEvent<MouseEvent>) => void;
-        "static"?: boolean;
     }
     interface DsoInfoButton {
         "active"?: boolean;
@@ -313,6 +335,19 @@ declare namespace LocalJSX {
         "max"?: number;
         "min"?: number;
         "progress": number;
+    }
+    interface DsoSelectable {
+        "checked"?: boolean;
+        "describedById"?: string;
+        "disabled"?: boolean;
+        "identifier"?: string;
+        "infoFixed"?: boolean;
+        "invalid"?: boolean;
+        "name"?: string;
+        "onDsoChange"?: (event: CustomEvent<SelectableChangeEvent>) => void;
+        "required"?: boolean;
+        "type": 'checkbox' | 'radio';
+        "value": string;
     }
     interface DsoTooltip {
         /**
@@ -344,6 +379,7 @@ declare namespace LocalJSX {
         "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
         "dso-progress-bar": DsoProgressBar;
+        "dso-selectable": DsoSelectable;
         "dso-tooltip": DsoTooltip;
     }
 }
@@ -362,6 +398,7 @@ declare module "@stencil/core" {
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
+            "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
         }
     }

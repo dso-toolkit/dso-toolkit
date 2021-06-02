@@ -2,9 +2,16 @@
 @import "~@dso-toolkit/styling/modules/components/info";
 
 :host {
+  --di-times-bosgroen: #{dso-icon("times", "bosgroen")};
+
   @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/styling/scaffolding/sr-only";
 
   display: block;
 
   @include info_root();
+}
+
+:host(:not([active]):not([fixed])) {
+  display: none;
 }

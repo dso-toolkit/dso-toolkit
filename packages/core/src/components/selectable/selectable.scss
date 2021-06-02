@@ -1,0 +1,13 @@
+@use "~@dso-toolkit/styling/modules/components/selectable";
+
+:host {
+  @import "~@dso-toolkit/styling/scaffolding/normalize";
+
+  display: block;
+
+  @include selectable.selectable_root();
+}
+
+:host(:not(:last-child)) {
+  @include selectable.selectable_notLastChild();
+}

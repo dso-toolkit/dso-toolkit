@@ -2,12 +2,16 @@
   <div class="dso-filename" id="{{ id }}-file-filename-{{ pos }}">
     {{ filename }}
   </div>
-  <div class="dso-confidential dso-selectable">
-    <input type="checkbox" id="{{ id }}-input-confirm-{{ pos }}" name="" value="" {{ attributes([confidential, 'checked']) }} aria-describedby="{{ id }}-file-filename-{{ pos }}" />
-    <label for="{{ id }}-input-confirm-{{ pos }}">
-      Vertrouwelijk
-    </label>
-  </div>
+  {% render '@selectable', {
+    modifiers: 'dso-confidential',
+    type: 'checkbox',
+    id: id + '-input-confirm-' + pos,
+    name: '',
+    label: 'Vertrouwelijk',
+    value: '',
+    checked: confidential,
+    ariaDescribedBy: id + '-file-filename-' + pos
+  } %}
   {% if confidential %}
     <dso-icon icon="status-warning"></dso-icon>
   {% endif %}

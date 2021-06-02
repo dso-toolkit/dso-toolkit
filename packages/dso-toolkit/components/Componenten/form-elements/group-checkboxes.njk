@@ -15,22 +15,21 @@
   </div>
   <div class="dso-field-container">
     {% for option in options %}
-      <div class="dso-selectable">
-        <input type="checkbox" id="{{ localId }}-{{ loop.index0 }}" name="{{ id }}" value="{{ option.value }}"
-          {% if option.disabled %} disabled{% endif %}
-          {% if option.checked %} checked{% endif %}
-          {% if option.required %} required{% endif %}
-          {% if state == "invalid" %} aria-invalid="true"{% endif %}>
-        <label for="{{ localId }}-{{ loop.index0 }}">
-          {{ option.label }}
-        </label>
-        {% if option.infoText and not option.static %}
-          {% render '@info-button', {infoOpen: option.infoOpen, infoButtonLabel: option.infoButtonLabel} %}
-        {% endif %}
-        {% if option.infoOpen %}
-          {% render '@info', {infoText: option.infoText, static: option.static} %}
-        {% endif %}
-      </div>
+      {% render '@selectable', {
+        type: 'checkbox',
+        id: localId + '-' + loop.index0,
+        name: id,
+        value: option.value,
+        label: option.label,
+        disabled: option.disabled,
+        checked: option.checked,
+        required: option.required,
+        invalid: state == 'invalid',
+        infoText: option.infoText,
+        infoOpen: option.infoOpen,
+        infoButtonLabel: option.infoButtonLabel,
+        infoStatic: option.static
+      } %}
     {% endfor %}
     {% if errorText %}
       {% render '@error-block', {errorText: errorText} %}

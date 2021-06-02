@@ -16,6 +16,7 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "jsx": "react",
+    "jsxFragmentFactory": "Fragment",
     "jsxFactory": "h"
   },
   "include": [
