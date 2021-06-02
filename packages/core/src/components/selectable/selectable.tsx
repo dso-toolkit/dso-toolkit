@@ -26,6 +26,9 @@ export class Selectable {
   invalid?: boolean;
 
   @Prop()
+  describedById?: string;
+
+  @Prop()
   disabled?: boolean;
 
   @Prop()
@@ -75,7 +78,8 @@ export class Selectable {
           id={this.getIdentifier()}
           value={this.value}
           name={this.name}
-          aria-invalid={this.invalid?.toString() ?? undefined}
+          aria-invalid={this.invalid?.toString()}
+          aria-describedby={this.describedById}
           disabled={this.disabled}
           required={this.required}
           checked={this.checked}

@@ -2,6 +2,7 @@ import { storiesOfInfoButton, InfoButton, InfoButtonArgs } from '@dso-toolkit/st
 import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
 // @ts-ignore
 import readme from './readme.md';
@@ -10,7 +11,7 @@ export const infoButtonTemplate = ({ active, label, onClick }: InfoButton) => ht
   <button
     type="button"
     class="btn dso-info-button ${classMap({ 'dso-open': !!active })}"
-    aria-expanded=${active}
+    aria-expanded=${ifDefined(active?.toString())}
     @click=${onClick}
   >
     <span class="sr-only">

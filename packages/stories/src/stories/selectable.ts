@@ -11,6 +11,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   value: string;
   required?: boolean;
   invalid?: boolean;
+  describedById?: string;
   checked?: boolean;
   disabled?: boolean;
   onChange: HandlerFunction;
@@ -85,6 +86,11 @@ export function storiesOfSelectable<TemplateFnReturnType>({
         invalid: {
           control: {
             type: 'boolean'
+          }
+        },
+        describedById: {
+          control: {
+            type: 'text'
           }
         },
         checked: {

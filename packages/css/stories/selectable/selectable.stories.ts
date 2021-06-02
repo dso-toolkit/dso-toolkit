@@ -28,6 +28,7 @@ const template: SelectableTemplateFn<TemplateResult> = ({
   value,
   required,
   invalid,
+  describedById,
   checked,
   disabled,
   onChange,
@@ -44,6 +45,7 @@ const template: SelectableTemplateFn<TemplateResult> = ({
       value=${value}
       name=${ifDefined(name)}
       aria-invalid=${ifDefined(invalid)}
+      aria-describedby=${ifDefined(describedById)}
       @change=${(e: Event) => onChange(e)}
       ?disabled=${disabled}
       ?required=${required}
@@ -54,7 +56,7 @@ const template: SelectableTemplateFn<TemplateResult> = ({
     </label>
     ${info
       ? html`
-        ${!infoFixed ? infoButtonTemplate({ active: infoActive, label: 'x', onClick: infoToggled }) : nothing}
+        ${!infoFixed ? infoButtonTemplate({ active: infoActive, onClick: infoToggled }) : nothing}
         ${infoActive || infoFixed
           ? infoTemplate({ fixed: infoFixed, richContent: info, onClose: infoClosed })
           : nothing

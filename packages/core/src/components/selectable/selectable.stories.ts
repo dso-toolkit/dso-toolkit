@@ -25,6 +25,7 @@ const template: SelectableTemplateFn<TemplateResult> = ({
   value,
   required,
   invalid,
+  describedById,
   checked,
   disabled,
   onChange,
@@ -38,6 +39,7 @@ const template: SelectableTemplateFn<TemplateResult> = ({
     name=${ifDefined(name)}
     @dsoChange=${(e: CustomEvent<Event>) => onChange(e.detail)}
     ?invalid=${invalid}
+    described-by-id=${ifDefined(describedById)}
     ?disabled=${disabled}
     ?required=${required}
     ?checked=${checked}
