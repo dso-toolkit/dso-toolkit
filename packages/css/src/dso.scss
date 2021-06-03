@@ -1,4 +1,5 @@
 // Import namespaced stylesheets, import these first so globally available
+@import "../../styling/modules/components/conclusion";
 @import "../../styling/modules/components/definition-list";
 @import "../../styling/modules/components/info";
 @import "../../styling/modules/components/info-button";
@@ -11,6 +12,7 @@
 @import "../../styling/index.scss";
 
 // Components
+@import "components/conclusion/conclusion";
 @import "components/definition-list/definition-list";
 @import "components/info/info";
 @import "components/info-button/info-button";

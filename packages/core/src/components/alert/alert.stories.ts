@@ -6,13 +6,13 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 // @ts-ignore
 import readme from './readme.md';
 
-const template: AlertTemplateFn<TemplateResult> = ({ status, message, onClick, withRoleAlert, withButton }: AlertArgs) => html`
+const template: AlertTemplateFn<TemplateResult> = ({ status, message, click, withRoleAlert, withButton }: AlertArgs) => html`
   <dso-alert status=${status} ?role-alert=${withRoleAlert}>
     <div class="dso-rich-content">
       <p>${unsafeHTML(message)}</p>
       ${withButton
         ? html`
-          <button type="button" class="btn" @click=${onClick}>Button</button>
+          <button type="button" class="btn" @click=${click}>Button</button>
         `
         : nothing
       }

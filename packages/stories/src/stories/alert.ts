@@ -2,10 +2,17 @@ import { HandlerFunction } from '@storybook/addon-actions';
 
 import { bindTemplate, Parameters, TemplateFn } from '@core';
 
+export interface Alert {
+  status: string;
+  message: string;
+  onClick?: (e: MouseEvent) => void;
+  withRoleAlert?: boolean;
+}
+
 export interface AlertArgs {
   status: string;
   message: string;
-  onClick: HandlerFunction;
+  click: HandlerFunction;
   withRoleAlert: boolean;
   withButton: boolean;
 }
@@ -54,7 +61,7 @@ export function storiesOfAlert<TemplateFnReturnType>({
             type: 'boolean'
           }
         },
-        onClick: {
+        click: {
           action: 'closed'
         }
       }

@@ -3,6 +3,7 @@ export * from './stories/attachments-counter';
 export * from './stories/badge';
 export * from './stories/banner';
 export * from './stories/breadcrumbs';
+export * from './stories/conclusion';
 export * from './stories/date-picker';
 export * from './stories/definition-list';
 export * from './stories/description';
