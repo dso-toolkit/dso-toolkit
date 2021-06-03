@@ -1,1 +1,6 @@
-<dso-label status="success"><span class="dso-label dso-label-success"><span class="sr-only">Succes: </span> Label tekst </span></dso-label>
+<dso-label id="label-success" status="success">
+  Label tekst
+</dso-label>
+<script>
+  document.getElementById('label-success').addEventListener('actionClick', e => console.log(e));
+</script>

@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, State } from '@stencil/core';
 import clsx from 'clsx';
 
 @Component({
@@ -10,6 +10,9 @@ export class Label {
   @Prop()
   status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
+  @Prop()
+  compact?: boolean;
+
   private static statusMap = new Map<string, string>([
     ['primary', 'Primair'],
     ['info', 'Info'],
@@ -18,16 +21,29 @@ export class Label {
     ['danger', 'Gevaar']
   ]);
 
+  @Prop()
+  removable?: boolean;
+
+  @State()
+  hovering?: boolean;
+
+  @Event()
+  removeClick!: EventEmitter<MouseEvent>;
+
   render() {
     const status = this.status && Label.statusMap.get(this.status);
 
     return (
-      <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status } )}>
+      <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status, 'dso-label-compact': this.compact && !this.removable, 'dso-label-hover': this.hovering })}>
         {status && (
           <span class="sr-only">{status}: </span>
         )}
         <slot></slot>
-        <slot name="action"></slot>
+        {this.removable && (
+          <button type="button" onClick={e => this.removeClick.emit(e)} title="Verwijder" onMouseEnter={() => this.hovering = true} onMouseLeave={() => this.hovering = false}>
+            <dso-icon icon="times"></dso-icon>
+          </button>
+        )}
       </span>
     );
   }

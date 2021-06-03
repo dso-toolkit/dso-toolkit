@@ -1,12 +1,8 @@
 module.exports = {
-  label: 'Label (Web Component)',
-  meta: {
-    webComponent: 'dso-label',
-    markup: false
-  },
+  label: 'Label (CSS)',
   status: 'ready',
   collated: true,
-  collator: (markup, item) => `<div class="col-xs-4" style="height: 3em;"><p>${markup}</p></div>`,
+  collator: (markup) => `<div class="col-xs-4" style="height: 3em;"><p>${markup}</p></div>`,
   default: 'default',
   variants: [
     {
@@ -142,6 +138,32 @@ module.exports = {
         status: 'danger',
         label: 'Label tekst',
         compact: true
+      }
+    },
+    {
+      name: 'default hover',
+      context: {
+        status: 'default',
+        label: 'Hovered',
+        hovered: true
+      }
+    },
+    {
+      name: 'default button hover',
+      context: {
+        status: 'default',
+        label: 'Hovered',
+        removable: true,
+        hovered: true
+      }
+    },
+    {
+      name: 'default small hover',
+      context: {
+        status: 'default',
+        label: 'Hovered',
+        compact: true,
+        hovered: true
       }
     }
   ]

@@ -1,79 +1,86 @@
 @import "../variables";
 
-$dso-label-default-bg-color: $lime-20;
-$dso-label-default-color: $bosgroen;
-$dso-label-default-button-border-color: $bosgroen;
-$dso-label-default-button-hover-background-color: $wit;
-$dso-label-default-button-hover-border-color: $lime-20;
-$dso-label-default-button-hover-color: $bosgroen;
+$dso-label-default-bg-color: $grijs-5;
+$dso-label-default-color: $grijs-90;
 
 $dso-label-info-bg-color: $dso-info-color;
 $dso-label-info-color: $grijs-90;
-$dso-label-info-button-border-color: #2b5780;
-$dso-label-info-button-hover-background-color: $wit;
-$dso-label-info-button-hover-border-color: $dso-info-color;
-$dso-label-info-button-hover-color: $zwart;
 
 $dso-label-primary-bg-color: $bosgroen;
-$dso-label-primary-button-hover-background-color: $wit;
-$dso-label-primary-button-hover-border-color: $bosgroen;
-$dso-label-primary-button-hover-color: $bosgroen;
+$dso-label-primary-color: $wit;
 
 $dso-label-success-bg-color: $dso-success-color;
-$dso-label-success-button-hover-background-color: $wit;
-$dso-label-success-button-hover-border-color: $dso-success-color;
-$dso-label-success-button-hover-color: $grasgroen;
+$dso-label-success-color: $wit;
 
 $dso-label-warning-bg-color: $dso-warning-color;
 $dso-label-warning-color: $grijs-90;
-$dso-label-warning-button-border-color: #191919;
-$dso-label-warning-button-hover-background-color: $wit;
-$dso-label-warning-button-hover-border-color: $dso-warning-color;
-$dso-label-warning-button-hover-color: $zwart;
 
 $dso-label-danger-bg-color: $dso-danger-color;
 $dso-label-danger-color: $wit;
-$dso-label-danger-button-border-color: $dso-danger-color;
-$dso-label-danger-button-hover-background-color: $wit;
-$dso-label-danger-button-hover-border-color: $dso-danger-color;
-$dso-label-danger-button-hover-color: $dso-danger-color;
 
 .dso-label {
   background-color: $dso-label-default-bg-color;
-  border: 1px solid $dso-label-default-button-hover-border-color;
   border-radius: 4px;
   color: $dso-label-default-color;
   display: inline-block;
-  line-height: 1em;
+  line-height: 1.5;
   padding: #{$u1 / 2} $u1;
+
+  &:focus-within,
+  &.dso-label-hover {
+    text-decoration: line-through;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    border-radius: 0 #{$u1 / 2} #{$u1 / 2} 0;
+    color: inherit;
+    float: right;
+    font-size: $font-size-base;
+    margin-bottom: -$u1 / 2;
+    margin-left: $u1;
+    margin-right: -$u1 / 2;
+    margin-top: 0;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    > dso-icon,
+    > svg.di {
+      display: block;
+    }
+  }
+
+  &.dso-label-compact {
+    border: 0;
+    padding: 0px 8px;
+  }
 
   &.dso-label-info {
     background-color: $dso-label-info-bg-color;
-    border: 1px solid $dso-label-info-button-hover-border-color;
     color: $dso-label-info-color;
   }
 
   &.dso-label-primary {
     background-color: $dso-label-primary-bg-color;
-    border: 1px solid $dso-label-primary-button-hover-border-color;
-    color: $wit;
+    color: $dso-label-primary-color;
   }
 
   &.dso-label-success {
     background-color: $dso-label-success-bg-color;
-    border: 1px solid $dso-label-success-button-hover-border-color;
-    color: $wit;
+    color: $dso-label-success-color;
   }
 
   &.dso-label-warning {
     background-color: $dso-label-warning-bg-color;
-    border: 1px solid $dso-label-warning-button-hover-border-color;
     color: $dso-label-warning-color;
   }
 
   &.dso-label-danger {
     background-color: $dso-label-danger-bg-color;
-    border: 1px solid $dso-label-danger-button-hover-border-color;
     color: $dso-label-danger-color;
   }
 }

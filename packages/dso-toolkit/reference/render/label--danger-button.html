@@ -1,5 +1,6 @@
-<dso-label status="danger"><span class="dso-label dso-label-danger"
-    ><span class="sr-only">Gevaar: </span> Label tekst
-  <button type="button" title="Verwijder" slot="action">
-    <dso-icon icon="times"></dso-icon>
-  </button></span></dso-label>
+<dso-label id="label-danger-button" status="danger" removable>
+  Label tekst
+</dso-label>
+<script>
+  document.getElementById('label-danger-button').addEventListener('actionClick', e => console.log(e));
+</script>
