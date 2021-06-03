@@ -1,0 +1,11 @@
+<h1>Accordion formulier</h1>
+
+<h2>Accordion</h2>
+{% render '@accordion', accordion %}
+{% render '@form-buttons', {buttons: accordion.formButtons, asideButtons: accordion.asideButtons} %}
+
+<hr />
+
+<h2>Geneste accordion</h2>
+{% render '@accordion', nestedAccordion %}
+{% render '@form-buttons', {buttons: nestedAccordion.formButtons, asideButtons: nestedAccordion.asideButtons} %}
