@@ -9,7 +9,8 @@ module.exports = {
   collator: (markup, item) => `<div style="position: relative; height: 4em;">${markup}</div>`,
   context: {
     label: 'Boven',
-    position: 'top'
+    position: 'top',
+    small: false
   },
   variants: [
     {
@@ -22,7 +23,7 @@ module.exports = {
     {
       name: 'tooltip-right',
       context: {
-        label: 'Ik sta rechts van de inhoud',
+        label: 'Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.',
         position: 'right'
       }
     },
@@ -32,6 +33,14 @@ module.exports = {
         label: 'Ik sta onder de inhoud',
         position: 'bottom'
       }
+    },
+    {
+      name: 'tooltip-right-small',
+      context: {
+        label: 'Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.',
+        position: 'right',
+        small: true
+      }
     }
   ]
-}
+};

@@ -2,19 +2,20 @@
 
 @import "~@dso-toolkit/styling/variables";
 
-$tooltip-arrow-width: 5px;
-$tooltip-padding-vertical: $dso-unit;
-$tooltip-padding-horizontal: $dso-unit / 2;
-$tooltip-border-size: 1px;
+$tooltip-arrow-width: 6px;
+$tooltip-padding-vertical: $u2;
+$tooltip-padding-horizontal: $u1;
 $tooltip-border-radius: $dso-unit / 2;
-$tooltip-arrow-color: $grasgroen;
-$tooltop-max-width: 80 * $dso-unit;
+$tooltip-arrow-color: $wit;
+$tooltip-max-width: 80 * $dso-unit;
+$tooltip-max-width-small: 40 * $dso-unit;
 
 :host {
   display: block;
 }
 
 .tooltip {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   font-size: $font-size-small;
   position: absolute;
   z-index: $zindex-tooltip;
@@ -78,14 +79,16 @@ $tooltop-max-width: 80 * $dso-unit;
 
 .tooltip-inner {
   background-color: $wit;
-  border: $tooltip-border-size solid $grasgroen;
   border-radius: $tooltip-border-radius;
-  color: $grasgroen;
+  color: $grijs-90;
   display: inline-block;
-  font-size: $font-size-small;
-  line-height: 1.2em;
-  max-width: $tooltop-max-width;
+  font-size: $font-size-base;
+  max-width: $tooltip-max-width;
   padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
+
+  &.dso-small {
+    max-width: $tooltip-max-width-small;
+  }
 }
 
 .tooltip-arrow {

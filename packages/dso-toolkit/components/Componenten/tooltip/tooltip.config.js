@@ -14,7 +14,8 @@ Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaa
   collator: (markup, item) => `<div style="position: relative; height: 4em;">${markup}</div>`,
   context: {
     label: 'Boven',
-    position: 'top'
+    position: 'top',
+    small: false
   },
   variants: [
     {
@@ -27,7 +28,7 @@ Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaa
     {
       name: 'tooltip-right',
       context: {
-        label: 'Ik sta rechts van de inhoud',
+        label: 'Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.',
         position: 'right'
       }
     },
@@ -37,6 +38,14 @@ Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaa
         label: 'Ik sta onder de inhoud',
         position: 'bottom'
       }
+    },
+    {
+      name: 'tooltip-right-small',
+      context: {
+        label: 'Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de behandelende organisatie.',
+        position: 'right',
+        small: true
+      }
     }
   ]
-}
+};

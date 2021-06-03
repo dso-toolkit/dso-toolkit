@@ -31,6 +31,12 @@ export class Tooltip {
   noArrow = false;
 
   /**
+  * Defines if the tooltip has a smaller max-width
+  */
+  @Prop()
+  small?: boolean;
+
+  /**
    * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
    */
   @Prop({ reflect: true, mutable: true })
@@ -126,7 +132,7 @@ export class Tooltip {
         {!this.noArrow && (
           <div class="tooltip-arrow"></div>
         )}
-        <div class="tooltip-inner">
+        <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
           <slot></slot>
         </div>
       </div>
