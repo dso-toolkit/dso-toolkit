@@ -1,10 +1,10 @@
 import { ArgTypes } from '../../stories-helpers';
 import { HandlerFunction } from '@storybook/addon-actions';
 
-import { Alert } from './alert.models';
+import { Alert, AlertType } from './alert.models';
 
 export interface AlertArgs<TemplateFnReturnType> {
-  status: string;
+  status: AlertType;
   message: TemplateFnReturnType | string;
   click: HandlerFunction;
   withRoleAlert: boolean;

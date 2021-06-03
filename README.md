@@ -101,6 +101,7 @@ The easiest way to start this environment is with one of the following commands:
 
 ```
 yarn start:core
+yarn start:react
 yarn start:css
 yarn start:all
 ```
@@ -109,12 +110,14 @@ This will start `@dso-toolkit/sources` in watch mode and run the corresponding S
 
 The following processes are started:
 * **core**: `@dso-toolkit/sources` in watch mode, Stencil in development mode for Web Components, and Storybook
+* **react**: `@dso-toolkit/sources` in watch mode, Stencil in watch mode for production, and Storybook for React components
 * **css**: `@dso-toolkit/sources` in watch mode, Gulp in watch mode for the SVG spritesheet, dart-sass in watch mode for CSS compilation, and Storybook
 
 Alternatively, you can start a specific implementation with:
 
 ```
 yarn workspace @dso-toolkit/core start
+yarn workspace @dso-toolkit/react start
 yarn workspace @dso-toolkit/css start
 ```
 
@@ -123,6 +126,12 @@ but then you need to make sure that `@dso-toolkit/sources` is running in watch m
 ```
 yarn workspace @dso-toolkit/sources start
 yarn workspace @dso-toolkit/sources build
+```
+
+In case of starting a framework binding package you also need to make sure that `@dso-toolkit/core` is built:
+
+```
+yarn workspace @dso-toolkit/core build
 ```
 
 #### `cypress`
@@ -168,3 +177,5 @@ Ports used during development:
 * 53333 - Stencil
 * 56106 - Storybook for Web Components
 * 56206 - Storybook for CSS components
+* 56406 - Storybook for React components
+* 

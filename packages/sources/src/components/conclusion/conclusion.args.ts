@@ -1,12 +1,15 @@
-import { ArgTypes } from '../../stories-helpers';
 import { HandlerFunction } from '@storybook/addon-actions';
+
+import { ArgTypes } from '../../stories-helpers';
+
+import { AlertType } from '../alert/alert.models';
 
 import { Conclusion, ConclusionItem } from './conclusion.models';
 
 export interface ConclusionArgs<TemplateFnReturnType> {
   items: ConclusionItem<TemplateFnReturnType>[];
   alertMessage?: string;
-  alertStatus?: string;
+  alertStatus?: AlertType;
   info?: TemplateFnReturnType;
   infoFixed?: boolean;
   infoActive?: boolean;

@@ -18,13 +18,14 @@
     "clear": "rimraf dist && rimraf loader",
     "build": "stencil build",
     "start": "yarn clear && cross-env DSO_ENV=development yarn node scripts/start.js",
+    "watch": "yarn clear && cross-env DSO_ENV=development yarn node scripts/watch.js",
     "cypress": "yarn clear && cross-env DSO_ENV=cypress yarn node scripts/cypress.js",
     "bin:stencil": "stencil",
     "bin:start-storybook": "start-storybook",
     "bin:cypress": "cypress"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.16",
+    "@babel/core": "^7.14.3",
     "@dso-toolkit/sources": "workspace:packages/sources",
     "@popperjs/core": "^2.9.2",
     "@stencil/core": "2.5.2",
@@ -50,6 +51,7 @@
     "http-proxy-middleware": "^1.2.0",
     "lit-html": "^1.3.0",
     "mini-svg-data-uri": "1.2.3",
+    "minimist": "^1.2.5",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "rimraf": "^3.0.2",

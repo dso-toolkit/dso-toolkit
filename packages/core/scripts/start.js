@@ -1,10 +1,11 @@
 const concurrently = require('concurrently');
+const argv = require('minimist')(process.argv.slice(2));
 
 concurrently(
   [
     {
       name: 'stencil',
-      command: 'yarn bin:stencil build --dev --watch --serve --no-open',
+      command: `yarn bin:stencil build ${argv.prod ? '--prod' : '--dev'} --watch --serve --no-open`,
       prefixColor: 'bgCyan'
     },
     {
