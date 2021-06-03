@@ -132,7 +132,7 @@ export class Tooltip {
         {!this.noArrow && (
           <div class="tooltip-arrow"></div>
         )}
-        <div class={clsx('tooltip-inner', { 'small-width': this.small })}>
+        <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
           <slot></slot>
         </div>
       </div>

@@ -15,7 +15,7 @@ $tooltip-max-width-small: 40 * $dso-unit;
   opacity: 0;
 
   display: block;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   font-size: $font-size-small;
   position: absolute;
   z-index: $zindex-tooltip;
@@ -90,7 +90,7 @@ $tooltip-max-width-small: 40 * $dso-unit;
   padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
   position: relative;
 
-  &.small-width {
+  &.dso-small {
     max-width: $tooltip-max-width-small;
   }
 }
