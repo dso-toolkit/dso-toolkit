@@ -3,6 +3,9 @@ const rimraf = require('rimraf');
 const argv = require('minimist')(process.argv.slice(2));
 
 rimraf.sync('packages/sources/dist');
+rimraf.sync('packages/react/src/components.ts');
+rimraf.sync('packages/react/src/react-component-lib');
+rimraf.sync('packages/react/dist');
 
 const startSources = {
   command: 'yarn workspace @dso-toolkit/sources start',
@@ -14,9 +17,24 @@ const startCore = {
   name: 'core'
 };
 
+const startCoreProd = {
+  command: 'wait-on file:./packages/sources/dist/sources.js && yarn workspace @dso-toolkit/core start --prod',
+  name: 'core'
+};
+
+const startCoreWatcher = {
+  command: 'wait-on file:./packages/sources/dist/sources.js && yarn workspace @dso-toolkit/core watch',
+  name: 'core'
+};
+
 const startCss = {
   command: 'wait-on file:./packages/sources/dist/sources.js && yarn workspace @dso-toolkit/css start',
   name: 'css'
+};
+
+const startReact = {
+  command: 'wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/react start',
+  name: 'react'
 };
 
 switch(argv.mode) {
@@ -42,8 +60,19 @@ switch(argv.mode) {
     concurrently(
       [
         startSources,
-        startCore,
+        startCoreProd,
+        startReact,
         startCss
+      ]
+    );
+
+    break;
+  case 'react':
+    concurrently(
+      [
+        startSources,
+        startCoreWatcher,
+        startReact
       ]
     );
 

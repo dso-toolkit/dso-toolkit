@@ -4,7 +4,7 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { Alert } from './alert.models';
 
 export interface AlertArgs<TemplateFnReturnType> {
-  status: string;
+  status: 'success' | 'info' | 'warning' | 'danger';
   message: TemplateFnReturnType | string;
   click: HandlerFunction;
   withRoleAlert: boolean;

@@ -168,3 +168,5 @@ Ports used during development:
 * 53333 - Stencil
 * 56106 - Storybook for Web Components
 * 56206 - Storybook for CSS components
+* 56406 - Storybook for React components
+* 

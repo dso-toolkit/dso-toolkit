@@ -15,6 +15,7 @@
     "build-styling": "yarn workspace @dso-toolkit/css build",
     "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom",
     "start:core": "yarn node scripts/start.js --mode core",
+    "start:react": "yarn node scripts/start.js --mode react",
     "start:css": "yarn node scripts/start.js --mode css",
     "start:all": "yarn node scripts/start.js --mode all"
   },
