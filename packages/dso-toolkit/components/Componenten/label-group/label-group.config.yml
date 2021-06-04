@@ -14,7 +14,6 @@ context:
     status: warning
   - label: Label tekst
     status: danger
-
   - label: Label tekst
   - label: Label tekst
   - label: Label tekst
@@ -26,3 +25,6 @@ variants:
     context:
       __title: Rechts uitlijnen
       modifiers: dso-align-right
+  - name: wc
+    context:
+      __title: with Label Web Component
