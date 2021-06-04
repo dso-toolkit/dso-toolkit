@@ -8,10 +8,19 @@ import clsx from 'clsx';
 })
 export class Label {
   @Prop()
-  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+  compact?: boolean;
 
   @Prop()
-  compact?: boolean;
+  removable?: boolean;
+
+  @Prop()
+  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+
+  @State()
+  hovering?: boolean;
+
+  @Event()
+  removeClick!: EventEmitter<MouseEvent>;
 
   private static statusMap = new Map<string, string>([
     ['primary', 'Primair'],
@@ -20,15 +29,6 @@ export class Label {
     ['warning', 'Waarschuwing'],
     ['danger', 'Gevaar']
   ]);
-
-  @Prop()
-  removable?: boolean;
-
-  @State()
-  hovering?: boolean;
-
-  @Event()
-  removeClick!: EventEmitter<MouseEvent>;
 
   render() {
     const status = this.status && Label.statusMap.get(this.status);

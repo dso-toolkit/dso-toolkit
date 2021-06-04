@@ -54,6 +54,30 @@ context:
       - value: 4
         label: Informatie (1)
         id: checkbox_6
+  labelGroup:
+    labels:
+    - label: Gemeente
+      removable: true
+    - label: Waterschap
+      removable: true
+    - label: Provincie
+      removable: true
+    - label: Rijksoverheid
+      removable: true
+    - label: Aanvraag vergunning
+      removable: true
+    - label: Melding
+      removable: true
+    - label: Informatie
+      removable: true
+    - label: Informatie ongewoon voorval
+      removable: true
+    - label: Aanvraag maatwerkvoorschrift
+      removable: true
+    - label: Melding gelijkwaardige maatregel
+      removable: true
+    - label: Aanvraag toestemming gelijkwaardige maatregel
+      removable: true
   listButtons:
   - type: button
     label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning

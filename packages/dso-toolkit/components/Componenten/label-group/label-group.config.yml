@@ -1,0 +1,31 @@
+status: ready
+collated: true
+variants:
+- name: default
+  context:
+    __title: default
+    labels:
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true

@@ -156,15 +156,6 @@ module.exports = {
         removable: true,
         hovered: true
       }
-    },
-    {
-      name: 'default small hover',
-      context: {
-        status: 'default',
-        label: 'Hovered',
-        compact: true,
-        hovered: true
-      }
     }
   ]
 };

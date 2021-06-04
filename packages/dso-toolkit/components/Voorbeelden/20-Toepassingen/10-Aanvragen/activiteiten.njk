@@ -17,6 +17,7 @@
           <legend>
             <h4>5 activiteiten</h4>
           </legend>
+          {% render '@label-group', labelGroup %}
           {% for listButton in listButtons %}
             {% render '@list-button', listButton %}
           {% endfor %}
