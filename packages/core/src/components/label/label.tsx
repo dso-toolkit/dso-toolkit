@@ -17,7 +17,7 @@ export class Label {
   status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
 
   @State()
-  hovering?: boolean;
+  hover?: boolean;
 
   @Event()
   removeClick!: EventEmitter<MouseEvent>;
@@ -34,13 +34,13 @@ export class Label {
     const status = this.status && Label.statusMap.get(this.status);
 
     return (
-      <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status, 'dso-label-compact': this.compact && !this.removable, 'dso-label-hover': this.hovering })}>
+      <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status, 'dso-compact': this.compact && !this.removable, 'dso-hover': this.hover })}>
         {status && (
           <span class="sr-only">{status}: </span>
         )}
         <slot></slot>
         {this.removable && (
-          <button type="button" onClick={e => this.removeClick.emit(e)} title="Verwijder" onMouseEnter={() => this.hovering = true} onMouseLeave={() => this.hovering = false}>
+          <button type="button" onClick={e => this.removeClick.emit(e)} title="Verwijder" onMouseEnter={() => this.hover = true} onMouseLeave={() => this.hover = false}>
             <dso-icon icon="times"></dso-icon>
           </button>
         )}

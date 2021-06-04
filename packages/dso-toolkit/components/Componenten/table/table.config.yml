@@ -100,9 +100,9 @@ variants:
     context:
       __title: With caption
       showCaption: true
-  - name: hovered
+  - name: hover
     context:
-      __title: Hovered & Active
+      __title: Hover & Active
       modifier: table table-hover
       activeRow: true
   - name: table text left aligned

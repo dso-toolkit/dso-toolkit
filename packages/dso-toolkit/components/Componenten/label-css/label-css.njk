@@ -1,13 +1,11 @@
-<span {{ className('dso-label', [status, 'dso-label-' + status], [compact, 'dso-label-compact'], [hovered and removable, 'dso-label-hover']) }}>
+<span {{ className('dso-label', [status, 'dso-label-' + status], [compact, 'dso-compact'], [hover and removable, 'dso-hover']) }}>
   {% if status %}
     <span class="sr-only">{{ status }}: </span>
   {% endif %}
   {{ label }}
   {% if removable %}
-    <button type="button">
-      <svg class="di di-times">
-        <use href="{{ '/dso-icons.svg' | path }}#times" />
-      </svg>
+    <button type="button" title="Verwijder">
+      {% render '@icon', {icon: 'times' }%}
     </button>
   {% endif %}
 </span>

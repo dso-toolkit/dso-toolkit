@@ -34,7 +34,7 @@
 @import "components/info"; // -> Moved to @dso-toolkit/css as info and info-button
 @import "components/input-number";
 @import "components/jumbotron";
-// @import "components/label"; -> Moved to @dso-toolkit/styling
+@import "components/label"; // -> Moved to @dso-toolkit/css
 @import "components/lists";
 @import "components/list-button";
 @import "components/menu";

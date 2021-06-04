@@ -1,89 +1,28 @@
 status: ready
 collated: true
+context:
+  __title: default
+  labels:
+  - label: Label tekst
+  - label: Label tekst
+    status: success
+  - label: Label tekst
+    status: primary
+  - label: Label tekst
+    status: info
+  - label: Label tekst
+    status: warning
+  - label: Label tekst
+    status: danger
+
+  - label: Label tekst
+  - label: Label tekst
+  - label: Label tekst
+  - label: Label tekst
+  - label: Label tekst
+  - label: Label tekst
 variants:
-- name: default
-  context:
-    __title: default
-    labels:
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-- name: align left
-  context:
-    __title: Links uitlijnen
-    modifiers: dso-align-left
-    labels:
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-- name: align right
-  context:
-    __title: Rechts uitlijnen
-    modifiers: dso-align-right
-    labels:
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
-    - label: Label tekst
-      removable: true
+  - name: align right
+    context:
+      __title: Rechts uitlijnen
+      modifiers: dso-align-right

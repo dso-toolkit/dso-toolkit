@@ -1,4 +1,4 @@
-@import "../variables";
+@import "../../variables";
 
 $dso-label-default-bg-color: $grijs-5;
 $dso-label-default-color: $grijs-90;
@@ -18,32 +18,16 @@ $dso-label-warning-color: $grijs-90;
 $dso-label-danger-bg-color: $dso-danger-color;
 $dso-label-danger-color: $wit;
 
-.dso-label-group {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: $u2;
-
-  &.dso-align-left {
-    justify-content: flex-start;
-  }
-
-  &.dso-align-right {
-    justify-content: flex-end;
-  }
-}
-
-.dso-label {
+@mixin label_root() {
   background-color: $dso-label-default-bg-color;
   border-radius: 4px;
   color: $dso-label-default-color;
   display: inline-block;
   line-height: 1.5;
-  margin-bottom: $u1;
-  margin-right: $u1;
   padding: #{$u1 / 2} $u1;
 
   &:focus-within,
-  &.dso-label-hover {
+  &.dso-hover {
     text-decoration: line-through;
   }
 
@@ -70,7 +54,7 @@ $dso-label-danger-color: $wit;
     }
   }
 
-  &.dso-label-compact {
+  &.dso-compact {
     border: 0;
     padding: 0px 8px;
   }

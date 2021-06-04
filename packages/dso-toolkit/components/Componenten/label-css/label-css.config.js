@@ -2,7 +2,7 @@ module.exports = {
   label: 'Label (CSS)',
   status: 'ready',
   collated: true,
-  collator: (markup) => `<div class="col-xs-4" style="height: 3em;"><p>${markup}</p></div>`,
+  collator: (markup, item) => `<div class="col-xs-4" style="height: 3em;"><p>${item.context._ignore ? '' : markup}</p></div>`,
   default: 'default',
   variants: [
     {
@@ -143,18 +143,16 @@ module.exports = {
     {
       name: 'default hover',
       context: {
-        status: 'default',
-        label: 'Hovered',
-        hovered: true
+        _ignore: true
       }
     },
     {
       name: 'default button hover',
       context: {
         status: 'default',
-        label: 'Hovered',
+        label: 'Hover',
         removable: true,
-        hovered: true
+        hover: true
       }
     }
   ]

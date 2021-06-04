@@ -4,6 +4,7 @@ import { bindTemplate, Parameters, TemplateFn } from '@core';
 
 export interface LabelArgs {
   status?: string;
+  compact?: boolean;
   label: string;
   button?: {
     title: string;
@@ -39,6 +40,11 @@ export function storiesOfLabel<TemplateFnReturnType>({
         button: {
           control: {
             disable: true
+          }
+        },
+        compact: {
+          control: {
+            type: 'boolean'
           }
         }
       },
