@@ -1,8 +1,13 @@
+@import "~@dso-toolkit/styling/modules/components/label";
+
 :host {
   display: inline-block;
 
   @import "~@dso-toolkit/styling/scaffolding/normalize";
   @import "~@dso-toolkit/styling/scaffolding/sr-only";
 
-  @import "~@dso-toolkit/styling/components/label";
+}
+
+.dso-label {
+  @include label_root();
 }

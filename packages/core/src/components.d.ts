@@ -97,6 +97,8 @@ export namespace Components {
         "label": string;
     }
     interface DsoLabel {
+        "compact"?: boolean;
+        "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
     interface DsoProgressBar {
@@ -333,6 +335,9 @@ declare namespace LocalJSX {
         "onToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
     }
     interface DsoLabel {
+        "compact"?: boolean;
+        "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
     }
     interface DsoProgressBar {

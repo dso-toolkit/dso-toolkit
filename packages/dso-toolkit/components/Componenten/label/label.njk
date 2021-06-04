@@ -1,8 +1,7 @@
-<dso-label {{ attributes([status, 'status', status]) }}>
+<dso-label id="label-{{ _self.name }}" {{ attributes([status, 'status', status], [compact, 'compact'], [removable, 'removable']) }}>
   {{ label }}
-  {% if button -%}
-    <button type="button" title="{{ buttonTitle }}" slot="action">
-      <dso-icon icon="{{ button }}"></dso-icon>
-    </button>
-  {% endif -%}
 </dso-label>
+
+<script>
+  document.getElementById('label-{{ _self.name }}').addEventListener('actionClick', e => console.log(e));
+</script>

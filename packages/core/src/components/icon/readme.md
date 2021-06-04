@@ -17,11 +17,13 @@
 ### Used by
 
  - [dso-date-picker](../date-picker)
+ - [dso-label](../label)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-date-picker --> dso-icon
+  dso-label --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

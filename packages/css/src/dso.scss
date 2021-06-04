@@ -3,6 +3,8 @@
 @import "../../styling/modules/components/definition-list";
 @import "../../styling/modules/components/info";
 @import "../../styling/modules/components/info-button";
+@import "../../styling/modules/components/label-group";
+@import "../../styling/modules/components/label";
 @import "../../styling/modules/components/selectable";
 
 // Mixins
@@ -16,4 +18,6 @@
 @import "components/definition-list/definition-list";
 @import "components/info/info";
 @import "components/info-button/info-button";
+@import "components/label/label";
+@import "components/label-group/label-group";
 @import "components/selectable/selectable";

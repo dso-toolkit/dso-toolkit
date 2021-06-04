@@ -1,17 +1,32 @@
 module.exports = {
+  label: 'Label (Web Component)',
   meta: {
     webComponent: 'dso-label',
-    markup: true
+    markup: false
   },
   status: 'ready',
   collated: true,
-  collator: (markup, item) => `<div class="col-xs-6${item.order % 2 === 1 ? ' text-right' : ''}"><p>${markup}</p></div>`,
+  collator: (markup, item) => `<div class="col-xs-4" style="height: 3em;"><p>${markup}</p></div>`,
   default: 'default',
   variants: [
     {
       name: 'default',
       context: {
         label: 'Label tekst'
+      }
+    },
+    {
+      name: 'default button',
+      context: {
+        label: 'Label tekst',
+        removable: true
+      }
+    },
+    {
+      name: 'default compact',
+      context: {
+        label: 'Label tekst',
+        compact: true
       }
     },
     {
@@ -22,10 +37,42 @@ module.exports = {
       }
     },
     {
+      name: 'info button',
+      context: {
+        status: 'info',
+        label: 'Label tekst',
+        removable: true
+      }
+    },
+    {
+      name: 'info compact',
+      context: {
+        status: 'info',
+        label: 'Label tekst',
+        compact: true
+      }
+    },
+    {
       name: 'primary',
       context: {
         status: 'primary',
         label: 'Label tekst'
+      }
+    },
+    {
+      name: 'primary button',
+      context: {
+        status: 'primary',
+        label: 'Label tekst',
+        removable: true
+      }
+    },
+    {
+      name: 'primary compact',
+      context: {
+        status: 'primary',
+        label: 'Label tekst',
+        compact: true
       }
     },
     {
@@ -36,10 +83,42 @@ module.exports = {
       }
     },
     {
+      name: 'success button',
+      context: {
+        status: 'success',
+        label: 'Label tekst',
+        removable: true
+      }
+    },
+    {
+      name: 'success compact',
+      context: {
+        status: 'success',
+        label: 'Label tekst',
+        compact: true
+      }
+    },
+    {
       name: 'warning',
       context: {
         status: 'warning',
         label: 'Label tekst'
+      }
+    },
+    {
+      name: 'warning button',
+      context: {
+        status: 'warning',
+        label: 'Label tekst',
+        removable: true
+      }
+    },
+    {
+      name: 'warning compact',
+      context: {
+        status: 'warning',
+        label: 'Label tekst',
+        compact: true
       }
     },
     {
@@ -48,15 +127,22 @@ module.exports = {
         status: 'danger',
         label: 'Label tekst'
       }
+    },
+    {
+      name: 'danger button',
+      context: {
+        status: 'danger',
+        label: 'Label tekst',
+        removable: true
+      }
+    },
+    {
+      name: 'danger compact',
+      context: {
+        status: 'danger',
+        label: 'Label tekst',
+        compact: true
+      }
     }
-  ].reduce((total, variant) => total.concat([
-    variant,
-    Object.assign({}, variant, {
-      name: `${variant.name}-button`,
-      context: Object.assign({}, variant.context, {
-        button: 'times',
-        buttonTitle: 'Verwijder'
-      })
-    })
-  ]), [])
+  ]
 };
