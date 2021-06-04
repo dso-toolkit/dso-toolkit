@@ -22,6 +22,14 @@ $dso-label-danger-color: $wit;
   display: flex;
   flex-wrap: wrap;
   margin-bottom: $u2;
+
+  &.dso-align-left {
+    justify-content: flex-start;
+  }
+
+  &.dso-align-right {
+    justify-content: flex-end;
+  }
 }
 
 .dso-label {

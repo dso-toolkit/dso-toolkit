@@ -29,3 +29,61 @@ variants:
       removable: true
     - label: Label tekst
       removable: true
+- name: align left
+  context:
+    __title: Links uitlijnen
+    modifiers: dso-align-left
+    labels:
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+- name: align right
+  context:
+    __title: Rechts uitlijnen
+    modifiers: dso-align-right
+    labels:
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true
+    - label: Label tekst
+      removable: true

@@ -1,4 +1,4 @@
-<div class="dso-label-group">
+<div {{ className('dso-label-group', modifiers) }}>
   {% for label in labels %}
     {% render '@label-css', label %}
   {% endfor %}
