@@ -6,8 +6,8 @@ module.exports = {
 };
 
 function copySources() {
-  const stylingDir = resolve(__dirname, '../../styling', '**/*.scss');
+  const stylingDir = resolve(__dirname, '../../sources/src', '**/*.{scss,svg}');
 
   return gulp.src(stylingDir)
-    .pipe(gulp.dest('libs/@dso-toolkit/sources'))
+    .pipe(gulp.dest('libs/@dso-toolkit/sources/src'))
 }
