@@ -17,6 +17,8 @@ export function storiesOfBadge<TemplateFnReturnType>(
     badgeTemplate
   }: BadgeParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(badgeArgsMapper, badgeTemplate);
+
   const stories = storiesOf('Badge', mainModule)
     .addParameters({
       docs: {
@@ -27,7 +29,7 @@ export function storiesOfBadge<TemplateFnReturnType>(
 
   stories.add(
     'plain',
-    bindTemplate(badgeArgsMapper, badgeTemplate),
+    template,
     {
       args: {
         message: 'Plain'
@@ -37,7 +39,7 @@ export function storiesOfBadge<TemplateFnReturnType>(
 
   stories.add(
     'primary',
-    bindTemplate(badgeArgsMapper, badgeTemplate),
+    template,
     {
       args: {
         status: 'primary',
@@ -48,7 +50,7 @@ export function storiesOfBadge<TemplateFnReturnType>(
 
   stories.add(
     'success',
-    bindTemplate(badgeArgsMapper, badgeTemplate),
+    template,
     {
       args: {
         status: 'success',
@@ -59,7 +61,7 @@ export function storiesOfBadge<TemplateFnReturnType>(
 
   stories.add(
     'info',
-    bindTemplate(badgeArgsMapper, badgeTemplate),
+    template,
     {
       args: {
         status: 'info',
@@ -70,7 +72,7 @@ export function storiesOfBadge<TemplateFnReturnType>(
 
   stories.add(
     'warning',
-    bindTemplate(badgeArgsMapper, badgeTemplate),
+    template,
     {
       args: {
         status: 'warning',
@@ -81,7 +83,7 @@ export function storiesOfBadge<TemplateFnReturnType>(
 
   stories.add(
     'danger',
-    bindTemplate(badgeArgsMapper, badgeTemplate),
+    template,
     {
       args: {
         status: 'danger',

@@ -1,10 +1,13 @@
 import { Args, ArgsStoryFn, ArgType, ClientStoryApi } from '@storybook/addons';
 
-/**
- * Interface which stories need to extend and every component then implements.
- * 
- * The extended interface describes the parameters needed for Storybook to create the stories.
- */
+export class ArgsError extends Error {
+  constructor() {
+    super('No args found, always provide args or empty object');
+
+    this.name = 'ArgsError';
+  }
+}
+
 export interface StorybookParameters {
   module: NodeModule;
   storiesOf: ClientStoryApi<any>['storiesOf'];
@@ -21,7 +24,7 @@ export function bindTemplate<
 ): ArgsStoryFn<TemplateFnReturnType> {
   return (a: Args | undefined) => {
     if (!a) {
-      throw new Error('No args found, always provide args or empty object');
+      throw new ArgsError();
     }
 
     return templateFn(argsMapper(a as ComponentArgs));

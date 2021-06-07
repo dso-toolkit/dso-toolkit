@@ -17,6 +17,8 @@ export function storiesOfAlert<TemplateFnReturnType>(
     alertTemplate
   }: AlertParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(alertArgsMapper, alertTemplate);
+
   const stories = storiesOf('Alert', mainModule)
     .addParameters({
       docs: {
@@ -31,7 +33,7 @@ export function storiesOfAlert<TemplateFnReturnType>(
 
   stories.add(
     'success',
-    bindTemplate(alertArgsMapper, alertTemplate),
+    template,
     {
       args: {
         status: 'success',
@@ -42,7 +44,7 @@ export function storiesOfAlert<TemplateFnReturnType>(
 
   stories.add(
     'info',
-    bindTemplate(alertArgsMapper, alertTemplate),
+    template,
     {
       args: {
         status: 'info',
@@ -53,7 +55,7 @@ export function storiesOfAlert<TemplateFnReturnType>(
 
   stories.add(
     'warning',
-    bindTemplate(alertArgsMapper, alertTemplate),
+    template,
     {
       args: {
         status: 'warning',
@@ -64,7 +66,7 @@ export function storiesOfAlert<TemplateFnReturnType>(
 
   stories.add(
     'danger',
-    bindTemplate(alertArgsMapper, alertTemplate),
+    template,
     {
       args: {
         status: 'danger',

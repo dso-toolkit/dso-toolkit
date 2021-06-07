@@ -17,6 +17,8 @@ export function storiesOfBreadcrumbs<TemplateFnReturnType>(
     breadcrumbsTemplate
   }: BreadcrumbsParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(breadcrumbsArgsMapper, breadcrumbsTemplate);
+
   const stories = storiesOf('Breadcrumb', mainModule)
     .addParameters({
       docs: {
@@ -27,7 +29,7 @@ export function storiesOfBreadcrumbs<TemplateFnReturnType>(
 
   stories.add(
     'breadcrumb',
-    bindTemplate(breadcrumbsArgsMapper, breadcrumbsTemplate),
+    template,
     {
       args: {
         breadcrumbs: [

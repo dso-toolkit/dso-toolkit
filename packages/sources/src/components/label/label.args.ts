@@ -1,6 +1,8 @@
-import { ArgTypes } from '../../stories-helpers';
 import { HandlerFunction } from '@storybook/addon-actions';
+
 import { Label } from './label.models';
+
+import { ArgTypes } from '../../stories-helpers';
 
 export interface LabelArgs {
   status?: string;

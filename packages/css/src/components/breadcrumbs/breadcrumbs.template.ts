@@ -29,8 +29,8 @@ export function breadcrumbsTemplate({ breadcrumbs }: Breadcrumbs) {
               }
               <meta itemprop="position" content=${index + 1}>
             </li>
-            `;
-          })}
+          `;
+        })}
       </ol>
     </nav>
   `;

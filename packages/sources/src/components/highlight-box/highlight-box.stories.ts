@@ -26,6 +26,7 @@ export function storiesOfHighlightBox<TemplateFnReturnType>(
       docs: {
         page: readme
       },
+      argTypes: highlightBoxArgTypes,
       args: {
         yellow: false,
         white: false,
@@ -35,7 +36,6 @@ export function storiesOfHighlightBox<TemplateFnReturnType>(
         icon: null,
         richContent
       },
-      argTypes: highlightBoxArgTypes
     });
 
   stories.add(

@@ -1,1 +1,1 @@
-# `.dso-attachments-counter`
+# `.dso-attachments`

@@ -1,6 +1,6 @@
 import { storiesOfBanner } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
+import { html } from 'lit-html';
 
 import { bannerTemplate } from './banner.template';
 import readme from './readme.md';
@@ -55,7 +55,7 @@ const dangerWithHeadingsRichContent = html`
   </div>
 `;
 
-storiesOfBanner<TemplateResult>(
+storiesOfBanner(
   {
     module,
     storiesOf,

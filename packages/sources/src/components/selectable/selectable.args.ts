@@ -1,5 +1,7 @@
-import { ArgTypes } from '../../stories-helpers';
 import { HandlerFunction } from '@storybook/addon-actions';
+
+import { ArgTypes } from '../../stories-helpers';
+
 import { Selectable } from './selectable.models';
 
 export interface SelectableArgs<TemplateFnReturnType> {
@@ -14,7 +16,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   checked?: boolean;
   disabled?: boolean;
   onChange: HandlerFunction;
-  info?: TemplateFnReturnType;
+  infoRichContent?: TemplateFnReturnType;
   infoFixed?: boolean;
   infoActive?: boolean;
   infoClosed: HandlerFunction;
@@ -81,7 +83,7 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
       type: 'boolean'
     }
   },
-  info: {
+  infoRichContent: {
     control: {
       disable: true
     }
@@ -109,10 +111,10 @@ export function selectableArgsMapper(a: SelectableArgs<any>): Selectable<any> {
     checked: a.checked,
     describedById: a.describedById,
     disabled: a.disabled,
-    info: a.info
+    info: a.infoRichContent
       ? {
         onClose: e => a.infoClosed(e),
-        richContent: a.info,
+        richContent: a.infoRichContent,
         active: a.infoActive,
         fixed: a.infoFixed
       }

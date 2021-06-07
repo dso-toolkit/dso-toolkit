@@ -18,6 +18,8 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
     definitionListTemplate
   }: DefinitionListParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(definitionListArgsMapper, definitionListTemplate);
+
   const stories = storiesOf('Definition List', mainModule)
     .addParameters({
       docs: {
@@ -31,12 +33,12 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'default',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate)
+    template
   );
 
   stories.add(
     'vertical',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-vertical'
@@ -46,7 +48,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'emphasize description',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-emphasize-description'
@@ -56,7 +58,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'vertical with emphasized description',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-vertical dso-emphasize-description'
@@ -66,7 +68,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'columns 1-3',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns-1-3 dso-with-header',
@@ -77,7 +79,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'columns 2-2',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns-2-2 dso-with-header',
@@ -88,7 +90,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'columns 3-1',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns-3-1',
@@ -99,7 +101,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'two columns small-content',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns dso-2-columns',
@@ -110,7 +112,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'two columns',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns dso-2-columns'
@@ -120,7 +122,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'three columns small-content',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns dso-3-columns',
@@ -131,7 +133,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
 
   stories.add(
     'three columns',
-    bindTemplate(definitionListArgsMapper, definitionListTemplate),
+    template,
     {
       args: {
         modifier: 'dso-columns dso-3-columns'

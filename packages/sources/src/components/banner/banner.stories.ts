@@ -25,6 +25,8 @@ export function storiesOfBanner<TemplateFnReturnType>(
     dangerWithHeadingsRichContent
   }: BannerParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(bannerArgsMapper, bannerTemplate);
+
   const stories = storiesOf('Banner', mainModule)
     .addParameters({
       docs: {
@@ -35,7 +37,7 @@ export function storiesOfBanner<TemplateFnReturnType>(
 
   stories.add(
     'warning',
-    bindTemplate(bannerArgsMapper, bannerTemplate),
+    template,
     {
       args: {
         status: 'warning',
@@ -46,7 +48,7 @@ export function storiesOfBanner<TemplateFnReturnType>(
 
   stories.add(
     'danger',
-    bindTemplate<Banner<TemplateFnReturnType>, BannerArgs<TemplateFnReturnType>, TemplateFnReturnType>(bannerArgsMapper, bannerTemplate),
+    template,
     {
       args: {
         status: 'danger',
@@ -57,7 +59,7 @@ export function storiesOfBanner<TemplateFnReturnType>(
 
   stories.add(
     'rich warning',
-    bindTemplate<Banner<TemplateFnReturnType>, BannerArgs<TemplateFnReturnType>, TemplateFnReturnType>(bannerArgsMapper, bannerTemplate),
+    template,
     {
       args: {
         status: 'warning',
@@ -68,7 +70,7 @@ export function storiesOfBanner<TemplateFnReturnType>(
 
   stories.add(
     'danger with headings',
-    bindTemplate<Banner<TemplateFnReturnType>, BannerArgs<TemplateFnReturnType>, TemplateFnReturnType>(bannerArgsMapper, bannerTemplate),
+    template,
     {
       args: {
         status: 'danger',

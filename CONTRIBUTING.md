@@ -1,7 +1,7 @@
 # Contributing to the DSO Toolkit
 This repository houses several projects, and issues are labeled accordingly:
 * `/packages/dso-toolkit`: A component library
-* `/packages/sources`: The core of the DSO Design System.
+* `/packages/sources`: A collection of resources for the various parts of the DSO Design System.
 * `/packages/core`: A Web Component implementation written in Stencil Components
 
 This project uses [Semantic Versioning](http://semver.org/).
@@ -89,14 +89,11 @@ Package is located in `/packages/core`.
   import { generateSomething } from './functions/generate-something.ts';
   ```
 * `import`s are sorted by import path
-* 
 * Stories filename is `my-component.stories.ts`.
 * Stories are imported with: `import { storiesOfMyComponent } from '@dso-toolkit/sources';`.
-* `storiesOfMyComponent()` is always called with the `TemplateResult` type argument: `storiesOfMyComponent<TemplateResult>({...})`
-* The template that's passed to `storiesOfMyComponent()` has it's own file `my-component.component.ts` and is returned by an exported function `myComponentTemplate({}: MyComponent)`. `MyComponent` is imported from `@dso-toolkit/sources`.
-* If a component has a stylesheet it's named `my-component.scss`.
+* The template that's passed to `storiesOfMyComponent()` has its own file `my-component.component.ts` and is returned by an exported function `myComponentTemplate({}: MyComponent)`. `MyComponent` is imported from `@dso-toolkit/sources`.
+* If a component has a stylesheet, it's named `my-component.scss`.
 * Every component has a `readme.md` file which starts with
   ```
   # `<my-component>`
   ```
-* 

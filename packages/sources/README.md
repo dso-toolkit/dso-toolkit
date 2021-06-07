@@ -2,7 +2,7 @@
 
 ⚠️ De Public API is nog onder voorbehoud ⚠️
 
-In deze package zitten alle bronbestanden die de basis leggen voor het DSO Design System (DS²O).
+In deze package zitten alle bronbestanden die de basis leggen voor het DSO Design System.
 
 ## Models
 

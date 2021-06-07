@@ -1,5 +1,5 @@
 export interface DatePicker {
-  id: string;
+  id?: string;
   onDateChange: (e: CustomEvent) => void;
   value?: string;
   min?: number;

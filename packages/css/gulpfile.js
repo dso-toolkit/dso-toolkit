@@ -31,7 +31,7 @@ async function createSvgSpritesheet() {
   const sassCompiler = sass()
     .on('error', sass.logError);
 
-    const stylesheets = await new Promise((resolve, reject) => {
+  const stylesheets = await new Promise((resolve, reject) => {
     gulp.src(`${iconsPath}/*.scss`)
       .pipe(sassCompiler)
       .pipe(ListStream.obj((error, data) => {

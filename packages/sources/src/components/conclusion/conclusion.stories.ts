@@ -18,6 +18,8 @@ export function storiesOfConclusion<TemplateFnReturnType>(
     info
   }: ConclusionParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(conclusionArgsMapper, conclusionTemplate);
+
   const stories = storiesOf('Conclusion', mainModule)
     .addParameters({
       docs: {
@@ -28,7 +30,7 @@ export function storiesOfConclusion<TemplateFnReturnType>(
 
   stories.add(
     'success',
-    bindTemplate(conclusionArgsMapper, conclusionTemplate),
+    template,
     {
       args: {
         items: [
@@ -49,7 +51,7 @@ export function storiesOfConclusion<TemplateFnReturnType>(
 
   stories.add(
     'warning',
-    bindTemplate(conclusionArgsMapper, conclusionTemplate),
+    template,
     {
       args: {
         items: [
@@ -70,7 +72,7 @@ export function storiesOfConclusion<TemplateFnReturnType>(
 
   stories.add(
     'forbidden',
-    bindTemplate(conclusionArgsMapper, conclusionTemplate),
+    template,
     {
       args: {
         items: [

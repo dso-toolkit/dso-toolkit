@@ -5,8 +5,8 @@ import { Conclusion, ConclusionItem } from './conclusion.models';
 
 export interface ConclusionArgs<TemplateFnReturnType> {
   items: ConclusionItem<TemplateFnReturnType>[];
-  alertMessage: string;
-  alertStatus: string;
+  alertMessage?: string;
+  alertStatus?: string;
   info?: TemplateFnReturnType;
   infoFixed?: boolean;
   infoActive?: boolean;
@@ -57,10 +57,12 @@ export const conclusionArgTypes: ArgTypes<ConclusionArgs<unknown>> = {
 export function conclusionArgsMapper(a: ConclusionArgs<any>): Conclusion<any> {
   return {
     items: a.items,
-    alert: {
-      message: a.alertMessage,
-      status: a.alertStatus
-    },
+    alert: a.alertMessage && a.alertStatus
+      ? {
+        message: a.alertMessage,
+        status: a.alertStatus
+      }
+      : undefined,
     info: a.info
       ? {
         onClose: e => a.infoClosed(e),

@@ -3,14 +3,13 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { DatePicker } from './date-picker.models';
 
 export interface DatePickerArgs {
-  id: string;
+  id?: string;
   label: string;
   onDateChange: HandlerFunction;
   value?: string;
   min?: number;
   max?: number;
   disabled: boolean;
-  showExternalButton: boolean;
 }
 
 export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
@@ -25,11 +24,6 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
     }
   },
   disabled: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  showExternalButton: {
     control: {
       type: 'boolean'
     }

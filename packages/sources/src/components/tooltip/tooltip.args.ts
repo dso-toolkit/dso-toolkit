@@ -1,4 +1,5 @@
 import { ArgTypes } from '../../stories-helpers';
+
 import { Tooltip, tooltipPositions } from './tooltip.models';
 
 export interface TooltipArgs {

@@ -1,4 +1,5 @@
 import { ArgTypes } from '../../stories-helpers';
+
 import { ProgressBar } from './progress-bar.models';
 
 export interface ProgressBarArgs {

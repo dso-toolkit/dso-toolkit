@@ -1,7 +1,7 @@
-import { Args, ArgsStoryFn } from '@storybook/addons';
+import { Args } from '@storybook/addons';
 import { v4 as uuidv4 } from 'uuid';
 
-import { bindTemplate, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, ArgsError, StorybookParameters } from '../../stories-helpers';
 
 import { DescriptionArgs, descriptionArgsMapper, descriptionArgTypes } from './description.args';
 import { Description } from './description.models';
@@ -24,7 +24,7 @@ export function storiesOfDescription<TemplateFnReturnType>(
 ) {
   const template = (a: Args | undefined): TemplateFnReturnType => {
     if (!a) {
-      throw new Error();
+      throw new ArgsError();
     }
 
     const args = a as DescriptionArgs;

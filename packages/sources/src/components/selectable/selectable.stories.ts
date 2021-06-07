@@ -7,7 +7,7 @@ import { Selectable } from './selectable.models';
 
 export interface SelectableParameters<TemplateFnReturnType> {
   selectableTemplate: (selectableProperties: Selectable<TemplateFnReturnType>) => TemplateFnReturnType;
-  info: TemplateFnReturnType;
+  infoRichContent: TemplateFnReturnType;
 }
 
 export function storiesOfSelectable<TemplateFnReturnType>(
@@ -17,7 +17,7 @@ export function storiesOfSelectable<TemplateFnReturnType>(
     readme
   }: StorybookParameters, {
     selectableTemplate,
-    info
+    infoRichContent
   }: SelectableParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(selectableArgsMapper, selectableTemplate);
@@ -62,7 +62,7 @@ export function storiesOfSelectable<TemplateFnReturnType>(
     {
       args: {
         infoFixed: false,
-        info
+        infoRichContent
       }
     }
   );

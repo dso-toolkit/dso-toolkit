@@ -1,1 +1,1 @@
-# `.dso-icon`
+# `svg.di`

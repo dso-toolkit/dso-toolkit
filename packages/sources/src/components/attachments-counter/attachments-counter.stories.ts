@@ -17,6 +17,8 @@ export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
     attachmentsCounterTemplate
   }: AttachmentsCounterParameters<TemplateFnReturnType>
 ) {
+  const template = bindTemplate(attachmentsCounterArgsMapper, attachmentsCounterTemplate);
+
   const stories = storiesOf('Attachments Counter', mainModule)
     .addParameters({
       docs: {
@@ -27,7 +29,7 @@ export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
 
   stories.add(
     'Attachments Counter',
-    bindTemplate(attachmentsCounterArgsMapper, attachmentsCounterTemplate),
+    template,
     {
       args: {
         count: 3

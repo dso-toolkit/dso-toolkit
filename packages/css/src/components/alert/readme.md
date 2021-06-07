@@ -1,1 +1,1 @@
-# `.dso-alert`
+# `.alert`

@@ -1,8 +1,15 @@
 import { Args } from '@storybook/addons';
 
-import { bindTemplate, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, ArgsError, StorybookParameters } from '../../stories-helpers';
 
-import { FootnotesExampleArgs, footnotesListArgsMapper, footnotesReferenceArgsMapper } from './footnotes.args';
+import {
+  FootnotesExampleArgs,
+  footnotesExampleArgTypes,
+  footnotesListArgsMapper,
+  footnotesReferenceArgsMapper,
+  footnotesListArgTypes,
+  footnotesReferenceArgTypes
+} from './footnotes.args';
 import { footnotes } from './footnotes.content';
 import { Footnote } from './footnotes.models';
 
@@ -35,7 +42,7 @@ export function storiesOfFootnotes<TemplateFnReturnType>(
     'example',
     (a: Args | undefined) => {
       if (!a) {
-        throw new Error();
+        throw new ArgsError();
       }
 
       const args = a as FootnotesExampleArgs;
@@ -47,6 +54,7 @@ export function storiesOfFootnotes<TemplateFnReturnType>(
       );
     },
     {
+      argTypes: footnotesExampleArgTypes,
       args: {
         footnote14: footnotes[0],
         footnote15: footnotes[1],
@@ -59,6 +67,7 @@ export function storiesOfFootnotes<TemplateFnReturnType>(
     'reference',
     bindTemplate(footnotesReferenceArgsMapper, footnotesReferenceTemplate),
     {
+      argTypes: footnotesReferenceArgTypes,
       args: {
         label: footnotes[0].label,
         number: footnotes[0].number
@@ -70,6 +79,7 @@ export function storiesOfFootnotes<TemplateFnReturnType>(
     'list',
     bindTemplate(footnotesListArgsMapper, footnotesListTemplate),
     {
+      argTypes: footnotesListArgTypes,
       args: {
         footnote14: footnotes[0],
         footnote15: footnotes[1]

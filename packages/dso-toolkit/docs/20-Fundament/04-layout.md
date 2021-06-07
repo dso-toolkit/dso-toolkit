@@ -31,7 +31,7 @@ Interactieve pagina's (dus, met een `<form>`) hanteren de volgende structuur:
       <form>
         <h1></h1>
         <h2 class="dso-steps-indicator"></h2>
-        <div class="dso-alert"></div>
+        <div class="alert"></div>
         <div class="row">
           <div class="col-md-8"></div>
           <div class="col-md-4"></div>
@@ -43,7 +43,7 @@ Interactieve pagina's (dus, met een `<form>`) hanteren de volgende structuur:
   </div>
 </body>
 ```
-NB: Bovenstaand voorbeeld bevat een `.dso-steps-indicator`, een `.dso-alert` en een `.dso-form-buttons`, maar of die onderdelen voorkomen is afhankelijk van de te realiseren applicatie. Hetzelfde geldt voor de `.row`, zoals ook verderop in dit document beschreven.
+NB: Bovenstaand voorbeeld bevat een `.dso-steps-indicator`, een `.alert` en een `.dso-form-buttons`, maar of die onderdelen voorkomen is afhankelijk van de te realiseren applicatie. Hetzelfde geldt voor de `.row`, zoals ook verderop in dit document beschreven.
 
 ## Verticale lay-out
 Voor de verticale layout en hiërarchie wordt het 8px grid gebruikt. Het 8px grid betekent het volgende: gebruik increments van 8px om de grootte van en ruimte tussen de elementen te tonen op een pagina. Dus height, width, padding, margin bestaan allemaal uit increments van 8.

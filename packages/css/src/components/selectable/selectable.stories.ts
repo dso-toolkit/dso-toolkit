@@ -5,8 +5,8 @@ import { html } from 'lit-html';
 import { selectableTemplate } from './selectable.template';
 import readme from './readme.md';
 
-const info = html`
-  <div class="dso-rich-content" slot="info">
+const infoRichContent = html`
+  <div class="dso-rich-content">
     <p>Rijke inhoud</p>
     <p>Ziet er zo uit</p>
     <ul>
@@ -24,6 +24,6 @@ storiesOfSelectable(
   },
   {
     selectableTemplate,
-    info
+    infoRichContent
   }
 );

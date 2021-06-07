@@ -7,7 +7,7 @@ export function descriptionTemplate({ id, open, term, content }: Description) {
   return html`
     <a
       id="${id}-term"
-      href="${id}-content"
+      href="#${id}-content"
       class="dso-description-term ${classMap({ 'dso-open': open })}"
       aria-expanded="${ifDefined(open ? 'true' : 'false')}"
       aria-controls="${id}-content"
@@ -16,7 +16,7 @@ export function descriptionTemplate({ id, open, term, content }: Description) {
     </a>
     <span id="${id}-content" class="dso-description-content">
       ${content}
-      <a href="${id}-term">
+      <a href="#${id}-term">
         <span class="sr-only">Verbergen</span>
       </a>
     </span>

@@ -2,6 +2,7 @@ import { Label } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 
+// Todo: Move to @dso-toolkit/sources
 const statusMap = new Map<string, string>([
   ['primary', 'Primair'],
   ['info', 'Info'],
@@ -19,7 +20,7 @@ export function labelTemplate({ status, label, button, compact }: Label) {
       ${label}
       ${button
         ? html `
-          <button slot="action" type="button" title=${button.title} @click=${button.onClick}>
+          <button type="button" title=${button.title} @click=${button.onClick}>
             <svg class="di di-${button.icon}">
               <use href="dso-icons.svg#${button.icon}" />
             </svg>

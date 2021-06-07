@@ -1,11 +1,11 @@
 import { storiesOfSelectable } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
+import { html } from 'lit-html';
 
 import readme from './readme.md';
 import { selectableTemplate } from './selectable.template';
 
-const info = html`
+const infoRichContent = html`
   <div class="dso-rich-content" slot="info">
     <p>Rijke inhoud</p>
     <p>Ziet er zo uit</p>
@@ -16,7 +16,7 @@ const info = html`
   </div>
 `;
 
-storiesOfSelectable<TemplateResult>(
+storiesOfSelectable(
   {
     module,
     storiesOf,
@@ -24,6 +24,6 @@ storiesOfSelectable<TemplateResult>(
   },
   {
     selectableTemplate,
-    info
+    infoRichContent
   }
 );

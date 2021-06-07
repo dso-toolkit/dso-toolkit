@@ -1,10 +1,10 @@
+import { Args } from '@storybook/addons';
 import { v4 as uuidv4 } from 'uuid';
 
-import { StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, ArgsError, StorybookParameters } from '../../stories-helpers';
 
 import { TooltipArgs, tooltipArgsMapper, tooltipArgTypes } from './tooltip.args';
 import { Tooltip } from './tooltip.models';
-import { Args } from '@storybook/addons';
 
 export interface TooltipParameters<TemplateFnReturnType> {
   tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;
@@ -37,7 +37,7 @@ export function storiesOfTooltip<TemplateFnReturnType>(
       'as child',
       (a: Args | undefined) => {
         if (!a) {
-          throw new Error();
+          throw new ArgsError();
         }
 
         return asChildTemplate(tooltipTemplate(tooltipArgsMapper(a as TooltipArgs)))
@@ -55,7 +55,7 @@ export function storiesOfTooltip<TemplateFnReturnType>(
       'as sibling',
       (a: Args | undefined) => {
         if (!a) {
-          throw new Error();
+          throw new ArgsError();
         }
 
         const args = a as Required<TooltipArgs>;
@@ -70,4 +70,14 @@ export function storiesOfTooltip<TemplateFnReturnType>(
       }
     );
   }
+
+  stories.add(
+    'tooltip',
+    bindTemplate(tooltipArgsMapper, tooltipTemplate),
+    {
+      args: {
+        position: 'bottom'
+      }
+    }
+  )
 }
