@@ -1,4 +1,4 @@
-# dso-icon
+# `<dso-icon>`
 
 
 

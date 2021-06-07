@@ -1,4 +1,4 @@
-# dso-selectable
+# `<dso-selectable>`
 
 `interface SelectableChangeEvent` is structurally identical to `Event`.
 

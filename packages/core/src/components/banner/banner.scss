@@ -1,7 +1,7 @@
 :host {
   display: block;
 
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
 
-  @import "~@dso-toolkit/styling/components/banner";
+  @import "~@dso-toolkit/sources/src/styling/components/banner";
 }

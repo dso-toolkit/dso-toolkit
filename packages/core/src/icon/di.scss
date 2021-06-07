@@ -1,4 +1,4 @@
-@import "~@dso-toolkit/styling/variables/icon";
+@import "~@dso-toolkit/sources/src/styling/variables/icon";
 
 @mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align) {
   background: var(--dso-icon, var(--di-#{$icon})) no-repeat;

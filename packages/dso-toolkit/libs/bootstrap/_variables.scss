@@ -26,13 +26,13 @@ $brand-danger:          #d9534f !default;
 //
 //## Settings for some of the most global styles.
 
-@import "@dso-toolkit/styling/variables/scaffolding";
+@import "@dso-toolkit/sources/src/styling/variables/scaffolding";
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@import "@dso-toolkit/styling/variables/typography";
+@import "@dso-toolkit/sources/src/styling/variables/typography";
 
 //== Iconography
 //
@@ -86,7 +86,7 @@ $caret-width-large:         5px !default;
 //
 //## Customizes the `.table` component with basic values, each used across all table variations.
 
-// Merged into @dso-toolkit/styling/components/table
+// Merged into @dso-toolkit/sources/src/styling/components/table
 
 
 //== Buttons
@@ -201,28 +201,28 @@ $dropdown-caret-color:           #000 !default;
 // of components dependent on the z-axis and are designed to all work together.
 //
 
-// Moved to @dso-toolkit/styling/variables/zindex
+// Moved to @dso-toolkit/sources/src/styling/variables/zindex
 
 
 //== Media queries breakpoints
 //
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 
-@import "@dso-toolkit/styling/variables/media-queries-breakpoints";
+@import "@dso-toolkit/sources/src/styling/variables/media-queries-breakpoints";
 
 
 //== Grid system
 //
 //## Define your custom responsive grid.
 
-@import "@dso-toolkit/styling/variables/grid-system";
+@import "@dso-toolkit/sources/src/styling/variables/grid-system";
 
 
 //== Container sizes
 //
 //## Define the maximum width of `.container` for different screen sizes.
 
-// Merged into @dso-toolkit/styling/grid
+// Merged into @dso-toolkit/sources/src/styling/grid
 
 
 //== Navbar
@@ -369,7 +369,7 @@ $jumbotron-heading-font-size:    ceil(($font-size-base * 4.5)) !default;
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@import "@dso-toolkit/styling/variables/states";
+@import "@dso-toolkit/sources/src/styling/variables/states";
 
 //== Tooltips
 //
@@ -478,14 +478,14 @@ $modal-sm:                    300px !default;
 //
 //## Define alert colors, border radius, and padding.
 
-// Moved to @dso-toolkit/styling/components/alert
+// Moved to @dso-toolkit/sources/src/styling/components/alert
 
 
 //== Progress bars
 //
 //##
 
-// Moved to @dso-toolkit/styling/components/progress-bar
+// Moved to @dso-toolkit/sources/src/styling/components/progress-bar
 
 //== List group
 //
@@ -652,7 +652,7 @@ $pre-scrollable-max-height:   340px !default;
 //** Horizontal offset for forms and lists.
 $component-offset-horizontal: 180px !default;
 //** Text muted color
-// $text-muted:                  $gray-light !default; -> Moved to @dso-toolkit/styling/variables
+// $text-muted:                  $gray-light !default; -> Moved to @dso-toolkit/sources/src/styling/variables
 //** Abbreviations and acronyms border color
 $abbr-border-color:           $gray-light !default;
 //** Headings small color

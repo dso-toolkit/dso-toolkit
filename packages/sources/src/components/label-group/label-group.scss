@@ -1,0 +1,12 @@
+@import "../../styling/variables";
+
+@mixin label-group_root() {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $u1;
+  margin-bottom: $u2;
+
+  &.dso-align-right {
+    justify-content: flex-end;
+  }
+}

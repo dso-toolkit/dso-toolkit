@@ -1,10 +1,10 @@
-@import "~@dso-toolkit/styling/modules/components/label";
+@import "~@dso-toolkit/sources/src/components/label/label";
 
 :host {
   display: inline-block;
 
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/styling/scaffolding/sr-only";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
 
 }
 

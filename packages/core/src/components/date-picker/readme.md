@@ -1,4 +1,4 @@
-# dso-date-picker
+# `<dso-date-picker>`
 
 Based on the [Duet Date Picker](https://duetds.github.io/date-picker/).
 

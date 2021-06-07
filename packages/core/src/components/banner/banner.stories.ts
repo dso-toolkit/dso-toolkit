@@ -1,25 +1,9 @@
-import { storiesOfBanner, BannerArgs, BannerTemplateFn } from '@dso-toolkit/stories';
+import { storiesOfBanner } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
-// @ts-ignore
+import { bannerTemplate } from './banner.template';
 import readme from './readme.md';
-
-const template: BannerTemplateFn<TemplateResult> = ({ status, richContent, onClick }: BannerArgs<TemplateResult>) => html`
-  <dso-banner status=${status}>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          ${richContent}
-          <button type="button" class="btn btn-link" @click=${onClick}>
-            <span class="sr-only">Sluiten</span>
-            <dso-icon icon="times"></dso-icon>
-          </button>
-        </div>
-      </div>
-    </div>
-  </dso-banner>
-`;
 
 const warningRichContent = html`
   <div class="dso-rich-content">
@@ -75,10 +59,10 @@ storiesOfBanner<TemplateResult>(
   {
     module,
     storiesOf,
-    readme,
-    template
+    readme
   },
   {
+    bannerTemplate,
     warningRichContent,
     dangerRichContent,
     richWarningRichContent,

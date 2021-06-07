@@ -23,24 +23,24 @@ $asap-font-path: "../fonts/Asap/" !default;
 @import "styles/mixins/dso-variables";
 @import "styles/mixins/bootstrap-variables";
 
-@import "@dso-toolkit/styling/mixins/reset-text";
+@import "@dso-toolkit/sources/src/styling/mixins/reset-text";
 
-@import "@dso-toolkit/styling/scaffolding";
-@import "@dso-toolkit/styling/grid";
+@import "@dso-toolkit/sources/src/styling/scaffolding";
+@import "@dso-toolkit/sources/src/styling/grid";
 
 @import "../libs/bootstrap";
 
 /*!
  * @dso-toolkit/styling
  * Note to self: This is a temporary solution, in the end developers will not
- * install dso-toolkit but install @dso-toolkit/styling, and then the fractal library
+ * install dso-toolkit but install @dso-toolkit/sources, and then the fractal library
  * will only import styling and web components through <link> and <script>
  */
 // Import namespaced stylesheets first
 @import "namespaced-stylesheets";
 
 // Components
-@import "@dso-toolkit/styling/components";
+@import "@dso-toolkit/sources/src/styling/components";
 
 /*!
  * DSO Toolkit styling

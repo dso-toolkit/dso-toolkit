@@ -17,7 +17,7 @@
     "skipLibCheck": true
   },
   "include": [
-    "stories"
+    "src"
   ],
   "exclude": [
     "node_modules"

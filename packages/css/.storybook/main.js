@@ -17,7 +17,7 @@ module.exports = {
     '@storybook/addon-a11y'
   ],
   stories: [
-    '../stories/**/*.stories.ts'
+    '../src/**/*.stories.ts'
   ],
   previewHead: head => process.env.DSO_ENV === 'development' || process.env.DSO_ENV === 'cypress' // Todo: 'production'
     ? (`

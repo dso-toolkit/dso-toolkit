@@ -2,20 +2,20 @@ const concurrently = require('concurrently');
 const rimraf = require('rimraf');
 const argv = require('minimist')(process.argv.slice(2));
 
-rimraf.sync('packages/stories/dist');
+rimraf.sync('packages/sources/dist');
 
-const startStories = {
-  command: 'yarn workspace @dso-toolkit/stories start',
-  name: 'stories'
+const startSources = {
+  command: 'yarn workspace @dso-toolkit/sources start',
+  name: 'sources'
 };
 
 const startCore = {
-  command: 'wait-on file:./packages/stories/dist/stories.js && yarn workspace @dso-toolkit/core start',
+  command: 'wait-on file:./packages/sources/dist/sources.js && yarn workspace @dso-toolkit/core start',
   name: 'core'
 };
 
 const startCss = {
-  command: 'wait-on file:./packages/stories/dist/stories.js && yarn workspace @dso-toolkit/css start',
+  command: 'wait-on file:./packages/sources/dist/sources.js && yarn workspace @dso-toolkit/css start',
   name: 'css'
 };
 
@@ -23,7 +23,7 @@ switch(argv.mode) {
   case 'core':
     concurrently(
       [
-        startStories,
+        startSources,
         startCore
       ]
     );
@@ -32,7 +32,7 @@ switch(argv.mode) {
   case 'css':
     concurrently(
       [
-        startStories,
+        startSources,
         startCss
       ]
     );
@@ -41,7 +41,7 @@ switch(argv.mode) {
   case 'all':
     concurrently(
       [
-        startStories,
+        startSources,
         startCore,
         startCss
       ]

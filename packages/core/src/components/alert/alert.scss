@@ -6,15 +6,15 @@
   --di-status-warning: #{dso-icon("status-warning")};
   --di-status-info: #{dso-icon("status-info")};
 
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/styling/scaffolding/sr-only";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
 
   @import "../../icon/di";
-  @import "~@dso-toolkit/styling/components/alert";
+  @import "~@dso-toolkit/sources/src/styling/components/alert";
 }
 
 :host(:not(:first-child)) {
-  @import "~@dso-toolkit/styling/variables";
+  @import "~@dso-toolkit/sources/src/styling/variables";
 
   margin-top: $u3;
 }

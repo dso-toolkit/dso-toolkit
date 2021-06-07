@@ -19,10 +19,12 @@ Import or bundle `dist/dso.css`.
 
 ## Iconen
 
-Iconen komen uit `@dso-toolkit/styling` en worden gebundeld tot een spritesheet: `dist/dso-icons.svg`.
+Iconen komen uit `@dso-toolkit/sources` en worden gebundeld tot een spritesheet: `dist/dso-icons.svg`.
+
+### Spritesheet
+
+De spritesheet bevat alle iconen met hun gestijlde varianten uit `@dso-toolkit/sources`.
 
 ### `di()` en `di-variant()` implementatie
 
-Deze mixins vallen niet onder de Public API van `@dso-toolkit/css` en mogen alleen door DSO Toolkit maintainers worden ingezet.
-
-Deze mixins geven de toolkit maintainer de mogelijkheid om iconen in componenten te plaatsen waar een implementator geen invloed op heeft. Bijvoorbeeld bij het Alert component. De juiste iconen staan er al voor de juiste varianten. Dit geeft een uniforme inzet van de iconen over de verschillende applicaties. Daarnaast kan het gebruik van deze iconen centraal worden beheerd. Bij een nieuw icoon in een bestaand component hoeven consumenten van de toolkit alleen maar een update van de toolkit te doen in plaats van code te modificeren.
+Dit project heeft een `background-image` implementatie. Zie `/packages/css/mixins/di.scss`. Deze implementatie verwijst naar (een variant van) een icoon in `dso-icons.svg` Variant styling staat als `<style>` in de spritesheet.

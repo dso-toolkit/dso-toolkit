@@ -1,7 +1,7 @@
 # Contributing to the DSO Toolkit
 This repository houses several projects, and issues are labeled accordingly:
 * `/packages/dso-toolkit`: A component library
-* `/packages/styling`: A CSS implementation written in SCSS
+* `/packages/sources`: The core of the DSO Design System.
 * `/packages/core`: A Web Component implementation written in Stencil Components
 
 This project uses [Semantic Versioning](http://semver.org/).
@@ -66,3 +66,37 @@ In workflow order:
 * [status:accepted] : Tested (via version/branch selector) and approved, ready to be merged in master branch
 * [status:done] : Finished development and merged into target branch
 * [status:won't do] : Change cancelled, or not approved
+
+## Project organisation
+
+### `@dso-toolkit/core`
+
+Package is located in `/packages/core`.
+
+* Components have their own directory and are placed in `src/components`.
+* The filename of the Stencil component is `my-component.tsx`.
+* `import`s are grouped by: NPM package, parent imports, adjacent imports, children imports and sorted by module name:
+  ```
+  import { storiesOfMyComponent } from '@dso-toolkit/sources';
+  import { html } from 'lit-html';
+  import { ifDefined } from 'lit-html/directives/if-defined';
+
+  import { myUtility } from '../my-utility.ts';
+
+  import { myComponentTemplate } from './my-component.ts';
+  import readme from './readme.md';
+
+  import { generateSomething } from './functions/generate-something.ts';
+  ```
+* `import`s are sorted by import path
+* 
+* Stories filename is `my-component.stories.ts`.
+* Stories are imported with: `import { storiesOfMyComponent } from '@dso-toolkit/sources';`.
+* `storiesOfMyComponent()` is always called with the `TemplateResult` type argument: `storiesOfMyComponent<TemplateResult>({...})`
+* The template that's passed to `storiesOfMyComponent()` has it's own file `my-component.component.ts` and is returned by an exported function `myComponentTemplate({}: MyComponent)`. `MyComponent` is imported from `@dso-toolkit/sources`.
+* If a component has a stylesheet it's named `my-component.scss`.
+* Every component has a `readme.md` file which starts with
+  ```
+  # `<my-component>`
+  ```
+* 

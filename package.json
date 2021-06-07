@@ -9,8 +9,8 @@
   },
   "scripts": {
     "postinstall": "patch-package",
-    "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules packages/react/test-app/node_modules packages/stories/node_modules packages/styling/node_modules",
-    "fractal": "yarn build-styling && yarn workspace @dso-toolkit/stories build && yarn workspace @dso-toolkit/core clear && yarn node scripts/fractal.js",
+    "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/react/node_modules packages/react/test-app/node_modules packages/sources/node_modules",
+    "fractal": "yarn build-styling && yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/core clear && yarn node scripts/fractal.js",
     "build": "yarn build-styling && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build",
     "build-styling": "yarn workspace @dso-toolkit/css build",
     "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom",

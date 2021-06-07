@@ -146,7 +146,7 @@ function buildWatcher(options) {
       'components/**/*.scss',
       'src/dso.scss',
       'src/styles/**/*.scss',
-      '../styling/**/*.scss' // :( using require.resolve() gives a path gulp doesn't work with
+      '../sources/**/*.scss' // :( using require.resolve() gives a path gulp doesn't work with
     ])
       .on('all', function (event, path, stats) {
         logger('styles', event, path);

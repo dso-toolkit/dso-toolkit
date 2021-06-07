@@ -1,13 +1,13 @@
 :host {
   display: block;
 
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
 
-  @import "~@dso-toolkit/styling/components/highlight-box";
+  @import "~@dso-toolkit/sources/src/styling/components/highlight-box";
 }
 
 :host-context(.row.dso-equal-heights) {
-  @import "~@dso-toolkit/styling/variables";
+  @import "~@dso-toolkit/sources/src/styling/variables";
 
   height: 100%;
   min-height: auto;
