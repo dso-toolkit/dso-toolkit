@@ -182,10 +182,19 @@
             <span>Bouwen dakkapel - Aanvraag vergunning</span>
             <span class="dso-sublabel">Gemeente</span>
           </button>
-          <button type="button" class="btn dso-list-button">
-            <span>In stand houden van bouwwerken - Melding</span>
-            <span class="dso-sublabel">Gemeente</span>
-          </button>
+          <div class="dso-btn-group">
+            <button type="button" class="btn dso-list-button">
+              <span>In stand houden van bouwwerken - Melding</span>
+              <span class="dso-sublabel">Gemeente</span>
+            </button>
+            <div class="dso-input-number">
+              <button type="button" class="btn btn-link"><span class="sr-only"></span>
+                <dso-icon icon="minus-square"></dso-icon></button>
+              <input type="number" id="" readonly tabindex="-1" class="dso-input-step-counter" value="0">
+              <button type="button" class="btn btn-link"><span class="sr-only"></span>
+                <dso-icon icon="plus-square"></dso-icon></button>
+            </div>
+          </div>
           <button type="button" class="btn dso-list-button">
             <span>Milieubelastende activiteit - Aanvraag vergunning</span>
             <span class="dso-sublabel">Gemeente</span>
