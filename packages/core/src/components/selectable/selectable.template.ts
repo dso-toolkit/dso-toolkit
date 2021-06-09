@@ -27,11 +27,11 @@ export function selectableTemplate({
       ?disabled=${disabled}
       ?required=${required}
       ?checked=${checked}
-      ?info-fixed=${info}
+      ?info-fixed=${info?.fixed}
       @dsoChange=${(e: CustomEvent<Event>) => onChange(e.detail)}
     >
       ${label}
-      ${info ?? nothing}
+      ${info?.richContent ?? nothing}
     </dso-selectable>
   `;
 }
