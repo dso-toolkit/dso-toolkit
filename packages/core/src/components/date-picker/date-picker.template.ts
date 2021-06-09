@@ -8,7 +8,7 @@ export function datePickerTemplate({ id, onDateChange, value, min, max, disabled
   return html`
     <dso-date-picker
       @dateChange=${(e: CustomEvent<DsoDatePickerChangeEvent>) => onDateChange(e)}
-      identifier=${id}
+      identifier=${ifDefined(id)}
       value=${ifDefined(value || undefined)}
       min=${ifDefined(min || undefined)}
       max=${ifDefined(max || undefined)}
