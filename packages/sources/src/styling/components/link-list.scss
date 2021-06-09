@@ -1,0 +1,9 @@
+@import "../variables";
+
+ul.dso-link-list {
+  @include list-unstyled();
+
+  li {
+    margin-bottom: $u2;
+  }
+}

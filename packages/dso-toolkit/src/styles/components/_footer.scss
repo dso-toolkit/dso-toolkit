@@ -38,7 +38,7 @@ footer {
     }
   }
 
-  ul {
+  ul:not(.dso-link-list) {
     @include list-unstyled();
 
     li {

@@ -1,0 +1,34 @@
+notes: |
+  Een link lijst heeft andere styling (donkergrijze linkkleur en iconen) op een gekleurde achtergrond: bv. in een highlight-box en in de footer.
+status: ready
+context:
+  __title: default
+  header: Huidige dienstverlening
+  items:
+    - text: Externe link
+      type: extern
+    - text: Download link
+      type: download
+    - text: Interne link
+      extern: false
+variants:
+  - name: highlight-box
+    context:
+      __title: link lijst in highlight box standaard
+      container: dso-highlight-box
+  - name: highlight-box-white
+    context:
+      __title: link lijst in highlight box wit
+      container: dso-highlight-box dso-white
+  - name: highlight-box-yellow
+    context:
+      __title: link lijst in highlight box geel
+      container: dso-highlight-box dso-yellow
+  - name: highlight-box-border
+    context:
+      __title: link lijst in highlight box met rand
+      container: dso-highlight-box dso-border
+  - name: highlight-box-footer
+    context:
+      __title: link lijst in footer
+      container: footer

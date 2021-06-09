@@ -1,0 +1,17 @@
+{% if container === 'footer' %}
+  <footer>
+{% elif container %}
+  <div {{ className([container, container]) }}>
+{% endif %}
+<ul class="dso-link-list">
+  {%- for item in items -%}
+    <li>
+      <a href="#" {{ className([item.type, item.type]) }}>{{ item.text }}</a>
+    </li>
+  {% endfor -%}
+</ul>
+{% if container === 'footer' %}
+  </footer>
+{% elif container %}
+  </div>
+{% endif %}

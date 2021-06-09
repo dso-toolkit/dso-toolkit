@@ -39,6 +39,61 @@ a {
       }
     }
   }
+
+  ul.dso-link-list & {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &::before {
+      @include di("chevron-right");
+
+      content: "";
+      display: inline-block;
+      margin-right: $u1;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      &::before {
+        @include di-variant("chevron-right-scampi");
+      }
+    }
+  }
+
+  :not(footer),
+  dso-highlight-box:not(.border):not(.white),
+  .dso-highlight-box:not(.dso-border):not(.dso-white) {
+    ul.dso-link-list {
+      & {
+        @include anchor-reverse();
+
+        &,
+        &:active,
+        &:focus,
+        &:hover {
+          &::before {
+            @include di-variant("chevron-right-grijs90");
+          }
+        }
+
+        &.download {
+          &::after {
+            @include di("download-grijs90");
+          }
+        }
+
+        &.extern {
+          &::after {
+            @include di("external-link-grijs90");
+          }
+        }
+      }
+    }
+  }
 }
 
 sup,
