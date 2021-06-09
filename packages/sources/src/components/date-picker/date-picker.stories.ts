@@ -1,5 +1,5 @@
 import { Args } from '@storybook/addons';
-import { v1 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 import { bindTemplate, ArgsError, StorybookParameters } from '../../stories-helpers';
 
