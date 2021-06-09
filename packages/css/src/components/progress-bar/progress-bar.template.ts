@@ -12,9 +12,11 @@ export function progressBarTemplate({ progress, label, min, max }: ProgressBar) 
         aria-valuemax="${max || 100}"
         style="width: ${Math.round(progress / (max || 100) * 100)}%"
       >
-        <span>
-          ${label ?? ''}
-        </span>
+        ${label && html`
+          <span>
+            ${label}
+          </span>
+        `}
       </div>
     </div>
   `;
