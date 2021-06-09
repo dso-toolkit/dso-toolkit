@@ -2,7 +2,7 @@ notes: |
   In accordion formulieren worden groepen van gerelateerde vragen dynamisch weergegeven en verborgen op een enkele pagina. Hierdoor kunnen gebruikers hun aandacht op één set vragen richten, zonder dat ze tussen verschillende pagina’s hoeven te navigeren.
 
   ## Technische opmerkingen
-  Elke accordion bevat een (deel van het) formulier met type="submit" op de volgende button. Hierdoor wordt een submit event afgevuurd bij een 'enter' in het formulier (dit is default gedrag wat in elke browser hetzelfde werkt).
+  Elke accordion bevat een (deel van het) formulier met `type="submit"` op de "volgende" button. Hierdoor wordt een submit event afgevuurd bij een 'enter' in het formulier (dit is default gedrag wat in elke browser hetzelfde werkt).
 
   Op het moment dat de actieve sectie wordt gesloten, zal de volgende sectie worden geopend. Als het de laatste sectie op de pagina betreft wordt er genavigeerd naar de volgende pagina.
 
