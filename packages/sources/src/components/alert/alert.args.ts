@@ -3,15 +3,15 @@ import { HandlerFunction } from '@storybook/addon-actions';
 
 import { Alert } from './alert.models';
 
-export interface AlertArgs {
+export interface AlertArgs<TemplateFnReturnType> {
   status: string;
-  message: string;
+  message: TemplateFnReturnType | string;
   click: HandlerFunction;
   withRoleAlert: boolean;
   withButton: boolean;
 }
 
-export const alertTypeArgs: ArgTypes<AlertArgs> = {
+export const alertTypeArgs: ArgTypes<AlertArgs<unknown>> = {
   status: {
     options: ['success', 'info', 'warning', 'danger'],
     control: {
@@ -39,7 +39,7 @@ export const alertTypeArgs: ArgTypes<AlertArgs> = {
   }
 };
 
-export function alertArgsMapper(a: AlertArgs): Alert {
+export function alertArgsMapper(a: AlertArgs<any>): Alert<any> {
   return {
     message: a.message,
     status: a.status,

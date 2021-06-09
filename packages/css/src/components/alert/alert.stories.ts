@@ -1,7 +1,7 @@
 import { storiesOfAlert } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { alertTemplate } from './alert.template';
+import { alertTemplate, alertWithHeadingsTemplate } from './alert.template';
 import readme from './readme.md';
 
 storiesOfAlert(
@@ -11,6 +11,7 @@ storiesOfAlert(
     readme
   },
   {
-    alertTemplate
+    alertTemplate,
+    alertWithHeadingsTemplate
   }
 );

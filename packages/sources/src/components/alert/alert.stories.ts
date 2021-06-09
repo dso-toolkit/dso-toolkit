@@ -1,10 +1,12 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { alertArgsMapper, alertTypeArgs } from './alert.args';
-import { Alert } from './alert.models';
+import { alertWithHeadingsContent } from './alert.content';
+import { Alert, AlertWithHeadingsContent } from './alert.models';
 
 export interface AlertParameters<TemplateFnReturnType> {
-  alertTemplate: (alertProperties: Alert) => TemplateFnReturnType;
+  alertTemplate: (alertProperties: Alert<TemplateFnReturnType>) => TemplateFnReturnType;
+  alertWithHeadingsTemplate: (properties: AlertWithHeadingsContent) => TemplateFnReturnType;
 }
 
 export function storiesOfAlert<TemplateFnReturnType>(
@@ -14,7 +16,8 @@ export function storiesOfAlert<TemplateFnReturnType>(
     readme
   }: StorybookParameters,
   {
-    alertTemplate
+    alertTemplate,
+    alertWithHeadingsTemplate
   }: AlertParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(alertArgsMapper, alertTemplate);
@@ -71,6 +74,24 @@ export function storiesOfAlert<TemplateFnReturnType>(
       args: {
         status: 'danger',
         message: 'Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.'
+      }
+    }
+  );
+
+  stories.add(
+    'with headings',
+    template,
+    {
+      argTypes: {
+        message: {
+          control: {
+            disable: true
+          }
+        }
+      },
+      args: {
+        status: 'info',
+        message: alertWithHeadingsTemplate(alertWithHeadingsContent)
       }
     }
   );

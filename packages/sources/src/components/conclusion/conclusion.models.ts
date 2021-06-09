@@ -13,6 +13,6 @@ export interface ConclusionItem<TemplateFnReturnType> {
 
 export interface Conclusion<TemplateFnReturnType> {
   items: ConclusionItem<TemplateFnReturnType>[];
-  alert?: Alert;
+  alert?: Alert<TemplateFnReturnType>;
   info?: Info<TemplateFnReturnType>;
 }
