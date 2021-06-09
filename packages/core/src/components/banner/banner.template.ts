@@ -1,6 +1,8 @@
 import { Banner } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
 
+import { iconTemplate } from '../icon/icon.template';
+
 export function bannerTemplate({ status, richContent, onClick }: Banner<TemplateResult>) {
   return html`
     <dso-banner status=${status}>
@@ -10,7 +12,7 @@ export function bannerTemplate({ status, richContent, onClick }: Banner<Template
             ${richContent}
             <button type="button" class="btn btn-link" @click=${onClick}>
               <span class="sr-only">Sluiten</span>
-              <dso-icon icon="times"></dso-icon>
+              ${iconTemplate({ icon: 'times' })}
             </button>
           </div>
         </div>

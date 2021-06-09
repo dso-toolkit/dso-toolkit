@@ -1,8 +1,12 @@
 import { Icon } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
-export function iconTemplate({ icon }: Icon) {
+export function iconTemplate({ icon }: Icon, slot?: string) {
   return html`
-    <dso-icon icon=${icon}></dso-icon>
+    <dso-icon
+      icon=${icon}
+      slot=${ifDefined(slot)}
+    ></dso-icon>
   `;
 }

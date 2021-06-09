@@ -2,6 +2,8 @@ import { HighlightBox } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 
+import { iconTemplate } from '../icon/icon.template';
+
 export function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBox<TemplateResult>) {
   return html`
     <div class="dso-highlight-box ${classMap({
@@ -11,14 +13,10 @@ export function highlightBoxTemplate({ yellow, white, dropShadow, border, step, 
       'dso-border': border,
       'dso-has-counter': !!(step || icon)
     })}">
-      ${step || icon
+      ${(step || icon)
         ? html`
           <div class="dso-step-counter">
-            ${step ?? html`
-              <svg class="di di-${icon}">
-                <use href="dso-icons.svg#${icon}" />
-              </svg>
-            `}
+            ${step ?? iconTemplate({ icon: icon! })}
           </div>
         `
         : nothing

@@ -2,6 +2,8 @@ import { storiesOfHighlightBox } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 
+import { iconTemplate } from '../icon/icon.template';
+
 import { highlightBoxTemplate } from './highlight-box.template';
 import readme from './readme.md';
 
@@ -16,7 +18,7 @@ const richContent = html`
     <a href="#" class="btn btn-default">Secundaire button</a>
     <a href="#" class="btn btn-link btn-align">
       Tertiaire button
-      <dso-icon icon="chevron-down"></dso-icon>
+      ${iconTemplate({ icon: 'chevron-down' })}
     </a>
   </div>
 `;
