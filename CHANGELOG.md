@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** ListButton met InputNumber in lijst krijgt geen margin-top ([#1161](https://github.com/dso-toolkit/dso-toolkit/issues/1161))
 
+### Added
+* **dso-toolkit:** Patroonpagina over submitgedrag in accordion ([#1119](https://github.com/dso-toolkit/dso-toolkit/issues/1119))
+
 ## 24.2.2
 
 ### Fixed

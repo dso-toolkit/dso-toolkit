@@ -1,0 +1,111 @@
+notes: |
+  In accordion formulieren worden groepen van gerelateerde vragen dynamisch weergegeven en verborgen op een enkele pagina. Hierdoor kunnen gebruikers hun aandacht op één set vragen richten, zonder dat ze tussen verschillende pagina’s hoeven te navigeren.
+
+  ## Technische opmerkingen
+  Elke accordion bevat een (deel van het) formulier met `type="submit"` op de "volgende" button. Hierdoor wordt een submit event afgevuurd bij een 'enter' in het formulier (dit is default gedrag wat in elke browser hetzelfde werkt).
+
+  Op het moment dat de actieve sectie wordt gesloten, zal de volgende sectie worden geopend. Als het de laatste sectie op de pagina betreft wordt er genavigeerd naar de volgende pagina.
+
+  ## Wanneer te gebruiken
+  Gebruik een accordion formulier om complexe formulieren te structureren en voltooiingssnelheid en laadtijden te verbeteren.
+
+  ## Wanneer niet te gebruiken
+  Gebruik geen accordion formulieren in een modal.
+
+  ## Hoe te gebruiken
+  Als er gebruik gemaakt wordt van een accordion formulier is het essentieel om in het ontwerp rekening te houden met de technische implementatie.
+
+  Zo is het belangrijk het gedrag van accordions te beperken, zodat slechts één sectie open kan staan. (Op het moment dat een nieuwe sectie wordt geopend, wordt de actieve sectie gesloten.) Door in de actieve sectie ook een primaire button te plaatsen is het voor de meeste gebruikers duidelijk dat alleen de invoerelementen van de actieve sectie worden verzonden.
+
+  ## Gedrag en toegankelijkheid
+  ntb
+
+  ## Validatie
+  Als het formulier accordions gebruikt, moet het duidelijk zijn waar de foutieve invoerelementen zich bevinden. Hiervoor tonen we een indicator-icoon op de betreffende accordion heading. Let op: bij geneste accordions moet ook de bovenliggende accordion een icoon krijgen. Zo is het fout ingevulde invoerveld te herleiden als de accordion is dichtgeklapt.
+
+  ## Bronnen
+  - Luke Wroblewski (2010, 21 september). Testing Accordion Forms. Geraadpleegd op 9 april 2021, via https://www.lukew.com/ff/entry.asp?1190
+  - Baymard Institute (2014, 21 oktober). Form Usability: The Pitfalls of Inline Accordion and Tab Designs. Geraadpleegd op 9 april 2021, via https://baymard.com/blog/accordion-and-tab-design
+  - Nielsen Norman Group (2014, 14 Mei). Accordions Are Not Always the Answer for Complex Content on Desktops. Geraadpleegd op 9 april 2021, via https://www.nngroup.com/articles/accordions-complex-content/
+status: ready
+context:
+  accordion:
+    sections:
+    - title: Vraaggroep 1
+      id: accordion-questiongroup_1
+      header: h2
+      status: 1 van 1 beantwoord
+    - title: Vraaggroep 2
+      id: accordion-questiongroup_2
+      open: true
+      header: h2
+      fieldsets:
+        - groups:
+          - id: default_form1
+            inputType: input
+            type: text
+            label: Invoerveld
+      buttons:
+        - type: submit
+          modifier: primary
+          label: Volgende
+    - title: Vraaggroep 3
+      id: accordion-questiongroup_3
+      header: h2
+    asideButtons:
+    - type: button
+      modifier: link
+      label: Vorige stap
+      icon: angle-left
+    formButtons:
+    - type: submit
+      modifier: link
+      label: Volgende stap
+      iconAfter: angle-right
+  nestedAccordion:
+    sections:
+    - title: Vraaggroep 1
+      id: nested-accordion-questiongroup_1
+      header: h2
+      status: 1 van 1 beantwoord
+    - title: Vraaggroep 2
+      id: nested-accordion-questiongroup_2
+      open: true
+      header: h2
+      state: danger
+      sections:
+      - title: Vraaggroep 2.1
+        id: nested-accordion-questiongroup_2-1
+        header: h2
+        status: 1 van 2 beantwoord
+        state: danger
+      - title: Vraaggroep 2.2
+        id: accordion-questiongroup_2-2
+        open: true
+        header: h2
+        fieldsets:
+          - groups:
+            - id: default_form1
+              inputType: input
+              type: text
+              label: Invoerveld
+        buttons:
+          - type: submit
+            modifier: primary
+            label: Volgende
+      - title: Vraaggroep 2.3
+        id: nested-accordion-questiongroup_2-3
+        header: h2
+    - title: Vraaggroep 3
+      id: nested-accordion-questiongroup_3
+      header: h2
+    asideButtons:
+    - type: button
+      modifier: link
+      label: Vorige stap
+      icon: angle-left
+    formButtons:
+    - type: submit
+      modifier: link
+      label: Volgende stap
+      iconAfter: angle-right
