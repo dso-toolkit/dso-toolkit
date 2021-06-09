@@ -1,6 +1,6 @@
 {% if crumbs %}
   <nav aria-label="U bevindt zich hier:">
-    <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
       {%- for crumb in crumbs %}
         {%- if loop.last -%}
           <li
@@ -8,7 +8,7 @@
             aria-current="page"
             itemscope=""
             itemprop="itemListElement"
-            itemtype="//schema.org/ListItem">
+            itemtype="https://schema.org/ListItem">
             <span itemprop="name">
               {{- crumb.label -}}
             </span>
@@ -18,7 +18,7 @@
           <li
             itemscope=""
             itemprop="itemListElement"
-            itemtype="//schema.org/ListItem">
+            itemtype="https://schema.org/ListItem">
             <a
               itemprop="item"
               href="{{ crumb.url }}">

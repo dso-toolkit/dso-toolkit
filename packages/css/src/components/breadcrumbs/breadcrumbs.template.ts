@@ -5,7 +5,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 export function breadcrumbsTemplate({ breadcrumbs }: Breadcrumbs) {
   return html`
     <nav aria-label="U bevindt zich hier:">
-      <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
         ${breadcrumbs.map((breadcrumb, index) => {
           const last = index === breadcrumbs.length - 1;
 
@@ -13,7 +13,7 @@ export function breadcrumbsTemplate({ breadcrumbs }: Breadcrumbs) {
             <li
               class=${ifDefined(last ? 'active' : undefined)}
               aria-current=${ifDefined(last ? 'page' : undefined)}
-              itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem"
+              itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem"
             >
               ${last
                 ? html`
