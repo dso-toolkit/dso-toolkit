@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 24.3.1
+
+### Fixed
+**dso-toolkit:** SCSS van 24.3.0 kan niet gecompileerd worden ([#1167](https://github.com/dso-toolkit/dso-toolkit/issues/1167))
+
 ## 24.3.0
 
 ### Changed
