@@ -1,17 +1,20 @@
+.dso-list-button,
+.dso-btn-group {
+  + .dso-list-button,
+  + .dso-btn-group {
+    margin-top: ($u1 / 2);
+  }
+}
+
 .dso-list-button {
   @include state-styling($wit, $grijs-20, $grijs-90);
 
   font-weight: 600;
-  margin-top: ($u1 / 2);
   padding: #{$u2 - 1} #{$u6 - 1}  #{$u2 - 1}  #{$u2 - 1};
   position: relative;
   text-align: left;
   white-space: normal;
   width: 100%;
-
-  &:first-of-type {
-    margin-top: 0;
-  }
 
   &:hover,
   &:focus {

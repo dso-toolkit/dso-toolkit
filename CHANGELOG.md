@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + dso-toolkit + styling:** Label herontwerp en Label Group ([#809](https://github.com/dso-toolkit/dso-toolkit/issues/809))
 * **dso-toolkit + css:** Breadcrumb: validatiefout voorbeeldpagina ([#1157](https://github.com/dso-toolkit/dso-toolkit/issues/1157))
 
+### Fixed
+* **dso-toolkit:** ListButton met InputNumber in lijst krijgt geen margin-top ([#1161](https://github.com/dso-toolkit/dso-toolkit/issues/1161))
+
 ## 24.2.2
 
 ### Fixed

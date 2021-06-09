@@ -89,6 +89,8 @@ context:
   - type: button
     label: In stand houden van bouwwerken - Melding
     sublabel: Gemeente
+    count: 0
+    inputNumber: true
   - type: button
     label: Milieubelastende activiteit - Aanvraag vergunning
     sublabel: Gemeente
