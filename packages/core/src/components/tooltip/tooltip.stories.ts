@@ -1,35 +1,38 @@
-import { storiesOfTooltip, TooltipArgs, TooltipTemplateFn } from '@dso-toolkit/stories';
+import { storiesOfTooltip } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
-// @ts-ignore
 import readme from './readme.md';
+import { tooltipTemplate } from './tooltip.template';
 
-const Tooltip = ({ position, label, id }: TooltipArgs) => html`
-  <dso-tooltip position=${position} for=${ifDefined(id || undefined)}>
-    ${label}
-  </dso-tooltip>
-`;
+function asChildTemplate(tooltip: TemplateResult) {
+  return html`
+    <button type="button">
+      <span>Hover or focus me</span>
+      ${tooltip}
+    </button>
+  `;
+}
 
-const asChildTemplate: TooltipTemplateFn<TemplateResult> = ({ position }: TooltipArgs) => html`
-  <button type="button">
-    <span>Hover or focus me</span>
-    ${Tooltip({ position, label: `Ik sta "${position}"` })}
-  </button>
-`;
+function asSiblingTemplate(tooltip: TemplateResult, id: string) {
+  return html`
+    <button type="button" id=${ifDefined(id || undefined)}>
+      <span>Hover or focus me</span>
+    </button>
+    ${tooltip}
+  `;
+}
 
-const asSiblingTemplate: TooltipTemplateFn<TemplateResult> = ({ position, id }: TooltipArgs) => html`
-  <button type="button" id=${ifDefined(id || undefined)}>
-    <span>Hover or focus me</span>
-  </button>
-  ${Tooltip({ position, label: `Ik sta "${position}"`, id })}
-`;
-
-storiesOfTooltip<TemplateResult>({
-  module,
-  storiesOf,
-  readme,
-  asChildTemplate,
-  asSiblingTemplate
-});
+storiesOfTooltip(
+  {
+    module,
+    storiesOf,
+    readme,
+  },
+  {
+    tooltipTemplate,
+    asChildTemplate,
+    asSiblingTemplate
+  }
+);

@@ -15,7 +15,7 @@ Voor meer informatie over dit traject, zie [#827](https://github.com/dso-toolkit
 
 Het DSO Toolkit ecosysteem levert een aantal NPM packages:
 * `dso-toolkit` - De basis package voor de styling.
-* `@dso-toolkit/styling` - De shared styling voor `dso-toolkit` en `@dso-toolkit/core`.
+* `@dso-toolkit/sources` - De basis van het DSO Design System.
 * `@dso-toolkit/core` - Web Components.
 * `@dso-toolkit/react` - React bindings voor de Web Components uit `@dso-toolkit/core`.
 
@@ -23,7 +23,7 @@ Van oudsher is `dso-toolkit` de NPM package waar applicaties mee werden gebouwd.
 
 ### Deprecation notice `dso-toolkit`
 
-Nu we begonnen zijn met het aanbieden van Web Components zijn we `dso-toolkit` aan het splitsen. Op termijn zal de `dso-toolkit` package worden deprecated en moeten implementatoren overstappen naar `@dso-toolkit/styling`.
+Nu we begonnen zijn met het aanbieden van Web Components zijn we `dso-toolkit` aan het splitsen. Op termijn zal de `dso-toolkit` package worden deprecated en moeten implementatoren overstappen naar `@dso-toolkit/core` (Eventueel met Framework bindings), `@dso-toolkit/css` of `@dso-toolkit/sources`.
 
 ### Assets
 

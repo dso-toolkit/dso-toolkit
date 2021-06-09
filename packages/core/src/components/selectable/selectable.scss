@@ -1,7 +1,7 @@
-@use "~@dso-toolkit/styling/modules/components/selectable";
+@use "~@dso-toolkit/sources/src/components/selectable/selectable";
 
 :host {
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
 
   display: block;
 

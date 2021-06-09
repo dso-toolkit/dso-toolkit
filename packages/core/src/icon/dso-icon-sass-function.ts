@@ -4,9 +4,9 @@ import { readFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import svgToDataUri from 'mini-svg-data-uri';
 
-const iconsPath = resolve(dirname(require.resolve('@dso-toolkit/styling')), 'icons');
+const iconsPath = resolve(dirname(require.resolve('@dso-toolkit/sources')), '../src', 'icons');
 
-// Replace this regex with the same logic as in @dso-toolkit/styling gulpfile.js
+// Replace this regex with the same logic as in @dso-toolkit/css gulpfile.js
 const styleRegex = (selector: string) => new RegExp(`${selector} {([\\s\\S]+?)}`);
 
 export const dsoIcon = {

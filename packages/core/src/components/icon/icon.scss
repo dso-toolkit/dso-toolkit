@@ -1,7 +1,7 @@
 :host {
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
 
-  @import "~@dso-toolkit/styling/variables/icon";
+  @import "~@dso-toolkit/sources/src/styling/variables/icon";
 
   display: inline-block;
   height: $dso-icon-size;

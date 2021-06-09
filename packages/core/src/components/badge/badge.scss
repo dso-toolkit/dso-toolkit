@@ -1,6 +1,6 @@
 :host {
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/styling/scaffolding/sr-only";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
 
-  @import "~@dso-toolkit/styling/components/badge";
+  @import "~@dso-toolkit/sources/src/styling/components/badge";
 }

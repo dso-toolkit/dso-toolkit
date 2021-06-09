@@ -11,10 +11,10 @@ De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er tw
 De deliverables van de DSO Toolkit:
 * **Handleiding**: Een handleiding voor elke versie op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/)
 * **CDN**: Een CDN op https://cdn.dso-toolkit.nl/, voor documentatie zie verderop in deze README
-* **NPM package `@dso-toolkit/styling`**: Een incomplete CSS implementatie van de DSO stijlset geschreven in SCSS
+* **NPM package `@dso-toolkit/sources`**: Alle bronbestanden van het DSO Design System.
 * **NPM package `dso-toolkit`**: De handleiding en complete CSS implementatie van de DSO stijlset.
 
-We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-toolkit/styling`. Zodra die verhuizing is afgerond zal `dso-toolkit` worden deprecated en moeten implementaties overstappen naar `@dso-toolkit/styling`. De componenten zoals die worden aangeboden op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/) blijven functioneren. Voor meer informatie zie [#827](https://github.com/dso-toolkit/dso-toolkit/issues/#827)
+We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-toolkit/sources`. Zodra die verhuizing is afgerond zal `dso-toolkit` worden deprecated en moeten implementaties overstappen naar `@dso-toolkit/core` (eventueel met Framework bindings), `@dso-toolkit/css` of `@dso-toolkit/sources`. De componenten zoals die worden aangeboden op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/) blijven functioneren. Voor meer informatie zie [#827](https://github.com/dso-toolkit/dso-toolkit/issues/#827)
 
 ## Getting started
 
@@ -95,7 +95,7 @@ yarn fractal
 Fractal is started at http://localhost:43000/, Stencil is running on http://localhost:53333. See the [Fractal guide](https://fractal.build/) for more information on Fractal.
 
 #### `development`
-This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/stories` (`/packages/stories`). All the implementations have a devDependency on `@dso-toolkit/stories`.
+This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/sources` (`/packages/sources`). All the implementations have a devDependency on `@dso-toolkit/sources`.
 
 The easiest way to start this environment is with one of the following commands:
 
@@ -105,11 +105,11 @@ yarn start:css
 yarn start:all
 ```
 
-This will start `@dso-toolkit/stories` in watch mode and run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
+This will start `@dso-toolkit/sources` in watch mode and run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
 
 The following processes are started:
-* **core**: `@dso-toolkit/stories` in watch mode, Stencil in development mode for Web Components, and Storybook
-* **css**: `@dso-toolkit/stories` in watch mode, Gulp in watch mode for the SVG spritesheet, dart-sass in watch mode for CSS compilation, and Storybook
+* **core**: `@dso-toolkit/sources` in watch mode, Stencil in development mode for Web Components, and Storybook
+* **css**: `@dso-toolkit/sources` in watch mode, Gulp in watch mode for the SVG spritesheet, dart-sass in watch mode for CSS compilation, and Storybook
 
 Alternatively, you can start a specific implementation with:
 
@@ -118,11 +118,11 @@ yarn workspace @dso-toolkit/core start
 yarn workspace @dso-toolkit/css start
 ```
 
-but then you need to make sure that `@dso-toolkit/stories` is running in watch mode or already built:
+but then you need to make sure that `@dso-toolkit/sources` is running in watch mode or already built:
 
 ```
-yarn workspace @dso-toolkit/stories start
-yarn workspace @dso-toolkit/stories build
+yarn workspace @dso-toolkit/sources start
+yarn workspace @dso-toolkit/sources build
 ```
 
 #### `cypress`

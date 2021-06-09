@@ -17,8 +17,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.13.16",
-    "@dso-toolkit/stories": "workspace:packages/stories",
-    "@dso-toolkit/styling": "workspace:packages/styling",
+    "@dso-toolkit/sources": "workspace:packages/sources",
     "@storybook/addon-a11y": "6.2.9",
     "@storybook/addon-essentials": "6.2.9",
     "@storybook/addons": "6.2.9",

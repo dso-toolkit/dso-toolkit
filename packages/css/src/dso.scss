@@ -1,17 +1,17 @@
 // Import namespaced stylesheets, import these first so globally available
-@import "../../styling/modules/components/conclusion";
-@import "../../styling/modules/components/definition-list";
-@import "../../styling/modules/components/info";
-@import "../../styling/modules/components/info-button";
-@import "../../styling/modules/components/label-group";
-@import "../../styling/modules/components/label";
-@import "../../styling/modules/components/selectable";
+@import "../../sources/src/components/conclusion/conclusion";
+@import "../../sources/src/components/definition-list/definition-list";
+@import "../../sources/src/components/info/info";
+@import "../../sources/src/components/info-button/info-button";
+@import "../../sources/src/components/label-group/label-group";
+@import "../../sources/src/components/label/label";
+@import "../../sources/src/components/selectable/selectable";
 
 // Mixins
 @import "mixins/di";
 
 // Styling
-@import "../../styling/index.scss";
+@import "../../sources/src/styling";
 
 // Components
 @import "components/conclusion/conclusion";

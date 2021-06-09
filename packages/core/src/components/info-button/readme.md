@@ -1,4 +1,4 @@
-# dso-info-button
+# `<dso-info-button>`
 
 
 

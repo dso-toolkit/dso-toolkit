@@ -69,7 +69,7 @@ export class Selectable {
   }
 
   render() {
-    const hasInfo = this.host.querySelector('[slot="info"]');
+    const hasInfo = !!this.host.querySelector('[slot="info"]');
 
     return (
       <Fragment>

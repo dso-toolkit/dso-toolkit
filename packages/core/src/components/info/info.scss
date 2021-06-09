@@ -1,11 +1,11 @@
 @import "../../icon/di";
-@import "~@dso-toolkit/styling/modules/components/info";
+@import "~@dso-toolkit/sources/src/components/info/info";
 
 :host {
   --di-times-bosgroen: #{dso-icon("times", "bosgroen")};
 
-  @import "~@dso-toolkit/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/styling/scaffolding/sr-only";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
+  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
 
   display: block;
 

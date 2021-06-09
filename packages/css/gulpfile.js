@@ -12,8 +12,8 @@ const svgmin = require('gulp-svgmin');
 const log = require('fancy-log');
 
 const distPath = 'dist';
-const dsoToolkitStylingPath = path.dirname(require.resolve('@dso-toolkit/styling'));
-const iconsPath = path.resolve(dsoToolkitStylingPath, 'icons');
+const dsoToolkitSourcesPath = path.dirname(require.resolve('@dso-toolkit/sources'));
+const iconsPath = path.resolve(dsoToolkitSourcesPath, '../src', 'icons');
 
 gulp.task('build', createSvgSpritesheet);
 

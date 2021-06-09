@@ -1,25 +1,11 @@
-import { storiesOfHighlightBox, HighlightBoxArgs, HighlightBoxTemplateFn } from '@dso-toolkit/stories';
+import { storiesOfHighlightBox } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
-import { html, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { html } from 'lit-html';
 
-// @ts-ignore
+import { iconTemplate } from '../icon/icon.template';
+
+import { highlightBoxTemplate } from './highlight-box.template';
 import readme from './readme.md';
-
-const template: HighlightBoxTemplateFn<TemplateResult> = ({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBoxArgs<TemplateResult>) => html`
-  <dso-highlight-box
-    ?yellow=${yellow}
-    ?white=${white}
-    ?drop-shadow=${dropShadow}
-    ?border=${border}
-    step=${ifDefined(typeof step === 'number' && step > 0 ? step : undefined)}
-  >
-    ${icon && html`
-      <dso-icon slot="icon" icon=${icon}></dso-icon>
-    `}
-    ${richContent}
-  </dso-highlight-box>
-`;
 
 const richContent = html`
   <div class="dso-rich-content">
@@ -32,19 +18,19 @@ const richContent = html`
     <a href="#" class="btn btn-default">Secundaire button</a>
     <a href="#" class="btn btn-link btn-align">
       Tertiaire button
-      <dso-icon icon="chevron-down"></dso-icon>
+      ${iconTemplate({ icon: 'chevron-down' })}
     </a>
   </div>
 `;
 
-storiesOfHighlightBox<TemplateResult>(
+storiesOfHighlightBox(
   {
     module,
     storiesOf,
     readme,
-    template,
   },
   {
+    highlightBoxTemplate,
     richContent
   }
 );
