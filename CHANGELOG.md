@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 24.3.0
+
 ### Changed
 * **dso-toolkit:** Tooltips nieuwe styling smalle variant ([#1120](https://github.com/dso-toolkit/dso-toolkit/issues/1120))
 * **core + dso-toolkit + styling:** Label herontwerp en Label Group ([#809](https://github.com/dso-toolkit/dso-toolkit/issues/809))
