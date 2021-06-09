@@ -1,6 +1,6 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
-import { bannerArgsMapper, BannerArgs, bannerArgTypes } from './banner.args';
+import { bannerArgsMapper, bannerArgTypes } from './banner.args';
 import { Banner } from './banner.models';
 
 export interface BannerParameters<TemplateFnReturnType> {
@@ -36,17 +36,6 @@ export function storiesOfBanner<TemplateFnReturnType>(
     });
 
   stories.add(
-    'warning',
-    template,
-    {
-      args: {
-        status: 'warning',
-        richContent: warningRichContent
-      }
-    }
-  );
-
-  stories.add(
     'danger',
     template,
     {
@@ -58,11 +47,22 @@ export function storiesOfBanner<TemplateFnReturnType>(
   );
 
   stories.add(
-    'rich warning',
+    'warning',
     template,
     {
       args: {
         status: 'warning',
+        richContent: warningRichContent
+      }
+    }
+  );
+
+  stories.add(
+    'rich warning',
+    template,
+    {
+      args: {
+        status: 'danger',
         richContent: richWarningRichContent
       }
     }
@@ -73,7 +73,7 @@ export function storiesOfBanner<TemplateFnReturnType>(
     template,
     {
       args: {
-        status: 'danger',
+        status: 'warning',
         richContent: dangerWithHeadingsRichContent
       }
     }
