@@ -9,7 +9,8 @@
     "copy-libs": "gulp copy-libs",
     "gulp": "gulp",
     "lint": "gulp lint",
-    "test": "gulp test"
+    "test": "gulp test",
+    "smoke-test": "node-sass --include-path=libs --output=../../dso-toolkit-smoke-test src/dso.scss"
   },
   "repository": {
     "type": "git",
@@ -45,11 +46,15 @@
     "highlight.js": "^10.7.2",
     "jquery": "^2.2.4",
     "jquery-pjax": "git+https://github.com/defunkt/jquery-pjax.git",
+    "node-sass": "^4.8.3",
     "prettier": "^2.2.1",
     "pretty": "2.0.0",
     "rollup": "^2.45.2",
     "stylelint": "13.12.0",
     "stylelint-config-standard": "20.0.0",
     "stylelint-scss": "3.19.0"
+  },
+  "resolutions": {
+    "node-sass": "4.14.1"
   }
 }
