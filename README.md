@@ -26,7 +26,7 @@ Stable releases can be found on the [GitHub Releases page](https://github.com/ds
 npm install dso-toolkit --save-dev
 ```
 
-1. Add `node_modules/dso-toolkit/libs` and `node_modules` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
+1. Add `node_modules/dso-toolkit/libs` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
 2. Bundle `/node_modules/dso-toolkit/src/dso.scss` in your build process.
 
 The Web Components are not yet available as NPM package, see [#827](https://github.com/dso-toolkit/dso-toolkit/issues/827) and [#885](https://github.com/dso-toolkit/dso-toolkit/issues/885). In the meantime you could use the `<script>`-tag mentioned below.

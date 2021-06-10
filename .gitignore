@@ -2,6 +2,7 @@ node_modules
 *.log
 .vscode
 *.zip
+/dso-toolkit-smoke-test
 
 # Yarn v2 ignores
 .yarn/*

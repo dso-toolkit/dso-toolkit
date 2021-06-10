@@ -11568,6 +11568,7 @@ __metadata:
     highlight.js: ^10.7.2
     jquery: ^2.2.4
     jquery-pjax: "git+https://github.com/defunkt/jquery-pjax.git"
+    node-sass: ^4.8.3
     prettier: ^2.2.1
     pretty: 2.0.0
     rollup: ^2.45.2
