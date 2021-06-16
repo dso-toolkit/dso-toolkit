@@ -15,7 +15,7 @@ module.exports = {
     '@storybook/addon-a11y'
   ],
   stories: [
-    '../src/**/*.stories.ts'
+    '../src/**/*.stories.(ts|tsx)'
   ],
   previewHead: head => process.env.DSO_ENV === 'development' // Todo: 'production'
     ? (`
