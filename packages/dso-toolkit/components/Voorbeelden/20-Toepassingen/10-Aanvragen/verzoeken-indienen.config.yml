@@ -65,10 +65,6 @@ context:
       label: Vorige
       icon: chevron-left
     buttons:
-    - type: button
-      modifier: link
-      label: Downloaden
-      icon: download
     - type: submit
       modifier: primary
       label: Indienen
