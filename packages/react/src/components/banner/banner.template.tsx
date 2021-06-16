@@ -2,7 +2,7 @@ import { Banner } from '@dso-toolkit/sources';
 import * as React from 'react';
 
 import { DsoBanner } from '../..';
-// import { iconTemplate } from '../icon/icon.template';
+import { iconTemplate } from '../icon/icon.template';
 
 export function bannerTemplate({
   status,
@@ -19,7 +19,7 @@ export function bannerTemplate({
             {richContent}
             <button type="button" className="btn btn-link" onClick={e => onClick(e.nativeEvent)}>
               <span className="sr-only">Sluiten</span>
-              {/* ${iconTemplate({ icon: 'times' })} */}
+              {iconTemplate({ icon: 'times' })}
             </button>
           </div>
         </div>
