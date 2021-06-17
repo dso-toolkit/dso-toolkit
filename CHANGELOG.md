@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **dso-toolkit:** Smoke test voor `dso-toolkit` SCSS compile ([#1168](https://github.com/dso-toolkit/dso-toolkit/issues/1168))
 
+### Fixed
+* **sources:** Afbeeldingen in table schalen niet goed ([#1180](https://github.com/dso-toolkit/dso-toolkit/issues/1180))
+
 ## 24.3.1
 
 ### Fixed
