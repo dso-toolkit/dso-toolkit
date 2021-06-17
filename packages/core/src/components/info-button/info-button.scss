@@ -1,8 +1,11 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
 @import "../../icon/di";
 
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
 @import "~@dso-toolkit/sources/src/components/info-button/info-button";
-@import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-@import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
 
 :host {
   display: inline-block;
@@ -11,6 +14,12 @@
   --di-info-active: #{dso-icon("info-active")};
 }
 
+@include box-sizing();
+
+.sr-only {
+  @include sr-only();
+}
+
 button {
-  @include info-button_button();
+  @include info-button_root();
 }

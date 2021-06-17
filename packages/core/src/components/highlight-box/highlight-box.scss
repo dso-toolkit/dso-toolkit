@@ -1,14 +1,15 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/step-counter";
+
+@import "~@dso-toolkit/sources/src/components/highlight-box/highlight-box";
+
 :host {
   display: block;
-
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-
-  @import "~@dso-toolkit/sources/src/styling/components/highlight-box";
 }
 
 :host-context(.row.dso-equal-heights) {
-  @import "~@dso-toolkit/sources/src/styling/variables";
-
   height: 100%;
   min-height: auto;
 
@@ -23,4 +24,10 @@
       height: calc(100% - #{$u2});
     }
   }
+}
+
+@include box-sizing();
+
+.dso-highlight-box {
+  @include highlight-box_root();
 }

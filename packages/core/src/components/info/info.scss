@@ -1,11 +1,14 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
 @import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
 @import "~@dso-toolkit/sources/src/components/info/info";
 
 :host {
   --di-times-bosgroen: #{dso-icon("times", "bosgroen")};
-
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
 
   display: block;
 
@@ -14,4 +17,10 @@
 
 :host(:not([active]):not([fixed])) {
   display: none;
+}
+
+@include box-sizing();
+
+.sr-only {
+  @include sr-only();
 }

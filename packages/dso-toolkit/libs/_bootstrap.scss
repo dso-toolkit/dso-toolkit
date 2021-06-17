@@ -26,7 +26,7 @@
 
 // @import "bootstrap/mixins/reset-text"; -> moved to @dso-toolkit/styling
 @import "bootstrap/mixins/text-emphasis";
-@import "bootstrap/mixins/text-overflow";
+// @import "bootstrap/mixins/text-overflow"; -> moved to @dso-toolkit/sources/src/styling/mixins/text-overflow
 @import "bootstrap/mixins/vendor-prefixes";
 
 // Components

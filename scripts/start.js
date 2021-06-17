@@ -32,6 +32,11 @@ const startCss = {
   name: 'css'
 };
 
+const watchCss = {
+  command: 'yarn workspace @dso-toolkit/css watch',
+  name: 'css'
+};
+
 const startReact = {
   command: 'wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/react start',
   name: 'react'
@@ -41,6 +46,7 @@ switch(argv.mode) {
   case 'core':
     concurrently(
       [
+        watchCss,
         startSources,
         startCore
       ]
@@ -70,6 +76,7 @@ switch(argv.mode) {
   case 'react':
     concurrently(
       [
+        watchCss,
         startSources,
         startCoreWatcher,
         startReact

@@ -94,7 +94,7 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
     {
       args: {
         modifier: 'dso-columns-3-1',
-        definitions: columnDefinitions
+        definitions: columnDefinitions.slice(1)
       }
     }
   );

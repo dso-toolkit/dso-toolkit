@@ -1,4 +1,4 @@
-@mixin table-responsive {
+@mixin table-responsive() {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   border: 1px solid $table-border-color;
   margin-bottom: 0;

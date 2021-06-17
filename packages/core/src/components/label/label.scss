@@ -1,11 +1,19 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
 @import "~@dso-toolkit/sources/src/components/label/label";
 
 :host {
   display: inline-block;
+}
 
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
+@include box-sizing();
 
+// Todo: Replace .sr-only selector with web component specific selector, no need for .sr-only if we can generate the SCSS
+.sr-only {
+  @include sr-only();
 }
 
 .dso-label {

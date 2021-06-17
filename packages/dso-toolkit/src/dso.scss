@@ -11,36 +11,27 @@
  * See https://github.com/dso-toolkit/dso-toolkit/issues/105 for more information
 */
 
-// Borrow DSO Icon mixin from @dso-toolkit/css
+// Variables
 $dso-icons-path: '../' !default;
-
-@import "@dso-toolkit/css/src/mixins/di";
-
-$library: true !default;
-
 $asap-font-path: "../fonts/Asap/" !default;
 
+@import "@dso-toolkit/sources/src/styling/variables";
 @import "styles/mixins/dso-variables";
 @import "styles/mixins/bootstrap-variables";
 
-@import "@dso-toolkit/sources/src/styling/mixins/reset-text";
+// Icon mixin
+@import "@dso-toolkit/css/src/mixins/di";
 
-@import "@dso-toolkit/sources/src/styling/scaffolding";
-@import "@dso-toolkit/sources/src/styling/grid";
+// Mixins
+@import "@dso-toolkit/sources/src/styling/mixins";
 
+// Bootstrap
 @import "../libs/bootstrap";
 
 /*!
- * @dso-toolkit/styling
- * Note to self: This is a temporary solution, in the end developers will not
- * install dso-toolkit but install @dso-toolkit/sources, and then the fractal library
- * will only import styling and web components through <link> and <script>
+ * @dso-toolkit/css
  */
-// Import namespaced stylesheets first
-@import "namespaced-stylesheets";
-
-// Components
-@import "@dso-toolkit/sources/src/styling/components";
+@import "@dso-toolkit/css/src/dso";
 
 /*!
  * DSO Toolkit styling

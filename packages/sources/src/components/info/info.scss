@@ -1,5 +1,3 @@
-@import "../../styling/variables";
-
 @mixin info_root() {
   background-color: $grijs-10;
   padding: $u2 $u4 $u2 $u2;
@@ -58,5 +56,11 @@
         text-decoration: underline;
       }
     }
+  }
+}
+
+@mixin info_children() {
+  .dso-rich-content {
+    @include info_richContent();
   }
 }

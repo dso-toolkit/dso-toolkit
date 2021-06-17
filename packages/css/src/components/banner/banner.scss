@@ -1,0 +1,17 @@
+.banner {
+  background-color: $dso-invalid-color !important;
+}
+
+.banner,
+.dso-banner:not(.row) {
+  @include banner_root();
+  @include banner_children();
+
+  &.alert-danger {
+    @include banner_danger();
+  }
+
+  &.alert-warning {
+    @include banner_warning();
+  }
+}

@@ -1,7 +1,7 @@
-@use "~@dso-toolkit/sources/src/components/info/info";
+@import "~@dso-toolkit/sources/src/components/info/info";
 
 dso-selectable {
   .dso-rich-content[slot="info"] {
-    @include info.info_richContent();
+    @include info_richContent();
   }
 }

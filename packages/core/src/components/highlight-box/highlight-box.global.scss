@@ -1,0 +1,8 @@
+dso-highlight-box {
+  @include highlight-box_children();
+}
+
+dso-highlight-box[yellow],
+dso-highlight-box:not([border]):not([white]) {
+  @include highlight-box_exoticChildren();
+}

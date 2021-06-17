@@ -1,12 +1,25 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/attachments-counter/attachments-counter";
+
 :host {
   display: inline-block;
 
   --di-paperclip-grijs: #{dso-icon("paperclip", "grijs")};
   --di-paperclip-wit: #{dso-icon("paperclip", "wit")};
+}
 
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
+@include box-sizing();
 
-  @import "../../icon/di";
-  @import "~@dso-toolkit/sources/src/styling/components/attachments-counter";
+.sr-only {
+  @include sr-only();
+}
+
+.dso-attachments {
+  @include attachments-counter_root();
 }

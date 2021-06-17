@@ -1,13 +1,17 @@
-@use "~@dso-toolkit/sources/src/components/selectable/selectable";
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+@import "~@dso-toolkit/sources/src/components/selectable/selectable";
 
 :host {
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-
   display: block;
 
-  @include selectable.selectable_root();
+  @include selectable_root();
 }
 
 :host(:not(:last-child)) {
-  @include selectable.selectable_notLastChild();
+  @include selectable_notLastChild();
 }
+
+@include box-sizing();

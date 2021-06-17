@@ -1,6 +1,18 @@
-@import "./icon/di";
+// Import variables
+@import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/styling";
+// Import di mixins
+@import "icon/di";
 
+// Import all mixins
+@import "~@dso-toolkit/sources/src/styling/mixins";
+
+// Import namespaced stylesheets
+@import "~@dso-toolkit/sources/src/components";
+
+// Import component global stylesheets
+@import "components/alert/alert.global";
+@import "components/banner/banner.global";
+@import "components/highlight-box/highlight-box.global";
 @import "components/info/info.global";
 @import "components/selectable/selectable.global";

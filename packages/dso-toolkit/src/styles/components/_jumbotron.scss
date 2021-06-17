@@ -2,7 +2,7 @@
   @include make-row();
 
   .dso-jumbotron-title {
-    @extend %is-h1;
+    @include h1();
 
     @include make-md-column(12);
 

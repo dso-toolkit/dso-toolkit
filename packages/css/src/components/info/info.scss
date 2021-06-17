@@ -1,7 +1,4 @@
 .dso-info:not(.dso-accordion-section) {
   @include info_root();
-
-  .dso-rich-content {
-    @include info_richContent();
-  }
+  @include info_children();
 }
