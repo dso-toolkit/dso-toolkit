@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **sources:** Afbeeldingen in table schalen niet goed ([#1180](https://github.com/dso-toolkit/dso-toolkit/issues/1180))
 * **dso-toolkit:** Banner plus Modal responsive Bug ([#1177](https://github.com/dso-toolkit/dso-toolkit/issues/1177))
+* **dso-toolkit:** Anchor: tekst externe link ([#1176](https://github.com/dso-toolkit/dso-toolkit/issues/1176))
 
 ## 24.3.1
 
