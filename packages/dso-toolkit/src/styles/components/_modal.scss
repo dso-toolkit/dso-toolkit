@@ -36,6 +36,11 @@ body.dso-modal-open {
     }
   }
 
+  .container,
+  dso-banner {
+    display: none;
+  }
+
   @media screen and (min-width: $screen-sm-min) {
     overflow: hidden;
 

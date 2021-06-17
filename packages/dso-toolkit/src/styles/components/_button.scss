@@ -96,10 +96,8 @@ dso-banner,
     }
   }
 
-  @media screen and (min-width: $screen-sm-min) {
-    &:not(.dso-list-button) + .btn:not(.dso-list-button) {
-      margin-left: $u2;
-    }
+  &:not(.dso-list-button) + .btn:not(.dso-list-button) {
+    margin-left: $u2;
   }
 
   &.extern,
