@@ -96,8 +96,10 @@ dso-banner,
     }
   }
 
-  &:not(.dso-list-button) + .btn:not(.dso-list-button) {
-    margin-left: $u2;
+  @media screen and (min-width: $screen-sm-min) {
+    &:not(.dso-list-button) + .btn:not(.dso-list-button) {
+      margin-left: $u2;
+    }
   }
 
   &.extern,
