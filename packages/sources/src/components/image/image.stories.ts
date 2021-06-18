@@ -26,7 +26,7 @@ export function storiesOfImage<TemplateFnReturnType>(
       },
       argTypes: imageArgTypes,
       args: {
-        source: 'avatar.png',
+        source: 'images/avatar.png',
         alt: 'Alternatieve tekst'
       }
     });

@@ -9,7 +9,7 @@ concurrently(
     },
     {
       name: 'storybook',
-      command: 'wait-on file:./dist/dso-toolkit/dso-toolkit.esm.js && yarn bin:start-storybook --static-dir ./dist --port 56106',
+      command: 'wait-on file:./dist/dso-toolkit/dso-toolkit.esm.js && yarn bin:start-storybook --static-dir ./dist,../sources/storybook-assets --port 56106',
       prefixColor: 'bgMagenta'
     },
     {
