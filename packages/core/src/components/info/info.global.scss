@@ -1,7 +1,3 @@
-@use "~@dso-toolkit/sources/src/components/info/info";
-
 dso-info {
-  .dso-rich-content[slot="info"] {
-    @include info.info_richContent();
-  }
+  @include info_children();
 }

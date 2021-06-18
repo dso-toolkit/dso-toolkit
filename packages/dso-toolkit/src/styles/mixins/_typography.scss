@@ -1,27 +1,3 @@
-html {
-  font-size: $font-size-base;
-}
-
-h1 {
-  @extend %is-h1;
-}
-
-h2 {
-  @extend %is-h2;
-}
-
-h3 {
-  @extend %is-h3;
-}
-
-h4 {
-  @extend %is-h4;
-}
-
-h5 {
-  @extend %is-h5;
-}
-
 // Mind Bootstrap's .caption class: node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_thumbnails.scss
 .caption {
   font-style: italic;
@@ -36,22 +12,6 @@ small,
 // Prevent `sub` and `sup` affecting `line-height` in all browsers.
 //
 
-sub,
-sup {
-  font-size: 0.65em;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sup {
-  top: -0.5em;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
 del {
   background-color: $dso-danger-bg-color;
 }
@@ -59,32 +19,6 @@ del {
 ins {
   background-color: $dso-success-bg-color;
   text-decoration: none;
-}
-
-// __________________________________________________
-//
-// Typography
-// --------------------------------------------------
-
-// Headings
-// -------------------------
-
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3 {
-  margin-bottom: $u2;
-}
-
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  margin-bottom: $u2;
 }
 
 // Body text
@@ -107,12 +41,6 @@ ol {
   margin-bottom: $u2;
 }
 
-// Description Lists
-dl {
-  margin-bottom: $u2;
-  margin-top: 0; // Remove browser default
-}
-
 // Misc
 // -------------------------
 
@@ -131,85 +59,4 @@ address {
 hr {
   margin-bottom: $dso-vertical-spacing-medium;
   margin-top: $dso-vertical-spacing-medium;
-}
-
-dso-banner,
-.banner,
-.dso-banner:not(.row) {
-  .row {
-    > div {
-      line-height: $u3;
-      position: relative;
-
-      &::before {
-        content: "";
-        display: inline-block;
-        left: $u2;
-        position: absolute;
-        top: 0;
-      }
-
-      > .dso-rich-content {
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          color: $zwart;
-          font-size: 1rem;
-          line-height: $line-height-base;
-          margin-bottom: 0;
-
-          + p {
-            display: inline;
-
-            + * {
-              margin-top: $u2;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: #{$screen-xs-min + 1}) {
-  dso-banner,
-  .banner,
-  .dso-banner:not(.row) {
-    .row {
-      > div {
-        padding-left: $dso-banner-left-padding;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $screen-xs-min) {
-  dso-banner,
-  .banner,
-  .dso-banner:not(.row) {
-    .row {
-      > div {
-        padding-top: $dso-banner-small-padding-top;
-      }
-    }
-  }
-}
-
-dso-banner[status="danger"],
-.banner.alert-danger,
-.dso-banner:not(.row).alert-danger {
-  .row > div::before {
-    @include di("status-danger");
-  }
-}
-
-dso-banner[status="warning"],
-.banner.alert-warning,
-.dso-banner:not(.row).alert-warning {
-  .row > div::before {
-    @include di("status-warning");
-  }
 }

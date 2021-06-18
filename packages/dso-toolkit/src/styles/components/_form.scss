@@ -55,7 +55,7 @@ form,
     margin-bottom: $u2;
 
     > legend {
-      @extend %is-h3;
+      @include h3();
 
       border-bottom: 0;
       margin-bottom: $dso-fieldset-separator-unit;

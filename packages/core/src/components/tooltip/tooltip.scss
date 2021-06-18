@@ -1,6 +1,9 @@
-@import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-
 @import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/reset-text";
+
+@import "~@dso-toolkit/sources/src/components/tooltip/tooltip";
 
 $tooltip-arrow-width: 6px;
 $tooltip-padding-vertical: $u2;
@@ -14,87 +17,24 @@ $tooltip-max-width-small: 40 * $dso-unit;
   display: block;
 }
 
-.tooltip {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-  font-size: $font-size-small;
-  position: absolute;
-  z-index: $zindex-tooltip;
+@include box-sizing();
 
-  &:not(.in) {
-    display: none;
-  }
+.tooltip {
+  @include tooltip_root();
 
   &[data-popper-placement="top"] {
-    margin-top: -3px;
-    padding: $tooltip-arrow-width 0;
-
-    .tooltip-arrow {
-      border-top-color: $tooltip-arrow-color;
-      border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -$tooltip-arrow-width;
-    }
+    @include tooltip_arrowTop();
   }
 
   &[data-popper-placement="right"] {
-    margin-left: 3px;
-    padding: 0 $tooltip-arrow-width;
-
-    .tooltip-arrow {
-      border-right-color: $tooltip-arrow-color;
-      border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
-      left: 0;
-      margin-top: -$tooltip-arrow-width;
-      top: 50%;
-    }
+    @include tooltip_arrowRight();
   }
 
   &[data-popper-placement="bottom"] {
-    margin-top: 3px;
-    padding: $tooltip-arrow-width 0;
-
-    .tooltip-arrow {
-      border-bottom-color: $tooltip-arrow-color;
-      border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
-      left: 50%;
-      margin-left: -$tooltip-arrow-width;
-      top: 0;
-    }
+    @include tooltip_arrowBottom();
   }
 
   &[data-popper-placement="left"] {
-    margin-left: -3px;
-    padding: 0 $tooltip-arrow-width;
-
-    .tooltip-arrow {
-      border-left-color: $tooltip-arrow-color;
-      border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
-      margin-top: -$tooltip-arrow-width;
-      right: 0;
-      top: 50%;
-    }
+    @include tooltip_arrowLeft();
   }
-}
-
-.tooltip-inner {
-  background-color: $wit;
-  border-radius: $tooltip-border-radius;
-  color: $grijs-90;
-  display: inline-block;
-  font-size: $font-size-base;
-  max-width: $tooltip-max-width;
-  padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
-
-  &.dso-small {
-    max-width: $tooltip-max-width-small;
-  }
-}
-
-.tooltip-arrow {
-  border-color: transparent;
-  border-style: solid;
-  height: 0;
-  position: absolute;
-  width: 0;
 }

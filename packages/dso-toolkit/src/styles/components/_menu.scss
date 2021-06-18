@@ -41,9 +41,7 @@
     }
   }
 
-  @if ($library) {
-    #state-switch:checked ~ .toolkit-example & > .dso-nav {
-      display: block;
-    }
+  #state-switch:checked ~ .toolkit-example & > .dso-nav {
+    display: block;
   }
 }

@@ -6,15 +6,23 @@ module.exports = {
 };
 
 function copySources() {
-  const stylingDir = resolve(__dirname, '../../sources/src', '**/*.{scss,svg}');
+  const stylingGlobs = [
+    '**/*',
+    '!./node_modules/**',
+    '!./dist/**'
+  ];
 
-  return gulp.src(stylingDir)
-    .pipe(gulp.dest('libs/@dso-toolkit/sources/src'));
+  return gulp
+    .src(stylingGlobs, {
+      cwd: resolve(__dirname, '../../sources')
+    })
+    .pipe(gulp.dest('libs/@dso-toolkit/sources'));
 }
 
 function copyCss() {
   const stylingDir = resolve(__dirname, '../../css', '**/*.{scss,svg}');
 
-  return gulp.src(stylingDir)
+  return gulp
+    .src(stylingDir)
     .pipe(gulp.dest('libs/@dso-toolkit/css'));
 }

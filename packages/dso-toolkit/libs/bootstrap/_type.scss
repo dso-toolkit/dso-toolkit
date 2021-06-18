@@ -180,46 +180,6 @@ ol {
   }
 }
 
-// Description Lists
-dl {
-  margin-top: 0; // Remove browser default
-  margin-bottom: $line-height-computed;
-}
-dt,
-dd {
-  line-height: $line-height-base;
-}
-dt {
-  font-weight: 700;
-}
-dd {
-  margin-left: 0; // Undo browser default
-}
-
-// Horizontal description lists
-//
-// Defaults to being stacked without any of the below styles applied, until the
-// grid breakpoint is reached (default of ~768px).
-
-.dl-horizontal {
-  dd {
-    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
-  }
-
-  @media (min-width: $dl-horizontal-breakpoint) {
-    dt {
-      float: left;
-      width: ($dl-horizontal-offset - 20);
-      clear: left;
-      text-align: right;
-      @include text-overflow;
-    }
-    dd {
-      margin-left: $dl-horizontal-offset;
-    }
-  }
-}
-
 
 // Misc
 // -------------------------

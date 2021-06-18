@@ -1,4 +1,6 @@
-const { jsxDecorator } = require('storybook-addon-jsx');
+import { jsxDecorator } from 'storybook-addon-jsx';
+
+import '../../css';
 
 export const parameters = {
   jsx: {

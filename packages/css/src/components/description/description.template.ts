@@ -11,9 +11,7 @@ export function descriptionTemplate({ id, open, term, content }: Description) {
       class="dso-description-term ${classMap({ 'dso-open': open })}"
       aria-expanded="${ifDefined(open ? 'true' : 'false')}"
       aria-controls="${id}-content"
-    >
-      ${term}
-    </a>
+    >${term}</a>
     <span id="${id}-content" class="dso-description-content">
       ${content}
       <a href="#${id}-term">

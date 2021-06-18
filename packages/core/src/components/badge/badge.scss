@@ -1,6 +1,20 @@
-:host {
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
+@import "~@dso-toolkit/sources/src/styling/variables";
 
-  @import "~@dso-toolkit/sources/src/styling/components/badge";
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/badge/badge";
+
+:host {
+  display: inline-block;
+}
+
+@include box-sizing();
+
+.sr-only {
+  @include sr-only();
+}
+
+.dso-badge {
+  @include badge_root();
 }

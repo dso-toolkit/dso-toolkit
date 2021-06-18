@@ -1,3 +1,12 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/alert/alert";
+
 :host {
   display: block;
 
@@ -5,16 +14,20 @@
   --di-status-danger: #{dso-icon("status-danger")};
   --di-status-warning: #{dso-icon("status-warning")};
   --di-status-info: #{dso-icon("status-info")};
-
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
-
-  @import "../../icon/di";
-  @import "~@dso-toolkit/sources/src/styling/components/alert";
 }
 
 :host(:not(:first-child)) {
   @import "~@dso-toolkit/sources/src/styling/variables";
 
   margin-top: $u3;
+}
+
+@include box-sizing();
+
+.sr-only {
+  @include sr-only();
+}
+
+.alert {
+  @include alert_root();
 }

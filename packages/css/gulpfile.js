@@ -12,12 +12,12 @@ const svgmin = require('gulp-svgmin');
 const log = require('fancy-log');
 
 const distPath = 'dist';
-const dsoToolkitSourcesPath = path.dirname(require.resolve('@dso-toolkit/sources'));
-const iconsPath = path.resolve(dsoToolkitSourcesPath, '../src', 'icons');
+const dsoToolkitSourcesPath = path.resolve(__dirname, '../sources');
+const iconsPath = path.resolve(dsoToolkitSourcesPath, 'src/icons');
 
-gulp.task('build', createSvgSpritesheet);
+gulp.task('build', gulp.parallel(createSvgSpritesheet, copyAssets));
 
-gulp.task('default', gulp.series(createSvgSpritesheet, watcher));
+gulp.task('default', gulp.series(gulp.parallel(createSvgSpritesheet, copyAssets), watcher));
 
 function watcher() {
   gulp.watch(`*.(svg|scss)`, { cwd: iconsPath }).on('all', function (event, path, stats) {
@@ -25,6 +25,15 @@ function watcher() {
 
     return createSvgSpritesheet();
   });
+}
+
+function copyAssets() {
+  const assetsPath = path.resolve(dsoToolkitSourcesPath, 'assets');
+  const assetsDistPath = path.resolve(distPath, 'assets');
+
+  return gulp
+    .src('**', { cwd: assetsPath })
+    .pipe(gulp.dest(assetsDistPath));
 }
 
 async function createSvgSpritesheet() {

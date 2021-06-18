@@ -1,0 +1,45 @@
+$dso-anchor-spacer-width: 4px;
+$dso-anchor-visited-color: $cannon-pink;
+
+a {
+  color: $link-color;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
+  &:not(.btn):visited {
+    color: $dso-anchor-visited-color;
+  }
+
+  &:not(.btn) {
+    &.download,
+    &.extern {
+      &::after {
+        content: "";
+        display: inline-block;
+        margin-left: $dso-anchor-spacer-width;
+        vertical-align: $dso-icon-vertical-align;
+      }
+    }
+
+    &.download {
+      &::after {
+        @include di("download");
+      }
+    }
+
+    &.extern {
+      &::after {
+        @include di("external-link");
+      }
+    }
+  }
+}

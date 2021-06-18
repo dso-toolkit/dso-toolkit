@@ -1,6 +1,8 @@
-:host {
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
+@import "~@dso-toolkit/sources/src/styling/variables";
 
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+:host {
   @import "~@dso-toolkit/sources/src/styling/variables/icon";
 
   display: inline-block;
@@ -8,6 +10,8 @@
   vertical-align: $dso-icon-vertical-align;
   width: $dso-icon-size;
 }
+
+@include box-sizing();
 
 .icon-container {
   display: block;

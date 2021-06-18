@@ -59,6 +59,7 @@ const theme = require('./theme')({
   format: 'yaml',
   styles: [
     '/styles/dso.css',
+    '/@dso-toolkit/core/dso-toolkit/dso-toolkit.css',
     '/_highlight.js_styles/github.css'
   ],
   scripts: [

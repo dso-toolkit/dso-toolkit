@@ -1,0 +1,21 @@
+.tooltip {
+  @include tooltip_root();
+
+  &:not(.no-arrow) {
+    &.top {
+      @include tooltip_arrowTop();
+    }
+
+    &.right {
+      @include tooltip_arrowRight();
+    }
+
+    &.left {
+      @include tooltip_arrowLeft();
+    }
+
+    &.bottom {
+      @include tooltip_arrowBottom();
+    }
+  }
+}

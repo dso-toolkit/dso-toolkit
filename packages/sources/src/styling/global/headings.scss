@@ -1,0 +1,29 @@
+h1 {
+  @include h1();
+}
+
+h2 {
+  color: $bosgroen;
+  font-size: $dso-font-size-h2;
+  font-weight: 700;
+}
+
+h3 {
+  @include h3();
+}
+
+h4 {
+  color: $bosgroen;
+  font-size: $dso-font-size-h4;
+  font-weight: 600;
+}
+
+h5 {
+  color: $grijs-90;
+  font-size: $dso-font-size-h5;
+  font-weight: 600;
+}
+
+#{$headings} {
+  margin-bottom: $u2;
+}

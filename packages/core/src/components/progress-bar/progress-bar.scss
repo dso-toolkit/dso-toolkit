@@ -1,8 +1,21 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/progress-bar/progress-bar";
+
 :host {
   display: block;
+}
 
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/sr-only";
+@include box-sizing();
 
-  @import "~@dso-toolkit/sources/src/styling/components/progress-bar";
+// Todo: Replace .sr-only selector with web component specific selector, no need for .sr-only if we can generate the SCSS
+.sr-only {
+  @include sr-only();
+}
+
+.progress {
+  @include progress-bar_root();
 }

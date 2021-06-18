@@ -1,7 +1,18 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+@import "~@dso-toolkit/sources/src/components/banner/banner";
+
 :host {
   display: block;
 
-  @import "~@dso-toolkit/sources/src/styling/scaffolding/normalize";
+  --di-status-danger: #{dso-icon("status-danger")};
+  --di-status-warning: #{dso-icon("status-warning")};
+}
 
-  @import "~@dso-toolkit/sources/src/styling/components/banner";
+@include box-sizing();
+
+.dso-banner {
+  @include banner_root();
 }

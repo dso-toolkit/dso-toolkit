@@ -30,7 +30,7 @@ export class InfoButton {
     return (
       <button
         type="button"
-        class={clsx('btn', 'dso-info-button', { 'dso-open': !!this.active })}
+        class={clsx('btn', { 'dso-open': !!this.active })}
         aria-expanded={typeof this.active === 'boolean' ? this.active.toString() : undefined}
         onClick={e => this.handleToggle(e)}
       >

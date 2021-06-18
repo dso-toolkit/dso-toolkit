@@ -1,0 +1,11 @@
+// Import variables
+@import "../../sources/src/styling/variables";
+
+// Local mixins
+@import "mixins/di";
+
+// Import global stylesheets such as mixins so they are globally available
+@import "../../sources/src/styling/mixins";
+
+// Global stylesheet
+@import "global/global";

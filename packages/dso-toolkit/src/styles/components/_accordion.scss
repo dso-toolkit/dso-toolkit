@@ -303,3 +303,7 @@ $dso-accordion-light-border-color: $grijs-20;
     }
   }
 }
+
+.dso-section-body dl:last-child {
+  margin-bottom: 0;
+}

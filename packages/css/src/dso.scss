@@ -1,23 +1,33 @@
-// Import namespaced stylesheets, import these first so globally available
-@import "../../sources/src/components/conclusion/conclusion";
-@import "../../sources/src/components/definition-list/definition-list";
-@import "../../sources/src/components/info/info";
-@import "../../sources/src/components/info-button/info-button";
-@import "../../sources/src/components/label-group/label-group";
-@import "../../sources/src/components/label/label";
-@import "../../sources/src/components/selectable/selectable";
+// Import variables
+@import "../../sources/src/styling/variables";
 
-// Mixins
+// Local mixins
 @import "mixins/di";
 
-// Styling
-@import "../../sources/src/styling";
+// Import global stylesheets such as mixins so they are globally available
+@import "../../sources/src/styling/mixins";
+
+// Import namespaced stylesheets, import these first so globally available
+@import "../../sources/src/components";
+
+// Global
+@import "global/global";
 
 // Components
+@import "components/alert/alert";
+@import "components/attachments-counter/attachments-counter";
+@import "components/badge/badge";
+@import "components/banner/banner";
+@import "components/breadcrumbs/breadcrumbs";
 @import "components/conclusion/conclusion";
-@import "components/definition-list/definition-list";
+@import "components/description/description";
+@import "components/footnotes/footnotes";
+@import "components/highlight-box/highlight-box";
+@import "components/icon/icon";
 @import "components/info/info";
 @import "components/info-button/info-button";
 @import "components/label/label";
 @import "components/label-group/label-group";
+@import "components/progress-bar/progress-bar";
 @import "components/selectable/selectable";
+@import "components/tooltip/tooltip";

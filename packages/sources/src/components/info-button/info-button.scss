@@ -1,8 +1,6 @@
-@import "../../styling/variables";
-
 $dso-button-info-size: $u2;
 
-@mixin info-button_button() {
+@mixin info-button_root() {
   @include di("info");
 
   margin-left: $u1;

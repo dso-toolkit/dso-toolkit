@@ -88,6 +88,7 @@ function buildStylesWrapper(options) {
 
 function copyAssets() {
   const f = filter('**/*.svg', { restore: true });
+  const cssDist = path.resolve(__dirname, '../../css/dist');
 
   return gulp
     .src([
@@ -96,7 +97,7 @@ function copyAssets() {
     .pipe(f)
     .pipe(svgmin())
     .pipe(f.restore)
-    .pipe(gulp.src(path.resolve(path.dirname(require.resolve('@dso-toolkit/css')), 'dso-icons.svg')))
+    .pipe(gulp.src(['assets/**', 'dso-icons.svg'].map(g => path.resolve(cssDist, g))))
     .pipe(gulp.dest('dist/toolkit'));
 }
 
