@@ -101,6 +101,7 @@ switch(argv.mode) {
     concurrently(
       [
         startSources,
+        watchCss,
         startCoreProd,
         buildLeaflet,
         startReactLeaflet

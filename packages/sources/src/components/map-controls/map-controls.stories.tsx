@@ -1,3 +1,4 @@
+import { ArgsStoryFn } from '@storybook/addons';
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { mapControlsArgsMapper, mapControlsArgTypes } from './map-controls.args';
@@ -6,6 +7,7 @@ import { MapControls } from './map-controls.models';
 
 export interface MapControlsParameters<TemplateFnReturnType> {
   mapControlsTemplate: (mapControlsProperties: MapControls) => TemplateFnReturnType;
+  decorator: (story: ArgsStoryFn<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfMapControls<TemplateFnReturnType>(
@@ -15,7 +17,8 @@ export function storiesOfMapControls<TemplateFnReturnType>(
     readme
   }: StorybookParameters,
   {
-    mapControlsTemplate
+    mapControlsTemplate,
+    decorator
   }: MapControlsParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(mapControlsArgsMapper, mapControlsTemplate);
@@ -25,16 +28,19 @@ export function storiesOfMapControls<TemplateFnReturnType>(
       docs: {
         page: readme
       },
-      decorators: [],
       args: {
         open: false,
         baseLayers,
         selectedBaseLayer,
         overlays
       },
-      argTypes: mapControlsArgTypes
-    });
-
+      argTypes: mapControlsArgTypes,
+      html: {
+        root: '#map-container-mock'
+      }
+    })
+    // @ts-ignore Incorrect typings in Storybook
+    .addDecorator(decorator);
 
   stories.add(
     'Map Controls',

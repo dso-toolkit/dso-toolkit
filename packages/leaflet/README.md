@@ -29,10 +29,10 @@ Make sure to bundle `dso-leaflet.css` from this package and NOT the default `lea
 * Pass any layers that needs to be controlled as arguments.
 
 ```tsx
-import { defineCustomElements } from '@dso-toolkit/core' // 1
-import { markerIcon, MapControls, LayerObject } from '@dso-toolkit/leaflet' // 2
+import { defineCustomElements } from '@dso-toolkit/core'
+import { markerIcon, MapControls, LayerObject } from '@dso-toolkit/leaflet'
 
-defineCustomElements() // 3
+defineCustomElements()
 
 const cities = L.layerGroup()
 
@@ -49,7 +49,7 @@ const streets = L.tileLayer(mbUrl, { id: 'mapbox/streets-v11', tileSize: 512, zo
 
 const map = L.map('map', {
   center: [39.73, -104.99],
-  zoomControl: false, // Disable default ZoomControl 4
+  zoomControl: false,
   zoom: 11,
   maxZoom: 18,
   minZoom: 5,
@@ -65,7 +65,6 @@ const overlays: LayerObject[] = [
   { name: 'Cities', layer: cities }
 ]
 
-// 5
 const mapControls = new MapControls(baseLayers, overlays)
 mapControls.addTo(map)
 ```

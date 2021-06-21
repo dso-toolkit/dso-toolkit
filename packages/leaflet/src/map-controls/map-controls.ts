@@ -71,8 +71,6 @@ export class MapControls {
     return this;
   }
 
-  // @method remove: this
-  // Removes the control from the map it is currently active on.
   /**
    * Removes the DSO Map Controls and the layers it manages from the map it is currently active on.
    * @returns The DSO Map Controls instance
@@ -298,7 +296,7 @@ export class MapControls {
       .sort((a, b) => a.name.localeCompare(b.name))
   }
 
-  private update(changedState: Partial<State>): void { // not sure if changedState should be optional
+  private update(changedState: Partial<State>): void {
     this.state = { ...this.state, ...changedState };
 
     this.render();

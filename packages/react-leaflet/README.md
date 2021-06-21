@@ -52,8 +52,8 @@ function MyMap() {
       minZoom={5}
       zoomControl={false}
     >
-      <MapControl>
-        <MapControl.BaseLayer name="Streets" checked>
+      <MapControls>
+        <MapControls.BaseLayer name="Streets" checked>
           <TileLayer
             id="mapbox/streets-v11"
             tileSize={512}
@@ -61,8 +61,8 @@ function MyMap() {
             attribution={mapboxAttribution}
             url={mapboxUrl}
           />
-        </MapControl.BaseLayer>
-        <MapControl.BaseLayer name="Grayscale">
+        </MapControls.BaseLayer>
+        <MapControls.BaseLayer name="Grayscale">
           <TileLayer
             id="mapbox/light-v9"
             tileSize={512}
@@ -70,8 +70,8 @@ function MyMap() {
             attribution={mapboxAttribution}
             url={mapboxUrl}
           />
-        </MapControl.BaseLayer>
-        <MapControl.Overlay name="Cities">
+        </MapControls.BaseLayer>
+        <MapControls.Overlay name="Cities">
           <LayerGroup>
             <Marker position={[39.61, -105.02]} icon={markerIcon()}>
               <Popup>
@@ -94,8 +94,8 @@ function MyMap() {
               </Popup>
             </Marker>
           </LayerGroup>
-        </MapControl.Overlay>
-      </MapControl>
+        </MapControls.Overlay>
+      </MapControls>
     </MapContainer>
   )
 }

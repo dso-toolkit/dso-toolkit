@@ -96,10 +96,10 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
     React.useEffect(() => {
       if (layer !== null && propsRef.current !== props) {
         if (props.checked === true && (propsRef.current.checked == null || propsRef.current.checked === false)) {
-          map.addLayer(layer)
+          map.addLayer(layer);
         }
         else if (propsRef.current.checked === true && (props.checked == null || props.checked === false)) {
-          map.removeLayer(layer)
+          map.removeLayer(layer);
         }
 
         propsRef.current = props;
@@ -119,7 +119,7 @@ MapControls.BaseLayer = createControlledLayer(function addBaseLayer(
   layer: Layer,
   name: string
 ) {
-  mapControls.addBaseLayer(layer, name)
+  mapControls.addBaseLayer(layer, name);
 });
 
 MapControls.Overlay = createControlledLayer(function addOverlay(
@@ -127,5 +127,5 @@ MapControls.Overlay = createControlledLayer(function addOverlay(
   layer: Layer,
   name: string,
 ) {
-  mapControls.addOverlay(layer, name)
-})
+  mapControls.addOverlay(layer, name);
+});

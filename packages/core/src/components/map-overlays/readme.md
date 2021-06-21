@@ -1,6 +1,6 @@
 # dso-map-overlays
 
-
+Private component, do not use.
 
 <!-- Auto Generated Below -->
 

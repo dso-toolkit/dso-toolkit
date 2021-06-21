@@ -152,10 +152,11 @@ This will start Stencil on http://localhost:53333, Storybook on http://localhost
 Like `fractal`, development of Leaflet plugins is package transcendent. Run the following command from root:
 
 ```
-yarn leaflet
+yarn start:leaflet
+yarn start:react-leaflet
 ```
 
-This will start Stencil (http://localhost:53333) and Storybook (http://localhost:56106) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234.
+This will start Stencil (http://localhost:53333) and Storybook (http://localhost:56106) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234 or the React Leaflet development environment on http://localhost:42345.
 
 ## Requirements
 Node 14. For development on the DSO Toolkit you also need Yarn.

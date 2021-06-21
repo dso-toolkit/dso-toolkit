@@ -5,6 +5,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "skipLibCheck": true,
+    "jsx": "preserve",
     "lib": [
       "dom",
       "es2017"

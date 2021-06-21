@@ -17,32 +17,30 @@ export function mapControlsTemplate({
   disableZoom
 }: MapControls) {
   return html`
-    <div class="dsosb-map-container-mock" style="background-color: #efefef; height: 500px; position: relative; overflow: hidden">
-      <dso-map-controls
-        @zoomIn=${zoomIn}
-        @zoomOut=${zoomOut}
-        .disableZoom=${disableZoom}
-        ?open=${open}
-      >
-        <form>
-          <div class="rich-content">
-            <p>Inhoud</p>
-          </div>
-          <dso-map-base-layers
-            .baseLayers=${baseLayers}
-            .selectedBaseLayer=${selectedBaseLayer}
-            @baseLayerChange=${(e: SelectedBaseLayerChangeEvent) => baseLayerChange(e.detail)}
-          ></dso-map-base-layers>
-          <dso-map-overlays
-            .overlays=${overlays}
-            .checkedOverlays=${checkFix<Overlay>(checkedOverlays, overlays, o => o.name)}
-            @checkedOverlaysChange=${(e: CheckedOverlaysChangeEvent) => checkedOverlaysChange(e.detail)}
-          ></dso-map-overlays>
-          <div class="rich-content">
-            <p>Ook nog meer inhoud</p>
-          </div>
-        </form>
-      </dso-map-controls>
-    </div>
+    <dso-map-controls
+      @zoomIn=${zoomIn}
+      @zoomOut=${zoomOut}
+      .disableZoom=${disableZoom}
+      ?open=${open}
+    >
+      <form>
+        <div class="rich-content">
+          <p>Inhoud</p>
+        </div>
+        <dso-map-base-layers
+          .baseLayers=${baseLayers}
+          .selectedBaseLayer=${selectedBaseLayer}
+          @baseLayerChange=${(e: SelectedBaseLayerChangeEvent) => baseLayerChange(e.detail)}
+        ></dso-map-base-layers>
+        <dso-map-overlays
+          .overlays=${overlays}
+          .checkedOverlays=${checkFix<Overlay>(checkedOverlays, overlays, o => o.name)}
+          @checkedOverlaysChange=${(e: CheckedOverlaysChangeEvent) => checkedOverlaysChange(e.detail)}
+        ></dso-map-overlays>
+        <div class="rich-content">
+          <p>Ook nog meer inhoud</p>
+        </div>
+      </form>
+    </dso-map-controls>
   `;
 }
