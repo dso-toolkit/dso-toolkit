@@ -14,7 +14,7 @@
 // Utilities
 @import "bootstrap/mixins/hide-text";
 @import "bootstrap/mixins/opacity";
-@import "bootstrap/mixins/image";
+// @import "bootstrap/mixins/image"; -> moved to @dso-toolkit/sources/src/styling/global/image
 @import "bootstrap/mixins/reset-filter";
 @import "bootstrap/mixins/resize";
 @import "bootstrap/mixins/responsive-visibility";
