@@ -169,6 +169,7 @@ $dso-selectable-focus-border-width: 3px;
     }
   }
 
+  > dso-info,
   > .dso-info {
     float: none;
     margin: $u1 $u2 0 #{$u4 * -1};
