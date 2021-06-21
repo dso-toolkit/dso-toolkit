@@ -19,7 +19,6 @@ $tooltip-max-width-small: 40 * $dso-unit;
 
 @include box-sizing();
 
-dso-tooltip,
 .tooltip {
   @include tooltip_root();
 
