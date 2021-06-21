@@ -9,9 +9,6 @@ export function alertTemplate({
   status,
   withRoleAlert
 }: Alert<JSX.Element>) {
-  function createAlertMarkup() {
-    return {__html: 'First &middot; Second'};
-  }
   return (
     <DsoAlert
       status={status}
@@ -20,7 +17,7 @@ export function alertTemplate({
       <div className="dso-rich-content">
         {typeof message === 'string'
           ? (
-            <p dangerouslySetInnerHTML={createAlertMarkup()} />
+            <p dangerouslySetInnerHTML={({ __html: message })} />
           )
           : message
         }
