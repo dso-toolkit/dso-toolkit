@@ -1,6 +1,5 @@
 import { storiesOfBanner } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
-
 import * as React from 'react';
 
 import { bannerTemplate } from './banner.template';

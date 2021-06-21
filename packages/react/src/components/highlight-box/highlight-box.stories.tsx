@@ -21,8 +21,8 @@ const richContent = (
       Tertiaire button
       {iconTemplate({ icon: 'chevron-down' })}
     </a>
-  </div>)
-;
+  </div>
+);
 
 storiesOfHighlightBox(
   {

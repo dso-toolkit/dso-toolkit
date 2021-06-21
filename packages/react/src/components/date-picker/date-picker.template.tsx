@@ -3,8 +3,6 @@ import * as React from 'react';
 
 import { DsoDatePicker } from '../..';
 
-// import { DsoDatePickerChangeEvent } from './date-picker';
-
 export function datePickerTemplate({ id, onDateChange, value, min, max, disabled }: DatePicker) {
   return (
     <DsoDatePicker
