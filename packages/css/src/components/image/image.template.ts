@@ -4,6 +4,6 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 
 export function imageTemplate({ source, modifier, alt }: Image) {
   return html`
-    <img src="${source}" class=${ifDefined(modifier)} alt="${alt}">
+    <img src=${source} class=${ifDefined(modifier)} alt=${alt}>
   `;
 }

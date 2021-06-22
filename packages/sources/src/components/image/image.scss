@@ -1,22 +1,28 @@
-.img-responsive {
-  @include img-responsive;
+$thumbnail-padding: 4px;
+$thumbnail-bg: $body-bg;
+$thumbnail-border: #ddd;
+$thumbnail-border-radius: $border-radius-base;
+
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
 }
 
-.img-rounded {
+@mixin img-rounded() {
   border-radius: $border-radius-large;
 }
 
-.img-thumbnail {
-  padding: $thumbnail-padding;
-  line-height: $line-height-base;
+@mixin img-thumbnail() {
   background-color: $thumbnail-bg;
-  border: 1px solid $thumbnail-border;
   border-radius: $thumbnail-border-radius;
-  transition: all .2s ease-in-out;
+  border: 1px solid $thumbnail-border;
+  line-height: $line-height-base;
+  padding: $thumbnail-padding;
 
   @include img-responsive(inline-block);
 }
 
-.img-circle {
+@mixin img-circle() {
   border-radius: 50%;
 }

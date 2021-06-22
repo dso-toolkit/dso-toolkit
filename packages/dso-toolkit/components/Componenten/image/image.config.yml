@@ -9,8 +9,8 @@ status: ready
 collated: true
 context:
   __title: default
-  source: /dummy/images/avatar.png
-  alt: Alternatieve tekst
+  source: /dummy/images/sneeuwpop.png
+  alt: Afbeelding van een sneeuwpop
 variants:
   - name: Responsive
     context:

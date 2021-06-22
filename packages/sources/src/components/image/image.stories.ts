@@ -14,7 +14,7 @@ export function storiesOfImage<TemplateFnReturnType>(
     readme
   }: StorybookParameters,
   {
-    imageTemplate: imageTemplate
+    imageTemplate
   }: ImageParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(imageArgsMapper, imageTemplate);
@@ -26,8 +26,8 @@ export function storiesOfImage<TemplateFnReturnType>(
       },
       argTypes: imageArgTypes,
       args: {
-        source: 'images/avatar.png',
-        alt: 'Alternatieve tekst'
+        source: 'images/sneeuwpop.png',
+        alt: 'Afbeelding van een sneeuwpop'
       }
     });
 
