@@ -1,6 +1,9 @@
 import { createPopper, Instance as PopperInstance } from '@popperjs/core';
-import { Component, h, Prop, Element, Method } from '@stencil/core';
+import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import clsx from 'clsx';
+
+// Keep const in sync with $tooltip-transition-duration in @dso-toolkit/sources/tooltip.scss tooltip_root() mixin
+const transitionDuration = 150;
 
 @Component({
   tag: 'dso-tooltip',
@@ -58,14 +61,40 @@ export class Tooltip {
     this.active = false;
   }
 
+  @Watch('position')
+  watchPosition() {
+    if (!this.popper) {
+      return;
+    }
+
+    this.popper.setOptions({
+      placement: this.position
+    });
+  }
+
+  @Watch('active')
+  watchActive() {
+    if (this.active) {
+      this.hidden = false;
+    }
+  }
+
   @Element()
-  element!: HTMLElement;
+  private element!: HTMLElement;
 
   private target: HTMLElement | undefined;
 
   private popper: PopperInstance | undefined;
 
   private callbacks: TooltipCallbacks | undefined;
+
+  @State()
+  private hidden = true;
+
+  @Listen('click')
+  listenClick(e: MouseEvent) {
+    e.stopPropagation();
+  }
 
   componentDidLoad(): void {
     if (this.popper) {
@@ -85,18 +114,24 @@ export class Tooltip {
 
     this.callbacks = {
       activate: () => {
-        this.active = true;
+        this.hidden = false;
 
-        this.popper?.setOptions({
-          modifiers: [{ name: 'eventListeners', enabled: true }],
+        setTimeout(() => {
+          this.active = true;
+
+          this.popper?.setOptions({
+            modifiers: [{ name: 'eventListeners', enabled: true }]
+          });
         });
       },
       deactivate: () => {
         this.active = false;
 
         this.popper?.setOptions({
-          modifiers: [{ name: 'eventListeners', enabled: false }],
+          modifiers: [{ name: 'eventListeners', enabled: false }]
         });
+
+        setTimeout(() => this.hidden = true, transitionDuration);
       }
     };
 
@@ -128,14 +163,16 @@ export class Tooltip {
 
   render() {
     return (
-      <div class={clsx('tooltip', { in: this.active })} role="tooltip">
-        {!this.noArrow && (
-          <div class="tooltip-arrow"></div>
-        )}
-        <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
-          <slot></slot>
+      <Host hidden={this.hidden}>
+        <div class={clsx('tooltip', { in: this.active })} role="tooltip">
+          {!this.noArrow && (
+            <div class="tooltip-arrow"></div>
+          )}
+          <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
+            <slot></slot>
+          </div>
         </div>
-      </div>
+      </Host>
     );
   }
 
