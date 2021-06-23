@@ -6,6 +6,16 @@ import * as Dso from '../src';
 
 defineCustomElements();
 
+const ButtonControl = L.Control.extend({
+  onAdd(map: L.Map) {
+    const button = document.createElement('button');
+    button.classList.add('btn');
+    button.innerHTML = '<dso-icon icon="pencil"></dso-icon> Teken een gebied op de kaart';
+
+    return button;
+  }
+});
+
 // use this to switch between native leaflet zoom and layers control and DSO custom map controls
 const nativeControls = false;
 
@@ -23,13 +33,15 @@ const grayscale = L.tileLayer(mbUrl, { id: 'mapbox/light-v9', tileSize: 512, zoo
 const streets = L.tileLayer(mbUrl, { id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr });
 
 const map = L.map('map', {
-  center: [39.73, -104.99],
+  center: [52.28099623337852, 5.166754606044853],
   zoomControl: nativeControls,
   zoom: 11,
   maxZoom: 18,
   minZoom: 5,
   layers: [streets]
 });
+
+new ButtonControl({ position: 'topleft' }).addTo(map);
 
 const baseLayers = [
   {
@@ -66,7 +78,7 @@ if (nativeControls) {
   };
 }
 else {
-  const mapControls = Dso.mapControls(baseLayers, overlays).addTo(map);
+  const mapControls = new Dso.MapControls(baseLayers, overlays).addTo(map);
 
   devtools = {
     addStreets: () => mapControls.addBaseLayer(streets, 'Streets'),

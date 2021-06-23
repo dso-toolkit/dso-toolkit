@@ -14,7 +14,7 @@ const mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?acces
 const app = (
   <MapContainer
     id="map"
-    center={[39.73, -104.99]}
+    center={[52.28099623337852, 5.166754606044853]}
     zoom={11}
     maxZoom={18}
     minZoom={5}
