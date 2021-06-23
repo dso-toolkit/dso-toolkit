@@ -7,6 +7,9 @@ $tooltip-arrow-color: $wit;
 $tooltop-max-width: 80 * $dso-unit;
 $tooltip-max-width-small: 40 * $dso-unit;
 
+// Keep var in sync with const transitionDuration in @dso-toolkit/core/tooltip.scss
+$tooltip-transition-duration: .15s;
+
 @mixin tooltip_root() {
   @include reset-text();
 
@@ -15,7 +18,7 @@ $tooltip-max-width-small: 40 * $dso-unit;
   font-size: $font-size-small;
   opacity: 0;
   position: absolute;
-  transition: opacity .15s linear;
+  transition: opacity $tooltip-transition-duration linear;
   z-index: $zindex-tooltip;
 
   &.in {
