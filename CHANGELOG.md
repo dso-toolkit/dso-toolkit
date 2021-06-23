@@ -5,14 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 24.4.0
+
 ### Added
 * **dso-toolkit:** Smoke test voor `dso-toolkit` SCSS compile ([#1168](https://github.com/dso-toolkit/dso-toolkit/issues/1168))
 * **core + leaflet + react-leaflet:** MapControls Web Component, Leaflet plugins + styling, React Leaflet bindings ([#1022](https://github.com/dso-toolkit/dso-toolkit/issues/1022))
+* **dso-toolkit:** Anchor: tekst externe link ([#1176](https://github.com/dso-toolkit/dso-toolkit/issues/1176))
 
 ### Fixed
 * **sources:** Afbeeldingen in table schalen niet goed ([#1180](https://github.com/dso-toolkit/dso-toolkit/issues/1180))
 * **dso-toolkit:** Banner plus Modal responsive Bug ([#1177](https://github.com/dso-toolkit/dso-toolkit/issues/1177))
-* **dso-toolkit:** Anchor: tekst externe link ([#1176](https://github.com/dso-toolkit/dso-toolkit/issues/1176))
 * **core:** Tooltip blijft in gesloten state in de accessibility tree ([#1182](https://github.com/dso-toolkit/dso-toolkit/issues/1182))
 * **core:** In Tooltip komt een attribuut wijziging niet door ([#1090](https://github.com/dso-toolkit/dso-toolkit/issues/1090))
 * **core:** Click op Tooltip bubbled door naar parents waardoor ongewenste eventslisteners worden getriggerd ([#1196](https://github.com/dso-toolkit/dso-toolkit/issues/1196))
