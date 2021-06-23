@@ -1,0 +1,14 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "allowJs": true,
+    "jsx": "preserve",
+    "lib": ["dom", "esnext"],
+    "removeComments": true
+  }
+}

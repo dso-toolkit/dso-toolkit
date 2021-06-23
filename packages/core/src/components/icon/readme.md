@@ -18,12 +18,14 @@
 
  - [dso-date-picker](../date-picker)
  - [dso-label](../label)
+ - [dso-map-controls](../map-controls)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-date-picker --> dso-icon
   dso-label --> dso-icon
+  dso-map-controls --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -35,6 +35,7 @@ import info from '@dso-toolkit/sources/src/icons/info.svg';
 import infrastructure from '@dso-toolkit/sources/src/icons/infrastructure.svg';
 import label from '@dso-toolkit/sources/src/icons/label.svg';
 import landscape from '@dso-toolkit/sources/src/icons/landscape.svg';
+import layers from '@dso-toolkit/sources/src/icons/layers.svg';
 import location from '@dso-toolkit/sources/src/icons/location.svg';
 import locationOutline from '@dso-toolkit/sources/src/icons/location-outline.svg';
 import lock from '@dso-toolkit/sources/src/icons/lock.svg';
@@ -43,6 +44,7 @@ import mapLocation from '@dso-toolkit/sources/src/icons/map-location.svg';
 import marker from '@dso-toolkit/sources/src/icons/marker.svg';
 import measurement from '@dso-toolkit/sources/src/icons/measurement.svg';
 import minusSquare from '@dso-toolkit/sources/src/icons/minus-square.svg';
+import minus from '@dso-toolkit/sources/src/icons/minus.svg';
 import more from '@dso-toolkit/sources/src/icons/more.svg';
 import municipality from '@dso-toolkit/sources/src/icons/municipality.svg';
 import nature from '@dso-toolkit/sources/src/icons/nature.svg';
@@ -113,6 +115,7 @@ const icons = [
   { alias: 'infrastructure', svg: infrastructure },
   { alias: 'label', svg: label },
   { alias: 'landscape', svg: landscape },
+  { alias: 'layers', svg: layers },
   { alias: 'location', svg: location },
   { alias: 'location-outline', svg: locationOutline },
   { alias: 'lock', svg: lock },
@@ -121,6 +124,7 @@ const icons = [
   { alias: 'marker', svg: marker },
   { alias: 'measurement', svg: measurement },
   { alias: 'minus-square', svg: minusSquare },
+  { alias: 'minus', svg: minus },
   { alias: 'more', svg: more },
   { alias: 'municipality', svg: municipality },
   { alias: 'nature', svg: nature },

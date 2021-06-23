@@ -30,6 +30,11 @@
 
 ## Dependencies
 
+### Used by
+
+ - [dso-map-base-layers](../map-base-layers)
+ - [dso-map-overlays](../map-overlays)
+
 ### Depends on
 
 - [dso-info-button](../info-button)
@@ -40,6 +45,8 @@
 graph TD;
   dso-selectable --> dso-info-button
   dso-selectable --> dso-info
+  dso-map-base-layers --> dso-selectable
+  dso-map-overlays --> dso-selectable
   style dso-selectable fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
