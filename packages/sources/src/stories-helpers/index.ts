@@ -34,3 +34,36 @@ export function bindTemplate<
 export type ArgTypes<ComponentArgs> = {
   [P in keyof Required<ComponentArgs>]: ArgType;
 };
+
+/**
+ * Storybook's control type "check" (possibly other enum typed controls as well) return (undefined | string[] | T), the component that's
+ * being storied can't handle that
+ * @param checked
+ * Storybook input.
+ *
+ * @param items
+ * Array to map from.
+ *
+ * @param selector
+ * Identifier function to map Storybook values with.
+ *
+ * @returns
+ * New array with original values from `items`.
+ */
+ export function checkFix<T>(
+  checked: T | string[] | undefined,
+  items: T[],
+  selector: (value: T) => string
+): T[] {
+  if (checked === undefined) {
+    return [];
+  }
+
+  if (Array.isArray(checked)) {
+    return checked
+      .map(id => items.find(i => selector(i) === id))
+      .filter((item): item is T => !!item);
+  }
+
+  return [checked];
+}
