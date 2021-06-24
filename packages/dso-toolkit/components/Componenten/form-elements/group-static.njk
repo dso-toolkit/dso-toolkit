@@ -13,6 +13,9 @@
     {% if edit %}
       {% render '@button', {type: 'button', modifier: 'link', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}
     {% endif %}
+    {% if staticButton %}
+      {% render '@button', staticButton %}
+    {% endif %}
   </div>
   {% if infoOpen %}
     {% render '@info', {infoText: infoTextDeprecated} %}

@@ -59,6 +59,15 @@ context:
       - id: confirm
         inputType: confirm
         label: Hierbij verklaar ik alle vragen naar waarheid te hebben ingevuld.
+    - modifier: form-vertical
+      groups:
+      - id: downloadBtn
+        inputType: static
+        staticButton:
+          modifier: link
+          type: button
+          label: Download verzoeken
+          icon: download
     asideButtons:
     - type: button
       modifier: link
