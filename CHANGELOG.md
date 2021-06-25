@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 24.4.1
+
+### Fixed
+* Modal responsive media query conflict ([#1201](https://github.com/dso-toolkit/dso-toolkit/issues/1201))
+
 ## 24.4.0
 
 ### Added
