@@ -7,9 +7,11 @@
     "start": "cross-env DSO_ENV=development yarn node scripts/run.js --start",
     "watch": "cross-env DSO_ENV=development yarn node scripts/run.js --watch",
     "build": "rimraf dist && gulp build && sass src/dso.scss dist/dso.css",
-    "bin:gulp": "gulp",
-    "bin:sass": "sass",
-    "bin:start-storybook": "start-storybook"
+    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ./dist --output-dir ./www",
+    "bin_gulp": "gulp",
+    "bin_sass": "sass",
+    "bin_start-storybook": "start-storybook",
+    "bin_build-storybook": "build-storybook"
   },
   "files": [
     "dist",

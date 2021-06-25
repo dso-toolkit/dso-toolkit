@@ -6,19 +6,19 @@ rimraf.sync('dist');
 
 const sassWatch = {
   name: 'sass',
-  command: 'yarn bin:sass --watch src/dso.scss dist/dso.css',
+  command: 'yarn bin_sass --watch src/dso.scss dist/dso.css',
   prefixColor: 'bgBlue'
 };
 
 const gulp = {
   name: 'gulp',
-  command: 'yarn bin:gulp',
+  command: 'yarn bin_gulp',
   prefixColor: 'bgRed'
 };
 
 const storybook = {
   name: 'storybook',
-  command: 'wait-on file:./dist/dso.css && yarn bin:start-storybook --static-dir ./dist --port 56206',
+  command: 'wait-on file:./dist/dso.css && yarn bin_start-storybook --static-dir ./dist --port 56206',
   prefixColor: 'bgMagenta'
 };
 

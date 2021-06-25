@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const del = require('del');
-const fractal = require('../fractal.js');
 const fse = require('fs-extra');
 const path = require('path');
 const pretty = require('pretty');
@@ -41,6 +40,8 @@ function cleanBuild() {
 
 function buildSite() {
   const logTruncater = 25;
+
+  const fractal = require('../fractal.js');
   const builder = fractal.web.builder();
 
   builder.on('error', err => log.error(err.message));

@@ -21,8 +21,8 @@
     "start": "yarn node scripts/run.js --start",
     "watch": "yarn node scripts/run.js --watch",
     "build": "yarn node scripts/run.js --build",
-    "bin:klap": "klap",
-    "bin:sass": "sass"
+    "bin_klap": "klap",
+    "bin_sass": "sass"
   },
   "dependencies": {
     "lit-html": "^1.3.0"

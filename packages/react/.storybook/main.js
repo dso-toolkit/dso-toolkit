@@ -17,7 +17,7 @@ module.exports = {
   stories: [
     '../src/**/*.stories.(ts|tsx)'
   ],
-  previewHead: head => process.env.DSO_ENV === 'development' // Todo: 'production'
+  previewHead: head => process.env.DSO_ENV === 'development' || process.env.DSO_ENV === 'production'
     ? (`
       ${head}
       <link rel="stylesheet" href="./dso-toolkit/dso-toolkit.css" />

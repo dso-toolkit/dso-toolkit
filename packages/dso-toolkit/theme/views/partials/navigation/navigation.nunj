@@ -1,4 +1,4 @@
-{% macro root(root, items, current, request) %}
+{% macro root(root, items, current, request, isDocs) %}
   {% for branch in items %}
     <li>
       {% if branch.isCollection %}
@@ -9,6 +9,48 @@
         <a href="{{ path( (branch | url), request) }}">{{ branch.label }}</a>
       {% endif %}
     </li>
+    {% if isDocs and loop.index0 == loop.length - 2 %}
+      <li>
+        <h2 class="dso-tree-view-subhead">
+          Storybooks
+        </h2>
+        <ul id="storybook-links">
+          <li class="dso-entity" data-role="item">
+            <a href="https://css.dso-toolkit.nl/" target="_blank" rel="noopener noreferrer" class="extern">
+              HTML/CSS Components
+              <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+            </a>
+          </li>
+          <li class="dso-entity" data-role="item">
+            <a href="https://core.dso-toolkit.nl/" target="_blank" rel="noopener noreferrer" class="extern">
+              Web Components
+              <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+            </a>
+          </li>
+          <li class="dso-entity" data-role="item">
+            <a href="https://react.dso-toolkit.nl/" target="_blank" rel="noopener noreferrer" class="extern">
+              React Components
+              <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
+            </a>
+          </li>
+
+          <script>
+            try {
+              var branch = window.location.hostname !== 'localhost' && window.location.pathname.split('/')[1] || null;
+
+              if (branch) {
+                document.getElementById('storybook-links').querySelectorAll('li a').forEach(function (a) {
+                  a.href += branch;
+                });
+              }
+            }
+            catch(e) {
+              console.info(e);
+            }
+          </script>
+        </ul>
+      </li>
+    {% endif %}
   {% endfor %}
 {% endmacro %}
 
@@ -50,11 +92,11 @@
 <nav class="dso-tree-view" data-behaviour="tree" id="tree-{{ root.name }}">
   <ul>
     {% if frctl.docs.size %}
-      {{ root(frctl.docs, frctl.docs.filter('isHidden', false).items(), doc, request) }}
+      {{ root(frctl.docs, frctl.docs.filter('isHidden', false).items(), doc, request, true) }}
     {% endif %}
 
     {% if frctl.components.size %}
-      {{ root(frctl.components, frctl.components.filter('isHidden', false).items(), entity, request) }}
+      {{ root(frctl.components, frctl.components.filter('isHidden', false).items(), entity, request, false) }}
     {% endif %}
   </ul>
 </nav>

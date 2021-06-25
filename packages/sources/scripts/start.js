@@ -4,7 +4,7 @@ concurrently(
   [
     {
       name: 'microbundle',
-      command: 'yarn bin:rimraf dist && yarn bin:microbundle watch',
+      command: 'yarn bin_rimraf dist && yarn bin_microbundle watch',
       prefixColor: 'bgYellow'
     }
   ],

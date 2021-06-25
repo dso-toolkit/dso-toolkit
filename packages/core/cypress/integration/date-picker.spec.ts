@@ -2,7 +2,7 @@ describe('Date Picker', () => {
   const ANIMATION_TIME = 400;
 
   beforeEach(() => {
-    cy.visit('http://localhost:56106/iframe.html?id=date-picker');
+    cy.visit('http://localhost:56106/iframe.html?id=date-picker--with-label');
     cy.injectAxe();
   });
 
