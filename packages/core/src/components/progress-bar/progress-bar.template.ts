@@ -1,5 +1,5 @@
 import { ProgressBar } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
+import { html, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
 export function progressBarTemplate({ progress, label, min, max }: ProgressBar) {
@@ -8,6 +8,6 @@ export function progressBarTemplate({ progress, label, min, max }: ProgressBar) 
       progress=${progress}
       min=${ifDefined(min)}
       max=${ifDefined(max)}
-    >${label ?? ''}</dso-progress-bar>
+    >${label ?? nothing}</dso-progress-bar>
   `;
 }

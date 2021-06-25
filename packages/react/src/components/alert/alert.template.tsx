@@ -17,7 +17,7 @@ export function alertTemplate({
       <div className="dso-rich-content">
         {typeof message === 'string'
           ? (
-            <p>{message}</p>
+            <p dangerouslySetInnerHTML={({ __html: message })} />
           )
           : message
         }

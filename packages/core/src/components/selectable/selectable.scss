@@ -7,7 +7,7 @@
 :host {
   display: block;
 
-  @include selectable_root();
+  @include selectable_root('dso-info');
 }
 
 :host(:not(:last-child)) {
