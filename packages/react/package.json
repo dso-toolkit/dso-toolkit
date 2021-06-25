@@ -8,11 +8,13 @@
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
   "scripts": {
+    "clean": "rimraf dist",
     "start": "cross-env DSO_ENV=development yarn node scripts/start.js",
     "build": "npm run clean && npm run compile",
-    "clean": "rimraf dist",
+    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ../core/dist --output-dir ./www",
     "compile": "tsc --project .",
-    "bin:start-storybook": "start-storybook"
+    "bin_start-storybook": "start-storybook",
+    "bin_build-storybook": "build-storybook"
   },
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",

@@ -8,31 +8,31 @@ const argv = minimist(process.argv.slice(2));
 
 const sassWatch = {
   name: 'sass',
-  command: 'yarn bin:sass --watch src/dso-leaflet.scss dist/dso-leaflet.css',
+  command: 'yarn bin_sass --watch src/dso-leaflet.scss dist/dso-leaflet.css',
   prefixColor: 'bgBlue'
 };
 
 const sassBuild = {
   name: 'sass',
-  command: 'yarn bin:sass src/dso-leaflet.scss dist/dso-leaflet.css',
+  command: 'yarn bin_sass src/dso-leaflet.scss dist/dso-leaflet.css',
   prefixColor: 'bgBlue'
 };
 
 const klapStart = {
   name: 'klap',
-  command: 'yarn bin:klap start',
+  command: 'yarn bin_klap start',
   prefixColor: 'yellow'
 };
 
 const klapWatch = {
   name: 'klap',
-  command: 'yarn bin:klap watch',
+  command: 'yarn bin_klap watch',
   prefixColor: 'yellow'
 };
 
 const klapBuild = {
   name: 'klap',
-  command: 'yarn bin:klap build',
+  command: 'yarn bin_klap build',
   prefixColor: 'yellow'
 };
 

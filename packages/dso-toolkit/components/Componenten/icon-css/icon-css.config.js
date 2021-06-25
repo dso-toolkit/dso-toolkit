@@ -1,5 +1,4 @@
-const fs = require('fs');
-const path = require('path');
+const getIcons = require('../../../utils/get-icons');
 
 const icons = getIcons();
 
@@ -54,10 +53,3 @@ module.exports = {
   },
   variants: icons.map(icon => ({ name: icon, context: { icon } }))
 };
-
-function getIcons() {
-  return fs
-    .readdirSync(path.join(path.dirname(require.resolve('@dso-toolkit/sources')), '../src/icons'))
-    .filter(icon => icon.split('.').pop().toLowerCase() === 'svg')
-    .map(icon => path.basename(icon, '.svg'));
-}

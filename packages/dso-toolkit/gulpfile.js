@@ -3,8 +3,6 @@
 const gulp = require('gulp');
 const log = require('fancy-log');
 
-const fractal = require('./fractal.js');
-
 const { lintStyles, lintWatcher } = require('./gulp/lint');
 const { build, buildTheme, buildThemeWatcher, cleanBuild, buildToolkit, createDomReference, buildWatcher } = require('./gulp/build');
 const { testDom } = require('./gulp/test');
@@ -31,6 +29,8 @@ function watch() {
 }
 
 function fractalDev() {
+  const fractal = require('./fractal.js');
+
   const server = fractal.web.server({
     sync: true
   });

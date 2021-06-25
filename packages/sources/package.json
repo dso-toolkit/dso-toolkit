@@ -9,8 +9,8 @@
   "scripts": {
     "start": "yarn node scripts/start.js",
     "build": "rimraf dist && microbundle",
-    "bin:rimraf": "rimraf",
-    "bin:microbundle": "microbundle"
+    "bin_rimraf": "rimraf",
+    "bin_microbundle": "microbundle"
   },
   "files": [
     "dist"
