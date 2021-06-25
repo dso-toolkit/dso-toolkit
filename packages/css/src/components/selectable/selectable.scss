@@ -1,5 +1,5 @@
 .dso-selectable {
-  @include selectable_root();
+  @include selectable_root('.dso-info');
 
   &:not(:last-child) {
     @include selectable_notLastChild();

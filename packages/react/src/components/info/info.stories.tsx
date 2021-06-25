@@ -1,6 +1,5 @@
 import { storiesOfInfo } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
-
 import * as React from 'react';
 
 import { iconTemplate } from '../icon/icon.template';

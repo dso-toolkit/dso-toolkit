@@ -23,7 +23,7 @@ $dso-selectable-focus-border-width: 3px;
   }
 }
 
-@mixin selectable_root() {
+@mixin selectable_root($dso-info-selector) {
   padding: 0 0 0 $u4;
   position: relative;
 
@@ -169,8 +169,7 @@ $dso-selectable-focus-border-width: 3px;
     }
   }
 
-  > dso-info,
-  > .dso-info {
+  > #{$dso-info-selector} {
     float: none;
     margin: $u1 $u2 0 #{$u4 * -1};
     width: calc(100% + #{$u4});

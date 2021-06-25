@@ -1,1 +1,1 @@
-# `<dso-tooltip>`
+# `<DsoTooltip>`
