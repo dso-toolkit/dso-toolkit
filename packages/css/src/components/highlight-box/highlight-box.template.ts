@@ -7,10 +7,10 @@ import { iconTemplate } from '../icon/icon.template';
 export function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBox<TemplateResult>) {
   return html`
     <div class="dso-highlight-box ${classMap({
-      'dso-yellow': yellow,
-      'dso-white': white,
-      'dso-drop-shadow': dropShadow,
-      'dso-border': border,
+      'dso-yellow': !!yellow,
+      'dso-white': !!white,
+      'dso-drop-shadow': !!dropShadow,
+      'dso-border': !!border,
       'dso-has-counter': !!(step || icon)
     })}">
       ${(step || icon)

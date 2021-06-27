@@ -1,3 +1,6 @@
+// Todo: Color doesn't exist in color palette
+$dso-footer-border-color: #bcbebd;
+
 footer {
   @include full-width-row();
 
@@ -6,6 +9,10 @@ footer {
   margin-top: $u6;
   padding-bottom: $u6;
   padding-top: $u3;
+
+  .dso-link-list {
+    @include link-list_exotic();
+  }
 
   h2 {
     border-bottom: 1px solid $dso-footer-border-color;
@@ -38,7 +45,7 @@ footer {
     }
   }
 
-  ul {
+  ul:not(.dso-link-list) {
     @include list-unstyled();
 
     li {

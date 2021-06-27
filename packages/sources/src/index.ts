@@ -30,6 +30,8 @@ export * from './components/info/info.models';
 export * from './components/info/info.stories';
 export * from './components/label/label.models';
 export * from './components/label/label.stories';
+export * from './components/link-list/link-list.models';
+export * from './components/link-list/link-list.stories';
 export * from './components/map-controls/map-controls.models';
 export * from './components/map-controls/map-controls.stories';
 export * from './components/progress-bar/progress-bar.models';
