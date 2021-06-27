@@ -14,7 +14,7 @@
 // Utilities
 @import "bootstrap/mixins/hide-text";
 @import "bootstrap/mixins/opacity";
-@import "bootstrap/mixins/image";
+// @import "bootstrap/mixins/image"; -> moved to @dso-toolkit/sources/src/styling/global/img
 @import "bootstrap/mixins/reset-filter";
 @import "bootstrap/mixins/resize";
 @import "bootstrap/mixins/responsive-visibility";
@@ -71,7 +71,7 @@
 @import "bootstrap/navs";
 @import "bootstrap/navbar";
 @import "bootstrap/pager";
-@import "bootstrap/thumbnails";
+// @import "bootstrap/thumbnails"; -> Deleted
 // @import "bootstrap/alerts"; -> moved to @dso-toolkit/styling
 @import "bootstrap/media";
 @import "bootstrap/list-group";
@@ -82,7 +82,7 @@
 
 // Components w/ JavaScript
 @import "bootstrap/popovers";
-@import "bootstrap/carousel";
+// @import "bootstrap/carousel"; -> Deleted
 
 // Utility classes
 @import "bootstrap/utilities";

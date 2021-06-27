@@ -1,0 +1,28 @@
+$thumbnail-padding: 4px;
+$thumbnail-bg: $body-bg;
+$thumbnail-border: #ddd;
+$thumbnail-border-radius: $border-radius-base;
+
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin img-rounded() {
+  border-radius: $border-radius-large;
+}
+
+@mixin img-thumbnail() {
+  background-color: $thumbnail-bg;
+  border-radius: $thumbnail-border-radius;
+  border: 1px solid $thumbnail-border;
+  line-height: $line-height-base;
+  padding: $thumbnail-padding;
+
+  @include img-responsive(inline-block);
+}
+
+@mixin img-circle() {
+  border-radius: 50%;
+}

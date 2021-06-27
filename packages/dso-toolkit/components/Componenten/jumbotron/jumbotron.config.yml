@@ -21,14 +21,14 @@ variants:
     context:
       __title: Jumbotron met Image
       image:
-        source: /dummy/images/avatar.png
-        alt: Alternatieve tekst
+        source: /dummy/images/sneeuwpop.png
+        alt: Afbeelding van een sneeuwpop
   - name: image-button
     context:
       __title: Jumbotron met Button en Image
       image:
-        source: /dummy/images/avatar.png
-        alt: Alternatieve tekst
+        source: /dummy/images/sneeuwpop.png
+        alt: Afbeelding van een sneeuwpop
       button:
         label: Aan de slag
         type: button

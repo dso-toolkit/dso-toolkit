@@ -7,7 +7,7 @@ concurrently(
   [
     {
       name: 'storybook',
-      command: `wait-on file:./src/components.ts && yarn bin_start-storybook --static-dir ${coreDist} --port 56406`,
+      command: `wait-on file:./src/components.ts && yarn bin_start-storybook --static-dir ${coreDist},../sources/storybook-assets --port 56406`,
       prefixColor: 'bgMagenta'
     }
   ],
