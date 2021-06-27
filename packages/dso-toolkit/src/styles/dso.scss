@@ -1,7 +1,7 @@
 @import "mixins/mixins";
 // @import "mixins/extends"; -> Moved to @sources/src/styling/typography/headings
 // @import "mixins/font-asap";
-@import "mixins/full-width-row";
+// @import "mixins/full-width-row"; -> Moved to @dso-toolkit/sources
 @import "mixins/grid";
 // @import "mixins/tables"; -> Moved to @dso-toolkit/styling
 @import "mixins/typography";
@@ -24,7 +24,7 @@
 // @import "components/description"; -> Moved to @dso-toolkit/styling
 @import "components/dropdown";
 @import "components/equal-heights";
-@import "components/footer";
+// @import "components/footer"; -> Moved to @dso-toolkit/sources/src/styling
 // @import "components/footnotes"; -> Moved to @dso-toolkit/styling
 @import "components/form";
 @import "components/form_buttons";

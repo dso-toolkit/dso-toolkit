@@ -1,7 +1,3 @@
-$dso-row-vertical-space: $u1;
-$dso-featured-background-color: #ebf3e6;
-$dso-row-border-color: #d3ddd6;
-
 @mixin full-width-row($gutter: 0) {
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);

@@ -1,0 +1,7 @@
+<ul class="dso-link-list">
+  {%- for link in links -%}
+    <li>
+      {% render '@anchor', link %}
+    </li>
+  {% endfor -%}
+</ul>

@@ -1,8 +1,14 @@
 dso-highlight-box {
   @include highlight-box_children();
-}
 
-dso-highlight-box[yellow],
-dso-highlight-box:not([border]):not([white]) {
-  @include highlight-box_exoticChildren();
+  &[yellow],
+  &:not([border]):not([white]) {
+    @include highlight-box_exoticChildren();
+  }
+
+  &:not([border]):not([white]) {
+    .dso-link-list {
+      @include link-list_exotic();
+    }
+  }
 }

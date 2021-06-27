@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **dso-toolkit** Nieuw component: Link List ([#1159](https://github.com/dso-toolkit/dso-toolkit/issues/1159))
+
 ## 24.4.1
 
 ### Fixed
-* Modal responsive media query conflict ([#1201](https://github.com/dso-toolkit/dso-toolkit/issues/1201))
+* **dso-toolkit:** Modal responsive media query conflict ([#1201](https://github.com/dso-toolkit/dso-toolkit/issues/1201))
 
 ## 24.4.0
 

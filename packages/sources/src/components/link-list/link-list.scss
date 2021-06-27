@@ -1,0 +1,55 @@
+@mixin link-list_root() {
+  @include list-unstyled();
+
+  a {
+    &::before {
+      @include di("chevron-right");
+
+      content: "";
+      display: inline-block;
+      margin-right: $u1;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      &::before {
+        @include di-variant("chevron-right-scampi");
+      }
+    }
+  }
+}
+
+@mixin link-list_exotic() {
+  a {
+    @include anchor-reverse();
+
+    color: $grijs-90;
+
+    &,
+    &:active,
+    &:focus,
+    &:hover {
+      &::before {
+        @include di-variant("chevron-right-grijs90");
+      }
+    }
+
+    &:active {
+      color: $grijs-90;
+      text-decoration: none;
+    }
+
+    &.download {
+      &::after {
+        @include di("download-grijs90");
+      }
+    }
+
+    &.extern {
+      &::after {
+        @include di("external-link-grijs90");
+      }
+    }
+  }
+}
