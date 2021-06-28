@@ -22,8 +22,6 @@ form,
 
           &:focus {
             & + label {
-              @include tab-focus();
-
               color: $grasgroen;
               text-decoration: none;
 

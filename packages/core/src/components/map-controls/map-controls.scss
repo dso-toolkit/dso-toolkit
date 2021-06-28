@@ -28,7 +28,7 @@ $transition-duration: 300ms; // Sync with const transitionDuration in map-overla
   }
 }
 
-// Todo #856
+// Todo #856 WORK IT BABY
 button {
   border: 0;
   background-color: #fff;
@@ -68,7 +68,7 @@ button {
 
   button.toggle {
     font-weight: 500;
-    line-height: 24px; //$dso-button-line-height
+    line-height: 24px; //$line-height-base
     min-width: 56px; //$dso-button-size
     padding: 11px 15px; //$dso-button-vertical-padding $dso-button-horizontal-padding
     text-align: left;

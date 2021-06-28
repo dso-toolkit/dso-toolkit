@@ -20,10 +20,6 @@
 @import "bootstrap/mixins/responsive-visibility";
 @import "bootstrap/mixins/size";
 
-@mixin tab-focus {
-  // do nothing, where bootstrap would manipulate focus styling
-}
-
 // @import "bootstrap/mixins/reset-text"; -> moved to @dso-toolkit/styling
 @import "bootstrap/mixins/text-emphasis";
 // @import "bootstrap/mixins/text-overflow"; -> moved to @dso-toolkit/sources/src/styling/mixins/text-overflow
@@ -31,7 +27,7 @@
 
 // Components
 // @import "bootstrap/mixins/alerts"; -> moved to @dso-toolkit/styling
-@import "bootstrap/mixins/buttons";
+// @import "bootstrap/mixins/buttons"; -> Moved to @dso-toolkit/sources
 @import "bootstrap/mixins/panels";
 @import "bootstrap/mixins/pagination";
 @import "bootstrap/mixins/list-group";
@@ -70,7 +66,7 @@
 @import "bootstrap/input-groups";
 @import "bootstrap/navs";
 @import "bootstrap/navbar";
-@import "bootstrap/pager";
+// @import "bootstrap/pager"; -> Deleted, deprecated
 // @import "bootstrap/thumbnails"; -> Deleted
 // @import "bootstrap/alerts"; -> moved to @dso-toolkit/styling
 @import "bootstrap/media";

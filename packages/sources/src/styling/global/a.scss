@@ -1,7 +1,7 @@
 $dso-anchor-spacer-width: 4px;
 $dso-anchor-visited-color: $cannon-pink;
 
-a {
+a:not(.btn) {
   color: $link-color;
   text-decoration: underline;
 

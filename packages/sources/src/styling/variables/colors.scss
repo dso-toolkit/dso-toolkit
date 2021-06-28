@@ -1,3 +1,9 @@
+$gray-base:              #000 !default;
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
 // DSO kleuren                http://webaim.org/resources/contrastchecker/ (contrast op een witte achtergrond)
 
 $grasgroen:             #39870c;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;

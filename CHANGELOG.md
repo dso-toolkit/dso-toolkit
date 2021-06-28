@@ -5,6 +5,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Special release notes
+
+Bij deze release is een major refactor van alles wat met buttons te maken heeft:
+* Op `.btn` varianten geen `.active`, `.focus`, `.disabled`, of `.hover` modifier classes meer
+* `.btn-xs` bestaat niet meer. Migreren: naar `.btn-sm`.
+* `.btn-lg` bestaat niet meer. Migreren: Modifier class weghalen
+* Zelfgemaakte buttons met `[role="button"]` zijn waarschijnlijk stuk. Migreren: native `button` element gebruiken
+* `.btn-succes`, `.btn-info`, `.btn-warning` en `.btn-danger` bestaan niet meer. Migreren: Modifier class weghalen
+* *Bijna* alle `button` en `.btn` gerelateerde `:focus` styling verwijderd
+* Er waren constructies die `.btn-primary`, `.btn-default` en `.btn-link` inzetbaar maakten zonder `.btn`. Dit wordt nu echt niet meer ondersteund. Migratie: Kies `btn-primary`, `.btn-default` of `.btn-link`.
+* `.icon` bestaat niet meer. Migreren: Modifier class weghalen
+* `fieldset[disabled] .btn` wordt niet meer gestijld, kan op verzoek geimplementeerd worden.
+* Geen stijling meer op `.dropdown-toggle`
+
+### Changed
+* **BREAKING: dso-toolkit** Button styling refactor ([#856](https://github.com/dso-toolkit/dso-toolkit/issues/856))
+
 ### Added
 * **dso-toolkit** Nieuw component: Link List ([#1159](https://github.com/dso-toolkit/dso-toolkit/issues/1159))
 

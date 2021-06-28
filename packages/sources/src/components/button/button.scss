@@ -1,0 +1,336 @@
+// Bootstrap vars
+
+// DSO Bootstrap overrides
+$btn-default-color: $grasgroen;
+$btn-default-bg: $wit;
+$btn-default-border: $grasgroen;
+
+// DSO vars
+$dso-button-size: $u7;
+$dso-button-border-radius: 4px;
+$dso-button-vertical-padding: $u1 * 1.5 - 1px;
+$dso-button-link-padding-horizontal: $dso-button-vertical-padding;
+$dso-button-link-color: $grasgroen;
+$dso-button-link-hover-color: $scampi;
+$dso-button-link-active-color: $scampi;
+
+$dso-button-primary-color: $grasgroen;
+$dso-button-primary-hover-color: $bosgroen;
+$dso-button-primary-active-color: $bosgroen-130;
+$dso-button-primary-disabled-color: $grasgroen-40;
+
+// Private mixins
+
+// DSO mixin
+@mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
+}
+
+// Public API mixins
+
+@mixin button_base() {
+  border: 1px solid transparent;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 0; // For input.btn
+  text-decoration: none;
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+  // cursor: pointer; zit ook op button
+  // text-align: left; bootstrap doet center, denk dat ie weg kan
+  // white-space: normal; bootstrap doet nowrap, denk dat ie weg kan
+
+  &:focus {
+    outline-offset: 2px; // Normalize between a and button
+  }
+
+  &:active {
+    outline: 0;
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 1.5em;
+      margin-left: $u1;
+      vertical-align: top;
+      width: 1.5em;
+    }
+  }
+
+  &:not(.dso-list-button) + .btn:not(.dso-list-button) {
+    margin-left: $u2;
+  }
+}
+
+@mixin button_primary($base-styling: true) {
+  @if ($base-styling) {
+    @include button_base();
+  }
+
+  border-radius: $dso-button-border-radius;
+  min-width: $dso-button-size;
+  line-height: $line-height-base;
+  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+
+  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
+
+  &:hover {
+    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
+  }
+
+  &:active {
+    @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
+  }
+
+  &[disabled] {
+    &,
+    &:hover {
+      @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link-wit");
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download-wit");
+    }
+  }
+
+  dso-icon,
+  svg.di {
+    margin-left: -$u1;
+    margin-right: $u1;
+  }
+
+  span + dso-icon,
+  span + svg.di {
+    margin-left: $u1;
+    margin-right: -$u1;
+  }
+}
+
+@mixin button_default($base-styling: true) {
+  @if ($base-styling) {
+    @include button_base();
+  }
+
+  border-radius: $dso-button-border-radius;
+  min-width: $dso-button-size;
+  line-height: $line-height-base;
+  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+
+  @include state-styling($btn-default-bg, $btn-default-border, $btn-default-color);
+
+  &:hover {
+    @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
+  }
+
+  &:active {
+    @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
+  }
+
+  &[disabled] {
+    &,
+    &:hover {
+      @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+
+    &:hover {
+      &::after {
+        @include di("external-link-wit");
+      }
+    }
+
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+
+    &:hover {
+      &::after {
+        @include di("download-wit");
+      }
+    }
+
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+      }
+    }
+  }
+
+  dso-icon,
+  svg.di {
+    margin-left: -$u1;
+    margin-right: $u1;
+  }
+
+  span + dso-icon,
+  span + svg.di {
+    margin-left: $u1;
+    margin-right: -$u1;
+  }
+}
+
+@mixin button_link($base-styling: true) {
+  @if ($base-styling) {
+    @include button_base();
+  }
+
+  border: 0;
+  color: $dso-button-link-color;
+  line-height: 1;
+  padding: 0;
+
+  &,
+  &:hover,
+  &:active,
+  &[disabled] {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  &[disabled] {
+    &,
+    &:hover {
+      color: $grasgroen-40;
+    }
+
+    > dso-icon,
+    > svg.di {
+      background-color: $wit;
+      border-color: $grasgroen-40;
+      color: $grasgroen-40;
+    }
+  }
+
+  &:not([disabled]):hover {
+    color: $dso-button-link-hover-color;
+    text-decoration: underline;
+
+    > dso-icon,
+    > svg.di {
+      color: $dso-button-link-hover-color;
+    }
+  }
+
+  &:active {
+    color: $dso-button-link-active-color;
+
+    > dso-icon,
+    > svg.di {
+      color: $dso-button-link-active-color;
+    }
+  }
+
+  &.btn-align {
+    line-height: calc(1.5em - 1px);
+    padding: $dso-button-link-padding-horizontal 0;
+    position: relative;
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+
+    &[disabled] {
+      &::after {
+        @include di("external-link-grasgroen-40");
+      }
+    }
+
+    &:not([disabled]):hover,
+    &:active {
+      &::after {
+        @include di("external-link-scampi");
+      }
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+
+    &[disabled] {
+      &::after {
+        @include di("download-grasgroen-40");
+      }
+    }
+
+    &:not([disabled]):hover,
+    &:active {
+      &::after {
+        @include di("download-scampi");
+      }
+    }
+  }
+
+  dso-icon + span:not(.sr-only),
+  svg.di + span:not(.sr-only),
+  span:not(.sr-only) + dso-icon,
+  span:not(.sr-only) + svg.di {
+    margin-left: $u1;
+  }
+
+  dso-icon,
+  svg.di,
+  span {
+    vertical-align: middle;
+  }
+}
+
+@mixin button_sm() {
+  line-height: $u2;
+
+  dso-icon,
+  svg.di,
+  .extern::after,
+  .download::after {
+    margin-bottom: -$u1 / 2;
+    margin-top: -$u1 / 2;
+  }
+}
+
+@mixin button_block($sibling-selector) {
+  display: block;
+  width: 100%;
+
+  & + #{$sibling-selector} {
+    margin-top: 5px; // Vertically space out multiple block buttons
+  }
+}
