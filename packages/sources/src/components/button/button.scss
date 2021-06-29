@@ -6,6 +6,7 @@ $btn-default-bg: $wit;
 $btn-default-border: $grasgroen;
 
 // DSO vars
+$dso-button-horizontal-padding: $u2 - 1px;
 $dso-button-size: $u7;
 $dso-button-border-radius: 4px;
 $dso-button-vertical-padding: $u1 * 1.5 - 1px;
@@ -13,6 +14,9 @@ $dso-button-link-padding-horizontal: $dso-button-vertical-padding;
 $dso-button-link-color: $grasgroen;
 $dso-button-link-hover-color: $scampi;
 $dso-button-link-active-color: $scampi;
+$dso-button-default-hover-color: $grasgroen;
+$dso-button-default-active-color: $bosgroen;
+$dso-button-default-disabled-color: $grasgroen-40;
 
 $dso-button-primary-color: $grasgroen;
 $dso-button-primary-hover-color: $bosgroen;
@@ -319,8 +323,8 @@ $dso-button-primary-disabled-color: $grasgroen-40;
 
   dso-icon,
   svg.di,
-  .extern::after,
-  .download::after {
+  &.extern::after,
+  &.download::after {
     margin-bottom: -$u1 / 2;
     margin-top: -$u1 / 2;
   }
