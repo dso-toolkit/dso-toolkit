@@ -32,6 +32,13 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   color: $color;
 }
 
+@mixin button_core() {
+  border-radius: $dso-button-border-radius;
+  min-width: $dso-button-size;
+  line-height: $line-height-base;
+  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+}
+
 // Public API mixins
 
 @mixin button_base() {
@@ -78,11 +85,7 @@ $dso-button-primary-disabled-color: $grasgroen-40;
     @include button_base();
   }
 
-  border-radius: $dso-button-border-radius;
-  min-width: $dso-button-size;
-  line-height: $line-height-base;
-  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
-
+  @include button_core();
   @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
 
   &:hover {
@@ -135,11 +138,7 @@ $dso-button-primary-disabled-color: $grasgroen-40;
     @include button_base();
   }
 
-  border-radius: $dso-button-border-radius;
-  min-width: $dso-button-size;
-  line-height: $line-height-base;
-  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
-
+  @include button_core();
   @include state-styling($btn-default-bg, $btn-default-border, $btn-default-color);
 
   &:hover {
