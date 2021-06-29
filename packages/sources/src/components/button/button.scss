@@ -37,6 +37,18 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   min-width: $dso-button-size;
   line-height: $line-height-base;
   padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+
+  &.btn-sm {
+    line-height: $u2;
+
+    dso-icon,
+    svg.di,
+    &.extern::after,
+    &.download::after {
+      margin-bottom: -$u1 / 2;
+      margin-top: -$u1 / 2;
+    }
+  }
 }
 
 // Public API mixins
@@ -49,10 +61,10 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   margin-bottom: 0; // For input.btn
   text-decoration: none;
   touch-action: manipulation;
+  text-align: left;
   user-select: none;
   vertical-align: middle;
   // cursor: pointer; zit ook op button
-  // text-align: left; bootstrap doet center, denk dat ie weg kan
   // white-space: normal; bootstrap doet nowrap, denk dat ie weg kan
 
   &:focus {
@@ -330,18 +342,6 @@ $dso-button-primary-disabled-color: $grasgroen-40;
 @mixin anchor_button-link() {
   color: $dso-button-link-color;
   text-decoration: none;
-}
-
-@mixin button_sm() {
-  line-height: $u2;
-
-  dso-icon,
-  svg.di,
-  &.extern::after,
-  &.download::after {
-    margin-bottom: -$u1 / 2;
-    margin-top: -$u1 / 2;
-  }
 }
 
 @mixin button_block($sibling-selector) {
