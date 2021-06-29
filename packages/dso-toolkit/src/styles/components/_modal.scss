@@ -111,7 +111,7 @@ body.dso-modal-open {
     padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
     text-align: right;
 
-    .btn-link { // @include button_align(); ??
+    .btn-link {
       float: left;
       line-height: calc(1.5em - 1px);
       padding: $dso-button-link-padding-horizontal 0;

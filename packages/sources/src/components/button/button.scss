@@ -1,11 +1,6 @@
-// Bootstrap vars
-
-// DSO Bootstrap overrides
 $btn-default-color: $grasgroen;
 $btn-default-bg: $wit;
 $btn-default-border: $grasgroen;
-
-// DSO vars
 $dso-button-horizontal-padding: $u2 - 1px;
 $dso-button-size: $u7;
 $dso-button-border-radius: 4px;
@@ -17,15 +12,11 @@ $dso-button-link-active-color: $scampi;
 $dso-button-default-hover-color: $grasgroen;
 $dso-button-default-active-color: $bosgroen;
 $dso-button-default-disabled-color: $grasgroen-40;
-
 $dso-button-primary-color: $grasgroen;
 $dso-button-primary-hover-color: $bosgroen;
 $dso-button-primary-active-color: $bosgroen-130;
 $dso-button-primary-disabled-color: $grasgroen-40;
 
-// Private mixins
-
-// DSO mixin
 @mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
   background-color: $background-color;
   border-color: $border-color;
@@ -51,8 +42,6 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   }
 }
 
-// Public API mixins
-
 @mixin button_base() {
   border: 1px solid transparent;
   display: inline-block;
@@ -64,8 +53,6 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   text-align: left;
   user-select: none;
   vertical-align: middle;
-  // cursor: pointer; zit ook op button
-  // white-space: normal; bootstrap doet nowrap, denk dat ie weg kan
 
   &:focus {
     outline-offset: 2px; // Normalize between a and button

@@ -2,6 +2,8 @@
 
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
 
+@import "~@dso-toolkit/sources/src/components/button/button";
+
 $transition-duration: 300ms; // Sync with const transitionDuration in map-overlays.tsx
 
 :host {
@@ -28,7 +30,7 @@ $transition-duration: 300ms; // Sync with const transitionDuration in map-overla
   }
 }
 
-// Todo #856 WORK IT BABY
+// Todo #856
 button {
   border: 0;
   background-color: #fff;
@@ -68,9 +70,9 @@ button {
 
   button.toggle {
     font-weight: 500;
-    line-height: 24px; //$line-height-base
-    min-width: 56px; //$dso-button-size
-    padding: 11px 15px; //$dso-button-vertical-padding $dso-button-horizontal-padding
+    line-height: $line-height-base;
+    min-width: $dso-button-size;
+    padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
     text-align: left;
     text-decoration: none;
     white-space: nowrap;

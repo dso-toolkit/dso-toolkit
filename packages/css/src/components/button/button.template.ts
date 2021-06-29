@@ -5,7 +5,8 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 
 import { iconTemplate } from '../icon/icon.template';
 
-export function buttonTemplate({ type,
+export function buttonTemplate({
+  type,
   modifier,
   id,
   label,
