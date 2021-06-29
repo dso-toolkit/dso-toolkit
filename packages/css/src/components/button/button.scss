@@ -6,12 +6,24 @@
   @include button_primary($base-styling: false);
 }
 
+a.btn-primary {
+  @include anchor_button-primary();
+}
+
 .btn-default {
   @include button_default($base-styling: false);
 }
 
+a.btn-default {
+  @include anchor_button-default();
+}
+
 .btn-link {
   @include button_link($base-styling: false);
+}
+
+a.btn-link {
+  @include anchor_button-link();
 }
 
 .btn-sm {

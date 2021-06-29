@@ -125,6 +125,11 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   }
 }
 
+@mixin anchor_button-primary() {
+  text-decoration: none;
+  color: $wit;
+}
+
 @mixin button_default($base-styling: true) {
   @if ($base-styling) {
     @include button_base();
@@ -199,6 +204,11 @@ $dso-button-primary-disabled-color: $grasgroen-40;
     margin-left: $u1;
     margin-right: -$u1;
   }
+}
+
+@mixin anchor_button-default() {
+  text-decoration: none;
+  color: $btn-default-color;
 }
 
 @mixin button_link($base-styling: true) {
@@ -318,6 +328,11 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   }
 }
 
+@mixin anchor_button-link() {
+  color: $dso-button-link-color;
+  text-decoration: none;
+}
+
 @mixin button_sm() {
   line-height: $u2;
 
@@ -338,3 +353,5 @@ $dso-button-primary-disabled-color: $grasgroen-40;
     margin-top: 5px; // Vertically space out multiple block buttons
   }
 }
+
+
