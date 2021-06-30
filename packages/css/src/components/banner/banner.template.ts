@@ -10,7 +10,7 @@ export function bannerTemplate({ status, richContent, onClick }: Banner<Template
         <div class="row">
           <div class="col-sm-12">
             ${richContent}
-            ${buttonTemplate({ label: 'Sluiten', modifier: 'link', onClick, icon: { icon: 'times' }, iconMode: 'only' })}
+            ${buttonTemplate({ label: 'Sluiten', variant: null, modifier: 'btn btn-link', onClick, icon: { icon: 'times' }, iconMode: 'only' })}
           </div>
         </div>
       </div>

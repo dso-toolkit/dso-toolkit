@@ -24,7 +24,10 @@ export function storiesOfButton<TemplateFnReturnType>(
       docs: {
         page: readme
       },
-      argTypes: buttonArgTypes
+      argTypes: buttonArgTypes,
+      args: {
+        type: 'button'
+      }
     });
 
   stories.add(
@@ -37,7 +40,7 @@ export function storiesOfButton<TemplateFnReturnType>(
         }
       },
       args: {
-        modifier: 'primary',
+        variant: 'primary',
         label: 'Primary button'
       }
     }
@@ -48,7 +51,7 @@ export function storiesOfButton<TemplateFnReturnType>(
     template,
     {
       args: {
-        modifier: 'default',
+        variant: 'secondary',
         label: 'Secondary button'
       }
     }
@@ -59,7 +62,7 @@ export function storiesOfButton<TemplateFnReturnType>(
     template,
     {
       args: {
-        modifier: 'link',
+        variant: 'tertiary',
         label: 'Tertiary button'
       }
     }

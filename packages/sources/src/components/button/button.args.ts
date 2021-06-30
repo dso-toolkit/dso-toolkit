@@ -4,9 +4,10 @@ import { ArgTypes } from '../../stories-helpers';
 import { Button } from './button.models';
 
 export interface ButtonArgs {
+  legacy?: boolean;
+  variant: 'primary' | 'secondary' | 'tertiary';
   click: HandlerFunction;
   type?: 'button' | 'submit';
-  modifier: string;
   label: string;
   id?: string;
   disabled?: boolean;
@@ -15,18 +16,24 @@ export interface ButtonArgs {
 }
 
 export const buttonArgTypes: ArgTypes<ButtonArgs> = {
-  click: {
-    action: 'onClick'
+  legacy: {
+    control: {
+      type: 'boolean'
+    }
   },
-  type: {
-    options: ['button', 'submit', undefined],
+  variant: {
+    options: ['primary', 'secondary', 'tertiary'],
     control: {
       type: 'select'
     }
   },
-  modifier: {
+  click: {
+    action: 'onClick'
+  },
+  type: {
+    options: ['button', 'submit'],
     control: {
-      type: 'text'
+      type: 'select'
     }
   },
   label: {
@@ -58,11 +65,18 @@ export const buttonArgTypes: ArgTypes<ButtonArgs> = {
   }
 }
 
+const legacyVariantMap = {
+  primary: 'btn btn-primary',
+  secondary: 'btn btn-default',
+  tertiary: 'btn btn-link'
+};
+
 export function buttonArgsMapper(a: ButtonArgs): Button {
   return {
+    variant: a.legacy ? null : a.variant,
     onClick: a.click,
     type: a.type,
-    modifier: a.modifier,
+    modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,
     label: a.label,
     id: a.id,
     disabled: a.disabled,

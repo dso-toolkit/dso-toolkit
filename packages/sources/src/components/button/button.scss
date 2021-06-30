@@ -1,33 +1,112 @@
-$btn-default-color: $grasgroen;
-$btn-default-bg: $wit;
-$btn-default-border: $grasgroen;
-$dso-button-horizontal-padding: $u2 - 1px;
-$dso-button-size: $u7;
+// ====================
+// Variables
+// ====================
 $dso-button-border-radius: 4px;
+$dso-button-min-width: $u7;
+$dso-button-horizontal-padding: $u2 - 1px;
 $dso-button-vertical-padding: $u1 * 1.5 - 1px;
-$dso-button-link-padding-horizontal: $dso-button-vertical-padding;
-$dso-button-link-color: $grasgroen;
-$dso-button-link-hover-color: $scampi;
-$dso-button-link-active-color: $scampi;
-$dso-button-default-hover-color: $grasgroen;
-$dso-button-default-active-color: $bosgroen;
-$dso-button-default-disabled-color: $grasgroen-40;
-$dso-button-primary-color: $grasgroen;
-$dso-button-primary-hover-color: $bosgroen;
-$dso-button-primary-active-color: $bosgroen-130;
-$dso-button-primary-disabled-color: $grasgroen-40;
 
-@mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
-  background-color: $background-color;
-  border-color: $border-color;
-  color: $color;
+$dso-button-primary-background-color: $grasgroen;
+$dso-button-primary-color: $wit;
+$dso-button-primary-hover-background-color: $bosgroen;
+$dso-button-primary-active-background-color: $bosgroen-130;
+$dso-button-primary-disabled-background-color: $grasgroen-40;
+
+$dso-button-secondary-background-color: $wit;
+$dso-button-secondary-border-color: $grasgroen;
+$dso-button-secondary-color: $grasgroen;
+$dso-button-secondary-hover-background-color: $grasgroen;
+$dso-button-secondary-active-background-color: $bosgroen;
+$dso-button-secondary-disabled-color: $grasgroen-40;
+
+$dso-button-tertiary-padding-horizontal: $dso-button-vertical-padding;
+$dso-button-tertiary-color: $grasgroen;
+$dso-button-tertiary-hover-color: $scampi;
+$dso-button-tertiary-active-color: $scampi;
+
+// ====================
+// Private mixins
+// ====================
+
+@mixin _button_shared-variant($defaults-map, $variant-map: ()) {
+  $map: map-merge($defaults-map, $variant-map);
+
+  background-color: map-get($map, "background-color");
+  border-color: map-get($map, "border-color");
+  color: map-get($map, "color");
 }
 
-@mixin button_core() {
+@mixin _button_shared-type-icon($default-di, $hover-di, $disabled-di) {
+  &::after {
+    @include di($default-di);
+  }
+
+  @if ($hover-di) {
+    &:hover {
+      &::after {
+        @include di-variant($hover-di);
+      }
+    }
+  }
+
+  @if ($disabled-di) {
+    &[disabled] {
+      &::after {
+        @include di-variant($disabled-di);
+      }
+    }
+  }
+}
+
+@mixin _button_tertiary-type-icon($default-di, $disabled-di, $hover-active-di) {
+    &::after {
+      @include di($default-di);
+    }
+
+    &[disabled] {
+      &::after {
+        @include di-variant($disabled-di);
+      }
+    }
+
+    &:not([disabled]) {
+      &:hover,
+      &:active {
+        &::after {
+          @include di-variant($hover-active-di);
+        }
+      }
+    }
+}
+
+@mixin _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map) {
+  @if ($base-styling) {
+    @include button_base();
+  }
+
+  @include _button_shared-variant($defaults-map);
+
+  border-width: 1px;
+  border-style: solid;
   border-radius: $dso-button-border-radius;
-  min-width: $dso-button-size;
   line-height: $line-height-base;
+  min-width: $dso-button-min-width;
   padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+
+  &:hover {
+    @include _button_shared-variant($defaults-map, $hover-map);
+  }
+
+  &:active {
+    @include _button_shared-variant($defaults-map, $active-map);
+  }
+
+  &[disabled] {
+    &,
+    &:hover {
+      @include _button_shared-variant($defaults-map, $disabled-map);
+    }
+  }
 
   &.btn-sm {
     line-height: $u2;
@@ -40,10 +119,41 @@ $dso-button-primary-disabled-color: $grasgroen-40;
       margin-top: -$u1 / 2;
     }
   }
+
+  &.download {
+    @include _button_shared-type-icon(
+      map-get($defaults-map, "type-download-di"),
+      map-get($hover-map, "type-download-di"),
+      map-get($disabled-map, "type-download-di")
+    );
+  }
+
+  &.extern {
+    @include _button_shared-type-icon(
+      map-get($defaults-map, "type-extern-di"),
+      map-get($hover-map, "type-extern-di"),
+      map-get($disabled-map, "type-extern-di")
+    );
+  }
+
+  dso-icon,
+  svg.di {
+    margin-left: -$u1;
+    margin-right: $u1;
+  }
+
+  span + dso-icon,
+  span + svg.di {
+    margin-left: $u1;
+    margin-right: -$u1;
+  }
 }
 
+// ====================
+// Public mixins
+// ====================
+
 @mixin button_base() {
-  border: 1px solid transparent;
   display: inline-block;
   font-size: 1em;
   font-weight: 500;
@@ -54,7 +164,8 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   user-select: none;
   vertical-align: middle;
 
-  &:focus {
+  &:focus,
+  &:focus-visible {
     outline-offset: 2px; // Normalize between a and button
   }
 
@@ -79,190 +190,115 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin button_primary($base-styling: true) {
-  @if ($base-styling) {
-    @include button_base();
-  }
+@mixin button_block($sibling-selector) {
+  display: block;
+  width: 100%;
 
-  @include button_core();
-  @include state-styling($dso-button-primary-color, $dso-button-primary-color, $wit);
-
-  &:hover {
-    @include state-styling($dso-button-primary-hover-color, $dso-button-primary-hover-color, $wit);
-  }
-
-  &:active {
-    @include state-styling($dso-button-primary-active-color, $dso-button-primary-active-color, $wit);
-  }
-
-  &[disabled] {
-    &,
-    &:hover {
-      @include state-styling($dso-button-primary-disabled-color, $dso-button-primary-disabled-color, $wit);
-    }
-  }
-
-  &.extern {
-    &::after {
-      @include di("external-link-wit");
-    }
-  }
-
-  &.download {
-    &::after {
-      @include di("download-wit");
-    }
-  }
-
-  dso-icon,
-  svg.di {
-    margin-left: -$u1;
-    margin-right: $u1;
-  }
-
-  span + dso-icon,
-  span + svg.di {
-    margin-left: $u1;
-    margin-right: -$u1;
+  & + #{$sibling-selector} {
+    margin-top: 5px; // Vertically space out multiple block buttons
   }
 }
 
-@mixin anchor_button-primary() {
+@mixin button_primary($base-styling) {
+  $defaults-map: (
+    "background-color": $dso-button-primary-background-color,
+    "border-color": $dso-button-primary-background-color,
+    "color": $dso-button-primary-color,
+    "type-download-di": "download-wit",
+    "type-extern-di": "external-link-wit"
+  );
+
+  $hover-map: (
+    "background-color": $dso-button-primary-hover-background-color,
+    "border-color": $dso-button-primary-hover-background-color
+  );
+
+  $active-map: (
+    "background-color": $dso-button-primary-active-background-color,
+    "border-color": $dso-button-primary-active-background-color
+  );
+
+  $disabled-map: (
+    "background-color": $dso-button-primary-disabled-background-color,
+    "border-color": $dso-button-primary-disabled-background-color
+  );
+
+  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map);
+}
+
+@mixin button_anchor-primary() {
   text-decoration: none;
   color: $wit;
 }
 
-@mixin button_default($base-styling: true) {
-  @if ($base-styling) {
-    @include button_base();
-  }
+@mixin button_secondary($base-styling) {
+  $defaults-map: (
+    "background-color": $dso-button-secondary-background-color,
+    "border-color": $dso-button-secondary-border-color,
+    "color": $dso-button-secondary-color,
+    "type-download-di": "download",
+    "type-extern-di": "external-link"
+  );
 
-  @include button_core();
-  @include state-styling($btn-default-bg, $btn-default-border, $btn-default-color);
+  $hover-map: (
+    "background-color": $dso-button-secondary-hover-background-color,
+    "border-color": $dso-button-secondary-hover-background-color,
+    "color": $wit,
+    "type-download-di": "download-wit",
+    "type-extern-di": "external-link-wit"
+  );
 
-  &:hover {
-    @include state-styling($dso-button-default-hover-color, $dso-button-default-hover-color, $wit);
-  }
+  $active-map: (
+    "background-color": $dso-button-secondary-active-background-color,
+    "border-color": $dso-button-secondary-active-background-color,
+    "color": $wit
+  );
 
-  &:active {
-    @include state-styling($dso-button-default-active-color, $dso-button-default-active-color, $wit);
-  }
+  $disabled-map: (
+    "background-color": $wit,
+    "border-color": $dso-button-secondary-disabled-color,
+    "color": $dso-button-secondary-disabled-color,
+    "type-download-di": "download-grasgroen-40",
+    "type-extern-di": "external-link-grasgroen-40"
+  );
 
-  &[disabled] {
-    &,
-    &:hover {
-      @include state-styling($wit, $dso-button-default-disabled-color, $dso-button-default-disabled-color);
-    }
-  }
-
-  &.extern {
-    &::after {
-      @include di("external-link");
-    }
-
-    &:hover {
-      &::after {
-        @include di("external-link-wit");
-      }
-    }
-
-    &[disabled] {
-      &::after {
-        @include di("external-link-grasgroen-40");
-      }
-    }
-  }
-
-  &.download {
-    &::after {
-      @include di("download");
-    }
-
-    &:hover {
-      &::after {
-        @include di("download-wit");
-      }
-    }
-
-    &[disabled] {
-      &::after {
-        @include di("download-grasgroen-40");
-      }
-    }
-  }
-
-  dso-icon,
-  svg.di {
-    margin-left: -$u1;
-    margin-right: $u1;
-  }
-
-  span + dso-icon,
-  span + svg.di {
-    margin-left: $u1;
-    margin-right: -$u1;
-  }
+  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map);
 }
 
-@mixin anchor_button-default() {
+@mixin button_anchor-secondary() {
   text-decoration: none;
-  color: $btn-default-color;
+  color: $dso-button-secondary-color;
 }
 
-@mixin button_link($base-styling: true) {
+@mixin button_tertiary($base-styling: true) {
   @if ($base-styling) {
     @include button_base();
   }
 
   border: 0;
-  color: $dso-button-link-color;
+  color: $dso-button-tertiary-color;
   line-height: 1;
   padding: 0;
+  background-color: transparent;
 
-  &,
-  &:hover,
-  &:active,
   &[disabled] {
-    border-color: transparent;
-    background-color: transparent;
+    color: $grasgroen-40;
   }
 
-  &[disabled] {
-    &,
+  &:not([disabled]) {
     &:hover {
-      color: $grasgroen-40;
+      color: $dso-button-tertiary-hover-color;
+      text-decoration: underline;
     }
 
-    > dso-icon,
-    > svg.di {
-      background-color: $wit;
-      border-color: $grasgroen-40;
-      color: $grasgroen-40;
-    }
-  }
-
-  &:not([disabled]):hover {
-    color: $dso-button-link-hover-color;
-    text-decoration: underline;
-
-    > dso-icon,
-    > svg.di {
-      color: $dso-button-link-hover-color;
-    }
-  }
-
-  &:active {
-    color: $dso-button-link-active-color;
-
-    > dso-icon,
-    > svg.di {
-      color: $dso-button-link-active-color;
+    &:active {
+      color: $dso-button-tertiary-active-color;
     }
   }
 
   &.btn-align {
     line-height: calc(1.5em - 1px);
-    padding: $dso-button-link-padding-horizontal 0;
+    padding: $dso-button-tertiary-padding-horizontal 0;
     position: relative;
   }
 
@@ -274,42 +310,12 @@ $dso-button-primary-disabled-color: $grasgroen-40;
     }
   }
 
-  &.extern {
-    &::after {
-      @include di("external-link");
-    }
-
-    &[disabled] {
-      &::after {
-        @include di("external-link-grasgroen-40");
-      }
-    }
-
-    &:not([disabled]):hover,
-    &:active {
-      &::after {
-        @include di("external-link-scampi");
-      }
-    }
+  &.download {
+    @include _button_tertiary-type-icon("download", "download-grasgroen-40", "download-scampi");
   }
 
-  &.download {
-    &::after {
-      @include di("download");
-    }
-
-    &[disabled] {
-      &::after {
-        @include di("download-grasgroen-40");
-      }
-    }
-
-    &:not([disabled]):hover,
-    &:active {
-      &::after {
-        @include di("download-scampi");
-      }
-    }
+  &.extern {
+    @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
   }
 
   dso-icon + span:not(.sr-only),
@@ -326,18 +332,7 @@ $dso-button-primary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin anchor_button-link() {
-  color: $dso-button-link-color;
+@mixin button_anchor-tertiary() {
+  color: $dso-button-tertiary-color;
   text-decoration: none;
 }
-
-@mixin button_block($sibling-selector) {
-  display: block;
-  width: 100%;
-
-  & + #{$sibling-selector} {
-    margin-top: 5px; // Vertically space out multiple block buttons
-  }
-}
-
-

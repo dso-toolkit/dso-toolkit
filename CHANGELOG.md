@@ -7,17 +7,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Special release notes
 
-Bij deze release is een major refactor van alles wat met buttons te maken heeft:
+Deze release bevat een major refactor van alles wat met buttons te maken heeft:
 * Op `.btn` varianten geen `.active`, `.focus`, `.disabled`, of `.hover` modifier classes meer
 * `.btn-xs` bestaat niet meer. Migreren: naar `.btn-sm`.
-* `.btn-lg` bestaat niet meer. Migreren: Modifier class weghalen
+* `.btn-lg` bestaat niet meer. Migreren: Modifier class weghalen.
+* `.btn-link` heeft geen `.btn-sm` modifier meer. Het netto effect was er al niet. Migreren: `.btn-sm` modifier weghalen
 * Zelfgemaakte buttons met `[role="button"]` zijn waarschijnlijk stuk. Migreren: native `button` element gebruiken
 * `.btn-succes`, `.btn-info`, `.btn-warning` en `.btn-danger` bestaan niet meer. Migreren: Modifier class weghalen
 * *Bijna* alle `button` en `.btn` gerelateerde `:focus` styling verwijderd
 * Er waren constructies die `.btn-primary`, `.btn-default` en `.btn-link` inzetbaar maakten zonder `.btn`. Dit wordt nu echt niet meer ondersteund. Migratie: Kies `btn-primary`, `.btn-default` of `.btn-link`.
 * `.icon` bestaat niet meer. Migreren: Modifier class weghalen
 * `fieldset[disabled] .btn` wordt niet meer gestijld, kan op verzoek geimplementeerd worden.
-* Geen stijling meer op `.dropdown-toggle`
+* Geen styling meer op `.dropdown-toggle`
+
+Daarnaast hebben we de terminologie van het UX team doorgevoerd: Primary, secondary en tertiary buttons. Primary, default en link is een erfenis van Bootstrap. Voorlopig zullen de bestaande selectors blijven werken maar hieronder een mapping tabel:
+* `.btn.btn-primary` -> `a.dso-primary, button.dso-primary`
+* `.btn.btn-default` -> `a.dso-secondary, button.dso-secondary`
+* `.btn.btn-link` -> `a.dso-tertiary, button.dso-tertiary`
 
 ### Changed
 * **BREAKING: dso-toolkit** Button styling refactor ([#856](https://github.com/dso-toolkit/dso-toolkit/issues/856))

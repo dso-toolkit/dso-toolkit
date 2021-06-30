@@ -7,25 +7,54 @@
 }
 
 a.btn-primary {
-  @include anchor_button-primary();
+  @include button_anchor-primary();
 }
 
 .btn-default {
-  @include button_default($base-styling: false);
+  @include button_secondary($base-styling: false);
 }
 
 a.btn-default {
-  @include anchor_button-default();
+  @include button_anchor-secondary();
 }
 
 .btn-link {
-  @include button_link($base-styling: false);
+  @include button_tertiary($base-styling: false);
 }
 
 a.btn-link {
-  @include anchor_button-link();
+  @include button_anchor-tertiary();
 }
 
 .btn-block {
   @include button_block('.btn-block');
+}
+
+a,
+button {
+  &.dso-primary {
+    @include button_primary($base-styling: true);
+  }
+
+  &.dso-secondary {
+    @include button_secondary($base-styling: true);
+  }
+
+  &.dso-tertiary {
+    @include button_tertiary($base-styling: true);
+  }
+}
+
+a {
+  &.dso-primary {
+    @include button_anchor-primary();
+  }
+
+  &.dso-secondary {
+    @include button_anchor-secondary();
+  }
+
+  &.dso-tertiary {
+    @include button_anchor-tertiary();
+  }
 }

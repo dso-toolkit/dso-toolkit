@@ -19,14 +19,14 @@
 
   &:hover,
   &:focus {
-    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+    @include state-styling($wit, $dso-button-secondary-hover-background-color, $grijs-90);
   }
 
   &:active,
   &.active {
     &,
     &:hover {
-      @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+      @include state-styling($wit, $dso-button-secondary-hover-background-color, $grijs-90);
     }
   }
 

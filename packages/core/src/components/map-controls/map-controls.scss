@@ -71,7 +71,7 @@ button {
   button.toggle {
     font-weight: 500;
     line-height: $line-height-base;
-    min-width: $dso-button-size;
+    min-width: $dso-button-min-width;
     padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
     text-align: left;
     text-decoration: none;

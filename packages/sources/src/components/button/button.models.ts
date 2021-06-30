@@ -1,9 +1,16 @@
 import { Icon } from '../icon/icon.models';
 
 export interface Button {
-  type?: 'button' | 'submit';
-  modifier?: string | typeof ButtonAnonymous;
+  /**
+   * * `primary`: Primary button
+   * * `secondary`: Secondary button (aka: btn-default)
+   * * `tertiary`: Tertiary button (aka: btn-link)
+   * * `null` legacy modus, switch to property "modifier"
+   */
+  variant: 'primary' | 'secondary' | 'tertiary' | null;
   label: string;
+  modifier?: string;
+  type?: 'button' | 'submit';
   id?: string;
   disabled?: boolean;
   icon?: Icon;
@@ -14,5 +21,3 @@ export interface Button {
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
 }
-
-export const ButtonAnonymous = Symbol('ButtonAnonymous');

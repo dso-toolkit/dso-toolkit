@@ -25,7 +25,7 @@ export function alertTemplate({ status, message, onClick, withRoleAlert }: Alert
           : message
         }
         ${onClick
-          ? buttonTemplate({ label: 'Button', onClick })
+          ? buttonTemplate({ label: 'Button', onClick, variant: null, modifier: 'btn' })
           : nothing
         }
       </div>

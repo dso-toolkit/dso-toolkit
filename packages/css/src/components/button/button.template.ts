@@ -1,15 +1,15 @@
-import { Button, ButtonAnonymous } from '@dso-toolkit/sources';
+import { Button } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
 import { iconTemplate } from '../icon/icon.template';
 
 export function buttonTemplate({
+  variant,
+  label,
   type,
   modifier,
   id,
-  label,
   disabled,
   icon,
   iconMode,
@@ -20,12 +20,13 @@ export function buttonTemplate({
   onClick
 }: Button) {
   type ??= 'button';
+  const className = variant ? `dso-${variant}` : modifier;
 
   return html`
     <button
       type=${type}
       id=${ifDefined(id)}
-      class=${ifDefined(modifier === ButtonAnonymous ? undefined : classMap({ 'btn': true, [`btn-${modifier}`]: !!modifier }))}
+      class=${ifDefined(className)}
       ?disabled=${disabled}
       aria-describedby=${ifDefined(ariaDescribedby)}
       aria-expanded=${ifDefined(ariaExpanded)}
