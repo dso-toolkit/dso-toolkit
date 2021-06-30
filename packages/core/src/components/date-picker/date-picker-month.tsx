@@ -79,6 +79,7 @@ export const DatePickerMonth: FunctionalComponent<DatePickerMonthProps> = ({
                 class="dso-date__cell"
                 role="gridcell"
                 aria-selected={isEqual(day, selectedDate) ? "true" : undefined}
+                aria-current={isEqual(day, today) ? "date" : undefined}
               >
                 <DatePickerDay
                   day={day}
