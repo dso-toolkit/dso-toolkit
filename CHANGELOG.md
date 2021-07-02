@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 25.0.0
+
 ### Special release notes
 
+#### Buttons
 Deze release bevat een major refactor van alles wat met buttons te maken heeft:
 * Op `.btn` varianten geen `.active`, `.focus`, `.disabled`, of `.hover` modifier classes meer
 * `.btn-xs` bestaat niet meer. Migreren: naar `.btn-sm`.
@@ -24,6 +27,9 @@ Daarnaast hebben we de terminologie van het UX team doorgevoerd: Primary, second
 * `.btn.btn-primary` -> `a.dso-primary, button.dso-primary`
 * `.btn.btn-default` -> `a.dso-secondary, button.dso-secondary`
 * `.btn.btn-link` -> `a.dso-tertiary, button.dso-tertiary`
+
+#### Release errors
+Verder is er eerder onterecht versie gedeeltelijke versie `25.0.0` van de DSO Toolkit suite uitgebracht. Dit release proces is onderbroken maar betekent dat alleen `dso-toolkit@25.0.0` wordt uitgebracht. De andere packages worden `@dso-toolkit/core@25.0.1` en `@dso-toolkit/react@25.0.1`.
 
 ### Changed
 * **BREAKING: dso-toolkit** Button styling refactor ([#856](https://github.com/dso-toolkit/dso-toolkit/issues/856))
