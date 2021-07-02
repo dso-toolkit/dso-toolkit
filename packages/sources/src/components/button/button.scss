@@ -1,0 +1,379 @@
+// ====================
+// Variables
+// ====================
+$dso-button-border-radius: 4px;
+$dso-button-min-width: $u7;
+$dso-button-horizontal-padding: $u2 - 1px;
+$dso-button-vertical-padding: $u1 * 1.5 - 1px;
+
+$dso-button-primary-background-color: $grasgroen;
+$dso-button-primary-color: $wit;
+$dso-button-primary-hover-background-color: $bosgroen;
+$dso-button-primary-active-background-color: $bosgroen-130;
+$dso-button-primary-disabled-background-color: $grasgroen-40;
+
+$dso-button-secondary-background-color: $wit;
+$dso-button-secondary-border-color: $grasgroen;
+$dso-button-secondary-color: $grasgroen;
+$dso-button-secondary-hover-background-color: $grasgroen;
+$dso-button-secondary-active-background-color: $bosgroen;
+$dso-button-secondary-disabled-color: $grasgroen-40;
+
+$dso-button-tertiary-padding-horizontal: $dso-button-vertical-padding;
+$dso-button-tertiary-color: $grasgroen;
+$dso-button-tertiary-hover-color: $scampi;
+$dso-button-tertiary-active-color: $scampi;
+
+// ====================
+// Private mixins
+// ====================
+
+@mixin _button_shared-variant($defaults-map, $variant-map: ()) {
+  $map: map-merge($defaults-map, $variant-map);
+
+  background-color: map-get($map, "background-color");
+  border-color: map-get($map, "border-color");
+  color: map-get($map, "color");
+}
+
+@mixin _button_shared-type-icon($default-di, $hover-di, $disabled-di) {
+  &::after {
+    @include di($default-di);
+  }
+
+  @if ($hover-di) {
+    &:hover {
+      &::after {
+        @include di-variant($hover-di);
+      }
+    }
+  }
+
+  @if ($disabled-di) {
+    &[disabled] {
+      &::after {
+        @include di-variant($disabled-di);
+      }
+    }
+  }
+}
+
+@mixin _button_tertiary-type-icon($default-di, $disabled-di, $hover-active-di) {
+    &::after {
+      @include di($default-di);
+    }
+
+    &[disabled] {
+      &::after {
+        @include di-variant($disabled-di);
+      }
+    }
+
+    &:not([disabled]) {
+      &:hover,
+      &:active {
+        &::after {
+          @include di-variant($hover-active-di);
+        }
+      }
+    }
+}
+
+@mixin _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
+  @if ($base-styling) {
+    @include button_base();
+  }
+
+  @include _button_shared-variant($defaults-map);
+
+  border-width: 1px;
+  border-style: solid;
+  border-radius: $dso-button-border-radius;
+  line-height: $line-height-base;
+  min-width: $dso-button-min-width;
+  padding: $dso-button-vertical-padding $dso-button-horizontal-padding;
+
+  &:hover {
+    @include _button_shared-variant($defaults-map, $hover-map);
+  }
+
+  &:active {
+    @include _button_shared-variant($defaults-map, $active-map);
+  }
+
+  &[disabled] {
+    &,
+    &:hover {
+      @include _button_shared-variant($defaults-map, $disabled-map);
+    }
+  }
+
+  &.btn-sm {
+    @include button_small();
+  }
+
+  &.download {
+    @include _button_shared-type-icon(
+      map-get($defaults-map, "type-download-di"),
+      map-get($hover-map, "type-download-di"),
+      map-get($disabled-map, "type-download-di")
+    );
+  }
+
+  &.extern {
+    @include _button_shared-type-icon(
+      map-get($defaults-map, "type-extern-di"),
+      map-get($hover-map, "type-extern-di"),
+      map-get($disabled-map, "type-extern-di")
+    );
+  }
+
+  @if ($icon-only) {
+    > span {
+      @include sr-only();
+    }
+  }
+  @else {
+    dso-icon,
+    svg.di {
+      margin-left: -$u1;
+      margin-right: $u1;
+    }
+  
+    span + dso-icon,
+    span + svg.di {
+      margin-left: $u1;
+      margin-right: -$u1;
+    }
+  }
+}
+
+// ====================
+// Public mixins
+// ====================
+
+@mixin button_icon-only() {
+  dso-icon,
+  svg.di {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  > span {
+    @include sr-only();
+  }
+}
+
+@mixin button_small() {
+  line-height: $u2;
+
+  dso-icon,
+  svg.di,
+  &.extern::after,
+  &.download::after {
+    margin-bottom: -$u1 / 2;
+    margin-top: -$u1 / 2;
+  }
+}
+
+@mixin button_base() {
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 0; // For input.btn
+  text-decoration: none;
+  touch-action: manipulation;
+  text-align: left;
+  user-select: none;
+  vertical-align: middle;
+
+  &:focus,
+  &:focus-visible {
+    outline-offset: 2px; // Normalize between a and button
+  }
+
+  &:active {
+    outline: 0;
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 1.5em;
+      margin-left: $u1;
+      vertical-align: top;
+      width: 1.5em;
+    }
+  }
+
+  &:not(.dso-list-button) + .btn:not(.dso-list-button) {
+    margin-left: $u2;
+  }
+}
+
+@mixin button_block($sibling-selector) {
+  display: block;
+  width: 100%;
+
+  & + #{$sibling-selector} {
+    margin-top: 5px; // Vertically space out multiple block buttons
+  }
+}
+
+@mixin button_primary($base-styling: true) {
+  $defaults-map: (
+    "background-color": $dso-button-primary-background-color,
+    "border-color": $dso-button-primary-background-color,
+    "color": $dso-button-primary-color,
+    "type-download-di": "download-wit",
+    "type-extern-di": "external-link-wit"
+  );
+
+  $hover-map: (
+    "background-color": $dso-button-primary-hover-background-color,
+    "border-color": $dso-button-primary-hover-background-color
+  );
+
+  $active-map: (
+    "background-color": $dso-button-primary-active-background-color,
+    "border-color": $dso-button-primary-active-background-color
+  );
+
+  $disabled-map: (
+    "background-color": $dso-button-primary-disabled-background-color,
+    "border-color": $dso-button-primary-disabled-background-color
+  );
+
+  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, false);
+}
+
+@mixin button_anchor-primary() {
+  text-decoration: none;
+  color: $wit;
+}
+
+@mixin button_secondary($base-styling: true, $icon-only: false) {
+  $defaults-map: (
+    "background-color": $dso-button-secondary-background-color,
+    "border-color": $dso-button-secondary-border-color,
+    "color": $dso-button-secondary-color,
+    "type-download-di": "download",
+    "type-extern-di": "external-link"
+  );
+
+  $hover-map: (
+    "background-color": $dso-button-secondary-hover-background-color,
+    "border-color": $dso-button-secondary-hover-background-color,
+    "color": $wit,
+    "type-download-di": "download-wit",
+    "type-extern-di": "external-link-wit"
+  );
+
+  $active-map: (
+    "background-color": $dso-button-secondary-active-background-color,
+    "border-color": $dso-button-secondary-active-background-color,
+    "color": $wit
+  );
+
+  $disabled-map: (
+    "background-color": $wit,
+    "border-color": $dso-button-secondary-disabled-color,
+    "color": $dso-button-secondary-disabled-color,
+    "type-download-di": "download-grasgroen-40",
+    "type-extern-di": "external-link-grasgroen-40"
+  );
+
+  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
+}
+
+@mixin button_anchor-secondary() {
+  text-decoration: none;
+  color: $dso-button-secondary-color;
+}
+
+@mixin button_tertiary($base-styling: true, $icon-only: false) {
+  @if ($base-styling) {
+    @include button_base();
+  }
+
+  border: 0;
+  color: $dso-button-tertiary-color;
+  line-height: 1;
+  padding: 0;
+  background-color: transparent;
+
+  &[disabled] {
+    color: $grasgroen-40;
+  }
+
+  &:not([disabled]) {
+    &:hover {
+      color: $dso-button-tertiary-hover-color;
+      text-decoration: underline;
+    }
+
+    &:active {
+      color: $dso-button-tertiary-active-color;
+    }
+  }
+
+  &.btn-align {
+    line-height: calc(1.5em - 1px);
+    padding: $dso-button-tertiary-padding-horizontal 0;
+    position: relative;
+  }
+
+  &.extern,
+  &.download {
+    &::after {
+      position: relative;
+      top: -2px;
+    }
+  }
+
+  &.download {
+    @include _button_tertiary-type-icon("download", "download-grasgroen-40", "download-scampi");
+  }
+
+  &.extern {
+    @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+  }
+
+  @if ($icon-only) {
+    > span {
+      @include sr-only();
+    }
+  }
+  @else {
+    dso-icon + span:not(.sr-only),
+    svg.di + span:not(.sr-only),
+    span:not(.sr-only) + dso-icon,
+    span:not(.sr-only) + svg.di {
+      margin-left: $u1;
+    }
+
+    dso-icon,
+    svg.di,
+    span {
+      vertical-align: middle;
+    }
+  }
+}
+
+@mixin button_anchor-tertiary() {
+  color: $dso-button-tertiary-color;
+  text-decoration: none;
+}
+
+@mixin button_map() {
+  @include button_secondary();
+
+  border: 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .5);
+  font-weight: 600;
+  margin-right: $u2;
+  padding: $u1 $u2;
+  white-space: nowrap;
+}

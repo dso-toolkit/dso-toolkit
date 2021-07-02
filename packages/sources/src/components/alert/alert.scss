@@ -38,6 +38,19 @@ $alert-danger-border: $state-danger-border;
       margin-bottom: $u1;
       margin-top: $u1;
     }
+
+    .btn {
+      background-color: rgba(25, 25, 25, 0.05);
+      border-radius: $dso-button-border-radius;
+      border: 1px solid transparent;
+      padding: 6px 12px;
+
+      &:hover,
+      &:active {
+        background-color: rgba(25, 25, 25, 0.2);
+        color: $zwart;
+      }
+    }
   }
 
   a {

@@ -45,17 +45,18 @@ export class MapControls {
   render() {
     return (
       <Host>
-        <div class="controls">
-          <button type="button" class="toggle" onClick={() => this.open = !this.open} ref={element => this.#toggleButtonElement = element!}>
+        <div id="controls">
+          <button type="button" id="toggle-visibility-button" onClick={() => this.open = !this.open} ref={element => this.#toggleButtonElement = element!}>
             <dso-icon icon="layers"></dso-icon>
             <span>Kaartlagen</span>
           </button>
-          <div class="zoom">
+          <div id="zoom-buttons">
             <button
               type="button"
               onClick={e => this.zoomIn.emit(e)}
               disabled={this.disableZoom === 'in' || this.disableZoom === 'both'}
             >
+              <span>Zoom in</span>
               <dso-icon icon="plus"></dso-icon>
             </button>
             <button
@@ -63,6 +64,7 @@ export class MapControls {
               onClick={e => this.zoomOut.emit(e)}
               disabled={this.disableZoom === 'out' || this.disableZoom === 'both'}
             >
+              <span>Zoom uit</span>
               <dso-icon icon="minus"></dso-icon>
             </button>
           </div>
@@ -70,7 +72,8 @@ export class MapControls {
         <section hidden={this.hideContent}>
           <header>
             <h2>Kaartlagen</h2>
-            <button type="button" class="btn-link" onClick={() => this.open = false} ref={element => this.#closeButtonElement = element!}>
+            <button type="button" id="close-button" onClick={() => this.open = false} ref={element => this.#closeButtonElement = element!}>
+              <span>Sluit dialoog</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           </header>

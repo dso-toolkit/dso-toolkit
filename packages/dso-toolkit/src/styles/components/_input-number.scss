@@ -20,11 +20,11 @@
 
   .dso-btn-group > *:hover + &,
   .dso-btn-group > *:focus + & {
-    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+    @include state-styling($wit, $dso-button-secondary-hover-background-color, $grijs-90);
   }
 
   .dso-btn-group > *.dso-selected + & {
-    @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+    @include state-styling($wit, $dso-button-secondary-hover-background-color, $grijs-90);
 
     border-width: 2px;
   }
@@ -33,7 +33,7 @@
   .dso-btn-group > *.active + & {
     &,
     &:hover {
-      @include state-styling($wit, $dso-button-default-hover-color, $grijs-90);
+      @include state-styling($wit, $dso-button-secondary-hover-background-color, $grijs-90);
     }
   }
 

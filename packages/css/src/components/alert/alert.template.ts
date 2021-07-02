@@ -3,6 +3,8 @@ import { html, nothing, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
+import { buttonTemplate } from '../button/button.template';
+
 // Todo: Move to @dso-toolkit/sources ?
 const statusMap = new Map<string, string>([
   ['success', 'Gelukt'],
@@ -23,9 +25,7 @@ export function alertTemplate({ status, message, onClick, withRoleAlert }: Alert
           : message
         }
         ${onClick
-          ? html`
-              <button type="button" class="btn" @click=${onClick}>Button</button>
-            `
+          ? buttonTemplate({ label: 'Button', onClick, variant: null, modifier: 'btn' })
           : nothing
         }
       </div>

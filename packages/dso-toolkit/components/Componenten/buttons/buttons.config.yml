@@ -17,8 +17,6 @@ notes: |
 
   In dit geval moet de veilige actie de aandacht krijgen en dus niet de onomkeerbare actie.
 
-  {% render '@lib-frame', {path: ('/components/preview/buttons-primary' | docPath)} %}
-
   - Tekst wit, Asap semibold 16
   - De rechthoekige grasgroene achtergrond (`#39870c`) heeft afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
   - Wordt één keer per scherm gebruikt tenzij het dezelfde actie betreft
@@ -26,8 +24,6 @@ notes: |
   - Niet elk scherm heeft een primaire knop nodig
 
   ## Hoe te gebruiken: Secundaire buttons
-
-  {% render '@lib-frame', {path: ('/components/preview/buttons-default' | docPath)} %}
 
   - Tekst grasgroen, Asap semibold 16
   - De rechthoekige witte achtergrond heeft een omlijning van 1 pixel in grasgroen  (`#39870c`), afgeronde hoeken van 4 pixels en een hoogte van 48 pixels
@@ -40,8 +36,6 @@ notes: |
 
   In het algemeen wordt hiervoor een minder prominente button stijl gebruikt.
 
-  {% render '@lib-frame', {path: ('/components/preview/buttons-link' | docPath)} %}
-
   - Tekst grasgroen (`#39870c`), Asap semibold 16
   - En/of icoon in grasgroen (`#39870c`)
 
@@ -49,8 +43,6 @@ notes: |
   Door de toevoeging van de class `.btn-sm` worden buttons kleiner getoond.
 
   Standaard zijn primaire en secundaire buttons 48 pixels hoog en worden dan 30 pixels hoog.
-
-  {% render '@lib-frame', {path: ('/components/preview/buttons-small' | docPath)} %}
 
   ## Hoe te gebruiken: Buttons in sectieberichten
 

@@ -17,7 +17,7 @@
 // @import "components/banner"; -> Moved to @dso-toolkit/styling
 @import "components/button-group";
 // @import "components/breadcrumbs"; -> Moved to @dso-toolkit/styling
-@import "components/button";
+// @import "components/button"; -> Moved to @dso-toolkit/sources
 @import "components/card";
 // @import "components/conclusion"; // -> Moved to @dso-toolkit/css
 // @import "components/definition-list"; // -> Moved to @dso-toolkit/styling
@@ -40,7 +40,7 @@
 @import "components/menu";
 @import "components/modal";
 @import "components/navs";
-@import "components/pager";
+// @import "components/pager"; -> Deleted, it was deprecated anyway
 @import "components/pagination";
 @import "components/panel";
 // @import "components/progress-bar"; -> Moved to @dso-toolkit/styling

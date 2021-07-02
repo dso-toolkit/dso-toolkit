@@ -4,12 +4,8 @@
   text-align: right;
 
   .btn-link {
-    line-height: $dso-button-line-height;
-    padding: $dso-button-link-padding-horizontal 0;
-
-    &.btn-align {
-      line-height: calc(1.5em - 1px);
-    }
+    line-height: $line-height-base;
+    padding: $dso-button-vertical-padding 0; // $horizontal??
   }
 
   .btn + .btn {

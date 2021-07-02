@@ -14,7 +14,7 @@
       &:active,
       &:focus,
       &:visited {
-        color: $zwart;
+        color: $zwart !important; // !important should be removed when moving to @dso-toolkit/css
         text-decoration: underline;
       }
     }

@@ -3,27 +3,22 @@ $dso-button-info-size: $u2;
 @mixin info-button_root() {
   @include di("info");
 
+  border: 1px solid transparent;
   margin-left: $u1;
   min-width: $dso-button-info-size;
   padding: 0;
 
   &.dso-open,
   &:hover,
-  &:active,
-  &.active {
+  &:active {
     @include di-variant("info-active");
-  }
-
-  &:focus {
-    background-color: transparent;
-    outline: 5px auto -webkit-focus-ring-color;
   }
 }
 
 @mixin info-button_controlLabelSibling() {
   @media screen and (min-width: $screen-sm-min) {
     margin-top: #{$u1 - 1};
-  
+
     .dso-radios &,
     .dso-checkboxes &,
     .dso-files & {

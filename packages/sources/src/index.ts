@@ -10,6 +10,8 @@ export * from './components/banner/banner.models';
 export * from './components/banner/banner.stories';
 export * from './components/breadcrumbs/breadcrumbs.models';
 export * from './components/breadcrumbs/breadcrumbs.stories';
+export * from './components/button/button.models';
+export * from './components/button/button.stories';
 export * from './components/conclusion/conclusion.models';
 export * from './components/conclusion/conclusion.stories';
 export * from './components/date-picker/date-picker.models';
