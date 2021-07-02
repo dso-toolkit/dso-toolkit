@@ -284,7 +284,7 @@
 }
 
 .leaflet-popup-pane,
-.leaflet-control {
+.leaflet-control:not(button) {
   cursor: auto;
 }
 

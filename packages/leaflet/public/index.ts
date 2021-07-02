@@ -9,8 +9,10 @@ defineCustomElements();
 const ButtonControl = L.Control.extend({
   onAdd(map: L.Map) {
     const button = document.createElement('button');
-    button.classList.add('btn');
-    button.innerHTML = '<dso-icon icon="pencil"></dso-icon> Teken een gebied op de kaart';
+    button.classList.add('dso-leaflet-button');
+    button.innerHTML = '<dso-icon icon="pencil"></dso-icon><span>Teken een gebied op de kaart</span>';
+
+    L.DomEvent.disableClickPropagation(button);
 
     return button;
   }

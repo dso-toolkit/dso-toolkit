@@ -79,7 +79,7 @@ $dso-button-tertiary-active-color: $scampi;
     }
 }
 
-@mixin _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map) {
+@mixin _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
   @if ($base-styling) {
     @include button_base();
   }
@@ -109,15 +109,7 @@ $dso-button-tertiary-active-color: $scampi;
   }
 
   &.btn-sm {
-    line-height: $u2;
-
-    dso-icon,
-    svg.di,
-    &.extern::after,
-    &.download::after {
-      margin-bottom: -$u1 / 2;
-      margin-top: -$u1 / 2;
-    }
+    @include button_small();
   }
 
   &.download {
@@ -136,22 +128,53 @@ $dso-button-tertiary-active-color: $scampi;
     );
   }
 
-  dso-icon,
-  svg.di {
-    margin-left: -$u1;
-    margin-right: $u1;
+  @if ($icon-only) {
+    > span {
+      @include sr-only();
+    }
   }
-
-  span + dso-icon,
-  span + svg.di {
-    margin-left: $u1;
-    margin-right: -$u1;
+  @else {
+    dso-icon,
+    svg.di {
+      margin-left: -$u1;
+      margin-right: $u1;
+    }
+  
+    span + dso-icon,
+    span + svg.di {
+      margin-left: $u1;
+      margin-right: -$u1;
+    }
   }
 }
 
 // ====================
 // Public mixins
 // ====================
+
+@mixin button_icon-only() {
+  dso-icon,
+  svg.di {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  > span {
+    @include sr-only();
+  }
+}
+
+@mixin button_small() {
+  line-height: $u2;
+
+  dso-icon,
+  svg.di,
+  &.extern::after,
+  &.download::after {
+    margin-bottom: -$u1 / 2;
+    margin-top: -$u1 / 2;
+  }
+}
 
 @mixin button_base() {
   display: inline-block;
@@ -199,7 +222,7 @@ $dso-button-tertiary-active-color: $scampi;
   }
 }
 
-@mixin button_primary($base-styling) {
+@mixin button_primary($base-styling: true) {
   $defaults-map: (
     "background-color": $dso-button-primary-background-color,
     "border-color": $dso-button-primary-background-color,
@@ -223,7 +246,7 @@ $dso-button-tertiary-active-color: $scampi;
     "border-color": $dso-button-primary-disabled-background-color
   );
 
-  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map);
+  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, false);
 }
 
 @mixin button_anchor-primary() {
@@ -231,7 +254,7 @@ $dso-button-tertiary-active-color: $scampi;
   color: $wit;
 }
 
-@mixin button_secondary($base-styling) {
+@mixin button_secondary($base-styling: true, $icon-only: false) {
   $defaults-map: (
     "background-color": $dso-button-secondary-background-color,
     "border-color": $dso-button-secondary-border-color,
@@ -262,7 +285,7 @@ $dso-button-tertiary-active-color: $scampi;
     "type-extern-di": "external-link-grasgroen-40"
   );
 
-  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map);
+  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
 }
 
 @mixin button_anchor-secondary() {
@@ -270,7 +293,7 @@ $dso-button-tertiary-active-color: $scampi;
   color: $dso-button-secondary-color;
 }
 
-@mixin button_tertiary($base-styling: true) {
+@mixin button_tertiary($base-styling: true, $icon-only: false) {
   @if ($base-styling) {
     @include button_base();
   }
@@ -318,21 +341,39 @@ $dso-button-tertiary-active-color: $scampi;
     @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
   }
 
-  dso-icon + span:not(.sr-only),
-  svg.di + span:not(.sr-only),
-  span:not(.sr-only) + dso-icon,
-  span:not(.sr-only) + svg.di {
-    margin-left: $u1;
+  @if ($icon-only) {
+    > span {
+      @include sr-only();
+    }
   }
+  @else {
+    dso-icon + span:not(.sr-only),
+    svg.di + span:not(.sr-only),
+    span:not(.sr-only) + dso-icon,
+    span:not(.sr-only) + svg.di {
+      margin-left: $u1;
+    }
 
-  dso-icon,
-  svg.di,
-  span {
-    vertical-align: middle;
+    dso-icon,
+    svg.di,
+    span {
+      vertical-align: middle;
+    }
   }
 }
 
 @mixin button_anchor-tertiary() {
   color: $dso-button-tertiary-color;
   text-decoration: none;
+}
+
+@mixin button_map() {
+  @include button_secondary();
+
+  border: 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .5);
+  font-weight: 600;
+  margin-right: $u2;
+  padding: $u1 $u2;
+  white-space: nowrap;
 }

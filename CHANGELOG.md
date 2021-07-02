@@ -30,6 +30,7 @@ Daarnaast hebben we de terminologie van het UX team doorgevoerd: Primary, second
 
 ### Added
 * **dso-toolkit** Nieuw component: Link List ([#1159](https://github.com/dso-toolkit/dso-toolkit/issues/1159))
+* **leaflet** Map Control Button styling ([#1021](https://github.com/dso-toolkit/dso-toolkit/issues/1021))
 
 ## 24.4.1
 
