@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **dso-toolkit:** Buttons in form .group-static documentatie uitwerken ([#1190](https://github.com/dso-toolkit/dso-toolkit/issues/1190))
+
 ## 25.0.0
 
 ### Special release notes
