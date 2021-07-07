@@ -40,8 +40,10 @@ dl {
       margin-bottom: 0;
     }
 
-    &:not(:last-of-type) {
-      margin-bottom: $dso-definition-list-vertical-space;
+    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+      &:not(:last-of-type) {
+        margin-bottom: $dso-definition-list-vertical-space;
+      }
     }
   }
 
@@ -223,6 +225,14 @@ dl {
     }
   }
 
+  &:not(.dso-bordered) {
+    @media screen and (max-width: $dso-definition-list-horizontal-breakpoint - 1) {
+      dd + dt {
+        margin-top: $dso-definition-list-vertical-space;
+      }
+    }
+  }
+
   &.dso-bordered {
     border-bottom: $dso-definition-list-border;
 
@@ -241,6 +251,16 @@ dl {
       }
     }
 
+    @media screen and (max-width: $dso-definition-list-horizontal-breakpoint - 1) {
+      dd + dt::before {
+        margin-top: $dso-definition-list-vertical-space;
+      }
+
+      dd:last-of-type {
+        margin-bottom: $dso-definition-list-vertical-space;
+      }
+    }
+
     @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
       dt + dd {
         margin-left: $dso-definition-list-term-width;
@@ -253,18 +273,6 @@ dl {
           margin-left: -$dso-definition-list-gutter;
           margin-bottom: $dso-definition-list-vertical-space;
           width: calc(100% + #{$dso-definition-list-gutter});
-        }
-      }
-    }
-
-    @media screen and (max-width: $dso-definition-list-horizontal-breakpoint - 1) {
-      dt {
-        padding-bottom: $dso-definition-list-vertical-space / 2;
-      }
-
-      dd {
-        &:last-of-type {
-          padding-bottom: $dso-definition-list-vertical-space;
         }
       }
     }
