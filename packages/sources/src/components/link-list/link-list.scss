@@ -1,6 +1,14 @@
 @mixin link-list_root() {
   @include list-unstyled();
 
+  li {
+    margin-bottom: $u2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   a {
     &::before {
       @include di("chevron-right");
@@ -21,6 +29,14 @@
 }
 
 @mixin link-list_exotic() {
+  li {
+    margin-bottom: $u2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   a {
     @include anchor-reverse();
 
