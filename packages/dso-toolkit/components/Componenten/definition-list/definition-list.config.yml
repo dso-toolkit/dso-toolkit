@@ -1,20 +1,20 @@
 notes: |
   Een definition list is een lijst met termen en een omschrijving of definitie daarvan. Gebruik de definition list bijvoorbeeld voor items die een directe relatie hebben met elkaar.
-  
+
   ## Wanneer te gebruiken
   Gebruik de definition list om informatie samen te vatten. Denk bijvoorbeeld aan de antwoorden van een gebruiker aan het einde van een formulier.
-  
-  ## Hoe te gebruiken 
+
+  ## Hoe te gebruiken
   Bij een definition list staat de term links en de definitie rechts of op de volgende regel. Deze tekst is meestal ingesprongen in verhouding tot de term. De lijst moet een visueel ontwerp hebben en een layout die het belang van de content weergeeft en behoudt.
-  
+
   Als gebruikers een lijst bekijken, willen ze snel kunnen zien welke van de items voor hen belangrijk zijn. Te veel informatie kan de gebruiker overladen en maakt de lijst onduidelijk. Te weinig informatie zorgt er juist weer voor dat de gebruiker het niet goed genoeg begrijpt. De hoeveelheid detail in de definitie moet daarom precies genoeg zijn.
-  
+
   ## Gedrag en toegankelijkheid
   * Plaats een dubbele punt na de term. Dit geeft aan waar de term ophoudt en de definitie begint. Dit geeft gebruikers die met een sterke vergroting werken extra houvast. Een sterke vergroting zorgt er soms namelijk voor dat items op meerdere regels vallen, of dat het overzicht van het scherm wegvalt. Het is ook belangrijk voor gebruikers met cognitieve beperkingen en gebruikers van screenreaders die dit verschil niet duidelijk aangeven.
-  
+
   ## Component in context
   - [Beheer-basis]({{ '/components/detail/beheer-basis' | docPath }})
-  
+
   ## Bronvermelding
   - NN/g Nielsen Norman Group. The Anatomy of a List Entry. Geraadpleegd op 20 maart 2020, van https://www.nngroup.com/articles/list-entries/
   - Mozilla.org. MDN Web docs Mozilla. The Description List element. Geraadpleegd op 20 maart 2020, van https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
@@ -200,3 +200,8 @@ variants:
       __explanation: De combinatie van de classes <code>dso-columns</code> en <code>dso-3-columns</code> zorgt voor een verdeling van de inhoud over twee kolommen. Om ongewenste afbreek-problemen te voorkomen, dienen de <code>dl</code> en bijbehorende <code>dd</code>'s gegroepeerd te worden binnen een <code>div</code>.
       modifier: dso-columns dso-3-columns
       dsoColumns: true
+  - name: bordered
+    context:
+      __title: Variant van definition list met borders
+      __explanation: De class `dso-bordered` zorgt op de definition list voor horizontale borders. De breedte classes `dso-columns-1-3`, `dso-columns-2-2` en `dso-columns-3-1` kunnen ook toegepast worden.
+      modifier: dso-bordered

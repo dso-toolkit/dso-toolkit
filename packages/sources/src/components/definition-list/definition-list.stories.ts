@@ -140,4 +140,14 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
       }
     }
   );
+
+  stories.add(
+    'bordered',
+    template,
+    {
+      args: {
+        modifier: 'dso-bordered'
+      }
+    }
+  );
 }
