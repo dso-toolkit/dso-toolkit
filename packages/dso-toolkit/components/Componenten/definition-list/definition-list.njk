@@ -17,7 +17,7 @@
     {% endfor -%}
   {% else %}
     {%- for definition in definitions %}
-      <dt>{{ definition.term }}</dt>
+      <dt>{{ definition.term }}{% if definition.useSrOnlyColon %}<span class="sr-only">:<span>{% else %}:{% endif %}</dt>
       {%- for description in definition.descriptions %}
         <dd>{{ description.description }}</dd>
       {%- endfor -%}

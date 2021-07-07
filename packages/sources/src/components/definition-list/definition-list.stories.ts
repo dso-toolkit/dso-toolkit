@@ -146,7 +146,8 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
     template,
     {
       args: {
-        modifier: 'dso-bordered'
+        modifier: 'dso-bordered',
+        useSrOnlyColon: true
       }
     }
   );

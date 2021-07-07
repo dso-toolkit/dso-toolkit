@@ -5,6 +5,7 @@ import { Definition, DefinitionList } from './definition-list.models';
 export interface DefinitionListArgs {
   modifier?: string;
   definitions: Definition[];
+  useSrOnlyColon: boolean;
 }
 
 export const definitionListArgTypes: ArgTypes<DefinitionListArgs> = {
@@ -17,12 +18,18 @@ export const definitionListArgTypes: ArgTypes<DefinitionListArgs> = {
     control: {
       type: 'text'
     }
+  },
+  useSrOnlyColon: {
+    control: {
+      type: 'boolean'
+    }
   }
 };
 
 export function definitionListArgsMapper(a: DefinitionListArgs): DefinitionList {
   return {
     definitions: a.definitions,
-    modifier: a.modifier
+    modifier: a.modifier,
+    useSrOnlyColon: a.useSrOnlyColon
   };
 }
