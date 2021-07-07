@@ -13,16 +13,16 @@ context:
       id: panel1
       open: true
       definitions:
-      - term: "Indienen bij:"
+      - term: "Indienen bij"
         descriptions:
           - description: Gemeente Den Haag
-      - term: "Soort:"
+      - term: "Soort"
         descriptions:
           - description: Aanvraag vergunning
-      - term: "Bevat:"
+      - term: "Bevat"
         descriptions:
           - description: Milieubelastende activiteit - Vergunning (Gemeente)
-      - term: "Doel:"
+      - term: "Doel"
         descriptions:
           - description: Definitief verzoek
       fieldsets:

@@ -339,16 +339,16 @@ variants:
         id: default-definition-list_panel1
         open: true
         definitions:
-        - term: "Indienen bij:"
+        - term: "Indienen bij"
           descriptions:
             - description: Gemeente Den Haag
-        - term: "Soort:"
+        - term: "Soort"
           descriptions:
             - description: Melding
-        - term: "Bevat:"
+        - term: "Bevat"
           descriptions:
             - description: Milieubelastende activiteit - Vergunning (Gemeente)
-        - term: "Omgevingsoverleg mogelijk:"
+        - term: "Omgevingsoverleg mogelijk"
           descriptions:
             - description: Ja
   - name: compact

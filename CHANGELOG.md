@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
+* **dso-toolkit + styling:** Bordered definition list (definities in de Stelselcatalogus) ([#1209](https://github.com/dso-toolkit/dso-toolkit/issues/1209))
 * **sources** Twee nieuwe iconen: `help` en `help-active` ([#1215](https://github.com/dso-toolkit/dso-toolkit/issues/1215))
 
 ### Fixed

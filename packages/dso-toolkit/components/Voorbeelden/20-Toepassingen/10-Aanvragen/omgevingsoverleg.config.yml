@@ -33,36 +33,36 @@ context:
         static: true
   definitionlist1:
     definitions:
-    - term: "Verzoek 1:"
+    - term: "Verzoek 1"
       descriptions:
         - description: Object Laan van Eik en Duinen 125, 's-Gravenhage 1
-    - term: "Indienen bij:"
+    - term: "Indienen bij"
       descriptions:
         - description: Hoogheemraadschap van Delfland
-    - term: "Soort:"
+    - term: "Soort"
       descriptions:
         - description: Aanvraag vergunning
-    - term: "Bevat:"
+    - term: "Bevat"
       descriptions:
         - description: Milieubelastende activiteit - Vergunning (Gemeente)
-    - term: "Omgevingsoverleg mogelijk:"
+    - term: "Omgevingsoverleg mogelijk"
       descriptions:
         - description: Nee
   definitionlist2:
     definitions:
-    - term: "Verzoek 2:"
+    - term: "Verzoek 2"
       descriptions:
         - description: Object Laan van Eik en Duinen 125, 's-Gravenhage 2
-    - term: "Indienen bij:"
+    - term: "Indienen bij"
       descriptions:
         - description: Gemeente Den Haag
-    - term: "Soort:"
+    - term: "Soort"
       descriptions:
         - description: Melding
-    - term: "Bevat:"
+    - term: "Bevat"
       descriptions:
         - description: Milieubelastende activiteit - Vergunning (Gemeente)
-    - term: "Omgevingsoverleg mogelijk:"
+    - term: "Omgevingsoverleg mogelijk"
       descriptions:
         - description: Ja
   asideButtons:
