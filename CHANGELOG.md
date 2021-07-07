@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit** Group Files button heeft geen 'hand' cursor meer ([#1214](https://github.com/dso-toolkit/dso-toolkit/issues/1214))
 * **core:** Datepicker: `aria-current=date` ([#1174](https://github.com/dso-toolkit/dso-toolkit/issues/1174))
+* **styling:** Modal responsive button uitlijning [#1178](https://github.com/dso-toolkit/dso-toolkit/issues/1178))
 
 ## 25.0.0
 

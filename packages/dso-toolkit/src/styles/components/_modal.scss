@@ -169,6 +169,10 @@ body.dso-modal-open {
           margin-top: $u1;
         }
 
+        &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
+          margin-left: 0;
+        }
+
         &.btn-link {
           &,
           span {
