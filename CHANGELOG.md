@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:** Datepicker: `aria-current=date` ([#1174](https://github.com/dso-toolkit/dso-toolkit/issues/1174))
+
 ## 25.0.0
 
 ### Special release notes
