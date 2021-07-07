@@ -120,6 +120,12 @@ export namespace Components {
         "min": number;
         "progress": number;
     }
+    interface DsoProgressIndicator {
+        "block"?: boolean;
+        "color"?: string;
+        "size"?: string;
+        "status"?: string;
+    }
     interface DsoSelectable {
         "checked"?: boolean;
         "describedById"?: string;
@@ -248,6 +254,12 @@ declare global {
         prototype: HTMLDsoProgressBarElement;
         new (): HTMLDsoProgressBarElement;
     };
+    interface HTMLDsoProgressIndicatorElement extends Components.DsoProgressIndicator, HTMLStencilElement {
+    }
+    var HTMLDsoProgressIndicatorElement: {
+        prototype: HTMLDsoProgressIndicatorElement;
+        new (): HTMLDsoProgressIndicatorElement;
+    };
     interface HTMLDsoSelectableElement extends Components.DsoSelectable, HTMLStencilElement {
     }
     var HTMLDsoSelectableElement: {
@@ -275,6 +287,7 @@ declare global {
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
+        "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-tooltip": HTMLDsoTooltipElement;
     }
@@ -396,6 +409,12 @@ declare namespace LocalJSX {
         "min"?: number;
         "progress": number;
     }
+    interface DsoProgressIndicator {
+        "block"?: boolean;
+        "color"?: string;
+        "size"?: string;
+        "status"?: string;
+    }
     interface DsoSelectable {
         "checked"?: boolean;
         "describedById"?: string;
@@ -446,6 +465,7 @@ declare namespace LocalJSX {
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
         "dso-progress-bar": DsoProgressBar;
+        "dso-progress-indicator": DsoProgressIndicator;
         "dso-selectable": DsoSelectable;
         "dso-tooltip": DsoTooltip;
     }
@@ -468,6 +488,7 @@ declare module "@stencil/core" {
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
+            "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
         }

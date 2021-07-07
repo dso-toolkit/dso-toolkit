@@ -42,6 +42,8 @@ export * from './components/map-controls/map-controls.models';
 export * from './components/map-controls/map-controls.stories';
 export * from './components/progress-bar/progress-bar.models';
 export * from './components/progress-bar/progress-bar.stories';
+export * from './components/progress-indicator/progress-indicator.models';
+export * from './components/progress-indicator/progress-indicator.stories';
 export * from './components/selectable/selectable.models';
 export * from './components/selectable/selectable.stories';
 export * from './components/tile/tile.models';
