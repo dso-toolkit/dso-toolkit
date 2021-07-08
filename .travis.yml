@@ -37,6 +37,7 @@ jobs:
             - packages/core/www
             - packages/react/www
             - packages/dso-toolkit/dist
+            - packages/dso-toolkit/libs/@dso-toolkit
       script:
         yarn lint &&
         yarn build &&

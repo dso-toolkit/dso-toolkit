@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+
+### Fixed
+* **dso-toolkit** Missende libs bij deploy naar NPM
+
 ## 25.1.0
 
 ### Added
