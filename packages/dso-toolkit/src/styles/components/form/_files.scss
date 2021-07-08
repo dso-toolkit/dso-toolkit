@@ -26,36 +26,17 @@ form,
 
           &:focus {
             & + label {
-              color: $grasgroen;
-              text-decoration: none;
-
-              > dso-icon,
-              > svg.di {
-                background-color: $grasgroen;
-                color: $wit;
-              }
+              background-color: $grasgroen;
+              color: $wit;
             }
           }
 
           &[disabled] {
             + label {
-              &,
-              &:hover {
-                background-color: $input-bg;
-                border-color: $grasgroen-40;
-                color: $grasgroen-40;
-                cursor: default;
-              }
-            }
-
-            &:focus {
-              + label {
-                > dso-icon,
-                > svg.di {
-                  background-color: $input-bg;
-                  color: $grasgroen-40;
-                }
-              }
+              background-color: $input-bg;
+              border-color: $grasgroen-40;
+              color: $grasgroen-40;
+              cursor: default;
             }
           }
         }

@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **dso-toolkit** Missende libs bij deploy naar NPM
+* **dso-toolkit** Group Files button toetsenbord focus styling kapot ([#1221](https://github.com/dso-toolkit/dso-toolkit/issues/1221))
 
 ## 25.1.0
 
