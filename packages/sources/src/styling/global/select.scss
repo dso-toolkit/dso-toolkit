@@ -10,4 +10,11 @@ select {
   &[multiple] {
     height: auto;
   }
+
+  optgroup {
+    color: inherit; // 1
+    font-weight: bold;
+    font: inherit; // 2
+    margin: 0; // 3
+  }
 }
