@@ -1,4 +1,4 @@
-$legend-color: $gray-dark;
+$legend-color: $grijs-90;
 $legend-border-color: #e5e5e5;
 
 fieldset {
@@ -8,8 +8,8 @@ fieldset {
   padding: 0;
 
   legend {
-    border-bottom: 1px solid $legend-border-color;
     border: 0;
+    border-bottom: 1px solid $legend-border-color;
     color: $legend-color;
     display: block;
     font-size: ($font-size-base * 1.5);
