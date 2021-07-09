@@ -1,0 +1,11 @@
+legend {
+  border-bottom: 1px solid $legend-border-color;
+  border: 0;
+  color: $legend-color;
+  display: block;
+  font-size: ($font-size-base * 1.5);
+  line-height: inherit;
+  margin-bottom: $line-height-computed;
+  padding: 0;
+  width: 100%;
+}

@@ -1,0 +1,10 @@
+$hr-border: $grijs-20;
+
+hr {
+  border-top: 1px solid $hr-border;
+  border: 0;
+  box-sizing: content-box;
+  height: 0;
+  margin-bottom: $dso-vertical-spacing-medium;
+  margin-top: $dso-vertical-spacing-medium;
+}
