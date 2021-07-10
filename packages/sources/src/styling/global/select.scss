@@ -1,20 +1,20 @@
 select {
-  color: inherit; // 1
-  font: inherit; // 2
+  color: inherit;
+  font: inherit;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  margin: 0; // 3
+  margin: 0;
   text-transform: none;
 
   &[multiple] {
     height: auto;
   }
+}
 
-  optgroup {
-    color: inherit; // 1
-    font: inherit; // 2
-    font-weight: bold;
-    margin: 0; // 3
-  }
+optgroup {
+  color: inherit;
+  font: inherit;
+  font-weight: bold;
+  margin: 0;
 }

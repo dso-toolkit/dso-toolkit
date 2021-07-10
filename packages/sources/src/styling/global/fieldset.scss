@@ -1,21 +1,19 @@
-$legend-color: $grijs-90;
-$legend-border-color: #e5e5e5;
+$legend-color: $bosgroen;
 
 fieldset {
   border: 0;
   margin: 0;
   min-width: 0;
   padding: 0;
+}
 
-  legend {
-    border: 0;
-    border-bottom: 1px solid $legend-border-color;
-    color: $legend-color;
-    display: block;
-    font-size: ($font-size-base * 1.5);
-    line-height: inherit;
-    margin-bottom: $line-height-computed;
-    padding: 0;
-    width: 100%;
-  }
+legend {
+  border: 0;
+  color: $legend-color;
+  display: block;
+  font-size: $font-size-base * 1.5;
+  line-height: inherit;
+  margin-bottom: $line-height-computed;
+  padding: 0;
+  width: 100%;
 }

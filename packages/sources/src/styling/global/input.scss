@@ -1,27 +1,24 @@
 input {
-  color: inherit; // 1
-  font: inherit; // 2
+  color: inherit;
+  font: inherit;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  margin: 0; // 3
+  margin: 0;
 
   &[type="reset"],
   &[type="submit"] {
-    -webkit-appearance: button; // 2
-    cursor: pointer; // 3
+    cursor: pointer;
   }
 
   &[type="checkbox"],
   &[type="radio"] {
-    box-sizing: border-box; // 1
-    padding: 0; // 2
+    box-sizing: border-box;
+    padding: 0;
     line-height: normal;
     margin: 4px 0 0;
 
-    &[disabled],
-    &.disabled,
-    fieldset[disabled] & {
+    &[disabled] {
       cursor: $cursor-disabled;
     }
   }
