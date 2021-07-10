@@ -2,7 +2,6 @@
 // Scaffolding
 // --------------------------------------------------
 
-
 // Moved to @dso-toolkit/styling/scaffolding/normalize.scss
 // // Reset the box-sizing
 // //
@@ -18,17 +17,7 @@
 //   @include box-sizing(border-box);
 // }
 
-
 // Reset fonts for relevant elements
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-}
-
-
 
 // Figures
 //
@@ -39,18 +28,10 @@ figure {
   margin: 0;
 }
 
-
 // Moved to @dso-toolkit/sources/src/components/image
 // // Images
 
 // Horizontal rules
-
-hr {
-  margin-top: $line-height-computed;
-  margin-bottom: $line-height-computed;
-  border: 0;
-  border-top: 1px solid $hr-border;
-}
 
 // Moved to @dso-toolkit/styling/scaffolding
 // // Only display content to screen readers

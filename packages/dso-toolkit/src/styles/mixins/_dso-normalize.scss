@@ -15,13 +15,8 @@ aside,
 details,
 figcaption,
 figure,
-footer,
-header,
 hgroup,
-main,
 menu,
-nav,
-section,
 summary {
   display: block;
 }
@@ -66,10 +61,6 @@ template {
 // Remove the gray background color from active links in IE 10.
 //
 
-a {
-  background-color: transparent;
-}
-
 //
 // Improve readability of focused elements when they are also in an
 // active/hover state.
@@ -95,11 +86,6 @@ abbr[title] {
 // Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
 //
 
-b,
-strong {
-  font-weight: bold;
-}
-
 //
 // Address styling not present in Safari and Chrome.
 //
@@ -113,19 +99,9 @@ dfn {
 // contexts in Firefox 4+, Safari, and Chrome.
 //
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
 //
 // Address styling not present in IE 8/9.
 //
-
-mark {
-  background: #ff0;
-  color: #000;
-}
 
 //
 // Address inconsistent and variable font size in all browsers.
@@ -167,11 +143,6 @@ figure {
 // Address differences between Firefox and other browsers.
 //
 
-hr {
-  box-sizing: content-box;
-  height: 0;
-}
-
 //
 // Contain overflow in all browsers.
 //
@@ -184,7 +155,6 @@ pre {
 // Address odd `em`-unit font size rendering in all browsers.
 //
 
-code,
 kbd,
 pre,
 samp {
@@ -207,25 +177,12 @@ samp {
 // 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
 //
 
-input,
-optgroup,
-select,
-textarea {
-  color: inherit; // 1
-  font: inherit; // 2
-  margin: 0; // 3
-}
-
 //
 // Address inconsistent `text-transform` inheritance for `button` and `select`.
 // All other form control elements do not inherit `text-transform` values.
 // Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
 // Correct `select` style inheritance in Firefox.
 //
-
-select {
-  text-transform: none;
-}
 
 //
 // 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
@@ -235,9 +192,7 @@ select {
 //    `input` and others.
 //
 
-html input[type="button"], // 1
-input[type="reset"],
-input[type="submit"] {
+html input[type="button"] {
   -webkit-appearance: button; // 2
   cursor: pointer; // 3
 }
@@ -264,10 +219,6 @@ input::-moz-focus-inner {
 // the UA stylesheet.
 //
 
-input {
-  line-height: normal;
-}
-
 //
 // It's recommended that you don't attempt to style these elements.
 // Firefox's implementation doesn't respect box-sizing, padding, or width.
@@ -275,12 +226,6 @@ input {
 // 1. Address box sizing set to `content-box` in IE 8/9/10.
 // 2. Remove excess padding in IE 8/9/10.
 //
-
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box; // 1
-  padding: 0; // 2
-}
 
 //
 // Fix the cursor style for Chrome's increment/decrement buttons. For certain
@@ -318,38 +263,19 @@ input[type="search"]::-webkit-search-decoration {
 // Define consistent border, margin, and padding.
 //
 
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
 //
 // 1. Correct `color` not being inherited in IE 8/9/10/11.
 // 2. Remove padding so people aren't caught out if they zero out fieldsets.
 //
 
-legend {
-  border: 0; // 1
-  padding: 0; // 2
-}
-
 //
 // Remove default vertical scrollbar in IE 8/9/10/11.
 //
-
-textarea {
-  overflow: auto;
-}
 
 //
 // Don't inherit the `font-weight` (applied by a rule above).
 // NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
 //
-
-optgroup {
-  font-weight: bold;
-}
 
 // Tables
 // ==========================================================================
@@ -357,13 +283,3 @@ optgroup {
 //
 // Remove most spacing between table cells.
 //
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-td,
-th {
-  padding: 0;
-}

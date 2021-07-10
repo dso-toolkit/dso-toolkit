@@ -18,6 +18,11 @@ caption {
   text-align: left;
 }
 
+td,
+th {
+  padding: 0;
+}
+
 th {
   font-weight: 600;
   text-align: left;
@@ -41,7 +46,7 @@ table.table,
     top: -2px;
     white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
   }
-  
+
   &.dso-text-left {
     th,
     td {
@@ -174,6 +179,8 @@ table col[class*="col-"] {
 
 table {
   background-color: $table-bg;
+  border-collapse: collapse;
+  border-spacing: 0;
 
   td,
   th {

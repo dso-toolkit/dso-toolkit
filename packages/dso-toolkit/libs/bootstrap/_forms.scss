@@ -7,36 +7,6 @@
 //
 // Restyle and baseline non-control form elements.
 
-fieldset {
-  // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
-  // so we reset that to ensure it behaves more like a standard block element.
-  // See https://github.com/twbs/bootstrap/issues/12359.
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
-legend {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin-bottom: $line-height-computed;
-  font-size: ($font-size-base * 1.5);
-  line-height: inherit;
-  color: $legend-color;
-  border: 0;
-  border-bottom: 1px solid $legend-border-color;
-}
-
-label {
-  display: inline-block;
-  max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
-  margin-bottom: 5px;
-  font-weight: 700;
-}
-
-
 // Normalize form controls
 //
 // While most of our form styles require extra classes, some basic normalization
@@ -58,26 +28,8 @@ input[type="search"] {
 }
 
 // Position radios and checkboxes better
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 4px 0 0;
-  margin-top: 1px \9; // IE8-9
-  line-height: normal;
 
-  // Apply same disabled cursor tweak as for inputs
-  // Some special care is needed because <label>s don't inherit their parent's `cursor`.
-  //
-  // Note: Neither radios nor checkboxes can be readonly.
-  &[disabled],
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: $cursor-disabled;
-  }
-}
 
-input[type="file"] {
-  display: block;
-}
 
 // Make range inputs behave like textual form controls
 input[type="range"] {
@@ -86,7 +38,6 @@ input[type="range"] {
 }
 
 // Make multiple select elements height not fixed
-select[multiple],
 select[size] {
   height: auto;
 }
