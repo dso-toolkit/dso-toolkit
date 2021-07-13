@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## Changed
+* **BREAKING: dso-toolkit** Whitebox Small heet nu Tile: `.dso-whitebox-small` -> `.dso-tile` ([#1198](https://github.com/dso-toolkit/dso-toolkit/issues/1198)).
+
 ## 25.1.1
 
 ### Fixed

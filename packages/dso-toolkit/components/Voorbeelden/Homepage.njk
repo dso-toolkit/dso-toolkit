@@ -11,22 +11,22 @@
   <div class="row dso-banner dso-banner-implementation-specific-image" style="background-image: url('{{ '/dummy/images/hands-on-trackpad.jpg' | path }}')">
     <!-- @Developers: Voeg dus geen inline styling toe maar genereer de betreffende styling in een class, zoals bv. `.dso-banner-implementation-specific image`. Inline styling doet het niet goed bij de Webrichtlijnen -->
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-      {% render '@whitebox-small', {source: aanbouw.source, label: aanbouw.label } %}
+      {% render '@tile', {source: aanbouw.source, label: aanbouw.label } %}
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-      {% render '@whitebox-small', {source: slopen.source, label: slopen.label } %}
+      {% render '@tile', {source: slopen.source, label: slopen.label } %}
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-      {% render '@whitebox-small', {source: dakkapel.source, label: dakkapel.label } %}
+      {% render '@tile', {source: dakkapel.source, label: dakkapel.label } %}
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-      {% render '@whitebox-small', {source: gevel.source, label: gevel.label } %}
+      {% render '@tile', {source: gevel.source, label: gevel.label } %}
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-      {% render '@whitebox-small', {source: kappen.source, label: kappen.label } %}
+      {% render '@tile', {source: kappen.source, label: kappen.label } %}
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-      {% render '@whitebox-small', {source: andere.source, label: andere.label } %}
+      {% render '@tile', {source: andere.source, label: andere.label } %}
     </div>
   </div>
   <h1 class="text-center">Waarmee kunnen we u helpen?</h1>

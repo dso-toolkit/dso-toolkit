@@ -1,0 +1,50 @@
+$dso-tile-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+$dso-tile-margin-bottom: $u7;
+$dso-tile-min-height: 200px;
+
+@mixin tile_root() {
+  background: $wit;
+  box-shadow: $dso-tile-box-shadow;
+  margin-bottom: $dso-tile-margin-bottom;
+  min-height: $dso-tile-min-height;
+  padding: $u3 $u2 $u2;
+  position: relative;
+  top: $u7;
+
+  .dso-tile-icon {
+    display: block;
+    margin-bottom: $u2;
+    text-align: center;
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  .dso-tile-link {
+    border-bottom: #{$u1 / 2} solid transparent;
+    color: $grasgroen;
+    display: block;
+    font-size: $dso-font-size-h4;
+    font-weight: bold;
+    line-height: 1.167;
+    padding-bottom: #{$u1 / 2};
+    text-align: center;
+  }
+
+  a {
+    @include anchor-clean();
+
+    &:hover {
+      .dso-tile-link {
+        border-bottom: #{$u1 / 2} solid $grasgroen;
+      }
+    }
+  }
+}
+
+@mixin tile_equal-heights() {
+  height: calc(100% - #{$dso-tile-margin-bottom});
+  min-height: auto;
+}

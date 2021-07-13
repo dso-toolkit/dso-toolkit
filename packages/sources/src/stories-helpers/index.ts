@@ -67,3 +67,7 @@ export type ArgTypes<ComponentArgs> = {
 
   return [checked];
 }
+
+export function componentArgs<T>(args: T): T {
+  return args;
+}
