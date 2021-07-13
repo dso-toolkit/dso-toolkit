@@ -5,10 +5,10 @@ context:
   source: /dummy/images/indienen.png
   description: Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.
 variants:
-  - name: whitebox-regular-counter
+  - name: whitebox-counter
     context:
       count: 3
-  - name: whitebox-regular-icon
+  - name: whitebox-icon
     context:
       icon: di di-check
       label: afgerond

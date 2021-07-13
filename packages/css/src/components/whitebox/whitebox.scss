@@ -1,0 +1,11 @@
+.dso-whitebox {
+  @include whitebox_root();
+}
+
+.row.dso-equal-heights {
+  > [class*="col-"] {
+    > .dso-whitebox {
+      @include whitebox-equal_heights();
+    }
+  }
+}

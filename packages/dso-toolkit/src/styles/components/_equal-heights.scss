@@ -14,16 +14,5 @@
         height: calc(100% - #{$dso-shared-equal-heights-highlight-box-height});
       }
     }
-
-    > .dso-whitebox {
-      height: calc(100% - #{$dso-whitebox-margin-bottom});
-      min-height: auto;
-      padding-bottom: $u2;
-    }
-
-    > .dso-whitebox-small {
-      height: calc(100% - #{$dso-whitebox-small-margin-bottom});
-      min-height: auto;
-    }
   }
 }

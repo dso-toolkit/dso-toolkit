@@ -1,0 +1,17 @@
+.dso-whitebox-small,
+.dso-tile {
+  @include tile_root();
+}
+
+.row.dso-equal-heights {
+  > [class*="col-"] {
+    > .dso-tile,
+    > .dso-whitebox-small {
+      @include tile_equal-heights();
+    }
+  }
+}
+
+.dso-whitebox-small { // DEPRECATED
+  background-color: $dso-invalid-color;
+}

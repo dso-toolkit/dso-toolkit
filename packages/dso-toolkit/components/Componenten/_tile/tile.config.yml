@@ -1,5 +1,5 @@
 status: wip
 context:
-  id: whitebox-small
+  id: tile
   source: /dummy/images/icon-tree.png
   label: Boom kappen of snoeien
