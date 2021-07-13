@@ -2,6 +2,8 @@ export { checkFix } from './stories-helpers';
 
 export * from './components/alert/alert.models';
 export * from './components/alert/alert.stories';
+export * from './components/anchor/anchor.models';
+export * from './components/anchor/anchor.stories';
 export * from './components/attachments-counter/attachments-counter.models';
 export * from './components/attachments-counter/attachments-counter.stories';
 export * from './components/badge/badge.models';

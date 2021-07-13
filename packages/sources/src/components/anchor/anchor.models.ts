@@ -1,5 +1,7 @@
 export interface Anchor {
-  url: string;
+  icon?: string;
+  iconMode?: 'only' | 'after';
   label: string;
   modifier?: string;
+  url: string;
 }
