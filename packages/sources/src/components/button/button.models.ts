@@ -21,3 +21,12 @@ export interface Button {
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
 }
+
+export interface ButtonAnchor {
+  url: string;
+  label: string;
+  modifier?: string;
+  id?: string;
+  icon?: Icon;
+  iconMode?: 'only' | 'after';
+}

@@ -2,6 +2,8 @@ import { storiesOfBanner } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 
+import { anchorTemplate } from '../anchor/anchor.template';
+
 import { bannerTemplate } from './banner.template';
 import readme from './readme.md';
 
@@ -10,7 +12,7 @@ const warningRichContent = html`
     <h2>
       Onderhoudsmelding:
     </h2>
-    <p>Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het Omgevingsloket. <a href="#">Meer informatie</a></p>
+    <p>Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het Omgevingsloket. ${anchorTemplate({ url: '#', label: 'Meer informatie' })}</p>
   </div>
 `;
 

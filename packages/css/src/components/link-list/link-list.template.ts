@@ -1,6 +1,7 @@
 import { LinkList, LinkListType } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+
+import { anchorTemplate } from '../anchor/anchor.template';
 import { highlightBoxTemplate } from '../highlight-box/highlight-box.template';
 
 function ul(children: TemplateResult) {
@@ -23,10 +24,7 @@ export function linkListTemplate({ type, links }: LinkList) {
   const children = html`
     ${links.map(link => html`
       <li>
-        <a
-          href=${link.url}
-          class=${ifDefined(link.modifier)}
-        >${link.label}</a>
+        ${anchorTemplate(link)}
       </li>
     `)}
   `;
