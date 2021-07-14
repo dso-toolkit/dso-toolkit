@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 25.1.2
 
 ### Fixed
 * **dso-toolkit + core + css + react** Packages missen artifacts ([#1223](https://github.com/dso-toolkit/dso-toolkit/issues/1223))
