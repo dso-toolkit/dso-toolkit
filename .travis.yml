@@ -33,11 +33,16 @@ jobs:
         create:
           name: build-artifacts
           paths:
-            - packages/css/www
+            - packages/core/dist
+            - packages/core/loader
             - packages/core/www
-            - packages/react/www
+            - packages/css/dist
+            - packages/css/www
             - packages/dso-toolkit/dist
+            - packages/dso-toolkit/hydrate
             - packages/dso-toolkit/libs/@dso-toolkit
+            - packages/react/dist
+            - packages/react/www
       script:
         yarn lint &&
         yarn build &&
