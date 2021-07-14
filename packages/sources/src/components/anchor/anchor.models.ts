@@ -1,6 +1,8 @@
+import { Icon } from '../icon/icon.models';
+
 export interface Anchor {
-  icon?: string;
-  iconMode?: 'only' | 'after';
+  icon?: Icon;
+  iconMode?: | 'after';
   label: string;
   modifier?: string;
   url: string;

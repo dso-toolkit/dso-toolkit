@@ -4,7 +4,7 @@ import { Anchor } from './anchor.models';
 
 export interface AnchorArgs {
   icon?: string;
-  iconMode?: 'only' | 'after';
+  iconMode?: 'after';
   label: string;
   modifier?: string;
   url: string;
@@ -42,8 +42,11 @@ export const anchorArgTypes: ArgTypes<AnchorArgs> = {
 
 export function anchorArgsMapper(a: AnchorArgs): Anchor {
   return {
-    icon: a.icon,
-    iconMode: a.iconMode,
+    icon: a.icon
+      ? {
+        icon: a.icon
+      }
+      : undefined,
     label: a.label,
     modifier: a.modifier,
     url: a.url

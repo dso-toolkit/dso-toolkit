@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 import { anchorTemplate } from '../anchor/anchor.template';
-import { iconTemplate } from '../icon/icon.template';
 
 import { highlightBoxTemplate } from './highlight-box.template';
 import readme from './readme.md';
@@ -17,7 +16,7 @@ const richContent = html`
     <p>Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken die vergunningvrij, maar niet regelvrij, zijn gerealiseerd. Het vierde en vooralsnog laatste informatieproduct is de Digitaliseringshulp, een service voor het centraal en gestandaardiseerd digitaliseren van documenten.</p>
     ${anchorTemplate({ url: '#', modifier: 'btn btn-primary', label: 'Primaire button' })}
     ${anchorTemplate({ url: '#', modifier: 'btn btn-default', label: 'Secundaire button' })}
-    ${anchorTemplate({ url: '#', modifier: 'btn btn-link btn-align', label: 'Tertiaire button', iconAfter: 'chevron-down' })}
+    ${anchorTemplate({ url: '#', modifier: 'btn btn-link btn-align', label: 'Tertiaire button', icon: 'chevron-down', iconMode: 'after' })}
   </div>
 `;
 

@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 import { anchorTemplate } from '../anchor/anchor.template';
-import { iconTemplate } from '../icon/icon.template';
 
 import { infoTemplate } from './info.template';
 import readme from './readme.md';
@@ -18,7 +17,7 @@ const richContent = html`
 
     ${anchorTemplate({ url: '#', modifier: 'btn btn-primary', label: 'Primaire button' })}
     ${anchorTemplate({ url: '#', modifier: 'btn btn-default', label: 'Secundaire button' })}
-    ${anchorTemplate({ url: '#', modifier: 'btn btn-link btn-align', label: 'Tertiaire button', iconAfter: 'chevron-down' })}
+    ${anchorTemplate({ url: '#', modifier: 'btn btn-link btn-align', label: 'Tertiaire button', icon: 'chevron-down', iconMode: 'after' })}
   </div>
 `;
 
