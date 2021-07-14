@@ -7,24 +7,19 @@ import { iconTemplate } from '../icon/icon.template';
 export function anchorTemplate({ icon, iconMode, label, modifier, url }: Anchor) {
   return html`<a
     href=${url}
-    title=${ifDefined(iconMode === 'only' ? label : undefined)}
     class=${ifDefined(modifier)}
     target=${ifDefined(modifier?.includes('extern') ? '_blank' : undefined)}
     rel=${ifDefined(modifier?.includes('extern') ? 'noopener noreferrer' : undefined)}
   >${
-    icon && iconMode !== 'only' && iconMode !== 'after'
+    icon && iconMode !== 'after'
       ? iconTemplate(icon)
       : nothing
-    }${
-      modifier?.includes('btn')
-        ? html`<span class=${ifDefined(iconMode === 'only' ? 'sr-only' : undefined)}>${label}</span>`
-        : label
-    }${
+    }${label}${
       modifier?.includes('extern')
         ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>`
         : nothing
     }${
-      icon && (iconMode === 'after' || iconMode === 'only')
+      icon && iconMode === 'after'
         ? iconTemplate(icon)
         : nothing
     }</a>`;

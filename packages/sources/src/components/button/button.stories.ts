@@ -1,10 +1,10 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { buttonArgsMapper, buttonArgTypes } from './button.args';
-import { Button } from './button.models';
+import { Button, ButtonAnchor } from './button.models';
 
 export interface ButtonParameters<TemplateFnReturnType> {
-  buttonTemplate: (buttonProperties: Button) => TemplateFnReturnType;
+  buttonTemplate: (buttonProperties: Button | ButtonAnchor) => TemplateFnReturnType;
 }
 
 export function storiesOfButton<TemplateFnReturnType>(
@@ -26,7 +26,7 @@ export function storiesOfButton<TemplateFnReturnType>(
       },
       argTypes: buttonArgTypes,
       args: {
-        type: 'button'
+        element: 'button'
       }
     });
 

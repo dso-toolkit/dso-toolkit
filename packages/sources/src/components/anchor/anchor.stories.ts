@@ -73,17 +73,4 @@ export function storiesOfAnchor<TemplateFnReturnType>(
       }
     }
   );
-
-  stories.add(
-    'icon only',
-    template,
-    {
-      args: {
-        label: 'Product zoeken',
-        url: '#',
-        icon: 'search',
-        iconMode: 'only'
-      }
-    }
-  );
 }

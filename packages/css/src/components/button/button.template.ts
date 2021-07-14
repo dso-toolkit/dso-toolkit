@@ -1,10 +1,44 @@
-import { Button } from '@dso-toolkit/sources';
+import { Button, ButtonAnchor } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
 import { iconTemplate } from '../icon/icon.template';
 
-export function buttonTemplate({
+export function buttonTemplate(button: Button | ButtonAnchor) {
+  return 'url' in button
+    ? anchorElement(button)
+    : buttonElement(button)
+}
+
+function anchorElement({
+  url,
+  label,
+  modifier,
+  id,
+  icon,
+  iconMode
+}: ButtonAnchor) {
+  return html`
+    <a
+      href=${url}
+      class=${ifDefined(modifier)}
+      ?id=${id}
+    >
+      ${icon && !iconMode
+        ? iconTemplate(icon)
+        : nothing
+      }<span class=${ifDefined(iconMode === 'only' ? 'sr-only' : undefined)}>${label}</span>${modifier?.includes('extern')
+        ? html`<span class="sr-only">(Opent andere website in nieuw tabblad)</span>`
+        : nothing
+      }${icon && iconMode
+        ? iconTemplate(icon)
+        : nothing
+      }
+    </a>
+  `;
+}
+
+function buttonElement({
   variant,
   label,
   type,

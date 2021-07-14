@@ -1,9 +1,10 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
 import { ArgTypes } from '../../stories-helpers';
-import { Button } from './button.models';
+import { Button, ButtonAnchor } from './button.models';
 
 export interface ButtonArgs {
+  element: 'button' | 'anchor';
   legacy?: boolean;
   variant: 'primary' | 'secondary' | 'tertiary';
   click: HandlerFunction;
@@ -16,6 +17,12 @@ export interface ButtonArgs {
 }
 
 export const buttonArgTypes: ArgTypes<ButtonArgs> = {
+  element: {
+    options: ['button', 'anchor'],
+    control: {
+      type: 'select'
+    }
+  },
   legacy: {
     control: {
       type: 'boolean'
@@ -71,20 +78,40 @@ const legacyVariantMap = {
   tertiary: 'btn btn-link'
 };
 
-export function buttonArgsMapper(a: ButtonArgs): Button {
-  return {
-    variant: a.legacy ? null : a.variant,
-    onClick: a.click,
-    type: a.type,
-    modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,
-    label: a.label,
-    id: a.id,
-    disabled: a.disabled,
-    icon: a.icon
-      ? {
+export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
+  switch(a.element) {
+    case 'anchor':
+      const args: ButtonAnchor = {
+        url: '#',
+        label: a.label,
         icon: a.icon
-      }
-      : undefined,
-    iconMode: a.iconMode
-  };
+          ? {
+            icon: a.icon
+          }
+          : undefined,
+        iconMode: a.iconMode,
+        id: a.id,
+        modifier: a.legacy ? legacyVariantMap[a.variant] : `dso-${a.variant}`
+      };
+
+      return args;
+    case 'button':
+      return {
+        variant: a.legacy ? null : a.variant,
+        onClick: a.click,
+        type: a.type,
+        modifier: a.legacy ? legacyVariantMap[a.variant] : undefined,
+        label: a.label,
+        id: a.id,
+        disabled: a.disabled,
+        icon: a.icon
+          ? {
+            icon: a.icon
+          }
+          : undefined,
+        iconMode: a.iconMode
+      };
+    default:
+      throw new Error('Unknown element type for Button component');
+  }
 }

@@ -17,7 +17,7 @@ export const anchorArgTypes: ArgTypes<AnchorArgs> = {
     }
   },
   iconMode: {
-    options: [undefined, 'only', 'after'],
+    options: [undefined, 'after'],
     control: {
       type: 'select'
     }
@@ -47,6 +47,7 @@ export function anchorArgsMapper(a: AnchorArgs): Anchor {
         icon: a.icon
       }
       : undefined,
+    iconMode: a.iconMode,
     label: a.label,
     modifier: a.modifier,
     url: a.url
