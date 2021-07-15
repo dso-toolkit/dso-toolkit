@@ -1,5 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
-import clsx from 'clsx';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'dso-progress-indicator',
@@ -11,26 +10,32 @@ export class Progressindicator {
   status?: string;
 
   @Prop()
-  size?: string;
+  size?: 'small' | 'medium' | 'large';
 
   @Prop()
   block?: boolean;
 
-  @Prop()
-  color?: string;
-
   render() {
+    const status = this.status ?? 'Een moment geduld alstublieft.';
+
     return (
-      <div
-        class={clsx('dso-progress-indicator', 'dso-progress-indicator-looping', { [`dso-${this.size}`]: this.size, 'dso-block': this.block, 'dso-color': this.color })}
-        role="progressbar"
-        aria-valuetext={this.status}
-      >
-        <div class="dso-progress-indicator-spinner"></div>
-        <span class="dso-progress-indicator-label">
-          <slot>{`${status}%`}</slot>
-        </span>
-      </div>
+      <Host role="progressbar" aria-valuetext={status}>
+        <div class="dso-progress-indicator-spinner">
+          {/* Keep in sync with /packages/css/src/components/progress-indicator/progress-indicator.scss */}
+          <svg class="spinner" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <style>
+              {`
+                .spinner { animation: rotator 8s linear infinite; transform-origin: center; }
+                @keyframes rotator { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                .path { stroke-dasharray: 265; stroke-dashoffset: 0; transform-origin: center; stroke: #39870c; animation: dash 2s ease-in-out infinite; }
+                @keyframes dash { 0% { stroke-dashoffset: 265; } 50% { stroke-dashoffset: 65; transform:rotate(90deg); } 100% { stroke-dashoffset: 265; transform:rotate(360deg); }
+              `}
+            </style>
+            <circle class="path" fill="none" stroke-width="10" stroke-linecap="butt" cx="50" cy="50" r="45"></circle>
+          </svg>
+        </div>
+        <span class="dso-progress-indicator-label">{status}</span>
+      </Host>
     );
   }
 }

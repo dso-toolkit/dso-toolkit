@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                   | Default     |
-| -------- | --------- | ----------- | ---------------------- | ----------- |
-| `block`  | `block`   |             | `boolean \| undefined` | `undefined` |
-| `color`  | `color`   |             | `string \| undefined`  | `undefined` |
-| `size`   | `size`    |             | `string \| undefined`  | `undefined` |
-| `status` | `status`  |             | `string \| undefined`  | `undefined` |
+| Property | Attribute | Description | Type                                          | Default     |
+| -------- | --------- | ----------- | --------------------------------------------- | ----------- |
+| `block`  | `block`   |             | `boolean \| undefined`                        | `undefined` |
+| `size`   | `size`    |             | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
+| `status` | `status`  |             | `string \| undefined`                         | `undefined` |
 
 
 ----------------------------------------------

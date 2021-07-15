@@ -122,8 +122,7 @@ export namespace Components {
     }
     interface DsoProgressIndicator {
         "block"?: boolean;
-        "color"?: string;
-        "size"?: string;
+        "size"?: 'small' | 'medium' | 'large';
         "status"?: string;
     }
     interface DsoSelectable {
@@ -411,8 +410,7 @@ declare namespace LocalJSX {
     }
     interface DsoProgressIndicator {
         "block"?: boolean;
-        "color"?: string;
-        "size"?: string;
+        "size"?: 'small' | 'medium' | 'large';
         "status"?: string;
     }
     interface DsoSelectable {

@@ -6,7 +6,6 @@ export interface ProgressIndicatorArgs {
   status?: string;
   size?: string;
   block?: boolean;
-  color?: string;
 }
 
 export const progressIndicatorArgTypes: ArgTypes<ProgressIndicatorArgs> = {
@@ -16,18 +15,14 @@ export const progressIndicatorArgTypes: ArgTypes<ProgressIndicatorArgs> = {
     }
   },
   size: {
+    options: [undefined, 'small', 'medium', 'large'],
     control: {
-      type: 'text'
+      type: 'select'
     }
   },
   block: {
     control: {
       type: 'boolean'
-    }
-  },
-  color: {
-    control: {
-      type: 'text'
     }
   }
 };

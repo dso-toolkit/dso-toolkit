@@ -5,7 +5,6 @@ notes: |
   * icm. class `dso-small` zorgt dit voor een (afhankelijk van de inhoud minimaal) 48px hoge progress indicator;
   * icm. class `dso-medium` zorgt dit voor een (afhankelijk van de inhoud minimaal) 64px hoge progress indicator;
   * icm. class `dso-large` zorgt dit voor een (afhankelijk van de inhoud minimaal) 96px hoge progress indicator;
-  * icm. class `dso-gray` zorgt dit voor een lichtgrijze achtergrond.
 
 status: ready
 collated: true
@@ -27,12 +26,6 @@ variants:
     __title: Spinner small - gecentreerd blok
     size: small
     block: true
-- name: spinner-medium-block-background
-  context:
-    __title: Spinner medium - gecentreerd blok met achtergrond
-    size: medium
-    block: true
-    color: gray
 - name: spinner-large-block
   context:
     __title: Spinner large - gecentreerd blok

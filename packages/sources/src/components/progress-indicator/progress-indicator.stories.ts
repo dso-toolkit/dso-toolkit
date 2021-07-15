@@ -28,71 +28,31 @@ export function storiesOfProgressIndicator<TemplateFnReturnType>(
     });
 
   stories.add(
-    'Spinner small (24px)',
+    'Spinner small',
     template,
     {
       args: {
-        status: 'Een moment geduld alstublieft.',
         size: 'small'
       }
     }
   );
 
   stories.add(
-    'Spinner small (32px)',
+    'Spinner medium',
     template,
     {
       args: {
-        status: 'Een moment geduld alstublieft.',
         size: 'medium'
       }
     }
   );
 
   stories.add(
-    'Spinner small (48px)',
+    'Spinner large',
     template,
     {
       args: {
-        status: 'Een moment geduld alstublieft.',
         size: 'large'
-      }
-    }
-  );
-
-  stories.add(
-    'Spinner small - gecentreerd blok',
-    template,
-    {
-      args: {
-        status: 'Een moment geduld alstublieft.',
-        size: 'small',
-        block: true
-      }
-    }
-  );
-
-  stories.add(
-    'Spinner medium - gecentreerd blok',
-    template,
-    {
-      args: {
-        status: 'Een moment geduld alstublieft.',
-        size: 'medium',
-        block: true,
-        color: 'gray'
-      }
-    }
-  );
-
-  stories.add(
-    'Spinner large - gecentreerd blok',
-    template,
-    {
-      args: {
-        status: 'Een moment geduld alstublieft.',
-        size: 'large',
-        block: true
       }
     }
   );

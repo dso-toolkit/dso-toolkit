@@ -4,12 +4,38 @@
 
 @import "~@dso-toolkit/sources/src/components/progress-indicator/progress-indicator";
 
+@include box-sizing();
+@include progress-indicator_root();
+
 :host {
   display: block;
 }
 
-@include box-sizing();
+:host([block]) {
+  @include progress-indicator_block();
+}
 
-.dso-progress-indicator {
-  @include progress-indicator_root();
+:host([size="small"]),
+:host(:not([size="medium"]):not([size="large"])) {
+  @include progress-indicator_small();
+
+  &:host([block]) {
+    @include progress-indicator_small-block();
+  }
+}
+
+:host([size="medium"]) {
+  @include progress-indicator_medium();
+
+  &:host([block]) {
+    @include progress-indicator_medium-block();
+  }
+}
+
+:host([size="large"]) {
+  @include progress-indicator_large();
+
+  &:host([block]) {
+    @include progress-indicator_large-block();
+  }
 }
