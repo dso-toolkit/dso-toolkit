@@ -3,17 +3,18 @@ import clsx from "clsx";
 import { tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
-function tabInPopup(host: Element, down: boolean) {
+function tabInPopup(host: Element, direction: "up" | "down") {
   const tabs = tabbable(host);
   const currentIndex = tabs.findIndex((e) => e === document.activeElement);
-  const nextIndex = down
-    ? currentIndex >= tabs.length - 1
-      ? 0
-      : currentIndex + 1
-    : currentIndex <= 0
-    ? tabs.length - 1
-    : currentIndex - 1;
-  (tabs[nextIndex] as HTMLElement)?.focus();
+
+  var nextIndex = currentIndex + (direction == "down" ? 1 : -1);
+  if (nextIndex >= tabs.length) {
+    nextIndex = 0;
+  } else if (nextIndex < 0) {
+    nextIndex = tabs.length - 1;
+  }
+
+  tabs[nextIndex]?.focus();
 }
 
 function escapePopup(host: Element) {
@@ -96,11 +97,11 @@ export class DropdownButton {
     const target = event.target as HTMLElement;
     switch (event.key) {
       case "ArrowDown":
-        tabInPopup(currentTarget, true);
+        tabInPopup(currentTarget, "down");
         break;
 
       case "ArrowUp":
-        tabInPopup(currentTarget, false);
+        tabInPopup(currentTarget, "up");
         break;
 
       case "Escape":
