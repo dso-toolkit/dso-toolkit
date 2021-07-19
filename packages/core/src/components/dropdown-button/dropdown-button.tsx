@@ -18,7 +18,22 @@ export class DropdownButton {
   @Element()
   el: HTMLElement | undefined;
 
-  button: HTMLButtonElement | undefined;
+  get host(): HTMLElement {
+    if (!this.el) {
+      throw new ReferenceError("Host element not found");
+    }
+
+    return this.el;
+  }
+
+  get button(): HTMLButtonElement {
+    let button = this.host.getElementsByTagName("button")[0];
+    if (!button) {
+      throw new ReferenceError("Mandatory toggle button not found");
+    }
+
+    return button;
+  }
 
   @Watch("open")
   openWatch(open: boolean) {
@@ -30,15 +45,6 @@ export class DropdownButton {
   }
 
   connectedCallback() {
-    if (!this.el) {
-      throw new ReferenceError("Host element not found");
-    }
-
-    this.button = this.el.getElementsByTagName("button")[0];
-    if (!this.button) {
-      throw new ReferenceError("Mandatory toggle button not found");
-    }
-
     this.button.setAttribute("aria-haspopup", "true");
     this.button.setAttribute("aria-expanded", "false");
     if (!this.button.id) {
@@ -47,7 +53,7 @@ export class DropdownButton {
 
     this.button.onclick = () => (this.open = !this.open);
 
-    for (const ul of Array.from(this.el.getElementsByTagName("ul"))) {
+    for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
     }
 
@@ -57,28 +63,12 @@ export class DropdownButton {
   }
 
   openPopup() {
-    if (!this.el) {
-      throw new ReferenceError("Host element not found");
-    }
-
-    if (!this.button) {
-      throw new ReferenceError("Mandatory toggle button not found");
-    }
-
-    this.el.addEventListener("keydown", this.keyDownListener);
+    this.host.addEventListener("keydown", this.keyDownListener);
     this.button.setAttribute("aria-expanded", "true");
   }
 
   closePopup() {
-    if (!this.el) {
-      throw new ReferenceError("Host element not found");
-    }
-
-    if (!this.button) {
-      throw new ReferenceError("Mandatory toggle button not found");
-    }
-
-    this.el.removeEventListener("keydown", this.keyDownListener);
+    this.host.removeEventListener("keydown", this.keyDownListener);
     this.button.setAttribute("aria-expanded", "false");
   }
 
@@ -119,14 +109,10 @@ export class DropdownButton {
   };
 
   tabInPopup(direction: number) {
-    if (!this.el) {
-      throw new ReferenceError("Host element not found");
-    }
-
-    const tabs = tabbable(this.el);
+    const tabs = tabbable(this.host);
     const currentIndex = tabs.findIndex((e) => e === document.activeElement);
 
-    var nextIndex = currentIndex + direction;
+    let nextIndex = currentIndex + direction;
     if (nextIndex >= tabs.length) {
       nextIndex = 1;
     } else if (nextIndex < 1) {
@@ -137,20 +123,12 @@ export class DropdownButton {
   }
 
   escapePopup() {
-    if (!this.button) {
-      throw new ReferenceError("Mandatory toggle button not found");
-    }
-
     this.button.focus();
     this.open = false;
   }
 
   closePopupOnLastTab() {
-    if (!this.el) {
-      throw new ReferenceError("Host element not found");
-    }
-
-    if (tabbable(this.el).pop() === document.activeElement) {
+    if (tabbable(this.host).pop() === document.activeElement) {
       this.open = false;
     }
   }
