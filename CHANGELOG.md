@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** Rich content: ontbrekende alt tag ([#1232](https://github.com/dso-toolkit/dso-toolkit/issues/1232))
 
+### Added
+* **core:** Webcomponent: Dropdown button ([#1173](https://github.com/dso-toolkit/dso-toolkit/issues/1173))
+
 ## 26.0.0
 
 ### Fixed
@@ -20,7 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   * `.dso-progress-indicator-looping` is komen te vervallen, stijling is gefuseerd met de root selector `.dso-progress-indicator`. Het kan geen kwaad om deze class te laten staan.
 * 7 Thema iconen: `energy`, `environment`, `health`, `land`, `procedures`, `safety` en `sound` ([#1227](https://github.com/dso-toolkit/dso-toolkit/issues/1227))
 
-### Changed
+## Changed
 * **BREAKING: dso-toolkit** Whitebox Small heet nu Tile: `.dso-whitebox-small` -> `.dso-tile` ([#1198](https://github.com/dso-toolkit/dso-toolkit/issues/1198)).
 
 ## 25.1.2
