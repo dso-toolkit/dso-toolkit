@@ -20,6 +20,7 @@ context:
           - groups:
               - id: documenten
                 inputType: files
+                label: Documenten
                 files:
                   - filename: Schetsen_en_foto's_1.pdf
                   - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg

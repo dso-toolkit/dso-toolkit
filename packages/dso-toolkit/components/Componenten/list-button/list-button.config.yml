@@ -17,11 +17,17 @@ variants:
       __title: button met input number
       count: 0
       inputNumber: true
+      id: list-button-with-input
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
   - name: button met input number selected
     context:
       __title: button met input number selected
       count: 2
       inputNumber: true
+      id: list-button-with-input-selected
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
   - name: button met extra label
     context:
       __title: button met extra label
@@ -36,6 +42,9 @@ variants:
       __title: button met extra label en input number
       count: 2
       inputNumber: true
+      id: list-button-EL-with-input
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
       sublabel: Gemeente Delft
   - name: button met extra label disabled
     context:
@@ -65,6 +74,9 @@ variants:
       __title: button met optionele tekst en input number
       count: 2
       inputNumber: true
+      id: list-button-OT-with-input
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
       subcontent: |
         Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
   - name: button met lange optionele tekst
@@ -86,12 +98,15 @@ variants:
         Opslaan <mark>van</mark> vloeistoffen in een opslagtank;
         Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
         Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
-        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
+        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik
   - name: button met lange optionele tekst en input number
     context:
       __title: button met lange optionele tekst en input number
       count: 2
       inputNumber: true
+      id: list-button-LOT-with-input
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
       subcontent: |
         Bevat: Reinigen <mark>van</mark> opslagtanks verpakkingen voertuigen of containers voor gevaarlijke stoffen;
         Verwerken <mark>van</mark> bedrijfsafvalstoffen en gevaarlijke afvalstoffen;
@@ -108,7 +123,7 @@ variants:
         Opslaan <mark>van</mark> vloeistoffen in een opslagtank;
         Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
         Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
-        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
+        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik
   - name: button met optionele tekst en extra label
     context:
       __title: button met optionele tekst en extra label
@@ -134,6 +149,9 @@ variants:
       __title: button met optionele tekst en input number en extra label
       count: 2
       inputNumber: true
+      id: list-button-OT-EL-with-input
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
       sublabel: Gemeente Delft
       subcontent: |
         Bevat: <mark>Tank</mark>station, Opslaan van vloeistoffen in een opslag<mark>tank</mark>
@@ -157,12 +175,15 @@ variants:
         Opslaan <mark>van</mark> vloeistoffen in een opslagtank;
         Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
         Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
-        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
+        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik
   - name: button met lange optionele tekst en input number en extra label
     context:
       __title: button met lange optionele tekst en input number en extra label
       count: 2
       inputNumber: true
+      id: list-button-LOT-EL-with-input
+      minusButtonLabel: Aantal verlagen
+      plusButtonLabel: Aantal verhogen
       sublabel: Gemeente Delft
       subcontent: |
         Bevat: Reinigen <mark>van</mark> opslagtanks verpakkingen voertuigen of containers voor gevaarlijke stoffen;
@@ -180,4 +201,4 @@ variants:
         Opslaan <mark>van</mark> vloeistoffen in een opslagtank;
         Vergassen of vloeibaar maken <mark>van</mark> steenkool of andere brandstoffen;
         Opslaan <mark>van</mark> vaste minerale anorganische meststoffen;
-        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik 
+        Opslaan <mark>van</mark> ontplofbare stoffen voor civiel gebruik

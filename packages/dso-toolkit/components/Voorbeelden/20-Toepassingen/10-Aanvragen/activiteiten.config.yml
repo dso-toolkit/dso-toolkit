@@ -91,6 +91,9 @@ context:
     sublabel: Gemeente
     count: 0
     inputNumber: true
+    id: in-stand-houden-van-bouwwerken
+    minusButtonLabel: Aantal verlagen
+    plusButtonLabel: Aantal verhogen
   - type: button
     label: Milieubelastende activiteit - Aanvraag vergunning
     sublabel: Gemeente
