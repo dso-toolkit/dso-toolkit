@@ -82,17 +82,9 @@ export namespace Components {
     }
     interface DsoDropdownButton {
         /**
-          * The text of the dropdown button.
-         */
-        "label": string;
-        /**
           * Whether the dropdown is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
-        /**
-          * The button style variant
-         */
-        "variant": "primary" | "secondary" | "tertiary";
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -384,17 +376,9 @@ declare namespace LocalJSX {
     }
     interface DsoDropdownButton {
         /**
-          * The text of the dropdown button.
-         */
-        "label"?: string;
-        /**
           * Whether the dropdown is open or closed. This attribute is reflected and mutable.
          */
         "open"?: boolean;
-        /**
-          * The button style variant
-         */
-        "variant"?: "primary" | "secondary" | "tertiary";
     }
     interface DsoHighlightBox {
         "border"?: boolean;

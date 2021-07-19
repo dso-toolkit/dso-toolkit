@@ -1,9 +1,12 @@
 import { DropdownButton } from "@dso-toolkit/sources";
 import { html } from "lit-html";
 
-export function dropdownButtonTemplate({ label, variant }: DropdownButton) {
+export function dropdownButtonTemplate({}: DropdownButton) {
   return html`
-    <dso-dropdown-button label=${label} variant=${variant}>
+    <dso-dropdown-button>
+      <button type="button" class="btn btn-default" slot="button">
+        <span>Button</span>
+      </button>
       <h2 class="dso-group-label">Versies</h2>
       <ul>
         <li>

@@ -9,8 +9,8 @@ function tabInPopup(host: Element, direction: "up" | "down") {
 
   var nextIndex = currentIndex + (direction == "down" ? 1 : -1);
   if (nextIndex >= tabs.length) {
-    nextIndex = 0;
-  } else if (nextIndex < 0) {
+    nextIndex = 1;
+  } else if (nextIndex < 1) {
     nextIndex = tabs.length - 1;
   }
 
@@ -18,7 +18,7 @@ function tabInPopup(host: Element, direction: "up" | "down") {
 }
 
 function escapePopup(host: Element) {
-  host.shadowRoot?.children[0]?.getElementsByTagName("button")[0]?.focus();
+  tabbable(host)[0]?.focus();
   host.setAttribute("open", "false");
 }
 
@@ -40,20 +40,10 @@ export class DropdownButton {
   @Prop({ reflect: true, mutable: true })
   open = false;
 
-  /**
-   * The text of the dropdown button.
-   * */
-  @Prop()
-  label: string = "";
-
-  /**
-   * The button style variant
-   */
-  @Prop()
-  variant: "primary" | "secondary" | "tertiary" = "primary";
-
   @Element()
   el: HTMLElement | undefined;
+
+  button: HTMLButtonElement | undefined;
 
   @Watch("open")
   openWatch(open: boolean) {
@@ -64,28 +54,41 @@ export class DropdownButton {
     }
   }
 
-  id = uuidv4();
-
   connectedCallback() {
-    if (this.open) {
-      this.openPopup();
-    }
-
     if (!this.el) {
       return;
     }
 
+    this.button = this.el.getElementsByTagName("button")[0];
+    if (!this.button) {
+      return;
+    }
+
+    this.button.setAttribute("aria-haspopup", "true");
+    this.button.setAttribute("aria-expanded", "false");
+    if (!this.button.id) {
+      this.button.id = uuidv4();
+    }
+
+    this.button.onclick = () => (this.open = !this.open);
+
     for (const ul of Array.from(this.el.getElementsByTagName("ul"))) {
-      ul.setAttribute("aria-labelledby", this.id);
+      ul.setAttribute("aria-labelledby", this.button.id);
+    }
+
+    if (this.open) {
+      this.openPopup();
     }
   }
 
   openPopup() {
     this.el?.addEventListener("keydown", this.keyDownListener);
+    this.button?.setAttribute("aria-expanded", "true");
   }
 
   closePopup() {
     this.el?.removeEventListener("keydown", this.keyDownListener);
+    this.button?.setAttribute("aria-expanded", "false");
   }
 
   keyDownListener(event: KeyboardEvent) {
@@ -126,17 +129,7 @@ export class DropdownButton {
   render() {
     return (
       <div class={clsx("dropdown", { open: this.open })}>
-        <button
-          id={this.id}
-          type="button"
-          aria-haspopup="true"
-          aria-expanded={"" + this.open}
-          class={this.variant}
-          onClick={() => (this.open = !this.open)}
-        >
-          <span>{this.label}</span>
-        </button>
-
+        <slot name="button" />
         <div class="dropdown-menu" hidden={!this.open}>
           <slot />
         </div>

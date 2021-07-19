@@ -32,8 +32,6 @@ export function storiesOfDropdownButton<TemplateFnReturnType>(
 
   stories.add("Dropdown Button", template, {
     args: {
-      label: "Button",
-      variant: "primary",
     },
   });
 }
