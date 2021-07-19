@@ -3,31 +3,6 @@ import clsx from "clsx";
 import { tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
-function tabInPopup(host: Element, direction: "up" | "down") {
-  const tabs = tabbable(host);
-  const currentIndex = tabs.findIndex((e) => e === document.activeElement);
-
-  var nextIndex = currentIndex + (direction == "down" ? 1 : -1);
-  if (nextIndex >= tabs.length) {
-    nextIndex = 1;
-  } else if (nextIndex < 1) {
-    nextIndex = tabs.length - 1;
-  }
-
-  tabs[nextIndex]?.focus();
-}
-
-function escapePopup(host: Element) {
-  tabbable(host)[0]?.focus();
-  host.setAttribute("open", "false");
-}
-
-function closePopupOnLastTab(host: Element) {
-  if (tabbable(host).pop() === document.activeElement) {
-    host.setAttribute("open", "false");
-  }
-}
-
 @Component({
   tag: "dso-dropdown-button",
   shadow: true,
@@ -56,12 +31,12 @@ export class DropdownButton {
 
   connectedCallback() {
     if (!this.el) {
-      return;
+      throw new ReferenceError("Host element not found");
     }
 
     this.button = this.el.getElementsByTagName("button")[0];
     if (!this.button) {
-      return;
+      throw new ReferenceError("Mandatory toggle button not found");
     }
 
     this.button.setAttribute("aria-haspopup", "true");
@@ -82,41 +57,58 @@ export class DropdownButton {
   }
 
   openPopup() {
-    this.el?.addEventListener("keydown", this.keyDownListener);
-    this.button?.setAttribute("aria-expanded", "true");
+    if (!this.el) {
+      throw new ReferenceError("Host element not found");
+    }
+
+    if (!this.button) {
+      throw new ReferenceError("Mandatory toggle button not found");
+    }
+
+    this.el.addEventListener("keydown", this.keyDownListener);
+    this.button.setAttribute("aria-expanded", "true");
   }
 
   closePopup() {
-    this.el?.removeEventListener("keydown", this.keyDownListener);
-    this.button?.setAttribute("aria-expanded", "false");
+    if (!this.el) {
+      throw new ReferenceError("Host element not found");
+    }
+
+    if (!this.button) {
+      throw new ReferenceError("Mandatory toggle button not found");
+    }
+
+    this.el.removeEventListener("keydown", this.keyDownListener);
+    this.button.setAttribute("aria-expanded", "false");
   }
 
-  keyDownListener(event: KeyboardEvent) {
+  keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
       return;
     }
 
-    const currentTarget = event.currentTarget as Element;
-    const target = event.target as HTMLElement;
     switch (event.key) {
       case "ArrowDown":
-        tabInPopup(currentTarget, "down");
+        this.tabInPopup(1);
         break;
 
       case "ArrowUp":
-        tabInPopup(currentTarget, "up");
+        this.tabInPopup(-1);
         break;
 
       case "Escape":
-        escapePopup(currentTarget);
+        this.escapePopup();
         break;
 
       case "Tab":
-        closePopupOnLastTab(currentTarget);
+        this.closePopupOnLastTab();
         return;
 
       case " ":
-        target.click();
+        if (event.target instanceof HTMLElement) {
+          event.target.click();
+        }
+
         break;
 
       default:
@@ -124,6 +116,43 @@ export class DropdownButton {
     }
 
     event.preventDefault();
+  };
+
+  tabInPopup(direction: number) {
+    if (!this.el) {
+      throw new ReferenceError("Host element not found");
+    }
+
+    const tabs = tabbable(this.el);
+    const currentIndex = tabs.findIndex((e) => e === document.activeElement);
+
+    var nextIndex = currentIndex + direction;
+    if (nextIndex >= tabs.length) {
+      nextIndex = 1;
+    } else if (nextIndex < 1) {
+      nextIndex = tabs.length - 1;
+    }
+
+    tabs[nextIndex].focus();
+  }
+
+  escapePopup() {
+    if (!this.button) {
+      throw new ReferenceError("Mandatory toggle button not found");
+    }
+
+    this.button.focus();
+    this.open = false;
+  }
+
+  closePopupOnLastTab() {
+    if (!this.el) {
+      throw new ReferenceError("Host element not found");
+    }
+
+    if (tabbable(this.el).pop() === document.activeElement) {
+      this.open = false;
+    }
   }
 
   render() {
