@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **BREAKING: dso-toolkit + core** Web Component "Progress Indicator" ([#939](https://github.com/dso-toolkit/dso-toolkit/issues/939))
+  * `.dso-gray` op `.dso-progress-indicator` is komen te vervallen: Class is gemaakt voor demo mogelijkheden. Achtergrond moet met bv. Highlight Box worden gegenereerd
+  * `.dso-progress-indicator-looping` is komen te vervallen, stijling is gefuseerd met de root selector `.dso-progress-indicator`. Het kan geen kwaad om deze class te laten staan.
+
 ## Changed
 * **BREAKING: dso-toolkit** Whitebox Small heet nu Tile: `.dso-whitebox-small` -> `.dso-tile` ([#1198](https://github.com/dso-toolkit/dso-toolkit/issues/1198)).
 
