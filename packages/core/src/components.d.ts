@@ -80,9 +80,9 @@ export namespace Components {
          */
         "value": string;
     }
-    interface DsoDropdownButton {
+    interface DsoDropdownMenu {
         /**
-          * Whether the dropdown is open or closed. This attribute is reflected and mutable.
+          * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
     }
@@ -205,11 +205,11 @@ declare global {
         prototype: HTMLDsoDatePickerElement;
         new (): HTMLDsoDatePickerElement;
     };
-    interface HTMLDsoDropdownButtonElement extends Components.DsoDropdownButton, HTMLStencilElement {
+    interface HTMLDsoDropdownMenuElement extends Components.DsoDropdownMenu, HTMLStencilElement {
     }
-    var HTMLDsoDropdownButtonElement: {
-        prototype: HTMLDsoDropdownButtonElement;
-        new (): HTMLDsoDropdownButtonElement;
+    var HTMLDsoDropdownMenuElement: {
+        prototype: HTMLDsoDropdownMenuElement;
+        new (): HTMLDsoDropdownMenuElement;
     };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
@@ -289,7 +289,7 @@ declare global {
         "dso-badge": HTMLDsoBadgeElement;
         "dso-banner": HTMLDsoBannerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
-        "dso-dropdown-button": HTMLDsoDropdownButtonElement;
+        "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-info": HTMLDsoInfoElement;
@@ -374,9 +374,9 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface DsoDropdownButton {
+    interface DsoDropdownMenu {
         /**
-          * Whether the dropdown is open or closed. This attribute is reflected and mutable.
+          * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open"?: boolean;
     }
@@ -473,7 +473,7 @@ declare namespace LocalJSX {
         "dso-badge": DsoBadge;
         "dso-banner": DsoBanner;
         "dso-date-picker": DsoDatePicker;
-        "dso-dropdown-button": DsoDropdownButton;
+        "dso-dropdown-menu": DsoDropdownMenu;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-info": DsoInfo;
@@ -497,7 +497,7 @@ declare module "@stencil/core" {
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
-            "dso-dropdown-button": LocalJSX.DsoDropdownButton & JSXBase.HTMLAttributes<HTMLDsoDropdownButtonElement>;
+            "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;

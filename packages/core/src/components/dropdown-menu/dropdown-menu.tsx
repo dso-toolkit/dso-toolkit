@@ -4,12 +4,12 @@ import { tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
 @Component({
-  tag: "dso-dropdown-button",
+  tag: "dso-dropdown-menu",
   shadow: true,
 })
-export class DropdownButton {
+export class DropdownMenu {
   /**
-   * Whether the dropdown is open or closed.
+   * Whether the menu is open or closed.
    * This attribute is reflected and mutable.
    */
   @Prop({ reflect: true, mutable: true })

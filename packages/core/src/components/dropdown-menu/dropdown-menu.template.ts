@@ -1,9 +1,9 @@
-import { DropdownButton } from "@dso-toolkit/sources";
+import { DropdownMenu } from "@dso-toolkit/sources";
 import { html } from "lit-html";
 
-export function dropdownButtonTemplate({}: DropdownButton) {
+export function dropdownMenuTemplate({}: DropdownMenu) {
   return html`
-    <dso-dropdown-button>
+    <dso-dropdown-menu>
       <button type="button" class="btn btn-default" slot="button">
         <span>Button</span>
       </button>
@@ -36,6 +36,6 @@ export function dropdownButtonTemplate({}: DropdownButton) {
           <a href="#">#663-Dropdown-button-toegankelijk-maken</a>
         </li>
       </ul>
-    </dso-dropdown-button>
+    </dso-dropdown-menu>
   `;
 }
