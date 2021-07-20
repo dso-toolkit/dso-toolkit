@@ -18,10 +18,7 @@ export function storiesOfDropdownMenu<TemplateFnReturnType>(
     dropdownMenuTemplate: dropdownMenuTemplate,
   }: DropdownMenuParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(
-    dropdownMenuArgsMapper,
-    dropdownMenuTemplate
-  );
+  const template = bindTemplate(dropdownMenuArgsMapper, dropdownMenuTemplate);
 
   const stories = storiesOf("Dropdown Menu", mainModule).addParameters({
     docs: {
@@ -32,6 +29,7 @@ export function storiesOfDropdownMenu<TemplateFnReturnType>(
 
   stories.add("Dropdown Menu", template, {
     args: {
+      dropdownAlign: "left",
     },
   });
 }

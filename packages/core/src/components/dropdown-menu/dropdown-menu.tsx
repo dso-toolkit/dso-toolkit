@@ -15,6 +15,12 @@ export class DropdownMenu {
   @Prop({ reflect: true, mutable: true })
   open = false;
 
+  /**
+   * Alignment of the dropdown
+   */
+  @Prop()
+  dropdownAlign: "left" | "right" = "left";
+
   @Element()
   el: HTMLElement | undefined;
 
@@ -135,7 +141,7 @@ export class DropdownMenu {
 
   render() {
     return (
-      <div class={clsx("dropdown", { open: this.open })}>
+      <div class={clsx("dropdown", this.dropdownAlign, { open: this.open })}>
         <slot name="button" />
         <div class="dropdown-menu" hidden={!this.open}>
           <slot />

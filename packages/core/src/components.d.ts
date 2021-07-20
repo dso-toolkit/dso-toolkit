@@ -82,6 +82,10 @@ export namespace Components {
     }
     interface DsoDropdownMenu {
         /**
+          * Alignment of the dropdown
+         */
+        "dropdownAlign": "left" | "right";
+        /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
@@ -375,6 +379,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface DsoDropdownMenu {
+        /**
+          * Alignment of the dropdown
+         */
+        "dropdownAlign"?: "left" | "right";
         /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */

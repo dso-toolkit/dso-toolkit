@@ -1,9 +1,9 @@
 import { DropdownMenu } from "@dso-toolkit/sources";
 import { html } from "lit-html";
 
-export function dropdownMenuTemplate({}: DropdownMenu) {
+export function dropdownMenuTemplate({ dropdownAlign }: DropdownMenu) {
   return html`
-    <dso-dropdown-menu>
+    <dso-dropdown-menu dropdown-align=${dropdownAlign}>
       <button type="button" class="btn btn-default" slot="button">
         <span>Button</span>
       </button>

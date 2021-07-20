@@ -9,9 +9,10 @@ Must contain one or more `ul` elements with tabbable elements inside.
 
 ## Properties
 
-| Property | Attribute | Description                                                                  | Type      | Default |
-| -------- | --------- | ---------------------------------------------------------------------------- | --------- | ------- |
-| `open`   | `open`    | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean` | `false` |
+| Property        | Attribute        | Description                                                                  | Type                | Default  |
+| --------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------- | -------- |
+| `dropdownAlign` | `dropdown-align` | Alignment of the dropdown                                                    | `"left" \| "right"` | `"left"` |
+| `open`          | `open`           | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean`           | `false`  |
 
 
 ----------------------------------------------
