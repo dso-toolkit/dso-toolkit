@@ -137,7 +137,7 @@ module.exports = function (options) {
       }
 
       const components = [...entity._app._components.components()._fileTree._items].find(c => c.name === 'componenten');
-      const webComponents = [];
+      const webComponents = ['dso-icon'];
 
       for (const item of components._items) {
         if (item.configData && item.configData.meta && typeof item.configData.meta.webComponent === 'string' && item.configData.meta.webComponent !== '' && !item.configData.meta.markup) {
@@ -223,7 +223,7 @@ module.exports = function (options) {
       );
 
       const components = [...entity._app._components.components()._fileTree._items].find(c => c.name === 'componenten');
-      const webComponents = [];
+      const webComponents = ['dso-icon'];
 
       for (const item of components._items) {
         if (item.configData && item.configData.meta && typeof item.configData.meta.webComponent === 'string' && item.configData.meta.webComponent !== '' && !item.configData.meta.markup) {
