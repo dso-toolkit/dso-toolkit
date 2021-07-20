@@ -11,6 +11,6 @@ storiesOfDropdownMenu(
     readme,
   },
   {
-    dropdownMenuTemplate: dropdownMenuTemplate,
+    dropdownMenuTemplate,
   }
 );

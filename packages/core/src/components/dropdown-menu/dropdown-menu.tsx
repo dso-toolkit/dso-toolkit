@@ -1,6 +1,6 @@
 import { Component, h, Prop, Watch, Element } from "@stencil/core";
 import clsx from "clsx";
-import { tabbable } from "tabbable";
+import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
 @Component({
@@ -22,23 +22,21 @@ export class DropdownMenu {
   dropdownAlign: "left" | "right" = "left";
 
   @Element()
-  el: HTMLElement | undefined;
-
-  get host(): HTMLElement {
-    if (!this.el) {
-      throw new ReferenceError("Host element not found");
-    }
-
-    return this.el;
-  }
+  host!: HTMLElement;
 
   get button(): HTMLButtonElement {
-    let button = this.host.getElementsByTagName("button")[0];
+    const button = this.host.querySelectorAll(
+      "button[slot = 'button']"
+    )[0] as HTMLButtonElement;
     if (!button) {
       throw new ReferenceError("Mandatory toggle button not found");
     }
 
     return button;
+  }
+
+  get tabbables(): FocusableElement[] {
+    return tabbable(this.host).filter((e) => e !== this.button);
   }
 
   @Watch("open")
@@ -57,7 +55,9 @@ export class DropdownMenu {
       this.button.id = uuidv4();
     }
 
-    this.button.onclick = () => (this.open = !this.open);
+    this.host.addEventListener("click", () => {
+      this.open = !this.open;
+    });
 
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
@@ -97,6 +97,11 @@ export class DropdownMenu {
         break;
 
       case "Tab":
+        if (event.shiftKey) {
+          this.closePopupOnFirstTabBack();
+          return;
+        }
+
         this.closePopupOnLastTab();
         return;
 
@@ -115,13 +120,13 @@ export class DropdownMenu {
   };
 
   tabInPopup(direction: number) {
-    const tabs = tabbable(this.host);
+    const tabs = this.tabbables;
     const currentIndex = tabs.findIndex((e) => e === document.activeElement);
 
     let nextIndex = currentIndex + direction;
     if (nextIndex >= tabs.length) {
-      nextIndex = 1;
-    } else if (nextIndex < 1) {
+      nextIndex = 0;
+    } else if (nextIndex < 0) {
       nextIndex = tabs.length - 1;
     }
 
@@ -134,7 +139,13 @@ export class DropdownMenu {
   }
 
   closePopupOnLastTab() {
-    if (tabbable(this.host).pop() === document.activeElement) {
+    if (this.tabbables.pop() === document.activeElement) {
+      this.open = false;
+    }
+  }
+
+  closePopupOnFirstTabBack() {
+    if (this.tabbables.shift() === document.activeElement) {
       this.open = false;
     }
   }
