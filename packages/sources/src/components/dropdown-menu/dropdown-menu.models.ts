@@ -9,16 +9,19 @@ export interface DropdownMenu<TemplateFnReturnType> {
 
 export interface DropdownMenuGroup {
   header?: string;
-  items: (DropdownMenuItemAnchor | DropdownMenuItemButton)[];
+  items: Array<DropdownMenuItem & (DropdownMenuItemAnchor | DropdownMenuItemButton)>;
+}
+
+export interface DropdownMenuItem {
+  label: string;
+  checked?: boolean;
 }
 
 export interface DropdownMenuItemAnchor {
   type: 'anchor';
   url: string;
-  label: string;
 }
 
 export interface DropdownMenuItemButton {
   type: 'button';
-  label: string;
 }

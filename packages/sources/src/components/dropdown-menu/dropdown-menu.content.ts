@@ -18,7 +18,7 @@ export const versions: DropdownMenuGroup[] = [
     header: 'Branch releases',
     items: [
       { type: 'anchor', url: '#', label: '#500-Margins-Testbuilds' },
-      { type: 'anchor', url: '#', label: '#611-Pager-component-uitbreiden' },
+      { type: 'anchor', url: '#', label: '#611-Pager-component-uitbreiden', checked: true },
       { type: 'anchor', url: '#', label: '#663-Dropdown-button-toegankelijk-maken' }
     ]
   }

@@ -1,6 +1,7 @@
 import { storiesOfDropdownMenu } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html, nothing } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
 import { dropdownMenuTemplate } from './dropdown-menu.template';
 import readme from './readme.md';
@@ -23,7 +24,7 @@ storiesOfDropdownMenu(
         }
         <ul>
           ${group.items.map(item => html`
-            <li>
+            <li class=${ifDefined(item.checked ? 'dso-checked' : undefined)}>
               ${item.type === 'anchor'
                 ? html`
                   <a href=${item.url}>${item.label}</a>

@@ -135,7 +135,7 @@ export class DropdownMenu {
     return (
       <>
         <slot name="button" />
-        <div class="dropdown-menu" hidden={!this.open}>
+        <div hidden={!this.open}>
           <slot />
         </div>
       </>
