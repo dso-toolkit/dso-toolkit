@@ -7,11 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **dso-toolkit:** Lege elementen zoals sr-only, id's, legends en labels in de toolkit ([#1220](https://github.com/dso-toolkit/dso-toolkit/issues/1220))
+* **core** `help` en `help-active` ontbreken in `<dso-icon>` ([#1224](https://github.com/dso-toolkit/dso-toolkit/issues/1224))
 
 ### Added
 * **BREAKING: dso-toolkit + core** Web Component "Progress Indicator" ([#939](https://github.com/dso-toolkit/dso-toolkit/issues/939))
   * `.dso-gray` op `.dso-progress-indicator` is komen te vervallen: Class is gemaakt voor demo mogelijkheden. Achtergrond moet met bv. Highlight Box worden gegenereerd
   * `.dso-progress-indicator-looping` is komen te vervallen, stijling is gefuseerd met de root selector `.dso-progress-indicator`. Het kan geen kwaad om deze class te laten staan.
+* 7 Thema iconen: `energy`, `environment`, `health`, `land`, `procedures`, `safety` en `sound` ([#1227](https://github.com/dso-toolkit/dso-toolkit/issues/1227))
 
 ### Changed
 * **BREAKING: dso-toolkit** Whitebox Small heet nu Tile: `.dso-whitebox-small` -> `.dso-tile` ([#1198](https://github.com/dso-toolkit/dso-toolkit/issues/1198)).

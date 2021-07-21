@@ -22,18 +22,24 @@ import crown from '@dso-toolkit/sources/src/icons/crown.svg';
 import cultural from '@dso-toolkit/sources/src/icons/cultural.svg';
 import download from '@dso-toolkit/sources/src/icons/download.svg';
 import email from '@dso-toolkit/sources/src/icons/email.svg';
+import energy from '@dso-toolkit/sources/src/icons/energy.svg';
+import environment from '@dso-toolkit/sources/src/icons/environment.svg';
 import exclamation from '@dso-toolkit/sources/src/icons/exclamation.svg';
 import externalLink from '@dso-toolkit/sources/src/icons/external-link.svg';
 import eyeSlash from '@dso-toolkit/sources/src/icons/eye-slash.svg';
 import eye from '@dso-toolkit/sources/src/icons/eye.svg';
 import filter from '@dso-toolkit/sources/src/icons/filter.svg';
 import forbidden from '@dso-toolkit/sources/src/icons/forbidden.svg';
+import health from '@dso-toolkit/sources/src/icons/health.svg';
+import helpActive from '@dso-toolkit/sources/src/icons/help-active.svg';
+import help from '@dso-toolkit/sources/src/icons/help.svg';
 import house from '@dso-toolkit/sources/src/icons/house.svg';
 import infoActive from '@dso-toolkit/sources/src/icons/info-active.svg';
 import infoI from '@dso-toolkit/sources/src/icons/info-i.svg';
 import info from '@dso-toolkit/sources/src/icons/info.svg';
 import infrastructure from '@dso-toolkit/sources/src/icons/infrastructure.svg';
 import label from '@dso-toolkit/sources/src/icons/label.svg';
+import land from '@dso-toolkit/sources/src/icons/land.svg';
 import landscape from '@dso-toolkit/sources/src/icons/landscape.svg';
 import layers from '@dso-toolkit/sources/src/icons/layers.svg';
 import location from '@dso-toolkit/sources/src/icons/location.svg';
@@ -57,7 +63,9 @@ import pinOutline from '@dso-toolkit/sources/src/icons/pin-outline.svg';
 import plusSquare from '@dso-toolkit/sources/src/icons/plus-square.svg';
 import plus from '@dso-toolkit/sources/src/icons/plus.svg';
 import print from '@dso-toolkit/sources/src/icons/print.svg';
+import procedures from '@dso-toolkit/sources/src/icons/procedures.svg';
 import redo from '@dso-toolkit/sources/src/icons/redo.svg';
+import safety from '@dso-toolkit/sources/src/icons/safety.svg';
 import search from '@dso-toolkit/sources/src/icons/search.svg';
 import scale from '@dso-toolkit/sources/src/icons/scale.svg';
 import sitemap from '@dso-toolkit/sources/src/icons/sitemap.svg';
@@ -65,6 +73,7 @@ import soil from '@dso-toolkit/sources/src/icons/soil.svg';
 import sortAscending from '@dso-toolkit/sources/src/icons/sort-ascending.svg';
 import sortDescending from '@dso-toolkit/sources/src/icons/sort-descending.svg';
 import sort from '@dso-toolkit/sources/src/icons/sort.svg';
+import sound from '@dso-toolkit/sources/src/icons/sound.svg';
 import statusDanger from '@dso-toolkit/sources/src/icons/status-danger.svg';
 import statusInfo from '@dso-toolkit/sources/src/icons/status-info.svg';
 import statusSuccess from '@dso-toolkit/sources/src/icons/status-success.svg';
@@ -102,18 +111,24 @@ const icons = [
   { alias: 'cultural', svg: cultural },
   { alias: 'download', svg: download },
   { alias: 'email', svg: email },
+  { alias: 'energy', svg: energy },
+  { alias: 'environment', svg: environment },
   { alias: 'exclamation', svg: exclamation },
   { alias: 'external-link', svg: externalLink },
   { alias: 'eye-slash', svg: eyeSlash },
   { alias: 'eye', svg: eye },
   { alias: 'filter', svg: filter },
   { alias: 'forbidden', svg: forbidden },
+  { alias: 'health', svg: health },
+  { alias: 'help-active', svg: helpActive },
+  { alias: 'help', svg: help },
   { alias: 'house', svg: house },
   { alias: 'info-active', svg: infoActive },
   { alias: 'info-i', svg: infoI },
   { alias: 'info', svg: info },
   { alias: 'infrastructure', svg: infrastructure },
   { alias: 'label', svg: label },
+  { alias: 'land', svg: land },
   { alias: 'landscape', svg: landscape },
   { alias: 'layers', svg: layers },
   { alias: 'location', svg: location },
@@ -137,7 +152,9 @@ const icons = [
   { alias: 'plus-square', svg: plusSquare },
   { alias: 'plus', svg: plus },
   { alias: 'print', svg: print },
+  { alias: 'procedures', svg: procedures },
   { alias: 'redo', svg: redo },
+  { alias: 'safety', svg: safety },
   { alias: 'scale', svg: scale },
   { alias: 'search', svg: search },
   { alias: 'sitemap', svg: sitemap },
@@ -145,6 +162,7 @@ const icons = [
   { alias: 'sort-ascending', svg: sortAscending },
   { alias: 'sort-descending', svg: sortDescending },
   { alias: 'sort', svg: sort },
+  { alias: 'sound', svg: sound },
   { alias: 'status-danger', svg: statusDanger },
   { alias: 'status-info', svg: statusInfo },
   { alias: 'status-success', svg: statusSuccess },
