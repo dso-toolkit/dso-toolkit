@@ -7,6 +7,7 @@ export interface DropdownMenuArgs {
   buttonVariant: 'primary' | 'secondary' | 'tertiary';
   dropdownAlign: "left" | "right";
   children: string;
+  isCheckable: boolean;
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
@@ -27,6 +28,11 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
       type: "select",
     },
   },
+  isCheckable: {
+    control: {
+      type: "boolean",
+    },
+  },
   children: {
     table: {
       disable: true,
@@ -44,5 +50,6 @@ export function dropdownMenuArgsMapper(
     },
     dropdownAlign: a.dropdownAlign,
     children: a.children,
+    isCheckable: a.isCheckable,
   };
 }
