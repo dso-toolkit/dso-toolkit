@@ -70,13 +70,21 @@ export class DropdownMenu {
 
   openPopup() {
     this.host.addEventListener("keydown", this.keyDownListener);
+    this.host.addEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "true");
   }
 
   closePopup() {
     this.host.removeEventListener("keydown", this.keyDownListener);
+    this.host.removeEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "false");
   }
+
+  focusOutListener = (event: FocusEvent) => {
+    if (this.tabbables.indexOf(event.relatedTarget as FocusableElement) < 0) {
+      this.open = false;
+    }
+  };
 
   keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
@@ -93,17 +101,8 @@ export class DropdownMenu {
         break;
 
       case "Escape":
-        this.escapePopup();
+        this.button.focus();
         break;
-
-      case "Tab":
-        if (event.shiftKey) {
-          this.closePopupOnFirstTabBack();
-          return;
-        }
-
-        this.closePopupOnLastTab();
-        return;
 
       case " ":
         if (event.target instanceof HTMLElement) {
@@ -131,23 +130,6 @@ export class DropdownMenu {
     }
 
     tabs[nextIndex].focus();
-  }
-
-  escapePopup() {
-    this.button.focus();
-    this.open = false;
-  }
-
-  closePopupOnLastTab() {
-    if (this.tabbables.pop() === document.activeElement) {
-      this.open = false;
-    }
-  }
-
-  closePopupOnFirstTabBack() {
-    if (this.tabbables.shift() === document.activeElement) {
-      this.open = false;
-    }
   }
 
   render() {
