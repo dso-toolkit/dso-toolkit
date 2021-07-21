@@ -1,4 +1,4 @@
-export interface DropdownMenu<TemplateFnReturnType> {
-  children: TemplateFnReturnType;
+export interface DropdownMenu {
+  children: string;
   dropdownAlign: "left" | "right";
 }

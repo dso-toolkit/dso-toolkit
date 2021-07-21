@@ -2,12 +2,12 @@ import { ArgTypes } from "../../stories-helpers";
 
 import { DropdownMenu } from "./dropdown-menu.models";
 
-export interface DropdownMenuArgs<TemplateFnReturnType> {
+export interface DropdownMenuArgs {
   dropdownAlign: "left" | "right";
-  children: TemplateFnReturnType;
+  children: string;
 }
 
-export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs<unknown>> = {
+export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
   dropdownAlign: {
     options: ["left", "right"],
     control: {
@@ -22,8 +22,8 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs<unknown>> = {
 };
 
 export function dropdownMenuArgsMapper(
-  a: DropdownMenuArgs<any>
-): DropdownMenu<any> {
+  a: DropdownMenuArgs
+): DropdownMenu {
   return {
     dropdownAlign: a.dropdownAlign,
     children: a.children,

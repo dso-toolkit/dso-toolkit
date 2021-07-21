@@ -8,15 +8,15 @@ import { DropdownMenu } from "./dropdown-menu.models";
 
 export interface DropdownMenuParameters<TemplateFnReturnType> {
   dropdownMenuTemplate: (
-    dropdownMenuProperties: DropdownMenu<TemplateFnReturnType>
+    dropdownMenuProperties: DropdownMenu
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfDropdownMenu<TemplateFnReturnType>(
+export function storiesOfDropdownMenu<T>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
   {
-    dropdownMenuTemplate: dropdownMenuTemplate,
-  }: DropdownMenuParameters<TemplateFnReturnType>
+    dropdownMenuTemplate,
+  }: DropdownMenuParameters<T>
 ) {
   const template = bindTemplate(dropdownMenuArgsMapper, dropdownMenuTemplate);
 
