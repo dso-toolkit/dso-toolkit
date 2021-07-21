@@ -1,0 +1,18 @@
+.dropdown {
+  @include dropdown_root();
+
+  .dropdown-menu {
+    @include dropdown-menu_root();
+    @include dropdown-menu_children();
+  }
+}
+
+.dso-dropdown-right {
+  @include dropdown_right();
+}
+
+.navbar-right .dropdown-menu,
+.dso-dropdown-right.dropdown-menu,
+.dso-dropdown-right .dropdown-menu {
+  @include dropdown-menu_right();
+}

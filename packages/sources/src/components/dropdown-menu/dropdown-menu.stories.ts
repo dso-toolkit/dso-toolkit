@@ -29,11 +29,10 @@ export function storiesOfDropdownMenu<T>(
 
   stories.add("Dropdown Menu", template, {
     args: {
+      buttonLabel: 'Opties',
+      buttonVariant: 'secondary',
       dropdownAlign: "left",
       children: `
-        <button type="button" class="btn btn-default" slot="button">
-          <span>Button</span>
-        </button>
         <h2 class="dso-group-label">Versies</h2>
         <ul>
           <li>

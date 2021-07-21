@@ -20,6 +20,7 @@ export interface Button {
   ariaHaspopup?: boolean;
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
+  slot?: string;
 }
 
 export interface ButtonAnchor {
@@ -29,4 +30,5 @@ export interface ButtonAnchor {
   id?: string;
   icon?: Icon;
   iconMode?: 'only' | 'after';
+  slot?: string;
 }

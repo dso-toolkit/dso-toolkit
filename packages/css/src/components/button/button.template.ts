@@ -16,12 +16,14 @@ function anchorElement({
   modifier,
   id,
   icon,
-  iconMode
+  iconMode,
+  slot
 }: ButtonAnchor) {
   return html`
     <a
       href=${url}
       class=${ifDefined(modifier)}
+      slot=${ifDefined(slot)}
       ?id=${id}
     >
       ${icon && !iconMode
@@ -51,7 +53,8 @@ function buttonElement({
   ariaExpanded,
   ariaHaspopup,
   ariaRoledescription,
-  onClick
+  onClick,
+  slot
 }: Button) {
   type ??= 'button';
   const className = variant ? `dso-${variant}` : modifier;
@@ -61,6 +64,7 @@ function buttonElement({
       type=${type}
       id=${ifDefined(id)}
       class=${ifDefined(className)}
+      slot=${ifDefined(slot)}
       ?disabled=${disabled}
       aria-describedby=${ifDefined(ariaDescribedby)}
       aria-expanded=${ifDefined(ariaExpanded)}
