@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 26.0.0
+
 ### Fixed
 * **dso-toolkit:** Lege elementen zoals sr-only, id's, legends en labels in de toolkit ([#1220](https://github.com/dso-toolkit/dso-toolkit/issues/1220))
 * **core** `help` en `help-active` ontbreken in `<dso-icon>` ([#1224](https://github.com/dso-toolkit/dso-toolkit/issues/1224))
