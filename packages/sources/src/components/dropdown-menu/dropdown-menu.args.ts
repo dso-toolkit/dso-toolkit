@@ -34,7 +34,7 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs<unknown>> = {
     },
   },
   children: {
-    control: {
+    table: {
       disable: true
     }
   }
