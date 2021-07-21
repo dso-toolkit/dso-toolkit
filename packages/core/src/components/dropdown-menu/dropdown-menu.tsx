@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 @Component({
   tag: "dso-dropdown-menu",
-  styleUrl: 'dropdown-menu.scss',
+  styleUrl: "dropdown-menu.scss",
   shadow: true,
 })
 export class DropdownMenu {
@@ -103,6 +103,7 @@ export class DropdownMenu {
 
       case "Escape":
         this.button.focus();
+        this.open = false;
         break;
 
       case " ":
