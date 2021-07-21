@@ -55,7 +55,7 @@ export class DropdownMenu {
       this.button.id = uuidv4();
     }
 
-    this.host.addEventListener("click", () => {
+    this.button.addEventListener("click", () => {
       this.open = !this.open;
     });
 
