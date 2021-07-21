@@ -5,11 +5,7 @@
 @import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
 
 :host {
-  @include dropdown_root();
+  @include dropdown-menu_root();
 
   display: block;
-}
-
-.dropdown-menu {
-  @include dropdown-menu_root();
 }

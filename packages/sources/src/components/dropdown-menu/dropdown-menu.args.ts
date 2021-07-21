@@ -2,15 +2,15 @@ import { ArgTypes } from "../../stories-helpers";
 
 import { DropdownMenu } from "./dropdown-menu.models";
 
-export interface DropdownMenuArgs {
+export interface DropdownMenuArgs<TemplateFnReturnType> {
   buttonLabel: string;
   buttonVariant: 'primary' | 'secondary' | 'tertiary';
   dropdownAlign: "left" | "right";
-  children: string;
   isCheckable: boolean;
+  children: TemplateFnReturnType;
 }
 
-export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
+export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs<unknown>> = {
   buttonLabel: {
     control: {
       type: 'text'
@@ -34,15 +34,13 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
     },
   },
   children: {
-    table: {
-      disable: true,
-    },
-  },
+    control: {
+      disable: true
+    }
+  }
 };
 
-export function dropdownMenuArgsMapper(
-  a: DropdownMenuArgs
-): DropdownMenu {
+export function dropdownMenuArgsMapper(a: DropdownMenuArgs<any>): DropdownMenu<any> {
   return {
     button: {
       label: a.buttonLabel,

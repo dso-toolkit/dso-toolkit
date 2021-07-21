@@ -1,5 +1,4 @@
-import { Component, h, Prop, Watch, Element } from "@stencil/core";
-import clsx from "clsx";
+import { Component, h, Prop, Watch, Element, Fragment } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
@@ -26,10 +25,8 @@ export class DropdownMenu {
   host!: HTMLElement;
 
   get button(): HTMLButtonElement {
-    const button = this.host.querySelectorAll(
-      "button[slot = 'button']"
-    )[0] as HTMLButtonElement;
-    if (!button) {
+    const button = this.host.querySelectorAll("button[slot = 'button']")[0];
+    if (!(button instanceof HTMLButtonElement)) {
       throw new ReferenceError("Mandatory toggle button not found");
     }
 
@@ -136,12 +133,12 @@ export class DropdownMenu {
 
   render() {
     return (
-      <div class={clsx("dropdown", this.dropdownAlign, { open: this.open })}>
+      <>
         <slot name="button" />
         <div class="dropdown-menu" hidden={!this.open}>
           <slot />
         </div>
-      </div>
+      </>
     );
   }
 }

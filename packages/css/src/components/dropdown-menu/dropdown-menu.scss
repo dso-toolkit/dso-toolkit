@@ -1,18 +1,22 @@
-.dropdown {
-  @include dropdown_root();
+.dso-dropdown {
+  @include dropdown-menu_root();
+  @include dropdown-menu_children();
 
-  .dropdown-menu {
-    @include dropdown-menu_root();
-    @include dropdown-menu_children();
+  &.dso-open {
+    @include dropdown-menu_open();
+  }
+
+  &.dso-checkable {
+    @include dropdown-menu_checkable();
   }
 }
 
 .dso-dropdown-right {
-  @include dropdown_right();
+  @include dropdown-menu_align-right();
 }
 
-.navbar-right .dropdown-menu,
-.dso-dropdown-right.dropdown-menu,
-.dso-dropdown-right .dropdown-menu {
-  @include dropdown-menu_right();
-}
+// .navbar-right .dropdown-menu,
+// .dso-dropdown-right.dropdown-menu,
+// .dso-dropdown-right .dropdown-menu {
+//   @include dropdown-menu_right();
+// }
