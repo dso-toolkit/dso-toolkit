@@ -1,6 +1,7 @@
 {
   "ignoreFiles": [
-    "**/bootstrap-sass/**",
+    "**/node_modules/**",
+    "**/libs/**",
     "**/src/icons/**"
   ],
   "extends": "stylelint-config-standard",

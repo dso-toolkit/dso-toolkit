@@ -38,7 +38,6 @@
     "gulp": "4.0.2",
     "gulp-filter": "6.0.0",
     "gulp-sass": "4.1.0",
-    "gulp-stylelint": "13.0.0",
     "gulp-svgmin": "3.0.0",
     "gulp-tap": "2.0.0",
     "gulp-trim": "1.0.2",
@@ -49,10 +48,7 @@
     "node-sass": "^4.8.3",
     "prettier": "^2.2.1",
     "pretty": "2.0.0",
-    "rollup": "^2.45.2",
-    "stylelint": "13.12.0",
-    "stylelint-config-standard": "20.0.0",
-    "stylelint-scss": "3.19.0"
+    "rollup": "^2.45.2"
   },
   "resolutions": {
     "node-sass": "4.14.1"
