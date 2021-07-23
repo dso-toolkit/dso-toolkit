@@ -156,14 +156,6 @@ $dso-dropdown-hor-padding: 20px;
 }
 
 @mixin dropdown-menu_checkable() {
-  .dso-dropdown-menu {
-    a,
-    button,
-    .dso-group-label {
-      padding-left: $u5;
-    }
-  }
-
   li {
     a,
     button,
