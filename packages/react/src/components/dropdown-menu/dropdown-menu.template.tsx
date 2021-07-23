@@ -10,7 +10,7 @@ export function dropdownMenuTemplate({
   children,
 }: DropdownMenu<JSX.Element>) {
   return (
-    <DsoDropdownMenu dropdown-align={dropdownAlign} checkable={isCheckable}>
+    <DsoDropdownMenu dropdown-align={dropdownAlign} checkable={isCheckable || undefined}>
       <button type="button" className={`dso-${button.variant}`} slot="button">
         <span>{button.label}</span>
       </button>
