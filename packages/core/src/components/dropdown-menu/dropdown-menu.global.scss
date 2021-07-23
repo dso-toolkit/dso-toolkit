@@ -3,6 +3,10 @@ dso-dropdown-menu {
 
   &[dropdown-align="right"] {
     @include dropdown-menu_align-right();
+
+    .dso-dropdown-menu {
+      @include dropdown-menu_right();
+    }
   }
 
   &[open] {

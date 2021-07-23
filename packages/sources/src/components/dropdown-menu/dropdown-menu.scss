@@ -1,20 +1,5 @@
 $dropdown-bg: #fff;
 $dropdown-border: rgba(0, 0, 0, .15);
-// $dropdown-fallback-border:       #ccc;
-// $dropdown-divider-bg: #e5e5e5;
-
-// $dropdown-link-color:            $gray-dark;
-// $dropdown-link-hover-color: $wit;
-// $dropdown-link-hover-bg: $grasgroen;
-
-// $dropdown-link-active-color: #fff;
-// $dropdown-link-active-bg: $bosgroen;
-
-// $dropdown-link-disabled-color: $gray-light;
-
-// $dropdown-header-color: $gray-light;
-
-// $dropdown-caret-color:           #000;
 
 $dso-dropdown-hor-padding: 20px;
 
@@ -24,19 +9,14 @@ $dso-dropdown-hor-padding: 20px;
 
 @mixin dropdown-menu_children() {
   .dso-dropdown-menu {
-    // background-clip: padding-box;
     background-color: $dropdown-bg;
     border-radius: $border-radius-base;
     border: 1px solid $dropdown-border;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
-    // float: left;
     font-size: $font-size-base;
-    // list-style: none;
-    // margin: 2px 0 0; // override default ul
     min-width: 160px;
     padding: 5px 0;
     position: absolute;
-    // text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
     top: 100%;
     z-index: $zindex-dropdown;
   }
@@ -112,7 +92,8 @@ $dso-dropdown-hor-padding: 20px;
   li {
     list-style: none;
 
-    a {
+    a,
+    button {
       @include anchor-reverse();
 
       clear: both;
@@ -132,6 +113,14 @@ $dso-dropdown-hor-padding: 20px;
         text-decoration: none;
       }
     }
+
+    button {
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      text-align: left;
+      width: 100%;
+    }
   }
 }
 
@@ -149,8 +138,7 @@ $dso-dropdown-hor-padding: 20px;
       @include di-variant("chevron-up");
     }
 
-    &:hover::after,
-    &:focus::after {
+    &:hover::after {
       @include di-variant("chevron-up-wit");
     }
   }
@@ -168,19 +156,24 @@ $dso-dropdown-hor-padding: 20px;
 }
 
 @mixin dropdown-menu_checkable() {
-  a,
-  .dso-group-label {
-    padding-left: $u5;
+  .dso-dropdown-menu {
+    a,
+    button,
+    .dso-group-label {
+      padding-left: $u5;
+    }
   }
 
   li {
     a,
+    button,
     .dso-group-label {
       padding-left: $u5;
     }
 
     &.dso-checked {
-      a {
+      a,
+      button {
         &:not(:focus) {
           background-color: $grasgroen;
           border-color: $grasgroen;

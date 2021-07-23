@@ -16,7 +16,7 @@
 }
 
 // .navbar-right .dropdown-menu,
-// .dso-dropdown-right.dropdown-menu,
-// .dso-dropdown-right .dropdown-menu {
-//   @include dropdown-menu_right();
-// }
+.dso-dropdown-right.dso-dropdown-menu,
+.dso-dropdown-right .dso-dropdown-menu {
+  @include dropdown-menu_right();
+}
