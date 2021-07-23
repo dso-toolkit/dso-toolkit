@@ -45,8 +45,7 @@ $dso-dropdown-hor-padding: 20px;
       @include di("chevron-down");
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       &::after {
         @include di-variant("chevron-down-wit");
       }
@@ -118,7 +117,7 @@ $dso-dropdown-hor-padding: 20px;
       background-color: transparent;
       border: 0;
       border-radius: 0;
-      text-align: left;
+      text-align: inherit;
       width: 100%;
     }
   }
