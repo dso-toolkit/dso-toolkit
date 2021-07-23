@@ -1,28 +1,15 @@
 $dropdown-bg: #fff;
-$dropdown-border: rgba(0, 0, 0, .15);
+$dropdown-border: rgba(0, 0, 0, 0.15);
 
 $dso-dropdown-hor-padding: 20px;
 $dso-dropdown-link-color: $grijs-90;
 
 @mixin dropdown-menu_root() {
+  display: inline-block;
   position: relative;
 }
 
 @mixin dropdown-menu_children() {
-  .dso-dropdown-menu {
-    background-color: $dropdown-bg;
-    border-radius: $border-radius-base;
-    border: 1px solid $dropdown-border;
-    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
-    font-size: $font-size-base;
-    min-width: 160px;
-    padding: 5px 0;
-    position: absolute;
-    text-align: left;
-    top: 100%;
-    z-index: $zindex-dropdown;
-  }
-
   > .dso-primary,
   > .dso-secondary,
   > .dso-tertiary,
@@ -90,7 +77,19 @@ $dso-dropdown-link-color: $grijs-90;
     }
   }
 
-  .dso-dropdown-menu {
+  .dso-dropdown-options {
+    background-color: $dropdown-bg;
+    border-radius: $border-radius-base;
+    border: 1px solid $dropdown-border;
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
+    font-size: $font-size-base;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: $zindex-dropdown;
+
     li {
       list-style: none;
 
@@ -196,10 +195,7 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 @mixin dropdown-menu_align-right() {
-  text-align: right;
-}
-
-@mixin dropdown-menu_right {
-  left: auto;
-  right: 0;
+  .dso-dropdown-options {
+    right: 0;
+  }
 }

@@ -7,9 +7,9 @@ import { buttonTemplate } from '../button/button.template';
 
 export function dropdownMenuTemplate({ button, dropdownAlign, children, isCheckable }: DropdownMenu<TemplateResult>) {
   return html`
-    <div class="dso-dropdown dso-open ${classMap({ [`dso-dropdown-${dropdownAlign}`]: !!dropdownAlign, 'dso-checkable': !!isCheckable })}">
+    <div class="dso-dropdown dso-open ${classMap({ [`dso-dropdown-align-${dropdownAlign}`]: dropdownAlign === 'right', 'dso-checkable': !!isCheckable })}">
       ${buttonTemplate(button)}
-      <div class="dso-dropdown-menu">
+      <div class="dso-dropdown-options">
         ${children}
       </div>
     </div>

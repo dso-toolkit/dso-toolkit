@@ -25,7 +25,7 @@ export class DropdownMenu {
   host!: HTMLElement;
 
   get button(): HTMLButtonElement {
-    const button = this.host.querySelectorAll("button[slot = 'button']")[0];
+    const button = this.host.querySelectorAll('button[slot="toggle"]')[0];
     if (!(button instanceof HTMLButtonElement)) {
       throw new ReferenceError("Mandatory toggle button not found");
     }
@@ -144,7 +144,7 @@ export class DropdownMenu {
   render() {
     return (
       <>
-        <slot name="button" />
+        <slot name="toggle" />
         <div hidden={!this.open}>
           <slot />
         </div>

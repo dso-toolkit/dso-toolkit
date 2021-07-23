@@ -11,44 +11,6 @@ module.exports = {
   * \`event.code\` \`Escape\` : sluit dropdown, geen keuze maken
   * \`event.code\` \`Space\` : maak keuze
 
-
-  (inspiratie: [Bootstrap dropdown](https://github.com/twbs/bootstrap/blob/main/js/src/dropdown.js#L450))
-
-  **Voorschriften/algemeen:**
-
-  * \`button\` en \`dropdown-menu\` staan in een \`div.dropdown\`. Het \`dropdown-menu\` wordt getoond wanneer \`div.dropdown\` de class \`open\` heeft.
-  * \`button\` attribute \`aria-haspopup="true"\`
-
-
-  **Dropdown-button ingeklapt:**
-
-  * \`div.dropdown\` geen class \`open\`
-  * \`button\` attribute \`aria-expanded="false"\`
-
-
-  Markup:
-  \`\`\`
-  <div class="dropdown">
-    <button type="button" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
-    <div class="dropdown-menu">
-  </div>
-  \`\`\`
-
-  **Dropdown-button ingeklapt:**
-
-  * \`div.dropdown\` heeft class \`open\`
-  * \`button\` attribute \`aria-expanded="true"\`
-
-
-  Markup:
-  \`\`\`
-  <div class="dropdown open">
-    <button type="button" aria-haspopup="true" aria-expanded="true" class="btn btn-link">
-    <div class="dropdown-menu">
-  </div>
-  \`\`\`
-
-  Note: de \`button\` kan naar behoeve de classes \`btn-link\`, \`btn-default\` en \`btn-primary\` hebben.
   `,
   status: 'ready',
   collated: true,

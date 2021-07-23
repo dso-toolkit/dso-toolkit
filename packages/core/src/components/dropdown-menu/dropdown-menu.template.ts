@@ -13,10 +13,10 @@ export function dropdownMenuTemplate({
       dropdown-align=${ifDefined(dropdownAlign)}
       ?checkable=${isCheckable}
     >
-      <button type="button" class=${`dso-${button.variant}`} slot="button">
+      <button type="button" class=${`dso-${button.variant}`} slot="toggle">
         <span>${button.label}</span>
       </button>
-      <div class="dso-dropdown-menu">
+      <div class="dso-dropdown-options">
         ${children}
       </div>
     </dso-dropdown-menu>

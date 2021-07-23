@@ -1,8 +1,10 @@
 # `<dso-dropdown-menu>`
 
-Must contain one `button` element with `slot="button"`.
+Must contain one `button` element with `slot="toggle"`.
 
-Must contain one or more `ul` elements with tabbable elements inside.
+Must contain one `.dso-dropdown-options` containing one or more `ul` elements with tabbable elements (`a` or `button`) inside.
+
+Items can be marked as "checked" by adding the attribute `checkable` and adding the `dso-checked` class to `<li>`.
 
 <!-- Auto Generated Below -->
 

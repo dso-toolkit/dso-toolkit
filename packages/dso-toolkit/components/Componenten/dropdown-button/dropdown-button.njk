@@ -1,7 +1,7 @@
-<div {{ className('dropdown', [open, 'open'], [align, 'dso-dropdown-' + align]) }}>
+<div {{ className('dso-dropdown-menu', [open, 'open'], [align, 'dso-dropdown-align-' + align]) }}>
   {% render '@button', {type: 'button', modifier: modifier, label: label, id: id, icon: icon, iconAfter: iconAfter, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
   {% if open %}
-    <div {{ className('dropdown-menu', modifiers) }}>
+    <div {{ className('dso-dropdown-options', modifiers) }}>
       {% for group in groups %}
         {% if group.label %}
           <h2 class="dso-group-label">{{ group.label }}</h2>

@@ -1,4 +1,4 @@
-.dso-dropdown {
+.dso-dropdown-menu {
   @include dropdown-menu_root();
   @include dropdown-menu_children();
 
@@ -9,14 +9,8 @@
   &.dso-checkable {
     @include dropdown-menu_checkable();
   }
-}
 
-.dso-dropdown-right {
-  @include dropdown-menu_align-right();
-}
-
-// .navbar-right .dropdown-menu,
-.dso-dropdown-right.dso-dropdown-menu,
-.dso-dropdown-right .dso-dropdown-menu {
-  @include dropdown-menu_right();
+  .dso-dropdown-align-right {
+    @include dropdown-menu_align-right();
+  }
 }
