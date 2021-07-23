@@ -2,6 +2,7 @@ $dropdown-bg: #fff;
 $dropdown-border: rgba(0, 0, 0, .15);
 
 $dso-dropdown-hor-padding: 20px;
+$dso-dropdown-link-color: $grijs-90;
 
 @mixin dropdown-menu_root() {
   position: relative;
@@ -89,37 +90,45 @@ $dso-dropdown-hor-padding: 20px;
     }
   }
 
-  li {
-    list-style: none;
+  .dso-dropdown-menu {
+    li {
+      list-style: none;
 
-    a,
-    button {
-      @include anchor-reverse();
-
-      clear: both;
-      color: $grijs-90;
-      display: block;
-      font-weight: 400;
-      line-height: 1.5;
-      padding: 3px $dso-dropdown-hor-padding;
-      text-decoration: none;
-      white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
-
-      &:hover,
-      &:focus {
-        background-color: $grasgroen;
-        border-color: $grasgroen;
-        color: $wit;
-        text-decoration: none;
+      a {
+        &:visited {
+          color: $dso-dropdown-link-color;
+        }
       }
-    }
 
-    button {
-      background-color: transparent;
-      border: 0;
-      border-radius: 0;
-      text-align: inherit;
-      width: 100%;
+      a,
+      button {
+        @include anchor-reverse();
+
+        clear: both;
+        color: $dso-dropdown-link-color;
+        display: block;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 3px $dso-dropdown-hor-padding;
+        text-decoration: none;
+        white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
+
+        &:hover,
+        &:focus {
+          background-color: $grasgroen;
+          border-color: $grasgroen;
+          color: $wit;
+          text-decoration: none;
+        }
+      }
+
+      button {
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        text-align: inherit;
+        width: 100%;
+      }
     }
   }
 }
