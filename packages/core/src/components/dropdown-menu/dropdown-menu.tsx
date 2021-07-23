@@ -79,7 +79,7 @@ export class DropdownMenu {
   }
 
   focusOutListener = (event: FocusEvent) => {
-    if (this.tabbables.indexOf(event.relatedTarget as FocusableElement) < 0) {
+    if (!this.tabbables.includes(event.relatedTarget as FocusableElement)) {
       this.open = false;
     }
   };
