@@ -70,12 +70,18 @@ export class DropdownMenu {
     this.host.addEventListener("keydown", this.keyDownListener);
     this.host.addEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "true");
+    this.tabbables.forEach((tabbable) =>
+      tabbable.addEventListener("click", this.escape)
+    );
   }
 
   closePopup() {
     this.host.removeEventListener("keydown", this.keyDownListener);
     this.host.removeEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "false");
+    this.tabbables.forEach((tabbable) =>
+      tabbable.removeEventListener("click", this.escape)
+    );
   }
 
   focusOutListener = (event: FocusEvent) => {
@@ -99,8 +105,7 @@ export class DropdownMenu {
         break;
 
       case "Escape":
-        this.button.focus();
-        this.open = false;
+        this.escape();
         break;
 
       case " ":
@@ -130,6 +135,11 @@ export class DropdownMenu {
 
     tabs[nextIndex].focus();
   }
+
+  escape = () => {
+    this.button.focus();
+    this.open = false;
+  };
 
   render() {
     return (
