@@ -17,8 +17,6 @@
 }
 
 :host(:not(:first-child)) {
-  @import "~@dso-toolkit/sources/src/styling/variables";
-
   margin-top: $u3;
 }
 

@@ -59,24 +59,24 @@ $dso-button-tertiary-active-color: $scampi;
 }
 
 @mixin _button_tertiary-type-icon($default-di, $disabled-di, $hover-active-di) {
+  &::after {
+    @include di($default-di);
+  }
+
+  &[disabled] {
     &::after {
-      @include di($default-di);
+      @include di-variant($disabled-di);
     }
+  }
 
-    &[disabled] {
+  &:not([disabled]) {
+    &:hover,
+    &:active {
       &::after {
-        @include di-variant($disabled-di);
+        @include di-variant($hover-active-di);
       }
     }
-
-    &:not([disabled]) {
-      &:hover,
-      &:active {
-        &::after {
-          @include di-variant($hover-active-di);
-        }
-      }
-    }
+  }
 }
 
 @mixin _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
@@ -139,7 +139,7 @@ $dso-button-tertiary-active-color: $scampi;
       margin-left: -$u1;
       margin-right: $u1;
     }
-  
+
     span + dso-icon,
     span + svg.di {
       margin-left: $u1;
@@ -158,7 +158,7 @@ $dso-button-tertiary-active-color: $scampi;
     margin-left: 0;
     margin-right: 0;
   }
-  
+
   > span {
     @include sr-only();
   }
@@ -371,9 +371,9 @@ $dso-button-tertiary-active-color: $scampi;
   @include button_secondary();
 
   border: 0;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   font-weight: 600;
   margin-right: $u2;
   padding: $u1 $u2;
-  white-space: nowrap;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list
 }

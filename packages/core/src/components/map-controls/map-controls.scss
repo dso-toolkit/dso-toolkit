@@ -26,7 +26,7 @@ $transition-duration: 300ms; // Sync with const transitionDuration in map-overla
 @include box-sizing();
 
 :host([open]) {
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .3);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   transform: translateX(-100%);
 
   #toggle-visibility-button {
@@ -48,7 +48,7 @@ $transition-duration: 300ms; // Sync with const transitionDuration in map-overla
 
 #zoom-buttons {
   border-radius: 4px;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   display: flex;
   flex-wrap: wrap;
   flex: 0 0;
@@ -84,7 +84,8 @@ $transition-duration: 300ms; // Sync with const transitionDuration in map-overla
   top: 16px;
 }
 
-header, .content {
+header,
+.content {
   padding: 16px;
 }
 
