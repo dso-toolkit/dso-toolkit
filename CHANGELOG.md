@@ -5,8 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Added
-* **dso-toolkit + core + leaflet + sources:** sass-lint vervangen met Stylelint ([#805](https://github.com/dso-toolkit/dso-toolkit/issues/805))
+### Fixed
+* **dso-toolkit:** Rich content: ontbrekende alt tag ([#1232](https://github.com/dso-toolkit/dso-toolkit/issues/1232))
 
 ## 26.0.0
 
