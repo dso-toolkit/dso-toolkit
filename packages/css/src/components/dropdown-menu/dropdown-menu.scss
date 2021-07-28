@@ -10,7 +10,7 @@
     @include dropdown-menu_checkable();
   }
 
-  .dso-dropdown-align-right {
+  &.dso-dropdown-align-right {
     @include dropdown-menu_align-right();
   }
 }
