@@ -8,7 +8,7 @@ $tooltop-max-width: 80 * $dso-unit;
 $tooltip-max-width-small: 40 * $dso-unit;
 
 // Keep var in sync with const transitionDuration in @dso-toolkit/core/tooltip.scss
-$tooltip-transition-duration: .15s;
+$tooltip-transition-duration: 0.15s;
 
 @mixin tooltip_root() {
   @include reset-text();
@@ -34,7 +34,7 @@ $tooltip-transition-duration: .15s;
     max-width: $tooltop-max-width;
     padding: $tooltip-padding-horizontal $tooltip-padding-vertical;
     position: relative;
-  
+
     &.dso-small {
       max-width: $tooltip-max-width-small;
     }

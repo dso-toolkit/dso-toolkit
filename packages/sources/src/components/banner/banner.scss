@@ -24,14 +24,14 @@ $banner-danger-border: $state-danger-border;
     &:visited {
       color: $text-color;
     }
-  
+
     &:hover,
     &:focus,
     &:active {
       text-decoration: none;
     }
   }
-  
+
   .row {
     > div {
       line-height: $u3;

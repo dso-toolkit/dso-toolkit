@@ -9,7 +9,7 @@
   },
   "scripts": {
     "postinstall": "patch-package",
-    "lint": "yarn workspace dso-toolkit lint",
+    "lint": "stylelint packages/**/*.scss",
     "build": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
     "test": "yarn workspace dso-toolkit smoke-test && yarn workspace dso-toolkit test",
     "build-www": "yarn workspace @dso-toolkit/css build-www && yarn workspace @dso-toolkit/core build-www && yarn workspace @dso-toolkit/react build-www",
@@ -32,6 +32,9 @@
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "rimraf": "^3.0.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-scss": "3.19.0",
     "wait-on": "^5.3.0"
   },
   "resolutions": {
