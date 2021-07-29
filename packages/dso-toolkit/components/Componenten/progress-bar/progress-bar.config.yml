@@ -2,7 +2,7 @@ meta:
   webComponent: dso-progress-bar
   markup: true
 notes: |
-  Voortgangsindicatoren informeren gebruikers over de status van lopende processen, zoals het laden de pagina, het indienen van een formulier of het uploaden van bestanden. Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren. 
+  Voortgangsindicatoren informeren gebruikers over de status van lopende processen, zoals het laden de pagina, het indienen van een formulier of het uploaden van bestanden. Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren.
 
   ### Bepaalde of onbepaalde tijd (Material Design, 2020)
 
@@ -14,14 +14,14 @@ notes: |
   Let op het gebruik van correcte waardes voor `aria-valuenow` (de huidige waarde van de progressbar), `aria-valuemin` (de minimale waarde) en `aria-valuemax` (de maximale waarde).
 
   ## Wanneer het component gebruiken:
-  Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren. 
+  Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren.
 
   Richtlijnen bij gebruik spinner/progress bar:
 
   - wachttijd kleiner dan 1 seconde: geen spinner
   - wachttijd tussen 1 en 4 seconden: spinner (voorbeeld boven)
   - wachttijd groter dan 4 seconden: progress bar (voorbeelden beneden)
-  - wachttijd tussen 4 seconden en 1 minuut: progress bar met percentage 
+  - wachttijd tussen 4 seconden en 1 minuut: progress bar met percentage
   - wachttijd groter dan 1 minuut: progress bar met tijd inschatting
 
   ## Wanneer het component niet te gebruiken:
@@ -29,6 +29,7 @@ notes: |
 
   ## Hoe het component te gebruiken:
   Als het proces minder dan een minuut duurt, geef dan het percentage aan dat is voltooid of het aantal geladen items. Als het proces langer dan een minuut duurt, geef dan een geschatte resterende tijd. Deze informatie laat de gebruiker weten dat ze een langere wachttijd dan normaal kunnen verwachten (UX Movement, 2016).
+  Omdat het label ook de 'accessible name' is voor het component, dient daarin idealiter ook genoemd te worden 'waarop' de gebruiker aan het wachten is.
 
   ## Voorbeelden:
   {% render '@lib-frame', {path: ('/components/preview/loaders' | docPath)} %}
@@ -41,6 +42,7 @@ collated: true
 context:
   __title: minder dan 1 minuut
   progress: 60
+  progressLabel: "60%"
   value:
     min: 0
     max: 100
@@ -49,7 +51,7 @@ variants:
     context:
       __title: meer dan 1 minuut
       progress: 25
-      progressLabel: Nog ongeveer 4 minuten
+      progressLabel: "Genereren export: Nog ongeveer 4 minuten."
   - name: non-default-values
     context:
       __title: Niet-standaard waarden
