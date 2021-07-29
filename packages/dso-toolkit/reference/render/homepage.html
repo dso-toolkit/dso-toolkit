@@ -2,8 +2,8 @@
   <div class="dso-logo-bar">
     <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
     <div class="dso-tools-bar">
-      <div class="dso-dropdown-menu open">
-        <button type="button" id="actie" aria-haspopup="true" aria-expanded="true" class="btn btn-link">
+      <dso-dropdown-menu>
+        <button type="button" id="actie" aria-haspopup="true" aria-expanded="false" slot="toggle" class="btn btn-link">
           <dso-icon icon="user"></dso-icon><span >O. tester</span>
         </button>
         <div class="dso-dropdown-options">
@@ -19,7 +19,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </dso-dropdown-menu>
     </div>
   </div>
   <nav class="dso-navbar">

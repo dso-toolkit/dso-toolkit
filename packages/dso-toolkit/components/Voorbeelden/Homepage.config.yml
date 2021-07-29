@@ -14,7 +14,6 @@ context:
     id: actie
     modifier: link
     ariaHasPopup: true
-    open: true
     label: O. tester
     icon: user
     groups:

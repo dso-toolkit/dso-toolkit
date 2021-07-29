@@ -21,9 +21,8 @@ module.exports = {
   default: 'dropdown-link',
   context: {
     id: 'actie',
-    modifier: 'tertiary',
+    modifier: 'link',
     ariaHasPopup: true,
-    open: true,
     label: 'Actie',
     groups: [
       {
@@ -69,9 +68,9 @@ module.exports = {
       name: 'dropdown-default-button-open-checkable',
       context: {
         id: 'dropdown_default_button_open_checkable',
-        modifier: 'secondary',
-        open: true,
+        modifier: 'default',
         modifiers: 'dso-checkable',
+        isCheckable: true,
         groups: [
           {
             label: 'Versies',
@@ -117,8 +116,8 @@ module.exports = {
       context: {
         id: 'dropdown_primary_button_open_checkable',
         modifier: 'primary',
-        open: true,
         modifiers: 'dso-checkable',
+        isCheckable: true,
         groups: [
           {
             label: 'Versies',
@@ -163,10 +162,10 @@ module.exports = {
       name: 'dropdown-link-button-align-right',
       context: {
         id: 'dropdown_link_button_align_right',
-        modifier: 'tertiary',
-        open: true,
+        modifier: 'link',
         align: 'right',
         modifiers: 'dso-checkable',
+        isCheckable: true,
         groups: [
           {
             label: 'Versies',
@@ -203,7 +202,7 @@ module.exports = {
                 label: '#663-Dropdown-button-toegankelijk-maken'
               }
             ]
-          },
+          }
         ]
       }
     },
@@ -211,10 +210,10 @@ module.exports = {
       name: 'dropdown-default-button-align-right',
       context: {
         id: 'dropdown_default_button_align_right',
-        modifier: 'secondary',
-        open: true,
+        modifier: 'default',
         align: 'right',
         modifiers: 'dso-checkable',
+        isCheckable: true,
         groups: [
           {
             label: 'Versies',
@@ -251,7 +250,7 @@ module.exports = {
                 label: '#663-Dropdown-button-toegankelijk-maken'
               }
             ]
-          },
+          }
         ]
       }
     },
@@ -260,9 +259,9 @@ module.exports = {
       context: {
         id: 'dropdown_primary_button_align_right',
         modifier: 'primary',
-        open: true,
         align: 'right',
         modifiers: 'dso-checkable',
+        isCheckable: true,
         groups: [
           {
             label: 'Versies',
