@@ -1,5 +1,8 @@
 module.exports = {
-  label: 'Dropdown Menu (Web Component) 🚀', // Fake the web component rocket indicator, Stencil's Hydrate function removes <style> elements which contain icon table styling.
+  meta: {
+    webComponent: 'dso-dropdown-menu',
+    markup: true
+  },
   notes: `
   **Implementatie:**
 

@@ -83,6 +83,7 @@ $dso-dropdown-link-color: $grijs-90;
     border: 1px solid $dropdown-border;
     box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
     font-size: $font-size-base;
+    margin: 2px 0 0;
     min-width: 160px;
     padding: 5px 0;
     position: absolute;
@@ -164,10 +165,13 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 @mixin dropdown-menu_checkable() {
+  .dso-group-label {
+    padding-left: $u5;
+  }
+
   li {
     a,
-    button,
-    .dso-group-label {
+    button {
       padding-left: $u5;
     }
 
