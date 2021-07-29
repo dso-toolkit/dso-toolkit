@@ -1,7 +1,9 @@
-<div {{ className('dso-dropdown-menu', [open, 'open'], [align, 'dso-dropdown-align-' + align]) }}>
-  {% render '@button', {type: 'button', modifier: modifier, label: label, id: id, icon: icon, iconAfter: iconAfter, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
+<dso-dropdown-menu {{ attributes([align, 'dropdown-align', align]) }} checkable={{ isCheckable }}>
+  <button type="button" {{ className('dso-' + modifier) }} slot="toggle">
+    <span>{{ label }}</span>
+  </button>
   {% if open %}
-    <div {{ className('dso-dropdown-options', modifiers) }}>
+    <div class="dso-dropdown-options">
       {% for group in groups %}
         {% if group.label %}
           <h2 class="dso-group-label">{{ group.label }}</h2>
@@ -16,4 +18,4 @@
       {% endfor %}
     </div>
   {% endif %}
-</div>
+</dso-dropdown-menu>
