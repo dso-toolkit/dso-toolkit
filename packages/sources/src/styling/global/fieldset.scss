@@ -7,13 +7,13 @@ fieldset {
   padding: 0;
 }
 
-  legend {
-    border: 0;
-    color: $legend-color;
-    display: block;
+legend {
+  border: 0;
+  color: $legend-color;
+  display: block;
   font-size: $font-size-base * 1.5;
-    line-height: inherit;
-    margin-bottom: $line-height-computed;
-    padding: 0;
-    width: 100%;
-  }
+  line-height: inherit;
+  margin-bottom: $line-height-computed;
+  padding: 0;
+  width: 100%;
+}

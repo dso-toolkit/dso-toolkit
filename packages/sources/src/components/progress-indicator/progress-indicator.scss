@@ -43,7 +43,6 @@
 
 @mixin progress-indicator_large() {
   @include dso-progress-indicator-looping-size(48px);
-
 }
 
 @mixin progress-indicator_large-block() {
