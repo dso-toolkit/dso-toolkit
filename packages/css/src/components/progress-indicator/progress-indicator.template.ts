@@ -12,9 +12,9 @@ export function progressIndicatorTemplate({ status, size, block }: ProgressIndic
         'dso-block': !!block,
       })}"
       role="progressbar"
-      aria-valuetext=${status}
+      aria-labelledby="progress-indicator-label"
     >
-      <div class="dso-progress-indicator-spinner"></div><span class="dso-progress-indicator-label">${status}</span>
+      <div class="dso-progress-indicator-spinner"></div><span id="progress-indicator-label" class="dso-progress-indicator-label">${status}</span>
     </div>
   `;
 }

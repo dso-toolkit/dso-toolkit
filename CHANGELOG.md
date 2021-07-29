@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **dso-toolkit:** Rich content: ontbrekende alt tag ([#1232](https://github.com/dso-toolkit/dso-toolkit/issues/1232))
+* **dso-toolkit + core:** Accessible name voor Progress Bar en Progress Indicator ([#1211](https://github.com/dso-toolkit/dso-toolkit/issues/1211))
 
 ### Added
 * **BREAKING: dso-toolkit + core + css + react:** Dropdown Menu (Web Component en CSS Component update) ([#1173](https://github.com/dso-toolkit/dso-toolkit/issues/1173))

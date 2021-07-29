@@ -16,11 +16,11 @@ export class Progressindicator {
   block?: boolean;
 
   render() {
-    const status = this.status ?? 'Een moment geduld alstublieft.';
+    const status = this.status ?? 'Resultaten laden: een moment geduld alstublieft.';
 
     return (
-      <Host role="progressbar" aria-valuetext={status}>
-        <div class="dso-progress-indicator-spinner">
+      <Host>
+        <div class="dso-progress-indicator-spinner" role="progressbar" aria-labelledby="progress-indicator-label">
           {/* Keep in sync with /packages/css/src/components/progress-indicator/progress-indicator.scss */}
           <svg class="spinner" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <style>
@@ -34,7 +34,7 @@ export class Progressindicator {
             <circle class="path" fill="none" stroke-width="10" stroke-linecap="butt" cx="50" cy="50" r="45"></circle>
           </svg>
         </div>
-        <span class="dso-progress-indicator-label">{status}</span>
+        <span id="progress-indicator-label" class="dso-progress-indicator-label">{status}</span>
       </Host>
     );
   }

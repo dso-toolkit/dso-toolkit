@@ -43,7 +43,7 @@ export function storiesOfProgressBar<TemplateFnReturnType>(
     {
       args: {
         progress: 60,
-        label: 'Nog ongeveer 4 minuten'
+        label: 'Genereren export: nog ongeveer 4 minuten.'
       }
     }
   );
