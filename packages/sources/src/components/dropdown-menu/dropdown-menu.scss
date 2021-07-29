@@ -78,6 +78,7 @@ $dso-dropdown-link-color: $grijs-90;
   }
 
   .dso-dropdown-options {
+    background-clip: padding-box;
     background-color: $dropdown-bg;
     border-radius: $border-radius-base;
     border: 1px solid $dropdown-border;
