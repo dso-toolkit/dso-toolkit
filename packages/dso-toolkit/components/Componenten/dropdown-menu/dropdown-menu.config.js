@@ -16,6 +16,7 @@ module.exports = {
   * \`event.code\` \`Space\` : maak keuze
 
   `,
+  label: 'Dropdown Menu (Web Component)',
   status: 'ready',
   collated: true,
   collator: function (markup, item) {

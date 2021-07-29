@@ -33,7 +33,7 @@ module.exports = {
   \`\`\`
   Note: de \`button\` kan naar behoeve de classes \`btn-link\`, \`btn-default\` en \`btn-primary\` hebben.
   `,
-  label: 'Dropdown Menu (CSS)',
+  label: 'Dropdown Menu (CSS Component)',
   status: 'ready',
   collated: true,
   collator: function (markup, item) {
