@@ -1,0 +1,10 @@
+ul,
+ol {
+  &.dso-cards {
+    @include dso-cards_list-root();
+  }
+}
+
+.dso-cards {
+  @include dso-cards_root();
+}

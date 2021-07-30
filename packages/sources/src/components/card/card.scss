@@ -1,0 +1,44 @@
+@mixin dso-card_root() {
+  display: flex;
+  padding: $u2 $u2 $u1;
+  width: 100%;
+
+  &,
+  &:not(.btn):visited,
+  &:active,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: $grijs-5;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .dso-rich-content {
+    h2:first-child,
+    h3:first-child {
+      font-size: 1.125em;
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin dso-card_interactions() {
+  display: flex;
+  justify-content: space-between;
+  padding: $u2;
+
+  .dso-card-interaction {
+    display: flex;
+    text-align: center;
+  }
+
+  .dso-info-button {
+    height: $u3;
+    margin: 0;
+    width: $u3;
+  }
+}

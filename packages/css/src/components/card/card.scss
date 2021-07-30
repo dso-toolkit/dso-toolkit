@@ -1,0 +1,7 @@
+.dso-card > a {
+  @include dso-card_root();
+}
+
+.dso-card-interactions {
+  @include dso-card_interactions();
+}
