@@ -72,8 +72,8 @@ export default class VersionSelector {
     const container = $('.toolkit-version-selector');
 
     const createListItem = version => {
-      const li = $('<li/>');
-      const a = $('<a/>');
+      const li = $('<li />');
+      const a = $('<a />');
       li.append(a);
       a.attr('href', `/${version.version}${this.currentComponent ? '/' + this.currentComponent : ''}`);
       a.text(version.label || version.version);
@@ -85,31 +85,30 @@ export default class VersionSelector {
     };
 
     container.prepend(`
-      <li class="navbar-text dropdown" id="version_selector_nav_item">
-        <button type="button" class="btn btn-link" id="version_selector_button" aria-haspopup="true" aria-expanded="true">
-          <span class="label"></span>
-        </button>
-        <div class="dropdown-menu dso-checkable" id="version_selector_dropdown_menu">
-          <h2 class="dso-group-label">Versies</h2>
-          <ul aria-labelledby="version_selector_button" id="version_selector_releases"></ul>
-          <ul aria-labelledby="version_selector_button" id="version_selector_all_versions">
-            <li>
-              <a href="/master/docs/versions.html">Alle versies</a>
-            </li>
-          </ul>
-          <h2 class="dso-group-label">Branch releases</h2>
-          <ul aria-labelledby="version_selector_button" id="version_selector_branches"></ul>
-        </div>
+      <li class="navbar-text" id="version_selector_nav_item">
+        <dso-dropdown-menu id="version_selector_dropdown_menu" dropdown-align="right" checkable>
+          <button type="button" class="dso-tertiary" id="version_selector_button" slot="toggle">
+            <span class="label"></span>
+          </button>
+          <div class="dso-dropdown-options">
+            <h2 class="dso-group-label">Versies</h2>
+            <ul id="version_selector_releases"></ul>
+            <ul id="version_selector_all_versions">
+              <li>
+                <a href="/master/docs/versions.html">Alle versies</a>
+              </li>
+            </ul>
+            <h2 class="dso-group-label">Branch releases</h2>
+            <ul aria-labelledby="version_selector_button" id="version_selector_branches"></ul>
+          </div>
+        </dso-dropdown-menu>
       </li>
     `);
 
     $('#version_selector_releases').append(versions.releases.map(createListItem));
     $('#version_selector_branches').append([{ version: 'master' }].concat(versions.topicBranches).map(createListItem));
 
-    const button = $('#version_selector_button');
-    button.on('click', this._toggleSelector.bind(this)).trigger('click');
-
-    const buttonLabel = button.find('> span.label');
+    const buttonLabel = $('#version_selector_button > span.label');
     if (this.currentVersion) {
       const versionLabel = this.currentVersion[0] === '_' ? `#${this.currentVersion.substr(1)}` : this.currentVersion;
       buttonLabel.append(`<span class="sr-only">Geselecteerde versie: </span>${versionLabel}<span class="sr-only">; Selecteer versies</span>`);

@@ -80,6 +80,16 @@ export namespace Components {
          */
         "value": string;
     }
+    interface DsoDropdownMenu {
+        /**
+          * Alignment of the dropdown
+         */
+        "dropdownAlign": "left" | "right";
+        /**
+          * Whether the menu is open or closed. This attribute is reflected and mutable.
+         */
+        "open": boolean;
+    }
     interface DsoHighlightBox {
         "border"?: boolean;
         "dropShadow"?: boolean;
@@ -199,6 +209,12 @@ declare global {
         prototype: HTMLDsoDatePickerElement;
         new (): HTMLDsoDatePickerElement;
     };
+    interface HTMLDsoDropdownMenuElement extends Components.DsoDropdownMenu, HTMLStencilElement {
+    }
+    var HTMLDsoDropdownMenuElement: {
+        prototype: HTMLDsoDropdownMenuElement;
+        new (): HTMLDsoDropdownMenuElement;
+    };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
     var HTMLDsoHighlightBoxElement: {
@@ -277,6 +293,7 @@ declare global {
         "dso-badge": HTMLDsoBadgeElement;
         "dso-banner": HTMLDsoBannerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
+        "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-info": HTMLDsoInfoElement;
@@ -360,6 +377,16 @@ declare namespace LocalJSX {
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */
         "value"?: string;
+    }
+    interface DsoDropdownMenu {
+        /**
+          * Alignment of the dropdown
+         */
+        "dropdownAlign"?: "left" | "right";
+        /**
+          * Whether the menu is open or closed. This attribute is reflected and mutable.
+         */
+        "open"?: boolean;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -454,6 +481,7 @@ declare namespace LocalJSX {
         "dso-badge": DsoBadge;
         "dso-banner": DsoBanner;
         "dso-date-picker": DsoDatePicker;
+        "dso-dropdown-menu": DsoDropdownMenu;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-info": DsoInfo;
@@ -477,6 +505,7 @@ declare module "@stencil/core" {
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
+            "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;

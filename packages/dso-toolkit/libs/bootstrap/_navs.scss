@@ -168,11 +168,6 @@
     }
   }
 
-  > .dropdown .dropdown-menu {
-    top: auto;
-    left: auto;
-  }
-
   @media (min-width: $screen-sm-min) {
     > li {
       display: table-cell;
@@ -229,14 +224,3 @@
   }
 }
 
-
-// Dropdowns
-// -------------------------
-
-// Specific dropdowns
-.nav-tabs .dropdown-menu {
-  // make dropdown border overlap tab border
-  margin-top: -1px;
-  // Remove the top rounded corners here since there is a hard edge above the menu
-  @include border-top-radius(0);
-}

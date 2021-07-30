@@ -1,0 +1,16 @@
+.dso-dropdown-menu {
+  @include dropdown-menu_root();
+  @include dropdown-menu_children();
+
+  &.dso-open {
+    @include dropdown-menu_open();
+  }
+
+  &.dso-checkable {
+    @include dropdown-menu_checkable();
+  }
+
+  &.dso-dropdown-align-right {
+    @include dropdown-menu_align-right();
+  }
+}

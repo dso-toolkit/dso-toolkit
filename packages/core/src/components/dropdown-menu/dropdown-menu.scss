@@ -1,0 +1,17 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
+
+:host {
+  --di-check-wit: #{dso-icon("check", "wit")};
+  --di-chevron-down: #{dso-icon("chevron-down")};
+  --di-chevron-down-scampi: #{dso-icon("chevron-down", "scampi")};
+  --di-chevron-down-wit: #{dso-icon("chevron-down", "wit")};
+  --di-chevron-up: #{dso-icon("chevron-up")};
+  --di-chevron-up-scampi: #{dso-icon("chevron-up", "scampi")};
+  --di-chevron-up-wit: #{dso-icon("chevron-up", "wit")};
+
+  @include dropdown-menu_root();
+}

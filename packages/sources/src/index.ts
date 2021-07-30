@@ -22,6 +22,8 @@ export * from './components/definition-list/definition-list.models';
 export * from './components/definition-list/definition-list.stories';
 export * from './components/description/description.models';
 export * from './components/description/description.stories';
+export * from './components/dropdown-menu/dropdown-menu.models';
+export * from './components/dropdown-menu/dropdown-menu.stories';
 export * from './components/footnotes/footnotes.models';
 export * from './components/footnotes/footnotes.stories';
 export * from './components/highlight-box/highlight-box.models';

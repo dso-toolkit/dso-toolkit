@@ -8,40 +8,44 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** Rich content: ontbrekende alt tag ([#1232](https://github.com/dso-toolkit/dso-toolkit/issues/1232))
 
+### Added
+* **BREAKING: dso-toolkit + core + css + react:** Dropdown Menu (Web Component en CSS Component update) ([#1173](https://github.com/dso-toolkit/dso-toolkit/issues/1173))
+  * `.dropdown` wordt `.dso-dropdown-menu`, `.dropdown-menu` wordt `.dso-dropdown-options`, en... **Markup changes, see PR ([#1225](https://github.com/dso-toolkit/dso-toolkit/pull/1225))**
+
 ## 26.0.0
 
 ### Fixed
 * **dso-toolkit:** Lege elementen zoals sr-only, id's, legends en labels in de toolkit ([#1220](https://github.com/dso-toolkit/dso-toolkit/issues/1220))
-* **core** `help` en `help-active` ontbreken in `<dso-icon>` ([#1224](https://github.com/dso-toolkit/dso-toolkit/issues/1224))
+* **core:** `help` en `help-active` ontbreken in `<dso-icon>` ([#1224](https://github.com/dso-toolkit/dso-toolkit/issues/1224))
 
 ### Added
-* **BREAKING: dso-toolkit + core** Web Component "Progress Indicator" ([#939](https://github.com/dso-toolkit/dso-toolkit/issues/939))
+* **BREAKING: dso-toolkit + core:** Web Component "Progress Indicator" ([#939](https://github.com/dso-toolkit/dso-toolkit/issues/939))
   * `.dso-gray` op `.dso-progress-indicator` is komen te vervallen: Class is gemaakt voor demo mogelijkheden. Achtergrond moet met bv. Highlight Box worden gegenereerd
   * `.dso-progress-indicator-looping` is komen te vervallen, stijling is gefuseerd met de root selector `.dso-progress-indicator`. Het kan geen kwaad om deze class te laten staan.
 * 7 Thema iconen: `energy`, `environment`, `health`, `land`, `procedures`, `safety` en `sound` ([#1227](https://github.com/dso-toolkit/dso-toolkit/issues/1227))
 
 ### Changed
-* **BREAKING: dso-toolkit** Whitebox Small heet nu Tile: `.dso-whitebox-small` -> `.dso-tile` ([#1198](https://github.com/dso-toolkit/dso-toolkit/issues/1198)).
+* **BREAKING: dso-toolkit:** Whitebox Small heet nu Tile: `.dso-whitebox-small` -> `.dso-tile` ([#1198](https://github.com/dso-toolkit/dso-toolkit/issues/1198)).
 
 ## 25.1.2
 
 ### Fixed
-* **dso-toolkit + core + css + react** Packages missen artifacts ([#1223](https://github.com/dso-toolkit/dso-toolkit/issues/1223))
+* **dso-toolkit + core + css + react:** Packages missen artifacts ([#1223](https://github.com/dso-toolkit/dso-toolkit/issues/1223))
 
 ## 25.1.1
 
 ### Fixed
-* **dso-toolkit** Missende libs bij deploy naar NPM
-* **dso-toolkit** Group Files button toetsenbord focus styling kapot ([#1221](https://github.com/dso-toolkit/dso-toolkit/issues/1221))
+* **dso-toolkit:** Missende libs bij deploy naar NPM
+* **dso-toolkit:** Group Files button toetsenbord focus styling kapot ([#1221](https://github.com/dso-toolkit/dso-toolkit/issues/1221))
 
 ## 25.1.0
 
 ### Added
 * **dso-toolkit + styling:** Bordered definition list (definities in de Stelselcatalogus) ([#1209](https://github.com/dso-toolkit/dso-toolkit/issues/1209))
-* **sources** Twee nieuwe iconen: `help` en `help-active` ([#1215](https://github.com/dso-toolkit/dso-toolkit/issues/1215))
+* **sources:** Twee nieuwe iconen: `help` en `help-active` ([#1215](https://github.com/dso-toolkit/dso-toolkit/issues/1215))
 
 ### Fixed
-* **dso-toolkit** Group Files button heeft geen 'hand' cursor meer ([#1214](https://github.com/dso-toolkit/dso-toolkit/issues/1214))
+* **dso-toolkit:** Group Files button heeft geen 'hand' cursor meer ([#1214](https://github.com/dso-toolkit/dso-toolkit/issues/1214))
 * **core:** Datepicker: `aria-current=date` ([#1174](https://github.com/dso-toolkit/dso-toolkit/issues/1174))
 * **styling:** Modal responsive button uitlijning [#1178](https://github.com/dso-toolkit/dso-toolkit/issues/1178))
 
@@ -72,11 +76,11 @@ Daarnaast hebben we de terminologie van het UX team doorgevoerd: Primary, second
 Verder is er eerder onterecht versie gedeeltelijke versie `25.0.0` van de DSO Toolkit suite uitgebracht. Dit release proces is onderbroken maar betekent dat alleen `dso-toolkit@25.0.0` wordt uitgebracht. De andere packages worden `@dso-toolkit/core@25.0.1` en `@dso-toolkit/react@25.0.1`.
 
 ### Changed
-* **BREAKING: dso-toolkit** Button styling refactor ([#856](https://github.com/dso-toolkit/dso-toolkit/issues/856))
+* **BREAKING: dso-toolkit:** Button styling refactor ([#856](https://github.com/dso-toolkit/dso-toolkit/issues/856))
 
 ### Added
-* **dso-toolkit** Nieuw component: Link List ([#1159](https://github.com/dso-toolkit/dso-toolkit/issues/1159))
-* **leaflet** Map Control Button styling ([#1021](https://github.com/dso-toolkit/dso-toolkit/issues/1021))
+* **dso-toolkit:** Nieuw component: Link List ([#1159](https://github.com/dso-toolkit/dso-toolkit/issues/1159))
+* **leaflet:** Map Control Button styling ([#1021](https://github.com/dso-toolkit/dso-toolkit/issues/1021))
 
 ## 24.4.1
 
