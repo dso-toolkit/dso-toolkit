@@ -4,17 +4,11 @@ module.exports = {
     markup: true
   },
   notes: `
-  **Implementatie:**
+  ## Voorschriften/algemeen
 
-  Het openen en sluiten van de dropdown button moet worden ondersteund met muis-, touch- en toetsenbordbediening.
-
-  De scripting zal zelf geïmplementeerd moeten worden, waarbij het te programmeren gedrag op de diverse relevante toetsen gelijk moet zijn aan de native browser dropdown/select werkvorm:
-
-  * \`event.code\` \`ArrowUp\` : omhoog, vorige 'option', zelfde als tab
-  * \`event.code\` \`ArrowDown\` : omlaag, volgende 'option', zelfde als shift-tab
-  * \`event.code\` \`Escape\` : sluit dropdown, geen keuze maken
-  * \`event.code\` \`Space\` : maak keuze
-
+  * \`<dso-dropdown-menu>\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
+  * \`button\` heeft attribute \`aria-haspopup="true"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit de \`<ul>\`s in de optielijst met een \`aria-labelledby\`-attribuut;
+  * \`button\` heeft attribute \`slot="toggle"\`, zodat het Web Component 'weet' dat dit de bedieningsknop is;
   `,
   label: 'Dropdown Menu (Web Component)',
   status: 'ready',

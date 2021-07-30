@@ -1,37 +1,46 @@
 module.exports = {
   notes: `
-  **Implementatie:**
+  ## Implementatie
+
   Het openen en sluiten van de dropdown button moet worden ondersteund met muis-, touch- en toetsenbordbediening.
-  De scripting zal zelf geïmplementeerd moeten worden, waarbij het te programmeren gedrag op de diverse relevante toetsen gelijk moet zijn aan de native browser dropdown/select werkvorm:
+  De scripting zal zelf geïmplementeerd moeten worden, waarbij het te programmeren gedrag op de diverse relevante toetsen gelijk moet zijn aan de native browser dropdown/select werkvorm (en het Web Component). Inspiratie: [Bootstrap dropdown](https://github.com/twbs/bootstrap/blob/main/js/src/dropdown.js#L450)
+
   * \`event.code\` \`ArrowUp\` : omhoog, vorige 'option', zelfde als tab
   * \`event.code\` \`ArrowDown\` : omlaag, volgende 'option', zelfde als shift-tab
   * \`event.code\` \`Escape\` : sluit dropdown, geen keuze maken
   * \`event.code\` \`Space\` : maak keuze
-  (inspiratie: [Bootstrap dropdown](https://github.com/twbs/bootstrap/blob/main/js/src/dropdown.js#L450))
-  **Voorschriften/algemeen:**
-  * \`button\` en \`dropdown-menu\` staan in een \`div.dropdown\`. Het \`dropdown-menu\` wordt getoond wanneer \`div.dropdown\` de class \`open\` heeft.
-  * \`button\` attribute \`aria-haspopup="true"\`
-  **Dropdown-button ingeklapt:**
-  * \`div.dropdown\` geen class \`open\`
+
+  ## Voorschriften/algemeen
+
+  * \`.dso-dropdown-menu\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
+  * \`.dso-dropdown-options\` wordt getoond wanneer \`.dso-dropdown-menu\` de class \`dso-open\` heeft;
+  * \`button\` heeft attribute \`aria-haspopup="true"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit de \`<ul>\`s in de optielijst met een \`aria-labelledby\`-attribuut
+
+  ### Menu ingeklapt
+
+  * \`.dso-dropdown-menu\` geen class \`dso-open\`
   * \`button\` attribute \`aria-expanded="false"\`
-  Markup:
+
   \`\`\`
-  <div class="dropdown">
-    <button type="button" aria-haspopup="true" aria-expanded="false" class="btn btn-link">
-    <div class="dropdown-menu">
+  <div class="dso-dropdown-menu">
+    <button type="button" aria-haspopup="true" aria-expanded="false" class="dso-tertiary">
+    <div class="dso-dropdown-options">
   </div>
   \`\`\`
-  **Dropdown-button ingeklapt:**
-  * \`div.dropdown\` heeft class \`open\`
+
+  ## Menu uitgeklapt
+
+  * \`div.dropdown\` heeft class \`dso-open\`
   * \`button\` attribute \`aria-expanded="true"\`
-  Markup:
+
   \`\`\`
-  <div class="dropdown open">
-    <button type="button" aria-haspopup="true" aria-expanded="true" class="btn btn-link">
-    <div class="dropdown-menu">
+  <div class="dso-dropdown-menu dso-open">
+    <button type="button" aria-haspopup="true" aria-expanded="true" class="dso-tertiary">
+    <div class="dso-dropdown-options">
   </div>
   \`\`\`
-  Note: de \`button\` kan naar behoeve de classes \`btn-link\`, \`btn-default\` en \`btn-primary\` hebben.
+
+  Note: de \`button\` mag class \`dso-tertiary\`, \`dso-secondary\` of \`btn-primary\` hebben, afhankelijk van de toepassing. Ook de oude bootstrap classes \`btn-default\`, \`btn-link\` worden nog ondersteund.
   `,
   label: 'Dropdown Menu (CSS Component)',
   status: 'ready',
