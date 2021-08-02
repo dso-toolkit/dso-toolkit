@@ -9,15 +9,26 @@
   </head>
 
   <style>
+    .dso-map-wrapper {
+      position: relative;
+    }
+
     .dso-map-panel {
       background-color: rgb(255, 255, 255);
       border: 1px solid rgb(204, 204, 204);
+      bottom: 0;
       box-shadow: 0 1px 4px rgb(0, 0, 0, .3);
+      position: absolute;
+      top: 0;
+      z-index: 10;
     }
 
-    .dso-map-panel .col-xs-1 {
+    .dso-map-panel span {
       background-color: #efefef;
+      display: inline-block;
       margin-bottom: 12px;
+      padding: 4px;
+      width: 100%;
     }
 
     .dso-map-map {
