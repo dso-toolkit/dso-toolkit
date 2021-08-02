@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ _target.label }} | {{ _config.project.title }} - Component preview</title>
+    <link rel="stylesheet" href="{{ '/styles/dso.css' | path }}" />
+    <link rel="stylesheet" href="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.css' | path }}" />
+  </head>
+
+  <style>
+    .dso-map-panel {
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(204, 204, 204);
+      box-shadow: 0 1px 4px rgb(0, 0, 0, .3);
+    }
+
+    .dso-map-panel .col-xs-1 {
+      background-color: #efefef;
+      margin-bottom: 12px;
+    }
+
+    .dso-map-map {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  </style>
+
+  <body>
+    <div class="toolkit-example-container">
+      {{ yield | safe }}
+    </div>
+
+    <script type="module" src="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js' | path }}"></script>
+    <script nomodule src="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.js' | path }}"></script>
+
+  </body>
+
+</html>
