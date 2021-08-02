@@ -1,5 +1,5 @@
 // Todo: Color doesn't exist in color palette
-$dso-footer-border-color: #bcbebd;
+$dso-footer-border-color: $grijs-20;
 $dso-footer-header-border-color: $grijs-20;
 
 footer {
@@ -27,26 +27,31 @@ footer {
   }
 
   a {
-    color: $grijs-90;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
+    &,
     &:hover,
     &.active,
-    &:active {
+    &:active,
+    &:focus {
       color: $grijs-90;
     }
 
-    &:visited {
-      color: $grijs-90;
-
+    &:not(.btn):visited {
+      &,
       &:hover,
       &.active,
-      &:active {
+      &:active,
+      &:focus {
         color: $grijs-90;
       }
+    }
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: none;
+
+    li & {
+      text-decoration: underline;
     }
   }
 }
