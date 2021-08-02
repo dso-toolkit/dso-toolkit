@@ -17,7 +17,7 @@ export class ProgressBar {
 
   render() {
     const progressNumber = Math.round(this.progress / this.max * 100);
-    const progressText = `${progressNumber}%`
+    const progressPercentage = `${progressNumber}%`
 
     return (
       <div class="progress">
@@ -26,10 +26,9 @@ export class ProgressBar {
           role="progressbar"
           aria-labelledby="progress-bar-label"
           aria-valuenow={progressNumber}
-          aria-valuetext={progressText}
           aria-valuemin={this.min}
           aria-valuemax={this.max}
-          style={{ width: `${progressText}` }}
+          style={{ width: `${progressPercentage}` }}
         >
           <span id="progress-bar-label">
             <slot></slot>

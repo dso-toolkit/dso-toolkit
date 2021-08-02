@@ -14,7 +14,7 @@ status: ready
 collated: true
 context:
   __title: Spinner small (24px)
-  status: "Resultaten laden: een moment geduld alstublieft."
+  label: "Resultaten laden: een moment geduld alstublieft."
   size: small
 variants:
 - name: spinner-medium-infinite

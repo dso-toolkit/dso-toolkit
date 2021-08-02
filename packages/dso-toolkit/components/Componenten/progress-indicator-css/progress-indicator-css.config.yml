@@ -12,7 +12,7 @@ collated: true
 context:
   __title: Spinner small (24px)
   labelid: progress-indicator-label
-  status: "Resultaten laden: een moment geduld alstublieft."
+  label: "Resultaten laden: een moment geduld alstublieft."
   size: small
 variants:
 - name: spinner-medium-infinite
