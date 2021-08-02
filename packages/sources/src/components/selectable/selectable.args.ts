@@ -14,6 +14,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   invalid?: boolean;
   describedById?: string;
   checked?: boolean;
+  indeterminate?: boolean;
   disabled?: boolean;
   onChange: HandlerFunction;
   infoRichContent?: TemplateFnReturnType;
@@ -70,6 +71,11 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
       type: 'boolean'
     }
   },
+  indeterminate: {
+    control: {
+      type: 'boolean'
+    }
+  },
   disabled: {
     control: {
       type: 'boolean'
@@ -109,6 +115,7 @@ export function selectableArgsMapper(a: SelectableArgs<any>): Selectable<any> {
     type: a.type,
     value: a.value,
     checked: a.checked,
+    indeterminate: a.indeterminate,
     describedById: a.describedById,
     disabled: a.disabled,
     info: a.infoRichContent

@@ -12,6 +12,7 @@ export function selectableTemplate({
   invalid,
   describedById,
   checked,
+  indeterminate,
   disabled,
   onChange,
   info
@@ -27,6 +28,7 @@ export function selectableTemplate({
       ?disabled=${disabled}
       ?required=${required}
       ?checked=${checked}
+      ?indeterminate=${indeterminate}
       ?info-fixed=${info?.fixed}
       @dsoChange=${(e: CustomEvent<Event>) => onChange(e.detail)}
     >
