@@ -1,14 +1,14 @@
 <div {{ className('dso-dropdown-menu', [open, 'dso-open'], [align, 'dso-dropdown-align-' + align], modifiers) }}>
   {% render '@button', {type: 'button', modifier: modifier, label: label, id: id, icon: icon, iconAfter: iconAfter, ariaHasPopup: ariaHasPopup, ariaExpanded: not not open} %}
   {% if open %}
-    <div class="dso-dropdown-options">
+    <div class="dso-dropdown-options" role="menu">
       {% for group in groups %}
         {% if group.label %}
           <h2 class="dso-group-label">{{ group.label }}</h2>
         {% endif %}
         <ul aria-labelledby="{{ id }}">
           {% for item in group.items %}
-            <li {{ className([item.checked, 'dso-checked']) }}>
+            <li role="menuitem" {{ attributes([item.checked, 'aria-selected', 'true']) }} {{ className([item.checked, 'dso-checked']) }}>
               <a href="#">{{ item.label }}</a>
             </li>
           {% endfor %}

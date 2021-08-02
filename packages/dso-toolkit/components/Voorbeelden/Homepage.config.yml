@@ -13,7 +13,7 @@ context:
   dropdownButton:
     id: actie
     modifier: link
-    ariaHasPopup: true
+    ariaHasPopup: 'menu'
     open: true
     label: O. tester
     icon: user
