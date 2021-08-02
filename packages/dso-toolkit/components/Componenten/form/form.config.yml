@@ -233,9 +233,6 @@ context:
       infoText: |
         <h4>Toelichting bij vraag: "Toelichting op uw vraag"</h4>
         <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
-      infoTextDeprecated: |
-        <h4>Toelichting bij vraag: "Toelichting op uw vraag" [DEPRECATED]</h4>
-        <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
   buttons:
   - type: button
     modifier: link
