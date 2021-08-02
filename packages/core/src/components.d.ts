@@ -144,6 +144,7 @@ export namespace Components {
         "describedById"?: string;
         "disabled"?: boolean;
         "identifier"?: string;
+        "indeterminate"?: boolean;
         "infoFixed"?: boolean;
         "invalid"?: boolean;
         "name"?: string;
@@ -453,6 +454,7 @@ declare namespace LocalJSX {
         "describedById"?: string;
         "disabled"?: boolean;
         "identifier"?: string;
+        "indeterminate"?: boolean;
         "infoFixed"?: boolean;
         "invalid"?: boolean;
         "name"?: string;

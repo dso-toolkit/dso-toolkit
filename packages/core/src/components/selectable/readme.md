@@ -13,6 +13,7 @@
 | `describedById`      | `described-by-id` |             | `string \| undefined`   | `undefined` |
 | `disabled`           | `disabled`        |             | `boolean \| undefined`  | `undefined` |
 | `identifier`         | `identifier`      |             | `string \| undefined`   | `undefined` |
+| `indeterminate`      | `indeterminate`   |             | `boolean \| undefined`  | `undefined` |
 | `infoFixed`          | `info-fixed`      |             | `boolean \| undefined`  | `undefined` |
 | `invalid`            | `invalid`         |             | `boolean \| undefined`  | `undefined` |
 | `name`               | `name`            |             | `string \| undefined`   | `undefined` |

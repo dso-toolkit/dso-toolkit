@@ -38,6 +38,9 @@ export class Selectable {
   checked?: boolean;
 
   @Prop()
+  indeterminate?: boolean;
+
+  @Prop()
   infoFixed?: boolean;
 
   @Event({
@@ -66,6 +69,15 @@ export class Selectable {
 
   disconnectedCallback() {
     this.mutationObserver?.disconnect();
+  }
+
+  componentDidRender() {
+    const checkbox = this.host.shadowRoot!.querySelector('input[type="checkbox"]');
+    if (!(checkbox instanceof HTMLInputElement)) {
+      return;
+    }
+
+    checkbox.indeterminate = !!this.indeterminate;
   }
 
   render() {
