@@ -47,7 +47,7 @@ export class DropdownMenu {
   }
 
   connectedCallback() {
-    this.button.setAttribute("aria-haspopup", "true");
+    this.button.setAttribute("aria-haspopup", "menu");
     this.button.setAttribute("aria-expanded", "false");
     if (!this.button.id) {
       this.button.id = uuidv4();
@@ -59,6 +59,12 @@ export class DropdownMenu {
 
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
+      for (const li of Array.from(ul.getElementsByTagName("li"))) {
+        li.setAttribute("role", "menuitem");
+        if (li.classList.contains("dso-checked")) {
+          li.setAttribute("aria-selected", "true");
+        }
+      }
     }
 
     if (this.open) {
