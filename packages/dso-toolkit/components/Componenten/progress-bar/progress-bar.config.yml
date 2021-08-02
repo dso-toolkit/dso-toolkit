@@ -11,7 +11,7 @@ notes: |
   **Onbepaalde tijd:** Deze voortgangsindicatoren geven een onbepaalde hoeveelheid wachttijd aan. Ze moeten worden gebruikt als er geen voortgang is waar te nemen of als het niet nodig is om aan te geven hoe lang een proces duurt.
 
   ## Technische opmerkingen component
-  Let op het gebruik van correcte waardes voor `aria-valuenow` (de huidige waarde van de progressbar), `aria-valuemin` (de minimale waarde) en `aria-valuemax` (de maximale waarde).
+  Let op het gebruik van correcte waardes voor `aria-valuenow` (de huidige waarde van de progressbar, dit moet _niet_ een percentage zijn), `aria-valuemin` (de minimale waarde) en `aria-valuemax` (de maximale waarde).
 
   ## Wanneer het component gebruiken:
   Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren.

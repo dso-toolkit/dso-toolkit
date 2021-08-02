@@ -16,7 +16,7 @@ export class ProgressBar {
   max = 100;
 
   render() {
-    const progressNumber = Math.round(this.progress / this.max * 100);
+    const progressNumber = Math.round(this.progress);
     const progressPercentage = `${progressNumber}%`
 
     return (
