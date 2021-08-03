@@ -10,20 +10,20 @@
 
   <style>
     .dso-map-wrapper {
-      position: relative;
+      display: flex;
+      overflow: hidden;
     }
 
-    .dso-map-panel {
+    .dso-map-panel-primary,
+    .dso-map-panel-secondary {
       background-color: rgb(255, 255, 255);
       border: 1px solid rgb(204, 204, 204);
-      bottom: 0;
       box-shadow: 0 1px 4px rgb(0, 0, 0, .3);
-      position: absolute;
-      top: 0;
       z-index: 10;
     }
 
-    .dso-map-panel span {
+    .dso-map-panel-primary span,
+    .dso-map-panel-secondary span {
       background-color: #efefef;
       display: inline-block;
       margin-bottom: 12px;
@@ -34,6 +34,10 @@
     .dso-map-map {
       padding-left: 0;
       padding-right: 0;
+    }
+
+    #map {
+      overflow: hidden;
     }
   </style>
 
