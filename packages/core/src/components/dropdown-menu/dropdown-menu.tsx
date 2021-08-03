@@ -57,6 +57,9 @@ export class DropdownMenu {
       this.open = !this.open;
     });
 
+    this.host
+      .querySelector(".dso-dropdown-options")
+      ?.setAttribute("role", "menu");
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
       for (const li of Array.from(ul.getElementsByTagName("li"))) {

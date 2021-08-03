@@ -16,7 +16,7 @@ export function dropdownMenuTemplate({
       <button type="button" class=${`dso-${button.variant}`} slot="toggle">
         <span>${button.label}</span>
       </button>
-      <div class="dso-dropdown-options" role="menu">
+      <div class="dso-dropdown-options">
         ${children}
       </div>
     </dso-dropdown-menu>
