@@ -137,6 +137,19 @@ $dso-selectable-focus-border-width: 3px;
         }
       }
     }
+
+    &:indeterminate {
+      + label {
+        &::after {
+          background-color: var(--dso-selectable-color, $dso-selectable-valid-marker-color);
+          border: 0;
+          height: $dso-selectable-size - 6 * $dso-selectable-border-width;
+          opacity: 1;
+          transform: none;
+          width: $dso-selectable-size - 6 * $dso-selectable-border-width;
+        }
+      }
+    }
   }
 
   input[type="radio"] {
