@@ -53,7 +53,7 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
   }
 
-  a {
+  .dso-link-list li a {
     text-decoration: none;
 
     &:hover {
@@ -80,10 +80,16 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   a,
   a:visited {
-    text-decoration: none;
-
     &:not(.btn) {
       color: $text-color;
+    }
+  }
+
+  .dso-link-list li a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
