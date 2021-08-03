@@ -52,9 +52,19 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 @mixin highlight-box_exoticChildren() {
+  --di-chevron-right-grijs90: #{dso-icon("chevron-right", "grijs90")};
+
   .btn-link:not([disabled]) {
     color: $grijs-90;
 
@@ -70,14 +80,10 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   a,
   a:visited {
+    text-decoration: none;
+
     &:not(.btn) {
       color: $text-color;
-    }
-
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: none;
     }
   }
 }

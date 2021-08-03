@@ -48,7 +48,7 @@
     &:focus,
     &:hover {
       &::before {
-        @include di-variant("chevron-right-grijs90");
+        @include di("chevron-right-grijs90");
       }
     }
 
