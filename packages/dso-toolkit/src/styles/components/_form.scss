@@ -372,10 +372,6 @@ select:not([multiple]) {
   }
 }
 
-.dso-field-container + .dso-info {
-  background-color: $dso-invalid-color !important;
-}
-
 .control-label + .dso-info-button {
   @include info-button_controlLabelSibling();
 }
