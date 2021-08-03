@@ -9,7 +9,7 @@ export function dropdownMenuTemplate({ button, dropdownAlign, children, isChecka
   return html`
     <div class="dso-dropdown-menu dso-open ${classMap({ [`dso-dropdown-align-${dropdownAlign}`]: dropdownAlign === 'right', 'dso-checkable': !!isCheckable })}">
       ${buttonTemplate(button)}
-      <div class="dso-dropdown-options" role="menu">
+      <div class="dso-dropdown-options">
         ${children}
       </div>
     </div>

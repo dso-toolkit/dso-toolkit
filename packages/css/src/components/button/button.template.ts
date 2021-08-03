@@ -64,7 +64,7 @@ function buttonElement({
       ?disabled=${disabled}
       aria-describedby=${ifDefined(ariaDescribedby)}
       aria-expanded=${ifDefined(ariaExpanded)}
-      aria-haspopup=${ifDefined(ariaHaspopup ? 'menu' : undefined)}
+      aria-haspopup=${ifDefined(ariaHaspopup)}
       aria-roledescription=${ifDefined(ariaRoledescription)}
       @click=${ifDefined(onClick)}
     >

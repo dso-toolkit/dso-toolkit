@@ -22,7 +22,7 @@ module.exports = {
   context: {
     id: 'actie',
     modifier: 'link',
-    ariaHasPopup: true,
+    ariaHasPopup: 'menu',
     label: 'Actie',
     groups: [
       {
