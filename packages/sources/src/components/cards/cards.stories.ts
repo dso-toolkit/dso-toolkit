@@ -4,7 +4,7 @@ import { cardsArgsMapper, cardsArgTypes } from './cards.args';
 import { Cards } from './cards.models';
 
 export interface CardsParameters<TemplateFnReturnType> {
-  cardsTemplate: (cardsProperties: Cards) => TemplateFnReturnType;
+  cardsTemplate: (cardsProperties: Cards<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfCards<TemplateFnReturnType>(
@@ -30,33 +30,28 @@ export function storiesOfCards<TemplateFnReturnType>(
           {
             label: "Omgevingsplan Nieuwegein",
             content: "Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          },
+          {
+            label: "Brouwersmolen",
+            content: "Brouwersmolen eget iaculis nisi quam in libero.",
+            interactions: [
+              {
+                button: {
+                  variant: "tertiary",
+                  label: "Button",
+                  icon: {
+                    icon: "info"
+                  }
+                }
+              }
+            ]
           }
         ]
       }
     });
 
   stories.add(
-    'Default',
+    'Cards',
     template
-  );
-
-  stories.add(
-    'Interactions bottom',
-    template,
-    {
-      args: {
-        interactionsLocation: "bottom"
-      }
-    }
-  );
-
-  stories.add(
-    'Flat',
-    template,
-    {
-      args: {
-        modifiers: "dso-flat"
-      }
-    }
   );
 }

@@ -33,7 +33,18 @@ export function storiesOfCard<TemplateFnReturnType>(
     {
       args: {
         label: "Omgevingsplan Nieuwegein",
-        content: "Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        content: "Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        interactions: [
+          {
+            button: {
+              variant: "tertiary",
+              label: "Button",
+              icon: {
+                icon: "info"
+              }
+            }
+          }
+        ]
       }
     }
   );

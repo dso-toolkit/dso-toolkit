@@ -43,6 +43,17 @@ export namespace Components {
     interface DsoBanner {
         "status": 'warning' | 'danger';
     }
+    interface DsoCard {
+        "label": string;
+    }
+    interface DsoCardInteraction {
+        "button": string;
+        "label": string;
+        "toggle": string;
+    }
+    interface DsoCardInteractions {
+        "label": string;
+    }
     interface DsoDatePicker {
         /**
           * Forces the opening direction of the calendar modal to be always left or right. This setting can be useful when the input is smaller than the opening date picker would be as by default the picker always opens towards right.
@@ -230,6 +241,24 @@ declare global {
         prototype: HTMLDsoBannerElement;
         new (): HTMLDsoBannerElement;
     };
+    interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
+    }
+    var HTMLDsoCardElement: {
+        prototype: HTMLDsoCardElement;
+        new (): HTMLDsoCardElement;
+    };
+    interface HTMLDsoCardInteractionElement extends Components.DsoCardInteraction, HTMLStencilElement {
+    }
+    var HTMLDsoCardInteractionElement: {
+        prototype: HTMLDsoCardInteractionElement;
+        new (): HTMLDsoCardInteractionElement;
+    };
+    interface HTMLDsoCardInteractionsElement extends Components.DsoCardInteractions, HTMLStencilElement {
+    }
+    var HTMLDsoCardInteractionsElement: {
+        prototype: HTMLDsoCardInteractionsElement;
+        new (): HTMLDsoCardInteractionsElement;
+    };
     interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
     }
     var HTMLDsoDatePickerElement: {
@@ -326,6 +355,9 @@ declare global {
         "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-banner": HTMLDsoBannerElement;
+        "dso-card": HTMLDsoCardElement;
+        "dso-card-interaction": HTMLDsoCardInteractionElement;
+        "dso-card-interactions": HTMLDsoCardInteractionsElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -377,6 +409,17 @@ declare namespace LocalJSX {
     }
     interface DsoBanner {
         "status": 'warning' | 'danger';
+    }
+    interface DsoCard {
+        "label"?: string;
+    }
+    interface DsoCardInteraction {
+        "button"?: string;
+        "label"?: string;
+        "toggle"?: string;
+    }
+    interface DsoCardInteractions {
+        "label"?: string;
     }
     interface DsoDatePicker {
         /**
@@ -540,6 +583,9 @@ declare namespace LocalJSX {
         "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
         "dso-banner": DsoBanner;
+        "dso-card": DsoCard;
+        "dso-card-interaction": DsoCardInteraction;
+        "dso-card-interactions": DsoCardInteractions;
         "dso-date-picker": DsoDatePicker;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-highlight-box": DsoHighlightBox;
@@ -566,6 +612,9 @@ declare module "@stencil/core" {
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
+            "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
+            "dso-card-interaction": LocalJSX.DsoCardInteraction & JSXBase.HTMLAttributes<HTMLDsoCardInteractionElement>;
+            "dso-card-interactions": LocalJSX.DsoCardInteractions & JSXBase.HTMLAttributes<HTMLDsoCardInteractionsElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;

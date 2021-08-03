@@ -3,26 +3,6 @@ $dso-cards-box-shadow-color: rgba(0, 0, 0, 0.5);
 @mixin dso-cards_list-root() {
   @include list-unstyled();
 
-  &:not(.dso-interactions-bottom) {
-    .dso-card {
-      display: flex;
-      flex-direction: row;
-
-      .dso-card-interactions {
-        align-items: center;
-        flex-direction: column;
-      }
-    }
-  }
-
-  .dso-interactions-bottom {
-    .dso-card {
-      .dso-card-interactions {
-        flex-direction: row;
-      }
-    }
-  }
-
   > li + li {
     border-top: 1px solid $grijs-20;
   }
@@ -30,8 +10,4 @@ $dso-cards-box-shadow-color: rgba(0, 0, 0, 0.5);
 
 @mixin dso-cards_root() {
   background: $wit;
-
-  &:not(.dso-flat) {
-    box-shadow: 1px 2px 4px 0 $dso-cards-box-shadow-color;
-  }
 }

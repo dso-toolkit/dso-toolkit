@@ -1,10 +1,7 @@
-export interface Cards {
+import { Card } from "../card/card.models";
+
+export interface Cards<TemplateFnReturnType> {
   modifiers: string;
   interactionsLocation: string;
-  cards: Card[];
-}
-
-export interface Card {
-  label: string;
-  content: string;
+  cards: Card<TemplateFnReturnType>[];
 }

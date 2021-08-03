@@ -1,25 +1,29 @@
 <div class="dso-card">
-  <a href="#">
-    <div class="dso-rich-content">
-      <h2>{{ label }}</h2>
-      <p>{{ content | safe }}</p>
-    </div>
-  </a>
-  {% if interactions %}
-    <div class="dso-card-interactions">
-      {% for interaction in interactions %}
-        <div class="dso-card-interaction">
-          {% if interaction.toggle %}
-            <label>
-              <input type="checkbox" name="{{ interaction.toggle.id }}" />
-              <span class="sr-only">{{ label }}</span>
-            </label>
-          {% endif %}
-          {% if interaction.button %}
-            {% render '@button', interaction.button -%}
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
+  <div class="dso-card-heading">
+    <a href="#">
+      <div class="dso-rich-content">
+        <h2>{{ label }}</h2>
+      </div>
+    </a>
+    {% if interactions %}
+      <div class="dso-card-interactions">
+        {% for interaction in interactions %}
+          <div class="dso-card-interaction">
+            {% if interaction.toggle %}
+              <label>
+                <input type="checkbox" name="{{ interaction.toggle.id }}" />
+                <span class="sr-only">{{ label }}</span>
+              </label>
+            {% endif %}
+            {% if interaction.button %}
+              {% render '@button', interaction.button -%}
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  <div class="dso-card-content">
+    <p>{{ content | safe }}</p>
+  </div>
 </div>

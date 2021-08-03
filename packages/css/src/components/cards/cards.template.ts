@@ -1,13 +1,12 @@
 import { Cards } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { html, TemplateResult } from 'lit-html';
 
 import { cardTemplate } from '../card/card.template';
 
-export function cardsTemplate({ modifiers, interactionsLocation, cards }: Cards) {
+export function cardsTemplate({ cards }: Cards<TemplateResult>) {
   return html`
-    <ul class="dso-cards ${classMap({ modifiers, [`dso-${interactionsLocation}`]: !!interactionsLocation, })}">
-      ${cards.map(card => html`
+    <ul class="dso-cards">
+      ${cards.map((card: any) => html`
         <li>
           ${cardTemplate(card)}
         </li>

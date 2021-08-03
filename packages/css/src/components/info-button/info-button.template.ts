@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
-export function infoButtonTemplate({ active, label, onClick }: InfoButton) {
+export function infoButtonTemplate({ active, label, onClick, iconOnly }: InfoButton) {
   return html`
     <button
       type="button"
@@ -11,7 +11,7 @@ export function infoButtonTemplate({ active, label, onClick }: InfoButton) {
       aria-expanded=${ifDefined(active?.toString())}
       @click=${onClick}
     >
-      <span class="sr-only">
+      <span class="${ifDefined(iconOnly ? 'sr-only' : undefined)}">
         ${label ?? 'Toelichting bij optie'}
       </span>
     </button>

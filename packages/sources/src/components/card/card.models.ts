@@ -1,3 +1,5 @@
+import { Button } from "../button/button.models";
+
 export interface Card<TemplateFnReturnType> {
   label: string;
   content: TemplateFnReturnType | string;
@@ -6,6 +8,7 @@ export interface Card<TemplateFnReturnType> {
 
 export interface Interaction {
   toggle: InteractionToggle[];
+  button: Button[];
 }
 
 export interface InteractionToggle {

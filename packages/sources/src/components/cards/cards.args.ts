@@ -1,13 +1,14 @@
 import { ArgTypes } from '../../stories-helpers';
-import { Card, Cards } from './cards.models';
+import { Card } from '../card/card.models';
+import { Cards } from './cards.models';
 
-export interface CardsArgs {
+export interface CardsArgs<TemplateFnReturnType> {
   modifiers: string,
   interactionsLocation: string,
-  cards: Card[];
+  cards: Card<TemplateFnReturnType>[];
 }
 
-export const cardsArgTypes: ArgTypes<Cards> = {
+export const cardsArgTypes: ArgTypes<CardsArgs<unknown>> = {
   modifiers: {
     control: {
       type: 'string'
@@ -25,7 +26,7 @@ export const cardsArgTypes: ArgTypes<Cards> = {
   }
 };
 
-export function cardsArgsMapper(a: CardsArgs): Cards {
+export function cardsArgsMapper(a: CardsArgs<any>): Cards<any> {
   return {
     modifiers: a.modifiers,
     interactionsLocation: a.interactionsLocation,
