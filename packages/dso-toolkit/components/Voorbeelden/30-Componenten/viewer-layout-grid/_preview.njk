@@ -22,6 +22,21 @@
       z-index: 10;
     }
 
+    .dso-map-panel-secondary {
+      position: relative;
+    }
+
+    .dso-map-panel-secondary::before {
+      background-color: rgba(0, 0, 0, .4);
+      bottom: 0;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      right: 100%;
+      top: 0;
+      width: 300%;
+    }
+
     .dso-map-panel-primary span,
     .dso-map-panel-secondary span {
       background-color: #efefef;
