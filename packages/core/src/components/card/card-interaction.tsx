@@ -20,13 +20,11 @@ export class Card {
       <div class="dso-card-interaction">
         {this.toggle && (
           <label>
-            <input type="checkbox" name="${this.toggle.id}" />
-            <span class="sr-only">${this.label}</span>
+            <input type="checkbox" name={this.toggle.id} />
+            <span class="sr-only">{this.label}</span>
           </label>
         )}
-        {this.button && (
-          ${buttonTemplate(this.button)}
-        )}
+        Button
       </div>
     );
   }

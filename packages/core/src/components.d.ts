@@ -44,6 +44,7 @@ export namespace Components {
         "status": 'warning' | 'danger';
     }
     interface DsoCard {
+        "interactions": string;
         "label": string;
     }
     interface DsoCardInteraction {
@@ -411,6 +412,7 @@ declare namespace LocalJSX {
         "status": 'warning' | 'danger';
     }
     interface DsoCard {
+        "interactions"?: string;
         "label"?: string;
     }
     interface DsoCardInteraction {
