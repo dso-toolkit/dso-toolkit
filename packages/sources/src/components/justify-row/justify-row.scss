@@ -1,0 +1,17 @@
+@mixin justify-row_root() {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@mixin justify-row_label() {
+  flex: 0 0 auto;
+}
+
+@mixin justify-row_container() {
+  flex: 0 0 auto;
+}
+
+@mixin justify-row_row() {
+  flex: 1 1 100%;
+}
