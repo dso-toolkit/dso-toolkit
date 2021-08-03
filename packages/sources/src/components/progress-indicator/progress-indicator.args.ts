@@ -3,13 +3,13 @@ import { ArgTypes } from '../../stories-helpers';
 import { ProgressIndicator } from './progress-indicator.models';
 
 export interface ProgressIndicatorArgs {
-  status?: string;
+  label?: string;
   size?: string;
   block?: boolean;
 }
 
 export const progressIndicatorArgTypes: ArgTypes<ProgressIndicatorArgs> = {
-  status: {
+  label: {
     control: {
       type: 'text'
     }
@@ -29,7 +29,7 @@ export const progressIndicatorArgTypes: ArgTypes<ProgressIndicatorArgs> = {
 
 export function progressIndicatorArgsMapper(a: ProgressIndicatorArgs): ProgressIndicator {
   return {
-    status: a.status || undefined,
+    label: a.label || undefined,
     size: a.size,
     block: a.block
   };

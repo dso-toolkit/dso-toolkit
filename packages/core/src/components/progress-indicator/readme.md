@@ -10,8 +10,8 @@
 | Property | Attribute | Description | Type                                          | Default     |
 | -------- | --------- | ----------- | --------------------------------------------- | ----------- |
 | `block`  | `block`   |             | `boolean \| undefined`                        | `undefined` |
+| `label`  | `label`   |             | `string \| undefined`                         | `undefined` |
 | `size`   | `size`    |             | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
-| `status` | `status`  |             | `string \| undefined`                         | `undefined` |
 
 
 ----------------------------------------------

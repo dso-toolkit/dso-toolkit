@@ -32,18 +32,8 @@ export function storiesOfProgressBar<TemplateFnReturnType>(
     template,
     {
       args: {
-        progress: 30
-      }
-    }
-  );
-
-  stories.add(
-    'with label',
-    template,
-    {
-      args: {
         progress: 60,
-        label: 'Nog ongeveer 4 minuten'
+        label: 'Genereren export: nog ongeveer 4 minuten.'
       }
     }
   );
@@ -53,9 +43,9 @@ export function storiesOfProgressBar<TemplateFnReturnType>(
     template,
     {
       args: {
-        progress: 3,
-        max: 4,
-        label: '3/4'
+        progress: 4,
+        max: 12,
+        label: 'Bestanden comprimeren: 12 stuks.'
       }
     }
   );
