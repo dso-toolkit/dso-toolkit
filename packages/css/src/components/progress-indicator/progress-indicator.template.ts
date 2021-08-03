@@ -2,7 +2,7 @@ import { ProgressIndicator } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 
-export function progressIndicatorTemplate({ label: label, size, block }: ProgressIndicator) {
+export function progressIndicatorTemplate({ label, size, block }: ProgressIndicator) {
   label ??= 'Resultaten laden: een moment geduld alstublieft.';
 
   return html`

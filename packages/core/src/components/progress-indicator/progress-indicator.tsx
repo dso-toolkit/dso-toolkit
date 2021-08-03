@@ -7,7 +7,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 })
 export class Progressindicator {
   @Prop()
-  status?: string;
+  label?: string;
 
   @Prop()
   size?: 'small' | 'medium' | 'large';
@@ -16,7 +16,7 @@ export class Progressindicator {
   block?: boolean;
 
   render() {
-    const status = this.status ?? 'Resultaten laden: een moment geduld alstublieft.';
+    const label = this.label ?? 'Resultaten laden: een moment geduld alstublieft.';
 
     return (
       <Host>
@@ -34,7 +34,7 @@ export class Progressindicator {
             <circle class="path" fill="none" stroke-width="10" stroke-linecap="butt" cx="50" cy="50" r="45"></circle>
           </svg>
         </div>
-        <span id="progress-indicator-label" class="dso-progress-indicator-label">{status}</span>
+        <span id="progress-indicator-label" class="dso-progress-indicator-label">{label}</span>
       </Host>
     );
   }

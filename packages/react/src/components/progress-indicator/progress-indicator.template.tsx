@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { DsoProgressIndicator } from '../..';
 
-export function progressIndicatorTemplate({ label: label, block, size }: ProgressIndicator) {
+export function progressIndicatorTemplate({ label, block, size }: ProgressIndicator) {
   console.log(label, block, size);
 
   return (
