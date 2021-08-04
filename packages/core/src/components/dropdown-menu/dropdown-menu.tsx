@@ -68,6 +68,10 @@ export class DropdownMenu {
       ?.setAttribute("role", "menu");
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
+      ul.setAttribute("role", "none");
+      for (const li of Array.from(ul.getElementsByTagName("li"))) {
+        li.setAttribute("role", "none");
+      }
     }
 
     if (this.open) {
