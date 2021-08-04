@@ -15,7 +15,7 @@ context:
 variants:
 - name: search-bar-infobutton
   context:
-    __title: Infobutton ingeklapt
+    __title: Toelichting ingeklapt
     __explanation:
       - Toelichting ingeklapt
     id: search-bar-infobutton
@@ -32,9 +32,9 @@ variants:
       placeholder: Bv. boomkap
 - name: search-bar-infobutton-expanded
   context:
-    __title: Infobutton uitgeklapt
+    __title: Toelichting uitgeklapt
     __explanation:
-      - Toelichting uitgeklapt
+      - Toelichting uitgeklapt door infobutton
     id: search-bar-infobutton-expanded
     infoOpen: true
     infoButtonLabel: Toelichting bij zoekveld
@@ -52,12 +52,10 @@ variants:
       hideSearchButton: true
       icon: true
       placeholder: Bv. boomkap
-- name: search-bar-infobutton-static
+- name: search-bar-static-info
   context:
     __title: Vaste toelichting
-    __explanation:
-      - Vaste toelichting
-    id: search-bar-infobutton-static
+    id: search-bar-static-info
     infoOpen: true
     infoText: |
       <h4>Toelichting bij vraag: "Activiteit"</h4>
@@ -68,7 +66,7 @@ variants:
       </p>
     static: true
     searchBar:
-      id: search-bar-infobutton-static
+      id: search-bar-static-info
       type: text
       clearButton: true
       hideSearchButton: true

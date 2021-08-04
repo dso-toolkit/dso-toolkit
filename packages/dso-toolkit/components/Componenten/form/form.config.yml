@@ -214,7 +214,7 @@ context:
       infoButtonLabel: Toelichting bij vraag
       infoText: |
         Empty
-  - legend: Vraag met infobutton uitgeklapt
+  - legend: Vraag met toelichting uitgeklapt
     groups:
     - id: input-radio-infobutton-open
       inputType: radios

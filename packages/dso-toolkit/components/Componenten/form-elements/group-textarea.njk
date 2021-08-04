@@ -1,5 +1,11 @@
 {% set localId = generateLocalId(prefix, id) %}
 
+{% set infoTextId = 'infoTextId_' + id %}
+
+{% if infoText and static %}
+  {% set ariaDescribedBy = infoTextId %}
+{% endif %}
+
 <div {{ className('form-group', 'dso-textarea', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
     <label for="{{ localId }}" class="control-label">
@@ -9,7 +15,7 @@
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText, static: static} %}
+      {% render '@info', {infoText: infoText, static: static, id: infoTextId} %}
     {% endif %}
   </div>
   <div class="dso-field-container">
@@ -20,6 +26,7 @@
       {% if readonly %} readonly{% endif %}
       {% if required %} required{% endif %}
       {% if state == "invalid" %} aria-invalid="true"{% endif %}
+      {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
     >{{ value }}</textarea>
     {% if errorText %}
       {% render '@error-block', {errorText: errorText} %}
