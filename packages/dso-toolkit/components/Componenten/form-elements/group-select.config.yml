@@ -62,9 +62,9 @@ variants:
     disabled: true
 - name: input-select-infobutton-open
   context:
-    __title: infobutton uitgeklapt
+    __title: Toelichting uitgeklapt
     __explanation:
-    - Toelichting uitgeklapt
+    - Toelichting uitgeklapt door infobutton
     id: input-select-multiple-open
     required: true
     infoOpen: true
@@ -79,8 +79,6 @@ variants:
 - name: input-select-multiple-static
   context:
     __title: Vaste toelichting
-    __explanation:
-    - Vaste toelichting
     id: input-select-multiple-static
     required: true
     infoOpen: true

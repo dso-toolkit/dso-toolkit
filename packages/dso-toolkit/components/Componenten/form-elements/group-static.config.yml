@@ -27,7 +27,9 @@ variants:
     __explanation: false
 - name: static-infobutton-open
   context:
-    __title: Static infobutton uitgeklapt
+    __title: Toelichting uitgeklapt
+    __explanation:
+    - Toelichting uitgeklapt door infobutton
     infoOpen: true
     infoButtonLabel: Toelichting bij vraag
     infoText: |
@@ -37,11 +39,10 @@ variants:
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
-    __explanation: false
-- name: static-infobutton-static
+- name: static-static-info
   context:
     __title: Vaste toelichting
-    id: static-infobutton-static
+    id: static-static-info
     infoOpen: true
     infoText: |
       <h4>Toelichting bij vraag: "Kleur van object"</h4>

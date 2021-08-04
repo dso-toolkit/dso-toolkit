@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **sources:** Twee updated iconen: `land` en `layers` ([#1245](https://github.com/dso-toolkit/dso-toolkit/issues/1245))
 * **dso-toolkit + styling + css:** Footer redesign en finetuning styling linklijsten ([#936](https://github.com/dso-toolkit/dso-toolkit/issues/936))
+* **dso-toolkit:** Vaste toelichtingen hebben geen duidelijke relatie met vraag of antwoord ([#1229](https://github.com/dso-toolkit/dso-toolkit/issues/1229)) **Markup changes, see PR ([#1248](https://github.com/dso-toolkit/dso-toolkit/pull/1248))**
 
 ### Removed
 * **dso-toolkit:** Deprecated toelichting verwijderen ([#1241](https://github.com/dso-toolkit/dso-toolkit/issues/1241))

@@ -91,7 +91,7 @@ variants:
       label: nee
 - name: input-radio-inline-info
   context:
-    __title: infobutton
+    __title: Toelichting uitgeklapt
     __explanation:
     - Een radio fieldset kan op twee plekken een info button krijgen. Naast de de vraag en per optie. Als een toelichting is opengeklapt moet er <code>.dso-open</code> op de toelichting button geplaatst worden.
     id: input-radio-inline-info
