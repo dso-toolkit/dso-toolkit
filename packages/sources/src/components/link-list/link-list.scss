@@ -1,12 +1,23 @@
 @mixin link-list_root() {
   @include list-unstyled();
 
+  li {
+    margin-bottom: $u2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   a {
+    @include anchor-reverse();
+
     &::before {
       @include di("chevron-right");
 
       content: "";
       display: inline-block;
+      margin-left: -$u1;
       margin-right: $u1;
     }
 
@@ -21,6 +32,14 @@
 }
 
 @mixin link-list_exotic() {
+  li {
+    margin-bottom: $u2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   a {
     @include anchor-reverse();
 
@@ -31,7 +50,7 @@
     &:focus,
     &:hover {
       &::before {
-        @include di-variant("chevron-right-grijs90");
+        @include di("chevron-right-grijs90");
       }
     }
 
