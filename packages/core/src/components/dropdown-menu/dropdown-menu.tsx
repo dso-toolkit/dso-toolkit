@@ -21,6 +21,12 @@ export class DropdownMenu {
   @Prop()
   dropdownAlign: "left" | "right" = "left";
 
+  /**
+   * Whether the menu is checkable.
+   */
+  @Prop()
+  checkable = false;
+
   @Element()
   host!: HTMLElement;
 
@@ -62,16 +68,23 @@ export class DropdownMenu {
       ?.setAttribute("role", "menu");
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
-      for (const li of Array.from(ul.getElementsByTagName("li"))) {
-        li.setAttribute("role", "menuitemradio");
-        if (li.classList.contains("dso-checked")) {
-          li.setAttribute("aria-checked", "true");
-        }
-      }
     }
 
     if (this.open) {
       this.openPopup();
+    }
+  }
+
+  componentWillRender() {
+    for (const li of Array.from(this.host.getElementsByTagName("li"))) {
+      for (const tab of tabbable(li)) {
+        tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
+        if (this.checkable && li.classList.contains("dso-checked")) {
+          tab.setAttribute("aria-checked", "true");
+        } else {
+          tab.removeAttribute("aria-checked");
+        }
+      }
     }
   }
 
