@@ -1,6 +1,4 @@
 import { Component, h, Prop } from '@stencil/core';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import { iconTemplate } from '../icon/icon.template';
 
 @Component({
   tag: 'dso-card',
@@ -24,8 +22,8 @@ export class Card {
           <a href="#">
             <div class="dso-rich-content">
               <h2>
-                {this.label}
-                {iconTemplate({ icon: 'chevron-right' })}
+                <span>{this.label}</span>
+                <dso-icon icon="chevron-right"></dso-icon>
               </h2>
             </div>
           </a>
@@ -34,7 +32,7 @@ export class Card {
           )}
         </div>
         <div class="dso-card-content">
-          <p>{unsafeHTML(this.content)}</p>
+          <p>{this.content}</p>
         </div>
       </div>
     );

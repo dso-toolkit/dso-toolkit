@@ -12,7 +12,7 @@ export function cardTemplate({ label, content, interactions }: Card<TemplateResu
         <a href="#">
           <div class="dso-rich-content">
             <h2>
-              ${label}
+              <span>${label}</span>
               ${iconTemplate({ icon: 'chevron-right' })}
             </h2>
           </div>

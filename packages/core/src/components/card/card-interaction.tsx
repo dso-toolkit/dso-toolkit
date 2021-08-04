@@ -24,7 +24,9 @@ export class Card {
             <span class="sr-only">{this.label}</span>
           </label>
         )}
-        Button
+        <button type="button">
+          <dso-icon icon="info"></dso-icon>
+        </button>
       </div>
     );
   }
