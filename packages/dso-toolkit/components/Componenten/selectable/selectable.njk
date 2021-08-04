@@ -1,3 +1,9 @@
+{% set infoTextId = 'infoTextId_' + (id or _self.handle) %}
+
+{% if infoText and infoStatic %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
+{% endif %}
+
 <div {{ className('dso-selectable', modifiers) }}>
   <input
     type="{{ type }}"
@@ -19,6 +25,6 @@
     {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
   {% endif %}
   {% if infoText and (infoOpen or infoStatic) %}
-    {% render '@info', {infoText: infoText, static: infoStatic} %}
+    {% render '@info', {infoText: infoText, static: infoStatic, id: infoTextId} %}
   {% endif %}
 </div>

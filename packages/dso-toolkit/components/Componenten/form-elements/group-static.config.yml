@@ -41,6 +41,7 @@ variants:
 - name: static-infobutton-static
   context:
     __title: Vaste toelichting
+    id: static-infobutton-static
     infoOpen: true
     infoText: |
       <h4>Toelichting bij vraag: "Kleur van object"</h4>
