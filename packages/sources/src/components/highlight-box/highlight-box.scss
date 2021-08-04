@@ -52,14 +52,6 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
-
-  .dso-link-list li a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 
 @mixin highlight-box_exoticChildren() {
@@ -82,14 +74,6 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   a:visited {
     &:not(.btn) {
       color: $text-color;
-    }
-  }
-
-  .dso-link-list li a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
     }
   }
 }
