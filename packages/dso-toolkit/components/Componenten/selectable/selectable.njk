@@ -1,4 +1,7 @@
 <div {{ className('dso-selectable', modifiers) }}>
+  {% if nestedItems %}
+    <div class="dso-selectable-nesting">
+  {% endif %}
   <input
     type="{{ type }}"
     id="{{ id or _self.handle }}"
@@ -15,6 +18,12 @@
   <label for="{{ id or _self.handle }}">
     {{ label | safe }}
   </label>
+  {% if nestedItems %}
+    </div>
+  {% endif %}
+  {%- for item in nestedItems %}
+    {% render '@selectable', item %}
+  {% endfor %}
   {% if infoText and not infoStatic %}
     {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
   {% endif %}
@@ -22,3 +31,8 @@
     {% render '@info', {infoText: infoText, static: infoStatic} %}
   {% endif %}
 </div>
+
+<script>
+  document.getElementById('checkbox-nested-parent').indeterminate = true;
+  document.getElementById('checkbox-child-2').indeterminate = true;
+</script>

@@ -1,32 +1,85 @@
 collated: true
 context:
+  __title: Radiobutton - Default
   type: radio
-  label: Label
+  label: Selecteer mij
 variants:
-  - name: invalid
+  - name: radio-info-closed
     context:
-      invalid: true
-  - name: disabled
-    context:
-      disabled: true
-  - name: required
-    context:
-      required: true
-  - name: checked
-    context:
-      required: true
-  - name: info-closed
-    context:
+      __title: Radiobutton - Info Closed
+      id: radio-info-closed
+      label: Selecteer mij
       infoText: |
         <p>Deze informatie is pas zichtbaar als de informatie-button wordt geactiveerd</p>
-  - name: info
+  - name: radio-info
     context:
+      __title: Radiobutton - Info Open
+      id: radio-info-open
+      label: Selecteer mij
       infoOpen: true
       infoText: |
         <p>Toelichting bij optie</p>
-  - name: info-closed
+  - name: radio-info-closed
     context:
+      __title: Radiobutton - Info Static
+      id: radio-info-static
+      label: Selecteer mij
       infoStatic: true
       infoText: |
         <p>Deze toelichting kan niet worden gesloten</p>
+  - name: checkbox
+    context:
+      __title: Checkbox - Default
+      id: checkbox-default
+      label: Selecteer mij
+      type: checkbox
+  - name: checkbox-info-closed
+    context:
+      __title: Checkbox - Info Closed
+      id: checkbox-info-closed
+      type: checkbox
+      label: Selecteer mij
+      infoText: |
+        <p>Deze informatie is pas zichtbaar als de informatie-button wordt geactiveerd</p>
+  - name: checkbox-info
+    context:
+      __title: Checkbox - Info Open
+      id: checkbox-info-open
+      type: checkbox
+      label: Selecteer mij
+      infoOpen: true
+      infoText: |
+        <p>Toelichting bij optie</p>
+  - name: checkbox-info-closed
+    context:
+      __title: Checkbox - Info Static
+      id: checkbox-info-static
+      type: checkbox
+      label: Selecteer mij
+      infoStatic: true
+      infoText: |
+        <p>Deze toelichting kan niet worden gesloten</p>
+  - name: checkbox-nested
+    context:
+      __title: Checkbox - Nested items
+      id: checkbox-nested-parent
+      type: checkbox
+      label: Selecteer mij
+      nestedItems:
+      - type: checkbox
+        id: checkbox-child-1
+        label: Selecteer mij
+      - type: checkbox
+        id: checkbox-child-2
+        label: Selecteer mij
+        nestedItems:
+        - type: checkbox
+          id: checkbox-child-4
+          label: Selecteer mij
+        - type: checkbox
+          id: checkbox-child-5
+          label: Selecteer mij
+      - type: checkbox
+        id: checkbox-child-3
+        label: Selecteer mij
 
