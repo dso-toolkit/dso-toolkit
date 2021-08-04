@@ -12,11 +12,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **BREAKING: dso-toolkit + core + css + react:** Dropdown Menu (Web Component en CSS Component update) ([#1173](https://github.com/dso-toolkit/dso-toolkit/issues/1173))
   * `.dropdown` wordt `.dso-dropdown-menu`, `.dropdown-menu` wordt `.dso-dropdown-options`, en... **Markup changes, see PR ([#1225](https://github.com/dso-toolkit/dso-toolkit/pull/1225))**
+* **dso-toolkit + core + css + react + sources:** Checkbox voorzien van indeterminate state en nestable maken ([#1185](https://github.com/dso-toolkit/dso-toolkit/issues/1185))
 
 ### Changed
 * **sources:** Twee updated iconen: `land` en `layers` ([#1245](https://github.com/dso-toolkit/dso-toolkit/issues/1245))
 * **dso-toolkit + styling + css:** Footer redesign en finetuning styling linklijsten ([#936](https://github.com/dso-toolkit/dso-toolkit/issues/936))
-* **core + css + dso-toolkit + react + sources:** Checkbox voorzien van indeterminate state ([#1185](https://github.com/dso-toolkit/dso-toolkit/issues/1185))
 
 ### Removed
 * **dso-toolkit:** Deprecated toelichting verwijderen ([#1241](https://github.com/dso-toolkit/dso-toolkit/issues/1241))
