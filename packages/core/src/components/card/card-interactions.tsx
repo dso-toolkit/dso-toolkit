@@ -7,14 +7,17 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class Card {
   @Prop()
-  label: string;
+  label!: string;
+
+  @Prop()
+  interactions: any;
 
   render() {
     return (
       <div class="dso-card-interactions">
-        ${interactions.map((interaction: any) => html`
-          <dso-card-interaction></dso-card-interaction>
-        `)}
+        {this.interactions.map(() => (
+          <dso-card-interaction label={this.label}></dso-card-interaction>
+        ))}
       </div>
     );
   }

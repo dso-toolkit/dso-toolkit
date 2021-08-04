@@ -44,15 +44,17 @@ export namespace Components {
         "status": 'warning' | 'danger';
     }
     interface DsoCard {
+        "content": string;
         "interactions": string;
         "label": string;
     }
     interface DsoCardInteraction {
-        "button": string;
+        "button": any;
         "label": string;
-        "toggle": string;
+        "toggle": any;
     }
     interface DsoCardInteractions {
+        "interactions": any;
         "label": string;
     }
     interface DsoDatePicker {
@@ -412,16 +414,18 @@ declare namespace LocalJSX {
         "status": 'warning' | 'danger';
     }
     interface DsoCard {
-        "interactions"?: string;
-        "label"?: string;
+        "content": string;
+        "interactions": string;
+        "label": string;
     }
     interface DsoCardInteraction {
-        "button"?: string;
-        "label"?: string;
-        "toggle"?: string;
+        "button"?: any;
+        "label": string;
+        "toggle"?: any;
     }
     interface DsoCardInteractions {
-        "label"?: string;
+        "interactions"?: any;
+        "label": string;
     }
     interface DsoDatePicker {
         /**

@@ -7,13 +7,13 @@ import { Component, h, Prop } from '@stencil/core';
 })
 export class Card {
   @Prop()
-  toggle: string;
+  toggle: any;
 
   @Prop()
-  button: string;
+  button: any;
 
   @Prop()
-  label: string;
+  label!: string;
 
   render() {
     return (
