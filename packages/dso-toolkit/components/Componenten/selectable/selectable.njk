@@ -5,9 +5,6 @@
 {% endif %}
 
 <div {{ className('dso-selectable', modifiers) }}>
-  {% if nestedItems %}
-    <div class="dso-selectable-nesting">
-  {% endif %}
   <input
     type="{{ type }}"
     id="{{ id or _self.handle }}"
@@ -25,11 +22,12 @@
     {{ label | safe }}
   </label>
   {% if nestedItems %}
+    <div class="dso-selectable-children">
+      {%- for item in nestedItems %}
+        {% render '@selectable', item %}
+      {% endfor %}
     </div>
   {% endif %}
-  {%- for item in nestedItems %}
-    {% render '@selectable', item %}
-  {% endfor %}
   {% if infoText and not infoStatic %}
     {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
   {% endif %}
