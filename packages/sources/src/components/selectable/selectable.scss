@@ -27,8 +27,8 @@ $dso-selectable-focus-border-width: 3px;
   padding: 0 0 0 $u4;
   position: relative;
 
-  .dso-selectable-nesting {
-    margin-bottom: $u1;
+  .dso-selectable-children {
+    margin-top: $u1;
   }
 
   label {
