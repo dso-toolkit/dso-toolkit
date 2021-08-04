@@ -63,9 +63,9 @@ export class DropdownMenu {
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("aria-labelledby", this.button.id);
       for (const li of Array.from(ul.getElementsByTagName("li"))) {
-        li.setAttribute("role", "menuitem");
+        li.setAttribute("role", "menuitemradio");
         if (li.classList.contains("dso-checked")) {
-          li.setAttribute("aria-selected", "true");
+          li.setAttribute("aria-checked", "true");
         }
       }
     }

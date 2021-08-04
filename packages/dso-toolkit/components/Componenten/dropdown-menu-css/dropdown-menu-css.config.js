@@ -15,7 +15,7 @@ module.exports = {
   * \`.dso-dropdown-menu\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
   * \`.dso-dropdown-options\` heeft \`role="menu"\`;
   * \`.dso-dropdown-options\` wordt getoond wanneer \`.dso-dropdown-menu\` de class \`dso-open\` heeft;
-  * de list items \`li\` van het menu krijgen \`role="menuitem"\` en het geselecteerde item \`aria-selected="true"\`;
+  * de list items \`li\` van het menu krijgen \`role="menuitemradio"\` en het geselecteerde item \`aria-checked="true"\`;
   * \`button\` heeft attribute \`aria-haspopup="menu"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit de \`<ul>\`s in de optielijst met een \`aria-labelledby\`-attribuut
 
   ### Menu ingeklapt

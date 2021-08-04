@@ -8,7 +8,7 @@
         {% endif %}
         <ul aria-labelledby="{{ id }}">
           {% for item in group.items %}
-            <li role="menuitem" {{ attributes([item.checked, 'aria-selected', 'true']) }} {{ className([item.checked, 'dso-checked']) }}>
+            <li role="menuitemradio" {{ attributes([item.checked, 'aria-checked', 'true']) }} {{ className([item.checked, 'dso-checked']) }}>
               <a href="#">{{ item.label }}</a>
             </li>
           {% endfor %}
