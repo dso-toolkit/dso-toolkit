@@ -23,9 +23,13 @@
   </label>
   {% if nestedItems %}
     <div class="dso-selectable-children">
-      {%- for item in nestedItems %}
-        {% render '@selectable', item %}
-      {% endfor %}
+      <ul class="dso-selectable-nested-parent">
+        {%- for item in nestedItems %}
+          <li>
+            {% render '@selectable', item %}
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   {% endif %}
   {% if infoText and not infoStatic %}

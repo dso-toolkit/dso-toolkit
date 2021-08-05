@@ -1,0 +1,50 @@
+collated: true
+context:
+  __title: Checkbox - Nested checkboxes
+  selectable:
+    id: checkbox-nested-parent
+    type: checkbox
+    label: Selectable parent
+    nestedItems:
+    - type: checkbox
+      id: checkbox-child-1
+      label: Selectable child niveau 1
+    - type: checkbox
+      id: checkbox-child-2
+      label: Selectable child niveau 1
+      nestedItems:
+      - type: checkbox
+        id: checkbox-child-4
+        label: Selectable child niveau 2
+      - type: checkbox
+        id: checkbox-child-5
+        label: Selectable child inveau 2
+    - type: checkbox
+      id: checkbox-child-3
+      label: Selectable child niveau 1
+variants:
+  - name: radio-info-closed
+    context:
+      __title: Checkbox - Nested radios
+      selectable:
+        id: checkbox-nested-parent
+        type: checkbox
+        label: Ik koop een auto
+        nestedItems:
+        - type: checkbox
+          id: checkbox-child-1
+          label: Merk
+        - type: checkbox
+          id: checkbox-child-2
+          label: Kleur
+          nestedItems:
+          - type: radio
+            id: radio-child-1
+            label: Wit
+          - type: radio
+            id: radio-child-2
+            label: Metallic grijs
+        - type: checkbox
+          id: checkbox-child-3
+          label: Model
+

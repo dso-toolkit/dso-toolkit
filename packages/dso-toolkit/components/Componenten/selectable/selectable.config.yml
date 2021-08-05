@@ -59,27 +59,4 @@ variants:
       infoStatic: true
       infoText: |
         <p>Deze toelichting kan niet worden gesloten</p>
-  - name: checkbox-nested
-    context:
-      __title: Checkbox - Nested items
-      id: checkbox-nested-parent
-      type: checkbox
-      label: Selecteer mij
-      nestedItems:
-      - type: checkbox
-        id: checkbox-child-1
-        label: Selecteer mij
-      - type: checkbox
-        id: checkbox-child-2
-        label: Selecteer mij
-        nestedItems:
-        - type: checkbox
-          id: checkbox-child-4
-          label: Selecteer mij
-        - type: checkbox
-          id: checkbox-child-5
-          label: Selecteer mij
-      - type: checkbox
-        id: checkbox-child-3
-        label: Selecteer mij
 
