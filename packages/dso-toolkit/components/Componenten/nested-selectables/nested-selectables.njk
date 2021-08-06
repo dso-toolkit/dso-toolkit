@@ -1,5 +1,20 @@
 <ul class="dso-selectable-nested-parent">
   <li>
-    {% render '@selectable', selectable %}
+    {% render '@selectable', {
+      type: type,
+      id: localId + '-' + loop.index0,
+      name: id,
+      value: value,
+      label: label,
+      disabled: disabled,
+      checked: checked,
+      required: required,
+      invalid: state == 'invalid',
+      infoText: infoText,
+      infoOpen: infoOpen,
+      infoButtonLabel: infoButtonLabel,
+      infoStatic: static,
+      nestedItems: nestedItems
+    } %}
   </li>
 </ul>
