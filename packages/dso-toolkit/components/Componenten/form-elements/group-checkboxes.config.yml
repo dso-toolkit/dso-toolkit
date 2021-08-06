@@ -158,3 +158,39 @@ variants:
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
     static: true
+- name: input-checkbox-nested
+  context:
+    __title: default
+    id: input-checkbox
+    label: Checkboxes - Default
+    options:
+    - value: 1
+      type: checkbox
+      label: een
+    - value: 2
+      type: checkbox
+      label: twee
+      nestedItems:
+      - value: 2.1
+        type: checkbox
+        label: Selectable child niveau 1
+        nestedItems:
+        - value: 2.1.1
+          type: checkbox
+          label: Selectable child niveau 2
+        - value: 2.1.2
+          type: checkbox
+          label: Selectable child inveau 2
+      - value: 2.2
+        type: checkbox
+        label: Selectable child niveau 1
+        nestedItems:
+        - value: 2.2.1
+          type: checkbox
+          label: Selectable child niveau 2
+        - value: 2.2.2
+          type: checkbox
+          label: Selectable child inveau 2
+    - value: 3
+      type: checkbox
+      label: drie
