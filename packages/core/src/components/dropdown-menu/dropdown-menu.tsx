@@ -63,11 +63,15 @@ export class DropdownMenu {
       this.open = !this.open;
     });
 
-    this.host
-      .querySelector(".dso-dropdown-options")
-      ?.setAttribute("role", "menu");
+    const options = this.host.querySelector(".dso-dropdown-options");
+    if (options == null) {
+      throw new ReferenceError("Dropdown options not found");
+    }
+
+    options.setAttribute("role", "menu");
+    options.setAttribute("aria-labelledby", this.button.id);
+
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
-      ul.setAttribute("aria-labelledby", this.button.id);
       ul.setAttribute("role", "none");
       for (const li of Array.from(ul.getElementsByTagName("li"))) {
         li.setAttribute("role", "none");
