@@ -162,8 +162,8 @@ body.dso-modal-open {
         background-color: $dso-invalid-color;
       }
 
-      #{$dso-buttons} + {
-        .dso-tertiary {
+      #{$dso-buttons} {
+        + .dso-tertiary {
           margin-left: 0;
         }
       }
