@@ -1,0 +1,14 @@
+@mixin application-header_root() {
+  color: var(--dso-application-header-color, $grijs-60);
+  display: inline-block;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
+
+  &::after {
+    @include di("paperclip-grijs");
+
+    content: "";
+    display: inline-block;
+  }
+}
