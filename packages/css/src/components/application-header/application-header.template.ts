@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 
 export function applicationHeaderTemplate({ count }: ApplicationHeader) {
   return html`
-    <div class="dso-app-heading">
+    <div class="dso-app-heading">je moeder
       ${count} <span class="sr-only">bijlage${count !== 1 ? 'n' : ''}</span>
     </div>
   `;
