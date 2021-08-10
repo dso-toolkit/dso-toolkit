@@ -111,11 +111,16 @@ body.dso-modal-open {
     padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
     text-align: right;
 
+    .dso-tertiary,
     .btn-link {
       float: left;
       line-height: calc(1.5em - 1px);
       padding: $dso-button-vertical-padding 0;
       position: relative;
+    }
+
+    .btn-link {
+      background-color: $dso-invalid-color;
     }
   }
 
@@ -147,12 +152,24 @@ body.dso-modal-open {
     }
 
     .dso-footer {
+      #{$dso-buttons} + {
+        .dso-secondary {
+          margin-left: $u2;
+        }
+      }
+
       .btn + .btn-default {
-        margin-left: $u2;
+        background-color: $dso-invalid-color;
+      }
+
+      #{$dso-buttons} + {
+        .dso-tertiary {
+          margin-left: 0;
+        }
       }
 
       .btn + .btn-link {
-        margin-left: 0;
+        background-color: $dso-invalid-color;
       }
     }
   }
@@ -169,11 +186,28 @@ body.dso-modal-open {
           margin-top: $u1;
         }
 
+        #{$dso-buttons} {
+          &:not(.dso-list-button) + {
+            #{$dso-buttons} {
+              &:not(.dso-list-button) {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+
         &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
-          margin-left: 0;
+          background-color: $dso-invalid-color;
         }
 
         &.btn-link {
+          &,
+          span {
+            background-color: $dso-invalid-color;
+          }
+        }
+
+        &.dso-tertiary {
           &,
           span {
             float: none;

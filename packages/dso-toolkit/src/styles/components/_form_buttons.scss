@@ -3,13 +3,21 @@
 
   text-align: right;
 
+  .dso-tertiary,
   .btn-link {
     line-height: $line-height-base;
     padding: $dso-button-vertical-padding 0; // $horizontal??
   }
 
-  .btn + .btn {
-    margin-left: $u2;
+  .btn-link {
+    background-color: $dso-invalid-color;
+  }
+
+  #{$dso-buttons} + {
+    #{$dso-buttons} {
+      background-color: pink;
+      margin-left: $u2;
+    }
   }
 
   .dso-aside {

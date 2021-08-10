@@ -44,8 +44,8 @@
     }
   }
 
-  .btn-link:not([disabled]) {
-    color: $zwart;
+  .dso-tertiary:not([disabled]) {
+      color: $zwart;
 
     &:hover,
     &:focus {
@@ -56,6 +56,10 @@
         text-decoration: underline;
       }
     }
+  }
+
+  .btn-link:not([disabled]) {
+    background-color: $dso-invalid-color;
   }
 }
 
