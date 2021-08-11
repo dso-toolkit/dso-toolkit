@@ -1,0 +1,15 @@
+.dso-btn-group {
+  @include list-button_button-group(".dso-input-number", ".dso-list-button");
+}
+
+.dso-list-button {
+  @include list-button_root();
+}
+
+.dso-list-button,
+.dso-btn-group {
+  + .dso-list-button,
+  + .dso-btn-group {
+    @include list-button_sibling();
+  }
+}

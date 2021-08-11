@@ -1,0 +1,5 @@
+@mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+  background-color: $background-color;
+  border-color: $border-color;
+  color: $color;
+}

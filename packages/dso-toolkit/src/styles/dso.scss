@@ -15,7 +15,7 @@
 // @import "components/application-heading"; -> Moved to @dso-toolkit/sources/src/components/application-heading
 // @import "components/badge"; -> Moved to @dso-toolkit/styling
 // @import "components/banner"; -> Moved to @dso-toolkit/styling
-@import "components/button-group";
+// @import "components/button-group"; -> Moved to @dso-toolkit/sources/src/components/button-group
 // @import "components/breadcrumbs"; -> Moved to @dso-toolkit/styling
 // @import "components/button"; -> Moved to @dso-toolkit/sources
 @import "components/card";
@@ -32,11 +32,11 @@
 // @import "components/highlight-box"; -> Moved to @dso-toolkit/styling
 @import "components/image";
 // @import "components/info"; // -> Moved to @dso-toolkit/css as info and info-button
-@import "components/input-number";
+// @import "components/input-number"; -> Moved to @dso-toolkit/sources/src/components/input-number
 @import "components/jumbotron";
 // @import "components/label"; // -> Moved to @dso-toolkit/css
 @import "components/lists";
-@import "components/list-button";
+// @import "components/list-button"; -> Moved to @dso-toolkit/sources/src/components/list-button
 @import "components/menu";
 @import "components/modal";
 @import "components/navs";

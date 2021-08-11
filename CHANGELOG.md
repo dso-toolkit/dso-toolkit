@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core + react + sources:** Interactieve zoeksuggesties aanbieden als Web Component ([#1158](https://github.com/dso-toolkit/dso-toolkit/issues/1158))
+* **dso-toolkit + sources + css:** CSS Component List Button ([#1250](https://github.com/dso-toolkit/dso-toolkit/issues/1250))
 
 ### Changes
 * **dso-toolkit:** Naamswijziging in voorbeelddata ([#1268](https://github.com/dso-toolkit/dso-toolkit/issues/1268))
@@ -17,7 +18,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## 27.3.0
 
 ### Added
-
 * **core + css + dso-toolkit + react + sources:** Checkbox voorzien van indeterminate state ([#1185](https://github.com/dso-toolkit/dso-toolkit/issues/1185))
 
 ### Fixed
