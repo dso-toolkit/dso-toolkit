@@ -6,6 +6,8 @@
 
   {%- if modifier and modifier.indexOf('btn') > -1 -%}
     <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
+  {%- elif modifier and modifier.indexOf('tertiary') > -1 -%}
+    <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
   {%- else -%}
     {{ label }}
   {%- endif -%}
