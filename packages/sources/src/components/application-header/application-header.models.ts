@@ -1,3 +1,5 @@
 export interface ApplicationHeader {
-  count: number;
+  title: string;
+  subtitle?: string;
+  step?: string;
 }

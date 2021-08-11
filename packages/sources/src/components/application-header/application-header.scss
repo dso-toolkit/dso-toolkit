@@ -1,14 +1,27 @@
+$dso-step-padding: 12px;
+
 @mixin application-header_root() {
-  color: var(--dso-application-header-color, $grijs-60);
-  display: inline-block;
-  font-weight: 400;
-  text-decoration: none;
-  white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
+  border-bottom: 1px solid $grijs-20;
+  margin-bottom: $u2;
 
-  &::after {
-    @include di("paperclip-grijs");
+  h2 {
+    margin-top: $u2;
+  }
 
-    content: "";
-    display: inline-block;
+  .dso-steps-indicator {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    span.dso-step {
+      color: $grasgroen;
+      display: block;
+      flex: 1 0;
+      flex-basis: auto;
+      font-size: 1rem;
+      font-weight: normal;
+      padding-top: #{$dso-step-padding / 2};
+      text-align: right;
+    }
   }
 }

@@ -1,10 +1,32 @@
 import { ApplicationHeader } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
+import { html, nothing } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined';
 
-export function applicationHeaderTemplate({ count }: ApplicationHeader) {
+export function applicationHeaderTemplate({ title, subtitle, step }: ApplicationHeader) {
   return html`
-    <div class="dso-app-heading">je moeder
-      ${count} <span class="sr-only">bijlage${count !== 1 ? 'n' : ''}</span>
+    <div class="dso-app-heading">
+      ${title
+        ? html`
+          <h1>${title}</h1>
+        `
+        : nothing
+      }
+      ${subtitle
+        ? html`
+          <h2
+            class=${ifDefined(step ? 'dso-steps-indicator' : undefined)}
+          >
+            ${subtitle}
+            ${step
+              ? html `
+                <span class="dso-step">${step}</span>
+              `
+              : nothing
+            }
+          </h2>
+          `
+        : nothing
+      }
     </div>
   `;
 }

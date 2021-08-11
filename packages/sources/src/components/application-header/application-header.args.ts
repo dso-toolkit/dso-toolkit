@@ -2,19 +2,33 @@ import { ArgTypes } from '../../stories-helpers';
 import { ApplicationHeader } from './application-header.models';
 
 export interface ApplicationHeaderArgs {
-  count: number;
+  title: string;
+  subtitle?: string;
+  step?: string;
 }
 
 export const applicationHeaderArgTypes: ArgTypes<ApplicationHeaderArgs> = {
-  count: {
+  title: {
     control: {
-      type: 'number'
+      type: 'text'
+    }
+  },
+  subtitle: {
+    control: {
+      type: 'text'
+    }
+  },
+  step: {
+    control: {
+      type: 'text'
     }
   }
 };
 
 export function applicationHeaderArgsMapper(a: ApplicationHeaderArgs): ApplicationHeader {
   return {
-    count: a.count
+    title: a.title,
+    subtitle: a.subtitle,
+    step: a.step
   };
 }

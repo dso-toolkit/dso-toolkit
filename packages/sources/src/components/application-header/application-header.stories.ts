@@ -28,11 +28,55 @@ export function storiesOfApplicationHeader<TemplateFnReturnType>(
     });
 
   stories.add(
-    'Application Header',
+    'default',
     template,
     {
       args: {
-        count: 3
+        title: 'H1 Paginatitel'
+      }
+    }
+  );
+
+  stories.add(
+    'with subtitle',
+    template,
+    {
+      args: {
+        title: 'H1 Paginatitel',
+        subtitle: 'H2 Subtitel'
+      }
+    }
+  );
+
+  stories.add(
+    'with subtitle and steps',
+    template,
+    {
+      args: {
+        title: 'H1 Paginatitel',
+        subtitle: 'H2 Subtitel',
+        step: 'Stap x van x'
+      }
+    }
+  );
+
+  stories.add(
+    'subtitle only',
+    template,
+    {
+      args: {
+        subtitle: 'H2 Subtitel'
+      }
+    }
+  );
+
+  stories.add(
+    'subtitle and steps only',
+    template,
+    {
+      args: {
+        subtitle: 'H2 Subtitel',
+        step: 'Stap x van x'
       }
     }
   );
