@@ -21,6 +21,9 @@ form,
           @include sr-only();
 
           + label {
+            @include button_base();
+            @include button_secondary($base-styling: false);
+
             cursor: pointer;
           }
 
