@@ -5,37 +5,37 @@
 .btn-primary {
   @include button_primary($base-styling: false);
 
-  background-color: $dso-invalid-color;
+  // background-color: $dso-invalid-color;
 }
 
 a.btn-primary {
   @include button_anchor-primary();
 
-  background-color: $dso-invalid-color;
+  // background-color: $dso-invalid-color;
 }
 
 .btn-default {
   @include button_secondary($base-styling: false);
 
-  background-color: $dso-invalid-color;
+  // background-color: $dso-invalid-color;
 }
 
 a.btn-default {
   @include button_anchor-secondary();
 
-  background-color: $dso-invalid-color;
+  // background-color: $dso-invalid-color;
 }
 
 .btn-link {
   @include button_tertiary($base-styling: false);
 
-  background-color: $dso-invalid-color;
+  // background-color: $dso-invalid-color;
 }
 
 a.btn-link {
   @include button_anchor-tertiary();
 
-  background-color: $dso-invalid-color;
+  // background-color: $dso-invalid-color;
 }
 
 .btn-block {
