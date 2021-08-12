@@ -58,9 +58,9 @@
     }
   }
 
-  .btn-link:not([disabled]) {
-    background-color: $dso-invalid-color;
-  }
+  // .btn-link:not([disabled]) {
+  //   background-color: $dso-invalid-color;
+  // }
 }
 
 @mixin info_children() {

@@ -9,9 +9,9 @@
     padding: $dso-button-vertical-padding 0; // $horizontal??
   }
 
-  .btn-link {
-    background-color: $dso-invalid-color;
-  }
+  // .btn-link {
+  //   background-color: $dso-invalid-color;
+  // }
 
   #{$dso-buttons} + {
     #{$dso-buttons} {

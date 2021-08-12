@@ -119,9 +119,9 @@ body.dso-modal-open {
       position: relative;
     }
 
-    .btn-link {
-      background-color: $dso-invalid-color;
-    }
+    // .btn-link {
+    //   background-color: $dso-invalid-color;
+    // }
   }
 
   &.dso-confirm {
@@ -158,9 +158,9 @@ body.dso-modal-open {
         }
       }
 
-      .btn + .btn-default {
-        background-color: $dso-invalid-color;
-      }
+      // .btn + .btn-default {
+      //   background-color: $dso-invalid-color;
+      // }
 
       #{$dso-buttons} {
         + .dso-tertiary {
@@ -168,9 +168,9 @@ body.dso-modal-open {
         }
       }
 
-      .btn + .btn-link {
-        background-color: $dso-invalid-color;
-      }
+      // .btn + .btn-link {
+      //   background-color: $dso-invalid-color;
+      // }
     }
   }
 
@@ -196,16 +196,16 @@ body.dso-modal-open {
           }
         }
 
-        &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
-          background-color: $dso-invalid-color;
-        }
+        // &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
+        //   background-color: $dso-invalid-color;
+        // }
 
-        &.btn-link {
-          &,
-          span {
-            background-color: $dso-invalid-color;
-          }
-        }
+        // &.btn-link {
+        //   &,
+        //   span {
+        //     background-color: $dso-invalid-color;
+        //   }
+        // }
 
         &.dso-tertiary {
           &,
