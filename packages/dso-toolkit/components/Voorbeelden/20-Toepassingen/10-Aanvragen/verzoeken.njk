@@ -8,13 +8,13 @@
     {% endfor %}
     <div class="dso-form-buttons">
       <div class="dso-aside">
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Ergens anders indienen'} %}
+        {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Ergens anders indienen'} %}
       </div>
     </div>
     {% render '@form', form %}
     <div class="dso-form-buttons">
       <div class="dso-aside">
-        {% render '@button', {type: 'button', modifier: 'link', label: 'Vorige', icon: 'chevron-left'} %}
+        {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Vorige', icon: 'chevron-left'} %}
       </div>
       {% render '@button', {type: 'button', modifier: 'primary', label: 'Volgende', iconAfter: 'chevron-right'} %}
     </div>

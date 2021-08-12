@@ -3,15 +3,15 @@
     <label for="{{ id }}" class="control-label">
       {{ label }}
     </label>
-  {% endif %} 
-  {% render '@button', {type: 'button', modifier: 'link', label: minusButtonLabel, icon: 'minus-square', iconOnly: 'true', disabled: minusButtonInactive} %}
-  <input type="number" 
-          id="{{ id }}" 
+  {% endif %}
+  {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: minusButtonLabel, icon: 'minus-square', iconOnly: 'true', disabled: minusButtonInactive} %}
+  <input type="number"
+          id="{{ id }}"
           readonly
           tabindex="-1"
           {% if min %} min="{{ min }}"{% endif %}
           {% if max %} max="{{ max }}"{% endif %}
-          class="dso-input-step-counter" 
+          class="dso-input-step-counter"
           value="{{ count }}">
-  {% render '@button', {type: 'button', modifier: 'link', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive} %}
+  {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive} %}
 </div>
