@@ -51,7 +51,7 @@ module.exports = {
   default: 'dropdown-link',
   context: {
     id: 'actie',
-    modifier: 'link',
+    modifier: 'dso-tertiary',
     ariaHasPopup: true,
     open: false,
     label: 'Actie'
@@ -151,7 +151,7 @@ module.exports = {
       name: 'dropdown-default-button',
       context: {
         id: 'dropdown_default_button',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         open: false
       }
     },
@@ -159,7 +159,7 @@ module.exports = {
       name: 'dropdown-default-button-open',
       context: {
         id: 'dropdown_default_button_open',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         open: true,
         groups: [
           {
@@ -204,7 +204,7 @@ module.exports = {
       name: 'dropdown-default-button-open-checkable',
       context: {
         id: 'dropdown_default_button_open_checkable',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         open: true,
         modifiers: 'dso-checkable',
         groups: [
@@ -251,7 +251,7 @@ module.exports = {
       name: 'dropdown-primary-button',
       context: {
         id: 'dropdown_primary_button',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         open: false
       }
     },
@@ -259,7 +259,7 @@ module.exports = {
       name: 'dropdown-primary-button-open',
       context: {
         id: 'dropdown_primary_button_open',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         open: true,
         groups: [
           {
@@ -304,7 +304,7 @@ module.exports = {
       name: 'dropdown-primary-button-open-checkable',
       context: {
         id: 'dropdown_primary_button_open_checkable',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         open: true,
         modifiers: 'dso-checkable',
         groups: [
@@ -351,7 +351,7 @@ module.exports = {
       name: 'dropdown-link-button-align-right',
       context: {
         id: 'dropdown_link_button_align_right',
-        modifier: 'link',
+        modifier: 'dso-tertiary',
         open: true,
         align: 'right',
         modifiers: 'dso-checkable',
@@ -399,7 +399,7 @@ module.exports = {
       name: 'dropdown-default-button-align-right',
       context: {
         id: 'dropdown_default_button_align_right',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         open: true,
         align: 'right',
         modifiers: 'dso-checkable',
@@ -447,7 +447,7 @@ module.exports = {
       name: 'dropdown-primary-button-align-right',
       context: {
         id: 'dropdown_primary_button_align_right',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         open: true,
         align: 'right',
         modifiers: 'dso-checkable',
