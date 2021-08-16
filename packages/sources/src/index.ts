@@ -50,6 +50,8 @@ export * from './components/selectable/selectable.models';
 export * from './components/selectable/selectable.stories';
 export * from './components/tile/tile.models';
 export * from './components/tile/tile.stories';
+export * from './components/toggletip/toggletip.models';
+export * from './components/toggletip/toggletip.stories';
 export * from './components/tooltip/tooltip.models';
 export * from './components/tooltip/tooltip.stories';
 export * from './components/whitebox/whitebox.models';

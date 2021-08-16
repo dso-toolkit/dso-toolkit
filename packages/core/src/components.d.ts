@@ -147,6 +147,8 @@ export namespace Components {
         "type": 'checkbox' | 'radio';
         "value": string;
     }
+    interface DsoToggletip {
+    }
     interface DsoTooltip {
         /**
           * Activate the tooltip (Sets the `active` attribute)
@@ -281,6 +283,12 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoToggletipElement extends Components.DsoToggletip, HTMLStencilElement {
+    }
+    var HTMLDsoToggletipElement: {
+        prototype: HTMLDsoToggletipElement;
+        new (): HTMLDsoToggletipElement;
+    };
     interface HTMLDsoTooltipElement extends Components.DsoTooltip, HTMLStencilElement {
     }
     var HTMLDsoTooltipElement: {
@@ -305,6 +313,7 @@ declare global {
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
     }
 }
@@ -453,6 +462,8 @@ declare namespace LocalJSX {
         "type": 'checkbox' | 'radio';
         "value": string;
     }
+    interface DsoToggletip {
+    }
     interface DsoTooltip {
         /**
           * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
@@ -493,6 +504,7 @@ declare namespace LocalJSX {
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-selectable": DsoSelectable;
+        "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
     }
 }
@@ -517,6 +529,7 @@ declare module "@stencil/core" {
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
         }
     }

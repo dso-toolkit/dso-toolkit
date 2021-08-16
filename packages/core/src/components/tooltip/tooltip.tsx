@@ -182,7 +182,12 @@ export class Tooltip {
     }
 
     if (typeof this.for === 'string') {
-      const reference = document.getElementById(this.for);
+      const rootNode = this.element.getRootNode();
+      if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
+        throw new Error(`rootNode is not instance of Document or ShadowRoot`);
+      }
+
+      const reference = rootNode.getElementById(this.for);
       if (!reference) {
         throw new Error(`Unable to find reference with id ${this.for}`);
       }
