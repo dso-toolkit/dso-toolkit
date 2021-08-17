@@ -6,7 +6,7 @@ export function toggletipTemplate({}: Toggletip) {
     <dso-toggletip>
       <div class="dso-rich-content">
         <h2>Test</h2>
-        <p>Hoi</p>
+        <p>Hoi <a href="#daar">daar</a>.</p>
       </div>
     </dso-toggletip>
   `;

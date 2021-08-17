@@ -198,6 +198,10 @@ export namespace Components {
           * Defines if the tooltip has a smaller max-width
          */
         "small"?: boolean;
+        /**
+          * Deactivates mouseover behaviour
+         */
+        "stateless"?: boolean;
     }
 }
 declare global {
@@ -546,6 +550,10 @@ declare namespace LocalJSX {
           * Defines if the tooltip has a smaller max-width
          */
         "small"?: boolean;
+        /**
+          * Deactivates mouseover behaviour
+         */
+        "stateless"?: boolean;
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
