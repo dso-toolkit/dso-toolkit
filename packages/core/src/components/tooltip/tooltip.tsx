@@ -34,6 +34,12 @@ export class Tooltip {
   noArrow = false;
 
   /**
+   * Deactivates mouseover behaviour
+   */
+  @Prop()
+  stateless?: boolean;
+
+  /**
   * Defines if the tooltip has a smaller max-width
   */
   @Prop()
@@ -135,16 +141,18 @@ export class Tooltip {
       }
     };
 
-    this.target.addEventListener('mouseenter', this.callbacks.activate);
-    this.target.addEventListener('mouseleave', this.callbacks.deactivate);
-    this.target.addEventListener('focus', this.callbacks.activate);
-    this.target.addEventListener('blur', this.callbacks.deactivate);
+    if (!this.stateless) {
+      this.target.addEventListener('mouseenter', this.callbacks.activate);
+      this.target.addEventListener('mouseleave', this.callbacks.deactivate);
+      this.target.addEventListener('focus', this.callbacks.activate);
+      this.target.addEventListener('blur', this.callbacks.deactivate);
+    }
   }
 
   disconnectedCallback(): void {
     this.popper?.destroy();
 
-    if (this.target && this.callbacks) {
+    if (!this.stateless && this.target && this.callbacks) {
       this.target.removeEventListener('mouseenter', this.callbacks.activate);
       this.target.removeEventListener('mouseleave', this.callbacks.deactivate);
       this.target.removeEventListener('focus', this.callbacks.activate);

@@ -19,6 +19,7 @@
  - [dso-date-picker](../date-picker)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
+ - [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
@@ -26,6 +27,7 @@ graph TD;
   dso-date-picker --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon
+  dso-toggletip --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
