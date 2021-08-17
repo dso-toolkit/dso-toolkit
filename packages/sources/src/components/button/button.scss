@@ -258,6 +258,7 @@ $dso-button-tertiary-active-color: $scampi;
 
 @mixin button_anchor-primary() {
   text-decoration: none;
+
   &,
   &:visited {
     color: $wit;
