@@ -335,6 +335,7 @@ $dso-button-tertiary-active-color: $scampi;
   }
 
   &.btn-align {
+    line-height: calc(1.5em - 1px);
     padding: $dso-button-tertiary-padding-horizontal 0;
     position: relative;
   }

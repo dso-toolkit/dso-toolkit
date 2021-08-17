@@ -2,6 +2,10 @@
   @include button_base();
 }
 
+#{$dso-buttons} {
+  @include button_base();
+}
+
 .btn-primary {
   @include button_primary($base-styling: false);
 

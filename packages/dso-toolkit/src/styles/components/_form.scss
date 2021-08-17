@@ -113,6 +113,18 @@ form,
   .btn + .btn {
     margin-left: $u2;
   }
+
+  @each $button-class in $dso-buttons {
+    &#{$button-class} {
+      + {
+        @each $button-class in $dso-buttons {
+          #{$button-class} {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
 }
 
 .form-group {

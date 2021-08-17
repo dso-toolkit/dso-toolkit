@@ -178,22 +178,26 @@ body.dso-modal-open {
     max-width: 100%;
 
     .dso-footer {
+      @each $button-class in $dso-buttons {
+        &#{$button-class} {
+          &:not(.dso-list-button) + {
+            @each $button-class in $dso-buttons {
+              #{$button-class} {
+                &:not(.dso-list-button) {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
       button {
         text-align: center;
         width: 100%;
 
         + button {
           margin-top: $u1;
-        }
-
-        #{$dso-buttons} {
-          &:not(.dso-list-button) + {
-            #{$dso-buttons} {
-              &:not(.dso-list-button) {
-                margin-left: 0;
-              }
-            }
-          }
         }
 
         // &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
