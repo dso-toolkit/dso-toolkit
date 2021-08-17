@@ -39,7 +39,8 @@ $alert-danger-border: $state-danger-border;
       margin-top: $u1;
     }
 
-    .btn {
+    .btn,
+    #{dso-buttons} {
       background-color: rgba(25, 25, 25, 0.05);
       border-radius: $dso-button-border-radius;
       border: 1px solid transparent;
@@ -55,7 +56,10 @@ $alert-danger-border: $state-danger-border;
 
   a {
     &,
-    &:not(.btn):visited {
+    &:not(.btn):visited,
+    &:not(.dso-primary):visited,
+    &:not(.dso-secondary):visited,
+    &:not(.dso-tertiary):visited {
       color: $text-color;
     }
 

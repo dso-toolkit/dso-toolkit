@@ -119,7 +119,7 @@ form,
       + {
         @each $button-class in $dso-buttons {
           #{$button-class} {
-            margin-left: 0;
+            margin-left: $u2;
           }
         }
       }
