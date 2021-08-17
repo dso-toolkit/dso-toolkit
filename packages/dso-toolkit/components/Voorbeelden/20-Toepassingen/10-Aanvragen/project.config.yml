@@ -37,6 +37,6 @@ context:
         label: Wat zijn de kosten van uw project?
     buttons:
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Volgende stap
       iconAfter: chevron-right

@@ -47,19 +47,19 @@ context:
             label: Invoerveld
       buttons:
         - type: submit
-          modifier: primary
+          modifier: dso-primary
           label: Volgende
     - title: Vraaggroep 3
       id: accordion-questiongroup_3
       header: h2
     asideButtons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Vorige stap
       icon: angle-left
     formButtons:
     - type: submit
-      modifier: link
+      modifier: dso-tertiary
       label: Volgende stap
       iconAfter: angle-right
   nestedAccordion:
@@ -91,7 +91,7 @@ context:
               label: Invoerveld
         buttons:
           - type: submit
-            modifier: primary
+            modifier: dso-primary
             label: Volgende
       - title: Vraaggroep 2.3
         id: nested-accordion-questiongroup_2-3
@@ -101,11 +101,11 @@ context:
       header: h2
     asideButtons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Vorige stap
       icon: angle-left
     formButtons:
     - type: submit
-      modifier: link
+      modifier: dso-tertiary
       label: Volgende stap
       iconAfter: angle-right

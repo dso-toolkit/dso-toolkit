@@ -7,7 +7,7 @@ context:
     subtitle: 2. Locatie
     step: Stap 2/7
   dropdownButton:
-    modifier: link
+    modifier: dso-tertiary
     label: 'Meer zoekopties'
     items:
       - label: Adres

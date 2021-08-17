@@ -19,7 +19,7 @@ module.exports = {
   default: 'dropdown-link',
   context: {
     id: 'actie',
-    modifier: 'link',
+    modifier: 'dso-tertiary',
     ariaHasPopup: true,
     label: 'Actie',
     groups: [
@@ -66,7 +66,7 @@ module.exports = {
       name: 'dropdown-default-button-open-checkable',
       context: {
         id: 'dropdown_default_button_open_checkable',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         modifiers: 'dso-checkable',
         isCheckable: true,
         groups: [
@@ -113,7 +113,7 @@ module.exports = {
       name: 'dropdown-primary-button-open-checkable',
       context: {
         id: 'dropdown_primary_button_open_checkable',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         modifiers: 'dso-checkable',
         isCheckable: true,
         groups: [
@@ -160,7 +160,7 @@ module.exports = {
       name: 'dropdown-link-button-align-right',
       context: {
         id: 'dropdown_link_button_align_right',
-        modifier: 'link',
+        modifier: 'dso-tertiary',
         align: 'right',
         modifiers: 'dso-checkable',
         isCheckable: true,
@@ -208,7 +208,7 @@ module.exports = {
       name: 'dropdown-default-button-align-right',
       context: {
         id: 'dropdown_default_button_align_right',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         align: 'right',
         modifiers: 'dso-checkable',
         isCheckable: true,
@@ -256,7 +256,7 @@ module.exports = {
       name: 'dropdown-primary-button-align-right',
       context: {
         id: 'dropdown_primary_button_align_right',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         align: 'right',
         modifiers: 'dso-checkable',
         isCheckable: true,
