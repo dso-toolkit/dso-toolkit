@@ -74,7 +74,7 @@ export class Toggletip {
         >
           <dso-icon icon="info"></dso-icon>
         </button>
-        <dso-tooltip stateless={true} for="toggle">
+        <dso-tooltip stateless for="toggle">
           <slot />
         </dso-tooltip>
       </>
