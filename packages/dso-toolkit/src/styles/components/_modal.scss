@@ -152,6 +152,10 @@ body.dso-modal-open {
     }
 
     .dso-footer {
+      .btn + .btn-default {
+        margin-left: $u2;
+      }
+
       #{$dso-buttons} + {
         .dso-secondary {
           margin-left: $u2;
@@ -161,6 +165,10 @@ body.dso-modal-open {
       // .btn + .btn-default {
       //   background-color: $dso-invalid-color;
       // }
+
+      .btn + .btn-link {
+        margin-left: 0;
+      }
 
       #{$dso-buttons} {
         + .dso-tertiary {
@@ -198,6 +206,10 @@ body.dso-modal-open {
 
         + button {
           margin-top: $u1;
+        }
+
+        &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
+          margin-left: 0;
         }
 
         // &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
