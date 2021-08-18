@@ -3,10 +3,13 @@
 
   text-align: right;
 
-  .dso-tertiary,
-  .btn-link {
-    line-height: $line-height-base;
-    padding: $dso-button-vertical-padding 0; // $horizontal??
+  a,
+  button {
+    &.dso-tertiary,
+    &.btn-link {
+      line-height: $line-height-base;
+      padding: $dso-button-vertical-padding 0; // $horizontal??
+    }
   }
 
   // .btn-link {

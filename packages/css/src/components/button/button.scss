@@ -1,7 +1,3 @@
-.btn {
-  @include button_base();
-}
-
 #{$dso-buttons} {
   @include button_base();
 }
