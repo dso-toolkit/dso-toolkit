@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core:** POC toggletip met interactieve elementen ([#1179](https://github.com/dso-toolkit/dso-toolkit/issues/1179))
+
 ### Fixed
 * **sources:** Anchor link styling op gekleurde achtergrond niet gelijk ([#1281](https://github.com/dso-toolkit/dso-toolkit/issues/1281))
 * **dso-toolkit:** Toegankelijke helpteksten, toelichtingen en validatiefoutmeldingen ([#1238](https://github.com/dso-toolkit/dso-toolkit/issues/1238))
