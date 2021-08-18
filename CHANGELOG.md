@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core:** POC toggletip met interactieve elementen ([#1179](https://github.com/dso-toolkit/dso-toolkit/issues/1179))
+
 ## 27.0.0
 
 ### Fixed
