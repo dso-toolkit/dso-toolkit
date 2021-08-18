@@ -1,4 +1,4 @@
-import { h, Component, Fragment, Element } from "@stencil/core";
+import { h, Component, Fragment, Element, Prop } from "@stencil/core";
 
 @Component({
   tag: "dso-toggletip",
@@ -9,9 +9,10 @@ export class Toggletip {
   @Element()
   host!: HTMLElement;
 
-  button!: HTMLButtonElement;
+  @Prop()
+  active: boolean = false;
 
-  tooltip!: HTMLDsoTooltipElement;
+  button!: HTMLButtonElement;
 
   componentDidRender() {
     const button = this.host.shadowRoot?.querySelector("button");
@@ -20,22 +21,14 @@ export class Toggletip {
     }
 
     this.button = button;
-
-    const tooltip = this.host.shadowRoot?.querySelector("dso-tooltip");
-    if (!tooltip) {
-      throw Error("tooltip not found");
-    }
-
-    this.tooltip = tooltip;
   }
 
   click = () => {
-    this.tooltip.active ? this.close() : this.open();
+    this.active ? this.close() : this.open();
   };
 
   open = () => {
-    this.tooltip.active = true;
-    this.button.setAttribute("aria-expanded", "true");
+    this.active = true;
     this.host.addEventListener("keydown", this.keyDownListener);
     this.host.addEventListener("focusout", this.focusOutListener);
   };
@@ -43,8 +36,7 @@ export class Toggletip {
   close = () => {
     this.host.removeEventListener("focusout", this.focusOutListener);
     this.host.removeEventListener("keydown", this.keyDownListener);
-    this.button.setAttribute("aria-expanded", "false");
-    this.tooltip.active = false;
+    this.active = false;
   };
 
   focusOutListener = (event: FocusEvent) => {
@@ -70,11 +62,11 @@ export class Toggletip {
           type="button"
           id="toggle"
           onClick={this.click}
-          aria-expanded="false"
+          aria-expanded={"" + this.active}
         >
           <dso-icon icon="info"></dso-icon>
         </button>
-        <dso-tooltip stateless for="toggle">
+        <dso-tooltip stateless for="toggle" active={this.active}>
           <slot />
         </dso-tooltip>
       </>
