@@ -1,2 +1,3 @@
-export interface Toggletip {
+export interface Toggletip<TemplateFnReturnType> {
+  children: TemplateFnReturnType;
 }
