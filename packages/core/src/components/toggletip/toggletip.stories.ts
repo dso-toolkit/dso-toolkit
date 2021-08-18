@@ -1,8 +1,8 @@
-import { storiesOfToggletip } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { storiesOfToggletip } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import readme from './readme.md';
-import { toggletipTemplate } from './toggletip.template';
+import readme from "./readme.md";
+import { toggletipTemplate } from "./toggletip.template";
 
 storiesOfToggletip(
   {
@@ -11,6 +11,7 @@ storiesOfToggletip(
     readme,
   },
   {
-    toggletipTemplate
+    toggletipTemplate,
+    children: "",
   }
 );

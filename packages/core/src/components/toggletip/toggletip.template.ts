@@ -1,13 +1,7 @@
-import { Toggletip } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
+import { Toggletip } from "@dso-toolkit/sources";
+import { html, TemplateResult } from "lit-html";
+import { unsafeHTML } from "lit-html/directives/unsafe-html";
 
-export function toggletipTemplate({}: Toggletip) {
-  return html`
-    <dso-toggletip>
-      <div class="dso-rich-content">
-        <h2>Test</h2>
-        <p>Hoi <a href="#daar">daar</a>.</p>
-      </div>
-    </dso-toggletip>
-  `;
+export function toggletipTemplate({ children }: Toggletip<TemplateResult>) {
+  return html`<dso-toggletip>${unsafeHTML(children)}</dso-toggletip>`;
 }
