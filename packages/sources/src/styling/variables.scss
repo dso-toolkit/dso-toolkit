@@ -18,6 +18,7 @@ $dso-button-primary: ".btn-primary, .dso-primary";
 $dso-buttons: ".btn, .dso-primary, .dso-secondary, .dso-tertiary";
 
 $not-dso-buttons: '';
+
 @each $button-class in $dso-buttons {
   $not-dso-buttons: $not-dso-buttons + ':not(' + $button-class + ')';
 }
