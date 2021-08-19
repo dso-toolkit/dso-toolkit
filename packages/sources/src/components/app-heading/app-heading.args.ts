@@ -1,5 +1,5 @@
 import { ArgTypes } from '../../stories-helpers';
-import { ApplicationHeader } from './application-header.models';
+import { ApplicationHeader } from './app-heading.models';
 
 export interface ApplicationHeaderArgs {
   title: string;
