@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Removed
 * **dso-toolkit:** Deprecated toelichting verwijderen ([#1241](https://github.com/dso-toolkit/dso-toolkit/issues/1241))
+* **dso-toolkit:** Group Files deprecated dso-description verwijderen ([#1243](https://github.com/dso-toolkit/dso-toolkit/issues/1243))
 
 ## 26.0.0
 

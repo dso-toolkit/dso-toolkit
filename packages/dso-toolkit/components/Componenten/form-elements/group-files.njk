@@ -1,9 +1,6 @@
 {% set localId = generateLocalId(prefix, id) %}
 
 <fieldset {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
-  <div class="dso-description dso-rich-content">
-    {{ description }}
-  </div>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
     <label for="{{ localId }}" class="control-label" aria-hidden="true">
