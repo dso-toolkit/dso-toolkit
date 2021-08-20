@@ -1,4 +1,4 @@
-<div class="dso-info">
+<div class="dso-info"{% if id and static %} id="{{ id }}"{% endif %}>
   {% if not static %}
     <button type="button">
       <span class="sr-only">Sluiten</span>

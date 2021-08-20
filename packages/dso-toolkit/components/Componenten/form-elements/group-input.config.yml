@@ -132,7 +132,7 @@ variants:
     readonly: true
 - name: input-text-infobutton
   context:
-    __title: infobutton
+    __title: Toelichting ingeklapt
     __explanation:
     - Toelichting ingeklapt
     id: input-text-infobutton
@@ -145,9 +145,9 @@ variants:
       Closed
 - name: input-text-infobutton-open
   context:
-    __title: infobutton uitgeklapt
+    __title: Toelichting uitgeklapt
     __explanation:
-    - Toelichting uitgeklapt
+    - Infobutton
     id: input-text-infobutton-open
     type: email
     label: Input - type Email
@@ -161,12 +161,10 @@ variants:
         Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
-- name: input-text-infobutton-static
+- name: input-text-static-info
   context:
-    __title: infobutton uitgeklapt
-    __explanation:
-    - Vaste toelichting
-    id: input-text-infobutton-static
+    __title: Vaste toelichting
+    id: input-text-static-info
     type: email
     label: Input - type Email
     required: true

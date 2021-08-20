@@ -5,15 +5,24 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 27.0.0
+
 ### Fixed
 * **dso-toolkit:** Rich content: ontbrekende alt tag ([#1232](https://github.com/dso-toolkit/dso-toolkit/issues/1232))
+* **dso-toolkit + core:** Accessible name voor Progress Bar en Progress Indicator ([#1211](https://github.com/dso-toolkit/dso-toolkit/issues/1211)) **Markup changes, see PR ([#1234](https://github.com/dso-toolkit/dso-toolkit/pull/1234))**
 
 ### Added
 * **BREAKING: dso-toolkit + core + css + react:** Dropdown Menu (Web Component en CSS Component update) ([#1173](https://github.com/dso-toolkit/dso-toolkit/issues/1173))
   * `.dropdown` wordt `.dso-dropdown-menu`, `.dropdown-menu` wordt `.dso-dropdown-options`, en... **Markup changes, see PR ([#1225](https://github.com/dso-toolkit/dso-toolkit/pull/1225))**
 
+### Changed
+* **sources:** Twee updated iconen: `land` en `layers` ([#1245](https://github.com/dso-toolkit/dso-toolkit/issues/1245))
+* **dso-toolkit + styling + css:** Footer redesign en finetuning styling linklijsten ([#936](https://github.com/dso-toolkit/dso-toolkit/issues/936))
+* **dso-toolkit:** Vaste toelichtingen hebben geen duidelijke relatie met vraag of antwoord ([#1229](https://github.com/dso-toolkit/dso-toolkit/issues/1229)) **Markup changes, see PR ([#1248](https://github.com/dso-toolkit/dso-toolkit/pull/1248))**
+
 ### Removed
 * **dso-toolkit:** Deprecated toelichting verwijderen ([#1241](https://github.com/dso-toolkit/dso-toolkit/issues/1241))
+* **dso-toolkit:** Group Files deprecated dso-description verwijderen ([#1243](https://github.com/dso-toolkit/dso-toolkit/issues/1243))
 
 ## 26.0.0
 

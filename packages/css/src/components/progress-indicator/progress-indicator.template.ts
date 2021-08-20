@@ -2,8 +2,8 @@ import { ProgressIndicator } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 
-export function progressIndicatorTemplate({ status, size, block }: ProgressIndicator) {
-  status ??= 'Een moment geduld alstublieft.';
+export function progressIndicatorTemplate({ label, size, block }: ProgressIndicator) {
+  label ??= 'Resultaten laden: een moment geduld alstublieft.';
 
   return html`
     <div
@@ -12,9 +12,9 @@ export function progressIndicatorTemplate({ status, size, block }: ProgressIndic
         'dso-block': !!block,
       })}"
       role="progressbar"
-      aria-valuetext=${status}
+      aria-labelledby="progress-indicator-label"
     >
-      <div class="dso-progress-indicator-spinner"></div><span class="dso-progress-indicator-label">${status}</span>
+      <div class="dso-progress-indicator-spinner"></div><span id="progress-indicator-label" class="dso-progress-indicator-label">${label}</span>
     </div>
   `;
 }

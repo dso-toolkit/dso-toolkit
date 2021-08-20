@@ -7,13 +7,14 @@ export function progressBarTemplate({ progress, label, min, max }: ProgressBar) 
       <div
         class="progress-bar"
         role="progressbar"
-        aria-valuenow="${Math.round(progress / (max || 100) * 100)}"
+        aria-labelledby="progress-bar-label"
+        aria-valuenow="${Math.round(progress)}"
         aria-valuemin="${min || 0}"
         aria-valuemax="${max || 100}"
         style="width: ${Math.round(progress / (max || 100) * 100)}%"
       >
-        <span>
-          ${label ?? `${progress}%`}
+        <span id="progress-bar-label">
+          ${label}
         </span>
       </div>
     </div>
