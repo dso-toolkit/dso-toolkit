@@ -1,14 +1,15 @@
 module.exports = {
   meta: {
     webComponent: 'dso-dropdown-menu',
-    markup: true
+    markup: false
   },
   notes: `
   ## Voorschriften/algemeen
 
   * \`<dso-dropdown-menu>\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
-  * \`button\` heeft attribute \`aria-haspopup="true"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit de \`<ul>\`s in de optielijst met een \`aria-labelledby\`-attribuut;
   * \`button\` heeft attribute \`slot="toggle"\`, zodat het Web Component 'weet' dat dit de bedieningsknop is;
+
+  Note: de \`button\` mag class \`dso-primary\`, \`dso-secondary\` of \`dso-tertiary\` hebben, afhankelijk van de toepassing. Ook de oude bootstrap classes \`btn\`, \`btn-default\`, \`btn-link\` worden nog ondersteund.
   `,
   label: 'Dropdown Menu (Web Component)',
   status: 'ready',
@@ -20,7 +21,7 @@ module.exports = {
   context: {
     id: 'actie',
     modifier: 'link',
-    ariaHasPopup: true,
+    ariaHasPopup: 'menu',
     label: 'Actie',
     groups: [
       {

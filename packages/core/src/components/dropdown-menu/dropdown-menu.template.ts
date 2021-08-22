@@ -3,6 +3,7 @@ import { html, TemplateResult } from "lit-html";
 import { ifDefined } from 'lit-html/directives/if-defined';
 
 export function dropdownMenuTemplate({
+  id,
   button,
   dropdownAlign,
   isCheckable,
@@ -13,7 +14,7 @@ export function dropdownMenuTemplate({
       dropdown-align=${ifDefined(dropdownAlign)}
       ?checkable=${isCheckable}
     >
-      <button type="button" class=${`dso-${button.variant}`} slot="toggle">
+      <button type="button" class=${`dso-${button.variant}`} slot="toggle" id=${ifDefined(id || undefined)}>
         <span>${button.label}</span>
       </button>
       <div class="dso-dropdown-options">

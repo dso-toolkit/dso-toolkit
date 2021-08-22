@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Dropdown button ARIA bugfixes ([#1231](https://github.com/dso-toolkit/dso-toolkit/issues/1231))
+
 ## 27.0.0
 
 ### Fixed

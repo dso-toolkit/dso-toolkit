@@ -22,15 +22,15 @@ storiesOfDropdownMenu(
           `
           : nothing
         }
-        <ul>
+        <ul role="none">
           ${group.items.map(item => html`
-            <li class=${ifDefined(item.checked ? 'dso-checked' : undefined)}>
+            <li role="none" class=${ifDefined(item.checked ? 'dso-checked' : undefined)}>
               ${item.type === 'anchor'
                 ? html`
-                  <a href=${item.url}>${item.label}</a>
+                  <a role="menuitemradio" href=${item.url} aria-checked=${ifDefined(item.checked || undefined)}>${item.label}</a>
                 `
                 : html`
-                  <button type="button">${item.label}</button>
+                  <button role="menuitem" type="button" aria-checked=${ifDefined(item.checked || undefined)}>${item.label}</button>
                 `
               }
             </li>

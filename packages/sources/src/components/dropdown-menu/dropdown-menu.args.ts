@@ -3,6 +3,7 @@ import { ArgTypes } from "../../stories-helpers";
 import { DropdownMenu } from "./dropdown-menu.models";
 
 export interface DropdownMenuArgs<TemplateFnReturnType> {
+  id: string;
   buttonLabel: string;
   buttonVariant: 'primary' | 'secondary' | 'tertiary';
   dropdownAlign: "left" | "right";
@@ -11,6 +12,11 @@ export interface DropdownMenuArgs<TemplateFnReturnType> {
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs<unknown>> = {
+  id: {
+    control: {
+      type: 'text'
+    }
+  },
   buttonLabel: {
     control: {
       type: 'text'
@@ -42,6 +48,7 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs<unknown>> = {
 
 export function dropdownMenuArgsMapper(a: DropdownMenuArgs<any>): DropdownMenu<any> {
   return {
+    id: a.id,
     button: {
       label: a.buttonLabel,
       variant: a.buttonVariant

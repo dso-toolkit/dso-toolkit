@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { bindTemplate, componentArgs, StorybookParameters } from "../../stories-helpers";
 
 import { dropdownMenuArgsMapper, dropdownMenuArgTypes, DropdownMenuArgs } from "./dropdown-menu.args";
@@ -27,14 +28,17 @@ export function storiesOfDropdownMenu<TemplateFnReturnType>(
       docs: {
         page: readme,
       },
-      argTypes: dropdownMenuArgTypes,
+      args: {
+        id: uuidv4()
+      },
+      argTypes: dropdownMenuArgTypes
     });
 
   stories.add(
     'anchors',
     template,
     {
-      args: componentArgs<DropdownMenuArgs<unknown>>({
+      args: componentArgs<Omit<DropdownMenuArgs<unknown>, 'id'>>({
         buttonLabel: 'Versies',
         buttonVariant: 'secondary',
         isCheckable: true,
@@ -48,7 +52,7 @@ export function storiesOfDropdownMenu<TemplateFnReturnType>(
     'buttons',
     template,
     {
-      args: componentArgs<DropdownMenuArgs<unknown>>({
+      args: componentArgs<Omit<DropdownMenuArgs<unknown>, 'id'>>({
         buttonLabel: 'Opties',
         buttonVariant: 'secondary',
         isCheckable: false,

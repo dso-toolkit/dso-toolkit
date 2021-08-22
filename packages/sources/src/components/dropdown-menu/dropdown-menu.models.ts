@@ -1,6 +1,7 @@
 import { Button } from "../button/button.models";
 
 export interface DropdownMenu<TemplateFnReturnType> {
+  id: string;
   button: Button;
   children: TemplateFnReturnType;
   dropdownAlign?: 'left' | 'right';

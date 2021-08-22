@@ -12,9 +12,11 @@ module.exports = {
 
   ## Voorschriften/algemeen
 
-  * \`.dso-dropdown-menu\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
+  * \`.dso-dropdown-menu\` is de root van het component, dat bestaat uit een \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
+  * \`.dso-dropdown-options\` heeft \`role="menu"\` en verwijst met \`aria-labelledby\` naar de \`button\`;
   * \`.dso-dropdown-options\` wordt getoond wanneer \`.dso-dropdown-menu\` de class \`dso-open\` heeft;
-  * \`button\` heeft attribute \`aria-haspopup="true"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit de \`<ul>\`s in de optielijst met een \`aria-labelledby\`-attribuut
+  * de links in het menu krijgen \`role="menuitemradio"\` en het geselecteerde item \`aria-checked="true"\`;
+  * \`button\` heeft attribute \`aria-haspopup="menu"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit \`.dso-dropdown-options\` met een \`aria-labelledby\`-attribuut
 
   ### Menu ingeklapt
 
@@ -24,7 +26,7 @@ module.exports = {
   \`\`\`
   <div class="dso-dropdown-menu">
     <button type="button" aria-haspopup="true" aria-expanded="false" class="dso-tertiary">
-    <div class="dso-dropdown-options">
+    <div class="dso-dropdown-options" ... > ...
   </div>
   \`\`\`
 
@@ -36,11 +38,11 @@ module.exports = {
   \`\`\`
   <div class="dso-dropdown-menu dso-open">
     <button type="button" aria-haspopup="true" aria-expanded="true" class="dso-tertiary">
-    <div class="dso-dropdown-options">
+    <div class="dso-dropdown-options" ... > ...
   </div>
   \`\`\`
 
-  Note: de \`button\` mag class \`dso-tertiary\`, \`dso-secondary\` of \`btn-primary\` hebben, afhankelijk van de toepassing. Ook de oude bootstrap classes \`btn-default\`, \`btn-link\` worden nog ondersteund.
+  Note: de \`button\` mag class \`dso-primary\`, \`dso-secondary\` of \`dso-tertiary\` hebben, afhankelijk van de toepassing. Ook de oude bootstrap classes \`btn\`, \`btn-default\`, \`btn-link\` worden nog ondersteund.
   `,
   label: 'Dropdown Menu (CSS Component)',
   status: 'ready',
@@ -52,7 +54,7 @@ module.exports = {
   context: {
     id: 'actie',
     modifier: 'link',
-    ariaHasPopup: true,
+    ariaHasPopup: 'menu',
     open: false,
     label: 'Actie'
   },
