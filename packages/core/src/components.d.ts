@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -23,6 +24,17 @@ export namespace Components {
     }
     interface DsoAttachmentsCounter {
         "count": number;
+    }
+    interface DsoAutosuggest {
+        /**
+          * A method that will be called debounced with the input value as its first parameter. This method will also be called when the input is reduced to an empty string.
+          * @returns A promise with an array of `Suggestion`s. You should limit this array to ten items.
+         */
+        "fetchSuggestions": (value: string) => Promise<Array<Suggestion>>;
+        /**
+          * Whether the previous suggestions will be presented when the input gets focus again.
+         */
+        "suggestOnFocus": boolean;
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
@@ -196,6 +208,12 @@ declare global {
         prototype: HTMLDsoAttachmentsCounterElement;
         new (): HTMLDsoAttachmentsCounterElement;
     };
+    interface HTMLDsoAutosuggestElement extends Components.DsoAutosuggest, HTMLStencilElement {
+    }
+    var HTMLDsoAutosuggestElement: {
+        prototype: HTMLDsoAutosuggestElement;
+        new (): HTMLDsoAutosuggestElement;
+    };
     interface HTMLDsoBadgeElement extends Components.DsoBadge, HTMLStencilElement {
     }
     var HTMLDsoBadgeElement: {
@@ -295,6 +313,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
+        "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-banner": HTMLDsoBannerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
@@ -326,6 +345,21 @@ declare namespace LocalJSX {
     }
     interface DsoAttachmentsCounter {
         "count": number;
+    }
+    interface DsoAutosuggest {
+        /**
+          * A method that will be called debounced with the input value as its first parameter. This method will also be called when the input is reduced to an empty string.
+          * @returns A promise with an array of `Suggestion`s. You should limit this array to ten items.
+         */
+        "fetchSuggestions": (value: string) => Promise<Array<Suggestion>>;
+        /**
+          * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
+         */
+        "onSelected"?: (event: CustomEvent<any>) => void;
+        /**
+          * Whether the previous suggestions will be presented when the input gets focus again.
+         */
+        "suggestOnFocus"?: boolean;
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
@@ -488,6 +522,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
+        "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
         "dso-banner": DsoBanner;
         "dso-date-picker": DsoDatePicker;
@@ -512,6 +547,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
+            "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
