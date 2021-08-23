@@ -1,0 +1,43 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+$dso-autosuggest-bg: #fff;
+$dso-autosuggest-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+$dso-autosuggest-border: rgba(0, 0, 0, 0.15);
+
+ul {
+  background-clip: padding-box;
+  background-color: $dso-autosuggest-bg;
+  border: 1px solid $dso-autosuggest-border;
+  border-radius: $border-radius-base;
+  box-shadow: $dso-autosuggest-box-shadow;
+  list-style-type: none;
+  margin-top: 2px;
+  padding: 4px 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 18px;
+  }
+}
+
+li[aria-selected="true"] {
+  cursor: pointer;
+  background-color: $grasgroen;
+
+  &,
+  .type {
+    color: $wit;
+  }
+}
+
+mark {
+  font-weight: 700;
+  background-color: inherit;
+  color: inherit;
+  padding: 0;
+}
+
+.type {
+  color: $grijs-60;
+}

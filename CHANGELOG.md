@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + react + sources:** Interactieve zoeksuggesties aanbieden als Web Component ([#1158](https://github.com/dso-toolkit/dso-toolkit/issues/1158))
+
 ### Changes
 * **dso-toolkit:** Naamswijziging in voorbeelddata ([#1268](https://github.com/dso-toolkit/dso-toolkit/issues/1268))
 

@@ -3258,6 +3258,7 @@ __metadata:
     "@storybook/addons": 6.2.9
     "@storybook/web-components": 6.2.9
     "@types/concurrently": ^6.0.1
+    "@types/debounce": ^1.2.0
     "@types/sass": 1.16.0
     "@types/uuid": ^8.3.0
     "@whitespace/storybook-addon-html": 5.0.0
@@ -3270,6 +3271,7 @@ __metadata:
     cypress: ^7.1.0
     cypress-axe: ^0.12.2
     cypress-real-events: ^1.3.0
+    debounce: ^1.2.1
     http-proxy-middleware: ^1.2.0
     http-server: ^0.12.3
     lit-html: ^1.3.0
@@ -5745,6 +5747,13 @@ __metadata:
   version: 0.0.31
   resolution: "@types/css@npm:0.0.31"
   checksum: af4de39e80d1a452681512faafd75c35c97bc703e8f4d24b36fe4927ed5a08816fb166b33b7aa014fdf03ecb41d36cb02eec11a0b5bf696411684a14a6bbb4b7
+  languageName: node
+  linkType: hard
+
+"@types/debounce@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@types/debounce@npm:1.2.0"
+  checksum: c45dbc5fa369b9d29616f994a83ca6833a82ebdabbb455a92fed3c292d0f15482e6ba76c8fed7ea3c947df398fd89754880e38d6a247323dac467241f7ae5be0
   languageName: node
   linkType: hard
 
@@ -11137,6 +11146,13 @@ __metadata:
   version: 1.10.4
   resolution: "dayjs@npm:1.10.4"
   checksum: 3b7bb2232fff808209870bc72d4b2000941a1aa45f0226e2907f9dd1dda306d4b3a1eb9058450fd2c324b01a007a37809ac6f9b525806a86902c55e2934cd5d5
+  languageName: node
+  linkType: hard
+
+"debounce@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "debounce@npm:1.2.1"
+  checksum: 04a00c6c45173ac6fb03ad3a7cf742fa4a86f6bf86b22f5b867085f739d0010ad98cbb92e80d60293faf6efb5452c637941092bd8d783cfeabe55c2000b1b07f
   languageName: node
   linkType: hard
 

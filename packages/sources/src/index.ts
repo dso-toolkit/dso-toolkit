@@ -8,6 +8,8 @@ export * from './components/application-heading/application-heading.models';
 export * from './components/application-heading/application-heading.stories';
 export * from './components/attachments-counter/attachments-counter.models';
 export * from './components/attachments-counter/attachments-counter.stories';
+export * from './components/autosuggest/autosuggest.models';
+export * from './components/autosuggest/autosuggest.stories';
 export * from './components/badge/badge.models';
 export * from './components/badge/badge.stories';
 export * from './components/banner/banner.models';
