@@ -168,7 +168,8 @@ export namespace Components {
         "value": string;
     }
     interface DsoToggletip {
-        "active": boolean;
+        "label": string;
+        "position": "top" | "right" | "bottom" | "left";
     }
     interface DsoTooltip {
         /**
@@ -529,7 +530,8 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface DsoToggletip {
-        "active"?: boolean;
+        "label"?: string;
+        "position"?: "top" | "right" | "bottom" | "left";
     }
     interface DsoTooltip {
         /**
