@@ -1,4 +1,4 @@
-import { h, Component, Fragment, Element, Prop } from "@stencil/core";
+import { h, Component, Fragment, Element, Prop, State } from "@stencil/core";
 
 @Component({
   tag: "dso-toggletip",
@@ -9,13 +9,28 @@ export class Toggletip {
   @Element()
   host!: HTMLElement;
 
-  @Prop()
+  @State()
   active: boolean = false;
+
+  @Prop()
+  label: string = "Toelichting";
+
+  @Prop()
+  position: "top" | "right" | "bottom" | "left" = "right";
+
+  infoButton!: HTMLDsoInfoButtonElement;
 
   button!: HTMLButtonElement;
 
   componentDidRender() {
-    const button = this.host.shadowRoot?.querySelector("button");
+    const infoButton = this.host.shadowRoot?.querySelector("dso-info-button");
+    if (!infoButton) {
+      throw Error("dso-info-button not found");
+    }
+
+    this.infoButton = infoButton;
+
+    const button = this.infoButton?.shadowRoot?.querySelector("button");
     if (!button) {
       throw Error("button not found");
     }
@@ -58,15 +73,18 @@ export class Toggletip {
   render() {
     return (
       <>
-        <button
-          type="button"
+        <dso-info-button
           id="toggle"
           onClick={this.click}
-          aria-expanded={"" + this.active}
+          label={this.label}
+          active={this.active}
+        />
+        <dso-tooltip
+          stateless
+          for="toggle"
+          active={this.active}
+          position={this.position}
         >
-          <dso-icon icon="info"></dso-icon>
-        </button>
-        <dso-tooltip stateless for="toggle" active={this.active}>
           <slot />
         </dso-tooltip>
       </>
