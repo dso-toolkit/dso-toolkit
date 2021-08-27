@@ -8,7 +8,7 @@
     [ariaExpanded, 'aria-expanded', ariaExpanded, true],
     [slot, 'slot', slot]
   ) }}
-  {{ className('btn', [modifier, 'btn-' + modifier]) -}}
+  {{ className(modifier) -}}
 >
   {%- if icon and not(iconOnly) %}<dso-icon icon="{{ icon }}"></dso-icon>{% endif -%}
   <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>

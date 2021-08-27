@@ -7,7 +7,7 @@ context:
     buttons:
       - name: confirmButton
         type: button
-        modifier: primary
+        modifier: dso-primary
         label: OK
 variants:
   - name: valid
@@ -19,11 +19,11 @@ variants:
         buttons:
           - name: confirmButton
             type: button
-            modifier: primary
+            modifier: dso-primary
             label: Ja
           - name: cancelButton
             type: button
-            modifier: link
+            modifier: dso-tertiary
             label: Nee
   - name: invalid
     context:
@@ -46,11 +46,11 @@ variants:
         buttons:
           - name: confirmButton
             type: button
-            modifier: primary
+            modifier: dso-primary
             label: Toevoegen
           - name: cancelButton
             type: button
-            modifier: link
+            modifier: dso-tertiary
             label: Annuleren
   - name: dialog-close
     hidden: true
@@ -68,7 +68,7 @@ variants:
         buttons:
         - name: confirmButton
           type: submit
-          modifier: primary
+          modifier: dso-primary
           label: Indienen
   - name: dialog-steps
     hidden: true
@@ -80,15 +80,15 @@ variants:
         buttons:
         - name: cancelButton
           type: button
-          modifier: link
+          modifier: dso-tertiary
           label: Annuleren
         - name: previousButton
           type: button
-          modifier: default
+          modifier: dso-secondary
           label: Vorige
         - name: nextButton
           type: button
-          modifier: default
+          modifier: dso-secondary
           label: Volgende
   - name: dialog-scripted-height
     label: No max height

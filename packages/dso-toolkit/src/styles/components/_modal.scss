@@ -111,6 +111,7 @@ body.dso-modal-open {
     padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
     text-align: right;
 
+    .dso-tertiary,
     .btn-link {
       float: left;
       line-height: calc(1.5em - 1px);
@@ -147,11 +148,11 @@ body.dso-modal-open {
     }
 
     .dso-footer {
-      .btn + .btn-default {
+      #{$dso-button-adjacent-secondary} {
         margin-left: $u2;
       }
 
-      .btn + .btn-link {
+      #{$dso-button-adjacent-tertiary} {
         margin-left: 0;
       }
     }
@@ -161,6 +162,10 @@ body.dso-modal-open {
     max-width: 100%;
 
     .dso-footer {
+      #{$dso-button-adjacent} {
+        margin-left: 0;
+      }
+
       button {
         text-align: center;
         width: 100%;
@@ -169,10 +174,7 @@ body.dso-modal-open {
           margin-top: $u1;
         }
 
-        &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
-          margin-left: 0;
-        }
-
+        &.dso-tertiary,
         &.btn-link {
           &,
           span {

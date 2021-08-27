@@ -35,6 +35,9 @@ footer {
       color: $grijs-90;
     }
 
+    &:not(.dso-primary):visited,
+    &:not(.dso-secondary):visited,
+    &:not(.dso-tertiary):visited,
     &:not(.btn):visited {
       &,
       &:hover,

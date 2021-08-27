@@ -17,7 +17,7 @@
   <div class="dso-field-container" {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
     {{ value | safe }}
     {% if edit %}
-      {% render '@button', {type: 'button', modifier: 'link', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}
+      {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}
     {% endif %}
   </div>
 </div>
