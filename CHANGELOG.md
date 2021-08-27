@@ -5,11 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 27.1.0
+
 ### Fixed
 * Dropdown button ARIA bugfixes ([#1231](https://github.com/dso-toolkit/dso-toolkit/issues/1231))
 * Button placements in tabellen en rijen zijn veranderd ([#1255](https://github.com/dso-toolkit/dso-toolkit/issues/1255))
 * Vergeten Button stylings corrigeren ([#1256](https://github.com/dso-toolkit/dso-toolkit/issues/1256))
 * Nieuwe button implementatie verwerken in voorbeeld pagina's ([#1257](https://github.com/dso-toolkit/dso-toolkit/issues/1257))
+
+### Removed
+* **dso-toolkit:** Group Files deprecated dso-description verwijderen ([#1243](https://github.com/dso-toolkit/dso-toolkit/issues/1243))
 
 ## 27.0.0
 
