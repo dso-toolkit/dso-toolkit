@@ -148,24 +148,12 @@ body.dso-modal-open {
     }
 
     .dso-footer {
-      .btn + .btn-default {
+      #{$dso-button-adjacent-secondary} {
         margin-left: $u2;
       }
 
-      #{$dso-buttons} + {
-        .dso-secondary {
-          margin-left: $u2;
-        }
-      }
-
-      .btn + .btn-link {
+      #{$dso-button-adjacent-tertiary} {
         margin-left: 0;
-      }
-
-      #{$dso-buttons} {
-        + .dso-tertiary {
-          margin-left: 0;
-        }
       }
     }
   }
@@ -174,18 +162,8 @@ body.dso-modal-open {
     max-width: 100%;
 
     .dso-footer {
-      @each $button-class in $dso-buttons {
-        &#{$button-class} {
-          &:not(.dso-list-button) + {
-            @each $button-class in $dso-buttons {
-              #{$button-class} {
-                &:not(.dso-list-button) {
-                  margin-left: 0;
-                }
-              }
-            }
-          }
-        }
+      #{$dso-button-adjacent} {
+        margin-left: 0;
       }
 
       button {
@@ -196,12 +174,8 @@ body.dso-modal-open {
           margin-top: $u1;
         }
 
-        &.btn:not(.dso-list-button) + .btn:not(.dso-list-button) {
-          margin-left: 0;
-        }
-
-        &.btn-link,
-        &.dso-tertiary {
+        &.dso-tertiary,
+        &.btn-link {
           &,
           span {
             float: none;

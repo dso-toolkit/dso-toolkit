@@ -12,16 +12,6 @@
     }
   }
 
-  .btn + .btn {
-    margin-left: $u2;
-  }
-
-  #{$dso-buttons} + {
-    #{$dso-buttons} {
-      margin-left: $u2;
-    }
-  }
-
   .dso-aside {
     clear: both;
     float: left;
@@ -31,14 +21,8 @@
 .dso-single-page {
   &.dso-form-buttons,
   .dso-form-buttons {
-    .btn {
+    #{$dso-buttons} {
       float: left;
-    }
-
-    @each $button-class in $dso-buttons {
-      #{$button-class} {
-        float: left;
-      }
     }
   }
 }

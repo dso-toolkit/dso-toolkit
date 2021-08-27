@@ -109,22 +109,6 @@ form,
   &:last-child {
     margin-bottom: $dso-vertical-spacing-xlarge;
   }
-
-  .btn + .btn {
-    margin-left: $u2;
-  }
-
-  @each $button-class in $dso-buttons {
-    &#{$button-class} {
-      + {
-        @each $button-class in $dso-buttons {
-          #{$button-class} {
-            margin-left: $u2;
-          }
-        }
-      }
-    }
-  }
 }
 
 .form-group {
