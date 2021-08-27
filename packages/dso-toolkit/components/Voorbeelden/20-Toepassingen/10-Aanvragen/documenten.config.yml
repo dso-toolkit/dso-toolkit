@@ -27,7 +27,7 @@ context:
                     confidential: true
         buttons:
         - type: button
-          modifier: primary
+          modifier: dso-primary
           label: Volgende
     - title: Beschrijving grondstoffen en hulpstoffen
       id: panel2

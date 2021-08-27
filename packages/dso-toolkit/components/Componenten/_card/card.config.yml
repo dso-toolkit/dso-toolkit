@@ -14,7 +14,7 @@ variants:
     interactions:
     - button:
         type: button
-        modifier: link
+        modifier: dso-tertiary
         icon: info
         label: Toon informatie over Brouwersmolen
         iconOnly: true
@@ -26,7 +26,7 @@ variants:
     interactions:
     - button:
         type: button
-        modifier: link
+        modifier: dso-tertiary
         icon: info
         label: Toon informatie over Brouwersmolen
         iconOnly: true

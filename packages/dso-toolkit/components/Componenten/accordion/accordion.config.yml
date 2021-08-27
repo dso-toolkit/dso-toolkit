@@ -282,7 +282,7 @@ variants:
                   label: bedrijf
         buttons:
         - type: submit
-          modifier: primary
+          modifier: dso-primary
           label: Volgende stap
       - title: Stap met formulier met meerdere fieldsets
         id: default-formulier_panel2
@@ -326,10 +326,10 @@ variants:
                   label: bedrijf
         buttons:
         - type: button
-          modifier: link
+          modifier: dso-tertiary
           label: Annuleren
         - type: submit
-          modifier: primary
+          modifier: dso-primary
           label: Verstuur
   - name: default met definition-list
     context:

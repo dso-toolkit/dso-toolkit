@@ -67,11 +67,11 @@ context:
         - description: Ja
   asideButtons:
   - type: link
-    modifier: link
+    modifier: dso-tertiary
     label: Vorige
     icon: chevron-left
   buttons:
   - type: submit
-    modifier: primary
+    modifier: dso-primary
     label: Volgende
     iconAfter: chevron-right

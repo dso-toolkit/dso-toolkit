@@ -235,10 +235,10 @@ context:
         <p>Bij verticale formulieren wordt het bij checkboxen en radio's onoverzichtelijk als de toelichting bij de vraag EN opties toont</p>
   buttons:
   - type: button
-    modifier: link
+    modifier: dso-tertiary
     label: Annuleren
   - type: submit
-    modifier: primary
+    modifier: dso-primary
     label: Verstuur
 variants:
 - name: form-horizontal
@@ -258,15 +258,15 @@ variants:
         required: true
     asideButtons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Vorige stap
       icon: angle-left
     buttons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Secondaire actie
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Volgende stap
       iconAfter: angle-right
 - name: sections
@@ -282,10 +282,10 @@ variants:
         required: true
     buttons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Secondaire actie
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Primaire actie
 - name: single-page
   context:
@@ -304,10 +304,10 @@ variants:
         label: Achternaam
     buttons:
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Primaire actie
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Secondaire actie
 - name: autocomplete
   context:
@@ -370,10 +370,10 @@ variants:
             label: Duitsland
     buttons:
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Primaire actie
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Secondaire actie
 - name: simple-form
   context:
@@ -401,5 +401,5 @@ variants:
           label: meer dan 50 cm
     buttons:
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Volgende

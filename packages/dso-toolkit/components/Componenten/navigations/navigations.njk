@@ -1,7 +1,7 @@
 <nav {{ className('dso-navbar', [open, 'dso-open']) }}>
   {% if modifier === 'main' %}
     <div class="dso-navbar-header">
-      <button type="button" class="dso-navbar-toggle btn btn-default" {{ attributes([open, 'aria-expanded', not(not(open)), true]) }}>
+      <button type="button" class="dso-navbar-toggle dso-secondary" {{ attributes([open, 'aria-expanded', not(not(open)), true]) }}>
         <dso-icon icon="bars"></dso-icon>
         <span class="sr-only">Menu</span>
       </button>

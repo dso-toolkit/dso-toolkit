@@ -48,7 +48,7 @@ context:
             label: Vraag met classificatie 'verzoek'
       buttons:
       - type: button
-        modifier: primary
+        modifier: dso-primary
         label: Volgende
     - title: "Verzoek 2: Object Laan van Eik en Duinen 125, 's-Gravenhage 2"
       id: panel2
@@ -61,14 +61,14 @@ context:
         label: Hierbij verklaar ik alle vragen naar waarheid te hebben ingevuld.
     asideButtons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Vorige
       icon: chevron-left
     buttons:
     - type: button
-      modifier: link
+      modifier: dso-tertiary
       label: Downloaden
       icon: download
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Indienen

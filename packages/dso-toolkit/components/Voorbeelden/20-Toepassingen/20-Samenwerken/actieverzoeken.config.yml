@@ -34,5 +34,5 @@ context:
         rows: 6
     buttons:
     - type: submit
-      modifier: primary
+      modifier: dso-primary
       label: Actieverzoek intrekken

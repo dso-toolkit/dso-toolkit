@@ -16,13 +16,13 @@ context:
       interactions:
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: download
             label: Download document
             iconOnly: true
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: info
             label: Extra informatie
             iconOnly: true
@@ -31,13 +31,13 @@ context:
       interactions:
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: download
             label: Download document
             iconOnly: true
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: info
             label: Extra informatie
             iconOnly: true
@@ -46,13 +46,13 @@ context:
       interactions:
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: download
             label: Download document
             iconOnly: true
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: info
             label: Extra informatie
             iconOnly: true
@@ -61,13 +61,13 @@ context:
       interactions:
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: download
             label: Download document
             iconOnly: true
         - button:
             type: button
-            modifier: link
+            modifier: dso-tertiary
             icon: info
             label: Extra informatie
             iconOnly: true
