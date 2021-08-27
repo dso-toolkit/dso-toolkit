@@ -41,7 +41,8 @@ table.table,
   max-width: 100%;
   width: 100%;
 
-  .btn-link {
+  .btn-link,
+  .dso-tertiary {
     position: relative;
     top: -2px;
     white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
@@ -141,16 +142,18 @@ table.table,
     // Bottom align for column headings
     vertical-align: bottom;
 
-    .btn.dso-sort {
-      color: $grijs-90;
-      font-weight: 600;
+    #{$dso-buttons} {
+      &.dso-sort {
+        color: $grijs-90;
+        font-weight: 600;
 
-      dso-icon,
-      svg.di {
-        color: $grijs-60;
+        dso-icon,
+        svg.di {
+          color: $grijs-60;
 
-        &.dso-sort-active {
-          color: $grijs-90;
+          &.dso-sort-active {
+            color: $grijs-90;
+          }
         }
       }
     }

@@ -111,6 +111,7 @@ body.dso-modal-open {
     padding: 0 $dso-modal-footer-padding $dso-modal-footer-padding;
     text-align: right;
 
+    .dso-tertiary,
     .btn-link {
       float: left;
       line-height: calc(1.5em - 1px);
@@ -151,8 +152,20 @@ body.dso-modal-open {
         margin-left: $u2;
       }
 
+      #{$dso-buttons} + {
+        .dso-secondary {
+          margin-left: $u2;
+        }
+      }
+
       .btn + .btn-link {
         margin-left: 0;
+      }
+
+      #{$dso-buttons} {
+        + .dso-tertiary {
+          margin-left: 0;
+        }
       }
     }
   }
@@ -161,6 +174,20 @@ body.dso-modal-open {
     max-width: 100%;
 
     .dso-footer {
+      @each $button-class in $dso-buttons {
+        &#{$button-class} {
+          &:not(.dso-list-button) + {
+            @each $button-class in $dso-buttons {
+              #{$button-class} {
+                &:not(.dso-list-button) {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
       button {
         text-align: center;
         width: 100%;
@@ -173,7 +200,8 @@ body.dso-modal-open {
           margin-left: 0;
         }
 
-        &.btn-link {
+        &.btn-link,
+        &.dso-tertiary {
           &,
           span {
             float: none;

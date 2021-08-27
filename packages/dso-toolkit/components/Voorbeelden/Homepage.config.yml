@@ -12,7 +12,7 @@ context:
       - label: Mijn Omgevingsloket
   dropdownButton:
     id: actie
-    modifier: link
+    modifier: dso-tertiary
     ariaHasPopup: 'menu'
     open: true
     label: O. tester

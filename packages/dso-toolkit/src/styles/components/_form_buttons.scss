@@ -3,13 +3,23 @@
 
   text-align: right;
 
-  .btn-link {
-    line-height: $line-height-base;
-    padding: $dso-button-vertical-padding 0; // $horizontal??
+  a,
+  button {
+    &.dso-tertiary,
+    &.btn-link {
+      line-height: $line-height-base;
+      padding: $dso-button-vertical-padding 0; // $horizontal??
+    }
   }
 
   .btn + .btn {
     margin-left: $u2;
+  }
+
+  #{$dso-buttons} + {
+    #{$dso-buttons} {
+      margin-left: $u2;
+    }
   }
 
   .dso-aside {
@@ -23,6 +33,12 @@
   .dso-form-buttons {
     .btn {
       float: left;
+    }
+
+    @each $button-class in $dso-buttons {
+      #{$button-class} {
+        float: left;
+      }
     }
   }
 }

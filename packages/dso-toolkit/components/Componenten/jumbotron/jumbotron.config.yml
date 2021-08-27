@@ -14,7 +14,7 @@ variants:
       button:
         label: Aan de slag
         type: button
-        modifier: link
+        modifier: dso-tertiary
         state: standard
         icon: angle-right
   - name: image
@@ -32,6 +32,6 @@ variants:
       button:
         label: Aan de slag
         type: button
-        modifier: link
+        modifier: dso-tertiary
         state: standard
         icon: angle-right

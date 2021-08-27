@@ -3,4 +3,4 @@ notes: |
 status: wip
 context:
   type: button
-  modifier: default
+  modifier: dso-secondary

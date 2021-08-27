@@ -51,11 +51,11 @@ context:
     buttons:
       - name: cancelButton
         type: button
-        modifier: link
+        modifier: dso-tertiary
         label: Annuleren
       - name: confirmButton
         type: submit
-        modifier: primary
+        modifier: dso-primary
         label: Toevoegen
 # variants:
 #   - name: modal-close

@@ -1,4 +1,4 @@
-.btn {
+#{$dso-buttons} {
   @include button_base();
 }
 
@@ -31,7 +31,8 @@ a.btn-link {
 }
 
 a,
-button {
+button,
+label {
   &.dso-primary {
     @include button_primary($base-styling: true);
   }

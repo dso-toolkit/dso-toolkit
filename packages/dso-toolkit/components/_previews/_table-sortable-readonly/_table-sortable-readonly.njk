@@ -11,7 +11,7 @@
           <th scope="col" {% if columnHeader.sorteerbaar %} role="columnheader" aria-sort="ascending"{% endif %}>
             {{ columnHeader.title }}
             {% if columnHeader.sorteerbaar %}
-              {% render '@button', {type:'button', modifier:'link', label:'Sorteer', icon:'sort', iconOnly:true} %}
+              {% render '@button', {type:'button', modifier:'dso-tertiary', label:'Sorteer', icon:'sort', iconOnly:true} %}
             {% endif %}
           </th>
         {% endfor %}
