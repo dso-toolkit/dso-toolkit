@@ -12,6 +12,7 @@
 @import "variables/icon";
 
 $dso-buttons: ".btn, .dso-primary, .dso-secondary, .dso-tertiary";
+$not-dso-buttons: ":not(.btn):not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
 
 /* stylelint-disable string-no-newline */
 $dso-button-adjacent: "\

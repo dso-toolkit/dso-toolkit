@@ -16,17 +16,11 @@ a {
     text-decoration: none;
   }
 
-  &:not(.dso-primary):visited,
-  &:not(.dso-secondary):visited,
-  &:not(.dso-tertiary):visited,
-  &:not(.btn):visited {
+  &#{$not-dso-buttons}:visited {
     color: $dso-anchor-visited-color;
   }
 
-  &:not(.dso-primary),
-  &:not(.dso-secondary),
-  &:not(.dso-tertiary),
-  &:not(.btn) {
+  &#{$not-dso-buttons} {
     &.download,
     &.extern {
       &::after {

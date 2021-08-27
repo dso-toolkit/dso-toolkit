@@ -74,7 +74,7 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
   a,
   a:visited {
-    &:not(.btn):not(.dso-primary):not(.dso-secondary) {
+    &#{$not-dso-buttons} {
       color: $text-color;
     }
   }

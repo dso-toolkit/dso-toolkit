@@ -33,7 +33,7 @@
 
   a,
   a:visited {
-    &:not(.btn):not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+    &#{$not-dso-buttons} {
       color: $text-color;
     }
 
