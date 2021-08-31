@@ -23,15 +23,6 @@ $dso-selectable-focus-border-width: 3px;
   }
 }
 
-@mixin selectable_nested-root() {
-  list-style: none;
-  padding-left: 0;
-
-  li {
-    margin-bottom: $u1;
-  }
-}
-
 @mixin selectable_root($dso-info-selector) {
   padding: 0 0 0 $u4;
   position: relative;
