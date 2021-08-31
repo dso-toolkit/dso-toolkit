@@ -5,7 +5,3 @@
     @include selectable_notLastChild();
   }
 }
-
-.dso-selectable-nested-parent {
-  @include selectable_nested-root();
-}

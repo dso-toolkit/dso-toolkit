@@ -22,40 +22,22 @@
   </div>
   <div class="dso-field-container">
     {% for option in options %}
-      {% if option.nestedItems %}
-        {% render '@nested-selectables', {
-          type: 'checkbox',
-          id: localId + '-' + loop.index0,
-          name: id,
-          value: option.value,
-          label: option.label,
-          disabled: option.disabled,
-          checked: option.checked,
-          required: option.required,
-          invalid: state == 'invalid',
-          infoText: option.infoText,
-          infoOpen: option.infoOpen,
-          infoButtonLabel: option.infoButtonLabel,
-          infoStatic: option.static,
-          nestedItems: option.nestedItems
-        } %}
-      {% else %}
-        {% render '@selectable', {
-          type: 'checkbox',
-          id: localId + '-' + loop.index0,
-          name: id,
-          value: option.value,
-          label: option.label,
-          disabled: option.disabled,
-          checked: option.checked,
-          required: option.required,
-          invalid: state == 'invalid',
-          infoText: option.infoText,
-          infoOpen: option.infoOpen,
-          infoButtonLabel: option.infoButtonLabel,
-          infoStatic: option.static
-        } %}
-      {% endif %}
+      {% render '@selectable', {
+        type: 'checkbox',
+        id: localId + '-' + loop.index0,
+        name: id,
+        value: option.value,
+        label: option.label,
+        disabled: option.disabled,
+        checked: option.checked,
+        required: option.required,
+        invalid: state == 'invalid',
+        infoText: option.infoText,
+        infoOpen: option.infoOpen,
+        infoButtonLabel: option.infoButtonLabel,
+        infoStatic: option.static,
+        nestedItems: option.nestedItems
+      } %}
     {% endfor %}
     {% if errorText %}
       {% render '@error-block', {errorText: errorText} %}
