@@ -1,13 +1,13 @@
 import { ArgTypes } from '../../stories-helpers';
-import { ApplicationHeader } from './app-heading.models';
+import { ApplicationHeading } from './application-heading.models';
 
-export interface ApplicationHeaderArgs {
+export interface ApplicationHeadingArgs {
   title: string;
   subtitle?: string;
   step?: string;
 }
 
-export const applicationHeaderArgTypes: ArgTypes<ApplicationHeaderArgs> = {
+export const applicationHeadingArgTypes: ArgTypes<ApplicationHeadingArgs> = {
   title: {
     control: {
       type: 'text'
@@ -25,7 +25,7 @@ export const applicationHeaderArgTypes: ArgTypes<ApplicationHeaderArgs> = {
   }
 };
 
-export function applicationHeaderArgsMapper(a: ApplicationHeaderArgs): ApplicationHeader {
+export function applicationHeadingArgsMapper(a: ApplicationHeadingArgs): ApplicationHeading {
   return {
     title: a.title,
     subtitle: a.subtitle,

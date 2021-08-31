@@ -1,30 +1,30 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
-import { applicationHeaderArgsMapper, applicationHeaderArgTypes } from './app-heading.args';
-import { ApplicationHeader } from './app-heading.models';
+import { applicationHeadingArgsMapper, applicationHeadingArgTypes } from './application-heading.args';
+import { ApplicationHeading } from './application-heading.models';
 
-export interface ApplicationHeaderParameters<TemplateFnReturnType> {
-  applicationHeaderTemplate: (applicationHeaderProperties: ApplicationHeader) => TemplateFnReturnType;
+export interface ApplicationHeadingParameters<TemplateFnReturnType> {
+  applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
 }
 
-export function storiesOfApplicationHeader<TemplateFnReturnType>(
+export function storiesOfApplicationHeading<TemplateFnReturnType>(
   {
     module: mainModule,
     storiesOf,
     readme
   }: StorybookParameters,
   {
-    applicationHeaderTemplate
-  }: ApplicationHeaderParameters<TemplateFnReturnType>
+    applicationHeadingTemplate
+  }: ApplicationHeadingParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(applicationHeaderArgsMapper, applicationHeaderTemplate);
+  const template = bindTemplate(applicationHeadingArgsMapper, applicationHeadingTemplate);
 
-  const stories = storiesOf('App Heading', mainModule)
+  const stories = storiesOf('Application Heading', mainModule)
     .addParameters({
       docs: {
         page: readme
       },
-      argTypes: applicationHeaderArgTypes
+      argTypes: applicationHeadingArgTypes
     });
 
   stories.add(

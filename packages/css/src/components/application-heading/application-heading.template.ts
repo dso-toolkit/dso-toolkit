@@ -1,8 +1,8 @@
-import { ApplicationHeader } from '@dso-toolkit/sources';
+import { ApplicationHeading } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
-export function applicationHeaderTemplate({ title, subtitle, step }: ApplicationHeader) {
+export function applicationHeadingTemplate({ title, subtitle, step }: ApplicationHeading) {
   return html`
     <div class="dso-app-heading">
       ${title
