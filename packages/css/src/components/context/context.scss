@@ -1,0 +1,18 @@
+.dso-context-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .dso-context-label {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .dso-context-container {
+    flex: 0 0 auto;
+  }
+
+  .row {
+    flex: 1 1 100%;
+  }
+}
