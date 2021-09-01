@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 27.2.0
+
 ### Added
 * **dso-toolkit + sources + css:** CSS Component Application Heading ([#1251](https://github.com/dso-toolkit/dso-toolkit/issues/1251))
 * **dso-toolkit + sources + css:** CSS Component Context ([#1191](https://github.com/dso-toolkit/dso-toolkit/issues/1191))
