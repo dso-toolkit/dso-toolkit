@@ -13,14 +13,21 @@
         {% render '@form-fieldsets', {fieldsets: formFacets} %}
       </div>
       <div class="col-xs-12 col-sm-9">
-        <fieldset>
-          <legend>
+        <fieldset class="dso-context-wrapper">
+          <legend class="dso-context-label">
             <h4>5 activiteiten</h4>
           </legend>
-          {% render '@label-group', labelGroup %}
-          {% for listButton in listButtons %}
-            {% render '@list-button', listButton %}
-          {% endfor %}
+          <div class="dso-context-container">
+            {% render '@button', { type: 'button', modifier: 'dso-tertiary', label: 'Versies', icon: 'chevron-down' } %}
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              {% render '@label-group', labelGroup %}
+              {% for listButton in listButtons %}
+                {% render '@list-button', listButton %}
+              {% endfor %}
+            </div>
+          </div>
         </fieldset>
       </div>
     </div>
