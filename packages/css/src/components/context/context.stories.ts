@@ -7,7 +7,7 @@ import { contextTemplate } from './context.template';
 import { html } from 'lit-html';
 import readme from './readme.md';
 
-const content = buttonTemplate({ url: '#', modifier: 'btn btn-tertiary', label: 'Versies', icon: { icon: 'chevron-down' } });
+const content = buttonTemplate({ url: '#', modifier: 'dso-tertiary', label: 'Versies', icon: { icon: 'chevron-down' } });
 
 const children = html`
   <div class="row">

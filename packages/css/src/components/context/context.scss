@@ -1,18 +1,7 @@
 .dso-context-wrapper {
   .dso-context-label {
-    @include control-label();
-
     float: left;
-    margin-bottom: $u4;
     width: auto;
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin: 0;
-    }
   }
 
   .dso-context-container {

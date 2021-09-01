@@ -5,7 +5,7 @@ import { html, TemplateResult } from 'lit-html';
 function contextLabelTemplate(label: TemplateResult, content: TemplateResult, children: TemplateResult) {
   return html`
     <div class="dso-context-wrapper">
-      <span class="control-label dso-context-label">
+      <span class="dso-context-label">
         ${label}
       </span>
       <div class="dso-context-container">
@@ -19,7 +19,7 @@ function contextLabelTemplate(label: TemplateResult, content: TemplateResult, ch
 function contextFieldsetTemplate(label: TemplateResult, content: TemplateResult, children: TemplateResult) {
   return html`
     <fieldset class="dso-context-wrapper">
-      <legend class="control-label dso-context-label">
+      <legend class="dso-context-label">
         ${label}
       </legend>
       <div class="dso-context-container">
