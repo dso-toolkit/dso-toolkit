@@ -5,9 +5,9 @@ import { Context } from './context.models';
 
 export interface ContextParameters<TemplateFnReturnType> {
   contextTemplate: (contextProperties: Context<TemplateFnReturnType>) => TemplateFnReturnType;
-  label: TemplateFnReturnType;
-  content: TemplateFnReturnType;
   children: TemplateFnReturnType;
+  content: TemplateFnReturnType;
+  label: TemplateFnReturnType;
 }
 
 export function storiesOfContext<TemplateFnReturnType>(
@@ -18,9 +18,9 @@ export function storiesOfContext<TemplateFnReturnType>(
   }: StorybookParameters,
   {
     contextTemplate,
-    label,
+    children,
     content,
-    children
+    label
   }: ContextParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(contextArgsMapper, contextTemplate);
@@ -31,9 +31,9 @@ export function storiesOfContext<TemplateFnReturnType>(
         page: readme
       },
       args: {
-        label,
+        children,
         content,
-        children
+        label
       },
       argTypes: contextArgTypes
     });
