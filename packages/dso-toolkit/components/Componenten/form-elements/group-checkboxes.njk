@@ -25,7 +25,7 @@
       {% render '@selectable', {
         type: 'checkbox',
         id: localId + '-' + loop.index0,
-        name: id,
+        name: option.name or id,
         value: option.value,
         label: option.label,
         disabled: option.disabled,
@@ -36,7 +36,7 @@
         infoOpen: option.infoOpen,
         infoButtonLabel: option.infoButtonLabel,
         infoStatic: option.static,
-        nestedItems: option.nestedItems
+        nestedOptions: option.nestedOptions
       } %}
     {% endfor %}
     {% if errorText %}

@@ -160,37 +160,77 @@ variants:
     static: true
 - name: input-checkbox-nested
   context:
-    __title: default
+    __title: nested
     id: input-checkbox
-    label: Checkboxes - Default
+    label: Checkboxes - Nested
     options:
     - value: 1
       type: checkbox
       label: een
+      id: checkbox-main-1
+      name: checkbox-main-1
     - value: 2
       type: checkbox
       label: twee
-      nestedItems:
+      id: checkbox-main-2
+      name: checkbox-main-2
+      nestedOptions:
       - value: 2.1
         type: checkbox
         label: Selectable child niveau 1
-        nestedItems:
+        id: checkbox-sub-2
+        name: checkbox-sub-2
+        infoOpen: true
+        infoText: |
+          <h4>Toelichting bij vraag: "Maak een keuze"</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+          </p>
+        nestedOptions:
         - value: 2.1.1
           type: checkbox
           label: Selectable child niveau 2
+          id: checkbox-sub-2-1
+          name: checkbox-sub-2-1
         - value: 2.1.2
           type: checkbox
-          label: Selectable child inveau 2
+          label: Selectable child niveau 2
+          id: checkbox-sub-2-1
+          name: checkbox-sub-2-1
       - value: 2.2
         type: checkbox
         label: Selectable child niveau 1
-        nestedItems:
+        id: checkbox-sub-2
+        name: checkbox-sub-2
+        nestedOptions:
         - value: 2.2.1
           type: checkbox
           label: Selectable child niveau 2
+          id: checkbox-sub-2-2
+          name: checkbox-sub-2-2
         - value: 2.2.2
           type: checkbox
-          label: Selectable child inveau 2
+          label: Selectable child niveau 2
+          id: checkbox-sub-2-2
+          name: checkbox-sub-2-2
+      - value: 2.3
+        type: checkbox
+        label: Selectable child niveau 1
+        id: checkbox-sub-2
+        name: checkbox-sub-2
+        nestedOptions:
+        - value: 2.3.1
+          type: radio
+          label: Selectable child niveau 2
+          id: radio-sub-2-3
+          name: radio-sub-2-3
+        - value: 2.3.2
+          type: radio
+          label: Selectable child niveau 2
+          id: radio-sub-2-3
+          name: radio-sub-2-3
     - value: 3
       type: checkbox
       label: drie
+      id: checkbox-main-3
+      name: checkbox-main-3
