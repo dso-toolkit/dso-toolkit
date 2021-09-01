@@ -1,7 +1,7 @@
 export interface SelectableChangeEvent extends Event {
 }
 
-import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate } from '@stencil/core';
+import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate, Watch } from '@stencil/core';
 import { createIdentifier } from '../../utils/create-identifier';
 
 @Component({
@@ -67,13 +67,16 @@ export class Selectable {
     this.mutationObserver.observe(this.host, {
       childList: true
     });
+
+    this.setIndeterminate();
   }
 
   disconnectedCallback() {
     this.mutationObserver?.disconnect();
   }
 
-  componentDidRender() {
+  @Watch('indeterminate')
+  setIndeterminate() {
     if (!(this.input instanceof HTMLInputElement) || this.type != 'checkbox') {
       return;
     }
