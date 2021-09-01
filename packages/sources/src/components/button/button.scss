@@ -207,10 +207,6 @@ $dso-button-tertiary-active-color: $scampi;
       width: 1.5em;
     }
   }
-
-  &:not(.dso-list-button) + .btn:not(.dso-list-button) {
-    margin-left: $u2;
-  }
 }
 
 @mixin button_block($sibling-selector) {
@@ -251,7 +247,11 @@ $dso-button-tertiary-active-color: $scampi;
 
 @mixin button_anchor-primary() {
   text-decoration: none;
-  color: $wit;
+
+  &,
+  &:visited {
+    color: $wit;
+  }
 }
 
 @mixin button_secondary($base-styling: true, $icon-only: false) {
@@ -290,7 +290,11 @@ $dso-button-tertiary-active-color: $scampi;
 
 @mixin button_anchor-secondary() {
   text-decoration: none;
-  color: $dso-button-secondary-color;
+
+  &,
+  &:visited {
+    color: $dso-button-secondary-color;
+  }
 }
 
 @mixin button_tertiary($base-styling: true, $icon-only: false) {
@@ -363,8 +367,12 @@ $dso-button-tertiary-active-color: $scampi;
 }
 
 @mixin button_anchor-tertiary() {
-  color: $dso-button-tertiary-color;
   text-decoration: none;
+
+  &,
+  &:visited {
+    color: $dso-button-tertiary-color;
+  }
 }
 
 @mixin button_map() {

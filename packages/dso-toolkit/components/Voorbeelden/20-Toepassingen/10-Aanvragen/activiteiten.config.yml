@@ -102,11 +102,11 @@ context:
     sublabel: Rijk
   asideButtons:
   - type: link
-    modifier: link
+    modifier: dso-tertiary
     label: Vorige stap
     icon: chevron-left
   buttons:
   - type: submit
-    modifier: primary
+    modifier: dso-primary
     label: Volgende stap
     iconAfter: chevron-right

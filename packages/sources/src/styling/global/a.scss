@@ -16,11 +16,11 @@ a {
     text-decoration: none;
   }
 
-  &:not(.btn):visited {
+  &#{$not-dso-buttons}:visited {
     color: $dso-anchor-visited-color;
   }
 
-  &:not(.btn) {
+  &#{$not-dso-buttons} {
     &.download,
     &.extern {
       &::after {

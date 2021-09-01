@@ -1,9 +1,6 @@
 {% set localId = generateLocalId(prefix, id) %}
 
 <fieldset {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
-  <div class="dso-description dso-rich-content">
-    {{ description }}
-  </div>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
     <label for="{{ localId }}" class="control-label" aria-hidden="true">
@@ -40,7 +37,7 @@
     <!-- To use an input type="file" element -->
     <div class="dso-file-upload">
       <input type="file" id="{{ localId }}-file-upload" {% if disabled %} disabled{% endif %} />
-      <label class="btn btn-default" for="{{ localId }}-file-upload">
+      <label class="dso-secondary" for="{{ localId }}-file-upload">
         <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
       </label>
     </div>
@@ -51,6 +48,6 @@
 
   <!-- Or to trigger the upload using a button element (not recommended) -->
   <!--
-    {% render '@button', {label: 'Document toevoegen', modifier: 'link', type: 'button', icon: 'plus'} %}
+    {% render '@button', {label: 'Document toevoegen', modifier: 'dso-tertiary', type: 'button', icon: 'plus'} %}
   -->
 </fieldset>

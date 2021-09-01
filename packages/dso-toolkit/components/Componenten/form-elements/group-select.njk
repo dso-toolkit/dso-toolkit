@@ -1,5 +1,11 @@
 {% set localId = generateLocalId(prefix, id) %}
 
+{% set infoTextId = 'infoTextId_' + id %}
+
+{% if infoText and static %}
+  {% set ariaDescribedBy = infoTextId %}
+{% endif %}
+
 {% macro selectOption(value, label, selected) %}
   <option value="{{ value }}"{% if selected %} selected{% endif %}>{{ label }}</option>
 {% endmacro %}
@@ -13,7 +19,7 @@
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText, static: static} %}
+      {% render '@info', {infoText: infoText, static: static, id: infoTextId} %}
     {% endif %}
   </div>
   <div class="dso-field-container">
@@ -23,7 +29,8 @@
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
       {% if required %} required{% endif %}
-      {% if state == "invalid" %} aria-invalid="true"{% endif %}>
+      {% if state == "invalid" %} aria-invalid="true"{% endif %}
+      {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
       {% for option in options %}
         {% if option.optionType %}
           <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>

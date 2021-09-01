@@ -1,5 +1,11 @@
 {% set localId = generateLocalId(prefix, id) %}
 
+{% set infoTextId = 'infoTextId_' + id %}
+
+{% if infoText and static %}
+  {% set ariaDescribedBy = infoTextId %}
+{% endif %}
+
 <div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
     <label for="{{ localId }}" class="control-label">
@@ -9,11 +15,11 @@
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText, static: static} %}
+      {% render '@info', {infoText: infoText, static: static, id: infoTextId} %}
     {% endif %}
   </div>
   <div class="dso-field-container">
-    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id), state: state}) %}
+    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id), ariaDescribedBy: ariaDescribedBy, state: state}) %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}

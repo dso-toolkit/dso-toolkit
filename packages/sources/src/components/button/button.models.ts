@@ -17,7 +17,7 @@ export interface Button {
   iconMode?: 'only' | 'after';
   ariaDescribedby?: string;
   ariaExpanded?: boolean;
-  ariaHaspopup?: boolean;
+  ariaHaspopup?: 'false' | 'true' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
 }

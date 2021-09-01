@@ -13,6 +13,7 @@ Items can be marked as "checked" by adding the attribute `checkable` and adding 
 
 | Property        | Attribute        | Description                                                                  | Type                | Default  |
 | --------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------- | -------- |
+| `checkable`     | `checkable`      | Whether the menu is checkable.                                               | `boolean`           | `false`  |
 | `dropdownAlign` | `dropdown-align` | Alignment of the dropdown                                                    | `"left" \| "right"` | `"left"` |
 | `open`          | `open`           | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean`           | `false`  |
 

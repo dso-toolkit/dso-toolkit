@@ -82,6 +82,10 @@ export namespace Components {
     }
     interface DsoDropdownMenu {
         /**
+          * Whether the menu is checkable.
+         */
+        "checkable": boolean;
+        /**
           * Alignment of the dropdown
          */
         "dropdownAlign": "left" | "right";
@@ -380,6 +384,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface DsoDropdownMenu {
+        /**
+          * Whether the menu is checkable.
+         */
+        "checkable"?: boolean;
         /**
           * Alignment of the dropdown
          */

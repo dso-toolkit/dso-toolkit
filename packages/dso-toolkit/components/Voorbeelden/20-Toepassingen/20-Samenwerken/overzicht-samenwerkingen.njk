@@ -3,7 +3,7 @@
   {% render '@application-heading', appheading -%}
   <div class="dso-form-buttons">
     <div class="dso-aside">
-      {% render '@button', {label:'Samenwerking toevoegen', type:'button', modifier:'link', icon: 'plus'} %}
+      {% render '@button', {label:'Samenwerking toevoegen', type:'button', modifier:'dso-tertiary', icon: 'plus'} %}
     </div>
   </div>
   <div class="dso-table-responsive">
@@ -27,9 +27,9 @@
           <td>123456789123</td>
           <td>Geheim</td>
           <td class="text-right">
-            {% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gebruikers', icon:'users', iconOnly:true} %}
-            {% render '@anchor', {url:'#', modifier:'btn btn-link', label:'Gegevens wijzigen', icon:'pencil', iconOnly:true} %}
-            {% render '@button', {type:'button', modifier:'link', label:'Openen', icon:'angle-right'} %}
+            {% render '@anchor', {url:'#', modifier:'dso-tertiary', label:'Gebruikers', icon:'users', iconOnly:true} %}
+            {% render '@anchor', {url:'#', modifier:'dso-tertiary', label:'Gegevens wijzigen', icon:'pencil', iconOnly:true} %}
+            {% render '@button', {type:'button', modifier:'dso-tertiary', label:'Openen', icon:'angle-right'} %}
           </td>
         </tr>
       </tbody>

@@ -42,14 +42,6 @@ form,
         }
       }
 
-      .dso-description {
-        background-color: $dso-invalid-color;
-      }
-
-      .dso-description + .dso-filelist {
-        margin-top: $u2;
-      }
-
       .dso-filelist {
         list-style: none;
         margin-bottom: 0;

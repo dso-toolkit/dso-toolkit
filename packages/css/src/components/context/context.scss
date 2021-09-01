@@ -1,0 +1,14 @@
+.dso-context-wrapper {
+  .dso-context-label {
+    float: left;
+    width: auto;
+  }
+
+  .dso-context-container {
+    float: right;
+
+    + * {
+      clear: both;
+    }
+  }
+}

@@ -14,10 +14,10 @@
           {{ message | safe }}
         </div>
         {% if status === "danger" -%}
-          {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten storingsmelding', icon: 'times', iconOnly: true} -%}
+          {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Sluiten storingsmelding', icon: 'times', iconOnly: true} -%}
         {%- endif %}
         {%- if status === "warning" -%}
-          {% render '@button', {type: 'button', modifier: 'link', label: 'Sluiten onderhoudsmelding', icon: 'times', iconOnly: true} -%}
+          {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Sluiten onderhoudsmelding', icon: 'times', iconOnly: true} -%}
         {%- endif %}
       </div>
     </div>

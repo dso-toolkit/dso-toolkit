@@ -1,14 +1,15 @@
 module.exports = {
   meta: {
     webComponent: 'dso-dropdown-menu',
-    markup: true
+    markup: false
   },
   notes: `
   ## Voorschriften/algemeen
 
   * \`<dso-dropdown-menu>\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
-  * \`button\` heeft attribute \`aria-haspopup="true"\` om aan te duiden dat deze een menu bedient, en moet een \`id\` hebben waarnaar verwezen wordt vanuit de \`<ul>\`s in de optielijst met een \`aria-labelledby\`-attribuut;
   * \`button\` heeft attribute \`slot="toggle"\`, zodat het Web Component 'weet' dat dit de bedieningsknop is;
+
+  Note: de \`button\` mag class \`dso-primary\`, \`dso-secondary\` of \`dso-tertiary\` hebben, afhankelijk van de toepassing. Ook de oude bootstrap classes \`btn\`, \`btn-default\`, \`btn-link\` worden nog ondersteund.
   `,
   label: 'Dropdown Menu (Web Component)',
   status: 'ready',
@@ -19,8 +20,8 @@ module.exports = {
   default: 'dropdown-link',
   context: {
     id: 'actie',
-    modifier: 'link',
-    ariaHasPopup: true,
+    modifier: 'dso-tertiary',
+    ariaHasPopup: 'menu',
     label: 'Actie',
     groups: [
       {
@@ -66,7 +67,7 @@ module.exports = {
       name: 'dropdown-default-button-open-checkable',
       context: {
         id: 'dropdown_default_button_open_checkable',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         modifiers: 'dso-checkable',
         isCheckable: true,
         groups: [
@@ -113,7 +114,7 @@ module.exports = {
       name: 'dropdown-primary-button-open-checkable',
       context: {
         id: 'dropdown_primary_button_open_checkable',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         modifiers: 'dso-checkable',
         isCheckable: true,
         groups: [
@@ -160,7 +161,7 @@ module.exports = {
       name: 'dropdown-link-button-align-right',
       context: {
         id: 'dropdown_link_button_align_right',
-        modifier: 'link',
+        modifier: 'dso-tertiary',
         align: 'right',
         modifiers: 'dso-checkable',
         isCheckable: true,
@@ -208,7 +209,7 @@ module.exports = {
       name: 'dropdown-default-button-align-right',
       context: {
         id: 'dropdown_default_button_align_right',
-        modifier: 'default',
+        modifier: 'dso-secondary',
         align: 'right',
         modifiers: 'dso-checkable',
         isCheckable: true,
@@ -256,7 +257,7 @@ module.exports = {
       name: 'dropdown-primary-button-align-right',
       context: {
         id: 'dropdown_primary_button_align_right',
-        modifier: 'primary',
+        modifier: 'dso-primary',
         align: 'right',
         modifiers: 'dso-checkable',
         isCheckable: true,

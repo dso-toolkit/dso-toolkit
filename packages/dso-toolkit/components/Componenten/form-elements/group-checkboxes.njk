@@ -1,6 +1,13 @@
 {% set localId = generateLocalId(prefix, id ) %}
 
-<fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}>
+{% set infoTextId = 'infoTextId_' + id %}
+
+{% if infoText and static %}
+  {% set ariaDescribedBy = infoTextId %}
+{% endif %}
+
+<fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}
+  {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
     <span class="control-label" aria-hidden="true">
@@ -10,7 +17,7 @@
       {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
     {% endif %}
     {% if infoOpen %}
-      {% render '@info', {infoText: infoText, static: static} %}
+      {% render '@info', {infoText: infoText, static: static, id: infoTextId} %}
     {% endif %}
   </div>
   <div class="dso-field-container">

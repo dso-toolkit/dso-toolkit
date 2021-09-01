@@ -42,7 +42,7 @@ context:
               label: Woonplaats
       buttons:
       - type: submit
-        modifier: primary
+        modifier: dso-primary
         label: Volgende stap
     - title: Afmetingen van het bouwwerk
       id: panel4

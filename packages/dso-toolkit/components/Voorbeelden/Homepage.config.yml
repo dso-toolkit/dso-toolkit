@@ -12,8 +12,8 @@ context:
       - label: Mijn Omgevingsloket
   dropdownButton:
     id: actie
-    modifier: link
-    ariaHasPopup: true
+    modifier: dso-tertiary
+    ariaHasPopup: 'menu'
     open: true
     label: O. tester
     icon: user

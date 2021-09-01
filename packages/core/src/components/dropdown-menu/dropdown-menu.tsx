@@ -21,6 +21,12 @@ export class DropdownMenu {
   @Prop()
   dropdownAlign: "left" | "right" = "left";
 
+  /**
+   * Whether the menu is checkable.
+   */
+  @Prop()
+  checkable = false;
+
   @Element()
   host!: HTMLElement;
 
@@ -47,7 +53,7 @@ export class DropdownMenu {
   }
 
   connectedCallback() {
-    this.button.setAttribute("aria-haspopup", "true");
+    this.button.setAttribute("aria-haspopup", "menu");
     this.button.setAttribute("aria-expanded", "false");
     if (!this.button.id) {
       this.button.id = uuidv4();
@@ -57,12 +63,36 @@ export class DropdownMenu {
       this.open = !this.open;
     });
 
+    const options = this.host.querySelector(".dso-dropdown-options");
+    if (options == null) {
+      throw new ReferenceError("Dropdown options not found");
+    }
+
+    options.setAttribute("role", "menu");
+    options.setAttribute("aria-labelledby", this.button.id);
+
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
-      ul.setAttribute("aria-labelledby", this.button.id);
+      ul.setAttribute("role", "none");
+      for (const li of Array.from(ul.getElementsByTagName("li"))) {
+        li.setAttribute("role", "none");
+      }
     }
 
     if (this.open) {
       this.openPopup();
+    }
+  }
+
+  componentWillRender() {
+    for (const li of Array.from(this.host.getElementsByTagName("li"))) {
+      for (const tab of tabbable(li)) {
+        tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
+        if (this.checkable && li.classList.contains("dso-checked")) {
+          tab.setAttribute("aria-checked", "true");
+        } else {
+          tab.removeAttribute("aria-checked");
+        }
+      }
     }
   }
 
