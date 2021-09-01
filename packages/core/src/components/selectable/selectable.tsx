@@ -58,6 +58,8 @@ export class Selectable {
 
   private fallbackIdentifier = createIdentifier('DsoSelectable');
 
+  private input: HTMLInputElement | undefined;
+
   componentDidLoad() {
     this.mutationObserver?.disconnect();
 
@@ -72,12 +74,11 @@ export class Selectable {
   }
 
   componentDidRender() {
-    const checkbox = this.host.shadowRoot!.querySelector('input[type="checkbox"]');
-    if (!(checkbox instanceof HTMLInputElement)) {
+    if (!(this.input instanceof HTMLInputElement) || this.type != 'checkbox') {
       return;
     }
 
-    checkbox.indeterminate = !!this.indeterminate;
+    this.input.indeterminate = !!this.indeterminate;
   }
 
   render() {
@@ -96,6 +97,7 @@ export class Selectable {
           required={this.required}
           checked={this.checked}
           onChange={e => this.change.emit(e)}
+          ref={(el) => this.input = el}
         />
         <label htmlFor={this.getIdentifier()}>
           <slot></slot>
