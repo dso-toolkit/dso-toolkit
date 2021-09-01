@@ -1,18 +1,25 @@
 .dso-context-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-
   .dso-context-label {
-    flex: 0 0 auto;
+    @include control-label();
+
+    float: left;
+    margin-bottom: $u4;
     width: auto;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
   }
 
   .dso-context-container {
-    flex: 0 0 auto;
-  }
+    float: right;
 
-  .row {
-    flex: 1 1 100%;
+    + * {
+      clear: both;
+    }
   }
 }

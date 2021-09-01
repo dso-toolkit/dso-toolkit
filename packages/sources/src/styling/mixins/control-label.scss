@@ -1,0 +1,7 @@
+@mixin control-label() {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: $u1;
+  max-width: 100%;
+  text-align: left;
+}

@@ -1,5 +1,6 @@
 export interface Context<TemplateFnReturnType> {
-  children: TemplateFnReturnType;
-  label: string;
+  label: TemplateFnReturnType;
   type: 'legend' | 'label';
+  content: TemplateFnReturnType;
+  children: TemplateFnReturnType;
 }
