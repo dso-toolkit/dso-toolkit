@@ -40,8 +40,8 @@ export class Tooltip {
   stateless?: boolean;
 
   /**
-  * Defines if the tooltip has a smaller max-width
-  */
+   * Defines if the tooltip has a smaller max-width
+   */
   @Prop()
   small?: boolean;
 
@@ -82,6 +82,22 @@ export class Tooltip {
   watchActive() {
     if (this.active) {
       this.hidden = false;
+
+      if (!this.stateless) {
+        setTimeout(() => {
+          this.popper?.setOptions({
+            modifiers: [{ name: 'eventListeners', enabled: true }]
+          });
+        });
+      }
+    } else {
+      if (!this.stateless) {
+        this.popper?.setOptions({
+          modifiers: [{ name: 'eventListeners', enabled: false }]
+        });
+      }
+
+      setTimeout(() => (this.hidden = true), transitionDuration);
     }
   }
 
@@ -119,26 +135,8 @@ export class Tooltip {
     });
 
     this.callbacks = {
-      activate: () => {
-        this.hidden = false;
-
-        setTimeout(() => {
-          this.active = true;
-
-          this.popper?.setOptions({
-            modifiers: [{ name: 'eventListeners', enabled: true }]
-          });
-        });
-      },
-      deactivate: () => {
-        this.active = false;
-
-        this.popper?.setOptions({
-          modifiers: [{ name: 'eventListeners', enabled: false }]
-        });
-
-        setTimeout(() => this.hidden = true, transitionDuration);
-      }
+      activate: () => (this.active = true),
+      deactivate: () => (this.active = false)
     };
 
     if (!this.stateless) {
@@ -173,9 +171,7 @@ export class Tooltip {
     return (
       <Host hidden={this.hidden}>
         <div class={clsx('tooltip', { in: this.active })} role="tooltip">
-          {!this.noArrow && (
-            <div class="tooltip-arrow"></div>
-          )}
+          {!this.noArrow && <div class="tooltip-arrow"></div>}
           <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
           </div>
@@ -205,7 +201,7 @@ export class Tooltip {
 
     const { parentElement } = this.element;
     if (!parentElement) {
-      throw new Error('No reference given with [for] attribute but no parent found either')
+      throw new Error('No reference given with [for] attribute but no parent found either');
     }
 
     return parentElement;
