@@ -8,54 +8,6 @@
     <link rel="stylesheet" href="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.css' | path }}" />
   </head>
 
-  <style>
-    .dso-map-wrapper {
-      display: flex;
-      overflow: hidden;
-    }
-
-    .dso-map-panel-primary,
-    .dso-map-panel-secondary {
-      background-color: rgb(255, 255, 255);
-      border: 1px solid rgb(204, 204, 204);
-      box-shadow: 0 1px 4px rgb(0, 0, 0, .3);
-      z-index: 10;
-    }
-
-    .dso-map-panel-secondary {
-      position: relative;
-    }
-
-    .dso-map-panel-secondary::before {
-      background-color: rgba(0, 0, 0, .4);
-      bottom: 0;
-      content: "";
-      display: inline-block;
-      position: absolute;
-      right: 100%;
-      top: 0;
-      width: 300%;
-    }
-
-    .dso-map-panel-primary span,
-    .dso-map-panel-secondary span {
-      background-color: #efefef;
-      display: inline-block;
-      margin-bottom: 12px;
-      padding: 4px;
-      width: 100%;
-    }
-
-    .dso-map-map {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    #map {
-      overflow: hidden;
-    }
-  </style>
-
   <body>
     <div class="toolkit-example-container">
       {{ yield | safe }}
