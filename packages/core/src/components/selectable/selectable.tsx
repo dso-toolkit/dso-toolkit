@@ -1,7 +1,7 @@
 export interface SelectableChangeEvent extends Event {
 }
 
-import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate } from '@stencil/core';
+import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate, Watch } from '@stencil/core';
 import { createIdentifier } from '../../utils/create-identifier';
 
 @Component({
@@ -38,6 +38,9 @@ export class Selectable {
   checked?: boolean;
 
   @Prop()
+  indeterminate?: boolean;
+
+  @Prop()
   infoFixed?: boolean;
 
   @Event({
@@ -55,6 +58,8 @@ export class Selectable {
 
   private fallbackIdentifier = createIdentifier('DsoSelectable');
 
+  private input: HTMLInputElement | undefined;
+
   componentDidLoad() {
     this.mutationObserver?.disconnect();
 
@@ -62,10 +67,21 @@ export class Selectable {
     this.mutationObserver.observe(this.host, {
       childList: true
     });
+
+    this.setIndeterminate();
   }
 
   disconnectedCallback() {
     this.mutationObserver?.disconnect();
+  }
+
+  @Watch('indeterminate')
+  setIndeterminate() {
+    if (!(this.input instanceof HTMLInputElement) || this.type != 'checkbox') {
+      return;
+    }
+
+    this.input.indeterminate = !!this.indeterminate;
   }
 
   render() {
@@ -84,6 +100,7 @@ export class Selectable {
           required={this.required}
           checked={this.checked}
           onChange={e => this.change.emit(e)}
+          ref={(el) => this.input = el}
         />
         <label htmlFor={this.getIdentifier()}>
           <slot></slot>

@@ -15,6 +15,7 @@ export function selectableTemplate({
   invalid,
   describedById,
   checked,
+  indeterminate,
   disabled,
   onChange,
   info
@@ -33,6 +34,10 @@ export function selectableTemplate({
         ?required=${required}
         ?checked=${checked}
       >
+      ${indeterminate
+        ? html`<script>document.getElementById('${id}').indeterminate = true;</script>`
+        : html`<script>document.getElementById('${id}').indeterminate = false;</script>`
+      }
       <label for=${id}>
         ${label}
       </label>

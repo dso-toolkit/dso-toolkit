@@ -8,7 +8,7 @@
   <input
     type="{{ type }}"
     id="{{ id or _self.handle }}"
-    name="{{ name or _self.handle }}"
+    name="{{ name or id or _self.handle }}"
     {{ attributes(
       [value, 'value', value],
       [invalid, 'aria-invalid', invalid],
@@ -26,5 +26,14 @@
   {% endif %}
   {% if infoText and (infoOpen or infoStatic) %}
     {% render '@info', {infoText: infoText, static: infoStatic, id: infoTextId} %}
+  {% endif %}
+  {% if nestedOptions %}
+    <ul class="dso-selectable-options">
+      {%- for option in nestedOptions %}
+        <li>
+          {% render '@selectable', option %}
+        </li>
+      {% endfor %}
+    </ul>
   {% endif %}
 </div>

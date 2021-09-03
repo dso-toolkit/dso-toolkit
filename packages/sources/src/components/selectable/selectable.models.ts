@@ -10,6 +10,7 @@ export interface Selectable<TemplateFnReturnType> {
   invalid?: boolean;
   describedById?: string;
   checked?: boolean;
+  indeterminate?: boolean;
   disabled?: boolean;
   onChange: (e: Event) => void;
   info?: Info<TemplateFnReturnType>;
