@@ -33,9 +33,7 @@
 
   a,
   a:visited {
-    &#{$not-dso-buttons} {
-      color: $text-color;
-    }
+    color: $text-color;
 
     &:hover,
     &:focus,

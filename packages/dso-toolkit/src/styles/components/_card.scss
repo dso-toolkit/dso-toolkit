@@ -45,7 +45,7 @@ ol {
   width: 100%;
 
   &,
-  &#{$not-dso-buttons}:visited,
+  &:visited,
   &:active,
   &:focus {
     color: inherit;
