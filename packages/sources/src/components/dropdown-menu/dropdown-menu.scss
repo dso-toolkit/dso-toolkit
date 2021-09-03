@@ -95,12 +95,6 @@ $dso-dropdown-link-color: $grijs-90;
     li {
       list-style: none;
 
-      a {
-        &:visited {
-          color: $dso-dropdown-link-color;
-        }
-      }
-
       a,
       button {
         @include anchor-reverse();
@@ -120,6 +114,12 @@ $dso-dropdown-link-color: $grijs-90;
           border-color: $grasgroen;
           color: $wit;
           text-decoration: none;
+        }
+      }
+
+      a {
+        &#{$not-dso-buttons}:visited {
+          color: $dso-dropdown-link-color;
         }
       }
 
@@ -193,6 +193,12 @@ $dso-dropdown-link-color: $grijs-90;
           float: left;
           margin-left: -$u4;
           margin-right: $u1;
+        }
+      }
+
+      a {
+        &#{$not-dso-buttons}:visited {
+          color: $wit;
         }
       }
     }
