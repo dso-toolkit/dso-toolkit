@@ -30,8 +30,15 @@ export function storiesOfSelectable<TemplateFnReturnType>(
       argTypes: selectableArgTypes,
       args: {
         type: 'radio',
+        checked: false,
+        disabled: false,
         id: uuidv4(),
+        indeterminate: false,
+        infoActive: false,
+        infoFixed: false,
+        invalid: false,
         label: 'Label',
+        required: false,
         value: 'the-value'
       }
     });
