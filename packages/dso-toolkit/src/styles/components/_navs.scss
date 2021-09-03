@@ -20,7 +20,7 @@ $dso-navigation-selected-color: $cannon-pink;
       &,
       &:hover,
       &:focus,
-      &:visited {
+      &#{$not-dso-buttons}:visited {
         color: $bosgroen;
       }
     }

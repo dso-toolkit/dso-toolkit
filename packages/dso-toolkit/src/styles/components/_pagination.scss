@@ -70,6 +70,10 @@ $dso-pagination-icon-margin: $u1 / 2;
         }
       }
 
+      &#{$not-dso-buttons}:visited {
+        color: $grasgroen;
+      }
+
       &::after {
         border-bottom: 3px solid transparent;
         bottom: 0;
