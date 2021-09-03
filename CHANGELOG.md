@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Fixed
-* **sources:** Visited state in dropdown menu met anchors mag visueel niet zichtbaar zijn ([#1263](https://github.com/dso-toolkit/dso-toolkit/issues/1263))
+* **dso-toolkit + sources:** Visited state in dropdown menu met anchors mag visueel niet zichtbaar zijn ([#1263](https://github.com/dso-toolkit/dso-toolkit/issues/1263))
 
 ## 27.2.0
 
