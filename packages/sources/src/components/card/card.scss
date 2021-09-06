@@ -33,7 +33,7 @@
 
     > a {
       &,
-      &:not(.btn):visited,
+      &#{$not-dso-buttons}:visited,
       &:active,
       &:focus {
         color: inherit;
