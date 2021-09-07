@@ -45,7 +45,7 @@ export namespace Components {
     }
     interface DsoCard {
         "content": string;
-        "interactions": string;
+        "interactions": Interaction[];
         "label": string;
     }
     interface DsoCardInteraction {
@@ -415,7 +415,7 @@ declare namespace LocalJSX {
     }
     interface DsoCard {
         "content": string;
-        "interactions": string;
+        "interactions": Interaction[];
         "label": string;
     }
     interface DsoCardInteraction {

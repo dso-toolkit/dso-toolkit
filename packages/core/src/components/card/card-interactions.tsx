@@ -1,3 +1,4 @@
+import { Interaction } from '@dso-toolkit/sources/dist/components/card/card.models';
 import { Component, h, Prop } from '@stencil/core';
 
 @Component({
@@ -15,8 +16,8 @@ export class Card {
   render() {
     return (
       <div class="dso-card-interactions">
-        {this.interactions.map(() => (
-          <dso-card-interaction label={this.label}></dso-card-interaction>
+        {this.interactions.map((interaction: Interaction) => (
+          <dso-card-interaction label={this.label} toggle={interaction.toggle} button={interaction.button}></dso-card-interaction>
         ))}
       </div>
     );

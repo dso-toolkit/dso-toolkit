@@ -1,3 +1,4 @@
+import { Interaction } from '@dso-toolkit/sources/dist/components/card/card.models';
 import { Component, h, Prop } from '@stencil/core';
 
 @Component({
@@ -10,7 +11,7 @@ export class Card {
   label!: string;
 
   @Prop()
-  interactions!: string;
+  interactions!: Interaction[];
 
   @Prop()
   content!: string;
@@ -28,7 +29,7 @@ export class Card {
             </div>
           </a>
           {this.interactions && (
-            <dso-card-interactions label={this.label}></dso-card-interactions>
+            <dso-card-interactions label={this.label} interactions={this.interactions}></dso-card-interactions>
           )}
         </div>
         <div class="dso-card-content">
