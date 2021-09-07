@@ -38,7 +38,7 @@ export function storiesOfCards<TemplateFnReturnType>(
               {
                 button: {
                   variant: "tertiary",
-                  label: "Button",
+                  label: "Toon informatie",
                   icon: {
                     icon: "info"
                   }

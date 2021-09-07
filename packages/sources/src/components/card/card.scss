@@ -44,6 +44,10 @@
         text-decoration: none;
       }
     }
+
+    @media screen and (max-width: $screen-xs-min) {
+      flex-wrap: wrap;
+    }
   }
 }
 
@@ -64,5 +68,10 @@
 
   .dso-info-button {
     margin: 0;
+  }
+
+  @media screen and (max-width: $screen-xs-min) {
+    flex-basis: 100%;
+    margin-top: $u2;
   }
 }
