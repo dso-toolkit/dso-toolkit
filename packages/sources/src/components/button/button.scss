@@ -16,6 +16,7 @@ $dso-button-secondary-background-color: $wit;
 $dso-button-secondary-border-color: $grasgroen;
 $dso-button-secondary-color: $grasgroen;
 $dso-button-secondary-hover-background-color: $grasgroen;
+$dso-button-secondary-hover-color: $wit;
 $dso-button-secondary-active-background-color: $bosgroen;
 $dso-button-secondary-disabled-color: $grasgroen-40;
 
@@ -294,6 +295,10 @@ $dso-button-tertiary-active-color: $scampi;
   &,
   &:visited {
     color: $dso-button-secondary-color;
+
+    &:hover {
+      color: $dso-button-secondary-hover-color;
+    }
   }
 }
 
