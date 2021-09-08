@@ -60,21 +60,14 @@ a {
   }
 }
 
-.btn:not(.dso-list-button) + .btn:not(.dso-list-button),
-.btn:not(.dso-list-button) + .dso-primary,
-.btn:not(.dso-list-button) + .dso-secondary,
-.btn:not(.dso-list-button) + .dso-tertiary,
-.dso-primary + .btn:not(.dso-list-button),
-.dso-primary + .dso-primary,
-.dso-primary + .dso-secondary,
-.dso-primary + .dso-tertiary,
-.dso-secondary + .btn:not(.dso-list-button),
-.dso-secondary + .dso-primary,
-.dso-secondary + .dso-secondary,
-.dso-secondary + .dso-tertiary,
-.dso-tertiary + .btn:not(.dso-list-button),
-.dso-tertiary + .dso-primary,
-.dso-tertiary + .dso-secondary,
-.dso-tertiary + .dso-tertiary {
-  margin-left: $u2;
+.btn:not(.dso-list-button),
+.dso-primary,
+.dso-secondary,
+.dso-tertiary {
+  + .btn:not(.dso-list-button),
+  + .dso-primary,
+  + .dso-secondary,
+  + .dso-tertiary {
+    margin-left: $u2;
+  }
 }

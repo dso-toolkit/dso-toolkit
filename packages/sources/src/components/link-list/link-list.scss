@@ -59,13 +59,13 @@
       text-decoration: none;
     }
 
-    &#{$not-dso-buttons}.download {
+    &.download {
       &::after {
         @include di("download-grijs90");
       }
     }
 
-    &#{$not-dso-buttons}.extern {
+    &.extern {
       &::after {
         @include di("external-link-grijs90");
       }

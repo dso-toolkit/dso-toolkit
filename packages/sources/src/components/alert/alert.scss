@@ -55,7 +55,7 @@ $alert-danger-border: $state-danger-border;
 
   a {
     &,
-    &#{$not-dso-buttons}:visited {
+    &:not(.btn):visited {
       color: $text-color;
     }
 

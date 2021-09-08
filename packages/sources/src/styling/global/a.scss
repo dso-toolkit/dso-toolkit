@@ -16,31 +16,29 @@ a {
     text-decoration: none;
   }
 
-  &#{$not-dso-buttons}:visited {
+  &:visited {
     color: $dso-anchor-visited-color;
   }
 
-  &#{$not-dso-buttons} {
-    &.download,
-    &.extern {
-      &::after {
-        content: "";
-        display: inline-block;
-        margin-left: $dso-anchor-spacer-width;
-        vertical-align: $dso-icon-vertical-align;
-      }
+  &.download,
+  &.extern {
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: $dso-anchor-spacer-width;
+      vertical-align: $dso-icon-vertical-align;
     }
+  }
 
-    &.download {
-      &::after {
-        @include di("download");
-      }
+  &.download {
+    &::after {
+      @include di("download");
     }
+  }
 
-    &.extern {
-      &::after {
-        @include di("external-link");
-      }
+  &.extern {
+    &::after {
+      @include di("external-link");
     }
   }
 }

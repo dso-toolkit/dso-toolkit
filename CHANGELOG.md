@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 * **core + css + dso-toolkit + react + sources:** Checkbox voorzien van indeterminate state ([#1185](https://github.com/dso-toolkit/dso-toolkit/issues/1185))
 
+### Fixed
+
+* **dso-toolkit + sources:** Visited state in navigatiewerkvormen mag visueel niet zichtbaar zijn ([#1263](https://github.com/dso-toolkit/dso-toolkit/issues/1263))
+
 ## 27.2.0
 
 ### Added
