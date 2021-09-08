@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 27.3.0
+
 ### Added
 
 * **core + css + dso-toolkit + react + sources:** Checkbox voorzien van indeterminate state ([#1185](https://github.com/dso-toolkit/dso-toolkit/issues/1185))
