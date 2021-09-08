@@ -1,4 +1,4 @@
-# `dso-card`, `dso-cards`, `dso-card-interaction`, `dso-card-interactions`
+# dso-card
 
 
 

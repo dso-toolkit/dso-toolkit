@@ -45,7 +45,6 @@ export namespace Components {
     }
     interface DsoCard {
         "content": string;
-        "interactions": Interaction[];
         "label": string;
     }
     interface DsoCardInteraction {
@@ -53,9 +52,8 @@ export namespace Components {
         "label": string;
         "toggle": any;
     }
-    interface DsoCardInteractions {
-        "interactions": any;
-        "label": string;
+    interface DsoCards {
+        "cards": Cards;
     }
     interface DsoDatePicker {
         /**
@@ -256,11 +254,11 @@ declare global {
         prototype: HTMLDsoCardInteractionElement;
         new (): HTMLDsoCardInteractionElement;
     };
-    interface HTMLDsoCardInteractionsElement extends Components.DsoCardInteractions, HTMLStencilElement {
+    interface HTMLDsoCardsElement extends Components.DsoCards, HTMLStencilElement {
     }
-    var HTMLDsoCardInteractionsElement: {
-        prototype: HTMLDsoCardInteractionsElement;
-        new (): HTMLDsoCardInteractionsElement;
+    var HTMLDsoCardsElement: {
+        prototype: HTMLDsoCardsElement;
+        new (): HTMLDsoCardsElement;
     };
     interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
     }
@@ -360,7 +358,7 @@ declare global {
         "dso-banner": HTMLDsoBannerElement;
         "dso-card": HTMLDsoCardElement;
         "dso-card-interaction": HTMLDsoCardInteractionElement;
-        "dso-card-interactions": HTMLDsoCardInteractionsElement;
+        "dso-cards": HTMLDsoCardsElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -415,7 +413,6 @@ declare namespace LocalJSX {
     }
     interface DsoCard {
         "content": string;
-        "interactions": Interaction[];
         "label": string;
     }
     interface DsoCardInteraction {
@@ -423,9 +420,8 @@ declare namespace LocalJSX {
         "label": string;
         "toggle"?: any;
     }
-    interface DsoCardInteractions {
-        "interactions"?: any;
-        "label": string;
+    interface DsoCards {
+        "cards"?: Cards;
     }
     interface DsoDatePicker {
         /**
@@ -591,7 +587,7 @@ declare namespace LocalJSX {
         "dso-banner": DsoBanner;
         "dso-card": DsoCard;
         "dso-card-interaction": DsoCardInteraction;
-        "dso-card-interactions": DsoCardInteractions;
+        "dso-cards": DsoCards;
         "dso-date-picker": DsoDatePicker;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-highlight-box": DsoHighlightBox;
@@ -620,7 +616,7 @@ declare module "@stencil/core" {
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
             "dso-card-interaction": LocalJSX.DsoCardInteraction & JSXBase.HTMLAttributes<HTMLDsoCardInteractionElement>;
-            "dso-card-interactions": LocalJSX.DsoCardInteractions & JSXBase.HTMLAttributes<HTMLDsoCardInteractionsElement>;
+            "dso-cards": LocalJSX.DsoCards & JSXBase.HTMLAttributes<HTMLDsoCardsElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;

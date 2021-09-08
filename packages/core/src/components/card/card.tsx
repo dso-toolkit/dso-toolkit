@@ -11,9 +11,6 @@ export class Card {
   label!: string;
 
   @Prop()
-  interactions!: Interaction[];
-
-  @Prop()
   content!: string;
 
   render() {
@@ -28,9 +25,10 @@ export class Card {
               </h2>
             </div>
           </a>
-          {this.interactions && (
+          <slot name="interactions"></slot>
+          {/* {this.interactions && (
             <dso-card-interactions label={this.label} interactions={this.interactions}></dso-card-interactions>
-          )}
+          )} */}
         </div>
         <div class="dso-card-content">
           <p>{this.content}</p>
