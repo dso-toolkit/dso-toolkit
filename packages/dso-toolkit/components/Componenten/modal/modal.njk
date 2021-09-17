@@ -1,11 +1,11 @@
 <!-- When modal is open add .dso-modal-open to body -->
 <body {{ className('dso-modal-open', [noMaxHeight, 'dso-scripted-height']) }}>
   <!-- Modal markup. Can be placed anywhere inside <body> -->
-  {% render '@dialog', {body: body, dialog: dialog} %}
+  {% render '@dialog', {body: body, dialog: dialog, progress: progress} %}
   {% render '@banner' %}
   <div class="container">
     <!-- Page content -->
-    {% render '@form' %}
+    {% render '@form', {fieldsets: fieldsets} %}
   </div>
 
   <script type="module" src="{{ '/@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js' | path }}"></script>

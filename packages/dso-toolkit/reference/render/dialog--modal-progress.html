@@ -1,0 +1,69 @@
+
+<!-- When modal is open add .dso-modal-open to body -->
+<body class="dso-modal-open">
+
+  <!-- Modal markup. Can be placed anywhere inside <body> -->
+  <div class="dso-modal" tabindex="-1" role="alert">
+    <div class="dso-dialog" role="document">
+      <div class="dso-body">
+        <dso-progress-indicator label="Resultaten laden. Een moment geduld." block></dso-progress-indicator>
+      </div>
+    </div>
+  </div>
+  <dso-banner status="danger">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="dso-rich-content">
+            <h2>
+              Storingsmelding:
+            </h2>
+            <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+          </div>
+          <button type="button" class="dso-tertiary"><span class="sr-only">Sluiten storingsmelding</span>
+            <dso-icon icon="times"></dso-icon></button>
+        </div>
+      </div>
+    </div>
+  </dso-banner>
+  <div class="container">
+
+    <!-- Page content -->
+    <form>
+      <fieldset>
+        <legend>Contact</legend>
+        <div class="form-group dso-input dso-input-text dso-required">
+          <div class="dso-label-container">
+            <label for="voornaam" class="control-label">
+              Voornaam
+            </label>
+          </div>
+          <div class="dso-field-container">
+            <input type="text" id="voornaam" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group dso-input dso-input-text">
+          <div class="dso-label-container">
+            <label for="achternaam" class="control-label">
+              Achternaam
+            </label>
+          </div>
+          <div class="dso-field-container">
+            <input type="text" id="achternaam" class="form-control">
+            <p class="dso-help-block" id="helpTextId_achternaam">Mag ook de familienaam zijn</p>
+          </div>
+        </div>
+        <div class="form-group dso-static">
+          <div class="dso-label-container">
+            <span class="control-label">Geslacht</span>
+          </div>
+          <div class="dso-field-container">
+            Man
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <script type="module" src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.esm.js"></script>
+  <script nomodule src="../../@dso-toolkit/core/dso-toolkit/dso-toolkit.js"></script>
+</body>
