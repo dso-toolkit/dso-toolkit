@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changes
 * **dso-toolkit:** Naamswijziging in voorbeelddata ([#1268](https://github.com/dso-toolkit/dso-toolkit/issues/1268))
 
+### Documentation
+* **dso-toolkit:** Fixed: In kleurdocumentatie heeft mauve de verkeerde kleurcode ([#1276](https://github.com/dso-toolkit/dso-toolkit/issues/1276))
+
 ## 27.3.0
 
 ### Added
