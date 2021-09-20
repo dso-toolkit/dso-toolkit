@@ -164,7 +164,7 @@ Mauve is een accentkleur voor componenten in de Toolkit. Het wordt gebruikt als 
         <p style="background-color: #8b4a6a; width: 100%; height: 150px"></p>
         <ul class="list-unstyled">
           <li>#8b4a6a</li>
-          <li>rgb(225, 112, 0)</li>
+          <li>rgb(140, 75, 107)</li>
         </ul>
       </div>
     </div>
