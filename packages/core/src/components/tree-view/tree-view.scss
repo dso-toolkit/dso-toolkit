@@ -1,0 +1,35 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+:host {
+  ul[role='tree'] {
+    padding-left: 0;
+
+    li.collapsed > ul {
+      display: none;
+    }
+
+    li[role='treeitem'],
+    li.tree-item {
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+
+      > ul {
+        padding-left: 1.5em;
+      }
+    }
+
+    .tree-content {
+      display: inline-block;
+      margin: $u1 0;
+    }
+
+    .tree-branch-control {
+      display: inline-block;
+    }
+  }
+}
+
+@include box-sizing();

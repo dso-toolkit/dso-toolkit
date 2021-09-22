@@ -12,6 +12,7 @@ import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfac
 import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
 import { ContentAnchor } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
+import { TreeViewItem } from "@dso-toolkit/sources";
 export namespace Components {
     interface DsoAlert {
         /**
@@ -114,7 +115,7 @@ export namespace Components {
         "yellow"?: boolean;
     }
     interface DsoIcon {
-        "icon": string;
+        "icon"?: string;
     }
     interface DsoInfo {
         "active"?: boolean;
@@ -205,6 +206,11 @@ export namespace Components {
           * Deactivates mouseover behaviour
          */
         "stateless"?: boolean;
+    }
+    interface DsoTreeView {
+        "collection": TreeViewItem<string>[];
+        "onFetchItems": Function;
+        "updateItems": (collection: TreeViewItem<string>[], path: TreeViewItem<string>[], updater: (item: TreeViewItem<string>) => TreeViewItem<string>) => TreeViewItem<string>[];
     }
 }
 declare global {
@@ -334,6 +340,12 @@ declare global {
         prototype: HTMLDsoTooltipElement;
         new (): HTMLDsoTooltipElement;
     };
+    interface HTMLDsoTreeViewElement extends Components.DsoTreeView, HTMLStencilElement {
+    }
+    var HTMLDsoTreeViewElement: {
+        prototype: HTMLDsoTreeViewElement;
+        new (): HTMLDsoTreeViewElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
@@ -356,6 +368,7 @@ declare global {
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
+        "dso-tree-view": HTMLDsoTreeViewElement;
     }
 }
 declare namespace LocalJSX {
@@ -468,7 +481,7 @@ declare namespace LocalJSX {
         "yellow"?: boolean;
     }
     interface DsoIcon {
-        "icon": string;
+        "icon"?: string;
     }
     interface DsoInfo {
         "active"?: boolean;
@@ -561,6 +574,13 @@ declare namespace LocalJSX {
          */
         "stateless"?: boolean;
     }
+    interface DsoTreeView {
+        "collection": TreeViewItem<string>[];
+        "onFetchItems": Function;
+        "onFetchItems"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        "onToggleItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        "updateItems"?: (collection: TreeViewItem<string>[], path: TreeViewItem<string>[], updater: (item: TreeViewItem<string>) => TreeViewItem<string>) => TreeViewItem<string>[];
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
@@ -583,6 +603,7 @@ declare namespace LocalJSX {
         "dso-selectable": DsoSelectable;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
+        "dso-tree-view": DsoTreeView;
     }
 }
 export { LocalJSX as JSX };
@@ -610,6 +631,7 @@ declare module "@stencil/core" {
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
+            "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
         }
     }
 }

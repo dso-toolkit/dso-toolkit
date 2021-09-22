@@ -1,0 +1,16 @@
+@use "~@dso-toolkit/sources/src/styling/variables";
+
+dso-tree-view {
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: $u1;
+  }
+
+  ul ul,
+  ul ol,
+  ol ul,
+  ol ol {
+    margin-bottom: 0;
+  }
+}
