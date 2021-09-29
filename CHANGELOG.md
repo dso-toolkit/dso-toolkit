@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 27.4.0
+
 ### Added
 * **core + react + sources:** Interactieve zoeksuggesties aanbieden als Web Component ([#1158](https://github.com/dso-toolkit/dso-toolkit/issues/1158))
 * **dso-toolkit + sources + css:** CSS Component List Button ([#1250](https://github.com/dso-toolkit/dso-toolkit/issues/1250))
