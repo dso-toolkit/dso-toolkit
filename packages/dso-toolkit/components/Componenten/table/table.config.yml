@@ -89,6 +89,11 @@ notes: |
   - [WAI-ARIA 1.1 ARIA-Sort](https://www.w3.org/TR/wai-aria-1.1/#aria-sort)
   - [Digitoegankelijk](https://www.digitoegankelijk.nl)
 
+
+  ## Disclaimer
+  De namen in de voorbeelden zijn fictief en hebben geen relatie tot werkelijke personen. Elke overeenkomst met betrekking tot naam, karakter of achtergrond van bestaande personen berust volledig op toeval.
+  _The names in the examples are fictitious and have no relation to actual persons. Any similarity with regard to name, character or background of existing persons is entirely coincidental._
+
 status: ready
 collated: true
 context:
@@ -135,7 +140,7 @@ variants:
   - name: filtering
     notes: |
       <p>In een tabel kan ook gefilterd worden op basis van gebruikersinvoer doormiddel van een zoekveld boven de tabel. Er wordt direct automatisch gefilterd in de tabel.</p>
-    context: 
+    context:
       __title: Filter
       modifier: table
       filter:
@@ -147,11 +152,11 @@ variants:
       columnHeaders:
         - title: Nummer
         - title: Bron
-        - title: Uitleg 
+        - title: Uitleg
       rowContent:
         - rowHeader: 1
           bron: AQUO
-          uitleg: In de Aquo-begrippenset staan begrippen, die worden gebruikt in de watersector.   
+          uitleg: In de Aquo-begrippenset staan begrippen, die worden gebruikt in de watersector.
         - rowHeader: 2
           bron: BesluitActiviteitenLeefomgeving
           uitleg: Besluit Activiteiten Leefomgeving
@@ -174,13 +179,13 @@ variants:
       columnHeaders:
         - title: Nummer
         - title: Bron
-        - title: Uitleg 
+        - title: Uitleg
       resultError: Geen resultaten gevonden
       cols: 3
   - name: sortable ascending
     notes: |
       <p>In het voorbeeld hieronder is de data oplopend gesorteerd voor de kolom "Nummer". Dit wordt aangeduid met <code>role="columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
-    context: 
+    context:
       __title: Sortable ascending
       modifier: table
       sortable: ascending
@@ -190,11 +195,11 @@ variants:
           sort: ascending
         - title: Bron
           sort: true
-        - title: Uitleg 
+        - title: Uitleg
           sort: true
       rowContent:
         - rowHeader: 1
-          bron: Omgevingsbesluit  
+          bron: Omgevingsbesluit
           uitleg: Omgevingsbesluit
         - rowHeader: 2
           bron: Omgevingswet
@@ -218,7 +223,7 @@ variants:
           sort: descending
         - title: Bron
           sort: true
-        - title: Uitleg 
+        - title: Uitleg
           sort: true
       rowContent:
         - rowHeader: 4
@@ -231,7 +236,7 @@ variants:
           bron: Omgevingswet
           uitleg: Omgevingswet
         - rowHeader: 1
-          bron: Omgevingsbesluit  
+          bron: Omgevingsbesluit
           uitleg: Omgevingsbesluit
   - name: viewport-responsive
     notes: |
@@ -247,7 +252,7 @@ variants:
         - title: Beschrijving
       rowContent:
         - col1: 1
-          col2: Omgevingsbesluit  
+          col2: Omgevingsbesluit
           col3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo ligula, tempor in tincidunt ac, viverra quis nisi. Integer imperdiet pretium ex sed eleifend. Vestibulum quam turpis, mattis scelerisque ligula ut, aliquam bibendum ex. Aliquam et erat a magna venenatis tempor. Sed euismod pulvinar gravida. Sed eu felis vitae quam lobortis mollis. Etiam congue tristique sapien sed pretium. Vestibulum volutpat eu tortor id dignissim. Fusce eget nisl libero. Duis quis turpis vitae lorem vestibulum luctus sed sed lorem. Phasellus aliquet suscipit ultrices. Suspendisse ullamcorper, eros quis luctus porta, velit sapien egestas nunc, et venenatis sem sapien quis elit. Proin euismod ligula nisi, quis sagittis neque consectetur eget. Sed magna odio, dictum eget efficitur vitae, tempus vel risus. Pellentesque quis ligula id elit pharetra tempus. Cras sit amet lorem non augue lobortis efficitur.
         - col1: 2
           col2: Omgevingswet
@@ -272,7 +277,7 @@ variants:
         - title: Beschrijving
       rowContent:
         - col1: 1
-          col2: Omgevingsbesluit  
+          col2: Omgevingsbesluit
           col3: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin leo ligula, tempor in tincidunt ac, viverra quis nisi. Integer imperdiet pretium ex sed eleifend. Vestibulum quam turpis, mattis scelerisque ligula ut, aliquam bibendum ex. Aliquam et erat a magna venenatis tempor. Sed euismod pulvinar gravida. Sed eu felis vitae quam lobortis mollis. Etiam congue tristique sapien sed pretium. Vestibulum volutpat eu tortor id dignissim. Fusce eget nisl libero. Duis quis turpis vitae lorem vestibulum luctus sed sed lorem. Phasellus aliquet suscipit ultrices. Suspendisse ullamcorper, eros quis luctus porta, velit sapien egestas nunc, et venenatis sem sapien quis elit. Proin euismod ligula nisi, quis sagittis neque consectetur eget. Sed magna odio, dictum eget efficitur vitae, tempus vel risus. Pellentesque quis ligula id elit pharetra tempus. Cras sit amet lorem non augue lobortis efficitur.
         - col1: 2
           col2: Omgevingswet
