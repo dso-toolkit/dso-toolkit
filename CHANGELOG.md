@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **dso-toolkit:** Whitebox en Tile presenteren op eigen pagina's ([#1273](https://github.com/dso-toolkit/dso-toolkit/issues/1273))
+
 ## 27.4.0
 
 ### Added

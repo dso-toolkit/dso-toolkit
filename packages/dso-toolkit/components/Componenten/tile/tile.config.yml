@@ -1,0 +1,6 @@
+notes: |
+  Breedte van het element wordt gedicteerd door de bootstrap class van het omliggende element.
+context:
+  id: tile
+  source: /dummy/images/icon-tree.png
+  label: Boom kappen of snoeien
