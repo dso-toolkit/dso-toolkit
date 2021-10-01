@@ -41,9 +41,7 @@ notes: |
   - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/indicators-validations-notifications/
   - Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via https://www.w3.org/WAI/standards-guidelines/wcag/
 status: ready
-default: Dialog
-label: Modal
-name: Dialog
+default: dialog
 collated: false
 context:
   __title: Dialog
@@ -78,8 +76,8 @@ context:
         modifier: dso-primary
         label: Toevoegen
 variants:
-  - name: modal-progress
-    label: Progress
+  - name: dialog
+  - name: progress
     context:
       __title: Modal with progress indicator
       dialog: false
