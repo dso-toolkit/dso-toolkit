@@ -1,6 +1,6 @@
 status: wip
 notes: |
-  Breedte van het element wordt gedicteerd door de bootstrap class van het omliggende element.
+  De breedte van het element wordt gedicteerd door de breedte van het omliggende element. Als afbeelding in `dso-whitebox-icon` kan alleen een `<img>` gebruikt worden.
 context:
   columns:
     - modifier: col-md-3 col-sm-6 col-xs-12
