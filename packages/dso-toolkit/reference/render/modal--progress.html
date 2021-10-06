@@ -6,26 +6,31 @@
   <div class="dso-modal" tabindex="-1" role="alert">
     <div class="dso-dialog" role="document">
       <div class="dso-body">
-        <dso-progress-indicator label="Resultaten laden. Een moment geduld." block></dso-progress-indicator>
+        <div class="dso-progress-indicator dso-small dso-block" role="progressbar" aria-labelledby="prg-in-dialog">
+          <div class="dso-progress-indicator-spinner"></div><span id="prg-in-dialog" class="dso-progress-indicator-label">Resultaten laden. Een moment geduld.</span>
+        </div>
       </div>
     </div>
   </div>
-  <dso-banner status="danger">
+  <section class="dso-banner alert-danger" role="alert">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <div class="dso-rich-content">
-            <h2>
-              Storingsmelding:
-            </h2>
-            <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+            <h2>Storingsmelding:</h2>
+            <p>
+              Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.
+            </p>
           </div>
-          <button type="button" class="dso-tertiary"><span class="sr-only">Sluiten storingsmelding</span>
-            <dso-icon icon="times"></dso-icon></button>
+          <button type="button" class="dso-tertiary">
+            <span class="sr-only">Sluiten storingsmelding</span><svg class="di di-times">
+              <use href="../../dso-icons.svg#times" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
-  </dso-banner>
+  </section>
   <div class="container">
 
     <!-- Page content -->

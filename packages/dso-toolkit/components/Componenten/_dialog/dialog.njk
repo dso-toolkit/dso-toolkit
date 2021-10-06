@@ -16,7 +16,7 @@
       {% if dialog %}
         <p>{{ body }}</p>
       {% else %}
-        <dso-progress-indicator label="{{ progress.label }}" block></dso-progress-indicator>
+        {% render '@progress-indicator-css', { size: 'small', block: true, labelid: 'prg-in-dialog', label: progress.label } %}
       {% endif %}
     </div>
     {% if dialog %}
