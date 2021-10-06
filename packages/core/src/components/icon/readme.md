@@ -17,7 +17,7 @@
 ### Used by
 
  - [dso-card](../card)
- - [dso-card-interaction](../card)
+ - [dso-card-interaction](../card-interaction)
  - [dso-date-picker](../date-picker)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
