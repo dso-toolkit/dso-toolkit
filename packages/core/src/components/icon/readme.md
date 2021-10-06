@@ -16,8 +16,6 @@
 
 ### Used by
 
- - [dso-card](../card)
- - [dso-card-interaction](../card-interaction)
  - [dso-date-picker](../date-picker)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
@@ -25,8 +23,6 @@
 ### Graph
 ```mermaid
 graph TD;
-  dso-card --> dso-icon
-  dso-card-interaction --> dso-icon
   dso-date-picker --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon

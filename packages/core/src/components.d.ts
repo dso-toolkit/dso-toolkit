@@ -6,7 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
-import { Cards } from "@dso-toolkit/sources/dist/components/cards/cards.models";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
@@ -43,18 +42,6 @@ export namespace Components {
     }
     interface DsoBanner {
         "status": 'warning' | 'danger';
-    }
-    interface DsoCard {
-        "content": string;
-        "label": string;
-    }
-    interface DsoCardInteraction {
-        "button": any;
-        "label": string;
-        "toggle": any;
-    }
-    interface DsoCards {
-        "cards": Cards;
     }
     interface DsoDatePicker {
         /**
@@ -243,24 +230,6 @@ declare global {
         prototype: HTMLDsoBannerElement;
         new (): HTMLDsoBannerElement;
     };
-    interface HTMLDsoCardElement extends Components.DsoCard, HTMLStencilElement {
-    }
-    var HTMLDsoCardElement: {
-        prototype: HTMLDsoCardElement;
-        new (): HTMLDsoCardElement;
-    };
-    interface HTMLDsoCardInteractionElement extends Components.DsoCardInteraction, HTMLStencilElement {
-    }
-    var HTMLDsoCardInteractionElement: {
-        prototype: HTMLDsoCardInteractionElement;
-        new (): HTMLDsoCardInteractionElement;
-    };
-    interface HTMLDsoCardsElement extends Components.DsoCards, HTMLStencilElement {
-    }
-    var HTMLDsoCardsElement: {
-        prototype: HTMLDsoCardsElement;
-        new (): HTMLDsoCardsElement;
-    };
     interface HTMLDsoDatePickerElement extends Components.DsoDatePicker, HTMLStencilElement {
     }
     var HTMLDsoDatePickerElement: {
@@ -357,9 +326,6 @@ declare global {
         "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
         "dso-banner": HTMLDsoBannerElement;
-        "dso-card": HTMLDsoCardElement;
-        "dso-card-interaction": HTMLDsoCardInteractionElement;
-        "dso-cards": HTMLDsoCardsElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -411,18 +377,6 @@ declare namespace LocalJSX {
     }
     interface DsoBanner {
         "status": 'warning' | 'danger';
-    }
-    interface DsoCard {
-        "content": string;
-        "label": string;
-    }
-    interface DsoCardInteraction {
-        "button"?: any;
-        "label": string;
-        "toggle"?: any;
-    }
-    interface DsoCards {
-        "cards"?: Cards;
     }
     interface DsoDatePicker {
         /**
@@ -586,9 +540,6 @@ declare namespace LocalJSX {
         "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
         "dso-banner": DsoBanner;
-        "dso-card": DsoCard;
-        "dso-card-interaction": DsoCardInteraction;
-        "dso-cards": DsoCards;
         "dso-date-picker": DsoDatePicker;
         "dso-dropdown-menu": DsoDropdownMenu;
         "dso-highlight-box": DsoHighlightBox;
@@ -615,9 +566,6 @@ declare module "@stencil/core" {
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
-            "dso-card": LocalJSX.DsoCard & JSXBase.HTMLAttributes<HTMLDsoCardElement>;
-            "dso-card-interaction": LocalJSX.DsoCardInteraction & JSXBase.HTMLAttributes<HTMLDsoCardInteractionElement>;
-            "dso-cards": LocalJSX.DsoCards & JSXBase.HTMLAttributes<HTMLDsoCardsElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
