@@ -1,10 +1,12 @@
 ul,
 ol {
-  &.dso-cards {
-    @include dso-cards_list-root();
-  }
-}
+  &.dso-card-list {
+    @include list-unstyled();
 
-.dso-cards {
-  @include dso-cards_root();
+    background: $wit;
+
+    > li + li {
+      border-top: 1px solid $grijs-20;
+    }
+  }
 }

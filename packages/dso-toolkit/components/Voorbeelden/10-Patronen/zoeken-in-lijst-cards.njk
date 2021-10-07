@@ -18,7 +18,7 @@
           </button>
         </div>
         <h5>Actieve filters: <dso-badge status="success">Omgevingswet document</dso-badge><dso-badge status="warning">Geldige oude wetgeving</dso-badge></h5>
-        <ul {{ className('dso-cards', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
+        <ul {{ className('dso-card-list', modifiers, [interactionsLocation, 'dso-interactions-' + interactionsLocation]) }}>
           {% for card in cards %}
             <li>
               {% render '@card', card %}
