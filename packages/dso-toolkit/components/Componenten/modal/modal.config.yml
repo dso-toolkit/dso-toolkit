@@ -30,9 +30,9 @@ notes: |
   - Wanneer de modal wordt gesloten, moet de focus, indien mogelijk, teruggezet worden naar de positie die hij had voordat de modal werd geopend.
   - Valideer eventuele invoer van een gebruiker voordat de modal wordt gesloten. Als een validatiefout optreed, moet de modal open blijven en wordt er een alert en/of inline foutmelding gegeven bij het betreffende invoerveld.
 
-  **Dialog vs Alertdialog vs Alert**
+  **Modal Dialog roles: `dialog` vs `alertdialog`**
+
   Is een modal bedoeld om gebruikers te onderbreken met dringende informatie, details of acties? Gebruik dan de `role="alertdialog"`. In andere gevallen gebruik je `role="dialog"`.
-  Is de modal bedoeld om de gebruiker erop te wijzen dat een actie even gaat duren, dan is een `role="alert"` op zijn plaats. Zie de andere vorm.
 
   In tegenstelling tot gewone meldingen moet er tenminste één interactief element in een alertdialog staan. Zet de focus daarop als de modal verschijnt. Meestal is dit een actie om te bevestigen, sluiten of annuleren. Er kunnen ook andere interactieve elementen in een alertdialog staan, zoals invoervelden, checkboxen en radio selecties. Waar de focus gezet moet worden is afhankelijk van het doel van de modal.
 
@@ -91,3 +91,8 @@ variants:
       - De modal fungeert als alert, en heeft derhalve geen `aria-label`, `aria-labelledby`, `aria-describedby`
       - De tab focus moet beperkt zijn tot de modal (keyboard trap).
       - Een modal die voor dit doel wordt ingezet kan _niet_ gesloten worden door op de sluitknop te klikken.
+
+      **Modal Progress role: `alert`**
+
+      Is de modal bedoeld om de gebruiker erop te wijzen dat een actie even gaat duren, dan is een `role="alert"` op zijn plaats.
+      Voor de overige toepassingen van de modal: [Modal Dialog]({{ '/components/detail/modal--dialog' | docPath }}).
