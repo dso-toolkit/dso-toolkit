@@ -1,0 +1,12 @@
+notes: |
+  Met een filterblok ...
+status: ready
+context:
+  __title: default
+  labels:
+  - label: Geldend
+  - label: Regels
+  - label: Tuin
+  - label: Woongebied
+  - label: Geluidzone
+  - label: 'Thema: milieu algemeen'

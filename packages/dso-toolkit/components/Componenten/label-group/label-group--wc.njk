@@ -1,5 +1,5 @@
 <div {{ className('dso-label-group', modifiers) }}>
   {% for label in labels %}
-    <dso-label {{ attributes([label.status, 'status', label.status]) }} removable>{{ label.label + ' ' + loop.index }}</dso-label>
+    <dso-label {{ attributes([label.status, 'status', label.status]) }} removable>{{ label.label }}</dso-label>
   {% endfor %}
 </div>
