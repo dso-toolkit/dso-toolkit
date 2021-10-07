@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit:** Whitebox en Tile presenteren op eigen pagina's ([#1273](https://github.com/dso-toolkit/dso-toolkit/issues/1273))
+* **BREAKING: css + dso-toolkit + sources:** cards component uitbreiden/aanpassen ([#1132](https://github.com/dso-toolkit/dso-toolkit/issues/1132)) **Markup changes, see PR ([#1282](https://github.com/dso-toolkit/dso-toolkit/pull/1282))**
 
 ## 27.4.0
 
