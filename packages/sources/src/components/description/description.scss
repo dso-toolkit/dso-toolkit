@@ -2,8 +2,40 @@ $dso-description-bg-color: $dso-info-bg-color;
 $dso-description-border-color: $dso-info-color;
 
 @mixin description_root() {
+  &:not(.dso-open) + .dso-description-content {
+    display: none;
+  }
+
+  &.dso-open + .dso-description-content {
+    display: block;
+  }
+
+  & + .dso-description-content {
+    margin: $u1 / 2 0;
+    padding: $u1 $u4 $u1 $u1;
+    position: relative;
+
+    > a {
+      display: block;
+      height: 24px;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 24px;
+
+      &::before {
+        @include di("times-zwart");
+
+        content: "";
+        display: block;
+      }
+    }
+  }
+}
+
+@mixin description_term() {
   border-bottom: 2px dotted $dso-description-border-color;
-  position: relative;
 
   &,
   &:visited,
@@ -19,6 +51,8 @@ $dso-description-border-color: $dso-info-color;
   }
 
   &.dso-open {
+    position: relative;
+
     &::before {
       border-color: $wit transparent transparent;
       border-style: solid;
@@ -48,36 +82,16 @@ $dso-description-border-color: $dso-info-color;
     }
   }
 
-  &:not(.dso-open) + .dso-description-content {
-    display: none;
-  }
-
-  &.dso-open + .dso-description-content {
-    display: block;
-  }
-
   & + .dso-description-content {
     background-color: $dso-description-bg-color;
     border: 1px $dso-description-border-color solid;
-    margin: $u1 / 2 0;
-    padding: $u1 $u4 $u1 $u1;
-    position: relative;
+  }
+}
 
-    > a {
-      display: block;
-      height: 24px;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      top: 0;
-      width: 24px;
+@mixin description_note() {
+  text-decoration: none;
 
-      &::before {
-        @include di("times-zwart");
-
-        content: "";
-        display: block;
-      }
-    }
+  & + .dso-description-content {
+    background-color: $grasgroen-10;
   }
 }

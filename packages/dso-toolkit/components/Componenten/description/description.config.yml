@@ -1,18 +1,38 @@
 ﻿notes: |
-  Het content element (`.dso-description-content`) moet direct na het term element (`.dso-description-term`) gebruikt worden. Het tonen/verbergen van de content kan met een `.dso-open` modifier op `.dso-description-term`, maar het content element mag ook scriptend volledig achterwege worden gelaten.
+  Het Description element bestaat in twee varianten: `.dso-description-term` en `.dso-description-note`.
+
+  Het content element (`.dso-description-content`) moet direct na het Description element worden gebruikt. Het tonen/verbergen van de content kan met een `.dso-open` modifier op `.dso-description-term`, maar het content element mag ook scriptend volledig achterwege worden gelaten.
 
   Als scriptend het content element achterwege wordt gelaten, moet bij het tonen van de content nog steeds `.dso-open` op het term element geplaatst worden, en het content element moet nog steeds direct na het term element worden geplaatst.
 status: wip
 collated: true
 context:
-  __title: Collapsed
+  __title: Term Collapsed
   open: false
   textBefore: Om interpretatieproblemen te voorkomen heeft het 
   term: W3C
   content: World Wide Web Consortium
   textAfter: aanbevelingen opgesteld over welke tags geldig zijn en hoe ze moeten worden geïnterpreteerd. De oorspronkelijke aanbeveling is een aantal malen geactualiseerd in verband met verdere ontwikkeling van HTML.
+  type: term
 variants:
   - name: expanded
     context:
-      __title: Expanded
+      __title: Term Expanded
+      open: true
+  - name: note
+    context:
+      __title: Note Collapsed
+      type: note
+      textBefore: Zo adviseert het Adviescollege Stikstofproblematiek
+      term: <sup>1</sup>
+      content: Adviescollege Stikstofproblematiek, <em>"Niet alles kan"</em>. Amersfoort, 2019
+      textAfter: bij het vinden van oplossingen uit te gaan van de grote transities om te zorgen voor meer integrale afweging.
+  - name: note-expanded
+    context:
+      __title: Note Expanded
+      type: note
+      textBefore: Zo adviseert het Adviescollege Stikstofproblematiek
+      term: <sup>1</sup>
+      content: Adviescollege Stikstofproblematiek, <em>"Niet alles kan"</em>. Amersfoort, 2019
+      textAfter: bij het vinden van oplossingen uit te gaan van de grote transities om te zorgen voor meer integrale afweging.
       open: true
