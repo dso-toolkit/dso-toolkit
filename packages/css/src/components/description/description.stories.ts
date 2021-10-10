@@ -13,6 +13,6 @@ storiesOfDescription(
   },
   {
     descriptionTemplate,
-    exampleTemplate: ({ textBefore, description, textAfter }) => html`${textBefore} ${description} ${textAfter}`
+    exampleTemplate: (exampleData) => html`${exampleData.map(d => typeof d === 'string' ? d : descriptionTemplate(d))}`
   }
 );

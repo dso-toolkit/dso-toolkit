@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **dso-toolkit:** "Progress" variant van Modal ([#1269](https://github.com/dso-toolkit/dso-toolkit/issues/1269))
+* **css + dso-toolkit + sources:** Nieuwe variant "note" voor Description ([#1271](https://github.com/dso-toolkit/dso-toolkit/issues/1271))
 
 ### Changed
 * **dso-toolkit:** Whitebox en Tile presenteren op eigen pagina's ([#1273](https://github.com/dso-toolkit/dso-toolkit/issues/1273))

@@ -3,12 +3,11 @@ import { ArgTypes } from '../../stories-helpers';
 import { Description } from './description.models';
 
 export interface DescriptionArgs {
-  textBefore: string,
-  textAfter: string,
   id: string;
   term: string;
   content: string;
   open: boolean;
+  type: 'term' | 'note';
 }
 
 export const descriptionArgTypes: ArgTypes<DescriptionArgs> = {
@@ -35,14 +34,10 @@ export const descriptionArgTypes: ArgTypes<DescriptionArgs> = {
       type: 'boolean'
     }
   },
-  textAfter: {
+  type: {
+    options: ['term', 'note'],
     control: {
-      type: 'text'
-    }
-  },
-  textBefore: {
-    control: {
-      type: 'text'
+      type: 'select'
     }
   }
 };
@@ -52,6 +47,25 @@ export function descriptionArgsMapper(a: DescriptionArgs): Description {
     content: a.content,
     id: a.id,
     open: a.open,
-    term: a.term
+    term: a.term,
+    type: a.type
   };
 }
+
+export interface DescriptionExampleArgs {
+  openTerm: boolean;
+  openNote: boolean;
+}
+
+export const descriptionExampleArgTypes: ArgTypes<DescriptionExampleArgs> = {
+  openTerm: {
+    control: {
+      type: 'boolean'
+    }
+  },
+  openNote: {
+    control: {
+      type: 'boolean'
+    }
+  }
+};
