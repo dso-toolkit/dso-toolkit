@@ -1,16 +1,16 @@
 $dso-description-bg-color: $dso-info-bg-color;
 $dso-description-border-color: $dso-info-color;
 
-@mixin description_root() {
-  &:not(.dso-open) + .dso-description-content {
+@mixin description_root($description-content-selector) {
+  &:not(.dso-open) + #{$description-content-selector} {
     display: none;
   }
 
-  &.dso-open + .dso-description-content {
+  &.dso-open + #{$description-content-selector} {
     display: block;
   }
 
-  & + .dso-description-content {
+  & + #{$description-content-selector} {
     margin: $u1 / 2 0;
     padding: $u1 $u4 $u1 $u1;
     position: relative;
@@ -34,7 +34,7 @@ $dso-description-border-color: $dso-info-color;
   }
 }
 
-@mixin description_term() {
+@mixin description_term($description-content-selector) {
   border-bottom: 2px dotted $dso-description-border-color;
 
   &,
@@ -82,16 +82,16 @@ $dso-description-border-color: $dso-info-color;
     }
   }
 
-  & + .dso-description-content {
+  & + #{$description-content-selector} {
     background-color: $dso-description-bg-color;
     border: 1px $dso-description-border-color solid;
   }
 }
 
-@mixin description_note() {
+@mixin description_note($description-content-selector) {
   text-decoration: none;
 
-  & + .dso-description-content {
+  & + #{$description-content-selector} {
     background-color: $grasgroen-10;
   }
 }
