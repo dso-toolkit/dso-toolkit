@@ -17,17 +17,15 @@
     justify-content: space-between;
     margin-bottom: $u2;
 
-    .dso-rich-content {
-      h2:first-child,
-      h3:first-child {
-        display: flex;
-        font-size: 1.125em;
-        margin-bottom: 0;
-        margin-top: 0;
+    h2:first-child,
+    h3:first-child {
+      display: flex;
+      font-size: 1.125em;
+      margin-bottom: 0;
+      margin-top: 0;
 
-        span {
-          margin-right: $u1;
-        }
+      span {
+        margin-right: $u1;
       }
     }
 

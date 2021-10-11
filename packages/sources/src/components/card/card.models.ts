@@ -1,14 +1,14 @@
 import { Button } from "../button/button.models";
 
-export interface Card<TemplateFnReturnType> {
+export interface Card {
   label: string;
-  content: TemplateFnReturnType | string;
+  content: string;
   interactions: Interaction[];
 }
 
 export interface Interaction {
-  toggle: InteractionToggle[];
-  button: Button[];
+  toggle: InteractionToggle;
+  button: Button;
 }
 
 export interface InteractionToggle {

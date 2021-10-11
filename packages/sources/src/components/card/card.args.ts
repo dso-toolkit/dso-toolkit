@@ -7,7 +7,7 @@ export interface CardArgs<TemplateFnReturnType> {
   interactions: Interaction[];
 }
 
-export const cardArgTypes: ArgTypes<Card<unknown>> = {
+export const cardArgTypes: ArgTypes<Card> = {
   label: {
     control: {
       type: 'string'
@@ -26,7 +26,7 @@ export const cardArgTypes: ArgTypes<Card<unknown>> = {
   }
 };
 
-export function cardArgsMapper(a: CardArgs<any>): Card<any> {
+export function cardArgsMapper(a: CardArgs<any>): Card {
   return {
     label: a.label,
     content: a.content,
