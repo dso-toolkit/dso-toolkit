@@ -1,0 +1,75 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/components/description/description";
+
+$description-content-selector: ".od-Al";
+
+dso-ozon-content {
+  display: block;
+}
+
+.noot {
+  @include description_root($description-content-selector);
+  @include description_note($description-content-selector);
+}
+
+// Styling below copied from DSO Viewer 20211011
+
+.od-Term {
+  font-weight: 700;
+}
+
+.od-Definitie,
+.od-Tussenkop {
+  font-style: italic;
+}
+
+.od-Inhoud,
+.od-Inhoud > .od-Lijst,
+.od-IntIoRef,
+.od-Lidnr,
+.od-LiNr,
+.od-Opschrift,
+.od-Tussenkop {
+  display: inline;
+}
+
+.od-Al,
+.od-Lijstaanhef {
+  margin-bottom: 0.75em;
+}
+
+.od-IntIoRef {
+  border-bottom: 1px dotted;
+}
+
+.od-LiNummer {
+  float: left;
+  min-width: 0.7em;
+  padding-right: 0.3em;
+  text-align: right;
+}
+
+.od-Figuur img {
+  margin-left: 25px;
+  max-width: 100%;
+  height: auto;
+}
+
+.od-Figuur .od-Bijschrift {
+  font-size: 0.75rem;
+  margin-left: 25px;
+  padding-bottom: 2.5rem;
+}
+
+.od-Tabel thead {
+  font-weight: 600;
+}
+
+.od-Kadertekst {
+  border: 1px solid #e5e5e5;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}

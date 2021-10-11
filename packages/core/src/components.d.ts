@@ -10,6 +10,7 @@ import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEve
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
+import { ContentAnchor } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 export namespace Components {
     interface DsoAlert {
@@ -140,6 +141,9 @@ export namespace Components {
     interface DsoMapOverlays {
         "checkedOverlays": Overlay[];
         "overlays": Overlay[];
+    }
+    interface DsoOzonContent {
+        "content": string;
     }
     interface DsoProgressBar {
         "max": number;
@@ -286,6 +290,12 @@ declare global {
         prototype: HTMLDsoMapOverlaysElement;
         new (): HTMLDsoMapOverlaysElement;
     };
+    interface HTMLDsoOzonContentElement extends Components.DsoOzonContent, HTMLStencilElement {
+    }
+    var HTMLDsoOzonContentElement: {
+        prototype: HTMLDsoOzonContentElement;
+        new (): HTMLDsoOzonContentElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -326,6 +336,7 @@ declare global {
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
+        "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-selectable": HTMLDsoSelectableElement;
@@ -473,6 +484,10 @@ declare namespace LocalJSX {
         "onCheckedOverlaysChange"?: (event: CustomEvent<Overlay[]>) => void;
         "overlays": Overlay[];
     }
+    interface DsoOzonContent {
+        "content": string;
+        "onAnchorClick"?: (event: CustomEvent<ContentAnchor>) => void;
+    }
     interface DsoProgressBar {
         "max"?: number;
         "min"?: number;
@@ -535,6 +550,7 @@ declare namespace LocalJSX {
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
+        "dso-ozon-content": DsoOzonContent;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-selectable": DsoSelectable;
@@ -560,6 +576,7 @@ declare module "@stencil/core" {
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
+            "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
