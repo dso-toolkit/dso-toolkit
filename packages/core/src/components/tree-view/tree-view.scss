@@ -24,6 +24,12 @@
     .tree-content {
       display: inline-block;
       margin: $u1 0;
+
+      dso-icon {
+        vertical-align: text-bottom;
+        font-size: 0.75em;
+        margin-left: 0.5em;
+      }
     }
 
     .tree-branch-control {

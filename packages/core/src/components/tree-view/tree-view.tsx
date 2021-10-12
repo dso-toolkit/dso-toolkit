@@ -1,7 +1,7 @@
 import { Component, h, ComponentInterface, Prop, Event, EventEmitter, Element, FunctionalComponent } from '@stencil/core';
 import clsx from 'clsx';
 
-import { TreeViewItem } from '@dso-toolkit/sources';
+import { TreeViewItem, TreeViewItemIcon } from '@dso-toolkit/sources';
 
 interface TreeViewItemProps<T> {
   owner: TreeView;
@@ -26,7 +26,9 @@ const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ owner, an
         : <dso-icon></dso-icon>
       }
     </div>
-    <p class="tree-content" tabindex="0"
+    <p
+      class="tree-content"
+      tabindex="0"
       role="treeitem"
       aria-expanded={item.hasItems ? '' + !!item.open : undefined}
       aria-level={level}
@@ -34,6 +36,9 @@ const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ owner, an
       aria-posinset={index + 1}
     >
       <a role="link">{item.label}</a>
+      {item.icons?.map((icon: TreeViewItemIcon) =>
+        <dso-icon icon={icon.icon} title={icon.label}></dso-icon>
+      )}
     </p>
     <ul role="group">
       {item.hasItems && !item.items
@@ -97,10 +102,10 @@ export class TreeView implements ComponentInterface {
         TreeView.focusElement(tree, event.target, 'previous');
         break;
       case "ArrowRight":
-        TreeView.expandOrFocusElement(tree, event.target);
+        TreeView.expandElement(event.target);
         break;
       case "ArrowLeft":
-        TreeView.collapseOrFocusElement(tree, event.target);
+        TreeView.collapseElementOrParent(tree, event.target);
         break;
       case " ":
         TreeView.toggleElement(event.target);
@@ -136,12 +141,8 @@ export class TreeView implements ComponentInterface {
     focusableItem?.focus();
   }
 
-  private static expandOrFocusElement(tree: HTMLElement, target: HTMLElement): void {
-    //const itemElement = target.parentElement;
-    if (target?.getAttribute('aria-expanded') !== 'false') {
-      TreeView.focusElement(tree, target, 'next');
-    }
-    else {
+  private static expandElement(target: HTMLElement): void {
+    if (target?.getAttribute('aria-expanded') !== 'true') {
       const controlElement = target.previousElementSibling?.firstElementChild;
       if (controlElement instanceof HTMLElement) {
         controlElement.click();
@@ -149,16 +150,19 @@ export class TreeView implements ComponentInterface {
     }
   }
 
-  private static collapseOrFocusElement(tree: HTMLElement, target: HTMLElement): void {
-    //const itemElement = target.parentElement;
-    if (target?.getAttribute('aria-expanded') !== 'false') {
+  private static collapseElementOrParent(tree: HTMLElement, target: HTMLElement): void {
+    if (target?.getAttribute('aria-expanded') === 'true') {
       const controlElement = target.previousElementSibling?.firstElementChild;
       if (controlElement instanceof HTMLElement) {
         controlElement.click();
       }
     }
-    else {
-      TreeView.focusElement(tree, target, 'previous');
+    else if (target?.getAttribute('aria-expanded') !== 'false') {
+      const parentTarget = target?.parentElement?.parentElement?.previousElementSibling;
+      if (parentTarget instanceof HTMLElement) {
+        TreeView.collapseElementOrParent(tree, parentTarget);
+        parentTarget.focus();
+      }
     }
   }
 

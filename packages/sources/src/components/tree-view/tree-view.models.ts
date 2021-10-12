@@ -7,6 +7,12 @@ export interface TreeViewItem<T> {
   items?: TreeViewItem<T>[];
   open?: boolean;
   loading?: boolean;
+  icons?: TreeViewItemIcon[];
+}
+
+export interface TreeViewItemIcon {
+  icon: string;
+  label: string;
 }
 
 export interface TreeView<T> {

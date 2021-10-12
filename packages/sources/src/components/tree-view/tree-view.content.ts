@@ -6,6 +6,16 @@ export const items: TreeViewItem<string>[] = [
     label: 'Bebouwde omgeving',
     open: true,
     hasItems: true,
+    icons: [
+      {
+        icon: 'municipality',
+        label: 'gemeente'
+      },
+      {
+        icon: 'eye',
+        label: 'Toonbare activiteit'
+      }
+    ],
     items: [
       {
         reference: 'item.1.1',
@@ -15,7 +25,13 @@ export const items: TreeViewItem<string>[] = [
           {
             reference: 'item.1.1.1',
             label: 'afvoerbuizen',
-            hasItems: false
+            hasItems: false,
+            icons: [
+              {
+                icon: 'water',
+                label: 'waterschap'
+              }
+            ]
           },
           {
             reference: 'item.1.1.2',
@@ -35,6 +51,12 @@ export const items: TreeViewItem<string>[] = [
         reference: 'item.1.2',
         label: 'bouwonderdelen',
         hasItems: true,
+        icons: [
+          {
+            icon: 'crown',
+            label: 'koninklijk'
+          }
+        ],
         items: [
           {
             reference: 'item.1.2.1',
@@ -68,7 +90,17 @@ export const items: TreeViewItem<string>[] = [
       {
         reference: 'item.1.3',
         label: 'bouwwerken',
-        hasItems: true
+        hasItems: true,
+        icons: [
+          {
+            icon: 'buildings',
+            label: 'gebouwen'
+          },
+          {
+            icon: 'cultural',
+            label: 'cultuur'
+          }
+        ],
       },
     ]
   },
@@ -76,6 +108,12 @@ export const items: TreeViewItem<string>[] = [
     reference: 'item.2',
     label: 'Woninginrichting',
     hasItems: true,
+    icons: [
+      {
+        icon: 'eye',
+        label: 'Toonbare activiteit'
+      }
+    ],
     items: [
       {
         reference: 'item.2.1',
@@ -129,6 +167,12 @@ export const subItems: TreeViewItem<string>[] = [
   {
     reference: 'item.1.3.4',
     label: 'communicatiemasten',
-    hasItems: false
+    hasItems: false,
+    icons: [
+      {
+        icon: 'parking',
+        label: 'provincie'
+      }
+    ]
   },
 ];
