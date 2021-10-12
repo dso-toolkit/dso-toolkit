@@ -5,8 +5,14 @@ context:
   __title: default
   labels:
   - label: Geldend
+    status: bright
   - label: Regels
+    status: bright
   - label: Tuin
+    status: bright
   - label: Woongebied
+    status: bright
   - label: Geluidzone
+    status: bright
   - label: 'Thema: milieu algemeen'
+    status: bright
