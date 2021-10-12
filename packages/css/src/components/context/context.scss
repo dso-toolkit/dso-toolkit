@@ -2,6 +2,11 @@
   .dso-context-label {
     float: left;
     width: auto;
+
+    #{$headings} {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
 
   .dso-context-container {
