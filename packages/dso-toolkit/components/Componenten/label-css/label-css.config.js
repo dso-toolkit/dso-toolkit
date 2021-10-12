@@ -1,5 +1,9 @@
 module.exports = {
   label: 'Label (CSS)',
+  notes: `
+* Het label component kent een normale en een een smalle variant (\`.dso-label-compact\`);
+* De hover state voor het Web Component is onderdeel van de werkvorm, voor de CSS versie moet deze door developers worden geimplementeerd dmv. class \`.dso-label-hover\` op de \`<span class="dso-label">\`;
+  `,
   status: 'ready',
   collated: true,
   collator: (markup, item) => `<div class="col-xs-4" style="height: 3em;"><p>${item.context._ignore ? '' : markup}</p></div>`,
