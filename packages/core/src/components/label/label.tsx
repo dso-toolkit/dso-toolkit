@@ -14,7 +14,7 @@ export class Label {
   removable?: boolean;
 
   @Prop()
-  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
 
   @State()
   hover?: boolean;
@@ -27,7 +27,8 @@ export class Label {
     ['info', 'Info'],
     ['success', 'Succes'],
     ['warning', 'Waarschuwing'],
-    ['danger', 'Gevaar']
+    ['danger', 'Gevaar'],
+    ['bright', 'Helder']
   ]);
 
   render() {

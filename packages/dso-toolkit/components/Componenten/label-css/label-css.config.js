@@ -8,20 +8,20 @@ module.exports = {
     {
       name: 'default',
       context: {
-        label: 'Label tekst'
+        label: 'Label (standaard)'
       }
     },
     {
       name: 'default button',
       context: {
-        label: 'Label tekst',
+        label: 'Label (standaard)',
         removable: true
       }
     },
     {
       name: 'default compact',
       context: {
-        label: 'Label tekst',
+        label: 'Label (standaard)',
         compact: true
       }
     },
@@ -29,14 +29,14 @@ module.exports = {
       name: 'info',
       context: {
         status: 'info',
-        label: 'Label tekst'
+        label: 'Label (info)'
       }
     },
     {
       name: 'info button',
       context: {
         status: 'info',
-        label: 'Label tekst',
+        label: 'Label (info)',
         removable: true
       }
     },
@@ -44,7 +44,7 @@ module.exports = {
       name: 'info compact',
       context: {
         status: 'info',
-        label: 'Label tekst',
+        label: 'Label (info)',
         compact: true
       }
     },
@@ -52,14 +52,14 @@ module.exports = {
       name: 'primary',
       context: {
         status: 'primary',
-        label: 'Label tekst'
+        label: 'Label (primair)'
       }
     },
     {
       name: 'primary button',
       context: {
         status: 'primary',
-        label: 'Label tekst',
+        label: 'Label (primair)',
         removable: true
       }
     },
@@ -67,7 +67,7 @@ module.exports = {
       name: 'primary compact',
       context: {
         status: 'primary',
-        label: 'Label tekst',
+        label: 'Label (primair)',
         compact: true
       }
     },
@@ -75,14 +75,14 @@ module.exports = {
       name: 'success',
       context: {
         status: 'success',
-        label: 'Label tekst'
+        label: 'Label (succes)'
       }
     },
     {
       name: 'success button',
       context: {
         status: 'success',
-        label: 'Label tekst',
+        label: 'Label (succes)',
         removable: true
       }
     },
@@ -90,7 +90,7 @@ module.exports = {
       name: 'success compact',
       context: {
         status: 'success',
-        label: 'Label tekst',
+        label: 'Label (succes)',
         compact: true
       }
     },
@@ -98,14 +98,14 @@ module.exports = {
       name: 'warning',
       context: {
         status: 'warning',
-        label: 'Label tekst'
+        label: 'Label (waarschuwing)'
       }
     },
     {
       name: 'warning button',
       context: {
         status: 'warning',
-        label: 'Label tekst',
+        label: 'Label (waarschuwing)',
         removable: true
       }
     },
@@ -113,7 +113,7 @@ module.exports = {
       name: 'warning compact',
       context: {
         status: 'warning',
-        label: 'Label tekst',
+        label: 'Label (waarschuwing)',
         compact: true
       }
     },
@@ -121,14 +121,14 @@ module.exports = {
       name: 'danger',
       context: {
         status: 'danger',
-        label: 'Label tekst'
+        label: 'Label (gevaar)'
       }
     },
     {
       name: 'danger button',
       context: {
         status: 'danger',
-        label: 'Label tekst',
+        label: 'Label (gevaar)',
         removable: true
       }
     },
@@ -136,7 +136,30 @@ module.exports = {
       name: 'danger compact',
       context: {
         status: 'danger',
-        label: 'Label tekst',
+        label: 'Label (gevaar)',
+        compact: true
+      }
+    },
+    {
+      name: 'bright',
+      context: {
+        status: 'bright',
+        label: 'Label (helder)'
+      }
+    },
+    {
+      name: 'bright button',
+      context: {
+        status: 'bright',
+        label: 'Label (helder)',
+        removable: true
+      }
+    },
+    {
+      name: 'bright compact',
+      context: {
+        status: 'bright',
+        label: 'Label (helder)',
         compact: true
       }
     },

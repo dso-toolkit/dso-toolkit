@@ -128,7 +128,7 @@ export namespace Components {
     interface DsoLabel {
         "compact"?: boolean;
         "removable"?: boolean;
-        "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+        "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
@@ -466,7 +466,7 @@ declare namespace LocalJSX {
         "compact"?: boolean;
         "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
-        "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+        "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];

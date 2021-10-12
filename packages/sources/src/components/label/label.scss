@@ -16,6 +16,10 @@ $dso-label-warning-color: $grijs-90;
 $dso-label-danger-bg-color: $dso-danger-color;
 $dso-label-danger-color: $wit;
 
+$dso-label-bright-bg-color: $wit;
+$dso-label-bright-color: $zwart;
+$dso-label-bright-outline-color: $grijs-20;
+
 @mixin label_root() {
   background-color: $dso-label-default-bg-color;
   border-radius: 4px;
@@ -80,5 +84,11 @@ $dso-label-danger-color: $wit;
   &.dso-label-danger {
     background-color: $dso-label-danger-bg-color;
     color: $dso-label-danger-color;
+  }
+
+  &.dso-label-bright {
+    background-color: $dso-label-bright-bg-color;
+    color: $dso-label-bright-color;
+    outline: 1px solid $dso-label-bright-outline-color;
   }
 }

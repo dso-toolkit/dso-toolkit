@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                                                                     | Default     |
-| ----------- | ----------- | ----------- | ------------------------------------------------------------------------ | ----------- |
-| `compact`   | `compact`   |             | `boolean \| undefined`                                                   | `undefined` |
-| `removable` | `removable` |             | `boolean \| undefined`                                                   | `undefined` |
-| `status`    | `status`    |             | `"danger" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| Property    | Attribute   | Description | Type                                                                                 | Default     |
+| ----------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ----------- |
+| `compact`   | `compact`   |             | `boolean \| undefined`                                                               | `undefined` |
+| `removable` | `removable` |             | `boolean \| undefined`                                                               | `undefined` |
+| `status`    | `status`    |             | `"bright" \| "danger" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ## Events
