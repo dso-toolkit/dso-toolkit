@@ -1,6 +1,6 @@
 <span {{ className('dso-label', [status, 'dso-label-' + status], [compact, 'dso-compact'], [hover and removable, 'dso-hover']) }}>
-  {% if status %}
-    <span class="sr-only">{{ status }}: </span>
+  {% if status | labelStatusMap %}
+    <span class="sr-only">{{ status | labelStatusMap }}: </span>
   {% endif %}
   {{ label }}
   {% if removable %}

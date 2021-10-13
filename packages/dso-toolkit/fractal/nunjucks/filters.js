@@ -1,5 +1,12 @@
 const path = require('path');
 
+const statusMap = {
+  info: 'Opmerking',
+  success: 'Gelukt',
+  warning: 'Waarschuwing',
+  danger: 'Fout'
+};
+
 module.exports = {
   docPath: function docPath(inputPath) {
     const pathWithExtension = path.extname(inputPath) !== '';
@@ -31,5 +38,8 @@ module.exports = {
   },
   prefix: function prefix(arr, prefix) {
     return arr.map(value => `${prefix}${value}`);
+  },
+  labelStatusMap: function labelStatusMap(status) {
+    return statusMap[status];
   }
 };

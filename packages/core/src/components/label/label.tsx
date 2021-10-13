@@ -23,12 +23,10 @@ export class Label {
   removeClick!: EventEmitter<MouseEvent>;
 
   private static statusMap = new Map<string, string>([
-    ['primary', 'Primair'],
-    ['info', 'Info'],
-    ['success', 'Succes'],
+    ['info', 'Opmerking'],
+    ['success', 'Gelukt'],
     ['warning', 'Waarschuwing'],
-    ['danger', 'Gevaar'],
-    ['bright', 'Helder']
+    ['danger', 'Fout']
   ]);
 
   render() {

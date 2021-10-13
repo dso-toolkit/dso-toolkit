@@ -8,11 +8,11 @@ context:
     status: success
   - label: Label (primair)
     status: primary
-  - label: Label (info)
+  - label: Label (opmerking)
     status: info
   - label: Label (waarschuwing)
     status: warning
-  - label: Label (gevaar)
+  - label: Label (fout)
     status: danger
   - label: Label (helder)
     status: bright

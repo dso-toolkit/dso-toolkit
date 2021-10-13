@@ -125,14 +125,14 @@ module.exports = {
       name: 'danger',
       context: {
         status: 'danger',
-        label: 'Label (gevaar)'
+        label: 'Label (fout)'
       }
     },
     {
       name: 'danger button',
       context: {
         status: 'danger',
-        label: 'Label (gevaar)',
+        label: 'Label (fout)',
         removable: true
       }
     },
@@ -140,7 +140,7 @@ module.exports = {
       name: 'danger compact',
       context: {
         status: 'danger',
-        label: 'Label (gevaar)',
+        label: 'Label (fout)',
         compact: true
       }
     },
