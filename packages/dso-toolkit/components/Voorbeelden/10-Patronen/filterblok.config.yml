@@ -1,5 +1,7 @@
 notes: |
-  Met een filterblok ...
+  Het filterblok is een compositie die gebruik maakt van component `.dso-highlight-box` verrijkt met de `.dso-context-wrapper` modifier, om de [Alle opties]-knop naast het label te plaatsen.
+
+  In deze compositie wordt voorts een `.dso-labal-group` geplaatst voor de gekozen opties (filters).
 status: ready
 context:
   __title: default

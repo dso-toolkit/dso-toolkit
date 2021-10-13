@@ -37,10 +37,10 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     *:first-child {
       margin-top: 0;
     }
+  }
 
-    *:last-child {
-      margin-bottom: 0;
-    }
+  *:last-child {
+    margin-bottom: 0;
   }
 
   .dso-tertiary:not([disabled]),
@@ -51,12 +51,6 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       svg.di {
         text-decoration: underline;
       }
-    }
-  }
-
-  .dso-context-wrapper {
-    .dso-label-group:last-child {
-      margin-bottom: 0;
     }
   }
 }
