@@ -1,10 +1,10 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
-import { cardsArgsMapper, cardsArgTypes } from './cards.args';
-import { Cards } from './cards.models';
+import { cardListArgsMapper, cardListArgTypes } from './card-list.args';
+import { CardList } from './card-list.models';
 
-export interface CardsParameters<TemplateFnReturnType> {
-  cardsTemplate: (cardsProperties: Cards) => TemplateFnReturnType;
+export interface CardListParameters<TemplateFnReturnType> {
+  cardListTemplate: (cardListProperties: CardList) => TemplateFnReturnType;
 }
 
 export function storiesOfCards<TemplateFnReturnType>(
@@ -14,17 +14,17 @@ export function storiesOfCards<TemplateFnReturnType>(
     readme
   }: StorybookParameters,
   {
-    cardsTemplate
-  }: CardsParameters<TemplateFnReturnType>
+    cardListTemplate
+  }: CardListParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(cardsArgsMapper, cardsTemplate);
+  const template = bindTemplate(cardListArgsMapper, cardListTemplate);
 
-  const stories = storiesOf('Cards', mainModule)
+  const stories = storiesOf('Card List', mainModule)
     .addParameters({
       docs: {
         page: readme
       },
-      argTypes: cardsArgTypes,
+      argTypes: cardListArgTypes,
       args: {
         cards: [
           {
@@ -51,7 +51,7 @@ export function storiesOfCards<TemplateFnReturnType>(
     });
 
   stories.add(
-    'Cards',
+    'Card List',
     template
   );
 }

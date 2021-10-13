@@ -1,12 +1,10 @@
 <div class="dso-card">
   <div class="dso-card-heading">
     <a href="#">
-      <div class="dso-rich-content">
-        <h2>
-          <span>{{ label }}</span>
-          {% render '@icon', {icon: 'chevron-right'} -%}
-        </h2>
-      </div>
+      <h2>
+        <span>{{ label }}</span>
+        {% render '@icon', {icon: 'chevron-right'} -%}
+      </h2>
     </a>
     {% if interactions %}
       <div class="dso-card-interactions">
@@ -27,6 +25,8 @@
     {% endif %}
   </div>
   <div class="dso-card-content">
-    <p>{{ content | safe }}</p>
+    <div class="dso-rich-content">
+      <p>{{ content | safe }}</p>
+    </div>
   </div>
 </div>

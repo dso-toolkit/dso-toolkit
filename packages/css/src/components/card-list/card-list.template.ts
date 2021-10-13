@@ -1,9 +1,9 @@
-import { Cards } from '@dso-toolkit/sources';
+import { CardList } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 
 import { cardTemplate } from '../card/card.template';
 
-export function cardsTemplate({ cards }: Cards) {
+export function cardListTemplate({ cards }: CardList) {
   return html`
     <ul class="dso-card-list">
       ${cards.map((card: any) => html`

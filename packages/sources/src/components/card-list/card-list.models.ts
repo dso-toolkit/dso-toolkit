@@ -1,6 +1,6 @@
 import { Card } from "../card/card.models";
 
-export interface Cards {
+export interface CardList {
   modifiers: string;
   interactionsLocation: string;
   cards: Card[];
