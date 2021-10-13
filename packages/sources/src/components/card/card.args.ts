@@ -4,9 +4,9 @@ import { Button } from '../button/button.models';
 
 import { Card } from './card.models';
 
-export interface CardArgs<TemplateFnReturnType> {
+export interface CardArgs {
   label: string;
-  content: TemplateFnReturnType | string;
+  content: string;
   interactions: Button[];
 }
 
@@ -29,7 +29,7 @@ export const cardArgTypes: ArgTypes<Card> = {
   }
 };
 
-export function cardArgsMapper(a: CardArgs<any>): Card {
+export function cardArgsMapper(a: CardArgs): Card {
   return {
     label: a.label,
     content: a.content,

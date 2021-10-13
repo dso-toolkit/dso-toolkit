@@ -28,6 +28,6 @@ export function infoButtonArgsMapper(a: InfoButtonArgs): InfoButton {
   return {
     onClick: e => a.click(e),
     active: a.active,
-    label: a.label,
+    label: a.label
   };
 }
