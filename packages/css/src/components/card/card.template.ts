@@ -1,6 +1,5 @@
-import { Card, Interaction } from '@dso-toolkit/sources';
+import { Card } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
@@ -15,27 +14,19 @@ export function cardTemplate({ label, content, interactions }: Card) {
             ${iconTemplate({ icon: 'chevron-right' })}
           </h2>
         </a>
-        ${interactions && html`
-        <div class="dso-card-interactions">
-          ${interactions.map((interaction: Interaction) => html`
-            <div class="dso-card-interaction">
-              ${interaction.toggle && html`
-                <label>
-                  <input type="checkbox" name=${interaction.toggle.id} />
-                  <span class="sr-only">${label}</span>
-                </label>
-              `}
-              ${interaction.button && html`
-                ${buttonTemplate(interaction.button)}
-              `}
-            </div>
-          `)}
-        </div>
+        ${interactions && interactions.length > 0 && html`
+          <div class="dso-card-interactions">
+            ${interactions.map(interaction => html`
+              <div class="dso-card-interaction">
+                ${buttonTemplate(interaction)}
+              </div>
+            `)}
+          </div>
         `}
       </div>
       <div class="dso-card-content">
         <div class="dso-rich-content">
-          <p>${unsafeHTML(content)}</p>
+          <p>${content}</p>
         </div>
       </div>
     </div>

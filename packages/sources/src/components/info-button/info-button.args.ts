@@ -6,7 +6,6 @@ export interface InfoButtonArgs {
   active?: boolean;
   label: string;
   click: HandlerFunction;
-  iconOnly?: boolean;
 }
 
 export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
@@ -22,11 +21,6 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
   },
   click: {
     action: 'toggled'
-  },
-  iconOnly: {
-    control: {
-      type: 'boolean'
-    }
   }
 };
 
@@ -35,6 +29,5 @@ export function infoButtonArgsMapper(a: InfoButtonArgs): InfoButton {
     onClick: e => a.click(e),
     active: a.active,
     label: a.label,
-    iconOnly: a.iconOnly,
   };
 }

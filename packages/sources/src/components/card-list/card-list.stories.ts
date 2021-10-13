@@ -7,7 +7,7 @@ export interface CardListParameters<TemplateFnReturnType> {
   cardListTemplate: (cardListProperties: CardList) => TemplateFnReturnType;
 }
 
-export function storiesOfCards<TemplateFnReturnType>(
+export function storiesOfCardList<TemplateFnReturnType>(
   {
     module: mainModule,
     storiesOf,
@@ -36,12 +36,10 @@ export function storiesOfCards<TemplateFnReturnType>(
             content: 'Brouwersmolen eget iaculis nisi quam in libero.',
             interactions: [
               {
-                button: {
-                  variant: 'tertiary',
-                  label: 'Toon informatie',
-                  icon: {
-                    icon: 'info'
-                  }
+                variant: 'tertiary',
+                label: 'Toon informatie',
+                icon: {
+                  icon: 'info'
                 }
               }
             ]

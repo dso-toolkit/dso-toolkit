@@ -3,8 +3,6 @@ ol {
   &.dso-card-list {
     @include list-unstyled();
 
-    background: $wit;
-
     > li + li {
       border-top: 1px solid $grijs-20;
     }

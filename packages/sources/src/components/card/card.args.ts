@@ -1,10 +1,13 @@
 import { ArgTypes } from '../../stories-helpers';
-import { Card, Interaction } from './card.models';
+
+import { Button } from '../button/button.models';
+
+import { Card } from './card.models';
 
 export interface CardArgs<TemplateFnReturnType> {
   label: string;
   content: TemplateFnReturnType | string;
-  interactions: Interaction[];
+  interactions: Button[];
 }
 
 export const cardArgTypes: ArgTypes<Card> = {

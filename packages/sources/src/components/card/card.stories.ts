@@ -36,12 +36,10 @@ export function storiesOfCard<TemplateFnReturnType>(
         content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         interactions: [
           {
-            button: {
-              variant: 'tertiary',
-              label: 'Toon informatie',
-              icon: {
-                icon: 'info'
-              }
+            variant: 'tertiary',
+            label: 'Toon informatie',
+            icon: {
+              icon: 'info'
             }
           }
         ]

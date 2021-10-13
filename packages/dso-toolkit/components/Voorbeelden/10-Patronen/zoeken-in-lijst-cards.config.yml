@@ -11,7 +11,7 @@ context:
   breadcrumbs:
     crumbs:
   cardList:
-    cards :
+    cards:
       - label: Omgevingsplan industrieterrein Lange Voorden
         content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
         interactions:

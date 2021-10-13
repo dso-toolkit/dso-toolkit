@@ -6,7 +6,7 @@ import { cardTemplate } from '../card/card.template';
 export function cardListTemplate({ cards }: CardList) {
   return html`
     <ul class="dso-card-list">
-      ${cards.map((card: any) => html`
+      ${cards.map(card => html`
         <li>
           ${cardTemplate(card)}
         </li>

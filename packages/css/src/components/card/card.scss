@@ -56,13 +56,9 @@
   justify-content: space-between;
 
   .dso-card-interaction {
+    align-items: center;
+    display: flex;
     text-align: center;
-
-    &,
-    button {
-      display: flex;
-      align-items: center;
-    }
   }
 
   .dso-info-button {
