@@ -5,11 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 28.0.0
+
 ### Added
 * **dso-toolkit:** "Progress" variant van Modal ([#1269](https://github.com/dso-toolkit/dso-toolkit/issues/1269))
 * **css + dso-toolkit + sources:** Nieuwe variant "note" voor Description ([#1271](https://github.com/dso-toolkit/dso-toolkit/issues/1271))
 * **core:** Ozon content component ([#1287](https://github.com/dso-toolkit/dso-toolkit/issues/1287))
-* **dso-toolkit + core + css:** Filterblok compositie als patroon, Label uitgebreid met heldere variant (`bright`) ([#1278](https://github.com/dso-toolkit/dso-toolkit/issues/1278))
+* **dso-toolkit + core + css:** Filterblok compositie als patroon, Label uitgebreid met heldere variant (`bright`) ([#1278](https://github.com/dso-toolkit/dso-toolkit/issues/1278)) **See PR ([#1289](https://github.com/dso-toolkit/dso-toolkit/pull/1289))**
 
 ### Changed
 * **dso-toolkit:** Whitebox en Tile presenteren op eigen pagina's ([#1273](https://github.com/dso-toolkit/dso-toolkit/issues/1273))
