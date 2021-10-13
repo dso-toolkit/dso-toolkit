@@ -59,10 +59,3 @@ context:
             icon: info
             label: Toon informatie over Brouwersmolen
             iconOnly: true
-variants:
-  - name: interactions-bottom
-    context:
-      interactionsLocation: bottom
-  - name: flat
-    context:
-      modifiers: dso-flat

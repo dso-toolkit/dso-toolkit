@@ -1,0 +1,72 @@
+.dso-card {
+  padding: $u2 $u2 $u1;
+  width: 100%;
+
+  &:hover {
+    background-color: $grijs-5;
+    cursor: pointer;
+
+    .dso-card-heading > a {
+      text-decoration: underline;
+    }
+  }
+
+  .dso-card-heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $u2;
+
+    h2:first-child,
+    h3:first-child {
+      display: flex;
+      font-size: 1.125em;
+      margin-bottom: 0;
+      margin-top: 0;
+
+      span {
+        margin-right: $u1;
+      }
+    }
+
+    > a {
+      text-decoration: none;
+
+      &,
+      &#{$not-dso-buttons}:visited,
+      &:active,
+      &:focus {
+        color: $bosgroen;
+      }
+
+      &:hover {
+        color: $bosgroen;
+        text-decoration: underline;
+      }
+    }
+
+    @media screen and (max-width: $screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.dso-card-interactions {
+  display: flex;
+  justify-content: space-between;
+
+  .dso-card-interaction {
+    align-items: center;
+    display: flex;
+    text-align: center;
+  }
+
+  .dso-info-button {
+    margin: 0;
+  }
+
+  @media screen and (max-width: $screen-xs-min) {
+    flex-basis: 100%;
+    margin-top: $u2;
+  }
+}

@@ -1,0 +1,10 @@
+ul,
+ol {
+  &.dso-card-list {
+    @include list-unstyled();
+
+    > li + li {
+      border-top: 1px solid $grijs-20;
+    }
+  }
+}

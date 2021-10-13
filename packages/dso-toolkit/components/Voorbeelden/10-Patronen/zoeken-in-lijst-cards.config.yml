@@ -10,64 +10,41 @@ context:
     subtitle: Wetgeving Gemeente Den Haag
   breadcrumbs:
     crumbs:
-  cards:
-    - label: Omgevingsplan industrieterrein Lange Voorden
-      content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      interactions:
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: download
-            label: Download document
-            iconOnly: true
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: info
-            label: Extra informatie
-            iconOnly: true
-    - label: 'Omgevingsplan Gemeente Den Haag'
-      content: 'Brouwersmolen eget iaculis nisi quam in libero.'
-      interactions:
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: download
-            label: Download document
-            iconOnly: true
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: info
-            label: Extra informatie
-            iconOnly: true
-    - label: 'Flora en Fauna beslissing 2019'
-      content: 'Brouwersmolen eget iaculis nisi quam in libero.'
-      interactions:
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: download
-            label: Download document
-            iconOnly: true
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: info
-            label: Extra informatie
-            iconOnly: true
-    - label: 'Bestemmingsplan Zuiderpark'
-      content: 'Zuiderpark eget iaculis nisi quam in libero.'
-      interactions:
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: download
-            label: Download document
-            iconOnly: true
-        - button:
-            type: button
-            modifier: dso-tertiary
-            icon: info
-            label: Extra informatie
-            iconOnly: true
+  cardList:
+    cards:
+      - label: Omgevingsplan industrieterrein Lange Voorden
+        content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        interactions:
+          - button:
+              type: button
+              modifier: dso-tertiary
+              icon: info
+              label: Extra informatie
+              iconOnly: true
+      - label: 'Omgevingsplan Gemeente Den Haag'
+        content: 'Brouwersmolen eget iaculis nisi quam in libero.'
+        interactions:
+          - button:
+              type: button
+              modifier: dso-tertiary
+              icon: info
+              label: Extra informatie
+              iconOnly: true
+      - label: 'Flora en Fauna beslissing 2019'
+        content: 'Brouwersmolen eget iaculis nisi quam in libero.'
+        interactions:
+          - button:
+              type: button
+              modifier: dso-tertiary
+              icon: info
+              label: Extra informatie
+              iconOnly: true
+      - label: 'Bestemmingsplan Zuiderpark'
+        content: 'Zuiderpark eget iaculis nisi quam in libero.'
+        interactions:
+          - button:
+              type: button
+              modifier: dso-tertiary
+              icon: info
+              label: Extra informatie
+              iconOnly: true

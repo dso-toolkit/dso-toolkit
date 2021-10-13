@@ -1,5 +1,5 @@
 notes: |
-  Het `dso-card` component mag alleen in het `dso-cards` worden gebruikt.
+  Het `dso-card` component mag alleen in het `dso-card-list` worden gebruikt.
 collated: true
 variants:
 - name: default
@@ -7,20 +7,8 @@ variants:
     label: Omgevingsplan Nieuwegein
     content: Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing
       elit.
-- name: aside
+- name: interactions
   context:
-    label: Brouwersmolen
-    content: Brouwersmolen eget iaculis nisi quam in libero.
-    interactions:
-    - button:
-        type: button
-        modifier: dso-tertiary
-        icon: info
-        label: Toon informatie over Brouwersmolen
-        iconOnly: true
-- name: below
-  context:
-    interactionsOri: below
     label: Brouwersmolen
     content: Brouwersmolen eget iaculis nisi quam in libero.
     interactions:
