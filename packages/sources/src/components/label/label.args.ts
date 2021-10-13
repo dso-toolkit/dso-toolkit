@@ -17,7 +17,7 @@ export interface LabelArgs {
 
 export const labelArgTypes: ArgTypes<LabelArgs> = {
   status: {
-    options: [undefined, 'primary', 'success', 'info', 'warning', 'danger'],
+    options: [undefined, 'primary', 'success', 'info', 'warning', 'danger', 'bright'],
     control: {
       type: 'select',
     }

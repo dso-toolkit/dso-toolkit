@@ -11,7 +11,6 @@ export class Badge {
   status?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
 
   private static statusMap = new Map<string, string>([
-    ['primary', 'Primair'],
     ['success', 'Gelukt'],
     ['info', 'Opmerking'],
     ['warning', 'Waarschuwing'],

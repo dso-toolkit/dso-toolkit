@@ -14,7 +14,7 @@ export class Label {
   removable?: boolean;
 
   @Prop()
-  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger';
+  status?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
 
   @State()
   hover?: boolean;
@@ -23,11 +23,10 @@ export class Label {
   removeClick!: EventEmitter<MouseEvent>;
 
   private static statusMap = new Map<string, string>([
-    ['primary', 'Primair'],
-    ['info', 'Info'],
-    ['success', 'Succes'],
+    ['info', 'Opmerking'],
+    ['success', 'Gelukt'],
     ['warning', 'Waarschuwing'],
-    ['danger', 'Gevaar']
+    ['danger', 'Fout']
   ]);
 
   render() {
