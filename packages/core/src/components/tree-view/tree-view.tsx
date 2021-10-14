@@ -41,7 +41,7 @@ const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ owner, an
       )}
     </p>
     <ul role="group">
-      {item.hasItems && !item.items
+      {item.hasItems && !item.items && item.loading
         ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
         : undefined
       }

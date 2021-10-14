@@ -102,6 +102,11 @@ export const items: TreeViewItem<string>[] = [
           }
         ],
       },
+      {
+        reference: 'item.1.4',
+        label: 'complexen',
+        hasItems: true,
+      },
     ]
   },
   {
@@ -136,43 +141,86 @@ export const items: TreeViewItem<string>[] = [
   },
 ];
 
-export const subItems: TreeViewItem<string>[] = [
-  {
-    reference: 'item.1.3.1',
-    label: 'bebouwing',
-    hasItems: true,
-    items: [
-      {
-        reference: 'item.1.3.1.1',
-        label: 'hoogbouw',
-        hasItems: false
-      },
-      {
-        reference: 'item.1.3.1.2',
-        label: 'laagbouw',
-        hasItems: false
-      },
-    ]
-  },
-  {
-    reference: 'item.1.3.2',
-    label: 'begraafplaatsen',
-    hasItems: false
-  },
-  {
-    reference: 'item.1.3.3',
-    label: 'bouwvallen',
-    hasItems: false
-  },
-  {
-    reference: 'item.1.3.4',
-    label: 'communicatiemasten',
-    hasItems: false,
-    icons: [
-      {
-        icon: 'parking',
-        label: 'provincie'
-      }
-    ]
-  },
-];
+export const subItems: Record<string, TreeViewItem<string>[]> = {
+  ['item.1.3']: [
+    {
+      reference: 'item.1.3.1',
+      label: 'bebouwing',
+      hasItems: true,
+      items: [
+        {
+          reference: 'item.1.3.1.1',
+          label: 'hoogbouw',
+          hasItems: false
+        },
+        {
+          reference: 'item.1.3.1.2',
+          label: 'laagbouw',
+          hasItems: false
+        },
+      ]
+    },
+    {
+      reference: 'item.1.3.2',
+      label: 'begraafplaatsen',
+      hasItems: false
+    },
+    {
+      reference: 'item.1.3.3',
+      label: 'bouwvallen',
+      hasItems: false
+    },
+    {
+      reference: 'item.1.3.4',
+      label: 'communicatiemasten',
+      hasItems: false,
+      icons: [
+        {
+          icon: 'parking',
+          label: 'provincie'
+        }
+      ]
+    },
+  ],
+  ['item.1.4']: [
+    {
+      reference: 'item.1.4.1',
+      label: 'buurten',
+      hasItems: true,
+      items: [
+        {
+          reference: 'item.1.4.1.1',
+          label: 'achterbuurten',
+          hasItems: false
+        },
+        {
+          reference: 'item.1.4.1.2',
+          label: 'volksbuurten',
+          hasItems: false
+        },
+      ]
+    },
+    {
+      reference: 'item.1.4.2',
+      label: 'campussen',
+      hasItems: false
+    },
+    {
+      reference: 'item.1.4.3',
+      label: 'stadsdelen',
+      hasItems: false
+    },
+    {
+      reference: 'item.1.4.4',
+      label: 'woonwijken',
+      hasItems: false,
+      icons: [
+        {
+          icon: 'house',
+          label: 'wonen'
+        }
+      ]
+    },
+  ]
+};
+
