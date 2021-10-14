@@ -70,6 +70,7 @@ export * from './components/toggletip/toggletip.models';
 export * from './components/toggletip/toggletip.stories';
 export * from './components/tooltip/tooltip.models';
 export * from './components/tooltip/tooltip.stories';
+export * from './components/tree-view/tree-view.demo';
 export * from './components/tree-view/tree-view.models';
 export * from './components/tree-view/tree-view.stories';
 export * from './components/viewer-grid/viewer-grid.models';

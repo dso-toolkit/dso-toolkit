@@ -1,5 +1,3 @@
-import { items } from './tree-view.content';
-
 export interface TreeViewItem<T> {
   reference: T;
   label: string;
@@ -17,7 +15,6 @@ export interface TreeViewItemIcon {
 
 export interface TreeView<T> {
   collection: TreeViewItem<T>[];
-  onFetchItems: (e: CustomEvent<any>) => TreeViewItem<T>[];
-  onItemOpen: (e: CustomEvent<any>) => void;
-  onItemClose: (e: CustomEvent<any>) => void;
+  onOpenItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
+  onCloseItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
 }

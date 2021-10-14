@@ -209,8 +209,6 @@ export namespace Components {
     }
     interface DsoTreeView {
         "collection": TreeViewItem<string>[];
-        "onFetchItems": Function;
-        "updateItems": (collection: TreeViewItem<string>[], path: TreeViewItem<string>[], updater: (item: TreeViewItem<string>) => TreeViewItem<string>) => TreeViewItem<string>[];
     }
 }
 declare global {
@@ -576,10 +574,8 @@ declare namespace LocalJSX {
     }
     interface DsoTreeView {
         "collection": TreeViewItem<string>[];
-        "onFetchItems": Function;
-        "onFetchItems"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
-        "onToggleItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
-        "updateItems"?: (collection: TreeViewItem<string>[], path: TreeViewItem<string>[], updater: (item: TreeViewItem<string>) => TreeViewItem<string>) => TreeViewItem<string>[];
+        "onCloseItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        "onOpenItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
