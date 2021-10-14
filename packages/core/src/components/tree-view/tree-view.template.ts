@@ -35,7 +35,7 @@ export function treeViewTemplate({
             treeView.collection = treeView.updateItems(
               treeView.collection,
               e.detail,
-              (item) => ({ ...item, open: !actionBehaviour.loading, loading: actionBehaviour.loading }));
+              (item) => ({ ...item, open: true, loading: actionBehaviour.loading }));
 
             window.setTimeout(() => {
               const newItems = onFetchItems()[actionItem.reference];

@@ -90,7 +90,7 @@ export class TreeView implements ComponentInterface {
 
     const tree = event.composedPath().find(item => (item instanceof HTMLElement) ? item.id === 'tree' : false);
 
-    if (!(event.target instanceof HTMLElement) || !(tree instanceof HTMLElement)) {
+    if (!(event.target instanceof HTMLParagraphElement) || !(tree instanceof HTMLElement)) {
       return;
     }
 
@@ -106,6 +106,18 @@ export class TreeView implements ComponentInterface {
         break;
       case "ArrowLeft":
         TreeView.collapseElementOrParent(tree, event.target);
+        break;
+      case "End":
+        TreeView.focusLastSibling(event.target);
+        break;
+      case "Home":
+        TreeView.focusFirstSibling(event.target);
+        break;
+      case "PageDown":
+        TreeView.focusPaged(event.target, 'next');
+        break;
+      case "PageUp":
+        TreeView.focusPaged(event.target, 'previous');
         break;
       case " ":
         TreeView.toggleElement(event.target);
@@ -134,11 +146,32 @@ export class TreeView implements ComponentInterface {
   }
 
   private static focusElement(tree: HTMLElement, el: HTMLElement, direction: 'next' | 'previous'): void {
-    var focusableItems = (Array.from(tree.querySelectorAll('p')) as HTMLElement[])
+    const focusableItems = (Array.from(tree.querySelectorAll('p')) as HTMLElement[])
       .filter(item => item.tabIndex >= 0 && item.offsetWidth > 0 && item.offsetHeight > 0);
-    var focusableItem = focusableItems[focusableItems.indexOf(el) + (direction === 'next' ? 1 : -1)];
 
-    focusableItem?.focus();
+    focusableItems[focusableItems.indexOf(el) + (direction === 'next' ? 1 : -1)]?.focus();
+  }
+
+  private static focusFirstSibling(target: HTMLElement): void {
+    (target.closest('ul')?.firstElementChild?.querySelector('p') as HTMLElement)?.focus();
+  }
+
+  private static focusLastSibling(target: HTMLElement): void {
+    (target.closest('ul')?.lastElementChild?.querySelector('p') as HTMLElement)?.focus();
+  }
+
+  private static focusPaged(target: HTMLParagraphElement, direction: 'next' | 'previous'): void {
+    const siblings = target.closest('ul')?.querySelectorAll<HTMLParagraphElement>(':scope > li > p');
+    if (siblings) {
+      var focusableItems = Array.from(siblings)
+
+      if (direction === 'next') {
+        focusableItems[Math.min(focusableItems.length, focusableItems.indexOf(target) + 5)]?.focus();
+      }
+      else {
+        focusableItems[Math.max(0, focusableItems.indexOf(target) - 5)]?.focus();
+      }
+    }
   }
 
   private static expandElement(target: HTMLElement): void {

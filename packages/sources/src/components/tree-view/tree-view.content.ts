@@ -84,7 +84,47 @@ export const items: TreeViewItem<string>[] = [
                 hasItems: false
               },
             ]
-          }
+          },
+          {
+            reference: 'item.1.2.4',
+            label: 'binnenplaatsen',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.5',
+            label: 'boxen',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.6',
+            label: 'eetzalen',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.7',
+            label: 'flieringen',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.8',
+            label: 'gangen',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.9',
+            label: 'hallen',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.10',
+            label: 'kamers',
+            hasItems: false
+          },
+          {
+            reference: 'item.1.2.11',
+            label: 'kelders',
+            hasItems: false
+          },
         ]
       },
       {
