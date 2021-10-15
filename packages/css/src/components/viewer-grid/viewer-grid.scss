@@ -1,0 +1,7 @@
+.dso-viewer-grid {
+  .dso-viewer-grid-shrink,
+  .dso-viewer-grid-expand,
+  .dso-viewer-grid-close {
+    @include button-tertiary();
+  }
+}

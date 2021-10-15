@@ -68,5 +68,7 @@ export * from './components/tile/tile.models';
 export * from './components/tile/tile.stories';
 export * from './components/tooltip/tooltip.models';
 export * from './components/tooltip/tooltip.stories';
+export * from './components/viewer-grid/viewer-grid.models';
+export * from './components/viewer-grid/viewer-grid.stories';
 export * from './components/whitebox/whitebox.models';
 export * from './components/whitebox/whitebox.stories';
