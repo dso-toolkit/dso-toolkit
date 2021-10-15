@@ -5,7 +5,7 @@
       <img src="../../images/omgevingsloket.png" alt="Omgevingsloket" class="logo" />
       <div class="dso-tools-bar">
         <div class="dso-login">
-          <a href="" class="btn btn-link">
+          <a href="" class="dso-tertiary">
             <dso-icon icon="user"></dso-icon><span >Inloggen</span>
           </a>
         </div>
@@ -13,9 +13,9 @@
     </div>
     <nav class="dso-navbar">
       <div class="dso-navbar-header">
-        <button type="button" class="dso-navbar-toggle btn btn-default">
+        <button type="button" class="dso-navbar-toggle dso-secondary" aria-expanded="false">
           <dso-icon icon="bars"></dso-icon>
-          <span class="sr-only">Ga naar menu</span>
+          <span class="sr-only">Menu</span>
         </button>
       </div>
       <ul class="dso-nav dso-nav-main">
@@ -35,7 +35,7 @@
           </a>
         </li>
         <li class="dso-active">
-          <a href="#">
+          <a href="#" aria-current="page">
             Regels op de kaart
           </a>
         </li>
@@ -47,14 +47,14 @@
       </ul>
     </nav>
     <nav aria-label="U bevindt zich hier:">
-      <ol class="breadcrumb" itemscope itemtype="//schema.org/BreadcrumbList">
-        <li itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
+      <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
           <a itemprop="item" href="#">
             <span itemprop="name">Home</span>
           </a>
           <meta itemprop="position" content="1" />
         </li>
-        <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="//schema.org/ListItem">
+        <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
           <span itemprop="name">Checken</span>
           <meta itemprop="position" content="2" />
         </li>
@@ -204,27 +204,34 @@
   <footer>
     <div class="row">
       <div class="col-sm-6 col-md-3">
-        <h2>Service</h2>
-        <ul>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Sitemap</a></li>
-          <li><a href="#">Help</a></li>
+        <h2>Basic link</h2>
+        <ul class="dso-link-list">
+          <li><a href="#">Normale link</a></li>
+          <li><a href="#">Test link</a></li>
         </ul>
       </div>
       <div class="col-sm-6 col-md-3">
-        <h2>Over deze site</h2>
-        <ul>
-          <li><a href="#">Copyright</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Cookies</a></li>
-          <li><a href="#">Toegankelijkheid</a></li>
+        <h2>Externe links</h2>
+        <ul class="dso-link-list">
+          <li><a href="#" class="extern">Externe link</a></li>
+          <li><a href="#" class="extern">Extra externe link</a></li>
+          <li><a href="#" class="extern">Laatste externe link</a></li>
         </ul>
       </div>
       <div class="col-sm-6 col-md-3">
-        <h2>Volg ons ook op</h2>
-        <ul>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">LinkedIn</a></li>
+        <h2>Tekst paragraaf</h2>
+        <p>
+          Loop goed na welke inhoud essentieel is voor de footer. Creeër met ros en cols de gewenste indeling van uw footer.
+        </p>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <h2>Combinatie links en tekst</h2>
+        <p>
+          Tekst kan worden gevolgd door verscheidene <a href="#">links</a>.
+        </p>
+        <ul class="dso-link-list">
+          <li><a href="#">Combinatie link</a></li>
+          <li><a href="#">Combinatie link 2</a></li>
         </ul>
       </div>
     </div>
