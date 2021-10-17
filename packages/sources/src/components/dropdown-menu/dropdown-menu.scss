@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $dropdown-bg: #fff;
 $dropdown-border: rgba(0, 0, 0, 0.15);
 
@@ -59,10 +61,10 @@ $dso-dropdown-link-color: $grijs-90;
 
   .dso-group-label {
     color: $grijs-40;
-    font-size: (14 / 16 * 1em);
+    font-size: (math.div(14, 16) * 1em);
     font-weight: 400;
     margin: 0;
-    padding: ($u1 / 2) $dso-dropdown-hor-padding ($u1 / 4);
+    padding: ($u1 * 0.5) $dso-dropdown-hor-padding ($u1 * 0.25);
     text-transform: uppercase;
   }
 

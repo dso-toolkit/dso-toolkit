@@ -1,4 +1,4 @@
-$dso-shopping-cart-radius: $u1 / 2;
+$dso-shopping-cart-radius: $u1 * 0.5;
 $dso-shopping-cart-border-color: $grijs-20;
 
 .dso-shopping-cart {
@@ -136,7 +136,7 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   .dso-empty {
-    padding: ($u3 / 2) $u2;
+    padding: ($u3 * 0.5) $u2;
   }
 
   // demo

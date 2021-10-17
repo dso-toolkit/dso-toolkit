@@ -58,10 +58,10 @@ h6,
 
 .dso-rich-content {
   > :first-child:not(hr) {
-    margin-top: $rich-content-margin-bottom / 2;
+    margin-top: $rich-content-margin-bottom * 0.5;
   }
 
   > :last-child:not(hr) {
-    margin-bottom: $rich-content-margin-bottom / 2;
+    margin-bottom: $rich-content-margin-bottom * 0.5;
   }
 }

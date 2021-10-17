@@ -23,13 +23,13 @@ $dso-tile-min-height: 200px;
   }
 
   .dso-tile-link {
-    border-bottom: #{$u1 / 2} solid transparent;
+    border-bottom: #{$u1 * 0.5} solid transparent;
     color: $grasgroen;
     display: block;
     font-size: $dso-font-size-h4;
     font-weight: bold;
     line-height: 1.167;
-    padding-bottom: #{$u1 / 2};
+    padding-bottom: #{$u1 * 0.5};
     text-align: center;
   }
 
@@ -38,7 +38,7 @@ $dso-tile-min-height: 200px;
 
     &:hover {
       .dso-tile-link {
-        border-bottom: #{$u1 / 2} solid $grasgroen;
+        border-bottom: #{$u1 * 0.5} solid $grasgroen;
       }
     }
   }

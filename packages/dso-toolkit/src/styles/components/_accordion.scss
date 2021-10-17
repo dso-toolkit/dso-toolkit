@@ -1,6 +1,6 @@
 $dso-accordion-main-color: $cannon-pink;
 $dso-accordion-nesting-color: #dbc8d1;
-$dso-accordion-border-radius: $u1 / 2;
+$dso-accordion-border-radius: $u1 * 0.5;
 $dso-accordion-main-padding: $u2;
 $dso-accordion-chevron-icon-size: $u3;
 $dso-accordion-chevron-space: $u1;
@@ -33,7 +33,7 @@ $dso-accordion-light-border-color: $grijs-20;
       border: 1px solid $dso-accordion-main-color;
       border-radius: $dso-accordion-border-radius;
       overflow: hidden;
-      padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) / 2) $dso-accordion-main-padding - 1px;
+      padding: (($dso-accordion-handle-height - $dso-accordion-handle-line-height) * 0.5) $dso-accordion-main-padding - 1px;
       position: relative;
 
       a {
@@ -64,8 +64,8 @@ $dso-accordion-light-border-color: $grijs-20;
         &::after {
           content: "";
           position: absolute;
-          right: $u3 / 2;
-          top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) / 2;
+          right: $u3 * 0.5;
+          top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) * 0.5;
         }
 
         &:hover,
@@ -112,7 +112,7 @@ $dso-accordion-light-border-color: $grijs-20;
       }
 
       + .dso-accordion-section {
-        margin-top: $u1 / 2;
+        margin-top: $u1 * 0.5;
       }
 
       &.dso-success,

@@ -1,5 +1,5 @@
 describe('Date Picker', () => {
-  const ANIMATION_TIME = 400;
+  const ANIMATION_TIME = 400; // Keep in sync with date-picker.scss $date-picker-transition-duration
 
   beforeEach(() => {
     cy.visit('http://localhost:56106/iframe.html?id=date-picker--with-label');
@@ -26,7 +26,7 @@ describe('Date Picker', () => {
       .as('date-picker')
       .find('button.dso-date__toggle')
       .click()
-    
+
     cy
       .get('@date-picker')
       .find('.dso-date__dialog :focus')
@@ -271,6 +271,7 @@ describe('Date Picker', () => {
       .as('root')
       .find('button.dso-date__toggle')
       .click()
+      .wait(ANIMATION_TIME)
       .get('@root')
       .find('select.dso-date__select--year')
       .select('2015')

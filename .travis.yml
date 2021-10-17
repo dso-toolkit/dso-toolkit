@@ -28,7 +28,7 @@ stages:
 jobs:
   include:
     - stage: build
-      name: lint, build, test, build-www, e2e
+      name: npm audit, lint, build, test, build-www, e2e
       workspaces:
         create:
           name: build-artifacts
@@ -44,6 +44,7 @@ jobs:
             - packages/react/dist
             - packages/react/www
       script:
+        (yarn npm audit --all --recursive || true) &&
         yarn lint &&
         yarn build &&
         yarn test &&
