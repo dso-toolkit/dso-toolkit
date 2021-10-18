@@ -172,8 +172,8 @@ $dso-button-tertiary-active-color: $scampi;
   svg.di,
   &.extern::after,
   &.download::after {
-    margin-bottom: -$u1 / 2;
-    margin-top: -$u1 / 2;
+    margin-bottom: -$u1 * 0.5;
+    margin-top: -$u1 * 0.5;
   }
 }
 

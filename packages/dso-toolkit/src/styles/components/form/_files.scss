@@ -5,7 +5,7 @@ form,
       .dso-remove {
         font-size: 0;
         min-width: auto;
-        padding: $u1 / 2;
+        padding: $u1 * 0.5;
 
         &::before {
           @include di("times-bosgroen");
@@ -52,7 +52,7 @@ form,
           border: 1px solid $grijs-10;
           border-radius: $dso-button-border-radius;
           display: flex;
-          padding: #{$u1 / 2 - 1} #{$u1 - 1} #{$u1 / 2 - 2};
+          padding: #{$u1 * 0.5 - 1} #{$u1 - 1} #{$u1 * 0.5 - 2};
 
           + li {
             margin-top: $u1;
@@ -75,14 +75,14 @@ form,
 
           .dso-filename,
           .dso-confidential {
-            margin: #{$u1 / 2} 0;
+            margin: #{$u1 * 0.5} 0;
           }
 
           > dso-icon,
           > svg.di {
             flex: 0 0 24px;
             height: 24px;
-            margin: #{$u1 / 2} 0 #{$u1 / 2} $u1;
+            margin: #{$u1 * 0.5} 0 #{$u1 * 0.5} $u1;
           }
 
           button {

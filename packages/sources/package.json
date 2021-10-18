@@ -16,9 +16,9 @@
     "dist"
   ],
   "devDependencies": {
-    "@storybook/client-api": "6.2.9",
-    "concurrently": "^6.0.2",
-    "microbundle": "^0.13.0",
+    "@storybook/client-api": "6.3.12",
+    "concurrently": "^6.3.0",
+    "microbundle": "^0.14.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "rimraf": "^3.0.2",

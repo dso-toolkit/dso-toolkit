@@ -3,10 +3,9 @@
  * include Bootstrap and FontAwesome. To build this file from your project you will need to pass two extra include paths to the sass compiler.
  *
  * - node_modules/dso-toolkit/libs
- * - node_modules
  *
  * For example:
- *   $ node-sass --include-path node_modules/dso-toolkit/libs --include-path node_modules
+ *   $ sass --load-path node_modules/dso-toolkit/libs
  *
  * See https://github.com/dso-toolkit/dso-toolkit/issues/105 for more information
 */

@@ -8,7 +8,7 @@
 $tooltip-arrow-width: 6px;
 $tooltip-padding-vertical: $u2;
 $tooltip-padding-horizontal: $u1;
-$tooltip-border-radius: $dso-unit / 2;
+$tooltip-border-radius: $dso-unit * 0.5;
 $tooltip-arrow-color: $wit;
 $tooltip-max-width: 80 * $dso-unit;
 $tooltip-max-width-small: 40 * $dso-unit;

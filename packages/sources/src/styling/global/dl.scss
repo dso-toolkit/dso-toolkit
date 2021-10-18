@@ -247,7 +247,7 @@ dl {
     dt,
     dd {
       &:last-of-type {
-        padding-bottom: $dso-definition-list-vertical-space / 2;
+        padding-bottom: $dso-definition-list-vertical-space * 0.5;
       }
     }
 

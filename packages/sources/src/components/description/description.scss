@@ -11,7 +11,7 @@ $dso-description-border-color: $dso-info-color;
   }
 
   & + #{$description-content-selector} {
-    margin: $u1 / 2 0;
+    margin: $u1 * 0.5 0;
     padding: $u1 $u4 $u1 $u1;
     position: relative;
 

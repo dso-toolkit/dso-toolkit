@@ -26,10 +26,16 @@ Stable releases can be found on the [GitHub Releases page](https://github.com/ds
 npm install dso-toolkit --save-dev
 ```
 
-1. Add `node_modules/dso-toolkit/libs` as [include paths](https://github.com/sass/node-sass#includepaths) to your SASS compiler/wrapper (See [#105](https://github.com/dso-toolkit/dso-toolkit/issues/105) for more information)
-2. Bundle `/node_modules/dso-toolkit/src/dso.scss` in your build process.
+#### Compile SCSS
 
-The Web Components are not yet available as NPM package, see [#827](https://github.com/dso-toolkit/dso-toolkit/issues/827) and [#885](https://github.com/dso-toolkit/dso-toolkit/issues/885). In the meantime you could use the `<script>`-tag mentioned below.
+Stylesheets need to be compiled using Dart Sass. libsass (NPM package `node-sass`) is unsupported.
+
+1. Add `node_modules/dso-toolkit/libs` as [load path](https://sass-lang.com/documentation/cli/dart-sass#load-path) to your (Dart) Sass compiler/wrapper.
+2. Import `/node_modules/dso-toolkit/src/dso.scss` in your stylesheet or build process.
+
+#### Bundle CSS
+
+Import or bundle `/node_modules/dso-toolkit/dist/toolkit/styles/dso.css`.
 
 ### CDN
 
@@ -166,13 +172,12 @@ The DSO Toolkit and Component Library uses
 * `npm` as the registry for node packages
 * `yarn` for package management
 * `gulp` for build automation
-* `node-sass` to compile sass to css
+* `sass` to compile SCSS to css
 * `fractal` to document the toolkit
 * `yaml` to configure fractal components
 
 ## Further reading
 * https://www.npmjs.com/
-* https://github.com/sass/node-sass
 * http://fractal.build/
 * http://keepachangelog.com/en/1.0.0/
 * http://semver.org/
@@ -186,9 +191,7 @@ Ports used during development:
 * 41234 - Leaflet plugins dev app
 * 42345 - React Leaflet plugins dev app
 * 43000 - Fractal
-* 53100 - React test app
 * 53333 - Stencil
 * 56106 - Storybook for Web Components
 * 56206 - Storybook for CSS components
 * 56406 - Storybook for React components
-* 

@@ -64,8 +64,8 @@ $dso-navigation-selected-color: $cannon-pink;
         @include anchor-reverse();
 
         font-size: $font-size-base;
-        margin-top: ($u1 / 2);
-        padding: ($u1 / 2) $u1 #{$u1 / 2 - 1px};
+        margin-top: ($u1 * 0.5);
+        padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
       }
     }
   }

@@ -1,7 +1,7 @@
 $dso-pagination-item-size: $u4;
 $dso-pagination-item-border-size: 2px;
 $dso-pagination-line-height: $dso-pagination-item-size;
-$dso-pagination-icon-margin: $u1 / 2;
+$dso-pagination-icon-margin: $u1 * 0.5;
 
 .pagination {
   text-align: center;

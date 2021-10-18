@@ -3,8 +3,8 @@
   margin-right: calc(50% - 50vw);
 
   @if ($gutter > 0) {
-    padding-left: calc(50vw - 50% - #{ceil($gutter / 2)});
-    padding-right: calc(50vw - 50% - #{floor($gutter / 2)});
+    padding-left: calc(50vw - 50% - #{ceil($gutter * 0.5)});
+    padding-right: calc(50vw - 50% - #{floor($gutter * 0.5)});
   }
   @else {
     padding-left: calc(50vw - 50%);

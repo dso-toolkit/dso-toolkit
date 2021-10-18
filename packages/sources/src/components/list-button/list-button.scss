@@ -1,5 +1,5 @@
-$dso-button-group-border-radius: $u1 / 2;
-$dso-list-button-margin-gap: $u1 / 2;
+$dso-button-group-border-radius: $u1 * 0.5;
+$dso-list-button-margin-gap: $u1 * 0.5;
 
 @mixin list-button_button-group($dso-input-number-selector, $dso-list-button-selector) {
   display: flex;

@@ -18,7 +18,7 @@ export const dsoIcon = {
     const iconAlias = sassIconAlias.getValue();
     const iconPath = resolve(iconsPath, `${iconAlias}.svg`);
 
-    const icon = readFileSync(iconPath).toString('UTF-8');
+    const icon = readFileSync(iconPath).toString('utf-8');
     const style = getStyle(iconAlias, sassVariant instanceof sass.types.String ? sassVariant.getValue() : null);
 
     const svg = style ? bundleSvgStyle(icon, style) : icon;
@@ -39,7 +39,7 @@ function getStyle(icon: string, variant: string | null): string | null {
   const css = sass
     .renderSync({ file: stylesheetPath })
     .css
-    .toString('UTF-8');
+    .toString('utf-8');
 
   const selector = `${icon}${variant ? `:${variant}` : ''}`;
   const regex = styleRegex(selector);

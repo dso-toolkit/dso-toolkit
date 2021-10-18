@@ -20,7 +20,7 @@ $dso-step-padding: 12px;
       flex-basis: auto;
       font-size: 1rem;
       font-weight: normal;
-      padding-top: #{$dso-step-padding / 2};
+      padding-top: #{$dso-step-padding * 0.5};
       text-align: right;
     }
   }

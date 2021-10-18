@@ -1,6 +1,8 @@
+@use "sass:math";
+
 $dso-textarea-default-rows: 3 !default;
 
-$dso-label-column: $grid-columns / 2;
+$dso-label-column: $grid-columns * 0.5;
 
 $dso-field-invalid-border-color: $dso-danger-color;
 $dso-field-invalid-message-color: $dso-invalid-color;
@@ -119,7 +121,7 @@ form,
 
   &:not(.dso-static) + .form-group.dso-static,
   &.dso-static + .form-group:not(.dso-static) {
-    margin-top: $dso-form-group-margin / 2;
+    margin-top: $dso-form-group-margin * 0.5;
   }
 
   .form-group.dso-edit + & {
@@ -304,8 +306,8 @@ select:not([multiple]) {
     &.dso-confirm {
       @media screen and (min-width: $screen-sm-min) {
         .dso-field-container {
-          margin-left: percentage($dso-label-column / $grid-columns);
-          padding-left: $grid-gutter-width / 2;
+          margin-left: percentage(math.div($dso-label-column, $grid-columns));
+          padding-left: $grid-gutter-width * 0.5;
         }
       }
     }
@@ -372,4 +374,5 @@ select:not([multiple]) {
   @include info-button_controlLabelSibling();
 }
 
+/* stylelint-disable-next-line no-invalid-position-at-import-rule */
 @import "./form/files";

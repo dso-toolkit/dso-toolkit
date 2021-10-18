@@ -1,3 +1,4 @@
+/* stylelint-disable no-invalid-position-at-import-rule */
 @include box-sizing();
 
 @import "../../../sources/src/styling/font-faces";
@@ -30,6 +31,7 @@
 @import "../../../sources/src/styling/global/textarea";
 
 @import "../../../sources/src/styling/grid/grid";
+/* stylelint-enable no-invalid-position-at-import-rule */
 
 .form-control {
   @include form-control();

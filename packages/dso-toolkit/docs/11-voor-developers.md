@@ -93,7 +93,7 @@ Zie instructies voor CSS, daarnaast:
 npm install @dso-toolkit/core @dso-toolkit/react
 ```
 
-`@dso-toolkit/react` heeft een peer dependency op `@dso-toolkit/core`, vandaar dat deze expliciet in het project als dependency opgenomen moet worden. Zie een voorbeeld React applicatie: https://github.com/dso-toolkit/dso-toolkit/tree/master/packages/react/test-app. Let op het kopiëren van assets. In de voorbeeld React applicatie is dat met een node script gedaan, zie `package.json` script `copy`.
+`@dso-toolkit/react` heeft een peer dependency op `@dso-toolkit/core`, vandaar dat deze expliciet in het project als dependency opgenomen moet worden.
 
 ```javascript
 import React from 'react';
