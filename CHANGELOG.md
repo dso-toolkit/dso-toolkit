@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING: all packages**. Update dependencies ([#1290](https://github.com/dso-toolkit/dso-toolkit/issues/1290)). Overgestapt van `node-sass` naar `sass` (Dart Sass). **stylesheets zijn niet meer node-sass compatible**
 
+### Added
+* **css + dso-toolkit + sources:** Nieuw typografisch component: subtitel ([#1272](https://github.com/dso-toolkit/dso-toolkit/issues/1272))
+
 ## 28.0.2
 
 ### Fixed

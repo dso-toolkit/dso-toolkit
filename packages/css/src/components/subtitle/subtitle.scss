@@ -1,0 +1,16 @@
+h1 + p[role="doc-subtitle"] {
+  margin-top: $u1 * -1;
+}
+
+p[role="doc-subtitle"] {
+  color: $grijs-90;
+  font-weight: 700;
+
+  + h2 {
+    margin-top: $u2;
+  }
+
+  + dl {
+    margin-top: $u3;
+  }
+}
