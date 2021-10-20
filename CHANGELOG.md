@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 28.0.1
+
+### Fixed
+* `@dso-toolkit/core` Autosuggest heeft impliciet een typing dependency op "react" ([#1298](https://github.com/dso-toolkit/dso-toolkit/issues/1298))
+
 ## 28.0.0
 
 ### Added

@@ -8,6 +8,7 @@ import {
   Fragment,
   Event,
   EventEmitter,
+  VNode,
 } from "@stencil/core";
 import debounce from "debounce";
 import { v4 } from "uuid";
@@ -170,7 +171,7 @@ export class Autosuggest {
   markTerms(
     suggestionValue: string,
     terms: string[]
-  ): (JSX.Element | string)[] {
+  ): (VNode | string)[] {
     if (!suggestionValue || !terms || terms.length == 0) {
       return [""];
     }
