@@ -31,31 +31,31 @@ export class TreeView implements ComponentInterface {
 
     switch (event.key) {
       case "ArrowDown":
-        TreeView.focusElement(tree, event.target, 'next');
+        TreeView.moveFocus(tree, event.target, 'next');
         break;
       case "ArrowUp":
-        TreeView.focusElement(tree, event.target, 'previous');
+        TreeView.moveFocus(tree, event.target, 'previous');
         break;
       case "ArrowRight":
-        TreeView.expandElement(event.target);
+        TreeView.expandItemOrFocusChild(tree, event.target);
         break;
       case "ArrowLeft":
-        TreeView.collapseElementOrParent(tree, event.target);
+        TreeView.collapseItemOrFocusParent(tree, event.target);
         break;
       case "End":
-        TreeView.focusLastSibling(event.target);
+        TreeView.moveFocus(tree, event.target, 'last');
         break;
       case "Home":
-        TreeView.focusFirstSibling(event.target);
+        TreeView.moveFocus(tree, event.target, 'first');
         break;
       case "PageDown":
-        TreeView.focusPaged(event.target, 'next');
+        TreeView.moveFocusPaged(tree, event.target, 'next');
         break;
       case "PageUp":
-        TreeView.focusPaged(event.target, 'previous');
+        TreeView.moveFocusPaged(tree, event.target, 'previous');
         break;
       case " ":
-        TreeView.toggleElement(event.target);
+        TreeView.toggleItem(event.target);
         break;
       default:
         return;
@@ -77,37 +77,59 @@ export class TreeView implements ComponentInterface {
     }
   }
 
-  private static focusElement(tree: HTMLElement, el: HTMLElement, direction: 'next' | 'previous'): void {
+  private static setFocus(tree: HTMLElement, target: HTMLElement) {
+    if (target) {
+      (Array.from(tree.querySelectorAll('p')) as HTMLElement[])
+        .filter(item => item.tabIndex === 0)
+        .forEach(item => item.tabIndex = -1);
+
+      target.tabIndex = 0;
+      target.focus();
+    }
+  }
+
+  private static moveFocus(tree: HTMLElement, el: HTMLElement, moveTo: 'first' | 'previous' | 'next' | 'last'): void {
     const focusableItems = (Array.from(tree.querySelectorAll('p')) as HTMLElement[])
-      .filter(item => item.tabIndex >= 0 && item.offsetWidth > 0 && item.offsetHeight > 0);
+      .filter(item => item.offsetWidth > 0 && item.offsetHeight > 0);
 
-    focusableItems[focusableItems.indexOf(el) + (direction === 'next' ? 1 : -1)]?.focus();
+    let index = 0
+    switch (moveTo) {
+      case 'first':
+        index = 0;
+        break;
+      case 'previous':
+        index = focusableItems.indexOf(el) - 1;
+        break;
+      case 'next':
+        index = focusableItems.indexOf(el) + 1;
+        break;
+      case 'last':
+        index = focusableItems.length - 1;
+        break;
+    }
+
+    TreeView.setFocus(tree, focusableItems[index]);
   }
 
-  private static focusFirstSibling(target: HTMLElement): void {
-    (target.closest('ul')?.firstElementChild?.querySelector('p') as HTMLElement)?.focus();
-  }
-
-  private static focusLastSibling(target: HTMLElement): void {
-    (target.closest('ul')?.lastElementChild?.querySelector('p') as HTMLElement)?.focus();
-  }
-
-  private static focusPaged(target: HTMLParagraphElement, direction: 'next' | 'previous'): void {
+  private static moveFocusPaged(tree: HTMLElement, target: HTMLParagraphElement, direction: 'next' | 'previous'): void {
     const siblings = target.closest('ul')?.querySelectorAll<HTMLParagraphElement>(':scope > li > p');
     if (siblings) {
       var focusableItems = Array.from(siblings)
 
       if (direction === 'next') {
-        focusableItems[Math.min(focusableItems.length, focusableItems.indexOf(target) + 5)]?.focus();
+        TreeView.setFocus(tree, focusableItems[Math.min(focusableItems.length, focusableItems.indexOf(target) + 5)]);
       }
       else {
-        focusableItems[Math.max(0, focusableItems.indexOf(target) - 5)]?.focus();
+        TreeView.setFocus(tree, focusableItems[Math.max(0, focusableItems.indexOf(target) - 5)]);
       }
     }
   }
 
-  private static expandElement(target: HTMLElement): void {
-    if (target?.getAttribute('aria-expanded') !== 'true') {
+  private static expandItemOrFocusChild(tree: HTMLElement, target: HTMLElement): void {
+    if (target?.getAttribute('aria-expanded') === 'true') {
+      TreeView.moveFocus(tree, target, 'next');
+    }
+    else {
       const controlElement = target.previousElementSibling?.firstElementChild;
       if (controlElement instanceof HTMLElement) {
         controlElement.click();
@@ -115,23 +137,22 @@ export class TreeView implements ComponentInterface {
     }
   }
 
-  private static collapseElementOrParent(tree: HTMLElement, target: HTMLElement): void {
+  private static collapseItemOrFocusParent(tree: HTMLElement, target: HTMLElement): void {
     if (target?.getAttribute('aria-expanded') === 'true') {
       const controlElement = target.previousElementSibling?.firstElementChild;
       if (controlElement instanceof HTMLElement) {
         controlElement.click();
       }
     }
-    else if (target?.getAttribute('aria-expanded') !== 'false') {
+    else {
       const parentTarget = target?.parentElement?.parentElement?.previousElementSibling;
       if (parentTarget instanceof HTMLElement) {
-        TreeView.collapseElementOrParent(tree, parentTarget);
-        parentTarget.focus();
+        TreeView.setFocus(tree, parentTarget);
       }
     }
   }
 
-  private static toggleElement(target: HTMLElement): void {
+  private static toggleItem(target: HTMLElement): void {
     const controlElement = target.previousElementSibling?.firstElementChild;
     if (controlElement instanceof HTMLElement) {
       controlElement.click();

@@ -29,7 +29,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
     </div>
     <p
       class="tree-content"
-      tabindex="0"
+      tabindex={level === 1 && index === 0 ? 0 : -1 }
       role="treeitem"
       aria-expanded={item.hasItems ? '' + !!item.open : undefined}
       aria-level={level}
