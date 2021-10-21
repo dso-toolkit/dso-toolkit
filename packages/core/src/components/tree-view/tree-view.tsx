@@ -23,6 +23,8 @@ export class TreeView implements ComponentInterface {
       return;
     }
 
+    const isIndexLetter = (str: string) => str.length === 1 && str.match(/\S/);
+
     const tree = event.composedPath().find(item => (item instanceof HTMLElement) ? item.id === 'tree' : false);
 
     if (!(event.target instanceof HTMLParagraphElement) || !(tree instanceof HTMLElement)) {
@@ -58,6 +60,12 @@ export class TreeView implements ComponentInterface {
         TreeView.toggleItem(event.target);
         break;
       default:
+        if (isIndexLetter(event.key)) {
+          if (TreeView.setFocusByFirstCharacter(tree, event.target, event.key, event.shiftKey)) {
+            break;
+          }
+        }
+
         return;
     }
 
@@ -150,6 +158,30 @@ export class TreeView implements ComponentInterface {
         TreeView.setFocus(tree, parentTarget);
       }
     }
+  }
+
+  private static setFocusByFirstCharacter(tree: HTMLElement, el: HTMLElement, char: string, backwards: boolean): boolean {
+    const focusableItems = (Array.from(tree.querySelectorAll('p')) as HTMLElement[])
+      .filter(item => item.offsetWidth > 0 && item.offsetHeight > 0);
+
+    if (backwards) {
+      focusableItems.reverse();
+    }
+
+    const current = focusableItems.indexOf(el);
+
+    char = char.toLowerCase();
+    let nextItem = focusableItems.find((item, index) => index > current && item.textContent?.toLowerCase().startsWith(char));
+    if (!nextItem) {
+      nextItem = focusableItems.find((item, index) => index < current && item.textContent?.toLowerCase().startsWith(char));
+    }
+
+    if (nextItem) {
+      TreeView.setFocus(tree, nextItem);
+      return true;
+    }
+
+    return false;
   }
 
   private static toggleItem(target: HTMLElement): void {
