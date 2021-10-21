@@ -10,7 +10,7 @@
   "scripts": {
     "postinstall": "patch-package",
     "lint": "stylelint packages/**/*.scss",
-    "build": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
+    "build": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
     "test": "yarn workspace dso-toolkit smoke-test && yarn workspace dso-toolkit test",
     "build-www": "yarn workspace @dso-toolkit/css build-www && yarn workspace @dso-toolkit/core build-www && yarn workspace @dso-toolkit/react build-www",
     "e2e": "yarn workspace @dso-toolkit/core test-storybook-static",

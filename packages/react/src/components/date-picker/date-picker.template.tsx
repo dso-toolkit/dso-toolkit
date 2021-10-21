@@ -1,3 +1,4 @@
+import { DsoDatePickerChangeEvent } from '@dso-toolkit/core/dist/types/components/date-picker/date-picker';
 import { DatePicker } from '@dso-toolkit/sources';
 import * as React from 'react';
 
@@ -16,16 +17,16 @@ export function datePickerTemplate({ id, onDateChange, value, min, max, disabled
   );
 }
 
-export function datePickerWithLabelTemplate(datePicker: TemplateResult, id: string, label: string) {
+export function datePickerWithLabelTemplate(datePicker: JSX.Element, id: string, label: string) {
   return (
     <>
-      <label for={id}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       {datePicker}
     </>
   );
 }
 
-export function datePickerShowByScriptingTemplate(datePicker: TemplateResult, id: string) {
+export function datePickerShowByScriptingTemplate(datePicker: JSX.Element, id: string) {
   return (
     <>
       {datePicker}

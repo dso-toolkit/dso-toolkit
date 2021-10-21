@@ -5,7 +5,7 @@ import * as React from 'react';
 import readme from './readme.md';
 import { tooltipTemplate } from './tooltip.template';
 
-function asChildTemplate(tooltip: TemplateResult) {
+function asChildTemplate(tooltip: JSX.Element) {
   return (
     <button type="button">
       <span>Hover or focus me</span>
@@ -14,7 +14,7 @@ function asChildTemplate(tooltip: TemplateResult) {
   );
 }
 
-function asSiblingTemplate(tooltip: TemplateResult, id: string) {
+function asSiblingTemplate(tooltip: JSX.Element, id: string) {
   return (
     <>
       <button type="button" id={id}>

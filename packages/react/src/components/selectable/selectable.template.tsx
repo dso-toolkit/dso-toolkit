@@ -2,7 +2,6 @@ import { Selectable } from '@dso-toolkit/sources';
 import * as React from 'react';
 
 import { DsoSelectable } from '../..';
-import { iconTemplate } from '../icon/icon.template';
 
 export function selectableTemplate({
   type,
@@ -18,7 +17,7 @@ export function selectableTemplate({
   disabled,
   onChange,
   info
-}: Selectable<TemplateResult>) {
+}: Selectable<JSX.Element>) {
   return (
     <DsoSelectable
       type={type}

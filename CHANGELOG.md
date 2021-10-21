@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 28.0.2
+
+### Fixed
+* **react:** `@dso-toolkit/react` wordt niet gebuild maar wel gepublished en heeft dus geen `/dist` directory ([#1303](https://github.com/dso-toolkit/dso-toolkit/issues/1303))
+
 ## 28.0.1
 
 ### Fixed
