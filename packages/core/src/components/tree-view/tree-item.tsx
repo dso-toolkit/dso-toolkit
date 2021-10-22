@@ -35,13 +35,14 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
       aria-level={level}
       aria-setsize={setSize}
       aria-posinset={index + 1}
+      onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
       <a role="link">{item.label}</a>
       {item.icons?.map((icon: TreeViewItemIcon) =>
         <dso-icon icon={icon.icon} title={icon.label}></dso-icon>
       )}
     </p>
-    <ul role="group">
+    <ul role="group" aria-busy={item.loading ? 'true' : undefined}>
       {item.hasItems && !item.items && item.loading
         ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
         : undefined

@@ -50,12 +50,6 @@ export class TreeView implements ComponentInterface {
       case "Home":
         TreeView.moveFocus(tree, event.target, 'first');
         break;
-      case "PageDown":
-        TreeView.moveFocusPaged(tree, event.target, 'next');
-        break;
-      case "PageUp":
-        TreeView.moveFocusPaged(tree, event.target, 'previous');
-        break;
       case " ":
         TreeView.toggleItem(event.target);
         break;
@@ -117,20 +111,6 @@ export class TreeView implements ComponentInterface {
     }
 
     TreeView.setFocus(tree, focusableItems[index]);
-  }
-
-  private static moveFocusPaged(tree: HTMLElement, target: HTMLParagraphElement, direction: 'next' | 'previous'): void {
-    const siblings = target.closest('ul')?.querySelectorAll<HTMLParagraphElement>(':scope > li > p');
-    if (siblings) {
-      var focusableItems = Array.from(siblings)
-
-      if (direction === 'next') {
-        TreeView.setFocus(tree, focusableItems[Math.min(focusableItems.length, focusableItems.indexOf(target) + 5)]);
-      }
-      else {
-        TreeView.setFocus(tree, focusableItems[Math.max(0, focusableItems.indexOf(target) - 5)]);
-      }
-    }
   }
 
   private static expandItemOrFocusChild(tree: HTMLElement, target: HTMLElement): void {
