@@ -21,6 +21,7 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
 
   const stories = storiesOf('Viewer Grid', mainModule)
     .addParameters({
+      layout: 'fullscreen',
       docs: {
         page: readme
       },

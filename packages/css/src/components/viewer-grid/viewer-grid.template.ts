@@ -5,7 +5,7 @@ import { iconTemplate } from '../icon/icon.template';
 export function viewerGridTemplate({ main, map, aside, panelSize, panelOpen, shrink, expand, closeAside }: ViewerGrid<TemplateResult>) {
   return html`
     <div class="dso-viewer-grid dso-viewer-grid-${panelSize}">
-      <main class="dso-viewer-grid-main">
+      <div class="dso-viewer-grid-main">
         <div class="dso-viewer-grid-sizing-buttons">
           <button
             type="button"
@@ -24,29 +24,21 @@ export function viewerGridTemplate({ main, map, aside, panelSize, panelOpen, shr
             ${iconTemplate({ icon: 'chevron-right' })}
           </button>
         </div>
-        <div class="dso-viewer-grid-inner">
-          ${main}
-        </div>
-      </main>
+        ${main}
+      </div>
       <div class="dso-viewer-grid-map">
         ${map}
       </div>
-      <aside class="dso-viewer-grid-overlay" .hidden=${!panelOpen}>
-        <div class="dso-viewer-grid-overlay-container">
-          <div class="dso-viewer-grid-close-buttons">
-            <button
-              type="button"
-              class="dso-viewer-grid-close"
-              @click=${closeAside}
-            >
-              ${iconTemplate({ icon: 'times' })}
-            </button>
-          </div>
-          <div class="dso-viewer-grid-inner">
-            ${aside}
-          </div>
-        </div>
-      </aside>
+      <div class="dso-viewer-grid-overlay" .hidden=${!panelOpen}>
+        <button
+          type="button"
+          class="dso-viewer-grid-overlay-close-button"
+          @click=${closeAside}
+        >
+          ${iconTemplate({ icon: 'times' })}
+        </button>
+        ${aside}
+      </div>
     </div>
   `;
 }
