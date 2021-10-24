@@ -1632,8 +1632,8 @@ __metadata:
     lit-html: ^2.0.1
     mini-svg-data-uri: 1.4.3
     minimist: ^1.2.5
-    react: ^16.14.0
-    react-dom: ^16.14.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
     rimraf: ^3.0.2
     start-server-and-test: ^1.14.0
     stencil-inline-svg: 1.1.0
@@ -1678,8 +1678,8 @@ __metadata:
     list-stream: ^2.0.0
     lit-html: ^2.0.1
     minimist: ^1.2.5
-    react: ^16.14.0
-    react-dom: ^16.14.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
     rimraf: ^3.0.2
     sass: ^1.43.2
     typescript: 4.4.4
@@ -1729,8 +1729,8 @@ __metadata:
     "@dso-toolkit/core": "*"
     "@dso-toolkit/leaflet": "*"
     leaflet: ^1.7.1
-    react: ^16.14.0
-    react-dom: ^16.14.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1749,8 +1749,8 @@ __metadata:
     babel-loader: ^8.2.2
     concurrently: ^6.3.0
     cross-env: ^7.0.3
-    react: ^16.14.0
-    react-dom: ^16.14.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
     rimraf: 3.0.2
     storybook-addon-jsx: ^7.3.14
     tslib: 2.3.1
@@ -1759,8 +1759,8 @@ __metadata:
     webpack: ^5.58.2
   peerDependencies:
     "@dso-toolkit/core": "*"
-    react: ^16.14.0
-    react-dom: ^16.14.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
   languageName: unknown
   linkType: soft
 
@@ -1771,8 +1771,8 @@ __metadata:
     "@storybook/client-api": 6.3.12
     concurrently: ^6.3.0
     microbundle: ^0.14.1
-    react: ^16.14.0
-    react-dom: ^16.14.0
+    react: ^17.0.2
+    react-dom: ^17.0.2
     rimraf: ^3.0.2
     uuid: ^8.3.2
   peerDependencies:
@@ -18251,7 +18251,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react-dom@npm:16.14.0, react-dom@npm:^16.14.0":
+"react-dom@npm:16.14.0":
   version: 16.14.0
   resolution: "react-dom@npm:16.14.0"
   dependencies:
@@ -18262,6 +18262,19 @@ fsevents@~2.3.2:
   peerDependencies:
     react: ^16.14.0
   checksum: 5a5c49da0f106b2655a69f96c622c347febcd10532db391c262b26aec225b235357d9da1834103457683482ab1b229af7a50f6927a6b70e53150275e31785544
+  languageName: node
+  linkType: hard
+
+"react-dom@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react-dom@npm:17.0.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    scheduler: ^0.20.2
+  peerDependencies:
+    react: 17.0.2
+  checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
   languageName: node
   linkType: hard
 
@@ -18457,7 +18470,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react@npm:16.14.0, react@npm:^16.14.0":
+"react@npm:16.14.0":
   version: 16.14.0
   resolution: "react@npm:16.14.0"
   dependencies:
@@ -18465,6 +18478,16 @@ fsevents@~2.3.2:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
+  languageName: node
+  linkType: hard
+
+"react@npm:^17.0.2":
+  version: 17.0.2
+  resolution: "react@npm:17.0.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: b254cc17ce3011788330f7bbf383ab653c6848902d7936a87b09d835d091e3f295f7e9dd1597c6daac5dc80f90e778c8230218ba8ad599f74adcc11e33b9d61b
   languageName: node
   linkType: hard
 
@@ -19521,6 +19544,16 @@ fsevents@~2.3.2:
     loose-envify: ^1.1.0
     object-assign: ^4.1.1
   checksum: 73e185a59e2ff5aa3609f5b9cb97ddd376f89e1610579d29939d952411ca6eb7a24907a4ea4556569dacb931467a1a4a56d94fe809ef713aa76748642cd96a6c
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.20.2":
+  version: 0.20.2
+  resolution: "scheduler@npm:0.20.2"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: c4b35cf967c8f0d3e65753252d0f260271f81a81e427241295c5a7b783abf4ea9e905f22f815ab66676f5313be0a25f47be582254db8f9241b259213e999b8fc
   languageName: node
   linkType: hard
 

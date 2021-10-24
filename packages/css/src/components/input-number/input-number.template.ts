@@ -11,7 +11,7 @@ export function inputNumberTemplate({ label, id, min, max, count, minusButtonIna
           ${label}
         </label>
       `}
-      ${buttonTemplate({ type: 'button', label: 'Aantal verlagen', modifier: 'dso-tertiary', disabled: minusButtonInactive, icon: { icon: 'minus-square' }, iconMode: 'only' })}
+      ${buttonTemplate({ type: 'button', label: 'Aantal verlagen', variant: 'tertiary', disabled: minusButtonInactive, icon: { icon: 'minus-square' }, iconMode: 'only' })}
       <input
         type="number"
         id=${id}
@@ -22,7 +22,7 @@ export function inputNumberTemplate({ label, id, min, max, count, minusButtonIna
         class="dso-input-step-counter"
         value=${count}
       >
-      ${buttonTemplate({ type: 'button', label: 'Aantal verhogen', modifier: 'dso-tertiary', disabled: plusButtonInactive, icon: { icon: 'plus-square' }, iconMode: 'only' })}
+      ${buttonTemplate({ type: 'button', label: 'Aantal verhogen', variant: 'tertiary', disabled: plusButtonInactive, icon: { icon: 'plus-square' }, iconMode: 'only' })}
     </div>
   `;
 }

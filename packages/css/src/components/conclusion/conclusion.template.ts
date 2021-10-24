@@ -16,7 +16,7 @@ export function conclusionTemplate({ items, alert, info }: Conclusion<TemplateRe
           ${item.subitems && html`
             <ul>
               ${item.subitems.map(subitem => html`
-                <li>${unsafeHTML(subitem)}</li>
+                <li>${subitem.richContent}</li>
               `)}
             </ul>
           `}
