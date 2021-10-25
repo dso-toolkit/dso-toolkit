@@ -9,7 +9,7 @@ export interface ViewerGridArgs {
   panelOpen: boolean;
   shrink: HandlerFunction;
   expand: HandlerFunction;
-  closeAside: HandlerFunction;
+  closeOverlay: HandlerFunction;
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
@@ -30,7 +30,7 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   expand: {
     action: 'expand'
   },
-  closeAside: {
+  closeOverlay: {
     action: 'closeAside'
   }
 };

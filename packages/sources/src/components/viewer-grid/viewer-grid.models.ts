@@ -1,12 +1,12 @@
 export interface ViewerGrid<TemplateFnReturnType> {
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
-  aside: TemplateFnReturnType;
+  overlay: TemplateFnReturnType;
   panelSize: 'small' | 'medium' | 'large';
   panelOpen: boolean;
   shrink: (e: MouseEvent) => void;
   expand: (e: MouseEvent) => void;
-  closeAside: (e: MouseEvent) => void;
+  closeOverlay: (e: MouseEvent) => void;
 }
 
 export interface ViewerGridDemoProperties {
@@ -14,5 +14,5 @@ export interface ViewerGridDemoProperties {
   panelOpen: boolean;
   shrink: (e: MouseEvent) => void;
   expand: (e: MouseEvent) => void;
-  closeAside: (e: MouseEvent) => void;
+  closeOverlay: (e: MouseEvent) => void;
 }

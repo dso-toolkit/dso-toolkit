@@ -30,6 +30,6 @@ Dit element heeft geen paddings of margings en pakt de maximale resterende breed
 
 ## `.dso-viewer-grid-overlay`
 
-Dit paneel heeft een sluitenknop en is altijd 624px breed. Het paneel wordt verborgen met het `hidden` attribuut of niet in het DOM geplaatst.
+Dit paneel heeft een sluitenknop en is altijd 624px breed OF maximale viewport width (`100vw`), welke kleiner is. Het paneel wordt verborgen met het `hidden` attribuut of niet in het DOM geplaatst.
 
 Als het paneel toont ligt er een dimmende overlay over de rest van het grid. De implementator moet er zorg voor dragen dat de rest van de applicatie niet meer te bedienen is. Dit kan door alle elementen buiten het paneel "overlay" een `tabindex=0` te geven of een focus trap te activeren.

@@ -2,7 +2,7 @@ import { ViewerGrid } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
 import { iconTemplate } from '../icon/icon.template';
 
-export function viewerGridTemplate({ main, map, aside, panelSize, panelOpen, shrink, expand, closeAside }: ViewerGrid<TemplateResult>) {
+export function viewerGridTemplate({ main, map, overlay, panelSize, panelOpen, shrink, expand, closeOverlay }: ViewerGrid<TemplateResult>) {
   return html`
     <div class="dso-viewer-grid dso-viewer-grid-${panelSize}">
       <div class="dso-viewer-grid-main">
@@ -33,11 +33,11 @@ export function viewerGridTemplate({ main, map, aside, panelSize, panelOpen, shr
         <button
           type="button"
           class="dso-viewer-grid-overlay-close-button"
-          @click=${closeAside}
+          @click=${closeOverlay}
         >
           ${iconTemplate({ icon: 'times' })}
         </button>
-        ${aside}
+        ${overlay}
       </div>
     </div>
   `;

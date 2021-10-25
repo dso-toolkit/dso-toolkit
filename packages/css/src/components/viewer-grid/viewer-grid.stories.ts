@@ -38,9 +38,9 @@ const map = html`
   </div>
 `;
 
-const aside = html`
+const overlay = html`
   <div class="dso-rich-content">
-    <h2>Aside</h2>
+    <h2>Overlay</h2>
     <p>Deze overlay valt over de andere panelen heen. Een implementator moet zorg dragen dat de rest van de applicatie niet bereikbaar is.</p>
     <div class="alert alert-info">
       Dit is een overlay
@@ -91,15 +91,15 @@ storiesOfViewerGrid(
     readme
   },
   {
-    viewerGridDemoTemplate: ({ closeAside, expand, panelSize, panelOpen, shrink }) => viewerGridTemplate({
-      closeAside,
+    viewerGridDemoTemplate: ({ closeOverlay, expand, panelSize, panelOpen, shrink }) => viewerGridTemplate({
+      closeOverlay,
       expand,
       panelOpen,
       panelSize,
       shrink,
       main,
       map,
-      aside
+      overlay
     })
   }
 );
