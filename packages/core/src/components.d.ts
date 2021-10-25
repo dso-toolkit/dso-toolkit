@@ -574,6 +574,7 @@ declare namespace LocalJSX {
     }
     interface DsoTreeView {
         "collection": TreeViewItem<string>[];
+        "onClickItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
         "onCloseItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
         "onOpenItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
     }

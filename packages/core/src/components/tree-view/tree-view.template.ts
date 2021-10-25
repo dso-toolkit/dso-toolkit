@@ -5,7 +5,8 @@ export function treeViewTemplate(
   {
     collection,
     onOpenItem,
-    onCloseItem
+    onCloseItem,
+    onClickItem
   }: TreeView<string>
 ) {
   return html`
@@ -13,6 +14,7 @@ export function treeViewTemplate(
       .collection=${collection}
       @openItem=${onOpenItem}
       @closeItem=${onCloseItem}
+      @clickItem=${onClickItem}
     ></dso-tree-view>
   `;
 }

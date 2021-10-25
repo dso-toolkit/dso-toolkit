@@ -2,9 +2,9 @@ import { TreeViewItem } from './tree-view.models';
 import { items, subItems } from './tree-view.content';
 
 export namespace TreeViewDemo {
-  export const collection = items;
+  export let collection = items;
 
-  export function onOpenItem(tree: TreeViewItem<string>[], path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void): void {
+  export function onOpenItem(path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void): void {
     const actionItem = path[path.length - 1];
     const actionBehaviour = new Map(
       [
@@ -14,44 +14,44 @@ export namespace TreeViewDemo {
     ).get(actionItem.reference);
 
     if (actionBehaviour && actionItem.hasItems && !actionItem.items && !actionItem.loading) {
-      const c = updateDeepTree(
-        tree,
+      collection = updateDeepTree(
+        collection,
         path,
         item => ({ ...item, open: true, loading: actionBehaviour.loading })
       );
 
-      callback(c);
+      callback(collection);
 
       window.setTimeout(() => {
         const newItems = subItems[actionItem.reference];
-        const c = updateDeepTree(
-          tree,
+        collection = updateDeepTree(
+          collection,
           path,
           item => ({ ...item, open: true, loading: false, items: newItems })
         );
 
-        callback(c);
+        callback(collection);
       }, actionBehaviour.loadTime);
     }
     else {
-      const c = updateDeepTree(
-        tree,
+      collection = updateDeepTree(
+        collection,
         path,
         item => ({ ...item, open: true })
       );
 
-      callback(c);
+      callback(collection);
     }
   }
 
-  export function onCloseItem(tree: TreeViewItem<string>[], path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) {
-    const c = updateDeepTree(
-      tree,
+  export function onCloseItem(path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) {
+    collection = updateDeepTree(
+      collection,
       path,
       item => ({ ...item, open: false })
     );
 
-    callback(c);
+    callback(collection);
   }
 
   function updateDeepTree(

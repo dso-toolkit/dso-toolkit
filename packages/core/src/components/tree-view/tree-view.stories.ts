@@ -12,14 +12,17 @@ storiesOfTreeView(
     readme
   },
   {
-    treeViewDemoTemplate: (collection, onOpenItem, onCloseItem) => html`
+    treeViewDemoTemplate: (collection, onOpenItem, onCloseItem, onClickItem) => html`
       ${treeViewTemplate({
         collection,
         onOpenItem: function (e) {
-          onOpenItem(this.collection, e.detail, collection => this.collection = collection);
+          onOpenItem(e.detail, collection => this.collection = collection);
         },
         onCloseItem: function (e) {
-          onCloseItem(this.collection, e.detail, collection => this.collection = collection);
+          onCloseItem(e.detail, collection => this.collection = collection);
+        },
+        onClickItem: function (e) {
+          onClickItem(e.detail);
         }
       })}
     `

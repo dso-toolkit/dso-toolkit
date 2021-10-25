@@ -3,6 +3,10 @@
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
 
 :host {
+  ul {
+    list-style-type: none;
+  }
+
   ul[role='tree'] {
     padding-left: 0;
 
@@ -13,8 +17,6 @@
     li[role='treeitem'],
     li.tree-item {
       cursor: pointer;
-      display: inline-block;
-      width: 100%;
 
       > ul {
         padding-left: 1.5em;

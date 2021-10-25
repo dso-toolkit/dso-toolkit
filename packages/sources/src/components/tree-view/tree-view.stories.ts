@@ -1,4 +1,6 @@
-import { StorybookParameters } from '../../stories-helpers';
+import { Args } from '@storybook/addons';
+import { ArgsError, StorybookParameters } from '../../stories-helpers';
+import { TreeViewArgs, treeViewArgTypes } from './tree-view.args';
 
 import { TreeViewDemo } from './tree-view.demo';
 import { TreeViewItem } from './tree-view.models';
@@ -6,8 +8,9 @@ import { TreeViewItem } from './tree-view.models';
 export interface TreeViewParameters<TemplateFnReturnType> {
   treeViewDemoTemplate: (
     collection: TreeViewItem<string>[],
-    onOpenItem: (tree: TreeViewItem<string>[], path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) => void,
-    onCloseItem: (tree: TreeViewItem<string>[], path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) => void
+    onOpenItem: (path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) => void,
+    onCloseItem: (path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) => void,
+    onClickItem: (path: TreeViewItem<string>[]) => void
   ) => TemplateFnReturnType;
 }
 
@@ -28,11 +31,20 @@ export function storiesOfTreeView<TemplateFnReturnType>(
       },
       docs: {
         page: readme
-      }
+      },
+      argTypes: treeViewArgTypes
     });
 
   stories.add(
     'Tree View',
-    () => treeViewDemoTemplate(TreeViewDemo.collection, TreeViewDemo.onOpenItem, TreeViewDemo.onCloseItem)
+    (a: Args | undefined) => {
+      if (!a) {
+        throw new ArgsError();
+      }
+
+      const args = a as TreeViewArgs;
+
+      return treeViewDemoTemplate(TreeViewDemo.collection, TreeViewDemo.onOpenItem, TreeViewDemo.onCloseItem, args.onClickItem);
+    }
   );
 }

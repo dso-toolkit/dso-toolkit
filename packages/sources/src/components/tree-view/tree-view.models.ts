@@ -17,4 +17,5 @@ export interface TreeView<T> {
   collection: TreeViewItem<T>[];
   onOpenItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
   onCloseItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
+  onClickItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
 }

@@ -18,6 +18,9 @@ export class TreeView implements ComponentInterface {
   @Event()
   closeItem!: EventEmitter<TreeViewItem<string>[]>;
 
+  @Event()
+  clickItem!: EventEmitter<TreeViewItem<string>[]>;
+
   keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
       return;
@@ -50,8 +53,9 @@ export class TreeView implements ComponentInterface {
       case "Home":
         TreeView.moveFocus(tree, event.target, 'first');
         break;
+      case "Enter":
       case " ":
-        TreeView.toggleItem(event.target);
+        event.target.click();
         break;
       default:
         if (isIndexLetter(event.key)) {
@@ -68,6 +72,11 @@ export class TreeView implements ComponentInterface {
 
   itemClick = (event: Event, ancestors: TreeViewItem<string>[], item: TreeViewItem<string>) => {
     if (!(event.target instanceof HTMLElement)) {
+      return;
+    }
+
+    if (event.target.getAttribute('role') === 'treeitem' || event.target.parentElement?.getAttribute('role') === 'treeitem') {
+      this.clickItem.emit([...ancestors, item]);
       return;
     }
 
@@ -162,13 +171,6 @@ export class TreeView implements ComponentInterface {
     }
 
     return false;
-  }
-
-  private static toggleItem(target: HTMLElement): void {
-    const controlElement = target.previousElementSibling?.firstElementChild;
-    if (controlElement instanceof HTMLElement) {
-      controlElement.click();
-    }
   }
 
   render() {
