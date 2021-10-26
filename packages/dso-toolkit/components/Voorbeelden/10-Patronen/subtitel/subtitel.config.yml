@@ -12,6 +12,7 @@ variants:
 - name: subtitel-before-definition-list
   context:
     __title: Subtitel voor een Definitie Lijst
+    content:
     definitionList:
       modifier: dso-bordered
       definitions:
