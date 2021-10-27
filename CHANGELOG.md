@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **css:** Layout Viewer ([#1279](https://github.com/dso-toolkit/dso-toolkit/issues/1279))
 * **core:** Het Ozon Content component moet anchors met fully qualified URL's negeren en door de browser laten afhandelen ([#1309](https://github.com/dso-toolkit/dso-toolkit/issues/1309))
+* **css + core:** Nieuw icoon "location-search" en "measurement" ([#1306](https://github.com/dso-toolkit/dso-toolkit/issues/1306))
 
 ### Changed
 * **BREAKING: all packages**. Update dependencies ([#1290](https://github.com/dso-toolkit/dso-toolkit/issues/1290)). Overgestapt van `node-sass` naar `sass` (Dart Sass). **stylesheets zijn niet meer node-sass compatible**
