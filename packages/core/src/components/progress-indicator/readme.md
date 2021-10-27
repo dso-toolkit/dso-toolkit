@@ -14,6 +14,19 @@
 | `size`   | `size`    |             | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
 
 
+## Dependencies
+
+### Used by
+
+ - [dso-tree-view](../tree-view)
+
+### Graph
+```mermaid
+graph TD;
+  dso-tree-view --> dso-progress-indicator
+  style dso-progress-indicator fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

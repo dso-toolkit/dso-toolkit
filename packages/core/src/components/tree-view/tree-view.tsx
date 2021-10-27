@@ -28,7 +28,7 @@ export class TreeView implements ComponentInterface {
 
     const isIndexLetter = (str: string) => str.length === 1 && str.match(/\S/);
 
-    const tree = event.composedPath().find(item => (item instanceof HTMLElement) ? item.id === 'tree' : false);
+    const tree = event.composedPath().find(item => (item instanceof HTMLElement) ? item.className === 'dso-tree' : false);
 
     if (!(event.target instanceof HTMLParagraphElement) || !(tree instanceof HTMLElement)) {
       return;
@@ -175,7 +175,7 @@ export class TreeView implements ComponentInterface {
 
   render() {
     return (
-      <div id="tree" onKeyDown={(e) => this.keyDownListener(e)}>
+      <div id="tree" class="dso-tree" onKeyDown={(e) => this.keyDownListener(e)}>
         <ul role="tree" aria-label="Objectenboom">
           {this.collection?.map((item, index) =>
             <DsoTreeItem
