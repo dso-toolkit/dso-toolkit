@@ -1,5 +1,8 @@
 export const inhoud = `
 <div class="od-Inhoud">
+  <div class="od-Al">
+    Verwijzing naar een <a href="https://www.geonovum.nl/geo-standaarden/omgevingswet/STOPTPOD" target="_blank">STOPTPOD website</a>. (Opleverpagina van Geonovum, ExtRef met soort URL)
+  </div>
   <div class="od-Lijst">
     <div class="od-Lijstaanhef">Voor de begrenzing van Natura 2000-gebieden geldt de volgende algemene
       exclaveringsformule: Bestaande bebouwing, erven, tuinen, verhardingen en hoofdspoorwegen maken geen deel uit van het

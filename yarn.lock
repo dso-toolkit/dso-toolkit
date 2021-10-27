@@ -1616,6 +1616,7 @@ __metadata:
     "@types/debounce": ^1.2.1
     "@types/sass": 1.16.1
     "@types/uuid": ^8.3.1
+    "@types/validator": ^13.6.5
     "@whitespace/storybook-addon-html": 5.0.0
     axe-core: ^4.3.3
     babel-loader: ^8.2.2
@@ -1640,6 +1641,7 @@ __metadata:
     tabbable: ^5.2.1
     typescript: 4.4.4
     uuid: ^8.3.2
+    validator: ^13.6.0
     wait-on: ^6.0.0
     webpack: ^5.58.2
   languageName: unknown
@@ -4323,6 +4325,13 @@ __metadata:
   version: 8.3.1
   resolution: "@types/uuid@npm:8.3.1"
   checksum: b41bdc5e86c6f0f1899306be10455636da0f2168c9489b869edd6837ddeb7c0e501b1ff7d857402462986bada2a379125743dd895fa801d03437cd632116a373
+  languageName: node
+  linkType: hard
+
+"@types/validator@npm:^13.6.5":
+  version: 13.6.5
+  resolution: "@types/validator@npm:13.6.5"
+  checksum: 79a3bb5ab219f1758eaa7871d925c451459ed104939ed36f4f36d5f56278b7534ea137aa4124da8e1c363e8365b4ca06cfe9a761e42286af19712d6c7c4fb762
   languageName: node
   linkType: hard
 
@@ -22392,6 +22401,13 @@ typescript@^4.1.3:
     spdx-correct: ~1.0.0
     spdx-expression-parse: ~1.0.0
   checksum: 97102bf430e4a7bdbac7356f93dcf1f573af7b243f8c81be1cbc4707e6fbde54971cac10d083c22949f0c17e29c971a0858277ceec2db8bfcfcdb39487180cd8
+  languageName: node
+  linkType: hard
+
+"validator@npm:^13.6.0":
+  version: 13.6.0
+  resolution: "validator@npm:13.6.0"
+  checksum: 1f9f813228a709d993b965813ad9d8ce009717bec64f57a0ac40d5f50ef781ee47260f85741e125775823fb31aa3beb7f974e0f5fb1afe9bc4615b7fadd7f8bb
   languageName: node
   linkType: hard
 

@@ -1,4 +1,5 @@
 import { EventEmitter } from '@stencil/core';
+import isURL from 'validator/es/lib/isURL';
 
 import { ContentAnchor } from './ozon-content.interfaces';
 
@@ -22,7 +23,7 @@ function transformDescriptionNote(body: HTMLElement): HTMLElement {
 
     anchorElement?.setAttribute('id', termId);
     anchorElement?.setAttribute('aria-controls', contentId);
-    anchorElement?.setAttribute('aria-open', 'false');
+    anchorElement?.setAttribute('aria-expanded', 'false');
 
     contentElement?.setAttribute('id', contentId);
   });
@@ -110,7 +111,16 @@ export class OzonContentTransformer {
     return false;
   }
 
-  private eventHandlers = [this.handleDescriptionNoteClick, this.handleContentAnchor];
+  private handleValidUrls(composedPath: EventTarget[]): boolean {
+    const containerIndex = composedPath.findIndex(this.isHostElement);
+    if (containerIndex === -1) {
+      return false;
+    }
+
+    return composedPath.slice(0, containerIndex)?.some(e => e instanceof HTMLAnchorElement && isURL(e.href));
+  }
+
+  private eventHandlers = [this.handleValidUrls, this.handleDescriptionNoteClick, this.handleContentAnchor];
 
   private isHostElement(value: EventTarget): boolean {
     return value instanceof HTMLElement && value.tagName === 'DSO-OZON-CONTENT';
