@@ -1,0 +1,118 @@
+// Keep in sync with documentation readme.md
+$dso-viewer-grid-small: 375px;
+$dso-viewer-grid-medium: 624px;
+$dso-viewer-grid-large: 60%;
+$dso-viewer-grid-large-min: 768px;
+$dso-viewer-grid-large-max: 1024px;
+$dso-viewer-grid-overlay-width: 624px;
+
+.dso-viewer-grid-shrink,
+.dso-viewer-grid-expand,
+.dso-viewer-grid-overlay-close-button {
+  @include button-tertiary();
+
+  &[disabled] {
+    display: none;
+  }
+}
+
+.dso-viewer-grid {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  &.dso-viewer-grid-small {
+    .dso-viewer-grid-main {
+      flex-basis: $dso-viewer-grid-small;
+
+      @media screen and (max-width: $dso-viewer-grid-small) {
+        transition: none;
+        flex-basis: 100vw;
+      }
+    }
+  }
+
+  &.dso-viewer-grid-medium {
+    .dso-viewer-grid-main {
+      flex-basis: $dso-viewer-grid-medium;
+
+      @media screen and (max-width: $dso-viewer-grid-medium) {
+        transition: none;
+        flex-basis: 100vw;
+      }
+    }
+  }
+
+  &.dso-viewer-grid-large {
+    .dso-viewer-grid-main {
+      flex-basis: $dso-viewer-grid-large;
+      min-width: $dso-viewer-grid-large-min;
+      max-width: $dso-viewer-grid-large-max;
+
+      @media screen and (max-width: $dso-viewer-grid-large-min) {
+        transition: none;
+        flex-basis: 100vw;
+        min-width: auto;
+        max-width: auto;
+      }
+    }
+  }
+}
+
+.dso-viewer-grid-main {
+  background-color: $wit;
+  box-shadow: 2px 0 5px $grijs-60;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 100%;
+  transition: flex-basis 0.2s ease-in, max-width 0.2s ease-in, min-width 0.2s ease-in;
+  padding: $u1 $grid-gutter-width * 0.5;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.dso-viewer-grid-sizing-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: $u1;
+}
+
+.dso-viewer-grid-map {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dso-viewer-grid-overlay {
+  background-color: $wit;
+  height: 100%;
+  padding: $u5 $grid-gutter-width * 0.5 $u1;
+  position: absolute;
+  right: 0;
+  width: $dso-viewer-grid-overlay-width;
+  box-shadow: -2px 0 5px $grijs-60;
+  overflow-y: auto;
+  z-index: 2;
+
+  @media screen and (max-width: $dso-viewer-grid-overlay-width) {
+    width: 100vw;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: $dso-viewer-grid-overlay-width;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.dso-viewer-grid-overlay-close-button {
+  position: absolute;
+  top: $u1;
+  right: $grid-gutter-width * 0.5;
+}
