@@ -15956,7 +15956,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^1.0.2":
+"nth-check@npm:^1.0.2, nth-check@npm:~1.0.1":
   version: 1.0.2
   resolution: "nth-check@npm:1.0.2"
   dependencies:
@@ -15966,20 +15966,11 @@ fsevents@~2.3.2:
   linkType: hard
 
 "nth-check@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "nth-check@npm:2.0.0"
+  version: 2.0.1
+  resolution: "nth-check@npm:2.0.1"
   dependencies:
     boolbase: ^1.0.0
-  checksum: a22eb19616719d46a5b517f76c32e67e4a2b6a229d67ba2f3efb296e24d79687d52b904c2298cd16510215d5d2a419f8ba671f5957a3b4b73905f62ba7aafa3b
-  languageName: node
-  linkType: hard
-
-"nth-check@npm:~1.0.1":
-  version: 1.0.1
-  resolution: "nth-check@npm:1.0.1"
-  dependencies:
-    boolbase: ~1.0.0
-  checksum: 68cf8b572b7f4c0003e6242fe181328719127f8d854e7dfe165facd9182feb194861bced6bd4b2099e8291f9a449ca7798162218f5ca0d74e49d090558864cb2
+  checksum: 5386d035c48438ff304fe687704d93886397349d1bed136de97aeae464caba10e8ffac55a04b215b86b3bc8897f33e0a5aa1045a9d8b2f251ae61b2a3ad3e450
   languageName: node
   linkType: hard
 
