@@ -4,11 +4,13 @@ import { html } from "lit-html";
 
 export function autosuggestTemplate({
   fetchSuggestions,
+  onSelected,
   suggestOnFocus,
 }: Autosuggest) {
   return html`
     <label for="autosuggestInputId">Label voor input</label>
     <dso-autosuggest
+      @selected=${(e: CustomEvent<string>) => onSelected(e.detail)}
       .fetchSuggestions=${fetchSuggestions}
       ?suggest-on-focus=${suggestOnFocus}
     >

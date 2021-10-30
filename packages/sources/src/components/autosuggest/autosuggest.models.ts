@@ -5,5 +5,6 @@ export interface Suggestion {
 
 export interface Autosuggest {
   fetchSuggestions: (value: string) => Promise<Array<Suggestion>>;
+  onSelected: (value: string) => void;
   suggestOnFocus: boolean;
 }

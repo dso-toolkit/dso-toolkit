@@ -35,7 +35,7 @@ export class Autosuggest {
    * @returns A promise with an array of `Suggestion`s. You should limit this array to ten items.
    */
   @Prop()
-  fetchSuggestions!: (value: string) => Promise<Array<Suggestion>>;
+  fetchSuggestions?: (value: string) => Promise<Array<Suggestion>>;
 
   /**
    * Whether the previous suggestions will be presented when the input gets focus again.
@@ -75,7 +75,7 @@ export class Autosuggest {
 
   debouncedFetchSuggestions = debounce(
     (terms: string[]) =>
-      this.fetchSuggestions(terms.join(" "))
+      (this.fetchSuggestions ? this.fetchSuggestions(terms.join(" ")) : Promise.resolve([]))
         .then((result) => {
           this.suggestions = result.map((suggestion, index) => ({
             value: suggestion.value,
@@ -133,10 +133,6 @@ export class Autosuggest {
       this.inputId = input.id;
     } else {
       input.id = this.inputId;
-    }
-
-    if (!this.fetchSuggestions) {
-      throw new Error("fetchSuggestions is mandatory");
     }
 
     if (!this.input.labels || this.input.labels.length < 1) {

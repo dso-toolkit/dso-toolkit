@@ -31,7 +31,7 @@ export namespace Components {
           * A method that will be called debounced with the input value as its first parameter. This method will also be called when the input is reduced to an empty string.
           * @returns A promise with an array of `Suggestion`s. You should limit this array to ten items.
          */
-        "fetchSuggestions": (value: string) => Promise<Array<Suggestion>>;
+        "fetchSuggestions"?: (value: string) => Promise<Array<Suggestion>>;
         /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
@@ -362,7 +362,7 @@ declare namespace LocalJSX {
           * A method that will be called debounced with the input value as its first parameter. This method will also be called when the input is reduced to an empty string.
           * @returns A promise with an array of `Suggestion`s. You should limit this array to ten items.
          */
-        "fetchSuggestions": (value: string) => Promise<Array<Suggestion>>;
+        "fetchSuggestions"?: (value: string) => Promise<Array<Suggestion>>;
         /**
           * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
          */

@@ -14,10 +14,10 @@ interface Suggestion {
 
 ## Properties
 
-| Property                        | Attribute          | Description                                                                                                                                                       | Type                                       | Default     |
-| ------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------- |
-| `fetchSuggestions` _(required)_ | --                 | A method that will be called debounced with the input value as its first parameter. This method will also be called when the input is reduced to an empty string. | `(value: string) => Promise<Suggestion[]>` | `undefined` |
-| `suggestOnFocus`                | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                               | `boolean`                                  | `false`     |
+| Property           | Attribute          | Description                                                                                                                                                       | Type                                                      | Default     |
+| ------------------ | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------- |
+| `fetchSuggestions` | --                 | A method that will be called debounced with the input value as its first parameter. This method will also be called when the input is reduced to an empty string. | `((value: string) => Promise<Suggestion[]>) \| undefined` | `undefined` |
+| `suggestOnFocus`   | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                               | `boolean`                                                 | `false`     |
 
 
 ## Events
