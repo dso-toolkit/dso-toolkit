@@ -117,7 +117,8 @@ export class OzonContentTransformer {
       return false;
     }
 
-    return composedPath.slice(0, containerIndex)?.some(e => e instanceof HTMLAnchorElement && isURL(e.href));
+    // require_tld: false is needed to allow http://localhost
+    return composedPath.slice(0, containerIndex)?.some(e => e instanceof HTMLAnchorElement && isURL(e.getAttribute('href') ?? '', { require_tld: false }));
   }
 
   private eventHandlers = [this.handleValidUrls, this.handleDescriptionNoteClick, this.handleContentAnchor];

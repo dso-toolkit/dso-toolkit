@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Fixed
+* **core:** Soms werken noten niet ([#1311](https://github.com/dso-toolkit/dso-toolkit/issues/1311))
 * **core:** Initializatie van Autosuggest Web Component gaat onterecht fout omdat er een error wordt gegooid in connectedCallback() ([#1312](https://github.com/dso-toolkit/dso-toolkit/issues/1312))
 
 ## 29.0.0
