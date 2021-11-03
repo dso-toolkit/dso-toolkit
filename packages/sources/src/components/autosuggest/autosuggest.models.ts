@@ -1,10 +1,11 @@
-export interface Suggestion {
-  value: string;
-  type?: string;
+export interface Autosuggest {
+  suggestions: AutosuggestSuggestion[];
+  suggestOnFocus: boolean;
+  onChange: (value: CustomEvent<string>) => void;
+  onSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
 }
 
-export interface Autosuggest {
-  fetchSuggestions: (value: string) => Promise<Array<Suggestion>>;
-  onSelected: (value: string) => void;
-  suggestOnFocus: boolean;
+export interface AutosuggestSuggestion {
+  value: string;
+  type?: string;
 }

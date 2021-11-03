@@ -4,6 +4,11 @@ $dso-autosuggest-bg: #fff;
 $dso-autosuggest-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
 $dso-autosuggest-border: rgba(0, 0, 0, 0.15);
 
+:host {
+  display: block;
+  position: relative;
+}
+
 ul {
   background-clip: padding-box;
   background-color: $dso-autosuggest-bg;
@@ -13,6 +18,10 @@ ul {
   list-style-type: none;
   margin-top: 2px;
   padding: 4px 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
 
   li {
     display: flex;

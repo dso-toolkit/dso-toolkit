@@ -1,6 +1,6 @@
 describe("Autosuggest", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:56106/iframe.html?id=autosuggest--autosuggest");
+    cy.visit("http://localhost:56106/iframe.html?id=autosuggest--example");
     cy.injectAxe();
     cy.get("input").as("input");
     cy.get("ul[role='listbox']").as("listbox");
@@ -38,7 +38,7 @@ describe("Autosuggest", () => {
     cy.get("@input").should(
       "have.attr",
       "aria-activedescendant",
-      "1-autosuggestInputId"
+      "autosuggestInputId-2"
     );
   });
 
@@ -84,7 +84,7 @@ describe("Autosuggest", () => {
     { browser: "!firefox" },
     () => {
       cy.get("dso-autosuggest").then((c) => {
-        c.get(0).addEventListener("selected", cy.stub().as("selected"));
+        c.get(0).addEventListener("dsoSelect", cy.stub().as("dsoSelect"));
       });
       cy.get("@input").focus().type("rotterdam");
       cy.wait(200);
@@ -96,7 +96,7 @@ describe("Autosuggest", () => {
         .invoke("val")
         .should("eq", "Rotterdamse Rijweg 13B, 3043BG Rotterdam");
       cy.get("@listbox").should("not.be.visible");
-      cy.get("@selected").should("have.been.calledOnce");
+      cy.get("@dsoSelect").should("have.been.calledOnce");
     }
   );
 
@@ -122,7 +122,7 @@ describe("Autosuggest", () => {
 
   it("mouse click should pick option", () => {
     cy.get("dso-autosuggest").then((c) => {
-      c.get(0).addEventListener("selected", cy.stub().as("selected"));
+      c.get(0).addEventListener("dsoSelect", cy.stub().as("selected"));
     });
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
@@ -174,7 +174,7 @@ describe("Autosuggest", () => {
       cy.get("@listbox").should("not.be.visible");
 
       cy.visit(
-        "http://localhost:56106/iframe.html?id=autosuggest--autosuggest&args=suggestOnFocus:true"
+        "http://localhost:56106/iframe.html?id=autosuggest--example&args=suggestOnFocus:true"
       );
 
       cy.get("@input").focus().type("rotterdam");
@@ -192,13 +192,13 @@ describe("Autosuggest", () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("@listbox").should("be.visible");
-    cy.get("body").click();
+    cy.get("body").click('top');
     cy.get("@listbox").should("not.be.visible");
     cy.get("@input").click("bottomRight", { force: true });
     cy.get("@listbox").should("not.be.visible");
 
     cy.visit(
-      "http://localhost:56106/iframe.html?id=autosuggest--autosuggest&args=suggestOnFocus:true"
+      "http://localhost:56106/iframe.html?id=autosuggest--example&args=suggestOnFocus:true"
     );
 
     cy.get("@input").focus().type("rotterdam");

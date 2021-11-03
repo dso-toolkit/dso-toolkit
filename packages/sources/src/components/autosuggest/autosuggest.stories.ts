@@ -1,29 +1,70 @@
-import { bindTemplate, StorybookParameters } from "../../stories-helpers";
+import { Args } from '@storybook/addons';
 
-import { autosuggestArgsMapper, autosuggestArgTypes } from "./autosuggest.args";
-import { Autosuggest } from "./autosuggest.models";
+import { ArgsError, StorybookParameters } from '../../stories-helpers';
+
+import { AutosuggestArgs, autosuggestArgTypes } from './autosuggest.args';
+import { fetchSuggestions } from './autosuggest.demo';
+import { AutosuggestSuggestion } from './autosuggest.models';
+
+type AutosuggestTemplateFnType<TemplateFnReturnType> = (
+  fetchSuggestions: (value: string) => AutosuggestSuggestion[],
+  onSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
+  onChange: (event: CustomEvent<string>) => void,
+  suggestOnFocus: boolean
+) => TemplateFnReturnType;
 
 export interface AutosuggestParameters<TemplateFnReturnType> {
-  autosuggestTemplate: (
-    autosuggestProperties: Autosuggest
-  ) => TemplateFnReturnType;
+  autosuggestDemoTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
+  autosuggestInSearchBarTemplate?: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
 export function storiesOfAutosuggest<TemplateFnReturnType>(
-  { module: mainModule, storiesOf, readme }: StorybookParameters,
-  { autosuggestTemplate }: AutosuggestParameters<TemplateFnReturnType>
+  {
+    module: mainModule,
+    storiesOf,
+    readme
+  }: StorybookParameters,
+  {
+    autosuggestDemoTemplate,
+    autosuggestInSearchBarTemplate
+  }: AutosuggestParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(autosuggestArgsMapper, autosuggestTemplate);
+  const stories = storiesOf('Autosuggest', mainModule)
+    .addParameters({
+      docs: {
+        page: readme,
+      },
+      argTypes: autosuggestArgTypes,
+      args: {
+        suggestOnFocus: false,
+      },
+    });
 
-  const stories = storiesOf("Autosuggest", mainModule).addParameters({
-    docs: {
-      page: readme,
-    },
-    argTypes: autosuggestArgTypes,
-    args: {
-      suggestOnFocus: false,
-    },
-  });
+  stories.add(
+    'example',
+    (a: Args | undefined) => {
+      if (!a) {
+        throw new ArgsError();
+      }
 
-  stories.add("Autosuggest", template);
+      const args = a as AutosuggestArgs;
+
+      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.suggestOnFocus);
+    }
+  );
+
+  if (autosuggestInSearchBarTemplate) {
+    stories.add(
+      'in searchbar',
+      (a: Args | undefined) => {
+        if (!a) {
+          throw new ArgsError();
+        }
+  
+        const args = a as AutosuggestArgs;
+  
+        return autosuggestInSearchBarTemplate(fetchSuggestions, args.onSelect, args.onChange, args.suggestOnFocus);
+      }
+    );
+  }
 }

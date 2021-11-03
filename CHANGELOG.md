@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
+* **BREAKING: core + react:** Autosuggest Web Component API refactor ([#1315](https://github.com/dso-toolkit/dso-toolkit/issues/1315))
 * **dso-toolkit + css:** Search Bar styling naar @dso-toolkit/css ([#1316](https://github.com/dso-toolkit/dso-toolkit/issues/1316))
 
 ### Fixed

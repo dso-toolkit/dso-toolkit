@@ -1,20 +1,23 @@
-import { Autosuggest } from "@dso-toolkit/sources";
+import { Autosuggest } from '@dso-toolkit/sources';
+import { html, TemplateResult } from 'lit-html';
 
-import { html } from "lit-html";
-
-export function autosuggestTemplate({
-  fetchSuggestions,
-  onSelected,
-  suggestOnFocus,
-}: Autosuggest) {
+export function autosuggestTemplate(
+  {
+    suggestions,
+    onSelect,
+    onChange,
+    suggestOnFocus
+  }: Autosuggest,
+  children: TemplateResult
+) {
   return html`
-    <label for="autosuggestInputId">Label voor input</label>
     <dso-autosuggest
-      @selected=${(e: CustomEvent<string>) => onSelected(e.detail)}
-      .fetchSuggestions=${fetchSuggestions}
+      .suggestions=${suggestions}
+      @dsoSelect=${onSelect}
+      @dsoChange=${onChange}
       ?suggest-on-focus=${suggestOnFocus}
     >
-      <input id="autosuggestInputId" type="text" class="form-control" />
+      ${children}
     </dso-autosuggest>
   `;
 }

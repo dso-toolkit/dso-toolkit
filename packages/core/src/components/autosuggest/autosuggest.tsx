@@ -9,6 +9,7 @@ import {
   Event,
   EventEmitter,
   VNode,
+  Watch,
 } from "@stencil/core";
 import debounce from "debounce";
 import { v4 } from "uuid";
@@ -18,11 +19,6 @@ export interface Suggestion {
   type?: string;
 }
 
-interface SuggestionState extends Suggestion {
-  selected: boolean;
-  id: string;
-}
-
 @Component({
   tag: "dso-autosuggest",
   styleUrl: "autosuggest.scss",
@@ -30,12 +26,10 @@ interface SuggestionState extends Suggestion {
 })
 export class Autosuggest {
   /**
-   * A method that will be called debounced with the input value as its first parameter.
-   * This method will also be called when the input is reduced to an empty string.
-   * @returns A promise with an array of `Suggestion`s. You should limit this array to ten items.
+   * The suggestions for the value of the slotted input element
    */
   @Prop()
-  fetchSuggestions?: (value: string) => Promise<Array<Suggestion>>;
+  readonly suggestions: Suggestion[] = [];
 
   /**
    * Whether the previous suggestions will be presented when the input gets focus again.
@@ -47,23 +41,39 @@ export class Autosuggest {
    * Emitted when a suggestion is selected.
    * The `detail` property of the `CustomEvent` will contain the selected suggestion.
    */
-  @Event()
-  selected: EventEmitter<string> | undefined;
+  @Event({ eventName: 'dsoSelect' })
+  selectEmitter!: EventEmitter<Suggestion>;
+
+  /**
+   * This is emitted debounced for every change for the slotted input type=text element.
+   */
+  @Event({ eventName: 'dsoChange' })
+  changeEmitter!: EventEmitter<string>;
 
   @Element()
   host!: HTMLElement;
 
   @State()
-  suggestions: Array<SuggestionState> = [];
-
-  selectedIndex: number = -1;
-
-  terms: string[] = [];
-
-  @State()
   showSuggestions: boolean = false;
 
+  @State()
+  selectedSuggestion: Suggestion | undefined;
+
+  @Watch('suggestions')
+  suggestionsWatcher() {
+    this.resetSelectedSuggestion();
+
+    if (!this.showSuggestions && this.suggestions.length > 0) {
+      this.openSuggestions();
+    }
+    else if (this.showSuggestions && this.suggestions.length === 0) {
+      this.closeSuggestions();
+    }
+  }
+  
   input!: HTMLInputElement;
+
+  listbox: HTMLUListElement | undefined;
 
   listboxId: string = v4();
 
@@ -71,36 +81,14 @@ export class Autosuggest {
 
   labelId: string = v4();
 
-  listbox: HTMLUListElement | undefined;
-
-  debouncedFetchSuggestions = debounce(
-    (terms: string[]) =>
-      (this.fetchSuggestions ? this.fetchSuggestions(terms.join(" ")) : Promise.resolve([]))
-        .then((result) => {
-          this.suggestions = result.map((suggestion, index) => ({
-            value: suggestion.value,
-            type: suggestion.type,
-            selected: false,
-            id: `${index}-${this.inputId}`,
-          }));
-          this.terms = terms;
-          this.openSuggestions();
-        })
-        .catch(() => {
-          this.closeSuggestions();
-          this.suggestions = [];
-        }),
-    200
-  );
+  debouncedEmitValue = debounce((value: string) => this.changeEmitter.emit(value), 200);
 
   onInput = (event: Event) => {
     if (!(event.target instanceof HTMLInputElement)) {
-      throw new Error("event.target not a instance of HTMLInputElement");
+      throw new Error("event.target is not instanceof HTMLInputElement");
     }
 
-    this.debouncedFetchSuggestions(
-      `${event.target.value}`.match(/(\S+)/g) ?? []
-    );
+    this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : '');
   };
 
   onFocusIn = () => {
@@ -123,7 +111,7 @@ export class Autosuggest {
   }
 
   connectedCallback() {
-    const input = this.host.querySelectorAll('input[type="text"]')[0];
+    const input = this.host.querySelector('input[type="text"]');
     if (!(input instanceof HTMLInputElement)) {
       throw new ReferenceError("Mandatory text input not found");
     }
@@ -164,25 +152,23 @@ export class Autosuggest {
     this.input.removeEventListener("focusin", this.onFocusIn);
   }
 
-  markTerms(
-    suggestionValue: string,
-    terms: string[]
-  ): (VNode | string)[] {
-    if (!suggestionValue || !terms || terms.length == 0) {
-      return [""];
+  markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
+    if (!suggestionValue || !terms || terms.length === 0) {
+      return [''];
     }
 
-    const termRegex = new RegExp(`(${terms[0]})`, "gi");
+    const termRegex = new RegExp(`(${terms[0]})`, 'gi');
+
     return suggestionValue.split(termRegex).map((valuePart: string) => {
       if (!valuePart) {
-        return "";
+        return '';
       }
 
       if (termRegex.test(valuePart)) {
         return <mark>{valuePart}</mark>;
       }
 
-      if (terms.length == 1) {
+      if (terms.length === 1) {
         return <span>{valuePart}</span>;
       }
 
@@ -190,57 +176,77 @@ export class Autosuggest {
     });
   }
 
-  setSelectedSuggestion(index: number) {
-    this.suggestions.forEach((suggestion) => (suggestion.selected = false));
-    if (index < 0 || index >= this.suggestions.length) {
-      this.selectedIndex = -1;
-      this.input.setAttribute("aria-activedescendant", "");
-    } else {
-      this.selectedIndex = index;
-      this.suggestions[index].selected = true;
-      this.input.setAttribute(
-        "aria-activedescendant",
-        this.suggestions[index].id
-      );
-    }
+  selectSuggestion(suggestion: Suggestion) {
+    this.selectedSuggestion = suggestion;
 
-    this.suggestions = [...this.suggestions];
+    this.input.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
   }
 
-  onMouseEnterOption = (event: MouseEvent) => {
-    if (event.target instanceof HTMLElement) {
-      const id = event.target.id;
-      this.setSelectedSuggestion(this.suggestions.findIndex((s) => s.id == id));
+  selectFirstSuggestion() {
+    this.selectedSuggestion = this.suggestions[0];
+
+    if (this.selectedSuggestion) {
+      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
     }
-  };
+  }
 
-  onMouseLeaveOption = () => {
-    this.setSelectedSuggestion(-1);
-  };
+  selectLastSuggestion() {
+    this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
-  onClickOption = () => {
-    this.pickSelectedValue();
-  };
+    if (this.selectedSuggestion) {
+      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+    }
+  }
 
-  openSuggestions() {
+  selectNextSuggestion() {
+    const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : -1;
+
+    this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
+
+    if (this.selectedSuggestion) {
+      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+    }
+  }
+
+  selectPreviousSuggestion() {
+    const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : 0;
+
+    this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
+
+    if (this.selectedSuggestion) {
+      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+    }
+  }
+
+  resetSelectedSuggestion() {
+    this.selectedSuggestion = undefined;
+    this.input.setAttribute('aria-activedescendant', '');
+  }
+
+  openSuggestions(selectSuggestion?: 'first' | 'last') {
     this.showSuggestions = this.suggestions.length > 0;
-    this.input.setAttribute("aria-expanded", `${this.showSuggestions}`);
-    this.setSelectedSuggestion(-1);
+    this.input.setAttribute("aria-expanded", this.showSuggestions.toString());
+
+    if (selectSuggestion === 'first') {
+      this.selectFirstSuggestion();
+    }
+    else if (selectSuggestion === 'last') {
+      this.selectLastSuggestion();
+    }
   }
 
   closeSuggestions() {
     this.showSuggestions = false;
     this.input.setAttribute("aria-expanded", "false");
-    this.setSelectedSuggestion(-1);
+    this.selectFirstSuggestion();
   }
 
   pickSelectedValue() {
-    if (this.selectedIndex >= 0) {
-      this.input.value = this.suggestions[this.selectedIndex].value;
-      this.selected?.emit(this.input.value);
+    if (this.selectedSuggestion) {
+      this.input.value = this.selectedSuggestion.value;
+      this.selectEmitter.emit(this.selectedSuggestion);
     }
 
-    this.suggestions = [];
     this.closeSuggestions();
   }
 
@@ -250,39 +256,35 @@ export class Autosuggest {
     }
 
     switch (event.key) {
-      case "ArrowDown":
+      case 'ArrowDown':
         if (!this.showSuggestions) {
-          this.openSuggestions();
+          this.openSuggestions('first');
+        }
+        else {
+          this.selectNextSuggestion();
         }
 
-        this.setSelectedSuggestion(
-          this.selectedIndex >= this.suggestions.length - 1
-            ? 0
-            : this.selectedIndex + 1
-        );
         break;
 
-      case "ArrowUp":
+      case 'ArrowUp':
         if (!this.showSuggestions) {
-          this.openSuggestions();
+          this.openSuggestions('last');
+        }
+        else {
+          this.selectPreviousSuggestion();
         }
 
-        this.setSelectedSuggestion(
-          this.selectedIndex <= 0
-            ? this.suggestions.length - 1
-            : this.selectedIndex - 1
-        );
         break;
 
-      case "Tab":
+      case 'Tab':
         this.closeSuggestions();
         return;
 
-      case "Escape":
+      case 'Escape':
         this.closeSuggestions();
         break;
 
-      case "Enter":
+      case 'Enter':
         this.pickSelectedValue();
         break;
 
@@ -293,7 +295,13 @@ export class Autosuggest {
     event.preventDefault();
   };
 
+  listboxItemId(suggestion: Suggestion): string {
+    return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
+  }
+
   render() {
+    const terms = this.input.value.split(' ');
+
     return (
       <>
         <slot />
@@ -301,30 +309,34 @@ export class Autosuggest {
           role="listbox"
           id={this.listboxId}
           aria-labelledby={this.labelId}
-          ref={(e) => (this.listbox = e)}
-          style={{ display: this.showSuggestions ? "block" : "none" }}
+          ref={element => this.listbox = element}
+          hidden={!this.showSuggestions}
         >
           {this.showSuggestions
             ? this.suggestions.map((suggestion) => (
                 <li
                   role="option"
-                  id={suggestion.id}
-                  key={suggestion.id}
-                  onMouseEnter={this.onMouseEnterOption}
-                  onMouseLeave={this.onMouseLeaveOption}
-                  onClick={this.onClickOption}
-                  aria-selected={"" + suggestion.selected}
+                  id={this.listboxItemId(suggestion)}
+                  key={suggestion.value}
+                  onMouseEnter={() => this.selectSuggestion(suggestion)}
+                  onMouseLeave={() => this.resetSelectedSuggestion()}
+                  onClick={() => this.pickSelectedValue()}
+                  aria-selected={(suggestion === this.selectedSuggestion).toString()}
                   aria-label={suggestion.value}
                 >
                   <span class="value">
-                    {this.markTerms(suggestion.value, this.terms)}
+                    {this.markTerms(suggestion.value, terms)}
                   </span>
-                  {suggestion.type ? (
-                    <span class="type">{suggestion.type}</span>
-                  ) : undefined}
+                  {suggestion.type
+                    ? (
+                      <span class="type">{suggestion.type}</span>
+                    )
+                    : undefined
+                  }
                 </li>
               ))
-            : undefined}
+            : undefined
+          }
         </ul>
       </>
     );

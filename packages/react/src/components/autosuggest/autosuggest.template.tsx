@@ -3,21 +3,17 @@ import * as React from "react";
 
 import { DsoAutosuggest } from "../..";
 
-export function autosuggestTemplate({
-  fetchSuggestions,
-  onSelected,
-  suggestOnFocus,
-}: Autosuggest) {
-  return (
-    <>
-      <label htmlFor="autosuggestInputId">Label voor input</label>
+export class AutosuggestTemplate extends React.Component<Autosuggest> {
+  render() {
+    return (
       <DsoAutosuggest
-        fetchSuggestions={fetchSuggestions}
-        onSelected={(e: CustomEvent<string>) => onSelected(e.detail)}
-        suggest-on-focus={suggestOnFocus}
+        suggestions={this.props.suggestions}
+        onDsoSelect={this.props.onSelect}
+        onDsoChange={this.props.onChange}
+        suggestOnFocus={this.props.suggestOnFocus}
       >
-        <input id="autosuggestInputId" type="text" className="form-control" />
+        {this.props.children}
       </DsoAutosuggest>
-    </>
-  );
+    );
+  }
 }
