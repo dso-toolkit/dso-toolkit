@@ -9,7 +9,10 @@
     type="{{ type }}"
     id="{{ id or _self.handle }}"
     name="{{ name or id or _self.handle }}"
+    {% if helpText and errorText %} aria-describedby="errorTextId_{{ id }} helpTextId_{{ id }}"{% endif %}
     {{ attributes(
+      [helpText, 'aria-describedby', 'helpTextId_' + id],
+      [errorText, 'aria-describedby', 'errorTextId_' + id],
       [value, 'value', value],
       [invalid, 'aria-invalid', invalid],
       [ariaDescribedBy, 'aria-describedby', ariaDescribedBy],

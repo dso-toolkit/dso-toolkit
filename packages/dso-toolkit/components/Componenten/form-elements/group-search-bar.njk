@@ -19,12 +19,18 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    {% render '@search-bar', merge(searchBar, {id: generateLocalId(prefix, searchBar.id), ariaDescribedBy: ariaDescribedBy, state: state}) %}
+    {% render '@search-bar', merge(searchBar, {
+      id: generateLocalId(prefix, searchBar.id),
+      ariaDescribedBy: ariaDescribedBy,
+      state: state,
+      errorText: errorText,
+      helpText: helpText
+    }) %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: ariaDescribedBy} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}

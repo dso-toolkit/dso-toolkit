@@ -7,7 +7,11 @@
 {% endif %}
 
 <fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}
-  {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
+  {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"{% endif %}
+  {% if helpText %} aria-describedby="helpTextId_{{ localId }}"{% endif %}
+  {% if errorText %} aria-describedby="errorTextId_{{ localId }}"{% endif %}
+  {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
+>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
     <span class="control-label" aria-hidden="true">
@@ -40,7 +44,7 @@
       } %}
     {% endfor %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}

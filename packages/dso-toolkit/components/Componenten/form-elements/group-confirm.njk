@@ -10,10 +10,12 @@
       disabled: disabled,
       checked: checked,
       required: required,
-      invalid: state == 'invalid'
+      invalid: state == 'invalid',
+      errorText: errorText,
+      helpText: helpText
     } %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}

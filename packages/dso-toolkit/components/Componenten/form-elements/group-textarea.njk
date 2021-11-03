@@ -20,16 +20,19 @@
   </div>
   <div class="dso-field-container">
     <textarea class="form-control" id="{{ localId }}"
+      {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"
+      {% elif helpText %} aria-describedby="helpTextId_{{ localId }}"
+      {% elif errorText %} aria-describedby="errorTextId_{{ localId }}"
+      {% elif ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
       {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
       {% if rows %} rows="{{ rows }}"{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if readonly %} readonly{% endif %}
       {% if required %} required{% endif %}
       {% if state == "invalid" %} aria-invalid="true"{% endif %}
-      {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
     >{{ value }}</textarea>
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}

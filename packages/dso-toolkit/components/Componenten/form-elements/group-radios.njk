@@ -11,7 +11,10 @@
 {% endif %}
 
 <fieldset {{ className('form-group', 'dso-radios', [state, 'dso-' + state], [inline, 'dso-inline'], [required, 'dso-required']) }}
-  {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
+  {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"
+  {% elif helpText %} aria-describedby="helpTextId_{{ localId }}"
+  {% elif errorText %} aria-describedby="errorTextId_{{ localId }}"
+  {% elif ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
     <span class="control-label" aria-hidden="true">
@@ -43,7 +46,7 @@
       } %}
     {% endfor %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}

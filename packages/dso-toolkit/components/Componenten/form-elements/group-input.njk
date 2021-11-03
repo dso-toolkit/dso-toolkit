@@ -28,6 +28,10 @@
       )}}></dso-date-picker>
     {% else %}
       <input type="{{ type }}" id="{{ localId }}" class="form-control"
+        {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"
+        {% elif helpText %} aria-describedby="helpTextId_{{ localId }}"
+        {% elif errorText %} aria-describedby="errorTextId_{{ localId }}"
+        {% elif ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
         {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
         {% if size %} size="{{ size }}"{% endif %}
         {% if value %} value="{{ value }}"{% endif %}
@@ -36,14 +40,13 @@
         {% if readonly %} readonly{% endif %}
         {% if required %} required{% endif %}
         {% if state == "invalid" %} aria-invalid="true"{% endif %}
-        {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
       >
     {% endif %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}

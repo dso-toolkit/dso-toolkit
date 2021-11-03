@@ -36,13 +36,17 @@
 
     <!-- To use an input type="file" element -->
     <div class="dso-file-upload">
-      <input type="file" id="{{ localId }}-file-upload" {% if disabled %} disabled{% endif %} />
+      <input type="file" id="{{ localId }}-file-upload"
+        {% if errorText %} aria-describedby="errorTextId_{{ localId }}"{% endif %}
+        {% if disabled %} disabled{% endif %}
+        {% if state == "invalid" %} aria-invalid="true"{% endif %}
+      />
       <label class="dso-secondary" for="{{ localId }}-file-upload">
         <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
       </label>
     </div>
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
   </div>
 

@@ -25,7 +25,7 @@
                     </label>
                   </div>
                   <div class="dso-field-container">
-                    <input type="text" id="name" class="form-control">
+                    <input type="text" id="name" class="form-control" aria-describedby="helpTextId_name">
                     <p class="dso-help-block" id="helpTextId_name">Instructie tekst buiten een tekstveld.</p>
                   </div>
                 </div>
@@ -46,8 +46,8 @@
                     </label>
                   </div>
                   <div class="dso-field-container">
-                    <input type="text" id="name2" class="form-control" required aria-invalid="true">
-                    <p class="dso-message">Verplicht veld niet gevuld.</p>
+                    <input type="text" id="name2" class="form-control" aria-describedby="errorTextId_name2 helpTextId_name2" required aria-invalid="true">
+                    <p class="dso-message" id="errorTextId_name2">Verplicht veld niet gevuld.</p>
                     <p class="dso-help-block" id="helpTextId_name2">Instructie tekst buiten een tekstveld.</p>
                   </div>
                 </div>

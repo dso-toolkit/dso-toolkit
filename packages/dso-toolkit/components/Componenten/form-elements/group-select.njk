@@ -24,13 +24,16 @@
   </div>
   <div class="dso-field-container">
     <select id="{{ localId }}" class="form-control"
-      {% if helpText %} aria-describedby="helpTextId_{{ localId }}"{% endif %}
+      {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"
+      {% elif helpText %} aria-describedby="helpTextId_{{ localId }}"
+      {% elif errorText %} aria-describedby="errorTextId_{{ localId }}"
+      {% elif ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
       {% if required %} required{% endif %}
       {% if state == "invalid" %} aria-invalid="true"{% endif %}
-      {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
+    >
       {% for option in options %}
         {% if option.optionType %}
           <optgroup label="{{ option.optionType }}"{% if option.disabled %} disabled{% endif %}>
@@ -44,7 +47,7 @@
       {% endfor %}
     </select>
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: localId} %}
     {% endif %}
     {% if helpText %}
       {% render '@help-block', {helpText: helpText, id: localId} %}
