@@ -16,7 +16,7 @@ notes: |
   Wanneer je een website hebt met meerdere applicaties, thema's of onderwerpen gebruik dan een hoofdmenu om gebruikers makkelijk te laten navigeren tussen pagina's.
 
   ### Sub-navigatie
-  Heeft een pagina/onderwerp subcategorieën en is het essentieel om hierbinnen te kunnen navigeren. Staat er te veel informatie op de pagina of staan er meerdere taken op dezelfde pagina die gerelateerd zijn aan elkaar? 
+  Heeft een pagina/onderwerp subcategorieën en is het essentieel om hierbinnen te kunnen navigeren. Staat er te veel informatie op de pagina of staan er meerdere taken op dezelfde pagina die gerelateerd zijn aan elkaar?
   Als deze onderwerpen niet belangrijk genoeg zijn voor de hoofdnavigatie maar het toch belangrijk is voor de gebruiker om hier snel en efficiënt toegang tot te hebben. Dan kun je een sub-navigatie overwegen.
 
   ## Wanneer het component niet te gebruiken:
@@ -28,7 +28,7 @@ notes: |
 
   ### Sub-navigatie vs Tabs:
   Deze twee onderdelen lijken op elkaar en worden daarom samen behandeld. Wanneer gebruik je een (sub) navigatie en wanneer tabs?
-  
+
   Tabs hebben altijd een gedeeld thema/onderwerp. Tabs zijn ontworpen om deze relatie visueel te versterken/ondersteunen.
 
   Een navigatie heeft niet altijd een gedeeld thema. Een sub-navigatie bevat categorieën op een lager niveau in de informatiearchitectuur.
@@ -65,16 +65,16 @@ notes: |
   ![Diepe hierarchie]({{ '/docs/images/Deep-hierarchy.png' | path }})
 
   Bovenstaande afbeelding toont de twee types van navigatie hiërarchieën. Boven staat een platte hiërarchie waar de gebruiker start met 7 categorieën en vervolgens te maken krijgt met 1 laag aan subcategorieën. Er onder staat een Diepe hiërarchie afbeelding, met minder start categorieën en die vervolgens 5 lagen diep is.
-  
+
   Er is geen direct antwoord welke hiërarchie het beste is. Het is altijd afhankelijk van de situatie. Maar zoek nooit de extremen op voor beide situaties.
-  Een platte hiërarchie is voor gebruikers makkelijk te begrijpen waardoor deze pagina's snel aan elkaar kan relateren. Bij een diepe hiërarchie wordt het moeilijker voor een gebruiker de structuur van een website te overzien en kan hierdoor gedesoriënteerd raken. Heeft je website meerdere niveaus? Overweeg dan om breadcrumbs toe te passen.
- 
+  Een platte hiërarchie is voor gebruikers makkelijk te begrijpen waardoor deze pagina's snel aan elkaar kan relateren. Bij een diepe hiërarchie wordt het moeilijker voor een gebruiker de structuur van een website te overzien en kan hierdoor gedesoriënteerd raken. Heeft je website meerdere niveaus? Overweeg dan om [breadcrumbs]({{ '/components/detail/breadcrumbs' | docPath }}) toe te passen.
+
   Uiteindelijk is het beste als je een platte hiërarchie gebruikt wanneer je duidelijk en herkenbare categorieën hebt en gebruikers niet teveel wilt laten klikken om snel bij de informatie te laten komen.
-  
+
   Zijn er teveel categorieën om in een keer aan de gebruiker te tonen overweeg dan een diepe hiërarchie. Doe wel gebruikerstesten om te kijken of gebruikers hun weg kunnen vinden. Een simpele test is een tree-test (https://www.nngroup.com/articles/tree-testing/).
-  
+
   Welke hiërarchie je ook kiest doe gebruikerstesten om te controleren of deze voldoen aan het mentale model dat gebruikers hebben van je website. ( NNg, 2013)
-  
+
   ## Gedrag en toegankelijkheid van het component:
 
   ### Let bij implementatie op het volgende: 
@@ -83,20 +83,16 @@ notes: |
   Geeft de hoofdnavigatie een `aria-label="hoofdmenu"` mee. Zodat screenreader gebruikers duidelijk gecommuniceerd krijgen dat dit het hoofdmenu is. Wanneer een menu-item actief is pas ook `aria-current="page"` toe. 
 
   **Sub-navigatie:**
-  Een sub-navigatie heeft ook een aria-label nodig. Maar geef een sub-navigatie geen algemene naam mee. Geef een naam die het doel van de sub-navigatie in de context in een oog/oor opslag duidelijk maakt. Zodat screenreader gebruikers duidelijk de unieke functie van een sub-navigatie op een pagina begrijpen. In componenten in context staat een voorbeeld van een context specifieke sub-navigatie. Wanneer een menu-item actief is pas ook `aria-current="page"` toe.  
+  Een sub-navigatie heeft ook een `aria-label` nodig. Maar geef een sub-navigatie geen algemene naam mee. Geef een naam die het doel van de sub-navigatie in de context in een oog/oor opslag duidelijk maakt. Zodat screenreader gebruikers duidelijk de unieke functie van een sub-navigatie op een pagina begrijpen. In componenten in context staat een voorbeeld van een context specifieke sub-navigatie. Wanneer een menu-item actief is pas ook `aria-current="page"` toe.  
 
   ## Component in voorbeeldpagina's:
 
   - [Hoofdnavigatie]({{ '/components/detail/landingspagina' | docPath }})
-  - [Sub-navigatie:](https://dso-toolkit.nl/_POC-Samenwerken-Voorbeeld-pagina-uitbreiding/components/detail/actieverzoeken.html) Kijk in de code naar het aria-label, daar staat aria-label:"sub-menu Samenwerkingstaken"
 
   ## Bronvermelding
 
   - Nielsen Norman group. (NNg, 2013, 15 December). Avoid category names that suck. Geraadpleegd op 21 Juli 2021, van https://www.nngroup.com/articles/category-names-suck/
   - Nielsen Norman group. (NNg, 2013, 10 November). Avoid category names that suck. Geraadpleegd op 21 Juli 2021, van https://www.nngroup.com/articles/flat-vs-deep-hierarchy/
-
-
-
 
 context:
   __title: 'Primary'
