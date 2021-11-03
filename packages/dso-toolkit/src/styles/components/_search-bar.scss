@@ -1,151 +1,6 @@
-$dso-search-bar-height: $u5;
-
-.dso-search-bar {
-  display: flex;
-  margin-bottom: 16px;
-
-  .form-group & {
-    margin-bottom: 0;
-    width: 50%;
-  }
-
-  .dso-search-bar-input {
-    position: relative;
-    width: 100%;
-
-    .dso-search-icon {
-      bottom: $u1;
-      font-size: 0;
-      height: $dso-search-bar-height;
-      left: 0;
-      line-height: $u5;
-      padding: $u1;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      width: $u5;
-
-      &::before {
-        @include di("search");
-
-        content: "";
-        display: inline-block;
-        font-size: 1rem;
-      }
-
-      + input {
-        padding-left: $u5;
-      }
-    }
-
-    input {
-      @include placeholder($input-color-placeholder);
-
-      background-color: $wit;
-      background-image: none;
-      border: 1px solid $dso-form-control-focus-border-color;
-      border-radius: 4px;
-      border-width: 1px;
-      box-shadow: none;
-      display: block;
-      font-size: 16px;
-      height: $dso-search-bar-height;
-      line-height: $dso-search-bar-height;
-      padding: 6px $u5 6px $u1;
-      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-      width: 100%;
-
-      &:focus {
-        border-color: $dso-form-control-focus-border-color;
-        box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-form-control-focus-border-color;
-        outline: 0;
-      }
-
-      &::placeholder {
-        overflow: visible;
-      }
-
-      &::-ms-clear {
-        display: none;
-      }
-    }
-
-    button {
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      color: $grasgroen;
-      font-size: 0;
-      height: $dso-search-bar-height;
-      padding: $u1;
-      position: absolute;
-      right: 0;
-      text-align: center;
-      top: 0;
-      width: $u5;
-
-      &::before {
-        @include di("times");
-
-        content: "";
-        display: inline-block;
-        font-size: $font-size-base;
-      }
-    }
-
-    label {
-      flex-grow: 1;
-      margin-bottom: $u1;
-      width: 100%;
-
-      + .dso-search-icon {
-        top: $u4;
-
-        + input + button {
-          top: $u4;
-        }
-      }
-
-      + input + button {
-        top: $u4;
-      }
-
-      &.sr-only,
-      &.dso-search-icon {
-        + .dso-search-icon {
-          top: 0;
-
-          + input + button {
-            top: 0;
-          }
-        }
-
-        + input + button {
-          top: 0;
-        }
-      }
-    }
-  }
-
-  .dso-search-bar-input + button {
-    align-self: flex-end;
-    height: $dso-search-bar-height;
-    line-height: 38px;
-    margin: 0 0 0 $u1;
-    min-width: initial;
-    padding: 0 $u2;
-    text-align: center;
-  }
-
-  + .dso-results {
-    color: $grijs-60;
-    font-weight: 700;
-    margin-top: $u1;
-  }
-
-  &.dso-invalid .dso-search-bar-input input {
-    border-color: $dso-field-invalid-border-color;
-  }
+.form-group .dso-search-bar {
+  margin-bottom: 0;
+  width: 50%;
 }
 
 .dso-table-filter-wrapper .dso-search-bar {
@@ -153,22 +8,22 @@ $dso-search-bar-height: $u5;
   width: $dso-minimal-screen-width - $u4;
 }
 
+.form-horizontal .dso-field-container .dso-search-bar {
+  width: 100%;
+}
+
+.dso-invalid .dso-field-container .dso-search-bar {
+  input {
+    border-color: $dso-field-invalid-border-color;
+
+    &:focus {
+      box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-field-invalid-border-color;
+    }
+  }
+}
+
 .dso-field-container .dso-search-bar {
   input {
     border-color: $bosgroen;
-  }
-
-  .dso-invalid & {
-    input {
-      border-color: $dso-field-invalid-border-color;
-
-      &:focus {
-        box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-field-invalid-border-color;
-      }
-    }
-  }
-
-  .form-horizontal & {
-    width: 100%;
   }
 }

@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **dso-toolkit + css:** Search Bar styling naar @dso-toolkit/css ([#1316](https://github.com/dso-toolkit/dso-toolkit/issues/1316))
+
+### Fixed
+* **css:** Autosuggest in Search Bar zorgt ervoor dat Search Bar elementen verkeerd uitlijnen ([#1318](https://github.com/dso-toolkit/dso-toolkit/issues/1318))
+
 ## 29.0.1
 
 ### Fixed
