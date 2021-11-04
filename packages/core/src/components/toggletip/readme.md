@@ -11,6 +11,7 @@
 | ---------- | ---------- | ----------- | ---------------------------------------- | --------------- |
 | `label`    | `label`    |             | `string`                                 | `"Toelichting"` |
 | `position` | `position` |             | `"bottom" \| "left" \| "right" \| "top"` | `"right"`       |
+| `small`    | `small`    |             | `boolean \| undefined`                   | `undefined`     |
 
 
 ## Dependencies

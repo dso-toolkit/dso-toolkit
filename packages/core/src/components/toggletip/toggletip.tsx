@@ -18,6 +18,9 @@ export class Toggletip {
   @Prop()
   position: "top" | "right" | "bottom" | "left" = "right";
 
+  @Prop()
+  small?: boolean;
+
   infoButton!: HTMLDsoInfoButtonElement;
 
   button!: HTMLButtonElement;
@@ -84,6 +87,7 @@ export class Toggletip {
           for="toggle"
           active={this.active}
           position={this.position}
+          small={this.small}
         >
           <slot />
         </dso-tooltip>

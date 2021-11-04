@@ -5,7 +5,7 @@ import { Toggletip } from "./toggletip.models";
 
 export interface ToggletipParameters<TemplateFnReturnType> {
   toggletipTemplate: (
-    toggletipProperties: Toggletip<TemplateFnReturnType>
+    toggletipProperties: Toggletip
   ) => TemplateFnReturnType;
   children: string;
 }
