@@ -61,8 +61,12 @@ $alert-danger-border: $state-danger-border;
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:visited {
       color: $text-color;
+    }
+
+    &:active {
       text-decoration: none;
     }
   }

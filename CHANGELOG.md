@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **sources:** Anchor link styling op gekleurde achtergrond niet gelijk ([#1281](https://github.com/dso-toolkit/dso-toolkit/issues/1281))
+
 ### Documentation
 * **dso-toolkit:** Herschrijven navigatie en sub-navigatie documentatie ([#1284](https://github.com/dso-toolkit/dso-toolkit/issues/1284))
 

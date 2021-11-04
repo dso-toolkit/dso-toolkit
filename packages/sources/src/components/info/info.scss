@@ -31,14 +31,15 @@
     max-width: 100%;
   }
 
-  a,
-  a:visited {
-    &#{$not-dso-buttons} {
+  a {
+    &#{$not-dso-buttons},
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
       color: $text-color;
     }
 
-    &:hover,
-    &:focus,
     &:active {
       text-decoration: none;
     }
