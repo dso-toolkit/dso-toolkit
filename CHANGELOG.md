@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 30.1.0
+
 ### Changed
 * **core:** dso-ozon-content component: Noten uit Ozon API hebben nieuwe markup ([#1330](https://github.com/dso-toolkit/dso-toolkit/issues/1330))
 
