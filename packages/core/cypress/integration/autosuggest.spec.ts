@@ -80,7 +80,7 @@ describe("Autosuggest", () => {
   });
 
   it(
-    "should pick option with keyboard navigation",
+    "should pick option with keyboard navigation and not change input value",
     { browser: "!firefox" },
     () => {
       cy.get("dso-autosuggest").then((c) => {
@@ -94,7 +94,7 @@ describe("Autosuggest", () => {
       cy.get("@input")
         .type("{enter}")
         .invoke("val")
-        .should("eq", "Rotterdamse Rijweg 13B, 3043BG Rotterdam");
+        .should("eq", "rotterdam");
       cy.get("@listbox").should("not.be.visible");
       cy.get("@dsoSelect").should("have.been.calledOnce");
     }
@@ -120,7 +120,7 @@ describe("Autosuggest", () => {
       .should("have.attr", "aria-selected", "false");
   });
 
-  it("mouse click should pick option", () => {
+  it("mouse click should pick option and not change input value", () => {
     cy.get("dso-autosuggest").then((c) => {
       c.get(0).addEventListener("dsoSelect", cy.stub().as("selected"));
     });
@@ -133,7 +133,7 @@ describe("Autosuggest", () => {
       .click();
     cy.get("@input")
       .invoke("val")
-      .should("eq", "Rotterdamse Rijweg 15A, 3043BG Rotterdam");
+      .should("eq", "rotterdam");
     cy.get("@listbox").should("not.be.visible");
     cy.get("@selected").should("have.been.calledOnce");
   });

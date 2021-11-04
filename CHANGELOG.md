@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **core:** Suggesties van Autosuggest Web Component worden onder andere HTML elementen getoond ([#1322](https://github.com/dso-toolkit/dso-toolkit/issues/1322))
 * **core:** Date Picker hanteert verkeerde dateformat ([#1325](https://github.com/dso-toolkit/dso-toolkit/issues/1325))
+* **core:** Autosuggest moet niet de value van het slotted input element wijzigen ([#1329](https://github.com/dso-toolkit/dso-toolkit/issues/1329))
 
 ## 30.0.0
 

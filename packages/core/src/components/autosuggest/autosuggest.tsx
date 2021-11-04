@@ -243,7 +243,6 @@ export class Autosuggest {
 
   pickSelectedValue() {
     if (this.selectedSuggestion) {
-      this.input.value = this.selectedSuggestion.value;
       this.selectEmitter.emit(this.selectedSuggestion);
     }
 
