@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:** Suggesties van Autosuggest Web Component worden onder andere HTML elementen getoond ([#1322](https://github.com/dso-toolkit/dso-toolkit/issues/1322))
+
 ## 30.0.0
 
 ### Changed
