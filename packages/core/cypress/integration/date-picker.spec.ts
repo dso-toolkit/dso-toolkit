@@ -244,7 +244,7 @@ describe('Date Picker', () => {
     cy
       .get('dso-date-picker')
       .invoke('attr', 'value')
-      .should('equal', `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`);
+      .should('equal', `${now.getDate().toString(10).padStart(2, '0')}-${(now.getMonth() + 1).toString(10).padStart(2, '0')}-${now.getFullYear().toString(10).padStart(2, '0')}`);
   });
 
   it('should open and close using instance methods', () => {
@@ -264,7 +264,11 @@ describe('Date Picker', () => {
       .should('not.be.visible');
   });
 
-  it('should select 22-2-2015', () => {
+  it('should select February 5th, 2015', () => {
+    cy.get('dso-date-picker').then(e => {
+      e.get(0).addEventListener('dateChange', cy.stub().as('dateChange'))
+    });
+
     cy
       .get('dso-date-picker')
       .shadow()
@@ -280,8 +284,19 @@ describe('Date Picker', () => {
       .select('Februari')
       .get('@root')
       .find('table.dso-date__table button > span.dso-date__vhidden')
-      .contains('22-2-2015')
+      .contains('05-02-2015')
       .closest('button')
       .click();
+    
+    cy.get('@dateChange').should('have.been.calledOnce');
+  });
+
+  it('should padStart days and months with 0', () => {
+    cy
+      .get('dso-date-picker')
+      .invoke('attr', 'value', '1-1-2000')
+      .shadow()
+      .find('input.dso-date__input')
+      .should('have.value', '01-01-2000')
   });
 });

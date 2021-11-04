@@ -28,6 +28,10 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
 
   const stories = storiesOf('Date Picker', mainModule)
     .addParameters({
+      options: {
+        // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
+        enableShortcuts: false
+      },
       docs: {
         page: readme
       },

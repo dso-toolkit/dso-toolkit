@@ -52,9 +52,9 @@ export function printDutchDate(date: Date | undefined): string {
     return '';
   }
 
-  var d = date.getDate().toString(10)
-  var m = (date.getMonth() + 1).toString(10)
-  var y = date.getFullYear().toString(10)
+  var d = date.getDate().toString(10).padStart(2, '0');
+  var m = (date.getMonth() + 1).toString(10).padStart(2, '0');
+  var y = date.getFullYear().toString(10).padStart(2, '0');
 
   return `${d}-${m}-${y}`
 }
