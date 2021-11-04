@@ -11,12 +11,10 @@ export const inhoud = `
     <div class="od-Li">
       <div class="od-LiNummer">•</div>
       <div class="od-Al">De zeewaartse grens ter hoogte van Schiermonnikoog, Rottumerplaat en Rottumeroog is gelegd op de
-        grens van het grensgebied tussen Nederland en Bondsrepubliek Duitsland in het Eems-Dollardgebied<a href="#"
-          class="noot">7<div class="noot_popup">
-            <div class="od-Al"> Zoals omschreven in artikel 1 van de Aanvullende overeenkomst van 14 mei 1962 bij het
-              Eems-Dollard- verdrag (Trb. 1962, 54). In dit gebied wordt het natuurbeheer in samenwerking met Duitsland
-              uitgevoerd.</div>
-          </div></a>. Dit betekent enerzijds een verkleining van het Vogelrichtlijngebied ten noorden van Rottumerplaat
+        grens van het grensgebied tussen Nederland en Bondsrepubliek Duitsland in het Eems-Dollardgebied<div href="#" class="noot"><a href="#" class="noot">1</a></div>
+        <div class="noot_popup">
+           <div class="od-Al">Classificatie volgens de Europese overeenkomst van 30 september 1957 betreffende het internationaal vervoer van gevaarlijke stoffen over de weg (<a href="trb-1959-171" target="_blank">Trb. 1959, 171</a>).</div>
+        </div>. Dit betekent enerzijds een verkleining van het Vogelrichtlijngebied ten noorden van Rottumerplaat
         (overlap met het verdragsgebied, 122 ha) en anderzijds een uitbreiding ten noorden van Schiermonnikoog en
         Rottumeroog (166 ha, kaart A). (o)</div>
     </div>
@@ -155,20 +153,6 @@ export const inhoud = `
       </tbody>
     </table>
   </div>
-  <div class="od-Al">Voor niet-prioritaire soorten opgenomen in bijlage II van de Habitatrichtlijn zijn in de eerste
-    stap van het selectieproces in beginsel de “vijf belangrijkste gebieden” geselecteerd. Voor prioritaire soorten
-    geldt een aantal van “tien belangrijkste gebieden”. Voor enkele verspreid over het land voorkomende soorten, die in
-    voldoende mate in gebieden zijn vertegenwoordigd welke voor andere waarden zijn opgenomen, zijn geen gebieden
-    geselecteerd<a href="#" class="noot">14<div class="noot_popup">
-        <div class="od-Al"> Voor de volgende soorten zijn bij de aanmelding van de Habitatrichtlijngebieden (2003) geen
-          gebieden geselecteerd: zeeprik (H1095), elft (H1102), zalm (H1106), bittervoorn (H1134) en kleine
-          modderkruiper (H1149). Voor de platte schijfhoren (H4056) zijn geen gebieden geselecteerd omdat de soort bij
-          de uitbreiding van de EU in 2004 is toegevoegd bijlage II.</div>
-      </div></a>. De betekenis van het gebied is afgemeten aan de omvang van de aanwezige populatie. In een tweede stap
-    zijn eventueel nog extra gebieden toegevoegd met het oog op landelijke dekking, geografische spreiding en
-    grensoverschrijding. In de onderstaande tabel zijn de soorten vermeld die bij de</div>
-  <div class="od-Al">aanmelding hebben geleid tot selectie van het gebied en/of de soorten waarvoor het gebied op grond
-    van de huidige gegevens en omstandigheden aan de selectiecriteria zou voldoen (zie ook bijlage B.3).</div>
   <div class="od-Tabel">
     <table class="table table-bordered ">
       <colgroup>

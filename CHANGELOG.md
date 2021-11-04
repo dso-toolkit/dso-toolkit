@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **core:** dso-ozon-content component: Noten uit Ozon API hebben nieuwe markup ([#1330](https://github.com/dso-toolkit/dso-toolkit/issues/1330))
+
 ### Fixed
 * **core:** Suggesties van Autosuggest Web Component worden onder andere HTML elementen getoond ([#1322](https://github.com/dso-toolkit/dso-toolkit/issues/1322))
 * **core:** Date Picker hanteert verkeerde dateformat ([#1325](https://github.com/dso-toolkit/dso-toolkit/issues/1325))

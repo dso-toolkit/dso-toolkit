@@ -4,28 +4,44 @@ import isURL from 'validator/es/lib/isURL';
 import { ContentAnchor } from './ozon-content.interfaces';
 
 function transformDescriptionNote(body: HTMLElement): HTMLElement {
-  body.querySelectorAll<HTMLDivElement>('a.noot > div.noot_popup').forEach((e, index) => {
-    const contentElement = e.querySelector('.od-Al');
+  body.querySelectorAll<HTMLDivElement>('.od-Al > div.noot').forEach((nootElement, index) => {
+    const contentElement = nootElement.nextElementSibling;
+    if (!(contentElement instanceof HTMLDivElement && contentElement.classList.value === 'noot_popup')) {
+      return;
+    }
 
-    const ozonPopupElement = contentElement?.parentElement;
-    const anchorElement = ozonPopupElement?.parentElement;
+    const nootAnchorElement = nootElement.querySelector('a');
+    if (!(nootAnchorElement instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    const contentAlElement = contentElement.querySelector(':scope > .od-Al');
+    if (!(contentAlElement instanceof HTMLDivElement && contentAlElement.classList.value === 'od-Al')) {
+      return;
+    }
+
+    nootElement.replaceWith(...Array.from(nootElement.childNodes));
+
+    const contentWrapper = document.createElement('div');
+    contentWrapper.replaceChildren(...Array.from(contentAlElement.childNodes));
+
+    contentAlElement.replaceChildren(contentWrapper);
+
+    contentElement.replaceWith(contentAlElement);
+
     const supElement = document.createElement('sup');
-
-    supElement.replaceChildren(...Array.from(anchorElement!.childNodes));
-    anchorElement?.replaceChildren(supElement);
-
-    anchorElement?.after(contentElement!);
-
-    ozonPopupElement?.remove();
+    supElement.replaceChildren(...Array.from(nootAnchorElement.childNodes));
+    nootAnchorElement.replaceChildren(supElement);
 
     const id = (index + 1).toString(10);
     const [termId, contentId] = [`dso-ozon-term-${id}`, `dso-ozon-content-${id}`];
 
-    anchorElement?.setAttribute('id', termId);
-    anchorElement?.setAttribute('aria-controls', contentId);
-    anchorElement?.setAttribute('aria-expanded', 'false');
+    nootAnchorElement.setAttribute('href', `#${termId}`);
+    nootAnchorElement.setAttribute('id', termId);
+    nootAnchorElement.setAttribute('aria-controls', contentId);
+    nootAnchorElement.setAttribute('aria-expanded', 'false');
 
-    contentElement?.setAttribute('id', contentId);
+    contentAlElement?.setAttribute('id', contentId);
   });
 
   return body;
@@ -118,7 +134,7 @@ export class OzonContentTransformer {
     }
 
     // require_tld: false is needed to allow http://localhost
-    return composedPath.slice(0, containerIndex)?.some(e => e instanceof HTMLAnchorElement && isURL(e.getAttribute('href') ?? '', { require_tld: false }));
+    return composedPath.slice(0, containerIndex)?.some(e => e instanceof HTMLAnchorElement && isURL(e.getAttribute('href') ?? '', { require_tld: false, require_protocol: true }));
   }
 
   private eventHandlers = [this.handleValidUrls, this.handleDescriptionNoteClick, this.handleContentAnchor];
