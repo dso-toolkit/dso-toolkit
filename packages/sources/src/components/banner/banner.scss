@@ -21,12 +21,13 @@ $banner-danger-border: $state-danger-border;
     text-decoration: underline;
 
     &,
+    &:hover,
+    &:focus,
+    &:active,
     &:visited {
       color: $text-color;
     }
 
-    &:hover,
-    &:focus,
     &:active {
       text-decoration: none;
     }
