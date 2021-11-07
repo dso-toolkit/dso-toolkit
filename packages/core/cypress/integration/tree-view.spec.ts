@@ -1,4 +1,49 @@
 describe('Tree View', () => {
+  function firstChildItem(subject: JQuery<HTMLElement>, label: string) {
+    return cy.wrap(subject)
+      .parent().find('> ul > li > p.tree-content').first()
+      .should('have.text', label)
+      .as(label);
+  }
+
+  function lastChildItem(subject: JQuery<HTMLElement>, label: string) {
+    return cy.wrap(subject)
+      .parent().find('> ul > li > p.tree-content').last()
+      .should('have.text', label)
+      .as(label);
+  }
+
+  function nextSiblingItem(subject: JQuery<HTMLElement>, label: string) {
+    return cy.wrap(subject)
+      .parent().next().find('> p.tree-content').first()
+      .should('have.text', label)
+      .as(label);
+  }
+
+  function previousSiblingItem(subject: JQuery<HTMLElement>, label: string) {
+    return cy.wrap(subject)
+      .parent().prev().find('> p.tree-content').first()
+      .should('have.text', label)
+      .as(label);
+  }
+
+  function shouldHaveFocusAndTabIndex(subject: JQuery<HTMLElement>) {
+    return cy.wrap(subject)
+      .should('have.focus')
+      .should('have.attr', 'tabIndex', 0);
+  }
+
+  function shouldNotHaveFocusAndTabIndex(subject: JQuery<HTMLElement>) {
+    return cy.wrap(subject)
+      .should('not.have.focus')
+      .should('have.attr', 'tabIndex', -1);
+  }
+
+  function press(subject: JQuery<HTMLElement>, key: any) {
+    cy.realPress(key);
+    return cy.wrap(subject);
+  }
+
   beforeEach(() => {
     cy.visit('http://localhost:56106/iframe.html?id=tree-view');
     cy.injectAxe();
@@ -13,7 +58,36 @@ describe('Tree View', () => {
       .get('@tree-view')
       .find('p.tree-content')
       .first()
-      .as('first-tree-item')
+      .as('first-tree-item');
+  });
+
+  it('should have correct area attributes for \'tree item sets\'', () => {
+    function shouldHaveCorrectAreaTreeItemAttributes(startElement: string, level: number, setSize: number, posInSet: number)
+     : Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
+      return cy
+        .get(`@${startElement}`)
+        .should('have.attr', 'aria-level', level.toString())
+        .should('have.attr', 'aria-setsize', setSize.toString())
+        .should('have.attr', 'aria-posinset', posInSet.toString());
+    }
+
+    shouldHaveCorrectAreaTreeItemAttributes('first-tree-item', 1, 2, 1)
+      .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'bouwelementen'));
+    shouldHaveCorrectAreaTreeItemAttributes('bouwelementen', 2, 4, 1)
+      .then((subject: JQuery<HTMLElement>) => nextSiblingItem(subject, 'bouwonderdelen'));
+    shouldHaveCorrectAreaTreeItemAttributes('bouwonderdelen', 2, 4, 2)
+      .then((subject: JQuery<HTMLElement>) => nextSiblingItem(subject, 'bouwwerken'));
+    shouldHaveCorrectAreaTreeItemAttributes('bouwwerken', 2, 4, 3);
+
+    cy
+      .get('@bouwwerken')
+      .prev()
+      .click()
+      .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'bebouwing'));
+
+    shouldHaveCorrectAreaTreeItemAttributes('bebouwing', 3, 4, 1)
+      .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'hoogbouw'));
+    shouldHaveCorrectAreaTreeItemAttributes('hoogbouw', 4, 2, 1);
   });
 
   it('should expand / collapse on click on the controller icon', () => {
@@ -33,274 +107,147 @@ describe('Tree View', () => {
     cy
       .get('@first-tree-item')
       .click()
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(shouldHaveFocusAndTabIndex)
+      .realPress('b');
 
-    cy.realPress('b');
+    cy.get('@first-tree-item')
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@first-tree-item')
-      .parent()
-      .find('> ul > li > p.tree-content')
-      .first()
-      .as('bouwelementen')
-      .should('have.text', 'bouwelementen')
-      .should('have.focus')
-
-    cy.realPress('b');
+      .then(subject => firstChildItem(subject, 'bouwelementen'))
+      .then(shouldHaveFocusAndTabIndex)
+      .then(subject => press(subject, 'b'))
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@bouwelementen')
-      .parent()
-      .next()
-      .find('> p.tree-content')
-      .first()
-      .as('bouwonderdelen')
-      .should('have.text', 'bouwonderdelen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('b');
+      .then(subject => nextSiblingItem(subject, 'bouwonderdelen'))
+      .then(shouldHaveFocusAndTabIndex)
+      .then(subject => press(subject, 'b'))
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@bouwonderdelen')
-      .parent()
-      .next()
-      .find('> p.tree-content')
-      .first()
-      .as('bouwwerken')
-      .should('have.text', 'bouwwerken')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('b');
+      .then(subject => nextSiblingItem(subject, 'bouwwerken'))
+      .then(shouldHaveFocusAndTabIndex)
+      .then(subject => press(subject, 'b'))
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(shouldHaveFocusAndTabIndex);
   });
 
   it('should focus previous item starting with search letter while holding Shift', () => {
     cy
       .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(shouldHaveFocusAndTabIndex)
+      .realPress(['Shift', 'b']);
 
-    cy.realPress(['Shift', 'b']);
+    cy.get('@first-tree-item')
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@first-tree-item')
-      .parent()
-      .find('> ul > li')
-      .last()
-      .prev()
-      .find('> p.tree-content')
-      .as('bouwwerken')
-      .should('have.text', 'bouwwerken')
-      .should('have.focus')
-
-    cy.realPress(['Shift', 'b']);
+      .then(subject => lastChildItem(subject, 'complexen'))
+      .then(subject => previousSiblingItem(subject, 'bouwwerken'))
+      .then(shouldHaveFocusAndTabIndex)
+      .then(subject => press(subject, ['Shift', 'b']))
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@bouwwerken')
-      .parent()
-      .prev()
-      .find('> p.tree-content')
-      .first()
-      .as('bouwonderdelen')
-      .should('have.text', 'bouwonderdelen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress(['Shift', 'b']);
+      .then(subject => previousSiblingItem(subject, 'bouwonderdelen'))
+      .then(shouldHaveFocusAndTabIndex)
+      .then(subject => press(subject, ['Shift', 'b']))
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@bouwonderdelen')
-      .parent()
-      .prev()
-      .find('> p.tree-content')
-      .first()
-      .as('bouwelementen')
-      .should('have.text', 'bouwelementen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress(['Shift', 'b']);
+      .then(subject => previousSiblingItem(subject, 'bouwelementen'))
+      .then(shouldHaveFocusAndTabIndex)
+      .then(subject => press(subject, ['Shift', 'b']))
+      .then(shouldNotHaveFocusAndTabIndex);
 
     cy
       .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(shouldHaveFocusAndTabIndex);
   });
 
   it('should expand or focus child on right arrow key and collapse or focus parent left arrow key', () => {
-    cy
-      .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+    function shouldHaveExpandedBehaviour(startElement: string, expanded: boolean, keys: any = null)
+     : Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
+      let cursor = cy
+        .get(`@${startElement}`)
+        .then(shouldHaveFocusAndTabIndex);
+
+      if (expanded !== null) {
+        cursor = cursor.should('have.attr', 'aria-expanded', `${expanded}`);
+      }
+
+      return cursor
+        .then(subject => keys ? press(subject, keys) : subject);
+    }
 
     cy
       .get('@first-tree-item')
-      .parent()
-      .find('> ul > li > p.tree-content')
-      .first()
-      .as('bouwelementen')
-      .should('have.text', 'bouwelementen')
+      .then(shouldHaveFocusAndTabIndex)
+      .realPress(['ArrowDown']);
 
-    cy.realPress(['ArrowDown', 'ArrowRight', 'ArrowRight']);
+    cy
+      .get('@first-tree-item')
+      .then(subject => firstChildItem(subject, 'bouwelementen'));
+
+    shouldHaveExpandedBehaviour('bouwelementen', false, ['ArrowRight']);
+    shouldHaveExpandedBehaviour('bouwelementen', true, ['ArrowRight']);
 
     cy
       .get('@bouwelementen')
-      .should('have.attr', 'aria-expanded', 'true')
-      .parent()
-      .find('> ul > li > p.tree-content')
-      .first()
-      .as('afvoerbuizen')
-      .should('have.text', 'afvoerbuizen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(subject => firstChildItem(subject, 'afvoerbuizen'));
 
-    cy.realPress(['ArrowDown', 'ArrowRight', 'ArrowRight']);
+    shouldHaveExpandedBehaviour('afvoerbuizen', null, ['ArrowDown', 'ArrowRight']);
 
     cy
       .get('@bouwelementen')
-      .should('have.attr', 'aria-expanded', 'true')
-      .parent()
-      .find('> ul > li > p.tree-content')
-      .last()
-      .as('ankers')
-      .should('have.text', 'ankers')
-      .should('have.attr', 'aria-expanded', 'true')
-      .parent()
-      .find('> ul > li > p.tree-content')
-      .last()
-      .as('balkankers')
-      .should('have.text', 'balkankers')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(subject => lastChildItem(subject, 'ankers'));
 
-    cy.realPress('ArrowLeft');
+    shouldHaveExpandedBehaviour('ankers', true, ['ArrowRight']);
 
     cy
       .get('@ankers')
-      .should('have.focus')
-      .should('have.attr', 'aria-expanded', 'true');
+      .then(subject => lastChildItem(subject, 'balkankers'))
+      .then(shouldHaveFocusAndTabIndex);
 
     cy.realPress('ArrowLeft');
 
-    cy
-      .get('@ankers')
-      .should('have.focus')
-      .should('have.attr', 'aria-expanded', 'false');
-
-    cy.realPress('ArrowLeft');
-
-    cy
-      .get('@bouwelementen')
-      .should('have.focus')
-      .should('have.attr', 'aria-expanded', 'true');
-
-    cy.realPress('ArrowLeft');
-
-    cy
-      .get('@bouwelementen')
-      .should('have.focus')
-      .should('have.attr', 'aria-expanded', 'false');
-
-    cy.realPress('ArrowLeft');
-
-    cy
-      .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'aria-expanded', 'true');
-
-    cy.realPress('ArrowLeft');
-
-    cy
-      .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'aria-expanded', 'false');
+    shouldHaveExpandedBehaviour('ankers', true, 'ArrowLeft');
+    shouldHaveExpandedBehaviour('ankers', false, 'ArrowLeft');
+    shouldHaveExpandedBehaviour('bouwelementen', true, 'ArrowLeft');
+    shouldHaveExpandedBehaviour('bouwelementen', false, 'ArrowLeft');
+    shouldHaveExpandedBehaviour('first-tree-item', true, 'ArrowLeft');
+    shouldHaveExpandedBehaviour('first-tree-item', false, 'ArrowLeft');
   });
 
   it('should have roving tabIndex to move focus with arrow keys, Home and End', () => {
-    cy
-      .get('@first-tree-item')
-      //.click()
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+    function shouldHaveFocusBehaviour(startElement: string, selectorFunc: any, targetElement: string, keys: any) {
+      cy
+        .get(`@${startElement}`)
+        .then(subject => selectorFunc ? selectorFunc(subject, targetElement) : subject)
+        .then(shouldHaveFocusAndTabIndex)
+        .then(subject => press(subject, keys))
+        .then(shouldNotHaveFocusAndTabIndex);
+    }
 
-    cy.realPress('ArrowDown');
-
-    cy
-      .get('@first-tree-item')
-      .should('have.attr', 'tabIndex', -1);
-
-    cy
-      .get('@first-tree-item')
-      .parent()
-      .find('> ul > li > p.tree-content')
-      .first()
-      .as('bouwelementen')
-      .should('have.text', 'bouwelementen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('ArrowDown');
-
-    cy
-      .get('@bouwelementen')
-      .parent()
-      .next()
-      .find('> p.tree-content')
-      .first()
-      .as('bouwonderdelen')
-      .should('have.text', 'bouwonderdelen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('ArrowDown');
-
-    cy
-      .get('@bouwonderdelen')
-      .parent()
-      .next()
-      .find('> p.tree-content')
-      .first()
-      .should('have.text', 'bouwwerken')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('End');
+    shouldHaveFocusBehaviour('first-tree-item', null, '', 'ArrowDown');
+    shouldHaveFocusBehaviour('first-tree-item', firstChildItem, 'bouwelementen', 'ArrowDown');
+    shouldHaveFocusBehaviour('bouwelementen', nextSiblingItem, 'bouwonderdelen', 'ArrowDown');
+    shouldHaveFocusBehaviour('bouwonderdelen', nextSiblingItem, 'bouwwerken', 'End');
+    shouldHaveFocusBehaviour('first-tree-item', nextSiblingItem, 'Woninginrichting', 'ArrowUp');
+    shouldHaveFocusBehaviour('bouwwerken', nextSiblingItem, 'complexen', 'Home');
 
     cy
       .get('@first-tree-item')
-      .parent()
-      .next()
-      .find('> p.tree-content')
-      .first()
-      .should('have.text', 'Woninginrichting')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('ArrowUp');
-
-    cy
-      .get('@bouwelementen')
-      .should('have.attr', 'tabIndex', -1)
-      .parent()
-      .parent()
-      .find('> li > p.tree-content')
-      .last()
-      .should('have.text', 'complexen')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
-
-    cy.realPress('Home');
-
-    cy
-      .get('@first-tree-item')
-      .should('have.focus')
-      .should('have.attr', 'tabIndex', 0);
+      .then(shouldHaveFocusAndTabIndex);
   });
 });
