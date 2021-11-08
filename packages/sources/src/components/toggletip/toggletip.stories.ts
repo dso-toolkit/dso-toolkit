@@ -7,7 +7,6 @@ export interface ToggletipParameters<TemplateFnReturnType> {
   toggletipTemplate: (
     toggletipProperties: Toggletip
   ) => TemplateFnReturnType;
-  children: string;
 }
 
 export function storiesOfToggletip<TemplateFnReturnType>(

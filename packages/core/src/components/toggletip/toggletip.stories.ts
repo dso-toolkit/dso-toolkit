@@ -12,6 +12,5 @@ storiesOfToggletip(
   },
   {
     toggletipTemplate,
-    children: "",
   }
 );
