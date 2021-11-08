@@ -300,7 +300,7 @@ export class Autosuggest {
   }
 
   render() {
-    const terms = this.input.value.split(' ');
+    const terms = this.input.value.split(' ').filter(t => t);
 
     return (
       <>

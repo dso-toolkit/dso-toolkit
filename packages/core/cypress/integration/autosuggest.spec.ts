@@ -155,6 +155,13 @@ describe("Autosuggest", () => {
     cy.get("@mark").eq(3).invoke("text").should("eq", "dam");
   });
 
+  it("should ignore space after terms while marking terms", () => {
+    cy.get("@input").focus().type("u ");
+    cy.wait(200);
+    cy.get("@listbox").get("li[role='option']").eq(0).get("mark").as("mark");
+    cy.get("@mark").eq(0).invoke("text").should("eq", "U");
+  });
+
   it("should show type in options", () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
