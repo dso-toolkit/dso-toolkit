@@ -1,4 +1,5 @@
 import { AutosuggestSuggestion } from './autosuggest.models';
+import escapeStringRegexp from 'escape-string-regexp';
 
 const suggestions: AutosuggestSuggestion[] = [
   {
@@ -112,6 +113,12 @@ const suggestions: AutosuggestSuggestion[] = [
   {
     value: 'Kosdreef 1, Utrecht',
   },
+  {
+    value: 'Slopen (zonder vragen)',
+  },
+  {
+    value: 'Slopen (zonder sttr bestand)',
+  },
 ];
 
 export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
@@ -119,7 +126,7 @@ export function fetchSuggestions(value: string): AutosuggestSuggestion[] {
 
   return terms
     ? suggestions
-        .filter(suggestion => terms.every(term => new RegExp(term, 'i').test(suggestion.value)))
+        .filter(suggestion => terms.every(term => new RegExp(escapeStringRegexp(term), 'i').test(suggestion.value)))
         .slice(0, 10)
     : [];
 }

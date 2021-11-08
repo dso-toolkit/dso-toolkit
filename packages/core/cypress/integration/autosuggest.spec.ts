@@ -16,6 +16,13 @@ describe("Autosuggest", () => {
     cy.get("@listbox").get("li[role='option']").should("have.length", 10);
   });
 
+  it("should regexp-escape suggestions", () => {
+    cy.get("@input").focus().type("slopen (");
+    cy.wait(200);
+    cy.get("@listbox").should("be.visible");
+    cy.get("@listbox").get("li[role='option']").should("have.length", 2);
+  });
+
   it("should have correct aria attributes", { browser: "!firefox" }, () => {
     cy.get("@listbox").each((listbox) => {
       cy.get("@input")

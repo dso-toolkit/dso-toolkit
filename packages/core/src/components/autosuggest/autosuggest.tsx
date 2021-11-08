@@ -13,6 +13,7 @@ import {
 } from "@stencil/core";
 import debounce from "debounce";
 import { v4 } from "uuid";
+import escapeStringRegexp from "escape-string-regexp";
 
 export interface Suggestion {
   value: string;
@@ -70,7 +71,7 @@ export class Autosuggest {
       this.closeSuggestions();
     }
   }
-  
+
   input!: HTMLInputElement;
 
   listbox: HTMLUListElement | undefined;
@@ -157,7 +158,7 @@ export class Autosuggest {
       return [''];
     }
 
-    const termRegex = new RegExp(`(${terms[0]})`, 'gi');
+    const termRegex = new RegExp(`(${escapeStringRegexp(terms[0])})`, 'gi');
 
     return suggestionValue.split(termRegex).map((valuePart: string) => {
       if (!valuePart) {

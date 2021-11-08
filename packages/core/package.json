@@ -54,6 +54,7 @@
     "cypress-axe": "^0.13.0",
     "cypress-real-events": "^1.5.1",
     "debounce": "^1.2.1",
+    "escape-string-regexp": "^5.0.0",
     "http-proxy-middleware": "^2.0.1",
     "http-server": "^13.0.2",
     "lit-html": "^2.0.1",
