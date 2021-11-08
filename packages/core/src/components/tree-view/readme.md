@@ -1,24 +1,54 @@
-# dso-map-controls
+# `<dso-tree-view>`
 
+The collection property of the Tree View is an array of TreeViewItems. The collection is the immutable array containing the state of the Tree View that should be managed _outside_ of Tree View.
 
+## TreeViewItem
+```typescript
+interface TreeViewItem<T> {
+  reference: T;
+  label: string;
+  hasItems: boolean;
+  items?: TreeViewItem<T>[];
+  open?: boolean;
+  loading?: boolean;
+  icons?: TreeViewItemIcon[];
+}
+```
+
+| Property                  | Attribute | Description                     | Type                     | Default     |
+| ------------------------- | --------- | ------------------------------- | ------------------------ | ----------- |
+| `reference` _(required)_  | --        | The reference of type T | `T` | `undefined` |
+| `label` _(required)_      | --        | The label of the item | `string` | `undefined` |
+| `hasItems` _(required)_   | --        | Indicates whether the item has children | `boolean` | `false` |
+| `items`                   | --        | The array of child items | `TreeViewItem[]` | `undefined` |
+| `open`                    | --        | Indicates whether the node is open and child items are shown | `boolean` | `false` |
+| `loading`                 | --        | Indicates the node is loading child items | `boolean` | `false` |
+| `icons`                   | --        | An optional array of icons | `TreeViewItemIcon[]` | `undefined` |
+
+### State management
+
+When the user interacts with the Tree View, events are emitted when a node is opened, closed or clicked. The Tree View events will provide the complete path of TreeViewItems from the root to the item that is emitting the event.
+The consumer of the Tree View should update the TreeView's collection on the open and close events with the new state.
+
+## TreeView
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property                  | Attribute | Description | Type                     | Default     |
-| ------------------------- | --------- | ----------- | ------------------------ | ----------- |
-| `collection` _(required)_ | --        |             | `TreeViewItem<string>[]` | `undefined` |
+| Property                  | Attribute | Description                     | Type                     | Default     |
+| ------------------------- | --------- | ------------------------------- | ------------------------ | ----------- |
+| `collection` _(required)_ | --        | The collection of TreeViewItems | `TreeViewItem<string>[]` | `undefined` |
 
 
 ## Events
 
-| Event       | Description | Type                                  |
-| ----------- | ----------- | ------------------------------------- |
-| `clickItem` |             | `CustomEvent<TreeViewItem<string>[]>` |
-| `closeItem` |             | `CustomEvent<TreeViewItem<string>[]>` |
-| `openItem`  |             | `CustomEvent<TreeViewItem<string>[]>` |
+| Event       | Description                                                                                                                                                                                                                                                                                                                                      | Type                                  |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| `clickItem` | Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the clicked event.                                                                                                                                               | `CustomEvent<TreeViewItem<string>[]>` |
+| `closeItem` | Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path). | `CustomEvent<TreeViewItem<string>[]>` |
+| `openItem`  | Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).    | `CustomEvent<TreeViewItem<string>[]>` |
 
 
 ## Dependencies

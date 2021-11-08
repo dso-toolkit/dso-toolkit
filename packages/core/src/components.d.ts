@@ -208,6 +208,9 @@ export namespace Components {
         "stateless"?: boolean;
     }
     interface DsoTreeView {
+        /**
+          * The collection of TreeViewItems
+         */
         "collection": TreeViewItem<string>[];
     }
 }
@@ -573,9 +576,21 @@ declare namespace LocalJSX {
         "stateless"?: boolean;
     }
     interface DsoTreeView {
+        /**
+          * The collection of TreeViewItems
+         */
         "collection": TreeViewItem<string>[];
+        /**
+          * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the clicked event.
+         */
         "onClickItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        /**
+          * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
+         */
         "onCloseItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        /**
+          * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
+         */
         "onOpenItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
     }
     interface IntrinsicElements {

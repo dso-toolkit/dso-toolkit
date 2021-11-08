@@ -1,4 +1,4 @@
-import { Component, h, ComponentInterface, Prop, Event, EventEmitter } from '@stencil/core';
+import { h, Component, ComponentInterface, Event, EventEmitter, Prop } from '@stencil/core';
 
 import { TreeViewItem } from '@dso-toolkit/sources';
 import { DsoTreeItem } from './tree-item';
@@ -9,15 +9,35 @@ import { DsoTreeItem } from './tree-item';
   shadow: true
 })
 export class TreeView implements ComponentInterface {
+   /**
+   * The collection of TreeViewItems
+   */
   @Prop()
   collection!: TreeViewItem<string>[];
 
+  /**
+   * Emitted when a tree view item is opened.
+   * The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the
+   * root to the item that is emitting the open event. The consumer of the event is responsible for updating
+   * the TreeView's collection (usually set the open state on the last TreeViewItem in path).
+   */
   @Event()
   openItem!: EventEmitter<TreeViewItem<string>[]>;
 
+  /**
+   * Emitted when a tree view item is closed.
+   * The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the
+   * root to the item that is emitting the close event. The consumer of the event is responsible for updating
+   * the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
+   */
   @Event()
   closeItem!: EventEmitter<TreeViewItem<string>[]>;
 
+  /**
+   * Emitted when a tree view item is clicked.
+   * The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the
+   * root to the item that is emitting the clicked event.
+   */
   @Event()
   clickItem!: EventEmitter<TreeViewItem<string>[]>;
 
