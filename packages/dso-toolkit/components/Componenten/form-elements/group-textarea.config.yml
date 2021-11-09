@@ -88,3 +88,21 @@ variants:
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
     static: true
+- name: input-textarea-allmessages
+  context:
+    __title: Alle meldingen
+    id: input-textarea-allmessages
+    label: Textarea - Alle meldingen
+    required: true
+    state: invalid
+    errorText: Vul dit veld in.
+    helpText: Vul een geldige tekst in
+    infoOpen: true
+    infoText: |
+      <h4>Toelichting bij vraag: "Wilt u nog wat kwijt?"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    static: true

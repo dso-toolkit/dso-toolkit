@@ -102,3 +102,28 @@ variants:
       hideSearchButton: true
       icon: true
       placeholder: Bv. boomkap
+- name: search-bar-allmessages
+  context:
+    __title: Alle meldingen
+    id: search-bar-allmessages
+    label: Search bar - Alle meldingen
+    state: invalid
+    errorText: Vul dit veld in.
+    helpText: 'Type en selecteer de activiteit'
+    searchBar:
+      id: search-bar-error
+      type: text
+      clearButton: true
+      hideSearchButton: true
+      icon: true
+      placeholder: Bv. boomkap
+    infoOpen: true
+    static: true
+    infoButtonLabel: Toelichting bij zoekveld
+    infoText: |
+      <h4>Toelichting bij vraag: "Activiteit"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>

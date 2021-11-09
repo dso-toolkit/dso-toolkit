@@ -177,3 +177,24 @@ variants:
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
     static: true
+- name: input-text-allmessages
+  context:
+    __title: Alle meldingen
+    id: input-text-allmessages
+    type: email
+    label: Input - type Email - Invalid (foutieve invoer)
+    value: thomas@
+    required: true
+    ariaInvalid: true
+    errorText: Ongeldig e-mailadres ingevuld.
+    helpText: 'Bijvoorbeeld: email@email.nl'
+    state: invalid
+    infoOpen: true
+    infoText: |
+      <h4>Toelichting bij vraag: "E-mailadres"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    static: true
