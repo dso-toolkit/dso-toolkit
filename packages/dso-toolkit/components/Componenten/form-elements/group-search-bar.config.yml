@@ -80,7 +80,6 @@ variants:
     id: search-bar-error
     label: Search bar - Invalid
     state: invalid
-    ariaDescribedBy: search-bar-error
     errorText: Vul dit veld in.
     searchBar:
       id: search-bar-error

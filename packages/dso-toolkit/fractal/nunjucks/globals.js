@@ -20,6 +20,24 @@ module.exports = {
       ? ''
       : this.env.filters.safe(`class="${classes.join(' ')}"`);
   },
+  attribute: function attribute (array, ariaDescribedBy, localId) {
+    let params = [];
+
+    if (array.includes('hasErrorText')) {
+      params.push('errorTextId_' + localId);
+    }
+    if (array.includes('hasHelpText')) {
+      params.push('helpTextId_' + localId);
+    }
+    if (array.includes('hasInfoText')) {
+      params.push('infoTextId_' + localId);
+    }
+    if (ariaDescribedBy) {
+      params.push(ariaDescribedBy);
+    }
+
+    return params.join(" ");
+  },
   attributes: function attributes () {
     const attrs = [...arguments].reduce((total, [condition, attribute, value, asBool]) => {
       if (condition || (typeof value !== 'undefined' && asBool)) {

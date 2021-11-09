@@ -7,10 +7,7 @@
 {% endif %}
 
 <fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}
-  {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"{% endif %}
-  {% if helpText %} aria-describedby="helpTextId_{{ localId }}"{% endif %}
-  {% if errorText %} aria-describedby="errorTextId_{{ localId }}"{% endif %}
-  {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
+  aria-describedby="{{ attribute(['hasErrorText', 'hasHelpText', 'hasInfoText'], ariaDescribedBy, localId) }}"
 >
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">

@@ -23,11 +23,7 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <select id="{{ localId }}" class="form-control"
-      {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"
-      {% elif helpText %} aria-describedby="helpTextId_{{ localId }}"
-      {% elif errorText %} aria-describedby="errorTextId_{{ localId }}"
-      {% elif ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
+    <select id="{{ localId }}" class="form-control" aria-describedby="{{ attribute(['hasErrorText', 'hasHelpText'], ariaDescribedBy, localId) }}"
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}

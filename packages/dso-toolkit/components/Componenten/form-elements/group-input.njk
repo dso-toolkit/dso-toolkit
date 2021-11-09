@@ -27,11 +27,7 @@
         [value, 'value', value]
       )}}></dso-date-picker>
     {% else %}
-      <input type="{{ type }}" id="{{ localId }}" class="form-control"
-        {% if helpText and errorText %} aria-describedby="errorTextId_{{ localId }} helpTextId_{{ localId }}"
-        {% elif helpText %} aria-describedby="helpTextId_{{ localId }}"
-        {% elif errorText %} aria-describedby="errorTextId_{{ localId }}"
-        {% elif ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
+      <input type="{{ type }}" id="{{ localId }}" class="form-control" aria-describedby="{{ attribute([errorText, helpText], ariaDescribedBy, localId) }}"
         {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
         {% if size %} size="{{ size }}"{% endif %}
         {% if value %} value="{{ value }}"{% endif %}
