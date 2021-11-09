@@ -2,12 +2,6 @@
 {% set helpTextId = 'helpTextId_' + (id or _self.handle) %}
 {% set infoTextId = 'infoTextId_' + (id or _self.handle) %}
 
-{% if errorText %}
-  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
-{% endif %}
-{% if helpText %}
-  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
-{% endif %}
 {% if infoText and infoStatic %}
   {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}

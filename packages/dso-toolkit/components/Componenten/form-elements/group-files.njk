@@ -1,6 +1,14 @@
 {% set localId = generateLocalId(prefix, id) %}
 
 {% set errorTextId = 'errorTextId_' + localId %}
+{% set infoTextId = 'infoTextId_' + localId %}
+
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if infoText and static %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
+{% endif %}
 
 <fieldset {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <legend class="sr-only">{{ label }}</legend>
@@ -39,7 +47,7 @@
     <!-- To use an input type="file" element -->
     <div class="dso-file-upload">
       <input type="file" id="{{ localId }}-file-upload"
-        {% if errorText %} aria-describedby="errorTextId_{{ localId }}"{% endif %}
+        {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
         {% if disabled %} disabled{% endif %}
         {% if state == "invalid" %} aria-invalid="true"{% endif %}
       />
