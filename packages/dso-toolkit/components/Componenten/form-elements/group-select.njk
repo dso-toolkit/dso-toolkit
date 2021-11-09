@@ -1,9 +1,17 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-{% set infoTextId = 'infoTextId_' + id %}
+{% set errorTextId = 'errorTextId_' + localId %}
+{% set helpTextId = 'helpTextId_' + localId %}
+{% set infoTextId = 'infoTextId_' + localId %}
 
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if helpText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
+{% endif %}
 {% if infoText and static %}
-  {% set ariaDescribedBy = infoTextId %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
 {% macro selectOption(value, label, selected) %}
@@ -23,7 +31,8 @@
     {% endif %}
   </div>
   <div class="dso-field-container">
-    <select id="{{ localId }}" class="form-control" aria-describedby="{{ attribute(['hasErrorText', 'hasHelpText'], ariaDescribedBy, localId) }}"
+    <select id="{{ localId }}" class="form-control"
+      {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
       {% if multiple %} multiple{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if checked %} checked{% endif %}
@@ -43,10 +52,10 @@
       {% endfor %}
     </select>
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText, id: localId} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: localId} %}
+      {% render '@help-block', {helpText: helpText, id: helpTextId} %}
     {% endif %}
   </div>
 </div>

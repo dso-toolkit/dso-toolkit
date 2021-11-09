@@ -25,7 +25,8 @@
     {% elif not label and not hiddenLabel and icon -%}
       <span class="dso-search-icon" aria-hidden="true"></span>
     {%- endif -%}
-    <input type="text" aria-describedby="{{ attribute(['hasErrorText', 'hasHelpText'], ariaDescribedBy, id) }}"
+    <input type="text"
+      {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
       {% if id or label %} id="{{ id or _self.handle }}"{% endif %}
       {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
       {% if value %} value="{{ value }}"{% endif %}

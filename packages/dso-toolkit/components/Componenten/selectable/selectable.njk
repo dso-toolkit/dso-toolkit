@@ -1,5 +1,13 @@
+{% set errorTextId = 'errorTextId_' + (id or _self.handle) %}
+{% set helpTextId = 'helpTextId_' + (id or _self.handle) %}
 {% set infoTextId = 'infoTextId_' + (id or _self.handle) %}
 
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if helpText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
+{% endif %}
 {% if infoText and infoStatic %}
   {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
@@ -9,10 +17,7 @@
     type="{{ type }}"
     id="{{ id or _self.handle }}"
     name="{{ name or id or _self.handle }}"
-    {% if helpText and errorText %} aria-describedby="errorTextId_{{ id }} helpTextId_{{ id }}"{% endif %}
     {{ attributes(
-      [helpText, 'aria-describedby', 'helpTextId_' + id],
-      [errorText, 'aria-describedby', 'errorTextId_' + id],
       [value, 'value', value],
       [invalid, 'aria-invalid', invalid],
       [ariaDescribedBy, 'aria-describedby', ariaDescribedBy],

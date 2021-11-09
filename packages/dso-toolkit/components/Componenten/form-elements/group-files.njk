@@ -1,5 +1,7 @@
 {% set localId = generateLocalId(prefix, id) %}
 
+{% set errorTextId = 'errorTextId_' + localId %}
+
 <fieldset {{ className('form-group dso-files', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
@@ -46,7 +48,7 @@
       </label>
     </div>
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText, id: localId} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
   </div>
 

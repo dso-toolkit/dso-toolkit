@@ -1,9 +1,17 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-{% set infoTextId = 'infoTextId_' + id %}
+{% set errorTextId = 'errorTextId_' + localId %}
+{% set helpTextId = 'helpTextId_' + localId %}
+{% set infoTextId = 'infoTextId_' + localId %}
 
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if helpText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
+{% endif %}
 {% if infoText and static %}
-  {% set ariaDescribedBy = infoTextId %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
 <div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
@@ -22,18 +30,16 @@
     {% render '@search-bar', merge(searchBar, {
       id: generateLocalId(prefix, searchBar.id),
       ariaDescribedBy: ariaDescribedBy,
-      state: state,
-      errorText: errorText,
-      helpText: helpText
+      state: state
     }) %}
     {% if inputIcon %}
       <span class="form-control-feedback" aria-hidden="true"><dso-icon icon="{{ inputIcon }}"></dso-icon></span>
     {% endif %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText, id: localId} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: localId} %}
+      {% render '@help-block', {helpText: helpText, id: helpTextId} %}
     {% endif %}
   </div>
 </div>

@@ -1,5 +1,8 @@
 {% set localId = generateLocalId(prefix, id) %}
 
+{% set helpTextId = 'helpTextId_' + localId %}
+{% set errorTextId = 'errorTextId_' + localId %}
+
 <div {{ className('form-group', 'dso-confirm', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-field-container">
     {% render '@selectable', {
@@ -15,10 +18,10 @@
       helpText: helpText
     } %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText, id: localId} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: localId} %}
+      {% render '@help-block', {helpText: helpText, id: helpTextId} %}
     {% endif %}
   </div>
 </div>
