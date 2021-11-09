@@ -17,6 +17,11 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
   <li
     key={item.reference}
     class={clsx('tree-item', { 'has-child': item.hasItems }, { 'collapsed': !item.open })}
+    role="treeitem"
+    aria-expanded={item.hasItems ? '' + !!item.open : undefined}
+    aria-level={level}
+    aria-setsize={setSize}
+    aria-posinset={index + 1}
   >
     <div class="tree-branch-control">
       {item.hasItems
@@ -30,11 +35,6 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
     <p
       class="tree-content"
       tabindex={level === 1 && index === 0 ? 0 : -1 }
-      role="treeitem"
-      aria-expanded={item.hasItems ? '' + !!item.open : undefined}
-      aria-level={level}
-      aria-setsize={setSize}
-      aria-posinset={index + 1}
       onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
       <a role="link">{item.label}</a>

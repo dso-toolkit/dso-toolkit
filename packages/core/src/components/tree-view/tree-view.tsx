@@ -95,7 +95,7 @@ export class TreeView implements ComponentInterface {
       return;
     }
 
-    if (event.target.getAttribute('role') === 'treeitem' || event.target.parentElement?.getAttribute('role') === 'treeitem') {
+    if (event.target.classList.contains('tree-content') || event.target.parentElement?.classList.contains('tree-content')) {
       this.clickItem.emit([...ancestors, item]);
       return;
     }
@@ -143,7 +143,7 @@ export class TreeView implements ComponentInterface {
   }
 
   private static expandItemOrFocusChild(tree: HTMLElement, target: HTMLElement): void {
-    if (target?.getAttribute('aria-expanded') === 'true') {
+    if (target?.parentElement?.getAttribute('aria-expanded') === 'true') {
       TreeView.moveFocus(tree, target, 'next');
     }
     else {
@@ -155,7 +155,7 @@ export class TreeView implements ComponentInterface {
   }
 
   private static collapseItemOrFocusParent(tree: HTMLElement, target: HTMLElement): void {
-    if (target?.getAttribute('aria-expanded') === 'true') {
+    if (target?.parentElement?.getAttribute('aria-expanded') === 'true') {
       const controlElement = target.previousElementSibling?.firstElementChild;
       if (controlElement instanceof HTMLElement) {
         controlElement.click();

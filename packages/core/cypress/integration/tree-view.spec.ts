@@ -66,9 +66,11 @@ describe('Tree View', () => {
      : Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
       return cy
         .get(`@${startElement}`)
+        .parent()
         .should('have.attr', 'aria-level', level.toString())
         .should('have.attr', 'aria-setsize', setSize.toString())
-        .should('have.attr', 'aria-posinset', posInSet.toString());
+        .should('have.attr', 'aria-posinset', posInSet.toString())
+        .find('> p.tree-content');
     }
 
     shouldHaveCorrectAreaTreeItemAttributes('first-tree-item', 1, 2, 1)
@@ -96,11 +98,15 @@ describe('Tree View', () => {
       .prev()
       .click()
       .get('@first-tree-item')
+      .parent()
       .should('have.attr', 'aria-expanded', 'false')
+      .find('> p.tree-content')
       .prev()
       .click()
       .get('@first-tree-item')
-      .should('have.attr', 'aria-expanded', 'true');
+      .parent()
+      .should('have.attr', 'aria-expanded', 'true')
+      .find('> p.tree-content');
   });
 
   it('should focus next item starting with search letter', () => {
@@ -110,7 +116,8 @@ describe('Tree View', () => {
       .then(shouldHaveFocusAndTabIndex)
       .realPress('b');
 
-    cy.get('@first-tree-item')
+    cy
+      .get('@first-tree-item')
       .then(shouldNotHaveFocusAndTabIndex);
 
     cy
@@ -183,7 +190,7 @@ describe('Tree View', () => {
         .then(shouldHaveFocusAndTabIndex);
 
       if (expanded !== null) {
-        cursor = cursor.should('have.attr', 'aria-expanded', `${expanded}`);
+        cursor.parent().should('have.attr', 'aria-expanded', `${expanded}`);
       }
 
       return cursor
