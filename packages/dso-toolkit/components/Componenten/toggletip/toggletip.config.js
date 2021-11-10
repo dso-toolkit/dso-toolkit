@@ -32,21 +32,21 @@ module.exports = {
   `,
   context: {
     label: "Rechts met platte content",
-    text: "Dit is een toggle tip met platte content.",
+    text: "Dit is een toggletip met platte content.",
   },
   variants: [
     {
       name: "interactieve-content",
       context: {
         label: "Rechts met interactieve content",
-        text: `Dit is een toggle tip met <a href="#">interactieve content</a>.`,
+        text: `Dit is een toggletip met <a href="#">interactieve content</a>.`,
       },
     },
     {
       name: "left",
       context: {
         label: "Links met interactieve content",
-        text: `Dit is een toggle tip met <a href="#">interactieve content</a>.`,
+        text: `Dit is een toggletip met <a href="#">interactieve content</a>.`,
         position: "left",
       },
     },
@@ -54,7 +54,7 @@ module.exports = {
       name: "bottom",
       context: {
         label: "Onder met interactieve content",
-        text: `Dit is een toggle tip met <a href="#">interactieve content</a>.`,
+        text: `Dit is een toggletip met <a href="#">interactieve content</a>.`,
         position: "bottom",
       },
     },
@@ -62,7 +62,7 @@ module.exports = {
       name: "top",
       context: {
         label: "Boven met interactieve content",
-        text: `Dit is een toggle tip met <a href="#">interactieve content</a>.`,
+        text: `Dit is een toggletip met <a href="#">interactieve content</a>.`,
         position: "top",
       },
     },
