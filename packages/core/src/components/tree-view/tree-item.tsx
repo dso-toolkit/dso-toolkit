@@ -16,7 +16,7 @@ interface TreeViewItemProps<T> {
 export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ owner, ancestors, item, index, level, setSize }) => (
   <li
     key={item.reference}
-    class={clsx('tree-item', { 'has-child': item.hasItems }, { 'collapsed': !item.open })}
+    class={clsx('tree-item', { 'has-child': item.hasItems })}
     role="treeitem"
     aria-expanded={item.hasItems ? '' + !!item.open : undefined}
     aria-level={level}
@@ -37,7 +37,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
       tabindex={level === 1 && index === 0 ? 0 : -1 }
       onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
-      <a role="link">{item.label}</a>
+      <a>{item.label}</a>
       {item.icons?.map((icon: TreeViewItemIcon) =>
         <dso-icon icon={icon.icon} title={icon.label}></dso-icon>
       )}
@@ -47,7 +47,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
         ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
         : undefined
       }
-      {item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
+      {item.open && item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
         <DsoTreeItem
           owner={owner}
           ancestors={[...ancestors, item]}

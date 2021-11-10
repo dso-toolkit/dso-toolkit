@@ -88,6 +88,8 @@ describe('Tree View', () => {
       .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'bebouwing'));
 
     shouldHaveCorrectAreaTreeItemAttributes('bebouwing', 3, 4, 1)
+      .prev()
+      .click()
       .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'hoogbouw'));
     shouldHaveCorrectAreaTreeItemAttributes('hoogbouw', 4, 2, 1);
   });

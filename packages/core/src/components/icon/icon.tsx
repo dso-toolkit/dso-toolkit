@@ -196,7 +196,7 @@ export class Icon {
         throw new TypeError(`Unknown svg: ${this.icon}`);
       }
 
-      return <span class="icon-container" innerHTML={icon?.svg} />
+      return <span class="icon-container" innerHTML={icon.svg} />
     }
   }
 }

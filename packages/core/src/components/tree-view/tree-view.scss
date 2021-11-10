@@ -9,33 +9,26 @@
 
   ul[role='tree'] {
     padding-left: 0;
+  }
 
-    li.collapsed > ul {
-      display: none;
-    }
+  li[role='treeitem'] > ul {
+    padding-left: 1.5em;
+  }
 
-    li[role='treeitem'],
-    li.tree-item {
-      cursor: pointer;
+  .tree-branch-control {
+    cursor: pointer;
+    display: inline-block;
+  }
 
-      > ul {
-        padding-left: 1.5em;
-      }
-    }
+  .tree-content {
+    cursor: pointer;
+    display: inline-block;
+    margin: $u1 0;
 
-    .tree-content {
-      display: inline-block;
-      margin: $u1 0;
-
-      dso-icon {
-        vertical-align: text-bottom;
-        font-size: 0.75em;
-        margin-left: 0.5em;
-      }
-    }
-
-    .tree-branch-control {
-      display: inline-block;
+    dso-icon {
+      vertical-align: text-bottom;
+      font-size: 0.75em;
+      margin-left: 0.5em;
     }
   }
 }
