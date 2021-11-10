@@ -1,11 +1,10 @@
-$dso-button-info-size: $u2;
+$dso-info-button-size: $u3;
 
 @mixin info-button_root() {
-  @include di("info");
+  @include di("info", $dso-info-button-size);
 
   border: 1px solid transparent;
   margin-left: $u1;
-  min-width: $dso-button-info-size;
   padding: 0;
 
   &.dso-open,
