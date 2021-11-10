@@ -91,6 +91,7 @@ variants:
 - name: input-textarea-allmessages
   context:
     __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>textarea</code>.
     id: input-textarea-allmessages
     label: Textarea - Alle meldingen
     required: true

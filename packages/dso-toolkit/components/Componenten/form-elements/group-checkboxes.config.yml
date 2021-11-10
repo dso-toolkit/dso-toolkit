@@ -243,6 +243,7 @@ variants:
 - name: input-checkbox-allmessages
   context:
     __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>fieldset</code>.
     id: input-checkbox-allmessages
     label: Checkboxes - Alle meldingen
     required: true

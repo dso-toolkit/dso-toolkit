@@ -105,6 +105,7 @@ variants:
 - name: input-select-allmessages
   context:
     __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>select</code>.
     id: input-select-allmessages
     label: Select - Alle meldingen
     required: true

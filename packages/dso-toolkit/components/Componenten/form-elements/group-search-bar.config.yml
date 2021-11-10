@@ -105,6 +105,7 @@ variants:
 - name: search-bar-allmessages
   context:
     __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>input</code>.
     id: search-bar-allmessages
     label: Search bar - Alle meldingen
     state: invalid

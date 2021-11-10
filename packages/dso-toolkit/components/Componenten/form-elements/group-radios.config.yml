@@ -162,6 +162,7 @@ variants:
 - name: input-radio-allmessages
   context:
     __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>fieldset</code>.
     id: input-radio-allmessages
     label: Radios - Alle meldingen
     required: true

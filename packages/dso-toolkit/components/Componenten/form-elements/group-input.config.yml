@@ -180,6 +180,7 @@ variants:
 - name: input-text-allmessages
   context:
     __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>input</code>.
     id: input-text-allmessages
     type: email
     label: Input - type Email - Invalid (foutieve invoer)
