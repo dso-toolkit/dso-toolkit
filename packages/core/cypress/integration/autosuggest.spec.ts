@@ -16,6 +16,13 @@ describe("Autosuggest", () => {
     cy.get("@listbox").get("li[role='option']").should("have.length", 10);
   });
 
+  it("should regexp-escape suggestions", () => {
+    cy.get("@input").focus().type("slopen (");
+    cy.wait(200);
+    cy.get("@listbox").should("be.visible");
+    cy.get("@listbox").get("li[role='option']").should("have.length", 2);
+  });
+
   it("should have correct aria attributes", { browser: "!firefox" }, () => {
     cy.get("@listbox").each((listbox) => {
       cy.get("@input")
@@ -146,6 +153,13 @@ describe("Autosuggest", () => {
     cy.get("@mark").eq(1).invoke("text").should("eq", "dam");
     cy.get("@mark").eq(2).invoke("text").should("eq", "Rot");
     cy.get("@mark").eq(3).invoke("text").should("eq", "dam");
+  });
+
+  it("should ignore space after terms while marking terms", () => {
+    cy.get("@input").focus().type("u ");
+    cy.wait(200);
+    cy.get("@listbox").get("li[role='option']").eq(0).get("mark").as("mark");
+    cy.get("@mark").eq(0).invoke("text").should("eq", "U");
   });
 
   it("should show type in options", () => {
