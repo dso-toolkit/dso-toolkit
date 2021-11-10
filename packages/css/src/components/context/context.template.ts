@@ -11,22 +11,27 @@ function contextLabelTemplate(label: TemplateResult, content: TemplateResult, ch
       <div class="dso-context-container">
         ${content}
       </div>
-      ${children}
     </div>
+    ${children}
   `;
 }
 
 function contextFieldsetTemplate(label: TemplateResult, content: TemplateResult, children: TemplateResult) {
   return html`
-    <fieldset class="dso-context-wrapper">
-      <legend class="dso-context-label">
+    <fieldset>
+      <legend class="sr-only">
         ${label}
       </legend>
-      <div class="dso-context-container">
-        ${content}
+      <div class="dso-context-wrapper">
+        <span class="dso-context-label" aria-hidden="true">
+          ${label}
+        </span>
+        <div class="dso-context-container">
+          ${content}
+        </div>
       </div>
       ${children}
-    </div>
+    </fieldset>
   `;
 }
 

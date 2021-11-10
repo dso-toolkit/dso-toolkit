@@ -1,8 +1,12 @@
 .dso-context-wrapper {
-  .dso-context-label {
-    float: left;
-    width: auto;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: $dso-unit;
+  row-gap: $dso-unit * 2;
 
+  .dso-context-label {
     #{$headings} {
       margin-bottom: 0;
       margin-top: 0;
@@ -10,10 +14,6 @@
   }
 
   .dso-context-container {
-    float: right;
-
-    + * {
-      clear: both;
-    }
+    margin-left: auto;
   }
 }

@@ -1,10 +1,12 @@
 <section>
-  <div class="dso-highlight-box dso-context-wrapper">
-    <div class="dso-context-label">
-      <h3>Uw keuzes</h3>
-    </div>
-    <div class="dso-context-container">
-      {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Alle opties', icon: 'pencil'} %}
+  <div class="dso-highlight-box">
+    <div class="dso-context-wrapper">
+      <div class="dso-context-label">
+        <h3>Uw keuzes</h3>
+      </div>
+      <div class="dso-context-container">
+        {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Alle opties', icon: 'pencil'} %}
+      </div>
     </div>
     <p><b>Achterwillenseweg 9a, Gouda</b></p>
     {% render '@label-group', {labels: labels} %}
