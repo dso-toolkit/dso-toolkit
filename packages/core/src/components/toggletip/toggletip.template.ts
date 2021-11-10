@@ -1,0 +1,18 @@
+import { Toggletip } from "@dso-toolkit/sources";
+import { html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined";
+import { unsafeHTML } from "lit-html/directives/unsafe-html";
+
+export function toggletipTemplate({
+  children,
+  label,
+  position,
+  small,
+}: Toggletip) {
+  return html`<dso-toggletip
+    label=${ifDefined(label)}
+    position=${ifDefined(position)}
+    ?small=${small}
+    >${unsafeHTML(children)}</dso-toggletip
+  >`;
+}

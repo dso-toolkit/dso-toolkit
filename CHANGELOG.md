@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + react + dso-toolkit + sources:** Toggletip met interactieve elementen ([#1297](https://github.com/dso-toolkit/dso-toolkit/issues/1297))
+
 ### Fixed
 * **sources:** Anchor link styling op gekleurde achtergrond niet gelijk ([#1281](https://github.com/dso-toolkit/dso-toolkit/issues/1281))
 * **dso-toolkit:** Toegankelijke helpteksten, toelichtingen en validatiefoutmeldingen ([#1238](https://github.com/dso-toolkit/dso-toolkit/issues/1238))

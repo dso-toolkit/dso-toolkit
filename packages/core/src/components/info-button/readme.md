@@ -25,11 +25,13 @@
 ### Used by
 
  - [dso-selectable](../selectable)
+ - [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-selectable --> dso-info-button
+  dso-toggletip --> dso-info-button
   style dso-info-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -34,8 +34,14 @@ export class Tooltip {
   noArrow = false;
 
   /**
-  * Defines if the tooltip has a smaller max-width
-  */
+   * Deactivates mouseover behaviour
+   */
+  @Prop()
+  stateless?: boolean;
+
+  /**
+   * Defines if the tooltip has a smaller max-width
+   */
   @Prop()
   small?: boolean;
 
@@ -76,6 +82,22 @@ export class Tooltip {
   watchActive() {
     if (this.active) {
       this.hidden = false;
+
+      if (!this.stateless) {
+        setTimeout(() => {
+          this.popper?.setOptions({
+            modifiers: [{ name: 'eventListeners', enabled: true }]
+          });
+        });
+      }
+    } else {
+      if (!this.stateless) {
+        this.popper?.setOptions({
+          modifiers: [{ name: 'eventListeners', enabled: false }]
+        });
+      }
+
+      setTimeout(() => (this.hidden = true), transitionDuration);
     }
   }
 
@@ -113,38 +135,22 @@ export class Tooltip {
     });
 
     this.callbacks = {
-      activate: () => {
-        this.hidden = false;
-
-        setTimeout(() => {
-          this.active = true;
-
-          this.popper?.setOptions({
-            modifiers: [{ name: 'eventListeners', enabled: true }]
-          });
-        });
-      },
-      deactivate: () => {
-        this.active = false;
-
-        this.popper?.setOptions({
-          modifiers: [{ name: 'eventListeners', enabled: false }]
-        });
-
-        setTimeout(() => this.hidden = true, transitionDuration);
-      }
+      activate: () => (this.active = true),
+      deactivate: () => (this.active = false)
     };
 
-    this.target.addEventListener('mouseenter', this.callbacks.activate);
-    this.target.addEventListener('mouseleave', this.callbacks.deactivate);
-    this.target.addEventListener('focus', this.callbacks.activate);
-    this.target.addEventListener('blur', this.callbacks.deactivate);
+    if (!this.stateless) {
+      this.target.addEventListener('mouseenter', this.callbacks.activate);
+      this.target.addEventListener('mouseleave', this.callbacks.deactivate);
+      this.target.addEventListener('focus', this.callbacks.activate);
+      this.target.addEventListener('blur', this.callbacks.deactivate);
+    }
   }
 
   disconnectedCallback(): void {
     this.popper?.destroy();
 
-    if (this.target && this.callbacks) {
+    if (!this.stateless && this.target && this.callbacks) {
       this.target.removeEventListener('mouseenter', this.callbacks.activate);
       this.target.removeEventListener('mouseleave', this.callbacks.deactivate);
       this.target.removeEventListener('focus', this.callbacks.activate);
@@ -165,9 +171,7 @@ export class Tooltip {
     return (
       <Host hidden={this.hidden}>
         <div class={clsx('tooltip', { in: this.active })} role="tooltip">
-          {!this.noArrow && (
-            <div class="tooltip-arrow"></div>
-          )}
+          {!this.noArrow && <div class="tooltip-arrow"></div>}
           <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
           </div>
@@ -182,7 +186,12 @@ export class Tooltip {
     }
 
     if (typeof this.for === 'string') {
-      const reference = document.getElementById(this.for);
+      const rootNode = this.element.getRootNode();
+      if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
+        throw new Error(`rootNode is not instance of Document or ShadowRoot`);
+      }
+
+      const reference = rootNode.getElementById(this.for);
       if (!reference) {
         throw new Error(`Unable to find reference with id ${this.for}`);
       }
@@ -192,7 +201,7 @@ export class Tooltip {
 
     const { parentElement } = this.element;
     if (!parentElement) {
-      throw new Error('No reference given with [for] attribute but no parent found either')
+      throw new Error('No reference given with [for] attribute but no parent found either');
     }
 
     return parentElement;
