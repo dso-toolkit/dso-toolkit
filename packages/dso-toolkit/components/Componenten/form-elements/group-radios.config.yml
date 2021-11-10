@@ -159,3 +159,28 @@ variants:
         Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
       </p>
     static: true
+- name: input-radio-allmessages
+  context:
+    __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>fieldset</code>.
+    id: input-radio-allmessages
+    label: Radios - Alle meldingen
+    required: true
+    state: invalid
+    errorText: Maak een keuze.
+    helpText: Antwoord hier met "Ja" of "Nee"
+    options:
+    - value: 1
+      label: ja
+      checked: true
+    - value: 2
+      label: nee
+    infoOpen: true
+    infoText: |
+      <h4>Toelichting bij vraag: "Gaat het om de bouw van één of meer woningen?" </h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    static: true

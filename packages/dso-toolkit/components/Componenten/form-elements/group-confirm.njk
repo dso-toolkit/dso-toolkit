@@ -1,5 +1,15 @@
 {% set localId = generateLocalId(prefix, id) %}
 
+{% set helpTextId = 'helpTextId_' + localId %}
+{% set errorTextId = 'errorTextId_' + localId %}
+
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if helpText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
+{% endif %}
+
 <div {{ className('form-group', 'dso-confirm', [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-field-container">
     {% render '@selectable', {
@@ -10,13 +20,14 @@
       disabled: disabled,
       checked: checked,
       required: required,
-      invalid: state == 'invalid'
+      invalid: state == 'invalid',
+      ariaDescribedBy: ariaDescribedBy
     } %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: localId} %}
+      {% render '@help-block', {helpText: helpText, id: helpTextId} %}
     {% endif %}
   </div>
 </div>

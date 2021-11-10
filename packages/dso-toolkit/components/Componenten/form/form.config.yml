@@ -4,7 +4,7 @@ notes: |
 
   Alle elementen zitten in een `fieldset` met een `legend`. De legend kan verborgen worden met een `.sr-only`. De form submit (en eventueel een form reset) staat _buiten_ de `fieldset`.
 
-  * Een eventuele toelichting zit in een `p.dso-help-block`. Als er een toelichting is, dient deze met een `@aria-describedby` aan de input gekoppeld te worden.
+  * Een eventuele toelichting zit in een `p.dso-help-block`. Als er een toelichting is, dient deze met een `@aria-describedby` aan de werkvorm gekoppeld te worden.
   * Een label bij een _textuele_ `input` **of** `select` eindigt altijd met een dubbele punt.
 
   Buttons worden uitgelijnd afhankelijk van de context:
@@ -25,7 +25,7 @@ notes: |
 
   ### Inline validatie
   **Verplichte velden**
-  Op het moment dat de gebruiker focus verplaatst uit het verplichte invoerveld of het formulier indient, verschijnt er een foutmelding direct onder het betreffende invoerveld. Deze vorm van validatie wordt toegepast op alle formulierelementen.
+  Op het moment dat de gebruiker focus verplaatst uit het verplichte invoerveld of het formulier indient, verschijnt er een foutmelding direct onder het betreffende invoerveld: dit is een `.dso-message` waar met `@aria-describedby` naar verwezen moet worden. Deze vorm van validatie wordt toegepast op alle formulierelementen.
 
   - Voorkom dat inline-validatie op focus wordt weergegeven. In dit geval wordt de foutmelding al weergegeven zonder dat de gebruiker begonnen is met typen.
   - Valideer niet na elk getypt teken. Deze aanpak verhoogt niet alleen het aantal onnodige validatiepogingen, maar frustreert gebruikers ook. Er zijn een paar uitzonderingen op deze regel:
@@ -39,6 +39,16 @@ notes: |
   Net als de verplichte velden kunnen er ook verplichte invoerformaten zijn. Bijvoorbeeld een e-mailadres wat de vorm naam@domein.nl moet hebben. Het is belangrijk om vóór het invoerveld duidelijk te maken wat de eisen zijn aan de invoer, óf automatisch de invoer te corrigeren. Bijvoorbeeld: Postcode (1234 AB). Het beste is om de instructie binnen het labelelement te plaatsen zodat de instructie wordt voorgelezen als de bezoeker op het invoerveld staat.
 
   ![Formulier met verplicht invoerformaat]({{ '/docs/images/form-verplicht-formaat.jpg' | path }})
+
+  ### Toegankelijkheid meldingen
+  De formulierwerkvormen kunnen voorzien worden van een:
+  - foutmelding (een `.dso-message`)
+  - invoer hulptekst (een `.dso-help-block`)
+  - vaste toelichting (een `.dso-info`)
+
+  Al deze onderdelen dienen een uniek `id` te krijgen, en daarnaar wordt verwezen met een `aria-describedby` attribuut vanuit:
+  - als het een 'simpele' inputvorm is: de `input` zelf (of `textarea` of `select`)
+  - als het een complexe groepsvorm is (zoals radios en checkboxes): de `fieldset`
 
   ### Alerts
   Als het formulier wordt ingediend en er zijn invoervelden niet of niet juist ingevuld, verschijnt er een alert boven het formulier. De alert krijgt een `role="alert"`, zodat het direct door screenreaders wordt voorgelezen. In de alert staan één of meerdere anchor links naar de invoervelden. Zodra een invoerveld is gecorrigeerd, verdwijnt deze uit de melding.

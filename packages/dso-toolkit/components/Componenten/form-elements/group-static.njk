@@ -1,7 +1,7 @@
 {% set infoTextId = 'infoTextId_' + id %}
 
 {% if infoText and static %}
-  {% set ariaDescribedBy = infoTextId %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
 <div {{ className('form-group dso-static', [edit, 'dso-edit']) }}>
@@ -14,7 +14,9 @@
       {% render '@info', {infoText: infoText, static: static, id: infoTextId} %}
     {% endif %}
   </div>
-  <div class="dso-field-container" {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
+  <div class="dso-field-container"
+    {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
+  >
     {{ value | safe }}
     {% if edit %}
       {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Link button', icon: 'pencil', iconOnly: 'true'} %}

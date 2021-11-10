@@ -1,13 +1,23 @@
 {% set localId = generateLocalId(prefix, id ) %}
 
-{% set infoTextId = 'infoTextId_' + id %}
+{% set errorTextId = 'errorTextId_' + localId %}
+{% set helpTextId = 'helpTextId_' + localId %}
+{% set infoTextId = 'infoTextId_' + localId %}
 
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if helpText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
+{% endif %}
 {% if infoText and static %}
-  {% set ariaDescribedBy = infoTextId %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
-<fieldset {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}
-  {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}>
+<fieldset
+  {{ className('form-group', 'dso-checkboxes', [state, 'dso-' + state], [required, 'dso-required']) }}
+  {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
+>
   <legend class="sr-only">{{ label }}</legend>
   <div class="dso-label-container">
     <span class="control-label" aria-hidden="true">
@@ -40,10 +50,10 @@
       } %}
     {% endfor %}
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: localId} %}
+      {% render '@help-block', {helpText: helpText, id: helpTextId} %}
     {% endif %}
   </div>
 </fieldset>

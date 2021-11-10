@@ -1,9 +1,17 @@
 {% set localId = generateLocalId(prefix, id) %}
 
-{% set infoTextId = 'infoTextId_' + id %}
+{% set infoTextId = 'infoTextId_' + localId %}
+{% set helpTextId = 'helpTextId_' + localId %}
+{% set errorTextId = 'errorTextId_' + localId %}
 
+{% if errorText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + errorTextId %}
+{% endif %}
+{% if helpText %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + helpTextId %}
+{% endif %}
 {% if infoText and static %}
-  {% set ariaDescribedBy = infoTextId %}
+  {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
 <div {{ className('form-group', 'dso-textarea', [state, 'dso-' + state], [required, 'dso-required']) }}>
@@ -20,19 +28,19 @@
   </div>
   <div class="dso-field-container">
     <textarea class="form-control" id="{{ localId }}"
+      {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
       {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
       {% if rows %} rows="{{ rows }}"{% endif %}
       {% if disabled %} disabled{% endif %}
       {% if readonly %} readonly{% endif %}
       {% if required %} required{% endif %}
       {% if state == "invalid" %} aria-invalid="true"{% endif %}
-      {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %}
     >{{ value }}</textarea>
     {% if errorText %}
-      {% render '@error-block', {errorText: errorText} %}
+      {% render '@error-block', {errorText: errorText, id: errorTextId} %}
     {% endif %}
     {% if helpText %}
-      {% render '@help-block', {helpText: helpText, id: localId} %}
+      {% render '@help-block', {helpText: helpText, id: helpTextId} %}
     {% endif %}
   </div>
 </div>

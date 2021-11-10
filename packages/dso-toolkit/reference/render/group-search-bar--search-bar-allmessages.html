@@ -1,9 +1,9 @@
-<div class="form-group dso-filter">
+<div class="form-group dso-filter dso-invalid">
   <div class="dso-label-container">
-    <label for="search-bar-static-info" class="control-label">
-      Search bar - Default
+    <label for="search-bar-allmessages" class="control-label">
+      Search bar - Alle meldingen
     </label>
-    <div class="dso-info" id="infoTextId_search-bar-static-info">
+    <div class="dso-info" id="infoTextId_search-bar-allmessages">
       <div class="dso-rich-content">
         <h4>Toelichting bij vraag: "Activiteit"</h4>
         <p>
@@ -17,7 +17,7 @@
   <div class="dso-field-container">
     <div class="dso-search-bar">
       <div class="dso-search-bar-input">
-        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" aria-describedby="infoTextId_search-bar-static-info" id="search-bar-static-info" placeholder="Bv. boomkap" />
+        <span class="dso-search-icon" aria-hidden="true"></span><input type="text" aria-describedby="errorTextId_search-bar-allmessages helpTextId_search-bar-allmessages infoTextId_search-bar-allmessages" id="search-bar-error" placeholder="Bv. boomkap" aria-invalid="true" />
         <button type="button">
           Zoekopdracht legen
         </button>
@@ -26,5 +26,7 @@
         Button
       </button>
     </div>
+    <p class="dso-message" id="errorTextId_search-bar-allmessages">Vul dit veld in.</p>
+    <p class="dso-help-block" id="helpTextId_search-bar-allmessages">Type en selecteer de activiteit</p>
   </div>
 </div>

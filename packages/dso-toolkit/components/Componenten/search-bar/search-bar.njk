@@ -26,11 +26,12 @@
       <span class="dso-search-icon" aria-hidden="true"></span>
     {%- endif -%}
     <input type="text"
+      {{ attributes([ariaDescribedBy, 'aria-describedby', ariaDescribedBy]) }}
       {% if id or label %} id="{{ id or _self.handle }}"{% endif %}
       {% if placeholder %} placeholder="{{ placeholder }}"{% endif %}
       {% if value %} value="{{ value }}"{% endif %}
       {% if state == "invalid" %} aria-invalid="true"{% endif %}
-      {% if ariaDescribedBy %} aria-describedby="{{ ariaDescribedBy }}" {% endif %} />
+    />
     {% if clearButton %}
       <button type="button">
         Zoekopdracht legen

@@ -240,3 +240,29 @@ variants:
       label: Optie op hoofdniveau 3
       id: checkbox-main-3
       name: checkbox-main-3
+- name: input-checkbox-allmessages
+  context:
+    __title: Alle meldingen
+    __explanation: Naar de meldingen wordt verwezen met een <code>aria-describedby</code> attribuut vanuit de <code>fieldset</code>.
+    id: input-checkbox-allmessages
+    label: Checkboxes - Alle meldingen
+    required: true
+    state: invalid
+    errorText: Maak een keuze
+    helpText: Selecteer alle even getallen
+    options:
+    - value: 1
+      label: een
+    - value: 2
+      label: twee
+    - value: 3
+      label: drie
+    infoOpen: true
+    infoText: |
+      <h4>Toelichting bij vraag: "Maak een keuze"</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non metus dolor. Pellentesque velit arcu, pellentesque at lacus sit amet, porta semper est.
+        Praesent mollis lorem lorem, non varius nisl lacinia et. Integer quis sollicitudin arcu. Nullam lacinia non ipsum sit amet varius.
+        Praesent consequat ligula id tortor elementum pretium. Integer ligula justo, volutpat sed tellus eu, faucibus fringilla lectus.
+      </p>
+    static: true

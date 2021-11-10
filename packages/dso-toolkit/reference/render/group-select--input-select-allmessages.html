@@ -1,9 +1,9 @@
-<div class="form-group dso-select dso-required">
+<div class="form-group dso-select dso-invalid dso-required">
   <div class="dso-label-container">
-    <label for="input-select-multiple-static" class="control-label">
-      Select - Default
+    <label for="input-select-allmessages" class="control-label">
+      Select - Alle meldingen
     </label>
-    <div class="dso-info" id="infoTextId_input-select-multiple-static">
+    <div class="dso-info" id="infoTextId_input-select-allmessages">
       <div class="dso-rich-content">
         <h4>Toelichting bij vraag: "Kies uw beleg"</h4>
         <p>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="dso-field-container">
-    <select id="input-select-multiple-static" class="form-control" aria-describedby="infoTextId_input-select-multiple-static" required>
+    <select id="input-select-allmessages" class="form-control" aria-describedby="errorTextId_input-select-allmessages helpTextId_input-select-allmessages infoTextId_input-select-allmessages" required aria-invalid="true">
       <optgroup label="Vlees">
         <option value="worst">Worst</option>
         <option value="salami">Salami</option>
@@ -26,5 +26,7 @@
         <option value="makreel">Makreel</option>
       </optgroup>
     </select>
+    <p class="dso-message" id="errorTextId_input-select-allmessages">Maak een keuze.</p>
+    <p class="dso-help-block" id="helpTextId_input-select-allmessages">Maak een keuze tussen vlees of vis</p>
   </div>
 </div>

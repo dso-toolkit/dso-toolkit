@@ -1,3 +1,5 @@
+{% set errorTextId = 'errorTextId_' + (id or _self.handle) %}
+{% set helpTextId = 'helpTextId_' + (id or _self.handle) %}
 {% set infoTextId = 'infoTextId_' + (id or _self.handle) %}
 
 {% if infoText and infoStatic %}
