@@ -3,6 +3,8 @@ export interface TreeViewItem<T> {
   reference: T;
   /** The label of the item */
   label: string;
+  /** The optional href of the item (creates a link) */
+  href?: string;
   /** Indicates whether the item has children */
   hasItems: boolean;
   /** The array of child items */

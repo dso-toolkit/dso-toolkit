@@ -25,6 +25,24 @@
     display: inline-block;
     margin: $u1 0;
 
+    a {
+      &,
+      &:visited {
+        color: $link-color;
+        text-decoration: none;
+      }
+
+      &:hover,
+      &:focus {
+        color: $link-hover-color;
+        text-decoration: underline;
+      }
+
+      &:active {
+        text-decoration: none;
+      }
+    }
+
     dso-icon {
       vertical-align: text-bottom;
       font-size: 0.75em;

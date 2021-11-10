@@ -37,7 +37,10 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
       tabindex={level === 1 && index === 0 ? 0 : -1 }
       onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
-      <a>{item.label}</a>
+      {item.href
+        ? <a href={item.href}>{item.label}</a>
+        : <span>{item.label}</span>
+      }
       {item.icons?.map((icon: TreeViewItemIcon) =>
         <dso-icon icon={icon.icon} title={icon.label}></dso-icon>
       )}

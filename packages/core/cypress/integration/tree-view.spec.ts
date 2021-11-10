@@ -61,8 +61,8 @@ describe('Tree View', () => {
       .as('first-tree-item');
   });
 
-  it('should have correct area attributes for \'tree item sets\'', () => {
-    function shouldHaveCorrectAreaTreeItemAttributes(startElement: string, level: number, setSize: number, posInSet: number)
+  it('should have correct aria attributes for \'tree item sets\'', () => {
+    function shouldHaveCorrectAriaTreeItemAttributes(startElement: string, level: number, setSize: number, posInSet: number)
      : Cypress.Chainable<JQuery<HTMLElement> | Cypress.Chainable<JQuery<HTMLElement>>> {
       return cy
         .get(`@${startElement}`)
@@ -73,13 +73,13 @@ describe('Tree View', () => {
         .find('> p.tree-content');
     }
 
-    shouldHaveCorrectAreaTreeItemAttributes('first-tree-item', 1, 2, 1)
+    shouldHaveCorrectAriaTreeItemAttributes('first-tree-item', 1, 2, 1)
       .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'bouwelementen'));
-    shouldHaveCorrectAreaTreeItemAttributes('bouwelementen', 2, 4, 1)
+    shouldHaveCorrectAriaTreeItemAttributes('bouwelementen', 2, 4, 1)
       .then((subject: JQuery<HTMLElement>) => nextSiblingItem(subject, 'bouwonderdelen'));
-    shouldHaveCorrectAreaTreeItemAttributes('bouwonderdelen', 2, 4, 2)
+    shouldHaveCorrectAriaTreeItemAttributes('bouwonderdelen', 2, 4, 2)
       .then((subject: JQuery<HTMLElement>) => nextSiblingItem(subject, 'bouwwerken'));
-    shouldHaveCorrectAreaTreeItemAttributes('bouwwerken', 2, 4, 3);
+    shouldHaveCorrectAriaTreeItemAttributes('bouwwerken', 2, 4, 3);
 
     cy
       .get('@bouwwerken')
@@ -87,11 +87,11 @@ describe('Tree View', () => {
       .click()
       .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'bebouwing'));
 
-    shouldHaveCorrectAreaTreeItemAttributes('bebouwing', 3, 4, 1)
+    shouldHaveCorrectAriaTreeItemAttributes('bebouwing', 3, 4, 1)
       .prev()
       .click()
       .then((subject: JQuery<HTMLElement>) => firstChildItem(subject, 'hoogbouw'));
-    shouldHaveCorrectAreaTreeItemAttributes('hoogbouw', 4, 2, 1);
+    shouldHaveCorrectAriaTreeItemAttributes('hoogbouw', 4, 2, 1);
   });
 
   it('should expand / collapse on click on the controller icon', () => {

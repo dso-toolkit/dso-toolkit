@@ -25,6 +25,7 @@ export const items: TreeViewItem<string>[] = [
           {
             reference: 'item.1.1.1',
             label: 'afvoerbuizen',
+            href: 'https://nl.wikipedia.org/wiki/afvoerbuizen',
             hasItems: false,
             icons: [
               {
