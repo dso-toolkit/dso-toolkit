@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property            | Attribute | Description | Type     | Default     |
-| ------------------- | --------- | ----------- | -------- | ----------- |
-| `icon` _(required)_ | `icon`    |             | `string` | `undefined` |
+| Property | Attribute | Description | Type                  | Default     |
+| -------- | --------- | ----------- | --------------------- | ----------- |
+| `icon`   | `icon`    |             | `string \| undefined` | `undefined` |
 
 
 ## Dependencies
@@ -19,6 +19,7 @@
  - [dso-date-picker](../date-picker)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
+ - [dso-tree-view](../tree-view)
 
 ### Graph
 ```mermaid
@@ -26,6 +27,7 @@ graph TD;
   dso-date-picker --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon
+  dso-tree-view --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

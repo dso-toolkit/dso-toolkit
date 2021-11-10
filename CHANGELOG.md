@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core + react + dso-toolkit + sources:** Toggletip met interactieve elementen ([#1297](https://github.com/dso-toolkit/dso-toolkit/issues/1297))
+* **BREAKING: core + react + sources:** Treeview Web Component ([#552](https://github.com/dso-toolkit/dso-toolkit/issues/552))
 
 ### Fixed
 * **sources:** Anchor link styling op gekleurde achtergrond niet gelijk ([#1281](https://github.com/dso-toolkit/dso-toolkit/issues/1281))

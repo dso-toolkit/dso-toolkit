@@ -1,0 +1,54 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+:host {
+  ul {
+    list-style-type: none;
+  }
+
+  ul[role='tree'] {
+    padding-left: 0;
+  }
+
+  li[role='treeitem'] > ul {
+    padding-left: 1.5em;
+  }
+
+  .tree-branch-control {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .tree-content {
+    cursor: pointer;
+    display: inline-block;
+    margin: $u1 0;
+
+    a {
+      &,
+      &:visited {
+        color: $link-color;
+        text-decoration: none;
+      }
+
+      &:hover,
+      &:focus {
+        color: $link-hover-color;
+        text-decoration: underline;
+      }
+
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    dso-icon {
+      vertical-align: text-bottom;
+      font-size: 0.75em;
+      margin-left: 0.5em;
+    }
+  }
+}
+
+@include box-sizing();

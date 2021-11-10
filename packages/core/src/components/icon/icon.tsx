@@ -187,14 +187,16 @@ const icons = [
 })
 export class Icon {
   @Prop()
-  icon!: string;
+  icon?: string;
 
   render() {
-    const icon = icons.find(i => i.alias === this.icon);
-    if (!icon) {
-      throw new TypeError(`Unknown svg: ${this.icon}`);
-    }
+    if (this.icon) {
+      const icon = icons.find(i => i.alias === this.icon);
+      if (!icon) {
+        throw new TypeError(`Unknown svg: ${this.icon}`);
+      }
 
-    return <span class="icon-container" innerHTML={icon.svg} />
+      return <span class="icon-container" innerHTML={icon.svg} />
+    }
   }
 }
