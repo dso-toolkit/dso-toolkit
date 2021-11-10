@@ -26,6 +26,10 @@ export function storiesOfTreeView<TemplateFnReturnType>(
 ) {
   const stories = storiesOf('Tree View', mainModule)
     .addParameters({
+      options: {
+        // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
+        enableShortcuts: false
+      },
       controls: {
         hideNoControlsWarning: true
       },
