@@ -5,15 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 31.0.0
+
 ### Added
 * **core + react + dso-toolkit + sources:** Toggletip met interactieve elementen ([#1297](https://github.com/dso-toolkit/dso-toolkit/issues/1297))
-* **BREAKING: core + react + sources:** Treeview Web Component ([#552](https://github.com/dso-toolkit/dso-toolkit/issues/552))
+* **core + react + sources:** Treeview Web Component ([#552](https://github.com/dso-toolkit/dso-toolkit/issues/552))
 
 ### Fixed
 * **sources:** Anchor link styling op gekleurde achtergrond niet gelijk ([#1281](https://github.com/dso-toolkit/dso-toolkit/issues/1281))
 * **dso-toolkit:** Toegankelijke helpteksten, toelichtingen en validatiefoutmeldingen ([#1238](https://github.com/dso-toolkit/dso-toolkit/issues/1238))
 * **core + sources:** AutoSuggest; Highlighter breekt op reguliere expressie ([#1332](https://github.com/dso-toolkit/dso-toolkit/issues/1332))
-* **css + dso-tookit:** Gedrag Context Component bij lange labels en/of grotere interactieve onderdelen ([#1274](https://github.com/dso-toolkit/dso-toolkit/issues/1274))
+* **BREAKING: css + dso-tookit:** Gedrag Context Component bij lange labels en/of grotere interactieve onderdelen ([#1274](https://github.com/dso-toolkit/dso-toolkit/issues/1274))
 
 ### Documentation
 * **dso-toolkit:** Herschrijven navigatie en sub-navigatie documentatie ([#1284](https://github.com/dso-toolkit/dso-toolkit/issues/1284))
