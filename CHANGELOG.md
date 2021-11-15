@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Toegankelijke helpteksten, toelichtingen en validatiefoutmeldingen ([#1238](https://github.com/dso-toolkit/dso-toolkit/issues/1238))
 * **core + sources:** AutoSuggest; Highlighter breekt op reguliere expressie ([#1332](https://github.com/dso-toolkit/dso-toolkit/issues/1332))
 * **BREAKING: css + dso-tookit:** Gedrag Context Component bij lange labels en/of grotere interactieve onderdelen ([#1274](https://github.com/dso-toolkit/dso-toolkit/issues/1274))
+* **react:** React Storybook key errors ([#1343](https://github.com/dso-toolkit/dso-toolkit/issues/1343))
 
 ### Documentation
 * **dso-toolkit:** Herschrijven navigatie en sub-navigatie documentatie ([#1284](https://github.com/dso-toolkit/dso-toolkit/issues/1284))

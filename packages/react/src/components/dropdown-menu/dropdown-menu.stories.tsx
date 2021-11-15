@@ -15,15 +15,15 @@ storiesOfDropdownMenu(
     dropdownMenuTemplate,
     children: (content) => (
       <>
-        {content.map((group) => (
-          <>
+        {content.map((group, index) => (
+          <React.Fragment key={index}>
             {group.header ? (
               <h2 className="dso-group-label">{group.header}</h2>
             ) : undefined}
 
             <ul>
               {group.items.map((item) => (
-                <li {...(item.checked ? { className: "dso-checked" } : {})}>
+                <li key={item.label} {...(item.checked ? { className: "dso-checked" } : {})}>
                   {item.type == "anchor" ? (
                     <a href={item.url}>{item.label}</a>
                   ) : (
@@ -32,7 +32,7 @@ storiesOfDropdownMenu(
                 </li>
               ))}
             </ul>
-          </>
+          </React.Fragment>
         ))}
       </>
     ),
