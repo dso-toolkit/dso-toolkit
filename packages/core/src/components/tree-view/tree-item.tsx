@@ -17,11 +17,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
   <li
     key={item.reference}
     class={clsx('tree-item', { 'has-child': item.hasItems })}
-    role="treeitem"
-    aria-expanded={item.hasItems ? '' + !!item.open : undefined}
-    aria-level={level}
-    aria-setsize={setSize}
-    aria-posinset={index + 1}
+    role='none'
   >
     <div class="tree-branch-control">
       {item.hasItems
@@ -35,31 +31,39 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
     <p
       class="tree-content"
       tabindex={level === 1 && index === 0 ? 0 : -1 }
+      role="treeitem"
+      aria-expanded={item.hasItems ? '' + (!!item.open && !!item.items?.length) : undefined}
+      aria-level={level}
+      aria-setsize={setSize}
+      aria-posinset={index + 1}
+      aria-busy={item.loading ? 'true' : undefined}
       onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
       {item.href
-        ? <a href={item.href}>{item.label}</a>
+        ? <a href={item.href} tabindex="-1">{item.label}</a>
         : <span>{item.label}</span>
       }
       {item.icons?.map((icon: TreeViewItemIcon) =>
         <dso-icon icon={icon.icon} title={icon.label}></dso-icon>
       )}
     </p>
-    <ul role="group" aria-busy={item.loading ? 'true' : undefined}>
-      {item.hasItems && !item.items && item.loading
-        ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
-        : undefined
-      }
-      {item.open && item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
-        <DsoTreeItem
-          owner={owner}
-          ancestors={[...ancestors, item]}
-          item={childItem}
-          index={index}
-          level={level + 1}
-          setSize={org.length}
-        ></DsoTreeItem>
-      )}
-    </ul>
+    {item.open &&
+      <ul role="group">
+        {item.hasItems && !item.items && item.loading
+          ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
+          : undefined
+        }
+        {item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
+          <DsoTreeItem
+            owner={owner}
+            ancestors={[...ancestors, item]}
+            item={childItem}
+            index={index}
+            level={level + 1}
+            setSize={org.length}
+          ></DsoTreeItem>
+        )}
+      </ul>
+    }
   </li>
 );
