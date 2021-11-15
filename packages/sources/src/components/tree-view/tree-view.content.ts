@@ -41,7 +41,7 @@ export const items: TreeViewItem<string>[] = [
             items: [
               {
                 reference: 'item.1.1.2.1',
-                label: 'balkankers',
+                label: 'brugankers',
                 hasItems: false
               }
             ]
