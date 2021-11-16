@@ -15,5 +15,19 @@
 
   .dso-context-container {
     margin-left: auto;
+
+    .dso-select {
+      align-items: center;
+      display: flex;
+      margin-bottom: 0;
+
+      .dso-label-container {
+        margin-right: $dso-unit;
+
+        label {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

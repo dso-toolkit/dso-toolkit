@@ -1,13 +1,24 @@
 import { storiesOfContext } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { buttonTemplate } from '../button/button.template';
 import { contextTemplate } from './context.template';
 
 import { html } from 'lit-html';
 import readme from './readme.md';
 
-const content = buttonTemplate({ url: '#', modifier: 'dso-tertiary', label: 'Versies', icon: { icon: 'chevron-down' } });
+const content = html`
+  <div class="form-group dso-select">
+    <div class="dso-label-container">
+      <label for="context-select" class="control-label">Sorteer op:</label>
+    </div>
+    <div class="dso-field-container">
+      <select id="context-select" class="form-control">
+        <option value="most-chosen">Meest gekozen</option>
+        <option value="alphabetical">Alfabetisch</option>
+      </select>
+    </div>
+  </div>
+`;
 
 const children = html`
   <div class="row">
