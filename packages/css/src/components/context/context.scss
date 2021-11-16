@@ -23,9 +23,35 @@
 
       .dso-label-container {
         margin-right: $dso-unit;
+      }
+    }
+  }
+}
 
-        label {
-          margin-bottom: 0;
+@media screen and (min-width: #{$screen-xs-min + 1}) {
+  .dso-context-wrapper {
+    .dso-context-container {
+      .dso-select {
+        .dso-label-container {
+          label {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-xs-min) {
+  .dso-context-wrapper {
+    .dso-context-container {
+      flex-basis: 100%;
+
+      .dso-select {
+        flex-wrap: wrap;
+
+        .dso-label-container {
+          flex-basis: 100%;
         }
       }
     }
