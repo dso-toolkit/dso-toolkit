@@ -13,6 +13,7 @@ export interface LabelArgs {
     icon: string;
     onClick: HandlerFunction;
   };
+  symbol: string;
 }
 
 export const labelArgTypes: ArgTypes<LabelArgs> = {
@@ -36,6 +37,11 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
     control: {
       type: 'text'
     }
+  },
+  symbol: {
+    control: {
+      type: 'text'
+    }
   }
 };
 
@@ -44,6 +50,7 @@ export function labelArgsMapper(a: LabelArgs): Label {
     label: a.label,
     button: a.button,
     compact: a.compact,
-    status: a.status
+    status: a.status,
+    symbol: a.symbol
   };
 }

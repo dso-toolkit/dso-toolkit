@@ -1,7 +1,10 @@
+const symbolImage = '<span class="symboolcode" data-symboolcode="vag000"></span>';
+const symbolColor = '<span class="symboolcode" data-symboolcode="vszt030"></span>';
+
 module.exports = {
   label: 'Label (CSS)',
   notes: `
-* Het label component kent een normale en een een smalle variant (\`.dso-label-compact\`);
+* Het label component kent een normale en een een smalle variant (\`.dso-compact\`);
 * De hover state voor het Web Component is onderdeel van de werkvorm, voor de CSS versie moet deze door developers worden geimplementeerd dmv. class \`.dso-label-hover\` op de \`<span class="dso-label">\`;
   `,
   status: 'ready',
@@ -165,6 +168,58 @@ module.exports = {
         status: 'bright',
         label: 'Label (helder)',
         compact: true
+      }
+    },
+    {
+      name: 'bright symbol image',
+      context: {
+        status: 'bright',
+        label: 'Met symbool (image)',
+        symbol: symbolImage
+      }
+    },
+    {
+      name: 'bright button symbol image',
+      context: {
+        status: 'bright',
+        label: 'Met symbool (image)',
+        removable: true,
+        symbol: symbolImage
+      }
+    },
+    {
+      name: 'bright compact symbol image',
+      context: {
+        status: 'bright',
+        label: 'Met symbool (image)',
+        compact: true,
+        symbol: symbolImage
+      }
+    },
+    {
+      name: 'bright symbol color',
+      context: {
+        status: 'bright',
+        label: 'Met symbool (color)',
+        symbol: symbolColor
+      }
+    },
+    {
+      name: 'bright button symbol color',
+      context: {
+        status: 'bright',
+        label: 'Met symbool (color)',
+        removable: true,
+        symbol: symbolColor
+      }
+    },
+    {
+      name: 'bright compact symbol color',
+      context: {
+        status: 'bright',
+        label: 'Met symbool (color)',
+        compact: true,
+        symbol: symbolColor
       }
     },
     {
