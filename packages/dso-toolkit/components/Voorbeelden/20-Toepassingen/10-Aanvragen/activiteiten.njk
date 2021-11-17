@@ -22,7 +22,13 @@
               <h4>5 activiteiten</h4>
             </span>
             <div class="dso-context-container">
-              {% render '@button', { type: 'button', modifier: 'dso-tertiary', label: 'Versies', icon: 'chevron-down' } %}
+              <div class="dso-context-select">
+                <label for="sorting-select">Sorteer op:</label>
+                <select id="sorting-select">
+                  <option value="most-chosen">Meest gekozen</option>
+                  <option value="alphabetic" selected>Alfabetisch</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="row">
