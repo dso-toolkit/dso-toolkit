@@ -109,9 +109,19 @@
               <h4>5 activiteiten</h4>
             </span>
             <div class="dso-context-container">
-              <button type="button" class="dso-tertiary">
-                <dso-icon icon="chevron-down"></dso-icon><span >Versies</span>
-              </button>
+              <div class="form-group dso-select">
+                <div class="dso-label-container">
+                  <label for="sorting-select" class="control-label">
+                    Sorteer op:
+                  </label>
+                </div>
+                <div class="dso-field-container">
+                  <select id="sorting-select" class="form-control">
+                    <option value="most-chosen">Meest gekozen</option>
+                    <option value="alphabetic" selected>Alfabetisch</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">

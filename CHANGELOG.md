@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **css + dso-toolkit:** Select in context-container ([#1341](https://github.com/dso-toolkit/dso-toolkit/issues/1341))
+
 ## 31.0.0
 
 ### Added

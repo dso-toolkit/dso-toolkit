@@ -54,6 +54,16 @@ context:
       - value: 4
         label: Informatie (1)
         id: checkbox_6
+  typeSelect:
+    id: sorting-select
+    inputType: select
+    label: 'Sorteer op:'
+    options:
+      - value: most-chosen
+        label: Meest gekozen
+      - value: alphabetic
+        label: Alfabetisch
+        selected: true
   labelGroup:
     labels:
     - label: Gemeente
