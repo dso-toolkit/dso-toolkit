@@ -13,47 +13,27 @@
     }
   }
 
-  .dso-context-container {
-    margin-left: auto;
+  .dso-context-filter {
+    align-items: flex-end;
+    display: flex;
 
-    .dso-select {
-      align-items: center;
-      display: flex;
-      margin-bottom: 0;
-
-      .dso-label-container {
-        margin-right: $dso-unit;
-      }
+    label {
+      margin-bottom: $dso-unit;
+      margin-right: $dso-unit;
     }
-  }
-}
 
-@media screen and (min-width: #{$screen-xs-min + 1}) {
-  .dso-context-wrapper {
-    .dso-context-container {
-      .dso-select {
-        .dso-label-container {
-          label {
-            margin-bottom: 0;
-          }
-        }
-      }
-    }
-  }
-}
+    select {
+      @include form-control();
+      // copied from packages\dso-toolkit\src\styles\components\_form.scss
+      @include di-variant("caret-down");
 
-@media screen and (max-width: $screen-xs-min) {
-  .dso-context-wrapper {
-    .dso-context-container {
-      flex-basis: 100%;
-
-      .dso-select {
-        flex-wrap: wrap;
-
-        .dso-label-container {
-          flex-basis: 100%;
-        }
-      }
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      background-position: calc(100% - #{$u1});
+      background-repeat: no-repeat;
+      background-size: $dso-icon-size $dso-icon-size;
+      flex: 1;
+      padding-right: $u4;
     }
   }
 }
