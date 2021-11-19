@@ -25,7 +25,7 @@ const localization: DsoLocalizedText = {
   nextMonthLabel: 'Volgende maand',
   monthSelectLabel: 'Maand',
   yearSelectLabel: 'Jaar',
-  closeLabel: 'Sluit window',
+  closeLabel: 'Sluiten',
   keyboardInstruction:
     'Gebruik de pijltjestoetsen om een dag te kiezen',
   calendarHeading: 'Kies een datum',
