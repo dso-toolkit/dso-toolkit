@@ -12,4 +12,13 @@ variants:
   context:
     __title: open
     infoOpen: true
+- name: toggle-info-secondary
+  context:
+    __title: secondary
+    infoSecondary: true
+- name: toggle-info-secondary-active
+  context:
+    __title: secondary open
+    infoSecondary: true
+    infoOpen: true
 

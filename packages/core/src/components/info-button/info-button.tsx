@@ -15,6 +15,9 @@ export class InfoButton {
   @Prop({ mutable: true, reflect: true })
   active?: boolean;
 
+  @Prop({ mutable: true, reflect: true })
+  secondary?: boolean;
+
   @Prop()
   label = 'Toelichting bij optie';
 
@@ -30,7 +33,7 @@ export class InfoButton {
     return (
       <button
         type="button"
-        class={clsx('btn', { 'dso-open': !!this.active })}
+        class={clsx('btn', { 'dso-open': !!this.active, 'dso-info-secondary': !!this.secondary })}
         aria-expanded={typeof this.active === 'boolean' ? this.active.toString() : undefined}
         onClick={e => this.handleToggle(e)}
       >

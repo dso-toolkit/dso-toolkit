@@ -3,11 +3,14 @@ import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
-export function infoButtonTemplate({ active, label, onClick }: InfoButton) {
+export function infoButtonTemplate({ active, label, secondary, onClick }: InfoButton) {
   return html`
     <button
       type="button"
-      class="btn dso-info-button ${classMap({ 'dso-open': !!active })}"
+      class="btn dso-info-button ${classMap({
+        'dso-open': !!active,
+        'dso-info-secondary': !!secondary
+      })}"
       aria-expanded=${ifDefined(active?.toString())}
       @click=${onClick}
     >

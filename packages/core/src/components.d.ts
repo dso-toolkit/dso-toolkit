@@ -128,6 +128,7 @@ export namespace Components {
     interface DsoInfoButton {
         "active"?: boolean;
         "label": string;
+        "secondary"?: boolean;
     }
     interface DsoLabel {
         "compact"?: boolean;
@@ -501,6 +502,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "label"?: string;
         "onToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
+        "secondary"?: boolean;
     }
     interface DsoLabel {
         "compact"?: boolean;

@@ -12,6 +12,8 @@
 
   --di-info: #{dso-icon("info")};
   --di-info-active: #{dso-icon("info-active")};
+  --di-info-secondary: #{dso-icon("info", "secondary")};
+  --di-info-active-secondary: #{dso-icon("info-active", "secondary")};
 }
 
 @include box-sizing();
