@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                   | Default                   |
-| -------- | --------- | ----------- | ---------------------- | ------------------------- |
-| `active` | `active`  |             | `boolean \| undefined` | `undefined`               |
-| `label`  | `label`   |             | `string`               | `'Toelichting bij optie'` |
+| Property    | Attribute   | Description | Type                   | Default                   |
+| ----------- | ----------- | ----------- | ---------------------- | ------------------------- |
+| `active`    | `active`    |             | `boolean \| undefined` | `undefined`               |
+| `label`     | `label`     |             | `string`               | `'Toelichting bij optie'` |
+| `secondary` | `secondary` |             | `boolean \| undefined` | `undefined`               |
 
 
 ## Events
