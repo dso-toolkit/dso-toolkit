@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from '@stencil/core';
+import { h, FunctionalComponent, Fragment } from '@stencil/core';
 import clsx from 'clsx';
 import { TreeViewItem, TreeViewItemIcon } from '@dso-toolkit/sources';
 
@@ -48,22 +48,23 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
       )}
     </p>
     {item.open &&
-      <ul role="group">
+      <>
         {item.hasItems && !item.items && item.loading
           ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
-          : undefined
+          : <ul role="group">
+              {item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
+                <DsoTreeItem
+                  owner={owner}
+                  ancestors={[...ancestors, item]}
+                  item={childItem}
+                  index={index}
+                  level={level + 1}
+                  setSize={org.length}
+                ></DsoTreeItem>
+              )}
+            </ul>
         }
-        {item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
-          <DsoTreeItem
-            owner={owner}
-            ancestors={[...ancestors, item]}
-            item={childItem}
-            index={index}
-            level={level + 1}
-            setSize={org.length}
-          ></DsoTreeItem>
-        )}
-      </ul>
+      </>
     }
   </li>
 );

@@ -95,8 +95,17 @@ export class TreeView implements ComponentInterface {
       return;
     }
 
-    if (event.target.classList.contains('tree-content') || event.target.parentElement?.classList.contains('tree-content')) {
+    const contentElement = event.target.closest('.tree-content');
+
+    if (contentElement) {
+      const tree = event.composedPath().find(item => (item instanceof HTMLElement) ? item.className === 'dso-tree' : false);
+      if (!(contentElement instanceof HTMLParagraphElement) || !(tree instanceof HTMLElement)) {
+        return;
+      }
+
+      TreeView.setFocus(tree, contentElement);
       this.clickItem.emit([...ancestors, item]);
+
       return;
     }
 
