@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
-import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent } from "./components/date-picker/date-picker";
+import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
@@ -447,6 +447,14 @@ declare namespace LocalJSX {
           * Event emitted the date picker input is focused.
          */
         "onDsoFocus"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        /**
+          * Event emitted on key down in the date picker input.
+         */
+        "onDsoKeyDown"?: (event: CustomEvent<DsoDatePickerKeyboardEvent>) => void;
+        /**
+          * Event emitted on key up in the date picker input.
+         */
+        "onDsoKeyUp"?: (event: CustomEvent<DsoDatePickerKeyboardEvent>) => void;
         /**
           * Should the input be marked as required?
          */
