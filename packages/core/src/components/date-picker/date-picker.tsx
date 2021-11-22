@@ -62,6 +62,10 @@ export type DsoDatePickerChangeEvent = {
 export type DsoDatePickerFocusEvent = {
   component: "dso-date-picker"
 }
+export type DsoDatePickerKeyboardEvent = {
+  component: "dso-date-picker",
+  originalEvent: KeyboardEvent
+}
 export type DsoDatePickerDirection = "left" | "right"
 
 const DISALLOWED_CHARACTERS = /[^0-9\.\/\-]+/g
@@ -179,6 +183,16 @@ export class DsoDatePicker implements ComponentInterface {
    * Event emitted the date picker input is blurred.
    */
   @Event() dsoBlur!: EventEmitter<DsoDatePickerFocusEvent>
+
+  /**
+   * Event emitted on key up in the date picker input.
+   */
+  @Event() dsoKeyUp!: EventEmitter<DsoDatePickerKeyboardEvent>
+
+  /**
+   * Event emitted on key down in the date picker input.
+   */
+  @Event() dsoKeyDown!: EventEmitter<DsoDatePickerKeyboardEvent>
 
   /**
    * Event emitted the date picker input is focused.
@@ -316,6 +330,24 @@ export class DsoDatePicker implements ComponentInterface {
 
     this.dsoBlur.emit({
       component: "dso-date-picker",
+    })
+  }
+
+  private handleKeyUp = (event: KeyboardEvent) => {
+    event.stopPropagation()
+
+    this.dsoKeyUp.emit({
+      component: "dso-date-picker",
+      originalEvent: event
+    })
+  }
+
+  private handleKeyDown = (event: KeyboardEvent) => {
+    event.stopPropagation()
+
+    this.dsoKeyDown.emit({
+      component: "dso-date-picker",
+      originalEvent: event
     })
   }
 
@@ -544,6 +576,8 @@ export class DsoDatePicker implements ComponentInterface {
               onInput={this.handleInputChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
+              onKeyUp={this.handleKeyUp}
+              onKeyDown={this.handleKeyDown}
               autoComplete="off"
               ref={element => (this.datePickerInput = element)}
             />

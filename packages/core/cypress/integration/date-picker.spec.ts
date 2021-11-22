@@ -351,4 +351,22 @@ describe('Date Picker', () => {
       .find('input.dso-date__input')
       .should('have.focus');
   });
+
+  it('should emit keyboard events', () => {
+    const keys = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dsoKeyDown', (event: CustomEvent) => keys.push(event.detail.originalEvent.key));
+      datePicker.get(0).addEventListener('dsoKeyUp', (event: CustomEvent) => keys.push(event.detail.originalEvent.key));
+    });
+
+    cy
+      .get('dso-date-picker')
+      .shadow()
+      .find('input.dso-date__input')
+      .type('12')
+      .realPress('Enter')
+      .then(() => {
+        expect(keys).deep.equal(['1', '1', '2', '2', 'Enter', 'Enter']);
+      });
+  });
 });
