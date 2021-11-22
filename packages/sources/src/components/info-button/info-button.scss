@@ -12,6 +12,16 @@ $dso-info-button-size: $u3;
   &:active {
     @include di-variant("info-active");
   }
+
+  &.dso-info-secondary {
+    @include di-variant("info-secondary");
+
+    &.dso-open,
+    &:hover,
+    &:active {
+      @include di-variant("info-active-secondary");
+    }
+  }
 }
 
 @mixin info-button_controlLabelSibling() {

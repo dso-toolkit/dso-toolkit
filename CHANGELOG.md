@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + core + react:** Labels: Uitbreiden met symbolen ([#1313](https://github.com/dso-toolkit/dso-toolkit/issues/1313))
+* **core + css + dso-toolkit + sources:** Info button "secondary" styling ([#1301](https://github.com/dso-toolkit/dso-toolkit/issues/1301))
 
 ### Changed
 * **css + dso-toolkit:** Select in context-container ([#1341](https://github.com/dso-toolkit/dso-toolkit/issues/1341))

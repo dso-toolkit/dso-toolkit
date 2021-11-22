@@ -5,4 +5,5 @@ export interface Toggletip {
   position?: typeof tooltipPositions;
   small?: boolean;
   label?: string;
+  secondary?: boolean;
 }

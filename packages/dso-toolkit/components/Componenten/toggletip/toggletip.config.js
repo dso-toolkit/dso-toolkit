@@ -89,5 +89,13 @@ module.exports = {
         small: true,
       },
     },
+    {
+      name: "secondary",
+      context: {
+        label: "Secundaire Toggletip",
+        text: `Dit is een toggletip met <a href="#">interactieve content</a>.`,
+        secondary: true,
+      },
+    },
   ],
 };

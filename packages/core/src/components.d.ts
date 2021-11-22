@@ -128,6 +128,7 @@ export namespace Components {
     interface DsoInfoButton {
         "active"?: boolean;
         "label": string;
+        "secondary"?: boolean;
     }
     interface DsoLabel {
         "compact"?: boolean;
@@ -175,6 +176,7 @@ export namespace Components {
     interface DsoToggletip {
         "label": string;
         "position": "top" | "right" | "bottom" | "left";
+        "secondary"?: boolean;
         "small"?: boolean;
     }
     interface DsoTooltip {
@@ -509,6 +511,7 @@ declare namespace LocalJSX {
         "active"?: boolean;
         "label"?: string;
         "onToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
+        "secondary"?: boolean;
     }
     interface DsoLabel {
         "compact"?: boolean;
@@ -563,6 +566,7 @@ declare namespace LocalJSX {
     interface DsoToggletip {
         "label"?: string;
         "position"?: "top" | "right" | "bottom" | "left";
+        "secondary"?: boolean;
         "small"?: boolean;
     }
     interface DsoTooltip {

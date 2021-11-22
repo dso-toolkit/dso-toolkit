@@ -49,4 +49,26 @@ export function storiesOfInfoButton<TemplateFnReturnType>(
       }
     }
   );
+
+  stories.add(
+    'secondary inactive',
+    template,
+    {
+      args: {
+        active: false,
+        secondary: true
+      }
+    }
+  );
+
+  stories.add(
+    'secondary active',
+    template,
+    {
+      args: {
+        active: true,
+        secondary: true
+      }
+    }
+  );
 }
