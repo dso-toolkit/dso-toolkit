@@ -111,6 +111,7 @@ describe('Tree View', () => {
     cy
       .get('@first-tree-item')
       .click()
+      .focus()
       .then(shouldHaveFocusAndTabIndex)
       .realPress('b');
 
@@ -254,5 +255,25 @@ describe('Tree View', () => {
     cy
       .get('@first-tree-item')
       .then(shouldHaveFocusAndTabIndex);
+  });
+
+  it('should set tabindex = 0 on clicked item', () => {
+    cy
+      .get('@first-tree-item')
+      .then(subject => lastChildItem(subject, 'complexen'))
+      .click();
+
+    cy
+      .get('@complexen')
+      .should('have.attr', 'tabIndex', 0);
+
+    cy
+      .get('@complexen')
+      .then(subject => previousSiblingItem(subject, 'bouwwerken'))
+      .click();
+
+    cy
+      .get('@bouwwerken')
+      .should('have.attr', 'tabIndex', 0);
   });
 });
