@@ -291,6 +291,42 @@ describe('Date Picker', () => {
     cy.get('@dateChange').should('have.been.calledOnce');
   });
 
+  it('should emit changed event on invalid input', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    cy
+      .get('dso-date-picker')
+      .shadow()
+      .find('input.dso-date__input')
+      .type('34-56')
+      .then(() => {
+        expect(details.length).equal(5);
+        expect(details.filter(e => e.error == 'invalid').length).equal(5);
+        expect(details[2].value).equal('34-');
+      });
+  });
+
+  it('should emit changed event on valid input', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    cy
+      .get('dso-date-picker')
+      .shadow()
+      .find('input.dso-date__input')
+      .type('11-4-1970')
+      .then(() => {
+        expect(details[details.length - 1].error).undefined;
+        expect(details[details.length - 1].value).equal('11-04-1970');
+        expect(details[details.length - 1].valueAsDate).eql(new Date('1970-04-10T23:00:00.000Z'));
+      });
+  });
+
   it('should padStart days and months with 0', () => {
     cy
       .get('dso-date-picker')

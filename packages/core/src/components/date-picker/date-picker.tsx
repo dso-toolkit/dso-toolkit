@@ -57,6 +57,7 @@ export type DsoDatePickerChangeEvent = {
   component: "dso-date-picker"
   valueAsDate: Date | undefined
   value: string
+  error?: "invalid" | "required"
 }
 export type DsoDatePickerFocusEvent = {
   component: "dso-date-picker"
@@ -151,7 +152,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Date value. Must be in Dutch date format: DD-MM-YYYY.
    */
-  @Prop({ reflect: true }) value: string = ""
+  @Prop({ reflect: true, mutable: true  }) value: string = ""
 
   /**
    * Minimum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY.
@@ -450,24 +451,40 @@ export class DsoDatePicker implements ComponentInterface {
   }
 
   private handleInputChange = (e: Event) => {
-    const target = e.target as HTMLInputElement
-
-    // clean up any invalid characters
-    target.value = target.value.replace(DISALLOWED_CHARACTERS, "")
-
-    const parsed = parseDutchDate(target.value)
-    if (parsed || target.value === "") {
-      this.setValue(parsed)
-    }
+    const target = e.target as HTMLInputElement;
+    target.value = target.value.replace(DISALLOWED_CHARACTERS, "");
+    this.setValue(target.value);
   }
 
-  private setValue(date: Date | undefined) {
-    this.value = printDutchDate(date)
-    this.dateChange.emit({
+  private setValue(value: Date | string) {
+    var event: DsoDatePickerChangeEvent = {
       component: "dso-date-picker",
-      value: this.value,
-      valueAsDate: date,
-    })
+      value: "",
+      valueAsDate: undefined
+    };
+
+    if (value instanceof Date) {
+      event.valueAsDate = value;
+    } else {
+      event.value = value;
+      event.valueAsDate = parseDutchDate(value);
+    }
+
+    if (event.valueAsDate) {
+      event.value = this.value = printDutchDate(event.valueAsDate);
+    } else {
+      this.value = "";
+    }
+
+    if (!event.valueAsDate && this.required) {
+      event.error = "required";
+    }
+
+    if (event.value && !event.valueAsDate) {
+      event.error = "invalid";
+    }
+
+    this.dateChange.emit(event);
   }
 
   private processFocusedDayNode = (element: HTMLButtonElement) => {
