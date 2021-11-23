@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { DsoLabel } from '../..';
 
-export function labelTemplate({ status, label, button, compact }: Label) {
+export function labelTemplate({ status, label, button, compact, symbol }: Label) {
   return (
     <DsoLabel
       status={status}
@@ -11,6 +11,9 @@ export function labelTemplate({ status, label, button, compact }: Label) {
       compact={compact}
       removable={button}
     >
+      {symbol && (
+        <span slot="symbol" dangerouslySetInnerHTML={{ __html: symbol }} />
+      )}
       {label}
     </DsoLabel>
   );

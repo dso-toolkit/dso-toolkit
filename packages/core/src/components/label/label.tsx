@@ -34,6 +34,7 @@ export class Label {
 
     return (
       <span class={clsx('dso-label', { [`dso-label-${this.status}`]: this.status, 'dso-compact': this.compact && !this.removable, 'dso-hover': this.hover })}>
+        <slot name="symbol"></slot>
         {status && (
           <span class="sr-only">{status}: </span>
         )}

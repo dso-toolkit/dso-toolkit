@@ -7,4 +7,5 @@ export interface Label {
     icon: string;
     onClick: unknown;
   };
+  symbol?: string;
 }

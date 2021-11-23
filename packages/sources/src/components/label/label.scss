@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $dso-label-default-bg-color: $grijs-5;
 $dso-label-default-color: $grijs-90;
 
@@ -19,6 +21,9 @@ $dso-label-danger-color: $wit;
 $dso-label-bright-bg-color: $wit;
 $dso-label-bright-color: $grijs-90;
 $dso-label-bright-border-color: $grijs-20;
+
+$dso-label-symbol-height: 20px;
+$dso-label-symbol-aspect-ratio: math.div(30, 25);
 
 @mixin label_root() {
   background-color: $dso-label-default-bg-color;
@@ -95,4 +100,25 @@ $dso-label-bright-border-color: $grijs-20;
     border: 1px solid $dso-label-bright-border-color;
     padding: #{$u1 * 0.5 - 1px} $u1 - 1px;
   }
+}
+
+@mixin label_symbolContainer() {
+  background-color: $wit;
+  display: block;
+  float: left;
+  height: $dso-label-symbol-height;
+  margin-top: 2px;
+  margin-right: $u1;
+  width: $dso-label-symbol-height * $dso-label-symbol-aspect-ratio;
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin label_symbol() {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
