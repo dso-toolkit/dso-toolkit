@@ -10,6 +10,7 @@ export interface DatePickerArgs {
   min?: number;
   max?: number;
   disabled: boolean;
+  autofocus: boolean;
 }
 
 export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
@@ -43,6 +44,11 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
       type: 'text'
     }
   },
+  autofocus: {
+    control: {
+      type: 'boolean'
+    }
+  },
   onDateChange: {
     action: 'date changed'
   }
@@ -55,6 +61,7 @@ export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
     onDateChange: e => a.onDateChange(e.detail),
     max: a.max,
     min: a.max,
-    value: a.value
+    value: a.value,
+    autofocus: a.autofocus
   };
 }

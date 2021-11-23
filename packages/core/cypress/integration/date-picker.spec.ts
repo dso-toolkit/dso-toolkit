@@ -67,7 +67,7 @@ describe('Date Picker', () => {
       .find('button.dso-date__close')
       .should('have.focus')
       .realPress('Tab');
-    
+
     cy
       .get('@date-picker')
       .find('select.dso-date__select--month')
@@ -119,12 +119,12 @@ describe('Date Picker', () => {
       // End preparation
       .shadow()
       .as('date-picker');
-    
+
     cy
       .get('@date-picker')
       .find('button.dso-date__toggle')
       .click()
-    
+
     cy
       .get('@date-picker')
       .find('.dso-date__dialog :focus')
@@ -169,7 +169,7 @@ describe('Date Picker', () => {
       .get('@date-picker')
       .find('button.dso-date__day:has(span[aria-hidden="true"]:contains(18))')
       .should('have.focus');
-    
+
     cy.realPress('ArrowRight');
     cy.realPress('ArrowRight');
     cy.realPress('ArrowRight');
@@ -287,7 +287,7 @@ describe('Date Picker', () => {
       .contains('05-02-2015')
       .closest('button')
       .click();
-    
+
     cy.get('@dateChange').should('have.been.calledOnce');
   });
 
@@ -298,5 +298,21 @@ describe('Date Picker', () => {
       .shadow()
       .find('input.dso-date__input')
       .should('have.value', '01-01-2000')
+  });
+
+  it('should autofocus', () => {
+    cy
+      .get('dso-date-picker')
+      .shadow()
+      .find('input.dso-date__input')
+      .should('not.have.focus');
+
+    cy.visit('http://localhost:56106/iframe.html?id=date-picker--with-label&args=autofocus:true');
+
+    cy
+      .get('dso-date-picker')
+      .shadow()
+      .find('input.dso-date__input')
+      .should('have.focus');
   });
 });

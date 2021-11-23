@@ -53,6 +53,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Should the input be focused on load?
+         */
+        "dsoAutofocus": boolean;
+        /**
           * Hide the calendar modal. Set `moveFocusToButton` to false to prevent focus returning to the date picker's button. Default is true.
          */
         "hide": (moveFocusToButton?: boolean) => Promise<void>;
@@ -419,6 +423,10 @@ declare namespace LocalJSX {
           * Makes the date picker input component disabled. This prevents users from being able to interact with the input, and conveys its inactive state to assistive technologies.
          */
         "disabled"?: boolean;
+        /**
+          * Should the input be focused on load?
+         */
+        "dsoAutofocus"?: boolean;
         /**
           * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
          */

@@ -5,4 +5,5 @@ export interface DatePicker {
   min?: number;
   max?: number;
   disabled: boolean;
+  autofocus?: boolean;
 }
