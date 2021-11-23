@@ -15,7 +15,7 @@ export class InfoButton {
   @Prop({ mutable: true, reflect: true })
   active?: boolean;
 
-  @Prop({ mutable: true, reflect: true })
+  @Prop()
   secondary?: boolean;
 
   @Prop()
