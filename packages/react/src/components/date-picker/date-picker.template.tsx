@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { DsoDatePicker } from '../..';
 
-export function datePickerTemplate({ id, onDateChange, value, min, max, disabled }: DatePicker) {
+export function datePickerTemplate({ id, onDateChange, value, min, max, disabled, autofocus }: DatePicker) {
   return (
     <DsoDatePicker
       dateChange={(e: CustomEvent<DsoDatePickerChangeEvent>) => onDateChange(e)}
@@ -12,6 +12,7 @@ export function datePickerTemplate({ id, onDateChange, value, min, max, disabled
       value={value}
       min={min}
       max={max}
+      dsoAutofocus={autofocus}
       disabled={disabled}
     ></DsoDatePicker>
   );
