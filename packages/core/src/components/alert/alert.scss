@@ -14,6 +14,9 @@
   --di-status-danger: #{dso-icon("status-danger")};
   --di-status-warning: #{dso-icon("status-warning")};
   --di-status-info: #{dso-icon("status-info")};
+
+  --di-download-grijs90: #{dso-icon("download", "grijs90")};
+  --di-external-link-grijs90: #{dso-icon("external-link", "grijs90")};
 }
 
 :host(:not(:first-child)) {

@@ -72,13 +72,13 @@ $alert-danger-border: $state-danger-border;
 
     &.download {
       &::after {
-        @include di-variant("download-grijs90");
+        @include di("download-grijs90");
       }
     }
 
     &.extern {
       &::after {
-        @include di-variant("external-link-grijs90");
+        @include di("external-link-grijs90");
       }
     }
   }
