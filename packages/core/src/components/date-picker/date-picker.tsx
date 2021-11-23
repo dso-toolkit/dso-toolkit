@@ -144,6 +144,11 @@ export class DsoDatePicker implements ComponentInterface {
   @Prop() required: boolean = false
 
   /**
+   * Should the input be focused on load?
+   */
+  @Prop() dsoAutofocus: boolean = false
+
+  /**
    * Date value. Must be in Dutch date format: DD-MM-YYYY.
    */
   @Prop({ reflect: true }) value: string = ""
@@ -305,7 +310,7 @@ export class DsoDatePicker implements ComponentInterface {
     }
   }
 
-  private handleBlur = (event: Event) => {	
+  private handleBlur = (event: Event) => {
     event.stopPropagation()
 
     this.dsoBlur.emit({
@@ -470,6 +475,12 @@ export class DsoDatePicker implements ComponentInterface {
 
     if (this.activeFocus && this.open) {
       setTimeout(() => element.focus(), 0)
+    }
+  }
+
+  componentDidLoad() {
+    if (this.dsoAutofocus) {
+      this.setFocus();
     }
   }
 
