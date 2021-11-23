@@ -7,7 +7,7 @@ import { html } from 'lit-html';
 import readme from './readme.md';
 
 const content = html`
-  <div class="dso-context-filter">
+  <div class="dso-context-select">
     <label for="sorting-select">Sorteer op:</label>
     <select id="sorting-select">
       <option value="most-chosen">Meest gekozen</option>

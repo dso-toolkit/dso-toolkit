@@ -6,6 +6,10 @@
   margin-bottom: $dso-unit;
   row-gap: $dso-unit * 2;
 
+  .dso-context-container {
+    margin-left: auto;
+  }
+
   .dso-context-label {
     #{$headings} {
       margin-bottom: 0;
@@ -13,8 +17,8 @@
     }
   }
 
-  .dso-context-filter {
-    align-items: flex-end;
+  .dso-context-select {
+    align-items: center;
     display: flex;
 
     label {
@@ -32,8 +36,36 @@
       background-position: calc(100% - #{$u1});
       background-repeat: no-repeat;
       background-size: $dso-icon-size $dso-icon-size;
-      flex: 1;
       padding-right: $u4;
+      width: auto;
+    }
+  }
+}
+
+@media screen and (min-width: #{$screen-xs-min + 1}) {
+  .dso-context-wrapper {
+    .dso-context-container {
+      .dso-context-select {
+        label {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-xs-min) {
+  .dso-context-wrapper {
+    .dso-context-container {
+      flex-basis: 100%;
+
+      .dso-context-select {
+        flex-wrap: wrap;
+
+        label {
+          flex-basis: 100%;
+        }
+      }
     }
   }
 }
