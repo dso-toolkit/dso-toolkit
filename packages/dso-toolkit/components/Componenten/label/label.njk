@@ -1,7 +1,14 @@
 <dso-label id="label-{{ _self.name }}" {{ attributes([status, 'status', status], [compact, 'compact'], [removable, 'removable']) }}>
+  {%- if symbol %}
+    <span slot="symbol">
+      {{ symbol | safe }}
+    </span>
+  {% endif -%}
   {{ label }}
 </dso-label>
 
-<script>
-  document.getElementById('label-{{ _self.name }}').addEventListener('actionClick', e => console.log(e));
-</script>
+{% if removable %}
+  <script>
+    document.getElementById('label-{{ _self.name }}').addEventListener('removeClick', e => console.log(e));
+  </script>
+{% endif %}

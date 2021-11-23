@@ -1,12 +1,15 @@
 import { action } from '@storybook/addon-actions';
+import { PartialStoryFn } from '@storybook/addons';
 
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { labelArgsMapper, labelArgTypes } from './label.args';
+import { css } from './label.demo';
 import { Label } from './label.models';
 
 export interface LabelParameters<TemplateFnReturnType> {
   labelTemplate: (labelProperties: Label) => TemplateFnReturnType;
+  decorator: (story: PartialStoryFn<TemplateFnReturnType>, css: string) => TemplateFnReturnType;
 }
 
 export function storiesOfLabel<TemplateFnReturnType>(
@@ -16,7 +19,8 @@ export function storiesOfLabel<TemplateFnReturnType>(
     readme
   }: StorybookParameters,
   {
-    labelTemplate
+    labelTemplate,
+    decorator
   }: LabelParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(labelArgsMapper, labelTemplate);
@@ -30,7 +34,8 @@ export function storiesOfLabel<TemplateFnReturnType>(
       args: {
         label: 'Label'
       }
-    });
+    })
+    .addDecorator(story => decorator(story, css));
 
   stories.add(
     'default',
@@ -47,6 +52,28 @@ export function storiesOfLabel<TemplateFnReturnType>(
           icon: 'times',
           onClick: action('Clicked remove')
         }
+      }
+    }
+  );
+
+  stories.add(
+    'with symbol (image)',
+    template, 
+    {
+      args: {
+        status: 'bright',
+        symbol: '<span class="symboolcode" data-symboolcode="vag000"></span>'
+      }
+    }
+  );
+
+  stories.add(
+    'with symbol (color)',
+    template,
+    {
+      args: {
+        status: 'bright',
+        symbol: '<span class="symboolcode" data-symboolcode="vszt030"></span>'
       }
     }
   );

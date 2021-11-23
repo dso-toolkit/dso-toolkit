@@ -1,6 +1,7 @@
 import { Label } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 import { iconTemplate } from '../icon/icon.template';
 
@@ -13,14 +14,22 @@ const statusMap = new Map<string, string>([
   ['danger', 'Gevaar']
 ]);
 
-export function labelTemplate({ status, label, button, compact }: Label) {
+export function labelTemplate({ status, label, button, compact, symbol }: Label) {
   return html`
-    <span class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-label-compact`]: !!compact })}">
-      ${status && html`
-        <span class="sr-only">${statusMap.get(status)}: </span>
-      `}
-      ${label}
-      ${button
+    <span class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}">
+      ${symbol
+        ? html`
+          <span class="dso-label-symbol">${unsafeHTML(symbol)}</span>
+        `
+        : nothing
+      }${status
+        ? html`
+          <span class="sr-only">${statusMap.get(status)}: </span>
+        `
+        : nothing
+      }${
+        label
+      }${button
         ? html `
           <button type="button" title=${button.title} @click=${button.onClick}>
             ${iconTemplate({ icon: button.icon })}
