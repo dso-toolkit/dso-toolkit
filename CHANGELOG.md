@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Date picker: label sluitknopje ([#1334](https://github.com/dso-toolkit/dso-toolkit/issues/1334))
 * **core:** Date Picker geeft geen event bij foutieve invoer ([#1326](https://github.com/dso-toolkit/dso-toolkit/issues/1326))
 * **core:** Tree View: toetsenbordinteractie werkt niet met nvda ([#1342](https://github.com/dso-toolkit/dso-toolkit/issues/1342))
+* **core + css + react + sources + dso-toolkit:** External link in banner of alert krijgt groen icoontje ([#1295](https://github.com/dso-toolkit/dso-toolkit/issues/1295))
 
 ## 31.0.0
 

@@ -51,7 +51,7 @@ export function storiesOfAlert<TemplateFnReturnType>(
     {
       args: {
         status: 'info',
-        message: 'Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.'
+        message: 'Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#" class="extern" target="_blank" rel="noopener noreferrer">aanvullende</a> informatie of tips.'
       }
     }
   );

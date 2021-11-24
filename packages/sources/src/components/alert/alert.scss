@@ -69,6 +69,18 @@ $alert-danger-border: $state-danger-border;
     &:active {
       text-decoration: none;
     }
+
+    &.download {
+      &::after {
+        @include di("download-grijs90");
+      }
+    }
+
+    &.extern {
+      &::after {
+        @include di("external-link-grijs90");
+      }
+    }
   }
 }
 

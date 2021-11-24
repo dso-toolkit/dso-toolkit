@@ -75,7 +75,7 @@ variants:
     context:
       __title: info
       status: info
-      message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#">aanvullende</a> informatie of tips.
+      message: Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#" class="extern" target="_blank" rel="noopener noreferrer">aanvullende</a> informatie of tips.
   - name: success-button
     context:
       __title: success with button

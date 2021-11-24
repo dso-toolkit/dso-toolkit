@@ -9,6 +9,8 @@
 
   --di-status-danger: #{dso-icon("status-danger")};
   --di-status-warning: #{dso-icon("status-warning")};
+  --di-download-grijs90: #{dso-icon("download", "grijs90")};
+  --di-external-link-grijs90: #{dso-icon("external-link", "grijs90")};
 }
 
 @include box-sizing();
