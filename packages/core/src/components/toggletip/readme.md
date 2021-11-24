@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                     | Default         |
-| ---------- | ---------- | ----------- | ---------------------------------------- | --------------- |
-| `label`    | `label`    |             | `string`                                 | `"Toelichting"` |
-| `position` | `position` |             | `"bottom" \| "left" \| "right" \| "top"` | `"right"`       |
-| `small`    | `small`    |             | `boolean \| undefined`                   | `undefined`     |
+| Property    | Attribute   | Description | Type                                     | Default         |
+| ----------- | ----------- | ----------- | ---------------------------------------- | --------------- |
+| `label`     | `label`     |             | `string`                                 | `"Toelichting"` |
+| `position`  | `position`  |             | `"bottom" \| "left" \| "right" \| "top"` | `"right"`       |
+| `secondary` | `secondary` |             | `boolean \| undefined`                   | `undefined`     |
+| `small`     | `small`     |             | `boolean \| undefined`                   | `undefined`     |
 
 
 ## Dependencies

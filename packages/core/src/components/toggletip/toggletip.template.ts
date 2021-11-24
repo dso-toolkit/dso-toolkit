@@ -8,11 +8,13 @@ export function toggletipTemplate({
   label,
   position,
   small,
+  secondary,
 }: Toggletip) {
   return html`<dso-toggletip
     label=${ifDefined(label)}
     position=${ifDefined(position)}
     ?small=${small}
+    ?secondary=${secondary}
     >${unsafeHTML(children)}</dso-toggletip
   >`;
 }

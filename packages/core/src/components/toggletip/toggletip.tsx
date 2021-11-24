@@ -21,6 +21,9 @@ export class Toggletip {
   @Prop()
   small?: boolean;
 
+  @Prop()
+  secondary?: boolean;
+
   infoButton!: HTMLDsoInfoButtonElement;
 
   button!: HTMLButtonElement;
@@ -81,6 +84,7 @@ export class Toggletip {
           onClick={this.click}
           label={this.label}
           active={this.active}
+          secondary={this.secondary}
         />
         <dso-tooltip
           stateless

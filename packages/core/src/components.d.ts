@@ -176,6 +176,7 @@ export namespace Components {
     interface DsoToggletip {
         "label": string;
         "position": "top" | "right" | "bottom" | "left";
+        "secondary"?: boolean;
         "small"?: boolean;
     }
     interface DsoTooltip {
@@ -557,6 +558,7 @@ declare namespace LocalJSX {
     interface DsoToggletip {
         "label"?: string;
         "position"?: "top" | "right" | "bottom" | "left";
+        "secondary"?: boolean;
         "small"?: boolean;
     }
     interface DsoTooltip {

@@ -8,6 +8,7 @@ export interface ToggletipArgs {
   position: typeof tooltipPositions;
   small?: boolean;
   label?: string;
+  secondary?: boolean;
 }
 
 export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
@@ -32,6 +33,11 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
       type: "text",
     },
   },
+  secondary: {
+    control: {
+      type: 'boolean'
+    }
+  },
 };
 
 export function toggletipArgsMapper(a: ToggletipArgs): Toggletip {
@@ -40,5 +46,6 @@ export function toggletipArgsMapper(a: ToggletipArgs): Toggletip {
     position: a.position,
     small: a.small,
     label: a.label,
+    secondary: a.secondary,
   };
 }
