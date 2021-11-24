@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **css + dso-toolkit:** Select in context-container ([#1341](https://github.com/dso-toolkit/dso-toolkit/issues/1341))
+* **core:** Date Picker emit Enter keydown event van nested input ([#1328](https://github.com/dso-toolkit/dso-toolkit/issues/1328))
 
 ### Fixed
 * **core:** Date picker: label sluitknopje ([#1334](https://github.com/dso-toolkit/dso-toolkit/issues/1334))
