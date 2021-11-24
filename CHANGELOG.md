@@ -7,18 +7,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + core + react:** Labels: Uitbreiden met symbolen ([#1313](https://github.com/dso-toolkit/dso-toolkit/issues/1313))
+* **core:** Tree View: Klikken op een item dient de roving tabindex naar dat item te verplaatsen ([#1348](https://github.com/dso-toolkit/dso-toolkit/issues/1348))
 
 ### Changed
 * **css + dso-toolkit:** Select in context-container ([#1341](https://github.com/dso-toolkit/dso-toolkit/issues/1341))
 
 ### Fixed
 * **core:** Date picker: label sluitknopje ([#1334](https://github.com/dso-toolkit/dso-toolkit/issues/1334))
+* **core:** Tree View: toetsenbordinteractie werkt niet met nvda ([#1342](https://github.com/dso-toolkit/dso-toolkit/issues/1342))
 
 ## 31.0.0
 
 ### Added
 * **core + react + dso-toolkit + sources:** Toggletip met interactieve elementen ([#1297](https://github.com/dso-toolkit/dso-toolkit/issues/1297))
-* **core + react + sources:** Treeview Web Component ([#552](https://github.com/dso-toolkit/dso-toolkit/issues/552))
+* **core + react + sources:** Tree View Web Component ([#552](https://github.com/dso-toolkit/dso-toolkit/issues/552))
 
 ### Fixed
 * **sources:** Anchor link styling op gekleurde achtergrond niet gelijk ([#1281](https://github.com/dso-toolkit/dso-toolkit/issues/1281))
