@@ -4,7 +4,7 @@ import isURL from 'validator/es/lib/isURL';
 import { ContentAnchor } from './ozon-content.interfaces';
 
 function transformDescriptionNote(body: HTMLElement): HTMLElement {
-  body.querySelectorAll<HTMLDivElement>('.od-Al > div.noot').forEach((nootElement, index) => {
+  body.querySelectorAll<HTMLDivElement>('div.noot').forEach((nootElement, index) => {
     const contentElement = nootElement.nextElementSibling;
     if (!(contentElement instanceof HTMLDivElement && contentElement.classList.value === 'noot_popup')) {
       return;

@@ -90,6 +90,20 @@ export const inhoud = `
               situatie is voldoende, op landelijk niveau is geen herstelopgave geformuleerd.</p>
           </td>
         </tr>
+        <tr>
+          <td class="valign- ">
+            <p>Toelichting </p>
+          </td>
+          <td class="align-left valign-top ">
+            <p>Hoofdstuk in besluit of regeling waarin verwijzing staat
+              <div href="#" class="noot"><a href="#" class="noot">1</a></div>
+              <div class="noot_popup">
+                <div class="od-Al">Bal: Besluit activiteiten leefomgeving; Bbl: Besluit bouwwerken leefomgeving; Bkl:
+                  Besluit kwaliteit leefomgeving.</div>
+              </div>
+            </p>
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -281,11 +295,14 @@ export const inhoud = `
 `;
 
 export const opschrift = `
-<div class="od-Opschrift">Habitatrichtlijn: habitattypen (bijlage I<div class="od-Noot">
-    <div class="od-NootNummer">11</div>
-    <div class="od-Al"> Bijlagen I en II laatstelijk aangepast op 20 november 2006, Richtlijn 2006/105/EG, Pb EG L 363,
-      20.12.2006, p. 368-405 (zie ook rectificatie PB EG L 80, 21.3.2007, p. 15).</div>
-  </div>)</div>
+<div class="od-Opschrift">
+  Welstand en belevingswaarde (<div class="noot" href="#">
+    <a class="noot" href="#">13</a>
+  </div>
+  <div class="noot_popup">
+    <div class="od-Al">dit is een voetnoot</div>
+  </div>)
+</div>
 `;
 
 export const aanhef = `

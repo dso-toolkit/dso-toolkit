@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + react + sources:** Date Picker voorzien van autofocus attribuut ([#1327](https://github.com/dso-toolkit/dso-toolkit/issues/1327))
 * **core:** Date Picker emit Enter keydown event van nested input ([#1328](https://github.com/dso-toolkit/dso-toolkit/issues/1328))
 * **all:** NPM audit vulnerabilities package updates ([#1310](https://github.com/dso-toolkit/dso-toolkit/issues/1310))
+* **core:** Noten werken niet in Ozon content type "Opschrift" ([#1346](https://github.com/dso-toolkit/dso-toolkit/issues/1346))
 
 ### Fixed
 * **core:** Date picker: label sluitknopje ([#1334](https://github.com/dso-toolkit/dso-toolkit/issues/1334))
