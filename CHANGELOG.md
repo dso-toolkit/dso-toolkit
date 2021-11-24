@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit:** Select in context-container ([#1341](https://github.com/dso-toolkit/dso-toolkit/issues/1341))
 * **core + react + sources:** Date Picker voorzien van autofocus attribuut ([#1327](https://github.com/dso-toolkit/dso-toolkit/issues/1327))
 * **core:** Date Picker emit Enter keydown event van nested input ([#1328](https://github.com/dso-toolkit/dso-toolkit/issues/1328))
+* **all:** NPM audit vulnerabilities package updates ([#1310](https://github.com/dso-toolkit/dso-toolkit/issues/1310))
 
 ### Fixed
 * **core:** Date picker: label sluitknopje ([#1334](https://github.com/dso-toolkit/dso-toolkit/issues/1334))

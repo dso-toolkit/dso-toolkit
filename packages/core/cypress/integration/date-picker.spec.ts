@@ -323,7 +323,7 @@ describe('Date Picker', () => {
       .then(() => {
         expect(details[details.length - 1].error).undefined;
         expect(details[details.length - 1].value).equal('11-04-1970');
-        expect(details[details.length - 1].valueAsDate).eql(new Date('1970-04-10T23:00:00.000Z'));
+        expect(details[details.length - 1].valueAsDate).eql(new Date(1970, 3, 11));
       });
   });
 
