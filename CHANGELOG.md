@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **core:** Date picker: label sluitknopje ([#1334](https://github.com/dso-toolkit/dso-toolkit/issues/1334))
+* **core:** Date Picker geeft geen event bij foutieve invoer ([#1326](https://github.com/dso-toolkit/dso-toolkit/issues/1326))
 
 ## 31.0.0
 
