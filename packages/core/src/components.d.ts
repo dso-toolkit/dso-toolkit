@@ -12,7 +12,7 @@ import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfac
 import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
 import { ContentAnchor } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
-import { TreeViewItem } from "@dso-toolkit/sources";
+import { TreeViewItem } from "./components/tree-view/tree-view.interfaces";
 export namespace Components {
     interface DsoAlert {
         /**

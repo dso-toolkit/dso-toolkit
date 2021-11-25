@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 31.1.1
+
+### Fixed
+* **core:** Verwijzing naar `@dso-toolkit/sources` ([#1361](https://github.com/dso-toolkit/dso-toolkit/issues/1361))
+
 ## 31.1.0
 
 ### Added
