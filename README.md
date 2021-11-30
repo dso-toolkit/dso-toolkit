@@ -67,7 +67,7 @@ For Web Components:
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
 
 ### Develop or mockups
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 14 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 16 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Either install Yarn with
 
@@ -165,7 +165,7 @@ yarn start:react-leaflet
 This will start Stencil (http://localhost:53333) and Storybook (http://localhost:56106) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234 or the React Leaflet development environment on http://localhost:42345.
 
 ## Requirements
-Node 14. For development on the DSO Toolkit you also need Yarn.
+Node 16. For development on the DSO Toolkit you also need Yarn.
 
 ## Dependencies
 The DSO Toolkit and Component Library uses
