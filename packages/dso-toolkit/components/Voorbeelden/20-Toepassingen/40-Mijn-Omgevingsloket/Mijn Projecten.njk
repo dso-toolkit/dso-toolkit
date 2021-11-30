@@ -1,4 +1,4 @@
-{% render '@header' %}
+{% render '@header', {menu: menu, breadcrumbs: []} -%}
 <main>
   <div class="dso-app-heading">
     <h1>Mijn projecten</h1>
@@ -38,8 +38,8 @@
           <tbody>
             <tr>
               <th scope="row">
-                <a href="#">Project 10</a>
-                <span style="font-weight:normal" class="dso-label dso-label-danger">
+                <a href="#">Boomkappen in de achtertuin</a>
+                <span class="dso-label dso-label-danger">
                   <span class="sr-only">Let op!: </span>
                   Wordt verwijderd op 31-12-2023</span>
               </th>
@@ -54,6 +54,9 @@
                 <button type="button" class="dso-tertiary">
                   <span class="sr-only">(Insert Project Naam) verwijderen</span>
                   <dso-icon icon="trash"></dso-icon>
+                  <dso-tooltip position="left">
+                    Verwijderen
+                  </dso-tooltip>
                 </button>
               </td>
             </tr>
@@ -72,6 +75,9 @@
                 <button type="button" class="dso-tertiary">
                   <span class="sr-only">(Insert Project Naam) verwijderen</span>
                   <dso-icon icon="trash"></dso-icon>
+                  <dso-tooltip position="left">
+                    Verwijderen
+                  </dso-tooltip>
                 </button>
               </td>
             </tr>
@@ -90,6 +96,9 @@
                 <button type="button" class="dso-tertiary">
                   <span class="sr-only">(Insert Project Naam) verwijderen</span>
                   <dso-icon icon="trash"></dso-icon>
+                  <dso-tooltip position="left">
+                    Verwijderen
+                  </dso-tooltip>
                 </button>
               </td>
             </tr>
@@ -108,6 +117,9 @@
                 <button type="button" class="dso-tertiary">
                   <span class="sr-only">(Insert Project Naam) verwijderen</span>
                   <dso-icon icon="trash"></dso-icon>
+                  <dso-tooltip position="left">
+                    Verwijderen
+                  </dso-tooltip>
                 </button>
               </td>
             </tr>

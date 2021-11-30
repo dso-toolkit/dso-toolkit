@@ -1,0 +1,119 @@
+{% render '@header', {menu: menu, breadcrumbs: []} -%}
+<main>
+  <a href="#" class="dso-tertiary">
+    <dso-icon icon="chevron-left"></dso-icon>
+    <span>Naar project overzicht</span>
+  </a>
+  <div class="dso-app-heading">
+    <h1>Boom kappen in de achtertuin</h1>
+    <h2>Boom kappen in de achtertuin 1<h2>
+  </div>
+  <button type="button" class="dso-secondary">
+    <dso-icon icon="pencil"></dso-icon>
+    <span>Aanvullen</span>
+  </button>
+  <button type="button" class="dso-secondary">
+    <dso-icon icon="undo"></dso-icon>
+    <span>Intrekken</span>
+  </button>
+  <button type="button" class="dso-secondary">
+    <dso-icon icon="trash"></dso-icon>
+    <span>Verwijderen</span>
+  </button>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <dl>
+            <dt>Ingediend bij:</dt>
+            <dd>
+              <strong>Gemeente Den Haag</strong>
+            </dd>
+            <dt>Behandeld door:</dt>
+            <dd>
+              <strong>Omgevingsdienst Haaglanden</strong>
+            </dd>
+            <dt>Soort:</dt>
+            <dd>Aanvraag vergunning</dd>
+            <dt>Locatie:</dt>
+            <dd>Laan van Eik en Duinen 125, 2564GX 's-Gravenhage</dd>
+            <dt>Activiteit(en):</dt>
+            <dd>Milieubelastende activiteit - vergunning</dd>
+            <dd>Kappen van een boom - vergunning</dd>
+            <dt>Doel:</dt>
+            <dd>Definitief</dd>
+            <dt>Status:</dt>
+            <dd>Aangevuld</dd>
+            <dt>Verzoek hulpnummer(s):</dt>
+            <dd>20220101 00201 002 - 02-01-2022</dd>
+            <dd>20220101 00201 002 - 02-01-2022</dd>
+            <dd>20220101 00201 002 - 02-01-2022</dd>
+          </dl>
+          <button type="button" class="dso-secondary">
+            <dso-icon icon="download"></dso-icon>
+            <span>Download pdf als verzoek</span>
+          </button>
+        </div>
+      </div>
+      <hr>
+      <h3>Bijlagen</h3>
+      <button type="button" class="dso-secondary">
+        <dso-icon icon="download"></dso-icon>
+        <span>Download alle bijlagen</span>
+      </button>
+      <table class="table">
+        <caption class="sr-only">Overzicht van gebruikersnamen</caption>
+        <thead>
+          <tr>
+            <th scope="col" class="col-xs-7">Bestandsnaam</th>
+            <th scope="col" class="col-xs-3">Vertrouwelijk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <a href="#" class="dso-tertiary">
+                <dso-icon icon="download"></dso-icon>
+                <span>Brief opzichter de koning.doc</span></a>
+            </th>
+            <td>
+                Ja
+              </td>
+
+          </tr>
+          <tr>
+            <th scope="row">
+              <a href="#" class="dso-tertiary">
+                <dso-icon icon="download"></dso-icon>
+                <span>Boom-23.jpg</span></a>
+            </th>
+            <td>
+                Nee
+              </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <a href="#" class="dso-tertiary">
+                <dso-icon icon="download"></dso-icon>
+                <span>Straat-overzicht-boom23.jpg</span></a>
+            </th>
+            <td>
+                Nee
+              </td>
+          </tr>
+          <tr>
+            <th scope="row">
+              <a href="#" class="dso-tertiary">
+                <dso-icon icon="download"></dso-icon>
+                <span>Brochure-gemeente-Den-Haag.pdf</span></a>
+            </th>
+            <td>
+                Ja
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#" class="dso-tertiary">
+        <dso-icon icon="chevron-left"></dso-icon>
+        <span>Naar project overzicht</span>
+      </a>
+    </main>
+    {% render '@footer' %}
