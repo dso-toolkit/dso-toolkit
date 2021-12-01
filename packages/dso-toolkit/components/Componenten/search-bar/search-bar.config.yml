@@ -12,6 +12,11 @@ variants:
     context:
       __title: Zichtbaar label, geen icon
       icon: false
+  - name: huge-placeholder
+    context:
+      placeholder: Placeholder met lange tekst, lange tekst, langere tekst. Placeholder met lange tekst, lange tekst, langere tekst. Placeholder met lange tekst, lange tekst, langere tekst.
+      __title: Lange tekst in placeholder
+      icon: false
   - name: hidden-label-icon
     context:
       __title: Verborgen label met icon

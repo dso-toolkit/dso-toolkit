@@ -111,6 +111,12 @@ variants:
     id: input-text-placeholder
     placeholder: Voornaam Achternaam
     required: true
+- name: input-text-huge-placeholder
+  context:
+    __title: Lange tekst in placeholder
+    id: input-text-huge-placeholder
+    placeholder: Placeholder met lange tekst, lange tekst, langere tekst. Placeholder met lange tekst, lange tekst, langere tekst.
+    required: false
 - name: input-text-icon
   context:
     __title: Met icoon

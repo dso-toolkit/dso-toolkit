@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit + sources:** Placeholder tekst buiten inputs in Safari ([#1364](https://github.com/dso-toolkit/dso-toolkit/issues/1364))
+
 ### Changed
 * Node 16 ([#1359](https://github.com/dso-toolkit/dso-toolkit/issues/1359))
 
