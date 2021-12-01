@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * Node 16 ([#1359](https://github.com/dso-toolkit/dso-toolkit/issues/1359))
 
+### Removed
+* **dso-toolkit:** Treeview deprecaten ([#1351](https://github.com/dso-toolkit/dso-toolkit/issues/1351))
+
 ## 31.1.1
 
 ### Fixed
