@@ -59,10 +59,6 @@ $dso-search-bar-invalid-input-border-color: $dso-danger-color;
         outline: 0;
       }
 
-      &::placeholder {
-        overflow: visible;
-      }
-
       &::-ms-clear {
         display: none;
       }

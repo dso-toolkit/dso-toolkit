@@ -56,10 +56,6 @@ $dso-form-control-readonly-border-width: 1px;
 
   &[type="text"] {
     line-height: $dso-form-control-height;
-
-    &::placeholder {
-      overflow: visible !important;
-    }
   }
 
   &[size] {
