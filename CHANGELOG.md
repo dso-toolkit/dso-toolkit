@@ -7,10 +7,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **dso-toolkit + sources:** Placeholder tekst buiten inputs in Safari ([#1364](https://github.com/dso-toolkit/dso-toolkit/issues/1364))
-* **dso-toolkit:** Fractal dev omgeving watched files uit packages/css niet ([#1370](https://github.com/dso-toolkit/dso-toolkit/issues/1370))
+* **dso-toolkit:** Fractal dev omgeving watcht files uit packages/css niet ([#1370](https://github.com/dso-toolkit/dso-toolkit/issues/1370))
 
 ### Changed
 * Node 16 ([#1359](https://github.com/dso-toolkit/dso-toolkit/issues/1359))
+
+### Removed
+* **dso-toolkit:** Treeview deprecaten ([#1351](https://github.com/dso-toolkit/dso-toolkit/issues/1351))
 
 ## 31.1.1
 

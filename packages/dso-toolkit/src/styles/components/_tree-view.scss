@@ -1,4 +1,7 @@
 .dso-tree-view {
+  // DEPRECATED
+  background-color: $dso-invalid-color;
+
   ul {
     list-style: none;
     margin: 0;
