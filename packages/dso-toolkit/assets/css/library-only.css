@@ -39,3 +39,11 @@
   margin-top: 16px;
   width: 100%;
 }
+
+#navigation-container {
+  opacity: 1 !important;
+}
+
+.dso-tree-view {
+  background-color: unset;
+}
