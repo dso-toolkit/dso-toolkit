@@ -10,6 +10,9 @@ export interface ViewerGridArgs {
   shrink: HandlerFunction;
   expand: HandlerFunction;
   closeOverlay: HandlerFunction;
+  documentHeaderFeaturesOpen: boolean;
+  documentHeaderMapAction: HandlerFunction;
+  documentHeaderFeatureAction: HandlerFunction;
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
@@ -24,6 +27,11 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
       type: 'boolean'
     }
   },
+  documentHeaderFeaturesOpen: {
+    control: {
+      type: 'boolean'
+    }
+  },
   shrink: {
     action: 'shrink'
   },
@@ -32,6 +40,12 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   },
   closeOverlay: {
     action: 'closeAside'
+  },
+  documentHeaderMapAction: {
+    action: 'documentHeaderMapAction'
+  },
+  documentHeaderFeatureAction: {
+    action: 'documentHeaderFeatureAction'
   }
 };
 

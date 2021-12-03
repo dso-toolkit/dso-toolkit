@@ -15,6 +15,5 @@ export function badgeTemplate({ status, message }: Badge) {
     <span class="dso-badge ${status ? `badge-${status}` : ''}">
       <span class="sr-only">${status ? statusMap.get(status) : 'Badge'}: </span>
       ${message}
-    </span>
-  `;
+    </span>`;
 }

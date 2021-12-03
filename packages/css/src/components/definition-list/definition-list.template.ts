@@ -1,9 +1,9 @@
 import { Definition, DefinitionList } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
-function definitionTemplate({ term, descriptions }: Definition, useSrOnlyColon: boolean) {
+function definitionTemplate({ term, descriptions }: Definition<TemplateResult>, useSrOnlyColon: boolean) {
   return html`
     <dt>
       ${term}${useSrOnlyColon
@@ -12,12 +12,12 @@ function definitionTemplate({ term, descriptions }: Definition, useSrOnlyColon: 
       }
     </dt>
     ${descriptions.map(description => html`
-      <dd>${unsafeHTML(description)}</dd>
+      <dd>${typeof description === 'string' ? unsafeHTML(description) : description}</dd>
     `)}
   `;
 }
 
-export function definitionListTemplate({ modifier, definitions, useSrOnlyColon }: DefinitionList) {
+export function definitionListTemplate({ modifier, definitions, useSrOnlyColon }: DefinitionList<TemplateResult>) {
   return html`
     <dl class=${ifDefined(modifier)}>
       ${definitions.map(definition => modifier?.split(' ').includes('dso-columns')
