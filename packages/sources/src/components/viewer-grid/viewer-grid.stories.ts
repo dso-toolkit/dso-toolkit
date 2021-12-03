@@ -25,9 +25,10 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
       docs: {
         page: readme
       },
-      args: componentArgs<Pick<ViewerGridArgs, 'panelSize' | 'panelOpen'>>({
-        panelSize: 'small',
-        panelOpen: false
+      args: componentArgs<Pick<ViewerGridArgs, 'panelSize' | 'panelOpen' | 'documentHeaderFeaturesOpen'>>({
+        panelSize: 'large',
+        panelOpen: false,
+        documentHeaderFeaturesOpen: true
       }),
       argTypes: viewerGridArgTypes
     });

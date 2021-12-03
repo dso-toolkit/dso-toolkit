@@ -2,35 +2,90 @@ import { storiesOfViewerGrid } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components'
 import { html } from 'lit-html';
 
-import { viewerGridTemplate } from './viewer-grid.template';
-import readme from './readme.md';
+import { anchorTemplate } from '../anchor/anchor.template';
+import { badgeTemplate } from '../badge/badge.template';
 
-const main = html`
-  <div class="dso-rich-content">
-    <h2>Main</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet ligula vel cursus consequat. Aenean id dolor
-      felis. Mauris eget ullamcorper neque. Donec finibus libero lorem, faucibus sollicitudin dui vehicula eu. Vestibulum
-      libero lorem, rutrum ac blandit euismod, elementum vel diam. Nunc at convallis mi. Aliquam tincidunt ante eu quam
-      molestie, nec rutrum quam accumsan. Pellentesque porta quis sem et dictum. Curabitur varius vel metus non pulvinar.
-      Donec ut magna ut nunc lacinia vestibulum et eget enim. In efficitur felis non massa vulputate, eu pellentesque nisi
-      sagittis. Nulla non magna eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-      himenaeos. Quisque sodales nibh risus, ac dictum diam volutpat quis. Integer sed tortor quis libero iaculis
-      interdum.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet ligula vel cursus consequat. Aenean id dolor
-      felis. Mauris eget ullamcorper neque. Donec finibus libero lorem, faucibus sollicitudin dui vehicula eu. Vestibulum
-      libero lorem, rutrum ac blandit euismod, elementum vel diam. Nunc at convallis mi. Aliquam tincidunt ante eu quam
-      molestie, nec rutrum quam accumsan. Pellentesque porta quis sem et dictum. Curabitur varius vel metus non pulvinar.
-      Donec ut magna ut nunc lacinia vestibulum et eget enim. In efficitur felis non massa vulputate, eu pellentesque nisi
-      sagittis. Nulla non magna eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-      himenaeos. Quisque sodales nibh risus, ac dictum diam volutpat quis. Integer sed tortor quis libero iaculis
-      interdum.
-    </p>
-    <p>Morbi vestibulum eu urna sed lacinia.</p>
-  </div>
-`;
+import { viewerGridTemplate } from './viewer-grid.template';
+import { viewerGridDocumentHeaderTemplate } from './viewer-grid-document-header.template';
+import readme from './readme.md';
+import { viewerGridDocumentListItem } from './viewer-grid-document-list-item.template';
+
+function viewerGridMainDemoTemplate(
+  documentHeaderFeatureAction: (e: MouseEvent) => void,
+  documentHeaderMapAction: (e: MouseEvent) => void,
+  documentHeaderFeaturesOpen: boolean
+) {
+  return html`
+    ${viewerGridDocumentHeaderTemplate({
+      title: html`<h1>Omgevingsplan gemeente Gouda</h1>`,
+      type: 'Omgevingsplan',
+      owner: 'Gemeente Gouda',
+      status: html`${badgeTemplate({ status: 'warning', message: 'Ontwerp' })}Bekendgemaakt 01-03-2021`,
+      featuresAction: documentHeaderFeatureAction,
+      featuresOpen: documentHeaderFeaturesOpen,
+      mapAction: documentHeaderMapAction,
+      features: {
+        modifier: 'dso-document-header-features',
+        definitions: [
+          {
+            term: 'Opschrift',
+            descriptions: ['Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving']
+          },
+          {
+            term: 'Identificatie',
+            descriptions: ['/akn/nl/act/mnre1034/2021/BWBR0041330']
+          },
+          {
+            term: 'Besluit',
+            descriptions: [
+              anchorTemplate({
+                label: 'Bekijk besluit',
+                url: '#',
+                icon: {
+                  icon: 'external-link'
+                },
+                iconMode: 'after'
+              })
+            ]
+          }
+        ],
+        useSrOnlyColon: false
+        }
+      }
+    )}
+    <div class="dso-rich-content">
+      <h2>Main</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet ligula vel cursus consequat. Aenean id dolor
+        felis. Mauris eget ullamcorper neque. Donec finibus libero lorem, faucibus sollicitudin dui vehicula eu. Vestibulum
+        libero lorem, rutrum ac blandit euismod, elementum vel diam. Nunc at convallis mi. Aliquam tincidunt ante eu quam
+        molestie, nec rutrum quam accumsan. Pellentesque porta quis sem et dictum. Curabitur varius vel metus non pulvinar.
+        Donec ut magna ut nunc lacinia vestibulum et eget enim. In efficitur felis non massa vulputate, eu pellentesque nisi
+        sagittis. Nulla non magna eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+        himenaeos. Quisque sodales nibh risus, ac dictum diam volutpat quis. Integer sed tortor quis libero iaculis
+        interdum.
+      </p>
+    </div>
+    <ul class="dso-document-list">
+      <li>
+        ${viewerGridDocumentListItem({
+          title: html`<h2>Omgevingsplan gemeente Gouda</h2>`,
+          type: 'Omgevingsplan',
+          owner: 'Gemeente Gouda',
+          status: html`${badgeTemplate({ status: 'warning', message: 'Ontwerp' })}Bekendgemaakt 01-03-2021`
+        })}
+      </li>
+      <li>
+        ${viewerGridDocumentListItem({
+          title: html`<h2>Omgevingsplan gemeente Gooise Meren</h2>`,
+          type: 'Omgevingsplan',
+          owner: 'Gemeente Gooise Meren',
+          status: html`${badgeTemplate({ status: 'warning', message: 'Ontwerp' })}In werking vanaf 01-10-2022`
+        })}
+      </li>
+    </ul>
+  `;
+}
 
 const map = html`
   <div class="alert alert-success">
@@ -91,13 +146,13 @@ storiesOfViewerGrid(
     readme
   },
   {
-    viewerGridDemoTemplate: ({ closeOverlay, expand, panelSize, panelOpen, shrink }) => viewerGridTemplate({
+    viewerGridDemoTemplate: ({ closeOverlay, expand, panelSize, panelOpen, shrink, documentHeaderFeatureAction, documentHeaderFeaturesOpen, documentHeaderMapAction }) => viewerGridTemplate({
       closeOverlay,
       expand,
       panelOpen,
       panelSize,
       shrink,
-      main,
+      main: viewerGridMainDemoTemplate(documentHeaderFeatureAction, documentHeaderMapAction, documentHeaderFeaturesOpen),
       map,
       overlay
     })

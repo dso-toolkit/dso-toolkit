@@ -1,10 +1,10 @@
-export interface DefinitionList {
+export interface DefinitionList<TemplateFnReturnType = never> {
   modifier?: string;
-  definitions: Definition[];
+  definitions: Definition<TemplateFnReturnType>[];
   useSrOnlyColon: boolean;
 }
 
-export interface Definition {
+export interface Definition<TemplateFnReturnType = never> {
   term: string;
-  descriptions: string[];
+  descriptions: (string | TemplateFnReturnType)[];
 }
