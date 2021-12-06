@@ -3,7 +3,7 @@ $dso-shopping-cart-border-color: $grijs-20;
 
 .dso-shopping-cart {
   button.dso-status {
-    background-color: $grijs-10;
+    background-color: $grijs-5;
     border: 0;
     border-radius: $dso-shopping-cart-radius;
     box-shadow: none;
@@ -27,7 +27,7 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   .dso-contents {
-    background-color: $grijs-10;
+    background-color: $grijs-5;
     border: 0;
     border-radius: $dso-shopping-cart-radius;
 
@@ -40,7 +40,7 @@ $dso-shopping-cart-border-color: $grijs-20;
   ol {
     @include list-unstyled();
 
-    background-color: $grijs-10;
+    background-color: $grijs-5;
     border-radius: $dso-shopping-cart-radius;
     margin-bottom: 0;
 

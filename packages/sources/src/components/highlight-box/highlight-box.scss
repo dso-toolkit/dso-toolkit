@@ -2,7 +2,7 @@ $dso-highlight-box-margin-top: $dso-shared-equal-heights-highlight-box-height;
 $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 @mixin highlight-box_root() {
-  background-color: $grijs-10;
+  background-color: $grijs-5;
   margin-top: $u2;
   padding: $u2;
   margin-bottom: $dso-vertical-spacing-medium;
