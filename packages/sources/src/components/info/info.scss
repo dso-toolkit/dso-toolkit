@@ -1,5 +1,5 @@
 @mixin info_root() {
-  background-color: $grijs-10;
+  background-color: $grijs-5;
   padding: $u2 $u4 $u2 $u2;
   position: relative;
 
@@ -8,11 +8,11 @@
     border-style: none;
     padding: 0;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: $u1;
+    top: $u1;
 
     &::before {
-      @include di("times-bosgroen");
+      @include di("times-grijs90");
 
       content: "";
       display: inline-block;

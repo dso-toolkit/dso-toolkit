@@ -5,7 +5,7 @@ $dso-footer-header-border-color: $grijs-20;
 footer {
   @include full-width-row();
 
-  background-color: $grijs-10;
+  background-color: $grijs-5;
   border-top: 1px solid $dso-footer-border-color;
   display: block;
   margin-top: $u6;
