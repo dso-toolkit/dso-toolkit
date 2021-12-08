@@ -10,6 +10,8 @@ export interface ViewerGridArgs {
   shrink: HandlerFunction;
   expand: HandlerFunction;
   closeOverlay: HandlerFunction;
+  filterblokDeleteActiveFilter: HandlerFunction;
+  allOptions: HandlerFunction;
   documentHeaderFeaturesOpen: boolean;
   documentHeaderMapAction: HandlerFunction;
   documentHeaderFeatureAction: HandlerFunction;
@@ -46,6 +48,12 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   },
   documentHeaderFeatureAction: {
     action: 'documentHeaderFeatureAction'
+  },
+  allOptions: {
+    action: 'allOptions'
+  },
+  filterblokDeleteActiveFilter: {
+    action: 'filterblokDeleteActiveFilter'
   }
 };
 

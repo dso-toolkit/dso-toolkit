@@ -132,6 +132,24 @@ $dso-viewer-grid-overlay-width: 624px;
   overflow-y: auto;
   z-index: 1;
 
+  .dso-filterblok {
+    margin-left: $grid-gutter-width * -0.5;
+    margin-right: $grid-gutter-width * -0.5;
+
+    @media screen and (max-width: $screen-xs-min) {
+      .dso-context-wrapper {
+        .dso-context-container {
+          flex-basis: auto;
+        }
+      }
+    }
+  }
+
+  .dso-filterblok-address {
+    font-weight: bold;
+    margin: $u1 0;
+  }
+
   .dso-document-header {
     background-color: $grijs-5;
     padding: $grid-gutter-width * 0.5;
