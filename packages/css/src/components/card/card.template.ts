@@ -1,12 +1,21 @@
 import { Card } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
+import { html, nothing, TemplateResult } from 'lit-html';
+import { classMap } from 'lit-html/directives/class-map';
 
 import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
+import { selectableTemplate } from '../selectable/selectable.template';
 
-export function cardTemplate({ label, content, interactions }: Card) {
+export function cardTemplate({ label, selectable, content, interactions }: Card<TemplateResult>) {
   return html`
-    <div class="dso-card">
+    <div class="dso-card ${classMap({ 'dso-is-selectable': !!selectable })}">
+      ${selectable
+        ? html`
+          <div class="dso-card-selectable">
+            ${selectableTemplate(selectable)}
+          </div>`
+        : nothing
+      }
       <div class="dso-card-heading">
         <a href="#">
           <h2>

@@ -4,11 +4,11 @@ import { Card } from '../card/card.models';
 
 import { CardList } from './card-list.models';
 
-export interface CardListArgs {
-  cards: Card[];
+export interface CardListArgs<TemplateFnReturnType> {
+  cards: Card<TemplateFnReturnType>[];
 }
 
-export const cardListArgTypes: ArgTypes<CardListArgs> = {
+export const cardListArgTypes: ArgTypes<CardListArgs<never>> = {
   cards: {
     control: {
       disable: true
@@ -16,7 +16,7 @@ export const cardListArgTypes: ArgTypes<CardListArgs> = {
   }
 };
 
-export function cardListArgsMapper(a: CardListArgs): CardList {
+export function cardListArgsMapper(a: CardListArgs<never>): CardList<never> {
   return {
     cards: a.cards
   };

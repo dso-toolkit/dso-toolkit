@@ -51,17 +51,6 @@ h6,
   margin-bottom: $rich-content-margin-bottom;
 }
 
-%dso-rich-content,
-.dso-rich-content {
+%dso-rich-content {
   @include rich-content();
-}
-
-.dso-rich-content {
-  > :first-child:not(hr) {
-    margin-top: $rich-content-margin-bottom * 0.5;
-  }
-
-  > :last-child:not(hr) {
-    margin-bottom: $rich-content-margin-bottom * 0.5;
-  }
 }

@@ -1,10 +1,10 @@
-import { bindTemplate, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, componentArgs, StorybookParameters } from '../../stories-helpers';
 
-import { cardArgsMapper, cardArgTypes } from './card.args';
+import { CardArgs, cardArgsMapper, cardArgTypes } from './card.args';
 import { Card } from './card.models';
 
 export interface CardParameters<TemplateFnReturnType> {
-  cardTemplate: (cardProperties: Card) => TemplateFnReturnType;
+  cardTemplate: (cardProperties: Card<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfCard<TemplateFnReturnType>(
@@ -24,15 +24,10 @@ export function storiesOfCard<TemplateFnReturnType>(
       docs: {
         page: readme
       },
-      argTypes: cardArgTypes
-    });
-
-  stories.add(
-    'Card',
-    template,
-    {
-      args: {
+      argTypes: cardArgTypes,
+      args: componentArgs<CardArgs>({
         label: 'Omgevingsplan Nieuwegein',
+        selectable: false,
         content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.',
         interactions: [
           {
@@ -43,7 +38,21 @@ export function storiesOfCard<TemplateFnReturnType>(
             }
           }
         ]
-      }
+      })
+    });
+
+  stories.add(
+    'default',
+    template
+  );
+
+  stories.add(
+    'selectable',
+    template,
+    {
+      args: componentArgs<Pick<CardArgs, 'selectable'>>({
+        selectable: true
+      })
     }
   );
 }

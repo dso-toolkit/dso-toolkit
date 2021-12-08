@@ -4,7 +4,7 @@ import { cardListArgsMapper, cardListArgTypes } from './card-list.args';
 import { CardList } from './card-list.models';
 
 export interface CardListParameters<TemplateFnReturnType> {
-  cardListTemplate: (cardListProperties: CardList) => TemplateFnReturnType;
+  cardListTemplate: (cardListProperties: CardList<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfCardList<TemplateFnReturnType>(

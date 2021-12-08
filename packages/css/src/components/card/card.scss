@@ -49,6 +49,34 @@
       flex-wrap: wrap;
     }
   }
+
+  .dso-rich-content {
+    :first-child {
+      margin-top: 0;
+    }
+  }
+
+  &.dso-is-selectable {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
+
+    .dso-card-selectable {
+      grid-row: span 2;
+    }
+
+    .dso-card-heading,
+    .dso-card-content {
+      grid-column: 2 /-1;
+    }
+  }
+}
+
+.dso-card-selectable {
+  .dso-selectable {
+    label {
+      font-size: 0;
+    }
+  }
 }
 
 .dso-card-interactions {
