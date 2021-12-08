@@ -1,4 +1,4 @@
-import { DefinitionList } from '../..';
+import { DefinitionList, Label } from '../..';
 
 export interface ViewerGridDemoProperties {
   panelSize: 'small' | 'medium' | 'large';
@@ -6,6 +6,8 @@ export interface ViewerGridDemoProperties {
   shrink: (e: MouseEvent) => void;
   expand: (e: MouseEvent) => void;
   closeOverlay: (e: MouseEvent) => void;
+  allOptions: (e: MouseEvent) => void;
+  filterblokDeleteActiveFilter: (e: MouseEvent) => void;
   documentHeaderFeaturesOpen: boolean;
   documentHeaderMapAction: (e: MouseEvent) => void;
   documentHeaderFeatureAction: (e: MouseEvent) => void;
@@ -38,4 +40,11 @@ export interface ViewerGridDocumentListItem<TemplateFnReturnType> {
   type: string;
   owner: string;
   status: TemplateFnReturnType;
+}
+
+export interface ViewerGridFilterblok<TemplateFnReturnType> {
+  title: TemplateFnReturnType;
+  address: string;
+  activeFilters: Label[];
+  onAllOptions: (e: MouseEvent) => void;
 }

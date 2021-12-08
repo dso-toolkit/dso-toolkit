@@ -50,6 +50,7 @@ export * from './components/input-number/input-number.models';
 export * from './components/input-number/input-number.stories';
 export * from './components/label/label.models';
 export * from './components/label/label.stories';
+export * from './components/label-group/label-group.models';
 export * from './components/link-list/link-list.models';
 export * from './components/link-list/link-list.stories';
 export * from './components/list-button/list-button.models';

@@ -5,17 +5,56 @@ import { html } from 'lit-html';
 import { anchorTemplate } from '../anchor/anchor.template';
 import { badgeTemplate } from '../badge/badge.template';
 
-import { viewerGridTemplate } from './viewer-grid.template';
-import { viewerGridDocumentHeaderTemplate } from './viewer-grid-document-header.template';
 import readme from './readme.md';
+import { viewerGridDocumentHeaderTemplate } from './viewer-grid-document-header.template';
 import { viewerGridDocumentListItem } from './viewer-grid-document-list-item.template';
+import { viewerGridFilterblok } from './viewer-grid-filterblok.template';
+import { viewerGridTemplate } from './viewer-grid.template';
 
 function viewerGridMainDemoTemplate(
+  filterblokAllOptions: (e: MouseEvent) => void,
+  filterblokDeleteActiveFilter: (e: MouseEvent) => void,
   documentHeaderFeatureAction: (e: MouseEvent) => void,
   documentHeaderMapAction: (e: MouseEvent) => void,
   documentHeaderFeaturesOpen: boolean
 ) {
   return html`
+    ${viewerGridFilterblok({
+      onAllOptions: filterblokAllOptions,
+      title: html`<h3>Uw keuzes</h3>`,
+      address: 'Achterwillenseweg 9a, Gouda',
+      activeFilters: [
+        {
+          label: 'Geldend',
+          status: 'bright',
+          button: {
+            icon: 'times',
+            onClick: filterblokDeleteActiveFilter,
+            title: 'Verwijder'
+          }
+        },
+        {
+          label: 'Regels',
+          status: 'bright'
+        },
+        {
+          label: 'Tuin',
+          status: 'bright'
+        },
+        {
+          label: 'Woongebied',
+          status: 'bright'
+        },
+        {
+          label: 'Geluidzone',
+          status: 'bright'
+        },
+        {
+          label: 'Thema: milieu algemeen',
+          status: 'bright'
+        }
+      ]
+    })}
     ${viewerGridDocumentHeaderTemplate({
       title: html`<h1>Omgevingsplan gemeente Gouda</h1>`,
       type: 'Omgevingsplan',
@@ -146,13 +185,24 @@ storiesOfViewerGrid(
     readme
   },
   {
-    viewerGridDemoTemplate: ({ closeOverlay, expand, panelSize, panelOpen, shrink, documentHeaderFeatureAction, documentHeaderFeaturesOpen, documentHeaderMapAction }) => viewerGridTemplate({
+    viewerGridDemoTemplate: ({
+      closeOverlay,
+      expand,
+      panelSize,
+      panelOpen,
+      shrink,
+      filterblokDeleteActiveFilter,
+      allOptions,
+      documentHeaderFeatureAction,
+      documentHeaderFeaturesOpen,
+      documentHeaderMapAction
+    }) => viewerGridTemplate({
       closeOverlay,
       expand,
       panelOpen,
       panelSize,
       shrink,
-      main: viewerGridMainDemoTemplate(documentHeaderFeatureAction, documentHeaderMapAction, documentHeaderFeaturesOpen),
+      main: viewerGridMainDemoTemplate(allOptions, filterblokDeleteActiveFilter, documentHeaderFeatureAction, documentHeaderMapAction, documentHeaderFeaturesOpen),
       map,
       overlay
     })
