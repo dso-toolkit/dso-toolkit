@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 32.0.0
+
 ### Added
 * **css:** document-header en document-list-item in dso-viewer-grid main panel #1308 ([#1308](https://github.com/dso-toolkit/dso-toolkit/issues/1308))
 * **css:** Filterblok component ([#1323](https://github.com/dso-toolkit/dso-toolkit/issues/1323))
