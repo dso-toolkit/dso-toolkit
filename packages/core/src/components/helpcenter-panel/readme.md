@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                  | Default     |
-| -------- | --------- | ----------- | --------------------- | ----------- |
-| `label`  | `label`   |             | `string \| undefined` | `undefined` |
-| `url`    | `url`     |             | `string \| undefined` | `undefined` |
+| Property           | Attribute | Description | Type                  | Default        |
+| ------------------ | --------- | ----------- | --------------------- | -------------- |
+| `label`            | `label`   |             | `string \| undefined` | `"Hulp nodig"` |
+| `url` _(required)_ | `url`     |             | `string`              | `undefined`    |
+| `width`            | `width`   |             | `string \| undefined` | `"50%"`        |
 
 
 ----------------------------------------------

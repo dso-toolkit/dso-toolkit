@@ -2,11 +2,18 @@ import { ArgTypes } from "../../stories-helpers";
 import { HelpcenterPanel } from "./helpcenter-panel.models";
 
 export interface HelpcenterPanelArgs {
-  label: string;
+  content: string;
+  label?: string;
   url: string;
+  width?: string;
 }
 
 export const HelpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
+  content: {
+    table: {
+      disable: true,
+    },
+  },
   label: {
     control: {
       type: "text",
@@ -17,13 +24,20 @@ export const HelpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
       type: "text",
     },
   },
+  width: {
+    control: {
+      type: "text",
+    },
+  },
 };
 
 export function helpcenterPanelArgsMapper(
   a: HelpcenterPanelArgs
 ): HelpcenterPanel {
   return {
+    content: a.content,
     label: a.label,
     url: a.url,
+    width: a.width,
   };
 }

@@ -1,4 +1,6 @@
 export interface HelpcenterPanel {
-  label: string;
+  content: string;
+  label?: string;
   url: string;
+  width?: string;
 }

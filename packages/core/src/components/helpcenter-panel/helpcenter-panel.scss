@@ -1,3 +1,52 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+}
+
+.wrapper.visible {
+  visibility: visible;
+}
+
+.dimscreen {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.8;
+}
+
+.open-button {
+  bottom: 0;
+  position: fixed;
+  right: 0;
+}
+
+.close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: right 1s;
+}
+
+.close-button.hidden {
+  visibility: hidden;
+}
+
+.iframe-container {
+  border: 0;
+  border-left: 1px solid;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: #fff;
+  transition: right 1s;
+}
+
 iframe {
   border: 0;
+  height: 100%;
+  width: 100%;
 }
