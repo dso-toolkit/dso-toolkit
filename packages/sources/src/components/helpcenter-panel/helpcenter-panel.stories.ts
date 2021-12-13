@@ -28,7 +28,7 @@ export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
     {
       args: {
         label: "Hulp nodig",
-        url: "https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/story/helpcenter-panel--helpcenter-panel",
+        url: "https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/helpcenter-panel--helpcenter-panel",
         width: "50%",
         content: `
           <div class="dso-rich-content">
