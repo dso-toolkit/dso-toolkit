@@ -1,10 +1,11 @@
 import { h, Component, Fragment, Prop, State } from "@stencil/core";
 
-const maxCssTransitionMilliseconds = 1000;
+const maxCssTransitionMilliseconds = 500;
 
 @Component({
   tag: "dso-helpcenter-panel",
   styleUrl: "helpcenter-panel.scss",
+  shadow: true,
 })
 export class HelpcenterPanel {
   @Prop()
@@ -69,7 +70,7 @@ export class HelpcenterPanel {
               ["right"]: this.isOpen ? "0" : `-${this.width}`,
             }}
           >
-            {this.showIframe ? <iframe src={this.url} /> : undefined}
+            {this.showIframe ? <iframe src={this.url} /> : <div>aap</div>}
           </div>
         </div>
       </>

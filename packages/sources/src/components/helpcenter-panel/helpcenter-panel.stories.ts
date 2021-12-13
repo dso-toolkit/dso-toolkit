@@ -28,7 +28,7 @@ export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
     {
       args: {
         label: "Hulp nodig",
-        url: "/?path=/docs/selectable--checkbox",
+        url: "https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/story/helpcenter-panel--helpcenter-panel",
         width: "50%",
         content: `
           <div class="dso-rich-content">
