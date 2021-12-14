@@ -9,8 +9,10 @@ import balloon from '@dso-toolkit/sources/src/icons/balloon.svg';
 import bars from '@dso-toolkit/sources/src/icons/bars.svg';
 import buildings from '@dso-toolkit/sources/src/icons/buildings.svg';
 import calendar from '@dso-toolkit/sources/src/icons/calendar.svg';
+import call from '@dso-toolkit/sources/src/icons/call.svg';
 import caretDown from '@dso-toolkit/sources/src/icons/caret-down.svg';
 import check from '@dso-toolkit/sources/src/icons/check.svg';
+import checkCircle from '@dso-toolkit/sources/src/icons/check-circle.svg';
 import chevronDown from '@dso-toolkit/sources/src/icons/chevron-down.svg';
 import chevronLeft from '@dso-toolkit/sources/src/icons/chevron-left.svg';
 import chevronRight from '@dso-toolkit/sources/src/icons/chevron-right.svg';
@@ -20,6 +22,7 @@ import clock from '@dso-toolkit/sources/src/icons/clock.svg';
 import copy from '@dso-toolkit/sources/src/icons/copy.svg';
 import crown from '@dso-toolkit/sources/src/icons/crown.svg';
 import cultural from '@dso-toolkit/sources/src/icons/cultural.svg';
+import document from '@dso-toolkit/sources/src/icons/document.svg';
 import download from '@dso-toolkit/sources/src/icons/download.svg';
 import email from '@dso-toolkit/sources/src/icons/email.svg';
 import energy from '@dso-toolkit/sources/src/icons/energy.svg';
@@ -75,6 +78,7 @@ import sortAscending from '@dso-toolkit/sources/src/icons/sort-ascending.svg';
 import sortDescending from '@dso-toolkit/sources/src/icons/sort-descending.svg';
 import sort from '@dso-toolkit/sources/src/icons/sort.svg';
 import sound from '@dso-toolkit/sources/src/icons/sound.svg';
+import statusForbidden from '@dso-toolkit/sources/src/icons/status-forbidden.svg';
 import statusDanger from '@dso-toolkit/sources/src/icons/status-danger.svg';
 import statusInfo from '@dso-toolkit/sources/src/icons/status-info.svg';
 import statusSuccess from '@dso-toolkit/sources/src/icons/status-success.svg';
@@ -99,8 +103,10 @@ const icons = [
   { alias: 'bars', svg: bars },
   { alias: 'buildings', svg: buildings },
   { alias: 'calendar', svg: calendar },
+  { alias: 'call', svg: call },
   { alias: 'caret-down', svg: caretDown },
   { alias: 'check', svg: check },
+  { alias: 'check-circle', svg: checkCircle },
   { alias: 'chevron-down', svg: chevronDown },
   { alias: 'chevron-left', svg: chevronLeft },
   { alias: 'chevron-right', svg: chevronRight },
@@ -110,6 +116,7 @@ const icons = [
   { alias: 'copy', svg: copy },
   { alias: 'crown', svg: crown },
   { alias: 'cultural', svg: cultural },
+  { alias: 'document', svg: document },
   { alias: 'download', svg: download },
   { alias: 'email', svg: email },
   { alias: 'energy', svg: energy },
@@ -166,6 +173,7 @@ const icons = [
   { alias: 'sort', svg: sort },
   { alias: 'sound', svg: sound },
   { alias: 'status-danger', svg: statusDanger },
+  { alias: 'status-forbidden', svg: statusForbidden },
   { alias: 'status-info', svg: statusInfo },
   { alias: 'status-success', svg: statusSuccess },
   { alias: 'status-warning', svg: statusWarning },
