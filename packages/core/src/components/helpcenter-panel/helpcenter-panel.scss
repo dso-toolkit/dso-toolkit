@@ -1,51 +1,111 @@
-.wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  visibility: hidden;
+
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/button/button";
+
+:host {
+  display: block;
+
+  --di-times: #{dso-icon("times")};
+  --di-times-wit: #{dso-icon("times", "wit")};
 }
 
-.wrapper.visible {
-  visibility: visible;
+.sr-only {
+  @include sr-only();
+}
+
+.wrapper {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+
+  &.visible {
+    visibility: visible;
+  }
 }
 
 .dimscreen {
+  background-color: $zwart;
   height: 100%;
+  opacity: 0.4;
   width: 100%;
-  background-color: #fff;
-  opacity: 0.8;
 }
 
 .open-button {
-  bottom: 0;
-  position: fixed;
-  right: 0;
-}
+  @include button_base();
+  @include button_primary($base-styling: true);
 
-.open-button.open {
-  display: none;
+  border: 0;
+  bottom: $u2;
+  font-family: $font-family-base;
+  position: fixed;
+  right: $u2;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.open {
+    display: none;
+  }
 }
 
 .close-button {
+  @include button_secondary($base-styling: true);
+
+  border-right: 0;
+  border-top: 0;
+  border-radius: 0 0 0 $u1;
+  height: $u5;
+  min-width: $u5;
+  padding: 0;
   position: fixed;
   right: 0;
+  width: $u5;
   top: 0;
-}
 
-.close-button.close {
-  display: none;
+  &::before {
+    @include di("times");
+
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: pointer;
+
+    &::before {
+      @include di("times-wit");
+    }
+  }
+
+  &.close {
+    display: none;
+  }
 }
 
 .iframe-container {
+  background-color: $wit;
   border: 0;
-  border-left: 1px solid;
-  position: absolute;
-  top: 0;
+  border-left: 1px solid $grijs-20;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
   height: 100%;
-  background-color: #fff;
+  position: absolute;
   right: -640px;
+  top: 0;
   transition: right 0.5s;
   width: 640px;
 

@@ -55,6 +55,7 @@ export class HelpcenterPanel {
           onClick={this.openClick}
           class={`open-button ${this.isOpen}`}
         >
+          <dso-icon icon="help"></dso-icon>
           <span>{this.label}</span>
         </button>
         <div class={`wrapper ${this.visibility}`}>
@@ -67,7 +68,7 @@ export class HelpcenterPanel {
             class={`close-button ${this.isOpen}`}
             onClick={this.closeClick}
           >
-            <span>sluiten</span>
+            <span class="sr-only">sluiten</span>
           </button>
         </div>
       </>
