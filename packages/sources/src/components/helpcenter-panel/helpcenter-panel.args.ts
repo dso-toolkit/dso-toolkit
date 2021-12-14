@@ -5,7 +5,6 @@ export interface HelpcenterPanelArgs {
   content: string;
   label?: string;
   url: string;
-  width?: string;
 }
 
 export const HelpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
@@ -24,11 +23,6 @@ export const HelpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
       type: "text",
     },
   },
-  width: {
-    control: {
-      type: "text",
-    },
-  },
 };
 
 export function helpcenterPanelArgsMapper(
@@ -38,6 +32,5 @@ export function helpcenterPanelArgsMapper(
     content: a.content,
     label: a.label,
     url: a.url,
-    width: a.width,
   };
 }

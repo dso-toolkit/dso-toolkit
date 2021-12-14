@@ -14,64 +14,61 @@ export class HelpcenterPanel {
   @Prop()
   url!: string;
 
-  @Prop()
-  width?: string = "50%";
+  @State()
+  visibility: "visible" | "hidden" = "hidden";
 
   @State()
-  isVisible = false;
+  isOpen: "open" | "close" = "close";
 
   @State()
-  showIframe = false;
+  slideState: "open" | "close" = "close";
 
   @State()
-  isOpen = false;
+  loadIframe = false;
 
   openClick = () => {
-    this.isVisible = true;
+    this.visibility = "visible";
+    this.slideState = "open";
     setTimeout(() => {
-      this.isOpen = true;
+      this.isOpen = "open";
     });
-    if (!this.showIframe) {
+    if (!this.loadIframe) {
       setTimeout(() => {
-        this.showIframe = true;
+        this.loadIframe = true;
       }, maxCssTransitionMilliseconds);
     }
   };
 
   closeClick = () => {
-    this.isOpen = false;
+    this.isOpen = "close";
+    this.slideState = "close";
     setTimeout(() => {
-      this.isVisible = false;
+      this.visibility = "hidden";
     }, maxCssTransitionMilliseconds);
   };
 
   render() {
     return (
       <>
-        <button type="button" onClick={this.openClick} class="open-button">
+        <button
+          type="button"
+          onClick={this.openClick}
+          class={`open-button ${this.isOpen}`}
+        >
           <span>{this.label}</span>
         </button>
-        <div class={`wrapper ${this.isVisible ? "visible" : "hidden"}`}>
+        <div class={`wrapper ${this.visibility}`}>
           <div class="dimscreen" />
+          <div class={`iframe-container ${this.slideState}`}>
+            {this.loadIframe ? <iframe src={this.url} /> : <div />}
+          </div>
           <button
             type="button"
-            class={`close-button ${this.isOpen ? "visible" : "hidden"}`}
+            class={`close-button ${this.isOpen}`}
             onClick={this.closeClick}
-            style={{
-              ["right"]: this.isOpen ? this.width : "0",
-            }}
           >
             <span>sluiten</span>
           </button>
-          <div
-            class="iframe-container"
-            style={{
-              ["width"]: this.width,
-              ["right"]: this.isOpen ? "0" : `-${this.width}`,
-            }}
-          >
-            {this.showIframe ? <iframe src={this.url} /> : <div>aap</div>}
-          </div>
         </div>
       </>
     );

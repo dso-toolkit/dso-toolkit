@@ -24,15 +24,18 @@
   right: 0;
 }
 
-.close-button {
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: right 0.5s;
+.open-button.open {
+  display: none;
 }
 
-.close-button.hidden {
-  visibility: hidden;
+.close-button {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.close-button.close {
+  display: none;
 }
 
 .iframe-container {
@@ -42,7 +45,13 @@
   top: 0;
   height: 100%;
   background-color: #fff;
+  right: -640px;
   transition: right 0.5s;
+  width: 640px;
+
+  &.open {
+    right: 0;
+  }
 }
 
 iframe {

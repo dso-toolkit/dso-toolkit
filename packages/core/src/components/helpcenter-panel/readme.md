@@ -11,7 +11,6 @@
 | ------------------ | --------- | ----------- | --------------------- | -------------- |
 | `label`            | `label`   |             | `string \| undefined` | `"Hulp nodig"` |
 | `url` _(required)_ | `url`     |             | `string`              | `undefined`    |
-| `width`            | `width`   |             | `string \| undefined` | `"50%"`        |
 
 
 ----------------------------------------------

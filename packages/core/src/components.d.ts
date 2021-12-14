@@ -114,7 +114,6 @@ export namespace Components {
     interface DsoHelpcenterPanel {
         "label"?: string;
         "url": string;
-        "width"?: string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
@@ -507,7 +506,6 @@ declare namespace LocalJSX {
     interface DsoHelpcenterPanel {
         "label"?: string;
         "url": string;
-        "width"?: string;
     }
     interface DsoHighlightBox {
         "border"?: boolean;
