@@ -7,7 +7,7 @@ import { AlertType } from '../alert/alert.models';
 import { Conclusion, ConclusionItem } from './conclusion.models';
 
 export interface ConclusionArgs<TemplateFnReturnType> {
-  items: ConclusionItem<TemplateFnReturnType>[];
+  items: ConclusionItem[];
   alertMessage?: string;
   alertStatus?: AlertType;
   info?: TemplateFnReturnType;
