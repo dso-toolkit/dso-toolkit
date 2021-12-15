@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit + sources:** Aanpassen DSO-icon "municipality" ([#1380](https://github.com/dso-toolkit/dso-toolkit/issues/1380))
+
 ## 32.0.0
 
 ### Added
