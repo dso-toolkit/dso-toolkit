@@ -39,7 +39,7 @@ $dso-conclusion-icon-size: 18px;
 
     &.dso-forbidden {
       &::before {
-        @include di("forbidden", $dso-conclusion-icon-size);
+        @include di("status-forbidden", $dso-conclusion-icon-size);
       }
     }
 
