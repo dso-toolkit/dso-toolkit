@@ -11,4 +11,5 @@ context:
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
         active: true
-
+  appheading:
+    title: Mijn projecten

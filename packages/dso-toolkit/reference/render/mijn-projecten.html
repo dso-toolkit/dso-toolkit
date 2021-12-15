@@ -50,23 +50,23 @@
     <h1>Mijn projecten</h1>
   </div>
   <div class="dso-context-wrapper">
-    <div>
-      <button type="button" class="dso-secondary">
-        <dso-icon icon="plus"></dso-icon>
-        <span>Nieuw project</span>
+    <div class="dso-context-label">
+      <button type="button" class="dso-tertiary">
+        <dso-icon icon="plus"></dso-icon><span >Nieuw project</span>
       </button>
-      <button type="button" class="dso-secondary">
-        <dso-icon icon="email"></dso-icon>
-        <span>Actiecode invoeren</span>
+      <button type="button" class="dso-tertiary">
+        <dso-icon icon="email"></dso-icon><span >Actiecode invoeren</span>
       </button>
     </div>
     <div class="dso-context-container">
       <div class="dso-search-bar">
         <div class="dso-search-bar-input">
-          <label for="search-bar--hidden-label-icon" class="dso-search-icon">Label</label>
-          <input type="text" id="search-bar--hidden-label-icon" placeholder="Zoeken in projecten" />
+          <label for="search-bar--default" class="dso-search-icon">Zoeken in projecten</label>
+          <input type="text" id="search-bar--default" placeholder="Zoeken in projecten" />
         </div>
-        <button type="button" class="dso-secondary sr-only">Zoeken</button>
+        <button type="button" class="dso-secondary sr-only">
+          Zoeken
+        </button>
       </div>
     </div>
   </div>
@@ -78,100 +78,83 @@
           <th scope="col" class="col-xs-7">Projectnaam</th>
           <th scope="col" class="col-xs-3">Rol</th>
           <th scope="col" class="col-xs-2">
-            <span class="sr-only">Acties<span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">
-                <a href="#" class="dso-tertiary"><span>Boomkappen in de achtertuin</span></a>
-            <span class="dso-label dso-label-danger">
-                  <span class="sr-only">Let op!: </span>
-            Wordt verwijderd op 31-12-2023</span>
+            <span class="sr-only">Acties<span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">
+            <a href="#" class="dso-tertiary" ><span >Boomkappen in de achtertuin</span></a>
+            <dso-label id="label-default" status="danger">Wordt verwijderd op 31-12-2023
+            </dso-label>
           </th>
           <td>
             Initiatiefnemer
           </td>
           <td class="text-right">
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) aanpassen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Boomkappen in de achtertuin aanpassen</span>
               <dso-icon icon="pencil"></dso-icon>
             </button>
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) verwijderen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Boomkappen in de achtertuin verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
-              <dso-tooltip position="left">
-                Verwijderen
-              </dso-tooltip>
+              <dso-tooltip position="left">Verwijderen</dso-tooltip>
             </button>
           </td>
         </tr>
         <tr>
           <th scope="row">
-            <a href="#" class="dso-tertiary"><span>Project 9</span></a>
+            <a href="#" class="dso-tertiary"><span >Project 9</span></a>
           </th>
           <td>
             Initiatiefnemer
           </td>
           <td class="text-right">
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) aanpassen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Project 9 aanpassen</span>
               <dso-icon icon="pencil"></dso-icon>
             </button>
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) verwijderen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Project 9 verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
-              <dso-tooltip position="left">
-                Verwijderen
-              </dso-tooltip>
+              <dso-tooltip position="left">Verwijderen</dso-tooltip>
             </button>
           </td>
         </tr>
         <tr>
           <th scope="row">
-            <a href="#" class="dso-tertiary"><span>Project 8</span></a>
+            <a href="#" class="dso-tertiary"><span >Project 8</span></a>
           </th>
           <td>
             Initiatiefnemer
           </td>
           <td class="text-right">
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) aanpassen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Project 8 aanpassen</span>
               <dso-icon icon="pencil"></dso-icon>
             </button>
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) verwijderen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Project 8 verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
-              <dso-tooltip position="left">
-                Verwijderen
-              </dso-tooltip>
+              <dso-tooltip position="left">Verwijderen</dso-tooltip>
             </button>
           </td>
         </tr>
         <tr>
           <th scope="row">
-            <a href="#" class="dso-tertiary"><span>Project 7</span></a>
+            <a href="#" class="dso-tertiary"><span >Project 7</span></a>
           </th>
           <td>
             Gemachtigde
           </td>
           <td class="text-right">
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) aanpassen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Project 7 aanpassen</span>
               <dso-icon icon="pencil"></dso-icon>
             </button>
-            <button type="button" class="dso-tertiary">
-              <span class="sr-only">(Insert Project Naam) verwijderen</span>
+            <button type="button" class="dso-tertiary"><span class="sr-only">Project 7 verwijderen</span>
               <dso-icon icon="trash"></dso-icon>
-              <dso-tooltip position="left">
-                Verwijderen
-              </dso-tooltip>
+              <dso-tooltip position="left">Verwijderen</dso-tooltip>
             </button>
           </td>
         </tr>
         </tbody>
     </table>
-  </div>
   </div>
 </main>
 <footer>
