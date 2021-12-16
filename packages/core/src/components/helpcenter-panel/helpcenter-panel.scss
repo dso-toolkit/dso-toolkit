@@ -1,0 +1,121 @@
+
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/button/button";
+
+:host {
+  display: block;
+
+  --di-times: #{dso-icon("times")};
+  --di-times-wit: #{dso-icon("times", "wit")};
+}
+
+.sr-only {
+  @include sr-only();
+}
+
+.wrapper {
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+
+  &.visible {
+    visibility: visible;
+  }
+}
+
+.dimscreen {
+  background-color: $zwart;
+  height: 100%;
+  opacity: 0.4;
+  width: 100%;
+}
+
+.open-button {
+  @include button_base();
+  @include button_primary($base-styling: true);
+
+  border: 0;
+  bottom: $u2;
+  font-family: $font-family-base;
+  position: fixed;
+  right: $u2;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.open {
+    display: none;
+  }
+}
+
+.close-button {
+  @include button_secondary($base-styling: true);
+
+  border-right: 0;
+  border-top: 0;
+  border-radius: 0 0 0 $u1;
+  height: $u5;
+  min-width: $u5;
+  padding: 0;
+  position: fixed;
+  right: 0;
+  width: $u5;
+  top: 0;
+
+  &::before {
+    @include di("times");
+
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: pointer;
+
+    &::before {
+      @include di("times-wit");
+    }
+  }
+
+  &.close {
+    display: none;
+  }
+}
+
+.iframe-container {
+  background-color: $wit;
+  border: 0;
+  border-left: 1px solid $grijs-20;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+  height: 100%;
+  position: absolute;
+  right: -640px;
+  top: 0;
+  transition: right 0.5s;
+  width: 640px;
+
+  &.open {
+    right: 0;
+  }
+}
+
+iframe {
+  border: 0;
+  height: 100%;
+  width: 100%;
+}

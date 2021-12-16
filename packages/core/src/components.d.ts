@@ -111,6 +111,10 @@ export namespace Components {
          */
         "open": boolean;
     }
+    interface DsoHelpcenterPanel {
+        "label"?: string;
+        "url": string;
+    }
     interface DsoHighlightBox {
         "border"?: boolean;
         "dropShadow"?: boolean;
@@ -263,6 +267,12 @@ declare global {
         prototype: HTMLDsoDropdownMenuElement;
         new (): HTMLDsoDropdownMenuElement;
     };
+    interface HTMLDsoHelpcenterPanelElement extends Components.DsoHelpcenterPanel, HTMLStencilElement {
+    }
+    var HTMLDsoHelpcenterPanelElement: {
+        prototype: HTMLDsoHelpcenterPanelElement;
+        new (): HTMLDsoHelpcenterPanelElement;
+    };
     interface HTMLDsoHighlightBoxElement extends Components.DsoHighlightBox, HTMLStencilElement {
     }
     var HTMLDsoHighlightBoxElement: {
@@ -361,6 +371,7 @@ declare global {
         "dso-banner": HTMLDsoBannerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
+        "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
         "dso-info": HTMLDsoInfoElement;
@@ -492,6 +503,10 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    interface DsoHelpcenterPanel {
+        "label"?: string;
+        "url": string;
+    }
     interface DsoHighlightBox {
         "border"?: boolean;
         "dropShadow"?: boolean;
@@ -621,6 +636,7 @@ declare namespace LocalJSX {
         "dso-banner": DsoBanner;
         "dso-date-picker": DsoDatePicker;
         "dso-dropdown-menu": DsoDropdownMenu;
+        "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
         "dso-info": DsoInfo;
@@ -649,6 +665,7 @@ declare module "@stencil/core" {
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
+            "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;

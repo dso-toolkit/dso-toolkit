@@ -17,6 +17,7 @@
 ### Used by
 
  - [dso-date-picker](../date-picker)
+ - [dso-helpcenter-panel](../helpcenter-panel)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
  - [dso-tree-view](../tree-view)
@@ -25,6 +26,7 @@
 ```mermaid
 graph TD;
   dso-date-picker --> dso-icon
+  dso-helpcenter-panel --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon
   dso-tree-view --> dso-icon
