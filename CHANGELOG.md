@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core + css + dso-toolkit + sources:** Nieuwe 'conclusie' iconen toevoegen ([#1375](https://github.com/dso-toolkit/dso-toolkit/issues/1375))
+* **core + sources:** Eerste (poc) versie helpcenter paneel + knop ([#1376](https://github.com/dso-toolkit/dso-toolkit/issues/1376))
 
 ### Changed
 * **dso-toolkit + sources:** Aanpassen DSO-icon "municipality" ([#1380](https://github.com/dso-toolkit/dso-toolkit/issues/1380))
