@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 32.1.0
+
 ### Added
 * **core + css + dso-toolkit + sources:** Nieuwe 'conclusie' iconen toevoegen ([#1375](https://github.com/dso-toolkit/dso-toolkit/issues/1375))
 * **core + sources:** Eerste (poc) versie helpcenter paneel + knop ([#1376](https://github.com/dso-toolkit/dso-toolkit/issues/1376))
