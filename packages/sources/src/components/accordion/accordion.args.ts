@@ -1,19 +1,27 @@
 import { ArgTypes } from '../../stories-helpers';
 
-import { Accordion, AccordionSection } from './accordion.models';
+import { Accordion, AccordionSection, AccordionVariant } from './accordion.models';
 
 export interface AccordionArgs {
-  modifiers?: string;
+  variant?: AccordionVariant;
   sections: AccordionSection[];
+  reverseAlign?: boolean;
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
-  modifiers: {
+  variant: {
+    options: [undefined, 'dso-accordion-compact', 'dso-accordion-conclusion'],
     control: {
-      type: 'string'
+      type: 'select',
+      labels: {undefined: 'default', 'dso-accordion-compact': 'compact', 'dso-accordion-conclusion': 'conclusion'}
     }
   },
   sections: {
+    control: {
+      disable: true
+    }
+  },
+  reverseAlign: {
     control: {
       disable: true
     }
@@ -22,7 +30,8 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
 
 export function accordionArgsMapper(a: AccordionArgs): Accordion {
   return {
-    modifiers: a.modifiers,
+    variant: a.variant,
     sections: a.sections,
+    reverseAlign: a.reverseAlign
   };
 }
