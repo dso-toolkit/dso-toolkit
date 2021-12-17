@@ -1,6 +1,6 @@
-import { bindTemplate, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, componentArgs, StorybookParameters } from '../../stories-helpers';
 
-import { accordionArgsMapper, accordionArgTypes } from './accordion.args';
+import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from './accordion.args';
 import { Accordion } from './accordion.models';
 
 export interface AccordionParameters<TemplateFnReturnType> {
@@ -24,42 +24,46 @@ export function storiesOfAccordion<TemplateFnReturnType>(
       docs: {
         page: readme
       },
-      args: {
+      argTypes: accordionArgTypes,
+      args: componentArgs<Pick<AccordionArgs, 'variant'>>({
         variant: 'default'
-      },
-      argTypes: accordionArgTypes
+      }),
     });
 
   stories.add(
     'default',
     template,
     {
-      args: {
+      args: componentArgs<AccordionArgs>({
         sections: [
           {
             title: 'Sectie titel',
             id: 'accordion-default-1',
-            header: 'h2'
-          },
-          {
-            title: 'Sectie titel',
-            id: 'accordion-default-1',
-            header: 'h2'
+            header: 'h2',
+            type: 'link'
           },
           {
             title: 'Sectie titel',
             id: 'accordion-default-1',
             header: 'h2',
+            type: 'link'
+          },
+          {
+            title: 'Sectie titel',
+            id: 'accordion-default-1',
+            header: 'h2',
+            type: 'link',
             richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
             open: true
           },
           {
             title: 'Sectie titel',
             id: 'accordion-default-1',
-            header: 'h2'
+            header: 'h2',
+            type: 'link'
           }
         ]
-      }
+      })
     }
   );
 
@@ -67,23 +71,26 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'nested',
     template,
     {
-      args: {
+      args: componentArgs<AccordionArgs>({
         sections: [
           {
             title: 'Sectie titel',
             id: 'accordion-nested-1',
             header: 'h2',
+            type: 'link',
             open: true,
-            sections: [
+            subsections: [
               {
                 title: 'Sectie titel',
                 id: 'accordion-nested-1-1',
-                header: 'h2'
+                header: 'h2',
+                type: 'link'
               },
               {
                 title: 'Sectie titel',
                 id: 'accordion-nested-1-2',
                 header: 'h2',
+                type: 'link',
                 open: true,
                 richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
               }
@@ -92,10 +99,11 @@ export function storiesOfAccordion<TemplateFnReturnType>(
           {
             title: 'Sectie titel',
             id: 'accordion-nested-2',
-            header: 'h2'
+            header: 'h2',
+            type: 'link'
           }
         ]
-      }
+      })
     }
   );
 
@@ -103,24 +111,27 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'multiselectable',
     template,
     {
-      args: {
+      args: componentArgs<AccordionArgs>({
         sections: [
           {
             title: 'Sectie titel',
             id: 'accordion-multiselect-1',
             header: 'h2',
+            type: 'link',
             open: true,
-            richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+            richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
+            subsections: []
           },
           {
             title: 'Sectie titel',
             id: 'accordion-multiselect-2',
             header: 'h2',
+            type: 'link',
             open: true,
             richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
           }
         ]
-      }
+      })
     }
   );
 
@@ -128,18 +139,20 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'addons',
     template,
     {
-      args: {
+      args: componentArgs<AccordionArgs>({
         sections: [
           {
             title: 'Sectie titel',
             id: 'accordion-addon-1',
             header: 'h2',
+            type: 'link',
             icon: 'user-line'
           },
           {
             title: 'Sectie titel',
             id: 'accordion-addon-1',
             header: 'h2',
+            type: 'link',
             icon: 'user-line',
             open: true
           },
@@ -147,6 +160,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             title: 'Sectie titel',
             id: 'accordion-addon-1',
             header: 'h2',
+            type: 'link',
             state: 'danger',
             status: '5 van 8 beantwoord'
           },
@@ -154,6 +168,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             title: 'Sectie titel',
             id: 'accordion-addon-1',
             header: 'h2',
+            type: 'link',
             state: 'danger',
             status: '5 van 8 beantwoord',
             open: true
@@ -162,17 +177,19 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             title: 'Sectie titel',
             id: 'accordion-addon-1',
             header: 'h2',
+            type: 'link',
             attachments: 2
           },
           {
             title: 'Sectie titel',
             id: 'accordion-addon-1',
             header: 'h2',
+            type: 'link',
             attachments: 2,
             open: true
           }
         ]
-      }
+      })
     }
   );
 
@@ -180,25 +197,27 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'alignment',
     template,
     {
-      args: {
+      args: componentArgs<AccordionArgs>({
         reverseAlign: true,
         sections: [
           {
             title: 'Sectie titel',
             id: 'accordion-alignment-1',
             header: 'h2',
+            type: 'link',
             icon: 'user-line'
           },
           {
             title: 'Sectie titel',
             id: 'accordion-alignment-2',
             header: 'h2',
+            type: 'link',
             icon: 'user-line',
             open: true,
             richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
           }
         ]
-      }
+      })
     }
   );
 }

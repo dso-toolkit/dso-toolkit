@@ -1,9 +1,9 @@
 import { ArgTypes } from '../../stories-helpers';
 
-import { Accordion, AccordionSection, AccordionVariant } from './accordion.models';
+import { Accordion, AccordionSection } from './accordion.models';
 
 export interface AccordionArgs {
-  variant?: AccordionVariant;
+  variant?: string;
   sections: AccordionSection[];
   reverseAlign?: boolean;
 }

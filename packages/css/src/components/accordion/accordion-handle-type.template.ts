@@ -6,13 +6,13 @@ import { accordionHandleChildren } from './accordion-handle-children.template';
 export function accordionHandleType(section, reverseAlign) {
   if (section.type === 'link') {
     return html`
-      <a href="#" aria-expanded="${ifDefined(section.open ? 'true' : 'false')}">
+      <a href="#" aria-expanded="${ifDefined(section.open?.toString())}">
         ${accordionHandleChildren(section, reverseAlign)}
       </a>
     `;
   } else {
     return html`
-      <button type="button" aria-expanded="${ifDefined(section.open ? 'true' : 'false')}">
+      <button type="button" aria-expanded="${ifDefined(section.open?.toString())}">
         ${accordionHandleChildren(section, reverseAlign)}
       </button>
     `;
