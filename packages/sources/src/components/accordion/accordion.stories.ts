@@ -38,29 +38,25 @@ export function storiesOfAccordion<TemplateFnReturnType>(
         sections: [
           {
             title: 'Sectie titel',
-            id: 'accordion-default-1',
             header: 'h2',
-            type: 'link'
+            handleType: 'anchor'
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-default-1',
             header: 'h2',
-            type: 'link'
+            handleType: 'anchor'
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-default-1',
             header: 'h2',
-            type: 'link',
-            richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
+            handleType: 'anchor',
+            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
             open: true
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-default-1',
             header: 'h2',
-            type: 'link'
+            handleType: 'anchor'
           }
         ]
       })
@@ -75,32 +71,28 @@ export function storiesOfAccordion<TemplateFnReturnType>(
         sections: [
           {
             title: 'Sectie titel',
-            id: 'accordion-nested-1',
             header: 'h2',
-            type: 'link',
+            handleType: 'anchor',
             open: true,
             subsections: [
               {
                 title: 'Sectie titel',
-                id: 'accordion-nested-1-1',
                 header: 'h2',
-                type: 'link'
+                handleType: 'anchor'
               },
               {
                 title: 'Sectie titel',
-                id: 'accordion-nested-1-2',
                 header: 'h2',
-                type: 'link',
+                handleType: 'anchor',
                 open: true,
-                richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+                children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
               }
             ]
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-nested-2',
             header: 'h2',
-            type: 'link'
+            handleType: 'anchor'
           }
         ]
       })
@@ -115,20 +107,18 @@ export function storiesOfAccordion<TemplateFnReturnType>(
         sections: [
           {
             title: 'Sectie titel',
-            id: 'accordion-multiselect-1',
             header: 'h2',
-            type: 'link',
+            handleType: 'anchor',
             open: true,
-            richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
+            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
             subsections: []
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-multiselect-2',
             header: 'h2',
-            type: 'link',
+            handleType: 'anchor',
             open: true,
-            richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
           }
         ]
       })
@@ -143,49 +133,51 @@ export function storiesOfAccordion<TemplateFnReturnType>(
         sections: [
           {
             title: 'Sectie titel',
-            id: 'accordion-addon-1',
             header: 'h2',
-            type: 'link',
-            icon: 'user-line'
+            handleType: 'anchor',
+            icon: {
+              icon: 'user-line'
+            }
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-addon-1',
             header: 'h2',
-            type: 'link',
-            icon: 'user-line',
+            handleType: 'anchor',
+            icon: {
+              icon: 'user-line'
+            },
             open: true
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-addon-1',
             header: 'h2',
-            type: 'link',
+            handleType: 'anchor',
             state: 'danger',
             status: '5 van 8 beantwoord'
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-addon-1',
             header: 'h2',
-            type: 'link',
+            handleType: 'anchor',
             state: 'danger',
             status: '5 van 8 beantwoord',
             open: true
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-addon-1',
             header: 'h2',
-            type: 'link',
-            attachments: 2
+            handleType: 'anchor',
+            attachmentsCounter: {
+              count: 2
+            }
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-addon-1',
             header: 'h2',
-            type: 'link',
-            attachments: 2,
+            handleType: 'anchor',
+            attachmentsCounter: {
+              count: 2
+            },
             open: true
           }
         ]
@@ -202,19 +194,21 @@ export function storiesOfAccordion<TemplateFnReturnType>(
         sections: [
           {
             title: 'Sectie titel',
-            id: 'accordion-alignment-1',
             header: 'h2',
-            type: 'link',
-            icon: 'user-line'
+            handleType: 'anchor',
+            icon: {
+              icon: 'user-line'
+            }
           },
           {
             title: 'Sectie titel',
-            id: 'accordion-alignment-2',
             header: 'h2',
-            type: 'link',
-            icon: 'user-line',
+            handleType: 'anchor',
+            icon: {
+              icon: 'user-line'
+            },
             open: true,
-            richContent: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
           }
         ]
       })

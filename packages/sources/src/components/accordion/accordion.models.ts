@@ -1,3 +1,5 @@
+import { AttachmentsCounter, Icon } from '../..';
+
 export interface Accordion {
   variant?: string;
   sections: AccordionSection[];
@@ -5,16 +7,15 @@ export interface Accordion {
 }
 
 export interface AccordionSection {
-  state?: string;
+  state?: 'success' | 'info' | 'warning' | 'danger';
   open?: boolean;
-  subsections?: AccordionSection[];
-  type: string;
+  handleType: 'anchor' | 'button';
   title: string;
   status?: string;
-  attachments?: number;
-  header: string;
-  id: string;
-  richContent?: string;
-  variant?: string;
-  icon?: string;
+  attachmentsCounter?: AttachmentsCounter;
+  header: 'h2' | 'h3' | 'h4' | 'h5';
+  variant?: 'compact' | 'conclusion';
+  icon?: Icon;
+  subsections?: AccordionSection[];
+  children?: string;
 }
