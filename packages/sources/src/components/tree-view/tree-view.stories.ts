@@ -7,10 +7,11 @@ import { TreeViewItem } from './tree-view.models';
 
 export interface TreeViewParameters<TemplateFnReturnType> {
   treeViewDemoTemplate: (
-    collection: TreeViewItem<string>[],
-    onOpenItem: (path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) => void,
-    onCloseItem: (path: TreeViewItem<string>[], callback: (collection: TreeViewItem<string>[]) => void) => void,
-    onClickItem: (path: TreeViewItem<string>[]) => void
+    collection: TreeViewItem[],
+    onOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
+    onCloseItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
+    onClickItem: (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => void,
+    onFilterInput: (text: string, callback: (collection: TreeViewItem[], resultText: string) => void) => void,
   ) => TemplateFnReturnType;
 }
 
@@ -48,7 +49,17 @@ export function storiesOfTreeView<TemplateFnReturnType>(
 
       const args = a as TreeViewArgs;
 
-      return treeViewDemoTemplate(TreeViewDemo.collection, TreeViewDemo.onOpenItem, TreeViewDemo.onCloseItem, args.onClickItem);
+      const click = (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => {
+        args.onClickItem(path, originalEvent, callback);
+        TreeViewDemo.onClickItem(path, originalEvent, callback);
+      }
+
+      return treeViewDemoTemplate(
+        TreeViewDemo.collection,
+        TreeViewDemo.onOpenItem,
+        TreeViewDemo.onCloseItem,
+        click,
+        TreeViewDemo.onFilter);
     }
   );
 }

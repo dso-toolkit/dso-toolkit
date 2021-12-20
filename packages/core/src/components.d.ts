@@ -12,7 +12,7 @@ import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfac
 import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
 import { ContentAnchor } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
-import { TreeViewItem } from "./components/tree-view/tree-view.interfaces";
+import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 export namespace Components {
     interface DsoAlert {
         /**
@@ -221,7 +221,7 @@ export namespace Components {
         /**
           * The collection of TreeViewItems
          */
-        "collection": TreeViewItem<string>[];
+        "collection": TreeViewItem[];
     }
 }
 declare global {
@@ -614,19 +614,19 @@ declare namespace LocalJSX {
         /**
           * The collection of TreeViewItems
          */
-        "collection": TreeViewItem<string>[];
+        "collection": TreeViewItem[];
         /**
-          * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the clicked event.
+          * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain an object with: `path` = the complete path of TreeViewItems from the root to the item that is emitting the clicked event. `originalEvent` = the original click event. The consumer of the event is responsible for updating the TreeView's collection (usually set the active state on the last TreeViewItem in path and clear all other active item states).
          */
-        "onClickItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        "onClickItem"?: (event: CustomEvent<TreeViewPointerEvent>) => void;
         /**
           * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
-        "onCloseItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        "onCloseItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
         /**
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
-        "onOpenItem"?: (event: CustomEvent<TreeViewItem<string>[]>) => void;
+        "onOpenItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
     }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;

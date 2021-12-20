@@ -1,6 +1,7 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
 
 :host {
   ul {
@@ -25,17 +26,40 @@
     display: inline-block;
     margin: $u1 0;
 
+    &.active {
+      font-weight: 700;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    &.selected {
+      color: $text-color;
+      font-weight: 700;
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+
     a {
       &,
       &:visited {
-        color: $link-color;
-        text-decoration: none;
+        color: $text-color;
+        text-decoration: underline;
       }
 
       &:hover,
       &:focus {
-        color: $link-hover-color;
-        text-decoration: underline;
+        color: $text-color;
+        text-decoration: none;
       }
 
       &:active {
@@ -44,11 +68,15 @@
     }
 
     dso-icon {
-      vertical-align: text-bottom;
       font-size: 0.75em;
       margin-left: 0.5em;
+      vertical-align: text-bottom;
     }
   }
 }
 
 @include box-sizing();
+
+.sr-only {
+  @include sr-only();
+}
