@@ -37,24 +37,24 @@ export function storiesOfAccordion<TemplateFnReturnType>(
       args: componentArgs<AccordionArgs>({
         sections: [
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor'
           },
           {
-            title: 'Sectie titel',
+            title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
             header: 'h2',
             handleType: 'anchor'
           },
           {
-            title: 'Sectie titel',
+            title: 'Hoe lang duurt de Vergunningcheck?',
             header: 'h2',
             handleType: 'anchor',
-            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
+            children: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`,
             open: true
           },
           {
-            title: 'Sectie titel',
+            title: 'Wat kan ik met de uitkomst van de Vergunningcheck?',
             header: 'h2',
             handleType: 'anchor'
           }
@@ -70,27 +70,27 @@ export function storiesOfAccordion<TemplateFnReturnType>(
       args: componentArgs<AccordionArgs>({
         sections: [
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             open: true,
             subsections: [
               {
-                title: 'Sectie titel',
+                title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
                 header: 'h2',
                 handleType: 'anchor'
               },
               {
-                title: 'Sectie titel',
+                title: 'Hoe lang duurt de Vergunningcheck?',
                 header: 'h2',
                 handleType: 'anchor',
                 open: true,
-                children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+                children: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`
               }
             ]
           },
           {
-            title: 'Sectie titel',
+            title: 'Wat kan ik met de uitkomst van de Vergunningcheck?',
             header: 'h2',
             handleType: 'anchor'
           }
@@ -106,19 +106,20 @@ export function storiesOfAccordion<TemplateFnReturnType>(
       args: componentArgs<AccordionArgs>({
         sections: [
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             open: true,
-            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`,
+            children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+            <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
             subsections: []
           },
           {
-            title: 'Sectie titel',
+            title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
             header: 'h2',
             handleType: 'anchor',
             open: true,
-            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+            children: `De Vergunningcheck is bedoeld voor één locatie tegelijk. Wilt u dezelfde werkzaamheid op meerdere locaties doen? Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen..`
           }
         ]
       })
@@ -132,7 +133,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
       args: componentArgs<AccordionArgs>({
         sections: [
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             icon: {
@@ -140,7 +141,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             }
           },
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             icon: {
@@ -149,14 +150,14 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             open: true
           },
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             state: 'danger',
             status: '5 van 8 beantwoord'
           },
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             state: 'danger',
@@ -164,7 +165,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             open: true
           },
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             attachmentsCounter: {
@@ -172,7 +173,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             }
           },
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             attachmentsCounter: {
@@ -193,7 +194,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
         reverseAlign: true,
         sections: [
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             icon: {
@@ -201,14 +202,15 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             }
           },
           {
-            title: 'Sectie titel',
+            title: 'Is het verplicht om de Vergunningcheck te doen?',
             header: 'h2',
             handleType: 'anchor',
             icon: {
               icon: 'user-line'
             },
             open: true,
-            children: `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.`
+            children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+            <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`
           }
         ]
       })
