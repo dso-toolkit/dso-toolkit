@@ -49,16 +49,18 @@ describe('Tree View', () => {
     cy.injectAxe();
     cy
       .get('body')
-      .click()
       .get('dso-tree-view')
       .shadow()
       .as('tree-view')
-      .realPress('Tab');
+
     cy
       .get('@tree-view')
       .find('p.tree-content')
       .first()
+      .click()
+      .focus()
       .as('first-tree-item');
+
   });
 
   it('should have correct aria attributes for \'tree item sets\'', () => {
@@ -110,8 +112,6 @@ describe('Tree View', () => {
   it('should focus next item starting with search letter', () => {
     cy
       .get('@first-tree-item')
-      .click()
-      .focus()
       .then(shouldHaveFocusAndTabIndex)
       .realPress('b');
 
@@ -275,5 +275,75 @@ describe('Tree View', () => {
     cy
       .get('@bouwwerken')
       .should('have.attr', 'tabIndex', 0);
+  });
+
+  it('should emit click events', () => {
+    const clickEvents = [];
+    cy
+      .get('dso-tree-view').then(treeView => {
+        treeView.get(0).addEventListener('clickItem', (event: CustomEvent) => { clickEvents.push(event.detail) });
+      });
+
+    cy
+      .get('@first-tree-item')
+      .realClick()
+      .then(() => {
+        expect(clickEvents.length).equals(1);
+        expect(clickEvents[0].path.length).equals(1);
+        expect(clickEvents[0].path[0].id).equals('item.1');
+        expect(clickEvents[0].originalEvent.type).equals('click');
+      });
+  });
+
+  it('should set active class on clicked item', () => {
+    cy
+      .get('@first-tree-item')
+      .then(subject => lastChildItem(subject, 'complexen'))
+      .click();
+
+    cy
+      .get('@complexen')
+      .should('have.class', 'active');
+
+    cy
+      .get('@complexen')
+      .then(subject => previousSiblingItem(subject, 'bouwwerken'))
+      .click();
+
+    cy
+      .get('@bouwwerken')
+      .should('have.class', 'active')
+      .should('have.attr', 'aria-current', 'true');
+  });
+
+  it('should set selected class and "Resultaat: " on result item', () => {
+    cy
+      .get('#treeViewSearchInput')
+      .click()
+      .realPress(['b', 'o', 'u', 'Enter']);
+
+    cy
+      .realPress(['Shift', 'Tab']);
+
+    cy
+      .realPress('r');
+
+    cy
+      .get('@first-tree-item')
+      .then(subject => firstChildItem(subject, 'Resultaat: bouwelementen'))
+      .then(shouldHaveFocusAndTabIndex)
+      .find('span.sr-only')
+      .should('have.text', 'Resultaat: ');
+
+    cy
+      .realPress('r');
+
+    cy
+      .get('@first-tree-item')
+      .then(subject => firstChildItem(subject, 'Resultaat: bouwelementen'))
+      .then(subject => nextSiblingItem(subject, 'Resultaat: bouwonderdelen'))
+      .then(shouldHaveFocusAndTabIndex)
+      .find('span.sr-only')
+      .should('have.text', 'Resultaat: ');
   });
 });

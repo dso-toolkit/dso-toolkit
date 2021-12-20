@@ -1,6 +1,6 @@
 import { h, Component, ComponentInterface, Event, EventEmitter, Prop } from '@stencil/core';
 
-import { TreeViewItem } from './tree-view.interfaces';
+import { TreeViewPointerEvent, TreeViewItem } from './tree-view.interfaces';
 import { DsoTreeItem } from './tree-item';
 
 @Component({
@@ -13,7 +13,7 @@ export class TreeView implements ComponentInterface {
    * The collection of TreeViewItems
    */
   @Prop()
-  collection!: TreeViewItem<string>[];
+  collection!: TreeViewItem[];
 
   /**
    * Emitted when a tree view item is opened.
@@ -22,7 +22,7 @@ export class TreeView implements ComponentInterface {
    * the TreeView's collection (usually set the open state on the last TreeViewItem in path).
    */
   @Event()
-  openItem!: EventEmitter<TreeViewItem<string>[]>;
+  openItem!: EventEmitter<TreeViewItem[]>;
 
   /**
    * Emitted when a tree view item is closed.
@@ -31,15 +31,18 @@ export class TreeView implements ComponentInterface {
    * the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
    */
   @Event()
-  closeItem!: EventEmitter<TreeViewItem<string>[]>;
+  closeItem!: EventEmitter<TreeViewItem[]>;
 
   /**
    * Emitted when a tree view item is clicked.
-   * The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the
-   * root to the item that is emitting the clicked event.
+   * The `detail` property of the `CustomEvent` will contain an object with:
+   * `path` = the complete path of TreeViewItems from the root to the item that is emitting the clicked event.
+   * `originalEvent` = the original click event.
+   * The consumer of the event is responsible for updating the TreeView's collection (usually set the active
+   * state on the last TreeViewItem in path and clear all other active item states).
    */
   @Event()
-  clickItem!: EventEmitter<TreeViewItem<string>[]>;
+  clickItem!: EventEmitter<TreeViewPointerEvent>;
 
   keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
@@ -90,7 +93,7 @@ export class TreeView implements ComponentInterface {
     event.preventDefault();
   };
 
-  itemClick = (event: Event, ancestors: TreeViewItem<string>[], item: TreeViewItem<string>) => {
+  itemClick = (event: MouseEvent, ancestors: TreeViewItem[], item: TreeViewItem) => {
     if (!(event.target instanceof HTMLElement)) {
       return;
     }
@@ -104,7 +107,7 @@ export class TreeView implements ComponentInterface {
       }
 
       TreeView.setFocus(tree, contentElement);
-      this.clickItem.emit([...ancestors, item]);
+      this.clickItem.emit({ path: [...ancestors, item], originalEvent: event });
 
       return;
     }

@@ -7,7 +7,7 @@ export function treeViewTemplate(
     onOpenItem,
     onCloseItem,
     onClickItem
-  }: TreeView<string>
+  }: TreeView
 ) {
   return html`
     <dso-tree-view

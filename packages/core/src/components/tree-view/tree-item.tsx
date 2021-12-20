@@ -4,18 +4,18 @@ import { TreeViewItem, TreeViewItemIcon } from '@dso-toolkit/sources';
 
 import { TreeView } from './tree-view';
 
-interface TreeViewItemProps<T> {
+interface TreeViewItemProps {
   owner: TreeView;
-  ancestors: TreeViewItem<T>[];
-  item: TreeViewItem<T>;
+  ancestors: TreeViewItem[];
+  item: TreeViewItem;
   index: number;
   level: number;
   setSize: number;
 }
 
-export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ owner, ancestors, item, index, level, setSize }) => (
+export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({ owner, ancestors, item, index, level, setSize }) => (
   <li
-    key={item.reference}
+    key={item.id}
     class={clsx('tree-item', { 'has-child': item.hasItems })}
     role='none'
   >
@@ -29,16 +29,18 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
       }
     </div>
     <p
-      class="tree-content"
+      class={clsx('tree-content', { 'active': item.active }, { 'selected': item.selected })}
       tabindex={level === 1 && index === 0 ? 0 : -1 }
       role="treeitem"
       aria-expanded={item.hasItems ? '' + (!!item.open && !!item.items?.length) : undefined}
+      aria-current={item.active ? 'true' : undefined}
       aria-level={level}
       aria-setsize={setSize}
       aria-posinset={index + 1}
       aria-busy={item.loading ? 'true' : undefined}
       onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
+      {item.selected && <span class="sr-only">Resultaat: </span>}
       {item.href
         ? <a href={item.href} tabindex="-1">{item.label}</a>
         : <span>{item.label}</span>
@@ -52,7 +54,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps<string>> = ({ ow
         {item.hasItems && !item.items && item.loading
           ? <dso-progress-indicator size="small" label="Resultaten laden: een moment geduld alstublieft." />
           : <ul role="group">
-              {item.items?.map((childItem: TreeViewItem<string>, index: number, org: TreeViewItem<string>[]) =>
+              {item.items?.map((childItem: TreeViewItem, index: number, org: TreeViewItem[]) =>
                 <DsoTreeItem
                   owner={owner}
                   ancestors={[...ancestors, item]}

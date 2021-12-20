@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit + sources:** Input-type number moet altijd gelabeled zijn ([#1386](https://github.com/dso-toolkit/dso-toolkit/issues/1386))
 * **dso-toolkit:** Percy SDK is unsupported ([#1360](https://github.com/dso-toolkit/dso-toolkit/issues/1360))
 
+### Added
+* **core:** Tree View items dienen een "selected" en een "active" state te ondersteunen ([#1349](https://github.com/dso-toolkit/dso-toolkit/issues/1349))
+
 ## 32.2.0
 
 ### Added

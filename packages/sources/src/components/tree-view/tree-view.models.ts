@@ -1,6 +1,6 @@
-export interface TreeViewItem<T> {
-  /** The reference of type T */
-  reference: T;
+export interface TreeViewItem {
+  /** The id of the item */
+  id: string;
   /** The label of the item */
   label: string;
   /** The optional href of the item (creates a link) */
@@ -8,11 +8,15 @@ export interface TreeViewItem<T> {
   /** Indicates whether the item has children */
   hasItems: boolean;
   /** The array of child items */
-  items?: TreeViewItem<T>[];
+  items?: TreeViewItem[];
   /** Indicates whether the node is open and child items are shown */
   open?: boolean;
   /** Indicates the node is loading child items */
   loading?: boolean;
+  /** Indicates the node is active, only one item should be active */
+  active?: boolean;
+  /** Indicates the node is selected, multiple items can be selected */
+  selected?: boolean;
   /** An optional array of icons */
   icons?: TreeViewItemIcon[];
 }
@@ -24,12 +28,19 @@ export interface TreeViewItemIcon {
   label: string;
 }
 
-export interface TreeView<T> {
-  collection: TreeViewItem<T>[];
+export interface TreeViewPointerEvent {
+  /** The path to the clicked item */
+  path: TreeViewItem[],
+  /** The original pointer event */
+  originalEvent: MouseEvent
+}
+
+export interface TreeView {
+  collection: TreeViewItem[];
   /** Emitted when a node is opened */
-  onOpenItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
+  onOpenItem: (e: CustomEvent<TreeViewItem[]>) => void;
   /** Emitted when a node is closed */
-  onCloseItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
+  onCloseItem: (e: CustomEvent<TreeViewItem[]>) => void;
   /** Emitted when an item is clicked */
-  onClickItem: (e: CustomEvent<TreeViewItem<T>[]>) => void;
+  onClickItem: (e: CustomEvent<TreeViewPointerEvent>) => void;
 }
