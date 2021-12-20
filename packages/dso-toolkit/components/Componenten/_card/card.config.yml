@@ -1,5 +1,5 @@
 notes: |
-  Het `dso-card` component mag alleen in het `dso-card-list` worden gebruikt.
+  Het `.dso-card` component mag alleen in `.dso-card-list` of `.dso-card-grid` worden gebruikt.
 collated: true
 variants:
 - name: default

@@ -20,6 +20,8 @@ export * from './components/button/button.models';
 export * from './components/button/button.stories';
 export * from './components/card/card.models';
 export * from './components/card/card.stories';
+export * from './components/card-grid/card-grid.models';
+export * from './components/card-grid/card-grid.stories';
 export * from './components/card-list/card-list.models';
 export * from './components/card-list/card-list.stories';
 export * from './components/conclusion/conclusion.models';
