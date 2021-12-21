@@ -1,7 +1,7 @@
-$dso-accordion-default-border-color: $cannon-pink;
-$dso-accordion-default-color: $cannon-pink;
-$dso-accordion-default-nested-handle-bgcolor: $cannon-pink;
-$dso-accordion-default-nested-body-bgcolor: #dbc8d1;
+$dso-accordion-default-border-color: $mauve;
+$dso-accordion-default-color: $mauve;
+$dso-accordion-default-nested-handle-bgcolor: $mauve;
+$dso-accordion-default-nested-body-bgcolor: $mauve-40;
 
 $dso-accordion-conclusion-bgcolor: $grijs-5;
 $dso-accordion-conclusion-hover-bgcolor: $grijs-10;
@@ -228,7 +228,7 @@ $dso-accordion-state-icon-size: $u3;
         color: $dso-accordion-default-color;
 
         &::before {
-          @include di("chevron-down-cannon-pink");
+          @include di("chevron-down-mauve");
         }
 
         &:hover,
@@ -277,7 +277,7 @@ $dso-accordion-state-icon-size: $u3;
             a,
             button {
               &::before {
-                @include di-variant("chevron-up-cannon-pink");
+                @include di-variant("chevron-up-mauve");
               }
             }
           }
