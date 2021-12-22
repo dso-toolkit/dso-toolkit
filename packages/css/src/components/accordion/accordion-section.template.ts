@@ -4,6 +4,7 @@ import { classMap } from 'lit-html/directives/class-map';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
 import { accordionHandleTemplate } from './accordion-handle.template';
+import { accordionTemplate } from './accordion.template';
 
 export function accordionSectionTemplate(accordion: Accordion, section: AccordionSection): TemplateResult {
   return html`
@@ -19,7 +20,12 @@ export function accordionSectionTemplate(accordion: Accordion, section: Accordio
           <div class="dso-section-body">
             ${unsafeHTML(section.children)}
 
-            ${section.subsections?.map(subsection => accordionSectionTemplate(accordion, subsection)) ?? nothing}
+            ${section.subsections
+              ? html`
+                ${accordionTemplate({ sections: section.subsections })}
+              `
+              : nothing
+            }
           </div>
         `
         : nothing
