@@ -11,3 +11,5 @@ context:
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
         active: true
+  appheading:
+    title: Boom kappen in de achtertuin

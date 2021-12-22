@@ -1,12 +1,7 @@
 {% render '@header', {menu: menu, breadcrumbs: []} -%}
 <main>
-  <a href="#" class="dso-tertiary">
-    <dso-icon icon="chevron-left"></dso-icon>
-    <span>Bekijk andere projecten</span>
-  </a>
-  <div class="dso-app-heading">
-    <h1>Boom kappen in de achtertuin</h1>
-  </div>
+  {% render '@anchor', {modifier: 'dso-tertiary', label: 'Bekijk andere projecten', url: '#', icon: 'chevron-left'} %}
+  {% render '@application-heading', appheading -%}
   <div class="row">
     <div class="col-md-4 col-md-push-8">
       <div class="row dso-equal-heights">
@@ -15,10 +10,7 @@
             <div class="dso-rich-content">
               <h2>Nieuwe verzoeken</h2>
               <p>Ga verder met aanvragen om door te werken aan uw niet ingediende verzoeken. U kunt ook een nieuw verzoek maken voor dit project</p>
-              <a href="#" class="dso-secondary">
-                <span>Aanvragen</span>
-                <dso-icon icon="chevron-right"></dso-icon>
-              </a>
+              {% render '@anchor', {modifier: 'dso-secondary', label: 'Aanvragen', url: '#', icon: 'chevron-right'} %}
             </div>
           </dso-highlight-box>
         </div>
@@ -27,10 +19,7 @@
             <div class="dso-rich-content">
               <h2>Deelnemers</h2>
               <p>Wit u dat iemand anders uw aanvraag kan maken of indienen? Dan kunt u iemand hiervoor machtigen bij Deelnemers</p>
-              <a href="#" class="dso-secondary">
-                <span>Deelnemers</span>
-                <dso-icon icon="chevron-right"></dso-icon>
-              </a>
+              {% render '@anchor', {modifier: 'dso-secondary', label: 'Deelnemers', url: '#', icon: 'chevron-right'} %}
             </div>
           </dso-highlight-box>
         </div>
@@ -40,7 +29,6 @@
       <h2>Verzoeken</h2>
       <p>Kies hier de verzoeken die u wilt bekijken, aanvullen of intrekken</p>
       <ul class="dso-card-list">
-
         <li>
           <div class="dso-card">
             <div class="dso-card-heading">
@@ -130,12 +118,8 @@
             </div>
           </div>
         </li>
-
       </ul>
-      <a href="#" class="dso-tertiary">
-        <dso-icon icon="chevron-left"></dso-icon>
-        <span>Bekijk andere projecten</span>
-      </a>
+      {% render '@anchor', {modifier: 'dso-tertiary', label: 'Bekijk andere projecten', url: '#', icon: 'chevron-left'} %}
     </div>
   </main>
   {% render '@footer' %}
