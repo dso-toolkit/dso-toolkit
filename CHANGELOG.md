@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css:** Card Grid ([#1216](https://github.com/dso-toolkit/dso-toolkit/issues/1216))
+* **css:** Accordion redesign ([#1280](https://github.com/dso-toolkit/dso-toolkit/issues/1280))
 
 ## 32.1.0
 

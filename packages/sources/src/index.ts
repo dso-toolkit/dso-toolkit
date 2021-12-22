@@ -1,5 +1,7 @@
 export { checkFix } from './stories-helpers';
 
+export * from './components/accordion/accordion.models';
+export * from './components/accordion/accordion.stories';
 export * from './components/alert/alert.models';
 export * from './components/alert/alert.stories';
 export * from './components/anchor/anchor.models';
