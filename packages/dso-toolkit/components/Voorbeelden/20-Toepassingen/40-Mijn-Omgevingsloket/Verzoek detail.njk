@@ -1,28 +1,14 @@
 {% render '@header', {menu: menu, breadcrumbs: []} -%}
 <main>
-  <a href="#" class="dso-tertiary">
-    <dso-icon icon="chevron-left"></dso-icon>
-    <span>Naar project overzicht</span>
-  </a>
-  <div class="dso-app-heading">
-    <h1>Boom kappen in de achtertuin</h1>
-    <h2>Boom kappen in de achtertuin 1<h2>
-  </div>
-  <button type="button" class="dso-secondary">
-    <dso-icon icon="pencil"></dso-icon>
-    <span>Aanvullen</span>
-  </button>
-  <button type="button" class="dso-secondary">
-    <dso-icon icon="undo"></dso-icon>
-    <span>Intrekken</span>
-  </button>
-  <button type="button" class="dso-secondary">
-    <dso-icon icon="trash"></dso-icon>
-    <span>Verwijderen</span>
-  </button>
+  {% render '@anchor', {modifier: 'dso-tertiary', label: 'Naar project overzicht', url: '#', icon: 'chevron-left'} %}
+  {% render '@application-heading', appheading -%}
+  {% render '@button', {label:'Aanvullen', type:'button', modifier:'dso-secondary', icon:'pencil'} %}
+  {% render '@button', {label:'Intrekken', type:'button', modifier:'dso-secondary', icon:'undo'} %}
+  {% render '@button', {label:'Verwijderen', type:'button', modifier:'dso-secondary', icon:'trash'} %}
       <div class="row">
         <div class="col-md-6 col-sm-12">
-          <dl>
+          {% render '@definition-list', {definitions: definitions} %}
+          {# <dl>
             <dt>Ingediend bij:</dt>
             <dd>
               <strong>Gemeente Den Haag</strong>
@@ -46,19 +32,13 @@
             <dd>20220101 00201 002 - 02-01-2022</dd>
             <dd>20220101 00201 002 - 02-01-2022</dd>
             <dd>20220101 00201 002 - 02-01-2022</dd>
-          </dl>
-          <button type="button" class="dso-secondary">
-            <dso-icon icon="download"></dso-icon>
-            <span>Download pdf als verzoek</span>
-          </button>
+          </dl> #}
+          {% render '@button', {label:'Download pdf als verzoek', type:'button', modifier:'dso-secondary', icon:'download'} %}
         </div>
       </div>
       <hr>
       <h3>Bijlagen</h3>
-      <button type="button" class="dso-secondary">
-        <dso-icon icon="download"></dso-icon>
-        <span>Download alle bijlagen</span>
-      </button>
+      {% render '@button', {label:'Download alle bijlagen', type:'button', modifier:'dso-secondary', icon:'download'} %}
       <table class="table">
         <caption class="sr-only">Overzicht van gebruikersnamen</caption>
         <thead>
@@ -75,9 +55,8 @@
                 <span>Brief opzichter de koning.doc</span></a>
             </th>
             <td>
-                Ja
-              </td>
-
+              Ja
+            </td>
           </tr>
           <tr>
             <th scope="row">
@@ -86,8 +65,8 @@
                 <span>Boom-23.jpg</span></a>
             </th>
             <td>
-                Nee
-              </td>
+              Nee
+            </td>
           </tr>
           <tr>
             <th scope="row">
@@ -96,8 +75,8 @@
                 <span>Straat-overzicht-boom23.jpg</span></a>
             </th>
             <td>
-                Nee
-              </td>
+              Nee
+            </td>
           </tr>
           <tr>
             <th scope="row">
@@ -106,14 +85,11 @@
                 <span>Brochure-gemeente-Den-Haag.pdf</span></a>
             </th>
             <td>
-                Ja
-              </td>
+              Ja
+            </td>
           </tr>
         </tbody>
       </table>
-      <a href="#" class="dso-tertiary">
-        <dso-icon icon="chevron-left"></dso-icon>
-        <span>Naar project overzicht</span>
-      </a>
+      {% render '@anchor', {modifier: 'dso-tertiary', label: 'Naar project overzicht', url: '#', icon: 'chevron-left'} %}
     </main>
     {% render '@footer' %}
