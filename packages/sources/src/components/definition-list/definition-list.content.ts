@@ -136,3 +136,21 @@ export const smallContentDefinitions: Definition[] = [
     ]
   }
 ];
+
+export const listDefinitions: Definition[] = [
+  {
+    term: 'Trefwoorden',
+    descriptions: [
+      '<ul><li>aanbouwen</li><li>afvalcontainer</li><li>avegaarpaal</li><li>berging</li><li>bijbehorend bouwwerk</li><li>bijkeuken</li><li>blokhut</li><li>boorpaal</li><li>buispaal</li><li>buitenkeuken</li><li>carport</li><li>dierenverblijf</li><li>erker</li><li>fietsenberging</li><li>fietsenhok</li><li>fundering</li><li>garage</li></ul>'
+    ]
+  },
+];
+
+export const columnsListDefinitions: Definition[] = [
+  {
+    term: 'Trefwoorden',
+    descriptions: [
+      '<ul class="dso-columns-list"><li>aanbouwen</li><li>afvalcontainer</li><li>avegaarpaal</li><li>berging</li><li>bijbehorend bouwwerk</li><li>bijkeuken</li><li>blokhut</li><li>boorpaal</li><li>buispaal</li><li>buitenkeuken</li><li>carport</li><li>dierenverblijf</li><li>erker</li><li>fietsenberging</li><li>fietsenhok</li><li>fundering</li><li>garage</li></ul>'
+    ]
+  },
+];

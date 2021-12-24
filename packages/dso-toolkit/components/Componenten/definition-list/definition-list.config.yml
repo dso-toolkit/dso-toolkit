@@ -244,3 +244,57 @@ variants:
           useSrOnlyColon: true
           longread:
             - paragraph: Pneumoconiose of stoflong is een longaandoening die door de inhalatie van stof wordt veroorzaakt.
+  - name: with-list
+    context:
+      __title: Met lijst
+      __explanation: Een lijst in de definitie
+      definitions:
+        - term: "Trefwoorden"
+          descriptions:
+            - description: |
+                <ul>
+                  <li>aanbouwen</li>
+                  <li>afvalcontainer</li>
+                  <li>avegaarpaal</li>
+                  <li>berging</li>
+                  <li>bijbehorend bouwwerk</li>
+                  <li>bijkeuken</li>
+                  <li>blokhut</li>
+                  <li>boorpaal</li>
+                  <li>buispaal</li>
+                  <li>buitenkeuken</li>
+                  <li>carport</li>
+                  <li>dierenverblijf</li>
+                  <li>erker</li>
+                  <li>fietsenberging</li>
+                  <li>fietsenhok</li>
+                  <li>fundering</li>
+                  <li>garage</li>
+                </ul>
+  - name: with-list-in-columns
+    context:
+      __title: Met lijst in kolommen
+      __explanation: Responsive component. Kolommen worden gezet doormiddel van <code>ul.dso-columns-list</code>.
+      definitions:
+        - term: "Trefwoorden"
+          descriptions:
+            - description: |
+                <ul class="dso-columns-list">
+                  <li>aanbouwen</li>
+                  <li>afvalcontainer</li>
+                  <li>avegaarpaal</li>
+                  <li>berging</li>
+                  <li>bijbehorend bouwwerk</li>
+                  <li>bijkeuken</li>
+                  <li>blokhut</li>
+                  <li>boorpaal</li>
+                  <li>buispaal</li>
+                  <li>buitenkeuken</li>
+                  <li>carport</li>
+                  <li>dierenverblijf</li>
+                  <li>erker</li>
+                  <li>fietsenberging</li>
+                  <li>fietsenhok</li>
+                  <li>fundering</li>
+                  <li>garage</li>
+                </ul>

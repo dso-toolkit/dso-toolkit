@@ -45,6 +45,13 @@ dl {
         margin-bottom: $dso-definition-list-vertical-space;
       }
     }
+
+    ul,
+    ul.dso-columns-list {
+      list-style: none;
+      margin: 0;
+      padding-left: 0;
+    }
   }
 
   &.dso-columns {
@@ -88,44 +95,6 @@ dl {
 
     > div {
       margin-bottom: $u2;
-    }
-
-    @media screen and (min-width: $screen-sm-min) {
-      break-inside: avoid;
-      column-gap: $u2;
-
-      &.dso-2-columns {
-        column-count: 2;
-
-        dt {
-          width: calc(50% - #{$u1});
-        }
-
-        dd {
-          margin-left: calc(50% + #{$u1});
-        }
-      }
-
-      &.dso-3-columns {
-        column-count: 3;
-
-        dt {
-          width: calc(50% - #{$u1});
-        }
-
-        dd {
-          margin-left: calc(50% + #{$u1});
-        }
-      }
-
-      > div {
-        &,
-        dt,
-        dd {
-          break-inside: avoid-column;
-          overflow: hidden;
-        }
-      }
     }
   }
 
@@ -226,7 +195,7 @@ dl {
   }
 
   &:not(.dso-bordered) {
-    @media screen and (max-width: $dso-definition-list-horizontal-breakpoint - 1) {
+    @media screen and (max-width: #{$dso-definition-list-horizontal-breakpoint - 1}) {
       dd + dt {
         margin-top: $dso-definition-list-vertical-space;
       }
@@ -251,7 +220,7 @@ dl {
       }
     }
 
-    @media screen and (max-width: $dso-definition-list-horizontal-breakpoint - 1) {
+    @media screen and (max-width: #{$dso-definition-list-horizontal-breakpoint - 1}) {
       dd + dt::before {
         margin-top: $dso-definition-list-vertical-space;
       }

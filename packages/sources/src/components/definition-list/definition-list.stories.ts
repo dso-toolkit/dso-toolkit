@@ -1,7 +1,7 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { definitionListArgsMapper, definitionListArgTypes } from './definition-list.args';
-import { columnDefinitions, definitions, smallContentDefinitions } from './definition-list.content';
+import { columnDefinitions, columnsListDefinitions, definitions, listDefinitions, smallContentDefinitions } from './definition-list.content';
 import { DefinitionList } from './definition-list.models';
 
 export interface DefinitionListParameters<TemplateFnReturnType> {
@@ -148,6 +148,26 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
       args: {
         modifier: 'dso-bordered',
         useSrOnlyColon: true
+      }
+    }
+  );
+
+  stories.add(
+    'with list',
+    template,
+    {
+      args: {
+        definitions: listDefinitions
+      }
+    }
+  );
+
+  stories.add(
+    'with columns list',
+    template,
+    {
+      args: {
+        definitions: columnsListDefinitions
       }
     }
   );
