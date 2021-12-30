@@ -24,6 +24,7 @@ variants:
     label: Input number with minimum limit
     id: minimum-limit
     count: 0
+    min: 0
     minusButtonInactive: true
     minusButtonLabel: Aantal verlagen (disabled)
 - name: input-number-maximum-limit
@@ -31,6 +32,7 @@ variants:
     __title: Maximum limit (optional)
     label: Input number with maximum limit
     id: maximum-limit
+    max: 99
     plusButtonInactive: true
     plusButtonLabel: Aantal verhogen (disabled)
 - name: no-label

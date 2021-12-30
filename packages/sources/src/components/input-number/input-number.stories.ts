@@ -27,7 +27,7 @@ export function storiesOfInputNumber<TemplateFnReturnType>(
       },
       argTypes: inputNumberArgTypes,
       args: {
-        label: 'Default',
+        label: 'Input number',
         id: uuidv4(),
         count: 99
       }
