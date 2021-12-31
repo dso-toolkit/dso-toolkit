@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:** Keydown en focusout events op Dropdown Menu en Toggletip Web Components in Safari ([#1379](https://github.com/dso-toolkit/dso-toolkit/issues/1379))
+
 ## 32.2.0
 
 ### Added
