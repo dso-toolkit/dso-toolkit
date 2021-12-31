@@ -83,6 +83,10 @@ export class DropdownMenu {
     }
   }
 
+  componentDidRender() {
+    this.host.setAttribute("tabindex", "-1");
+  }
+
   componentWillRender() {
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
