@@ -39,5 +39,5 @@ variants:
 - name: no-label
   context:
     __title: no label
-    label: null
+    label: ""
     id: no-label

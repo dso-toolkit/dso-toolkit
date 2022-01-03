@@ -21,7 +21,7 @@ export function inputNumberTemplate({ label, id, min, max, count, minusButtonIna
         min=${ifDefined(min)}
         max=${ifDefined(max)}
         class="dso-input-step-counter"
-        aria-label=${ifDefined(label === '' ? 'Aantal' : undefined)}
+        aria-label=${ifDefined(!label ? 'Aantal' : undefined)}
         value=${count}
       >
       ${buttonTemplate({ type: 'button', label: 'Aantal verhogen', variant: 'tertiary', disabled: plusButtonInactive, icon: { icon: 'plus-square' }, iconMode: 'only' })}

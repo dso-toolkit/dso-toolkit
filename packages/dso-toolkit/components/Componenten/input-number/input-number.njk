@@ -10,8 +10,8 @@
     readonly
     tabindex="-1"
     {% if min or min == 0 %} min="{{ min }}"{% endif %}
-    {% if max %} max="{{ max }}"{% endif %}
-    {% if not label and not labeledAlready %} aria-label="Aantal"{% endif %}
+    {% if max or max == 0 %} max="{{ max }}"{% endif %}
+    {% if not label and label != null %} aria-label="Aantal"{% endif %}
     class="dso-input-step-counter"
     value="{{ count }}">
   {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive} %}
