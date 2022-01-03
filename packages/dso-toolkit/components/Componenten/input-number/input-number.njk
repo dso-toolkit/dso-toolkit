@@ -6,12 +6,13 @@
   {% endif %}
   {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: minusButtonLabel, icon: 'minus-square', iconOnly: 'true', disabled: minusButtonInactive} %}
   <input type="number"
-          id="{{ id }}"
-          readonly
-          tabindex="-1"
-          {% if min %} min="{{ min }}"{% endif %}
-          {% if max %} max="{{ max }}"{% endif %}
-          class="dso-input-step-counter"
-          value="{{ count }}">
+    id="{{ id }}"
+    readonly
+    tabindex="-1"
+    {% if min or min == 0 %} min="{{ min }}"{% endif %}
+    {% if max or max == 0 %} max="{{ max }}"{% endif %}
+    {% if not label and label != null %} aria-label="Aantal"{% endif %}
+    class="dso-input-step-counter"
+    value="{{ count }}">
   {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: plusButtonLabel, icon: 'plus-square', iconOnly: 'true', disabled: plusButtonInactive} %}
 </div>
