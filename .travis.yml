@@ -7,7 +7,7 @@ cache:
     - ./.yarn/cache
     - ~/.cache/Cypress
 node_js:
-  - '14'
+  - '16'
 git:
   depth: false
 before_install:
