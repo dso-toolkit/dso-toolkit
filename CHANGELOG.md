@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **core:** Keydown en focusout events op Dropdown Menu en Toggletip Web Components in Safari ([#1379](https://github.com/dso-toolkit/dso-toolkit/issues/1379))
 * **css + dso-toolkit + sources:** Input-type number moet altijd gelabeled zijn ([#1386](https://github.com/dso-toolkit/dso-toolkit/issues/1386))
+* **dso-toolkit:** Percy SDK is unsupported ([#1360](https://github.com/dso-toolkit/dso-toolkit/issues/1360))
 
 ## 32.2.0
 

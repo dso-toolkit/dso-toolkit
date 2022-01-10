@@ -13,6 +13,7 @@
     "test": "yarn workspace dso-toolkit smoke-test && yarn workspace dso-toolkit test",
     "build-www": "yarn workspace @dso-toolkit/css build-www && yarn workspace @dso-toolkit/core build-www && yarn workspace @dso-toolkit/react build-www",
     "e2e": "yarn workspace @dso-toolkit/core test-storybook-static",
+    "percy": "percy snapshot packages/dso-toolkit/dist/library",
     "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
     "fractal": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=fractal yarn node scripts/fractal.js",
     "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom",
@@ -24,6 +25,7 @@
     "start:all": "yarn node scripts/start.js --mode all"
   },
   "dependencies": {
+    "@percy/cli": "^1.0.0-beta.71",
     "concurrently": "^6.3.0",
     "cpy-cli": "^3.1.1",
     "cross-env": "^7.0.3",
