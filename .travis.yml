@@ -55,8 +55,6 @@ jobs:
       name: deploy to dso-toolkit.nl and percy
       workspaces:
         use: build-artifacts
-      install:
-        - gem install percy-cli
       script:
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/css/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/css.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/core/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/core.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
@@ -64,7 +62,7 @@ jobs:
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
-        - percy snapshot --widths "380,780,1024,1280" --snapshots_regex "components\/preview\/((?!--).)+\.html$" packages/dso-toolkit/dist/library/ --enable_javascript
+        - yarn percy
 
     - stage: release
       name: publish to npm
