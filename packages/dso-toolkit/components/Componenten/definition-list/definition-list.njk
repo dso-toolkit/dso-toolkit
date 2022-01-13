@@ -19,7 +19,13 @@
     {%- for definition in definitions %}
       <dt>{{ definition.term }}{% if definition.useSrOnlyColon %}<span class="sr-only">:<span>{% else %}:{% endif %}</dt>
       {%- for description in definition.descriptions %}
-        <dd>{{ description.description | safe }}</dd>
+        <dd>
+          {%- if description.columnsList -%}
+            {{ description.columnsList | safe }}
+          {%- else -%}
+            {{ description.description }}
+          {%- endif -%}
+        </dd>
       {%- endfor -%}
       {%- if definition.longread %}
         <dd>

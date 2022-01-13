@@ -251,7 +251,7 @@ variants:
       definitions:
         - term: "Trefwoorden"
           descriptions:
-            - description: |
+            - columnsList: |
                 <ul class="dso-columns-list">
                   <li>aanbouwen</li>
                   <li>afvalcontainer</li>
