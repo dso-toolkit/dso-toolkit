@@ -27,23 +27,23 @@ export function storiesOfColumnsList<TemplateFnReturnType>(
       argTypes: columnsListArgTypes,
       args: componentArgs<ColumnsListArgs>({
         listItems: [
-          { listItem: 'aanbouwen'},
-          { listItem: 'afvalcontainer'},
-          { listItem: 'avegaarpaal'},
-          { listItem: 'berging'},
-          { listItem: 'bijbehorend bouwwerk'},
-          { listItem: 'bijkeuken'},
-          { listItem: 'blokhut'},
-          { listItem: 'boorpaal'},
-          { listItem: 'buispaal'},
-          { listItem: 'buitenkeuken'},
-          { listItem: 'carport'},
-          { listItem: 'dierenverblijf'},
-          { listItem: 'erker'},
-          { listItem: 'fietsenberging'},
-          { listItem: 'fietsenhok'},
-          { listItem: 'fundering'},
-          { listItem: 'garage'}
+          'aanbouwen',
+          'afvalcontainer',
+          'avegaarpaal',
+          'berging',
+          'bijbehorend bouwwerk',
+          'bijkeuken',
+          'blokhut',
+          'boorpaal',
+          'buispaal',
+          'buitenkeuken',
+          'carport',
+          'dierenverblijf',
+          'erker',
+          'fietsenberging',
+          'fietsenhok',
+          'fundering',
+          'garage'
         ]
       })
     });

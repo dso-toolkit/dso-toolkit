@@ -1,9 +1,9 @@
 import { ArgTypes } from '../../stories-helpers';
 
-import { ColumnsList, ColumnsListItem } from './columns-list.models';
+import { ColumnsList } from './columns-list.models';
 
 export interface ColumnsListArgs {
-  listItems: ColumnsListItem[];
+  listItems: string[];
 }
 
 export const columnsListArgTypes: ArgTypes<ColumnsListArgs> = {

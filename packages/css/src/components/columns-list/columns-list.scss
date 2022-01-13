@@ -1,4 +1,8 @@
 ul.dso-columns-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
   @media (max-width: $screen-sm-max) {
     columns: 1;
   }

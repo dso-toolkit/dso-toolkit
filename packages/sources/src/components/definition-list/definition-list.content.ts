@@ -4,57 +4,57 @@ export const definitions: Definition[] = [
   {
     term: 'Thema',
     descriptions: [
-      'Wonen',
-      'Werken'
+      { content: 'Wonen' },
+      { content: 'Werken' }
     ]
   },
   {
     term: 'Regelkwalificatie',
     descriptions: [
-      'Instructieregels'
+      { content: 'Instructieregels' }
     ]
   },
   {
     term: 'Onderwerp',
     descriptions: [
-      'Bedrijventerrein'
+      { content: 'Bedrijventerrein' }
     ]
   },
   {
     term: 'Functie',
     descriptions: [
-      'Bedrijventerrein > Bedrijventerrein'
+      { content: 'Bedrijventerrein > Bedrijventerrein' }
     ]
   },
   {
     term: 'Type regel',
     descriptions: [
-      'Bindend voor bestuursorganen'
+      { content: 'Bindend voor bestuursorganen' }
     ]
   },
   {
     term: 'Normadressaat',
     descriptions: [
-      '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
-      '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>'
+      { content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>' },
+      { content: '<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>' }
     ]
   },
   {
     term: 'Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus',
     descriptions: [
-      '<p>Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.</p>'
+      { content: '<p>Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.</p>' }
     ]
   },
   {
     term: 'De stoflongziekte (mijnwerkers-pneumoconiose)',
     descriptions: [
-      '<p>Veroorzaakt door lange blootstelling aan kolengruis.</p>'
+      { content: '<p>Veroorzaakt door lange blootstelling aan kolengruis.</p>' }
     ]
   },
   {
     term: 'Pneumoconiose',
     descriptions: [
-      '<p>Pneumoconiose of stoflong is een longaandoening die door de inhalatie van stof wordt veroorzaakt.</p>'
+      { content: '<p>Pneumoconiose of stoflong is een longaandoening die door de inhalatie van stof wordt veroorzaakt.</p>' }
     ]
   }
 ];
@@ -63,31 +63,31 @@ export const columnDefinitions: Definition[] = [
   {
     term: 'Verzoek 1',
     descriptions: [
-      'Aanleg rondweg Leiden traject Rijnland route 1'
+      { content: 'Aanleg rondweg Leiden traject Rijnland route 1' }
     ]
   },
   {
     term: 'Verzoeknummer',
     descriptions: [
-      '20181024 00729 000'
+      { content: '20181024 00729 000' }
     ]
   },
   {
     term: 'Datum ingediend',
     descriptions: [
-      '24/10/2018'
+      { content: '24/10/2018'}
     ]
   },
   {
     term: 'Ingediend bij',
     descriptions: [
-      'Gemeente Den Haag'
+      { content: 'Gemeente Den Haag' }
     ]
   },
   {
     term: 'Uw verzoek wordt behandeld door',
     descriptions: [
-      'Omgevingsdienst Haaglanden'
+      { content: 'Omgevingsdienst Haaglanden' }
     ]
   }
 ];
@@ -96,43 +96,43 @@ export const smallContentDefinitions: Definition[] = [
   {
     term: 'Organisator',
     descriptions: [
-      'Gemeente Rotterdam'
+      { content: 'Gemeente Rotterdam' }
     ]
   },
   {
     term: 'Verzoeknummer',
     descriptions: [
-      '12123497987'
+      { content: '12123497987' }
     ]
   },
   {
     term: 'Status',
     descriptions: [
-      'Open'
+      { content: 'Open' }
     ]
   },
   {
     term: 'Creatiedatum',
     descriptions: [
-      '17-12-2019'
+      { content: '17-12-2019' }
     ]
   },
   {
     term: 'Contactpersoon',
     descriptions: [
-      'Jan van Veen'
+      { content: 'Jan van Veen' }
     ]
   },
   {
     term: 'Emailadres',
     descriptions: [
-      'j.veen@testmail.nl'
+      { content: 'j.veen@testmail.nl' }
     ]
   },
   {
     term: 'Telefoonnummer',
     descriptions: [
-      '06-12345678'
+      { content: '06-12345678' }
     ]
   }
 ];
@@ -141,16 +141,29 @@ export const listDefinitions: Definition[] = [
   {
     term: 'Trefwoorden',
     descriptions: [
-      '<ul><li>aanbouwen</li><li>afvalcontainer</li><li>avegaarpaal</li><li>berging</li><li>bijbehorend bouwwerk</li><li>bijkeuken</li><li>blokhut</li><li>boorpaal</li><li>buispaal</li><li>buitenkeuken</li><li>carport</li><li>dierenverblijf</li><li>erker</li><li>fietsenberging</li><li>fietsenhok</li><li>fundering</li><li>garage</li></ul>'
-    ]
-  },
-];
-
-export const columnsListDefinitions: Definition[] = [
-  {
-    term: 'Trefwoorden',
-    descriptions: [
-      '<ul class="dso-columns-list"><li>aanbouwen</li><li>afvalcontainer</li><li>avegaarpaal</li><li>berging</li><li>bijbehorend bouwwerk</li><li>bijkeuken</li><li>blokhut</li><li>boorpaal</li><li>buispaal</li><li>buitenkeuken</li><li>carport</li><li>dierenverblijf</li><li>erker</li><li>fietsenberging</li><li>fietsenhok</li><li>fundering</li><li>garage</li></ul>'
+      {
+        columnsList: {
+          listItems: [
+            'aanbouwen',
+            'afvalcontainer',
+            'avegaarpaal',
+            'berging',
+            'bijbehorend bouwwerk',
+            'bijkeuken',
+            'blokhut',
+            'boorpaal',
+            'buispaal',
+            'buitenkeuken',
+            'carport',
+            'dierenverblijf',
+            'erker',
+            'fietsenberging',
+            'fietsenhok',
+            'fundering',
+            'garage'
+          ]
+        }
+      }
     ]
   },
 ];

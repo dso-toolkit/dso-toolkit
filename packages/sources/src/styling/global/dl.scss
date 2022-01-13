@@ -45,13 +45,6 @@ dl {
         margin-bottom: $dso-definition-list-vertical-space;
       }
     }
-
-    ul,
-    ul.dso-columns-list {
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-    }
   }
 
   &.dso-columns {

@@ -5,7 +5,7 @@ export function columnsListTemplate({ listItems }: ColumnsList) {
   return html`
     <ul class="dso-columns-list">
       ${listItems.map(item => html`
-        <li>${item.listItem}</li>
+        <li>${item}</li>
       `)}
     </ul>
   `;
