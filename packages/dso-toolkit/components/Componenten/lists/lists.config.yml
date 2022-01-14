@@ -18,3 +18,6 @@ variants:
   - name: list-group
     context:
       __title: list group
+  - name: columns
+    context:
+      __title: columns
