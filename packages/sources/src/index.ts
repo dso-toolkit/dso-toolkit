@@ -26,8 +26,6 @@ export * from './components/card-grid/card-grid.models';
 export * from './components/card-grid/card-grid.stories';
 export * from './components/card-list/card-list.models';
 export * from './components/card-list/card-list.stories';
-export * from './components/columns-list/columns-list.models';
-export * from './components/columns-list/columns-list.stories';
 export * from './components/conclusion/conclusion.models';
 export * from './components/conclusion/conclusion.stories';
 export * from './components/context/context.models';
