@@ -1886,20 +1886,15 @@ __metadata:
     clsx: 1.1.1
     concurrently: ^6.3.0
     cross-env: ^7.0.3
-    cypress: ^8.6.0
-    cypress-axe: ^0.13.0
-    cypress-real-events: ^1.5.1
     debounce: ^1.2.1
     escape-string-regexp: ^5.0.0
     http-proxy-middleware: ^2.0.1
-    http-server: ^13.0.2
     lit-html: ^2.0.1
     mini-svg-data-uri: 1.4.3
     minimist: ^1.2.5
     react: ^17.0.2
     react-dom: ^17.0.2
     rimraf: ^3.0.2
-    start-server-and-test: ^1.14.0
     stencil-inline-svg: 1.1.0
     tabbable: ^5.2.1
     typescript: 4.4.4
@@ -7227,9 +7222,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001125, caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001280":
-  version: 1.0.30001283
-  resolution: "caniuse-lite@npm:1.0.30001283"
-  checksum: a13916f1b5ea0d75fe34d1ac8b8b841f88da69f98b1fd5178fd350291fdc1794daebcaaf57c3d3bc60f33aa27ecdf8e0909dc1a013475754c5416515f9bc32c2
+  version: 1.0.30001300
+  resolution: "caniuse-lite@npm:1.0.30001300"
+  checksum: f8c981c0658e2ea67b5e106538a9f3b15d528a6679f2b6e7cb3f508a99e4f9f3f69c73d1b243c77e5ccb3bcef964a801a26a2ba6a13416b42baf314577e3172a
   languageName: node
   linkType: hard
 
@@ -9261,10 +9256,15 @@ __metadata:
     concurrently: ^6.3.0
     cpy-cli: ^3.1.1
     cross-env: ^7.0.3
+    cypress: ^8.6.0
+    cypress-axe: ^0.13.0
+    cypress-real-events: ^1.5.1
+    http-server: ^13.0.2
     minimist: ^1.2.5
     patch-package: ^6.4.7
     postinstall-postinstall: ^2.1.0
     rimraf: ^3.0.2
+    start-server-and-test: ^1.14.0
     stylelint: ^13.13.1
     stylelint-config-standard: 22.0.0
     stylelint-scss: 3.21.0

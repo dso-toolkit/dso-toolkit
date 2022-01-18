@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **css:** Accordion tests ([#1192](https://github.com/dso-toolkit/dso-toolkit/issues/1192))
+
 ## 33.0.0
 
 ### Fixed
