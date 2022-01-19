@@ -83,9 +83,7 @@ defineCustomElements();
 ```
 
 ### CSS + Web Components + Framework specific bindings
-Als er gebruik wordt gemaakt van een framework (Angular/React) heeft deze methode de voorkeur. Op dit moment is er alleen een React specific binding, Angular staat op korte termijn gepland.
-
-Hetzelfde als "CSS + Web Components" maar dan wordt niet meer direct het Web Component aangeroepen maar een framework specifiek component. Het voordeel is dat voor non-scalar data (geen tekst of nummer) geen wrapper componenten hoeven worden geschreven. Zie de Stencil Documentatie voor meer informatie: https://stenciljs.com/docs/overview.
+Als er gebruik wordt gemaakt van React heeft deze methode de voorkeur. Op dit moment is er alleen een React binding. Dit zijn gegenereerde React componenten die het bijbehorende Web Component aanroept. Het voordeel is dat voor non-scalar data (geen tekst of nummer) geen wrapper componenten hoeven worden geschreven. Zie de Stencil Documentatie voor meer informatie: https://stenciljs.com/docs/overview.
 
 Zie instructies voor CSS, daarnaast:
 
