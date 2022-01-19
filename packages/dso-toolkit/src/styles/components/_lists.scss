@@ -1,3 +1,24 @@
 .list-group > .list-group-item {
   @extend %dso-rich-content;
 }
+
+ul,
+ol {
+  &.dso-columns-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    @media (max-width: $screen-sm-max) {
+      columns: 1;
+    }
+
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      columns: 2;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      columns: 3;
+    }
+  }
+}

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css:** Accordion tests ([#1192](https://github.com/dso-toolkit/dso-toolkit/issues/1192))
+* **css + dso-toolkit + sources:** Lange lijsten in definition list tonen als kolommen ([#1378](https://github.com/dso-toolkit/dso-toolkit/issues/1378))
 
 ## 33.0.0
 
