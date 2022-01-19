@@ -1,6 +1,6 @@
 # DSO Toolkit architecture
 
-Dit document beschrijft de visie en architectuur van het DSO Toolkit landschap.
+Dit document beschrijft de visie en architectuur van het DSO Toolkit Design System.
 
 Het begint met een samenvatting waarna per onderdeel een uitgebreide beschrijving volgt.
 
@@ -26,12 +26,12 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 
 ## Sources
 
-Deze package is de basis voor de andere packages in de DSO Toolkit suite. Hier centralizeren we de functionaliteit die door maintainers wordt gebruikt:
+Deze package is de basis voor de andere packages in het DSO Toolkit Design System. Hier centraliseren we de functionaliteit die door maintainers wordt gebruikt:
 
 * Implementatie details: Implementatie-agnostische documentatie over de functionaliteit van een component.
-* Iconen: Alle iconen van de DSO.
+* Iconen: Alle iconen die in de applicaties van het DSO worden gebruikt.
 * Styling: Component styling in de vorm van Sass mixins waarmee de diverse implementaties worden gestijld.
-* Component model: Het technische model wat de functionlaiteit van een component beschrijft.
+* Component model: Het technische model wat de functionaliteit van een component beschrijft.
 * Storybook definities: Alles wat niet met templating van een Story te maken heeft.
 * Storybook args: de laag tussen de Controls van Storybook en het technische model van een component.
 
@@ -102,11 +102,15 @@ Web Components schrijven we in TypeScript met [Stencil](https://stenciljs.com/).
 
 React Components worden gegenereerd door Stencil. Voor elke Web Component wordt er een binding component gegenereerd waarmee de React developer (afnemer) op een vertrouwde manier met de DSO Toolkit Web Components kan werken.
 
+### Angular Components
+
+We leveren geen Angular componenten. Angular heeft first class support voor Web Componenten. Voor meer informatie, zie de [Stencil documentatie](https://github.com/ionic-team/stencil-site/blob/f9289b0d52b13576b2dfcbdf4166e5f1aebb33e2/src/docs/framework-integration/angular.md#angular). Het hoofdstuk "Bindings" is niet van toepassing.
+
 ## Fractal
 
-Fractal is het documentatie framework waar we mee zijn begonnen. Dit framework is niet meer ondersteund en werkt steeds meer tegen ons dan voor ons. Templates worden in Nunjucks geschreven waardoor het lastig is om componenten te "slotten".
+Fractal is het documentatie framework waar we mee zijn begonnen. Dit framework is EOL en wordt deprecated. Templates worden in Nunjucks geschreven waardoor het lastig is om componenten te "slotten".
 
-De Fractal omgeving is nauw verweven met de toolkit codebase. Alles zit samen in de package `dso-toolkit`. We zijn bezig om deze codebase op te splitsen naar SCSS styling, markdown documentatie en lit templates. De component variant generator .functionaliteit wordt overgenomen door Storybook.
+De Fractal omgeving is nauw verweven met de toolkit codebase. Alles zit samen in de package `dso-toolkit`. We zijn bezig om deze codebase op te splitsen naar SCSS styling, markdown documentatie en lit templates. De component variant generator functionaliteit wordt overgenomen door Storybook.
 
 ### Bootstrap
 
