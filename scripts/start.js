@@ -23,6 +23,14 @@ const startCore = {
   name: 'core'
 };
 
+function startCypress(port, integrationSubFolder) {
+  return {
+    command: `wait-on http://localhost:${port} && yarn cypress open --config integrationFolder="cypress/integration/${integrationSubFolder}"`,
+    name: 'cypress',
+    prefixColor: 'bgGreen'
+  };
+}
+
 const startCoreProd = {
   command: 'wait-on file:./packages/sources/dist/sources.js && yarn workspace @dso-toolkit/core start --prod',
   name: 'core'
@@ -66,14 +74,18 @@ const startReactLeaflet = {
   prefixColor: 'green'
 };
 
-switch(argv.mode) {
+switch (argv.mode) {
   case 'core':
     concurrently(
       [
         watchCss,
         startSources,
-        startCore
-      ]
+        startCore,
+        startCypress(56106, 'core')
+      ],
+      {
+        killOthers: ['failure', 'success']
+      }
     );
 
     break;
@@ -81,8 +93,12 @@ switch(argv.mode) {
     concurrently(
       [
         startSources,
-        startCss
-      ]
+        startCss,
+        startCypress(56206, 'css')
+      ],
+      {
+        killOthers: ['failure', 'success']
+      }
     );
 
     break;
@@ -93,7 +109,10 @@ switch(argv.mode) {
         watchCss,
         startCoreProd,
         startLeaflet
-      ]
+      ],
+      {
+        killOthers: ['failure', 'success']
+      }
     );
 
     break;
@@ -105,7 +124,10 @@ switch(argv.mode) {
         startCoreProd,
         buildLeaflet,
         startReactLeaflet
-      ]
+      ],
+      {
+        killOthers: ['failure', 'success']
+      }
     );
     
     break;
@@ -116,7 +138,10 @@ switch(argv.mode) {
         startCoreProd,
         startReact,
         startCss
-      ]
+      ],
+      {
+        killOthers: ['failure', 'success']
+      }
     );
 
     break;
@@ -127,7 +152,10 @@ switch(argv.mode) {
         startSources,
         startCoreWatcher,
         startReact
-      ]
+      ],
+      {
+        killOthers: ['failure', 'success']
+      }
     );
 
     break;

@@ -74,12 +74,12 @@ export function storiesOfAccordion<TemplateFnReturnType>(
             subsections: [
               {
                 title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
-                header: 'h2',
+                header: 'h3',
                 handleType: 'anchor'
               },
               {
                 title: 'Hoe lang duurt de Vergunningcheck?',
-                header: 'h2',
+                header: 'h3',
                 handleType: 'anchor',
                 open: true,
                 children: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`
