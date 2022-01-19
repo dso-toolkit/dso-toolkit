@@ -6,7 +6,6 @@
       "dom"
     ],
     "types": [
-      "@percy/cypress",
       "cypress",
       "cypress-axe",
       "cypress-real-events"

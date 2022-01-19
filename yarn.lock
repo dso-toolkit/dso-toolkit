@@ -2626,17 +2626,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cypress@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@percy/cypress@npm:3.1.1"
-  dependencies:
-    "@percy/sdk-utils": ^1.0.0-beta.44
-  peerDependencies:
-    cypress: ">=3"
-  checksum: 76dcf40d309cfa0d38456649109ac1f1e8b4445ed3bb19ec885c10cbbda6c594d667a4e91319da592d55f1fa56e5cfc7d98cc3a8b1355eed81d94e342ee48d95
-  languageName: node
-  linkType: hard
-
 "@percy/dom@npm:1.0.0-beta.73":
   version: 1.0.0-beta.73
   resolution: "@percy/dom@npm:1.0.0-beta.73"
@@ -2655,15 +2644,6 @@ __metadata:
   version: 1.0.0-beta.73
   resolution: "@percy/logger@npm:1.0.0-beta.73"
   checksum: 08c7eba65324abc0be586dd60f8bae28a963bbc2352b9844632a5633e3626fb7699810f2d503acf20db5f716da902061928501a1024fc0214f7fbece93b71df9
-  languageName: node
-  linkType: hard
-
-"@percy/sdk-utils@npm:^1.0.0-beta.44":
-  version: 1.0.0-beta.73
-  resolution: "@percy/sdk-utils@npm:1.0.0-beta.73"
-  dependencies:
-    "@percy/logger": 1.0.0-beta.73
-  checksum: cb7422c4de966049a083cb7786ac6c5c06c8281f1a5f560b129fab7e7c9326cc2f9a47dd9c77cfcad6616022e03c364df67fd8f1eff2d778b37e09141f7ea39a
   languageName: node
   linkType: hard
 
@@ -9182,7 +9162,6 @@ __metadata:
   resolution: "dso-toolkit-monorepo@workspace:."
   dependencies:
     "@percy/cli": ^1.0.0-beta.73
-    "@percy/cypress": ^3.1.1
     concurrently: ^6.3.0
     cpy-cli: ^3.1.1
     cross-env: ^7.0.3

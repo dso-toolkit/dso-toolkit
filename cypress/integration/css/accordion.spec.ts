@@ -1,10 +1,4 @@
 describe('Accordion', () => {
-  it('should match snapshots', () => {
-    cy.visit('http://localhost:56206/iframe.html?id=accordion');
-
-    cy.get('.dso-accordion').percySnapshot();
-  });
-
   it('should have ".open" and "[aria-expanded=true]" for open sections and vice versa', () => {
     cy.visit('http://localhost:56206/iframe.html?id=accordion');
 
