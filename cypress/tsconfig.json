@@ -6,13 +6,14 @@
       "dom"
     ],
     "types": [
-      "@dso-toolkit/core",
+      "@percy/cypress",
       "cypress",
       "cypress-axe",
       "cypress-real-events"
     ]
   },
   "include": [
+    "../packages/core/src/components.d.ts",
     "**/*.ts"
   ]
 }
