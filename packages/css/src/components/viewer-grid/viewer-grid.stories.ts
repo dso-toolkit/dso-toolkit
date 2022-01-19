@@ -57,7 +57,7 @@ function viewerGridMainDemoTemplate(
     })}
     ${viewerGridDocumentHeaderTemplate({
       title: html`<h1>Omgevingsplan gemeente Gouda</h1>`,
-      type: 'Omgevingsplan',
+      type: 'Een omgevingsplan waar de omgeving mooier van wordt',
       owner: 'Gemeente Gouda',
       status: html`${badgeTemplate({ status: 'warning', message: 'Ontwerp' })}Bekendgemaakt 01-03-2021`,
       featuresAction: documentHeaderFeatureAction,

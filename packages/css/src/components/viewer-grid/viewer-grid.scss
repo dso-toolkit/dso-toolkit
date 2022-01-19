@@ -56,6 +56,10 @@ $dso-viewer-grid-overlay-width: 624px;
       display: block;
     }
 
+    .dso-document-header-type {
+      margin-right: $u4;
+    }
+
     .dso-document-header,
     .dso-document-list-item {
       &-status {
@@ -107,8 +111,22 @@ $dso-viewer-grid-overlay-width: 624px;
       }
     }
 
-    .dso-document-header-owner {
-      margin-left: $u1;
+    .dso-document-header-container {
+      padding-right: $u4;
+    }
+
+    .dso-document-header-type {
+      margin-right: $u1;
+    }
+
+    dl.dso-document-header-features {
+      dt {
+        width: 20%;
+      }
+
+      dd {
+        margin-left: 20%;
+      }
     }
 
     .dso-document-list-item-open-document,
@@ -116,7 +134,6 @@ $dso-viewer-grid-overlay-width: 624px;
       position: absolute;
       right: 0;
       bottom: 0;
-      font-weight: normal;
     }
   }
 }
@@ -190,6 +207,7 @@ $dso-viewer-grid-overlay-width: 624px;
     @include button-tertiary();
 
     color: $zwart;
+    font-weight: normal;
   }
 
   .dso-document-header-map-action {

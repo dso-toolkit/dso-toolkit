@@ -8,8 +8,7 @@ export function viewerGridDocumentListItem({ title, type, owner, status }: Viewe
     <div class="dso-document-list-item">
       ${title}
       <div class="dso-document-list-item-container">
-        <p class="dso-document-list-item-type">${type}</p>
-        <p class="dso-document-list-item-owner">${owner}</p>
+        <p class="dso-document-list-item-type">${type}</p><p class="dso-document-list-item-owner">${owner}</p>
         <p class="dso-document-list-item-status">${status}</p>
         ${anchorTemplate({
           url: '#',
