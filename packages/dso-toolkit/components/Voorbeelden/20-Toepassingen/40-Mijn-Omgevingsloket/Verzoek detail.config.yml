@@ -17,10 +17,10 @@ context:
   definitions:
     - term: "Ingediend bij"
       descriptions:
-        - description: <strong>Gemeente Den Haag</strong>
+        - description: Gemeente Den Haag
     - term: "Behandeld door"
       descriptions:
-        - description: <strong>Omgevingsdienst Haaglanden</strong>
+        - description: Omgevingsdienst Haaglanden
     - term: "Soort"
       descriptions:
         - description: Aanvraag vergunning
