@@ -232,6 +232,9 @@ export namespace Components {
          */
         "collection": TreeViewItem[];
     }
+    interface DsoViewerGrid {
+        "overlayOpen": boolean;
+    }
 }
 declare global {
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
@@ -378,6 +381,12 @@ declare global {
         prototype: HTMLDsoTreeViewElement;
         new (): HTMLDsoTreeViewElement;
     };
+    interface HTMLDsoViewerGridElement extends Components.DsoViewerGrid, HTMLStencilElement {
+    }
+    var HTMLDsoViewerGridElement: {
+        prototype: HTMLDsoViewerGridElement;
+        new (): HTMLDsoViewerGridElement;
+    };
     interface HTMLElementTagNameMap {
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
@@ -403,6 +412,7 @@ declare global {
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
+        "dso-viewer-grid": HTMLDsoViewerGridElement;
     }
 }
 declare namespace LocalJSX {
@@ -656,6 +666,10 @@ declare namespace LocalJSX {
          */
         "onOpenItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
     }
+    interface DsoViewerGrid {
+        "onCloseOverlay"?: (event: CustomEvent<MouseEvent | KeyboardEvent>) => void;
+        "overlayOpen"?: boolean;
+    }
     interface IntrinsicElements {
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
@@ -681,6 +695,7 @@ declare namespace LocalJSX {
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
         "dso-tree-view": DsoTreeView;
+        "dso-viewer-grid": DsoViewerGrid;
     }
 }
 export { LocalJSX as JSX };
@@ -711,6 +726,7 @@ declare module "@stencil/core" {
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
+            "dso-viewer-grid": LocalJSX.DsoViewerGrid & JSXBase.HTMLAttributes<HTMLDsoViewerGridElement>;
         }
     }
 }

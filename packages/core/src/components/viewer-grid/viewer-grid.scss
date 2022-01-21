@@ -1,0 +1,117 @@
+@use "viewer-grid.variables" as variables;
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/mixins";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/button/button";
+
+@include box-sizing();
+
+:host {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+:host([small]) {
+  .main {
+    flex-basis: variables.$dso-viewer-grid-small;
+
+    @media screen and (max-width: variables.$dso-viewer-grid-small) {
+      transition: none;
+      flex-basis: 100vw;
+    }
+  }
+}
+
+:host([medium]) {
+  .main {
+    flex-basis: variables.$dso-viewer-grid-medium;
+
+    @media screen and (max-width: variables.$dso-viewer-grid-medium) {
+      transition: none;
+      flex-basis: 100vw;
+    }
+  }
+}
+
+:host([large]) {
+  .main {
+    flex-basis: variables.$dso-viewer-grid-large;
+    min-width: variables.$dso-viewer-grid-large-min;
+    max-width: variables.$dso-viewer-grid-large-max;
+
+    @media screen and (max-width: variables.$dso-viewer-grid-large-min) {
+      transition: none;
+      flex-basis: 100vw;
+      min-width: auto;
+      max-width: auto;
+    }
+  }
+}
+
+.shrink,
+.expand,
+.overlay-close-button {
+  @include button-tertiary();
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    display: none;
+  }
+}
+
+.overlay-close-button {
+  position: absolute;
+  top: $u1;
+  right: $grid-gutter-width * 0.5;
+
+  .sr-only {
+    @include sr-only();
+  }
+}
+
+.sizing-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: $u1;
+}
+
+.main {
+  background-color: $wit;
+  box-shadow: 2px 0 5px $grijs-60;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: 100%;
+  transition: flex-basis 0.2s ease-in, max-width 0.2s ease-in, min-width 0.2s ease-in;
+  padding: $u1 $grid-gutter-width * 0.5;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.overlay {
+  background-color: $wit;
+  box-shadow: -2px 0 5px $grijs-60;
+  height: 100%;
+  overflow-y: auto;
+  padding: $u5 $grid-gutter-width * 0.5 $u1;
+  position: absolute;
+  right: 0;
+  width: variables.$dso-viewer-grid-overlay-width;
+  z-index: 2;
+}
