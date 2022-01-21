@@ -1,10 +1,8 @@
-import { DefinitionList, Label } from '../..';
+import { DefinitionList, Label } from "../..";
 
 export interface ViewerGridDemoProperties {
-  panelSize: 'small' | 'medium' | 'large';
-  panelOpen: boolean;
-  shrink: (e: MouseEvent) => void;
-  expand: (e: MouseEvent) => void;
+  overlayOpen: boolean;
+  noOverlay: boolean;
   closeOverlay: (e: MouseEvent) => void;
   allOptions: (e: MouseEvent) => void;
   filterblokDeleteActiveFilter: (e: MouseEvent) => void;
@@ -17,10 +15,8 @@ export interface ViewerGrid<TemplateFnReturnType> {
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
   overlay: TemplateFnReturnType;
-  panelSize: 'small' | 'medium' | 'large';
-  panelOpen: boolean;
-  shrink: (e: MouseEvent) => void;
-  expand: (e: MouseEvent) => void;
+  overlayOpen: boolean;
+  noOverlay: boolean;
   closeOverlay: (e: MouseEvent) => void;
 }
 

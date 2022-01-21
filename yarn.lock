@@ -1887,6 +1887,7 @@ __metadata:
     cross-env: ^7.0.3
     debounce: ^1.2.1
     escape-string-regexp: ^5.0.0
+    focus-trap: ^6.7.3
     http-proxy-middleware: ^2.0.1
     lit-html: ^2.0.1
     mini-svg-data-uri: 1.4.3
@@ -10572,6 +10573,15 @@ __metadata:
     inherits: ^2.0.3
     readable-stream: ^2.3.6
   checksum: 42e07747f83bcd4e799da802e621d6039787749ffd41f5517f8c4f786ee967e31ba32b09f8b28a9c6f67bd4f5346772e604202df350e8d99f4141771bae31279
+  languageName: node
+  linkType: hard
+
+"focus-trap@npm:^6.7.3":
+  version: 6.7.3
+  resolution: "focus-trap@npm:6.7.3"
+  dependencies:
+    tabbable: ^5.2.1
+  checksum: 900c8fe94a7e0bcda7f0bf2c86dff174e997a1101f685833484cde721c8893729260b7a9f1f2c3a2c8560f5f84c332ba7d45695c7d4862f8f9340f6caceace3a
   languageName: node
   linkType: hard
 

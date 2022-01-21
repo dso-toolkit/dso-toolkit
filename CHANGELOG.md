@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Toelichting bij Layers in MapControls ([#1432](https://github.com/dso-toolkit/dso-toolkit/issues/1432))
 
 ### Changed
+* **BREAKING: core + css + sources:** Viewer Grid als Web Component ([#1403](https://github.com/dso-toolkit/dso-toolkit/issues/1403)). **Let op:** Het HTML/CSS component `.dso-viewer-grid` is niet meer beschikbaar.
 * **BREAKING: sources:** CSS Component Image varianten `img-rounded` en `img-thumbnail` deprecated ([#1188](https://github.com/dso-toolkit/dso-toolkit/issues/1188))
 * **BREAKING: css + dso-toolkit + sources:** CSS Component List verhuizing ([#1397](https://github.com/dso-toolkit/dso-toolkit/issues/1397))
   De volgende selectors zijn niet meer beschikbaar:

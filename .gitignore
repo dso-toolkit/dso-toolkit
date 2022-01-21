@@ -14,3 +14,4 @@ node_modules
 
 .eslintcache
 .stylelintcache
+cypress/fixtures/example.json

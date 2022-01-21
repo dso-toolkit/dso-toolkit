@@ -1,14 +1,12 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes, noControl } from "../../stories-helpers";
 
-import { ViewerGridDemoProperties } from './viewer-grid.models';
+import { ViewerGridDemoProperties } from "./viewer-grid.models";
 
 export interface ViewerGridArgs {
-  panelSize: 'small' | 'medium' | 'large';
-  panelOpen: boolean;
-  shrink: HandlerFunction;
-  expand: HandlerFunction;
+  overlayOpen: boolean;
+  noOverlay: boolean;
   closeOverlay: HandlerFunction;
   filterblokDeleteActiveFilter: HandlerFunction;
   allOptions: HandlerFunction;
@@ -18,47 +16,48 @@ export interface ViewerGridArgs {
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
-  panelSize: {
-    options: ['small', 'medium', 'large'],
+  overlayOpen: {
     control: {
-      type: 'select'
-    }
+      type: "boolean",
+    },
   },
-  panelOpen: {
+  noOverlay: {
+    name: "Geen overlay",
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   documentHeaderFeaturesOpen: {
     control: {
-      type: 'boolean'
-    }
-  },
-  shrink: {
-    action: 'shrink'
-  },
-  expand: {
-    action: 'expand'
+      type: "boolean",
+    },
   },
   closeOverlay: {
-    action: 'closeAside'
+    ...noControl,
+    action: "closeOverlay",
   },
   documentHeaderMapAction: {
-    action: 'documentHeaderMapAction'
+    ...noControl,
+    action: "documentHeaderMapAction",
   },
   documentHeaderFeatureAction: {
-    action: 'documentHeaderFeatureAction'
+    ...noControl,
+    action: "documentHeaderFeatureAction",
   },
   allOptions: {
-    action: 'allOptions'
+    ...noControl,
+    action: "allOptions",
   },
   filterblokDeleteActiveFilter: {
-    action: 'filterblokDeleteActiveFilter'
-  }
+    ...noControl,
+    action: "filterblokDeleteActiveFilter",
+  },
 };
 
-export function viewerGridDemoArgsMapper(a: ViewerGridArgs): ViewerGridDemoProperties {
+export function viewerGridDemoArgsMapper(
+  a: ViewerGridArgs
+): ViewerGridDemoProperties {
   return {
-    ...a
+    ...a,
   };
 }
