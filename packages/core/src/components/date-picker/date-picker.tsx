@@ -484,8 +484,7 @@ export class DsoDatePicker implements ComponentInterface {
 
   private handleInputChange = (e: Event) => {
     const target = e.target as HTMLInputElement;
-    target.value = target.value.replace(DISALLOWED_CHARACTERS, "");
-    this.setValue(target.value);
+    this.setValue(target.value.replace(DISALLOWED_CHARACTERS, ""));
   }
 
   private setValue(value: Date | string) {
@@ -503,9 +502,7 @@ export class DsoDatePicker implements ComponentInterface {
     }
 
     if (event.valueAsDate) {
-      event.value = this.value = printDutchDate(event.valueAsDate);
-    } else {
-      this.value = "";
+      event.value = printDutchDate(event.valueAsDate);
     }
 
     if (!event.valueAsDate && this.required) {
@@ -516,6 +513,7 @@ export class DsoDatePicker implements ComponentInterface {
       event.error = "invalid";
     }
 
+    this.value = event.value
     this.dateChange.emit(event);
   }
 
@@ -528,6 +526,11 @@ export class DsoDatePicker implements ComponentInterface {
   }
 
   componentDidLoad() {
+    const valueAsDate = parseDutchDate(this.value)
+    if (valueAsDate) {
+      this.value = printDutchDate(valueAsDate);
+    }
+
     if (this.dsoAutofocus) {
       this.setFocus();
     }
@@ -566,7 +569,7 @@ export class DsoDatePicker implements ComponentInterface {
           <div class="dso-date__input-wrapper">
             <input
               class="dso-date__input"
-              value={formattedDate}
+              value={this.value}
               placeholder={this.localization.placeholder}
               id={this.identifier}
               disabled={this.disabled}
