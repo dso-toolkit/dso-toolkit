@@ -1,0 +1,18 @@
+notes: |
+order: 20
+status: ready
+context:
+  menu:
+    modifier: main
+    items:
+      - label: Home
+      - label: Begrippen
+        active: true
+      - label: Activiteiten
+      - label: Werkzaamheden
+      - label: Waardelijsten
+      - label: Informatieproducten
+      - label: Over de catalogus
+  footer:
+    
+  

@@ -1,0 +1,53 @@
+notes: |
+order: 20
+status: ready
+context: 
+  form:
+    formModifier: form-vertical
+    fieldsets:
+    - groups:
+      - id: Bestuursorgaan
+        inputType: select
+        label: Bestuursorgaan
+        options:
+        - value: 1
+          label: Waterschappen
+          id: checkbox_1
+        - value: 2
+          label: Gemeente
+          id: checkbox_2
+        - value: 3
+          label: Provincie
+          id: checkbox_3
+        - value: 4
+          label: Rijk
+          id: checkbox_4
+  search:
+    label: Activiteiten
+    icon: true
+    placeholder: Type trefwoord uit activiteit
+    hideSearchButton: true
+  definitionlist1:
+    definitions:
+    - term: "Bestuursorgaan"
+      descriptions:
+        - description: Ministerie van Binnenlandsezaken en Koninkrijksrelaties
+    - term: "Locaties"
+      descriptions:
+        - description: Nederland(nl.imow-mnre1034.gebied.Nederland)
+    - term: "ID"
+      descriptions:
+        - description: nl.imow-mnre1034.activiteit.CultureelErfgoedRijk
+    - term: "Document"
+      descriptions:
+        - description: /akn/nl/act/mnre1034/0000/0000
+    - term: "Juridische grondslag"
+      descriptions:
+        - description: /akn/nl/act/mnre1034/0000/0000/mnre1034_1.0_chp1_art1.1
+    - term: "Begindatum"
+      descriptions:
+        - description: 14-11-2019
+    - term: "Einddatum (tot en met)"
+      descriptions:
+        - description: Onbepaald
+
