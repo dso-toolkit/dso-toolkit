@@ -15,9 +15,8 @@
 
               <span class="dso-icon">
 
-                <svg class="di di-document">
-                  <use href="/dso-icons.svg#document"/>
-                </svg>
+                {% render '@icon', {icon: 'document'} -%}
+
               </span>
             
             U heeft een vergunning nodig voor 1 activiteit. 
@@ -35,9 +34,8 @@
 
               <span class="dso-icon">
 
-                <svg class="di di-call">
-                  <use href="/dso-icons.svg#call"/>
-                </svg>
+                {% render '@icon', {icon: 'call'} -%}
+
               </span>
 
        U heeft een vergunning nodig voor 1 activiteit. </a>
@@ -53,9 +51,7 @@
 
               <span class="dso-icon">
 
-                <svg class="di di-check-circle">
-                  <use href="/dso-icons.svg#check-circle"/>
-                </svg>
+                {% render '@icon', {icon: 'check-circle'} -%}
               </span>
             </span>
 
@@ -74,9 +70,7 @@
 
           <a href="#" aria-expanded="false">
             <span class="dso-icon">
-              <svg class="di di-forbidden">
-                <use href="/dso-icons.svg#forbidden"/>
-              </svg>
+              {% render '@icon', {icon: 'forbidden'} -%}
             </span> Het is verboden deze werkzaamheid uit te voeren</a>
         </h4>
 
@@ -94,9 +88,7 @@
 
           <a href="#" aria-expanded="false">
             <span class="dso-icon">
-              <svg class="di di-forbidden">
-                <use href="/dso-icons.svg#forbidden"/>
-              </svg>
+              {% render '@icon', {icon: 'forbidden'} -%}
             </span> H4 actie nodig van de gebruiker voor 5 activiteiten.</a>
         </h4>
         <div class="dso-section-body">
@@ -110,18 +102,18 @@
                   <p>
                     <strong>Let op:</strong> <i>voorbehoud A bij activiteit 2.</i></p>
                 </div>
-              </div class="dso-info">
+              </div>
               <div class="dso-info">
                 <div class="dso-rich-content">
                   <p>
                     <strong>Let op:</strong> <i>voorbehoud B bij activiteit 2.</i></p>
                 </div>
-              </div class="dso-info">
+              </div>
               <div class="dso-info">
                 <div class="dso-rich-content">
                   <p>Toelichting bij activiteit 2.</p>
                 </div>
-              </div class="dso-info">
+              </div>
             </li>
             <li>Activiteit 3</li>
 
@@ -134,12 +126,12 @@
                     <p>
                       <strong>Let op:</strong> <i>voorbehoud bij activiteit 3.1.</i></p>
                   </div>
-                </div class="dso-info">
+                </div>
                 <div class="dso-info">
                   <div class="dso-rich-content">
                     <p>Toelichting bij activiteit 3.1.</p>
                   </div>
-                </div class="dso-info">
+                </div>
 
               </li>
               <li>
@@ -150,7 +142,7 @@
                     <p>
                       <strong>Let op:</strong> <i>voorbehoud bij activiteit 3.2.</i></p>
                   </div>
-                </div class="dso-info">
+                </div>
                 <div class="dso-info">
                   <div class="dso-rich-content">
                     <p>Toelichting bij activiteit 3.2.</p>
