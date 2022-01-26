@@ -369,4 +369,28 @@ describe('Date Picker', () => {
         expect(keys).deep.equal(['1', '1', '2', '2', 'Enter', 'Enter']);
       });
   });
+
+  it('should allow and show invalid input', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    cy
+      .get('dso-date-picker')
+      .shadow()
+      .find('input.dso-date__input')
+      .type('11-04-1970')
+      .realPress('{backspace}')
+      .then(() => {
+        cy
+          .get('dso-date-picker')
+          .shadow()
+          .find('input.dso-date__input')
+          .should('have.value', '11-04-197');
+        expect(details[details.length - 1].error).equal('invalid');
+        expect(details[details.length - 1].value).equal('11-04-197');
+        expect(details[details.length - 1].valueAsDate).undefined;
+      });
+  });
 });
