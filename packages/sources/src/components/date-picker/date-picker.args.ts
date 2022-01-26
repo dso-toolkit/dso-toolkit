@@ -60,7 +60,7 @@ export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
     id: a.id,
     onDateChange: e => a.onDateChange(e.detail),
     max: a.max,
-    min: a.max,
+    min: a.min,
     value: a.value,
     autofocus: a.autofocus
   };
