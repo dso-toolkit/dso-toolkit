@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.logo {
+  display: inline-block;
+  border: 1px dotted red;
+}
+
+.sub-logo {
+  display: inline-block;
+  border: 1px dotted red;
+}
+
+.home,
+.profile,
+.logout,
+.login {
+  float: right;
+  border: 1px dotted red;
+}
+
+ul {
+  border: 1px dotted red;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  padding-left: 2em;
+}

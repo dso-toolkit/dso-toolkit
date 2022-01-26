@@ -40,6 +40,8 @@ export * from './components/dropdown-menu/dropdown-menu.models';
 export * from './components/dropdown-menu/dropdown-menu.stories';
 export * from './components/footnotes/footnotes.models';
 export * from './components/footnotes/footnotes.stories';
+export * from './components/header/header.models';
+export * from './components/header/header.stories';
 export * from './components/helpcenter-panel/helpcenter-panel.models';
 export * from './components/helpcenter-panel/helpcenter-panel.stories';
 export * from './components/highlight-box/highlight-box.models';

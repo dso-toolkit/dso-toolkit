@@ -71,3 +71,9 @@ export type ArgTypes<ComponentArgs> = {
 export function componentArgs<T>(args: T): T {
   return args;
 }
+
+export const noControl = {
+  table: {
+    disable: true,
+  },
+}
