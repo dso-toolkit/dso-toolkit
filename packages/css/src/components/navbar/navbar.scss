@@ -5,6 +5,8 @@ $dso-navigation-selected-color: $mauve;
 }
 
 .dso-navbar {
+  min-height: $u4;
+
   .dso-navbar-header {
     float: left;
   }
@@ -27,23 +29,19 @@ $dso-navigation-selected-color: $mauve;
     }
   }
 
-  &.dso-navbar {
-    min-height: $u4;
+  .dso-navbar-toggle {
+    border-radius: 4px;
+    min-width: auto;
+    padding: #{$padding-base-vertical - 1} 0;
 
-    .dso-navbar-toggle {
-      border-radius: 4px;
-      min-width: auto;
-      padding: #{$padding-base-vertical - 1} 0;
+    dso-icon,
+    svg.di {
+      margin-left: $u1;
+      margin-right: $u1;
+    }
 
-      dso-icon,
-      svg.di {
-        margin-left: $u1;
-        margin-right: $u1;
-      }
-
-      @media screen and (min-width: $screen-md-min) {
-        display: none;
-      }
+    @media screen and (min-width: $screen-md-min) {
+      display: none;
     }
   }
 

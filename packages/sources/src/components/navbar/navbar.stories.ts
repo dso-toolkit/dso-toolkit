@@ -26,6 +26,7 @@ export function storiesOfNavbar<TemplateFnReturnType>(
       },
       argTypes: navbarArgTypes,
       args: componentArgs<NavbarArgs>({
+        href: '#',
         open: false,
         modifier: '',
         items: []
