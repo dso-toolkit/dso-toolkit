@@ -4,6 +4,52 @@ $dso-navigation-selected-color: $mauve;
   border-bottom: 4px solid $color;
 }
 
+.dso-navbar {
+  min-height: $u4;
+
+  .dso-navbar-header {
+    float: left;
+  }
+
+  @media screen and (max-width: $screen-sm-max) {
+    clear: left;
+
+    > .dso-nav {
+      clear: both;
+    }
+
+    &:not(.dso-open) {
+      > .dso-nav {
+        display: none;
+
+        &.dso-nav-sub {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .dso-navbar-toggle {
+    border-radius: 4px;
+    min-width: auto;
+    padding: #{$padding-base-vertical - 1} 0;
+
+    dso-icon,
+    svg.di {
+      margin-left: $u1;
+      margin-right: $u1;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      display: none;
+    }
+  }
+
+  #state-switch:checked ~ .toolkit-example & > .dso-nav {
+    display: block;
+  }
+}
+
 .dso-nav {
   list-style: none;
   margin-bottom: 0;
@@ -36,8 +82,6 @@ $dso-navigation-selected-color: $mauve;
   }
 
   &.dso-nav-main {
-    // margin-bottom: $u1;
-
     > li {
       display: block;
 

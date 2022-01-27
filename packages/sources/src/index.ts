@@ -63,6 +63,8 @@ export * from './components/list-button/list-button.models';
 export * from './components/list-button/list-button.stories';
 export * from './components/map-controls/map-controls.models';
 export * from './components/map-controls/map-controls.stories';
+export * from './components/navbar/navbar.models';
+export * from './components/navbar/navbar.stories';
 export * from './components/ozon-content/ozon-content.models';
 export * from './components/ozon-content/ozon-content.stories';
 export * from './components/progress-bar/progress-bar.models';

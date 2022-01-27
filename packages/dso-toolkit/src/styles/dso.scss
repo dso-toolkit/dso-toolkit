@@ -37,9 +37,9 @@
 // @import "components/label"; // -> Moved to @dso-toolkit/css
 @import "components/lists";
 // @import "components/list-button"; -> Moved to @dso-toolkit/sources/src/components/list-button
-@import "components/menu";
+// @import "components/menu"; -> Moved to @dso-toolkit/css/src/components/navbar
 @import "components/modal";
-@import "components/navs";
+// @import "components/navs"; -> Moved to @dso-toolkit/css/src/components/navbar
 // @import "components/pager"; -> Deleted, it was deprecated anyway
 @import "components/pagination";
 @import "components/panel";

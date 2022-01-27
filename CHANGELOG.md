@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **css + dso-toolkit + sources:** CSS Component Navbar ([#1252](https://github.com/dso-toolkit/dso-toolkit/issues/1252))
+
 ### Fixed
 * **core + sources:** Datepicker bugs: Backspace leegt veld, min max in storybook ([#1395](https://github.com/dso-toolkit/dso-toolkit/issues/1395))
 
