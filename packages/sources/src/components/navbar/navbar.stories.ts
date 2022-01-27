@@ -26,7 +26,6 @@ export function storiesOfNavbar<TemplateFnReturnType>(
       },
       argTypes: navbarArgTypes,
       args: componentArgs<NavbarArgs>({
-        href: '#',
         open: false,
         modifier: '',
         items: []
@@ -42,19 +41,24 @@ export function storiesOfNavbar<TemplateFnReturnType>(
         items: [
           {
             label: 'Home',
-            active: true
+            active: true,
+            href: '#'
           },
           {
-            label: 'Vergunningcheck'
+            label: 'Vergunningcheck',
+            href: '#'
           },
           {
-            label: 'Aanvragen'
+            label: 'Aanvragen',
+            href: '#'
           },
           {
-            label: 'Regels op de kaart'
+            label: 'Regels op de kaart',
+            href: '#'
           },
           {
-            label: 'Mijn Omgevingsloket'
+            label: 'Mijn Omgevingsloket',
+            href: '#'
           }
         ]
       })
@@ -70,13 +74,16 @@ export function storiesOfNavbar<TemplateFnReturnType>(
         items: [
           {
             label: 'Deze locatie',
-            active: true
+            active: true,
+            href: '#'
           },
           {
-            label: 'Regels'
+            label: 'Regels',
+            href: '#'
           },
           {
-            label: 'Overige informatie'
+            label: 'Overige informatie',
+            href: '#'
           }
         ]
       })

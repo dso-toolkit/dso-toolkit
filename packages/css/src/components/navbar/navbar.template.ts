@@ -6,7 +6,7 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 
 import { iconTemplate } from '../icon/icon.template';
 
-export function navbarTemplate({ href, items, modifier, open }: Navbar) {
+export function navbarTemplate({ items, modifier, open }: Navbar) {
   return html`
     <nav class="dso-navbar ${classMap({'dso-open': !!open})}">
       ${modifier === 'main'
@@ -23,7 +23,7 @@ export function navbarTemplate({ href, items, modifier, open }: Navbar) {
       <ul class="dso-nav dso-nav-${modifier}">
         ${items.map((item: NavbarItem) => html`
           <li class="${ifDefined(item.active ? 'dso-active' : undefined)}">
-            <a href="${href}" aria-current="${ifDefined(item.active ? 'page' : undefined)}">
+            <a href="${item.href}" aria-current="${ifDefined(item.active ? 'page' : undefined)}">
               ${item.label}
             </a>
           </li>
