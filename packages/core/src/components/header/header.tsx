@@ -50,7 +50,47 @@ export class Header {
           </div>
           {this.useDropDown && (
             <div class="dropdown">
-              <button>Menu</button>
+              <dso-dropdown-menu dropdown-align="right">
+                <button type="button" class="tertiary" slot="toggle">
+                  <span>Menu</span>
+                </button>
+                <div class="dso-dropdown-options">
+                  <dso-dropdown-options>
+                    <ul>
+                      {this.mainMenu.map((item) => (
+                        <li>
+                          <a href={item.url}>{item.label}</a>
+                        </li>
+                      ))}
+                      {this.userHomeUrl && (
+                        <li>
+                          <a href={this.userHomeUrl}>Mijn Omgevingsloket</a>
+                        </li>
+                      )}
+                      {this.loginUrl && !this.isLoggedIn && (
+                        <li>
+                          <a href={this.loginUrl}>Inloggen</a>
+                        </li>
+                      )}
+                      {this.userProfileUrl &&
+                        this.userProfileName &&
+                        this.isLoggedIn && (
+                          <li>
+                            <a href={this.userProfileUrl}>
+                              {this.userProfileName}
+                              <span class="profile-label">- Mijn profiel</span>
+                            </a>
+                          </li>
+                        )}
+                      {this.logoutUrl && this.isLoggedIn && (
+                        <li>
+                          <a href={this.logoutUrl}>Uitloggen</a>
+                        </li>
+                      )}
+                    </ul>
+                  </dso-dropdown-options>
+                </div>
+              </dso-dropdown-menu>
             </div>
           )}
           {this.loginUrl && !this.isLoggedIn && !this.useDropDown && (
