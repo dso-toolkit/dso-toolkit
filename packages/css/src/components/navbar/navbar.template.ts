@@ -12,7 +12,7 @@ export function navbarTemplate({ items, modifier, open }: Navbar) {
       ${modifier === 'main'
         ? html`
           <div class="dso-navbar-header">
-            <button type="button" class="dso-navbar-toggle dso-secondary" aria-expanded="${ifDefined(open ? 'true' : 'false')}"}>
+            <button type="button" class="dso-navbar-toggle dso-secondary" aria-expanded="${ifDefined(open ? 'true' : 'false')}">
               ${iconTemplate({ icon: 'bars' })}
               <span class="sr-only">Menu</span>
             </button>

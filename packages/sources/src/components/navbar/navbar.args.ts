@@ -15,8 +15,9 @@ export const navbarArgTypes: ArgTypes<NavbarArgs> = {
     }
   },
   modifier: {
+    options: ['main', 'sub'],
     control: {
-      type: 'string'
+      type: 'select',
     }
   },
   open: {
