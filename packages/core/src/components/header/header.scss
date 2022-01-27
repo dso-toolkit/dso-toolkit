@@ -1,3 +1,8 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+@import "~@dso-toolkit/sources/src/styling/mixins";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+@import "~@dso-toolkit/sources/src/components/button/button";
+
 :host {
   display: block;
 }
@@ -21,13 +26,75 @@
   border: 1px dotted red;
 }
 
-ul {
-  border: 1px dotted red;
-  margin: 0;
-  padding: 0;
+$dso-navigation-selected-color: $mauve;
+
+@mixin nav-item-border($color) {
+  border-bottom: 4px solid $color;
 }
 
-li {
-  display: inline;
-  padding-left: 2em;
+.dso-nav {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    border-bottom: 1px solid $grijs-20;
+  }
+
+  > li {
+    > a {
+      display: block;
+
+      &,
+      &:hover,
+      &:focus,
+      &:visited {
+        color: $bosgroen;
+      }
+    }
+
+    &.dso-active,
+    &.is-active {
+      > a {
+        @include nav-item-border($dso-navigation-selected-color);
+
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.dso-nav-main {
+    // margin-bottom: $u1;
+
+    > li {
+      display: block;
+
+      @media screen and (min-width: $screen-sm-min) {
+        display: inline-block;
+      }
+
+      > a {
+        @include anchor-reverse();
+
+        font-size: 1.25em;
+        line-height: 1;
+        margin-top: $u1;
+        padding: $u1 $u2 #{$u1 - 1px};
+      }
+    }
+  }
+
+  &.dso-nav-sub {
+    > li {
+      display: inline-block;
+
+      > a {
+        @include anchor-reverse();
+
+        font-size: $font-size-base;
+        margin-top: ($u1 * 0.5);
+        padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
+      }
+    }
+  }
 }

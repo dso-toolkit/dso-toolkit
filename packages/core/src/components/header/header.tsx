@@ -65,13 +65,15 @@ export class Header {
               <a href={this.userHomeUrl}>Mijn Omgevingsloket</a>
             </div>
           )}
-          <ul>
-            {this.mainMenu.map((item) => (
-              <li>
-                <a href={item.url}>{item.label}</a>
-              </li>
-            ))}
-          </ul>
+          <nav class="dso-navbar">
+            <ul class="dso-nav dso-nav-main">
+              {this.mainMenu.map((item) => (
+                <li>
+                  <a href={item.url}>{item.label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </>
     );
