@@ -4,12 +4,13 @@
 
 .logo {
   display: inline-block;
-  border: 1px dotted red;
 }
 
 .sub-logo {
   display: inline-block;
-  border: 1px dotted red;
+  position: fixed;
+  top: -1px;
+  margin-left: 20px;
 }
 
 .home,
