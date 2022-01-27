@@ -9,6 +9,8 @@ export interface HeaderArgs {
     label: string;
     url: string;
   }[];
+  showDropDownMenu: boolean;
+  splitMenu: boolean;
   loginUrl: string;
   logoutUrl: string;
   isLoggedIn: boolean;
@@ -28,6 +30,18 @@ export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
     },
   },
   mainMenu: noControl,
+  showDropDownMenu: {
+    name: "Toon menu als dropdown",
+    control: {
+      type: "boolean",
+    },
+  },
+  splitMenu: {
+    name: "Toon 'meer' in menu",
+    control: {
+      type: "boolean",
+    },
+  },
   loginUrl: noControl,
   logoutUrl: noControl,
   showLoggedIn: {
@@ -63,6 +77,8 @@ export function headerArgsMapper(a: HeaderArgs): Header {
     subLogo: a.subLogo,
     showSubLogo: a.showSubLogo,
     mainMenu: a.mainMenu,
+    showDropDownMenu: a.showDropDownMenu,
+    splitMenu: a.splitMenu,
     loginUrl: a.loginUrl,
     logoutUrl: a.logoutUrl,
     isLoggedIn: a.isLoggedIn,

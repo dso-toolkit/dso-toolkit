@@ -117,6 +117,8 @@ export namespace Components {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu": HeaderMenuItem[];
+        "splitMenu": boolean;
+        "useDropDown": boolean;
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;
@@ -529,6 +531,8 @@ declare namespace LocalJSX {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu": HeaderMenuItem[];
+        "splitMenu"?: boolean;
+        "useDropDown"?: boolean;
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;

@@ -42,6 +42,8 @@ export function storiesOfHeader<TemplateFnReturnType>(
           url: "#regelsopdekaart",
         },
       ],
+      showDropDownMenu: false,
+      splitMenu: false,
       loginUrl: "#login",
       logoutUrl: "#logout",
       isLoggedIn: false,

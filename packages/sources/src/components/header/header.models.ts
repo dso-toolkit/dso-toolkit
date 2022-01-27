@@ -6,6 +6,8 @@ export interface Header {
     label: string;
     url: string;
   }[];
+  showDropDownMenu: boolean;
+  splitMenu: boolean;
   loginUrl: string;
   logoutUrl: string;
   isLoggedIn: boolean;

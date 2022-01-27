@@ -7,6 +7,8 @@ export function headerTemplate({
   logo,
   subLogo,
   mainMenu,
+  showDropDownMenu,
+  splitMenu,
   showSubLogo,
   loginUrl,
   logoutUrl,
@@ -20,6 +22,8 @@ export function headerTemplate({
   const bindLogoutUrl = showLoggedIn && logoutUrl ? logoutUrl : undefined;
   return html` <dso-header
     .mainMenu=${mainMenu}
+    use-drop-down=${ifDefined(showDropDownMenu)}
+    split-menu=${ifDefined(splitMenu)}
     is-logged-in=${ifDefined(isLoggedIn)}
     login-url=${ifDefined(bindLoginUrl)}
     logout-url=${ifDefined(bindLogoutUrl)}
