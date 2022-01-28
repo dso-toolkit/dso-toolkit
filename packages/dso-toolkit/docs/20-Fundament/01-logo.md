@@ -5,6 +5,8 @@ Het logo van het Omgevingsloket wordt gebruikt in digitale diensten om de site t
 
 Het logo bestaat uit een beeldmerk én een woordmerk. Het beeldmerk is het zogenoemde ‘target’. Het woordmerk, de naam van de afzender, staat er rechts van. Het target bestaat uit 3 lagen, in 3 kleuren. Het woordmerk bestaat uit 2 kleuren. Optioneel staat er een extra tekstregel onder het woordmerk met de naam van de specifieke dienst, bijvoorbeeld ‘beheerportaal’.
 
+![Details logo ]({{ '/docs/images/logos/logo-afmetingen.png' | path }})
+
 ## Hoe te gebruiken
 - Plaats het logo altijd linksboven op de website.
 - De hoogte van het logo valt binnen het verticale 8px grid, zie voorbeelden hieronder.
