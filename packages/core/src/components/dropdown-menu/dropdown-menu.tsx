@@ -83,10 +83,6 @@ export class DropdownMenu {
     }
   }
 
-  componentDidRender() {
-    this.host.setAttribute("tabindex", "-1");
-  }
-
   componentWillRender() {
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
@@ -101,6 +97,7 @@ export class DropdownMenu {
   }
 
   openPopup() {
+    this.host.setAttribute("tabindex", "-1");
     this.host.addEventListener("keydown", this.keyDownListener);
     this.host.addEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "true");
@@ -113,6 +110,7 @@ export class DropdownMenu {
     this.host.removeEventListener("keydown", this.keyDownListener);
     this.host.removeEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "false");
+    this.host.removeAttribute("tabindex");
     this.tabbables.forEach((tabbable) =>
       tabbable.removeEventListener("click", this.escape)
     );
