@@ -52,7 +52,7 @@ export class Header {
   render() {
     return (
       <>
-        <div class="upper">
+        <div class={this.useDropDown ? "use-drop-down" : undefined}>
           <div class="logo">
             <slot name="logo" />
           </div>
@@ -119,8 +119,6 @@ export class Header {
                 <a href={this.userProfileUrl}>{this.userProfileName}</a>
               </div>
             )}
-        </div>
-        <div class="lower">
           {!this.useDropDown && (
             <nav class="dso-navbar">
               <ul class="dso-nav dso-nav-main">
