@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **css:** Accordion tests ([#1192](https://github.com/dso-toolkit/dso-toolkit/issues/1192))
 * **css + dso-toolkit + sources:** Lange lijsten in definition list tonen als kolommen ([#1378](https://github.com/dso-toolkit/dso-toolkit/issues/1378))
+* **dso-toolkit:** Voorbeeldpagina Vergunningcheck Resultaat ([#1396](https://github.com/dso-toolkit/dso-toolkit/issues/1396))
 
 ### Fixed
 * **css:** Verbeteren viewer document-header en document-list-item ([#1392](https://github.com/dso-toolkit/dso-toolkit/issues/1392))
