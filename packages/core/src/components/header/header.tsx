@@ -117,14 +117,33 @@ export class Header {
           {!this.useDropDown && (
             <nav class="dso-navbar">
               <ul class="dso-nav dso-nav-main">
-                {this.mainMenu.map((item) => (
-                  <li>
-                    <a href={item.url}>{item.label}</a>
-                  </li>
-                ))}
+                {this.mainMenu
+                  .filter((_, index) => (this.splitMenu ? index < 2 : true))
+                  .map((item) => (
+                    <li>
+                      <a href={item.url}>{item.label}</a>
+                    </li>
+                  ))}
                 {this.splitMenu && (
-                  <li class="menu-show-more">
-                    <button>Meer</button>
+                  <li>
+                    <dso-dropdown-menu dropdown-align="left">
+                      <button type="button" class="tertiary" slot="toggle" tabindex={"0"}>
+                        <span>Meer</span>
+                      </button>
+                      <div class="dso-dropdown-options">
+                        <dso-dropdown-options>
+                          <ul>
+                            {this.mainMenu
+                              .filter((_, index) => index >= 2)
+                              .map((item) => (
+                                <li>
+                                  <a href={item.url}>{item.label}</a>
+                                </li>
+                              ))}
+                          </ul>
+                        </dso-dropdown-options>
+                      </div>
+                    </dso-dropdown-menu>
                   </li>
                 )}
                 {this.userHomeUrl && !this.useDropDown && (
