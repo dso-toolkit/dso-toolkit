@@ -224,4 +224,15 @@ describe("Autosuggest", () => {
     cy.get("@listbox").should("be.visible");
     cy.get("@listbox").get("li[role='option']").should("have.length", 10);
   });
+
+  it("escape should not emit dsoChange event", { browser: "!firefox" }, () => {
+    cy.get("dso-autosuggest").then((c) => {
+      c.get(0).addEventListener("dsoSelect", cy.stub().as("dsoSelect"));
+    });
+    cy.get("@input").focus().type("rot");
+    cy.wait(200);
+    cy.realPress("Escape");
+    cy.get("@input").type("{enter}");
+    cy.get("@dsoSelect").should("not.have.been.called");
+  });
 });
