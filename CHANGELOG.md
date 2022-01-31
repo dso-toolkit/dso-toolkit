@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit:** Toekomstbestendig logo ([#1296](https://github.com/dso-toolkit/dso-toolkit/issues/1296))
+* **core + dso-toolkit:** Icon only buttons moeten sr-only hebben ([#1210](https://github.com/dso-toolkit/dso-toolkit/issues/1210))
 
 ## 33.1.0
 
