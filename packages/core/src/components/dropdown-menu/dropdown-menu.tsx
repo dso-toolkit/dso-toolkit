@@ -154,9 +154,23 @@ export class DropdownMenu {
     event.preventDefault();
   };
 
+  getActiveElement(root: Document | ShadowRoot = document): Element | null {
+    const activeEl = root.activeElement;
+
+    if (!activeEl) {
+      return null;
+    }
+
+    if (activeEl.shadowRoot) {
+      return this.getActiveElement(activeEl.shadowRoot);
+    } else {
+      return activeEl;
+    }
+  }
+
   tabInPopup(direction: number) {
     const tabs = this.tabbables;
-    const currentIndex = tabs.findIndex((e) => e === document.activeElement);
+    const currentIndex = tabs.findIndex((e) => e === this.getActiveElement());
 
     let nextIndex = currentIndex + direction;
     if (nextIndex >= tabs.length) {
