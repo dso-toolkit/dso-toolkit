@@ -3,6 +3,7 @@ import { Component, Fragment, h, Prop } from "@stencil/core";
 export interface HeaderMenuItem {
   label: string;
   url: string;
+  active?: boolean;
 }
 
 @Component({
@@ -38,6 +39,16 @@ export class Header {
   @Prop()
   userHomeUrl?: string;
 
+  MenuItem(item: HeaderMenuItem) {
+    return (
+      <li class={item.active ? "dso-active" : undefined}>
+        <a href={item.url} aria-current={item.active ? "page" : undefined}>
+          {item.label}
+        </a>
+      </li>
+    );
+  }
+
   render() {
     return (
       <>
@@ -57,11 +68,7 @@ export class Header {
                 <div class="dso-dropdown-options">
                   <dso-dropdown-options>
                     <ul>
-                      {this.mainMenu.map((item) => (
-                        <li>
-                          <a href={item.url}>{item.label}</a>
-                        </li>
-                      ))}
+                      {this.mainMenu.map(this.MenuItem)}
                       {this.userHomeUrl && (
                         <li>
                           <a href={this.userHomeUrl}>Mijn Omgevingsloket</a>
@@ -119,15 +126,11 @@ export class Header {
               <ul class="dso-nav dso-nav-main">
                 {this.mainMenu
                   .filter((_, index) => (this.splitMenu ? index < 2 : true))
-                  .map((item) => (
-                    <li>
-                      <a href={item.url}>{item.label}</a>
-                    </li>
-                  ))}
+                  .map(this.MenuItem)}
                 {this.splitMenu && (
                   <li>
                     <dso-dropdown-menu dropdown-align="left">
-                      <button type="button" class="tertiary" slot="toggle" tabindex={"0"}>
+                      <button type="button" class="tertiary" slot="toggle">
                         <span>Meer</span>
                       </button>
                       <div class="dso-dropdown-options">
@@ -135,11 +138,7 @@ export class Header {
                           <ul>
                             {this.mainMenu
                               .filter((_, index) => index >= 2)
-                              .map((item) => (
-                                <li>
-                                  <a href={item.url}>{item.label}</a>
-                                </li>
-                              ))}
+                              .map(this.MenuItem)}
                           </ul>
                         </dso-dropdown-options>
                       </div>

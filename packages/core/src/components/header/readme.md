@@ -1,6 +1,14 @@
 # dso-header
 
+## Models
 
+```typescript
+interface HeaderMenuItem {
+  label: string;
+  url: string;
+  active?: boolean;
+}
+```
 
 <!-- Auto Generated Below -->
 
@@ -19,6 +27,19 @@
 | `userProfileName`       | `user-profile-name` |             | `string \| undefined` | `undefined` |
 | `userProfileUrl`        | `user-profile-url`  |             | `string \| undefined` | `undefined` |
 
+
+## Dependencies
+
+### Depends on
+
+- [dso-dropdown-menu](../dropdown-menu)
+
+### Graph
+```mermaid
+graph TD;
+  dso-header --> dso-dropdown-menu
+  style dso-header fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

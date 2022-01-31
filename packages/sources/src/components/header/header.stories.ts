@@ -28,6 +28,7 @@ export function storiesOfHeader<TemplateFnReturnType>(
         {
           label: "Home",
           url: "#home",
+          active: true,
         },
         {
           label: "Vergunningscheck",

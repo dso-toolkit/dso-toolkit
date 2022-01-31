@@ -5,6 +5,7 @@ export interface Header {
   mainMenu: {
     label: string;
     url: string;
+    active?: boolean;
   }[];
   showDropDownMenu: boolean;
   splitMenu: boolean;
