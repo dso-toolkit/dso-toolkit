@@ -98,10 +98,7 @@ describe("Autosuggest", () => {
       cy.realPress("ArrowDown");
       cy.realPress("ArrowDown");
       cy.realPress("ArrowDown");
-      cy.get("@input")
-        .type("{enter}")
-        .invoke("val")
-        .should("eq", "rotterdam");
+      cy.get("@input").type("{enter}").invoke("val").should("eq", "rotterdam");
       cy.get("@listbox").should("not.be.visible");
       cy.get("@dsoSelect").should("have.been.calledOnce");
     }
@@ -138,9 +135,7 @@ describe("Autosuggest", () => {
       .eq(0)
       .trigger("mouseenter")
       .click();
-    cy.get("@input")
-      .invoke("val")
-      .should("eq", "rotterdam");
+    cy.get("@input").invoke("val").should("eq", "rotterdam");
     cy.get("@listbox").should("not.be.visible");
     cy.get("@selected").should("have.been.calledOnce");
   });
@@ -206,7 +201,7 @@ describe("Autosuggest", () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
     cy.get("@listbox").should("be.visible");
-    cy.get("body").click('top');
+    cy.get("body").click("top");
     cy.get("@listbox").should("not.be.visible");
     cy.get("@input").click("bottomRight", { force: true });
     cy.get("@listbox").should("not.be.visible");
@@ -234,5 +229,53 @@ describe("Autosuggest", () => {
     cy.realPress("Escape");
     cy.get("@input").type("{enter}");
     cy.get("@dsoSelect").should("not.have.been.called");
+  });
+
+  it("should emit dsoSearch event on suggestion select with mouse click", () => {
+    cy.get("dso-autosuggest").then((c) => {
+      c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
+    });
+    cy.get("@input").focus().type("rotterdam");
+    cy.wait(200);
+    cy.get("@listbox")
+      .get("li[role='option']")
+      .eq(0)
+      .trigger("mouseenter")
+      .click();
+    cy.get("@dsoSearch")
+      .should("have.been.calledOnce")
+      .its("firstCall.args.0.detail")
+      .should("equal", "Rotterdamse Rijweg 15A, 3043BG Rotterdam");
+  });
+
+  it(
+    "should emit dsoSearch event on suggestion select with enter",
+    { browser: "!firefox" },
+    () => {
+      cy.get("dso-autosuggest").then((c) => {
+        c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
+      });
+      cy.get("@input").focus().type("rotterdam");
+      cy.wait(200);
+      cy.realPress("ArrowDown");
+      cy.realPress("ArrowDown");
+      cy.realPress("ArrowDown");
+      cy.get("@input").type("{enter}");
+      cy.get("@dsoSearch")
+        .should("have.been.calledOnce")
+        .its("firstCall.args.0.detail")
+        .should("equal", "Rotterdamse Rijweg 13B, 3043BG Rotterdam");
+    }
+  );
+
+  it("should emit dsoSearch event on enter in input", () => {
+    cy.get("dso-autosuggest").then((c) => {
+      c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
+    });
+    cy.get("@input").focus().type("rotterdam{enter}");
+    cy.get("@dsoSearch")
+      .should("have.been.calledOnce")
+      .its("firstCall.args.0.detail")
+      .should("equal", "rotterdam");
   });
 });
