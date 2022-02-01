@@ -35,7 +35,8 @@ context:
         - description: Bedrijventerrein
     - term: "Functie"
       descriptions:
-        - description: Bedrijventerrein > Bedrijventerrein
+        - description:
+            "Bedrijventerrein &gt; Bedrijventerrein"
     - term: "Type regel"
       descriptions:
         - description: Bindend voor bestuursorganen
@@ -222,7 +223,8 @@ variants:
         - term: "Functie"
           useSrOnlyColon: true
           descriptions:
-            - description: Bedrijventerrein > Bedrijventerrein
+            - description:
+                "Bedrijventerrein &gt; Bedrijventerrein"
         - term: "Type regel"
           useSrOnlyColon: true
           descriptions:
