@@ -9,7 +9,8 @@
   {% endif %}
   {{ label }}
   {% if removable %}
-    <button type="button" title="Verwijder">
+    <button type="button">
+      <span class="sr-only">Verwijder</span>
       {% render '@icon', {icon: 'times' }%}
     </button>
   {% endif %}

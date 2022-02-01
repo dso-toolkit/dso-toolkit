@@ -38,7 +38,8 @@
                 {% endif %}
               {% endif %}
               {% if not item.edit %}
-                <button type="button" class="dso-delete" title="Verwijder">
+                <button type="button" class="dso-delete">
+                  <span class="sr-only">Verwijder</span>
                   <dso-icon icon="trash"></dso-icon>
                 </button>
               {% endif %}
@@ -48,7 +49,8 @@
                     <li>
                       {% if subitem.warning %}<dso-icon icon="status-warning"></dso-icon><span class="sr-only">waarschuwing</span>{% endif %}
                       {{ subitem.label }}
-                      <button type="button" class="dso-delete" title="Verwijder">
+                      <button type="button" class="dso-delete">
+                        <span class="sr-only">Verwijder</span>
                         <dso-icon icon="trash"></dso-icon>
                       </button>
                     </li>

@@ -40,7 +40,8 @@ export class Label {
         )}
         <slot></slot>
         {this.removable && (
-          <button type="button" onClick={e => this.removeClick.emit(e)} title="Verwijder" onMouseEnter={() => this.hover = true} onMouseLeave={() => this.hover = false}>
+          <button type="button" onClick={e => this.removeClick.emit(e)} onMouseEnter={() => this.hover = true} onMouseLeave={() => this.hover = false}>
+            <span class="sr-only">Verwijder</span>
             <dso-icon icon="times"></dso-icon>
           </button>
         )}

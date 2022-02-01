@@ -31,7 +31,8 @@ export function labelTemplate({ status, label, button, compact, symbol }: Label)
         label
       }${button
         ? html `
-          <button type="button" title=${button.title} @click=${button.onClick}>
+          <button type="button" @click=${button.onClick}>
+            <span class="sr-only">${button.title}</span>
             ${iconTemplate({ icon: button.icon })}
           </button>
         `
