@@ -409,6 +409,10 @@ declare namespace LocalJSX {
          */
         "onDsoChange"?: (event: CustomEvent<string>) => void;
         /**
+          * Emitted when a suggestion is selected or enter is pressed. The `detail` property of the `CustomEvent` will contain the selected suggestion or the input text.
+         */
+        "onDsoSearch"?: (event: CustomEvent<string>) => void;
+        /**
           * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
          */
         "onDsoSelect"?: (event: CustomEvent<Suggestion>) => void;

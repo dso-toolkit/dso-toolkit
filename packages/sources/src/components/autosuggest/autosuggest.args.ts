@@ -6,6 +6,7 @@ export interface AutosuggestArgs {
   suggestOnFocus: boolean;
   onSelect: HandlerFunction;
   onChange: HandlerFunction;
+  onSearch: HandlerFunction;
 }
 
 export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
@@ -19,5 +20,8 @@ export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
   },
   onChange: {
     action: 'onChange'
+  },
+  onSearch: {
+    action: 'onSearch'
   }
 };

@@ -6,6 +6,7 @@ export function autosuggestTemplate(
     suggestions,
     onSelect,
     onChange,
+    onSearch,
     suggestOnFocus
   }: Autosuggest,
   children: TemplateResult
@@ -15,6 +16,7 @@ export function autosuggestTemplate(
       .suggestions=${suggestions}
       @dsoSelect=${onSelect}
       @dsoChange=${onChange}
+      @dsoSearch=${onSearch}
       ?suggest-on-focus=${suggestOnFocus}
     >
       ${children}

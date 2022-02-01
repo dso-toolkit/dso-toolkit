@@ -10,6 +10,7 @@ export class AutosuggestTemplate extends React.Component<Autosuggest> {
         suggestions={this.props.suggestions}
         onDsoSelect={this.props.onSelect}
         onDsoChange={this.props.onChange}
+        onDsoSearch={this.props.onSearch}
         suggestOnFocus={this.props.suggestOnFocus}
       >
         {this.props.children}

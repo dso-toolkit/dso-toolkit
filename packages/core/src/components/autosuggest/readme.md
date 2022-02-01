@@ -36,10 +36,11 @@ interface Suggestion {
 
 ## Events
 
-| Event       | Description                                                                                                             | Type                      |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------- |
-| `dsoChange` | This is emitted debounced for every change for the slotted input type=text element.                                     | `CustomEvent<string>`     |
-| `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
+| Event       | Description                                                                                                                                                   | Type                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `dsoChange` | This is emitted debounced for every change for the slotted input type=text element.                                                                           | `CustomEvent<string>`     |
+| `dsoSearch` | Emitted when a suggestion is selected or enter is pressed. The `detail` property of the `CustomEvent` will contain the selected suggestion or the input text. | `CustomEvent<string>`     |
+| `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.                                       | `CustomEvent<Suggestion>` |
 
 
 ----------------------------------------------
