@@ -1,5 +1,4 @@
 notes: |
-order: 20
 status: ready
 context:
   menu:
@@ -13,6 +12,3 @@ context:
       - label: Waardelijsten
       - label: Informatieproducten
       - label: Over de catalogus
-  footer:
-    
-  
