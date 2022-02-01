@@ -328,9 +328,9 @@ describe('Date Picker', () => {
   });
 
   it('should padStart days and months with 0', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=date-picker--with-label&args=value:1-1-2000');
     cy
       .get('dso-date-picker')
-      .invoke('attr', 'value', '1-1-2000')
       .shadow()
       .find('input.dso-date__input')
       .should('have.value', '01-01-2000')
