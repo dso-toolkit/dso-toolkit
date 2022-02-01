@@ -13,4 +13,5 @@
   {%- if icon and not(iconOnly) %}<dso-icon icon="{{ icon }}"></dso-icon>{% endif -%}
   <span {{ className([iconOnly, 'sr-only']) }}>{{ label }}</span>
   {%- if iconAfter or iconOnly %}<dso-icon icon="{{ iconAfter or icon }}"></dso-icon>{% endif -%}
+  {%- if tooltip %}<dso-tooltip position="{{ tooltip.position }}" {{ attributes([tooltip.small, 'small']) }}>{{ tooltip.label }}</dso-tooltip>{% endif -%}
 </button>

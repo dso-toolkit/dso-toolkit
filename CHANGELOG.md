@@ -7,9 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + dso-toolkit + sources:** CSS Component Navbar ([#1252](https://github.com/dso-toolkit/dso-toolkit/issues/1252))
+* **dso-toolkit:** Voorbeeldpagina's Mijn Omgevingsloket ([#1307](https://github.com/dso-toolkit/dso-toolkit/issues/1307))
 
 ### Fixed
 * **core + sources:** Datepicker bugs: Backspace leegt veld, min max in storybook ([#1395](https://github.com/dso-toolkit/dso-toolkit/issues/1395))
+* **core:** Autosuggest escape selecteert onterecht de eerste suggestie ([#1411](https://github.com/dso-toolkit/dso-toolkit/issues/1411))
 
 ### Changed
 * **dso-toolkit:** Toekomstbestendig logo ([#1296](https://github.com/dso-toolkit/dso-toolkit/issues/1296))
