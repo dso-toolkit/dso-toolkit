@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 33.2.0
+
 ### Added
 * **css + dso-toolkit + sources:** CSS Component Navbar ([#1252](https://github.com/dso-toolkit/dso-toolkit/issues/1252))
 * **dso-toolkit:** Voorbeeldpagina's Mijn Omgevingsloket ([#1307](https://github.com/dso-toolkit/dso-toolkit/issues/1307))
