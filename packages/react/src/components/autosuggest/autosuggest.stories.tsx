@@ -9,6 +9,7 @@ interface AutosuggestDemoTemplateProps {
   fetchSuggestions: (value: string) => AutosuggestSuggestion[];
   onSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
   onChange: (value: CustomEvent<string>) => void;
+  onSearch: (value: CustomEvent<string>) => void;
   suggestOnFocus: boolean;
 }
 
@@ -39,6 +40,7 @@ class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<type
             }));
           }}
           onSelect={this.props.onSelect}
+          onSearch={this.props.onSearch}
           suggestions={this.state.suggestions}
           suggestOnFocus={this.props.suggestOnFocus}
         >
@@ -57,11 +59,12 @@ storiesOfAutosuggest<JSX.Element>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, suggestOnFocus) => (
+    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus) => (
       <AutosuggestDemoTemplate
         fetchSuggestions={fetchSuggestions}
         onChange={onChange}
         onSelect={onSelect}
+        onSearch={onSearch}
         suggestOnFocus={suggestOnFocus}
       />
     )

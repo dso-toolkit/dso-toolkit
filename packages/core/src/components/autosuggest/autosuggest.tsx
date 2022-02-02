@@ -51,6 +51,13 @@ export class Autosuggest {
   @Event({ eventName: 'dsoChange' })
   changeEmitter!: EventEmitter<string>;
 
+  /**
+   * Emitted when enter is pressed.
+   * The `detail` property of the `CustomEvent` will contain the input text.
+   */
+  @Event({ eventName: 'dsoSearch' })
+  searchEmitter!: EventEmitter<string>;
+
   @Element()
   host!: HTMLElement;
 
@@ -245,6 +252,8 @@ export class Autosuggest {
   pickSelectedValue() {
     if (this.selectedSuggestion && this.showSuggestions) {
       this.selectEmitter.emit(this.selectedSuggestion);
+    } else {
+      this.searchEmitter.emit(this.input.value);
     }
 
     this.closeSuggestions();
