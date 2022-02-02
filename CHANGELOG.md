@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit + sources:** CSS Component Navbar ([#1252](https://github.com/dso-toolkit/dso-toolkit/issues/1252))
 * **dso-toolkit:** Voorbeeldpagina's Mijn Omgevingsloket ([#1307](https://github.com/dso-toolkit/dso-toolkit/issues/1307))
 * **dso-toolkit:** Voorbeeldpagina: Stelselcatalogus Begrip ([#1407](https://github.com/dso-toolkit/dso-toolkit/issues/1407))
-* **core + react + sources:** Autosuggest: onSearch met enter toets ([#1415](https://github.com/dso-toolkit/dso-toolkit/issues/1415))
+* **core + react + sources:** Autosuggest: events dsoSearch en dsoSelect ([#1415](https://github.com/dso-toolkit/dso-toolkit/issues/1415))
 
 ### Fixed
 * **core + sources:** Datepicker bugs: Backspace leegt veld, min max in storybook ([#1395](https://github.com/dso-toolkit/dso-toolkit/issues/1395))
