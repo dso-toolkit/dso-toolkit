@@ -1,5 +1,7 @@
 import { Component, Fragment, h, Prop } from "@stencil/core";
 
+import clsx from "clsx";
+
 export interface HeaderMenuItem {
   label: string;
   url: string;
@@ -52,12 +54,14 @@ export class Header {
   render() {
     return (
       <>
-        <div class={this.useDropDown ? "use-drop-down" : undefined}>
-          <div class="logo">
-            <slot name="logo" />
-          </div>
-          <div class="sub-logo">
-            <slot name="sub-logo" />
+        <div class={clsx('dso-header', { [`use-drop-down`]: this.useDropDown })}>
+          <div class="logo-container">
+            <div class="logo">
+              <slot name="logo" />
+            </div>
+            <div class="sub-logo">
+              <slot name="sub-logo" />
+            </div>
           </div>
           {this.useDropDown && (
             <div class="dropdown">
@@ -100,56 +104,62 @@ export class Header {
               </dso-dropdown-menu>
             </div>
           )}
-          {this.loginUrl && !this.isLoggedIn && !this.useDropDown && (
-            <div class="login">
-              <a href={this.loginUrl}>Inloggen</a>
-            </div>
-          )}
-          {this.logoutUrl && this.isLoggedIn && !this.useDropDown && (
-            <div class="logout">
-              <a href={this.logoutUrl}>Uitloggen</a>
-            </div>
-          )}
-          {this.userProfileUrl &&
-            this.userProfileName &&
-            this.isLoggedIn &&
-            !this.useDropDown && (
-              <div class="profile">
-                <span class="profile-label">Welkom:</span>
-                <a href={this.userProfileUrl}>{this.userProfileName}</a>
-              </div>
-            )}
           {!this.useDropDown && (
-            <nav class="dso-navbar">
-              <ul class="dso-nav dso-nav-main">
-                {this.mainMenu
-                  .filter((_, index) => (this.splitMenu ? index < 2 : true))
-                  .map(this.MenuItem)}
-                {this.splitMenu && (
-                  <li>
-                    <dso-dropdown-menu dropdown-align="left">
-                      <button type="button" class="tertiary" slot="toggle">
-                        <span>Meer</span>
-                      </button>
-                      <div class="dso-dropdown-options">
-                        <dso-dropdown-options>
-                          <ul>
-                            {this.mainMenu
-                              .filter((_, index) => index >= 2)
-                              .map(this.MenuItem)}
-                          </ul>
-                        </dso-dropdown-options>
-                      </div>
-                    </dso-dropdown-menu>
-                  </li>
+            <>
+              <div class="dso-header-session">
+                {this.userProfileUrl &&
+                  this.userProfileName &&
+                  this.isLoggedIn && (
+                    <div class="profile">
+                      <span class="profile-label">Welkom:</span>
+                      <a href={this.userProfileUrl}>{this.userProfileName}</a>
+                    </div>
+                  )}
+                {this.loginUrl && !this.isLoggedIn && (
+                  <div class="login">
+                    <a href={this.loginUrl}>Inloggen</a>
+                  </div>
                 )}
-                {this.userHomeUrl && !this.useDropDown && (
-                  <li class="menu-user-home">
-                    <a href={this.userHomeUrl}>Mijn Omgevingsloket</a>
-                  </li>
+                {this.logoutUrl && this.isLoggedIn && (
+                  <div class="logout">
+                    <a href={this.logoutUrl}>Uitloggen</a>
+                  </div>
                 )}
-              </ul>
-            </nav>
+              </div>
+              <nav class="dso-navbar">
+                <ul class="dso-nav dso-nav-main">
+                  {this.mainMenu
+                    .filter((_, index) => (this.splitMenu ? index < 2 : true))
+                    .map(this.MenuItem)}
+                  {this.splitMenu && (
+                    <li>
+                      <dso-dropdown-menu dropdown-align="left">
+                        <button type="button" class="tertiary" slot="toggle">
+                          <span>Meer</span>
+                        </button>
+                        <div class="dso-dropdown-options">
+                          <dso-dropdown-options>
+                            <ul>
+                              {this.mainMenu
+                                .filter((_, index) => index >= 2)
+                                .map(this.MenuItem)}
+                            </ul>
+                          </dso-dropdown-options>
+                        </div>
+                      </dso-dropdown-menu>
+                    </li>
+                  )}
+                  {this.userHomeUrl && !this.useDropDown && (
+                    <li class="menu-user-home">
+                      <a href={this.userHomeUrl}>
+                        <dso-icon icon="user-line"></dso-icon>
+                        Mijn Omgevingsloket
+                      </a>
+                    </li>
+                  )}
+                </ul>
+              </nav>
+            </>
           )}
         </div>
       </>

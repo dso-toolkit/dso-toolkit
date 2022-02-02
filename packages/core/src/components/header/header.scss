@@ -2,50 +2,226 @@
 @import "~@dso-toolkit/sources/src/styling/mixins";
 @import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
 @import "~@dso-toolkit/sources/src/components/button/button";
+@import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
 
-:host {
-  display: block;
-}
-
-.logo {
-  display: inline-block;
-}
-
-.sub-logo {
-  display: inline-block;
-  position: fixed;
-  top: -1px;
-  margin-left: 20px;
-}
-
-.menu-user-home,
-.dropdown {
-  float: right;
-}
-
-.profile,
-.logout,
-.login {
-  float: right;
-  border: 1px dotted red;
-}
+@import "../../icon/di";
 
 $dso-navigation-selected-color: $mauve;
+
+$dropdown-bg: #fff;
+$dropdown-border: rgba(0, 0, 0, 0.15);
+
+$dso-dropdown-hor-padding: 20px;
+$dso-dropdown-link-color: $grijs-90;
 
 @mixin nav-item-border($color) {
   border-bottom: 4px solid $color;
 }
 
+@mixin nav-item-main {
+  font-size: 1.25em;
+  line-height: 1;
+  margin-top: $u1;
+  padding: $u2 $u2;
+}
+
+:host {
+  --di-chevron-down-bosgroen: #{dso-icon("chevron-down", "bosgroen")};
+  --di-chevron-up-bosgroen: #{dso-icon("chevron-up", "bosgroen")};
+  display: block;
+}
+
+.dso-header {
+  border-bottom: 1px solid $grijs-20;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: $screen-sm-min) {
+    align-items: center;
+  }
+
+  @media screen and (max-width: $screen-sm-max) {
+    &.use-drop-down {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.logo-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .sub-logo {
+    margin-left: $u3;
+  }
+}
+
+.login,
+.logout {
+  margin-right: $u2;
+}
+
+.profile,
+.logout,
+.login {
+  a {
+    @include anchor-clean();
+    color: $grasgroen;
+    font-weight: 600;
+  }
+}
+
+.dropdown {
+  margin-left: auto;
+}
+
+.dso-header-session {
+  display: flex;
+  margin-left: auto;
+
+  .profile {
+    a {
+      margin-left: $u1;
+    }
+
+    + .logout {
+      border-left: 3px solid $grijs-20;
+      margin-left: $u2;
+      padding-left: $u2;
+    }
+  }
+}
+
+.dso-navbar {
+  flex-basis: 100%;
+}
+
+dso-dropdown-menu {
+  @include dropdown-menu_children();
+
+  &[dropdown-align="right"] {
+    @include dropdown-menu_align-right();
+  }
+
+  &[open] {
+    @include dropdown-menu_open();
+
+    button {
+      &::after {
+        @include di("chevron-up-bosgroen", $size: 1.2em);
+      }
+    }
+  }
+
+  &[checkable] {
+    @include dropdown-menu_checkable();
+  }
+
+  button {
+    align-items: flex-end;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    font-family: $font-family-base;
+    padding-right: $u4;
+
+    &::after {
+      @include di("chevron-down-bosgroen", $size: 1.2em);
+
+      content: "";
+      display: inline-block;
+      margin-left: $u1;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  @media screen and (max-width: $screen-sm-max) {
+    &[dropdown-align=right] .dso-dropdown-options {
+      right: $u2 * -1;
+    }
+  }
+
+  .dso-dropdown-options {
+    border: 0;
+    border-radius: 0;
+
+    dso-dropdown-options {
+      ul {
+        min-width: 320px;
+
+        @media screen and (max-width: $screen-sm-max) {
+          min-width: 100vw;
+        }
+      }
+
+      li {
+        a {
+          color: $bosgroen;
+          font-size: 1.25rem;
+          padding: $u2;
+        }
+
+        &.dso-active {
+          a {
+            font-weight: 600;
+          }
+        }
+
+        + li {
+          border-top: 1px solid $grijs-20;
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  dso-dropdown-menu {
+    .dso-dropdown-options {
+      top: calc(100% + 25px);
+    }
+
+    &[open] {
+      button {
+        &::after {
+          @include di("chevron-up", $size: 1.5em);
+        }
+      }
+    }
+
+    button {
+      color: $grasgroen;
+      font-size: $font-size-base;
+      font-weight: 600;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      &::after {
+        @include di("chevron-down", $size: 1.5em);
+      }
+    }
+  }
+}
+
 .dso-nav {
+  align-items: end;
+  display: flex;
   list-style: none;
   margin-bottom: 0;
   padding-left: 0;
 
-  @media screen and (min-width: $screen-sm-min) {
-    border-bottom: 1px solid $grijs-20;
-  }
-
   > li {
+    margin-bottom: 4px;
+
     > a {
       display: block;
 
@@ -59,6 +235,8 @@ $dso-navigation-selected-color: $mauve;
 
     &.dso-active,
     &.is-active {
+      margin-bottom: 0;
+
       > a {
         @include nav-item-border($dso-navigation-selected-color);
 
@@ -68,22 +246,31 @@ $dso-navigation-selected-color: $mauve;
   }
 
   &.dso-nav-main {
-    // margin-bottom: $u1;
-
     > li {
-      display: block;
-
-      @media screen and (min-width: $screen-sm-min) {
-        display: inline-block;
-      }
-
       > a {
         @include anchor-reverse();
+        @include nav-item-main;
+      }
+    }
 
-        font-size: 1.25em;
-        line-height: 1;
-        margin-top: $u1;
-        padding: $u1 $u2 #{$u1 - 1px};
+    dso-dropdown-menu {
+      button {
+        @include nav-item-main;
+
+        align-items: center;
+        color: $bosgroen;
+        padding-right: $u4;
+
+        &:hover,
+        &:active {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+
+        &::after {
+          top: auto;
+          transform: none;
+        }
       }
     }
   }
@@ -99,6 +286,18 @@ $dso-navigation-selected-color: $mauve;
         margin-top: ($u1 * 0.5);
         padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
       }
+    }
+  }
+
+  .menu-user-home {
+    margin-left: auto;
+
+    dso-icon {
+      height: 1.2em;
+      margin-right: $u1;
+      position: relative;
+      top: -2px;
+      width: 1.2em;
     }
   }
 }
