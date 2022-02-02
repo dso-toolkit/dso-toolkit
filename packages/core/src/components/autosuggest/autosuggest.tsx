@@ -252,7 +252,6 @@ export class Autosuggest {
   pickSelectedValue() {
     if (this.selectedSuggestion && this.showSuggestions) {
       this.selectEmitter.emit(this.selectedSuggestion);
-      this.searchEmitter.emit(this.selectedSuggestion.value);
     } else {
       this.searchEmitter.emit(this.input.value);
     }

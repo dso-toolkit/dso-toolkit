@@ -231,7 +231,7 @@ describe("Autosuggest", () => {
     cy.get("@dsoSelect").should("not.have.been.called");
   });
 
-  it("should emit dsoSearch event on suggestion select with mouse click", () => {
+  it("should not emit dsoSearch event on suggestion select with mouse click", () => {
     cy.get("dso-autosuggest").then((c) => {
       c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
     });
@@ -242,14 +242,11 @@ describe("Autosuggest", () => {
       .eq(0)
       .trigger("mouseenter")
       .click();
-    cy.get("@dsoSearch")
-      .should("have.been.calledOnce")
-      .its("firstCall.args.0.detail")
-      .should("equal", "Rotterdamse Rijweg 15A, 3043BG Rotterdam");
+    cy.get("@dsoSearch").should("not.have.been.called");
   });
 
   it(
-    "should emit dsoSearch event on suggestion select with enter",
+    "should not emit dsoSearch event on suggestion select with enter",
     { browser: "!firefox" },
     () => {
       cy.get("dso-autosuggest").then((c) => {
@@ -261,10 +258,7 @@ describe("Autosuggest", () => {
       cy.realPress("ArrowDown");
       cy.realPress("ArrowDown");
       cy.get("@input").type("{enter}");
-      cy.get("@dsoSearch")
-        .should("have.been.calledOnce")
-        .its("firstCall.args.0.detail")
-        .should("equal", "Rotterdamse Rijweg 13B, 3043BG Rotterdam");
+      cy.get("@dsoSearch").should("not.have.been.called");
     }
   );
 
