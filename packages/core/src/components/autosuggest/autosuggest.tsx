@@ -52,8 +52,8 @@ export class Autosuggest {
   changeEmitter!: EventEmitter<string>;
 
   /**
-   * Emitted when a suggestion is selected or enter is pressed.
-   * The `detail` property of the `CustomEvent` will contain the selected suggestion or the input text.
+   * Emitted when enter is pressed.
+   * The `detail` property of the `CustomEvent` will contain the input text.
    */
   @Event({ eventName: 'dsoSearch' })
   searchEmitter!: EventEmitter<string>;
