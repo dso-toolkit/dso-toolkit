@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **css + dso-toolkit + sources:** CSS Component Navbar ([#1252](https://github.com/dso-toolkit/dso-toolkit/issues/1252))
 * **dso-toolkit:** Voorbeeldpagina's Mijn Omgevingsloket ([#1307](https://github.com/dso-toolkit/dso-toolkit/issues/1307))
+* **dso-toolkit:** Voorbeeldpagina: Stelselcatalogus Begrip ([#1407](https://github.com/dso-toolkit/dso-toolkit/issues/1407))
 
 ### Fixed
 * **core + sources:** Datepicker bugs: Backspace leegt veld, min max in storybook ([#1395](https://github.com/dso-toolkit/dso-toolkit/issues/1395))
@@ -16,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **dso-toolkit:** Toekomstbestendig logo ([#1296](https://github.com/dso-toolkit/dso-toolkit/issues/1296))
 * **core + dso-toolkit + css:** Icon only buttons moeten sr-only hebben ([#1210](https://github.com/dso-toolkit/dso-toolkit/issues/1210)) **See PR ([#1413](https://github.com/dso-toolkit/dso-toolkit/pull/1413))**
+* **dso-toolkit:** Voorbeeldpagina: Vergunningcheck Conclusie ([#1396](https://github.com/dso-toolkit/dso-toolkit/issues/1396))
 
 ## 33.1.0
 
