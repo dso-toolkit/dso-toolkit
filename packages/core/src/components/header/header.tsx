@@ -1,4 +1,4 @@
-import { Component, Fragment, h, Prop } from "@stencil/core";
+import { Component, Element, Fragment, h, Prop, State } from "@stencil/core";
 
 import clsx from "clsx";
 
@@ -41,6 +41,16 @@ export class Header {
   @Prop()
   userHomeUrl?: string;
 
+  @Element()
+  host!: HTMLElement;
+
+  @State()
+  hasSubLogo: boolean = false;
+
+  componentDidLoad() {
+    this.hasSubLogo = this.host.querySelector("*[slot = 'sub-logo']") !== null;
+  }
+
   MenuItem(item: HeaderMenuItem) {
     return (
       <li class={item.active ? "dso-active" : undefined}>
@@ -54,7 +64,12 @@ export class Header {
   render() {
     return (
       <>
-        <div class={clsx('dso-header', { [`use-drop-down`]: this.useDropDown })}>
+        <div
+          class={clsx("dso-header", {
+            ["use-drop-down"]: this.useDropDown,
+            ["has-sub-logo"]: this.hasSubLogo,
+          })}
+        >
           <div class="logo-container">
             <div class="logo">
               <slot name="logo" />
@@ -149,7 +164,7 @@ export class Header {
                       </dso-dropdown-menu>
                     </li>
                   )}
-                  {this.userHomeUrl && !this.useDropDown && (
+                  {this.userHomeUrl && (
                     <li class="menu-user-home">
                       <a href={this.userHomeUrl}>
                         <dso-icon icon="user-line"></dso-icon>

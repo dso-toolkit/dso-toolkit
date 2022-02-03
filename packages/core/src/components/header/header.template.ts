@@ -20,18 +20,32 @@ export function headerTemplate({
 }: Header) {
   const bindLoginUrl = showLoggedIn && loginUrl ? loginUrl : undefined;
   const bindLogoutUrl = showLoggedIn && logoutUrl ? logoutUrl : undefined;
-  return html` <dso-header
-    .mainMenu=${mainMenu}
-    use-drop-down=${ifDefined(showDropDownMenu)}
-    split-menu=${ifDefined(splitMenu)}
-    is-logged-in=${ifDefined(isLoggedIn)}
-    login-url=${ifDefined(bindLoginUrl)}
-    logout-url=${ifDefined(bindLogoutUrl)}
-    user-profile-url=${ifDefined(userProfileUrl)}
-    user-profile-name=${ifDefined(userProfileName)}
-    user-home-url=${ifDefined(userHomeUrl)}
-  >
-    <div slot="logo">${unsafeHTML(logo)}</div>
-    <div slot="sub-logo">${showSubLogo ? unsafeHTML(subLogo) : undefined}</div>
-  </dso-header>`;
+  return showSubLogo
+    ? html`<dso-header
+        .mainMenu=${mainMenu}
+        use-drop-down=${ifDefined(showDropDownMenu)}
+        split-menu=${ifDefined(splitMenu)}
+        is-logged-in=${ifDefined(isLoggedIn)}
+        login-url=${ifDefined(bindLoginUrl)}
+        logout-url=${ifDefined(bindLogoutUrl)}
+        user-profile-url=${ifDefined(userProfileUrl)}
+        user-profile-name=${ifDefined(userProfileName)}
+        user-home-url=${ifDefined(userHomeUrl)}
+      >
+        <div slot="logo">${unsafeHTML(logo)}</div>
+        <div slot="sub-logo">${unsafeHTML(subLogo)}</div>
+      </dso-header>`
+    : html`<dso-header
+        .mainMenu=${mainMenu}
+        use-drop-down=${ifDefined(showDropDownMenu)}
+        split-menu=${ifDefined(splitMenu)}
+        is-logged-in=${ifDefined(isLoggedIn)}
+        login-url=${ifDefined(bindLoginUrl)}
+        logout-url=${ifDefined(bindLogoutUrl)}
+        user-profile-url=${ifDefined(userProfileUrl)}
+        user-profile-name=${ifDefined(userProfileName)}
+        user-home-url=${ifDefined(userHomeUrl)}
+      >
+        <div slot="logo">${unsafeHTML(logo)}</div>
+      </dso-header>`;
 }
