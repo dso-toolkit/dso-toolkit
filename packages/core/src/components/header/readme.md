@@ -33,11 +33,13 @@ interface HeaderMenuItem {
 ### Depends on
 
 - [dso-dropdown-menu](../dropdown-menu)
+- [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-header --> dso-dropdown-menu
+  dso-header --> dso-icon
   style dso-header fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

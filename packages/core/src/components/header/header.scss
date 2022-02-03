@@ -28,6 +28,7 @@ $dso-dropdown-link-color: $grijs-90;
 :host {
   --di-chevron-down-bosgroen: #{dso-icon("chevron-down", "bosgroen")};
   --di-chevron-up-bosgroen: #{dso-icon("chevron-up", "bosgroen")};
+
   display: block;
 }
 
@@ -68,13 +69,10 @@ $dso-dropdown-link-color: $grijs-90;
 .login {
   a {
     @include anchor-clean();
+
     color: $grasgroen;
     font-weight: 600;
   }
-}
-
-.dropdown {
-  margin-left: auto;
 }
 
 .dso-header-session {
@@ -181,6 +179,8 @@ dso-dropdown-menu {
 }
 
 .dropdown {
+  margin-left: auto;
+
   dso-dropdown-menu {
     .dso-dropdown-options {
       top: calc(100% + 25px);
@@ -249,13 +249,13 @@ dso-dropdown-menu {
     > li {
       > a {
         @include anchor-reverse();
-        @include nav-item-main;
+        @include nav-item-main();
       }
     }
 
     dso-dropdown-menu {
       button {
-        @include nav-item-main;
+        @include nav-item-main();
 
         align-items: center;
         color: $bosgroen;
