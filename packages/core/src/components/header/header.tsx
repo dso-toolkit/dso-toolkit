@@ -35,7 +35,7 @@ export class Header {
   mainMenu!: HeaderMenuItem[];
 
   @Prop()
-  useDropDownMenu: "true" | "false" | "auto" = "auto";
+  useDropDownMenu: "allways" | "never" | "auto" = "auto";
 
   @State()
   showDropDown: boolean = false;
@@ -62,13 +62,13 @@ export class Header {
   overflowMenuItems: number = 0;
 
   @Watch("useDropDownMenu")
-  watchUseDropDownMenu(value: "true" | "false" | "auto") {
+  watchUseDropDownMenu(value: "allways" | "never" | "auto") {
     if (value === "auto") {
       this.setDropDownMenu();
       return;
     }
 
-    this.showDropDown = value === "true";
+    this.showDropDown = value === "allways";
   }
 
   wrapper: HTMLDivElement | undefined;

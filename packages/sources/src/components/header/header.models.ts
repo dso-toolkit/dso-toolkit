@@ -7,7 +7,7 @@ export interface Header {
     url: string;
     active?: boolean;
   }[];
-  useDropDownMenu: "true" | "false" | "auto";
+  useDropDownMenu: "allways" | "never" | "auto";
   loginUrl: string;
   logoutUrl: string;
   isLoggedIn: boolean;
