@@ -1,6 +1,7 @@
 import { Component, Element, Fragment, h, Prop, State } from "@stencil/core";
 
 import clsx from "clsx";
+import debounce from "debounce";
 
 export interface HeaderMenuItem {
   label: string;
@@ -27,9 +28,6 @@ export class Header {
   useDropDown: boolean = false;
 
   @Prop()
-  splitMenu: boolean = false;
-
-  @Prop()
   isLoggedIn: boolean = false;
 
   @Prop()
@@ -47,8 +45,62 @@ export class Header {
   @State()
   hasSubLogo: boolean = false;
 
-  componentDidLoad() {
+  @State()
+  overflowMenuItems: number = 0;
+
+  wrapper: HTMLDivElement | undefined;
+
+  nav: HTMLUListElement | undefined;
+
+  componentWillLoad() {
     this.hasSubLogo = this.host.querySelector("*[slot = 'sub-logo']") !== null;
+  }
+
+  shrinkMenuToFit() {
+    if (!this.wrapper || !this.nav) {
+      return;
+    }
+
+    if (this.wrapper.clientWidth >= this.nav.clientWidth) {
+      return;
+    }
+
+    if (this.overflowMenuItems >= this.mainMenu.length) {
+      return;
+    }
+
+    this.overflowMenuItems++;
+  }
+
+  componentDidRender() {
+    if (this.useDropDown) {
+      return;
+    }
+
+    window.setTimeout(() => this.shrinkMenuToFit(), 0);
+  }
+
+  resetOverflowMenu() {
+    if (this.useDropDown) {
+      return;
+    }
+
+    if (this.overflowMenuItems != 0) {
+      this.overflowMenuItems = 0;
+      return;
+    }
+
+    this.shrinkMenuToFit();
+  }
+
+  onWindowResize = debounce(() => this.resetOverflowMenu(), 100);
+
+  connectedCallback() {
+    window.addEventListener("resize", this.onWindowResize);
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener("resize", this.onWindowResize);
   }
 
   MenuItem(item: HeaderMenuItem) {
@@ -69,6 +121,7 @@ export class Header {
             ["use-drop-down"]: this.useDropDown,
             ["has-sub-logo"]: this.hasSubLogo,
           })}
+          ref={(element) => (this.wrapper = element)}
         >
           <div class="logo-container">
             <div class="logo">
@@ -142,11 +195,17 @@ export class Header {
                 )}
               </div>
               <nav class="dso-navbar">
-                <ul class="dso-nav dso-nav-main">
+                <ul
+                  class="dso-nav dso-nav-main"
+                  ref={(element) => (this.nav = element)}
+                >
                   {this.mainMenu
-                    .filter((_, index) => (this.splitMenu ? index < 2 : true))
+                    .filter(
+                      (_, index) =>
+                        index < this.mainMenu.length - this.overflowMenuItems
+                    )
                     .map(this.MenuItem)}
-                  {this.splitMenu && (
+                  {this.overflowMenuItems > 0 && (
                     <li>
                       <dso-dropdown-menu dropdown-align="left">
                         <button type="button" class="tertiary" slot="toggle">
@@ -156,7 +215,12 @@ export class Header {
                           <dso-dropdown-options>
                             <ul>
                               {this.mainMenu
-                                .filter((_, index) => index >= 2)
+                                .filter(
+                                  (_, index) =>
+                                    index >=
+                                    this.mainMenu.length -
+                                      this.overflowMenuItems
+                                )
                                 .map(this.MenuItem)}
                             </ul>
                           </dso-dropdown-options>

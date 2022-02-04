@@ -44,7 +44,6 @@ export function storiesOfHeader<TemplateFnReturnType>(
         },
       ],
       showDropDownMenu: false,
-      splitMenu: false,
       loginUrl: "#login",
       logoutUrl: "#logout",
       isLoggedIn: false,

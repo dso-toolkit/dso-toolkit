@@ -8,7 +8,6 @@ export interface Header {
     active?: boolean;
   }[];
   showDropDownMenu: boolean;
-  splitMenu: boolean;
   loginUrl: string;
   logoutUrl: string;
   isLoggedIn: boolean;

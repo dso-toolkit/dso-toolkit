@@ -8,7 +8,6 @@ export function headerTemplate({
   subLogo,
   mainMenu,
   showDropDownMenu,
-  splitMenu,
   showSubLogo,
   loginUrl,
   logoutUrl,
@@ -24,7 +23,6 @@ export function headerTemplate({
     ? html`<dso-header
         .mainMenu=${mainMenu}
         use-drop-down=${ifDefined(showDropDownMenu)}
-        split-menu=${ifDefined(splitMenu)}
         is-logged-in=${ifDefined(isLoggedIn)}
         login-url=${ifDefined(bindLoginUrl)}
         logout-url=${ifDefined(bindLogoutUrl)}
@@ -38,7 +36,6 @@ export function headerTemplate({
     : html`<dso-header
         .mainMenu=${mainMenu}
         use-drop-down=${ifDefined(showDropDownMenu)}
-        split-menu=${ifDefined(splitMenu)}
         is-logged-in=${ifDefined(isLoggedIn)}
         login-url=${ifDefined(bindLoginUrl)}
         logout-url=${ifDefined(bindLogoutUrl)}

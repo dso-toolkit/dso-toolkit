@@ -250,6 +250,8 @@ dso-dropdown-menu {
       > a {
         @include anchor-reverse();
         @include nav-item-main();
+
+        white-space: nowrap;
       }
     }
 
