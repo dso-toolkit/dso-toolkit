@@ -251,6 +251,7 @@ dso-dropdown-menu {
         @include anchor-reverse();
         @include nav-item-main();
 
+        /* stylelint-disable-next-line declaration-property-value-disallowed-list */
         white-space: nowrap;
       }
     }
