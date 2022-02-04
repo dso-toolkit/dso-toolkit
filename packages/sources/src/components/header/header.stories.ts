@@ -43,7 +43,7 @@ export function storiesOfHeader<TemplateFnReturnType>(
           url: "#regelsopdekaart",
         },
       ],
-      showDropDownMenu: false,
+      useDropDownMenu: "auto",
       loginUrl: "#login",
       logoutUrl: "#logout",
       isLoggedIn: false,

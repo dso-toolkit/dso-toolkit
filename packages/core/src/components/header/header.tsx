@@ -1,7 +1,17 @@
-import { Component, Element, Fragment, h, Prop, State } from "@stencil/core";
+import {
+  Component,
+  Element,
+  Fragment,
+  h,
+  Prop,
+  State,
+  Watch,
+} from "@stencil/core";
 
 import clsx from "clsx";
 import debounce from "debounce";
+
+const minDesktopViewportWidth = 992;
 
 export interface HeaderMenuItem {
   label: string;
@@ -25,7 +35,10 @@ export class Header {
   mainMenu!: HeaderMenuItem[];
 
   @Prop()
-  useDropDown: boolean = false;
+  useDropDownMenu: "true" | "false" | "auto" = "auto";
+
+  @State()
+  showDropDown: boolean = false;
 
   @Prop()
   isLoggedIn: boolean = false;
@@ -47,6 +60,16 @@ export class Header {
 
   @State()
   overflowMenuItems: number = 0;
+
+  @Watch("useDropDownMenu")
+  watchUseDropDownMenu(value: "true" | "false" | "auto") {
+    if (value === "auto") {
+      this.setDropDownMenu();
+      return;
+    }
+
+    this.showDropDown = value === "true";
+  }
 
   wrapper: HTMLDivElement | undefined;
 
@@ -73,15 +96,15 @@ export class Header {
   }
 
   componentDidRender() {
-    if (this.useDropDown) {
+    if (this.showDropDown) {
       return;
     }
 
     window.setTimeout(() => this.shrinkMenuToFit(), 0);
   }
 
-  resetOverflowMenu() {
-    if (this.useDropDown) {
+  setOverflowMenu() {
+    if (this.showDropDown) {
       return;
     }
 
@@ -93,7 +116,18 @@ export class Header {
     this.shrinkMenuToFit();
   }
 
-  onWindowResize = debounce(() => this.resetOverflowMenu(), 100);
+  setDropDownMenu() {
+    if (this.useDropDownMenu !== "auto") {
+      return;
+    }
+
+    this.showDropDown = window.innerWidth < minDesktopViewportWidth;
+  }
+
+  onWindowResize = debounce(() => {
+    this.setDropDownMenu();
+    this.setOverflowMenu();
+  }, 100);
 
   connectedCallback() {
     window.addEventListener("resize", this.onWindowResize);
@@ -118,7 +152,7 @@ export class Header {
       <>
         <div
           class={clsx("dso-header", {
-            ["use-drop-down"]: this.useDropDown,
+            ["use-drop-down"]: this.showDropDown,
             ["has-sub-logo"]: this.hasSubLogo,
           })}
           ref={(element) => (this.wrapper = element)}
@@ -131,7 +165,7 @@ export class Header {
               <slot name="sub-logo" />
             </div>
           </div>
-          {this.useDropDown && (
+          {this.showDropDown && (
             <div class="dropdown">
               <dso-dropdown-menu dropdown-align="right">
                 <button type="button" class="tertiary" slot="toggle">
@@ -172,7 +206,7 @@ export class Header {
               </dso-dropdown-menu>
             </div>
           )}
-          {!this.useDropDown && (
+          {!this.showDropDown && (
             <>
               <div class="dso-header-session">
                 {this.userProfileUrl &&

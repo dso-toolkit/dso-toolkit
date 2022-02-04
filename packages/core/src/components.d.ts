@@ -117,7 +117,7 @@ export namespace Components {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu": HeaderMenuItem[];
-        "useDropDown": boolean;
+        "useDropDownMenu": "true" | "false" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;
@@ -530,7 +530,7 @@ declare namespace LocalJSX {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu": HeaderMenuItem[];
-        "useDropDown"?: boolean;
+        "useDropDownMenu"?: "true" | "false" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;

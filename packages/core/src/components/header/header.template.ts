@@ -7,7 +7,7 @@ export function headerTemplate({
   logo,
   subLogo,
   mainMenu,
-  showDropDownMenu,
+  useDropDownMenu,
   showSubLogo,
   loginUrl,
   logoutUrl,
@@ -22,7 +22,7 @@ export function headerTemplate({
   return showSubLogo
     ? html`<dso-header
         .mainMenu=${mainMenu}
-        use-drop-down=${ifDefined(showDropDownMenu)}
+        use-drop-down-menu=${ifDefined(useDropDownMenu)}
         is-logged-in=${ifDefined(isLoggedIn)}
         login-url=${ifDefined(bindLoginUrl)}
         logout-url=${ifDefined(bindLogoutUrl)}
@@ -35,7 +35,7 @@ export function headerTemplate({
       </dso-header>`
     : html`<dso-header
         .mainMenu=${mainMenu}
-        use-drop-down=${ifDefined(showDropDownMenu)}
+        use-drop-down-menu=${ifDefined(useDropDownMenu)}
         is-logged-in=${ifDefined(isLoggedIn)}
         login-url=${ifDefined(bindLoginUrl)}
         logout-url=${ifDefined(bindLogoutUrl)}
