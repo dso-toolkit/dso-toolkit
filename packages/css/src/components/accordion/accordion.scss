@@ -218,10 +218,6 @@ $dso-accordion-state-icon-size: $u3;
           button {
             color: $dso-accordion-compact-color;
 
-            &::before {
-              @include di("chevron-down-grasgroen");
-            }
-
             &:hover,
             &:active,
             &.active {
