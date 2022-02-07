@@ -74,8 +74,8 @@ const TRANSITION_MS = 300
 @Component({
   tag: "dso-date-picker",
   styleUrl: "date-picker.scss",
-  shadow: true,
-  scoped: false
+  shadow: false,
+  scoped: true
 })
 export class DsoDatePicker implements ComponentInterface {
   /**
@@ -211,7 +211,7 @@ export class DsoDatePicker implements ComponentInterface {
     const path = e.composedPath();
 
     for (const target of path) {
-      if (target instanceof Node && this.element.shadowRoot?.contains(target)) {
+      if (target instanceof Node && this.element.contains(target)) {
         return;
       }
     }

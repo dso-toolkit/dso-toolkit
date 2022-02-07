@@ -35,7 +35,7 @@ module.exports = {
   previewBody: body => process.env.DSO_ENV === 'development'
     ? (`
       ${body}
-      <iframe title="Stencil Dev Server Connector 2.3.0 ⚡" src="/~dev-server" sandbox="allow-same-origin allow-top-navigation allow-scripts" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
+      <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
     `)
     : body,
   webpackFinal: async (config, { configType }) => {
