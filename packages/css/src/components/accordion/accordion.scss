@@ -429,11 +429,11 @@ $dso-accordion-state-icon-size: $u3;
     margin-top: -$dso-accordion-border-radius;
     padding: $u2 + $dso-accordion-border-radius $u2 $u2;
 
-    *:first-child {
+    *:first-child:not(.dso-info) {
       margin-top: 0;
     }
 
-    *:last-child {
+    *:last-child:not(.dso-info) {
       margin-bottom: 0;
     }
 
