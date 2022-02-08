@@ -28,7 +28,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@dso-toolkit/sources": "workspace:packages/sources",
-    "@popperjs/core": "^2.10.2",
+    "@popperjs/core": "^2.11.2",
     "@stencil/core": "2.9.0",
     "@stencil/react-output-target": "0.1.0",
     "@stencil/sass": "1.5.2",

@@ -1865,7 +1865,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.15.8
     "@dso-toolkit/sources": "workspace:packages/sources"
-    "@popperjs/core": ^2.10.2
+    "@popperjs/core": ^2.11.2
     "@stencil/core": 2.9.0
     "@stencil/react-output-target": 0.1.0
     "@stencil/sass": 1.5.2
@@ -2683,10 +2683,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@popperjs/core@npm:^2.10.2":
-  version: 2.10.2
-  resolution: "@popperjs/core@npm:2.10.2"
-  checksum: 43c189e3eb6d032433512d94761b54fc7cae15957ca5528008813f887a67b5760b949f30a5141b476be2ba5a6c677c91def150f603d2d3e30b5e97a5ae51474e
+"@popperjs/core@npm:^2.11.2":
+  version: 2.11.2
+  resolution: "@popperjs/core@npm:2.11.2"
+  checksum: 5695bf020eda54636e16a62dc9b5fdd92beaf7b2d19f62fcef049d57c5cff92773562d80cbf760b217c3ec928da310eb24994ab6a00fd39dffa0af9b5dfc01a6
   languageName: node
   linkType: hard
 
