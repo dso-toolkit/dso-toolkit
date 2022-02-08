@@ -150,10 +150,10 @@ dso-dropdown-menu {
 
     dso-dropdown-options {
       ul {
-        min-width: 320px;
+        width: 320px;
 
         @media screen and (max-width: $screen-sm-max) {
-          min-width: 100vw;
+          width: 100vw;
         }
       }
 
@@ -296,7 +296,7 @@ dso-dropdown-menu {
     margin-left: auto;
 
     dso-icon {
-      height: 1.2em;
+      height: 1em;
       margin-right: $u1;
       position: relative;
       top: -2px;

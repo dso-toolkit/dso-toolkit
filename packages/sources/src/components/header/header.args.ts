@@ -9,7 +9,7 @@ export interface HeaderArgs {
     label: string;
     url: string;
   }[];
-  useDropDownMenu: "allways" | "never" | "auto";
+  useDropDownMenu: "always" | "never" | "auto";
   loginUrl: string;
   logoutUrl: string;
   isLoggedIn: boolean;
@@ -31,7 +31,7 @@ export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
   mainMenu: noControl,
   useDropDownMenu: {
     name: "Dropdown menu",
-    options: ["allways", "never", "auto"],
+    options: ["always", "never", "auto"],
     control: {
       type: "select",
     },
