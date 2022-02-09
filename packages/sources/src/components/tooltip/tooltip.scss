@@ -1,9 +1,11 @@
 $tooltip-arrow-width: 6px;
-$tooltip-opacity: 0.9;
+$tooltip-opacity: 1;
 $tooltip-padding-vertical: $u2;
 $tooltip-padding-horizontal: $u1;
 $tooltip-border-radius: $dso-unit * 0.5;
 $tooltip-arrow-color: $wit;
+$tooltip-arrow-margin: $tooltip-arrow-width * -.5;
+$tooltip-arrow-offset: 50%;
 $tooltop-max-width: 80 * $dso-unit;
 $tooltip-max-width-small: 40 * $dso-unit;
 

@@ -24,17 +24,33 @@ $tooltip-max-width-small: 40 * $dso-unit;
 
   &[data-popper-placement="top"] {
     @include tooltip_arrowTop();
+
+    .tooltip-arrow {
+      margin-left: $tooltip-arrow-margin;
+    }
   }
 
   &[data-popper-placement="right"] {
     @include tooltip_arrowRight();
+
+    .tooltip-arrow {
+      margin-top: $tooltip-arrow-margin;
+    }
   }
 
   &[data-popper-placement="bottom"] {
     @include tooltip_arrowBottom();
+
+    .tooltip-arrow {
+      margin-left: $tooltip-arrow-margin;
+    }
   }
 
   &[data-popper-placement="left"] {
     @include tooltip_arrowLeft();
+
+    .tooltip-arrow {
+      margin-top: $tooltip-arrow-margin;
+    }
   }
 }
