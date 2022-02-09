@@ -22,7 +22,6 @@ describe('Date Picker', () => {
   it('should have focus trap', () => {
     cy
       .get('dso-date-picker')
-      .shadow()
       .as('date-picker')
       .find('button.dso-date__toggle')
       .click()
@@ -83,7 +82,6 @@ describe('Date Picker', () => {
   it('ESCAPE should close date picker and focus toggle button', () => {
     cy
       .get('dso-date-picker')
-      .shadow()
       .as('date-picker');
 
     cy
@@ -117,7 +115,6 @@ describe('Date Picker', () => {
       .invoke('attr', 'value', '19-09-1988')
       .should('have.attr', 'value', '19-09-1988')
       // End preparation
-      .shadow()
       .as('date-picker');
 
     cy
@@ -227,7 +224,6 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .as('root')
       .find('button.dso-date__toggle')
       .click();
@@ -271,7 +267,6 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .as('root')
       .find('button.dso-date__toggle')
       .click()
@@ -299,7 +294,6 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .type('34-56')
       .then(() => {
@@ -317,7 +311,6 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .type('11-4-1970')
       .then(() => {
@@ -331,7 +324,6 @@ describe('Date Picker', () => {
     cy.visit('http://localhost:56106/iframe.html?id=date-picker--with-label&args=value:1-1-2000');
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .should('have.value', '01-01-2000')
   });
@@ -339,7 +331,6 @@ describe('Date Picker', () => {
   it('should autofocus', () => {
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .should('not.have.focus');
 
@@ -347,7 +338,6 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .should('have.focus');
   });
@@ -361,7 +351,6 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .type('12')
       .realPress('Enter')
@@ -378,14 +367,12 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .shadow()
       .find('input.dso-date__input')
       .type('11-04-1970')
       .realPress('{backspace}')
       .then(() => {
         cy
           .get('dso-date-picker')
-          .shadow()
           .find('input.dso-date__input')
           .should('have.value', '11-04-197');
         expect(details[details.length - 1].error).equal('invalid');
