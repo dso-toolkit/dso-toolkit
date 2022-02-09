@@ -44,7 +44,6 @@ $tooltip-transition-duration: 0.15s;
     border-color: transparent;
     border-style: solid;
     height: 0;
-    position: absolute;
     width: 0;
   }
 }
@@ -57,8 +56,6 @@ $tooltip-transition-duration: 0.15s;
     border-top-color: $tooltip-arrow-color;
     border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
     bottom: 0;
-    left: 50%;
-    margin-left: -$tooltip-arrow-width;
   }
 }
 
@@ -70,8 +67,6 @@ $tooltip-transition-duration: 0.15s;
     border-right-color: $tooltip-arrow-color;
     border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
     left: 0;
-    margin-top: -$tooltip-arrow-width;
-    top: 50%;
   }
 }
 
@@ -82,9 +77,7 @@ $tooltip-transition-duration: 0.15s;
   .tooltip-arrow {
     border-left-color: $tooltip-arrow-color;
     border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
-    margin-top: -$tooltip-arrow-width;
     right: 0;
-    top: 50%;
   }
 }
 
@@ -95,8 +88,6 @@ $tooltip-transition-duration: 0.15s;
   .tooltip-arrow {
     border-bottom-color: $tooltip-arrow-color;
     border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
-    left: 50%;
-    margin-left: -$tooltip-arrow-width;
     top: 0;
   }
 }
