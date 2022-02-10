@@ -56,9 +56,13 @@ $dso-dropdown-link-color: $grijs-90;
   padding-top: $u2;
 }
 
-@media screen and (min-width: $screen-sm-min) {
-  .sub-logo {
+.sub-logo {
+  @media screen and (min-width: $screen-sm-min) {
     margin-left: $u3;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    flex-basis: 100%;
   }
 }
 
@@ -196,7 +200,7 @@ dso-dropdown-menu {
     .dso-dropdown-options {
       top: calc(100% + 29px);
 
-      @media screen and (max-width: $screen-sm-max) {
+      @media screen and (max-width: $screen-xs-max) {
         top: $u9;
       }
     }
