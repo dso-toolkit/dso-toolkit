@@ -21,4 +21,9 @@ ol {
       columns: 3;
     }
   }
+
+  li .dso-info {
+    margin-bottom: $u1;
+    margin-top: $u1;
+  }
 }
