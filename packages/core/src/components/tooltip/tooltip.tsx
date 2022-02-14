@@ -1,4 +1,4 @@
-import { beforeWrite, createPopper, Instance as PopperInstance } from '@popperjs/core';
+import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperState } from '@popperjs/core';
 import maxSize from 'popper-max-size-modifier';
 import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import clsx from 'clsx';
@@ -124,8 +124,12 @@ export class Tooltip {
     enabled: true,
     phase: beforeWrite,
     requires: ['maxSize'],
-    fn({ state }: { state: any }) {
-      const { width } = state.modifiersData.maxSize;
+    fn({ state }: { state: PopperState }) {
+      let { width } = state.modifiersData.maxSize;
+      if (width < 160) {
+        width = 160;
+      }
+
       state.styles.popper = {
         ...state.styles.popper,
         maxWidth: `${width}px`,
