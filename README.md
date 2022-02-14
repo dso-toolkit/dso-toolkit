@@ -2,7 +2,7 @@
 
 
 * [Slack chat](https://dso-toolkit.slack.com/)
-* [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/enQtNDA5Mjk5MTU5MDEyLTk5OWFmMWYwODlhMmRhMzMzN2E1NzZhNmQwYzhiNDliZGQ0NGMxMmE4MzkxM2U2NjZjNzNmZDQ0YmY3YTRiNTg)
+* [Slack chat invite link](https://join.slack.com/t/dso-toolkit/shared_invite/zt-58125gbo-FtPAARcnU47rMgkT7KWikA)
 
 # DSO Toolkit - Design System van het Digitaal Stelsel Omgevingswet (DSO)
 
