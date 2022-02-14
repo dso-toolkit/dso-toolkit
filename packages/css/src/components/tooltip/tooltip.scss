@@ -12,7 +12,7 @@
       .tooltip-arrow {
         bottom: 0;
         left: $tooltip-arrow-offset;
-        margin-left: $tooltip-arrow-margin * 2;
+        margin-left: $tooltip-arrow-margin * -2;
       }
     }
 
@@ -21,7 +21,7 @@
 
       .tooltip-arrow {
         left: 0;
-        margin-top: $tooltip-arrow-margin * 2;
+        margin-top: $tooltip-arrow-margin * -2;
         top: $tooltip-arrow-offset;
       }
     }
@@ -30,7 +30,7 @@
       @include tooltip_arrowLeft();
 
       .tooltip-arrow {
-        margin-top: $tooltip-arrow-margin * 2;
+        margin-top: $tooltip-arrow-margin * -2;
         right: 0;
         top: $tooltip-arrow-offset;
       }
@@ -41,7 +41,7 @@
 
       .tooltip-arrow {
         left: $tooltip-arrow-offset;
-        margin-left: $tooltip-arrow-margin * 2;
+        margin-left: $tooltip-arrow-margin * -2;
         top: 0;
       }
     }
