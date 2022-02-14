@@ -13,8 +13,8 @@ $tooltip-arrow-color: $wit;
 $tooltip-max-width: 80 * $dso-unit;
 $tooltip-max-width-small: 40 * $dso-unit;
 
-:host(:not([hidden])) {
-  display: inline-block;
+:host(.hidden) {
+  visibility: hidden;
 }
 
 :host-context(dso-toggletip) {
