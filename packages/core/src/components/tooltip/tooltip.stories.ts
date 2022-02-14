@@ -10,8 +10,7 @@ import { tooltipTemplate } from './tooltip.template';
 function asChildTemplate(tooltip: TemplateResult, action: HandlerFunction) {
   return html`
     <button type="button" @click=${action}>
-      <span>Hover or focus me</span>
-      ${tooltip}
+      <span>Shoot or focus me</span>${tooltip}
     </button>
   `;
 }
