@@ -24,4 +24,6 @@
 
 button {
   @include info-button_root();
+
+  cursor: pointer;
 }

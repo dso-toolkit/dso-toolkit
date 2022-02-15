@@ -1,4 +1,5 @@
-import { createPopper, Instance as PopperInstance } from '@popperjs/core';
+import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperState } from '@popperjs/core';
+import maxSize from 'popper-max-size-modifier';
 import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
 import clsx from 'clsx';
 
@@ -118,6 +119,24 @@ export class Tooltip {
     e.stopPropagation();
   }
 
+  private applyMaxSize = {
+    name: 'applyMaxSize',
+    enabled: true,
+    phase: beforeWrite,
+    requires: ['maxSize'],
+    fn({ state }: { state: PopperState }) {
+      let { width } = state.modifiersData.maxSize;
+      if (width < 160) {
+        width = 160;
+      }
+
+      state.styles.popper = {
+        ...state.styles.popper,
+        maxWidth: `${width}px`,
+      };
+    },
+  };
+
   componentDidLoad(): void {
     if (this.popper) {
       return;
@@ -131,7 +150,8 @@ export class Tooltip {
     this.target = this.getTarget();
 
     this.popper = createPopper(this.target, tooltip, {
-      placement: this.position
+      placement: this.position,
+      modifiers: [maxSize, this.applyMaxSize],
     });
 
     this.callbacks = {
@@ -169,9 +189,9 @@ export class Tooltip {
 
   render() {
     return (
-      <Host hidden={this.hidden}>
+      <Host class={{ 'hidden': this.hidden }}>
         <div class={clsx('tooltip', { in: this.active })} role="tooltip">
-          {!this.noArrow && <div class="tooltip-arrow"></div>}
+          {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
           <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
           </div>

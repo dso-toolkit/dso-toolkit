@@ -8,8 +8,7 @@ import { tooltipTemplate } from './tooltip.template';
 function asChildTemplate(tooltip: JSX.Element) {
   return (
     <button type="button">
-      <span>Hover or focus me</span>
-      {tooltip}
+      <span>Hover or focus me</span>{tooltip}
     </button>
   );
 }
