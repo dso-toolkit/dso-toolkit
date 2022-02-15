@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + dso-toolkit + sources:** Web Component Header ([#1404](https://github.com/dso-toolkit/dso-toolkit/issues/1404))
+
 ### Fixed
 * **core:** Date Picker met shadowRoot is met extern label element niet toegankelijk ([#1164](https://github.com/dso-toolkit/dso-toolkit/issues/1164))
 

@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
+import { HeaderMenuItem } from "./components/header/header";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
@@ -110,6 +111,16 @@ export namespace Components {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
+    }
+    interface DsoHeader {
+        "isLoggedIn": boolean;
+        "loginUrl"?: string;
+        "logoutUrl"?: string;
+        "mainMenu": HeaderMenuItem[];
+        "useDropDownMenu": "always" | "never" | "auto";
+        "userHomeUrl"?: string;
+        "userProfileName"?: string;
+        "userProfileUrl"?: string;
     }
     interface DsoHelpcenterPanel {
         "label"?: string;
@@ -267,6 +278,12 @@ declare global {
         prototype: HTMLDsoDropdownMenuElement;
         new (): HTMLDsoDropdownMenuElement;
     };
+    interface HTMLDsoHeaderElement extends Components.DsoHeader, HTMLStencilElement {
+    }
+    var HTMLDsoHeaderElement: {
+        prototype: HTMLDsoHeaderElement;
+        new (): HTMLDsoHeaderElement;
+    };
     interface HTMLDsoHelpcenterPanelElement extends Components.DsoHelpcenterPanel, HTMLStencilElement {
     }
     var HTMLDsoHelpcenterPanelElement: {
@@ -371,6 +388,7 @@ declare global {
         "dso-banner": HTMLDsoBannerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
+        "dso-header": HTMLDsoHeaderElement;
         "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
@@ -507,6 +525,16 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    interface DsoHeader {
+        "isLoggedIn"?: boolean;
+        "loginUrl"?: string;
+        "logoutUrl"?: string;
+        "mainMenu": HeaderMenuItem[];
+        "useDropDownMenu"?: "always" | "never" | "auto";
+        "userHomeUrl"?: string;
+        "userProfileName"?: string;
+        "userProfileUrl"?: string;
+    }
     interface DsoHelpcenterPanel {
         "label"?: string;
         "url": string;
@@ -640,6 +668,7 @@ declare namespace LocalJSX {
         "dso-banner": DsoBanner;
         "dso-date-picker": DsoDatePicker;
         "dso-dropdown-menu": DsoDropdownMenu;
+        "dso-header": DsoHeader;
         "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
@@ -669,6 +698,7 @@ declare module "@stencil/core" {
             "dso-banner": LocalJSX.DsoBanner & JSXBase.HTMLAttributes<HTMLDsoBannerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
+            "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;

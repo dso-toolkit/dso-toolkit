@@ -83,10 +83,6 @@ export class DropdownMenu {
     }
   }
 
-  componentDidRender() {
-    this.host.setAttribute("tabindex", "-1");
-  }
-
   componentWillRender() {
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
@@ -101,6 +97,7 @@ export class DropdownMenu {
   }
 
   openPopup() {
+    this.host.setAttribute("tabindex", "-1");
     this.host.addEventListener("keydown", this.keyDownListener);
     this.host.addEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "true");
@@ -113,6 +110,7 @@ export class DropdownMenu {
     this.host.removeEventListener("keydown", this.keyDownListener);
     this.host.removeEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", "false");
+    this.host.removeAttribute("tabindex");
     this.tabbables.forEach((tabbable) =>
       tabbable.removeEventListener("click", this.escape)
     );
@@ -156,9 +154,23 @@ export class DropdownMenu {
     event.preventDefault();
   };
 
+  getActiveElement(root: Document | ShadowRoot = document): Element | null {
+    const activeEl = root.activeElement;
+
+    if (!activeEl) {
+      return null;
+    }
+
+    if (activeEl.shadowRoot) {
+      return this.getActiveElement(activeEl.shadowRoot);
+    } else {
+      return activeEl;
+    }
+  }
+
   tabInPopup(direction: number) {
     const tabs = this.tabbables;
-    const currentIndex = tabs.findIndex((e) => e === document.activeElement);
+    const currentIndex = tabs.findIndex((e) => e === this.getActiveElement());
 
     let nextIndex = currentIndex + direction;
     if (nextIndex >= tabs.length) {

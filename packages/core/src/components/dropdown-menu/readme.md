@@ -18,6 +18,19 @@ Items can be marked as "checked" by adding the attribute `checkable` and adding 
 | `open`          | `open`           | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean`           | `false`  |
 
 
+## Dependencies
+
+### Used by
+
+ - [dso-header](../header)
+
+### Graph
+```mermaid
+graph TD;
+  dso-header --> dso-dropdown-menu
+  style dso-dropdown-menu fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
