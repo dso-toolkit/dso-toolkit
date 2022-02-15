@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **css + dso-toolkit:** Accordion bevindingen en verbeteringen ([#1419](https://github.com/dso-toolkit/dso-toolkit/issues/1419))
 * **dso-toolkit:** Search bar: verwijderen varianten zonder label ([#1239](https://github.com/dso-toolkit/dso-toolkit/issues/1239))
+* **core + css + dso-toolkit + sources:** Verbeteringen Tooltip en Toggletip ([#1362](https://github.com/dso-toolkit/dso-toolkit/issues/1362))
 
 ## 33.2.0
 
