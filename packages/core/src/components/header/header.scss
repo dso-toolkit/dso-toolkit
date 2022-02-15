@@ -22,7 +22,7 @@ $dso-dropdown-link-color: $grijs-90;
   font-size: 1.25em;
   line-height: 1;
   margin-top: $u1;
-  padding: $u2 $u2;
+  padding: $u2 0;
 }
 
 :host {
@@ -52,7 +52,6 @@ $dso-dropdown-link-color: $grijs-90;
   display: flex;
   flex-wrap: wrap;
   padding-bottom: $u2;
-  padding-left: $u2;
   padding-top: $u2;
 }
 
@@ -233,6 +232,7 @@ dso-dropdown-menu {
 
 .dso-nav {
   align-items: end;
+  column-gap: $u4;
   display: flex;
   list-style: none;
   margin-bottom: 0;

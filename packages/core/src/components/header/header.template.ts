@@ -30,7 +30,7 @@ export function headerTemplate({
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
       >
-        <div slot="logo">${unsafeHTML(logo)}</div>
+        <div slot="logo"><img height="40px" alt="Omgevingsloket" src="images/logo/omgevingsloket-beta.svg" /></div>
         <div slot="sub-logo">${unsafeHTML(subLogo)}</div>
       </dso-header>`
     : html`<dso-header
