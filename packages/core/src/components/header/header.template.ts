@@ -1,7 +1,6 @@
 import { Header } from "@dso-toolkit/sources";
 import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined";
-import { unsafeHTML } from "lit-html/directives/unsafe-html";
 
 export function headerTemplate({
   logo,
@@ -30,8 +29,8 @@ export function headerTemplate({
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
       >
-        <div slot="logo"><img height="40px" alt="Omgevingsloket" src="images/logo/omgevingsloket-beta.svg" /></div>
-        <div slot="sub-logo">${unsafeHTML(subLogo)}</div>
+        <div slot="logo"><img height="40" alt="Omgevingsloket" src="${logo}" /></div>
+        <div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div></div>
       </dso-header>`
     : html`<dso-header
         .mainMenu=${mainMenu}
@@ -43,6 +42,6 @@ export function headerTemplate({
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
       >
-        <div slot="logo">${unsafeHTML(logo)}</div>
+        <div slot="logo"><img alt="Omgevingsloket" src="${logo}" /></div>
       </dso-header>`;
 }
