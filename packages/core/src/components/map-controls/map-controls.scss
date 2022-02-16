@@ -9,8 +9,8 @@
 @import "~@dso-toolkit/sources/src/components/button/button";
 
 $transition-duration: 300ms; // Sync with const transitionDuration in map-overlays.tsx
-$controls-margin: 16px;
-$zoom-button-size: 40px;
+$controls-margin: $u2;
+$zoom-button-size: $u5;
 
 :host {
   background-color: #fff;
@@ -39,7 +39,6 @@ $zoom-button-size: 40px;
 #toggle-visibility-button {
   @include button_map();
 
-  left: auto;
   position: absolute;
   right: calc(100% + $controls-margin + $zoom-button-size);
   top: $controls-margin;
