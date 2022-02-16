@@ -1,6 +1,10 @@
 export interface BaseLayer {
   id: number;
   name: string;
+  checked?: boolean;
+  disabled?: boolean;
 }
 
-export type SelectedBaseLayerChangeEvent = CustomEvent<BaseLayer>;
+export interface BaseLayerChangeEvent {
+  activeBaseLayer: BaseLayer;
+}

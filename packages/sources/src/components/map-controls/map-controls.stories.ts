@@ -2,7 +2,7 @@ import { ArgsStoryFn } from '@storybook/addons';
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { mapControlsArgsMapper, mapControlsArgTypes } from './map-controls.args';
-import { baseLayers, overlays, selectedBaseLayer } from './map-controls.content';
+import { baseLayers, overlays } from './map-controls.content';
 import { MapControls } from './map-controls.models';
 
 export interface MapControlsParameters<TemplateFnReturnType> {
@@ -31,7 +31,6 @@ export function storiesOfMapControls<TemplateFnReturnType>(
       args: {
         open: false,
         baseLayers,
-        selectedBaseLayer,
         overlays
       },
       argTypes: mapControlsArgTypes,

@@ -2,7 +2,7 @@ import { HandlerFunction } from '@storybook/addon-actions';
 
 import { ArgTypes } from '../../stories-helpers';
 
-import { baseLayers, overlays, selectedBaseLayer } from './map-controls.content';
+import { baseLayers, overlays } from './map-controls.content';
 import { MapControls } from './map-controls.models';
 
 export interface MapControlsArgs {
@@ -10,11 +10,9 @@ export interface MapControlsArgs {
   zoomOut: HandlerFunction;
   open: boolean;
   baseLayers: typeof baseLayers;
-  selectedBaseLayer: typeof selectedBaseLayer;
   baseLayerChange: HandlerFunction;
   overlays: typeof overlays;
-  checkedOverlays: typeof overlays[0] | string[] | undefined;
-  checkedOverlaysChange: HandlerFunction;
+  toggleOverlay: HandlerFunction;
   disableZoom: 'both' | 'in' | 'out' | undefined;
 }
 
@@ -33,13 +31,6 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
       disable: true
     }
   },
-  selectedBaseLayer: {
-    options: baseLayers.map(b => b.id),
-    mapping: baseLayers.reduce((map, layer) => Object.assign(map, { [layer.id]: layer }), {}),
-    control: {
-      type: 'select'
-    }
-  },
   baseLayerChange: {
     action: 'baseLayerChange'
   },
@@ -48,14 +39,7 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
       disable: true
     }
   },
-  checkedOverlays: {
-    options: overlays.map(o => o.id),
-    mapping: overlays.reduce((map, overlay) => Object.assign(map, { [overlay.id]: overlay }), {}),
-    control: {
-      type: 'check'
-    }
-  },
-  checkedOverlaysChange: {
+  toggleOverlay: {
     action: 'checkedOverlaysChange'
   },
   disableZoom: {
@@ -68,13 +52,15 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
 
 export function mapControlsArgsMapper(a: MapControlsArgs): MapControls {
   return {
-    baseLayerChange: e => a.baseLayerChange(e),
+    baseLayerChange: (e: any) => {
+      e.target!.baseLayers = [...e.target.baseLayers.map((l: any) => l.checked !== (l === e.detail.activeBaseLayer) ? { ...l, checked: l === e.detail.activeBaseLayer } : l)];
+
+      a.baseLayerChange(e);
+    },
     baseLayers: a.baseLayers,
-    checkedOverlays: a.checkedOverlays,
-    checkedOverlaysChange: e => a.checkedOverlaysChange(e),
     open: a.open,
     overlays: a.overlays,
-    selectedBaseLayer: a.selectedBaseLayer,
+    toggleOverlay: e => a.toggleOverlay(e),
     zoomIn: e => a.zoomIn(e),
     zoomOut: e => a.zoomOut(e),
     disableZoom: a.disableZoom

@@ -1,6 +1,8 @@
 import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
 
-import { Overlay } from './map-overlays.interfaces';
+import { Overlay, OverlayChangeEvent } from './map-overlays.interfaces';
+
+import { SelectableChangeEvent } from '../selectable/selectable';
 
 @Component({
   tag: 'dso-map-overlays',
@@ -11,18 +13,13 @@ export class MapOverlays {
   @Prop()
   overlays!: Overlay[];
 
-  @Prop({ mutable: true })
-  checkedOverlays: Overlay[] = [];
-
   @Event()
-  checkedOverlaysChange!: EventEmitter<Overlay[]>;
+  toggleOverlay!: EventEmitter<OverlayChangeEvent>;
 
-  toggleOverlay(overlay: Overlay, checked: boolean): void {
-    this.checkedOverlays = checked
-      ? [...this.checkedOverlays, overlay]
-      : this.checkedOverlays.filter(o => o !== overlay);
+  overlayChangeHandler(overlay: Overlay, e: CustomEvent<SelectableChangeEvent>) {
+    const checked = e.detail.target instanceof HTMLInputElement ? !!e.detail.target.checked : false;
 
-    this.checkedOverlaysChange.emit(this.checkedOverlays);
+    this.toggleOverlay.emit({ overlay, checked });
   }
 
   render() {
@@ -39,8 +36,9 @@ export class MapOverlays {
             <dso-selectable
               type="checkbox"
               value={overlay.name}
-              checked={this.checkedOverlays.includes(overlay)}
-              onDsoChange={() => this.toggleOverlay(overlay, !this.checkedOverlays.includes(overlay))}
+              checked={overlay.checked}
+              disabled={overlay.disabled}
+              onDsoChange={e => this.overlayChangeHandler(overlay, e)}
             >
               {overlay.name}
             </dso-selectable>

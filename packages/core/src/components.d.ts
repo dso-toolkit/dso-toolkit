@@ -9,8 +9,8 @@ import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
 import { HeaderMenuItem } from "./components/header/header";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
-import { BaseLayer } from "./components/map-base-layers/map-base-layers.interfaces";
-import { Overlay } from "./components/map-overlays/map-overlays.interfaces";
+import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
+import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ContentAnchor } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -152,14 +152,12 @@ export namespace Components {
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
-        "selectedBaseLayer": BaseLayer | undefined;
     }
     interface DsoMapControls {
         "disableZoom"?: 'in' | 'out' | 'both';
         "open": boolean;
     }
     interface DsoMapOverlays {
-        "checkedOverlays": Overlay[];
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
@@ -568,8 +566,7 @@ declare namespace LocalJSX {
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
-        "onBaseLayerChange"?: (event: CustomEvent<BaseLayer>) => void;
-        "selectedBaseLayer"?: BaseLayer | undefined;
+        "onBaseLayerChange"?: (event: CustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
         "disableZoom"?: 'in' | 'out' | 'both';
@@ -578,8 +575,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface DsoMapOverlays {
-        "checkedOverlays"?: Overlay[];
-        "onCheckedOverlaysChange"?: (event: CustomEvent<Overlay[]>) => void;
+        "onToggleOverlay"?: (event: CustomEvent<OverlayChangeEvent>) => void;
         "overlays": Overlay[];
     }
     interface DsoOzonContent {

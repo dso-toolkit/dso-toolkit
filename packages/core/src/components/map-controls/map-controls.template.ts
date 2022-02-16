@@ -1,19 +1,17 @@
-import { checkFix, MapControls } from '@dso-toolkit/sources';
+import { MapControls } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 
-import { SelectedBaseLayerChangeEvent } from '../map-base-layers/map-base-layers.interfaces';
-import { CheckedOverlaysChangeEvent, Overlay } from '../map-overlays/map-overlays.interfaces';
+import { BaseLayerChangeEvent } from '../map-base-layers/map-base-layers.interfaces';
+import { OverlayChangeEvent } from '../map-overlays/map-overlays.interfaces';
 
 export function mapControlsTemplate({
   zoomIn,
   zoomOut,
   open,
   baseLayers,
-  selectedBaseLayer,
   baseLayerChange,
   overlays,
-  checkedOverlays,
-  checkedOverlaysChange,
+  toggleOverlay,
   disableZoom
 }: MapControls) {
   return html`
@@ -24,20 +22,18 @@ export function mapControlsTemplate({
       ?open=${open}
     >
       <form>
-        <div class="rich-content">
+        <div class="dso-rich-content">
           <p>Inhoud</p>
         </div>
         <dso-map-base-layers
           .baseLayers=${baseLayers}
-          .selectedBaseLayer=${selectedBaseLayer}
-          @baseLayerChange=${(e: SelectedBaseLayerChangeEvent) => baseLayerChange(e.detail)}
+          @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => baseLayerChange(e)}
         ></dso-map-base-layers>
         <dso-map-overlays
           .overlays=${overlays}
-          .checkedOverlays=${checkFix<Overlay>(checkedOverlays, overlays, o => o.name)}
-          @checkedOverlaysChange=${(e: CheckedOverlaysChangeEvent) => checkedOverlaysChange(e.detail)}
+          @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => toggleOverlay(e)}
         ></dso-map-overlays>
-        <div class="rich-content">
+        <div class="dso-rich-content">
           <p>Ook nog meer inhoud</p>
         </div>
       </form>

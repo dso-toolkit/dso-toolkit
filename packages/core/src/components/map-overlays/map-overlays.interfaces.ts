@@ -1,6 +1,11 @@
 export interface Overlay {
   id: number;
   name: string;
+  checked?: boolean;
+  disabled?: boolean;
 }
 
-export type CheckedOverlaysChangeEvent = CustomEvent<Overlay[]>
+export interface OverlayChangeEvent {
+  overlay: Overlay;
+  checked: boolean;
+}

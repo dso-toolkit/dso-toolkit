@@ -9,15 +9,14 @@ Private component, do not use.
 
 | Property                | Attribute | Description | Type        | Default     |
 | ----------------------- | --------- | ----------- | ----------- | ----------- |
-| `checkedOverlays`       | --        |             | `Overlay[]` | `[]`        |
 | `overlays` _(required)_ | --        |             | `Overlay[]` | `undefined` |
 
 
 ## Events
 
-| Event                   | Description | Type                     |
-| ----------------------- | ----------- | ------------------------ |
-| `checkedOverlaysChange` |             | `CustomEvent<Overlay[]>` |
+| Event           | Description | Type                              |
+| --------------- | ----------- | --------------------------------- |
+| `toggleOverlay` |             | `CustomEvent<OverlayChangeEvent>` |
 
 
 ## Dependencies

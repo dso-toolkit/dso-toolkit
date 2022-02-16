@@ -1,6 +1,6 @@
 import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
 
-import { BaseLayer } from './map-base-layers.interfaces';
+import { BaseLayer, BaseLayerChangeEvent } from './map-base-layers.interfaces';
 
 @Component({
   tag: 'dso-map-base-layers',
@@ -9,18 +9,13 @@ import { BaseLayer } from './map-base-layers.interfaces';
 })
 export class MapBaseLayers {
   @Event()
-  baseLayerChange!: EventEmitter<BaseLayer>;
+  baseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
 
   @Prop()
   baseLayers!: BaseLayer[];
 
-  @Prop({ mutable: true })
-  selectedBaseLayer: BaseLayer | undefined;
-
-  selectBaseLayer(baseLayer: BaseLayer): void {
-    this.selectedBaseLayer = baseLayer;
-
-    this.baseLayerChange.emit(baseLayer);
+  baseLayerChangeHandler(baseLayer: BaseLayer): void {
+    this.baseLayerChange.emit({ activeBaseLayer: baseLayer });
   }
 
   render() {
@@ -33,13 +28,13 @@ export class MapBaseLayers {
           </span>
         </div>
         <div class="dso-field-container">
-          {this.baseLayers.map((baseLayer, i) => (
+          {this.baseLayers.map(baseLayer => (
             <dso-selectable
               key={baseLayer.id}
               type="radio"
               value={baseLayer.name}
-              checked={!this.selectedBaseLayer && i === 0 || this.selectedBaseLayer === baseLayer}
-              onDsoChange={() => this.selectBaseLayer(baseLayer)}
+              checked={baseLayer.checked}
+              onDsoChange={() => this.baseLayerChangeHandler(baseLayer)}
             >
               {baseLayer.name}
             </dso-selectable>

@@ -7,17 +7,16 @@ Private component, do not use.
 
 ## Properties
 
-| Property                  | Attribute | Description | Type                     | Default     |
-| ------------------------- | --------- | ----------- | ------------------------ | ----------- |
-| `baseLayers` _(required)_ | --        |             | `BaseLayer[]`            | `undefined` |
-| `selectedBaseLayer`       | --        |             | `BaseLayer \| undefined` | `undefined` |
+| Property                  | Attribute | Description | Type          | Default     |
+| ------------------------- | --------- | ----------- | ------------- | ----------- |
+| `baseLayers` _(required)_ | --        |             | `BaseLayer[]` | `undefined` |
 
 
 ## Events
 
-| Event             | Description | Type                     |
-| ----------------- | ----------- | ------------------------ |
-| `baseLayerChange` |             | `CustomEvent<BaseLayer>` |
+| Event             | Description | Type                                |
+| ----------------- | ----------- | ----------------------------------- |
+| `baseLayerChange` |             | `CustomEvent<BaseLayerChangeEvent>` |
 
 
 ## Dependencies
