@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **core:** Date Picker met shadowRoot is met extern label element niet toegankelijk ([#1164](https://github.com/dso-toolkit/dso-toolkit/issues/1164))
+* **core + sources:** Map Buttons visual fixes ([#1412](https://github.com/dso-toolkit/dso-toolkit/issues/1412))
 
 ### Changed
 * **css + dso-toolkit:** Accordion bevindingen en verbeteringen ([#1419](https://github.com/dso-toolkit/dso-toolkit/issues/1419))

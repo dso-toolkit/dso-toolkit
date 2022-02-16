@@ -194,20 +194,20 @@
 }
 
 .leaflet-top .leaflet-control {
-  margin-top: 10px;
+  margin-top: $u2;
 }
 
 .leaflet-bottom .leaflet-control {
-  margin-bottom: 10px;
+  margin-bottom: $u2;
 }
 
 .leaflet-left .leaflet-control {
-  margin-left: 10px;
+  margin-left: $u2;
 }
 
 .leaflet-right .leaflet-control {
   float: right;
-  margin-right: 10px;
+  margin-right: $u2;
 }
 
 /* zoom and fade animations */

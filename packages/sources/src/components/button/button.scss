@@ -380,8 +380,25 @@ $dso-button-tertiary-active-color: $scampi;
   }
 }
 
+@mixin button_map_focus() {
+  $focus-map: (
+    "background-color": $dso-button-secondary-hover-background-color,
+    "border-color": $dso-button-secondary-hover-background-color,
+    "color": $wit,
+    "type-download-di": "download-wit",
+    "type-extern-di": "external-link-wit"
+  );
+
+  &:focus-visible {
+    @include _button_shared-variant($focus-map);
+
+    outline: none;
+  }
+}
+
 @mixin button_map() {
   @include button_secondary();
+  @include button_map_focus();
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);

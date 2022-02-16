@@ -45,29 +45,27 @@ export class MapControls {
   render() {
     return (
       <Host>
-        <div id="controls">
-          <button type="button" id="toggle-visibility-button" onClick={() => this.open = !this.open} ref={element => this.#toggleButtonElement = element!}>
-            <dso-icon icon="layers"></dso-icon>
-            <span>Kaartlagen</span>
+        <button type="button" id="toggle-visibility-button" onClick={() => this.open = !this.open} ref={element => this.#toggleButtonElement = element!}>
+          <dso-icon icon="layers"></dso-icon>
+          <span>Kaartlagen</span>
+        </button>
+        <div id="zoom-buttons">
+          <button
+            type="button"
+            onClick={e => this.zoomIn.emit(e)}
+            disabled={this.disableZoom === 'in' || this.disableZoom === 'both'}
+          >
+            <span>Zoom in</span>
+            <dso-icon icon="plus"></dso-icon>
           </button>
-          <div id="zoom-buttons">
-            <button
-              type="button"
-              onClick={e => this.zoomIn.emit(e)}
-              disabled={this.disableZoom === 'in' || this.disableZoom === 'both'}
-            >
-              <span>Zoom in</span>
-              <dso-icon icon="plus"></dso-icon>
-            </button>
-            <button
-              type="button"
-              onClick={e => this.zoomOut.emit(e)}
-              disabled={this.disableZoom === 'out' || this.disableZoom === 'both'}
-            >
-              <span>Zoom uit</span>
-              <dso-icon icon="minus"></dso-icon>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={e => this.zoomOut.emit(e)}
+            disabled={this.disableZoom === 'out' || this.disableZoom === 'both'}
+          >
+            <span>Zoom uit</span>
+            <dso-icon icon="minus"></dso-icon>
+          </button>
         </div>
         <section hidden={this.hideContent}>
           <header>
