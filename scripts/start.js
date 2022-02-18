@@ -126,7 +126,7 @@ switch (argv.mode) {
         startReactLeaflet
       ],
       {
-        killOthers: ['failure', 'success']
+        killOthers: ['failure']
       }
     );
     

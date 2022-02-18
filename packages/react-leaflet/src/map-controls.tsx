@@ -10,7 +10,7 @@ export interface MapControlsProps {
 }
 
 function createMapControls(props: MapControlsProps, ctx: LeafletContextInterface) {
-  const instance = new DsoLeafletMapControls(undefined, undefined);
+  const instance = new DsoLeafletMapControls();
 
   return { instance, context: { ...ctx, mapControls: instance } };
 }
@@ -46,9 +46,26 @@ MapControlsProps & React.RefAttributes<MapControlsProps>
     : null;
 });
 
+// Keep in sync with ../README.md
 export interface ControlledLayerProps {
+  /**
+   * Name of layer, shown to user.
+   */
   name: string
+
+  /**
+   * Whether or not the layer is currently visible.
+   */
   checked?: boolean
+
+  /**
+   * Whether or not the layer is disabled.
+   */
+  disabled?: boolean;
+
+  /**
+   * Layer that this ControlledLayer component manages.
+   */
   children: React.ReactNode
 }
 
@@ -69,12 +86,16 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
     const addLayer = React.useCallback(
       (layerToAdd: Layer) => {
         if (mapControls) {
+          addLayerToControl(mapControls, layerToAdd, propsRef.current.name);
+          setLayer(layerToAdd);
+
           if (propsRef.current.checked) {
             map.addLayer(layerToAdd);
           }
 
-          addLayerToControl(mapControls, layerToAdd, propsRef.current.name);
-          setLayer(layerToAdd);
+          if (propsRef.current.disabled) {
+            mapControls.disableLayer(layerToAdd);
+          }
         }
       },
       [mapControls, map]
@@ -100,6 +121,13 @@ export function createControlledLayer(addLayerToControl: AddLayerFunc) {
         }
         else if (propsRef.current.checked === true && (props.checked == null || props.checked === false)) {
           map.removeLayer(layer);
+        }
+
+        if (props.disabled === true && (!propsRef.current.disabled)) {
+          mapControls.disableLayer(layer);
+        }
+        else if (propsRef.current.disabled === true && (!props.disabled)) {
+          mapControls.enableLayer(layer);
         }
 
         propsRef.current = props;

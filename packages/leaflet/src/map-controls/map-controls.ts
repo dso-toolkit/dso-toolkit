@@ -1,19 +1,10 @@
-import { SelectedBaseLayerChangeEvent, CheckedOverlaysChangeEvent, Overlay } from '@dso-toolkit/core';
+import { BaseLayer, BaseLayerChangeEvent, Overlay, OverlayChangeEvent } from '@dso-toolkit/core';
 import * as L from 'leaflet';
 import { render, html, TemplateResult, nothing } from 'lit-html';
 
-export interface LayerObject {
-  name: string;
-  layer: L.Layer;
-}
-
-export enum LayerType {
-  BaseLayer = 'BASE_LAYER',
-  Overlay = 'OVERLAY'
-}
-
-export interface MapControlsOptions {
-}
+const defaultLayerOptions: Readonly<LayerOptions> = {
+  disabled: false
+};
 
 export class MapControls {
   private state: State;
@@ -32,8 +23,8 @@ export class MapControls {
   constructor(baseLayers?: LayerObject[], overlays?: LayerObject[], options?: MapControlsOptions) {
     this.state = {
       layers: [
-        ...baseLayers?.map(l => ({ ...l, type: LayerType.BaseLayer, id: ++this.lastLayerId })) ?? [],
-        ...overlays?.map(l => ({ ...l, type: LayerType.Overlay, id: ++this.lastLayerId})) ?? []
+        ...baseLayers?.map(l => this.mapToControlledLayer(l, LayerType.BaseLayer)) ?? [],
+        ...overlays?.map(l => this.mapToControlledLayer(l, LayerType.Overlay)) ?? []
       ],
       disableZoom: undefined
     };
@@ -101,8 +92,8 @@ export class MapControls {
    * @param name The name of the Leaflet Layer.
    * @returns The DSO Map Controls instance
    */
-  addBaseLayer(layer: L.Layer, name: string) {
-    this.addLayer(layer, name, LayerType.BaseLayer);
+  addBaseLayer(layer: L.Layer, name: string, options?: Partial<LayerOptions>) {
+    this.addLayer(layer, name, LayerType.BaseLayer, { ...defaultLayerOptions, ...options });
 
     return this;
   }
@@ -115,14 +106,30 @@ export class MapControls {
    * @param name The name of the Leaflet Layer.
    * @returns The DSO Map Controls instance
    */
-  addOverlay(layer: L.Layer, name: string) {
-    this.addLayer(layer, name, LayerType.Overlay);
+  addOverlay(layer: L.Layer, name: string, options?: Partial<LayerOptions>) {
+    this.addLayer(layer, name, LayerType.Overlay, { ...defaultLayerOptions, ...options });
+
+    return this;
+  }
+
+  enableLayer(layer: L.Layer) {
+    this.update({
+      layers: this.state.layers.map(l => l.layer === layer ? { ...l, disabled: false } : l)
+    });
+
+    return this;
+  }
+
+  disableLayer(layer: L.Layer) {
+    this.update({
+      layers: this.state.layers.map(l => l.layer === layer ? { ...l, disabled: true } : l)
+    });
 
     return this;
   }
 
   /**
-   * Remove the given layer from the DSO Map Controls.
+   * Remove a BaseLayer or Overlay from the DSO Map Controls.
    * 
    * Note: This also removes the layer from the Leaflet Map instance.
    * @param layer The Leaflet Layer to remove.
@@ -157,25 +164,26 @@ export class MapControls {
     return this;
   }
 
-  private addLayer(layer: L.Layer, name: string, type: LayerType) {
+  private addLayer(layer: L.Layer, name: string, type: LayerType, { disabled }: LayerOptions) {
     if (this.state.layers.some(l => l.layer === layer)) {
       return;
     }
 
     this.update({
-      layers: [...this.state.layers, { id: ++this.lastLayerId, name: name, layer, type }]
+      layers: [
+        ...this.state.layers,
+        {
+          id: ++this.lastLayerId,
+          name: name,
+          layer,
+          type,
+          disabled
+        }
+      ]
     });
 
     if (this.map) {
       layer.on('add remove', this.onLayerChange, this);
-
-      if (
-        this.state.layers.filter(l => l.type === LayerType.BaseLayer).length === 1 &&
-        !this.map.hasLayer(layer) &&
-        type === LayerType.BaseLayer
-      ) {
-        this.addLayerToMap(layer);
-      }
     }
   }
 
@@ -185,6 +193,7 @@ export class MapControls {
     }
 
     this.map.addLayer(layer);
+    this.update();
   }
 
   private removeLayerFromMap(layer: L.Layer) {
@@ -193,6 +202,7 @@ export class MapControls {
     }
 
     this.map.removeLayer(layer);
+    this.update();
   }
 
   private onLayerChange(e: L.LeafletEvent) {
@@ -218,20 +228,22 @@ export class MapControls {
     if (type) {
       this.map.fire(type, e.target);
     }
+
+    this.update();
   }
 
-  private handleBaselayerChange(id: number) {
+  private handleBaselayerChange({ activeBaseLayer }: BaseLayerChangeEvent) {
     if (!this.map) {
       return;
     }
 
-    const layer = this.state.layers.find(l => l.id === id);
+    const layer = this.state.layers.find(l => l.id === activeBaseLayer.id);
     if (!layer) {
       throw new Error('Trying to add non-existing layer');
     }
 
     for (const layer of this.state.layers) {
-      if (layer.id !== id && this.map.hasLayer(layer.layer) && layer.type === LayerType.BaseLayer) {
+      if (layer.id !== activeBaseLayer.id && this.map.hasLayer(layer.layer) && layer.type === LayerType.BaseLayer) {
         this.removeLayerFromMap(layer.layer);
       }
     }
@@ -239,18 +251,21 @@ export class MapControls {
     this.addLayerToMap(layer.layer);
   }
 
-  private handleOverlaysChange(checkedOverlays: Overlay[]) {
+  private handleToggleOverlay({ checked, overlay }: OverlayChangeEvent) {
     if (!this.map) {
       return;
     }
 
-    for (const layer of this.state.layers) {
-      if (checkedOverlays.includes(layer) && !this.map.hasLayer(layer.layer) && layer.type === LayerType.Overlay) {
-        this.addLayerToMap(layer.layer);
-      }
-      else if (!checkedOverlays.includes(layer) && this.map.hasLayer(layer.layer) && layer.type === LayerType.Overlay) {
-        this.removeLayerFromMap(layer.layer);
-      }
+    const layer = this.state.layers.find(({ id }) => overlay.id === id);
+    if (!layer) {
+      return;
+    }
+
+    if (checked && !this.map.hasLayer(layer.layer)) {
+      this.addLayerToMap(layer.layer);
+    }
+    else if (!checked && this.map.hasLayer(layer.layer)) {
+      this.removeLayerFromMap(layer.layer);
     }
   }
 
@@ -294,9 +309,25 @@ export class MapControls {
     return this.state.layers
       .filter(l => l.type === type)
       .sort((a, b) => a.name.localeCompare(b.name))
+      .map(({ id, name, layer, disabled = false }) => ({
+        id,
+        name,
+        checked: this.map?.hasLayer(layer) ?? false,
+        disabled
+      }));
   }
 
-  private update(changedState: Partial<State>): void {
+  private mapToControlledLayer(layerObject: LayerObject, layerType: LayerType): ControlledLayer {
+    return {
+      id: ++this.lastLayerId,
+      type: layerType,
+      name: layerObject.name,
+      layer: layerObject.layer,
+      disabled: !!layerObject.disabled
+    };
+  }
+
+  private update(changedState?: Partial<State>): void {
     this.state = { ...this.state, ...changedState };
 
     this.render();
@@ -311,11 +342,8 @@ export class MapControls {
   }
 
   private template(): TemplateResult {
-    const baseLayers = this.filterLayersByTypeAndSort(LayerType.BaseLayer);
-    const overlays = this.filterLayersByTypeAndSort(LayerType.Overlay);
-
-    const selectedBaseLayer = baseLayers.find(b => this.map?.hasLayer(b.layer));
-    const checkedOverlays = overlays.filter(o => this.map?.hasLayer(o.layer));
+    const baseLayers: BaseLayer[] = this.filterLayersByTypeAndSort(LayerType.BaseLayer);
+    const overlays: Overlay[] = this.filterLayersByTypeAndSort(LayerType.Overlay);
 
     return html`
       <dso-map-controls
@@ -328,33 +356,49 @@ export class MapControls {
             ? html`
               <dso-map-base-layers
                 .baseLayers=${baseLayers}
-                .selectedBaseLayer=${selectedBaseLayer}
-                @baseLayerChange=${(e: SelectedBaseLayerChangeEvent) => this.handleBaselayerChange(e.detail.id)}
-              ></dso-map-base-layers>
-            `
+                @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
+              ></dso-map-base-layers>`
             : nothing
           }
           ${overlays.length > 0
             ? html`
               <dso-map-overlays
                 .overlays=${overlays}
-                .checkedOverlays=${checkedOverlays}
-                @checkedOverlaysChange=${(e: CheckedOverlaysChangeEvent) => this.handleOverlaysChange(e.detail)}
-              ></dso-map-overlays>
-            `
+                @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
+              ></dso-map-overlays>`
             : nothing
           }
-          </form>
+        </form>
       </dso-map-controls>
     `;
   }
+}
+
+export interface LayerObject {
+  name: string;
+  layer: L.Layer;
+  checked?: boolean;
+  disabled?: boolean;
+}
+
+interface LayerOptions {
+  disabled: boolean;
+}
+
+export enum LayerType {
+  BaseLayer = 'BASE_LAYER',
+  Overlay = 'OVERLAY'
+}
+
+export interface MapControlsOptions {
 }
 
 interface ControlledLayer {
   id: number;
   name: string;
   layer: L.Layer;
-  type: LayerType
+  type: LayerType;
+  disabled: boolean;
 }
 
 interface State {

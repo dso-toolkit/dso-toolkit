@@ -1,6 +1,6 @@
 import { defineCustomElements } from '@dso-toolkit/core';
 import * as L from 'leaflet';
-import { html, render } from 'lit-html';
+import { html, nothing, render } from 'lit-html';
 
 import * as Dso from '../src';
 
@@ -57,10 +57,17 @@ const baseLayers = [
   }
 ];
 
+const fakeLayer = {} as any;
+
 const overlays = [
   {
     name: 'Plaatsen',
     layer: cities
+  },
+  {
+    name: 'Niet beschikbaar',
+    layer: fakeLayer,
+    disabled: true
   }
 ];
 
@@ -72,7 +79,7 @@ if (nativeControls) {
   ).addTo(map);
 
   devtools = {
-    addStreets: () => layersControl.addBaseLayer(streets, 'Streets'),
+    addStreets: () => layersControl.addBaseLayer(streets, 'Straten'),
     removeStreets: () => layersControl.removeLayer(streets),
     addGrayscale: () => layersControl.addBaseLayer(grayscale, 'Overlay'),
     removeGrayscale: () => layersControl.removeLayer(grayscale),
@@ -84,12 +91,14 @@ else {
   const mapControls = new Dso.MapControls(baseLayers, overlays).addTo(map);
 
   devtools = {
-    addStreets: () => mapControls.addBaseLayer(streets, 'Streets'),
+    addStreets: () => mapControls.addBaseLayer(streets, 'Straten'),
     removeStreets: () => mapControls.removeLayer(streets),
     addGrayscale: () => mapControls.addBaseLayer(grayscale, 'Grayscale'),
     removeGrayscale: () => mapControls.removeLayer(grayscale),
-    addCities: () => mapControls.addOverlay(cities, 'Cities'),
-    removeCities: () => mapControls.removeLayer(cities)
+    addCities: () => mapControls.addOverlay(cities, 'Plaatsen'),
+    removeCities: () => mapControls.removeLayer(cities),
+    enableFakeLayer: () => mapControls.enableLayer(fakeLayer),
+    disableFakeLayer: () => mapControls.disableLayer(fakeLayer)
   };
 }
 
@@ -115,6 +124,18 @@ render(
     <button type="button" @click=${devtools.removeCities}>
       remove cities
     </button>
+    ${!nativeControls
+      ? html`
+        <hr>
+        <button type="button" @click=${devtools.enableFakeLayer}>
+          enable fake layer
+        </button>
+        <button type="button" @click=${devtools.disableFakeLayer}>
+          disable fake layer
+        </button>
+      `
+      : nothing
+    }
   `,
   document.getElementById('devtools')!
 );

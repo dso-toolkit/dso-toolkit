@@ -33,6 +33,36 @@ render(app, document.getElementById('root'))
 * Make sure to disable the default `ZoomControl`.
 * Pass any layers that needs to be controlled as children.
 
+### `<MapControls.BaseLayer>` & `<MapControls.Overlay>`
+
+Layer container. Layer is passed as `children`.
+
+```ts
+export interface ControlledLayerProps {
+  /**
+   * Name of layer, shown to user.
+   */
+  name: string
+
+  /**
+   * Whether or not the layer is currently visible.
+   */
+  checked?: boolean
+
+  /**
+   * Whether or not the layer is disabled.
+   */
+  disabled?: boolean;
+
+  /**
+   * Layer that this ControlledLayer component manages.
+   */
+  children: React.ReactNode
+}
+```
+
+## Example
+
 ```tsx
 import * as React from 'react';
 import { MapContainer, TileLayer, Marker, Popup, LayerGroup } from 'react-leaflet';
@@ -71,7 +101,7 @@ function MyMap() {
             url={mapboxUrl}
           />
         </MapControls.BaseLayer>
-        <MapControls.Overlay name="Cities">
+        <MapControls.Overlay name="Cities" disabled>
           <LayerGroup>
             <Marker position={[39.61, -105.02]} icon={markerIcon()}>
               <Popup>
