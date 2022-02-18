@@ -1986,8 +1986,8 @@ __metadata:
     react-leaflet: ^3.2.2
     typescript: 4.4.4
   peerDependencies:
-    "@dso-toolkit/core": "*"
-    "@dso-toolkit/leaflet": "*"
+    "@dso-toolkit/core": ^33.3.0
+    "@dso-toolkit/leaflet": ^1.1.0
     leaflet: ^1.7.1
     react: ^17.0.2
     react-dom: ^17.0.2
