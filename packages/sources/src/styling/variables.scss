@@ -14,7 +14,7 @@
 $dso-buttons: ".btn, .dso-primary, .dso-secondary, .dso-tertiary";
 $not-dso-buttons: ":not(.btn):not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
 
-/* stylelint-disable string-no-newline */
+// stylelint-disable string-no-newline -- Escaped new lines wanted to improve readability
 $dso-button-adjacent: "\
   .btn + .btn,\
   .btn + .dso-primary,\
@@ -64,4 +64,4 @@ $dso-button-adjacent-tertiary: "\
   .dso-tertiary + .dso-tertiary,\
   .dso-tertiary + .btn-link\
 ";
-/* stylelint-enable */
+// stylelint-enable

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "patch-package",
-    "lint": "stylelint 'packages/**/*.scss'",
+    "lint": "stylelint --cache 'packages/**/*.scss'",
     "build": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
     "test": "yarn workspace dso-toolkit smoke-test && yarn workspace dso-toolkit test",
     "build-www": "yarn workspace @dso-toolkit/css build-www && yarn workspace @dso-toolkit/core build-www && yarn workspace @dso-toolkit/react build-www",
@@ -27,6 +27,7 @@
     "start:all": "yarn node scripts/start.js --mode all"
   },
   "dependencies": {
+    "@infoprojects/stylelint-config-scss": "^0.2.0",
     "@percy/cli": "^1.0.0-beta.73",
     "concurrently": "^6.3.0",
     "cpy-cli": "^3.1.1",
@@ -40,9 +41,7 @@
     "postinstall-postinstall": "^2.1.0",
     "rimraf": "^3.0.2",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "22.0.0",
-    "stylelint-scss": "3.21.0",
+    "stylelint": "^14.5.3",
     "wait-on": "^6.0.0"
   },
   "resolutions": {

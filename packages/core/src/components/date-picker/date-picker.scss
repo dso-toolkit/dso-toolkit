@@ -309,7 +309,7 @@ $date-picker-z-index: 600;
 // ---------------------------------------------
 
 .dso-date__nav {
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
 }
 
 .dso-date__prev,
@@ -437,8 +437,8 @@ $date-picker-z-index: 600;
   overflow: hidden;
   padding: 12px 20px;
   position: relative;
-  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list
+  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
   width: 120%;
 
   @media (min-width: 36em) {
@@ -458,8 +458,8 @@ $date-picker-z-index: 600;
   font-weight: $date-picker-font-bold;
   max-width: 84%;
   overflow: hidden;
-  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list
+  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
 
   @media (min-width: 36em) {
     display: none;

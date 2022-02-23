@@ -271,7 +271,7 @@ dso-dropdown-menu {
         @include anchor-reverse();
         @include nav-item-main();
 
-        /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+        // stylelint-disable-next-line declaration-property-value-disallowed-list -- no wrapping wanted because of icon
         white-space: nowrap;
       }
     }

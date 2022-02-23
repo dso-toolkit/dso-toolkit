@@ -1,6 +1,6 @@
 @import "../variables";
 @import "../mixins/rich-content";
-@import "../mixins/table-responsive.scss";
+@import "../mixins/table-responsive";
 @import "../mixins/table-row-variant";
 
 $table-cell-padding: $u1;
@@ -45,7 +45,7 @@ table.table,
   .btn-link {
     position: relative;
     top: -2px;
-    white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- These actions are always accomponied by icons, we always want the icon next to the text
   }
 
   &.dso-text-left {
@@ -160,9 +160,7 @@ table.table,
   }
 }
 
-// Hover effect
-//
-// Placed here since it has to come after the potential zebra striping
+// Hover effect. Placed here since it has to come after the potential zebra striping
 
 .table-hover {
   > tbody > tr:hover {
@@ -170,9 +168,7 @@ table.table,
   }
 }
 
-// Table cell sizing
-//
-// Reset default table behavior
+// Table cell sizing. Reset default table behavior
 
 table col[class*="col-"] {
   display: table-column;

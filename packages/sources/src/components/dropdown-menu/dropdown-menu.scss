@@ -114,7 +114,7 @@ $dso-dropdown-link-color: $grijs-90;
         line-height: 1.5;
         padding: 3px $dso-dropdown-hor-padding;
         text-decoration: none;
-        white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
+        white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in Dropdown items
 
         &:hover,
         &:focus {

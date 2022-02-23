@@ -25,7 +25,7 @@
       > tr {
         > th,
         > td {
-          white-space: nowrap; /* stylelint-disable-line declaration-property-value-disallowed-list */
+          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Can't have responsive tables without
         }
       }
     }

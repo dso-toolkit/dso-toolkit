@@ -1,8 +1,10 @@
+@use "sass:color";
+
 $gray-base:              #000 !default;
-$gray-dark:              lighten($gray-base, 20%) !default;   // #333
-$gray:                   lighten($gray-base, 33.5%) !default; // #555
-$gray-light:             lighten($gray-base, 46.7%) !default; // #777
-$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+$gray-dark:              color.adjust($gray-base, $lightness: 20%) !default;   // #333
+$gray:                   color.adjust($gray-base, $lightness: 33.5%) !default; // #555
+$gray-light:             color.adjust($gray-base, $lightness: 46.7%) !default; // #777
+$gray-lighter:           color.adjust($gray-base, $lightness: 93.5%) !default; // #eee
 
 // DSO kleuren                http://webaim.org/resources/contrastchecker/ (contrast op een witte achtergrond)
 
