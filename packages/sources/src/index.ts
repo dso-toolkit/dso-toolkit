@@ -61,6 +61,8 @@ export * from './components/label/label.stories';
 export * from './components/label-group/label-group.models';
 export * from './components/link-list/link-list.models';
 export * from './components/link-list/link-list.stories';
+export * from './components/lists/lists.models';
+export * from './components/lists/lists.stories';
 export * from './components/list-button/list-button.models';
 export * from './components/list-button/list-button.stories';
 export * from './components/map-controls/map-controls.models';

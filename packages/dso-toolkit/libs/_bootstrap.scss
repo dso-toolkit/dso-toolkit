@@ -30,7 +30,7 @@
 // @import "bootstrap/mixins/buttons"; -> Moved to @dso-toolkit/sources
 @import "bootstrap/mixins/panels";
 @import "bootstrap/mixins/pagination";
-@import "bootstrap/mixins/list-group";
+// @import "bootstrap/mixins/list-group"; Deleted
 @import "bootstrap/mixins/nav-divider";
 @import "bootstrap/mixins/forms";
 // @import "bootstrap/mixins/progress-bar"; -> Moved to @dso-toolkit/styling
@@ -70,7 +70,7 @@
 // @import "bootstrap/thumbnails"; -> Deleted
 // @import "bootstrap/alerts"; -> moved to @dso-toolkit/styling
 @import "bootstrap/media";
-@import "bootstrap/list-group";
+// @import "bootstrap/list-group"; -> partially moved to @dso-toolkit/css/src/components/lists
 @import "bootstrap/panels";
 @import "bootstrap/responsive-embed";
 @import "bootstrap/wells";
