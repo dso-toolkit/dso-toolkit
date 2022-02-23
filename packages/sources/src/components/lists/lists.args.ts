@@ -1,15 +1,15 @@
 import { ArgTypes } from '../../stories-helpers';
 
-import { ListItem, Lists, ListType } from './lists.models';
+import { Lists, ListType } from './lists.models';
 
 export interface ListsArgs {
-  items: ListItem[];
+  listItems: string[];
   type?: ListType;
   modifier?: string;
 }
 
 export const listsArgTypes: ArgTypes<ListsArgs> = {
-  items: {
+  listItems: {
     control: {
       disable: true
     }
@@ -30,7 +30,7 @@ export const listsArgTypes: ArgTypes<ListsArgs> = {
 
 export function listsArgsMapper(a: ListsArgs): Lists {
   return {
-    items: a.items,
+    listItems: a.listItems,
     type: a.type,
     modifier: a.modifier
   };

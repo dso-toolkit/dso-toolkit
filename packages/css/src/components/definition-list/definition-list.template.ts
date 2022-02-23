@@ -1,7 +1,10 @@
-import { Definition, DefinitionList } from '@dso-toolkit/sources';
+import { Definition, DefinitionList, DefinitionDescriptionContent, DefinitionDescriptionItems } from '@dso-toolkit/sources';
+
 import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+
+import { listsTemplate } from '../lists/lists.template';
 
 function definitionTemplate({ term, descriptions }: Definition<TemplateResult>, useSrOnlyColon: boolean) {
   return html`
@@ -12,9 +15,21 @@ function definitionTemplate({ term, descriptions }: Definition<TemplateResult>, 
       }
     </dt>
     ${descriptions.map(description => html`
-      <dd>${typeof description === 'string' ? unsafeHTML(description) : description}</dd>
+      <dd>${definitionContentTemplate(description)}</dd>
     `)}
   `;
+}
+
+function definitionContentTemplate(description: DefinitionDescriptionContent<TemplateResult> | DefinitionDescriptionItems) {
+  if ('content' in description) {
+    if (typeof description.content === 'string') {
+      return unsafeHTML(description.content);
+    }
+
+    return description.content;
+  }
+
+  return listsTemplate(description.columnsList);
 }
 
 export function definitionListTemplate({ modifier, definitions, useSrOnlyColon }: DefinitionList<TemplateResult>) {

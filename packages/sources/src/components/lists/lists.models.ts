@@ -5,10 +5,6 @@ export enum ListType {
 
 export interface Lists {
   type?: ListType;
-  items: ListItem[];
+  listItems: string[];
   modifier?: string;
-}
-
-export interface ListItem {
-  text: string;
 }

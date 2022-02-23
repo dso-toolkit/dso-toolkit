@@ -26,22 +26,12 @@ export function storiesOfLists<TemplateFnReturnType>(
       },
       argTypes: listsArgTypes,
       args: {
-        items: [
-          {
-            text: 'Cras justo odio'
-          },
-          {
-            text: 'Dapibus ac facilisis in'
-          },
-          {
-            text: 'Morbi leo risus'
-          },
-          {
-            text: 'Porta ac consectetur ac'
-          },
-          {
-            text: 'Vestibulum at eros'
-          }
+        listItems: [
+          'Cras justo odio',
+          'Dapibus ac facilisis in',
+          'Morbi leo risus',
+          'Porta ac consectetur ac',
+          'Vestibulum at eros'
         ]
       }
     });
