@@ -495,7 +495,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   line-height: 1.1;
   padding: 2px 5px 1px;
   font-size: 11px;
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
   overflow: hidden;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -610,7 +610,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   width: 24px;
   margin: 0 auto;
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
-  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678); // stylelint-disable-line function-name-case, value-keyword-case
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
 }
 
 .leaflet-oldie .leaflet-popup-tip-container {
@@ -640,7 +640,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   border: 1px solid #fff;
   border-radius: 3px;
   color: #222;
-  white-space: nowrap; //stylelint-disable-line declaration-property-value-disallowed-list
+  white-space: nowrap; //stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

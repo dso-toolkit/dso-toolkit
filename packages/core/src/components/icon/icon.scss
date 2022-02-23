@@ -3,7 +3,7 @@
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
 
 :host {
-  /* stylelint-disable-next-line no-invalid-position-at-import-rule */
+  // stylelint-disable-next-line no-invalid-position-at-import-rule -- legacy
   @import "~@dso-toolkit/sources/src/styling/variables/icon";
 
   display: inline-block;

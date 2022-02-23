@@ -11,6 +11,7 @@
 @import "~@dso-toolkit/sources/src/components";
 
 // Import component global stylesheets
+// stylelint-disable scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 @import "components/alert/alert.global";
 @import "components/banner/banner.global";
 @import "components/dropdown-menu/dropdown-menu.global";
@@ -19,3 +20,4 @@
 @import "components/label/label.global";
 @import "components/map-controls/map-controls.global";
 @import "components/selectable/selectable.global";
+// stylelint-enable scss/at-import-partial-extension

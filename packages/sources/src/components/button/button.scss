@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // ====================
 // Variables
 // ====================
@@ -30,11 +32,11 @@ $dso-button-tertiary-active-color: $scampi;
 // ====================
 
 @mixin _button_shared-variant($defaults-map, $variant-map: ()) {
-  $map: map-merge($defaults-map, $variant-map);
+  $map: map.merge($defaults-map, $variant-map);
 
-  background-color: map-get($map, "background-color");
-  border-color: map-get($map, "border-color");
-  color: map-get($map, "color");
+  background-color: map.get($map, "background-color");
+  border-color: map.get($map, "border-color");
+  color: map.get($map, "color");
 }
 
 @mixin _button_shared-type-icon($default-di, $hover-di, $disabled-di) {
@@ -115,17 +117,17 @@ $dso-button-tertiary-active-color: $scampi;
 
   &.download {
     @include _button_shared-type-icon(
-      map-get($defaults-map, "type-download-di"),
-      map-get($hover-map, "type-download-di"),
-      map-get($disabled-map, "type-download-di")
+      map.get($defaults-map, "type-download-di"),
+      map.get($hover-map, "type-download-di"),
+      map.get($disabled-map, "type-download-di")
     );
   }
 
   &.extern {
     @include _button_shared-type-icon(
-      map-get($defaults-map, "type-extern-di"),
-      map-get($hover-map, "type-extern-di"),
-      map-get($disabled-map, "type-extern-di")
+      map.get($defaults-map, "type-extern-di"),
+      map.get($hover-map, "type-extern-di"),
+      map.get($disabled-map, "type-extern-di")
     );
   }
 
@@ -405,5 +407,5 @@ $dso-button-tertiary-active-color: $scampi;
   font-weight: 600;
   margin-right: $u2;
   padding: $u1 $u2;
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
 }
