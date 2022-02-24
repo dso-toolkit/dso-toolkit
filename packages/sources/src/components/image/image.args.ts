@@ -15,7 +15,7 @@ export const imageArgTypes: ArgTypes<ImageArgs> = {
     }
   },
   modifier: {
-    options: [undefined, 'img-responsive', 'img-rounded', 'img-circle', 'img-thumbnail'],
+    options: [undefined, 'img-responsive', 'img-circle'],
     control: {
       type: 'select'
     }

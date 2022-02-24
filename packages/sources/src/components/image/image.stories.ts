@@ -47,31 +47,11 @@ export function storiesOfImage<TemplateFnReturnType>(
   );
 
   stories.add(
-    'rounded',
-    template,
-    {
-      args: {
-        modifier: 'img-rounded'
-      }
-    }
-  );
-
-  stories.add(
     'circle',
     template,
     {
       args: {
         modifier: 'img-circle'
-      }
-    }
-  );
-
-  stories.add(
-    'thumbnail',
-    template,
-    {
-      args: {
-        modifier: 'img-thumbnail'
       }
     }
   );
