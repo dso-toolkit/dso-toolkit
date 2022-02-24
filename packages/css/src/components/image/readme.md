@@ -1,1 +1,1 @@
-# `.img-responsive`, `.img-rounded`, `.img-circle`, `.img-thumbnail`
+# `.img-responsive`, `.img-circle`

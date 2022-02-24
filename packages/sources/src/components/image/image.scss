@@ -9,8 +9,10 @@ $thumbnail-border-radius: $border-radius-base;
   height: auto;
 }
 
+// DEPRECATED
 @mixin img-rounded() {
   border-radius: $border-radius-large;
+  outline: 8px solid $dso-invalid-color;
 }
 
 @mixin img-thumbnail() {
@@ -18,10 +20,12 @@ $thumbnail-border-radius: $border-radius-base;
   border-radius: $thumbnail-border-radius;
   border: 1px solid $thumbnail-border;
   line-height: $line-height-base;
+  outline: 8px solid $dso-invalid-color;
   padding: $thumbnail-padding;
 
   @include img-responsive(inline-block);
 }
+// DEPRECATED
 
 @mixin img-circle() {
   border-radius: 50%;
