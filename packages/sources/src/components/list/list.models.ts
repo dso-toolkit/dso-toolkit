@@ -1,10 +1,10 @@
-export enum ListType {
+export enum Type {
   Ul = 'ul',
   Ol = 'ol'
 }
 
-export interface Lists {
-  type?: ListType;
+export interface List {
+  type?: Type;
   listItems: string[];
   modifier?: string;
 }

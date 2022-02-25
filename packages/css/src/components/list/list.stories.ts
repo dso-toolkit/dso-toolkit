@@ -1,16 +1,16 @@
-import { storiesOfLists } from '@dso-toolkit/sources';
+import { storiesOfList } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { listsTemplate } from './lists.template';
+import { listTemplate } from './list.template';
 import readme from './readme.md';
 
-storiesOfLists(
+storiesOfList(
   {
     storiesOf,
     module,
     readme
   },
   {
-    listsTemplate
+    listTemplate
   }
 );

@@ -1,4 +1,4 @@
-import { Lists, ListType } from '@dso-toolkit/sources';
+import { List, Type } from '@dso-toolkit/sources';
 
 import { html, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map';
@@ -25,7 +25,7 @@ function ol(children: TemplateResult, modifier?: string) {
   `;
 }
 
-export function listsTemplate({ type, listItems, modifier }: Lists) {
+export function listTemplate({ type, listItems, modifier }: List) {
   const children = html`
     ${listItems.map(item => html`
       <li class="${classMap({'list-group-item': modifier === 'group'})}">
@@ -34,7 +34,7 @@ export function listsTemplate({ type, listItems, modifier }: Lists) {
     `)}
   `;
 
-  if (type === ListType.Ol) {
+  if (type === Type.Ol) {
     return ol(children, modifier);
   }
 

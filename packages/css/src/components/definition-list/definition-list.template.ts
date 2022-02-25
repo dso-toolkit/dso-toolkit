@@ -4,7 +4,7 @@ import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
-import { listsTemplate } from '../lists/lists.template';
+import { listTemplate } from '../list/list.template';
 
 function definitionTemplate({ term, descriptions }: Definition<TemplateResult>, useSrOnlyColon: boolean) {
   return html`
@@ -29,7 +29,7 @@ function definitionContentTemplate(description: DefinitionDescriptionContent<Tem
     return description.content;
   }
 
-  return listsTemplate(description.columnsList);
+  return listTemplate(description.list);
 }
 
 export function definitionListTemplate({ modifier, definitions, useSrOnlyColon }: DefinitionList<TemplateResult>) {

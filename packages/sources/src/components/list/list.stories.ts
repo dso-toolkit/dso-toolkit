@@ -1,30 +1,30 @@
 import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
-import { listsArgsMapper, listsArgTypes } from './lists.args';
-import { Lists, ListType } from './lists.models';
+import { listArgsMapper, listArgTypes } from './list.args';
+import { List, Type } from './list.models';
 
-export interface ListsParameters<TemplateFnReturnType> {
-  listsTemplate: (listsProperties: Lists) => TemplateFnReturnType;
+export interface ListParameters<TemplateFnReturnType> {
+  listTemplate: (listProperties: List) => TemplateFnReturnType;
 }
 
-export function storiesOfLists<TemplateFnReturnType>(
+export function storiesOfList<TemplateFnReturnType>(
   {
     module: mainModule,
     storiesOf,
     readme
   }: StorybookParameters,
   {
-    listsTemplate
-  }: ListsParameters<TemplateFnReturnType>
+    listTemplate
+  }: ListParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(listsArgsMapper, listsTemplate);
+  const template = bindTemplate(listArgsMapper, listTemplate);
 
-  const stories = storiesOf('Lists', mainModule)
+  const stories = storiesOf('List', mainModule)
     .addParameters({
       docs: {
         page: readme
       },
-      argTypes: listsArgTypes,
+      argTypes: listArgTypes,
       args: {
         listItems: [
           'Cras justo odio',
@@ -41,7 +41,7 @@ export function storiesOfLists<TemplateFnReturnType>(
     template,
     {
       args: {
-        type: ListType.Ul
+        type: Type.Ul
       }
     }
   );
@@ -51,7 +51,7 @@ export function storiesOfLists<TemplateFnReturnType>(
     template,
     {
       args: {
-        type: ListType.Ol
+        type: Type.Ol
       }
     }
   );
@@ -61,7 +61,7 @@ export function storiesOfLists<TemplateFnReturnType>(
     template,
     {
       args: {
-        type: ListType.Ul,
+        type: Type.Ul,
         modifier: 'group'
       }
     }
@@ -72,7 +72,7 @@ export function storiesOfLists<TemplateFnReturnType>(
     template,
     {
       args: {
-        type: ListType.Ul,
+        type: Type.Ul,
         modifier: 'columns'
       }
     }

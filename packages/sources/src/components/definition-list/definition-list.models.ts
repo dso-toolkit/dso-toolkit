@@ -1,4 +1,4 @@
-import { Lists } from "../lists/lists.models";
+import { List } from "../list/list.models";
 
 export interface DefinitionList<TemplateFnReturnType = never> {
   modifier?: string;
@@ -16,5 +16,5 @@ export interface DefinitionDescriptionContent<TemplateFnReturnType> {
 }
 
 export interface DefinitionDescriptionItems {
-  columnsList: Lists;
+  list: List;
 }

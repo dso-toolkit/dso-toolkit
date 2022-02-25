@@ -142,7 +142,7 @@ export const columnContentDefinitions: Definition[] = [
     term: 'Trefwoorden',
     descriptions: [
       {
-        columnsList: {
+        list: {
           listItems: [
             'aanbouwen',
             'afvalcontainer',

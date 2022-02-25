@@ -5,11 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Added
-* **css + dso-toolkit + sources:** CSS Component Lists ([#1397](https://github.com/dso-toolkit/dso-toolkit/issues/1397))
-
 ### Changed
 * **sources:** CSS Component Image naar storybook - varianten `img-rounded` en `img-thumbnail` deprecated ([#1188](https://github.com/dso-toolkit/dso-toolkit/issues/1188))
+* **css + dso-toolkit + sources:** CSS Component List verhuizing ([#1397](https://github.com/dso-toolkit/dso-toolkit/issues/1397))
 
 ## 33.3.0
 
