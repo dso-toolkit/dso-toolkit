@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Voorbeeldpagina conclusie Vergunningcheck aanpassen 'Opslaan in Mijn Omgevingswet' ([#1430](https://github.com/dso-toolkit/dso-toolkit/issues/1430)) 
 * **css + dso-toolkit + sources:** CSS Component Pagination verhuizing ([#1254](https://github.com/dso-toolkit/dso-toolkit/issues/1254))
 
+### Fixed
+* **core:** Tree View: Lange labels vallen onder caret ([#1433](https://github.com/dso-toolkit/dso-toolkit/issues/1433))
+
 ## 33.3.0
 
 ### Changed
