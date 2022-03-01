@@ -52,6 +52,21 @@ The consumer of the Tree View should update the TreeView's collection on the ope
 | `openItem`  | Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).                                                                                                                   | `CustomEvent<TreeViewItem[]>`       |
 
 
+## TreeViewPointerEvent
+
+```typescript
+export interface TreeViewPointerEvent {
+  path: TreeViewItem[],
+  originalEvent: MouseEvent
+}
+```
+
+| Property                  | Description                     | Type                     |
+| ------------------------- | ------------------------------- | ------------------------ |
+| `path`                    | The full path to the clicked item | `TreeViewItem[]` |
+| `originalEvent`           | The original browser click event | `MouseEvent` |
+
+
 ## Dependencies
 
 ### Depends on

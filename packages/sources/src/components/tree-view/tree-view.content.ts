@@ -89,8 +89,15 @@ export const items: TreeViewItem[] = [
           },
           {
             id: 'item.1.2.4',
-            label: 'binnenplaatsen',
-            hasItems: false
+            label: 'binnenplaatsen met buitengewoon grote open plekken waar je lekker kunt zitten en van de zon kunt genieten',
+            hasItems: true,
+            items: [
+              {
+                id: 'item.1.2.4.1',
+                label: 'zonnehofjes',
+                hasItems: false
+              }
+            ]
           },
           {
             id: 'item.1.2.5',
