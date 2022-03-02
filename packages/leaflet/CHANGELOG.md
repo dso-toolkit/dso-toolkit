@@ -5,10 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## v1.2.0 - 2022-03-02
+
 ### Added
 * Ondersteuning voor `LayerOptions.minZoom` en `LayerOptions.maxZoom` ([#1432](https://github.com/dso-toolkit/dso-toolkit/issues/1432)). **Let op:** Eigen `minZoom/maxZoom` + `disabled` implementaties kunnen het beste worden ontmanteld.
 
-## v1.1.0 - 2022-02-2022
+## v1.1.0 - 2022-02-18
 
 ### Added
 * `leaflet` en `react-leaflet` packages "MapControls" layers disabled state ([#1431](https://github.com/dso-toolkit/dso-toolkit/issues/1431))

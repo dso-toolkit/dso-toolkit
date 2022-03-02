@@ -73,7 +73,7 @@ mapControls.addTo(map)
 
 ### Releasing
 
-Build local dependencies, build @dso-toolkit/leaflet, set version
+Build local dependencies:
 
 ```
 yarn workspace @dso-toolkit/sources build
@@ -81,14 +81,24 @@ yarn workspace @dso-toolkit/css build
 yarn workspace @dso-toolkit/core build
 ```
 
-Build `@dso-toolkit/leaflet` and set version
+Build `@dso-toolkit/leaflet` and set version:
 
 ```
 yarn workspace @dso-toolkit/leaflet build
 yarn workspace @dso-toolkit/leaflet version 1.0.0 --immediate
 ```
 
-Stage `package.json` and commit with meaningful release commit message (ie. "@dso-toolkit/leaflet - Release v1.0.0"). Then publish to NPM:
+Update `package.json:peerDependencies:@dso-toolkit/core` version accordingly.
+
+Run Yarn:
+
+```
+yarn install
+```
+
+Stage `package.json` and commit with meaningful release commit message (ie. "@dso-toolkit/leaflet - Release v1.0.0"):
+
+Publish to NPM:
 
 ```
 yarn workspace @dso-toolkit/leaflet npm publish --access public

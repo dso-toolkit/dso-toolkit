@@ -1966,7 +1966,7 @@ __metadata:
     typescript: 4.4.4
     wait-on: ^6.0.0
   peerDependencies:
-    "@dso-toolkit/core": "*"
+    "@dso-toolkit/core": ^34.0.0
     leaflet: ^1.7.1
   languageName: unknown
   linkType: soft
