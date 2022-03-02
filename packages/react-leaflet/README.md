@@ -133,9 +133,9 @@ function MyMap() {
 
 ## Maintenance
 
-### Publish to NPM
+### Releasing to NPM
 
-Build local dependencies
+Build local dependencies:
 
 ```
 yarn workspace @dso-toolkit/sources build
@@ -144,15 +144,25 @@ yarn workspace @dso-toolkit/core build
 yarn workspace @dso-toolkit/leaflet build
 ```
 
-Build `@dso-toolkit/react-leaflet` and set version
+Build `@dso-toolkit/react-leaflet` and set version:
 
 ```
 yarn workspace @dso-toolkit/react-leaflet build
 yarn workspace @dso-toolkit/react-leaflet version 1.0.0 --immediate
 ```
 
-Stage `package.json` and commit with meaningful release commit message (ie. "@dso-toolkit/react-leaflet - Release v1.0.0"). Then publish to NPM:
+Update `package.json:peerDependencies:@dso-toolkit/core` and `package.json:peerDependencies:@dso-toolkit/core` version accordingly.
+
+Run Yarn:
+
+```
+yarn install
+```
+
+Stage changes (package.json, yarn.lock, CHANGELOG) and commit with meaningful release commit message (ie. "@dso-toolkit/react-leaflet - Release v1.0.0"). Then publish to NPM:
 
 ```
 yarn workspace @dso-toolkit/react-leaflet npm publish --access public
 ```
+
+And push the release commit and commit tag

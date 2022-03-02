@@ -5,7 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-## v1.1.0 - 2022-02-2022
+## v1.1.1 - 2022-03-02
+
+Version bump `@dso-toolkit/leaflet@^1.2.0` and `@dso-toolkit/core@^34.0.0`.
+
+## v1.1.0 - 2022-02-18
 
 ### Added
 * `leaflet` en `react-leaflet` packages "MapControls" layers disabled state ([#1431](https://github.com/dso-toolkit/dso-toolkit/issues/1431))

@@ -71,7 +71,7 @@ mapControls.addTo(map)
 
 ## Maintenance
 
-### Releasing
+### Releasing to NPM
 
 Build local dependencies:
 
@@ -96,10 +96,10 @@ Run Yarn:
 yarn install
 ```
 
-Stage `package.json` and commit with meaningful release commit message (ie. "@dso-toolkit/leaflet - Release v1.0.0"):
-
-Publish to NPM:
+Stage changes (package.json, yarn.lock, CHANGELOG) and commit with meaningful release commit message (ie. "@dso-toolkit/leaflet - Release v1.0.0"). Then publish to NPM:
 
 ```
 yarn workspace @dso-toolkit/leaflet npm publish --access public
 ```
+
+And push the release commit and commit tag
