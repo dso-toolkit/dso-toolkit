@@ -21,10 +21,6 @@ export function mapControlsTemplate({
       .disableZoom=${disableZoom}
       ?open=${open}
     >
-      <form>
-        <div class="dso-rich-content">
-          <p>Inhoud</p>
-        </div>
         <dso-map-base-layers
           .baseLayers=${baseLayers}
           @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => baseLayerChange(e)}
@@ -34,9 +30,8 @@ export function mapControlsTemplate({
           @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => toggleOverlay(e)}
         ></dso-map-overlays>
         <div class="dso-rich-content">
-          <p>Ook nog meer inhoud</p>
+        <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p>
         </div>
-      </form>
     </dso-map-controls>
   `;
 }

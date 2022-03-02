@@ -351,7 +351,6 @@ export class MapControls {
         @zoomOut=${(e: CustomEvent<PointerEvent>) => this.zoomOut(e.detail)}
         .disableZoom=${this.state.disableZoom}
       >
-        <form>
           ${baseLayers.length > 0
             ? html`
               <dso-map-base-layers
@@ -368,7 +367,6 @@ export class MapControls {
               ></dso-map-overlays>`
             : nothing
           }
-        </form>
       </dso-map-controls>
     `;
   }
