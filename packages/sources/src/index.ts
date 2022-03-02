@@ -79,6 +79,8 @@ export * from './components/progress-indicator/progress-indicator.models';
 export * from './components/progress-indicator/progress-indicator.stories';
 export * from './components/selectable/selectable.models';
 export * from './components/selectable/selectable.stories';
+export * from './components/shopping-cart/shopping-cart.models';
+export * from './components/shopping-cart/shopping-cart.stories';
 export * from './components/tile/tile.models';
 export * from './components/tile/tile.stories';
 export * from './components/toggletip/toggletip.models';
