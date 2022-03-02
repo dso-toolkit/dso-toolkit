@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 34.0.0
+
 ### Added
 * Toelichting bij Layers in MapControls ([#1432](https://github.com/dso-toolkit/dso-toolkit/issues/1432))
 
@@ -21,7 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Voorbeeldpagina conclusie Vergunningcheck aanpassen 'Opslaan in Mijn Omgevingswet' ([#1430](https://github.com/dso-toolkit/dso-toolkit/issues/1430)) 
 * **css + dso-toolkit + sources:** CSS Component Pagination verhuizing ([#1254](https://github.com/dso-toolkit/dso-toolkit/issues/1254))
 * **dso-toolkit:** Validatie bij verplichte confirmatie checkbox aanpassen ([#1420](https://github.com/dso-toolkit/dso-toolkit/issues/1420)) 
-
+* Stylelint ([#1437](https://github.com/dso-toolkit/dso-toolkit/issues/1437))
 
 ### Fixed
 * **core:** Tree View: Lange labels vallen onder caret ([#1433](https://github.com/dso-toolkit/dso-toolkit/issues/1433))
@@ -29,9 +31,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Web Component `dso-info` kruis in sluitenknop heeft dezelfde kleur als achtergrond ([#1449](https://github.com/dso-toolkit/dso-toolkit/issues/1449))
 
 ## 33.3.0
-
-### Changed
-* Stylelint ([#1437](https://github.com/dso-toolkit/dso-toolkit/issues/1437))
 
 ### Added
 * **core + dso-toolkit + sources:** Web Component Header ([#1404](https://github.com/dso-toolkit/dso-toolkit/issues/1404))
