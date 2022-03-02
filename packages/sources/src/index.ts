@@ -71,6 +71,8 @@ export * from './components/navbar/navbar.models';
 export * from './components/navbar/navbar.stories';
 export * from './components/ozon-content/ozon-content.models';
 export * from './components/ozon-content/ozon-content.stories';
+export * from './components/pagination/pagination.models';
+export * from './components/pagination/pagination.stories';
 export * from './components/progress-bar/progress-bar.models';
 export * from './components/progress-bar/progress-bar.stories';
 export * from './components/progress-indicator/progress-indicator.models';
