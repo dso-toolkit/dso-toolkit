@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   * `.list-group-item-heading` en `.list-group-item-text`
   * `.list-group-item-success`, `.list-group-item-info`, `.list-group-item-warning`, `.list-group-item-danger`
 * **dso-toolkit:** Voorbeeldpagina conclusie Vergunningcheck aanpassen 'Opslaan in Mijn Omgevingswet' ([#1430](https://github.com/dso-toolkit/dso-toolkit/issues/1430)) 
+* **css + dso-toolkit + sources:** CSS Component Pagination verhuizing ([#1254](https://github.com/dso-toolkit/dso-toolkit/issues/1254))
 
 ## 33.3.0
 
