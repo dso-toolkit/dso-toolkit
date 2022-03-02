@@ -26,6 +26,22 @@ interface TreeViewItem {
 | `active`                  | Indicates if the node is the active item | `boolean` | `false` |
 | `icons`                   | An optional array of icons | `TreeViewItemIcon[]` | `undefined` |
 
+
+## TreeViewPointerEvent
+
+```typescript
+export interface TreeViewPointerEvent {
+  path: TreeViewItem[],
+  originalEvent: MouseEvent
+}
+```
+
+| Property                  | Description                     | Type                     |
+| ------------------------- | ------------------------------- | ------------------------ |
+| `path`                    | The full path to the clicked item | `TreeViewItem[]` |
+| `originalEvent`           | The original browser click event | `MouseEvent` |
+
+
 ## TreeView
 
 ### State management

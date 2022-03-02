@@ -19,12 +19,15 @@
   .tree-branch-control {
     cursor: pointer;
     display: inline-block;
+    margin: $u1 0;
+    vertical-align: top;
   }
 
   .tree-content {
     cursor: pointer;
     display: inline-block;
     margin: $u1 0;
+    width: calc(100% - $u3);
 
     &.active {
       font-weight: 700;
