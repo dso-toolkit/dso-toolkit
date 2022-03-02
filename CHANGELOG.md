@@ -22,6 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **core:** Tree View: Lange labels vallen onder caret ([#1433](https://github.com/dso-toolkit/dso-toolkit/issues/1433))
 * **core:** Map Controls bevat een `form` zonder submit button ([#1426](https://github.com/dso-toolkit/dso-toolkit/issues/1426))
+* **core:** Web Component `dso-info` kruis in sluitenknop heeft dezelfde kleur als achtergrond ([#1449](https://github.com/dso-toolkit/dso-toolkit/issues/1449))
 
 ## 33.3.0
 
