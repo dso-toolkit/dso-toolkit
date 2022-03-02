@@ -7,6 +7,12 @@ export const baseLayers = [
     id: 1,
     name: 'Luchtfoto',
     checked: true
+  },
+  {
+    id: 2,
+    name: 'Lavakaart',
+    disabled: true,
+    info: 'Geen lava in geselecteerd gebied.'
   }
 ];
 
@@ -23,6 +29,7 @@ export const overlays = [
   {
     id: 2,
     name: 'Riool',
-    disabled: true
+    disabled: true,
+    info: 'Riool is niet beschikbaar op dit niveau.'
   }
 ];

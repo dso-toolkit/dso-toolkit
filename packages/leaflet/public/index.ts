@@ -68,6 +68,15 @@ const overlays = [
     name: 'Niet beschikbaar',
     layer: fakeLayer,
     disabled: true
+  },
+  {
+    name: 'Adressen',
+    layer: L.tileLayer.wms('https://service.pdok.nl/kadaster/adressen/wms/v1_0', {
+      format: 'image/png',
+      transparent: true,
+      layers: 'adressen',
+      minZoom: 15
+    })
   }
 ];
 

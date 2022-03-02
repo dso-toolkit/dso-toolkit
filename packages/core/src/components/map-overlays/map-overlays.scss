@@ -28,3 +28,7 @@ fieldset {
     text-align: left;
   }
 }
+
+p[slot="info"] {
+  margin: 0;
+}

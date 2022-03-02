@@ -21,17 +21,17 @@ export function mapControlsTemplate({
       .disableZoom=${disableZoom}
       ?open=${open}
     >
-        <dso-map-base-layers
-          .baseLayers=${baseLayers}
-          @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => baseLayerChange(e)}
-        ></dso-map-base-layers>
-        <dso-map-overlays
-          .overlays=${overlays}
-          @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => toggleOverlay(e)}
-        ></dso-map-overlays>
-        <div class="dso-rich-content">
+      <dso-map-base-layers
+        .baseLayers=${baseLayers}
+        @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => baseLayerChange(e)}
+      ></dso-map-base-layers>
+      <dso-map-overlays
+        .overlays=${overlays}
+        @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => toggleOverlay(e)}
+      ></dso-map-overlays>
+      <div class="dso-rich-content">
         <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p>
-        </div>
+      </div>
     </dso-map-controls>
   `;
 }

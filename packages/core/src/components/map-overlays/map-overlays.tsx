@@ -41,6 +41,10 @@ export class MapOverlays {
               onDsoChange={e => this.overlayChangeHandler(overlay, e)}
             >
               {overlay.name}
+              {overlay.info
+                ? <p slot="info">{overlay.info}</p>
+                : null
+              }
             </dso-selectable>
           ))}
         </div>

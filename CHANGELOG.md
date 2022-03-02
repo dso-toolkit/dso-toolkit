@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Toelichting bij Layers in MapControls ([#1432](https://github.com/dso-toolkit/dso-toolkit/issues/1432))
+
 ### Changed
 * **BREAKING: sources:** CSS Component Image varianten `img-rounded` en `img-thumbnail` deprecated ([#1188](https://github.com/dso-toolkit/dso-toolkit/issues/1188))
 * **BREAKING: css + dso-toolkit + sources:** CSS Component List verhuizing ([#1397](https://github.com/dso-toolkit/dso-toolkit/issues/1397))

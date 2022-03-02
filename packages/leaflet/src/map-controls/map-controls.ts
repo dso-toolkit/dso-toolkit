@@ -303,18 +303,47 @@ export class MapControls {
     else if (this.state.disableZoom !== undefined) {
       this.update({ ...this.state, disableZoom: undefined });
     }
+    else {
+      this.update();
+    }
   }
 
   private filterLayersByTypeAndSort(type: LayerType) {
     return this.state.layers
       .filter(l => l.type === type)
       .sort((a, b) => a.name.localeCompare(b.name))
-      .map(({ id, name, layer, disabled = false }) => ({
-        id,
-        name,
-        checked: this.map?.hasLayer(layer) ?? false,
-        disabled
-      }));
+      .map(({ id, name, layer, disabled = false }) => {
+        const { available, message } = this.layerAvailability(name, layer);
+
+        return {
+          id,
+          name,
+          checked: available && (this.map?.hasLayer(layer) ?? false),
+          disabled: !available || disabled,
+          info: message
+        };
+      });
+  }
+
+  private layerAvailability(name: string, { options }: Layer): { available: boolean, message?: string } {
+    if (options?.minZoom === undefined || options?.maxZoom === undefined || this.map === undefined) {
+      return {
+        available: true
+      };
+    }
+
+    const zoom = this.map.getZoom();
+
+    if (options.maxZoom >= zoom && options.minZoom <= zoom) {
+      return {
+        available: true
+      };
+    }
+
+    return {
+      available: false,
+      message: `Zoom ${options.maxZoom >= zoom ? 'in' : 'uit'} om "${name}" te bekijken`
+    };
   }
 
   private mapToControlledLayer(layerObject: LayerObject, layerType: LayerType): ControlledLayer {
@@ -351,22 +380,22 @@ export class MapControls {
         @zoomOut=${(e: CustomEvent<PointerEvent>) => this.zoomOut(e.detail)}
         .disableZoom=${this.state.disableZoom}
       >
-          ${baseLayers.length > 0
-            ? html`
-              <dso-map-base-layers
-                .baseLayers=${baseLayers}
-                @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
-              ></dso-map-base-layers>`
-            : nothing
-          }
-          ${overlays.length > 0
-            ? html`
-              <dso-map-overlays
-                .overlays=${overlays}
-                @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
-              ></dso-map-overlays>`
-            : nothing
-          }
+        ${baseLayers.length > 0
+          ? html`
+            <dso-map-base-layers
+              .baseLayers=${baseLayers}
+              @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
+            ></dso-map-base-layers>`
+          : nothing
+        }
+        ${overlays.length > 0
+          ? html`
+            <dso-map-overlays
+              .overlays=${overlays}
+              @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
+            ></dso-map-overlays>`
+          : nothing
+        }
       </dso-map-controls>
     `;
   }
@@ -391,10 +420,12 @@ export enum LayerType {
 export interface MapControlsOptions {
 }
 
+type Layer = L.Layer & { options?: { minZoom?: number, maxZoom?: number } };
+
 interface ControlledLayer {
   id: number;
   name: string;
-  layer: L.Layer;
+  layer: Layer;
   type: LayerType;
   disabled: boolean;
 }

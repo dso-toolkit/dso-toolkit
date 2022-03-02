@@ -3,6 +3,7 @@ export interface Overlay {
   name: string;
   checked?: boolean;
   disabled?: boolean;
+  info?: string;
 }
 
 export interface OverlayChangeEvent {

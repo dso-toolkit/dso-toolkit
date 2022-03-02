@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import { MapContainer, TileLayer, Marker, Popup, LayerGroup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, LayerGroup, useMapEvents, WMSTileLayer } from 'react-leaflet';
 import { defineCustomElements } from '@dso-toolkit/core';
 import { markerIcon } from '@dso-toolkit/leaflet';
 
@@ -92,6 +92,15 @@ function App() {
           </MapControls.Overlay>
           <MapControls.Overlay name="Disabled" disabled={disabled}>
             <LayerGroup />
+          </MapControls.Overlay>
+          <MapControls.Overlay name="Adressen">
+            <WMSTileLayer
+              url="https://service.pdok.nl/kadaster/adressen/wms/v1_0"
+              transparent={true}
+              format="image/png"
+              layers="adressen"
+              minZoom={15}
+            />
           </MapControls.Overlay>
         </MapControls>
         <MapEvents />

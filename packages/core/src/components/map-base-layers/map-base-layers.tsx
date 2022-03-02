@@ -34,9 +34,14 @@ export class MapBaseLayers {
               type="radio"
               value={baseLayer.name}
               checked={baseLayer.checked}
+              disabled={baseLayer.disabled}
               onDsoChange={() => this.baseLayerChangeHandler(baseLayer)}
             >
               {baseLayer.name}
+              {baseLayer.info
+                ? <p slot="info">{baseLayer.info}</p>
+                : null
+              }
             </dso-selectable>
           ))}
         </div>
