@@ -145,11 +145,17 @@
       </div>
     </div>
 
+     <div class="dso-form-buttons">
+      <div class="dso-aside">
+        {% render '@button', {label:'Download resultaat als pdf', type:'button', modifier:'dso-secondary btn-align', icon: 'download'} %}
+      </div>
+    </div>
+
     <div class="dso-form-buttons">
       <div class="dso-aside">
         {% render '@button', {label:'Vorige stap', type:'button', modifier:'dso-tertiary btn-align', icon: 'chevron-left'} %}
       </div>
-      {% render '@button', {label:'Download resultaat als pdf', type:'button', modifier:'dso-secondary', icon: 'download'} %}
+      {% render '@button', {label:'Opslaan in Mijn Omgevingsloket', type:'button', modifier:'dso-secondary'} %}
       {% render '@button', {label:'Naar aanvragen', type:'button', modifier:'dso-primary'} %}
     </div>
   </form>
