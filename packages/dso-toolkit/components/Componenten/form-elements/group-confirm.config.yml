@@ -23,7 +23,7 @@ variants:
     id: input-confirm-invalid
     required: true
     state: invalid
-    errorText: Maak een keuze.
+    errorText: Dit moet u verplicht aanvinken.
 - name: input-confirm-valid
   context:
     __title: valid
