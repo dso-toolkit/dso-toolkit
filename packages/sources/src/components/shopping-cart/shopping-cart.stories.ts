@@ -1,8 +1,8 @@
-import { bindTemplate, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, componentArgs, StorybookParameters } from '../../stories-helpers';
 
 import { v4 as uuidv4 } from 'uuid';
 
-import { shoppingCartArgsMapper, shoppingCartArgTypes } from './shopping-cart.args';
+import { ShoppingCartArgs, shoppingCartArgsMapper, shoppingCartArgTypes } from './shopping-cart.args';
 import { ShoppingCart } from './shopping-cart.models';
 
 export interface ShoppingCartParameters<TemplateFnReturnType> {
@@ -27,20 +27,21 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
         page: readme
       },
       argTypes: shoppingCartArgTypes,
-      args: {
+      args: componentArgs<ShoppingCartArgs>({
         collapsed: false,
         hideSummary: false,
         isOpen: false,
         shoppingcartTitle: 'Mijn activiteiten',
-        shoppingcartTitleTag: 'h2'
-      }
+        shoppingcartTitleTag: 'h2',
+        items: []
+      })
     });
 
   stories.add(
     'items collapsed',
     template,
     {
-      args: {
+      args: componentArgs<Pick<ShoppingCartArgs, 'collapsed' | 'items'>>({
         collapsed: true,
         items: [
           {
@@ -50,10 +51,10 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
           {
             id: uuidv4(),
             label: 'Milieubelastende activiteit - Melding',
-            additive: 2
+            additive: '2'
           }
         ]
-      }
+      })
     }
   );
 
@@ -61,7 +62,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
     'edit items',
     template,
     {
-      args: {
+      args: componentArgs<Pick<ShoppingCartArgs, 'items'>>({
         items: [
           {
             id: uuidv4(),
@@ -70,11 +71,11 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
           {
             id: uuidv4(),
             label: 'Milieubelastende activiteit - Melding',
-            additive: 2,
+            additive: '2',
             edit: true
           }
         ]
-      }
+      })
     }
   );
 
@@ -82,7 +83,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
     'with subitems',
     template,
     {
-      args: {
+      args: componentArgs<Pick<ShoppingCartArgs, 'items'>>({
         items: [
           {
             id: uuidv4(),
@@ -115,7 +116,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
             ]
           }
         ]
-      }
+      })
     }
   );
 
@@ -123,10 +124,11 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
     'with subitems and hidden summary',
     template,
     {
-      args: {
+      args: componentArgs<Pick<ShoppingCartArgs, 'hideSummary' | 'items'>>({
         hideSummary: true,
         items: [
           {
+            id: uuidv4(),
             label: 'Milieubelastende activiteit - Melding',
             subitems: [
               {
@@ -135,6 +137,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
             ]
           },
           {
+            id: uuidv4(),
             label: 'Milieubelastende activiteit - Melding',
             additive: 'Wasstraat om de hoek van garagebedrijf Jansen',
             edit: true,
@@ -145,7 +148,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
             ]
           }
         ]
-      }
+      })
     }
   );
 
@@ -153,10 +156,11 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
     'with subitems and warning',
     template,
     {
-      args: {
+      args: componentArgs<Pick<ShoppingCartArgs, 'isOpen' | 'items'>>({
         isOpen: true,
         items: [
           {
+            id: uuidv4(),
             label: 'Tankstation starten of veranderen',
             readonly: true,
             subitems: [
@@ -169,6 +173,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
             ]
           },
           {
+            id: uuidv4(),
             label: 'Opslaan van vloeistoffen in een opslagtank',
             readonly: true,
             subitems: [
@@ -179,7 +184,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
             ]
           }
         ]
-      }
+      })
     }
   );
 }

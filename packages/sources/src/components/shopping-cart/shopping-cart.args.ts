@@ -3,9 +3,9 @@ import { ArgTypes } from '../../stories-helpers';
 import { ShoppingCart, ShoppingCartItem } from './shopping-cart.models';
 
 export interface ShoppingCartArgs {
-  collapsed: string;
-  hideSummary: string;
-  isOpen: boolean;
+  collapsed?: boolean;
+  hideSummary?: boolean;
+  isOpen?: boolean;
   items: ShoppingCartItem[];
   shoppingcartTitleTag: 'h2' | 'h3';
   shoppingcartTitle: string;
