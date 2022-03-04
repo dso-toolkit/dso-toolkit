@@ -22,10 +22,14 @@
 :host([small]) {
   .dso-map-panel {
     flex-basis: variables.$dso-viewer-grid-small;
+    min-width: 0;
+    max-width: variables.$dso-viewer-grid-small;
 
     @media screen and (max-width: variables.$dso-viewer-grid-small) {
-      transition: none;
       flex-basis: 100vw;
+      max-width: 100vw;
+      min-width: 0;
+      transition: none;
     }
   }
 }
@@ -33,10 +37,14 @@
 :host([medium]) {
   .dso-map-panel {
     flex-basis: variables.$dso-viewer-grid-medium;
+    min-width: variables.$dso-viewer-grid-small;
+    max-width: variables.$dso-viewer-grid-medium;
 
     @media screen and (max-width: variables.$dso-viewer-grid-medium) {
-      transition: none;
       flex-basis: 100vw;
+      max-width: 100vw;
+      min-width: variables.$dso-viewer-grid-small;
+      transition: none;
     }
   }
 }
@@ -48,10 +56,10 @@
     max-width: variables.$dso-viewer-grid-large-max;
 
     @media screen and (max-width: variables.$dso-viewer-grid-large-min) {
-      transition: none;
       flex-basis: 100vw;
-      min-width: auto;
-      max-width: auto;
+      max-width: 100vw;
+      min-width: variables.$dso-viewer-grid-large-min;
+      transition: none;
     }
   }
 }
