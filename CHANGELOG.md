@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Afmetingen van viewer grid panelen en animaties daartussen ([#1451](https://github.com/dso-toolkit/dso-toolkit/issues/1451))
+
 ## 34.0.0
 
 ### Added
@@ -20,9 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   * `.list-group-item.disabled` en `.list-group-item.active`
   * `.list-group-item-heading` en `.list-group-item-text`
   * `.list-group-item-success`, `.list-group-item-info`, `.list-group-item-warning`, `.list-group-item-danger`
-* **dso-toolkit:** Voorbeeldpagina conclusie Vergunningcheck aanpassen 'Opslaan in Mijn Omgevingswet' ([#1430](https://github.com/dso-toolkit/dso-toolkit/issues/1430)) 
+* **dso-toolkit:** Voorbeeldpagina conclusie Vergunningcheck aanpassen 'Opslaan in Mijn Omgevingswet' ([#1430](https://github.com/dso-toolkit/dso-toolkit/issues/1430))
 * **css + dso-toolkit + sources:** CSS Component Pagination verhuizing ([#1254](https://github.com/dso-toolkit/dso-toolkit/issues/1254))
-* **dso-toolkit:** Validatie bij verplichte confirmatie checkbox aanpassen ([#1420](https://github.com/dso-toolkit/dso-toolkit/issues/1420)) 
+* **dso-toolkit:** Validatie bij verplichte confirmatie checkbox aanpassen ([#1420](https://github.com/dso-toolkit/dso-toolkit/issues/1420))
 * Stylelint ([#1437](https://github.com/dso-toolkit/dso-toolkit/issues/1437))
 
 ### Fixed

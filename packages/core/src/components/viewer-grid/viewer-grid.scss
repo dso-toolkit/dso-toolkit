@@ -22,6 +22,8 @@
 :host([small]) {
   .main {
     flex-basis: variables.$dso-viewer-grid-small;
+    min-width: 0;
+    max-width: 100%;
 
     @media screen and (max-width: variables.$dso-viewer-grid-small) {
       transition: none;
@@ -33,6 +35,8 @@
 :host([medium]) {
   .main {
     flex-basis: variables.$dso-viewer-grid-medium;
+    min-width: 0;
+    max-width: 100%;
 
     @media screen and (max-width: variables.$dso-viewer-grid-medium) {
       transition: none;
