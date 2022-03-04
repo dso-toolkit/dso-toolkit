@@ -1,10 +1,16 @@
+$dso-card-list-border-color: $grijs-20;
+$dso-card-list-border-width: 1px;
+
 ul,
 ol {
   &.dso-card-list {
     @include list-unstyled();
 
-    > li + li {
-      border-top: 1px solid $grijs-20;
+    border-bottom: $dso-card-list-border-width solid $dso-card-list-border-color;
+    margin-top: $dso-card-list-border-width * -1;
+
+    li {
+      border-top: $dso-card-list-border-width solid $dso-card-list-border-color;
     }
   }
 }

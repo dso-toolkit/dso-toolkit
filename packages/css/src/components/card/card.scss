@@ -26,6 +26,13 @@
 
       span {
         margin-right: $u1;
+
+        + dso-icon,
+        + svg.di {
+          flex-shrink: 0;
+          position: relative;
+          top: $u1 * -0.25;
+        }
       }
     }
 
