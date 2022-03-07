@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **css + dso-toolkit + sources:** CSS Component Shopping Cart verhuizing ([#1253](https://github.com/dso-toolkit/dso-toolkit/issues/1253))
 
+### Fixed
+* **dso-toolkit:** Form "Files" .dso-primary heeft geen zichtbare focus ([#1453](https://github.com/dso-toolkit/dso-toolkit/issues/1453))
+
 ## 34.0.0
 
 ### Added

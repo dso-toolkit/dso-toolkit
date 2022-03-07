@@ -26,17 +26,31 @@ form,
 
           &:focus {
             & + label {
-              background-color: $grasgroen;
-              color: $wit;
+              &.dso-primary {
+                background-color: $dso-button-primary-hover-background-color;
+              }
+
+              &.dso-secondary {
+                background-color: $dso-button-secondary-hover-background-color;
+                color: $dso-button-secondary-hover-color;
+              }
             }
           }
 
           &[disabled] {
             + label {
-              background-color: $input-bg;
-              border-color: $grasgroen-40;
-              color: $grasgroen-40;
               cursor: default;
+
+              &.dso-primary {
+                background-color: $dso-button-primary-disabled-background-color;
+                border-color: $dso-button-primary-disabled-background-color;
+              }
+
+              &.dso-secondary {
+                background-color: $wit;
+                border-color: $dso-button-secondary-disabled-color;
+                color: $dso-button-secondary-disabled-color;
+              }
             }
           }
         }
