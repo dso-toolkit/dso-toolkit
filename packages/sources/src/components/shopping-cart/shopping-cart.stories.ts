@@ -37,6 +37,11 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
       })
     });
 
+    stories.add(
+      'default',
+      template
+    );
+
   stories.add(
     'items collapsed',
     template,

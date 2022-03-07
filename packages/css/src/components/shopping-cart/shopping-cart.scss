@@ -101,7 +101,7 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   .dso-edit-name {
-    @extend .form-control; /* stylelint-disable-line scss/at-extend-no-missing-placeholder -- is an extend on a bootstrap class */
+    @include form-control();
   }
 
   .dso-delete,

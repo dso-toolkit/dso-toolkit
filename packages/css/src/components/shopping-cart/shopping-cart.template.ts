@@ -1,21 +1,32 @@
-import { ShoppingCart } from '@dso-toolkit/sources';
+import { ShoppingCart, ShoppingCartItem, ShoppingCartSubitem } from '@dso-toolkit/sources';
 
 import { html, nothing } from 'lit-html';
 
 import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
 
-function accumulateItems(items: any) {
-  return items.reduce((t: any, item: any) => t.concat(item.subitems), []);
+function accumulateItems(items: ShoppingCartItem[]) {
+  return items.reduce<ShoppingCartItem[]>((t, item) => t.concat(item), []);
 }
 
-function countSubitems(items: any) {
+function countItems(items: ShoppingCartItem[]) {
   return accumulateItems(items).length;
 }
 
-function hasWarning(items: any) {
-  return items && (items.some((a: any) => a.subitems) ? accumulateItems(items) : items)
-    .some((a: any) => a.warning);
+function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
+  for (const item of items) {
+    if ('subitems' in item) {
+      if (item.subitems?.some(subitem => subitem.warning)) {
+        return true;
+      }
+    } else if ('warning' in item) {
+      if (item.warning) {
+        return true;
+      }
+    }
+  }
+
+  return false;
 }
 
 export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }: ShoppingCart) {
@@ -42,7 +53,7 @@ export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, sh
                   : html`
                     ${iconTemplate({ icon: 'chevron-down' })}
                   `}
-                  U heeft ${countSubitems(items)} activiteit${((countSubitems(items) > 1) ? html`en` : nothing )} gekozen
+                  U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen
                 </button>
               `
               : nothing
@@ -52,10 +63,15 @@ export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, sh
                 <ul class="dso-items">
                   ${items.map(item => html`
                     <li>
-                      ${(hasWarning(item.subitems))
+                      ${item.subitems
                         ? html`
-                          ${iconTemplate({ icon: 'status-warning' })}
-                          <span class="sr-only">waarschuwing</span>
+                          ${(hasWarning(item.subitems))
+                            ? html`
+                              ${iconTemplate({ icon: 'status-warning' })}
+                              <span class="sr-only">waarschuwing</span>
+                            `
+                            : nothing
+                          }
                         `
                         : nothing
                       }
@@ -72,7 +88,7 @@ export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, sh
                             ? html`
                               <div class="dso-edit-additive">
                                 <label for="additive-${item.id}">Bewerk toevoeging</label>
-                                <input type="text" class="dso-edit-name" id="additive-${item.id}" value="${item.additive}" />
+                                <input type="text" class="dso-edit-name" id="additive-${item.id}" value=${item.additive} />
                               </div>
                             `
                             : nothing
