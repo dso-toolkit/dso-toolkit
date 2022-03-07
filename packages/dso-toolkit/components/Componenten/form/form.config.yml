@@ -113,6 +113,7 @@ context:
       - id: documenten
         inputType: files
         description: Geef een tekening van de nieuwe situatie in 1:100. Een situatietekening geeft een schets van de bestaande en de nieuwe situatie met daarop duidelijk de maatvoering en de schaalaanduiding (1:100).
+        buttonClass: secondary
         files:
           - filename: Schetsen_en_foto's_1.pdf
           - filename: Bijlagen_hoveniersbedrijf_de_heggeschaar_hoveniers.jpg

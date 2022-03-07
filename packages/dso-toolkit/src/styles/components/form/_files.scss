@@ -26,17 +26,31 @@ form,
 
           &:focus {
             & + label {
-              background-color: $grasgroen;
-              color: $wit;
+              &.dso-primary {
+                background-color: $bosgroen;
+              }
+
+              &.dso-secondary {
+                background-color: $grasgroen;
+                color: $wit;
+              }
             }
           }
 
           &[disabled] {
             + label {
-              background-color: $input-bg;
-              border-color: $grasgroen-40;
-              color: $grasgroen-40;
               cursor: default;
+
+              &.dso-primary {
+                background-color: $grasgroen-40;
+                border-color: $grasgroen-40;
+              }
+
+              &.dso-secondary {
+                background-color: $input-bg;
+                border-color: $grasgroen-40;
+                color: $grasgroen-40;
+              }
             }
           }
         }

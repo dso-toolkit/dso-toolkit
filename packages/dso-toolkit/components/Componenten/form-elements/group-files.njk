@@ -51,7 +51,7 @@
         {% if disabled %} disabled{% endif %}
         {% if state == "invalid" %} aria-invalid="true"{% endif %}
       />
-      <label class="dso-secondary" for="{{ localId }}-file-upload">
+      <label class="dso-{{ buttonClass }}" for="{{ localId }}-file-upload">
         <dso-icon icon="plus"></dso-icon><span>Document toevoegen</span>
       </label>
     </div>
