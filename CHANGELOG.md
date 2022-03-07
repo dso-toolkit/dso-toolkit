@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Fixed
-* Afmetingen van viewer grid panelen en animaties daartussen ([#1451](https://github.com/dso-toolkit/dso-toolkit/issues/1451))
+* **core:** Afmetingen van viewer grid panelen en animaties daartussen ([#1451](https://github.com/dso-toolkit/dso-toolkit/issues/1451))
 
 ## 34.0.0
 
