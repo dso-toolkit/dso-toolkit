@@ -43,6 +43,7 @@ $dso-shopping-cart-border-color: $grijs-20;
     background-color: $grijs-5;
     border-radius: $dso-shopping-cart-radius;
     margin-bottom: 0;
+    margin-top: 0;
 
     li {
       border-top: 1px solid $dso-shopping-cart-border-color;
@@ -100,7 +101,7 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   .dso-edit-name {
-    @extend .form-control;
+    @include form-control();
   }
 
   .dso-delete,
