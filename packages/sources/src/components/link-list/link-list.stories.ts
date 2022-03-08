@@ -17,6 +17,11 @@ export interface LinkListParameters<TemplateFnReturnType> {
   inHighlightBoxTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
 
   /**
+   * Template to demonstrate the Link List inside nav
+   */
+  inNavTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
+
+  /**
    * Template to demonstrate the Link List inside footer
    */
   inFooterTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
@@ -31,6 +36,7 @@ export function storiesOfLinkList<TemplateFnReturnType>(
   {
     linkListTemplate,
     inHighlightBoxTemplate,
+    inNavTemplate,
     inFooterTemplate
   }: LinkListParameters<TemplateFnReturnType>
 ) {
@@ -74,6 +80,19 @@ export function storiesOfLinkList<TemplateFnReturnType>(
       const args = a as LinkListArgs;
 
       return inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args)));
+    }
+  );
+
+  stories.add(
+    'in nav',
+    (a: Args | undefined) => {
+      if (!a) {
+        throw new ArgsError();
+      }
+
+      const args = a as LinkListArgs;
+
+      return inNavTemplate(linkListTemplate(linkListArgsMapper(args)));
     }
   );
 

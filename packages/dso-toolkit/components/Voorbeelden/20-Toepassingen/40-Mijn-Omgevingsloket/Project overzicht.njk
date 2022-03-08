@@ -11,6 +11,29 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-4">
+      <div class="row dso-equal-heights">
+        <div class="col-md-12 col-sm-6">
+          <nav aria-label="projecttaken">
+            <dso-highlight-box border>
+              <div class="dso-rich-content">
+                <h2>Mijn project</h2>
+                {% render '@link-list', linkList %}
+              </div>
+            </dso-highlight-box>
+          </nav>
+        </div>
+        <div class="col-md-12 col-sm-6">
+          <dso-highlight-box border>
+            <div class="dso-rich-content">
+              <h2>Deelnemers</h2>
+              <p>Wit u dat iemand anders uw aanvraag kan maken of indienen? Dan kunt u iemand hiervoor machtigen bij Deelnemers</p>
+              {% render '@anchor', {modifier: 'dso-secondary', label: 'Deelnemers', url: '#', icon: 'chevron-right'} %}
+            </div>
+          </dso-highlight-box>
+        </div>
+      </div>
+    </div>
     <div class="col-md-8">
       <h2>Verzoeken</h2>
       <p>Kies hier de verzoeken die u wilt bekijken, aanvullen of intrekken</p>
@@ -112,28 +135,6 @@
       <div class="row">
         <div class="col-md-12">
           {% render '@anchor', {modifier: 'dso-tertiary', label: 'Bekijk andere projecten', url: '#', icon: 'chevron-left'} %}
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="row dso-equal-heights">
-        <div class="col-md-12 col-sm-6">
-          <dso-highlight-box border>
-            <div class="dso-rich-content">
-              <h2>Nieuwe verzoeken</h2>
-              <p>Ga verder met aanvragen om door te werken aan uw niet ingediende verzoeken. U kunt ook een nieuw verzoek maken voor dit project</p>
-              {% render '@anchor', {modifier: 'dso-secondary', label: 'Aanvragen', url: '#', icon: 'chevron-right'} %}
-            </div>
-          </dso-highlight-box>
-        </div>
-        <div class="col-md-12 col-sm-6">
-          <dso-highlight-box border>
-            <div class="dso-rich-content">
-              <h2>Deelnemers</h2>
-              <p>Wit u dat iemand anders uw aanvraag kan maken of indienen? Dan kunt u iemand hiervoor machtigen bij Deelnemers</p>
-              {% render '@anchor', {modifier: 'dso-secondary', label: 'Deelnemers', url: '#', icon: 'chevron-right'} %}
-            </div>
-          </dso-highlight-box>
         </div>
       </div>
     </div>

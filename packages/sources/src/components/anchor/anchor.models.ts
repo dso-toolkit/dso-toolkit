@@ -6,4 +6,5 @@ export interface Anchor {
   label: string;
   modifier?: string;
   url: string;
+  ariaCurrent?: string;
 }

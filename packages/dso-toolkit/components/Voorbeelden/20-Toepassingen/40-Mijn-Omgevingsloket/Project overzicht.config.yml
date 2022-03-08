@@ -15,3 +15,16 @@ context:
         active: true
   appheading:
     title: Boom kappen in de achtertuin
+  linkList:
+    links:
+      - label: Ingediende verzoeken
+        url: '#'
+        selected: true
+      - label: Verder met aanvragen
+        url: '#'
+      - label: Opgeslagen Vergunningscheck
+        url: '#'
+      - label: Opgeslagen Maatregel op maat
+        url: '#'
+      - label: Deelnemers
+        url: '#'

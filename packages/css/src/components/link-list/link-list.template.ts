@@ -52,3 +52,11 @@ export function inHighlightBoxTemplate(linkList: TemplateResult) {
     ${highlightBoxTemplate({ richContent: linkList, dropShadow: true, white: true })}
   `;
 }
+
+export function inNavTemplate(linkList: TemplateResult) {
+  return html`
+    <nav>
+      ${linkList}
+    </nav>
+  `;
+}
