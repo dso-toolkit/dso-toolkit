@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Improvements
 * **core + dso-toolkit:** Header verbeteringen ([#1457](https://github.com/dso-toolkit/dso-toolkit/issues/1457))
 
+### Added
+* **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
+
 ## 34.1.0
 
 ### Changed
