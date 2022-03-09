@@ -100,7 +100,7 @@ export class ViewerGrid {
   render() {
     return (
       <Host {...{ [this.mainSize]: true }}>
-        <div class="main">
+        <div class="dso-map-panel">
           <div class="sizing-buttons">
             <button
               type="button"
@@ -119,7 +119,9 @@ export class ViewerGrid {
               <dso-icon icon="chevron-right"></dso-icon>
             </button>
           </div>
-          <slot name="main" />
+          <div class="main">
+            <slot name="main" />
+          </div>
         </div>
         <div class="map">
           <slot name="map" />
