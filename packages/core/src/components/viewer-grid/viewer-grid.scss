@@ -20,7 +20,7 @@
 }
 
 :host([small]) {
-  .main {
+  .dso-map-panel {
     flex-basis: variables.$dso-viewer-grid-small;
 
     @media screen and (max-width: variables.$dso-viewer-grid-small) {
@@ -31,7 +31,7 @@
 }
 
 :host([medium]) {
-  .main {
+  .dso-map-panel {
     flex-basis: variables.$dso-viewer-grid-medium;
 
     @media screen and (max-width: variables.$dso-viewer-grid-medium) {
@@ -42,7 +42,7 @@
 }
 
 :host([large]) {
-  .main {
+  .dso-map-panel {
     flex-basis: variables.$dso-viewer-grid-large;
     min-width: variables.$dso-viewer-grid-large-min;
     max-width: variables.$dso-viewer-grid-large-max;
@@ -80,22 +80,59 @@
   }
 }
 
-.sizing-buttons {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: $u1;
-}
-
-.main {
+.dso-map-panel {
   background-color: $wit;
-  box-shadow: 2px 0 5px $grijs-60;
+  box-shadow: $u1 * 0.25 0 $u1 0 rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
   flex-grow: 0;
-  height: 100%;
+  padding-right: $u1;
+  position: relative;
   transition: flex-basis 0.2s ease-in, max-width 0.2s ease-in, min-width 0.2s ease-in;
-  padding: $u1 $grid-gutter-width * 0.5;
-  overflow-y: auto;
   z-index: 1;
+
+  .dso-filterblok-address {
+    font-weight: bold;
+    margin: $u1 0;
+  }
+
+  .main {
+    height: 100%;
+    overflow-y: scroll;
+    padding: $u1 $grid-gutter-width * 0.5;
+  }
+}
+
+.sizing-buttons {
+  left: calc(100% + 1px);
+  overflow-x: hidden;
+  padding: 0 $u1 * 0.5 $u1 * 0.5 0;
+  position: absolute;
+  top: variables.$dso-viewer-sizing-buttons-top;
+  transition: left 0.2s ease-in;
+  width: variables.$dso-viewer-resize-button-size + $u1 * 0.5;
+  z-index: -1;
+
+  button {
+    @include button_secondary($icon-only: true);
+    @include button_map_focus();
+
+    border: 0;
+    padding: 8px;
+    border-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    box-shadow: 0 1px $u1 * 0.5 0 rgba(0, 0, 0, 0.4);
+    flex: 0 0 100%;
+    height: variables.$dso-viewer-resize-button-size;
+    min-width: auto;
+    width: variables.$dso-viewer-resize-button-size;
+
+    &:hover {
+      dso-icon {
+        color: $wit;
+      }
+    }
+  }
 }
 
 .map {
