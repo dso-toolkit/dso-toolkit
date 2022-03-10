@@ -12,7 +12,7 @@ import readme from './readme.md';
 
 function decorator(story: ArgsStoryFn<TemplateResult>): TemplateResult {
   return html`
-    <div id="date-picker-container-mock" style="width: 175px;">
+    <div style="width: 175px;">
       ${story()}
     </div>
   `;
