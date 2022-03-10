@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Afmetingen van viewer grid panelen en animaties daartussen ([#1451](https://github.com/dso-toolkit/dso-toolkit/issues/1451))
 * **dso-toolkit:** Form "Files" .dso-primary heeft geen zichtbare focus ([#1453](https://github.com/dso-toolkit/dso-toolkit/issues/1453))
 * **css:** Card List heeft boven en onder geen border + `chevron-right` lijnt niet met linktekst ([#1452](https://github.com/dso-toolkit/dso-toolkit/issues/1452))
+* **core + react:** Date Picker direction="left" werkt niet ([#1475](https://github.com/dso-toolkit/dso-toolkit/issues/1475))
 
 ## 34.0.0
 
