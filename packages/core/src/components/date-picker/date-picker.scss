@@ -24,6 +24,8 @@ $dso-date-picker-size: 38px;
 $date-picker-radius: $u1 * 0.5;
 $date-picker-z-index: 600;
 
+$dso-date-dialog-border-width: 1px;
+
 :host {
   display: block;
 }
@@ -89,6 +91,7 @@ $date-picker-z-index: 600;
 // ---------------------------------------------
 
 .dso-date__dialog {
+  border-width: $dso-date-dialog-border-width;
   display: flex;
   right: 0;
   min-width: 320px;
@@ -114,8 +117,8 @@ $date-picker-z-index: 600;
   }
 
   &.is-left {
-    left: auto;
-    right: 0;
+    left: -$padding-base-horizontal + $dso-date-dialog-border-width;
+    right: auto;
     width: auto;
   }
 

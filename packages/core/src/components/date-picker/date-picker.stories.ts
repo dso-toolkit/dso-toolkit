@@ -1,5 +1,7 @@
 import { storiesOfDatePicker } from '@dso-toolkit/sources';
+import { ArgsStoryFn } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
+import { html, TemplateResult } from 'lit-html';
 
 import {
   datePickerTemplate,
@@ -7,6 +9,14 @@ import {
   datePickerShowByScriptingTemplate
 } from './date-picker.template';
 import readme from './readme.md';
+
+function decorator(story: ArgsStoryFn<TemplateResult>): TemplateResult {
+  return html`
+    <div id="date-picker-container-mock" style="width: 175px;">
+      ${story()}
+    </div>
+  `;
+}
 
 storiesOfDatePicker(
   {
@@ -17,6 +27,7 @@ storiesOfDatePicker(
   {
     datePickerTemplate,
     datePickerWithLabelTemplate,
-    datePickerShowByScriptingTemplate
+    datePickerShowByScriptingTemplate,
+    decorator
   }
 );

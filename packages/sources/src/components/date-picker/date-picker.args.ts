@@ -6,6 +6,7 @@ export interface DatePickerArgs {
   id?: string;
   label: string;
   onDateChange: HandlerFunction;
+  direction?: string;
   value?: string;
   min?: number;
   max?: number;
@@ -27,6 +28,17 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
   disabled: {
     control: {
       type: 'boolean'
+    }
+  },
+  direction: {
+    options: [undefined, 'left', 'right'],
+    control: {
+      type: 'select',
+      labels: {
+        undefined: 'default',
+        'left': 'left',
+        'right': 'right'
+      }
     }
   },
   value: {
@@ -59,6 +71,7 @@ export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
     disabled: a.disabled,
     id: a.id,
     onDateChange: e => a.onDateChange(e.detail),
+    direction: a.direction,
     max: a.max,
     min: a.min,
     value: a.value,

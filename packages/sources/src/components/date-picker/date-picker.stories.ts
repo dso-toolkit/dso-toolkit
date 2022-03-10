@@ -1,4 +1,5 @@
 import { Args } from '@storybook/addons';
+import { ArgsStoryFn } from '@storybook/addons';
 import { v4 as uuidv4 } from 'uuid';
 
 import { bindTemplate, ArgsError, StorybookParameters } from '../../stories-helpers';
@@ -10,6 +11,7 @@ export interface DatePickerParameters<TemplateFnReturnType> {
   datePickerTemplate: (datePickerProperties: DatePicker) => TemplateFnReturnType;
   datePickerWithLabelTemplate: (datePicker: TemplateFnReturnType, id: string, label: string) => TemplateFnReturnType;
   datePickerShowByScriptingTemplate: (datePicker: TemplateFnReturnType, id: string) => TemplateFnReturnType;
+  decorator: (story: ArgsStoryFn<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfDatePicker<TemplateFnReturnType>(
@@ -21,7 +23,8 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
   {
     datePickerTemplate,
     datePickerWithLabelTemplate,
-    datePickerShowByScriptingTemplate
+    datePickerShowByScriptingTemplate,
+    decorator
   }: DatePickerParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(datePickerArgsMapper, datePickerTemplate);
@@ -40,7 +43,8 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
         disabled: false
       },
       argTypes: datePickerArgTypes
-    });
+    })
+    .addDecorator(decorator);
 
   stories.add(
     'default',
