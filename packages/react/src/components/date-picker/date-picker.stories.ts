@@ -1,6 +1,7 @@
 import { storiesOfDatePicker } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
 
+import { decorator } from './date-picker.decorator';
 import {
   datePickerTemplate,
   datePickerWithLabelTemplate,
@@ -17,6 +18,7 @@ storiesOfDatePicker(
   {
     datePickerTemplate,
     datePickerWithLabelTemplate,
-    datePickerShowByScriptingTemplate
+    datePickerShowByScriptingTemplate,
+    decorator
   }
 );

@@ -43,8 +43,7 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
         disabled: false
       },
       argTypes: datePickerArgTypes
-    })
-    .addDecorator(decorator);
+    });
 
   stories.add(
     'default',
@@ -122,6 +121,14 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
       args: {
         id: uuidv4()
       }
+    }
+  );
+
+  stories.add(
+    'narrow input',
+    template,
+    {
+      decorators: [decorator]
     }
   );
 }
