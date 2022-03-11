@@ -11,6 +11,3 @@ context:
       modifier: download
     - label: Interne link
       url: '#'
-    - label: Current link
-      url: '#'
-      selected: true

@@ -19,7 +19,7 @@ context:
     links:
       - label: Ingediende verzoeken
         url: '#'
-        selected: true
+        current: true
       - label: Verder met aanvragen
         url: '#'
       - label: Opgeslagen Vergunningscheck
