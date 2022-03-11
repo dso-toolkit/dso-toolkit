@@ -303,6 +303,122 @@ describe('Date Picker', () => {
       });
   });
 
+  it('should only allow date characters input', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    const ignoredChars = Array.from(Array(95)).map((e, i) => String.fromCharCode(i + 32)).filter(c => !'-0123456789'.includes(c));
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type(ignoredChars.join(''))
+      .then(() => {
+        expect(details.length).equal(0);
+      });
+
+    const allowedChars = '-0123456789';
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type(allowedChars)
+      .then(() => {
+        expect(details.length).equal(11);
+      });
+  });
+
+  it('should emit changed event with error on date input before min', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).min = '1-1-2022'
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type('1-1-2022')
+      .then(() => {
+        expect(details[details.length - 1].error).undefined;
+        expect(details[details.length - 1].value).equal('01-01-2022');
+        expect(details[details.length - 1].valueAsDate.getDate()).equal(1);
+        expect(details[details.length - 1].valueAsDate.getMonth()).equal(0);
+        expect(details[details.length - 1].valueAsDate.getFullYear()).equal(2022);
+      });
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .clear();
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type('1-1-2021')
+      .then(() => {
+        expect(details[details.length - 1].error).equal('min-range');
+        expect(details[details.length - 1].value).equal('01-01-2021');
+        expect(details[details.length - 1].valueAsDate).undefined;
+      });
+  });
+
+  it('should emit changed event with error on date input after max', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).max = '31-12-2021'
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type('31-12-2021')
+      .then(() => {
+        expect(details[details.length - 1].error).undefined;
+        expect(details[details.length - 1].value).equal('31-12-2021');
+        expect(details[details.length - 1].valueAsDate.getFullYear()).equal(2021);
+        expect(details[details.length - 1].valueAsDate.getDate()).equal(31);
+        expect(details[details.length - 1].valueAsDate.getMonth()).equal(11);
+      });
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .clear();
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type('1-1-2022')
+      .then(() => {
+        expect(details[details.length - 1].error).equal('max-range');
+        expect(details[details.length - 1].value).equal('01-01-2022');
+        expect(details[details.length - 1].valueAsDate).undefined;
+      });
+  });
+
+  it('should emit changed event with error on invalid character paste', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    });
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .invoke('val', 'zzz')
+      .trigger('input')
+      .then(() => {
+        console.log(details)
+        expect(details[details.length - 1].error).equal('invalid');
+        expect(details[details.length - 1].value).equal('zzz');
+        expect(details[details.length - 1].valueAsDate).undefined;
+      });
+  });
+
   it('should emit changed event on valid input', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
