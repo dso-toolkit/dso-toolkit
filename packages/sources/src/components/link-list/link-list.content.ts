@@ -21,3 +21,27 @@ export const links: Anchor[] = [
     ariaCurrent: 'page'
   }
 ];
+
+export const navLinks: Anchor[] = [
+  {
+    url: '#',
+    label: 'Ingediende verzoeken',
+    ariaCurrent: 'page'
+  },
+  {
+    url: '#',
+    label: 'Verder met aanvragen'
+  },
+  {
+    url: '#',
+    label: 'Opgeslagen Vergunningscheck'
+  },
+  {
+    url: '#',
+    label: 'Opgeslagen Maatregel op maat'
+  },
+  {
+    url: '#',
+    label: 'Deelnemers'
+  }
+];

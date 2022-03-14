@@ -6,6 +6,7 @@ export enum LinkListType {
 }
 
 export interface LinkList {
+  navLabel?: string;
   type?: LinkListType;
   links: Anchor[];
 }

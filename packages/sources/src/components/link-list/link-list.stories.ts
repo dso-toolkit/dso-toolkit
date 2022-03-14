@@ -2,6 +2,7 @@ import { Args } from '@storybook/addons';
 import { ArgsError, bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { LinkListArgs, linkListArgsMapper, linkListArgTypes } from './link-list.args';
+import { links, navLinks } from './link-list.content';
 import { LinkList, LinkListType } from './link-list.models';
 
 export interface LinkListParameters<TemplateFnReturnType> {
@@ -15,11 +16,6 @@ export interface LinkListParameters<TemplateFnReturnType> {
    * * `drop-shadow white`
    */
   inHighlightBoxTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
-
-  /**
-   * Template to demonstrate the Link List inside nav
-   */
-  inNavTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
 
   /**
    * Template to demonstrate the Link List inside footer
@@ -36,7 +32,6 @@ export function storiesOfLinkList<TemplateFnReturnType>(
   {
     linkListTemplate,
     inHighlightBoxTemplate,
-    inNavTemplate,
     inFooterTemplate
   }: LinkListParameters<TemplateFnReturnType>
 ) {
@@ -46,6 +41,9 @@ export function storiesOfLinkList<TemplateFnReturnType>(
     .addParameters({
       docs: {
         page: readme
+      },
+      args: {
+        links
       },
       argTypes: linkListArgTypes
     });
@@ -85,14 +83,13 @@ export function storiesOfLinkList<TemplateFnReturnType>(
 
   stories.add(
     'in nav',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
+    template,
+    {
+      args: {
+        links: navLinks,
+        navLabel: 'Projecttaken',
+        type: LinkListType.Ul
       }
-
-      const args = a as LinkListArgs;
-
-      return inNavTemplate(linkListTemplate(linkListArgsMapper(args)));
     }
   );
 

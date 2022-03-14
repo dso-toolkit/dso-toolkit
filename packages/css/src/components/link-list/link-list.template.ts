@@ -20,20 +20,28 @@ function ol(children: TemplateResult) {
   `;
 }
 
-export function linkListTemplate({ type, links }: LinkList) {
+export function linkListTemplate({ navLabel, type, links }: LinkList) {
   const children = html`
     ${links.map(link => html`
       <li>
-        ${anchorTemplate(link)}
+        ${anchorTemplate(navLabel ? link : { ...link, ariaCurrent: undefined })}
       </li>
     `)}
   `;
 
-  if (type === LinkListType.Ol) {
-    return ol(children);
+  const list = type === LinkListType.Ol
+    ? ol(children)
+    : ul(children)
+
+  if (navLabel) {
+    return html`
+      <nav aria-label=${navLabel}>
+        ${list}
+      </nav>
+    `;
   }
 
-  return ul(children);
+  return list;
 }
 
 export function inFooterTemplate(linkList: TemplateResult) {
@@ -50,13 +58,5 @@ export function inHighlightBoxTemplate(linkList: TemplateResult) {
     ${highlightBoxTemplate({ richContent: linkList, yellow: true })}
     ${highlightBoxTemplate({ richContent: linkList, border: true })}
     ${highlightBoxTemplate({ richContent: linkList, dropShadow: true, white: true })}
-  `;
-}
-
-export function inNavTemplate(linkList: TemplateResult) {
-  return html`
-    <nav>
-      ${linkList}
-    </nav>
   `;
 }
