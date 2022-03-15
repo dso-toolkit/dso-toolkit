@@ -1,4 +1,5 @@
 import { DefinitionList, Label } from "../..";
+import { Icon } from "../icon/icon.models";
 
 export interface ViewerGridDemoProperties {
   overlayOpen: boolean;
@@ -38,6 +39,10 @@ export interface ViewerGridDocumentListItem<TemplateFnReturnType> {
   status: TemplateFnReturnType;
 }
 
+export interface ViewerGridThemeCard<TemplateFnReturnType> {
+  title: string;
+  icon: Icon
+}
 export interface ViewerGridFilterblok<TemplateFnReturnType> {
   title: TemplateFnReturnType;
   address: string;
