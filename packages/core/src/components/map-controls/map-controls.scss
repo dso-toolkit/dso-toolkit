@@ -86,6 +86,12 @@ $zoom-button-size: $u5;
   top: $controls-margin;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 header,
 .content {
   padding: 16px;
@@ -93,6 +99,7 @@ header,
 
 header {
   border-bottom: 1px solid $grijs-20;
+  flex-grow: 0;
   position: relative;
 
   h2 {
@@ -101,4 +108,9 @@ header {
     line-height: 1;
     margin: 0;
   }
+}
+
+.content {
+  flex-grow: 1;
+  overflow-y: auto;
 }
