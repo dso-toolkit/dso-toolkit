@@ -7,7 +7,7 @@ export function viewerGridThemeCard({
   icon,
 }: ViewerGridThemeCard<TemplateResult>) {
   return html`
-    <a class="dso-theme-card">
+    <a class="dso-theme-card" href="#">
       <div class="dso-theme-card-icon">
         ${iconTemplate(icon)}
       </div>

@@ -41,5 +41,27 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     argTypes: viewerGridArgTypes,
   });
 
-  stories.add("Viewer Grid", template);
+  // stories.add("default", template);
+
+  // stories.add("themes", template);
+
+  stories.add(
+    'default',
+    template,
+    {
+      args: {
+        themes: false
+      }
+    }
+  );
+
+  stories.add(
+    'themes',
+    template,
+    {
+      args: {
+        themes: true
+      }
+    }
+  );
 }
