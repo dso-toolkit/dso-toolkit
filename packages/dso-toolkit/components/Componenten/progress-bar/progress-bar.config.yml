@@ -28,7 +28,7 @@ notes: |
   Gebruik geen progress bar als de verwachte wachttijd kleiner is dan 4 seconden of de wachttijd niet van te voren kan worden ingeschat (onbepaalde tijd).
 
   ## Hoe het component te gebruiken:
-  Probeer altijd de progress waarde in aria-valuenow op te nemen, zodat de gebruiker weet hoe lang hij/zij moet wachten.
+  Probeer altijd de progress waarde in `aria-valuenow` op te nemen, zodat de gebruiker weet hoe lang hij/zij moet wachten.
   Omdat het label ook de 'accessible name' is voor het component, dient daarin idealiter ook genoemd te worden 'waarop' de gebruiker aan het wachten is.
 
   ## Voorbeelden:
