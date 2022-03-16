@@ -15,8 +15,8 @@ notes: |
   Breadcrumbs tonen zo de daadwerkelijke stappen die de gebruiker heeft genomen om naar de huidige pagina te gaan, in plaats van de informatiearchitectuur van de site. Path gebaseerde breadcrumbs worden altijd dynamisch gegenereerd.
 
   ## Gedrag en toegankelijkheid
-  * Plaats de breadcrumb in een nav gebied met als aria-label "u bevindt zich hier", dit maakt voor gebruikers die de breadcrumb niet zien duidelijk wat dit is
-  * Plaats het `aria-current`` attribuut op de huidige pagina
+  * Plaats de breadcrumb in een nav gebied met als `aria-label` "u bevindt zich hier", dit maakt voor gebruikers die de breadcrumb niet zien duidelijk wat dit is
+  * Plaats het `aria-current` attribuut op het list item `<li>` waarin de "huidige pagina" wordt benoemd
 
   ## Component in context
   - [Aanvragen]({{ '/components/detail/aanvragen' | docPath }})

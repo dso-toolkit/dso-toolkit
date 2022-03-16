@@ -22,7 +22,7 @@ notes: |
   - Laat slechts één banner per keer zien.
 
   ## Gedrag en toegankelijkheid
-  Banners blijven staan totdat de gebruiker ze verwijdert of als de status, die de banner veroorzaakte, is opgelost. Banners hebben altijd een ARIA `role="alert"`, zodat een screenreader ze meteen voorleest wanneer ze verschijnen. Screenreaders en andere hulptechnologie starten vaak bij de `<h1>`, dus zonder alert role worden ze gemist.
+  Banners blijven staan totdat de gebruiker ze verwijdert of als de status, die de banner veroorzaakte, is opgelost. Banners hebben altijd een ARIA `role="alert"`, zodat een screenreader ze meteen voorleest wanneer ze verschijnen. Screenreaders en andere hulptechnologie starten vaak bij de `<h1>`, dus zonder `role="alert"` worden ze gemist.
 
   ## Component in context
   **Nog aanpassen**
