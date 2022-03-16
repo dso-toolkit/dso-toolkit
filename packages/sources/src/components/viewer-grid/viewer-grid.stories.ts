@@ -9,26 +9,29 @@ import {
   viewerGridArgTypes,
   ViewerGridArgs,
 } from "./viewer-grid.args";
-import { ViewerGridDemoProperties } from "./viewer-grid.models";
+import { ViewerGridDefaultDemoProperties, ViewerGridThemesDemoProperties } from "./viewer-grid.models";
 
 export interface ViewerGridParameters<TemplateFnReturnType> {
-  viewerGridDemoTemplate: (
-    viewerGridDemoProperties: ViewerGridDemoProperties
+  viewerGridDefaultDemoTemplate: (
+    viewerGridDemoProperties: ViewerGridDefaultDemoProperties
+  ) => TemplateFnReturnType,
+  viewerGridThemesDemoTemplate: (
+    viewerGridDemoProperties: ViewerGridThemesDemoProperties
   ) => TemplateFnReturnType;
 }
 
 export function storiesOfViewerGrid<TemplateFnReturnType>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
-  { viewerGridDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
+  { viewerGridDefaultDemoTemplate, viewerGridThemesDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
 ) {
-  const defaultTemplate = bindTemplate(
+  const defaultDemoTemplate = bindTemplate(
     viewerGridDemoArgsMapper,
-    viewerGridDemoTemplate
+    viewerGridDefaultDemoTemplate
   );
 
-  const themesTemplate = bindTemplate(
+  const themesDemoTemplate = bindTemplate(
     viewerGridDemoArgsMapper,
-    viewerGridThemesTemplate
+    viewerGridThemesDemoTemplate
   );
 
   const stories = storiesOf("Viewer Grid", mainModule).addParameters({
@@ -36,6 +39,10 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     docs: {
       page: readme,
     },
+    argTypes: viewerGridArgTypes,
+  });
+
+  stories.add('default', defaultDemoTemplate, {
     args: componentArgs<
       Pick<ViewerGridArgs, "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
     >({
@@ -43,30 +50,15 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
       noOverlay: false,
       documentHeaderFeaturesOpen: true,
     }),
-    argTypes: viewerGridArgTypes,
   });
 
-  stories.add("default", defaultTemplate);
-
-  stories.add("themes", themesTemplate);
-
-  // stories.add(
-  //   'default',
-  //   template,
-  //   {
-  //     args: {
-  //       themes: false
-  //     }
-  //   }
-  // );
-
-  // stories.add(
-  //   'themes',
-  //   template,
-  //   {
-  //     args: {
-  //       themes: true
-  //     }
-  //   }
-  // );
+  stories.add('themes', themesDemoTemplate, {
+    args: componentArgs<
+      Pick<ViewerGridArgs, "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
+    >({
+      overlayOpen: false,
+      noOverlay: false,
+      documentHeaderFeaturesOpen: false
+    }),
+   });
 }

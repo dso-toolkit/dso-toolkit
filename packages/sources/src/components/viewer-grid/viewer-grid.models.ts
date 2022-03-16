@@ -1,7 +1,7 @@
 import { DefinitionList, Label } from "../..";
 import { Icon } from "../icon/icon.models";
 
-export interface ViewerGridDemoProperties {
+export interface ViewerGridDefaultDemoProperties {
   overlayOpen: boolean;
   noOverlay: boolean;
   closeOverlay: (e: MouseEvent) => void;
@@ -10,6 +10,12 @@ export interface ViewerGridDemoProperties {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderMapAction: (e: MouseEvent) => void;
   documentHeaderFeatureAction: (e: MouseEvent) => void;
+}
+
+export interface ViewerGridThemesDemoProperties {
+  overlayOpen: boolean;
+  noOverlay: boolean;
+  closeOverlay: (e: MouseEvent) => void;
 }
 
 export interface ViewerGrid<TemplateFnReturnType> {
