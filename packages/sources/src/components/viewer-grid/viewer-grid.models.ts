@@ -45,7 +45,7 @@ export interface ViewerGridDocumentListItem<TemplateFnReturnType> {
   status: TemplateFnReturnType;
 }
 
-export interface ViewerGridThemeCard<TemplateFnReturnType> {
+export interface ViewerGridThemeTile<TemplateFnReturnType> {
   title: string;
   icon: Icon
 }

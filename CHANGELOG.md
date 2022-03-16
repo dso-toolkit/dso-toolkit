@@ -10,9 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
+* **core + sources:** Thema tile variant in viewer panel ([#1443](https://github.com/dso-toolkit/dso-toolkit/issues/1443))
 
 ## 34.1.0
-
 ### Changed
 * **core:** Sticky resize knoppen voor viewer grid ([#1373](https://github.com/dso-toolkit/dso-toolkit/issues/1373))
 * **css + dso-toolkit + sources:** CSS Component Shopping Cart verhuizing ([#1253](https://github.com/dso-toolkit/dso-toolkit/issues/1253))

@@ -219,25 +219,25 @@ dso-viewer-grid {
     margin: 0 $u2;
   }
 
-  .dso-theme-card {
+  .dso-theme-tile {
     align-items: center;
     display: flex;
     flex-direction: column;
     padding: $u1 $u1 $u1 * 0.5;
     text-decoration: none;
 
-    .dso-theme-card-icon {
+    .dso-theme-tile-icon {
       align-items: center;
-      background-color: variables.$dso-viewer-theme-card-icon-bg-color;
+      background-color: variables.$dso-viewer-theme-tile-icon-bg-color;
       border-radius: 50%;
-      border: 1px solid variables.$dso-viewer-theme-card-icon-border-color;
-      color: variables.$dso-viewer-theme-card-color;
+      border: 1px solid variables.$dso-viewer-theme-tile-icon-border-color;
+      color: variables.$dso-viewer-theme-tile-color;
       display: flex;
-      height: variables.$dso-viewer-theme-card-icon-size;
+      height: variables.$dso-viewer-theme-tile-icon-size;
       justify-content: center;
       margin: 0 auto $u1;
       overflow: hidden;
-      width: variables.$dso-viewer-theme-card-icon-size;
+      width: variables.$dso-viewer-theme-tile-icon-size;
 
       dso-icon {
         height: $u7;
@@ -245,7 +245,7 @@ dso-viewer-grid {
       }
     }
 
-    .dso-theme-card-title {
+    .dso-theme-tile-title {
       border-bottom: $u1 * 0.5 solid transparent;
       font-weight: bold;
       text-align: center;
@@ -254,9 +254,9 @@ dso-viewer-grid {
     &:hover {
       text-decoration: none;
 
-      .dso-theme-card-title {
-        border-bottom-color: variables.$dso-viewer-theme-card-color;
-        color: variables.$dso-viewer-theme-card-color;
+      .dso-theme-tile-title {
+        border-bottom-color: variables.$dso-viewer-theme-tile-color;
+        color: variables.$dso-viewer-theme-tile-color;
       }
     }
   }

@@ -9,7 +9,7 @@ import readme from "./readme.md";
 import { viewerGridDocumentHeaderTemplate } from "./viewer-grid-document-header.template";
 import { viewerGridDocumentListItem } from "./viewer-grid-document-list-item.template";
 import { viewerGridFilterblok } from "./viewer-grid-filterblok.template";
-import { viewerGridThemeCard } from "./viewer-grid-theme-card.template";
+import { viewerGridThemeTile } from "./viewer-grid-theme-tile.template";
 import { viewerGridTemplate } from "./viewer-grid.template";
 
 function viewerGridMainDemoTemplate(
@@ -155,91 +155,91 @@ function viewerGridMainDemoTemplate(
 function viewerGridThemesDemoTemplate() {
   return html`
     <div class="dso-themes">
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'soil'
         },
         title: "Bodem"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'buildings'
         },
         title: "Bouwwerken"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'cultural'
         },
         title: "Cultureel erfgoed"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'energy'
         },
         title: "Energie en natuurlijk hulpbronnen"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'safety'
         },
         title: "Externe veiligheid"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'sound'
         },
         title: "Geluid"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'health'
         },
         title: "Gezondheid"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'infrastructure'
         },
         title: "Infrastructuur"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'land'
         },
         title: "Landgebruik"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'landscape'
         },
         title: "Landschap"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'air'
         },
         title: "Lucht"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'environment'
         },
         title: "Milieu algemeen"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'nature'
         },
         title: "Natuur"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'procedures'
         },
         title: "Procedures"
       })}
-      ${viewerGridThemeCard({
+      ${viewerGridThemeTile({
         icon: {
           icon: 'water'
         },
