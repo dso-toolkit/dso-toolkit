@@ -41,7 +41,7 @@ dl {
     }
 
     @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
-      &:not(:last-of-type) {
+      &:last-of-type {
         margin-bottom: $dso-definition-list-vertical-space;
       }
     }
@@ -51,6 +51,11 @@ dl {
     @media screen and (min-width: $screen-sm-min) {
       break-inside: avoid;
       column-gap: $u2;
+
+
+      dd:last-of-type {
+        margin-bottom: 0;
+      }
 
       &.dso-2-columns {
         column-count: 2;
@@ -88,6 +93,15 @@ dl {
 
     > div {
       margin-bottom: $u2;
+    }
+  }
+
+  @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+    &:not(.dso-vertical):not(.dso-columns) {
+      dd + dt,
+      dd + dt + dd {
+        margin-top: $dso-definition-list-vertical-space;
+      }
     }
   }
 
@@ -168,6 +182,10 @@ dl {
     dd {
       margin-left: 0;
     }
+
+    dd + dt {
+      margin-top: $dso-definition-list-vertical-space;
+    }
   }
 
   &.dso-emphasize-description {
@@ -210,6 +228,14 @@ dl {
     dd {
       &:last-of-type {
         padding-bottom: $dso-definition-list-vertical-space * 0.5;
+      }
+    }
+
+    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+      dd {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
       }
     }
 

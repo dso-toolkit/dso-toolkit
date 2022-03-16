@@ -8,6 +8,7 @@ $rich-content-margin-bottom: $dso-vertical-spacing-medium;
   ul,
   ol {
     margin-bottom: $rich-content-margin-bottom;
+    padding-inline-start: $u3;
   }
 
   pre {
