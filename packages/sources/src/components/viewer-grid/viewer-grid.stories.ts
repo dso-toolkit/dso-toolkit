@@ -21,9 +21,14 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
   { viewerGridDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(
+  const defaultTemplate = bindTemplate(
     viewerGridDemoArgsMapper,
     viewerGridDemoTemplate
+  );
+
+  const themesTemplate = bindTemplate(
+    viewerGridDemoArgsMapper,
+    viewerGridThemesTemplate
   );
 
   const stories = storiesOf("Viewer Grid", mainModule).addParameters({
@@ -41,27 +46,27 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     argTypes: viewerGridArgTypes,
   });
 
-  // stories.add("default", template);
+  stories.add("default", defaultTemplate);
 
-  // stories.add("themes", template);
+  stories.add("themes", themesTemplate);
 
-  stories.add(
-    'default',
-    template,
-    {
-      args: {
-        themes: false
-      }
-    }
-  );
+  // stories.add(
+  //   'default',
+  //   template,
+  //   {
+  //     args: {
+  //       themes: false
+  //     }
+  //   }
+  // );
 
-  stories.add(
-    'themes',
-    template,
-    {
-      args: {
-        themes: true
-      }
-    }
-  );
+  // stories.add(
+  //   'themes',
+  //   template,
+  //   {
+  //     args: {
+  //       themes: true
+  //     }
+  //   }
+  // );
 }
