@@ -442,6 +442,13 @@ $dso-accordion-state-icon-size: $u3;
     ol {
       padding-inline-start: $u3;
     }
+
+    dl {
+      ul,
+      ol {
+        padding-inline-start: 0;
+      }
+    }
   }
 
   &.dso-accordion-reverse-align {
