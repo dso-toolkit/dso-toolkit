@@ -57,7 +57,7 @@ export type DsoDatePickerChangeEvent = {
   component: "dso-date-picker"
   valueAsDate: Date | undefined
   value: string
-  error?: "invalid" | "required"
+  error?: "invalid" | "required" | "min-range" | "max-range"
 }
 export type DsoDatePickerFocusEvent = {
   component: "dso-date-picker"
@@ -68,7 +68,7 @@ export type DsoDatePickerKeyboardEvent = {
 }
 export type DsoDatePickerDirection = "left" | "right"
 
-const DISALLOWED_CHARACTERS = /[^0-9\.\/\-]+/g
+const DISALLOWED_CHARACTERS = /[^0-9\-]+/g
 const TRANSITION_MS = 300
 
 @Component({
@@ -483,11 +483,24 @@ export class DsoDatePicker implements ComponentInterface {
   }
 
   private handleInputChange = (e: Event) => {
-    const target = e.target as HTMLInputElement;
-    this.setValue(target.value.replace(DISALLOWED_CHARACTERS, ""));
+    const target = e.target as HTMLInputElement
+    this.setValue(target.value)
+  }
+
+  private handleKeyPress = (e: KeyboardEvent) => {
+    if (e.key.search(DISALLOWED_CHARACTERS) > -1) {
+      e.preventDefault()
+    }
   }
 
   private setValue(value: Date | string) {
+    const event = this.prepareEvent(value)
+
+    this.value = event.value
+    this.dateChange.emit(event)
+  }
+
+  private prepareEvent = (value: Date | string) : DsoDatePickerChangeEvent => {
     var event: DsoDatePickerChangeEvent = {
       component: "dso-date-picker",
       value: "",
@@ -495,26 +508,41 @@ export class DsoDatePicker implements ComponentInterface {
     };
 
     if (value instanceof Date) {
-      event.valueAsDate = value;
-    } else {
-      event.value = value;
-      event.valueAsDate = parseDutchDate(value);
+      event.valueAsDate = value
+    }
+    else {
+      event.value = value
+      event.valueAsDate = parseDutchDate(value)
     }
 
     if (event.valueAsDate) {
-      event.value = printDutchDate(event.valueAsDate);
+      event.value = printDutchDate(event.valueAsDate)
     }
 
     if (!event.valueAsDate && this.required) {
-      event.error = "required";
+      event.error = "required"
     }
 
     if (event.value && !event.valueAsDate) {
-      event.error = "invalid";
+      event.error = "invalid"
     }
 
-    this.value = event.value
-    this.dateChange.emit(event);
+    if (event.valueAsDate && (this.min || this.max)) {
+      const min = parseDutchDate(this.min)
+      const max = parseDutchDate(this.max)
+      const clampValue = clamp(event.valueAsDate, min, max)
+
+      if (clampValue !== event.valueAsDate && clampValue === min) {
+        event.valueAsDate = undefined
+        event.error = "min-range"
+      }
+      else if (clampValue !== event.valueAsDate && clampValue === max) {
+        event.valueAsDate = undefined
+        event.error = "max-range"
+      }
+    }
+
+    return event
   }
 
   private processFocusedDayNode = (element: HTMLButtonElement) => {
@@ -576,6 +604,7 @@ export class DsoDatePicker implements ComponentInterface {
               role={this.role}
               required={this.required ? true : undefined}
               aria-autocomplete="none"
+              onKeyPress={this.handleKeyPress}
               onInput={this.handleInputChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
