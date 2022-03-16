@@ -47,7 +47,7 @@ notes: |
   - Nielsen Norman Group (1994, 24 april). 10 Usability Heuristics for User Interface Design. Geraadpleegd op 20 juli 2020, via https://www.nngroup.com/articles/ten-usability-heuristics/
   - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/indicators-validations-notifications/
   - Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 20 juli 2020, via https://www.w3.org/WAI/standards-guidelines/wcag/
-  - Accessibility Developer Guide (2018, 15 mei 15). Noticing screen readers using alert role. Geraadpleegd op 16 oktober 2020, via https://www.accessibility-developer-guide.com/examples/sensible-aria-usage/alert/
+  - Accessibility Developer Guide (2018, 15 mei 15). Noticing screenreaders using alert role. Geraadpleegd op 16 oktober 2020, via https://www.accessibility-developer-guide.com/examples/sensible-aria-usage/alert/
 status: ready
 collated: true
 context:

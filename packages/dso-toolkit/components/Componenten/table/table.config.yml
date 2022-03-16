@@ -75,7 +75,7 @@ notes: |
 
 
   ## Gedrag en toegankelijkheid
-  - Een tabel heeft altijd een `<caption>` nodig. De caption wordt als een titel opgelezen door een screen reader. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
+  - Een tabel heeft altijd een `<caption>` nodig. De caption wordt als een titel opgelezen door een screenreader. Indien deze visueel niet wenselijk is wordt deze verborgen met `.sr-only`.
   - Houd de tabel zo eenvoudig mogelijk. Dit verhoogt de begrijpelijkheid van de tabel voor eindgebruikers.
   - Zorg ervoor dat er maximaal één kop niveau is voor de kolommen en maximaal één kop niveau voor de rijen. Screen readers hebben vaak moeite om goed meerdere kop niveaus op te lezen.
   - Gebruik `<th scope="col">` voor koptitels in de kolommen.

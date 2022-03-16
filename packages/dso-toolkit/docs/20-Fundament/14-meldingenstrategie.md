@@ -50,12 +50,12 @@ Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt
 Zorg ervoor dat screenreaders ook meldingen voor gebruikers kunnen voorlezen. Doe dat bijvoorbeeld door een ARIA role toe te voegen bij visuele meldingen, zoals een banner, alert of inline validatie. Hoe u dat het beste kunt doen, staat bij de componenten zelf.
 
 **Sr-only en ARIA roles**
-Soms is het belangrijk dat de gebruiker veranderingen op het scherm ziet. Bijvoorbeeld ter bevestiging van een uitgevoerde actie of om de status van de applicatie te volgen. Dan is het vaak nodig om sr-only meldingen te geven  of om de screen reader bepaalde veranderende informatie te laten voorlezen.
+Soms is het belangrijk dat de gebruiker veranderingen op het scherm ziet. Bijvoorbeeld ter bevestiging van een uitgevoerde actie of om de status van de applicatie te volgen. Dan is het vaak nodig om sr-only meldingen te geven  of om de screenreader bepaalde veranderende informatie te laten voorlezen.
 
- **Sr-only meldingen zijn meldingen die wel door de screen reader worden uitgesproken maar niet op het scherm verschijnen.**
+ **Sr-only meldingen zijn meldingen die wel door de screenreader worden uitgesproken maar niet op het scherm verschijnen.**
 
 Hiervoor zijn 2 technieken beschikbaar:
-- Voeg een `.sr-only` element in met role alert. Het effect is dat de screen reader uitspreekt "melding [tekst in element]". Om problemen te voorkomen, is het belangrijk om deze alerts regelmatig 'op te ruimen'. Bij een nieuwe alert moet de vorige alert in ieder geval eerst worden verwijderd.
+- Voeg een `.sr-only` element in met role alert. Het effect is dat de screenreader uitspreekt "melding [tekst in element]". Om problemen te voorkomen, is het belangrijk om deze alerts regelmatig 'op te ruimen'. Bij een nieuwe alert moet de vorige alert in ieder geval eerst worden verwijderd.
 - Maak van een element met veranderende tekst  een aria live region. Iedere keer als er iets verandert in het element, wordt de tekst voorgelezen. Geef daarvoor het element de `role="region"` en het attribuut `aria-live="polite"`. Polite is de standaard prioriteit voor `aria-live` attributen. In uitzonderlijke gevallen is de prioriteit "assertive" nodig.
 
 Houd zowel bij `.sr-only` alerts als bij `aria-live` regions de tekst zo kort mogelijk. De tekst wordt namelijk voorgelezen. Gebruik `.sr-only` alerts voor eenmalige meldingen. Gebruik `aria-live` regions juist om gebruikers doorlopend van een status op de hoogte te houden.
@@ -75,4 +75,4 @@ Pas op dat u de gebruiker niet overbelast met informatie. Blinde mensen gebruike
 - Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/indicators-validations-notifications/
 - Nielsen Norman Group (2018, 3 juni). Visibility of System Status. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/visibility-system-status/
 - De Voorhoede (2016, 27 december). Improving accessibility for the blind: 8 guidelines Improving accessibility for the blind. Geraadpleegd op 16 oktober 2020, via https://www.voorhoede.nl/en/blog/improving-accessibility-for-the-blind-8-guidelines/
-- Accessibility Developer Guide (2018, 15 mei 15). Noticing screen readers using alert role. Geraadpleegd op 16 oktober 2020, via https://www.accessibility-developer-guide.com/examples/sensible-aria-usage/alert/
+- Accessibility Developer Guide (2018, 15 mei 15). Noticing screenreaders using alert role. Geraadpleegd op 16 oktober 2020, via https://www.accessibility-developer-guide.com/examples/sensible-aria-usage/alert/
