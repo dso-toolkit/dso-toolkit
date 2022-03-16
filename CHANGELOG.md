@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
-### Fixed
-* **core:** Kaartlagen in MapControls is niet scrollbaar ([#1478](https://github.com/dso-toolkit/dso-toolkit/issues/1478))
 
 ### Changed
 * **core:** Sticky resize knoppen voor viewer grid ([#1373](https://github.com/dso-toolkit/dso-toolkit/issues/1373))
@@ -19,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + react:** Date Picker invoer via input geeft geen fout bij datum buiten opgegeven range ([#1482](https://github.com/dso-toolkit/dso-toolkit/issues/1482))
 * **core + react:** Date Picker invoer via input geeft geen fout bij niet toegestane karakters ([#1482](https://github.com/dso-toolkit/dso-toolkit/issues/1482))
 * **core + react:** Date Picker invoer via input moet niet toegestane karakters blokkeren ([#1482](https://github.com/dso-toolkit/dso-toolkit/issues/1482))
+* **core:** Kaartlagen in MapControls is niet scrollbaar ([#1478](https://github.com/dso-toolkit/dso-toolkit/issues/1478))
 
 ## 34.0.0
 
