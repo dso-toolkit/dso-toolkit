@@ -1,0 +1,38 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "../../icon/di";
+
+@import "~@dso-toolkit/sources/src/styling/global/button";
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+
+@import "~@dso-toolkit/sources/src/components/button/button";
+
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+:host(:focus) {
+  outline: none;
+}
+
+:host(:hover) .open {
+  right: $u2;
+}
+
+.open:focus {
+  right: $u2;
+}
+
+.open {
+  @include button_secondary($icon-only: true);
+
+  border: 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  min-width: auto;
+  padding: $u1;
+  position: absolute;
+  right: 999999px;
+  top: $u2;
+}

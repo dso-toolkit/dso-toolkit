@@ -137,6 +137,12 @@ export namespace Components {
     interface DsoIcon {
         "icon"?: string;
     }
+    interface DsoImageOverlay {
+    }
+    interface DsoImageOverlayOverlay {
+        "alt": string | undefined;
+        "src": string | undefined;
+    }
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
@@ -306,6 +312,18 @@ declare global {
         prototype: HTMLDsoIconElement;
         new (): HTMLDsoIconElement;
     };
+    interface HTMLDsoImageOverlayElement extends Components.DsoImageOverlay, HTMLStencilElement {
+    }
+    var HTMLDsoImageOverlayElement: {
+        prototype: HTMLDsoImageOverlayElement;
+        new (): HTMLDsoImageOverlayElement;
+    };
+    interface HTMLDsoImageOverlayOverlayElement extends Components.DsoImageOverlayOverlay, HTMLStencilElement {
+    }
+    var HTMLDsoImageOverlayOverlayElement: {
+        prototype: HTMLDsoImageOverlayOverlayElement;
+        new (): HTMLDsoImageOverlayOverlayElement;
+    };
     interface HTMLDsoInfoElement extends Components.DsoInfo, HTMLStencilElement {
     }
     var HTMLDsoInfoElement: {
@@ -402,6 +420,8 @@ declare global {
         "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
+        "dso-image-overlay": HTMLDsoImageOverlayElement;
+        "dso-image-overlay-overlay": HTMLDsoImageOverlayOverlayElement;
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
@@ -560,6 +580,13 @@ declare namespace LocalJSX {
     interface DsoIcon {
         "icon"?: string;
     }
+    interface DsoImageOverlay {
+    }
+    interface DsoImageOverlayOverlay {
+        "alt"?: string | undefined;
+        "onClose"?: (event: CustomEvent<undefined>) => void;
+        "src"?: string | undefined;
+    }
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
@@ -688,6 +715,8 @@ declare namespace LocalJSX {
         "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
+        "dso-image-overlay": DsoImageOverlay;
+        "dso-image-overlay-overlay": DsoImageOverlayOverlay;
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
@@ -719,6 +748,8 @@ declare module "@stencil/core" {
             "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
+            "dso-image-overlay-overlay": LocalJSX.DsoImageOverlayOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;

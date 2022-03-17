@@ -29,6 +29,7 @@ De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/is
 * **css:** Vertical margin lijsten en Definition List optimalisatie ([#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472))
 
 ### Added
+* **core:** Afbeelding groot kunnen weergeven ([#1444](https://github.com/dso-toolkit/dso-toolkit/issues/1444))
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
 * **core:** Viewer Grid - Filterpaneel ([#1445](https://github.com/dso-toolkit/dso-toolkit/issues/1445))
 * **core:** Toelichting kaartlaag in Map Controls altijd initieel gesloten weergeven ([#1479](https://github.com/dso-toolkit/dso-toolkit/issues/1479))
