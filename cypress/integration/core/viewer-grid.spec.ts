@@ -1,25 +1,9 @@
+const url = "http://localhost:56106/iframe.html?id=viewer-grid--viewer-grid";
+const urlOverlayClosed = `${url}&args=overlayOpen:false`;
+const urlOverlayOpened = `${url}&args=overlayOpen:true`;
+const urlNoOverlay = `${urlOverlayOpened}&args=noOverlay:true`;
+
 describe("Viewer Grid", () => {
-  const url = "http://localhost:56106/iframe.html?id=viewer-grid--viewer-grid";
-  const urlOverlayClosed = `${url}&args=overlayOpen:false`;
-  const urlOverlayOpened = `${url}&args=overlayOpen:true`;
-  const urlNoOverlay = `${urlOverlayOpened}&args=noOverlay:true`;
-
-  it("should not show close button", () => {
-    cy.visit(urlOverlayClosed);
-    cy.get("dso-viewer-grid")
-      .shadow()
-      .find(".overlay-close-button")
-      .should("not.be.visible");
-  });
-
-  it("should show close button", () => {
-    cy.visit(urlOverlayOpened);
-    cy.get("dso-viewer-grid")
-      .shadow()
-      .find(".overlay-close-button")
-      .should("be.visible");
-  });
-
   it("should not show overlay", () => {
     cy.visit(urlOverlayClosed);
     cy.get("dso-viewer-grid")
@@ -125,4 +109,87 @@ describe("Viewer Grid", () => {
       .find(".overlay")
       .should("not.be.visible");
   });
+
+  it('should toggle filterpanel', () => {
+    cy.visit(url);
+
+    cy.get('dso-viewer-grid')
+      .shadow()
+      .find('#filterpanel')
+      .should('be.not.visible');
+
+    cy.get('dso-viewer-grid')
+      .invoke('attr', 'filterpanel-open', '')
+      .shadow()
+      .find('#filterpanel')
+      .should('be.visible');
+
+    cy.get('dso-viewer-grid')
+      .invoke('attr', 'filterpanel-open', null)
+      .shadow()
+      .find('#filterpanel')
+      .should('be.not.visible');
+  });
+
+  it('should emit filterpanelCancel event', () => {
+    filterPanelEventTest('filterpanelCancel', '.cancel-button')
+  });
+
+  it('should emit filterpanelApply event', () => {
+    filterPanelEventTest('filterpanelApply', '.apply-button')
+  });
+
+  it('should trap focus on filterpanel open', () => {
+    cy.visit(url);
+
+    cy.get('dso-viewer-grid')
+      .invoke('attr', 'filterpanel-open', '')
+      .shadow()
+      .find('#filterpanel button')
+      .first()
+      .as('firstFocussedButton')
+      .should('be.focused');
+
+    cy.realPress('Tab');
+    cy.realPress('Tab');
+    cy.realPress('Tab');
+    cy.realPress('Tab');
+
+    cy.get('@firstFocussedButton').should('be.focused');
+  });
+
+  it('should do nothing when clicking next to filterpanel', () => {
+    cy.visit(url);
+
+    const eventListener = cy.stub();
+
+    cy.get('dso-viewer-grid').then(e => e.on('filterpanelCancel', eventListener).on('filterpanelApply', eventListener));
+
+    cy.get('dso-viewer-grid')
+      .invoke('attr', 'filterpanel-open', '');
+
+    cy.get('dso-viewer-grid [slot="map"]').click('right', { force: true });
+
+    cy.wrap(eventListener).should('not.be.called');
+  })
 });
+
+function filterPanelEventTest(eventName: string, buttonSelector: string) {
+  cy.visit(url);
+
+  cy.get('dso-viewer-grid').then(e => e.on(eventName, cy.stub().as('listener')));
+
+  cy.get('dso-viewer-grid')
+    .invoke('attr', 'filterpanel-open', '')
+    .shadow()
+    .find(`#filterpanel ${buttonSelector}`)
+    .as('filterButtons')
+    .first()
+    .click();
+
+  cy.get('@listener').should('be.calledOnce');
+
+  cy.get('@filterButtons').last().click();
+
+  cy.get('@listener').should('be.calledTwice');
+}

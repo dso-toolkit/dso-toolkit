@@ -6,8 +6,11 @@ import { ViewerGridDemoProperties } from "./viewer-grid.models";
 
 export interface ViewerGridArgs {
   overlayOpen: boolean;
+  filterpanelOpen: boolean;
   noOverlay: boolean;
   closeOverlay: HandlerFunction;
+  filterpanelCancel: HandlerFunction;
+  filterpanelApply: HandlerFunction;
   filterblokDeleteActiveFilter: HandlerFunction;
   allOptions: HandlerFunction;
   documentHeaderFeaturesOpen: boolean;
@@ -16,6 +19,11 @@ export interface ViewerGridArgs {
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
+  filterpanelOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
   overlayOpen: {
     control: {
       type: "boolean",
@@ -51,6 +59,14 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   filterblokDeleteActiveFilter: {
     ...noControl,
     action: "filterblokDeleteActiveFilter",
+  },
+  filterpanelCancel: {
+    ...noControl,
+    action: 'filterpanelCancel'
+  },
+  filterpanelApply: {
+    ...noControl,
+    action: 'filterpanelApply'
   },
 };
 
