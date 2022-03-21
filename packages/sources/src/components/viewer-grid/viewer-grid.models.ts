@@ -1,9 +1,12 @@
 import { DefinitionList, Label } from "../..";
 
 export interface ViewerGridDemoProperties {
+  filterpanelOpen: boolean;
   overlayOpen: boolean;
   noOverlay: boolean;
   closeOverlay: (e: MouseEvent) => void;
+  filterpanelCancel: (e: MouseEvent) => void;
+  filterpanelApply: (e: MouseEvent) => void;
   allOptions: (e: MouseEvent) => void;
   filterblokDeleteActiveFilter: (e: MouseEvent) => void;
   documentHeaderFeaturesOpen: boolean;
@@ -12,12 +15,16 @@ export interface ViewerGridDemoProperties {
 }
 
 export interface ViewerGrid<TemplateFnReturnType> {
+  filterpanel: TemplateFnReturnType;
+  filterpanelOpen: boolean;
   main: TemplateFnReturnType;
   map: TemplateFnReturnType;
   overlay: TemplateFnReturnType;
   overlayOpen: boolean;
   noOverlay: boolean;
   closeOverlay: (e: MouseEvent) => void;
+  filterpanelCancel: (e: MouseEvent) => void;
+  filterpanelApply: (e: MouseEvent) => void;
 }
 
 export interface ViewerGridDocumentHeader<TemplateFnReturnType> {

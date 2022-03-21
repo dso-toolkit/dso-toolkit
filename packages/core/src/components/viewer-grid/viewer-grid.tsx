@@ -8,9 +8,14 @@ import {
   Event,
   EventEmitter,
 } from "@stencil/core";
-import * as focusTrap from "focus-trap";
+import { FocusTrap, createFocusTrap } from "focus-trap";
+import { ViewerGridFilterpanelButtons } from './viewer-grid-filterpanel-buttons';
 
 type MainSize = "small" | "medium" | "large";
+
+export interface FilterpanelEvent {
+  originalEvent: MouseEvent;
+}
 
 @Component({
   tag: "dso-viewer-grid",
@@ -18,7 +23,10 @@ type MainSize = "small" | "medium" | "large";
   shadow: true,
 })
 export class ViewerGrid {
-  @Prop()
+  @Prop({ reflect: true })
+  filterpanelOpen = false;
+
+  @Prop({ reflect: true })
   overlayOpen = false;
 
   @State()
@@ -27,14 +35,26 @@ export class ViewerGrid {
   @Event()
   closeOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
 
+  @Event()
+  filterpanelCancel!: EventEmitter<FilterpanelEvent>;
+
+  @Event()
+  filterpanelApply!: EventEmitter<FilterpanelEvent>;
+
   @Element()
   host!: HTMLElement;
 
+  filterpanel: HTMLElement | undefined;
+
+  filterpanelSlot: HTMLElement | null = null;
+
+  filterpanelFocustrap: FocusTrap | undefined;
+
   overlay: HTMLDivElement | undefined;
 
-  overlaySlot: HTMLDivElement | null | undefined;
+  overlaySlot: HTMLDivElement | null = null;
 
-  trap: focusTrap.FocusTrap | undefined;
+  overlayFocustrap: FocusTrap | undefined;
 
   shrinkMain = () => {
     this.mainSize = this.mainSize == "large" ? "medium" : "small";
@@ -45,16 +65,28 @@ export class ViewerGrid {
   };
 
   updateFocusTrap() {
-    if (!this.trap) {
+    if (this.filterpanelOpen && this.overlayOpen) {
       return;
     }
 
-    if (this.overlayOpen) {
-      this.trap.activate();
-      this.host.addEventListener("keydown", this.keyDownListener);
-    } else {
-      this.trap.deactivate();
-      this.host.removeEventListener("keydown", this.keyDownListener);
+    if (this.filterpanelFocustrap) {
+      if (this.filterpanelOpen && !this.filterpanel?.hidden) {
+        this.filterpanelFocustrap.activate();
+        this.host.addEventListener("keydown", this.keyDownListener);
+      } else {
+        this.filterpanelFocustrap.deactivate();
+        this.host.removeEventListener("keydown", this.keyDownListener);
+      }
+    }
+
+    if (this.overlayFocustrap) {
+      if (this.overlayOpen && !this.overlay?.hidden) {
+        this.overlayFocustrap.activate();
+        this.host.addEventListener("keydown", this.keyDownListener);
+      } else {
+        this.overlayFocustrap.deactivate();
+        this.host.removeEventListener("keydown", this.keyDownListener);
+      }
     }
   }
 
@@ -67,20 +99,29 @@ export class ViewerGrid {
   };
 
   connectedCallback() {
-    this.overlaySlot = this.host.querySelector(
-      "div[slot = 'overlay']"
-    ) as HTMLDivElement | null;
+    this.filterpanelSlot = this.host.querySelector<HTMLDivElement>(
+      "div[slot='filterpanel']"
+    );
+
+    this.overlaySlot = this.host.querySelector<HTMLDivElement>(
+      "div[slot='overlay']"
+    );
   }
 
   componentDidLoad() {
-    if (!this.overlay || !this.overlaySlot) {
-      return;
+    if (this.filterpanel && this.filterpanelSlot) {
+      this.filterpanelFocustrap = createFocusTrap([this.filterpanel, this.filterpanelSlot], {
+        escapeDeactivates: false,
+        allowOutsideClick: true,
+      });
     }
 
-    this.trap = focusTrap.createFocusTrap([this.overlay, this.overlaySlot], {
-      escapeDeactivates: false,
-      allowOutsideClick: true,
-    });
+    if (this.overlay && this.overlaySlot) {
+      this.overlayFocustrap = createFocusTrap([this.overlay, this.overlaySlot], {
+        escapeDeactivates: false,
+        allowOutsideClick: true,
+      });
+    }
 
     this.updateFocusTrap();
   }
@@ -90,11 +131,18 @@ export class ViewerGrid {
   }
 
   disconnectedCallback() {
-    if (this.trap) {
-      this.trap.deactivate();
-    }
+    this.overlayFocustrap?.deactivate();
+    this.filterpanelFocustrap?.deactivate();
 
     this.host.removeEventListener("keydown", this.keyDownListener);
+  }
+
+  handleFilterpanelApply(mouseEvent: MouseEvent) {
+    this.filterpanelApply.emit({ originalEvent: mouseEvent });
+  }
+
+  handleFilterpanelCancel(mouseEvent: MouseEvent) {
+    this.filterpanelCancel.emit({ originalEvent: mouseEvent });
   }
 
   render() {
@@ -123,13 +171,23 @@ export class ViewerGrid {
             <slot name="main" />
           </div>
         </div>
+        <div
+          id="filterpanel"
+          hidden={!this.filterpanelOpen || !this.filterpanelSlot}
+          ref={(element) => this.filterpanel = element}
+        >
+          <h2>Uw keuzes</h2>
+          <ViewerGridFilterpanelButtons onApply={e => this.handleFilterpanelApply(e)} onCancel={e => this.handleFilterpanelCancel(e)} />
+          <slot name="filterpanel" />
+          <ViewerGridFilterpanelButtons onApply={e => this.handleFilterpanelApply(e)} onCancel={e => this.handleFilterpanelCancel(e)} />
+        </div>
         <div class="map">
           <slot name="map" />
         </div>
         <div
           class="overlay"
           hidden={!this.overlayOpen || !this.overlaySlot}
-          ref={(element) => (this.overlay = element!)}
+          ref={(element) => (this.overlay = element)}
         >
           <button
             type="button"

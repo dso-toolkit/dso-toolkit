@@ -2,6 +2,10 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/headings";
+
+@import "~@dso-toolkit/sources/src/styling/global/button";
+@import "~@dso-toolkit/sources/src/styling/global/headings";
 
 @import "../../icon/di";
 
@@ -149,14 +153,83 @@
   overflow: hidden;
 }
 
+#filterpanel,
 .overlay {
   background-color: $wit;
-  box-shadow: -2px 0 5px $grijs-60;
   height: 100%;
   overflow-y: auto;
-  padding: $u5 $grid-gutter-width * 0.5 $u1;
   position: absolute;
+  z-index: 2;
+}
+
+#filterpanel {
+  box-shadow: 2px 0 5px $grijs-60;
+  padding: $u5 $grid-gutter-width * 0.5 $u1;
+  left: 0;
+  max-width: variables.$dso-viewer-grid-filterpanel-max-width;
+  width: calc(100vw - 40px);
+
+  @media screen and (max-width: variables.$dso-viewer-grid-filterpanel-width) {
+    width: 100vw;
+
+    &::before {
+      display: none !important;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: variables.$dso-viewer-grid-filterpanel-max-width;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: variables.$dso-viewer-grid-filterpanel-max-width + 40px) {
+      left: auto;
+      width: 40px;
+    }
+  }
+}
+
+.overlay {
+  box-shadow: -2px 0 5px $grijs-60;
+  padding: $u5 $grid-gutter-width * 0.5 $u1;
   right: 0;
   width: variables.$dso-viewer-grid-overlay-width;
-  z-index: 2;
+
+  @media screen and (max-width: variables.$dso-viewer-grid-overlay-width) {
+    width: 100vw;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: variables.$dso-viewer-grid-overlay-width;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.filterpanel-buttons {
+  text-align: right;
+
+  .cancel-button {
+    @include button_secondary();
+    @include button_small();
+  }
+
+  .apply-button {
+    @include button_primary();
+    @include button_small();
+  }
+
+  .cancel-button + .apply-button {
+    margin-left: $u2;
+  }
 }

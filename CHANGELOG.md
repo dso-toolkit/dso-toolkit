@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
+* **core:** Viewer Grid - Filterpaneel ([#1445](https://github.com/dso-toolkit/dso-toolkit/issues/1445))
 
 ## 34.1.0
 

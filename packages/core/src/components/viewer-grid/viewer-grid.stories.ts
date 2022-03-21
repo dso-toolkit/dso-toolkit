@@ -151,6 +151,26 @@ function viewerGridMainDemoTemplate(
   `;
 }
 
+const filterpanel = html`
+  <div class="dso-rich-content">
+    <dso-alert status="info">
+      Alert
+    </dso-alert>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <dso-alert status="warning">
+      Alert
+    </dso-alert>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+    <p>Inhoud Inhoud Inhoud Inhoud</p>
+  </div>
+`;
+
 const map = html`
   <div class="alert alert-success">
     Hier komt de kaart. Dit paneel heeft maximale breedte/hoogte en
@@ -224,8 +244,11 @@ storiesOfViewerGrid(
   {
     viewerGridDemoTemplate: ({
       closeOverlay,
+      filterpanelOpen,
       overlayOpen,
       noOverlay,
+      filterpanelApply,
+      filterpanelCancel,
       filterblokDeleteActiveFilter,
       allOptions,
       documentHeaderFeatureAction,
@@ -234,7 +257,11 @@ storiesOfViewerGrid(
     }) =>
       viewerGridTemplate({
         closeOverlay,
+        filterpanelOpen,
+        filterpanel,
         overlayOpen,
+        filterpanelApply,
+        filterpanelCancel,
         noOverlay,
         main: viewerGridMainDemoTemplate(
           allOptions,
