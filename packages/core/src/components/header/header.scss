@@ -36,6 +36,8 @@ $dso-dropdown-link-color: $grijs-90;
   border-bottom: 1px solid $grijs-20;
   display: flex;
   flex-wrap: wrap;
+  padding: 0 $u2;
+  position: relative;
 
   @media screen and (min-width: $screen-sm-min) {
     align-items: center;
@@ -53,6 +55,16 @@ $dso-dropdown-link-color: $grijs-90;
   flex-wrap: wrap;
   padding-bottom: $u2;
   padding-top: $u2;
+
+  @media screen and (max-width: $screen-xs-max) {
+    max-width: 200px;
+  }
+
+   + .dropdown {
+     dso-dropdown-menu {
+       position: static;
+     }
+   }
 }
 
 .sub-logo {
@@ -144,12 +156,6 @@ dso-dropdown-menu {
     }
   }
 
-  @media screen and (max-width: $screen-sm-max) {
-    &[dropdown-align=right] .dso-dropdown-options {
-      right: $u2 * -1;
-    }
-  }
-
   @media screen and (max-width: $screen-xs-max) {
     top: $u1 * 1.5;
   }
@@ -163,7 +169,7 @@ dso-dropdown-menu {
         width: 320px;
 
         @media screen and (max-width: $screen-sm-max) {
-          width: 100vw;
+          width: 100%;
         }
       }
 
@@ -172,6 +178,12 @@ dso-dropdown-menu {
           color: $bosgroen;
           font-size: 1.25rem;
           padding: $u2;
+
+          &:hover {
+            background-color: $wit;
+            color: $bosgroen;
+            text-decoration: underline;
+          }
         }
 
         &.dso-active {
@@ -193,15 +205,18 @@ dso-dropdown-menu {
 
   dso-dropdown-menu {
     @media screen and (max-width: $screen-xs-max) {
-      top: $u1 * 3.5;
+      margin-top: $u1 * 3.5;
     }
 
     .dso-dropdown-options {
-      top: calc(100% + 29px);
+      left: 0;
+      right: 0;
+      top: 100%;
+      // top: calc(100% + 29px);
 
-      @media screen and (max-width: $screen-xs-max) {
-        top: $u9;
-      }
+      // @media screen and (max-width: $screen-xs-max) {
+      //   top: $u9;
+      // }
     }
 
     &[open] {
@@ -216,6 +231,7 @@ dso-dropdown-menu {
       color: $grasgroen;
       font-size: $font-size-base;
       font-weight: 600;
+      position: relative;
 
       &:hover,
       &:active {
