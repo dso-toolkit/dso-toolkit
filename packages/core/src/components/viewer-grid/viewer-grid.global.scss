@@ -113,23 +113,6 @@ dso-viewer-grid {
     }
   }
 
-  [slot="overlay"] {
-    @media screen and (max-width: variables.$dso-viewer-grid-overlay-width) {
-      width: 100vw;
-    }
-
-    &::before {
-      content: "";
-      display: block;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: variables.$dso-viewer-grid-overlay-width + $u4;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-  }
-
   .dso-document-list {
     @include list-unstyled();
 

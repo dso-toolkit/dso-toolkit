@@ -5,16 +5,19 @@
 
 ## Properties
 
-| Property      | Attribute      | Description | Type      | Default |
-| ------------- | -------------- | ----------- | --------- | ------- |
-| `overlayOpen` | `overlay-open` |             | `boolean` | `false` |
+| Property          | Attribute          | Description | Type      | Default |
+| ----------------- | ------------------ | ----------- | --------- | ------- |
+| `filterpanelOpen` | `filterpanel-open` |             | `boolean` | `false` |
+| `overlayOpen`     | `overlay-open`     |             | `boolean` | `false` |
 
 
 ## Events
 
-| Event          | Description | Type                                       |
-| -------------- | ----------- | ------------------------------------------ |
-| `closeOverlay` |             | `CustomEvent<KeyboardEvent \| MouseEvent>` |
+| Event               | Description | Type                                       |
+| ------------------- | ----------- | ------------------------------------------ |
+| `closeOverlay`      |             | `CustomEvent<KeyboardEvent \| MouseEvent>` |
+| `filterpanelApply`  |             | `CustomEvent<FilterpanelEvent>`            |
+| `filterpanelCancel` |             | `CustomEvent<FilterpanelEvent>`            |
 
 
 ## Dependencies

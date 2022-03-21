@@ -151,6 +151,50 @@ function viewerGridMainDemoTemplate(
   `;
 }
 
+const filterpanel = html`
+  <hr>
+  <dso-alert status="info">
+    Dit is het "Filterpaneel"
+  </dso-alert>
+  <dso-highlight-box yellow>
+    <div class="dso-rich-content">
+      <p>Dit is een stukje tekst om voor wat vulling te zorgen.</p>
+    </div>
+  </dso-highlight-box>
+  <div class="dso-rich-content">
+    <ol>
+      <li>Een</li>
+      <li>Twee</li>
+      <li>Drie</li>
+    </ol>
+    <p>
+      Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at
+      felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc
+      eget cursus lorem. Sed massa nunc, maximus sodales ultrices nec, luctus et
+      lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+      Morbi ultrices tincidunt ipsum, sit amet ultricies nulla pulvinar nec.
+      Cras sed tellus in nunc viverra aliquam. Aenean sed libero nulla.
+      Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus a. Etiam
+      vel ex nec eros porttitor aliquam. Duis blandit vel ex at venenatis.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+      ac turpis egestas. Nulla sodales facilisis hendrerit.
+    </p>
+    <p>
+      Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at
+      felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc
+      eget cursus lorem. Sed massa nunc, maximus sodales ultrices nec, luctus et
+      lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+      Morbi ultrices tincidunt ipsum, sit amet ultricies nulla pulvinar nec.
+      Cras sed tellus in nunc viverra aliquam. Aenean sed libero nulla.
+      Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus a. Etiam
+      vel ex nec eros porttitor aliquam. Duis blandit vel ex at venenatis.
+      Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+      ac turpis egestas. Nulla sodales facilisis hendrerit.
+    </p>
+  </div>
+  <hr>
+`;
+
 const map = html`
   <div class="alert alert-success">
     Hier komt de kaart. Dit paneel heeft maximale breedte/hoogte en
@@ -224,8 +268,11 @@ storiesOfViewerGrid(
   {
     viewerGridDemoTemplate: ({
       closeOverlay,
+      filterpanelOpen,
       overlayOpen,
       noOverlay,
+      filterpanelApply,
+      filterpanelCancel,
       filterblokDeleteActiveFilter,
       allOptions,
       documentHeaderFeatureAction,
@@ -234,7 +281,11 @@ storiesOfViewerGrid(
     }) =>
       viewerGridTemplate({
         closeOverlay,
+        filterpanelOpen,
+        filterpanel,
         overlayOpen,
+        filterpanelApply,
+        filterpanelCancel,
         noOverlay,
         main: viewerGridMainDemoTemplate(
           allOptions,
