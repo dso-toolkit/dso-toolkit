@@ -154,6 +154,8 @@ function viewerGridMainDemoTemplate(
 
 function viewerGridThemesDemoTemplate() {
   return html`
+    <h2>Thema's</h2>
+    <p>Bekijk regels en beleid rond een bepaald thema.</p>
     <div class="dso-themes">
       ${viewerGridThemeTile({
         icon: {
