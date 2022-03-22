@@ -16,6 +16,7 @@ context:
   appheading:
     title: Boom kappen in de achtertuin
   linkList:
+    navLabel: Projecttaken
     links:
       - label: Ingediende verzoeken
         url: '#'

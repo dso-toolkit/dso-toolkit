@@ -35,7 +35,7 @@ export function linkListTemplate({ navLabel, type, links }: LinkList) {
 
   if (navLabel) {
     return html`
-      <nav aria-label=${navLabel}>
+      <nav aria-label=${navLabel} class="dso-link-list-nav">
         ${list}
       </nav>
     `;
