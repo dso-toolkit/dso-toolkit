@@ -17,8 +17,7 @@ export const links: Anchor[] = [
   },
   {
     url: '#',
-    label: 'Current link',
-    ariaCurrent: 'page'
+    label: 'Current link'
   }
 ];
 
