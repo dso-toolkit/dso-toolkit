@@ -1,3 +1,6 @@
+{% if navLabel %}
+<nav aria-label="{{ navLabel }}" class="dso-link-list-nav">
+{% endif %}
 <ul class="dso-link-list">
   {%- for link in links -%}
     <li>
@@ -5,3 +8,6 @@
     </li>
   {% endfor -%}
 </ul>
+{% if navLabel %}
+</nav>
+{% endif %}

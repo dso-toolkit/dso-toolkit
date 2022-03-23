@@ -8,6 +8,7 @@ export interface AnchorArgs {
   label: string;
   modifier?: string;
   url: string;
+  ariaCurrent?: string;
 }
 
 export const anchorArgTypes: ArgTypes<AnchorArgs> = {
@@ -37,6 +38,11 @@ export const anchorArgTypes: ArgTypes<AnchorArgs> = {
     control: {
       type: 'text'
     }
+  },
+  ariaCurrent: {
+    control: {
+      type: 'text'
+    }
   }
 };
 
@@ -50,6 +56,7 @@ export function anchorArgsMapper(a: AnchorArgs): Anchor {
     iconMode: a.iconMode,
     label: a.label,
     modifier: a.modifier,
-    url: a.url
+    url: a.url,
+    ariaCurrent: a.ariaCurrent
   };
 }

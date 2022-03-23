@@ -1,24 +1,35 @@
 import { ArgTypes } from '../../stories-helpers';
 
 import { LinkList, LinkListType } from './link-list.models';
-import { links } from './link-list.content';
+import { Anchor } from '../anchor/anchor.models';
 
 export interface LinkListArgs {
-  type?: LinkListType;
+  navLabel: string;
+  type: LinkListType;
+  links: Anchor[];
 }
 
 export const linkListArgTypes: ArgTypes<LinkListArgs> = {
+  navLabel: {
+    control: {
+      type: 'string'
+    }
+  },
   type: {
     options: [LinkListType.Ul, LinkListType.Ol],
     control: {
       type: 'select'
+    }
+  },
+  links: {
+    control: {
+      disable: true
     }
   }
 };
 
 export function linkListArgsMapper(a: LinkListArgs): LinkList {
   return {
-    links,
-    type: a.type
+    ...a
   };
 }

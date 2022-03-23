@@ -20,7 +20,11 @@ function ol(children: TemplateResult) {
   `;
 }
 
-export function linkListTemplate({ type, links }: LinkList) {
+export function linkListTemplate({ navLabel, type, links }: LinkList) {
+  if (links.some(l => l.ariaCurrent) !== !!navLabel) {
+    throw new Error('Content mismatch between LinkList.navLabel and Anchor.ariaCurrent');
+  }
+
   const children = html`
     ${links.map(link => html`
       <li>
@@ -29,11 +33,19 @@ export function linkListTemplate({ type, links }: LinkList) {
     `)}
   `;
 
-  if (type === LinkListType.Ol) {
-    return ol(children);
+  const list = type === LinkListType.Ol
+    ? ol(children)
+    : ul(children)
+
+  if (navLabel) {
+    return html`
+      <nav aria-label=${navLabel} class="dso-link-list-nav">
+        ${list}
+      </nav>
+    `;
   }
 
-  return ul(children);
+  return list;
 }
 
 export function inFooterTemplate(linkList: TemplateResult) {

@@ -5,10 +5,11 @@ import { ifDefined } from 'lit-html/directives/if-defined';
 
 import { iconTemplate } from '../icon/icon.template';
 
-export function anchorTemplate({ icon, iconMode, label, modifier, url }: Anchor) {
+export function anchorTemplate({ icon, iconMode, label, modifier, url, ariaCurrent }: Anchor) {
   return html`<a
     href=${url}
     class=${ifDefined(modifier)}
+    aria-current=${ifDefined(ariaCurrent)}
     target=${ifDefined(modifier?.includes('extern') ? '_blank' : undefined)}
     rel=${ifDefined(modifier?.includes('extern') ? 'noopener noreferrer' : undefined)}
   >${

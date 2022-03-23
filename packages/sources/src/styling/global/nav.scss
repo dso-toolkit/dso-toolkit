@@ -1,3 +1,9 @@
 nav {
   display: block;
+
+  .dso-link-list {
+    a:visited {
+      color: $grasgroen;
+    }
+  }
 }

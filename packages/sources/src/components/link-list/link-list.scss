@@ -7,6 +7,10 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    a[aria-current="page"] {
+      font-weight: 700;
+    }
   }
 
   a {

@@ -2,6 +2,7 @@ import { Args } from '@storybook/addons';
 import { ArgsError, bindTemplate, StorybookParameters } from '../../stories-helpers';
 
 import { LinkListArgs, linkListArgsMapper, linkListArgTypes } from './link-list.args';
+import { links, navLinks } from './link-list.content';
 import { LinkList, LinkListType } from './link-list.models';
 
 export interface LinkListParameters<TemplateFnReturnType> {
@@ -41,6 +42,9 @@ export function storiesOfLinkList<TemplateFnReturnType>(
       docs: {
         page: readme
       },
+      args: {
+        links
+      },
       argTypes: linkListArgTypes
     });
 
@@ -74,6 +78,18 @@ export function storiesOfLinkList<TemplateFnReturnType>(
       const args = a as LinkListArgs;
 
       return inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args)));
+    }
+  );
+
+  stories.add(
+    'in nav',
+    template,
+    {
+      args: {
+        links: navLinks,
+        navLabel: 'Projecttaken',
+        type: LinkListType.Ul
+      }
     }
   );
 
