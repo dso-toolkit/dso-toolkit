@@ -14,10 +14,6 @@ export const links: Anchor[] = [
   {
     url: '#',
     label: 'Intern link'
-  },
-  {
-    url: '#',
-    label: 'Current link'
   }
 ];
 
