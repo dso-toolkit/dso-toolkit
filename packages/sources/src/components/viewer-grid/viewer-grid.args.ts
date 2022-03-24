@@ -2,7 +2,9 @@ import { HandlerFunction } from "@storybook/addon-actions";
 
 import { ArgTypes, noControl } from "../../stories-helpers";
 
-import { ViewerGridDemoProperties } from "./viewer-grid.models";
+import { ViewerGridDefaultDemoProperties } from "./viewer-grid.models";
+
+import { ViewerGridThemesDemoProperties } from "./viewer-grid.models";
 
 export interface ViewerGridArgs {
   overlayOpen: boolean;
@@ -56,7 +58,7 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
 
 export function viewerGridDemoArgsMapper(
   a: ViewerGridArgs
-): ViewerGridDemoProperties {
+): ViewerGridDefaultDemoProperties {
   return {
     ...a,
   };
