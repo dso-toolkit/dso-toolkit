@@ -11,7 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
 
-### Changed
+### Fixed
 * **sources:** dso-icon in button size moet 24px zijn ([#1486](https://github.com/dso-toolkit/dso-toolkit/issues/1486))
 
 ## 34.1.0
