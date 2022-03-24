@@ -16,9 +16,9 @@ export interface ContentAnchor {
 
 ## Properties
 
-| Property               | Attribute | Description | Type     | Default     |
-| ---------------------- | --------- | ----------- | -------- | ----------- |
-| `content` _(required)_ | `content` |             | `string` | `undefined` |
+| Property  | Attribute | Description | Type                  | Default     |
+| --------- | --------- | ----------- | --------------------- | ----------- |
+| `content` | `content` |             | `string \| undefined` | `undefined` |
 
 
 ## Events

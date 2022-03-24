@@ -3,5 +3,5 @@
 export interface ContentAnchor {
   href: string;
   documentComponent: string;
-  originalEvent: PointerEvent;
+  originalEvent: MouseEvent;
 }

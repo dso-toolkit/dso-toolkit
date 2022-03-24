@@ -164,7 +164,7 @@ export namespace Components {
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
-        "content": string;
+        "content": string | undefined;
     }
     interface DsoProgressBar {
         "max": number;
@@ -603,7 +603,7 @@ declare namespace LocalJSX {
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
-        "content": string;
+        "content"?: string | undefined;
         "onAnchorClick"?: (event: CustomEvent<ContentAnchor>) => void;
     }
     interface DsoProgressBar {

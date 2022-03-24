@@ -15,6 +15,10 @@ dso-ozon-content {
   @include description_note($description-content-selector);
 }
 
+.paragraph {
+  display: block;
+}
+
 // Styling below copied from DSO Viewer 20211011
 
 .od-Term {
