@@ -33,6 +33,9 @@ $list-group-border-radius: $border-radius-base;
 
 ul,
 ol {
+  margin-top: 0;
+  margin-bottom: $u2;
+
   &.dso-columns-list {
     list-style: none;
     margin: 0;
@@ -54,5 +57,10 @@ ol {
   li .dso-info {
     margin-bottom: $u1;
     margin-top: $u1;
+  }
+
+  ul,
+  ol {
+    margin-bottom: 0;
   }
 }

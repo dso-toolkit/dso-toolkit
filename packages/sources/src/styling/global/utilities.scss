@@ -1,0 +1,32 @@
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+.list-unstyled {
+  @include list-unstyled();
+}
+
+.caption {
+  font-style: italic;
+}
+
+small,
+.small {
+  font-size: $font-size-small;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.center-block {
+  @include center-block();
+}

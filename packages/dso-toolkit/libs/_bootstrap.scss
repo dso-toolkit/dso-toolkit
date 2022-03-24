@@ -54,7 +54,7 @@
 
 // Core CSS
 @import "bootstrap/scaffolding";
-@import "bootstrap/type";
+// @import "bootstrap/type"; -> Moved to @dso-toolkit/sources
 @import "bootstrap/code";
 // @import "bootstrap/grid"; -> Moved to @dso-toolkit/styling
 @import "bootstrap/forms";
@@ -81,5 +81,5 @@
 // @import "bootstrap/carousel"; -> Deleted
 
 // Utility classes
-@import "bootstrap/utilities";
+// @import "bootstrap/utilities"; -> Moved to @dso-toolkit/sources/src/styling/global/utilities
 @import "bootstrap/responsive-utilities";

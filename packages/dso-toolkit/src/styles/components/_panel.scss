@@ -10,7 +10,7 @@
 }
 
 .panel-body {
-  @extend %dso-rich-content;
+  @include rich-content();
 
   padding-bottom: 0;
 }

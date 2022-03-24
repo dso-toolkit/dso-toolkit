@@ -524,11 +524,11 @@ $abbr-border-color:           $gray-light !default;
 //** Headings small color
 $headings-small-color:        $gray-light !default;
 //** Blockquote small color
-$blockquote-small-color:      $gray-light !default;
+// $blockquote-small-color:      $gray-light !default; -> Deleted
 //** Blockquote font size
-$blockquote-font-size:        ($font-size-base * 1.25) !default;
+// $blockquote-font-size:        ($font-size-base * 1.25) !default;  -> Moved to @dso-toolkit/sources/src/styling/variables/typography
 //** Blockquote border color
-$blockquote-border-color:     $gray-lighter !default;
+// $blockquote-border-color:     $gray-lighter !default;  -> Moved to @dso-toolkit/sources/src/styling/variables/colors
 //** Page header border color
 $page-header-border-color:    $gray-lighter !default;
 //** Width of horizontal description list titles

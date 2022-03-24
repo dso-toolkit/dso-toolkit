@@ -8,8 +8,10 @@
 
 @import "../../../sources/src/styling/global/a";
 @import "../../../sources/src/styling/global/b";
+@import "../../../sources/src/styling/global/blockquote";
 @import "../../../sources/src/styling/global/button";
 @import "../../../sources/src/styling/global/code";
+@import "../../../sources/src/styling/global/del";
 @import "../../../sources/src/styling/global/dl";
 @import "../../../sources/src/styling/global/fieldset";
 @import "../../../sources/src/styling/global/footer";
@@ -18,10 +20,12 @@
 @import "../../../sources/src/styling/global/hr";
 @import "../../../sources/src/styling/global/img";
 @import "../../../sources/src/styling/global/input";
+@import "../../../sources/src/styling/global/ins";
 @import "../../../sources/src/styling/global/label";
 @import "../../../sources/src/styling/global/main";
 @import "../../../sources/src/styling/global/mark";
 @import "../../../sources/src/styling/global/nav";
+@import "../../../sources/src/styling/global/p";
 @import "../../../sources/src/styling/global/section";
 @import "../../../sources/src/styling/global/select";
 @import "../../../sources/src/styling/global/strong";
@@ -29,6 +33,7 @@
 @import "../../../sources/src/styling/global/sup";
 @import "../../../sources/src/styling/global/table";
 @import "../../../sources/src/styling/global/textarea";
+@import "../../../sources/src/styling/global/utilities";
 
 @import "../../../sources/src/styling/grid/grid";
 /* stylelint-enable no-invalid-position-at-import-rule */
