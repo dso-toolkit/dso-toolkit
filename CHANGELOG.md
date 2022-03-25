@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Improvements
+* **css + dso-toolkit:** Equal heights verhuizen naar @dso-toolkit/css. ([#1459](https://github.com/dso-toolkit/dso-toolkit/issues/1459))
 * **core + dso-toolkit:** Header verbeteringen ([#1457](https://github.com/dso-toolkit/dso-toolkit/issues/1457))
 
 ### Added
