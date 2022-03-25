@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **css + dso-toolkit + sources:** "Rich Content" verhuizen naar `@dso-toolkit/sources` ([#1465](https://github.com/dso-toolkit/dso-toolkit/issues/1465))
+* **css + core + dso-toolkit:** "Row Equal Heights" verhuizen naar `@dso-toolkit/css`. ([#1459](https://github.com/dso-toolkit/dso-toolkit/issues/1459))
 
 ## 34.2.1
 

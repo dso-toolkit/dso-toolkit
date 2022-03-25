@@ -14,7 +14,10 @@ export function highlightBoxTemplate({ yellow, white, dropShadow, border, step, 
       border={border}
     >
       {icon && iconTemplate({ icon }, 'icon')}
-      {richContent}
+      {typeof richContent === 'string'
+        ? <div className="dso-rich-content" dangerouslySetInnerHTML={({ __html: richContent })} />
+        : <div className="dso-rich-content">{richContent}</div>
+      }
     </DsoHighlightBox>
   );
 }
