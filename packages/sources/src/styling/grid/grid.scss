@@ -24,6 +24,10 @@ $container-lg: 1152px !default; // Large screen / wide desktop
 
 .row {
   @include make-row();
+
+  &.dso-equal-heights {
+    @include row-equal-heights();
+  }
 }
 
 .row-no-gutters {

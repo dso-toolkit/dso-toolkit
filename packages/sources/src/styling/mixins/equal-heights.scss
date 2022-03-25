@@ -1,4 +1,4 @@
-.row.dso-equal-heights {
+@mixin row-equal-heights {
   display: flex;
   flex-wrap: wrap;
 
