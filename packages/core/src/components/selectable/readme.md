@@ -29,6 +29,19 @@
 | `dsoChange` |             | `CustomEvent<SelectableChangeEvent>` |
 
 
+## Methods
+
+### `toggleInfo(active?: boolean | undefined) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by

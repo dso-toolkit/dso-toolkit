@@ -36,7 +36,8 @@ export function storiesOfMapControls<TemplateFnReturnType>(
       argTypes: mapControlsArgTypes,
       html: {
         root: '#map-container-mock'
-      }
+      },
+      layout: 'fullscreen'
     })
     // @ts-ignore Incorrect typings in Storybook
     .addDecorator(decorator);

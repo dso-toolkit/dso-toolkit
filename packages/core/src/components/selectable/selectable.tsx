@@ -1,7 +1,7 @@
 export interface SelectableChangeEvent extends Event {
 }
 
-import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate, Watch } from '@stencil/core';
+import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate, Watch, Method } from '@stencil/core';
 import { createIdentifier } from '../../utils/create-identifier';
 
 @Component({
@@ -53,6 +53,11 @@ export class Selectable {
 
   @State()
   infoActive = false;
+
+  @Method()
+  async toggleInfo(active?: boolean) {
+    this.infoActive = active ?? !this.infoActive;
+  }
 
   private mutationObserver?: MutationObserver;
 
