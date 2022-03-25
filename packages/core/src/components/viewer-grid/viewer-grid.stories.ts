@@ -179,7 +179,7 @@ function viewerGridThemesDemoTemplate() {
         icon: {
           icon: 'energy'
         },
-        title: "Energie en natuurlijk hulpbronnen"
+        title: "Energie en natuurlijke hulpbronnen"
       })}
       ${viewerGridThemeTile({
         icon: {
