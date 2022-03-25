@@ -184,6 +184,7 @@ export namespace Components {
         "invalid"?: boolean;
         "name"?: string;
         "required"?: boolean;
+        "toggleInfo": (active?: boolean | undefined) => Promise<void>;
         "type": 'checkbox' | 'radio';
         "value": string;
     }

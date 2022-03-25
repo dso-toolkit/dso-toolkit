@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, ComponentInterface } from '@stencil/core';
 
 import { BaseLayer, BaseLayerChangeEvent } from './map-base-layers.interfaces';
 
@@ -7,7 +7,10 @@ import { BaseLayer, BaseLayerChangeEvent } from './map-base-layers.interfaces';
   styleUrl: './map-base-layers.scss',
   shadow: true
 })
-export class MapBaseLayers {
+export class MapBaseLayers implements ComponentInterface {
+  previousBaselayers: BaseLayer[] | undefined;
+  selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
+
   @Event()
   baseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
 
@@ -18,7 +21,21 @@ export class MapBaseLayers {
     this.baseLayerChange.emit({ activeBaseLayer: baseLayer });
   }
 
+  componentDidRender() {
+    this.baseLayers
+      .filter(l => !l.disabled && this.previousBaselayers?.find(p => p.id === l.id)?.disabled === true)
+      .forEach(o => {
+        this.selectableRefs[o.id]?.toggleInfo(false);
+      });
+
+    this.previousBaselayers = this.baseLayers;
+  }
+
   render() {
+    for (const ref in this.selectableRefs) {
+      delete this.selectableRefs[ref];
+    }
+
     return (
       <fieldset class="form-group dso-radios">
         <legend class="sr-only">Achtergrond</legend>
@@ -35,6 +52,7 @@ export class MapBaseLayers {
               value={baseLayer.name}
               checked={baseLayer.checked}
               disabled={baseLayer.disabled}
+              ref={ref => this.selectableRefs[baseLayer.id] = ref!}
               onDsoChange={() => this.baseLayerChangeHandler(baseLayer)}
             >
               {baseLayer.name}

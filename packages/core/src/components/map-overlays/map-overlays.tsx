@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Prop, h } from '@stencil/core';
+import { Component, Event, EventEmitter, Prop, h, ComponentInterface } from '@stencil/core';
 
 import { Overlay, OverlayChangeEvent } from './map-overlays.interfaces';
 
@@ -9,7 +9,10 @@ import { SelectableChangeEvent } from '../selectable/selectable';
   styleUrl: './map-overlays.scss',
   shadow: true
 })
-export class MapOverlays {
+export class MapOverlays implements ComponentInterface {
+  previousOverlays: Overlay[] | undefined;
+  selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
+
   @Prop()
   overlays!: Overlay[];
 
@@ -22,7 +25,21 @@ export class MapOverlays {
     this.toggleOverlay.emit({ overlay, checked });
   }
 
+  componentDidRender() {
+    this.overlays
+      .filter(o => !o.disabled && this.previousOverlays?.find(p => p.id === o.id)?.disabled === true)
+      .forEach(o => {
+        this.selectableRefs[o.id]?.toggleInfo(false);
+      });
+
+    this.previousOverlays = this.overlays;
+  }
+
   render() {
+    for (const ref in this.selectableRefs) {
+      delete this.selectableRefs[ref];
+    }
+
     return (
       <fieldset class="form-group dso-checkboxes">
         <legend class="sr-only">Kaartlagen</legend>
@@ -34,10 +51,12 @@ export class MapOverlays {
         <div class="dso-field-container">
           {this.overlays.map(overlay => (
             <dso-selectable
+              key={overlay.id}
               type="checkbox"
               value={overlay.name}
               checked={overlay.checked}
               disabled={overlay.disabled}
+              ref={ref => this.selectableRefs[overlay.id] = ref!}
               onDsoChange={e => this.overlayChangeHandler(overlay, e)}
             >
               {overlay.name}
