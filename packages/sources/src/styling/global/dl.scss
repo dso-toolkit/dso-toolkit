@@ -237,6 +237,14 @@ dl {
       }
     }
 
+    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+      dd {
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+
     @media screen and (max-width: #{$dso-definition-list-horizontal-breakpoint - 1}) {
       dd + dt::before {
         margin-top: $dso-definition-list-vertical-space;
