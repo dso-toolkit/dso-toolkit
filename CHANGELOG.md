@@ -15,6 +15,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **sources:** dso-icon in button size moet 24px zijn ([#1486](https://github.com/dso-toolkit/dso-toolkit/issues/1486))
 
+### Changed
+* **css:** List in Definition list binnen een Accordion krijgt ongewenste padding ([#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472))
+
 ## 34.1.0
 
 ### Changed
