@@ -52,6 +52,13 @@ dl {
       break-inside: avoid;
       column-gap: $u2;
 
+
+      @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+        dd:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
       &.dso-2-columns {
         column-count: 2;
 
@@ -91,6 +98,17 @@ dl {
     }
   }
 
+  &:not(.dso-vertical):not(.dso-columns) {
+    dd + dt {
+      @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+        &,
+        & + dd {
+          margin-top: $dso-definition-list-vertical-space;
+        }
+      }
+    }
+  }
+
   &:not(.dso-vertical) {
     @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
       dt {
@@ -98,15 +116,6 @@ dl {
         float: left;
         width: $dso-definition-list-term-width;
         word-wrap: break-word;
-      }
-
-      dd + dt {
-        @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
-          &,
-          & + dd {
-            margin-top: $dso-definition-list-vertical-space;
-          }
-        }
       }
 
       dd {
