@@ -188,9 +188,7 @@ dl {
     }
 
     dd + dt {
-      @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
-        margin-top: $dso-definition-list-vertical-space;
-      }
+      margin-top: $dso-definition-list-vertical-space;
     }
   }
 
