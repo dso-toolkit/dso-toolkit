@@ -27,7 +27,8 @@ export function storiesOfTile<TemplateFnReturnType>(
       args: componentArgs<TileArgs>({
         label: 'Boom kappen of snoeien',
         imageSource: 'images/icon-tree.png',
-        imageAlt: 'Boom'
+        imageAlt: 'Boom',
+        theme: false
       }),
       argTypes: tileArgTypes
     });
@@ -35,5 +36,15 @@ export function storiesOfTile<TemplateFnReturnType>(
   stories.add(
     'Tile',
     template
+  );
+
+  stories.add(
+    'Theme tile',
+    template,
+    {
+      args: {
+        theme: true
+      }
+    }
   );
 }

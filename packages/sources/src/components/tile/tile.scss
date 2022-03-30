@@ -2,14 +2,22 @@ $dso-tile-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 $dso-tile-margin-bottom: $u7;
 $dso-tile-min-height: 200px;
 
+$dso-tile-icon-bg-color: $grijs-5;
+$dso-tile-icon-border-color: $grijs-10;
+$dso-tile-icon-size: $u1 * 11.5;
+$dso-tile-color: $grasgroen;
+
 @mixin tile_root() {
   background: $wit;
-  box-shadow: $dso-tile-box-shadow;
   margin-bottom: $dso-tile-margin-bottom;
   min-height: $dso-tile-min-height;
   padding: $u3 $u2 $u2;
   position: relative;
   top: $u7;
+
+  &:not(.dso-no-tile-dropshadow) {
+    box-shadow: $dso-tile-box-shadow;
+  }
 
   .dso-tile-icon {
     display: block;
@@ -19,6 +27,26 @@ $dso-tile-min-height: 200px;
     img {
       height: 80px;
       width: 80px;
+    }
+
+    &.dso-icon-background {
+      align-items: center;
+      background-color: $dso-tile-icon-bg-color;
+      border-radius: 50%;
+      border: 1px solid $dso-tile-icon-border-color;
+      color: $dso-tile-color;
+      display: flex;
+      height: $dso-tile-icon-size;
+      justify-content: center;
+      margin: 0 auto $u1;
+      overflow: hidden;
+      width: $dso-tile-icon-size;
+
+      img,
+      dso-icon {
+        height: $u7;
+        width: $u7;
+      }
     }
   }
 

@@ -172,4 +172,11 @@ dso-viewer-grid {
     padding-top: $u2;
     border-top: 1px solid $grijs-20;
   }
+
+  .dso-themes {
+    display: grid;
+    gap: $u4;
+    grid-auto-rows: 1fr;
+    margin: 0 $u2;
+  }
 }

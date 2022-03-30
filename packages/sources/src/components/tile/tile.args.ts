@@ -6,6 +6,7 @@ export interface TileArgs {
   label: string;
   imageSource: string;
   imageAlt: string;
+  theme: boolean;
 }
 
 export const tileArgTypes: ArgTypes<TileArgs> = {
@@ -23,6 +24,11 @@ export const tileArgTypes: ArgTypes<TileArgs> = {
     control: {
       type: 'text'
     }
+  },
+  theme: {
+    control: {
+      type: 'boolean'
+    }
   }
 };
 
@@ -33,6 +39,7 @@ export function tileArgsMapper(a: TileArgs): Tile {
     image: {
       source: a.imageSource,
       alt: a.imageAlt
-    }
+    },
+    theme: a.theme
   };
 }
