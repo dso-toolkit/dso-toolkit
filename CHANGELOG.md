@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
 * **core:** Viewer Grid - Filterpaneel ([#1445](https://github.com/dso-toolkit/dso-toolkit/issues/1445))
 
+### Changed
+* **core:** Header spec "should show/remove overflowmenu" tijdelijk uitschakelen ([#1502](https://github.com/dso-toolkit/dso-toolkit/issues/1502))
+
 ### Fixed
 * **sources:** dso-icon in button size moet 24px zijn ([#1486](https://github.com/dso-toolkit/dso-toolkit/issues/1486))
 
