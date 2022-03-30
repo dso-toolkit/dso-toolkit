@@ -8,13 +8,11 @@
 
 @import "~@dso-toolkit/sources/src/components/button/button";
 
+$dso-image-overlay-z-index: 20;
+
 :host {
   display: inline-block;
   position: relative;
-}
-
-:host(:focus) {
-  outline: none;
 }
 
 :host(:hover) .open {
@@ -35,4 +33,44 @@
   position: absolute;
   right: 999999px;
   top: $u2;
+}
+
+.dimmer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  padding: $u4;
+  background-color: fade-out($wit, 0.2);
+  justify-content: center;
+}
+
+.wrapper {
+  box-shadow: 0 8px 24px 0 rgba(25, 25, 25, 0.4);
+  position: relative;
+  z-index: $dso-image-overlay-z-index;
+  align-self: center;
+  line-height: 0;
+
+  img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - $u8);
+  }
+}
+
+.close {
+  @include button_secondary($icon-only: true);
+
+  border: 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  min-width: auto;
+  padding: 8px;
+  position: absolute;
+  top: $u2;
+  right: $u2;
 }

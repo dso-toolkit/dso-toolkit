@@ -20,7 +20,6 @@
  - [dso-header](../header)
  - [dso-helpcenter-panel](../helpcenter-panel)
  - [dso-image-overlay](../image-overlay)
- - [dso-image-overlay-overlay](../image-overlay)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
  - [dso-tree-view](../tree-view)
@@ -33,7 +32,6 @@ graph TD;
   dso-header --> dso-icon
   dso-helpcenter-panel --> dso-icon
   dso-image-overlay --> dso-icon
-  dso-image-overlay-overlay --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon
   dso-tree-view --> dso-icon
