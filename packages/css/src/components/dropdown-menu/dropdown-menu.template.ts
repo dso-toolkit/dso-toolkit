@@ -1,7 +1,7 @@
 import { DropdownMenu } from '@dso-toolkit/sources';
 
 import { html, TemplateResult } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 
 import { buttonTemplate } from '../button/button.template';
 

@@ -1,6 +1,6 @@
 import { Conclusion } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { alertTemplate } from '../alert/alert.template';
 import { infoTemplate } from '../info/info.template';

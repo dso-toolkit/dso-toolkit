@@ -79,7 +79,7 @@ Package is located in `/packages/core`.
   ```
   import { storiesOfMyComponent } from '@dso-toolkit/sources';
   import { html } from 'lit-html';
-  import { ifDefined } from 'lit-html/directives/if-defined';
+  import { ifDefined } from 'lit-html/directives/if-defined.js';
 
   import { myUtility } from '../my-utility.ts';
 

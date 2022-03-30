@@ -27,15 +27,15 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
-    "@types/leaflet": "^1.7.5",
-    "@types/react": "^17.0.30",
-    "@types/react-dom": "^17.0.9",
-    "concurrently": "^6.3.0",
-    "fs-extra": "^10.0.0",
-    "klap": "^7.0.7",
+    "@types/leaflet": "^1.7.9",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "concurrently": "^7.1.0",
+    "fs-extra": "^10.1.0",
+    "klap": "^7.0.10",
     "leaflet": "1.7.1",
-    "react-leaflet": "^3.2.2",
-    "typescript": "4.4.4"
+    "react-leaflet": "^3.2.5",
+    "typescript": "^4.5.0"
   },
   "peerDependencies": {
     "@dso-toolkit/core": "^34.0.0",

@@ -1,7 +1,7 @@
 // Keep in sync with packages\core\src\components\button\button.template.ts (https://github.com/dso-toolkit/dso-toolkit/issues/1438)
 import { Button, ButtonAnchor } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { iconTemplate } from '../icon/icon.template';
 

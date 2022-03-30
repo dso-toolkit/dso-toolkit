@@ -7,6 +7,7 @@
     ]
   },
   "scripts": {
+    "bs": "yarn workspace @dso-toolkit/sources build",
     "postinstall": "patch-package",
     "lint": "stylelint --cache 'packages/**/*.scss'",
     "build": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
@@ -28,21 +29,21 @@
   },
   "dependencies": {
     "@infoprojects/stylelint-config-scss": "^0.2.0",
-    "@percy/cli": "^1.0.0-beta.73",
-    "concurrently": "^6.3.0",
-    "cpy-cli": "^3.1.1",
+    "@percy/cli": "^1.0.0-beta.76",
+    "concurrently": "^7.1.0",
+    "cpy-cli": "^4.1.0",
     "cross-env": "^7.0.3",
-    "cypress": "^9.3.1",
+    "cypress": "^9.5.4",
     "cypress-axe": "^0.14.0",
-    "cypress-real-events": "^1.6.0",
-    "http-server": "^13.1.0",
-    "minimist": "^1.2.5",
+    "cypress-real-events": "^1.7.0",
+    "http-server": "^14.1.0",
+    "minimist": "^1.2.6",
     "patch-package": "^6.4.7",
     "postinstall-postinstall": "^2.1.0",
     "rimraf": "^3.0.2",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^14.5.3",
-    "wait-on": "^6.0.0"
+    "stylelint": "^14.6.1",
+    "wait-on": "^6.0.1"
   },
   "resolutions": {
     "@types/estree": "0.0.50",

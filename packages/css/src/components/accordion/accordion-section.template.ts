@@ -1,7 +1,7 @@
 import { Accordion, AccordionSection } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { accordionHandleTemplate } from './accordion-handle.template';
 import { accordionTemplate } from './accordion.template';

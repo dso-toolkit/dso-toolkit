@@ -1,7 +1,7 @@
 import { storiesOfDropdownMenu } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html, nothing } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { dropdownMenuTemplate } from './dropdown-menu.template';
 import readme from './readme.md';

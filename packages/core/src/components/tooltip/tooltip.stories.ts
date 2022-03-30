@@ -2,7 +2,7 @@ import { storiesOfTooltip } from '@dso-toolkit/sources';
 import { HandlerFunction } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import readme from './readme.md';
 import { tooltipTemplate } from './tooltip.template';

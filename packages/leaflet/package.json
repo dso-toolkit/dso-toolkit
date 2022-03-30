@@ -25,20 +25,20 @@
     "bin_sass": "sass"
   },
   "dependencies": {
-    "lit-html": "^2.0.1"
+    "lit-html": "^2.2.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
-    "@types/leaflet": "^1.7.5",
-    "concurrently": "^6.3.0",
-    "fs-extra": "^10.0.0",
-    "klap": "^7.0.7",
+    "@types/leaflet": "^1.7.9",
+    "concurrently": "^7.1.0",
+    "fs-extra": "^10.1.0",
+    "klap": "^7.0.10",
     "leaflet": "1.7.1",
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "rimraf": "^3.0.2",
-    "sass": "^1.43.2",
-    "typescript": "4.4.4",
-    "wait-on": "^6.0.0"
+    "sass": "^1.50.1",
+    "typescript": "^4.5.0",
+    "wait-on": "^6.0.1"
   },
   "peerDependencies": {
     "@dso-toolkit/core": "^34.0.0",

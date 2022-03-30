@@ -1,11 +1,11 @@
 import { HighlightBox } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { iconTemplate } from '../icon/icon.template';
 
-export function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBox<TemplateResult>) {
+export function highlightBoxTemplate<T = TemplateResult>({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBox<T>) {
   return html`
     <div class="dso-highlight-box ${classMap({
       'dso-yellow': !!yellow,

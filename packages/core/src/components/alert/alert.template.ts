@@ -1,6 +1,6 @@
 import { Alert, AlertWithHeadingsContent } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 export function alertTemplate({ status, message, onClick, withRoleAlert }: Alert<TemplateResult>) {
   return html`

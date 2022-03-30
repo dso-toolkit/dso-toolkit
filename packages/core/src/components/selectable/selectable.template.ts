@@ -1,6 +1,6 @@
 import { Selectable } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 export function selectableTemplate({
   type,

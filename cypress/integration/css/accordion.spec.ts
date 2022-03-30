@@ -1,6 +1,7 @@
 describe('Accordion', () => {
   it('should have ".open" and "[aria-expanded=true]" for open sections and vice versa', () => {
     cy.visit('http://localhost:56206/iframe.html?id=accordion');
+    cy.injectAxe();
 
     cy
       .get('.dso-accordion-section:nth-child(3)')
