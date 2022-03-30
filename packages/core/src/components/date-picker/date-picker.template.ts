@@ -1,6 +1,6 @@
 import { DatePicker } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { DsoDatePickerChangeEvent } from './date-picker';
 

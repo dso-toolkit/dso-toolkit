@@ -43,11 +43,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
 
   stories.add(
     'example',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
-
+    (a: Args) => {
       const args = a as AutosuggestArgs;
 
       return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus);

@@ -1,7 +1,7 @@
 // Keep in sync with packages\core\src\components\anchor\anchor.template.ts (https://github.com/dso-toolkit/dso-toolkit/issues/1438)
 import { Anchor } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { iconTemplate } from '../icon/icon.template';
 

@@ -1,7 +1,7 @@
 import { Label } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { iconTemplate } from '../icon/icon.template';
 

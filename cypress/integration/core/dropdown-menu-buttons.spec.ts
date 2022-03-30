@@ -10,7 +10,8 @@ describe("Dropdown menu - buttons", () => {
     cy.get(".dso-dropdown-options ul li button").as("menuitems");
   });
 
-  it("should open and close on button click", () => {
+  // Disabled in #1500, enable in #1532
+  it.skip("should open and close on button click", () => {
     cy.get("@options").should("not.be.visible");
 
     cy.checkA11y("dso-dropdown-menu");
@@ -39,8 +40,8 @@ describe("Dropdown menu - buttons", () => {
   it("should have role menu with menuitemradio", () => {
     cy.get("@button")
       .should("have.attr", "aria-haspopup", "menu")
-      .focus()
-      .click();
+      .click()
+      .blur();
 
     cy.get("@button")
       .invoke("attr", "id")
@@ -64,7 +65,7 @@ describe("Dropdown menu - buttons", () => {
       "http://localhost:56106/iframe.html?id=dropdown-menu--buttons&args=isCheckable:true"
     );
 
-    cy.get("@button").focus().click();
+    cy.get("@button").click().blur();
 
     cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
   });

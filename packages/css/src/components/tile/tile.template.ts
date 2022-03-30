@@ -1,6 +1,6 @@
 import { Tile } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 
 import { imageTemplate } from '../image/image.template';
 

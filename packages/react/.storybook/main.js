@@ -41,5 +41,8 @@ module.exports = {
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== 'ProgressPlugin');
 
     return config;
+  },
+  core: {
+    builder: "webpack5"
   }
 };

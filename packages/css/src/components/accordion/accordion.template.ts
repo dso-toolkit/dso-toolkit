@@ -1,6 +1,6 @@
 import { Accordion } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 
 import { accordionSectionTemplate } from './accordion-section.template';
 

@@ -1,6 +1,6 @@
 import { ProgressIndicator } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 
 export function progressIndicatorTemplate({ label, size, block }: ProgressIndicator) {
   label ??= 'Resultaten laden: een moment geduld alstublieft.';

@@ -37,7 +37,7 @@ describe("Header", () => {
       .should("not.exist");
   });
 
-  // Disabled in #1502, will be enabled in #1500
+  // Disabled in #1500, enable in #1532
   it.skip("should show/remove overflowmenu", () => {
     cy.visit(
       "http://localhost:56106/iframe.html?id=header--header&args=useDropDownMenu:false"

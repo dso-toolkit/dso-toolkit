@@ -2,7 +2,7 @@
 import { List, Type } from '@dso-toolkit/sources';
 
 import { html, TemplateResult } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
+import { classMap } from 'lit-html/directives/class-map.js';
 
 function ul(children: TemplateResult, modifier?: string) {
   return html`

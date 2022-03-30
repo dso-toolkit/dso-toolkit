@@ -15,11 +15,12 @@ describe("Image Overlay", () => {
     cy.checkA11y("dso-image-overlay");
   });
 
-  // Disabled in #1444, will be enabled in #1500
-  it.skip('should forward focus to button', () => {
+  it('should forward focus to button', () => {
     cy.get('dso-image-overlay')
       .should('have.attr', 'tabindex', '0')
-      .focus()
+      .click()
+
+    cy.get('dso-image-overlay')
       .shadow()
       .find('button.open')
       .should('have.focus');

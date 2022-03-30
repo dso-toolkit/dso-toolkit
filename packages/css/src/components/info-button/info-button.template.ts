@@ -1,7 +1,7 @@
 import { InfoButton } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
-import { classMap } from 'lit-html/directives/class-map';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 export function infoButtonTemplate({ active, label, secondary, onClick }: InfoButton) {
   return html`

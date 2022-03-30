@@ -1,5 +1,5 @@
 import { storiesOfDatePicker } from '@dso-toolkit/sources';
-import { ArgsStoryFn } from '@storybook/addons';
+import { DecoratorFunction } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
@@ -10,13 +10,11 @@ import {
 } from './date-picker.template';
 import readme from './readme.md';
 
-function decorator(story: ArgsStoryFn<TemplateResult>): TemplateResult {
-  return html`
-    <div style="width: 175px;">
-      ${story()}
-    </div>
-  `;
-}
+const decorator: DecoratorFunction<TemplateResult> = story => html`
+  <div style="width: 175px;">
+    ${story()}
+  </div>
+`;
 
 storiesOfDatePicker(
   {

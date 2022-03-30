@@ -1,4 +1,4 @@
-import { ArgsStoryFn } from '@storybook/addons';
+import { DecoratorFunction } from '@storybook/addons';
 import { StorybookParameters } from '../../stories-helpers';
 import { HighlightBox } from '../highlight-box/highlight-box.models';
 import { Tile } from '../tile/tile.models';
@@ -11,7 +11,7 @@ export interface RowEqualHeightsParameters<TemplateFnReturnType> {
   highlightBoxExample: (highlightboxes: HighlightBox<string>[]) => TemplateFnReturnType;
   tileExample: (tiles: Tile[]) => TemplateFnReturnType;
   whiteboxExample: (whiteboxes: Whitebox[]) => TemplateFnReturnType;
-  decorator: (story: ArgsStoryFn<TemplateFnReturnType>) => TemplateFnReturnType;
+  decorator: DecoratorFunction<TemplateFnReturnType>;
 }
 
 export function storiesOfRowEqualHeights<TemplateFnReturnType>(

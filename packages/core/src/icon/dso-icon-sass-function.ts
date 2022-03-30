@@ -10,7 +10,7 @@ const iconsPath = resolve(dirname(require.resolve('@dso-toolkit/sources')), '../
 const styleRegex = (selector: string) => new RegExp(`${selector} {([\\s\\S]+?)}`);
 
 export const dsoIcon = {
-  'dso-icon($icon, $variant: null)': function (sassIconAlias: typeof sass.types.SassType, sassVariant: typeof sass.types.String | typeof sass.types.Null) {
+  'dso-icon($icon, $variant: null)': function (sassIconAlias: typeof sass.types.String, sassVariant: typeof sass.types.String | typeof sass.types.Null) {
     if (!(sassIconAlias instanceof sass.types.String)) {
       throw new TypeError('Expected $icon to be of type String');
     }

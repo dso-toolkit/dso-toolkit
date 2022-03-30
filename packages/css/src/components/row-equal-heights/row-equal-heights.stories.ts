@@ -1,5 +1,5 @@
 import { storiesOfRowEqualHeights } from '@dso-toolkit/sources';
-import { ArgsStoryFn } from '@storybook/addons';
+import { DecoratorFunction } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
 
 import { rowEqualHeightsTemplate } from './row-equal-heights.template';
@@ -9,13 +9,11 @@ import { highlightBoxTemplate } from '../highlight-box/highlight-box.template';
 import { tileTemplate } from '../tile/tile.template';
 import { whiteboxTemplate } from '../whitebox/whitebox.template';
 
-function decorator(story: ArgsStoryFn<TemplateResult>): TemplateResult {
-  return html`
-    <div class="container">
-      ${story()}
-    </div>
-  `;
-}
+const decorator: DecoratorFunction<TemplateResult> = story => html`
+  <div class="container">
+    ${story()}
+  </div>
+`;
 
 storiesOfRowEqualHeights(
   {
@@ -24,7 +22,6 @@ storiesOfRowEqualHeights(
     readme
   },
   {
-    rowEqualHeightsTemplate,
     highlightBoxExample: (highlightboxes) => rowEqualHeightsTemplate({
       children: html`${highlightboxes.map(highlightbox => html`<div class="col-sm-12 col-md-6 col-lg-3">${highlightBoxTemplate(highlightbox)}</div>`)}`
     }),

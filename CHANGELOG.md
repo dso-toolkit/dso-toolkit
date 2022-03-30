@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **core:** Look en feel Tree View aangepast. ([#1508](https://github.com/dso-toolkit/dso-toolkit/issues/1508))
+* **all:** Package updates ([#1500](https://github.com/dso-toolkit/dso-toolkit/issues/1500))
 
 ### 35.0.0
 
