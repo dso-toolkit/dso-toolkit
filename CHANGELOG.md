@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472) "Vertical margin lijsten en Definition List optimalisatie" is in deze release opnieuw geïmplementeerd.
 
+### Fixed
+* **css:** List Group within Rich Content has extra left padding, regression in 34.2.0 ([#1503](https://github.com/dso-toolkit/dso-toolkit/issues/1503))
+
 ## 34.2.0
 
 ### Improvements
