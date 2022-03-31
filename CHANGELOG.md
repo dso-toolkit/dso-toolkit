@@ -5,9 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 34.2.0
+
 ### Improvements
 * **core + dso-toolkit:** Header verbeteringen ([#1457](https://github.com/dso-toolkit/dso-toolkit/issues/1457))
-* **css:** Vertical margin lijsten en Definition List optimalisatie ([#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472))
 
 ### Added
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
