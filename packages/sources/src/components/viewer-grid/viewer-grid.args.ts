@@ -4,6 +4,7 @@ import { ArgTypes, noControl } from "../../stories-helpers";
 
 import { ViewerGridDemoProperties } from "./viewer-grid.models";
 
+import { TilesGridDemoProperties } from "./viewer-grid.models";
 export interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;

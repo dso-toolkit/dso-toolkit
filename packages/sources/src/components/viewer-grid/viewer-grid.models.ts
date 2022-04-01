@@ -1,4 +1,5 @@
 import { DefinitionList, Label } from "../..";
+import { Icon } from "../icon/icon.models";
 
 export interface ViewerGridDemoProperties {
   filterpanelOpen: boolean;
@@ -14,6 +15,11 @@ export interface ViewerGridDemoProperties {
   documentHeaderFeatureAction: (e: MouseEvent) => void;
 }
 
+export interface TilesGridDemoProperties {
+  overlayOpen: boolean;
+  noOverlay: boolean;
+  closeOverlay: (e: MouseEvent) => void;
+}
 export interface ViewerGrid<TemplateFnReturnType> {
   filterpanel: TemplateFnReturnType;
   filterpanelOpen: boolean;

@@ -151,6 +151,14 @@ function viewerGridMainDemoTemplate(
   `;
 }
 
+function tilesGridDemoTemplate() {
+  return html`
+    <div class="dso-themes">
+      hoi piepeloi
+    </div>
+  `;
+}
+
 const filterpanel = html`
   <hr>
   <dso-alert status="info">
@@ -295,7 +303,20 @@ storiesOfViewerGrid(
           documentHeaderFeaturesOpen
         ),
         map,
-        overlay,
+        overlay
       }),
-  }
+    tilesGridDemoTemplate: ({
+      closeOverlay,
+      overlayOpen,
+      noOverlay
+    }) =>
+      viewerGridTemplate({
+        closeOverlay,
+        overlayOpen,
+        noOverlay,
+        main: viewerGridMainDemoTemplate(),
+        map,
+        overlay
+      }),
+    }
 );

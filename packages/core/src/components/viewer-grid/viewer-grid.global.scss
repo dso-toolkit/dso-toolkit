@@ -38,6 +38,10 @@ dso-viewer-grid {
   }
 
   &[small] {
+    .dso-themes {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     dl.dso-document-header-features {
       dt {
         clear: initial;
@@ -75,6 +79,24 @@ dso-viewer-grid {
     .dso-document-list-item {
       &-status {
         margin: 0 0 $u1 0;
+      }
+    }
+  }
+
+  &[medium] {
+    .dso-themes {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &[large] {
+    .dso-themes {
+      @media screen and (max-width: 1606.98px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @media screen and (min-width: 1607px) {
+        grid-template-columns: repeat(5, 1fr);
       }
     }
   }

@@ -9,21 +9,30 @@ import {
   viewerGridArgTypes,
   ViewerGridArgs,
 } from "./viewer-grid.args";
-import { ViewerGridDemoProperties } from "./viewer-grid.models";
+
+import { ViewerGridDemoProperties, TilesGridDemoProperties } from "./viewer-grid.models";
 
 export interface ViewerGridParameters<TemplateFnReturnType> {
   viewerGridDemoTemplate: (
     viewerGridDemoProperties: ViewerGridDemoProperties
   ) => TemplateFnReturnType;
+  tilesGridDemoTemplate: (
+    tilesGridDemoProperties: TilesGridDemoProperties
+  ) => TemplateFnReturnType;
 }
 
 export function storiesOfViewerGrid<TemplateFnReturnType>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
-  { viewerGridDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
+  { viewerGridDemoTemplate, tilesGridDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
 ) {
   const template = bindTemplate(
     viewerGridDemoArgsMapper,
     viewerGridDemoTemplate
+  );
+
+  const tileTemplate = bindTemplate(
+    viewerGridDemoArgsMapper,
+    tilesGridDemoTemplate
   );
 
   const stories = storiesOf("Viewer Grid", mainModule).addParameters({
@@ -42,5 +51,23 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     argTypes: viewerGridArgTypes,
   });
 
-  stories.add("Viewer Grid", template);
+  stories.add("Viewer Grid", template, {
+    args: componentArgs<
+      Pick<ViewerGridArgs, "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
+    >({
+      overlayOpen: false,
+      noOverlay: false,
+      documentHeaderFeaturesOpen: true,
+    }),
+  });
+
+  stories.add("Tile grid", tileTemplate, {
+    args: componentArgs<
+      Pick<ViewerGridArgs, "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
+    >({
+      overlayOpen: false,
+      noOverlay: false,
+      documentHeaderFeaturesOpen: false
+    }),
+  });
 }
