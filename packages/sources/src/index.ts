@@ -83,6 +83,8 @@ export * from './components/shopping-cart/shopping-cart.models';
 export * from './components/shopping-cart/shopping-cart.stories';
 export * from './components/tile/tile.models';
 export * from './components/tile/tile.stories';
+export * from './components/tile-grid/tile-grid.models';
+export * from './components/tile-grid/tile-grid.stories';
 export * from './components/toggletip/toggletip.models';
 export * from './components/toggletip/toggletip.stories';
 export * from './components/tooltip/tooltip.models';

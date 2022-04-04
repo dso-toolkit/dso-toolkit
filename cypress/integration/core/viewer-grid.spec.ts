@@ -1,4 +1,4 @@
-const url = "http://localhost:56106/iframe.html?id=viewer-grid--viewer-grid";
+const url = "http://localhost:56106/iframe.html?id=viewer-grid--with-search-results";
 const urlOverlayClosed = `${url}&args=overlayOpen:false`;
 const urlOverlayOpened = `${url}&args=overlayOpen:true`;
 const urlNoOverlay = `${urlOverlayOpened}&args=noOverlay:true`;

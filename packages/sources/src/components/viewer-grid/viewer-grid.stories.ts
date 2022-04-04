@@ -4,43 +4,54 @@ import {
   StorybookParameters,
 } from "../../stories-helpers";
 
-import {
-  viewerGridDemoArgsMapper,
-  viewerGridArgTypes,
-  ViewerGridArgs,
-} from "./viewer-grid.args";
-import { ViewerGridDemoProperties } from "./viewer-grid.models";
+import { ViewerGridWithSearchResultsArgs, viewerGridWithSearchResultsArgTypes, viewerGridWithSearchResultsDemoArgsMapper, viewerGridWithTilesArgTypes, viewerGridWithTilesDemoArgsMapper } from "./viewer-grid.args";
+
+import { ViewerGridWithSearchResultsProperties, ViewerGridWithTilesProperties } from "./viewer-grid.models";
 
 export interface ViewerGridParameters<TemplateFnReturnType> {
-  viewerGridDemoTemplate: (
-    viewerGridDemoProperties: ViewerGridDemoProperties
+  viewerGridWithSearchResultsDemoTemplate: (
+    viewerGridDemoProperties: ViewerGridWithSearchResultsProperties
+  ) => TemplateFnReturnType;
+  viewerGridWithTilesDemoTemplate: (
+    tilesGridDemoProperties: ViewerGridWithTilesProperties
   ) => TemplateFnReturnType;
 }
 
 export function storiesOfViewerGrid<TemplateFnReturnType>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
-  { viewerGridDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
+  { viewerGridWithSearchResultsDemoTemplate: viewerGridDemoTemplate, viewerGridWithTilesDemoTemplate }: ViewerGridParameters<TemplateFnReturnType>
 ) {
-  const template = bindTemplate(
-    viewerGridDemoArgsMapper,
-    viewerGridDemoTemplate
-  );
-
   const stories = storiesOf("Viewer Grid", mainModule).addParameters({
     layout: "fullscreen",
     docs: {
       page: readme,
     },
-    args: componentArgs<
-      Pick<ViewerGridArgs, "filterpanelOpen" | "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
-    >({
-      filterpanelOpen: false,
-      overlayOpen: false,
-      noOverlay: false,
-      documentHeaderFeaturesOpen: true,
-    }),
-    argTypes: viewerGridArgTypes,
+    controls: {
+      hideNoControlsWarning: true
+    }
   });
 
-  stories.add("Viewer Grid", template);
+  stories.add(
+    "with search results",
+    bindTemplate(viewerGridWithSearchResultsDemoArgsMapper, viewerGridDemoTemplate),
+    {
+      argTypes: viewerGridWithSearchResultsArgTypes,
+      args: componentArgs<
+        Pick<ViewerGridWithSearchResultsArgs, "filterpanelOpen" | "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
+      >({
+        filterpanelOpen: false,
+        overlayOpen: false,
+        noOverlay: false,
+        documentHeaderFeaturesOpen: true,
+      })
+    }
+  );
+
+  stories.add(
+    "with tiles",
+    bindTemplate(viewerGridWithTilesDemoArgsMapper, viewerGridWithTilesDemoTemplate),
+    {
+      argTypes: viewerGridWithTilesArgTypes
+    }
+  );
 }

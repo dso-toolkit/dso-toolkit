@@ -38,6 +38,10 @@ dso-viewer-grid {
   }
 
   &[small] {
+    .dso-tile-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     dl.dso-document-header-features {
       dt {
         clear: initial;
@@ -76,6 +80,18 @@ dso-viewer-grid {
       &-status {
         margin: 0 0 $u1 0;
       }
+    }
+  }
+
+  &[medium] {
+    .dso-tile-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &[large] {
+    .dso-tile-grid {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 

@@ -33,7 +33,17 @@ export function storiesOfTile<TemplateFnReturnType>(
     });
 
   stories.add(
-    'Tile',
+    'default',
     template
+  );
+
+  stories.add(
+    'theme',
+    template,
+    {
+      args: componentArgs<Pick<TileArgs, 'variant'>>({
+        variant: 'theme'
+      })
+    }
   );
 }

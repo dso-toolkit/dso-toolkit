@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **css:** Nieuw component "Tile Grid" en "Tile" uitgebreid met variant "theme" ([#1443](https://github.com/dso-toolkit/dso-toolkit/issues/1443))
+
 ## 34.2.1
 
 De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472) "Vertical margin lijsten en Definition List optimalisatie" is in deze release opnieuw geïmplementeerd.
