@@ -156,6 +156,8 @@ function viewerGridWithSearchResultsDemoTemplate(
 
 function viewerGridWithTilesDemoTemplate(tiles: Tile[]) {
   return html`
+    <h2>Thema's</h2>
+    <p>Bekijk regels en beleid rond een bepaald thema.</p>
     ${tileGridTemplate({ children: html`${tiles.map(tile => tileTemplate(tile))}` })}
   `;
 }
