@@ -3,18 +3,137 @@ import { Tile } from '../..';
 export const children: Tile[] = [
   {
     anchor: '#',
-    label: 'Boom kappen of snoeien',
+    label: 'Bodem',
     image: {
       source: 'images/icon-tree.png',
       alt: 'Boom'
-    }
+    },
+    variant: 'theme'
   },
   {
     anchor: '#',
-    label: 'Boom kappen of snoeien',
+    label: 'Bouwwerken',
     image: {
       source: 'images/icon-tree.png',
       alt: 'Boom'
-    }
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Cultureel erfgoed',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Energie en natuurlijk hulpbronnen',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Externe veiligheid',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Geluid',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Gezondheid',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Infrastructuur',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Landgebruik',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Landschap',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Lucht',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Milieu algemeen',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Natuur',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Procedures',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
+  },
+  {
+    anchor: '#',
+    label: 'Water en watersystemen',
+    image: {
+      source: 'images/icon-tree.png',
+      alt: 'Boom'
+    },
+    variant: 'theme'
   }
 ];
