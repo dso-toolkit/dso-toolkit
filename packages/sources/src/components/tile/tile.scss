@@ -8,18 +8,20 @@ $dso-tile-icon-size: $u1 * 11.5;
 $dso-tile-color: $grasgroen;
 
 @mixin tile_root() {
-  background: $wit;
-  margin-bottom: $dso-tile-margin-bottom;
-  min-height: $dso-tile-min-height;
-  padding: $u3 $u2 $u2;
-  position: relative;
-  top: $u7;
 
   &:not(.dso-theme) {
+    background: $wit;
     box-shadow: $dso-tile-box-shadow;
+    margin-bottom: $dso-tile-margin-bottom;
+    min-height: $dso-tile-min-height;
+    padding: $u3 $u2 $u2;
+    position: relative;
+    top: $u7;
   }
 
   &.dso-theme {
+    margin: 0;
+
     .dso-tile-icon {
       align-items: center;
       background-color: $dso-tile-icon-bg-color;
