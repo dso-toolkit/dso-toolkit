@@ -85,19 +85,13 @@ dso-viewer-grid {
 
   &[medium] {
     .dso-tile-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
   &[large] {
     .dso-tile-grid {
-      @media screen and (max-width: 1606.98px) {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      @media screen and (min-width: 1607px) {
-        grid-template-columns: repeat(5, 1fr);
-      }
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 
