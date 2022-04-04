@@ -15,21 +15,12 @@ $dso-tile-color: $grasgroen;
   position: relative;
   top: $u7;
 
-  &:not(.dso-no-tile-dropshadow) {
+  &:not(.dso-theme) {
     box-shadow: $dso-tile-box-shadow;
   }
 
-  .dso-tile-icon {
-    display: block;
-    margin-bottom: $u2;
-    text-align: center;
-
-    img {
-      height: 80px;
-      width: 80px;
-    }
-
-    &.dso-icon-background {
+  &.dso-theme {
+    .dso-tile-icon {
       align-items: center;
       background-color: $dso-tile-icon-bg-color;
       border-radius: 50%;
@@ -42,11 +33,21 @@ $dso-tile-color: $grasgroen;
       overflow: hidden;
       width: $dso-tile-icon-size;
 
-      img,
-      dso-icon {
+      img {
         height: $u7;
         width: $u7;
       }
+    }
+  }
+
+  .dso-tile-icon {
+    display: block;
+    margin-bottom: $u2;
+    text-align: center;
+
+    img {
+      height: 80px;
+      width: 80px;
     }
   }
 

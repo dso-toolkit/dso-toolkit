@@ -1,6 +1,9 @@
-import { storiesOfViewerGrid } from "@dso-toolkit/sources";
+import { storiesOfViewerGrid, Tile } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
+
+import { tileGridTemplate } from '../../../../../packages/css/src/components/tile-grid/tile-grid.template';
+import { tileTemplate } from '../../../../../packages/css/src/components/tile/tile.template';
 
 import { anchorTemplate } from "../anchor/anchor.template";
 import { badgeTemplate } from "../badge/badge.template";
@@ -11,7 +14,7 @@ import { viewerGridDocumentListItem } from "./viewer-grid-document-list-item.tem
 import { viewerGridFilterblok } from "./viewer-grid-filterblok.template";
 import { viewerGridTemplate } from "./viewer-grid.template";
 
-function viewerGridMainDemoTemplate(
+function viewerGridWithSearchResultsDemoTemplate(
   filterblokAllOptions: (e: MouseEvent) => void,
   filterblokDeleteActiveFilter: (e: MouseEvent) => void,
   documentHeaderFeatureAction: (e: MouseEvent) => void,
@@ -151,11 +154,9 @@ function viewerGridMainDemoTemplate(
   `;
 }
 
-function tilesGridDemoTemplate() {
+function viewerGridWithTilesDemoTemplate(tiles: Tile[]) {
   return html`
-    <div class="dso-themes">
-      hoi piepeloi
-    </div>
+    ${tileGridTemplate({ children: html`${tiles.map(tile => tileTemplate(tile))}` })}
   `;
 }
 
@@ -274,7 +275,7 @@ storiesOfViewerGrid(
     readme,
   },
   {
-    viewerGridDemoTemplate: ({
+    viewerGridWithSearchResultsDemoTemplate: ({
       closeOverlay,
       filterpanelOpen,
       overlayOpen,
@@ -295,7 +296,7 @@ storiesOfViewerGrid(
         filterpanelApply,
         filterpanelCancel,
         noOverlay,
-        main: viewerGridMainDemoTemplate(
+        main: viewerGridWithSearchResultsDemoTemplate(
           allOptions,
           filterblokDeleteActiveFilter,
           documentHeaderFeatureAction,
@@ -305,16 +306,24 @@ storiesOfViewerGrid(
         map,
         overlay
       }),
-    tilesGridDemoTemplate: ({
+    viewerGridWithTilesDemoTemplate: ({
       closeOverlay,
+      tiles,
+      filterpanelOpen,
       overlayOpen,
-      noOverlay
+      noOverlay,
+      filterpanelApply,
+      filterpanelCancel,
     }) =>
       viewerGridTemplate({
         closeOverlay,
+        filterpanelOpen,
+        filterpanel,
+        filterpanelApply,
+        filterpanelCancel,
         overlayOpen,
         noOverlay,
-        main: viewerGridMainDemoTemplate(),
+        main: viewerGridWithTilesDemoTemplate(tiles),
         map,
         overlay
       }),

@@ -1,17 +1,20 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 
 import { ArgTypes, noControl } from "../../stories-helpers";
+import { tiles } from './viewer-grid.content';
 
-import { ViewerGridDemoProperties } from "./viewer-grid.models";
+import { ViewerGridWithSearchResultsProperties, ViewerGridWithTilesProperties } from "./viewer-grid.models";
 
-import { TilesGridDemoProperties } from "./viewer-grid.models";
-export interface ViewerGridArgs {
+interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;
   noOverlay: boolean;
   closeOverlay: HandlerFunction;
   filterpanelCancel: HandlerFunction;
   filterpanelApply: HandlerFunction;
+}
+
+export interface ViewerGridWithSearchResultsArgs extends ViewerGridArgs {
   filterblokDeleteActiveFilter: HandlerFunction;
   allOptions: HandlerFunction;
   documentHeaderFeaturesOpen: boolean;
@@ -19,7 +22,10 @@ export interface ViewerGridArgs {
   documentHeaderFeatureAction: HandlerFunction;
 }
 
-export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
+export interface ViewerGridWithTilesArgs extends ViewerGridArgs {
+}
+
+export const viewerGridWithSearchResultsArgTypes: ArgTypes<ViewerGridWithSearchResultsArgs> = {
   filterpanelOpen: {
     control: {
       type: "boolean",
@@ -71,10 +77,22 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   },
 };
 
-export function viewerGridDemoArgsMapper(
-  a: ViewerGridArgs
-): ViewerGridDemoProperties {
+export const viewerGridWithTilesArgTypes: ArgTypes<{}> = {
+}
+
+export function viewerGridWithSearchResultsDemoArgsMapper(
+  a: ViewerGridWithSearchResultsArgs
+): ViewerGridWithSearchResultsProperties {
   return {
     ...a,
+  };
+}
+
+export function viewerGridWithTilesDemoArgsMapper(
+  a: ViewerGridWithTilesArgs
+): ViewerGridWithTilesProperties {
+  return {
+    ...a,
+    tiles
   };
 }

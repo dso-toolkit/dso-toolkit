@@ -4,5 +4,5 @@ export interface Tile {
   anchor: string;
   label: string;
   image: Image;
-  theme?: boolean;
+  variant?: 'theme';
 }

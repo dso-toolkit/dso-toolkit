@@ -4,11 +4,11 @@ import { classMap } from 'lit-html/directives/class-map';
 
 import { imageTemplate } from '../image/image.template';
 
-export function tileTemplate({ anchor, image, label, theme }: Tile) {
+export function tileTemplate({ anchor, image, label, variant }: Tile) {
   return html`
-    <div class="dso-tile ${classMap({ 'dso-no-tile-dropshadow': theme })}">
+    <div class="dso-tile ${classMap({ 'dso-theme': variant === 'theme' })}">
       <a href=${anchor}>
-        <span class="dso-tile-icon ${classMap({ 'dso-icon-background': theme })}">
+        <span class="dso-tile-icon">
           ${imageTemplate(image)}
         </span>
         <span class="dso-tile-link">

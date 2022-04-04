@@ -38,7 +38,7 @@ dso-viewer-grid {
   }
 
   &[small] {
-    .dso-themes {
+    .dso-tile-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -84,13 +84,13 @@ dso-viewer-grid {
   }
 
   &[medium] {
-    .dso-themes {
+    .dso-tile-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &[large] {
-    .dso-themes {
+    .dso-tile-grid {
       @media screen and (max-width: 1606.98px) {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -193,12 +193,5 @@ dso-viewer-grid {
     margin-bottom: 0;
     padding-top: $u2;
     border-top: 1px solid $grijs-20;
-  }
-
-  .dso-themes {
-    display: grid;
-    gap: $u4;
-    grid-auto-rows: 1fr;
-    margin: 0 $u2;
   }
 }

@@ -1,13 +1,15 @@
-import { DefinitionList, Label } from "../..";
-import { Icon } from "../icon/icon.models";
+import { DefinitionList, Label, Tile } from "../..";
 
-export interface ViewerGridDemoProperties {
+interface ViewerGridDemoProperties {
   filterpanelOpen: boolean;
   overlayOpen: boolean;
   noOverlay: boolean;
   closeOverlay: (e: MouseEvent) => void;
   filterpanelCancel: (e: MouseEvent) => void;
   filterpanelApply: (e: MouseEvent) => void;
+}
+
+export interface ViewerGridWithSearchResultsProperties extends ViewerGridDemoProperties {
   allOptions: (e: MouseEvent) => void;
   filterblokDeleteActiveFilter: (e: MouseEvent) => void;
   documentHeaderFeaturesOpen: boolean;
@@ -15,11 +17,10 @@ export interface ViewerGridDemoProperties {
   documentHeaderFeatureAction: (e: MouseEvent) => void;
 }
 
-export interface TilesGridDemoProperties {
-  overlayOpen: boolean;
-  noOverlay: boolean;
-  closeOverlay: (e: MouseEvent) => void;
+export interface ViewerGridWithTilesProperties extends ViewerGridDemoProperties {
+  tiles: Tile[];
 }
+
 export interface ViewerGrid<TemplateFnReturnType> {
   filterpanel: TemplateFnReturnType;
   filterpanelOpen: boolean;
