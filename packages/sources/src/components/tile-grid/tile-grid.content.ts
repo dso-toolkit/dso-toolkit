@@ -30,7 +30,7 @@ export const children: Tile[] = [
   },
   {
     anchor: '#',
-    label: 'Energie en natuurlijk hulpbronnen',
+    label: 'Energie en natuurlijke hulpbronnen',
     image: {
       source: 'images/icon-tree.png',
       alt: 'Boom'
