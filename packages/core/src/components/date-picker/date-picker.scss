@@ -22,7 +22,6 @@ $date-picker-font-bold: 600;
 
 $dso-date-picker-size: 38px;
 $date-picker-radius: $u1 * 0.5;
-$date-picker-z-index: 600;
 
 $dso-date-dialog-border-width: 1px;
 
@@ -78,7 +77,7 @@ $dso-date-dialog-border-width: 1px;
   top: 50%;
   user-select: none;
   width: $dso-date-picker-size;
-  z-index: 2;
+  z-index: $zx-datepicker-date-toggle;
 
   &:disabled {
     color: $date-picker-color-nav-button-disabled;
@@ -103,7 +102,7 @@ $dso-date-dialog-border-width: 1px;
   transition: transform 300ms ease, opacity 300ms ease, visibility 300ms ease;
   visibility: hidden;
   will-change: transform, opacity, visibility;
-  z-index: $date-picker-z-index;
+  z-index: $zx-datepicker-dialog;
 
   @media (max-width: 35.9375em) {
     background: $date-picker-color-overlay;
@@ -144,7 +143,7 @@ $dso-date-dialog-border-width: 1px;
   position: relative;
   transform: none;
   width: 100%;
-  z-index: $date-picker-z-index;
+  z-index: $zx-datepicker-dialog-content;
 
   @media (max-width: 35.9375em) {
     border: 0;
@@ -226,7 +225,7 @@ $dso-date-dialog-border-width: 1px;
   text-align: center;
   vertical-align: middle;
   width: $dso-date-picker-size;
-  z-index: 1;
+  z-index: $zx-datepicker-date-day;
 
   &.is-today {
     background: transparent;
@@ -390,7 +389,7 @@ $dso-date-dialog-border-width: 1px;
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 2;
+    z-index: $zx-datepicker-date-select-input;
 
     &:focus + .dso-date__select-label {
       box-shadow: 0 0 0 2px $date-picker-color-primary;
@@ -411,7 +410,7 @@ $dso-date-dialog-border-width: 1px;
   pointer-events: none;
   position: relative;
   width: 100%;
-  z-index: 1;
+  z-index: $zx-datepicker-date-select-label;
 
   span {
     font-size: 1.25rem;

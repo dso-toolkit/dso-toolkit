@@ -21,7 +21,7 @@ $tooltip-transition-duration: 0.15s;
   opacity: 0;
   position: absolute;
   transition: opacity $tooltip-transition-duration linear;
-  z-index: $zindex-tooltip;
+  z-index: $zx-tooltip;
 
   &.in {
     opacity: $tooltip-opacity;

@@ -67,7 +67,7 @@ $dso-selectable-indeterminate-size: 12px;
     position: absolute;
     top: 0;
     width: $dso-selectable-size;
-    z-index: 1;
+    z-index: $zx-selectable;
     zoom: 1;
 
     &:not([disabled]) {

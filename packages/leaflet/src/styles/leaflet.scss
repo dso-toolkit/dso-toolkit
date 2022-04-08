@@ -104,7 +104,7 @@
   box-sizing: border-box;
   height: 0;
   width: 0;
-  z-index: 800;
+  z-index: $zx-leaflet-zoom-box;
 }
 
 /* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
@@ -113,39 +113,39 @@
 }
 
 .leaflet-pane {
-  z-index: 400;
+  z-index: $zx-leaflet-pane;
 }
 
 .leaflet-tile-pane {
-  z-index: 200;
+  z-index: $zx-leaflet-tile-pane;
 }
 
 .leaflet-overlay-pane {
-  z-index: 400;
+  z-index: $zx-leaflet-overlay-pane;
 }
 
 .leaflet-shadow-pane {
-  z-index: 500;
+  z-index: $zx-leaflet-shadow-pane;
 }
 
 .leaflet-marker-pane {
-  z-index: 600;
+  z-index: $zx-leaflet-marker-pane;
 }
 
 .leaflet-tooltip-pane {
-  z-index: 650;
+  z-index: $zx-leaflet-tooltip-pane;
 }
 
 .leaflet-popup-pane {
-  z-index: 700;
+  z-index: $zx-leaflet-popup-pane;
 }
 
 .leaflet-map-pane canvas {
-  z-index: 100;
+  z-index: $zx-leaflet-map-pane-canvas;
 }
 
 .leaflet-map-pane svg {
-  z-index: 200;
+  z-index: $zx-leaflet-map-pane-svg;
 }
 
 .leaflet-vml-shape {
@@ -165,7 +165,7 @@
   clear: both;
   float: left;
   position: relative;
-  z-index: 800;
+  z-index: $zx-leaflet-control;
   pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
   pointer-events: auto;
 }
@@ -173,7 +173,7 @@
 .leaflet-top,
 .leaflet-bottom {
   position: absolute;
-  z-index: 1000;
+  z-index: $zx-leaflet-bottom;
   pointer-events: none;
 }
 
