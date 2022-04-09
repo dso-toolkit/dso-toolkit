@@ -11,6 +11,6 @@ storiesOfImageOverlay(
     readme,
   },
   {
-    imageOverlayTemplate,
+    imageOverlayTemplate
   }
 );

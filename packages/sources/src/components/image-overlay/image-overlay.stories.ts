@@ -1,8 +1,5 @@
 import { bindTemplate, StorybookParameters } from "../../stories-helpers";
-import {
-  imageOverlayArgsMapper,
-  imageOverlayArgTypes,
-} from "./image-overlay.args";
+import { imageOverlayArgsMapper, imageOverlayArgTypes } from "./image-overlay.args";
 import { ImageOverlay } from "./image-overlay.models";
 
 export interface ImageOverlayParameters<TemplateFnReturnType> {
@@ -22,8 +19,7 @@ export function storiesOfImageOverlay<TemplateFnReturnType>(
       page: readme,
     },
     argTypes: imageOverlayArgTypes,
-    args: {},
-    layout: 'fullscreen',
+    layout: 'fullscreen'
   });
 
   stories.add("Image Overlay", template, {});

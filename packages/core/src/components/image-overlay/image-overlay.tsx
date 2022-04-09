@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, forceUpdate, h, Host, State } from "@stencil/core";
+import { createFocusTrap, FocusTrap } from 'focus-trap';
 
 @Component({
   tag: "dso-image-overlay",
@@ -12,11 +13,11 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   active = false;
 
-  button!: HTMLButtonElement;
-
+  buttonElement: HTMLButtonElement | undefined;
+  
   wrapperElement: HTMLDivElement | undefined;
 
-  // trap: FocusTrap | undefined;
+  trap: FocusTrap | undefined;
 
   private mutationObserver?: MutationObserver;
 
@@ -26,15 +27,10 @@ export class ImageOverlay implements ComponentInterface {
       attributes: true,
       subtree: true
     });
-
-    // this.trap = createFocusTrap(this.host, {
-    //   escapeDeactivates: true,
-    //   clickOutsideDeactivates: true
-    // });
   }
 
   disconnectedCallback() {
-    // this.trap?.deactivate();
+    this.trap?.deactivate();
     this.mutationObserver?.disconnect();
   }
 
@@ -44,16 +40,12 @@ export class ImageOverlay implements ComponentInterface {
     return (
       <Host>
         {this.active && src && alt && (
-          <div class="dimmer" ref={(element) => (this.wrapperElement = element)}>
+          <div class="dimmer" ref={element => this.wrapperElement = element}>
             <div class="wrapper">
               <img src={src} alt={alt} />
-              <button
-                aria-label="Sluiten"
-                type="button"
-                class="close"
-                onClick={() => this.active = false}
-              >
+              <button type="button" class="close" onClick={() => this.active = false}>
                 <dso-icon icon="times"></dso-icon>
+                <span>Sluiten</span>
               </button>
             </div>
           </div>
@@ -63,12 +55,32 @@ export class ImageOverlay implements ComponentInterface {
           aria-label="Afbeelding vergroot weergeven"
           class="open"
           type="button"
+          ref={element => this.buttonElement = element}
           onClick={() => this.active = true}
-          disabled={this.active}
         >
           <dso-icon icon="external-link"></dso-icon>
         </button>
       </Host>
     );
+  }
+
+  componentDidRender() {
+    if (this.active && this.wrapperElement && !this.trap) {
+      this.trap = createFocusTrap(this.wrapperElement, {
+        escapeDeactivates: true,
+        clickOutsideDeactivates: true,
+        setReturnFocus: this.buttonElement ?? false,
+        onDeactivate: () => this.active = false
+      }).activate();
+    }
+    else if (!this.active && this.trap) {
+      this.deactivateFocusTrap();
+    }
+  }
+
+  deactivateFocusTrap() {
+    this.trap?.deactivate();
+
+    delete this.trap;
   }
 }

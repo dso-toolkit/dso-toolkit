@@ -1,1 +1,5 @@
-export interface ImageOverlay {}
+import { Image } from '../..';
+
+export interface ImageOverlay {
+  image: Image;
+}

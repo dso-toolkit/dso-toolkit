@@ -15,12 +15,9 @@ $dso-image-overlay-z-index: 20;
   position: relative;
 }
 
-:host(:hover) .open {
-  right: $u2;
-}
-
+:host(:hover) .open,
 .open:focus {
-  right: $u2;
+  opacity: 1;
 }
 
 .open {
@@ -30,8 +27,9 @@ $dso-image-overlay-z-index: 20;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   min-width: auto;
   padding: $u1;
+  opacity: 0;
   position: absolute;
-  right: 999999px;
+  right: $u2;
   top: $u2;
 }
 

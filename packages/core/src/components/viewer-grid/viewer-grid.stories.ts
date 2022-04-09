@@ -7,6 +7,7 @@ import { tileTemplate } from '@dso-toolkit/css/src/components/tile/tile.template
 
 import { anchorTemplate } from "../anchor/anchor.template";
 import { badgeTemplate } from "../badge/badge.template";
+import { imageOverlayTemplate } from '../image-overlay/image-overlay.template';
 
 import readme from "./readme.md";
 import { viewerGridDocumentHeaderTemplate } from "./viewer-grid-document-header.template";
@@ -124,6 +125,7 @@ function viewerGridWithSearchResultsDemoTemplate(
         Quisque sodales nibh risus, ac dictum diam volutpat quis. Integer sed
         tortor quis libero iaculis interdum.
       </p>
+      ${imageOverlayTemplate({ image: { source: 'https://iplo.nl/publish/items/245342/canvas-home_iplo-min.png', alt: 'Kanaal met windmolens' } })}
     </div>
     <ul class="dso-document-list">
       <li>
@@ -230,6 +232,7 @@ const overlay = html`
       venenatis. Pellentesque habitant morbi tristique senectus et netus et
       malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
     </p>
+    ${imageOverlayTemplate({ image: { source: 'https://iplo.nl/publish/items/245342/canvas-home_iplo-min.png', alt: 'Kanaal met windmolens' } })}
     <p>
       Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at
       felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc

@@ -1,9 +1,16 @@
-import { Image } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined';
 
-export function imageTemplate({ source, modifier, alt }: Image) {
+import { Image } from '@dso-toolkit/sources';
+
+export function imageTemplate({ source, modifier, alt, width, height }: Image) {
   return html`
-    <img src=${source} class=${ifDefined(modifier)} alt=${alt}>
+    <img
+      src=${source}
+      class=${ifDefined(modifier)}
+      alt=${alt}
+      width=${ifDefined(width)}
+      height=${ifDefined(height)}
+    >
   `;
 }
