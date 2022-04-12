@@ -35,7 +35,7 @@ export namespace Components {
          */
         "suggestOnFocus": boolean;
         /**
-          * The suggestions for the value of the slotted input element
+          * The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.
          */
         "suggestions": Suggestion[];
     }
@@ -459,7 +459,7 @@ declare namespace LocalJSX {
          */
         "suggestOnFocus"?: boolean;
         /**
-          * The suggestions for the value of the slotted input element
+          * The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.
          */
         "suggestions"?: Suggestion[];
     }

@@ -272,4 +272,24 @@ describe("Autosuggest", () => {
       .its("firstCall.args.0.detail")
       .should("equal", "rotterdam");
   });
+
+  it("should pass supplied object to dsoSelect event", () => {
+    cy.get("dso-autosuggest").then((c) => {
+      c.get(0).addEventListener("dsoSelect", cy.stub().as("selected"));
+    });
+    cy.get("@input").focus().type("rotterdam");
+    cy.wait(200);
+    cy.get("@listbox")
+      .get("li[role='option']")
+      .eq(3)
+      .trigger("mouseenter")
+      .click();
+    cy.get("@selected").should("have.been.calledWithMatch", {
+      detail: {
+        type: "adres in Rotterdam",
+        value: "Rotterdamse Rijweg 1A, 3043BE Rotterdam",
+        item: 123,
+      },
+    });
+  });
 });

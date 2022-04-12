@@ -16,10 +16,23 @@ Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar e
 
 ## Models
 
+<!-- Keep in sync with autosuggest.tsx:Suggestion -->
 ```typescript
-interface Suggestion {
+export interface Suggestion {
+  /**
+   * The text that will be displayed as the suggestion.
+   */
   value: string;
+
+  /**
+   * The type of suggestion.
+   */
   type?: string;
+
+  /**
+   * A reference to the original object that was used to create the suggestion.
+   */
+  item?: unknown;
 }
 ```
 
@@ -28,10 +41,10 @@ interface Suggestion {
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                         | Type           | Default |
-| ---------------- | ------------------ | ----------------------------------------------------------------------------------- | -------------- | ------- |
-| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again. | `boolean`      | `false` |
-| `suggestions`    | --                 | The suggestions for the value of the slotted input element                          | `Suggestion[]` | `[]`    |
+| Property         | Attribute          | Description                                                                                                                                                                                                                                               | Type           | Default |
+| ---------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------- |
+| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                       | `boolean`      | `false` |
+| `suggestions`    | --                 | The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. | `Suggestion[]` | `[]`    |
 
 
 ## Events

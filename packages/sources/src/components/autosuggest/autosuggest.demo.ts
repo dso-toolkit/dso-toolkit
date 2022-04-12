@@ -63,6 +63,7 @@ const suggestions: AutosuggestSuggestion[] = [
   {
     type: 'adres in Rotterdam',
     value: 'Rotterdamse Rijweg 1A, 3043BE Rotterdam',
+    item: 123,
   },
   {
     type: 'adres in Rotterdam',
