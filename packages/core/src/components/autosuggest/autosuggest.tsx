@@ -18,6 +18,7 @@ import escapeStringRegexp from "escape-string-regexp";
 export interface Suggestion {
   value: string;
   type?: string;
+  item?: unknown;
 }
 
 @Component({

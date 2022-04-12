@@ -9,4 +9,5 @@ export interface Autosuggest {
 export interface AutosuggestSuggestion {
   value: string;
   type?: string;
+  item?: unknown;
 }
