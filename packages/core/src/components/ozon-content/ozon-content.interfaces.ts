@@ -1,7 +1,7 @@
 // Sync interfaces with readme.md
 
-export interface ContentAnchor {
+export interface OzonContentAnchorClick {
   href: string;
   documentComponent: string;
-  originalEvent: PointerEvent;
+  originalEvent: MouseEvent;
 }

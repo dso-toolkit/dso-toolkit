@@ -4,7 +4,7 @@
 * Geen sluitenknop in Description component. Zie #1288.
 
 ```typescript
-export interface ContentAnchor {
+export interface OzonContentAnchorClick {
   href: string;
   documentComponent: string;
   originalEvent: PointerEvent;
@@ -16,16 +16,16 @@ export interface ContentAnchor {
 
 ## Properties
 
-| Property               | Attribute | Description | Type     | Default     |
-| ---------------------- | --------- | ----------- | -------- | ----------- |
-| `content` _(required)_ | `content` |             | `string` | `undefined` |
+| Property  | Attribute | Description | Type                  | Default     |
+| --------- | --------- | ----------- | --------------------- | ----------- |
+| `content` | `content` |             | `string \| undefined` | `undefined` |
 
 
 ## Events
 
-| Event         | Description | Type                         |
-| ------------- | ----------- | ---------------------------- |
-| `anchorClick` |             | `CustomEvent<ContentAnchor>` |
+| Event         | Description | Type                                  |
+| ------------- | ----------- | ------------------------------------- |
+| `anchorClick` |             | `CustomEvent<OzonContentAnchorClick>` |
 
 
 ----------------------------------------------

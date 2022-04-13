@@ -4,15 +4,23 @@
 
 @import "~@dso-toolkit/sources/src/components/description/description";
 
-$description-content-selector: ".od-Al";
+$description-content-selector: "*";
 
-dso-ozon-content {
+:host {
   display: block;
 }
 
 .noot {
   @include description_root($description-content-selector);
   @include description_note($description-content-selector);
+}
+
+span[role="paragraph"] {
+  display: block;
+}
+
+.fallback {
+  display: block;
 }
 
 // Styling below copied from DSO Viewer 20211011

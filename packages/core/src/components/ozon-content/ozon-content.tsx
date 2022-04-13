@@ -1,48 +1,34 @@
-import { h, Event, Component, ComponentInterface, Prop, Listen, EventEmitter } from '@stencil/core';
+import { Component,  ComponentInterface,  Event,  EventEmitter,  Prop,  State,} from '@stencil/core';
 
-import { ContentAnchor } from './ozon-content.interfaces';
-import { OzonContentTransformer } from './ozon-content.transformer';
+import { Mapper } from './ozon-content-mapper';
+import { OzonContentContext } from './ozon-content-context.interface';
+import { OzonContentAnchorClick } from './ozon-content.interfaces';
+import { OzonContentNodeState } from './ozon-content-node-state.interface';
 
 @Component({
   tag: 'dso-ozon-content',
-  styleUrl: 'ozon-content.scss'
+  styleUrl: 'ozon-content.scss',
+  scoped: true
 })
 export class OzonContent implements ComponentInterface {
   @Prop()
-  content!: string;
+  content: string | undefined;
+
+  @State()
+  state: OzonContentNodeState = {};
 
   @Event()
-  anchorClick!: EventEmitter<ContentAnchor>;
+  anchorClick!: EventEmitter<OzonContentAnchorClick>;
 
-  @Listen('click')
-  handleClick(event: PointerEvent) {
-    this.transformer.handleClickEvent(event);
-  }
+  private mapper = new Mapper();
 
-  private container?: HTMLDivElement;
+  render(): JSX.Element {
+    const context: OzonContentContext = {
+      state: this.state,
+      setState: state => this.state = state,
+      emitAnchorClick: this.anchorClick.emit
+    };
 
-  private transformer!: OzonContentTransformer;
-
-  componentWillLoad() {
-    this.transformer = new OzonContentTransformer(this.anchorClick)
-  }
-
-  componentWillRender() {
-    this.transformer.setContent(this.content);
-  }
-
-  render() {
-    return <div class="dso-rich-content" ref={el => this.container = el} />;
-  }
-
-  componentDidRender() {
-    const content = this.transformer.content;
-
-    if (this.container && content) {
-      this.container.replaceChildren(...Array.from(content));
-    }
-    else {
-      this.container?.replaceChildren();
-    }
+    return this.mapper.transform(this.content ?? '', context);
   }
 }
