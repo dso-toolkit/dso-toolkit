@@ -2,8 +2,8 @@ import { storiesOfViewerGrid, Tile } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
-import { tileGridTemplate } from '../../../../../packages/css/src/components/tile-grid/tile-grid.template';
-import { tileTemplate } from '../../../../../packages/css/src/components/tile/tile.template';
+import { tileGridTemplate } from '@dso-toolkit/css/src/components/tile-grid/tile-grid.template';
+import { tileTemplate } from '@dso-toolkit/css/src/components/tile/tile.template';
 
 import { anchorTemplate } from "../anchor/anchor.template";
 import { badgeTemplate } from "../badge/badge.template";

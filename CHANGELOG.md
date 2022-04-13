@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit + sources:** "Rich Content" verhuizen naar `@dso-toolkit/sources` ([#1465](https://github.com/dso-toolkit/dso-toolkit/issues/1465))
 * **css + core + dso-toolkit:** "Row Equal Heights" verhuizen naar `@dso-toolkit/css`. ([#1459](https://github.com/dso-toolkit/dso-toolkit/issues/1459))
 
+### Fixed
+* **sources:** Storybook assets worden niet gebundled bij het builden ([#1520](https://github.com/dso-toolkit/dso-toolkit/issues/1520))
+
 ## 34.2.1
 
 De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472) "Vertical margin lijsten en Definition List optimalisatie" is in deze release opnieuw geïmplementeerd.

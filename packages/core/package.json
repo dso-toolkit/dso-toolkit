@@ -19,7 +19,7 @@
     "build": "stencil build",
     "start": "yarn clear && cross-env DSO_ENV=development yarn node scripts/start.js",
     "watch": "yarn clear && cross-env DSO_ENV=development yarn node scripts/watch.js",
-    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ./dist --output-dir ./www",
+    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ./dist,../sources/storybook-assets --output-dir ./www",
     "bin_stencil": "stencil",
     "bin_start-storybook": "start-storybook",
     "bin_cypress": "cypress",

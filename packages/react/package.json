@@ -11,7 +11,7 @@
     "clean": "rimraf dist",
     "start": "cross-env DSO_ENV=development yarn node scripts/start.js",
     "build": "npm run clean && npm run compile",
-    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ../core/dist --output-dir ./www",
+    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ../core/dist,../sources/storybook-assets --output-dir ./www",
     "compile": "tsc --project .",
     "bin_start-storybook": "start-storybook",
     "bin_build-storybook": "build-storybook"
