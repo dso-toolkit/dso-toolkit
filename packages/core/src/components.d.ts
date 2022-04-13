@@ -137,6 +137,8 @@ export namespace Components {
     interface DsoIcon {
         "icon"?: string;
     }
+    interface DsoImageOverlay {
+    }
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
@@ -306,6 +308,12 @@ declare global {
         prototype: HTMLDsoIconElement;
         new (): HTMLDsoIconElement;
     };
+    interface HTMLDsoImageOverlayElement extends Components.DsoImageOverlay, HTMLStencilElement {
+    }
+    var HTMLDsoImageOverlayElement: {
+        prototype: HTMLDsoImageOverlayElement;
+        new (): HTMLDsoImageOverlayElement;
+    };
     interface HTMLDsoInfoElement extends Components.DsoInfo, HTMLStencilElement {
     }
     var HTMLDsoInfoElement: {
@@ -402,6 +410,7 @@ declare global {
         "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
         "dso-icon": HTMLDsoIconElement;
+        "dso-image-overlay": HTMLDsoImageOverlayElement;
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
@@ -560,6 +569,8 @@ declare namespace LocalJSX {
     interface DsoIcon {
         "icon"?: string;
     }
+    interface DsoImageOverlay {
+    }
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
@@ -688,6 +699,7 @@ declare namespace LocalJSX {
         "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
         "dso-icon": DsoIcon;
+        "dso-image-overlay": DsoImageOverlay;
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
@@ -719,6 +731,7 @@ declare module "@stencil/core" {
             "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;
             "dso-icon": LocalJSX.DsoIcon & JSXBase.HTMLAttributes<HTMLDsoIconElement>;
+            "dso-image-overlay": LocalJSX.DsoImageOverlay & JSXBase.HTMLAttributes<HTMLDsoImageOverlayElement>;
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;

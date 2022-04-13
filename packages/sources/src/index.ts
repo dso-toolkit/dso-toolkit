@@ -50,6 +50,8 @@ export * from './components/icon/icon.models';
 export * from './components/icon/icon.stories';
 export * from './components/image/image.models';
 export * from './components/image/image.stories';
+export * from './components/image-overlay/image-overlay.models';
+export * from './components/image-overlay/image-overlay.stories';
 export * from './components/info-button/info-button.models';
 export * from './components/info-button/info-button.stories';
 export * from './components/info/info.models';
