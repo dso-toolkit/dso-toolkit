@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css:** Nieuw component "Tile Grid" en "Tile" uitgebreid met variant "theme" ([#1443](https://github.com/dso-toolkit/dso-toolkit/issues/1443))
+* **core:** Nieuw component "Image Overlay": `<dso-image-overlay>` ([#1444](https://github.com/dso-toolkit/dso-toolkit/issues/1444))
 
 ### Changed
 * **css + dso-toolkit + sources:** "Rich Content" verhuizen naar `@dso-toolkit/sources` ([#1465](https://github.com/dso-toolkit/dso-toolkit/issues/1465))
@@ -29,7 +30,6 @@ De change uit GitHub issue [#1472](https://github.com/dso-toolkit/dso-toolkit/is
 * **css:** Vertical margin lijsten en Definition List optimalisatie ([#1472](https://github.com/dso-toolkit/dso-toolkit/issues/1472))
 
 ### Added
-* **core:** Afbeelding groot kunnen weergeven ([#1444](https://github.com/dso-toolkit/dso-toolkit/issues/1444))
 * **css + dso-toolkit:** Navigation block - Link list in `<nav>` ([#1454](https://github.com/dso-toolkit/dso-toolkit/issues/1454))
 * **core:** Viewer Grid - Filterpaneel ([#1445](https://github.com/dso-toolkit/dso-toolkit/issues/1445))
 * **core:** Toelichting kaartlaag in Map Controls altijd initieel gesloten weergeven ([#1479](https://github.com/dso-toolkit/dso-toolkit/issues/1479))

@@ -13,6 +13,9 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   active = false;
 
+  @State()
+  focused = false;
+
   buttonElement: HTMLButtonElement | undefined;
   
   wrapperElement: HTMLDivElement | undefined;
@@ -21,7 +24,7 @@ export class ImageOverlay implements ComponentInterface {
 
   private mutationObserver?: MutationObserver;
 
-  connectedCallback() {
+  componentDidLoad() {
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
     this.mutationObserver.observe(this.host, {
       attributes: true,
@@ -38,7 +41,9 @@ export class ImageOverlay implements ComponentInterface {
     const { src, alt } = this.host.querySelector('img') ?? {};
 
     return (
-      <Host>
+      <Host tabindex={this.focused ? -1 : 0} onFocus={() => {
+        this.buttonElement?.focus();
+      }}>
         {this.active && src && alt && (
           <div class="dimmer" ref={element => this.wrapperElement = element}>
             <div class="wrapper">
@@ -52,13 +57,15 @@ export class ImageOverlay implements ComponentInterface {
         )}
         <slot />
         <button
-          aria-label="Afbeelding vergroot weergeven"
-          class="open"
           type="button"
+          class="open"
           ref={element => this.buttonElement = element}
           onClick={() => this.active = true}
+          onFocus={() => this.focused = true}
+          onBlur={() => this.focused = false}
         >
           <dso-icon icon="external-link"></dso-icon>
+          <span>Afbeelding vergroot weergeven</span>
         </button>
       </Host>
     );
@@ -68,19 +75,19 @@ export class ImageOverlay implements ComponentInterface {
     if (this.active && this.wrapperElement && !this.trap) {
       this.trap = createFocusTrap(this.wrapperElement, {
         escapeDeactivates: true,
-        clickOutsideDeactivates: true,
+        clickOutsideDeactivates: () => {
+          this.active = false;
+
+          return false;
+        },
         setReturnFocus: this.buttonElement ?? false,
         onDeactivate: () => this.active = false
       }).activate();
     }
     else if (!this.active && this.trap) {
-      this.deactivateFocusTrap();
+      this.trap?.deactivate();
+
+      delete this.trap;
     }
-  }
-
-  deactivateFocusTrap() {
-    this.trap?.deactivate();
-
-    delete this.trap;
   }
 }

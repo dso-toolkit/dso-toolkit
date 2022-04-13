@@ -1,6 +1,6 @@
 # `<dso-image-overlay>`
 
-
+Dit component verwacht één (default) slotted `<img>` element. Het component gebruikt alleen de attributen `src` en `alt` om de overlay te maken. Zonder deze attributen zal de overlay niet werken.
 
 <!-- Auto Generated Below -->
 

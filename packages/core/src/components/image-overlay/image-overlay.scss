@@ -47,7 +47,7 @@ $dso-image-overlay-z-index: 20;
 }
 
 .wrapper {
-  box-shadow: 0 8px 24px 0 rgba(25, 25, 25, 0.4);
+  box-shadow: 0 $u1 $u3 0 rgba(25, 25, 25, 0.4);
   position: relative;
   z-index: $dso-image-overlay-z-index;
   align-self: center;
@@ -67,7 +67,7 @@ $dso-image-overlay-z-index: 20;
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   min-width: auto;
-  padding: 8px;
+  padding: $u1;
   position: absolute;
   top: $u2;
   right: $u2;

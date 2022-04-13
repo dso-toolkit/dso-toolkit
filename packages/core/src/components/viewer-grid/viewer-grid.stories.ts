@@ -125,7 +125,7 @@ function viewerGridWithSearchResultsDemoTemplate(
         Quisque sodales nibh risus, ac dictum diam volutpat quis. Integer sed
         tortor quis libero iaculis interdum.
       </p>
-      ${imageOverlayTemplate({ image: { source: 'https://iplo.nl/publish/items/245342/canvas-home_iplo-min.png', alt: 'Kanaal met windmolens' } })}
+      ${imageOverlayTemplate({ image: { source: 'images/canvas-home_iplo-min.png', alt: 'Kanaal met windmolens' } })}
     </div>
     <ul class="dso-document-list">
       <li>
@@ -232,7 +232,6 @@ const overlay = html`
       venenatis. Pellentesque habitant morbi tristique senectus et netus et
       malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
     </p>
-    ${imageOverlayTemplate({ image: { source: 'https://iplo.nl/publish/items/245342/canvas-home_iplo-min.png', alt: 'Kanaal met windmolens' } })}
     <p>
       Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at
       felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc
@@ -246,6 +245,7 @@ const overlay = html`
       senectus et netus et malesuada fames ac turpis egestas. Nulla sodales
       facilisis hendrerit.
     </p>
+    ${imageOverlayTemplate({ image: { source: 'images/canvas-home_iplo-min.png', alt: 'Kanaal met windmolens' } })}
     <p>
       Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at
       felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc
