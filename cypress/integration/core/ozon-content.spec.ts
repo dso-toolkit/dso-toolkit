@@ -1,6 +1,4 @@
-// STOPTPOD website
-
-describe("Ozon content", () => {
+describe("Ozon Content", () => {
   it("should emit anchorClick on IntRef anchor click", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--intref");
     cy.get("dso-ozon-content").then((c) => {
@@ -8,7 +6,6 @@ describe("Ozon content", () => {
     });
 
     cy.get("dso-ozon-content")
-      .shadow()
       .find("a[href = '#longTitle_inst2']")
       .click();
 
@@ -16,90 +13,92 @@ describe("Ozon content", () => {
   });
 
   it("should open and close notes", () => {
-    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--noot");
-    const a = (n: number) =>
-      cy
+    function a(n: string) {
+      return cy
         .get("dso-ozon-content")
-        .shadow()
         .find(`a[aria-controls = 'dso-ozon-note-${n}']`);
-    const div = (n: number) =>
-      cy
+    }
+
+    function span(n: string) {
+      return cy
         .get("dso-ozon-content")
-        .shadow()
-        .find(`div[id = 'dso-ozon-note-${n}']`);
+        .find(`span[id = 'dso-ozon-note-${n}']`);
+    }
 
-    a(0).should("have.attr", "aria-expanded", "false");
-    div(0).should("be.not.visible");
-    a(1).should("have.attr", "aria-expanded", "false");
-    div(1).should("be.not.visible");
+    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--inhoud-al-noot");
 
-    a(1).click();
+    a('N6').should("have.attr", "aria-expanded", "false");
+    span('N6').should("be.not.visible");
+    a('N7').should("have.attr", "aria-expanded", "false");
+    span('N7').should("be.not.visible");
 
-    a(0).should("have.attr", "aria-expanded", "false");
-    div(0).should("be.not.visible");
-    a(1).should("have.attr", "aria-expanded", "true");
-    div(1).should("be.visible");
+    a('N7').click();
 
-    a(1).click();
+    a('N6').should("have.attr", "aria-expanded", "false");
+    span('N6').should("be.not.visible");
+    a('N7').should("have.attr", "aria-expanded", "true");
+    span('N7').should("be.visible");
 
-    a(0).should("have.attr", "aria-expanded", "false");
-    div(0).should("be.not.visible");
-    a(1).should("have.attr", "aria-expanded", "false");
-    div(1).should("be.not.visible");
+    a('N7').click();
+
+    a('N6').should("have.attr", "aria-expanded", "false");
+    span('N6').should("be.not.visible");
+    a('N7').should("have.attr", "aria-expanded", "false");
+    span('N7').should("be.not.visible");
   });
 
-  it("should render unknown element to div", () => {
+  it("should render unknown element to span", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr("content", "<aap>baviaan</aap>");
+      c.prop("content", "<aap>baviaan</aap>");
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-aap")
+      .find("span.fallback.od-aap")
       .should("exist")
       .contains("baviaan");
   });
 
   it("should render br element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr("content", "<e><br /></e>");
+      c.prop("content", "<e><br /></e>");
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-e")
+      .find("span.fallback.od-e")
       .children("br")
-      .should("exist")
-      .children()
-      .should("not.exist");
+      .should("exist").and('be.empty');
   });
 
   it("should render Al element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr("content", "<e><Al><c>de tekst</c></Al></e>");
+      c.prop("content", "<Al>Tekst<Al>Meer tekst</Al></Al>");
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-e")
-      .children("span.paragraph")
+      .find("p")
       .should("exist")
-      .children("div.od-c")
-      .should("exist")
-      .contains("de tekst");
+      .children('span[role="paragraph"]')
+      .should("exist");
   });
 
   it("should render sub, sup, strong, b, i and u elements", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
         "<outer><sub><sup><strong><b><i><u><inner>text</inner></u></i></b></strong></sup></sub></outer>"
       );
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-outer")
+      .find("span.fallback.od-outer")
       .children("sub")
       .should("exist")
       .children("sup")
@@ -112,70 +111,72 @@ describe("Ozon content", () => {
       .should("exist")
       .children("u")
       .should("exist")
-      .children("div.od-inner")
+      .children("span.fallback.od-inner")
       .contains("text");
   });
 
   it("should render Inhoud element and handle xml namespace", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
         "<ns4:c xmlns:ns4='https://standaarden.overheid.nl/stop/imop/tekst/'><ns4:Inhoud><ns4:e>de inhoud</ns4:e></ns4:Inhoud></ns4:c>"
       );
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-c")
+      .find("span.fallback.od-c")
       .children("div.dso-rich-content")
       .should("exist")
-      .children("div.od-e")
+      .children("span.od-e")
       .contains("de inhoud");
   });
 
   it("should render IntRef element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr("content", "<c><IntRef ref='doc'><e>document</e></IntRef></c>");
+      c.prop("content", "<c><IntRef ref='doc'><e>document</e></IntRef></c>");
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-c")
+      .find("span.fallback.od-c")
       .children("a[href = '#doc']")
       .should("exist")
-      .children("div.od-e")
+      .children("span.fallback.od-e")
       .contains("document");
   });
 
   it("should render ExtRef element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr("content", "<c><ExtRef ref='doc'><e>document</e></ExtRef></c>");
+      c.prop("content", "<c><ExtRef ref='doc'><e>document</e></ExtRef></c>");
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
-      .find("div.od-c")
-      .children(
-        "a[href = 'doc'][target = '_blank'][rel = 'noopener noreferrer']"
-      )
+      .find("span.fallback.od-c")
+      .children("a[href = 'doc'][target = '_blank'][rel = 'noopener noreferrer']")
       .should("exist")
       .children("span.sr-only")
       .contains("opent in nieuw venster")
       .parent()
-      .children("div.od-e")
+      .children("span.fallback.od-e")
       .contains("document");
   });
 
   it("should render Illustratie element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
         "<Illustratie naam='afbeelding.jpg' hoogte='12' breedte='34' />"
       );
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
       .find("img[src = 'afbeelding.jpg'][height = '12'][width = '34']")
       .should("exist");
   });
@@ -183,13 +184,12 @@ describe("Ozon content", () => {
   it("should render simple table", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
         "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
     cy.get("dso-ozon-content")
-      .shadow()
       .find("table")
       .should("exist")
       .children("tbody")
@@ -209,13 +209,12 @@ describe("Ozon content", () => {
   it("should render table with heading", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
         "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><thead><row><entry>een</entry><entry>twee</entry></row></thead><tbody><row><entry>1</entry><entry>2</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
     cy.get("dso-ozon-content")
-      .shadow()
       .find("table")
       .should("exist")
       .children("thead")
@@ -224,22 +223,21 @@ describe("Ozon content", () => {
       .should("exist")
       .children("tr")
       .should("exist")
-      .children("th")
+      .children("td")
       .should("exist");
-    cy.get("@head").find("tr:nth-child(1) th:nth-child(1)").contains("een");
-    cy.get("@head").find("tr:nth-child(1) th:nth-child(2)").contains("twee");
+    cy.get("@head").find("tr:nth-child(1) td:nth-child(1)").contains("een");
+    cy.get("@head").find("tr:nth-child(1) td:nth-child(2)").contains("twee");
   });
 
   it("should render table with rowspan", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
         "<table><tgroup><colspec colnum='1' /><colspec colnum='2' /><tbody><row><entry morerows='1'>1</entry><entry>2</entry></row><row><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
     cy.get("dso-ozon-content")
-      .shadow()
       .find("table")
       .should("exist")
       .children("tbody")
@@ -260,14 +258,15 @@ describe("Ozon content", () => {
 
   it("should render table with colspan", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
     cy.get("dso-ozon-content").then((c) => {
-      c.attr(
+      c.prop(
         "content",
-        "<table><tgroup><colspec colnum='1' colname='een' /><colspec colnum='2' colname='twee' /><tbody><row><entry namest='een' nameend='twee'>1</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
+        "<table><tgroup cols='2'><colspec colnum='1' colname='een' /><colspec colnum='2' colname='twee' /><tbody><row><entry namest='een' nameend='twee'>1</entry></row><row><entry>3</entry><entry>4</entry></row></tbody></tgroup></table>"
       );
     });
+
     cy.get("dso-ozon-content")
-      .shadow()
       .find("table")
       .should("exist")
       .children("tbody")
