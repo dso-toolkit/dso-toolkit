@@ -1,28 +1,26 @@
 .dso-form-buttons {
-  &:not(.dso-button-row) {
-    @include clearfix();
+  @include clearfix();
 
-    text-align: right;
+  text-align: right;
 
-    a,
-    button {
-      &.dso-tertiary,
-      &.btn-link {
-        line-height: $line-height-base;
-        padding: $dso-button-vertical-padding 0; // $horizontal??
-      }
-    }
-
-    .dso-aside {
-      clear: both;
-      float: left;
+  a,
+  button {
+    &.dso-tertiary,
+    &.btn-link {
+      line-height: $line-height-base;
+      padding: $dso-button-vertical-padding 0; // $horizontal??
     }
   }
 
-  &.dso-button-row {
-    #{$dso-buttons} {
-      float: left;
-    }
+  .dso-aside {
+    clear: both;
+    float: left;
+  }
+}
+
+&.dso-button-row {
+  #{$dso-buttons} {
+    float: left;
   }
 }
 
