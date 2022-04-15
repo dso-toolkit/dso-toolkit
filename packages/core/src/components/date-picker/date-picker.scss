@@ -77,7 +77,7 @@ $dso-date-dialog-border-width: 1px;
   top: 50%;
   user-select: none;
   width: $dso-date-picker-size;
-  z-index: $zx-datepicker-base + 1;
+  z-index: $zx-datepicker + 1;
 
   &:disabled {
     color: $date-picker-color-nav-button-disabled;
@@ -225,7 +225,7 @@ $dso-date-dialog-border-width: 1px;
   text-align: center;
   vertical-align: middle;
   width: $dso-date-picker-size;
-  z-index: $zx-datepicker-base;
+  z-index: $zx-datepicker;
 
   &.is-today {
     background: transparent;
@@ -389,7 +389,7 @@ $dso-date-dialog-border-width: 1px;
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: $zx-datepicker-base + 1;
+    z-index: $zx-datepicker + 1;
 
     &:focus + .dso-date__select-label {
       box-shadow: 0 0 0 2px $date-picker-color-primary;
@@ -410,7 +410,7 @@ $dso-date-dialog-border-width: 1px;
   pointer-events: none;
   position: relative;
   width: 100%;
-  z-index: $zx-datepicker-base;
+  z-index: $zx-datepicker;
 
   span {
     font-size: 1.25rem;
