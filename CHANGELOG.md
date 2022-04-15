@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
-* **css + core + dso-toolkit + sources:** Z-index register aanmaken ([#1429](https://github.com/dso-toolkit/dso-toolkit/issues/1429))
+* **css + core + dso-toolkit + sources:** Z-index register ([#1429](https://github.com/dso-toolkit/dso-toolkit/issues/1429))
 
 ### 35.0.0
 
