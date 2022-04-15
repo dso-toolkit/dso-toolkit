@@ -3,6 +3,6 @@
   top: 0;
   bottom: 0;
   position: absolute;
-  z-index: $zx-leaflet-controls;
+  z-index: $zx-leaflet + 70;
   cursor: auto;
 }

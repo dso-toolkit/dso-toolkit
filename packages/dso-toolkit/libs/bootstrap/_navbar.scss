@@ -101,7 +101,7 @@
   position: fixed;
   right: 0;
   left: 0;
-  z-index: $zx-nav-fixed;
+  z-index: $zx-nav + 10;
 
   // Undo the rounded corners
   @media (min-width: $grid-float-breakpoint) {
@@ -147,7 +147,7 @@
 
 // Static top (unfixed, but 100% wide) navbar
 .navbar-static-top {
-  z-index: $zx-nav-static;
+  z-index: $zx-nav;
   border-width: 0 0 1px;
 
   @media (min-width: $grid-float-breakpoint) {

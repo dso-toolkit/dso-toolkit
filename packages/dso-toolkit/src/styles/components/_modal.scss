@@ -47,7 +47,7 @@ body.dso-modal-open {
       position: fixed;
       right: 0;
       top: 0;
-      z-index: $zx-modal-backdrop;
+      z-index: $zx-modal - 1;
     }
   }
 

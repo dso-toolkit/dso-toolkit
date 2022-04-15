@@ -159,7 +159,7 @@
   height: 100%;
   overflow-y: auto;
   position: absolute;
-  z-index: $zx-viewer-grid-overlay;
+  z-index: $zx-viewer-grid-map-panel + 1;
 }
 
 #filterpanel {
