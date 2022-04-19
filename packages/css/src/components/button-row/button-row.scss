@@ -13,7 +13,7 @@
     + .dso-secondary,
     + .dso-tertiary {
       margin-left: 0;
-      white-space: nowrap;
+      white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons
     }
   }
 }
