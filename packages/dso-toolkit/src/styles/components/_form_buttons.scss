@@ -18,12 +18,6 @@
   }
 }
 
-&.dso-button-row {
-  #{$dso-buttons} {
-    float: left;
-  }
-}
-
 .dso-single-page {
   &.dso-form-buttons,
   .dso-form-buttons {

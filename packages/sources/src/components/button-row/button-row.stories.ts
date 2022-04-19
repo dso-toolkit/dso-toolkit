@@ -4,7 +4,7 @@ import { buttonRowArgsMapper, buttonRowArgTypes } from './button-row.args';
 import { ButtonRow } from './button-row.models';
 
 export interface ButtonRowParameters<TemplateFnReturnType> {
-  buttonRowTemplate: (buttonRowProperties: ButtonRow<TemplateFnReturnType>) => TemplateFnReturnType;
+  buttonRowTemplate: (buttonRowProperties: ButtonRow) => TemplateFnReturnType;
 }
 
 export function storiesOfButtonRow<TemplateFnReturnType>(
@@ -24,27 +24,88 @@ export function storiesOfButtonRow<TemplateFnReturnType>(
       docs: {
         page: readme
       },
-      argTypes: buttonRowArgTypes,
-      args: {
-        cards: [
-          {
-            label: 'Omgevingsplan Nieuwegein',
-            content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-          },
-          {
-            label: 'Brouwersmolen',
-            content: 'Brouwersmolen eget iaculis nisi quam in libero.',
-            interactions: [
-              {
-                variant: 'tertiary',
-                label: 'Toon informatie',
-                icon: {
-                  icon: 'info'
-                }
-              }
-            ]
-          }
-        ]
-      }
+      argTypes: buttonRowArgTypes
     });
-}
+
+    stories.add(
+      'default',
+      template,
+      {
+        args: {
+          buttons: [
+            {
+              variant: 'secondary',
+              label: 'Button 1'
+            },
+            {
+              variant: 'secondary',
+              label: 'Button 2'
+            },
+            {
+              variant: 'secondary',
+              label: 'Button 3'
+            },
+            {
+              variant: 'secondary',
+              label: 'Button 4'
+            },
+            {
+              variant: 'secondary',
+              label: 'Button 5'
+            }
+          ]
+        }
+      }
+    );
+
+    stories.add(
+      'alle button varianten',
+      template,
+      {
+        args: {
+          buttons: [
+            {
+              icon: {
+                icon: "chevron-left",
+                iconMode: "before",
+              },
+              variant: 'tertiary',
+              label: 'Naar project overzicht'
+            },
+            {
+              icon: {
+                icon: "redo",
+                iconMode: "before",
+              },
+              variant: 'secondary',
+              label: 'Aanvullen'
+            },
+            {
+              icon: {
+                icon: "pencil",
+                iconMode: "before",
+              },
+              variant: 'secondary',
+              label: 'Intrekken'
+            },
+            {
+              icon: {
+                icon: "trash",
+                iconMode: "before",
+              },
+              variant: 'secondary',
+              label: 'Verwijderen'
+            },
+            {
+              icon: {
+                icon: "download",
+                iconMode: "before",
+              },
+              variant: 'secondary',
+              label: 'Download verzoek als PDF'
+            }
+          ]
+        }
+      }
+    );
+  }

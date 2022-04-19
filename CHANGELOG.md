@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **sources:** Contrast mode styling radiobuttons en checkboxes ([#1521](https://github.com/dso-toolkit/dso-toolkit/issues/1521))
 
 ### 35.0.0
+* **css + sources:** Nieuw component "Button row" ([#1492](https://github.com/dso-toolkit/dso-toolkit/issues/1492))
 
 ### Added
 * **BREAKING: core:** `<dso-ozon-content />` XML support 🎉 ([#1444](https://github.com/dso-toolkit/dso-toolkit/issues/1444))

@@ -4,11 +4,11 @@ import { Button } from '../button/button.models';
 
 import { ButtonRow } from './button-row.models';
 
-export interface ButtonRowArgs<TemplateFnReturnType> {
-  buttons: Button<TemplateFnReturnType>[];
+export interface ButtonRowArgs {
+  buttons: Button[];
 }
 
-export const buttonRowArgTypes: ArgTypes<ButtonRowArgs<never>> = {
+export const buttonRowArgTypes: ArgTypes<ButtonRowArgs> = {
   buttons: {
     control: {
       disable: true
@@ -16,7 +16,7 @@ export const buttonRowArgTypes: ArgTypes<ButtonRowArgs<never>> = {
   }
 };
 
-export function buttonRowArgsMapper(a: ButtonRowArgs<never>): ButtonRow<never> {
+export function buttonRowArgsMapper(a: ButtonRowArgs): ButtonRow {
   return {
     buttons: a.buttons
   };

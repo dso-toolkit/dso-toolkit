@@ -20,6 +20,8 @@ export * from './components/breadcrumbs/breadcrumbs.models';
 export * from './components/breadcrumbs/breadcrumbs.stories';
 export * from './components/button/button.models';
 export * from './components/button/button.stories';
+export * from './components/button-row/button-row.models';
+export * from './components/button-row/button-row.stories';
 export * from './components/card/card.models';
 export * from './components/card/card.stories';
 export * from './components/card-grid/card-grid.models';
