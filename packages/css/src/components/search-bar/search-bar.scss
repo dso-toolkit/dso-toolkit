@@ -20,7 +20,7 @@ $dso-search-bar-invalid-input-border-color: $dso-danger-color;
       text-align: center;
       top: 0;
       width: $u5;
-      z-index: 2;
+      z-index: $zx-searchbar-icon;
 
       &::before {
         @include di("search");

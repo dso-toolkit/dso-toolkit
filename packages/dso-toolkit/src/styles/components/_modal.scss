@@ -1,4 +1,3 @@
-$dso-modal-z-index: 20;
 $dso-modal-max-width: 640px;
 $dso-modal-max-height: 70vh;
 
@@ -48,7 +47,7 @@ body.dso-modal-open {
       position: fixed;
       right: 0;
       top: 0;
-      z-index: #{$dso-modal-z-index - 1};
+      z-index: $zx-modal - 1;
     }
   }
 
@@ -137,7 +136,7 @@ body.dso-modal-open {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: $dso-modal-z-index;
+    z-index: $zx-modal;
 
     .dso-dialog {
       animation: 1s ease-out 0s 1 slideInFromTop;

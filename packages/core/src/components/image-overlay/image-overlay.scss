@@ -8,8 +8,6 @@
 
 @import "~@dso-toolkit/sources/src/components/button/button";
 
-$dso-image-overlay-z-index: 20;
-
 :host {
   display: inline-block;
   position: relative;
@@ -39,7 +37,7 @@ $dso-image-overlay-z-index: 20;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: $zx-image-overlay - 1;
   display: flex;
   padding: $u4;
   background-color: fade-out($wit, 0.2);
@@ -49,7 +47,7 @@ $dso-image-overlay-z-index: 20;
 .wrapper {
   box-shadow: 0 $u1 $u3 0 rgba(25, 25, 25, 0.4);
   position: relative;
-  z-index: $dso-image-overlay-z-index;
+  z-index: $zx-image-overlay;
   align-self: center;
   line-height: 0;
 

@@ -64,7 +64,7 @@ $dso-description-border-color: $dso-info-color;
       margin-left: -$u1 + 1px;
       position: absolute;
       width: 0;
-      z-index: 2;
+      z-index: $zx-description-open + 1;
     }
 
     &::after {
@@ -78,7 +78,7 @@ $dso-description-border-color: $dso-info-color;
       margin-left: -$u1;
       position: absolute;
       width: 0;
-      z-index: 1;
+      z-index: $zx-description-open;
     }
   }
 
