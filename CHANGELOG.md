@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + core + dso-toolkit + sources:** Z-index register ([#1429](https://github.com/dso-toolkit/dso-toolkit/issues/1429))
+* **sources:** Contrast mode styling radiobuttons en checkboxes ([#1521](https://github.com/dso-toolkit/dso-toolkit/issues/1521))
 
 ### 35.0.0
 

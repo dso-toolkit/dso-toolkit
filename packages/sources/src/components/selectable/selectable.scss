@@ -70,6 +70,10 @@ $dso-selectable-indeterminate-size: 12px;
     z-index: $zx-selectable;
     zoom: 1;
 
+    @media (prefers-contrast: more) {
+      opacity: 1;
+    }
+
     &:not([disabled]) {
       cursor: pointer;
     }
