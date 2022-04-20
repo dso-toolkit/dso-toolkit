@@ -1,42 +1,122 @@
+@use "sass:math";
+
 @import "~@dso-toolkit/sources/src/styling/variables";
 
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
 @import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+@import "tree-view.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+
+$tree-view-line-height: $u3;
+$tree-view-hspace: $u1;
+$tree-view-vspace: $u1;
+$tree-view-icon-size: $u3;
+$tree-view-indent: $u4;
+$tree-view-hcenter: 0.5 * $tree-view-icon-size;
+$tree-view-vcenter: 0.5 * $tree-view-line-height + $tree-view-vspace;
+$tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
 
 :host {
   ul {
     list-style-type: none;
+    padding-inline-start: $tree-view-indent;
+    position: relative;
+  }
+
+  li {
+    position: relative;
   }
 
   ul[role='tree'] {
     padding-left: 0;
   }
 
-  li[role='treeitem'] > ul {
-    padding-left: 1.5em;
+  // connects branch or leaf to parent
+  ul[role='group']::before {
+    @include vertical-line(
+      $tree-view-indent + $tree-view-hcenter,
+      0,
+      $tree-view-icon-vspace);
+  }
+
+  li:not(.has-child) {
+    // horizontal connector for a leaf
+    &::before {
+      @include horizontal-line(
+        $tree-view-hcenter,
+        $tree-view-vcenter,
+        $tree-view-hspace + 0.5 * $tree-view-icon-size - 4px);
+    }
+
+    // vertical connector for a leaf
+    &::after {
+      @include vertical-line(
+        $tree-view-hcenter,
+        $tree-view-icon-vspace,
+        100%);
+    }
+
+    // vertical connector for the last leaf
+    &:last-child::after {
+      height: $tree-view-vcenter;
+      top: 0;
+    }
+  }
+
+  li.has-child {
+    // horizontal connector for a branch
+    &::before {
+      @include horizontal-line(
+        $tree-view-icon-size,
+        $tree-view-vcenter,
+        $tree-view-hspace - 4px);
+    }
+
+    // vertical connector for a branch (not last)
+    &:not(:last-child)::after {
+      @include vertical-line(
+        $tree-view-hcenter,
+        $tree-view-vcenter + 0.5 * $tree-view-icon-size,
+        calc(100% - $tree-view-icon-size));
+    }
+
+    // vertical line after a expanded branch (creating dead ends)
+    &.is-expanded:last-child::after {
+      @include vertical-line(
+        $tree-view-hcenter,
+        $tree-view-vcenter + 0.5 * $tree-view-icon-size,
+        calc(100% - ($tree-view-vcenter + 0.5 * $tree-view-icon-size)));
+    }
   }
 
   .tree-branch-control {
-    cursor: pointer;
+    color: $grasgroen;
     display: inline-block;
-    margin: $u1 0;
+    font-size: math.div(2 * $tree-view-icon-size, 3);
+    margin: $tree-view-icon-vspace $tree-view-hspace $tree-view-icon-vspace 0;
     vertical-align: top;
+
+    > div {
+      cursor: pointer;
+    }
   }
 
   .tree-content {
     cursor: pointer;
     display: inline-block;
-    margin: $u1 0;
-    width: calc(100% - $u3);
+    margin: $tree-view-vspace 0;
+    max-width: calc(100% - ($tree-view-indent + $tree-view-hspace));
 
-    &.active {
-      font-weight: 700;
+    a {
+      color: $text-color;
+      text-decoration: underline;
 
-      &:hover {
-        text-decoration: underline;
+      &:hover,
+      &:focus {
+        color: $text-color;
+        text-decoration: none;
       }
 
-      a {
+      &:active {
         text-decoration: none;
       }
     }
@@ -52,25 +132,30 @@
       }
     }
 
-    a {
-      &,
-      &:visited {
-        color: $text-color;
-        text-decoration: underline;
-      }
+    &.active {
+      color: $mauve;
+      font-style: italic;
+      font-weight: 700;
+
+      text-decoration: underline;
 
       &:hover,
       &:focus {
-        color: $text-color;
         text-decoration: none;
       }
 
-      &:active {
-        text-decoration: none;
+      a {
+        color: $mauve;
+
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
       }
     }
 
     dso-icon {
+      color: $grasgroen;
       font-size: 0.75em;
       margin-left: 0.5em;
       vertical-align: text-bottom;

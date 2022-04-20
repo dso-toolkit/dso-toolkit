@@ -1,0 +1,21 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@mixin horizontal-line($left, $top, $width, $color: $bosgroen) {
+  border-top: 1px solid $color;
+  content: "";
+  height: 0;
+  left: $left;
+  position: absolute;
+  top: $top;
+  width: $width;
+}
+
+@mixin vertical-line($left, $top, $height, $color: $bosgroen) {
+  border-left: 1px solid $color;
+  content: "";
+  height: $height;
+  left: $left;
+  position: absolute;
+  top: $top;
+  width: 0;
+}

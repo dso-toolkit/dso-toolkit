@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **sources:** Contrast mode styling radiobuttons en checkboxes ([#1521](https://github.com/dso-toolkit/dso-toolkit/issues/1521))
 * **css + sources:** Nieuw component "Button row" ([#1492](https://github.com/dso-toolkit/dso-toolkit/issues/1492))
 
+### Changed
+* **core:** Look en feel Tree View aangepast. ([#1508](https://github.com/dso-toolkit/dso-toolkit/issues/1508))
+
 ### 35.0.0
 
 ### Added
