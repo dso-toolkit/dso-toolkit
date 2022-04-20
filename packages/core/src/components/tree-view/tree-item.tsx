@@ -16,14 +16,14 @@ interface TreeViewItemProps {
 export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({ owner, ancestors, item, index, level, setSize }) => (
   <li
     key={item.id}
-    class={clsx('tree-item', { 'has-child': item.hasItems })}
+    class={clsx('tree-item', { 'has-child': item.hasItems, 'is-expanded': (!!item.open && !!item.items?.length) })}
     role='none'
   >
     <div class="tree-branch-control">
       {item.hasItems
         ?
           <div onClick={(e) => owner.itemClick(e, ancestors, item)}>
-            <dso-icon icon={item.open ? 'chevron-down' : 'chevron-right'}></dso-icon>
+            <dso-icon icon={item.open ? 'minus-square' : 'plus-square'}></dso-icon>
           </div>
         : <dso-icon></dso-icon>
       }
