@@ -1,0 +1,19 @@
+.dso-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $u2;
+  margin: $u4 0;
+
+  .btn:not(.dso-list-button),
+  .dso-primary,
+  .dso-secondary,
+  .dso-tertiary {
+    + .btn:not(.dso-list-button),
+    + .dso-primary,
+    + .dso-secondary,
+    + .dso-tertiary {
+      margin-left: 0;
+      white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons
+    }
+  }
+}
