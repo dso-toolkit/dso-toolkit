@@ -2,11 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: $u2;
-  margin: $u4 0;
-
-  .dso-context-wrapper & {
-    margin: $u2 0;
-  }
+  margin: $u2 0 $u4;
 
   .btn:not(.dso-list-button),
   .dso-primary,

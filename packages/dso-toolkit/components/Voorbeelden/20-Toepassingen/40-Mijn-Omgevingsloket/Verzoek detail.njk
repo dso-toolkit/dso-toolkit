@@ -5,18 +5,16 @@
       <div class="dso-button-row">
         {% render '@anchor', {modifier: 'dso-tertiary', label: 'Naar project overzicht', url: '#', icon: 'chevron-left'} %}
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
       {% render '@application-heading', appheading -%}
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-      {% render '@button', {label:'Aanvullen', type:'button', modifier:'dso-secondary', icon:'pencil'} %}
-      {% render '@button', {label:'Intrekken', type:'button', modifier:'dso-secondary', icon:'undo'} %}
-      {% render '@button', {label:'Verwijderen', type:'button', modifier:'dso-secondary', icon:'trash'} %}
+      <div class="dso-button-row">
+        {% render '@button', {label:'Aanvullen', type:'button', modifier:'dso-secondary', icon:'pencil'} %}
+        {% render '@button', {label:'Intrekken', type:'button', modifier:'dso-secondary', icon:'undo'} %}
+        {% render '@button', {label:'Verwijderen', type:'button', modifier:'dso-secondary', icon:'trash'} %}
+      </div>
     </div>
   </div>
   <div class="row">
