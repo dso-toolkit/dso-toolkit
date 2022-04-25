@@ -20,14 +20,22 @@
   <div class="row">
     <div class="col-md-6 col-sm-12">
       {% render '@definition-list', {definitions: definitions} %}
-      {% render '@button', {label:'Download verzoek als PDF', type:'button', modifier:'dso-secondary', icon:'download'} %}
     </div>
   </div>
-  <hr>
-  <h3>Bijlagen</h3>
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="dso-button-row">
+        {% render '@button', {label:'Download verzoek als PDF', type:'button', modifier:'dso-secondary', icon:'download'} %}
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-12">
-      {% render '@button', {label:'Download alle bijlagen', type:'button', modifier:'dso-secondary', icon:'download'} %}
+      <hr>
+      <h3>Bijlagen</h3>
+      <div class="dso-button-row">
+        {% render '@button', {label:'Download alle bijlagen', type:'button', modifier:'dso-secondary', icon:'download'} %}
+      </div>
     </div>
   </div>
   <div class="row">
