@@ -549,7 +549,7 @@ declare namespace LocalJSX {
         "isLoggedIn"?: boolean;
         "loginUrl"?: string;
         "logoutUrl"?: string;
-        "mainMenu": HeaderMenuItem[];
+        "mainMenu"?: HeaderMenuItem[];
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;

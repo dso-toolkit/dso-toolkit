@@ -15,16 +15,16 @@ interface HeaderMenuItem {
 
 ## Properties
 
-| Property                | Attribute            | Description | Type                            | Default     |
-| ----------------------- | -------------------- | ----------- | ------------------------------- | ----------- |
-| `isLoggedIn`            | `is-logged-in`       |             | `boolean`                       | `false`     |
-| `loginUrl`              | `login-url`          |             | `string \| undefined`           | `undefined` |
-| `logoutUrl`             | `logout-url`         |             | `string \| undefined`           | `undefined` |
-| `mainMenu` _(required)_ | --                   |             | `HeaderMenuItem[]`              | `undefined` |
-| `useDropDownMenu`       | `use-drop-down-menu` |             | `"always" \| "auto" \| "never"` | `"auto"`    |
-| `userHomeUrl`           | `user-home-url`      |             | `string \| undefined`           | `undefined` |
-| `userProfileName`       | `user-profile-name`  |             | `string \| undefined`           | `undefined` |
-| `userProfileUrl`        | `user-profile-url`   |             | `string \| undefined`           | `undefined` |
+| Property          | Attribute            | Description | Type                            | Default     |
+| ----------------- | -------------------- | ----------- | ------------------------------- | ----------- |
+| `isLoggedIn`      | `is-logged-in`       |             | `boolean`                       | `false`     |
+| `loginUrl`        | `login-url`          |             | `string \| undefined`           | `undefined` |
+| `logoutUrl`       | `logout-url`         |             | `string \| undefined`           | `undefined` |
+| `mainMenu`        | --                   |             | `HeaderMenuItem[]`              | `[]`        |
+| `useDropDownMenu` | `use-drop-down-menu` |             | `"always" \| "auto" \| "never"` | `"auto"`    |
+| `userHomeUrl`     | `user-home-url`      |             | `string \| undefined`           | `undefined` |
+| `userProfileName` | `user-profile-name`  |             | `string \| undefined`           | `undefined` |
+| `userProfileUrl`  | `user-profile-url`   |             | `string \| undefined`           | `undefined` |
 
 
 ## Dependencies

@@ -9,6 +9,7 @@ export interface HeaderArgs {
     label: string;
     url: string;
   }[];
+  noMainMenu: boolean,
   useDropDownMenu: "always" | "never" | "auto";
   loginUrl: string;
   logoutUrl: string;
@@ -29,6 +30,12 @@ export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
     },
   },
   mainMenu: noControl,
+  noMainMenu: {
+    name: "Geen menu",
+    control: {
+      type: "boolean",
+    },
+  },
   useDropDownMenu: {
     name: "Dropdown menu",
     options: ["always", "never", "auto"],
@@ -71,6 +78,7 @@ export function headerArgsMapper(a: HeaderArgs): Header {
     subLogo: a.subLogo,
     showSubLogo: a.showSubLogo,
     mainMenu: a.mainMenu,
+    noMainMenu: a.noMainMenu,
     useDropDownMenu: a.useDropDownMenu,
     loginUrl: a.loginUrl,
     logoutUrl: a.logoutUrl,

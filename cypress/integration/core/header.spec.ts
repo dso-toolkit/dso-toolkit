@@ -106,4 +106,12 @@ describe("Header", () => {
       .find("nav li.menu-user-home")
       .should("not.exist");
   });
+
+  it("should not show menu", () => {
+    cy.visit(
+      "http://localhost:56106/iframe.html?id=header--header&args=noMainMenu:true"
+    );
+    cy.get("dso-header").shadow().find("nav").should("not.exist");
+    cy.get("dso-header").shadow().find("dso-dropdown-menu").should("not.exist");
+  });
 });

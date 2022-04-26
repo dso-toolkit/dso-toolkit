@@ -6,6 +6,7 @@ export function headerTemplate({
   logo,
   subLogo,
   mainMenu,
+  noMainMenu,
   useDropDownMenu,
   showSubLogo,
   loginUrl,
@@ -20,7 +21,7 @@ export function headerTemplate({
   const bindLogoutUrl = showLoggedIn && logoutUrl ? logoutUrl : undefined;
   return showSubLogo
     ? html`<dso-header
-        .mainMenu=${mainMenu}
+        .mainMenu=${noMainMenu ? [] : mainMenu}
         use-drop-down-menu=${ifDefined(useDropDownMenu)}
         is-logged-in=${ifDefined(isLoggedIn)}
         login-url=${ifDefined(bindLoginUrl)}
@@ -33,7 +34,7 @@ export function headerTemplate({
         <div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div></div>
       </dso-header>`
     : html`<dso-header
-        .mainMenu=${mainMenu}
+        .mainMenu=${noMainMenu ? [] : mainMenu}
         use-drop-down-menu=${ifDefined(useDropDownMenu)}
         is-logged-in=${ifDefined(isLoggedIn)}
         login-url=${ifDefined(bindLoginUrl)}

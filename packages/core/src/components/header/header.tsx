@@ -32,7 +32,7 @@ export class Header {
   logoutUrl?: string;
 
   @Prop()
-  mainMenu!: HeaderMenuItem[];
+  mainMenu: HeaderMenuItem[] = [];
 
   @Prop()
   useDropDownMenu: "always" | "never" | "auto" = "auto";
@@ -165,7 +165,7 @@ export class Header {
               <slot name="sub-logo" />
             </div>
           </div>
-          {this.showDropDown && (
+          {this.showDropDown && this.mainMenu.length > 0 && (
             <div class="dropdown">
               <dso-dropdown-menu dropdown-align="right">
                 <button type="button" class="tertiary" slot="toggle">
@@ -206,7 +206,7 @@ export class Header {
               </dso-dropdown-menu>
             </div>
           )}
-          {!this.showDropDown && (
+          {!this.showDropDown && this.mainMenu.length > 0 && (
             <>
               <div class="dso-header-session">
                 {this.userProfileUrl &&
