@@ -15,6 +15,7 @@ export function headerTemplate({
   userProfileUrl,
   userProfileName,
   userHomeUrl,
+  menuItemClick,
 }: Header) {
   const bindLoginUrl = showLoggedIn && loginUrl ? loginUrl : undefined;
   const bindLogoutUrl = showLoggedIn && logoutUrl ? logoutUrl : undefined;
@@ -28,6 +29,7 @@ export function headerTemplate({
         user-profile-url=${ifDefined(userProfileUrl)}
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
+        @menuItemClick=${menuItemClick}
       >
         <div slot="logo"><img height="40" alt="Omgevingsloket" src="${logo}" /></div>
         <div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div></div>
@@ -41,6 +43,7 @@ export function headerTemplate({
         user-profile-url=${ifDefined(userProfileUrl)}
         user-profile-name=${ifDefined(userProfileName)}
         user-home-url=${ifDefined(userHomeUrl)}
+        @menuItemClick=${menuItemClick}
       >
         <div slot="logo"><img alt="Omgevingsloket" src="${logo}" /></div>
       </dso-header>`;

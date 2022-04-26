@@ -27,6 +27,13 @@ interface HeaderMenuItem {
 | `userProfileUrl`        | `user-profile-url`   |             | `string \| undefined`           | `undefined` |
 
 
+## Events
+
+| Event           | Description | Type                                    |
+| --------------- | ----------- | --------------------------------------- |
+| `menuItemClick` |             | `CustomEvent<HeaderMenuItemClickEvent>` |
+
+
 ## Dependencies
 
 ### Depends on

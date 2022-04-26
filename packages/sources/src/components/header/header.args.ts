@@ -1,3 +1,4 @@
+import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes, noControl } from "../../stories-helpers";
 import { Header } from "./header.models";
 
@@ -17,6 +18,7 @@ export interface HeaderArgs {
   userProfileName: string;
   userProfileUrl: string;
   userHomeUrl: string;
+  menuItemClick: HandlerFunction;
 }
 
 export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
@@ -63,6 +65,10 @@ export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
       type: "text",
     },
   },
+  menuItemClick: {
+    ...noControl,
+    action: "menuItemClick",
+  },
 };
 
 export function headerArgsMapper(a: HeaderArgs): Header {
@@ -79,5 +85,6 @@ export function headerArgsMapper(a: HeaderArgs): Header {
     userProfileName: a.userProfileName,
     userProfileUrl: a.userProfileUrl,
     userHomeUrl: a.userHomeUrl,
+    menuItemClick: a.menuItemClick,
   };
 }
