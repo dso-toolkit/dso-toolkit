@@ -11,6 +11,7 @@ import { OzonContentNootNode } from './nodes/noot.node';
 import { OzonContentTableNode } from './nodes/table.node';
 import { OzonContentTextNode } from './nodes/text.node';
 
+import { getNodeName } from './get-node-name.function';
 import { OzonContentNode } from './ozon-content-node.interface';
 import { OzonContentContext } from './ozon-content-context.interface';
 import { OzonContentFallbackNode } from './nodes/fallback.node';
@@ -66,20 +67,24 @@ export class Mapper {
       return <Fragment>{node.map(n => this.mapNodeToJsx(n, context, path))}</Fragment>
     }
 
-    const nodeName = node instanceof Element ? node.localName : node.nodeName;
+    const nodeName = getNodeName(node);
     const mapper = this.findMapper(nodeName);
-    const identity = mapper?.identify?.(node);
+    if (!mapper) {
+      return <Fragment />;
+    }
+
+    const identity = mapper.identify?.(node);
 
     const state = identity ? context.state[identity] : undefined;
     const setState = identity ? (state: unknown) => context.setState({ ...context.state, [identity]: state }) : undefined;
 
-    return mapper?.render(node, {
+    return mapper.render(node, {
       mapNodeToJsx: n => this.mapNodeToJsx(n, context, [...path, node]),
       emitAnchorClick: context.emitAnchorClick,
       setState,
       state,
       path
-    }) ?? <Fragment />;
+    });
   }
 
   transform(xml: string, context: OzonContentContext): JSX.Element {

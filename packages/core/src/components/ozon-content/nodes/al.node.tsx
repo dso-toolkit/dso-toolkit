@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
 
+import { getNodeName } from '../get-node-name.function';
 import { OzonContentNodeContext } from '../ozon-content-node-context.interface';
 import { OzonContentNode } from '../ozon-content-node.interface';
 
@@ -7,7 +8,7 @@ export class OzonContentAlNode implements OzonContentNode {
   name = 'Al';
 
   render(node: Element, { mapNodeToJsx, path }: OzonContentNodeContext) {
-    const nestedAl = path.some(node => node.nodeName === 'Al');
+    const nestedAl = path.some(node => getNodeName(node) === 'Al');
     const content = mapNodeToJsx(node.childNodes);
 
     return nestedAl

@@ -1,5 +1,6 @@
 import { h, Fragment } from '@stencil/core';
 
+import { getNodeName } from '../get-node-name.function';
 import { OzonContentNodeContext } from '../ozon-content-node-context.interface';
 import { OzonContentNode } from '../ozon-content-node.interface';
 
@@ -13,12 +14,18 @@ export class OzonContentNootNode implements OzonContentNode {
   }
 
   render(node: Element, { mapNodeToJsx, state: noteIsOpen, setState }: OzonContentNodeContext<boolean>) {
-    const noteId = node.getAttribute('id') ?? undefined;
-    const noteControlsId = noteId && `dso-ozon-note-${noteId}`;
-    const noteHref = noteId && `#${noteControlsId}`;
+    const noteId = node.getAttribute('id');
+    if (!noteId) {
+      console.error('Noot node without id', node);
+
+      return <Fragment />;
+    }
+  
+    const noteControlsId = `dso-ozon-note-${noteId}`;
+    const noteHref = `#${noteControlsId}`;
 
     const childNodes = Array.from(node.childNodes);
-    const nootNummer = childNodes.find(n => n.nodeName === 'NootNummer')?.textContent;
+    const nootNummer = childNodes.find(n => getNodeName(n) === 'NootNummer')?.textContent ?? noteId;
 
     const onClickNote = (event: MouseEvent) => {
       event.preventDefault();
