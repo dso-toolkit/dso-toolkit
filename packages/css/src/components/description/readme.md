@@ -1,1 +1,1 @@
-# `.dso-description`
+# `.dso-description-term`

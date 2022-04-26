@@ -1,20 +1,18 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
+@import "~@dso-toolkit/sources/src/components/button/button";
+
 @import "../../icon/di";
-
-@import "~@dso-toolkit/sources/src/components/description/description";
-
-$description-content-selector: "*";
 
 :host {
   display: block;
 }
 
-.noot {
-  @include description_root($description-content-selector);
-  @include description_note($description-content-selector);
+button.toggle-note {
+  @include button-tertiary();
 }
 
+span[role="section"],
 span[role="paragraph"] {
   display: block;
 }

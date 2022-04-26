@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Component button row toevoegen aan Voorbeeldpagina's ([#1493](https://github.com/dso-toolkit/dso-toolkit/issues/1493))
 * **core:** Look en feel Tree View aangepast. ([#1508](https://github.com/dso-toolkit/dso-toolkit/issues/1508))
 * **all:** Package updates ([#1500](https://github.com/dso-toolkit/dso-toolkit/issues/1500))
+* **core:** Ozon Content: Noten "Description" vervangen met "Toggle Noot" compositie ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))
+
+### Removed
+* **BREAKING: css:** Removed Description variant `note` ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))
 
 ### 35.0.0
 

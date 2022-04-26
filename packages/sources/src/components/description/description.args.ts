@@ -7,7 +7,6 @@ export interface DescriptionArgs {
   term: string;
   content: string;
   open: boolean;
-  type: 'term' | 'note';
 }
 
 export const descriptionArgTypes: ArgTypes<DescriptionArgs> = {
@@ -33,12 +32,6 @@ export const descriptionArgTypes: ArgTypes<DescriptionArgs> = {
     control: {
       type: 'boolean'
     }
-  },
-  type: {
-    options: ['term', 'note'],
-    control: {
-      type: 'select'
-    }
   }
 };
 
@@ -47,23 +40,16 @@ export function descriptionArgsMapper(a: DescriptionArgs): Description {
     content: a.content,
     id: a.id,
     open: a.open,
-    term: a.term,
-    type: a.type
+    term: a.term
   };
 }
 
 export interface DescriptionExampleArgs {
   openTerm: boolean;
-  openNote: boolean;
 }
 
 export const descriptionExampleArgTypes: ArgTypes<DescriptionExampleArgs> = {
   openTerm: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  openNote: {
     control: {
       type: 'boolean'
     }

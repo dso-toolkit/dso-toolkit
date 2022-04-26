@@ -1,14 +1,5 @@
 $description-content-selector: ".dso-description-content";
 
-.dso-description-term,
-.dso-description-note {
-  @include description_root($description-content-selector);
-}
-
 .dso-description-term {
-  @include description_term($description-content-selector);
-}
-
-.dso-description-note {
-  @include description_note($description-content-selector);
+  @include description_root($description-content-selector);
 }

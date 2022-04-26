@@ -3,7 +3,7 @@ import { Args } from '@storybook/addons';
 import { bindTemplate, ArgsError, StorybookParameters } from '../../stories-helpers';
 
 import { descriptionArgsMapper, descriptionArgTypes, DescriptionExampleArgs, descriptionExampleArgTypes } from './description.args';
-import { noteContent, termContent, descriptionExample } from './description.content';
+import { termContent, descriptionExample } from './description.content';
 import { Description } from './description.models';
 
 export interface DescriptionParameters<TemplateFnReturnType> {
@@ -39,15 +39,6 @@ export function storiesOfDescription<TemplateFnReturnType>(
   );
 
   stories.add(
-    'note',
-    bindTemplate(descriptionArgsMapper, descriptionTemplate),
-    {
-      argTypes: descriptionArgTypes,
-      args: noteContent
-    }
-  );
-
-  stories.add(
     'example',
     (a: Args | undefined) => {
       if (!a) {
@@ -56,13 +47,12 @@ export function storiesOfDescription<TemplateFnReturnType>(
 
       const args = a as DescriptionExampleArgs;
 
-      return exampleTemplate(descriptionExample(args.openTerm, args.openNote));
+      return exampleTemplate(descriptionExample(args.openTerm));
     },
     {
       argTypes: descriptionExampleArgTypes,
       args: {
-        openTerm: false,
-        openNote: true
+        openTerm: false
       }
     }
   );

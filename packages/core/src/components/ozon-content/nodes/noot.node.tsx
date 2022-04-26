@@ -9,44 +9,42 @@ export class OzonContentNootNode implements OzonContentNode {
 
   handles = ['NootNummer']
 
-  identify(node: Element): string | undefined {
-    return node.getAttribute("id") ?? undefined;
+  identify(): string | undefined {
+    return 'Noot';
   }
 
-  render(node: Element, { mapNodeToJsx, state: noteIsOpen, setState }: OzonContentNodeContext<boolean>) {
+  render(node: Element, { mapNodeToJsx, state: openNoteId, setState }: OzonContentNodeContext<string | undefined>) {
     const noteId = node.getAttribute('id');
     if (!noteId) {
       console.error('Noot node without id', node);
 
       return <Fragment />;
     }
-  
+
     const noteControlsId = `dso-ozon-note-${noteId}`;
-    const noteHref = `#${noteControlsId}`;
 
     const childNodes = Array.from(node.childNodes);
     const nootNummer = childNodes.find(n => getNodeName(n) === 'NootNummer')?.textContent ?? noteId;
 
-    const onClickNote = (event: MouseEvent) => {
-      event.preventDefault();
-
-      setState?.(!noteIsOpen);
-    };
-
     return (
       <>
-        <a
-          class={{ noot: true, "dso-open": !!noteIsOpen }}
-          href={noteHref}
-          aria-controls={noteControlsId}
-          aria-expanded={noteIsOpen ? "true" : "false"}
-          onClick={onClickNote}
-        >
-          <sup>{nootNummer}</sup>
-        </a>
-        <span id={noteControlsId} role="section">
-          {mapNodeToJsx(Array.from(node.querySelectorAll(':scope > Al')))}
-        </span>
+        <sup>
+          <button
+            type="button"
+            class="toggle-note"
+            id={noteControlsId}
+            onClick={() => setState?.(openNoteId === noteId ? undefined : noteId)}
+            onBlur={() => setState?.(undefined)}
+            aria-expanded={openNoteId === noteId ? 'true' : 'false'}
+          >
+            {nootNummer}
+          </button>
+        </sup>
+        <dso-tooltip active={openNoteId === noteId} for={noteControlsId} stateless>
+          <span role="section">
+            {mapNodeToJsx(Array.from(node.querySelectorAll(':scope > Al')))}
+          </span>
+        </dso-tooltip>
       </>
     );
   }

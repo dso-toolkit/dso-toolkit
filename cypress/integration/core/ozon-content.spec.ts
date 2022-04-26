@@ -13,38 +13,38 @@ describe("Ozon Content", () => {
   });
 
   it("should open and close notes", () => {
-    function a(n: string) {
+    function button(n: string) {
       return cy
         .get("dso-ozon-content")
-        .find(`a[aria-controls = 'dso-ozon-note-${n}']`);
+        .find(`button#dso-ozon-note-${n}`);
     }
 
-    function span(n: string) {
+    function tooltip(n: string) {
       return cy
         .get("dso-ozon-content")
-        .find(`span[id = 'dso-ozon-note-${n}']`);
+        .find(`sup:has(button#dso-ozon-note-${n}) + dso-tooltip`);
     }
 
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--inhoud-al-noot");
 
-    a('N6').should("have.attr", "aria-expanded", "false");
-    span('N6').should("be.not.visible");
-    a('N7').should("have.attr", "aria-expanded", "false");
-    span('N7').should("be.not.visible");
+    button('N6').should("have.attr", "aria-expanded", "false");
+    tooltip('N6').should("be.not.visible");
+    button('N7').should("have.attr", "aria-expanded", "false");
+    tooltip('N7').should("be.not.visible");
 
-    a('N7').click();
+    button('N7').click();
 
-    a('N6').should("have.attr", "aria-expanded", "false");
-    span('N6').should("be.not.visible");
-    a('N7').should("have.attr", "aria-expanded", "true");
-    span('N7').should("be.visible");
+    button('N6').should("have.attr", "aria-expanded", "false");
+    tooltip('N6').should("be.not.visible");
+    button('N7').should("have.attr", "aria-expanded", "true");
+    tooltip('N7').should("be.visible");
 
-    a('N7').click();
+    button('N7').click();
 
-    a('N6').should("have.attr", "aria-expanded", "false");
-    span('N6').should("be.not.visible");
-    a('N7').should("have.attr", "aria-expanded", "false");
-    span('N7').should("be.not.visible");
+    button('N6').should("have.attr", "aria-expanded", "false");
+    tooltip('N6').should("be.not.visible");
+    button('N7').should("have.attr", "aria-expanded", "false");
+    tooltip('N7').should("be.not.visible");
   });
 
   it("should render unknown element to span", () => {

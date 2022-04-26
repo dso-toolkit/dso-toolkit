@@ -2,7 +2,7 @@
 <a
   id="{{ _self.handle }}-term"
   href="#{{ _self.handle }}-content"
-  {{ className('dso-description-' + type, [open, 'dso-open']) }}
+  {{ className('dso-description-term', [open, 'dso-open']) }}
   aria-expanded="{{ true if open else false }}"
   aria-controls="{{ _self.handle }}-content">
   {{- term | safe -}}
