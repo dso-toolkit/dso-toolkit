@@ -1,6 +1,8 @@
 import {
   Component,
   Element,
+  Event,
+  EventEmitter,
   Fragment,
   h,
   Prop,
@@ -12,6 +14,11 @@ import clsx from "clsx";
 import debounce from "debounce";
 
 const minDesktopViewportWidth = 992;
+
+export interface HeaderMenuItemClickEvent {
+  originalEvent: MouseEvent;
+  menuItem: HeaderMenuItem;
+}
 
 export interface HeaderMenuItem {
   label: string;
@@ -60,6 +67,9 @@ export class Header {
 
   @State()
   overflowMenuItems: number = 0;
+
+  @Event()
+  menuItemClick!: EventEmitter<HeaderMenuItemClickEvent>;
 
   @Watch("useDropDownMenu")
   watchUseDropDownMenu(value: "always" | "never" | "auto") {
@@ -137,15 +147,26 @@ export class Header {
     window.removeEventListener("resize", this.onWindowResize);
   }
 
-  MenuItem(item: HeaderMenuItem) {
+  MenuItem = (item: HeaderMenuItem) => {
+    const click = (event: MouseEvent) => {
+      event.preventDefault();
+      this.menuItemClick.emit({
+        originalEvent: event,
+        menuItem: item,
+      });
+    };
     return (
       <li class={item.active ? "dso-active" : undefined}>
-        <a href={item.url} aria-current={item.active ? "page" : undefined}>
+        <a
+          href={item.url}
+          aria-current={item.active ? "page" : undefined}
+          onClick={click}
+        >
           {item.label}
         </a>
       </li>
     );
-  }
+  };
 
   render() {
     return (

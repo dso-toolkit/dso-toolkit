@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Look en feel Tree View aangepast. ([#1508](https://github.com/dso-toolkit/dso-toolkit/issues/1508))
 * **all:** Package updates ([#1500](https://github.com/dso-toolkit/dso-toolkit/issues/1500))
 * **core:** Ozon Content: Noten "Description" vervangen met "Toggle Noot" compositie ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))
+* **core + sources:** Header component uitbreiden met MenuItemClick event ([#1525](https://github.com/dso-toolkit/dso-toolkit/issues/1525))
 
 ### Removed
 * **BREAKING: css:** Removed Description variant `note` ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))

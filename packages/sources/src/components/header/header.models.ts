@@ -15,4 +15,16 @@ export interface Header {
   userProfileName: string;
   userProfileUrl: string;
   userHomeUrl: string;
+  menuItemClick: (value: CustomEvent<HeaderMenuItemClickEvent>) => void;
+}
+
+export interface HeaderMenuItemClickEvent {
+  originalEvent: PointerEvent;
+  menuItem: HeaderMenuItem;
+}
+
+export interface HeaderMenuItem {
+  label: string;
+  url: string;
+  active?: boolean;
 }

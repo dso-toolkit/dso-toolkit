@@ -106,4 +106,25 @@ describe("Header", () => {
       .find("nav li.menu-user-home")
       .should("not.exist");
   });
+
+  it("should emit menuItemClick event on menu item click", () => {
+    cy.visit("http://localhost:56106/iframe.html?id=header--header");
+    cy.get("dso-header").then((c) => {
+      c.get(0).addEventListener("menuItemClick", cy.stub().as("menuItemClick"));
+    });
+    cy.get("dso-header").shadow().find("nav ul li:first-child a").click();
+    cy.get("@menuItemClick").should("have.been.calledWithMatch", {
+      detail: {
+        menuItem: {
+          active: true,
+          label: "Home",
+          url: "#home",
+        },
+        originalEvent: {
+          type: "click",
+          defaultPrevented: true,
+        },
+      },
+    });
+  });
 });
