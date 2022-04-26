@@ -7,14 +7,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit:** Component button row toevoegen aan Voorbeeldpagina's ([#1493](https://github.com/dso-toolkit/dso-toolkit/issues/1493))
+* **core:** Look en feel Tree View aangepast. ([#1508](https://github.com/dso-toolkit/dso-toolkit/issues/1508))
 
 ### Added
 * **css + core + dso-toolkit + sources:** Z-index register ([#1429](https://github.com/dso-toolkit/dso-toolkit/issues/1429))
 * **sources:** Contrast mode styling radiobuttons en checkboxes ([#1521](https://github.com/dso-toolkit/dso-toolkit/issues/1521))
 * **css + sources:** Nieuw component "Button row" ([#1492](https://github.com/dso-toolkit/dso-toolkit/issues/1492))
-
-### Changed
-* **core:** Look en feel Tree View aangepast. ([#1508](https://github.com/dso-toolkit/dso-toolkit/issues/1508))
 
 ### 35.0.0
 
