@@ -2,7 +2,7 @@ export interface Header {
   logo: string;
   subLogo: string;
   showSubLogo: boolean;
-  mainMenu: {
+  mainMenu?: {
     label: string;
     url: string;
     active?: boolean;

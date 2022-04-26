@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **all:** Package updates ([#1500](https://github.com/dso-toolkit/dso-toolkit/issues/1500))
 * **core:** Ozon Content: Noten "Description" vervangen met "Toggle Noot" compositie ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))
 * **core + sources:** Header component uitbreiden met MenuItemClick event ([#1525](https://github.com/dso-toolkit/dso-toolkit/issues/1525))
+* **core + sources:** Variant van Header zonder menu. ([#1491](https://github.com/dso-toolkit/dso-toolkit/issues/1491))
 
 ### Removed
 * **BREAKING: css:** Removed Description variant `note` ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))

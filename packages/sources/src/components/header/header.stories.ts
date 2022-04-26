@@ -53,6 +53,7 @@ export function storiesOfHeader<TemplateFnReturnType>(
           url: "#hulpcentrum",
         },
       ],
+      noMainMenu: false,
       useDropDownMenu: "auto",
       loginUrl: "#login",
       logoutUrl: "#logout",
