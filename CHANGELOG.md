@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### 36.0.0
+
 ### Added
 * **css + core + dso-toolkit + sources:** Z-index register ([#1429](https://github.com/dso-toolkit/dso-toolkit/issues/1429))
 * **sources:** Contrast mode styling radiobuttons en checkboxes ([#1521](https://github.com/dso-toolkit/dso-toolkit/issues/1521))
@@ -27,7 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### 35.0.0
 
 ### Added
-* **BREAKING: core:** `<dso-ozon-content />` XML support 🎉 ([#1444](https://github.com/dso-toolkit/dso-toolkit/issues/1444))
+* **BREAKING: core:** `<dso-ozon-content />` XML support 🎉 ([#1390](https://github.com/dso-toolkit/dso-toolkit/issues/1390))
 * **css:** Nieuw component "Tile Grid" en "Tile" uitgebreid met variant "theme" ([#1443](https://github.com/dso-toolkit/dso-toolkit/issues/1443))
 * **core:** Nieuw component "Image Overlay": `<dso-image-overlay>` ([#1444](https://github.com/dso-toolkit/dso-toolkit/issues/1444))
 * **core:** Autosuggest uitbreiding voor verwijzing naar object bij suggestie ([#1494](https://github.com/dso-toolkit/dso-toolkit/issues/1494))
