@@ -94,6 +94,10 @@
     align-items: center;
     display: flex;
     text-align: center;
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   .dso-info-button {
