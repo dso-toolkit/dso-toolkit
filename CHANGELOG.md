@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **css:** Cards marge heading verkleinen ([#1514](https://github.com/dso-toolkit/dso-toolkit/issues/1514))
+* **css + dso-toolkit:** Modal verhuizen naar `@dso-toolkit/css` ([#1463](https://github.com/dso-toolkit/dso-toolkit/issues/1463))
 
 ## 36.1.0
 

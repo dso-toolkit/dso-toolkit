@@ -69,6 +69,8 @@ export * from './components/list/list.models';
 export * from './components/list/list.stories';
 export * from './components/list-button/list-button.models';
 export * from './components/list-button/list-button.stories';
+export * from './components/modal/modal.models';
+export * from './components/modal/modal.stories';
 export * from './components/map-controls/map-controls.models';
 export * from './components/map-controls/map-controls.stories';
 export * from './components/navbar/navbar.models';
