@@ -1,9 +1,6 @@
 notes: |
   Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt wanneer de gebruiker zijn aandacht moet richten op belangrijke informatie. Bijvoorbeeld een modal met een waarschuwing om te voorkomen dat gebruikers per ongeluk een destructieve actie uitvoeren zonder dat ze het resultaat begrijpen.
 
-  ## Technische opmerkingen
-  De class `.dso-scripted-height` verwijdert op `.dso-body` in de large viewport de `max-height`-property.
-
   ## Wanneer te gebruiken
   - **Onderbreken:** Gebruik een modal om informatie op te vragen of weer te geven die nodig is om verder te gaan met een door de gebruiker gestart proces.
   - **Informeren:** Gebruik een modal om de gebruiker te informeren, bijvoorbeeld over belangrijke waarschuwingen, een systeemfout of gevolg van een gebruikersactie.

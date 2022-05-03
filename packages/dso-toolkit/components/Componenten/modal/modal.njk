@@ -1,5 +1,5 @@
 <!-- When modal is open add .dso-modal-open to body -->
-<body {{ className('dso-modal-open', [noMaxHeight, 'dso-scripted-height']) }}>
+<body {{ className('dso-modal-open') }}>
   <!-- Modal markup. Can be placed anywhere inside <body> -->
   {% render '@dialog', {body: body, dialog: dialog, progress: progress} %}
 
