@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **dso-toolkit:** Illustraties helpcentrum ([#1535](https://github.com/dso-toolkit/dso-toolkit/issues/1535))
+
 ### Fixed
 * **css:** Paragraaf in Card heading zorgt voor overbodige marge ([#1513](https://github.com/dso-toolkit/dso-toolkit/issues/1513))
 
