@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 36.1.0
+
 ### Added
 * **dso-toolkit:** Illustraties helpcentrum ([#1535](https://github.com/dso-toolkit/dso-toolkit/issues/1535))
 
@@ -13,7 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css:** Paragraaf in Card heading zorgt voor overbodige marge ([#1513](https://github.com/dso-toolkit/dso-toolkit/issues/1513))
 * **core:** `@stencil/core` als dependency opnemen ([#1546](https://github.com/dso-toolkit/dso-toolkit/issues/1546))
 
-### 36.0.0
+## 36.0.0
 
 ### Added
 * **css + core + dso-toolkit + sources:** Z-index register ([#1429](https://github.com/dso-toolkit/dso-toolkit/issues/1429))
@@ -34,7 +36,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Removed
 * **BREAKING: css:** Removed Description variant `note` ([#1288](https://github.com/dso-toolkit/dso-toolkit/issues/1288))
 
-### 35.0.0
+## 35.0.0
 
 ### Added
 * **BREAKING: core:** `<dso-ozon-content />` XML support 🎉 ([#1390](https://github.com/dso-toolkit/dso-toolkit/issues/1390))
