@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit:** Illustraties helpcentrum ([#1535](https://github.com/dso-toolkit/dso-toolkit/issues/1535))
 
 ### Fixed
+* **react:** Update `@dso-toolkit/react` peer dependency `"@dso-toolkit/core": "*"` naar laatste versie ([#1545](https://github.com/dso-toolkit/dso-toolkit/issues/1545))
 * **css:** Paragraaf in Card heading zorgt voor overbodige marge ([#1513](https://github.com/dso-toolkit/dso-toolkit/issues/1513))
 
 ### 36.0.0

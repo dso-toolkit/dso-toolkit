@@ -3081,7 +3081,7 @@ __metadata:
     typescript: ^4.5.0
     wait-on: ^6.0.1
   peerDependencies:
-    "@dso-toolkit/core": ^34.0.0
+    "@dso-toolkit/core": ^36.0.0
     leaflet: ^1.7.1
   languageName: unknown
   linkType: soft
@@ -3102,7 +3102,7 @@ __metadata:
     react-leaflet: ^3.2.5
     typescript: ^4.5.0
   peerDependencies:
-    "@dso-toolkit/core": ^34.0.0
+    "@dso-toolkit/core": ^36.0.0
     "@dso-toolkit/leaflet": ^1.2.0
     leaflet: ^1.7.1
     react: ^17.0.2
@@ -3136,7 +3136,7 @@ __metadata:
     wait-on: ^6.0.1
     webpack: ^5.72.0
   peerDependencies:
-    "@dso-toolkit/core": "*"
+    "@dso-toolkit/core": ^36.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -3155,8 +3155,8 @@ __metadata:
     rimraf: ^3.0.2
     uuid: ^8.3.2
   peerDependencies:
-    "@storybook/addon-actions": "*"
-    "@storybook/addons": "*"
+    "@storybook/addon-actions": 6.4.22
+    "@storybook/addons": 6.4.22
   languageName: unknown
   linkType: soft
 

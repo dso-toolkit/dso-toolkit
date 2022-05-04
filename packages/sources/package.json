@@ -26,7 +26,7 @@
     "uuid": "^8.3.2"
   },
   "peerDependencies": {
-    "@storybook/addon-actions": "*",
-    "@storybook/addons": "*"
+    "@storybook/addon-actions": "6.4.22",
+    "@storybook/addons": "6.4.22"
   }
 }

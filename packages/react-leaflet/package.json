@@ -7,7 +7,6 @@
       "browser": "./dist/react-leaflet.js",
       "import": "./dist/react-leaflet.js"
     },
-    "./": "./",
     "./package.json": "./package.json"
   },
   "unpkg": "dist/react-leaflet.js",
@@ -38,7 +37,7 @@
     "typescript": "^4.5.0"
   },
   "peerDependencies": {
-    "@dso-toolkit/core": "^34.0.0",
+    "@dso-toolkit/core": "^36.0.0",
     "@dso-toolkit/leaflet": "^1.2.0",
     "leaflet": "^1.7.1",
     "react": "^17.0.2",

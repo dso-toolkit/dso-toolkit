@@ -7,7 +7,6 @@
       "browser": "./dist/leaflet.js",
       "import": "./dist/leaflet.js"
     },
-    "./": "./",
     "./package.json": "./package.json"
   },
   "unpkg": "dist/leaflet.js",
@@ -41,7 +40,7 @@
     "wait-on": "^6.0.1"
   },
   "peerDependencies": {
-    "@dso-toolkit/core": "^34.0.0",
+    "@dso-toolkit/core": "^36.0.0",
     "leaflet": "^1.7.1"
   },
   "klap": {

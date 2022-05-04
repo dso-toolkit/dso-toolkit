@@ -34,13 +34,6 @@ interface HeaderMenuItem {
 | `menuItemClick` |             | `CustomEvent<HeaderMenuItemClickEvent>` |
 
 
-## Events
-
-| Event           | Description | Type                                    |
-| --------------- | ----------- | --------------------------------------- |
-| `menuItemClick` |             | `CustomEvent<HeaderMenuItemClickEvent>` |
-
-
 ## Dependencies
 
 ### Depends on
