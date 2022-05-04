@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## v1.1.2 - 2022-05-04
+
+Version bump `@dso-toolkit/leaflet@^1.2.1` and `@dso-toolkit/core@^36.1.0`.
+
 ## v1.1.1 - 2022-03-02
 
 Version bump `@dso-toolkit/leaflet@^1.2.0` and `@dso-toolkit/core@^34.0.0`.
