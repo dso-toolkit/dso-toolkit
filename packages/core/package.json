@@ -25,11 +25,13 @@
     "bin_cypress": "cypress",
     "bin_build-storybook": "build-storybook"
   },
+  "dependencies": {
+    "@stencil/core": "2.10.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@dso-toolkit/sources": "workspace:packages/sources",
     "@popperjs/core": "^2.11.5",
-    "@stencil/core": "2.10.0",
     "@stencil/react-output-target": "^0.3.1",
     "@stencil/sass": "1.5.2",
     "@storybook/addon-a11y": "6.4.22",

@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **react:** Update `@dso-toolkit/react` peer dependency `"@dso-toolkit/core": "*"` naar laatste versie ([#1545](https://github.com/dso-toolkit/dso-toolkit/issues/1545))
 * **css:** Paragraaf in Card heading zorgt voor overbodige marge ([#1513](https://github.com/dso-toolkit/dso-toolkit/issues/1513))
+* **core:** `@stencil/core` als dependency opnemen ([#1546](https://github.com/dso-toolkit/dso-toolkit/issues/1546))
 
 ### 36.0.0
 
