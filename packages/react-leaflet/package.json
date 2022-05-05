@@ -1,12 +1,13 @@
 {
   "name": "@dso-toolkit/react-leaflet",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "type": "module",
   "exports": {
     ".": {
       "browser": "./dist/react-leaflet.js",
       "import": "./dist/react-leaflet.js"
     },
+    "./": "./",
     "./package.json": "./package.json"
   },
   "unpkg": "dist/react-leaflet.js",
@@ -38,7 +39,7 @@
   },
   "peerDependencies": {
     "@dso-toolkit/core": "^36.1.0",
-    "@dso-toolkit/leaflet": "^1.2.1",
+    "@dso-toolkit/leaflet": "^1.2.2",
     "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
