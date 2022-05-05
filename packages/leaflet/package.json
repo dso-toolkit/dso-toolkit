@@ -1,12 +1,13 @@
 {
   "name": "@dso-toolkit/leaflet",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "type": "module",
   "exports": {
     ".": {
       "browser": "./dist/leaflet.js",
       "import": "./dist/leaflet.js"
     },
+    "./": "./",
     "./package.json": "./package.json"
   },
   "unpkg": "dist/leaflet.js",
