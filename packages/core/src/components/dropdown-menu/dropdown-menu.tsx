@@ -83,7 +83,7 @@ export class DropdownMenu {
     }
   }
 
-  componentWillRender() {
+  componentDidRender() {
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
