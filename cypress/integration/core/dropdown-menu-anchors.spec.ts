@@ -10,8 +10,7 @@ describe("Dropdown menu - anchors", () => {
     cy.get(".dso-dropdown-options ul li a").as("menuitems");
   });
 
-  // Disabled in #1500, enable in #1532
-  it.skip("should open and close on button click", () => {
+  it("should open and close on button click", () => {
     cy.get("@options").should("not.be.visible");
 
     cy.checkA11y("dso-dropdown-menu");
