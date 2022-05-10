@@ -1,147 +1,110 @@
-<dso-viewer-grid class="hydrated" medium>
-  <div slot='main'>
+<dso-viewer-grid medium>
+  <div slot="main">
     <h1>Overzicht op uw locatie</h1>
-    <div class="dso-highlight-box dso-white dso-drop-shadow">
+    <dso-highlight-box white drop-shadow>
       <div class="dso-rich-content">
         <h2>Activiteiten</h2>
         <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
+        {% render '@search-bar', {label: 'Label van de search-bar', placeholder: 'Placeholder van de search-bar', hiddenLabel: true, icon: true, hideSearchButton: true } %}
         <p>
-          <div class="row">
-            <div class="col-md-8">
-              <div class="dso-search-bar">
-                <div class="dso-search-bar-input">
-
-                  <label for="search-bar--hidden-label-icon" class="dso-search-icon">Label</label>
-
-                  <input type="text" id="search-bar--hidden-label-icon" placeholder="Placeholder"/>
-
-                </div>
-                <button type="button" class="dso-secondary sr-only">
-                Zoeken
-              </button>
-              </div>
-            </div>
-          </div>
+          Veel gebruikt:
+          {% render '@anchor', {url: '#', label: 'Boom kappen'} -%}, {% render '@anchor', {url: '#', label: 'Dakkapel plaatsen'} -%}, {% render '@anchor', {url: '#', label: 'Schuur bouwen'} -%}
         </p>
       </div>
-      <p>
-          Veel gebruikt:
-          <a>Boom kappen</a>, 
-          <a>Dakkapel plaatsen</a>, 
-          <a>Schuur bouwen</a>
-      </p>
+
       <div class="dso-context-wrapper">
         <div class="dso-context-container">
-          <div class="dso-context-select">
-            <button type="button" class="dso-tertiary">
-              <span>Bekijk alle gebieden</span>
-              <dso-icon icon="chevron-right"></dso-icon>
-            </button>
-          </div>
+          {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Bekijk alle gebieden', iconAfter: 'chevron-right'} %}
         </div>
       </div>
-    </div>
+    </dso-highlight-box>
 
-    <div class="dso-highlight-box dso-white dso-drop-shadow">
+    <dso-highlight-box white drop-shadow>
       <div class="dso-rich-content">
         <h2>Gebieden op de kaart</h2>
         <p>Gebieden op deze locatie waar aparte regels voor gelden:</p>
-
-        <p><img src="../../dummy/images/rectangle1.png" alt="Geen-idee"/>&nbsp; <strong>Tuin</strong> (enkelbestemming) &nbsp;<a>Bekijk de regels</a>
+        <p>
+          {% render '@image', {source: '/dummy/images/rectangle1.png', alt: 'Geel vierkantje'} %}
+          <strong>Tuin</strong> (enkelbestemming) {% render '@anchor', {url: '#', label: 'Bekijk de regels'} %}
         </p>
-        <p><img src="../../dummy/images/rectangle2.png" alt="Geen-idee"/>&nbsp; <strong>Wonen</strong> (functie) &nbsp;<a>Bekijk de regels</a>
+        <p>
+          {% render '@image', {source: '/dummy/images/rectangle2.png', alt: 'Groen vierkantje'} %}
+          <strong>Wonen</strong> (functie) {% render '@anchor', {url: '#', label: 'Bekijk de regels'} %}
         </p>
-
-        <div class="dso-context-wrapper">
-          <div class="dso-context-container">
-            <div class="dso-context-select">
-              <button type="button" class="dso-tertiary">
-                <span>Bekijk alle gebieden</span>
-                <dso-icon icon="chevron-right"></dso-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
 
-    <div class="dso-highlight-box dso-white dso-drop-shadow">
+      <div class="dso-context-wrapper">
+        <div class="dso-context-container">
+          {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Bekijk alle gebieden', iconAfter: 'chevron-right'} %}
+        </div>
+      </div>
+    </dso-highlight-box>
+
+    <dso-highlight-box white drop-shadow>
       <div class="dso-rich-content">
         <h2>Thema's</h2>
         <p>Regels en beleid voor algemene onderwerpen zoals:</p>
-        <div class="dso-tile-grid">
-          <div class="dso-tile dso-theme">
-            <a href="#">
-              <span class="dso-tile-icon">
-                <img src="../../dummy/images/icon-tree.png" alt="Boom"/>
-              </span>
-              <span class="dso-tile-link">Bodem</span>
-            </a>
-          </div>
+      </div>
 
-          <div class="dso-tile dso-theme">
-            <a href="#">
-              <span class="dso-tile-icon">
-                <img src="../../dummy/images/icon-tree.png" alt="Boom"/>
-              </span>
-              <span class="dso-tile-link">Bodem</span>
-            </a>
-          </div>
-
-          <div class="dso-tile dso-theme">
-            <a href="#">
-              <span class="dso-tile-icon">
-                <img src="../../dummy/images/icon-tree.png" alt="Boom"/>
-              </span>
-              <span class="dso-tile-link">Bodem</span>
-            </a>
-          </div>
-
-          <div class="dso-tile dso-theme">
-            <a href="#">
-              <span class="dso-tile-icon">
-                <img src="../../dummy/images/icon-tree.png" alt="Boom"/>
-              </span>
-              <span class="dso-tile-link">Bodem</span>
-            </a>
-          </div>
+      <div class="dso-tile-grid">
+        <div class="dso-tile dso-theme">
+          <a href="#">
+            <span class="dso-tile-icon">
+              {% render '@image', {source: '/dummy/images/icon-tree.png', alt: ''} %}
+            </span>
+            <span class="dso-tile-link">Bodem</span>
+          </a>
         </div>
-
-        <div class="dso-context-wrapper">
-          <div class="dso-context-container">
-            <div class="dso-context-select">
-              <button type="button" class="dso-tertiary">
-                <span>Bekijk alle thema's</span>
-                <dso-icon icon="chevron-right"></dso-icon>
-              </button>
-            </div>
-          </div>
+        <div class="dso-tile dso-theme">
+          <a href="#">
+            <span class="dso-tile-icon">
+              {% render '@image', {source: '/dummy/images/icon-tree.png', alt: ''} %}
+            </span>
+            <span class="dso-tile-link">Bodem</span>
+          </a>
+        </div>
+        <div class="dso-tile dso-theme">
+          <a href="#">
+            <span class="dso-tile-icon">
+              {% render '@image', {source: '/dummy/images/icon-tree.png', alt: ''} %}
+            </span>
+            <span class="dso-tile-link">Bodem</span>
+          </a>
+        </div>
+        <div class="dso-tile dso-theme">
+          <a href="#">
+            <span class="dso-tile-icon">
+              {% render '@image', {source: '/dummy/images/icon-tree.png', alt: ''} %}
+            </span>
+            <span class="dso-tile-link">Bodem</span>
+          </a>
         </div>
       </div>
-    </div>
 
-    <div class="dso-highlight-box dso-yellow dso-drop-shadow">
+      <div class="dso-context-wrapper">
+        <div class="dso-context-container">
+          {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Bekijk alle gebieden', iconAfter: 'chevron-right'} %}
+        </div>
+      </div>
+    </dso-highlight-box>
+
+    <dso-highlight-box white drop-shadow>
       <div class="dso-rich-content">
-        <h2>Activiteiten 
-            <button type="button" class="dso-tertiary"><span class="sr-only">Link button</span>
-            <dso-icon icon="info"></dso-icon>
-            </button>
+        <h2>
+          Activiteiten
+          <dso-toggletip>Meer informatie over deze activiteiten</dso-toggletip>
         </h2>
         <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
-        <div class="dso-context-wrapper">
-          <span class="dso-context-wrapper">
-            <dso-label status="bright" removable>Recreatief nachtverblijf bouwen, in stand houden of gebruiken
-            </dso-label>
-          </span>
-          <div class="dso-context-container">
-            <div class="dso-context-select">
-              <button type="button" class="dso-tertiary">
-                <span>Bekijk alle gebieden</span>
-                <dso-icon icon="chevron-right"></dso-icon>
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <div class="dso-context-wrapper">
+        <div class="dso-context-label">
+          <dso-label status="bright" removable>Recreatief nachtverblijf bouwen, in stand houden of gebruiken</dso-label>
+        </div>
+        <div class="dso-context-container">
+          {% render '@button', {type: 'button', modifier: 'dso-tertiary', label: 'Bekijk alle gebieden', iconAfter: 'chevron-right'} %}
+        </div>
+      </div>
+    </dso-highlight-box>
+  </div>
+</dso-viewer-grid>
