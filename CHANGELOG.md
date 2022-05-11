@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Removed
+* **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
+
 ## 36.3.0
 
 ### Added
