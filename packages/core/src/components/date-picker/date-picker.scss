@@ -44,6 +44,12 @@ $dso-date-dialog-border-width: 1px;
   position: relative;
   text-align: left;
   width: 100%;
+
+  &:not(.dso-visible) {
+    .dso-date__dialog {
+      display: none;
+    }
+  }
 }
 
 .dso-date__input {

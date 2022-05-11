@@ -92,6 +92,7 @@ export class DsoDatePicker implements ComponentInterface {
   private focusedDayNode: HTMLButtonElement | undefined;
 
   private focusTimeoutId: ReturnType<typeof setTimeout> | undefined;
+  private hideTimeoutId: ReturnType<typeof setTimeout> | undefined;
 
   private initialTouchX: number | undefined;
   private initialTouchY: number | undefined;
@@ -110,6 +111,7 @@ export class DsoDatePicker implements ComponentInterface {
   @State() activeFocus = false
   @State() focusedDay = new Date()
   @State() open = false
+  @State() visible = false
 
   /**
    * Public Property API
@@ -234,14 +236,22 @@ export class DsoDatePicker implements ComponentInterface {
    * Show the calendar modal, moving focus to the calendar inside.
    */
   @Method() async show() {
-    this.open = true
-    this.setFocusedDay(parseDutchDate(this.value) || new Date())
-
-    if (typeof this.focusTimeoutId !== 'undefined') {
-      clearTimeout(this.focusTimeoutId)
+    if (typeof this.hideTimeoutId !== 'undefined') {
+      clearTimeout(this.hideTimeoutId)
     }
 
-    this.focusTimeoutId = setTimeout(() => this.monthSelectNode?.focus(), TRANSITION_MS)
+    this.visible = true
+    
+    setTimeout(() => {
+      this.open = true
+      this.setFocusedDay(parseDutchDate(this.value) || new Date())
+  
+      if (typeof this.focusTimeoutId !== 'undefined') {
+        clearTimeout(this.focusTimeoutId)
+      }
+  
+      this.focusTimeoutId = setTimeout(() => this.monthSelectNode?.focus(), TRANSITION_MS)
+    });
   }
 
   /**
@@ -257,10 +267,13 @@ export class DsoDatePicker implements ComponentInterface {
       clearTimeout(this.focusTimeoutId)
     }
 
-    if (moveFocusToButton) {
-      // iOS VoiceOver needs to wait for all transitions to finish.
-      setTimeout(() => this.datePickerButton?.focus(), TRANSITION_MS + 200)
-    }
+    this.hideTimeoutId = setTimeout(() => {
+      if (moveFocusToButton && this.datePickerButton) {
+        this.datePickerButton.focus()
+      }
+
+      this.visible = false
+    }, TRANSITION_MS + 200)
   }
 
   /**
@@ -593,7 +606,7 @@ export class DsoDatePicker implements ComponentInterface {
 
     return (
       <Host>
-        <div class="dso-date">
+        <div class={({ 'dso-date': true, 'dso-visible': this.visible })}>
           <div class="dso-date__input-wrapper">
             <input
               class="dso-date__input"
@@ -649,13 +662,6 @@ export class DsoDatePicker implements ComponentInterface {
               <div class="dso-date__vhidden dso-date__instructions" aria-live="polite">
                 {this.localization.keyboardInstruction}
               </div>
-              {/**
-               * With onFocusIn, which is what TS types expect, Stencil ends up listening to a
-               * focusIn event, which is wrong as it needs to be focusin. So we had to use onFocusin
-               * here which is wrong for the TS types, but ends up with the correct event listener
-               * in Stencil. See issue: https://github.com/ionic-team/stencil/issues/2628
-               */}
-              {/* @ts-ignore */}
               <div class="dso-date__mobile" onFocusin={this.disableActiveFocus}>
                 <label class="dso-date__mobile-heading">{this.localization.calendarHeading}</label>
                 <button
@@ -669,7 +675,6 @@ export class DsoDatePicker implements ComponentInterface {
                   <span class="dso-date__vhidden">{this.localization.closeLabel}</span>
                 </button>
               </div>
-              {/* @ts-ignore */}
               <div class="dso-date__header" onFocusin={this.disableActiveFocus}>
                 <div>
                   <h2 id={this.dialogLabelId} class="dso-date__vhidden" aria-live="polite">

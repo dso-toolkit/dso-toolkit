@@ -496,4 +496,11 @@ describe('Date Picker', () => {
         expect(details[details.length - 1].valueAsDate).undefined;
       });
   });
+
+  it('closed datepicker should not have invisible calendar', () => {
+    cy.get('dso-date-picker')
+      .should('have.class', 'hydrated')
+      .find('.dso-date__dialog')
+      .should('be.hidden');
+  });
 });

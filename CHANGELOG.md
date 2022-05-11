@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit:** Correctie alt attributen in img tags voor whitebox en tile ([#1540](https://github.com/dso-toolkit/dso-toolkit/issues/1540))
 * **core:** Accessibility issues na package updates ([#1532](https://github.com/dso-toolkit/dso-toolkit/issues/1532))
+* **core:** Date Picker forceert ruimte voor kalender ([#1324](https://github.com/dso-toolkit/dso-toolkit/issues/1324))
 
 ### Changed
 * **css:** Cards marge heading verkleinen ([#1514](https://github.com/dso-toolkit/dso-toolkit/issues/1514))
