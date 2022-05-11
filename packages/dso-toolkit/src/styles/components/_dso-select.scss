@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/styling/variables";
+
 .dso-select:not(.form-group) {
   legend,
   label {
@@ -52,19 +54,19 @@
     }
 
     &:focus + label {
-      $red: red($input-border-focus);
-      $green: green($input-border-focus);
-      $blue: blue($input-border-focus);
+      $red: red(variables.$input-border-focus);
+      $green: green(variables.$input-border-focus);
+      $blue: blue(variables.$input-border-focus);
 
       $color-rgba: rgba($red, $green, $blue, 0.6);
 
       @include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px $color-rgba);
 
       background-color: $grijs-30;
-      border-color: $input-border-focus;
+      border-color: variables.$input-border-focus;
 
       &:hover {
-        border-color: $input-border-focus;
+        border-color: variables.$input-border-focus;
       }
     }
   }

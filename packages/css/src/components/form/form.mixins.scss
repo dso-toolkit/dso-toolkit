@@ -1,0 +1,8 @@
+@mixin form-group-required {
+  color: $dso-required-color;
+  content: $dso-required-string;
+  font-size: 0.85em;
+  font-style: italic;
+  font-weight: 400;
+  margin-left: 4px;
+}

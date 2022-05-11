@@ -1,6 +1,7 @@
 export interface Info<TemplateFnReturnType> {
+  id?: string;
   fixed?: boolean;
   active?: boolean;
-  richContent: TemplateFnReturnType;
+  richContent: TemplateFnReturnType | string;
   onClose: (e: MouseEvent) => void;
 }

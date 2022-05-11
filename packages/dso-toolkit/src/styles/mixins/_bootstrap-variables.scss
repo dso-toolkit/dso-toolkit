@@ -30,10 +30,10 @@ $table-border-color: $grijs-30;
 //##
 
 //** Border color for inputs on focus
-$input-border-focus: $bosgroen;
+// $input-border-focus: $bosgroen; // Moved to @dso-toolkit\css\src\components\form\form.variables.scss
 
 //** `.form-group` margin
-$form-group-margin-bottom: $u2;
+// $form-group-margin-bottom: $u2; // Moved to @dso-toolkit\css\src\components\form\form.variables.scss
 
 //== Dropdowns
 //

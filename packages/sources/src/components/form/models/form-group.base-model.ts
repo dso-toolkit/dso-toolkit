@@ -1,0 +1,17 @@
+import { Info } from '../../..';
+import { InfoButton } from '../../info-button/info-button.models';
+
+export interface FormGroupBase<TemplateFnReturnType> {
+  group: string;
+  type: string;
+  label: string;
+  id: string;
+  required?: boolean;
+  readonly?: boolean;
+  disabled?: boolean;
+  infoButton?: InfoButton;
+  info?: Info<TemplateFnReturnType>;
+  state?: 'invalid' | 'valid';
+  errorText?: string;
+  helpText?: string;
+}

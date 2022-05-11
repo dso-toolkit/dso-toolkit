@@ -1,3 +1,6 @@
+$dso-searchbar-invalid-border-color: $dso-danger-color;
+$dso-searchbar-focus-border-width: 1px;
+
 .form-group .dso-search-bar {
   margin-bottom: 0;
   width: 50%;
@@ -14,10 +17,10 @@
 
 .dso-invalid .dso-field-container .dso-search-bar {
   input {
-    border-color: $dso-field-invalid-border-color;
+    border-color: $dso-searchbar-invalid-border-color;
 
     &:focus {
-      box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-field-invalid-border-color;
+      box-shadow: inset 0 0 0 $dso-searchbar-focus-border-width $dso-searchbar-invalid-border-color;
     }
   }
 }
