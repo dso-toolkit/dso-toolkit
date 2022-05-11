@@ -5,7 +5,9 @@
       <div class="dso-rich-content">
         <h2>Activiteiten</h2>
         <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
-        {% render '@search-bar', {label: 'Label van de search-bar', placeholder: 'Placeholder van de search-bar', hiddenLabel: true, icon: true, hideSearchButton: true } %}
+      </div>
+      {% render '@search-bar', {label: 'Label van de search-bar', placeholder: 'Placeholder van de search-bar', hiddenLabel: true, icon: true, hideSearchButton: true } %}
+      <div class="dso-rich-content">
         <p>
           Veel gebruikt:
           {% render '@anchor', {url: '#', label: 'Boom kappen'} -%}, {% render '@anchor', {url: '#', label: 'Dakkapel plaatsen'} -%}, {% render '@anchor', {url: '#', label: 'Schuur bouwen'} -%}
@@ -88,11 +90,11 @@
       </div>
     </dso-highlight-box>
 
-    <dso-highlight-box white drop-shadow>
+    <dso-highlight-box yellow drop-shadow>
       <div class="dso-rich-content">
         <h2>
           Activiteiten
-          <dso-toggletip>Meer informatie over deze activiteiten</dso-toggletip>
+          <dso-toggletip secondary>Meer informatie over deze activiteiten</dso-toggletip>
         </h2>
         <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
       </div>
