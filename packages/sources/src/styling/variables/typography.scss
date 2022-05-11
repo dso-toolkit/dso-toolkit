@@ -19,6 +19,8 @@ $font-size-h6: $dso-font-size-h5;
 $line-height-base: 1.5;
 $line-height-computed: math.floor($font-size-base * $line-height-base);
 $line-height-small: 1.5;
+$line-height-large: 1.3333333;
+
 
 $headings: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6";
 $headings-font-family: "Asap", sans-serif;

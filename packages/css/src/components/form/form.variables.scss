@@ -1,0 +1,37 @@
+@use "sass:math";
+
+@use "../../../../sources/src/styling/variables";
+
+$dso-form-selectors: ".form, form, .dso-section-body";
+
+$dso-form-group-margin: variables.$u4;
+
+$dso-textarea-default-rows: 3 !default;
+
+$dso-label-column: variables.$grid-columns * 0.5;
+
+$dso-toggle-close-icon-size: variables.$u4;
+$dso-toggle-header-margin: 12px;
+
+$dso-fieldset-separator-color: variables.$grijs-20;
+$dso-fieldset-separator-unit: variables.$u4;
+
+$dso-field-invalid-border-color: variables.$dso-danger-color;
+$dso-field-invalid-message-color: variables.$dso-invalid-color;
+$dso-field-invalid-icon-size: variables.$u3;
+
+$dso-required-color: variables.$grijs-60;
+$dso-required-string: "verplicht";
+
+//** `.form-group` margin
+$form-group-margin-bottom: variables.$u2;
+
+//** Border color for inputs on focus
+$input-border-focus: variables.$bosgroen;
+
+//** Default `.form-control` height
+$input-height-base:              (variables.$line-height-computed + (variables.$padding-base-vertical * 2) + 2);
+//** Large `.form-control` height
+$input-height-large:             (math.ceil(variables.$font-size-large * variables.$line-height-large) + (variables.$padding-large-vertical * 2) + 2);
+//** Small `.form-control` height
+$input-height-small:             (math.floor(variables.$font-size-small * variables.$line-height-small) + (variables.$padding-small-vertical * 2) + 2);

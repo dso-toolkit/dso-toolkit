@@ -1,0 +1,48 @@
+@use "sass:math";
+
+@import "form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@import "form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+
+@import "../../../../sources/src/styling/mixins";
+
+#{$dso-form-selectors} {
+  fieldset {
+    margin-bottom: $u2;
+
+    > legend {
+      @include h3();
+
+      border-bottom: 0;
+      margin-bottom: $dso-fieldset-separator-unit;
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+    }
+
+    + fieldset:not(.form-group) {
+      > legend {
+        border-top: 1px solid $dso-fieldset-separator-color;
+        padding-top: $dso-fieldset-separator-unit;
+      }
+    }
+
+    &.form-group legend {
+      color: $legend-color;
+    }
+
+    fieldset {
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      + fieldset {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+}
