@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **dso-toolkit:** Card Panel als patroon etaleren bij voorbeeldpagina's ([#1539](https://github.com/dso-toolkit/dso-toolkit/issues/1539))
+
 ### Fixed
 * **dso-toolkit:** Correctie alt attributen in img tags voor whitebox en tile ([#1540](https://github.com/dso-toolkit/dso-toolkit/issues/1540))
 * **core:** Accessibility issues na package updates ([#1532](https://github.com/dso-toolkit/dso-toolkit/issues/1532))
