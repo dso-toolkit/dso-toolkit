@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 36.2.0
+
 ### Added
 * **dso-toolkit:** Card Panel als patroon etaleren bij voorbeeldpagina's ([#1539](https://github.com/dso-toolkit/dso-toolkit/issues/1539))
 
