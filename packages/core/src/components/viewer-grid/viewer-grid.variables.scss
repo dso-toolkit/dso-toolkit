@@ -13,3 +13,4 @@ $dso-viewer-grid-filterpanel-max-width: 896px;
 
 $dso-viewer-sizing-buttons-top: variables.$u2;
 $dso-viewer-resize-button-size: variables.$u5;
+$dso-viewer-grid-transition-time: 200ms; // Also keep in sync with dso-viewer-grid.tsx:const TRANSITION_TIME;

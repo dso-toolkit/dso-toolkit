@@ -18,6 +18,7 @@
 | `closeOverlay`      |             | `CustomEvent<KeyboardEvent \| MouseEvent>` |
 | `filterpanelApply`  |             | `CustomEvent<FilterpanelEvent>`            |
 | `filterpanelCancel` |             | `CustomEvent<FilterpanelEvent>`            |
+| `mainSizeChange`    |             | `CustomEvent<ViewerGridChangeSizeEvent>`   |
 
 
 ## Dependencies

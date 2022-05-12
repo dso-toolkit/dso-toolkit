@@ -4,6 +4,7 @@ interface ViewerGridDemoProperties {
   filterpanelOpen: boolean;
   overlayOpen: boolean;
   noOverlay: boolean;
+  mainSizeChange: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   closeOverlay: (e: MouseEvent) => void;
   filterpanelCancel: (e: MouseEvent) => void;
   filterpanelApply: (e: MouseEvent) => void;
@@ -29,6 +30,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   overlay: TemplateFnReturnType;
   overlayOpen: boolean;
   noOverlay: boolean;
+  mainSizeChange: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   closeOverlay: (e: MouseEvent) => void;
   filterpanelCancel: (e: MouseEvent) => void;
   filterpanelApply: (e: MouseEvent) => void;
@@ -57,4 +59,10 @@ export interface ViewerGridFilterblok<TemplateFnReturnType> {
   address: string;
   activeFilters: Label[];
   onAllOptions: (e: MouseEvent) => void;
+}
+
+export interface ViewerGridChangeSizeEvent {
+  stage: 'start' | 'end';
+  previousSize: string;
+  currentSize: string;
 }

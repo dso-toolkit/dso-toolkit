@@ -172,7 +172,57 @@ describe("Viewer Grid", () => {
     cy.get('dso-viewer-grid [slot="map"]').click('right', { force: true });
 
     cy.wrap(eventListener).should('not.be.called');
-  })
+  });
+
+  it('uppon size change it should emit start and end events', () => {
+    const expected = [
+      {
+        stage: 'start',
+        previousSize: 'large',
+        currentSize: 'medium'
+      },
+      {
+        stage: 'end',
+        previousSize: 'large',
+        currentSize: 'medium'
+      },
+      {
+        stage: 'start',
+        previousSize: 'medium',
+        currentSize: 'large'
+      },
+      {
+        stage: 'end',
+        previousSize: 'medium',
+        currentSize: 'large'
+      }
+    ];
+
+    cy.visit(url);
+
+    const sizeHandler = cy.stub();
+
+    cy.get('dso-viewer-grid')
+      .then(e => e.on('mainSizeChange', sizeHandler))
+      .shadow()
+      .as('root')
+      .find('.expand')
+      .should('be.disabled')
+      .get('@root')
+      .find('.shrink')
+      .click()
+      .wait(250)
+      .get('@root')
+      .find('.expand')
+      .click()
+      .wait(250)
+      .wrap(sizeHandler)
+      .should(stub => {
+        const calls = stub.getCalls();
+
+        expect(calls.map(c => c.args[0]?.detail)).to.deep.equal(expected);
+      })
+  });
 });
 
 function filterPanelEventTest(eventName: string, buttonSelector: string) {

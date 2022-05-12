@@ -14,7 +14,7 @@ import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overl
 import { OzonContentAnchorClick } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { FilterpanelEvent } from "./components/viewer-grid/viewer-grid";
+import { FilterpanelEvent, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
 export namespace Components {
     interface DsoAlert {
         /**
@@ -686,6 +686,7 @@ declare namespace LocalJSX {
         "onCloseOverlay"?: (event: CustomEvent<MouseEvent | KeyboardEvent>) => void;
         "onFilterpanelApply"?: (event: CustomEvent<FilterpanelEvent>) => void;
         "onFilterpanelCancel"?: (event: CustomEvent<FilterpanelEvent>) => void;
+        "onMainSizeChange"?: (event: CustomEvent<ViewerGridChangeSizeEvent>) => void;
         "overlayOpen"?: boolean;
     }
     interface IntrinsicElements {

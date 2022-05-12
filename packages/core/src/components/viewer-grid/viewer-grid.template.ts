@@ -9,6 +9,7 @@ export function viewerGridTemplate({
   noOverlay,
   filterpanelOpen,
   overlayOpen,
+  mainSizeChange,
   filterpanelApply,
   filterpanelCancel,
   closeOverlay,
@@ -27,6 +28,7 @@ export function viewerGridTemplate({
         <dso-viewer-grid
           ?filterpanel-open=${filterpanelOpen}
           ?overlay-open=${overlayOpen}
+          @mainSizeChange=${mainSizeChange}
           @closeOverlay=${closeOverlay}
           @filterpanelApply=${filterpanelApply}
           @filterpanelCancel=${filterpanelCancel}

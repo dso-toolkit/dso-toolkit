@@ -7,15 +7,27 @@ import {
   Element,
   Event,
   EventEmitter,
+  Watch,
 } from "@stencil/core";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { ViewerGridFilterpanelButtons } from './viewer-grid-filterpanel-buttons';
 
 type MainSize = "small" | "medium" | "large";
 
+export interface ViewerGridChangeSizeEvent {
+  /**
+   * Indicates whether it's before or after the animation
+   */
+  stage: 'start' | 'end';
+  previousSize: MainSize;
+  currentSize: MainSize;
+}
+
 export interface FilterpanelEvent {
   originalEvent: MouseEvent;
 }
+
+const TRANSITION_TIME = 200; // Keep in sync with dso-viewer-grid.variables.scss:$dso-viewer-grid-transition-time;
 
 @Component({
   tag: "dso-viewer-grid",
@@ -41,6 +53,9 @@ export class ViewerGrid {
   @Event()
   filterpanelApply!: EventEmitter<FilterpanelEvent>;
 
+  @Event()
+  mainSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
+
   @Element()
   host!: HTMLElement;
 
@@ -55,6 +70,23 @@ export class ViewerGrid {
   overlaySlot: HTMLDivElement | null = null;
 
   overlayFocustrap: FocusTrap | undefined;
+
+  @Watch('mainSize')
+  mainSizeWatcher(currentSize: MainSize, previousSize: MainSize) {
+    this.mainSizeChange.emit({
+      stage: 'start',
+      previousSize,
+      currentSize
+    });
+
+    setTimeout(() => {
+      this.mainSizeChange.emit({
+        stage: 'end',
+        previousSize,
+        currentSize
+      });
+    }, TRANSITION_TIME);
+  }
 
   shrinkMain = () => {
     this.mainSize = this.mainSize == "large" ? "medium" : "small";

@@ -99,7 +99,7 @@
   flex-grow: 0;
   padding-right: $u1;
   position: relative;
-  transition: flex-basis 0.2s ease-in, max-width 0.2s ease-in, min-width 0.2s ease-in;
+  transition: flex-basis variables.$dso-viewer-grid-transition-time ease-in, max-width variables.$dso-viewer-grid-transition-time ease-in, min-width variables.$dso-viewer-grid-transition-time ease-in;
   z-index: $zx-viewer-grid-map-panel;
 
   .dso-filterblok-address {
@@ -120,7 +120,7 @@
   padding: 0 $u1 * 0.5 $u1 * 0.5 0;
   position: absolute;
   top: variables.$dso-viewer-sizing-buttons-top;
-  transition: left 0.2s ease-in;
+  transition: left variables.$dso-viewer-grid-transition-time ease-in;
   width: variables.$dso-viewer-resize-button-size + $u1 * 0.5;
   z-index: $zx-viewer-grid-sizing-buttons;
 
