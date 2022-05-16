@@ -5,7 +5,7 @@
   }
 
   .dso-step-counter {
-    background-color: $grasgroen;
+    background-color: $bosgroen;
     border: $u1 solid $lime;
     border-radius: 50%;
     box-sizing: content-box;
@@ -19,5 +19,9 @@
     text-align: center;
     top: -$u3;
     width: $u4;
+  }
+
+  dso-icon {
+    vertical-align: text-top;
   }
 }

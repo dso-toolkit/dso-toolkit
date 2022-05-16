@@ -31,9 +31,12 @@
         + svg.di {
           flex-shrink: 0;
           position: relative;
-          top: $u1 * -0.25;
         }
       }
+    }
+
+    h3:first-child {
+      line-height: $dso-font-line-height-h2;
     }
 
     > a {
