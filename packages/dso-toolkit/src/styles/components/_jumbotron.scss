@@ -12,7 +12,7 @@
 
   .dso-jumbotron-body {
     @include make-md-column(8);
-    @include rich-content();
+    @include rich-content_children();
   }
 
   .dso-jumbotron-image {

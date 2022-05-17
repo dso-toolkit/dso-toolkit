@@ -31,7 +31,7 @@ dl {
   }
 
   dd {
-    @include rich-content();
+    @include rich-content_children();
     @include clearfix();
 
     margin-left: 0;

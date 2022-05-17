@@ -10,7 +10,7 @@
 }
 
 .panel-body {
-  @include rich-content();
+  @include rich-content_children();
 
   padding-bottom: 0;
 }
