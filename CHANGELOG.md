@@ -10,7 +10,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit + css:** Form verhuizen naar `@dso-toolkit/css` ([#1461](https://github.com/dso-toolkit/dso-toolkit/issues/1461))
-### Changed
 * **css + core + dso-toolkit + sources:** dso-icon heeft relatieve maatvoering ([#1542](https://github.com/dso-toolkit/dso-toolkit/issues/1542))
 * **css + core + dso-toolkit + sources:** Step counter icoon moet op bosgroen staan ([#1557](https://github.com/dso-toolkit/dso-toolkit/issues/1557))
 
