@@ -5,6 +5,7 @@ import { ShoppingCart, ShoppingCartItem } from './shopping-cart.models';
 export interface ShoppingCartArgs {
   collapsed?: boolean;
   hideSummary?: boolean;
+  removeAll?: boolean;
   isOpen?: boolean;
   items: ShoppingCartItem[];
   shoppingcartTitleTag: 'h2' | 'h3';
@@ -18,6 +19,11 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
     }
   },
   hideSummary: {
+    control: {
+      type: 'boolean'
+    }
+  },
+  removeAll: {
     control: {
       type: 'boolean'
     }
@@ -49,6 +55,7 @@ export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
   return {
     collapsed: a.collapsed,
     hideSummary: a.hideSummary,
+    removeAll: a.removeAll,
     isOpen: a.isOpen,
     items: a.items,
     shoppingcartTitleTag: a.shoppingcartTitleTag,

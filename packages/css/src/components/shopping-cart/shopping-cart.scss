@@ -10,14 +10,20 @@ $dso-shopping-cart-border-color: $grijs-20;
     display: block;
     font-weight: 600;
     padding: $u2 0;
-    padding-left: $u2;
+    padding-left: $u6;
+    position: relative;
     text-align: left;
 
     dso-icon,
     svg.di {
+      left: $u2;
+      position: absolute;
       margin-right: $u1;
     }
+  }
 
+  button.dso-status,
+  button.dso-delete {
     + .dso-items {
       border-top: 1px solid $dso-shopping-cart-border-color;
       border-top-left-radius: 0;
@@ -29,17 +35,12 @@ $dso-shopping-cart-border-color: $grijs-20;
     background-color: $grijs-5;
     border: 0;
     border-radius: $dso-shopping-cart-radius;
-    display: flex;
-    flex-wrap: wrap;
-
-    > .dso-status {
-      flex-grow: 1;
-    }
+    position: relative;
 
     > .dso-delete {
-      flex-grow: 0;
-      margin: $u2;
-      position: static;
+      position: absolute;
+      width: $u3;
+      z-index: 2;
     }
 
     > .dso-items {
@@ -153,10 +154,6 @@ $dso-shopping-cart-border-color: $grijs-20;
 
   .dso-empty {
     padding: ($u3 * 0.5) $u2;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
   }
 
   // demo

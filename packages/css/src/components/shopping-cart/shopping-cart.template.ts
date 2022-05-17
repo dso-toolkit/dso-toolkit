@@ -30,7 +30,7 @@ function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
   return false;
 }
 
-export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }: ShoppingCart) {
+export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }: ShoppingCart) {
   return html`
     ${ shoppingcartTitleTag == 'h2'
       ? html`
@@ -59,6 +59,15 @@ export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, sh
                   `}
                   U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen
                 </button>
+                ${removeAll
+                  ? html`
+                  <button type="button" class="dso-delete">
+                    ${iconTemplate({ icon: 'trash' })}
+                    <span class="sr-only">Verwijder alle werkzaamheden/activiteiten</span>
+                  </button>
+                  `
+                  : nothing
+            }
               `
               : nothing
             }
