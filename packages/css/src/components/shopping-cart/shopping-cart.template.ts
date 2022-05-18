@@ -1,6 +1,7 @@
 import { ShoppingCart, ShoppingCartItem, ShoppingCartSubitem } from '@dso-toolkit/sources';
 
 import { html, nothing } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
@@ -46,7 +47,10 @@ export function shoppingCartTemplate({ collapsed, hideSummary, isOpen, items, sh
           ? html`
             ${!hideSummary
               ? html`
-                <button type="button" class="dso-status">
+                <button
+                  type="button"
+                  class="dso-status"
+                  aria-expanded="${ifDefined(collapsed ? 'false' : 'true')}">
                   ${!collapsed ? html`
                     ${iconTemplate({ icon: 'chevron-up' })}
                   `
