@@ -5,10 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-* **dso-toolkit + css:** Shopping cart: ontbrekende aria-expanded en knopnaam ([#151](https://github.com/dso-toolkit/dso-toolkit/issues/1511))
-
 ### Removed
 * **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
+
+### Fixed
+* **BREAKING: dso-toolkit + css:** Shopping cart: ontbrekend aria-expanded attribuut op button ([#1511](https://github.com/dso-toolkit/dso-toolkit/issues/1511)) **Markup changes, see PR ([#1562](https://github.com/dso-toolkit/dso-toolkit/pull/1562))**
 
 ### Changed
 * **dso-toolkit + css:** Form verhuizen naar `@dso-toolkit/css` ([#1461](https://github.com/dso-toolkit/dso-toolkit/issues/1461))
