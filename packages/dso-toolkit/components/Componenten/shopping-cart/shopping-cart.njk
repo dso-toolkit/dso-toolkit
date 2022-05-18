@@ -19,6 +19,9 @@
         <button type="button" class="dso-delete">
           <span class="sr-only">Verwijder alle werkzaamheden/activiteiten</span>
           <dso-icon icon="trash"></dso-icon>
+          <dso-tooltip position="top">
+            Alles verwijderen
+          </dso-tooltip>
         </button>
       {% endif -%}
       {% if not collapsed %}
@@ -43,8 +46,11 @@
               {% endif %}
               {% if not item.edit %}
                 <button type="button" class="dso-delete">
-                  <span class="sr-only">Verwijder</span>
+                  <span class="sr-only">Verwijder {{ item.label }}</span>
                   <dso-icon icon="trash"></dso-icon>
+                  <dso-tooltip position="top">
+                    Verwijder
+                  </dso-tooltip>
                 </button>
               {% endif %}
               {% if item.subitems.length %}
