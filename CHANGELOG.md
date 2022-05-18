@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+* **dso-toolkit + css:** Shopping cart: ontbrekende aria-expanded en knopnaam ([#151](https://github.com/dso-toolkit/dso-toolkit/issues/1511))
+
 ### Removed
 * **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
 
