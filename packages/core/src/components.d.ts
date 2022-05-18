@@ -169,6 +169,10 @@ export namespace Components {
          */
         "content": string | undefined;
         /**
+          * Marks content as deleted using visual and accessible clues.
+         */
+        "deleted": boolean;
+        /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
         "inline": boolean;
@@ -615,6 +619,10 @@ declare namespace LocalJSX {
           * The XML to be rendered.
          */
         "content"?: string | undefined;
+        /**
+          * Marks content as deleted using visual and accessible clues.
+         */
+        "deleted"?: boolean;
         /**
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */

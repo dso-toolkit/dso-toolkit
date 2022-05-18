@@ -301,4 +301,21 @@ describe("Ozon Content", () => {
       .invoke('attr', 'inline', null)
       .should('have.css', 'display', 'block')
   });
+
+  it('should mark and denote deleted content', () => {
+    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
+
+    cy.get('dso-ozon-content')
+      .invoke('attr', 'deleted', '')
+      .find('> *')
+      .should('have.css', 'text-decoration-line', 'line-through');
+
+    cy.get('dso-ozon-content')
+      .find('.deleted-start')
+      .should('have.text', 'Begin verwijderd element');
+
+    cy.get('dso-ozon-content')
+      .find('.deleted-end')
+      .should('have.text', 'Einde verwijderd element');
+  });
 });

@@ -1,3 +1,5 @@
+@use "~@dso-toolkit/sources/src/styling/mixins/sr-only" as *;
+
 @import "~@dso-toolkit/sources/src/styling/variables";
 
 @import "~@dso-toolkit/sources/src/components/button/button";
@@ -11,6 +13,18 @@
 :host([inline]) {
   display: inline;
 }
+
+:host([deleted]) {
+  * {
+    text-decoration: line-through !important;
+  }
+}
+
+.deleted-start,
+.deleted-end {
+  @include sr-only();
+}
+
 button.toggle-note {
   @include button-tertiary();
 }
