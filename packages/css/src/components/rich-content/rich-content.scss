@@ -1,10 +1,7 @@
 .dso-rich-content {
   @include rich-content_children();
 
-  > :first-child:not(hr),
-  + .dso-context-wrapper,
-  + .dso-search-bar,
-  + .dso-tile-grid {
+  > :first-child:not(hr) {
     margin-top: $rich-content-margin-bottom * 0.5;
   }
 
