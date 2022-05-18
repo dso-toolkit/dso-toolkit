@@ -284,4 +284,21 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
   });
+
+  it('should render inline paragraphs in Opschrift', () => {
+    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--opschrift");
+
+    cy.get('dso-ozon-content > dso-tooltip > span[role="section"] > span[role="paragraph"]')
+      .should('exist')
+  });
+
+  it('should have correct display', () => {
+    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--opschrift");
+
+    cy.get('dso-ozon-content')
+      .should('have.attr', 'inline', '')
+      .and('have.css', 'display', 'inline')
+      .invoke('attr', 'inline', null)
+      .should('have.css', 'display', 'block')
+  });
 });

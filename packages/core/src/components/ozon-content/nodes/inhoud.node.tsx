@@ -6,7 +6,6 @@ import { OzonContentNode } from '../ozon-content-node.interface';
 export class OzonContentInhoudNode implements OzonContentNode {
   name = [
     'Inhoud',
-    'Opschrift',
     'ContainerBlocksType',
     'BlockMixedcontentMetMaximaleInlinesMarkersPopupsType'
   ];

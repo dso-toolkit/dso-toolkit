@@ -14,6 +14,33 @@ export const content = [
     `,
   },
   {
+    // De Noot in deze content is verzonnen. Volgens STOP kan dit voorkomen maar ik heb geen echte content gevonden.
+    title: 'Opschrift',
+    content: `
+      <Opschrift
+        xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
+        xmlns:ns6='http://www.w3.org/1999/xlink'
+        xmlns:ns5='http://www.opengis.net/se'
+        xmlns:ns8='http://www.opengis.net/gml'
+        xmlns:ns7='http://www.opengis.net/ogc'
+        xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
+        xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
+        xmlns:ns9='http://www.w3.org/2001/SMIL20/'
+        xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
+        xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
+        xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
+      >Programma's met programmatische aanpak <Noot id="Noot5000" type="voet">
+        <NootNummer>5</NootNummer>
+        <Al>
+          Een Testnoot
+        </Al>
+      </Noot></Opschrift>
+    `,
+    args: {
+      inline: true
+    }
+  },
+  {
     title: 'Lijst',
     content: `
       <Lijst

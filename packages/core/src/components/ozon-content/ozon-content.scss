@@ -5,7 +5,13 @@
 @import "../../icon/di";
 
 :host {
-  display: block;
+  &:not([inline]) {
+    display: block;
+  }
+
+  &[inline] {
+    display: inline;
+  }
 }
 
 button.toggle-note {

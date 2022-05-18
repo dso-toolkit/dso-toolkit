@@ -5,6 +5,7 @@ import { OzonContent } from "./ozon-content.models";
 
 export interface OzonContentArgs {
   content: string;
+  inline?: boolean;
   onAnchorClick: HandlerFunction;
 }
 
@@ -12,6 +13,11 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   content: {
     control: {
       type: 'text'
+    }
+  },
+  inline: {
+    control: {
+      type: 'boolean'
     }
   },
   onAnchorClick: {
@@ -23,6 +29,7 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
 export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
   return {
     content: a.content,
+    inline: a.inline,
     onAnchorClick: (e: any) => a.onAnchorClick(e.detail),
   };
 }
