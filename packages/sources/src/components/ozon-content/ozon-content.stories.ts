@@ -30,6 +30,8 @@ export function storiesOfOzonContent<TemplateFnReturnType>(
     stories.add(story.title, template, {
       args: {
         content: story.content,
+        inline: false,
+        ...story.args
       },
     });
   });

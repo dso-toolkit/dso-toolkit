@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core:** `<dso-ozon-content inline>` en ondersteuning voor `<Opschrift>` ([#1530](https://github.com/dso-toolkit/dso-toolkit/issues/1530))
+
 ### Removed
 * **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
 

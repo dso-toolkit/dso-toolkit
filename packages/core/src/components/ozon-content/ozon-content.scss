@@ -4,10 +4,13 @@
 
 @import "../../icon/di";
 
-:host {
+:host(:not([inline])) {
   display: block;
 }
 
+:host([inline]) {
+  display: inline;
+}
 button.toggle-note {
   @include button-tertiary();
 }

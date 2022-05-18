@@ -5,6 +5,7 @@ import { OzonContentDocumentNode } from './nodes/document.node';
 import { OzonContentExtRefNode } from './nodes/ext-ref.node';
 import { OzonContentIllustratieNode } from './nodes/illustratie.node';
 import { OzonContentInhoudNode } from './nodes/inhoud.node';
+import { OzonContentOpschriftNode } from './nodes/opschrift.node';
 import { OzonContentInlineNodes } from './nodes/inline.nodes';
 import { OzonContentIntRefNode } from './nodes/int-ref.node';
 import { OzonContentNootNode } from './nodes/noot.node';
@@ -23,6 +24,7 @@ export class Mapper {
     new OzonContentTextNode(),
     new OzonContentDocumentNode(),
     new OzonContentInhoudNode(),
+    new OzonContentOpschriftNode(),
     new OzonContentIntRefNode(),
     new OzonContentExtRefNode(),
     new OzonContentAlNode(),

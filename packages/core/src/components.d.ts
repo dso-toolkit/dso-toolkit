@@ -164,7 +164,14 @@ export namespace Components {
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
+        /**
+          * The XML to be rendered.
+         */
         "content": string | undefined;
+        /**
+          * Setting this property creates dso-ozon-content as inline element instead of a block element.
+         */
+        "inline": boolean;
     }
     interface DsoProgressBar {
         "max": number;
@@ -604,7 +611,14 @@ declare namespace LocalJSX {
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
+        /**
+          * The XML to be rendered.
+         */
         "content"?: string | undefined;
+        /**
+          * Setting this property creates dso-ozon-content as inline element instead of a block element.
+         */
+        "inline"?: boolean;
         "onAnchorClick"?: (event: CustomEvent<OzonContentAnchorClick>) => void;
     }
     interface DsoProgressBar {
