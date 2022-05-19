@@ -63,7 +63,7 @@ export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen
                   ? html`
                   <button type="button" class="dso-delete">
                     ${iconTemplate({ icon: 'trash' })}
-                    <span class="sr-only">Verwijder alle werkzaamheden/activiteiten</span>
+                    <span class="sr-only">Verwijder alle activiteiten</span>
                   </button>
                   `
                   : nothing
