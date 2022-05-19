@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **BREAKING: dso-toolkit + css:** Shopping cart: ontbrekend aria-expanded attribuut op button ([#1511](https://github.com/dso-toolkit/dso-toolkit/issues/1511)) **Markup changes, see PR ([#1562](https://github.com/dso-toolkit/dso-toolkit/pull/1562))**
+* **css:** Accordion: overflow: hidden van section-handle af ([#1522](https://github.com/dso-toolkit/dso-toolkit/issues/1522))
 
 ### Changed
 * **dso-toolkit + css:** Form verhuizen naar `@dso-toolkit/css` ([#1461](https://github.com/dso-toolkit/dso-toolkit/issues/1461))
