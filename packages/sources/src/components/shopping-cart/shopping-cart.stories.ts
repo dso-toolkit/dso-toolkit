@@ -30,6 +30,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
       args: componentArgs<ShoppingCartArgs>({
         collapsed: false,
         hideSummary: false,
+        removeAll: false,
         isOpen: false,
         shoppingcartTitle: 'Mijn activiteiten',
         shoppingcartTitleTag: 'h2',
@@ -47,6 +48,28 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
     template,
     {
       args: componentArgs<Pick<ShoppingCartArgs, 'collapsed' | 'items'>>({
+        collapsed: true,
+        items: [
+          {
+            id: uuidv4(),
+            label: 'Milieubelastende activiteit - Melding'
+          },
+          {
+            id: uuidv4(),
+            label: 'Milieubelastende activiteit - Melding',
+            additive: '2'
+          }
+        ]
+      })
+    }
+  );
+
+  stories.add(
+    'remove all items option',
+    template,
+    {
+      args: componentArgs<Pick<ShoppingCartArgs, 'removeAll' | 'collapsed' | 'items'>>({
+        removeAll: true,
         collapsed: true,
         items: [
           {

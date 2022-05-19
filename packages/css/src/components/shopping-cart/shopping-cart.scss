@@ -9,16 +9,20 @@ $dso-shopping-cart-border-color: $grijs-20;
     box-shadow: none;
     display: block;
     font-weight: 600;
-    padding: $u2 0;
-    padding-left: $u2;
+    padding: $u2 $u6;
+    position: relative;
     text-align: left;
-    width: 100%;
 
     dso-icon,
     svg.di {
+      left: $u2;
+      position: absolute;
       margin-right: $u1;
     }
+  }
 
+  button.dso-status,
+  button.dso-delete {
     + .dso-items {
       border-top: 1px solid $dso-shopping-cart-border-color;
       border-top-left-radius: 0;
@@ -30,6 +34,17 @@ $dso-shopping-cart-border-color: $grijs-20;
     background-color: $grijs-5;
     border: 0;
     border-radius: $dso-shopping-cart-radius;
+    position: relative;
+
+    > .dso-delete {
+      position: absolute;
+      width: $u3;
+      z-index: 2;
+    }
+
+    > .dso-items {
+      width: 100%;
+    }
 
     + .dso-warning {
       margin-top: $u2;

@@ -8,14 +8,15 @@
   <div class="dso-contents">
     {%- if items.length > 0 %}
       {%- if not hideSummary %}
-      <button type="button" class="dso-status" aria-expanded="{{ false if collapsed else true }}">
-        {%- if not collapsed -%}
-          <dso-icon icon="chevron-up"></dso-icon>
-        {%- else -%}
-          <dso-icon icon="chevron-down"></dso-icon>
-        {%- endif -%}
-        U heeft {{ items | countSubitems }} activiteit{% if ((items | countSubitems) > 1) %}en{% endif %} gekozen
-      </button>
+        <button type="button" class="dso-status" aria-expanded="{{ false if collapsed else true }}">
+          {%- if not collapsed -%}
+            <dso-icon icon="chevron-up"></dso-icon>
+          {%- else -%}
+            <dso-icon icon="chevron-down"></dso-icon>
+          {%- endif -%}
+          U heeft {{ items | countSubitems }} activiteit{% if ((items | countSubitems) > 1) %}en{% endif %} gekozen
+        </button>
+        {% render '@button', {label:'Verwijder alle activiteiten', type:'button', modifier:'dso-delete', icon:'trash', iconOnly: true, tooltip: {label: 'Alles verwijderen', position: 'top'} } %}
       {% endif -%}
       {% if not collapsed %}
         <ul class="dso-items">
@@ -38,10 +39,7 @@
                 {% endif %}
               {% endif %}
               {% if not item.edit %}
-                <button type="button" class="dso-delete">
-                  <span class="sr-only">Verwijder</span>
-                  <dso-icon icon="trash"></dso-icon>
-                </button>
+                {% render '@button', {label:'Verwijder ' + item.label, type:'button', modifier:'dso-delete', icon:'trash', iconOnly: true, tooltip: {label: 'Verwijder', position: 'top'} } %}
               {% endif %}
               {% if item.subitems.length %}
                 <ul class="dso-subitems">
@@ -49,10 +47,7 @@
                     <li>
                       {% if subitem.warning %}<dso-icon icon="status-warning"></dso-icon><span class="sr-only">waarschuwing</span>{% endif %}
                       {{ subitem.label }}
-                      <button type="button" class="dso-delete">
-                        <span class="sr-only">Verwijder</span>
-                        <dso-icon icon="trash"></dso-icon>
-                      </button>
+                      {% render '@button', {label:'Verwijder ' + subitem.label, type:'button', modifier:'dso-delete', icon:'trash', iconOnly: true, tooltip: {label: 'Verwijder', position: 'top'} } %}
                     </li>
                   {% endfor %}
                 </ul>

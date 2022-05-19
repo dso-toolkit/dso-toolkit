@@ -1,6 +1,7 @@
 export interface ShoppingCart {
   collapsed?: boolean;
   hideSummary?: boolean;
+  removeAll?: boolean;
   isOpen?: boolean;
   items: ShoppingCartItem[];
   shoppingcartTitleTag: string;
