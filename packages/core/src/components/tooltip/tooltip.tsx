@@ -190,7 +190,7 @@ export class Tooltip {
   render() {
     return (
       <Host class={{ 'hidden': this.hidden }}>
-        <div class={clsx('tooltip', { in: this.active })} role="tooltip">
+        <div class={clsx('tooltip', { in: this.active })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
           <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
