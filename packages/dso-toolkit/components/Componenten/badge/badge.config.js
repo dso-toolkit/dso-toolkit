@@ -68,6 +68,12 @@ module.exports = {
       context: {
         status: 'danger'
       }
+    },
+    {
+      name: 'badge-outline',
+      context: {
+        status: 'outline'
+      }
     }
   ]
 };

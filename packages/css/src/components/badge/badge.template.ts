@@ -7,7 +7,8 @@ const statusMap = new Map<string, string>([
   ['success', 'Gelukt'],
   ['info', 'Opmerking'],
   ['warning', 'Waarschuwing'],
-  ['danger', 'Fout']
+  ['danger', 'Fout'],
+  ['outline', 'Rand']
 ]);
 
 export function badgeTemplate({ status, message }: Badge) {

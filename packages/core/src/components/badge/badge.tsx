@@ -8,13 +8,14 @@ import clsx from 'clsx';
 })
 export class Badge {
   @Prop()
-  status?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+  status?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
 
   private static statusMap = new Map<string, string>([
     ['success', 'Gelukt'],
     ['info', 'Opmerking'],
     ['warning', 'Waarschuwing'],
-    ['danger', 'Fout']
+    ['danger', 'Fout'],
+    ['outline', 'Rand']
   ]);
 
   render() {

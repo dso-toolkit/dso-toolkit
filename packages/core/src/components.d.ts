@@ -40,7 +40,7 @@ export namespace Components {
         "suggestions": Suggestion[];
     }
     interface DsoBadge {
-        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
     }
     interface DsoBanner {
         "status": 'warning' | 'danger';
@@ -471,7 +471,7 @@ declare namespace LocalJSX {
         "suggestions"?: Suggestion[];
     }
     interface DsoBadge {
-        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger';
+        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
     }
     interface DsoBanner {
         "status": 'warning' | 'danger';

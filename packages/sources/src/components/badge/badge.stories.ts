@@ -91,4 +91,15 @@ export function storiesOfBadge<TemplateFnReturnType>(
       }
     }
   );
+
+  stories.add(
+    'outline',
+    template,
+    {
+      args: {
+        status: 'outline',
+        message: 'Outline'
+      }
+    }
+  );
 }
