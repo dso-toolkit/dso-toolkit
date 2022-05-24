@@ -60,12 +60,7 @@ export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen
                   U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen
                 </button>
                 ${removeAll
-                  ? html`
-                  <button type="button" class="dso-delete">
-                    ${iconTemplate({ icon: 'trash' })}
-                    <span class="sr-only">Verwijder alle activiteiten</span>
-                  </button>
-                  `
+                ? buttonTemplate({ type: 'button', modifier: 'dso-delete', variant: null, label: 'Verwijder alle activiteiten', icon: { icon: 'trash' }, iconMode: 'only' })
                   : nothing
             }
               `
@@ -108,21 +103,14 @@ export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen
                           }
 
                           ${!item.edit
-                            ? html`
-                              ${buttonTemplate({ type: 'button', modifier: 'dso-tertiary dso-edit-cart-item', variant: null, label: 'Naam bewerken', icon: { icon: 'pencil' }, iconMode: 'only' })}
-                            `
+                            ? buttonTemplate({ type: 'button', modifier: 'dso-tertiary dso-edit-cart-item', variant: null, label: 'Naam veranderen van ' + item.label, icon: { icon: 'pencil' }, iconMode: 'only' })
                             : nothing
                           }
                         `
                         : nothing
                       }
                       ${!item.edit
-                        ? html`
-                          <button type="button" class="dso-delete">
-                            ${iconTemplate({ icon: 'trash' })}
-                            <span class="sr-only">Verwijder ${item.label}</span>
-                          </button>
-                        `
+                        ? buttonTemplate({ type: 'button', modifier: 'dso-delete', variant: null, label: 'Verwijder ' + item.label, icon: { icon: 'trash' }, iconMode: 'only' })
                         : nothing
                       }
                       ${item.subitems
@@ -135,10 +123,7 @@ export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen
                                   <span class="sr-only">waarschuwing</span>
                                 `}
                                 ${subitem.label}
-                                <button type="button" class="dso-delete" title="Verwijder">
-                                  ${iconTemplate({ icon: 'trash' })}
-                                  <span class="sr-only">Verwijder ${item.label}</span>
-                                </button>
+                                ${buttonTemplate({ type: 'button', modifier: 'dso-delete', variant: null, label: 'Verwijder ' + subitem.label, icon: { icon: 'trash' }, iconMode: 'only' })}
                               </li>
                             `)}
                           </ul>

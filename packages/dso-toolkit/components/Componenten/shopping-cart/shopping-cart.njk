@@ -35,7 +35,7 @@
                 {% endif %}
 
                 {% if not item.edit %}
-                  {% render '@button', {type: 'button', modifier: 'dso-tertiary dso-edit-cart-item', label: 'Naam bewerken', icon: 'pencil', iconOnly: true} %}
+                  {% render '@button', {label:'Naam veranderen van ' + item.label, type:'button', modifier:'dso-tertiary dso-edit-cart-item', icon:'pencil', iconOnly: true, tooltip: {label: 'Naam veranderen', position: 'top'} } %}
                 {% endif %}
               {% endif %}
               {% if not item.edit %}

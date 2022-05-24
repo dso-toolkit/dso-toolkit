@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + core + dso-toolkit + sources:** dso-icon heeft relatieve maatvoering ([#1542](https://github.com/dso-toolkit/dso-toolkit/issues/1542))
 * **css + core + dso-toolkit + sources:** Step counter icoon moet op bosgroen staan ([#1557](https://github.com/dso-toolkit/dso-toolkit/issues/1557))
 * **dso-toolkit + css:** Uitbreiding Shopping Cart met functie 'alles verwijderen' ([#1510](https://github.com/dso-toolkit/dso-toolkit/issues/1510))
+* **dso-toolkit + css:** Shopping cart: labels knoppen ([#1512](https://github.com/dso-toolkit/dso-toolkit/issues/1512))
 
 ## 36.3.0
 
