@@ -7,7 +7,9 @@ import { tileTemplate } from '@dso-toolkit/css/src/components/tile/tile.template
 
 import { anchorTemplate } from "../anchor/anchor.template";
 import { badgeTemplate } from "../badge/badge.template";
+import { buttonTemplate } from "../button/button.template";
 import { imageOverlayTemplate } from '../image-overlay/image-overlay.template';
+import { iconTemplate } from "../icon/icon.template";
 
 import readme from "./readme.md";
 import { viewerGridDocumentHeaderTemplate } from "./viewer-grid-document-header.template";
@@ -20,7 +22,8 @@ function viewerGridWithSearchResultsDemoTemplate(
   filterblokDeleteActiveFilter: (e: MouseEvent) => void,
   documentHeaderFeatureAction: (e: MouseEvent) => void,
   documentHeaderMapAction: (e: MouseEvent) => void,
-  documentHeaderFeaturesOpen: boolean
+  documentHeaderFeaturesOpen: boolean,
+  documentHeaderStatusOpen: boolean,
 ) {
   return html`
     ${viewerGridFilterblok({
@@ -63,13 +66,83 @@ function viewerGridWithSearchResultsDemoTemplate(
       title: html`<h1>Omgevingsplan gemeente Gouda</h1>`,
       type: "Een omgevingsplan waar de omgeving mooier van wordt",
       owner: "Gemeente Gouda",
-      status: html`${badgeTemplate({
-        status: "warning",
-        message: "Ontwerp",
-      })}Bekendgemaakt
-      01-03-2021`,
+      status: html`<strong>Versie:</strong>
+        ${buttonTemplate({
+            ariaExpanded: documentHeaderStatusOpen,
+            onClick: documentHeaderFeatureAction,
+            label: "in werking 01-03-2021",
+            variant: null,
+            modifier: "dso-document-header-toggle-status",
+            icon: {
+              icon: documentHeaderStatusOpen ? "angle-up" : "angle-down",
+            },
+            iconMode: "after",
+          })}
+        ${badgeTemplate({
+          status: "warning",
+          message: "3 ontwerp",
+        })}
+        ${badgeTemplate({
+          status: "outline",
+          message: "1 toekomstig",
+        })}`,
+      statusContent: html`
+        <div class="dso-document-header-status-content">
+          <h2>Versies</h2>
+
+          <h3>Vastgesteld</h3>
+          <div class="dso-document-header-status-item">
+            ${iconTemplate({ icon: 'eye' })}
+            <strong>Gepubliceerd op 01-03-2021</strong>
+            ${badgeTemplate({
+              message: "In werking",
+            })}
+          </div>
+          <div class="dso-document-header-status-item">
+            ${iconTemplate({ icon: 'chevron-right' })}
+            Gepubliceerd op 10-03-2021
+            ${badgeTemplate({
+              status: "outline",
+              message: "Toekomstige versie",
+            })}
+          </div>
+          ${anchorTemplate({ label: 'bekijk oudere versies', url: '#' })}
+
+          <h3>Ontwerpen binnen inzagetermijn</h3>
+          <div class="dso-document-header-status-item">
+            ${iconTemplate({ icon: 'chevron-right' })}
+            Gepubliceerd op 09-02-2021
+            ${badgeTemplate({
+              status: "warning",
+              message: "Ontwerp",
+            })}
+            Eind inzagetermijn 23-03-2022
+          </div>
+          <div class="dso-document-header-status-item">
+            ${iconTemplate({ icon: 'chevron-right' })}
+            Gepubliceerd op 01-02-2021
+            ${badgeTemplate({
+              status: "warning",
+              message: "Ontwerp",
+            })}
+            Eind inzagetermijn 15-03-2022
+          </div>
+          <div class="dso-document-header-status-item">
+            ${iconTemplate({ icon: 'chevron-right' })}
+            Gepubliceerd op 20-01-2021
+            ${badgeTemplate({
+              status: "warning",
+              message: "Ontwerp",
+            })}
+            Eind inzagetermijn 03-03-2022
+          </div>
+          ${anchorTemplate({ label: 'bekijk ontwerpen waarvan inzagetermijn voorbij is', url: '#' })}
+
+        </div>
+      `,
       featuresAction: documentHeaderFeatureAction,
       featuresOpen: documentHeaderFeaturesOpen,
+      statusOpen: documentHeaderStatusOpen,
       mapAction: documentHeaderMapAction,
       features: {
         modifier: "dso-document-header-features",
@@ -294,6 +367,7 @@ storiesOfViewerGrid(
       documentHeaderFeatureAction,
       documentHeaderFeaturesOpen,
       documentHeaderMapAction,
+      documentHeaderStatusOpen,
     }) =>
       viewerGridTemplate({
         closeOverlay,
@@ -310,7 +384,8 @@ storiesOfViewerGrid(
           filterblokDeleteActiveFilter,
           documentHeaderFeatureAction,
           documentHeaderMapAction,
-          documentHeaderFeaturesOpen
+          documentHeaderFeaturesOpen,
+          documentHeaderStatusOpen
         ),
         map,
         overlay

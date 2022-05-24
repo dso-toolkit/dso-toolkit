@@ -11,8 +11,10 @@ export function viewerGridDocumentHeaderTemplate({
   featuresAction,
   mapAction,
   featuresOpen,
+  statusOpen,
   owner,
   status,
+  statusContent,
 }: ViewerGridDocumentHeader<TemplateResult>) {
   return html`
     <div class="dso-document-header">
@@ -21,7 +23,6 @@ export function viewerGridDocumentHeaderTemplate({
       <div class="dso-document-header-container">
         <p class="dso-document-header-type">${type}</p>
         <p class="dso-document-header-owner">${owner}</p>
-        <p class="dso-document-header-status">${status}</p>
 
         ${buttonTemplate({
           onClick: mapAction,
@@ -33,19 +34,30 @@ export function viewerGridDocumentHeaderTemplate({
           },
           iconMode: "only",
         })}
-        ${buttonTemplate({
-          ariaExpanded: featuresOpen,
-          onClick: featuresAction,
-          label: featuresOpen ? "Minder kenmerken" : "Meer kenmerken",
-          variant: null,
-          modifier: "dso-document-header-toggle-features",
-          icon: {
-            icon: featuresOpen ? "angle-up" : "angle-down",
-          },
-          iconMode: "after",
-        })}
+
+        <div class="dso-document-header-features-wrapper">
+          ${buttonTemplate({
+            ariaExpanded: featuresOpen,
+            onClick: featuresAction,
+            label: featuresOpen ? "Minder kenmerken" : "Meer kenmerken",
+            variant: null,
+            modifier: "dso-document-header-toggle-features",
+            icon: {
+              icon: featuresOpen ? "angle-up" : "angle-down",
+            },
+            iconMode: "after",
+          })}
+          ${featuresOpen ? definitionListTemplate(features) : nothing}
+        </div>
+
+        <div class="dso-document-header-status-wrapper">
+          <p class="dso-document-header-status">${status}</p>
+          ${ statusOpen ? html`
+            ${statusContent}
+          ` : nothing
+          }
+        </div>
       </div>
-      ${featuresOpen ? definitionListTemplate(features) : nothing}
     </div>
   `;
 }

@@ -37,12 +37,13 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     {
       argTypes: viewerGridWithSearchResultsArgTypes,
       args: componentArgs<
-        Pick<ViewerGridWithSearchResultsArgs, "filterpanelOpen" | "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen">
+        Pick<ViewerGridWithSearchResultsArgs, "filterpanelOpen" | "overlayOpen" | "noOverlay" | "documentHeaderFeaturesOpen" | "documentHeaderStatusOpen">
       >({
         filterpanelOpen: false,
         overlayOpen: false,
         noOverlay: false,
         documentHeaderFeaturesOpen: true,
+        documentHeaderStatusOpen: true,
       })
     }
   );

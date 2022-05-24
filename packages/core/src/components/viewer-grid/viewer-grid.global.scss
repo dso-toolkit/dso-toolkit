@@ -61,10 +61,14 @@ dso-viewer-grid {
       @include clearfix();
     }
 
-    .dso-document-list-item-open-document,
-    .dso-document-header-toggle-features {
+    .dso-document-list-item-open-document {
       float: right;
     }
+
+    // .dso-document-list-item-open-document,
+    // .dso-document-header-toggle-features {
+    //   float: right;
+    // }
 
     .dso-document-header-type,
     .dso-document-header-owner {
@@ -121,12 +125,18 @@ dso-viewer-grid {
       }
     }
 
-    .dso-document-list-item-open-document,
-    .dso-document-header-toggle-features {
+    .dso-document-list-item-open-document {
       position: absolute;
       right: 0;
       bottom: 0;
     }
+
+    // .dso-document-list-item-open-document,
+    // .dso-document-header-toggle-features {
+    //   position: absolute;
+    //   right: 0;
+    //   bottom: 0;
+    // }
   }
 
   .dso-document-list {

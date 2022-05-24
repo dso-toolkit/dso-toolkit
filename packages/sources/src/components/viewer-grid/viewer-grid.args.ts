@@ -22,6 +22,7 @@ export interface ViewerGridWithSearchResultsArgs extends ViewerGridArgs {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderMapAction: HandlerFunction;
   documentHeaderFeatureAction: HandlerFunction;
+  documentHeaderStatusOpen: boolean;
 }
 
 export interface ViewerGridWithTilesArgs extends ViewerGridArgs {
@@ -49,6 +50,10 @@ export const viewerGridWithSearchResultsArgTypes: ArgTypes<ViewerGridWithSearchR
       type: "boolean",
     },
   },
+  documentHeaderStatusOpen: {
+    control: {
+      type: "boolean",
+    },
   initialMainSize: {
     options: [undefined, 'small', 'medium', 'large'],
     control: {

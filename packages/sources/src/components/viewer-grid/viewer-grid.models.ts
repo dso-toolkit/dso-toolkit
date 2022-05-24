@@ -17,6 +17,7 @@ export interface ViewerGridWithSearchResultsProperties extends ViewerGridDemoPro
   documentHeaderFeaturesOpen: boolean;
   documentHeaderMapAction: (e: MouseEvent) => void;
   documentHeaderFeatureAction: (e: MouseEvent) => void;
+  documentHeaderStatusOpen: boolean;
 }
 
 export interface ViewerGridWithTilesProperties extends ViewerGridDemoProperties {
@@ -45,8 +46,10 @@ export interface ViewerGridDocumentHeader<TemplateFnReturnType> {
   status: TemplateFnReturnType;
   features: DefinitionList<TemplateFnReturnType>;
   featuresOpen: boolean;
+  statusOpen: boolean;
   mapAction: (e: MouseEvent) => void;
   featuresAction: (e: MouseEvent) => void;
+  statusContent: TemplateFnReturnType;
 }
 
 export interface ViewerGridDocumentListItem<TemplateFnReturnType> {
