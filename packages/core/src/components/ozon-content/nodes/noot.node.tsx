@@ -40,7 +40,7 @@ export class OzonContentNootNode implements OzonContentNode {
             {nootNummer}
           </button>
         </sup>
-        <dso-tooltip active={openNoteId === noteId} for={noteControlsId} stateless>
+        <dso-tooltip active={openNoteId === noteId} for={noteControlsId} stateless descriptive>
           <span role="section">
             {mapNodeToJsx(Array.from(node.querySelectorAll(':scope > Al')))}
           </span>

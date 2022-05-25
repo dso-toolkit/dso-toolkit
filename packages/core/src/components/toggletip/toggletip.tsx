@@ -90,6 +90,7 @@ export class Toggletip {
         />
         <dso-tooltip
           stateless
+          descriptive
           for="toggle"
           active={this.active}
           position={this.position}

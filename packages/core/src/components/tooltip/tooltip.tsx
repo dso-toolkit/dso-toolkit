@@ -13,6 +13,12 @@ const transitionDuration = 150;
 })
 export class Tooltip {
   /**
+   * Defines if the tooltip is descriptive (the opposite of aria-hidden)
+   */
+  @Prop()
+  descriptive?: boolean;
+
+  /**
    * Set position of tooltip relative to target
    */
   @Prop()
@@ -192,7 +198,7 @@ export class Tooltip {
       <Host class={{ 'hidden': this.hidden }}>
         <div class={clsx('tooltip', { in: this.active })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
-          <div class={clsx('tooltip-inner', { 'dso-small': this.small })}>
+          <div aria-hidden={!this.descriptive ? "true" : undefined} class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
           </div>
         </div>
