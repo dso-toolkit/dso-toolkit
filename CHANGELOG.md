@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1558)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
 
+### Fixed
+* **core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548))
+
 ## 37.0.0
 
 ### Added
@@ -22,7 +25,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **BREAKING: dso-toolkit + css:** Shopping cart: ontbrekend aria-expanded attribuut op button ([#1511](https://github.com/dso-toolkit/dso-toolkit/issues/1511)) **Markup changes, see PR ([#1562](https://github.com/dso-toolkit/dso-toolkit/pull/1562))**
 * **css:** Accordion: overflow: hidden van section-handle af ([#1522](https://github.com/dso-toolkit/dso-toolkit/issues/1522))
-* **core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548))
 
 ### Changed
 * **dso-toolkit + css:** Form verhuizen naar `@dso-toolkit/css` ([#1461](https://github.com/dso-toolkit/dso-toolkit/issues/1461))
