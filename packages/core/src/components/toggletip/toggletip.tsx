@@ -42,8 +42,6 @@ export class Toggletip {
     }
 
     this.button = button;
-
-    this.host.setAttribute("tabindex", "-1");
   }
 
   click = () => {
