@@ -35,6 +35,17 @@ dso-viewer-grid {
     > :first-child {
       margin: 0;
     }
+
+    .dso-document-header-status {
+      .dso-document-header-toggle-status {
+        border: 0;
+      }
+
+      > dso-label {
+        margin-left: $u2;
+        margin-right: $u1;
+      }
+    }
   }
 
   &[small] {
@@ -100,10 +111,15 @@ dso-viewer-grid {
   }
 
   &:not([small]) {
-    .dso-document-header,
     .dso-document-list-item {
       &-status {
         margin: 0;
+      }
+    }
+
+    .dso-document-header {
+      &-status {
+        margin: $u1 0 0;
       }
     }
 
@@ -193,9 +209,11 @@ dso-viewer-grid {
   }
 
   .dso-document-header-features {
-    margin-top: $u2;
     margin-bottom: 0;
+    margin-top: $u2;
+    padding-bottom: $u2;
     padding-top: $u2;
+    border-bottom: 1px solid $grijs-20;
     border-top: 1px solid $grijs-20;
   }
 }

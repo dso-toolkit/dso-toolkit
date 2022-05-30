@@ -109,8 +109,9 @@ function viewerGridWithSearchResultsDemoTemplate(
               status: "outline",
               message: "Toekomstige versie",
             })}
+            datum in werking: 1-6-2022
           </div>
-          ${anchorTemplate({ label: 'bekijk oudere versies', url: '#' })}
+          ${anchorTemplate({ label: 'bekijk eerdere versies', url: '#' })}
 
           <h3>Ontwerpen binnen inzagetermijn</h3>
           <div class="dso-document-header-status-item">
@@ -120,7 +121,7 @@ function viewerGridWithSearchResultsDemoTemplate(
               status: "warning",
               message: "Ontwerp",
             })}
-            Eind inzagetermijn 23-03-2022
+            Eind inzagetermijn: 23-03-2022
           </div>
           <div class="dso-document-header-status-item">
             ${iconTemplate({ icon: 'chevron-right' })}
@@ -129,7 +130,7 @@ function viewerGridWithSearchResultsDemoTemplate(
               status: "warning",
               message: "Ontwerp",
             })}
-            Eind inzagetermijn 15-03-2022
+            Eind inzagetermijn: 15-03-2022
           </div>
           <div class="dso-document-header-status-item">
             ${iconTemplate({ icon: 'chevron-right' })}
@@ -138,7 +139,7 @@ function viewerGridWithSearchResultsDemoTemplate(
               status: "warning",
               message: "Ontwerp",
             })}
-            Eind inzagetermijn 03-03-2022
+            Eind inzagetermijn: 03-03-2022
           </div>
           ${anchorTemplate({ label: 'bekijk ontwerpen waarvan inzagetermijn voorbij is', url: '#' })}
 
