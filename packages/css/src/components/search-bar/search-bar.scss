@@ -1,9 +1,43 @@
+@import "../../../../sources/src/styling/variables";
+
 $dso-search-bar-height: $u5;
 $dso-search-bar-invalid-input-border-color: $dso-danger-color;
+$dso-search-bar-invalid-border-color: $dso-danger-color;
+$dso-search-bar-focus-border-width: 1px;
 
 .dso-search-bar {
   display: flex;
   margin-bottom: 16px;
+
+  .form-group & {
+    margin-bottom: 0;
+    width: 50%;
+  }
+
+  .dso-table-filter-wrapper & {
+    margin-bottom: $u2;
+    width: $dso-minimal-screen-width - $u4;
+  }
+
+  .form-horizontal .dso-field-container & {
+    width: 100%;
+  }
+
+  .dso-invalid .dso-field-container & {
+    input {
+      border-color: $dso-search-bar-invalid-border-color;
+
+      &:focus {
+        box-shadow: inset 0 0 0 $dso-search-bar-focus-border-width $dso-search-bar-invalid-border-color;
+      }
+    }
+  }
+
+  .dso-field-container & {
+    input {
+      border-color: $bosgroen;
+    }
+  }
 
   .dso-search-bar-input {
     position: relative;
