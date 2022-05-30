@@ -23,7 +23,7 @@ $list-group-border-radius: $border-radius-base;
 }
 
 .list-group > .list-group-item {
-  @include rich-content();
+  @include rich-content_children();
 }
 
 .list-group {

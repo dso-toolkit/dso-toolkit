@@ -89,7 +89,7 @@ body.dso-modal-open {
   .dso-body {
     $dso-body-height: (2 * $dso-modal-header-padding) + ($dso-modal-footer-button-height + $dso-modal-footer-padding);
 
-    @include rich-content();
+    @include rich-content_children();
 
     height: calc(100% - #{$dso-modal-body-padding * 2 + $u4} - 1.5rem);
     max-height: calc(#{$dso-modal-max-height} - #{$dso-body-height + $u4} - 1.5em);
