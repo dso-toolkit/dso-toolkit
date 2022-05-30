@@ -66,11 +66,15 @@ function viewerGridWithSearchResultsDemoTemplate(
       title: html`<h1>Omgevingsplan gemeente Gouda</h1>`,
       type: "Een omgevingsplan waar de omgeving mooier van wordt",
       owner: "Gemeente Gouda",
-      status: html`<strong>Versie:</strong>
+      status: html`Gepubliceerd 03-03-2021
+        ${badgeTemplate({
+          status: "default",
+          message: "in werking",
+        })}
         ${buttonTemplate({
             ariaExpanded: documentHeaderStatusOpen,
             onClick: documentHeaderFeatureAction,
-            label: "in werking 01-03-2021",
+            label: "overige versies",
             variant: null,
             modifier: "dso-document-header-toggle-status",
             icon: {
@@ -80,11 +84,11 @@ function viewerGridWithSearchResultsDemoTemplate(
           })}
         ${badgeTemplate({
           status: "warning",
-          message: "3 ontwerp",
+          message: "3",
         })}
         ${badgeTemplate({
           status: "outline",
-          message: "1 toekomstig",
+          message: "1",
         })}`,
       statusContent: html`
         <div class="dso-document-header-status-content">
