@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1558)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
 
 ### Fixed
-* **core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548))
+* **BREAKING: css + core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548)) **Markup changes, see PR ([#1578](https://github.com/dso-toolkit/dso-toolkit/pull/1578))**
 
 ## 37.0.0
 

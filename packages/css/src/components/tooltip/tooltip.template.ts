@@ -5,7 +5,7 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 export function tooltipTemplate({ position, descriptive }: Tooltip) {
   return html`
     <div
-      aria-hidden=${ifDefined(!descriptive ? "true" : undefined)}
+      aria-hidden=${ifDefined(!descriptive || undefined)}
       class="tooltip fade in ${position}"
     >
       <div class="tooltip-arrow"></div>

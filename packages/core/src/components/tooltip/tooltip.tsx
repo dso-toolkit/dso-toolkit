@@ -13,10 +13,12 @@ const transitionDuration = 150;
 })
 export class Tooltip {
   /**
-   * Defines if the tooltip is descriptive (the opposite of aria-hidden)
+   * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
    */
-  @Prop()
-  descriptive?: boolean;
+  @Prop({
+    reflect: true
+  })
+  descriptive = false;
 
   /**
    * Set position of tooltip relative to target
@@ -198,7 +200,7 @@ export class Tooltip {
       <Host class={{ 'hidden': this.hidden }}>
         <div class={clsx('tooltip', { in: this.active })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
-          <div aria-hidden={!this.descriptive ? "true" : undefined} class={clsx('tooltip-inner', { 'dso-small': this.small })}>
+          <div aria-hidden={!this.descriptive || undefined} class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
           </div>
         </div>
