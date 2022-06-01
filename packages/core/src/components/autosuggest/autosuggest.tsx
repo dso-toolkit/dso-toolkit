@@ -56,6 +56,12 @@ export class Autosuggest {
   loading: boolean = false;
 
   /**
+   * Label for progress indicator when loading.
+   */
+  @Prop()
+  loadingLabel?: string = "Een moment geduld.";
+
+  /**
    * Whether the previous suggestions will be presented when the input gets focus again.
    */
   @Prop()
@@ -339,7 +345,7 @@ export class Autosuggest {
         <slot />
         {this.loading
           ? <div class="autosuggest-progress-box">
-              <dso-progress-indicator></dso-progress-indicator>
+              <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
             </div>
           : <ul
               role="listbox"

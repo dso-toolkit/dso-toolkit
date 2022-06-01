@@ -13,6 +13,7 @@ export class AutosuggestTemplate extends React.Component<Autosuggest> {
         onDsoSearch={this.props.onSearch}
         suggestOnFocus={this.props.suggestOnFocus}
         loading={this.props.loading}
+        loadingLabel={this.props.loadingLabel}
       >
         {this.props.children}
       </DsoAutosuggest>

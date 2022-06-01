@@ -1,5 +1,6 @@
 import { Autosuggest } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 export function autosuggestTemplate(
   {
@@ -8,7 +9,8 @@ export function autosuggestTemplate(
     onChange,
     onSearch,
     suggestOnFocus,
-    loading
+    loading,
+    loadingLabel
   }: Autosuggest,
   children: TemplateResult
 ) {
@@ -20,6 +22,7 @@ export function autosuggestTemplate(
       @dsoSearch=${onSearch}
       ?suggest-on-focus=${suggestOnFocus}
       ?loading=${loading}
+      loading-label=${ifDefined(loadingLabel)}
     >
       ${children}
     </dso-autosuggest>

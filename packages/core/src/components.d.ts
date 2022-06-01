@@ -35,6 +35,10 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * Label for progress indicator when loading.
+         */
+        "loadingLabel"?: string;
+        /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
         "suggestOnFocus": boolean;
@@ -465,6 +469,10 @@ declare namespace LocalJSX {
           * Whether component is busy loading results. Shows progress indicator.
          */
         "loading"?: boolean;
+        /**
+          * Label for progress indicator when loading.
+         */
+        "loadingLabel"?: string;
         /**
           * This is emitted debounced for every change for the slotted input type=text element.
          */
