@@ -11,6 +11,7 @@ interface AutosuggestDemoTemplateProps {
   onChange: (value: CustomEvent<string>) => void;
   onSearch: (value: CustomEvent<string>) => void;
   suggestOnFocus: boolean;
+  loading: boolean;
 }
 
 interface AutosuggestDemoTemplateState {
@@ -43,6 +44,7 @@ class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<type
           onSearch={this.props.onSearch}
           suggestions={this.state.suggestions}
           suggestOnFocus={this.props.suggestOnFocus}
+          loading={this.props.loading}
         >
           <input id="autosuggestInputId" type="text" className="form-control" />
         </AutosuggestTemplate>

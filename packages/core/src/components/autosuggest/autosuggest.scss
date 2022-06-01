@@ -9,7 +9,8 @@ $dso-autosuggest-border: rgba(0, 0, 0, 0.15);
   position: relative;
 }
 
-ul {
+ul,
+.autosuggest-progress-box {
   background-clip: padding-box;
   background-color: $dso-autosuggest-bg;
   border: 1px solid $dso-autosuggest-border;
@@ -23,6 +24,14 @@ ul {
   right: 0;
   top: 100%;
   z-index: $zx-autosuggest;
+}
+
+.autosuggest-progress-box {
+  padding: 12px;
+}
+
+ul {
+  padding: 4px 0;
 
   li {
     display: flex;

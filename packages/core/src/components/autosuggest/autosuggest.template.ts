@@ -7,7 +7,8 @@ export function autosuggestTemplate(
     onSelect,
     onChange,
     onSearch,
-    suggestOnFocus
+    suggestOnFocus,
+    loading
   }: Autosuggest,
   children: TemplateResult
 ) {
@@ -18,6 +19,7 @@ export function autosuggestTemplate(
       @dsoChange=${onChange}
       @dsoSearch=${onSearch}
       ?suggest-on-focus=${suggestOnFocus}
+      ?loading=${loading}
     >
       ${children}
     </dso-autosuggest>

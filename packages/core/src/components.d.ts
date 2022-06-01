@@ -31,6 +31,10 @@ export namespace Components {
     }
     interface DsoAutosuggest {
         /**
+          * Whether component is busy loading results. Shows progress indicator.
+         */
+        "loading": boolean;
+        /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
         "suggestOnFocus": boolean;
@@ -457,6 +461,10 @@ declare namespace LocalJSX {
         "count": number;
     }
     interface DsoAutosuggest {
+        /**
+          * Whether component is busy loading results. Shows progress indicator.
+         */
+        "loading"?: boolean;
         /**
           * This is emitted debounced for every change for the slotted input type=text element.
          */

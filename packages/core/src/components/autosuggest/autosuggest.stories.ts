@@ -7,7 +7,7 @@ import readme from "./readme.md";
 
 type AutosuggestConnector = (parameters: Parameters<Parameters<typeof storiesOfAutosuggest>[1]['autosuggestDemoTemplate']>) => Parameters<typeof autosuggestTemplate>[0];
 
-const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus]) => ({
+const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading]) => ({
   suggestions: [],
   onChange: function (e) {
     onChange(e);
@@ -21,7 +21,8 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
   },
   onSelect,
   onSearch,
-  suggestOnFocus
+  suggestOnFocus,
+  loading
 })
 
 storiesOfAutosuggest<TemplateResult>(
@@ -31,22 +32,22 @@ storiesOfAutosuggest<TemplateResult>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus) => html`
+    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading) => html`
       <label for="autosuggestInputId">Label voor input</label>
       ${autosuggestTemplate(
-        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus]),
+        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading]),
         html`
           <input id="autosuggestInputId" type="text" class="form-control">
         `)}
       <pre id="suggestions-demo">[]</pre>
     `,
-    autosuggestInSearchBarTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus) => html`
+    autosuggestInSearchBarTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading) => html`
       <div class="dso-search-bar">
         <div class="dso-search-bar-input">
           <label for="search-bar--with-value">Label</label>
           <span class="dso-search-icon" aria-hidden="true"></span>
           ${autosuggestTemplate(
-            autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus]),
+            autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading]),
             html`
             <input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'">
           `)}

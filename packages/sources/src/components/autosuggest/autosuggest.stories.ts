@@ -11,7 +11,8 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   onSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
   onChange: (event: CustomEvent<string>) => void,
   onSearch: (event: CustomEvent<string>) => void,
-  suggestOnFocus: boolean
+  suggestOnFocus: boolean,
+  loading: boolean
 ) => TemplateFnReturnType;
 
 export interface AutosuggestParameters<TemplateFnReturnType> {
@@ -38,6 +39,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
       argTypes: autosuggestArgTypes,
       args: {
         suggestOnFocus: false,
+        loading: false
       },
     });
 
@@ -46,7 +48,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
     (a: Args) => {
       const args = a as AutosuggestArgs;
 
-      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus);
+      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading);
     }
   );
 
@@ -60,7 +62,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
 
         const args = a as AutosuggestArgs;
 
-        return autosuggestInSearchBarTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus);
+        return autosuggestInSearchBarTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading);
       }
     );
   }

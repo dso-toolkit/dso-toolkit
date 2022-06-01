@@ -4,6 +4,7 @@ import { ArgTypes } from '../../stories-helpers';
 
 export interface AutosuggestArgs {
   suggestOnFocus: boolean;
+  loading: boolean;
   onSelect: HandlerFunction;
   onChange: HandlerFunction;
   onSearch: HandlerFunction;
@@ -11,6 +12,11 @@ export interface AutosuggestArgs {
 
 export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
   suggestOnFocus: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  loading: {
     control: {
       type: 'boolean',
     },
