@@ -43,6 +43,7 @@ export interface Suggestion {
 
 | Property         | Attribute          | Description                                                                                                                                                                                                                                               | Type           | Default |
 | ---------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------- |
+| `loading`        | `loading`          | Whether component is busy loading results. Shows progress indicator.                                                                                                                                                                                      | `boolean`      | `false` |
 | `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                       | `boolean`      | `false` |
 | `suggestions`    | --                 | The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. | `Suggestion[]` | `[]`    |
 
@@ -55,6 +56,19 @@ export interface Suggestion {
 | `dsoSearch` | Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.                  | `CustomEvent<string>`     |
 | `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [dso-progress-indicator](../progress-indicator)
+
+### Graph
+```mermaid
+graph TD;
+  dso-autosuggest --> dso-progress-indicator
+  style dso-autosuggest fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
