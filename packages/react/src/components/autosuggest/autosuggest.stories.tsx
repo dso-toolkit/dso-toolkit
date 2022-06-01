@@ -61,13 +61,14 @@ storiesOfAutosuggest<JSX.Element>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus) => (
+    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading) => (
       <AutosuggestDemoTemplate
         fetchSuggestions={fetchSuggestions}
         onChange={onChange}
         onSelect={onSelect}
         onSearch={onSearch}
         suggestOnFocus={suggestOnFocus}
+        loading={loading}
       />
     )
   }
