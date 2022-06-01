@@ -87,6 +87,8 @@ export * from './components/progress-indicator/progress-indicator.models';
 export * from './components/progress-indicator/progress-indicator.stories';
 export * from './components/row-equal-heights/row-equal-heights.models';
 export * from './components/row-equal-heights/row-equal-heights.stories';
+export * from './components/search-bar/search-bar.models';
+export * from './components/search-bar/search-bar.stories';
 export * from './components/selectable/selectable.models';
 export * from './components/selectable/selectable.stories';
 export * from './components/shopping-cart/shopping-cart.models';
