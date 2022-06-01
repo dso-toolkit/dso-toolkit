@@ -6,6 +6,7 @@ import { Tooltip, tooltipPositions } from './tooltip.models';
 
 export interface TooltipArgs {
   active?: boolean;
+  descriptive?: boolean;
   position: typeof tooltipPositions;
   label?: string;
   id?: string;
@@ -14,6 +15,11 @@ export interface TooltipArgs {
 
 export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
   active: {
+    control: {
+      type: 'boolean'
+    }
+  },
+  descriptive: {
     control: {
       type: 'boolean'
     }
@@ -42,6 +48,7 @@ export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
 export function tooltipArgsMapper(a: TooltipArgs): Tooltip {
   return {
     active: a.active,
+    descriptive: a.descriptive,
     label: a.label || `Ik sta "${a.position}"`,
     position: a.position,
     id: a.id

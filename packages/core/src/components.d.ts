@@ -221,6 +221,10 @@ export namespace Components {
          */
         "deactivate": () => Promise<void>;
         /**
+          * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
+         */
+        "descriptive": boolean;
+        /**
           * Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown.
          */
         "for"?: string | HTMLElement;
@@ -664,6 +668,10 @@ declare namespace LocalJSX {
           * Whether or not to show the tooltip. To control the tooltip add the `active` attribute or use the `activate()` and `deactivate()` instance methods.
          */
         "active"?: boolean;
+        /**
+          * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
+         */
+        "descriptive"?: boolean;
         /**
           * Specify target element that the tooltip will describe and listens to for events. * `undefined`: The direct parent is used. * `string`: The element is located using `document.getElementById()` * `HTMLElement`: Pass the target element directly If the element is not found an Error is thrown.
          */
