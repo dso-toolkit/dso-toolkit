@@ -30,7 +30,7 @@ function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
   return false;
 }
 
-export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }: ShoppingCart) {
+export function shoppingCartTemplate({ collapsable, collapsed, hideSummary, removeAll, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }: ShoppingCart) {
   return html`
     ${ shoppingcartTitleTag == 'h2'
       ? html`
@@ -47,18 +47,23 @@ export function shoppingCartTemplate({ collapsed, hideSummary, removeAll, isOpen
           ? html`
             ${!hideSummary
               ? html`
-                <button
-                  type="button"
-                  class="dso-status"
-                  aria-expanded="${ifDefined(collapsed ? 'false' : 'true')}">
-                  ${!collapsed ? html`
-                    ${iconTemplate({ icon: 'chevron-up' })}
-                  `
-                  : html`
-                    ${iconTemplate({ icon: 'chevron-down' })}
-                  `}
-                  U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen
-                </button>
+                ${!collapsable
+                  ? html `
+                  <button
+                    type="button"
+                    class="dso-status"
+                    aria-expanded="${ifDefined(collapsed ? 'false' : 'true')}">
+                    ${!collapsed ? html`
+                      ${iconTemplate({ icon: 'chevron-up' })}
+                    `
+                    : html`
+                      ${iconTemplate({ icon: 'chevron-down' })}
+                    `}
+                    U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen
+                  </button>`
+                : html `
+                  <span class="dso-status">U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen</span>
+                `}
                 ${removeAll
                 ? buttonTemplate({ type: 'button', modifier: 'dso-delete', variant: null, label: 'Verwijder alle activiteiten', icon: { icon: 'trash' }, iconMode: 'only' })
                   : nothing
