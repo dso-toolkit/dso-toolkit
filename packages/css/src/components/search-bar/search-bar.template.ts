@@ -41,15 +41,15 @@ export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, place
           id=${id}
           placeholder=${ifDefined(placeholder || undefined)}
           value=${ifDefined(value || undefined)}
-          aria-describedby=${ifDefined(ariaDescribedBy)}
-          aria-invalid=${ifDefined(!invalid || undefined)}
+          aria-describedby=${ifDefined(ariaDescribedBy || undefined)}
+          aria-invalid=${ifDefined(!!invalid || undefined)}
         >
       </div>
       <button class="dso-secondary ${classMap({ 'sr-only': !!hideSearchButton })}">
         ${buttonLabel}
       </button>
     </div>
-    ${ifDefined(resultsMessage) ?
+    ${resultsMessage ?
       html`
         <div class="dso-results ${classMap({ 'sr-only': resultsHidden })}" aria-live="polite">
           ${resultsMessage}
