@@ -1,4 +1,5 @@
 export interface ShoppingCart {
+  collapsable?: boolean;
   collapsed?: boolean;
   hideSummary?: boolean;
   removeAll?: boolean;
