@@ -1,0 +1,25 @@
+@import "../../form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@import "../../form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+
+@import "../../../../../../sources/src/styling/variables";
+@import "../../../../../../sources/src/styling/mixins";
+
+.form-group.dso-checkboxes {
+  &.dso-invalid {
+    .dso-selectable {
+      @include selectable_invalid();
+    }
+  }
+
+  &.dso-required {
+    .control-label::after {
+      @include form-group-required();
+    }
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    .dso-field-container {
+      padding-top: #{$padding-base-vertical + 1};
+    }
+  }
+}
