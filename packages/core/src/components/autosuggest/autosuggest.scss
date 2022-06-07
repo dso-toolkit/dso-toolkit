@@ -18,7 +18,7 @@ ul,
   box-shadow: $dso-autosuggest-box-shadow;
   list-style-type: none;
   margin-top: 2px;
-  padding: 4px 0;
+  padding: $dso-unit * 0.5 0;
   position: absolute;
   left: 0;
   right: 0;
@@ -27,16 +27,16 @@ ul,
 }
 
 .autosuggest-progress-box {
-  padding: 12px;
+  padding: $dso-unit * 1.5 $u1;
 }
 
 ul {
-  padding: 4px 0;
+  padding: $u1 0;
 
   li {
     display: flex;
     justify-content: space-between;
-    padding: 4px 18px;
+    padding: $dso-unit * 0.5 $u2;
   }
 }
 
