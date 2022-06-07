@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **core:** Dropdown menu sluit niet meer bij selecteren van item ([#1580](https://github.com/dso-toolkit/dso-toolkit/issues/1580))
+* **css + dso-toolkit + sources:** Shopping Cart 'non-collapsable' variant toevoegen ([#1581](https://github.com/dso-toolkit/issues/1581))
 
 ## 38.0.0
 
@@ -24,7 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** WCAG verbeteringen voor helpcenter-panel ([#1577](https://github.com/dso-toolkit/dso-toolkit/issues/1577))
 
 ### Fixed
-* **BREAKING: css + core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1581](https://github.com/dso-toolkit/dso-toolkit/issues/1548)) **Markup changes, see PR ([#1578](https://github.com/dso-toolkit/dso-toolkit/pull/1578))**
+* **BREAKING: css + core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548)) **Markup changes, see PR ([#1578](https://github.com/dso-toolkit/dso-toolkit/pull/1578))**
 
 ## 37.0.0
 
