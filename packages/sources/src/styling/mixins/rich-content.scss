@@ -1,6 +1,6 @@
 $rich-content-margin-bottom: $dso-vertical-spacing-medium;
 
-@mixin rich-content() {
+@mixin rich-content_children() {
   p {
     margin: 0 0 $rich-content-margin-bottom;
   }

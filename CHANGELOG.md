@@ -5,12 +5,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1558)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
+
+### Fixed
+* **BREAKING: css + core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548)) **Markup changes, see PR ([#1578](https://github.com/dso-toolkit/dso-toolkit/pull/1578))**
+
+## 37.0.0
+
 ### Added
 * **core:** `<dso-ozon-content inline>` en ondersteuning voor `<Opschrift>` ([#1530](https://github.com/dso-toolkit/dso-toolkit/issues/1530))
+* **core:** `<dso-ozon-content deleted>` voor het markeren van verwijderde content ([#1518](https://github.com/dso-toolkit/dso-toolkit/issues/1518))
 * **sources + dso-toolkit + css + core:** Badge; `badge-outline` toevoegen ([#1534]https://github.com/dso-toolkit/dso-toolkit/issues/1534)
 
 ### Removed
 * **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
+* **dso-toolkit + css + core:** sr-only tekst uit badges verwijderen ([#1570](https://github.com/dso-toolkit/dso-toolkit/issues/1570))
 
 ### Fixed
 * **BREAKING: dso-toolkit + css:** Shopping cart: ontbrekend aria-expanded attribuut op button ([#1511](https://github.com/dso-toolkit/dso-toolkit/issues/1511)) **Markup changes, see PR ([#1562](https://github.com/dso-toolkit/dso-toolkit/pull/1562))**
@@ -22,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + core + dso-toolkit + sources:** Step counter icoon moet op bosgroen staan ([#1557](https://github.com/dso-toolkit/dso-toolkit/issues/1557))
 * **dso-toolkit + css:** Uitbreiding Shopping Cart met functie 'alles verwijderen' ([#1510](https://github.com/dso-toolkit/dso-toolkit/issues/1510))
 * **dso-toolkit + css:** Shopping cart: labels knoppen ([#1512](https://github.com/dso-toolkit/dso-toolkit/issues/1512))
+* **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1557)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
 
 ## 36.3.0
 

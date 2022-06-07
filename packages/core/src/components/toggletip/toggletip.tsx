@@ -42,8 +42,6 @@ export class Toggletip {
     }
 
     this.button = button;
-
-    this.host.setAttribute("tabindex", "-1");
   }
 
   click = () => {
@@ -90,6 +88,7 @@ export class Toggletip {
         />
         <dso-tooltip
           stateless
+          descriptive
           for="toggle"
           active={this.active}
           position={this.position}

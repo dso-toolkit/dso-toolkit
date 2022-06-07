@@ -1,8 +1,9 @@
-import { bindTemplate, StorybookParameters } from "../../stories-helpers";
+import { bindTemplate, componentArgs, StorybookParameters } from "../../stories-helpers";
 
 import {
   ozonContentArgTypes,
   ozonContentArgsMapper,
+  OzonContentArgs,
 } from "./ozon-content.args";
 import { content } from "./ozon-content.content";
 import { OzonContent } from "./ozon-content.models";
@@ -28,11 +29,12 @@ export function storiesOfOzonContent<TemplateFnReturnType>(
 
   content.forEach((story) => {
     stories.add(story.title, template, {
-      args: {
+      args: componentArgs<Omit<OzonContentArgs, 'onAnchorClick'>>({
         content: story.content,
         inline: false,
+        deleted: false,
         ...story.args
-      },
+      }),
     });
   });
 }

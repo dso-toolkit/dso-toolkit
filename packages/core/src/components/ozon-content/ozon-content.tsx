@@ -1,4 +1,4 @@
-import { Component,  ComponentInterface,  Event,  EventEmitter,  Prop,  State } from '@stencil/core';
+import { h, Component,  ComponentInterface,  Event,  EventEmitter,  Prop,  State } from '@stencil/core';
 
 import { Mapper } from './ozon-content-mapper';
 import { OzonContentContext } from './ozon-content-context.interface';
@@ -23,6 +23,12 @@ export class OzonContent implements ComponentInterface {
   @Prop({ reflect: true })
   inline: boolean = false;
 
+  /**
+   * Marks content as deleted using visual and accessible clues.
+   */
+  @Prop({ reflect: true })
+  deleted = false;
+
   @State()
   state: OzonContentNodeState = {};
 
@@ -38,6 +44,18 @@ export class OzonContent implements ComponentInterface {
       emitAnchorClick: this.anchorClick.emit
     };
 
-    return this.mapper.transform(this.content ?? '', context);
+    const transformed = this.mapper.transform(this.content ?? '', context);
+
+    if (this.deleted) {
+      return (
+        <section>
+          <span class="deleted-start">Begin verwijderd element</span>
+          {transformed}
+          <span class="deleted-end">Einde verwijderd element</span>
+        </section>
+      );
+    }
+
+    return transformed;
   }
 }
