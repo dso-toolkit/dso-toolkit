@@ -4,6 +4,7 @@ interface ViewerGridDemoProperties {
   filterpanelOpen: boolean;
   overlayOpen: boolean;
   noOverlay: boolean;
+  initialMainSize?: "small" | "medium" | "large";
   mainSizeChange: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   closeOverlay: (e: MouseEvent) => void;
   filterpanelCancel: (e: MouseEvent) => void;
@@ -30,6 +31,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   overlay: TemplateFnReturnType;
   overlayOpen: boolean;
   noOverlay: boolean;
+  initialMainSize?: "small" | "medium" | "large";
   mainSizeChange: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   closeOverlay: (e: MouseEvent) => void;
   filterpanelCancel: (e: MouseEvent) => void;
