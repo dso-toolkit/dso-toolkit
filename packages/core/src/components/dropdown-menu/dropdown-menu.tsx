@@ -1,4 +1,4 @@
-import { Component, h, Prop, Watch, Element, Fragment } from "@stencil/core";
+import { Component, h, Prop, Element, Host } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
@@ -43,15 +43,6 @@ export class DropdownMenu {
     return tabbable(this.host).filter((e) => e !== this.button);
   }
 
-  @Watch("open")
-  openWatch(open: boolean) {
-    if (open) {
-      this.openPopup();
-    } else {
-      this.closePopup();
-    }
-  }
-
   connectedCallback() {
     this.button.setAttribute("aria-haspopup", "menu");
     this.button.setAttribute("aria-expanded", "false");
@@ -77,10 +68,6 @@ export class DropdownMenu {
         li.setAttribute("role", "none");
       }
     }
-
-    if (this.open) {
-      this.openPopup();
-    }
   }
 
   componentDidRender() {
@@ -94,26 +81,19 @@ export class DropdownMenu {
         }
       }
     }
-  }
 
-  openPopup() {
-    this.host.setAttribute("tabindex", "-1");
-    this.host.addEventListener("keydown", this.keyDownListener);
-    this.host.addEventListener("focusout", this.focusOutListener);
-    this.button.setAttribute("aria-expanded", "true");
-    this.tabbables.forEach((tabbable) =>
-      tabbable.addEventListener("click", this.escape)
-    );
-  }
-
-  closePopup() {
     this.host.removeEventListener("keydown", this.keyDownListener);
-    this.host.removeEventListener("focusout", this.focusOutListener);
-    this.button.setAttribute("aria-expanded", "false");
-    this.host.removeAttribute("tabindex");
-    this.tabbables.forEach((tabbable) =>
-      tabbable.removeEventListener("click", this.escape)
-    );
+    this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
+    if (this.open) {
+      this.host.addEventListener("keydown", this.keyDownListener);
+    }
+
+    this.tabbables.forEach((tabbable) => {
+      tabbable.removeEventListener("click", this.escape);
+      if (this.open) {
+        tabbable.addEventListener("click", this.escape);
+      }
+    });
   }
 
   focusOutListener = (event: FocusEvent) => {
@@ -189,12 +169,15 @@ export class DropdownMenu {
 
   render() {
     return (
-      <>
+      <Host
+        onFocusout={this.focusOutListener}
+        tabindex={this.open ? "-1" : undefined}
+      >
         <slot name="toggle" />
         <div hidden={!this.open}>
           <slot />
         </div>
-      </>
+      </Host>
     );
   }
 }
