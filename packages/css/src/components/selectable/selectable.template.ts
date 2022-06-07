@@ -29,7 +29,7 @@ export function selectableTemplate({
         name=${ifDefined(name)}
         aria-invalid=${ifDefined(invalid)}
         aria-describedby=${ifDefined(describedById)}
-        @change=${(e: Event) => onChange(e)}
+        @change=${(e: Event) => onChange?.(e)}
         ?disabled=${disabled}
         ?required=${required}
         ?checked=${checked}

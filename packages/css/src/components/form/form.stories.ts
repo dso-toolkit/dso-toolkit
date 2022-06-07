@@ -2,6 +2,7 @@ import { storiesOfForm } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 
+import { formGroupCheckboxesTemplate } from './form-groups/checkboxes/form-group-checkboxes.template';
 import { formGroupInputTemplate } from './form-groups/input/form-group-input.template';
 
 import { formTemplate } from './form.template';
@@ -16,6 +17,7 @@ storiesOfForm(
   {
     formTemplate,
     formGroupDecorator: story => html`<form><fieldset><legend>Example</legend>${story()}</fieldset></form>`,
+    formGroupCheckboxesTemplate,
     formGroupInputTemplate
   }
 );

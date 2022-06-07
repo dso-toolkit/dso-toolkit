@@ -31,7 +31,7 @@ export function selectableTemplate({
       checked={checked}
       indeterminate={indeterminate}
       infoFixed={info?.fixed}
-      dsoChange={(e: CustomEvent<Event>) => onChange(e.detail)}
+      dsoChange={(e: CustomEvent<Event>) => onChange?.(e.detail)}
     >
       {label}
       {info?.richContent ?? ''}
