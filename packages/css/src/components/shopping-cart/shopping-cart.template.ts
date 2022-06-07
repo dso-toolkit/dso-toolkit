@@ -47,7 +47,7 @@ export function shoppingCartTemplate({ collapsable, collapsed, hideSummary, remo
           ? html`
             ${!hideSummary
               ? html`
-                ${!collapsable
+                ${collapsable
                   ? html `
                   <button
                     type="button"
@@ -65,7 +65,7 @@ export function shoppingCartTemplate({ collapsable, collapsed, hideSummary, remo
                   <span class="dso-status">U heeft ${countItems(items)} activiteit${((countItems(items) > 1) ? html`en` : nothing )} gekozen</span>
                 `}
                 ${removeAll
-                ? buttonTemplate({ type: 'button', modifier: 'dso-delete', variant: null, label: 'Verwijder alle activiteiten', icon: { icon: 'trash' }, iconMode: 'only' })
+                  ? buttonTemplate({ type: 'button', modifier: 'dso-delete', variant: null, label: 'Verwijder alle activiteiten', icon: { icon: 'trash' }, iconMode: 'only' })
                   : nothing
             }
               `
