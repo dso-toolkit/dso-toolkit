@@ -31,11 +31,11 @@ export namespace Components {
     }
     interface DsoAutosuggest {
         /**
-          * Whether component is busy loading results. Shows progress indicator.
+          * Shows progress indicator when fetching results.
          */
         "loading": boolean;
         /**
-          * Label for progress indicator when loading.
+          * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
         /**
@@ -466,11 +466,11 @@ declare namespace LocalJSX {
     }
     interface DsoAutosuggest {
         /**
-          * Whether component is busy loading results. Shows progress indicator.
+          * Shows progress indicator when fetching results.
          */
         "loading"?: boolean;
         /**
-          * Label for progress indicator when loading.
+          * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
         /**

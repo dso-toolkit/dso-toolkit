@@ -50,13 +50,13 @@ export class Autosuggest {
   readonly suggestions: Suggestion[] = [];
 
   /**
-   * Whether component is busy loading results. Shows progress indicator.
+   * Shows progress indicator when fetching results.
    */
   @Prop()
   loading: boolean = false;
 
   /**
-   * Label for progress indicator when loading.
+   * To override progress indicator's default loading label.
    */
   @Prop()
   loadingLabel?: string = "Een moment geduld.";
@@ -352,7 +352,7 @@ export class Autosuggest {
               id={this.listboxId}
               aria-labelledby={this.labelId}
               ref={element => this.listbox = element}
-              hidden={!this.showSuggestions || this.loading}
+              hidden={!this.showSuggestions}
             >
               {this.showSuggestions
                 ? this.suggestions.map((suggestion) => (
