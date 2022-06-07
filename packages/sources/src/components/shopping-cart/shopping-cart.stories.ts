@@ -70,7 +70,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
     template,
     {
       args: componentArgs<Pick<ShoppingCartArgs, 'collapsable' | 'removeAll' | 'items'>>({
-        collapsable: true,
+        collapsable: false,
         removeAll: true,
         items: [
           {
