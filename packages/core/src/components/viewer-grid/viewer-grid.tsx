@@ -41,6 +41,9 @@ export class ViewerGrid {
   @Prop({ reflect: true })
   overlayOpen = false;
 
+  @Prop()
+  initialMainSize: MainSize | undefined;
+
   @State()
   mainSize: MainSize = "large";
 
@@ -138,6 +141,10 @@ export class ViewerGrid {
     this.overlaySlot = this.host.querySelector<HTMLDivElement>(
       "div[slot='overlay']"
     );
+
+    if (this.initialMainSize) {
+      this.mainSize = this.initialMainSize;
+    }
   }
 
   componentDidLoad() {

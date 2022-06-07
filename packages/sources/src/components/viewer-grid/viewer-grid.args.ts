@@ -9,6 +9,7 @@ interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;
   noOverlay: boolean;
+  initialMainSize: "small" | "medium" | "large";
   mainSizeChange: HandlerFunction;
   closeOverlay: HandlerFunction;
   filterpanelCancel: HandlerFunction;
@@ -47,6 +48,12 @@ export const viewerGridWithSearchResultsArgTypes: ArgTypes<ViewerGridWithSearchR
     control: {
       type: "boolean",
     },
+  },
+  initialMainSize: {
+    options: ['small', 'medium', 'large'],
+    control: {
+      type: 'select',
+    }
   },
   mainSizeChange: {
     ...noControl,

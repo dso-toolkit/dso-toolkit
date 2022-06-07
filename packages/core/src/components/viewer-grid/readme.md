@@ -5,10 +5,11 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type      | Default |
-| ----------------- | ------------------ | ----------- | --------- | ------- |
-| `filterpanelOpen` | `filterpanel-open` |             | `boolean` | `false` |
-| `overlayOpen`     | `overlay-open`     |             | `boolean` | `false` |
+| Property          | Attribute           | Description | Type                                          | Default     |
+| ----------------- | ------------------- | ----------- | --------------------------------------------- | ----------- |
+| `filterpanelOpen` | `filterpanel-open`  |             | `boolean`                                     | `false`     |
+| `initialMainSize` | `initial-main-size` |             | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
+| `overlayOpen`     | `overlay-open`      |             | `boolean`                                     | `false`     |
 
 
 ## Events

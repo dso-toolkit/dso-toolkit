@@ -9,6 +9,7 @@ export function viewerGridTemplate({
   noOverlay,
   filterpanelOpen,
   overlayOpen,
+  initialMainSize,
   mainSizeChange,
   filterpanelApply,
   filterpanelCancel,
@@ -18,6 +19,7 @@ export function viewerGridTemplate({
     ? html`
         <dso-viewer-grid
           ?overlay-open=${overlayOpen}
+          initial-main-size=${initialMainSize}
           @closeOverlay=${closeOverlay}
         >
           <div slot="main">${main}</div>
@@ -28,6 +30,7 @@ export function viewerGridTemplate({
         <dso-viewer-grid
           ?filterpanel-open=${filterpanelOpen}
           ?overlay-open=${overlayOpen}
+          initial-main-size=${initialMainSize}
           @mainSizeChange=${mainSizeChange}
           @closeOverlay=${closeOverlay}
           @filterpanelApply=${filterpanelApply}

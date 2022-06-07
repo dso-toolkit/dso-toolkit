@@ -253,6 +253,7 @@ export namespace Components {
     }
     interface DsoViewerGrid {
         "filterpanelOpen": boolean;
+        "initialMainSize": MainSize | undefined;
         "overlayOpen": boolean;
     }
 }
@@ -713,6 +714,7 @@ declare namespace LocalJSX {
     }
     interface DsoViewerGrid {
         "filterpanelOpen"?: boolean;
+        "initialMainSize"?: MainSize | undefined;
         "onCloseOverlay"?: (event: CustomEvent<MouseEvent | KeyboardEvent>) => void;
         "onFilterpanelApply"?: (event: CustomEvent<FilterpanelEvent>) => void;
         "onFilterpanelCancel"?: (event: CustomEvent<FilterpanelEvent>) => void;
