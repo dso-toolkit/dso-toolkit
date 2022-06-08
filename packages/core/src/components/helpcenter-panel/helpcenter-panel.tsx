@@ -54,19 +54,22 @@ export class HelpcenterPanel {
           type="button"
           onClick={this.openClick}
           class={`open-button ${this.isOpen}`}
+          aria-expanded="false"
+          aria-haspopup="dialog"
         >
           <dso-icon icon="help"></dso-icon>
           <span>{this.label}</span>
         </button>
         <div class={`wrapper ${this.visibility}`}>
-          <div class="dimscreen" />
-          <div class={`iframe-container ${this.slideState}`}>
+          <div class="dimscreen" onClick={this.closeClick} />
+          <div class={`iframe-container ${this.slideState}`} aria-live="polite">
             {this.loadIframe ? <iframe src={this.url} /> : <div />}
           </div>
           <button
             type="button"
             class={`close-button ${this.isOpen}`}
             onClick={this.closeClick}
+            aria-expanded="true"
           >
             <span class="sr-only">sluiten</span>
           </button>
