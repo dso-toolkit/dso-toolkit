@@ -18,7 +18,7 @@
   }
 
   @media screen and (min-width: $screen-sm-min) {
-    .dso-field-container {
+    .form-horizontal & .dso-field-container {
       padding-top: #{$padding-base-vertical + 1};
     }
   }
