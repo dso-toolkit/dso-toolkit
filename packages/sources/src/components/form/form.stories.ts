@@ -2,14 +2,17 @@ import { bindTemplate, StorybookParameters,  } from '../../stories-helpers';
 
 import { formArgsMapper, formArgTypes } from './form.args';
 import {  } from './content/form.content';
-import { Form, FormGroupInput, FormGroupInputDate } from './form.models';
+import { Form, FormGroupCheckboxes, FormGroupInput, FormGroupInputDate } from './form.models';
+import { formGroupCheckboxesArgsMapper, formGroupCheckboxesArgTypes } from './form-groups/checkboxes/form-group-checkboxes.args';
 import { formGroupInputArgsMapper, formGroupInputArgTypes } from './form-groups/input/form-group-input.args';
 import { inputContent } from './content/input.content';
+import { checkboxesContent } from './content/checkboxes.content';
 import { DecoratorFunction } from '@storybook/addons';
 
 export interface FormParameters<TemplateFnReturnType> {
   formTemplate: (form: Form<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupDecorator: DecoratorFunction<TemplateFnReturnType>;
+  formGroupCheckboxesTemplate: (formGroupCheckboxes: FormGroupCheckboxes<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
@@ -22,6 +25,7 @@ export function storiesOfForm<TemplateFnReturnType>(
   {
     formTemplate,
     formGroupDecorator,
+    formGroupCheckboxesTemplate,
     formGroupInputTemplate
   }: FormParameters<TemplateFnReturnType>
 ) {
@@ -45,5 +49,17 @@ export function storiesOfForm<TemplateFnReturnType>(
     })
     .addDecorator(formGroupDecorator)
     .add('input', bindTemplate(formGroupInputArgsMapper, formGroupInputTemplate)
+  );
+
+  storiesOf('Form/groups/checkboxes', mainModule)
+    .addParameters({
+      argTypes: formGroupCheckboxesArgTypes,
+      args: checkboxesContent,
+      docs: {
+        page: readme
+      }
+    })
+    .addDecorator(formGroupDecorator)
+    .add('checkboxes', bindTemplate(formGroupCheckboxesArgsMapper, formGroupCheckboxesTemplate)
   );
 }

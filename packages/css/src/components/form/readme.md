@@ -29,3 +29,6 @@ Dit is een standaard invoerveld (`<input>`). Dit veld wordt gekoppeld aan een `<
 * Gebruik `type="url"` voor het invoeren van URLs.
 * Gebruik `type="tel"` voor het invoeren van een telefoonnummer.
 * Gebruik **niet** `type="date"` maar het Web Component "Date Picker".
+
+### `.form-group.dso-checkboxes`
+Een checkbox group heeft een root element fieldset.form-group, en geen div.form-group.
