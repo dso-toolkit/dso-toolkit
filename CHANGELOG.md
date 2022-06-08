@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 38.0.0
+
 ### Added
 * **sources + core:** Autosuggest loading state toevoegen ([#1582](https://github.com/dso-toolkit/dso-toolkit/issues/1582))
 
@@ -20,7 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **core:** `<dso-ozon-content inline>` en ondersteuning voor `<Opschrift>` ([#1530](https://github.com/dso-toolkit/dso-toolkit/issues/1530))
 * **core:** `<dso-ozon-content deleted>` voor het markeren van verwijderde content ([#1518](https://github.com/dso-toolkit/dso-toolkit/issues/1518))
-* **sources + dso-toolkit + css + core:** Badge; `badge-outline` toevoegen ([#1534]https://github.com/dso-toolkit/dso-toolkit/issues/1534)
+* **sources + dso-toolkit + css + core:** Badge; `badge-outline` toevoegen ([#1534](https://github.com/dso-toolkit/dso-toolkit/issues/1534))
 
 ### Removed
 * **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
