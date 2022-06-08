@@ -2,7 +2,7 @@ $dso-shopping-cart-radius: $u1 * 0.5;
 $dso-shopping-cart-border-color: $grijs-20;
 
 .dso-shopping-cart {
-  button.dso-status {
+  .dso-status {
     background-color: $grijs-5;
     border: 0;
     border-radius: $dso-shopping-cart-radius;
@@ -21,8 +21,13 @@ $dso-shopping-cart-border-color: $grijs-20;
     }
   }
 
-  button.dso-status,
-  button.dso-delete {
+  span.dso-status {
+    display: inline-block;
+    padding-left: $u2;
+  }
+
+  .dso-status,
+  .dso-delete {
     + .dso-items {
       border-top: 1px solid $dso-shopping-cart-border-color;
       border-top-left-radius: 0;

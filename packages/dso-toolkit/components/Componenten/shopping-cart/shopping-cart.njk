@@ -8,14 +8,18 @@
   <div class="dso-contents">
     {%- if items.length > 0 %}
       {%- if not hideSummary %}
-        <button type="button" class="dso-status" aria-expanded="{{ false if collapsed else true }}">
-          {%- if not collapsed -%}
-            <dso-icon icon="chevron-up"></dso-icon>
-          {%- else -%}
-            <dso-icon icon="chevron-down"></dso-icon>
-          {%- endif -%}
-          U heeft {{ items | countSubitems }} activiteit{% if ((items | countSubitems) > 1) %}en{% endif %} gekozen
-        </button>
+        {%- if collapsable == true %}
+          <button type="button" class="dso-status" aria-expanded="{{ false if collapsed else true }}">
+            {%- if not collapsed -%}
+              <dso-icon icon="chevron-up"></dso-icon>
+            {%- else -%}
+              <dso-icon icon="chevron-down"></dso-icon>
+            {%- endif -%}
+            U heeft {{ items.length }} activiteit{% if ((items.length) > 1) %}en{% endif %} gekozen
+          </button>
+        {% else %}
+          <span class="dso-status">U heeft {{ items.length }} activiteit{% if ((items.length) > 1) %}en{% endif %} gekozen</span>
+        {% endif %}
         {% render '@button', {label:'Verwijder alle activiteiten', type:'button', modifier:'dso-delete', icon:'trash', iconOnly: true, tooltip: {label: 'Alles verwijderen', position: 'top'} } %}
       {% endif -%}
       {% if not collapsed %}

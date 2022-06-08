@@ -12,6 +12,7 @@ context:
   shoppingcart:
     shoppingcartTitle: Mijn activiteiten
     shoppingcartTitleTag: h3
+    collapsable: true
     items:
       - label: Andere activiteiten dan kabels en leidingen in het beperkingengebied van een Rijksweg - Aanvraag vergunning
         additive: 1
