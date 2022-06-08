@@ -38,7 +38,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + core + dso-toolkit + sources:** Step counter icoon moet op bosgroen staan ([#1557](https://github.com/dso-toolkit/dso-toolkit/issues/1557))
 * **dso-toolkit + css:** Uitbreiding Shopping Cart met functie 'alles verwijderen' ([#1510](https://github.com/dso-toolkit/dso-toolkit/issues/1510))
 * **dso-toolkit + css:** Shopping cart: labels knoppen ([#1512](https://github.com/dso-toolkit/dso-toolkit/issues/1512))
-* **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1557)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
 
 ## 36.3.0
 
