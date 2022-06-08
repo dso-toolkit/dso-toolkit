@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Fragment } from "@stencil/core";
+import { Component, h, Prop, Element, Host } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
@@ -83,14 +83,9 @@ export class DropdownMenu {
     }
 
     this.host.removeEventListener("keydown", this.keyDownListener);
-    this.host.removeEventListener("focusout", this.focusOutListener);
     this.button.setAttribute("aria-expanded", this.open ? "true" : "false");
     if (this.open) {
       this.host.addEventListener("keydown", this.keyDownListener);
-      this.host.addEventListener("focusout", this.focusOutListener);
-      this.host.setAttribute("tabindex", "-1");
-    } else {
-      this.host.removeAttribute("tabindex");
     }
 
     this.tabbables.forEach((tabbable) => {
@@ -174,12 +169,15 @@ export class DropdownMenu {
 
   render() {
     return (
-      <>
+      <Host
+        onFocusout={this.focusOutListener}
+        tabindex={this.open ? "-1" : undefined}
+      >
         <slot name="toggle" />
         <div hidden={!this.open}>
           <slot />
         </div>
-      </>
+      </Host>
     );
   }
 }
