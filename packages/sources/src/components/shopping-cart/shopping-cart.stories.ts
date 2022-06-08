@@ -28,6 +28,7 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
       },
       argTypes: shoppingCartArgTypes,
       args: componentArgs<ShoppingCartArgs>({
+        collapsable: true,
         collapsed: false,
         hideSummary: false,
         removeAll: false,
@@ -58,6 +59,38 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
             id: uuidv4(),
             label: 'Milieubelastende activiteit - Melding',
             additive: '2'
+          }
+        ]
+      })
+    }
+  );
+
+  stories.add(
+    'items non-collapsable',
+    template,
+    {
+      args: componentArgs<Pick<ShoppingCartArgs, 'collapsable' | 'removeAll' | 'items'>>({
+        collapsable: false,
+        removeAll: true,
+        items: [
+          {
+            id: uuidv4(),
+            label: 'Milieubelastende activiteit - Melding',
+            subitems: [
+              {
+                label: 'Wasstraat of wasplaats'
+              }
+            ]
+          },
+          {
+            id: uuidv4(),
+            label: 'Milieubelastende activiteit - Melding',
+            additive: 'Wasstraat om de hoek van garagebedrijf Jansen',
+            subitems: [
+              {
+                label: 'Wasstraat of wasplaats'
+              }
+            ]
           }
         ]
       })

@@ -8,9 +8,6 @@ function accumulateItems(items) {
 }
 
 module.exports = {
-  countSubitems(items) {
-    return accumulateItems(items).length
-  },
   hasWarning(items) {
     return items && (items.some(a => a.subitems) ? accumulateItems(items) : items)
       .some(a => a.warning);

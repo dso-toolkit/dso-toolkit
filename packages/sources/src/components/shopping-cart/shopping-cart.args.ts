@@ -3,6 +3,7 @@ import { ArgTypes } from '../../stories-helpers';
 import { ShoppingCart, ShoppingCartItem } from './shopping-cart.models';
 
 export interface ShoppingCartArgs {
+  collapsable?: boolean;
   collapsed?: boolean;
   hideSummary?: boolean;
   removeAll?: boolean;
@@ -13,6 +14,11 @@ export interface ShoppingCartArgs {
 }
 
 export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
+  collapsable: {
+    control: {
+      type: 'boolean'
+    }
+  },
   collapsed: {
     control: {
       type: 'boolean'
@@ -53,6 +59,7 @@ export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
 
 export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
   return {
+    collapsable: a.collapsable,
     collapsed: a.collapsed,
     hideSummary: a.hideSummary,
     removeAll: a.removeAll,
