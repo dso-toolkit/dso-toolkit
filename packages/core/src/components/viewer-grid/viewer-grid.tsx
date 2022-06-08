@@ -41,11 +41,14 @@ export class ViewerGrid {
   @Prop({ reflect: true })
   overlayOpen = false;
 
+  /**
+   * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+   */
   @Prop()
-  initialMainSize: MainSize | undefined;
+  initialMainSize: MainSize = "large";
 
   @State()
-  mainSize: MainSize = "large";
+  mainSize: MainSize = this.initialMainSize;
 
   @Event()
   closeOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
@@ -141,24 +144,20 @@ export class ViewerGrid {
     this.overlaySlot = this.host.querySelector<HTMLDivElement>(
       "div[slot='overlay']"
     );
-
-    if (this.initialMainSize) {
-      this.mainSize = this.initialMainSize;
-    }
   }
 
   componentDidLoad() {
     if (this.filterpanel && this.filterpanelSlot) {
       this.filterpanelFocustrap = createFocusTrap([this.filterpanel, this.filterpanelSlot], {
-        escapeDeactivates: false,
-        allowOutsideClick: true,
+          escapeDeactivates: false,
+          allowOutsideClick: true,
       });
     }
 
     if (this.overlay && this.overlaySlot) {
       this.overlayFocustrap = createFocusTrap([this.overlay, this.overlaySlot], {
-        escapeDeactivates: false,
-        allowOutsideClick: true,
+          escapeDeactivates: false,
+          allowOutsideClick: true,
       });
     }
 
@@ -234,7 +233,7 @@ export class ViewerGrid {
             onClick={(e) => this.closeOverlay.emit(e)}
           >
             <dso-icon icon="times"></dso-icon>
-            <span class="sr-only">sluiten</span>
+     <span class="sr-only">sluiten</span>
           </button>
           <slot name="overlay" />
         </div>

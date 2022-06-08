@@ -1,5 +1,6 @@
 import { ViewerGrid } from "@dso-toolkit/sources";
 import { html, TemplateResult } from "lit-html";
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 export function viewerGridTemplate({
   filterpanel,
@@ -19,7 +20,7 @@ export function viewerGridTemplate({
     ? html`
         <dso-viewer-grid
           ?overlay-open=${overlayOpen}
-          initial-main-size=${initialMainSize}
+          initial-main-size=${ifDefined(initialMainSize)}
           @closeOverlay=${closeOverlay}
         >
           <div slot="main">${main}</div>
@@ -30,7 +31,7 @@ export function viewerGridTemplate({
         <dso-viewer-grid
           ?filterpanel-open=${filterpanelOpen}
           ?overlay-open=${overlayOpen}
-          initial-main-size=${initialMainSize}
+          initial-main-size=${ifDefined(initialMainSize)}
           @mainSizeChange=${mainSizeChange}
           @closeOverlay=${closeOverlay}
           @filterpanelApply=${filterpanelApply}
