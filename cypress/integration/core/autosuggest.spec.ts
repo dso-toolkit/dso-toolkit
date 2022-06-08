@@ -292,4 +292,34 @@ describe("Autosuggest", () => {
       },
     });
   });
+
+  it("should show progress indicator when loading attribute is set", () => {
+    cy.get("dso-autosuggest").invoke("attr", "loading", true);
+    cy.get("@input").focus().type("ams");
+    cy.wait(200);
+    cy.get("@listbox").should("not.exist");
+    cy.get("dso-progress-indicator").should("be.visible");
+  });
+
+
+  it("should remove progress indicator when loading attribute is removed", () => {
+    cy.get("dso-autosuggest").invoke("attr", "loading", true);
+    cy.get("@input").focus().type("ams");
+    cy.wait(200);
+    cy.get("@listbox").should("not.exist");
+    cy.get("dso-progress-indicator").should("be.visible");
+    cy.get("dso-autosuggest").invoke("attr", "loading", false);
+    cy.get("dso-progress-indicator").should("not.exist");
+    cy.get("@listbox").should("be.visible");
+  });
+
+  it("should show progress indicator with custom label when loadingLabel attribute is set", () => {
+    cy.get("dso-autosuggest").invoke("attr", "loading", true);
+    cy.get("dso-autosuggest").invoke("attr", "loading-label", "Patience");
+    cy.get("@input").focus().type("ams");
+    cy.wait(200);
+    cy.get("@listbox").should("not.exist");
+    cy.get("dso-progress-indicator").should("be.visible");
+    cy.get("dso-progress-indicator").shadow().find(".dso-progress-indicator-label").should("exist").contains("Patience");
+  });
 });

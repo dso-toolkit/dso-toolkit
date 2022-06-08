@@ -42,12 +42,24 @@ export class Autosuggest {
   /**
    * The suggestions for the value of the slotted input element. Optionally a
    * Suggestion can have a `type` and `item`.
-   * 
+   *
    * The `type` is used to style the suggestion. `item` can be use to reference
    * the original object that was used to create the suggestion.
    */
   @Prop()
   readonly suggestions: Suggestion[] = [];
+
+  /**
+   * Shows progress indicator when fetching results.
+   */
+  @Prop()
+  loading: boolean = false;
+
+  /**
+   * To override progress indicator's default loading label.
+   */
+  @Prop()
+  loadingLabel?: string = "Een moment geduld.";
 
   /**
    * Whether the previous suggestions will be presented when the input gets focus again.
@@ -277,7 +289,7 @@ export class Autosuggest {
   }
 
   onKeyDown = (event: KeyboardEvent) => {
-    if (event.defaultPrevented) {
+    if (event.defaultPrevented || this.loading) {
       return;
     }
 
@@ -331,39 +343,44 @@ export class Autosuggest {
     return (
       <>
         <slot />
-        <ul
-          role="listbox"
-          id={this.listboxId}
-          aria-labelledby={this.labelId}
-          ref={element => this.listbox = element}
-          hidden={!this.showSuggestions}
-        >
-          {this.showSuggestions
-            ? this.suggestions.map((suggestion) => (
-                <li
-                  role="option"
-                  id={this.listboxItemId(suggestion)}
-                  key={suggestion.value}
-                  onMouseEnter={() => this.selectSuggestion(suggestion)}
-                  onMouseLeave={() => this.resetSelectedSuggestion()}
-                  onClick={() => this.pickSelectedValue()}
-                  aria-selected={(suggestion === this.selectedSuggestion).toString()}
-                  aria-label={suggestion.value}
-                >
-                  <span class="value">
-                    {this.markTerms(suggestion.value, terms)}
-                  </span>
-                  {suggestion.type
-                    ? (
-                      <span class="type">{suggestion.type}</span>
-                    )
-                    : undefined
-                  }
-                </li>
-              ))
-            : undefined
-          }
-        </ul>
+        {this.loading
+          ? <div class="autosuggest-progress-box">
+              <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
+            </div>
+          : <ul
+              role="listbox"
+              id={this.listboxId}
+              aria-labelledby={this.labelId}
+              ref={element => this.listbox = element}
+              hidden={!this.showSuggestions}
+            >
+              {this.showSuggestions
+                ? this.suggestions.map((suggestion) => (
+                    <li
+                      role="option"
+                      id={this.listboxItemId(suggestion)}
+                      key={suggestion.value}
+                      onMouseEnter={() => this.selectSuggestion(suggestion)}
+                      onMouseLeave={() => this.resetSelectedSuggestion()}
+                      onClick={() => this.pickSelectedValue()}
+                      aria-selected={(suggestion === this.selectedSuggestion).toString()}
+                      aria-label={suggestion.value}
+                    >
+                      <span class="value">
+                        {this.markTerms(suggestion.value, terms)}
+                      </span>
+                      {suggestion.type
+                        ? (
+                          <span class="type">{suggestion.type}</span>
+                        )
+                        : undefined
+                      }
+                    </li>
+                  ))
+                : undefined
+              }
+            </ul>
+        }
       </>
     );
   }

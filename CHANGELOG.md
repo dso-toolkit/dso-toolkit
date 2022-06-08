@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **sources + core:** Autosuggest loading state toevoegen ([#1582](https://github.com/dso-toolkit/dso-toolkit/issues/1582))
+
 ### Changed
 * **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1558)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
 * **core:** WCAG verbeteringen voor helpcenter-panel ([#1577](https://github.com/dso-toolkit/dso-toolkit/issues/1577))

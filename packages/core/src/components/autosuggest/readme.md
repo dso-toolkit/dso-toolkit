@@ -41,10 +41,12 @@ export interface Suggestion {
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                                                                                                                                                                                               | Type           | Default |
-| ---------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------- |
-| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                       | `boolean`      | `false` |
-| `suggestions`    | --                 | The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. | `Suggestion[]` | `[]`    |
+| Property         | Attribute          | Description                                                                                                                                                                                                                                               | Type                  | Default                |
+| ---------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ---------------------- |
+| `loading`        | `loading`          | Shows progress indicator when fetching results.                                                                                                                                                                                                           | `boolean`             | `false`                |
+| `loadingLabel`   | `loading-label`    | To override progress indicator's default loading label.                                                                                                                                                                                                   | `string \| undefined` | `"Een moment geduld."` |
+| `suggestOnFocus` | `suggest-on-focus` | Whether the previous suggestions will be presented when the input gets focus again.                                                                                                                                                                       | `boolean`             | `false`                |
+| `suggestions`    | --                 | The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion. | `Suggestion[]`        | `[]`                   |
 
 
 ## Events
@@ -55,6 +57,19 @@ export interface Suggestion {
 | `dsoSearch` | Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.                  | `CustomEvent<string>`     |
 | `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [dso-progress-indicator](../progress-indicator)
+
+### Graph
+```mermaid
+graph TD;
+  dso-autosuggest --> dso-progress-indicator
+  style dso-autosuggest fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

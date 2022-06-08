@@ -31,6 +31,14 @@ export namespace Components {
     }
     interface DsoAutosuggest {
         /**
+          * Shows progress indicator when fetching results.
+         */
+        "loading": boolean;
+        /**
+          * To override progress indicator's default loading label.
+         */
+        "loadingLabel"?: string;
+        /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
         "suggestOnFocus": boolean;
@@ -457,6 +465,14 @@ declare namespace LocalJSX {
         "count": number;
     }
     interface DsoAutosuggest {
+        /**
+          * Shows progress indicator when fetching results.
+         */
+        "loading"?: boolean;
+        /**
+          * To override progress indicator's default loading label.
+         */
+        "loadingLabel"?: string;
         /**
           * This is emitted debounced for every change for the slotted input type=text element.
          */

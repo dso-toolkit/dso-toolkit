@@ -11,6 +11,8 @@ interface AutosuggestDemoTemplateProps {
   onChange: (value: CustomEvent<string>) => void;
   onSearch: (value: CustomEvent<string>) => void;
   suggestOnFocus: boolean;
+  loading: boolean;
+  loadingLabel: string;
 }
 
 interface AutosuggestDemoTemplateState {
@@ -43,6 +45,8 @@ class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<type
           onSearch={this.props.onSearch}
           suggestions={this.state.suggestions}
           suggestOnFocus={this.props.suggestOnFocus}
+          loading={this.props.loading}
+          loadingLabel={this.props.loadingLabel}
         >
           <input id="autosuggestInputId" type="text" className="form-control" />
         </AutosuggestTemplate>
@@ -59,13 +63,15 @@ storiesOfAutosuggest<JSX.Element>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus) => (
+    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel) => (
       <AutosuggestDemoTemplate
         fetchSuggestions={fetchSuggestions}
         onChange={onChange}
         onSelect={onSelect}
         onSearch={onSearch}
         suggestOnFocus={suggestOnFocus}
+        loading={loading}
+        loadingLabel={loadingLabel}
       />
     )
   }
