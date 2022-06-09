@@ -10803,7 +10803,7 @@ __metadata:
     hiff: 0.3.1
     highlight.js: ^11.5.1
     jquery: ^2.2.4
-    jquery-pjax: "git+https://github.com/defunkt/jquery-pjax.git"
+    jquery-pjax: ^2.0.1
     prettier: ^2.6.2
     pretty: 2.0.0
     rollup: ^2.70.2
@@ -15118,10 +15118,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery-pjax@git+https://github.com/defunkt/jquery-pjax.git":
+"jquery-pjax@npm:^2.0.1":
   version: 2.0.1
-  resolution: "jquery-pjax@https://github.com/defunkt/jquery-pjax.git#commit=153262eda33e31119eabb97cd5f14365580a3b35"
-  checksum: 59f068b16b38774305cad952bd39000028360a1f0ad93e7c9a0f3937698d60e8e74320fb583ef1ba1045321ee890c151d55b681343a9691857b65c43b3b4d8b9
+  resolution: "jquery-pjax@npm:2.0.1"
+  checksum: d0d033417d71e101a56b13b9dee2b4d8871d9ec13358d75c30a860d077a77dbdffff832c6365ba784fdcae1523fe2c2fe63334313d8879be9664622affd4280c
   languageName: node
   linkType: hard
 

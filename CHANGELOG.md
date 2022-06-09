@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit + css:** Overblijfselen "Search Bar" verhuizen naar `@dso-toolkit/css` ([#1466](https://github.com/dso-toolkit/dso-toolkit/issues/1466))
+* **dso-toolkit:** NPM dependency `jquery-pjax` van een versie voorzien ([#1594](https://github.com/dso-toolkit/dso-toolkit/issues/1594))
 
 ### Fixed
 * **core:** Dropdown menu sluit niet meer bij selecteren van item ([#1580](https://github.com/dso-toolkit/dso-toolkit/issues/1580))
