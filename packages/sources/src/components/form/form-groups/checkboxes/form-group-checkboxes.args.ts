@@ -1,30 +1,25 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 import { ArgTypes, noControl } from '../../../../stories-helpers';
+import { v4 as uuidv4 } from 'uuid';
 
 import { FormGroupCheckboxes } from '../../form.models';
 
+import { Selectable } from '../../../selectable/selectable.models';
+
 export interface FormGroupCheckboxesArgs {
   id: string;
-  type: 'text' | 'email' | 'password' | 'url' | 'tel';
   label: string;
   state?: 'invalid' | 'valid';
-  value: string;
   required: boolean;
   disabled: boolean;
-  readonly: boolean;
   errorText?: string;
-  size?: number;
   helpText?: string;
-  placeholder?: string;
-  feedbackIcon?: 'email' | 'energy';
   infoButtonHandler: HandlerFunction;
   infoButtonLabel: string;
   infoActive: boolean;
   infoText: string;
   infoCloseHandler: HandlerFunction;
   infoFixed: boolean;
-  min?: number;
-  max?: number;
 }
 
 export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
@@ -33,18 +28,7 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
       type: 'text'
     }
   },
-  type: {
-    options: ['text', 'email', 'password', 'url', 'tel'],
-    control: {
-      type: 'select',
-    }
-  },
   label: {
-    control: {
-      type: 'text'
-    }
-  },
-  value: {
     control: {
       type: 'text'
     }
@@ -65,16 +49,6 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
       type: 'boolean'
     }
   },
-  readonly: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  size: {
-    control: {
-      type: 'number'
-    }
-  },
   errorText: {
     control: {
       type: 'text'
@@ -83,17 +57,6 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
   helpText: {
     control: {
       type: 'text'
-    }
-  },
-  placeholder: {
-    control: {
-      type: 'text'
-    }
-  },
-  feedbackIcon: {
-    options: [undefined, 'email', 'energy'],
-    control: {
-      type: 'select'
     }
   },
   infoActive: {
@@ -124,38 +87,38 @@ export const formGroupCheckboxesArgTypes: ArgTypes<FormGroupCheckboxesArgs> = {
       type: 'boolean'
     }
   },
-  min: {
-    control: {
-      type: 'number'
-    }
-  },
-  max: {
-    control: {
-      type: 'number'
-    }
-  }
 };
 
 export function formGroupCheckboxesArgsMapper(a: FormGroupCheckboxesArgs): FormGroupCheckboxes<any> {
   return {
     group: 'checkboxes',
-    type: a.type,
     id: a.id,
     label: a.label,
-    value: a.value,
     required: a.required,
     disabled: a.disabled,
-    size: a.size,
-    readonly: a.readonly,
     state: a.state,
     errorText: a.errorText,
     helpText: a.helpText,
-    placeholder: a.placeholder,
-    feedback: a.feedbackIcon
-      ? {
-        icon: a.feedbackIcon
+    selectables: [
+      {
+        id: uuidv4(),
+        value: 'optie-1',
+        type: 'checkbox',
+        label: 'een'
+      },
+      {
+        id: uuidv4(),
+        value: 'optie-2',
+        type: 'checkbox',
+        label: 'twee'
+      },
+      {
+        id: uuidv4(),
+        value: 'opties-3',
+        type: 'checkbox',
+        label: 'drie'
       }
-      : undefined,
+    ],
     infoButton: a.infoButtonLabel && a.infoText
       ? {
         onClick: a.infoButtonHandler,

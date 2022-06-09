@@ -3,7 +3,7 @@ import { InfoButton } from '../../info-button/info-button.models';
 
 export interface FormGroupBase<TemplateFnReturnType> {
   group: string;
-  type: string;
+  type?: string;
   label: string;
   id: string;
   required?: boolean;

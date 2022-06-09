@@ -1,29 +1,18 @@
 import { FormGroupCheckboxes } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
-import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { selectableTemplate } from '../../../selectable/selectable.template';
 import { infoButtonTemplate } from '../../../info-button/info-button.template';
 import { infoTemplate } from '../../../info/info.template';
-import { iconTemplate } from '../../../icon/icon.template';
 
 export function formGroupCheckboxesTemplate(formGroup: FormGroupCheckboxes<TemplateResult>): TemplateResult {
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
   const infoTextId = `${formGroup.id}-info-text`;
 
-  const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
-    formGroup.helpText ? helpTextId : undefined,
-    formGroup.info?.fixed ? infoTextId : undefined
-  ]
-    .filter(s => !!s)
-    .join(' ') || undefined;
-
   return html`
-    <fieldset class="form-group dso-input ${classMap({ [`dso-input-${formGroup.type}`]: true, 'has-feedback': !!formGroup.feedback, 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}">
-      <legend>Legend</legend>
+    <fieldset class="form-group dso-checkboxes ${classMap({ 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}">
       <div class="dso-label-container">
         <label for=${formGroup.id} class="control-label">
           ${formGroup.label}
@@ -39,15 +28,9 @@ export function formGroupCheckboxesTemplate(formGroup: FormGroupCheckboxes<Templ
       </div>
       <div class="dso-field-container">
         ${formGroup.selectables.map(selectable =>
-          selectableTemplate(selectable)
+          selectableTemplate({ ...selectable, disabled: formGroup.disabled })
         )}
-        ${formGroup.feedback
-          ? html`
-            <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>
-          `
-          : nothing
-        }
-        ${formGroup.errorText
+        ${formGroup.errorText && formGroup.state === 'invalid'
           ? html`
             <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>
           `
