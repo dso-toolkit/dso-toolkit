@@ -5,3 +5,7 @@ export interface OzonContentAnchorClick {
   documentComponent: string;
   originalEvent: MouseEvent;
 }
+
+export interface OzonContentClick {
+  originalEvent: Event;
+}

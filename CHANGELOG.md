@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **sources + core:** dso-viewer-grid: Initiële breedte van het linkerpaneel "main" instelbaar ([#1556](https://github.com/dso-toolkit/dso-toolkit/issues/1556))
+* **core:** dso-ozon-content met `[interactive]` als interactief element visualiseren + click event emitten ([#1569](https://github.com/dso-toolkit/dso-toolkit/issues/1569))
 
 ### Changed
 * **dso-toolkit + css:** Overblijfselen "Search Bar" verhuizen naar `@dso-toolkit/css` ([#1466](https://github.com/dso-toolkit/dso-toolkit/issues/1466))

@@ -318,4 +318,29 @@ describe("Ozon Content", () => {
       .find('.deleted-end')
       .should('have.text', 'Einde verwijderd element');
   });
+
+  it('when interactive it should emit events', () => {
+    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--opschrift");
+
+    cy.get('dso-ozon-content')
+      .should('have.attr', 'interactive', '')
+      .then($dsoOzonContent => $dsoOzonContent.on('dsoClick', cy.stub().as('click')))
+      .click()
+      .invoke('removeAttr', 'interactive')
+      .click()
+      .find('#dso-ozon-note-Noot5000')
+      .click();
+
+    cy.get('@click').should('have.been.calledOnce');
+  });
+
+  it('when interactive it should appear like a link', () => {
+    cy.visit("http://localhost:56106/iframe.html?id=ozon-content--opschrift");
+
+    cy.get('dso-ozon-content')
+      .should('have.attr', 'interactive', '')
+      .and('have.css', 'text-decoration-line', 'underline')
+      .invoke('removeAttr', 'interactive')
+      .and('have.css', 'text-decoration-line', 'none');
+  });
 });

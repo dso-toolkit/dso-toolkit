@@ -11,7 +11,7 @@ import { HeaderMenuItem, HeaderMenuItemClickEvent } from "./components/header/he
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { OzonContentAnchorClick } from "./components/ozon-content/ozon-content.interfaces";
+import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
@@ -184,6 +184,10 @@ export namespace Components {
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
         "inline": boolean;
+        /**
+          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.
+         */
+        "interactive": boolean;
     }
     interface DsoProgressBar {
         "max": number;
@@ -651,7 +655,15 @@ declare namespace LocalJSX {
           * Setting this property creates dso-ozon-content as inline element instead of a block element.
          */
         "inline"?: boolean;
+        /**
+          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.
+         */
+        "interactive"?: boolean;
         "onAnchorClick"?: (event: CustomEvent<OzonContentAnchorClick>) => void;
+        /**
+          * These events are only emitted when the component is `interactive`.
+         */
+        "onDsoClick"?: (event: CustomEvent<OzonContentClick>) => void;
     }
     interface DsoProgressBar {
         "max"?: number;
