@@ -1,7 +1,5 @@
 import { FormGroupCheckboxesArgs } from '../form-groups/checkboxes/form-group-checkboxes.args';
 
-import { v4 as uuidv4 } from 'uuid';
-
 export const checkboxesContent: Omit<FormGroupCheckboxesArgs, 'infoButtonHandler' | 'infoCloseHandler'> = {
   id: 'mijn-id',
   label: 'Checkboxes',
