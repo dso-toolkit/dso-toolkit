@@ -41,8 +41,14 @@ export class ViewerGrid {
   @Prop({ reflect: true })
   overlayOpen = false;
 
+  /**
+   * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+   */
+  @Prop()
+  initialMainSize: MainSize = "large";
+
   @State()
-  mainSize: MainSize = "large";
+  mainSize: MainSize = this.initialMainSize;
 
   @Event()
   closeOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;

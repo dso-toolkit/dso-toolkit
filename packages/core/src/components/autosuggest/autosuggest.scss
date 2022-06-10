@@ -9,7 +9,8 @@ $dso-autosuggest-border: rgba(0, 0, 0, 0.15);
   position: relative;
 }
 
-ul {
+ul,
+.autosuggest-progress-box {
   background-clip: padding-box;
   background-color: $dso-autosuggest-bg;
   border: 1px solid $dso-autosuggest-border;
@@ -17,17 +18,25 @@ ul {
   box-shadow: $dso-autosuggest-box-shadow;
   list-style-type: none;
   margin-top: 2px;
-  padding: 4px 0;
+  padding: $dso-unit * 0.5 0;
   position: absolute;
   left: 0;
   right: 0;
   top: 100%;
   z-index: $zx-autosuggest;
+}
+
+.autosuggest-progress-box {
+  padding: $dso-unit * 1.5 $u1;
+}
+
+ul {
+  padding: $u1 0;
 
   li {
     display: flex;
     justify-content: space-between;
-    padding: 4px 18px;
+    padding: $dso-unit * 0.5 $u2;
   }
 }
 

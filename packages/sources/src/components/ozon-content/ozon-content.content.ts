@@ -37,7 +37,8 @@ export const content = [
       </Noot></Opschrift>
     `,
     args: {
-      inline: true
+      inline: true,
+      interactive: true
     }
   },
   {

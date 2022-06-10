@@ -2981,6 +2981,7 @@ __metadata:
     "@stencil/react-output-target": ^0.3.1
     "@stencil/sass": 1.5.2
     "@storybook/addon-a11y": 6.4.22
+    "@storybook/addon-actions": 6.4.22
     "@storybook/addon-essentials": 6.4.22
     "@storybook/addons": 6.4.22
     "@storybook/builder-webpack5": 6.4.22
@@ -2992,7 +2993,6 @@ __metadata:
     "@types/uuid": ^8.3.4
     "@types/validator": ^13.7.2
     "@whitespace/storybook-addon-html": 5.0.0
-    axe-core: ^4.4.1
     babel-loader: ^8.2.5
     cheerio: 1.0.0-rc.10
     clsx: 1.1.1
@@ -3013,7 +3013,6 @@ __metadata:
     tabbable: ^5.3.1
     typescript: ^4.5.0
     uuid: ^8.3.2
-    validator: ^13.7.0
     wait-on: ^6.0.1
     webpack: ^5.72.0
   languageName: unknown
@@ -3026,6 +3025,7 @@ __metadata:
     "@babel/core": ^7.17.9
     "@dso-toolkit/sources": "workspace:packages/sources"
     "@storybook/addon-a11y": 6.4.22
+    "@storybook/addon-actions": 6.4.22
     "@storybook/addon-essentials": 6.4.22
     "@storybook/addons": 6.4.22
     "@storybook/builder-webpack5": 6.4.22
@@ -3117,6 +3117,7 @@ __metadata:
     "@babel/core": ^7.17.9
     "@dso-toolkit/sources": "workspace:packages/sources"
     "@storybook/addon-a11y": 6.4.22
+    "@storybook/addon-actions": 6.4.22
     "@storybook/addon-essentials": 6.4.22
     "@storybook/addons": 6.4.22
     "@storybook/builder-webpack5": 6.4.22
@@ -3136,7 +3137,7 @@ __metadata:
     wait-on: ^6.0.1
     webpack: ^5.72.0
   peerDependencies:
-    "@dso-toolkit/core": ^36.0.0
+    "@dso-toolkit/core": ^38.0.0
     react: ^17.0.2
     react-dom: ^17.0.2
   languageName: unknown
@@ -10754,6 +10755,7 @@ __metadata:
   dependencies:
     "@infoprojects/stylelint-config-scss": ^0.2.0
     "@percy/cli": ^1.0.0-beta.76
+    axe-core: ^4.4.1
     concurrently: ^7.1.0
     cpy-cli: ^4.1.0
     cross-env: ^7.0.3
@@ -10801,7 +10803,7 @@ __metadata:
     hiff: 0.3.1
     highlight.js: ^11.5.1
     jquery: ^2.2.4
-    jquery-pjax: "git+https://github.com/defunkt/jquery-pjax.git"
+    jquery-pjax: ^2.0.1
     prettier: ^2.6.2
     pretty: 2.0.0
     rollup: ^2.70.2
@@ -15116,10 +15118,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery-pjax@git+https://github.com/defunkt/jquery-pjax.git":
+"jquery-pjax@npm:^2.0.1":
   version: 2.0.1
-  resolution: "jquery-pjax@https://github.com/defunkt/jquery-pjax.git#commit=153262eda33e31119eabb97cd5f14365580a3b35"
-  checksum: 59f068b16b38774305cad952bd39000028360a1f0ad93e7c9a0f3937698d60e8e74320fb583ef1ba1045321ee890c151d55b681343a9691857b65c43b3b4d8b9
+  resolution: "jquery-pjax@npm:2.0.1"
+  checksum: d0d033417d71e101a56b13b9dee2b4d8871d9ec13358d75c30a860d077a77dbdffff832c6365ba784fdcae1523fe2c2fe63334313d8879be9664622affd4280c
   languageName: node
   linkType: hard
 
@@ -23377,13 +23379,6 @@ __metadata:
     spdx-correct: ^3.0.0
     spdx-expression-parse: ^3.0.0
   checksum: 35703ac889d419cf2aceef63daeadbe4e77227c39ab6287eeb6c1b36a746b364f50ba22e88591f5d017bc54685d8137bc2d328d0a896e4d3fd22093c0f32a9ad
-  languageName: node
-  linkType: hard
-
-"validator@npm:^13.7.0":
-  version: 13.7.0
-  resolution: "validator@npm:13.7.0"
-  checksum: 2b83283de1222ca549a7ef57f46e8d49c6669213348db78b7045bce36a3b5843ff1e9f709ebf74574e06223461ee1f264f8cc9a26a0060a79a27de079d8286ef
   languageName: node
   linkType: hard
 

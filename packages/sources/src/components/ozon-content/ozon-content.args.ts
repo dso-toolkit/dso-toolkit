@@ -6,8 +6,10 @@ import { OzonContent } from "./ozon-content.models";
 export interface OzonContentArgs {
   content: string;
   inline: boolean;
+  interactive: boolean;
   deleted: boolean;
   onAnchorClick: HandlerFunction;
+  onClick: HandlerFunction;
 }
 
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
@@ -21,6 +23,11 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: 'boolean'
     }
   },
+  interactive: {
+    control: {
+      type: 'boolean'
+    }
+  },
   deleted: {
     control: {
       type: 'boolean'
@@ -30,13 +37,19 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
     ...noControl,
     action: "anchorClick",
   },
+  onClick: {
+    ...noControl,
+    action: 'onClick'
+  }
 };
 
 export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
   return {
     content: a.content,
     inline: a.inline,
+    interactive: a.interactive,
     deleted: a.deleted,
     onAnchorClick: (e: any) => a.onAnchorClick(e.detail),
+    onClick: a.onClick
   };
 }

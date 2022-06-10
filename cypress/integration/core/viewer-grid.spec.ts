@@ -36,6 +36,13 @@ describe("Viewer Grid", () => {
     cy.get("dso-viewer-grid").shadow().find(".expand").should("be.disabled");
   });
 
+  it("should open small", () => {
+    cy.visit(`${url}&args=initialMainSize:small`);
+    cy.get("dso-viewer-grid").should("have.attr", "small");
+    cy.get("dso-viewer-grid").shadow().find(".shrink").should("be.disabled");
+    cy.get("dso-viewer-grid").shadow().find(".expand").should("not.be.disabled");
+  });
+
   it("should switch to medium", () => {
     cy.visit(url);
     cy.get("dso-viewer-grid").shadow().find(".shrink").click();

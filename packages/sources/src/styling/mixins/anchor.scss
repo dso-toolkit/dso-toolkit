@@ -1,0 +1,51 @@
+$dso-anchor-spacer-width: 4px;
+$dso-anchor-visited-color: $mauve;
+
+@mixin anchor_root($is-html-a-element: true, $with-modifiers: true) {
+  background-color: transparent;
+  color: $link-color;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: none;
+  }
+
+  @if ($is-html-a-element) {
+    &:visited {
+      color: $dso-anchor-visited-color;
+    }
+  }
+  @else {
+    cursor: pointer;
+  }
+
+  @if ($with-modifiers) {
+    &.download,
+    &.extern {
+      &::after {
+        content: "";
+        display: inline-block;
+        margin-left: $dso-anchor-spacer-width;
+        vertical-align: $dso-icon-vertical-align;
+      }
+    }
+  
+    &.download {
+      &::after {
+        @include di("download");
+      }
+    }
+  
+    &.extern {
+      &::after {
+        @include di("external-link");
+      }
+    }
+  }
+}

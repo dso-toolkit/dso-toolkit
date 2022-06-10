@@ -5,8 +5,30 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 38.1.0
+
+### Added
+* **sources + core:** dso-viewer-grid: Initiële breedte van het linkerpaneel "main" instelbaar ([#1556](https://github.com/dso-toolkit/dso-toolkit/issues/1556))
+* **core:** dso-ozon-content met `[interactive]` als interactief element visualiseren + click event emitten ([#1569](https://github.com/dso-toolkit/dso-toolkit/issues/1569))
+
+### Changed
+* **dso-toolkit + css:** Form: "Checkboxes" verhuizen naar @dso-toolkit/css + Storybook ([#1559](https://github.com/dso-toolkit/dso-toolkit/issues/1559))
+* **dso-toolkit + css:** Overblijfselen "Search Bar" verhuizen naar `@dso-toolkit/css` ([#1466](https://github.com/dso-toolkit/dso-toolkit/issues/1466))
+* **dso-toolkit:** NPM dependency `jquery-pjax` van een versie voorzien ([#1594](https://github.com/dso-toolkit/dso-toolkit/issues/1594))
+
+### Fixed
+* **core:** Dropdown menu sluit niet meer bij selecteren van item ([#1580](https://github.com/dso-toolkit/dso-toolkit/issues/1580))
+* **css + dso-toolkit + sources:** Shopping Cart 'non-collapsable' variant toevoegen ([#1581](https://github.com/dso-toolkit/issues/1581))
+* **core:** @dso-toolkit/core "focus-trap" is onterecht een devDependency ([#1591](https://github.com/dso-toolkit/issues/1591))
+
+## 38.0.0
+
+### Added
+* **sources + core:** Autosuggest loading state toevoegen ([#1582](https://github.com/dso-toolkit/dso-toolkit/issues/1582))
+
 ### Changed
 * **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1558)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
+* **core:** WCAG verbeteringen voor helpcenter-panel ([#1577](https://github.com/dso-toolkit/dso-toolkit/issues/1577))
 
 ### Fixed
 * **BREAKING: css + core + dso-toolkit + sources:** Toegankelijkheidsissues met tooltip en toggletip ([#1548](https://github.com/dso-toolkit/dso-toolkit/issues/1548)) **Markup changes, see PR ([#1578](https://github.com/dso-toolkit/dso-toolkit/pull/1578))**
@@ -16,7 +38,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **core:** `<dso-ozon-content inline>` en ondersteuning voor `<Opschrift>` ([#1530](https://github.com/dso-toolkit/dso-toolkit/issues/1530))
 * **core:** `<dso-ozon-content deleted>` voor het markeren van verwijderde content ([#1518](https://github.com/dso-toolkit/dso-toolkit/issues/1518))
-* **sources + dso-toolkit + css + core:** Badge; `badge-outline` toevoegen ([#1534]https://github.com/dso-toolkit/dso-toolkit/issues/1534)
+* **sources + dso-toolkit + css + core:** Badge; `badge-outline` toevoegen ([#1534](https://github.com/dso-toolkit/dso-toolkit/issues/1534))
 
 ### Removed
 * **BREAKING: css:** .input-group verwijderen ([#1462](https://github.com/dso-toolkit/dso-toolkit/issues/1462))
@@ -32,7 +54,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + core + dso-toolkit + sources:** Step counter icoon moet op bosgroen staan ([#1557](https://github.com/dso-toolkit/dso-toolkit/issues/1557))
 * **dso-toolkit + css:** Uitbreiding Shopping Cart met functie 'alles verwijderen' ([#1510](https://github.com/dso-toolkit/dso-toolkit/issues/1510))
 * **dso-toolkit + css:** Shopping cart: labels knoppen ([#1512](https://github.com/dso-toolkit/dso-toolkit/issues/1512))
-* **BREAKING: dso-toolkit + css + sources:** Wijziging ondermarges dso-rich-content en highlightbox ([#1558](https://github.com/dso-toolkit/dso-toolkit/issues/1557)) **Markup changes, see PR ([#1571](https://github.com/dso-toolkit/dso-toolkit/pull/1571))**
 
 ## 36.3.0
 

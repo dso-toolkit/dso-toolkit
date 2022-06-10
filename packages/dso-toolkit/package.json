@@ -44,7 +44,7 @@
     "hiff": "0.3.1",
     "highlight.js": "^11.5.1",
     "jquery": "^2.2.4",
-    "jquery-pjax": "git+https://github.com/defunkt/jquery-pjax.git",
+    "jquery-pjax": "^2.0.1",
     "prettier": "^2.6.2",
     "pretty": "2.0.0",
     "rollup": "^2.70.2",

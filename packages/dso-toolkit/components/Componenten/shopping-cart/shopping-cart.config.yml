@@ -3,6 +3,7 @@ context:
   __title: default
   shoppingcartTitle: Mijn activiteiten
   shoppingcartTitleTag: h2
+  collapsable: true
   items: []
 variants:
   - name: items-collapsed
@@ -20,6 +21,17 @@ variants:
         - label: Milieubelastende activiteit - Melding
         - label: Milieubelastende activiteit - Melding
           additive: 2
+  - name: items-non-collapsable
+    context:
+      __title: items non-collapsable
+      collapsable: false
+      items:
+        - label: Milieubelastende activiteit - Melding (Gemeente 1)
+          subitems:
+            - label: Wasstraat of wasplaats
+        - label: Milieubelastende activiteit - Melding (Gemeente 2)
+          subitems:
+            - label: Wasstraat om de hoek van garagebedrijf Jansen
   - name: items-edit
     context:
       __title: edit items

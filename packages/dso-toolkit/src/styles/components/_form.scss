@@ -54,7 +54,6 @@ form,
   }
 
   &.dso-radios,
-  &.dso-checkboxes,
   &.dso-confirm {
     &.dso-invalid {
       .dso-selectable {
@@ -64,7 +63,6 @@ form,
   }
 
   &.dso-required {
-    &.dso-checkboxes,
     &.dso-confirm,
     &.dso-files,
     &.dso-radios,
@@ -165,7 +163,6 @@ select:not([multiple]) {
 
     @media screen and (min-width: $screen-sm-min) {
       &.dso-input-number,
-      &.dso-checkboxes,
       &.dso-radios {
         .dso-field-container {
           padding-top: #{$padding-base-vertical + 1};

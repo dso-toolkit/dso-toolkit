@@ -174,4 +174,22 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get("@options").should("not.be.visible");
   });
+
+  it("should close on item selection", () => {
+    cy.get("@menuitems")
+      .eq(1)
+      .then((a) => {
+        a.get(0).addEventListener("click", (e) => {
+          e.preventDefault();
+        });
+      });
+
+    cy.get("@button").focus().click();
+
+    cy.get("@options").should("be.visible");
+
+    cy.get("@menuitems").eq(1).click();
+
+    cy.get("@options").should("not.be.visible");
+  });
 });

@@ -1,8 +1,9 @@
-import { h, Component,  ComponentInterface,  Event,  EventEmitter,  Prop,  State } from '@stencil/core';
+import { h, Component,  ComponentInterface, Element,  Event,  EventEmitter,  Prop,  State, Host } from '@stencil/core';
+import { isTabbable } from 'tabbable';
 
 import { Mapper } from './ozon-content-mapper';
 import { OzonContentContext } from './ozon-content-context.interface';
-import { OzonContentAnchorClick } from './ozon-content.interfaces';
+import { OzonContentAnchorClick, OzonContentClick } from './ozon-content.interfaces';
 import { OzonContentNodeState } from './ozon-content-node-state.interface';
 
 @Component({
@@ -29,13 +30,43 @@ export class OzonContent implements ComponentInterface {
   @Prop({ reflect: true })
   deleted = false;
 
+  /**
+   * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.
+   * 
+   * **Do not** use this without an accessible companion element! `interactive` is only
+   * meant to ease the use of the companion element for mouse/touch users.
+   */
+  @Prop({ reflect: true })
+  interactive = false;
+
   @State()
   state: OzonContentNodeState = {};
 
   @Event()
   anchorClick!: EventEmitter<OzonContentAnchorClick>;
 
+  /**
+   * These events are only emitted when the component is `interactive`.
+   */
+  @Event()
+  dsoClick!: EventEmitter<OzonContentClick>;
+
+  @Element()
+  host!: HTMLElement;
+
   private mapper = new Mapper();
+
+  handleHostOnClick(e: UIEvent) {
+    if (!this.interactive) {
+      return;
+    }
+
+    const doIt = e.composedPath().find(e => e === this.host || (e instanceof HTMLElement && isTabbable(e))) === this.host;
+
+    if (doIt) {
+      this.dsoClick.emit({ originalEvent: e });
+    }
+  }
 
   render(): JSX.Element {
     const context: OzonContentContext = {
@@ -56,6 +87,10 @@ export class OzonContent implements ComponentInterface {
       );
     }
 
-    return transformed;
+    return (
+      <Host onClick={(e: UIEvent) => this.handleHostOnClick(e)}>
+        {transformed}
+      </Host>
+    );
   }
 }
