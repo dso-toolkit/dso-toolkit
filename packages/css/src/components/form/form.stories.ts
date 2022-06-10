@@ -4,6 +4,7 @@ import { html } from 'lit-html';
 
 import { formGroupCheckboxesTemplate } from './form-groups/checkboxes/form-group-checkboxes.template';
 import { formGroupInputTemplate } from './form-groups/input/form-group-input.template';
+import { formGroupRadiosTemplate } from './form-groups/radios/form-group-radios.template';
 
 import { formTemplate } from './form.template';
 import readme from './readme.md';
@@ -18,6 +19,7 @@ storiesOfForm(
     formTemplate,
     formGroupDecorator: story => html`<form><fieldset><legend>Example</legend>${story()}</fieldset></form>`,
     formGroupCheckboxesTemplate,
-    formGroupInputTemplate
+    formGroupInputTemplate,
+    formGroupRadiosTemplate
   }
 );

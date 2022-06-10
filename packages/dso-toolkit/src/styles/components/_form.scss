@@ -45,15 +45,6 @@ form,
 }
 
 .form-group {
-  &.dso-radios {
-    &.dso-inline {
-      .dso-selectable {
-        @include selectable_inline(".dso-selectable");
-      }
-    }
-  }
-
-  &.dso-radios,
   &.dso-confirm {
     &.dso-invalid {
       .dso-selectable {
@@ -65,7 +56,6 @@ form,
   &.dso-required {
     &.dso-confirm,
     &.dso-files,
-    &.dso-radios,
     &.dso-select,
     &.dso-textarea {
       .control-label::after {
@@ -155,15 +145,8 @@ select:not([multiple]) {
       }
     }
 
-    &.dso-radios.dso-inline {
-      .dso-selectable {
-        margin-bottom: 0;
-      }
-    }
-
     @media screen and (min-width: $screen-sm-min) {
-      &.dso-input-number,
-      &.dso-radios {
+      &.dso-input-number {
         .dso-field-container {
           padding-top: #{$padding-base-vertical + 1};
         }
