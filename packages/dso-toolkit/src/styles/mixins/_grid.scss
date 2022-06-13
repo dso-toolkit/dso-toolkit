@@ -40,7 +40,7 @@ form {
 
     &,
     &:not(.dso-featured):first-child {
-      margin-bottom: $u4;
+      margin-bottom: 0px;
       padding-top: 2rem;
     }
   }
@@ -54,6 +54,10 @@ form {
   + .dso-featured {
     margin-top: $u3;
   }
+}
+
+.row.dso-banner + .row.dso-featured { 
+  margin-top: 0px;
 }
 
 .dso-banner-implementation-specific-image {
