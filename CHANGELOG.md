@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit + css:** Form: "Radios" verhuizen naar @dso-toolkit/css + Storybook ([#1560](https://github.com/dso-toolkit/dso-toolkit/issues/1560))
+* **dso-toolkit + sources:** Definition list marge tussen dd + dt's verkleinen naar 8px ([#1565](https://github.com/dso-toolkit/dso-toolkit/issues/1565))
 
 ## 38.1.0
 
