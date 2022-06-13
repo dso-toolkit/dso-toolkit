@@ -1,12 +1,12 @@
 $dso-definition-list-gutter: $u2;
-$dso-definition-list-vertical-space: $u2;
+$dso-definition-list-vertical-space: $u1;
 $dso-definition-list-term-width: 200px;
 $dso-definition-list-horizontal-breakpoint: $screen-sm-min;
 $dso-definition-list-highlight-color: $grasgroen;
 $dso-definition-list-border: 1px solid $grijs-20;
 
 dl {
-  margin-bottom: $u2;
+  margin-bottom: $dso-definition-list-vertical-space;
   margin-top: 0;
 
   + dl {
@@ -52,7 +52,6 @@ dl {
       break-inside: avoid;
       column-gap: $u2;
 
-
       dd:last-of-type {
         margin-bottom: 0;
       }
@@ -92,7 +91,7 @@ dl {
     }
 
     > div {
-      margin-bottom: $u2;
+      margin-bottom: $dso-definition-list-vertical-space;
     }
   }
 
