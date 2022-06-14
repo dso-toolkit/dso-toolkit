@@ -45,6 +45,7 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
       filterpanelCancel: args.filterpanelCancel,
       filterpanelOpen: args.filterpanelOpen,
       mainSizeChange: args.mainSizeChange,
+      initialMainSize: args.initialMainSize,
       overlayOpen: args.overlayOpen,
       main: example.main,
       map: example.map,

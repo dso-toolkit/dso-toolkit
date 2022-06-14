@@ -23,6 +23,7 @@ export interface ViewerGridChangeSizeEvent {
 export interface ViewerGridProperties {
   filterpanelOpen: boolean;
   overlayOpen: boolean;
+  initialMainSize?: "small" | "medium" | "large";
   mainSizeChange: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   closeOverlay: (e: MouseEvent) => void;
   filterpanelCancel: (e: MouseEvent) => void;
