@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **dso-toolkit + css:** Form: "Radios" verhuizen naar @dso-toolkit/css + Storybook ([#1560](https://github.com/dso-toolkit/dso-toolkit/issues/1560))
+
 ## 38.1.0
 
 ### Added

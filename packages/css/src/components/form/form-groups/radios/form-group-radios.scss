@@ -1,0 +1,33 @@
+.form-group.dso-radios {
+  &.dso-invalid {
+    .dso-selectable {
+      @include selectable_invalid();
+    }
+  }
+
+  &.dso-required {
+    .control-label::after {
+      @include form-group-required();
+    }
+  }
+
+  &.dso-inline {
+    .dso-selectable {
+      @include selectable_inline(".dso-selectable");
+    }
+  }
+
+  .form-horizontal & {
+    &.dso-inline {
+      .dso-selectable {
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and (min-width: $screen-sm-min) {
+      .dso-field-container {
+        padding-top: #{$padding-base-vertical + 1};
+      }
+    }
+  }
+}
