@@ -27,7 +27,9 @@
     <dd>{% render '@anchor', {label:'Aquo begrippenkader', url:'#', modifier:'extern') %}</dd>
   </dl>
 
-  {% render '@button', {type:'button', modifier:'dso-secondary', label:'Bekijk minder details', icon:'chevron-up', ariaExpanded: false} %}
+  <div class="dso-button-row">
+    {% render '@button', {type:'button', modifier:'dso-secondary', label:'Bekijk minder details', icon:'chevron-up', ariaExpanded: false} %}
+  </div>
 
   <h3>Unieke identificatie</h3>
   <dl class="dso-bordered">
