@@ -6,7 +6,7 @@ $dso-definition-list-highlight-color: $grasgroen;
 $dso-definition-list-border: 1px solid $grijs-20;
 
 dl {
-  margin-bottom: $dso-definition-list-vertical-space;
+  margin-bottom: $dso-definition-list-vertical-space * 2;
   margin-top: 0;
 
   + dl {
@@ -16,7 +16,7 @@ dl {
       display: block;
       float: left;
       height: $dso-definition-list-vertical-space;
-      margin-bottom: $dso-definition-list-vertical-space * 2;
+      margin-bottom: $dso-definition-list-vertical-space * 3;
       width: 100%;
     }
   }
