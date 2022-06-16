@@ -24,7 +24,7 @@ storiesOfViewerGrid(
       main: alertTemplate({ status: AlertType.Info, message: html`<p>Dit is <code>slot="main"</code>.</p>`}),
       map: html`<div class="alert alert-info">Dit is <code>slot="map"</code>.</div>`,
       filterpanel: html`<div class="alert alert-info">Dit is <code>slot="filterpanel"</code>.</div>`,
-      overlay: html`<div class="alert alert-info">Dit is <code>slot="overlay"</code>.</div>`
+      overlay: html`<div class="alert alert-info">Dit is <code>slot="overlay"</code></div><div>En dit is een <a href="#">meer</a> link. En nog een <a href="#">link</a><a href="#">voor test</a></div>`
     },
     tilesExampleTemplate: viewerGridTilesExampleTemplate,
     filterblokExampleTemplate: viewerGridFilterblokExampleTemplate,
