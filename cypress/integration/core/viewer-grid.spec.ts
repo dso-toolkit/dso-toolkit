@@ -102,7 +102,6 @@ describe("Viewer Grid", () => {
       .find("div[slot = 'overlay'] a[href]")
       .eq(1)
       .should("be.focused")
-      .realPress("Tab")
       .realPress("Tab");
     cy.get("dso-viewer-grid")
       .shadow()

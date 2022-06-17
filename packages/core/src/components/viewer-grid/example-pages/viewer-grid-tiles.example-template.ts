@@ -1,9 +1,9 @@
 import { AlertType, Tile } from "@dso-toolkit/sources";
 import { html } from "lit-html";
 
-import { tileGridTemplate } from '../../../../../css/src/components/tile-grid/tile-grid.template';
-import { tileTemplate } from '../../../../../css/src/components/tile/tile.template';
 import { alertTemplate } from "../../alert/alert.template";
+import { tileGridTemplate } from "@dso-toolkit/css/src/components/tile-grid/tile-grid.template";
+import { tileTemplate } from "@dso-toolkit/css/src/components/tile/tile.template";
 import { viewerGridTemplate } from "../templates/viewer-grid.template";
 
 export function viewerGridTilesExampleTemplate(tiles: Tile[]) {
