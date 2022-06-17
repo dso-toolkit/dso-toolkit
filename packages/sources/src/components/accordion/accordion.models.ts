@@ -2,6 +2,7 @@ import { AttachmentsCounter, Icon } from '../..';
 
 export interface Accordion {
   variant?: string;
+  handleType: 'anchor' | 'button';
   sections: AccordionSection[];
   reverseAlign?: boolean;
 }
@@ -9,7 +10,6 @@ export interface Accordion {
 export interface AccordionSection {
   state?: 'success' | 'info' | 'warning' | 'danger';
   open?: boolean;
-  handleType: 'anchor' | 'button';
   title: string;
   status?: string;
   attachmentsCounter?: AttachmentsCounter;
