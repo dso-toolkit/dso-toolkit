@@ -1,23 +1,11 @@
 import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } from "@stencil/core";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
+import { FilterpanelEvent, ViewerGridChangeSizeEvent } from "./viewer-grid.interfaces";
 
 export type MainSize = "small" | "medium" | "large";
 
 export type LabelSizeMap = { [key in MainSize]: string };
-
-export interface ViewerGridChangeSizeEvent {
-  /**
-   * Indicates whether it's before or after the animation
-   */
-  stage: "start" | "end";
-  previousSize: MainSize;
-  currentSize: MainSize;
-}
-
-export interface FilterpanelEvent {
-  originalEvent: MouseEvent;
-}
 
 @Component({
   tag: "dso-viewer-grid",

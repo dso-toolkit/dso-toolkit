@@ -1,6 +1,7 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
 import { reactOutputTarget } from "@stencil/react-output-target";
+import { angularOutputTarget } from "@stencil/angular-output-target";
 import { inlineSvg } from "stencil-inline-svg";
 
 export const config: Config = {
@@ -15,6 +16,12 @@ export const config: Config = {
     }),
   ],
   outputTargets: [
+    angularOutputTarget({
+      componentCorePackage: "@dso-toolkit/core",
+      includeImportCustomElements: true,
+      directivesProxyFile: "../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts",
+      directivesArrayFile: "../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
+    }),
     reactOutputTarget({
       componentCorePackage: "@dso-toolkit/core",
       proxiesFile: "../react/src/components.ts",

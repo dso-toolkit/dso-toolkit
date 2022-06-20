@@ -4,6 +4,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
+      "packages/angular-workspace/projects/*",
       "website"
     ]
   },
@@ -17,7 +18,7 @@
     "build": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
     "build-www": "yarn workspace website build && yarn workspace @dso-toolkit/storybook build && yarn workspace @dso-toolkit/react build-www",
     "e2e": "start-server-and-test 'http-server --silent --port 45000 packages/storybook/www' http://localhost:45000 'percy exec -- cypress run'",
-    "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
+    "clear-node-modules": "npx rimraf node_modules packages/angular-workspace/node_modules packages/angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
     "website": "yarn workspace website start",
     "reference:dom": "yarn workspace dso-toolkit gulp reference:dom",
     "start": "yarn node scripts/start.js",

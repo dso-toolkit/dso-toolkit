@@ -1,9 +1,9 @@
 export interface Label {
-  status?: string;
+  status?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
   compact?: boolean;
   truncate?: boolean;
   label: string;
   removable?: boolean;
-  dsoRemoveClick?: (e: MouseEvent) => void;
+  dsoRemoveClick?: (e: CustomEvent<MouseEvent>) => void;
   symbol?: string;
 }

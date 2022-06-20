@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
 
-import { SelectableChangeEvent } from "../selectable/selectable";
+import { SelectableChangeEvent } from "../selectable/selectable.interfaces";
 
 @Component({
   tag: "dso-map-overlays",

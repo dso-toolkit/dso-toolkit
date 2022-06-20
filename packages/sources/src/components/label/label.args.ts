@@ -5,7 +5,7 @@ import { Label } from "./label.models";
 import { ArgTypes } from "../../storybook";
 
 export interface LabelArgs {
-  status: string;
+  status: "primary" | "info" | "success" | "warning" | "danger" | "bright";
   compact: boolean;
   truncate: boolean;
   label: string;

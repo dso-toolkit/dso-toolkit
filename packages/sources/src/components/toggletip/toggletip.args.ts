@@ -4,7 +4,7 @@ import { Toggletip } from "./toggletip.models";
 import { tooltipPositions } from "../tooltip/tooltip.models";
 
 export interface ToggletipArgs {
-  position: typeof tooltipPositions;
+  position: "top" | "right" | "bottom" | "left";
   small?: boolean;
   label?: string;
   secondary?: boolean;

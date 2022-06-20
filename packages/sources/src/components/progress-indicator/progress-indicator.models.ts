@@ -1,5 +1,5 @@
 export interface ProgressIndicator {
   label?: string;
-  size?: string;
+  size?: "small" | "medium" | "large";
   block?: boolean;
 }

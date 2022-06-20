@@ -1,5 +1,3 @@
-export interface SelectableChangeEvent extends Event {}
-
 import {
   h,
   Component,
@@ -14,6 +12,7 @@ import {
   Method,
 } from "@stencil/core";
 import { createIdentifier } from "../../utils/create-identifier";
+import { SelectableChangeEvent } from "./selectable.interfaces";
 
 @Component({
   tag: "dso-selectable",

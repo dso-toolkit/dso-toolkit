@@ -30,6 +30,12 @@ import {
 } from "./date-utils";
 import { DatePickerMonth } from "./date-picker-month";
 import defaultLocalization, { DsoLocalizedText } from "./date-localization";
+import {
+  DsoDatePickerDirection,
+  DsoDatePickerChangeEvent,
+  DsoDatePickerFocusEvent,
+  DsoDatePickerKeyboardEvent,
+} from "./date-picker.interfaces";
 
 function range(from: number, to: number) {
   const result: number[] = [];
@@ -52,21 +58,6 @@ const keyCode = {
   RIGHT: 39,
   DOWN: 40,
 };
-
-export type DsoDatePickerChangeEvent = {
-  component: "dso-date-picker";
-  valueAsDate: Date | undefined;
-  value: string;
-  error?: "invalid" | "required" | "min-range" | "max-range";
-};
-export type DsoDatePickerFocusEvent = {
-  component: "dso-date-picker";
-};
-export type DsoDatePickerKeyboardEvent = {
-  component: "dso-date-picker";
-  originalEvent: KeyboardEvent;
-};
-export type DsoDatePickerDirection = "left" | "right";
 
 const DISALLOWED_CHARACTERS = /[^0-9-]+/g;
 const TRANSITION_MS = 300;
