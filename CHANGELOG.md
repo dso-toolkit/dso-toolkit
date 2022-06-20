@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 38.1.1
+
 ### Fixed
 * **core:** `error TS2304: Cannot find name 'MainSize'` ([#1598](https://github.com/dso-toolkit/dso-toolkit/issues/1598))
 
