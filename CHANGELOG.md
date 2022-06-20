@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
+* **BREAKING: core + sources:** Update Documentheader ([#1515](https://github.com/dso-toolkit/dso-toolkit/issues/1515)) **Story `with search results` opgeknipt in 3 losse stories; `Filterblok`, `Document Header`, `Document Item` ([#1599](https://github.com/dso-toolkit/dso-toolkit/pull/1599))**
 * **BREAKING: core + sources:** Update Documentheader ([#1515](https://github.com/dso-toolkit/dso-toolkit/issues/1515))
 * **dso-toolkit + sources:** Definition list marge tussen dd + dt's verkleinen naar 8px ([#1565](https://github.com/dso-toolkit/dso-toolkit/issues/1565))
 * **dso-toolkit + sources:** Woordafbreking alleen als deze niet op een eigen regel past ([#1585](https://github.com/dso-toolkit/dso-toolkit/issues/1585))
