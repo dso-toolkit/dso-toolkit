@@ -1,6 +1,6 @@
 {
   "name": "@dso-toolkit/leaflet",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "module",
   "exports": {
     ".": {
@@ -41,7 +41,7 @@
     "wait-on": "^6.0.1"
   },
   "peerDependencies": {
-    "@dso-toolkit/core": "^36.1.0",
+    "@dso-toolkit/core": ">=38",
     "leaflet": "^1.7.1"
   },
   "klap": {

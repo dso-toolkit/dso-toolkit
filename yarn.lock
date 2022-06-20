@@ -3081,7 +3081,7 @@ __metadata:
     typescript: ^4.5.0
     wait-on: ^6.0.1
   peerDependencies:
-    "@dso-toolkit/core": ^36.1.0
+    "@dso-toolkit/core": ">=38"
     leaflet: ^1.7.1
   languageName: unknown
   linkType: soft
@@ -3103,7 +3103,7 @@ __metadata:
     typescript: ^4.5.0
   peerDependencies:
     "@dso-toolkit/core": ^36.1.0
-    "@dso-toolkit/leaflet": ^1.2.2
+    "@dso-toolkit/leaflet": ^1.2.3
     leaflet: ^1.7.1
     react: ^17.0.2
     react-dom: ^17.0.2
