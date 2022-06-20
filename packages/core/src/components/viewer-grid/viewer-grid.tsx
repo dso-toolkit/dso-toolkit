@@ -12,7 +12,7 @@ import {
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { ViewerGridFilterpanelButtons } from './viewer-grid-filterpanel-buttons';
 
-type MainSize = "small" | "medium" | "large";
+export type MainSize = "small" | "medium" | "large";
 
 export interface ViewerGridChangeSizeEvent {
   /**

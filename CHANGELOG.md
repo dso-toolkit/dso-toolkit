@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:** `error TS2304: Cannot find name 'MainSize'` ([#1598](https://github.com/dso-toolkit/dso-toolkit/issues/1598))
+
 ### Changed
 * **dso-toolkit + css:** Form: "Radios" verhuizen naar @dso-toolkit/css + Storybook ([#1560](https://github.com/dso-toolkit/dso-toolkit/issues/1560))
 
