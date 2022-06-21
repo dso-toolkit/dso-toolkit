@@ -6,5 +6,6 @@ body {
   background-color: $body-bg;
   margin: 0;
   max-width: 100%;
+  overflow-wrap: break-word;
   overflow-x: hidden;
 }
