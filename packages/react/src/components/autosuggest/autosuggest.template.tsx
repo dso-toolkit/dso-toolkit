@@ -3,7 +3,7 @@ import * as React from "react";
 
 import { DsoAutosuggest } from "../..";
 
-export class AutosuggestTemplate extends React.Component<Autosuggest> {
+export class AutosuggestTemplate extends React.Component<React.PropsWithChildren<Autosuggest>> {
   render() {
     return (
       <DsoAutosuggest

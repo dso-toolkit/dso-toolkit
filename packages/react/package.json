@@ -24,20 +24,20 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@dso-toolkit/sources": "workspace:packages/sources",
-    "@storybook/addon-a11y": "6.4.22",
-    "@storybook/addon-actions": "6.4.22",
-    "@storybook/addon-essentials": "6.4.22",
-    "@storybook/addons": "6.4.22",
-    "@storybook/builder-webpack5": "6.4.22",
-    "@storybook/manager-webpack5": "6.4.22",
-    "@storybook/react": "6.4.22",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
+    "@storybook/addon-a11y": "6.5.9",
+    "@storybook/addon-actions": "6.5.9",
+    "@storybook/addon-essentials": "6.5.9",
+    "@storybook/addons": "6.5.9",
+    "@storybook/builder-webpack5": "6.5.9",
+    "@storybook/manager-webpack5": "6.5.9",
+    "@storybook/react": "6.5.9",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
     "babel-loader": "^8.2.5",
     "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rimraf": "3.0.2",
     "storybook-addon-jsx": "^7.3.14",
     "tslib": "2.3.1",
@@ -47,7 +47,7 @@
   },
   "peerDependencies": {
     "@dso-toolkit/core": "^38.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^17.0.2 || ^18.2.0",
+    "react-dom": "^17.0.2 || ^18.2.0"
   }
 }
