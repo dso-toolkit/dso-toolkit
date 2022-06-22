@@ -38,7 +38,9 @@ dso-viewer-grid {
 
     .dso-document-header-status {
       .dso-document-header-toggle-status {
+        background-color: transparent;
         border: 0;
+        padding: 0;
       }
 
       > dso-label {
@@ -91,6 +93,10 @@ dso-viewer-grid {
         margin: 0 0 $u1 0;
       }
     }
+
+    .dso-document-header-features-wrapper {
+      margin-bottom: $u1;
+    }
   }
 
   &[medium] {
@@ -116,10 +122,6 @@ dso-viewer-grid {
       &-status {
         margin: $u1 0 0;
       }
-    }
-
-    .dso-document-header-container {
-      padding-right: $u4;
     }
 
     .dso-document-header-type {
@@ -199,9 +201,6 @@ dso-viewer-grid {
   .dso-document-header-features {
     margin-bottom: 0;
     margin-top: $u2;
-    padding-bottom: $u2;
-    padding-top: $u2;
     border-bottom: 1px solid $grijs-20;
-    border-top: 1px solid $grijs-20;
   }
 }
