@@ -41,7 +41,7 @@ $dso-badge-danger-bg-color: $dso-danger-color;
 
   &.badge-outline {
     background-color: $wit;
-    border: 1px solid $grijs-90;
     color: $grijs-90;
+    outline: 1px solid $grijs-90;
   }
 }
