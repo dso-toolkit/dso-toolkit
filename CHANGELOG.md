@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **dso-toolkit + sources:** Definition list marge tussen dd + dt's verkleinen naar 8px ([#1565](https://github.com/dso-toolkit/dso-toolkit/issues/1565))
+* **dso-toolkit + sources:** Woordafbreking alleen als deze niet op een eigen regel past ([#1585](https://github.com/dso-toolkit/dso-toolkit/issues/1585))
 
 ## 38.1.1
 
