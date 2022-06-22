@@ -29,12 +29,14 @@ export class ViewerGrid {
 
   /**
    * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+   *
+   * Default size is `large`.
    */
   @Prop()
-  initialMainSize: MainSize = "large";
+  initialMainSize?: MainSize;
 
   @State()
-  mainSize: MainSize = this.initialMainSize;
+  mainSize: MainSize = "large";
 
   @Event()
   dsoCloseOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
@@ -156,6 +158,12 @@ export class ViewerGrid {
     }
 
     this.updateFocusTrap();
+  }
+
+  componentWillLoad() {
+    if (this.initialMainSize) {
+      this.mainSize = this.initialMainSize;
+    }
   }
 
   componentDidUpdate() {

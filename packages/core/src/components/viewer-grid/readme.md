@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property          | Attribute           | Description                                                                                            | Type                             | Default   |
-| ----------------- | ------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------- | --------- |
-| `filterpanelOpen` | `filterpanel-open`  |                                                                                                        | `boolean`                        | `false`   |
-| `initialMainSize` | `initial-main-size` | Size of the main content panel when component loads. Changing this attribute afterwards has no effect. | `"large" \| "medium" \| "small"` | `"large"` |
-| `overlayOpen`     | `overlay-open`      |                                                                                                        | `boolean`                        | `false`   |
+| Property          | Attribute           | Description                                                                                                                      | Type                                          | Default     |
+| ----------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------- |
+| `filterpanelOpen` | `filterpanel-open`  |                                                                                                                                  | `boolean`                                     | `false`     |
+| `initialMainSize` | `initial-main-size` | Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`. | `"large" \| "medium" \| "small" \| undefined` | `undefined` |
+| `overlayOpen`     | `overlay-open`      |                                                                                                                                  | `boolean`                                     | `false`     |
 
 
 ## Events

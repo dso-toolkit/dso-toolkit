@@ -390,9 +390,9 @@ export namespace Components {
     interface DsoViewerGrid {
         "filterpanelOpen": boolean;
         /**
-          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
          */
-        "initialMainSize": MainSize;
+        "initialMainSize"?: MainSize;
         "overlayOpen": boolean;
     }
 }
@@ -1098,16 +1098,16 @@ declare namespace LocalJSX {
         /**
           * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
-        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
+        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<Array<TreeViewItem>>) => void;
         /**
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
-        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
+        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<Array<TreeViewItem>>) => void;
     }
     interface DsoViewerGrid {
         "filterpanelOpen"?: boolean;
         /**
-          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
          */
         "initialMainSize"?: MainSize;
         "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<MouseEvent | KeyboardEvent>) => void;

@@ -1,2 +1,1 @@
-export interface SelectableChangeEvent extends Event {
-}
+export interface SelectableChangeEvent extends Event {}
