@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 39.0.0
+
 ### Added
 **react**: Support voor `react@^18.2.0`, `react-dom@^18.2.0` `leaflet@1.8.0`, `react-leaflet@^4.0.0` en `@react-leaflet/core@^2.0.0` ([#1579](https://github.com/dso-toolkit/dso-toolkit/issues/1579))
 
