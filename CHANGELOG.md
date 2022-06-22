@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **dso-toolkit + core:** dso-info in dso-radios mist aria-describedby ([#1399](https://github.com/dso-toolkit/dso-toolkit/issues/1399))
+
 ## 39.0.0
 
 ### Added
