@@ -9,6 +9,7 @@ Private component, do not use.
 
 | Property                | Attribute | Description | Type        | Default     |
 | ----------------------- | --------- | ----------- | ----------- | ----------- |
+| `group`                 | `group`   |             | `string`    | `uuidv4()`  |
 | `overlays` _(required)_ | --        |             | `Overlay[]` | `undefined` |
 
 
