@@ -5,6 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## v1.1.5 - 2022-06-23
+
+Version bumps:
+
+* `@dso-toolkit/core@>=39`
+* `@dso-toolkit/leaflet@^1.2.4`
+* `@react-leaflet/core@^2.0.0`
+* `leaflet@^1.8.0`
+* `react-leaflet@^4.0.0`
+
 ## v1.1.4 - 2022-06-20
 
 Version bump `@dso-toolkit/leaflet@^1.2.3` and `@dso-toolkit/core@>=38`.
