@@ -7,7 +7,7 @@ import { createIdentifier } from '../../utils/create-identifier';
 @Component({
   tag: 'dso-selectable',
   styleUrl: 'selectable.scss',
-  shadow: true
+  scoped: true
 })
 export class Selectable {
   @Prop()
@@ -124,7 +124,9 @@ export class Selectable {
               active={this.infoActive}
               onClose={() => this.infoActive = false}
             >
-              <slot name="info"></slot>
+              <div>
+                <slot name="info"></slot>
+              </div>
             </dso-info>
           </Fragment>
         )}

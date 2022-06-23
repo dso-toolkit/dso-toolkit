@@ -10,6 +10,7 @@ Private component, do not use.
 | Property                  | Attribute | Description | Type          | Default     |
 | ------------------------- | --------- | ----------- | ------------- | ----------- |
 | `baseLayers` _(required)_ | --        |             | `BaseLayer[]` | `undefined` |
+| `group`                   | `group`   |             | `string`      | `uuidv4()`  |
 
 
 ## Events
