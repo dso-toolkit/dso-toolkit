@@ -45,16 +45,7 @@ form,
 }
 
 .form-group {
-  &.dso-confirm {
-    &.dso-invalid {
-      .dso-selectable {
-        @include selectable_invalid();
-      }
-    }
-  }
-
   &.dso-required {
-    &.dso-confirm,
     &.dso-files,
     &.dso-select,
     &.dso-textarea {
