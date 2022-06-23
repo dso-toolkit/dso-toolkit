@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **css + sources:** Accordion button en link implementatie etaleren ([#1481](https://github.com/dso-toolkit/dso-toolkit/issues/1481))
+* **dso-toolkit + sources + css:** Header margins in legends aanpassen ([#1572](https://github.com/dso-toolkit/dso-toolkit/issues/1572))
 
 ### Fixed
 * **dso-toolkit + core:** `dso-info` in `.formgroup.dso-radios, .form-group.dso-checkboxes` mist `aria-describedby` ([#1399](https://github.com/dso-toolkit/dso-toolkit/issues/1399))

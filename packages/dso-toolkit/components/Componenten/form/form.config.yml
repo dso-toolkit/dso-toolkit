@@ -414,3 +414,75 @@ variants:
     - type: submit
       modifier: dso-primary
       label: Volgende
+- name: header-in-legend
+  context:
+    __title: header in legend
+    formModifier: dso-header-in-legend
+    fieldsets:
+    - legend: <h1>Heading H1</h1>
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    - legend: <h2>Heading H2</h2>
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    - legend: <h3>Heading H3</h3>
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    - legend: <h4>Heading H4</h4>
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    - legend: <h5>Heading H5</h5>
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    - legend: <h6>Heading H6</h6>
+      groups:
+      - id: invoer-veld-1
+        inputType: input
+        type: text
+        label: Voornaam
+      - id: invoer-veld-2
+        inputType: input
+        type: text
+        label: Achternaam
+    buttons:
+    - type: submit
+      modifier: dso-primary
+      label: Primaire actie
+    - type: button
+      modifier: dso-tertiary
+      label: Secondaire actie
