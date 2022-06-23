@@ -419,7 +419,7 @@ variants:
     __title: header in legend
     formModifier: dso-header-in-legend
     fieldsets:
-    - legend: <h1>Invoervelden (h1)</h1>
+    - legend: <h1>Heading H1</h1>
       groups:
       - id: invoer-veld-1
         inputType: input
@@ -429,7 +429,7 @@ variants:
         inputType: input
         type: text
         label: Achternaam
-    - legend: <h2>Invoervelden (h2)</h2>
+    - legend: <h2>Heading H2</h2>
       groups:
       - id: invoer-veld-1
         inputType: input
@@ -439,7 +439,7 @@ variants:
         inputType: input
         type: text
         label: Achternaam
-    - legend: <h3>Invoervelden (h3)</h3>
+    - legend: <h3>Heading H3</h3>
       groups:
       - id: invoer-veld-1
         inputType: input
@@ -449,7 +449,7 @@ variants:
         inputType: input
         type: text
         label: Achternaam
-    - legend: <h4>Invoervelden (h4)</h4>
+    - legend: <h4>Heading H4</h4>
       groups:
       - id: invoer-veld-1
         inputType: input
@@ -459,7 +459,7 @@ variants:
         inputType: input
         type: text
         label: Achternaam
-    - legend: <h5>Invoervelden (h5)</h5>
+    - legend: <h5>Heading H5</h5>
       groups:
       - id: invoer-veld-1
         inputType: input
@@ -469,7 +469,7 @@ variants:
         inputType: input
         type: text
         label: Achternaam
-    - legend: <h6>Invoervelden (h6)</h6>
+    - legend: <h6>Heading H6</h6>
       groups:
       - id: invoer-veld-1
         inputType: input
