@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* ***dso-toolkit + sources + css:** Header margins in legends aanpassen ([#1572](https://github.com/dso-toolkit/dso-toolkit/issues/1572))
+
 ## 39.0.0
 
 ### Added
