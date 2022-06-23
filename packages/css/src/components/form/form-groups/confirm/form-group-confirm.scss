@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .form-group.dso-confirm {
   &.dso-invalid {
     .dso-selectable {
@@ -13,7 +15,8 @@
 
   @media screen and (min-width: $screen-sm-min) {
     .form-horizontal & .dso-field-container {
-      padding-top: #{$padding-base-vertical + 1};
+      margin-left: percentage(math.div($dso-label-column, $grid-columns));
+      padding-left: $grid-gutter-width * 0.5;
     }
   }
 }
