@@ -24,7 +24,7 @@ export function formGroupCheckboxesTemplate(formGroup: FormGroupCheckboxes<Templ
     <fieldset
       class="form-group dso-checkboxes ${classMap({ 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}"
       aria-describedby=${ifDefined(ariaDescribedBy)}
-      >
+    >
       <div class="dso-label-container">
         <label for=${formGroup.id} class="control-label">
           ${formGroup.label}

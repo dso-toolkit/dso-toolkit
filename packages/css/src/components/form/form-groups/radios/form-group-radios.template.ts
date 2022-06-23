@@ -24,7 +24,7 @@ export function formGroupRadiosTemplate(formGroup: FormGroupRadios<TemplateResul
     <fieldset
       class="form-group dso-radios ${classMap({ 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}"
       aria-describedby=${ifDefined(ariaDescribedBy)}
-      >
+    >
       <div class="dso-label-container">
         <label for=${formGroup.id} class="control-label">
           ${formGroup.label}
