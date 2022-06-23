@@ -28,7 +28,7 @@ export function selectableTemplate({
         value=${value}
         name=${ifDefined(name)}
         aria-invalid=${ifDefined(invalid)}
-        aria-describedby=${ifDefined(describedById)}
+        aria-describedby=${ifDefined(info ? describedById : undefined)}
         @change=${(e: Event) => onChange?.(e)}
         ?disabled=${disabled}
         ?required=${required}
@@ -45,7 +45,7 @@ export function selectableTemplate({
         ? html`
           ${!info.fixed ? infoButtonTemplate({ active: info.active, onClick: info.onClose }) : nothing}
           ${info.active || info.fixed
-            ? infoTemplate(info)
+            ? infoTemplate({ ...info, id: info ? describedById : undefined })
             : nothing
           }
         `
