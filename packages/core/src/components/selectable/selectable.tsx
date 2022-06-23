@@ -7,7 +7,7 @@ import { createIdentifier } from '../../utils/create-identifier';
 @Component({
   tag: 'dso-selectable',
   styleUrl: 'selectable.scss',
-  shadow: true
+  scoped: true
 })
 export class Selectable {
   @Prop()

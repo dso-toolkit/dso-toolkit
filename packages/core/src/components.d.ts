@@ -163,12 +163,14 @@ export namespace Components {
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
+        "group": string;
     }
     interface DsoMapControls {
         "disableZoom"?: 'in' | 'out' | 'both';
         "open": boolean;
     }
     interface DsoMapOverlays {
+        "group": string;
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
@@ -630,6 +632,7 @@ declare namespace LocalJSX {
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
+        "group"?: string;
         "onBaseLayerChange"?: (event: CustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
@@ -639,6 +642,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface DsoMapOverlays {
+        "group"?: string;
         "onToggleOverlay"?: (event: CustomEvent<OverlayChangeEvent>) => void;
         "overlays": Overlay[];
     }
