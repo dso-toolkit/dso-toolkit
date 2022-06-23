@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 
 import { formGroupCheckboxesTemplate } from './form-groups/checkboxes/form-group-checkboxes.template';
+import { formGroupConfirmTemplate } from './form-groups/confirm/form-group-confirm.template';
 import { formGroupInputTemplate } from './form-groups/input/form-group-input.template';
 import { formGroupRadiosTemplate } from './form-groups/radios/form-group-radios.template';
 
@@ -19,6 +20,7 @@ storiesOfForm(
     formTemplate,
     formGroupDecorator: story => html`<form><fieldset><legend>Example</legend>${story()}</fieldset></form>`,
     formGroupCheckboxesTemplate,
+    formGroupConfirmTemplate,
     formGroupInputTemplate,
     formGroupRadiosTemplate
   }
