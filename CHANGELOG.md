@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **dso-toolkit + core:** `dso-info` in `.formgroup.dso-radios, .form-group.dso-checkboxes` mist `aria-describedby` ([#1399](https://github.com/dso-toolkit/dso-toolkit/issues/1399))
 * **core:** Map controls: onjuist toetsenbord gedrag keuzerondjes ([#1573](https://github.com/dso-toolkit/dso-toolkit/issues/1573))
+* **sources:** Anchor states en Tile Active zijn inconsistent ([#1368](https://github.com/dso-toolkit/dso-toolkit/issues/1368))
 
 ## 39.0.0
 
