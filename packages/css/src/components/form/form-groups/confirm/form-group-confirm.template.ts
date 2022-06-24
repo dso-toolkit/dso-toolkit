@@ -22,9 +22,7 @@ export function formGroupConfirmTemplate(formGroup: FormGroupConfirm<TemplateRes
       aria-describedby=${ifDefined(ariaDescribedBy)}
     >
       <div class="dso-field-container">
-        ${formGroup.selectables.map(selectable =>
-          selectableTemplate({ ...selectable, disabled: formGroup.disabled })
-        )}
+        ${selectableTemplate({ ...formGroup.selectable, disabled: formGroup.disabled })}
         ${formGroup.errorText && formGroup.state === 'invalid'
           ? html`
             <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>

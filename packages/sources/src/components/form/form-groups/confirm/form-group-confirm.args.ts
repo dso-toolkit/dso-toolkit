@@ -58,7 +58,7 @@ export function formGroupConfirmArgsMapper(a: FormGroupConfirmArgs): FormGroupCo
     state: a.state,
     errorText: a.errorText,
     helpText: a.helpText,
-    selectables: [
+    selectable: [
       {
         id: uuidv4(),
         value: 'akkoord',
