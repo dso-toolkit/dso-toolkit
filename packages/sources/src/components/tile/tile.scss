@@ -66,10 +66,15 @@ $dso-tile-color: $grasgroen;
   a {
     @include anchor-clean();
 
-    &:hover {
+    &:hover,
+    &:active {
       .dso-tile-link {
         border-bottom: #{$u1 * 0.5} solid $grasgroen;
       }
+    }
+
+    &:active {
+      text-decoration: none;
     }
   }
 }
