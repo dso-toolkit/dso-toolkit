@@ -11,11 +11,11 @@ context:
       - label: Regels op de kaart
       - label: Mijn Omgevingsloket
   dropdownButton:
-    id: actie
+    id: Menu
     modifier: dso-tertiary
     ariaHasPopup: 'menu'
     open: true
-    label: O. tester
+    label: Menu
     icon: user
     groups:
       - group:
