@@ -82,35 +82,6 @@ select:not([multiple]) {
 
 .form-horizontal {
   .form-group {
-    &.dso-static {
-      .dso-field-container {
-        margin-bottom: 0;
-        min-height: $line-height-computed + $font-size-base;
-        padding-bottom: $padding-base-vertical + 1;
-        padding-top: $padding-base-vertical + 1;
-
-        * {
-          margin-bottom: 0;
-          margin-top: 0;
-
-          + * {
-            margin-top: $dso-vertical-spacing-small;
-          }
-        }
-      }
-
-      &.dso-edit .dso-field-container {
-        padding-right: $u5;
-        position: relative;
-
-        button {
-          position: absolute;
-          right: $u2;
-          top: 0;
-        }
-      }
-    }
-
     @media screen and (min-width: $screen-sm-min) {
       &.dso-input-number {
         .dso-field-container {
