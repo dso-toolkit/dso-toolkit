@@ -47,16 +47,11 @@ form,
 .form-group {
   &.dso-required {
     &.dso-files,
-    &.dso-select,
-    &.dso-textarea {
+    &.dso-select {
       .control-label::after {
         @include form-group-required();
       }
     }
-  }
-
-  textarea {
-    resize: vertical;
   }
 }
 
@@ -112,17 +107,6 @@ select:not([multiple]) {
           position: absolute;
           right: $u2;
           top: 0;
-        }
-      }
-    }
-
-    &.dso-textarea {
-      .form-control {
-        padding-bottom: $padding-base-vertical - 1;
-        padding-top: $padding-base-vertical - 1;
-
-        &:not([rows]) {
-          height: calc(#{$line-height-base * variables.$dso-textarea-default-rows}em + #{($padding-base-vertical + 1) * 2});
         }
       }
     }
