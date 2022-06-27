@@ -6,6 +6,7 @@ import { formGroupCheckboxesTemplate } from './form-groups/checkboxes/form-group
 import { formGroupConfirmTemplate } from './form-groups/confirm/form-group-confirm.template';
 import { formGroupInputTemplate } from './form-groups/input/form-group-input.template';
 import { formGroupRadiosTemplate } from './form-groups/radios/form-group-radios.template';
+import { formGroupSelectTemplate } from './form-groups/select/form-group-select.template';
 import { formGroupStaticTemplate } from './form-groups/static/form-group-static.template';
 import { formGroupTextareaTemplate } from './form-groups/textarea/form-group-textarea.template';
 
@@ -25,6 +26,7 @@ storiesOfForm(
     formGroupConfirmTemplate,
     formGroupInputTemplate,
     formGroupRadiosTemplate,
+    formGroupSelectTemplate,
     formGroupStaticTemplate,
     formGroupTextareaTemplate
   }

@@ -46,37 +46,11 @@ form,
 
 .form-group {
   &.dso-required {
-    &.dso-files,
-    &.dso-select {
+    &.dso-files {
       .control-label::after {
         @include form-group-required();
       }
     }
-  }
-}
-
-select:not([multiple]) {
-  .form-group & {
-    @include di-variant("caret-down");
-
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-position: calc(100% - #{$u1});
-    background-repeat: no-repeat;
-    background-size: $dso-icon-size $dso-icon-size;
-    padding-right: $u4;
-
-    &:disabled {
-      @include di-variant("caret-down-disabled");
-    }
-
-    &::-ms-expand {
-      display: none;
-    }
-  }
-
-  .form-group.dso-invalid & {
-    @include di-variant("caret-down-invalid");
   }
 }
 

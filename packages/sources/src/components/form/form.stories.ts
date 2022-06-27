@@ -8,13 +8,15 @@ import { checkboxesContent } from './content/checkboxes.content';
 import { confirmContent } from './content/confirm.content';
 import { inputContent } from './content/input.content';
 import { radiosContent } from './content/radios.content';
+import { selectContent } from './content/select.content';
 import { staticContent } from './content/static.content';
 import { textareaContent } from './content/textarea.content';
-import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupInput, FormGroupInputDate, FormGroupRadios, FormGroupStatic, FormGroupTextarea } from './form.models';
+import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupInput, FormGroupInputDate, FormGroupRadios, FormGroupStatic, FormGroupSelect, FormGroupTextarea } from './form.models';
 import { formGroupCheckboxesArgsMapper, formGroupCheckboxesArgTypes } from './form-groups/checkboxes/form-group-checkboxes.args';
 import { formGroupConfirmArgsMapper, formGroupConfirmArgTypes } from './form-groups/confirm/form-group-confirm.args';
 import { formGroupInputArgsMapper, formGroupInputArgTypes } from './form-groups/input/form-group-input.args';
 import { formGroupRadiosArgsMapper, formGroupRadiosArgTypes } from './form-groups/radios/form-group-radios.args';
+import { formGroupSelectArgsMapper, formGroupSelectArgTypes } from './form-groups/select/form-group-select.args';
 import { formGroupStaticArgsMapper, formGroupStaticArgTypes } from './form-groups/static/form-group-static.args';
 import { formGroupTextareaArgsMapper, formGroupTextareaArgTypes } from './form-groups/textarea/form-group-textarea.args';
 
@@ -26,6 +28,7 @@ export interface FormParameters<TemplateFnReturnType> {
   formGroupConfirmTemplate: (formGroupConfirm: FormGroupConfirm<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupRadiosTemplate: (formGroupRadios: FormGroupRadios<TemplateFnReturnType>) => TemplateFnReturnType;
+  formGroupSelectTemplate: (formGroupSelect: FormGroupSelect<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupStaticTemplate: (formGroupStatic: FormGroupStatic<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupTextareaTemplate: (formGroupTextarea: FormGroupTextarea<TemplateFnReturnType>) => TemplateFnReturnType;
 }
@@ -43,6 +46,7 @@ export function storiesOfForm<TemplateFnReturnType>(
     formGroupConfirmTemplate,
     formGroupInputTemplate,
     formGroupRadiosTemplate,
+    formGroupSelectTemplate,
     formGroupStaticTemplate,
     formGroupTextareaTemplate
   }: FormParameters<TemplateFnReturnType>
@@ -105,6 +109,18 @@ export function storiesOfForm<TemplateFnReturnType>(
     .add('radios', bindTemplate(formGroupRadiosArgsMapper, formGroupRadiosTemplate)
   );
 
+  storiesOf('Form/groups/select', mainModule)
+    .addParameters({
+      argTypes: formGroupSelectArgTypes,
+      args: selectContent,
+      docs: {
+        page: readme
+      }
+    })
+    .addDecorator(formGroupDecorator)
+    .add('select', bindTemplate(formGroupSelectArgsMapper, formGroupSelectTemplate)
+  );
+  
   storiesOf('Form/groups/static', mainModule)
     .addParameters({
       argTypes: formGroupStaticArgTypes,
