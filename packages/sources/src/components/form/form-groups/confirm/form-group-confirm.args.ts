@@ -13,6 +13,8 @@ export interface FormGroupConfirmArgs {
   disabled: boolean;
   errorText?: string;
   helpText?: string;
+  selectableLabel: string;
+  selectableValue: string;
 }
 
 export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
@@ -46,6 +48,16 @@ export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
     control: {
       type: 'text'
     }
+  },
+  selectableLabel: {
+    control: {
+      type: 'text'
+    }
+  },
+  selectableValue: {
+    control: {
+      type: 'text'
+    }
   }
 };
 
@@ -58,13 +70,11 @@ export function formGroupConfirmArgsMapper(a: FormGroupConfirmArgs): FormGroupCo
     state: a.state,
     errorText: a.errorText,
     helpText: a.helpText,
-    selectable: [
-      {
-        id: uuidv4(),
-        value: 'akkoord',
-        type: 'checkbox',
-        label: 'Ik ga akkoord met de voorwaarden'
-      }
-    ]
+    selectable: {
+      id: uuidv4(),
+      type: 'checkbox',
+      value: a.selectableValue,
+      label: a.selectableLabel
+    }
   };
 }
