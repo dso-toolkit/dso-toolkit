@@ -45,16 +45,7 @@ form,
 }
 
 .form-group {
-  &.dso-confirm {
-    &.dso-invalid {
-      .dso-selectable {
-        @include selectable_invalid();
-      }
-    }
-  }
-
   &.dso-required {
-    &.dso-confirm,
     &.dso-files,
     &.dso-select,
     &.dso-textarea {
@@ -96,15 +87,6 @@ select:not([multiple]) {
 
 .form-horizontal {
   .form-group {
-    &.dso-confirm {
-      @media screen and (min-width: $screen-sm-min) {
-        .dso-field-container {
-          margin-left: percentage(math.div(variables.$dso-label-column, $grid-columns));
-          padding-left: $grid-gutter-width * 0.5;
-        }
-      }
-    }
-
     &.dso-static {
       .dso-field-container {
         margin-bottom: 0;
