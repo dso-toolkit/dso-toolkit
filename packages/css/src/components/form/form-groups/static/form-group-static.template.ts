@@ -33,7 +33,8 @@ export function formGroupStaticTemplate(formGroup: FormGroupStatic<TemplateResul
       </div>
       <div
         class="dso-field-container"
-        aria-describedby=${ifDefined(ariaDescribedBy)}>
+        aria-describedby=${ifDefined(ariaDescribedBy)}
+      >
         ${formGroup.value}
 
         ${formGroup.edit
