@@ -8,9 +8,6 @@ export interface FormGroupInputNumberArgs {
   label: string,
   state?: 'invalid' | 'valid',
   count: number,
-  required: boolean,
-  disabled: boolean,
-  readonly: boolean,
   min: number,
   max: number,
   minusButtonInactive: boolean,
@@ -37,21 +34,6 @@ export const formGroupInputNumberArgTypes: ArgTypes<FormGroupInputNumberArgs> = 
     options: [undefined, 'invalid', 'valid'],
     control: {
       type: 'select'
-    }
-  },
-  required: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  disabled: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  readonly: {
-    control: {
-      type: 'boolean'
     }
   },
   min: {
@@ -82,9 +64,6 @@ export function formGroupInputNumberArgsMapper(a: FormGroupInputNumberArgs): For
     id: a.id,
     label: a.label,
     count: a.count,
-    required: a.required,
-    disabled: a.disabled,
-    readonly: a.readonly,
     state: a.state,
     min: a.min,
     max: a.max,
