@@ -7,11 +7,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **css + sources:** Accordion button en link implementatie etaleren ([#1481](https://github.com/dso-toolkit/dso-toolkit/issues/1481))
-* **dso-toolkit + css:** Form Group: Confirm naar @dso-toolkit/css ([#1611](https://github.com/dso-toolkit/dso-toolkit/issues/1611))
 * **dso-toolkit + sources + css:** Header margins in legends aanpassen ([#1572](https://github.com/dso-toolkit/dso-toolkit/issues/1572))
 * **dso-toolkit + css:** Form Group: Select verhuizen naar @dso-toolkit/css ([#1615](https://github.com/dso-toolkit/dso-toolkit/issues/1615))
 * **dso-toolkit + css:** Form Group: Static verhuizen naar @dso-toolkit/css ([#1616](https://github.com/dso-toolkit/dso-toolkit/issues/1616))
 * **dso-toolkit + css:** Form Group: Textarea verhuizen naar @dso-toolkit/css ([#1617](https://github.com/dso-toolkit/dso-toolkit/issues/1617))
+* **dso-toolkit + css:** Form Group: Input Number naar @dso-toolkit/css ([#1613](https://github.com/dso-toolkit/dso-toolkit/issues/1613))
 
 ### Fixed
 * **dso-toolkit + core:** `dso-info` in `.formgroup.dso-radios, .form-group.dso-checkboxes` mist `aria-describedby` ([#1399](https://github.com/dso-toolkit/dso-toolkit/issues/1399))
