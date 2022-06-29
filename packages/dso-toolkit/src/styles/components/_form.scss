@@ -44,19 +44,6 @@ form,
   }
 }
 
-.form-group {
-  &.dso-required {
-    &.dso-files {
-      .control-label::after {
-        @include form-group-required();
-      }
-    }
-  }
-}
-
 .control-label + .dso-info-button {
   @include info-button_controlLabelSibling();
 }
-
-/* stylelint-disable-next-line no-invalid-position-at-import-rule */
-@import "./form/files";
