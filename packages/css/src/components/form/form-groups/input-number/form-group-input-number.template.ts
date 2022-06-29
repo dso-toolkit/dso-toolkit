@@ -1,7 +1,5 @@
 import { FormGroupInputNumber } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
-// import { classMap } from 'lit-html/directives/class-map.js';
-// import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { inputNumberTemplate } from '../../../input-number/input-number.template';
 
