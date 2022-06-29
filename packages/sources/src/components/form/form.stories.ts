@@ -120,7 +120,7 @@ export function storiesOfForm<TemplateFnReturnType>(
     .addDecorator(formGroupDecorator)
     .add('select', bindTemplate(formGroupSelectArgsMapper, formGroupSelectTemplate)
   );
-  
+
   storiesOf('Form/groups/static', mainModule)
     .addParameters({
       argTypes: formGroupStaticArgTypes,

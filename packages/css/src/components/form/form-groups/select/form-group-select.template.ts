@@ -1,4 +1,4 @@
-import { FormGroupSelect } from '@dso-toolkit/sources';
+import { FormGroupSelect, SelectOption } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
@@ -6,6 +6,10 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { infoButtonTemplate } from '../../../info-button/info-button.template';
 import { infoTemplate } from '../../../info/info.template';
 import { iconTemplate } from '../../../icon/icon.template';
+
+function option(option: SelectOption) {
+  return html`<option value=${option.value} ?selected=${option.selected}>${option.label}</option>`;
+}
 
 export function formGroupSelectTemplate(formGroup: FormGroupSelect<TemplateResult>): TemplateResult {
   const errorTextId = `${formGroup.id}-error-text`;
@@ -39,14 +43,26 @@ export function formGroupSelectTemplate(formGroup: FormGroupSelect<TemplateResul
         <select
           id=${formGroup.id}
           class="form-control"
-          rows=${ifDefined(formGroup.rows)}
           aria-describedby=${ifDefined(ariaDescribedBy)}
           aria-invalid=${ifDefined(formGroup.state)}
           ?disabled=${formGroup.disabled}
-          ?checked=${formGroup.checked}
           ?multiple=${formGroup.multiple}
           ?required=${formGroup.required}
-        ></select>
+        >
+          ${
+            formGroup.items.map(item => {
+              if ('value' in item) {
+                return html`${option(item)}`
+              }
+
+              return html`
+                <optgroup label=${item.label} ?disabled=${item.disabled}>
+                  ${item.options.map(o => option(o))}
+                </optgroup>
+              `;
+            })
+          }
+        </select>
         ${formGroup.feedback
           ? html`
             <span class="form-control-feedback" aria-hidden="true">${iconTemplate(formGroup.feedback)}</span>

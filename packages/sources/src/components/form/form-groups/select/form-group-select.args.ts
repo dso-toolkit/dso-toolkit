@@ -1,9 +1,11 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 import { ArgTypes, noControl } from '../../../../stories-helpers';
+import { selectOptionGroupContent, selectOptionsContent } from '../../content/select.content';
 
 import { FormGroupSelect } from '../../form.models';
 
 export interface FormGroupSelectArgs {
+  metOptGroup: boolean;
   id: string;
   label: string;
   state?: 'invalid' | 'valid';
@@ -21,6 +23,11 @@ export interface FormGroupSelectArgs {
 }
 
 export const formGroupSelectArgTypes: ArgTypes<FormGroupSelectArgs> = {
+  metOptGroup: {
+    control: {
+      type: 'boolean'
+    }
+  },
   id: {
     control: {
       type: 'text'
@@ -97,6 +104,7 @@ export function formGroupSelectArgsMapper(a: FormGroupSelectArgs): FormGroupSele
     group: 'select',
     id: a.id,
     label: a.label,
+    items: a.metOptGroup ? selectOptionGroupContent : selectOptionsContent,
     required: a.required,
     disabled: a.disabled,
     multiple: a.multiple,
