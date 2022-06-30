@@ -13,19 +13,3 @@ export interface FormGroupFilesFile {
   filename: string;
   confidential?: boolean;
 }
-
-// --
-
-// interface Persoon {
-//   naam: string;
-//   leeftijd: number;
-// }
-
-// const pieter: Persoon = {
-//   naam: 'pieter',
-//   leeftijd: 23
-// };
-
-// const thomas: Persoon = {
-
-// }

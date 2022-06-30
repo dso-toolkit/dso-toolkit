@@ -6,7 +6,7 @@ export const filesContent: Omit<FormGroupFilesArgs, 'infoButtonHandler' | 'infoC
   label: 'Files',
   required: false,
   disabled: false,
-  errorText: 'Dit moet u verplicht aanvinken',
+  errorText: 'Voeg een document toe.',
   warning: 'U vraagt of wij een document vertrouwelijk willen behandelen. Er zal worden beoordeeld of uw vraag terecht is. U krijgt hiervan bericht.',
   addFileButtonVariant: 'primary'
 };
