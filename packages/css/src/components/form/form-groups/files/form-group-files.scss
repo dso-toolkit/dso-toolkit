@@ -11,18 +11,9 @@
     }
   }
 
-  .dso-remove {
-    font-size: 0;
-    min-width: auto;
-    padding: $u1 * 0.5;
-
-    &::before {
-      @include di("times-bosgroen");
-
-      content: "";
-      display: block;
-      font-size: $font-size-base;
-    }
+  dso-selectable,
+  .dso-selectable {
+    margin: ($u1 / 2) 0;
   }
 
   .dso-file-upload {
@@ -88,12 +79,11 @@
         word-break: break-all;
       }
 
-      .dso-confidential + .dso-remove {
-        margin-left: $u4;
-      }
-
-      .dso-selectable {
-        margin-bottom: 0;
+      .dso-selectable,
+      dso-selectable {
+        + .dso-remove {
+          margin-left: $u4;
+        }
       }
 
       .dso-filename,
@@ -103,15 +93,14 @@
 
       > dso-icon,
       > svg.di {
+        color: $zwart !important;
         flex: 0 0 24px;
         height: 24px;
         margin: #{$u1 * 0.5} 0 #{$u1 * 0.5} $u1;
       }
 
-      button {
-        &::before {
-          color: $grijs-90;
-        }
+      button.btn-link {
+        color: $grijs-90;
       }
 
       @media screen and (max-width: $screen-sm-max) {
