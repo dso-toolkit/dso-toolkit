@@ -13,7 +13,7 @@
 
   dso-selectable,
   .dso-selectable {
-    margin: ($u1 / 2) 0;
+    margin: $u1 * 0.5 0;
   }
 
   .dso-file-upload {
