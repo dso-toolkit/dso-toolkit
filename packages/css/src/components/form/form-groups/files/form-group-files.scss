@@ -13,7 +13,7 @@
 
   dso-selectable,
   .dso-selectable {
-    margin: $u1 * 0.5 0;
+    margin: #{$u1 * 0.5} 0;
   }
 
   .dso-file-upload {
@@ -86,6 +86,12 @@
         }
       }
 
+      .dso-remove {
+        color: $bosgroen;
+        padding-left: #{$u1 * 0.5};
+        padding-right: #{$u1 * 0.5};
+      }
+
       .dso-filename,
       .dso-confidential {
         margin: #{$u1 * 0.5} 0;
@@ -93,7 +99,6 @@
 
       > dso-icon,
       > svg.di {
-        color: $zwart !important;
         flex: 0 0 24px;
         height: 24px;
         margin: #{$u1 * 0.5} 0 #{$u1 * 0.5} $u1;
