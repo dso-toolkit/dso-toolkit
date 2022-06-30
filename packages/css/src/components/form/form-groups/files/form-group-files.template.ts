@@ -42,7 +42,7 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
             html`
               <li>
                 <div class="dso-filename" id="">${file.filename}</div>
-                ${selectableTemplate({ id: '', value:'', type: 'checkbox', label: 'Vertrouwelijk' })}
+                ${selectableTemplate({ id: 'monkey', value:'', type: 'checkbox', label: 'Vertrouwelijk'})}
                 ${file.confidential
                   ? iconTemplate({ icon: 'status-warning' })
                   : nothing
