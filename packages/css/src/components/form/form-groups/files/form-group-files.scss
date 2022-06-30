@@ -87,9 +87,17 @@
       }
 
       .dso-remove {
-        color: $bosgroen;
-        padding-left: #{$u1 * 0.5};
-        padding-right: #{$u1 * 0.5};
+        font-size: 0;
+        min-width: auto;
+        padding: $u1 * 0.5;
+
+        &::before {
+          @include di("times-bosgroen");
+
+          content: "";
+          display: block;
+          font-size: $font-size-base;
+        }
       }
 
       .dso-filename,

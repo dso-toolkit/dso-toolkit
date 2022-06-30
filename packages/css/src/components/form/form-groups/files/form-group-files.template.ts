@@ -38,16 +38,16 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
       </div>
       <div class="dso-field-container">
         <ul class="dso-filelist">
-          ${formGroup.files.map(file =>
+          ${formGroup.files.map((file, index) =>
             html`
               <li>
-                <div class="dso-filename" id="">${file.filename}</div>
-                ${selectableTemplate({ id: 'monkey', value:'', type: 'checkbox', label: 'Vertrouwelijk'})}
+                <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>${file.filename}</div>
+                ${selectableTemplate({ id: `${formGroup.id}-file-confirm-${index}`, value:'', type: 'checkbox', label: 'Vertrouwelijk', describedById: `${formGroup.id}-file-filename-${index}` })}
                 ${file.confidential
                   ? iconTemplate({ icon: 'status-warning' })
                   : nothing
                 }
-                ${buttonTemplate({ label: 'Sluiten', variant: null, modifier: 'btn btn-link dso-remove', icon: { icon: 'times' }, iconMode: 'only' })}
+                ${buttonTemplate({ label: 'Verwijder document', variant: null, modifier: 'dso-tertiary dso-remove', ariaDescribedby: `${formGroup.id}-file-filename-${index}` })}
               </li>`
           )}
         </ul>
@@ -80,4 +80,3 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
     </fieldset>
   `;
 }
-
