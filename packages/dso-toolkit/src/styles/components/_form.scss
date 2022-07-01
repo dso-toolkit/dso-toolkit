@@ -54,18 +54,6 @@ form,
   }
 }
 
-.form-horizontal {
-  .form-group {
-    @media screen and (min-width: $screen-sm-min) {
-      &.dso-input-number {
-        .dso-field-container {
-          padding-top: #{$padding-base-vertical + 1};
-        }
-      }
-    }
-  }
-}
-
 .control-label + .dso-info-button {
   @include info-button_controlLabelSibling();
 }
