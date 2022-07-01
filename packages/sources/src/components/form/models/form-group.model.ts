@@ -1,5 +1,6 @@
 import { FormGroupCheckboxes } from './form-group-checkboxes.model';
 import { FormGroupConfirm } from './form-group-confirm.model';
+import { FormGroupFiles } from './form-group-files.model';
 import { FormGroupInput, FormGroupInputDate } from './form-group-input.model';
 import { FormGroupInputNumber } from './form-group-input-number.model';
 import { FormGroupRadios } from './form-group-radios.model';

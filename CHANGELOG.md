@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + css:** Form Group: Static verhuizen naar @dso-toolkit/css ([#1616](https://github.com/dso-toolkit/dso-toolkit/issues/1616))
 * **dso-toolkit + css:** Form Group: Textarea verhuizen naar @dso-toolkit/css ([#1617](https://github.com/dso-toolkit/dso-toolkit/issues/1617))
 * **dso-toolkit + css:** Form Group: Input Number naar @dso-toolkit/css ([#1613](https://github.com/dso-toolkit/dso-toolkit/issues/1613))
+* **dso-toolkit + css:** Form Group: Files naar @dso-toolkit/css ([#1612](https://github.com/dso-toolkit/dso-toolkit/issues/1612))
 
 ### Fixed
 * **dso-toolkit + core:** `dso-info` in `.formgroup.dso-radios, .form-group.dso-checkboxes` mist `aria-describedby` ([#1399](https://github.com/dso-toolkit/dso-toolkit/issues/1399))

@@ -6,15 +6,17 @@ import { formArgsMapper, formArgTypes } from './form.args';
 
 import { checkboxesContent } from './content/checkboxes.content';
 import { confirmContent } from './content/confirm.content';
+import { filesContent } from './content/files.content';
 import { inputContent } from './content/input.content';
 import { inputNumberContent } from './content/input-number.content';
 import { radiosContent } from './content/radios.content';
 import { selectContent } from './content/select.content';
 import { staticContent } from './content/static.content';
 import { textareaContent } from './content/textarea.content';
-import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupInput, FormGroupInputDate, FormGroupInputNumber, FormGroupRadios, FormGroupStatic, FormGroupSelect, FormGroupTextarea } from './form.models';
+import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupFiles, FormGroupInput, FormGroupInputDate, FormGroupInputNumber, FormGroupRadios, FormGroupStatic, FormGroupSelect, FormGroupTextarea } from './form.models';
 import { formGroupCheckboxesArgsMapper, formGroupCheckboxesArgTypes } from './form-groups/checkboxes/form-group-checkboxes.args';
 import { formGroupConfirmArgsMapper, formGroupConfirmArgTypes } from './form-groups/confirm/form-group-confirm.args';
+import { formGroupFilesArgsMapper, formGroupFilesArgTypes } from './form-groups/files/form-group-files.args';
 import { formGroupInputArgsMapper, formGroupInputArgTypes } from './form-groups/input/form-group-input.args';
 import { formGroupInputNumberArgsMapper, formGroupInputNumberArgTypes } from './form-groups/input-number/form-group-input-number.args';
 import { formGroupRadiosArgsMapper, formGroupRadiosArgTypes } from './form-groups/radios/form-group-radios.args';
@@ -28,6 +30,7 @@ export interface FormParameters<TemplateFnReturnType> {
   formGroupDecorator: DecoratorFunction<TemplateFnReturnType>;
   formGroupCheckboxesTemplate: (formGroupCheckboxes: FormGroupCheckboxes<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupConfirmTemplate: (formGroupConfirm: FormGroupConfirm<TemplateFnReturnType>) => TemplateFnReturnType;
+  formGroupFilesTemplate: (formGroupFiles: FormGroupFiles<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputNumberTemplate: (formGroupInputNumber: FormGroupInputNumber<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupRadiosTemplate: (formGroupRadios: FormGroupRadios<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -47,6 +50,7 @@ export function storiesOfForm<TemplateFnReturnType>(
     formGroupDecorator,
     formGroupCheckboxesTemplate,
     formGroupConfirmTemplate,
+    formGroupFilesTemplate,
     formGroupInputTemplate,
     formGroupInputNumberTemplate,
     formGroupRadiosTemplate,
@@ -87,6 +91,18 @@ export function storiesOfForm<TemplateFnReturnType>(
     })
     .addDecorator(formGroupDecorator)
     .add('confirm', bindTemplate(formGroupConfirmArgsMapper, formGroupConfirmTemplate)
+  );
+
+  storiesOf('Form/groups/files', mainModule)
+    .addParameters({
+      argTypes: formGroupFilesArgTypes,
+      args: filesContent,
+      docs: {
+        page: readme
+      }
+    })
+    .addDecorator(formGroupDecorator)
+    .add('files', bindTemplate(formGroupFilesArgsMapper, formGroupFilesTemplate)
   );
 
   storiesOf('Form/groups/input', mainModule)
