@@ -11,10 +11,13 @@
     }
   }
 
-}
+  &.dso-invalid {
+    select:not([multiple]) {
+      @include di-variant("caret-down-invalid");
+    }
+  }
 
-select:not([multiple]) {
-  .form-group & {
+  select:not([multiple]) {
     @include di-variant("caret-down");
 
     -moz-appearance: none;
@@ -31,9 +34,5 @@ select:not([multiple]) {
     &::-ms-expand {
       display: none;
     }
-  }
-
-  .form-group.dso-invalid & {
-    @include di-variant("caret-down-invalid");
   }
 }

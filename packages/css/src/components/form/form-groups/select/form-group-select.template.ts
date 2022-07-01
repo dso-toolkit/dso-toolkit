@@ -7,7 +7,7 @@ import { infoButtonTemplate } from '../../../info-button/info-button.template';
 import { infoTemplate } from '../../../info/info.template';
 import { iconTemplate } from '../../../icon/icon.template';
 
-function option(option: SelectOption) {
+function selectOptionTemplate(option: SelectOption) {
   return html`<option value=${option.value} ?selected=${option.selected}>${option.label}</option>`;
 }
 
@@ -49,19 +49,13 @@ export function formGroupSelectTemplate(formGroup: FormGroupSelect<TemplateResul
           ?multiple=${formGroup.multiple}
           ?required=${formGroup.required}
         >
-          ${
-            formGroup.items.map(item => {
-              if ('value' in item) {
-                return html`${option(item)}`
-              }
-
-              return html`
-                <optgroup label=${item.label} ?disabled=${item.disabled}>
-                  ${item.options.map(o => option(o))}
-                </optgroup>
-              `;
-            })
-          }
+          ${formGroup.items.map(item => 'value' in item
+            ? selectOptionTemplate(item)
+            : html`
+              <optgroup label=${item.label} ?disabled=${item.disabled}>
+                ${item.options.map(o => selectOptionTemplate(o))}
+              </optgroup>
+            `)}
         </select>
         ${formGroup.feedback
           ? html`
