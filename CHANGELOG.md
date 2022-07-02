@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Deprecated
 * **BREAKING: dso-toolkit:** Conclusion ([#1624](https://github.com/dso-toolkit/dso-toolkit/issues/1624))
 
+### Added
+* **BREAKING: core:** Nieuw component `<dso-responsive-element />` ([#1456](https://github.com/dso-toolkit/dso-toolkit/issues/1456)) **Zie markup voorschriften van Viewer Grid. De componenten `.dso-tile-grid`, `.dso-document-list` en `.dso-document-list-item` moeten nu expliciet gebruik maken van `<dso-reponsive-element>`.**
+
 ### Changed
 * **css + sources:** Accordion button en link implementatie etaleren ([#1481](https://github.com/dso-toolkit/dso-toolkit/issues/1481))
 * **dso-toolkit + css:** Form Group: Confirm naar @dso-toolkit/css ([#1611](https://github.com/dso-toolkit/dso-toolkit/issues/1611))

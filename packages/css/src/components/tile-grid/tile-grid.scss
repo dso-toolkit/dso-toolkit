@@ -1,3 +1,17 @@
 .dso-tile-grid {
   @include tile-grid_root();
 }
+
+dso-responsive-element.dso-tile-grid {
+  &[small] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &[medium] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &[large] {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

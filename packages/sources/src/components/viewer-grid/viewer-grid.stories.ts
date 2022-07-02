@@ -3,6 +3,8 @@ import {
   componentArgs,
   StorybookParameters,
 } from "../../stories-helpers";
+import { documentListContent } from '../document-list/document-list.content';
+import { DocumentList } from '../document-list/document-list.models';
 import { tiles } from "../tile-grid/tile-grid.content";
 import { Tile } from "../tile/tile.models";
 import { viewerGridArgs, ViewerGridArgs, viewerGridDocumentHeaderArgs, ViewerGridDocumentHeaderArgs } from "./viewer-grid.args";
@@ -19,12 +21,12 @@ export interface ViewerGridParameters<TemplateFnReturnType> {
   tilesExampleTemplate: (tiles: Tile[]) => TemplateFnReturnType;
   filterblokExampleTemplate: () => TemplateFnReturnType;
   documentHeaderExampleTemplate: (ViewerGridDocumentHeaderProperties: ViewerGridDocumentHeaderProperties) => TemplateFnReturnType;
-  documentItemExampleTemplate: () => TemplateFnReturnType;
+  documentListExampleTemplate: (documentList: typeof documentListContent) => TemplateFnReturnType;
 }
 
 export function storiesOfViewerGrid<TemplateFnReturnType>(
   { module: mainModule, storiesOf, readme }: StorybookParameters,
-  { viewerGridTemplate, example, tilesExampleTemplate, filterblokExampleTemplate, documentHeaderExampleTemplate, documentItemExampleTemplate }: ViewerGridParameters<TemplateFnReturnType>
+  { viewerGridTemplate, example, tilesExampleTemplate, filterblokExampleTemplate, documentHeaderExampleTemplate, documentListExampleTemplate }: ViewerGridParameters<TemplateFnReturnType>
 ) {
   const stories = storiesOf("Viewer Grid", mainModule).addParameters({
     layout: "fullscreen",
@@ -84,7 +86,7 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     argTypes: viewerGridDocumentHeaderArgs
   });
 
-  stories.add('Voorbeeldpagina "Document item"', () => {
-    return documentItemExampleTemplate();
+  stories.add('Voorbeeldpagina "Document list"', () => {
+    return documentListExampleTemplate(documentListContent);
   });
 }

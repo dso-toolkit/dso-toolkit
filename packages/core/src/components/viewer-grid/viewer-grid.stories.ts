@@ -8,7 +8,7 @@ import { viewerGridTemplate } from "./templates/viewer-grid.template";
 import { viewerGridTilesExampleTemplate } from "./example-pages/viewer-grid-tiles.example-template";
 import { viewerGridFilterblokExampleTemplate } from "./example-pages/viewer-grid-filterblok.example-template";
 import { viewerGridDocumentHeaderExampleTemplate } from "./example-pages/viewer-grid-document-header.example-template";
-import { viewerGridDocumentItemExampleTemplate } from "./example-pages/viewer-grid-document-item.example-template";
+import { viewerGridDocumentListExampleTemplate } from "./example-pages/viewer-grid-document-list.example-template";
 
 import readme from "./readme.md";
 
@@ -32,6 +32,6 @@ storiesOfViewerGrid(
     tilesExampleTemplate: viewerGridTilesExampleTemplate,
     filterblokExampleTemplate: viewerGridFilterblokExampleTemplate,
     documentHeaderExampleTemplate: viewerGridDocumentHeaderExampleTemplate,
-    documentItemExampleTemplate: viewerGridDocumentItemExampleTemplate
+    documentListExampleTemplate: viewerGridDocumentListExampleTemplate
   }
 );
