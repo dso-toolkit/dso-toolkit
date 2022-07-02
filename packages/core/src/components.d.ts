@@ -201,6 +201,8 @@ export namespace Components {
         "label"?: string;
         "size"?: 'small' | 'medium' | 'large';
     }
+    interface DsoResponsiveElement {
+    }
     interface DsoSelectable {
         "checked"?: boolean;
         "describedById"?: string;
@@ -401,6 +403,12 @@ declare global {
         prototype: HTMLDsoProgressIndicatorElement;
         new (): HTMLDsoProgressIndicatorElement;
     };
+    interface HTMLDsoResponsiveElementElement extends Components.DsoResponsiveElement, HTMLStencilElement {
+    }
+    var HTMLDsoResponsiveElementElement: {
+        prototype: HTMLDsoResponsiveElementElement;
+        new (): HTMLDsoResponsiveElementElement;
+    };
     interface HTMLDsoSelectableElement extends Components.DsoSelectable, HTMLStencilElement {
     }
     var HTMLDsoSelectableElement: {
@@ -453,6 +461,7 @@ declare global {
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
+        "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
@@ -679,6 +688,8 @@ declare namespace LocalJSX {
         "label"?: string;
         "size"?: 'small' | 'medium' | 'large';
     }
+    interface DsoResponsiveElement {
+    }
     interface DsoSelectable {
         "checked"?: boolean;
         "describedById"?: string;
@@ -781,6 +792,7 @@ declare namespace LocalJSX {
         "dso-ozon-content": DsoOzonContent;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
+        "dso-responsive-element": DsoResponsiveElement;
         "dso-selectable": DsoSelectable;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
@@ -813,6 +825,7 @@ declare module "@stencil/core" {
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
+            "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
