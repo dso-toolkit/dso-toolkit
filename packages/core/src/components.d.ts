@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
-import { HeaderMenuItem, HeaderMenuItemClickEvent } from "./components/header/header";
+import { HeaderMenuItem, HeaderMenuItemClickEvent, HeaderMenuLogoutClick } from "./components/header/header";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -591,6 +591,10 @@ declare namespace LocalJSX {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu"?: HeaderMenuItem[];
+        /**
+          * Only available when `logout-url` is set
+         */
+        "onLogoutClick"?: (event: CustomEvent<HeaderMenuLogoutClick>) => void;
         "onMenuItemClick"?: (event: CustomEvent<HeaderMenuItemClickEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;

@@ -20,6 +20,10 @@ export interface HeaderMenuItemClickEvent {
   menuItem: HeaderMenuItem;
 }
 
+export interface HeaderMenuLogoutClick {
+  originalEvent: MouseEvent;
+}
+
 export interface HeaderMenuItem {
   label: string;
   url: string;
@@ -70,6 +74,12 @@ export class Header {
 
   @Event()
   menuItemClick!: EventEmitter<HeaderMenuItemClickEvent>;
+
+  /**
+   * Only available when `logout-url` is set
+   */
+  @Event()
+  logoutClick!: EventEmitter<HeaderMenuLogoutClick>;
 
   @Watch("useDropDownMenu")
   watchUseDropDownMenu(value: "always" | "never" | "auto") {
@@ -218,7 +228,7 @@ export class Header {
                         )}
                       {this.logoutUrl && this.isLoggedIn && (
                         <li>
-                          <a href={this.logoutUrl}>Uitloggen</a>
+                          <a href={this.logoutUrl} onClick={e => this.logoutClick.emit({ originalEvent: e })}>Uitloggen</a>
                         </li>
                       )}
                     </ul>
@@ -245,7 +255,7 @@ export class Header {
                 )}
                 {this.logoutUrl && this.isLoggedIn && (
                   <div class="logout">
-                    <a href={this.logoutUrl}>Uitloggen</a>
+                    <a href={this.logoutUrl} onClick={e => this.logoutClick.emit({ originalEvent: e })}>Uitloggen</a>
                   </div>
                 )}
               </div>
