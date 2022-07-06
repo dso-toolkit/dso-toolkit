@@ -3184,7 +3184,7 @@ __metadata:
     wait-on: ^6.0.1
     webpack: ^5.72.0
   peerDependencies:
-    "@dso-toolkit/core": ^38.0.0
+    "@dso-toolkit/core": ^40.0.0
     react: ^17.0.2 || ^18.2.0
     react-dom: ^17.0.2 || ^18.2.0
   languageName: unknown

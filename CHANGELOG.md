@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+# 40.0.0
+
 ### Added
 * **core:** dso-header logout link verrijken met logoutClick event ([#1605](https://github.com/dso-toolkit/dso-toolkit/issues/1605))
 
