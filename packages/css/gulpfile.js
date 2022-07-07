@@ -65,16 +65,27 @@ async function createSvgSpritesheet() {
               []
             );
 
+          const variantColors = ast.stylesheet.rules
+            .filter(r => r.type === 'rule')
+            .reduce((v, rule) => v.concat({
+              variant: rule.selectors
+                .filter(s => s !== id && s.indexOf(`${id}:`) === 0)
+                .map(s => s.substr(id.length + 1))
+                .map(s => s.indexOf(' ') > -1 ? s.substr(0, s.indexOf(' ')) : s)
+                .filter(s => v.indexOf(s) === -1)[0] || '',
+              color: rule.declarations.filter(d => d.property === 'color')[0].value,
+            }), [])
+
           ast.stylesheet.rules
             .filter(r => r.type === 'rule')
             .forEach(rule =>
-                rule.selectors = rule.selectors.map(s => s.indexOf(id) === 0
-                  ? transformSelector(s)
-                  : s
-                )
+              rule.selectors = rule.selectors.map(s => s.indexOf(id) === 0
+                ? transformSelector(s)
+                : s
+              )
             );
 
-          return { id, variants, style: css.stringify(ast) };
+          return { id, variants, variantColors, style: css.stringify(ast) };
         }));
       }));
   });
@@ -98,6 +109,7 @@ async function createSvgSpritesheet() {
 
           const positions = symbols.reduce((position, element) => {
             const symbol = $(element);
+            const path = $(symbol).find('path');
             const id = symbol.attr('id');
 
             const stylesheet = stylesheets.find(s => s.id === id);
@@ -110,16 +122,19 @@ async function createSvgSpritesheet() {
               .before(`<!-- START: ${iconIds.join(', ')} -->`)
               .after(`<!-- END: ${iconIds.join(', ')} -->`);
 
-            if (stylesheet) {
-              const style = $('<style>')
-                .attr('type', 'text/css')
-                .html(`\n${indent(stylesheet.style, 4)}\n  `); // last two spaces are indent fix
-
-              symbol.before(style);
-            }
-
             iconIds.forEach((iconId, index) => {
               const x = (position + index) * (canvas + gutter) + gutter / 2;
+              const svgPath = path.clone();
+
+              if (stylesheet) {
+                const iconIdArray = iconId.split('-');
+                const iconVariant = stylesheet.variants.find(variant => variant === iconIdArray[iconIdArray.length - 1]) || '';
+                const variantColor = stylesheet.variantColors.find(v => v.variant === iconVariant)?.color;
+
+                if (variantColor) {
+                  svgPath.attr('fill', variantColor)
+                }
+              }
 
               const view = $('<view>')
                 .attr('id', `img-${iconId}`)
@@ -127,15 +142,18 @@ async function createSvgSpritesheet() {
 
               symbol.before(view);
 
-              const use = $('<use>')
-                .attr('href', `#${id}`);
+              const svg = $('<svg>')
+                .attr('viewBox', symbol.attr('viewBox'))
+                .append(svgPath);
 
               const g = $('<g>')
                 .attr('transform', `translate(${x})`)
-                .append(use);
+                .append(svg);
 
               symbol.before(g);
             });
+
+            symbol.remove();
 
             return position + iconIds.length;
           }, 0);
@@ -157,7 +175,7 @@ async function createSvgSpritesheet() {
       .pipe(gulp.dest(distPath))
       .on('end', resolve)
       .on('error', reject);
-    });
+  });
 }
 
 function transformSelector(selector) {
