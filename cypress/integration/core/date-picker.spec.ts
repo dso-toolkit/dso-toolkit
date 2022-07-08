@@ -527,24 +527,19 @@ describe('Date Picker', () => {
 
     cy
       .get('dso-date-picker')
-      .find('input.dso-date__input')
+      .find<HTMLInputElement>('input.dso-date__input')
       .type('11-04-1970')
       .then($input => {
         expect($input.val()).equal('11-04-1970');
 
-        expect(($input[0] as HTMLInputElement).selectionStart).equal(10);
+        expect($input[0].selectionStart).equal(10);
 
-        ($input[0] as HTMLInputElement).selectionStart = ($input[0] as HTMLInputElement).selectionEnd = 2;
-        expect(($input[0] as HTMLInputElement).selectionStart).equal(2);
+        $input[0].selectionStart = $input[0].selectionEnd = 2;
+
+        expect($input[0].selectionStart).equal(2);
       })
       .realPress('{backspace}')
-      .then(() => {
-        cy
-          .get('dso-date-picker')
-          .find('input.dso-date__input')
-          .then($input => {
-            expect(($input[0] as HTMLInputElement).selectionStart).equal(1);
-          });
-      });
+      .get('dso-date-picker input.dso-date__input')
+      .should('have.prop', 'selectionStart', 1);
   });
 });
