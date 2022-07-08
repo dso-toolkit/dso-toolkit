@@ -309,24 +309,34 @@ describe('Date Picker', () => {
       datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
-    const ignoredChars = Array.from(Array(95)).map((e, i) => String.fromCharCode(i + 32)).filter(c => !'-0123456789'.includes(c));
+    const allowedChars = '-0123456789';
+    const ignoredChars = Array.from(Array(95)).map((e, i) => String.fromCharCode(i + 32)).filter(c => !allowedChars.includes(c));
 
     cy
       .get('dso-date-picker')
       .find('input.dso-date__input')
       .type(ignoredChars.join(''))
-      .then(() => {
-        expect(details.length).equal(0);
+      .then($input => {
+        expect($input.val()).equal('');
+        expect(details[details.length - 1].error).equal(undefined);
+        expect(details[details.length - 1].value).equal('');
+        expect(details[details.length - 1].valueAsDate).equal(undefined);
       });
-
-    const allowedChars = '-0123456789';
 
     cy
       .get('dso-date-picker')
       .find('input.dso-date__input')
       .type(allowedChars)
-      .then(() => {
-        expect(details.length).equal(11);
+      .then($input => {
+        expect($input.val()).equal(allowedChars);
+        expect(details[details.length - 1].error).equal('invalid');
+        expect(details[details.length - 1].value).equal(allowedChars);
+        expect(details[details.length - 1].valueAsDate).equal(undefined);
+
+        cy
+          .get('dso-date-picker')
+          .invoke('attr', 'value')
+          .should('equal', allowedChars);
       });
   });
 
@@ -400,22 +410,27 @@ describe('Date Picker', () => {
       });
   });
 
-  it('should emit changed event with error on invalid character paste', () => {
+  it('should not allow invalid characters to be pasted', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail));
     });
 
-    cy
+    const input = cy
       .get('dso-date-picker')
-      .find('input.dso-date__input')
+      .find('input.dso-date__input');
+
+    input
       .invoke('val', 'zzz')
       .trigger('input')
       .then(() => {
-        console.log(details)
-        expect(details[details.length - 1].error).equal('invalid');
-        expect(details[details.length - 1].value).equal('zzz');
-        expect(details[details.length - 1].valueAsDate).undefined;
+        input.then($input => {
+          expect($input.val()).equal('');
+          expect(details.length).equal(1);
+          expect(details[details.length - 1].error).undefined;
+          expect(details[details.length - 1].value).equal('');
+          expect(details[details.length - 1].valueAsDate).equal(undefined);
+        });
       });
   });
 
@@ -502,5 +517,34 @@ describe('Date Picker', () => {
       .should('have.class', 'hydrated')
       .find('.dso-date__dialog')
       .should('be.hidden');
+  });
+
+  it('keep cursor in correct position when editing date', () => {
+    const details = [];
+    cy.get('dso-date-picker').then(datePicker => {
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail));
+    });
+
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type('11-04-1970')
+      .then($input => {
+        expect($input.val()).equal('11-04-1970');
+
+        expect(($input[0] as HTMLInputElement).selectionStart).equal(10);
+
+        ($input[0] as HTMLInputElement).selectionStart = ($input[0] as HTMLInputElement).selectionEnd = 2;
+        expect(($input[0] as HTMLInputElement).selectionStart).equal(2);
+      })
+      .realPress('{backspace}')
+      .then(() => {
+        cy
+          .get('dso-date-picker')
+          .find('input.dso-date__input')
+          .then($input => {
+            expect(($input[0] as HTMLInputElement).selectionStart).equal(1);
+          });
+      });
   });
 });
