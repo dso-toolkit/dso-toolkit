@@ -58,17 +58,17 @@ async function createSvgSpritesheet() {
               const variantColors = rule.selectors.reduce((current, s) => {
                 const color = rule.declarations.find(d => d.property === 'color')?.value;
 
-                if (s === id && !v.some(variantColor => variantColor.variant === s)) {
+                if (s === id && !v.some(variantColor => variantColor.selector === s)) {
                   return current.concat({
                     color,
-                    variant: 'default'
+                    selector: 'default'
                   });
                 }
 
-                if (s.startsWith(`${id}:`) && !v.some(variantColor => variantColor.variant === s.substr(`${id}:`.length))) {
+                if (s.startsWith(`${id}:`) && !v.some(variantColor => variantColor.selector === s.substr(`${id}:`.length))) {
                   return current.concat({
                     color,
-                    variant: s.substr(`${id}:`.length)
+                    selector: s.substr(`${id}:`.length)
                   });
                 }
 
@@ -107,30 +107,27 @@ async function createSvgSpritesheet() {
             const id = symbol.attr('id');
 
             const stylesheet = stylesheets.find(s => s.id === id);
-            const iconIds = [
-              id,
-              ...(stylesheet ? stylesheet.variants.filter(v => v.variant !== 'default') : []).map(v => `${id}-${v.variant}`)
+
+            const variants = [
+              { selector: id, color: stylesheet ? stylesheet.variants.find(v => v.selector === 'default')?.color : 'currentColor' },
+              ...(stylesheet ? stylesheet.variants.filter(v => v.selector !== 'default') : []).map(v => ({ selector: `${id}-${v.selector}`, color: v.color }))
             ];
+
+            const iconIds = variants.map(v => v.selector);
 
             symbol
               .before(`<!-- START: ${iconIds.join(', ')} -->`)
               .after(`<!-- END: ${iconIds.join(', ')} -->`);
 
-            iconIds.forEach((iconId, index) => {
+            variants.forEach((variant, index) => {
               const x = (position + index) * (canvas + gutter) + gutter / 2;
               const svg = symbol.clone().removeAttr('id');
               $(svg).each((_index, element) => element.tagName = 'svg');
 
-              if (stylesheet) {
-                variantColor = stylesheet.variants.find(v => iconId.includes(v.variant))?.color || stylesheet.variants.find(v => v.variant === 'default')?.color;
-
-                if (variantColor) {
-                  svg.find('[fill="currentColor"]').attr('fill', variantColor);
-                }
-              }
+              svg.find('[fill="currentColor"]').attr('fill', variant.color);
 
               const view = $('<view>')
-                .attr('id', `img-${iconId}`)
+                .attr('id', `img-${variant.selector}`)
                 .attr('viewBox', [x, 0, canvas, canvas].join(' '));
 
               symbol.before(view);
@@ -142,7 +139,7 @@ async function createSvgSpritesheet() {
               symbol.before(g);
             });
 
-            return position + iconIds.length;
+            return position + variants.length;
           }, 0);
 
           $(':root').attr(
