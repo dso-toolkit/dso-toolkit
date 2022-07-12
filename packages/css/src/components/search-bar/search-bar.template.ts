@@ -3,7 +3,7 @@ import { html, nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, placeholder, value, buttonLabel, hideSearchButton, ariaDescribedBy, resultsMessage, resultsHidden }: SearchBar) {
+export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, placeholder, value, buttonLabel, hideSearchButton, ariaDescribedBy, resultsMessage, resultsHidden, clearButton }: SearchBar) {
   return html`
     <div class="dso-search-bar ${classMap({ 'dso-invalid': !!invalid })}">
       <div class="dso-search-bar-input">
@@ -44,6 +44,14 @@ export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, place
           aria-describedby=${ifDefined(ariaDescribedBy || undefined)}
           aria-invalid=${ifDefined(!!invalid || undefined)}
         >
+        ${ clearButton ?
+          html`
+            <button type="button">
+              Zoekopdracht legen
+            </button>
+          `
+          : nothing
+        }
       </div>
       <button class="dso-secondary ${classMap({ 'sr-only': !!hideSearchButton })}">
         ${buttonLabel}
@@ -51,7 +59,7 @@ export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, place
     </div>
     ${resultsMessage ?
       html`
-        <div class="dso-results ${classMap({ 'sr-only': resultsHidden })}" aria-live="polite">
+        <div class="dso-results ${classMap({ 'sr-only': !!resultsHidden })}" aria-live="polite">
           ${resultsMessage}
         </div>`
       : nothing

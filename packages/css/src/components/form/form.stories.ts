@@ -10,6 +10,7 @@ import { formGroupInputNumberTemplate } from './form-groups/input-number/form-gr
 import { formGroupRadiosTemplate } from './form-groups/radios/form-group-radios.template';
 import { formGroupSelectTemplate } from './form-groups/select/form-group-select.template';
 import { formGroupStaticTemplate } from './form-groups/static/form-group-static.template';
+import { formGroupSearchBarTemplate } from './form-groups/search-bar/form-group-search-bar.template';
 import { formGroupTextareaTemplate } from './form-groups/textarea/form-group-textarea.template';
 
 import { formTemplate } from './form.template';
@@ -32,6 +33,7 @@ storiesOfForm(
     formGroupRadiosTemplate,
     formGroupSelectTemplate,
     formGroupStaticTemplate,
+    formGroupSearchBarTemplate,
     formGroupTextareaTemplate
   }
 );
