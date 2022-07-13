@@ -109,8 +109,8 @@ async function createSvgSpritesheet() {
             const stylesheet = stylesheets.find(s => s.id === id);
 
             const variants = [
-              { selector: id, color: stylesheet ? stylesheet.variants.find(v => v.selector === 'default')?.color : 'currentColor' },
-              ...(stylesheet ? stylesheet.variants.filter(v => v.selector !== 'default') : []).map(v => ({ selector: `${id}-${v.selector}`, color: v.color }))
+              { selector: id, color: stylesheet?.variants.find(v => v.selector === 'default')?.color },
+              ...(stylesheet?.variants.filter(v => v.selector !== 'default').map(v => ({ selector: `${id}-${v.selector}`, color: v.color })) ?? [])
             ];
 
             const iconIds = variants.map(v => v.selector);
@@ -124,7 +124,9 @@ async function createSvgSpritesheet() {
               const svg = symbol.clone().removeAttr('id');
               $(svg).each((_index, element) => element.tagName = 'svg');
 
-              svg.find('[fill="currentColor"]').attr('fill', variant.color);
+              if (variant.color) {
+                svg.find('[fill="currentColor"]').attr('fill', variant.color);
+              }
 
               const view = $('<view>')
                 .attr('id', `img-${variant.selector}`)
