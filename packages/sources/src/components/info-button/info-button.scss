@@ -26,7 +26,7 @@ $dso-info-button-size: $u3;
 
 @mixin info-button_controlLabelSibling() {
   @media screen and (min-width: $screen-sm-min) {
-    margin-top: #{$u1 - 1};
+    // margin-top: #{$u1 - 1};
 
     .dso-radios &,
     .dso-checkboxes &,

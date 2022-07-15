@@ -36,10 +36,16 @@
     margin: $u2 0;
   }
 
-  .control-label {
-    display: inline-block;
-    font-weight: bold;
+  .dso-label-wrapper {
     margin-bottom: $u1;
+    padding-top: ($padding-base-vertical + 1); // Default padding plus a border
+  }
+
+  .control-label {
+    // display: inline-block;
+    display: inline;
+    font-weight: bold;
+    // margin-bottom: $u1;
     max-width: 100%;
     text-align: left;
   }
