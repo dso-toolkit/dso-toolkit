@@ -10,20 +10,20 @@ import { filesContent } from './content/files.content';
 import { inputContent } from './content/input.content';
 import { inputNumberContent } from './content/input-number.content';
 import { radiosContent } from './content/radios.content';
+import { searchBarContent } from './content/search-bar.content';
 import { selectContent } from './content/select.content';
 import { staticContent } from './content/static.content';
-import { searchBarContent } from './content/search-bar.content';
 import { textareaContent } from './content/textarea.content';
-import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupFiles, FormGroupInput, FormGroupInputDate, FormGroupInputNumber, FormGroupRadios, FormGroupStatic, FormGroupSearchBar, FormGroupSelect, FormGroupTextarea } from './form.models';
+import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupFiles, FormGroupInput, FormGroupInputDate, FormGroupInputNumber, FormGroupRadios, FormGroupSearchBar, FormGroupSelect, FormGroupStatic, FormGroupTextarea } from './form.models';
 import { formGroupCheckboxesArgsMapper, formGroupCheckboxesArgTypes } from './form-groups/checkboxes/form-group-checkboxes.args';
 import { formGroupConfirmArgsMapper, formGroupConfirmArgTypes } from './form-groups/confirm/form-group-confirm.args';
 import { formGroupFilesArgsMapper, formGroupFilesArgTypes } from './form-groups/files/form-group-files.args';
 import { formGroupInputArgsMapper, formGroupInputArgTypes } from './form-groups/input/form-group-input.args';
 import { formGroupInputNumberArgsMapper, formGroupInputNumberArgTypes } from './form-groups/input-number/form-group-input-number.args';
 import { formGroupRadiosArgsMapper, formGroupRadiosArgTypes } from './form-groups/radios/form-group-radios.args';
+import { formGroupSearchBarArgsMapper, formGroupSearchBarArgTypes } from './form-groups/search-bar/form-group-search-bar.args';
 import { formGroupSelectArgsMapper, formGroupSelectArgTypes } from './form-groups/select/form-group-select.args';
 import { formGroupStaticArgsMapper, formGroupStaticArgTypes } from './form-groups/static/form-group-static.args';
-import { formGroupSearchBarArgsMapper, formGroupSearchBarArgTypes } from './form-groups/search-bar/form-group-search-bar.args';
 import { formGroupTextareaArgsMapper, formGroupTextareaArgTypes } from './form-groups/textarea/form-group-textarea.args';
 
 
@@ -36,9 +36,9 @@ export interface FormParameters<TemplateFnReturnType> {
   formGroupInputTemplate: (formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputNumberTemplate: (formGroupInputNumber: FormGroupInputNumber<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupRadiosTemplate: (formGroupRadios: FormGroupRadios<TemplateFnReturnType>) => TemplateFnReturnType;
+  formGroupSearchBarTemplate: (formGroupSearchBar: FormGroupSearchBar<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupSelectTemplate: (formGroupSelect: FormGroupSelect<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupStaticTemplate: (formGroupStatic: FormGroupStatic<TemplateFnReturnType>) => TemplateFnReturnType;
-  formGroupSearchBarTemplate: (formGroupSearchBar: FormGroupSearchBar<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupTextareaTemplate: (formGroupTextarea: FormGroupTextarea<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
@@ -57,9 +57,9 @@ export function storiesOfForm<TemplateFnReturnType>(
     formGroupInputTemplate,
     formGroupInputNumberTemplate,
     formGroupRadiosTemplate,
+    formGroupSearchBarTemplate,
     formGroupSelectTemplate,
     formGroupStaticTemplate,
-    formGroupSearchBarTemplate,
     formGroupTextareaTemplate
   }: FormParameters<TemplateFnReturnType>
 ) {
@@ -145,6 +145,18 @@ export function storiesOfForm<TemplateFnReturnType>(
     .add('radios', bindTemplate(formGroupRadiosArgsMapper, formGroupRadiosTemplate)
   );
 
+  storiesOf('Form/groups/search-bar', mainModule)
+    .addParameters({
+      argTypes: formGroupSearchBarArgTypes,
+      args: searchBarContent,
+      docs: {
+        page: readme
+      }
+    })
+    .addDecorator(formGroupDecorator)
+    .add('search-bar', bindTemplate(formGroupSearchBarArgsMapper, formGroupSearchBarTemplate)
+  );
+
   storiesOf('Form/groups/select', mainModule)
     .addParameters({
       argTypes: formGroupSelectArgTypes,
@@ -167,18 +179,6 @@ export function storiesOfForm<TemplateFnReturnType>(
     })
     .addDecorator(formGroupDecorator)
     .add('static', bindTemplate(formGroupStaticArgsMapper, formGroupStaticTemplate)
-  );
-
-  storiesOf('Form/groups/search-bar', mainModule)
-    .addParameters({
-      argTypes: formGroupSearchBarArgTypes,
-      args: searchBarContent,
-      docs: {
-        page: readme
-      }
-    })
-    .addDecorator(formGroupDecorator)
-    .add('search-bar', bindTemplate(formGroupSearchBarArgsMapper, formGroupSearchBarTemplate)
   );
 
   storiesOf('Form/groups/textarea', mainModule)

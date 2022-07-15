@@ -44,12 +44,11 @@ export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, place
           aria-describedby=${ifDefined(ariaDescribedBy || undefined)}
           aria-invalid=${ifDefined(!!invalid || undefined)}
         >
-        ${ clearButton ?
+        ${clearButton ?
           html`
             <button type="button">
               Zoekopdracht legen
-            </button>
-          `
+            </button>`
           : nothing
         }
       </div>

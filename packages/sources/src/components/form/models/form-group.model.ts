@@ -4,8 +4,8 @@ import { FormGroupFiles } from './form-group-files.model';
 import { FormGroupInput, FormGroupInputDate } from './form-group-input.model';
 import { FormGroupInputNumber } from './form-group-input-number.model';
 import { FormGroupRadios } from './form-group-radios.model';
-import { FormGroupStatic } from './form-group-static.model';
 import { FormGroupSearchBar } from './form-group-search-bar.model';
+import { FormGroupStatic } from './form-group-static.model';
 import { FormGroupTextarea } from './form-group-textarea.model';
 
-export type FormGroup<TemplateFnReturnType> = FormGroupCheckboxes<TemplateFnReturnType> | FormGroupConfirm<TemplateFnReturnType> | FormGroupFiles<TemplateFnReturnType> |FormGroupInput<TemplateFnReturnType> | FormGroupInputNumber<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType> | FormGroupRadios<TemplateFnReturnType> | FormGroupStatic<TemplateFnReturnType> |FormGroupSearchBar<TemplateFnReturnType> | FormGroupTextarea<TemplateFnReturnType>;
+export type FormGroup<TemplateFnReturnType> = FormGroupCheckboxes<TemplateFnReturnType> | FormGroupConfirm<TemplateFnReturnType> | FormGroupFiles<TemplateFnReturnType> |FormGroupInput<TemplateFnReturnType> | FormGroupInputNumber<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType> | FormGroupRadios<TemplateFnReturnType> | FormGroupSearchBar<TemplateFnReturnType> | FormGroupStatic<TemplateFnReturnType> | FormGroupTextarea<TemplateFnReturnType>;
