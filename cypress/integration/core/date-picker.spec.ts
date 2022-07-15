@@ -520,23 +520,13 @@ describe('Date Picker', () => {
   });
 
   it('keep cursor in correct position when editing date', () => {
-    const details = [];
-    cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail));
-    });
-
     cy
       .get('dso-date-picker')
       .find<HTMLInputElement>('input.dso-date__input')
       .type('11-04-1970')
+      .should('have.prop', 'selectionStart', 10)
       .then($input => {
-        expect($input.val()).equal('11-04-1970');
-
-        expect($input[0].selectionStart).equal(10);
-
         $input[0].selectionStart = $input[0].selectionEnd = 2;
-
-        expect($input[0].selectionStart).equal(2);
       })
       .realPress('{backspace}')
       .get('dso-date-picker input.dso-date__input')
