@@ -1,8 +1,8 @@
 import { Form } from '@dso-toolkit/sources';
-import { html, nothing, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-import { formGroupInputTemplate } from './form-groups/input/form-group-input.template';
+import { formGroupTemplate } from './form-group.template';
 
 export function formTemplate({ legend, legendHeading, mode, formGroups }: Form<TemplateResult>) {
   return html`
@@ -25,13 +25,7 @@ export function formTemplate({ legend, legendHeading, mode, formGroups }: Form<T
             : html`${legend}`
           }
         </legend>
-        ${'_$litType$' in formGroups ? formGroups : formGroups.map(formGroup => {
-          if (formGroup.group === 'input') {
-            return formGroupInputTemplate(formGroup);
-          }
-
-          return nothing;
-        })}
+        ${'_$litType$' in formGroups ? formGroups : formGroups.map(formGroup => formGroupTemplate(formGroup))}
       </fieldset>
     </form>
   `;

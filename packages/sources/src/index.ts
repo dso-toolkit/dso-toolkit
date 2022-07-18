@@ -66,6 +66,8 @@ export * from './components/info/info.models';
 export * from './components/info/info.stories';
 export * from './components/input-number/input-number.models';
 export * from './components/input-number/input-number.stories';
+export * from './components/justify-form-groups/justify-form-groups.models';
+export * from './components/justify-form-groups/justify-form-groups.stories';
 export * from './components/label/label.models';
 export * from './components/label/label.stories';
 export * from './components/label-group/label-group.models';

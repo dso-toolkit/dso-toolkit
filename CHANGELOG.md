@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING: css + sources:** Form Group: Search Bar naar @dso-toolkit/css: ([#1614](https://github.com/dso-toolkit/dso-toolkit/issues/1614)) **Class `dso-filter` is hernoemd naar `dso-form-group-search-bar` ([#1642](https://github.com/dso-toolkit/dso-toolkit/pull/1642))**
+* **dso-toolkit + sources + css:** `.dso-justify-form-groups` onderbrengen in @dso-toolkit/css ([#1646](https://github.com/dso-toolkit/dso-toolkit/issues/1646))
 
 ## 40.1.0
 
