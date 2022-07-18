@@ -2,12 +2,13 @@ import { HandlerFunction } from '@storybook/addon-actions';
 
 import { ArgTypes } from '../../stories-helpers';
 
-import { Tooltip, tooltipPositions } from './tooltip.models';
+import { Tooltip, tooltipPositions, tooltipStrategy } from './tooltip.models';
 
 export interface TooltipArgs {
   active?: boolean;
   descriptive?: boolean;
   position: typeof tooltipPositions;
+  strategy: typeof tooltipStrategy;
   label?: string;
   id?: string;
   action: HandlerFunction
@@ -26,6 +27,12 @@ export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
   },
   position: {
     options: tooltipPositions,
+    control: {
+      type: 'select'
+    }
+  },
+  strategy: {
+    options: tooltipStrategy,
     control: {
       type: 'select'
     }
@@ -51,6 +58,7 @@ export function tooltipArgsMapper(a: TooltipArgs): Tooltip {
     descriptive: a.descriptive,
     label: a.label || `Ik sta "${a.position}"`,
     position: a.position,
+    strategy: a.strategy,
     id: a.id
   };
 }

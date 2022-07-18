@@ -16,6 +16,7 @@
 | `position`    | `position`    | Set position of tooltip relative to target                                                                                                                                                                                                                                                        | `"bottom" \| "left" \| "right" \| "top"` | `'top'`     |
 | `small`       | `small`       | Defines if the tooltip has a smaller max-width                                                                                                                                                                                                                                                    | `boolean \| undefined`                   | `undefined` |
 | `stateless`   | `stateless`   | Deactivates mouseover behaviour                                                                                                                                                                                                                                                                   | `boolean \| undefined`                   | `undefined` |
+| `strategy`    | `strategy`    | Set position strategy of tooltip                                                                                                                                                                                                                                                                  | `"absolute" \| "auto" \| "fixed"`        | `'auto'`    |
 
 
 ## Methods

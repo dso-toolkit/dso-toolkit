@@ -275,6 +275,10 @@ export namespace Components {
           * Deactivates mouseover behaviour
          */
         "stateless"?: boolean;
+        /**
+          * Set position strategy of tooltip
+         */
+        "strategy": 'auto' | 'absolute' | 'fixed';
     }
     interface DsoTreeView {
         /**
@@ -783,6 +787,10 @@ declare namespace LocalJSX {
           * Deactivates mouseover behaviour
          */
         "stateless"?: boolean;
+        /**
+          * Set position strategy of tooltip
+         */
+        "strategy"?: 'auto' | 'absolute' | 'fixed';
     }
     interface DsoTreeView {
         /**
