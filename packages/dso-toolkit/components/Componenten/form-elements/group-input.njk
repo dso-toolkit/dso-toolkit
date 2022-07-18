@@ -16,14 +16,12 @@
 
 <div {{ className('form-group dso-input', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
-    <div class="dso-label-wrapper">
-      <label for="{{ localId }}" class="control-label">
-        {{ label }}
-      </label>
-      {% if infoText and not static %}
-        {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
-      {% endif %}
-    </div>
+    <label for="{{ localId }}" class="control-label">
+      {{ label }}
+    </label>
+    {% if infoText and not static %}
+      {% render '@info-button', {infoOpen: infoOpen, infoButtonLabel: infoButtonLabel} %}
+    {% endif %}
     {% if infoOpen %}
       {% render '@info', {infoText: infoText, static: static, id: infoTextId} %}
     {% endif %}
