@@ -4,5 +4,6 @@ export interface Tabs {
 
 export interface TabItem {
   label: string;
+  id: string;
   modifiers: 'active' | 'disabled';
 }
