@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **css** `dso-icons.svg`: Inline `<style>` elementen met `color: <kleur>` vervangen met `fill="<kleur>"` tbv. Content-security-policy issue met SVG spritesheet voor iconen ([#1600](https://github.com/dso-toolkit/dso-toolkit/issues/1600))
 * **dso-toolkit + css:** packages\dso-toolkit\src\styles\mixins\_grid.scss mergen met packages\sources\src\styling\grid\grid.scss ([#1644](https://github.com/dso-toolkit/dso-toolkit/issues/1644))
+* **dso-toolkit + css:**Component "Tabs" verhuizen naar @dso-toolkit/css ([#1645](https://github.com/dso-toolkit/dso-toolkit/issues/1645))
 
 # 40.0.0
 
