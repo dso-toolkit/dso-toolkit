@@ -12,7 +12,7 @@ $dso-tabs-vertical-padding: $u3 - 1px;
 $dso-tabs-margin-bottom: $dso-vertical-spacing-large;
 
 ul.nav-tabs {
-  @include clearfix;
+  @include clearfix();
 
   border-bottom: 1px solid $dso-tabs-border-color;
   display: flex;
