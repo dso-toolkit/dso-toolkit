@@ -99,6 +99,8 @@ export * from './components/selectable/selectable.models';
 export * from './components/selectable/selectable.stories';
 export * from './components/shopping-cart/shopping-cart.models';
 export * from './components/shopping-cart/shopping-cart.stories';
+export * from './components/tabs/tabs.models';
+export * from './components/tabs/tabs.stories';
 export * from './components/tile/tile.models';
 export * from './components/tile/tile.stories';
 export * from './components/tile-grid/tile-grid.models';
