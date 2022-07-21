@@ -1,9 +1,9 @@
 import { Pagination } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
 
-export function paginationTemplate({ current, count }: Pagination) {
+export function paginationTemplate({ current, count, label }: Pagination) {
   return html`
-    <nav aria-label="Pagina navigatie">
+    <nav aria-label=${label}>
       <ul class="pagination">
         ${current !== 1
           ? html`

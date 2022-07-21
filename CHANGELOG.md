@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + react:** Pagination Web Component ([#1638](https://github.com/dso-toolkit/dso-toolkit/issues/1638))
+
 ### Fixed
 * **core:** Datepicker bugs: Backspace zet cursor soms onterecht aan het einde van de input, MacOS Cmd + v en soortgelijke commands worden afgebroken ([#1597](https://github.com/dso-toolkit/dso-toolkit/issues/1597))
 
