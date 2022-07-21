@@ -3,32 +3,36 @@ $dso-pagination-item-border-size: 2px;
 $dso-pagination-line-height: $dso-pagination-item-size;
 $dso-pagination-icon-margin: $u1 * 0.5;
 
-@mixin pagination_root() {
+@mixin pagination_root($css-icons: false) {
   text-align: center;
 
-  .dso-previous,
-  .dso-next {
-    border-color: $grasgroen;
-    height: $dso-pagination-item-size;
-    text-indent: -9999px;
-    width: $dso-pagination-item-size;
+  @if ($css-icons) {
+    .dso-previous,
+    .dso-next {
+      border-color: $grasgroen;
+      height: $dso-pagination-item-size;
+      text-indent: -9999px;
+      width: $dso-pagination-item-size;
 
-    &::before {
-      content: "";
-      display: inline-block;
-      margin-top: $dso-pagination-icon-margin;
+      &::before {
+        content: "";
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
-  }
 
-  .dso-previous {
-    &::before {
-      @include di("chevron-left");
+    .dso-previous {
+      &::before {
+        @include di("chevron-left");
+      }
     }
-  }
 
-  .dso-next {
-    &::before {
-      @include di("chevron-right");
+    .dso-next {
+      &::before {
+        @include di("chevron-right");
+      }
     }
   }
 
@@ -37,14 +41,16 @@ $dso-pagination-icon-margin: $u1 * 0.5;
     font-weight: bold;
     line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
     text-align: center;
+    vertical-align: middle;
 
     > a,
     > span {
+      align-items: center;
       color: $grasgroen;
-      display: inline-block;
+      display: flex;
       height: $dso-pagination-item-size;
+      justify-content: center;
       position: relative;
-      vertical-align: middle;
       width: $dso-pagination-item-size;
 
       &:active {

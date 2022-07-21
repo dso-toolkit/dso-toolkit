@@ -32,9 +32,8 @@ export function storiesOfPagination<TemplateFnReturnType>(
     template,
     {
       args: {
-        count: 5,
-        current: 3,
-        label: 'Pagina navigatie',
+        totalPages: 5,
+        currentPage: 3,
       }
     }
   );

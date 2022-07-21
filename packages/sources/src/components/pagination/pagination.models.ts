@@ -1,6 +1,13 @@
+export interface PaginationSelectPageEvent {
+  /** The selected page */
+  page: number;
+  /** The original pointer event */
+  originalEvent: MouseEvent;
+}
+
 export interface Pagination {
-  count: number;
-  current: number;
-  label: string;
-  onSelectPage: (e: CustomEvent<any>) => void;
+  totalPages: number;
+  currentPage: number;
+  formatHref: (page: number) => string;
+  onSelectPage: (e: CustomEvent<PaginationSelectPageEvent>) => void;
 }

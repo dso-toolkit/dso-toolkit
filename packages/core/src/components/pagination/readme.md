@@ -7,12 +7,11 @@
 
 ## Properties
 
-| Property                  | Attribute | Description                                                       | Type                       | Default     |
-| ------------------------- | --------- | ----------------------------------------------------------------- | -------------------------- | ----------- |
-| `count` _(required)_      | `count`   | Total pages                                                       | `number`                   | `undefined` |
-| `createLink` _(required)_ | --        | Function is called to construct the href for each anchor element. | `(page: number) => string` | `undefined` |
-| `current` _(required)_    | `current` | Current page                                                      | `number`                   | `undefined` |
-| `label` _(required)_      | `label`   | Current page                                                      | `string`                   | `undefined` |
+| Property      | Attribute      | Description                                | Type                       | Default                |
+| ------------- | -------------- | ------------------------------------------ | -------------------------- | ---------------------- |
+| `currentPage` | `current-page` | Current page                               | `number \| undefined`      | `undefined`            |
+| `formatHref`  | --             | This function is called to format the href | `(page: number) => string` | `(page) => '#' + page` |
+| `totalPages`  | `total-pages`  | Total pages                                | `number \| undefined`      | `undefined`            |
 
 
 ## Events
@@ -21,6 +20,19 @@
 | ------------ | ---------------------- | ---------------------------------------- |
 | `selectPage` | Emitted on page select | `CustomEvent<PaginationSelectPageEvent>` |
 
+
+## Dependencies
+
+### Depends on
+
+- [dso-icon](../icon)
+
+### Graph
+```mermaid
+graph TD;
+  dso-pagination --> dso-icon
+  style dso-pagination fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

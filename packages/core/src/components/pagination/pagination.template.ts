@@ -3,18 +3,17 @@ import { html } from 'lit-html';
 
 export function paginationTemplate(
   {
-    count,
-    current,
-    label,
+    totalPages,
+    currentPage,
     onSelectPage,
+    formatHref,
   }: Pagination
 ) {
   return html`
     <dso-pagination
-      count=${count}
-      current=${current}
-      label=${label}
-      .createLink=${(page: number) => '#' + page}
+      total-pages=${totalPages}
+      current-page=${currentPage}
+      .formatHref=${formatHref}
       @selectPage=${onSelectPage}
     ></dso-pagination>
   `;

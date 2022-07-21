@@ -3,12 +3,12 @@ import * as React from 'react';
 
 import { DsoPagination } from '../..';
 
-export function paginationTemplate({ count, current, onSelectPage }: Pagination) {
+export function paginationTemplate({ totalPages, currentPage, onSelectPage, formatHref }: Pagination) {
   return (
     <DsoPagination
-      count={count}
-      current={current}
-      createLink={(page: number) => '#' + page}
+      totalPages={totalPages}
+      currentPage={currentPage}
+      formatHref={formatHref}
       selectPage={onSelectPage}
     />
   );

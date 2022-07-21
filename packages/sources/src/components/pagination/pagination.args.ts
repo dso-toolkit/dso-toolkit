@@ -4,26 +4,20 @@ import { ArgTypes } from '../../stories-helpers';
 import { Pagination } from './pagination.models';
 
 export interface PaginationArgs {
-  count: number;
-  current: number;
-  label: string;
+  totalPages: number;
+  currentPage: number;
   onSelectPage: HandlerFunction;
 }
 
 export const paginationArgTypes: ArgTypes<PaginationArgs> = {
-  count: {
+  totalPages: {
     control: {
       type: 'number'
     }
   },
-  current: {
+  currentPage: {
     control: {
       type: 'number'
-    }
-  },
-  label: {
-    control: {
-      type: 'text'
     }
   },
   onSelectPage: {
@@ -33,9 +27,9 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
 
 export function paginationArgsMapper(a: PaginationArgs): Pagination {
   return {
-    count: a.count,
-    current: a.current,
-    label: a.label,
+    totalPages: a.totalPages,
+    currentPage: a.currentPage,
     onSelectPage: a.onSelectPage,
+    formatHref: page => '#' + page,
   };
 }

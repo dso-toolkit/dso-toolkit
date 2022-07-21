@@ -194,21 +194,17 @@ export namespace Components {
     }
     interface DsoPagination {
         /**
+          * Current page
+         */
+        "currentPage"?: number;
+        /**
+          * This function is called to format the href
+         */
+        "formatHref": (page: number) => string;
+        /**
           * Total pages
          */
-        "count": number;
-        /**
-          * Function is called to construct the href for each anchor element.
-         */
-        "createLink": (page: number) => string;
-        /**
-          * Current page
-         */
-        "current": number;
-        /**
-          * Current page
-         */
-        "label": string;
+        "totalPages"?: number;
     }
     interface DsoProgressBar {
         "max": number;
@@ -710,25 +706,21 @@ declare namespace LocalJSX {
     }
     interface DsoPagination {
         /**
-          * Total pages
-         */
-        "count": number;
-        /**
-          * Function is called to construct the href for each anchor element.
-         */
-        "createLink": (page: number) => string;
-        /**
           * Current page
          */
-        "current": number;
+        "currentPage"?: number;
         /**
-          * Current page
+          * This function is called to format the href
          */
-        "label": string;
+        "formatHref"?: (page: number) => string;
         /**
           * Emitted on page select
          */
         "onSelectPage"?: (event: CustomEvent<PaginationSelectPageEvent>) => void;
+        /**
+          * Total pages
+         */
+        "totalPages"?: number;
     }
     interface DsoProgressBar {
         "max"?: number;

@@ -1,3 +1,3 @@
 .pagination {
-  @include pagination_root();
+  @include pagination_root(true);
 }
