@@ -304,40 +304,34 @@ describe('Date Picker', () => {
   });
 
   it('should only allow date characters input', () => {
-    const details = [];
-    cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    cy.get('dso-date-picker').then($datePicker => {
+      $datePicker.on('dateChange', cy.stub().as('listener'));
     });
 
     const allowedChars = '-0123456789';
     const ignoredChars = Array.from(Array(95)).map((e, i) => String.fromCharCode(i + 32)).filter(c => !allowedChars.includes(c));
 
-    cy
-      .get('dso-date-picker')
-      .find('input.dso-date__input')
+    cy.get('dso-date-picker input.dso-date__input')
+      .as('input')
       .type(ignoredChars.join(''))
-      .then($input => {
-        expect($input.val()).equal('');
-        expect(details[details.length - 1].error).equal(undefined);
-        expect(details[details.length - 1].value).equal('');
-        expect(details[details.length - 1].valueAsDate).equal(undefined);
-      });
-
-    cy
-      .get('dso-date-picker')
-      .find('input.dso-date__input')
+      .should('have.value', '')
+      .get('@listener')
+      .its('callCount')
+      .should('equal', 1)
+      .get('@listener')
+      .invoke('getCall', 0)
+      .its('args.0.detail')
+      .should('deep.equal', { component: 'dso-date-picker', value: '', valueAsDate: undefined })
+      .get('@input')
       .type(allowedChars)
-      .then($input => {
-        expect($input.val()).equal(allowedChars);
-        expect(details[details.length - 1].error).equal('invalid');
-        expect(details[details.length - 1].value).equal(allowedChars);
-        expect(details[details.length - 1].valueAsDate).equal(undefined);
-
-        cy
-          .get('dso-date-picker')
-          .invoke('attr', 'value')
-          .should('equal', allowedChars);
-      });
+      .should('have.value', allowedChars)
+      .get('@listener')
+      .invoke('getCalls')
+      .invoke('at', -1)
+      .its('args.0.detail')
+      .should('deep.equal', { component: 'dso-date-picker', value: allowedChars, valueAsDate: undefined, error: 'invalid' })
+      .get('dso-date-picker')
+      .should('have.attr', 'value', allowedChars)
   });
 
   it('should emit changed event with error on date input before min', () => {
@@ -419,7 +413,6 @@ describe('Date Picker', () => {
     cy
       .get('dso-date-picker')
       .find('input.dso-date__input')
-      .as('input')
       .invoke('val', 'zzz')
       .trigger('input')
       .should('have.value', '')
@@ -493,20 +486,15 @@ describe('Date Picker', () => {
       datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
-    cy
-      .get('dso-date-picker')
-      .find('input.dso-date__input')
+    cy.get('dso-date-picker input.dso-date__input')
+      .as('input')
       .type('11-04-1970')
       .realPress('{backspace}')
-      .then(() => {
-        cy
-          .get('dso-date-picker')
-          .find('input.dso-date__input')
-          .should('have.value', '11-04-197');
-        expect(details[details.length - 1].error).equal('invalid');
-        expect(details[details.length - 1].value).equal('11-04-197');
-        expect(details[details.length - 1].valueAsDate).undefined;
-      });
+      .get('@input')
+      .should('have.value', '11-04-197')
+      .wrap(details)
+      .invoke('at', -1)
+      .should('deep.equal', { component: 'dso-date-picker', error: 'invalid', value: '11-04-197', valueAsDate: undefined });
   });
 
   it('closed datepicker should not have invisible calendar', () => {
@@ -519,12 +507,11 @@ describe('Date Picker', () => {
   it('keep cursor in correct position when editing date', () => {
     cy
       .get('dso-date-picker')
-      .find<HTMLInputElement>('input.dso-date__input')
+      .find('input.dso-date__input')
       .type('11-04-1970')
       .should('have.prop', 'selectionStart', 10)
-      .then($input => {
-        $input[0].selectionStart = $input[0].selectionEnd = 2;
-      })
+      .invoke('prop', 'selectionStart', 2)
+      .invoke('prop', 'selectionEnd', 2)
       .realPress('{backspace}')
       .get('dso-date-picker input.dso-date__input')
       .should('have.prop', 'selectionStart', 1);
