@@ -1,9 +1,9 @@
-import { html } from 'lit-html';
+import { html, nothing } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { OzonContent } from '@dso-toolkit/sources';
 
-export function ozonContentTemplate({ content, inline, interactive, deleted, onAnchorClick, onClick }: OzonContent) {
+export function ozonContentTemplate({ content, inline, interactive, deleted, prefix, suffix, onAnchorClick, onClick }: OzonContent) {
   return html`
     <dso-ozon-content
       .content=${content}
@@ -12,6 +12,6 @@ export function ozonContentTemplate({ content, inline, interactive, deleted, onA
       ?deleted=${deleted}
       @anchorClick=${onAnchorClick}
       @dsoClick=${ifDefined(interactive ? onClick : undefined)}
-    ></dso-ozon-content>
+    >${prefix ? html`<span slot="prefix">${prefix}</span>` : nothing}${suffix ? html`<span slot="suffix">${suffix}</span>` : nothing}</dso-ozon-content>
   `;
 }
