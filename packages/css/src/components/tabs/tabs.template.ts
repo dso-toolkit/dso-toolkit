@@ -6,32 +6,32 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 export function tabsTemplate({ tabs }: Tabs) {
   return html`
     <ul class="nav nav-tabs" role="tablist">
-      ${tabs.map((tabitem) => {
+      ${tabs.map((tabsitem) => {
         return html`
           <li
-            role=presentation
-            class=${ifDefined(tabitem.modifiers ? tabitem.modifiers : undefined)}
-            aria-selected=${ifDefined(tabitem.modifiers==='active' ? true : false)}
-            id=${tabitem.id}
-            aria-controls=${tabitem.id}-tab
+            role="presentation"
+            class="${ifDefined(tabsitem.modifiers ? tabsitem.modifiers : undefined)}"
+            aria-selected="${ifDefined(tabsitem.modifiers==='active' ? true : false)}"
+            id="${tabsitem.id}"
+            aria-controls="${tabsitem.id}-tab"
             >
             <a href="#" role="tab">
-              ${tabitem.label}
+              ${tabsitem.label}
             </a>
           </li>
         `;
       })}
     </ul>
-    ${tabs.map((tabitem) => {
+    ${tabs.map((tabsitem) => {
       return html`
         <div
-          tabindex=${ifDefined(tabitem.modifiers==='active' ? 1 : 0)}
-          role=tabpanel
-          id=${tabitem.id}-tab
-          aria-labelledby=${tabitem.id}
-          ?hidden=${ifDefined(tabitem.modifiers!='active')}
+          tabindex="${ifDefined(tabsitem.modifiers==='active' ? 1 : 0)}"
+          role="tabpanel"
+          id="${tabsitem.id}-tab"
+          aria-labelledby="${tabsitem.id}"
+          ?hidden="${tabsitem.modifiers!='active'}"
           >
-          Inhoud ${tabitem.label}
+          Inhoud ${tabsitem.label}
         </div>
       `;
     })}

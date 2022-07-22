@@ -1,1 +1,1 @@
-# `ul.nav`, `ul.nav-tabs`
+# `ul.nav.nav-tabs`
