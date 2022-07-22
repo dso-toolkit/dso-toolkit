@@ -416,22 +416,19 @@ describe('Date Picker', () => {
       datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail));
     });
 
-    const input = cy
+    cy
       .get('dso-date-picker')
-      .find('input.dso-date__input');
-
-    input
+      .find('input.dso-date__input')
+      .as('input')
       .invoke('val', 'zzz')
       .trigger('input')
-      .then(() => {
-        input.then($input => {
-          expect($input.val()).equal('');
-          expect(details.length).equal(1);
-          expect(details[details.length - 1].error).undefined;
-          expect(details[details.length - 1].value).equal('');
-          expect(details[details.length - 1].valueAsDate).equal(undefined);
-        });
-      });
+      .should('have.value', '')
+
+    cy
+      .wrap(details)
+      .should('have.length', 1)
+      .invoke('at', 0)
+      .should('deep.equal', { component: 'dso-date-picker', value: '', valueAsDate: undefined })
   });
 
   it('should emit changed event on valid input', () => {
