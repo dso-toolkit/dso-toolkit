@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 40.1.0
+
 ### Added
 * **core + react:** Pagination Web Component ([#1638](https://github.com/dso-toolkit/dso-toolkit/issues/1638))
 * **core + sources:** dso-tooltip voorzien van positioning strategy parameter ([#1641](https://github.com/dso-toolkit/dso-toolkit/issues/1641))
