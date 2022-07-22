@@ -9,7 +9,7 @@ export function paginationTemplate({ totalPages, currentPage, onSelectPage, form
       totalPages={totalPages}
       currentPage={currentPage}
       formatHref={formatHref}
-      selectPage={onSelectPage}
+      onSelectPage={onSelectPage}
     />
   );
 }
