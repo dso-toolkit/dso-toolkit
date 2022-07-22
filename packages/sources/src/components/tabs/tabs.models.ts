@@ -1,8 +1,8 @@
 export interface Tabs {
-  tabs: TabItem[];
+  tabs: TabsItem[];
 }
 
-export interface TabItem {
+export interface TabsItem {
   label: string;
   id: string;
   modifiers: 'active' | 'disabled';

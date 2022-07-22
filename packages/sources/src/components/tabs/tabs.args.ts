@@ -1,9 +1,9 @@
 import { ArgTypes } from '../../stories-helpers';
 
-import { Tabs, TabItem } from './tabs.models';
+import { Tabs, TabsItem } from './tabs.models';
 
 export interface TabsArgs {
-  tabs: TabItem[];
+  tabs: TabsItem[];
 }
 
 export const tabsArgTypes: ArgTypes<TabsArgs> = {
