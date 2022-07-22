@@ -119,7 +119,7 @@ export class Tooltip {
       return;
     }
 
-    var element : HTMLElement | null = this.element;
+    let element : HTMLElement | null = this.element;
     while (element?.parentNode != null && element.parentNode != document) {
       element = element.parentElement;
       if (element != null && hasOverflow(element)) {
