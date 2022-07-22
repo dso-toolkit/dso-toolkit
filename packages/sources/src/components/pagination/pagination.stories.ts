@@ -1,6 +1,6 @@
-import { bindTemplate, componentArgs, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, StorybookParameters } from '../../stories-helpers';
 
-import { PaginationArgs, paginationArgsMapper, paginationArgTypes } from './pagination.args';
+import { paginationArgsMapper, paginationArgTypes } from './pagination.args';
 import { Pagination } from './pagination.models';
 
 export interface PaginationParameters<TemplateFnReturnType> {
@@ -25,14 +25,16 @@ export function storiesOfPagination<TemplateFnReturnType>(
         page: readme
       },
       argTypes: paginationArgTypes,
-      args: componentArgs<PaginationArgs>({
-        count: 5,
-        current: 3
-      })
     });
 
   stories.add(
     'Pagination',
-    template
+    template,
+    {
+      args: {
+        totalPages: 5,
+        currentPage: 3,
+      }
+    }
   );
 }

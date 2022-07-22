@@ -12,6 +12,7 @@ import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
+import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
@@ -190,6 +191,20 @@ export namespace Components {
           * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.
          */
         "interactive": boolean;
+    }
+    interface DsoPagination {
+        /**
+          * Current page
+         */
+        "currentPage"?: number;
+        /**
+          * This function is called to format the href
+         */
+        "formatHref": (page: number) => string;
+        /**
+          * Total pages
+         */
+        "totalPages"?: number;
     }
     interface DsoProgressBar {
         "max": number;
@@ -391,6 +406,12 @@ declare global {
         prototype: HTMLDsoOzonContentElement;
         new (): HTMLDsoOzonContentElement;
     };
+    interface HTMLDsoPaginationElement extends Components.DsoPagination, HTMLStencilElement {
+    }
+    var HTMLDsoPaginationElement: {
+        prototype: HTMLDsoPaginationElement;
+        new (): HTMLDsoPaginationElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -459,6 +480,7 @@ declare global {
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
+        "dso-pagination": HTMLDsoPaginationElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
@@ -682,6 +704,24 @@ declare namespace LocalJSX {
          */
         "onDsoClick"?: (event: CustomEvent<OzonContentClick>) => void;
     }
+    interface DsoPagination {
+        /**
+          * Current page
+         */
+        "currentPage"?: number;
+        /**
+          * This function is called to format the href
+         */
+        "formatHref"?: (page: number) => string;
+        /**
+          * Emitted on page select
+         */
+        "onSelectPage"?: (event: CustomEvent<PaginationSelectPageEvent>) => void;
+        /**
+          * Total pages
+         */
+        "totalPages"?: number;
+    }
     interface DsoProgressBar {
         "max"?: number;
         "min"?: number;
@@ -794,6 +834,7 @@ declare namespace LocalJSX {
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
         "dso-ozon-content": DsoOzonContent;
+        "dso-pagination": DsoPagination;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-responsive-element": DsoResponsiveElement;
@@ -827,6 +868,7 @@ declare module "@stencil/core" {
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
+            "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
