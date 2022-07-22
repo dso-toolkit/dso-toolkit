@@ -304,30 +304,34 @@ describe('Date Picker', () => {
   });
 
   it('should only allow date characters input', () => {
-    const details = [];
-    cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+    cy.get('dso-date-picker').then($datePicker => {
+      $datePicker.on('dateChange', cy.stub().as('listener'));
     });
 
-    const ignoredChars = Array.from(Array(95)).map((e, i) => String.fromCharCode(i + 32)).filter(c => !'-0123456789'.includes(c));
-
-    cy
-      .get('dso-date-picker')
-      .find('input.dso-date__input')
-      .type(ignoredChars.join(''))
-      .then(() => {
-        expect(details.length).equal(0);
-      });
-
     const allowedChars = '-0123456789';
+    const ignoredChars = Array.from(Array(95)).map((e, i) => String.fromCharCode(i + 32)).filter(c => !allowedChars.includes(c));
 
-    cy
-      .get('dso-date-picker')
-      .find('input.dso-date__input')
+    cy.get('dso-date-picker input.dso-date__input')
+      .as('input')
+      .type(ignoredChars.join(''))
+      .should('have.value', '')
+      .get('@listener')
+      .its('callCount')
+      .should('equal', 1)
+      .get('@listener')
+      .invoke('getCall', 0)
+      .its('args.0.detail')
+      .should('deep.equal', { component: 'dso-date-picker', value: '', valueAsDate: undefined })
+      .get('@input')
       .type(allowedChars)
-      .then(() => {
-        expect(details.length).equal(11);
-      });
+      .should('have.value', allowedChars)
+      .get('@listener')
+      .invoke('getCalls')
+      .invoke('at', -1)
+      .its('args.0.detail')
+      .should('deep.equal', { component: 'dso-date-picker', value: allowedChars, valueAsDate: undefined, error: 'invalid' })
+      .get('dso-date-picker')
+      .should('have.attr', 'value', allowedChars)
   });
 
   it('should emit changed event with error on date input before min', () => {
@@ -400,10 +404,10 @@ describe('Date Picker', () => {
       });
   });
 
-  it('should emit changed event with error on invalid character paste', () => {
+  it('should not allow invalid characters to be pasted', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail));
     });
 
     cy
@@ -411,12 +415,13 @@ describe('Date Picker', () => {
       .find('input.dso-date__input')
       .invoke('val', 'zzz')
       .trigger('input')
-      .then(() => {
-        console.log(details)
-        expect(details[details.length - 1].error).equal('invalid');
-        expect(details[details.length - 1].value).equal('zzz');
-        expect(details[details.length - 1].valueAsDate).undefined;
-      });
+      .should('have.value', '')
+
+    cy
+      .wrap(details)
+      .should('have.length', 1)
+      .invoke('at', 0)
+      .should('deep.equal', { component: 'dso-date-picker', value: '', valueAsDate: undefined })
   });
 
   it('should emit changed event on valid input', () => {
@@ -481,20 +486,15 @@ describe('Date Picker', () => {
       datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
-    cy
-      .get('dso-date-picker')
-      .find('input.dso-date__input')
+    cy.get('dso-date-picker input.dso-date__input')
+      .as('input')
       .type('11-04-1970')
       .realPress('{backspace}')
-      .then(() => {
-        cy
-          .get('dso-date-picker')
-          .find('input.dso-date__input')
-          .should('have.value', '11-04-197');
-        expect(details[details.length - 1].error).equal('invalid');
-        expect(details[details.length - 1].value).equal('11-04-197');
-        expect(details[details.length - 1].valueAsDate).undefined;
-      });
+      .get('@input')
+      .should('have.value', '11-04-197')
+      .wrap(details)
+      .invoke('at', -1)
+      .should('deep.equal', { component: 'dso-date-picker', error: 'invalid', value: '11-04-197', valueAsDate: undefined });
   });
 
   it('closed datepicker should not have invisible calendar', () => {
@@ -502,5 +502,18 @@ describe('Date Picker', () => {
       .should('have.class', 'hydrated')
       .find('.dso-date__dialog')
       .should('be.hidden');
+  });
+
+  it('keep cursor in correct position when editing date', () => {
+    cy
+      .get('dso-date-picker')
+      .find('input.dso-date__input')
+      .type('11-04-1970')
+      .should('have.prop', 'selectionStart', 10)
+      .invoke('prop', 'selectionStart', 2)
+      .invoke('prop', 'selectionEnd', 2)
+      .realPress('{backspace}')
+      .get('dso-date-picker input.dso-date__input')
+      .should('have.prop', 'selectionStart', 1);
   });
 });

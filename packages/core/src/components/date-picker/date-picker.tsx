@@ -71,6 +71,29 @@ export type DsoDatePickerDirection = "left" | "right"
 const DISALLOWED_CHARACTERS = /[^0-9\-]+/g
 const TRANSITION_MS = 300
 
+function cleanValue(input: HTMLInputElement, regex: RegExp): string {
+  const value = input.value
+  const cursor = input.selectionStart
+
+  if (!cursor) {
+    return value
+  }
+
+  const beforeCursor = value.slice(0, cursor)
+  const afterCursor = value.slice(cursor, value.length)
+
+  const filteredBeforeCursor = beforeCursor.replace(regex, "")
+  const filterAfterCursor = afterCursor.replace(regex, "")
+
+  const newValue = filteredBeforeCursor + filterAfterCursor
+  const newCursor = filteredBeforeCursor.length
+
+  input.value = newValue
+  input.selectionStart = input.selectionEnd = newCursor
+
+  return newValue
+}
+
 @Component({
   tag: "dso-date-picker",
   styleUrl: "date-picker.scss",
@@ -99,6 +122,8 @@ export class DsoDatePicker implements ComponentInterface {
 
   private localization: DsoLocalizedText = defaultLocalization
   private firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday
+
+  private previousValue: string | undefined;
 
   /**
    * Reference to host HTML element.
@@ -497,20 +522,21 @@ export class DsoDatePicker implements ComponentInterface {
 
   private handleInputChange = (e: Event) => {
     const target = e.target as HTMLInputElement
-    this.setValue(target.value)
-  }
 
-  private handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key.search(DISALLOWED_CHARACTERS) > -1) {
-      e.preventDefault()
-    }
+    const cleanedValue = cleanValue(target, DISALLOWED_CHARACTERS)
+
+    this.setValue(cleanedValue)
   }
 
   private setValue(value: Date | string) {
     const event = this.prepareEvent(value)
 
-    this.value = event.value
-    this.dateChange.emit(event)
+    this.value = typeof value === 'string' ? value : event.value
+
+    if (this.value !== this.previousValue) {
+      this.dateChange.emit(event)
+      this.previousValue = this.value
+    }
   }
 
   private prepareEvent = (value: Date | string) : DsoDatePickerChangeEvent => {
@@ -569,7 +595,7 @@ export class DsoDatePicker implements ComponentInterface {
   componentDidLoad() {
     const valueAsDate = parseDutchDate(this.value)
     if (valueAsDate) {
-      this.value = printDutchDate(valueAsDate);
+      this.previousValue = this.value = printDutchDate(valueAsDate);
     }
 
     if (this.dsoAutofocus) {
@@ -617,7 +643,6 @@ export class DsoDatePicker implements ComponentInterface {
               role={this.role}
               required={this.required ? true : undefined}
               aria-autocomplete="none"
-              onKeyPress={this.handleKeyPress}
               onInput={this.handleInputChange}
               onFocus={this.handleFocus}
               onBlur={this.handleBlur}
