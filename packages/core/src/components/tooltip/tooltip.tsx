@@ -6,7 +6,7 @@ import clsx from 'clsx';
 // Keep const in sync with $tooltip-transition-duration in @dso-toolkit/sources/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
 
-function hasOverflow (el:HTMLElement) :Boolean {
+function hasOverflow (el:Element) : boolean {
   const style = window.getComputedStyle(el);
   const overflowX = style.getPropertyValue('overflow-x');
   const overflowY = style.getPropertyValue('overflow-y');
@@ -119,9 +119,9 @@ export class Tooltip {
       return;
     }
 
-    let element : HTMLElement | null = this.element;
+    let element: Element | null = this.element;
     while (element?.parentNode != null && element.parentNode != document) {
-      element = element.parentElement;
+      element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
       if (element != null && hasOverflow(element)) {
         this.popper.setOptions({
           strategy: 'fixed',
