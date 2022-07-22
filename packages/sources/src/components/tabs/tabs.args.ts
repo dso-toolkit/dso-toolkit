@@ -1,21 +1,19 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes, noControl } from '../../stories-helpers';
 
 import { Tabs, TabsItem } from './tabs.models';
 
 export interface TabsArgs {
-  tabs: TabsItem[];
+  items: TabsItem[];
 }
 
 export const tabsArgTypes: ArgTypes<TabsArgs> = {
-  tabs: {
-    control: {
-      disable: true
-    }
+  items: {
+    ...noControl
   }
 };
 
 export function tabsArgsMapper(a: TabsArgs): Tabs {
   return {
-    tabs: a.tabs
+    items: a.items
   };
 }

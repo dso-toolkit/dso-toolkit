@@ -4,22 +4,67 @@ $dso-tabs-text-color: $grijs-60;
 $dso-tabs-border-radius: 4px;
 $dso-tabs-border-color: #ddd;
 $dso-tabs-link-hover-border-color: $gray-lighter;
-$dso-disabled-link-color: #a3a3a3;
-$dso-disabled-link-hover-color: #a3a3a3;
 $dso-tabs-height: 56px;
 $dso-tabs-horizontal-padding: $u2 - 1px;
 $dso-tabs-vertical-padding: $u3 - 1px;
 $dso-tabs-margin-bottom: $dso-vertical-spacing-large;
 
-ul.nav-tabs {
+$nav-link-padding: 10px 15px !default;
+$nav-link-hover-bg: $gray-lighter !default;
+
+.nav {
   @include clearfix();
 
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        cursor: $cursor-disabled;
+        background-color: transparent;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $nav-link-hover-bg;
+      border-color: $link-color;
+    }
+  }
+}
+
+.nav.nav-tabs {
   border-bottom: 1px solid $dso-tabs-border-color;
   display: flex;
   flex-wrap: wrap;
-  list-style: none;
   margin-bottom: $dso-tabs-margin-bottom;
-  padding-left: 0; // Override default ul/ol
+  padding-left: 0;
 
   @media screen and (min-width: $screen-sm-min) {
     border-bottom: 1px solid $grasgroen;
@@ -32,13 +77,10 @@ ul.nav-tabs {
 
   > li {
     border-color: $dso-tabs-color;
-    display: block;
-    float: none;
-    font-weight: bold;
+     font-weight: bold;
     // Make the list-items overlay the bottom border
     margin-bottom: -1px;
     min-height: $dso-tabs-height;
-    position: relative;
 
     @media screen and (max-width: $screen-xs-max) {
       margin: 10px 0;
@@ -100,11 +142,11 @@ ul.nav-tabs {
     }
 
     &.disabled > a {
-      color: $dso-disabled-link-color;
+      color: $nav-disabled-link-color;
 
       &:hover,
       &:focus {
-        color: $dso-disabled-link-hover-color;
+        color: $nav-disabled-link-hover-color;
         text-decoration: none;
         cursor: $cursor-disabled;
         background-color: transparent;

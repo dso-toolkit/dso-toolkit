@@ -1,6 +1,6 @@
-import { bindTemplate, StorybookParameters } from '../../stories-helpers';
+import { bindTemplate, componentArgs, StorybookParameters } from '../../stories-helpers';
 
-import { tabsArgsMapper, tabsArgTypes } from './tabs.args';
+import { TabsArgs, tabsArgsMapper, tabsArgTypes } from './tabs.args';
 import { Tabs } from './tabs.models';
 
 export interface TabsParameters<TemplateFnReturnType> {
@@ -28,11 +28,11 @@ export function storiesOfTabs<TemplateFnReturnType>(
     });
 
     stories.add(
-      'tab default',
+      'default',
       template,
       {
-        args: {
-          tabs: [
+        args: componentArgs<TabsArgs>({
+          items: [
             {
               label: 'Zoek op adres',
               id: 'tabitem-1',
@@ -51,16 +51,16 @@ export function storiesOfTabs<TemplateFnReturnType>(
               id: 'tabitem-4'
             }
           ]
-        }
+        })
       }
     );
 
   stories.add(
-    'tab deactief',
+    'inactief',
     template,
     {
-      args: {
-        tabs: [
+      args: componentArgs<TabsArgs>({
+        items: [
           {
             label: 'Zoek op adres',
             id: 'tabitem-1'
@@ -80,7 +80,7 @@ export function storiesOfTabs<TemplateFnReturnType>(
             modifiers: 'disabled'
           }
         ]
-      }
+      })
     }
   );
 }

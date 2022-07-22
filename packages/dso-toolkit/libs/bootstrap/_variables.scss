@@ -55,9 +55,8 @@ $padding-small-horizontal:  10px !default;
 // Merged into @dso-toolkit/sources/src/styling/variables/scaffolding
 
 //** Global color for active items (e.g., navs or dropdowns).
-$component-active-color:    #fff !default;
+
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $bosgroen !default;
 
 //** Width of the `border` for generating carets that indicate dropdowns.
 $caret-width-base:          4px !default;
@@ -206,8 +205,6 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          10px 15px !default;
-$nav-link-hover-bg:                         $gray-lighter !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
@@ -225,9 +222,8 @@ $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 
 //== Pills
-$nav-pills-border-radius:                   $border-radius-base !default;
-$nav-pills-active-link-hover-bg:            $component-active-bg !default;
-$nav-pills-active-link-hover-color:         $component-active-color !default;
+
+// Removed
 
 
 //== Pagination

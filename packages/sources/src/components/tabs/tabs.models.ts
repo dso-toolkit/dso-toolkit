@@ -1,9 +1,9 @@
 export interface Tabs {
-  tabs: TabsItem[];
+  items: TabsItem[];
 }
 
 export interface TabsItem {
   label: string;
   id: string;
-  modifiers: 'active' | 'disabled';
+  modifiers?: 'active' | 'disabled';
 }
