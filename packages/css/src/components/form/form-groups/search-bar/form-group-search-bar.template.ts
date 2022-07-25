@@ -13,7 +13,9 @@ export function formGroupSearchBarTemplate(formGroup: FormGroupSearchBar<Templat
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [
-    formGroup.info?.fixed ? infoTextId : formGroup.errorText ? errorTextId : formGroup.helpText ? helpTextId : undefined
+    formGroup.errorText ? errorTextId : undefined,
+    formGroup.helpText ? helpTextId : undefined,
+    formGroup.info?.fixed ? infoTextId : undefined
   ]
     .filter(s => !!s)
     .join(' ') || undefined;

@@ -154,7 +154,7 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('search-bar', bindTemplate(formGroupSearchBarArgsMapper, formGroupSearchBarTemplate)
+    .add('search bar', bindTemplate(formGroupSearchBarArgsMapper, formGroupSearchBarTemplate)
   );
 
   storiesOf('Form/groups/select', mainModule)
