@@ -55,12 +55,11 @@
   legend.dso-label-container {
     border-bottom: 0;
     font-size: $font-size-base;
-    // margin-bottom: $u1;
     margin-bottom: 0;
   }
 
   legend + .dso-label-container {
-    margin-bottom: $u1;
+    margin-bottom: 0;
   }
 
   .dso-label-container + .dso-field-container {
@@ -150,8 +149,7 @@
     @include make-sm-column($dso-label-column);
 
     @media screen and (min-width: $screen-sm-min) {
-      // padding-top: $u1;
-      padding-top: 7px // ###;
+      padding-top: $u1;
     }
 
     .control-label {
@@ -159,7 +157,6 @@
     }
 
     > button.dso-info-button {
-      // margin-bottom: $u1;
       margin-top: 0;
     }
 
@@ -169,8 +166,8 @@
   }
 
   > legend + .dso-label-container {
-    @media screen and (max-width: $screen-sm-max) {
-      margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
+    @media screen and (max-width: $screen-xs-max) {
+      padding-top: $u1;
     }
   }
 
