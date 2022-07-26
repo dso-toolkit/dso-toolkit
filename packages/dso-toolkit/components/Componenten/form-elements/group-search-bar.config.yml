@@ -83,6 +83,7 @@ variants:
     errorText: Vul dit veld in.
     searchBar:
       id: search-bar-error
+      modifier: dso-invalid
       type: text
       clearButton: true
       hideSearchButton: true
@@ -113,6 +114,7 @@ variants:
     helpText: 'Type en selecteer de activiteit'
     searchBar:
       id: search-bar-error
+      modifier: dso-invalid
       type: text
       clearButton: true
       hideSearchButton: true

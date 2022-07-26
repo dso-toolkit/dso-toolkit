@@ -1,0 +1,17 @@
+$dso-searchbar-invalid-border-color: $dso-danger-color;
+$dso-searchbar-focus-border-width: 1px;
+
+.form-group.dso-form-group-search-bar {
+  .dso-search-bar {
+    margin-bottom: 0;
+    width: 50%;
+  }
+}
+
+.form-horizontal {
+  .form-group.dso-form-group-search-bar {
+    .dso-search-bar {
+      width: 100%;
+    }
+  }
+}

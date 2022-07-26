@@ -8,6 +8,7 @@ import { formGroupFilesTemplate } from './form-groups/files/form-group-files.tem
 import { formGroupInputTemplate } from './form-groups/input/form-group-input.template';
 import { formGroupInputNumberTemplate } from './form-groups/input-number/form-group-input-number.template';
 import { formGroupRadiosTemplate } from './form-groups/radios/form-group-radios.template';
+import { formGroupSearchBarTemplate } from './form-groups/search-bar/form-group-search-bar.template';
 import { formGroupSelectTemplate } from './form-groups/select/form-group-select.template';
 import { formGroupStaticTemplate } from './form-groups/static/form-group-static.template';
 import { formGroupTextareaTemplate } from './form-groups/textarea/form-group-textarea.template';
@@ -30,6 +31,7 @@ storiesOfForm(
     formGroupInputTemplate,
     formGroupInputNumberTemplate,
     formGroupRadiosTemplate,
+    formGroupSearchBarTemplate,
     formGroupSelectTemplate,
     formGroupStaticTemplate,
     formGroupTextareaTemplate

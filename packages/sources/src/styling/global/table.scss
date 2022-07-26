@@ -11,6 +11,8 @@ $table-border-color: $grijs-20;
 $table-link-color: $grijs-90;
 $table-header-border-color: $grijs-60;
 
+$table-filter-wrapper-width: 320px;
+
 caption {
   color: $text-muted;
   padding-bottom: $table-cell-padding;
@@ -208,5 +210,12 @@ table {
 .dso-table-responsive {
   @media screen and (max-width: $screen-xs-max) {
     @include table-responsive();
+  }
+}
+
+.dso-table-filter-wrapper {
+  .dso-search-bar {
+    margin-bottom: $u2;
+    width: $table-filter-wrapper-width - $u4;
   }
 }
