@@ -260,7 +260,6 @@ textarea.form-control {
   // labels on narrow viewports stack the same as a default form example.
   @media (min-width: $screen-sm-min) {
     .control-label {
-      padding-top: ($padding-base-vertical + 1); // Default padding plus a border
       margin-bottom: 0;
       text-align: right;
     }

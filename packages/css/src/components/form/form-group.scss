@@ -41,25 +41,11 @@
     font-weight: bold;
     margin-bottom: $u1;
     max-width: 100%;
-    padding: 0;
     text-align: left;
   }
 
-  legend.dso-label-container,
   legend + .dso-label-container {
-    .control-label {
-      display: inline;
-    }
-  }
-
-  legend.dso-label-container {
-    border-bottom: 0;
-    font-size: $font-size-base;
-    margin-bottom: 0;
-  }
-
-  legend + .dso-label-container {
-    margin-bottom: 0;
+    margin-bottom: $u1;
   }
 
   .dso-label-container + .dso-field-container {
@@ -150,10 +136,6 @@
 
     @media screen and (min-width: $screen-sm-min) {
       padding-top: $u1;
-    }
-
-    .control-label {
-      display: inline;
     }
 
     > button.dso-info-button {
