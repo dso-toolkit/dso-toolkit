@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING: css + sources:** Form Group: Search Bar naar @dso-toolkit/css: ([#1614](https://github.com/dso-toolkit/dso-toolkit/issues/1614)) **Class `dso-filter` is hernoemd naar `dso-form-group-search-bar` ([#1642](https://github.com/dso-toolkit/dso-toolkit/pull/1642))**
+* **BREAKING: core + react:** Pagination: bugfix: Vorige en volgende pagina emitten altijd de eerste en laatge pagina. Changed: Het navigeren (anchor) wordt niet meer door het component met event.preventDefault(). Added: selectPage event emit nu `isModifiedEvent` wanneer een pagina is geselecteerd met een modifier key (Ctrl/Alt/Shift/Meta) ([#1667](https://github.com/dso-toolkit/dso-toolkit/issues/1667))
 * **dso-toolkit + sources + css:** `.dso-justify-form-groups` onderbrengen in @dso-toolkit/css ([#1646](https://github.com/dso-toolkit/dso-toolkit/issues/1646))
 * **css:** Info button staat niet op dezelfde regel als het label over twee regels loopt ([#1623](https://github.com/dso-toolkit/dso-toolkit/issues/1623))
 

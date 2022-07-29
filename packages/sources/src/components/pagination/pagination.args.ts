@@ -29,7 +29,10 @@ export function paginationArgsMapper(a: PaginationArgs): Pagination {
   return {
     totalPages: a.totalPages,
     currentPage: a.currentPage,
-    onSelectPage: a.onSelectPage,
+    onSelectPage: (event) => {
+      event.detail.originalEvent.preventDefault();
+      a.onSelectPage(event);
+    },
     formatHref: page => '#' + page,
   };
 }
