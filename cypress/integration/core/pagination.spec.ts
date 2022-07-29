@@ -9,7 +9,7 @@ describe('Alert', () => {
       .invoke('attr', 'current-page', currentPage)
       .invoke('attr', 'total-pages', totalPages)
       .then($pagination => {
-        $pagination.on('selectPage', event => event.detail.originalEvent.preventDefault());
+        $pagination.on('selectPage', $event => $event.detail.originalEvent.preventDefault());
         $pagination.on('selectPage', cy.stub().as('selectPageListener'));
       });
   }
@@ -25,8 +25,10 @@ describe('Alert', () => {
       .should('have.length', 7)
       .get('@dsoPagination')
       .find('a[aria-label="Vorige"]')
+      .should('be.visible')
       .get('@dsoPagination')
-      .find('a[aria-label="Volgende"]');
+      .find('a[aria-label="Volgende"]')
+      .should('be.visible');
   });
 
   it('should emit page on page select', () => {
@@ -41,8 +43,10 @@ describe('Alert', () => {
       .find('a')
       .click()
       .get('@selectPageListener')
-      .invoke('getCalls')
-      .invoke('at', -1)
+      .its('callCount')
+      .should('equal', 1)
+      .get('@selectPageListener')
+      .invoke('getCall', 0)
       .its('args.0.detail.page')
       .should('equal', 2);
   });
@@ -58,16 +62,20 @@ describe('Alert', () => {
       .find('a[aria-label="Vorige"]')
       .click()
       .get('@selectPageListener')
-      .invoke('getCalls')
-      .invoke('at', -1)
+      .its('callCount')
+      .should('equal', 1)
+      .get('@selectPageListener')
+      .invoke('getCall', 0)
       .its('args.0.detail.page')
       .should('equal', currentPage - 1)
       .get('@dsoPagination')
       .find('a[aria-label="Volgende"]')
       .click()
       .get('@selectPageListener')
-      .invoke('getCalls')
-      .invoke('at', -1)
+      .its('callCount')
+      .should('equal', 2)
+      .get('@selectPageListener')
+      .invoke('getCall', 1)
       .its('args.0.detail.page')
       .should('equal', currentPage + 1);
   });
