@@ -28,8 +28,6 @@ export * from './components/card-grid/card-grid.models';
 export * from './components/card-grid/card-grid.stories';
 export * from './components/card-list/card-list.models';
 export * from './components/card-list/card-list.stories';
-export * from './components/conclusion/conclusion.models';
-export * from './components/conclusion/conclusion.stories';
 export * from './components/context/context.models';
 export * from './components/context/context.stories';
 export * from './components/date-picker/date-picker.models';
