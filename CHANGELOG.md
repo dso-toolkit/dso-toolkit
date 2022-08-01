@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 41.0.1
+
+### Fixed
+* **react:** `@dso-toolkit/react` heeft verkeerde `@dso-toolkit/core` peerDependency ([#1673](https://github.com/dso-toolkit/dso-toolkit/issues/1673))
+
 ## 41.0.0
 
 ### Changed
@@ -28,7 +33,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + css:** packages\dso-toolkit\src\styles\mixins\_grid.scss mergen met packages\sources\src\styling\grid\grid.scss ([#1644](https://github.com/dso-toolkit/dso-toolkit/issues/1644))
 * **dso-toolkit + css:** Component "Tabs" verhuizen naar @dso-toolkit/css ([#1645](https://github.com/dso-toolkit/dso-toolkit/issues/1645))
 
-# 40.0.0
+## 40.0.0
 
 ### Added
 * **core:** dso-header logout link verrijken met logoutClick event ([#1605](https://github.com/dso-toolkit/dso-toolkit/issues/1605))
