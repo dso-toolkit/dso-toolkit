@@ -12,17 +12,13 @@
     </div>
   </div>
   <h2>Waarmee kunnen we u helpen?</h2>
-
   <div class="row">
     <div class="col-md-8">
       {% render '@search-bar', search %}
     </div>
   </div>
-
   <hr>
-
   <h2>Alle onderwerpen bekijken</h2>
-
   <div class="row">
     <div class="col-md-4">
       <h3>U wilt weten of u werkzaamheden mag uitvoeren</h3>
@@ -30,14 +26,12 @@
         {% render '@link-list', links1 %}
       </nav>
     </div>
-
     <div class="col-md-4">
       <h3>U wilt direct een aanvrag of melding indienen</h3>
       <nav>
         {% render '@link-list', links2 %}
       </nav>
     </div>
-
     <div class="col-md-4">
       <h3>U wilt weten welke plannen de Overheid heeft</h3>
       <nav>
@@ -45,7 +39,6 @@
       </nav>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-4">
       <h3>U wilt weten hoe het Omgevingsloket werkt</h3>
@@ -53,7 +46,6 @@
         {% render '@link-list', links4 %}
       </nav>
     </div>
-
     <div class="col-md-4">
       <h3>U wilt direct een aanvrag of melding indienen</h3>
       <nav>
@@ -61,35 +53,30 @@
       </nav>
     </div>
   </div>
-
   <hr>
-
   <h2>Overige vragen</h2>
-
   <div class="row dso-equal-heights">
     <div class="col-md-6">
       <dso-highlight-box white drop-shadow>
         <div class="dso-rich-content">
           <div class="row">
             <div class="col-md-4">
-              <img src="../../dummy/images/sneeuwpop.png" class="img-circle" alt="Afbeelding van een sneeuwpop">
+              {% render '@image' %}
             </div>
             <div class="col-md-8">
               <h3>Vragen over uw vergunning of melding?</h3>
               <p>Neem dan contact op met uw gemeente of waterschap.</p>
-
             </div>
           </div>
         </div>
       </dso-highlight-box>
     </div>
-
     <div class="col-md-6">
       <dso-highlight-box white drop-shadow>
         <div class="dso-rich-content">
           <div class="row">
             <div class="col-md-4">
-              <img src="../../dummy/images/sneeuwpop.png" class="img-circle" alt="Afbeelding van een sneeuwpop">
+              {% render '@image' %}
             </div>
             <div class="col-md-8">
               <h3>Vragen over de website?</h3>
@@ -102,6 +89,5 @@
       </dso-highlight-box>
     </div>
   </div>
-
 </main>
 {% render '@footer' %}
