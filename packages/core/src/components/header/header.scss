@@ -80,6 +80,15 @@ $dso-dropdown-link-color: $grijs-90;
 .login,
 .logout {
   margin-right: $u2;
+
+  .dso-tertiary {
+    @include button_tertiary();
+
+    cursor: pointer;
+    font-family: $font-family-base;
+    font-weight: 600;
+    vertical-align: text-bottom;
+  }
 }
 
 .profile,

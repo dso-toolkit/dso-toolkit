@@ -7,44 +7,26 @@ export function headerTemplate({
   subLogo,
   mainMenu,
   useDropDownMenu,
-  showSubLogo,
+  authStatus,
   loginUrl,
   logoutUrl,
-  isLoggedIn,
-  showLoggedIn,
   userProfileUrl,
   userProfileName,
   userHomeUrl,
-  menuItemClick,
+  onHeaderClick,
 }: Header) {
-  const bindLoginUrl = showLoggedIn && loginUrl ? loginUrl : undefined;
-  const bindLogoutUrl = showLoggedIn && logoutUrl ? logoutUrl : undefined;
-  return showSubLogo
-    ? html`<dso-header
-        .mainMenu=${mainMenu}
-        use-drop-down-menu=${ifDefined(useDropDownMenu)}
-        is-logged-in=${ifDefined(isLoggedIn)}
-        login-url=${ifDefined(bindLoginUrl)}
-        logout-url=${ifDefined(bindLogoutUrl)}
-        user-profile-url=${ifDefined(userProfileUrl)}
-        user-profile-name=${ifDefined(userProfileName)}
-        user-home-url=${ifDefined(userHomeUrl)}
-        @menuItemClick=${menuItemClick}
-      >
-        <div slot="logo"><img height="40" alt="Omgevingsloket" src="${logo}" /></div>
-        <div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div></div>
-      </dso-header>`
-    : html`<dso-header
-        .mainMenu=${mainMenu}
-        use-drop-down-menu=${ifDefined(useDropDownMenu)}
-        is-logged-in=${ifDefined(isLoggedIn)}
-        login-url=${ifDefined(bindLoginUrl)}
-        logout-url=${ifDefined(bindLogoutUrl)}
-        user-profile-url=${ifDefined(userProfileUrl)}
-        user-profile-name=${ifDefined(userProfileName)}
-        user-home-url=${ifDefined(userHomeUrl)}
-        @menuItemClick=${menuItemClick}
-      >
-        <div slot="logo"><img alt="Omgevingsloket" src="${logo}" /></div>
-      </dso-header>`;
+  return html`<dso-header
+    .mainMenu=${mainMenu}
+    use-drop-down-menu=${ifDefined(useDropDownMenu)}
+    auth-status=${ifDefined(authStatus)}
+    login-url=${ifDefined(loginUrl)}
+    logout-url=${ifDefined(logoutUrl)}
+    user-profile-url=${ifDefined(userProfileUrl)}
+    user-profile-name=${ifDefined(userProfileName)}
+    user-home-url=${ifDefined(userHomeUrl)}
+    @headerClick=${onHeaderClick}
+  >
+    <div slot="logo"><img height="40" alt="Omgevingsloket" src="${logo}" /></div>
+    ${subLogo ? html`<div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div>` : undefined}
+  </dso-header>`;
 }

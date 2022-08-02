@@ -13,22 +13,9 @@ import {
 import clsx from "clsx";
 import debounce from "debounce";
 
+import { HeaderMenuItem, HeaderNavigationType, HeaderClickEvent, HeaderClickMenuItemEvent } from './header.interfaces';
+
 const minDesktopViewportWidth = 992;
-
-export interface HeaderMenuItemClickEvent {
-  originalEvent: MouseEvent;
-  menuItem: HeaderMenuItem;
-}
-
-export interface HeaderMenuLogoutClick {
-  originalEvent: MouseEvent;
-}
-
-export interface HeaderMenuItem {
-  label: string;
-  url: string;
-  active?: boolean;
-}
 
 @Component({
   tag: "dso-header",
@@ -36,23 +23,35 @@ export interface HeaderMenuItem {
   shadow: true,
 })
 export class Header {
+  private clickHandler(e: MouseEvent, type: HeaderNavigationType, options?: { menuItem?: HeaderMenuItem; url?: string; }) {
+    this.headerClick.emit({
+      originalEvent: e,
+      isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,
+      type,
+      menuItem: options?.menuItem,
+      url: options?.url ?? options?.menuItem?.url,
+    });
+  };
+
+  @Element()
+  host!: HTMLElement;
+
+  @Prop()
+  mainMenu?: HeaderMenuItem[] = [];
+
+  @Prop()
+  useDropDownMenu: "always" | "never" | "auto" = "auto";
+
+  /** Used to show the login/logout option. 'none' renders nothing. */
+  @Prop()
+  authStatus: 'none' | 'loggedIn' | 'loggedOut' = 'none';
+
+  /** When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor. */
   @Prop()
   loginUrl?: string;
 
   @Prop()
   logoutUrl?: string;
-
-  @Prop()
-  mainMenu: HeaderMenuItem[] = [];
-
-  @Prop()
-  useDropDownMenu: "always" | "never" | "auto" = "auto";
-
-  @State()
-  showDropDown: boolean = false;
-
-  @Prop()
-  isLoggedIn: boolean = false;
 
   @Prop()
   userProfileName?: string;
@@ -63,8 +62,8 @@ export class Header {
   @Prop()
   userHomeUrl?: string;
 
-  @Element()
-  host!: HTMLElement;
+  @State()
+  showDropDown: boolean = false;
 
   @State()
   hasSubLogo: boolean = false;
@@ -72,14 +71,13 @@ export class Header {
   @State()
   overflowMenuItems: number = 0;
 
-  @Event()
-  menuItemClick!: EventEmitter<HeaderMenuItemClickEvent>;
-
   /**
-   * Only available when `logout-url` is set
+   * Emitted when something in the header is selected.
+   *
+   * `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
    */
   @Event()
-  logoutClick!: EventEmitter<HeaderMenuLogoutClick>;
+  headerClick!: EventEmitter<HeaderClickEvent | HeaderClickMenuItemEvent>;
 
   @Watch("useDropDownMenu")
   watchUseDropDownMenu(value: "always" | "never" | "auto") {
@@ -108,7 +106,7 @@ export class Header {
       return;
     }
 
-    if (this.overflowMenuItems >= this.mainMenu.length) {
+    if (this.mainMenu && this.overflowMenuItems >= this.mainMenu.length) {
       return;
     }
 
@@ -158,19 +156,12 @@ export class Header {
   }
 
   MenuItem = (item: HeaderMenuItem) => {
-    const click = (event: MouseEvent) => {
-      event.preventDefault();
-      this.menuItemClick.emit({
-        originalEvent: event,
-        menuItem: item,
-      });
-    };
     return (
       <li class={item.active ? "dso-active" : undefined}>
         <a
           href={item.url}
           aria-current={item.active ? "page" : undefined}
-          onClick={click}
+          onClick={e => this.clickHandler(e, 'menuItem', { menuItem: item })}
         >
           {item.label}
         </a>
@@ -196,7 +187,7 @@ export class Header {
               <slot name="sub-logo" />
             </div>
           </div>
-          {this.showDropDown && this.mainMenu.length > 0 && (
+          {this.showDropDown && this.mainMenu && this.mainMenu.length > 0 && (
             <div class="dropdown">
               <dso-dropdown-menu dropdown-align="right">
                 <button type="button" class="tertiary" slot="toggle">
@@ -208,27 +199,33 @@ export class Header {
                       {this.mainMenu.map(this.MenuItem)}
                       {this.userHomeUrl && (
                         <li>
-                          <a href={this.userHomeUrl}>Mijn Omgevingsloket</a>
-                        </li>
-                      )}
-                      {this.loginUrl && !this.isLoggedIn && (
-                        <li>
-                          <a href={this.loginUrl}>Inloggen</a>
+                          <a href={this.userHomeUrl} onClick={e => this.clickHandler(e, 'userHome', { url: this.userHomeUrl})}>Mijn Omgevingsloket</a>
                         </li>
                       )}
                       {this.userProfileUrl &&
                         this.userProfileName &&
-                        this.isLoggedIn && (
+                        this.authStatus === 'loggedIn' && (
                           <li>
-                            <a href={this.userProfileUrl}>
+                            <a href={this.userProfileUrl} onClick={e => this.clickHandler(e, 'profile', { url: this.userProfileUrl})}>
                               {this.userProfileName}
-                              <span class="profile-label">- Mijn profiel</span>
+                              <span class="profile-label"> - Mijn profiel</span>
                             </a>
                           </li>
                         )}
-                      {this.logoutUrl && this.isLoggedIn && (
+                      {this.authStatus === 'loggedOut' && (
                         <li>
-                          <a href={this.logoutUrl} onClick={e => this.logoutClick.emit({ originalEvent: e })}>Uitloggen</a>
+                          {this.loginUrl
+                            ? <a href={this.loginUrl} onClick={e => this.clickHandler(e, 'login', { url: this.loginUrl })}>Inloggen</a>
+                            : <button type="button" onClick={e => this.clickHandler(e, 'login')}>Inloggen</button>
+                          }
+                        </li>
+                      )}
+                      {this.authStatus === 'loggedIn' && (
+                        <li>
+                          {this.logoutUrl
+                            ? <a href={this.logoutUrl} onClick={e => this.clickHandler(e, 'logout', { url: this.logoutUrl })}>Uitloggen</a>
+                            : <button type="button" onClick={e => this.clickHandler(e, 'logout')}>Uitloggen</button>
+                          }
                         </li>
                       )}
                     </ul>
@@ -237,72 +234,72 @@ export class Header {
               </dso-dropdown-menu>
             </div>
           )}
-          {!this.showDropDown && this.mainMenu.length > 0 && (
+          {!this.showDropDown && (
             <>
               <div class="dso-header-session">
                 {this.userProfileUrl &&
                   this.userProfileName &&
-                  this.isLoggedIn && (
+                  this.authStatus === 'loggedIn' && (
                     <div class="profile">
                       <span class="profile-label">Welkom:</span>
-                      <a href={this.userProfileUrl}>{this.userProfileName}</a>
+                      <a href={this.userProfileUrl} onClick={e => this.clickHandler(e, 'profile', { url: this.userProfileUrl })}>{this.userProfileName}</a>
                     </div>
                   )}
-                {this.loginUrl && !this.isLoggedIn && (
+                {this.authStatus === 'loggedOut' && (
                   <div class="login">
-                    <a href={this.loginUrl}>Inloggen</a>
+                    {this.loginUrl
+                      ? <a href={this.loginUrl} onClick={e => this.clickHandler(e, 'login', { url: this.loginUrl })}>Inloggen</a>
+                      : <button class="dso-tertiary" type="button" onClick={e => this.clickHandler(e, 'login')}>Inloggen</button>
+                    }
                   </div>
                 )}
-                {this.logoutUrl && this.isLoggedIn && (
+                {this.authStatus === 'loggedIn' && (
                   <div class="logout">
-                    <a href={this.logoutUrl} onClick={e => this.logoutClick.emit({ originalEvent: e })}>Uitloggen</a>
+                    {this.logoutUrl
+                      ? <a href={this.logoutUrl} onClick={e => this.clickHandler(e, 'logout', { url: this.logoutUrl })}>Uitloggen</a>
+                      : <button class="dso-tertiary" type="button" onClick={e => this.clickHandler(e, 'logout')}>Uitloggen</button>
+                    }
                   </div>
                 )}
               </div>
-              <nav class="dso-navbar">
-                <ul
-                  class="dso-nav dso-nav-main"
-                  ref={(element) => (this.nav = element)}
-                >
-                  {this.mainMenu
-                    .filter(
-                      (_, index) =>
-                        index < this.mainMenu.length - this.overflowMenuItems
-                    )
-                    .map(this.MenuItem)}
-                  {this.overflowMenuItems > 0 && (
-                    <li>
-                      <dso-dropdown-menu dropdown-align="left">
-                        <button type="button" class="tertiary" slot="toggle">
-                          <span>Meer</span>
-                        </button>
-                        <div class="dso-dropdown-options">
-                          <dso-dropdown-options>
-                            <ul>
-                              {this.mainMenu
-                                .filter(
-                                  (_, index) =>
-                                    index >=
-                                    this.mainMenu.length -
-                                      this.overflowMenuItems
-                                )
-                                .map(this.MenuItem)}
-                            </ul>
-                          </dso-dropdown-options>
-                        </div>
-                      </dso-dropdown-menu>
-                    </li>
-                  )}
-                  {this.userHomeUrl && (
-                    <li class="menu-user-home">
-                      <a href={this.userHomeUrl}>
-                        <dso-icon icon="user-line"></dso-icon>
-                        Mijn Omgevingsloket
-                      </a>
-                    </li>
-                  )}
-                </ul>
-              </nav>
+              {((this.mainMenu && this.mainMenu.length > 0) || this.userHomeUrl) && (
+                <nav class="dso-navbar">
+                  <ul
+                    class="dso-nav dso-nav-main"
+                    ref={(element) => (this.nav = element)}
+                  >
+                    {this.mainMenu && this.mainMenu
+                      .filter((_, index) => index < this.mainMenu!.length - this.overflowMenuItems)
+                      .map(this.MenuItem)}
+                    {this.overflowMenuItems > 0 && (
+                      <li>
+                        <dso-dropdown-menu dropdown-align="left">
+                          <button type="button" class="tertiary" slot="toggle">
+                            <span>Meer</span>
+                          </button>
+                          <div class="dso-dropdown-options">
+                            <dso-dropdown-options>
+                              <ul>
+                                {this.mainMenu && this.mainMenu
+                                  .filter((_, index) => index >= this.mainMenu!.length - this.overflowMenuItems)
+                                  .map(this.MenuItem)}
+                              </ul>
+                            </dso-dropdown-options>
+                          </div>
+                        </dso-dropdown-menu>
+                      </li>
+                    )}
+                    {this.userHomeUrl && (
+                      <li class="menu-user-home">
+                        <a href={this.userHomeUrl} onClick={e => this.clickHandler(e, 'userHome', { url: this.userHomeUrl})}>
+                          <dso-icon icon="user-line"></dso-icon>
+                          Mijn Omgevingsloket
+                        </a>
+                      </li>
+                    )}
+                  </ul>
+                </nav>
+              )}
             </>
           )}
         </div>

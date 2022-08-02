@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
-import { HeaderMenuItem, HeaderMenuItemClickEvent, HeaderMenuLogoutClick } from "./components/header/header";
+import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -123,10 +123,16 @@ export namespace Components {
         "open": boolean;
     }
     interface DsoHeader {
-        "isLoggedIn": boolean;
+        /**
+          * Used to show the login/logout option. 'none' renders nothing.
+         */
+        "authStatus": 'none' | 'loggedIn' | 'loggedOut';
+        /**
+          * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+         */
         "loginUrl"?: string;
         "logoutUrl"?: string;
-        "mainMenu": HeaderMenuItem[];
+        "mainMenu"?: HeaderMenuItem[];
         "useDropDownMenu": "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
@@ -622,15 +628,20 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface DsoHeader {
-        "isLoggedIn"?: boolean;
+        /**
+          * Used to show the login/logout option. 'none' renders nothing.
+         */
+        "authStatus"?: 'none' | 'loggedIn' | 'loggedOut';
+        /**
+          * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+         */
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu"?: HeaderMenuItem[];
         /**
-          * Only available when `logout-url` is set
+          * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
-        "onLogoutClick"?: (event: CustomEvent<HeaderMenuLogoutClick>) => void;
-        "onMenuItemClick"?: (event: CustomEvent<HeaderMenuItemClickEvent>) => void;
+        "onHeaderClick"?: (event: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
