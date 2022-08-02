@@ -21,3 +21,17 @@ variants:
   - name: columns
     context:
       __title: columns
+  - name: img-list
+    context:
+      __title: image list
+      items:
+        - text: Cras justo odio
+          img: /dummy/images/rectangle1.png
+        - text: Dapibus ac facilisis in
+          img: /dummy/images/rectangle2.png
+        - text: Morbi leo risus
+          img: /dummy/images/rectangle1.png
+        - text: Porta ac consectetur ac
+          img: /dummy/images/rectangle2.png
+        - text: Vestibulum at eros
+          img: /dummy/images/rectangle1.png
