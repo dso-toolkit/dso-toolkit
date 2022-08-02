@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **sources:** Content-security-policy issue met SVG spritesheet voor iconen met style="fill: #hex;" ([#1676](https://github.com/dso-toolkit/dso-toolkit/issues/1676))
+
 ### Removed
 * **BREAKING: core + css + dso-toolkit + sources:** Conclusion definitief verwijderen ([#1643](https://github.com/dso-toolkit/dso-toolkit/issues/1643))
 
