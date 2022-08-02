@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Removed
+* **BREAKING: core + css + dso-toolkit + sources:** Conclusion definitief verwijderen ([#1643](https://github.com/dso-toolkit/dso-toolkit/issues/1643))
+
 ## 41.0.1
 
 ### Fixed

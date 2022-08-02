@@ -78,7 +78,6 @@ import sortAscending from '@dso-toolkit/sources/src/icons/sort-ascending.svg';
 import sortDescending from '@dso-toolkit/sources/src/icons/sort-descending.svg';
 import sort from '@dso-toolkit/sources/src/icons/sort.svg';
 import sound from '@dso-toolkit/sources/src/icons/sound.svg';
-import statusForbidden from '@dso-toolkit/sources/src/icons/status-forbidden.svg';
 import statusDanger from '@dso-toolkit/sources/src/icons/status-danger.svg';
 import statusInfo from '@dso-toolkit/sources/src/icons/status-info.svg';
 import statusSuccess from '@dso-toolkit/sources/src/icons/status-success.svg';
@@ -173,7 +172,6 @@ const icons = [
   { alias: 'sort', svg: sort },
   { alias: 'sound', svg: sound },
   { alias: 'status-danger', svg: statusDanger },
-  { alias: 'status-forbidden', svg: statusForbidden },
   { alias: 'status-info', svg: statusInfo },
   { alias: 'status-success', svg: statusSuccess },
   { alias: 'status-warning', svg: statusWarning },
