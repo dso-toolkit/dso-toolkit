@@ -2,7 +2,7 @@
 // @import "mixins/extends"; -> Moved to @sources/src/styling/typography/headings
 // @import "mixins/font-asap";
 // @import "mixins/full-width-row"; -> Moved to @dso-toolkit/sources
-@import "mixins/grid";
+// @import "mixins/grid"; -> Moved to @dso-toolkit/sources
 // @import "mixins/tables"; -> Moved to @dso-toolkit/styling
 // @import "mixins/typography"; -> Moved to @dso-toolkit/sources
 
@@ -46,12 +46,12 @@
 // @import "components/progress-bar"; -> Moved to @dso-toolkit/styling
 // @import "components/progress-indicator"; -> Moved to @dso-toolkit/sources
 // @import "components/rich-content"; -> Moved to @dso-toolkit/sources/src/styling/global/headings
-@import "components/search-bar";
+// @import "components/search-bar"; -> Moved to @dso-toolkit/css/src/components/form/form-group/search-bar/form-group-search-bar
 // @import "components/selectable"; // -> Moved to @dso-toolkit/styling
 // @import "components/shopping-cart"; -> Moved to @dso-toolkit/css/src/components/shopping-cart
 // @import "components/step-counter"; -> Moved to @dso-toolkit/styling
 // @import "components/table"; -> Moved to @dso-toolkit/styling
-@import "components/tabs";
+// @import "components/tabs"; -> Moved to @dso-toolkit/styling
 // @import "components/tooltip"; -> Moved to @dso-toolkit/styling
 @import "components/tree-view";
 @import "components/well";

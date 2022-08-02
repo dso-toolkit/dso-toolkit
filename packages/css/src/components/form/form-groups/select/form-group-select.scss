@@ -1,0 +1,38 @@
+@import "../../form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@import "../../form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+
+@import "../../../../../../sources/src/styling/variables";
+@import "../../../../../../sources/src/styling/mixins";
+
+.form-group.dso-select {
+  &.dso-required {
+    .control-label::after {
+      @include form-group-required();
+    }
+  }
+
+  &.dso-invalid {
+    select:not([multiple]) {
+      @include di-variant("caret-down-invalid");
+    }
+  }
+
+  select:not([multiple]) {
+    @include di-variant("caret-down");
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-position: calc(100% - #{$u1});
+    background-repeat: no-repeat;
+    background-size: $dso-icon-size $dso-icon-size;
+    padding-right: $u4;
+
+    &:disabled {
+      @include di-variant("caret-down-disabled");
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}

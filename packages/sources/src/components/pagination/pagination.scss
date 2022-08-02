@@ -1,0 +1,101 @@
+$dso-pagination-item-size: $u4;
+$dso-pagination-item-border-size: 2px;
+$dso-pagination-line-height: $dso-pagination-item-size;
+$dso-pagination-icon-margin: $u1 * 0.5;
+
+@mixin pagination_root($css-icons: false) {
+  text-align: center;
+
+  @if ($css-icons) {
+    .dso-previous,
+    .dso-next {
+      border-color: $grasgroen;
+      height: $dso-pagination-item-size;
+      text-indent: -9999px;
+      width: $dso-pagination-item-size;
+
+      &::before {
+        content: "";
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .dso-previous {
+      &::before {
+        @include di("chevron-left");
+      }
+    }
+
+    .dso-next {
+      &::before {
+        @include di("chevron-right");
+      }
+    }
+  }
+
+  > li {
+    display: inline-block;
+    font-weight: bold;
+    line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
+    text-align: center;
+    vertical-align: middle;
+
+    > a,
+    > span {
+      align-items: center;
+      color: $grasgroen;
+      display: flex;
+      height: $dso-pagination-item-size;
+      justify-content: center;
+      position: relative;
+      width: $dso-pagination-item-size;
+
+      &:active {
+        background-color: $grasgroen-10;
+      }
+    }
+
+    > span {
+      border: $dso-pagination-item-border-size solid transparent;
+      border-radius: 50%;
+    }
+
+    a {
+      line-height: $dso-pagination-line-height;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        &::after {
+          border-bottom-color: $grasgroen;
+        }
+      }
+
+      &::after {
+        border-bottom: 3px solid transparent;
+        bottom: 0;
+        content: "";
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    &.active {
+      span {
+        background-color: $grasgroen;
+        color: $wit;
+      }
+    }
+
+    & + li {
+      margin-left: $u1;
+    }
+  }
+}

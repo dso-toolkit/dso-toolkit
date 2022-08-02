@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## v1.2.4 - 2022-06-23
+
+Version bumps:
+
+* `@dso-toolkit/core@>=39`
+* `leaflet@^1.8.0`
+
+## v1.2.3 - 2022-06-20
+
+Version bump `@dso-toolkit/core@>=38`.
+
 ## v1.2.2 - 2022-05-04
 
 In `package.json:exports` de property `"./": "./"` teruggezet. Deze property is niet geen onderdeel van de Node Exports Map specificatie, maar het wordt wel gebruikt door afnemers.

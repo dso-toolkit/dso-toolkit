@@ -20,6 +20,11 @@ export function selectableTemplate({
   onChange,
   info
 }: Selectable<TemplateResult>) {
+  const ariaDescribedBy = [
+    describedById,
+    info?.fixed ? info.id : undefined
+  ].filter(id => !!id).join(' ') || undefined;
+
   return html`
     <div class="dso-selectable">
       <input
@@ -28,7 +33,7 @@ export function selectableTemplate({
         value=${value}
         name=${ifDefined(name)}
         aria-invalid=${ifDefined(invalid)}
-        aria-describedby=${ifDefined(describedById)}
+        aria-describedby=${ifDefined(ariaDescribedBy)}
         @change=${(e: Event) => onChange?.(e)}
         ?disabled=${disabled}
         ?required=${required}
@@ -45,7 +50,7 @@ export function selectableTemplate({
         ? html`
           ${!info.fixed ? infoButtonTemplate({ active: info.active, onClick: info.onClose }) : nothing}
           ${info.active || info.fixed
-            ? infoTemplate(info)
+            ? infoTemplate({ ...info, id: info ? describedById : undefined })
             : nothing
           }
         `

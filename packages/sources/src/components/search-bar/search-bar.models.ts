@@ -1,14 +1,15 @@
 export interface SearchBar {
-  label: string;
+  label?: string;
   id: string;
-  icon: boolean;
-  hiddenLabel: boolean;
-  invalid: boolean;
+  icon?: boolean;
+  hiddenLabel?: boolean;
+  invalid?: boolean;
   placeholder?: string;
   value?: string;
   buttonLabel: string;
-  hideSearchButton: boolean;
+  hideSearchButton?: boolean;
   resultsMessage?: string;
-  resultsHidden: boolean;
+  resultsHidden?: boolean;
   ariaDescribedBy?: string;
+  clearButton?: boolean;
 }

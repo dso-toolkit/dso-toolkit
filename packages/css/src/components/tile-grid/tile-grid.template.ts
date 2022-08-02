@@ -1,10 +1,10 @@
-import {  TileGrid } from '@dso-toolkit/sources';
+import { TileGrid } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
 
 export function tileGridTemplate({ children }: TileGrid<TemplateResult>) {
   return html`
-    <div class="dso-tile-grid">
+    <dso-responsive-element class="dso-tile-grid">
       ${children}
-    </div>
+    </dso-responsive-element>
   `;
 }

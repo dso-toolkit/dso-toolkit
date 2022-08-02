@@ -1,0 +1,180 @@
+$dso-tabs-color: $grasgroen;
+$dso-tabs-hover-color: $grijs-5;
+$dso-tabs-text-color: $grijs-60;
+$dso-tabs-border-radius: 4px;
+$dso-tabs-border-color: #ddd;
+$dso-tabs-link-hover-border-color: $gray-lighter;
+$dso-tabs-height: 56px;
+$dso-tabs-horizontal-padding: $u2 - 1px;
+$dso-tabs-vertical-padding: $u3 - 1px;
+$dso-tabs-margin-bottom: $dso-vertical-spacing-large;
+
+$nav-link-padding: 10px 15px !default;
+$nav-link-hover-bg: $gray-lighter !default;
+
+.nav {
+  @include clearfix();
+
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        cursor: $cursor-disabled;
+        background-color: transparent;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $nav-link-hover-bg;
+      border-color: $link-color;
+    }
+  }
+}
+
+.nav.nav-tabs {
+  border-bottom: 1px solid $dso-tabs-border-color;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $dso-tabs-margin-bottom;
+  padding-left: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    border-bottom: 1px solid $grasgroen;
+  }
+
+  @media screen and (max-width: $screen-xs-max) {
+    border-bottom: 1px solid $wit;
+    display: block;
+  }
+
+  > li {
+    border-color: $dso-tabs-color;
+     font-weight: bold;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    min-height: $dso-tabs-height;
+
+    @media screen and (max-width: $screen-xs-max) {
+      margin: 10px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Actual tabs (as links)
+    > a {
+      @include anchor-clean();
+
+      border: 1px solid transparent;
+      border-radius: $dso-tabs-border-radius $dso-tabs-border-radius 0 0;
+      color: $dso-tabs-text-color;
+      display: block;
+      line-height: $line-height-base;
+      margin-right: 2px;
+      min-height: $dso-tabs-height;
+      padding: $dso-tabs-horizontal-padding $dso-tabs-vertical-padding;
+      position: relative;
+
+      &:hover {
+        border-color: $dso-tabs-link-hover-border-color $dso-tabs-link-hover-border-color $dso-tabs-border-color;
+      }
+    }
+
+    &:not(.disabled) > a:visited {
+      color: $dso-tabs-text-color;
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+      background-color: $dso-tabs-hover-color;
+      border: 1px solid transparent;
+      border-bottom-color: $dso-tabs-color;
+      text-decoration: none;
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:active,
+      &:focus,
+      &:hover,
+      &:visited {
+        background-color: $wit;
+        border: 1px solid $dso-tabs-color;
+        border-bottom-color: $wit;
+        color: $dso-tabs-color;
+        cursor: default;
+      }
+    }
+
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        cursor: $cursor-disabled;
+        background-color: transparent;
+      }
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+      a {
+        border-color: $wit;
+        border-radius: 8px;
+        padding: 18px 20px;
+
+        &:active,
+        &:focus,
+        &:hover {
+          border-bottom-width: 1px;
+          border-color: transparent;
+        }
+      }
+
+      &.active a {
+        &,
+        &:focus,
+        &:hover {
+          border-bottom-width: 1px;
+          border-color: $dso-tabs-color;
+        }
+      }
+    }
+  }
+}

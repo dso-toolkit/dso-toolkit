@@ -7,7 +7,7 @@ import { createIdentifier } from '../../utils/create-identifier';
 @Component({
   tag: 'dso-selectable',
   styleUrl: 'selectable.scss',
-  shadow: true
+  scoped: true
 })
 export class Selectable {
   @Prop()
@@ -100,7 +100,7 @@ export class Selectable {
           value={this.value}
           name={this.name}
           aria-invalid={this.invalid?.toString()}
-          aria-describedby={this.describedById}
+          aria-describedby={(hasInfo && this.infoFixed) ? this.describedById : undefined}
           disabled={this.disabled}
           required={this.required}
           checked={this.checked}
@@ -119,11 +119,14 @@ export class Selectable {
               ></dso-info-button>
             )}
             <dso-info
+              id={(hasInfo && this.infoFixed) ? this.describedById : undefined}
               fixed={this.infoFixed}
               active={this.infoActive}
               onClose={() => this.infoActive = false}
             >
-              <slot name="info"></slot>
+              <div>
+                <slot name="info"></slot>
+              </div>
             </dso-info>
           </Fragment>
         )}

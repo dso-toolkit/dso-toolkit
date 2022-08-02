@@ -22,6 +22,7 @@
  - [dso-image-overlay](../image-overlay)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
+ - [dso-pagination](../pagination)
  - [dso-tree-view](../tree-view)
  - [dso-viewer-grid](../viewer-grid)
 
@@ -34,6 +35,7 @@ graph TD;
   dso-image-overlay --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon
+  dso-pagination --> dso-icon
   dso-tree-view --> dso-icon
   dso-viewer-grid --> dso-icon
   style dso-icon fill:#f9f,stroke:#333,stroke-width:4px

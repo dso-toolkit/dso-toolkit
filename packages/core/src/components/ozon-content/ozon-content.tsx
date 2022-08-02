@@ -89,7 +89,9 @@ export class OzonContent implements ComponentInterface {
 
     return (
       <Host onClick={(e: UIEvent) => this.handleHostOnClick(e)}>
+        <slot name="prefix" />
         {transformed}
+        <slot name="suffix" />
       </Host>
     );
   }

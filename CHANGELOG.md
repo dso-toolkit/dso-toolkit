@@ -5,6 +5,81 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 41.0.1
+
+### Fixed
+* **react:** `@dso-toolkit/react` heeft verkeerde `@dso-toolkit/core` peerDependency ([#1673](https://github.com/dso-toolkit/dso-toolkit/issues/1673))
+
+## 41.0.0
+
+### Changed
+* **BREAKING: css + sources:** Form Group: Search Bar naar @dso-toolkit/css: ([#1614](https://github.com/dso-toolkit/dso-toolkit/issues/1614)) **Class `dso-filter` is hernoemd naar `dso-form-group-search-bar` ([#1642](https://github.com/dso-toolkit/dso-toolkit/pull/1642))**
+* **BREAKING: core + react:** Pagination: bugfix: Vorige en volgende pagina emitten altijd de eerste en laatge pagina. Changed: Het navigeren (anchor) wordt niet meer door het component met event.preventDefault(). Added: selectPage event emit nu `isModifiedEvent` wanneer een pagina is geselecteerd met een modifier key (Ctrl/Alt/Shift/Meta) ([#1667](https://github.com/dso-toolkit/dso-toolkit/issues/1667))
+* **dso-toolkit + sources + css:** `.dso-justify-form-groups` onderbrengen in @dso-toolkit/css ([#1646](https://github.com/dso-toolkit/dso-toolkit/issues/1646))
+* **css:** Info button staat niet op dezelfde regel als het label over twee regels loopt ([#1623](https://github.com/dso-toolkit/dso-toolkit/issues/1623))
+
+## 40.1.0
+
+### Added
+* **core + react:** Pagination Web Component ([#1638](https://github.com/dso-toolkit/dso-toolkit/issues/1638))
+* **core + sources:** dso-tooltip voorzien van positioning strategy parameter ([#1641](https://github.com/dso-toolkit/dso-toolkit/issues/1641))
+* **core**: `dso-ozon-content` met prefix en suffix ([#1628](https://github.com/dso-toolkit/dso-toolkit/issues/1628))
+
+### Fixed
+* **core:** Datepicker bugs: Backspace zet cursor soms onterecht aan het einde van de input, MacOS Cmd + v en soortgelijke commands worden afgebroken ([#1597](https://github.com/dso-toolkit/dso-toolkit/issues/1597))
+
+### Changed
+* **css** `dso-icons.svg`: Inline `<style>` elementen met `color: <kleur>` vervangen met `fill="<kleur>"` tbv. Content-security-policy issue met SVG spritesheet voor iconen ([#1600](https://github.com/dso-toolkit/dso-toolkit/issues/1600))
+* **dso-toolkit + css:** packages\dso-toolkit\src\styles\mixins\_grid.scss mergen met packages\sources\src\styling\grid\grid.scss ([#1644](https://github.com/dso-toolkit/dso-toolkit/issues/1644))
+* **dso-toolkit + css:** Component "Tabs" verhuizen naar @dso-toolkit/css ([#1645](https://github.com/dso-toolkit/dso-toolkit/issues/1645))
+
+## 40.0.0
+
+### Added
+* **core:** dso-header logout link verrijken met logoutClick event ([#1605](https://github.com/dso-toolkit/dso-toolkit/issues/1605))
+
+### Deprecated
+* **BREAKING: dso-toolkit:** Conclusion ([#1624](https://github.com/dso-toolkit/dso-toolkit/issues/1624))
+
+### Added
+* **BREAKING: core:** Nieuw component `<dso-responsive-element />` ([#1456](https://github.com/dso-toolkit/dso-toolkit/issues/1456)) **Zie markup voorschriften van Viewer Grid. De componenten `.dso-tile-grid`, `.dso-document-list` en `.dso-document-list-item` moeten nu expliciet gebruik maken van `<dso-reponsive-element>`.**
+
+### Changed
+* **css + sources:** Accordion button en link implementatie etaleren ([#1481](https://github.com/dso-toolkit/dso-toolkit/issues/1481))
+* **dso-toolkit + css:** Form Group: Confirm naar @dso-toolkit/css ([#1611](https://github.com/dso-toolkit/dso-toolkit/issues/1611))
+* **dso-toolkit + sources + css:** Header margins in legends aanpassen ([#1572](https://github.com/dso-toolkit/dso-toolkit/issues/1572))
+* **dso-toolkit + css:** Form Group: Select verhuizen naar @dso-toolkit/css ([#1615](https://github.com/dso-toolkit/dso-toolkit/issues/1615))
+* **dso-toolkit + css:** Form Group: Static verhuizen naar @dso-toolkit/css ([#1616](https://github.com/dso-toolkit/dso-toolkit/issues/1616))
+* **dso-toolkit + css:** Form Group: Textarea verhuizen naar @dso-toolkit/css ([#1617](https://github.com/dso-toolkit/dso-toolkit/issues/1617))
+* **dso-toolkit + css:** Form Group: Input Number naar @dso-toolkit/css ([#1613](https://github.com/dso-toolkit/dso-toolkit/issues/1613))
+* **dso-toolkit + css:** Form Group: Files naar @dso-toolkit/css ([#1612](https://github.com/dso-toolkit/dso-toolkit/issues/1612))
+
+### Fixed
+* **dso-toolkit + core:** `dso-info` in `.formgroup.dso-radios, .form-group.dso-checkboxes` mist `aria-describedby` ([#1399](https://github.com/dso-toolkit/dso-toolkit/issues/1399))
+* **core:** Map controls: onjuist toetsenbord gedrag keuzerondjes ([#1573](https://github.com/dso-toolkit/dso-toolkit/issues/1573))
+* **sources:** Anchor states en Tile Active zijn inconsistent ([#1368](https://github.com/dso-toolkit/dso-toolkit/issues/1368))
+
+## 39.0.0
+
+### Added
+**react**: Support voor `react@^18.2.0`, `react-dom@^18.2.0` `leaflet@1.8.0`, `react-leaflet@^4.0.0` en `@react-leaflet/core@^2.0.0` ([#1579](https://github.com/dso-toolkit/dso-toolkit/issues/1579))
+
+### Changed
+* **dso-toolkit + sources:** Definition list marge tussen dd + dt's verkleinen naar 8px ([#1565](https://github.com/dso-toolkit/dso-toolkit/issues/1565))
+* **dso-toolkit + sources:** Woordafbreking alleen als deze niet op een eigen regel past ([#1585](https://github.com/dso-toolkit/dso-toolkit/issues/1585))
+* **BREAKING: core + sources:** Update Documentheader ([#1515](https://github.com/dso-toolkit/dso-toolkit/issues/1515)) **Story `with search results` opgeknipt in 3 losse stories; `Filterblok`, `Document Header`, `Document Item` ([#1599](https://github.com/dso-toolkit/dso-toolkit/pull/1599))**
+
+### Fixed
+* **core:** Controls in verborgen Map Controls paneel met toetsenbord focus bereikbaar ([#1574](https://github.com/dso-toolkit/dso-toolkit/issues/1574))
+
+## 38.1.1
+
+### Fixed
+* **core:** `error TS2304: Cannot find name 'MainSize'` ([#1598](https://github.com/dso-toolkit/dso-toolkit/issues/1598))
+
+### Changed
+* **dso-toolkit + css:** Form: "Radios" verhuizen naar @dso-toolkit/css + Storybook ([#1560](https://github.com/dso-toolkit/dso-toolkit/issues/1560))
+
 ## 38.1.0
 
 ### Added

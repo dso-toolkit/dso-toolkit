@@ -1,6 +1,7 @@
 $dso-conclusion-icon-size: 18px;
 
 @mixin conclusion_root() {
+  background-color: $dso-invalid-color;
   list-style-type: none;
   margin: 4px 0 0;
   padding-left: 0;

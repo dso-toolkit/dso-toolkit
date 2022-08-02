@@ -1,4 +1,5 @@
 import { Component, h, Prop, Event, EventEmitter, ComponentInterface } from '@stencil/core';
+import { v4 as uuidv4 } from 'uuid';
 
 import { BaseLayer, BaseLayerChangeEvent } from './map-base-layers.interfaces';
 
@@ -13,6 +14,9 @@ export class MapBaseLayers implements ComponentInterface {
 
   @Event()
   baseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
+
+  @Prop()
+  group = uuidv4();
 
   @Prop()
   baseLayers!: BaseLayer[];
@@ -52,6 +56,7 @@ export class MapBaseLayers implements ComponentInterface {
               value={baseLayer.name}
               checked={baseLayer.checked}
               disabled={baseLayer.disabled}
+              name={this.group}
               ref={ref => this.selectableRefs[baseLayer.id] = ref!}
               onDsoChange={() => this.baseLayerChangeHandler(baseLayer)}
             >

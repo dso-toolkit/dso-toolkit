@@ -1,5 +1,6 @@
 $dso-search-bar-height: $u5;
 $dso-search-bar-invalid-input-border-color: $dso-danger-color;
+$dso-search-bar-focus-border-width: 1px;
 
 .dso-search-bar {
   display: flex;
@@ -151,5 +152,9 @@ $dso-search-bar-invalid-input-border-color: $dso-danger-color;
 
   &.dso-invalid .dso-search-bar-input input {
     border-color: $dso-search-bar-invalid-input-border-color;
+
+    &:focus {
+      box-shadow: inset 0 0 0 $dso-search-bar-focus-border-width $dso-search-bar-invalid-input-border-color;
+    }
   }
 }

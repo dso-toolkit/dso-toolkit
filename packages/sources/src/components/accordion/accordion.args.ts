@@ -4,6 +4,7 @@ import { Accordion, AccordionSection } from './accordion.models';
 
 export interface AccordionArgs {
   variant?: 'compact' | 'conclusion';
+  handleType: 'anchor' | 'button';
   sections: AccordionSection[];
   reverseAlign?: boolean;
 }
@@ -18,6 +19,12 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
         'dso-accordion-compact': 'compact',
         'dso-accordion-conclusion': 'conclusion'
       }
+    }
+  },
+  handleType: {
+    options: ['anchor', 'button'],
+    control: {
+      type: 'select'
     }
   },
   sections: {
@@ -35,6 +42,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
 export function accordionArgsMapper(a: AccordionArgs): Accordion {
   return {
     variant: a.variant,
+    handleType: a.handleType,
     sections: a.sections,
     reverseAlign: a.reverseAlign
   };

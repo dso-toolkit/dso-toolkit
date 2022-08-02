@@ -86,7 +86,7 @@ $zoom-button-size: $u5;
   top: $controls-margin;
 }
 
-section {
+section:not([hidden]) {
   display: flex;
   flex-direction: column;
   height: 100%;

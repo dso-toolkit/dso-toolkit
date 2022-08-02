@@ -38,7 +38,9 @@ export const content = [
     `,
     args: {
       inline: true,
-      interactive: true
+      interactive: true,
+      prefix: 'Afdeling 4.1 ',
+      suffix: ' [gereserveerd]'
     }
   },
   {

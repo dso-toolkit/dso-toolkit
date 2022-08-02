@@ -21,7 +21,7 @@ export function accordionSectionTemplate(accordion: Accordion, section: Accordio
             ${unsafeHTML(section.children)}
 
             ${section.subsections && section.subsections.length > 0
-              ? accordionTemplate({ sections: section.subsections })
+              ? accordionTemplate({ ...accordion, sections: section.subsections })
               : nothing
             }
           </div>

@@ -7,14 +7,15 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
-import { HeaderMenuItem, HeaderMenuItemClickEvent } from "./components/header/header";
+import { HeaderMenuItem, HeaderMenuItemClickEvent, HeaderMenuLogoutClick } from "./components/header/header";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
+import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { FilterpanelEvent, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
+import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
 export namespace Components {
     interface DsoAlert {
         /**
@@ -163,12 +164,14 @@ export namespace Components {
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
+        "group": string;
     }
     interface DsoMapControls {
         "disableZoom"?: 'in' | 'out' | 'both';
         "open": boolean;
     }
     interface DsoMapOverlays {
+        "group": string;
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
@@ -189,6 +192,20 @@ export namespace Components {
          */
         "interactive": boolean;
     }
+    interface DsoPagination {
+        /**
+          * Current page
+         */
+        "currentPage"?: number;
+        /**
+          * This function is called to format the href
+         */
+        "formatHref": (page: number) => string;
+        /**
+          * Total pages
+         */
+        "totalPages"?: number;
+    }
     interface DsoProgressBar {
         "max": number;
         "min": number;
@@ -198,6 +215,8 @@ export namespace Components {
         "block"?: boolean;
         "label"?: string;
         "size"?: 'small' | 'medium' | 'large';
+    }
+    interface DsoResponsiveElement {
     }
     interface DsoSelectable {
         "checked"?: boolean;
@@ -256,6 +275,10 @@ export namespace Components {
           * Deactivates mouseover behaviour
          */
         "stateless"?: boolean;
+        /**
+          * Set position strategy of tooltip
+         */
+        "strategy": 'auto' | 'absolute' | 'fixed';
     }
     interface DsoTreeView {
         /**
@@ -387,6 +410,12 @@ declare global {
         prototype: HTMLDsoOzonContentElement;
         new (): HTMLDsoOzonContentElement;
     };
+    interface HTMLDsoPaginationElement extends Components.DsoPagination, HTMLStencilElement {
+    }
+    var HTMLDsoPaginationElement: {
+        prototype: HTMLDsoPaginationElement;
+        new (): HTMLDsoPaginationElement;
+    };
     interface HTMLDsoProgressBarElement extends Components.DsoProgressBar, HTMLStencilElement {
     }
     var HTMLDsoProgressBarElement: {
@@ -398,6 +427,12 @@ declare global {
     var HTMLDsoProgressIndicatorElement: {
         prototype: HTMLDsoProgressIndicatorElement;
         new (): HTMLDsoProgressIndicatorElement;
+    };
+    interface HTMLDsoResponsiveElementElement extends Components.DsoResponsiveElement, HTMLStencilElement {
+    }
+    var HTMLDsoResponsiveElementElement: {
+        prototype: HTMLDsoResponsiveElementElement;
+        new (): HTMLDsoResponsiveElementElement;
     };
     interface HTMLDsoSelectableElement extends Components.DsoSelectable, HTMLStencilElement {
     }
@@ -449,8 +484,10 @@ declare global {
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
+        "dso-pagination": HTMLDsoPaginationElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
+        "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
@@ -589,6 +626,10 @@ declare namespace LocalJSX {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu"?: HeaderMenuItem[];
+        /**
+          * Only available when `logout-url` is set
+         */
+        "onLogoutClick"?: (event: CustomEvent<HeaderMenuLogoutClick>) => void;
         "onMenuItemClick"?: (event: CustomEvent<HeaderMenuItemClickEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
@@ -630,6 +671,7 @@ declare namespace LocalJSX {
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
+        "group"?: string;
         "onBaseLayerChange"?: (event: CustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
@@ -639,6 +681,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface DsoMapOverlays {
+        "group"?: string;
         "onToggleOverlay"?: (event: CustomEvent<OverlayChangeEvent>) => void;
         "overlays": Overlay[];
     }
@@ -665,6 +708,24 @@ declare namespace LocalJSX {
          */
         "onDsoClick"?: (event: CustomEvent<OzonContentClick>) => void;
     }
+    interface DsoPagination {
+        /**
+          * Current page
+         */
+        "currentPage"?: number;
+        /**
+          * This function is called to format the href
+         */
+        "formatHref"?: (page: number) => string;
+        /**
+          * Emitted on page select
+         */
+        "onSelectPage"?: (event: CustomEvent<PaginationSelectPageEvent>) => void;
+        /**
+          * Total pages
+         */
+        "totalPages"?: number;
+    }
     interface DsoProgressBar {
         "max"?: number;
         "min"?: number;
@@ -674,6 +735,8 @@ declare namespace LocalJSX {
         "block"?: boolean;
         "label"?: string;
         "size"?: 'small' | 'medium' | 'large';
+    }
+    interface DsoResponsiveElement {
     }
     interface DsoSelectable {
         "checked"?: boolean;
@@ -724,6 +787,10 @@ declare namespace LocalJSX {
           * Deactivates mouseover behaviour
          */
         "stateless"?: boolean;
+        /**
+          * Set position strategy of tooltip
+         */
+        "strategy"?: 'auto' | 'absolute' | 'fixed';
     }
     interface DsoTreeView {
         /**
@@ -775,8 +842,10 @@ declare namespace LocalJSX {
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
         "dso-ozon-content": DsoOzonContent;
+        "dso-pagination": DsoPagination;
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
+        "dso-responsive-element": DsoResponsiveElement;
         "dso-selectable": DsoSelectable;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
@@ -807,8 +876,10 @@ declare module "@stencil/core" {
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
+            "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
+            "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;

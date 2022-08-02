@@ -1,6 +1,6 @@
 {
   "name": "@dso-toolkit/leaflet",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "type": "module",
   "exports": {
     ".": {
@@ -29,11 +29,11 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
-    "@types/leaflet": "^1.7.9",
+    "@types/leaflet": "^1.7.11",
     "concurrently": "^7.1.0",
     "fs-extra": "^10.1.0",
     "klap": "^7.0.10",
-    "leaflet": "1.7.1",
+    "leaflet": "1.8.0",
     "minimist": "^1.2.6",
     "rimraf": "^3.0.2",
     "sass": "^1.50.1",
@@ -41,8 +41,8 @@
     "wait-on": "^6.0.1"
   },
   "peerDependencies": {
-    "@dso-toolkit/core": "^36.1.0",
-    "leaflet": "^1.7.1"
+    "@dso-toolkit/core": ">=39",
+    "leaflet": "^1.8.0"
   },
   "klap": {
     "example": "public/index.ts",

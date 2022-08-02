@@ -1,0 +1,122 @@
+.dso-document-header {
+  background-color: $grijs-5;
+  padding: $grid-gutter-width * 0.5;
+  margin-left: $grid-gutter-width * -0.5;
+  margin-right: $grid-gutter-width * -0.5;
+
+  a {
+    color: $zwart;
+  }
+
+  > :first-child {
+    margin: 0;
+  }
+
+  .dso-document-header-status {
+    .dso-document-header-toggle-status {
+      background-color: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    > dso-label,
+    > .dso-label {
+      margin-left: $u2;
+      margin-right: $u1;
+    }
+
+    dso-badge,
+    .dso-badge {
+      margin-right: $u1;
+    }
+  }
+
+  .dso-document-header-container {
+    position: relative;
+  }
+
+  .dso-document-header-type,
+  .dso-document-header-owner {
+    margin: 0 0 $u1 0;
+    display: inline-block;
+  }
+
+  .dso-document-header-map-action,
+  .dso-document-header-toggle-features {
+    @include button-tertiary();
+
+    color: $zwart;
+    font-weight: normal;
+  }
+
+  .dso-document-header-map-action {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+dso-responsive-element.dso-document-header {
+  &[small] {
+    .dso-document-header-features-wrapper {
+      margin-bottom: $u1;
+    }
+
+    .dso-document-header-container {
+      @include clearfix();
+    }
+
+    .dso-document-header-type,
+    .dso-document-header-owner {
+      display: block;
+    }
+
+    .dso-document-header-type {
+      margin-right: $u4;
+    }
+
+    .dso-document-header-status {
+      margin: 0 0 $u1 0;
+    }
+
+    dl.dso-document-header-features {
+      dt {
+        clear: initial;
+        float: none;
+        width: auto;
+        word-wrap: initial;
+      }
+
+      dd {
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+
+  &:not([small]) {
+    .dso-document-header-status {
+      margin: $u1 0 0;
+    }
+
+    .dso-document-header-type {
+      margin-right: $u1;
+    }
+
+    dl.dso-document-header-features {
+      dt {
+        width: 20%;
+      }
+
+      dd {
+        margin-left: 20%;
+      }
+    }
+
+    .dso-document-header-features {
+      margin-bottom: 0;
+      margin-top: $u2;
+      border-bottom: 1px solid $grijs-20;
+    }
+  }
+}

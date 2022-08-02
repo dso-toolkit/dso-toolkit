@@ -1,4 +1,5 @@
 import { Component, Event, EventEmitter, Prop, h, ComponentInterface } from '@stencil/core';
+import { v4 as uuidv4 } from 'uuid';
 
 import { Overlay, OverlayChangeEvent } from './map-overlays.interfaces';
 
@@ -12,6 +13,9 @@ import { SelectableChangeEvent } from '../selectable/selectable';
 export class MapOverlays implements ComponentInterface {
   previousOverlays: Overlay[] | undefined;
   selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
+
+  @Prop()
+  group = uuidv4();
 
   @Prop()
   overlays!: Overlay[];
@@ -56,6 +60,7 @@ export class MapOverlays implements ComponentInterface {
               value={overlay.name}
               checked={overlay.checked}
               disabled={overlay.disabled}
+              name={this.group}
               ref={ref => this.selectableRefs[overlay.id] = ref!}
               onDsoChange={e => this.overlayChangeHandler(overlay, e)}
             >

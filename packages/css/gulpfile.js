@@ -54,27 +54,33 @@ async function createSvgSpritesheet() {
           const ast = css.parse(style);
           const variants = ast.stylesheet.rules
             .filter(r => r.type === 'rule')
-            .reduce((v, rule) =>
-              v.concat(
-                rule.selectors
-                  .filter(s => s !== id && s.indexOf(`${id}:`) === 0)
-                  .map(s => s.substr(id.length + 1))
-                  .map(s => s.indexOf(' ') > -1 ? s.substr(0, s.indexOf(' ')) : s)
-                  .filter(s => v.indexOf(s) === -1)
-              ),
-              []
-            );
+            .reduce((v, rule) => {
+              const variantColors = rule.selectors.reduce((current, s) => {
+                const color = rule.declarations.find(d => d.property === 'color')?.value;
 
-          ast.stylesheet.rules
-            .filter(r => r.type === 'rule')
-            .forEach(rule =>
-                rule.selectors = rule.selectors.map(s => s.indexOf(id) === 0
-                  ? transformSelector(s)
-                  : s
-                )
-            );
+                if (s === id && !v.some(variantColor => variantColor.selector === s)) {
+                  return current.concat({
+                    color,
+                    selector: 'default'
+                  });
+                }
 
-          return { id, variants, style: css.stringify(ast) };
+                if (s.startsWith(`${id}:`) && !v.some(variantColor => variantColor.selector === s.substr(`${id}:`.length))) {
+                  return current.concat({
+                    color,
+                    selector: s.substr(`${id}:`.length)
+                  });
+                }
+
+                return current;
+              }, []);
+
+              v.push(...variantColors);
+
+              return v;
+            }, [])
+
+          return { id, variants };
         }));
       }));
   });
@@ -101,43 +107,41 @@ async function createSvgSpritesheet() {
             const id = symbol.attr('id');
 
             const stylesheet = stylesheets.find(s => s.id === id);
-            const iconIds = [
-              id,
-              ...(stylesheet ? stylesheet.variants : []).map(v => `${id}-${v}`)
+
+            const variants = [
+              { selector: id, color: stylesheet?.variants.find(v => v.selector === 'default')?.color },
+              ...(stylesheet?.variants.filter(v => v.selector !== 'default').map(v => ({ selector: `${id}-${v.selector}`, color: v.color })) ?? [])
             ];
+
+            const iconIds = variants.map(v => v.selector);
 
             symbol
               .before(`<!-- START: ${iconIds.join(', ')} -->`)
               .after(`<!-- END: ${iconIds.join(', ')} -->`);
 
-            if (stylesheet) {
-              const style = $('<style>')
-                .attr('type', 'text/css')
-                .html(`\n${indent(stylesheet.style, 4)}\n  `); // last two spaces are indent fix
-
-              symbol.before(style);
-            }
-
-            iconIds.forEach((iconId, index) => {
+            variants.forEach((variant, index) => {
               const x = (position + index) * (canvas + gutter) + gutter / 2;
+              const svg = symbol.clone().removeAttr('id');
+              $(svg).each((_index, element) => element.tagName = 'svg');
+
+              if (variant.color) {
+                svg.find('[fill="currentColor"]').attr('fill', variant.color);
+              }
 
               const view = $('<view>')
-                .attr('id', `img-${iconId}`)
+                .attr('id', `img-${variant.selector}`)
                 .attr('viewBox', [x, 0, canvas, canvas].join(' '));
 
               symbol.before(view);
 
-              const use = $('<use>')
-                .attr('href', `#${id}`);
-
               const g = $('<g>')
                 .attr('transform', `translate(${x})`)
-                .append(use);
+                .append(svg);
 
               symbol.before(g);
             });
 
-            return position + iconIds.length;
+            return position + variants.length;
           }, 0);
 
           $(':root').attr(
@@ -157,11 +161,5 @@ async function createSvgSpritesheet() {
       .pipe(gulp.dest(distPath))
       .on('end', resolve)
       .on('error', reject);
-    });
-}
-
-function transformSelector(selector) {
-  const [primary, ...rest] = selector.split(' ');
-
-  return `#img-${primary.replace(':', '-')} + g ${rest.join(' ')}`.trim();
+  });
 }

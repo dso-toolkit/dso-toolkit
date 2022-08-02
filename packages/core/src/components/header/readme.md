@@ -8,6 +8,15 @@ interface HeaderMenuItem {
   url: string;
   active?: boolean;
 }
+
+interface HeaderMenuItemClickEvent {
+  originalEvent: MouseEvent;
+  menuItem: HeaderMenuItem;
+}
+
+interface HeaderMenuLogoutClick {
+  originalEvent: MouseEvent;
+}
 ```
 
 <!-- Auto Generated Below -->
@@ -29,9 +38,10 @@ interface HeaderMenuItem {
 
 ## Events
 
-| Event           | Description | Type                                    |
-| --------------- | ----------- | --------------------------------------- |
-| `menuItemClick` |             | `CustomEvent<HeaderMenuItemClickEvent>` |
+| Event           | Description                             | Type                                    |
+| --------------- | --------------------------------------- | --------------------------------------- |
+| `logoutClick`   | Only available when `logout-url` is set | `CustomEvent<HeaderMenuLogoutClick>`    |
+| `menuItemClick` |                                         | `CustomEvent<HeaderMenuItemClickEvent>` |
 
 
 ## Dependencies

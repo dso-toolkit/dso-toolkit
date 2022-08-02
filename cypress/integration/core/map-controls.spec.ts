@@ -11,7 +11,7 @@ describe('Map Controls', () => {
     testLayer('dso-map-base-layers', 'baseLayers', 'Lavakaart');
 
     function testLayer<Layer extends Overlay | BaseLayer>(element: 'dso-map-overlays' | 'dso-map-base-layers', property: 'overlays' | 'baseLayers', label: string) {
-      cy.get(element).shadow().contains('dso-selectable', label).shadow().as('selectable').find('dso-info-button').shadow().find('button').click();
+      cy.get(element).shadow().contains('dso-selectable', label).as('selectable').find('dso-info-button').shadow().find('button').click();
 
       cy.get('@selectable').find('dso-info').should('be.visible')
 

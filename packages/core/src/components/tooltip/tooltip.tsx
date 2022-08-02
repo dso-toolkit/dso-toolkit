@@ -6,6 +6,14 @@ import clsx from 'clsx';
 // Keep const in sync with $tooltip-transition-duration in @dso-toolkit/sources/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
 
+function hasOverflow (el:Element) : boolean {
+  const style = window.getComputedStyle(el);
+  const overflowX = style.getPropertyValue('overflow-x');
+  const overflowY = style.getPropertyValue('overflow-y');
+  const overflowValues = ['hidden', 'clip'];
+  return overflowValues.indexOf(overflowX) != -1 || overflowValues.indexOf(overflowY) != -1;
+}
+
 @Component({
   tag: 'dso-tooltip',
   styleUrl: 'tooltip.scss',
@@ -25,6 +33,12 @@ export class Tooltip {
    */
   @Prop()
   position: 'top' | 'right' | 'bottom' | 'left' = 'top';
+
+  /**
+   * Set position strategy of tooltip
+   */
+  @Prop()
+  strategy: 'auto' | 'absolute' | 'fixed' = 'auto';
 
   /**
    * Specify target element that the tooltip will describe and listens to for events.
@@ -84,6 +98,41 @@ export class Tooltip {
 
     this.popper.setOptions({
       placement: this.position
+    });
+  }
+
+  @Watch('strategy')
+  watchStrategy() {
+    this.setStrategy();
+  }
+
+  setStrategy() {
+    if (!this.popper) {
+      return;
+    }
+
+    if (this.strategy == 'absolute' || this.strategy == 'fixed') {
+      this.popper.setOptions({
+        strategy: this.strategy,
+      });
+
+      return;
+    }
+
+    let element: Element | null = this.element;
+    while (element?.parentNode != null && element.parentNode != document) {
+      element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
+      if (element != null && hasOverflow(element)) {
+        this.popper.setOptions({
+          strategy: 'fixed',
+        });
+
+        return;
+      }
+    }
+
+    this.popper.setOptions({
+      strategy: 'absolute',
     });
   }
 
@@ -190,6 +239,7 @@ export class Tooltip {
   }
 
   componentDidRender() {
+    this.setStrategy();
     if (this.active) {
       this.popper?.update();
     }

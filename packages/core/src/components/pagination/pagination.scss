@@ -1,0 +1,19 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+
+@import "~@dso-toolkit/sources/src/components/pagination/pagination";
+
+:host {
+  display: block;
+}
+
+@include box-sizing();
+
+.pagination {
+  @include pagination_root(false);
+}
+
+.dso-page-hidden {
+  visibility: hidden;
+}

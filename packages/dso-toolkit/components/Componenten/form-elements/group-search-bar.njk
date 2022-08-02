@@ -14,7 +14,7 @@
   {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
-<div {{ className('form-group dso-filter', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
+<div {{ className('form-group dso-form-group-search-bar', [type, 'dso-input-' + type], [inputIcon, 'has-feedback'], [state, 'dso-' + state], [required, 'dso-required']) }}>
   <div class="dso-label-container">
     <label for="{{ localId }}" class="control-label">
       {{ label }}

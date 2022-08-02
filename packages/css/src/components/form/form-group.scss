@@ -37,28 +37,19 @@
   }
 
   .control-label {
-    display: inline-block;
+    display: inline;
     font-weight: bold;
     margin-bottom: $u1;
     max-width: 100%;
     text-align: left;
   }
 
-  legend.dso-label-container,
   legend + .dso-label-container {
-    .control-label {
-      display: inline;
-    }
-  }
-
-  legend.dso-label-container {
-    border-bottom: 0;
-    font-size: $font-size-base;
     margin-bottom: $u1;
   }
 
-  legend + .dso-label-container {
-    margin-bottom: $u1;
+  .dso-label-container + .dso-field-container {
+    margin-top: $u1;
   }
 
   &.has-feedback {
@@ -142,14 +133,32 @@
 
   > .dso-label-container {
     @include make-sm-column($dso-label-column);
+
+    @media screen and (min-width: $screen-sm-min) {
+      padding-top: $u1;
+    }
+
+    > button.dso-info-button {
+      margin-top: 0;
+    }
+
+    > .dso-info {
+      margin-top: $u1;
+    }
   }
 
   > legend + .dso-label-container {
-    margin-top: ($padding-base-vertical + 1); // Default padding plus a border;
+    @media screen and (max-width: $screen-xs-max) {
+      padding-top: $u1;
+    }
   }
 
   > .dso-field-container {
     @include make-sm-column($grid-columns - $dso-label-column);
+
+    @media screen and (min-width: $screen-sm-min) {
+      margin-top: 0;
+    }
   }
 
   &.has-feedback .form-control-feedback {
