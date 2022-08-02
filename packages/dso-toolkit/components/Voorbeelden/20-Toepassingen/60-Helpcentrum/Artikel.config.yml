@@ -10,6 +10,11 @@ context:
     buttonLabel: Zoeken
     clearButton: true
     hiddenLabel: true
+  list1:
+    items:
+      - text: Hoe groot het perceel is 
+      - text: Welke gebouwen op het perceel staan
+      - text: Wat de afmetingen van deze gebouwen zijn. De schaalaanduiding voor een situatieschets is 1:1000
   links1:
     links:
       - label: Kan ik de gegevens van mijn vergunningcheck meenemen naar aanvragen?
