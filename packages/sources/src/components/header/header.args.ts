@@ -77,6 +77,7 @@ export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
     },
   },
   onHeaderClick: {
+    ...noControl,
     action: 'headerClick',
   }
 };

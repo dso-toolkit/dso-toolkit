@@ -5,29 +5,29 @@ describe("Header", () => {
 
   const defaultMenuItems = [
     {
-      label: "Home",
-      url: "#home",
+      label: 'Home',
+      url: '#home',
       active: true,
     },
     {
-      label: "Vergunningscheck",
-      url: "#vergunningscheck",
+      label: 'Vergunningscheck',
+      url: '#vergunningscheck',
     },
     {
-      label: "Aanvragen",
-      url: "#aanvragen",
+      label: 'Aanvragen',
+      url: '#aanvragen',
     },
     {
-      label: "Regels op de kaart",
-      url: "#regelsopdekaart",
+      label: 'Regels op de kaart',
+      url: '#regelsopdekaart',
     },
     {
-      label: "Maatregelen op maat",
-      url: "#maatregelenopmaat",
+      label: 'Maatregelen op maat',
+      url: '#maatregelenopmaat',
     },
     {
-      label: "Hulpcentrum",
-      url: "#hulpcentrum",
+      label: 'Hulpcentrum',
+      url: '#hulpcentrum',
     },
   ];
 
