@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
+* **BREAKING: core + sources:** Header: Removed `menuItemClick` event emitter. Added `headerClick` event emitter, deze emit wanneer de gebruiker op een menu item, profiel link, user home, login/logout klikt. Het navigeren (anchor) wordt niet door het component met event.preventDefault() afgevangen. Fixed: Als er geen menu items zijn toont de overige functionaliteit niet. ([#1669](https://github.com/dso-toolkit/dso-toolkit/issues/1669))
+* **BREAKING: core + sources:** Header: Login and Logout renderen <button> als er geen url is opgegeven. `is-logged-in` is vervangen met `auth-status: 'none' | 'loggedOut' | 'loggedIn'` ([#1662](https://github.com/dso-toolkit/dso-toolkit/issues/1662))
 * **sources:** Content-security-policy issue met SVG spritesheet voor iconen met style="fill: #hex;" ([#1676](https://github.com/dso-toolkit/dso-toolkit/issues/1676))
 
 ### Removed

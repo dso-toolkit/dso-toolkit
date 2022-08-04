@@ -1,21 +1,3 @@
-export interface Header {
-  logo: string;
-  subLogo?: string;
-  mainMenu?: {
-    label: string;
-    url: string;
-    active?: boolean;
-  }[];
-  useDropDownMenu?: "always" | "never" | "auto";
-  authStatus?: "none" | "loggedOut" | "loggedIn";
-  loginUrl?: string;
-  logoutUrl?: string;
-  userProfileName?: string;
-  userProfileUrl?: string;
-  userHomeUrl?: string;
-  onHeaderClick: (e: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
-}
-
 export interface HeaderMenuItem {
   label: string;
   url: string;

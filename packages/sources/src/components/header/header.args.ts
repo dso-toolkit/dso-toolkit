@@ -12,14 +12,13 @@ export interface HeaderArgs {
   }[];
   noMainMenu: boolean,
   useDropDownMenu: "always" | "never" | "auto";
+  authStatus: "none" | "loggedOut" | "loggedIn";
   loginUrl: string;
   logoutUrl: string;
-  isLoggedIn: boolean;
-  showLoggedIn: boolean;
   userProfileName: string;
   userProfileUrl: string;
   userHomeUrl: string;
-  menuItemClick: HandlerFunction;
+  onHeaderClick: HandlerFunction;
 }
 
 export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
@@ -45,53 +44,59 @@ export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
       type: "select",
     },
   },
-  loginUrl: noControl,
-  logoutUrl: noControl,
-  showLoggedIn: {
-    name: "In-/uitloggen tonen",
+  authStatus: {
+    name: "Authenticatie",
+    options: ["none", "loggedOut", "loggedIn"],
     control: {
-      type: "boolean",
+      type: "select",
     },
   },
-  isLoggedIn: {
-    name: "Ingelogd",
-    control: {
-      type: "boolean",
-    },
-  },
-  userProfileName: {
-    name: "Naam gebruiker",
+  loginUrl: {
+    name: "Inloggen url",
     control: {
       type: "text",
     },
   },
-  userProfileUrl: noControl,
+  logoutUrl: {
+    name: "Uitloggen url",
+    control: {
+      type: "text",
+    },
+  },
   userHomeUrl: {
     name: "Url naar gebruikersomgeving",
     control: {
       type: "text",
     },
   },
-  menuItemClick: {
-    ...noControl,
-    action: "menuItemClick",
+  userProfileUrl: noControl,
+  userProfileName: {
+    name: "Naam gebruiker",
+    control: {
+      type: "text",
+    },
   },
+  onHeaderClick: {
+    ...noControl,
+    action: 'headerClick',
+  }
 };
 
 export function headerArgsMapper(a: HeaderArgs): Header {
   return {
     logo: a.logo,
-    subLogo: a.subLogo,
-    showSubLogo: a.showSubLogo,
+    subLogo: a.showSubLogo ? a.subLogo : undefined,
     mainMenu: a.noMainMenu ? undefined : a.mainMenu,
     useDropDownMenu: a.useDropDownMenu,
     loginUrl: a.loginUrl,
     logoutUrl: a.logoutUrl,
-    isLoggedIn: a.isLoggedIn,
-    showLoggedIn: a.showLoggedIn,
+    authStatus: a.authStatus,
     userProfileName: a.userProfileName,
     userProfileUrl: a.userProfileUrl,
     userHomeUrl: a.userHomeUrl,
-    menuItemClick: a.menuItemClick,
+    onHeaderClick: (event) => {
+      event.detail.originalEvent.preventDefault();
+      a.onHeaderClick(event);
+    },
   };
 }

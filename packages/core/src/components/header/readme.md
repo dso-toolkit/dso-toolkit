@@ -24,24 +24,23 @@ interface HeaderMenuLogoutClick {
 
 ## Properties
 
-| Property          | Attribute            | Description | Type                            | Default     |
-| ----------------- | -------------------- | ----------- | ------------------------------- | ----------- |
-| `isLoggedIn`      | `is-logged-in`       |             | `boolean`                       | `false`     |
-| `loginUrl`        | `login-url`          |             | `string \| undefined`           | `undefined` |
-| `logoutUrl`       | `logout-url`         |             | `string \| undefined`           | `undefined` |
-| `mainMenu`        | --                   |             | `HeaderMenuItem[]`              | `[]`        |
-| `useDropDownMenu` | `use-drop-down-menu` |             | `"always" \| "auto" \| "never"` | `"auto"`    |
-| `userHomeUrl`     | `user-home-url`      |             | `string \| undefined`           | `undefined` |
-| `userProfileName` | `user-profile-name`  |             | `string \| undefined`           | `undefined` |
-| `userProfileUrl`  | `user-profile-url`   |             | `string \| undefined`           | `undefined` |
+| Property          | Attribute            | Description                                                                                                 | Type                                  | Default     |
+| ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----------- |
+| `authStatus`      | `auth-status`        | Used to show the login/logout option. 'none' renders nothing.                                               | `"loggedIn" \| "loggedOut" \| "none"` | `'none'`    |
+| `loginUrl`        | `login-url`          | When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor. | `string \| undefined`                 | `undefined` |
+| `logoutUrl`       | `logout-url`         |                                                                                                             | `string \| undefined`                 | `undefined` |
+| `mainMenu`        | --                   |                                                                                                             | `HeaderMenuItem[] \| undefined`       | `[]`        |
+| `useDropDownMenu` | `use-drop-down-menu` |                                                                                                             | `"always" \| "auto" \| "never"`       | `"auto"`    |
+| `userHomeUrl`     | `user-home-url`      |                                                                                                             | `string \| undefined`                 | `undefined` |
+| `userProfileName` | `user-profile-name`  |                                                                                                             | `string \| undefined`                 | `undefined` |
+| `userProfileUrl`  | `user-profile-url`   |                                                                                                             | `string \| undefined`                 | `undefined` |
 
 
 ## Events
 
-| Event           | Description                             | Type                                    |
-| --------------- | --------------------------------------- | --------------------------------------- |
-| `logoutClick`   | Only available when `logout-url` is set | `CustomEvent<HeaderMenuLogoutClick>`    |
-| `menuItemClick` |                                         | `CustomEvent<HeaderMenuItemClickEvent>` |
+| Event         | Description                                                                                                                                        | Type                                                        |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `headerClick` | Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'` | `CustomEvent<HeaderClickEvent \| HeaderClickMenuItemEvent>` |
 
 
 ## Dependencies
