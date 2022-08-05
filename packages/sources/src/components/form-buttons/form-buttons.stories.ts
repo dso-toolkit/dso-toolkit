@@ -102,6 +102,7 @@ export function storiesOfFormButtons<TemplateFnReturnType>(
       template,
       {
         args: {
+          formModifier: 'dso-single-page',
           buttons: [
             {
               variant: 'primary',
