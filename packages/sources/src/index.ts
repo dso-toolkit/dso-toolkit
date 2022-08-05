@@ -46,6 +46,8 @@ export * from './components/footnotes/footnotes.models';
 export * from './components/footnotes/footnotes.stories';
 export * from './components/form/form.models';
 export * from './components/form/form.stories';
+export * from './components/form-buttons/form-buttons.models';
+export * from './components/form-buttons/form-buttons.stories';
 export * from './components/header/header.models';
 export * from './components/header/header.stories';
 export * from './components/helpcenter-panel/helpcenter-panel.models';
