@@ -12,9 +12,9 @@ form {
 
   > .row {
     &.dso-featured {
-      margin-bottom: $u5;
-      padding-bottom: $u6;
-      padding-top: $u5;
+      margin-bottom: $u4;
+      padding-bottom: $u3;
+      padding-top: $u3;
 
       & + .row div:not(.dso-rich-content) {
         h1,
@@ -66,11 +66,11 @@ form {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
+    height: 280px;
 
     &,
     &:not(.dso-featured):first-child {
-      margin-bottom: $u4;
+      margin-bottom: 0px;
       padding-top: 2rem;
     }
   }
@@ -84,6 +84,10 @@ form {
   + .dso-featured {
     margin-top: $u3;
   }
+}
+
+.row.dso-banner + .row.dso-featured { 
+  margin-top: 0px;
 }
 
 .row-no-gutters {
