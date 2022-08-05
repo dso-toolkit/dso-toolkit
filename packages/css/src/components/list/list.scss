@@ -42,6 +42,11 @@ $list-group-border-radius: $border-radius-base;
     align-items: flex-start;
     display: flex;
     gap: $u1;
+
+    img {
+      height: $u3;
+      width: $u3;
+    }
   }
 }
 
