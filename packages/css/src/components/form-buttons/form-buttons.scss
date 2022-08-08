@@ -1,7 +1,12 @@
 .dso-form-buttons {
   @include clearfix();
 
+  margin-bottom: $dso-vertical-spacing-medium;
   text-align: right;
+
+  &:last-child {
+    margin-bottom: $dso-vertical-spacing-xlarge;
+  }
 
   a,
   button {
