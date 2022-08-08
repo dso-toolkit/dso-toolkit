@@ -17,8 +17,8 @@
       </button>
     </div>
     <ul class="dso-nav dso-nav-main">
-      <li>
-        <a href="#">
+      <li class="dso-active">
+        <a href="#" aria-current="page">
           Home
         </a>
       </li>
@@ -27,8 +27,8 @@
           Vergunningcheck
         </a>
       </li>
-      <li class="dso-active">
-        <a href="#" aria-current="page">
+      <li>
+        <a href="#">
           Aanvragen
         </a>
       </li>
@@ -44,44 +44,47 @@
       </li>
     </ul>
   </nav>
-  <nav aria-label="U bevindt zich hier:">
-    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Home</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Aanvragen</span>
-        </a>
-        <meta itemprop="position" content="2" />
-      </li>
-      <li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Mijn project</span>
-        </a>
-        <meta itemprop="position" content="3" />
-      </li>
-      <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-        <span itemprop="name">Aanvraag voorbereiden</span>
-        <meta itemprop="position" content="4" />
-      </li>
-    </ol>
-  </nav>
 </header>
 <main>
+  <div class="dso-button-row">
+    <button type="button" class="dso-tertiary">
+      <dso-icon icon="chevron-left"></dso-icon><span >Terug naar helpcentrum</span>
+    </button>
+  </div>
+  <h1>Zoekresultaat voor ‘Situatieschets’</h1>
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h1>404 Pagina niet gevonden</h1>
-      <div class="dso-rich-content">
-        <p>We hebben de pagina niet gevonden. Dat kan komen doordat wij die hebben verplaatst of verwijderd, of doordat de ingevoerde URL niet klopt.</p>
-        <ul>
-          <li>Controleer de spelling van de pagina.</li>
-          <li>Ga terug naar de <a href="#">homepage</a>.</li>
-        </ul>
+    <div class="col-md-8">
+      <div class="dso-search-bar">
+        <div class="dso-search-bar-input">
+          <label for="search-bar--default" class="dso-search-icon">Zoek uw activiteiten</label>
+          <input type="text" id="filter_activiteiten" value="Situatieschets" />
+          <button type="button">
+            Zoekopdracht legen
+          </button>
+        </div>
+        <button type="button" class="dso-secondary">
+          Zoeken
+        </button>
       </div>
+      <hr>
+      <div class="dso-context-wrapper">
+        <span class="dso-context-label" aria-hidden="true">
+          <h3>2 help-artikelen gevonden</h3>
+        </span>
+        <div class="dso-context-container">
+          <div class="dso-context-select">
+            <label for="sorting-select">Sorteer op:</label>
+            <select id="sorting-select">
+              <option value="most-chosen">Meest gekozen</option>
+              <option value="alphabetic" selected>Relevantie</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <h4><a href="#">Wat is een situatieschets?</a></h4>
+      <p>Een situatietekening is een tekening van een terrein met daarop aanwezige bebouwing. Hierbij wordt duidelijk hoe en waar gebouwen op de kavel staan</p>
+      <h4><a href="#">Wat heb ik nodig voor een vergunningaanvraag?</a></h4>
+      <p>Voor elke situatie en vergunning zullen er verschillende onderwerpen van belang zijn. Neem een aanvraag goed door met betrokken partijen. </p>
     </div>
   </div>
 </main>
