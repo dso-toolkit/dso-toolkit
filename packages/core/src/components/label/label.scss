@@ -18,4 +18,31 @@
 
 .dso-label {
   @include label_root();
+
+  &:focus-within {
+    text-decoration: none;
+  }
+
+  &.dso-hover {
+    text-decoration: line-through;
+  }
+
+  align-items: flex-start;
+  display: flex;
+  gap: 8px;
+
+  > button {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.dso-truncate.dso-label-content {
+  display: inline-block;
+  max-width: 184px;
+  overflow: hidden;
+  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+  vertical-align: bottom;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
 }

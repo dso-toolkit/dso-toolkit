@@ -171,6 +171,7 @@ export namespace Components {
         "compact"?: boolean;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
+        "truncate"?: boolean;
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
@@ -693,6 +694,7 @@ declare namespace LocalJSX {
         "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
+        "truncate"?: boolean;
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];

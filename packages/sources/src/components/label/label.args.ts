@@ -7,6 +7,7 @@ import { ArgTypes } from '../../stories-helpers';
 export interface LabelArgs {
   status?: string;
   compact?: boolean;
+  truncate?: boolean;
   label: string;
   button?: {
     title: string;
@@ -33,6 +34,11 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
       type: 'boolean'
     }
   },
+  truncate: {
+    control: {
+      type: 'boolean'
+    }
+  },
   label: {
     control: {
       type: 'text'
@@ -50,6 +56,7 @@ export function labelArgsMapper(a: LabelArgs): Label {
     label: a.label,
     button: a.button,
     compact: a.compact,
+    truncate: a.truncate,
     status: a.status,
     symbol: a.symbol
   };

@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **dso-toolkit + sources:** Spinners in knoppen etaleren ([#1690](https://github.com/dso-toolkit/dso-toolkit/issues/1690))
 * **core + react + sources** `dso-autosuggest` uitbreiden met not found state ([#1626](https://github.com/dso-toolkit/dso-toolkit/issues/1626))
 * **core:** Tree View: Scroll to item ([#1434](https://github.com/dso-toolkit/dso-toolkit/issues/1434))
+* **core + react:** Lange labels kunnen afbreken. `dso-label` is uitgebreid met het `truncate` attribuut. Labels breken hier af en kunnen volledig getoond worden door op de tekst te hoveren. ([#1314](https://github.com/dso-toolkit/dso-toolkit/issues/1314))
 
 ## 42.0.0
 
