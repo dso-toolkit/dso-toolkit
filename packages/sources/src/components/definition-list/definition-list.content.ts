@@ -190,23 +190,23 @@ export const listDefinitions: Definition[] = [
       {
         list: {
           items: [
-            'aanbouwen',
-            'afvalcontainer',
-            'avegaarpaal',
-            'berging',
-            'bijbehorend bouwwerk',
-            'bijkeuken',
-            'blokhut',
-            'boorpaal',
-            'buispaal',
-            'buitenkeuken',
-            'carport',
-            'dierenverblijf',
-            'erker',
-            'fietsenberging',
-            'fietsenhok',
-            'fundering',
-            'garage'
+            { text: 'aanbouwen' },
+            { text: 'afvalcontainer' },
+            { text: 'avegaarpaal' },
+            { text: 'berging' },
+            { text: 'bijbehorend bouwwerk' },
+            { text: 'bijkeuken' },
+            { text: 'blokhut' },
+            { text: 'boorpaal' },
+            { text: 'buispaal' },
+            { text: 'buitenkeuken' },
+            { text: 'carport' },
+            { text: 'dierenverblijf' },
+            { text: 'erker' },
+            { text: 'fietsenberging' },
+            { text: 'fietsenhok' },
+            { text: 'fundering' },
+            { text: 'garage' }
           ],
           modifier: 'columns'
         }

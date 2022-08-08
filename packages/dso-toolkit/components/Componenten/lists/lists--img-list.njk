@@ -1,0 +1,8 @@
+<ul class="dso-img-list">
+  {%- for item in items -%}
+    <li>
+      <img src={{ item.img }} />
+      {{ item.text }}
+    </li>
+  {% endfor -%}
+</ul>

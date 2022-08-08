@@ -31,6 +31,25 @@ $list-group-border-radius: $border-radius-base;
   padding-left: 0;
 }
 
+.dso-img-list {
+  display: flex;
+  flex-direction: column;
+  gap: $u1;
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    align-items: flex-start;
+    display: flex;
+    gap: $u1;
+
+    img {
+      height: $u3;
+      width: $u3;
+    }
+  }
+}
+
 ul,
 ol {
   margin-top: 0;

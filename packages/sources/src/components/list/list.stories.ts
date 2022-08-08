@@ -27,11 +27,11 @@ export function storiesOfList<TemplateFnReturnType>(
       argTypes: listArgTypes,
       args: {
         items: [
-          'Cras justo odio',
-          'Dapibus ac facilisis in',
-          'Morbi leo risus',
-          'Porta ac consectetur ac',
-          'Vestibulum at eros'
+          { text: 'Cras justo odio' },
+          { text: 'Dapibus ac facilisis in' },
+          { text: 'Morbi leo risus' },
+          { text: 'Porta ac consectetur ac' },
+          { text: 'Vestibulum at eros' }
         ]
       }
     });
@@ -74,6 +74,39 @@ export function storiesOfList<TemplateFnReturnType>(
       args: {
         type: Type.Ul,
         modifier: 'columns'
+      }
+    }
+  );
+
+  stories.add(
+    'image list',
+    template,
+    {
+      args: {
+        type: Type.Ul,
+        modifier: 'img-list',
+        items: [
+          {
+            text: 'Cras justo odio',
+            imgSrc: '/images/rectangle1.png'
+          },
+          {
+            text: 'Dapibus ac facilisis in',
+            imgSrc: '/images/rectangle2.png'
+          },
+          {
+            text: 'Morbi leo risus',
+            imgSrc: '/images/rectangle1.png'
+          },
+          {
+            text: 'Porta ac consectetur ac',
+            imgSrc: '/images/rectangle2.png'
+          },
+          {
+            text: 'Vestibulum at eros',
+            imgSrc: '/images/rectangle1.png'
+          }
+        ]
       }
     }
   );

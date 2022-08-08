@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **dso-toolkit** Helpcentrum voorbeeldpagina's ([#1455](https://github.com/dso-toolkit/dso-toolkit/issues/1455))
+* **core + css + dso-toolkit + sources:** List component uitbreiden met `img-list` variant ([#1622](https://github.com/dso-toolkit/dso-toolkit/issues/1622))
 
 ## 42.0.0
 
