@@ -45,18 +45,20 @@ export class Pagination implements ComponentInterface {
       return null;
     }
 
+    const currentPage = this.currentPage ?? 0;
     const pages = Array.from({ length: this.totalPages }, (_value, i) => i + 1);
+    const currentPageOutOfBounds = currentPage < pages[0] || currentPage > pages[pages.length - 1];
 
     return (
       <ul class="pagination">
-        <li class={this.currentPage === pages[0] ? 'dso-page-hidden' : undefined}>
-          <a href={this.formatHref(pages[0])} aria-label="Vorige" onClick={e => this.currentPage && this.clickHandler(e, pages[this.currentPage - 2])}>
+        <li class={(currentPage <= pages[0] || currentPageOutOfBounds) ? 'dso-page-hidden' : undefined}>
+          <a href={this.formatHref(pages[0])} aria-label="Vorige" onClick={e => currentPage && this.clickHandler(e, pages[currentPage - 2])}>
             <dso-icon icon="chevron-left"></dso-icon>
           </a>
         </li>
         {pages.map(page => (
-          <li key={page} class={this.currentPage === page ? 'active' : undefined}>
-            {this.currentPage === page
+          <li key={page} class={currentPage === page ? 'active' : undefined}>
+            {currentPage === page
               ? (
                 <span aria-current="page">{page}</span>
               )
@@ -65,8 +67,8 @@ export class Pagination implements ComponentInterface {
               )}
           </li>
         ))}
-        <li class={this.currentPage === pages[pages.length - 1] ? 'dso-page-hidden' : undefined}>
-          <a href={this.formatHref(pages[pages.length - 1])} aria-label="Volgende" onClick={e => this.currentPage && this.clickHandler(e, pages[this.currentPage])}>
+        <li class={(currentPage >= pages[pages.length - 1] || currentPageOutOfBounds) ? 'dso-page-hidden' : undefined}>
+          <a href={this.formatHref(pages[pages.length - 1])} aria-label="Volgende" onClick={e => currentPage && this.clickHandler(e, pages[currentPage])}>
             <dso-icon icon="chevron-right"></dso-icon>
           </a>
         </li>
