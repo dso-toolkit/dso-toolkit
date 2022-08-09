@@ -1,3 +1,7 @@
 .dso-info-button {
   @include info-button_root();
 }
+
+.control-label + .dso-info-button {
+  @include info-button_controlLabelSibling();
+}
