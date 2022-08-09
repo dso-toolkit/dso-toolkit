@@ -5,34 +5,41 @@
 }
 
 .dso-document-list-item {
-  background-color: $grijs-5;
-  padding: $grid-gutter-width * 0.5;
+  .dso-document-list-item-heading {
+    background-color: $grijs-5;
+    padding: $grid-gutter-width * 0.5;
 
-  a {
-    color: $zwart;
-  }
+    a {
+      color: $zwart;
+    }
 
-  > :first-child {
-    margin: 0;
-  }
+    > :first-child {
+      margin: 0;
+    }
 
-  .dso-document-list-item-container {
-    position: relative;
-  }
+    .dso-document-list-item-container {
+      position: relative;
+    }
 
-  .dso-document-list-item-type,
-  .dso-document-list-item-owner {
-    margin: 0 0 $u1 0;
-    display: inline-block;
-  }
+    .dso-document-list-item-type,
+    .dso-document-list-item-owner {
+      margin: 0 0 $u1 0;
+      display: inline-block;
+    }
 
-  .dso-document-list-item-status {
-    dso-badge,
-    .dso-badge {
-      margin-right: $u1;
+    .dso-document-list-item-status {
+      dso-badge,
+      .dso-badge {
+        margin-right: $u1;
+      }
     }
   }
+
+  .dso-document-list-item-content {
+    padding: $grid-gutter-width * 0.5;
+  }
 }
+
 
 dso-responsive-element[small] > .dso-document-list {
   .dso-document-list-item-container {
