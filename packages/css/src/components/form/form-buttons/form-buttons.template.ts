@@ -2,7 +2,7 @@ import { Button, FormButtons } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-import { buttonTemplate } from '../button/button.template';
+import { buttonTemplate } from '../../button/button.template';
 
 export function formButtonsTemplate({ formModifier, buttons, asideButtons }: FormButtons) {
   return html`
