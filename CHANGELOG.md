@@ -14,7 +14,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **dso-toolkit** Helpcentrum voorbeeldpagina's ([#1455](https://github.com/dso-toolkit/dso-toolkit/issues/1455))
 * **core + css + dso-toolkit + sources:** List component uitbreiden met `img-list` variant ([#1622](https://github.com/dso-toolkit/dso-toolkit/issues/1622))
-* **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657)) **`.dso-document-list-item` is de wrapper geworden. Toevoeging van `.dso-document-list-item-heading` waar nu de oorspronkelijke vulling in staat ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))**
+* **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657))\
+**het component `.dso-document-list-item` omvat het hele item (heading + content). Plaats de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))**
 
 ## 42.0.0
 
