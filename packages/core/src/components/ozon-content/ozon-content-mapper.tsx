@@ -16,6 +16,7 @@ import { getNodeName } from './get-node-name.function';
 import { OzonContentNode } from './ozon-content-node.interface';
 import { OzonContentContext } from './ozon-content-context.interface';
 import { OzonContentFallbackNode } from './nodes/fallback.node';
+import { OzonContentIntIoRefNode } from './nodes/int-io-ref.node';
 
 export class Mapper {
   private cache: { xml: string, document: Document } | undefined;
@@ -31,7 +32,8 @@ export class Mapper {
     new OzonContentInlineNodes(),
     new OzonContentIllustratieNode(),
     new OzonContentNootNode(),
-    new OzonContentTableNode()
+    new OzonContentTableNode(),
+    new OzonContentIntIoRefNode(),
   ];
 
   private skip = this.mappers.reduce<string[]>((t, m) => {
