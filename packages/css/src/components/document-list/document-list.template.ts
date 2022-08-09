@@ -34,55 +34,8 @@ function documentListItemTemplate({
         </div>
       </div>
       <div class="dso-document-list-item-content">
-        <p>Er zijn regels gemaakt die in de toekomst geldig worden op deze locatie:</p>
-        ${anchorTemplate({
-          url: "#",
-          label: "Toekomstige regels tonen",
-        })}
-        <hr />
-        <small>Gevonden in: Hoofdstuk 2 Functietoedeling / Afdeling wonen</small>
-        <ul class="dso-link-list">
-          <li>
-            ${anchorTemplate({
-              url: "#",
-              label: "22.1 Functieomschrijving",
-            })}
-          </li>
-          <li>
-            ${anchorTemplate({
-              url: "#",
-              label: "22.2 Bouwregels",
-            })}
-          </li>
-          <li>
-            ${anchorTemplate({
-              url: "#",
-              label: "22.3 Nadere eisen",
-            })}
-          </li>
-          <li>
-            ${anchorTemplate({
-              url: "#",
-              label: "22.4 Ontheffing van de bouwregels",
-            })}
-          </li>
-        </ul>
-        <hr />
-        <small>Gevonden in: Hoofdstuk 2 Functietoedeling / Artikel 23 Watergang</small>
-        <ul class="dso-link-list">
-          <li>
-            ${anchorTemplate({
-              url: "#",
-              label: "23.1 Functieomschrijving",
-            })}
-          </li>
-          <li>
-            ${anchorTemplate({
-              url: "#",
-              label: "23.2 Regels voor doorgangbeperking",
-            })}
-          </li>
-        </ul>
+        <p>Hier komt vulling</p>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.</p>
       </div>
     </div>
   `;
