@@ -148,6 +148,32 @@ describe("Ozon Content", () => {
       .contains("document");
   });
 
+  it('should render IntIoRef element', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--intioref');
+
+    cy.get('dso-ozon-content')
+      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
+      .should('exist');
+  });
+
+  it('should emit anchorClick on IntIoRef anchor click', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--intioref');
+
+    cy.get('dso-ozon-content').then((c) => {
+      c.get(0).addEventListener('anchorClick', cy.stub().as('anchorClick'));
+    });
+
+    cy.get('dso-ozon-content')
+      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
+      .click();
+
+    cy.get('@anchorClick')
+      .should('have.been.calledOnce')
+      .invoke('getCall', 0)
+      .its('args.0.detail.node')
+      .should('equal', 'IntIoRef');
+  });
+
   it("should render ExtRef element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
 

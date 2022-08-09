@@ -3,8 +3,8 @@ import { h } from '@stencil/core';
 import { OzonContentNodeContext } from '../ozon-content-node-context.interface';
 import { OzonContentNode } from '../ozon-content-node.interface';
 
-export class OzonContentIntRefNode implements OzonContentNode {
-  name = 'IntRef';
+export class OzonContentIntIoRefNode implements OzonContentNode {
+  name = 'IntIoRef';
 
   render(node: Element, { mapNodeToJsx, emitAnchorClick }: OzonContentNodeContext) {
     const ref = node.getAttribute('ref');
