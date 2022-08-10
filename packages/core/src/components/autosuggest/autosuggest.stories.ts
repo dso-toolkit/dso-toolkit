@@ -7,7 +7,7 @@ import readme from "./readme.md";
 
 type AutosuggestConnector = (parameters: Parameters<Parameters<typeof storiesOfAutosuggest>[1]['autosuggestDemoTemplate']>) => Parameters<typeof autosuggestTemplate>[0];
 
-const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel]) => ({
+const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, notFoundLabel]) => ({
   suggestions: [],
   onChange: function (e) {
     onChange(e);
@@ -23,8 +23,9 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
   onSearch,
   suggestOnFocus,
   loading,
-  loadingLabel
-})
+  loadingLabel,
+  notFoundLabel
+});
 
 storiesOfAutosuggest<TemplateResult>(
   {
@@ -33,22 +34,22 @@ storiesOfAutosuggest<TemplateResult>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel) => html`
+    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, notFoundLabel) => html`
       <label for="autosuggestInputId">Label voor input</label>
       ${autosuggestTemplate(
-        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel]),
+        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, notFoundLabel]),
         html`
           <input id="autosuggestInputId" type="text" class="form-control">
         `)}
       <pre id="suggestions-demo">[]</pre>
     `,
-    autosuggestInSearchBarTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel) => html`
+    autosuggestInSearchBarTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, notFoundLabel) => html`
       <div class="dso-search-bar">
         <div class="dso-search-bar-input">
           <label for="search-bar--with-value">Label</label>
           <span class="dso-search-icon" aria-hidden="true"></span>
           ${autosuggestTemplate(
-            autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel]),
+            autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, notFoundLabel]),
             html`
             <input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'">
           `)}

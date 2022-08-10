@@ -49,15 +49,6 @@ describe("Autosuggest", () => {
     );
   });
 
-  it("listbox with no options should not be visible", () => {
-    cy.get("@input").focus().type("t");
-    cy.wait(200);
-    cy.get("@listbox").should("be.visible");
-    cy.get("@input").focus().type("oolkit");
-    cy.wait(200);
-    cy.get("@listbox").should("not.be.visible");
-  });
-
   it("escape should hide suggestions", { browser: "!firefox" }, () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
@@ -321,5 +312,38 @@ describe("Autosuggest", () => {
     cy.get("@listbox").should("not.exist");
     cy.get("dso-progress-indicator").should("be.visible");
     cy.get("dso-progress-indicator").shadow().find(".dso-progress-indicator-label").should("exist").contains("Patience");
+  });
+
+  it('should show not found text when no results are found', () => {
+    cy.get('@input').focus().type('akjehfowef');
+    cy.wait(200);
+    cy.get('@listbox').should('be.visible');
+    cy.get('@listbox').get('li.sc-dso-autosuggest').should('have.length', 1);
+    cy.get('@listbox').get('li mark').should('exist').contains('akjehfowef');
+    cy.get('@listbox').get('li span').should('exist').contains('is niet gevonden.');
+  });
+
+  it('should show custom not found text when notFoundLabel attribute is set and no results are found', () => {
+    cy.get('dso-autosuggest').invoke('attr', 'not-found-label', 'Er zijn geen resultaten gevonden.');
+    cy.get('@input').focus().type('akjehfowef');
+    cy.wait(200);
+    cy.get('@listbox').should('be.visible');
+    cy.get('@listbox').get('li.sc-dso-autosuggest').should('have.length', 1);
+    cy.get('@listbox').get('li span').should('exist').contains('Er zijn geen resultaten gevonden.');
+  });
+
+  it('should hide listbox when there is no input value', () => {
+    cy.get('@input').focus().type('akjehfowef');
+    cy.wait(200);
+    cy.get('@listbox').should('be.visible');
+    cy.get('@input').focus().clear();
+    cy.wait(200);
+    cy.get('@listbox').should('not.be.visible');
+    cy.get('@input').focus().type('ams');
+    cy.wait(200);
+    cy.get('@listbox').should('be.visible');
+    cy.get('@input').focus().clear();
+    cy.wait(200);
+    cy.get('@listbox').should('not.be.visible');
   });
 });
