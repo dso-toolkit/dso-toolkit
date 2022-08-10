@@ -6,4 +6,8 @@ textarea {
   line-height: inherit;
   margin: 0;
   overflow: auto;
+
+  &.form-control {
+    height: auto;
+  }
 }
