@@ -295,6 +295,12 @@ export namespace Components {
           * The collection of TreeViewItems
          */
         "collection": TreeViewItem[];
+        /**
+          * Set focus on the last item in the specified path. The consumer is responsible for providing a TreeView collection where the last item is visible.
+          * @async 
+          * @returns Whether the item was found.
+         */
+        "focusItem": (path: TreeViewItem[]) => Promise<boolean>;
     }
     interface DsoViewerGrid {
         "filterpanelOpen": boolean;

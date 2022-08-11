@@ -346,4 +346,14 @@ describe('Tree View', () => {
       .find('span.sr-only')
       .should('have.text', 'Resultaat: ');
   });
+
+  it('should focus the item when focusItem() is called.', () => {
+    cy
+      .get('dso-tree-view')
+      .then($treeView => $treeView.get(0)?.focusItem([{ id: 'item.1' }, { id: 'item.1.2' }] as any[]))
+      .then(result => expect(result).to.be.true)
+      .get('@tree-view')
+      .find('[data-item-id="item.1.2"]')
+      .then(shouldHaveFocusAndTabIndex);
+  });
 });

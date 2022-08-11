@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + sources:** `dso-ozon-content` uitbreiden met IntloRef ([#1655](https://github.com/dso-toolkit/dso-toolkit/issues/1655))
 * **dso-toolkit + sources:** Spinners in knoppen etaleren ([#1690](https://github.com/dso-toolkit/dso-toolkit/issues/1690))
 * **core + react + sources** `dso-autosuggest` uitbreiden met not found state ([#1626](https://github.com/dso-toolkit/dso-toolkit/issues/1626))
+* **core:** Tree View: Scroll to item ([#1434](https://github.com/dso-toolkit/dso-toolkit/issues/1434))
 
 ## 42.0.0
 
