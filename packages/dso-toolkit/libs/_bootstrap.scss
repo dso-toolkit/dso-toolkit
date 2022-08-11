@@ -57,8 +57,8 @@
 // @import "bootstrap/type"; -> Moved to @dso-toolkit/sources
 @import "bootstrap/code";
 // @import "bootstrap/grid"; -> Moved to @dso-toolkit/styling
-@import "bootstrap/forms"; // -> Moved to @dso-toolkit/css en @dso-toolkit/sources
-@import "bootstrap/buttons";
+// @import "bootstrap/forms"; -> Moved to @dso-toolkit/css en @dso-toolkit/sources
+// @import "bootstrap/buttons"; -> Moved to @dso-toolkit/css/src/components/button/button
 
 // Components
 @import "bootstrap/component-animations";

@@ -267,7 +267,7 @@
   @include box-shadow($shadow);
 
   // Mixin behavior for optimum display
-  @include form-inline;
+  // @include form-inline; -> Commented because libs/forms has been deleted
 
   .form-group {
     @media (max-width: $grid-float-breakpoint-max) {
