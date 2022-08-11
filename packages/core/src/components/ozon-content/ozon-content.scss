@@ -21,6 +21,10 @@
   }
 }
 
+.sc-dso-ozon-content {
+  display: inline;
+}
+
 :host([interactive]) {
   @include anchor_root($is-html-a-element: false, $with-modifiers: false);
 }

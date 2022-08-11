@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 **core** Pagination prev/next button niet tonen als `current-page` out of bounds of undefined is ([#1680](https://github.com/dso-toolkit/dso-toolkit/issues/1680))
 * **BREAKING: css:** Aanpassing document header ([#1681](https://github.com/dso-toolkit/dso-toolkit/issues/1681))\
 **`.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan**
+* **core** Ozon Content: In Storybook markeren als "verwijderd" verschuift de elementen ([#1658](https://github.com/dso-toolkit/dso-toolkit/issues/1658))
 
 ### Changed
 * **dso-toolkit + sources + css:** Form Buttons verhuizen naar @dso-toolkit/css ([#1668](https://github.com/dso-toolkit/dso-toolkit/issues/1668))
