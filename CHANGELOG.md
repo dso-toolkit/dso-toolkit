@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 **het component `.dso-document-list-item` omvat het hele item (heading + content). Plaats de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))**
 * **core + sources:** `dso-ozon-content` uitbreiden met IntloRef ([#1655](https://github.com/dso-toolkit/dso-toolkit/issues/1655))
 * **dso-toolkit + sources:** Spinners in knoppen etaleren ([#1690](https://github.com/dso-toolkit/dso-toolkit/issues/1690))
+* **core + react + sources** `dso-autosuggest` uitbreiden met not found state ([#1626](https://github.com/dso-toolkit/dso-toolkit/issues/1626))
 
 ## 42.0.0
 

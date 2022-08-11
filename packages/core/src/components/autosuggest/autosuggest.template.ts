@@ -10,7 +10,8 @@ export function autosuggestTemplate(
     onSearch,
     suggestOnFocus,
     loading,
-    loadingLabel
+    loadingLabel,
+    notFoundLabel
   }: Autosuggest,
   children: TemplateResult
 ) {
@@ -23,6 +24,7 @@ export function autosuggestTemplate(
       ?suggest-on-focus=${suggestOnFocus}
       ?loading=${loading}
       loading-label=${ifDefined(loadingLabel)}
+      not-found-label=${ifDefined(notFoundLabel)}
     >
       ${children}
     </dso-autosuggest>

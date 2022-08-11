@@ -40,6 +40,10 @@ export namespace Components {
          */
         "loadingLabel"?: string;
         /**
+          * To show text when no results are found.
+         */
+        "notFoundLabel"?: string;
+        /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
         "suggestOnFocus": boolean;
@@ -524,6 +528,10 @@ declare namespace LocalJSX {
           * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
+        /**
+          * To show text when no results are found.
+         */
+        "notFoundLabel"?: string;
         /**
           * This is emitted debounced for every change for the slotted input type=text element.
          */

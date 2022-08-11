@@ -62,6 +62,12 @@ export class Autosuggest {
   loadingLabel?: string = "Een moment geduld.";
 
   /**
+   * To show text when no results are found.
+   */
+  @Prop()
+  notFoundLabel?: string;
+
+  /**
    * Whether the previous suggestions will be presented when the input gets focus again.
    */
   @Prop()
@@ -96,14 +102,17 @@ export class Autosuggest {
   @State()
   selectedSuggestion: Suggestion | undefined;
 
+  @State()
+  notFound: boolean = false;
+
   @Watch('suggestions')
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
 
-    if (!this.showSuggestions && this.suggestions.length > 0) {
+    if ((!this.showSuggestions || !this.notFound) && this.inputValue) {
       this.openSuggestions();
     }
-    else if (this.showSuggestions && this.suggestions.length === 0) {
+    else if ((this.showSuggestions || this.notFound) && !this.inputValue) {
       this.closeSuggestions();
     }
   }
@@ -120,11 +129,14 @@ export class Autosuggest {
 
   debouncedEmitValue = debounce((value: string) => this.changeEmitter.emit(value), 200);
 
+  inputValue: string = '';
+
   onInput = (event: Event) => {
     if (!(event.target instanceof HTMLInputElement)) {
       throw new Error("event.target is not instanceof HTMLInputElement");
     }
 
+    this.inputValue = event.target.value;
     this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : '');
   };
 
@@ -137,7 +149,7 @@ export class Autosuggest {
   @Listen("click", { target: "document" })
   onDocumentClick(event: MouseEvent) {
     if (
-      this.showSuggestions &&
+      (this.showSuggestions || this.notFound) &&
       this.listbox &&
       event.target instanceof Node &&
       !this.listbox.contains(event.target) &&
@@ -262,18 +274,20 @@ export class Autosuggest {
 
   openSuggestions(selectSuggestion?: 'first' | 'last') {
     this.showSuggestions = this.suggestions.length > 0;
-    this.input.setAttribute("aria-expanded", this.showSuggestions.toString());
+    this.notFound = this.suggestions.length === 0;
+    this.input.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
-    if (selectSuggestion === 'first') {
+    if (this.showSuggestions && selectSuggestion === 'first') {
       this.selectFirstSuggestion();
     }
-    else if (selectSuggestion === 'last') {
+    else if (this.showSuggestions && selectSuggestion === 'last') {
       this.selectLastSuggestion();
     }
   }
 
   closeSuggestions() {
     this.showSuggestions = false;
+    this.notFound = false;
     this.input.setAttribute("aria-expanded", "false");
     this.selectFirstSuggestion();
   }
@@ -352,7 +366,7 @@ export class Autosuggest {
               id={this.listboxId}
               aria-labelledby={this.labelId}
               ref={element => this.listbox = element}
-              hidden={!this.showSuggestions}
+              hidden={!this.showSuggestions && !this.notFound}
             >
               {this.showSuggestions
                 ? this.suggestions.map((suggestion) => (
@@ -377,7 +391,16 @@ export class Autosuggest {
                       }
                     </li>
                   ))
-                : undefined
+                : this.notFound
+                  ? <li>
+                      <span class="value">
+                        {!this.notFoundLabel
+                          ? this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
+                          : <span>{this.notFoundLabel}</span>
+                        }
+                      </span>
+                    </li>
+                  : undefined
               }
             </ul>
         }

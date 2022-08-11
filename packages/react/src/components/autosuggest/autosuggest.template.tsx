@@ -14,6 +14,7 @@ export class AutosuggestTemplate extends React.Component<React.PropsWithChildren
         suggestOnFocus={this.props.suggestOnFocus}
         loading={this.props.loading}
         loadingLabel={this.props.loadingLabel}
+        notFoundLabel={this.props.notFoundLabel}
       >
         {this.props.children}
       </DsoAutosuggest>
