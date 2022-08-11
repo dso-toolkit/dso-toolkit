@@ -357,9 +357,18 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
       @include _button-spinner-icon($color: $grasgroen, $valign: top, $position: left);
     }
 
-    &:not([disabled]):hover {
-      &::before {
-        @include _button-spinner-icon($color: $wit, $valign: top, $position: left);
+    &:not([disabled]) {
+      &:hover {
+        &::before {
+          @include _button-spinner-icon($color: $wit, $valign: top, $position: left);
+        }
+      }
+
+      &.btn-sm:hover {
+        &::before {
+          height: $u2;
+          width: $u2;
+        }
       }
     }
   }
@@ -369,9 +378,18 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
       @include _button-spinner-icon($color: $grasgroen, $valign: top, $position: right);
     }
 
-    &:not([disabled]):hover {
-      &::after {
-        @include _button-spinner-icon($color: $wit, $valign: top, $position: right);
+    &:not([disabled]) {
+      &:hover {
+        &::after {
+          @include _button-spinner-icon($color: $wit, $valign: top, $position: right);
+        }
+      }
+
+      &.btn-sm:hover {
+        &::after {
+          height: $u2;
+          width: $u2;
+        }
       }
     }
   }
