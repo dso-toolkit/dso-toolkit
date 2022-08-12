@@ -6,6 +6,7 @@ export interface AutosuggestArgs {
   suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel: string;
+  loadingDelayed: number;
   notFoundLabel: string;
   onSelect: HandlerFunction;
   onChange: HandlerFunction;
@@ -26,6 +27,11 @@ export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
   loadingLabel: {
     control: {
       type: 'text',
+    },
+  },
+  loadingDelayed: {
+    control: {
+      type: 'number',
     },
   },
   notFoundLabel: {

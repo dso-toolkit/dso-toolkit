@@ -62,6 +62,12 @@ export class Autosuggest {
   loadingLabel?: string = "Een moment geduld.";
 
   /**
+   * To delay progress indicator showing (in ms).
+   */
+  @Prop()
+  loadingDelayed?: number;
+
+  /**
    * To show text when no results are found.
    */
   @Prop()
@@ -105,6 +111,9 @@ export class Autosuggest {
   @State()
   notFound: boolean = false;
 
+  @State()
+  showLoading: boolean = true;
+
   @Watch('suggestions')
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
@@ -136,6 +145,7 @@ export class Autosuggest {
       throw new Error("event.target is not instanceof HTMLInputElement");
     }
 
+    this.showLoading = !this.loadingDelayed;
     this.inputValue = event.target.value;
     this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : '');
   };
@@ -351,13 +361,21 @@ export class Autosuggest {
     return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
   }
 
+  componentDidRender() {
+    if(this.loadingDelayed) {
+      setTimeout(() => {
+        this.showLoading = true;
+      }, this.loadingDelayed);
+    }
+  }
+
   render() {
     const terms = this.input.value.split(' ').filter(t => t);
 
     return (
       <>
         <slot />
-        {this.loading
+        {this.loading && this.showLoading
           ? <div class="autosuggest-progress-box">
               <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
             </div>

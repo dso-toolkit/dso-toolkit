@@ -11,6 +11,7 @@ export function autosuggestTemplate(
     suggestOnFocus,
     loading,
     loadingLabel,
+    loadingDelayed,
     notFoundLabel
   }: Autosuggest,
   children: TemplateResult
@@ -24,6 +25,7 @@ export function autosuggestTemplate(
       ?suggest-on-focus=${suggestOnFocus}
       ?loading=${loading}
       loading-label=${ifDefined(loadingLabel)}
+      loading-delayed=${ifDefined(loadingDelayed)}
       not-found-label=${ifDefined(notFoundLabel)}
     >
       ${children}
