@@ -32,7 +32,7 @@ export class OzonContent implements ComponentInterface {
 
   /**
    * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.
-   * 
+   *
    * **Do not** use this without an accessible companion element! `interactive` is only
    * meant to ease the use of the companion element for mouse/touch users.
    */
@@ -80,9 +80,11 @@ export class OzonContent implements ComponentInterface {
     if (this.deleted) {
       return (
         <section>
+          <slot name="prefix" />
           <span class="deleted-start">Begin verwijderd element</span>
           {transformed}
           <span class="deleted-end">Einde verwijderd element</span>
+          <slot name="suffix" />
         </section>
       );
     }
