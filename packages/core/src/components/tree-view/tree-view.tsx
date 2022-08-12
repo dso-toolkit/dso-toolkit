@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Event, EventEmitter, Prop } from '@stencil/core';
+import { h, Component, ComponentInterface, Event, EventEmitter, Prop, Method } from '@stencil/core';
 
 import { TreeViewPointerEvent, TreeViewItem } from './tree-view.interfaces';
 import { DsoTreeItem } from './tree-item';
@@ -9,7 +9,9 @@ import { DsoTreeItem } from './tree-item';
   shadow: true
 })
 export class TreeView implements ComponentInterface {
-   /**
+  private tree?: HTMLElement;
+
+  /**
    * The collection of TreeViewItems
    */
   @Prop()
@@ -43,6 +45,35 @@ export class TreeView implements ComponentInterface {
    */
   @Event()
   clickItem!: EventEmitter<TreeViewPointerEvent>;
+
+  /**
+   * Set focus on the last item in the specified path.
+   * The consumer is responsible for providing a TreeView collection where the last item is visible.
+   * @async
+   * @returns Whether the item was found.
+   */
+  @Method()
+  async focusItem(path: TreeViewItem[]): Promise<boolean> {
+    const tree = this.tree;
+
+    if (!tree || path.length === 0) {
+      return false;
+    }
+
+    const itemToFocus = path[path.length - 1];
+
+    const elementToFocus = (Array.from(tree.querySelectorAll('p') ?? []) as HTMLElement[])
+      .filter(item => item.offsetWidth > 0 && item.offsetHeight > 0)
+      .find(item => item.dataset['itemId'] === itemToFocus.id);
+
+    if (!elementToFocus) {
+      return false;
+    }
+
+    TreeView.setFocus(tree, elementToFocus)
+
+    return true;
+  }
 
   keyDownListener = (event: KeyboardEvent) => {
     if (event.defaultPrevented) {
@@ -207,7 +238,7 @@ export class TreeView implements ComponentInterface {
 
   render() {
     return (
-      <div id="tree" class="dso-tree" onKeyDown={(e) => this.keyDownListener(e)}>
+      <div id="tree" class="dso-tree" onKeyDown={(e) => this.keyDownListener(e)} ref={element => this.tree = element}>
         <ul role="tree" aria-label="Objectenboom">
           {this.collection?.map((item, index) =>
             <DsoTreeItem
