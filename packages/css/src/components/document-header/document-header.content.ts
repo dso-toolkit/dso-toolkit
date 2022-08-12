@@ -51,9 +51,7 @@ export function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureA
       status: 'bright',
       label: 'in werking',
     })}
-    <span class="dso-document-header-publish-date">
-      Gepubliceerd 03-03-2021
-    </span>
+    Gepubliceerd 03-03-2021
     ${buttonTemplate({
       ariaExpanded: documentHeaderStatusOpen,
       onClick: documentHeaderFeatureAction,

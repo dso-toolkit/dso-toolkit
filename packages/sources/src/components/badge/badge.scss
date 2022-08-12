@@ -5,7 +5,7 @@ $dso-badge-success-bg-color: $dso-success-color;
 $dso-badge-warning-bg-color: $dso-warning-color;
 $dso-badge-danger-bg-color: $dso-danger-color;
 
-$dso-badge-line-height: 1em;
+$dso-badge-line-height: 1;
 
 @mixin badge_root() {
   background-color: $dso-badge-default-bg-color;

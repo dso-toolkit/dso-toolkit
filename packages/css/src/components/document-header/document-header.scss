@@ -4,7 +4,6 @@
   margin-left: $grid-gutter-width * -0.5;
   margin-right: $grid-gutter-width * -0.5;
 
-
   a {
     color: $zwart;
   }
@@ -45,7 +44,7 @@
   }
 
   .dso-document-header-owner-wrapper {
-    padding-right: $u4; // Map button width + 8px margin
+    padding-right: $dso-icon-size + $u1;
   }
 
   .dso-document-header-type,
