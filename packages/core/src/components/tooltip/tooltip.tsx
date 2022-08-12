@@ -176,6 +176,13 @@ export class Tooltip {
     e.stopPropagation();
   }
 
+  @Listen('keydown', { target: 'document' })
+  keyListener(e: KeyboardEvent) {
+    if (e.key === 'Escape') {
+      this.deactivate()
+    }
+  }
+
   private applyMaxSize = {
     name: 'applyMaxSize',
     enabled: true,
