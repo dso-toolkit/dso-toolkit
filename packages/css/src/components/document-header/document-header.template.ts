@@ -20,8 +20,10 @@ export function documentHeaderTemplate({
       <h1>${title}</h1>
 
       <div class="dso-document-header-container">
-        <p class="dso-document-header-type">${type}</p>
-        <p class="dso-document-header-owner">${owner}</p>
+        <div class="dso-document-header-owner-wrapper">
+          <p class="dso-document-header-type">${type}</p>
+          <p class="dso-document-header-owner">${owner}</p>
+        </div>
 
         ${buttonTemplate({
           label: 'Actie',
