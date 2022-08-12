@@ -35,6 +35,10 @@
     position: relative;
   }
 
+  .dso-document-header-owner-wrapper {
+    padding-right: $u4; // Map button width + 8px margin
+  }
+
   .dso-document-header-type,
   .dso-document-header-owner {
     margin: 0 0 $u1 0;

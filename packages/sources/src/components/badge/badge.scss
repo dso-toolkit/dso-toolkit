@@ -5,14 +5,18 @@ $dso-badge-success-bg-color: $dso-success-color;
 $dso-badge-warning-bg-color: $dso-warning-color;
 $dso-badge-danger-bg-color: $dso-danger-color;
 
+$dso-badge-line-height: 1em;
+
 @mixin badge_root() {
   background-color: $dso-badge-default-bg-color;
   border-radius: 1em;
   color: $wit;
   display: inline-block;
   font-size: 0.875em;
-  line-height: 1em;
+  line-height: $dso-badge-line-height;
+  min-width: calc(#{$dso-badge-line-height} + #{$u1});
   padding: #{$u1 * 0.5} $u1;
+  text-align: center;
 
   &.badge-info {
     background-color: $dso-badge-info-bg-color;
@@ -43,5 +47,6 @@ $dso-badge-danger-bg-color: $dso-danger-color;
     background-color: $wit;
     color: $grijs-90;
     outline: 1px solid $grijs-90;
+    outline-offset: -1px;
   }
 }

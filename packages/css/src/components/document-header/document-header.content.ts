@@ -64,14 +64,14 @@ export function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureA
       },
       iconMode: 'after',
     })}
-    ${badgeTemplate({
-      status: 'warning',
-      message: '3',
-    })}
-    ${badgeTemplate({
-      status: 'outline',
-      message: '1',
-    })}
+    <span class="dso-badge badge-warning">
+      <span aria-hidden="true">!</span>
+      <span class="sr-only">Let op: ontwerpversie beschikbaar</span>
+    </span>
+    <span class="dso-badge badge-outline">
+      <span aria-hidden="true">!</span>
+      <span class="sr-only">Let op: toekomstige versie beschikbaar</span>
+    </span>
   `;
 }
 
