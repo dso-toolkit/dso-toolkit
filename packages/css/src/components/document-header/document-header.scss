@@ -4,15 +4,25 @@
   margin-left: $grid-gutter-width * -0.5;
   margin-right: $grid-gutter-width * -0.5;
 
+
   a {
     color: $zwart;
   }
 
   > :first-child {
-    margin: 0;
+    margin-top: 0;
+  }
+
+  h1 {
+    margin-bottom: $u1;
   }
 
   .dso-document-header-status {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $u1 $u2;
+
     .dso-document-header-toggle-status {
       background-color: transparent;
       border: 0;
@@ -21,13 +31,12 @@
 
     > dso-label,
     > .dso-label {
-      margin-left: $u2;
-      margin-right: $u1;
+      margin-right: calc($u1 * -1);
     }
 
-    dso-badge,
-    .dso-badge {
-      margin-right: $u1;
+    .dso-document-header-badges {
+      display: flex;
+      gap: 8px;
     }
   }
 

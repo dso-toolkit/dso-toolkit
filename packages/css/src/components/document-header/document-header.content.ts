@@ -3,7 +3,6 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { html, TemplateResult } from 'lit-html';
 
 import { anchorTemplate } from '../anchor/anchor.template';
-import { badgeTemplate } from '../badge/badge.template';
 import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
 import { labelTemplate } from '../label/label.template';
@@ -48,11 +47,13 @@ export const features: DefinitionList<TemplateResult> = {
 
 export function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureAction: HandlerFunction) {
   return html`
-    Gepubliceerd 03-03-2021
     ${labelTemplate({
       status: 'bright',
       label: 'in werking',
     })}
+    <span class="dso-document-header-publish-date">
+      Gepubliceerd 03-03-2021
+    </span>
     ${buttonTemplate({
       ariaExpanded: documentHeaderStatusOpen,
       onClick: documentHeaderFeatureAction,
@@ -64,13 +65,15 @@ export function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureA
       },
       iconMode: 'after',
     })}
-    <span class="dso-badge badge-warning">
-      <span aria-hidden="true">!</span>
-      <span class="sr-only">Let op: ontwerpversie beschikbaar</span>
-    </span>
-    <span class="dso-badge badge-outline">
-      <span aria-hidden="true">!</span>
-      <span class="sr-only">Let op: toekomstige versie beschikbaar</span>
+    <span class="dso-document-header-badges">
+      <span class="dso-badge badge-warning">
+        <span aria-hidden="true">!</span>
+        <span class="sr-only">Let op: ontwerpversie beschikbaar</span>
+      </span>
+      <span class="dso-badge badge-outline">
+        <span aria-hidden="true">!</span>
+        <span class="sr-only">Let op: toekomstige versie beschikbaar</span>
+      </span>
     </span>
   `;
 }
