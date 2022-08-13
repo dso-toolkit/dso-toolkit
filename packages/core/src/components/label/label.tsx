@@ -13,6 +13,8 @@ function hasEllipses(el: HTMLElement): boolean {
 export class Label implements ComponentInterface {
   private mutationObserver?: MutationObserver;
 
+  private resizeObserver = new ResizeObserver(() => this.truncateLabel());
+
   private labelContent: HTMLSpanElement | undefined;
 
   private keydownListenerActive = false;
@@ -109,6 +111,8 @@ export class Label implements ComponentInterface {
       subtree: true
     });
 
+    this.resizeObserver.observe(this.host);
+
     this.truncateLabel();
   }
 
@@ -116,6 +120,7 @@ export class Label implements ComponentInterface {
     document.removeEventListener('keydown', this.keyDownListener);
 
     this.mutationObserver?.disconnect();
+    this.resizeObserver.unobserve(this.host);
     this.truncatedContent = undefined;
     this.keydownListenerActive = false;
   }
