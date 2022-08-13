@@ -7,7 +7,6 @@ describe('Label', () => {
   const defaultLabelText = 'Bouwwerken, werken en objecten bouwen';
   const labelMaxWidth = 180; // in px
 
-  /** Configure the component and set an eventListener as @selectPageListener */
   function prepareComponent() {
     // Set the min-height so that there is room for the tooltip.
     cy.get('#root')

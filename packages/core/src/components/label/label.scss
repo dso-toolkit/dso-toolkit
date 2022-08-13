@@ -20,22 +20,10 @@
 .dso-label {
   @include label_root();
 
-  &:focus-within {
-    text-decoration: none;
-  }
-
   &.dso-hover {
-    text-decoration: line-through;
-  }
-
-  align-items: flex-start;
-  display: flex;
-  gap: 8px;
-
-  > button {
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
+    .dso-label-content {
+      text-decoration: line-through;
+    }
   }
 }
 
