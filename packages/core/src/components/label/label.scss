@@ -7,6 +7,7 @@
 
 :host {
   display: inline-block;
+  max-width: 100%;
 }
 
 @include box-sizing();
@@ -18,4 +19,19 @@
 
 .dso-label {
   @include label_root();
+
+  &.dso-hover {
+    .dso-label-content {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.dso-truncate.dso-label-content {
+  display: inline-block;
+  max-width: 184px;
+  overflow: hidden;
+  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+  vertical-align: bottom;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
 }

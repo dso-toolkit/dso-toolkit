@@ -57,8 +57,24 @@ export function storiesOfLabel<TemplateFnReturnType>(
   );
 
   stories.add(
+    'truncate',
+    template,
+    {
+      args: {
+        label: 'Een hele lange label die je eigenlijk visueel wil afbreken.',
+        truncate: true,
+        button: {
+          title: 'Verwijder',
+          icon: 'times',
+          onClick: action('Clicked remove')
+        },
+      }
+    }
+  );
+
+  stories.add(
     'with symbol (image)',
-    template, 
+    template,
     {
       args: {
         status: 'bright',
