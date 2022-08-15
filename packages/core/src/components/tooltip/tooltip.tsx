@@ -146,6 +146,7 @@ export class Tooltip {
           this.popper?.setOptions({
             modifiers: [{ name: 'eventListeners', enabled: true }]
           });
+          document.addEventListener('keydown', this.keyDownListener);
         });
       }
     } else {
@@ -153,6 +154,7 @@ export class Tooltip {
         this.popper?.setOptions({
           modifiers: [{ name: 'eventListeners', enabled: false }]
         });
+        document.removeEventListener('keydown', this.keyDownListener);
       }
 
       setTimeout(() => (this.hidden = true), transitionDuration);
@@ -174,13 +176,6 @@ export class Tooltip {
   @Listen('click')
   listenClick(e: MouseEvent) {
     e.stopPropagation();
-  }
-
-  @Listen('keydown', { target: 'document' })
-  keyListener(e: KeyboardEvent) {
-    if (e.key === 'Escape') {
-      this.deactivate()
-    }
   }
 
   private applyMaxSize = {
@@ -251,6 +246,12 @@ export class Tooltip {
       this.popper?.update();
     }
   }
+
+  keyDownListener = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      this.deactivate();
+    }
+  };
 
   render() {
     return (
