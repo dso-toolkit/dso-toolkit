@@ -26,6 +26,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + react + sources** `dso-autosuggest` uitbreiden met not found state ([#1626](https://github.com/dso-toolkit/dso-toolkit/issues/1626))
 * **core:** Tree View: Scroll to item ([#1434](https://github.com/dso-toolkit/dso-toolkit/issues/1434))
 * **core + react:** Lange labels kunnen afbreken. `dso-label` is uitgebreid met het `truncate` attribuut. Labels breken hier af en kunnen volledig getoond worden door op de tekst te hoveren. ([#1314](https://github.com/dso-toolkit/dso-toolkit/issues/1314))
+* **core** `dso-tooltip` sluiten met escape knop ([#1689](https://github.com/dso-toolkit/dso-toolkit/issues/1689))
 
 ## 42.0.0
 
