@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING: css:** Aanpassing document header ([#1681](https://github.com/dso-toolkit/dso-toolkit/issues/1681))\
 **`.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan**
 * **core** Ozon Content: In Storybook markeren als "verwijderd" verschuift de elementen ([#1658](https://github.com/dso-toolkit/dso-toolkit/issues/1658))
+* **react** React Storybook: Bij Date Picker worden de actions niet getoond ([#1664](https://github.com/dso-toolkit/dso-toolkit/issues/1664))
 
 ### Changed
 * **dso-toolkit + sources + css:** Form Buttons verhuizen naar @dso-toolkit/css ([#1668](https://github.com/dso-toolkit/dso-toolkit/issues/1668))

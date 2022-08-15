@@ -15,6 +15,7 @@ export function datePickerTemplate({ id, onDateChange, value, min, max, disabled
       max={max}
       dsoAutofocus={autofocus}
       disabled={disabled}
+      onDateChange={onDateChange}
     ></DsoDatePicker>
   );
 }
