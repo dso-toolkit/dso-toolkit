@@ -12,26 +12,15 @@ describe('Tooltip', () => {
       .as('dsoButton');
   }
 
-  /*
-    https://github.com/dmtrKovalenko/cypress-real-events/issues/247
-  */
+  // https://github.com/dmtrKovalenko/cypress-real-events/issues/247
+  // realHover has issues since chrome 100.
+
   // it('should show tooltip on hover on button and hide on escape key', () => {
   //   prepareComponent();
 
   //   cy
   //     .get('@dsoButton')
-  //     .wait(100)
-  //     .realHover()
-  //     .wait(400)
-  //     .find('dso-tooltip')
-  //     .should('not.have.class', 'hidden')
-  //     .wait(400)
-  //     .get('body')
-  //     .trigger('keydown', { key: 'Escape' })
-  //     .wait(400)
-  //     .get('@dsoButton')
-  //     .find('dso-tooltip')
-  //     .should('have.class', 'hidden');
+  //     .realHover();
   // });
 
   it('should show tooltip on focus on button and hide on escape key', () => {
@@ -41,13 +30,12 @@ describe('Tooltip', () => {
       .get('@dsoButton')
       .wait(100)
       .focus()
-      .wait(1000)
+      .wait(100)
       .find('dso-tooltip')
       .should('not.have.class', 'hidden')
-      .wait(400)
-      .get('body')
-      .trigger('keydown', { key: 'Escape' })
-      .wait(400)
+      .wait(250)
+      .realPress('Escape')
+      .wait(100)
       .get('@dsoButton')
       .find('dso-tooltip')
       .should('have.class', 'hidden');
