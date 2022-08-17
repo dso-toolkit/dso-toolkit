@@ -233,7 +233,7 @@ dso-dropdown-menu {
 
     button {
       color: $grasgroen;
-      font-size: $font-size-base;
+      font-size: $dso-font-size-base;
       font-weight: 600;
       position: relative;
 
@@ -329,7 +329,7 @@ dso-dropdown-menu {
       > a {
         @include anchor-reverse();
 
-        font-size: $font-size-base;
+        font-size: $dso-font-size-base;
         margin-top: ($u1 * 0.5);
         padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
       }

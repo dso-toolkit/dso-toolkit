@@ -185,7 +185,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
 }
 
 @mixin button_small() {
-  line-height: $u2;
+  line-height: $dso-font-size-base;
 
   dso-icon,
   svg.di,

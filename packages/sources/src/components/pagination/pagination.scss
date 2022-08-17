@@ -1,4 +1,4 @@
-$dso-pagination-item-size: $u4;
+$dso-pagination-item-size: $ru4;
 $dso-pagination-item-border-size: 2px;
 $dso-pagination-line-height: $dso-pagination-item-size;
 $dso-pagination-icon-margin: $u1 * 0.5;
@@ -39,7 +39,7 @@ $dso-pagination-icon-margin: $u1 * 0.5;
   > li {
     display: inline-block;
     font-weight: bold;
-    line-height: #{$dso-pagination-item-size - $dso-pagination-item-border-size * 2};
+    line-height: calc($dso-pagination-item-size - $dso-pagination-item-border-size * 2);
     text-align: center;
     vertical-align: middle;
 

@@ -1,6 +1,7 @@
-$dso-search-bar-height: $u5;
+$dso-search-bar-height: $ru5;
 $dso-search-bar-invalid-input-border-color: $dso-danger-color;
 $dso-search-bar-focus-border-width: 1px;
+$dso-search-icon-top: $ru4;
 
 .dso-search-bar {
   display: flex;
@@ -15,12 +16,12 @@ $dso-search-bar-focus-border-width: 1px;
       font-size: 0;
       height: $dso-search-bar-height;
       left: 0;
-      line-height: $u5;
+      line-height: $dso-search-bar-height;
       padding: $u1;
       position: absolute;
       text-align: center;
       top: 0;
-      width: $u5;
+      width: $dso-search-bar-height;
       z-index: $zx-searchbar-icon;
 
       &::before {
@@ -33,7 +34,7 @@ $dso-search-bar-focus-border-width: 1px;
 
       + input,
       + dso-autosuggest > input {
-        padding-left: $u5;
+        padding-left: $dso-search-bar-height;
       }
     }
 
@@ -47,10 +48,10 @@ $dso-search-bar-focus-border-width: 1px;
       border-width: 1px;
       box-shadow: none;
       display: block;
-      font-size: 16px;
+      font-size: $dso-font-size-base;
       height: $dso-search-bar-height;
       line-height: $dso-search-bar-height;
-      padding: 6px $u5 6px $u1;
+      padding: 6px $dso-search-bar-height 6px $u1;
       transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
       width: 100%;
 
@@ -77,14 +78,14 @@ $dso-search-bar-focus-border-width: 1px;
       right: 0;
       text-align: center;
       top: 0;
-      width: $u5;
+      width: $dso-search-bar-height;
 
       &::before {
         @include di("times");
 
         content: "";
         display: inline-block;
-        font-size: $font-size-base;
+        font-size: $dso-font-size-base;
       }
     }
 
@@ -94,12 +95,12 @@ $dso-search-bar-focus-border-width: 1px;
       width: 100%;
 
       + .dso-search-icon {
-        top: $u4;
+        top: $dso-search-icon-top;
 
         + input,
         + dso-autosuggest {
           + button {
-            top: $u4;
+            top: $dso-search-icon-top;
           }
         }
       }
@@ -107,7 +108,7 @@ $dso-search-bar-focus-border-width: 1px;
       + input,
       + dso-autosuggest {
         + button {
-          top: $u4;
+          top: $dso-search-icon-top;
         }
       }
 
@@ -137,7 +138,7 @@ $dso-search-bar-focus-border-width: 1px;
   .dso-search-bar-input + button {
     align-self: flex-end;
     height: $dso-search-bar-height;
-    line-height: 38px;
+    line-height: calc($dso-search-bar-height - 2px);
     margin: 0 0 0 $u1;
     min-width: initial;
     padding: 0 $u2;

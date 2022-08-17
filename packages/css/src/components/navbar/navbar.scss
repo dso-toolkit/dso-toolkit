@@ -107,7 +107,7 @@ $dso-navigation-selected-color: $mauve;
       > a {
         @include anchor-reverse();
 
-        font-size: $font-size-base;
+        font-size: $dso-font-size-base;
         margin-top: ($u1 * 0.5);
         padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
       }

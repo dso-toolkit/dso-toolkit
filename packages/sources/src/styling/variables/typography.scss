@@ -9,18 +9,15 @@ $font-size-base: 16px;
 $font-size-large: math.ceil($font-size-base * 1.25);
 $font-size-small: math.ceil($font-size-base * 0.85);
 
-$font-size-h1: $dso-font-size-h1;
-$font-size-h2: $dso-font-size-h2;
-$font-size-h3: $dso-font-size-h3;
-$font-size-h4: $dso-font-size-h4;
-$font-size-h5: $dso-font-size-h5;
-$font-size-h6: $dso-font-size-h5;
+$dso-font-size-base: 1rem;
+$dso-font-size-large: $dso-font-size-base * 1.25;
+$dso-font-size-small: $dso-font-size-base * 0.875;
 
 $line-height-base: 1.5;
 $line-height-computed: math.floor($font-size-base * $line-height-base);
+$dso-line-height-computed: $dso-font-size-base * $line-height-base;
 $line-height-small: 1.5;
 $line-height-large: 1.3333333;
-
 
 $headings: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6";
 $headings-font-family: "Asap", sans-serif;
@@ -28,4 +25,4 @@ $headings-font-weight: bold;
 $headings-line-height: 1.1;
 $headings-color: $bosgroen;
 
-$blockquote-font-size: ($font-size-base * 1.25);
+$blockquote-font-size: ($dso-font-size-base * 1.25);

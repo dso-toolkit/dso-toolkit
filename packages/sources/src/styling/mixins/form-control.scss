@@ -2,7 +2,7 @@
 
 $dso-form-control-border-width: 1px;
 $dso-form-control-focus-border-width: 1px;
-$dso-form-control-height: ($padding-base-vertical + 1) * 2 + $dso-form-control-border-width * 2 + $font-size-base * 1.5;
+$dso-form-control-height: calc(($padding-base-vertical + 1px) * 2 + $dso-form-control-border-width * 2 + $dso-font-size-base * 1.5);
 $dso-form-control-focus-border-color: $bosgroen;
 $dso-form-control-readonly-border-width: 1px;
 
@@ -11,7 +11,7 @@ $dso-form-control-readonly-border-width: 1px;
   width: 100%;
   height: $dso-form-control-height;
   padding: $padding-base-vertical ($padding-base-horizontal + 2);
-  font-size: $font-size-base;
+  font-size: $dso-font-size-base;
   line-height: $line-height-base;
   color: $input-color;
   background-color: $input-bg;
