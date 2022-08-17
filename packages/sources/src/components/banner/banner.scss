@@ -47,7 +47,7 @@ $banner-danger-border: $state-danger-border;
 
   .row {
     > div {
-      line-height: $u3;
+      line-height: $line-height-base;
       position: relative;
 
       button {

@@ -1,6 +1,9 @@
+$dso-step-counter-size: 2rem;
+$dso-step-counter-icon-size: 1.5rem;
+
 @mixin step-counter() {
   &.dso-has-counter {
-    padding-top: $u5;
+    padding-top: 2.5rem;
     position: relative;
   }
 
@@ -10,15 +13,21 @@
     border-radius: 50%;
     box-sizing: content-box;
     color: $wit;
-    font-size: 1.25em;
+    font-size: 1.25rem;
     font-weight: 500;
-    height: $u4;
+    height: $dso-step-counter-size;
     left: $u2;
-    line-height: $u4;
+    line-height: $dso-step-counter-size;
     position: absolute;
     text-align: center;
-    top: -$u3;
-    width: $u4;
+    top: -1.5rem;
+    width: $dso-step-counter-size;
+
+    svg.di {
+      height: $dso-step-counter-icon-size;
+      margin-top: 0.25rem;
+      width: $dso-step-counter-icon-size;
+    }
   }
 
   dso-icon {

@@ -92,7 +92,7 @@ $alert-danger-border: $state-danger-border;
 
 @mixin alert_root() {
   border: 1px solid transparent;
-  line-height: $u3;
+  line-height: $line-height-base;
   margin-bottom: $line-height-computed;
   min-height: 2 * $dso-alert-horizontal-padding + $dso-alert-icon-size;
   position: relative;
