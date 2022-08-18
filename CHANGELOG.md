@@ -4,35 +4,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
+
+## 43.0.0
 ### Changed
+* **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657))\
+het element `.dso-document-list-item` omvat het hele item (heading + content). Wrap de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen in een wit vlak. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))
 * **core + css + dso-toolkit:** Formulier stijling overzetten ([#1194](https://github.com/dso-toolkit/dso-toolkit/issues/1194))
+* **dso-toolkit + sources + css:** Form Buttons verhuizen naar @dso-toolkit/css ([#1668](https://github.com/dso-toolkit/dso-toolkit/issues/1668))
 
 ### Fixed
-**core** Pagination prev/next button niet tonen als `current-page` out of bounds of undefined is ([#1680](https://github.com/dso-toolkit/dso-toolkit/issues/1680))
 * **BREAKING: css:** Aanpassing document header ([#1681](https://github.com/dso-toolkit/dso-toolkit/issues/1681))\
-**`.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan**
+`.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan
+* **core** Pagination prev/next button niet tonen als `current-page` out of bounds of undefined is ([#1680](https://github.com/dso-toolkit/dso-toolkit/issues/1680))
 * **core** Ozon Content: In Storybook markeren als "verwijderd" verschuift de elementen ([#1658](https://github.com/dso-toolkit/dso-toolkit/issues/1658))
 * **react** React Storybook: Bij Date Picker worden de actions niet getoond ([#1664](https://github.com/dso-toolkit/dso-toolkit/issues/1664))
-
-### Changed
-* **dso-toolkit + sources + css:** Form Buttons verhuizen naar @dso-toolkit/css ([#1668](https://github.com/dso-toolkit/dso-toolkit/issues/1668))
 
 ### Added
 * **dso-toolkit** Helpcentrum voorbeeldpagina's ([#1455](https://github.com/dso-toolkit/dso-toolkit/issues/1455))
 * **core + css + dso-toolkit + sources:** List component uitbreiden met `img-list` variant ([#1622](https://github.com/dso-toolkit/dso-toolkit/issues/1622))
-* **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657))\
-**het component `.dso-document-list-item` omvat het hele item (heading + content). Plaats de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))**
 * **core + sources:** `dso-ozon-content` uitbreiden met IntloRef ([#1655](https://github.com/dso-toolkit/dso-toolkit/issues/1655))
 * **dso-toolkit + sources:** Spinners in knoppen etaleren ([#1690](https://github.com/dso-toolkit/dso-toolkit/issues/1690))
 * **core + react + sources** `dso-autosuggest` uitbreiden met not found state ([#1626](https://github.com/dso-toolkit/dso-toolkit/issues/1626))
 * **core:** Tree View: Scroll to item ([#1434](https://github.com/dso-toolkit/dso-toolkit/issues/1434))
 * **core + react:** Lange labels kunnen afbreken. `dso-label` is uitgebreid met het `truncate` attribuut. Labels breken hier af en kunnen volledig getoond worden door op de tekst te hoveren. ([#1314](https://github.com/dso-toolkit/dso-toolkit/issues/1314))
+* **core** `dso-tooltip` sluiten met escape knop ([#1689](https://github.com/dso-toolkit/dso-toolkit/issues/1689))
 
 ## 42.0.0
 
 ### Changed
 * **BREAKING: core + sources:** Header: Removed `menuItemClick` event emitter. Added `headerClick` event emitter, deze emit wanneer de gebruiker op een menu item, profiel link, user home, login/logout klikt. Het navigeren (anchor) wordt niet door het component met event.preventDefault() afgevangen. Fixed: Als er geen menu items zijn toont de overige functionaliteit niet. ([#1669](https://github.com/dso-toolkit/dso-toolkit/issues/1669))
-* **BREAKING: core + sources:** Header: Login and Logout renderen <button> als er geen url is opgegeven. `is-logged-in` is vervangen met `auth-status: 'none' | 'loggedOut' | 'loggedIn'` ([#1662](https://github.com/dso-toolkit/dso-toolkit/issues/1662))
+* **BREAKING: core + sources:** Header: Login and Logout renderen als `<button>` wanneer er geen url is opgegeven. `is-logged-in` is vervangen met `auth-status: 'none' | 'loggedOut' | 'loggedIn'` ([#1662](https://github.com/dso-toolkit/dso-toolkit/issues/1662))
 * **sources:** Content-security-policy issue met SVG spritesheet voor iconen met style="fill: #hex;" ([#1676](https://github.com/dso-toolkit/dso-toolkit/issues/1676))
 
 ### Removed
