@@ -112,7 +112,7 @@ export class Autosuggest {
   notFound: boolean = false;
 
   @State()
-  showLoading: boolean = true;
+  showLoading: boolean = false;
 
   @Watch('suggestions')
   suggestionsWatcher() {
@@ -136,7 +136,16 @@ export class Autosuggest {
 
   labelId: string = v4();
 
-  debouncedEmitValue = debounce((value: string) => this.changeEmitter.emit(value), 200);
+  debouncedEmitValue = debounce((value: string) => {
+    this.changeEmitter.emit(value);
+    this.debouncedShowLoading();
+  }, 200);
+
+  debouncedShowLoading = debounce(() => {
+    if(this.inputValue) {
+      this.showLoading = true
+    }
+  }, this.loadingDelayed);
 
   inputValue: string = '';
 
@@ -278,6 +287,7 @@ export class Autosuggest {
   }
 
   resetSelectedSuggestion() {
+    this.showLoading = !this.loadingDelayed;
     this.selectedSuggestion = undefined;
     this.input.setAttribute('aria-activedescendant', '');
   }
@@ -359,14 +369,6 @@ export class Autosuggest {
 
   listboxItemId(suggestion: Suggestion): string {
     return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
-  }
-
-  componentDidRender() {
-    if(this.loadingDelayed) {
-      setTimeout(() => {
-        this.showLoading = true;
-      }, this.loadingDelayed);
-    }
   }
 
   render() {

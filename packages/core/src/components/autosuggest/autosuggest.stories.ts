@@ -12,11 +12,23 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
   onChange: function (e) {
     onChange(e);
 
-    this.suggestions = fetchSuggestions(e.detail);
+    if (loadingDelayed) {
+      setTimeout(() => {
+        this.suggestions = fetchSuggestions(e.detail);
 
-    const suggestionsDemoPreElement = document.getElementById('suggestions-demo');
-    if (suggestionsDemoPreElement) {
-      suggestionsDemoPreElement.textContent = JSON.stringify(this.suggestions, null, 2);
+        const suggestionsDemoPreElement = document.getElementById('suggestions-demo');
+        if (suggestionsDemoPreElement) {
+          suggestionsDemoPreElement.textContent = JSON.stringify(this.suggestions, null, 2);
+        }
+      }, loadingDelayed + 1500);
+    }
+    else {
+      this.suggestions = fetchSuggestions(e.detail);
+
+      const suggestionsDemoPreElement = document.getElementById('suggestions-demo');
+      if (suggestionsDemoPreElement) {
+        suggestionsDemoPreElement.textContent = JSON.stringify(this.suggestions, null, 2);
+      }
     }
   },
   onSelect,
@@ -36,6 +48,15 @@ storiesOfAutosuggest<TemplateResult>(
   },
   {
     autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
+      <label for="autosuggestInputId">Label voor input</label>
+      ${autosuggestTemplate(
+        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),
+        html`
+          <input id="autosuggestInputId" type="text" class="form-control">
+        `)}
+      <pre id="suggestions-demo">[]</pre>
+    `,
+    autosuggestLoadingDelayedTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
       <label for="autosuggestInputId">Label voor input</label>
       ${autosuggestTemplate(
         autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),
