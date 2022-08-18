@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **react** React Storybook: Bij Date Picker worden de actions niet getoond ([#1664](https://github.com/dso-toolkit/dso-toolkit/issues/1664))
+
 ## 43.0.0
 ### Changed
 * **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657))\
@@ -17,7 +20,6 @@ het element `.dso-document-list-item` omvat het hele item (heading + content). W
 `.dso-document-header-type` en `.dso-document-header-owner` horen nu in een `.dso-document-header-owner-wrapper` te staan. Eventuele badges horen nu in een `.dso-document-header-badges` te staan
 * **core** Pagination prev/next button niet tonen als `current-page` out of bounds of undefined is ([#1680](https://github.com/dso-toolkit/dso-toolkit/issues/1680))
 * **core** Ozon Content: In Storybook markeren als "verwijderd" verschuift de elementen ([#1658](https://github.com/dso-toolkit/dso-toolkit/issues/1658))
-* **react** React Storybook: Bij Date Picker worden de actions niet getoond ([#1664](https://github.com/dso-toolkit/dso-toolkit/issues/1664))
 
 ### Added
 * **dso-toolkit** Helpcentrum voorbeeldpagina's ([#1455](https://github.com/dso-toolkit/dso-toolkit/issues/1455))
