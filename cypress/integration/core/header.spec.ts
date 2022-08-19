@@ -69,25 +69,26 @@ describe("Header", () => {
     cy.checkA11y("dso-header");
   });
 
-  it("should show/remove dropdownmenu", () => {
-    cy.get("dso-header").shadow().find("nav").should("be.visible");
-    cy.get("dso-header")
-      .shadow()
-      .find(".dropdown dso-dropdown-menu")
-      .should("not.exist");
-    cy.viewport(991, 600);
-    cy.get("dso-header").shadow().find("nav").should("not.exist");
-    cy.get("dso-header")
-      .shadow()
-      .find(".dropdown dso-dropdown-menu")
-      .should("be.visible");
-    cy.viewport(992, 600);
-    cy.get("dso-header").shadow().find("nav").should("be.visible");
-    cy.get("dso-header")
-      .shadow()
-      .find(".dropdown dso-dropdown-menu")
-      .should("not.exist");
-  });
+  // https://github.com/dso-toolkit/dso-toolkit/issues/1717
+  // it("should show/remove dropdownmenu", () => {
+  //   cy.get("dso-header").shadow().find("nav").should("be.visible");
+  //   cy.get("dso-header")
+  //     .shadow()
+  //     .find(".dropdown dso-dropdown-menu")
+  //     .should("not.exist");
+  //   cy.viewport(991, 600);
+  //   cy.get("dso-header").shadow().find("nav").should("not.exist");
+  //   cy.get("dso-header")
+  //     .shadow()
+  //     .find(".dropdown dso-dropdown-menu")
+  //     .should("be.visible");
+  //   cy.viewport(992, 600);
+  //   cy.get("dso-header").shadow().find("nav").should("be.visible");
+  //   cy.get("dso-header")
+  //     .shadow()
+  //     .find(".dropdown dso-dropdown-menu")
+  //     .should("not.exist");
+  // });
 
   it("should show/remove overflowmenu", () => {
     cy.visit(
