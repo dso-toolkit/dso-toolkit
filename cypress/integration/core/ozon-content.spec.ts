@@ -369,4 +369,28 @@ describe("Ozon Content", () => {
       .invoke('removeAttr', 'interactive')
       .and('have.css', 'text-decoration-line', 'none');
   });
+
+  it('should render Figuur as dso-image-overlay', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--figuur');
+
+    cy.get('dso-ozon-content')
+      .invoke('attr', 'content', `
+        <Figuur
+          eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+        >
+          <Titel>Afbeelding Titel</Titel>
+          <Illustratie
+            naam="https://www.dso-toolkit.nl/master/docs/images/global.jpg"
+            alt="Afbeelding 1"
+          />
+          <Bijschrift>Bijschrift bij het figuur.</Bijschrift>
+          <Bron>Bron waaruit het figuur is overgenomen</Bron>
+        </Figuur>
+      `)
+      .get('dso-ozon-content')
+      .find('dso-image-overlay')
+      .find('img[src = "https://www.dso-toolkit.nl/master/docs/images/global.jpg"][alt = "Afbeelding Titel"]')
+      .should('exist');
+  });
 });
