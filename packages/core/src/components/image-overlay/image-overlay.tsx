@@ -1,4 +1,5 @@
 import { Component, ComponentInterface, Element, forceUpdate, h, Host, State } from "@stencil/core";
+import debounce from 'debounce';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 
 @Component({
@@ -16,34 +17,88 @@ export class ImageOverlay implements ComponentInterface {
   @State()
   focused = false;
 
+  @State()
+  zoomable = false;
+
   buttonElement: HTMLButtonElement | undefined;
-  
+
   wrapperElement: HTMLDivElement | undefined;
 
   trap: FocusTrap | undefined;
 
   private mutationObserver?: MutationObserver;
 
+  private resizeObserver = new ResizeObserver(debounce(() => {
+    const imgElement = this.host.querySelector('img');
+
+    if (imgElement instanceof HTMLImageElement) {
+      this.isImageZoomable(imgElement);
+    }
+  }, 200));
+
   componentDidLoad() {
-    this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
+    this.mutationObserver = new MutationObserver((e) => {
+      forceUpdate(this.host);
+
+      if (e[0]?.type === 'childList') {
+        // <img> is gone or a new element.
+        this.initZoomableImage();
+      }
+    });
+
     this.mutationObserver.observe(this.host, {
       attributes: true,
-      subtree: true
+      subtree: true,
+      attributeFilter: ['src', 'alt'],
+      childList: true,
     });
+
+    this.initZoomableImage();
   }
 
   disconnectedCallback() {
     this.trap?.deactivate();
     this.mutationObserver?.disconnect();
+    this.resizeObserver.disconnect();
+  }
+
+  initZoomableImage(): void {
+    this.resizeObserver.disconnect();
+
+    const imgElement = this.host.querySelector('img');
+
+    if (!(imgElement instanceof HTMLImageElement)) {
+      return;
+    }
+
+    imgElement.onload = (event) => {
+      if (event.target instanceof HTMLImageElement) {
+        this.isImageZoomable(event.target);
+      }
+    };
+
+    // Due to timing issues where the image is loaded before we can listen to onload we double check if the image is already complete.
+    if (imgElement.complete) {
+      this.isImageZoomable(imgElement);
+    }
+
+    this.resizeObserver.observe(imgElement);
+  }
+
+  isImageZoomable(imageElement: HTMLImageElement): void {
+    const { width, naturalWidth, height, naturalHeight } = imageElement;
+
+    this.zoomable = width < naturalWidth || height < naturalHeight;
   }
 
   render() {
     const { src, alt } = this.host.querySelector('img') ?? {};
 
     return (
-      <Host tabindex={this.focused ? -1 : 0} onFocus={() => {
-        this.buttonElement?.focus();
-      }}>
+      <Host
+        tabindex={this.focused || !this.zoomable ? -1 : 0}
+        onFocus={() => this.buttonElement?.focus()}
+      >
         {this.active && src && alt && (
           <div class="dimmer" ref={element => this.wrapperElement = element}>
             <div class="wrapper">
@@ -56,17 +111,19 @@ export class ImageOverlay implements ComponentInterface {
           </div>
         )}
         <slot />
-        <button
-          type="button"
-          class="open"
-          ref={element => this.buttonElement = element}
-          onClick={() => this.active = true}
-          onFocus={() => this.focused = true}
-          onBlur={() => this.focused = false}
-        >
-          <dso-icon icon="external-link"></dso-icon>
-          <span>Afbeelding vergroot weergeven</span>
-        </button>
+        {this.zoomable && (
+          <button
+            type="button"
+            class="open"
+            ref={element => this.buttonElement = element}
+            onClick={() => this.active = true}
+            onFocus={() => this.focused = true}
+            onBlur={() => this.focused = false}
+          >
+            <dso-icon icon="external-link"></dso-icon>
+            <span>Afbeelding vergroot weergeven</span>
+          </button>
+        )}
       </Host>
     );
   }
