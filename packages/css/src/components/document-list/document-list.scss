@@ -68,7 +68,7 @@ dso-responsive-element[large] > .dso-document-list {
       a {
         align-self: flex-end;
         display: inline-flex;
-        white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
+        white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- no link wrapping
       }
     }
   }
