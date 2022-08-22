@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **react** React Storybook: Bij Date Picker worden de actions niet getoond ([#1664](https://github.com/dso-toolkit/dso-toolkit/issues/1664))
+* **core + css:** Gebruiker kan tekstgrootte niet wijzigen dmv browser-instellingen (WCAG SC 1.4.4) ([#1647](https://github.com/dso-toolkit/dso-toolkit/issues/1647))
+* **css + sources:** Als de tekst te lang is dan loopt ie over de 'Hele document bekijken'-knop heen ([#1652](https://github.com/dso-toolkit/dso-toolkit/issues/1652))
 
 ## 43.0.0
 ### Changed

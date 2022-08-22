@@ -11,7 +11,7 @@ export const documentListContent: DocumentList<DocumentListItemStatusDemoContent
           status: "warning",
           message: "Ontwerp",
         },
-        date: 'Bekendgemaakt 01-03-2021'
+        date: 'Bekendgemaakt 01-03-2021 dfgdfgd dfgdfgdfg dfgdfgdfg dfgdfgd dfgdfgdg dfgdfgdfg sdfsdfsdfsdfsdf sdfsdfsdfsdfsdf sdfsdfsdfsdfsdf'
       }
     },
     {

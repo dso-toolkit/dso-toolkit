@@ -40,8 +40,7 @@
   }
 }
 
-
-dso-responsive-element[small] > .dso-document-list {
+dso-responsive-element:not([large]) > .dso-document-list {
   .dso-document-list-item-container {
     @include clearfix();
   }
@@ -55,16 +54,27 @@ dso-responsive-element[small] > .dso-document-list {
   }
 }
 
-dso-responsive-element:not([small]) > .dso-document-list {
+dso-responsive-element[large] > .dso-document-list {
   .dso-document-list-item {
     &-status {
+      display: flex;
       margin: 0;
+
+      .dso-badge {
+        align-self: flex-start;
+        display: inline-flex;
+      }
+
+      a {
+        align-self: flex-end;
+        display: inline-flex;
+        white-space: nowrap;
+      }
     }
   }
 
   .dso-document-list-item-open-document {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    display: inline-flex;
+    margin-left: auto;
   }
 }
