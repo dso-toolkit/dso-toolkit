@@ -374,7 +374,7 @@ describe("Ozon Content", () => {
     cy.visit('http://localhost:56106/iframe.html?id=ozon-content--figuur');
 
     cy.get('dso-ozon-content')
-      .invoke('attr', 'content', `
+      .invoke('prop', 'content', `
         <Figuur
           eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
           wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
@@ -389,8 +389,11 @@ describe("Ozon Content", () => {
         </Figuur>
       `)
       .get('dso-ozon-content')
-      .find('dso-image-overlay')
-      .find('img[src = "https://www.dso-toolkit.nl/master/docs/images/global.jpg"][alt = "Afbeelding Titel"]')
-      .should('exist');
+      .find('dso-image-overlay > img')
+      .should('have.attr', 'src', 'https://www.dso-toolkit.nl/master/docs/images/global.jpg')
+      .and('have.attr', 'alt', 'Afbeelding Titel')
+      .and('not.have.attr', 'height', 'width')
+      .get('dso-ozon-content .figuur-bijschrift')
+      .should('have.text', 'Bijschrift bij het figuur.');
   });
 });

@@ -80,14 +80,9 @@ span[role="paragraph"] {
   text-align: right;
 }
 
-.od-Figuur img {
-  max-width: 100%;
-  height: auto;
-}
-
-.od-Figuur .od-Bijschrift {
+.dso-ozon-figuur .figuur-bijschrift {
+  display: block;
   font-size: 0.75rem;
-  margin-left: 25px;
   padding-bottom: 2.5rem;
 }
 

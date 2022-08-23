@@ -11,19 +11,25 @@ export class OzonContentFiguurNode implements OzonContentNode {
   render(node: Element) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find(n => getNodeName(n) === 'Titel')?.textContent;
+    const bijschrift = childNodes.find(n => getNodeName(n) === 'Bijschrift')?.textContent;
 
     const illustratieNode = childNodes.find(n => getNodeName(n) === 'Illustratie');
 
     if (illustratieNode instanceof Element) {
       return (
-        <dso-image-overlay>
-          <img
-            src={illustratieNode.getAttribute('naam') ?? undefined}
-            alt={titel ?? illustratieNode.getAttribute('alt') ?? illustratieNode.getAttribute('naam') ?? undefined}
-            height={illustratieNode.getAttribute('hoogte') ?? undefined}
-            width={illustratieNode.getAttribute('breedte') ?? undefined}
-          />
-        </dso-image-overlay>
+        <div class="dso-ozon-figuur">
+          <dso-image-overlay>
+            <img
+              src={illustratieNode.getAttribute('naam') ?? undefined}
+              alt={titel ?? illustratieNode.getAttribute('alt') ?? illustratieNode.getAttribute('naam') ?? undefined}
+              height={illustratieNode.getAttribute('hoogte') ?? undefined}
+              width={illustratieNode.getAttribute('breedte') ?? undefined}
+            />
+          </dso-image-overlay>
+          {bijschrift && (
+            <span class="figuur-bijschrift">{bijschrift}</span>
+          )}
+        </div>
       );
     }
   }
