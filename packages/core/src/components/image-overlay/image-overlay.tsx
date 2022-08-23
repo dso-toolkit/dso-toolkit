@@ -32,7 +32,7 @@ export class ImageOverlay implements ComponentInterface {
     const imgElement = this.host.querySelector('img');
 
     if (imgElement instanceof HTMLImageElement) {
-      this.isImageZoomable(imgElement);
+      this.setZoomable(imgElement);
     }
   }, 200));
 
@@ -41,6 +41,7 @@ export class ImageOverlay implements ComponentInterface {
       forceUpdate(this.host);
 
       if (e[0]?.type === 'childList') {
+        this.resizeObserver.disconnect();
         // <img> is gone or a new element.
         this.initZoomableImage();
       }
@@ -63,29 +64,27 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   initZoomableImage(): void {
-    this.resizeObserver.disconnect();
-
     const imgElement = this.host.querySelector('img');
 
     if (!(imgElement instanceof HTMLImageElement)) {
       return;
     }
 
-    imgElement.onload = (event) => {
+    imgElement.addEventListener('load', event => {
       if (event.target instanceof HTMLImageElement) {
-        this.isImageZoomable(event.target);
+        this.setZoomable(event.target);
       }
-    };
+    });
 
     // Due to timing issues where the image is loaded before we can listen to onload we double check if the image is already complete.
     if (imgElement.complete) {
-      this.isImageZoomable(imgElement);
+      this.setZoomable(imgElement);
     }
 
     this.resizeObserver.observe(imgElement);
   }
 
-  isImageZoomable(imageElement: HTMLImageElement): void {
+  setZoomable(imageElement: HTMLImageElement): void {
     const { width, naturalWidth, height, naturalHeight } = imageElement;
 
     this.zoomable = width < naturalWidth || height < naturalHeight;
