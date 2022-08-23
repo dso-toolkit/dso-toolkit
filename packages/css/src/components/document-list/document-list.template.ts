@@ -25,12 +25,14 @@ function documentListItemTemplate({
         <div class="dso-document-list-item-container">
           <p class="dso-document-list-item-type">${type}</p>
           <p class="dso-document-list-item-owner">${owner}</p>
-          <p class="dso-document-list-item-status">${status}</p>
-          ${anchorTemplate({
-            url: "#",
-            label: "Hele document bekijken",
-            modifier: "dso-document-list-item-open-document",
-          })}
+          <p class="dso-document-list-item-status">
+            ${status}
+            ${anchorTemplate({
+              url: "#",
+              label: "Hele document bekijken",
+              modifier: "dso-document-list-item-open-document",
+            })}
+          </p>
         </div>
       </div>
       <div class="dso-document-list-item-content">

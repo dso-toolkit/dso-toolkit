@@ -8,6 +8,8 @@
   .dso-document-list-item-heading {
     background-color: $grijs-5;
     padding: $grid-gutter-width * 0.5;
+    float: left;
+    width: 100%;
 
     a {
       color: $zwart;
@@ -41,13 +43,13 @@
 }
 
 
+.dso-document-list-item-open-document {
+  float: right;
+}
+
 dso-responsive-element[small] > .dso-document-list {
   .dso-document-list-item-container {
     @include clearfix();
-  }
-
-  .dso-document-list-item-open-document {
-    float: right;
   }
 
   .dso-document-list-item-status {
@@ -60,11 +62,5 @@ dso-responsive-element:not([small]) > .dso-document-list {
     &-status {
       margin: 0;
     }
-  }
-
-  .dso-document-list-item-open-document {
-    position: absolute;
-    right: 0;
-    bottom: 0;
   }
 }
