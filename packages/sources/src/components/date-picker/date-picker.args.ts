@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 import { HandlerFunction } from '@storybook/addon-actions';
 import { DatePicker } from './date-picker.models';
 
@@ -8,8 +8,8 @@ export interface DatePickerArgs {
   onDateChange: HandlerFunction;
   direction?: string;
   value?: string;
-  min?: number;
-  max?: number;
+  min?: string;
+  max?: string;
   disabled: boolean;
   autofocus: boolean;
 }

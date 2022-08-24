@@ -7,25 +7,19 @@
     ]
   },
   "scripts": {
-    "bs": "yarn workspace @dso-toolkit/sources build",
     "postinstall": "patch-package",
     "lint": "stylelint --cache 'packages/**/*.scss'",
-    "build": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
+    "build": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
     "test": "yarn workspace dso-toolkit smoke-test && yarn workspace dso-toolkit test",
-    "build-www": "yarn workspace @dso-toolkit/css build-www && yarn workspace @dso-toolkit/core build-www && yarn workspace @dso-toolkit/react build-www",
-    "e2e": "yarn e2e:core && yarn e2e:css",
-    "e2e:core": "start-server-and-test 'http-server --silent --port 56106 packages/core/www' http://localhost:56106 'cypress run --config integrationFolder=\"cypress/integration/core\"'",
-    "e2e:css": "start-server-and-test 'http-server --silent --port 56206 packages/css/www' http://localhost:56206 'cypress run --config integrationFolder=\"cypress/integration/css\"'",
+    "build-www": "yarn workspace @dso-toolkit/storybook build && yarn workspace @dso-toolkit/react build-www",
+    "e2e": "start-server-and-test 'http-server --silent --port 45000 packages/storybook/www' http://localhost:45000 'cypress run'",
     "percy": "percy snapshot packages/dso-toolkit/dist/library",
     "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
-    "fractal": "yarn workspace @dso-toolkit/sources build && yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=fractal yarn node scripts/fractal.js",
+    "fractal": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=fractal yarn node scripts/fractal.js",
     "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom",
-    "start:core": "yarn node scripts/start.js --mode core",
-    "start:react": "yarn node scripts/start.js --mode react",
-    "start:css": "yarn node scripts/start.js --mode css",
+    "start": "yarn node scripts/start.js",
     "start:leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=leaflet yarn node scripts/start.js --mode leaflet",
-    "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=react-leaflet yarn node scripts/start.js --mode react-leaflet",
-    "start:all": "yarn node scripts/start.js --mode all"
+    "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=react-leaflet yarn node scripts/start.js --mode react-leaflet"
   },
   "dependencies": {
     "@infoprojects/stylelint-config-scss": "^0.2.0",

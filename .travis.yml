@@ -35,9 +35,8 @@ jobs:
           paths:
             - packages/core/dist
             - packages/core/loader
-            - packages/core/www
             - packages/css/dist
-            - packages/css/www
+            - packages/storybook/www
             - packages/dso-toolkit/dist
             - packages/dso-toolkit/hydrate
             - packages/dso-toolkit/libs/@dso-toolkit
@@ -56,8 +55,7 @@ jobs:
       workspaces:
         use: build-artifacts
       script:
-        - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/css/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/css.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
-        - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/core/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/core.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
+        - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
@@ -78,8 +76,7 @@ jobs:
         yarn workspace @dso-toolkit/core npm publish --access public &&
         yarn workspace @dso-toolkit/react npm publish --access public &&
         yarn workspace dso-toolkit npm publish --access public &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/css/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/css.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/core/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/core.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/library/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&

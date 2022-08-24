@@ -1,5 +1,5 @@
 import { HandlerFunction } from '@storybook/addon-actions';
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { Pagination } from './pagination.models';
 

@@ -10,7 +10,7 @@ Per component is er een model (TypeScript interface). Dit is een technische repr
 
 ## Stories
 
-Per component wordt een story definitie voor Storybook bijgehouden. Deze worden geschreven in TypeScript en gebundled met `microbundle`. Implementerende Storybooks blijven hierdoor dezelfde structuur aanbieden.
+Per component wordt een story definitie voor Storybook bijgehouden. Deze worden geschreven in TypeScript. Implementerende Storybooks blijven hierdoor dezelfde structuur aanbieden.
 
 ## Styling
 

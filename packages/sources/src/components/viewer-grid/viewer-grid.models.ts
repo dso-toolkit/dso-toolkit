@@ -1,4 +1,4 @@
-import { DefinitionList, Label, Tile } from "../..";
+import { Label } from "../..";
 
 export interface ViewerGrid<TemplateFnReturnType> {
   filterpanel?: TemplateFnReturnType;

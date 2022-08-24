@@ -9,4 +9,5 @@ export * from './models/form-group-select.model';
 export * from './models/form-group-static.model';
 export * from './models/form-group-textarea.model';
 export * from './models/form-group.base-model';
+export * from './models/form-group.model';
 export * from './models/form.model';

@@ -7,7 +7,7 @@ import { DsoDatePicker } from '../..';
 export function datePickerTemplate({ id, onDateChange, value, min, max, disabled, autofocus, direction }: DatePicker) {
   return (
     <DsoDatePicker
-      dateChange={(e: CustomEvent<DsoDatePickerChangeEvent>) => onDateChange(e)}
+      dateChange={(e: CustomEvent<DsoDatePickerChangeEvent>) => onDateChange?.(e)}
       identifier={id}
       direction={direction}
       value={value}

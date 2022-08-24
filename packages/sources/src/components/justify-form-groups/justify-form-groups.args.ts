@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { content } from './justify-form-groups.content';
 
@@ -10,6 +10,6 @@ export interface JustifyFormGroupsArgs {
 export const justifyFormGroupsArgTypes: ArgTypes<JustifyFormGroupsArgs> = {
 };
 
-export function justifyFormGroupsArgsMapper(a: JustifyFormGroupsArgs): JustifyFormGroups<any> {
+export function justifyFormGroupsArgsMapper(_a: JustifyFormGroupsArgs): JustifyFormGroups<any> {
   return content;
 }

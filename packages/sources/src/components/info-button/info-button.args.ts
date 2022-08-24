@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 import { HandlerFunction } from '@storybook/addon-actions';
 import { InfoButton } from './info-button.models';
 

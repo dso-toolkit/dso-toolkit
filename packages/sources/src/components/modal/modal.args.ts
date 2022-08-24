@@ -1,4 +1,4 @@
-import { ArgTypes, noControl } from '../../stories-helpers';
+import { ArgTypes, noControl } from '../../storybook';
 
 import { Button } from '../button/button.models';
 import { ProgressIndicator } from '../progress-indicator/progress-indicator.models';

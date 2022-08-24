@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 import { Icon } from './icon.models';
 
 export interface IconArgs {

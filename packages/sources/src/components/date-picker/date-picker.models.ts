@@ -1,10 +1,10 @@
 export interface DatePicker {
   id?: string;
-  onDateChange: (e: CustomEvent) => void;
+  onDateChange?: (e: CustomEvent) => void;
   direction?: string;
   value?: string;
-  min?: number;
-  max?: number;
+  min?: string;
+  max?: string;
   disabled: boolean;
   autofocus?: boolean;
 }

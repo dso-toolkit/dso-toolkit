@@ -1,5 +1,5 @@
 import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes, noControl } from "../../stories-helpers";
+import { ArgTypes, noControl } from "../../storybook";
 
 import { OzonContent } from "./ozon-content.models";
 

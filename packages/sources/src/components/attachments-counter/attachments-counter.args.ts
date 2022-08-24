@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 import { AttachmentsCounter } from './attachments-counter.models';
 
 export interface AttachmentsCounterArgs {

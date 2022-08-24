@@ -101,57 +101,25 @@ yarn fractal
 Fractal is started at http://localhost:43000/, Stencil is running on http://localhost:53333. See the [Fractal guide](https://fractal.build/) for more information on Fractal.
 
 #### `development`
+
 This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/sources` (`/packages/sources`). All the implementations have a devDependency on `@dso-toolkit/sources`.
 
 The easiest way to start this environment is with one of the following commands:
 
 ```
-yarn start:core
-yarn start:react
-yarn start:css
-yarn start:all
+yarn start
+yarn start --react
+yarn start --all
 ```
 
 This will start `@dso-toolkit/sources` in watch mode and run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
 
 The following processes are started:
-* **core**: `@dso-toolkit/sources` in watch mode, Stencil in development mode for Web Components, and Storybook
-* **react**: `@dso-toolkit/sources` in watch mode, Stencil in watch mode for production, and Storybook for React components
-* **css**: `@dso-toolkit/sources` in watch mode, Gulp in watch mode for the SVG spritesheet, dart-sass in watch mode for CSS compilation, and Storybook
+* **default**: CSS in watch mode, Stencil in watch mode, Storybook and Cypress
+* **--react**: CSS in watch mode, Stencil in watch mode, Storybook for React components
+* **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React components
 
-Alternatively, you can start a specific implementation with:
-
-```
-yarn workspace @dso-toolkit/core start
-yarn workspace @dso-toolkit/react start
-yarn workspace @dso-toolkit/css start
-```
-
-but then you need to make sure that `@dso-toolkit/sources` is running in watch mode or already built:
-
-```
-yarn workspace @dso-toolkit/sources start
-yarn workspace @dso-toolkit/sources build
-```
-
-In case of starting a framework binding package you also need to make sure that `@dso-toolkit/core` is built:
-
-```
-yarn workspace @dso-toolkit/core build
-```
-
-#### `cypress`
-To write tests the following processes are started:
-
-* Stencil, in prod mode
-* Storybook, in cypress mode
-* Cypress GUI
-
-```
-yarn workspace @dso-toolkit/core cypress
-```
-
-This will start Stencil on http://localhost:53333, Storybook on http://localhost:56106 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
+This will start Stencil on http://localhost:53333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
 #### `leaflet`
 
@@ -162,7 +130,7 @@ yarn start:leaflet
 yarn start:react-leaflet
 ```
 
-This will start Stencil (http://localhost:53333) and Storybook (http://localhost:56106) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234 or the React Leaflet development environment on http://localhost:42345.
+This will start Stencil (http://localhost:53333) and Storybook (http://localhost:45000) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234 or the React Leaflet development environment on http://localhost:42345.
 
 ## Requirements
 Node 16. For development on the DSO Toolkit you also need Yarn.
@@ -192,6 +160,5 @@ Ports used during development:
 * 42345 - React Leaflet plugins dev app
 * 43000 - Fractal
 * 53333 - Stencil
-* 56106 - Storybook for Web Components
-* 56206 - Storybook for CSS components
+* 45000 - Storybook for HTML/CSS + Web Components
 * 56406 - Storybook for React components

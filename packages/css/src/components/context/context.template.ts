@@ -1,4 +1,3 @@
-// Keep in sync with packages\core\src\components\context\context.template.ts (https://github.com/dso-toolkit/dso-toolkit/issues/1438)
 import { Context } from '@dso-toolkit/sources';
 
 import { html, TemplateResult } from 'lit-html';

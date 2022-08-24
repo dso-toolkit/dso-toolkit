@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../stories-helpers";
+import { ArgTypes } from "../../storybook";
 import { HelpcenterPanel } from "./helpcenter-panel.models";
 
 export interface HelpcenterPanelArgs {
@@ -7,7 +7,7 @@ export interface HelpcenterPanelArgs {
   url: string;
 }
 
-export const HelpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
+export const helpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
   content: {
     table: {
       disable: true,

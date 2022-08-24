@@ -3,6 +3,8 @@ import { html, nothing, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
+import { datePickerTemplate } from '@dso-toolkit/core/src/components/date-picker/date-picker.template';
+
 import { infoButtonTemplate } from '../../../info-button/info-button.template';
 import { infoTemplate } from '../../../info/info.template';
 import { iconTemplate } from '../../../icon/icon.template';
@@ -38,13 +40,13 @@ export function formGroupInputTemplate(formGroup: FormGroupInput<TemplateResult>
       <div class="dso-field-container">
         ${formGroup.type === 'date'
           ? html`
-            <code>Zie markup, hier zijn geen Web Components actief</code><dso-date-picker
-              identifier=${formGroup.id}
-              min=${ifDefined(formGroup.min)}
-              max=${ifDefined(formGroup.max)}
-              value=${ifDefined(formGroup.value)}
-              ?disabled=${formGroup.disabled}
-            ></dso-date-picker>
+            ${datePickerTemplate({
+              id: formGroup.id,
+              disabled: !!formGroup.disabled,
+              min: formGroup.min,
+              max: formGroup.max,
+              value: formGroup.value
+            })}
           `
           : html`
             <input
