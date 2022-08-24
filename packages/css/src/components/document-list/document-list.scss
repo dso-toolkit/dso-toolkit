@@ -59,6 +59,10 @@ dso-responsive-element[small] > .dso-document-list {
 
 dso-responsive-element:not([small]) > .dso-document-list {
   .dso-document-list-item {
+    &-type {
+      margin-right: $u1;
+    }
+
     &-status {
       margin: 0;
     }
