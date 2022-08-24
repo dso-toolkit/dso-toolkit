@@ -22,8 +22,6 @@ export class OzonContentFiguurNode implements OzonContentNode {
             <img
               src={illustratieNode.getAttribute('naam') ?? undefined}
               alt={titel ?? illustratieNode.getAttribute('alt') ?? illustratieNode.getAttribute('naam') ?? undefined}
-              height={illustratieNode.getAttribute('hoogte') ?? undefined}
-              width={illustratieNode.getAttribute('breedte') ?? undefined}
             />
           </dso-image-overlay>
           {bijschrift && (

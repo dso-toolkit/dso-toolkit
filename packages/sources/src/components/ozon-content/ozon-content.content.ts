@@ -235,20 +235,11 @@ export const content = [
         >
           <Titel>Afbeelding Titel</Titel>
           <Illustratie
-            naam="https://nep-knooppunt-test.viewer.dso.kadaster.nl/publiek/omgevingsdocumenten/api/presenteren/v7/afbeeldingen/gm1979/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_nld_2/image1.png"
+            naam="images/houtkachel-of-open-haard-infographic.jpg"
             alt="Afbeelding 1"
           />
-          <Bijschrift>Bijschrift bij het figuur.</Bijschrift>
+          <Bijschrift>Bijschrift van het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
-        </Figuur>
-        <Figuur
-          eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
-          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
-        >
-          <Illustratie
-            naam="https://www.dso-toolkit.nl/43.0.0/docs/images/global.jpg"
-            alt="Afbeelding 2"
-          />
         </Figuur>
       </Inhoud>
     `,
