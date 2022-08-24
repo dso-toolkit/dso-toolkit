@@ -1,4 +1,4 @@
-import { ArgTypes, noControl } from '../../stories-helpers';
+import { ArgTypes, noControl } from '../../storybook';
 
 import { Tabs, TabsItem } from './tabs.models';
 

@@ -1,5 +1,4 @@
-import { HandlerFunction } from '@storybook/addon-actions';
-import { ArgTypes, noControl } from '../../../../stories-helpers';
+import { ArgTypes } from '../../../../storybook';
 
 import { files } from '../../content/files.content';
 

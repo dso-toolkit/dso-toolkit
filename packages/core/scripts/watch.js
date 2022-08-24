@@ -4,7 +4,7 @@ concurrently(
   [
     {
       name: 'stencil',
-      command: 'yarn bin_stencil build --prod --watch --serve --no-open',
+      command: 'yarn stencil build --prod --watch --serve --no-open',
       prefixColor: 'bgCyan'
     }
   ],

@@ -1,4 +1,3 @@
-// Keep in sync with packages\core\src\components\list\list.template.ts (https://github.com/dso-toolkit/dso-toolkit/issues/1438)
 import { List, Type } from '@dso-toolkit/sources';
 
 import { html, nothing, TemplateResult } from 'lit-html';

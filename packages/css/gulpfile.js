@@ -7,7 +7,6 @@ const cheerio = require('gulp-cheerio');
 const rename = require('gulp-rename');
 const ListStream = require('list-stream');
 const css = require('css');
-const indent = require('indent');
 const svgmin = require('gulp-svgmin');
 const log = require('fancy-log');
 
@@ -15,16 +14,28 @@ const distPath = 'dist';
 const dsoToolkitSourcesPath = path.resolve(__dirname, '../sources');
 const iconsPath = path.resolve(dsoToolkitSourcesPath, 'src/icons');
 
-gulp.task('build', gulp.parallel(createSvgSpritesheet, copyAssets));
+gulp.task('build', gulp.parallel(createSvgSpritesheet, copyAssets, compileScss));
 
-gulp.task('default', gulp.series(gulp.parallel(createSvgSpritesheet, copyAssets), watcher));
+gulp.task('default', gulp.series(gulp.parallel(createSvgSpritesheet, copyAssets, compileScss), watcher));
 
 function watcher() {
+  gulp.watch(['src/**/*.scss', '../sources/src/**/*.scss']).on('change', event => {
+    log('scss', event);
+
+    return compileScss();
+  });
+
   gulp.watch(`*.(svg|scss)`, { cwd: iconsPath }).on('all', function (event, path, stats) {
-    log('icons', event, path);
+    log('icons', event);
 
     return createSvgSpritesheet();
   });
+}
+
+function compileScss() {
+  return gulp.src('src/dso.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('dist'));
 }
 
 function copyAssets() {

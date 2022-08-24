@@ -16,14 +16,8 @@
         </h2>
         <ul id="storybook-links">
           <li class="dso-entity" data-role="item">
-            <a href="https://css.dso-toolkit.nl/" target="_blank" rel="noopener noreferrer" class="extern">
-              HTML/CSS Components
-              <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
-            </a>
-          </li>
-          <li class="dso-entity" data-role="item">
-            <a href="https://core.dso-toolkit.nl/" target="_blank" rel="noopener noreferrer" class="extern">
-              Web Components
+            <a href="https://storybook.dso-toolkit.nl/" target="_blank" rel="noopener noreferrer" class="extern">
+              HTML/CSS + Web Components
               <span class="sr-only">(Opent andere website in nieuw tabblad)</span>
             </a>
           </li>

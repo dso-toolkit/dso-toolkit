@@ -1,5 +1,5 @@
 import { HandlerFunction } from "@storybook/addon-actions";
-import { ArgTypes, noControl } from "../../stories-helpers";
+import { ArgTypes, noControl } from "../../storybook";
 import { Header } from "./header.models";
 
 export interface HeaderArgs {
@@ -21,7 +21,7 @@ export interface HeaderArgs {
   onHeaderClick: HandlerFunction;
 }
 
-export const HeaderArgTypes: ArgTypes<HeaderArgs> = {
+export const headerArgTypes: ArgTypes<HeaderArgs> = {
   logo: noControl,
   subLogo: noControl,
   showSubLogo: {

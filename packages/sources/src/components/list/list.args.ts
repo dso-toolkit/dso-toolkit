@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { List, ListItem, Type } from './list.models';
 

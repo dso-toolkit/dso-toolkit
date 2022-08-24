@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { ProgressBar } from './progress-bar.models';
 

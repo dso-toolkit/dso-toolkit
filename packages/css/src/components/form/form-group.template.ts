@@ -1,4 +1,4 @@
-import { FormGroup } from '@dso-toolkit/sources/dist/components/form/models/form-group.model';
+import { FormGroup } from '@dso-toolkit/sources';
 import { nothing, TemplateResult } from 'lit-html';
 
 import { formGroupCheckboxesTemplate } from './form-groups/checkboxes/form-group-checkboxes.template';

@@ -1,10 +1,8 @@
 import { HandlerFunction } from '@storybook/addon-actions';
-import { ArgTypes, noControl } from '../../../../stories-helpers';
+import { ArgTypes, noControl } from '../../../../storybook';
 import { v4 as uuidv4 } from 'uuid';
 
 import { FormGroupCheckboxes } from '../../form.models';
-
-import { Selectable } from '../../../selectable/selectable.models';
 
 export interface FormGroupCheckboxesArgs {
   id: string;

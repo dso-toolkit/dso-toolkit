@@ -12,7 +12,6 @@
     "moduleResolution": "node"
   },
   "include": [
-    "node_modules/microbundle/index.d.ts",
     "src"
   ],
   "exclude": [

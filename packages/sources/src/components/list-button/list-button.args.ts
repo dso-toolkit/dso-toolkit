@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { InputNumber } from '../input-number/input-number.models';
 

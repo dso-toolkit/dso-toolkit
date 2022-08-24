@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { LinkList, LinkListType } from './link-list.models';
 import { Anchor } from '../anchor/anchor.models';

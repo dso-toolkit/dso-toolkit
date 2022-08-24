@@ -1,4 +1,3 @@
-// Keep in sync with packages\core\src\components\definition-list\definition-list.template.ts (https://github.com/dso-toolkit/dso-toolkit/issues/1438)
 import { Definition, DefinitionList, DefinitionDescriptionContent, DefinitionDescriptionItems } from '@dso-toolkit/sources';
 
 import { html, TemplateResult } from 'lit-html';

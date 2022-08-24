@@ -20,9 +20,7 @@
   "scripts": {
     "start": "yarn node scripts/run.js --start",
     "watch": "yarn node scripts/run.js --watch",
-    "build": "yarn node scripts/run.js --build",
-    "bin_klap": "klap",
-    "bin_sass": "sass"
+    "build": "yarn node scripts/run.js --build"
   },
   "dependencies": {
     "lit-html": "^2.2.2"

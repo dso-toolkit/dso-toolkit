@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **core + css:** De HTML/CSS Storybook en Core Storybook zijn gefuseerd. ([#1438](https://github.com/dso-toolkit/dso-toolkit/issues/1438))
+
 ## 43.1.0
 
 ### Added

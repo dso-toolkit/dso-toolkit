@@ -1,6 +1,6 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes, noControl } from "../../stories-helpers";
+import { ArgTypes, noControl } from "../../storybook";
 
 export interface ViewerGridArgs {
   overlayOpen: boolean;

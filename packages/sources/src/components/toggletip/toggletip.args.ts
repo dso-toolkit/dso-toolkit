@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../stories-helpers";
+import { ArgTypes } from "../../storybook";
 
 import { Toggletip } from "./toggletip.models";
 import { tooltipPositions } from "../tooltip/tooltip.models";

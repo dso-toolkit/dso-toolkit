@@ -1,4 +1,4 @@
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 import { content } from './content/form.content';
 
 import { Form } from './form.models';

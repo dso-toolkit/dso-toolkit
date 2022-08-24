@@ -1,4 +1,9 @@
 module.exports = {
+  staticDirs: [
+    '../../sources/storybook-assets',
+    '../../css/dist',
+    { from: '../../core/dist', to: '/core' }
+  ],
   features: {
     // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
     postcss: false
@@ -17,25 +22,18 @@ module.exports = {
   stories: [
     '../src/**/*.stories.@(ts|tsx)'
   ],
-  previewHead: head => process.env.DSO_ENV === 'development' || process.env.DSO_ENV === 'production'
-    ? (`
-      ${head}
-      <link rel="stylesheet" href="./dso-toolkit/dso-toolkit.css" />
-      <script type="module" src="./dso-toolkit/dso-toolkit.esm.js"></script>
-      <script nomodule src="./dso-toolkit/dso-toolkit.js"></script> <!-- This path doesn't exist with Stencil 2.3.0 -->
-    `)
-    // Todo: Research loading like below
-    // <script type="module">
-    //   import { defineCustomElements } from './esm/loader.js';
-    //   defineCustomElements();
-    // </script>
-    : head,
+  previewHead: head => (`
+    ${head}
+    <link rel="stylesheet" href="dso.css">
+    <link rel="stylesheet" href="./core/dso-toolkit/dso-toolkit.css" />
+    <script type="module" src="./core/dso-toolkit/dso-toolkit.esm.js"></script>
+  `),
   previewBody: body => process.env.DSO_ENV === 'development'
-  ? (`
-    ${body}
-    <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
-  `)
-  : body,
+    ? (`
+      ${body}
+      <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>
+    `)
+    : body,
   webpackFinal: async (config, { configType }) => {
     // Remove annoying webpack build progress spamming the console. This only goes for build progress: everything else is still logged
     config.plugins = config.plugins.filter(({ constructor }) => constructor.name !== 'ProgressPlugin');
@@ -43,6 +41,6 @@ module.exports = {
     return config;
   },
   core: {
-    builder: "webpack5"
+    builder: 'webpack5'
   }
 };

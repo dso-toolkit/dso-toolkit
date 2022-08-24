@@ -1,6 +1,6 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 export interface AutosuggestArgs {
   suggestOnFocus: boolean;

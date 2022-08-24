@@ -4,14 +4,8 @@
   "main": "dist/dso.css",
   "private": true,
   "scripts": {
-    "start": "cross-env DSO_ENV=development yarn node scripts/run.js --start",
-    "watch": "cross-env DSO_ENV=development yarn node scripts/run.js --watch",
-    "build": "rimraf dist && gulp build && sass src/dso.scss dist/dso.css",
-    "build-www": "cross-env DSO_ENV=production yarn bin_build-storybook --static-dir ./dist,../sources/storybook-assets --output-dir ./www",
-    "bin_gulp": "gulp",
-    "bin_sass": "sass",
-    "bin_start-storybook": "start-storybook",
-    "bin_build-storybook": "build-storybook"
+    "watch": "rimraf dist && cross-env DSO_ENV=development gulp",
+    "build": "rimraf dist && gulp build"
   },
   "files": [
     "dist",
@@ -21,13 +15,6 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@dso-toolkit/sources": "workspace:packages/sources",
-    "@storybook/addon-a11y": "6.5.9",
-    "@storybook/addon-actions": "6.5.9",
-    "@storybook/addon-essentials": "6.5.9",
-    "@storybook/addons": "6.5.9",
-    "@storybook/builder-webpack5": "6.5.9",
-    "@storybook/manager-webpack5": "6.5.9",
-    "@storybook/web-components": "6.5.9",
     "@types/css": "^0.0.33",
     "@types/gulp": "^4.0.9",
     "@types/gulp-cheerio": "^0.0.34",
@@ -35,7 +22,6 @@
     "@types/gulp-sass": "^5.0.0",
     "@types/gulp-svgmin": "^1.2.1",
     "@types/list-stream": "^1.0.1",
-    "@whitespace/storybook-addon-html": "5.0.0",
     "babel-loader": "^8.2.5",
     "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
@@ -47,7 +33,6 @@
     "gulp-sass": "^5.1.0",
     "gulp-svgmin": "^4.1.0",
     "gulp-svgstore": "^8.0.0",
-    "indent": "^0.0.2",
     "list-stream": "^2.1.0",
     "lit-html": "^2.2.2",
     "minimist": "^1.2.6",

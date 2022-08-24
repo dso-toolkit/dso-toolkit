@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../stories-helpers";
+import { ArgTypes } from "../../storybook";
 import { images } from './image-overlay.content';
 import { ImageOverlay } from "./image-overlay.models";
 

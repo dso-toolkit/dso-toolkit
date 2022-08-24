@@ -2,31 +2,18 @@
   "name": "@dso-toolkit/sources",
   "version": "0.0.0",
   "private": true,
-  "main": "dist/sources.js",
+  "main": "src/index.ts",
   "source": "src/index.ts",
-  "module": "dist/sources.module.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "start": "yarn node scripts/start.js",
-    "build": "rimraf dist && microbundle",
-    "bin_rimraf": "rimraf",
-    "bin_microbundle": "microbundle"
-  },
-  "files": [
-    "dist"
-  ],
   "devDependencies": {
-    "@storybook/client-api": "6.5.9",
+    "@storybook/client-api": "6.5.10",
     "concurrently": "^7.1.0",
     "escape-string-regexp": "^5.0.0",
-    "microbundle": "^0.14.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "^3.0.2",
     "uuid": "^8.3.2"
   },
   "peerDependencies": {
-    "@storybook/addon-actions": "6.5.9",
-    "@storybook/addons": "6.5.9"
+    "@storybook/addon-actions": "6.5.10",
+    "@storybook/addons": "6.5.10"
   }
 }

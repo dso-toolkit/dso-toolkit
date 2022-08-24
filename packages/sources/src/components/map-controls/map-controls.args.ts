@@ -1,6 +1,6 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
-import { ArgTypes } from '../../stories-helpers';
+import { ArgTypes } from '../../storybook';
 
 import { baseLayers, overlays } from './map-controls.content';
 import { MapControls } from './map-controls.models';

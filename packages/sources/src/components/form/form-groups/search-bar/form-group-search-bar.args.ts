@@ -1,8 +1,6 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
-import { ArgTypes, noControl } from '../../../../stories-helpers';
-
-import { SearchBar } from '../../../search-bar/search-bar.models';
+import { ArgTypes, noControl } from '../../../../storybook';
 
 import { FormGroupSearchBar } from '../../form.models';
 

@@ -2,7 +2,6 @@ import { LinkList, LinkListType } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
 
 import { anchorTemplate } from '../anchor/anchor.template';
-import { highlightBoxTemplate } from '../highlight-box/highlight-box.template';
 
 function ul(children: TemplateResult) {
   return html`
@@ -46,21 +45,4 @@ export function linkListTemplate({ navLabel, type, links }: LinkList) {
   }
 
   return list;
-}
-
-export function inFooterTemplate(linkList: TemplateResult) {
-  return html`
-    <footer>
-      ${linkList}
-    </footer>
-  `;
-}
-
-export function inHighlightBoxTemplate(linkList: TemplateResult) {
-  return html`
-    ${highlightBoxTemplate({ richContent: linkList })}
-    ${highlightBoxTemplate({ richContent: linkList, yellow: true })}
-    ${highlightBoxTemplate({ richContent: linkList, border: true })}
-    ${highlightBoxTemplate({ richContent: linkList, dropShadow: true, white: true })}
-  `;
 }
