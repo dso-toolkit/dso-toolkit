@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, forceUpdate, h, Host, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, State } from "@stencil/core";
 import debounce from 'debounce';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 
@@ -28,20 +28,29 @@ export class ImageOverlay implements ComponentInterface {
 
   private mutationObserver?: MutationObserver;
 
-  private resizeObserver = new ResizeObserver(debounce(() => {
-    const imgElement = this.host.querySelector('img');
+  private resizeObserver?: ResizeObserver;
 
-    if (imgElement instanceof HTMLImageElement) {
-      this.setZoomable(imgElement);
+  @Listen('load', { capture: true })
+  loadListener(event: Event) {
+    if (event.target instanceof HTMLImageElement) {
+      this.setZoomable(event.target);
     }
-  }, 200));
+  }
 
   componentDidLoad() {
+    this.resizeObserver = new ResizeObserver(debounce(() => {
+      const imgElement = this.host.querySelector('img');
+
+      if (imgElement instanceof HTMLImageElement) {
+        this.setZoomable(imgElement);
+      }
+    }, 200));
+
     this.mutationObserver = new MutationObserver((e) => {
       forceUpdate(this.host);
 
       if (e[0]?.type === 'childList') {
-        this.resizeObserver.disconnect();
+        this.resizeObserver?.disconnect();
         // <img> is gone or a new element.
         this.initZoomableImage();
       }
@@ -60,7 +69,7 @@ export class ImageOverlay implements ComponentInterface {
   disconnectedCallback() {
     this.trap?.deactivate();
     this.mutationObserver?.disconnect();
-    this.resizeObserver.disconnect();
+    this.resizeObserver?.disconnect();
   }
 
   initZoomableImage(): void {
@@ -70,18 +79,12 @@ export class ImageOverlay implements ComponentInterface {
       return;
     }
 
-    imgElement.addEventListener('load', event => {
-      if (event.target instanceof HTMLImageElement) {
-        this.setZoomable(event.target);
-      }
-    });
-
-    // Due to timing issues where the image is loaded before we can listen to onload we double check if the image is already complete.
+    // Due to timing issues where the image is loaded before we listen to load events we double check if the image is already complete.
     if (imgElement.complete) {
       this.setZoomable(imgElement);
     }
 
-    this.resizeObserver.observe(imgElement);
+    this.resizeObserver?.observe(imgElement);
   }
 
   setZoomable(imageElement: HTMLImageElement): void {
