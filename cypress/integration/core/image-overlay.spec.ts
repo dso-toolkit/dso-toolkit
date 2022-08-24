@@ -58,6 +58,28 @@ describe("Image Overlay", () => {
     cy.get('body').realClick({ y: 50, x: 50 });
     cy.get('dso-image-overlay').shadow().find('.wrapper > img').should('not.exist');
   });
+
+  it('should only have overlay available if image is zoomable' , () => {
+    cy.get('dso-image-overlay')
+      .find('img')
+      .invoke('attr', 'src', 'images/houtkachel-of-open-haard-infographic.jpg')
+      .invoke('attr', 'width', 400)
+      .get('@open-button')
+      .should('exist')
+      .get('dso-image-overlay')
+      .find('img')
+      .invoke('removeAttr', 'width') // Image natural width is 720px;
+      .wait(100)
+      .get('@open-button')
+      .should('not.exist')
+      .wait(100)
+      .viewport(500, 750)
+      .get('dso-image-overlay')
+      .find('img')
+      .invoke('attr', 'style', 'max-width: 100%;')
+      .get('@open-button')
+      .should('exist');
+  });
 });
 
 function openOverlay() {
