@@ -16,19 +16,13 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
       setTimeout(() => {
         this.suggestions = fetchSuggestions(e.detail);
 
-        const suggestionsDemoPreElement = document.getElementById('suggestions-demo');
-        if (suggestionsDemoPreElement) {
-          suggestionsDemoPreElement.textContent = JSON.stringify(this.suggestions, null, 2);
-        }
+        processSuggestions(this.suggestions);
       }, loadingDelayed + 1500);
     }
     else {
       this.suggestions = fetchSuggestions(e.detail);
 
-      const suggestionsDemoPreElement = document.getElementById('suggestions-demo');
-      if (suggestionsDemoPreElement) {
-        suggestionsDemoPreElement.textContent = JSON.stringify(this.suggestions, null, 2);
-      }
+      processSuggestions(this.suggestions);
     }
   },
   onSelect,
@@ -40,6 +34,13 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
   notFoundLabel
 });
 
+const processSuggestions = (suggestions: any): void => {
+  const suggestionsDemoPreElement = document.getElementById('suggestions-demo');
+  if (suggestionsDemoPreElement) {
+    suggestionsDemoPreElement.textContent = JSON.stringify(suggestions, null, 2);
+  }
+};
+
 storiesOfAutosuggest<TemplateResult>(
   {
     module,
@@ -48,15 +49,6 @@ storiesOfAutosuggest<TemplateResult>(
   },
   {
     autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
-      <label for="autosuggestInputId">Label voor input</label>
-      ${autosuggestTemplate(
-        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),
-        html`
-          <input id="autosuggestInputId" type="text" class="form-control">
-        `)}
-      <pre id="suggestions-demo">[]</pre>
-    `,
-    autosuggestLoadingDelayedTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
       <label for="autosuggestInputId">Label voor input</label>
       ${autosuggestTemplate(
         autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),

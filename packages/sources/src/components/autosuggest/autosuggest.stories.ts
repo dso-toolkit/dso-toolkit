@@ -20,7 +20,6 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
 
 export interface AutosuggestParameters<TemplateFnReturnType> {
   autosuggestDemoTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
-  autosuggestLoadingDelayedTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
   autosuggestInSearchBarTemplate?: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
@@ -32,7 +31,6 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
   }: StorybookParameters,
   {
     autosuggestDemoTemplate,
-    autosuggestLoadingDelayedTemplate,
     autosuggestInSearchBarTemplate
   }: AutosuggestParameters<TemplateFnReturnType>
 ) {
@@ -56,23 +54,6 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
       return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
     }
   );
-
-  if (autosuggestLoadingDelayedTemplate) {
-    stories.add(
-      'loading delayed',
-      (a: Args | undefined) => {
-        if (!a) {
-          throw new ArgsError();
-        }
-
-        const args = a as AutosuggestArgs;
-
-        args.loadingDelayed = 1000;
-
-        return autosuggestLoadingDelayedTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
-      }
-    );
-  }
 
   if (autosuggestInSearchBarTemplate) {
     stories.add(

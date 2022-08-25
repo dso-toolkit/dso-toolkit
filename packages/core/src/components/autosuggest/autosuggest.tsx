@@ -142,7 +142,7 @@ export class Autosuggest {
   }, 200);
 
   debouncedShowLoading = debounce(() => {
-    if(this.inputValue) {
+    if (this.inputValue) {
       this.showLoading = true
     }
   }, this.loadingDelayed);

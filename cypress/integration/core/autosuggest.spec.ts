@@ -315,7 +315,7 @@ describe("Autosuggest", () => {
   });
 
   it('should delay progress indicator when loadingDelayed is set', () => {
-    cy.visit('http://localhost:56106/iframe.html?id=autosuggest--loading-delayed');
+    cy.visit("http://localhost:56106/iframe.html?id=autosuggest--example&args=loadingDelayed:1000");
     cy.get('@input').focus().type('ams')
       .wait(200)
       .get('dso-autosuggest').invoke('attr', 'loading', true)
