@@ -6,21 +6,13 @@ describe('Toggletip', () => {
   function prepareComponent() {
     cy
       .get('dso-toggletip')
-      .as('dsoToggletip');
-
-    cy
-      .get('@dsoToggletip')
+      .as('dsoToggletip')
       .shadow()
       .find('dso-info-button')
-      .as('dsoInfoButton');
-
-    cy
-      .get('@dsoInfoButton')
+      .as('dsoInfoButton')
       .shadow()
       .find('button')
-      .as('dsoButton');
-
-    cy
+      .as('dsoButton')
       .get('@dsoToggletip')
       .shadow()
       .find('dso-tooltip')
