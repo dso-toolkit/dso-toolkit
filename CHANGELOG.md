@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core + react + sources** `dso-autosuggest` vertraging op loading state ([#1625](https://github.com/dso-toolkit/dso-toolkit/issues/1625))
+* **core + sources:** Ozon Content `<Figuur>` omzetten naar `<dso-image-overlay>` ([#1659](https://github.com/dso-toolkit/dso-toolkit/issues/1659))
 
 ### Fixed
 * **sources:** Form Group Input Number: label lijnt niet met nummer ([#1672](https://github.com/dso-toolkit/dso-toolkit/issues/1672))
@@ -16,9 +17,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **core:** Afbeelding in dso-image-overlay alleen zoomable maken als de afbeelding niet in de container past ([#1695](https://github.com/dso-toolkit/dso-toolkit/issues/1695))
-
-### Added
-* **core:** Ozon Content `<Figuur>` omzetten naar `<dso-image-overlay>` ([#1659](https://github.com/dso-toolkit/dso-toolkit/issues/1659))
 
 ## 43.0.0
 ### Changed
