@@ -24,25 +24,7 @@ export class Toggletip {
   @Prop()
   secondary?: boolean;
 
-  infoButton!: HTMLDsoInfoButtonElement;
-
-  button!: HTMLButtonElement;
-
-  componentDidRender() {
-    const infoButton = this.host.shadowRoot?.querySelector("dso-info-button");
-    if (!infoButton) {
-      throw Error("dso-info-button not found");
-    }
-
-    this.infoButton = infoButton;
-
-    const button = this.infoButton?.shadowRoot?.querySelector("button");
-    if (!button) {
-      throw Error("button not found");
-    }
-
-    this.button = button;
-  }
+  infoButton?: HTMLDsoInfoButtonElement;
 
   click = () => {
     this.active ? this.close() : this.open();
@@ -69,7 +51,7 @@ export class Toggletip {
   keyDownListener = (event: KeyboardEvent) => {
     if (!event.defaultPrevented && event.key == "Escape") {
       this.close();
-      this.button.focus();
+      this.infoButton?.setFocus();
       event.preventDefault();
     }
 
@@ -85,6 +67,7 @@ export class Toggletip {
           label={this.label}
           active={this.active}
           secondary={this.secondary}
+          ref={element => this.infoButton = element}
         />
         <dso-tooltip
           stateless

@@ -170,6 +170,7 @@ export namespace Components {
         "active"?: boolean;
         "label": string;
         "secondary"?: boolean;
+        "setFocus": () => Promise<void>;
     }
     interface DsoLabel {
         "compact"?: boolean;
