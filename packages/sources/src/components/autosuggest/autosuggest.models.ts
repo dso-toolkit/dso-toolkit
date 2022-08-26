@@ -3,6 +3,7 @@ export interface Autosuggest {
   suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel?: string;
+  loadingDelayed?: number;
   notFoundLabel?: string;
   onChange: (value: CustomEvent<string>) => void;
   onSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;

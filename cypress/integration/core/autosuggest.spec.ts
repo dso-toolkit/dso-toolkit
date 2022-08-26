@@ -314,6 +314,19 @@ describe("Autosuggest", () => {
     cy.get("dso-progress-indicator").shadow().find(".dso-progress-indicator-label").should("exist").contains("Patience");
   });
 
+  it('should delay progress indicator when loadingDelayed is set', () => {
+    cy.visit("http://localhost:56106/iframe.html?id=autosuggest--example&args=loadingDelayed:1000");
+    cy.get('@input').focus().type('ams')
+      .wait(200)
+      .get('dso-autosuggest').invoke('attr', 'loading', true)
+      .get('dso-progress-indicator').should('not.exist')
+      .wait(1000)
+      .get('dso-progress-indicator').should('be.visible')
+      .wait(1500)
+      .get('dso-autosuggest').invoke('attr', 'loading', false)
+      .get('dso-progress-indicator').should('not.exist');
+  });
+
   it('should show not found text when no results are found', () => {
     cy.get('@input').focus().type('akjehfowef');
     cy.wait(200);

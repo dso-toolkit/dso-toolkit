@@ -36,6 +36,10 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * To delay progress indicator showing (in ms).
+         */
+        "loadingDelayed"?: number;
+        /**
           * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
@@ -531,6 +535,10 @@ declare namespace LocalJSX {
           * Shows progress indicator when fetching results.
          */
         "loading"?: boolean;
+        /**
+          * To delay progress indicator showing (in ms).
+         */
+        "loadingDelayed"?: number;
         /**
           * To override progress indicator's default loading label.
          */

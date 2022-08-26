@@ -62,6 +62,12 @@ export class Autosuggest {
   loadingLabel?: string = "Een moment geduld.";
 
   /**
+   * To delay progress indicator showing (in ms).
+   */
+  @Prop()
+  loadingDelayed?: number;
+
+  /**
    * To show text when no results are found.
    */
   @Prop()
@@ -105,6 +111,9 @@ export class Autosuggest {
   @State()
   notFound: boolean = false;
 
+  @State()
+  showLoading: boolean = false;
+
   @Watch('suggestions')
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
@@ -127,7 +136,16 @@ export class Autosuggest {
 
   labelId: string = v4();
 
-  debouncedEmitValue = debounce((value: string) => this.changeEmitter.emit(value), 200);
+  debouncedEmitValue = debounce((value: string) => {
+    this.changeEmitter.emit(value);
+    this.debouncedShowLoading();
+  }, 200);
+
+  debouncedShowLoading = debounce(() => {
+    if (this.inputValue) {
+      this.showLoading = true
+    }
+  }, this.loadingDelayed);
 
   inputValue: string = '';
 
@@ -136,6 +154,7 @@ export class Autosuggest {
       throw new Error("event.target is not instanceof HTMLInputElement");
     }
 
+    this.showLoading = !this.loadingDelayed;
     this.inputValue = event.target.value;
     this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : '');
   };
@@ -268,6 +287,7 @@ export class Autosuggest {
   }
 
   resetSelectedSuggestion() {
+    this.showLoading = !this.loadingDelayed;
     this.selectedSuggestion = undefined;
     this.input.setAttribute('aria-activedescendant', '');
   }
@@ -357,7 +377,7 @@ export class Autosuggest {
     return (
       <>
         <slot />
-        {this.loading
+        {this.loading && this.showLoading
           ? <div class="autosuggest-progress-box">
               <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
             </div>

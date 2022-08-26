@@ -13,6 +13,7 @@ interface AutosuggestDemoTemplateProps {
   suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel: string;
+  loadingDelayed: number;
   notFoundLabel: string;
 }
 
@@ -48,6 +49,7 @@ class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<type
           suggestOnFocus={this.props.suggestOnFocus}
           loading={this.props.loading}
           loadingLabel={this.props.loadingLabel}
+          loadingDelayed={this.props.loadingDelayed}
           notFoundLabel={this.props.notFoundLabel}
         >
           <input id="autosuggestInputId" type="text" className="form-control" />
@@ -65,7 +67,7 @@ storiesOfAutosuggest<JSX.Element>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, notFoundLabel) => (
+    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelay, notFoundLabel) => (
       <AutosuggestDemoTemplate
         fetchSuggestions={fetchSuggestions}
         onChange={onChange}
@@ -74,6 +76,7 @@ storiesOfAutosuggest<JSX.Element>(
         suggestOnFocus={suggestOnFocus}
         loading={loading}
         loadingLabel={loadingLabel}
+        loadingDelayed={loadingDelay}
         notFoundLabel={notFoundLabel}
       />
     )
