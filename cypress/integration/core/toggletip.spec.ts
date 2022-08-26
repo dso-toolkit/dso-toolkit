@@ -28,6 +28,8 @@ describe('Toggletip', () => {
       .get('@dsoTooltip')
       .should('not.have.class', 'hidden')
       .realPress('Tab')
+      .get('@dsoButton')
+      .should('not.have.focus')
       .realPress('Escape')
       .get('@dsoButton')
       .should('have.focus');
