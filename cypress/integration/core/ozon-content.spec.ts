@@ -393,7 +393,9 @@ describe("Ozon Content", () => {
       .should('have.attr', 'src', 'images/houtkachel-of-open-haard-infographic.jpg')
       .and('have.attr', 'alt', 'Afbeelding Titel')
       .and('not.have.attr', 'width')
-      .and('not.have.attr', 'height')
+      .get('dso-ozon-content')
+      .find('dso-image-overlay > img')
+      .should('not.have.attr', 'height')
       .get('dso-ozon-content .figuur-bijschrift')
       .should('have.text', 'Bijschrift bij het figuur.');
   });
