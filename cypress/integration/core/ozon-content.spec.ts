@@ -369,4 +369,34 @@ describe("Ozon Content", () => {
       .invoke('removeAttr', 'interactive')
       .and('have.css', 'text-decoration-line', 'none');
   });
+
+  it('should render Figuur as dso-image-overlay', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--figuur');
+
+    cy.get('dso-ozon-content')
+      .invoke('prop', 'content', `
+        <Figuur
+          eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+        >
+          <Titel>Afbeelding Titel</Titel>
+          <Illustratie
+            naam="images/houtkachel-of-open-haard-infographic.jpg"
+            alt="Afbeelding 1"
+          />
+          <Bijschrift>Bijschrift bij het figuur.</Bijschrift>
+          <Bron>Bron waaruit het figuur is overgenomen</Bron>
+        </Figuur>
+      `)
+      .get('dso-ozon-content')
+      .find('dso-image-overlay > img')
+      .should('have.attr', 'src', 'images/houtkachel-of-open-haard-infographic.jpg')
+      .and('have.attr', 'alt', 'Afbeelding Titel')
+      .and('not.have.attr', 'width')
+      .get('dso-ozon-content')
+      .find('dso-image-overlay > img')
+      .should('not.have.attr', 'height')
+      .get('dso-ozon-content .figuur-bijschrift')
+      .should('have.text', 'Bijschrift bij het figuur.');
+  });
 });

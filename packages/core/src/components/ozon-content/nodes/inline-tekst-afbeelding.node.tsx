@@ -2,10 +2,10 @@ import { h } from '@stencil/core';
 
 import { OzonContentNode } from '../ozon-content-node.interface';
 
-export class OzonContentIllustratieNode implements OzonContentNode {
+export class OzonContentInlineTekstAfbeeldingNode implements OzonContentNode {
   name = [
+    'InlineTekstAfbeelding',
     'Illustratie',
-    'InlineTekstAfbeelding'
   ];
 
   render(node: Element) {

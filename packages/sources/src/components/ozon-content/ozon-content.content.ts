@@ -225,6 +225,26 @@ export const content = [
     `,
   },
   {
+    title: 'Figuur',
+    content: `
+      <Inhoud>
+        <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
+        <Figuur
+          eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+        >
+          <Titel>Afbeelding Titel</Titel>
+          <Illustratie
+            naam="images/houtkachel-of-open-haard-infographic.jpg"
+            alt="Afbeelding 1"
+          />
+          <Bijschrift>Bijschrift van het figuur.</Bijschrift>
+          <Bron>Bron waaruit het figuur is overgenomen</Bron>
+        </Figuur>
+      </Inhoud>
+    `,
+  },
+  {
     title: 'Table',
     content: `
       <table

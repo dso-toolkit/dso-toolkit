@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **core + react + sources** `dso-autosuggest` vertraging op loading state ([#1625](https://github.com/dso-toolkit/dso-toolkit/issues/1625))
+* **core + sources:** Ozon Content `<Figuur>` omzetten naar `<dso-image-overlay>` ([#1659](https://github.com/dso-toolkit/dso-toolkit/issues/1659))
 
 ### Fixed
 * **sources:** Form Group Input Number: label lijnt niet met nummer ([#1672](https://github.com/dso-toolkit/dso-toolkit/issues/1672))
