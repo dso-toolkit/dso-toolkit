@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **react** React Storybook: Bij Date Picker worden de actions niet getoond ([#1664](https://github.com/dso-toolkit/dso-toolkit/issues/1664))
 * **css:** Als de tekst te lang is dan loopt ie over de 'Hele document bekijken'-knop heen ([#1652](https://github.com/dso-toolkit/dso-toolkit/issues/1652))
 * **css:** Viewer Grid: .document-list-item mist margin right voor .dso-document-list-item-type ([#1649](https://github.com/dso-toolkit/dso-toolkit/issues/1649))
+* **core** DsoToggletip: Error: button not found ([#1670](https://github.com/dso-toolkit/dso-toolkit/issues/1670))
 
 ### Changed
 * **core:** Afbeelding in dso-image-overlay alleen zoomable maken als de afbeelding niet in de container past ([#1695](https://github.com/dso-toolkit/dso-toolkit/issues/1695))
