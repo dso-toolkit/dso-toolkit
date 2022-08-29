@@ -156,6 +156,19 @@ export const content = [
     content: `<ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef>`,
   },
   {
+    title: 'IntIoRef',
+    content: `
+      <Inhoud>
+        <Al>
+          Ter plaatse van het werkingsgebied van de functie '<IntIoRef eId="subchp_2.2__art_2.4__ref_o_1"
+          ref="gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"
+          wId="gm0037_1__subchp_2.2__art_2.4__ref_o_1">Bedrijf categorie 2</IntIoRef>'
+          mogen de locatie en de daarop voorkomende bouwwerken in ieder geval worden
+          gebruikt voor het verrichten van de volgende gebruiksactiviteiten: </Al>
+      </Inhoud>
+    `,
+  },
+  {
     title: 'Inhoud > Al > Noot',
     content: `
       <Inhoud>
@@ -208,6 +221,26 @@ export const content = [
             >
           </Noot>
         </Al>
+      </Inhoud>
+    `,
+  },
+  {
+    title: 'Figuur',
+    content: `
+      <Inhoud>
+        <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
+        <Figuur
+          eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+        >
+          <Titel>Afbeelding Titel</Titel>
+          <Illustratie
+            naam="images/houtkachel-of-open-haard-infographic.jpg"
+            alt="Afbeelding 1"
+          />
+          <Bijschrift>Bijschrift van het figuur.</Bijschrift>
+          <Bron>Bron waaruit het figuur is overgenomen</Bron>
+        </Figuur>
       </Inhoud>
     `,
   },

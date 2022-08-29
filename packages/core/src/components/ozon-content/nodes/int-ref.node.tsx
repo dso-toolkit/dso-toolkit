@@ -23,6 +23,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
       const { href } = target;
 
       emitAnchorClick({
+        node: this.name,
         href,
         documentComponent: ref,
         originalEvent: event

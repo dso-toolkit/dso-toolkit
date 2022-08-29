@@ -62,6 +62,18 @@ export class Autosuggest {
   loadingLabel?: string = "Een moment geduld.";
 
   /**
+   * To delay progress indicator showing (in ms).
+   */
+  @Prop()
+  loadingDelayed?: number;
+
+  /**
+   * To show text when no results are found.
+   */
+  @Prop()
+  notFoundLabel?: string;
+
+  /**
    * Whether the previous suggestions will be presented when the input gets focus again.
    */
   @Prop()
@@ -96,14 +108,20 @@ export class Autosuggest {
   @State()
   selectedSuggestion: Suggestion | undefined;
 
+  @State()
+  notFound: boolean = false;
+
+  @State()
+  showLoading: boolean = false;
+
   @Watch('suggestions')
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
 
-    if (!this.showSuggestions && this.suggestions.length > 0) {
+    if ((!this.showSuggestions || !this.notFound) && this.inputValue) {
       this.openSuggestions();
     }
-    else if (this.showSuggestions && this.suggestions.length === 0) {
+    else if ((this.showSuggestions || this.notFound) && !this.inputValue) {
       this.closeSuggestions();
     }
   }
@@ -118,13 +136,26 @@ export class Autosuggest {
 
   labelId: string = v4();
 
-  debouncedEmitValue = debounce((value: string) => this.changeEmitter.emit(value), 200);
+  debouncedEmitValue = debounce((value: string) => {
+    this.changeEmitter.emit(value);
+    this.debouncedShowLoading();
+  }, 200);
+
+  debouncedShowLoading = debounce(() => {
+    if (this.inputValue) {
+      this.showLoading = true
+    }
+  }, this.loadingDelayed);
+
+  inputValue: string = '';
 
   onInput = (event: Event) => {
     if (!(event.target instanceof HTMLInputElement)) {
       throw new Error("event.target is not instanceof HTMLInputElement");
     }
 
+    this.showLoading = !this.loadingDelayed;
+    this.inputValue = event.target.value;
     this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : '');
   };
 
@@ -137,7 +168,7 @@ export class Autosuggest {
   @Listen("click", { target: "document" })
   onDocumentClick(event: MouseEvent) {
     if (
-      this.showSuggestions &&
+      (this.showSuggestions || this.notFound) &&
       this.listbox &&
       event.target instanceof Node &&
       !this.listbox.contains(event.target) &&
@@ -256,24 +287,27 @@ export class Autosuggest {
   }
 
   resetSelectedSuggestion() {
+    this.showLoading = !this.loadingDelayed;
     this.selectedSuggestion = undefined;
     this.input.setAttribute('aria-activedescendant', '');
   }
 
   openSuggestions(selectSuggestion?: 'first' | 'last') {
     this.showSuggestions = this.suggestions.length > 0;
-    this.input.setAttribute("aria-expanded", this.showSuggestions.toString());
+    this.notFound = this.suggestions.length === 0;
+    this.input.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
-    if (selectSuggestion === 'first') {
+    if (this.showSuggestions && selectSuggestion === 'first') {
       this.selectFirstSuggestion();
     }
-    else if (selectSuggestion === 'last') {
+    else if (this.showSuggestions && selectSuggestion === 'last') {
       this.selectLastSuggestion();
     }
   }
 
   closeSuggestions() {
     this.showSuggestions = false;
+    this.notFound = false;
     this.input.setAttribute("aria-expanded", "false");
     this.selectFirstSuggestion();
   }
@@ -343,7 +377,7 @@ export class Autosuggest {
     return (
       <>
         <slot />
-        {this.loading
+        {this.loading && this.showLoading
           ? <div class="autosuggest-progress-box">
               <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
             </div>
@@ -352,7 +386,7 @@ export class Autosuggest {
               id={this.listboxId}
               aria-labelledby={this.labelId}
               ref={element => this.listbox = element}
-              hidden={!this.showSuggestions}
+              hidden={!this.showSuggestions && !this.notFound}
             >
               {this.showSuggestions
                 ? this.suggestions.map((suggestion) => (
@@ -377,7 +411,16 @@ export class Autosuggest {
                       }
                     </li>
                   ))
-                : undefined
+                : this.notFound
+                  ? <li>
+                      <span class="value">
+                        {!this.notFoundLabel
+                          ? this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
+                          : <span>{this.notFoundLabel}</span>
+                        }
+                      </span>
+                    </li>
+                  : undefined
               }
             </ul>
         }

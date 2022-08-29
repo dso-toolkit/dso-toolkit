@@ -38,6 +38,7 @@ export const DsoTreeItem: FunctionalComponent<TreeViewItemProps> = ({ owner, anc
       aria-setsize={setSize}
       aria-posinset={index + 1}
       aria-busy={item.loading ? 'true' : undefined}
+      data-item-id={item.id}
       onClick={(e) => owner.itemClick(e, ancestors, item)}
     >
       {item.selected && <span class="sr-only">Resultaat: </span>}

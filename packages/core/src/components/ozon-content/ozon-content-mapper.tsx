@@ -3,10 +3,12 @@ import { Fragment, h } from '@stencil/core';
 import { OzonContentAlNode } from './nodes/al.node';
 import { OzonContentDocumentNode } from './nodes/document.node';
 import { OzonContentExtRefNode } from './nodes/ext-ref.node';
-import { OzonContentIllustratieNode } from './nodes/illustratie.node';
+import { OzonContentFiguurNode } from './nodes/figuur.node';
 import { OzonContentInhoudNode } from './nodes/inhoud.node';
+import { OzonContentInlineTekstAfbeeldingNode } from './nodes/inline-tekst-afbeelding.node';
 import { OzonContentOpschriftNode } from './nodes/opschrift.node';
 import { OzonContentInlineNodes } from './nodes/inline.nodes';
+import { OzonContentIntIoRefNode } from './nodes/int-io-ref.node';
 import { OzonContentIntRefNode } from './nodes/int-ref.node';
 import { OzonContentNootNode } from './nodes/noot.node';
 import { OzonContentTableNode } from './nodes/table.node';
@@ -29,9 +31,11 @@ export class Mapper {
     new OzonContentExtRefNode(),
     new OzonContentAlNode(),
     new OzonContentInlineNodes(),
-    new OzonContentIllustratieNode(),
+    new OzonContentInlineTekstAfbeeldingNode(),
     new OzonContentNootNode(),
-    new OzonContentTableNode()
+    new OzonContentTableNode(),
+    new OzonContentIntIoRefNode(),
+    new OzonContentFiguurNode(),
   ];
 
   private skip = this.mappers.reduce<string[]>((t, m) => {

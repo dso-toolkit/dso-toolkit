@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
-import { HeaderMenuItem, HeaderMenuItemClickEvent, HeaderMenuLogoutClick } from "./components/header/header";
+import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
@@ -36,9 +36,17 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * To delay progress indicator showing (in ms).
+         */
+        "loadingDelayed"?: number;
+        /**
           * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
+        /**
+          * To show text when no results are found.
+         */
+        "notFoundLabel"?: string;
         /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
@@ -123,10 +131,16 @@ export namespace Components {
         "open": boolean;
     }
     interface DsoHeader {
-        "isLoggedIn": boolean;
+        /**
+          * Used to show the login/logout option. 'none' renders nothing.
+         */
+        "authStatus": 'none' | 'loggedIn' | 'loggedOut';
+        /**
+          * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+         */
         "loginUrl"?: string;
         "logoutUrl"?: string;
-        "mainMenu": HeaderMenuItem[];
+        "mainMenu"?: HeaderMenuItem[];
         "useDropDownMenu": "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
@@ -156,11 +170,13 @@ export namespace Components {
         "active"?: boolean;
         "label": string;
         "secondary"?: boolean;
+        "setFocus": () => Promise<void>;
     }
     interface DsoLabel {
         "compact"?: boolean;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
+        "truncate"?: boolean;
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
@@ -285,6 +301,12 @@ export namespace Components {
           * The collection of TreeViewItems
          */
         "collection": TreeViewItem[];
+        /**
+          * Set focus on the last item in the specified path. The consumer is responsible for providing a TreeView collection where the last item is visible.
+          * @async 
+          * @returns Whether the item was found.
+         */
+        "focusItem": (path: TreeViewItem[]) => Promise<boolean>;
     }
     interface DsoViewerGrid {
         "filterpanelOpen": boolean;
@@ -515,9 +537,17 @@ declare namespace LocalJSX {
          */
         "loading"?: boolean;
         /**
+          * To delay progress indicator showing (in ms).
+         */
+        "loadingDelayed"?: number;
+        /**
           * To override progress indicator's default loading label.
          */
         "loadingLabel"?: string;
+        /**
+          * To show text when no results are found.
+         */
+        "notFoundLabel"?: string;
         /**
           * This is emitted debounced for every change for the slotted input type=text element.
          */
@@ -622,15 +652,20 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface DsoHeader {
-        "isLoggedIn"?: boolean;
+        /**
+          * Used to show the login/logout option. 'none' renders nothing.
+         */
+        "authStatus"?: 'none' | 'loggedIn' | 'loggedOut';
+        /**
+          * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
+         */
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu"?: HeaderMenuItem[];
         /**
-          * Only available when `logout-url` is set
+          * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
-        "onLogoutClick"?: (event: CustomEvent<HeaderMenuLogoutClick>) => void;
-        "onMenuItemClick"?: (event: CustomEvent<HeaderMenuItemClickEvent>) => void;
+        "onHeaderClick"?: (event: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
@@ -668,6 +703,7 @@ declare namespace LocalJSX {
         "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
+        "truncate"?: boolean;
     }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];

@@ -26,8 +26,8 @@
 // @import "components/equal-heights"; -> Moved to @dso-toolkit/sources/src/styling/grid/
 // @import "components/footer"; -> Moved to @dso-toolkit/sources/src/styling
 // @import "components/footnotes"; -> Moved to @dso-toolkit/styling
-@import "components/form";
-@import "components/form_buttons";
+// @import "components/form"; -> Moved to @dso-toolkit/css/src/components/form/form-buttons/form-buttons and @dso-toolkit/css/src/components/info-button/info-button
+// @import "components/form_buttons"; -> Moved to @dso-toolkit/styling
 @import "components/header";
 // @import "components/highlight-box"; -> Moved to @dso-toolkit/styling
 @import "components/image";

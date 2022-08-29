@@ -3,12 +3,13 @@ import * as React from 'react';
 
 import { DsoLabel } from '../..';
 
-export function labelTemplate({ status, label, button, compact, symbol }: Label) {
+export function labelTemplate({ status, label, button, compact, truncate, symbol }: Label) {
   return (
     <DsoLabel
       status={status}
       removeClick={button?.onClick}
       compact={compact}
+      truncate={truncate}
       removable={button}
     >
       {symbol && (

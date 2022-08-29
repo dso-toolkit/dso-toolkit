@@ -26,6 +26,7 @@ $dso-button-tertiary-padding-horizontal: $dso-button-vertical-padding;
 $dso-button-tertiary-color: $grasgroen;
 $dso-button-tertiary-hover-color: $scampi;
 $dso-button-tertiary-active-color: $scampi;
+$dso-button-tertiary-disabled-color: $grasgroen-40;
 
 // ====================
 // Private mixins
@@ -151,6 +152,22 @@ $dso-button-tertiary-active-color: $scampi;
   }
 }
 
+@mixin _button-spinner-icon($color, $valign, $position) {
+  background-image: url("data:image/svg+xml,%3Csvg class='spinner' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E .spinner %7B animation: rotator 8s linear infinite; transform-origin: center; %7D @keyframes rotator %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D .path %7B stroke-dasharray: 265; stroke-dashoffset: 0; transform-origin: center; stroke: %23#{str-slice(#{$color}, 2)}; animation: dash 2s ease-in-out infinite; %7D @keyframes dash %7B 0%25 %7B stroke-dashoffset: 265; %7D 50%25 %7B stroke-dashoffset: 65; transform:rotate(90deg); %7D 100%25 %7B stroke-dashoffset: 265; transform:rotate(360deg); %7D %3C/style%3E%3Ccircle class='path' fill='none' stroke-width='10' stroke-linecap='butt' cx='50' cy='50' r='45'%3E%3C/circle%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  height: $u3;
+  vertical-align: $valign;
+  width: $u3;
+
+  @if $position == left {
+    margin-right: $u1;
+  } @else if $position == right {
+    margin-left: $u1;
+  }
+}
+
 // ====================
 // Public mixins
 // ====================
@@ -173,9 +190,24 @@ $dso-button-tertiary-active-color: $scampi;
   dso-icon,
   svg.di,
   &.extern::after,
-  &.download::after {
+  &.download::after,
+  &.dso-spinner::before {
     margin-bottom: -$u1 * 0.5;
     margin-top: -$u1 * 0.5;
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      height: $u2;
+      width: $u2;
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      height: $u2;
+      width: $u2;
+    }
   }
 }
 
@@ -246,6 +278,27 @@ $dso-button-tertiary-active-color: $scampi;
   );
 
   @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, false);
+
+  &.dso-spinner-left,
+  &.dso-spinner-right {
+    &[disabled] {
+      background-color: $dso-button-primary-background-color;
+      border-color: $dso-button-primary-background-color;
+      color: $dso-button-primary-color;
+    }
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      @include _button-spinner-icon($color: $wit, $valign: top, $position: left);
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      @include _button-spinner-icon($color: $wit, $valign: top, $position: right);
+    }
+  }
 }
 
 @mixin button_anchor-primary() {
@@ -289,6 +342,57 @@ $dso-button-tertiary-active-color: $scampi;
   );
 
   @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
+
+  &.dso-spinner-left,
+  &.dso-spinner-right {
+    &[disabled] {
+      background-color: $dso-button-secondary-background-color;
+      border-color: $dso-button-secondary-border-color;
+      color: $dso-button-secondary-color;
+    }
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      @include _button-spinner-icon($color: $grasgroen, $valign: top, $position: left);
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        &::before {
+          @include _button-spinner-icon($color: $wit, $valign: top, $position: left);
+        }
+      }
+
+      &.btn-sm:hover {
+        &::before {
+          height: $u2;
+          width: $u2;
+        }
+      }
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      @include _button-spinner-icon($color: $grasgroen, $valign: top, $position: right);
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        &::after {
+          @include _button-spinner-icon($color: $wit, $valign: top, $position: right);
+        }
+      }
+
+      &.btn-sm:hover {
+        &::after {
+          height: $u2;
+          width: $u2;
+        }
+      }
+    }
+  }
 }
 
 @mixin button_anchor-secondary() {
@@ -317,6 +421,11 @@ $dso-button-tertiary-active-color: $scampi;
 
   &[disabled] {
     color: $grasgroen-40;
+
+    &.dso-spinner-left,
+    &.dso-spinner-right {
+      color: $grasgroen;
+    }
   }
 
   &:not([disabled]) {
@@ -350,6 +459,18 @@ $dso-button-tertiary-active-color: $scampi;
 
   &.extern {
     @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      @include _button-spinner-icon($color: $grasgroen, $valign: middle, $position: left);
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      @include _button-spinner-icon($color: $grasgroen, $valign: middle, $position: right);
+    }
   }
 
   @if ($icon-only) {

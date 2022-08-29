@@ -13,8 +13,8 @@ storiesOfTreeView(
   },
   {
     treeViewDemoTemplate: (collection, onOpenItem, onCloseItem, onClickItem, onFilterInput) => html`
-      <div class="container" style="display: flex; width: 100%;">
-        <div style="flex: 1">
+      <div style="display: grid; width: 100%; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column;">
+        <div>
           ${treeViewTemplate({
             collection,
             onOpenItem: function (e) {
@@ -28,7 +28,7 @@ storiesOfTreeView(
             }
           })}
         </div>
-        <div style="flex: 1">
+        <div>
           <label for="treeViewSearchInput">Zoek</label>
           <input
             type="text"

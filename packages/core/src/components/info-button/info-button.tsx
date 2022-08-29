@@ -1,4 +1,4 @@
-import { h, Component, Event, Prop, EventEmitter } from '@stencil/core';
+import { h, Component, Event, Prop, EventEmitter, Method } from '@stencil/core';
 import clsx from 'clsx';
 
 export interface InfoButtonToggleEvent {
@@ -12,6 +12,8 @@ export interface InfoButtonToggleEvent {
   styleUrl: 'info-button.scss'
 })
 export class InfoButton {
+  private button?: HTMLButtonElement;
+
   @Prop({ mutable: true, reflect: true })
   active?: boolean;
 
@@ -23,6 +25,10 @@ export class InfoButton {
 
   @Event()
   toggle!: EventEmitter<InfoButtonToggleEvent>;
+
+  @Method() async setFocus() {
+    this.button?.focus();
+  }
 
   private handleToggle(e: MouseEvent) {
     this.active = !this.active;
@@ -36,6 +42,7 @@ export class InfoButton {
         class={clsx('btn', { 'dso-open': !!this.active, 'dso-info-secondary': !!this.secondary })}
         aria-expanded={typeof this.active === 'boolean' ? this.active.toString() : undefined}
         onClick={e => this.handleToggle(e)}
+        ref={element => (this.button = element)}
       >
         <span class="sr-only">
           {this.label}

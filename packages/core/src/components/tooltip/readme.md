@@ -46,11 +46,13 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [dso-label](../label)
  - [dso-toggletip](../toggletip)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-label --> dso-tooltip
   dso-toggletip --> dso-tooltip
   style dso-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```

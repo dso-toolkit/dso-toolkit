@@ -148,6 +148,32 @@ describe("Ozon Content", () => {
       .contains("document");
   });
 
+  it('should render IntIoRef element', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--intioref');
+
+    cy.get('dso-ozon-content')
+      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
+      .should('exist');
+  });
+
+  it('should emit anchorClick on IntIoRef anchor click', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--intioref');
+
+    cy.get('dso-ozon-content').then((c) => {
+      c.get(0).addEventListener('anchorClick', cy.stub().as('anchorClick'));
+    });
+
+    cy.get('dso-ozon-content')
+      .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
+      .click();
+
+    cy.get('@anchorClick')
+      .should('have.been.calledOnce')
+      .invoke('getCall', 0)
+      .its('args.0.detail.node')
+      .should('equal', 'IntIoRef');
+  });
+
   it("should render ExtRef element", () => {
     cy.visit("http://localhost:56106/iframe.html?id=ozon-content--al");
 
@@ -342,5 +368,35 @@ describe("Ozon Content", () => {
       .and('have.css', 'text-decoration-line', 'underline')
       .invoke('removeAttr', 'interactive')
       .and('have.css', 'text-decoration-line', 'none');
+  });
+
+  it('should render Figuur as dso-image-overlay', () => {
+    cy.visit('http://localhost:56106/iframe.html?id=ozon-content--figuur');
+
+    cy.get('dso-ozon-content')
+      .invoke('prop', 'content', `
+        <Figuur
+          eId="chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__img_o_1"
+        >
+          <Titel>Afbeelding Titel</Titel>
+          <Illustratie
+            naam="images/houtkachel-of-open-haard-infographic.jpg"
+            alt="Afbeelding 1"
+          />
+          <Bijschrift>Bijschrift bij het figuur.</Bijschrift>
+          <Bron>Bron waaruit het figuur is overgenomen</Bron>
+        </Figuur>
+      `)
+      .get('dso-ozon-content')
+      .find('dso-image-overlay > img')
+      .should('have.attr', 'src', 'images/houtkachel-of-open-haard-infographic.jpg')
+      .and('have.attr', 'alt', 'Afbeelding Titel')
+      .and('not.have.attr', 'width')
+      .get('dso-ozon-content')
+      .find('dso-image-overlay > img')
+      .should('not.have.attr', 'height')
+      .get('dso-ozon-content .figuur-bijschrift')
+      .should('have.text', 'Bijschrift bij het figuur.');
   });
 });

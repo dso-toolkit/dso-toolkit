@@ -31,6 +31,68 @@ describe('Alert', () => {
       .should('be.visible');
   });
 
+  it('should not show previous/next buttons when appropriate', () => {
+    prepareComponent(1, 5);
+
+    cy
+      .get('dso-pagination')
+      .as('dsoPagination')
+      .shadow()
+      .as('dsoPaginationShadow')
+      // currentPage = firstPage
+      .find('a[aria-label="Vorige"]')
+      .parent()
+      .should('not.be.visible')
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Volgende"]')
+      .parent()
+      .should('be.visible')
+      // currentPage = lastPage
+      .get('@dsoPagination')
+      .invoke('attr', 'current-page', 5)
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Vorige"]')
+      .parent()
+      .should('be.visible')
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Volgende"]')
+      .parent()
+      .should('not.be.visible')
+      // currentPage < firstPage
+      .get('@dsoPagination')
+      .invoke('attr', 'current-page', 0)
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Vorige"]')
+      .parent()
+      .should('not.be.visible')
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Volgende"]')
+      .parent()
+      .should('not.be.visible')
+      // currentPage > lastPage
+      .get('@dsoPagination')
+      .invoke('attr', 'current-page', 6)
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Vorige"]')
+      .parent()
+      .should('not.be.visible')
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Volgende"]')
+      .parent()
+      .should('not.be.visible')
+      // currentPage = undefined
+      .get('@dsoPagination')
+      .invoke('removeAttr', 'current-page')
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Vorige"]')
+      .parent()
+      .should('not.be.visible')
+      .get('@dsoPaginationShadow')
+      .find('a[aria-label="Volgende"]')
+      .parent()
+      .should('not.be.visible');
+  });
+
   it('should emit page on page select', () => {
     prepareComponent(3, 5);
 

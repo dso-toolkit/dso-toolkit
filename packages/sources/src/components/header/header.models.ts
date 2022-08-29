@@ -1,30 +1,38 @@
 export interface Header {
   logo: string;
-  subLogo: string;
-  showSubLogo: boolean;
+  subLogo?: string;
   mainMenu?: {
     label: string;
     url: string;
     active?: boolean;
   }[];
-  useDropDownMenu: "always" | "never" | "auto";
-  loginUrl: string;
-  logoutUrl: string;
-  isLoggedIn: boolean;
-  showLoggedIn: boolean;
-  userProfileName: string;
-  userProfileUrl: string;
-  userHomeUrl: string;
-  menuItemClick: (value: CustomEvent<HeaderMenuItemClickEvent>) => void;
-}
-
-export interface HeaderMenuItemClickEvent {
-  originalEvent: PointerEvent;
-  menuItem: HeaderMenuItem;
+  useDropDownMenu?: "always" | "never" | "auto";
+  authStatus?: "none" | "loggedOut" | "loggedIn";
+  loginUrl?: string;
+  logoutUrl?: string;
+  userProfileName?: string;
+  userProfileUrl?: string;
+  userHomeUrl?: string;
+  onHeaderClick: (e: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
 }
 
 export interface HeaderMenuItem {
   label: string;
   url: string;
   active?: boolean;
+}
+
+export type HeaderNavigationType = 'menuItem' | 'profile' | 'logout' | 'login' | 'userHome';
+
+export interface HeaderClickEvent {
+  originalEvent: MouseEvent;
+  type: HeaderNavigationType;
+  /** True when user selected the page holding Ctrl, Alt or other modifiers. Can be used to determine navigation. */
+  isModifiedEvent: boolean;
+  /** Url of the selected item. */
+  url?: string;
+}
+
+export interface HeaderClickMenuItemEvent extends HeaderClickEvent {
+  menuItem: HeaderMenuItem;
 }

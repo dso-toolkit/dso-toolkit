@@ -21,6 +21,19 @@
 | `toggle` |             | `CustomEvent<InfoButtonToggleEvent>` |
 
 
+## Methods
+
+### `setFocus() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Used by
