@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 43.1.0
+
 ### Added
 * **core + react + sources** `dso-autosuggest` vertraging op loading state ([#1625](https://github.com/dso-toolkit/dso-toolkit/issues/1625))
 * **core + sources:** Ozon Content `<Figuur>` omzetten naar `<dso-image-overlay>` ([#1659](https://github.com/dso-toolkit/dso-toolkit/issues/1659))
@@ -21,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Afbeelding in dso-image-overlay alleen zoomable maken als de afbeelding niet in de container past ([#1695](https://github.com/dso-toolkit/dso-toolkit/issues/1695))
 
 ## 43.0.0
+
 ### Changed
 * **BREAKING: css:** Document Item uitbreiden met container voor regels ([#1657](https://github.com/dso-toolkit/dso-toolkit/issues/1657))\
 het element `.dso-document-list-item` omvat het hele item (heading + content). Wrap de huidige content in `.dso-document-list-item-heading` (dit is het grijze vlak). `.dso-document-list-item-content` kan gebruikt worden om content onder de heading te tonen in een wit vlak. ([#1687](https://github.com/dso-toolkit/dso-toolkit/pull/1687))

@@ -68,6 +68,20 @@ The consumer of the Tree View should update the TreeView's collection on the ope
 | `openItem`  | Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).                                                                                                                   | `CustomEvent<TreeViewItem[]>`       |
 
 
+## Methods
+
+### `focusItem(path: TreeViewItem[]) => Promise<boolean>`
+
+Set focus on the last item in the specified path.
+The consumer is responsible for providing a TreeView collection where the last item is visible.
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+Whether the item was found.
+
+
 ## Dependencies
 
 ### Depends on
