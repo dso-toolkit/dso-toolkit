@@ -27,7 +27,7 @@ describe("Autosuggest", () => {
     cy.get("@listbox").each((listbox) => {
       cy.get("@input")
         .should("have.attr", "aria-haspopup", "listbox")
-        .should("have.attr", "aria-owns", listbox.prop("id"))
+        .should("have.attr", "aria-controls", listbox.prop("id"))
         .should("have.attr", "aria-expanded", "false");
     });
     cy.get("@input")
