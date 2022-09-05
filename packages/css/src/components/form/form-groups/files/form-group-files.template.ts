@@ -47,7 +47,7 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
                   ? iconTemplate({ icon: 'status-warning' })
                   : nothing
                 }
-                ${buttonTemplate({ label: 'Verwijder document', variant: null, modifier: 'dso-tertiary dso-remove', ariaDescribedby: `${formGroup.id}-file-filename-${index}` })}
+                ${buttonTemplate({ label: 'Verwijder document', variant: 'tertiary', modifier: 'dso-remove', ariaDescribedby: `${formGroup.id}-file-filename-${index}` })}
               </li>`
           )}
         </ul>
