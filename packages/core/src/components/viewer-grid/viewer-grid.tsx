@@ -14,6 +14,8 @@ import { ViewerGridFilterpanelButtons } from './viewer-grid-filterpanel-buttons'
 
 export type MainSize = "small" | "medium" | "large";
 
+export type LabelSizeMap = { [key in MainSize]: string; }
+
 export interface ViewerGridChangeSizeEvent {
   /**
    * Indicates whether it's before or after the animation
@@ -35,6 +37,13 @@ const TRANSITION_TIME = 200; // Keep in sync with dso-viewer-grid.variables.scss
   shadow: true,
 })
 export class ViewerGrid {
+
+  private sizeLabelMap: LabelSizeMap = {
+    small: 'smal',
+    medium: 'middel',
+    large: 'breed',
+  }
+
   @Prop({ reflect: true })
   filterpanelOpen = false;
 
@@ -95,11 +104,11 @@ export class ViewerGrid {
   }
 
   shrinkMain = () => {
-    this.mainSize = this.mainSize == "large" ? "medium" : "small";
+    this.mainSize = this.mainSize === 'large' ? 'medium' : 'small';
   };
 
   expandMain = () => {
-    this.mainSize = this.mainSize == "small" ? "medium" : "large";
+    this.mainSize = this.mainSize === 'small' ? 'medium' : 'large';
   };
 
   updateFocusTrap() {
@@ -188,6 +197,7 @@ export class ViewerGrid {
       <Host {...{ [this.mainSize]: true }}>
         <div class="dso-map-panel">
           <div class="sizing-buttons">
+            <span class="sr-only" aria-live="polite" aria-atomic="true">breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}</span>
             <button
               type="button"
               class="shrink"

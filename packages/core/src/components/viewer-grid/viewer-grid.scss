@@ -68,6 +68,10 @@
   }
 }
 
+.sr-only {
+  @include sr-only();
+}
+
 .shrink,
 .expand,
 .overlay-close-button {
@@ -86,10 +90,6 @@
   position: absolute;
   top: $u1;
   right: $grid-gutter-width * 0.5;
-
-  .sr-only {
-    @include sr-only();
-  }
 }
 
 .dso-map-panel {
