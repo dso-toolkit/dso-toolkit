@@ -38,7 +38,7 @@ export function formGroupStaticTemplate(formGroup: FormGroupStatic<TemplateResul
         ${formGroup.value}
 
         ${formGroup.edit
-          ? buttonTemplate({ type: 'button', modifier: 'dso-tertiary', variant: null, label: 'Edit', icon: { icon: 'pencil' }, iconMode: 'only' })
+          ? buttonTemplate({ type: 'button', variant: 'tertiary', label: 'Edit', icon: { icon: 'pencil' }, iconMode: 'only' })
           : nothing
         }
       </div>

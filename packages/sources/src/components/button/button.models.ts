@@ -23,6 +23,7 @@ export interface Button {
 }
 
 export interface ButtonAnchor {
+  variant: 'primary' | 'secondary' | 'tertiary' | null;
   url: string;
   label: string;
   modifier?: string;
