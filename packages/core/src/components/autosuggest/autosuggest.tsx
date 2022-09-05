@@ -204,7 +204,7 @@ export class Autosuggest {
 
     this.input.setAttribute("role", "combobox");
     this.input.setAttribute("aria-haspopup", "listbox");
-    this.input.setAttribute("aria-owns", this.listboxId);
+    this.input.setAttribute("aria-controls", this.listboxId);
     this.input.setAttribute("aria-expanded", "false");
     this.input.setAttribute("autocomplete", "off");
     this.input.setAttribute("aria-autocomplete", "list");
