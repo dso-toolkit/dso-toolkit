@@ -5,6 +5,8 @@
 
 @import "~@dso-toolkit/sources/src/components/label/label";
 
+$dso-label-default-truncated-max-width: 184px;
+
 :host {
   display: inline-block;
   max-width: 100%;
@@ -29,7 +31,7 @@
 
 .dso-truncate.dso-label-content {
   display: inline-block;
-  max-width: 184px;
+  max-width: var(--dso-label-truncated-max-width, #{$dso-label-default-truncated-max-width});
   overflow: hidden;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
   vertical-align: bottom;

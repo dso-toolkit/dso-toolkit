@@ -6,6 +6,7 @@ describe('Label', () => {
 
   const defaultLabelText = 'Bouwwerken, werken en objecten bouwen';
   const labelMaxWidth = 180; // in px
+  const labelCustomMaxWidth = 150;
 
   function prepareComponent() {
     // Set the min-height so that there is room for the tooltip.
@@ -37,7 +38,13 @@ describe('Label', () => {
       .get('@dsoLabelShadow')
       .find('.dso-label-content')
       .invoke('outerWidth')
-      .should('be.lt', labelMaxWidth + 10);
+      .should('be.lt', labelMaxWidth + 10)
+      .get('@dsoLabel')
+      .invoke('attr', 'style', `--dso-label-truncated-max-width: ${labelCustomMaxWidth}px;`)
+      .get('@dsoLabelShadow')
+      .find('.dso-label-content')
+      .invoke('outerWidth')
+      .should('be.lt', labelCustomMaxWidth + 10);
   });
 
   it('should show tooltip on focus', () => {

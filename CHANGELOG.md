@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **core + css:** De HTML/CSS Storybook en Core Storybook zijn gefuseerd. ([#1659](https://github.com/dso-toolkit/dso-toolkit/issues/1659))
-
+* **core:** Label: max-width kunnen zetten via css met css variabele `--dso-label-truncated-max-width`. ([#1724](https://github.com/dso-toolkit/dso-toolkit/issues/1724))
 ## 43.1.0
 
 ### Added
