@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **core + css:** De HTML/CSS Storybook en Core Storybook zijn gefuseerd. ([#1659](https://github.com/dso-toolkit/dso-toolkit/issues/1659))
 
+### Deprecated
+* **BREAKING: css + storybook + sources:** Button selectors van Bootstrap deprecaten ([#1663](https://github.com/dso-toolkit/dso-toolkit/issues/1663))
+
 ## 43.1.0
 
 ### Added
