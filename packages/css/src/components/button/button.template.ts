@@ -10,6 +10,20 @@ export function buttonTemplate(button: Button | ButtonAnchor) {
     : buttonElement(button)
 }
 
+function getClassName(variant: 'primary' | 'secondary' | 'tertiary' | null, modifier: string | undefined){
+  if (variant && modifier) {
+    return `dso-${variant}` + ' ' + modifier;
+  }
+
+  if (variant) {
+    return `dso-${variant}`;
+  }
+
+  if (modifier) {
+    return modifier;
+  }
+}
+
 function anchorElement({
   variant,
   url,
@@ -19,7 +33,7 @@ function anchorElement({
   icon,
   iconMode
 }: ButtonAnchor) {
-  const className = variant && modifier ? `dso-${variant}` + ' ' + modifier : variant ? `dso-${variant}` : modifier ? modifier : '';
+  const className = getClassName(variant, modifier);
 
   return html`
     <a
@@ -57,7 +71,7 @@ function buttonElement({
   onClick
 }: Button) {
   type ??= 'button';
-  const className = variant && modifier ? `dso-${variant}` + ' ' + modifier : variant ? `dso-${variant}` : modifier ? modifier : '';
+  const className = getClassName(variant, modifier);
 
   return html`
     <button
