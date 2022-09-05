@@ -23,7 +23,7 @@ describe('Tooltip', () => {
   //     .realHover();
   // });
 
-  it('should show tooltip on focus on button and hide on escape key', () => {
+  it.skip('should show tooltip on focus on button and hide on escape key', () => {
     prepareComponent();
 
     cy

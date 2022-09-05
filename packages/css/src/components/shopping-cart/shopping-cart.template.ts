@@ -108,7 +108,7 @@ export function shoppingCartTemplate({ collapsable, collapsed, hideSummary, remo
                           }
 
                           ${!item.edit
-                            ? buttonTemplate({ type: 'button', modifier: 'dso-tertiary dso-edit-cart-item', variant: null, label: 'Naam veranderen van ' + item.label, icon: { icon: 'pencil' }, iconMode: 'only' })
+                            ? buttonTemplate({ type: 'button', modifier: 'dso-edit-cart-item', variant: 'tertiary', label: 'Naam veranderen van ' + item.label, icon: { icon: 'pencil' }, iconMode: 'only' })
                             : nothing
                           }
                         `

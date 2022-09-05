@@ -82,6 +82,7 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
   switch(a.element) {
     case 'anchor':
       const args: ButtonAnchor = {
+        variant: a.legacy ? null : a.variant,
         url: '#',
         label: a.label,
         icon: a.icon
