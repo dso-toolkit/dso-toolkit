@@ -6,9 +6,9 @@ import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
 import { selectableTemplate } from '../selectable/selectable.template';
 
-export function cardTemplate({ label, selectable, content, interactions, hasImage, imgSrc: imageSrc }: Card<TemplateResult>) {
+export function cardTemplate({ label, selectable, content, interactions, imgSrc }: Card<TemplateResult>) {
   return html`
-    <div class="dso-card ${classMap({ 'dso-is-selectable': !!selectable, 'dso-has-image': !!hasImage })}">
+    <div class="dso-card ${classMap({ 'dso-is-selectable': !!selectable, 'dso-has-image': !!imgSrc })}">
       ${selectable
         ? html`
           <div class="dso-card-selectable">
@@ -16,10 +16,10 @@ export function cardTemplate({ label, selectable, content, interactions, hasImag
           </div>`
         : nothing
       }
-      ${hasImage
+      ${imgSrc
         ? html`
           <div class="dso-card-image">
-            <img src=${imageSrc} />
+            <img src=${imgSrc} />
           </div>`
         : nothing
       }

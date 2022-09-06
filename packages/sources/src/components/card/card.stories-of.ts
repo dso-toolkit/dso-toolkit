@@ -28,7 +28,6 @@ export function storiesOfCard<TemplateFnReturnType>(
             }
           }
         ],
-        hasImage: false,
         imgSrc: ''
       })
     });
@@ -54,8 +53,7 @@ export function storiesOfCard<TemplateFnReturnType>(
     'with image',
     template,
     {
-      args: componentArgs<Pick<CardArgs, 'hasImage' | 'imgSrc'>>({
-        hasImage: true,
+      args: componentArgs<Pick<CardArgs, 'imgSrc'>>({
         imgSrc: '/images/rectangle1.png',
       })
     }
