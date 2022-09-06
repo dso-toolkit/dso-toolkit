@@ -79,6 +79,27 @@
       grid-column: 2 /-1;
     }
   }
+
+  &.dso-has-image {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 100%);
+
+    .dso-card-image {
+      grid-row: span 2;
+      margin-right: $u1;
+
+      img {
+        display: flex;
+        height: $u3;
+        width: $u3;
+      }
+    }
+
+    .dso-card-heading,
+    .dso-card-content {
+      grid-column: 2 /-1;
+    }
+  }
 }
 
 .dso-card-selectable {

@@ -27,7 +27,9 @@ export function storiesOfCard<TemplateFnReturnType>(
               icon: 'info'
             }
           }
-        ]
+        ],
+        hasImage: false,
+        imgSrc: ''
       })
     });
 
@@ -44,6 +46,17 @@ export function storiesOfCard<TemplateFnReturnType>(
     {
       args: componentArgs<Pick<CardArgs, 'selectable'>>({
         selectable: true
+      })
+    }
+  );
+
+  stories.add(
+    'with image',
+    template,
+    {
+      args: componentArgs<Pick<CardArgs, 'hasImage' | 'imgSrc'>>({
+        hasImage: true,
+        imgSrc: '/images/rectangle1.png',
       })
     }
   );
