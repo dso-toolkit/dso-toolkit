@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Autosuggest: `aria-owns` op de input vervangen met `aria-controls` ([#1716](https://github.com/dso-toolkit/dso-toolkit/issues/1716))
 * **css + dso-toolkit:** Panel verhuizen naar @dso-toolkit/css ([#1476](https://github.com/dso-toolkit/dso-toolkit/issues/1476))
 * **core:** Label: a11y - bij truncate `aria-roledescription` meegeven en verwijder knopje "Verwijder <X>" tekst ([#1721](https://github.com/dso-toolkit/dso-toolkit/issues/1721))
-* **core + css + sources + storybook** Viewer grid: gekozen filters in lijst, label verwijderknopjes uitbreiden ([#1712](https://github.com/dso-toolkit/dso-toolkit/issues/1712))
+* **core + css + sources + storybook** Label-group en Label component; WCAG verbeteringen (WCAG SC 1.3.1)  ([#1712](https://github.com/dso-toolkit/dso-toolkit/issues/1712))
 
 ### Deprecated
 * **BREAKING: css + storybook + sources:** Button selectors van Bootstrap deprecaten ([#1663](https://github.com/dso-toolkit/dso-toolkit/issues/1663))
