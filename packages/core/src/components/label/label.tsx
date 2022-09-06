@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter, State, ComponentInterface, Element, Fragment, Watch } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, State, ComponentInterface, Element, Watch, Host } from '@stencil/core';
 import clsx from 'clsx';
 
 function hasEllipses(el: HTMLElement): boolean {
@@ -49,6 +49,9 @@ export class Label implements ComponentInterface {
   @State()
   truncatedContent?: string | null;
 
+  @State()
+  labelText?: string;
+
   @Event()
   removeClick!: EventEmitter<MouseEvent>;
 
@@ -92,6 +95,8 @@ export class Label implements ComponentInterface {
   }
 
   componentDidLoad() {
+    this.labelText = this.host.innerText;
+
     if (this.truncate) {
       this.startTruncate();
     }
@@ -136,7 +141,7 @@ export class Label implements ComponentInterface {
     const status = this.status && Label.statusMap.get(this.status);
 
     return (
-      <Fragment>
+      <Host aria-roledescription={this.truncate && this.truncatedContent ? 'Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus.' : undefined}>
         <span id="toggle-anchor" class={clsx(
           'dso-label',
           {
@@ -174,7 +179,7 @@ export class Label implements ComponentInterface {
               onFocus={() => this.removeFocus = true}
               onBlur={() => this.removeFocus = false}
             >
-              <span class="sr-only">Verwijder</span>
+              <span class="sr-only">Verwijder {this.labelText}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           )}
@@ -185,7 +190,7 @@ export class Label implements ComponentInterface {
           active={!!this.truncatedContent && (this.textHover || this.textFocus)}
           position="top"
         >{this.truncatedContent}</dso-tooltip>
-      </Fragment>
+      </Host>
     );
   }
 }
