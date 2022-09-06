@@ -9,6 +9,7 @@ export interface CardArgs {
   selectable: boolean;
   content: string;
   interactions: Button[];
+  image: string;
 }
 
 export const cardArgTypes: ArgTypes<Card<never>> = {
@@ -32,7 +33,12 @@ export const cardArgTypes: ArgTypes<Card<never>> = {
     control: {
       disable: true
     }
-  }
+  },
+  image: {
+    control: {
+      type: 'text'
+    }
+  },
 };
 
 export function cardArgsMapper(a: CardArgs): Card<never> {
@@ -48,6 +54,7 @@ export function cardArgsMapper(a: CardArgs): Card<never> {
       }
       : undefined,
     content: a.content,
-    interactions: a.interactions
+    interactions: a.interactions,
+    image: a.image,
   };
 }

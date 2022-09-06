@@ -6,4 +6,5 @@ export interface Card<TemplateFnReturnType = never> {
   selectable?: Selectable<TemplateFnReturnType>;
   content: string;
   interactions?: Button[];
+  image?: string;
 }

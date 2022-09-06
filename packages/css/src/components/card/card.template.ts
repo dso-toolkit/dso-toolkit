@@ -6,13 +6,20 @@ import { buttonTemplate } from '../button/button.template';
 import { iconTemplate } from '../icon/icon.template';
 import { selectableTemplate } from '../selectable/selectable.template';
 
-export function cardTemplate({ label, selectable, content, interactions }: Card<TemplateResult>) {
+export function cardTemplate({ label, selectable, content, interactions, image }: Card<TemplateResult>) {
   return html`
-    <div class="dso-card ${classMap({ 'dso-is-selectable': !!selectable })}">
+    <div class="dso-card ${classMap({ 'dso-is-selectable': !!selectable, 'dso-has-image': !!image })}">
       ${selectable
         ? html`
           <div class="dso-card-selectable">
             ${selectableTemplate(selectable)}
+          </div>`
+        : nothing
+      }
+      ${image
+        ? html`
+          <div class="dso-card-image">
+            <img src=${image}>
           </div>`
         : nothing
       }
