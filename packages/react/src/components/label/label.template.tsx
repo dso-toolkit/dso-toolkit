@@ -3,14 +3,14 @@ import * as React from 'react';
 
 import { DsoLabel } from '../..';
 
-export function labelTemplate({ status, label, button, compact, truncate, symbol }: Label) {
+export function labelTemplate({ status, label, removable, onRemoveClick, compact, truncate, symbol }: Label) {
   return (
     <DsoLabel
       status={status}
-      removeClick={button?.onClick}
+      removeClick={onRemoveClick}
       compact={compact}
       truncate={truncate}
-      removable={button}
+      removable={removable}
     >
       {symbol && (
         <span slot="symbol" dangerouslySetInnerHTML={{ __html: symbol }} />

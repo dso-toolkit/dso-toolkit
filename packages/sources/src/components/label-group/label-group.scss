@@ -1,10 +1,18 @@
 @mixin label-group_root() {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $u1;
   margin-bottom: $u2;
 
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $u1;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
   &.dso-align-right {
-    justify-content: flex-end;
+    ul {
+      justify-content: flex-end;
+    }
   }
 }

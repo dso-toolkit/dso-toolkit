@@ -9,11 +9,8 @@ export interface LabelArgs {
   compact?: boolean;
   truncate?: boolean;
   label: string;
-  button?: {
-    title: string;
-    icon: string;
-    onClick: HandlerFunction;
-  };
+  removable?: boolean;
+  onRemoveClick?: HandlerFunction;
   symbol: string;
 }
 
@@ -24,10 +21,13 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
       type: 'select',
     }
   },
-  button: {
+  removable: {
     control: {
-      disable: true
+      type: 'boolean'
     }
+  },
+  onRemoveClick: {
+    action: 'onRemoveClick'
   },
   compact: {
     control: {
@@ -54,7 +54,8 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
 export function labelArgsMapper(a: LabelArgs): Label {
   return {
     label: a.label,
-    button: a.button,
+    removable: a.removable,
+    onRemoveClick: a.onRemoveClick,
     compact: a.compact,
     truncate: a.truncate,
     status: a.status,

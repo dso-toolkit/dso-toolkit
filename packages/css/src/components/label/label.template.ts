@@ -1,6 +1,8 @@
 import { Label } from '@dso-toolkit/sources';
+
 import { html, nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { iconTemplate } from '../icon/icon.template';
@@ -14,7 +16,7 @@ const statusMap = new Map<string, string>([
   ['danger', 'Gevaar']
 ]);
 
-export function labelTemplate({ status, label, button, compact, symbol }: Label) {
+export function labelTemplate({ status, label, removable, onRemoveClick, compact, symbol }: Label) {
   return html`
     <span class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}">
       ${symbol
@@ -22,18 +24,18 @@ export function labelTemplate({ status, label, button, compact, symbol }: Label)
           <span class="dso-label-symbol">${unsafeHTML(symbol)}</span>
         `
         : nothing
-      }${status
+      }${status && statusMap.has(status)
         ? html`
           <span class="sr-only">${statusMap.get(status)}: </span>
         `
         : nothing
       }${
         label
-      }${button
+      }${removable
         ? html `
-          <button type="button" @click=${button.onClick}>
-            <span class="sr-only">${button.title}</span>
-            ${iconTemplate({ icon: button.icon })}
+          <button type="button" @click=${ifDefined(onRemoveClick)}>
+            <span class="sr-only">Verwijder</span>
+            ${iconTemplate({ icon: 'times' })}
           </button>
         `
         : nothing

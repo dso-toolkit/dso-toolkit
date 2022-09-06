@@ -110,7 +110,7 @@ describe('Label', () => {
       .should('have.text', 'Verwijder: andere tekst');
   });
 
-  it('should emit removeClick event', () => {
+  it.skip('should emit removeClick event', () => {
     prepareComponent();
 
     cy.get('@dsoLabel')
