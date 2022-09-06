@@ -11,6 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit:** Panel verhuizen naar @dso-toolkit/css ([#1476](https://github.com/dso-toolkit/dso-toolkit/issues/1476))
 * **core:** Label: a11y - bij truncate `aria-roledescription` meegeven en verwijder knopje "Verwijder <X>" tekst ([#1721](https://github.com/dso-toolkit/dso-toolkit/issues/1721))
 
+### Added
+* **css + sources:** Card list uitbreiden met afbeelding ([#1682](https://github.com/dso-toolkit/dso-toolkit/issues/1682))
+
 ### Deprecated
 * **BREAKING: css + storybook + sources:** Button selectors van Bootstrap deprecaten ([#1663](https://github.com/dso-toolkit/dso-toolkit/issues/1663))
 
