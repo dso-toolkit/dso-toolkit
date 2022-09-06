@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **core + css:** De HTML/CSS Storybook en Core Storybook zijn gefuseerd. ([#1438](https://github.com/dso-toolkit/dso-toolkit/issues/1438))
 * **core:** Autosuggest: `aria-owns` op de input vervangen met `aria-controls` ([#1716](https://github.com/dso-toolkit/dso-toolkit/issues/1716))
+* **css + dso-toolkit:** Panel verhuizen naar @dso-toolkit/css ([#1476](https://github.com/dso-toolkit/dso-toolkit/issues/1476))
 
 ### Deprecated
 * **BREAKING: css + storybook + sources:** Button selectors van Bootstrap deprecaten ([#1663](https://github.com/dso-toolkit/dso-toolkit/issues/1663))
