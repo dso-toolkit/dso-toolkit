@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Label: a11y - bij truncate `aria-roledescription` meegeven en verwijder knopje "Verwijder <X>" tekst ([#1721](https://github.com/dso-toolkit/dso-toolkit/issues/1721))
 * **core + css + sources + storybook** Label-group en Label component; WCAG verbeteringen (WCAG SC 1.3.1)  ([#1712](https://github.com/dso-toolkit/dso-toolkit/issues/1712))
 
+### Added
+* **css + sources:** Legenda afbeelding toevoegen in Card component ([#1682](https://github.com/dso-toolkit/dso-toolkit/issues/1682))
+
 ### Deprecated
 * **BREAKING: css + storybook + sources:** Button selectors van Bootstrap deprecaten ([#1663](https://github.com/dso-toolkit/dso-toolkit/issues/1663))
 
