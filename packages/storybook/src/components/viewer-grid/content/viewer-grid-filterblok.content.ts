@@ -3,34 +3,40 @@ import { labelGroupTemplate } from '@dso-toolkit/css/src/components/label-group/
 import { viewerGridTemplate } from '@dso-toolkit/core/src/components/viewer-grid/viewer-grid.template';
 import { alertTemplate } from '@dso-toolkit/css/src/components/alert/alert.template';
 import { buttonTemplate } from '@dso-toolkit/css/src/components/button/button.template';
-import { AlertType } from "@dso-toolkit/sources";
+import { AlertType, Label } from "@dso-toolkit/sources";
 import { html } from "lit-html";
 
 export function filterblokExampleTemplate() {
-  const activeFilters = [
+  const activeFilters: Label[] = [
     {
       label: "Geldend",
       status: "bright",
+      removable: true
     },
     {
       label: "Regels",
       status: "bright",
+      removable: true
     },
     {
       label: "Tuin",
       status: "bright",
+      removable: true
     },
     {
       label: "Woongebied",
       status: "bright",
+      removable: true
     },
     {
       label: "Geluidzone",
       status: "bright",
+      removable: true
     },
     {
       label: "Thema: milieu algemeen",
       status: "bright",
+      removable: true
     },
   ]
 

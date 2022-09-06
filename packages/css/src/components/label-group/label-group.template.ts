@@ -1,10 +1,11 @@
-// Keep in sync packages\core\src\components\label-group\label-group.template.ts (https://github.com/dso-toolkit/dso-toolkit/issues/1438)
 import { LabelGroup } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
-import { labelTemplate } from '../label/label.template';
+import { labelTemplate } from '@dso-toolkit/core/src/components/label/label.template';
 
 export function labelGroupTemplate({ labels }: LabelGroup) {
-  return html`<div class="dso-label-group">
-    ${labels.map(labels => labelTemplate(labels))}
-  </div>`;
+  return html`<ul class="dso-label-group">
+    ${labels.map(label => html`
+      <li>${labelTemplate(label)}</li>
+    `)}
+  </ul>`;
 }

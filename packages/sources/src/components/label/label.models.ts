@@ -3,10 +3,7 @@ export interface Label {
   compact?: boolean;
   truncate?: boolean;
   label: string;
-  button?: {
-    title: string;
-    icon: string;
-    onClick: unknown;
-  };
+  removable?: boolean;
+  onRemoveClick?: (e: MouseEvent) => void;
   symbol?: string;
 }

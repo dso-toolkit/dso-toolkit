@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: $u1;
+  list-style: none;
   margin-bottom: $u2;
+  padding-left: 0;
 
   &.dso-align-right {
     justify-content: flex-end;
