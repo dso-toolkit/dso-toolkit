@@ -37,7 +37,7 @@ export function storiesOfCardList<TemplateFnReturnType>(
           {
             label: 'Maximum bouwhoogte',
             content: 'Maximum bouwhoogte: 13m',
-            imgSrc: '/images/rectangle1.png'
+            image: 'images/rectangle1.png'
           }
         ]
       }

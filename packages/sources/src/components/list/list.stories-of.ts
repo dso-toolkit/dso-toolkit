@@ -80,23 +80,23 @@ export function storiesOfList<TemplateFnReturnType>(
         items: [
           {
             text: 'Cras justo odio',
-            imgSrc: '/images/rectangle1.png'
+            imgSrc: 'images/rectangle1.png'
           },
           {
             text: 'Dapibus ac facilisis in',
-            imgSrc: '/images/rectangle2.png'
+            imgSrc: 'images/rectangle2.png'
           },
           {
             text: 'Morbi leo risus',
-            imgSrc: '/images/rectangle1.png'
+            imgSrc: 'images/rectangle1.png'
           },
           {
             text: 'Porta ac consectetur ac',
-            imgSrc: '/images/rectangle2.png'
+            imgSrc: 'images/rectangle2.png'
           },
           {
             text: 'Vestibulum at eros',
-            imgSrc: '/images/rectangle1.png'
+            imgSrc: 'images/rectangle1.png'
           }
         ]
       }

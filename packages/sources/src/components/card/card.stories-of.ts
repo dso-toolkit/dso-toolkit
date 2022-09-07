@@ -15,7 +15,7 @@ export function storiesOfCard<TemplateFnReturnType>(
 ) {
   const stories = createStories('Card', parameters, cardArgTypes)
     .addParameters({
-      args: componentArgs<CardArgs>({
+      args: componentArgs<Omit<CardArgs, 'image'>>({
         label: 'Omgevingsplan Nieuwegein',
         selectable: false,
         content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -27,8 +27,7 @@ export function storiesOfCard<TemplateFnReturnType>(
               icon: 'info'
             }
           }
-        ],
-        imgSrc: ''
+        ]
       })
     });
 
@@ -53,8 +52,8 @@ export function storiesOfCard<TemplateFnReturnType>(
     'with image',
     template,
     {
-      args: componentArgs<Pick<CardArgs, 'imgSrc'>>({
-        imgSrc: '/images/rectangle1.png',
+      args: componentArgs<Pick<CardArgs, 'image'>>({
+        image: 'images/rectangle1.png',
       })
     }
   );
