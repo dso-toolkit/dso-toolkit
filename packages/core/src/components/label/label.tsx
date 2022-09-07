@@ -1,4 +1,4 @@
-import { Component, h, Prop, Event, EventEmitter, State, ComponentInterface, Element, Fragment, Watch } from '@stencil/core';
+import { Component, h, Prop, Event, EventEmitter, State, ComponentInterface, Element, Watch, Host } from '@stencil/core';
 import clsx from 'clsx';
 
 function hasEllipses(el: HTMLElement): boolean {
@@ -11,7 +11,13 @@ function hasEllipses(el: HTMLElement): boolean {
   shadow: true
 })
 export class Label implements ComponentInterface {
-  private mutationObserver?: MutationObserver;
+  private mutationObserver = new MutationObserver(() => {
+    this.labelText = this.host.innerText;
+
+    if (this.truncate) {
+      this.truncateLabel();
+    }
+  });
 
   private resizeObserver = new ResizeObserver(() => this.truncateLabel());
 
@@ -48,6 +54,9 @@ export class Label implements ComponentInterface {
 
   @State()
   truncatedContent?: string | null;
+
+  @State()
+  labelText?: string;
 
   @Event()
   removeClick!: EventEmitter<MouseEvent>;
@@ -92,25 +101,24 @@ export class Label implements ComponentInterface {
   }
 
   componentDidLoad() {
-    if (this.truncate) {
-      this.startTruncate();
-    }
-  }
-
-  disconnectedCallback() {
-    this.stopTruncate();
-  }
-
-  startTruncate(): void {
-    this.mutationObserver = new MutationObserver(() => {
-      this.truncateLabel();
-    });
+    this.labelText = this.host.innerText;
 
     this.mutationObserver.observe(this.host, {
       attributes: true,
       subtree: true
     });
 
+    if (this.truncate) {
+      this.startTruncate();
+    }
+  }
+
+  disconnectedCallback() {
+    this.mutationObserver?.disconnect();
+    this.stopTruncate();
+  }
+
+  startTruncate(): void {
     this.resizeObserver.observe(this.host);
 
     this.truncateLabel();
@@ -119,7 +127,6 @@ export class Label implements ComponentInterface {
   stopTruncate(): void {
     document.removeEventListener('keydown', this.keyDownListener);
 
-    this.mutationObserver?.disconnect();
     this.resizeObserver.unobserve(this.host);
     this.truncatedContent = undefined;
     this.keydownListenerActive = false;
@@ -136,7 +143,7 @@ export class Label implements ComponentInterface {
     const status = this.status && Label.statusMap.get(this.status);
 
     return (
-      <Fragment>
+      <Host aria-roledescription={(this.truncate && this.truncatedContent) ? 'Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus.' : undefined}>
         <span id="toggle-anchor" class={clsx(
           'dso-label',
           {
@@ -174,7 +181,7 @@ export class Label implements ComponentInterface {
               onFocus={() => this.removeFocus = true}
               onBlur={() => this.removeFocus = false}
             >
-              <span class="sr-only">Verwijder</span>
+              <span class="sr-only">Verwijder: {this.labelText}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           )}
@@ -185,7 +192,7 @@ export class Label implements ComponentInterface {
           active={!!this.truncatedContent && (this.textHover || this.textFocus)}
           position="top"
         >{this.truncatedContent}</dso-tooltip>
-      </Fragment>
+      </Host>
     );
   }
 }

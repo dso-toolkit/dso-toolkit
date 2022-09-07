@@ -34,6 +34,8 @@ describe('Label', () => {
       .get('@dsoLabel')
       .invoke('attr', 'truncate', true)
       .wait(100)
+      .get('@dsoLabel')
+      .should('have.attr', 'aria-roledescription', 'Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus.')
       .get('@dsoLabelShadow')
       .find('.dso-label-content')
       .invoke('outerWidth')
@@ -81,6 +83,33 @@ describe('Label', () => {
       .should('have.class', 'hidden');
   });
 
+  it('should have label text on remove button', () => {
+    prepareComponent();
+
+    cy.get('@dsoLabel')
+      .should('have.text', defaultLabelText)
+      .invoke('attr', 'removable', true)
+      .wait(200)
+      .get('@dsoLabelShadow')
+      .find('button span.sr-only')
+      .should('have.text', `Verwijder: ${defaultLabelText}`);
+  });
+
+  it('should update label and remove button text', () => {
+    prepareComponent();
+
+    cy.get('@dsoLabel')
+      .should('have.text', defaultLabelText)
+      .invoke('attr', 'removable', true)
+      .get('@dsoLabel')
+      .invoke('html', 'andere tekst')
+      .get('@dsoLabel')
+      .should('have.text', 'andere tekst')
+      .get('@dsoLabelShadow')
+      .find('button span.sr-only')
+      .should('have.text', 'Verwijder: andere tekst');
+  });
+
   it('should emit removeClick event', () => {
     prepareComponent();
 
@@ -88,7 +117,14 @@ describe('Label', () => {
       .should('have.text', defaultLabelText)
       .invoke('attr', 'removable', true)
       .get('@dsoLabelShadow')
-      .find('button')
+      .find('button span.sr-only')
+      .should('have.text', `Verwijder: ${defaultLabelText}`)
+      .get('@dsoLabel')
+      .invoke('html', 'andere tekst')
+      .get('@dsoLabelShadow')
+      .find('button span.sr-only')
+      .should('have.text', `Verwijder: andere tekst`)
+      .closest('button')
       .click()
       .get('@removeClickListener')
       .should('have.been.calledOnce');
