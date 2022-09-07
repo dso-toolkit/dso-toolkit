@@ -11,7 +11,13 @@ function hasEllipses(el: HTMLElement): boolean {
   shadow: true
 })
 export class Label implements ComponentInterface {
-  private mutationObserver?: MutationObserver;
+  private mutationObserver = new MutationObserver(() => {
+    this.labelText = this.host.innerText;
+
+    if (this.truncate) {
+      this.truncateLabel();
+    }
+  });
 
   private resizeObserver = new ResizeObserver(() => this.truncateLabel());
 
@@ -97,25 +103,22 @@ export class Label implements ComponentInterface {
   componentDidLoad() {
     this.labelText = this.host.innerText;
 
+    this.mutationObserver.observe(this.host, {
+      attributes: true,
+      subtree: true
+    });
+
     if (this.truncate) {
       this.startTruncate();
     }
   }
 
   disconnectedCallback() {
+    this.mutationObserver?.disconnect();
     this.stopTruncate();
   }
 
   startTruncate(): void {
-    this.mutationObserver = new MutationObserver(() => {
-      this.truncateLabel();
-    });
-
-    this.mutationObserver.observe(this.host, {
-      attributes: true,
-      subtree: true
-    });
-
     this.resizeObserver.observe(this.host);
 
     this.truncateLabel();
@@ -124,7 +127,6 @@ export class Label implements ComponentInterface {
   stopTruncate(): void {
     document.removeEventListener('keydown', this.keyDownListener);
 
-    this.mutationObserver?.disconnect();
     this.resizeObserver.unobserve(this.host);
     this.truncatedContent = undefined;
     this.keydownListenerActive = false;
@@ -141,7 +143,7 @@ export class Label implements ComponentInterface {
     const status = this.status && Label.statusMap.get(this.status);
 
     return (
-      <Host aria-roledescription={this.truncate && this.truncatedContent ? 'Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus.' : undefined}>
+      <Host aria-roledescription={(this.truncate && this.truncatedContent) ? 'Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus.' : undefined}>
         <span id="toggle-anchor" class={clsx(
           'dso-label',
           {
@@ -179,7 +181,7 @@ export class Label implements ComponentInterface {
               onFocus={() => this.removeFocus = true}
               onBlur={() => this.removeFocus = false}
             >
-              <span class="sr-only">Verwijder {this.labelText}</span>
+              <span class="sr-only">Verwijder: {this.labelText}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           )}
