@@ -21,19 +21,19 @@ export class ProgressBar {
 
     return (
       <div class="progress">
-        <div
+        <span
           class="progress-bar"
           role="progressbar"
           aria-labelledby="progress-bar-label"
           aria-valuenow={progressNumber}
           aria-valuemin={this.min}
           aria-valuemax={this.max}
-          style={{ width: `${progressPercentage}` }}
         >
-          <span id="progress-bar-label">
-            <slot></slot>
-          </span>
-        </div>
+          <span style={{ width: `${progressPercentage}` }}></span>
+        </span>
+        <span id="progress-bar-label">
+          <slot></slot>
+        </span>
       </div>
     );
   }

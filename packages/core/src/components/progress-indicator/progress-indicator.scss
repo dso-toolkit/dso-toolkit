@@ -7,10 +7,6 @@
 @include box-sizing();
 @include progress-indicator_root();
 
-:host {
-  display: block;
-}
-
 :host([block]) {
   @include progress-indicator_block();
 }
