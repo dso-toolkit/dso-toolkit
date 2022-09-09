@@ -10,11 +10,13 @@ export class OzonContentExtRefNode implements OzonContentNode {
   ];
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
+    const href = node.tagName === 'ExtIoRef' ? node.getAttribute('href') : node.getAttribute('ref');
+
     return (
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href={node.getAttribute('ref') ?? undefined}
+        href={href ?? undefined}
       >
         <span class="sr-only">opent in nieuw venster</span>
         {mapNodeToJsx(node.childNodes)}

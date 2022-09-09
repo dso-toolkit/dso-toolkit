@@ -192,6 +192,21 @@ describe("Ozon Content", () => {
       .contains("document");
   });
 
+  it('should render ExtIoRef element', () => {
+    cy.visit('http://localhost:45000/iframe.html?id=core-ozon-content--extioref');
+
+    cy.get("dso-ozon-content").then((c) => {
+      c.prop("content", "<c><ExtIoRef xmlns='' href='https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1'>/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1</ExtIoRef></c>");
+    });
+
+    cy.get("dso-ozon-content")
+      .find("span.fallback.od-c")
+      .children('a[href = "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1"]')
+      .should("exist")
+      .children("span.sr-only")
+      .contains("opent in nieuw venster");
+  });
+
   it("should render Illustratie element", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--al");
 
@@ -315,7 +330,7 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
 
     cy.get('dso-ozon-content > dso-tooltip > span[role="section"] > span[role="paragraph"]')
-      .should('exist')
+      .should('exist');
   });
 
   it('should have correct display', () => {
@@ -325,7 +340,7 @@ describe("Ozon Content", () => {
       .should('have.attr', 'inline', '')
       .and('have.css', 'display', 'inline')
       .invoke('attr', 'inline', null)
-      .should('have.css', 'display', 'block')
+      .should('have.css', 'display', 'block');
   });
 
   it('should mark and denote deleted content', () => {
