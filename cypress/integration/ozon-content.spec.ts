@@ -195,16 +195,12 @@ describe("Ozon Content", () => {
   it('should render ExtIoRef element', () => {
     cy.visit('http://localhost:45000/iframe.html?id=core-ozon-content--extioref');
 
-    cy.get("dso-ozon-content").then((c) => {
-      c.prop("content", "<c><ExtIoRef xmlns='' href='https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1'>/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1</ExtIoRef></c>");
-    });
-
     cy.get("dso-ozon-content")
-      .find("span.fallback.od-c")
-      .children('a[href = "https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1"]')
-      .should("exist")
-      .children("span.sr-only")
-      .contains("opent in nieuw venster");
+      .contains("/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1")
+      .should('have.prop', 'tagName', 'A')
+      .and('have.attr', 'href', 'https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1')
+      .contains('opent in nieuw venster')
+      .should("exist");
   });
 
   it("should render Illustratie element", () => {
