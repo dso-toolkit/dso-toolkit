@@ -169,6 +169,23 @@ export const content = [
     `,
   },
   {
+    title: 'ExtIoRef',
+    content: `
+    <Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12' xmlns:data='https://standaarden.overheid.nl/stop/imop/data/' xmlns:ns10='http://www.w3.org/2001/SMIL20/Language' xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/' xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/' xmlns:ns5='http://www.opengis.net/se' xmlns:ns6='http://www.w3.org/1999/xlink' xmlns:ns7='http://www.opengis.net/ogc' xmlns:ns8='http://www.opengis.net/gml' xmlns:ns9='http://www.w3.org/2001/SMIL20/'>
+      <Begrippenlijst eId='cmp_2__content_o_1__list_o_1' wId='pv31_1__cmp_2__content_o_1__list_o_1'>
+        <Begrip eId='cmp_I__content_o_1__list_o_1__item_o_1' wId='pv25_1__cmp_I__content_o_1__list_o_1__item_o_1'>
+          <Term>Overstromingskans bebouwd gebied 1</Term>
+          <Definitie>
+            <Al>
+              <ExtIoRef xmlns='' href='https://identifier-eto.overheid.nl//join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1'>/join/id/regdata/pv25/2021/OKBebouwdEenOpHonderdWRIJ/nld@2021-11-14;1</ExtIoRef>
+            </Al>
+          </Definitie>
+        </Begrip>
+      </Begrippenlijst>
+    </Inhoud>
+    `,
+  },
+  {
     title: 'Inhoud > Al > Noot',
     content: `
       <Inhoud>
