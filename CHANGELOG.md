@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * **css + sources:** Legenda afbeelding toevoegen in Card component ([#1682](https://github.com/dso-toolkit/dso-toolkit/issues/1682))
+* **core:** Viewer grid: toegankelijkheid bediening breedte kaartpaneel ([#1708](https://github.com/dso-toolkit/dso-toolkit/issues/1708))
 
 ### Deprecated
 * **BREAKING: css + storybook + sources:** Button selectors van Bootstrap deprecaten ([#1663](https://github.com/dso-toolkit/dso-toolkit/issues/1663))

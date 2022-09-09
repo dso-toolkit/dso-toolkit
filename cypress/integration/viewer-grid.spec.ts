@@ -45,7 +45,7 @@ describe("Viewer Grid", () => {
 
   it("should switch to medium", () => {
     cy.visit(url);
-    cy.get("dso-viewer-grid").shadow().find(".shrink").click();
+    shrink();
     cy.get("dso-viewer-grid").should("have.attr", "medium");
     cy.get("dso-viewer-grid")
       .shadow()
@@ -139,11 +139,11 @@ describe("Viewer Grid", () => {
   });
 
   it('should emit filterpanelCancel event', () => {
-    filterPanelEventTest('filterpanelCancel', '.cancel-button')
+    filterPanelEventTest('filterpanelCancel', '.cancel-button');
   });
 
   it('should emit filterpanelApply event', () => {
-    filterPanelEventTest('filterpanelApply', '.apply-button')
+    filterPanelEventTest('filterpanelApply', '.apply-button');
   });
 
   it('should trap focus on filterpanel open', () => {
@@ -213,21 +213,45 @@ describe("Viewer Grid", () => {
       .shadow()
       .as('root')
       .find('.expand')
-      .should('be.disabled')
-      .get('@root')
-      .find('.shrink')
-      .click()
-      .wait(250)
-      .get('@root')
-      .find('.expand')
-      .click()
-      .wait(250)
+      .should('be.disabled');
+
+    shrink();
+
+    cy.wait(250);
+
+    expand();
+
+    cy.wait(250)
       .wrap(sizeHandler)
       .should(stub => {
         const calls = stub.getCalls();
 
         expect(calls.map(c => c.args[0]?.detail)).to.deep.equal(expected);
-      })
+      });
+  });
+
+  it('should say "breedte tekstpaneel: [smal / middel / breed]" upon size change', () => {
+    cy.visit(url);
+
+    cy.get('dso-viewer-grid')
+      .shadow()
+      .as('root')
+      .find('.sizing-buttons span.sr-only')
+      .should('have.attr', 'aria-live', 'polite');
+
+    shouldHavePhrase('breed');
+
+    shrink();
+
+    shouldHavePhrase('middel');
+
+    shrink();
+
+    shouldHavePhrase('smal');
+
+    expand();
+
+    shouldHavePhrase('middel');
   });
 });
 
@@ -249,4 +273,25 @@ function filterPanelEventTest(eventName: string, buttonSelector: string) {
   cy.get('@filterButtons').last().click();
 
   cy.get('@listener').should('be.calledTwice');
+}
+
+function shrink() {
+  cy.get('dso-viewer-grid')
+    .shadow()
+    .find('.shrink')
+    .click();
+}
+
+function expand() {
+  cy.get('dso-viewer-grid')
+    .shadow()
+    .find('.expand')
+    .click();
+}
+
+function shouldHavePhrase(size: string) {
+  cy.get('dso-viewer-grid')
+    .shadow()
+    .find('.sizing-buttons span.sr-only')
+    .should('have.text', `breedte tekstpaneel: ${size}`);
 }
