@@ -29,9 +29,15 @@
 
 .dso-truncate.dso-label-content {
   display: inline-block;
-  max-width: 184px;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
   vertical-align: bottom;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- full text can be viewed via tooltip.
+}
+
+:host([removable]) {
+  .dso-truncate.dso-label-content {
+    max-width: calc(100% - ($u3 + 4px));
+  }
 }
