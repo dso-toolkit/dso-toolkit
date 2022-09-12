@@ -82,4 +82,8 @@ ol {
   ol {
     margin-bottom: 0;
   }
+
+  &.dso-list-unstyled {
+    @include list-unstyled();
+  }
 }

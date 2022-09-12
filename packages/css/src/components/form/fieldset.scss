@@ -5,6 +5,8 @@
 
 @import "../../../../sources/src/styling/mixins";
 
+$legend-color: $grijs-90;
+
 #{$dso-form-selectors} {
   fieldset {
     margin-bottom: $u2;

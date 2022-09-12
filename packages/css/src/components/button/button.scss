@@ -1,3 +1,25 @@
+button {
+  -webkit-appearance: button; // Correct inability to style clickable `input` types in iOS.
+  color: inherit;
+  cursor: pointer; // Improve usability and consistency of cursor style between image-type `input` and others.
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible; // Address `overflow` set to `hidden` in IE 8/9/10/11.
+  text-transform: none; // Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+
+  &[disabled] {
+    cursor: default; // Re-set default cursor for disabled elements.
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
 .btn {
   @include button_base();
 }

@@ -8,7 +8,8 @@ function ul(children: TemplateResult, modifier?: string) {
     <ul class="${classMap({
       'list-group': modifier === 'group',
       'dso-columns-list': modifier === 'columns',
-      'dso-img-list': modifier === 'img-list'
+      'dso-img-list': modifier === 'img-list',
+      'dso-list-unstyled': modifier === 'unstyled'
     })}">
       ${children}
     </ul>
@@ -20,7 +21,8 @@ function ol(children: TemplateResult, modifier?: string) {
     <ol class="${classMap({
       'list-group': modifier === 'group',
       'dso-columns-list': modifier === 'columns',
-      'dso-img-list': modifier === 'img-list'
+      'dso-img-list': modifier === 'img-list',
+      'dso-list-unstyled': modifier === 'unstyled'
     })}">
       ${children}
     </ol>

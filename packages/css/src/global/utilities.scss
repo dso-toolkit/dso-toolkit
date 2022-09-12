@@ -10,17 +10,8 @@
   color: $text-muted;
 }
 
-.list-unstyled {
-  @include list-unstyled();
-}
-
 .caption {
   font-style: italic;
-}
-
-small,
-.small {
-  font-size: $font-size-small;
 }
 
 .hidden {

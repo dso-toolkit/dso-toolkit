@@ -3010,6 +3010,7 @@ __metadata:
   resolution: "@dso-toolkit/core@workspace:packages/core"
   dependencies:
     "@babel/core": ^7.17.9
+    "@dso-toolkit/css": "workspace:packages/css"
     "@dso-toolkit/sources": "workspace:packages/sources"
     "@popperjs/core": ^2.11.5
     "@stencil/core": 2.10.0
