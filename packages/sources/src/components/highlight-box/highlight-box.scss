@@ -37,6 +37,7 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     *:first-child {
       margin-top: 0;
     }
+  }
 
   > *:last-child {
     margin-bottom: 0;
@@ -52,6 +53,7 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
+}
 
 @mixin highlight-box_exoticChildren() {
   --di-chevron-right-grijs90: #{dso-icon("chevron-right", "grijs90")};
