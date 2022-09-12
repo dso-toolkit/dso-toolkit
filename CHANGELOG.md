@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css + dso-toolkit:** Panel verhuizen naar @dso-toolkit/css ([#1476](https://github.com/dso-toolkit/dso-toolkit/issues/1476))
 * **core:** Label: a11y - bij truncate `aria-roledescription` meegeven en verwijder knopje "Verwijder <X>" tekst ([#1721](https://github.com/dso-toolkit/dso-toolkit/issues/1721))
 * **core + css + sources + storybook** Label-group en Label component; WCAG verbeteringen (WCAG SC 1.3.1)  ([#1712](https://github.com/dso-toolkit/dso-toolkit/issues/1712))
+* **dso-toolkit + css:** Ontmantelen van `.dso-normalize` ([#1749](https://github.com/dso-toolkit/dso-toolkit/issues/1749))
 
 ### Added
 * **css + sources:** Legenda afbeelding toevoegen in Card component ([#1682](https://github.com/dso-toolkit/dso-toolkit/issues/1682))

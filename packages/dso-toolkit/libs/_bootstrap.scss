@@ -49,7 +49,7 @@
 // @import "bootstrap/mixins/grid"; -> Moved to @dso-toolkit/styling
 
 // Reset and dependencies
-@import "../src/styles/mixins/dso-normalize";
+// @import "../src/styles/mixins/dso-normalize"; -> Partially moved to @dso-toolkit/css
 @import "bootstrap/print";
 
 // Core CSS
