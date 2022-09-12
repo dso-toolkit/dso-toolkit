@@ -37,17 +37,6 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     *:first-child {
       margin-top: 0;
     }
-    
-    img.dso-highlight-box-banner {
-      width: calc(100% + 32px);
-      max-width: 100vw;
-      max-height: 150px; 
-      object-fit: cover;
-      margin-left: -16px;
-      margin-right: -16px;
-      margin-top: -16px;
-    }
-  }
 
   > *:last-child {
     margin-bottom: 0;
@@ -63,17 +52,6 @@ $dso-highlight-box-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       }
     }
   }
-
-  .dso-tile-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @media only screen and (max-width: 480px) {
-    .dso-tile-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
 
 @mixin highlight-box_exoticChildren() {
   --di-chevron-right-grijs90: #{dso-icon("chevron-right", "grijs90")};
