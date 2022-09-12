@@ -191,6 +191,7 @@ export class Label implements ComponentInterface {
           for="toggle-anchor"
           active={!!this.truncatedContent && (this.textHover || this.textFocus)}
           position="top"
+          strategy="absolute"
         >{this.truncatedContent}</dso-tooltip>
       </Host>
     );

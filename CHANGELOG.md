@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + css + sources + storybook** Label-group en Label component; WCAG verbeteringen (WCAG SC 1.3.1)  ([#1712](https://github.com/dso-toolkit/dso-toolkit/issues/1712))
 * **dso-toolkit + css:** Ontmantelen van `.dso-normalize` ([#1749](https://github.com/dso-toolkit/dso-toolkit/issues/1749))
 * **dso-toolkit** Nieuwe Homepage etaleren ([#1684](https://github.com/dso-toolkit/dso-toolkit/issues/1684))
+* **core:** Label: Bij truncaten gaten opvullen ([#1734](https://github.com/dso-toolkit/dso-toolkit/issues/1734))
 
 ### Added
 * **css + sources:** Legenda afbeelding toevoegen in Card component ([#1682](https://github.com/dso-toolkit/dso-toolkit/issues/1682))
