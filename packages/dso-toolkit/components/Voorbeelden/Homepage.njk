@@ -45,6 +45,7 @@
               <h3>Meest gekozen werkzaamheden</h3>
             </br>
           </div>
+
           <div class="dso-tile-grid">
             <div class="dso-tile dso-theme">
               <a href="#">
@@ -108,26 +109,27 @@
                   Boom kappen of snoeien
                 </span>
               </a>
-
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
+
   <div class="col-md-4 col-sm-6 col-xs-12">
     <div class="dso-highlight-box dso-white dso-drop-shadow">
       <div class="dso-rich-content">
         <img src="../../dummy/images/hp7.png" class="img-responsive" aria-hidden="true">
         <h2>Vergunning aanvragen of melding doen</h2>
         <p>Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kan u een aanvraag of melding starten.</p>
-        <a href="#"  class="btn dso-secondary">
+        {# <a href="#"  class="btn dso-secondary">
           <span>Aanvragen</span>
           <svg class="di di-chevron-right">
             <use href="/dso-icons.svg#chevron-right"/>
           </svg>
-        </a>
+        </a> #}
+
+        {% render '@anchor', {url: '#', label: 'Aanvragen', modifier: 'dso-secondary', iconAfter: 'chevron-right'} -%}
       </div>
     </div>
   </div>
@@ -163,40 +165,38 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="row dso-equal-heights">
-  <div class="col-md-4 col-sm-6">
-    <div class="dso-highlight-box dso-border">
-      <h3>Heeft u een vraag?</h3>
-      <p>Het snelste antwoord op uw vragen vind u in ons Helpcentrum. Wij hebben de veelgestelde vragen per thema voor u op een rij gezet.</p>
-      <a href="#"  class="dso-tertiary btn-align">
-        <svg class="di di-chevron-right">
-          <use href="/dso-icons.svg#chevron-right"/>
-        </svg>
-          Helpcentrum</a>
+  <div class="row dso-equal-heights">
+    <div class="col-md-4 col-sm-6">
+      <div class="dso-highlight-box dso-border">
+        <h3>Heeft u een vraag?</h3>
+        <p>Het snelste antwoord op uw vragen vind u in ons Helpcentrum. Wij hebben de veelgestelde vragen per thema voor u op een rij gezet.</p>
+        <a href="#"  class="dso-tertiary btn-align">
+          <svg class="di di-chevron-right">
+            <use href="/dso-icons.svg#chevron-right"/>
+          </svg>
+            Helpcentrum</a>
+      </div>
     </div>
-  </div>
 
-  <div class="col-md-4 col-sm-6">
-    <div class="dso-highlight-box dso-border">
-      <div class="dso-rich-content">
-        <h3>Huidige dienstverlening</h3>
-        <ul class="dso-link-list">
-          <li>
-            <a>Omgevingsloket.nl</a>
-          </li>
-          <li>
-            <a>Aimonline.nl</a>
-          </li>
-          <li>
-            <a>Ruimtelijkeplannen.nl</a>
-          </li>
-        </ul>
+    <div class="col-md-4 col-sm-6">
+      <div class="dso-highlight-box dso-border">
+        <div class="dso-rich-content">
+          <h3>Huidige dienstverlening</h3>
+          <ul class="dso-link-list">
+            <li>
+              <a>Omgevingsloket.nl</a>
+            </li>
+            <li>
+              <a>Aimonline.nl</a>
+            </li>
+            <li>
+              <a>Ruimtelijkeplannen.nl</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-
-</div>
 </main>
 {% render '@footer' %}
