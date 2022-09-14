@@ -13,17 +13,19 @@ export function formGroupRadiosTemplate(formGroup: FormGroupRadios<TemplateResul
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
     formGroup.helpText ? helpTextId : undefined,
     formGroup.info?.fixed ? infoTextId : undefined
   ]
     .filter(s => !!s)
     .join(' ') || undefined;
 
+  const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
+
   return html`
     <fieldset
       class="form-group dso-radios ${classMap({ 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}"
       aria-describedby=${ifDefined(ariaDescribedBy)}
+      aria-errormessage=${ifDefined(ariaErrorMessage)}
     >
       <div class="dso-label-container">
         <label for=${formGroup.id} class="control-label">

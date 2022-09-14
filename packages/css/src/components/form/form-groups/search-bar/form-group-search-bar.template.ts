@@ -13,12 +13,13 @@ export function formGroupSearchBarTemplate(formGroup: FormGroupSearchBar<Templat
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
     formGroup.helpText ? helpTextId : undefined,
     formGroup.info?.fixed ? infoTextId : undefined
   ]
     .filter(s => !!s)
     .join(' ') || undefined;
+
+  const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
   return html`
     <div class="form-group dso-form-group-search-bar ${classMap({ [`dso-${formGroup.state}`]: !!formGroup.state })}">
@@ -36,8 +37,8 @@ export function formGroupSearchBarTemplate(formGroup: FormGroupSearchBar<Templat
         }
       </div>
       <div class="dso-field-container">
-        ${searchBarTemplate({ ...formGroup.searchBar, invalid: formGroup.state === 'invalid', ariaDescribedBy: ariaDescribedBy })}
-        ${formGroup.errorText
+        ${searchBarTemplate({ ...formGroup.searchBar, invalid: formGroup.state === 'invalid', ariaDescribedBy: ariaDescribedBy, ariaErrorMessage: ariaErrorMessage })}
+        ${formGroup.errorText && formGroup.state === 'invalid'
           ? html`
             <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>
           `

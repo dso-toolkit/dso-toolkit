@@ -11,5 +11,6 @@ export interface SearchBar {
   resultsMessage?: string;
   resultsHidden?: boolean;
   ariaDescribedBy?: string;
+  ariaErrorMessage?: string;
   clearButton?: boolean;
 }

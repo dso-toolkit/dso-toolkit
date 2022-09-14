@@ -9,17 +9,15 @@ export function formGroupConfirmTemplate(formGroup: FormGroupConfirm<TemplateRes
   const errorTextId = `${formGroup.id}-error-text`;
   const helpTextId = `${formGroup.id}-help-text`;
 
-  const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
-    formGroup.helpText ? helpTextId : undefined
-  ]
-    .filter(s => !!s)
-    .join(' ') || undefined;
+  const ariaDescribedBy = formGroup.helpText ? helpTextId : undefined;
+
+  const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
   return html`
     <fieldset
       class="form-group dso-confirm ${classMap({ 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}"
       aria-describedby=${ifDefined(ariaDescribedBy)}
+      aria-errormessage=${ifDefined(ariaErrorMessage)}
     >
       <div class="dso-field-container">
         ${selectableTemplate({ ...formGroup.selectable, disabled: formGroup.disabled })}
