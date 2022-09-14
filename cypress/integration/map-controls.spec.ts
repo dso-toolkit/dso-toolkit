@@ -20,6 +20,22 @@ describe('Map Controls', () => {
         .invoke('prop', property, (_: unknown, layers: Layer[]) => layers.map<Layer>(o => o.name === label ? { ...o, disabled: false } : o))
 
       cy.get('@selectable').find('dso-info').should('not.be.visible')
-     }
-  })
+    }
+  });
+
+  it('panel should have header "Kaartlagen" and close button "Verberg paneel Kaartlagen"', () => {
+    cy.visit('http://localhost:45000/iframe.html?id=core-map-controls--map-controls');
+
+    cy.get('dso-map-controls')
+      .shadow()
+      .as('dsoMapControlsShadow')
+      .find('#toggle-visibility-button')
+      .click()
+      .get('@dsoMapControlsShadow')
+      .find('section header h2')
+      .should('have.text', 'Kaartlagen')
+      .closest('header')
+      .find('button span')
+      .should('have.text', 'Verberg paneel Kaartlagen');
+  });
 });
