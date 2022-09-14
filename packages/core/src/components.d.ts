@@ -204,9 +204,9 @@ export namespace Components {
          */
         "inline": boolean;
         /**
-          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.
+          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
-        "interactive": boolean;
+        "interactive": 'sub' | '' | boolean;
     }
     interface DsoPagination {
         /**
@@ -735,9 +735,9 @@ declare namespace LocalJSX {
          */
         "inline"?: boolean;
         /**
-          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.
+          * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
-        "interactive"?: boolean;
+        "interactive"?: 'sub' | '' | boolean;
         "onAnchorClick"?: (event: CustomEvent<OzonContentAnchorClick>) => void;
         /**
           * These events are only emitted when the component is `interactive`.

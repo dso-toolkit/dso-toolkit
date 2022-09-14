@@ -23,6 +23,14 @@
 
 :host([interactive]) {
   @include anchor_root($is-html-a-element: false, $with-modifiers: false);
+
+  color: $bosgroen;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+:host([interactive="sub"]) {
+  color: $grijs-90;
 }
 
 .deleted-start,

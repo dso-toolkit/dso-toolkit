@@ -35,9 +35,13 @@ export class OzonContent implements ComponentInterface {
    *
    * **Do not** use this without an accessible companion element! `interactive` is only
    * meant to ease the use of the companion element for mouse/touch users.
+   * 
+   * * `true`: Interactive anchor-look-alike
+   * * `"sub"`: Interactive anchor-look-alike for sub navigation
+   * * `false | undefined`: Disabled
    */
   @Prop({ reflect: true })
-  interactive = false;
+  interactive: 'sub' | '' | boolean = false;
 
   @State()
   state: OzonContentNodeState = {};
@@ -57,7 +61,8 @@ export class OzonContent implements ComponentInterface {
   private mapper = new Mapper();
 
   handleHostOnClick(e: UIEvent) {
-    if (!this.interactive) {
+    // '' is `true`: <dso-ozon-content interactive>
+    if (this.interactive !== '' && !this.interactive) {
       return;
     }
 

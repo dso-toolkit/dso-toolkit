@@ -3,7 +3,7 @@ export interface OzonContent {
   inline?: boolean;
   prefix?: string;
   suffix?: string;
-  interactive?: boolean;
+  interactive?: 'sub' | boolean;
   deleted?: boolean;
   onAnchorClick: (e: unknown) => void;
   onClick: (e: unknown) => void;
