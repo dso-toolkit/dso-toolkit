@@ -6,9 +6,9 @@ import { OzonContent } from '@dso-toolkit/sources';
 export function ozonContentTemplate({ content, inline, interactive, deleted, prefix, suffix, onAnchorClick, onClick }: OzonContent) {
   return html`
     <dso-ozon-content
+      interactive=${ifDefined(interactive || undefined)}
       .content=${content}
       ?inline=${inline}
-      ?interactive=${interactive}
       ?deleted=${deleted}
       @anchorClick=${onAnchorClick}
       @dsoClick=${ifDefined(interactive ? onClick : undefined)}

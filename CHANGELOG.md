@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **core + sources:** `ExtIoRef`: href ontbreekt ([#1728](https://github.com/dso-toolkit/dso-toolkit/issues/1728))
+* **core:** `dso-ozon-content[interactive]` hanteert ongewenste styling ([#1737](https://github.com/dso-toolkit/dso-toolkit/issues/1737))
 
 ### Changed
 * **core + css:** De HTML/CSS Storybook en Core Storybook zijn gefuseerd. ([#1438](https://github.com/dso-toolkit/dso-toolkit/issues/1438))

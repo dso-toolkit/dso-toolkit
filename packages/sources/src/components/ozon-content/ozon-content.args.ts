@@ -6,7 +6,7 @@ import { OzonContent } from "./ozon-content.models";
 export interface OzonContentArgs {
   content: string;
   inline: boolean;
-  interactive?: boolean;
+  interactive?: string | boolean;
   deleted?: boolean;
   prefix?: string;
   suffix?: string;
@@ -26,8 +26,13 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
     }
   },
   interactive: {
+    options: [
+      'default',
+      'sub',
+      undefined
+    ],
     control: {
-      type: 'boolean'
+      type: 'select'
     }
   },
   deleted: {
@@ -59,7 +64,7 @@ export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
   return {
     content: a.content,
     inline: a.inline,
-    interactive: a.interactive,
+    interactive: a.interactive === 'sub' ? 'sub' : a.interactive === 'default',
     deleted: a.deleted,
     prefix: a.prefix || undefined,
     suffix: a.suffix || undefined,

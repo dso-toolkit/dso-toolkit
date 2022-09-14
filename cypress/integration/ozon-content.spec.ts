@@ -360,7 +360,9 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
 
     cy.get('dso-ozon-content')
-      .should('have.attr', 'interactive', '')
+      .invoke('attr', 'interactive', '')
+      .should('have.attr', 'interactive')
+      .get('dso-ozon-content')
       .then($dsoOzonContent => $dsoOzonContent.on('dsoClick', cy.stub().as('click')))
       .click()
       .invoke('removeAttr', 'interactive')
@@ -375,10 +377,14 @@ describe("Ozon Content", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
 
     cy.get('dso-ozon-content')
-      .should('have.attr', 'interactive', '')
-      .and('have.css', 'text-decoration-line', 'underline')
-      .invoke('removeAttr', 'interactive')
-      .and('have.css', 'text-decoration-line', 'none');
+      .invoke('attr', 'interactive', '')
+      .should('have.attr', 'interactive')
+      .get('dso-ozon-content')
+      .should('have.css', 'text-decoration-line', 'none')
+      .and('have.css', 'color', 'rgb(39, 89, 55)') // $bosgroen
+      .invoke('attr', 'interactive', 'sub')
+      .should('have.css', 'text-decoration-line', 'none')
+      .and('have.css', 'color', 'rgb(25, 25, 25)'); // $grijs-90
   });
 
   it('should render Figuur as dso-image-overlay', () => {
