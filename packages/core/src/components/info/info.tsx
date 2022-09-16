@@ -18,12 +18,12 @@ export class Info {
   render() {
     return (
       <Fragment>
+        <slot></slot>
         {!this.fixed && (
           <button type="button" onClick={e => this.close.emit(e)}>
             <span class="sr-only">Sluiten</span>
           </button>
         )}
-        <slot></slot>
       </Fragment>
     );
   }
