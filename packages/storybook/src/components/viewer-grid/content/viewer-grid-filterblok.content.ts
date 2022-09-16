@@ -9,36 +9,42 @@ import { html } from "lit-html";
 export function filterblokExampleTemplate() {
   const activeFilters: Label[] = [
     {
-      label: "Geldend",
-      status: "bright",
-      removable: true
+      label: 'Bouwwerken, werken en objecten bouwen',
+      status: 'bright',
+      removable: true,
+      truncate: true,
     },
     {
-      label: "Regels",
-      status: "bright",
-      removable: true
+      label: 'Regels',
+      status: 'bright',
+      removable: true,
+      truncate: true
     },
     {
-      label: "Tuin",
-      status: "bright",
-      removable: true
+      label: 'Tuin',
+      status: 'bright',
+      removable: true,
+      truncate: true
     },
     {
-      label: "Woongebied",
-      status: "bright",
-      removable: true
+      label: 'Slopen of verwijderen bij een hoofdspoorweg of een bijzondere spoorweg',
+      status: 'bright',
+      removable: true,
+      truncate: true
     },
     {
-      label: "Geluidzone",
-      status: "bright",
-      removable: true
+      label: 'Geluidzone',
+      status: 'bright',
+      removable: true,
+      truncate: true
     },
     {
-      label: "Thema: milieu algemeen",
-      status: "bright",
-      removable: true
-    },
-  ]
+      label: 'Thema: milieu algemeen',
+      status: 'bright',
+      removable: true,
+      truncate: true
+    }
+  ];
 
   return viewerGridTemplate({
     main: html`

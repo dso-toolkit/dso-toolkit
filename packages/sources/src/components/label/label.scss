@@ -31,6 +31,7 @@ $dso-label-symbol-aspect-ratio: math.div(30, 25);
   color: $dso-label-default-color;
   display: inline-block;
   line-height: 1.5;
+  max-width: 100%;
 
   &:not(.dso-label-bright) {
     padding: #{$u1 * 0.5} $u1;
