@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **css:** Elementen verdwijnen achter `dso-document-list-item` ([#1764](https://github.com/dso-toolkit/dso-toolkit/issues/1764))
+* Label mist max-width: 100% ([#1766](https://github.com/dso-toolkit/dso-toolkit/issues/1766))
 
 ### Changed
 * **BREAKING: core + css:** Info: sluitknopje in DOM onderaan ([#1707](https://github.com/dso-toolkit/dso-toolkit/issues/1707))\
