@@ -39,6 +39,7 @@ export function storiesOfLabel<TemplateFnReturnType>(
     template,
     {
       args: {
+        removable: true,
         button: {
           title: 'Verwijder',
           icon: 'times',

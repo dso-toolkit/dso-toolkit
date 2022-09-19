@@ -113,7 +113,7 @@ export function formGroupSelectArgsMapper(a: FormGroupSelectArgs): FormGroupSele
     helpText: a.helpText,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onClick: a.infoButtonHandler,
+        onToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
