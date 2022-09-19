@@ -1,8 +1,7 @@
 @import "../../../../sources/src/styling/variables";
 @import "../../../../sources/src/styling/mixins/rich-content";
 
-@import "../../mixins/table-responsive";
-@import "../../mixins/table-row-variant";
+@import "table.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
 $table-cell-padding: $u1;
 $table-bg: transparent;

@@ -1,6 +1,7 @@
 @use "sass:math";
 
 @use "../../../../sources/src/styling/variables";
+@use "../grid/grid.variables" as grid;
 
 $dso-form-selectors: ".form, form, .dso-section-body";
 
@@ -8,7 +9,7 @@ $dso-form-group-margin: variables.$u4;
 
 $dso-textarea-default-rows: 3 !default;
 
-$dso-label-column: variables.$grid-columns * 0.5;
+$dso-label-column: grid.$grid-columns * 0.5;
 
 $dso-toggle-close-icon-size: variables.$u4;
 $dso-toggle-header-margin: 12px;

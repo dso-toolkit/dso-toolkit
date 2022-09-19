@@ -1,4 +1,7 @@
 @use "viewer-grid.variables" as variables;
+
+@use "~@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
+
 @import "~@dso-toolkit/sources/src/styling/variables";
 
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
@@ -89,7 +92,7 @@
 .overlay-close-button {
   position: absolute;
   top: $u1;
-  right: $grid-gutter-width * 0.5;
+  right: grid-variables.$grid-gutter-width * 0.5;
 }
 
 .dso-map-panel {
@@ -110,7 +113,7 @@
   .main {
     height: 100%;
     overflow-y: scroll;
-    padding: $u1 $grid-gutter-width * 0.5;
+    padding: $u1 grid-variables.$grid-gutter-width * 0.5;
   }
 }
 
@@ -164,7 +167,7 @@
 
 #filterpanel {
   box-shadow: 2px 0 5px $grijs-60;
-  padding: $u5 $grid-gutter-width * 0.5 $u1;
+  padding: $u5 grid-variables.$grid-gutter-width * 0.5 $u1;
   left: 0;
   max-width: variables.$dso-viewer-grid-filterpanel-max-width;
   width: calc(100vw - 40px);
@@ -196,7 +199,7 @@
 
 .overlay {
   box-shadow: -2px 0 5px $grijs-60;
-  padding: $u5 $grid-gutter-width * 0.5 $u1;
+  padding: $u5 grid-variables.$grid-gutter-width * 0.5 $u1;
   right: 0;
   width: variables.$dso-viewer-grid-overlay-width;
 

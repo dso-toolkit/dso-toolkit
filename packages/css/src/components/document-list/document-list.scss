@@ -1,3 +1,5 @@
+@use "../grid/grid.variables.scss" as *;
+
 .dso-document-list {
   @include list-unstyled();
 

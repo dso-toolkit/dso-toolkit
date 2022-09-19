@@ -1,3 +1,5 @@
+@use "../grid/grid.variables.scss" as *;
+
 .dso-document-header {
   background-color: $grijs-5;
   padding: $grid-gutter-width * 0.5;

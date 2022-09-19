@@ -1,3 +1,5 @@
+@use "../../../../css/src/components/grid/grid.mixins" as *;
+
 .dso-jumbotron {
   @include make-row();
 

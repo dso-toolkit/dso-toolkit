@@ -5,8 +5,6 @@
 
 @import "../../../../sources/src/styling/mixins";
 
-$legend-color: $grijs-90;
-
 #{$dso-form-selectors} {
   fieldset {
     margin-bottom: $u2;
@@ -32,10 +30,6 @@ $legend-color: $grijs-90;
         border-top: 1px solid $dso-fieldset-separator-color;
         padding-top: $dso-fieldset-separator-unit;
       }
-    }
-
-    &.form-group legend {
-      color: $legend-color;
     }
 
     fieldset {

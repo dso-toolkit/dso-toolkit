@@ -1,6 +1,22 @@
 @use "sass:math";
 
-@import "../../../sources/src/styling/mixins/clearfix";
+@use "../../../../sources/src/styling/mixins/clearfix" as *;
+@use "grid.variables" as *;
+@use "../../../../sources/src/styling/variables/media-queries-breakpoints" as *;
+
+@mixin full-width-row($gutter: 0) {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  @if ($gutter > 0) {
+    padding-left: calc(50vw - 50% - #{math.ceil($gutter * 0.5)});
+    padding-right: calc(50vw - 50% - #{math.floor($gutter * 0.5)});
+  }
+  @else {
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+  }
+}
 
 @mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
   @for $i from (1 + 1) through $grid-columns {

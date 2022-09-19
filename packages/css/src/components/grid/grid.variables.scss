@@ -1,3 +1,5 @@
+@use "../../../../sources/src/styling/variables/media-queries-breakpoints" as *;
+
 // Number of columns in the grid.
 $grid-columns: 12 !default;
 

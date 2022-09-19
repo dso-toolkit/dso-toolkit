@@ -1,9 +1,11 @@
+@use "../grid/grid.mixins" as grid;
+
 // Todo: Color doesn't exist in color palette
 $dso-footer-border-color: $grijs-20;
 $dso-footer-header-border-color: $grijs-20;
 
 footer {
-  @include full-width-row();
+  @include grid.full-width-row();
 
   background-color: $grijs-5;
   border-top: 1px solid $dso-footer-border-color;
