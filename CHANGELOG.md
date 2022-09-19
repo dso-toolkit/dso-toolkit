@@ -11,6 +11,9 @@ Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://githu
 
 ## 44.0.0
 
+### Changed
+* **core:** `dso-map-controls`: naam sluitknopje ([#1722](https://github.com/dso-toolkit/dso-toolkit/issues/1722))
+
 ### Fixed
 * **core + sources:** `ExtIoRef`: href ontbreekt ([#1728](https://github.com/dso-toolkit/dso-toolkit/issues/1728))
 * **core:** `dso-ozon-content[interactive]` hanteert ongewenste styling ([#1737](https://github.com/dso-toolkit/dso-toolkit/issues/1737))

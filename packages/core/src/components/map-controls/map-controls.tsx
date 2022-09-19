@@ -8,6 +8,8 @@ const transitionDuration = 300; // Sync with $transition-duration in ./map-contr
   shadow: true
 })
 export class MapControls {
+  private panelTitle = 'Kaartlagen'
+
   @Prop({ reflect: true, mutable: true })
   open = false;
 
@@ -69,9 +71,9 @@ export class MapControls {
         </div>
         <section hidden={this.hideContent}>
           <header>
-            <h2>Kaartlagen</h2>
+            <h2>{this.panelTitle}</h2>
             <button type="button" id="close-button" onClick={() => this.open = false} ref={element => this.#closeButtonElement = element!}>
-              <span>Sluit dialoog</span>
+              <span>Verberg paneel {this.panelTitle}</span>
               <dso-icon icon="times"></dso-icon>
             </button>
           </header>
