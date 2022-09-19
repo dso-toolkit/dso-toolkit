@@ -1,22 +1,24 @@
+@use "@dso-toolkit/css/src/components/grid/grid.mixins" as grid-mixins;
+
 .dso-jumbotron {
-  @include make-row();
+  @include grid-mixins.make-row();
 
   .dso-jumbotron-title {
     @include h1();
 
-    @include make-md-column(12);
+    @include grid-mixins.make-md-column(12);
 
     margin-bottom: $u2;
     margin-top: 0;
   }
 
   .dso-jumbotron-body {
-    @include make-md-column(8);
+    @include grid-mixins.make-md-column(8);
     @include rich-content_children();
   }
 
   .dso-jumbotron-image {
-    @include make-md-column(4);
+    @include grid-mixins.make-md-column(4);
   }
 
   .dso-jumbotron-cta {

@@ -1,6 +1,0 @@
-@mixin tile-grid_root() {
-  display: grid;
-  gap: $grid-gutter-width;
-  grid-auto-rows: 1fr;
-  grid-template-columns: repeat(2, 1fr);
-}

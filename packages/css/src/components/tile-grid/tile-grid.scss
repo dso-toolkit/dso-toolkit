@@ -1,5 +1,10 @@
+@use "../grid/grid.variables" as grid-variables;
+
 .dso-tile-grid {
-  @include tile-grid_root();
+  display: grid;
+  gap: grid-variables.$grid-gutter-width;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 dso-responsive-element.dso-tile-grid {

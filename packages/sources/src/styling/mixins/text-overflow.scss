@@ -1,5 +1,0 @@
-@mixin text-overflow() {
-  overflow: hidden;
-  text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- text-overflow() mixin doesn't work without this property
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- text-overflow() mixin doesn't work without this property
-}

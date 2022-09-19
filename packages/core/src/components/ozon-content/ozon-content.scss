@@ -1,4 +1,4 @@
-@use "~@dso-toolkit/sources/src/styling/mixins/sr-only" as *;
+@use "~@dso-toolkit/sources/src/styling/mixins/sr-only";
 
 @import "~@dso-toolkit/sources/src/styling/variables";
 
@@ -35,7 +35,7 @@
 
 .deleted-start,
 .deleted-end {
-  @include sr-only();
+  @include sr-only.sr-only();
 }
 
 button.toggle-note {

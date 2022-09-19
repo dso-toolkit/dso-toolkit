@@ -102,4 +102,15 @@ export function storiesOfList<TemplateFnReturnType>(
       }
     }
   );
+
+  stories.add(
+    'unstyled',
+    template,
+    {
+      args: {
+        type: Type.Ul,
+        modifier: 'unstyled'
+      }
+    }
+  );
 }

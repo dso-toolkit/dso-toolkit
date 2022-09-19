@@ -2,11 +2,11 @@
 
 @import "../../icon/di";
 
-@import "~@dso-toolkit/sources/src/styling/global/button";
+@import "~@dso-toolkit/sources/src/components/button/button";
 @import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
 @import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
 
-@import "~@dso-toolkit/sources/src/components/button/button";
+@import "~@dso-toolkit/css/src/components/button/button";
 
 :host {
   display: inline-block;

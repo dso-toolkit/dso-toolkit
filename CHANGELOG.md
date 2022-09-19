@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **BREAKING: core + css:** Info: sluitknopje in DOM onderaan ([#1707](https://github.com/dso-toolkit/dso-toolkit/issues/1707))\
 Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://github.com/dso-toolkit/dso-toolkit/pull/1765))
+* **core + css + dso-toolkit:** Verhuizen van global stijling naar `@dso-toolkit/css/` ([#1751](https://github.com/dso-toolkit/dso-toolkit/issues/1751))
 
 ## 44.0.0
 

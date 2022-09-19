@@ -1,5 +1,8 @@
 @use "sass:math";
 
+@use "../grid/grid.mixins" as grid-mixins;
+@use "../grid/grid.variables" as grid-variables;
+
 @import "form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 @import "form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
@@ -129,10 +132,10 @@
 
 .form-horizontal .form-group {
   // Make form groups behave like rows
-  @include make-row();
+  @include grid-mixins.make-row();
 
   > .dso-label-container {
-    @include make-sm-column($dso-label-column);
+    @include grid-mixins.make-sm-column($dso-label-column);
 
     @media screen and (min-width: $screen-sm-min) {
       padding-top: $u1;
@@ -154,7 +157,7 @@
   }
 
   > .dso-field-container {
-    @include make-sm-column($grid-columns - $dso-label-column);
+    @include grid-mixins.make-sm-column(grid-variables.$grid-columns - $dso-label-column);
 
     @media screen and (min-width: $screen-sm-min) {
       margin-top: 0;
@@ -162,7 +165,7 @@
   }
 
   &.has-feedback .form-control-feedback {
-    right: math.floor(($grid-gutter-width * 0.5));
+    right: math.floor((grid-variables.$grid-gutter-width * 0.5));
   }
 
   > .dso-info {

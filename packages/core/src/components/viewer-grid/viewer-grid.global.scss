@@ -1,12 +1,15 @@
 @use "viewer-grid.variables" as variables;
+
+@use "~@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
+
 @import "~@dso-toolkit/sources/src/styling/variables";
 
 @import "~@dso-toolkit/sources/src/components/button/button";
 
 dso-viewer-grid {
   .dso-filterblok {
-    margin-left: $grid-gutter-width * -0.5;
-    margin-right: $grid-gutter-width * -0.5;
+    margin-left: grid-variables.$grid-gutter-width * -0.5;
+    margin-right: grid-variables.$grid-gutter-width * -0.5;
 
     .dso-filterblok-address {
       font-weight: bold;
