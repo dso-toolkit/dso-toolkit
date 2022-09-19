@@ -118,6 +118,7 @@ export class Header {
       return;
     }
 
+    this.setDropDownMenu();
     window.setTimeout(() => this.shrinkMenuToFit(), 0);
   }
 
