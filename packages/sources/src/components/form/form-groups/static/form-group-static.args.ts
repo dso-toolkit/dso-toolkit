@@ -76,7 +76,7 @@ export function formGroupStaticArgsMapper(a: FormGroupStaticArgs): FormGroupStat
     edit: a.edit,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onClick: a.infoButtonHandler,
+        onToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }

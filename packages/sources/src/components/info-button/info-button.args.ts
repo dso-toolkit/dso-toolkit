@@ -32,7 +32,7 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
 
 export function infoButtonArgsMapper(a: InfoButtonArgs): InfoButton {
   return {
-    onClick: e => a.click(e),
+    onToggle: e => a.click(e),
     active: a.active,
     secondary: a.secondary,
     label: a.label

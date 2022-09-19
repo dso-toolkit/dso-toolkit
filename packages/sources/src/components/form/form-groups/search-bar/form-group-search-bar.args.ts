@@ -96,7 +96,7 @@ export function formGroupSearchBarArgsMapper(a: FormGroupSearchBarArgs): FormGro
     helpText: a.helpText,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onClick: a.infoButtonHandler,
+        onToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
