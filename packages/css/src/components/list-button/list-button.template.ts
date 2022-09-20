@@ -9,7 +9,7 @@ import { inputNumberTemplate } from '../input-number/input-number.template';
 
 function listButtonComponentTemplate({ count, disabled, hasInputNumber, label, sublabel, subcontent }: ListButton) {
   return html`
-    <button type="button" class="btn dso-list-button ${classMap({ 'dso-selected': count > 0 })}" ?disabled=${disabled}>
+    <button type="button" class="dso-list-button ${classMap({ 'dso-selected': count > 0 })}" ?disabled=${disabled}>
       <span>${label}</span>
       ${sublabel ? html`<span class="dso-sublabel">${sublabel}</span>` : nothing}
       ${subcontent ? html`<span class="dso-subcontent">${unsafeHTML(subcontent)}</span>` : nothing}

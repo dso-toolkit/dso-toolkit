@@ -7,7 +7,7 @@ export function infoButtonTemplate({ active, label, secondary, onClick }: InfoBu
   return html`
     <button
       type="button"
-      class="btn dso-info-button ${classMap({
+      class="dso-info-button ${classMap({
         'dso-open': !!active,
         'dso-info-secondary': !!secondary
       })}"

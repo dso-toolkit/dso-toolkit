@@ -3,6 +3,7 @@
 }
 
 .dso-list-button {
+  @include button_base();
   @include list-button_root();
 }
 
