@@ -118,8 +118,11 @@ export class Header {
       return;
     }
 
-    this.setDropDownMenu();
     window.setTimeout(() => this.shrinkMenuToFit(), 0);
+  }
+
+  componentDidLoad() {
+    this.setDropDownMenu();
   }
 
   setOverflowMenu() {
