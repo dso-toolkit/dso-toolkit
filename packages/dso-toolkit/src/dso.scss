@@ -16,7 +16,7 @@ $asap-font-path: "../fonts/Asap/" !default;
 
 @import "@dso-toolkit/sources/src/styling/variables";
 @import "styles/mixins/dso-variables";
-@import "styles/mixins/bootstrap-variables";
+// @import "styles/mixins/bootstrap-variables"; -> Deleted
 
 // Icon mixin
 @import "@dso-toolkit/css/src/mixins/di";
@@ -25,7 +25,7 @@ $asap-font-path: "../fonts/Asap/" !default;
 @import "@dso-toolkit/sources/src/styling/mixins";
 
 // Bootstrap
-@import "../libs/bootstrap";
+// @import "../libs/bootstrap"; -> Partially moved to @dso-toolkit/css
 
 /*!
  * @dso-toolkit/css
