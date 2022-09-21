@@ -1,3 +1,5 @@
+$link-hover-color: $scampi;
+
 $dso-anchor-spacer-width: 4px;
 $dso-anchor-visited-color: $mauve;
 
@@ -35,13 +37,13 @@ $dso-anchor-visited-color: $mauve;
         vertical-align: $dso-icon-vertical-align;
       }
     }
-  
+
     &.download {
       &::after {
         @include di("download");
       }
     }
-  
+
     &.extern {
       &::after {
         @include di("external-link");
@@ -49,3 +51,27 @@ $dso-anchor-visited-color: $mauve;
     }
   }
 }
+
+@mixin anchor_clean {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+@mixin anchor-reverse {
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+

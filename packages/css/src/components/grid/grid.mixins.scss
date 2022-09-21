@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@use "../../../../sources/src/styling/mixins/clearfix";
+@use "../../../../sources/src/utilities";
 @use "grid.variables" as grid-variables;
 @use "../../../../sources/src/styling/variables/media-queries-breakpoints";
 
@@ -99,14 +99,14 @@
   margin-right: auto;
   margin-left: auto;
 
-  @include clearfix.clearfix();
+  @include utilities.clearfix();
 }
 
 @mixin make-row($gutter: grid-variables.$grid-gutter-width) {
   margin-right: math.floor(math.div($gutter, -2));
   margin-left: math.ceil(math.div($gutter, -2));
 
-  @include clearfix.clearfix();
+  @include utilities.clearfix();
 }
 
 // Generate the small columns

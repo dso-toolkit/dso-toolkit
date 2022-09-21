@@ -1,9 +1,0 @@
-@mixin anchor-reverse {
-  text-decoration: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: underline;
-  }
-}

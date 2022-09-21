@@ -12,8 +12,10 @@ $tooltip-max-width-small: 40 * $dso-unit;
 // Keep var in sync with const transitionDuration in @dso-toolkit/core/tooltip.scss
 $tooltip-transition-duration: 0.15s;
 
+@use "tooltip.mixins" as tooltip-mixins;
+
 @mixin tooltip_root() {
-  @include reset-text();
+  @include tooltip-mixins.reset-text();
 
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));

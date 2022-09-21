@@ -1,6 +1,6 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/utilities";
 
 @include box-sizing();
 

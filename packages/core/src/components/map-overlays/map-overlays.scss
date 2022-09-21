@@ -1,7 +1,7 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
-@import "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+@import "~@dso-toolkit/sources/src/utilities";
+@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
 :host {
   display: block;
