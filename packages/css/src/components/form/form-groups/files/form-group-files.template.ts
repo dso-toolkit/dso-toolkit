@@ -15,11 +15,12 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
     formGroup.info?.fixed ? infoTextId : undefined
   ]
     .filter(s => !!s)
     .join(' ') || undefined;
+
+  const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
   return html`
     <fieldset class="form-group dso-files ${classMap({ 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}">
@@ -59,6 +60,7 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
           <input
             type="file"
             aria-describedby=${ifDefined(ariaDescribedBy)}
+            aria-errormessage=${ifDefined(ariaErrorMessage)}
             ?id=${formGroup.id}
             ?disabled=${formGroup.disabled}
           />
@@ -70,7 +72,7 @@ export function formGroupFilesTemplate(formGroup: FormGroupFiles<TemplateResult>
           </label>
         </div>
 
-        ${formGroup.errorText
+        ${formGroup.errorText && formGroup.state === 'invalid'
           ? html`
             <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>
           `

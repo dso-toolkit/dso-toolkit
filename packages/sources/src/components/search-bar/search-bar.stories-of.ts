@@ -26,6 +26,7 @@ export function storiesOfSearchBar<TemplateFnReturnType>(
         buttonLabel: 'Zoeken',
         hideSearchButton: false,
         ariaDescribedBy: '',
+        ariaErrorMessage: '',
         resultsMessage: '',
         resultsHidden: false
       })

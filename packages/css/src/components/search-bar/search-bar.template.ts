@@ -3,7 +3,7 @@ import { html, nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, placeholder, value, buttonLabel, hideSearchButton, ariaDescribedBy, resultsMessage, resultsHidden, clearButton }: SearchBar) {
+export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, placeholder, value, buttonLabel, hideSearchButton, ariaDescribedBy, ariaErrorMessage, resultsMessage, resultsHidden, clearButton }: SearchBar) {
   return html`
     <div class="dso-search-bar ${classMap({ 'dso-invalid': !!invalid })}">
       <div class="dso-search-bar-input">
@@ -42,6 +42,7 @@ export function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, place
           placeholder=${ifDefined(placeholder || undefined)}
           value=${ifDefined(value || undefined)}
           aria-describedby=${ifDefined(ariaDescribedBy || undefined)}
+          aria-errormessage = ${ifDefined(ariaErrorMessage || undefined)}
           aria-invalid=${ifDefined(!!invalid || undefined)}
         >
         ${clearButton ?

@@ -13,12 +13,13 @@ export function formGroupTextareaTemplate(formGroup: FormGroupTextarea<TemplateR
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
     formGroup.helpText ? helpTextId : undefined,
     formGroup.info?.fixed ? infoTextId : undefined
   ]
     .filter(s => !!s)
     .join(' ') || undefined;
+
+  const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
   return html`
     <div class="form-group dso-textarea ${classMap({ 'has-feedback': !!formGroup.feedback, 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}">
@@ -42,6 +43,7 @@ export function formGroupTextareaTemplate(formGroup: FormGroupTextarea<TemplateR
           placeholder=${ifDefined(formGroup.placeholder)}
           rows=${ifDefined(formGroup.rows)}
           aria-describedby=${ifDefined(ariaDescribedBy)}
+          aria-errormessage=${ifDefined(ariaErrorMessage)}
           aria-invalid=${ifDefined(formGroup.state)}
           ?disabled=${formGroup.disabled}
           ?readonly=${formGroup.readonly}
@@ -54,7 +56,7 @@ export function formGroupTextareaTemplate(formGroup: FormGroupTextarea<TemplateR
           `
           : nothing
         }
-        ${formGroup.errorText
+        ${formGroup.errorText && formGroup.state === 'invalid'
           ? html`
             <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>
           `

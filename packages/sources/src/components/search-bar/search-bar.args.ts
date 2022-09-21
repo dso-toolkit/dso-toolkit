@@ -15,6 +15,7 @@ export interface SearchBarArgs {
   resultsMessage?: string;
   resultsHidden: boolean;
   ariaDescribedBy?: string;
+  ariaErrorMessage?: string;
 }
 
 export const searchBarArgTypes: ArgTypes<SearchBarArgs> = {
@@ -77,6 +78,11 @@ export const searchBarArgTypes: ArgTypes<SearchBarArgs> = {
     control: {
       type: 'text'
     }
+  },
+  ariaErrorMessage: {
+    control: {
+      type: 'text'
+    }
   }
 };
 
@@ -94,5 +100,6 @@ export function searchBarArgsMapper(a: SearchBarArgs): SearchBar {
     resultsMessage: a.resultsMessage,
     resultsHidden: a.resultsHidden,
     ariaDescribedBy: a.ariaDescribedBy,
+    ariaErrorMessage: a.ariaErrorMessage,
   };
 }

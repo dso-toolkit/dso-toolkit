@@ -15,12 +15,13 @@ export function formGroupInputTemplate(formGroup: FormGroupInput<TemplateResult>
   const infoTextId = `${formGroup.id}-info-text`;
 
   const ariaDescribedBy = [
-    formGroup.errorText ? errorTextId : undefined,
     formGroup.helpText ? helpTextId : undefined,
     formGroup.info?.fixed ? infoTextId : undefined
   ]
     .filter(s => !!s)
     .join(' ') || undefined;
+
+  const ariaErrorMessage = formGroup.errorText ? errorTextId : undefined;
 
   return html`
     <div class="form-group dso-input ${classMap({ [`dso-input-${formGroup.type}`]: true, 'has-feedback': !!formGroup.feedback, 'dso-required': !!formGroup.required, [`dso-${formGroup.state}`]: !!formGroup.state })}">
@@ -58,6 +59,7 @@ export function formGroupInputTemplate(formGroup: FormGroupInput<TemplateResult>
               value=${ifDefined(formGroup.value)}
               autocomplete=${ifDefined(formGroup.autocomplete)}
               aria-describedby=${ifDefined(ariaDescribedBy)}
+              aria-errormessage=${ifDefined(ariaErrorMessage)}
               aria-invalid=${ifDefined(formGroup.state)}
               ?disabled=${formGroup.disabled}
               ?readonly=${formGroup.readonly}
@@ -71,7 +73,7 @@ export function formGroupInputTemplate(formGroup: FormGroupInput<TemplateResult>
           `
           : nothing
         }
-        ${formGroup.errorText
+        ${formGroup.errorText && formGroup.state === 'invalid'
           ? html`
             <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>
           `
