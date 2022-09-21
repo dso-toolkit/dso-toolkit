@@ -43,10 +43,8 @@ export class Selectable {
   @Prop()
   infoFixed?: boolean;
 
-  @Event({
-    eventName: 'dsoChange'
-  })
-  change!: EventEmitter<SelectableChangeEvent>;
+  @Event({ eventName: 'dsoChange' })
+  changeEmitter!: EventEmitter<SelectableChangeEvent>;
 
   @Element()
   host!: HTMLElement;
@@ -104,7 +102,7 @@ export class Selectable {
           disabled={this.disabled}
           required={this.required}
           checked={this.checked}
-          onChange={e => this.change.emit(e)}
+          onChange={e => this.changeEmitter.emit(e)}
           ref={(el) => this.input = el}
         />
         <label htmlFor={this.getIdentifier()}>
