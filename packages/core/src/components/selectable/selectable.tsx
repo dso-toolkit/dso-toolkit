@@ -115,7 +115,7 @@ export class Selectable {
             {!this.infoFixed && (
               <dso-info-button
                 active={this.infoActive}
-                onToggle={e => this.infoActive = e.detail.active}
+                onDsoToggle={e => this.infoActive = e.detail.active}
               ></dso-info-button>
             )}
             <dso-info
