@@ -605,13 +605,13 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Event emitted when a date is selected.
-         */
-        "onDateChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
-        /**
           * Event emitted the date picker input is blurred.
          */
         "onDsoBlur"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        /**
+          * Event emitted when a date is selected.
+         */
+        "onDsoDateChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
         /**
           * Event emitted the date picker input is focused.
          */
