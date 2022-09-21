@@ -24,13 +24,13 @@ Based on the [Duet Date Picker](https://duetds.github.io/date-picker/).
 
 ## Events
 
-| Event        | Description                                         | Type                                                                                                                                                                        |
-| ------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `dateChange` | Event emitted when a date is selected.              | `CustomEvent<{ component: "dso-date-picker"; valueAsDate: Date \| undefined; value: string; error?: "invalid" \| "required" \| "min-range" \| "max-range" \| undefined; }>` |
-| `dsoBlur`    | Event emitted the date picker input is blurred.     | `CustomEvent<{ component: "dso-date-picker"; }>`                                                                                                                            |
-| `dsoFocus`   | Event emitted the date picker input is focused.     | `CustomEvent<{ component: "dso-date-picker"; }>`                                                                                                                            |
-| `dsoKeyDown` | Event emitted on key down in the date picker input. | `CustomEvent<{ component: "dso-date-picker"; originalEvent: KeyboardEvent; }>`                                                                                              |
-| `dsoKeyUp`   | Event emitted on key up in the date picker input.   | `CustomEvent<{ component: "dso-date-picker"; originalEvent: KeyboardEvent; }>`                                                                                              |
+| Event           | Description                                         | Type                                                                                                                                                                        |
+| --------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dsoBlur`       | Event emitted the date picker input is blurred.     | `CustomEvent<{ component: "dso-date-picker"; }>`                                                                                                                            |
+| `dsoDateChange` | Event emitted when a date is selected.              | `CustomEvent<{ component: "dso-date-picker"; valueAsDate: Date \| undefined; value: string; error?: "invalid" \| "required" \| "min-range" \| "max-range" \| undefined; }>` |
+| `dsoFocus`      | Event emitted the date picker input is focused.     | `CustomEvent<{ component: "dso-date-picker"; }>`                                                                                                                            |
+| `dsoKeyDown`    | Event emitted on key down in the date picker input. | `CustomEvent<{ component: "dso-date-picker"; originalEvent: KeyboardEvent; }>`                                                                                              |
+| `dsoKeyUp`      | Event emitted on key up in the date picker input.   | `CustomEvent<{ component: "dso-date-picker"; originalEvent: KeyboardEvent; }>`                                                                                              |
 
 
 ## Methods
