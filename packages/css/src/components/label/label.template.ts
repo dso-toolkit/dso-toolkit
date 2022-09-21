@@ -16,7 +16,7 @@ const statusMap = new Map<string, string>([
   ['danger', 'Gevaar']
 ]);
 
-export function labelTemplate({ status, label, removable, onRemoveClick, compact, symbol }: Label) {
+export function labelTemplate({ status, label, removable, onRemoveLabel, compact, symbol }: Label) {
   return html`
     <span class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}">
       ${symbol
@@ -33,7 +33,7 @@ export function labelTemplate({ status, label, removable, onRemoveClick, compact
         label
       }${removable
         ? html `
-          <button type="button" @click=${ifDefined(onRemoveClick)}>
+          <button type="button" @click=${ifDefined(onRemoveLabel)}>
             <span class="sr-only">Verwijder</span>
             ${iconTemplate({ icon: 'times' })}
           </button>

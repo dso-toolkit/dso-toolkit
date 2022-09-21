@@ -700,7 +700,7 @@ declare namespace LocalJSX {
     }
     interface DsoLabel {
         "compact"?: boolean;
-        "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoRemoveLabel"?: (event: CustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
         "truncate"?: boolean;

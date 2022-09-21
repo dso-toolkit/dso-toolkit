@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event         | Description | Type                      |
-| ------------- | ----------- | ------------------------- |
-| `removeClick` |             | `CustomEvent<MouseEvent>` |
+| Event            | Description | Type                      |
+| ---------------- | ----------- | ------------------------- |
+| `dsoRemoveLabel` |             | `CustomEvent<MouseEvent>` |
 
 
 ## Dependencies
