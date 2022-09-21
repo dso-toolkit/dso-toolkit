@@ -262,7 +262,7 @@ describe('Date Picker', () => {
 
   it('should select February 5th, 2015', () => {
     cy.get('dso-date-picker').then(e => {
-      e.get(0).addEventListener('dateChange', cy.stub().as('dateChange'))
+      e.get(0).addEventListener('dsoDateChange', cy.stub().as('dsoDateChange'))
     });
 
     cy
@@ -283,13 +283,13 @@ describe('Date Picker', () => {
       .closest('button')
       .click();
 
-    cy.get('@dateChange').should('have.been.calledOnce');
+    cy.get('@dsoDateChange').should('have.been.calledOnce');
   });
 
   it('should emit changed event on invalid input', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dsoDateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
     cy
@@ -305,7 +305,7 @@ describe('Date Picker', () => {
 
   it('should only allow date characters input', () => {
     cy.get('dso-date-picker').then($datePicker => {
-      $datePicker.on('dateChange', cy.stub().as('listener'));
+      $datePicker.on('dsoDateChange', cy.stub().as('listener'));
     });
 
     const allowedChars = '-0123456789';
@@ -338,7 +338,7 @@ describe('Date Picker', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
       datePicker.get(0).min = '1-1-2022'
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dsoDateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
     cy
@@ -373,7 +373,7 @@ describe('Date Picker', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
       datePicker.get(0).max = '31-12-2021'
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dsoDateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
     cy
@@ -407,7 +407,7 @@ describe('Date Picker', () => {
   it('should not allow invalid characters to be pasted', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail));
+      datePicker.get(0).addEventListener('dsoDateChange', (event: CustomEvent) => details.push(event.detail));
     });
 
     cy
@@ -427,7 +427,7 @@ describe('Date Picker', () => {
   it('should emit changed event on valid input', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dsoDateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
     cy
@@ -483,7 +483,7 @@ describe('Date Picker', () => {
   it('should allow and show invalid input', () => {
     const details = [];
     cy.get('dso-date-picker').then(datePicker => {
-      datePicker.get(0).addEventListener('dateChange', (event: CustomEvent) => details.push(event.detail))
+      datePicker.get(0).addEventListener('dsoDateChange', (event: CustomEvent) => details.push(event.detail))
     });
 
     cy.get('dso-date-picker input.dso-date__input')
