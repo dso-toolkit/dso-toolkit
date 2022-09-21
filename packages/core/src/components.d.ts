@@ -233,6 +233,7 @@ export namespace Components {
         "size"?: 'small' | 'medium' | 'large';
     }
     interface DsoResponsiveElement {
+        "getSize": () => Promise<string>;
     }
     interface DsoSelectable {
         "checked"?: boolean;
@@ -773,6 +774,7 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'medium' | 'large';
     }
     interface DsoResponsiveElement {
+        "onDsoSizeChange"?: (event: CustomEvent<string>) => void;
     }
     interface DsoSelectable {
         "checked"?: boolean;
