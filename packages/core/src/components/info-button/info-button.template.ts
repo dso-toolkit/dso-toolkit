@@ -7,7 +7,7 @@ export function infoButtonTemplate({ label, active, secondary, onToggle }: InfoB
       label=${label}
       ?active=${active}
       ?secondary=${secondary}
-      @toggle=${(e: CustomEvent) => onToggle(e.detail)}
+      @dsoToggle=${(e: CustomEvent) => onToggle(e.detail)}
     ></dso-info-button>
   `;
 }

@@ -695,7 +695,7 @@ declare namespace LocalJSX {
     interface DsoInfoButton {
         "active"?: boolean;
         "label"?: string;
-        "onToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
+        "onDsoToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
         "secondary"?: boolean;
     }
     interface DsoLabel {

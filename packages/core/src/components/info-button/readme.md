@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event    | Description | Type                                 |
-| -------- | ----------- | ------------------------------------ |
-| `toggle` |             | `CustomEvent<InfoButtonToggleEvent>` |
+| Event       | Description | Type                                 |
+| ----------- | ----------- | ------------------------------------ |
+| `dsoToggle` |             | `CustomEvent<InfoButtonToggleEvent>` |
 
 
 ## Methods
