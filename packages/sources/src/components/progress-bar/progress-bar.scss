@@ -7,27 +7,24 @@ $dso-progress-bar-bg: $wit;
 $dso-progress-bar-color: $grasgroen;
 
 @mixin progress-bar_root() {
-  background-color: $dso-progress-bar-bg;
-  border: 1px solid  $dso-progress-bar-color;
-  height: $dso-progress-bar-height;
-  margin-bottom: calc(#{$dso-progress-bar-margin * 2} + 1em);
-  position: relative;
+  margin-bottom: $u1;
+
+  #progress-bar-label {
+    font-size: $dso-font-size-small;
+    margin-top: $u1;
+  }
 
   .progress-bar {
-    background-color: $progress-bar-bg;
-    color: $progress-bar-color;
-    float: left;
-    font-size: $dso-font-size-small;
-    height: 100%;
-    line-height: $dso-progress-bar-height;
-    text-align: center;
-    width: 0%;
+    background-color: $dso-progress-bar-bg;
+    border: 1px solid  $dso-progress-bar-color;
+    display: block;
+    height: $dso-progress-bar-height;
 
-    > span:not(.sr-only) {
-      color: $text-color;
-      left: 0;
-      position: absolute;
-      top: calc(100% + #{$dso-progress-bar-margin});
+    > span {
+      background-color: $progress-bar-bg;
+      float: left;
+      height: 100%;
+      width: 0%;
     }
   }
 }

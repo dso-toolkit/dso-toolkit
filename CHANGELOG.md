@@ -11,11 +11,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://github.com/dso-toolkit/dso-toolkit/pull/1765))
 * **core + css + dso-toolkit:** Verhuizen van global stijling naar `@dso-toolkit/css/` ([#1751](https://github.com/dso-toolkit/dso-toolkit/issues/1751))
 * **dso-toolkit + css:** Verhuizen van dso-toolkit/libs/bootstrap ([#1771](https://github.com/dso-toolkit/dso-toolkit/issues/1771))
+* **core:** `dso-map-controls`: naam sluitknopje ([#1722](https://github.com/dso-toolkit/dso-toolkit/issues/1722))
+* **BREAKING: core:** Progress bar / indicator: WCAG verbeteringen ([#1714](https://github.com/dso-toolkit/dso-toolkit/issues/1714))\
+`Progress Bar` en `Progress Indicator` labels staan nu als eerste element en worden gevolgd door het visuele `progress` kenmerk ([#1748](https://github.com/dso-toolkit/dso-toolkit/pull/1748))
 
 ## 44.0.0
-
-### Changed
-* **core:** `dso-map-controls`: naam sluitknopje ([#1722](https://github.com/dso-toolkit/dso-toolkit/issues/1722))
 
 ### Fixed
 * **core + sources:** `ExtIoRef`: href ontbreekt ([#1728](https://github.com/dso-toolkit/dso-toolkit/issues/1728))
