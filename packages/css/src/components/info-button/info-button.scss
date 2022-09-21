@@ -1,4 +1,5 @@
 .dso-info-button {
+  @include button_base();
   @include info-button_root();
 }
 

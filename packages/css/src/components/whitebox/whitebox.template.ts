@@ -28,7 +28,7 @@ export function whiteboxTemplate({ count, icon, iconLabel, image, label, descrip
         <h2>${title}</h2>
       </div>
       <div class="dso-whitebox-link">
-        <a href="#" class="btn btn-link">
+        <a href="#" class="dso-tertiary">
           ${iconTemplate({ icon: 'angle-right' })}
           ${label}
         </a>

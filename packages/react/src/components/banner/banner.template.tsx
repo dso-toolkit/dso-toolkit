@@ -17,7 +17,7 @@ export function bannerTemplate({
         <div className="row">
           <div className="col-sm-12">
             {richContent}
-            <button type="button" className="btn btn-link" onClick={e => onClick(e.nativeEvent)}>
+            <button type="button" className="dso-tertiary" onClick={e => onClick(e.nativeEvent)}>
               <span className="sr-only">Sluiten</span>
               {iconTemplate({ icon: 'times' })}
             </button>
