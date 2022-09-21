@@ -14,6 +14,7 @@ Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://githu
 * **core:** `dso-map-controls`: naam sluitknopje ([#1722](https://github.com/dso-toolkit/dso-toolkit/issues/1722))
 * **BREAKING: core:** Progress bar / indicator: WCAG verbeteringen ([#1714](https://github.com/dso-toolkit/dso-toolkit/issues/1714))\
 `Progress Bar` en `Progress Indicator` labels staan nu als eerste element en worden gevolgd door het visuele `progress` kenmerk ([#1748](https://github.com/dso-toolkit/dso-toolkit/pull/1748))
+* **core + css + sources:** /sources variables en mixins verhuizen naar /sources/components ([#1777](https://github.com/dso-toolkit/dso-toolkit/issues/1777))
 
 ## 44.0.0
 

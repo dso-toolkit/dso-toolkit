@@ -1,10 +1,10 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/utilities";
 
 :host {
   // stylelint-disable-next-line no-invalid-position-at-import-rule -- legacy
-  @import "~@dso-toolkit/sources/src/styling/variables/icon";
+  @import "~@dso-toolkit/sources/src/components/icon/icon.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
   display: inline-block;
   height: $dso-icon-size;

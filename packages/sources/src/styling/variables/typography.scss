@@ -1,7 +1,6 @@
 @use "sass:math";
 
 $font-family-sans-serif: Asap, sans-serif;
-$font-family-serif: Georgia, "Times New Roman", Times, serif;
 $font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base: $font-family-sans-serif;
 
@@ -21,8 +20,3 @@ $line-height-large: 1.3333333;
 
 $headings: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6";
 $headings-font-family: "Asap", sans-serif;
-$headings-font-weight: bold;
-$headings-line-height: 1.1;
-$headings-color: $bosgroen;
-
-$blockquote-font-size: ($dso-font-size-base * 1.25);

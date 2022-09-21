@@ -1,8 +1,8 @@
-@use "~@dso-toolkit/sources/src/styling/mixins/sr-only";
+@use "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";
 
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/styling/mixins/anchor";
+@import "~@dso-toolkit/sources/src/components/anchor/anchor.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 @import "~@dso-toolkit/sources/src/components/button/button";
 
 @import "../../icon/di";

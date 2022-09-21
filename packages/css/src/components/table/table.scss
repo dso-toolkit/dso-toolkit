@@ -1,5 +1,5 @@
 @import "../../../../sources/src/styling/variables";
-@import "../../../../sources/src/styling/mixins/rich-content";
+@import "../../../../sources/src/components/rich-content/rich-content.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
 @import "table.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 

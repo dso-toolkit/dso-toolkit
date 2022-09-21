@@ -11,6 +11,8 @@ $dso-tabs-margin-bottom: $dso-vertical-spacing-large;
 
 $nav-link-padding: 10px 15px !default;
 $nav-link-hover-bg: $gray-lighter !default;
+$nav-disabled-link-color:                   #a3a3a3 !default;
+$nav-disabled-link-hover-color:             #a3a3a3 !default;
 
 .nav {
   @include clearfix();

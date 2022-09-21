@@ -8,7 +8,7 @@
 @import "variables/zindex";
 
 // Alphabetical ordered components
-@import "variables/icon";
+@import "../components/icon/icon.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
 $dso-buttons: ".btn, .dso-primary, .dso-secondary, .dso-tertiary";
 $not-dso-buttons: ":not(.btn):not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
