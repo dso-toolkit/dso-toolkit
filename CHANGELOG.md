@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Fixed
+* **BREAKING: core + css + react + sources:** Niet alle event-emitters werken in de react storybook ([#1706](https://github.com/dso-toolkit/dso-toolkit/issues/1706))
 * **css:** Elementen verdwijnen achter `dso-document-list-item` ([#1764](https://github.com/dso-toolkit/dso-toolkit/issues/1764))
 * **core:** Header: Dropdown menu toont soms niet in kleine viewport ([#1727](https://github.com/dso-toolkit/dso-toolkit/issues/1727))
 * Label mist max-width: 100% ([#1766](https://github.com/dso-toolkit/dso-toolkit/issues/1766))
