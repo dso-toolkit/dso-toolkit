@@ -1,4 +1,4 @@
-@import "mixins/mixins";
+// @import "mixins/mixins";
 // @import "mixins/extends"; -> Moved to @sources/src/styling/typography/headings
 // @import "mixins/font-asap";
 // @import "mixins/full-width-row"; -> Moved to @dso-toolkit/sources
@@ -28,12 +28,12 @@
 // @import "components/footnotes"; -> Moved to @dso-toolkit/styling
 // @import "components/form"; -> Moved to @dso-toolkit/css/src/components/form/form-buttons/form-buttons and @dso-toolkit/css/src/components/info-button/info-button
 // @import "components/form_buttons"; -> Moved to @dso-toolkit/styling
-@import "components/header";
+// @import "components/header"; -> Moved to @dso-toolkit/css/src/legacy
 // @import "components/highlight-box"; -> Moved to @dso-toolkit/styling
-@import "components/image";
+// @import "components/image"; -> Deleted
 // @import "components/info"; // -> Moved to @dso-toolkit/css as info and info-button
 // @import "components/input-number"; -> Moved to @dso-toolkit/sources/src/components/input-number
-@import "components/jumbotron";
+// @import "components/jumbotron"; -> Deleted
 // @import "components/label"; // -> Moved to @dso-toolkit/css
 // @import "components/lists"; // -> Moved to @dso-toolkit/css/src/components/list
 // @import "components/list-button"; -> Moved to @dso-toolkit/sources/src/components/list-button
@@ -55,5 +55,5 @@
 // @import "components/tabs"; -> Moved to @dso-toolkit/styling
 // @import "components/tooltip"; -> Moved to @dso-toolkit/styling
 @import "components/tree-view";
-@import "components/well";
+// @import "components/well"; -> Deletec
 // @import "components/whitebox"; -> Moved to @dso-toolkit/sources/src/components/whitebox & @dso-toolkit/sources/src/components/tile

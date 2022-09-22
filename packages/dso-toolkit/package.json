@@ -10,7 +10,7 @@
     "gulp": "gulp",
     "lint": "gulp lint",
     "test": "gulp test",
-    "smoke-test": "sass --load-path=libs src/dso.scss ../../dso-toolkit-smoke-test/dso.css"
+    "smoke-test": "sass src/dso.scss ../../dso-toolkit-smoke-test/dso.css"
   },
   "repository": {
     "type": "git",
