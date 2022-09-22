@@ -1,21 +1,9 @@
-/*
- * DSO Toolkit is built upon Bootstrap SASS 3.3.7 and FontAwesome. Building this module will result in artifacts that already
- * include Bootstrap and FontAwesome. To build this file from your project you will need to pass two extra include paths to the sass compiler.
- *
- * - node_modules/dso-toolkit/libs
- *
- * For example:
- *   $ sass --load-path node_modules/dso-toolkit/libs
- *
- * See https://github.com/dso-toolkit/dso-toolkit/issues/105 for more information
-*/
-
 // Variables
 $dso-icons-path: '../' !default;
 $asap-font-path: "../fonts/Asap/" !default;
 
 @import "@dso-toolkit/sources/src/styling/variables";
-@import "styles/mixins/dso-variables";
+// @import "styles/mixins/dso-variables";
 // @import "styles/mixins/bootstrap-variables"; -> Deleted
 
 // Icon mixin

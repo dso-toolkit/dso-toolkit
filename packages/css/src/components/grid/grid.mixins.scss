@@ -121,16 +121,3 @@
     width: math.percentage(math.div($columns, grid-variables.$grid-columns));
   }
 }
-
-// Generate the medium columns
-@mixin make-md-column($columns, $gutter: grid-variables.$grid-gutter-width) {
-  position: relative;
-  min-height: 1px;
-  padding-right: ($gutter * 0.5);
-  padding-left: ($gutter * 0.5);
-
-  @media (min-width: media-queries-breakpoints.$screen-md-min) {
-    float: left;
-    width: math.percentage(math.div($columns, grid-variables.$grid-columns));
-  }
-}

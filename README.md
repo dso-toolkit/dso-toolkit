@@ -26,13 +26,6 @@ Stable releases can be found on the [GitHub Releases page](https://github.com/ds
 npm install dso-toolkit --save-dev
 ```
 
-#### Compile SCSS
-
-Stylesheets need to be compiled using Dart Sass. libsass (NPM package `node-sass`) is unsupported.
-
-1. Add `node_modules/dso-toolkit/libs` as [load path](https://sass-lang.com/documentation/cli/dart-sass#load-path) to your (Dart) Sass compiler/wrapper.
-2. Import `/node_modules/dso-toolkit/src/dso.scss` in your stylesheet or build process.
-
 #### Bundle CSS
 
 Import or bundle `/node_modules/dso-toolkit/dist/toolkit/styles/dso.css`.
