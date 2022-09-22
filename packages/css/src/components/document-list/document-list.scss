@@ -7,10 +7,12 @@
 }
 
 .dso-document-list-item {
+  display: flex;
+  flex-direction: column;
+
   .dso-document-list-item-heading {
     background-color: $grijs-5;
     padding: grid-variables.$grid-gutter-width * 0.5;
-    float: left;
     width: 100%;
 
     a {
