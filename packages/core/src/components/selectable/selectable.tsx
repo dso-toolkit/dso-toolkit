@@ -43,8 +43,8 @@ export class Selectable {
   @Prop()
   infoFixed?: boolean;
 
-  @Event({ eventName: 'dsoChange' })
-  changeEmitter!: EventEmitter<SelectableChangeEvent>;
+  @Event()
+  dsoChange!: EventEmitter<SelectableChangeEvent>;
 
   @Element()
   host!: HTMLElement;
@@ -102,7 +102,7 @@ export class Selectable {
           disabled={this.disabled}
           required={this.required}
           checked={this.checked}
-          onChange={e => this.changeEmitter.emit(e)}
+          onChange={e => this.dsoChange.emit(e)}
           ref={(el) => this.input = el}
         />
         <label htmlFor={this.getIdentifier()}>
@@ -120,7 +120,7 @@ export class Selectable {
               id={(hasInfo && this.infoFixed) ? this.describedById : undefined}
               fixed={this.infoFixed}
               active={this.infoActive}
-              onClose={() => this.infoActive = false}
+              onDsoClose={() => this.infoActive = false}
             >
               <div>
                 <slot name="info"></slot>

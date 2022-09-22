@@ -8,7 +8,7 @@ export function infoTemplate({ fixed, active, richContent, onClose }: Info<JSX.E
     <DsoInfo
       fixed={fixed}
       active={active}
-      close={onClose}
+      onDsoClose={onClose}
     >
       {richContent}
     </DsoInfo>

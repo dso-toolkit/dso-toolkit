@@ -7,7 +7,7 @@ export function labelTemplate({ status, label, removable, onRemoveLabel, compact
   return html`
     <dso-label
       status=${ifDefined(status)}
-      @dsoRemoveLabel=${ifDefined(onRemoveLabel)}
+      @removeClick=${ifDefined(onRemoveLabel)}
       ?truncate=${truncate}
       ?compact=${compact}
       ?removable=${removable}
