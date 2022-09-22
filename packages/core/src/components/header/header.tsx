@@ -24,7 +24,7 @@ const minDesktopViewportWidth = 992;
 })
 export class Header {
   private clickHandler(e: MouseEvent, type: HeaderNavigationType, options?: { menuItem?: HeaderMenuItem; url?: string; }) {
-    this.headerClick.emit({
+    this.dsoHeaderClick.emit({
       originalEvent: e,
       isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,
       type,
@@ -77,7 +77,7 @@ export class Header {
    * `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
    */
   @Event()
-  headerClick!: EventEmitter<HeaderClickEvent | HeaderClickMenuItemEvent>;
+  dsoHeaderClick!: EventEmitter<HeaderClickEvent | HeaderClickMenuItemEvent>;
 
   @Watch("useDropDownMenu")
   watchUseDropDownMenu(value: "always" | "never" | "auto") {

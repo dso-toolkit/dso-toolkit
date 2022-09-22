@@ -8,9 +8,9 @@ export interface AutosuggestArgs {
   loadingLabel: string;
   loadingDelayed: number;
   notFoundLabel: string;
-  onSelect: HandlerFunction;
-  onChange: HandlerFunction;
-  onSearch: HandlerFunction;
+  onDsoSelect: HandlerFunction;
+  onDsoChange: HandlerFunction;
+  onDsoSearch: HandlerFunction;
 }
 
 export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
@@ -39,13 +39,13 @@ export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
       type: 'text',
     },
   },
-  onSelect: {
-    action: 'onSelect'
+  onDsoSelect: {
+    action: 'onDsoSelect'
   },
-  onChange: {
-    action: 'onChange'
+  onDsoChange: {
+    action: 'onDsoChange'
   },
-  onSearch: {
-    action: 'onSearch'
+  onDsoSearch: {
+    action: 'onDsoSearch'
   }
 };

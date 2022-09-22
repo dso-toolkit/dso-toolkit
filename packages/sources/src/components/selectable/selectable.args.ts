@@ -16,7 +16,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
-  onChange: HandlerFunction;
+  onDsoChange: HandlerFunction;
   infoRichContent?: TemplateFnReturnType;
   infoFixed?: boolean;
   infoActive?: boolean;
@@ -81,7 +81,7 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
       type: 'boolean'
     }
   },
-  onChange: {
+  onDsoChange: {
     action: 'onChange'
   },
   infoFixed: {
@@ -111,7 +111,7 @@ export function selectableArgsMapper(a: SelectableArgs<any>): Selectable<any> {
   return {
     id: a.id,
     label: a.label,
-    onChange: e => a.onChange(e),
+    onChange: e => a.onDsoChange(e),
     type: a.type,
     value: a.value,
     checked: a.checked,

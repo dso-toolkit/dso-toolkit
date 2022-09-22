@@ -281,7 +281,7 @@ describe('Tree View', () => {
     const clickEvents = [];
     cy
       .get('dso-tree-view').then(treeView => {
-        treeView.get(0).addEventListener('clickItem', (event: CustomEvent) => { clickEvents.push(event.detail) });
+        treeView.get(0).addEventListener('dsoClickItem', (event: CustomEvent) => { clickEvents.push(event.detail) });
       });
 
     cy

@@ -10,8 +10,8 @@ export interface OzonContentArgs {
   deleted?: boolean;
   prefix?: string;
   suffix?: string;
-  onAnchorClick: HandlerFunction;
-  onClick: HandlerFunction;
+  onDsoAnchorClick: HandlerFunction;
+  onDsoClick: HandlerFunction;
 }
 
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
@@ -50,13 +50,13 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: 'text'
     }
   },
-  onAnchorClick: {
+  onDsoAnchorClick: {
     ...noControl,
-    action: "anchorClick",
+    action: "onDsoAnchorClick",
   },
-  onClick: {
+  onDsoClick: {
     ...noControl,
-    action: 'onClick'
+    action: 'onDsoClick'
   }
 };
 
@@ -68,7 +68,7 @@ export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
     deleted: a.deleted,
     prefix: a.prefix || undefined,
     suffix: a.suffix || undefined,
-    onAnchorClick: (e: any) => a.onAnchorClick(e.detail),
-    onClick: a.onClick
+    onAnchorClick: (e: any) => a.onDsoAnchorClick(e.detail),
+    onClick: a.onDsoClick
   };
 }

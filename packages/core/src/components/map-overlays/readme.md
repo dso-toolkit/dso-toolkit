@@ -15,9 +15,9 @@ Private component, do not use.
 
 ## Events
 
-| Event           | Description | Type                              |
-| --------------- | ----------- | --------------------------------- |
-| `toggleOverlay` |             | `CustomEvent<OverlayChangeEvent>` |
+| Event              | Description | Type                              |
+| ------------------ | ----------- | --------------------------------- |
+| `dsoToggleOverlay` |             | `CustomEvent<OverlayChangeEvent>` |
 
 
 ## Dependencies

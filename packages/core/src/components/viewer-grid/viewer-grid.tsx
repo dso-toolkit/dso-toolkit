@@ -60,16 +60,16 @@ export class ViewerGrid {
   mainSize: MainSize = this.initialMainSize;
 
   @Event()
-  closeOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
+  dsoCloseOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
 
   @Event()
-  filterpanelCancel!: EventEmitter<FilterpanelEvent>;
+  dsoFilterpanelCancel!: EventEmitter<FilterpanelEvent>;
 
   @Event()
-  filterpanelApply!: EventEmitter<FilterpanelEvent>;
+  dsoFilterpanelApply!: EventEmitter<FilterpanelEvent>;
 
   @Event()
-  mainSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
+  dsoMainSizeChange!: EventEmitter<ViewerGridChangeSizeEvent>;
 
   @Element()
   host!: HTMLElement;
@@ -88,14 +88,14 @@ export class ViewerGrid {
 
   @Watch('mainSize')
   mainSizeWatcher(currentSize: MainSize, previousSize: MainSize) {
-    this.mainSizeChange.emit({
+    this.dsoMainSizeChange.emit({
       stage: 'start',
       previousSize,
       currentSize
     });
 
     setTimeout(() => {
-      this.mainSizeChange.emit({
+      this.dsoMainSizeChange.emit({
         stage: 'end',
         previousSize,
         currentSize
@@ -142,7 +142,7 @@ export class ViewerGrid {
       return;
     }
 
-    this.closeOverlay.emit(event);
+    this.dsoCloseOverlay.emit(event);
   };
 
   connectedCallback() {
@@ -185,11 +185,11 @@ export class ViewerGrid {
   }
 
   handleFilterpanelApply(mouseEvent: MouseEvent) {
-    this.filterpanelApply.emit({ originalEvent: mouseEvent });
+    this.dsoFilterpanelApply.emit({ originalEvent: mouseEvent });
   }
 
   handleFilterpanelCancel(mouseEvent: MouseEvent) {
-    this.filterpanelCancel.emit({ originalEvent: mouseEvent });
+    this.dsoFilterpanelCancel.emit({ originalEvent: mouseEvent });
   }
 
   render() {
@@ -240,7 +240,7 @@ export class ViewerGrid {
           <button
             type="button"
             class="overlay-close-button"
-            onClick={(e) => this.closeOverlay.emit(e)}
+            onClick={(e) => this.dsoCloseOverlay.emit(e)}
           >
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">sluiten</span>

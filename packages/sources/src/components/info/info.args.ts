@@ -6,7 +6,7 @@ export interface InfoArgs<TemplateFnReturnType> {
   fixed?: boolean;
   active?: boolean;
   richContent: TemplateFnReturnType;
-  close: HandlerFunction;
+  onDsoClose: HandlerFunction;
 }
 
 export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
@@ -20,8 +20,8 @@ export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
       type: 'boolean'
     }
   },
-  close: {
-    action: 'closed'
+  onDsoClose: {
+    action: 'onDsoClosed'
   },
   richContent: {
     control: {
@@ -32,7 +32,7 @@ export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
 
 export function infoArgsMapper(a: InfoArgs<any>): Info<any> {
   return {
-    onClose: e => a.close(e),
+    onClose: e => a.onDsoClose(e),
     richContent: a.richContent,
     active: a.active,
     fixed: a.fixed

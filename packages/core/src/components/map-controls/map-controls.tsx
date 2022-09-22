@@ -17,10 +17,10 @@ export class MapControls {
   disableZoom?: 'in' | 'out' | 'both';
 
   @Event()
-  zoomIn!: EventEmitter<MouseEvent>;
+  dsoZoomIn!: EventEmitter<MouseEvent>;
 
   @Event()
-  zoomOut!: EventEmitter<MouseEvent>;
+  dsoZoomOut!: EventEmitter<MouseEvent>;
 
   @State()
   hideContent = !this.open;
@@ -54,7 +54,7 @@ export class MapControls {
         <div id="zoom-buttons">
           <button
             type="button"
-            onClick={e => this.zoomIn.emit(e)}
+            onClick={e => this.dsoZoomIn.emit(e)}
             disabled={this.disableZoom === 'in' || this.disableZoom === 'both'}
           >
             <span>Zoom in</span>
@@ -62,7 +62,7 @@ export class MapControls {
           </button>
           <button
             type="button"
-            onClick={e => this.zoomOut.emit(e)}
+            onClick={e => this.dsoZoomOut.emit(e)}
             disabled={this.disableZoom === 'out' || this.disableZoom === 'both'}
           >
             <span>Zoom uit</span>
