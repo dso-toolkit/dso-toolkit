@@ -18,4 +18,3 @@ export function datePickerTemplate({ id, onDateChange, value, min, max, disabled
     ></dso-date-picker>
   `;
 }
-

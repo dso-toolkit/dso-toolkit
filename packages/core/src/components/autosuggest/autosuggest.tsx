@@ -85,21 +85,21 @@ export class Autosuggest {
    * Emitted when a suggestion is selected.
    * The `detail` property of the `CustomEvent` will contain the selected suggestion.
    */
-  @Event({ eventName: 'dsoSelect' })
-  selectEmitter!: EventEmitter<Suggestion>;
+  @Event()
+  dsoSelect!: EventEmitter<Suggestion>;
 
   /**
    * This is emitted debounced for every change for the slotted input type=text element.
    */
-  @Event({ eventName: 'dsoChange' })
-  changeEmitter!: EventEmitter<string>;
+  @Event()
+  dsoChange!: EventEmitter<string>;
 
   /**
    * Emitted when enter is pressed.
    * The `detail` property of the `CustomEvent` will contain the input text.
    */
-  @Event({ eventName: 'dsoSearch' })
-  searchEmitter!: EventEmitter<string>;
+  @Event()
+  dsoSearch!: EventEmitter<string>;
 
   @Element()
   host!: HTMLElement;
@@ -139,7 +139,7 @@ export class Autosuggest {
   labelId: string = v4();
 
   debouncedEmitValue = debounce((value: string) => {
-    this.changeEmitter.emit(value);
+    this.dsoChange.emit(value);
     this.debouncedShowLoading();
   }, 200);
 
@@ -333,9 +333,9 @@ export class Autosuggest {
 
   pickSelectedValue() {
     if (this.selectedSuggestion && this.showSuggestions) {
-      this.selectEmitter.emit(this.selectedSuggestion);
+      this.dsoSelect.emit(this.selectedSuggestion);
     } else {
-      this.searchEmitter.emit(this.input.value);
+      this.dsoSearch.emit(this.input.value);
     }
 
     this.closeSuggestions();

@@ -7,7 +7,7 @@ export function labelTemplate({ status, label, removable, onRemoveLabel, compact
   return (
     <DsoLabel
       status={status}
-      onDsoRemoveLabel={onRemoveLabel}
+      onRemoveClick={onRemoveLabel}
       compact={compact}
       truncate={truncate}
       removable={removable}

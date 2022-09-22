@@ -6,7 +6,7 @@ export function infoTemplate({ fixed, active, richContent, onClose }: Info<Templ
     <dso-info
       ?fixed=${fixed}
       ?active=${active}
-      @close=${onClose}
+      @dsoClose=${onClose}
     >
       ${richContent}
     </dso-info>

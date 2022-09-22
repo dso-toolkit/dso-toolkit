@@ -58,8 +58,8 @@ export class Label implements ComponentInterface {
   @State()
   labelText?: string;
 
-  @Event({ eventName: 'dsoRemoveLabel' })
-  removeLabelEmitter!: EventEmitter<MouseEvent>;
+  @Event()
+  removeClick!: EventEmitter<MouseEvent>;
 
   @Watch('truncate')
   watchTruncate(truncate: boolean) {
@@ -175,7 +175,7 @@ export class Label implements ComponentInterface {
           {this.removable && (
             <button
               type="button"
-              onClick={e => this.removeLabelEmitter.emit(e)}
+              onClick={e => this.removeClick.emit(e)}
               onMouseEnter={() => this.removeHover = true}
               onMouseLeave={() => this.removeHover = false}
               onFocus={() => this.removeFocus = true}

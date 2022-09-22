@@ -13,14 +13,14 @@ export class Info {
   active?: boolean;
 
   @Event()
-  close!: EventEmitter<MouseEvent>;
+  dsoClose!: EventEmitter<MouseEvent>;
 
   render() {
     return (
       <Fragment>
         <slot></slot>
         {!this.fixed && (
-          <button type="button" onClick={e => this.close.emit(e)}>
+          <button type="button" onClick={e => this.dsoClose.emit(e)}>
             <span class="sr-only">Sluiten</span>
           </button>
         )}

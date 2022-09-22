@@ -204,8 +204,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Event emitted when a date is selected.
    */
-  @Event({eventName: 'dsoDateChange' })
-  dateChangeEmitter!: EventEmitter<DsoDatePickerChangeEvent>
+  @Event() dsoDateChange!: EventEmitter<DsoDatePickerChangeEvent>
 
   /**
    * Event emitted the date picker input is blurred.
@@ -535,7 +534,7 @@ export class DsoDatePicker implements ComponentInterface {
     this.value = typeof value === 'string' ? value : event.value
 
     if (this.value !== this.previousValue) {
-      this.dateChangeEmitter.emit(event)
+      this.dsoDateChange.emit(event)
       this.previousValue = this.value
     }
   }

@@ -690,7 +690,7 @@ declare namespace LocalJSX {
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
-        "onClose"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoClose"?: (event: CustomEvent<MouseEvent>) => void;
     }
     interface DsoInfoButton {
         "active"?: boolean;
@@ -700,7 +700,7 @@ declare namespace LocalJSX {
     }
     interface DsoLabel {
         "compact"?: boolean;
-        "onDsoRemoveLabel"?: (event: CustomEvent<MouseEvent>) => void;
+        "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
         "truncate"?: boolean;

@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event   | Description | Type                      |
-| ------- | ----------- | ------------------------- |
-| `close` |             | `CustomEvent<MouseEvent>` |
+| Event      | Description | Type                      |
+| ---------- | ----------- | ------------------------- |
+| `dsoClose` |             | `CustomEvent<MouseEvent>` |
 
 
 ## Dependencies
