@@ -27,9 +27,6 @@ $dso-required-string: "verplicht";
 //** `.form-group` margin
 $form-group-margin-bottom: variables.$u2;
 
-//** Border color for inputs on focus
-$input-border-focus: variables.$bosgroen;
-
 //** Default `.form-control` height
 $input-height-base:              (variables.$line-height-computed + (variables.$padding-base-vertical * 2) + 2);
 //** Large `.form-control` height
