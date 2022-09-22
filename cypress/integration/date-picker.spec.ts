@@ -262,7 +262,7 @@ describe('Date Picker', () => {
 
   it('should select February 5th, 2015', () => {
     cy.get('dso-date-picker').then(e => {
-      e.get(0).addEventListener('dsoDateChange', cy.stub().as('dsoDateChange'))
+      e.get(0).addEventListener('dsoDateChange', cy.stub().as('dateChange'))
     });
 
     cy
@@ -283,7 +283,7 @@ describe('Date Picker', () => {
       .closest('button')
       .click();
 
-    cy.get('@dsoDateChange').should('have.been.calledOnce');
+    cy.get('@dateChange').should('have.been.calledOnce');
   });
 
   it('should emit changed event on invalid input', () => {

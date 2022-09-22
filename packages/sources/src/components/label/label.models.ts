@@ -4,6 +4,6 @@ export interface Label {
   truncate?: boolean;
   label: string;
   removable?: boolean;
-  onRemoveLabel?: (e: MouseEvent) => void;
+  onRemoveClick?: (e: MouseEvent) => void;
   symbol?: string;
 }

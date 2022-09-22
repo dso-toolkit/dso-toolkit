@@ -9,8 +9,8 @@ describe('Alert', () => {
       .invoke('attr', 'current-page', currentPage)
       .invoke('attr', 'total-pages', totalPages)
       .then($pagination => {
-        $pagination.on('selectPage', $event => $event.detail.originalEvent.preventDefault());
-        $pagination.on('selectPage', cy.stub().as('selectPageListener'));
+        $pagination.on('dsoSelectPage', $event => $event.detail.originalEvent.preventDefault());
+        $pagination.on('dsoSelectPage', cy.stub().as('selectPageListener'));
       });
   }
 

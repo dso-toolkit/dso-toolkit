@@ -38,9 +38,9 @@ interface HeaderMenuLogoutClick {
 
 ## Events
 
-| Event         | Description                                                                                                                                        | Type                                                        |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `headerClick` | Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'` | `CustomEvent<HeaderClickEvent \| HeaderClickMenuItemEvent>` |
+| Event            | Description                                                                                                                                        | Type                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `dsoHeaderClick` | Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'` | `CustomEvent<HeaderClickEvent \| HeaderClickMenuItemEvent>` |
 
 
 ## Dependencies

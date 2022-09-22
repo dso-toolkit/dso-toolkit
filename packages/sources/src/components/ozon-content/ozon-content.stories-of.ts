@@ -23,7 +23,7 @@ export function storiesOfOzonContent<TemplateFnReturnType>(
 
   content.forEach((story) => {
     stories.add(story.title, template, {
-      args: componentArgs<Omit<OzonContentArgs, 'onAnchorClick' | 'onClick'>>({
+      args: componentArgs<Omit<OzonContentArgs, 'onDsoAnchorClick' | 'onDsoClick'>>({
         content: story.content,
         inline: false,
         interactive: false,

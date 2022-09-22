@@ -15,9 +15,9 @@ Private component, do not use.
 
 ## Events
 
-| Event             | Description | Type                                |
-| ----------------- | ----------- | ----------------------------------- |
-| `baseLayerChange` |             | `CustomEvent<BaseLayerChangeEvent>` |
+| Event                | Description | Type                                |
+| -------------------- | ----------- | ----------------------------------- |
+| `dsoBaseLayerChange` |             | `CustomEvent<BaseLayerChangeEvent>` |
 
 
 ## Dependencies

@@ -15,10 +15,10 @@
 
 ## Events
 
-| Event     | Description | Type                      |
-| --------- | ----------- | ------------------------- |
-| `zoomIn`  |             | `CustomEvent<MouseEvent>` |
-| `zoomOut` |             | `CustomEvent<MouseEvent>` |
+| Event        | Description | Type                      |
+| ------------ | ----------- | ------------------------- |
+| `dsoZoomIn`  |             | `CustomEvent<MouseEvent>` |
+| `dsoZoomOut` |             | `CustomEvent<MouseEvent>` |
 
 
 ## Dependencies

@@ -12,9 +12,9 @@ export function treeViewTemplate(
   return html`
     <dso-tree-view
       .collection=${collection}
-      @openItem=${onOpenItem}
-      @closeItem=${onCloseItem}
-      @clickItem=${onClickItem}
+      @dsoOpenItem=${onOpenItem}
+      @dsoCloseItem=${onCloseItem}
+      @dsoClickItem=${onClickItem}
     ></dso-tree-view>
   `;
 }

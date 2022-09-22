@@ -14,9 +14,9 @@ export function treeViewTemplate(
   return (
     <DsoTreeView
       collection={collection}
-      onOpenItem={onOpenItem}
-      onCloseItem={onCloseItem}
-      onClickItem={onClickItem}
+      onDsoOpenItem={onOpenItem}
+      onDsoCloseItem={onCloseItem}
+      onDsoClickItem={onClickItem}
     ></DsoTreeView>
   );
 }

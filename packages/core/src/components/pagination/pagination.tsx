@@ -30,10 +30,10 @@ export class Pagination implements ComponentInterface {
    * Emitted on page select
    */
   @Event()
-  selectPage!: EventEmitter<PaginationSelectPageEvent>;
+  dsoSelectPage!: EventEmitter<PaginationSelectPageEvent>;
 
   clickHandler(e: MouseEvent, page: number) {
-    this.selectPage.emit({
+    this.dsoSelectPage.emit({
       originalEvent: e,
       page,
       isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,

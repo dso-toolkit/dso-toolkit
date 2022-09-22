@@ -21,12 +21,12 @@ export class MapOverlays implements ComponentInterface {
   overlays!: Overlay[];
 
   @Event()
-  toggleOverlay!: EventEmitter<OverlayChangeEvent>;
+  dsoToggleOverlay!: EventEmitter<OverlayChangeEvent>;
 
   overlayChangeHandler(overlay: Overlay, e: CustomEvent<SelectableChangeEvent>) {
     const checked = e.detail.target instanceof HTMLInputElement ? !!e.detail.target.checked : false;
 
-    this.toggleOverlay.emit({ overlay, checked });
+    this.dsoToggleOverlay.emit({ overlay, checked });
   }
 
   componentDidRender() {

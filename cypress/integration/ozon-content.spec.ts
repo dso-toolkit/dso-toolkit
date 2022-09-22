@@ -2,7 +2,7 @@ describe("Ozon Content", () => {
   it("should emit anchorClick on IntRef anchor click", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--intref");
     cy.get("dso-ozon-content").then((c) => {
-      c.get(0).addEventListener("anchorClick", cy.stub().as("anchorClick"));
+      c.get(0).addEventListener("dsoAnchorClick", cy.stub().as("anchorClick"));
     });
 
     cy.get("dso-ozon-content")
@@ -160,7 +160,7 @@ describe("Ozon Content", () => {
     cy.visit('http://localhost:45000/iframe.html?id=core-ozon-content--intioref');
 
     cy.get('dso-ozon-content').then((c) => {
-      c.get(0).addEventListener('anchorClick', cy.stub().as('anchorClick'));
+      c.get(0).addEventListener('dsoAnchorClick', cy.stub().as('anchorClick'));
     });
 
     cy.get('dso-ozon-content')

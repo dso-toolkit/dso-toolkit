@@ -3,11 +3,11 @@ import * as React from 'react';
 
 import { DsoLabel } from '../..';
 
-export function labelTemplate({ status, label, removable, onRemoveLabel, compact, truncate, symbol }: Label) {
+export function labelTemplate({ status, label, removable, onRemoveClick, compact, truncate, symbol }: Label) {
   return (
     <DsoLabel
       status={status}
-      onRemoveClick={onRemoveLabel}
+      onRemoveClick={onRemoveClick}
       compact={compact}
       truncate={truncate}
       removable={removable}

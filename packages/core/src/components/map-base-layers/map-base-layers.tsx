@@ -13,7 +13,7 @@ export class MapBaseLayers implements ComponentInterface {
   selectableRefs: { [id: number]: HTMLDsoSelectableElement } = {};
 
   @Event()
-  baseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
+  dsoBaseLayerChange!: EventEmitter<BaseLayerChangeEvent>;
 
   @Prop()
   group = uuidv4();
@@ -22,7 +22,7 @@ export class MapBaseLayers implements ComponentInterface {
   baseLayers!: BaseLayer[];
 
   baseLayerChangeHandler(baseLayer: BaseLayer): void {
-    this.baseLayerChange.emit({ activeBaseLayer: baseLayer });
+    this.dsoBaseLayerChange.emit({ activeBaseLayer: baseLayer });
   }
 
   componentDidRender() {

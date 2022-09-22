@@ -104,11 +104,11 @@ describe.skip('Label', () => {
       .should('have.text', 'Verwijder: andere tekst');
   });
 
-  it.skip('should emit removeLabel event', () => {
+  it.skip('should emit removeClick event', () => {
     prepareComponent();
 
     cy.get('@dsoLabel')
-      .then($element => $element.on('dsoRemoveLabel', cy.stub().as('removeLabelListener')))
+      .then($element => $element.on('dsoRemoveClick', cy.stub().as('removeClickListener')))
       .should('have.text', defaultLabelText)
       .invoke('attr', 'removable', '')
       .get('@dsoLabelShadow')
@@ -121,7 +121,7 @@ describe.skip('Label', () => {
       .should('have.text', `Verwijder: andere tekst`)
       .closest('button')
       .click()
-      .get('@removeLabelListener')
+      .get('@removeClickListener')
       .should('have.been.calledOnce');
   });
 });

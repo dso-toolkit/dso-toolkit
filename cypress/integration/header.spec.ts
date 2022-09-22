@@ -36,10 +36,10 @@ describe("Header", () => {
     cy.get('dso-header')
       .as('dsoHeader')
       .then($header => {
-        $header.on('headerClick', ($event: any) => {
+        $header.on('dsoHeaderClick', ($event: any) => {
           $event.detail.originalEvent.preventDefault();
         });
-        $header.on('headerClick', cy.stub().as('headerListener'));
+        $header.on('dsoHeaderClick', cy.stub().as('headerListener'));
       })
       .shadow()
       .as('dsoHeaderShadow');
