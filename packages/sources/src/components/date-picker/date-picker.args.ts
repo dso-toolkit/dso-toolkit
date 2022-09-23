@@ -5,7 +5,7 @@ import { DatePicker } from './date-picker.models';
 export interface DatePickerArgs {
   id?: string;
   label: string;
-  onDsoDateChange: HandlerFunction;
+  dsoDateChange: HandlerFunction;
   direction?: string;
   value?: string;
   min?: string;
@@ -61,8 +61,8 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
       type: 'boolean'
     }
   },
-  onDsoDateChange: {
-    action: 'onDsoDateChanged'
+  dsoDateChange: {
+    action: 'onDsoDateChange'
   }
 };
 
@@ -70,7 +70,7 @@ export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
   return {
     disabled: a.disabled,
     id: a.id,
-    onDateChange: e => a.onDsoDateChange(e.detail),
+    onDateChange: e => a.dsoDateChange(e.detail),
     direction: a.direction,
     max: a.max,
     min: a.min,

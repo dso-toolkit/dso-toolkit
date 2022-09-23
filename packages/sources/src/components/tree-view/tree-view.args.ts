@@ -2,11 +2,11 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { ArgTypes } from '../../storybook';
 
 export interface TreeViewArgs {
-  onDsoClickItem: HandlerFunction;
+  dsoClickItem: HandlerFunction;
 }
 
 export const treeViewArgTypes: ArgTypes<TreeViewArgs> = {
-  onDsoClickItem: {
+  dsoClickItem: {
     action: 'onDsoClickItem'
   }
 };

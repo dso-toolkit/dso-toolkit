@@ -6,7 +6,7 @@ import { Pagination } from './pagination.models';
 export interface PaginationArgs {
   totalPages: number;
   currentPage: number;
-  onDsoSelectPage: HandlerFunction;
+  dsoSelectPage: HandlerFunction;
 }
 
 export const paginationArgTypes: ArgTypes<PaginationArgs> = {
@@ -20,7 +20,7 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
       type: 'number'
     }
   },
-  onDsoSelectPage: {
+  dsoSelectPage: {
     action: 'onDsoSelectPage'
   }
 };
@@ -31,7 +31,7 @@ export function paginationArgsMapper(a: PaginationArgs): Pagination {
     currentPage: a.currentPage,
     onSelectPage: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.onDsoSelectPage(event);
+      a.dsoSelectPage(event);
     },
     formatHref: page => '#' + page,
   };
