@@ -43,7 +43,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
     (a: Args) => {
       const args = a as AutosuggestArgs;
 
-      return autosuggestDemoTemplate(fetchSuggestions, args.onDsoSelect, args.onDsoChange, args.onDsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
+      return autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
     }
   );
 
@@ -57,7 +57,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
 
         const args = a as AutosuggestArgs;
 
-        return autosuggestInSearchBarTemplate(fetchSuggestions, args.onDsoSelect, args.onDsoChange, args.onDsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
+        return autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
       }
     );
   }

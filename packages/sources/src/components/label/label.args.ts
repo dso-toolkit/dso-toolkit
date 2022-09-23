@@ -10,7 +10,7 @@ export interface LabelArgs {
   truncate?: boolean;
   label: string;
   removable?: boolean;
-  onDsoRemoveClick?: HandlerFunction;
+  dsoRemoveClick?: HandlerFunction;
   symbol: string;
 }
 
@@ -26,7 +26,7 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
       type: 'boolean'
     }
   },
-  onDsoRemoveClick: {
+  dsoRemoveClick: {
     action: 'onDsoRemoveClick'
   },
   compact: {
@@ -55,7 +55,7 @@ export function labelArgsMapper(a: LabelArgs): Label {
   return {
     label: a.label,
     removable: a.removable,
-    onRemoveClick: a.onDsoRemoveClick,
+    onRemoveClick: a.dsoRemoveClick,
     compact: a.compact,
     truncate: a.truncate,
     status: a.status,

@@ -6,7 +6,7 @@ export interface InfoButtonArgs {
   active?: boolean;
   secondary?: boolean;
   label: string;
-  onDsoToggle: HandlerFunction;
+  dsoToggle: HandlerFunction;
 }
 
 export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
@@ -25,14 +25,14 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
       type: 'boolean'
     }
   },
-  onDsoToggle: {
+  dsoToggle: {
     action: 'onDsoToggle'
   }
 };
 
 export function infoButtonArgsMapper(a: InfoButtonArgs): InfoButton {
   return {
-    onToggle: e => a.onDsoToggle(e),
+    onToggle: e => a.dsoToggle(e),
     active: a.active,
     secondary: a.secondary,
     label: a.label

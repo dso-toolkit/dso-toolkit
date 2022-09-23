@@ -18,7 +18,7 @@ export interface HeaderArgs {
   userProfileName: string;
   userProfileUrl: string;
   userHomeUrl: string;
-  onDsoHeaderClick: HandlerFunction;
+  dsoHeaderClick: HandlerFunction;
 }
 
 export const headerArgTypes: ArgTypes<HeaderArgs> = {
@@ -76,7 +76,7 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
       type: "text",
     },
   },
-  onDsoHeaderClick: {
+  dsoHeaderClick: {
     ...noControl,
     action: 'onDsoHeaderClick',
   }
@@ -96,7 +96,7 @@ export function headerArgsMapper(a: HeaderArgs): Header {
     userHomeUrl: a.userHomeUrl,
     onHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();
-      a.onDsoHeaderClick(event);
+      a.dsoHeaderClick(event);
     },
   };
 }

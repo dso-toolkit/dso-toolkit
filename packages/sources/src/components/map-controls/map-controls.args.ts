@@ -6,13 +6,13 @@ import { baseLayers, overlays } from './map-controls.content';
 import { MapControls } from './map-controls.models';
 
 export interface MapControlsArgs {
-  onDsoZoomIn: HandlerFunction;
-  onDsoZoomOut: HandlerFunction;
+  dsoZoomIn: HandlerFunction;
+  dsoZoomOut: HandlerFunction;
   open: boolean;
   baseLayers: typeof baseLayers;
-  onDsoBaseLayerChange: HandlerFunction;
+  dsoBaseLayerChange: HandlerFunction;
   overlays: typeof overlays;
-  onDsoToggleOverlay: HandlerFunction;
+  dsoToggleOverlay: HandlerFunction;
   disableZoom: 'both' | 'in' | 'out' | undefined;
 }
 
@@ -20,10 +20,10 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   open: {
     type: 'boolean'
   },
-  onDsoZoomIn: {
+  dsoZoomIn: {
     action: 'onDsoZoomIn'
   },
-  onDsoZoomOut: {
+  dsoZoomOut: {
     action: 'onDsoZoomOut'
   },
   baseLayers: {
@@ -31,7 +31,7 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
       disable: true
     }
   },
-  onDsoBaseLayerChange: {
+  dsoBaseLayerChange: {
     action: 'onDsoBaseLayerChange'
   },
   overlays: {
@@ -39,7 +39,7 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
       disable: true
     }
   },
-  onDsoToggleOverlay: {
+  dsoToggleOverlay: {
     action: 'onDsoToggleOverlay'
   },
   disableZoom: {
@@ -55,14 +55,14 @@ export function mapControlsArgsMapper(a: MapControlsArgs): MapControls {
     baseLayerChange: (e: any) => {
       e.target!.baseLayers = [...e.target.baseLayers.map((l: any) => l.checked !== (l === e.detail.activeBaseLayer) ? { ...l, checked: l === e.detail.activeBaseLayer } : l)];
 
-      a.onDsoBaseLayerChange(e);
+      a.dsoBaseLayerChange(e);
     },
     baseLayers: a.baseLayers,
     open: a.open,
     overlays: a.overlays,
-    toggleOverlay: e => a.onDsoToggleOverlay(e),
-    zoomIn: e => a.onDsoZoomIn(e),
-    zoomOut: e => a.onDsoZoomOut(e),
+    toggleOverlay: e => a.dsoToggleOverlay(e),
+    zoomIn: e => a.dsoZoomIn(e),
+    zoomOut: e => a.dsoZoomOut(e),
     disableZoom: a.disableZoom
   };
 }

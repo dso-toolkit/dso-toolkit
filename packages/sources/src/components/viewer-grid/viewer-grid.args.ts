@@ -6,10 +6,10 @@ export interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;
   initialMainSize?: "small" | "medium" | "large";
-  onDsoMainSizeChange: HandlerFunction;
-  onDsoCloseOverlay: HandlerFunction;
-  onDsoFilterpanelCancel: HandlerFunction;
-  onDsoFilterpanelApply: HandlerFunction;
+  dsoMainSizeChange: HandlerFunction;
+  dsoCloseOverlay: HandlerFunction;
+  dsoFilterpanelCancel: HandlerFunction;
+  dsoFilterpanelApply: HandlerFunction;
 }
 
 export interface ViewerGridDocumentHeaderArgs {
@@ -35,19 +35,19 @@ export const viewerGridArgs: ArgTypes<ViewerGridArgs> = {
       type: 'select',
     }
   },
-  onDsoMainSizeChange: {
+  dsoMainSizeChange: {
     ...noControl,
     action: 'onDsoMainSizeChange'
   },
-  onDsoCloseOverlay: {
+  dsoCloseOverlay: {
     ...noControl,
     action: "onDsoCloseOverlay",
   },
-  onDsoFilterpanelCancel: {
+  dsoFilterpanelCancel: {
     ...noControl,
     action: 'onDsoFilterpanelCancel'
   },
-  onDsoFilterpanelApply: {
+  dsoFilterpanelApply: {
     ...noControl,
     action: 'onDsoFilterpanelApply'
   }

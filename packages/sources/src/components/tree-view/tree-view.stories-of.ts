@@ -42,7 +42,7 @@ export function storiesOfTreeView<TemplateFnReturnType>(
       const args = a as TreeViewArgs;
 
       const click = (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => {
-        args.onDsoClickItem(path, originalEvent, callback);
+        args.dsoClickItem(path, originalEvent, callback);
         TreeViewDemo.onClickItem(path, originalEvent, callback);
       }
 
