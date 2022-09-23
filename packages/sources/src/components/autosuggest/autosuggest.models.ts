@@ -1,5 +1,5 @@
 export interface Autosuggest {
-  suggestions: AutosuggestSuggestion[];
+  suggestions: AutosuggestSuggestion[] | null;
   suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel?: string;

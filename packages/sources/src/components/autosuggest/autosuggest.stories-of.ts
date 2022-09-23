@@ -16,6 +16,7 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   loadingLabel: string,
   loadingDelayed: number,
   notFoundLabel: string,
+  minimalCharacters?: number,
 ) => TemplateFnReturnType;
 
 export interface AutosuggestParameters<TemplateFnReturnType> {
@@ -44,6 +45,15 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
       const args = a as AutosuggestArgs;
 
       return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
+    }
+  );
+
+  stories.add(
+    'minimal 3 characters',
+    (a: Args) => {
+      const args = a as AutosuggestArgs;
+
+      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3);
     }
   );
 

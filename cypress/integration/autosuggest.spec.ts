@@ -359,4 +359,26 @@ describe("Autosuggest", () => {
     cy.wait(200);
     cy.get('@listbox').should('not.be.visible');
   });
+
+  it('should have value null when no suggestions are fetched', () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--minimal-3-characters");
+
+    cy.get('#suggestions-demo')
+      .as('pre')
+      .should('have.text', 'null')
+      .get('@input')
+      .focus()
+      .type('ddd')
+      .get('@listbox')
+      .should('be.visible')
+      .get('@pre')
+      .should('have.text', '[]')
+      .get('@input')
+      .focus()
+      .realPress('Backspace')
+      .get('@listbox')
+      .should('not.be.visible')
+      .get('@pre')
+      .should('have.text', 'null');
+  });
 });
