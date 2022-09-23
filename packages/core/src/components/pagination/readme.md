@@ -25,11 +25,13 @@
 
 ### Depends on
 
+- [dso-responsive-element](../responsive-element)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-pagination --> dso-responsive-element
   dso-pagination --> dso-icon
   style dso-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```

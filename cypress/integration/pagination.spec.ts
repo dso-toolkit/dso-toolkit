@@ -1,4 +1,4 @@
-describe('Alert', () => {
+describe('Pagination', () => {
   beforeEach(() => {
     cy.visit('http://localhost:45000/iframe.html?id=core-pagination--pagination');
   });
@@ -29,6 +29,56 @@ describe('Alert', () => {
       .get('@dsoPagination')
       .find('a[aria-label="Volgende"]')
       .should('be.visible');
+  });
+
+  it('should show ... when first and/or last page are out of range', () => {
+    prepareComponent(9, 18);
+
+    cy.wait(200);
+
+    cy
+      .get('dso-pagination')
+      .shadow()
+      .as('dsoPagination')
+      .find('.pagination > li')
+      .eq(2)
+      .find('span')
+      .should('have.text', '...')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .eq(6)
+      .find('span')
+      .should('have.text', '...');
+  });
+
+  it('should show different range on different small/medium/large viewport', () => {
+    prepareComponent(9, 18);
+
+    cy.wait(200);
+
+    cy.get('dso-pagination')
+      .shadow()
+      .as('dsoPagination')
+      .find('dso-responsive-element')
+      .as('dsoResponsiveElement')
+      .should('have.attr', 'large')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .should('have.length', 9)
+      .get('@dsoResponsiveElement')
+      .viewport(600, 660)
+      .get('@dsoResponsiveElement')
+      .should('have.attr', 'medium')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .should('have.length', 7)
+      .get('@dsoResponsiveElement')
+      .viewport(300, 660)
+      .get('@dsoResponsiveElement')
+      .should('have.attr', 'small')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .should('have.length', 3);
   });
 
   it('should not show previous/next buttons when appropriate', () => {
@@ -95,6 +145,8 @@ describe('Alert', () => {
 
   it('should emit page on page select', () => {
     prepareComponent(3, 5);
+
+    cy.wait(200);
 
     cy
       .get('dso-pagination')

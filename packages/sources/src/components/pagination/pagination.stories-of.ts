@@ -21,8 +21,8 @@ export function storiesOfPagination<TemplateFnReturnType>(
     template,
     {
       args: {
-        totalPages: 5,
-        currentPage: 3,
+        totalPages: 16,
+        currentPage: 8,
       }
     }
   );

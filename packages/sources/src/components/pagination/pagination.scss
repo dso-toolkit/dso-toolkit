@@ -4,6 +4,7 @@ $dso-pagination-line-height: $dso-pagination-item-size;
 $dso-pagination-icon-margin: $u1 * 0.5;
 
 @mixin pagination_root() {
+  padding-inline-start: initial;
   text-align: center;
 
   > li {
