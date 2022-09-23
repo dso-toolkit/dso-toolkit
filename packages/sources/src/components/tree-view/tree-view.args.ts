@@ -7,6 +7,6 @@ export interface TreeViewArgs {
 
 export const treeViewArgTypes: ArgTypes<TreeViewArgs> = {
   dsoClickItem: {
-    action: 'onDsoClickItem'
+    action: 'dsoClickItem'
   }
 };

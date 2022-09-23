@@ -21,7 +21,7 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
     }
   },
   dsoSelectPage: {
-    action: 'onDsoSelectPage'
+    action: 'dsoSelectPage'
   }
 };
 

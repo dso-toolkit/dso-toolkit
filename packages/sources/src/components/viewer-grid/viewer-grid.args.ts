@@ -37,19 +37,19 @@ export const viewerGridArgs: ArgTypes<ViewerGridArgs> = {
   },
   dsoMainSizeChange: {
     ...noControl,
-    action: 'onDsoMainSizeChange'
+    action: 'dsoMainSizeChange'
   },
   dsoCloseOverlay: {
     ...noControl,
-    action: "onDsoCloseOverlay",
+    action: "dsoCloseOverlay",
   },
   dsoFilterpanelCancel: {
     ...noControl,
-    action: 'onDsoFilterpanelCancel'
+    action: 'dsoFilterpanelCancel'
   },
   dsoFilterpanelApply: {
     ...noControl,
-    action: 'onDsoFilterpanelApply'
+    action: 'dsoFilterpanelApply'
   }
 };
 

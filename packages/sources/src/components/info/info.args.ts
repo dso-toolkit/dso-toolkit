@@ -21,7 +21,7 @@ export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
     }
   },
   dsoClose: {
-    action: 'onDsoClose'
+    action: 'dsoClosed'
   },
   richContent: {
     control: {

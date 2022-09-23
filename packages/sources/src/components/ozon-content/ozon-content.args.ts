@@ -52,11 +52,11 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   },
   dsoAnchorClick: {
     ...noControl,
-    action: "onDsoAnchorClick",
+    action: "dsoAnchorClick",
   },
   dsoClick: {
     ...noControl,
-    action: 'onDsoClick'
+    action: 'dsoClick'
   }
 };
 
