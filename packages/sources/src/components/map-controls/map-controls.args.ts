@@ -21,10 +21,10 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
     type: 'boolean'
   },
   dsoZoomIn: {
-    action: 'onDsoZoomIn'
+    action: 'dsoZoomIn'
   },
   dsoZoomOut: {
-    action: 'onDsoZoomOut'
+    action: 'dsoZoomOut'
   },
   baseLayers: {
     control: {
@@ -32,7 +32,7 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
     }
   },
   dsoBaseLayerChange: {
-    action: 'onDsoBaseLayerChange'
+    action: 'dsoBaseLayerChange'
   },
   overlays: {
     control: {
@@ -40,7 +40,7 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
     }
   },
   dsoToggleOverlay: {
-    action: 'onDsoToggleOverlay'
+    action: 'dsoToggleOverlay'
   },
   disableZoom: {
     options: ['both', 'in', 'out', undefined],

@@ -62,7 +62,7 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
     }
   },
   dsoDateChange: {
-    action: 'onDsoDateChange'
+    action: 'dsoDateChange'
   }
 };
 

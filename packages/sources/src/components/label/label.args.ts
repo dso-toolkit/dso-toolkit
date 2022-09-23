@@ -27,7 +27,7 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
     }
   },
   dsoRemoveClick: {
-    action: 'onDsoRemoveClick'
+    action: 'dsoRemoveClick'
   },
   compact: {
     control: {

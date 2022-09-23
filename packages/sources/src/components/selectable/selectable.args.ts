@@ -82,7 +82,7 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
     }
   },
   dsoChange: {
-    action: 'onDsoChange'
+    action: 'dsoChange'
   },
   infoFixed: {
     control: {

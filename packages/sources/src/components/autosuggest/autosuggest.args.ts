@@ -40,12 +40,12 @@ export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
     },
   },
   dsoSelect: {
-    action: 'onDsoSelect'
+    action: 'dsoSelect'
   },
   dsoChange: {
-    action: 'onDsoChange'
+    action: 'dsoChange'
   },
   dsoSearch: {
-    action: 'onDsoSearch'
+    action: 'dsoSearch'
   }
 };
