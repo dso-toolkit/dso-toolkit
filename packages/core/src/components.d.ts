@@ -54,7 +54,7 @@ export namespace Components {
         /**
           * The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.
          */
-        "suggestions": Suggestion[];
+        "suggestions": Suggestion[] | null;
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
@@ -567,7 +567,7 @@ declare namespace LocalJSX {
         /**
           * The suggestions for the value of the slotted input element. Optionally a Suggestion can have a `type` and `item`.  The `type` is used to style the suggestion. `item` can be use to reference the original object that was used to create the suggestion.
          */
-        "suggestions"?: Suggestion[];
+        "suggestions"?: Suggestion[] | null;
     }
     interface DsoBadge {
         "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
