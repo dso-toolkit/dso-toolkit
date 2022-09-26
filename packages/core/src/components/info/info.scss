@@ -1,24 +1,22 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "../../icon/di";
-
-@import "~@dso-toolkit/sources/src/components/info/info";
 @import "~@dso-toolkit/sources/src/components/button/button";
+@import "~@dso-toolkit/sources/src/components/info/info";
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
-@import "~@dso-toolkit/css/src/components/button/button";
-
 :host {
-  --di-times-grijs90: #{dso-icon("times", "grijs90")};
-
   display: block;
 
-  @include info_root();
+  @include info_root($di: false);
 }
 
 :host(:not([active]):not([fixed])) {
   display: none;
+}
+
+button {
+  @include button_element();
 }
 
 @include box-sizing();

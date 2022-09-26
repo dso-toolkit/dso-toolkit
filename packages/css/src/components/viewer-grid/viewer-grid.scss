@@ -1,0 +1,21 @@
+@import "../grid/grid.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+
+dso-viewer-grid {
+  .dso-filterblok {
+    margin-left: $grid-gutter-width * -0.5;
+    margin-right: $grid-gutter-width * -0.5;
+
+    .dso-filterblok-address {
+      font-weight: bold;
+      margin: $u1 0;
+    }
+
+    @media screen and (max-width: $screen-xs-min) {
+      .dso-context-wrapper {
+        .dso-context-container {
+          flex-basis: auto;
+        }
+      }
+    }
+  }
+}

@@ -5,10 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* `@mixin di()` en `@mixin di-variant()` uit @dso-toolkit/core verwijderen ([#1752](https://github.com/dso-toolkit/dso-toolkit/issues/1752))
+
 ## 45.0.1
 
 ### Fixed
-* **core:** Fixed: packages/dso-toolkit/src/styles/components/_navbar.scss heeft relatief pad ([#1801](https://github.com/dso-toolkit/dso-toolkit/issues/1801)) 
+* **core:** Fixed: packages/dso-toolkit/src/styles/components/_navbar.scss heeft relatief pad ([#1801](https://github.com/dso-toolkit/dso-toolkit/issues/1801))
 
 ## 45.0.0
 

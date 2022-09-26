@@ -3,21 +3,14 @@ import { sass } from '@stencil/sass';
 import { reactOutputTarget } from '@stencil/react-output-target';
 import { inlineSvg } from 'stencil-inline-svg';
 
-import { dsoIcon } from './src/icon/dso-icon-sass-function';
-
 export const config: Config = {
   namespace: 'dso-toolkit',
   devServer: {
     port: 53333
   },
-  globalStyle: 'src/global-styling.scss',
   plugins: [
     inlineSvg(),
-    sass({
-      functions: {
-        ...dsoIcon
-      }
-    })
+    sass()
   ],
   outputTargets: [
     reactOutputTarget({

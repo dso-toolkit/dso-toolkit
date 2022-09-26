@@ -71,6 +71,7 @@ export class HelpcenterPanel {
             onClick={this.closeClick}
             aria-expanded="true"
           >
+            <dso-icon icon="times"></dso-icon>
             <span class="sr-only">sluiten</span>
           </button>
         </div>

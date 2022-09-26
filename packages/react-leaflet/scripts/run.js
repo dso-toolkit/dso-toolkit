@@ -20,7 +20,6 @@ const klapBuild = {
 
 if (argv.start) {
   fs.copy('../css/dist', 'dist/css');
-  fs.copy('../core/dist/dso-toolkit/dso-toolkit.css', 'dist/core/dso-toolkit.css');
   fs.copy('../leaflet/dist/dso-leaflet.css', 'dist/leaflet/dso-leaflet.css');
   fs.copy('../leaflet/dist/dso-leaflet.css.map', 'dist/leaflet/dso-leaflet.css.map');
 

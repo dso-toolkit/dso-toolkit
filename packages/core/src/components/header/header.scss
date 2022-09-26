@@ -1,9 +1,6 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 @import "~@dso-toolkit/sources/src/styling/mixins";
-@import "~@dso-toolkit/sources/src/components/button/button";
 @import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
-
-@import "../../icon/di";
 
 $dso-navigation-selected-color: $mauve;
 
@@ -25,9 +22,6 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 :host {
-  --di-chevron-down-bosgroen: #{dso-icon("chevron-down", "bosgroen")};
-  --di-chevron-up-bosgroen: #{dso-icon("chevron-up", "bosgroen")};
-
   display: block;
 }
 
@@ -58,12 +52,6 @@ $dso-dropdown-link-color: $grijs-90;
   @media screen and (max-width: $screen-xs-max) {
     max-width: 200px;
   }
-
-   + .dropdown {
-     dso-dropdown-menu {
-       position: static;
-     }
-   }
 }
 
 .sub-logo {
@@ -81,8 +69,6 @@ $dso-dropdown-link-color: $grijs-90;
   margin-right: $u2;
 
   .dso-tertiary {
-    @include button_tertiary();
-
     cursor: pointer;
     font-family: $font-family-base;
     font-weight: 600;
@@ -123,26 +109,6 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 dso-dropdown-menu {
-  @include dropdown-menu_children();
-
-  &[dropdown-align="right"] {
-    @include dropdown-menu_align-right();
-  }
-
-  &[open] {
-    @include dropdown-menu_open();
-
-    button {
-      &::after {
-        @include di("chevron-up-bosgroen", $size: 1.2em);
-      }
-    }
-  }
-
-  &[checkable] {
-    @include dropdown-menu_checkable();
-  }
-
   button {
     align-items: flex-end;
     background-color: transparent;
@@ -150,18 +116,6 @@ dso-dropdown-menu {
     display: flex;
     font-family: $font-family-base;
     padding-right: $u4;
-
-    &::after {
-      @include di("chevron-down-bosgroen", $size: 1.2em);
-
-      content: "";
-      display: inline-block;
-      margin-left: $u1;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-    }
   }
 
   @media screen and (max-width: $screen-xs-max) {
@@ -172,37 +126,35 @@ dso-dropdown-menu {
     border: 0;
     border-radius: 0;
 
-    dso-dropdown-options {
-      ul {
-        width: 320px;
+    ul {
+      width: 320px;
 
-        @media screen and (max-width: $screen-sm-max) {
-          width: 100%;
+      @media screen and (max-width: $screen-sm-max) {
+        width: 100%;
+      }
+    }
+
+    li {
+      a {
+        color: $bosgroen;
+        font-size: 1.25rem;
+        padding: $u2;
+
+        &:hover {
+          background-color: $wit;
+          color: $bosgroen;
+          text-decoration: underline;
         }
       }
 
-      li {
+      &.dso-active {
         a {
-          color: $bosgroen;
-          font-size: 1.25rem;
-          padding: $u2;
-
-          &:hover {
-            background-color: $wit;
-            color: $bosgroen;
-            text-decoration: underline;
-          }
+          font-weight: 600;
         }
+      }
 
-        &.dso-active {
-          a {
-            font-weight: 600;
-          }
-        }
-
-        + li {
-          border-top: 1px solid $grijs-20;
-        }
+      + li {
+        border-top: 1px solid $grijs-20;
       }
     }
   }
@@ -212,6 +164,8 @@ dso-dropdown-menu {
   margin-left: auto;
 
   dso-dropdown-menu {
+    position: static;
+
     @media screen and (max-width: $screen-xs-max) {
       margin-top: $u1 * 3.5;
     }
@@ -222,28 +176,25 @@ dso-dropdown-menu {
       top: 100%;
     }
 
-    &[open] {
-      button {
-        &::after {
-          @include di("chevron-up", $size: 1.5em);
-        }
-      }
-    }
-
     button {
       color: $grasgroen;
       font-size: $dso-font-size-base;
       font-weight: 600;
+      line-height: normal;
       position: relative;
+
+      &::after {
+        margin-left: $u1;
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
 
       &:hover,
       &:active {
         cursor: pointer;
         text-decoration: underline;
-      }
-
-      &::after {
-        @include di("chevron-down", $size: 1.5em);
       }
     }
   }
@@ -314,6 +265,9 @@ dso-dropdown-menu {
         }
 
         &::after {
+          margin-left: $u1;
+          position: absolute;
+          right: 0px;
           top: auto;
           transform: none;
         }

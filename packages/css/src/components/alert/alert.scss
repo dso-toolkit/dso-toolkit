@@ -1,5 +1,11 @@
+// HTML/CSS
 .alert {
   @include alert_root();
 
+  @include alert_children();
+}
+
+// Web Component
+dso-alert {
   @include alert_children();
 }

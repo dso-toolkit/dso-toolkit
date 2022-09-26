@@ -83,9 +83,9 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
+@mixin _button_shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
   @if ($base-styling) {
-    @include button_base();
+    @include button_base($modifiers);
   }
 
   @include _button_shared-variant($defaults-map);
@@ -116,20 +116,22 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     @include button_small();
   }
 
-  &.download {
-    @include _button_shared-type-icon(
-      map.get($defaults-map, "type-download-di"),
-      map.get($hover-map, "type-download-di"),
-      map.get($disabled-map, "type-download-di")
-    );
-  }
-
-  &.extern {
-    @include _button_shared-type-icon(
-      map.get($defaults-map, "type-extern-di"),
-      map.get($hover-map, "type-extern-di"),
-      map.get($disabled-map, "type-extern-di")
-    );
+  @if ($modifiers) {
+    &.download {
+      @include _button_shared-type-icon(
+        map.get($defaults-map, "type-download-di"),
+        map.get($hover-map, "type-download-di"),
+        map.get($disabled-map, "type-download-di")
+      );
+    }
+  
+    &.extern {
+      @include _button_shared-type-icon(
+        map.get($defaults-map, "type-extern-di"),
+        map.get($hover-map, "type-extern-di"),
+        map.get($disabled-map, "type-extern-di")
+      );
+    }
   }
 
   @if ($icon-only) {
@@ -172,6 +174,28 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
 // Public mixins
 // ====================
 
+@mixin button_element() {
+  -webkit-appearance: button; // Correct inability to style clickable `input` types in iOS.
+  color: inherit;
+  cursor: pointer; // Improve usability and consistency of cursor style between image-type `input` and others.
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible; // Address `overflow` set to `hidden` in IE 8/9/10/11.
+  text-transform: none; // Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+
+  &[disabled] {
+    cursor: default; // Re-set default cursor for disabled elements.
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
 @mixin button_icon-only() {
   dso-icon,
   svg.di {
@@ -211,7 +235,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin button_base() {
+@mixin button_base($modifiers: true) {
   display: inline-block;
   font-size: 1em;
   font-weight: 500;
@@ -231,15 +255,17 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     outline: 0;
   }
 
-  &.extern,
-  &.download {
-    &::after {
-      content: "";
-      display: inline-block;
-      height: 1.5em;
-      margin-left: $u1;
-      vertical-align: top;
-      width: 1.5em;
+  @if ($modifiers) {
+    &.extern,
+    &.download {
+      &::after {
+        content: "";
+        display: inline-block;
+        height: 1.5em;
+        margin-left: $u1;
+        vertical-align: top;
+        width: 1.5em;
+      }
     }
   }
 }
@@ -253,7 +279,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin button_primary($base-styling: true) {
+@mixin button_primary($base-styling: true, $modifiers: true) {
   $defaults-map: (
     "background-color": $dso-button-primary-background-color,
     "border-color": $dso-button-primary-background-color,
@@ -277,7 +303,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     "border-color": $dso-button-primary-disabled-background-color
   );
 
-  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, false);
+  @include _button_shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false);
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -310,7 +336,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin button_secondary($base-styling: true, $icon-only: false) {
+@mixin button_secondary($base-styling: true ,$modifiers: true, $icon-only: false) {
   $defaults-map: (
     "background-color": $dso-button-secondary-background-color,
     "border-color": $dso-button-secondary-border-color,
@@ -341,7 +367,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     "type-extern-di": "external-link-grasgroen-40"
   );
 
-  @include _button_shared($base-styling, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
+  @include _button_shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
 
   &.dso-spinner-left,
   &.dso-spinner-right {
@@ -408,9 +434,9 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   }
 }
 
-@mixin button_tertiary($base-styling: true, $icon-only: false) {
+@mixin button_tertiary($base-styling: true, $icon-only: false, $modifiers: true) {
   @if ($base-styling) {
-    @include button_base();
+    @include button_base($modifiers);
   }
 
   border: 0;
@@ -446,20 +472,22 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     position: relative;
   }
 
-  &.extern,
-  &.download {
-    &::after {
-      position: relative;
-      top: -2px;
+  @if ($modifiers) {
+    &.extern,
+    &.download {
+      &::after {
+        position: relative;
+        top: -2px;
+      }
     }
-  }
-
-  &.download {
-    @include _button_tertiary-type-icon("download", "download-grasgroen-40", "download-scampi");
-  }
-
-  &.extern {
-    @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+  
+    &.download {
+      @include _button_tertiary-type-icon("download", "download-grasgroen-40", "download-scampi");
+    }
+  
+    &.extern {
+      @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+    }
   }
 
   &.dso-spinner-left {
@@ -532,7 +560,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
 }
 
 @mixin button_map() {
-  @include button_secondary();
+  @include button_secondary($modifiers: false);
   @include button_map_focus();
 
   border: 0;

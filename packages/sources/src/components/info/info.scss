@@ -1,4 +1,4 @@
-@mixin info_root() {
+@mixin info_root($di: true) {
   background-color: $grijs-5;
   padding: $u2 $u4 $u2 $u2;
   position: relative;
@@ -11,11 +11,13 @@
     right: $u1;
     top: $u1;
 
-    &::before {
-      @include di("times-grijs90");
+    @if ($di) {
+      &::before {
+        @include di("times-grijs90");
 
-      content: "";
-      display: inline-block;
+        content: "";
+        display: inline-block;
+      }
     }
   }
 }

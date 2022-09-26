@@ -1,7 +1,0 @@
-@use "~@dso-toolkit/sources/src/styling/variables";
-
-dso-map-controls {
-  & > * + * {
-    margin-top: variables.$u4;
-  }
-}

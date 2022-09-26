@@ -1,14 +1,16 @@
-@mixin attachments-counter_root() {
+@mixin attachments-counter_root($di: true) {
   color: var(--dso-attachments-counter-color, $grijs-60);
   display: inline-block;
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Make sure icon is always next to counter
 
-  &::after {
-    @include di("paperclip-grijs");
+  @if ($di) {
+    &::after {
+      @include di("paperclip-grijs");
 
-    content: "";
-    display: inline-block;
+      content: "";
+      display: inline-block;
+    }
   }
 }

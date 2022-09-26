@@ -2,15 +2,15 @@
 $dso-icons-path: '../' !default;
 $asap-font-path: "../fonts/Asap/" !default;
 
-@import "@dso-toolkit/sources/src/styling/variables";
+// @import "@dso-toolkit/sources/src/styling/variables";
 // @import "styles/mixins/dso-variables";
 // @import "styles/mixins/bootstrap-variables"; -> Deleted
 
 // Icon mixin
-@import "@dso-toolkit/css/src/mixins/di";
+// @import "@dso-toolkit/css/src/mixins/di"; -> Imported in @dso-toolkit/css
 
 // Mixins
-@import "@dso-toolkit/sources/src/styling/mixins";
+// @import "@dso-toolkit/sources/src/styling/mixins";
 
 // Bootstrap
 // @import "../libs/bootstrap"; -> Partially moved to @dso-toolkit/css

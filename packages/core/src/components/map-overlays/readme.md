@@ -32,6 +32,8 @@ graph TD;
   dso-map-overlays --> dso-selectable
   dso-selectable --> dso-info-button
   dso-selectable --> dso-info
+  dso-info-button --> dso-icon
+  dso-info --> dso-icon
   style dso-map-overlays fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -1,7 +1,5 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "../../icon/di";
-
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
@@ -9,9 +7,6 @@
 
 :host {
   display: inline-block;
-
-  --di-paperclip-grijs: #{dso-icon("paperclip", "grijs")};
-  --di-paperclip-wit: #{dso-icon("paperclip", "wit")};
 }
 
 @include box-sizing();
@@ -21,5 +16,5 @@
 }
 
 .dso-attachments {
-  @include attachments-counter_root();
+  @include attachments-counter_root($di: false);
 }

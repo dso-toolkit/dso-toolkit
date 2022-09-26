@@ -13,6 +13,7 @@ export class AttachmentsCounter {
     return(
       <span class="dso-attachments">
         {this.count} <span class="sr-only">bijlage{this.count !== 1 ? 'n' : ''}</span>
+        <dso-icon icon="paperclip"></dso-icon>
       </span>
     );
   }

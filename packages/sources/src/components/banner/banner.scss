@@ -10,6 +10,12 @@ $banner-danger-bg: $state-danger-bg;
 $banner-danger-text: $state-danger-text;
 $banner-danger-border: $state-danger-border;
 
+@mixin banner_icon-position() {
+  left: $u2;
+  position: absolute;
+  top: 0;
+}
+
 @mixin banner-variant($background, $border, $text-color) {
   color: $text-color;
   background-color: $background;
@@ -70,11 +76,9 @@ $banner-danger-border: $state-danger-border;
       }
 
       &::before {
+        @include banner_icon-position();
         content: "";
         display: inline-block;
-        left: $u2;
-        position: absolute;
-        top: 0;
       }
 
       > .dso-rich-content {

@@ -4,6 +4,10 @@
 
 @include box-sizing();
 
+:host {
+  display: inline-block;
+}
+
 :host(:focus) {
   outline: none;
 }

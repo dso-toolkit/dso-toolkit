@@ -12,6 +12,19 @@
 | `count` _(required)_ | `count`   |             | `number` | `undefined` |
 
 
+## Dependencies
+
+### Depends on
+
+- [dso-icon](../icon)
+
+### Graph
+```mermaid
+graph TD;
+  dso-attachments-counter --> dso-icon
+  style dso-attachments-counter fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -41,7 +41,6 @@ describe("Header", () => {
         });
         $header.on('dsoHeaderClick', cy.stub().as('headerListener'));
       })
-      .shadow()
       .as('dsoHeaderShadow');
   }
 
@@ -71,21 +70,18 @@ describe("Header", () => {
 
   // https://github.com/dso-toolkit/dso-toolkit/issues/1717
   // it("should show/remove dropdownmenu", () => {
-  //   cy.get("dso-header").shadow().find("nav").should("be.visible");
+  //   cy.get("dso-header").find("nav").should("be.visible");
   //   cy.get("dso-header")
-  //     .shadow()
   //     .find(".dropdown dso-dropdown-menu")
   //     .should("not.exist");
   //   cy.viewport(991, 600);
-  //   cy.get("dso-header").shadow().find("nav").should("not.exist");
+  //   cy.get("dso-header").find("nav").should("not.exist");
   //   cy.get("dso-header")
-  //     .shadow()
   //     .find(".dropdown dso-dropdown-menu")
   //     .should("be.visible");
   //   cy.viewport(992, 600);
-  //   cy.get("dso-header").shadow().find("nav").should("be.visible");
+  //   cy.get("dso-header").find("nav").should("be.visible");
   //   cy.get("dso-header")
-  //     .shadow()
   //     .find(".dropdown dso-dropdown-menu")
   //     .should("not.exist");
   // });
@@ -96,38 +92,33 @@ describe("Header", () => {
   //     "http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:false"
   //   );
   //   cy.get("dso-header")
-  //     .shadow()
   //     .find("nav ul li dso-dropdown-menu")
   //     .should("not.exist");
   //   cy.viewport(568, 600);
   //   cy.get("dso-header")
-  //     .shadow()
   //     .find("nav ul li dso-dropdown-menu")
   //     .should("be.visible");
   //   cy.viewport(992, 600);
   //   cy.get("dso-header")
-  //     .shadow()
   //     .find("nav ul li dso-dropdown-menu")
   //     .should("not.exist");
   // });
 
   it("should act on user-profile attributes", () => {
     cy.get("dso-header").invoke("attr", "auth-status", "loggedIn");
-    cy.get("dso-header").shadow().find(".profile").should("be.visible");
+    cy.get("dso-header").find(".profile").should("be.visible");
     cy.get("dso-header").invoke("removeAttr", "user-profile-url");
     cy.get("dso-header").invoke("removeAttr", "user-profile-name");
-    cy.get("dso-header").shadow().find(".profile").should("not.exist");
+    cy.get("dso-header").find(".profile").should("not.exist");
   });
 
   it("should act on user-home-url attribute", () => {
     cy.get("dso-header").invoke("attr", "auth-status", "loggedIn");
     cy.get("dso-header")
-      .shadow()
       .find("nav li.menu-user-home")
       .should("be.visible");
     cy.get("dso-header").invoke("removeAttr", "user-home-url");
     cy.get("dso-header")
-      .shadow()
       .find("nav li.menu-user-home")
       .should("not.exist");
   });
@@ -136,8 +127,8 @@ describe("Header", () => {
     cy.visit(
       "http://localhost:45000/iframe.html?id=core-header--header&args=noMainMenu:true"
     );
-    cy.get("dso-header").shadow().find("nav").should("not.exist");
-    cy.get("dso-header").shadow().find("dso-dropdown-menu").should("not.exist");
+    cy.get("dso-header").find("nav").should("not.exist");
+    cy.get("dso-header").find("dso-dropdown-menu").should("not.exist");
   });
 
   it('should show login or logout when no menuItems are provided', () => {

@@ -1,12 +1,8 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "../../icon/di";
-
 @import "~@dso-toolkit/sources/src/components/button/button";
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/css/src/components/button/button";
 
 $transition-duration: 300ms; // Sync with const transitionDuration in map-overlays.tsx
 $controls-margin: $u2;
@@ -36,6 +32,10 @@ $zoom-button-size: $u5;
   }
 }
 
+button {
+  @include button_element();
+}
+
 #toggle-visibility-button {
   @include button_map();
 
@@ -55,7 +55,7 @@ $zoom-button-size: $u5;
   top: $controls-margin;
 
   button {
-    @include button_secondary($icon-only: true);
+    @include button_secondary($modifiers: false, $icon-only: true);
     @include button_map_focus();
 
     border: 0;
@@ -78,7 +78,7 @@ $zoom-button-size: $u5;
 }
 
 #close-button {
-  @include button_tertiary($icon-only: true);
+  @include button_tertiary($modifiers: false, $icon-only: true);
 
   padding: 0;
   position: absolute;

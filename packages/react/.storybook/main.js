@@ -25,7 +25,6 @@ module.exports = {
   previewHead: head => (`
     ${head}
     <link rel="stylesheet" href="dso.css">
-    <link rel="stylesheet" href="./core/dso-toolkit/dso-toolkit.css" />
     <script type="module" src="./core/dso-toolkit/dso-toolkit.esm.js"></script>
   `),
   previewBody: body => process.env.DSO_ENV === 'development'

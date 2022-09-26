@@ -21,6 +21,12 @@ $alert-danger-bg: $state-danger-bg;
 $alert-danger-text: $state-danger-text;
 $alert-danger-border: $state-danger-border;
 
+@mixin alert_icon-position() {
+  left: $dso-alert-horizontal-padding - 1px; // 1px border
+  position: absolute;
+  top: $dso-alert-horizontal-padding - 1px; // 1px border
+}
+
 @mixin alert_children() {
   > .dso-rich-content {
     *:first-child {
@@ -72,13 +78,13 @@ $alert-danger-border: $state-danger-border;
 
     &.download {
       &::after {
-        @include di("download-grijs90");
+        @include di-variant("download-grijs90");
       }
     }
 
     &.extern {
       &::after {
-        @include di("external-link-grijs90");
+        @include di-variant("external-link-grijs90");
       }
     }
   }
@@ -90,7 +96,7 @@ $alert-danger-border: $state-danger-border;
   border-color: $border;
 }
 
-@mixin alert_root() {
+@mixin alert_root($di: true) {
   border: 1px solid transparent;
   line-height: $line-height-base;
   margin-bottom: $line-height-computed;
@@ -101,42 +107,51 @@ $alert-danger-border: $state-danger-border;
     margin-top: $u3;
   }
 
-  &::before {
-    content: "";
-    left: $dso-alert-horizontal-padding - 1px; // 1px border
-    position: absolute;
-    top: $dso-alert-horizontal-padding - 1px; // 1px border
+  @if ($di) {
+    &::before {
+      @include alert_icon-position();
+
+      content: "";
+    }
   }
 
   &.alert-success {
     @include alert_alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 
-    &::before {
-      @include di("status-success", $dso-alert-icon-size);
+    @if ($di) {
+      &::before {
+        @include di("status-success", $dso-alert-icon-size);
+      }
     }
   }
 
   &.alert-danger {
     @include alert_alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 
-    &::before {
-      @include di("status-danger", $dso-alert-icon-size);
+    @if ($di) {
+      &::before {
+        @include di("status-danger", $dso-alert-icon-size);
+      }
     }
   }
 
   &.alert-warning {
     @include alert_alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
 
-    &::before {
-      @include di("status-warning", $dso-alert-icon-size);
+    @if ($di) {
+      &::before {
+        @include di("status-warning", $dso-alert-icon-size);
+      }
     }
   }
 
   &.alert-info {
     @include alert_alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
 
-    &::before {
-      @include di("status-info", $dso-alert-icon-size);
+    @if ($di) {
+      &::before {
+        @include di("status-info", $dso-alert-icon-size);
+      }
     }
   }
 }

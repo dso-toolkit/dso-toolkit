@@ -12,6 +12,7 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 @mixin dropdown-menu_children() {
+  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
   > .dso-primary,
   > .dso-secondary,
   > .dso-tertiary,
@@ -50,6 +51,7 @@ $dso-dropdown-link-color: $grijs-90;
     }
   }
 
+  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
   > .dso-tertiary,
   > .btn-link {
     &::after {
@@ -163,6 +165,7 @@ $dso-dropdown-link-color: $grijs-90;
     }
   }
 
+  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
   > .dso-tertiary,
   > .btn-link {
     &::after {

@@ -16,10 +16,14 @@
 
 ### Used by
 
+ - [dso-alert](../alert)
+ - [dso-attachments-counter](../attachments-counter)
  - [dso-date-picker](../date-picker)
  - [dso-header](../header)
  - [dso-helpcenter-panel](../helpcenter-panel)
  - [dso-image-overlay](../image-overlay)
+ - [dso-info](../info)
+ - [dso-info-button](../info-button)
  - [dso-label](../label)
  - [dso-map-controls](../map-controls)
  - [dso-pagination](../pagination)
@@ -29,10 +33,14 @@
 ### Graph
 ```mermaid
 graph TD;
+  dso-alert --> dso-icon
+  dso-attachments-counter --> dso-icon
   dso-date-picker --> dso-icon
   dso-header --> dso-icon
   dso-helpcenter-panel --> dso-icon
   dso-image-overlay --> dso-icon
+  dso-info --> dso-icon
+  dso-info-button --> dso-icon
   dso-label --> dso-icon
   dso-map-controls --> dso-icon
   dso-pagination --> dso-icon

@@ -1,12 +1,8 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "../../icon/di";
-
 @import "~@dso-toolkit/sources/src/components/button/button";
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/css/src/components/button/button";
 
 :host {
   display: inline-block;
@@ -18,8 +14,12 @@
   opacity: 1;
 }
 
+button {
+  @include button_element();
+}
+
 .open {
-  @include button_secondary($icon-only: true);
+  @include button_secondary($modifiers: false, $icon-only: true);
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
@@ -60,7 +60,7 @@
 }
 
 .close {
-  @include button_secondary($icon-only: true);
+  @include button_secondary($modifiers: false, $icon-only: true);
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);

@@ -1,3 +1,4 @@
+// HTML/CSS
 .dso-dropdown-menu {
   @include dropdown-menu_root();
   @include dropdown-menu_children();
@@ -12,5 +13,22 @@
 
   &.dso-dropdown-align-right {
     @include dropdown-menu_align-right();
+  }
+}
+
+// Web Component
+dso-dropdown-menu {
+  @include dropdown-menu_children();
+
+  &[dropdown-align="right"] {
+    @include dropdown-menu_align-right();
+  }
+
+  &[open] {
+    @include dropdown-menu_open();
+  }
+
+  &[checkable] {
+    @include dropdown-menu_checkable();
   }
 }

@@ -38,7 +38,6 @@ const klapBuild = {
 
 if (argv.start) {
   fs.copy('../css/dist', 'dist/css');
-  fs.copy('../core/dist/dso-toolkit/dso-toolkit.css', 'dist/core/dso-toolkit.css');
 
   concurrently(
     [

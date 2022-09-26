@@ -1,7 +1,5 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "../../icon/di";
-
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
@@ -9,11 +7,6 @@
 
 :host {
   display: inline-block;
-
-  --di-info: #{dso-icon("info")};
-  --di-info-active: #{dso-icon("info-active")};
-  --di-info-secondary: #{dso-icon("info", "secondary")};
-  --di-info-active-secondary: #{dso-icon("info-active", "secondary")};
 }
 
 @include box-sizing();
@@ -23,7 +16,12 @@
 }
 
 button {
-  @include info-button_root();
+  @include info-button_root($di: false);
 
   cursor: pointer;
+  vertical-align: top;
+}
+
+dso-icon {
+  display: block;
 }

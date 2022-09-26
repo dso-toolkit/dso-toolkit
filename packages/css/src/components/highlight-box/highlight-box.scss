@@ -1,3 +1,4 @@
+// HTML/CSS
 .dso-highlight-box {
   @include highlight-box_root();
   @include highlight-box_children();
@@ -8,6 +9,23 @@
   }
 
   &:not(.dso-border):not(.dso-white) {
+    .dso-link-list {
+      @include link-list_exotic();
+    }
+  }
+}
+
+// Web Component
+dso-highlight-box {
+  @include highlight-box_children();
+  @include step-counter();
+
+  &[yellow],
+  &:not([border]):not([white]) {
+    @include highlight-box_exoticChildren();
+  }
+
+  &:not([border]):not([white]) {
     .dso-link-list {
       @include link-list_exotic();
     }

@@ -34,6 +34,7 @@ export class Alert {
 
     return (
       <div class={clsx('alert', `alert-${this.status}`)} role={this.roleAlert ? 'alert' : undefined}>
+        <dso-icon icon={'status-' + this.status}></dso-icon>
         <span class="sr-only">{status}:</span>
         <slot></slot>
       </div>

@@ -30,28 +30,3 @@ caret-down:grijs {
   color: $grijs-60;
 }
 ```
-
-## `di()` en `di-variant()` SCSS mixins
-
-Deze mixins vallen niet onder de Public API van de DSO Toolkit en mogen alleen door DSO Toolkit maintainers worden ingezet. Deze mixins hebben niets te maken met het DSO Icon component. Zowel het CSS `svg.di` Component als het `<dso-icon>` Web Component.
-
-Implementatoren van `@dso-toolkit/sources` moeten de volgende mixins in de global SCSS scope leveren:
-
-* `@mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align)`
-* `@mixin di-variant($icon)`
-
-Voor inspiratie:
-* `packages/core/src/icon/di.scss`
-* `packages/css/src/mixins/di.scss`
-
-Deze mixins geven de toolkit maintainers de mogelijkheid om iconen in componenten te plaatsen waar een implementator geen invloed op heeft. Bijvoorbeeld bij het Alert component. De juiste iconen staan er al voor de juiste varianten. Dit geeft een uniforme inzet van de iconen over de verschillende applicaties. Daarnaast kan het gebruik van deze iconen centraal worden beheerd. Bij een nieuw icoon in een bestaand component hoeven consumenten van de toolkit alleen maar een update van de toolkit te doen in plaats van code te modificeren.
-
-Binnen de toolkit bestaan twee implementaties:
-
-* Een `background-image` implementatie voor de CSS implementatie in `@dso-toolkit/css`.
-* Een `dataUri` implementatie in `@dso-toolkit/core` voor de Web Components.
-
-Een component stylesheet mag geen verwijzing hebben naar een implementatie. Waar een component stylesheet wordt geimporteerd moet bepaald worden welke implementatie er geldt:
-
-* `/packages/css/dso.scss`: Hier is een `@import` naar de `background-image` implementatie. Later worden de verschillende componenten geimporteerd. De output van `dso.scss` bevat verwijzingen naar het icoon in de spritesheet `dso-icons.svg`
-* `/packages/core/src/COMPONENT/COMPONENT.scss`: Voordat de component stylesheet uit `@dso-toolkit/sources` wordt geimporteerd is er een `@import` naar de `dataUri` variant gedaan en zijn de iconen die in dit Web Component gebruikt worden al ingeladen met de `dso-icon()` Sass function.
