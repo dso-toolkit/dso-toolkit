@@ -1,0 +1,67 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/anchor-clean";
+
+@import "~@dso-toolkit/sources/src/components/accordion/accordion";
+
+@import "../../../icon/di";
+
+@include box-sizing();
+
+:host {
+  display: block;
+
+  @include accordion-section_root();
+
+  .dso-section-handle > button,
+  .dso-section-handle > a {
+    align-items: center;
+
+    dso-icon {
+      flex-shrink: 0;
+    }
+
+    dso-icon:first-child {
+      margin-right: $u1;
+    }
+
+    dso-icon:last-child {
+      margin-left: auto;
+      padding-left: $u1;
+      width: $dso-icon-size + $u1;
+    }
+  }
+}
+
+:host(.dso-accordion-default) {
+  @include dso-accordion-default();
+}
+
+:host([open].dso-accordion-default) {
+  @include dso-accordion-default-section-open();
+}
+
+:host([open].dso-accordion-default.dso-nested-accordion) {
+  border: 0;
+  border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+
+  > .dso-section-body {
+    background-color: $dso-accordion-default-nested-body-bgcolor;
+    border: 0;
+    padding: ($u2 + $dso-accordion-border-radius - 1) ($u2 + 1) $u2; // corrections for missing borders in nested accordion
+  }
+}
+
+:host(:not([open])) {
+  .dso-section-body {
+    display: none;
+  }
+}
+
+.dso-section-body {
+  background-color: $wit;
+  border-top: 0;
+  margin-top: -$dso-accordion-border-radius;
+  padding: $u2 + $dso-accordion-border-radius $u2 $u2;
+}

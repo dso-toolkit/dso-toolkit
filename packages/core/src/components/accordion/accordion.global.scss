@@ -1,0 +1,6 @@
+dso-accordion {
+  .dso-rich-content + dso-accordion,
+  dso-accordion + .dso-rich-content {
+    margin-top: $u2;
+  }
+}

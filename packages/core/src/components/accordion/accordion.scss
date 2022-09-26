@@ -1,0 +1,16 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+
+@import "~@dso-toolkit/sources/src/styling/mixins/box-sizing";
+@import "~@dso-toolkit/sources/src/styling/mixins/anchor-clean";
+
+@import "~@dso-toolkit/sources/src/components/accordion/accordion";
+
+@import "../../icon/di";
+
+:host {
+  display: block;
+
+  @include accordion_root(false);
+}
+
+@include box-sizing();

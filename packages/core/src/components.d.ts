@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AccordionHandleElement, AccordionState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
 import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -18,6 +19,23 @@ import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
 export namespace Components {
+    interface DsoAccordion {
+        "allowMultiple": boolean;
+        "getState": () => Promise<AccordionState>;
+        /**
+          * 'anchor' or 'button'
+         */
+        "handleElement": AccordionHandleElement;
+        "reverseAlign": boolean;
+        "variant"?: AccordionVariant;
+    }
+    interface DsoAccordionSection {
+        "danger": boolean;
+        "info": boolean;
+        "open": boolean;
+        "success": boolean;
+        "warning": boolean;
+    }
     interface DsoAlert {
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -320,6 +338,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDsoAccordionElement extends Components.DsoAccordion, HTMLStencilElement {
+    }
+    var HTMLDsoAccordionElement: {
+        prototype: HTMLDsoAccordionElement;
+        new (): HTMLDsoAccordionElement;
+    };
+    interface HTMLDsoAccordionSectionElement extends Components.DsoAccordionSection, HTMLStencilElement {
+    }
+    var HTMLDsoAccordionSectionElement: {
+        prototype: HTMLDsoAccordionSectionElement;
+        new (): HTMLDsoAccordionSectionElement;
+    };
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
     }
     var HTMLDsoAlertElement: {
@@ -489,6 +519,8 @@ declare global {
         new (): HTMLDsoViewerGridElement;
     };
     interface HTMLElementTagNameMap {
+        "dso-accordion": HTMLDsoAccordionElement;
+        "dso-accordion-section": HTMLDsoAccordionSectionElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-autosuggest": HTMLDsoAutosuggestElement;
@@ -520,6 +552,22 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DsoAccordion {
+        "allowMultiple"?: boolean;
+        /**
+          * 'anchor' or 'button'
+         */
+        "handleElement"?: AccordionHandleElement;
+        "reverseAlign"?: boolean;
+        "variant"?: AccordionVariant;
+    }
+    interface DsoAccordionSection {
+        "danger"?: boolean;
+        "info"?: boolean;
+        "open"?: boolean;
+        "success"?: boolean;
+        "warning"?: boolean;
+    }
     interface DsoAlert {
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -862,6 +910,8 @@ declare namespace LocalJSX {
         "overlayOpen"?: boolean;
     }
     interface IntrinsicElements {
+        "dso-accordion": DsoAccordion;
+        "dso-accordion-section": DsoAccordionSection;
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-autosuggest": DsoAutosuggest;
@@ -896,6 +946,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
+            "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;

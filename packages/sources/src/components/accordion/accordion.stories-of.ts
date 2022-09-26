@@ -21,7 +21,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
+        handleElement: 'anchor',
         sections: [
           {
             title: 'Is het verplicht om de Vergunningcheck te doen?',
@@ -51,7 +51,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
+        handleElement: 'anchor',
         sections: [
           {
             title: 'Is het verplicht om de Vergunningcheck te doen?',
@@ -84,7 +84,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
+        handleElement: 'anchor',
         sections: [
           {
             title: 'Is het verplicht om de Vergunningcheck te doen?',
@@ -110,7 +110,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
+        handleElement: 'anchor',
         sections: [
           {
             title: 'Is het verplicht om de Vergunningcheck te doen?',
@@ -166,7 +166,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     {
       args: componentArgs<AccordionArgs>({
         reverseAlign: true,
-        handleType: 'anchor',
+        handleElement: 'anchor',
         sections: [
           {
             title: 'Is het verplicht om de Vergunningcheck te doen?',
