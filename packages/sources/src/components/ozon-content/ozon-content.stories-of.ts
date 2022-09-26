@@ -28,6 +28,8 @@ export function storiesOfOzonContent<TemplateFnReturnType>(
         inline: false,
         interactive: false,
         deleted: false,
+        prefix: story.args?.prefix || '',
+        suffix: story.args?.suffix || '',
         ...story.args
       }),
     });

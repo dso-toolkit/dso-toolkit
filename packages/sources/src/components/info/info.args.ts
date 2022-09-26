@@ -3,13 +3,19 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { Info } from './info.models';
 
 export interface InfoArgs<TemplateFnReturnType> {
-  fixed?: boolean;
-  active?: boolean;
+  id: string;
+  fixed: boolean;
+  active: boolean;
   richContent: TemplateFnReturnType;
   dsoClose: HandlerFunction;
 }
 
 export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
+  id: {
+    control: {
+      type: 'text'
+    }
+  },
   fixed: {
     control: {
       type: 'boolean'
@@ -30,11 +36,6 @@ export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
   }
 };
 
-export function infoArgsMapper(a: InfoArgs<any>): Info<any> {
-  return {
-    onClose: e => a.dsoClose(e),
-    richContent: a.richContent,
-    active: a.active,
-    fixed: a.fixed
-  };
+export function infoArgsMapper(a: InfoArgs<any>): Required<Info<any>> {
+  return { ...a };
 }

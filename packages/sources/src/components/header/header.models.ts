@@ -13,7 +13,7 @@ export interface Header {
   userProfileName?: string;
   userProfileUrl?: string;
   userHomeUrl?: string;
-  onHeaderClick: (e: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
+  dsoHeaderClick: (e: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
 }
 
 export interface HeaderMenuItem {

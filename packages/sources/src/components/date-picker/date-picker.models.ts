@@ -1,6 +1,6 @@
 export interface DatePicker {
   id?: string;
-  onDateChange?: (e: CustomEvent) => void;
+  dsoDateChange?: (e: CustomEvent) => void;
   direction?: string;
   value?: string;
   min?: string;

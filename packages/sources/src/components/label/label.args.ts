@@ -5,18 +5,18 @@ import { Label } from './label.models';
 import { ArgTypes } from '../../storybook';
 
 export interface LabelArgs {
-  status?: string;
-  compact?: boolean;
-  truncate?: boolean;
+  status: string;
+  compact: boolean;
+  truncate: boolean;
   label: string;
-  removable?: boolean;
-  dsoRemoveClick?: HandlerFunction;
+  removable: boolean;
+  dsoRemoveClick: HandlerFunction;
   symbol: string;
 }
 
 export const labelArgTypes: ArgTypes<LabelArgs> = {
   status: {
-    options: [undefined, 'primary', 'success', 'info', 'warning', 'danger', 'bright'],
+    options: ['primary', 'success', 'info', 'warning', 'danger', 'bright'],
     control: {
       type: 'select',
     }
@@ -51,14 +51,6 @@ export const labelArgTypes: ArgTypes<LabelArgs> = {
   }
 };
 
-export function labelArgsMapper(a: LabelArgs): Label {
-  return {
-    label: a.label,
-    removable: a.removable,
-    onRemoveClick: a.dsoRemoveClick,
-    compact: a.compact,
-    truncate: a.truncate,
-    status: a.status,
-    symbol: a.symbol
-  };
+export function labelArgsMapper(a: LabelArgs): Required<Label> {
+  return { ...a };
 }

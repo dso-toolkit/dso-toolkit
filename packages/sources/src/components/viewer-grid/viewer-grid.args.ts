@@ -5,7 +5,7 @@ import { ArgTypes, noControl } from "../../storybook";
 export interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;
-  initialMainSize?: "small" | "medium" | "large";
+  initialMainSize: "small" | "medium" | "large";
   dsoMainSizeChange: HandlerFunction;
   dsoCloseOverlay: HandlerFunction;
   dsoFilterpanelCancel: HandlerFunction;
@@ -30,7 +30,7 @@ export const viewerGridArgs: ArgTypes<ViewerGridArgs> = {
     },
   },
   initialMainSize: {
-    options: [undefined, 'small', 'medium', 'large'],
+    options: ['small', 'medium', 'large'],
     control: {
       type: 'select',
     }
@@ -70,18 +70,10 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
   }
 };
 
-export function viewerGridArgsMapper(
-  a: ViewerGridArgs
-): any {
-  return {
-    ...a,
-  };
+export function viewerGridArgsMapper(a: ViewerGridArgs): Required<any> {
+  return { ...a };
 }
 
-export function viewerGridDocumentHeaderArgsMapper(
-  a: ViewerGridDocumentHeaderArgs
-): any {
-  return {
-    ...a,
-  };
+export function viewerGridDocumentHeaderArgsMapper(a: ViewerGridDocumentHeaderArgs): Required<any> {
+  return { ...a };
 }

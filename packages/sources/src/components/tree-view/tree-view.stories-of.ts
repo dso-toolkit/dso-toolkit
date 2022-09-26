@@ -8,9 +8,9 @@ import { TreeViewItem } from './tree-view.models';
 export interface TreeViewParameters<TemplateFnReturnType> {
   treeViewDemoTemplate: (
     collection: TreeViewItem[],
-    onOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
-    onCloseItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
-    onClickItem: (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => void,
+    dsoOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
+    dsoCloseItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
+    dsoClickItem: (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => void,
     onFilterInput: (text: string, callback: (collection: TreeViewItem[], resultText: string) => void) => void,
   ) => TemplateFnReturnType;
 }

@@ -7,9 +7,9 @@ import readme from "./readme.md";
 
 interface AutosuggestDemoTemplateProps {
   fetchSuggestions: (value: string) => AutosuggestSuggestion[];
-  onSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
-  onChange: (value: CustomEvent<string>) => void;
-  onSearch: (value: CustomEvent<string>) => void;
+  dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
+  dsoChange: (value: CustomEvent<string>) => void;
+  dsoSearch: (value: CustomEvent<string>) => void;
   suggestOnFocus: boolean;
   loading: boolean;
   loadingLabel: string;
@@ -35,16 +35,16 @@ class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<type
       <>
         <label htmlFor="autosuggestInputId">Label voor input</label>
         <AutosuggestTemplate
-          onChange={e => {
-            this.props.onChange(e);
+          dsoChange={e => {
+            this.props.dsoChange(e);
 
             this.setState(state => ({
               ...state,
               suggestions: this.props.fetchSuggestions(e.detail)
             }));
           }}
-          onSelect={this.props.onSelect}
-          onSearch={this.props.onSearch}
+          dsoSelect={this.props.dsoSelect}
+          dsoSearch={this.props.dsoSearch}
           suggestions={this.state.suggestions}
           suggestOnFocus={this.props.suggestOnFocus}
           loading={this.props.loading}
@@ -67,12 +67,12 @@ storiesOfAutosuggest<JSX.Element>(
     readme,
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelay, notFoundLabel) => (
+    autosuggestDemoTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelay, notFoundLabel) => (
       <AutosuggestDemoTemplate
         fetchSuggestions={fetchSuggestions}
-        onChange={onChange}
-        onSelect={onSelect}
-        onSearch={onSearch}
+        dsoChange={dsoChange}
+        dsoSelect={dsoSelect}
+        dsoSearch={dsoSearch}
         suggestOnFocus={suggestOnFocus}
         loading={loading}
         loadingLabel={loadingLabel}

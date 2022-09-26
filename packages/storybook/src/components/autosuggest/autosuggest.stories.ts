@@ -8,10 +8,10 @@ import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 
 type AutosuggestConnector = (parameters: Parameters<Parameters<typeof storiesOfAutosuggest>[1]['autosuggestDemoTemplate']>) => Parameters<typeof autosuggestTemplate>[0];
 
-const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters = 1]) => ({
+const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters = 1]) => ({
   suggestions: null,
-  onChange: function (e) {
-    onChange(e);
+  dsoChange: function (e) {
+    dsoChange(e);
 
     if (loadingDelayed) {
       setTimeout(() => {
@@ -31,8 +31,8 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
       processSuggestions(this.suggestions);
     }
   },
-  onSelect,
-  onSearch,
+  dsoSelect,
+  dsoSearch,
   suggestOnFocus,
   loading,
   loadingLabel,
@@ -55,22 +55,22 @@ storiesOfAutosuggest<TemplateResult>(
     root: StoryRoot.Core
   },
   {
-    autosuggestDemoTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters) => html`
+    autosuggestDemoTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters) => html`
       <label for="autosuggestInputId">Label voor input</label>
       ${autosuggestTemplate(
-        autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters]),
+        autosuggestConnector([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters]),
         html`
           <input id="autosuggestInputId" type="text" class="form-control">
         `)}
       <pre id="suggestions-demo">null</pre>
     `,
-    autosuggestInSearchBarTemplate: (fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
+    autosuggestInSearchBarTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
       <div class="dso-search-bar">
         <div class="dso-search-bar-input">
           <label for="search-bar--with-value">Label</label>
           <span class="dso-search-icon" aria-hidden="true"></span>
           ${autosuggestTemplate(
-            autosuggestConnector([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),
+            autosuggestConnector([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),
             html`
             <input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'">
           `)}

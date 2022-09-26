@@ -119,7 +119,7 @@ export function formGroupCheckboxesArgsMapper(a: FormGroupCheckboxesArgs): FormG
     ],
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onToggle: a.infoButtonHandler,
+        dsoToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
@@ -128,7 +128,7 @@ export function formGroupCheckboxesArgsMapper(a: FormGroupCheckboxesArgs): FormG
       ? {
         active: a.infoActive,
         fixed: a.infoFixed,
-        onClose: a.infoCloseHandler,
+        dsoClose: a.infoCloseHandler,
         richContent: a.infoText
       }
       : undefined

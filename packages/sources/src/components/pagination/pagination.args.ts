@@ -25,11 +25,10 @@ export const paginationArgTypes: ArgTypes<PaginationArgs> = {
   }
 };
 
-export function paginationArgsMapper(a: PaginationArgs): Pagination {
+export function paginationArgsMapper(a: PaginationArgs): Required<Pagination> {
   return {
-    totalPages: a.totalPages,
-    currentPage: a.currentPage,
-    onSelectPage: (event) => {
+    ...a,
+    dsoSelectPage: (event) => {
       event.detail.originalEvent.preventDefault();
       a.dsoSelectPage(event);
     },

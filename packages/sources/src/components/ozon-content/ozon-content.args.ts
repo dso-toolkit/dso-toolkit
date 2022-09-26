@@ -6,10 +6,10 @@ import { OzonContent } from "./ozon-content.models";
 export interface OzonContentArgs {
   content: string;
   inline: boolean;
-  interactive?: string | boolean;
-  deleted?: boolean;
-  prefix?: string;
-  suffix?: string;
+  interactive: string | boolean;
+  deleted: boolean;
+  prefix: string;
+  suffix: string;
   dsoAnchorClick: HandlerFunction;
   dsoClick: HandlerFunction;
 }
@@ -29,7 +29,6 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
     options: [
       'default',
       'sub',
-      undefined
     ],
     control: {
       type: 'select'
@@ -60,15 +59,12 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   }
 };
 
-export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
+export function ozonContentArgsMapper(a: OzonContentArgs): Required<OzonContent> {
   return {
-    content: a.content,
-    inline: a.inline,
+    ...a,
+    prefix: a.prefix || '',
+    suffix: a.suffix || '',
     interactive: a.interactive === 'sub' ? 'sub' : a.interactive === 'default',
-    deleted: a.deleted,
-    prefix: a.prefix || undefined,
-    suffix: a.suffix || undefined,
-    onAnchorClick: (e: any) => a.dsoAnchorClick(e.detail),
-    onClick: a.dsoClick
+    dsoAnchorClick: (e: any) => a.dsoAnchorClick(e.detail),
   };
 }

@@ -5,12 +5,12 @@ import { DsoOzonContent } from '../..';
 
 export function ozonContentTemplate({
   content,
-  onAnchorClick
+  dsoAnchorClick
 }: OzonContent) {
   return (
     <DsoOzonContent
       content={content}
-      onAnchorClick={onAnchorClick}
+      onDsoAnchorClick={dsoAnchorClick}
     ></DsoOzonContent>
   );
 }

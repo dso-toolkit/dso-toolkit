@@ -14,19 +14,19 @@ storiesOfTreeView(
     root: StoryRoot.Core
   },
   {
-    treeViewDemoTemplate: (collection, onOpenItem, onCloseItem, onClickItem, onFilterInput) => html`
+    treeViewDemoTemplate: (collection, dsoOpenItem, dsoCloseItem, dsoClickItem, onFilterInput) => html`
       <div style="display: grid; width: 100%; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column;">
         <div>
           ${treeViewTemplate({
             collection,
-            onOpenItem: function (e) {
-              onOpenItem(e.detail, collection => this.collection = collection);
+            dsoOpenItem: function (e) {
+              dsoOpenItem(e.detail, collection => this.collection = collection);
             },
-            onCloseItem: function (e) {
-              onCloseItem(e.detail, collection => this.collection = collection);
+            dsoCloseItem: function (e) {
+              dsoCloseItem(e.detail, collection => this.collection = collection);
             },
-            onClickItem: function (e) {
-              onClickItem(e.detail.path, e.detail.originalEvent, collection => this.collection = collection);
+            dsoClickItem: function (e) {
+              dsoClickItem(e.detail.path, e.detail.originalEvent, collection => this.collection = collection);
             }
           })}
         </div>

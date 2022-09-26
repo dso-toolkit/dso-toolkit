@@ -109,25 +109,14 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
 
 export function selectableArgsMapper(a: SelectableArgs<any>): Selectable<any> {
   return {
-    id: a.id,
-    label: a.label,
-    onChange: e => a.dsoChange(e),
-    type: a.type,
-    value: a.value,
-    checked: a.checked,
-    indeterminate: a.indeterminate,
-    describedById: a.describedById,
-    disabled: a.disabled,
+    ...a,
     info: a.infoRichContent
       ? {
-        onClose: e => a.infoClosed(e),
+        dsoClose: e => a.infoClosed(e),
         richContent: a.infoRichContent,
         active: a.infoActive,
         fixed: a.infoFixed
       }
       : undefined,
-    invalid: a.invalid,
-    name: a.name,
-    required: a.required
   };
 }
