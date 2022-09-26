@@ -8,9 +8,9 @@ import { AutosuggestSuggestion } from './autosuggest.models';
 
 type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   fetchSuggestions: (value: string) => AutosuggestSuggestion[],
-  onSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
-  onChange: (event: CustomEvent<string>) => void,
-  onSearch: (event: CustomEvent<string>) => void,
+  dsoSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
+  dsoChange: (event: CustomEvent<string>) => void,
+  dsoSearch: (event: CustomEvent<string>) => void,
   suggestOnFocus: boolean,
   loading: boolean,
   loadingLabel: string,

@@ -158,7 +158,7 @@ export function formGroupInputArgsMapper(a: FormGroupInputArgs): FormGroupInput<
       : undefined,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onToggle: a.infoButtonHandler,
+        dsoToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
@@ -167,7 +167,7 @@ export function formGroupInputArgsMapper(a: FormGroupInputArgs): FormGroupInput<
       ? {
         active: a.infoActive,
         fixed: a.infoFixed,
-        onClose: a.infoCloseHandler,
+        dsoClose: a.infoCloseHandler,
         richContent: a.infoText
       }
       : undefined

@@ -376,8 +376,8 @@ export class MapControls {
 
     return html`
       <dso-map-controls
-        @zoomIn=${(e: CustomEvent<PointerEvent>) => this.zoomIn(e.detail)}
-        @zoomOut=${(e: CustomEvent<PointerEvent>) => this.zoomOut(e.detail)}
+        @dsoZoomIn=${(e: CustomEvent<PointerEvent>) => this.zoomIn(e.detail)}
+        @dsoZoomOut=${(e: CustomEvent<PointerEvent>) => this.zoomOut(e.detail)}
         .disableZoom=${this.state.disableZoom}
       >
         ${baseLayers.length > 0

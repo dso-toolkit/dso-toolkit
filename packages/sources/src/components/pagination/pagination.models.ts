@@ -11,5 +11,5 @@ export interface Pagination {
   totalPages: number;
   currentPage: number;
   formatHref: (page: number) => string;
-  onSelectPage: (e: CustomEvent<PaginationSelectPageEvent>) => void;
+  dsoSelectPage: (e: CustomEvent<PaginationSelectPageEvent>) => void;
 }

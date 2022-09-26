@@ -82,19 +82,12 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   }
 };
 
-export function headerArgsMapper(a: HeaderArgs): Header {
+export function headerArgsMapper(a: HeaderArgs): Required<Header> {
   return {
-    logo: a.logo,
-    subLogo: a.showSubLogo ? a.subLogo : undefined,
-    mainMenu: a.noMainMenu ? undefined : a.mainMenu,
-    useDropDownMenu: a.useDropDownMenu,
-    loginUrl: a.loginUrl,
-    logoutUrl: a.logoutUrl,
-    authStatus: a.authStatus,
-    userProfileName: a.userProfileName,
-    userProfileUrl: a.userProfileUrl,
-    userHomeUrl: a.userHomeUrl,
-    onHeaderClick: (event) => {
+    ...a,
+    subLogo: a.showSubLogo ? a.subLogo : '',
+    mainMenu: a.noMainMenu ? [] : a.mainMenu,
+    dsoHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();
       a.dsoHeaderClick(event);
     },

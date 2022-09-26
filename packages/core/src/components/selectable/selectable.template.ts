@@ -14,7 +14,7 @@ export function selectableTemplate({
   checked,
   indeterminate,
   disabled,
-  onChange,
+  dsoChange,
   info
 }: Selectable<TemplateResult>) {
   return html`
@@ -30,7 +30,7 @@ export function selectableTemplate({
       ?checked=${checked}
       ?indeterminate=${indeterminate}
       ?info-fixed=${info?.fixed}
-      @dsoChange=${(e: CustomEvent<Event>) => onChange?.(e.detail)}
+      @dsoChange=${(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
     >
       ${label}
       ${info?.richContent ?? nothing}

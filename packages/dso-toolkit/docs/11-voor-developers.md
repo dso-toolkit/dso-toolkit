@@ -122,7 +122,7 @@ function App() {
   return (
     <>
       {/* Gebruik <DsoDatePicker> en NIET <dso-date-picker> */}
-      <DsoDatePicker value={date.value} onDateChange={e => setDate(e.detail)} />
+      <DsoDatePicker value={date.value} onDsoDateChange={e => setDate(e.detail)} />
       <pre>{JSON.stringify(date || 'change date')}</pre>
     </>
   );

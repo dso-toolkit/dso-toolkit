@@ -5,6 +5,6 @@ export interface OzonContent {
   suffix?: string;
   interactive?: 'sub' | boolean;
   deleted?: boolean;
-  onAnchorClick: (e: unknown) => void;
-  onClick: (e: unknown) => void;
+  dsoAnchorClick: (e: CustomEvent) => void;
+  dsoClick: (e: CustomEvent) => void;
 }

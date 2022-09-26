@@ -5,9 +5,9 @@ export interface Autosuggest {
   loadingLabel?: string;
   loadingDelayed?: number;
   notFoundLabel?: string;
-  onChange: (value: CustomEvent<string>) => void;
-  onSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
-  onSearch: (value: CustomEvent<string>) => void;
+  dsoChange: (value: CustomEvent<string>) => void;
+  dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
+  dsoSearch: (value: CustomEvent<string>) => void;
 }
 
 export interface AutosuggestSuggestion {

@@ -8,9 +8,9 @@ export class AutosuggestTemplate extends React.Component<React.PropsWithChildren
     return (
       <DsoAutosuggest
         suggestions={this.props.suggestions}
-        onDsoSelect={this.props.onSelect}
-        onDsoChange={this.props.onChange}
-        onDsoSearch={this.props.onSearch}
+        onDsoSelect={this.props.dsoSelect}
+        onDsoChange={this.props.dsoChange}
+        onDsoSearch={this.props.dsoSearch}
         suggestOnFocus={this.props.suggestOnFocus}
         loading={this.props.loading}
         loadingLabel={this.props.loadingLabel}

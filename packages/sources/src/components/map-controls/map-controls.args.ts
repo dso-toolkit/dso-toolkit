@@ -13,7 +13,7 @@ export interface MapControlsArgs {
   dsoBaseLayerChange: HandlerFunction;
   overlays: typeof overlays;
   dsoToggleOverlay: HandlerFunction;
-  disableZoom: 'both' | 'in' | 'out' | undefined;
+  disableZoom: 'both' | 'in' | 'out';
 }
 
 export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
@@ -43,26 +43,20 @@ export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
     action: 'dsoToggleOverlay'
   },
   disableZoom: {
-    options: ['both', 'in', 'out', undefined],
+    options: ['both', 'in', 'out'],
     control: {
       type: 'select'
     }
   }
 };
 
-export function mapControlsArgsMapper(a: MapControlsArgs): MapControls {
+export function mapControlsArgsMapper(a: MapControlsArgs): Required<MapControls> {
   return {
-    baseLayerChange: (e: any) => {
+    ...a,
+    dsoBaseLayerChange: (e: any) => {
       e.target!.baseLayers = [...e.target.baseLayers.map((l: any) => l.checked !== (l === e.detail.activeBaseLayer) ? { ...l, checked: l === e.detail.activeBaseLayer } : l)];
 
       a.dsoBaseLayerChange(e);
-    },
-    baseLayers: a.baseLayers,
-    open: a.open,
-    overlays: a.overlays,
-    toggleOverlay: e => a.dsoToggleOverlay(e),
-    zoomIn: e => a.dsoZoomIn(e),
-    zoomOut: e => a.dsoZoomOut(e),
-    disableZoom: a.disableZoom
+    }
   };
 }

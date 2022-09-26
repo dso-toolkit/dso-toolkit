@@ -5,9 +5,9 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 export function autosuggestTemplate(
   {
     suggestions,
-    onSelect,
-    onChange,
-    onSearch,
+    dsoSelect,
+    dsoChange,
+    dsoSearch,
     suggestOnFocus,
     loading,
     loadingLabel,
@@ -19,9 +19,9 @@ export function autosuggestTemplate(
   return html`
     <dso-autosuggest
       .suggestions=${suggestions}
-      @dsoSelect=${onSelect}
-      @dsoChange=${onChange}
-      @dsoSearch=${onSearch}
+      @dsoSelect=${dsoSelect}
+      @dsoChange=${dsoChange}
+      @dsoSearch=${dsoSearch}
       ?suggest-on-focus=${suggestOnFocus}
       ?loading=${loading}
       loading-label=${ifDefined(loadingLabel)}

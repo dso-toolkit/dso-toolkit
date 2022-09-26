@@ -3,13 +3,13 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { DatePicker } from './date-picker.models';
 
 export interface DatePickerArgs {
-  id?: string;
+  id: string;
   label: string;
   dsoDateChange: HandlerFunction;
-  direction?: string;
-  value?: string;
-  min?: string;
-  max?: string;
+  direction: string;
+  value: string;
+  min: string;
+  max: string;
   disabled: boolean;
   autofocus: boolean;
 }
@@ -66,15 +66,9 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
   }
 };
 
-export function datePickerArgsMapper(a: DatePickerArgs): DatePicker {
+export function datePickerArgsMapper(a: DatePickerArgs): Required<DatePicker> {
   return {
-    disabled: a.disabled,
-    id: a.id,
-    onDateChange: e => a.dsoDateChange(e.detail),
-    direction: a.direction,
-    max: a.max,
-    min: a.min,
-    value: a.value,
-    autofocus: a.autofocus
+    ...a,
+    dsoDateChange: e => a.dsoDateChange(e.detail),
   };
 }
