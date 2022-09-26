@@ -1,11 +1,15 @@
 dso-banner {
-  @include banner_children();
+  @include banner_children($di: false);
 
   &[status="danger"] {
-    @include banner_danger();
+    @include banner_danger($di: false);
   }
 
   &[status="warning"] {
-    @include banner_warning();
+    @include banner_warning($di: false);
+  }
+
+  dso-icon {
+    @include banner_icon-position();
   }
 }

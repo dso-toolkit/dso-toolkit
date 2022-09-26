@@ -21,6 +21,7 @@ export class Info {
         <slot></slot>
         {!this.fixed && (
           <button type="button" onClick={e => this.dsoClose.emit(e)}>
+            <dso-icon icon="times"></dso-icon>
             <span class="sr-only">Sluiten</span>
           </button>
         )}

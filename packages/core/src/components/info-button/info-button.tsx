@@ -1,4 +1,4 @@
-import { h, Component, Event, Prop, EventEmitter, Method } from '@stencil/core';
+import { h, Component, Event, Prop, EventEmitter, Method, Host, State } from '@stencil/core';
 import clsx from 'clsx';
 
 export interface InfoButtonToggleEvent {
@@ -16,6 +16,9 @@ export class InfoButton {
 
   @Prop({ mutable: true, reflect: true })
   active?: boolean;
+
+  @State()
+  hover = false;
 
   @Prop()
   secondary?: boolean;
@@ -37,17 +40,20 @@ export class InfoButton {
 
   render() {
     return (
-      <button
-        type="button"
-        class={clsx('btn', { 'dso-open': !!this.active, 'dso-info-secondary': !!this.secondary })}
-        aria-expanded={typeof this.active === 'boolean' ? this.active.toString() : undefined}
-        onClick={e => this.handleToggle(e)}
-        ref={element => (this.button = element)}
-      >
-        <span class="sr-only">
-          {this.label}
-        </span>
-      </button>
+      <Host onMouseenter={() => this.hover = true} onMouseleave={() => this.hover = false}>
+        <button
+          type="button"
+          class={clsx('btn', { 'dso-open': !!this.active, 'dso-info-secondary': !!this.secondary })}
+          aria-expanded={typeof this.active === 'boolean' ? this.active.toString() : undefined}
+          onClick={e => this.handleToggle(e)}
+          ref={element => (this.button = element)}
+        >
+          <dso-icon icon={this.active || this.hover ? 'info-active' : 'info'}></dso-icon>
+          <span class="sr-only">
+            {this.label}
+          </span>
+        </button>
+      </Host>
     );
   }
 }

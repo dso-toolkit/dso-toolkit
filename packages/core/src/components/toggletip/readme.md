@@ -27,6 +27,7 @@
 graph TD;
   dso-toggletip --> dso-info-button
   dso-toggletip --> dso-tooltip
+  dso-info-button --> dso-icon
   style dso-toggletip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

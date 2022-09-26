@@ -10,13 +10,19 @@ $banner-danger-bg: $state-danger-bg;
 $banner-danger-text: $state-danger-text;
 $banner-danger-border: $state-danger-border;
 
+@mixin banner_icon-position() {
+  left: $u2;
+  position: absolute;
+  top: 0;
+}
+
 @mixin banner-variant($background, $border, $text-color) {
   color: $text-color;
   background-color: $background;
   border-color: $border;
 }
 
-@mixin banner_children() {
+@mixin banner_children($di: true) {
   a {
     text-decoration: underline;
 
@@ -69,12 +75,12 @@ $banner-danger-border: $state-danger-border;
         padding-top: $dso-banner-small-padding-top;
       }
 
-      &::before {
-        content: "";
-        display: inline-block;
-        left: $u2;
-        position: absolute;
-        top: 0;
+      @if ($di) {
+        &::before {
+          @include banner_icon-position();
+          content: "";
+          display: inline-block;
+        }
       }
 
       > .dso-rich-content {
@@ -121,19 +127,23 @@ $banner-danger-border: $state-danger-border;
   }
 }
 
-@mixin banner_danger() {
+@mixin banner_danger($di: true) {
   @include banner-variant($banner-danger-bg, $banner-danger-border, $banner-danger-text);
 
-  .row > div::before {
-    @include di("status-danger");
+  @if ($di) {
+    .row > div::before {
+      @include di("status-danger");
+    }
   }
 }
 
-@mixin banner_warning() {
+@mixin banner_warning($di: true) {
   @include banner-variant($banner-warning-bg, $banner-warning-border, $banner-warning-text);
 
-  .row > div::before {
-    @include di("status-warning");
+  @if ($di) {
+    .row > div::before {
+      @include di("status-warning");
+    }
   }
 }
 

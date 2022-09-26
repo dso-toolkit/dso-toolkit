@@ -1,9 +1,11 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 @import "~@dso-toolkit/sources/src/styling/mixins";
 @import "~@dso-toolkit/sources/src/components/button/button";
+@import "~@dso-toolkit/sources/src/di";
 @import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
 
-@import "../../icon/di";
+@import "../dropdown-menu/dropdown-menu.global.scss"; // stylelint-disable-line scss/at-import-partial-extension -- temp extension disable
+
 
 $dso-navigation-selected-color: $mauve;
 
@@ -25,9 +27,6 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 :host {
-  --di-chevron-down-bosgroen: #{dso-icon("chevron-down", "bosgroen")};
-  --di-chevron-up-bosgroen: #{dso-icon("chevron-up", "bosgroen")};
-
   display: block;
 }
 
@@ -172,37 +171,35 @@ dso-dropdown-menu {
     border: 0;
     border-radius: 0;
 
-    dso-dropdown-options {
-      ul {
-        width: 320px;
+    ul {
+      width: 320px;
 
-        @media screen and (max-width: $screen-sm-max) {
-          width: 100%;
+      @media screen and (max-width: $screen-sm-max) {
+        width: 100%;
+      }
+    }
+
+    li {
+      a {
+        color: $bosgroen;
+        font-size: 1.25rem;
+        padding: $u2;
+
+        &:hover {
+          background-color: $wit;
+          color: $bosgroen;
+          text-decoration: underline;
         }
       }
 
-      li {
+      &.dso-active {
         a {
-          color: $bosgroen;
-          font-size: 1.25rem;
-          padding: $u2;
-
-          &:hover {
-            background-color: $wit;
-            color: $bosgroen;
-            text-decoration: underline;
-          }
+          font-weight: 600;
         }
+      }
 
-        &.dso-active {
-          a {
-            font-weight: 600;
-          }
-        }
-
-        + li {
-          border-top: 1px solid $grijs-20;
-        }
+      + li {
+        border-top: 1px solid $grijs-20;
       }
     }
   }

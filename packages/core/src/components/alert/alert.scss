@@ -1,6 +1,6 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "../../icon/di";
+@import "~@dso-toolkit/sources/src/di";
 
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
@@ -9,13 +9,6 @@
 
 :host {
   display: block;
-
-  --di-status-success: #{dso-icon("status-success")};
-  --di-status-danger: #{dso-icon("status-danger")};
-  --di-status-warning: #{dso-icon("status-warning")};
-  --di-status-info: #{dso-icon("status-info")};
-  --di-download-grijs90: #{dso-icon("download", "grijs90")};
-  --di-external-link-grijs90: #{dso-icon("external-link", "grijs90")};
 }
 
 :host(:not(:first-child)) {
@@ -29,5 +22,12 @@
 }
 
 .alert {
-  @include alert_root();
+  @include alert_root($di: false);
+
+  dso-icon {
+    @include alert_icon-position();
+
+    height: $u4;
+    width: $u4;
+  }
 }

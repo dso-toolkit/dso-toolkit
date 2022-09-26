@@ -9,6 +9,7 @@ export function bannerTemplate({ status, richContent, onClick }: Banner<Template
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
+            <dso-icon icon=${'status-' + status}></dso-icon>
             ${richContent}
             <button type="button" class="dso-tertiary" @click=${onClick}>
               <span class="sr-only">Sluiten</span>

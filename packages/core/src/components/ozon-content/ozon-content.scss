@@ -5,7 +5,7 @@
 @import "~@dso-toolkit/sources/src/components/anchor/anchor.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 @import "~@dso-toolkit/sources/src/components/button/button";
 
-@import "../../icon/di";
+@import "~@dso-toolkit/sources/src/di";
 
 :host(:not([inline])) {
   display: block;

@@ -59,6 +59,8 @@ Type: `Promise<void>`
 graph TD;
   dso-selectable --> dso-info-button
   dso-selectable --> dso-info
+  dso-info-button --> dso-icon
+  dso-info --> dso-icon
   dso-map-base-layers --> dso-selectable
   dso-map-overlays --> dso-selectable
   style dso-selectable fill:#f9f,stroke:#333,stroke-width:4px

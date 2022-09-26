@@ -6,9 +6,6 @@
 @import "~@dso-toolkit/sources/src/components/highlight-box/highlight-box";
 
 :host {
-  --di-external-link-grijs90: #{dso-icon("external-link", "grijs90")};
-  --di-download-grijs90: #{dso-icon("download", "grijs90")};
-
   display: block;
 }
 
