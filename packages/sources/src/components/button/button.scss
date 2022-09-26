@@ -487,6 +487,17 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
       margin-left: $u1;
     }
 
+    dso-icon[icon="chevron-left"] + span:not(.sr-only),
+    dso-icon[icon="chevron-right"] + span:not(.sr-only),
+    svg.di.di-angle-down + span:not(.sr-only),
+    svg.di.di-angle-up + span:not(.sr-only),
+    span:not(.sr-only) + svg.di.di-angle-down,
+    span:not(.sr-only) + svg.di.di-angle-up,
+    span:not(.sr-only) + dso-icon[icon="chevron-left"],
+    span:not(.sr-only) + dso-icon[icon="chevron-right"] {
+      margin-left: 0;
+    }
+
     dso-icon,
     svg.di,
     span {

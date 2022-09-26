@@ -19,6 +19,13 @@ $dso-dropdown-link-color: $grijs-90;
     &::after {
       content: "";
       display: inline-block;
+    }
+  }
+
+  > .dso-primary,
+  > .dso-secondary,
+  > .btn {
+    &::after {
       margin-left: $u1;
     }
   }
@@ -48,6 +55,7 @@ $dso-dropdown-link-color: $grijs-90;
     &::after {
       @include di("chevron-down");
 
+      margin-left: $u1 * 0.5;
       position: relative;
       top: -2px;
     }
