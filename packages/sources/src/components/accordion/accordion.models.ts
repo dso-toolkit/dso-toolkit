@@ -3,8 +3,8 @@ import { AttachmentsCounter, Icon } from '../..';
 export interface Accordion {
   variant?: string;
   handleElement: 'anchor' | 'button';
-  sections: AccordionSection[];
   reverseAlign?: boolean;
+  multiSelectable?: boolean;
 }
 
 export interface AccordionSection {
@@ -16,6 +16,6 @@ export interface AccordionSection {
   header: 'h2' | 'h3' | 'h4' | 'h5';
   variant?: 'compact' | 'conclusion';
   icon?: Icon;
-  subsections?: AccordionSection[];
-  children?: string;
 }
+
+export type AccordionDemoSection = AccordionSection & { children?: string; };

@@ -1,23 +1,23 @@
 import { ArgTypes } from '../../storybook';
 
-import { Accordion, AccordionSection } from './accordion.models';
+import { Accordion } from './accordion.models';
 
 export interface AccordionArgs {
-  variant?: 'compact' | 'conclusion';
+  variant: 'compact' | 'conclusion';
   handleElement: 'anchor' | 'button';
-  sections: AccordionSection[];
-  reverseAlign?: boolean;
+  reverseAlign: boolean;
+  multiSelectable: boolean;
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   variant: {
-    options: [undefined, 'dso-accordion-compact', 'dso-accordion-conclusion'],
+    options: [undefined, 'compact', 'conclusion'],
     control: {
       type: 'select',
       labels: {
         undefined: 'default',
-        'dso-accordion-compact': 'compact',
-        'dso-accordion-conclusion': 'conclusion'
+        'compact': 'compact',
+        'conclusion': 'conclusion'
       }
     }
   },
@@ -27,10 +27,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'select'
     }
   },
-  sections: {
+  multiSelectable: {
     control: {
-      disable: true
-    }
+      type: 'boolean',
+    },
   },
   reverseAlign: {
     control: {
@@ -39,11 +39,11 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   }
 };
 
-export function accordionArgsMapper(a: AccordionArgs): Accordion {
+export function accordionArgsMapper(a: AccordionArgs): Required<Accordion> {
   return {
     variant: a.variant,
     handleElement: a.handleElement,
-    sections: a.sections,
-    reverseAlign: a.reverseAlign
+    reverseAlign: a.reverseAlign,
+    multiSelectable: a.multiSelectable,
   };
 }

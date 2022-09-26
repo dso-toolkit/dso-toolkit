@@ -42,8 +42,6 @@ export class AccordionSection implements ComponentInterface {
 
   componentDidLoad() {
     this.hasNestedSection = this.host.querySelector('dso-accordion') !== null;
-
-    console.log('yo', this.host.querySelector('dso-accordion') !== null);
   }
 
   toggleSection = (e: MouseEvent) => {
@@ -56,8 +54,6 @@ export class AccordionSection implements ComponentInterface {
     if (!this.state) {
       return;
     }
-
-    console.log('state', this.state);
 
     return (
       <Host

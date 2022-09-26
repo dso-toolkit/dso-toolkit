@@ -1,5 +1,6 @@
-import { Accordion, AccordionSection } from '@dso-toolkit/sources';
+import { Accordion, AccordionDemoSection } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
+
 import { attachmentsCounterTemplate } from '../attachments-counter/attachments-counter.template';
 import { iconTemplate } from '../icon/icon.template';
 
@@ -10,7 +11,7 @@ const statusMap = new Map<string, string>([
   ['danger', 'fout:']
 ]);
 
-export function accordionHandleChildren(accordion: Accordion, section: AccordionSection) {
+export function accordionHandleChildren(accordion: Accordion, section: AccordionDemoSection) {
   return html`
     ${section.state
       ? html`<span class="sr-only">${statusMap.get(section.state)}:</span>`
@@ -22,7 +23,7 @@ export function accordionHandleChildren(accordion: Accordion, section: Accordion
       : nothing
     }
 
-    ${section.title }
+    ${section.title}
 
     ${section.icon && !accordion.reverseAlign
       ? html`<span class="dso-icon">${iconTemplate(section.icon)}</span>`
