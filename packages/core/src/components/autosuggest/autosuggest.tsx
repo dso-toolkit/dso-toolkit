@@ -46,7 +46,7 @@ export class Autosuggest {
    * The `type` is used to style the suggestion. `item` can be use to reference
    * the original object that was used to create the suggestion.
    *
-   * The value will be null when no suggestions are fetched.
+   * The value should be null when no suggestions have been fetched.
    */
   @Prop()
   readonly suggestions: Suggestion[] | null = null;
@@ -312,7 +312,7 @@ export class Autosuggest {
   }
 
   openSuggestions(selectSuggestion?: 'first' | 'last') {
-    this.showSuggestions = this.suggestions ? this.suggestions.length > 0 : false;
+    this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
     this.notFound = this.suggestions?.length === 0 ?? false;
     this.input.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
