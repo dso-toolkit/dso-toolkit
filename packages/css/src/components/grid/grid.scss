@@ -84,13 +84,8 @@ form {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
-
-    &,
-    &:not(.dso-featured):first-child {
-      margin-bottom: $u4;
-      padding-top: 2rem;
-    }
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   &.dso-featured {
@@ -103,6 +98,33 @@ form {
     margin-top: $u3;
   }
 }
+
+.row.dso-banner {
+
+  +.row {
+    margin-top: 24px;
+  }
+
+  & + .row div:not(.dso-rich-content) {
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  +.row.dso-featured { 
+  margin-top: 0px;
+}
+
+}
+
+
 
 .row-no-gutters {
   margin-right: 0;
