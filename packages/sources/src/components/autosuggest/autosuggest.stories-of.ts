@@ -53,7 +53,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
     (a: Args) => {
       const args = a as AutosuggestArgs;
 
-      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3);
+      return autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3);
     }
   );
 
