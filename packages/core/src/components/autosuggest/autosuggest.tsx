@@ -45,9 +45,11 @@ export class Autosuggest {
    *
    * The `type` is used to style the suggestion. `item` can be use to reference
    * the original object that was used to create the suggestion.
+   *
+   * The value should be null when no suggestions have been fetched.
    */
   @Prop()
-  readonly suggestions: Suggestion[] = [];
+  readonly suggestions: Suggestion[] | null = null;
 
   /**
    * Shows progress indicator when fetching results.
@@ -251,6 +253,10 @@ export class Autosuggest {
   }
 
   selectFirstSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
     this.selectedSuggestion = this.suggestions[0];
 
     if (this.selectedSuggestion) {
@@ -259,6 +265,10 @@ export class Autosuggest {
   }
 
   selectLastSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
     this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
     if (this.selectedSuggestion) {
@@ -267,6 +277,10 @@ export class Autosuggest {
   }
 
   selectNextSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
     const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : -1;
 
     this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
@@ -277,6 +291,10 @@ export class Autosuggest {
   }
 
   selectPreviousSuggestion() {
+    if (!this.suggestions) {
+      return;
+    }
+
     const index = this.selectedSuggestion ? this.suggestions.indexOf(this.selectedSuggestion) : 0;
 
     this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
@@ -288,13 +306,14 @@ export class Autosuggest {
 
   resetSelectedSuggestion() {
     this.showLoading = !this.loadingDelayed;
+    this.notFound = false;
     this.selectedSuggestion = undefined;
     this.input.setAttribute('aria-activedescendant', '');
   }
 
   openSuggestions(selectSuggestion?: 'first' | 'last') {
-    this.showSuggestions = this.suggestions.length > 0;
-    this.notFound = this.suggestions.length === 0;
+    this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
+    this.notFound = this.suggestions?.length === 0 ?? false;
     this.input.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
     if (this.showSuggestions && selectSuggestion === 'first') {
@@ -368,6 +387,9 @@ export class Autosuggest {
   };
 
   listboxItemId(suggestion: Suggestion): string {
+    if (!this.suggestions) {
+      return '';
+    }
     return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
   }
 
@@ -388,7 +410,7 @@ export class Autosuggest {
               ref={element => this.listbox = element}
               hidden={!this.showSuggestions && !this.notFound}
             >
-              {this.showSuggestions
+              {this.showSuggestions && this.suggestions
                 ? this.suggestions.map((suggestion) => (
                     <li
                       role="option"
