@@ -3,10 +3,10 @@ import { HandlerFunction } from '@storybook/addon-actions';
 import { InfoButton } from './info-button.models';
 
 export interface InfoButtonArgs {
-  active?: boolean;
-  secondary?: boolean;
+  active: boolean;
+  secondary: boolean;
   label: string;
-  click: HandlerFunction;
+  dsoToggle: HandlerFunction;
 }
 
 export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
@@ -25,16 +25,11 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
       type: 'boolean'
     }
   },
-  click: {
-    action: 'toggled'
+  dsoToggle: {
+    action: 'dsoToggle'
   }
 };
 
-export function infoButtonArgsMapper(a: InfoButtonArgs): InfoButton {
-  return {
-    onClick: e => a.click(e),
-    active: a.active,
-    secondary: a.secondary,
-    label: a.label
-  };
+export function infoButtonArgsMapper(a: InfoButtonArgs): Required<InfoButton> {
+  return { ...a };
 }

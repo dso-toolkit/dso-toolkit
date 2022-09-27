@@ -96,7 +96,7 @@ export function formGroupSearchBarArgsMapper(a: FormGroupSearchBarArgs): FormGro
     helpText: a.helpText,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onClick: a.infoButtonHandler,
+        dsoToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
@@ -105,7 +105,7 @@ export function formGroupSearchBarArgsMapper(a: FormGroupSearchBarArgs): FormGro
       ? {
         active: a.infoActive,
         fixed: a.infoFixed,
-        onClose: a.infoCloseHandler,
+        dsoClose: a.infoCloseHandler,
         richContent: a.infoText
       }
       : undefined,

@@ -4,17 +4,17 @@ import { html } from 'lit-html';
 export function treeViewTemplate(
   {
     collection,
-    onOpenItem,
-    onCloseItem,
-    onClickItem
+    dsoOpenItem,
+    dsoCloseItem,
+    dsoClickItem
   }: TreeView
 ) {
   return html`
     <dso-tree-view
       .collection=${collection}
-      @openItem=${onOpenItem}
-      @closeItem=${onCloseItem}
-      @clickItem=${onClickItem}
+      @dsoOpenItem=${dsoOpenItem}
+      @dsoCloseItem=${dsoCloseItem}
+      @dsoClickItem=${dsoClickItem}
     ></dso-tree-view>
   `;
 }

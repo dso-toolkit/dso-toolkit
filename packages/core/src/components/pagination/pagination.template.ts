@@ -5,7 +5,7 @@ export function paginationTemplate(
   {
     totalPages,
     currentPage,
-    onSelectPage,
+    dsoSelectPage,
     formatHref,
   }: Pagination
 ) {
@@ -14,7 +14,7 @@ export function paginationTemplate(
       total-pages=${totalPages}
       current-page=${currentPage}
       .formatHref=${formatHref}
-      @selectPage=${onSelectPage}
+      @dsoSelectPage=${dsoSelectPage}
     ></dso-pagination>
   `;
 }

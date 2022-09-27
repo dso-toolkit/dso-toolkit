@@ -14,12 +14,12 @@
 
 ## Events
 
-| Event               | Description | Type                                       |
-| ------------------- | ----------- | ------------------------------------------ |
-| `closeOverlay`      |             | `CustomEvent<KeyboardEvent \| MouseEvent>` |
-| `filterpanelApply`  |             | `CustomEvent<FilterpanelEvent>`            |
-| `filterpanelCancel` |             | `CustomEvent<FilterpanelEvent>`            |
-| `mainSizeChange`    |             | `CustomEvent<ViewerGridChangeSizeEvent>`   |
+| Event                  | Description | Type                                       |
+| ---------------------- | ----------- | ------------------------------------------ |
+| `dsoCloseOverlay`      |             | `CustomEvent<KeyboardEvent \| MouseEvent>` |
+| `dsoFilterpanelApply`  |             | `CustomEvent<FilterpanelEvent>`            |
+| `dsoFilterpanelCancel` |             | `CustomEvent<FilterpanelEvent>`            |
+| `dsoMainSizeChange`    |             | `CustomEvent<ViewerGridChangeSizeEvent>`   |
 
 
 ## Dependencies

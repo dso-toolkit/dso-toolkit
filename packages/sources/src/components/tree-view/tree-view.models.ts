@@ -38,9 +38,9 @@ export interface TreeViewPointerEvent {
 export interface TreeView {
   collection: TreeViewItem[];
   /** Emitted when a node is opened */
-  onOpenItem: (e: CustomEvent<TreeViewItem[]>) => void;
+  dsoOpenItem: (e: CustomEvent<TreeViewItem[]>) => void;
   /** Emitted when a node is closed */
-  onCloseItem: (e: CustomEvent<TreeViewItem[]>) => void;
+  dsoCloseItem: (e: CustomEvent<TreeViewItem[]>) => void;
   /** Emitted when an item is clicked */
-  onClickItem: (e: CustomEvent<TreeViewPointerEvent>) => void;
+  dsoClickItem: (e: CustomEvent<TreeViewPointerEvent>) => void;
 }

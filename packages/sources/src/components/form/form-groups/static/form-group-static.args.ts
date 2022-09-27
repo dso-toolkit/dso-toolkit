@@ -76,7 +76,7 @@ export function formGroupStaticArgsMapper(a: FormGroupStaticArgs): FormGroupStat
     edit: a.edit,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onClick: a.infoButtonHandler,
+        dsoToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
@@ -85,7 +85,7 @@ export function formGroupStaticArgsMapper(a: FormGroupStaticArgs): FormGroupStat
       ? {
         active: a.infoActive,
         fixed: a.infoFixed,
-        onClose: a.infoCloseHandler,
+        dsoClose: a.infoCloseHandler,
         richContent: a.infoText
       }
       : undefined

@@ -5,7 +5,7 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { buttonTemplate } from '../button/button.template';
 
-export function infoTemplate({ fixed, richContent, onClose, id }: Info<TemplateResult>) {
+export function infoTemplate({ fixed, richContent, dsoClose, id }: Info<TemplateResult>) {
   return html`
     <div class="dso-info" id=${ifDefined(id)}>
       ${typeof richContent === 'string'
@@ -13,7 +13,7 @@ export function infoTemplate({ fixed, richContent, onClose, id }: Info<TemplateR
         : richContent
       }
       ${!fixed
-        ? buttonTemplate({ label: 'Sluiten', variant: null, onClick: onClose, iconMode: 'only' })
+        ? buttonTemplate({ label: 'Sluiten', variant: null, onClick: dsoClose, iconMode: 'only' })
         : nothing
       }
     </div>

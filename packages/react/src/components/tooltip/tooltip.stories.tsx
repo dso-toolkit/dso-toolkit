@@ -1,22 +1,23 @@
 import { storiesOfTooltip } from '@dso-toolkit/sources';
+import { HandlerFunction } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 import readme from './readme.md';
 import { tooltipTemplate } from './tooltip.template';
 
-function asChildTemplate(tooltip: JSX.Element) {
+function asChildTemplate(tooltip: JSX.Element, action: HandlerFunction) {
   return (
-    <button type="button">
+    <button type="button" onClick={action}>
       <span>Hover or focus me</span>{tooltip}
     </button>
   );
 }
 
-function asSiblingTemplate(tooltip: JSX.Element, id: string) {
+function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (
     <>
-      <button type="button" id={id}>
+      <button type="button" id={id} onClick={action}>
         <span>Hover or focus me</span>
       </button>
       {tooltip}

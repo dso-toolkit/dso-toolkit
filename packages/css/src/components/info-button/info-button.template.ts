@@ -3,7 +3,7 @@ import { html } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
-export function infoButtonTemplate({ active, label, secondary, onClick }: InfoButton) {
+export function infoButtonTemplate({ active, label, secondary, dsoToggle }: InfoButton) {
   return html`
     <button
       type="button"
@@ -12,7 +12,7 @@ export function infoButtonTemplate({ active, label, secondary, onClick }: InfoBu
         'dso-info-secondary': !!secondary
       })}"
       aria-expanded=${ifDefined(active?.toString())}
-      @click=${onClick}
+      @click=${dsoToggle}
     >
       <span class="sr-only">
         ${label ?? 'Toelichting bij optie'}

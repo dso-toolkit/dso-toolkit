@@ -6,12 +6,12 @@ import { OzonContent } from "./ozon-content.models";
 export interface OzonContentArgs {
   content: string;
   inline: boolean;
-  interactive?: string | boolean;
-  deleted?: boolean;
-  prefix?: string;
-  suffix?: string;
-  onAnchorClick: HandlerFunction;
-  onClick: HandlerFunction;
+  interactive: string | boolean;
+  deleted: boolean;
+  prefix: string;
+  suffix: string;
+  dsoAnchorClick: HandlerFunction;
+  dsoClick: HandlerFunction;
 }
 
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
@@ -29,7 +29,6 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
     options: [
       'default',
       'sub',
-      undefined
     ],
     control: {
       type: 'select'
@@ -50,25 +49,22 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
       type: 'text'
     }
   },
-  onAnchorClick: {
+  dsoAnchorClick: {
     ...noControl,
-    action: "anchorClick",
+    action: "dsoAnchorClick",
   },
-  onClick: {
+  dsoClick: {
     ...noControl,
-    action: 'onClick'
+    action: 'dsoClick'
   }
 };
 
-export function ozonContentArgsMapper(a: OzonContentArgs): OzonContent {
+export function ozonContentArgsMapper(a: OzonContentArgs): Required<OzonContent> {
   return {
-    content: a.content,
-    inline: a.inline,
+    ...a,
+    prefix: a.prefix || '',
+    suffix: a.suffix || '',
     interactive: a.interactive === 'sub' ? 'sub' : a.interactive === 'default',
-    deleted: a.deleted,
-    prefix: a.prefix || undefined,
-    suffix: a.suffix || undefined,
-    onAnchorClick: (e: any) => a.onAnchorClick(e.detail),
-    onClick: a.onClick
+    dsoAnchorClick: (e: any) => a.dsoAnchorClick(e.detail),
   };
 }

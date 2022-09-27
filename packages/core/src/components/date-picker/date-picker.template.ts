@@ -4,10 +4,10 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import { DsoDatePickerChangeEvent } from './date-picker';
 
-export function datePickerTemplate({ id, onDateChange, value, min, max, disabled, autofocus, direction }: DatePicker) {
+export function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, autofocus, direction }: DatePicker) {
   return html`
     <dso-date-picker
-      @dateChange=${(e: CustomEvent<DsoDatePickerChangeEvent>) => onDateChange?.(e)}
+      @dsoDateChange=${(e: CustomEvent<DsoDatePickerChangeEvent>) => dsoDateChange?.(e)}
       direction=${ifDefined(direction)}
       identifier=${ifDefined(id)}
       value=${ifDefined(value || undefined)}
@@ -18,4 +18,3 @@ export function datePickerTemplate({ id, onDateChange, value, min, max, disabled
     ></dso-date-picker>
   `;
 }
-

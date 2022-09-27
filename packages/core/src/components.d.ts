@@ -605,13 +605,13 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
-          * Event emitted when a date is selected.
-         */
-        "onDateChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
-        /**
           * Event emitted the date picker input is blurred.
          */
         "onDsoBlur"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        /**
+          * Event emitted when a date is selected.
+         */
+        "onDsoDateChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
         /**
           * Event emitted the date picker input is focused.
          */
@@ -665,7 +665,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
-        "onHeaderClick"?: (event: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
+        "onDsoHeaderClick"?: (event: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
@@ -690,17 +690,17 @@ declare namespace LocalJSX {
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
-        "onClose"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoClose"?: (event: CustomEvent<MouseEvent>) => void;
     }
     interface DsoInfoButton {
         "active"?: boolean;
         "label"?: string;
-        "onToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
+        "onDsoToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
         "secondary"?: boolean;
     }
     interface DsoLabel {
         "compact"?: boolean;
-        "onRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
         "truncate"?: boolean;
@@ -708,17 +708,17 @@ declare namespace LocalJSX {
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
         "group"?: string;
-        "onBaseLayerChange"?: (event: CustomEvent<BaseLayerChangeEvent>) => void;
+        "onDsoBaseLayerChange"?: (event: CustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
         "disableZoom"?: 'in' | 'out' | 'both';
-        "onZoomIn"?: (event: CustomEvent<MouseEvent>) => void;
-        "onZoomOut"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoZoomIn"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoZoomOut"?: (event: CustomEvent<MouseEvent>) => void;
         "open"?: boolean;
     }
     interface DsoMapOverlays {
         "group"?: string;
-        "onToggleOverlay"?: (event: CustomEvent<OverlayChangeEvent>) => void;
+        "onDsoToggleOverlay"?: (event: CustomEvent<OverlayChangeEvent>) => void;
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
@@ -738,7 +738,7 @@ declare namespace LocalJSX {
           * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
         "interactive"?: 'sub' | '' | boolean;
-        "onAnchorClick"?: (event: CustomEvent<OzonContentAnchorClick>) => void;
+        "onDsoAnchorClick"?: (event: CustomEvent<OzonContentAnchorClick>) => void;
         /**
           * These events are only emitted when the component is `interactive`.
          */
@@ -756,7 +756,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on page select
          */
-        "onSelectPage"?: (event: CustomEvent<PaginationSelectPageEvent>) => void;
+        "onDsoSelectPage"?: (event: CustomEvent<PaginationSelectPageEvent>) => void;
         /**
           * Total pages
          */
@@ -836,15 +836,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain an object with: `path` = the complete path of TreeViewItems from the root to the item that is emitting the clicked event. `originalEvent` = the original click event. The consumer of the event is responsible for updating the TreeView's collection (usually set the active state on the last TreeViewItem in path and clear all other active item states).
          */
-        "onClickItem"?: (event: CustomEvent<TreeViewPointerEvent>) => void;
+        "onDsoClickItem"?: (event: CustomEvent<TreeViewPointerEvent>) => void;
         /**
           * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
-        "onCloseItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
+        "onDsoCloseItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
         /**
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
-        "onOpenItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
+        "onDsoOpenItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
     }
     interface DsoViewerGrid {
         "filterpanelOpen"?: boolean;
@@ -852,10 +852,10 @@ declare namespace LocalJSX {
           * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
          */
         "initialMainSize"?: MainSize;
-        "onCloseOverlay"?: (event: CustomEvent<MouseEvent | KeyboardEvent>) => void;
-        "onFilterpanelApply"?: (event: CustomEvent<FilterpanelEvent>) => void;
-        "onFilterpanelCancel"?: (event: CustomEvent<FilterpanelEvent>) => void;
-        "onMainSizeChange"?: (event: CustomEvent<ViewerGridChangeSizeEvent>) => void;
+        "onDsoCloseOverlay"?: (event: CustomEvent<MouseEvent | KeyboardEvent>) => void;
+        "onDsoFilterpanelApply"?: (event: CustomEvent<FilterpanelEvent>) => void;
+        "onDsoFilterpanelCancel"?: (event: CustomEvent<FilterpanelEvent>) => void;
+        "onDsoMainSizeChange"?: (event: CustomEvent<ViewerGridChangeSizeEvent>) => void;
         "overlayOpen"?: boolean;
     }
     interface IntrinsicElements {

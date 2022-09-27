@@ -35,7 +35,7 @@ export class OzonContent implements ComponentInterface {
    *
    * **Do not** use this without an accessible companion element! `interactive` is only
    * meant to ease the use of the companion element for mouse/touch users.
-   * 
+   *
    * * `true`: Interactive anchor-look-alike
    * * `"sub"`: Interactive anchor-look-alike for sub navigation
    * * `false | undefined`: Disabled
@@ -47,7 +47,7 @@ export class OzonContent implements ComponentInterface {
   state: OzonContentNodeState = {};
 
   @Event()
-  anchorClick!: EventEmitter<OzonContentAnchorClick>;
+  dsoAnchorClick!: EventEmitter<OzonContentAnchorClick>;
 
   /**
    * These events are only emitted when the component is `interactive`.
@@ -77,7 +77,7 @@ export class OzonContent implements ComponentInterface {
     const context: OzonContentContext = {
       state: this.state,
       setState: state => this.state = state,
-      emitAnchorClick: this.anchorClick.emit
+      emitAnchorClick: this.dsoAnchorClick.emit
     };
 
     const transformed = this.mapper.transform(this.content ?? '', context);

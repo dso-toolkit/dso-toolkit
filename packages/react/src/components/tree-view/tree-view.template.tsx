@@ -6,17 +6,17 @@ import { DsoTreeView } from "../..";
 export function treeViewTemplate(
   {
     collection,
-    onOpenItem,
-    onCloseItem,
-    onClickItem
+    dsoOpenItem,
+    dsoCloseItem,
+    dsoClickItem
   }: TreeView
 ) {
   return (
     <DsoTreeView
       collection={collection}
-      onOpenItem={onOpenItem}
-      onCloseItem={onCloseItem}
-      onClickItem={onClickItem}
+      onDsoOpenItem={dsoOpenItem}
+      onDsoCloseItem={dsoCloseItem}
+      onDsoClickItem={dsoClickItem}
     ></DsoTreeView>
   );
 }

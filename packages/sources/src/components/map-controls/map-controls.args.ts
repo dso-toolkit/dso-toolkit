@@ -6,63 +6,57 @@ import { baseLayers, overlays } from './map-controls.content';
 import { MapControls } from './map-controls.models';
 
 export interface MapControlsArgs {
-  zoomIn: HandlerFunction;
-  zoomOut: HandlerFunction;
+  dsoZoomIn: HandlerFunction;
+  dsoZoomOut: HandlerFunction;
   open: boolean;
   baseLayers: typeof baseLayers;
-  baseLayerChange: HandlerFunction;
+  dsoBaseLayerChange: HandlerFunction;
   overlays: typeof overlays;
-  toggleOverlay: HandlerFunction;
-  disableZoom: 'both' | 'in' | 'out' | undefined;
+  dsoToggleOverlay: HandlerFunction;
+  disableZoom: 'both' | 'in' | 'out';
 }
 
 export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   open: {
     type: 'boolean'
   },
-  zoomIn: {
-    action: 'zoomIn'
+  dsoZoomIn: {
+    action: 'dsoZoomIn'
   },
-  zoomOut: {
-    action: 'zoomOut'
+  dsoZoomOut: {
+    action: 'dsoZoomOut'
   },
   baseLayers: {
     control: {
       disable: true
     }
   },
-  baseLayerChange: {
-    action: 'baseLayerChange'
+  dsoBaseLayerChange: {
+    action: 'dsoBaseLayerChange'
   },
   overlays: {
     control: {
       disable: true
     }
   },
-  toggleOverlay: {
-    action: 'checkedOverlaysChange'
+  dsoToggleOverlay: {
+    action: 'dsoToggleOverlay'
   },
   disableZoom: {
-    options: ['both', 'in', 'out', undefined],
+    options: ['both', 'in', 'out'],
     control: {
       type: 'select'
     }
   }
 };
 
-export function mapControlsArgsMapper(a: MapControlsArgs): MapControls {
+export function mapControlsArgsMapper(a: MapControlsArgs): Required<MapControls> {
   return {
-    baseLayerChange: (e: any) => {
+    ...a,
+    dsoBaseLayerChange: (e: any) => {
       e.target!.baseLayers = [...e.target.baseLayers.map((l: any) => l.checked !== (l === e.detail.activeBaseLayer) ? { ...l, checked: l === e.detail.activeBaseLayer } : l)];
 
-      a.baseLayerChange(e);
-    },
-    baseLayers: a.baseLayers,
-    open: a.open,
-    overlays: a.overlays,
-    toggleOverlay: e => a.toggleOverlay(e),
-    zoomIn: e => a.zoomIn(e),
-    zoomOut: e => a.zoomOut(e),
-    disableZoom: a.disableZoom
+      a.dsoBaseLayerChange(e);
+    }
   };
 }

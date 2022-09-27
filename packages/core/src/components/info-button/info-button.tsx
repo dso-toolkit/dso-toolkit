@@ -24,7 +24,7 @@ export class InfoButton {
   label = 'Toelichting bij optie';
 
   @Event()
-  toggle!: EventEmitter<InfoButtonToggleEvent>;
+  dsoToggle!: EventEmitter<InfoButtonToggleEvent>;
 
   @Method() async setFocus() {
     this.button?.focus();
@@ -32,7 +32,7 @@ export class InfoButton {
 
   private handleToggle(e: MouseEvent) {
     this.active = !this.active;
-    this.toggle.emit({ originalEvent: e, active: this.active });
+    this.dsoToggle.emit({ originalEvent: e, active: this.active });
   }
 
   render() {

@@ -20,7 +20,7 @@ describe("Viewer Grid", () => {
   it("should emit closeOverlay", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid").then((c) => {
-      c.get(0).addEventListener("closeOverlay", cy.stub().as("closeOverlay"));
+      c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
     });
     cy.get("dso-viewer-grid").shadow().find(".overlay-close-button").click();
     cy.get("@closeOverlay").should("have.been.calledOnce");
@@ -79,7 +79,7 @@ describe("Viewer Grid", () => {
   it("should emit closeOverlay on escape", () => {
     cy.visit(urlOverlayOpened);
     cy.get("dso-viewer-grid").then((c) => {
-      c.get(0).addEventListener("closeOverlay", cy.stub().as("closeOverlay"));
+      c.get(0).addEventListener("dsoCloseOverlay", cy.stub().as("closeOverlay"));
     });
     cy.wait(100);
     cy.realPress("Escape");
@@ -139,11 +139,11 @@ describe("Viewer Grid", () => {
   });
 
   it('should emit filterpanelCancel event', () => {
-    filterPanelEventTest('filterpanelCancel', '.cancel-button');
+    filterPanelEventTest('dsoFilterpanelCancel', '.cancel-button');
   });
 
   it('should emit filterpanelApply event', () => {
-    filterPanelEventTest('filterpanelApply', '.apply-button');
+    filterPanelEventTest('dsoFilterpanelApply', '.apply-button');
   });
 
   it('should trap focus on filterpanel open', () => {
@@ -209,7 +209,7 @@ describe("Viewer Grid", () => {
     const sizeHandler = cy.stub();
 
     cy.get('dso-viewer-grid')
-      .then(e => e.on('mainSizeChange', sizeHandler))
+      .then(e => e.on('dsoMainSizeChange', sizeHandler))
       .shadow()
       .as('root')
       .find('.expand')

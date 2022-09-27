@@ -108,7 +108,7 @@ describe.skip('Label', () => {
     prepareComponent();
 
     cy.get('@dsoLabel')
-      .then($element => $element.on('removeClick', cy.stub().as('removeClickListener')))
+      .then($element => $element.on('dsoRemoveClick', cy.stub().as('removeClickListener')))
       .should('have.text', defaultLabelText)
       .invoke('attr', 'removable', '')
       .get('@dsoLabelShadow')

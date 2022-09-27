@@ -13,7 +13,7 @@ export function headerTemplate({
   userProfileUrl,
   userProfileName,
   userHomeUrl,
-  onHeaderClick,
+  dsoHeaderClick,
 }: Header) {
   return html`<dso-header
     .mainMenu=${mainMenu}
@@ -24,7 +24,7 @@ export function headerTemplate({
     user-profile-url=${ifDefined(userProfileUrl)}
     user-profile-name=${ifDefined(userProfileName)}
     user-home-url=${ifDefined(userHomeUrl)}
-    @headerClick=${onHeaderClick}
+    @dsoHeaderClick=${dsoHeaderClick}
   >
     <div slot="logo"><img height="40" alt="Omgevingsloket" src="${logo}" /></div>
     ${subLogo ? html`<div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div>` : undefined}

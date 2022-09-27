@@ -16,9 +16,9 @@
 
 ## Events
 
-| Event        | Description            | Type                                     |
-| ------------ | ---------------------- | ---------------------------------------- |
-| `selectPage` | Emitted on page select | `CustomEvent<PaginationSelectPageEvent>` |
+| Event           | Description            | Type                                     |
+| --------------- | ---------------------- | ---------------------------------------- |
+| `dsoSelectPage` | Emitted on page select | `CustomEvent<PaginationSelectPageEvent>` |
 
 
 ## Dependencies

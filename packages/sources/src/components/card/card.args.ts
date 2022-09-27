@@ -48,7 +48,7 @@ export function cardArgsMapper(a: CardArgs): Card<never> {
       ? {
         id: '1',
         label: 'Selecteer',
-        onChange: () => undefined,
+        dsoChange: () => undefined,
         type: 'checkbox',
         value: '1'
       }

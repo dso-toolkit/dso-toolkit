@@ -8,9 +8,9 @@ import { AutosuggestSuggestion } from './autosuggest.models';
 
 type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   fetchSuggestions: (value: string) => AutosuggestSuggestion[],
-  onSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
-  onChange: (event: CustomEvent<string>) => void,
-  onSearch: (event: CustomEvent<string>) => void,
+  dsoSelect: (event: CustomEvent<AutosuggestSuggestion>) => void,
+  dsoChange: (event: CustomEvent<string>) => void,
+  dsoSearch: (event: CustomEvent<string>) => void,
   suggestOnFocus: boolean,
   loading: boolean,
   loadingLabel: string,
@@ -44,7 +44,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
     (a: Args) => {
       const args = a as AutosuggestArgs;
 
-      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
+      return autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
     }
   );
 
@@ -53,7 +53,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
     (a: Args) => {
       const args = a as AutosuggestArgs;
 
-      return autosuggestDemoTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3);
+      return autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3);
     }
   );
 
@@ -67,7 +67,7 @@ export function storiesOfAutosuggest<TemplateFnReturnType>(
 
         const args = a as AutosuggestArgs;
 
-        return autosuggestInSearchBarTemplate(fetchSuggestions, args.onSelect, args.onChange, args.onSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
+        return autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
       }
     );
   }

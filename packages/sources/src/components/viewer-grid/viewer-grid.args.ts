@@ -5,11 +5,11 @@ import { ArgTypes, noControl } from "../../storybook";
 export interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;
-  initialMainSize?: "small" | "medium" | "large";
-  mainSizeChange: HandlerFunction;
-  closeOverlay: HandlerFunction;
-  filterpanelCancel: HandlerFunction;
-  filterpanelApply: HandlerFunction;
+  initialMainSize: "small" | "medium" | "large";
+  dsoMainSizeChange: HandlerFunction;
+  dsoCloseOverlay: HandlerFunction;
+  dsoFilterpanelCancel: HandlerFunction;
+  dsoFilterpanelApply: HandlerFunction;
 }
 
 export interface ViewerGridDocumentHeaderArgs {
@@ -30,26 +30,26 @@ export const viewerGridArgs: ArgTypes<ViewerGridArgs> = {
     },
   },
   initialMainSize: {
-    options: [undefined, 'small', 'medium', 'large'],
+    options: ['small', 'medium', 'large'],
     control: {
       type: 'select',
     }
   },
-  mainSizeChange: {
+  dsoMainSizeChange: {
     ...noControl,
-    action: 'mainSizeChange'
+    action: 'dsoMainSizeChange'
   },
-  closeOverlay: {
+  dsoCloseOverlay: {
     ...noControl,
-    action: "closeOverlay",
+    action: "dsoCloseOverlay",
   },
-  filterpanelCancel: {
+  dsoFilterpanelCancel: {
     ...noControl,
-    action: 'filterpanelCancel'
+    action: 'dsoFilterpanelCancel'
   },
-  filterpanelApply: {
+  dsoFilterpanelApply: {
     ...noControl,
-    action: 'filterpanelApply'
+    action: 'dsoFilterpanelApply'
   }
 };
 
@@ -70,18 +70,10 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
   }
 };
 
-export function viewerGridArgsMapper(
-  a: ViewerGridArgs
-): any {
-  return {
-    ...a,
-  };
+export function viewerGridArgsMapper(a: ViewerGridArgs): Required<any> {
+  return { ...a };
 }
 
-export function viewerGridDocumentHeaderArgsMapper(
-  a: ViewerGridDocumentHeaderArgs
-): any {
-  return {
-    ...a,
-  };
+export function viewerGridDocumentHeaderArgsMapper(a: ViewerGridDocumentHeaderArgs): Required<any> {
+  return { ...a };
 }

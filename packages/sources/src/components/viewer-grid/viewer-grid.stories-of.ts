@@ -40,11 +40,11 @@ export function storiesOfViewerGrid<TemplateFnReturnType>(
     const args = a as ViewerGridArgs;
 
     return viewerGridTemplate({
-      closeOverlay: args.closeOverlay,
-      filterpanelApply: args.filterpanelApply,
-      filterpanelCancel: args.filterpanelCancel,
+      dsoCloseOverlay: args.dsoCloseOverlay,
+      dsoFilterpanelApply: args.dsoFilterpanelApply,
+      dsoFilterpanelCancel: args.dsoFilterpanelCancel,
       filterpanelOpen: args.filterpanelOpen,
-      mainSizeChange: args.mainSizeChange,
+      dsoMainSizeChange: args.dsoMainSizeChange,
       initialMainSize: args.initialMainSize,
       overlayOpen: args.overlayOpen,
       main: example.main,

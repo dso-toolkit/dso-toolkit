@@ -24,7 +24,7 @@ export class TreeView implements ComponentInterface {
    * the TreeView's collection (usually set the open state on the last TreeViewItem in path).
    */
   @Event()
-  openItem!: EventEmitter<TreeViewItem[]>;
+  dsoOpenItem!: EventEmitter<TreeViewItem[]>;
 
   /**
    * Emitted when a tree view item is closed.
@@ -33,7 +33,7 @@ export class TreeView implements ComponentInterface {
    * the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
    */
   @Event()
-  closeItem!: EventEmitter<TreeViewItem[]>;
+  dsoCloseItem!: EventEmitter<TreeViewItem[]>;
 
   /**
    * Emitted when a tree view item is clicked.
@@ -44,7 +44,7 @@ export class TreeView implements ComponentInterface {
    * state on the last TreeViewItem in path and clear all other active item states).
    */
   @Event()
-  clickItem!: EventEmitter<TreeViewPointerEvent>;
+  dsoClickItem!: EventEmitter<TreeViewPointerEvent>;
 
   /**
    * Set focus on the last item in the specified path.
@@ -138,16 +138,16 @@ export class TreeView implements ComponentInterface {
       }
 
       TreeView.setFocus(tree, contentElement);
-      this.clickItem.emit({ path: [...ancestors, item], originalEvent: event });
+      this.dsoClickItem.emit({ path: [...ancestors, item], originalEvent: event });
 
       return;
     }
 
     if (item.open) {
-      this.closeItem.emit([...ancestors, item]);
+      this.dsoCloseItem.emit([...ancestors, item]);
     }
     else {
-      this.openItem.emit([...ancestors, item]);
+      this.dsoOpenItem.emit([...ancestors, item]);
     }
   }
 

@@ -138,7 +138,7 @@ export function formGroupTextareaArgsMapper(a: FormGroupTextareaArgs): FormGroup
       : undefined,
     infoButton: a.infoButtonLabel && a.infoText
       ? {
-        onClick: a.infoButtonHandler,
+        dsoToggle: a.infoButtonHandler,
         active: a.infoActive,
         label: a.infoButtonLabel
       }
@@ -147,7 +147,7 @@ export function formGroupTextareaArgsMapper(a: FormGroupTextareaArgs): FormGroup
       ? {
         active: a.infoActive,
         fixed: a.infoFixed,
-        onClose: a.infoCloseHandler,
+        dsoClose: a.infoCloseHandler,
         richContent: a.infoText
       }
       : undefined

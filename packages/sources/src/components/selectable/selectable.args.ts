@@ -16,7 +16,7 @@ export interface SelectableArgs<TemplateFnReturnType> {
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;
-  onChange: HandlerFunction;
+  dsoChange: HandlerFunction;
   infoRichContent?: TemplateFnReturnType;
   infoFixed?: boolean;
   infoActive?: boolean;
@@ -81,8 +81,8 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
       type: 'boolean'
     }
   },
-  onChange: {
-    action: 'onChange'
+  dsoChange: {
+    action: 'dsoChange'
   },
   infoFixed: {
     control: {
@@ -109,25 +109,14 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
 
 export function selectableArgsMapper(a: SelectableArgs<any>): Selectable<any> {
   return {
-    id: a.id,
-    label: a.label,
-    onChange: e => a.onChange(e),
-    type: a.type,
-    value: a.value,
-    checked: a.checked,
-    indeterminate: a.indeterminate,
-    describedById: a.describedById,
-    disabled: a.disabled,
+    ...a,
     info: a.infoRichContent
       ? {
-        onClose: e => a.infoClosed(e),
+        dsoClose: e => a.infoClosed(e),
         richContent: a.infoRichContent,
         active: a.infoActive,
         fixed: a.infoFixed
       }
       : undefined,
-    invalid: a.invalid,
-    name: a.name,
-    required: a.required
   };
 }

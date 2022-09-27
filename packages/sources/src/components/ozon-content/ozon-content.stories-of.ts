@@ -23,11 +23,13 @@ export function storiesOfOzonContent<TemplateFnReturnType>(
 
   content.forEach((story) => {
     stories.add(story.title, template, {
-      args: componentArgs<Omit<OzonContentArgs, 'onAnchorClick' | 'onClick'>>({
+      args: componentArgs<Omit<OzonContentArgs, 'dsoAnchorClick' | 'dsoClick'>>({
         content: story.content,
         inline: false,
         interactive: false,
         deleted: false,
+        prefix: story.args?.prefix || '',
+        suffix: story.args?.suffix || '',
         ...story.args
       }),
     });

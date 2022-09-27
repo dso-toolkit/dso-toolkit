@@ -10,19 +10,19 @@ export function viewerGridTemplate({
   filterpanelOpen,
   overlayOpen,
   initialMainSize,
-  mainSizeChange,
-  filterpanelApply,
-  filterpanelCancel,
-  closeOverlay,
+  dsoMainSizeChange,
+  dsoFilterpanelApply,
+  dsoFilterpanelCancel,
+  dsoCloseOverlay,
 }: ViewerGrid<TemplateResult>) {
   return html`
     <dso-viewer-grid
       ?filterpanel-open=${filterpanelOpen}
       ?overlay-open=${overlayOpen}
-      @mainSizeChange=${mainSizeChange}
-      @closeOverlay=${closeOverlay}
-      @filterpanelApply=${filterpanelApply}
-      @filterpanelCancel=${filterpanelCancel}
+      @dsoMainSizeChange=${dsoMainSizeChange}
+      @dsoCloseOverlay=${dsoCloseOverlay}
+      @dsoFilterpanelApply=${dsoFilterpanelApply}
+      @dspFilterpanelCancel=${dsoFilterpanelCancel}
       initial-main-size=${ifDefined(initialMainSize)}
     >
       ${filterpanel ? html`<div slot="filterpanel">${filterpanel}</div>` : nothing}

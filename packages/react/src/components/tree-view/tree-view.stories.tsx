@@ -7,9 +7,9 @@ import readme from "./readme.md";
 
 interface TreeViewDemoProps {
   collection: TreeViewItem[];
-  onOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
-  onCloseItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
-  onClickItem: (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => void;
+  dsoOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
+  dsoCloseItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
+  dsoClickItem: (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => void;
   onFilter: (value: string, callback: (collection: TreeViewItem[], resultText: string) => void) => void;
 }
 
@@ -33,11 +33,11 @@ class TreeViewDemo extends React.Component<TreeViewDemoProps, TreeViewDemoState>
         <div style={{ flex: 1 }}>
           {treeViewTemplate({
             collection: this.state.collection,
-            onOpenItem: e => {
-              return this.props.onOpenItem(e.detail, collection => this.setState({ ...this.state, collection }));
+            dsoOpenItem: e => {
+              return this.props.dsoOpenItem(e.detail, collection => this.setState({ ...this.state, collection }));
             },
-            onCloseItem: e => this.props.onCloseItem(e.detail, collection => this.setState({ ...this.state, collection })),
-            onClickItem: e => this.props.onClickItem(e.detail.path, e.detail.originalEvent, collection => this.setState({ ...this.state, collection }))
+            dsoCloseItem: e => this.props.dsoCloseItem(e.detail, collection => this.setState({ ...this.state, collection })),
+            dsoClickItem: e => this.props.dsoClickItem(e.detail.path, e.detail.originalEvent, collection => this.setState({ ...this.state, collection }))
           })}
         </div>
         <div style={{ flex: 1 }}>
@@ -66,8 +66,8 @@ storiesOfTreeView(
     readme,
   },
   {
-    treeViewDemoTemplate: (collection, onOpenItem, onCloseItem, onClickItem, onFilter) => (
-      <TreeViewDemo collection={collection} onOpenItem={onOpenItem} onCloseItem={onCloseItem} onClickItem={onClickItem}  onFilter={onFilter} />
+    treeViewDemoTemplate: (collection, dsoOpenItem, dsoCloseItem, dsoClickItem, onFilter) => (
+      <TreeViewDemo collection={collection} dsoOpenItem={dsoOpenItem} dsoCloseItem={dsoCloseItem} dsoClickItem={dsoClickItem}  onFilter={onFilter} />
     )
   }
 );
