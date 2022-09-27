@@ -9,44 +9,49 @@ $dso-badge-line-height: 1;
 
 @mixin badge_root() {
   background-color: $dso-badge-default-bg-color;
+  border: 1px solid $dso-badge-default-bg-color;
   border-radius: 1em;
   color: $wit;
   display: inline-block;
   font-size: 0.875em;
   line-height: $dso-badge-line-height;
-  min-width: calc(#{$dso-badge-line-height} + #{$u1});
+  min-width: 1.5rem;
   padding: #{$u1 * 0.5} $u1;
   text-align: center;
 
   &.badge-info {
     background-color: $dso-badge-info-bg-color;
+    border-color: $dso-badge-info-bg-color;
     color: $grijs-90;
   }
 
   &.badge-primary {
     background-color: $dso-badge-primary-bg-color;
+    border-color: $dso-badge-primary-bg-color;
     color: $wit;
   }
 
   &.badge-success {
     background-color: $dso-badge-success-bg-color;
+    border-color: $dso-badge-success-bg-color;
     color: $wit;
   }
 
   &.badge-warning {
     background-color: $dso-badge-warning-bg-color;
+    border-color: $dso-badge-warning-bg-color;
     color: $grijs-90;
   }
 
   &.badge-danger {
     background-color: $dso-badge-danger-bg-color;
+    border-color: $dso-badge-danger-bg-color;
     color: $wit;
   }
 
   &.badge-outline {
     background-color: $wit;
+    border-color: $grijs-90;
     color: $grijs-90;
-    outline: 1px solid $grijs-90;
-    outline-offset: -1px;
   }
 }
