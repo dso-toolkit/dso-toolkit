@@ -15,7 +15,7 @@ export function selectableTemplate({
   checked,
   indeterminate,
   disabled,
-  onChange,
+  dsoChange,
   info
 }: Selectable<JSX.Element>) {
   return (
@@ -31,7 +31,7 @@ export function selectableTemplate({
       checked={checked}
       indeterminate={indeterminate}
       infoFixed={info?.fixed}
-      onDsoChange={(e: CustomEvent<Event>) => onChange?.(e.detail)}
+      onDsoChange={(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
     >
       {label}
       {info?.richContent ?? ''}
