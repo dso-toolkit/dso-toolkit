@@ -8,7 +8,7 @@ import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 
 type AutosuggestConnector = (parameters: Parameters<Parameters<typeof storiesOfAutosuggest>[1]['autosuggestDemoTemplate']>) => Parameters<typeof autosuggestTemplate>[0];
 
-const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters]) => ({
+const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect, onChange, onSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters = 1]) => ({
   suggestions: null,
   onChange: function (e) {
     onChange(e);
@@ -21,16 +21,11 @@ const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, onSelect,
       }, loadingDelayed + 1500);
     }
     else {
-      if (minimalCharacters) {
-        if (e.detail.length >= minimalCharacters) {
-          this.suggestions = fetchSuggestions(e.detail);
-        }
-        else {
-          this.suggestions = null;
-        }
+      if (e.detail.length >= minimalCharacters) {
+        this.suggestions = fetchSuggestions(e.detail);
       }
       else {
-        this.suggestions = fetchSuggestions(e.detail);
+        this.suggestions = null;
       }
 
       processSuggestions(this.suggestions);

@@ -360,7 +360,7 @@ describe("Autosuggest", () => {
     cy.get('@listbox').should('not.be.visible');
   });
 
-  it('should have value null when no suggestions are fetched', () => {
+  it('should not show "not found" when suggestions are null', () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--minimal-3-characters");
 
     cy.get('#suggestions-demo')
