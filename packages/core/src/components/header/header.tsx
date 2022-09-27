@@ -121,6 +121,10 @@ export class Header {
     window.setTimeout(() => this.shrinkMenuToFit(), 0);
   }
 
+  componentDidLoad() {
+    this.setDropDownMenu();
+  }
+
   setOverflowMenu() {
     if (this.showDropDown) {
       return;
