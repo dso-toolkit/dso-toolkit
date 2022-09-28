@@ -432,6 +432,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     &:hover {
       color: $dso-button-tertiary-hover-color;
       text-decoration: underline;
+      text-underline-position: under;
     }
 
     &:active {
