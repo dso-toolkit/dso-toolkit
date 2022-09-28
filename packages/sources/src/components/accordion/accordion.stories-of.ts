@@ -28,7 +28,15 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.basicSections),
     {
       args: {
-        handleElement: 'anchor',
+      }
+    }
+  );
+
+  stories.add(
+    'handle anchors',
+    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.anchorSections),
+    {
+      args: {
       }
     }
   );
@@ -38,7 +46,6 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.subSections),
     {
       args: {
-        handleElement: 'anchor',
       }
     }
   );
@@ -48,7 +55,6 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.multiSelectableSections),
     {
       args: {
-        handleElement: 'anchor',
         multiSelectable: true,
       }
     }
@@ -59,7 +65,6 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.addonsSections),
     {
       args: {
-        handleElement: 'anchor',
       }
     }
   );
@@ -69,7 +74,6 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.alignmentSections),
     {
       args: {
-        handleElement: 'anchor',
         reverseAlign: true,
       }
     }

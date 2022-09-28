@@ -32,6 +32,25 @@
       width: $dso-icon-size + $u1;
     }
   }
+
+  // Optimaliseren
+  .dso-section-handle,
+  > h1.dso-section-handle,
+  > h2.dso-section-handle,
+  > h3.dso-section-handle,
+  > h4.dso-section-handle,
+  > h5.dso-section-handle {
+    > button,
+    > a {
+      font-size: 1em;
+      line-height: $dso-accordion-handle-line-height;
+      margin: 0;
+    }
+
+    > a:active {
+      text-decoration: none;
+    }
+  }
 }
 
 :host(.dso-accordion-default) {

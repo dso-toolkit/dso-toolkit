@@ -1,9 +1,9 @@
-export type AccordionHandleElement = 'anchor' | 'button';
-
 export type AccordionVariant = 'default' | 'compact' | 'conclusion';
 
-export interface AccordionState {
-  variant: AccordionVariant;
-  handleElement: AccordionHandleElement;
+export type AccordionSectionState = 'success' | 'info' | 'warning' | 'danger';
 
+export type AccordionHeading = 'h2' | 'h3' | 'h4' | 'h5';
+
+export interface AccordionInternalState {
+  variant: AccordionVariant;
 }

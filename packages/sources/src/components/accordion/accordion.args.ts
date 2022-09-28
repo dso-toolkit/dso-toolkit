@@ -4,9 +4,11 @@ import { Accordion } from './accordion.models';
 
 export interface AccordionArgs {
   variant: 'compact' | 'conclusion';
-  handleElement: 'anchor' | 'button';
   reverseAlign: boolean;
   multiSelectable: boolean;
+  ___: undefined;
+  open: boolean;
+  state: 'success' | 'info' | 'warning' | 'danger';
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -19,13 +21,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
         'compact': 'compact',
         'conclusion': 'conclusion'
       }
-    }
-  },
-  handleElement: {
-    options: ['anchor', 'button'],
-    control: {
-      type: 'select'
-    }
+    },
   },
   multiSelectable: {
     control: {
@@ -35,14 +31,31 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   reverseAlign: {
     control: {
       disable: true
-    }
-  }
+    },
+  },
+  // Section Args
+  ___: {
+    description: 'Hieronder staan controls voor de eerste getoonde sectie',
+    control: {
+      disable: true
+    },
+  },
+  state: {
+    options: [undefined, 'success', 'info', 'warning', 'danger'],
+    control: {
+      type: 'select'
+    },
+  },
+  open: {
+    control: {
+      type: 'boolean',
+    },
+  },
 };
 
 export function accordionArgsMapper(a: AccordionArgs): Required<Accordion> {
   return {
     variant: a.variant,
-    handleElement: a.handleElement,
     reverseAlign: a.reverseAlign,
     multiSelectable: a.multiSelectable,
   };

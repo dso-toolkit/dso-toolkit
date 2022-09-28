@@ -1,6 +1,6 @@
-import { h, Component, ComponentInterface, Host, Element, State, Prop } from '@stencil/core';
+import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent } from '@stencil/core';
 import { Accordion } from '../accordion';
-import { AccordionState } from '../accordion.interfaces';
+import { AccordionHeading, AccordionInternalState, AccordionSectionState } from '../accordion.interfaces';
 
 @Component({
   tag: 'dso-accordion-section',
@@ -11,23 +11,20 @@ export class AccordionSection implements ComponentInterface {
   @Element()
   host!: HTMLElement;
 
-  @Prop({ reflect: true })
-  danger = false;
+  @Prop()
+  state?: AccordionSectionState;
 
-  @Prop({ reflect: true })
-  success = false;
+  @Prop()
+  heading: AccordionHeading = 'h2';
 
-  @Prop({ reflect: true })
-  info = false;
-
-  @Prop({ reflect: true })
-  warning = false;
+  @Prop()
+  handleHref?: string;
 
   @Prop({ reflect: true, mutable: true })
   open = false;
 
   @State()
-  state?: AccordionState;
+  _state?: AccordionInternalState;
 
   @State()
   hasNestedSection = false;
@@ -36,7 +33,7 @@ export class AccordionSection implements ComponentInterface {
     const parent = this.host.parentElement as unknown as Accordion;
 
     if (parent) {
-      parent.getState().then(state => this.state = state);
+      parent.getState().then(state => this._state = state);
     }
   }
 
@@ -51,48 +48,83 @@ export class AccordionSection implements ComponentInterface {
   };
 
   render() {
-    if (!this.state) {
+    if (!this._state) {
       return;
     }
+
+    const { variant } = this._state;
 
     return (
       <Host
         class={{
           'dso-accordion-section': true,
-          ['dso-accordion-' + this.state.variant]: true,
+          ['dso-accordion-' + variant]: true,
           'dso-nested-accordion': this.hasNestedSection,
         }}
       >
-        <h2 class="dso-section-handle">
-          {/* Overwegen om onclick op h2 te zetten en met bubbling op te vangen als target anchor of button is. */}
-          <a href="#" onClick={this.toggleSection}>
-            <dso-icon icon="chevron-down"></dso-icon>
+        <Handle heading={this.heading}>
+          <HandleElement handleHref={this.handleHref} onClick={this.toggleSection} open={this.open}>
+            <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
             <slot name="section-handle" />
-            {this.renderHandleIcon()}
-          </a>
-        </h2>
+            {this.state && <HandleIcon status={this.state} />}
+          </HandleElement>
+        </Handle>
         <div class="dso-section-body" style={this.open ? {} : { display: 'none' }}>
           <slot />
         </div>
       </Host>
     );
   }
-
-  renderHandleIcon() {
-    if (this.danger) {
-      return (<dso-icon icon="status-danger"></dso-icon>);
-    }
-
-    if (this.success) {
-      return (<dso-icon icon="status-success"></dso-icon>);
-    }
-
-    if (this.info) {
-      return (<dso-icon icon="status-info"></dso-icon>);
-    }
-
-    if (this.warning) {
-      return (<dso-icon icon="status-warning"></dso-icon>);
-    }
-  }
 }
+
+const HandleElement: FunctionalComponent<{
+  handleHref: string | undefined,
+  open: boolean;
+  onClick: (e: MouseEvent) => void;
+}> = ({ handleHref, onClick, open }, children) => {
+  if (handleHref) {
+    return (
+      <a href={handleHref} onClick={onClick} aria-expanded={open}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <button type="button" onClick={onClick} aria-expanded={open}>
+      {children}
+    </button>
+  );
+};
+
+const Handle: FunctionalComponent<{ heading: AccordionHeading; }> = ({ heading }, children) => {
+  switch (heading) {
+    default:
+    case 'h2':
+      return <h2 class="dso-section-handle">{children}</h2>;
+    case 'h3':
+      return <h3 class="dso-section-handle">{children}</h3>;
+    case 'h4':
+      return <h4 class="dso-section-handle">{children}</h4>;
+    case 'h5':
+      return <h5 class="dso-section-handle">{children}</h5>;
+  }
+};
+
+const HandleIcon: FunctionalComponent<{ status: AccordionSectionState; }> = ({ status }) => {
+  if (status === 'danger') {
+    return (<dso-icon icon="status-danger"></dso-icon>);
+  }
+
+  if (status === 'success') {
+    return (<dso-icon icon="status-success"></dso-icon>);
+  }
+
+  if (status === 'info') {
+    return (<dso-icon icon="status-info"></dso-icon>);
+  }
+
+  if (status === 'warning') {
+    return (<dso-icon icon="status-warning"></dso-icon>);
+  }
+};

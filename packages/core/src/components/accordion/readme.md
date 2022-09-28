@@ -7,23 +7,22 @@
 
 ## Properties
 
-| Property        | Attribute        | Description          | Type                                                  | Default     |
-| --------------- | ---------------- | -------------------- | ----------------------------------------------------- | ----------- |
-| `allowMultiple` | `allow-multiple` |                      | `boolean`                                             | `false`     |
-| `handleElement` | `handle-element` | 'anchor' or 'button' | `"anchor" \| "button"`                                | `'anchor'`  |
-| `reverseAlign`  | `reverse-align`  |                      | `boolean`                                             | `false`     |
-| `variant`       | `variant`        |                      | `"compact" \| "conclusion" \| "default" \| undefined` | `'default'` |
+| Property        | Attribute        | Description | Type                                                  | Default     |
+| --------------- | ---------------- | ----------- | ----------------------------------------------------- | ----------- |
+| `allowMultiple` | `allow-multiple` |             | `boolean`                                             | `false`     |
+| `reverseAlign`  | `reverse-align`  |             | `boolean`                                             | `false`     |
+| `variant`       | `variant`        |             | `"compact" \| "conclusion" \| "default" \| undefined` | `'default'` |
 
 
 ## Methods
 
-### `getState() => Promise<AccordionState>`
+### `getState() => Promise<AccordionInternalState>`
 
 
 
 #### Returns
 
-Type: `Promise<AccordionState>`
+Type: `Promise<AccordionInternalState>`
 
 
 

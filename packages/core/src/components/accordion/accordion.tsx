@@ -1,6 +1,6 @@
 import { h, Component, ComponentInterface, Prop, Host, Method, Watch } from '@stencil/core';
 
-import { AccordionHandleElement, AccordionState, AccordionVariant } from './accordion.interfaces';
+import { AccordionInternalState, AccordionVariant } from './accordion.interfaces';
 
 import { createStore } from '@stencil/store';
 
@@ -10,13 +10,7 @@ import { createStore } from '@stencil/store';
   shadow: true,
 })
 export class Accordion implements ComponentInterface {
-  accordionState: AccordionState;
-
-  /**
-   * 'anchor' or 'button'
-   */
-  @Prop({ reflect: true })
-  handleElement: AccordionHandleElement = 'anchor';
+  accordionState: AccordionInternalState;
 
   /**
    *
@@ -36,11 +30,6 @@ export class Accordion implements ComponentInterface {
   @Prop({ reflect: true })
   allowMultiple = false;
 
-  @Watch('handleElement')
-  updateHandleElement(handleElement: AccordionHandleElement = 'anchor') {
-    this.accordionState.handleElement = handleElement || 'anchor';
-  }
-
   @Watch('variant')
   updateVariant(variant: AccordionVariant = 'default') {
     this.accordionState.variant = variant || 'default';
@@ -52,9 +41,8 @@ export class Accordion implements ComponentInterface {
   }
 
   constructor() {
-    const { state } = createStore<AccordionState>({
+    const { state } = createStore<AccordionInternalState>({
       variant: this.variant || 'default',
-      handleElement: this.handleElement,
     });
 
     this.accordionState = state;

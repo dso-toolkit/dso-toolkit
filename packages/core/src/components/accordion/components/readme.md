@@ -7,13 +7,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type      | Default |
-| --------- | --------- | ----------- | --------- | ------- |
-| `danger`  | `danger`  |             | `boolean` | `false` |
-| `info`    | `info`    |             | `boolean` | `false` |
-| `open`    | `open`    |             | `boolean` | `false` |
-| `success` | `success` |             | `boolean` | `false` |
-| `warning` | `warning` |             | `boolean` | `false` |
+| Property     | Attribute     | Description | Type                                                        | Default     |
+| ------------ | ------------- | ----------- | ----------------------------------------------------------- | ----------- |
+| `handleHref` | `handle-href` |             | `string \| undefined`                                       | `undefined` |
+| `heading`    | `heading`     |             | `"h2" \| "h3" \| "h4" \| "h5"`                              | `'h2'`      |
+| `open`       | `open`        |             | `boolean`                                                   | `false`     |
+| `state`      | `state`       |             | `"danger" \| "info" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ## Dependencies

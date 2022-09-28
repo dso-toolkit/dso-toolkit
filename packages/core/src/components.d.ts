@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionHandleElement, AccordionState, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionHeading, AccordionInternalState, AccordionSectionState, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
 import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -21,20 +21,15 @@ import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./compone
 export namespace Components {
     interface DsoAccordion {
         "allowMultiple": boolean;
-        "getState": () => Promise<AccordionState>;
-        /**
-          * 'anchor' or 'button'
-         */
-        "handleElement": AccordionHandleElement;
+        "getState": () => Promise<AccordionInternalState>;
         "reverseAlign": boolean;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
-        "danger": boolean;
-        "info": boolean;
+        "handleHref"?: string;
+        "heading": AccordionHeading;
         "open": boolean;
-        "success": boolean;
-        "warning": boolean;
+        "state"?: AccordionSectionState;
     }
     interface DsoAlert {
         /**
@@ -554,19 +549,14 @@ declare global {
 declare namespace LocalJSX {
     interface DsoAccordion {
         "allowMultiple"?: boolean;
-        /**
-          * 'anchor' or 'button'
-         */
-        "handleElement"?: AccordionHandleElement;
         "reverseAlign"?: boolean;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
-        "danger"?: boolean;
-        "info"?: boolean;
+        "handleHref"?: string;
+        "heading"?: AccordionHeading;
         "open"?: boolean;
-        "success"?: boolean;
-        "warning"?: boolean;
+        "state"?: AccordionSectionState;
     }
     interface DsoAlert {
         /**
