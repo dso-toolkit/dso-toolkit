@@ -10,22 +10,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css:** Elementen verdwijnen achter `dso-document-list-item` ([#1764](https://github.com/dso-toolkit/dso-toolkit/issues/1764))
 * **core:** Header: Dropdown menu toont soms niet in kleine viewport ([#1727](https://github.com/dso-toolkit/dso-toolkit/issues/1727))
 * **core:** Header: dropdownmenu 'always' werkt bij initiele render niet ([#1796](https://github.com/dso-toolkit/dso-toolkit/issues/1796))
-* Label mist max-width: 100% ([#1766](https://github.com/dso-toolkit/dso-toolkit/issues/1766))
+* **sources:** Label mist max-width: 100% ([#1766](https://github.com/dso-toolkit/dso-toolkit/issues/1766))
 * **sources:** Tertiare button heeft een kapotte underline ([#1788](https://github.com/dso-toolkit/dso-toolkit/issues/1788))
 * **sources:** Badge component hoogte aanpassen ([#1704](https://github.com/dso-toolkit/dso-toolkit/issues/1704))
 
 ### Changed
 * **BREAKING: core + css:** Info: sluitknopje in DOM onderaan ([#1707](https://github.com/dso-toolkit/dso-toolkit/issues/1707))\
-* **BREAKING: css + sources:** Invalid velden: `aria-errormessage` in plaats van `aria-describedby` gebruiken ([#1715](https://github.com/dso-toolkit/dso-toolkit/issues/1715))
 Het sluitknopje is verplaatst, zie PR voor geldige markup ([#1765](https://github.com/dso-toolkit/dso-toolkit/pull/1765))
-* **core + css + dso-toolkit:** Verhuizen van global stijling naar `@dso-toolkit/css/` ([#1751](https://github.com/dso-toolkit/dso-toolkit/issues/1751))
-* **dso-toolkit + css:** Verhuizen van dso-toolkit/libs/bootstrap ([#1771](https://github.com/dso-toolkit/dso-toolkit/issues/1771))
-* **core:** `dso-map-controls`: naam sluitknopje ([#1722](https://github.com/dso-toolkit/dso-toolkit/issues/1722))
+* **BREAKING: css + sources:** Invalid velden: `aria-errormessage` in plaats van `aria-describedby` gebruiken ([#1715](https://github.com/dso-toolkit/dso-toolkit/issues/1715))
 * **BREAKING: core:** Progress bar / indicator: WCAG verbeteringen ([#1714](https://github.com/dso-toolkit/dso-toolkit/issues/1714))\
 `Progress Bar` en `Progress Indicator` labels staan nu als eerste element en worden gevolgd door het visuele `progress` kenmerk ([#1748](https://github.com/dso-toolkit/dso-toolkit/pull/1748))
-* **core + css + sources:** /sources variables en mixins verhuizen naar /sources/components ([#1777](https://github.com/dso-toolkit/dso-toolkit/issues/1777))
-* **css + dso-toolkit:** Gedateerde componenten/styling opruimen ([#1458](https://github.com/dso-toolkit/dso-toolkit/issues/1458))
 * **core + sources + storybook:** Autosuggest: null kunnen meegeven aan suggestions voor 'nog niet gezocht' ([#1784](https://github.com/dso-toolkit/dso-toolkit/issues/1784))
+* **core + css + dso-toolkit:** Verhuizen van global stijling naar `@dso-toolkit/css/` ([#1751](https://github.com/dso-toolkit/dso-toolkit/issues/1751))
+* **core + css + sources:** /sources variables en mixins verhuizen naar /sources/components ([#1777](https://github.com/dso-toolkit/dso-toolkit/issues/1777))
+* **core:** `dso-map-controls`: naam sluitknopje ([#1722](https://github.com/dso-toolkit/dso-toolkit/issues/1722))
+* **css + dso-toolkit:** Verhuizen van dso-toolkit/libs/bootstrap ([#1771](https://github.com/dso-toolkit/dso-toolkit/issues/1771))
+* **css + dso-toolkit:** Gedateerde componenten/styling opruimen ([#1458](https://github.com/dso-toolkit/dso-toolkit/issues/1458))
 * **sources:** Afstand tussen chevron en tekst verkleinen ([#1725](https://github.com/dso-toolkit/dso-toolkit/issues/1725))
 
 ## 44.0.0
