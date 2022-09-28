@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **css:** Elementen verdwijnen achter `dso-document-list-item` ([#1764](https://github.com/dso-toolkit/dso-toolkit/issues/1764))
 * **core:** Header: Dropdown menu toont soms niet in kleine viewport ([#1727](https://github.com/dso-toolkit/dso-toolkit/issues/1727))
 * Label mist max-width: 100% ([#1766](https://github.com/dso-toolkit/dso-toolkit/issues/1766))
+* **sources:** Tertiare button heeft een kapotte underline ([#1788](https://github.com/dso-toolkit/dso-toolkit/issues/1788))
 
 ### Changed
 * **BREAKING: core + css:** Info: sluitknopje in DOM onderaan ([#1707](https://github.com/dso-toolkit/dso-toolkit/issues/1707))\
