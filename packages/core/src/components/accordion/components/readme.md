@@ -11,8 +11,10 @@
 | ------------ | ------------- | ----------- | ----------------------------------------------------------- | ----------- |
 | `handleHref` | `handle-href` |             | `string \| undefined`                                       | `undefined` |
 | `heading`    | `heading`     |             | `"h2" \| "h3" \| "h4" \| "h5"`                              | `'h2'`      |
+| `icon`       | `icon`        |             | `string \| undefined`                                       | `undefined` |
 | `open`       | `open`        |             | `boolean`                                                   | `false`     |
 | `state`      | `state`       |             | `"danger" \| "info" \| "success" \| "warning" \| undefined` | `undefined` |
+| `status`     | `status`      |             | `string \| undefined`                                       | `undefined` |
 
 
 ## Dependencies

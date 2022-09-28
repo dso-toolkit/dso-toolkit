@@ -28,8 +28,10 @@ export namespace Components {
     interface DsoAccordionSection {
         "handleHref"?: string;
         "heading": AccordionHeading;
+        "icon"?: string;
         "open": boolean;
         "state"?: AccordionSectionState;
+        "status"?: string;
     }
     interface DsoAlert {
         /**
@@ -555,8 +557,10 @@ declare namespace LocalJSX {
     interface DsoAccordionSection {
         "handleHref"?: string;
         "heading"?: AccordionHeading;
+        "icon"?: string;
         "open"?: boolean;
         "state"?: AccordionSectionState;
+        "status"?: string;
     }
     interface DsoAlert {
         /**

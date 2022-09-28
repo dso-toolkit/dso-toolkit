@@ -11,8 +11,8 @@ export class AccordionSection implements ComponentInterface {
   @Element()
   host!: HTMLElement;
 
-  @Prop()
-  state?: AccordionSectionState;
+  @State()
+  _state?: AccordionInternalState;
 
   @Prop()
   heading: AccordionHeading = 'h2';
@@ -20,11 +20,17 @@ export class AccordionSection implements ComponentInterface {
   @Prop()
   handleHref?: string;
 
+  @Prop()
+  state?: AccordionSectionState;
+
+  @Prop()
+  status?: string;
+
+  @Prop()
+  icon?: string;
+
   @Prop({ reflect: true, mutable: true })
   open = false;
-
-  @State()
-  _state?: AccordionInternalState;
 
   @State()
   hasNestedSection = false;
@@ -32,7 +38,7 @@ export class AccordionSection implements ComponentInterface {
   componentWillLoad() {
     const parent = this.host.parentElement as unknown as Accordion;
 
-    if (parent) {
+    if (parent instanceof HTMLElement) {
       parent.getState().then(state => this._state = state);
     }
   }
@@ -53,6 +59,7 @@ export class AccordionSection implements ComponentInterface {
     }
 
     const { variant } = this._state;
+    const hasAddons = this.status || this.state || this.icon;
 
     return (
       <Host
@@ -65,8 +72,20 @@ export class AccordionSection implements ComponentInterface {
         <Handle heading={this.heading}>
           <HandleElement handleHref={this.handleHref} onClick={this.toggleSection} open={this.open}>
             <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
+
+            {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
+
             <slot name="section-handle" />
-            {this.state && <HandleIcon status={this.state} />}
+
+            {hasAddons && (
+              <div class="dso-section-handle-addons">
+                {this.status && <span class="dso-status">{this.status}</span>}
+                {this.state
+                  ? <HandleStateIcon state={this.state} />
+                  : this.icon && <dso-icon icon={this.icon}></dso-icon>
+                }
+              </div>
+            )}
           </HandleElement>
         </Handle>
         <div class="dso-section-body" style={this.open ? {} : { display: 'none' }}>
@@ -111,20 +130,27 @@ const Handle: FunctionalComponent<{ heading: AccordionHeading; }> = ({ heading }
   }
 };
 
-const HandleIcon: FunctionalComponent<{ status: AccordionSectionState; }> = ({ status }) => {
-  if (status === 'danger') {
+const stateMap: Record<AccordionSectionState, string> = {
+  success: 'succes:',
+  info: 'info:',
+  warning: 'waarschuwing:',
+  danger: 'fout:'
+};
+
+const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState; }> = ({ state }) => {
+  if (state === 'danger') {
     return (<dso-icon icon="status-danger"></dso-icon>);
   }
 
-  if (status === 'success') {
+  if (state === 'success') {
     return (<dso-icon icon="status-success"></dso-icon>);
   }
 
-  if (status === 'info') {
+  if (state === 'info') {
     return (<dso-icon icon="status-info"></dso-icon>);
   }
 
-  if (status === 'warning') {
+  if (state === 'warning') {
     return (<dso-icon icon="status-warning"></dso-icon>);
   }
 };

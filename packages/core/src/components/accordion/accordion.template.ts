@@ -30,7 +30,10 @@ export function accordionTemplate(
       ${sections.map(section => html`
         <dso-accordion-section
           ?open=${ifDefined(section.open)}
+          handleHref=${ifDefined(section.handleHref)}
           state=${ifDefined(section.state)}
+          status=${ifDefined(section.status)}
+          icon=${ifDefined(section.icon)}
         >
           <span slot="section-handle">${section.title}</span>
           <div class="dso-rich-content">

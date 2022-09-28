@@ -114,45 +114,54 @@ export const addonsSections: AccordionDemoSection[] = [
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
-    icon: {
-      icon: 'user-line'
-    }
+    children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
+    icon: 'user-line',
   },
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
-    icon: {
-      icon: 'user-line'
-    },
-    open: true
-  },
-  {
-    title: 'Is het verplicht om de Vergunningcheck te doen?',
-    heading: 'h2',
+    children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
     state: 'danger',
-    status: '5 van 8 beantwoord'
+    icon: 'user-line',
+    open: true,
   },
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
+    children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
     state: 'danger',
     status: '5 van 8 beantwoord',
-    open: true
   },
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
-    attachmentsCounter: {
-      count: 2
-    }
+    children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
+    state: 'danger',
+    status: '5 van 8 beantwoord',
+    open: true,
   },
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
+    children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
     attachmentsCounter: {
       count: 2
     },
-    open: true
+  },
+  {
+    title: 'Is het verplicht om de Vergunningcheck te doen?',
+    heading: 'h2',
+    children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
+    attachmentsCounter: {
+      count: 2
+    },
+    open: true,
   }
 ];
 
@@ -160,16 +169,12 @@ export const alignmentSections: AccordionDemoSection[] = [
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
-    icon: {
-      icon: 'user-line'
-    }
+    icon: 'user-line'
   },
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
-    icon: {
-      icon: 'user-line'
-    },
+    icon: 'user-line',
     open: true,
     children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
               <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`

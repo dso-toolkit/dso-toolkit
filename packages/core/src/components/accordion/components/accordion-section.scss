@@ -17,39 +17,32 @@
   .dso-section-handle > button,
   .dso-section-handle > a {
     align-items: center;
+    cursor: pointer;
+    font-family: $font-family-base;
+    font-size: 1em;
+    font-weight: 600;
+    line-height: $dso-accordion-handle-line-height;
+    margin: 0;
 
     dso-icon {
       flex-shrink: 0;
     }
 
-    dso-icon:first-child {
+    > dso-icon:first-child {
       margin-right: $u1;
     }
 
-    dso-icon:last-child {
+    .dso-section-handle-addons:last-child {
       margin-left: auto;
-      padding-left: $u1;
-      width: $dso-icon-size + $u1;
+
+      dso-icon {
+        margin-left: 16px;
+      }
     }
   }
 
-  // Optimaliseren
-  .dso-section-handle,
-  > h1.dso-section-handle,
-  > h2.dso-section-handle,
-  > h3.dso-section-handle,
-  > h4.dso-section-handle,
-  > h5.dso-section-handle {
-    > button,
-    > a {
-      font-size: 1em;
-      line-height: $dso-accordion-handle-line-height;
-      margin: 0;
-    }
-
-    > a:active {
-      text-decoration: none;
-    }
+  .dso-section-handle > a:active {
+    text-decoration: none;
   }
 }
 
@@ -83,4 +76,8 @@
   border-top: 0;
   margin-top: -$dso-accordion-border-radius;
   padding: $u2 + $dso-accordion-border-radius $u2 $u2;
+}
+
+.sr-only {
+  @include sr-only();
 }

@@ -1,4 +1,4 @@
-import { AttachmentsCounter, Icon } from '../..';
+import { AttachmentsCounter } from '../..';
 
 export type AccordionHandleElement = 'anchor' | 'button';
 
@@ -22,8 +22,7 @@ export interface AccordionSection {
   attachmentsCounter?: AttachmentsCounter;
   heading: AccordionHeading;
   handleHref?: string;
-  // variant?: 'compact' | 'conclusion';
-  icon?: Icon;
+  icon?: string;
 }
 
 export type AccordionDemoSection = AccordionSection & { children?: string; };

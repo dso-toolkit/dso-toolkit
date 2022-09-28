@@ -19,14 +19,14 @@ export function accordionHandleChildren(accordion: Accordion, section: Accordion
     }
 
     ${section.icon && accordion.reverseAlign
-      ? html`<span class="dso-icon">${iconTemplate(section.icon)}</span>`
+      ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
       : nothing
     }
 
     ${section.title}
 
     ${section.icon && !accordion.reverseAlign
-      ? html`<span class="dso-icon">${iconTemplate(section.icon)}</span>`
+      ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
       : nothing
     }
 
