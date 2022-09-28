@@ -24,10 +24,13 @@ export class AccordionSection implements ComponentInterface {
   state?: AccordionSectionState;
 
   @Prop()
-  status?: string;
+  icon?: string;
 
   @Prop()
-  icon?: string;
+  attachmentCount?: number;
+
+  @Prop()
+  status?: string;
 
   @Prop({ reflect: true, mutable: true })
   open = false;
@@ -59,7 +62,7 @@ export class AccordionSection implements ComponentInterface {
     }
 
     const { variant } = this._state;
-    const hasAddons = this.status || this.state || this.icon;
+    const hasAddons = this.status || this.state || this.icon || this.attachmentCount;
 
     return (
       <Host
@@ -80,10 +83,7 @@ export class AccordionSection implements ComponentInterface {
             {hasAddons && (
               <div class="dso-section-handle-addons">
                 {this.status && <span class="dso-status">{this.status}</span>}
-                {this.state
-                  ? <HandleStateIcon state={this.state} />
-                  : this.icon && <dso-icon icon={this.icon}></dso-icon>
-                }
+                <HandleIcon state={this.state} icon={this.icon} attachmentCount={this.attachmentCount} />
               </div>
             )}
           </HandleElement>
@@ -95,6 +95,20 @@ export class AccordionSection implements ComponentInterface {
     );
   }
 }
+
+const Handle: FunctionalComponent<{ heading: AccordionHeading; }> = ({ heading }, children) => {
+  switch (heading) {
+    default:
+    case 'h2':
+      return <h2 class="dso-section-handle">{children}</h2>;
+    case 'h3':
+      return <h3 class="dso-section-handle">{children}</h3>;
+    case 'h4':
+      return <h4 class="dso-section-handle">{children}</h4>;
+    case 'h5':
+      return <h5 class="dso-section-handle">{children}</h5>;
+  }
+};
 
 const HandleElement: FunctionalComponent<{
   handleHref: string | undefined,
@@ -116,19 +130,19 @@ const HandleElement: FunctionalComponent<{
   );
 };
 
-const Handle: FunctionalComponent<{ heading: AccordionHeading; }> = ({ heading }, children) => {
-  switch (heading) {
-    default:
-    case 'h2':
-      return <h2 class="dso-section-handle">{children}</h2>;
-    case 'h3':
-      return <h3 class="dso-section-handle">{children}</h3>;
-    case 'h4':
-      return <h4 class="dso-section-handle">{children}</h4>;
-    case 'h5':
-      return <h5 class="dso-section-handle">{children}</h5>;
+const HandleIcon: FunctionalComponent<{ state?: AccordionSectionState; icon?: string; attachmentCount?: number }> = ({ state, icon, attachmentCount }) => {
+  if (state) {
+    return <HandleStateIcon state={state} />;
   }
-};
+
+  if (attachmentCount) {
+    return <dso-attachments-counter count={attachmentCount}></dso-attachments-counter>
+  }
+
+  if (icon) {
+    return <dso-icon icon={icon}></dso-icon>;
+  }
+}
 
 const stateMap: Record<AccordionSectionState, string> = {
   success: 'succes:',

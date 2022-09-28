@@ -1,5 +1,3 @@
-import { AttachmentsCounter } from '../..';
-
 export type AccordionHandleElement = 'anchor' | 'button';
 
 export type AccordionVariant = 'default' | 'compact' | 'conclusion';
@@ -19,10 +17,10 @@ export interface AccordionSection {
   open?: boolean;
   title: string;
   status?: string;
-  attachmentsCounter?: AttachmentsCounter;
   heading: AccordionHeading;
   handleHref?: string;
   icon?: string;
+  attachmentCount?: number;
 }
 
 export type AccordionDemoSection = AccordionSection & { children?: string; };

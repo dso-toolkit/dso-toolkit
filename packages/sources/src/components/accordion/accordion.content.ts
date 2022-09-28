@@ -149,18 +149,14 @@ export const addonsSections: AccordionDemoSection[] = [
     heading: 'h2',
     children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
       <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
-    attachmentsCounter: {
-      count: 2
-    },
+    attachmentCount: 2,
   },
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',
     children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
       <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
-    attachmentsCounter: {
-      count: 2
-    },
+    attachmentCount: 2,
     open: true,
   }
 ];

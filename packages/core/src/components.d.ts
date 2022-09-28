@@ -26,6 +26,7 @@ export namespace Components {
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
+        "attachmentCount"?: number;
         "handleHref"?: string;
         "heading": AccordionHeading;
         "icon"?: string;
@@ -555,6 +556,7 @@ declare namespace LocalJSX {
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
+        "attachmentCount"?: number;
         "handleHref"?: string;
         "heading"?: AccordionHeading;
         "icon"?: string;

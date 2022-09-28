@@ -12,6 +12,7 @@ export function accordionTemplate(
     multiSelectable,
     // Section
     state,
+    open
   }: Accordion & AccordionSection,
   sections: AccordionDemoSection[]
 ) {
@@ -19,6 +20,7 @@ export function accordionTemplate(
 
   if (firstSection) {
     firstSection.state = state;
+    firstSection.open = open;
   }
 
   return html`
@@ -30,10 +32,11 @@ export function accordionTemplate(
       ${sections.map(section => html`
         <dso-accordion-section
           ?open=${ifDefined(section.open)}
-          handleHref=${ifDefined(section.handleHref)}
+          handle-href=${ifDefined(section.handleHref)}
           state=${ifDefined(section.state)}
           status=${ifDefined(section.status)}
           icon=${ifDefined(section.icon)}
+          attachment-count=${ifDefined(section.attachmentCount)}
         >
           <span slot="section-handle">${section.title}</span>
           <div class="dso-rich-content">
