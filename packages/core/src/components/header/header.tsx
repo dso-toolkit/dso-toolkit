@@ -63,7 +63,7 @@ export class Header {
   userHomeUrl?: string;
 
   @State()
-  showDropDown: boolean = false;
+  showDropDown?: boolean;
 
   @State()
   hasSubLogo: boolean = false;
@@ -80,7 +80,7 @@ export class Header {
   dsoHeaderClick!: EventEmitter<HeaderClickEvent | HeaderClickMenuItemEvent>;
 
   @Watch("useDropDownMenu")
-  watchUseDropDownMenu(value: "always" | "never" | "auto") {
+  setShowDropDown(value: "always" | "never" | "auto") {
     if (value === "auto") {
       this.setDropDownMenu();
       return;
@@ -122,7 +122,7 @@ export class Header {
   }
 
   componentDidLoad() {
-    this.setDropDownMenu();
+    this.setShowDropDown(this.useDropDownMenu);
   }
 
   setOverflowMenu() {
@@ -174,6 +174,11 @@ export class Header {
   };
 
   render() {
+    // Prevent 'flickering' when useDropDownMenu = 'always'
+    if (this.showDropDown === undefined) {
+      return;
+    }
+
     return (
       <>
         <div
