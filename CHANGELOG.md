@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Header: Dropdown menu toont soms niet in kleine viewport ([#1727](https://github.com/dso-toolkit/dso-toolkit/issues/1727))
 * Label mist max-width: 100% ([#1766](https://github.com/dso-toolkit/dso-toolkit/issues/1766))
 * **sources:** Tertiare button heeft een kapotte underline ([#1788](https://github.com/dso-toolkit/dso-toolkit/issues/1788))
+* **sources:** Badge component hoogte aanpassen ([#1704](https://github.com/dso-toolkit/dso-toolkit/issues/1704))
 
 ### Changed
 * **BREAKING: core + css:** Info: sluitknopje in DOM onderaan ([#1707](https://github.com/dso-toolkit/dso-toolkit/issues/1707))\
