@@ -1,4 +1,4 @@
-@import "~@dso-toolkit/sources/src/components/accordion/accordion";
+@import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
 
 @mixin dso-web-component-accordion-compact {
   .dso-section-handle {
@@ -33,38 +33,36 @@
   .dso-section-body {
     margin-top: 0;
   }
+}
 
-  &[open] {
-    &:not(.dso-nested-accordion) {
-      > .dso-section-handle {
-        background-color: transparent;
+@mixin dso-web-component-accordion-compact-open {
+  > .dso-section-handle {
+    background-color: transparent;
 
-        a,
-        button {
-          color: $dso-accordion-compact-color;
+    a,
+    button {
+      color: $dso-accordion-compact-color;
 
-          &:hover,
-          &:active,
-          &.active {
-            color: $dso-accordion-compact-color;
-          }
+      &:hover,
+      &:active,
+      &.active {
+        color: $dso-accordion-compact-color;
+      }
 
-          dso-attachments-counter {
-            --dso-attachments-counter-color: #{$grijs-60};
-            --dso-icon: var(--di-paperclip-grijs);
-          }
-        }
+      dso-attachments-counter {
+        --dso-attachments-counter-color: #{$grijs-60};
+        --dso-icon: var(--di-paperclip-grijs);
       }
     }
+  }
+}
 
-    &.dso-nested-accordion {
-      > .dso-section-body {
-        padding-bottom: 0;
+@mixin dso-web-component-accordion-compact-open-nested {
+  > .dso-section-body {
+    padding-bottom: 0;
 
-        dso-accordion-section:last-child {
-          border-bottom: 0;
-        }
-      }
+    dso-accordion-section:last-child {
+      border-bottom: 0;
     }
   }
 }

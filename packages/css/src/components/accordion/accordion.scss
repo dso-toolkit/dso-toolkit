@@ -2,7 +2,4 @@
   @include accordion_root(true);
 }
 
-// Een aantal selectors zijn nu specifieker.
-.dso-accordion-section {
-  @include accordion-section_root(true);
-}
+@include accordion-section_root();

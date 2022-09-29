@@ -6,27 +6,55 @@
 @import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
 @import "~@dso-toolkit/sources/src/components/accordion/accordion";
 
-@import "../../../icon/di";
-
 @import "./accordion-section-theme-compact";
 @import "./accordion-section-theme-conclusion";
+@import "./accordion-section-theme-default";
 
 @include box-sizing();
+
+.sr-only {
+  @include sr-only();
+}
 
 :host {
   display: block;
 
-  @include accordion-section_root();
+  .dso-section-handle {
+    font-size: 1em;
+    font-weight: 600;
+    line-height: $dso-accordion-handle-line-height;
+    margin: 0;
+    position: relative;
+
+    > a:active {
+      text-decoration: none;
+    }
+
+    a {
+      @include anchor-clean();
+    }
+
+    .dso-status {
+      font-weight: 400;
+      text-decoration: underline;
+    }
+  }
 
   .dso-section-handle > button,
   .dso-section-handle > a {
     align-items: center;
+    background-color: transparent;
+    border: 0;
     cursor: pointer;
+    display: flex;
     font-family: $font-family-base;
     font-size: 1em;
     font-weight: 600;
     line-height: $dso-accordion-handle-line-height;
     margin: 0;
+    padding: $dso-accordion-vertical-padding $dso-accordion-horizontal-padding $dso-accordion-vertical-padding;
+    width: 100%;
+    word-break: break-word;
 
     dso-icon {
       flex-shrink: 0;
@@ -49,43 +77,12 @@
       }
     }
   }
-
-  .dso-section-handle > a:active {
-    text-decoration: none;
-  }
 }
 
 :host(:not([open])) {
   .dso-section-body {
     display: none;
   }
-}
-
-:host(.dso-accordion-default) {
-  @include dso-accordion-default();
-}
-
-:host([open].dso-accordion-default) {
-  @include dso-accordion-default-section-open();
-}
-
-:host([open].dso-accordion-default.dso-nested-accordion) {
-  border: 0;
-  border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
-
-  > .dso-section-body {
-    background-color: $dso-accordion-default-nested-body-bgcolor;
-    border: 0;
-    padding: ($u2 + $dso-accordion-border-radius - 1) ($u2 + 1) $u2; // corrections for missing borders in nested accordion
-  }
-}
-
-:host(.dso-accordion-compact) {
-  @include dso-web-component-accordion-compact();
-}
-
-:host(.dso-accordion-conclusion) {
-  @include dso-web-component-accordion-conclusion();
 }
 
 .dso-section-body {
@@ -95,6 +92,41 @@
   padding: $u2 + $dso-accordion-border-radius $u2 $u2;
 }
 
-.sr-only {
-  @include sr-only();
+// Default
+:host(.dso-accordion-default) {
+  @include dso-web-component-accordion-default();
+}
+
+:host(.dso-accordion-default[open]:not(.dso-nested-accordion)) {
+  @include dso-web-component-accordion-default-open();
+}
+
+:host(.dso-accordion-default.dso-nested-accordion[open]) {
+  @include dso-web-component-accordion-default-open-nested();
+}
+
+// Compact
+:host(.dso-accordion-compact) {
+  @include dso-web-component-accordion-compact();
+}
+
+:host(.dso-accordion-compact[open]:not(.dso-nested-accordion)) {
+  @include dso-web-component-accordion-compact-open();
+}
+
+:host(.dso-accordion-compact.dso-nested-accordion[open]) {
+  @include dso-web-component-accordion-compact-open-nested();
+}
+
+// Conclusion
+:host(.dso-accordion-conclusion) {
+  @include dso-web-component-accordion-conclusion();
+}
+
+:host(.dso-accordion-conclusion[open]:not(.dso-nested-accordion)) {
+  @include dso-web-component-accordion-conclusion-open();
+}
+
+:host(.dso-accordion-conclusion.dso-nested-accordion[open]) {
+  @include dso-web-component-accordion-conclusion-open-nested();
 }
