@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:** Helpcenter Panel: iframe content laden alleen als de panel open is ([#1678](https://github.com/dso-toolkit/dso-toolkit/issues/1678))
+
 ### Changed
 * `@mixin di()` en `@mixin di-variant()` uit @dso-toolkit/core verwijderen ([#1752](https://github.com/dso-toolkit/dso-toolkit/issues/1752))
 * `@mixin di()` verhuizen van `packages/sources` naar `packages/css` ([#1804](https://github.com/dso-toolkit/dso-toolkit/issues/1804))

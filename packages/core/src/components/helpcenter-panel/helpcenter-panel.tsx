@@ -63,7 +63,7 @@ export class HelpcenterPanel {
         <div class={`wrapper ${this.visibility}`}>
           <div class="dimscreen" onClick={this.closeClick} />
           <div class={`iframe-container ${this.slideState}`} aria-live="polite">
-            {this.loadIframe ? <iframe src={this.url} /> : <div />}
+            {this.loadIframe ? <iframe src={this.slideState === 'open' ? this.url : undefined} /> : <div />}
           </div>
           <button
             type="button"
