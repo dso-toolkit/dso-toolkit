@@ -20,7 +20,7 @@ const minDesktopViewportWidth = 992;
 @Component({
   tag: "dso-header",
   styleUrl: "header.scss",
-  shadow: true,
+  scoped: true
 })
 export class Header {
   private clickHandler(e: MouseEvent, type: HeaderNavigationType, options?: { menuItem?: HeaderMenuItem; url?: string; }) {

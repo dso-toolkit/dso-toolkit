@@ -14,3 +14,19 @@
     @include dropdown-menu_align-right();
   }
 }
+
+dso-dropdown-menu {
+  @include dropdown-menu_children();
+
+  &[dropdown-align="right"] {
+    @include dropdown-menu_align-right();
+  }
+
+  &[open] {
+    @include dropdown-menu_open();
+  }
+
+  &[checkable] {
+    @include dropdown-menu_checkable();
+  }
+}
