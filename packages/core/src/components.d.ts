@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionHeading, AccordionInternalState, AccordionSectionState, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionHeading, AccordionInternalState, AccordionSectionState, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
 import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -20,17 +20,36 @@ import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
 export namespace Components {
     interface DsoAccordion {
+        /**
+          * Allows multiple sections to be open at the same time.
+         */
         "allowMultiple": boolean;
         "getState": () => Promise<AccordionInternalState>;
+        /**
+          * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+         */
         "reverseAlign": boolean;
+        /**
+          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+         */
+        "toggleSection": (sectionElement: HTMLElement | number) => Promise<void>;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
+        /**
+          * `attachmentCount` takes precedence over `icon`
+         */
         "attachmentCount"?: number;
+        /**
+          * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
+         */
         "handleHref"?: string;
         "heading": AccordionHeading;
         "icon"?: string;
         "open": boolean;
+        /**
+          * `state` takes precedence over `attachmentCount` and `icon`
+         */
         "state"?: AccordionSectionState;
         "status"?: string;
     }
@@ -551,16 +570,35 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DsoAccordion {
+        /**
+          * Allows multiple sections to be open at the same time.
+         */
         "allowMultiple"?: boolean;
+        /**
+          * Emitted when a section is toggled.  `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
+         */
+        "onDsoToggleSection"?: (event: CustomEvent<AccordionSectionToggleEvent>) => void;
+        /**
+          * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+         */
         "reverseAlign"?: boolean;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
+        /**
+          * `attachmentCount` takes precedence over `icon`
+         */
         "attachmentCount"?: number;
+        /**
+          * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
+         */
         "handleHref"?: string;
         "heading"?: AccordionHeading;
         "icon"?: string;
         "open"?: boolean;
+        /**
+          * `state` takes precedence over `attachmentCount` and `icon`
+         */
         "state"?: AccordionSectionState;
         "status"?: string;
     }

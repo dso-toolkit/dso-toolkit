@@ -8,3 +8,16 @@ export interface AccordionInternalState {
   variant: AccordionVariant;
   reverseAlign: boolean;
 }
+
+export interface AccordionInterface {
+  getState(): Promise<AccordionInternalState>;
+  toggleSection(sectionElement: HTMLElement): Promise<void>;
+}
+
+export interface AccordionSectionToggleEvent {
+  section: {
+    element: HTMLElement;
+    open: boolean;
+  };
+  sections: Array<HTMLElement>;
+}

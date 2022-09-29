@@ -1,6 +1,6 @@
-import { h, Component, ComponentInterface, Prop, Host, Method, Watch } from '@stencil/core';
+import { h, Component, ComponentInterface, Prop, Host, Method, Watch, Element, Event, EventEmitter } from '@stencil/core';
 
-import { AccordionInternalState, AccordionVariant } from './accordion.interfaces';
+import { AccordionInterface, AccordionInternalState, AccordionSectionToggleEvent, AccordionVariant } from './accordion.interfaces';
 
 import { createStore } from '@stencil/store';
 
@@ -9,26 +9,31 @@ import { createStore } from '@stencil/store';
   styleUrl: 'accordion.scss',
   shadow: true,
 })
-export class Accordion implements ComponentInterface {
-  accordionState: AccordionInternalState;
+export class Accordion implements ComponentInterface, AccordionInterface {
+  private accordionState: AccordionInternalState;
 
-  /**
-   *
-   */
+  @Element()
+  host!: HTMLElement;
+
   @Prop({ reflect: true })
   variant?: AccordionVariant = 'default';
 
-  /**
-   *
-   */
+  /** Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements */
   @Prop({ reflect: true })
   reverseAlign = false;
 
-  /**
-   *
-   */
+  /** Allows multiple sections to be open at the same time. */
   @Prop({ reflect: true })
   allowMultiple = false;
+
+  /**
+   * Emitted when a section is toggled.
+   *
+   * `event.detail.section` contains the toggled section and its new opened value.\
+   * `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
+   */
+  @Event()
+  dsoToggleSection!: EventEmitter<AccordionSectionToggleEvent>;
 
   @Watch('variant')
   updateVariant(variant: AccordionVariant = 'default') {
@@ -40,9 +45,56 @@ export class Accordion implements ComponentInterface {
     this.accordionState.reverseAlign = reverseAlign;
   }
 
+  @Watch('allowMultiple')
+  watchAllowMultiple(allowMultiple: boolean) {
+    if (!allowMultiple) {
+      const openSections = Array.from(this.host.querySelectorAll<HTMLElement>(':scope > dso-accordion-section[open]'));
+
+      // By removing the first section, it is kept open;
+      openSections.shift();
+
+      openSections.forEach(section => this.controlOpenAttribute(section, false));
+    }
+  }
+
   @Method()
-  async getState() {
+  async getState(): Promise<AccordionInternalState> {
     return this.accordionState;
+  }
+
+  /**
+   * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+   */
+  @Method()
+  async toggleSection(sectionElement: HTMLElement | number): Promise<void> {
+    const sections = Array.from(this.host.querySelectorAll<HTMLElement>(':scope > dso-accordion-section'));
+
+    if (typeof sectionElement === 'number') {
+      sectionElement = sections[sectionElement];
+    }
+
+    if (!(sectionElement instanceof HTMLElement) || !sections.includes(sectionElement)) {
+      return;
+    }
+
+    const sectionIsOpen = this.isSectionOpen(sectionElement);
+
+    if (this.allowMultiple) {
+      this.controlOpenAttribute(sectionElement, !sectionIsOpen);
+      this.emitToggleEvent(sectionElement, sections);
+      return;
+    }
+
+    if (sectionIsOpen) {
+      this.controlOpenAttribute(sectionElement, false);
+      this.emitToggleEvent(sectionElement, sections);
+      return;
+    }
+
+    this.closeOpenSections(sections);
+
+    this.controlOpenAttribute(sectionElement, true);
+    this.emitToggleEvent(sectionElement, sections);
   }
 
   constructor() {
@@ -62,5 +114,33 @@ export class Accordion implements ComponentInterface {
         <slot></slot>
       </Host>
     );
+  }
+
+  private emitToggleEvent(sectionElement: HTMLElement, sections: HTMLElement[]): void {
+    this.dsoToggleSection.emit({
+      section: {
+        element: sectionElement,
+        open: this.isSectionOpen(sectionElement),
+      },
+      sections,
+    });
+  }
+
+  private closeOpenSections(sections: HTMLElement[]): void {
+    const openSections = sections.filter(s => this.isSectionOpen(s));
+    openSections.forEach(section => this.controlOpenAttribute(section, false));
+  }
+
+  private isSectionOpen(sectionElement: HTMLElement): boolean {
+    return typeof sectionElement.getAttribute('open') === 'string';
+  }
+
+  private controlOpenAttribute(sectionElement: HTMLElement, setAttribute: boolean): void {
+    if (setAttribute) {
+      sectionElement.setAttribute('open', '');
+    }
+    else {
+      sectionElement.removeAttribute('open');
+    }
   }
 }

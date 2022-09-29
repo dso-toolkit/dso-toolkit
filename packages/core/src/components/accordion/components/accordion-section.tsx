@@ -1,6 +1,5 @@
 import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent, Fragment } from '@stencil/core';
-import { Accordion } from '../accordion';
-import { AccordionHeading, AccordionInternalState, AccordionSectionState } from '../accordion.interfaces';
+import { AccordionHeading, AccordionInterface, AccordionInternalState, AccordionSectionState } from '../accordion.interfaces';
 
 @Component({
   tag: 'dso-accordion-section',
@@ -8,26 +7,31 @@ import { AccordionHeading, AccordionInternalState, AccordionSectionState } from 
   shadow: true,
 })
 export class AccordionSection implements ComponentInterface {
+  private accordion?: AccordionInterface;
+
   @Element()
   host!: HTMLElement;
 
   @State()
-  _state?: AccordionInternalState;
+  accordionState?: AccordionInternalState;
 
   @Prop()
   heading: AccordionHeading = 'h2';
 
+  /** When set the handle will render as a `<a>`. When undefined it renders as a `<button>` */
   @Prop()
   handleHref?: string;
 
+  /** `state` takes precedence over `attachmentCount` and `icon` */
   @Prop()
   state?: AccordionSectionState;
 
-  @Prop()
-  icon?: string;
-
+  /** `attachmentCount` takes precedence over `icon` */
   @Prop()
   attachmentCount?: number;
+
+  @Prop()
+  icon?: string;
 
   @Prop()
   status?: string;
@@ -39,10 +43,11 @@ export class AccordionSection implements ComponentInterface {
   hasNestedSection = false;
 
   componentWillLoad() {
-    const parent = this.host.parentElement as unknown as Accordion;
+    const accordion = this.host.parentElement;
 
-    if (parent instanceof HTMLElement) {
-      parent.getState().then(state => this._state = state);
+    if (isAccordion(accordion)) {
+      this.accordion = accordion;
+      accordion.getState().then(state => this.accordionState = state);
     }
   }
 
@@ -53,15 +58,15 @@ export class AccordionSection implements ComponentInterface {
   toggleSection = (e: MouseEvent) => {
     e.preventDefault();
 
-    this.open = !this.open;
+    this.accordion?.toggleSection(this.host);
   };
 
   render() {
-    if (!this._state) {
+    if (!this.accordionState) {
       return;
     }
 
-    const { variant, reverseAlign } = this._state;
+    const { variant, reverseAlign } = this.accordionState;
     const hasAddons = this.status || this.state || this.icon || this.attachmentCount;
 
     return (
@@ -111,6 +116,10 @@ export class AccordionSection implements ComponentInterface {
       </Host>
     );
   }
+}
+
+function isAccordion(element: HTMLElement | AccordionInterface | null): element is AccordionInterface {
+  return element instanceof HTMLElement && 'getState' in element;
 }
 
 const Handle: FunctionalComponent<{ heading: AccordionHeading; }> = ({ heading }, children) => {

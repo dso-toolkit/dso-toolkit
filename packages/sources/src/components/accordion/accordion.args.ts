@@ -1,12 +1,21 @@
+import { HandlerFunction } from '@storybook/addon-actions';
+
 import { ArgTypes } from '../../storybook';
+import { AccordionHeading, AccordionSectionState } from './accordion.models';
 
 export interface AccordionArgs {
   variant: 'compact' | 'conclusion';
   reverseAlign: boolean;
-  multiSelectable: boolean;
+  allowMultiple: boolean;
+  dsoToggleSection: HandlerFunction;
   ___: undefined;
   open: boolean;
-  state: 'success' | 'info' | 'warning' | 'danger';
+  status: string;
+  state: AccordionSectionState;
+  attachmentCount: number;
+  icon: string;
+  heading: AccordionHeading;
+  handleHref: string;
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -16,12 +25,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'select',
       labels: {
         undefined: 'default',
-        'compact': 'compact',
-        'conclusion': 'conclusion'
       }
     },
   },
-  multiSelectable: {
+  allowMultiple: {
     control: {
       type: 'boolean',
     },
@@ -31,11 +38,24 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'boolean',
     },
   },
-  // Section Args
+  dsoToggleSection: {
+    action: 'dsoToggleSection',
+  },
+  /* Section args */
   ___: {
     description: 'Hieronder staan controls voor de eerste getoonde sectie',
     control: {
       disable: true
+    },
+  },
+  open: {
+    control: {
+      type: 'boolean',
+    },
+  },
+  status: {
+    control: {
+      type: 'text',
     },
   },
   state: {
@@ -44,17 +64,26 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'select'
     },
   },
-  open: {
+  attachmentCount: {
     control: {
-      type: 'boolean',
-    },
+      type: 'number',
+    }
+  },
+  icon: {
+    control: {
+      type: 'select',
+      options: [undefined, '', 'plus', 'table']
+    }
+  },
+  heading: {
+    options: ['h2', 'h3', 'h4', 'h5'],
+    control: {
+      type: 'select',
+    }
+  },
+  handleHref: {
+    control: {
+      text: 'select',
+    }
   },
 };
-
-// export function accordionArgsMapper(a: AccordionArgs): Required<Accordion> {
-//   return {
-//     variant: a.variant,
-//     reverseAlign: a.reverseAlign,
-//     multiSelectable: a.multiSelectable,
-//   };
-// }

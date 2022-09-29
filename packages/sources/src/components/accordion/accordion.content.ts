@@ -94,7 +94,7 @@ export const subSections: AccordionDemoSection[] = [
   }
 ];
 
-export const multiSelectableSections: AccordionDemoSection[] = [
+export const allowMultipleSections: AccordionDemoSection[] = [
   {
     title: 'Is het verplicht om de Vergunningcheck te doen?',
     heading: 'h2',

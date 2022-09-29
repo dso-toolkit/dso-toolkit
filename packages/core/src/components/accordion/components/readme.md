@@ -7,15 +7,15 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type                                                        | Default     |
-| ----------------- | ------------------ | ----------- | ----------------------------------------------------------- | ----------- |
-| `attachmentCount` | `attachment-count` |             | `number \| undefined`                                       | `undefined` |
-| `handleHref`      | `handle-href`      |             | `string \| undefined`                                       | `undefined` |
-| `heading`         | `heading`          |             | `"h2" \| "h3" \| "h4" \| "h5"`                              | `'h2'`      |
-| `icon`            | `icon`             |             | `string \| undefined`                                       | `undefined` |
-| `open`            | `open`             |             | `boolean`                                                   | `false`     |
-| `state`           | `state`            |             | `"danger" \| "info" \| "success" \| "warning" \| undefined` | `undefined` |
-| `status`          | `status`           |             | `string \| undefined`                                       | `undefined` |
+| Property          | Attribute          | Description                                                                           | Type                                                        | Default     |
+| ----------------- | ------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
+| `attachmentCount` | `attachment-count` | `attachmentCount` takes precedence over `icon`                                        | `number \| undefined`                                       | `undefined` |
+| `handleHref`      | `handle-href`      | When set the handle will render as a `<a>`. When undefined it renders as a `<button>` | `string \| undefined`                                       | `undefined` |
+| `heading`         | `heading`          |                                                                                       | `"h2" \| "h3" \| "h4" \| "h5"`                              | `'h2'`      |
+| `icon`            | `icon`             |                                                                                       | `string \| undefined`                                       | `undefined` |
+| `open`            | `open`             |                                                                                       | `boolean`                                                   | `false`     |
+| `state`           | `state`            | `state` takes precedence over `attachmentCount` and `icon`                            | `"danger" \| "info" \| "success" \| "warning" \| undefined` | `undefined` |
+| `status`          | `status`           |                                                                                       | `string \| undefined`                                       | `undefined` |
 
 
 ## Dependencies

@@ -51,11 +51,11 @@ export function storiesOfAccordion<TemplateFnReturnType>(
   );
 
   stories.add(
-    'multiSelectable',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.multiSelectableSections),
+    'allowMultiple',
+    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.allowMultipleSections),
     {
       args: {
-        multiSelectable: true,
+        allowMultiple: true,
       }
     }
   );

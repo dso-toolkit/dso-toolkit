@@ -9,13 +9,13 @@ export type AccordionHeading = 'h2' | 'h3' | 'h4' | 'h5';
 export interface Accordion {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
-  multiSelectable?: boolean;
+  allowMultiple?: boolean;
+  dsoToggleSection: (value: CustomEvent<AccordionSectionToggleEvent>) => void;
 }
 
 export interface AccordionSection {
   state?: AccordionSectionState;
   open?: boolean;
-  title: string;
   status?: string;
   heading: AccordionHeading;
   handleHref?: string;
@@ -23,4 +23,12 @@ export interface AccordionSection {
   attachmentCount?: number;
 }
 
-export type AccordionDemoSection = AccordionSection & { children?: string; };
+export interface AccordionSectionToggleEvent {
+  section: {
+    element: HTMLElement;
+    open: boolean;
+  };
+  sections: Array<HTMLElement>;
+}
+
+export type AccordionDemoSection = AccordionSection & { title: string; children?: string; };
