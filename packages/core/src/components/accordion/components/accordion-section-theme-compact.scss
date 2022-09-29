@@ -1,0 +1,70 @@
+@import "~@dso-toolkit/sources/src/components/accordion/accordion";
+
+@mixin dso-web-component-accordion-compact {
+  .dso-section-handle {
+    border: 1px solid transparent;
+
+    a,
+    button {
+      color: $dso-accordion-compact-color;
+
+      &:hover,
+      &:active,
+      &.active {
+        color: $dso-accordion-compact-color;
+      }
+    }
+  }
+
+  &,
+  .dso-section-body {
+    border: 0;
+    border-top: 1px solid $dso-accordion-compact-border-color;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $dso-accordion-compact-border-color;
+  }
+
+  + dso-accordion-section {
+    margin-top: 0;
+  }
+
+  .dso-section-body {
+    margin-top: 0;
+  }
+
+  &[open] {
+    &:not(.dso-nested-accordion) {
+      > .dso-section-handle {
+        background-color: transparent;
+
+        a,
+        button {
+          color: $dso-accordion-compact-color;
+
+          &:hover,
+          &:active,
+          &.active {
+            color: $dso-accordion-compact-color;
+          }
+
+          dso-attachments-counter {
+            --dso-attachments-counter-color: #{$grijs-60};
+            --dso-icon: var(--di-paperclip-grijs);
+          }
+        }
+      }
+    }
+
+    &.dso-nested-accordion {
+      > .dso-section-body {
+        padding-bottom: 0;
+
+        dso-accordion-section:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

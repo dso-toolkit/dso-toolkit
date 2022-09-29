@@ -1,27 +1,4 @@
-$dso-accordion-default-border-color: $mauve;
-$dso-accordion-default-color: $mauve;
-$dso-accordion-default-nested-handle-bgcolor: $mauve;
-$dso-accordion-default-nested-body-bgcolor: $mauve-40;
-
-$dso-accordion-conclusion-bgcolor: $grijs-5;
-$dso-accordion-conclusion-hover-bgcolor: $grijs-10;
-$dso-accordion-conclusion-border-color: $grijs-5;
-$dso-accordion-conclusion-color: $grijs-90;
-$dso-accordion-conclusion-nested-handle-bgcolor: $dso-accordion-conclusion-bgcolor;
-$dso-accordion-conclusion-nested-body-bgcolor: $wit;
-
-$dso-accordion-compact-color: $grasgroen;
-$dso-accordion-compact-border-color: $grijs-20;
-
-$dso-accordion-border-radius: $u1 * 0.5;
-$dso-accordion-horizontal-padding: $u2;
-$dso-accordion-vertical-padding: $u1 * 1.5;
-$dso-accordion-chevron-icon-size: $u3;
-$dso-accordion-chevron-space: $u3;
-$dso-accordion-chevron-left-offset: $dso-accordion-chevron-icon-size + $dso-accordion-chevron-space;
-$dso-accordion-handle-line-height: 1.375em;
-$dso-accordion-handle-height: $u6;
-$dso-accordion-state-icon-size: $u3;
+@import "./accordion-variables";
 
 @mixin dso-accordion-default-section-open {
   > .dso-section-handle {

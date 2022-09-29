@@ -3,9 +3,13 @@
 
 @import "~@dso-toolkit/sources/src/utilities";
 
+@import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
 @import "~@dso-toolkit/sources/src/components/accordion/accordion";
 
 @import "../../../icon/di";
+
+@import "./accordion-section-theme-compact";
+@import "./accordion-section-theme-conclusion";
 
 @include box-sizing();
 
@@ -51,6 +55,12 @@
   }
 }
 
+:host(:not([open])) {
+  .dso-section-body {
+    display: none;
+  }
+}
+
 :host(.dso-accordion-default) {
   @include dso-accordion-default();
 }
@@ -70,10 +80,12 @@
   }
 }
 
-:host(:not([open])) {
-  .dso-section-body {
-    display: none;
-  }
+:host(.dso-accordion-compact) {
+  @include dso-web-component-accordion-compact();
+}
+
+:host(.dso-accordion-conclusion) {
+  @include dso-web-component-accordion-conclusion();
 }
 
 .dso-section-body {
@@ -85,9 +97,4 @@
 
 .sr-only {
   @include sr-only();
-}
-
-::slotted(*):first-child {
-
-  background-color: yellow !important;
 }
