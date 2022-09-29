@@ -3100,7 +3100,7 @@ __metadata:
     typescript: ^4.5.0
     wait-on: ^6.0.1
   peerDependencies:
-    "@dso-toolkit/core": ">=39"
+    "@dso-toolkit/core": ">=45"
     leaflet: ^1.8.0
   languageName: unknown
   linkType: soft
