@@ -12,7 +12,7 @@ export function accordionTemplate(
     multiSelectable,
     // Section
     state,
-    open
+    open,
   }: Accordion & AccordionSection,
   sections: AccordionDemoSection[]
 ) {
@@ -39,9 +39,7 @@ export function accordionTemplate(
           attachment-count=${ifDefined(section.attachmentCount)}
         >
           <span slot="section-handle">${section.title}</span>
-          <div class="dso-rich-content">
-            ${unsafeHTML(section.children)}
-          </div>
+          ${unsafeHTML(section.children)}
         </dso-accordion-section>`
   )}
     </dso-accordion>

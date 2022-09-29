@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent } from '@stencil/core';
+import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent, Fragment } from '@stencil/core';
 import { Accordion } from '../accordion';
 import { AccordionHeading, AccordionInternalState, AccordionSectionState } from '../accordion.interfaces';
 
@@ -61,7 +61,7 @@ export class AccordionSection implements ComponentInterface {
       return;
     }
 
-    const { variant } = this._state;
+    const { variant, reverseAlign } = this._state;
     const hasAddons = this.status || this.state || this.icon || this.attachmentCount;
 
     return (
@@ -74,17 +74,34 @@ export class AccordionSection implements ComponentInterface {
       >
         <Handle heading={this.heading}>
           <HandleElement handleHref={this.handleHref} onClick={this.toggleSection} open={this.open}>
-            <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
+            {reverseAlign && (
+              <Fragment>
+                {hasAddons && (
+                  <div class="dso-section-handle-addons">
+                    <HandleIcon icon={this.icon} />
+                  </div>
+                )}
 
-            {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
+                <slot name="section-handle" />
 
-            <slot name="section-handle" />
+                <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
+              </Fragment>
+            )}
+            {!reverseAlign && (
+              <Fragment>
+                <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
 
-            {hasAddons && (
-              <div class="dso-section-handle-addons">
-                {this.status && <span class="dso-status">{this.status}</span>}
-                <HandleIcon state={this.state} icon={this.icon} attachmentCount={this.attachmentCount} />
-              </div>
+                {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
+
+                <slot name="section-handle" />
+
+                {hasAddons && (
+                  <div class="dso-section-handle-addons">
+                    {this.status && <span class="dso-status">{this.status}</span>}
+                    <HandleIcon state={this.state} icon={this.icon} attachmentCount={this.attachmentCount} />
+                  </div>
+                )}
+              </Fragment>
             )}
           </HandleElement>
         </Handle>
@@ -130,19 +147,19 @@ const HandleElement: FunctionalComponent<{
   );
 };
 
-const HandleIcon: FunctionalComponent<{ state?: AccordionSectionState; icon?: string; attachmentCount?: number }> = ({ state, icon, attachmentCount }) => {
+const HandleIcon: FunctionalComponent<{ state?: AccordionSectionState; icon?: string; attachmentCount?: number; }> = ({ state, icon, attachmentCount }) => {
   if (state) {
     return <HandleStateIcon state={state} />;
   }
 
   if (attachmentCount) {
-    return <dso-attachments-counter count={attachmentCount}></dso-attachments-counter>
+    return <dso-attachments-counter count={attachmentCount}></dso-attachments-counter>;
   }
 
   if (icon) {
     return <dso-icon icon={icon}></dso-icon>;
   }
-}
+};
 
 const stateMap: Record<AccordionSectionState, string> = {
   success: 'succes:',

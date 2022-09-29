@@ -6,4 +6,5 @@ export type AccordionHeading = 'h2' | 'h3' | 'h4' | 'h5';
 
 export interface AccordionInternalState {
   variant: AccordionVariant;
+  reverseAlign: boolean;
 }

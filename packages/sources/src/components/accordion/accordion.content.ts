@@ -100,7 +100,7 @@ export const multiSelectableSections: AccordionDemoSection[] = [
     heading: 'h2',
     open: true,
     children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
-      <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
+      <p class="dso-info">Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
   },
   {
     title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',

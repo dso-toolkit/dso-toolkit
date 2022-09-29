@@ -28,11 +28,16 @@
       flex-shrink: 0;
     }
 
+    > .dso-section-handle-addons:first-child,
     > dso-icon:first-child {
       margin-right: $u1;
     }
 
-    .dso-section-handle-addons:last-child {
+    > dso-icon:last-child {
+      margin-left: auto;
+    }
+
+    > .dso-section-handle-addons:last-child {
       margin-left: auto;
 
       dso-icon {
@@ -80,4 +85,9 @@
 
 .sr-only {
   @include sr-only();
+}
+
+::slotted(*):first-child {
+
+  background-color: yellow !important;
 }

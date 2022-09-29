@@ -35,8 +35,8 @@ export function accordionHandleChildren(accordion: Accordion, section: Accordion
       : nothing
     }
 
-    ${section.attachmentsCount
-      ? html`${attachmentsCounterTemplate({ count: section.attachmentsCount })}`
+    ${section.attachmentCount
+      ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}`
       : nothing
     }
   `;

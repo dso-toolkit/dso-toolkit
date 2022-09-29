@@ -35,6 +35,11 @@ export class Accordion implements ComponentInterface {
     this.accordionState.variant = variant || 'default';
   }
 
+  @Watch('reverseAlign')
+  updateReverseAlign(reverseAlign: boolean) {
+    this.accordionState.reverseAlign = reverseAlign;
+  }
+
   @Method()
   async getState() {
     return this.accordionState;
@@ -43,6 +48,7 @@ export class Accordion implements ComponentInterface {
   constructor() {
     const { state } = createStore<AccordionInternalState>({
       variant: this.variant || 'default',
+      reverseAlign: this.reverseAlign,
     });
 
     this.accordionState = state;

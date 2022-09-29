@@ -1,7 +1,5 @@
 import { ArgTypes } from '../../storybook';
 
-import { Accordion } from './accordion.models';
-
 export interface AccordionArgs {
   variant: 'compact' | 'conclusion';
   reverseAlign: boolean;
@@ -30,7 +28,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   },
   reverseAlign: {
     control: {
-      disable: true
+      type: 'boolean',
     },
   },
   // Section Args
@@ -53,10 +51,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   },
 };
 
-export function accordionArgsMapper(a: AccordionArgs): Required<Accordion> {
-  return {
-    variant: a.variant,
-    reverseAlign: a.reverseAlign,
-    multiSelectable: a.multiSelectable,
-  };
-}
+// export function accordionArgsMapper(a: AccordionArgs): Required<Accordion> {
+//   return {
+//     variant: a.variant,
+//     reverseAlign: a.reverseAlign,
+//     multiSelectable: a.multiSelectable,
+//   };
+// }
