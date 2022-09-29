@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 45.0.0
+
 ### Fixed
 * **BREAKING: core + css + react + sources:** Niet alle event-emitters hebben React bindings ([#1706](https://github.com/dso-toolkit/dso-toolkit/issues/1706)) **Custom event properties hebben een dso prefix gekreken ([#1789](https://github.com/dso-toolkit/dso-toolkit/pull/1789))**
 * **css:** Elementen verdwijnen achter `dso-document-list-item` ([#1764](https://github.com/dso-toolkit/dso-toolkit/issues/1764))
