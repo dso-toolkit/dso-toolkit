@@ -384,7 +384,7 @@ export class MapControls {
           ? html`
             <dso-map-base-layers
               .baseLayers=${baseLayers}
-              @baseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
+              @dsoBaseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
             ></dso-map-base-layers>`
           : nothing
         }
@@ -392,7 +392,7 @@ export class MapControls {
           ? html`
             <dso-map-overlays
               .overlays=${overlays}
-              @toggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
+              @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
             ></dso-map-overlays>`
           : nothing
         }
