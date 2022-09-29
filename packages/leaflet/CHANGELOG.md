@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## v1.2.5 - 2022-09-29
+
+Niet alle event-emitters hebben React bindings ([#1706](https://github.com/dso-toolkit/dso-toolkit/issues/1706))
+
 ## v1.2.4 - 2022-06-23
 
 Version bumps:
