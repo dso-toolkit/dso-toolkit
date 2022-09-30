@@ -1,6 +1,6 @@
 @use "sass:math";
 
-@use "../../../../css/src/components/grid/grid.variables" as grid-variables;
+@use "@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
 
 $navbar-height:                    50px !default;
 $navbar-margin-bottom:             $line-height-computed !default;

@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 45.0.1
+
+### Fixed
+* **core:** Fixed: packages/dso-toolkit/src/styles/components/_navbar.scss heeft relatief pad ([#1801](https://github.com/dso-toolkit/dso-toolkit/issues/1801)) 
+
 ## 45.0.0
 
 ### Fixed
