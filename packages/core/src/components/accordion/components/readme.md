@@ -18,6 +18,19 @@
 | `status`          | `status`           |                                                                                       | `string \| undefined`                                       | `undefined` |
 
 
+## Methods
+
+### `toggleSection(e?: MouseEvent | undefined) => Promise<void>`
+
+Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

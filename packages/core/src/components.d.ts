@@ -24,6 +24,10 @@ export namespace Components {
           * Allows multiple sections to be open at the same time.
          */
         "allowMultiple": boolean;
+        /**
+          * Closes all sections belonging to this accordion.
+         */
+        "closeOpenSections": () => Promise<void>;
         "getState": () => Promise<AccordionInternalState>;
         /**
           * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
@@ -52,6 +56,10 @@ export namespace Components {
          */
         "state"?: AccordionSectionState;
         "status"?: string;
+        /**
+          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+         */
+        "toggleSection": (e?: MouseEvent | undefined) => Promise<void>;
     }
     interface DsoAlert {
         /**

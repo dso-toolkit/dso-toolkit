@@ -1,6 +1,6 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes, noControl } from '../../storybook';
 import { AccordionHeading, AccordionSectionState } from './accordion.models';
 
 export interface AccordionArgs {
@@ -39,6 +39,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   dsoToggleSection: {
+    ...noControl,
     action: 'dsoToggleSection',
   },
   /* Section args */

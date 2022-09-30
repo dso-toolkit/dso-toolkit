@@ -62,9 +62,7 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     return this.accordionState;
   }
 
-  /**
-   * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
-   */
+  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section. */
   @Method()
   async toggleSection(sectionElement: HTMLElement | number): Promise<void> {
     const sections = Array.from(this.host.querySelectorAll<HTMLElement>(':scope > dso-accordion-section'));
@@ -91,10 +89,19 @@ export class Accordion implements ComponentInterface, AccordionInterface {
       return;
     }
 
-    this.closeOpenSections(sections);
+    await this.closeOpenSections();
 
     this.controlOpenAttribute(sectionElement, true);
     this.emitToggleEvent(sectionElement, sections);
+  }
+
+  /** Closes all sections belonging to this accordion. */
+  @Method()
+  async closeOpenSections(): Promise<void> {
+    const sections = Array.from(this.host.querySelectorAll<HTMLElement>(':scope > dso-accordion-section'));
+
+    const openSections = sections.filter(s => this.isSectionOpen(s));
+    openSections.forEach(section => this.controlOpenAttribute(section, false));
   }
 
   constructor() {
@@ -124,11 +131,6 @@ export class Accordion implements ComponentInterface, AccordionInterface {
       },
       sections,
     });
-  }
-
-  private closeOpenSections(sections: HTMLElement[]): void {
-    const openSections = sections.filter(s => this.isSectionOpen(s));
-    openSections.forEach(section => this.controlOpenAttribute(section, false));
   }
 
   private isSectionOpen(sectionElement: HTMLElement): boolean {

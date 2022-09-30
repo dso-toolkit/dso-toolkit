@@ -23,6 +23,16 @@
 
 ## Methods
 
+### `closeOpenSections() => Promise<void>`
+
+Closes all sections belonging to this accordion.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `getState() => Promise<AccordionInternalState>`
 
 

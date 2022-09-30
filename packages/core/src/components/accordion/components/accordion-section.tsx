@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent, Fragment } from '@stencil/core';
+import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent, Fragment, Method } from '@stencil/core';
 import { AccordionHeading, AccordionInterface, AccordionInternalState, AccordionSectionState } from '../accordion.interfaces';
 
 @Component({
@@ -55,11 +55,13 @@ export class AccordionSection implements ComponentInterface {
     this.hasNestedSection = this.host.querySelector('dso-accordion') !== null;
   }
 
-  toggleSection = (e: MouseEvent) => {
-    e.preventDefault();
+  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section. */
+  @Method()
+  async toggleSection(e?: MouseEvent): Promise<void> {
+    e?.preventDefault();
 
-    this.accordion?.toggleSection(this.host);
-  };
+    return this.accordion?.toggleSection(this.host);
+  }
 
   render() {
     if (!this.accordionState) {
@@ -78,7 +80,7 @@ export class AccordionSection implements ComponentInterface {
         }}
       >
         <Handle heading={this.heading}>
-          <HandleElement handleHref={this.handleHref} onClick={this.toggleSection} open={this.open}>
+          <HandleElement handleHref={this.handleHref} onClick={async (event) => await this.toggleSection(event)} open={this.open}>
             {reverseAlign && (
               <Fragment>
                 {hasAddons && (
@@ -143,14 +145,14 @@ const HandleElement: FunctionalComponent<{
 }> = ({ handleHref, onClick, open }, children) => {
   if (handleHref) {
     return (
-      <a href={handleHref} onClick={onClick} aria-expanded={open}>
+      <a href={handleHref} onClick={onClick} aria-expanded={open ? 'true' : 'false'}>
         {children}
       </a>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} aria-expanded={open}>
+    <button type="button" onClick={onClick} aria-expanded={open ? 'true' : 'false'}>
       {children}
     </button>
   );
