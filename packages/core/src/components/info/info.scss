@@ -1,13 +1,9 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/di";
-
-@import "~@dso-toolkit/sources/src/components/info/info";
 @import "~@dso-toolkit/sources/src/components/button/button";
+@import "~@dso-toolkit/sources/src/components/info/info";
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/css/src/components/button/button";
 
 :host {
   display: block;
@@ -17,6 +13,10 @@
 
 :host(:not([active]):not([fixed])) {
   display: none;
+}
+
+button {
+  @include button_element();
 }
 
 @include box-sizing();

@@ -1,7 +1,19 @@
+// HTML/CSS
 .dso-label {
   @include label_root();
 
   .dso-label-symbol {
+    @include label_symbolContainer();
+
+    > span {
+      @include label_symbol();
+    }
+  }
+}
+
+// Web Component
+dso-label {
+  span[slot="symbol"] {
     @include label_symbolContainer();
 
     > span {

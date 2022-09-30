@@ -1,9 +1,0 @@
-dso-label {
-  span[slot="symbol"] {
-    @include label_symbolContainer();
-
-    > span {
-      @include label_symbol();
-    }
-  }
-}

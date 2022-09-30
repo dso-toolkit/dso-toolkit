@@ -1,0 +1,5 @@
+dso-map-controls {
+  & > * + * {
+    margin-top: $u4;
+  }
+}

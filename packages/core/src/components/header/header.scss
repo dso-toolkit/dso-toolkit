@@ -1,7 +1,5 @@
 @import "~@dso-toolkit/sources/src/styling/variables";
 @import "~@dso-toolkit/sources/src/styling/mixins";
-@import "~@dso-toolkit/sources/src/components/button/button";
-@import "~@dso-toolkit/sources/src/di";
 @import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
 
 $dso-navigation-selected-color: $mauve;
@@ -71,8 +69,6 @@ $dso-dropdown-link-color: $grijs-90;
   margin-right: $u2;
 
   .dso-tertiary {
-    @include button_tertiary();
-
     cursor: pointer;
     font-family: $font-family-base;
     font-weight: 600;

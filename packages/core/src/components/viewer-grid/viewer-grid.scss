@@ -3,18 +3,12 @@
 @use "~@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
 
 @import "~@dso-toolkit/sources/src/styling/variables";
-
 @import "~@dso-toolkit/sources/src/utilities";
 @import "~@dso-toolkit/sources/src/components/headings/headings.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/di";
-
 @import "~@dso-toolkit/sources/src/styling/mixins";
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
 @import "~@dso-toolkit/sources/src/components/button/button";
 
-@import "~@dso-toolkit/css/src/components/button/button";
 @import "~@dso-toolkit/css/src/components/headings/headings";
 
 @include box-sizing();
@@ -71,6 +65,10 @@
   }
 }
 
+button {
+  @include button_element();
+}
+
 .sr-only {
   @include sr-only();
 }
@@ -78,7 +76,7 @@
 .shrink,
 .expand,
 .overlay-close-button {
-  @include button-tertiary();
+  @include button-tertiary($modifiers: false);
 
   &:hover {
     cursor: pointer;
@@ -128,7 +126,7 @@
   z-index: $zx-viewer-grid-sizing-buttons;
 
   button {
-    @include button_secondary($icon-only: true);
+    @include button_secondary($modifiers: false, $icon-only: true);
     @include button_map_focus();
 
     border: 0;
@@ -223,12 +221,12 @@
   text-align: right;
 
   .cancel-button {
-    @include button_secondary();
+    @include button_secondary($modifiers: false);
     @include button_small();
   }
 
   .apply-button {
-    @include button_primary();
+    @include button_primary($modifiers: false);
     @include button_small();
   }
 

@@ -1,8 +1,6 @@
 
 @import "~@dso-toolkit/sources/src/styling/variables";
 
-@import "~@dso-toolkit/sources/src/di";
-
 @import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
 
 @import "~@dso-toolkit/sources/src/components/button/button";
@@ -36,8 +34,7 @@
 }
 
 .open-button {
-  @include button_base();
-  @include button_primary($base-styling: true);
+  @include button_primary($modifiers: false);
 
   border: 0;
   bottom: $u2;
@@ -56,7 +53,7 @@
 }
 
 .close-button {
-  @include button_secondary($base-styling: true);
+  @include button_secondary($modifiers: false);
 
   border-right: 0;
   border-top: 0;

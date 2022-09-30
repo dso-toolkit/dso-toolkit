@@ -1,4 +1,10 @@
+// HTML/CSS
 .dso-info:not(.dso-accordion-section) {
   @include info_root();
+  @include info_children();
+}
+
+// Web Component
+dso-info {
   @include info_children();
 }

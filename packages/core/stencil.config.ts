@@ -8,7 +8,6 @@ export const config: Config = {
   devServer: {
     port: 53333
   },
-  globalStyle: 'src/global-styling.scss',
   plugins: [
     inlineSvg(),
     sass()

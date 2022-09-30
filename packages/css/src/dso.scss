@@ -71,8 +71,9 @@
 @import "components/label/label";
 @import "components/label-group/label-group";
 @import "components/link-list/link-list";
-@import "components/list-button/list-button";
 @import "components/list/list";
+@import "components/list-button/list-button";
+@import "components/map-controls/map-controls";
 @import "components/mark/mark";
 @import "components/modal/modal";
 @import "components/nav/nav";
@@ -99,5 +100,6 @@
 @import "components/tile/tile";
 @import "components/tile-grid/tile-grid";
 @import "components/tooltip/tooltip";
+@import "components/viewer-grid/viewer-grid";
 @import "components/whitebox/whitebox";
 // stylelint-enable no-invalid-position-at-import-rule
