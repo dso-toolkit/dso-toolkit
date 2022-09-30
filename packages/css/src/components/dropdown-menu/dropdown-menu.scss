@@ -1,3 +1,4 @@
+// HTML/CSS
 .dso-dropdown-menu {
   @include dropdown-menu_root();
   @include dropdown-menu_children();
@@ -15,6 +16,7 @@
   }
 }
 
+// Web Component
 dso-dropdown-menu {
   @include dropdown-menu_children();
 

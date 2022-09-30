@@ -2,6 +2,7 @@
   background-color: $dso-invalid-color !important;
 }
 
+// HTML/CSS
 .banner,
 .dso-banner:not(.row) {
   @include banner_root();
@@ -12,6 +13,19 @@
   }
 
   &.alert-warning {
+    @include banner_warning();
+  }
+}
+
+// Web Component
+dso-banner {
+  @include banner_children();
+
+  &[status="danger"] {
+    @include banner_danger();
+  }
+
+  &[status="warning"] {
     @include banner_warning();
   }
 }

@@ -1,6 +1,6 @@
 meta:
   webComponent: dso-attachments-counter
-  markup: true
+  markup: false
 notes: |
   De attachment counter is een teller voor bijlagen. Deze wordt getoond met het aantal bijlagen en het paperclip-icoon. Het geeft aan hoeveel bijlagen er zijn toegevoegd die bekeken of gedownload kunnen worden.
 

@@ -22,7 +22,7 @@ $banner-danger-border: $state-danger-border;
   border-color: $border;
 }
 
-@mixin banner_children($di: true) {
+@mixin banner_children() {
   a {
     text-decoration: underline;
 
@@ -75,12 +75,10 @@ $banner-danger-border: $state-danger-border;
         padding-top: $dso-banner-small-padding-top;
       }
 
-      @if ($di) {
-        &::before {
-          @include banner_icon-position();
-          content: "";
-          display: inline-block;
-        }
+      &::before {
+        @include banner_icon-position();
+        content: "";
+        display: inline-block;
       }
 
       > .dso-rich-content {
@@ -127,23 +125,19 @@ $banner-danger-border: $state-danger-border;
   }
 }
 
-@mixin banner_danger($di: true) {
+@mixin banner_danger() {
   @include banner-variant($banner-danger-bg, $banner-danger-border, $banner-danger-text);
 
-  @if ($di) {
-    .row > div::before {
-      @include di("status-danger");
-    }
+  .row > div::before {
+    @include di("status-danger");
   }
 }
 
-@mixin banner_warning($di: true) {
+@mixin banner_warning() {
   @include banner-variant($banner-warning-bg, $banner-warning-border, $banner-warning-text);
 
-  @if ($di) {
-    .row > div::before {
-      @include di("status-warning");
-    }
+  .row > div::before {
+    @include di("status-warning");
   }
 }
 
