@@ -54,12 +54,6 @@ $dso-dropdown-link-color: $grijs-90;
   @media screen and (max-width: $screen-xs-max) {
     max-width: 200px;
   }
-
-   + .dropdown {
-     dso-dropdown-menu {
-       position: static;
-     }
-   }
 }
 
 .sub-logo {
@@ -174,6 +168,8 @@ dso-dropdown-menu {
   margin-left: auto;
 
   dso-dropdown-menu {
+    position: static;
+
     @media screen and (max-width: $screen-xs-max) {
       margin-top: $u1 * 3.5;
     }
@@ -188,7 +184,16 @@ dso-dropdown-menu {
       color: $grasgroen;
       font-size: $dso-font-size-base;
       font-weight: 600;
+      line-height: normal;
       position: relative;
+
+      &::after {
+        margin-left: $u1;
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
 
       &:hover,
       &:active {
@@ -264,6 +269,9 @@ dso-dropdown-menu {
         }
 
         &::after {
+          margin-left: $u1;
+          position: absolute;
+          right: 0px;
           top: auto;
           transform: none;
         }

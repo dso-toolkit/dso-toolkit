@@ -199,7 +199,7 @@ export class Header {
           {this.showDropDown && this.mainMenu && this.mainMenu.length > 0 && (
             <div class="dropdown">
               <dso-dropdown-menu dropdown-align="right">
-                <button type="button" class="dso-tertiary" slot="toggle">
+                <button type="button" slot="toggle">
                   <span>Menu</span>
                 </button>
                 <div class="dso-dropdown-options">
@@ -281,17 +281,15 @@ export class Header {
                     {this.overflowMenuItems > 0 && (
                       <li>
                         <dso-dropdown-menu dropdown-align="left">
-                          <button type="button" class="dso-tertiary" slot="toggle">
+                          <button type="button" slot="toggle">
                             <span>Meer</span>
                           </button>
                           <div class="dso-dropdown-options">
-                            <dso-dropdown-options>
-                              <ul>
-                                {this.mainMenu && this.mainMenu
-                                  .filter((_, index) => index >= this.mainMenu!.length - this.overflowMenuItems)
-                                  .map(this.MenuItem)}
-                              </ul>
-                            </dso-dropdown-options>
+                            <ul>
+                              {this.mainMenu && this.mainMenu
+                                .filter((_, index) => index >= this.mainMenu!.length - this.overflowMenuItems)
+                                .map(this.MenuItem)}
+                            </ul>
                           </div>
                         </dso-dropdown-menu>
                       </li>
