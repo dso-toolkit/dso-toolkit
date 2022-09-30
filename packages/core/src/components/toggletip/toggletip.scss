@@ -5,7 +5,7 @@
 @include box-sizing();
 
 :host {
-  vertical-align: top;
+  display: inline-block;
 }
 
 :host(:focus) {
