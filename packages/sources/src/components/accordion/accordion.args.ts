@@ -15,7 +15,8 @@ export interface AccordionArgs {
   attachmentCount: number;
   icon: string;
   heading: AccordionHeading;
-  handleHref: string;
+  handleUrl: string;
+  handleTitle: string;
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -71,9 +72,9 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     }
   },
   icon: {
+    options: [undefined, '', 'plus', 'table'],
     control: {
       type: 'select',
-      options: [undefined, '', 'plus', 'table']
     }
   },
   heading: {
@@ -82,9 +83,14 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'select',
     }
   },
-  handleHref: {
+  handleUrl: {
     control: {
       text: 'select',
     }
+  },
+  handleTitle: {
+    control: {
+      type: 'text',
+    },
   },
 };

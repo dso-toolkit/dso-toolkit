@@ -16,11 +16,14 @@ export class AccordionSection implements ComponentInterface {
   accordionState?: AccordionInternalState;
 
   @Prop()
+  handleTitle?: string;
+
+  @Prop()
   heading: AccordionHeading = 'h2';
 
   /** When set the handle will render as a `<a>`. When undefined it renders as a `<button>` */
   @Prop()
-  handleHref?: string;
+  handleUrl?: string;
 
   /** `state` takes precedence over `attachmentCount` and `icon` */
   @Prop()
@@ -80,7 +83,7 @@ export class AccordionSection implements ComponentInterface {
         }}
       >
         <Handle heading={this.heading}>
-          <HandleElement handleHref={this.handleHref} onClick={async (event) => await this.toggleSection(event)} open={this.open}>
+          <HandleElement handleUrl={this.handleUrl} onClick={async (event) => await this.toggleSection(event)} open={this.open}>
             {reverseAlign && (
               <Fragment>
                 {hasAddons && (
@@ -89,7 +92,7 @@ export class AccordionSection implements ComponentInterface {
                   </div>
                 )}
 
-                <slot name="section-handle" />
+                <span>{this.handleTitle}</span>
 
                 <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
               </Fragment>
@@ -100,7 +103,7 @@ export class AccordionSection implements ComponentInterface {
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 
-                <slot name="section-handle" />
+                <span>{this.handleTitle}</span>
 
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
@@ -139,13 +142,13 @@ const Handle: FunctionalComponent<{ heading: AccordionHeading; }> = ({ heading }
 };
 
 const HandleElement: FunctionalComponent<{
-  handleHref: string | undefined,
+  handleUrl: string | undefined,
   open: boolean;
   onClick: (e: MouseEvent) => void;
-}> = ({ handleHref, onClick, open }, children) => {
-  if (handleHref) {
+}> = ({ handleUrl, onClick, open }, children) => {
+  if (handleUrl) {
     return (
-      <a href={handleHref} onClick={onClick} aria-expanded={open ? 'true' : 'false'}>
+      <a href={handleUrl} onClick={onClick} aria-expanded={open ? 'true' : 'false'}>
         {children}
       </a>
     );

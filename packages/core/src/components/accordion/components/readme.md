@@ -10,7 +10,8 @@
 | Property          | Attribute          | Description                                                                           | Type                                                        | Default     |
 | ----------------- | ------------------ | ------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ----------- |
 | `attachmentCount` | `attachment-count` | `attachmentCount` takes precedence over `icon`                                        | `number \| undefined`                                       | `undefined` |
-| `handleHref`      | `handle-href`      | When set the handle will render as a `<a>`. When undefined it renders as a `<button>` | `string \| undefined`                                       | `undefined` |
+| `handleTitle`     | `handle-title`     |                                                                                       | `string \| undefined`                                       | `undefined` |
+| `handleUrl`       | `handle-url`       | When set the handle will render as a `<a>`. When undefined it renders as a `<button>` | `string \| undefined`                                       | `undefined` |
 | `heading`         | `heading`          |                                                                                       | `"h2" \| "h3" \| "h4" \| "h5"`                              | `'h2'`      |
 | `icon`            | `icon`             |                                                                                       | `string \| undefined`                                       | `undefined` |
 | `open`            | `open`             |                                                                                       | `boolean`                                                   | `false`     |

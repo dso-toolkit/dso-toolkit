@@ -44,10 +44,11 @@ export namespace Components {
           * `attachmentCount` takes precedence over `icon`
          */
         "attachmentCount"?: number;
+        "handleTitle"?: string;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
-        "handleHref"?: string;
+        "handleUrl"?: string;
         "heading": AccordionHeading;
         "icon"?: string;
         "open": boolean;
@@ -597,10 +598,11 @@ declare namespace LocalJSX {
           * `attachmentCount` takes precedence over `icon`
          */
         "attachmentCount"?: number;
+        "handleTitle"?: string;
         /**
           * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
          */
-        "handleHref"?: string;
+        "handleUrl"?: string;
         "heading"?: AccordionHeading;
         "icon"?: string;
         "open"?: boolean;

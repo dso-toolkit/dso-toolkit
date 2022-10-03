@@ -1,9 +1,7 @@
-import { Accordion, AccordionDemoSection } from '@dso-toolkit/sources';
+import { Accordion, AccordionSection, AccordionDemoSection } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
-
-import { AccordionSection } from './components/accordion-section';
 
 export function accordionTemplate(
   {
@@ -18,7 +16,7 @@ export function accordionTemplate(
     attachmentCount,
     icon,
     heading,
-    handleHref,
+    handleUrl,
   }: Accordion & AccordionSection,
   sections: AccordionDemoSection[]
 ) {
@@ -31,7 +29,7 @@ export function accordionTemplate(
     firstSection.attachmentCount = attachmentCount;
     firstSection.icon = icon;
     firstSection.heading = heading;
-    firstSection.handleHref = handleHref;
+    firstSection.handleUrl = handleUrl;
   }
 
   return html`
@@ -44,13 +42,13 @@ export function accordionTemplate(
       ${sections.map(section => html`
         <dso-accordion-section
           ?open=${ifDefined(section.open)}
-          handle-href=${ifDefined(section.handleHref)}
+          handle-title=${section.handleTitle}
+          handle-url=${ifDefined(section.handleUrl)}
           state=${ifDefined(section.state)}
           status=${ifDefined(section.status)}
           icon=${ifDefined(section.icon)}
           attachment-count=${ifDefined(section.attachmentCount)}
         >
-          <span slot="section-handle">${section.title}</span>
           ${unsafeHTML(section.children)}
         </dso-accordion-section>`
   )}

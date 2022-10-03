@@ -173,7 +173,7 @@ describe('Accordion', () => {
       .find('.dso-section-handle > button')
       .should('exist')
       .get('@dsoAccordionSection')
-      .invoke('attr', 'handle-href', href)
+      .invoke('attr', 'handle-url', href)
       .shadow()
       .find('.dso-section-handle > a')
       .should('have.attr', 'href', href);

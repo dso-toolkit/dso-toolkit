@@ -14,11 +14,12 @@ export interface Accordion {
 }
 
 export interface AccordionSection {
-  state?: AccordionSectionState;
   open?: boolean;
-  status?: string;
+  handleTitle: string;
   heading: AccordionHeading;
-  handleHref?: string;
+  handleUrl?: string;
+  status?: string;
+  state?: AccordionSectionState;
   icon?: string;
   attachmentCount?: number;
 }
@@ -31,4 +32,4 @@ export interface AccordionSectionToggleEvent {
   sections: Array<HTMLElement>;
 }
 
-export type AccordionDemoSection = AccordionSection & { title: string; children?: string; };
+export type AccordionDemoSection = AccordionSection & { children?: string; };

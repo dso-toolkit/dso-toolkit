@@ -7,9 +7,9 @@ export function accordionHandleContent(accordion: Accordion, section: AccordionD
   const ariaExpanded = (section.open ?? false).toString();
   const children = accordionHandleChildren(accordion, section);
 
-  if (section.handleHref) {
+  if (section.handleUrl) {
     return html`
-        <a href="${section.handleHref}" aria-expanded=${ariaExpanded}>
+        <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>
           ${children}
         </a>
       `;

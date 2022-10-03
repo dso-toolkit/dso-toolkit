@@ -2,12 +2,12 @@ import { Args } from '@storybook/addons';
 
 import { createStories, StorybookParameters } from '../../storybook';
 import { AccordionArgs, accordionArgTypes } from './accordion.args';
-import { Accordion, AccordionDemoSection } from './accordion.models';
+import { Accordion, AccordionDemoSection, AccordionSection } from './accordion.models';
 
 import * as AccordionContent from './accordion.content';
 
 type AccordionTemplateFnType<TemplateFnReturnType> = (
-  properties: Accordion,
+  properties: Accordion & AccordionSection,
   sections: AccordionDemoSection[],
 ) => TemplateFnReturnType;
 

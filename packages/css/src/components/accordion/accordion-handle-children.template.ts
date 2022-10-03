@@ -23,7 +23,7 @@ export function accordionHandleChildren(accordion: Accordion, section: Accordion
       : nothing
     }
 
-    ${section.title}
+    ${section.handleTitle}
 
     ${section.icon && !accordion.reverseAlign
       ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
