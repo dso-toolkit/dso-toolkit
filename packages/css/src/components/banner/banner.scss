@@ -8,6 +8,14 @@
   @include banner_root();
   @include banner_children();
 
+  .row > div::before {
+    content: "";
+    display: inline-block;
+    left: $u2;
+    position: absolute;
+    top: 0;
+  }
+
   &.alert-danger {
     @include banner_danger();
 
@@ -42,6 +50,14 @@
 // Web Component
 dso-banner {
   @include banner_children();
+
+  .row > div::before {
+    content: "";
+    display: inline-block;
+    left: $u2;
+    position: absolute;
+    top: 0;
+  }
 
   &[status="danger"] {
     @include banner_danger();

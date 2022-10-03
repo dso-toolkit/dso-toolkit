@@ -89,5 +89,22 @@ dso-dropdown-menu {
 
   &[checkable] {
     @include dropdown-menu_checkable();
+
+    li {
+      &.dso-checked {
+        a,
+        button {
+          &::before {
+            @include di("check-wit", $u3);
+
+            content: "";
+            display: block;
+            float: left;
+            margin-left: -$u4;
+            margin-right: $u1;
+          }
+        }
+      }
+    }
   }
 }

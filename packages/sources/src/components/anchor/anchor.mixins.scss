@@ -3,7 +3,7 @@ $link-hover-color: $scampi;
 $dso-anchor-spacer-width: 4px;
 $dso-anchor-visited-color: $mauve;
 
-@mixin anchor_root($is-html-a-element: true, $with-modifiers: true) {
+@mixin anchor_root($is-html-a-element: true) {
   background-color: transparent;
   color: $link-color;
   text-decoration: underline;
@@ -25,18 +25,6 @@ $dso-anchor-visited-color: $mauve;
   }
   @else {
     cursor: pointer;
-  }
-
-  @if ($with-modifiers) {
-    &.download,
-    &.extern {
-      &::after {
-        content: "";
-        display: inline-block;
-        margin-left: $dso-anchor-spacer-width;
-        vertical-align: $dso-icon-vertical-align;
-      }
-    }
   }
 }
 
