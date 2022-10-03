@@ -75,18 +75,6 @@ $alert-danger-border: $state-danger-border;
     &:active {
       text-decoration: none;
     }
-
-    &.download {
-      &::after {
-        @include di-variant("download-grijs90");
-      }
-    }
-
-    &.extern {
-      &::after {
-        @include di-variant("external-link-grijs90");
-      }
-    }
   }
 }
 
@@ -96,7 +84,7 @@ $alert-danger-border: $state-danger-border;
   border-color: $border;
 }
 
-@mixin alert_root($di: true) {
+@mixin alert_root() {
   border: 1px solid transparent;
   line-height: $line-height-base;
   margin-bottom: $line-height-computed;
@@ -107,52 +95,20 @@ $alert-danger-border: $state-danger-border;
     margin-top: $u3;
   }
 
-  @if ($di) {
-    &::before {
-      @include alert_icon-position();
-
-      content: "";
-    }
-  }
-
   &.alert-success {
     @include alert_alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
-
-    @if ($di) {
-      &::before {
-        @include di("status-success", $dso-alert-icon-size);
-      }
-    }
   }
 
   &.alert-danger {
     @include alert_alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
-
-    @if ($di) {
-      &::before {
-        @include di("status-danger", $dso-alert-icon-size);
-      }
-    }
   }
 
   &.alert-warning {
     @include alert_alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
-
-    @if ($di) {
-      &::before {
-        @include di("status-warning", $dso-alert-icon-size);
-      }
-    }
   }
 
   &.alert-info {
     @include alert_alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
-
-    @if ($di) {
-      &::before {
-        @include di("status-info", $dso-alert-icon-size);
-      }
-    }
   }
 }
 

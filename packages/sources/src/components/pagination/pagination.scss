@@ -3,38 +3,8 @@ $dso-pagination-item-border-size: 2px;
 $dso-pagination-line-height: $dso-pagination-item-size;
 $dso-pagination-icon-margin: $u1 * 0.5;
 
-@mixin pagination_root($css-icons: false) {
+@mixin pagination_root() {
   text-align: center;
-
-  @if ($css-icons) {
-    .dso-previous,
-    .dso-next {
-      border-color: $grasgroen;
-      height: $dso-pagination-item-size;
-      text-indent: -9999px;
-      width: $dso-pagination-item-size;
-
-      &::before {
-        content: "";
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    .dso-previous {
-      &::before {
-        @include di("chevron-left");
-      }
-    }
-
-    .dso-next {
-      &::before {
-        @include di("chevron-right");
-      }
-    }
-  }
 
   > li {
     display: inline-block;

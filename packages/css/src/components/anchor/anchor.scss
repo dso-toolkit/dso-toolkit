@@ -1,3 +1,25 @@
 a {
   @include anchor_root();
+
+  &.download,
+  &.extern {
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: $dso-anchor-spacer-width;
+      vertical-align: $dso-icon-vertical-align;
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+  }
 }

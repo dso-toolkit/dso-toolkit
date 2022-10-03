@@ -10,12 +10,6 @@ $banner-danger-bg: $state-danger-bg;
 $banner-danger-text: $state-danger-text;
 $banner-danger-border: $state-danger-border;
 
-@mixin banner_icon-position() {
-  left: $u2;
-  position: absolute;
-  top: 0;
-}
-
 @mixin banner-variant($background, $border, $text-color) {
   color: $text-color;
   background-color: $background;
@@ -36,18 +30,6 @@ $banner-danger-border: $state-danger-border;
 
     &:active {
       text-decoration: none;
-    }
-
-    &.download {
-      &::after {
-        @include di("download-grijs90");
-      }
-    }
-
-    &.extern {
-      &::after {
-        @include di("external-link-grijs90");
-      }
     }
   }
 
@@ -73,12 +55,6 @@ $banner-danger-border: $state-danger-border;
 
       @media screen and (max-width: $screen-xs-min) {
         padding-top: $dso-banner-small-padding-top;
-      }
-
-      &::before {
-        @include banner_icon-position();
-        content: "";
-        display: inline-block;
       }
 
       > .dso-rich-content {
@@ -127,18 +103,10 @@ $banner-danger-border: $state-danger-border;
 
 @mixin banner_danger() {
   @include banner-variant($banner-danger-bg, $banner-danger-border, $banner-danger-text);
-
-  .row > div::before {
-    @include di("status-danger");
-  }
 }
 
 @mixin banner_warning() {
   @include banner-variant($banner-warning-bg, $banner-warning-border, $banner-warning-text);
-
-  .row > div::before {
-    @include di("status-warning");
-  }
 }
 
 @mixin banner_root() {

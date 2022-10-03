@@ -8,7 +8,7 @@
 :host {
   display: block;
 
-  @include info_root($di: false);
+  @include info_root();
 }
 
 :host(:not([active]):not([fixed])) {

@@ -2,4 +2,15 @@ $description-content-selector: ".dso-description-content";
 
 .dso-description-term {
   @include description_root($description-content-selector);
+
+  + #{$description-content-selector} {
+    > a {
+      &::before {
+        @include di("times-zwart");
+
+        content: "";
+        display: block;
+      }
+    }
+  }
 }

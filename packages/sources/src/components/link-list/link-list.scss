@@ -15,22 +15,6 @@
 
   a {
     @include anchor-reverse();
-
-    &::before {
-      @include di("chevron-right");
-
-      content: "";
-      display: inline-block;
-      margin-left: -$u1;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      &::before {
-        @include di-variant("chevron-right-scampi");
-      }
-    }
   }
 }
 
@@ -48,30 +32,9 @@
 
     color: $grijs-90;
 
-    &,
-    &:active,
-    &:focus,
-    &:hover {
-      &::before {
-        @include di("chevron-right-grijs90");
-      }
-    }
-
     &:active {
       color: $grijs-90;
       text-decoration: none;
-    }
-
-    &.download {
-      &::after {
-        @include di("download-grijs90");
-      }
-    }
-
-    &.extern {
-      &::after {
-        @include di("external-link-grijs90");
-      }
     }
   }
 }

@@ -31,44 +31,6 @@ $dso-dropdown-link-color: $grijs-90;
     }
   }
 
-  > .dso-primary,
-  > .btn-primary {
-    &::after {
-      @include di("chevron-down-wit");
-    }
-  }
-
-  > .dso-secondary,
-  > .btn-default {
-    &::after {
-      @include di("chevron-down");
-    }
-
-    &:hover {
-      &::after {
-        @include di-variant("chevron-down-wit");
-      }
-    }
-  }
-
-  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
-  > .dso-tertiary,
-  > .btn-link {
-    &::after {
-      @include di("chevron-down");
-
-      margin-left: $u1 * 0.5;
-      position: relative;
-      top: -2px;
-    }
-
-    &:hover {
-      &::after {
-        @include di-variant("chevron-down-scampi");
-      }
-    }
-  }
-
   .dso-group-label {
     color: $grijs-40;
     font-size: (math.div(14, 16) * 1em);
@@ -196,16 +158,6 @@ $dso-dropdown-link-color: $grijs-90;
           background-color: $grasgroen;
           border-color: $grasgroen;
           color: $wit;
-        }
-
-        &::before {
-          @include di("check-wit", $u3);
-
-          content: "";
-          display: block;
-          float: left;
-          margin-left: -$u4;
-          margin-right: $u1;
         }
       }
     }

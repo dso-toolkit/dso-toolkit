@@ -26,7 +26,6 @@ $dso-button-tertiary-padding-horizontal: $dso-button-vertical-padding;
 $dso-button-tertiary-color: $grasgroen;
 $dso-button-tertiary-hover-color: $scampi;
 $dso-button-tertiary-active-color: $scampi;
-$dso-button-tertiary-disabled-color: $grasgroen-40;
 
 // ====================
 // Private mixins
@@ -38,49 +37,6 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   background-color: map.get($map, "background-color");
   border-color: map.get($map, "border-color");
   color: map.get($map, "color");
-}
-
-@mixin _button_shared-type-icon($default-di, $hover-di, $disabled-di) {
-  &::after {
-    @include di($default-di);
-  }
-
-  @if ($hover-di) {
-    &:hover {
-      &::after {
-        @include di-variant($hover-di);
-      }
-    }
-  }
-
-  @if ($disabled-di) {
-    &[disabled] {
-      &::after {
-        @include di-variant($disabled-di);
-      }
-    }
-  }
-}
-
-@mixin _button_tertiary-type-icon($default-di, $disabled-di, $hover-active-di) {
-  &::after {
-    @include di($default-di);
-  }
-
-  &[disabled] {
-    &::after {
-      @include di-variant($disabled-di);
-    }
-  }
-
-  &:not([disabled]) {
-    &:hover,
-    &:active {
-      &::after {
-        @include di-variant($hover-active-di);
-      }
-    }
-  }
 }
 
 @mixin _button_shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
@@ -114,24 +70,6 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
 
   &.btn-sm {
     @include button_small();
-  }
-
-  @if ($modifiers) {
-    &.download {
-      @include _button_shared-type-icon(
-        map.get($defaults-map, "type-download-di"),
-        map.get($hover-map, "type-download-di"),
-        map.get($disabled-map, "type-download-di")
-      );
-    }
-  
-    &.extern {
-      @include _button_shared-type-icon(
-        map.get($defaults-map, "type-extern-di"),
-        map.get($hover-map, "type-extern-di"),
-        map.get($disabled-map, "type-extern-di")
-      );
-    }
   }
 
   @if ($icon-only) {
@@ -261,10 +199,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
       &::after {
         content: "";
         display: inline-block;
-        height: 1.5em;
         margin-left: $u1;
-        vertical-align: top;
-        width: 1.5em;
       }
     }
   }
@@ -283,9 +218,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   $defaults-map: (
     "background-color": $dso-button-primary-background-color,
     "border-color": $dso-button-primary-background-color,
-    "color": $dso-button-primary-color,
-    "type-download-di": "download-wit",
-    "type-extern-di": "external-link-wit"
+    "color": $dso-button-primary-color
   );
 
   $hover-map: (
@@ -340,17 +273,13 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   $defaults-map: (
     "background-color": $dso-button-secondary-background-color,
     "border-color": $dso-button-secondary-border-color,
-    "color": $dso-button-secondary-color,
-    "type-download-di": "download",
-    "type-extern-di": "external-link"
+    "color": $dso-button-secondary-color
   );
 
   $hover-map: (
     "background-color": $dso-button-secondary-hover-background-color,
     "border-color": $dso-button-secondary-hover-background-color,
-    "color": $wit,
-    "type-download-di": "download-wit",
-    "type-extern-di": "external-link-wit"
+    "color": $wit
   );
 
   $active-map: (
@@ -362,9 +291,7 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
   $disabled-map: (
     "background-color": $wit,
     "border-color": $dso-button-secondary-disabled-color,
-    "color": $dso-button-secondary-disabled-color,
-    "type-download-di": "download-grasgroen-40",
-    "type-extern-di": "external-link-grasgroen-40"
+    "color": $dso-button-secondary-disabled-color
   );
 
   @include _button_shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
@@ -470,24 +397,6 @@ $dso-button-tertiary-disabled-color: $grasgroen-40;
     line-height: calc(1.5em - 1px);
     padding: $dso-button-tertiary-padding-horizontal 0;
     position: relative;
-  }
-
-  @if ($modifiers) {
-    &.extern,
-    &.download {
-      &::after {
-        position: relative;
-        top: -2px;
-      }
-    }
-  
-    &.download {
-      @include _button_tertiary-type-icon("download", "download-grasgroen-40", "download-scampi");
-    }
-  
-    &.extern {
-      @include _button_tertiary-type-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
-    }
   }
 
   &.dso-spinner-left {

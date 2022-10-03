@@ -20,7 +20,7 @@
 }
 
 :host([interactive]) {
-  @include anchor_root($is-html-a-element: false, $with-modifiers: false);
+  @include anchor_root($is-html-a-element: false);
 
   color: $bosgroen;
   font-weight: 600;

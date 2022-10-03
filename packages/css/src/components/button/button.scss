@@ -1,3 +1,5 @@
+@import "button.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+
 button {
   @include button_element();
 }
@@ -59,14 +61,38 @@ button,
 label {
   &.dso-primary {
     @include button_primary($base-styling: true);
+    @include button-mixins_shared(
+      ("default": "download-wit"),
+      ("default": "external-link-wit")
+    );
   }
 
   &.dso-secondary {
     @include button_secondary($base-styling: true);
+    @include button-mixins_shared(
+      ("default": "download", "hover": "download-wit", "disabled": "download-grasgroen-40"),
+      ("default": "external-link", "hover": "external-link-wit", "disabled": "external-link-grasgroen-40")
+    );
   }
 
   &.dso-tertiary {
     @include button_tertiary($base-styling: true);
+
+    &.extern,
+    &.download {
+      &::after {
+        position: relative;
+        top: -2px;
+      }
+    }
+  
+    &.download {
+      @include button-mixins_tertiary-icon("download", "download-grasgroen-40", "download-scampi");
+    }
+  
+    &.extern {
+      @include button-mixins_tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+    }
   }
 }
 

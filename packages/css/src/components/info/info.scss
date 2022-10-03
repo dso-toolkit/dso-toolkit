@@ -2,6 +2,15 @@
 .dso-info:not(.dso-accordion-section) {
   @include info_root();
   @include info_children();
+
+  > button {
+    &::before {
+      @include di("times-grijs90");
+
+      content: "";
+      display: inline-block;
+    }
+  }
 }
 
 // Web Component

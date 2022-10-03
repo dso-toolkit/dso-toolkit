@@ -1,0 +1,62 @@
+@use "sass:map";
+
+@mixin _button-mixins_shared-icon($default-di, $hover-di, $disabled-di) {
+  &::after {
+    @include di($default-di);
+  }
+
+  @if ($hover-di) {
+    &:hover {
+      &::after {
+        @include di-variant($hover-di);
+      }
+    }
+  }
+
+  @if ($disabled-di) {
+    &[disabled] {
+      &::after {
+        @include di-variant($disabled-di);
+      }
+    }
+  }
+}
+
+@mixin button-mixins_tertiary-icon($default-di, $disabled-di, $hover-active-di) {
+  &::after {
+    @include di($default-di);
+  }
+
+  &[disabled] {
+    &::after {
+      @include di-variant($disabled-di);
+    }
+  }
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      &::after {
+        @include di-variant($hover-active-di);
+      }
+    }
+  }
+}
+
+@mixin button-mixins_shared($download-map, $extern-map) {
+  &.download {
+    @include _button-mixins_shared-icon(
+      map.get($download-map, "default"),
+      map.get($download-map, "hover"),
+      map.get($download-map, "disabled")
+    );
+  }
+
+  &.extern {
+    @include _button-mixins_shared-icon(
+      map.get($extern-map, "default"),
+      map.get($extern-map, "hover"),
+      map.get($extern-map, "disabled")
+    );
+  }
+}

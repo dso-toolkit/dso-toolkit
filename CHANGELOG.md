@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * `@mixin di()` en `@mixin di-variant()` uit @dso-toolkit/core verwijderen ([#1752](https://github.com/dso-toolkit/dso-toolkit/issues/1752))
+* `@mixin di()` verhuizen van `packages/sources` naar `packages/css` ([#1804](https://github.com/dso-toolkit/dso-toolkit/issues/1804))
 
 ## 45.0.1
 

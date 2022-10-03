@@ -72,13 +72,6 @@ $dso-description-border-color: $dso-info-color;
       text-align: center;
       top: 0;
       width: 24px;
-
-      &::before {
-        @include di("times-zwart");
-
-        content: "";
-        display: block;
-      }
     }
   }
 }
