@@ -399,21 +399,22 @@ describe("Ozon Content", () => {
           <Titel>Afbeelding Titel</Titel>
           <Illustratie
             naam="images/houtkachel-of-open-haard-infographic.jpg"
+            breedte="720"
+            hoogte="1124"
+            schaal="50"
             alt="Afbeelding 1"
           />
-          <Bijschrift>Bijschrift bij het figuur.</Bijschrift>
+          <Bijschrift locatie="onder">Bijschrift bij het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
         </Figuur>
       `)
       .get('dso-ozon-content')
       .find('dso-image-overlay > img')
       .should('have.attr', 'src', 'images/houtkachel-of-open-haard-infographic.jpg')
-      .and('have.attr', 'alt', 'Afbeelding Titel')
-      .and('not.have.attr', 'width')
-      .get('dso-ozon-content')
-      .find('dso-image-overlay > img')
-      .should('not.have.attr', 'height')
+      .and('have.attr', 'alt', 'Afbeelding 1')
+      .and('have.attr', 'width', '360')
+      .and('have.attr', 'height', '562')
       .get('dso-ozon-content .figuur-bijschrift')
-      .should('have.text', 'Bijschrift bij het figuur.');
+      .should('have.text', 'Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)');
   });
 });
