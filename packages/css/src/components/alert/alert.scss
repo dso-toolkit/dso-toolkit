@@ -52,4 +52,18 @@
 // Web Component
 dso-alert {
   @include alert_children();
+
+  a {
+    &.download {
+      &::after {
+        @include di-variant("download-grijs90");
+      }
+    }
+
+    &.extern {
+      &::after {
+        @include di-variant("external-link-grijs90");
+      }
+    }
+  }
 }

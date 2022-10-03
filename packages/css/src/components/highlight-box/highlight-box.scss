@@ -21,6 +21,18 @@
             @include di("chevron-right-grijs90");
           }
         }
+
+        &.download {
+          &::after {
+            @include di("download-grijs90");
+          }
+        }
+
+        &.extern {
+          &::after {
+            @include di("external-link-grijs90");
+          }
+        }
       }
     }
   }
