@@ -11,7 +11,8 @@ describe('Pagination', () => {
       .then($pagination => {
         $pagination.on('dsoSelectPage', $event => $event.detail.originalEvent.preventDefault());
         $pagination.on('dsoSelectPage', cy.stub().as('selectPageListener'));
-      });
+      })
+      .wait(200);
   }
 
   it('should show 5 pages and previous/next buttons', () => {
@@ -31,10 +32,8 @@ describe('Pagination', () => {
       .should('be.visible');
   });
 
-  it('should show ... when first and/or last page are out of range', () => {
-    prepareComponent(9, 18);
-
-    cy.wait(200);
+  it('should not show ellipsis when page count is in range', () => {
+    prepareComponent(4, 8);
 
     cy
       .get('dso-pagination')
@@ -42,19 +41,35 @@ describe('Pagination', () => {
       .as('dsoPagination')
       .find('.pagination > li')
       .eq(2)
-      .find('span')
-      .should('have.text', '...')
+      .should('not.contain.html', '<span>...</span>')
+      .find('a')
+      .should('have.text', '2')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .eq(7)
+      .should('not.contain.html', '<span>...</span>')
+      .find('a')
+      .should('have.text', '7');
+  });
+
+  it('should show ... when first and/or last page are out of range', () => {
+    prepareComponent(9, 18);
+
+    cy
+      .get('dso-pagination')
+      .shadow()
+      .as('dsoPagination')
+      .find('.pagination > li')
+      .eq(2)
+      .should('contain.html', '<span>...</span>')
       .get('@dsoPagination')
       .find('.pagination > li')
       .eq(6)
-      .find('span')
-      .should('have.text', '...');
+      .should('contain.html', '<span>...</span>');
   });
 
   it('should show different range on different small/medium/large viewport', () => {
     prepareComponent(9, 18);
-
-    cy.wait(200);
 
     cy.get('dso-pagination')
       .shadow()

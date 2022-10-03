@@ -29,8 +29,8 @@ export class ResponsiveElement implements ComponentInterface {
   @State()
   sizeWidth = 0;
 
-  @Event({eventName: 'dsoSizeChange'})
-  sizeChangeEmitter!: EventEmitter<string>;
+  @Event()
+  dsoSizeChange!: EventEmitter<string>;
 
   @Method()
   async getSize() {
@@ -41,7 +41,7 @@ export class ResponsiveElement implements ComponentInterface {
     const size = elementSizes.find(s => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
 
     this.sizeAlias = size;
-    this.sizeChangeEmitter.emit(size)
+    this.dsoSizeChange.emit(size)
   });
 
   @Element()

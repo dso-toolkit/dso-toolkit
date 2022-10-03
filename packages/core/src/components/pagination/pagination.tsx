@@ -1,8 +1,6 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State } from '@stencil/core';
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State, Listen } from '@stencil/core';
 
 import { PaginationSelectPageEvent } from './pagination.interfaces';
-
-export type LabelSizeMap = { [key in string]: number; }
 
 @Component({
   tag: 'dso-pagination',
@@ -10,19 +8,17 @@ export type LabelSizeMap = { [key in string]: number; }
   shadow: true,
 })
 export class Pagination implements ComponentInterface {
-  private sizePositionsMap: LabelSizeMap = {
+  private sizePositionsMap: Record<string, number> = {
     small: 4,
     medium: 8,
     large: 10,
-  }
-
-  private resizeObserver?: ResizeObserver;
+  };
 
   @Element()
   host!: HTMLElement;
 
   @State()
-  elementPositions!: number
+  availablePositions?: number;
   /**
    * Total pages
    */
@@ -47,6 +43,16 @@ export class Pagination implements ComponentInterface {
   @Event()
   dsoSelectPage!: EventEmitter<PaginationSelectPageEvent>;
 
+  /**
+   * Listens to the dsoSizeChange event on Responsive Element
+   */
+  @Listen('dsoSizeChange')
+  sizeChangeHandler(event: CustomEvent<string>) {
+    this.availablePositions = this.sizePositionsMap[event.detail];
+  }
+
+  responsiveElement?: HTMLDsoResponsiveElementElement;
+
   clickHandler(e: MouseEvent, page: number) {
     this.dsoSelectPage.emit({
       originalEvent: e,
@@ -56,16 +62,7 @@ export class Pagination implements ComponentInterface {
   };
 
   componentDidLoad(): void {
-    const responsiveElement = this.host.shadowRoot?.querySelector('dso-responsive-element');
-    responsiveElement?.getSize().then((size: string) => this.elementPositions = this.sizePositionsMap[size]);
-
-    this.resizeObserver = new ResizeObserver(() => responsiveElement?.getSize().then((size: string) => this.elementPositions = this.sizePositionsMap[size]));
-
-    this.resizeObserver.observe(this.host);
-  }
-
-  disconnectedCallback() {
-    this.resizeObserver?.disconnect();
+    this.responsiveElement?.getSize().then((size: string) => this.availablePositions = this.sizePositionsMap[size]);
   }
 
   render() {
@@ -77,10 +74,10 @@ export class Pagination implements ComponentInterface {
     const pages = Array.from({ length: this.totalPages }, (_value, i) => i + 1);
     const currentPageOutOfBounds = currentPage < pages[0] || currentPage > pages[pages.length - 1];
 
-    const pageRange = this.getPageRange(pages, currentPage, this.totalPages, this.elementPositions);
+    const pageRange = this.getPageRange(pages, currentPage, this.totalPages, this.availablePositions ?? pages.length);
 
     return (
-      <dso-responsive-element class="dso-pagination">
+      <dso-responsive-element ref={element => this.responsiveElement = element}>
         <ul class="pagination">
           <li class={(currentPage <= pages[0] || currentPageOutOfBounds) ? 'dso-page-hidden' : undefined}>
             <a href={this.formatHref(pages[0])} aria-label="Vorige" onClick={e => currentPage && this.clickHandler(e, pages[currentPage - 2])}>
@@ -89,18 +86,15 @@ export class Pagination implements ComponentInterface {
           </li>
           {(pageRange).map(page => (
             <>
-              {(pages.indexOf(page) === pages.length - 1 && pages.length > (this.elementPositions - 2)) &&
-                <>
-                { (
-                    (pages.indexOf(currentPage) === 0 && this.elementPositions === 6) ||
-                    (currentPage < pages[pages.length - 1] - 2 && this.elementPositions === 8) ||
-                    (currentPage < pages[pages.length - 1] - 4 && this.elementPositions === 10)
-                  ) &&
-                  <li>
-                    <span>...</span>
-                  </li>
-                }
-                </>
+              {(
+                this.availablePositions &&
+                pages.indexOf(page) === pages.length - 1 &&
+                pages.length > (this.availablePositions - 2) &&
+                this.showEllipsisBeforeLast(pages, currentPage)
+              ) &&
+                <li>
+                  <span>...</span>
+                </li>
               }
 
               <li key={page} class={currentPage === page ? 'active' : undefined}>
@@ -113,18 +107,15 @@ export class Pagination implements ComponentInterface {
                   )}
               </li>
 
-              {(pages.indexOf(page) === 0 && pages.length > (this.elementPositions - 2)) &&
-                <>
-                  { (
-                      (pages.indexOf(currentPage) === pages.length - 1 && this.elementPositions === 6) ||
-                      (currentPage > pages[0] + 2 && this.elementPositions === 8) ||
-                      (currentPage > pages[0] + 4 && this.elementPositions === 10)
-                    )  &&
-                    <li>
-                      <span>...</span>
-                    </li>
-                  }
-                </>
+              {(
+                this.availablePositions &&
+                pages.indexOf(page) === 0 &&
+                pages.length > (this.availablePositions - 2) &&
+                this.showEllipsisAfterFirst(pages, currentPage)
+              ) &&
+                <li>
+                  <span>...</span>
+                </li>
               }
             </>
           ))}
@@ -139,43 +130,74 @@ export class Pagination implements ComponentInterface {
   }
 
   private getPageRange(pages: number[], currentPage: number, totalPages: number, elementPositions: number) {
-    return pages.length <= (elementPositions - 2) ? pages : pages.reduce<number[]>((prev, page) => {
+    if (pages.length <= (elementPositions - 2)) {
+      return pages;
+    }
+
+    return pages.reduce<number[]>((prev, page) => {
       switch (elementPositions) {
-        case 4:
+        case this.sizePositionsMap['small']:
           if (page === currentPage) {
             prev.push(page);
           }
           break;
-        case 8:
+        case this.sizePositionsMap['medium']:
+          const mediumFirstOrLastRange = this.sizePositionsMap['medium'] - 6;
+
           if (
             page === pages[0] ||
             page === totalPages ||
             page === currentPage ||
-            (currentPage <= pages[0] + 2 && page <= pages[0] + 2) ||
-            (currentPage >= pages.length - 2 && page >= pages.length - 2)
-            ) {
-              prev.push(page);
-            }
+            (currentPage <= pages[0] + mediumFirstOrLastRange && page <= pages[0] + mediumFirstOrLastRange) ||
+            (currentPage >= pages.length - mediumFirstOrLastRange && page >= pages.length - mediumFirstOrLastRange)
+          ) {
+            prev.push(page);
+          }
           break;
-        case 10:
+        case this.sizePositionsMap['large']:
+          const largeFirstOrLastRange = this.sizePositionsMap['large'] - 6;
+
           if (
             page === pages[0] ||
             page === totalPages ||
             page === currentPage ||
-            (currentPage > pages[0] + 4 && page === currentPage + 1) ||
-            (currentPage < pages.length - 4 && page === currentPage - 1) ||
-            (currentPage <= pages[0] + 4 && page <= pages[0] + 4) ||
-            (currentPage >= pages.length - 4 && page >= pages.length - 4)
-            ) {
-              prev.push(page);
-            }
+            (currentPage > pages[0] + largeFirstOrLastRange && page === currentPage + 1) ||
+            (currentPage < pages.length - largeFirstOrLastRange && page === currentPage - 1) ||
+            (currentPage <= pages[0] + largeFirstOrLastRange && page <= pages[0] + largeFirstOrLastRange) ||
+            (currentPage >= pages.length - largeFirstOrLastRange && page >= pages.length - largeFirstOrLastRange)
+          ) {
+            prev.push(page);
+          }
           break;
         default:
           break;
       }
 
       return prev;
-    }, [])
+    }, []);
+  }
 
+  private showEllipsisAfterFirst(pages: number[], currentPage: number): boolean {
+    if (this.availablePositions === this.sizePositionsMap['small']) {
+      return false;
+    }
+
+    return (
+      this.availablePositions === this.sizePositionsMap['medium'] ||
+      this.availablePositions === this.sizePositionsMap['large']
+    ) &&
+      currentPage > pages[0] + (this.availablePositions - 6);
+  }
+
+  private showEllipsisBeforeLast(pages: number[], currentPage: number): boolean {
+    if (this.availablePositions === this.sizePositionsMap['small']) {
+      return false;
+    }
+
+    return (
+      this.availablePositions === this.sizePositionsMap['medium'] ||
+      this.availablePositions === this.sizePositionsMap['large']
+    ) &&
+      currentPage < pages[pages.length - 1] - (this.availablePositions - 6);
   }
 }
