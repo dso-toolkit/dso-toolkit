@@ -1,38 +1,14 @@
 $dso-info-button-size: $u3;
 
-@mixin info-button_root($di: true) {
-  @if ($di) {
-    @include di("info", $dso-info-button-size);
-  }
-
+@mixin info-button_root() {
   background-color: transparent;
   color: $grasgroen;
   border: 0;
   margin-left: $u1;
   padding: 0;
 
-  @if ($di) {
-    &.dso-open,
-    &:hover,
-    &:active {
-      @include di-variant("info-active");
-    }
-  }
-
   &.dso-info-secondary {
-    @if ($di) {
-      @include di-variant("info-secondary");
-    }
-
     color: $grijs-60;
-
-    @if ($di) {
-      &.dso-open,
-      &:hover,
-      &:active {
-        @include di-variant("info-active-secondary");
-      }
-    }
   }
 }
 

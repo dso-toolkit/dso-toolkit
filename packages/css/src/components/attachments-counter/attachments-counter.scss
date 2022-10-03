@@ -1,3 +1,10 @@
 .dso-attachments {
   @include attachments-counter_root();
+
+  &::after {
+    @include di("paperclip-grijs");
+
+    content: "";
+    display: inline-block;
+  }
 }

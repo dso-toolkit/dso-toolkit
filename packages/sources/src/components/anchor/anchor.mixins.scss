@@ -37,18 +37,6 @@ $dso-anchor-visited-color: $mauve;
         vertical-align: $dso-icon-vertical-align;
       }
     }
-
-    &.download {
-      &::after {
-        @include di("download");
-      }
-    }
-
-    &.extern {
-      &::after {
-        @include di("external-link");
-      }
-    }
   }
 }
 

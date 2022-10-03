@@ -16,5 +16,5 @@
 }
 
 .dso-attachments {
-  @include attachments-counter_root($di: false);
+  @include attachments-counter_root();
 }

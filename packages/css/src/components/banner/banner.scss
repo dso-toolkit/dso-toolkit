@@ -10,10 +10,32 @@
 
   &.alert-danger {
     @include banner_danger();
+
+    .row > div::before {
+      @include di("status-danger");
+    }
   }
 
   &.alert-warning {
     @include banner_warning();
+
+    .row > div::before {
+      @include di("status-warning");
+    }
+  }
+
+  a {
+    &.download {
+      &::after {
+        @include di("download-grijs90");
+      }
+    }
+
+    &.extern {
+      &::after {
+        @include di("external-link-grijs90");
+      }
+    }
   }
 }
 
@@ -23,9 +45,17 @@ dso-banner {
 
   &[status="danger"] {
     @include banner_danger();
+
+    .row > div::before {
+      @include di("status-danger");
+    }
   }
 
   &[status="warning"] {
     @include banner_warning();
+
+    .row > div::before {
+      @include di("status-warning");
+    }
   }
 }

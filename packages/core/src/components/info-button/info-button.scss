@@ -16,7 +16,7 @@
 }
 
 button {
-  @include info-button_root($di: false);
+  @include info-button_root();
 
   cursor: pointer;
   vertical-align: top;

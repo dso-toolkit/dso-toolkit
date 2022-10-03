@@ -16,6 +16,29 @@ footer {
 
   .dso-link-list {
     @include link-list_exotic();
+
+    a {
+      &,
+      &:active,
+      &:focus,
+      &:hover {
+        &::before {
+          @include di("chevron-right-grijs90");
+        }
+      }
+
+      &.download {
+        &::after {
+          @include di("download-grijs90");
+        }
+      }
+
+      &.extern {
+        &::after {
+          @include di("external-link-grijs90");
+        }
+      }
+    }
   }
 
   h2 {

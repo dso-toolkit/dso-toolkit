@@ -1,3 +1,21 @@
 .dso-link-list {
   @include link-list_root();
+
+  a {
+    &::before {
+      @include di("chevron-right");
+
+      content: "";
+      display: inline-block;
+      margin-left: -$u1;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      &::before {
+        @include di-variant("chevron-right-scampi");
+      }
+    }
+  }
 }

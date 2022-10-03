@@ -1,3 +1,15 @@
 a {
   @include anchor_root();
+
+  &.download {
+    &::after {
+      @include di("download");
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di("external-link");
+    }
+  }
 }

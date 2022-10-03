@@ -20,7 +20,7 @@
 }
 
 .alert {
-  @include alert_root($di: false);
+  @include alert_root();
 
   dso-icon {
     @include alert_icon-position();

@@ -18,15 +18,4 @@ De visuele ontwerpen van het UI/UX team worden uitgewerkt in SCSS stylesheets. D
 
 ## Iconen
 
-Iconen staan in `src/icons`. Naast een icoon kan een stylesheet staan om varianten te genereren. Deze varianten mogen alleen in de `di()` en `di-variant()` mixins worden gebruikt.
-
-Een grijze variant voor `caret-down` wordt op de volgende manier gemaakt:
-
-```scss
-// src/icons/caret-down.scss, staat naast src/icons/caret-down.svg
-@import "../variables.scss";
-
-caret-down:grijs {
-  color: $grijs-60;
-}
-```
+Iconen staan in `src/icons`.

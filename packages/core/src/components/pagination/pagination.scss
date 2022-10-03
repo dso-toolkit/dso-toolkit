@@ -11,7 +11,7 @@
 @include box-sizing();
 
 .pagination {
-  @include pagination_root(false);
+  @include pagination_root();
 }
 
 .dso-page-hidden {

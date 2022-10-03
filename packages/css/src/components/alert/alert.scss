@@ -3,6 +3,50 @@
   @include alert_root();
 
   @include alert_children();
+
+  &::before {
+    @include alert_icon-position();
+
+    content: "";
+  }
+
+  &.alert-success {
+    &::before {
+      @include di("status-success", $dso-alert-icon-size);
+    }
+  }
+
+  &.alert-danger {
+    &::before {
+      @include di("status-danger", $dso-alert-icon-size);
+    }
+  }
+
+  &.alert-warning {
+    &::before {
+      @include di("status-warning", $dso-alert-icon-size);
+    }
+  }
+
+  &.alert-info {
+    &::before {
+      @include di("status-info", $dso-alert-icon-size);
+    }
+  }
+
+  a {
+    &.download {
+      &::after {
+        @include di-variant("download-grijs90");
+      }
+    }
+
+    &.extern {
+      &::after {
+        @include di-variant("external-link-grijs90");
+      }
+    }
+  }
 }
 
 // Web Component

@@ -1,3 +1,26 @@
 .pagination {
-  @include pagination_root(true);
+  @include pagination_root();
+
+  .dso-previous,
+  .dso-next {
+    &::before {
+      content: "";
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .dso-previous {
+    &::before {
+      @include di("chevron-left");
+    }
+  }
+
+  .dso-next {
+    &::before {
+      @include di("chevron-right");
+    }
+  }
 }
