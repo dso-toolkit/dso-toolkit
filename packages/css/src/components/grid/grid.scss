@@ -15,9 +15,9 @@ form {
 
   > .row {
     &.dso-featured {
-      margin-bottom: $u5;
-      padding-bottom: $u6;
-      padding-top: $u5;
+      margin-bottom: $u4;
+      padding-bottom: $u5;
+      padding-top: $u3;
 
       & + .row div:not(.dso-rich-content) {
         h1,
@@ -103,19 +103,6 @@ form {
 
   +.row {
     margin-top: 24px;
-  }
-
-  & + .row div:not(.dso-rich-content) {
-    h1,
-    .h1,
-    h2,
-    .h2,
-    h3,
-    .h3 {
-      &:first-child {
-        margin-top: 0;
-      }
-    }
   }
 
   +.row.dso-featured { 
