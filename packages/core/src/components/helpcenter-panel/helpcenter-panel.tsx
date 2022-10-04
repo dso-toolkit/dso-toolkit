@@ -1,4 +1,4 @@
-import { h, Component, Fragment, Prop, State } from "@stencil/core";
+import { h, Component, Fragment, Prop, State, Watch } from "@stencil/core";
 
 const maxCssTransitionMilliseconds = 500;
 
@@ -8,6 +8,8 @@ const maxCssTransitionMilliseconds = 500;
   shadow: true,
 })
 export class HelpcenterPanel {
+  private iframeUrl?: string;
+
   @Prop()
   label?: string = "Hulp nodig";
 
@@ -25,6 +27,20 @@ export class HelpcenterPanel {
 
   @State()
   loadIframe = false;
+
+  @Watch('url')
+  watchUrl(url: string) {
+    if (this.isOpen === 'open' && this.iframeUrl !== url) {
+      this.iframeUrl = url;
+    }
+  }
+
+  @Watch('isOpen')
+  watchIsOpen(isOpen: 'open' | 'close') {
+    if (isOpen === 'open' && this.iframeUrl !== this.url) {
+      this.iframeUrl = this.url;
+    }
+  }
 
   openClick = () => {
     this.visibility = "visible";
@@ -63,7 +79,7 @@ export class HelpcenterPanel {
         <div class={`wrapper ${this.visibility}`}>
           <div class="dimscreen" onClick={this.closeClick} />
           <div class={`iframe-container ${this.slideState}`} aria-live="polite">
-            {this.loadIframe ? <iframe src={this.slideState === 'open' ? this.url : undefined} /> : <div />}
+            {this.loadIframe ? <iframe src={this.iframeUrl} /> : <div />}
           </div>
           <button
             type="button"
