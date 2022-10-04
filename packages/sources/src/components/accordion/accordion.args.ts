@@ -1,14 +1,13 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
 import { ArgTypes, noControl } from '../../storybook';
-import { AccordionHeading, AccordionSectionState } from './accordion.models';
+import { Accordion, AccordionHeading, AccordionSection, AccordionSectionState } from './accordion.models';
 
 export interface AccordionArgs {
   variant: 'compact' | 'conclusion';
   reverseAlign: boolean;
   allowMultiple: boolean;
   dsoToggleSection: HandlerFunction;
-  ___: undefined;
   open: boolean;
   status: string;
   state: AccordionSectionState;
@@ -17,6 +16,8 @@ export interface AccordionArgs {
   heading: AccordionHeading;
   handleUrl: string;
   handleTitle: string;
+
+  content: string;
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -44,12 +45,6 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     action: 'dsoToggleSection',
   },
   /* Section args */
-  ___: {
-    description: 'Hieronder staan controls voor de eerste getoonde sectie',
-    control: {
-      disable: true
-    },
-  },
   open: {
     control: {
       type: 'boolean',
@@ -93,4 +88,26 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'text',
     },
   },
+  content: {
+    ...noControl,
+  }
 };
+
+export function accordionArgsMapper(a: AccordionArgs): Accordion & AccordionSection & { content: string; } {
+  return {
+    variant: a.variant,
+    reverseAlign: a.reverseAlign,
+    allowMultiple: a.allowMultiple,
+    dsoToggleSection: a.dsoToggleSection,
+    open: a.open,
+    status: a.status,
+    state: a.state,
+    attachmentCount: a.attachmentCount,
+    icon: a.icon,
+    heading: a.heading,
+    handleUrl: a.handleUrl,
+    handleTitle: a.handleTitle,
+
+    content: a.content,
+  };
+}

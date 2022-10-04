@@ -1,0 +1,95 @@
+@mixin dso-accordion-compact {
+  .dso-section-handle {
+    border: 1px solid transparent;
+
+    a,
+    button {
+      color: $dso-accordion-compact-color;
+
+      &::before {
+        @include di("chevron-down-grasgroen");
+      }
+
+      &:hover,
+      &:active,
+      &.active {
+        color: $dso-accordion-compact-color;
+      }
+    }
+  }
+
+  .dso-accordion-section {
+    &,
+    .dso-section-body {
+      border: 0;
+      border-top: 1px solid $dso-accordion-compact-border-color;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $dso-accordion-compact-border-color;
+    }
+
+    + .dso-accordion-section {
+      margin-top: 0;
+    }
+
+    .dso-section-body {
+      margin-top: 0;
+    }
+
+    &.dso-open {
+      &:not(.dso-nested-accordion) {
+        > .dso-section-handle {
+          background-color: transparent;
+
+          a,
+          button {
+            color: $dso-accordion-compact-color;
+
+            &:hover,
+            &:active,
+            &.active {
+              color: $dso-accordion-compact-color;
+            }
+
+            &::before {
+              @include di-variant("chevron-up-grasgroen");
+            }
+
+            dso-attachments-counter {
+              --dso-attachments-counter-color: #{$grijs-60};
+              --dso-icon: var(--di-paperclip-grijs);
+            }
+
+            .dso-attachments {
+              color: $grijs-60;
+
+              &::after {
+                @include di-variant("paperclip-grijs");
+              }
+            }
+          }
+        }
+      }
+
+      &.dso-nested-accordion {
+        > .dso-section-handle {
+          a,
+          button {
+            &::before {
+              @include di-variant("chevron-up-grasgroen");
+            }
+          }
+        }
+
+        > .dso-section-body {
+          padding-bottom: 0;
+
+          .dso-accordion-section:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

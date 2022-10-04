@@ -1,4 +1,4 @@
-import { Accordion, AccordionDemoSection, AccordionSection } from '@dso-toolkit/sources';
+import { AccordionStorybookParameters } from '@dso-toolkit/sources';
 
 import * as React from 'react';
 
@@ -18,10 +18,11 @@ export function accordionTemplate(
     icon,
     heading,
     handleUrl,
-  }: Accordion & AccordionSection,
-  sections: AccordionDemoSection[]
+    /* Content */
+    content
+  }: AccordionStorybookParameters
 ) {
-  const firstSection = sections[0];
+  const firstSection = content[0];
 
   if (firstSection) {
     firstSection.open = open;
@@ -40,7 +41,7 @@ export function accordionTemplate(
       allowMultiple={allowMultiple}
       onDsoToggleSection={dsoToggleSection}
     >
-      {sections.map((section, i) => (
+      {content.map((section, i) => (
         <DsoAccordionSection
           key={`dsoAccordionSection-${i}`}
           open={section.open}

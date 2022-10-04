@@ -1,14 +1,11 @@
-import { Args } from '@storybook/addons';
-
-import { createStories, StorybookParameters } from '../../storybook';
-import { AccordionArgs, accordionArgTypes } from './accordion.args';
-import { Accordion, AccordionDemoSection, AccordionSection } from './accordion.models';
+import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { accordionArgsMapper, accordionArgTypes } from './accordion.args';
+import { Accordion, AccordionSection } from './accordion.models';
 
 import * as AccordionContent from './accordion.content';
 
 type AccordionTemplateFnType<TemplateFnReturnType> = (
-  properties: Accordion & AccordionSection,
-  sections: AccordionDemoSection[],
+  properties: Accordion & AccordionSection & { content: string; }
 ) => TemplateFnReturnType;
 
 export interface AccordionParameters<TemplateFnReturnType> {
@@ -22,39 +19,44 @@ export function storiesOfAccordion<TemplateFnReturnType>(
   }: AccordionParameters<TemplateFnReturnType>
 ) {
   const stories = createStories('Accordion', parameters, accordionArgTypes);
+  const template = bindTemplate(accordionArgsMapper, accordionTemplate);
 
   stories.add(
     'default',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.basicSections),
+    template,
     {
       args: {
+        content: AccordionContent.basicSections,
       }
     }
   );
 
   stories.add(
     'handle anchors',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.anchorSections),
+    template,
     {
       args: {
+        content: AccordionContent.anchorSections,
       }
     }
   );
 
   stories.add(
     'nested',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.subSections),
+    template,
     {
       args: {
+        content: AccordionContent.subSections,
       }
     }
   );
 
   stories.add(
     'allowMultiple',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.allowMultipleSections),
+    template,
     {
       args: {
+        content: AccordionContent.allowMultipleSections,
         allowMultiple: true,
       }
     }
@@ -62,18 +64,20 @@ export function storiesOfAccordion<TemplateFnReturnType>(
 
   stories.add(
     'addons',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.addonsSections),
+    template,
     {
       args: {
+        content: AccordionContent.addonsSections,
       }
     }
   );
 
   stories.add(
     'alignment',
-    (a: Args) => accordionTemplate(a as AccordionArgs, AccordionContent.alignmentSections),
+    template,
     {
       args: {
+        content: AccordionContent.alignmentSections,
         reverseAlign: true,
       }
     }

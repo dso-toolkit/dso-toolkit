@@ -1,4 +1,4 @@
-import { Accordion, AccordionSection, AccordionDemoSection } from '@dso-toolkit/sources';
+import { AccordionStorybookParameters } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
@@ -17,10 +17,11 @@ export function accordionTemplate(
     icon,
     heading,
     handleUrl,
-  }: Accordion & AccordionSection,
-  sections: AccordionDemoSection[]
+    /* Content */
+    content
+  }: AccordionStorybookParameters
 ) {
-  const firstSection = sections[0];
+  const firstSection = content[0];
 
   if (firstSection) {
     firstSection.open = open;
@@ -39,7 +40,7 @@ export function accordionTemplate(
       ?allow-multiple=${allowMultiple}
       @dsoToggleSection=${dsoToggleSection}
     >
-      ${sections.map(section => html`
+      ${content.map(section => html`
         <dso-accordion-section
           ?open=${ifDefined(section.open)}
           handle-title=${section.handleTitle}

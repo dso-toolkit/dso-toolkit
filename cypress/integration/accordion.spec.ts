@@ -1,16 +1,10 @@
 describe('Accordion', () => {
-  /** Configure the component and set an eventListener as @dsoToggleSectionListener */
-  function prepareComponent() {
-    cy.get('dso-accordion')
+  beforeEach(() => {
+    cy.visit('http://localhost:45000/iframe.html?id=core-accordion--default')
+      .get('dso-accordion')
       .then($accordion => {
         $accordion.on('dsoToggleSection', cy.stub().as('dsoToggleSectionListener'));
       });
-  }
-
-  beforeEach(() => {
-    cy.visit('http://localhost:45000/iframe.html?id=core-accordion--default');
-
-    prepareComponent();
   });
 
   it('should open and close a section by clicking the handle', () => {

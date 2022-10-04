@@ -1,5 +1,243 @@
+@import "./accordion-theme-compact";
+@import "./accordion-theme-conclusion";
+@import "./accordion-theme-default";
+
 .dso-accordion {
-  @include accordion_root(true);
+  margin-bottom: $dso-vertical-spacing-xlarge;
+
+  // dit is een nested accordion.
+  .dso-accordion {
+    margin-bottom: 0;
+  }
+
+  .dso-section-body {
+    border-top: 0;
+    margin-top: -$dso-accordion-border-radius;
+    padding: $u2 + $dso-accordion-border-radius $u2 $u2;
+
+    *:first-child:not(.dso-info) {
+      margin-top: 0;
+    }
+
+    *:last-child:not(.dso-info) {
+      margin-bottom: 0;
+    }
+
+    .dso-rich-content + .dso-accordion,
+    .dso-accordion + .dso-rich-content {
+      margin-top: $u2;
+    }
+  }
+
+  &.dso-accordion-reverse-align {
+    .dso-section-handle {
+      a,
+      button {
+        padding-left: $u2;
+        padding-right: $u6;
+
+        &::before {
+          left: auto;
+          right: $u2;
+        }
+
+        .dso-icon {
+          display: block;
+          float: left;
+          font-weight: 400;
+          margin-left: 0;
+          margin-right: $u1;
+          padding-left: 0;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &:not(.dso-accordion-compact):not(.dso-accordion-conclusion) {
+    &,
+    .dso-nested-accordion .dso-accordion {
+      @include dso-accordion-default();
+    }
+  }
+
+  &.dso-accordion-conclusion {
+    &,
+    .dso-nested-accordion .dso-accordion {
+      @include dso-accordion-conclusion();
+    }
+  }
+
+  &.dso-accordion-compact {
+    &,
+    .dso-nested-accordion .dso-accordion {
+      @include dso-accordion-compact();
+    }
+  }
+
+  .dso-section-body dl:last-child {
+    margin-bottom: 0;
+  }
 }
 
-@include accordion-section_root();
+// Section
+.dso-section-handle {
+  font-weight: 600;
+  position: relative;
+
+  a {
+    @include anchor-clean();
+  }
+
+  a,
+  button {
+    align-items: baseline;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    padding: $dso-accordion-vertical-padding $dso-accordion-horizontal-padding $dso-accordion-vertical-padding
+      $dso-accordion-chevron-left-offset;
+    text-align: left;
+    width: 100%;
+    word-break: break-word;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      left: $u2;
+      position: absolute;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: $u2;
+      top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) * 0.5;
+    }
+
+    .dso-status,
+    .dso-icon {
+      font-weight: 400;
+      margin-left: auto;
+      padding-left: $u2;
+      text-decoration: underline;
+    }
+
+    dso-attachments-counter,
+    .dso-attachments {
+      margin-left: auto;
+      padding-left: $u2;
+    }
+
+    .dso-attachments {
+      &::after {
+        @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
+      }
+    }
+  }
+}
+
+.dso-accordion-section {
+  .dso-section-handle,
+  > h1.dso-section-handle,
+  > h2.dso-section-handle,
+  > h3.dso-section-handle,
+  > h4.dso-section-handle,
+  > h5.dso-section-handle {
+    font-size: 1em;
+    line-height: $dso-accordion-handle-line-height;
+    margin: 0;
+
+    a:active {
+      text-decoration: none;
+    }
+  }
+
+  + .dso-accordion-section {
+    margin-top: $u1 * 0.5;
+  }
+
+  &.dso-success,
+  &.dso-danger,
+  &.dso-warning,
+  &.dso-info {
+    > .dso-section-handle {
+      a,
+      button {
+        padding-right: $u7;
+      }
+    }
+  }
+
+  &.dso-success {
+    > .dso-section-handle {
+      a::after,
+      button::after {
+        @include di("status-success", $dso-accordion-chevron-icon-size);
+      }
+    }
+  }
+
+  &.dso-danger {
+    > .dso-section-handle {
+      a::after,
+      button::after {
+        @include di("status-danger", $dso-accordion-chevron-icon-size);
+      }
+    }
+  }
+
+  &.dso-warning {
+    > .dso-section-handle {
+      a::after,
+      button::after {
+        @include di("status-warning", $dso-accordion-chevron-icon-size);
+      }
+    }
+  }
+
+  &.dso-info {
+    > .dso-section-handle {
+      a::after,
+      button::after {
+        @include di("status-info", $dso-accordion-chevron-icon-size);
+      }
+    }
+  }
+
+  &.dso-open {
+    &.dso-nested-accordion {
+      border: 0;
+      border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+
+      > .dso-section-body {
+        border: 0;
+        padding: ($u2 + $dso-accordion-border-radius - 1) ($u2 + 1) $u2; // corrections for missing borders in nested accordion
+      }
+
+      .dso-accordion-section .dso-section-body {
+        background-color: $wit;
+      }
+    }
+  }
+
+  &:not(.dso-open) {
+    .dso-section-body {
+      display: none;
+    }
+  }
+}
+
+// Web component
+dso-accordion-section {
+  > *:last-child:not(.dso-info) {
+    margin-bottom: 0;
+  }
+}
+
+dso-accordion {
+  .dso-rich-content + dso-accordion,
+  dso-accordion + .dso-rich-content {
+    margin-top: $u2;
+  }
+}

@@ -33,3 +33,5 @@ export interface AccordionSectionToggleEvent {
 }
 
 export type AccordionDemoSection = AccordionSection & { children?: string; };
+
+export type AccordionStorybookParameters = Accordion & AccordionSection & { content: AccordionDemoSection[]; };
