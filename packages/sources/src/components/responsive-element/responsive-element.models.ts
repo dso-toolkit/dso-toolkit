@@ -1,3 +1,3 @@
 export interface ResponsiveElement {
-  onSizeChange: (value: CustomEvent<string>) => void;
+  dsoSizeChange: (value: CustomEvent<string>) => void;
 }

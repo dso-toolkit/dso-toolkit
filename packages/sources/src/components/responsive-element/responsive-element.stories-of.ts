@@ -11,8 +11,8 @@ const demoGrid = [
 ];
 
 type ResponsiveElementTemplateFnType<TemplateFnReturnType> = (
-  onSizeChange: (event: CustomEvent<string>) => void,
-  children: string[][],
+  dsoSizeChange: (event: CustomEvent<string>) => void,
+  grid: string[][],
 ) => TemplateFnReturnType;
 
 export interface ResponsiveElementParameters<TemplateFnReturnType> {
@@ -32,7 +32,7 @@ export function storiesOfResponsiveElement<TemplateFnReturnType>(
     (a: Args) => {
       const args = a as ResponsiveElementArgs;
 
-      return gridTemplate(args.onSizeChange, demoGrid);
+      return gridTemplate(args.dsoSizeChange, demoGrid);
     }
   );
 }

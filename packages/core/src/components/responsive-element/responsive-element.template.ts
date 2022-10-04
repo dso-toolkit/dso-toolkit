@@ -1,10 +1,10 @@
 import { ResponsiveElement } from '@dso-toolkit/sources';
 import { html, TemplateResult } from 'lit-html';
 
-export function responsiveElementTemplate({ onSizeChange }: ResponsiveElement, children: TemplateResult) {
+export function responsiveElementTemplate({ dsoSizeChange }: ResponsiveElement, children: TemplateResult) {
   return html`
     <dso-responsive-element
-      @dsoSizeChange=${onSizeChange}
+      @dsoSizeChange=${dsoSizeChange}
     >
       ${children}
     </dso-responsive-element>

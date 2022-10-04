@@ -7,20 +7,20 @@
 
 ## Events
 
-| Event           | Description | Type                  |
-| --------------- | ----------- | --------------------- |
-| `dsoSizeChange` |             | `CustomEvent<string>` |
+| Event           | Description | Type                                          |
+| --------------- | ----------- | --------------------------------------------- |
+| `dsoSizeChange` |             | `CustomEvent<"large" \| "medium" \| "small">` |
 
 
 ## Methods
 
-### `getSize() => Promise<string>`
+### `getSize() => Promise<ResponsiveElementSize>`
 
 
 
 #### Returns
 
-Type: `Promise<string>`
+Type: `Promise<ResponsiveElementSize>`
 
 
 
