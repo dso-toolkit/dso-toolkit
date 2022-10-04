@@ -1,9 +1,8 @@
-@use "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/components/button";
+@use "~@dso-toolkit/sources/src/components/anchor";
 
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/components/anchor/anchor.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "~@dso-toolkit/sources/src/components/button/button";
 
 :host(:not([inline])) {
   display: block;
@@ -20,24 +19,24 @@
 }
 
 :host([interactive]) {
-  @include anchor_root($is-html-a-element: false);
+  @include anchor.root($is-html-a-element: false);
 
-  color: $bosgroen;
+  color: colors.$bosgroen;
   font-weight: 600;
   text-decoration: none;
 }
 
 :host([interactive="sub"]) {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }
 
 .deleted-start,
 .deleted-end {
-  @include sr-only.sr-only();
+  @include utilities.sr-only();
 }
 
 button.toggle-note {
-  @include button-tertiary($modifiers: false);
+  @include button.tertiary($modifiers: false);
 }
 
 span[role="section"],

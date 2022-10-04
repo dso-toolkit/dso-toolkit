@@ -1,8 +1,10 @@
+@use "../../../sources/src/variables/zindex";
+
 .dso-leaflet-controls {
   right: 0;
   top: 0;
   bottom: 0;
   position: absolute;
-  z-index: $zx-leaflet + 70;
+  z-index: zindex.$leaflet + 70;
   cursor: auto;
 }

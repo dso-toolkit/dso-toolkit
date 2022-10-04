@@ -1,24 +1,21 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/label/label";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/components/label";
 
 :host {
   display: inline-block;
   max-width: 100%;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 // Todo: Replace .sr-only selector with web component specific selector, no need for .sr-only if we can generate the SCSS
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 .dso-label {
-  @include label_root();
+  @include label.root();
 
   &.dso-hover {
     .dso-label-content {
@@ -38,6 +35,6 @@
 
 :host([removable]) {
   .dso-truncate.dso-label-content {
-    max-width: calc(100% - ($u3 + 4px));
+    max-width: calc(100% - (units.$u3 + 4px));
   }
 }

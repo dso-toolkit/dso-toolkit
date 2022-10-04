@@ -1,7 +1,0 @@
-@mixin attachments-counter_root() {
-  color: var(--dso-attachments-counter-color, $grijs-60);
-  display: inline-block;
-  font-weight: 400;
-  text-decoration: none;
-  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Make sure icon is always next to counter
-}

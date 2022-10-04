@@ -1,21 +1,21 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 times {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }
 
 times:bosgroen {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 times:wit {
-  color: $wit;
+  color: colors.$wit;
 }
 
 times:zwart {
-  color: $zwart;
+  color: colors.$zwart;
 }
 
 times:grijs90 {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }

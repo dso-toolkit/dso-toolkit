@@ -1,17 +1,17 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 chevron-right {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }
 
 chevron-right:scampi {
-  color: $scampi;
+  color: colors.$scampi;
 }
 
 chevron-right:grijs50 {
-  color: $grijs-50;
+  color: colors.$grijs-50;
 }
 
 chevron-right:grijs90 {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }

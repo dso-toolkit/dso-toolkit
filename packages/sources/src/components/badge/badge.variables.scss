@@ -1,0 +1,10 @@
+@use "../../variables/colors";
+
+$default-bg-color: colors.$grijs-60;
+$info-bg-color: colors.$info-color;
+$primary-bg-color: colors.$bosgroen;
+$success-bg-color: colors.$success-color;
+$warning-bg-color: colors.$warning-color;
+$danger-bg-color: colors.$danger-color;
+
+$line-height: 1;

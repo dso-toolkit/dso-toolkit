@@ -1,30 +1,32 @@
-$rich-content-margin-bottom: $dso-vertical-spacing-medium;
+@use "../../variables/units";
+@use "../../variables/typography";
+@use "rich-content.variables" as rich-content-variables;
 
-@mixin rich-content_children() {
+@mixin children() {
   p {
-    margin: 0 0 $rich-content-margin-bottom;
+    margin: 0 0 rich-content-variables.$margin-bottom;
   }
 
   ul,
   ol {
-    margin-bottom: $rich-content-margin-bottom;
+    margin-bottom: rich-content-variables.$margin-bottom;
 
     &:not(.list-group):not(.dso-link-list):not(.dso-columns-list) {
-      padding-inline-start: $u3;
+      padding-inline-start: units.$u3;
     }
   }
 
   pre {
-    margin: 0 0 $rich-content-margin-bottom;
+    margin: 0 0 rich-content-variables.$margin-bottom;
   }
 
   blockquote {
-    padding: $rich-content-margin-bottom $line-height-computed;
+    padding: rich-content-variables.$margin-bottom typography.$line-height-computed;
   }
 
   dso-highlight-box,
   .dso-highlight-box {
-    margin-bottom: $line-height-computed;
+    margin-bottom: typography.$line-height-computed;
   }
 
   img {

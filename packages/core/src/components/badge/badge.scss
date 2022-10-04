@@ -1,20 +1,16 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/badge/badge";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/badge";
 
 :host {
   display: inline-block;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 .dso-badge {
-  @include badge_root();
+  @include badge.root();
 }

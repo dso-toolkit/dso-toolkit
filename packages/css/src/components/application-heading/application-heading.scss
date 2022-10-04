@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/application-heading";
+
 .dso-app-heading {
-  @include application-heading_root();
+  @include application-heading.root();
 }

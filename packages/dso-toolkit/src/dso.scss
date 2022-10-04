@@ -1,26 +1,9 @@
-// Variables
-$dso-icons-path: '../' !default;
-$asap-font-path: "../fonts/Asap/" !default;
+@use "@dso-toolkit/css/src/config" with (
+  $icons-path: "../",
+  $asap-font-path: "../fonts/Asap/"
+);
 
-// @import "@dso-toolkit/sources/src/styling/variables";
-// @import "styles/mixins/dso-variables";
-// @import "styles/mixins/bootstrap-variables"; -> Deleted
+@use "@dso-toolkit/css/src/dso";
 
-// Icon mixin
-// @import "@dso-toolkit/css/src/mixins/di"; -> Imported in @dso-toolkit/css
-
-// Mixins
-// @import "@dso-toolkit/sources/src/styling/mixins";
-
-// Bootstrap
-// @import "../libs/bootstrap"; -> Partially moved to @dso-toolkit/css
-
-/*!
- * @dso-toolkit/css
- */
-@import "@dso-toolkit/css/src/dso";
-
-/*!
- * DSO Toolkit styling
- */
-@import "styles/dso";
+@use "components/navbar";
+@use "components/tree-view";

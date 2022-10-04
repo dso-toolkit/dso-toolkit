@@ -1,16 +1,6 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-
-@import "~@dso-toolkit/sources/src/components/tooltip/tooltip";
-
-$tooltip-arrow-width: 6px;
-$tooltip-padding-vertical: $u2;
-$tooltip-padding-horizontal: $u1;
-$tooltip-border-radius: $dso-unit * 0.5;
-$tooltip-arrow-color: $wit;
-$tooltip-max-width: 80 * $dso-unit;
-$tooltip-max-width-small: 40 * $dso-unit;
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/components/tooltip";
 
 :host(.hidden) {
   visibility: hidden;
@@ -38,7 +28,7 @@ $tooltip-max-width-small: 40 * $dso-unit;
   }
 
   *[data-popper-placement="left"] {
-    margin-right: $u1 * -1 !important;
+    margin-right: units.$u1 * -1 !important;
 
     .tooltip-arrow {
       margin-top: 0;
@@ -46,40 +36,40 @@ $tooltip-max-width-small: 40 * $dso-unit;
   }
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .tooltip {
-  @include tooltip_root();
+  @include tooltip.root();
 
   &[data-popper-placement="top"] {
-    @include tooltip_arrowTop();
+    @include tooltip.arrowTop();
 
     .tooltip-arrow {
-      margin-left: $tooltip-arrow-margin * -1;
+      margin-left: tooltip.$arrow-margin * -1;
     }
   }
 
   &[data-popper-placement="right"] {
-    @include tooltip_arrowRight();
+    @include tooltip.arrowRight();
 
     .tooltip-arrow {
-      margin-top: $tooltip-arrow-margin * -1;
+      margin-top: tooltip.$arrow-margin * -1;
     }
   }
 
   &[data-popper-placement="bottom"] {
-    @include tooltip_arrowBottom();
+    @include tooltip.arrowBottom();
 
     .tooltip-arrow {
-      margin-left: $tooltip-arrow-margin * -1;
+      margin-left: tooltip.$arrow-margin * -1;
     }
   }
 
   &[data-popper-placement="left"] {
-    @include tooltip_arrowLeft();
+    @include tooltip.arrowLeft();
 
     .tooltip-arrow {
-      margin-top: $tooltip-arrow-margin * -1;
+      margin-top: tooltip.$arrow-margin * -1;
     }
   }
 }

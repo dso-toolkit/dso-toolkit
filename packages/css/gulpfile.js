@@ -34,7 +34,9 @@ function watcher() {
 
 function compileScss() {
   return gulp.src('src/dso.scss')
-    .pipe(sass())
+    .pipe(sass({
+      includePaths: ['../../node_modules']
+    }))
     .pipe(gulp.dest('dist'));
 }
 

@@ -1,4 +1,8 @@
-@mixin table-row-variant($state, $background) {
+@use "@dso-toolkit/sources/src/variables/units";
+
+@use "table.variables" as css-table-variables;
+
+@mixin row-variant($state, $background) {
   // Exact selectors below required to override `.table-striped` and prevent
   // inheritance to nested tables.
   .dso-rich-content table > thead > tr,
@@ -23,15 +27,15 @@
     &.#{$state}:hover > td,
     &:hover > .#{$state},
     &.#{$state}:hover > th {
-      background-color: $table-bg-active;
+      background-color: css-table-variables.$background-color-active;
     }
 
     &:hover > th,
     &:hover > td {
-      background-color: $table-bg-active;
+      background-color: css-table-variables.$background-color-active;
 
       a {
-        color: $table-link-color;
+        color: css-table-variables.$link-color;
 
         &:hover {
           text-decoration: none;
@@ -43,10 +47,10 @@
   .table > tbody > tr {
     &.#{$state} > th,
     &.#{$state} > td {
-      background-color: $table-bg-active;
+      background-color: css-table-variables.$background-color-active;
 
       a {
-        color: $table-link-color;
+        color: css-table-variables.$link-color;
 
         &:hover {
           text-decoration: none;
@@ -56,9 +60,9 @@
   }
 }
 
-@mixin table-responsive() {
+@mixin responsive() {
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  border: 1px solid $table-border-color;
+  border: 1px solid css-table-variables.$border-color;
   margin-bottom: 0;
   overflow-y: hidden;
   width: 100%;
@@ -67,7 +71,7 @@
     content: "beweeg de tabel van links naar rechts";
     display: block;
     font-size: 0.8em;
-    margin-bottom: $u1;
+    margin-bottom: units.$u1;
     position: relative;
     text-align: center;
   }

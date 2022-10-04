@@ -1,51 +1,54 @@
-@import "button.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/button";
+@use "button.mixins" as css-button-mixins;
 
 button {
-  @include button_element();
+  @include button.element();
 }
 
 .btn {
-  @include button_base();
+  @include button.base();
 }
 
 .btn-primary {
-  @include button_primary($base-styling: false);
+  @include button.primary($base-styling: false);
 
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }
 
 a.btn-primary {
-  @include button_anchor-primary();
+  @include button.anchor-primary();
 
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }
 
 .btn-default {
-  @include button_secondary($base-styling: false);
+  @include button.secondary($base-styling: false);
 
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }
 
 a.btn-default {
-  @include button_anchor-secondary();
+  @include button.anchor-secondary();
 
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }
 
 .btn-link {
-  @include button_tertiary($base-styling: false);
+  @include button.tertiary($base-styling: false);
 
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }
 
 a.btn-link {
-  @include button_anchor-tertiary();
+  @include button.anchor-tertiary();
 
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }
 
 .btn-block {
-  @include button_block('.btn-block');
+  @include button.block('.btn-block');
 }
 
 input[type="submit"],
@@ -60,23 +63,23 @@ a,
 button,
 label {
   &.dso-primary {
-    @include button_primary($base-styling: true);
-    @include button-mixins_shared(
+    @include button.primary($base-styling: true);
+    @include css-button-mixins.shared(
       ("default": "download-wit"),
       ("default": "external-link-wit")
     );
   }
 
   &.dso-secondary {
-    @include button_secondary($base-styling: true);
-    @include button-mixins_shared(
+    @include button.secondary($base-styling: true);
+    @include css-button-mixins.shared(
       ("default": "download", "hover": "download-wit", "disabled": "download-grasgroen-40"),
       ("default": "external-link", "hover": "external-link-wit", "disabled": "external-link-grasgroen-40")
     );
   }
 
   &.dso-tertiary {
-    @include button_tertiary($base-styling: true);
+    @include button.tertiary($base-styling: true);
 
     &.extern,
     &.download {
@@ -85,28 +88,28 @@ label {
         top: -2px;
       }
     }
-  
+
     &.download {
-      @include button-mixins_tertiary-icon("download", "download-grasgroen-40", "download-scampi");
+      @include css-button-mixins.tertiary-icon("download", "download-grasgroen-40", "download-scampi");
     }
-  
+
     &.extern {
-      @include button-mixins_tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+      @include css-button-mixins.tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
     }
   }
 }
 
 a {
   &.dso-primary {
-    @include button_anchor-primary();
+    @include button.anchor-primary();
   }
 
   &.dso-secondary {
-    @include button_anchor-secondary();
+    @include button.anchor-secondary();
   }
 
   &.dso-tertiary {
-    @include button_anchor-tertiary();
+    @include button.anchor-tertiary();
   }
 }
 
@@ -118,6 +121,6 @@ a {
   + .dso-primary,
   + .dso-secondary,
   + .dso-tertiary {
-    margin-left: $u2;
+    margin-left: units.$u2;
   }
 }

@@ -1,13 +1,13 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 paperclip {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 paperclip:grijs {
-  color: $grijs-60;
+  color: colors.$grijs-60;
 }
 
 paperclip:wit {
-  color: $wit;
+  color: colors.$wit;
 }

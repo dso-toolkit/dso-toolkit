@@ -1,33 +1,33 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 chevron-down {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }
 
 chevron-down:mauve {
-  color: $mauve;
+  color: colors.$mauve;
 }
 
 chevron-down:scampi {
-  color: $scampi;
+  color: colors.$scampi;
 }
 
 chevron-down:grasgroen {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }
 
 chevron-down:bosgroen {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 chevron-down:wit {
-  color: $wit;
+  color: colors.$wit;
 }
 
 chevron-down:grijs50 {
-  color: $grijs-50;
+  color: colors.$grijs-50;
 }
 
 chevron-down:grijs90 {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }

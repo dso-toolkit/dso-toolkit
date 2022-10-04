@@ -1,0 +1,5 @@
+@use "../../variables/units";
+
+$item-size: units.$ru4;
+$border-size: 2px;
+$line-height: $item-size;

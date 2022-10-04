@@ -10,7 +10,9 @@ export const config: Config = {
   },
   plugins: [
     inlineSvg(),
-    sass()
+    sass({
+      includePaths: ['../../node_modules']
+    })
   ],
   outputTargets: [
     reactOutputTarget({

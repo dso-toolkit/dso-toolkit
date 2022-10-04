@@ -1,9 +1,6 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/step-counter/step-counter.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/highlight-box/highlight-box";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/components/highlight-box";
 
 :host {
   display: block;
@@ -17,17 +14,17 @@
     min-height: auto;
 
     &.dso-has-counter {
-      height: calc(100% - #{$dso-shared-equal-heights-highlight-box-height});
+      height: calc(100% - #{units.$shared-equal-heights-highlight-box-height});
     }
 
     &:not(.dso-has-counter) {
-      height: calc(100% - #{$u2});
+      height: calc(100% - #{units.$u2});
     }
   }
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .dso-highlight-box {
-  @include highlight-box_root();
+  @include highlight-box.root();
 }

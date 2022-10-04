@@ -1,31 +1,28 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/alert/alert";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/components/alert";
 
 :host {
   display: block;
 }
 
 :host(:not(:first-child)) {
-  margin-top: $u3;
+  margin-top: units.$u3;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 .alert {
-  @include alert_root();
+  @include alert.root();
 
   dso-icon {
-    @include alert_icon-position();
+    @include alert.icon-position();
 
-    height: $u4;
-    width: $u4;
+    height: units.$u4;
+    width: units.$u4;
   }
 }

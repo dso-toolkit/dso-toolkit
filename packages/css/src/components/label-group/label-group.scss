@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/label-group";
+
 .dso-label-group {
-  @include label-group_root();
+  @include label-group.root();
 }

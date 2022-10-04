@@ -1,37 +1,34 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/progress-indicator";
 
-@import "~@dso-toolkit/sources/src/utilities";
-
-@import "~@dso-toolkit/sources/src/components/progress-indicator/progress-indicator";
-
-@include box-sizing();
-@include progress-indicator_root();
+@include utilities.box-sizing();
+@include progress-indicator.root();
 
 :host([block]) {
-  @include progress-indicator_block();
+  @include progress-indicator.block();
 }
 
 :host([size="small"]),
 :host(:not([size="medium"]):not([size="large"])) {
-  @include progress-indicator_small();
+  @include progress-indicator.small();
 
   &:host([block]) {
-    @include progress-indicator_small-block();
+    @include progress-indicator.small-block();
   }
 }
 
 :host([size="medium"]) {
-  @include progress-indicator_medium();
+  @include progress-indicator.medium();
 
   &:host([block]) {
-    @include progress-indicator_medium-block();
+    @include progress-indicator.medium-block();
   }
 }
 
 :host([size="large"]) {
-  @include progress-indicator_large();
+  @include progress-indicator.large();
 
   &:host([block]) {
-    @include progress-indicator_large-block();
+    @include progress-indicator.large-block();
   }
 }

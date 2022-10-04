@@ -1,12 +1,14 @@
+@use "@dso-toolkit/sources/src/components/label";
+
 // HTML/CSS
 .dso-label {
-  @include label_root();
+  @include label.root();
 
   .dso-label-symbol {
-    @include label_symbolContainer();
+    @include label.symbolContainer();
 
     > span {
-      @include label_symbol();
+      @include label.symbol();
     }
   }
 }
@@ -14,10 +16,10 @@
 // Web Component
 dso-label {
   span[slot="symbol"] {
-    @include label_symbolContainer();
+    @include label.symbolContainer();
 
     > span {
-      @include label_symbol();
+      @include label.symbol();
     }
   }
 }

@@ -1,21 +1,17 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/progress-bar/progress-bar";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/progress-bar";
 
 :host {
   display: block;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 // Todo: Replace .sr-only selector with web component specific selector, no need for .sr-only if we can generate the SCSS
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 .progress {
-  @include progress-bar_root();
+  @include progress-bar.root();
 }

@@ -1,0 +1,85 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/scaffolding";
+@use "../button";
+
+@use "../step-counter";
+
+@use "highlight-box.variables" as highlight-box-variables;
+
+@mixin root() {
+  background-color: colors.$grijs-5;
+  margin-top: units.$u2;
+  padding: units.$u2;
+  margin-bottom: units.$vertical-spacing-large;
+
+  &.dso-white {
+    background-color: colors.$wit;
+  }
+
+  &.dso-yellow {
+    background-color: colors.$warning-bg-color;
+  }
+
+  &.dso-drop-shadow {
+    box-shadow: highlight-box-variables.$box-shadow;
+  }
+
+  &.dso-border {
+    background-color: colors.$wit;
+    border: 1px solid colors.$grijs-20;
+    padding: units.$u2 - 1;
+  }
+
+  &.dso-has-counter {
+    margin-top: highlight-box-variables.$margin-top;
+  }
+
+  @include step-counter.step-counter();
+}
+
+@mixin children() {
+  > .dso-rich-content {
+    *:first-child {
+      margin-top: 0 !important;
+    }
+  }
+
+  > *:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .dso-tertiary:not([disabled]),
+  .btn-link:not([disabled]) {
+    &:hover {
+      &,
+      dso-icon,
+      svg.di {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@mixin exoticChildren() {
+  .dso-tertiary:not([disabled]),
+  .btn-link:not([disabled]) {
+    color: colors.$grijs-90;
+
+    &:hover,
+    &:focus {
+      &,
+      dso-icon,
+      svg.di {
+        color: colors.$grijs-60;
+      }
+    }
+  }
+
+  a,
+  a:visited {
+    &#{button.$not-dso-buttons} {
+      color: scaffolding.$text-color;
+    }
+  }
+}

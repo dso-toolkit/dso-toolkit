@@ -1,29 +1,9 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/zindex";
+@use "~@dso-toolkit/sources/src/components/form-control";
 
-@import "~@dso-toolkit/sources/src/components/form-control/form-control.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-$date-picker-color-primary: $bosgroen;
-$date-picker-color-text: $grijs-90;
-$date-picker-color-text-disabled: $grijs-60;
-$date-picker-color-text-active: $wit;
-$date-picker-color-icon: $grasgroen;
-$date-picker-color-button: $grasgroen;
-$date-picker-color-button-bg: transparent;
-$date-picker-color-nav-button-disabled: $grasgroen-40;
-$date-picker-color-button-disabled: $grijs-5;
-$date-picker-color-select: $grasgroen;
-$date-picker-color-surface: $wit;
-$date-picker-color-overlay: rgba(25, 25, 25, 0.5);
-$date-picker-transition-duration: 400ms; // Keep in sync with date-picker.spec.ts const ANIMATION_TIME
-
-$date-picker-font: "Asap", sans-serif;
-$date-picker-font-normal: 400;
-$date-picker-font-bold: 600;
-
-$dso-date-picker-size: 38px;
-$date-picker-radius: $u1 * 0.5;
-
-$dso-date-dialog-border-width: 1px;
+@use "date-picker.variables" as core-date-picker-variables;
 
 :host {
   display: block;
@@ -37,9 +17,9 @@ $dso-date-dialog-border-width: 1px;
 
 .dso-date {
   box-sizing: border-box;
-  color: $date-picker-color-text;
+  color: core-date-picker-variables.$color-text;
   display: block;
-  font-family: $date-picker-font;
+  font-family: core-date-picker-variables.$font;
   margin: 0;
   position: relative;
   text-align: left;
@@ -53,7 +33,7 @@ $dso-date-dialog-border-width: 1px;
 }
 
 .dso-date__input {
-  @include form-control();
+  @include form-control.root();
 }
 
 // ---------------------------------------------
@@ -66,15 +46,15 @@ $dso-date-dialog-border-width: 1px;
   -webkit-user-select: none;
   align-items: center;
   appearance: none;
-  background: $date-picker-color-button-bg;
+  background: core-date-picker-variables.$color-button-bg;
   border: 0;
   border-radius: 0;
-  border-bottom-right-radius: $date-picker-radius;
-  border-top-right-radius: $date-picker-radius;
-  color: $date-picker-color-icon;
+  border-bottom-right-radius: core-date-picker-variables.$radius;
+  border-top-right-radius: core-date-picker-variables.$radius;
+  color: core-date-picker-variables.$color-icon;
   cursor: pointer;
   display: flex;
-  height: $dso-date-picker-size;
+  height: core-date-picker-variables.$size;
   justify-content: center;
   padding: 0;
   position: absolute;
@@ -82,11 +62,11 @@ $dso-date-dialog-border-width: 1px;
   transform: translateY(-50%);
   top: 50%;
   user-select: none;
-  width: $dso-date-picker-size;
-  z-index: $zx-datepicker + 1;
+  width: core-date-picker-variables.$size;
+  z-index: zindex.$datepicker + 1;
 
   &:disabled {
-    color: $date-picker-color-nav-button-disabled;
+    color: core-date-picker-variables.$nav-button-disabled;
     cursor: pointer;
   }
 }
@@ -96,7 +76,7 @@ $dso-date-dialog-border-width: 1px;
 // ---------------------------------------------
 
 .dso-date__dialog {
-  border-width: $dso-date-dialog-border-width;
+  border-width: core-date-picker-variables.$border-width;
   display: flex;
   right: 0;
   min-width: 320px;
@@ -108,10 +88,10 @@ $dso-date-dialog-border-width: 1px;
   transition: transform 300ms ease, opacity 300ms ease, visibility 300ms ease;
   visibility: hidden;
   will-change: transform, opacity, visibility;
-  z-index: $zx-datepicker-dialog;
+  z-index: zindex.$datepicker-dialog;
 
   @media (max-width: 35.9375em) {
-    background: $date-picker-color-overlay;
+    background: core-date-picker-variables.$overlay;
     bottom: 0;
     position: fixed;
     left: 0;
@@ -122,7 +102,7 @@ $dso-date-dialog-border-width: 1px;
   }
 
   &.is-left {
-    left: -$padding-base-horizontal + $dso-date-dialog-border-width;
+    left: units.$padding-base-horizontal * -1 + core-date-picker-variables.$border-width;
     right: auto;
     width: auto;
   }
@@ -136,9 +116,9 @@ $dso-date-dialog-border-width: 1px;
 }
 
 .dso-date__dialog-content {
-  background: $date-picker-color-surface;
+  background: core-date-picker-variables.$surface;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: $date-picker-radius;
+  border-radius: core-date-picker-variables.$radius;
   box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.4);
   margin-left: auto;
   margin-right: -1px;
@@ -149,13 +129,13 @@ $dso-date-dialog-border-width: 1px;
   position: relative;
   transform: none;
   width: 100%;
-  z-index: $zx-datepicker-dialog;
+  z-index: zindex.$datepicker-dialog;
 
   @media (max-width: 35.9375em) {
     border: 0;
     border-radius: 0;
-    border-top-left-radius: $date-picker-radius;
-    border-top-right-radius: $date-picker-radius;
+    border-top-left-radius: core-date-picker-variables.$radius;
+    border-top-right-radius: core-date-picker-variables.$radius;
     bottom: 0;
     left: 0;
     margin: 0;
@@ -165,7 +145,7 @@ $dso-date-dialog-border-width: 1px;
     padding: 0 8% 20px;
     position: absolute;
     transform: translateZ(0) translateY(100%);
-    transition: transform $date-picker-transition-duration ease, opacity $date-picker-transition-duration ease, visibility $date-picker-transition-duration ease;
+    transition: transform core-date-picker-variables.$transition-duration ease, opacity core-date-picker-variables.$transition-duration ease, visibility core-date-picker-variables.$transition-duration ease;
     visibility: hidden;
     will-change: transform, opacity, visibility;
 
@@ -184,11 +164,11 @@ $dso-date-dialog-border-width: 1px;
 .dso-date__table {
   border-collapse: collapse;
   border-spacing: 0;
-  color: $date-picker-color-text;
+  color: core-date-picker-variables.$color-text;
   font-size: 1rem;
-  font-weight: $date-picker-font-normal;
+  font-weight: core-date-picker-variables.$font-normal;
   line-height: 1.25;
-  min-width: ($dso-date-picker-size + 2) * 7;
+  min-width: (core-date-picker-variables.$size + 2) * 7;
   table-layout: fixed;
   text-align: center;
   width: 100%;
@@ -196,7 +176,7 @@ $dso-date-dialog-border-width: 1px;
 
 .dso-date__table-header {
   font-size: 0.875em;
-  font-weight: $date-picker-font-bold;
+  font-weight: core-date-picker-variables.$font-bold;
   height: 36px;
   line-height: 36px;
   text-decoration: none;
@@ -204,10 +184,10 @@ $dso-date-dialog-border-width: 1px;
 }
 
 .dso-date__cell {
-  height: $dso-date-picker-size + 2;
+  height: core-date-picker-variables.$size + 2;
   padding: 1px;
   text-align: center;
-  width: $dso-date-picker-size + 2;
+  width: core-date-picker-variables.$size + 2;
 }
 
 .dso-date__day {
@@ -218,81 +198,81 @@ $dso-date-dialog-border-width: 1px;
   border: 0;
   border-radius: 50%;
   box-shadow: 0 0 0 1px transparent;
-  color: $date-picker-color-text;
+  color: core-date-picker-variables.$color-text;
   cursor: pointer;
   display: inline-block;
-  font-family: $date-picker-font;
+  font-family: core-date-picker-variables.$font;
   font-variant-numeric: tabular-nums;
-  font-weight: $date-picker-font-normal;
-  height: $dso-date-picker-size;
+  font-weight: core-date-picker-variables.$font-normal;
+  height: core-date-picker-variables.$size;
   line-height: 0;
   padding: 0;
   position: relative;
   text-align: center;
   vertical-align: middle;
-  width: $dso-date-picker-size;
-  z-index: $zx-datepicker;
+  width: core-date-picker-variables.$size;
+  z-index: zindex.$datepicker;
 
   &.is-today {
     background: transparent;
-    height: $dso-date-picker-size - 2;
-    box-shadow: 0 0 0 1px $date-picker-color-button;
-    width: $dso-date-picker-size - 2;
+    height: core-date-picker-variables.$size - 2;
+    box-shadow: 0 0 0 1px core-date-picker-variables.$color-button;
+    width: core-date-picker-variables.$size - 2;
   }
 
   &:hover,
   &:active {
-    background: $date-picker-color-button;
-    color: $date-picker-color-text-active;
+    background: core-date-picker-variables.$color-button;
+    color: core-date-picker-variables.$color-text-active;
   }
 
   &:focus {
     background: transparent;
-    box-shadow: 0 0 0 2px $bosgroen;
-    color: $date-picker-color-text;
-    height: $dso-date-picker-size - 4;
+    box-shadow: 0 0 0 2px colors.$bosgroen;
+    color: core-date-picker-variables.$color-text;
+    height: core-date-picker-variables.$size - 4;
     outline: 0;
-    width: $dso-date-picker-size - 4;
+    width: core-date-picker-variables.$size - 4;
   }
 
   [aria-selected="true"] & {
-    background: $date-picker-color-button;
-    color: $date-picker-color-text-active;
+    background: core-date-picker-variables.$color-button;
+    color: core-date-picker-variables.$color-text-active;
 
     &:focus {
       background: transparent;
 
       span[aria-hidden="true"] {
-        background: $date-picker-color-button;
-        border: 1px solid $wit;
-        line-height: $dso-date-picker-size - 6;
+        background: core-date-picker-variables.$color-button;
+        border: 1px solid colors.$wit;
+        line-height: core-date-picker-variables.$size - 6;
       }
     }
   }
 
   &.is-outside {
-    background: $date-picker-color-button-disabled;
+    background: core-date-picker-variables.$color-button-disabled;
     box-shadow: none;
-    color: $date-picker-color-text-disabled;
+    color: core-date-picker-variables.$color-text-disabled;
     cursor: default;
     pointer-events: none;
   }
 
   &.is-disabled {
-    background: $wit;
+    background: colors.$wit;
     cursor: default;
 
     &:hover {
-      color: $date-picker-color-text-disabled;
+      color: core-date-picker-variables.$color-text-disabled;
     }
   }
 
   span[aria-hidden="true"] {
     border-radius: 50%;
     display: inline-block;
-    height: $dso-date-picker-size - 4;
-    line-height: $dso-date-picker-size - 4;
-    width: $dso-date-picker-size - 4;
+    height: core-date-picker-variables.$size - 4;
+    line-height: core-date-picker-variables.$size - 4;
+    width: core-date-picker-variables.$size - 4;
   }
 }
 
@@ -326,11 +306,11 @@ $dso-date-dialog-border-width: 1px;
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background: $date-picker-color-button-bg;
-  border: 1px solid $date-picker-color-button;
-  border-radius: $date-picker-radius;
+  background: core-date-picker-variables.$color-button-bg;
+  border: 1px solid core-date-picker-variables.$color-button;
+  border-radius: core-date-picker-variables.$radius;
   box-sizing: border-box;
-  color: $date-picker-color-button;
+  color: core-date-picker-variables.$color-button;
   cursor: pointer;
   display: inline-flex;
   font-size: 1em;
@@ -347,21 +327,21 @@ $dso-date-dialog-border-width: 1px;
 
   &:hover,
   &:active {
-    background-color: $date-picker-color-button;
-    color: $date-picker-color-text-active;
+    background-color: core-date-picker-variables.$color-button;
+    color: core-date-picker-variables.$color-text-active;
   }
 
   &:focus {
-    background: $date-picker-color-button-bg;
-    color: $date-picker-color-button;
+    background: core-date-picker-variables.$color-button-bg;
+    color: core-date-picker-variables.$color-button;
   }
 
   &:disabled {
     &,
     &:hover {
       background-color: #fff;
-      border-color: $date-picker-color-nav-button-disabled;
-      color: $date-picker-color-nav-button-disabled;
+      border-color: core-date-picker-variables.$nav-button-disabled;
+      color: core-date-picker-variables.$nav-button-disabled;
       opacity: 1;
     }
   }
@@ -377,8 +357,8 @@ $dso-date-dialog-border-width: 1px;
 
 .dso-date__select {
   display: inline-flex;
-  height: $u1 * 4 - 4;
-  line-height: $u1 * 4 - 4;
+  height: units.$u1 * 4 - 4;
+  line-height: units.$u1 * 4 - 4;
   position: relative;
 
   span {
@@ -386,7 +366,7 @@ $dso-date-dialog-border-width: 1px;
   }
 
   select {
-    color: $date-picker-color-primary;
+    color: core-date-picker-variables.$color-primary;
     cursor: pointer;
     font-size: 1rem;
     height: 100%;
@@ -395,32 +375,32 @@ $dso-date-dialog-border-width: 1px;
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: $zx-datepicker + 1;
+    z-index: zindex.$datepicker + 1;
 
     &:focus + .dso-date__select-label {
-      box-shadow: 0 0 0 2px $date-picker-color-primary;
+      box-shadow: 0 0 0 2px core-date-picker-variables.$color-primary;
     }
 
     &:disabled {
-      color: $date-picker-color-nav-button-disabled;
+      color: core-date-picker-variables.$nav-button-disabled;
     }
   }
 }
 
 .dso-date__select-label {
   align-items: center;
-  border-radius: $date-picker-radius;
-  color: $date-picker-color-select;
+  border-radius: core-date-picker-variables.$radius;
+  color: core-date-picker-variables.$select;
   display: flex;
   padding: 0 4px 0 8px;
   pointer-events: none;
   position: relative;
   width: 100%;
-  z-index: $zx-datepicker;
+  z-index: zindex.$datepicker;
 
   span {
     font-size: 1.25rem;
-    font-weight: $date-picker-font-bold;
+    font-weight: core-date-picker-variables.$font-bold;
     line-height: 1.25;
   }
 
@@ -463,7 +443,7 @@ $dso-date-dialog-border-width: 1px;
 
 .dso-date__mobile-heading {
   display: inline-block;
-  font-weight: $date-picker-font-bold;
+  font-weight: core-date-picker-variables.$font-bold;
   max-width: 84%;
   overflow: hidden;
   text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- 3rd party code
@@ -482,18 +462,18 @@ $dso-date-dialog-border-width: 1px;
   -webkit-appearance: none;
   align-items: center;
   appearance: none;
-  background-color: $wit;
+  background-color: colors.$wit;
   border: 0;
   border-radius: 50%;
-  color: $date-picker-color-icon;
+  color: core-date-picker-variables.$color-icon;
   cursor: pointer;
   display: flex;
   font-size: 1em;
-  height: $u1 * 4;
+  height: units.$u1 * 4;
   justify-content: center;
   margin-right: -4px;
   padding: 0;
-  width: $u1 * 4;
+  width: units.$u1 * 4;
 
   @media (min-width: 36em) {
     margin-right: 0;
@@ -501,7 +481,7 @@ $dso-date-dialog-border-width: 1px;
   }
 
   &:focus {
-    box-shadow: 0 0 0 2px $bosgroen;
+    box-shadow: 0 0 0 2px colors.$bosgroen;
     outline: none;
 
     @media (min-width: 36em) {

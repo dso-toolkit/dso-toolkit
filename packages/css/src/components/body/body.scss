@@ -1,9 +1,12 @@
+@use "@dso-toolkit/sources/src/variables/scaffolding";
+@use "@dso-toolkit/sources/src/variables/typography";
+
 body {
-  font-family: $font-family-base;
-  font-size: $dso-font-size-base;
-  line-height: $line-height-base;
-  color: $text-color;
-  background-color: $body-bg;
+  font-family: typography.$font-family-base;
+  font-size: typography.$root-font-size-base;
+  line-height: typography.$line-height-base;
+  color: scaffolding.$text-color;
+  background-color: scaffolding.$body-bg;
   margin: 0;
   max-width: 100%;
   overflow-wrap: break-word;

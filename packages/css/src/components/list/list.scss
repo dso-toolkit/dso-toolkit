@@ -1,29 +1,32 @@
-$list-group-bg: #fff;
-$list-group-border: #ddd;
-$list-group-border-radius: $border-radius-base;
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/components/rich-content";
+@use "@dso-toolkit/sources/src/components/list";
+
+@use "list.variables" as css-list-variables;
 
 .list-group-item {
-  background-color: $list-group-bg;
-  border: 1px solid $list-group-border;
+  background-color: css-list-variables.$group-background-color;
+  border: 1px solid css-list-variables.$group-border-color;
   display: block;
   margin-bottom: -1px;
   padding: 10px 15px;
   position: relative;
 
   &:first-child {
-    border-top-left-radius: $list-group-border-radius;
-    border-top-right-radius: $list-group-border-radius;
+    border-top-left-radius: css-list-variables.$group-border-radius;
+    border-top-right-radius: css-list-variables.$group-border-radius;
   }
 
   &:last-child {
-    border-bottom-left-radius: $list-group-border-radius;
-    border-bottom-right-radius: $list-group-border-radius;
+    border-bottom-left-radius: css-list-variables.$group-border-radius;
+    border-bottom-right-radius: css-list-variables.$group-border-radius;
     margin-bottom: 0;
   }
 }
 
 .list-group > .list-group-item {
-  @include rich-content_children();
+  @include rich-content.children();
 }
 
 .list-group {
@@ -34,18 +37,18 @@ $list-group-border-radius: $border-radius-base;
 .dso-img-list {
   display: flex;
   flex-direction: column;
-  gap: $u1;
+  gap: units.$u1;
   list-style: none;
   padding-left: 0;
 
   li {
     align-items: flex-start;
     display: flex;
-    gap: $u1;
+    gap: units.$u1;
 
     img {
-      height: $u3;
-      width: $u3;
+      height: units.$u3;
+      width: units.$u3;
     }
   }
 }
@@ -53,29 +56,29 @@ $list-group-border-radius: $border-radius-base;
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: $u2;
+  margin-bottom: units.$u2;
 
   &.dso-columns-list {
     list-style: none;
     margin: 0;
     padding-left: 0;
 
-    @media (max-width: $screen-sm-max) {
+    @media (max-width: media-query-breakpoints.$screen-sm-max) {
       columns: 1;
     }
 
-    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+    @media (min-width: media-query-breakpoints.$screen-md-min) and (max-width: media-query-breakpoints.$screen-md-max) {
       columns: 2;
     }
 
-    @media (min-width: $screen-lg-min) {
+    @media (min-width: media-query-breakpoints.$screen-lg-min) {
       columns: 3;
     }
   }
 
   li .dso-info {
-    margin-bottom: $u1;
-    margin-top: $u1;
+    margin-bottom: units.$u1;
+    margin-top: units.$u1;
   }
 
   ul,
@@ -84,6 +87,6 @@ ol {
   }
 
   &.dso-list-unstyled {
-    @include list-unstyled();
+    @include list.unstyled();
   }
 }

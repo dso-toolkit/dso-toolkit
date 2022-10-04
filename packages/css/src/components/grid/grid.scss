@@ -1,23 +1,21 @@
-@use "grid.mixins" as grid-mixins;
-@use "grid.variables" as grid-variables;
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
 
-$container-sm: auto !default; // Small screen / tablet
-$container-md: 922px !default; // Medium screen / desktop
-$container-lg: 1152px !default; // Large screen / wide desktop
-
-$dso-featured-background-color: $grasgroen-10;
+@use "grid.mixins" as css-grid-mixins;
+@use "grid.variables" as css-grid-variables;
 
 main,
 form {
   > .dso-rich-content {
-    margin-bottom: $dso-vertical-spacing-xlarge;
+    margin-bottom: units.$vertical-spacing-xlarge;
   }
 
   > .row {
     &.dso-featured {
-      margin-bottom: $u5;
-      padding-bottom: $u6;
-      padding-top: $u5;
+      margin-bottom: units.$u5;
+      padding-bottom: units.$u6;
+      padding-top: units.$u5;
 
       & + .row div:not(.dso-rich-content) {
         h1,
@@ -36,27 +34,27 @@ form {
 }
 
 .container {
-  @include grid-mixins.container-fixed();
+  @include css-grid-mixins.container-fixed();
 
-  @media (min-width: $screen-sm-min) {
-    width: $container-sm;
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
+    width: css-grid-variables.$container-sm;
   }
 
-  @media (min-width: $screen-md-min) {
-    width: $container-md;
+  @media (min-width: media-query-breakpoints.$screen-md-min) {
+    width: css-grid-variables.$container-md;
   }
 
-  @media (min-width: $screen-lg-min) {
-    width: $container-lg;
+  @media (min-width: media-query-breakpoints.$screen-lg-min) {
+    width: css-grid-variables.$container-lg;
   }
 }
 
 .container-fluid {
-  @include grid-mixins.container-fixed();
+  @include css-grid-mixins.container-fixed();
 }
 
 .row {
-  @include grid-mixins.make-row();
+  @include css-grid-mixins.make-row();
 
   &.dso-equal-heights {
     display: flex;
@@ -71,16 +69,16 @@ form {
         min-height: auto;
 
         &.dso-has-counter {
-          height: calc(100% - #{$dso-shared-equal-heights-highlight-box-height});
+          height: calc(100% - #{units.$shared-equal-heights-highlight-box-height});
         }
       }
     }
   }
 
   &.dso-banner {
-    @include grid-mixins.full-width-row(grid-variables.$grid-gutter-width);
+    @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
 
-    background-color: $grasgroen-10;
+    background-color: colors.$grasgroen-10;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -88,19 +86,19 @@ form {
 
     &,
     &:not(.dso-featured):first-child {
-      margin-bottom: $u4;
+      margin-bottom: units.$u4;
       padding-top: 2rem;
     }
   }
 
   &.dso-featured {
-    @include grid-mixins.full-width-row(grid-variables.$grid-gutter-width);
+    @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
 
-    background-color: $dso-featured-background-color;
+    background-color: css-grid-variables.$featured-background-color;
   }
 
   + .dso-featured {
-    margin-top: $u3;
+    margin-top: units.$u3;
   }
 }
 
@@ -114,18 +112,18 @@ form {
   }
 }
 
-@include grid-mixins.make-grid-columns();
+@include css-grid-mixins.make-grid-columns();
 
-@include grid-mixins.make-grid(xs);
+@include css-grid-mixins.make-grid(xs);
 
-@media (min-width: $screen-sm-min) {
-  @include grid-mixins.make-grid(sm);
+@media (min-width: media-query-breakpoints.$screen-sm-min) {
+  @include css-grid-mixins.make-grid(sm);
 }
 
-@media (min-width: $screen-md-min) {
-  @include grid-mixins.make-grid(md);
+@media (min-width: media-query-breakpoints.$screen-md-min) {
+  @include css-grid-mixins.make-grid(md);
 }
 
-@media (min-width: $screen-lg-min) {
-  @include grid-mixins.make-grid(lg);
+@media (min-width: media-query-breakpoints.$screen-lg-min) {
+  @include css-grid-mixins.make-grid(lg);
 }

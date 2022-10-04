@@ -1,5 +1,7 @@
+@use "@dso-toolkit/sources/src/components/progress-indicator";
+
 .dso-progress-indicator {
-  @include progress-indicator_root();
+  @include progress-indicator.root();
 
   .dso-progress-indicator-spinner {
     // Keep in sync with /packages/core/src/components/progress-indicator/progress-indicator.scss
@@ -10,31 +12,31 @@
   }
 
   &.dso-block {
-    @include progress-indicator_block();
+    @include progress-indicator.block();
   }
 
   &.dso-small,
   &:not(.dso-medium):not(.dso-large) {
-    @include progress-indicator_small();
+    @include progress-indicator.small();
 
     &.dso-block {
-      @include progress-indicator_small-block();
+      @include progress-indicator.small-block();
     }
   }
 
   &.dso-medium {
-    @include progress-indicator_medium();
+    @include progress-indicator.medium();
 
     &.dso-block {
-      @include progress-indicator_medium-block();
+      @include progress-indicator.medium-block();
     }
   }
 
   &.dso-large {
-    @include progress-indicator_large();
+    @include progress-indicator.large();
 
     &.dso-block {
-      @include progress-indicator_large-block();
+      @include progress-indicator.large-block();
     }
   }
 }

@@ -1,7 +1,10 @@
-// Extra demo styling, it includes DSO styling + styling that's needed for demonstration purposes
-@import "../src/dso";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
 
-@import "Voorbeelden/anchors";
+// Extra demo styling, it includes DSO styling + styling that's needed for demonstration purposes
+@use "../src/dso";
+
+@use "Voorbeelden/anchors";
 
 .toolkit-example-wrapper {
   border: 1px solid #ddd;
@@ -11,7 +14,7 @@
   padding: 10px;
 
   &:first-child {
-    margin-top: $u3;
+    margin-top: units.$u3;
   }
 
   .toolkit-example {
@@ -62,17 +65,17 @@
   }
 
   + hr {
-    margin: $u3 0;
+    margin: units.$u3 0;
   }
 }
 
 h3.toolkit-example-label {
-  color: $zwart;
+  color: colors.$zwart;
   font-size: 1em;
-  margin-bottom: $u1;
-  margin-top: $u1;
+  margin-bottom: units.$u1;
+  margin-top: units.$u1;
 }
 
 hr + .panel {
-  margin-top: $u3;
+  margin-top: units.$u3;
 }

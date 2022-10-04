@@ -1,0 +1,52 @@
+@use "../../variables/units";
+
+@mixin _looping-size($progress-indicator-size) {
+  .dso-progress-indicator-spinner {
+    height: $progress-indicator-size;
+    width: $progress-indicator-size;
+  }
+}
+
+@mixin root() {
+  .dso-progress-indicator-spinner {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+  }
+
+  span.dso-progress-indicator-label {
+    margin-left: units.$u2;
+    vertical-align: middle;
+  }
+}
+
+@mixin block() {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+@mixin small() {
+  @include _looping-size(24px);
+}
+
+@mixin small-block() {
+  padding: units.$u1 * 1.5 units.$u2;
+}
+
+@mixin medium() {
+  @include _looping-size(32px);
+}
+
+@mixin medium-block() {
+  padding: units.$u2;
+}
+
+@mixin large() {
+  @include _looping-size(48px);
+}
+
+@mixin large-block() {
+  padding: units.$u3 units.$u2;
+}

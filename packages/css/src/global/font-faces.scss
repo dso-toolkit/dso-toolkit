@@ -1,4 +1,4 @@
-$asap-font-path: 'assets/fonts/Asap/' !default;
+@use "../config";
 
 @font-face {
   font-family: "Asap";
@@ -7,8 +7,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Regular"),
     local("Asap-Regular"),
-    url("#{$asap-font-path}Asap-Regular.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-Regular.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-Regular.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -18,8 +18,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Regular italic"),
     local("Asap-Regularitalic"),
-    url("#{$asap-font-path}Asap-Italic.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-Italic.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-Italic.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-Italic.woff") format("woff");
 }
 
 @font-face {
@@ -29,8 +29,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Bold"),
     local("Asap-Bold"),
-    url("#{$asap-font-path}Asap-Medium.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-Medium.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-Medium.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-Medium.woff") format("woff");
 }
 
 @font-face {
@@ -40,8 +40,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Bold italic"),
     local("Asap-Bolditalic"),
-    url("#{$asap-font-path}Asap-MediumItalic.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-MediumItalic.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-MediumItalic.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-MediumItalic.woff") format("woff");
 }
 
 @font-face {
@@ -51,8 +51,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Bold"),
     local("Asap-Bold"),
-    url("#{$asap-font-path}Asap-SemiBold.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-SemiBold.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-SemiBold.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-SemiBold.woff") format("woff");
 }
 
 @font-face {
@@ -62,8 +62,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Bold italic"),
     local("Asap-Bolditalic"),
-    url("#{$asap-font-path}Asap-SemiBoldItalic.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-SemiBoldItalic.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-SemiBoldItalic.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-SemiBoldItalic.woff") format("woff");
 }
 
 @font-face {
@@ -73,8 +73,8 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Bold"),
     local("Asap-Bold"),
-    url("#{$asap-font-path}Asap-Bold.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-Bold.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-Bold.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-Bold.woff") format("woff");
 }
 
 @font-face {
@@ -84,6 +84,6 @@ $asap-font-path: 'assets/fonts/Asap/' !default;
   src:
     local("Asap Bold italic"),
     local("Asap-Bolditalic"),
-    url("#{$asap-font-path}Asap-BoldItalic.woff2") format("woff2"),
-    url("#{$asap-font-path}Asap-BoldItalic.woff") format("woff");
+    url("#{config.$asap-font-path}Asap-BoldItalic.woff2") format("woff2"),
+    url("#{config.$asap-font-path}Asap-BoldItalic.woff") format("woff");
 }

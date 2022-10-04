@@ -1,19 +1,25 @@
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/components/selectable";
+
+@use "../../form.mixins" as css-form-mixins;
+
 .form-group.dso-radios {
   &.dso-invalid {
     .dso-selectable {
-      @include selectable_invalid();
+      @include selectable.invalid();
     }
   }
 
   &.dso-required {
     .control-label::after {
-      @include form-group-required();
+      @include css-form-mixins.form-group-required();
     }
   }
 
   &.dso-inline {
     .dso-selectable {
-      @include selectable_inline(".dso-selectable");
+      @include selectable.inline(".dso-selectable");
     }
   }
 
@@ -24,9 +30,9 @@
       }
     }
 
-    @media screen and (min-width: $screen-sm-min) {
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       .dso-field-container {
-        padding-top: #{$padding-base-vertical + 1};
+        padding-top: #{units.$padding-base-vertical + 1};
       }
     }
   }

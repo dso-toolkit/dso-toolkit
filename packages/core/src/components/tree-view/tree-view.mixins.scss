@@ -1,6 +1,6 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/variables/colors";
 
-@mixin horizontal-line($left, $top, $width, $color: $bosgroen) {
+@mixin horizontal-line($left, $top, $width, $color: colors.$bosgroen) {
   border-top: 1px solid $color;
   content: "";
   height: 0;
@@ -10,7 +10,7 @@
   width: $width;
 }
 
-@mixin vertical-line($left, $top, $height, $color: $bosgroen) {
+@mixin vertical-line($left, $top, $height, $color: colors.$bosgroen) {
   border-left: 1px solid $color;
   content: "";
   height: $height;

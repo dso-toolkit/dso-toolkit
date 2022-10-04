@@ -1,28 +1,26 @@
-@import "../../utilities";
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+@use "../../utilities";
 
-$input-border-radius: 4px;
+@use "form-control.variables" as form-control-variables;
 
-$dso-form-control-border-width: 1px;
-$dso-form-control-focus-border-width: 1px;
-$dso-form-control-height: calc(($padding-base-vertical + 1px) * 2 + $dso-form-control-border-width * 2 + $dso-font-size-base * 1.5);
-$dso-form-control-focus-border-color: $bosgroen;
-$dso-form-control-readonly-border-width: 1px;
-
-@mixin form-control() {
+@mixin root() {
   display: block;
   width: 100%;
-  height: $dso-form-control-height;
-  padding: $padding-base-vertical ($padding-base-horizontal + 2);
-  font-size: $dso-font-size-base;
-  line-height: $line-height-base;
-  color: $input-color;
-  background-color: $input-bg;
+  height: form-control-variables.$height;
+  padding: units.$padding-base-vertical (units.$padding-base-horizontal + 2);
+  font-size: typography.$root-font-size-base;
+  line-height: typography.$line-height-base;
+  color: colors.$input-color;
+  background-color: colors.$input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: $dso-form-control-border-width solid $input-border;
-  border-radius: $input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
+  border: form-control-variables.$border-width solid colors.$input-border;
+  border-radius: form-control-variables.$input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 
-  @include placeholder($input-color-placeholder);
+  @include utilities.placeholder(colors.$input-color-placeholder);
 
   &::-ms-expand {
     background-color: transparent;
@@ -30,34 +28,34 @@ $dso-form-control-readonly-border-width: 1px;
   }
 
   &:focus {
-    border-color: $dso-form-control-focus-border-color;
+    border-color: form-control-variables.$focus-border-color;
     outline: 0;
-    box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-form-control-focus-border-color;
+    box-shadow: inset 0 0 0 form-control-variables.$focus-border-width form-control-variables.$focus-border-color;
   }
 
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    background-color: $input-bg-disabled;
+    background-color: colors.$input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }
 
   &[disabled],
   fieldset[disabled] & {
-    cursor: $cursor-disabled;
+    cursor: scaffolding.$cursor-disabled;
   }
 
   &[disabled] {
-    border-color: $dso-input-disabled-border-color;
-    color: $dso-input-disabled-color;
+    border-color: colors.$input-disabled-border-color;
+    color: colors.$input-disabled-color;
   }
 
   &[readonly] {
-    border-width: $dso-form-control-readonly-border-width;
+    border-width: form-control-variables.$readonly-border-width;
   }
 
   &[type="text"] {
-    line-height: $dso-form-control-height;
+    line-height: form-control-variables.$height;
   }
 
   &[size] {

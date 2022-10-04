@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/variables/typography";
+
 small {
-  font-size: $font-size-small;
+  font-size: typography.$font-size-small;
 }

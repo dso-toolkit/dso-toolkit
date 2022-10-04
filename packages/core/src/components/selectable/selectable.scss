@@ -1,17 +1,15 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/selectable";
 
-@import "~@dso-toolkit/sources/src/utilities";
-
-@import "~@dso-toolkit/sources/src/components/selectable/selectable";
 
 :host {
   display: block;
 
-  @include selectable_root('dso-info');
+  @include selectable.root('dso-info');
 }
 
 :host(:not(:last-child)) {
-  @include selectable_notLastChild();
+  @include selectable.notLastChild();
 }
 
-@include box-sizing();
+@include utilities.box-sizing();

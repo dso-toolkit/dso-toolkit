@@ -1,8 +1,6 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/utilities";
 
-@import "~@dso-toolkit/sources/src/utilities";
-
-@include box-sizing();
+@include utilities.box-sizing();
 
 :host {
   display: inline-block;

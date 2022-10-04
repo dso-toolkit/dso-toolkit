@@ -1,0 +1,17 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "../list";
+
+@mixin root() {
+  @include list.unstyled();
+
+  border-top: 1px solid colors.$grijs-20;
+  padding-top: #{units.$u1 * 1.5};
+
+  .dso-footnote-backlink::after {
+    content: "^";
+    display: inline-block;
+    font-weight: 700;
+  }
+}

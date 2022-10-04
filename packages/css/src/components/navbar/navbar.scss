@@ -1,17 +1,22 @@
-$dso-navigation-selected-color: $mauve;
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/typography";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/components/anchor";
+@use "@dso-toolkit/sources/src/components/navbar";
 
 @mixin nav-item-border($color) {
   border-bottom: 4px solid $color;
 }
 
 .dso-navbar {
-  min-height: $u4;
+  min-height: units.$u4;
 
   .dso-navbar-header {
     float: left;
   }
 
-  @media screen and (max-width: $screen-sm-max) {
+  @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
     clear: left;
 
     > .dso-nav {
@@ -32,15 +37,15 @@ $dso-navigation-selected-color: $mauve;
   .dso-navbar-toggle {
     border-radius: 4px;
     min-width: auto;
-    padding: #{$padding-base-vertical - 1} 0;
+    padding: #{units.$padding-base-vertical - 1} 0;
 
     dso-icon,
     svg.di {
-      margin-left: $u1;
-      margin-right: $u1;
+      margin-left: units.$u1;
+      margin-right: units.$u1;
     }
 
-    @media screen and (min-width: $screen-md-min) {
+    @media screen and (min-width: media-query-breakpoints.$screen-md-min) {
       display: none;
     }
   }
@@ -55,8 +60,8 @@ $dso-navigation-selected-color: $mauve;
   margin-bottom: 0;
   padding-left: 0;
 
-  @media screen and (min-width: $screen-sm-min) {
-    border-bottom: 1px solid $grijs-20;
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    border-bottom: 1px solid colors.$grijs-20;
   }
 
   > li {
@@ -67,14 +72,14 @@ $dso-navigation-selected-color: $mauve;
       &:hover,
       &:focus,
       &:visited {
-        color: $bosgroen;
+        color: colors.$bosgroen;
       }
     }
 
     &.dso-active,
     &.is-active {
       > a {
-        @include nav-item-border($dso-navigation-selected-color);
+        @include nav-item-border(navbar.$selected-color);
 
         font-weight: bold;
       }
@@ -85,17 +90,17 @@ $dso-navigation-selected-color: $mauve;
     > li {
       display: block;
 
-      @media screen and (min-width: $screen-sm-min) {
+      @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
         display: inline-block;
       }
 
       > a {
-        @include anchor-reverse();
+        @include anchor.reverse();
 
         font-size: 1.25em;
         line-height: 1;
-        margin-top: $u1;
-        padding: $u1 $u2 #{$u1 - 1px};
+        margin-top: units.$u1;
+        padding: units.$u1 units.$u2 #{units.$u1 - 1px};
       }
     }
   }
@@ -105,11 +110,11 @@ $dso-navigation-selected-color: $mauve;
       display: inline-block;
 
       > a {
-        @include anchor-reverse();
+        @include anchor.reverse();
 
-        font-size: $dso-font-size-base;
-        margin-top: ($u1 * 0.5);
-        padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
+        font-size: typography.$root-font-size-base;
+        margin-top: (units.$u1 * 0.5);
+        padding: (units.$u1 * 0.5) units.$u1 #{units.$u1 * 0.5 - 1px};
       }
     }
   }

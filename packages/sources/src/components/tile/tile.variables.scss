@@ -1,0 +1,11 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+$box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+$margin-bottom: units.$u7;
+$min-height: 200px;
+
+$icon-background-color: colors.$grijs-5;
+$icon-border-color: colors.$grijs-10;
+$icon-size: units.$u1 * 11.5;
+$icon-color: colors.$grasgroen;

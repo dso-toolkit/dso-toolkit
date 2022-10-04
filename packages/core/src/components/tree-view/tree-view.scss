@@ -1,24 +1,16 @@
 @use "sass:math";
 
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/scaffolding";
 
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "tree-view.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-$tree-view-line-height: $u3;
-$tree-view-hspace: $u1;
-$tree-view-vspace: $u1;
-$tree-view-icon-size: $u3;
-$tree-view-indent: $u4;
-$tree-view-hcenter: 0.5 * $tree-view-icon-size;
-$tree-view-vcenter: 0.5 * $tree-view-line-height + $tree-view-vspace;
-$tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
+@use "tree-view.mixins" as core-tree-view-mixins;
+@use "tree-view.variables" as core-tree-view-variables;
 
 :host {
   ul {
     list-style-type: none;
-    padding-inline-start: $tree-view-indent;
+    padding-inline-start: core-tree-view-variables.$indent;
     position: relative;
   }
 
@@ -32,32 +24,32 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
 
   // connects branch or leaf to parent
   ul[role='group']::before {
-    @include vertical-line(
-      $tree-view-indent + $tree-view-hcenter,
+    @include core-tree-view-mixins.vertical-line(
+      core-tree-view-variables.$indent + core-tree-view-variables.$hcenter,
       0,
-      $tree-view-icon-vspace);
+      core-tree-view-variables.$vspace);
   }
 
   li:not(.has-child) {
     // horizontal connector for a leaf
     &::before {
-      @include horizontal-line(
-        $tree-view-hcenter,
-        $tree-view-vcenter,
-        $tree-view-hspace + 0.5 * $tree-view-icon-size - 4px);
+      @include core-tree-view-mixins.horizontal-line(
+        core-tree-view-variables.$hcenter,
+        core-tree-view-variables.$vcenter,
+        core-tree-view-variables.$hspace + 0.5 * core-tree-view-variables.$icon-size - 4px);
     }
 
     // vertical connector for a leaf
     &::after {
-      @include vertical-line(
-        $tree-view-hcenter,
-        $tree-view-icon-vspace,
+      @include core-tree-view-mixins.vertical-line(
+        core-tree-view-variables.$hcenter,
+        core-tree-view-variables.$vspace,
         100%);
     }
 
     // vertical connector for the last leaf
     &:last-child::after {
-      height: $tree-view-vcenter;
+      height: core-tree-view-variables.$vcenter;
       top: 0;
     }
   }
@@ -65,34 +57,34 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
   li.has-child {
     // horizontal connector for a branch
     &::before {
-      @include horizontal-line(
-        $tree-view-icon-size,
-        $tree-view-vcenter,
-        $tree-view-hspace - 4px);
+      @include core-tree-view-mixins.horizontal-line(
+        core-tree-view-variables.$icon-size,
+        core-tree-view-variables.$vcenter,
+        core-tree-view-variables.$hspace - 4px);
     }
 
     // vertical connector for a branch (not last)
     &:not(:last-child)::after {
-      @include vertical-line(
-        $tree-view-hcenter,
-        $tree-view-vcenter + 0.5 * $tree-view-icon-size,
-        calc(100% - $tree-view-icon-size));
+      @include core-tree-view-mixins.vertical-line(
+        core-tree-view-variables.$hcenter,
+        core-tree-view-variables.$vcenter + 0.5 * core-tree-view-variables.$icon-size,
+        calc(100% - core-tree-view-variables.$icon-size));
     }
 
     // vertical line after a expanded branch (creating dead ends)
     &.is-expanded:last-child::after {
-      @include vertical-line(
-        $tree-view-hcenter,
-        $tree-view-vcenter + 0.5 * $tree-view-icon-size,
-        calc(100% - ($tree-view-vcenter + 0.5 * $tree-view-icon-size)));
+      @include core-tree-view-mixins.vertical-line(
+        core-tree-view-variables.$hcenter,
+        core-tree-view-variables.$vcenter + 0.5 * core-tree-view-variables.$icon-size,
+        calc(100% - (core-tree-view-variables.$vcenter + 0.5 * core-tree-view-variables.$icon-size)));
     }
   }
 
   .tree-branch-control {
-    color: $grasgroen;
+    color: colors.$grasgroen;
     display: inline-block;
-    font-size: math.div(2 * $tree-view-icon-size, 3);
-    margin: $tree-view-icon-vspace $tree-view-hspace $tree-view-icon-vspace 0;
+    font-size: math.div(2 * core-tree-view-variables.$icon-size, 3);
+    margin: core-tree-view-variables.$vspace core-tree-view-variables.$hspace core-tree-view-variables.$vspace 0;
     vertical-align: top;
 
     > div {
@@ -103,16 +95,16 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
   .tree-content {
     cursor: pointer;
     display: inline-block;
-    margin: $tree-view-vspace 0;
-    max-width: calc(100% - ($tree-view-indent + $tree-view-hspace));
+    margin: core-tree-view-variables.$vspace 0;
+    max-width: calc(100% - (core-tree-view-variables.$indent + core-tree-view-variables.$hspace));
 
     a {
-      color: $text-color;
+      color: scaffolding.$text-color;
       text-decoration: underline;
 
       &:hover,
       &:focus {
-        color: $text-color;
+        color: scaffolding.$text-color;
         text-decoration: none;
       }
 
@@ -122,7 +114,7 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
     }
 
     &.selected {
-      color: $text-color;
+      color: scaffolding.$text-color;
       font-weight: 700;
       text-decoration: underline;
 
@@ -133,7 +125,7 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
     }
 
     &.active {
-      color: $mauve;
+      color: colors.$mauve;
       font-style: italic;
       font-weight: 700;
 
@@ -145,7 +137,7 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
       }
 
       a {
-        color: $mauve;
+        color: colors.$mauve;
 
         &:hover,
         &:focus {
@@ -155,7 +147,7 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
     }
 
     dso-icon {
-      color: $grasgroen;
+      color: colors.$grasgroen;
       font-size: 0.75em;
       margin-left: 0.5em;
       vertical-align: text-bottom;
@@ -163,8 +155,8 @@ $tree-view-icon-vspace: $tree-view-vcenter - 0.5 * $tree-view-icon-size;
   }
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }

@@ -1,12 +1,16 @@
-$description-content-selector: ".dso-description-content";
+@use "@dso-toolkit/sources/src/components/description";
+
+@use "../../di";
+
+@use "description.variables" as css-description-variables;
 
 .dso-description-term {
-  @include description_root($description-content-selector);
+  @include description.root(css-description-variables.$content-selector);
 
-  + #{$description-content-selector} {
+  + #{css-description-variables.$content-selector} {
     > a {
       &::before {
-        @include di("times-zwart");
+        @include di.base("times-zwart");
 
         content: "";
         display: block;

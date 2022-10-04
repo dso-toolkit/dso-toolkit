@@ -1,0 +1,468 @@
+@use "sass:map";
+
+@use "../../utilities";
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/typography";
+
+@use "button.variables" as button-variables;
+
+// ====================
+// Private mixins
+// ====================
+
+@mixin _shared-variant($defaults-map, $variant-map: ()) {
+  $map: map.merge($defaults-map, $variant-map);
+
+  background-color: map.get($map, "background-color");
+  border-color: map.get($map, "border-color");
+  color: map.get($map, "color");
+}
+
+@mixin _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only) {
+  @if ($base-styling) {
+    @include base($modifiers);
+  }
+
+  @include _shared-variant($defaults-map);
+
+  border-width: 1px;
+  border-style: solid;
+  border-radius: button-variables.$border-radius;
+  line-height: typography.$line-height-base;
+  min-width: button-variables.$min-width;
+  padding: button-variables.$vertical-padding button-variables.$horizontal-padding;
+
+  &:hover {
+    @include _shared-variant($defaults-map, $hover-map);
+  }
+
+  &:active {
+    @include _shared-variant($defaults-map, $active-map);
+  }
+
+  &[disabled] {
+    &,
+    &:hover {
+      @include _shared-variant($defaults-map, $disabled-map);
+    }
+  }
+
+  &.btn-sm {
+    @include small();
+  }
+
+  @if ($icon-only) {
+    > span {
+      @include utilities.sr-only();
+    }
+  }
+  @else {
+    dso-icon,
+    svg.di {
+      margin-left: units.$u1 * -1;
+      margin-right: units.$u1;
+    }
+
+    span + dso-icon,
+    span + svg.di {
+      margin-left: units.$u1;
+      margin-right: units.$u1 * -1;
+    }
+  }
+}
+
+@mixin _spinner-icon($color, $valign, $position) {
+  background-image: url("data:image/svg+xml,%3Csvg class='spinner' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E .spinner %7B animation: rotator 8s linear infinite; transform-origin: center; %7D @keyframes rotator %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D .path %7B stroke-dasharray: 265; stroke-dashoffset: 0; transform-origin: center; stroke: %23#{str-slice(#{$color}, 2)}; animation: dash 2s ease-in-out infinite; %7D @keyframes dash %7B 0%25 %7B stroke-dashoffset: 265; %7D 50%25 %7B stroke-dashoffset: 65; transform:rotate(90deg); %7D 100%25 %7B stroke-dashoffset: 265; transform:rotate(360deg); %7D %3C/style%3E%3Ccircle class='path' fill='none' stroke-width='10' stroke-linecap='butt' cx='50' cy='50' r='45'%3E%3C/circle%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  height: units.$u3;
+  vertical-align: $valign;
+  width: units.$u3;
+
+  @if $position == left {
+    margin-right: units.$u1;
+  } @else if $position == right {
+    margin-left: units.$u1;
+  }
+}
+
+// ====================
+// Public mixins
+// ====================
+
+@mixin element() {
+  -webkit-appearance: button; // Correct inability to style clickable `input` types in iOS.
+  color: inherit;
+  cursor: pointer; // Improve usability and consistency of cursor style between image-type `input` and others.
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+  overflow: visible; // Address `overflow` set to `hidden` in IE 8/9/10/11.
+  text-transform: none; // Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+
+  &[disabled] {
+    cursor: default; // Re-set default cursor for disabled elements.
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}
+
+@mixin icon-only() {
+  dso-icon,
+  svg.di {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  > span {
+    @include utilities.sr-only();
+  }
+}
+
+@mixin small() {
+  line-height: typography.$root-font-size-base;
+
+  dso-icon,
+  svg.di,
+  &.extern::after,
+  &.download::after,
+  &.dso-spinner::before {
+    margin-bottom: units.$u1 * -0.5;
+    margin-top: units.$u1 * -0.5;
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      height: units.$u2;
+      width: units.$u2;
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      height: units.$u2;
+      width: units.$u2;
+    }
+  }
+}
+
+@mixin base($modifiers: true) {
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 0; // For input.btn
+  text-decoration: none;
+  touch-action: manipulation;
+  text-align: left;
+  user-select: none;
+  vertical-align: middle;
+
+  &:focus,
+  &:focus-visible {
+    outline-offset: 2px; // Normalize between a and button
+  }
+
+  &:active {
+    outline: 0;
+  }
+
+  @if ($modifiers) {
+    &.extern,
+    &.download {
+      &::after {
+        content: "";
+        display: inline-block;
+        margin-left: units.$u1;
+      }
+    }
+  }
+}
+
+@mixin block($sibling-selector) {
+  display: block;
+  width: 100%;
+
+  & + #{$sibling-selector} {
+    margin-top: 5px; // Vertically space out multiple block buttons
+  }
+}
+
+@mixin primary($base-styling: true, $modifiers: true) {
+  $defaults-map: (
+    "background-color": button-variables.$primary-background-color,
+    "border-color": button-variables.$primary-background-color,
+    "color": button-variables.$primary-color
+  );
+
+  $hover-map: (
+    "background-color": button-variables.$primary-hover-background-color,
+    "border-color": button-variables.$primary-hover-background-color
+  );
+
+  $active-map: (
+    "background-color": button-variables.$primary-active-background-color,
+    "border-color": button-variables.$primary-active-background-color
+  );
+
+  $disabled-map: (
+    "background-color": button-variables.$primary-disabled-background-color,
+    "border-color": button-variables.$primary-disabled-background-color
+  );
+
+  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false);
+
+  &.dso-spinner-left,
+  &.dso-spinner-right {
+    &[disabled] {
+      background-color: button-variables.$primary-background-color;
+      border-color: button-variables.$primary-background-color;
+      color: button-variables.$primary-color;
+    }
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      @include _spinner-icon($color: colors.$wit, $valign: top, $position: left);
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      @include _spinner-icon($color: colors.$wit, $valign: top, $position: right);
+    }
+  }
+}
+
+@mixin anchor-primary() {
+  text-decoration: none;
+
+  &,
+  &:visited {
+    color: colors.$wit;
+  }
+}
+
+@mixin secondary($base-styling: true ,$modifiers: true, $icon-only: false) {
+  $defaults-map: (
+    "background-color": button-variables.$secondary-background-color,
+    "border-color": button-variables.$secondary-border-color,
+    "color": button-variables.$secondary-color
+  );
+
+  $hover-map: (
+    "background-color": button-variables.$secondary-hover-background-color,
+    "border-color": button-variables.$secondary-hover-background-color,
+    "color": colors.$wit
+  );
+
+  $active-map: (
+    "background-color": button-variables.$secondary-active-background-color,
+    "border-color": button-variables.$secondary-active-background-color,
+    "color": colors.$wit
+  );
+
+  $disabled-map: (
+    "background-color": colors.$wit,
+    "border-color": button-variables.$secondary-disabled-color,
+    "color": button-variables.$secondary-disabled-color
+  );
+
+  @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
+
+  &.dso-spinner-left,
+  &.dso-spinner-right {
+    &[disabled] {
+      background-color: button-variables.$secondary-background-color;
+      border-color: button-variables.$secondary-border-color;
+      color: button-variables.$secondary-color;
+    }
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      @include _spinner-icon($color: colors.$grasgroen, $valign: top, $position: left);
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        &::before {
+          @include _spinner-icon($color: colors.$wit, $valign: top, $position: left);
+        }
+      }
+
+      &.btn-sm:hover {
+        &::before {
+          height: units.$u2;
+          width: units.$u2;
+        }
+      }
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      @include _spinner-icon($color: colors.$grasgroen, $valign: top, $position: right);
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        &::after {
+          @include _spinner-icon($color: colors.$wit, $valign: top, $position: right);
+        }
+      }
+
+      &.btn-sm:hover {
+        &::after {
+          height: units.$u2;
+          width: units.$u2;
+        }
+      }
+    }
+  }
+}
+
+@mixin anchor-secondary() {
+  text-decoration: none;
+
+  &,
+  &:visited {
+    color: button-variables.$secondary-color;
+
+    &:hover {
+      color: button-variables.$secondary-hover-color;
+    }
+  }
+}
+
+@mixin tertiary($base-styling: true, $icon-only: false, $modifiers: true) {
+  @if ($base-styling) {
+    @include base($modifiers);
+  }
+
+  border: 0;
+  color: button-variables.$tertiary-color;
+  line-height: 1;
+  padding: 0;
+  background-color: transparent;
+
+  &[disabled] {
+    color: colors.$grasgroen-40;
+
+    &.dso-spinner-left,
+    &.dso-spinner-right {
+      color: colors.$grasgroen;
+    }
+  }
+
+  &:not([disabled]) {
+    &:hover {
+      color: button-variables.$tertiary-hover-color;
+      text-decoration: underline;
+      text-underline-position: under;
+    }
+
+    &:active {
+      color: button-variables.$tertiary-active-color;
+    }
+  }
+
+  &.btn-align {
+    line-height: calc(1.5em - 1px);
+    padding: button-variables.$tertiary-padding-horizontal 0;
+    position: relative;
+  }
+
+  &.dso-spinner-left {
+    &::before {
+      @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: left);
+    }
+  }
+
+  &.dso-spinner-right {
+    &::after {
+      @include _spinner-icon($color: colors.$grasgroen, $valign: middle, $position: right);
+    }
+  }
+
+  @if ($icon-only) {
+    > span {
+      @include utilities.sr-only();
+    }
+  }
+  @else {
+    dso-icon + span:not(.sr-only),
+    svg.di + span:not(.sr-only),
+    span:not(.sr-only) + dso-icon,
+    span:not(.sr-only) + svg.di {
+      margin-left: units.$u1;
+    }
+
+    svg.di.di-chevron-down + span:not(.sr-only),
+    svg.di.di-chevron-up + span:not(.sr-only),
+    span:not(.sr-only) + svg.di.di-chevron-down,
+    span:not(.sr-only) + svg.di.di-chevron-up {
+      margin-left: $u1 * 0.5;
+    }
+
+    dso-icon[icon="chevron-left"] + span:not(.sr-only),
+    dso-icon[icon="chevron-right"] + span:not(.sr-only),
+    svg.di.di-angle-down + span:not(.sr-only),
+    svg.di.di-angle-up + span:not(.sr-only),
+    span:not(.sr-only) + svg.di.di-angle-down,
+    span:not(.sr-only) + svg.di.di-angle-up,
+    span:not(.sr-only) + dso-icon[icon="chevron-left"],
+    span:not(.sr-only) + dso-icon[icon="chevron-right"] {
+      margin-left: 0;
+    }
+
+    dso-icon,
+    svg.di,
+    span {
+      vertical-align: middle;
+    }
+  }
+}
+
+@mixin anchor-tertiary() {
+  text-decoration: none;
+
+  &,
+  &:visited {
+    color: button-variables.$tertiary-color;
+  }
+}
+
+@mixin map-focus() {
+  $focus-map: (
+    "background-color": button-variables.$secondary-hover-background-color,
+    "border-color": button-variables.$secondary-hover-background-color,
+    "color": colors.$wit,
+    "type-download-di": "download-wit",
+    "type-extern-di": "external-link-wit"
+  );
+
+  &:focus-visible {
+    @include _shared-variant($focus-map);
+
+    outline: none;
+  }
+}
+
+@mixin map() {
+  @include secondary($modifiers: false);
+  @include map-focus();
+
+  border: 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  margin-right: units.$u2;
+  padding: units.$u1 units.$u2;
+  white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No word wrapping in buttons on maps
+}

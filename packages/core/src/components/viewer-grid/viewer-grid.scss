@@ -1,17 +1,14 @@
-@use "viewer-grid.variables" as variables;
+@use "~@dso-toolkit/css/src/components/grid" as css-grid;
 
-@use "~@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/zindex";
+@use "~@dso-toolkit/sources/src/components/button";
 
-@import "~@dso-toolkit/sources/src/styling/variables";
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/headings/headings.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "~@dso-toolkit/sources/src/styling/mixins";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "~@dso-toolkit/sources/src/components/button/button";
+@use "viewer-grid.variables" as core-viewer-grid-variables;
 
-@import "~@dso-toolkit/css/src/components/headings/headings";
-
-@include box-sizing();
+@include utilities.box-sizing();
 
 :host {
   display: flex;
@@ -22,11 +19,11 @@
 
 :host([small]) {
   .dso-map-panel {
-    flex-basis: variables.$dso-viewer-grid-small;
+    flex-basis: core-viewer-grid-variables.$small;
     min-width: 0;
-    max-width: variables.$dso-viewer-grid-small;
+    max-width: core-viewer-grid-variables.$small;
 
-    @media screen and (max-width: variables.$dso-viewer-grid-small) {
+    @media screen and (max-width: core-viewer-grid-variables.$small) {
       flex-basis: 100vw;
       max-width: 100vw;
       min-width: 0;
@@ -37,14 +34,14 @@
 
 :host([medium]) {
   .dso-map-panel {
-    flex-basis: variables.$dso-viewer-grid-medium;
-    min-width: variables.$dso-viewer-grid-small;
-    max-width: variables.$dso-viewer-grid-medium;
+    flex-basis: core-viewer-grid-variables.$medium;
+    min-width: core-viewer-grid-variables.$small;
+    max-width: core-viewer-grid-variables.$medium;
 
-    @media screen and (max-width: variables.$dso-viewer-grid-medium) {
+    @media screen and (max-width: core-viewer-grid-variables.$medium) {
       flex-basis: 100vw;
       max-width: 100vw;
-      min-width: variables.$dso-viewer-grid-small;
+      min-width: core-viewer-grid-variables.$small;
       transition: none;
     }
   }
@@ -52,31 +49,31 @@
 
 :host([large]) {
   .dso-map-panel {
-    flex-basis: variables.$dso-viewer-grid-large;
-    min-width: variables.$dso-viewer-grid-large-min;
-    max-width: variables.$dso-viewer-grid-large-max;
+    flex-basis: core-viewer-grid-variables.$large;
+    min-width: core-viewer-grid-variables.$large-min;
+    max-width: core-viewer-grid-variables.$large-max;
 
-    @media screen and (max-width: variables.$dso-viewer-grid-large-min) {
+    @media screen and (max-width: core-viewer-grid-variables.$large-min) {
       flex-basis: 100vw;
       max-width: 100vw;
-      min-width: variables.$dso-viewer-grid-large-min;
+      min-width: core-viewer-grid-variables.$large-min;
       transition: none;
     }
   }
 }
 
 button {
-  @include button_element();
+  @include button.element();
 }
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 .shrink,
 .expand,
 .overlay-close-button {
-  @include button-tertiary($modifiers: false);
+  @include button.tertiary($modifiers: false);
 
   &:hover {
     cursor: pointer;
@@ -89,60 +86,60 @@ button {
 
 .overlay-close-button {
   position: absolute;
-  top: $u1;
-  right: grid-variables.$grid-gutter-width * 0.5;
+  top: units.$u1;
+  right: css-grid.$grid-gutter-width * 0.5;
 }
 
 .dso-map-panel {
-  background-color: $wit;
-  box-shadow: $u1 * 0.25 0 $u1 0 rgba(0, 0, 0, 0.4);
+  background-color: colors.$wit;
+  box-shadow: units.$u1 * 0.25 0 units.$u1 0 rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
   flex-grow: 0;
-  padding-right: $u1;
+  padding-right: units.$u1;
   position: relative;
-  transition: flex-basis variables.$dso-viewer-grid-transition-time ease-in, max-width variables.$dso-viewer-grid-transition-time ease-in, min-width variables.$dso-viewer-grid-transition-time ease-in;
-  z-index: $zx-viewer-grid-map-panel;
+  transition: flex-basis core-viewer-grid-variables.$transition-time ease-in, max-width core-viewer-grid-variables.$transition-time ease-in, min-width core-viewer-grid-variables.$transition-time ease-in;
+  z-index: zindex.$viewer-grid-map-panel;
 
   .dso-filterblok-address {
     font-weight: bold;
-    margin: $u1 0;
+    margin: units.$u1 0;
   }
 
   .main {
     height: 100%;
     overflow-y: scroll;
-    padding: $u1 grid-variables.$grid-gutter-width * 0.5;
+    padding: units.$u1 css-grid.$grid-gutter-width * 0.5;
   }
 }
 
 .sizing-buttons {
   left: calc(100% + 1px);
   overflow-x: hidden;
-  padding: 0 $u1 * 0.5 $u1 * 0.5 0;
+  padding: 0 units.$u1 * 0.5 units.$u1 * 0.5 0;
   position: absolute;
-  top: variables.$dso-viewer-sizing-buttons-top;
-  transition: left variables.$dso-viewer-grid-transition-time ease-in;
-  width: variables.$dso-viewer-resize-button-size + $u1 * 0.5;
-  z-index: $zx-viewer-grid-sizing-buttons;
+  top: core-viewer-grid-variables.$sizing-buttons-top;
+  transition: left core-viewer-grid-variables.$transition-time ease-in;
+  width: core-viewer-grid-variables.$resize-button-size + units.$u1 * 0.5;
+  z-index: zindex.$viewer-grid-sizing-buttons;
 
   button {
-    @include button_secondary($modifiers: false, $icon-only: true);
-    @include button_map_focus();
+    @include button.secondary($modifiers: false, $icon-only: true);
+    @include button.map-focus();
 
     border: 0;
     padding: 8px;
     border-radius: 0;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
-    box-shadow: 0 1px $u1 * 0.5 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px units.$u1 * 0.5 0 rgba(0, 0, 0, 0.4);
     flex: 0 0 100%;
-    height: variables.$dso-viewer-resize-button-size;
+    height: core-viewer-grid-variables.$resize-button-size;
     min-width: auto;
-    width: variables.$dso-viewer-resize-button-size;
+    width: core-viewer-grid-variables.$resize-button-size;
 
     &:hover {
       dso-icon {
-        color: $wit;
+        color: colors.$wit;
       }
     }
   }
@@ -156,21 +153,21 @@ button {
 
 #filterpanel,
 .overlay {
-  background-color: $wit;
+  background-color: colors.$wit;
   height: 100%;
   overflow-y: auto;
   position: absolute;
-  z-index: $zx-viewer-grid-map-panel + 1;
+  z-index: zindex.$viewer-grid-map-panel + 1;
 }
 
 #filterpanel {
-  box-shadow: 2px 0 5px $grijs-60;
-  padding: $u5 grid-variables.$grid-gutter-width * 0.5 $u1;
+  box-shadow: 2px 0 5px colors.$grijs-60;
+  padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
   left: 0;
-  max-width: variables.$dso-viewer-grid-filterpanel-max-width;
+  max-width: core-viewer-grid-variables.$filterpanel-max-width;
   width: calc(100vw - 40px);
 
-  @media screen and (max-width: variables.$dso-viewer-grid-filterpanel-width) {
+  @media screen and (max-width: core-viewer-grid-variables.$filterpanel-width) {
     width: 100vw;
 
     &::before {
@@ -185,10 +182,10 @@ button {
     top: 0;
     bottom: 0;
     right: 0;
-    left: variables.$dso-viewer-grid-filterpanel-max-width;
+    left: core-viewer-grid-variables.$filterpanel-max-width;
     background-color: rgba(0, 0, 0, 0.5);
 
-    @media screen and (max-width: #{variables.$dso-viewer-grid-filterpanel-max-width + 40px}) {
+    @media screen and (max-width: #{core-viewer-grid-variables.$filterpanel-max-width + 40px}) {
       left: auto;
       width: 40px;
     }
@@ -196,12 +193,12 @@ button {
 }
 
 .overlay {
-  box-shadow: -2px 0 5px $grijs-60;
-  padding: $u5 grid-variables.$grid-gutter-width * 0.5 $u1;
+  box-shadow: -2px 0 5px colors.$grijs-60;
+  padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
   right: 0;
-  width: variables.$dso-viewer-grid-overlay-width;
+  width: core-viewer-grid-variables.$overlay-width;
 
-  @media screen and (max-width: variables.$dso-viewer-grid-overlay-width) {
+  @media screen and (max-width: core-viewer-grid-variables.$overlay-width) {
     width: 100vw;
   }
 
@@ -212,7 +209,7 @@ button {
     top: 0;
     bottom: 0;
     left: 0;
-    right: variables.$dso-viewer-grid-overlay-width;
+    right: core-viewer-grid-variables.$overlay-width;
     background-color: rgba(0, 0, 0, 0.5);
   }
 }
@@ -221,16 +218,16 @@ button {
   text-align: right;
 
   .cancel-button {
-    @include button_secondary($modifiers: false);
-    @include button_small();
+    @include button.secondary($modifiers: false);
+    @include button.small();
   }
 
   .apply-button {
-    @include button_primary($modifiers: false);
-    @include button_small();
+    @include button.primary($modifiers: false);
+    @include button.small();
   }
 
   .cancel-button + .apply-button {
-    margin-left: $u2;
+    margin-left: units.$u2;
   }
 }

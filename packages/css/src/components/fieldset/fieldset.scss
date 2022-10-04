@@ -1,4 +1,6 @@
-$legend-color: $grijs-90;
+@use "@dso-toolkit/sources/src/variables/typography";
+
+@use "fieldset.variables" as css-fieldset-variables;
 
 fieldset {
   border: 0;
@@ -9,10 +11,10 @@ fieldset {
 
 legend {
   border: 0;
-  color: $legend-color;
-  font-size: $dso-font-size-base * 1.5;
+  color: css-fieldset-variables.$legend-color;
+  font-size: typography.$root-font-size-base * 1.5;
   line-height: inherit;
-  margin-bottom: $line-height-computed;
+  margin-bottom: typography.$line-height-computed;
   padding: 0;
   width: 100%;
 }

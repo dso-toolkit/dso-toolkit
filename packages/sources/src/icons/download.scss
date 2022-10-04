@@ -1,21 +1,21 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 download {
-  color: $grasgroen
+  color: colors.$grasgroen
 }
 
 download:scampi {
-  color: $scampi;
+  color: colors.$scampi;
 }
 
 download:wit {
-  color: $wit;
+  color: colors.$wit;
 }
 
 download:grasgroen-40 {
-  color: $grasgroen-40;
+  color: colors.$grasgroen-40;
 }
 
 download:grijs90 {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }

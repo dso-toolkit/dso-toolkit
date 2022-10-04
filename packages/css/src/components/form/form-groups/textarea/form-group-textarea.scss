@@ -1,13 +1,13 @@
-@import "../../form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "../../form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/typography";
 
-@import "../../../../../../sources/src/styling/variables";
-@import "../../../../../../sources/src/styling/mixins";
+@use "../../form.mixins" as css-form-mixins;
+@use "../../form.variables" as css-form-variables;
 
 .form-group.dso-textarea {
   &.dso-required {
     .control-label::after {
-      @include form-group-required();
+      @include css-form-mixins.form-group-required();
     }
   }
 
@@ -18,15 +18,15 @@
       height: auto;
 
       &:not([rows]) {
-        height: calc(#{$line-height-base * $dso-textarea-default-rows}em + #{($padding-base-vertical + 1) * 2});
+        height: calc(#{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(units.$padding-base-vertical + 1) * 2});
       }
     }
   }
 
   .form-control {
     .form-horizontal & {
-      padding-bottom: $padding-base-vertical - 1;
-      padding-top: $padding-base-vertical - 1;
+      padding-bottom: units.$padding-base-vertical - 1;
+      padding-top: units.$padding-base-vertical - 1;
     }
   }
 }

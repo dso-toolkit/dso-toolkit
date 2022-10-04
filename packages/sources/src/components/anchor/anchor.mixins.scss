@@ -1,16 +1,15 @@
-$link-hover-color: $scampi;
+@use "../../variables/scaffolding";
 
-$dso-anchor-spacer-width: 4px;
-$dso-anchor-visited-color: $mauve;
+@use "anchor.variables" as anchor-variables;
 
-@mixin anchor_root($is-html-a-element: true) {
+@mixin root($is-html-a-element: true) {
   background-color: transparent;
-  color: $link-color;
+  color: scaffolding.$link-color;
   text-decoration: underline;
 
   &:hover,
   &:focus {
-    color: $link-hover-color;
+    color: anchor-variables.$link-hover-color;
     text-decoration: underline;
   }
 
@@ -20,7 +19,7 @@ $dso-anchor-visited-color: $mauve;
 
   @if ($is-html-a-element) {
     &:visited {
-      color: $dso-anchor-visited-color;
+      color: anchor-variables.$visited-color;
     }
   }
   @else {
@@ -28,7 +27,7 @@ $dso-anchor-visited-color: $mauve;
   }
 }
 
-@mixin anchor_clean {
+@mixin clean {
   text-decoration: none;
 
   &:hover,
@@ -41,7 +40,7 @@ $dso-anchor-visited-color: $mauve;
   }
 }
 
-@mixin anchor-reverse {
+@mixin reverse {
   text-decoration: none;
 
   &:hover,

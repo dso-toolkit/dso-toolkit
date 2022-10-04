@@ -1,16 +1,17 @@
-$dso-card-list-border-color: $grijs-20;
-$dso-card-list-border-width: 1px;
+@use "@dso-toolkit/sources/src/components/list";
+
+@use "card-list.variables" as css-card-list-variables;
 
 ul,
 ol {
   &.dso-card-list {
-    @include list-unstyled();
+    @include list.unstyled();
 
-    border-bottom: $dso-card-list-border-width solid $dso-card-list-border-color;
-    margin-top: $dso-card-list-border-width * -1;
+    border-bottom: css-card-list-variables.$border-width solid css-card-list-variables.$border-color;
+    margin-top: css-card-list-variables.$border-width * -1;
 
     li {
-      border-top: $dso-card-list-border-width solid $dso-card-list-border-color;
+      border-top: css-card-list-variables.$border-width solid css-card-list-variables.$border-color;
     }
   }
 }

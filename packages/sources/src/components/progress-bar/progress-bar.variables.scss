@@ -1,0 +1,9 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+$progress-color: colors.$grasgroen;
+
+$height: units.$u2;
+$margin: units.$u1;
+$background-color: colors.$wit;
+$color: colors.$grasgroen;

@@ -1,0 +1,53 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "badge.variables" as badge-variables;
+
+@mixin root() {
+  background-color: badge-variables.$default-bg-color;
+  border: 1px solid badge-variables.$default-bg-color;
+  border-radius: 1em;
+  color: colors.$wit;
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: badge-variables.$line-height;
+  min-width: 1.5rem;
+  padding: #{units.$u1 * 0.5} units.$u1;
+  text-align: center;
+
+  &.badge-info {
+    background-color: badge-variables.$info-bg-color;
+    border-color: badge-variables.$info-bg-color;
+    color: colors.$grijs-90;
+  }
+
+  &.badge-primary {
+    background-color: badge-variables.$primary-bg-color;
+    border-color: badge-variables.$primary-bg-color;
+    color: colors.$wit;
+  }
+
+  &.badge-success {
+    background-color: badge-variables.$success-bg-color;
+    border-color: badge-variables.$success-bg-color;
+    color: colors.$wit;
+  }
+
+  &.badge-warning {
+    background-color: badge-variables.$warning-bg-color;
+    border-color: badge-variables.$warning-bg-color;
+    color: colors.$grijs-90;
+  }
+
+  &.badge-danger {
+    background-color: badge-variables.$danger-bg-color;
+    border-color: badge-variables.$danger-bg-color;
+    color: colors.$wit;
+  }
+
+  &.badge-outline {
+    background-color: colors.$wit;
+    border-color: colors.$grijs-90;
+    color: colors.$grijs-90;
+  }
+}

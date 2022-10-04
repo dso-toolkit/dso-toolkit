@@ -1,8 +1,8 @@
-@use "../grid/grid.variables" as grid-variables;
+@use "../grid/grid.variables" as css-grid-variables;
 
 .dso-tile-grid {
   display: grid;
-  gap: grid-variables.$grid-gutter-width;
+  gap: css-grid-variables.$grid-gutter-width;
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(2, 1fr);
 }

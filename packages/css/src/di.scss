@@ -1,7 +1,9 @@
-$dso-icons-path: './' !default;
+@use "@dso-toolkit/sources/src/components/icon";
 
-@mixin di($icon, $size: $dso-icon-size, $vertical-align: $dso-icon-vertical-align) {
-  background: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
+@use "config";
+
+@mixin base($icon, $size: icon.$size, $vertical-align: icon.$vertical-align) {
+  background: url("#{config.$icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
   background-position: center;
   background-size: cover;
   height: $size;
@@ -9,6 +11,6 @@ $dso-icons-path: './' !default;
   width: $size;
 }
 
-@mixin di-variant($icon) {
-  background-image: url("#{$dso-icons-path}dso-icons.svg#img-#{$icon}");
+@mixin variant($icon) {
+  background-image: url("#{config.$icons-path}dso-icons.svg#img-#{$icon}");
 }

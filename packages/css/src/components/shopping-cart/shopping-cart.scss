@@ -1,49 +1,54 @@
-$dso-shopping-cart-radius: $u1 * 0.5;
-$dso-shopping-cart-border-color: $grijs-20;
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/list";
+@use "@dso-toolkit/sources/src/components/form-control";
+
+@use "shopping-cart.variables" as css-shopping-cart-variables;
 
 .dso-shopping-cart {
   .dso-status {
-    background-color: $grijs-5;
+    background-color: colors.$grijs-5;
     border: 0;
-    border-radius: $dso-shopping-cart-radius;
+    border-radius: css-shopping-cart-variables.$radius;
     box-shadow: none;
     display: block;
     font-weight: 600;
-    padding: $u2 $u6;
+    padding: units.$u2 units.$u6;
     position: relative;
     text-align: left;
 
     dso-icon,
     svg.di {
-      left: $u2;
+      left: units.$u2;
       position: absolute;
-      margin-right: $u1;
+      margin-right: units.$u1;
     }
   }
 
   span.dso-status {
     display: inline-block;
-    padding-left: $u2;
+    padding-left: units.$u2;
   }
 
   .dso-status,
   .dso-delete {
     + .dso-items {
-      border-top: 1px solid $dso-shopping-cart-border-color;
+      border-top: 1px solid css-shopping-cart-variables.$border-color;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
   }
 
   .dso-contents {
-    background-color: $grijs-5;
+    background-color: colors.$grijs-5;
     border: 0;
-    border-radius: $dso-shopping-cart-radius;
+    border-radius: css-shopping-cart-variables.$radius;
     position: relative;
 
     > .dso-delete {
       position: absolute;
-      width: $u3;
+      width: units.$u3;
       z-index: 2;
     }
 
@@ -52,21 +57,21 @@ $dso-shopping-cart-border-color: $grijs-20;
     }
 
     + .dso-warning {
-      margin-top: $u2;
+      margin-top: units.$u2;
     }
   }
 
   ul,
   ol {
-    @include list-unstyled();
+    @include list.unstyled();
 
-    background-color: $grijs-5;
-    border-radius: $dso-shopping-cart-radius;
+    background-color: colors.$grijs-5;
+    border-radius: css-shopping-cart-variables.$radius;
     margin-bottom: 0;
     margin-top: 0;
 
     li {
-      border-top: 1px solid $dso-shopping-cart-border-color;
+      border-top: 1px solid css-shopping-cart-variables.$border-color;
     }
   }
 
@@ -78,25 +83,25 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   li {
-    padding-bottom: $u2;
-    padding-top: $u2;
+    padding-bottom: units.$u2;
+    padding-top: units.$u2;
     position: relative;
 
     > dso-icon,
     > svg.di {
       float: left;
-      height: $u3;
-      margin-right: $u1;
+      height: units.$u3;
+      margin-right: units.$u1;
       text-align: center;
-      width: $u3;
+      width: units.$u3;
     }
   }
 
   .dso-items {
     > li {
       font-weight: 600;
-      padding-left: $u2;
-      padding-right: $u10;
+      padding-left: units.$u2;
+      padding-right: units.$u10;
 
       &:first-child {
         border-top: 0;
@@ -105,13 +110,13 @@ $dso-shopping-cart-border-color: $grijs-20;
 
     .dso-activities, // .dso-activities is deprecated
     .dso-subitems {
-      margin-right: -$u8;
-      margin-top: $u2;
+      margin-right: units.$u8 * -1;
+      margin-top: units.$u2;
 
       li {
-        margin-left: -$u2;
-        margin-right: -$u2;
-        padding: $u2 $u6 $u2 $u6;
+        margin-left: units.$u2 * -1;
+        margin-right: units.$u2 * -1;
+        padding: units.$u2 units.$u6 units.$u2 units.$u6;
 
         &:last-child {
           padding-bottom: 0;
@@ -121,7 +126,7 @@ $dso-shopping-cart-border-color: $grijs-20;
   }
 
   .dso-edit-name {
-    @include form-control();
+    @include form-control.root();
   }
 
   .dso-delete,
@@ -129,35 +134,35 @@ $dso-shopping-cart-border-color: $grijs-20;
     background-color: transparent;
     border: 0;
     box-shadow: none;
-    color: $grasgroen;
-    height: $u3;
+    color: colors.$grasgroen;
+    height: units.$u3;
     padding: 0;
     position: absolute;
     text-align: center;
-    top: $u2;
-    width: $u3;
+    top: units.$u2;
+    width: units.$u3;
   }
 
   .dso-delete {
-    right: $u2;
+    right: units.$u2;
   }
 
   .dso-edit-cart-item {
-    right: $u6;
+    right: units.$u6;
   }
 
   .dso-edit-additive {
     font-weight: 400;
-    margin-right: -$u8;
-    margin-top: $u1;
+    margin-right: units.$u8 * -1;
+    margin-top: units.$u1;
 
     label {
-      @include sr-only();
+      @include utilities.sr-only();
     }
   }
 
   .dso-empty {
-    padding: ($u3 * 0.5) $u2;
+    padding: (units.$u3 * 0.5) units.$u2;
   }
 
   // demo

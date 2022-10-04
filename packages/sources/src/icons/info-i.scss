@@ -1,13 +1,13 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 info-i {
-  color: $grasgroen
+  color: colors.$grasgroen
 }
 
 info-i:bosgroen {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 info-i:wit {
-  color: $wit;
+  color: colors.$wit;
 }

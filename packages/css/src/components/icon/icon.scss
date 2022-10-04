@@ -1,5 +1,7 @@
+@use "@dso-toolkit/sources/src/components/icon";
+
 svg.di {
-  height: $dso-icon-size;
-  vertical-align: $dso-icon-vertical-align;
-  width: $dso-icon-size;
+  height: icon.$size;
+  vertical-align: icon.$vertical-align;
+  width: icon.$size;
 }

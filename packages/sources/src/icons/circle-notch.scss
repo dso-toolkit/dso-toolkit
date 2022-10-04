@@ -1,5 +1,5 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 circle-notch {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }

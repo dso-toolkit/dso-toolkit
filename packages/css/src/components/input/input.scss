@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/variables/scaffolding";
+
 input {
   color: inherit;
   font: inherit;
@@ -19,7 +21,7 @@ input {
     margin: 4px 0 0;
 
     &[disabled] {
-      cursor: $cursor-disabled;
+      cursor: scaffolding.$cursor-disabled;
     }
   }
 

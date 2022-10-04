@@ -1,19 +1,20 @@
 @use "sass:math";
 
-@import "form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/components/headings";
 
-@import "../../../../sources/src/styling/mixins";
+@use "form.variables" as css-form-variables;
+@use "form.mixins" as css-form-mixins;
 
-#{$dso-form-selectors} {
+#{css-form-variables.$form-selectors} {
   fieldset {
-    margin-bottom: $u2;
+    margin-bottom: units.$u2;
 
     > legend {
-      @include h3();
+      @include headings.h3();
 
       border-bottom: 0;
-      margin-bottom: $dso-fieldset-separator-unit;
+      margin-bottom: css-form-variables.$fieldset-separator-unit;
 
       h1,
       h2,
@@ -27,8 +28,8 @@
 
     + fieldset:not(.form-group) {
       > legend {
-        border-top: 1px solid $dso-fieldset-separator-color;
-        padding-top: $dso-fieldset-separator-unit;
+        border-top: 1px solid css-form-variables.$fieldset-separator-color;
+        padding-top: css-form-variables.$fieldset-separator-unit;
       }
     }
 

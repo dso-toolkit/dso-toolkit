@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/variables/colors";
+
 del {
-  background-color: $dso-danger-bg-color;
+  background-color: colors.$danger-bg-color;
 }

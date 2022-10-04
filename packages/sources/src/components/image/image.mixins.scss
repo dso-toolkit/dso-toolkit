@@ -1,0 +1,33 @@
+@use "../../variables/colors";
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+
+@use "image.variables" as image-variables;
+
+@mixin responsive($display: block) {
+  display: $display;
+  max-width: 100%;
+  height: auto;
+}
+
+// DEPRECATED
+@mixin rounded() {
+  border-radius: scaffolding.$border-radius-large;
+  outline: 8px solid colors.$invalid-color;
+}
+
+@mixin thumbnail() {
+  background-color: image-variables.$thumbnail-bg;
+  border-radius: image-variables.$thumbnail-border-radius;
+  border: 1px solid image-variables.$thumbnail-border;
+  line-height: typography.$line-height-base;
+  outline: 8px solid colors.$invalid-color;
+  padding: image-variables.$thumbnail-padding;
+
+  @include responsive(inline-block);
+}
+// DEPRECATED
+
+@mixin circle() {
+  border-radius: 50%;
+}

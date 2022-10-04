@@ -1,32 +1,34 @@
-$dso-step-counter-size: $ru4;
-$dso-step-counter-icon-size: $ru3;
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "step-counter.variables" as step-counter-variables;
 
 @mixin step-counter() {
   &.dso-has-counter {
-    padding-top: $ru5;
+    padding-top: units.$ru5;
     position: relative;
   }
 
   .dso-step-counter {
-    background-color: $bosgroen;
-    border: $u1 solid $lime;
+    background-color: colors.$bosgroen;
+    border: units.$u1 solid colors.$lime;
     border-radius: 50%;
     box-sizing: content-box;
-    color: $wit;
+    color: colors.$wit;
     font-size: 1.25rem;
     font-weight: 500;
-    height: $dso-step-counter-size;
-    left: $u2;
-    line-height: $dso-step-counter-size;
+    height: step-counter-variables.$size;
+    left: units.$u2;
+    line-height: step-counter-variables.$size;
     position: absolute;
     text-align: center;
-    top: -$dso-step-counter-icon-size;
-    width: $dso-step-counter-size;
+    top: step-counter-variables.$icon-size * -1;
+    width: step-counter-variables.$size;
 
     svg.di {
-      height: $dso-step-counter-icon-size;
-      margin-top: $ru1 * 0.5;
-      width: $dso-step-counter-icon-size;
+      height: step-counter-variables.$icon-size;
+      margin-top: units.$ru1 * 0.5;
+      width: step-counter-variables.$icon-size;
     }
   }
 

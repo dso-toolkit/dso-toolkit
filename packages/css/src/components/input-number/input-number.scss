@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/input-number";
+
 .dso-input-number {
-  @include input-number_root();
+  @include input-number.root();
 }

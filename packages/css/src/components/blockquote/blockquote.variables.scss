@@ -1,0 +1,5 @@
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/typography";
+
+$font-size: (typography.$root-font-size-base * 1.25);
+$border-color: colors.$gray-lighter;

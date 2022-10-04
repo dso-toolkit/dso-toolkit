@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/badge";
+
 .dso-badge {
-  @include badge_root();
+  @include badge.root();
 }

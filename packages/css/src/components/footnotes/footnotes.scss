@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/footnotes";
+
 .dso-footnotes {
-  @include footnotes_root();
+  @include footnotes.root();
 }

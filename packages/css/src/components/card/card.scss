@@ -1,3 +1,8 @@
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/components/button";
+
 %card-grid {
   display: grid;
   grid-template-columns: 1fr minmax(0, 100%);
@@ -13,11 +18,11 @@
 }
 
 .dso-card {
-  padding: $u2 $u2 $u1;
+  padding: units.$u2 units.$u2 units.$u1;
   width: 100%;
 
   &:hover {
-    background-color: $grijs-5;
+    background-color: colors.$grijs-5;
     cursor: pointer;
 
     .dso-card-heading > a {
@@ -29,7 +34,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    margin-bottom: $u1;
+    margin-bottom: units.$u1;
 
     h2:first-child,
     h3:first-child {
@@ -39,7 +44,7 @@
       margin-top: 0;
 
       span {
-        margin-right: $u1;
+        margin-right: units.$u1;
 
         + dso-icon,
         + svg.di {
@@ -50,26 +55,26 @@
     }
 
     h3:first-child {
-      line-height: $dso-font-line-height-h2;
+      line-height: units.$font-line-height-h2;
     }
 
     > a {
       text-decoration: none;
 
       &,
-      &#{$not-dso-buttons}:visited,
+      &#{button.$not-dso-buttons}:visited,
       &:active,
       &:focus {
-        color: $bosgroen;
+        color: colors.$bosgroen;
       }
 
       &:hover {
-        color: $bosgroen;
+        color: colors.$bosgroen;
         text-decoration: underline;
       }
     }
 
-    @media screen and (max-width: $screen-xs-min) {
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       flex-wrap: wrap;
     }
   }
@@ -94,12 +99,12 @@
     .dso-card-image {
       @extend %card-grid-addon;
 
-      margin-right: $u1;
+      margin-right: units.$u1;
 
       img {
         display: flex;
-        height: $u3;
-        width: $u3;
+        height: units.$u3;
+        width: units.$u3;
       }
     }
   }
@@ -131,8 +136,8 @@
     margin: 0;
   }
 
-  @media screen and (max-width: $screen-xs-min) {
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     flex-basis: 100%;
-    margin-top: $u2;
+    margin-top: units.$u2;
   }
 }

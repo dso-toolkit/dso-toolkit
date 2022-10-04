@@ -1,19 +1,25 @@
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/components/selectable";
+
+@use "../../form.mixins" as css-form-mixins;
+
 .form-group.dso-checkboxes {
   &.dso-invalid {
     .dso-selectable {
-      @include selectable_invalid();
+      @include selectable.invalid();
     }
   }
 
   &.dso-required {
     .control-label::after {
-      @include form-group-required();
+      @include css-form-mixins.form-group-required();
     }
   }
 
-  @media screen and (min-width: $screen-sm-min) {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     .form-horizontal & .dso-field-container {
-      padding-top: #{$padding-base-vertical + 1};
+      padding-top: #{units.$padding-base-vertical + 1};
     }
   }
 }

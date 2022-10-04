@@ -1,17 +1,14 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-
-@import "~@dso-toolkit/sources/src/components/pagination/pagination";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/pagination";
 
 :host {
   display: block;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .pagination {
-  @include pagination_root();
+  @include pagination.root();
 }
 
 .dso-page-hidden {

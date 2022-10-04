@@ -1,15 +1,18 @@
+@use "@dso-toolkit/sources/src/components/selectable";
+@use "@dso-toolkit/sources/src/components/info";
+
 // HTML/CSS
 .dso-selectable {
-  @include selectable_root('.dso-info');
+  @include selectable.root('.dso-info');
 
   &:not(:last-child) {
-    @include selectable_notLastChild();
+    @include selectable.notLastChild();
   }
 }
 
 // Web Component
 dso-selectable {
   .dso-rich-content[slot="info"] {
-    @include info_richContent();
+    @include info.richContent();
   }
 }
