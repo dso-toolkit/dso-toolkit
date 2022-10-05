@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + css + react + sources:** Accordion web component ([#1696](https://github.com/dso-toolkit/dso-toolkit/issues/1696))
+
 ### Fixed
 * **core:** Helpcenter Panel: iframe content laden alleen als de panel open is ([#1678](https://github.com/dso-toolkit/dso-toolkit/issues/1678))
 * **core:** Viewer grid: Focus trap negeert focusable elements in shadow-dom ([#1756](https://github.com/dso-toolkit/dso-toolkit/issues/1756))

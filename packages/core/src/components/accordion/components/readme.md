@@ -44,6 +44,7 @@ Type: `Promise<void>`
 graph TD;
   dso-accordion-section --> dso-icon
   dso-accordion-section --> dso-attachments-counter
+  dso-attachments-counter --> dso-icon
   style dso-accordion-section fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
