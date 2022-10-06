@@ -160,6 +160,9 @@ export class ViewerGrid {
       this.filterpanelFocustrap = createFocusTrap([this.filterpanel, this.filterpanelSlot], {
         escapeDeactivates: false,
         allowOutsideClick: true,
+        tabbableOptions: {
+          getShadowRoot: true,
+        }
       });
     }
 
@@ -167,6 +170,9 @@ export class ViewerGrid {
       this.overlayFocustrap = createFocusTrap([this.overlay, this.overlaySlot], {
         escapeDeactivates: false,
         allowOutsideClick: true,
+        tabbableOptions: {
+          getShadowRoot: true,
+        }
       });
     }
 
@@ -246,6 +252,16 @@ export class ViewerGrid {
             <span class="sr-only">sluiten</span>
           </button>
           <slot name="overlay" />
+          {/* This button is needed for the `focus-trap` library to function correctly. It is never focused. */}
+          <button
+            aria-hidden="true"
+            type="button"
+            class="overlay-close-button"
+            style={{ zIndex: '-100' }}
+          >
+            <dso-icon icon="times"></dso-icon>
+            <span class="sr-only">sluiten</span>
+          </button>
         </div>
       </Host>
     );

@@ -116,8 +116,8 @@ export class ImageOverlay implements ComponentInterface {
         onFocus={() => this.buttonElement?.focus()}
       >
         {this.active && src && alt && (
-          <div class="dimmer" ref={element => this.wrapperElement = element}>
-            <div class="wrapper">
+          <div class="dimmer">
+            <div class="wrapper" ref={element => this.wrapperElement = element}>
               <div class="titel" hidden={!this.titelSlot}>
                 <slot name="titel" />
               </div>
