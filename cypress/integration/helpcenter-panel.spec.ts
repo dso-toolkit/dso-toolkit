@@ -16,9 +16,24 @@ describe("Helpcenter panel", () => {
       .as('closeButton');
   });
 
+  const url = 'https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/helpcenter-panel--helpcenter-panel';
+
   const transitionTime = 500;
 
-  const url = 'https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/helpcenter-panel--helpcenter-panel';
+  it('should be accessible', () => {
+    cy.injectAxe();
+    cy.checkA11y("dso-helpcenter-panel");
+    cy.get('@closeButton')
+      .should('have.attr', 'aria-expanded', 'false')
+      .and('have.attr', 'aria-controls', 'dso-panel-wrapper')
+      .get('@openButton')
+      .should('have.attr', 'aria-expanded', 'false')
+      .and('have.attr', 'aria-controls', 'dso-panel-wrapper')
+      .click()
+      .should('have.attr', 'aria-expanded', 'true')
+      .get('@closeButton')
+      .should('have.attr', 'aria-expanded', 'true');
+  });
 
   it('should open panel on help button click', () => {
     cy.get('@iframeContainer')
@@ -35,7 +50,7 @@ describe("Helpcenter panel", () => {
       .should('have.class', 'open');
   });
 
-  it.only('should not load iframe when panel is closed', () => {
+  it('should not load iframe when panel is closed', () => {
     cy.get('@openButton')
       .click()
       .get('@iframeContainer')
@@ -53,5 +68,40 @@ describe("Helpcenter panel", () => {
       .click()
       .get('@iframe')
       .should('have.attr', 'src', 'https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/label--default');
+  });
+
+  it('should close panel on escape', () => {
+    cy.get('@openButton')
+      .click()
+      .wait(transitionTime)
+      .get('@iframeContainer')
+      .should('be.visible')
+      .and('have.class', 'open')
+      .realPress('Escape')
+      .wait(transitionTime)
+      .get('@iframeContainer')
+      .should('not.be.visible')
+      .and('have.class', 'close');
+  });
+
+  it('should prevent scrolling when panel is open', () => {
+    cy.get('body')
+      .should('not.have.css', 'overflow', 'hidden')
+      .get('@openButton')
+      .click()
+      .get('body')
+      .should('have.css', 'overflow', 'hidden');
+  });
+
+  it('should trap focus on panel open', () => {
+    cy.get('@openButton')
+      .click()
+      .wait(transitionTime)
+      .get('@closeButton')
+      .should('have.focus')
+      .realPress('Tab')
+      .get('@iframeContainer')
+      .find('iframe')
+      .should('have.focus');
   });
 });
