@@ -1,28 +1,25 @@
 import { v4 as uuidv4 } from "uuid";
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from "../../storybook";
+import { componentArgs } from "../../storybook";
+import { storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { dropdownMenuArgsMapper, dropdownMenuArgTypes, DropdownMenuArgs } from "./dropdown-menu.args";
 import * as content from './dropdown-menu.content';
 import { DropdownMenu } from "./dropdown-menu.models";
 
-export interface DropdownMenuParameters<TemplateFnReturnType> {
+export interface DropdownMenuTemplates<TemplateFnReturnType> {
   dropdownMenuTemplate: (dropdownMenuProperties: DropdownMenu) => TemplateFnReturnType;
 }
 
-export function storiesOfDropdownMenu<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    dropdownMenuTemplate
-  }: DropdownMenuParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Dropdown Menu', parameters, dropdownMenuArgTypes)
+export const storiesOfDropdownMenu = storiesOfFactory<DropdownMenuTemplates<any>, DropdownMenuArgs>('Dropdown Menu', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: dropdownMenuArgTypes,
       args: {
         id: uuidv4()
       }
     });
 
-  const template = bindTemplate(dropdownMenuArgsMapper, dropdownMenuTemplate);
+  const template = templateMapper((args, { dropdownMenuTemplate }) => dropdownMenuTemplate(dropdownMenuArgsMapper(args)));
 
   stories.add(
     'anchors',
@@ -51,4 +48,22 @@ export function storiesOfDropdownMenu<TemplateFnReturnType>(
       })
     }
   );
-}
+})
+
+// export function storiesOfDropdownMenu<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     dropdownMenuTemplate
+//   }: DropdownMenuParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Dropdown Menu', parameters, dropdownMenuArgTypes)
+//     .addParameters({
+//       args: {
+//         id: uuidv4()
+//       }
+//     });
+
+//   const template = bindTemplate(dropdownMenuArgsMapper, dropdownMenuTemplate);
+
+
+// }

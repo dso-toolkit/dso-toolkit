@@ -1,28 +1,19 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { TileArgs, tileArgsMapper, tileArgTypes } from './tile.args';
 import { Tile } from './tile.models';
 
-export interface TileParameters<TemplateFnReturnType> {
+export interface TileTemplates<TemplateFnReturnType> {
   tileTemplate: (tileProperties: Tile) => TemplateFnReturnType;
 }
 
-export function storiesOfTile<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    tileTemplate
-  }: TileParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Tile', parameters, tileArgTypes)
-    .addParameters({
-      args: componentArgs<TileArgs>({
-        label: 'Boom kappen of snoeien',
-        imageSource: 'images/icon-tree.png',
-        imageAlt: 'Boom'
-      })
-    });
+export const storiesOfTile = storiesOfFactory<TileTemplates<any>, TileArgs>('Tile', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: tileArgTypes
+  });
 
-  const template = bindTemplate(tileArgsMapper, tileTemplate);
+  const template = templateMapper((args, { tileTemplate }) => tileTemplate(tileArgsMapper(args)));
 
   stories.add(
     'default',
@@ -38,4 +29,24 @@ export function storiesOfTile<TemplateFnReturnType>(
       })
     }
   );
-}
+})
+
+// export function storiesOfTile<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     tileTemplate
+//   }: TileParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Tile', parameters, tileArgTypes)
+//     .addParameters({
+//       args: componentArgs<TileArgs>({
+//         label: 'Boom kappen of snoeien',
+//         imageSource: 'images/icon-tree.png',
+//         imageAlt: 'Boom'
+//       })
+//     });
+
+//   const template = bindTemplate(tileArgsMapper, tileTemplate);
+
+
+// }

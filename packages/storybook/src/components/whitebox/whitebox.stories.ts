@@ -1,10 +1,10 @@
 import { storiesOfWhitebox } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components'
 
-import { whiteboxTemplate } from '@dso-toolkit/css/src/components/whitebox/whitebox.template';
 import readme from '@dso-toolkit/css/src/components/whitebox/readme.md';
 
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfWhitebox(
   {
@@ -13,7 +13,6 @@ storiesOfWhitebox(
     readme,
     root: StoryRoot.HtmlCss
   },
-  {
-    whiteboxTemplate
-  }
+  templateContainer,
+  ({ whiteboxTemplate }) => ({ whiteboxTemplate })
 );

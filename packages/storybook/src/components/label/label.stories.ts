@@ -1,14 +1,12 @@
 import { storiesOfLabel } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import * as css from '@dso-toolkit/css/src/components/label/label.template';
 import cssReadme from '@dso-toolkit/css/src/components/label/readme.md';
-
-import * as core from '@dso-toolkit/core/src/components/label/label.template';
 import coreReadme from '@dso-toolkit/core/src/components/label/readme.md';
 
 import { decorator } from './label.decorator';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfLabel(
   {
@@ -17,8 +15,9 @@ storiesOfLabel(
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
+  templateContainer,
+  ({ labelTemplate }) => ({ labelTemplate }),
   {
-    labelTemplate: css.labelTemplate,
     decorator
   }
 );
@@ -30,8 +29,9 @@ storiesOfLabel(
     readme: coreReadme,
     root: StoryRoot.Core
   },
+  templateContainer,
+  ({ labelTemplate }) => ({ labelTemplate }),
   {
-    labelTemplate: core.labelTemplate,
     decorator
   }
 );

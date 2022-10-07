@@ -18,7 +18,7 @@ export interface ViewerGridDocumentHeaderArgs {
   documentHeaderStatusOpen: boolean;
 }
 
-export const viewerGridArgs: ArgTypes<ViewerGridArgs> = {
+export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   filterpanelOpen: {
     control: {
       type: "boolean",

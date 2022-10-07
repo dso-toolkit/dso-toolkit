@@ -1,5 +1,5 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
-import { accordionArgsMapper, accordionArgTypes } from './accordion.args';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
+import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from './accordion.args';
 import * as AccordionContent from './accordion.content';
 import { Accordion } from './accordion.models';
 
@@ -7,18 +7,17 @@ type AccordionTemplateFnType<TemplateFnReturnType> = (
   properties: Accordion
 ) => TemplateFnReturnType;
 
-export interface AccordionParameters<TemplateFnReturnType> {
+export interface AccordionTemplates<TemplateFnReturnType> {
   accordionTemplate: AccordionTemplateFnType<TemplateFnReturnType>;
 }
 
-export function storiesOfAccordion<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    accordionTemplate
-  }: AccordionParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Accordion', parameters, accordionArgTypes);
-  const template = bindTemplate(accordionArgsMapper, accordionTemplate);
+export const storiesOfAccordion = storiesOfFactory<AccordionTemplates<any>, AccordionArgs>('Accordion', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: accordionArgTypes
+    });
+
+  const template = templateMapper((args, { accordionTemplate }) => accordionTemplate(accordionArgsMapper(args)));
 
   stories.add(
     'default',
@@ -81,4 +80,16 @@ export function storiesOfAccordion<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfAccordion<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     accordionTemplate
+//   }: AccordionParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Accordion', parameters, accordionArgTypes);
+//   const template = bindTemplate(accordionArgsMapper, accordionTemplate);
+
+
+// }

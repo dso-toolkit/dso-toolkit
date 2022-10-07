@@ -1,27 +1,22 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { imageArgsMapper, imageArgTypes } from './image.args';
+import { ImageArgs, imageArgsMapper, imageArgTypes } from './image.args';
 import { Image } from './image.models';
 
-export interface ImageParameters<TemplateFnReturnType> {
+export interface ImageTemplates<TemplateFnReturnType> {
   imageTemplate: (imageProperties: Image) => TemplateFnReturnType;
 }
 
-export function storiesOfImage<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    imageTemplate
-  }: ImageParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Image', parameters, imageArgTypes)
-    .addParameters({
-      args: {
-        source: 'images/sneeuwpop.png',
-        alt: 'Afbeelding van een sneeuwpop'
-      }
-    });
+export const storiesOfImage = storiesOfFactory<ImageTemplates<any>, ImageArgs>('Image', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: imageArgTypes,
+    args: {
+      source: 'images/sneeuwpop.png',
+      alt: 'Afbeelding van een sneeuwpop'
+    }
+  });
 
-  const template = bindTemplate(imageArgsMapper, imageTemplate);
+  const template = templateMapper((args, { imageTemplate }) => imageTemplate(imageArgsMapper(args)));
 
   stories.add(
     'default',
@@ -47,4 +42,23 @@ export function storiesOfImage<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfImage<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     imageTemplate
+//   }: ImageParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Image', parameters, imageArgTypes)
+//     .addParameters({
+//       args: {
+//         source: 'images/sneeuwpop.png',
+//         alt: 'Afbeelding van een sneeuwpop'
+//       }
+//     });
+
+//   const template = bindTemplate(imageArgsMapper, imageTemplate);
+
+
+// }

@@ -1,11 +1,10 @@
-import { Args } from '@storybook/addons';
-import { ArgsError, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 import { TreeViewArgs, treeViewArgTypes } from './tree-view.args';
 
 import * as TreeViewDemo from './tree-view.demo';
 import { TreeViewItem } from './tree-view.models';
 
-export interface TreeViewParameters<TemplateFnReturnType> {
+export interface TreeViewTemplates<TemplateFnReturnType> {
   treeViewDemoTemplate: (
     collection: TreeViewItem[],
     dsoOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void,
@@ -15,32 +14,21 @@ export interface TreeViewParameters<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfTreeView<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    treeViewDemoTemplate,
-  }: TreeViewParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Tree View', parameters, treeViewArgTypes)
-    .addParameters({
-      options: {
-        // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
-        enableShortcuts: false
-      },
-      controls: {
-        hideNoControlsWarning: true
-      }
-    });
+export const storiesOfTreeView = storiesOfFactory<TreeViewTemplates<any>, TreeViewArgs>('Tree View', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: treeViewArgTypes,
+    options: {
+      // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
+      enableShortcuts: false
+    },
+    controls: {
+      hideNoControlsWarning: true
+    }
+  });
 
   stories.add(
     'Tree View',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
-
-      const args = a as TreeViewArgs;
-
+    templateMapper((args, { treeViewDemoTemplate }) => {
       const click = (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => {
         args.dsoClickItem(path, originalEvent, callback);
         TreeViewDemo.onClickItem(path, originalEvent, callback);
@@ -51,7 +39,8 @@ export function storiesOfTreeView<TemplateFnReturnType>(
         TreeViewDemo.onOpenItem,
         TreeViewDemo.onCloseItem,
         click,
-        TreeViewDemo.onFilter);
-    }
+        TreeViewDemo.onFilter
+      );
+    })
   );
-}
+});

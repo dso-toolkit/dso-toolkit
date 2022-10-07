@@ -1,26 +1,18 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { infoButtonArgsMapper, infoButtonArgTypes } from './info-button.args';
+import { InfoButtonArgs, infoButtonArgsMapper, infoButtonArgTypes } from './info-button.args';
 import { InfoButton } from './info-button.models';
 
-export interface InfoButtonParameters<TemplateFnReturnType> {
+export interface InfoButtonTemplates<TemplateFnReturnType> {
   infoButtonTemplate: (infoButtonProperties: InfoButton) => TemplateFnReturnType;
 }
 
-export function storiesOfInfoButton<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    infoButtonTemplate
-  }: InfoButtonParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Info Button', parameters, infoButtonArgTypes)
-    .addParameters({
-      args: {
-        label: 'Toelichting bij vraag'
-      }
-    });
+export const storiesOfInfoButton = storiesOfFactory<InfoButtonTemplates<any>, InfoButtonArgs>('Info Button', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: infoButtonArgTypes
+  });
 
-  const template = bindTemplate(infoButtonArgsMapper, infoButtonTemplate);
+  const template = templateMapper((args, { infoButtonTemplate }) => infoButtonTemplate(infoButtonArgsMapper(args)));
 
   stories.add(
     'inactive',
@@ -63,4 +55,22 @@ export function storiesOfInfoButton<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfInfoButton<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     infoButtonTemplate
+//   }: InfoButtonParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Info Button', parameters, infoButtonArgTypes)
+//     .addParameters({
+//       args: {
+//         label: 'Toelichting bij vraag'
+//       }
+//     });
+
+//   const template = bindTemplate(infoButtonArgsMapper, infoButtonTemplate);
+
+
+// }

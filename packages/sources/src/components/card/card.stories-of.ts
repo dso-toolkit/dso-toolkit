@@ -1,20 +1,17 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import {  componentArgs } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { CardArgs, cardArgsMapper, cardArgTypes } from './card.args';
 import { Card } from './card.models';
 
-export interface CardParameters<TemplateFnReturnType> {
+export interface CardTemplates<TemplateFnReturnType> {
   cardTemplate: (cardProperties: Card<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export function storiesOfCard<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    cardTemplate
-  }: CardParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Card', parameters, cardArgTypes)
+export const storiesOfCard = storiesOfFactory<CardTemplates<any>, CardArgs>('Card', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: cardArgTypes,
       args: componentArgs<Omit<CardArgs, 'image'>>({
         label: 'Omgevingsplan Nieuwegein',
         selectable: false,
@@ -31,7 +28,7 @@ export function storiesOfCard<TemplateFnReturnType>(
       })
     });
 
-  const template = bindTemplate(cardArgsMapper, cardTemplate);
+  const template = templateMapper((args, { cardTemplate }) => cardTemplate(cardArgsMapper(args)));
 
   stories.add(
     'default',
@@ -57,4 +54,33 @@ export function storiesOfCard<TemplateFnReturnType>(
       })
     }
   );
-}
+})
+
+// export function storiesOfCard<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     cardTemplate
+//   }: CardParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Card', parameters, cardArgTypes)
+//     .addParameters({
+//       args: componentArgs<Omit<CardArgs, 'image'>>({
+//         label: 'Omgevingsplan Nieuwegein',
+//         selectable: false,
+//         content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+//         interactions: [
+//           {
+//             variant: 'tertiary',
+//             label: 'Toon informatie',
+//             icon: {
+//               icon: 'info'
+//             }
+//           }
+//         ]
+//       })
+//     });
+
+//   const template = bindTemplate(cardArgsMapper, cardTemplate);
+
+
+// }

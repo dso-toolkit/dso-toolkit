@@ -1,32 +1,27 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { listArgsMapper, listArgTypes } from './list.args';
+import { ListArgs, listArgsMapper, listArgTypes } from './list.args';
 import { List, Type } from './list.models';
 
-export interface ListParameters<TemplateFnReturnType> {
+export interface ListTemplates<TemplateFnReturnType> {
   listTemplate: (listProperties: List) => TemplateFnReturnType;
 }
 
-export function storiesOfList<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    listTemplate
-  }: ListParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('List', parameters, listArgTypes)
-    .addParameters({
-      args: {
-        items: [
-          { text: 'Cras justo odio' },
-          { text: 'Dapibus ac facilisis in' },
-          { text: 'Morbi leo risus' },
-          { text: 'Porta ac consectetur ac' },
-          { text: 'Vestibulum at eros' }
-        ]
-      }
-    });
+export const storiesOfList = storiesOfFactory<ListTemplates<any>, ListArgs>('List', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: listArgTypes,
+    args: {
+      items: [
+        { text: 'Cras justo odio' },
+        { text: 'Dapibus ac facilisis in' },
+        { text: 'Morbi leo risus' },
+        { text: 'Porta ac consectetur ac' },
+        { text: 'Vestibulum at eros' }
+      ]
+    }
+  });
 
-  const template = bindTemplate(listArgsMapper, listTemplate);
+  const template = templateMapper((args, { listTemplate }) => listTemplate(listArgsMapper(args)));
 
   stories.add(
     'unordered',
@@ -113,4 +108,28 @@ export function storiesOfList<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfList<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     listTemplate
+//   }: ListParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('List', parameters, listArgTypes)
+//     .addParameters({
+//       args: {
+//         items: [
+//           { text: 'Cras justo odio' },
+//           { text: 'Dapibus ac facilisis in' },
+//           { text: 'Morbi leo risus' },
+//           { text: 'Porta ac consectetur ac' },
+//           { text: 'Vestibulum at eros' }
+//         ]
+//       }
+//     });
+
+//   const template = bindTemplate(listArgsMapper, listTemplate);
+
+
+// }

@@ -1,20 +1,19 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { badgeArgsMapper, badgeArgTypes } from './badge.args';
+import { BadgeArgs, badgeArgsMapper, badgeArgTypes } from './badge.args';
 import { Badge } from './badge.models';
 
-export interface BadgeParameters<TemplateFnReturnType> {
+export interface BadgeTemplates<TemplateFnReturnType> {
   badgeTemplate: (badgeProperties: Badge) => TemplateFnReturnType;
 }
 
-export function storiesOfBadge<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    badgeTemplate
-  }: BadgeParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Badge', parameters, badgeArgTypes);
-  const template = bindTemplate(badgeArgsMapper, badgeTemplate);
+export const storiesOfBadge = storiesOfFactory<BadgeTemplates<any>, BadgeArgs>('Badge', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: badgeArgTypes
+    });
+
+  const template = templateMapper((args, { badgeTemplate }) => badgeTemplate(badgeArgsMapper(args)));
 
   stories.add(
     'plain',
@@ -91,4 +90,16 @@ export function storiesOfBadge<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfBadge<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     badgeTemplate
+//   }: BadgeParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Badge', parameters, badgeArgTypes);
+//   const template = bindTemplate(badgeArgsMapper, badgeTemplate);
+
+
+// }

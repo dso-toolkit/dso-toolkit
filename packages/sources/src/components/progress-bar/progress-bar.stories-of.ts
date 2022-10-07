@@ -1,20 +1,18 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { progressBarArgsMapper, progressBarArgTypes } from './progress-bar.args';
+import { ProgressBarArgs, progressBarArgsMapper, progressBarArgTypes } from './progress-bar.args';
 import { ProgressBar } from './progress-bar.models';
 
-export interface ProgressBarParameters<TemplateFnReturnType> {
+export interface ProgressBarTemplates<TemplateFnReturnType> {
   progressBarTemplate: (progressBarProperties: ProgressBar) => TemplateFnReturnType;
 }
 
-export function storiesOfProgressBar<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    progressBarTemplate
-  }: ProgressBarParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Progress Bar', parameters, progressBarArgTypes);
-  const template = bindTemplate(progressBarArgsMapper, progressBarTemplate);
+export const storiesOfProgressBar = storiesOfFactory<ProgressBarTemplates<any>, ProgressBarArgs>('Progress Bar', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: progressBarArgTypes
+  });
+
+  const template = templateMapper((args, { progressBarTemplate }) => progressBarTemplate(progressBarArgsMapper(args)));
 
   stories.add(
     'default',
@@ -38,4 +36,16 @@ export function storiesOfProgressBar<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfProgressBar<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     progressBarTemplate
+//   }: ProgressBarParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Progress Bar', parameters, progressBarArgTypes);
+//   const template = bindTemplate(progressBarArgsMapper, progressBarTemplate);
+
+
+// }

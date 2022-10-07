@@ -4,8 +4,6 @@ import * as React from 'react';
 import { DsoProgressIndicator } from '../..';
 
 export function progressIndicatorTemplate({ label, block, size }: ProgressIndicator) {
-  console.log(label, block, size);
-
   return (
     <DsoProgressIndicator
       label={label}

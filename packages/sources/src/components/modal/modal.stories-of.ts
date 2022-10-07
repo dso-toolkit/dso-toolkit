@@ -1,5 +1,4 @@
-import { Args } from '@storybook/addons';
-import { createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 import { ProgressIndicator } from '../progress-indicator/progress-indicator.models';
 
 import { ModalArgs, modalArgsMapper, modalArgTypes, ModalLoadingArgs, modalLoadingArgTypes } from './modal.args';
@@ -47,29 +46,29 @@ function toggleClass(className: string) {
 }
 // </see #1550>
 
-export interface ModalParameters<TemplateFnReturnType> {
+export interface ModalTemplates<TemplateFnReturnType> {
   modalTemplate: (modalProperties: Modal<TemplateFnReturnType>) => TemplateFnReturnType;
   progressIndicatorTemplate: (progressIndicatorProperties: ProgressIndicator) => TemplateFnReturnType;
 }
 
-export function storiesOfModal<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    modalTemplate,
-    progressIndicatorTemplate
-  }: ModalParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Modal', parameters, {});
+export const storiesOfModal = storiesOfFactory<ModalTemplates<any>, ModalArgs>('Modal', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: modalArgTypes
+  });
+
+  const template = templateMapper((args, { modalTemplate }) => {
+    toggleClass('dso-modal-open');
+
+    return modalTemplate(modalArgsMapper(args));
+  });
 
   stories.add(
     'confirm',
-    (a: Args) => {
-      const modal = modalArgsMapper(a as ModalArgs);
-
+    templateMapper((args, { modalTemplate }) => {
       toggleClass('dso-modal-open');
 
-      return modalTemplate(modal);
-    },
+      return modalTemplate(modalArgsMapper(args));
+    }),
     {
       argTypes: modalArgTypes,
       args: content.confirm
@@ -78,13 +77,7 @@ export function storiesOfModal<TemplateFnReturnType>(
 
   stories.add(
     'passive',
-    (a: Args) => {
-      const modal = modalArgsMapper(a as ModalArgs);
-
-      toggleClass('dso-modal-open');
-
-      return modalTemplate(modal);
-    },
+    template,
     {
       argTypes: modalArgTypes,
       args: content.passive
@@ -93,13 +86,7 @@ export function storiesOfModal<TemplateFnReturnType>(
 
   stories.add(
     'active',
-    (a: Args) => {
-      const modal = modalArgsMapper(a as ModalArgs);
-
-      toggleClass('dso-modal-open');
-
-      return modalTemplate(modal);
-    },
+    template,
     {
       argTypes: modalArgTypes,
       args: content.active
@@ -108,12 +95,10 @@ export function storiesOfModal<TemplateFnReturnType>(
 
   stories.add(
     'loading',
-    (a: Args) => {
-      const args = a as ModalLoadingArgs;
-
+    templateMapper<ModalLoadingArgs>((args, { modalTemplate, progressIndicatorTemplate }) => {
       toggleClass('dso-modal-open');
 
-      const modal: Modal<TemplateFnReturnType> = {
+      const modal: Modal<any> = {
         role: args.role,
         body: progressIndicatorTemplate({
           size: 'small',
@@ -123,10 +108,10 @@ export function storiesOfModal<TemplateFnReturnType>(
       };
 
       return modalTemplate(modal);
-    },
+    }),
     {
       argTypes: modalLoadingArgTypes,
       args: content.loading
     }
   );
-}
+})

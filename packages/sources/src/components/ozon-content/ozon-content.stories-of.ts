@@ -1,4 +1,5 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from "../../storybook";
+import { componentArgs } from "../../storybook";
+import { storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import {
   ozonContentArgTypes,
@@ -8,18 +9,18 @@ import {
 import { content } from "./ozon-content.content";
 import { OzonContent } from "./ozon-content.models";
 
-export interface OzonContentParameters<TemplateFnReturnType> {
+export interface OzonContentTemplates<TemplateFnReturnType> {
   ozonContentTemplate: (
     ozonContentProperties: OzonContent
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfOzonContent<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  { ozonContentTemplate }: OzonContentParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Ozon Content', parameters, ozonContentArgTypes);
-  const template = bindTemplate(ozonContentArgsMapper, ozonContentTemplate);
+export const storiesOfOzonContent = storiesOfFactory<OzonContentTemplates<any>, OzonContentArgs>('Ozon Content', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: ozonContentArgTypes
+  });
+
+  const template = templateMapper((args, { ozonContentTemplate }) => ozonContentTemplate(ozonContentArgsMapper(args)));
 
   content.forEach((story) => {
     stories.add(story.title, template, {
@@ -34,4 +35,14 @@ export function storiesOfOzonContent<TemplateFnReturnType>(
       }),
     });
   });
-}
+})
+
+// export function storiesOfOzonContent<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   { ozonContentTemplate }: OzonContentParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Ozon Content', parameters, ozonContentArgTypes);
+//   const template = bindTemplate(ozonContentArgsMapper, ozonContentTemplate);
+
+
+// }

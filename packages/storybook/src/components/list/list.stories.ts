@@ -1,18 +1,17 @@
 import { storiesOfList } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { listTemplate } from '@dso-toolkit/css/src/components/list/list.template';
-import readme from '@dso-toolkit/css/src/components/list/readme.md';
+import cssReadme from '@dso-toolkit/css/src/components/list/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfList(
   {
     storiesOf,
     module,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    listTemplate
-  }
+  templateContainer,
+  ({ listTemplate }) => ({ listTemplate })
 );

@@ -3,8 +3,9 @@ import { storiesOf } from '@storybook/web-components';
 
 import readme from '@dso-toolkit/core/src/components/tree-view/readme.md';
 import { html } from 'lit-html';
-import { treeViewTemplate } from '@dso-toolkit/core/src/components/tree-view/tree-view.template';
+
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfTreeView(
   {
@@ -13,7 +14,8 @@ storiesOfTreeView(
     readme,
     root: StoryRoot.Core
   },
-  {
+  templateContainer,
+  ({ treeViewTemplate }) => ({
     treeViewDemoTemplate: (collection, dsoOpenItem, dsoCloseItem, dsoClickItem, onFilterInput) => html`
       <div style="display: grid; width: 100%; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column;">
         <div>
@@ -48,5 +50,5 @@ storiesOfTreeView(
         </div>
       </div>
     `
-  }
+  })
 );

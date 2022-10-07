@@ -1,27 +1,23 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { definitionListArgsMapper, definitionListArgTypes } from './definition-list.args';
+import { DefinitionListArgs, definitionListArgsMapper, definitionListArgTypes } from './definition-list.args';
 import { listDefinitions, columnDefinitions, definitions, smallContentDefinitions } from './definition-list.content';
 import { DefinitionList } from './definition-list.models';
 
-export interface DefinitionListParameters<TemplateFnReturnType> {
+export interface DefinitionListTemplates<TemplateFnReturnType> {
   definitionListTemplate: (definitionListProperties: DefinitionList) => TemplateFnReturnType;
 }
 
-export function storiesOfDefinitionList<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    definitionListTemplate
-  }: DefinitionListParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Definition List', parameters, definitionListArgTypes)
+export const storiesOfDefinitionList = storiesOfFactory<DefinitionListTemplates<any>, DefinitionListArgs>('Definition List', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: definitionListArgTypes,
       args: {
         definitions
       }
     });
 
-  const template = bindTemplate(definitionListArgsMapper, definitionListTemplate);
+  const template = templateMapper((args, { definitionListTemplate }) => definitionListTemplate(definitionListArgsMapper(args)));
 
   stories.add(
     'default',
@@ -154,4 +150,22 @@ export function storiesOfDefinitionList<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfDefinitionList<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     definitionListTemplate
+//   }: DefinitionListParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Definition List', parameters, definitionListArgTypes)
+//     .addParameters({
+//       args: {
+//         definitions
+//       }
+//     });
+
+//   const template = bindTemplate(definitionListArgsMapper, definitionListTemplate);
+
+
+// }

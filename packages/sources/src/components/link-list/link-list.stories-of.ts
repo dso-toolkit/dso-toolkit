@@ -1,11 +1,10 @@
-import { Args } from '@storybook/addons';
-import { ArgsError, bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { LinkListArgs, linkListArgsMapper, linkListArgTypes } from './link-list.args';
 import { links, navLinks } from './link-list.content';
 import { LinkList, LinkListType } from './link-list.models';
 
-export interface LinkListParameters<TemplateFnReturnType> {
+export interface LinkListTemplates<TemplateFnReturnType> {
   linkListTemplate: (linkListProperties: LinkList) => TemplateFnReturnType;
 
   /**
@@ -23,22 +22,15 @@ export interface LinkListParameters<TemplateFnReturnType> {
   inFooterTemplate: (linkList: TemplateFnReturnType) => TemplateFnReturnType;
 }
 
-export function storiesOfLinkList<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    linkListTemplate,
-    inHighlightBoxTemplate,
-    inFooterTemplate
-  }: LinkListParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Link List', parameters, linkListArgTypes)
-    .addParameters({
-      args: {
-        links
-      }
-    });
+export const storiesOfLinkList = storiesOfFactory<LinkListTemplates<any>, LinkListArgs>('Link List', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: linkListArgTypes,
+    args: {
+      links
+    }
+  });
 
-  const template = bindTemplate(linkListArgsMapper, linkListTemplate);
+  const template = templateMapper((args, { linkListTemplate }) => linkListTemplate(linkListArgsMapper(args)));
 
   stories.add(
     'ul',
@@ -62,15 +54,16 @@ export function storiesOfLinkList<TemplateFnReturnType>(
 
   stories.add(
     'in highlight box',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
+    templateMapper((args, { inHighlightBoxTemplate }) => inHighlightBoxTemplate(linkListArgsMapper(args)))
+    // (a: Args | undefined) => {
+    //   if (!a) {
+    //     throw new ArgsError();
+    //   }
 
-      const args = a as LinkListArgs;
+    //   const args = a as LinkListArgs;
 
-      return inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args)));
-    }
+    //   return inHighlightBoxTemplate(linkListTemplate(linkListArgsMapper(args)));
+    // }
   );
 
   stories.add(
@@ -87,13 +80,34 @@ export function storiesOfLinkList<TemplateFnReturnType>(
 
   stories.add(
     'in footer',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
+    templateMapper((args, { inFooterTemplate }) => inFooterTemplate(linkListArgsMapper(args)))
+    // (a: Args | undefined) => {
+    //   if (!a) {
+    //     throw new ArgsError();
+    //   }
 
-      const args = a as LinkListArgs;
-      return inFooterTemplate(linkListTemplate(linkListArgsMapper(args)));
-    }
+    //   const args = a as LinkListArgs;
+    //   return inFooterTemplate(linkListTemplate(linkListArgsMapper(args)));
+    // }
   );
-}
+})
+
+// export function storiesOfLinkList<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     linkListTemplate,
+//     inHighlightBoxTemplate,
+//     inFooterTemplate
+//   }: LinkListParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Link List', parameters, linkListArgTypes)
+//     .addParameters({
+//       args: {
+//         links
+//       }
+//     });
+
+//   const template = bindTemplate(linkListArgsMapper, linkListTemplate);
+
+
+// }

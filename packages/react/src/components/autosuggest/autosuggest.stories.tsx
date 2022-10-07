@@ -1,6 +1,7 @@
 import { storiesOfAutosuggest, AutosuggestSuggestion } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/react";
 import * as React from 'react';
+import { templateContainer } from '../../templates';
 
 import { AutosuggestTemplate } from "./autosuggest.template";
 import readme from "./readme.md";
@@ -60,13 +61,14 @@ class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<type
   }
 }
 
-storiesOfAutosuggest<JSX.Element>(
+storiesOfAutosuggest(
   {
     module,
     storiesOf,
     readme,
   },
-  {
+  templateContainer,
+  () => ({
     autosuggestDemoTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelay, notFoundLabel) => (
       <AutosuggestDemoTemplate
         fetchSuggestions={fetchSuggestions}
@@ -80,5 +82,5 @@ storiesOfAutosuggest<JSX.Element>(
         notFoundLabel={notFoundLabel}
       />
     )
-  }
+  })
 );

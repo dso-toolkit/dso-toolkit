@@ -1,30 +1,24 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { alertArgsMapper, alertArgTypes } from './alert.args';
+import { AlertArgs, alertArgsMapper, alertArgTypes } from './alert.args';
 import { alertWithHeadingsContent } from './alert.content';
-import { Alert, AlertWithHeadingsContent } from './alert.models';
+import { Alert } from './alert.models';
 
-export interface AlertParameters<TemplateFnReturnType> {
+export interface AlertTemplates<TemplateFnReturnType> {
   alertTemplate: (alertProperties: Alert<TemplateFnReturnType>) => TemplateFnReturnType;
-  alertWithHeadingsTemplate: (properties: AlertWithHeadingsContent) => TemplateFnReturnType;
 }
 
-export function storiesOfAlert<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    alertTemplate,
-    alertWithHeadingsTemplate
-  }: AlertParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Alert', parameters, alertArgTypes)
+export const storiesOfAlert = storiesOfFactory<AlertTemplates<any>, AlertArgs>('Alert', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: alertArgTypes,
       args: {
         withRoleAlert: false,
         withButton: true
       }
     });
 
-  const template = bindTemplate(alertArgsMapper, alertTemplate);
+  const template = templateMapper((args, { alertTemplate }) => alertTemplate(alertArgsMapper(args)));
 
   stories.add(
     'success',
@@ -83,8 +77,8 @@ export function storiesOfAlert<TemplateFnReturnType>(
       },
       args: {
         status: 'info',
-        message: alertWithHeadingsTemplate(alertWithHeadingsContent)
+        message: alertWithHeadingsContent
       }
     }
   );
-}
+});

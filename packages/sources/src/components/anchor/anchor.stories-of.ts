@@ -1,20 +1,19 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { anchorArgsMapper, anchorArgTypes } from './anchor.args';
+import { AnchorArgs, anchorArgsMapper, anchorArgTypes } from './anchor.args';
 import { Anchor } from './anchor.models';
 
-export interface AnchorParameters<TemplateFnReturnType> {
+export interface AnchorTemplates<TemplateFnReturnType> {
   anchorTemplate: (anchorProperties: Anchor) => TemplateFnReturnType;
 }
 
-export function storiesOfAnchor<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    anchorTemplate
-  }: AnchorParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Anchor', parameters, anchorArgTypes);
-  const template = bindTemplate(anchorArgsMapper, anchorTemplate);
+export const storiesOfAnchor = storiesOfFactory<AnchorTemplates<any>, AnchorArgs>('Anchor', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: anchorArgTypes
+    });
+
+  const template = templateMapper((args, { anchorTemplate }) => anchorTemplate(anchorArgsMapper(args)));
 
   stories.add(
     'default',
@@ -62,4 +61,16 @@ export function storiesOfAnchor<TemplateFnReturnType>(
       }
     }
   );
-}
+});
+
+// export function storiesOfAnchor<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     anchorTemplate
+//   }: AnchorParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Anchor', parameters, anchorArgTypes);
+//   const template = bindTemplate(anchorArgsMapper, anchorTemplate);
+
+
+// }

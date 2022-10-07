@@ -4,13 +4,13 @@ import { ArgTypes } from '../../storybook';
 
 import { Banner } from './banner.models';
 
-export interface BannerArgs<TemplateFnReturnType> {
+export interface BannerArgs {
   status: string;
-  richContent: TemplateFnReturnType;
+  richContent: string;
   onClick: HandlerFunction;
 }
 
-export const bannerArgTypes: ArgTypes<BannerArgs<unknown>> = {
+export const bannerArgTypes: ArgTypes<BannerArgs> = {
   richContent: {
     control: {
       disable: true
@@ -27,7 +27,7 @@ export const bannerArgTypes: ArgTypes<BannerArgs<unknown>> = {
   }
 };
 
-export function bannerArgsMapper(a: BannerArgs<any>): Banner<any> {
+export function bannerArgsMapper(a: BannerArgs): Banner<any> {
   return {
     onClick: (e: Event) => a.onClick(e),
     richContent: a.richContent,

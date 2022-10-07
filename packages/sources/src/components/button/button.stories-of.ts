@@ -1,26 +1,22 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { buttonArgsMapper, buttonArgTypes } from './button.args';
+import { ButtonArgs, buttonArgsMapper, buttonArgTypes } from './button.args';
 import { Button, ButtonAnchor } from './button.models';
 
-export interface ButtonParameters<TemplateFnReturnType> {
+export interface ButtonTemplates<TemplateFnReturnType> {
   buttonTemplate: (buttonProperties: Button | ButtonAnchor) => TemplateFnReturnType;
 }
 
-export function storiesOfButton<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    buttonTemplate
-  }: ButtonParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Button', parameters, buttonArgTypes)
+export const storiesOfButton = storiesOfFactory<ButtonTemplates<any>, ButtonArgs>('button', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: buttonArgTypes,
       args: {
         element: 'button'
       }
     });
 
-  const template = bindTemplate(buttonArgsMapper, buttonTemplate);
+  const template = templateMapper((args, { buttonTemplate }) => buttonTemplate(buttonArgsMapper(args)));
 
   stories.add(
     'primary',
@@ -59,4 +55,22 @@ export function storiesOfButton<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfButton<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     buttonTemplate
+//   }: ButtonParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Button', parameters, buttonArgTypes)
+//     .addParameters({
+//       args: {
+//         element: 'button'
+//       }
+//     });
+
+//   const template = bindTemplate(buttonArgsMapper, buttonTemplate);
+
+
+// }

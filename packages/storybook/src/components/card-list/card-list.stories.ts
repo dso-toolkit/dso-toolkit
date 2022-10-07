@@ -1,18 +1,17 @@
 import { storiesOfCardList } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { cardListTemplate } from '@dso-toolkit/css/src/components/card-list/card-list.template';
-import readme from '@dso-toolkit/css/src/components/card-list/readme.md';
+import cssReadme from '@dso-toolkit/css/src/components/card-list/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfCardList(
   {
     module,
     storiesOf,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    cardListTemplate
-  }
+  templateContainer,
+  ({ cardListTemplate }) => ({ cardListTemplate })
 );

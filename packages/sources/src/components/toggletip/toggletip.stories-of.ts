@@ -1,23 +1,24 @@
-import { bindTemplate, createStories, StorybookParameters } from "../../storybook";
+import { storiesOfFactory } from "../../storybook/stories-of-factory";
 
-import { toggletipArgsMapper, toggletipArgTypes } from "./toggletip.args";
+import { ToggletipArgs, toggletipArgsMapper, toggletipArgTypes } from "./toggletip.args";
 import { Toggletip } from "./toggletip.models";
 
-export interface ToggletipParameters<TemplateFnReturnType> {
+export interface ToggletipTemplates<TemplateFnReturnType> {
   toggletipTemplate: (
     toggletipProperties: Toggletip
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfToggletip<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  { toggletipTemplate }: ToggletipParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Toggletip', parameters, toggletipArgTypes);
+export const storiesOfToggletip = storiesOfFactory<ToggletipTemplates<any>, ToggletipArgs>('Toggle Tip', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: toggletipArgTypes
+  });
+
+  const template = templateMapper((args, { toggletipTemplate }) => toggletipTemplate(toggletipArgsMapper(args)));
 
   stories.add(
     "Toggletip",
-    bindTemplate(toggletipArgsMapper, toggletipTemplate),
+    template,
     {
       args: {
         children: `
@@ -35,4 +36,13 @@ export function storiesOfToggletip<TemplateFnReturnType>(
       },
     }
   );
-}
+})
+
+// export function storiesOfToggletip<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   { toggletipTemplate }: ToggletipParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Toggletip', parameters, toggletipArgTypes);
+
+
+// }

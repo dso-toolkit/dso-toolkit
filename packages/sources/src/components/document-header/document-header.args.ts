@@ -11,7 +11,7 @@ export interface DocumentHeaderArgs {
   statusContentOpen: boolean;
 }
 
-export function documentHeaderMapper<TemplateFnReturnType>(
+export function documentHeaderArgsMapper<TemplateFnReturnType>(
   a: DocumentHeaderArgs,
   status: TemplateFnReturnType,
   features: DefinitionList<TemplateFnReturnType>,

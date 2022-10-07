@@ -1,24 +1,19 @@
 import { DecoratorFunction } from '@storybook/addons';
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { mapControlsArgsMapper, mapControlsArgTypes } from './map-controls.args';
+import { mapControlsArgsMapper, mapControlsArgTypes, MapControlsArgs } from './map-controls.args';
 import { baseLayers, overlays } from './map-controls.content';
 import { MapControls } from './map-controls.models';
 
-export interface MapControlsParameters<TemplateFnReturnType> {
+export interface MapControlsTemplates<TemplateFnReturnType> {
   mapControlsTemplate: (mapControlsProperties: MapControls) => TemplateFnReturnType;
   decorator: DecoratorFunction<TemplateFnReturnType>;
 }
 
-export function storiesOfMapControls<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    mapControlsTemplate,
-    decorator
-  }: MapControlsParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Map Controls', parameters, mapControlsArgTypes)
+export const storiesOfMapControls = storiesOfFactory<MapControlsTemplates<any>, MapControlsArgs>('Map Controls', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: mapControlsArgTypes,
       args: {
         open: false,
         baseLayers,
@@ -29,12 +24,10 @@ export function storiesOfMapControls<TemplateFnReturnType>(
       },
       layout: 'fullscreen'
     })
-    .addDecorator(decorator);
-
-  const template = bindTemplate(mapControlsArgsMapper, mapControlsTemplate);
+    // .addDecorator(decorator);
 
   stories.add(
     'Map Controls',
-    template
+    templateMapper((args, { mapControlsTemplate }) => mapControlsTemplate(mapControlsArgsMapper(args)))
   );
-}
+});

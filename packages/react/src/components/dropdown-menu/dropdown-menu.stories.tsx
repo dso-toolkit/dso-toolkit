@@ -1,7 +1,7 @@
 import { storiesOfDropdownMenu } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/react";
+import { templateContainer } from '../../templates';
 
-import { dropdownMenuTemplate } from "./dropdown-menu.template";
 import readme from "./readme.md";
 
 storiesOfDropdownMenu(
@@ -10,7 +10,6 @@ storiesOfDropdownMenu(
     storiesOf,
     readme,
   },
-  {
-    dropdownMenuTemplate
-  }
+  templateContainer,
+  ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
 );

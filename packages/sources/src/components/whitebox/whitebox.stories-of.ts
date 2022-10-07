@@ -1,31 +1,28 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { WhiteboxArgs, whiteboxArgsMapper, whiteboxArgTypes } from './whitebox.args';
 import { Whitebox } from './whitebox.models';
 
-export interface WhiteboxParameters<TemplateFnReturnType> {
+export interface WhiteboxTemplates<TemplateFnReturnType> {
   whiteboxTemplate: (whiteboxProperties: Whitebox) => TemplateFnReturnType;
 }
 
-export function storiesOfWhitebox<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    whiteboxTemplate
-  }: WhiteboxParameters<TemplateFnReturnType>
-) {
+export const storiesOfWhitebox = storiesOfFactory<WhiteboxTemplates<any>, WhiteboxArgs>('Whitebox', (stories, templateMapper) => {
   type ComponentArgs = Pick<WhiteboxArgs, 'title' | 'description' | 'label' | 'imageSource' | 'imageAlt'>;
-  const stories = createStories('Whitebox', parameters, whiteboxArgTypes)
-    .addParameters({
-      args: componentArgs<ComponentArgs>({
-        title: 'Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.',
-        description: 'Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?',
-        label: 'Direct naar aanvragen',
-        imageSource: 'images/indienen.png',
-        imageAlt: 'Indienen'
-      })
-    });
 
-  const template = bindTemplate(whiteboxArgsMapper, whiteboxTemplate);
+  stories.addParameters({
+    argTypes: whiteboxArgTypes,
+    args: componentArgs<ComponentArgs>({
+      title: 'Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.',
+      description: 'Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?',
+      label: 'Direct naar aanvragen',
+      imageSource: 'images/indienen.png',
+      imageAlt: 'Indienen'
+    })
+  });
+
+  const template = templateMapper((args, { whiteboxTemplate }) => whiteboxTemplate(whiteboxArgsMapper(args)));
 
   stories.add(
     'default',
@@ -56,4 +53,27 @@ export function storiesOfWhitebox<TemplateFnReturnType>(
       })
     }
   );
-}
+})
+
+// export function storiesOfWhitebox<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     whiteboxTemplate
+//   }: WhiteboxParameters<TemplateFnReturnType>
+// ) {
+//   type ComponentArgs = Pick<WhiteboxArgs, 'title' | 'description' | 'label' | 'imageSource' | 'imageAlt'>;
+//   const stories = createStories('Whitebox', parameters, whiteboxArgTypes)
+//     .addParameters({
+//       args: componentArgs<ComponentArgs>({
+//         title: 'Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.',
+//         description: 'Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?',
+//         label: 'Direct naar aanvragen',
+//         imageSource: 'images/indienen.png',
+//         imageAlt: 'Indienen'
+//       })
+//     });
+
+//   const template = bindTemplate(whiteboxArgsMapper, whiteboxTemplate);
+
+
+// }

@@ -1,17 +1,18 @@
 import { storiesOfHelpcenterPanel } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/web-components";
-import readme from "@dso-toolkit/core/src/components/helpcenter-panel/readme.md";
-import { helpcenterPanelTemplate } from "@dso-toolkit/core/src/components/helpcenter-panel/helpcenter-panel.template";
+
+import coreReadme from "@dso-toolkit/core/src/components/helpcenter-panel/readme.md";
+
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from "../../templates";
 
 storiesOfHelpcenterPanel(
   {
     module,
     storiesOf,
-    readme,
+    readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    helpcenterPanelTemplate,
-  }
+  templateContainer,
+  ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate })
 );

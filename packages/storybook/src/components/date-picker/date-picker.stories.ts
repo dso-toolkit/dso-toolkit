@@ -3,11 +3,11 @@ import { DecoratorFunction } from '@storybook/addons';
 import { storiesOf } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit-html';
 
-import { datePickerTemplate } from '@dso-toolkit/core/src/components/date-picker/date-picker.template';
-import readme from '@dso-toolkit/core/src/components/date-picker/readme.md';
+import cssReadme from '@dso-toolkit/core/src/components/date-picker/readme.md';
 
 import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from './date-picker.content';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 const decorator: DecoratorFunction<TemplateResult> = story => html`
   <div style="width: 175px;">
@@ -19,13 +19,12 @@ storiesOfDatePicker(
   {
     module,
     storiesOf,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.Core
   },
+  templateContainer,
+  ({ datePickerTemplate }) => ({ datePickerTemplate, datePickerWithLabelTemplate, datePickerShowByScriptingTemplate }),
   {
-    datePickerTemplate,
-    datePickerWithLabelTemplate,
-    datePickerShowByScriptingTemplate,
     decorator
   }
 );

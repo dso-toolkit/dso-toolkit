@@ -1,20 +1,18 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { progressIndicatorArgsMapper, progressIndicatorArgTypes } from './progress-indicator.args';
+import { ProgressIndicatorArgs, progressIndicatorArgsMapper, progressIndicatorArgTypes } from './progress-indicator.args';
 import { ProgressIndicator } from './progress-indicator.models';
 
-export interface ProgressIndicatorParameters<TemplateFnReturnType> {
+export interface ProgressIndicatorTemplates<TemplateFnReturnType> {
   progressIndicatorTemplate: (progressIndicatorProperties: ProgressIndicator) => TemplateFnReturnType;
 }
 
-export function storiesOfProgressIndicator<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    progressIndicatorTemplate
-  }: ProgressIndicatorParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Progress Indicator', parameters, progressIndicatorArgTypes);
-  const template = bindTemplate(progressIndicatorArgsMapper, progressIndicatorTemplate);
+export const storiesOfProgressIndicator = storiesOfFactory<ProgressIndicatorTemplates<any>, ProgressIndicatorArgs>('Progress Indicator', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: progressIndicatorArgTypes
+  });
+
+  const template = templateMapper((args, { progressIndicatorTemplate }) => progressIndicatorTemplate(progressIndicatorArgsMapper(args)));
 
   stories.add(
     'small',
@@ -45,4 +43,16 @@ export function storiesOfProgressIndicator<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfProgressIndicator<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     progressIndicatorTemplate
+//   }: ProgressIndicatorParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Progress Indicator', parameters, progressIndicatorArgTypes);
+//   const template = bindTemplate(progressIndicatorArgsMapper, progressIndicatorTemplate);
+
+
+// }

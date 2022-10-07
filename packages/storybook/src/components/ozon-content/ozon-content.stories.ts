@@ -1,18 +1,18 @@
 import { storiesOfOzonContent } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { ozonContentTemplate } from '@dso-toolkit/core/src/components/ozon-content/ozon-content.template';
-import readme from '@dso-toolkit/core/src/components/ozon-content/readme.md';
+import coreReadme from '@dso-toolkit/core/src/components/ozon-content/readme.md';
+
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfOzonContent(
   {
     module,
     storiesOf,
-    readme,
+    readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    ozonContentTemplate
-  }
+  templateContainer,
+  ({ ozonContentTemplate }) => ({ ozonContentTemplate })
 );

@@ -1,6 +1,4 @@
-import { Args } from '@storybook/addons';
-
-import { ArgsError, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { AutosuggestArgs, autosuggestArgTypes } from './autosuggest.args';
 import { fetchSuggestions } from './autosuggest.demo';
@@ -19,56 +17,42 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   minimalCharacters?: number,
 ) => TemplateFnReturnType;
 
-export interface AutosuggestParameters<TemplateFnReturnType> {
+export interface AutosuggestTemplates<TemplateFnReturnType> {
   autosuggestDemoTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
   autosuggestInSearchBarTemplate?: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
-export function storiesOfAutosuggest<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    autosuggestDemoTemplate,
-    autosuggestInSearchBarTemplate
-  }: AutosuggestParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Autosuggest', parameters, autosuggestArgTypes)
-    .addParameters({
-      args: {
-        suggestOnFocus: false,
-        loading: false
-      }
-    });
+export const storiesOfAutosuggest = storiesOfFactory<AutosuggestTemplates<any>, AutosuggestArgs>('Autosuggest', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: autosuggestArgTypes,
+    args: {
+      suggestOnFocus: false,
+      loading: false
+    }
+  });
 
   stories.add(
     'example',
-    (a: Args) => {
-      const args = a as AutosuggestArgs;
-
-      return autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
-    }
+    templateMapper((args, { autosuggestDemoTemplate }) => autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel))
   );
 
   stories.add(
     'minimal 3 characters',
-    (a: Args) => {
-      const args = a as AutosuggestArgs;
-
-      return autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3);
-    }
+    templateMapper((args, { autosuggestDemoTemplate }) => autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3))
   );
 
-  if (autosuggestInSearchBarTemplate) {
-    stories.add(
-      'in searchbar',
-      (a: Args | undefined) => {
-        if (!a) {
-          throw new ArgsError();
-        }
+  // if (autosuggestInSearchBarTemplate) {
+  //   stories.add(
+  //     'in searchbar',
+  //     (a: Args | undefined) => {
+  //       if (!a) {
+  //         throw new ArgsError();
+  //       }
 
-        const args = a as AutosuggestArgs;
+  //       const args = a as AutosuggestArgs;
 
-        return autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
-      }
-    );
-  }
-}
+  //       return autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
+  //     }
+  //   );
+  // }
+});

@@ -1,7 +1,7 @@
 import { storiesOfAccordion } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { accordionTemplate } from './accordion.template';
 import readme from './readme.md';
 
 storiesOfAccordion(
@@ -10,7 +10,6 @@ storiesOfAccordion(
     storiesOf,
     readme
   },
-  {
-    accordionTemplate
-  }
+  templateContainer,
+  ({ accordionTemplate }) => ({ accordionTemplate })
 );

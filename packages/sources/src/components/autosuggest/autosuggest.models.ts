@@ -1,4 +1,4 @@
-export interface Autosuggest {
+export interface Autosuggest<TemplateFnReturnType> {
   suggestions: AutosuggestSuggestion[] | null;
   suggestOnFocus: boolean;
   loading: boolean;
@@ -8,6 +8,7 @@ export interface Autosuggest {
   dsoChange: (value: CustomEvent<string>) => void;
   dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
   dsoSearch: (value: CustomEvent<string>) => void;
+  children: TemplateFnReturnType;
 }
 
 export interface AutosuggestSuggestion {

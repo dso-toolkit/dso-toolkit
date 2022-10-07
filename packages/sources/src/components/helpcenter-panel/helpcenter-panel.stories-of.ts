@@ -1,25 +1,26 @@
-import { bindTemplate, createStories, StorybookParameters } from "../../storybook";
+import { storiesOfFactory } from "../../storybook/stories-of-factory";
 import {
+  HelpcenterPanelArgs,
   helpcenterPanelArgsMapper,
   helpcenterPanelArgTypes,
 } from "./helpcenter-panel.args";
 import { HelpcenterPanel } from "./helpcenter-panel.models";
 
-export interface HelpcenterPanelParameters<TemplateFnReturnType> {
+export interface HelpcenterPanelTemplates<TemplateFnReturnType> {
   helpcenterPanelTemplate: (
     helpcenterPanelProperties: HelpcenterPanel
   ) => TemplateFnReturnType;
 }
 
-export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  { helpcenterPanelTemplate }: HelpcenterPanelParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Helpcenter Panel', parameters, helpcenterPanelArgTypes);
+export const storiesOfHelpcenterPanel = storiesOfFactory<HelpcenterPanelTemplates<any>,HelpcenterPanelArgs>('Helpcenter Panel', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: helpcenterPanelArgTypes
+    });
 
   stories.add(
     "Helpcenter Panel",
-    bindTemplate(helpcenterPanelArgsMapper, helpcenterPanelTemplate),
+    templateMapper((args, { helpcenterPanelTemplate }) => helpcenterPanelTemplate(helpcenterPanelArgsMapper(args))),
     {
       args: {
         label: "Hulp nodig",
@@ -39,4 +40,13 @@ export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
       },
     }
   );
-}
+})
+
+// export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   { helpcenterPanelTemplate }: HelpcenterPanelParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Helpcenter Panel', parameters, helpcenterPanelArgTypes);
+
+
+// }

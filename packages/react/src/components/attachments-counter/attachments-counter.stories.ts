@@ -1,7 +1,6 @@
 import { storiesOfAttachmentsCounter } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
-
-import { attachmentsCounterTemplate } from './attachments-counter.template';
+import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
@@ -11,7 +10,6 @@ storiesOfAttachmentsCounter(
     storiesOf,
     readme
   },
-  {
-    attachmentsCounterTemplate
-  }
+  templateContainer,
+  ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
 );

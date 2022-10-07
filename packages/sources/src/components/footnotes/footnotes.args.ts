@@ -28,17 +28,11 @@ export function footnotesReferenceArgsMapper(a: FootnotesReferenceArgs): Footnot
 }
 
 export interface FootnotesListArgs {
-  footnote14: Footnote;
-  footnote15: Footnote;
+  footnotes: Footnote[];
 }
 
 export const footnotesListArgTypes: ArgTypes<FootnotesListArgs> = {
-  footnote14: {
-    control: {
-      disable: true
-    }
-  },
-  footnote15: {
+  footnotes: {
     control: {
       disable: true
     }
@@ -46,7 +40,7 @@ export const footnotesListArgTypes: ArgTypes<FootnotesListArgs> = {
 };
 
 export function footnotesListArgsMapper(a: FootnotesListArgs): Footnote[] {
-  return [a.footnote14, a.footnote15];
+  return a.footnotes;
 }
 
 export interface FootnotesExampleArgs {

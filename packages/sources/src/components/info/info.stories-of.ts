@@ -1,27 +1,18 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
-import { infoArgsMapper, infoArgTypes } from './info.args';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
+import { InfoArgs, infoArgsMapper, infoArgTypes } from './info.args';
 import { Info } from './info.models';
 
-export interface InfoParameters<TemplateFnReturnType> {
+export interface InfoTemplates<TemplateFnReturnType> {
   infoTemplate: (infoProperties: Info<TemplateFnReturnType>) => TemplateFnReturnType;
   richContent: TemplateFnReturnType;
 }
 
-export function storiesOfInfo<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    infoTemplate,
-    richContent
-  }: InfoParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Info', parameters, infoArgTypes)
-    .addParameters({
-      args: {
-        richContent
-      }
-    });
+export const storiesOfInfo = storiesOfFactory<InfoTemplates<any>, InfoArgs>('Info', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: infoArgTypes
+  });
 
-  const template = bindTemplate(infoArgsMapper, infoTemplate);
+  const template = templateMapper((args, { infoTemplate, richContent }) => infoTemplate(infoArgsMapper(args, richContent)));
 
   stories.add(
     'default',
@@ -37,4 +28,4 @@ export function storiesOfInfo<TemplateFnReturnType>(
       }
     }
   );
-}
+});

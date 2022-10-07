@@ -1,20 +1,19 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { attachmentsCounterArgsMapper, attachmentsCounterArgTypes } from './attachments-counter.args';
+import { AttachmentsCounterArgs, attachmentsCounterArgsMapper, attachmentsCounterArgTypes } from './attachments-counter.args';
 import { AttachmentsCounter } from './attachments-counter.models';
 
-export interface AttachmentsCounterParameters<TemplateFnReturnType> {
+export interface AttachmentsCounterTemplates<TemplateFnReturnType> {
   attachmentsCounterTemplate: (attachmentsCounterProperties: AttachmentsCounter) => TemplateFnReturnType;
 }
 
-export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    attachmentsCounterTemplate
-  }: AttachmentsCounterParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Attachments Counter', parameters, attachmentsCounterArgTypes);
-  const template = bindTemplate(attachmentsCounterArgsMapper, attachmentsCounterTemplate);
+export const storiesOfAttachmentsCounter = storiesOfFactory<AttachmentsCounterTemplates<any>, AttachmentsCounterArgs>('Attachments Counter', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: attachmentsCounterArgTypes
+    });
+
+  const template = templateMapper((args, { attachmentsCounterTemplate }) => attachmentsCounterTemplate(attachmentsCounterArgsMapper(args)));
 
   stories.add(
     'Attachments Counter',
@@ -25,4 +24,16 @@ export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     attachmentsCounterTemplate
+//   }: AttachmentsCounterParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Attachments Counter', parameters, attachmentsCounterArgTypes);
+//   const template = bindTemplate(attachmentsCounterArgsMapper, attachmentsCounterTemplate);
+
+
+// }

@@ -1,7 +1,7 @@
 import { storiesOfPagination } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { paginationTemplate } from './pagination.template';
 import readme from './readme.md';
 
 storiesOfPagination(
@@ -10,7 +10,6 @@ storiesOfPagination(
     storiesOf,
     readme
   },
-  {
-    paginationTemplate
-  }
+  templateContainer,
+  ({ paginationTemplate }) => ({ paginationTemplate })
 );

@@ -1,26 +1,21 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { iconArgsMapper, iconArgTypes } from './icon.args';
+import { IconArgs, iconArgsMapper, iconArgTypes } from './icon.args';
 import { Icon } from './icon.models';
 
-export interface IconParameters<TemplateFnReturnType> {
+export interface IconTemplates<TemplateFnReturnType> {
   iconTemplate: (iconProperties: Icon) => TemplateFnReturnType;
 }
 
-export function storiesOfIcon<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    iconTemplate
-  }: IconParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Icon', parameters, iconArgTypes)
-    .addParameters({
-      args: {
-        icon: 'user'
-      }
-    });
+export const storiesOfIcon = storiesOfFactory<IconTemplates<any>, IconArgs>('Icon', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: iconArgTypes,
+    args: {
+      icon: 'user'
+    }
+  });
 
-  const template = bindTemplate(iconArgsMapper, iconTemplate);
+  const template = templateMapper((args, { iconTemplate }) => iconTemplate(iconArgsMapper(args)));
 
   stories.add(
     'Icon',
@@ -31,4 +26,4 @@ export function storiesOfIcon<TemplateFnReturnType>(
       }
     }
   );
-}
+});

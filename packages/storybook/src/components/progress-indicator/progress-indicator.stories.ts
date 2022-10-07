@@ -1,13 +1,11 @@
 import { storiesOfProgressIndicator } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import * as css from '@dso-toolkit/css/src/components/progress-indicator/progress-indicator.template';
 import cssReadme from '@dso-toolkit/css/src/components/progress-indicator/readme.md';
-
-import * as core from '@dso-toolkit/core/src/components/progress-indicator/progress-indicator.template';
 import coreReadme from '@dso-toolkit/core/src/components/progress-indicator/readme.md';
 
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfProgressIndicator(
   {
@@ -16,9 +14,11 @@ storiesOfProgressIndicator(
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    progressIndicatorTemplate: css.progressIndicatorTemplate
-  }
+  templateContainer,
+  ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
+  // {
+  //   progressIndicatorTemplate: css.progressIndicatorTemplate
+  // }
 );
 
 storiesOfProgressIndicator(
@@ -28,7 +28,9 @@ storiesOfProgressIndicator(
     readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    progressIndicatorTemplate: core.progressIndicatorTemplate
-  }
+  templateContainer,
+  ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
+  // {
+  //   progressIndicatorTemplate: core.progressIndicatorTemplate
+  // }
 );

@@ -1,13 +1,11 @@
 import { storiesOfInfoButton } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import * as css from '@dso-toolkit/css/src/components/info-button/info-button.template';
 import cssReadme from '@dso-toolkit/css/src/components/info-button/readme.md';
-
-import * as core from '@dso-toolkit/core/src/components/info-button/info-button.template';
 import coreReadme from '@dso-toolkit/core/src/components/info-button/readme.md';
 
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfInfoButton(
   {
@@ -16,9 +14,8 @@ storiesOfInfoButton(
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    infoButtonTemplate: css.infoButtonTemplate
-  }
+  templateContainer,
+  ({ infoButtonTemplate }) => ({ infoButtonTemplate })
 );
 
 storiesOfInfoButton(
@@ -28,7 +25,6 @@ storiesOfInfoButton(
     readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    infoButtonTemplate: core.infoButtonTemplate
-  }
+  templateContainer,
+  ({ infoButtonTemplate }) => ({ infoButtonTemplate })
 );

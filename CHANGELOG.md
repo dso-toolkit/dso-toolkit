@@ -40,6 +40,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core + sources:** Pagination: Werkvorm afstemmen met beschikbare ruimte ([#1772](https://github.com/dso-toolkit/dso-toolkit/issues/1772))
 * **core + sources** Ozon content <Figuur> Titel, bijschrift, en bron mapping ([#1730](https://github.com/dso-toolkit/dso-toolkit/issues/1730))
 * **core:** Helpcenterpanel - stop background scroll and trap focus ([#1770](https://github.com/dso-toolkit/dso-toolkit/issues/1770))
+* TemplateContainer ipv. ES6 imports voor component dependencies ([#1808](https://github.com/dso-toolkit/dso-toolkit/issues/1808))
 
 ## 45.0.1
 

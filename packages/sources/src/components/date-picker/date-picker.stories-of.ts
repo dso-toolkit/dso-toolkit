@@ -1,29 +1,25 @@
-import { Args, DecoratorFunction } from '@storybook/addons';
+import { DecoratorFunction } from '@storybook/addons';
 import { v4 as uuidv4 } from 'uuid';
 
-import { bindTemplate, ArgsError, StorybookParameters, createStories } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { DatePickerArgs, datePickerArgsMapper, datePickerArgTypes } from './date-picker.args';
 import { DatePicker } from './date-picker.models';
 
-export interface DatePickerParameters<TemplateFnReturnType> {
+export interface DatePickerTemplates<TemplateFnReturnType> {
   datePickerTemplate: (datePickerProperties: DatePicker) => TemplateFnReturnType;
   datePickerWithLabelTemplate: (datePicker: TemplateFnReturnType, id: string, label: string) => TemplateFnReturnType;
   datePickerShowByScriptingTemplate: (datePicker: TemplateFnReturnType, id: string) => TemplateFnReturnType;
-  decorator: DecoratorFunction<TemplateFnReturnType>;
 }
 
-export function storiesOfDatePicker<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    datePickerTemplate,
-    datePickerWithLabelTemplate,
-    datePickerShowByScriptingTemplate,
-    decorator
-  }: DatePickerParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Date Picker', parameters, datePickerArgTypes)
+export interface DatePickerParameters {
+  decorator: DecoratorFunction<any>;
+}
+
+export const storiesOfDatePicker = storiesOfFactory<DatePickerTemplates<any>, DatePickerArgs, DatePickerParameters>('Date Picker', (stories, templateMapper) => {
+  stories
     .addParameters({
+      argTypes: datePickerArgTypes,
       options: {
         // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
         enableShortcuts: false
@@ -34,7 +30,7 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
       }
     });
 
-  const template = bindTemplate(datePickerArgsMapper, datePickerTemplate);
+  const template = templateMapper((args, { datePickerTemplate }) => datePickerTemplate(datePickerArgsMapper(args)));
 
   stories.add(
     'default',
@@ -74,19 +70,13 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
 
   stories.add(
     'with label',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
-
-      const args = a as DatePickerArgs;
-
-      return datePickerWithLabelTemplate(
+    templateMapper((args, { datePickerTemplate, datePickerWithLabelTemplate }) =>
+      datePickerWithLabelTemplate(
         datePickerTemplate(datePickerArgsMapper(args)),
         args.id || uuidv4(),
         'Selecteer datum'
-      );
-    },
+      )
+    ),
     {
       args: {
         id: uuidv4()
@@ -96,14 +86,12 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
 
   stories.add(
     'show by scripting',
-    (a: Args) => {
-      const args = a as DatePickerArgs;
-
-      return datePickerShowByScriptingTemplate(
+    templateMapper((args, { datePickerTemplate, datePickerShowByScriptingTemplate }) =>
+      datePickerShowByScriptingTemplate(
         datePickerTemplate(datePickerArgsMapper(args)),
         args.id || uuidv4()
       )
-    },
+    ),
     {
       args: {
         id: uuidv4()
@@ -111,11 +99,12 @@ export function storiesOfDatePicker<TemplateFnReturnType>(
     }
   );
 
-  stories.add(
-    'narrow input',
-    template,
-    {
-      decorators: [decorator]
-    }
-  );
-}
+  // Later over nadenken
+  // stories.add(
+  //   'narrow input',
+  //   template,
+  //   {
+  //     decorators: [decorator]
+  //   }
+  // );
+})

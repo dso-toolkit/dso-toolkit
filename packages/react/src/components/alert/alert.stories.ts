@@ -1,7 +1,7 @@
 import { storiesOfAlert } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { alertTemplate, alertWithHeadingsTemplate } from './alert.template';
 import readme from './readme.md';
 
 storiesOfAlert(
@@ -10,8 +10,6 @@ storiesOfAlert(
     storiesOf,
     readme
   },
-  {
-    alertTemplate,
-    alertWithHeadingsTemplate
-  }
+  templateContainer,
+  ({ alertTemplate }) => ({ alertTemplate })
 );

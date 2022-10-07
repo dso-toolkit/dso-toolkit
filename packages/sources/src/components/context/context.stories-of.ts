@@ -1,34 +1,22 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { contextArgsMapper, contextArgTypes } from './context.args';
+import { ContextArgs, contextArgsMapper, contextArgTypes } from './context.args';
 import { Context } from './context.models';
 
-export interface ContextParameters<TemplateFnReturnType> {
+export interface ContextTemplates<TemplateFnReturnType> {
   contextTemplate: (contextProperties: Context<TemplateFnReturnType>) => TemplateFnReturnType;
   children: TemplateFnReturnType;
   content: TemplateFnReturnType;
   label: TemplateFnReturnType;
 }
 
-export function storiesOfContext<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    contextTemplate,
-    children,
-    content,
-    label
-  }: ContextParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Context', parameters, contextArgTypes)
+export const storiesOfContext = storiesOfFactory<ContextTemplates<any>, ContextArgs>('Context', (stories, templateMapper) => {
+  stories
     .addParameters({
-      args: {
-        children,
-        content,
-        label
-      }
+      argTypes: contextArgTypes
     });
 
-  const template = bindTemplate(contextArgsMapper, contextTemplate);
+  const template = templateMapper((args, { contextTemplate, children, content, label }) => contextTemplate(contextArgsMapper(args, content, children, label)));
 
   stories.add(
     'Label',
@@ -49,4 +37,27 @@ export function storiesOfContext<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfContext<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     contextTemplate,
+//     children,
+//     content,
+//     label
+//   }: ContextParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Context', parameters, contextArgTypes)
+//     .addParameters({
+//       args: {
+//         children,
+//         content,
+//         label
+//       }
+//     });
+
+//   const template = bindTemplate(contextArgsMapper, contextTemplate);
+
+
+// }

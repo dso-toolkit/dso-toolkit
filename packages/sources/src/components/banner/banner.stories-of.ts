@@ -1,28 +1,20 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { bannerArgsMapper, bannerArgTypes } from './banner.args';
+import { BannerArgs, bannerArgsMapper, bannerArgTypes } from './banner.args';
+import { dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent } from './banner.content';
 import { Banner } from './banner.models';
 
-export interface BannerParameters<TemplateFnReturnType> {
+export interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
-  warningRichContent: TemplateFnReturnType;
-  richWarningRichContent: TemplateFnReturnType;
-  dangerRichContent: TemplateFnReturnType;
-  dangerWithHeadingsRichContent: TemplateFnReturnType;
 }
 
-export function storiesOfBanner<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    bannerTemplate,
-    warningRichContent,
-    richWarningRichContent,
-    dangerRichContent,
-    dangerWithHeadingsRichContent
-  }: BannerParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Banner', parameters, bannerArgTypes);
-  const template = bindTemplate(bannerArgsMapper, bannerTemplate);
+export const storiesOfBanner = storiesOfFactory<BannerTemplates<any>, BannerArgs>('Banner', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: bannerArgTypes
+    });
+
+  const template = templateMapper((args, { bannerTemplate }) => bannerTemplate(bannerArgsMapper(args)));
 
   stories.add(
     'danger',
@@ -67,4 +59,4 @@ export function storiesOfBanner<TemplateFnReturnType>(
       }
     }
   );
-}
+})

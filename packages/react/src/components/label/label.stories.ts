@@ -1,8 +1,8 @@
 import { storiesOfLabel } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
 import { decorator } from './label.decorator';
-import { labelTemplate } from './label.template';
 import readme from './readme.md';
 
 storiesOfLabel(
@@ -11,8 +11,9 @@ storiesOfLabel(
     storiesOf,
     readme
   },
+  templateContainer,
+  ({ labelTemplate }) => ({ labelTemplate }),
   {
-    labelTemplate,
     decorator
   }
 );

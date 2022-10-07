@@ -1,9 +1,9 @@
-import { storiesOfSelectable } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
-import * as React from 'react';
+import { storiesOfSelectable } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import * as React from "react";
+import { templateContainer } from "../../templates";
 
-import readme from './readme.md';
-import { selectableTemplate } from './selectable.template';
+import readme from "./readme.md";
 
 const infoRichContent = (
   <div className="dso-rich-content" slot="info">
@@ -20,10 +20,11 @@ storiesOfSelectable(
   {
     module,
     storiesOf,
-    readme
+    readme,
   },
-  {
+  templateContainer,
+  ({ selectableTemplate }) => ({
     selectableTemplate,
-    infoRichContent
-  }
+    infoRichContent,
+  })
 );

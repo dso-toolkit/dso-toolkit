@@ -1,33 +1,28 @@
 import { action } from '@storybook/addon-actions';
 import { PartialStoryFn } from '@storybook/addons';
 
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { labelArgsMapper, labelArgTypes } from './label.args';
+import { LabelArgs, labelArgsMapper, labelArgTypes } from './label.args';
 import { css } from './label.demo';
 import { Label } from './label.models';
 
-export interface LabelParameters<TemplateFnReturnType> {
+export interface LabelTemplates<TemplateFnReturnType> {
   labelTemplate: (labelProperties: Label) => TemplateFnReturnType;
+}
+
+export interface LabelParameters<TemplateFnReturnType> {
   decorator: (story: PartialStoryFn<TemplateFnReturnType>, css: string) => TemplateFnReturnType;
 }
 
-export function storiesOfLabel<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    labelTemplate,
-    decorator
-  }: LabelParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Label', parameters, labelArgTypes)
+export const storiesOfLabel = storiesOfFactory<LabelTemplates<any>, LabelArgs, LabelParameters<any>>('Label', (stories, templateMapper, { decorator }) => {
+  stories
     .addParameters({
-      args: {
-        label: 'Label'
-      }
+      argTypes: labelArgTypes
     })
     .addDecorator(story => decorator(story, css));
 
-  const template = bindTemplate(labelArgsMapper, labelTemplate);
+  const template = templateMapper((args, { labelTemplate }) => labelTemplate(labelArgsMapper(args)));
 
   stories.add(
     'default',
@@ -86,4 +81,24 @@ export function storiesOfLabel<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfLabel<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     labelTemplate,
+//     decorator
+//   }: LabelParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Label', parameters, labelArgTypes)
+//     .addParameters({
+//       args: {
+//         label: 'Label'
+//       }
+//     })
+//     .addDecorator(story => decorator(story, css));
+
+//   const template = bindTemplate(labelArgsMapper, labelTemplate);
+
+
+// }

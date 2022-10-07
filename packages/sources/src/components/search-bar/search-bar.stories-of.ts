@@ -1,38 +1,34 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { SearchBarArgs, searchBarArgsMapper, searchBarArgTypes } from './search-bar.args';
 import { SearchBar } from './search-bar.models';
 
-export interface SearchBarParameters<TemplateFnReturnType> {
+export interface SearchBarTemplates<TemplateFnReturnType> {
   searchBarTemplate: (searchBarProperties: SearchBar) => TemplateFnReturnType;
 }
 
-export function storiesOfSearchBar<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    searchBarTemplate
-  }: SearchBarParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Search Bar', parameters, searchBarArgTypes)
-    .addParameters({
-      args: componentArgs<SearchBarArgs>({
-        id: 'search-bar-id',
-        label: 'Label',
-        icon: true,
-        hiddenLabel: false,
-        invalid: false,
-        placeholder: 'Bv. boomkap',
-        value: '',
-        buttonLabel: 'Zoeken',
-        hideSearchButton: false,
-        ariaDescribedBy: '',
-        ariaErrorMessage: '',
-        resultsMessage: '',
-        resultsHidden: false
-      })
-    });
+export const storiesOfSearchBar = storiesOfFactory<SearchBarTemplates<any>, SearchBarArgs>('Search Bar', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: searchBarArgTypes,
+    args: componentArgs<SearchBarArgs>({
+      id: 'search-bar-id',
+      label: 'Label',
+      icon: true,
+      hiddenLabel: false,
+      invalid: false,
+      placeholder: 'Bv. boomkap',
+      value: '',
+      buttonLabel: 'Zoeken',
+      hideSearchButton: false,
+      ariaDescribedBy: '',
+      ariaErrorMessage: '',
+      resultsMessage: '',
+      resultsHidden: false
+    })
+  });
 
-  const template = bindTemplate(searchBarArgsMapper, searchBarTemplate);
+  const template = templateMapper((args, { searchBarTemplate }) => searchBarTemplate(searchBarArgsMapper(args)));
 
   stories.add(
     'visual label with icon',
@@ -131,4 +127,34 @@ export function storiesOfSearchBar<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfSearchBar<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     searchBarTemplate
+//   }: SearchBarParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Search Bar', parameters, searchBarArgTypes)
+//     .addParameters({
+//       args: componentArgs<SearchBarArgs>({
+//         id: 'search-bar-id',
+//         label: 'Label',
+//         icon: true,
+//         hiddenLabel: false,
+//         invalid: false,
+//         placeholder: 'Bv. boomkap',
+//         value: '',
+//         buttonLabel: 'Zoeken',
+//         hideSearchButton: false,
+//         ariaDescribedBy: '',
+//         ariaErrorMessage: '',
+//         resultsMessage: '',
+//         resultsHidden: false
+//       })
+//     });
+
+//   const template = bindTemplate(searchBarArgsMapper, searchBarTemplate);
+
+
+// }

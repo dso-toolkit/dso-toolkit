@@ -1,28 +1,24 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { NavbarArgs, navbarArgsMapper, navbarArgTypes } from './navbar.args';
 import { Navbar } from './navbar.models';
 
-export interface NavbarParameters<TemplateFnReturnType> {
+export interface NavbarTemplates<TemplateFnReturnType> {
   navbarTemplate: (navbarProperties: Navbar) => TemplateFnReturnType;
 }
 
-export function storiesOfNavbar<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    navbarTemplate
-  }: NavbarParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Navbar', parameters, navbarArgTypes)
-    .addParameters({
-      args: componentArgs<NavbarArgs>({
-        open: false,
-        modifier: '',
-        items: []
-      })
-    });
+export const storiesOfNavbar = storiesOfFactory<NavbarTemplates<any>, NavbarArgs>('Navbar', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: navbarArgTypes,
+    args: componentArgs<NavbarArgs>({
+      open: false,
+      modifier: '',
+      items: []
+    })
+  });
 
-  const template = bindTemplate(navbarArgsMapper, navbarTemplate);
+  const template = templateMapper((args, { navbarTemplate }) => navbarTemplate(navbarArgsMapper(args)));
 
   stories.add(
     'primary',
@@ -81,4 +77,24 @@ export function storiesOfNavbar<TemplateFnReturnType>(
       })
     }
   );
-}
+})
+
+// export function storiesOfNavbar<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     navbarTemplate
+//   }: NavbarParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Navbar', parameters, navbarArgTypes)
+//     .addParameters({
+//       args: componentArgs<NavbarArgs>({
+//         open: false,
+//         modifier: '',
+//         items: []
+//       })
+//     });
+
+//   const template = bindTemplate(navbarArgsMapper, navbarTemplate);
+
+
+// }

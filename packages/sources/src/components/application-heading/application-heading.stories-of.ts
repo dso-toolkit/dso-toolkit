@@ -1,20 +1,19 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { applicationHeadingArgsMapper, applicationHeadingArgTypes } from './application-heading.args';
+import { ApplicationHeadingArgs, applicationHeadingArgsMapper, applicationHeadingArgTypes } from './application-heading.args';
 import { ApplicationHeading } from './application-heading.models';
 
-export interface ApplicationHeadingParameters<TemplateFnReturnType> {
+export interface ApplicationHeadingTemplates<TemplateFnReturnType> {
   applicationHeadingTemplate: (applicationHeadingProperties: ApplicationHeading) => TemplateFnReturnType;
 }
 
-export function storiesOfApplicationHeading<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    applicationHeadingTemplate
-  }: ApplicationHeadingParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Application Heading', parameters, applicationHeadingArgTypes);
-  const template = bindTemplate(applicationHeadingArgsMapper, applicationHeadingTemplate);
+export const storiesOfApplicationHeading = storiesOfFactory<ApplicationHeadingTemplates<any>, ApplicationHeadingArgs>('Application Heading', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: applicationHeadingArgTypes
+    });
+
+  const template = templateMapper((args, { applicationHeadingTemplate }) => applicationHeadingTemplate(applicationHeadingArgsMapper(args)));
 
   stories.add(
     'default',
@@ -69,4 +68,16 @@ export function storiesOfApplicationHeading<TemplateFnReturnType>(
       }
     }
   );
-}
+})
+
+// export function storiesOfApplicationHeading<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     applicationHeadingTemplate
+//   }: ApplicationHeadingParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Application Heading', parameters, applicationHeadingArgTypes);
+//   const template = bindTemplate(applicationHeadingArgsMapper, applicationHeadingTemplate);
+
+
+// }

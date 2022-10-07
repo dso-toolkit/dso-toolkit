@@ -1,7 +1,7 @@
 import { storiesOfBadge } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { badgeTemplate } from './badge.template';
 import readme from './readme.md';
 
 storiesOfBadge(
@@ -10,7 +10,6 @@ storiesOfBadge(
     storiesOf,
     readme
   },
-  {
-    badgeTemplate
-  }
+  templateContainer,
+  ({ badgeTemplate }) => ({ badgeTemplate })
 );

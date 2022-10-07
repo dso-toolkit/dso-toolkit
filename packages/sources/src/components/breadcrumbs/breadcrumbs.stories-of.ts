@@ -1,20 +1,19 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { breadcrumbsArgsMapper, breadcrumbsArgTypes } from './breadcrumbs.args';
+import { BreadcrumbsArgs, breadcrumbsArgsMapper, breadcrumbsArgTypes } from './breadcrumbs.args';
 import { Breadcrumbs } from './breadcrumbs.models';
 
-export interface BreadcrumbsParameters<TemplateFnReturnType> {
+export interface BreadcrumbsTemplates<TemplateFnReturnType> {
   breadcrumbsTemplate: (breadcrumbsProperties: Breadcrumbs) => TemplateFnReturnType;
 }
 
-export function storiesOfBreadcrumbs<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    breadcrumbsTemplate
-  }: BreadcrumbsParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Breadcrumb', parameters, breadcrumbsArgTypes);
-  const template = bindTemplate(breadcrumbsArgsMapper, breadcrumbsTemplate);
+export const storiesOfBreadcrumbs = storiesOfFactory<BreadcrumbsTemplates<any>, BreadcrumbsArgs>('Breadcrumb', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: breadcrumbsArgTypes
+    });
+
+  const template = templateMapper((args, { breadcrumbsTemplate }) => breadcrumbsTemplate(breadcrumbsArgsMapper(args)));
 
   stories.add(
     'breadcrumb',
@@ -37,4 +36,15 @@ export function storiesOfBreadcrumbs<TemplateFnReturnType>(
       }
     }
   );
-}
+});
+
+// export function storiesOfBreadcrumbs<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     breadcrumbsTemplate
+//   }: BreadcrumbsParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Breadcrumb', parameters, breadcrumbsArgTypes);
+//   const template = bindTemplate(breadcrumbsArgsMapper, breadcrumbsTemplate);
+
+// }

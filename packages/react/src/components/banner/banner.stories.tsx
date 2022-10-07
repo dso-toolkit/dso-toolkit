@@ -1,8 +1,8 @@
 import { storiesOfBanner } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import { templateContainer } from '../../templates';
 
-import { bannerTemplate } from './banner.template';
 import readme from './readme.md';
 
 const warningRichContent = (
@@ -61,11 +61,12 @@ storiesOfBanner(
     storiesOf,
     readme
   },
-  {
+  templateContainer,
+  ({ bannerTemplate }) => ({
     bannerTemplate,
     warningRichContent,
     dangerRichContent,
     richWarningRichContent,
     dangerWithHeadingsRichContent
-  }
+  })
 );

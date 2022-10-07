@@ -1,18 +1,18 @@
 import { storiesOfTabs } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { tabsTemplate } from '@dso-toolkit/css/src/components/tabs/tabs.template';
-import readme from '@dso-toolkit/css/src/components/tabs/readme.md';
+import cssReadme from '@dso-toolkit/css/src/components/tabs/readme.md';
+
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfTabs(
   {
     storiesOf,
     module,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    tabsTemplate
-  }
+  templateContainer,
+  ({ tabsTemplate }) => ({ tabsTemplate })
 );

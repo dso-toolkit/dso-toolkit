@@ -1,35 +1,31 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
 
 import { v4 as uuidv4 } from 'uuid';
 
 import { ShoppingCartArgs, shoppingCartArgsMapper, shoppingCartArgTypes } from './shopping-cart.args';
 import { ShoppingCart } from './shopping-cart.models';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-export interface ShoppingCartParameters<TemplateFnReturnType> {
+export interface ShoppingCartTemplates<TemplateFnReturnType> {
   shoppingCartTemplate: (shoppingCartProperties: ShoppingCart) => TemplateFnReturnType;
 }
 
-export function storiesOfShoppingCart<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    shoppingCartTemplate: shoppingCartTemplate
-  }: ShoppingCartParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Shopping Cart', parameters, shoppingCartArgTypes)
-    .addParameters({
-      args: componentArgs<ShoppingCartArgs>({
-        collapsable: true,
-        collapsed: false,
-        hideSummary: false,
-        removeAll: false,
-        isOpen: false,
-        shoppingcartTitle: 'Mijn activiteiten',
-        shoppingcartTitleTag: 'h2',
-        items: []
-      })
-    });
+export const storiesOfShoppingCart = storiesOfFactory<ShoppingCartTemplates<any>, ShoppingCartArgs>('Shopping Cart', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: shoppingCartArgTypes,
+    args: componentArgs<ShoppingCartArgs>({
+      collapsable: true,
+      collapsed: false,
+      hideSummary: false,
+      removeAll: false,
+      isOpen: false,
+      shoppingcartTitle: 'Mijn activiteiten',
+      shoppingcartTitleTag: 'h2',
+      items: []
+    })
+  });
 
-  const template = bindTemplate(shoppingCartArgsMapper, shoppingCartTemplate);
+  const template = templateMapper((args, { shoppingCartTemplate }) => shoppingCartTemplate(shoppingCartArgsMapper(args)));
 
   stories.add(
     'default',
@@ -240,4 +236,29 @@ export function storiesOfShoppingCart<TemplateFnReturnType>(
       })
     }
   );
-}
+})
+
+// export function storiesOfShoppingCart<TemplateFnReturnType>(
+//   parameters: StorybookParameters,
+//   {
+//     shoppingCartTemplate: shoppingCartTemplate
+//   }: ShoppingCartParameters<TemplateFnReturnType>
+// ) {
+//   const stories = createStories('Shopping Cart', parameters, shoppingCartArgTypes)
+//     .addParameters({
+//       args: componentArgs<ShoppingCartArgs>({
+//         collapsable: true,
+//         collapsed: false,
+//         hideSummary: false,
+//         removeAll: false,
+//         isOpen: false,
+//         shoppingcartTitle: 'Mijn activiteiten',
+//         shoppingcartTitleTag: 'h2',
+//         items: []
+//       })
+//     });
+
+//   const template = bindTemplate(shoppingCartArgsMapper, shoppingCartTemplate);
+
+
+// }

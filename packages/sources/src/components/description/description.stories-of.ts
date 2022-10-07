@@ -1,28 +1,23 @@
-import { Args } from '@storybook/addons';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { bindTemplate, ArgsError, StorybookParameters, createStories } from '../../storybook';
-
-import { descriptionArgsMapper, descriptionArgTypes, DescriptionExampleArgs, descriptionExampleArgTypes } from './description.args';
+import { DescriptionArgs, descriptionArgsMapper, descriptionArgTypes, DescriptionExampleArgs, descriptionExampleArgTypes } from './description.args';
 import { termContent, descriptionExample } from './description.content';
 import { Description } from './description.models';
 
-export interface DescriptionParameters<TemplateFnReturnType> {
+export interface DescriptionTemplates<TemplateFnReturnType> {
   descriptionTemplate: (descriptionProperties: Description) => TemplateFnReturnType;
   exampleTemplate: (exampleData: ReturnType<typeof descriptionExample>) => TemplateFnReturnType;
 }
 
-export function storiesOfDescription<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    descriptionTemplate,
-    exampleTemplate
-  }: DescriptionParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Description', parameters, {});
+export const storiesOfDescription = storiesOfFactory<DescriptionTemplates<any>, DescriptionArgs>('description', (stories, templateMapper) => {
+  stories
+    .addParameters({
+      argTypes: descriptionArgTypes
+    });
 
   stories.add(
     'term',
-    bindTemplate(descriptionArgsMapper, descriptionTemplate),
+    templateMapper((args, { descriptionTemplate }) => descriptionTemplate(descriptionArgsMapper(args))),
     {
       argTypes: descriptionArgTypes,
       args: termContent
@@ -31,15 +26,7 @@ export function storiesOfDescription<TemplateFnReturnType>(
 
   stories.add(
     'example',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
-
-      const args = a as DescriptionExampleArgs;
-
-      return exampleTemplate(descriptionExample(args.openTerm));
-    },
+    templateMapper<DescriptionExampleArgs>((args, { exampleTemplate }) => exampleTemplate(descriptionExample(args.openTerm))),
     {
       argTypes: descriptionExampleArgTypes,
       args: {
@@ -47,4 +34,4 @@ export function storiesOfDescription<TemplateFnReturnType>(
       }
     }
   );
-}
+})

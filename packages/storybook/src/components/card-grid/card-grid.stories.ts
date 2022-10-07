@@ -1,18 +1,18 @@
 import { storiesOfCardGrid } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { cardGridTemplate } from '@dso-toolkit/css/src/components/card-grid/card-grid.template';
-import readme from '@dso-toolkit/css/src/components/card-grid/readme.md';
+import cssReadme from '@dso-toolkit/css/src/components/card-grid/readme.md';
+
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
 storiesOfCardGrid(
   {
     module,
     storiesOf,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    cardGridTemplate
-  }
+  templateContainer,
+  ({ cardGridTemplate }) => ({ cardGridTemplate })
 );
