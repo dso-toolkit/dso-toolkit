@@ -1,6 +1,6 @@
 @use "@dso-toolkit/sources/src/variables/units";
 
-@use "table.variables" as css-table-variables;
+@use "@dso-toolkit/sources/src/components/table";
 
 @mixin row-variant($state, $background) {
   // Exact selectors below required to override `.table-striped` and prevent
@@ -27,15 +27,15 @@
     &.#{$state}:hover > td,
     &:hover > .#{$state},
     &.#{$state}:hover > th {
-      background-color: css-table-variables.$background-color-active;
+      background-color: table.$background-color-active;
     }
 
     &:hover > th,
     &:hover > td {
-      background-color: css-table-variables.$background-color-active;
+      background-color: table.$background-color-active;
 
       a {
-        color: css-table-variables.$link-color;
+        color: table.$link-color;
 
         &:hover {
           text-decoration: none;
@@ -47,10 +47,10 @@
   .table > tbody > tr {
     &.#{$state} > th,
     &.#{$state} > td {
-      background-color: css-table-variables.$background-color-active;
+      background-color: table.$background-color-active;
 
       a {
-        color: css-table-variables.$link-color;
+        color: table.$link-color;
 
         &:hover {
           text-decoration: none;
@@ -62,7 +62,7 @@
 
 @mixin responsive() {
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  border: 1px solid css-table-variables.$border-color;
+  border: 1px solid table.$border-color;
   margin-bottom: 0;
   overflow-y: hidden;
   width: 100%;

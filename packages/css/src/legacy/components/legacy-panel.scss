@@ -4,8 +4,7 @@
 @use "@dso-toolkit/sources/src/variables/states";
 @use "@dso-toolkit/sources/src/variables/typography";
 @use "@dso-toolkit/sources/src/components/rich-content";
-
-@use "../../components/table/table.variables" as css-table-variables;
+@use "@dso-toolkit/sources/src/components/table";
 
 $panel-bg:                    #fff !default;
 $panel-body-padding:          15px !default;
@@ -174,7 +173,7 @@ $panel-danger-heading-bg:     states.$danger-bg !default;
   > .panel-body + .table-responsive,
   > .table + .panel-body,
   > .table-responsive + .panel-body {
-    border-top: 1px solid css-table-variables.$border-color;
+    border-top: 1px solid table.$border-color;
   }
   > .table > tbody:first-child > tr:first-child th,
   > .table > tbody:first-child > tr:first-child td {

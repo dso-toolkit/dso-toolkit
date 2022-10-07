@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + react + sources:** `<dso-table>` Web component ([#1627](https://github.com/dso-toolkit/dso-toolkit/issues/1627))
+
 ### Fixed
 * **sources:** Icon button lijnt niet goed verticaal uit in de highlightbox ([#1761](https://github.com/dso-toolkit/dso-toolkit/issues/1761))
 * **core:** Pagination Web Component: Prev en Next pages gedragen zich als First en Last ([#1833](https://github.com/dso-toolkit/dso-toolkit/issues/1833))

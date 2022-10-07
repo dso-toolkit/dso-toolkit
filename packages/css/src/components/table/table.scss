@@ -7,13 +7,14 @@
 @use "@dso-toolkit/sources/src/components/button";
 @use "@dso-toolkit/sources/src/components/rich-content";
 
+@use "@dso-toolkit/sources/src/components/table";
+
 @use "table.mixins" as css-table-mixins;
-@use "table.variables" as css-table-variables;
 
 caption {
   color: colors.$text-muted;
-  padding-bottom: css-table-variables.$cell-padding;
-  padding-top: css-table-variables.$cell-padding;
+  padding-bottom: table.$cell-padding;
+  padding-top: table.$cell-padding;
   text-align: left;
 }
 
@@ -90,7 +91,7 @@ table.table,
       > th,
       > td {
         line-height: typography.$line-height-base;
-        padding: (css-table-variables.$cell-padding * 1.5) css-table-variables.$cell-padding;
+        padding: (table.$cell-padding * 1.5) table.$cell-padding;
         vertical-align: top;
 
         a {
@@ -104,7 +105,7 @@ table.table,
     > tr {
       > td,
       > th {
-        border-bottom: 1px solid css-table-variables.$th-border-color;
+        border-bottom: 1px solid table.$th-border-color;
       }
     }
   }
@@ -114,14 +115,14 @@ table.table,
     > tr {
       > td,
       > th {
-        border-bottom: 1px solid css-table-variables.$border-color;
+        border-bottom: 1px solid table.$border-color;
       }
     }
   }
 
   // Account for multiple tbody instances
   > tbody + tbody {
-    border-top: 2px solid css-table-variables.$border-color;
+    border-top: 2px solid table.$border-color;
   }
 
   // Nesting
@@ -163,7 +164,7 @@ table.table,
 
 .table-hover {
   > tbody > tr:hover {
-    background-color: css-table-variables.$background-color-hover;
+    background-color: table.$background-color-hover;
   }
 }
 
@@ -176,7 +177,7 @@ table col[class*="col-"] {
 }
 
 table {
-  background-color: css-table-variables.$background-color;
+  background-color: table.$background-color;
   border-collapse: collapse;
   border-spacing: 0;
 
@@ -191,7 +192,7 @@ table {
 }
 
 // Generate the contextual variants
-@include css-table-mixins.row-variant("active", css-table-variables.$background-color-active);
+@include css-table-mixins.row-variant("active", table.$background-color-active);
 
 .dso-table-responsive,
 .dso-table-scroll-container {
@@ -213,6 +214,29 @@ table {
 .dso-table-filter-wrapper {
   .dso-search-bar {
     margin-bottom: units.$u2;
-    width: css-table-variables.$filter-wrapper-width - units.$u4;
+    width: table.$filter-wrapper-width - units.$u4;
+  }
+}
+
+// Web component
+dso-table table.table {
+  margin-bottom: 0;
+}
+
+dso-table.dso-is-responsive {
+  margin-bottom: 0;
+
+  > .table {
+    // Ensure the content doesn't wrap
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- Can't have responsive tables without
+        }
+      }
+    }
   }
 }

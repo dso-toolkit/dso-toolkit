@@ -1,5 +1,5 @@
-@use "@dso-toolkit/sources/src/variables/units";
-@use "@dso-toolkit/sources/src/variables/colors";
+@use "../../variables/units";
+@use "../../variables/colors";
 
 $cell-padding: units.$u1;
 $background-color: transparent;

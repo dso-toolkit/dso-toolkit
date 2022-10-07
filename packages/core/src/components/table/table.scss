@@ -1,0 +1,24 @@
+@use "~@dso-toolkit/sources/src/variables/units";
+
+@use "~@dso-toolkit/sources/src/components/table";
+
+:host {
+  display: block;
+  margin-bottom: units.$u3;
+}
+
+.dso-responsive-message {
+  font-size: 0.8em;
+  margin-bottom: units.$u1;
+  position: relative;
+  text-align: center;
+}
+
+:host(.dso-is-responsive) {
+  .dso-table-wrapper {
+    border: 1px solid table.$border-color;
+    margin-bottom: 0;
+    overflow-y: hidden;
+    width: 100%;
+  }
+}

@@ -294,6 +294,12 @@ export namespace Components {
         "type": 'checkbox' | 'radio';
         "value": string;
     }
+    interface DsoTable {
+        /**
+          * Allows the table to be scrolled horizontally if it does not fit.
+         */
+        "responsive": boolean;
+    }
     interface DsoToggletip {
         "label": string;
         "position": "top" | "right" | "bottom" | "left";
@@ -520,6 +526,12 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoTableElement extends Components.DsoTable, HTMLStencilElement {
+    }
+    var HTMLDsoTableElement: {
+        prototype: HTMLDsoTableElement;
+        new (): HTMLDsoTableElement;
+    };
     interface HTMLDsoToggletipElement extends Components.DsoToggletip, HTMLStencilElement {
     }
     var HTMLDsoToggletipElement: {
@@ -571,6 +583,7 @@ declare global {
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-table": HTMLDsoTableElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
         "dso-tree-view": HTMLDsoTreeViewElement;
@@ -883,6 +896,12 @@ declare namespace LocalJSX {
         "type": 'checkbox' | 'radio';
         "value": string;
     }
+    interface DsoTable {
+        /**
+          * Allows the table to be scrolled horizontally if it does not fit.
+         */
+        "responsive"?: boolean;
+    }
     interface DsoToggletip {
         "label"?: string;
         "position"?: "top" | "right" | "bottom" | "left";
@@ -980,6 +999,7 @@ declare namespace LocalJSX {
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-selectable": DsoSelectable;
+        "dso-table": DsoTable;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
         "dso-tree-view": DsoTreeView;
@@ -1016,6 +1036,7 @@ declare module "@stencil/core" {
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
             "dso-tree-view": LocalJSX.DsoTreeView & JSXBase.HTMLAttributes<HTMLDsoTreeViewElement>;
