@@ -11,13 +11,15 @@ export interface AccordionInternalState {
 
 export interface AccordionInterface {
   getState(): Promise<AccordionInternalState>;
-  toggleSection(sectionElement: HTMLElement): Promise<void>;
+  toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<void>;
 }
 
 export interface AccordionSectionToggleEvent {
+  /** When the section is toggled by clicking in the header the `MouseEvent` is available. */
+  originalEvent?: MouseEvent;
   section: {
     element: HTMLElement;
     open: boolean;
   };
-  sections: Array<HTMLElement>;
+  sections: HTMLElement[];
 }

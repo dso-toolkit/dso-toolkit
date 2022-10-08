@@ -1,4 +1,4 @@
-import { AccordionStorybookParameters } from '@dso-toolkit/sources';
+import { Accordion } from '@dso-toolkit/sources';
 
 import * as React from 'react';
 
@@ -8,40 +8,19 @@ export function accordionTemplate(
   {
     variant,
     reverseAlign,
-    allowMultiple,
+    allowMultipleOpen,
     dsoToggleSection,
-    /* Section controls */
-    open,
-    status,
-    state,
-    attachmentCount,
-    icon,
-    heading,
-    handleUrl,
-    /* Content */
-    content
-  }: AccordionStorybookParameters
+    sections
+  }: Accordion
 ) {
-  const firstSection = content[0];
-
-  if (firstSection) {
-    firstSection.open = open;
-    firstSection.status = status;
-    firstSection.state = state;
-    firstSection.attachmentCount = attachmentCount;
-    firstSection.icon = icon;
-    firstSection.heading = heading;
-    firstSection.handleUrl = handleUrl;
-  }
-
   return (
     <DsoAccordion
       variant={variant}
       reverseAlign={reverseAlign}
-      allowMultiple={allowMultiple}
+      allowMultipleOpen={allowMultipleOpen}
       onDsoToggleSection={dsoToggleSection}
     >
-      {content.map((section, i) => (
+      {sections.map((section, i) => (
         <DsoAccordionSection
           key={`dsoAccordionSection-${i}`}
           open={section.open}
@@ -52,7 +31,7 @@ export function accordionTemplate(
           icon={section.icon}
           attachmentCount={section.attachmentCount}
         >
-          <DemoHtml html={section.children} />
+          <DemoHtml html={section.content} />
         </DsoAccordionSection>
       ))}
     </DsoAccordion>

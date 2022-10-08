@@ -4,9 +4,9 @@ import { ArgTypes, noControl } from '../../storybook';
 import { Accordion, AccordionHeading, AccordionSection, AccordionSectionState } from './accordion.models';
 
 export interface AccordionArgs {
-  variant: 'compact' | 'conclusion';
+  variant: undefined | 'compact' | 'conclusion';
   reverseAlign: boolean;
-  allowMultiple: boolean;
+  allowMultipleOpen: boolean;
   dsoToggleSection: HandlerFunction;
   open: boolean;
   status: string;
@@ -16,8 +16,7 @@ export interface AccordionArgs {
   heading: AccordionHeading;
   handleUrl: string;
   handleTitle: string;
-
-  content: string;
+  sections: AccordionSection[];
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -30,7 +29,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       }
     },
   },
-  allowMultiple: {
+  allowMultipleOpen: {
     control: {
       type: 'boolean',
     },
@@ -88,26 +87,29 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: 'text',
     },
   },
-  content: {
+  sections: {
     ...noControl,
   }
 };
 
-export function accordionArgsMapper(a: AccordionArgs): Accordion & AccordionSection & { content: string; } {
+export function accordionArgsMapper(a: AccordionArgs): Accordion {
+  const firstSection = a.sections[0];
+
+  if (firstSection) {
+    firstSection.open = a.open;
+    firstSection.status = a.status;
+    firstSection.state = a.state;
+    firstSection.attachmentCount = a.attachmentCount;
+    firstSection.icon = a.icon;
+    firstSection.heading = a.heading;
+    firstSection.handleUrl = a.handleUrl;
+  }
+
   return {
     variant: a.variant,
     reverseAlign: a.reverseAlign,
-    allowMultiple: a.allowMultiple,
+    allowMultipleOpen: a.allowMultipleOpen,
     dsoToggleSection: a.dsoToggleSection,
-    open: a.open,
-    status: a.status,
-    state: a.state,
-    attachmentCount: a.attachmentCount,
-    icon: a.icon,
-    heading: a.heading,
-    handleUrl: a.handleUrl,
-    handleTitle: a.handleTitle,
-
-    content: a.content,
+    sections: a.sections,
   };
 }

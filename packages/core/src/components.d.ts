@@ -23,7 +23,7 @@ export namespace Components {
         /**
           * Allows multiple sections to be open at the same time.
          */
-        "allowMultiple": boolean;
+        "allowMultipleOpen": boolean;
         /**
           * Closes all sections belonging to this accordion.
          */
@@ -36,7 +36,7 @@ export namespace Components {
         /**
           * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
          */
-        "toggleSection": (sectionElement: HTMLElement | number) => Promise<void>;
+        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent | undefined) => Promise<void>;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
@@ -58,9 +58,9 @@ export namespace Components {
         "state"?: AccordionSectionState;
         "status"?: string;
         /**
-          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+          * Toggle this section
          */
-        "toggleSection": (e?: MouseEvent | undefined) => Promise<void>;
+        "toggleSection": () => Promise<void>;
     }
     interface DsoAlert {
         /**
@@ -582,9 +582,9 @@ declare namespace LocalJSX {
         /**
           * Allows multiple sections to be open at the same time.
          */
-        "allowMultiple"?: boolean;
+        "allowMultipleOpen"?: boolean;
         /**
-          * Emitted when a section is toggled.  `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
+          * Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
          */
         "onDsoToggleSection"?: (event: CustomEvent<AccordionSectionToggleEvent>) => void;
         /**

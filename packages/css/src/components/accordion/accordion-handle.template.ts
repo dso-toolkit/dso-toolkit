@@ -1,9 +1,9 @@
-import { Accordion, AccordionDemoSection } from '@dso-toolkit/sources';
+import { Accordion, AccordionSection } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 
 import { accordionHandleContent } from './accordion-handle-content.template';
 
-export function accordionHandleTemplate(accordion: Accordion, section: AccordionDemoSection) {
+export function accordionHandleTemplate(accordion: Accordion, section: AccordionSection) {
   const content = accordionHandleContent(accordion, section);
 
   switch (section.heading) {

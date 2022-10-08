@@ -1,4 +1,4 @@
-import { AccordionStorybookParameters } from '@dso-toolkit/sources';
+import { Accordion } from '@dso-toolkit/sources';
 import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
@@ -7,40 +7,19 @@ export function accordionTemplate(
   {
     variant,
     reverseAlign,
-    allowMultiple,
+    allowMultipleOpen,
     dsoToggleSection,
-    /* Section controls */
-    open,
-    status,
-    state,
-    attachmentCount,
-    icon,
-    heading,
-    handleUrl,
-    /* Content */
-    content
-  }: AccordionStorybookParameters
+    sections
+  }: Accordion
 ) {
-  const firstSection = content[0];
-
-  if (firstSection) {
-    firstSection.open = open;
-    firstSection.status = status;
-    firstSection.state = state;
-    firstSection.attachmentCount = attachmentCount;
-    firstSection.icon = icon;
-    firstSection.heading = heading;
-    firstSection.handleUrl = handleUrl;
-  }
-
   return html`
     <dso-accordion
       variant=${ifDefined(variant)}
       ?reverse-align=${reverseAlign}
-      ?allow-multiple=${allowMultiple}
+      ?allow-multiple-open=${allowMultipleOpen}
       @dsoToggleSection=${dsoToggleSection}
     >
-      ${content.map(section => html`
+      ${sections.map(section => html`
         <dso-accordion-section
           ?open=${ifDefined(section.open)}
           handle-title=${section.handleTitle}
@@ -50,7 +29,7 @@ export function accordionTemplate(
           icon=${ifDefined(section.icon)}
           attachment-count=${ifDefined(section.attachmentCount)}
         >
-          ${unsafeHTML(section.children)}
+          ${unsafeHTML(section.content)}
         </dso-accordion-section>`
   )}
     </dso-accordion>

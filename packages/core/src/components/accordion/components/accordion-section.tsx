@@ -9,11 +9,10 @@ import { AccordionHeading, AccordionInterface, AccordionInternalState, Accordion
 export class AccordionSection implements ComponentInterface {
   private accordion?: AccordionInterface;
 
+  private accordionState?: AccordionInternalState;
+
   @Element()
   host!: HTMLElement;
-
-  @State()
-  accordionState?: AccordionInternalState;
 
   @Prop()
   handleTitle?: string;
@@ -50,7 +49,9 @@ export class AccordionSection implements ComponentInterface {
 
     if (isAccordion(accordion)) {
       this.accordion = accordion;
-      accordion.getState().then(state => this.accordionState = state);
+      return accordion.getState().then(state => {
+        this.accordionState = state;
+      });
     }
   }
 
@@ -58,12 +59,16 @@ export class AccordionSection implements ComponentInterface {
     this.hasNestedSection = this.host.querySelector('dso-accordion') !== null;
   }
 
-  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section. */
+  /** Toggle this section */
   @Method()
-  async toggleSection(e?: MouseEvent): Promise<void> {
+  async toggleSection(): Promise<void> {
+    return this.accordion?.toggleSection(this.host);
+  }
+
+  private async toggle(e?: MouseEvent): Promise<void> {
     e?.preventDefault();
 
-    return this.accordion?.toggleSection(this.host);
+    return this.accordion?.toggleSection(this.host, e);
   }
 
   render() {
@@ -83,9 +88,9 @@ export class AccordionSection implements ComponentInterface {
         }}
       >
         <Handle heading={this.heading}>
-          <HandleElement handleUrl={this.handleUrl} onClick={async (event) => await this.toggleSection(event)} open={this.open}>
-            {reverseAlign && (
-              <Fragment>
+          <HandleElement handleUrl={this.handleUrl} onClick={async (event) => await this.toggle(event)} open={this.open}>
+            {reverseAlign
+              ? (<Fragment>
                 {hasAddons && (
                   <div class="dso-section-handle-addons">
                     <HandleIcon icon={this.icon} />
@@ -95,10 +100,8 @@ export class AccordionSection implements ComponentInterface {
                 <span>{this.handleTitle}</span>
 
                 <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
-              </Fragment>
-            )}
-            {!reverseAlign && (
-              <Fragment>
+              </Fragment>)
+              : (<Fragment>
                 <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
@@ -111,8 +114,8 @@ export class AccordionSection implements ComponentInterface {
                     <HandleIcon state={this.state} icon={this.icon} attachmentCount={this.attachmentCount} />
                   </div>
                 )}
-              </Fragment>
-            )}
+              </Fragment>)
+            }
           </HandleElement>
         </Handle>
         <div class="dso-section-body" style={this.open ? {} : { display: 'none' }}>

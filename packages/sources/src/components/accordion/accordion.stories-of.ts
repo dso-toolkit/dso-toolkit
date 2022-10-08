@@ -1,11 +1,10 @@
 import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
 import { accordionArgsMapper, accordionArgTypes } from './accordion.args';
-import { Accordion, AccordionSection } from './accordion.models';
-
 import * as AccordionContent from './accordion.content';
+import { Accordion } from './accordion.models';
 
 type AccordionTemplateFnType<TemplateFnReturnType> = (
-  properties: Accordion & AccordionSection & { content: string; }
+  properties: Accordion
 ) => TemplateFnReturnType;
 
 export interface AccordionParameters<TemplateFnReturnType> {
@@ -26,7 +25,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: {
-        content: AccordionContent.basicSections,
+        sections: AccordionContent.basicSections,
       }
     }
   );
@@ -36,7 +35,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: {
-        content: AccordionContent.anchorSections,
+        sections: AccordionContent.anchorSections,
       }
     }
   );
@@ -46,18 +45,18 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: {
-        content: AccordionContent.subSections,
+        sections: AccordionContent.subSections,
       }
     }
   );
 
   stories.add(
-    'allowMultiple',
+    'allowMultipleOpen',
     template,
     {
       args: {
-        content: AccordionContent.allowMultipleSections,
-        allowMultiple: true,
+        sections: AccordionContent.allowMultipleOpenSections,
+        allowMultipleOpen: true,
       }
     }
   );
@@ -67,7 +66,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: {
-        content: AccordionContent.addonsSections,
+        sections: AccordionContent.addonsSections,
       }
     }
   );
@@ -77,7 +76,7 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     template,
     {
       args: {
-        content: AccordionContent.alignmentSections,
+        sections: AccordionContent.alignmentSections,
         reverseAlign: true,
       }
     }

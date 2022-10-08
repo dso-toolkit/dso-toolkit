@@ -1,28 +1,28 @@
-import { AccordionDemoSection } from './accordion.models';
+import { AccordionSection } from './accordion.models';
 
-const section1: AccordionDemoSection = {
+const section1: AccordionSection = {
   handleTitle: 'Is het verplicht om de Vergunningcheck te doen?',
   heading: 'h2',
-  children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
+  content: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
       <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
 };
 
-const section2: AccordionDemoSection = {
+const section2: AccordionSection = {
   handleTitle: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
   heading: 'h2',
-  children: `<p>De Vergunningcheck is bedoeld voor één locatie tegelijk. Wilt u dezelfde werkzaamheid op meerdere locaties doen? Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen..</p>`
+  content: `<p>De Vergunningcheck is bedoeld voor één locatie tegelijk. Wilt u dezelfde werkzaamheid op meerdere locaties doen? Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen..</p>`
 };
 
-const section3: AccordionDemoSection = {
+const section3: AccordionSection = {
   handleTitle: 'Hoe lang duurt de Vergunningcheck?',
   heading: 'h2',
-  children: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`,
+  content: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`,
 };
 
-const section4: AccordionDemoSection = {
+const section4: AccordionSection = {
   handleTitle: 'Wat kan ik met de uitkomst van de Vergunningcheck?',
   heading: 'h2',
-  children: `<div class="dso-rich-content">
+  content: `<div class="dso-rich-content">
             <ul>
               <li>Locatie 1</li>
               <li>
@@ -44,7 +44,7 @@ const section4: AccordionDemoSection = {
           </div>`,
 };
 
-export const basicSections: AccordionDemoSection[] = [
+export const basicSections: AccordionSection[] = [
   section1,
   section2,
   {
@@ -54,7 +54,7 @@ export const basicSections: AccordionDemoSection[] = [
   section4,
 ];
 
-export const anchorSections: AccordionDemoSection[] = [
+export const anchorSections: AccordionSection[] = [
   {
     ...section1,
     handleUrl: '#',
@@ -74,10 +74,10 @@ export const anchorSections: AccordionDemoSection[] = [
   },
 ];
 
-export const subSections: AccordionDemoSection[] = [
+export const subSections: AccordionSection[] = [
   {
     ...section1,
-    children: `<div class="dso-rich-content">
+    content: `<div class="dso-rich-content">
       <p><strong>hallo</strong> dit is content</p>
     </div>
 
@@ -101,7 +101,7 @@ export const subSections: AccordionDemoSection[] = [
   section4,
 ];
 
-export const allowMultipleSections: AccordionDemoSection[] = [
+export const allowMultipleOpenSections: AccordionSection[] = [
   {
     ...section1,
     open: true,
@@ -114,7 +114,7 @@ export const allowMultipleSections: AccordionDemoSection[] = [
   section4,
 ];
 
-export const addonsSections: AccordionDemoSection[] = [
+export const addonsSections: AccordionSection[] = [
   {
     ...section1,
     icon: 'user-line',
@@ -145,7 +145,7 @@ export const addonsSections: AccordionDemoSection[] = [
   }
 ];
 
-export const alignmentSections: AccordionDemoSection[] = [
+export const alignmentSections: AccordionSection[] = [
   {
     ...section1,
     icon: 'user-line',

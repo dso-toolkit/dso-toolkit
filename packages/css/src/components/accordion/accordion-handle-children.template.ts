@@ -1,4 +1,4 @@
-import { Accordion, AccordionDemoSection } from '@dso-toolkit/sources';
+import { Accordion, AccordionSection } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
 
 import { attachmentsCounterTemplate } from '../attachments-counter/attachments-counter.template';
@@ -11,7 +11,7 @@ const statusMap = new Map<string, string>([
   ['danger', 'fout:']
 ]);
 
-export function accordionHandleChildren(accordion: Accordion, section: AccordionDemoSection) {
+export function accordionHandleChildren(accordion: Accordion, section: AccordionSection) {
   return html`
     ${section.state
       ? html`<span class="sr-only">${statusMap.get(section.state)}:</span>`

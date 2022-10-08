@@ -1,1 +1,1 @@
-# `<DsoPagination>`
+# `<DsoAccordion>`

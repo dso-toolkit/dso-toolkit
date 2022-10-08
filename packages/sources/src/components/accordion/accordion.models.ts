@@ -9,8 +9,9 @@ export type AccordionHeading = 'h2' | 'h3' | 'h4' | 'h5';
 export interface Accordion {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
-  allowMultiple?: boolean;
-  dsoToggleSection: (value: CustomEvent<AccordionSectionToggleEvent>) => void;
+  allowMultipleOpen?: boolean;
+  dsoToggleSection: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
+  sections: AccordionSection[];
 }
 
 export interface AccordionSection {
@@ -22,16 +23,15 @@ export interface AccordionSection {
   state?: AccordionSectionState;
   icon?: string;
   attachmentCount?: number;
+  content?: string;
 }
 
 export interface AccordionSectionToggleEvent {
+  /** When the section is toggled by clicking in the header the `MouseEvent` is available. */
+  originalEvent?: MouseEvent;
   section: {
     element: HTMLElement;
     open: boolean;
   };
-  sections: Array<HTMLElement>;
+  sections: HTMLElement[];
 }
-
-export type AccordionDemoSection = AccordionSection & { children?: string; };
-
-export type AccordionStorybookParameters = Accordion & AccordionSection & { content: AccordionDemoSection[]; };

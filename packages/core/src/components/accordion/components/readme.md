@@ -21,9 +21,9 @@
 
 ## Methods
 
-### `toggleSection(e?: MouseEvent | undefined) => Promise<void>`
+### `toggleSection() => Promise<void>`
 
-Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+Toggle this section
 
 #### Returns
 

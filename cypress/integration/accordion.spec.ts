@@ -117,10 +117,10 @@ describe('Accordion', () => {
       .should('have.attr', 'aria-expanded', 'true');
   });
 
-  it('should keep only one section open when allowMultiple = false', () => {
+  it('should keep only one section open when allowMultipleOpen = false', () => {
     cy.get('dso-accordion')
       .as('dsoAccordion')
-      .invoke('removeAttr', 'allowMultiple')
+      .invoke('removeAttr', 'allowMultipleOpen')
       .get('dso-accordion')
       .then($accordion => $accordion[0]?.closeOpenSections())
       .then($accordion => $accordion[0]?.toggleSection(0))
@@ -138,10 +138,10 @@ describe('Accordion', () => {
       .should('have.attr', 'open');
   });
 
-  it('should keep allow multiple open sections when allowMultiple = true', () => {
+  it('should keep allow multiple open sections when allowMultipleOpen = true', () => {
     cy.get('dso-accordion')
       .as('dsoAccordion')
-      .invoke('attr', 'allow-multiple', '')
+      .invoke('attr', 'allow-multiple-open', '')
       .get('dso-accordion')
       .then($accordion => $accordion[0]?.closeOpenSections())
       .then($accordion => $accordion[0]?.toggleSection(0))

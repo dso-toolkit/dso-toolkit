@@ -24,11 +24,12 @@ export class Accordion implements ComponentInterface, AccordionInterface {
 
   /** Allows multiple sections to be open at the same time. */
   @Prop({ reflect: true })
-  allowMultiple = false;
+  allowMultipleOpen = false;
 
   /**
    * Emitted when a section is toggled.
    *
+   * `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header
    * `event.detail.section` contains the toggled section and its new opened value.\
    * `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
    */
@@ -45,9 +46,9 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     this.accordionState.reverseAlign = reverseAlign;
   }
 
-  @Watch('allowMultiple')
-  watchAllowMultiple(allowMultiple: boolean) {
-    if (!allowMultiple) {
+  @Watch('allowMultipleOpen')
+  watchAllowMultiple(allowMultipleOpen: boolean) {
+    if (!allowMultipleOpen) {
       const openSections = Array.from(this.host.querySelectorAll<HTMLElement>(':scope > dso-accordion-section[open]'));
 
       // By removing the first section, it is kept open;
@@ -64,7 +65,7 @@ export class Accordion implements ComponentInterface, AccordionInterface {
 
   /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section. */
   @Method()
-  async toggleSection(sectionElement: HTMLElement | number): Promise<void> {
+  async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<void> {
     const sections = Array.from(this.host.querySelectorAll<HTMLElement>(':scope > dso-accordion-section'));
 
     if (typeof sectionElement === 'number') {
@@ -77,22 +78,22 @@ export class Accordion implements ComponentInterface, AccordionInterface {
 
     const sectionIsOpen = this.isSectionOpen(sectionElement);
 
-    if (this.allowMultiple) {
+    if (this.allowMultipleOpen) {
       this.controlOpenAttribute(sectionElement, !sectionIsOpen);
-      this.emitToggleEvent(sectionElement, sections);
+      this.emitToggleEvent(sectionElement, sections, event);
       return;
     }
 
     if (sectionIsOpen) {
       this.controlOpenAttribute(sectionElement, false);
-      this.emitToggleEvent(sectionElement, sections);
+      this.emitToggleEvent(sectionElement, sections, event);
       return;
     }
 
     await this.closeOpenSections();
 
     this.controlOpenAttribute(sectionElement, true);
-    this.emitToggleEvent(sectionElement, sections);
+    this.emitToggleEvent(sectionElement, sections, event);
   }
 
   /** Closes all sections belonging to this accordion. */
@@ -123,8 +124,9 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     );
   }
 
-  private emitToggleEvent(sectionElement: HTMLElement, sections: HTMLElement[]): void {
+  private emitToggleEvent(sectionElement: HTMLElement, sections: HTMLElement[], e?: MouseEvent): void {
     this.dsoToggleSection.emit({
+      originalEvent: e,
       section: {
         element: sectionElement,
         open: this.isSectionOpen(sectionElement),
