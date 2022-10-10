@@ -45,17 +45,34 @@ button {
 }
 
 .wrapper {
+  align-self: center;
   box-shadow: 0 $u1 $u3 0 rgba(25, 25, 25, 0.4);
+  line-height: 0;
+  outline: 4px solid $wit;
   position: relative;
   z-index: $zx-image-overlay;
-  align-self: center;
-  line-height: 0;
+
+  .title {
+    background-color: $wit;
+    font-weight: 700;
+    line-height: initial;
+    padding: $u1;
+    position: absolute;
+  }
 
   img {
     width: auto;
     height: auto;
     max-width: 100%;
     max-height: calc(100vh - $u8);
+  }
+
+  .figuur-bijschrift {
+    display: block;
+    font-size: 0.75rem;
+    font-style: italic;
+    padding-bottom: $u1 * 1.5;
+    padding-top: $u2;
   }
 }
 

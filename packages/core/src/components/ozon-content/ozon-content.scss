@@ -92,12 +92,17 @@ span[role="paragraph"] {
   .figuur-bijschrift {
     display: block;
     font-size: 0.75rem;
+    font-style: italic;
+  }
 
-    &.boven {
+  &.bijschrift-boven {
+    .figuur-bijschrift {
       padding-bottom: 0.25rem;
     }
+  }
 
-    &.onder {
+  &.bijschrift-onder {
+    .figuur-bijschrift {
       padding-top: 0.25rem;
     }
   }

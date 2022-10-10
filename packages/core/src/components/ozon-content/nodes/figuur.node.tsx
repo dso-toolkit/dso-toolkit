@@ -9,6 +9,13 @@ export class OzonContentFiguurNode implements OzonContentNode {
     'Figuur',
   ];
 
+  setImageDimensions(imageElement: HTMLImageElement, schaal: number) {
+    const { naturalHeight, naturalWidth } = imageElement;
+
+    imageElement.height = naturalHeight * (schaal / 100);
+    imageElement.width = naturalWidth * (schaal / 100);
+  }
+
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
     const childNodes = Array.from(node.childNodes);
     const titel = childNodes.find(n => getNodeName(n) === 'Titel')?.textContent;
@@ -29,35 +36,32 @@ export class OzonContentFiguurNode implements OzonContentNode {
 
       const bijschrift = bijschriftNode instanceof Element ? {
         inhoud: bijschriftNode.childNodes,
-        locatie: bijschriftNode.getAttribute('locatie'),
+        locatie: bijschriftNode.getAttribute('locatie') ?? 'onder',
       }
       : undefined
 
-      const bijschriftHtml = (bijschrift || bron) && (
-        <span class={`figuur-bijschrift ${bijschrift?.locatie}`}>
-          <em>
-            {bijschrift && <Fragment>{mapNodeToJsx(bijschrift.inhoud)}</Fragment>}
-            {bron && (<Fragment>{bijschrift ? ' ' : ''}(bron: {mapNodeToJsx(bron)})</Fragment>)}
-          </em>
+      const bijschriftHtml: HTMLSpanElement = (bijschrift || bron) && (
+        <span class={`figuur-bijschrift`}>
+          {bijschrift && <Fragment>{mapNodeToJsx(bijschrift.inhoud)}</Fragment>}
+          {bron && (<Fragment>{bijschrift ? ' ' : ''}(bron: {mapNodeToJsx(bron)})</Fragment>)}
         </span>
       )
 
       return (
-        <div class="dso-ozon-figuur">
+        <div class={`dso-ozon-figuur ${bijschrift ? `bijschift-${bijschrift.locatie}` : ''}`}>
           {titel && (
             <span class="figuur-titel">{titel}</span>
           )}
           {bijschrift?.locatie === 'boven' && bijschriftHtml}
-          <dso-image-overlay>
+          <dso-image-overlay titel={titel ?? undefined} bijschrift={bijschriftHtml ?? undefined}>
             <img
               src={illustratie.naam ?? undefined}
               alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
-              height={illustratie.schaal
-                ? Number(illustratie.hoogte) * (Number(illustratie.schaal) / 100)
-                : (illustratie.hoogte ?? undefined)}
-              width={illustratie.schaal
-                ? Number(illustratie.breedte) * (Number(illustratie.schaal) / 100)
-                : (illustratie.breedte ?? undefined)}
+              onLoad={(event: Event) => {
+                if(event.target instanceof HTMLImageElement && illustratie.schaal) {
+                  this.setImageDimensions(event.target, Number(illustratie.schaal));
+                }
+              }}
             />
           </dso-image-overlay>
           {bijschrift?.locatie === 'onder' && bijschriftHtml}

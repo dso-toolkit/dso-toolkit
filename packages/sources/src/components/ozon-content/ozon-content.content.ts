@@ -253,8 +253,6 @@ export const content = [
           <Titel>Afbeelding Titel</Titel>
           <Illustratie
             naam="images/houtkachel-of-open-haard-infographic.jpg"
-            breedte="720"
-            hoogte="1124"
             uitlijning="start"
             alt="Afbeelding 1"
             schaal="50"
