@@ -162,7 +162,7 @@ export namespace Components {
         "icon"?: string;
     }
     interface DsoImageOverlay {
-        "bijschrift": any;
+        "bijschrift"?: JSX.Element;
         "titel"?: string;
     }
     interface DsoInfo {
@@ -690,7 +690,7 @@ declare namespace LocalJSX {
         "icon"?: string;
     }
     interface DsoImageOverlay {
-        "bijschrift"?: any;
+        "bijschrift"?: JSX.Element;
         "titel"?: string;
     }
     interface DsoInfo {

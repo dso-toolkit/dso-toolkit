@@ -15,7 +15,7 @@ export class ImageOverlay implements ComponentInterface {
   titel?: string;
 
   @Prop()
-  bijschrift: any;
+  bijschrift?: JSX.Element;
 
   @State()
   active = false;
@@ -116,6 +116,7 @@ export class ImageOverlay implements ComponentInterface {
                 <dso-icon icon="times"></dso-icon>
                 <span>Sluiten</span>
               </button>
+              {/* <Bijschrift bijschrift={this.bijschrift}/> */}
               {this.bijschrift}
             </div>
           </div>

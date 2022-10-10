@@ -260,7 +260,6 @@ export const content = [
           <Bijschrift locatie="onder">Bijschrift van het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
         </Figuur>
-        <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
       </Inhoud>
     `,
   },

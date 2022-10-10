@@ -7,10 +7,10 @@ Dit component verwacht één (default) slotted `<img>` element. Het component ge
 
 ## Properties
 
-| Property     | Attribute    | Description | Type                  | Default     |
-| ------------ | ------------ | ----------- | --------------------- | ----------- |
-| `bijschrift` | `bijschrift` |             | `any`                 | `undefined` |
-| `titel`      | `titel`      |             | `string \| undefined` | `undefined` |
+| Property     | Attribute | Description | Type                   | Default     |
+| ------------ | --------- | ----------- | ---------------------- | ----------- |
+| `bijschrift` | --        |             | `Element \| undefined` | `undefined` |
+| `titel`      | `titel`   |             | `string \| undefined`  | `undefined` |
 
 
 ## Dependencies
