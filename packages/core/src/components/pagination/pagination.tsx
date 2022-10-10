@@ -1,6 +1,6 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Listen, Prop, State } from '@stencil/core';
 
-import { ResponsiveElementSize } from '../responsive-element/responsive-element';
+import { ResponsiveElementSize } from '../responsive-element/responsive-element.interfaces';
 import { PaginationSelectPageEvent } from './pagination.interfaces';
 
 @Component({

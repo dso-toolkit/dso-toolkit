@@ -1,11 +1,6 @@
 import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, State } from '@stencil/core';
 
-export type ResponsiveElementSize = 'small' | 'medium' | 'large';
-
-interface ElementSize {
-  width: number;
-  alias: ResponsiveElementSize;
-}
+import { ElementSize, ResponsiveElementSize } from './responsive-element.interfaces';
 
 const elementSizes: ElementSize[] = [
   {
