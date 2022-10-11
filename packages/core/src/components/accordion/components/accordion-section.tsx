@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent, Fragment, Method } from '@stencil/core';
+import { h, Component, ComponentInterface, Host, Element, State, Prop, FunctionalComponent, Fragment, Method, forceUpdate } from '@stencil/core';
 import { AccordionHeading, AccordionInterface, AccordionInternalState, AccordionSectionState } from '../accordion.interfaces';
 
 @Component({
@@ -49,8 +49,9 @@ export class AccordionSection implements ComponentInterface {
 
     if (isAccordion(accordion)) {
       this.accordion = accordion;
-      return accordion.getState().then(state => {
+      accordion.getState().then(state => {
         this.accordionState = state;
+        forceUpdate(this.host);
       });
     }
   }
