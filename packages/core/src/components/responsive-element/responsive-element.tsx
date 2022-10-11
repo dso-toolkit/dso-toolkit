@@ -1,9 +1,6 @@
-import { Component, ComponentInterface, Element, Host, State, h } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, State } from '@stencil/core';
 
-interface ElementSize {
-  width: number;
-  alias: string;
-}
+import { ElementSize, ResponsiveElementSize } from './responsive-element.interfaces';
 
 const elementSizes: ElementSize[] = [
   {
@@ -24,15 +21,24 @@ const elementSizes: ElementSize[] = [
 })
 export class ResponsiveElement implements ComponentInterface {
   @State()
-  sizeAlias = elementSizes[0].alias;
+  sizeAlias: ResponsiveElementSize = elementSizes[0].alias;
 
   @State()
   sizeWidth = 0;
+
+  @Event()
+  dsoSizeChange!: EventEmitter<ResponsiveElementSize>;
+
+  @Method()
+  async getSize(): Promise<ResponsiveElementSize> {
+    return this.sizeAlias;
+  }
 
   observer = new ResizeObserver(([entry]) => {
     const size = elementSizes.find(s => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
 
     this.sizeAlias = size;
+    this.dsoSizeChange.emit(size)
   });
 
   @Element()

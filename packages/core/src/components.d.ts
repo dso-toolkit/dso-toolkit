@@ -13,6 +13,7 @@ import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/ma
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
+import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
@@ -233,6 +234,7 @@ export namespace Components {
         "size"?: 'small' | 'medium' | 'large';
     }
     interface DsoResponsiveElement {
+        "getSize": () => Promise<ResponsiveElementSize>;
     }
     interface DsoSelectable {
         "checked"?: boolean;
@@ -773,6 +775,7 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'medium' | 'large';
     }
     interface DsoResponsiveElement {
+        "onDsoSizeChange"?: (event: CustomEvent<ResponsiveElementSize>) => void;
     }
     interface DsoSelectable {
         "checked"?: boolean;

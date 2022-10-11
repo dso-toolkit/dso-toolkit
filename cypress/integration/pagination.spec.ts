@@ -1,4 +1,4 @@
-describe('Alert', () => {
+describe('Pagination', () => {
   beforeEach(() => {
     cy.visit('http://localhost:45000/iframe.html?id=core-pagination--pagination');
   });
@@ -11,7 +11,8 @@ describe('Alert', () => {
       .then($pagination => {
         $pagination.on('dsoSelectPage', $event => $event.detail.originalEvent.preventDefault());
         $pagination.on('dsoSelectPage', cy.stub().as('selectPageListener'));
-      });
+      })
+      .wait(200);
   }
 
   it('should show 5 pages and previous/next buttons', () => {
@@ -29,6 +30,112 @@ describe('Alert', () => {
       .get('@dsoPagination')
       .find('a[aria-label="Volgende"]')
       .should('be.visible');
+  });
+
+  it('should not show ellipsis when page count is in range', () => {
+    prepareComponent(4, 8);
+
+    cy
+      .get('dso-pagination')
+      .shadow()
+      .as('dsoPagination')
+      .find('.pagination > li')
+      .eq(2)
+      .should('not.contain.html', '<span>...</span>')
+      .find('a')
+      .should('have.text', '2')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .eq(7)
+      .should('not.contain.html', '<span>...</span>')
+      .find('a')
+      .should('have.text', '7');
+  });
+
+  it('should show ... when first and/or last page are out of range', () => {
+    function shouldShowEllipsis(currentPage: number, afterFirst: boolean, beforeLast: boolean) {
+      cy.get('dso-pagination')
+        .invoke('attr', 'current-page', currentPage)
+        .shadow()
+        .as('dsoPagination')
+        .wait(100)
+        .then(() => {
+          if (afterFirst && beforeLast) {
+            cy.get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(2)
+              .should('contain.html', '<span>...</span>')
+              .get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(8)
+              .should('contain.html', '<span>...</span>');
+          }
+          else if (!afterFirst && beforeLast) {
+            cy.get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(2)
+              .should('not.contain.html', '<span>...</span>')
+              .get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(8)
+              .should('contain.html', '<span>...</span>');
+          }
+          else if (afterFirst && !beforeLast) {
+            cy.get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(2)
+              .should('contain.html', '<span>...</span>')
+              .get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(8)
+              .should('not.contain.html', '<span>...</span>');
+          }
+          else {
+            cy.get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(2)
+              .should('not.contain.html', '<span>...</span>')
+              .get('@dsoPagination')
+              .find('.pagination > li')
+              .eq(8)
+              .should('not.contain.html', '<span>...</span>');
+          }
+        });
+    }
+
+    prepareComponent(9, 18);
+
+    shouldShowEllipsis(9, true, true);
+    shouldShowEllipsis(4, false, true);
+    shouldShowEllipsis(14, true, false);
+  });
+
+  it('should show different range on different small/medium/large viewport', () => {
+    prepareComponent(9, 18);
+
+    cy.get('dso-pagination')
+      .shadow()
+      .as('dsoPagination')
+      .find('dso-responsive-element')
+      .as('dsoResponsiveElement')
+      .should('have.attr', 'large')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .should('have.length', 11)
+      .get('@dsoResponsiveElement')
+      .viewport(600, 660)
+      .get('@dsoResponsiveElement')
+      .should('have.attr', 'medium')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .should('have.length', 9)
+      .get('@dsoResponsiveElement')
+      .viewport(320, 660)
+      .get('@dsoResponsiveElement')
+      .should('have.attr', 'small')
+      .get('@dsoPagination')
+      .find('.pagination > li')
+      .should('have.length', 7);
   });
 
   it('should not show previous/next buttons when appropriate', () => {

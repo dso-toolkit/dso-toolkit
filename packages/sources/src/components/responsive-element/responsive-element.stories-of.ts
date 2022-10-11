@@ -1,6 +1,7 @@
+import { Args } from '@storybook/addons';
 import { createStories, StorybookParameters } from '../../storybook';
 
-import { responsiveElementArgTypes } from './responsive-element.args';
+import { ResponsiveElementArgs, responsiveElementArgTypes } from './responsive-element.args';
 
 const demoGrid = [
   ['col-md-6', 'col-md-6'],
@@ -9,8 +10,13 @@ const demoGrid = [
   ['col-xs-3', 'col-xs-3', 'col-xs-3', 'col-xs-3']
 ];
 
+type ResponsiveElementTemplateFnType<TemplateFnReturnType> = (
+  dsoSizeChange: (event: CustomEvent<string>) => void,
+  grid: string[][],
+) => TemplateFnReturnType;
+
 export interface ResponsiveElementParameters<TemplateFnReturnType> {
-  gridTemplate: (grid: string[][]) => TemplateFnReturnType;
+  gridTemplate: ResponsiveElementTemplateFnType<TemplateFnReturnType>;
 }
 
 export function storiesOfResponsiveElement<TemplateFnReturnType>(
@@ -23,6 +29,10 @@ export function storiesOfResponsiveElement<TemplateFnReturnType>(
 
   stories.add(
     'Responsive Element',
-    () => gridTemplate(demoGrid)
+    (a: Args) => {
+      const args = a as ResponsiveElementArgs;
+
+      return gridTemplate(args.dsoSizeChange, demoGrid);
+    }
   );
 }

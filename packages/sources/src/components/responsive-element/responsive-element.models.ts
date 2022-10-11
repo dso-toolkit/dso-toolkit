@@ -1,3 +1,3 @@
-export interface ResponsiveElement<TemplateFnReturnType> {
-  children: TemplateFnReturnType;
+export interface ResponsiveElement {
+  dsoSizeChange: (value: CustomEvent<string>) => void;
 }

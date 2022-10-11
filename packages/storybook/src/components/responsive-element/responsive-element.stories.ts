@@ -1,12 +1,11 @@
-import { storiesOfResponsiveElement } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
-import { html } from 'lit-html';
-
-import { responsiveElementTemplate } from '@dso-toolkit/core/src/components/responsive-element/responsive-element.template';
 import readme from '@dso-toolkit/core/src/components/responsive-element/readme.md';
+import { responsiveElementTemplate } from '@dso-toolkit/core/src/components/responsive-element/responsive-element.template';
+import { storiesOfResponsiveElement } from '@dso-toolkit/sources';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { storiesOf } from '@storybook/web-components';
+import { html, TemplateResult } from 'lit-html';
 
-storiesOfResponsiveElement(
+storiesOfResponsiveElement<TemplateResult>(
   {
     module,
     storiesOf,
@@ -14,7 +13,7 @@ storiesOfResponsiveElement(
     root: StoryRoot.Core
   },
   {
-    gridTemplate: (grid) => html`
+    gridTemplate: (dsoSizeChange, grid) => html`
       <style type="text/css">
         dso-responsive-element:not([small]) .demo-small {
           display: none;
@@ -51,12 +50,13 @@ storiesOfResponsiveElement(
           ${cols.map(col => html`
             <div class=${col}>
               ${responsiveElementTemplate({
-                children: html`
+                dsoSizeChange: dsoSizeChange
+              },
+                html`
                   <div class="demo-small"><p><strong>small</strong></p><div>${col}</div></div>
                   <div class="demo-medium"><p><strong>medium</strong></p><div>${col}</div></div>
                   <div class="demo-large"><p><strong>large</strong></p><div>${col}</div></div>
-                `
-              })}
+                `)}
             </div>`
           )}
         </div>
