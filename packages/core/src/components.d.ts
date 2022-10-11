@@ -296,6 +296,14 @@ export namespace Components {
     }
     interface DsoTable {
         /**
+          * Indicates whether the table is currently horizontally scrollable
+         */
+        "isResponsive": boolean;
+        /**
+          * Allows the table to opened in a modal.
+         */
+        "modal": boolean;
+        /**
           * Allows the table to be scrolled horizontally if it does not fit.
          */
         "responsive": boolean;
@@ -897,6 +905,14 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface DsoTable {
+        /**
+          * Indicates whether the table is currently horizontally scrollable
+         */
+        "isResponsive"?: boolean;
+        /**
+          * Allows the table to opened in a modal.
+         */
+        "modal"?: boolean;
         /**
           * Allows the table to be scrolled horizontally if it does not fit.
          */

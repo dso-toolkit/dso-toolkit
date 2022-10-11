@@ -1,5 +1,6 @@
 import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
 import { tableArgsMapper, tableArgTypes } from './table.args';
+import { defaultTable, imageOverlayTable } from './table.content';
 import { Table } from './table.models';
 
 export interface TableParameters<TemplateFnReturnType> {
@@ -18,8 +19,27 @@ export function storiesOfTable<TemplateFnReturnType>(
 
   const template = bindTemplate(tableArgsMapper, tableTemplate);
 
-stories.add(
+  stories.add(
     'default',
-    template
+    template,
+    {
+      args: {
+        modal: false,
+        responsive: false,
+        content: defaultTable,
+      }
+    }
+  );
+
+  stories.add(
+    'with dso-image-overlay',
+    template,
+    {
+      args: {
+        modal: false,
+        responsive: false,
+        content: imageOverlayTable,
+      }
+    }
   );
 }
