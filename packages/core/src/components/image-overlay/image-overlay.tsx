@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, Prop, State } from "@stencil/core";
+import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, State } from "@stencil/core";
 import debounce from 'debounce';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 
@@ -10,12 +10,6 @@ import { createFocusTrap, FocusTrap } from 'focus-trap';
 export class ImageOverlay implements ComponentInterface {
   @Element()
   host!: HTMLElement;
-
-  @Prop()
-  titel?: string;
-
-  @Prop()
-  bijschrift?: JSX.Element;
 
   @State()
   active = false;
@@ -110,14 +104,17 @@ export class ImageOverlay implements ComponentInterface {
         {this.active && src && alt && (
           <div class="dimmer" ref={element => this.wrapperElement = element}>
             <div class="wrapper">
-              {this.titel && <span class="title">{this.titel}</span> }
+              <div class="titel">
+                <slot name="titel" />
+              </div>
               <img src={src} alt={alt} />
               <button type="button" class="close" onClick={() => this.active = false}>
                 <dso-icon icon="times"></dso-icon>
                 <span>Sluiten</span>
               </button>
-              {/* <Bijschrift bijschrift={this.bijschrift}/> */}
-              {this.bijschrift}
+              <div class="figuur-bijschrift">
+                <slot name="bijschrift" />
+              </div>
             </div>
           </div>
         )}

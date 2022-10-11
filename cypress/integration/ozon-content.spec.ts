@@ -414,7 +414,7 @@ describe("Ozon Content", () => {
       .and('have.attr', 'alt', 'Afbeelding 1')
       .and('have.attr', 'width', '360')
       .and('have.attr', 'height', '562')
-      .get('dso-ozon-content .figuur-bijschrift')
+      .get('dso-ozon-content .dso-ozon-figuur > .figuur-bijschrift')
       .should('have.text', 'Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)');
   });
 });
