@@ -1,16 +1,20 @@
-import { ArgTypes } from '../../storybook';
-import { Table } from './table.models';
+import { ArgTypes, noControl } from '../../storybook';
+import { Table, TableContent } from './table.models';
 
 export interface TableArgs {
-  responsive: boolean;
+  noModal: boolean;
+  content: TableContent;
 }
 
 export const tableArgTypes: ArgTypes<TableArgs> = {
-  responsive: {
+  noModal: {
     control: {
       type: 'boolean'
     }
   },
+  content: {
+    ...noControl,
+  }
 };
 
 export function tableArgsMapper(a: TableArgs): Required<Table> {

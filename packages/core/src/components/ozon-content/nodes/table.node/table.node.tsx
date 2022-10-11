@@ -34,24 +34,26 @@ export class OzonContentTableNode implements OzonContentNode {
     } = mapData(node);
 
     return (
-      <table class="table">
-        {caption && (
-          <caption>{caption}</caption>
-        )}
-        {colspecs && (
-          <Colgroup colspecs={colspecs} />
-        )}
-        {headRows.length > 0 && (
-          <thead>
-            <Rows rows={headRows} colspecs={colspecs} context={context}></Rows>
-          </thead>
-        )}
-        {bodyRows.length > 0 && (
-          <tbody>
-            <Rows rows={bodyRows} colspecs={colspecs} context={context}></Rows>
-          </tbody>
-        )}
-      </table>
+      <dso-table>
+        <table class="table">
+          {caption && (
+            <caption>{caption}</caption>
+          )}
+          {colspecs && (
+            <Colgroup colspecs={colspecs} />
+          )}
+          {headRows.length > 0 && (
+            <thead>
+              <Rows rows={headRows} colspecs={colspecs} context={context}></Rows>
+            </thead>
+          )}
+          {bodyRows.length > 0 && (
+            <tbody>
+              <Rows rows={bodyRows} colspecs={colspecs} context={context}></Rows>
+            </tbody>
+          )}
+        </table>
+      </dso-table>
     );
   }
 }

@@ -1,0 +1,145 @@
+@use "modal.variables" as modal-variables;
+
+@use "../rich-content";
+@use "../button";
+
+@use "../../variables/colors";
+@use "../../variables/units";
+@use "../../variables/zindex";
+@use "../../variables/media-query-breakpoints";
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin root() {
+  .dso-modal {
+    .dso-dialog {
+      background-color: modal-variables.$content-bg;
+      box-shadow: 0 8px 24px 0 rgba(25, 25, 25, 0.4);
+    }
+
+    .dso-header {
+      border-bottom: 1px solid modal-variables.$border-color;
+      min-height: units.$u4;
+      padding: modal-variables.$header-padding;
+      position: relative;
+
+      h2 {
+        margin: 0;
+        max-width: calc(100% - #{units.$u3});
+      }
+
+      .dso-close {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        color: colors.$grasgroen;
+        height: modal-variables.$close-icon-size;
+        padding: 0;
+        position: absolute;
+        right: 13px;
+        text-align: center;
+        top: units.$u2;
+        width: modal-variables.$close-icon-size;
+      }
+    }
+
+    .dso-body {
+      $dso-body-height: (2 * modal-variables.$header-padding) + (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+
+      @include rich-content.children();
+
+      height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
+      max-height: calc(#{modal-variables.$max-height} - #{$dso-body-height + units.$u4} - 1.5em);
+      min-height: 1.5rem;
+      overflow-x: auto;
+      padding: modal-variables.$body-padding;
+    }
+
+    .dso-footer {
+      min-height: modal-variables.$footer-button-height + modal-variables.$footer-padding;
+      padding: 0 modal-variables.$footer-padding modal-variables.$footer-padding;
+      text-align: right;
+
+      .dso-tertiary,
+      .btn-link {
+        float: left;
+        line-height: calc(1.5em - 1px);
+        padding: button.$vertical-padding 0;
+        position: relative;
+      }
+    }
+
+    &.dso-confirm {
+      .dso-footer {
+        button {
+          &:first-child {
+            float: left;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: zindex.$modal;
+
+      .dso-dialog {
+        animation: 1s ease-out 0s 1 slideInFromTop;
+        margin: auto;
+        margin-top: 15vh;
+        max-width: modal-variables.$max-width;
+        opacity: 1;
+      }
+
+      .dso-footer {
+        #{button.$button-adjacent-secondary} {
+          margin-left: units.$u2;
+        }
+
+        #{button.$button-adjacent-tertiary} {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      max-width: 100%;
+
+      .dso-footer {
+        #{button.$button-adjacent} {
+          margin-left: 0;
+        }
+
+        button {
+          text-align: center;
+          width: 100%;
+
+          + button {
+            margin-top: units.$u1;
+          }
+
+          &.dso-tertiary,
+          &.btn-link {
+            &,
+            span {
+              float: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
