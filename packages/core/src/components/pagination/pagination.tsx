@@ -74,8 +74,10 @@ export class Pagination implements ComponentInterface {
     if (this.availablePositions === undefined) {
       return (
         <dso-responsive-element ref={element => this.responsiveElement = element}></dso-responsive-element>
-      )
+      );
     }
+
+    const availablePositions = this.availablePositions;
 
     const currentPage = this.currentPage ?? 0;
 
@@ -91,11 +93,7 @@ export class Pagination implements ComponentInterface {
           </li>
           {(pages).map(page => (
             <>
-              {(
-                pages.indexOf(page) === pages.length - 1 &&
-                this.availablePositions &&
-                this.showEllipsisBeforeLast(pages, this.availablePositions, pages[pages.length - 1])
-              ) &&
+              {this.showEllipsisBeforeLast(pages, page, availablePositions, pages[pages.length - 1]) &&
                 <li>
                   <span>...</span>
                 </li>
@@ -111,11 +109,7 @@ export class Pagination implements ComponentInterface {
                   )}
               </li>
 
-              {(
-                pages.indexOf(page) === 0 &&
-                this.availablePositions &&
-                this.showEllipsisAfterFirst(pages, this.availablePositions)
-              ) &&
+              {this.showEllipsisAfterFirst(pages, page, availablePositions) &&
                 <li>
                   <span>...</span>
                 </li>
@@ -211,11 +205,17 @@ export class Pagination implements ComponentInterface {
     return range.filter((v, i, a) => a.indexOf(v) === i);
   }
 
-  private showEllipsisAfterFirst(pages: number[], availablePositions: number): boolean {
-    return !pages.some(p => p === 2) && availablePositions >= 7;
+  private showEllipsisAfterFirst(pages: number[], page: number, availablePositions: number): boolean {
+    return pages.indexOf(page) === 0  &&
+      pages[pages.length - 1] > availablePositions - 2 &&
+      !pages.some(p => p === 2) &&
+      availablePositions >= 7;
   }
 
-  private showEllipsisBeforeLast(pages: number[], availablePositions: number, totalPages: number): boolean {
-    return !pages.some(p => p === totalPages - 1) && availablePositions >= 7;
+  private showEllipsisBeforeLast(pages: number[], page: number, availablePositions: number, totalPages: number): boolean {
+    return pages.indexOf(page) === pages.length - 1 &&
+      pages[pages.length - 1] > availablePositions - 2 &&
+      !pages.some(p => p === totalPages - 1) &&
+      availablePositions >= 7;
   }
 }
