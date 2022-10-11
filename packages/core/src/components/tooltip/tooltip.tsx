@@ -75,6 +75,12 @@ export class Tooltip {
   active = false;
 
   /**
+   * The aria-describedby value of the target element. To use as id of tooltip.
+   */
+  @State()
+  ariaDescribedBy?: string;
+
+  /**
    * Activate the tooltip (Sets the `active` attribute)
    */
   @Method()
@@ -207,6 +213,7 @@ export class Tooltip {
     }
 
     this.target = this.getTarget();
+    this.ariaDescribedBy = this.target.getAttribute('aria-describedby') ?? undefined;
 
     this.popper = createPopper(this.target, tooltip, {
       placement: this.position,
@@ -256,7 +263,7 @@ export class Tooltip {
   render() {
     return (
       <Host class={{ 'hidden': this.hidden }}>
-        <div class={clsx('tooltip', { in: this.active })}>
+        <div id={this.ariaDescribedBy} class={clsx('tooltip', { in: this.active })} role="tooltip">
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
           <div aria-hidden={!this.descriptive || undefined} class={clsx('tooltip-inner', { 'dso-small': this.small })}>
             <slot></slot>
@@ -277,9 +284,9 @@ export class Tooltip {
         throw new Error(`rootNode is not instance of Document or ShadowRoot`);
       }
 
-      const reference = rootNode.getElementById(this.for);
+      const reference = rootNode.querySelector<HTMLElement>(`[aria-describedby="${this.for}"]`);
       if (!reference) {
-        throw new Error(`Unable to find reference with id ${this.for}`);
+        throw new Error(`Unable to find element with aria-describedby ${this.for}`);
       }
 
       return reference;

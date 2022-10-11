@@ -7,6 +7,7 @@ export function tooltipTemplate({ position, descriptive }: Tooltip) {
     <div
       aria-hidden=${ifDefined(!descriptive || undefined)}
       class="tooltip fade in ${position}"
+      role="tooltip"
     >
       <div class="tooltip-arrow"></div>
       <div class="tooltip-inner">${`Ik sta: "${position}"`}</div>

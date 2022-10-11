@@ -12,7 +12,11 @@ export function asChildTemplate(tooltip: TemplateResult, action: HandlerFunction
 
 export function asSiblingTemplate(tooltip: TemplateResult, id: string, action: HandlerFunction) {
   return html`
-    <button type="button" id=${ifDefined(id || undefined)} @click=${action}>
+    <button
+      aria-describedby=${ifDefined(id || undefined)}
+      type="button"
+      @click=${action}
+    >
       <span>Hover or focus me</span>
     </button>
     ${tooltip}

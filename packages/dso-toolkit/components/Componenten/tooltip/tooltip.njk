@@ -6,7 +6,7 @@
 </button>
 
 <!-- Expliciet: @for attribute met verwijzing naar ander element -->
-<input type="text" id="demo-{{ _self.handle }}">
+<input type="text" aria-describedby="demo-{{ _self.handle }}">
 <dso-tooltip descriptive position="{{ position }}" for="demo-{{ _self.handle }}" {{ attributes([small, 'small']) }}>
   {{ label }}
 </dso-tooltip>

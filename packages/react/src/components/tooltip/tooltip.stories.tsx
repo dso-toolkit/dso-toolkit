@@ -17,7 +17,11 @@ function asChildTemplate(tooltip: JSX.Element, action: HandlerFunction) {
 function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (
     <>
-      <button type="button" id={id} onClick={action}>
+      <button
+        aria-describedby={id}
+        type="button"
+        onClick={action}
+      >
         <span>Hover or focus me</span>
       </button>
       {tooltip}
