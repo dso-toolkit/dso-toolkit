@@ -144,7 +144,7 @@ export class Label implements ComponentInterface {
 
     return (
       <Host aria-roledescription={(this.truncate && this.truncatedContent) ? 'Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus.' : undefined}>
-        <span id="toggle-anchor" class={clsx(
+        <span id="toggle-anchor" aria-describedby="toggle-anchor-tooltip" class={clsx(
           'dso-label',
           {
             [`dso-label-${this.status}`]: this.status,
@@ -188,7 +188,7 @@ export class Label implements ComponentInterface {
         </span>
         <dso-tooltip
           stateless
-          for="toggle-anchor"
+          for="toggle-anchor-tooltip"
           active={!!this.truncatedContent && (this.textHover || this.textFocus)}
           position="top"
           strategy="absolute"
