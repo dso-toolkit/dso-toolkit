@@ -253,9 +253,11 @@ export const content = [
           <Titel>Afbeelding Titel</Titel>
           <Illustratie
             naam="images/houtkachel-of-open-haard-infographic.jpg"
+            uitlijning="start"
             alt="Afbeelding 1"
+            schaal="50"
           />
-          <Bijschrift>Bijschrift van het figuur.</Bijschrift>
+          <Bijschrift locatie="onder">Bijschrift van het figuur.</Bijschrift>
           <Bron>Bron waaruit het figuur is overgenomen</Bron>
         </Figuur>
       </Inhoud>
@@ -360,6 +362,7 @@ export const content = [
                     naam="https://nep-knooppunt-test.viewer.dso.kadaster.nl/publiek/omgevingsdocumenten/api/presenteren/v7/afbeeldingen/gm1979/_akn_nl_act_gm1979_2021_omgevingsplandelfzijl_nld_2/image1.png"
                     breedte="7813"
                     hoogte="4228"
+                    uitlijning="start"
                   />
                 </Figuur>
               </entry>

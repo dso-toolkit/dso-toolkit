@@ -80,6 +80,19 @@ describe("Image Overlay", () => {
       .get('@open-button')
       .should('exist');
   });
+
+  it('should have a title and a caption', () => {
+    openOverlay();
+
+    cy.get('dso-image-overlay')
+      .find('div[slot = "titel"] span')
+      .should('have.text', 'Afbeelding 1')
+      .and('be.visible')
+      .get('dso-image-overlay')
+      .find('div[slot = "bijschrift"] span')
+      .should('have.text', 'Bijschrift bij afbeelding')
+      .and('be.visible');
+  });
 });
 
 function openOverlay() {

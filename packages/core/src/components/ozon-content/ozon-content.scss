@@ -86,10 +86,33 @@ span[role="paragraph"] {
   text-align: right;
 }
 
-.dso-ozon-figuur .figuur-bijschrift {
-  display: block;
-  font-size: 0.75rem;
-  padding-bottom: 2.5rem;
+.dso-ozon-figuur {
+  margin-bottom: $u2;
+
+  .figuur-bijschrift {
+    display: block;
+    font-size: 0.75rem;
+    font-style: italic;
+  }
+
+  &.bijschrift-boven {
+    .figuur-bijschrift {
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  &.bijschrift-onder {
+    .figuur-bijschrift {
+      padding-top: 0.25rem;
+    }
+  }
+
+  .figuur-titel {
+    color: $mauve;
+    display: block;
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+  }
 }
 
 .od-Tabel thead {
