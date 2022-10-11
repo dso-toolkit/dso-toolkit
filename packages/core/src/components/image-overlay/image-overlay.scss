@@ -52,7 +52,7 @@ button {
   position: relative;
   z-index: $zx-image-overlay;
 
-  .titel {
+  .titel:not([hidden]) {
     background-color: $wit;
     font-weight: 700;
     line-height: initial;
@@ -67,7 +67,7 @@ button {
     max-height: calc(100vh - $u8);
   }
 
-  .figuur-bijschrift {
+  .figuur-bijschrift:not([hidden]) {
     display: block;
     font-size: 0.75rem;
     font-style: italic;

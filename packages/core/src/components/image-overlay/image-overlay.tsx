@@ -26,6 +26,10 @@ export class ImageOverlay implements ComponentInterface {
 
   trap: FocusTrap | undefined;
 
+  titelSlot: HTMLElement | null = null;
+
+  bijschriftSlot: HTMLElement | null = null;
+
   private mutationObserver?: MutationObserver;
 
   private resizeObserver?: ResizeObserver;
@@ -35,6 +39,16 @@ export class ImageOverlay implements ComponentInterface {
     if (event.target instanceof HTMLImageElement) {
       this.setZoomable(event.target);
     }
+  }
+
+  connectedCallback() {
+    this.titelSlot = this.host.querySelector<HTMLDivElement>(
+      "div[slot='titel']"
+    );
+
+    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>(
+      "div[slot='bijschrift']"
+    );
   }
 
   componentDidLoad() {
@@ -104,7 +118,7 @@ export class ImageOverlay implements ComponentInterface {
         {this.active && src && alt && (
           <div class="dimmer" ref={element => this.wrapperElement = element}>
             <div class="wrapper">
-              <div class="titel">
+              <div class="titel" hidden={!this.titelSlot}>
                 <slot name="titel" />
               </div>
               <img src={src} alt={alt} />
@@ -112,7 +126,7 @@ export class ImageOverlay implements ComponentInterface {
                 <dso-icon icon="times"></dso-icon>
                 <span>Sluiten</span>
               </button>
-              <div class="figuur-bijschrift">
+              <div class="figuur-bijschrift" hidden={!this.bijschriftSlot}>
                 <slot name="bijschrift" />
               </div>
             </div>
