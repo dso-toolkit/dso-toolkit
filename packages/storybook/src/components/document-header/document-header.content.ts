@@ -59,7 +59,7 @@ export function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureA
       variant: null,
       modifier: 'dso-document-header-toggle-status',
       icon: {
-        icon: documentHeaderStatusOpen ? 'angle-up' : 'angle-down',
+        icon: documentHeaderStatusOpen ? 'chevron-up' : 'chevron-down',
       },
       iconMode: 'after',
     })}

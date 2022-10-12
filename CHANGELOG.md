@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **core:** Helpcenter Panel: iframe content laden alleen als de panel open is ([#1678](https://github.com/dso-toolkit/dso-toolkit/issues/1678))
 * **core:** Viewer grid: Focus trap negeert focusable elements in shadow-dom ([#1756](https://github.com/dso-toolkit/dso-toolkit/issues/1756))
+* **css + sources + storybook:** Styling issues Document header ([#1760](https://github.com/dso-toolkit/dso-toolkit/issues/1760))
 
 ### Changed
 * `@mixin di()` en `@mixin di-variant()` uit @dso-toolkit/core verwijderen ([#1752](https://github.com/dso-toolkit/dso-toolkit/issues/1752))
