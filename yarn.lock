@@ -3016,6 +3016,7 @@ __metadata:
     "@stencil/core": 2.10.0
     "@stencil/react-output-target": ^0.3.1
     "@stencil/sass": 1.5.2
+    "@stencil/store": ^2.0.0
     "@types/concurrently": ^7.0.0
     "@types/debounce": ^1.2.1
     "@types/sass": ^1.43.1
@@ -4049,6 +4050,15 @@ __metadata:
   peerDependencies:
     "@stencil/core": ">=1.0.2"
   checksum: fc4250eb31351f24c4f59829be2f8f57b81a4c6b5af395f8325e0eb13fe749334c6fbda7edfa250831d50419ba8c111b8fc31b81e2f176d251648dffbdf2cb49
+  languageName: node
+  linkType: hard
+
+"@stencil/store@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "@stencil/store@npm:2.0.1"
+  peerDependencies:
+    "@stencil/core": ">=2.0.0"
+  checksum: 99fa9da7ff71716594aa10aa824c7ce8ce7fdb7c8fe6fec4f367ff82e566e3ed4a0ba5c6f0d5f1b65c128d70bb1c103f8e3a79f9b5e277815f5890da1d597195
   languageName: node
   linkType: hard
 

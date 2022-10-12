@@ -1,5 +1,6 @@
 import { Accordion, AccordionSection } from '@dso-toolkit/sources';
 import { html, nothing } from 'lit-html';
+
 import { attachmentsCounterTemplate } from '../attachments-counter/attachments-counter.template';
 import { iconTemplate } from '../icon/icon.template';
 
@@ -18,14 +19,14 @@ export function accordionHandleChildren(accordion: Accordion, section: Accordion
     }
 
     ${section.icon && accordion.reverseAlign
-      ? html`<span class="dso-icon">${iconTemplate(section.icon)}</span>`
+      ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
       : nothing
     }
 
-    ${section.title }
+    ${section.handleTitle}
 
     ${section.icon && !accordion.reverseAlign
-      ? html`<span class="dso-icon">${iconTemplate(section.icon)}</span>`
+      ? html`<span class="dso-icon">${iconTemplate({ icon: section.icon })}</span>`
       : nothing
     }
 
@@ -34,8 +35,8 @@ export function accordionHandleChildren(accordion: Accordion, section: Accordion
       : nothing
     }
 
-    ${section.attachmentsCounter
-      ? html`${attachmentsCounterTemplate(section.attachmentsCounter)}`
+    ${section.attachmentCount
+      ? html`${attachmentsCounterTemplate({ count: section.attachmentCount })}`
       : nothing
     }
   `;

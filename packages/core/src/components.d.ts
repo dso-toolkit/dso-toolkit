@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { AccordionHeading, AccordionInternalState, AccordionSectionState, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
 import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
@@ -18,6 +19,49 @@ import { SelectableChangeEvent } from "./components/selectable/selectable";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
 export namespace Components {
+    interface DsoAccordion {
+        /**
+          * Allows multiple sections to be open at the same time.
+         */
+        "allowMultipleOpen": boolean;
+        /**
+          * Closes all sections belonging to this accordion.
+         */
+        "closeOpenSections": () => Promise<void>;
+        "getState": () => Promise<AccordionInternalState>;
+        /**
+          * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+         */
+        "reverseAlign": boolean;
+        /**
+          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+         */
+        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent | undefined) => Promise<void>;
+        "variant"?: AccordionVariant;
+    }
+    interface DsoAccordionSection {
+        /**
+          * `attachmentCount` takes precedence over `icon`
+         */
+        "attachmentCount"?: number;
+        "handleTitle"?: string;
+        /**
+          * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
+         */
+        "handleUrl"?: string;
+        "heading": AccordionHeading;
+        "icon"?: string;
+        "open": boolean;
+        /**
+          * `state` takes precedence over `attachmentCount` and `icon`
+         */
+        "state"?: AccordionSectionState;
+        "status"?: string;
+        /**
+          * Toggle this section
+         */
+        "toggleSection": () => Promise<void>;
+    }
     interface DsoAlert {
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -320,6 +364,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDsoAccordionElement extends Components.DsoAccordion, HTMLStencilElement {
+    }
+    var HTMLDsoAccordionElement: {
+        prototype: HTMLDsoAccordionElement;
+        new (): HTMLDsoAccordionElement;
+    };
+    interface HTMLDsoAccordionSectionElement extends Components.DsoAccordionSection, HTMLStencilElement {
+    }
+    var HTMLDsoAccordionSectionElement: {
+        prototype: HTMLDsoAccordionSectionElement;
+        new (): HTMLDsoAccordionSectionElement;
+    };
     interface HTMLDsoAlertElement extends Components.DsoAlert, HTMLStencilElement {
     }
     var HTMLDsoAlertElement: {
@@ -489,6 +545,8 @@ declare global {
         new (): HTMLDsoViewerGridElement;
     };
     interface HTMLElementTagNameMap {
+        "dso-accordion": HTMLDsoAccordionElement;
+        "dso-accordion-section": HTMLDsoAccordionSectionElement;
         "dso-alert": HTMLDsoAlertElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-autosuggest": HTMLDsoAutosuggestElement;
@@ -520,6 +578,40 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DsoAccordion {
+        /**
+          * Allows multiple sections to be open at the same time.
+         */
+        "allowMultipleOpen"?: boolean;
+        /**
+          * Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
+         */
+        "onDsoToggleSection"?: (event: CustomEvent<AccordionSectionToggleEvent>) => void;
+        /**
+          * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
+         */
+        "reverseAlign"?: boolean;
+        "variant"?: AccordionVariant;
+    }
+    interface DsoAccordionSection {
+        /**
+          * `attachmentCount` takes precedence over `icon`
+         */
+        "attachmentCount"?: number;
+        "handleTitle"?: string;
+        /**
+          * When set the handle will render as a `<a>`. When undefined it renders as a `<button>`
+         */
+        "handleUrl"?: string;
+        "heading"?: AccordionHeading;
+        "icon"?: string;
+        "open"?: boolean;
+        /**
+          * `state` takes precedence over `attachmentCount` and `icon`
+         */
+        "state"?: AccordionSectionState;
+        "status"?: string;
+    }
     interface DsoAlert {
         /**
           * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -862,6 +954,8 @@ declare namespace LocalJSX {
         "overlayOpen"?: boolean;
     }
     interface IntrinsicElements {
+        "dso-accordion": DsoAccordion;
+        "dso-accordion-section": DsoAccordionSection;
         "dso-alert": DsoAlert;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-autosuggest": DsoAutosuggest;
@@ -896,6 +990,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
+            "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;

@@ -16,6 +16,7 @@
 
 ### Used by
 
+ - [dso-accordion-section](../accordion/components)
  - [dso-alert](../alert)
  - [dso-attachments-counter](../attachments-counter)
  - [dso-date-picker](../date-picker)
@@ -33,6 +34,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  dso-accordion-section --> dso-icon
   dso-alert --> dso-icon
   dso-attachments-counter --> dso-icon
   dso-date-picker --> dso-icon

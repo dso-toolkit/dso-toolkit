@@ -5,20 +5,19 @@ import { accordionHandleChildren } from './accordion-handle-children.template';
 
 export function accordionHandleContent(accordion: Accordion, section: AccordionSection) {
   const ariaExpanded = (section.open ?? false).toString();
-  const children =  accordionHandleChildren(accordion, section);
+  const children = accordionHandleChildren(accordion, section);
 
-  switch (accordion.handleType) {
-    case 'anchor':
-      return html`
-        <a href="#" aria-expanded=${ariaExpanded}>
+  if (section.handleUrl) {
+    return html`
+        <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>
           ${children}
         </a>
       `;
-    case 'button':
-      return html`
-        <button type="button" aria-expanded=${ariaExpanded}>
-          ${children}
-        </button>
-      `;
   }
+
+  return html`
+    <button type="button" aria-expanded=${ariaExpanded}>
+      ${children}
+    </button>
+  `;
 }

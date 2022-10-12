@@ -1,21 +1,37 @@
-import { AttachmentsCounter, Icon } from '../..';
+export type AccordionHandleElement = 'anchor' | 'button';
+
+export type AccordionVariant = 'default' | 'compact' | 'conclusion';
+
+export type AccordionSectionState = 'success' | 'info' | 'warning' | 'danger';
+
+export type AccordionHeading = 'h2' | 'h3' | 'h4' | 'h5';
 
 export interface Accordion {
-  variant?: string;
-  handleType: 'anchor' | 'button';
-  sections: AccordionSection[];
+  variant?: AccordionVariant;
   reverseAlign?: boolean;
+  allowMultipleOpen?: boolean;
+  dsoToggleSection: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
+  sections: AccordionSection[];
 }
 
 export interface AccordionSection {
-  state?: 'success' | 'info' | 'warning' | 'danger';
   open?: boolean;
-  title: string;
+  handleTitle: string;
+  heading: AccordionHeading;
+  handleUrl?: string;
   status?: string;
-  attachmentsCounter?: AttachmentsCounter;
-  header: 'h2' | 'h3' | 'h4' | 'h5';
-  variant?: 'compact' | 'conclusion';
-  icon?: Icon;
-  subsections?: AccordionSection[];
-  children?: string;
+  state?: AccordionSectionState;
+  icon?: string;
+  attachmentCount?: number;
+  content?: string;
+}
+
+export interface AccordionSectionToggleEvent {
+  /** When the section is toggled by clicking in the header the `MouseEvent` is available. */
+  originalEvent?: MouseEvent;
+  section: {
+    element: HTMLElement;
+    open: boolean;
+  };
+  sections: HTMLElement[];
 }

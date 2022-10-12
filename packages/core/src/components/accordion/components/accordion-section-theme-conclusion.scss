@@ -1,0 +1,45 @@
+@import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
+
+@mixin dso-web-component-accordion-conclusion {
+  .dso-section-handle {
+    background-color: $dso-accordion-conclusion-bgcolor;
+    border: 1px solid $dso-accordion-conclusion-border-color;
+
+    a,
+    button {
+      color: $dso-accordion-conclusion-color;
+
+      &:hover,
+      &:active,
+      &.active {
+        background-color: $dso-accordion-conclusion-hover-bgcolor;
+        color: $dso-accordion-conclusion-color;
+      }
+    }
+  }
+
+  .dso-section-body {
+    border: 2px solid $dso-accordion-conclusion-border-color;
+  }
+}
+
+@mixin dso-web-component-accordion-conclusion-open {
+  > .dso-section-handle {
+    background-color: $dso-accordion-conclusion-nested-handle-bgcolor;
+
+    a,
+    button {
+      color: $dso-accordion-conclusion-color;
+
+      dso-attachments-counter {
+        --dso-attachments-counter-color: #{$grijs-60};
+        --dso-icon: var(--di-paperclip-grijs);
+      }
+    }
+  }
+}
+
+@mixin dso-web-component-accordion-conclusion-open-nested {
+  background-color: $dso-accordion-conclusion-nested-body-bgcolor;
+  border: 2px solid $dso-accordion-conclusion-border-color;
+}

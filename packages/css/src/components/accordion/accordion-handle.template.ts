@@ -6,7 +6,7 @@ import { accordionHandleContent } from './accordion-handle-content.template';
 export function accordionHandleTemplate(accordion: Accordion, section: AccordionSection) {
   const content = accordionHandleContent(accordion, section);
 
-  switch (section.header) {
+  switch (section.heading) {
     case 'h2':
       return html`<h2 class="dso-section-handle">${content}</h2>`;
     case 'h3':

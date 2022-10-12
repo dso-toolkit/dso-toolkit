@@ -1,0 +1,8 @@
+@import "~@dso-toolkit/sources/src/styling/variables";
+@import "~@dso-toolkit/sources/src/styling/mixins";
+
+:host {
+  display: block;
+}
+
+@include box-sizing();

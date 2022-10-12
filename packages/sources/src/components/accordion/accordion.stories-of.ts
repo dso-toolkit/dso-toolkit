@@ -1,10 +1,14 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
-
-import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from './accordion.args';
+import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { accordionArgsMapper, accordionArgTypes } from './accordion.args';
+import * as AccordionContent from './accordion.content';
 import { Accordion } from './accordion.models';
 
+type AccordionTemplateFnType<TemplateFnReturnType> = (
+  properties: Accordion
+) => TemplateFnReturnType;
+
 export interface AccordionParameters<TemplateFnReturnType> {
-  accordionTemplate: (accordionProperties: Accordion) => TemplateFnReturnType;
+  accordionTemplate: AccordionTemplateFnType<TemplateFnReturnType>;
 }
 
 export function storiesOfAccordion<TemplateFnReturnType>(
@@ -20,29 +24,19 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'default',
     template,
     {
-      args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
-        sections: [
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-          },
-          {
-            title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
-            header: 'h2',
-          },
-          {
-            title: 'Hoe lang duurt de Vergunningcheck?',
-            header: 'h2',
-            children: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`,
-            open: true
-          },
-          {
-            title: 'Wat kan ik met de uitkomst van de Vergunningcheck?',
-            header: 'h2',
-          }
-        ]
-      })
+      args: {
+        sections: AccordionContent.basicSections,
+      }
+    }
+  );
+
+  stories.add(
+    'handle anchors',
+    template,
+    {
+      args: {
+        sections: AccordionContent.anchorSections,
+      }
     }
   );
 
@@ -50,58 +44,20 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'nested',
     template,
     {
-      args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
-        sections: [
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            open: true,
-            subsections: [
-              {
-                title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
-                header: 'h3',
-              },
-              {
-                title: 'Hoe lang duurt de Vergunningcheck?',
-                header: 'h3',
-                open: true,
-                children: `De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle benodigde informatie bij de hand heeft.`
-              }
-            ]
-          },
-          {
-            title: 'Wat kan ik met de uitkomst van de Vergunningcheck?',
-            header: 'h2',
-          }
-        ]
-      })
+      args: {
+        sections: AccordionContent.subSections,
+      }
     }
   );
 
   stories.add(
-    'multiselectable',
+    'allowMultipleOpen',
     template,
     {
-      args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
-        sections: [
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            open: true,
-            children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
-              <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`,
-            subsections: []
-          },
-          {
-            title: 'Voor hoeveel locaties kan ik de Vergunningcheck doen?',
-            header: 'h2',
-            open: true,
-            children: `De Vergunningcheck is bedoeld voor één locatie tegelijk. Wilt u dezelfde werkzaamheid op meerdere locaties doen? Dan is het verstandig om voor al deze locaties apart de Vergunningcheck te doen..`
-          }
-        ]
-      })
+      args: {
+        sections: AccordionContent.allowMultipleOpenSections,
+        allowMultipleOpen: true,
+      }
     }
   );
 
@@ -109,54 +65,9 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'addons',
     template,
     {
-      args: componentArgs<AccordionArgs>({
-        handleType: 'anchor',
-        sections: [
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            icon: {
-              icon: 'user-line'
-            }
-          },
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            icon: {
-              icon: 'user-line'
-            },
-            open: true
-          },
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            state: 'danger',
-            status: '5 van 8 beantwoord'
-          },
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            state: 'danger',
-            status: '5 van 8 beantwoord',
-            open: true
-          },
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            attachmentsCounter: {
-              count: 2
-            }
-          },
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            attachmentsCounter: {
-              count: 2
-            },
-            open: true
-          }
-        ]
-      })
+      args: {
+        sections: AccordionContent.addonsSections,
+      }
     }
   );
 
@@ -164,29 +75,10 @@ export function storiesOfAccordion<TemplateFnReturnType>(
     'alignment',
     template,
     {
-      args: componentArgs<AccordionArgs>({
+      args: {
+        sections: AccordionContent.alignmentSections,
         reverseAlign: true,
-        handleType: 'anchor',
-        sections: [
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            icon: {
-              icon: 'user-line'
-            }
-          },
-          {
-            title: 'Is het verplicht om de Vergunningcheck te doen?',
-            header: 'h2',
-            icon: {
-              icon: 'user-line'
-            },
-            open: true,
-            children: `<p>Nee, de Vergunningcheck is niet verplicht. Het is een hulpmiddel waarmee u kunt zien of u een vergunning nodig heeft of melding moet doen.</p>
-              <p>Wel kunt u meteen na de check een aanvraag of melding starten. Een aantal gegevens uit de Vergunningcheck wordt dan meegenomen in de aanvraag of melding.</p>`
-          }
-        ]
-      })
+      }
     }
   );
 }

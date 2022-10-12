@@ -22,6 +22,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "@stencil/core": "2.10.0",
+    "@stencil/store": "^2.0.0",
     "clsx": "1.1.1",
     "escape-string-regexp": "^5.0.0",
     "focus-trap": "^7.0.0",
