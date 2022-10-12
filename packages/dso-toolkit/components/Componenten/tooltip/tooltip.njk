@@ -1,5 +1,5 @@
 <!-- Impliciet: Geen @for attribute dus target is direct parent -->
-<button type="button">
+<button type="button" aria-describedby="demo-{{ _self.handle }}-child">
   <dso-icon icon="plus"></dso-icon><dso-tooltip position="{{ position }}" {{ attributes([small, 'small']) }}>
     {{ label }}
   </dso-tooltip>

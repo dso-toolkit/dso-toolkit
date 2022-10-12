@@ -30,9 +30,9 @@ export class OzonContentNootNode implements OzonContentNode {
       <>
         <sup>
           <button
-            id={noteControlsId}
             type="button"
             class="toggle-note"
+            id={noteControlsId}
             aria-describedby="toggle-note-tooltip"
             onClick={() => setState?.(openNoteId === noteId ? undefined : noteId)}
             onBlur={() => setState?.(undefined)}

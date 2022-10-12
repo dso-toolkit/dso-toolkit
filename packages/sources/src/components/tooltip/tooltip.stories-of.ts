@@ -9,7 +9,7 @@ import { Tooltip } from './tooltip.models';
 
 export interface TooltipParameters<TemplateFnReturnType> {
   tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;
-  asChildTemplate?: (tooltip: TemplateFnReturnType, action: HandlerFunction) => TemplateFnReturnType;
+  asChildTemplate?: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
   asSiblingTemplate?: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
 }
 
@@ -33,10 +33,11 @@ export function storiesOfTooltip<TemplateFnReturnType>(
 
         const args = a as TooltipArgs;
 
-        return asChildTemplate(tooltipTemplate(tooltipArgsMapper(a as TooltipArgs)), args.action)
+        return asChildTemplate(tooltipTemplate(tooltipArgsMapper(a as TooltipArgs)), args.id!, args.action);
       },
       {
         args: {
+          id: uuidv4(),
           position: 'right'
         }
       }

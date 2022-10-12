@@ -1,4 +1,4 @@
-describe.skip('Tooltip', () => {
+describe('Tooltip', () => {
   beforeEach(() => {
     cy.visit('http://localhost:45000/iframe.html?id=core-tooltip--as-child');
 
@@ -21,7 +21,7 @@ describe.skip('Tooltip', () => {
   //     .realHover();
   // });
 
-  it('should show tooltip on focus on button and hide on escape key', () => {
+  it.skip('should show tooltip on focus on button and hide on escape key', () => {
     cy
       .get('@dsoButton')
       .wait(100)
@@ -38,6 +38,20 @@ describe.skip('Tooltip', () => {
   });
 
   it('should be accessible', () => {
+    // as child
+    cy.get('dso-tooltip')
+      .then(($tooltip) => {
+        const id = $tooltip.attr('for');
+
+        cy.get('dso-tooltip')
+          .should('have.attr', 'for', id)
+          .shadow()
+          .find('.tooltip')
+          .should('have.id', id)
+          .and('have.attr', 'role', 'tooltip')
+          .get('@dsoButton')
+          .should('have.attr', 'aria-describedby', id);
+      });
 
     cy.visit('http://localhost:45000/iframe.html?id=core-tooltip--as-sibling');
 
