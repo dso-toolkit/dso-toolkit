@@ -6,10 +6,15 @@ import * as React from 'react';
 import readme from './readme.md';
 import { tooltipTemplate } from './tooltip.template';
 
-function asChildTemplate(tooltip: JSX.Element, action: HandlerFunction) {
+function asChildTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (
-    <button type="button" onClick={action}>
-      <span>Hover or focus me</span>{tooltip}
+    <button
+      type="button"
+      aria-describedby={id}
+      onClick={action}
+    >
+      <span>Hover or focus me</span>
+      {tooltip}
     </button>
   );
 }
@@ -18,8 +23,8 @@ function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunc
   return (
     <>
       <button
-        aria-describedby={id}
         type="button"
+        aria-describedby={id}
         onClick={action}
       >
         <span>Hover or focus me</span>

@@ -62,7 +62,8 @@ export class Toggletip {
     return (
       <>
         <dso-info-button
-          aria-describedby="toggle"
+          id="toggle"
+          aria-describedby="toggle-tooltip"
           onClick={this.click}
           label={this.label}
           active={this.active}
@@ -72,7 +73,7 @@ export class Toggletip {
         <dso-tooltip
           stateless
           descriptive
-          for="toggle"
+          for="toggle-tooltip"
           active={this.active}
           position={this.position}
           small={this.small}
