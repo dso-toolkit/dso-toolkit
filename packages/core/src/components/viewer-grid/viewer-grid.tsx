@@ -210,6 +210,7 @@ export class ViewerGrid {
               disabled={this.mainSize == "small"}
               onClick={this.shrinkMain}
             >
+              <span class="sr-only">Kaartpaneel smaller maken</span>
               <dso-icon icon="chevron-left"></dso-icon>
             </button>
             <button
@@ -218,6 +219,7 @@ export class ViewerGrid {
               disabled={this.mainSize == "large"}
               onClick={this.expandMain}
             >
+              <span class="sr-only">Kaartpaneel breder maken</span>
               <dso-icon icon="chevron-right"></dso-icon>
             </button>
           </div>

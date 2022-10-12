@@ -238,7 +238,7 @@ describe("Viewer Grid", () => {
     cy.get('dso-viewer-grid')
       .shadow()
       .as('root')
-      .find('.sizing-buttons span.sr-only')
+      .find('.sizing-buttons > span.sr-only')
       .should('have.attr', 'aria-live', 'polite');
 
     shouldHavePhrase('breed');
@@ -294,6 +294,6 @@ function expand() {
 function shouldHavePhrase(size: string) {
   cy.get('dso-viewer-grid')
     .shadow()
-    .find('.sizing-buttons span.sr-only')
+    .find('.sizing-buttons > span.sr-only')
     .should('have.text', `breedte tekstpaneel: ${size}`);
 }
