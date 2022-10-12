@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 45.1.0
+
 ### Added
 * **core + css + react + sources:** Accordion web component ([#1696](https://github.com/dso-toolkit/dso-toolkit/issues/1696))
 
