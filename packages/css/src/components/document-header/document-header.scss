@@ -28,6 +28,13 @@
       background-color: transparent;
       border: 0;
       padding: 0;
+
+      svg.di.di-chevron-down + span:not(.sr-only),
+      svg.di.di-chevron-up + span:not(.sr-only),
+      span:not(.sr-only) + svg.di.di-chevron-down,
+      span:not(.sr-only) + svg.di.di-chevron-up {
+        margin-left: $u1 * 0.5;
+      }
     }
 
     > dso-label,
@@ -71,6 +78,10 @@
 }
 
 dso-responsive-element.dso-document-header {
+  dl.dso-document-header-features {
+    margin-top: $u2;
+  }
+
   &[small] {
     .dso-document-header-features-wrapper {
       margin-bottom: $u1;
@@ -103,6 +114,7 @@ dso-responsive-element.dso-document-header {
 
       dd {
         margin-left: 0;
+        margin-top: 0;
         padding-left: 0;
       }
     }
@@ -129,7 +141,6 @@ dso-responsive-element.dso-document-header {
 
     .dso-document-header-features {
       margin-bottom: 0;
-      margin-top: $u2;
       border-bottom: 1px solid $grijs-20;
     }
   }

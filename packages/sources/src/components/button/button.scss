@@ -424,6 +424,13 @@ $dso-button-tertiary-active-color: $scampi;
       margin-left: $u1;
     }
 
+    svg.di.di-chevron-down + span:not(.sr-only),
+    svg.di.di-chevron-up + span:not(.sr-only),
+    span:not(.sr-only) + svg.di.di-chevron-down,
+    span:not(.sr-only) + svg.di.di-chevron-up {
+      margin-left: $u1 * 0.5;
+    }
+
     dso-icon[icon="chevron-left"] + span:not(.sr-only),
     dso-icon[icon="chevron-right"] + span:not(.sr-only),
     svg.di.di-angle-down + span:not(.sr-only),

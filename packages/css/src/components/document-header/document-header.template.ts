@@ -43,7 +43,7 @@ export function documentHeaderTemplate({
             variant: null,
             modifier: 'dso-document-header-toggle-features',
             icon: {
-              icon: featuresOpen ? 'angle-up' : 'angle-down',
+              icon: featuresOpen ? 'chevron-up' : 'chevron-down',
             },
             iconMode: 'after'
           })}
