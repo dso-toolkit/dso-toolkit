@@ -1,4 +1,6 @@
-import { h, Component, Fragment, Prop, State, Watch } from "@stencil/core";
+import { h, Component, Fragment, Prop, State, Watch, Listen } from "@stencil/core";
+
+import { createFocusTrap, FocusTrap } from 'focus-trap';
 
 const maxCssTransitionMilliseconds = 500;
 
@@ -9,6 +11,16 @@ const maxCssTransitionMilliseconds = 500;
 })
 export class HelpcenterPanel {
   private iframeUrl?: string;
+
+  private trap?: FocusTrap;
+
+  private panelWrapperElement?: HTMLDivElement;
+
+  private openButtonElement?: HTMLButtonElement;
+
+  private closeButtonElement?: HTMLButtonElement;
+
+  private iframeLoaded = false;
 
   @Prop()
   label?: string = "Hulp nodig";
@@ -37,9 +49,40 @@ export class HelpcenterPanel {
 
   @Watch('isOpen')
   watchIsOpen(isOpen: 'open' | 'close') {
-    if (isOpen === 'open' && this.iframeUrl !== this.url) {
-      this.iframeUrl = this.url;
+    const body = document.querySelector('body');
+
+    if (isOpen === 'open') {
+      body?.style.setProperty('overflow', 'hidden');
+
+      if (this.iframeUrl !== this.url) {
+        this.iframeUrl = this.url;
+      }
     }
+    else {
+      body?.style.removeProperty('overflow');
+    }
+  }
+
+  @Listen('keydown', { target: 'window' })
+  keyDownListener(event: KeyboardEvent) {
+    if (event.key === 'Escape' && this.isOpen === 'open') {
+      this.closeClick();
+    }
+  }
+
+  createTrap() {
+    if (!this.panelWrapperElement) {
+      return;
+    }
+
+    this.trap = createFocusTrap(this.panelWrapperElement, {
+      allowOutsideClick: true,
+      tabbableOptions: {
+        getShadowRoot: true,
+      },
+      setReturnFocus: this.openButtonElement ?? false,
+      initialFocus: this.closeButtonElement ?? false,
+    }).activate();
   }
 
   openClick = () => {
@@ -63,6 +106,17 @@ export class HelpcenterPanel {
     }, maxCssTransitionMilliseconds);
   };
 
+  componentDidRender() {
+    if (this.isOpen === 'open' && this.iframeLoaded && !this.trap) {
+      this.createTrap();
+    }
+    else if (this.isOpen === 'close' && this.trap) {
+      this.trap?.deactivate();
+
+      delete this.trap;
+    }
+  }
+
   render() {
     return (
       <>
@@ -70,22 +124,37 @@ export class HelpcenterPanel {
           type="button"
           onClick={this.openClick}
           class={`open-button ${this.isOpen}`}
-          aria-expanded="false"
+          aria-expanded={this.isOpen === 'open' ? 'true' : 'false'}
           aria-haspopup="dialog"
+          aria-controls="dso-panel-wrapper"
+          ref={element => this.openButtonElement = element}
         >
           <dso-icon icon="help"></dso-icon>
           <span>{this.label}</span>
         </button>
-        <div class={`wrapper ${this.visibility}`}>
+        <div
+          id="dso-panel-wrapper"
+          class={`wrapper ${this.visibility}`}
+          ref={element => this.panelWrapperElement = element}
+        >
           <div class="dimscreen" onClick={this.closeClick} />
           <div class={`iframe-container ${this.slideState}`} aria-live="polite">
-            {this.loadIframe ? <iframe src={this.iframeUrl} /> : <div />}
+            {this.loadIframe
+              ?
+              <iframe
+                src={this.iframeUrl}
+                tabindex="0"
+                onLoad={() => { this.createTrap(); this.iframeLoaded = true; }}
+              />
+              : <div />}
           </div>
           <button
             type="button"
             class={`close-button ${this.isOpen}`}
             onClick={this.closeClick}
-            aria-expanded="true"
+            aria-expanded={this.isOpen === 'open' ? 'true' : 'false'}
+            aria-controls="dso-panel-wrapper"
+            ref={element => this.closeButtonElement = element}
           >
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">sluiten</span>

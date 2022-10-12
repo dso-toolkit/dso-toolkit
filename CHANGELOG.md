@@ -19,6 +19,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * `@mixin di()` verhuizen van `packages/sources` naar `packages/css` ([#1804](https://github.com/dso-toolkit/dso-toolkit/issues/1804))
 * **core + sources:** Pagination: Werkvorm afstemmen met beschikbare ruimte ([#1772](https://github.com/dso-toolkit/dso-toolkit/issues/1772))
 * **core + sources** Ozon content <Figuur> Titel, bijschrift, en bron mapping ([#1730](https://github.com/dso-toolkit/dso-toolkit/issues/1730))
+* **core:** Helpcenterpanel - stop background scroll and trap focus ([#1770](https://github.com/dso-toolkit/dso-toolkit/issues/1770))
 
 ## 45.0.1
 
