@@ -104,4 +104,21 @@ describe("Helpcenter panel", () => {
       .find('iframe')
       .should('have.focus');
   });
+
+  it('should be responsive', () => {
+    cy.get('@openButton')
+      .click()
+      .viewport(768, 660)
+      .get('@iframeContainer')
+      .should('have.css', 'width', '640px')
+      .viewport(767, 660)
+      .get('@iframeContainer')
+      .should('have.css', 'width', '480px')
+      .viewport(481, 660)
+      .get('@iframeContainer')
+      .should('have.css', 'width', '480px')
+      .viewport(480, 660)
+      .get('@iframeContainer')
+      .should('have.css', 'width', '320px');
+  });
 });
