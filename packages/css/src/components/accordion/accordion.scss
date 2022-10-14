@@ -1,10 +1,13 @@
-@use "../../../../sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/anchor";
+@use "@dso-toolkit/sources/src/components/accordion";
+
+@use "../../di";
 
 @use "accordion-theme-compact";
 @use "accordion-theme-conclusion";
 @use "accordion-theme-default";
-
-@use "accordion.variables" as css-accordion-variables;
 
 .dso-accordion {
   margin-bottom: units.$vertical-spacing-xlarge;
@@ -16,8 +19,8 @@
 
   .dso-section-body {
     border-top: 0;
-    margin-top: -$dso-accordion-border-radius;
-    padding: $u2 + $dso-accordion-border-radius $u2 $u2;
+    margin-top: accordion.$border-radius * -1;
+    padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
 
     *:first-child:not(.dso-info) {
       margin-top: 0;
@@ -29,7 +32,7 @@
 
     .dso-rich-content + .dso-accordion,
     .dso-accordion + .dso-rich-content {
-      margin-top: $u2;
+      margin-top: units.$u2;
     }
   }
 
@@ -37,12 +40,12 @@
     .dso-section-handle {
       a,
       button {
-        padding-left: $u2;
-        padding-right: $u6;
+        padding-left: units.$u2;
+        padding-right: units.$u6;
 
         &::before {
           left: auto;
-          right: $u2;
+          right: units.$u2;
         }
 
         .dso-icon {
@@ -50,7 +53,7 @@
           float: left;
           font-weight: 400;
           margin-left: 0;
-          margin-right: $u1;
+          margin-right: units.$u1;
           padding-left: 0;
           text-decoration: underline;
         }
@@ -61,21 +64,21 @@
   &:not(.dso-accordion-compact):not(.dso-accordion-conclusion) {
     &,
     .dso-nested-accordion .dso-accordion {
-      @include dso-accordion-default();
+      @include accordion-theme-default.default();
     }
   }
 
   &.dso-accordion-conclusion {
     &,
     .dso-nested-accordion .dso-accordion {
-      @include dso-accordion-conclusion();
+      @include accordion-theme-conclusion.conclusion();
     }
   }
 
   &.dso-accordion-compact {
     &,
     .dso-nested-accordion .dso-accordion {
-      @include dso-accordion-compact();
+      @include accordion-theme-compact.compact();
     }
   }
 
@@ -90,7 +93,7 @@
   position: relative;
 
   a {
-    @include anchor-clean();
+    @include anchor.clean();
   }
 
   a,
@@ -99,8 +102,8 @@
     background-color: transparent;
     border: 0;
     display: flex;
-    padding: $dso-accordion-vertical-padding $dso-accordion-horizontal-padding $dso-accordion-vertical-padding
-      $dso-accordion-chevron-left-offset;
+    padding: accordion.$vertical-padding accordion.$horizontal-padding accordion.$vertical-padding
+    accordion.$chevron-left-offset;
     text-align: left;
     width: 100%;
     word-break: break-word;
@@ -108,34 +111,34 @@
     &::before {
       content: "";
       display: inline-block;
-      left: $u2;
+      left: units.$u2;
       position: absolute;
     }
 
     &::after {
       content: "";
       position: absolute;
-      right: $u2;
-      top: ($dso-accordion-handle-height - $dso-accordion-state-icon-size) * 0.5;
+      right: units.$u2;
+      top: (accordion.$handle-height - accordion.$state-icon-size) * 0.5;
     }
 
     .dso-status,
     .dso-icon {
       font-weight: 400;
       margin-left: auto;
-      padding-left: $u2;
+      padding-left: units.$u2;
       text-decoration: underline;
     }
 
     dso-attachments-counter,
     .dso-attachments {
       margin-left: auto;
-      padding-left: $u2;
+      padding-left: units.$u2;
     }
 
     .dso-attachments {
       &::after {
-        @include di("paperclip-grijs", $dso-accordion-chevron-icon-size);
+        @include di.base("paperclip-grijs", accordion.$chevron-icon-size);
       }
     }
   }
@@ -149,7 +152,7 @@
   > h4.dso-section-handle,
   > h5.dso-section-handle {
     font-size: 1em;
-    line-height: $dso-accordion-handle-line-height;
+    line-height: accordion.$handle-line-height;
     margin: 0;
 
     a:active {
@@ -158,7 +161,7 @@
   }
 
   + .dso-accordion-section {
-    margin-top: $u1 * 0.5;
+    margin-top: units.$u1 * 0.5;
   }
 
   &.dso-success,
@@ -168,7 +171,7 @@
     > .dso-section-handle {
       a,
       button {
-        padding-right: $u7;
+        padding-right: units.$u7;
       }
     }
   }
@@ -177,7 +180,7 @@
     > .dso-section-handle {
       a::after,
       button::after {
-        @include di("status-success", $dso-accordion-chevron-icon-size);
+        @include di.base("status-success", accordion.$chevron-icon-size);
       }
     }
   }
@@ -186,7 +189,7 @@
     > .dso-section-handle {
       a::after,
       button::after {
-        @include di("status-danger", $dso-accordion-chevron-icon-size);
+        @include di.base("status-danger", accordion.$chevron-icon-size);
       }
     }
   }
@@ -195,7 +198,7 @@
     > .dso-section-handle {
       a::after,
       button::after {
-        @include di("status-warning", $dso-accordion-chevron-icon-size);
+        @include di.base("status-warning", accordion.$chevron-icon-size);
       }
     }
   }
@@ -204,7 +207,7 @@
     > .dso-section-handle {
       a::after,
       button::after {
-        @include di("status-info", $dso-accordion-chevron-icon-size);
+        @include di.base("status-info", accordion.$chevron-icon-size);
       }
     }
   }
@@ -212,15 +215,15 @@
   &.dso-open {
     &.dso-nested-accordion {
       border: 0;
-      border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+      border-radius: 0 0 accordion.$border-radius accordion.$border-radius;
 
       > .dso-section-body {
         border: 0;
-        padding: ($u2 + $dso-accordion-border-radius - 1) ($u2 + 1) $u2; // corrections for missing borders in nested accordion
+        padding: (units.$u2 + accordion.$border-radius - 1) (units.$u2 + 1) units.$u2; // corrections for missing borders in nested accordion
       }
 
       .dso-accordion-section .dso-section-body {
-        background-color: $wit;
+        background-color: colors.$wit;
       }
     }
   }
@@ -242,6 +245,6 @@ dso-accordion-section {
 dso-accordion {
   .dso-rich-content + dso-accordion,
   dso-accordion + .dso-rich-content {
-    margin-top: $u2;
+    margin-top: units.$u2;
   }
 }

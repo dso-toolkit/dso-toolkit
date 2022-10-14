@@ -1,4 +1,5 @@
 @use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
 @use "~@dso-toolkit/sources/src/variables/colors";
 @use "~@dso-toolkit/sources/src/components/button";
 @use "~@dso-toolkit/sources/src/components/anchor";
@@ -78,7 +79,7 @@ span[role="paragraph"] {
 }
 
 .dso-ozon-figuur {
-  margin-bottom: $u2;
+  margin-bottom: units.$u2;
 
   .figuur-bijschrift {
     display: block;
@@ -99,7 +100,7 @@ span[role="paragraph"] {
   }
 
   .figuur-titel {
-    color: $mauve;
+    color: colors.$mauve;
     display: block;
     font-weight: 500;
     padding-bottom: 0.5rem;

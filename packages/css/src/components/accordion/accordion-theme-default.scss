@@ -1,21 +1,26 @@
-@mixin dso-accordion-default() {
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/accordion";
+
+@use "../../di";
+
+@mixin default() {
   .dso-section-handle {
-    background-color: $wit;
-    border: 1px solid $dso-accordion-default-border-color;
-    border-radius: $dso-accordion-border-radius;
+    background-color: colors.$wit;
+    border: 1px solid accordion.$default-border-color;
+    border-radius: accordion.$border-radius;
 
     a,
     button {
-      color: $dso-accordion-default-color;
+      color: accordion.$default-color;
 
       &::before {
-        @include di("chevron-down-mauve");
+        @include di.base("chevron-down-mauve");
       }
 
       &:hover,
       &:active,
       &.active {
-        color: $dso-accordion-default-color;
+        color: accordion.$default-color;
       }
     }
   }
@@ -24,27 +29,27 @@
     &.dso-open {
       &:not(.dso-nested-accordion) {
         > .dso-section-handle {
-          background-color: $dso-accordion-default-nested-handle-bgcolor;
-          border-radius: $dso-accordion-border-radius;
+          background-color: accordion.$default-nested-handle-bgcolor;
+          border-radius: accordion.$border-radius;
 
           a,
           button {
-            color: $wit;
+            color: colors.$wit;
 
             &::before {
-              @include di-variant("chevron-up-wit");
+              @include di.variant("chevron-up-wit");
             }
 
             dso-attachments-counter {
-              --dso-attachments-counter-color: #{$wit};
+              --dso-attachments-counter-color: #{colors.$wit};
               --dso-icon: var(--di-paperclip-wit);
             }
 
             .dso-attachments {
-              color: $wit;
+              color: colors.$wit;
 
               &::after {
-                @include di-variant("paperclip-wit");
+                @include di.variant("paperclip-wit");
               }
             }
           }
@@ -52,13 +57,13 @@
       }
 
       &.dso-nested-accordion {
-        background-color: $dso-accordion-default-nested-body-bgcolor;
+        background-color: accordion.$default-nested-body-bgcolor;
 
         > .dso-section-handle {
           a,
           button {
             &::before {
-              @include di-variant("chevron-up-mauve");
+              @include di.variant("chevron-up-mauve");
             }
           }
         }
@@ -67,7 +72,7 @@
   }
 
   .dso-section-body {
-    border: 1px solid $dso-accordion-default-border-color;
-    border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+    border: 1px solid accordion.$default-border-color;
+    border-radius: 0 0 accordion.$border-radius accordion.$border-radius;
   }
 }

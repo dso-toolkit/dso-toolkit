@@ -408,7 +408,7 @@
     svg.di.di-chevron-up + span:not(.sr-only),
     span:not(.sr-only) + svg.di.di-chevron-down,
     span:not(.sr-only) + svg.di.di-chevron-up {
-      margin-left: $u1 * 0.5;
+      margin-left: units.$u1 * 0.5;
     }
 
     dso-icon[icon="chevron-left"] + span:not(.sr-only),

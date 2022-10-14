@@ -1,18 +1,19 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-@import "~@dso-toolkit/sources/src/styling/mixins";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/typography";
 
-@import "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/accordion";
+@use "~@dso-toolkit/sources/src/components/anchor";
 
-@import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
+@use "accordion-section-theme-compact";
+@use "accordion-section-theme-conclusion";
+@use "accordion-section-theme-default";
 
-@import "./accordion-section-theme-compact";
-@import "./accordion-section-theme-conclusion";
-@import "./accordion-section-theme-default";
-
-@include box-sizing();
+@include utilities.box-sizing();
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 :host {
@@ -21,7 +22,7 @@
   .dso-section-handle {
     font-size: 1em;
     font-weight: 600;
-    line-height: $dso-accordion-handle-line-height;
+    line-height: accordion.$handle-line-height;
     margin: 0;
     position: relative;
 
@@ -30,7 +31,7 @@
     }
 
     a {
-      @include anchor-clean();
+      @include anchor.clean();
     }
 
     .dso-status {
@@ -46,12 +47,12 @@
     border: 0;
     cursor: pointer;
     display: flex;
-    font-family: $font-family-base;
+    font-family: typography.$font-family-base;
     font-size: 1em;
     font-weight: 600;
-    line-height: $dso-accordion-handle-line-height;
+    line-height: accordion.$handle-line-height;
     margin: 0;
-    padding: $dso-accordion-vertical-padding $dso-accordion-horizontal-padding $dso-accordion-vertical-padding;
+    padding: accordion.$vertical-padding accordion.$horizontal-padding accordion.$vertical-padding;
     width: 100%;
     word-break: break-word;
 
@@ -61,7 +62,7 @@
 
     > .dso-section-handle-addons:first-child,
     > dso-icon:first-child {
-      margin-right: $u1;
+      margin-right: units.$u1;
     }
 
     > dso-icon:last-child {
@@ -85,47 +86,47 @@
 }
 
 .dso-section-body {
-  background-color: $wit;
+  background-color: colors.$wit;
   border-top: 0;
-  margin-top: -$dso-accordion-border-radius;
-  padding: $u2 + $dso-accordion-border-radius $u2 $u2;
+  margin-top: accordion.$border-radius * -1;
+  padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
 }
 
 // Default
 :host(.dso-accordion-default) {
-  @include dso-web-component-accordion-default();
+  @include accordion-section-theme-default.dso-web-component-accordion-default();
 }
 
 :host(.dso-accordion-default[open]:not(.dso-nested-accordion)) {
-  @include dso-web-component-accordion-default-open();
+  @include accordion-section-theme-default.dso-web-component-accordion-default-open();
 }
 
 :host(.dso-accordion-default.dso-nested-accordion[open]) {
-  @include dso-web-component-accordion-default-open-nested();
+  @include accordion-section-theme-default.dso-web-component-accordion-default-open-nested();
 }
 
 // Compact
 :host(.dso-accordion-compact) {
-  @include dso-web-component-accordion-compact();
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact();
 }
 
 :host(.dso-accordion-compact[open]:not(.dso-nested-accordion)) {
-  @include dso-web-component-accordion-compact-open();
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact-open();
 }
 
 :host(.dso-accordion-compact.dso-nested-accordion[open]) {
-  @include dso-web-component-accordion-compact-open-nested();
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact-open-nested();
 }
 
 // Conclusion
 :host(.dso-accordion-conclusion) {
-  @include dso-web-component-accordion-conclusion();
+  @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion();
 }
 
 :host(.dso-accordion-conclusion[open]:not(.dso-nested-accordion)) {
-  @include dso-web-component-accordion-conclusion-open();
+  @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open();
 }
 
 :host(.dso-accordion-conclusion.dso-nested-accordion[open]) {
-  @include dso-web-component-accordion-conclusion-open-nested();
+  @include accordion-section-theme-conclusion.dso-web-component-accordion-conclusion-open-nested();
 }
