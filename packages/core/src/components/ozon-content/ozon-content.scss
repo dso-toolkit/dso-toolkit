@@ -70,20 +70,12 @@ span[role="paragraph"] {
   display: inline;
 }
 
-.od-Al,
-.od-Lijstaanhef {
+.od-Al {
   margin-bottom: 0.75em;
 }
 
 .od-IntIoRef {
   border-bottom: 1px dotted;
-}
-
-.od-LiNummer {
-  float: left;
-  min-width: 0.7em;
-  padding-right: 0.3em;
-  text-align: right;
 }
 
 .dso-ozon-figuur {
@@ -112,6 +104,30 @@ span[role="paragraph"] {
     display: block;
     font-weight: 500;
     padding-bottom: 0.5rem;
+  }
+}
+
+.dso-ozon-lijst {
+  span.od-Lijstaanhef,
+  span.od-Lijstsluiting {
+    margin-bottom: $ru2;
+  }
+
+  ul {
+    &.expliciet {
+      list-style: none;
+
+      > .od-Li  {
+        position: relative;
+
+        > span.od-LiNummer {
+          position: absolute;
+          left: -$u6 + 4px;
+          text-align: right;
+          width: $u5;
+        }
+      }
+    }
   }
 }
 
