@@ -1,8 +1,9 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/zindex";
 
-@import "~@dso-toolkit/sources/src/components/button/button";
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "~@dso-toolkit/sources/src/components/button";
+@use "~@dso-toolkit/sources/src/utilities";
 
 :host {
   display: inline-block;
@@ -15,20 +16,20 @@
 }
 
 button {
-  @include button_element();
+  @include button.element();
 }
 
 .open {
-  @include button_secondary($modifiers: false, $icon-only: true);
+  @include button.secondary($modifiers: false, $icon-only: true);
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   min-width: auto;
-  padding: $u1;
+  padding: units.$u1;
   opacity: 0;
   position: absolute;
-  right: $u2;
-  top: $u2;
+  right: units.$u2;
+  top: units.$u2;
 }
 
 .dimmer {
@@ -37,26 +38,26 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: $zx-image-overlay - 1;
+  z-index: zindex.$image-overlay - 1;
   display: flex;
-  padding: $u4;
-  background-color: fade-out($wit, 0.2);
+  padding: units.$u4;
+  background-color: fade-out(colors.$wit, 0.2);
   justify-content: center;
 }
 
 .wrapper {
   align-self: center;
-  box-shadow: 0 $u1 $u3 0 rgba(25, 25, 25, 0.4);
+  box-shadow: 0 units.$u1 units.$u3 0 rgba(25, 25, 25, 0.4);
   line-height: 0;
-  outline: 4px solid $wit;
+  outline: 4px solid colors.$wit;
   position: relative;
-  z-index: $zx-image-overlay;
+  z-index: zindex.$image-overlay;
 
   .titel:not([hidden]) {
-    background-color: $wit;
+    background-color: colors.$wit;
     font-weight: 700;
     line-height: initial;
-    padding: $u1;
+    padding: units.$u1;
     position: absolute;
   }
 
@@ -64,26 +65,26 @@ button {
     width: auto;
     height: auto;
     max-width: 100%;
-    max-height: calc(100vh - $u8);
+    max-height: calc(100vh - units.$u8);
   }
 
   .figuur-bijschrift:not([hidden]) {
     display: block;
     font-size: 0.75rem;
     font-style: italic;
-    padding-bottom: $u1 * 1.5;
-    padding-top: $u2;
+    padding-bottom: units.$u1 * 1.5;
+    padding-top: units.$u2;
   }
 }
 
 .close {
-  @include button_secondary($modifiers: false, $icon-only: true);
+  @include button.secondary($modifiers: false, $icon-only: true);
 
   border: 0;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   min-width: auto;
-  padding: $u1;
+  padding: units.$u1;
   position: absolute;
-  top: $u2;
-  right: $u2;
+  top: units.$u2;
+  right: units.$u2;
 }

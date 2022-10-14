@@ -1,9 +1,13 @@
-@import "./accordion-theme-compact";
-@import "./accordion-theme-conclusion";
-@import "./accordion-theme-default";
+@use "../../../../sources/src/variables/units";
+
+@use "accordion-theme-compact";
+@use "accordion-theme-conclusion";
+@use "accordion-theme-default";
+
+@use "accordion.variables" as css-accordion-variables;
 
 .dso-accordion {
-  margin-bottom: $dso-vertical-spacing-xlarge;
+  margin-bottom: units.$vertical-spacing-xlarge;
 
   // dit is een nested accordion.
   .dso-accordion {

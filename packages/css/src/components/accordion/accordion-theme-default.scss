@@ -1,4 +1,4 @@
-@mixin dso-accordion-default {
+@mixin dso-accordion-default() {
   .dso-section-handle {
     background-color: $wit;
     border: 1px solid $dso-accordion-default-border-color;

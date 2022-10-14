@@ -1,4 +1,4 @@
-@mixin dso-accordion-conclusion {
+@mixin dso-accordion-conclusion() {
   .dso-section-handle {
     background-color: $dso-accordion-conclusion-bgcolor;
     border: 1px solid $dso-accordion-conclusion-border-color;

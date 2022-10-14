@@ -3,7 +3,7 @@
 @use "../../di";
 @use "accordion.variables" as css-accordion-variables;
 
-@mixin default {
+@mixin default() {
   .dso-section-handle {
     background-color: colors.$wit;
     border: 1px solid css-accordion-variables.$default-border-color;
@@ -76,7 +76,7 @@
   }
 }
 
-@mixin conclusion {
+@mixin conclusion() {
   .dso-section-handle {
     background-color: css-accordion-variables.$conclusion-bgcolor;
     border: 1px solid css-accordion-variables.$conclusion-border-color;
@@ -148,7 +148,7 @@
   }
 }
 
-@mixin compact {
+@mixin compact() {
   .dso-section-handle {
     border: 1px solid transparent;
 
