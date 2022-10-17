@@ -9,17 +9,18 @@ $dso-featured-background-color: $grasgroen-10;
 
 main,
 form {
-  > .dso-rich-content {
+  >.dso-rich-content {
     margin-bottom: $dso-vertical-spacing-xlarge;
   }
 
-  > .row {
+  >.row {
     &.dso-featured {
       margin-bottom: $u4;
       padding-bottom: $u5;
       padding-top: $u3;
 
-      & + .row div:not(.dso-rich-content) {
+      &+.row div:not(.dso-rich-content) {
+
         h1,
         .h1,
         h2,
@@ -62,11 +63,11 @@ form {
     display: flex;
     flex-wrap: wrap;
 
-    > [class*="col-"] {
+    >[class*="col-"] {
       display: flex;
       flex-direction: column;
 
-      > .dso-highlight-box {
+      >.dso-highlight-box {
         height: 100%;
         min-height: auto;
 
@@ -86,6 +87,14 @@ form {
     background-size: cover;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    +.row {
+      margin-top: 24px;
+    }
+
+    +.row.dso-featured {
+      margin-top: 0px;
+    }
   }
 
   &.dso-featured {
@@ -94,24 +103,10 @@ form {
     background-color: $dso-featured-background-color;
   }
 
-  + .dso-featured {
+  +.dso-featured {
     margin-top: $u3;
   }
 }
-
-.row.dso-banner {
-
-  +.row {
-    margin-top: 24px;
-  }
-
-  +.row.dso-featured { 
-  margin-top: 0px;
-}
-
-}
-
-
 
 .row-no-gutters {
   margin-right: 0;
