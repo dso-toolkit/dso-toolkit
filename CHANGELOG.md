@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **sources:** Icon button lijnt niet goed verticaal uit in de highlightbox ([#1761](https://github.com/dso-toolkit/dso-toolkit/issues/1761))
+
 ## 45.1.0
 
 ### Added
