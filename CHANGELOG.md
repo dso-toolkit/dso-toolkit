@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **core:** Helpcenterpanel - Responsive maken ([#1781](https://github.com/dso-toolkit/dso-toolkit/issues/1781))
+* **core + css:** Header styling verbeteringen ([#1763](https://github.com/dso-toolkit/dso-toolkit/issues/1763))
 
 ## 45.1.0
 
