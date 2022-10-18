@@ -96,7 +96,15 @@ describe("Helpcenter panel", () => {
   it('should trap focus on panel open', () => {
     cy.get('@openButton')
       .click()
-      .wait(transitionTime)
+      .get('@iframeContainer')
+      .find('iframe')
+      .then(($iframe) => {
+        return new Cypress.Promise(resolve => {
+          $iframe.on('load', () => {
+            resolve($iframe.contents().find('body'));
+          });
+        });
+      })
       .get('@closeButton')
       .should('have.focus')
       .realPress('Tab')
