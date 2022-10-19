@@ -52,6 +52,7 @@ import {
   List,
   ListButton,
   MapControls,
+  Modal,
   Navbar,
   Pagination,
   ProgressBar,
@@ -67,7 +68,6 @@ import {
   TreeView,
   Whitebox,
   JustifyFormGroups,
-  Modal,
   OzonContent,
   LabelGroup,
   TileGrid,
@@ -147,6 +147,7 @@ import { coreDropdownMenu } from "./components/dropdown-menu/dropdown-menu.core-
 import { cssFormButtons } from "./components/form/form-buttons.css-template";
 import { cssJustifyFormGroups } from "./components/justify-form-groups/justify-form-groups.css-template";
 import { cssModal } from "./components/modal/modal.css-template";
+import { coreModal } from "./components/modal/modal.core-template";
 import { coreOzonContent } from "./components/ozon-content/ozon-content.core-template";
 import { cssLabelGroup } from "./components/label-group/label-group.css-template";
 import { cssTileGrid } from "./components/tile-grid/tile-grid.css-template";
@@ -221,7 +222,7 @@ export interface Components {
   listButton: ListButton;
   list: List;
   mapControls: MapControls;
-  modal: Modal<TemplateResult>;
+  modal: Modal;
   navbar: Navbar;
   ozonContent: OzonContent;
   pagination: Pagination;
@@ -271,6 +272,7 @@ templateContainer.add(coreInfo);
 templateContainer.add(coreInfoButton);
 templateContainer.add(coreLabel);
 templateContainer.add(coreMapControls);
+templateContainer.add(coreModal);
 templateContainer.add(coreOzonContent);
 templateContainer.add(corePagination);
 templateContainer.add(coreProgressBar);

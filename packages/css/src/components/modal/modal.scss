@@ -1,13 +1,9 @@
-@use "@dso-toolkit/sources/src/components/modal";
 @use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
-
-@use "@dso-toolkit/sources/src/variables/colors";
-@use "@dso-toolkit/sources/src/variables/units";
 @use "@dso-toolkit/sources/src/variables/zindex";
+@use "@dso-toolkit/sources/src/components/button";
+@use "@dso-toolkit/sources/src/components/modal";
 
 @use "../../di";
-
-@include modal.root();
 
 body.dso-modal-open {
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
@@ -36,6 +32,8 @@ body.dso-modal-open {
 }
 
 .dso-modal {
+  @include modal.root();
+
   .dso-close {
     &::before {
       @include di.base("times");
@@ -43,6 +41,16 @@ body.dso-modal-open {
       content: "";
       display: inline-block;
       vertical-align: middle;
+    }
+  }
+
+  div[slot="footer"] {
+    .dso-tertiary,
+    .btn-link {
+      float: left;
+      line-height: calc(1.5em - 1px);
+      padding: button.$vertical-padding 0;
+      position: relative;
     }
   }
 }

@@ -1,7 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
-import { ProgressIndicator } from "../progress-indicator/progress-indicator.models";
 
-import { ModalArgs, modalArgsMapper, modalArgTypes, ModalLoadingArgs, modalLoadingArgTypes } from "./modal.args";
+import { ModalArgs, modalArgsMapper, modalArgTypes } from "./modal.args";
 import { content } from "./modal.content";
 import { Modal } from "./modal.models";
 
@@ -13,14 +12,19 @@ function onStory(load: () => void, unload: () => void) {
   load();
 }
 
-const storyObserver = new MutationObserver(() => {
+const storyObserver = new MutationObserver(([titleMutationRecord]) => {
+  if (titleMutationRecord.target.textContent?.startsWith("HTML|CSS / Modal")) {
+    toggleClass("dso-modal-open");
+  }
+
   if (onLeave) {
     onLeave.unload();
 
     onLeave = null;
   }
 });
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- <title> exists
+
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 storyObserver.observe(window.parent.document.head.querySelector("title")!, { childList: true, subtree: true });
 
 const canvasObserver = new MutationObserver((mutationRecords) => {
@@ -34,7 +38,8 @@ const canvasObserver = new MutationObserver((mutationRecords) => {
     }
   }
 });
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- #root exists
+
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 canvasObserver.observe(document.getElementById("root")!, { attributes: true });
 
 function toggleClass(className: string) {
@@ -50,8 +55,7 @@ function toggleClass(className: string) {
 // </see #1550>
 
 export interface ModalTemplates<TemplateFnReturnType> {
-  modalTemplate: (modalProperties: Modal<TemplateFnReturnType>) => TemplateFnReturnType;
-  progressIndicatorTemplate: (progressIndicatorProperties: ProgressIndicator) => TemplateFnReturnType;
+  modalTemplate: (modalProperties: Modal) => TemplateFnReturnType;
 }
 
 export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
@@ -67,55 +71,22 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
       argTypes: modalArgTypes,
     });
 
-    const template = templateMapper<ModalArgs>((args, { modalTemplate }) => {
-      toggleClass("dso-modal-open");
+    const template = templateMapper<ModalArgs>((args, { modalTemplate }) => modalTemplate(modalArgsMapper(args)));
 
-      return modalTemplate(modalArgsMapper(args));
+    stories.add("confirm", template, {
+      args: content.confirm,
     });
 
-    stories.add(
-      "confirm",
-      templateMapper<ModalArgs>((args, { modalTemplate }) => {
-        toggleClass("dso-modal-open");
-
-        return modalTemplate(modalArgsMapper(args));
-      }),
-      {
-        argTypes: modalArgTypes,
-        args: content.confirm,
-      }
-    );
-
     stories.add("passive", template, {
-      argTypes: modalArgTypes,
       args: content.passive,
     });
 
     stories.add("active", template, {
-      argTypes: modalArgTypes,
       args: content.active,
     });
 
-    stories.add(
-      "loading",
-      templateMapper<ModalLoadingArgs>((args, { modalTemplate, progressIndicatorTemplate }) => {
-        toggleClass("dso-modal-open");
-
-        const modal: Modal<TemplateFnReturnType> = {
-          role: args.role,
-          body: progressIndicatorTemplate({
-            size: "small",
-            block: true,
-            label: args.progressIndicatorLabel,
-          }),
-        };
-
-        return modalTemplate(modal);
-      }),
-      {
-        argTypes: modalLoadingArgTypes,
-        args: content.loading,
-      }
-    );
+    stories.add("loading", template, {
+      args: content.loading,
+    });
   });
 }

@@ -13,6 +13,7 @@ import {
   Icon,
   Info,
   Label,
+  Modal,
   OzonContent,
   Pagination,
   ProgressBar,
@@ -39,6 +40,7 @@ import { reactIcon } from "./components/icon/icon.react-template";
 import { reactInfo } from "./components/info/info.react-template";
 import { reactInfoButton } from "./components/info-button/info-button.react-template";
 import { reactLabel } from "./components/label/label.react-template";
+import { reactModal } from "./components/modal/modal.react-template";
 import { reactOzonContent } from "./components/ozon-content/ozon-content.react-template";
 import { reactPagination } from "./components/pagination/pagination.react-template";
 import { reactProgressBar } from "./components/progress-bar/progress-bar.react-template";
@@ -63,6 +65,7 @@ export interface Components {
   info: Info<JSX.Element>;
   infoButton: InfoButton;
   label: Label;
+  modal: Modal;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressBar: ProgressBar;
@@ -93,6 +96,7 @@ templateContainer.add(reactIcon);
 templateContainer.add(reactInfo);
 templateContainer.add(reactInfoButton);
 templateContainer.add(reactLabel);
+templateContainer.add(reactModal);
 templateContainer.add(reactOzonContent);
 templateContainer.add(reactPagination);
 templateContainer.add(reactProgressBar);

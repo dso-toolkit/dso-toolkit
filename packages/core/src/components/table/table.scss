@@ -10,8 +10,6 @@
 @use "~@dso-toolkit/sources/src/components/rich-content";
 @use "~@dso-toolkit/sources/src/components/table";
 
-@include modal.root();
-
 :host {
   display: block;
   margin-bottom: units.$u3;
@@ -30,6 +28,8 @@
 }
 
 :host .dso-modal {
+  @include modal.root();
+
   inset: 0px;
   height: 100%;
   position: fixed;

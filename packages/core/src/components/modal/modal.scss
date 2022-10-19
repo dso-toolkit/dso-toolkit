@@ -1,0 +1,23 @@
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/button";
+@use "~@dso-toolkit/sources/src/components/modal";
+
+:host {
+  @include modal.root();
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+button {
+  @include button.element();
+}
+
+.dso-close {
+  dso-icon {
+    color: modal.$close-icon-color;
+  }
+}

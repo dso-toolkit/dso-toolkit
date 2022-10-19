@@ -12,6 +12,8 @@ import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./co
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
+import { ModalRole } from "@dso-toolkit/sources";
+import { DsoModalCloseEvent } from "./components/modal/modal";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
@@ -235,6 +237,11 @@ export namespace Components {
         "group": string;
         "overlays": Overlay[];
     }
+    interface DsoModal {
+        "hasFooter"?: boolean;
+        "modalTitle"?: string;
+        "role"?: ModalRole;
+    }
     interface DsoOzonContent {
         /**
           * The XML to be rendered.
@@ -413,6 +420,10 @@ export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapOverlaysElement;
 }
+export interface DsoModalCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoModalElement;
+}
 export interface DsoOzonContentCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoOzonContentElement;
@@ -558,6 +569,12 @@ declare global {
         prototype: HTMLDsoMapOverlaysElement;
         new (): HTMLDsoMapOverlaysElement;
     };
+    interface HTMLDsoModalElement extends Components.DsoModal, HTMLStencilElement {
+    }
+    var HTMLDsoModalElement: {
+        prototype: HTMLDsoModalElement;
+        new (): HTMLDsoModalElement;
+    };
     interface HTMLDsoOzonContentElement extends Components.DsoOzonContent, HTMLStencilElement {
     }
     var HTMLDsoOzonContentElement: {
@@ -645,6 +662,7 @@ declare global {
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
+        "dso-modal": HTMLDsoModalElement;
         "dso-ozon-content": HTMLDsoOzonContentElement;
         "dso-pagination": HTMLDsoPaginationElement;
         "dso-progress-bar": HTMLDsoProgressBarElement;
@@ -896,6 +914,12 @@ declare namespace LocalJSX {
         "onDsoToggleOverlay"?: (event: DsoMapOverlaysCustomEvent<OverlayChangeEvent>) => void;
         "overlays": Overlay[];
     }
+    interface DsoModal {
+        "hasFooter"?: boolean;
+        "modalTitle"?: string;
+        "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
+        "role"?: ModalRole;
+    }
     interface DsoOzonContent {
         /**
           * The XML to be rendered.
@@ -1065,6 +1089,7 @@ declare namespace LocalJSX {
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
+        "dso-modal": DsoModal;
         "dso-ozon-content": DsoOzonContent;
         "dso-pagination": DsoPagination;
         "dso-progress-bar": DsoProgressBar;
@@ -1102,6 +1127,7 @@ declare module "@stencil/core" {
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;
+            "dso-modal": LocalJSX.DsoModal & JSXBase.HTMLAttributes<HTMLDsoModalElement>;
             "dso-ozon-content": LocalJSX.DsoOzonContent & JSXBase.HTMLAttributes<HTMLDsoOzonContentElement>;
             "dso-pagination": LocalJSX.DsoPagination & JSXBase.HTMLAttributes<HTMLDsoPaginationElement>;
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
