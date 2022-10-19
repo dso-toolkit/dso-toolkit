@@ -16,7 +16,7 @@ describe("Helpcenter panel", () => {
       .as('closeButton');
   });
 
-  const url = 'https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/helpcenter-panel--helpcenter-panel';
+  const url = window.location.origin + '/iframe.html?id=core-helpcenter-panel--helpcenter-panel&viewMode=docs';
 
   const transitionTime = 500;
 
@@ -51,28 +51,44 @@ describe("Helpcenter panel", () => {
   });
 
   it('should not load iframe when panel is closed', () => {
+    const secondUrl = window.location.origin + '/iframe.html?id=core-icon--icon&viewMode=docs';
+
     cy.get('@openButton')
       .click()
       .get('@iframeContainer')
       .find('iframe')
       .as('iframe')
+      .then(($iframe) => new Cypress.Promise(resolve =>
+        $iframe.on('load', () => resolve())
+      ))
+      .get('@iframe')
       .should('have.attr', 'src', url)
       .get('@closeButton')
       .click()
       .wait(transitionTime)
       .get('dso-helpcenter-panel')
-      .invoke('attr', 'url', 'https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/label--default')
+      .invoke('attr', 'url', secondUrl)
       .get('@iframe')
       .should('have.attr', 'src', url)
       .get('@openButton')
       .click()
+      .get('@iframeContainer')
+      .find('iframe')
+      .then(($iframe) => new Cypress.Promise(resolve =>
+        $iframe.on('load', () => resolve())
+      ))
       .get('@iframe')
-      .should('have.attr', 'src', 'https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/label--default');
+      .should('have.attr', 'src', secondUrl);
   });
 
   it('should close panel on escape', () => {
     cy.get('@openButton')
       .click()
+      .get('@iframeContainer')
+      .find('iframe')
+      .then(($iframe) => new Cypress.Promise(resolve =>
+        $iframe.on('load', () => resolve())
+      ))
       .wait(transitionTime)
       .get('@iframeContainer')
       .should('be.visible')
@@ -98,13 +114,10 @@ describe("Helpcenter panel", () => {
       .click()
       .get('@iframeContainer')
       .find('iframe')
-      .then(($iframe) => {
-        return new Cypress.Promise(resolve => {
-          $iframe.on('load', () => {
-            resolve($iframe.contents().find('body'));
-          });
-        });
-      })
+      .then(($iframe) => new Cypress.Promise(resolve =>
+        $iframe.on('load', () => resolve())
+      ))
+      .wait(100)
       .get('@closeButton')
       .should('have.focus')
       .realPress('Tab')

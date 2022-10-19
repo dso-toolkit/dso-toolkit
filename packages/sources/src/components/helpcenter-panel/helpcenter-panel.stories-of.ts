@@ -23,7 +23,7 @@ export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
     {
       args: {
         label: "Hulp nodig",
-        url: "https://core.dso-toolkit.nl/_1376-helpcenter-panel/?path=/docs/helpcenter-panel--helpcenter-panel",
+        url: window.location.origin + '/iframe.html?id=core-helpcenter-panel--helpcenter-panel&viewMode=docs',
         content: `
           <div class="dso-rich-content">
             <h2>Samenspel tussen wetgever en ontwikkelaars</h2>
