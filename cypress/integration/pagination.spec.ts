@@ -221,14 +221,15 @@ describe('Pagination', () => {
   });
 
   it('should show emit correct page on previous and next page select', () => {
-    const currentPage = 3;
-    prepareComponent(currentPage, 5);
+    const currentPage = 6;
+    prepareComponent(currentPage, 28);
 
     cy
       .get('dso-pagination')
       .shadow()
       .as('dsoPagination')
       .find('a[aria-label="Vorige"]')
+      .should('have.attr', 'href', '#5')
       .click()
       .get('@selectPageListener')
       .its('callCount')
@@ -239,6 +240,7 @@ describe('Pagination', () => {
       .should('equal', currentPage - 1)
       .get('@dsoPagination')
       .find('a[aria-label="Volgende"]')
+      .should('have.attr', 'href', '#7')
       .click()
       .get('@selectPageListener')
       .its('callCount')
