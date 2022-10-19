@@ -221,8 +221,8 @@ describe('Pagination', () => {
   });
 
   it('should show emit correct page on previous and next page select', () => {
-    const currentPage = 3;
-    prepareComponent(currentPage, 5);
+    const currentPage = 6;
+    prepareComponent(currentPage, 28);
 
     cy
       .get('dso-pagination')

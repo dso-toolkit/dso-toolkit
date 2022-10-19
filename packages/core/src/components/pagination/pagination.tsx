@@ -87,7 +87,7 @@ export class Pagination implements ComponentInterface {
       <dso-responsive-element ref={element => this.responsiveElement = element}>
         <ul class="pagination">
           <li class={(currentPage <= 1 || currentPage > this.totalPages) ? 'dso-page-hidden' : undefined}>
-            <a href={this.formatHref(pages[0])} aria-label="Vorige" onClick={e => currentPage && this.clickHandler(e, pages[currentPage - 2])}>
+            <a href={this.formatHref(pages[0])} aria-label="Vorige" onClick={e => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) - 1])}>
               <dso-icon icon="chevron-left"></dso-icon>
             </a>
           </li>
@@ -117,7 +117,7 @@ export class Pagination implements ComponentInterface {
             </>
           ))}
           <li class={(currentPage < 1 || currentPage >= this.totalPages) ? 'dso-page-hidden' : undefined}>
-            <a href={this.formatHref(pages[pages.length - 1])} aria-label="Volgende" onClick={e => currentPage && this.clickHandler(e, pages[currentPage])}>
+            <a href={this.formatHref(pages[pages.length - 1])} aria-label="Volgende" onClick={e => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) + 1])}>
               <dso-icon icon="chevron-right"></dso-icon>
             </a>
           </li>
