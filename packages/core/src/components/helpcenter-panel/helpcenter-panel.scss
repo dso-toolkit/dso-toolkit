@@ -93,10 +93,23 @@
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
   height: 100%;
   position: absolute;
-  right: -640px;
   top: 0;
   transition: right 0.5s;
-  width: 640px;
+
+  @media screen and (max-width: $screen-xs-min) {
+    right: -320px;
+    width: 320px;
+  }
+
+  @media screen and (min-width: ($screen-xs-min + 1)) and (max-width: $screen-xs-max) {
+    right: -480px;
+    width: 480px;
+  }
+
+  @media screen and (min-width: $screen-sm-min) {
+    right: -640px;
+    width: 640px;
+  }
 
   &.open {
     right: 0;
