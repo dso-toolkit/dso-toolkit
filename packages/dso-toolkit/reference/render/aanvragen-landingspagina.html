@@ -17,8 +17,8 @@
       </button>
     </div>
     <ul class="dso-nav dso-nav-main">
-      <li>
-        <a href="#">
+      <li class="dso-active">
+        <a href="#" aria-current="page">
           Home
         </a>
       </li>
@@ -32,8 +32,8 @@
           Aanvragen
         </a>
       </li>
-      <li class="dso-active">
-        <a href="#" aria-current="page">
+      <li>
+        <a href="#">
           Regels op de kaart
         </a>
       </li>
@@ -43,20 +43,6 @@
         </a>
       </li>
     </ul>
-  </nav>
-  <nav aria-label="U bevindt zich hier:">
-    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="#">
-          <span itemprop="name">Home</span>
-        </a>
-        <meta itemprop="position" content="1" />
-      </li>
-      <li class="active" aria-current="page" itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-        <span itemprop="name">Checken</span>
-        <meta itemprop="position" content="2" />
-      </li>
-    </ol>
   </nav>
 </header>
 <main>
@@ -88,7 +74,9 @@
       <div class="dso-rich-content">
         <h2>Omgevingsoverleg</h2>
         <p>Is uw plan erg ingewikkeld? Dan adviseren we u een aanvraag te doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt samen met uw gemeente, waterschap of provincie en andere relevante betrokkenen. Het uitgangspunt van het Omgevingsoverleg is 'Hoe kunnen we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar is. Ook weet u hoe u uw verzoek het beste kunt indienen.</p>
-        <p><em class="text-muted">Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid en mogelijke kosten van een Omgevingsoverleg</em></p>
+        <p>
+          <em class="text-muted">Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid en mogelijke kosten van een Omgevingsoverleg</em>
+        </p>
         <h2>Eerst een vergunningcheck?</h2>
         <p>Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard. Dat scheelt u veel werk in de toekomst. Start <a href="#">de Vergunningcheck</a>.</p>
       </div>
@@ -102,69 +90,65 @@
       </dso-highlight-box>
     </div>
   </div>
-  <div class="row dso-featured">
+  <div class="row dso-featured  dso-equal-heights">
     <div class="col-xs-12">
-      <h2>De stappen</h1>
-        <div class="row dso-equal-heights">
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="1" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Project aanmaken</h3>
-                <p>Maak eerst een project aan. Deze vindt u daarna terug in <a href="#">Mijn omgevingsloket</a>.</p>
-              </div>
-            </dso-highlight-box>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="2" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Locatie</h3>
-                <p>Kies de locatie voor uw bouwactiviteit(en).</p>
-              </div>
-            </dso-highlight-box>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="3" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Activiteiten</h3>
-                <p>Kies de activiteiten van uw project.</p>
-              </div>
-            </dso-highlight-box>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="4" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Vragen beantwoorden</h3>
-                <p>Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer relevant zijn vallen vanzelf weg.</p>
-              </div>
-            </dso-highlight-box>
-          </div>
+      <h2>De stappen</h2>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="1" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Project aanmaken</h3>
+          <p>Maak eerst een project aan. Deze vindt u daarna terug in <a href="#">Mijn omgevingsloket</a>.</p>
         </div>
-        <div class="row dso-equal-heights">
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="5" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Documenten toevoegen</h3>
-                <p>Voeg alle benodigde documenten toe.</p>
-              </div>
-            </dso-highlight-box>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="6" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Uw gegevens</h3>
-                <p>Controleer uw gegevens en vul aan waar nodig.</p>
-              </div>
-            </dso-highlight-box>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <dso-highlight-box step="7" white drop-shadow>
-              <div class="dso-rich-content">
-                <h3>Verzoek samenstellen</h3>
-                <p>In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief verzoek wordt verstuurd.</p>
-              </div>
-            </dso-highlight-box>
-          </div>
+      </dso-highlight-box>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="2" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Locatie</h3>
+          <p>Kies de locatie voor uw bouwactiviteit(en).</p>
         </div>
+      </dso-highlight-box>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="3" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Activiteiten</h3>
+          <p>Kies de activiteiten van uw project.</p>
+        </div>
+      </dso-highlight-box>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="4" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Vragen beantwoorden</h3>
+          <p>Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer relevant zijn vallen vanzelf weg.</p>
+        </div>
+      </dso-highlight-box>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="5" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Documenten toevoegen</h3>
+          <p>Voeg alle benodigde documenten toe.</p>
+        </div>
+      </dso-highlight-box>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="6" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Uw gegevens</h3>
+          <p>Controleer uw gegevens en vul aan waar nodig.</p>
+        </div>
+      </dso-highlight-box>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <dso-highlight-box step="7" white drop-shadow>
+        <div class="dso-rich-content">
+          <h3>Verzoek samenstellen</h3>
+          <p>In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief verzoek wordt verstuurd.</p>
+        </div>
+      </dso-highlight-box>
     </div>
   </div>
   <div class="row dso-equal-heights">
