@@ -23,7 +23,11 @@ describe("Helpcenter panel", () => {
   it('should be accessible', () => {
     cy.injectAxe();
     cy.checkA11y("dso-helpcenter-panel");
-    cy.get('@closeButton')
+    cy.get('@dsoHelpcenterPanel')
+      .find('#dso-panel-wrapper')
+      .should('have.attr', 'aria-label', 'helpcentrum')
+      .and('have.attr', 'role', 'dialog')
+      .get('@closeButton')
       .should('have.attr', 'aria-expanded', 'false')
       .and('have.attr', 'aria-controls', 'dso-panel-wrapper')
       .get('@openButton')

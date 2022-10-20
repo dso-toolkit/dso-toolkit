@@ -135,6 +135,8 @@ export class HelpcenterPanel {
         <div
           id="dso-panel-wrapper"
           class={`wrapper ${this.visibility}`}
+          aria-label="helpcentrum"
+          role="dialog"
           ref={element => this.panelWrapperElement = element}
         >
           <div class="dimscreen" onClick={this.closeClick} />
