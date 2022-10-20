@@ -40,6 +40,10 @@ $dso-dropdown-link-color: $grijs-90;
       flex-wrap: nowrap;
     }
   }
+
+  .dso-nav {
+    border: 0;
+  }
 }
 
 .logo-container {
@@ -103,6 +107,10 @@ $dso-dropdown-link-color: $grijs-90;
 
 .dso-navbar {
   flex-basis: 100%;
+
+  .dso-dropdown-options {
+    border-top: 1px solid $grijs-20;
+  }
 }
 
 dso-dropdown-menu {
@@ -123,19 +131,24 @@ dso-dropdown-menu {
     border: 0;
     border-radius: 0;
 
-    ul {
-      width: 320px;
-
-      @media screen and (max-width: $screen-sm-max) {
-        width: 100%;
-      }
+    @media screen and (min-width: $screen-sm-min) {
+      width: 375px;
     }
 
-    li {
+    @media screen and (max-width: $screen-xs-max) {
+      width: 100%;
+    }
+
+    ul li {
       a {
         color: $bosgroen;
         font-size: 1.25rem;
         padding: $u2;
+        white-space: pre-wrap;
+
+        &:focus {
+          color: $wit;
+        }
 
         &:hover {
           background-color: $wit;
@@ -168,7 +181,6 @@ dso-dropdown-menu {
     }
 
     .dso-dropdown-options {
-      left: 0;
       right: 0;
       top: 100%;
     }
@@ -245,6 +257,7 @@ dso-dropdown-menu {
 
     dso-dropdown-menu {
       .dso-dropdown-options {
+        left: -$ru2;
         top: calc(100% + 3px);
       }
 

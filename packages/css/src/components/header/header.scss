@@ -1,3 +1,5 @@
+@import "../../di";
+
 header {
   display: block;
 }
@@ -21,6 +23,28 @@ dso-header {
     div[slot="logo"] {
       img {
         max-height: 40px;
+      }
+    }
+  }
+
+  dso-dropdown-menu {
+    > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+      &:hover,
+      &:active {
+        &::after{
+          @include di-variant('chevron-down-grasgroen');
+        }
+      }
+    }
+
+    &[open] {
+      > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+        &:hover,
+        &:active {
+          &::after{
+            @include di-variant('chevron-up-grasgroen');
+          }
+        }
       }
     }
   }
