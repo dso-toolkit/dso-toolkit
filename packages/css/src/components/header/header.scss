@@ -1,3 +1,27 @@
 header {
   display: block;
 }
+
+dso-header {
+  .dso-header:not(.has-sub-logo) {
+    div[slot="logo"] {
+      img {
+        @media screen and (min-width: $screen-sm-min) {
+          max-height: 48px;
+        }
+
+        @media screen and (max-width: $screen-xs-max) {
+          max-height: 40px;
+        }
+      }
+    }
+  }
+
+  .dso-header.has-sub-logo {
+    div[slot="logo"] {
+      img {
+        max-height: 40px;
+      }
+    }
+  }
+}

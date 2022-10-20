@@ -26,7 +26,7 @@ export function headerTemplate({
     user-home-url=${ifDefined(userHomeUrl)}
     @dsoHeaderClick=${dsoHeaderClick}
   >
-    <div slot="logo"><img height="40" alt="Omgevingsloket" src="${logo}" /></div>
+    <div slot="logo"><img alt="Omgevingsloket" src="${logo}" /></div>
     ${subLogo ? html`<div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div>` : undefined}
   </dso-header>`;
 }
