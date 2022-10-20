@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Pagination Web Component: Prev en Next pages gedragen zich als First en Last ([#1833](https://github.com/dso-toolkit/dso-toolkit/issues/1833))
 * **core + sources:** Ozon content - lijst: lijst is geen html lijst ([#1792](https://github.com/dso-toolkit/dso-toolkit/issues/1792))
 * **core:** Dropdown menu header wordt niet goed getoond ([#1814](https://github.com/dso-toolkit/dso-toolkit/issues/1814))
+* **core:** Helpcenter panel: role=dialog op modal zetten ([#1835](https://github.com/dso-toolkit/dso-toolkit/issues/1835))
 
 ### Changed
 * **core:** Helpcenterpanel - Responsive maken ([#1781](https://github.com/dso-toolkit/dso-toolkit/issues/1781))
