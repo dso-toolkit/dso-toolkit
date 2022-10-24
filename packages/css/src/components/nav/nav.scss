@@ -1,9 +1,11 @@
+@use "@dso-toolkit/sources/src/variables/colors";
+
 nav {
   display: block;
 
   .dso-link-list {
     a:visited {
-      color: $grasgroen;
+      color: colors.$grasgroen;
     }
   }
 }

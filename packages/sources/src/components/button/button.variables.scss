@@ -1,0 +1,81 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+$border-radius: 4px;
+$min-width: units.$u7;
+$horizontal-padding: units.$u2 - 1px;
+$vertical-padding: units.$u1 * 1.5 - 1px;
+
+$primary-background-color: colors.$grasgroen;
+$primary-color: colors.$wit;
+$primary-hover-background-color: colors.$bosgroen;
+$primary-active-background-color: colors.$bosgroen-130;
+$primary-disabled-background-color: colors.$grasgroen-40;
+
+$secondary-background-color: colors.$wit;
+$secondary-border-color: colors.$grasgroen;
+$secondary-color: colors.$grasgroen;
+$secondary-hover-background-color: colors.$grasgroen;
+$secondary-hover-color: colors.$wit;
+$secondary-active-background-color: colors.$bosgroen;
+$secondary-disabled-color: colors.$grasgroen-40;
+
+$tertiary-padding-horizontal: $vertical-padding;
+$tertiary-color: colors.$grasgroen;
+$tertiary-hover-color: colors.$scampi;
+$tertiary-active-color: colors.$scampi;
+
+$buttons: ".btn, .dso-primary, .dso-secondary, .dso-tertiary";
+$not-dso-buttons: ":not(.btn):not(.dso-primary):not(.dso-secondary):not(.dso-tertiary)";
+
+// stylelint-disable string-no-newline -- Escaped new lines wanted to improve readability
+$button-adjacent: "\
+  .btn + .btn,\
+  .btn + .dso-primary,\
+  .btn + .dso-secondary,\
+  .btn + .dso-tertiary,\
+\
+  .dso-primary + .btn,\
+  .dso-primary + .dso-primary,\
+  .dso-primary + .dso-secondary,\
+  .dso-primary + .dso-tertiary,\
+\
+  .dso-secondary + .btn,\
+  .dso-secondary + .dso-primary,\
+  .dso-secondary + .dso-secondary,\
+  .dso-secondary + .dso-tertiary,\
+\
+  .dso-tertiary + .btn,\
+  .dso-tertiary + .dso-primary,\
+  .dso-tertiary + .dso-secondary,\
+  .dso-tertiary + .dso-tertiary\
+";
+
+$button-adjacent-secondary: "\
+  .btn + .dso-secondary,\
+  .btn + .btn-default,\
+\
+  .dso-primary + .dso-secondary,\
+  .dso-primary + .btn-default,\
+\
+  .dso-secondary + .dso-secondary,\
+  .dso-secondary + .btn-default,\
+\
+  .dso-tertiary + .dso-secondary,\
+  .dso-tertiary + .btn-default\
+";
+
+$button-adjacent-tertiary: "\
+  .btn + .dso-tertiary,\
+  .btn + .btn-link,\
+\
+  .dso-primary + .dso-tertiary,\
+  .dso-primary + .btn-link,\
+\
+  .dso-secondary + .dso-tertiary,\
+  .dso-secondary + .btn-link,\
+\
+  .dso-tertiary + .dso-tertiary,\
+  .dso-tertiary + .btn-link\
+";
+// stylelint-enable

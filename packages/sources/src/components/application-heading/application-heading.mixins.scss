@@ -1,0 +1,30 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "application-heading.variables" as application-heading-variables;
+
+@mixin root() {
+  border-bottom: 1px solid colors.$grijs-20;
+  margin-bottom: units.$u2;
+
+  h2 {
+    margin-top: units.$u2;
+  }
+
+  .dso-steps-indicator {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    span.dso-step {
+      color: colors.$grasgroen;
+      display: block;
+      flex: 1 0;
+      flex-basis: auto;
+      font-size: 1rem;
+      font-weight: normal;
+      padding-top: #{application-heading-variables.$step-padding * 0.5};
+      text-align: right;
+    }
+  }
+}

@@ -1,16 +1,19 @@
-@import "../grid/grid.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+
+@use "../grid/grid.variables" as css-grid-variables;
 
 dso-viewer-grid {
   .dso-filterblok {
-    margin-left: $grid-gutter-width * -0.5;
-    margin-right: $grid-gutter-width * -0.5;
+    margin-left: css-grid-variables.$grid-gutter-width * -0.5;
+    margin-right: css-grid-variables.$grid-gutter-width * -0.5;
 
     .dso-filterblok-address {
       font-weight: bold;
-      margin: $u1 0;
+      margin: units.$u1 0;
     }
 
-    @media screen and (max-width: $screen-xs-min) {
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
       .dso-context-wrapper {
         .dso-context-container {
           flex-basis: auto;

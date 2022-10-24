@@ -1,27 +1,24 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/typography";
+@use "~@dso-toolkit/sources/src/components/button";
 
-@import "~@dso-toolkit/sources/src/components/button/button";
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-$transition-duration: 300ms; // Sync with const transitionDuration in map-overlays.tsx
-$controls-margin: $u2;
-$zoom-button-size: $u5;
+@use "map-controls.variables" as core-map-controls-variables;
 
 :host {
   background-color: #fff;
-  border: 1px solid $grijs-20;
+  border: 1px solid colors.$grijs-20;
   bottom: 0;
   display: block;
-  font-family: $font-family-base;
+  font-family: typography.$font-family-base;
   position: absolute;
   top: 0;
   left: 100%;
-  transition: transform $transition-duration ease;
+  transition: transform core-map-controls-variables.$transition-duration ease;
   width: 300px;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 :host([open]) {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
@@ -33,15 +30,15 @@ $zoom-button-size: $u5;
 }
 
 button {
-  @include button_element();
+  @include button.element();
 }
 
 #toggle-visibility-button {
-  @include button_map();
+  @include button.map();
 
   position: absolute;
-  right: calc(100% + #{$controls-margin + $zoom-button-size});
-  top: $controls-margin;
+  right: calc(100% + #{core-map-controls-variables.$controls-margin + core-map-controls-variables.$zoom-button-size});
+  top: core-map-controls-variables.$controls-margin;
 }
 
 #zoom-buttons {
@@ -51,12 +48,12 @@ button {
   flex-wrap: wrap;
   flex: 0 0;
   position: absolute;
-  right: calc(100% + $controls-margin);
-  top: $controls-margin;
+  right: calc(100% + core-map-controls-variables.$controls-margin);
+  top: core-map-controls-variables.$controls-margin;
 
   button {
-    @include button_secondary($modifiers: false, $icon-only: true);
-    @include button_map_focus();
+    @include button.secondary($modifiers: false, $icon-only: true);
+    @include button.map-focus();
 
     border: 0;
     padding: 8px;
@@ -64,26 +61,26 @@ button {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     flex: 0 0 100%;
-    height: $zoom-button-size;
+    height: core-map-controls-variables.$zoom-button-size;
     min-width: auto;
-    width: $zoom-button-size;
+    width: core-map-controls-variables.$zoom-button-size;
 
     + button {
       border-radius: 0;
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
-      border-top: 1px solid $grijs-20;
+      border-top: 1px solid colors.$grijs-20;
     }
   }
 }
 
 #close-button {
-  @include button_tertiary($modifiers: false, $icon-only: true);
+  @include button.tertiary($modifiers: false, $icon-only: true);
 
   padding: 0;
   position: absolute;
-  right: $controls-margin;
-  top: $controls-margin;
+  right: core-map-controls-variables.$controls-margin;
+  top: core-map-controls-variables.$controls-margin;
 }
 
 section:not([hidden]) {
@@ -98,13 +95,13 @@ header,
 }
 
 header {
-  border-bottom: 1px solid $grijs-20;
+  border-bottom: 1px solid colors.$grijs-20;
   flex-grow: 0;
   position: relative;
 
   h2 {
-    color: $bosgroen;
-    font-family: $headings-font-family;
+    color: colors.$bosgroen;
+    font-family: typography.$headings-font-family;
     line-height: 1;
     margin: 0;
   }

@@ -1,49 +1,53 @@
+@use "@dso-toolkit/sources/src/components/alert";
+
+@use "../../di";
+
 // HTML/CSS
 .alert {
-  @include alert_root();
+  @include alert.root();
 
-  @include alert_children();
+  @include alert.children();
 
   &::before {
-    @include alert_icon-position();
+    @include alert.icon-position();
 
     content: "";
   }
 
   &.alert-success {
     &::before {
-      @include di("status-success", $dso-alert-icon-size);
+      @include di.base("status-success", alert.$icon-size);
     }
   }
 
   &.alert-danger {
     &::before {
-      @include di("status-danger", $dso-alert-icon-size);
+      @include di.base("status-danger", alert.$icon-size);
     }
   }
 
   &.alert-warning {
     &::before {
-      @include di("status-warning", $dso-alert-icon-size);
+      @include di.base("status-warning", alert.$icon-size);
     }
   }
 
   &.alert-info {
     &::before {
-      @include di("status-info", $dso-alert-icon-size);
+      @include di.base("status-info", alert.$icon-size);
     }
   }
 
   a {
     &.download {
       &::after {
-        @include di-variant("download-grijs90");
+        @include di.variant("download-grijs90");
       }
     }
 
     &.extern {
       &::after {
-        @include di-variant("external-link-grijs90");
+        @include di.variant("external-link-grijs90");
       }
     }
   }
@@ -51,18 +55,18 @@
 
 // Web Component
 dso-alert {
-  @include alert_children();
+  @include alert.children();
 
   a {
     &.download {
       &::after {
-        @include di-variant("download-grijs90");
+        @include di.variant("download-grijs90");
       }
     }
 
     &.extern {
       &::after {
-        @include di-variant("external-link-grijs90");
+        @include di.variant("external-link-grijs90");
       }
     }
   }

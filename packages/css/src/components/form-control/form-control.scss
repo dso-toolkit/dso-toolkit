@@ -1,5 +1,5 @@
-@import "../../../../sources/src/styling/mixins";
+@use "@dso-toolkit/sources/src/components/form-control";
 
 .form-control {
-  @include form-control();
+  @include form-control.root();
 }

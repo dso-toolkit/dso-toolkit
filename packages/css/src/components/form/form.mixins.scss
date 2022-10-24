@@ -1,6 +1,8 @@
+@use "form.variables" as css-form-variables;
+
 @mixin form-group-required {
-  color: $dso-required-color;
-  content: $dso-required-string;
+  color: css-form-variables.$required-color;
+  content: css-form-variables.$required-string;
   font-size: 0.85em;
   font-style: italic;
   font-weight: 400;

@@ -1,21 +1,25 @@
-@use "../grid/grid.mixins" as grid;
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/button";
+@use "@dso-toolkit/sources/src/components/link-list";
 
-// Todo: Color doesn't exist in color palette
-$dso-footer-border-color: $grijs-20;
-$dso-footer-header-border-color: $grijs-20;
+@use "../../di";
+
+@use "../grid" as css-grid;
+@use "footer.variables" as css-footer-variables;
 
 footer {
-  @include grid.full-width-row();
+  @include css-grid.full-width-row();
 
-  background-color: $grijs-5;
-  border-top: 1px solid $dso-footer-border-color;
+  background-color: colors.$grijs-5;
+  border-top: 1px solid css-footer-variables.$border-color;
   display: block;
-  margin-top: $u6;
-  padding-bottom: $u6;
-  padding-top: $u3;
+  margin-top: units.$u6;
+  padding-bottom: units.$u6;
+  padding-top: units.$u3;
 
   .dso-link-list {
-    @include link-list_exotic();
+    @include link-list.exotic();
 
     a {
       &,
@@ -23,32 +27,32 @@ footer {
       &:focus,
       &:hover {
         &::before {
-          @include di("chevron-right-grijs90");
+          @include di.base("chevron-right-grijs90");
         }
       }
 
       &.download {
         &::after {
-          @include di("download-grijs90");
+          @include di.base("download-grijs90");
         }
       }
 
       &.extern {
         &::after {
-          @include di("external-link-grijs90");
+          @include di.base("external-link-grijs90");
         }
       }
     }
   }
 
   h2 {
-    border-bottom: 1px solid $dso-footer-header-border-color;
-    color: $grijs-90;
+    border-bottom: 1px solid css-footer-variables.$header-border-color;
+    color: colors.$grijs-90;
     font-size: 1.25em;
     font-weight: 700;
-    margin-bottom: $u2;
-    margin-top: $u2;
-    padding-bottom: $u2;
+    margin-bottom: units.$u2;
+    margin-top: units.$u2;
+    padding-bottom: units.$u2;
   }
 
   a {
@@ -57,16 +61,16 @@ footer {
     &.active,
     &:active,
     &:focus {
-      color: $grijs-90;
+      color: colors.$grijs-90;
     }
 
-    &#{$not-dso-buttons}:visited {
+    &#{button.$not-dso-buttons}:visited {
       &,
       &:hover,
       &.active,
       &:active,
       &:focus {
-        color: $grijs-90;
+        color: colors.$grijs-90;
       }
     }
   }

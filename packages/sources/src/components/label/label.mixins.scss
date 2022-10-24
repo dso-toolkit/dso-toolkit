@@ -1,0 +1,103 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/typography";
+@use "label.variables" as label-variables;
+
+@mixin root() {
+  background-color: label-variables.$default-bg-color;
+  border-radius: 4px;
+  color: label-variables.$default-color;
+  display: inline-block;
+  line-height: 1.5;
+  max-width: 100%;
+
+  &:not(.dso-label-bright) {
+    padding: #{units.$u1 * 0.5} units.$u1;
+  }
+
+  &:focus-within,
+  &.dso-hover {
+    text-decoration: line-through;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    border-radius: 0 #{units.$u1 * 0.5} #{units.$u1 * 0.5} 0;
+    color: inherit;
+    float: right;
+    font-size: typography.$root-font-size-base;
+    margin-bottom: units.$u1 * -0.5;
+    margin-left: units.$u1;
+    margin-right: units.$u1 * -0.5;
+    margin-top: 0;
+    padding: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    > dso-icon,
+    > svg.di {
+      display: block;
+    }
+  }
+
+  &.dso-compact {
+    border: 0;
+    padding: 0 8px;
+  }
+
+  &.dso-label-info {
+    background-color: label-variables.$info-bg-color;
+    color: label-variables.$info-color;
+  }
+
+  &.dso-label-primary {
+    background-color: label-variables.$primary-bg-color;
+    color: label-variables.$primary-color;
+  }
+
+  &.dso-label-success {
+    background-color: label-variables.$success-bg-color;
+    color: label-variables.$success-color;
+  }
+
+  &.dso-label-warning {
+    background-color: label-variables.$warning-bg-color;
+    color: label-variables.$warning-color;
+  }
+
+  &.dso-label-danger {
+    background-color: label-variables.$danger-bg-color;
+    color: label-variables.$danger-color;
+  }
+
+  &.dso-label-bright {
+    background-color: label-variables.$bright-bg-color;
+    color: label-variables.$bright-color;
+    border: 1px solid label-variables.$bright-border-color;
+    padding: #{units.$u1 * 0.5 - 1px} units.$u1 - 1px;
+  }
+}
+
+@mixin symbolContainer() {
+  background-color: colors.$wit;
+  display: block;
+  float: left;
+  height: label-variables.$symbol-height;
+  margin-top: 2px;
+  margin-right: units.$u1;
+  width: label-variables.$symbol-height * label-variables.$symbol-aspect-ratio;
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin symbol() {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

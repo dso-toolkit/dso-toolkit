@@ -1,13 +1,13 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 check {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 check:grasgroen {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }
 
 check:wit {
-  color: $wit;
+  color: colors.$wit;
 }

@@ -1,68 +1,35 @@
-@mixin dropdown-menu_icons() {
-  > .dso-primary,
-  > .btn-primary {
-    &::after {
-      @include di("chevron-down-wit");
-    }
-  }
+@use "../../di";
 
-  > .dso-secondary,
-  > .btn-default {
-    &::after {
-      @include di("chevron-down");
-    }
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/components/dropdown-menu";
 
-    &:hover {
-      &::after {
-        @include di-variant("chevron-down-wit");
-      }
-    }
-  }
-
-  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
-  > .dso-tertiary,
-  > .btn-link {
-    &::after {
-      @include di("chevron-down");
-
-      margin-left: $u1 * 0.5;
-      position: relative;
-      top: -2px;
-    }
-
-    &:hover {
-      &::after {
-        @include di-variant("chevron-down-scampi");
-      }
-    }
-  }
-}
+@use "dropdown-menu.mixins" as css-dropdown-menu-mixins;
 
 // HTML/CSS
 .dso-dropdown-menu {
-  @include dropdown-menu_root();
-  @include dropdown-menu_children();
-  @include dropdown-menu_icons();
+  @include dropdown-menu.root();
+  @include dropdown-menu.children();
+  @include css-dropdown-menu-mixins.icons();
 
   &.dso-open {
-    @include dropdown-menu_open();
+    @include css-dropdown-menu-mixins.icons-open();
   }
 
   &.dso-checkable {
-    @include dropdown-menu_checkable();
+    @include dropdown-menu.checkable();
 
     li {
       &.dso-checked {
         a,
         button {
           &::before {
-            @include di("check-wit", $u3);
+            @include di.base("check-wit", units.$u3);
 
             content: "";
             display: block;
             float: left;
-            margin-left: -$u4;
-            margin-right: $u1;
+            margin-left: units.$u4 * -1;
+            margin-right: units.$u1;
           }
         }
       }
@@ -70,38 +37,38 @@
   }
 
   &.dso-dropdown-align-right {
-    @include dropdown-menu_align-right();
+    @include dropdown-menu.align-right();
   }
 }
 
 // Web Component
 dso-dropdown-menu {
-  @include dropdown-menu_children();
-  @include dropdown-menu_icons();
+  @include dropdown-menu.children();
+  @include css-dropdown-menu-mixins.icons();
 
   &[dropdown-align="right"] {
-    @include dropdown-menu_align-right();
+    @include dropdown-menu.align-right();
   }
 
   &[open] {
-    @include dropdown-menu_open();
+    @include css-dropdown-menu-mixins.icons-open();
   }
 
   &[checkable] {
-    @include dropdown-menu_checkable();
+    @include dropdown-menu.checkable();
 
     li {
       &.dso-checked {
         a,
         button {
           &::before {
-            @include di("check-wit", $u3);
+            @include di.base("check-wit", units.$u3);
 
             content: "";
             display: block;
             float: left;
-            margin-left: -$u4;
-            margin-right: $u1;
+            margin-left: units.$u4 * -1;
+            margin-right: units.$u1;
           }
         }
       }

@@ -1,0 +1,27 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+
+@mixin root() {
+  background-color: transparent;
+  color: colors.$grasgroen;
+  border: 0;
+  margin-left: units.$u1;
+  padding: 0;
+
+  &.dso-info-secondary {
+    color: colors.$grijs-60;
+  }
+}
+
+@mixin controlLabelSibling() {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    margin-top: #{units.$u1 - 1};
+
+    .dso-radios &,
+    .dso-checkboxes &,
+    .dso-files & {
+      margin-top: 0;
+    }
+  }
+}

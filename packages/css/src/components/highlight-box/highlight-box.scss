@@ -1,16 +1,22 @@
+@use "@dso-toolkit/sources/src/components/highlight-box";
+@use "@dso-toolkit/sources/src/components/link-list";
+@use "@dso-toolkit/sources/src/components/step-counter";
+
+@use "../../di";
+
 // HTML/CSS
 .dso-highlight-box {
-  @include highlight-box_root();
-  @include highlight-box_children();
+  @include highlight-box.root();
+  @include highlight-box.children();
 
   &.dso-yellow,
   &:not(.dso-border):not(.dso-white) {
-    @include highlight-box_exoticChildren();
+    @include highlight-box.exoticChildren();
   }
 
   &:not(.dso-border):not(.dso-white) {
     .dso-link-list {
-      @include link-list_exotic();
+      @include link-list.exotic();
 
       a {
         &,
@@ -18,19 +24,19 @@
         &:focus,
         &:hover {
           &::before {
-            @include di("chevron-right-grijs90");
+            @include di.base("chevron-right-grijs90");
           }
         }
 
         &.download {
           &::after {
-            @include di("download-grijs90");
+            @include di.base("download-grijs90");
           }
         }
 
         &.extern {
           &::after {
-            @include di("external-link-grijs90");
+            @include di.base("external-link-grijs90");
           }
         }
       }
@@ -40,17 +46,17 @@
 
 // Web Component
 dso-highlight-box {
-  @include highlight-box_children();
-  @include step-counter();
+  @include highlight-box.children();
+  @include step-counter.step-counter();
 
   &[yellow],
   &:not([border]):not([white]) {
-    @include highlight-box_exoticChildren();
+    @include highlight-box.exoticChildren();
   }
 
   &:not([border]):not([white]) {
     .dso-link-list {
-      @include link-list_exotic();
+      @include link-list.exotic();
 
       a {
         &,
@@ -58,19 +64,19 @@ dso-highlight-box {
         &:focus,
         &:hover {
           &::before {
-            @include di("chevron-right-grijs90");
+            @include di.base("chevron-right-grijs90");
           }
         }
 
         &.download {
           &::after {
-            @include di("download-grijs90");
+            @include di.base("download-grijs90");
           }
         }
 
         &.extern {
           &::after {
-            @include di("external-link-grijs90");
+            @include di.base("external-link-grijs90");
           }
         }
       }

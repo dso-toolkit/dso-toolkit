@@ -1,11 +1,9 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
+@use "~@dso-toolkit/sources/src/components/dropdown-menu";
 
 :host(:focus) {
   outline: none;
 }
 
 :host {
-  @include dropdown-menu_root();
+  @include dropdown-menu.root();
 }

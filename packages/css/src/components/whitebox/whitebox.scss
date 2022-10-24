@@ -1,11 +1,13 @@
+@use "@dso-toolkit/sources/src/components/whitebox";
+
 .dso-whitebox {
-  @include whitebox_root();
+  @include whitebox.root();
 }
 
 .row.dso-equal-heights {
   > [class*="col-"] {
     > .dso-whitebox {
-      @include whitebox-equal_heights();
+      @include whitebox.equal-heights();
     }
   }
 }

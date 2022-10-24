@@ -1,7 +1,13 @@
-$dso-search-bar-height: $ru5;
-$dso-search-bar-invalid-input-border-color: $dso-danger-color;
-$dso-search-bar-focus-border-width: 1px;
-$dso-search-icon-top: $ru4;
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/typography";
+@use "@dso-toolkit/sources/src/variables/zindex";
+@use "@dso-toolkit/sources/src/components/form-control";
+
+@use "../../di";
+
+@use "search-bar.variables" as css-search-bar-variables;
 
 .dso-search-bar {
   display: flex;
@@ -12,20 +18,20 @@ $dso-search-icon-top: $ru4;
     width: 100%;
 
     .dso-search-icon {
-      bottom: $u1;
+      bottom: units.$u1;
       font-size: 0;
-      height: $dso-search-bar-height;
+      height: css-search-bar-variables.$height;
       left: 0;
-      line-height: $dso-search-bar-height;
-      padding: $u1;
+      line-height: css-search-bar-variables.$height;
+      padding: units.$u1;
       position: absolute;
       text-align: center;
       top: 0;
-      width: $dso-search-bar-height;
-      z-index: $zx-searchbar-icon;
+      width: css-search-bar-variables.$height;
+      z-index: zindex.$searchbar-icon;
 
       &::before {
-        @include di("search");
+        @include di.base("search");
 
         content: "";
         display: inline-block;
@@ -34,30 +40,30 @@ $dso-search-icon-top: $ru4;
 
       + input,
       + dso-autosuggest > input {
-        padding-left: $dso-search-bar-height;
+        padding-left: css-search-bar-variables.$height;
       }
     }
 
     input {
-      @include placeholder($input-color-placeholder);
+      @include utilities.placeholder(colors.$input-color-placeholder);
 
-      background-color: $wit;
+      background-color: colors.$wit;
       background-image: none;
-      border: 1px solid $dso-form-control-focus-border-color;
+      border: 1px solid form-control.$focus-border-color;
       border-radius: 4px;
       border-width: 1px;
       box-shadow: none;
       display: block;
-      font-size: $dso-font-size-base;
-      height: $dso-search-bar-height;
-      line-height: $dso-search-bar-height;
-      padding: 6px $dso-search-bar-height 6px $u1;
+      font-size: typography.$root-font-size-base;
+      height: css-search-bar-variables.$height;
+      line-height: css-search-bar-variables.$height;
+      padding: 6px css-search-bar-variables.$height 6px units.$u1;
       transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
       width: 100%;
 
       &:focus {
-        border-color: $dso-form-control-focus-border-color;
-        box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-form-control-focus-border-color;
+        border-color: form-control.$focus-border-color;
+        box-shadow: inset 0 0 0 form-control.$focus-border-width form-control.$focus-border-color;
         outline: 0;
       }
 
@@ -70,37 +76,37 @@ $dso-search-icon-top: $ru4;
       background-color: transparent;
       border: 0;
       box-shadow: none;
-      color: $grasgroen;
+      color: colors.$grasgroen;
       font-size: 0;
-      height: $dso-search-bar-height;
-      padding: $u1;
+      height: css-search-bar-variables.$height;
+      padding: units.$u1;
       position: absolute;
       right: 0;
       text-align: center;
       top: 0;
-      width: $dso-search-bar-height;
+      width: css-search-bar-variables.$height;
 
       &::before {
-        @include di("times");
+        @include di.base("times");
 
         content: "";
         display: inline-block;
-        font-size: $dso-font-size-base;
+        font-size: typography.$root-font-size-base;
       }
     }
 
     label {
       flex-grow: 1;
-      margin-bottom: $u1;
+      margin-bottom: units.$u1;
       width: 100%;
 
       + .dso-search-icon {
-        top: $dso-search-icon-top;
+        top: css-search-bar-variables.$icon-top;
 
         + input,
         + dso-autosuggest {
           + button {
-            top: $dso-search-icon-top;
+            top: css-search-bar-variables.$icon-top;
           }
         }
       }
@@ -108,7 +114,7 @@ $dso-search-icon-top: $ru4;
       + input,
       + dso-autosuggest {
         + button {
-          top: $dso-search-icon-top;
+          top: css-search-bar-variables.$icon-top;
         }
       }
 
@@ -137,25 +143,25 @@ $dso-search-icon-top: $ru4;
 
   .dso-search-bar-input + button {
     align-self: flex-end;
-    height: $dso-search-bar-height;
-    line-height: calc($dso-search-bar-height - 2px);
-    margin: 0 0 0 $u1;
+    height: css-search-bar-variables.$height;
+    line-height: calc(css-search-bar-variables.$height - 2px);
+    margin: 0 0 0 units.$u1;
     min-width: initial;
-    padding: 0 $u2;
+    padding: 0 units.$u2;
     text-align: center;
   }
 
   + .dso-results {
-    color: $grijs-60;
+    color: colors.$grijs-60;
     font-weight: 700;
-    margin-top: $u1;
+    margin-top: units.$u1;
   }
 
   &.dso-invalid .dso-search-bar-input input {
-    border-color: $dso-search-bar-invalid-input-border-color;
+    border-color: css-search-bar-variables.$invalid-input-border-color;
 
     &:focus {
-      box-shadow: inset 0 0 0 $dso-search-bar-focus-border-width $dso-search-bar-invalid-input-border-color;
+      box-shadow: inset 0 0 0 css-search-bar-variables.$focus-border-width css-search-bar-variables.$invalid-input-border-color;
     }
   }
 }

@@ -1,0 +1,17 @@
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/units";
+
+$max-width: 640px;
+$max-height: 70vh;
+
+$backdrop-bg: colors.$wit;
+$backdrop-opacity: 0.2;
+$content-bg: colors.$wit;
+$border-color: colors.$grijs-20;
+
+$close-icon-size: units.$u4;
+
+$header-padding: units.$u2;
+$body-padding: units.$u4;
+$footer-padding: units.$u4;
+$footer-button-height: units.$u6;

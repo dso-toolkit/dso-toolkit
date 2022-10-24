@@ -1,105 +1,91 @@
-// Import variables
-@import "../../sources/src/styling/variables";
-
-// Local mixins
-@import "di";
-
-// Import global stylesheets such as mixins so they are globally available
-@import "../../sources/src/styling/mixins";
-
-@include box-sizing();
-
-// stylelint-disable no-invalid-position-at-import-rule -- box-sizing is needed before imports
-
-// Import namespaced stylesheets, import these first so globally available
-@import "../../sources/src/components";
+@use "@dso-toolkit/sources/src/utilities" as utilities-mixins;
 
 // Global
-@import "global/font-faces";
-@import "global/utilities";
-
-// Legacy
-@import "legacy/components/header";
-@import "legacy/components/panel";
+@use "global/font-faces";
+@use "global/utilities";
 
 // Components
-@import "components/html/html";
-@import "components/body/body";
+@use "components/html/html";
+@use "components/body/body";
 
-@import "components/accordion/accordion";
-@import "components/alert/alert";
-@import "components/anchor/anchor";
-@import "components/application-heading/application-heading";
-@import "components/attachments-counter/attachments-counter";
-@import "components/badge/badge";
-@import "components/banner/banner";
-@import "components/blockquote/blockquote";
-@import "components/breadcrumbs/breadcrumbs";
-@import "components/button/button";
-@import "components/button-row/button-row";
-@import "components/card/card";
-@import "components/card-grid/card-grid";
-@import "components/card-list/card-list";
-@import "components/code/code";
-@import "components/context/context";
-@import "components/definition-list/definition-list";
-@import "components/delete/delete";
-@import "components/description/description";
-@import "components/document-header/document-header";
-@import "components/document-list/document-list";
-@import "components/dropdown-menu/dropdown-menu";
-@import "components/field-label/field-label";
-@import "components/fieldset/fieldset";
-@import "components/footer/footer";
-@import "components/footnotes/footnotes";
-@import "components/form/form-buttons/form-buttons";
-@import "components/form/form";
-@import "components/form-control/form-control";
-@import "components/grid/grid";
-@import "components/header/header";
-@import "components/headings/headings";
-@import "components/highlight-box/highlight-box";
-@import "components/horizontal-rule/horizontal-rule";
-@import "components/icon/icon";
-@import "components/image/image";
-@import "components/info/info";
-@import "components/info-button/info-button";
-@import "components/input/input";
-@import "components/input-number/input-number";
-@import "components/insert/insert";
-@import "components/justify-form-groups/justify-form-groups";
-@import "components/label/label";
-@import "components/label-group/label-group";
-@import "components/link-list/link-list";
-@import "components/list/list";
-@import "components/list-button/list-button";
-@import "components/map-controls/map-controls";
-@import "components/mark/mark";
-@import "components/modal/modal";
-@import "components/nav/nav";
-@import "components/navbar/navbar";
-@import "components/pagination/pagination";
-@import "components/paragraph/paragraph";
-@import "components/preformatted-text/preformatted-text";
-@import "components/progress-bar/progress-bar";
-@import "components/progress-indicator/progress-indicator";
-@import "components/rich-content/rich-content";
-@import "components/search-bar/search-bar";
-@import "components/select/select";
-@import "components/selectable/selectable";
-@import "components/shopping-cart/shopping-cart";
-@import "components/small/small";
-@import "components/sr-only/sr-only";
-@import "components/subscript/subscript";
-@import "components/subtitle/subtitle";
-@import "components/superscript/superscript";
-@import "components/svg/svg";
-@import "components/table/table";
-@import "components/tabs/tabs";
-@import "components/textarea/textarea";
-@import "components/tile/tile";
-@import "components/tile-grid/tile-grid";
-@import "components/tooltip/tooltip";
-@import "components/viewer-grid/viewer-grid";
-@import "components/whitebox/whitebox";
-// stylelint-enable no-invalid-position-at-import-rule
+@use "components/accordion/accordion";
+@use "components/alert/alert";
+@use "components/anchor/anchor";
+@use "components/application-heading/application-heading";
+@use "components/attachments-counter/attachments-counter";
+@use "components/badge/badge";
+@use "components/banner/banner";
+@use "components/blockquote/blockquote";
+@use "components/breadcrumbs/breadcrumbs";
+@use "components/button/button";
+@use "components/button-row/button-row";
+@use "components/card/card";
+@use "components/card-grid/card-grid";
+@use "components/card-list/card-list";
+@use "components/code/code";
+@use "components/context/context";
+@use "components/definition-list/definition-list";
+@use "components/delete/delete";
+@use "components/description/description";
+@use "components/document-header/document-header";
+@use "components/document-list/document-list";
+@use "components/dropdown-menu/dropdown-menu";
+@use "components/field-label/field-label";
+@use "components/fieldset/fieldset";
+@use "components/footer/footer";
+@use "components/footnotes/footnotes";
+@use "components/form/form-buttons/form-buttons";
+@use "components/form/form";
+@use "components/form-control/form-control";
+@use "components/grid/grid";
+@use "components/header/header";
+@use "components/headings/headings";
+@use "components/highlight-box/highlight-box";
+@use "components/horizontal-rule/horizontal-rule";
+@use "components/icon/icon";
+@use "components/image/image";
+@use "components/info/info";
+@use "components/info-button/info-button";
+@use "components/input/input";
+@use "components/input-number/input-number";
+@use "components/insert/insert";
+@use "components/justify-form-groups/justify-form-groups";
+@use "components/label/label";
+@use "components/label-group/label-group";
+@use "components/link-list/link-list";
+@use "components/list/list";
+@use "components/list-button/list-button";
+@use "components/map-controls/map-controls";
+@use "components/mark/mark";
+@use "components/modal/modal";
+@use "components/nav/nav";
+@use "components/navbar/navbar";
+@use "components/pagination/pagination";
+@use "components/paragraph/paragraph";
+@use "components/preformatted-text/preformatted-text";
+@use "components/progress-bar/progress-bar";
+@use "components/progress-indicator/progress-indicator";
+@use "components/rich-content/rich-content";
+@use "components/search-bar/search-bar";
+@use "components/select/select";
+@use "components/selectable/selectable";
+@use "components/shopping-cart/shopping-cart";
+@use "components/small/small";
+@use "components/subscript/subscript";
+@use "components/subtitle/subtitle";
+@use "components/superscript/superscript";
+@use "components/svg/svg";
+@use "components/table/table";
+@use "components/tabs/tabs";
+@use "components/textarea/textarea";
+@use "components/tile/tile";
+@use "components/tile-grid/tile-grid";
+@use "components/tooltip/tooltip";
+@use "components/viewer-grid/viewer-grid";
+@use "components/whitebox/whitebox";
+
+// Legacy
+@use "legacy/components/legacy-header";
+@use "legacy/components/legacy-panel";
+
+@include utilities-mixins.box-sizing();

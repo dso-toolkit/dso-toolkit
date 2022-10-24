@@ -1,0 +1,14 @@
+@use "../../variables/units";
+@use "../../variables/states";
+
+$left-padding: units.$u6;
+
+$small-padding-top: units.$u5 - 1px;
+
+$warning-bg: states.$warning-bg;
+$warning-text: states.$warning-text;
+$warning-border: states.$warning-border;
+
+$danger-bg: states.$danger-bg;
+$danger-text: states.$danger-text;
+$danger-border: states.$danger-border;

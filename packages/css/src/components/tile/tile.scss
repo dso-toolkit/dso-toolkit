@@ -1,17 +1,20 @@
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/tile";
+
 .dso-whitebox-small,
 .dso-tile {
-  @include tile_root();
+  @include tile.root();
 }
 
 .row.dso-equal-heights {
   > [class*="col-"] {
     > .dso-tile,
     > .dso-whitebox-small {
-      @include tile_equal-heights();
+      @include tile.equal-heights();
     }
   }
 }
 
 .dso-whitebox-small { // DEPRECATED
-  background-color: $dso-invalid-color;
+  background-color: colors.$invalid-color;
 }

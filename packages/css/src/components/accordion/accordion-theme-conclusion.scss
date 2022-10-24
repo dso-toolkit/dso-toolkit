@@ -1,21 +1,26 @@
-@mixin dso-accordion-conclusion {
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/accordion";
+
+@use "../../di";
+
+@mixin conclusion() {
   .dso-section-handle {
-    background-color: $dso-accordion-conclusion-bgcolor;
-    border: 1px solid $dso-accordion-conclusion-border-color;
+    background-color: accordion.$conclusion-bgcolor;
+    border: 1px solid accordion.$conclusion-border-color;
 
     a,
     button {
-      color: $dso-accordion-conclusion-color;
+      color: accordion.$conclusion-color;
 
       &::before {
-        @include di("chevron-down-grijs90");
+        @include di.base("chevron-down-grijs90");
       }
 
       &:hover,
       &:active,
       &.active {
-        background-color: $dso-accordion-conclusion-hover-bgcolor;
-        color: $dso-accordion-conclusion-color;
+        background-color: accordion.$conclusion-hover-bgcolor;
+        color: accordion.$conclusion-color;
       }
     }
   }
@@ -24,26 +29,26 @@
     &.dso-open {
       &:not(.dso-nested-accordion) {
         > .dso-section-handle {
-          background-color: $dso-accordion-conclusion-nested-handle-bgcolor;
+          background-color: accordion.$conclusion-nested-handle-bgcolor;
 
           a,
           button {
-            color: $dso-accordion-conclusion-color;
+            color: accordion.$conclusion-color;
 
             &::before {
-              @include di-variant("chevron-up-grijs90");
+              @include di.variant("chevron-up-grijs90");
             }
 
             dso-attachments-counter {
-              --dso-attachments-counter-color: #{$grijs-60};
+              --dso-attachments-counter-color: #{colors.$grijs-60};
               --dso-icon: var(--di-paperclip-grijs);
             }
 
             .dso-attachments {
-              color: $grijs-60;
+              color: colors.$grijs-60;
 
               &::after {
-                @include di-variant("paperclip-grijs");
+                @include di.variant("paperclip-grijs");
               }
             }
           }
@@ -51,14 +56,14 @@
       }
 
       &.dso-nested-accordion {
-        background-color: $dso-accordion-conclusion-nested-body-bgcolor;
-        border: 2px solid $dso-accordion-conclusion-border-color;
+        background-color: accordion.$conclusion-nested-body-bgcolor;
+        border: 2px solid accordion.$conclusion-border-color;
 
         > .dso-section-handle {
           a,
           button {
             &::before {
-              @include di-variant("chevron-up-grijs90");
+              @include di.variant("chevron-up-grijs90");
             }
           }
         }
@@ -67,6 +72,6 @@
   }
 
   .dso-section-body {
-    border: 2px solid $dso-accordion-conclusion-border-color;
+    border: 2px solid accordion.$conclusion-border-color;
   }
 }

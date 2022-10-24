@@ -1,24 +1,30 @@
-@import "../../form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "../../form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/variables/typography";
+@use "@dso-toolkit/sources/src/components/button";
 
-@import "../../../../../../sources/src/styling/variables";
-@import "../../../../../../sources/src/styling/mixins";
+@use "../../../../di";
+
+@use "../../form.variables" as css-form-variables;
+@use "../../form.mixins" as css-form-mixins;
 
 .form-group.dso-files {
   &.dso-required {
     .control-label::after {
-      @include form-group-required();
+      @include css-form-mixins.form-group-required();
     }
   }
 
   dso-selectable,
   .dso-selectable {
-    margin: #{$u1 * 0.5} 0;
+    margin: #{units.$u1 * 0.5} 0;
   }
 
   .dso-file-upload {
     input[type="file"] {
-      @include sr-only();
+      @include utilities.sr-only();
 
       + label {
         cursor: pointer;
@@ -27,12 +33,12 @@
       &:focus {
         & + label {
           &.dso-primary {
-            background-color: $dso-button-primary-hover-background-color;
+            background-color: button.$primary-hover-background-color;
           }
 
           &.dso-secondary {
-            background-color: $dso-button-secondary-hover-background-color;
-            color: $dso-button-secondary-hover-color;
+            background-color: button.$secondary-hover-background-color;
+            color: button.$secondary-hover-color;
           }
         }
       }
@@ -42,14 +48,14 @@
           cursor: default;
 
           &.dso-primary {
-            background-color: $dso-button-primary-disabled-background-color;
-            border-color: $dso-button-primary-disabled-background-color;
+            background-color: button.$primary-disabled-background-color;
+            border-color: button.$primary-disabled-background-color;
           }
 
           &.dso-secondary {
-            background-color: $wit;
-            border-color: $dso-button-secondary-disabled-color;
-            color: $dso-button-secondary-disabled-color;
+            background-color: colors.$wit;
+            border-color: button.$secondary-disabled-color;
+            color: button.$secondary-disabled-color;
           }
         }
       }
@@ -62,62 +68,62 @@
     padding-left: 0;
 
     li {
-      background-color: $grijs-5;
-      border: 1px solid $grijs-10;
-      border-radius: $dso-button-border-radius;
+      background-color: colors.$grijs-5;
+      border: 1px solid colors.$grijs-10;
+      border-radius: button.$border-radius;
       display: flex;
-      padding: #{$u1 * 0.5 - 1} #{$u1 - 1} #{$u1 * 0.5 - 2};
+      padding: #{units.$u1 * 0.5 - 1} #{units.$u1 - 1} #{units.$u1 * 0.5 - 2};
 
       + li {
-        margin-top: $u1;
+        margin-top: units.$u1;
       }
 
       .dso-filename {
         font-weight: 600;
-        padding-right: $u1;
-        width: calc(100% - #{$u1});
+        padding-right: units.$u1;
+        width: calc(100% - #{units.$u1});
         word-break: break-all;
       }
 
       .dso-selectable,
       dso-selectable {
         + .dso-remove {
-          margin-left: $u4;
+          margin-left: units.$u4;
         }
       }
 
       .dso-remove {
         font-size: 0;
         min-width: auto;
-        padding: $u1 * 0.5;
+        padding: units.$u1 * 0.5;
 
         &::before {
-          @include di("times-bosgroen");
+          @include di.base("times-bosgroen");
 
           content: "";
           display: block;
-          font-size: $dso-font-size-base;
+          font-size: typography.$root-font-size-base;
         }
       }
 
       .dso-filename,
       .dso-confidential {
-        margin: #{$u1 * 0.5} 0;
+        margin: #{units.$u1 * 0.5} 0;
       }
 
       > dso-icon,
       > svg.di {
         flex: 0 0 24px;
         height: 24px;
-        margin: #{$u1 * 0.5} 0 #{$u1 * 0.5} $u1;
+        margin: #{units.$u1 * 0.5} 0 #{units.$u1 * 0.5} units.$u1;
       }
 
       button.btn-link {
-        color: $grijs-90;
+        color: colors.$grijs-90;
       }
 
-      @media screen and (max-width: $screen-sm-max) {
-        @include clearfix();
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        @include utilities.clearfix();
 
         display: block;
 
@@ -130,13 +136,13 @@
         }
 
         .dso-confidential {
-          width: calc(100% - #{$u8});
+          width: calc(100% - #{units.$u8});
         }
       }
     }
 
     + .dso-file-upload {
-      margin-top: $u2;
+      margin-top: units.$u2;
     }
   }
 }

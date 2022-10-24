@@ -1,15 +1,12 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-
-@import "~@dso-toolkit/sources/src/components/banner/banner";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/banner";
 
 :host {
   display: block;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .dso-banner {
-  @include banner_root();
+  @include banner.root();
 }

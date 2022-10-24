@@ -1,13 +1,9 @@
-@import "../../form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "../../form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "../../../../../../sources/src/styling/variables";
-@import "../../../../../../sources/src/styling/mixins";
+@use "../../form.mixins" as css-form-mixins;
 
 .form-group.dso-input {
   &.dso-required {
     .control-label::after {
-      @include form-group-required();
+      @include css-form-mixins.form-group-required();
     }
   }
 }

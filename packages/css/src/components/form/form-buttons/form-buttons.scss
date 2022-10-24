@@ -1,19 +1,24 @@
-.dso-form-buttons {
-  @include clearfix();
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/typography";
+@use "@dso-toolkit/sources/src/components/button";
 
-  margin-bottom: $dso-vertical-spacing-medium;
+.dso-form-buttons {
+  @include utilities.clearfix();
+
+  margin-bottom: units.$vertical-spacing-medium;
   text-align: right;
 
   &:last-child {
-    margin-bottom: $dso-vertical-spacing-xlarge;
+    margin-bottom: units.$vertical-spacing-xlarge;
   }
 
   a,
   button {
     &.dso-tertiary,
     &.btn-link {
-      line-height: $line-height-base;
-      padding: $dso-button-vertical-padding 0; // $horizontal??
+      line-height: typography.$line-height-base;
+      padding: button.$vertical-padding 0; // $horizontal??
     }
   }
 
@@ -26,7 +31,7 @@
 .dso-single-page {
   &.dso-form-buttons,
   .dso-form-buttons {
-    #{$dso-buttons} {
+    #{button.$buttons} {
       float: left;
     }
   }

@@ -1,0 +1,17 @@
+@use "colors";
+
+$success-text: colors.$grijs-90;
+$success-bg: colors.$success-bg-color;
+$success-border: colors.$success-bg-color;
+
+$info-text: colors.$grijs-90;
+$info-bg: colors.$info-bg-color;
+$info-border: colors.$info-bg-color;
+
+$warning-text: colors.$grijs-90;
+$warning-bg: colors.$warning-bg-color;
+$warning-border: colors.$warning-bg-color;
+
+$danger-text: colors.$grijs-90;
+$danger-bg: colors.$danger-bg-color;
+$danger-border: colors.$danger-bg-color;

@@ -1,2 +1,4 @@
-$dso-icon-size: $u3;
-$dso-icon-vertical-align: top;
+@use "../../variables/units";
+
+$size: units.$u3;
+$vertical-align: top;

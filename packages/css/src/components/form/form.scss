@@ -1,15 +1,15 @@
-@import "fieldset";
+@use "fieldset";
 
-@import "form-horizontal";
-@import "form-group";
+@use "form-horizontal";
+@use "form-group";
 
-@import "form-groups/checkboxes/form-group-checkboxes";
-@import "form-groups/confirm/form-group-confirm";
-@import "form-groups/files/form-group-files";
-@import "form-groups/input/form-group-input";
-@import "form-groups/input-number/form-group-input-number";
-@import "form-groups/radios/form-group-radios";
-@import "form-groups/search-bar/form-group-search-bar";
-@import "form-groups/select/form-group-select";
-@import "form-groups/static/form-group-static";
-@import "form-groups/textarea/form-group-textarea";
+@use "form-groups/checkboxes/form-group-checkboxes";
+@use "form-groups/confirm/form-group-confirm";
+@use "form-groups/files/form-group-files";
+@use "form-groups/input/form-group-input";
+@use "form-groups/input-number/form-group-input-number";
+@use "form-groups/radios/form-group-radios";
+@use "form-groups/search-bar/form-group-search-bar";
+@use "form-groups/select/form-group-select";
+@use "form-groups/static/form-group-static";
+@use "form-groups/textarea/form-group-textarea";

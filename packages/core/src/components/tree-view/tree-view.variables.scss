@@ -1,0 +1,10 @@
+@use "~@dso-toolkit/sources/src/variables/units";
+
+$line-height: units.$u3;
+$hspace: units.$u1;
+$vspace: units.$u1;
+$icon-size: units.$u3;
+$indent: units.$u4;
+$hcenter: 0.5 * $icon-size;
+$vcenter: 0.5 * $line-height + $vspace;
+$vspace: $vcenter - 0.5 * $icon-size;

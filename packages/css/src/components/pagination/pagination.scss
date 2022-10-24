@@ -1,5 +1,9 @@
+@use "@dso-toolkit/sources/src/components/pagination";
+
+@use "../../di";
+
 .pagination {
-  @include pagination_root();
+  @include pagination.root();
 
   .dso-previous,
   .dso-next {
@@ -14,13 +18,13 @@
 
   .dso-previous {
     &::before {
-      @include di("chevron-left");
+      @include di.base("chevron-left");
     }
   }
 
   .dso-next {
     &::before {
-      @include di("chevron-right");
+      @include di.base("chevron-right");
     }
   }
 }

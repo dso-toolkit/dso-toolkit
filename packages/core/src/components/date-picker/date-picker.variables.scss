@@ -1,0 +1,25 @@
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+
+$color-primary: colors.$bosgroen;
+$color-text: colors.$grijs-90;
+$color-text-disabled: colors.$grijs-60;
+$color-text-active: colors.$wit;
+$color-icon: colors.$grasgroen;
+$color-button: colors.$grasgroen;
+$color-button-bg: transparent;
+$nav-button-disabled: colors.$grasgroen-40;
+$color-button-disabled: colors.$grijs-5;
+$select: colors.$grasgroen;
+$surface: colors.$wit;
+$overlay: rgba(25, 25, 25, 0.5);
+$transition-duration: 400ms; // Keep in sync with date-picker.spec.ts const ANIMATION_TIME
+
+$font: "Asap", sans-serif;
+$font-normal: 400;
+$font-bold: 600;
+
+$size: 38px;
+$radius: units.$u1 * 0.5;
+
+$border-width: 1px;

@@ -1,21 +1,21 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 external-link {
-  color: $grasgroen
+  color: colors.$grasgroen
 }
 
 external-link:scampi {
-  color: $scampi;
+  color: colors.$scampi;
 }
 
 external-link:wit {
-  color: $wit;
+  color: colors.$wit;
 }
 
 external-link:grasgroen-40 {
-  color: $grasgroen-40;
+  color: colors.$grasgroen-40;
 }
 
 external-link:grijs90 {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }

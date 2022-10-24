@@ -1,17 +1,17 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 info {
-  color: $grasgroen
+  color: colors.$grasgroen
 }
 
 info:bosgroen {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 info:wit {
-  color: $wit;
+  color: colors.$wit;
 }
 
 info:secondary {
-  color: $grijs-60;
+  color: colors.$grijs-60;
 }

@@ -1,25 +1,30 @@
 @use "sass:math";
 
-@use "../grid/grid.mixins" as grid-mixins;
-@use "../grid/grid.variables" as grid-variables;
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/variables/typography";
+@use "@dso-toolkit/sources/src/variables/zindex";
+@use "@dso-toolkit/sources/src/components/form-control";
 
-@import "form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "../../di";
 
-@import "../../../../sources/src/styling/variables";
-@import "../../../../sources/src/styling/mixins";
+@use "../grid" as css-grid;
+
+@use "form.variables" as css-form-variables;
+@use "form.mixins" as css-form-mixins;
 
 .form-group {
-  margin-bottom: $form-group-margin-bottom;
+  margin-bottom: css-form-variables.$form-group-margin-bottom;
 
   + .form-group:not(.dso-static),
   + .dso-form-buttons {
-    margin-top: $dso-form-group-margin;
+    margin-top: css-form-variables.$form-group-margin;
   }
 
   &:not(.dso-static) + .form-group.dso-static,
   &.dso-static + .form-group:not(.dso-static) {
-    margin-top: $dso-form-group-margin * 0.5;
+    margin-top: css-form-variables.$form-group-margin * 0.5;
   }
 
   &.dso-edit + .form-group {
@@ -31,28 +36,28 @@
   + ol,
   + ul,
   + div:not(.form-group):not(.dso-form-buttons) {
-    margin-top: $dso-vertical-spacing-xlarge;
+    margin-top: units.$vertical-spacing-xlarge;
   }
 
   > .dso-info {
     float: left;
-    margin: $u2 0;
+    margin: units.$u2 0;
   }
 
   .control-label {
     display: inline;
     font-weight: bold;
-    margin-bottom: $u1;
+    margin-bottom: units.$u1;
     max-width: 100%;
     text-align: left;
   }
 
   legend + .dso-label-container {
-    margin-bottom: $u1;
+    margin-bottom: units.$u1;
   }
 
   .dso-label-container + .dso-field-container {
-    margin-top: $u1;
+    margin-top: units.$u1;
   }
 
   &.has-feedback {
@@ -62,7 +67,7 @@
     // Reposition feedback icon if input has visible label above
     label {
       & ~ .form-control-feedback {
-        top: ($line-height-computed + 5); // Height of the `label` and its margin
+        top: (typography.$line-height-computed + 5); // Height of the `label` and its margin
       }
 
       &.sr-only ~ .form-control-feedback {
@@ -71,45 +76,45 @@
     }
 
     .form-control {
-      padding-right: $u6 - $dso-form-control-border-width; // Feedback icon: 16px padding + 16px size + 16px padding - border
+      padding-right: units.$u6 - form-control.$border-width; // Feedback icon: 16px padding + 16px size + 16px padding - border
     }
 
     .form-control-feedback {
-      color: $bosgroen;
+      color: colors.$bosgroen;
       display: block;
-      height: $input-height-base;
-      line-height: $input-height-base;
+      height: css-form-variables.$input-height-base;
+      line-height: css-form-variables.$input-height-base;
       pointer-events: none;
       position: absolute;
       right: 0;
       text-align: center;
       top: 0;
-      width: $u6;
-      z-index: $zx-form-control-feedback; // Ensure icon is above input groups
+      width: units.$u6;
+      z-index: zindex.$form-control-feedback; // Ensure icon is above input groups
 
       dso-icon,
       svg.di {
-        margin-top: #{$u1 - 1};
+        margin-top: #{units.$u1 - 1};
       }
     }
   }
 
   &.dso-invalid {
     .form-control {
-      border-color: $dso-field-invalid-border-color;
+      border-color: css-form-variables.$field-invalid-border-color;
 
       &:focus {
-        box-shadow: inset 0 0 0 $dso-form-control-focus-border-width $dso-field-invalid-border-color;
+        box-shadow: inset 0 0 0 form-control.$focus-border-width css-form-variables.$field-invalid-border-color;
       }
     }
 
     .dso-message {
-      color: $dso-field-invalid-message-color;
-      padding-left: $u4;
+      color: css-form-variables.$field-invalid-message-color;
+      padding-left: units.$u4;
       position: relative;
 
       &::before {
-        @include di("status-danger", $dso-field-invalid-icon-size);
+        @include di.base("status-danger", css-form-variables.$field-invalid-icon-size);
 
         content: "";
         display: block;
@@ -121,24 +126,24 @@
 
   .dso-message,
   .dso-help-block {
-    margin: $u1 0 0;
+    margin: units.$u1 0 0;
   }
 
   .dso-help-block {
-    color: $grijs-60;
+    color: colors.$grijs-60;
     font-style: italic;
   }
 }
 
 .form-horizontal .form-group {
   // Make form groups behave like rows
-  @include grid-mixins.make-row();
+  @include css-grid.make-row();
 
   > .dso-label-container {
-    @include grid-mixins.make-sm-column($dso-label-column);
+    @include css-grid.make-sm-column(css-form-variables.$label-column);
 
-    @media screen and (min-width: $screen-sm-min) {
-      padding-top: $u1;
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+      padding-top: units.$u1;
     }
 
     > button.dso-info-button {
@@ -146,35 +151,35 @@
     }
 
     > .dso-info {
-      margin-top: $u1;
+      margin-top: units.$u1;
     }
   }
 
   > legend + .dso-label-container {
-    @media screen and (max-width: $screen-xs-max) {
-      padding-top: $u1;
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      padding-top: units.$u1;
     }
   }
 
   > .dso-field-container {
-    @include grid-mixins.make-sm-column(grid-variables.$grid-columns - $dso-label-column);
+    @include css-grid.make-sm-column(css-grid.$grid-columns - css-form-variables.$label-column);
 
-    @media screen and (min-width: $screen-sm-min) {
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       margin-top: 0;
     }
   }
 
   &.has-feedback .form-control-feedback {
-    right: math.floor((grid-variables.$grid-gutter-width * 0.5));
+    right: math.floor((css-grid.$grid-gutter-width * 0.5));
   }
 
   > .dso-info {
-    margin: $u2;
-    width: calc(100% - #{$u4});
+    margin: units.$u2;
+    width: calc(100% - #{units.$u4});
   }
 }
 
-#{$dso-form-selectors} {
+#{css-form-variables.$form-selectors} {
   .dso-field-container {
     position: relative;
   }
@@ -183,8 +188,8 @@
     .dso-label-container {
       > .dso-info {
         font-weight: 400;
-        margin-bottom: $u2;
-        margin-top: $u1;
+        margin-bottom: units.$u2;
+        margin-top: units.$u1;
       }
     }
   }

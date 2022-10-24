@@ -1,20 +1,22 @@
+@use "@dso-toolkit/sources/src/components/image";
+
 img {
   border: 0;
   vertical-align: middle;
 }
 
 .img-responsive {
-  @include img-responsive();
+  @include image.responsive();
 }
 
 .img-rounded {
-  @include img-rounded();
+  @include image.rounded();
 }
 
 .img-thumbnail {
-  @include img-thumbnail();
+  @include image.thumbnail();
 }
 
 .img-circle {
-  @include img-circle();
+  @include image.circle();
 }

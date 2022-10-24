@@ -1,16 +1,17 @@
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/typography";
+@use "~@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "~@dso-toolkit/sources/src/components/button";
 
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/button/button";
 
 :host {
   display: block;
 }
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 .wrapper {
@@ -27,20 +28,20 @@
 }
 
 .dimscreen {
-  background-color: $zwart;
+  background-color: colors.$zwart;
   height: 100%;
   opacity: 0.4;
   width: 100%;
 }
 
 .open-button {
-  @include button_primary($modifiers: false);
+  @include button.primary($modifiers: false);
 
   border: 0;
-  bottom: $u2;
-  font-family: $font-family-base;
+  bottom: units.$u2;
+  font-family: typography.$font-family-base;
   position: fixed;
-  right: $u2;
+  right: units.$u2;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
 
   &:hover {
@@ -53,17 +54,17 @@
 }
 
 .close-button {
-  @include button_secondary($modifiers: false);
+  @include button.secondary($modifiers: false);
 
   border-right: 0;
   border-top: 0;
-  border-radius: 0 0 0 $u1;
-  height: $u5;
-  min-width: $u5;
+  border-radius: 0 0 0 units.$u1;
+  height: units.$u5;
+  min-width: units.$u5;
   padding: 0;
   position: fixed;
   right: 0;
-  width: $u5;
+  width: units.$u5;
   top: 0;
 
   dso-icon {
@@ -87,26 +88,26 @@
 }
 
 .iframe-container {
-  background-color: $wit;
+  background-color: colors.$wit;
   border: 0;
-  border-left: 1px solid $grijs-20;
+  border-left: 1px solid colors.$grijs-20;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
   height: 100%;
   position: absolute;
   top: 0;
   transition: right 0.5s;
 
-  @media screen and (max-width: $screen-xs-min) {
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     right: -320px;
     width: 320px;
   }
 
-  @media screen and (min-width: ($screen-xs-min + 1)) and (max-width: $screen-xs-max) {
+  @media screen and (min-width: (media-query-breakpoints.$screen-xs-min + 1)) and (max-width: media-query-breakpoints.$screen-xs-max) {
     right: -480px;
     width: 480px;
   }
 
-  @media screen and (min-width: $screen-sm-min) {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     right: -640px;
     width: 640px;
   }

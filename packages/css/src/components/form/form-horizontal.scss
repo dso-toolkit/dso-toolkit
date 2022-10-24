@@ -1,5 +1,7 @@
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+
 .form-horizontal {
-  @media (min-width: $screen-sm-min) {
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
     .control-label {
       margin-bottom: 0;
       text-align: right;

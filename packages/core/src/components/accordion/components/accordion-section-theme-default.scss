@@ -1,40 +1,41 @@
-@import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/components/accordion";
 
 @mixin dso-web-component-accordion-default {
   .dso-section-handle {
-    background-color: $wit;
-    border: 1px solid $dso-accordion-default-border-color;
-    border-radius: $dso-accordion-border-radius;
+    background-color: colors.$wit;
+    border: 1px solid accordion.$default-border-color;
+    border-radius: accordion.$border-radius;
 
     a,
     button {
-      color: $dso-accordion-default-color;
+      color: accordion.$default-color;
 
       &:hover,
       &:active,
       &.active {
-        color: $dso-accordion-default-color;
+        color: accordion.$default-color;
       }
     }
   }
 
   .dso-section-body {
-    border: 1px solid $dso-accordion-default-border-color;
-    border-radius: 0 0 $dso-accordion-border-radius $dso-accordion-border-radius;
+    border: 1px solid accordion.$default-border-color;
+    border-radius: 0 0 accordion.$border-radius accordion.$border-radius;
   }
 }
 
 @mixin dso-web-component-accordion-default-open {
   > .dso-section-handle {
-    background-color: $dso-accordion-default-nested-handle-bgcolor;
-    border-radius: $dso-accordion-border-radius;
+    background-color: accordion.$default-nested-handle-bgcolor;
+    border-radius: accordion.$border-radius;
 
     a,
     button {
-      color: $wit;
+      color: colors.$wit;
 
       dso-attachments-counter {
-        --dso-attachments-counter-color: #{$wit};
+        --dso-attachments-counter-color: #{colors.$wit};
         --dso-icon: var(--di-paperclip-wit);
       }
     }
@@ -43,6 +44,6 @@
 
 @mixin dso-web-component-accordion-default-open-nested {
   .dso-section-body {
-    background-color: $dso-accordion-default-nested-body-bgcolor;
+    background-color: accordion.$default-nested-body-bgcolor;
   }
 }

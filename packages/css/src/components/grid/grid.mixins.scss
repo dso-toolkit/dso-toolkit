@@ -1,8 +1,9 @@
 @use "sass:math";
 
-@use "../../../../sources/src/utilities";
-@use "grid.variables" as grid-variables;
-@use "../../../../sources/src/styling/variables/media-queries-breakpoints";
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+
+@use "grid.variables" as css-grid-variables;
 
 @mixin full-width-row($gutter: 0) {
   margin-left: calc(50% - 50vw);
@@ -19,20 +20,20 @@
 }
 
 @mixin make-grid-columns($i: 1, $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}") {
-  @for $i from (1 + 1) through grid-variables.$grid-columns {
+  @for $i from (1 + 1) through css-grid-variables.$grid-columns {
     $list: "#{$list}, .col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
   }
 
   #{$list} {
     position: relative;
     min-height: 1px; // Prevent columns from collapsing when empty
-    padding-right: math.floor(grid-variables.$grid-gutter-width * 0.5);
-    padding-left: math.ceil(grid-variables.$grid-gutter-width * 0.5);
+    padding-right: math.floor(css-grid-variables.$grid-gutter-width * 0.5);
+    padding-left: math.ceil(css-grid-variables.$grid-gutter-width * 0.5);
   }
 }
 
 @mixin float-grid-columns($class, $i: 1, $list: ".col-#{$class}-#{$i}") {
-  @for $i from (1 + 1) through grid-variables.$grid-columns {
+  @for $i from (1 + 1) through css-grid-variables.$grid-columns {
     $list: "#{$list}, .col-#{$class}-#{$i}";
   }
 
@@ -44,13 +45,13 @@
 @mixin calc-grid-column($index, $class, $type) {
   @if ($type == width) and ($index > 0) {
     .col-#{$class}-#{$index} {
-      width: math.percentage(math.div($index, grid-variables.$grid-columns));
+      width: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 
   @if ($type == push) and ($index > 0) {
     .col-#{$class}-push-#{$index} {
-      left: math.percentage(math.div($index, grid-variables.$grid-columns));
+      left: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 
@@ -62,7 +63,7 @@
 
   @if ($type == pull) and ($index > 0) {
     .col-#{$class}-pull-#{$index} {
-      right: math.percentage(math.div($index, grid-variables.$grid-columns));
+      right: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 
@@ -74,7 +75,7 @@
 
   @if ($type == offset) {
     .col-#{$class}-offset-#{$index} {
-      margin-left: math.percentage(math.div($index, grid-variables.$grid-columns));
+      margin-left: math.percentage(math.div($index, css-grid-variables.$grid-columns));
     }
   }
 }
@@ -87,13 +88,13 @@
 
 @mixin make-grid($class) {
   @include float-grid-columns($class);
-  @include loop-grid-columns(grid-variables.$grid-columns, $class, width);
-  @include loop-grid-columns(grid-variables.$grid-columns, $class, pull);
-  @include loop-grid-columns(grid-variables.$grid-columns, $class, push);
-  @include loop-grid-columns(grid-variables.$grid-columns, $class, offset);
+  @include loop-grid-columns(css-grid-variables.$grid-columns, $class, width);
+  @include loop-grid-columns(css-grid-variables.$grid-columns, $class, pull);
+  @include loop-grid-columns(css-grid-variables.$grid-columns, $class, push);
+  @include loop-grid-columns(css-grid-variables.$grid-columns, $class, offset);
 }
 
-@mixin container-fixed($gutter: grid-variables.$grid-gutter-width) {
+@mixin container-fixed($gutter: css-grid-variables.$grid-gutter-width) {
   padding-right: math.ceil($gutter * 0.5);
   padding-left: math.floor($gutter * 0.5);
   margin-right: auto;
@@ -102,7 +103,7 @@
   @include utilities.clearfix();
 }
 
-@mixin make-row($gutter: grid-variables.$grid-gutter-width) {
+@mixin make-row($gutter: css-grid-variables.$grid-gutter-width) {
   margin-right: math.floor(math.div($gutter, -2));
   margin-left: math.ceil(math.div($gutter, -2));
 
@@ -110,14 +111,14 @@
 }
 
 // Generate the small columns
-@mixin make-sm-column($columns, $gutter: grid-variables.$grid-gutter-width) {
+@mixin make-sm-column($columns, $gutter: css-grid-variables.$grid-gutter-width) {
   position: relative;
   min-height: 1px;
   padding-right: ($gutter * 0.5);
   padding-left: ($gutter * 0.5);
 
-  @media (min-width: media-queries-breakpoints.$screen-sm-min) {
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
     float: left;
-    width: math.percentage(math.div($columns, grid-variables.$grid-columns));
+    width: math.percentage(math.div($columns, css-grid-variables.$grid-columns));
   }
 }

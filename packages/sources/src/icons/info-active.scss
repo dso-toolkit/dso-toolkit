@@ -1,17 +1,17 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 info-active {
-  color: $grasgroen
+  color: colors.$grasgroen
 }
 
 info-active:bosgroen {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 info-active:wit {
-  color: $wit;
+  color: colors.$wit;
 }
 
 info-active:secondary {
-  color: $grijs-60;
+  color: colors.$grijs-60;
 }

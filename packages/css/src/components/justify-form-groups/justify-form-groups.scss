@@ -1,9 +1,11 @@
+@use "@dso-toolkit/sources/src/variables/units";
+
 .dso-justify-form-groups {
   display: flex;
 
   > div {
     flex: 1 1 0;
-    padding-left: $u1;
+    padding-left: units.$u1;
 
     &:first-child {
       padding-left: 0;

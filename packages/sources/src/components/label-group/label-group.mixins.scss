@@ -1,0 +1,24 @@
+@use "../../variables/units";
+
+@mixin root() {
+  margin-bottom: units.$u2;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: units.$u1;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    > li {
+      max-width: 100%;
+    }
+  }
+
+  &.dso-align-right {
+    ul {
+      justify-content: flex-end;
+    }
+  }
+}

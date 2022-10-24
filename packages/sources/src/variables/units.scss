@@ -1,0 +1,51 @@
+$_unit: 8px;
+
+$u1: $_unit;
+$u2: $_unit * 2;
+$u3: $_unit * 3;
+$u4: $_unit * 4;
+$u5: $_unit * 5;
+$u6: $_unit * 6;
+$u7: $_unit * 7;
+$u8: $_unit * 8;
+$u9: $_unit * 9;
+$u10: $_unit * 10;
+
+$font-size-h1: 2rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1.25rem;
+$font-size-h4: 1rem;
+$font-size-h5: 1rem;
+
+$_runit: 0.5rem;
+
+$ru1: $_runit;
+$ru2: $_runit * 2;
+$ru3: $_runit * 3;
+$ru4: $_runit * 4;
+$ru5: $_runit * 5;
+$ru6: $_runit * 6;
+$ru7: $_runit * 7;
+$ru8: $_runit * 8;
+$ru9: $_runit * 9;
+$ru10: $_runit * 10;
+
+$font-line-height-h1: 1.25;
+$font-line-height-h2: 1.33;
+$font-line-height-h3: 1.2;
+$font-line-height-h4: 1.5;
+$font-line-height-h5: 1.5;
+$font-line-height-h6: 1.5;
+
+$padding-base-vertical: 6px;
+$padding-small-vertical: 5px;
+$padding-large-vertical: 10px;
+$padding-base-horizontal: 12px;
+
+// Super weird shared unit..
+$shared-equal-heights-highlight-box-height: $u6;
+
+$vertical-spacing-small: $u1;
+$vertical-spacing-medium: $u2;
+$vertical-spacing-large: $u3;
+$vertical-spacing-xlarge: $u4;

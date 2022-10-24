@@ -1,25 +1,30 @@
+@use "@dso-toolkit/sources/src/components/anchor";
+@use "@dso-toolkit/sources/src/components/icon";
+
+@use "../../di";
+
 a {
-  @include anchor_root();
+  @include anchor.root();
 
   &.download,
   &.extern {
     &::after {
       content: "";
       display: inline-block;
-      margin-left: $dso-anchor-spacer-width;
-      vertical-align: $dso-icon-vertical-align;
+      margin-left: anchor.$spacer-width;
+      vertical-align: icon.$vertical-align;
     }
   }
 
   &.download {
     &::after {
-      @include di("download");
+      @include di.base("download");
     }
   }
 
   &.extern {
     &::after {
-      @include di("external-link");
+      @include di.base("external-link");
     }
   }
 }

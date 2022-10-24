@@ -1,11 +1,14 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
 @mixin h1() {
-  color: $bosgroen;
-  font-size: $dso-font-size-h1;
+  color: colors.$bosgroen;
+  font-size: units.$font-size-h1;
   font-weight: 700;
 }
 
 @mixin h3() {
-  color: $bosgroen;
-  font-size: $dso-font-size-h3;
+  color: colors.$bosgroen;
+  font-size: units.$font-size-h3;
   font-weight: 600;
 }

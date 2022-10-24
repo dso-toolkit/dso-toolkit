@@ -1,0 +1,27 @@
+@use "../../variables/colors";
+@use "../../variables/units";
+
+$default-border-color: colors.$mauve;
+$default-color: colors.$mauve;
+$default-nested-handle-bgcolor: colors.$mauve;
+$default-nested-body-bgcolor: colors.$mauve-40;
+
+$conclusion-bgcolor: colors.$grijs-5;
+$conclusion-hover-bgcolor: colors.$grijs-10;
+$conclusion-border-color: colors.$grijs-5;
+$conclusion-color: colors.$grijs-90;
+$conclusion-nested-handle-bgcolor: $conclusion-bgcolor;
+$conclusion-nested-body-bgcolor: colors.$wit;
+
+$compact-color: colors.$grasgroen;
+$compact-border-color: colors.$grijs-20;
+
+$border-radius: units.$u1 * 0.5;
+$horizontal-padding: units.$u2;
+$vertical-padding: units.$u1 * 1.5;
+$chevron-icon-size: units.$u3;
+$chevron-space: units.$u3;
+$chevron-left-offset: $chevron-icon-size + $chevron-space;
+$handle-line-height: 1.375em;
+$handle-height: units.$u6;
+$state-icon-size: units.$u3;

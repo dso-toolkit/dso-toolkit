@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/breadcrumbs";
+
 ol.breadcrumb {
-  @include breadcrumbs_root();
+  @include breadcrumbs.root();
 }

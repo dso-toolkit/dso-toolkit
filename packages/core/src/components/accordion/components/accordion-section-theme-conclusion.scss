@@ -1,45 +1,46 @@
-@import "~@dso-toolkit/sources/src/components/accordion/accordion-variables";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/components/accordion";
 
-@mixin dso-web-component-accordion-conclusion {
+@mixin dso-web-component-accordion-conclusion() {
   .dso-section-handle {
-    background-color: $dso-accordion-conclusion-bgcolor;
-    border: 1px solid $dso-accordion-conclusion-border-color;
+    background-color: accordion.$conclusion-bgcolor;
+    border: 1px solid accordion.$conclusion-border-color;
 
     a,
     button {
-      color: $dso-accordion-conclusion-color;
+      color: accordion.$conclusion-color;
 
       &:hover,
       &:active,
       &.active {
-        background-color: $dso-accordion-conclusion-hover-bgcolor;
-        color: $dso-accordion-conclusion-color;
+        background-color: accordion.$conclusion-hover-bgcolor;
+        color: accordion.$conclusion-color;
       }
     }
   }
 
   .dso-section-body {
-    border: 2px solid $dso-accordion-conclusion-border-color;
+    border: 2px solid accordion.$conclusion-border-color;
   }
 }
 
-@mixin dso-web-component-accordion-conclusion-open {
+@mixin dso-web-component-accordion-conclusion-open() {
   > .dso-section-handle {
-    background-color: $dso-accordion-conclusion-nested-handle-bgcolor;
+    background-color: accordion.$conclusion-nested-handle-bgcolor;
 
     a,
     button {
-      color: $dso-accordion-conclusion-color;
+      color: accordion.$conclusion-color;
 
       dso-attachments-counter {
-        --dso-attachments-counter-color: #{$grijs-60};
+        --dso-attachments-counter-color: #{colors.$grijs-60};
         --dso-icon: var(--di-paperclip-grijs);
       }
     }
   }
 }
 
-@mixin dso-web-component-accordion-conclusion-open-nested {
-  background-color: $dso-accordion-conclusion-nested-body-bgcolor;
-  border: 2px solid $dso-accordion-conclusion-border-color;
+@mixin dso-web-component-accordion-conclusion-open-nested() {
+  background-color: accordion.$conclusion-nested-body-bgcolor;
+  border: 2px solid accordion.$conclusion-border-color;
 }

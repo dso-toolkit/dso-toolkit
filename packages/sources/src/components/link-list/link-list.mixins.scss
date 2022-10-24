@@ -1,0 +1,46 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "../anchor";
+@use "../list";
+
+@mixin root() {
+  @include list.unstyled();
+
+  li {
+    margin-bottom: units.$u2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a[aria-current="page"] {
+      font-weight: 700;
+    }
+  }
+
+  a {
+    @include anchor.reverse();
+  }
+}
+
+@mixin exotic() {
+  li {
+    margin-bottom: units.$u2;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    @include anchor.reverse();
+
+    color: colors.$grijs-90;
+
+    &:active {
+      color: colors.$grijs-90;
+      text-decoration: none;
+    }
+  }
+}

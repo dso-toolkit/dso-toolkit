@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/progress-bar";
+
 .progress {
-  @include progress-bar_root();
+  @include progress-bar.root();
 }

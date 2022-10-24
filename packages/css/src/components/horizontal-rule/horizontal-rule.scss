@@ -1,10 +1,12 @@
-$hr-border: $grijs-20;
+@use "@dso-toolkit/sources/src/variables/units";
+
+@use "horizontal-rule.variables" as css-horizontal-rule-variables;
 
 hr {
   border: 0;
-  border-top: 1px solid $hr-border;
+  border-top: 1px solid css-horizontal-rule-variables.$hr-border;
   box-sizing: content-box;
   height: 0;
-  margin-bottom: $dso-vertical-spacing-medium;
-  margin-top: $dso-vertical-spacing-medium;
+  margin-bottom: units.$vertical-spacing-medium;
+  margin-top: units.$vertical-spacing-medium;
 }

@@ -1,22 +1,18 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/utilities";
-@import "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-
-@import "~@dso-toolkit/sources/src/components/info-button/info-button";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/components/info-button";
 
 :host {
   display: inline-block;
 }
 
-@include box-sizing();
+@include utilities.box-sizing();
 
 .sr-only {
-  @include sr-only();
+  @include utilities.sr-only();
 }
 
 button {
-  @include info-button_root();
+  @include info-button.root();
 
   cursor: pointer;
   vertical-align: top;

@@ -1,13 +1,19 @@
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/components/button";
+@use "@dso-toolkit/sources/src/components/icon";
+
 @use "../grid/grid.variables.scss" as grid-variables;
 
 .dso-document-header {
-  background-color: $grijs-5;
+  background-color: colors.$grijs-5;
   padding: grid-variables.$grid-gutter-width * 0.5;
   margin-left: grid-variables.$grid-gutter-width * -0.5;
   margin-right: grid-variables.$grid-gutter-width * -0.5;
 
   a {
-    color: $zwart;
+    color: colors.$zwart;
   }
 
   > :first-child {
@@ -15,14 +21,14 @@
   }
 
   h1 {
-    margin-bottom: $u1;
+    margin-bottom: units.$u1;
   }
 
   .dso-document-header-status {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: $u1 $u2;
+    gap: units.$u1 units.$u2;
 
     .dso-document-header-toggle-status {
       background-color: transparent;
@@ -33,13 +39,13 @@
       svg.di.di-chevron-up + span:not(.sr-only),
       span:not(.sr-only) + svg.di.di-chevron-down,
       span:not(.sr-only) + svg.di.di-chevron-up {
-        margin-left: $u1 * 0.5;
+        margin-left: units.$u1 * 0.5;
       }
     }
 
     > dso-label,
     > .dso-label {
-      margin-right: calc($u1 * -1);
+      margin-right: calc(units.$u1 * -1);
     }
 
     .dso-document-header-badges {
@@ -53,20 +59,20 @@
   }
 
   .dso-document-header-owner-wrapper {
-    padding-right: $dso-icon-size + $u1;
+    padding-right: icon.$size + units.$u1;
   }
 
   .dso-document-header-type,
   .dso-document-header-owner {
-    margin: 0 0 $u1 0;
+    margin: 0 0 units.$u1 0;
     display: inline-block;
   }
 
   .dso-document-header-map-action,
   .dso-document-header-toggle-features {
-    @include button-tertiary();
+    @include button.tertiary();
 
-    color: $zwart;
+    color: colors.$zwart;
     font-weight: normal;
   }
 
@@ -79,16 +85,16 @@
 
 dso-responsive-element.dso-document-header {
   dl.dso-document-header-features {
-    margin-top: $u2;
+    margin-top: units.$u2;
   }
 
   &[small] {
     .dso-document-header-features-wrapper {
-      margin-bottom: $u1;
+      margin-bottom: units.$u1;
     }
 
     .dso-document-header-container {
-      @include clearfix();
+      @include utilities.clearfix();
     }
 
     .dso-document-header-type,
@@ -97,11 +103,11 @@ dso-responsive-element.dso-document-header {
     }
 
     .dso-document-header-type {
-      margin-right: $u4;
+      margin-right: units.$u4;
     }
 
     .dso-document-header-status {
-      margin: 0 0 $u1 0;
+      margin: 0 0 units.$u1 0;
     }
 
     dl.dso-document-header-features {
@@ -122,11 +128,11 @@ dso-responsive-element.dso-document-header {
 
   &:not([small]) {
     .dso-document-header-status {
-      margin: $u1 0 0;
+      margin: units.$u1 0 0;
     }
 
     .dso-document-header-type {
-      margin-right: $u1;
+      margin-right: units.$u1;
     }
 
     dl.dso-document-header-features {
@@ -141,7 +147,7 @@ dso-responsive-element.dso-document-header {
 
     .dso-document-header-features {
       margin-bottom: 0;
-      border-bottom: 1px solid $grijs-20;
+      border-bottom: 1px solid colors.$grijs-20;
     }
   }
 }

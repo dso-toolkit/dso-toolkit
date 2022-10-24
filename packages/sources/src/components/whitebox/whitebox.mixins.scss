@@ -1,0 +1,45 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "../step-counter";
+
+@use "whitebox.variables" as whitebox-variables;
+
+@mixin root() {
+  background: colors.$wit;
+  box-shadow: whitebox-variables.$box-shadow;
+  margin-bottom: whitebox-variables.$margin-bottom;
+  padding: units.$u2 units.$u3;
+  position: relative;
+  top: units.$u7;
+
+  .dso-whitebox-title {
+    h2 {
+      margin: 0 0 units.$u6;
+      text-align: center;
+    }
+  }
+
+  .dso-whitebox-link {
+    margin-bottom: units.$u4;
+    text-align: center;
+  }
+
+  .dso-whitebox-icon {
+    margin-bottom: units.$u4;
+    text-align: center;
+
+    img {
+      height: 160px;
+      width: 160px;
+    }
+  }
+
+  @include step-counter.step-counter();
+}
+
+@mixin equal-heights() {
+  height: calc(100% - #{whitebox-variables.$margin-bottom});
+  min-height: auto;
+  padding-bottom: units.$u2;
+}

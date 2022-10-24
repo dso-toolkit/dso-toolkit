@@ -1,5 +1,186 @@
-@mixin state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../button";
+
+@use "list-button.variables" as list-button-variables;
+
+@mixin _state-styling($background-color: inherit, $border-color: inherit, $color: inherit) {
   background-color: $background-color;
   border-color: $border-color;
   color: $color;
+}
+
+@mixin button-group($input-number-selector, $list-button-selector) {
+  display: flex;
+  flex-direction: row;
+
+  > * {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: list-button-variables.$border-radius 0 0 list-button-variables.$border-radius;
+    }
+
+    &:not(:first-child) {
+      border-left-style: none !important;
+    }
+
+    &:last-child {
+      border-radius: 0 list-button-variables.$border-radius list-button-variables.$border-radius 0;
+    }
+  }
+
+  > #{$input-number-selector} {
+    @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
+
+    border-style: solid;
+    border-width: 1px;
+    flex-wrap: nowrap;
+    padding: units.$u2;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      justify-content: center;
+    }
+  }
+
+  > *:hover + #{$input-number-selector},
+  > *:focus + #{$input-number-selector} {
+    @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+  }
+
+  > *.dso-selected + #{$input-number-selector} {
+    @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+
+    border-width: 2px;
+  }
+
+  > *:active + #{$input-number-selector},
+  > *.active + #{$input-number-selector} {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+    }
+  }
+
+  > *.disabled + #{$input-number-selector},
+  > *[disabled] + #{$input-number-selector} {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-60);
+
+      opacity: 1;
+    }
+  }
+
+  #{$list-button-selector} {
+    padding-right: #{units.$u2 - 1};
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    flex-direction: column;
+
+    > * {
+      &:first-child {
+        border-radius: list-button-variables.$border-radius list-button-variables.$border-radius 0 0;
+      }
+
+      &:not(:first-child) {
+        border-left-style: solid !important;
+        border-top-style: none !important;
+      }
+
+      &:last-child {
+        border-radius: 0 0 list-button-variables.$border-radius list-button-variables.$border-radius;
+      }
+    }
+  }
+}
+
+@mixin root() {
+  @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-90);
+
+  border-radius: button.$border-radius;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 600;
+  padding: #{units.$u2 - 1} #{units.$u6 - 1}  #{units.$u2 - 1}  #{units.$u2 - 1};
+  position: relative;
+  text-align: left;
+  white-space: normal;
+  width: 100%;
+
+  &:hover,
+  &:focus {
+    @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+  }
+
+  &:active,
+  &.active {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    &,
+    &:hover {
+      @include _state-styling(colors.$wit, colors.$grijs-20, colors.$grijs-60);
+
+      opacity: 1;
+    }
+  }
+
+  &.dso-selected {
+    border-color: colors.$grasgroen;
+    border-width: 2px;
+  }
+
+  > span {
+    display: block;
+  }
+
+  .dso-sublabel {
+    font-weight: 400;
+    width: 100%;
+  }
+
+  .dso-subcontent {
+    color: colors.$grijs-60;
+    font-weight: 400;
+    padding: units.$u2 0 0 units.$u2;
+
+    mark {
+      background-color: transparent;
+      color: colors.$grijs-60;
+      font-weight: 700;
+      padding: 0;
+    }
+  }
+
+  dso-icon,
+  svg.di,
+  .dso-count {
+    height: units.$u3;
+    position: absolute;
+    right: #{units.$u2 - 1};
+    top: #{units.$u2 - 1};
+    width: units.$u3;
+  }
+
+  dso-icon,
+  svg.di {
+    color: colors.$grasgroen;
+    page-break-before: always;
+  }
+
+  .dso-count {
+    font-weight: 700;
+  }
+}
+
+@mixin sibling() {
+  margin-top: list-button-variables.$margin-gap;
 }

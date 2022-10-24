@@ -1,0 +1,82 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../anchor";
+
+@use "tile.variables" as tile-variables;
+
+@mixin root() {
+  &:not(.dso-theme) {
+    background: colors.$wit;
+    box-shadow: tile-variables.$box-shadow;
+    margin-bottom: tile-variables.$margin-bottom;
+    min-height: tile-variables.$min-height;
+    padding: units.$u3 units.$u2 units.$u2;
+    position: relative;
+    top: units.$u7;
+  }
+
+  &.dso-theme {
+    margin: 0;
+
+    .dso-tile-icon {
+      align-items: center;
+      background-color: tile-variables.$icon-background-color;
+      border-radius: 50%;
+      border: 1px solid tile-variables.$icon-border-color;
+      color: tile-variables.$icon-color;
+      display: flex;
+      height: tile-variables.$icon-size;
+      justify-content: center;
+      margin: 0 auto units.$u1;
+      overflow: hidden;
+      width: tile-variables.$icon-size;
+
+      img {
+        height: units.$u7;
+        width: units.$u7;
+      }
+    }
+  }
+
+  .dso-tile-icon {
+    display: block;
+    margin-bottom: units.$u2;
+    text-align: center;
+
+    img {
+      height: 80px;
+      width: 80px;
+    }
+  }
+
+  .dso-tile-link {
+    border-bottom: #{units.$u1 * 0.5} solid transparent;
+    color: colors.$grasgroen;
+    display: block;
+    font-size: units.$font-size-h4;
+    font-weight: bold;
+    line-height: 1.167;
+    padding-bottom: #{units.$u1 * 0.5};
+    text-align: center;
+  }
+
+  a {
+    @include anchor.clean();
+
+    &:hover,
+    &:active {
+      .dso-tile-link {
+        border-bottom: #{units.$u1 * 0.5} solid colors.$grasgroen;
+      }
+    }
+
+    &:active {
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin equal-heights() {
+  height: calc(100% - #{tile-variables.$margin-bottom});
+  min-height: auto;
+}

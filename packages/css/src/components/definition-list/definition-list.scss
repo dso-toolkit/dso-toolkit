@@ -1,29 +1,31 @@
-$dso-definition-list-gutter: $u2;
-$dso-definition-list-vertical-space: $u1;
-$dso-definition-list-term-width: 200px;
-$dso-definition-list-horizontal-breakpoint: $screen-sm-min;
-$dso-definition-list-highlight-color: $grasgroen;
-$dso-definition-list-border: 1px solid $grijs-20;
+@use "@dso-toolkit/sources/src/utilities";
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/variables/typography";
+@use "@dso-toolkit/sources/src/components/rich-content";
+
+@use "definition-list.variables" as css-definition-list-variables;
 
 dl {
-  margin-bottom: $dso-definition-list-vertical-space * 2;
+  margin-bottom: css-definition-list-variables.$vertical-space * 2;
   margin-top: 0;
 
   + dl {
     &::before {
-      border-bottom: 1px solid $grijs-20;
+      border-bottom: 1px solid colors.$grijs-20;
       content: " ";
       display: block;
       float: left;
-      height: $dso-definition-list-vertical-space;
-      margin-bottom: $dso-definition-list-vertical-space * 3;
+      height: css-definition-list-variables.$vertical-space;
+      margin-bottom: css-definition-list-variables.$vertical-space * 3;
       width: 100%;
     }
   }
 
   dt,
   dd {
-    line-height: $line-height-base;
+    line-height: typography.$line-height-base;
   }
 
   dt {
@@ -31,8 +33,8 @@ dl {
   }
 
   dd {
-    @include rich-content_children();
-    @include clearfix();
+    @include rich-content.children();
+    @include utilities.clearfix();
 
     margin-left: 0;
 
@@ -40,17 +42,17 @@ dl {
       margin-bottom: 0;
     }
 
-    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+    @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       &:last-of-type {
-        margin-bottom: $dso-definition-list-vertical-space;
+        margin-bottom: css-definition-list-variables.$vertical-space;
       }
     }
   }
 
   &.dso-columns {
-    @media screen and (min-width: $screen-sm-min) {
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       break-inside: avoid;
-      column-gap: $u2;
+      column-gap: units.$u2;
 
       dd:last-of-type {
         margin-bottom: 0;
@@ -60,11 +62,11 @@ dl {
         column-count: 2;
 
         dt {
-          width: calc(50% - #{$u1});
+          width: calc(50% - #{units.$u1});
         }
 
         dd {
-          margin-left: calc(50% + #{$u1});
+          margin-left: calc(50% + #{units.$u1});
         }
       }
 
@@ -72,11 +74,11 @@ dl {
         column-count: 3;
 
         dt {
-          width: calc(50% - #{$u1});
+          width: calc(50% - #{units.$u1});
         }
 
         dd {
-          margin-left: calc(50% + #{$u1});
+          margin-left: calc(50% + #{units.$u1});
         }
       }
 
@@ -91,31 +93,31 @@ dl {
     }
 
     > div {
-      margin-bottom: $dso-definition-list-vertical-space;
+      margin-bottom: css-definition-list-variables.$vertical-space;
     }
   }
 
-  @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+  @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
     &:not(.dso-vertical):not(.dso-columns) {
       dd + dt,
       dd + dt + dd {
-        margin-top: $dso-definition-list-vertical-space;
+        margin-top: css-definition-list-variables.$vertical-space;
       }
     }
   }
 
   &:not(.dso-vertical) {
-    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+    @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       dt {
         clear: left;
         float: left;
-        width: $dso-definition-list-term-width;
+        width: css-definition-list-variables.$term-width;
         word-wrap: break-word;
       }
 
       dd {
-        margin-left: $dso-definition-list-term-width;
-        padding-left: $dso-definition-list-gutter;
+        margin-left: css-definition-list-variables.$term-width;
+        padding-left: css-definition-list-variables.$gutter;
       }
 
       &.dso-columns-1-3 {
@@ -150,7 +152,7 @@ dl {
 
       &.dso-columns {
         break-inside: avoid;
-        column-gap: $u2;
+        column-gap: units.$u2;
 
         dt,
         dd {
@@ -183,13 +185,13 @@ dl {
     }
 
     dd + dt {
-      margin-top: $dso-definition-list-vertical-space;
+      margin-top: css-definition-list-variables.$vertical-space;
     }
   }
 
   &.dso-emphasize-description {
     dt {
-      color: $grijs-60;
+      color: colors.$grijs-60;
       font-weight: normal;
     }
   }
@@ -198,39 +200,39 @@ dl {
     dt,
     dd {
       &:first-of-type {
-        color: $dso-definition-list-highlight-color;
+        color: css-definition-list-variables.$highlight-color;
         font-weight: bold;
       }
     }
   }
 
   &:not(.dso-bordered) {
-    @media screen and (max-width: #{$dso-definition-list-horizontal-breakpoint - 1}) {
+    @media screen and (max-width: #{css-definition-list-variables.$horizontal-breakpoint - 1}) {
       dd + dt {
-        margin-top: $dso-definition-list-vertical-space;
+        margin-top: css-definition-list-variables.$vertical-space;
       }
     }
   }
 
   &.dso-bordered {
-    border-bottom: $dso-definition-list-border;
+    border-bottom: css-definition-list-variables.$list-border;
 
     dt::before {
-      border-top: $dso-definition-list-border;
+      border-top: css-definition-list-variables.$list-border;
       content: "";
       display: block;
-      padding-top: $dso-definition-list-vertical-space;
+      padding-top: css-definition-list-variables.$vertical-space;
       width: 100%;
     }
 
     dt,
     dd {
       &:last-of-type {
-        padding-bottom: $dso-definition-list-vertical-space * 0.5;
+        padding-bottom: css-definition-list-variables.$vertical-space * 0.5;
       }
     }
 
-    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+    @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       dd {
         &:last-of-type {
           margin-bottom: 0;
@@ -238,28 +240,28 @@ dl {
       }
     }
 
-    @media screen and (max-width: #{$dso-definition-list-horizontal-breakpoint - 1}) {
+    @media screen and (max-width: #{css-definition-list-variables.$horizontal-breakpoint - 1}) {
       dd + dt::before {
-        margin-top: $dso-definition-list-vertical-space;
+        margin-top: css-definition-list-variables.$vertical-space;
       }
 
       dd:last-of-type {
-        margin-bottom: $dso-definition-list-vertical-space;
+        margin-bottom: css-definition-list-variables.$vertical-space;
       }
     }
 
-    @media screen and (min-width: $dso-definition-list-horizontal-breakpoint) {
+    @media screen and (min-width: css-definition-list-variables.$horizontal-breakpoint) {
       dt + dd {
-        margin-left: $dso-definition-list-term-width;
-        padding-left: $dso-definition-list-gutter;
+        margin-left: css-definition-list-variables.$term-width;
+        padding-left: css-definition-list-variables.$gutter;
 
         &::before {
-          border-top: $dso-definition-list-border;
+          border-top: css-definition-list-variables.$list-border;
           content: "";
           display: block;
-          margin-left: -$dso-definition-list-gutter;
-          margin-bottom: $dso-definition-list-vertical-space;
-          width: calc(100% + #{$dso-definition-list-gutter});
+          margin-left: css-definition-list-variables.$gutter * -1;
+          margin-bottom: css-definition-list-variables.$vertical-space;
+          width: calc(100% + #{css-definition-list-variables.$gutter});
         }
       }
     }

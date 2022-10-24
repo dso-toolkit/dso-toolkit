@@ -1,10 +1,8 @@
-@import "../../sources/src/styling/variables";
-@import "../../css/src/mixins/di";
-@import "../../sources/src/components/button/button";
+@use "../../sources/src/components/button";
 
-@import "styles/leaflet";
-@import "map-controls/map-controls";
+@use "styles/leaflet";
+@use "map-controls/map-controls";
 
 .dso-leaflet-button {
-  @include button_map();
+  @include button.map();
 }

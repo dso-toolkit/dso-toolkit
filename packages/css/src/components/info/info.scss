@@ -1,11 +1,15 @@
+@use "@dso-toolkit/sources/src/components/info";
+
+@use "../../di";
+
 // HTML/CSS
 .dso-info:not(.dso-accordion-section) {
-  @include info_root();
-  @include info_children();
+  @include info.root();
+  @include info.children();
 
   > button {
     &::before {
-      @include di("times-grijs90");
+      @include di.base("times-grijs90");
 
       content: "";
       display: inline-block;
@@ -15,5 +19,5 @@
 
 // Web Component
 dso-info {
-  @include info_children();
+  @include info.children();
 }

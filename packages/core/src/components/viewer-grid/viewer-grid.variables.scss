@@ -1,16 +1,16 @@
-@use "~@dso-toolkit/sources/src/styling/variables";
+@use "~@dso-toolkit/sources/src/variables/units";
 
 // Keep in sync with documentation readme.md
-$dso-viewer-grid-small: 375px;
-$dso-viewer-grid-medium: 624px;
-$dso-viewer-grid-large: 60%;
-$dso-viewer-grid-large-min: 768px;
-$dso-viewer-grid-large-max: 1024px;
-$dso-viewer-grid-overlay-width: 624px;
+$small: 375px;
+$medium: 624px;
+$large: 60%;
+$large-min: 768px;
+$large-max: 1024px;
+$overlay-width: 624px;
 
-$dso-viewer-grid-filterpanel-width: 768px;
-$dso-viewer-grid-filterpanel-max-width: 896px;
+$filterpanel-width: 768px;
+$filterpanel-max-width: 896px;
 
-$dso-viewer-sizing-buttons-top: variables.$u2;
-$dso-viewer-resize-button-size: variables.$u5;
-$dso-viewer-grid-transition-time: 200ms; // Also keep in sync with dso-viewer-grid.tsx:const TRANSITION_TIME;
+$sizing-buttons-top: units.$u2;
+$resize-button-size: units.$u5;
+$transition-time: 200ms; // Also keep in sync with dso-viewer-grid.tsx:const TRANSITION_TIME;

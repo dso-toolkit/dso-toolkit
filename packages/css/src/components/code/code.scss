@@ -1,15 +1,17 @@
 @use "sass:math";
 
-$code-color: #c7254e;
-$code-bg: #f9f2f4;
+@use "@dso-toolkit/sources/src/variables/scaffolding";
+@use "@dso-toolkit/sources/src/variables/typography";
+
+@use "code.variables" as css-code-variables;
 
 code {
-  background-color: $code-bg;
-  border-radius: $border-radius-base;
-  color: $code-color;
-  font-family: $font-family-monospace;
+  background-color: css-code-variables.$background-color;
+  border-radius: scaffolding.$border-radius-base;
+  color: css-code-variables.$color;
+  font-family: typography.$font-family-monospace;
   font-size: 90%;
-  line-height: math.div($line-height-base, 0.9);
+  line-height: math.div(typography.$line-height-base, 0.9);
   padding: 2px 4px;
 }
 

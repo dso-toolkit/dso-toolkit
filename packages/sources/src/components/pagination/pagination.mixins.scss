@@ -1,0 +1,72 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "pagination.variables" as pagination-variables;
+
+@mixin root() {
+  padding-inline-start: initial;
+  text-align: center;
+
+  > li {
+    display: inline-block;
+    font-weight: bold;
+    line-height: calc(pagination-variables.$item-size - pagination-variables.$border-size * 2);
+    text-align: center;
+    vertical-align: middle;
+
+    > a,
+    > span {
+      align-items: center;
+      color: colors.$grasgroen;
+      display: flex;
+      height: pagination-variables.$item-size;
+      justify-content: center;
+      position: relative;
+      width: pagination-variables.$item-size;
+
+      &:active {
+        background-color: colors.$grasgroen-10;
+      }
+    }
+
+    > span {
+      border: pagination-variables.$border-size solid transparent;
+      border-radius: 50%;
+    }
+
+    a {
+      line-height: pagination-variables.$line-height;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        &::after {
+          border-bottom-color: colors.$grasgroen;
+        }
+      }
+
+      &::after {
+        border-bottom: 3px solid transparent;
+        bottom: 0;
+        content: "";
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+
+    &.active {
+      span {
+        background-color: colors.$grasgroen;
+        color: colors.$wit;
+      }
+    }
+
+    & + li {
+      margin-left: units.$u1;
+    }
+  }
+}

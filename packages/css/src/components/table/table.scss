@@ -1,22 +1,19 @@
-@import "../../../../sources/src/styling/variables";
-@import "../../../../sources/src/components/rich-content/rich-content.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/variables/scaffolding";
+@use "@dso-toolkit/sources/src/variables/typography";
 
-@import "table.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/components/button";
+@use "@dso-toolkit/sources/src/components/rich-content";
 
-$table-cell-padding: $u1;
-$table-bg: transparent;
-$table-bg-hover: $grijs-5;
-$table-bg-active: $grijs-5;
-$table-border-color: $grijs-20;
-$table-link-color: $grijs-90;
-$table-header-border-color: $grijs-60;
-
-$table-filter-wrapper-width: 320px;
+@use "table.mixins" as css-table-mixins;
+@use "table.variables" as css-table-variables;
 
 caption {
-  color: $text-muted;
-  padding-bottom: $table-cell-padding;
-  padding-top: $table-cell-padding;
+  color: colors.$text-muted;
+  padding-bottom: css-table-variables.$cell-padding;
+  padding-top: css-table-variables.$cell-padding;
   text-align: left;
 }
 
@@ -33,13 +30,13 @@ th {
 table.table {
   td:not(.plain-content),
   th {
-    @include rich-content_children();
+    @include rich-content.children();
   }
 }
 
 table.table,
 .dso-rich-content table {
-  margin-bottom: $line-height-computed;
+  margin-bottom: typography.$line-height-computed;
   max-width: 100%;
   width: 100%;
 
@@ -92,8 +89,8 @@ table.table,
     > tr {
       > th,
       > td {
-        line-height: $line-height-base;
-        padding: ($table-cell-padding * 1.5) $table-cell-padding;
+        line-height: typography.$line-height-base;
+        padding: (css-table-variables.$cell-padding * 1.5) css-table-variables.$cell-padding;
         vertical-align: top;
 
         a {
@@ -107,7 +104,7 @@ table.table,
     > tr {
       > td,
       > th {
-        border-bottom: 1px solid $table-header-border-color;
+        border-bottom: 1px solid css-table-variables.$th-border-color;
       }
     }
   }
@@ -117,19 +114,19 @@ table.table,
     > tr {
       > td,
       > th {
-        border-bottom: 1px solid $table-border-color;
+        border-bottom: 1px solid css-table-variables.$border-color;
       }
     }
   }
 
   // Account for multiple tbody instances
   > tbody + tbody {
-    border-top: 2px solid $table-border-color;
+    border-top: 2px solid css-table-variables.$border-color;
   }
 
   // Nesting
   .table {
-    background-color: $body-bg;
+    background-color: scaffolding.$body-bg;
   }
 
   // error after filtering
@@ -144,17 +141,17 @@ table.table,
     // Bottom align for column headings
     vertical-align: bottom;
 
-    #{$dso-buttons} {
+    #{button.$buttons} {
       &.dso-sort {
-        color: $grijs-90;
+        color: colors.$grijs-90;
         font-weight: 600;
 
         dso-icon,
         svg.di {
-          color: $grijs-60;
+          color: colors.$grijs-60;
 
           &.dso-sort-active {
-            color: $grijs-90;
+            color: colors.$grijs-90;
           }
         }
       }
@@ -166,7 +163,7 @@ table.table,
 
 .table-hover {
   > tbody > tr:hover {
-    background-color: $table-bg-hover;
+    background-color: css-table-variables.$background-color-hover;
   }
 }
 
@@ -179,7 +176,7 @@ table col[class*="col-"] {
 }
 
 table {
-  background-color: $table-bg;
+  background-color: css-table-variables.$background-color;
   border-collapse: collapse;
   border-spacing: 0;
 
@@ -194,7 +191,7 @@ table {
 }
 
 // Generate the contextual variants
-@include table-row-variant("active", $table-bg-active);
+@include css-table-mixins.row-variant("active", css-table-variables.$background-color-active);
 
 .dso-table-responsive,
 .dso-table-scroll-container {
@@ -204,18 +201,18 @@ table {
 }
 
 .dso-table-scroll-container {
-  @include table-responsive();
+  @include css-table-mixins.responsive();
 }
 
 .dso-table-responsive {
-  @media screen and (max-width: $screen-xs-max) {
-    @include table-responsive();
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    @include css-table-mixins.responsive();
   }
 }
 
 .dso-table-filter-wrapper {
   .dso-search-bar {
-    margin-bottom: $u2;
-    width: $table-filter-wrapper-width - $u4;
+    margin-bottom: units.$u2;
+    width: css-table-variables.$filter-wrapper-width - units.$u4;
   }
 }

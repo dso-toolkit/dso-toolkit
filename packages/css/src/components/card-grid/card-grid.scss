@@ -1,8 +1,8 @@
-@use "../grid/grid.variables" as grid;
+@use "../grid/grid.variables" as css-grid-variables;
 
 .dso-card-grid {
   display: grid;
-  gap: grid.$grid-gutter-width;
+  gap: css-grid-variables.$grid-gutter-width;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 1fr;
 

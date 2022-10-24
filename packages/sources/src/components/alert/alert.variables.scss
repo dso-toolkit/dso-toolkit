@@ -1,0 +1,25 @@
+@use "../../variables/units";
+@use "../../variables/states";
+
+$icon-size: units.$u4;
+$horizontal-padding: units.$u2;
+$vertical-padding: units.$u1 * 2.5 - 1px;
+$left-padding: 2 * $horizontal-padding + $icon-size - 1px; // 1px border
+$small-padding: units.$u2;
+$small-padding-top: 2 * $horizontal-padding + $icon-size - 1px;
+
+$success-bg: states.$success-bg;
+$success-text: states.$success-text;
+$success-border: states.$success-border;
+
+$info-bg: states.$info-bg;
+$info-text: states.$info-text;
+$info-border: states.$info-border;
+
+$warning-bg: states.$warning-bg;
+$warning-text: states.$warning-text;
+$warning-border: states.$warning-border;
+
+$danger-bg: states.$danger-bg;
+$danger-text: states.$danger-text;
+$danger-border: states.$danger-border;

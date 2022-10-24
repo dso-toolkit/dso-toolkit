@@ -1,3 +1,5 @@
+@use "@dso-toolkit/sources/src/components/anchor";
+
 sub {
   bottom: -0.25em;
   font-size: 0.65em;
@@ -6,6 +8,6 @@ sub {
   vertical-align: baseline;
 
   a {
-    @include anchor-reverse();
+    @include anchor.reverse();
   }
 }

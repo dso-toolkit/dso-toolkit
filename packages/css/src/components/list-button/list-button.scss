@@ -1,16 +1,19 @@
+@use "@dso-toolkit/sources/src/components/button";
+@use "@dso-toolkit/sources/src/components/list-button";
+
 .dso-btn-group {
-  @include list-button_button-group(".dso-input-number", ".dso-list-button");
+  @include list-button.button-group(".dso-input-number", ".dso-list-button");
 }
 
 .dso-list-button {
-  @include button_base($modifiers: false);
-  @include list-button_root();
+  @include button.base($modifiers: false);
+  @include list-button.root();
 }
 
 .dso-list-button,
 .dso-btn-group {
   + .dso-list-button,
   + .dso-btn-group {
-    @include list-button_sibling();
+    @include list-button.sibling();
   }
 }

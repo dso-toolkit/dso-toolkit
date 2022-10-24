@@ -1,20 +1,19 @@
-@import "../../form.variables"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "../../form.mixins"; // stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
 
-@import "../../../../../../sources/src/styling/variables";
-@import "../../../../../../sources/src/styling/mixins";
+@use "../../form.mixins" as css-form-mixins;
 
 .form-group.dso-input-number {
   &.dso-required {
     .control-label::after {
-      @include form-group-required();
+      @include css-form-mixins.form-group-required();
     }
   }
 
-  @media screen and (min-width: $screen-sm-min) {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     .form-horizontal & {
       .dso-field-container {
-        padding-top: #{$padding-base-vertical + 1};
+        padding-top: #{units.$padding-base-vertical + 1};
       }
     }
   }

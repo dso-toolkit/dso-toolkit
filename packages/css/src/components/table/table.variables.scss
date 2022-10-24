@@ -1,0 +1,12 @@
+@use "@dso-toolkit/sources/src/variables/units";
+@use "@dso-toolkit/sources/src/variables/colors";
+
+$cell-padding: units.$u1;
+$background-color: transparent;
+$background-color-hover: colors.$grijs-5;
+$background-color-active: colors.$grijs-5;
+$border-color: colors.$grijs-20;
+$link-color: colors.$grijs-90;
+$th-border-color: colors.$grijs-60;
+
+$filter-wrapper-width: 320px;

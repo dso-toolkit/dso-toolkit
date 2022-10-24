@@ -1,9 +1,8 @@
-@use "~@dso-toolkit/sources/src/components/sr-only/sr-only.mixins";
-
-@import "~@dso-toolkit/sources/src/styling/variables";
-
-@import "~@dso-toolkit/sources/src/components/anchor/anchor.mixins";// stylelint-disable-line scss/at-import-partial-extension -- extension is needed because of filesystem based namespacing
-@import "~@dso-toolkit/sources/src/components/button/button";
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/components/button";
+@use "~@dso-toolkit/sources/src/components/anchor";
 
 :host(:not([inline])) {
   display: block;
@@ -20,24 +19,24 @@
 }
 
 :host([interactive]) {
-  @include anchor_root($is-html-a-element: false);
+  @include anchor.root($is-html-a-element: false);
 
-  color: $bosgroen;
+  color: colors.$bosgroen;
   font-weight: 600;
   text-decoration: none;
 }
 
 :host([interactive="sub"]) {
-  color: $grijs-90;
+  color: colors.$grijs-90;
 }
 
 .deleted-start,
 .deleted-end {
-  @include sr-only.sr-only();
+  @include utilities.sr-only();
 }
 
 button.toggle-note {
-  @include button-tertiary($modifiers: false);
+  @include button.tertiary($modifiers: false);
 }
 
 span[role="section"],
@@ -79,7 +78,7 @@ span[role="paragraph"] {
 }
 
 .dso-ozon-figuur {
-  margin-bottom: $u2;
+  margin-bottom: units.$u2;
 
   .figuur-bijschrift {
     display: block;
@@ -100,7 +99,7 @@ span[role="paragraph"] {
   }
 
   .figuur-titel {
-    color: $mauve;
+    color: colors.$mauve;
     display: block;
     font-weight: 500;
     padding-bottom: 0.5rem;
@@ -110,7 +109,7 @@ span[role="paragraph"] {
 .dso-ozon-lijst {
   span.od-Lijstaanhef,
   span.od-Lijstsluiting {
-    margin-bottom: $ru2;
+    margin-bottom: units.$ru2;
   }
 
   ul {
@@ -122,9 +121,9 @@ span[role="paragraph"] {
 
         > span.od-LiNummer {
           position: absolute;
-          left: -$u6 + 4px;
+          left: units.$u6 * -1 + 4;
           text-align: right;
-          width: $u5;
+          width: units.$u5;
         }
       }
     }

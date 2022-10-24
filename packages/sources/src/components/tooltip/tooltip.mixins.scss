@@ -1,11 +1,15 @@
-@import "../../styling/variables";
+@use "../../variables/colors";
+@use "../../variables/typography";
+@use "../../variables/zindex";
 
-@mixin reset-text() {
-  font-family: $font-family-base;
+@use "tooltip.variables" as tooltip-variables;
+
+@mixin _reset-text() {
+  font-family: typography.$font-family-base;
   // We deliberately do NOT reset font-size.
   font-style: normal;
   font-weight: 400;
-  line-height: $line-height-base;
+  line-height: typography.$line-height-base;
   line-break: auto;
   text-align: left; // Fallback for where `start` is not supported
   text-align: start;
@@ -17,4 +21,86 @@
   word-spacing: normal;
   word-wrap: normal;
   white-space: normal;
+}
+
+@mixin root() {
+  @include _reset-text();
+
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  font-size: typography.$font-size-small;
+  opacity: 0;
+  position: absolute;
+  transition: opacity tooltip-variables.$transition-duration linear;
+  z-index: zindex.$tooltip;
+
+  &.in {
+    opacity: tooltip-variables.$opacity;
+  }
+
+  .tooltip-inner {
+    background-color: colors.$wit;
+    border-radius: tooltip-variables.$border-radius;
+    color: colors.$grijs-90;
+    display: inline-block;
+    font-size: typography.$root-font-size-base;
+    max-width: tooltip-variables.$max-width;
+    padding: tooltip-variables.$padding-horizontal tooltip-variables.$padding-vertical;
+    position: relative;
+
+    &.dso-small {
+      max-width: tooltip-variables.$max-width-small;
+    }
+  }
+
+  .tooltip-arrow {
+    border-color: transparent;
+    border-style: solid;
+    height: 0;
+    width: 0;
+  }
+}
+
+@mixin arrowTop() {
+  margin-top: -3px;
+  padding: tooltip-variables.$arrow-width 0;
+
+  .tooltip-arrow {
+    border-top-color: tooltip-variables.$arrow-color;
+    border-width: tooltip-variables.$arrow-width tooltip-variables.$arrow-width 0;
+    bottom: 0;
+  }
+}
+
+@mixin arrowRight() {
+  margin-left: 3px;
+  padding: 0 tooltip-variables.$arrow-width;
+
+  .tooltip-arrow {
+    border-right-color: tooltip-variables.$arrow-color;
+    border-width: tooltip-variables.$arrow-width tooltip-variables.$arrow-width tooltip-variables.$arrow-width 0;
+    left: 0;
+  }
+}
+
+@mixin arrowLeft() {
+  margin-left: -3px;
+  padding: 0 tooltip-variables.$arrow-width;
+
+  .tooltip-arrow {
+    border-left-color: tooltip-variables.$arrow-color;
+    border-width: tooltip-variables.$arrow-width 0 tooltip-variables.$arrow-width tooltip-variables.$arrow-width;
+    right: 0;
+  }
+}
+
+@mixin arrowBottom() {
+  margin-top: 3px;
+  padding: tooltip-variables.$arrow-width 0;
+
+  .tooltip-arrow {
+    border-bottom-color: tooltip-variables.$arrow-color;
+    border-width: 0 tooltip-variables.$arrow-width tooltip-variables.$arrow-width;
+    top: 0;
+  }
 }

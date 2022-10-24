@@ -1,3 +1,6 @@
+@use "../../../sources/src/variables/units";
+@use "../../../sources/src/variables/zindex";
+
 /* required styles */
 
 .leaflet-pane,
@@ -104,7 +107,7 @@
   box-sizing: border-box;
   height: 0;
   width: 0;
-  z-index: $zx-leaflet + 60;
+  z-index: zindex.$leaflet + 60;
 }
 
 /* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
@@ -113,39 +116,39 @@
 }
 
 .leaflet-pane {
-  z-index: $zx-leaflet + 20;
+  z-index: zindex.$leaflet + 20;
 }
 
 .leaflet-tile-pane {
-  z-index: $zx-leaflet + 10;
+  z-index: zindex.$leaflet + 10;
 }
 
 .leaflet-overlay-pane {
-  z-index: $zx-leaflet + 20;
+  z-index: zindex.$leaflet + 20;
 }
 
 .leaflet-shadow-pane {
-  z-index: $zx-leaflet + 30;
+  z-index: zindex.$leaflet + 30;
 }
 
 .leaflet-marker-pane {
-  z-index: $zx-leaflet + 40;
+  z-index: zindex.$leaflet + 40;
 }
 
 .leaflet-tooltip-pane {
-  z-index: $zx-leaflet + 45;
+  z-index: zindex.$leaflet + 45;
 }
 
 .leaflet-popup-pane {
-  z-index: $zx-leaflet + 50;
+  z-index: zindex.$leaflet + 50;
 }
 
 .leaflet-map-pane canvas {
-  z-index: $zx-leaflet;
+  z-index: zindex.$leaflet;
 }
 
 .leaflet-map-pane svg {
-  z-index: $zx-leaflet + 10;
+  z-index: zindex.$leaflet + 10;
 }
 
 .leaflet-vml-shape {
@@ -165,7 +168,7 @@
   clear: both;
   float: left;
   position: relative;
-  z-index: $zx-leaflet + 60;
+  z-index: zindex.$leaflet + 60;
   pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
   pointer-events: auto;
 }
@@ -173,7 +176,7 @@
 .leaflet-top,
 .leaflet-bottom {
   position: absolute;
-  z-index: $zx-leaflet + 70;
+  z-index: zindex.$leaflet + 70;
   pointer-events: none;
 }
 
@@ -194,20 +197,20 @@
 }
 
 .leaflet-top .leaflet-control {
-  margin-top: $u2;
+  margin-top: units.$u2;
 }
 
 .leaflet-bottom .leaflet-control {
-  margin-bottom: $u2;
+  margin-bottom: units.$u2;
 }
 
 .leaflet-left .leaflet-control {
-  margin-left: $u2;
+  margin-left: units.$u2;
 }
 
 .leaflet-right .leaflet-control {
   float: right;
-  margin-right: $u2;
+  margin-right: units.$u2;
 }
 
 /* zoom and fade animations */

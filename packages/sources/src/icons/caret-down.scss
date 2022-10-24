@@ -1,21 +1,21 @@
-@import "../styling/variables";
+@use "../variables/colors";
 
 caret-down {
-  color: $bosgroen;
+  color: colors.$bosgroen;
 }
 
 caret-down:grasgroen {
-  color: $grasgroen;
+  color: colors.$grasgroen;
 }
 
 caret-down:disabled {
-  color: $grijs-40;
+  color: colors.$grijs-40;
 }
 
 caret-down:invalid {
-  color: $dso-danger-color;
+  color: colors.$danger-color;
 }
 
 caret-down:wit {
-  color: $wit;
+  color: colors.$wit;
 }

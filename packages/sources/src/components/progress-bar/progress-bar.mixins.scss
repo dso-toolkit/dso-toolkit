@@ -1,0 +1,27 @@
+@use "../../variables/units";
+@use "../../variables/typography";
+
+@use "progress-bar.variables" as progress-bar-variables;
+
+@mixin root() {
+  margin-bottom: units.$u1;
+
+  #progress-bar-label {
+    font-size: typography.$root-font-size-small;
+    margin-top: units.$u1;
+  }
+
+  .progress-bar {
+    background-color: progress-bar-variables.$background-color;
+    border: 1px solid progress-bar-variables.$color;
+    display: block;
+    height: progress-bar-variables.$height;
+
+    > span {
+      background-color: progress-bar-variables.$progress-color;
+      float: left;
+      height: 100%;
+      width: 0%;
+    }
+  }
+}

@@ -1,14 +1,11 @@
-@import "~@dso-toolkit/sources/src/styling/variables";
-@import "~@dso-toolkit/sources/src/styling/mixins";
-@import "~@dso-toolkit/sources/src/components/dropdown-menu/dropdown-menu";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "~@dso-toolkit/sources/src/variables/typography";
 
-$dso-navigation-selected-color: $mauve;
+@use "~@dso-toolkit/sources/src/components/anchor";
 
-$dropdown-bg: #fff;
-$dropdown-border: rgba(0, 0, 0, 0.15);
-
-$dso-dropdown-hor-padding: 20px;
-$dso-dropdown-link-color: $grijs-90;
+@use "header.variables" as core-header-variables;
 
 @mixin nav-item-border($color) {
   border-bottom: 4px solid $color;
@@ -17,8 +14,8 @@ $dso-dropdown-link-color: $grijs-90;
 @mixin nav-item-main {
   font-size: 1.25em;
   line-height: 1;
-  margin-top: $u1;
-  padding: $u2 0;
+  margin-top: units.$u1;
+  padding: units.$u2 0;
 }
 
 :host {
@@ -26,16 +23,16 @@ $dso-dropdown-link-color: $grijs-90;
 }
 
 .dso-header {
-  border-bottom: 1px solid $grijs-20;
+  border-bottom: 1px solid colors.$grijs-20;
   display: flex;
   flex-wrap: wrap;
   position: relative;
 
-  @media screen and (min-width: $screen-sm-min) {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     align-items: center;
   }
 
-  @media screen and (max-width: $screen-sm-max) {
+  @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
     &.use-drop-down {
       flex-wrap: nowrap;
     }
@@ -49,20 +46,20 @@ $dso-dropdown-link-color: $grijs-90;
 .logo-container {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: $u2;
-  padding-top: $u2;
+  padding-bottom: units.$u2;
+  padding-top: units.$u2;
 
-  @media screen and (max-width: $screen-xs-max) {
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     max-height: 40px;
   }
 }
 
 .sub-logo {
-  @media screen and (min-width: $screen-sm-min) {
-    margin-left: $u3;
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    margin-left: units.$u3;
   }
 
-  @media screen and (max-width: $screen-xs-max) {
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     flex-basis: 100%;
   }
 }
@@ -71,7 +68,7 @@ $dso-dropdown-link-color: $grijs-90;
 .logout {
   .dso-tertiary {
     cursor: pointer;
-    font-family: $font-family-base;
+    font-family: typography.$font-family-base;
     font-weight: 600;
     vertical-align: text-bottom;
   }
@@ -81,9 +78,9 @@ $dso-dropdown-link-color: $grijs-90;
 .logout,
 .login {
   a {
-    @include anchor-clean();
+    @include anchor.clean();
 
-    color: $grasgroen;
+    color: colors.$grasgroen;
     font-weight: 600;
   }
 }
@@ -94,13 +91,13 @@ $dso-dropdown-link-color: $grijs-90;
 
   .profile {
     a {
-      margin-left: $u1;
+      margin-left: units.$u1;
     }
 
     + .logout {
-      border-left: 3px solid $grijs-20;
-      margin-left: $u2;
-      padding-left: $u2;
+      border-left: 3px solid colors.$grijs-20;
+      margin-left: units.$u2;
+      padding-left: units.$u2;
     }
   }
 }
@@ -109,7 +106,7 @@ $dso-dropdown-link-color: $grijs-90;
   flex-basis: 100%;
 
   .dso-dropdown-options {
-    border-top: 1px solid $grijs-20;
+    border-top: 1px solid colors.$grijs-20;
   }
 }
 
@@ -119,40 +116,40 @@ dso-dropdown-menu {
     background-color: transparent;
     border: 0;
     display: flex;
-    font-family: $font-family-base;
-    padding-right: $u4;
+    font-family: typography.$font-family-base;
+    padding-right: units.$u4;
   }
 
-  @media screen and (max-width: $screen-xs-max) {
-    top: $u1 * 1.5;
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    top: units.$u1 * 1.5;
   }
 
   .dso-dropdown-options {
     border: 0;
     border-radius: 0;
 
-    @media screen and (min-width: $screen-sm-min) {
+    @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       width: 375px;
     }
 
-    @media screen and (max-width: $screen-xs-max) {
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
       width: 100%;
     }
 
     ul li {
       a {
-        color: $bosgroen;
+        color: colors.$bosgroen;
         font-size: 1.25rem;
-        padding: $u2;
+        padding: units.$u2;
         white-space: pre-wrap;
 
         &:focus {
-          color: $wit;
+          color: colors.$wit;
         }
 
         &:hover {
-          background-color: $wit;
-          color: $bosgroen;
+          background-color: colors.$wit;
+          color: colors.$bosgroen;
           text-decoration: underline;
         }
       }
@@ -164,7 +161,7 @@ dso-dropdown-menu {
       }
 
       + li {
-        border-top: 1px solid $grijs-20;
+        border-top: 1px solid colors.$grijs-20;
       }
     }
   }
@@ -176,8 +173,8 @@ dso-dropdown-menu {
   dso-dropdown-menu {
     position: static;
 
-    @media screen and (max-width: $screen-xs-max) {
-      margin-top: $u1 * 3.5;
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      margin-top: units.$u1 * 3.5;
     }
 
     .dso-dropdown-options {
@@ -186,14 +183,14 @@ dso-dropdown-menu {
     }
 
     button {
-      color: $grasgroen;
-      font-size: $dso-font-size-base;
+      color: colors.$grasgroen;
+      font-size: typography.$font-size-base;
       font-weight: 600;
       line-height: normal;
       position: relative;
 
       &::after {
-        margin-left: $u1;
+        margin-left: units.$u1;
         position: absolute;
         right: 0px;
         top: 50%;
@@ -211,7 +208,7 @@ dso-dropdown-menu {
 
 .dso-nav {
   align-items: end;
-  column-gap: $u4;
+  column-gap: units.$u4;
   display: flex;
   list-style: none;
   margin-bottom: 0;
@@ -228,7 +225,7 @@ dso-dropdown-menu {
       &:hover,
       &:focus,
       &:visited {
-        color: $bosgroen;
+        color: colors.$bosgroen;
       }
     }
 
@@ -237,7 +234,7 @@ dso-dropdown-menu {
       margin-bottom: 0;
 
       > a {
-        @include nav-item-border($dso-navigation-selected-color);
+        @include nav-item-border(core-header-variables.$navigation-selected-color);
 
         font-weight: bold;
       }
@@ -247,7 +244,7 @@ dso-dropdown-menu {
   &.dso-nav-main {
     > li {
       > a {
-        @include anchor-reverse();
+        @include anchor.reverse();
         @include nav-item-main();
 
         // stylelint-disable-next-line declaration-property-value-disallowed-list -- no wrapping wanted because of icon
@@ -257,7 +254,7 @@ dso-dropdown-menu {
 
     dso-dropdown-menu {
       .dso-dropdown-options {
-        left: -$ru2;
+        left: units.$ru2 * -1;
         top: calc(100% + 3px);
       }
 
@@ -265,8 +262,8 @@ dso-dropdown-menu {
         @include nav-item-main();
 
         align-items: center;
-        color: $bosgroen;
-        padding-right: $u4;
+        color: colors.$bosgroen;
+        padding-right: units.$u4;
 
         &:hover,
         &:active {
@@ -275,7 +272,7 @@ dso-dropdown-menu {
         }
 
         &::after {
-          margin-left: $u1;
+          margin-left: units.$u1;
           position: absolute;
           right: 0px;
           top: auto;
@@ -290,11 +287,11 @@ dso-dropdown-menu {
       display: inline-block;
 
       > a {
-        @include anchor-reverse();
+        @include anchor.reverse();
 
-        font-size: $dso-font-size-base;
-        margin-top: ($u1 * 0.5);
-        padding: ($u1 * 0.5) $u1 #{$u1 * 0.5 - 1px};
+        font-size: typography.$font-size-base;
+        margin-top: (units.$u1 * 0.5);
+        padding: (units.$u1 * 0.5) units.$u1 #{units.$u1 * 0.5 - 1px};
       }
     }
   }
@@ -304,7 +301,7 @@ dso-dropdown-menu {
 
     dso-icon {
       height: 1em;
-      margin-right: $u1;
+      margin-right: units.$u1;
       position: relative;
       top: -2px;
       width: 1.2em;
