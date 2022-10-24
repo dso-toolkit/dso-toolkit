@@ -2,7 +2,9 @@
 @use "~@dso-toolkit/sources/src/variables/units";
 @use "~@dso-toolkit/sources/src/variables/colors";
 @use "~@dso-toolkit/sources/src/variables/typography";
+@use "~@dso-toolkit/sources/src/variables/media-query-breakpoints";
 @use "~@dso-toolkit/sources/src/components/button";
+
 
 :host {
   display: block;
@@ -95,17 +97,17 @@
   top: 0;
   transition: right 0.5s;
 
-  @media screen and (max-width: $screen-xs-min) {
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
     right: -320px;
     width: 320px;
   }
 
-  @media screen and (min-width: ($screen-xs-min + 1)) and (max-width: $screen-xs-max) {
+  @media screen and (min-width: (media-query-breakpoints.$screen-xs-min + 1)) and (max-width: media-query-breakpoints.$screen-xs-max) {
     right: -480px;
     width: 480px;
   }
 
-  @media screen and (min-width: $screen-sm-min) {
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     right: -640px;
     width: 640px;
   }

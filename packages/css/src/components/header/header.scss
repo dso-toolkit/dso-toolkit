@@ -1,4 +1,6 @@
-@import "../../di";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+
+@use "../../di";
 
 header {
   display: block;
@@ -8,11 +10,11 @@ dso-header {
   .dso-header:not(.has-sub-logo) {
     div[slot="logo"] {
       img {
-        @media screen and (min-width: $screen-sm-min) {
+        @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
           max-height: 48px;
         }
 
-        @media screen and (max-width: $screen-xs-max) {
+        @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
           max-height: 40px;
         }
       }
@@ -32,7 +34,7 @@ dso-header {
       &:hover,
       &:active {
         &::after{
-          @include di-variant('chevron-down-grasgroen');
+          @include di.variant('chevron-down-grasgroen');
         }
       }
     }
@@ -42,7 +44,7 @@ dso-header {
         &:hover,
         &:active {
           &::after{
-            @include di-variant('chevron-up-grasgroen');
+            @include di.variant('chevron-up-grasgroen');
           }
         }
       }
