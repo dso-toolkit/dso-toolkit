@@ -1,11 +1,11 @@
-@use "@dso-toolkit/css/src/components/table/table.variables" as css-table-variables;
-
 @use "@dso-toolkit/sources/src/utilities";
 @use "@dso-toolkit/sources/src/variables/colors";
 @use "@dso-toolkit/sources/src/variables/scaffolding";
 @use "@dso-toolkit/sources/src/variables/states";
 @use "@dso-toolkit/sources/src/variables/typography";
 @use "@dso-toolkit/sources/src/components/rich-content";
+
+@use "../../components/table/table.variables" as css-table-variables;
 
 $panel-bg:                    #fff !default;
 $panel-body-padding:          15px !default;
