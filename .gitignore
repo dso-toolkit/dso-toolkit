@@ -1,6 +1,5 @@
 node_modules
 *.log
-.vscode
 *.zip
 /dso-toolkit-smoke-test
 

@@ -1,0 +1,11 @@
+**/CHANGELOG.md
+/.yarn
+/dso-toolkit-smoke-test
+/packages/*/dist
+/packages/*/www
+/packages/core/loader
+/packages/core/src/components.d.ts
+/packages/core/src/components/**/README.md
+/packages/dso-toolkit
+/packages/react/src/components.ts
+/packages/react/src/react-component-lib
