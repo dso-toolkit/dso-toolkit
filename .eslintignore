@@ -1,0 +1,8 @@
+/dso-toolkit-smoke-test
+/packages/*/dist
+/packages/*/www
+/packages/core/loader
+/packages/core/src/components.d.ts
+/packages/dso-toolkit
+/packages/react/src/components.ts
+/packages/react/src/react-component-lib
