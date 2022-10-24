@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **core + react + sources:** `<dso-table>` Web component ([#1627](https://github.com/dso-toolkit/dso-toolkit/issues/1627))
 * **core + react + sources:** `<dso-table>` Tabel kunnen openen in modal ([#1759](https://github.com/dso-toolkit/dso-toolkit/issues/1759))
+* **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
 
 ### Fixed
 * **sources:** Icon button lijnt niet goed verticaal uit in de highlightbox ([#1761](https://github.com/dso-toolkit/dso-toolkit/issues/1761))
