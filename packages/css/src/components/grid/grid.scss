@@ -19,7 +19,7 @@ form {
       padding-bottom: $u5;
       padding-top: $u3;
 
-      & +.row div:not(.dso-rich-content) {
+      & + .row div:not(.dso-rich-content) {
         h1,
         .h1,
         h2,
