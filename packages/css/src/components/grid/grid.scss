@@ -9,11 +9,11 @@ $dso-featured-background-color: $grasgroen-10;
 
 main,
 form {
-  >.dso-rich-content {
+  > .dso-rich-content {
     margin-bottom: $dso-vertical-spacing-xlarge;
   }
 
-  >.row {
+  > .row {
     &.dso-featured {
       margin-bottom: $u4;
       padding-bottom: $u5;
@@ -31,6 +31,10 @@ form {
             margin-top: 0;
           }
         }
+      }
+
+      > .dso-equal-heights {
+        margin-bottom: 16px;
       }
     }
   }
@@ -63,11 +67,11 @@ form {
     display: flex;
     flex-wrap: wrap;
 
-    >[class*="col-"] {
+    > [class*="col-"] {
       display: flex;
       flex-direction: column;
 
-      >.dso-highlight-box {
+      > .dso-highlight-box {
         height: 100%;
         min-height: auto;
 
@@ -87,6 +91,7 @@ form {
     background-size: cover;
     padding-top: 32px;
     padding-bottom: 32px;
+    min-height: 232px;
 
     +.row {
       margin-top: 24px;
