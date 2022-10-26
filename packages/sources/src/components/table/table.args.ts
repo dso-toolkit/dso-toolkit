@@ -2,18 +2,12 @@ import { ArgTypes, noControl } from '../../storybook';
 import { Table, TableContent } from './table.models';
 
 export interface TableArgs {
-  responsive: boolean;
-  modal: boolean;
+  noModal: boolean;
   content: TableContent;
 }
 
 export const tableArgTypes: ArgTypes<TableArgs> = {
-  responsive: {
-    control: {
-      type: 'boolean'
-    }
-  },
-  modal: {
+  noModal: {
     control: {
       type: 'boolean'
     }

@@ -24,8 +24,7 @@ export function storiesOfTable<TemplateFnReturnType>(
     template,
     {
       args: {
-        modal: false,
-        responsive: false,
+        noModal: false,
         content: defaultTable,
       }
     }
@@ -36,8 +35,7 @@ export function storiesOfTable<TemplateFnReturnType>(
     template,
     {
       args: {
-        modal: false,
-        responsive: false,
+        noModal: false,
         content: imageOverlayTable,
       }
     }

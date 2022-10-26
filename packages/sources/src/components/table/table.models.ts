@@ -5,7 +5,7 @@ export interface TableContent {
 }
 
 export interface Table {
-  responsive?: boolean;
-  modal?: boolean;
+  /** Prevents the table being opened in a modal. */
+  noModal?: boolean;
   content: TableContent;
 }

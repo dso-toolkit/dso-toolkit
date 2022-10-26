@@ -300,13 +300,9 @@ export namespace Components {
          */
         "isResponsive": boolean;
         /**
-          * Allows the table to opened in a modal.
+          * Prevents the table being   opened in a modal.
          */
-        "modal": boolean;
-        /**
-          * Allows the table to be scrolled horizontally if it does not fit.
-         */
-        "responsive": boolean;
+        "noModal": boolean;
     }
     interface DsoToggletip {
         "label": string;
@@ -910,13 +906,9 @@ declare namespace LocalJSX {
          */
         "isResponsive"?: boolean;
         /**
-          * Allows the table to opened in a modal.
+          * Prevents the table being   opened in a modal.
          */
-        "modal"?: boolean;
-        /**
-          * Allows the table to be scrolled horizontally if it does not fit.
-         */
-        "responsive"?: boolean;
+        "noModal"?: boolean;
     }
     interface DsoToggletip {
         "label"?: string;

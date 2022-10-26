@@ -1,8 +1,7 @@
 @use "~@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
 
 @use "~@dso-toolkit/sources/src/variables/units";
-// @use "~@dso-toolkit/sources/src/variables/units";
-@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "~@dso-toolkit/sources/src/variables/media-query-breakpoints";
 @use "~@dso-toolkit/sources/src/variables/colors";
 @use "~@dso-toolkit/sources/src/utilities";
 

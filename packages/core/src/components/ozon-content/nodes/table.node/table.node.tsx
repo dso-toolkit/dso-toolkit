@@ -34,7 +34,7 @@ export class OzonContentTableNode implements OzonContentNode {
     } = mapData(node);
 
     return (
-      <dso-table modal>
+      <dso-table>
         <table class="table">
           {caption && (
             <caption>{caption}</caption>

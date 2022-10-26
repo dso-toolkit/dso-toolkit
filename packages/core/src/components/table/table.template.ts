@@ -5,15 +5,13 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 export function tableTemplate(
   {
-    responsive,
-    modal,
+    noModal,
     content,
   }: Table
 ) {
   return html`
     <dso-table
-      ?responsive=${responsive}
-      ?modal=${modal}
+      ?no-modal=${noModal}
     >
       <table class="table">
         <caption>${content.caption}</caption>

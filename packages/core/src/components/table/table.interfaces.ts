@@ -1,3 +1,3 @@
 export interface TableInterface {
-  responsive: boolean;
+  noModal: boolean;
 }

@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Element, Host, Prop, State, Watch } from '@stencil/core';
+import { h, Component, ComponentInterface, Element, Host, Prop, State } from '@stencil/core';
 import debounce from 'debounce';
 import { createFocusTrap, FocusTrap } from 'focus-trap';
 import { v4 } from 'uuid';
@@ -24,13 +24,9 @@ export class Table implements ComponentInterface, TableInterface {
   @Element()
   host!: HTMLElement;
 
-  /** Allows the table to be scrolled horizontally if it does not fit. */
+  /** Prevents the table being   opened in a modal. */
   @Prop({ reflect: true })
-  responsive = false;
-
-  /** Allows the table to opened in a modal. */
-  @Prop({ reflect: true })
-  modal = false;
+  noModal = false;
 
   /** Indicates whether the table is currently horizontally scrollable */
   @Prop({ reflect: true })
@@ -42,15 +38,8 @@ export class Table implements ComponentInterface, TableInterface {
   @State()
   placeholderHeight?: number;
 
-  @Watch('responsive')
-  toggleResponsiveBehavior(responsive: boolean): void {
-    if (responsive) {
-      this.resizeObserver?.observe(this.host);
-    }
-    else {
-      this.resizeObserver?.unobserve(this.host);
-      this.isResponsive = false;
-    }
+  startResponsiveBehavior(): void {
+    this.resizeObserver?.observe(this.host);
   }
 
   componentWillLoad(): void {
@@ -58,7 +47,7 @@ export class Table implements ComponentInterface, TableInterface {
   }
 
   componentDidLoad(): void {
-    this.toggleResponsiveBehavior(this.responsive);
+    this.startResponsiveBehavior();
   }
 
   componentDidRender() {
@@ -84,7 +73,7 @@ export class Table implements ComponentInterface, TableInterface {
             ref={element => this.focusTrapElement = element}
             {...this.modalActive ? { ['aria-labelledby']: this.labelledbyId, role: 'dialog' } : {}}
           >
-            {(this.isResponsive || this.modal) && (
+            {(this.isResponsive || !this.noModal) && (
               <div class="dso-table-utilities" style={this.modalActive ? { display: 'none' } : undefined}>
                 {this.isResponsive && (
                   <div class="dso-responsive-message">
@@ -92,7 +81,7 @@ export class Table implements ComponentInterface, TableInterface {
                   </div>
                 )}
 
-                {this.modal && (
+                {!this.noModal && (
                   <button
                     type="button"
                     class="dso-tertiary open-modal-button"

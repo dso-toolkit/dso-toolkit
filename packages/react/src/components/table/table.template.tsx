@@ -5,15 +5,13 @@ import { DsoTable } from '../..';
 
 export function tableTemplate(
   {
-    responsive,
-    modal,
+    noModal,
     content,
   }: Table
 ) {
   return (
     <DsoTable
-      responsive={responsive}
-      modal={modal}
+      noModal={noModal}
     >
       <table className="table">
         <caption>{content.caption}</caption>

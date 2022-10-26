@@ -22,7 +22,6 @@ describe('Table', () => {
     cy
       .get('dso-table')
       .as('dsoTable')
-      .invoke('attr', 'modal', true)
       .shadow()
       .as('dsoTableShadow')
       .find('.open-modal-button')
@@ -53,7 +52,6 @@ describe('Table', () => {
     cy
       .get('dso-table')
       .as('dsoTable')
-      .invoke('attr', 'modal', true)
       .shadow()
       .as('dsoTableShadow')
       .find('.open-modal-button')
@@ -71,11 +69,11 @@ describe('Table', () => {
     cy
       .get('dso-table')
       .as('dsoTable')
-      .invoke('attr', 'modal', true)
       .shadow()
       .as('dsoTableShadow')
       .find('.open-modal-button')
       .click()
+      .realPress('Tab')
       .realPress('Tab')
       .realPress('Tab')
       .realPress('Tab')

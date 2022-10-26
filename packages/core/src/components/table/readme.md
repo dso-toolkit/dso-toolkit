@@ -10,8 +10,7 @@
 | Property       | Attribute       | Description                                                      | Type      | Default |
 | -------------- | --------------- | ---------------------------------------------------------------- | --------- | ------- |
 | `isResponsive` | `is-responsive` | Indicates whether the table is currently horizontally scrollable | `boolean` | `false` |
-| `modal`        | `modal`         | Allows the table to opened in a modal.                           | `boolean` | `false` |
-| `responsive`   | `responsive`    | Allows the table to be scrolled horizontally if it does not fit. | `boolean` | `false` |
+| `noModal`      | `no-modal`      | Prevents the table being   opened in a modal.                    | `boolean` | `false` |
 
 
 ## Dependencies
