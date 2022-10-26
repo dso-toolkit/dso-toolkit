@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 45.2.0
+
 ### Added
 * **core + react + sources:** `<dso-table>` Web component ([#1627](https://github.com/dso-toolkit/dso-toolkit/issues/1627))
 * **core + react + sources:** `<dso-table>` Tabel kunnen openen in modal ([#1759](https://github.com/dso-toolkit/dso-toolkit/issues/1759))
