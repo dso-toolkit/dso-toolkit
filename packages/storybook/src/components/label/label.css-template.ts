@@ -18,7 +18,7 @@ const statusMap = new Map<string, string>([
 export const cssLabel: ComponentImplementation<Label> = {
   component: 'label',
   implementation: 'css',
-  template: ({ iconTemplate }) => function labelTemplate({ status, label, removable, dsoRemoveClick, compact, symbol }: Label) {
+  template: ({ iconTemplate }) => function labelTemplate({ status, label, removable, dsoRemoveClick, compact, symbol }) {
     return html`
       <span class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}">
         ${symbol

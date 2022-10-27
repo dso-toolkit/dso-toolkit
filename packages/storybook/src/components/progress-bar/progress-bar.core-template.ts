@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreProgressBar: ComponentImplementation<ProgressBar> = {
   component: 'progressBar',
   implementation: 'core',
-  template: () => function progressBarTemplate({ progress, label, min, max }: ProgressBar) {
+  template: () => function progressBarTemplate({ progress, label, min, max }) {
     return html`
       <dso-progress-bar
         progress=${progress}

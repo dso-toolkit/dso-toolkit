@@ -24,16 +24,4 @@ export const storiesOfAttachmentsCounter = storiesOfFactory<AttachmentsCounterTe
       }
     }
   );
-})
-
-// export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     attachmentsCounterTemplate
-//   }: AttachmentsCounterParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Attachments Counter', parameters, attachmentsCounterArgTypes);
-//   const template = bindTemplate(attachmentsCounterArgsMapper, attachmentsCounterTemplate);
-
-
-// }
+});

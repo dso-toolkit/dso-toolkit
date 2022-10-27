@@ -12,7 +12,7 @@ export const reactAlert: ComponentImplementation<Alert<JSX.Element>> = {
     onClick,
     status,
     withRoleAlert
-  }: Alert<JSX.Element>) {
+  }) {
     return (
       <DsoAlert
         status={status}

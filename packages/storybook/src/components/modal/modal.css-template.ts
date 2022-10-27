@@ -9,7 +9,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: 'modal',
   implementation: 'css',
-  template: ({ buttonTemplate }) => function modalTemplate({ body, buttons, confirm, role, heading, id }: Modal<TemplateResult>) {
+  template: ({ buttonTemplate }) => function modalTemplate({ body, buttons, confirm, role, heading, id }) {
     return html`
       <div
         tabindex="-1"

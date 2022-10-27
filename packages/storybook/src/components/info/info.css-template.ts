@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssInfo: ComponentImplementation<Info<TemplateResult>> = {
   component: 'info',
   implementation: 'css',
-  template: ({ buttonTemplate }) => function infoTemplate({ fixed, richContent, dsoClose, id }: Info<TemplateResult>) {
+  template: ({ buttonTemplate }) => function infoTemplate({ fixed, richContent, dsoClose, id }) {
     return html`
       <div class="dso-info" id=${ifDefined(id)}>
         ${typeof richContent === 'string'

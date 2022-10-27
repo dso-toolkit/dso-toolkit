@@ -8,7 +8,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: 'dropdownMenu',
   implementation: 'css',
-  template: ({ buttonTemplate }) => function dropdownMenuTemplate({ id, button, dropdownAlign, groups, isCheckable }: DropdownMenu) {
+  template: ({ buttonTemplate }) => function dropdownMenuTemplate({ id, button, dropdownAlign, groups, isCheckable }) {
     return html`
       <div class="dso-dropdown-menu dso-open ${classMap({ [`dso-dropdown-align-${dropdownAlign}`]: dropdownAlign === 'right', 'dso-checkable': !!isCheckable })}">
         ${buttonTemplate({ ...button, id })}

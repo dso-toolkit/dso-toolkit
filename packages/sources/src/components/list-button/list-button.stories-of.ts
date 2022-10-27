@@ -26,26 +26,4 @@ export const storiesOfListButton = storiesOfFactory<ListButtonTemplates<any>, Li
     'List Button',
     template
   );
-})
-
-// export function storiesOfListButton<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     listButtonTemplate: listButtonTemplate
-//   }: ListButtonParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('List Button', parameters, listButtonArgTypes)
-//     .addParameters({
-//       args: {
-//         label: 'Milieubelastende activiteit - Melding',
-//         count: 0,
-//         inputNumber: {
-//           id: uuidv4()
-//         }
-//       }
-//     });
-
-//   const template = bindTemplate(listButtonArgsMapper, listButtonTemplate);
-
-
-// }
+});

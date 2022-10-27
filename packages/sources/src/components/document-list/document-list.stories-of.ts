@@ -22,24 +22,4 @@ export const storiesOfDocumentList = storiesOfFactory<DocumentListTemplates<any>
     'Document List',
     template
   );
-})
-
-// export function storiesOfDocumentList<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     documentListTemplate,
-//     statusDemoMap
-//   }: DocumentListParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Document List', parameters, {})
-//     .addParameters({
-//       args: {
-//         ...noControl
-//       }
-//     });
-
-//   stories.add(
-//     'Document List',
-//     () => documentListTemplate(documentListMapper(statusDemoMap))
-//   );
-// }
+});

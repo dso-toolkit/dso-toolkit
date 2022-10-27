@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssBreadcrumbs: ComponentImplementation<Breadcrumbs> ={
   component: 'breadcrumbs',
   implementation: 'css',
-  template: () => function breadcrumbsTemplate({ breadcrumbs }: Breadcrumbs) {
+  template: () => function breadcrumbsTemplate({ breadcrumbs }) {
     return html`
       <nav aria-label="U bevindt zich hier:">
         <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">

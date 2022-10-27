@@ -4,7 +4,6 @@ import { html } from 'lit-html';
 
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 
-import { rowEqualHeightsTemplate } from '@dso-toolkit/css/src/components/row-equal-heights/row-equal-heights.template';
 import readme from '@dso-toolkit/css/src/components/row-equal-heights/readme.md';
 
 import { decorator } from './row-equal-heights.decorator';
@@ -18,7 +17,7 @@ storiesOfRowEqualHeights(
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ highlightBoxTemplate, tileTemplate, whiteboxTemplate }) => ({
+  ({ highlightBoxTemplate, tileTemplate, whiteboxTemplate, rowEqualHeightsTemplate }) => ({
     highlightBoxExample: (highlightboxes) => rowEqualHeightsTemplate({
       children: html`${highlightboxes.map(highlightbox => html`<div class="col-sm-12 col-md-6 col-lg-3">${highlightBoxTemplate(highlightbox)}</div>`)}`
     }),

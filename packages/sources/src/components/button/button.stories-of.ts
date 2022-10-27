@@ -55,22 +55,4 @@ export const storiesOfButton = storiesOfFactory<ButtonTemplates<any>, ButtonArgs
       }
     }
   );
-})
-
-// export function storiesOfButton<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     buttonTemplate
-//   }: ButtonParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Button', parameters, buttonArgTypes)
-//     .addParameters({
-//       args: {
-//         element: 'button'
-//       }
-//     });
-
-//   const template = bindTemplate(buttonArgsMapper, buttonTemplate);
-
-
-// }
+});

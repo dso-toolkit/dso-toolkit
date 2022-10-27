@@ -127,34 +127,4 @@ export const storiesOfSearchBar = storiesOfFactory<SearchBarTemplates<any>, Sear
       }
     }
   );
-})
-
-// export function storiesOfSearchBar<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     searchBarTemplate
-//   }: SearchBarParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Search Bar', parameters, searchBarArgTypes)
-//     .addParameters({
-//       args: componentArgs<SearchBarArgs>({
-//         id: 'search-bar-id',
-//         label: 'Label',
-//         icon: true,
-//         hiddenLabel: false,
-//         invalid: false,
-//         placeholder: 'Bv. boomkap',
-//         value: '',
-//         buttonLabel: 'Zoeken',
-//         hideSearchButton: false,
-//         ariaDescribedBy: '',
-//         ariaErrorMessage: '',
-//         resultsMessage: '',
-//         resultsHidden: false
-//       })
-//     });
-
-//   const template = bindTemplate(searchBarArgsMapper, searchBarTemplate);
-
-
-// }
+});

@@ -48,22 +48,4 @@ export const storiesOfDropdownMenu = storiesOfFactory<DropdownMenuTemplates<any>
       })
     }
   );
-})
-
-// export function storiesOfDropdownMenu<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     dropdownMenuTemplate
-//   }: DropdownMenuParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Dropdown Menu', parameters, dropdownMenuArgTypes)
-//     .addParameters({
-//       args: {
-//         id: uuidv4()
-//       }
-//     });
-
-//   const template = bindTemplate(dropdownMenuArgsMapper, dropdownMenuTemplate);
-
-
-// }
+});

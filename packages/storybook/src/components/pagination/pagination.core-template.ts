@@ -5,14 +5,12 @@ import { ComponentImplementation } from '../../templates';
 export const corePagination: ComponentImplementation<Pagination> = {
   component: 'pagination',
   implementation: 'core',
-  template: () => function paginationTemplate(
-    {
-      totalPages,
-      currentPage,
-      dsoSelectPage,
-      formatHref,
-    }: Pagination
-  ) {
+  template: () => function paginationTemplate({
+    totalPages,
+    currentPage,
+    dsoSelectPage,
+    formatHref,
+  }) {
     return html`
       <dso-pagination
         total-pages=${totalPages}

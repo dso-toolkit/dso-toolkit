@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreInfoButton: ComponentImplementation<InfoButton> = {
   component: 'infoButton',
   implementation: 'core',
-  template: () => function infoButtonTemplate({ label, active, secondary, dsoToggle }: InfoButton) {
+  template: () => function infoButtonTemplate({ label, active, secondary, dsoToggle }) {
     return html`
       <dso-info-button
         label=${label}

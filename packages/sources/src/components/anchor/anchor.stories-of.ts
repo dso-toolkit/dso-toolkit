@@ -62,15 +62,3 @@ export const storiesOfAnchor = storiesOfFactory<AnchorTemplates<any>, AnchorArgs
     }
   );
 });
-
-// export function storiesOfAnchor<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     anchorTemplate
-//   }: AnchorParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Anchor', parameters, anchorArgTypes);
-//   const template = bindTemplate(anchorArgsMapper, anchorTemplate);
-
-
-// }

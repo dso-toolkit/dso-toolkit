@@ -31,7 +31,7 @@ function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
 export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
   component: 'shoppingCart',
   implementation: 'css',
-  template: ({ buttonTemplate, iconTemplate }) => function shoppingCartTemplate({ collapsable, collapsed, hideSummary, removeAll, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }: ShoppingCart) {
+  template: ({ buttonTemplate, iconTemplate }) => function shoppingCartTemplate({ collapsable, collapsed, hideSummary, removeAll, isOpen, items, shoppingcartTitleTag, shoppingcartTitle }) {
     return html`
       ${ shoppingcartTitleTag == 'h2'
         ? html`

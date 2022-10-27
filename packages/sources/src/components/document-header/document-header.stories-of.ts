@@ -21,34 +21,10 @@ export const storiesOfDocumentHeader = storiesOfFactory<DocumentHeaderTemplates<
     }
   });
 
-  const template = templateMapper((args, { documentHeaderTemplate, features, status, statusContent }) => documentHeaderTemplate(documentHeaderArgsMapper(args, status, features, statusContent)));
+  const template = templateMapper((args, { documentHeaderTemplate, features, status, statusContent }) => documentHeaderTemplate(documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)));
 
   stories.add(
     'Document Header',
     template
-    // (a: Args) => {
-    //   const args = a as DocumentHeaderArgs;
-
-    //   return documentHeaderTemplate(documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent));
-    // }
   );
-})
-
-// export function storiesOfDocumentHeader<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     documentHeaderTemplate,
-//     status,
-//     features,
-//     statusContent
-//   }: DocumentHeaderParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Document Header', parameters, {})
-//     .addParameters({
-//       args: {
-//         ...noControl
-//       }
-//     });
-
-
-// }
+});

@@ -20,7 +20,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
     disabled,
     dsoChange,
     info
-  }: Selectable<TemplateResult>) {
+  }) {
     const ariaDescribedBy = [
       describedById,
       info?.fixed ? info.id : undefined

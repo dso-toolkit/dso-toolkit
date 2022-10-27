@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreInfo: ComponentImplementation<Info<TemplateResult>> = {
   component: 'info',
   implementation: 'core',
-  template: () => function infoTemplate({ fixed, active, richContent, dsoClose }: Info<TemplateResult>) {
+  template: () => function infoTemplate({ fixed, active, richContent, dsoClose }) {
     return html`
       <dso-info
         ?fixed=${fixed}

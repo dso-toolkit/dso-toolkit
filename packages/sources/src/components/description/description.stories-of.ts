@@ -34,4 +34,4 @@ export const storiesOfDescription = storiesOfFactory<DescriptionTemplates<any>, 
       }
     }
   );
-})
+});

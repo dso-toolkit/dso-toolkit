@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssFootnote: ComponentImplementation<Footnote> = {
   component: 'footnote',
   implementation: 'css',
-  template: () => function footnotesReferenceTemplate({ number }: Footnote) {
+  template: () => function footnotesReferenceTemplate({ number }) {
     return html`
       <sup id="#voetnoot-${number}-link" class="dso-footnote-reference"><a href="#voetnoot-${number}">[${number}]</a></sup>
     `;

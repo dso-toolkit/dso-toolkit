@@ -43,16 +43,4 @@ export const storiesOfProgressIndicator = storiesOfFactory<ProgressIndicatorTemp
       }
     }
   );
-})
-
-// export function storiesOfProgressIndicator<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     progressIndicatorTemplate
-//   }: ProgressIndicatorParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Progress Indicator', parameters, progressIndicatorArgTypes);
-//   const template = bindTemplate(progressIndicatorArgsMapper, progressIndicatorTemplate);
-
-
-// }
+});

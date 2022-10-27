@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreProgressIndicator: ComponentImplementation<ProgressIndicator> = {
   component: 'progressIndicator',
   implementation: 'core',
-  template: () => function progressIndicatorTemplate({ label, block, size }: ProgressIndicator) {
+  template: () => function progressIndicatorTemplate({ label, block, size }) {
     return html`
       <dso-progress-indicator
         label=${ifDefined(label)}

@@ -60,32 +60,4 @@ export const storiesOfSelectable = storiesOfFactory<SelectableTemplates<any>, Se
       }
     }
   );
-})
-
-// export function storiesOfSelectable<TemplateFnReturnType>(
-//   parameters: StorybookParameters, {
-//     selectableTemplate,
-//     infoRichContent
-//   }: SelectableParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Selectable', parameters, selectableArgTypes)
-//     .addParameters({
-//       args: {
-//         type: 'radio',
-//         checked: false,
-//         disabled: false,
-//         id: uuidv4(),
-//         indeterminate: false,
-//         infoActive: false,
-//         infoFixed: false,
-//         invalid: false,
-//         label: 'Label',
-//         required: false,
-//         value: 'the-value'
-//       }
-//     });
-
-//   const template = bindTemplate(selectableArgsMapper, selectableTemplate);
-
-
-// }
+});

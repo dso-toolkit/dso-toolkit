@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreIcon: ComponentImplementation<Icon> = {
   component: 'icon',
   implementation: 'core',
-  template: () => function iconTemplate({ icon, slot }: Icon) {
+  template: () => function iconTemplate({ icon, slot }) {
     return html`
       <dso-icon
         icon=${icon}

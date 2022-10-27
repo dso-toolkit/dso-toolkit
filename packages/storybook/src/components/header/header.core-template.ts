@@ -18,7 +18,7 @@ export const coreHeader: ComponentImplementation<Header> = {
     userProfileName,
     userHomeUrl,
     dsoHeaderClick,
-  }: Header) {
+  }) {
     return html`<dso-header
       .mainMenu=${mainMenu}
       use-drop-down-menu=${ifDefined(useDropDownMenu)}

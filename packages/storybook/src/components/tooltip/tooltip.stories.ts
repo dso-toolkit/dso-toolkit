@@ -17,7 +17,7 @@ storiesOfTooltip(
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ tooltipTemplate }) => ({ tooltipTemplate })
+  ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
 );
 
 storiesOfTooltip(

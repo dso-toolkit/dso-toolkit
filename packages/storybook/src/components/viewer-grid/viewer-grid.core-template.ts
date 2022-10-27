@@ -18,7 +18,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
     dsoFilterpanelApply,
     dsoFilterpanelCancel,
     dsoCloseOverlay,
-  }: ViewerGrid<TemplateResult>) {
+  }) {
     return html`
       <dso-viewer-grid
         ?filterpanel-open=${filterpanelOpen}

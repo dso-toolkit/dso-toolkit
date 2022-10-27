@@ -7,15 +7,13 @@ import { ComponentImplementation } from '../../templates';
 export const coreAccordion: ComponentImplementation<Accordion> = {
   component: 'accordion',
   implementation: 'core',
-  template: () => function accordionTemplate(
-    {
-      variant,
-      reverseAlign,
-      allowMultipleOpen,
-      dsoToggleSection,
-      sections
-    }: Accordion
-  ) {
+  template: () => function accordionTemplate({
+    variant,
+    reverseAlign,
+    allowMultipleOpen,
+    dsoToggleSection,
+    sections
+  }) {
     return html`
       <dso-accordion
         variant=${ifDefined(variant)}
@@ -35,7 +33,7 @@ export const coreAccordion: ComponentImplementation<Accordion> = {
           >
             ${unsafeHTML(section.content)}
           </dso-accordion-section>`
-    )}
+        )}
       </dso-accordion>
     `;
   }

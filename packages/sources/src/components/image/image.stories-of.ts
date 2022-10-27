@@ -42,23 +42,4 @@ export const storiesOfImage = storiesOfFactory<ImageTemplates<any>, ImageArgs>('
       }
     }
   );
-})
-
-// export function storiesOfImage<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     imageTemplate
-//   }: ImageParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Image', parameters, imageArgTypes)
-//     .addParameters({
-//       args: {
-//         source: 'images/sneeuwpop.png',
-//         alt: 'Afbeelding van een sneeuwpop'
-//       }
-//     });
-
-//   const template = bindTemplate(imageArgsMapper, imageTemplate);
-
-
-// }
+});

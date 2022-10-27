@@ -7,7 +7,7 @@ export interface BreadcrumbsTemplates<TemplateFnReturnType> {
   breadcrumbsTemplate: (breadcrumbsProperties: Breadcrumbs) => TemplateFnReturnType;
 }
 
-export const storiesOfBreadcrumbs = storiesOfFactory<BreadcrumbsTemplates<any>, BreadcrumbsArgs>('Breadcrumb', (stories, templateMapper) => {
+export const storiesOfBreadcrumbs = storiesOfFactory<BreadcrumbsTemplates<any>, BreadcrumbsArgs>('Breadcrumbs', (stories, templateMapper) => {
   stories
     .addParameters({
       argTypes: breadcrumbsArgTypes
@@ -37,14 +37,3 @@ export const storiesOfBreadcrumbs = storiesOfFactory<BreadcrumbsTemplates<any>, 
     }
   );
 });
-
-// export function storiesOfBreadcrumbs<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     breadcrumbsTemplate
-//   }: BreadcrumbsParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Breadcrumb', parameters, breadcrumbsArgTypes);
-//   const template = bindTemplate(breadcrumbsArgsMapper, breadcrumbsTemplate);
-
-// }

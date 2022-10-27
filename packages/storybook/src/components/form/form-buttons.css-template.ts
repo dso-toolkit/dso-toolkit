@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssFormButtons: ComponentImplementation<FormButtons> = {
   component: 'formButtons',
   implementation: 'css',
-  template: ({ buttonTemplate }) => function formButtonsTemplate({ formModifier, buttons, asideButtons }: FormButtons) {
+  template: ({ buttonTemplate }) => function formButtonsTemplate({ formModifier, buttons, asideButtons }) {
     return html`
       <form
         class=${ifDefined(formModifier)}
@@ -18,7 +18,7 @@ export const cssFormButtons: ComponentImplementation<FormButtons> = {
             </div>
           `}
 
-          ${buttons.map((button: Button) => buttonTemplate(button))}
+          ${buttons.map((button) => buttonTemplate(button))}
         </div>
       </form>
     `;

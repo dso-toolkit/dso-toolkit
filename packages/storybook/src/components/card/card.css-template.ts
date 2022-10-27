@@ -3,10 +3,10 @@ import { html, nothing, TemplateResult } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ComponentImplementation } from '../../templates';
 
-export const cssCard: ComponentImplementation<Card> = {
+export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
   component: 'card',
   implementation: 'css',
-  template: ({ buttonTemplate, iconTemplate, selectableTemplate }) => function cardTemplate({ label, selectable, content, interactions, image }: Card<TemplateResult>) {
+  template: ({ buttonTemplate, iconTemplate, selectableTemplate }) => function cardTemplate({ label, selectable, content, interactions, image }) {
     return html`
       <div class="dso-card ${classMap({ 'dso-is-selectable': !!selectable, 'dso-has-image': !!image })}">
         ${selectable

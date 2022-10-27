@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: 'form',
   implementation: 'css',
-  template: ({ formGroupTemplate }) => function formTemplate({ legend, legendHeading, mode, formGroups }: Form<TemplateResult>) {
+  template: ({ formGroupTemplate }) => function formTemplate({ legend, legendHeading, mode, formGroups }) {
     return html`
       <form class=${ifDefined(mode === 'horizontal' ? 'form-horizontal' : undefined)}>
         <fieldset>

@@ -3,12 +3,12 @@ import { html } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { ComponentImplementation } from '../../templates';
 
-import { DsoDatePickerChangeEvent } from '../../../../core/src/components/date-picker/date-picker';
+import { DsoDatePickerChangeEvent } from '@dso-toolkit/core/src/components/date-picker/date-picker';
 
 export const coreDatePicker: ComponentImplementation<DatePicker> = {
   component: 'datePicker',
   implementation: 'core',
-  template: () => function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, autofocus, direction }: DatePicker) {
+  template: () => function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, autofocus, direction }) {
     return html`
       <dso-date-picker
         @dsoDateChange=${(e: CustomEvent<DsoDatePickerChangeEvent>) => dsoDateChange?.(e)}

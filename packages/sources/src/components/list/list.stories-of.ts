@@ -108,28 +108,4 @@ export const storiesOfList = storiesOfFactory<ListTemplates<any>, ListArgs>('Lis
       }
     }
   );
-})
-
-// export function storiesOfList<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     listTemplate
-//   }: ListParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('List', parameters, listArgTypes)
-//     .addParameters({
-//       args: {
-//         items: [
-//           { text: 'Cras justo odio' },
-//           { text: 'Dapibus ac facilisis in' },
-//           { text: 'Morbi leo risus' },
-//           { text: 'Porta ac consectetur ac' },
-//           { text: 'Vestibulum at eros' }
-//         ]
-//       }
-//     });
-
-//   const template = bindTemplate(listArgsMapper, listTemplate);
-
-
-// }
+});

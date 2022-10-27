@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssTooltip: ComponentImplementation<Tooltip> = {
   component: 'tooltip',
   implementation: 'css',
-  template: () => function tooltipTemplate({ position, descriptive }: Tooltip) {
+  template: () => function tooltipTemplate({ position, descriptive }) {
     return html`
       <div
         aria-hidden=${ifDefined(!descriptive || undefined)}

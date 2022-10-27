@@ -27,7 +27,7 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
   }
 };
 
-export function bannerArgsMapper(a: BannerArgs): Banner<any> {
+export function bannerArgsMapper(a: BannerArgs): Banner {
   return {
     onClick: (e: Event) => a.onClick(e),
     richContent: a.richContent,

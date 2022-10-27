@@ -14,19 +14,4 @@ export const storiesOfCardGrid = storiesOfFactory<CardGridTemplates<any>, never>
     'Card Grid',
     template
   );
-})
-
-// export function storiesOfCardGrid<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     cardGridTemplate
-//   }: CardGridParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Card Grid', parameters, {});
-//   const template = bindTemplate(cardGridArgsMapper, cardGridTemplate);
-
-//   stories.add(
-//     'Card Grid',
-//     template
-//   );
-// }
+});

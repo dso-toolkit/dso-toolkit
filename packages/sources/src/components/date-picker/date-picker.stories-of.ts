@@ -16,7 +16,7 @@ export interface DatePickerParameters {
   decorator: DecoratorFunction<any>;
 }
 
-export const storiesOfDatePicker = storiesOfFactory<DatePickerTemplates<any>, DatePickerArgs, DatePickerParameters>('Date Picker', (stories, templateMapper) => {
+export const storiesOfDatePicker = storiesOfFactory<DatePickerTemplates<any>, DatePickerArgs, DatePickerParameters>('Date Picker', (stories, templateMapper, { decorator }) => {
   stories
     .addParameters({
       argTypes: datePickerArgTypes,
@@ -99,12 +99,11 @@ export const storiesOfDatePicker = storiesOfFactory<DatePickerTemplates<any>, Da
     }
   );
 
-  // Later over nadenken
-  // stories.add(
-  //   'narrow input',
-  //   template,
-  //   {
-  //     decorators: [decorator]
-  //   }
-  // );
-})
+  stories.add(
+    'narrow input',
+    template,
+    {
+      decorators: [decorator]
+    }
+  );
+});

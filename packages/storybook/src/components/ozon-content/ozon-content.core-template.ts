@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreOzonContent: ComponentImplementation<OzonContent> = {
   component: 'ozonContent',
   implementation: 'core',
-  template: () => function ozonContentTemplate({ content, inline, interactive, deleted, prefix, suffix, dsoAnchorClick, dsoClick }: OzonContent) {
+  template: () => function ozonContentTemplate({ content, inline, interactive, deleted, prefix, suffix, dsoAnchorClick, dsoClick }) {
     return html`
       <dso-ozon-content
         interactive=${ifDefined(interactive || undefined)}

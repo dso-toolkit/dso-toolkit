@@ -16,9 +16,6 @@ storiesOfProgressIndicator(
   },
   templateContainer,
   ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
-  // {
-  //   progressIndicatorTemplate: css.progressIndicatorTemplate
-  // }
 );
 
 storiesOfProgressIndicator(
@@ -30,7 +27,4 @@ storiesOfProgressIndicator(
   },
   templateContainer,
   ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
-  // {
-  //   progressIndicatorTemplate: core.progressIndicatorTemplate
-  // }
 );

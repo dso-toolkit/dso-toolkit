@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssIcon: ComponentImplementation<Icon> = {
   component: 'icon',
   implementation: 'css',
-  template: () => function iconTemplate({ icon, slot }: Icon) {
+  template: () => function iconTemplate({ icon, slot }) {
     return html`<svg class="di di-${icon}" slot=${ifDefined(slot)}>
       <use href="dso-icons.svg#${icon}" />
     </svg>`;

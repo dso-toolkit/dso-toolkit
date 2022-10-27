@@ -1,4 +1,4 @@
-import {  componentArgs } from '../../storybook';
+import { componentArgs } from '../../storybook';
 import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { CardArgs, cardArgsMapper, cardArgTypes } from './card.args';
@@ -54,33 +54,4 @@ export const storiesOfCard = storiesOfFactory<CardTemplates<any>, CardArgs>('Car
       })
     }
   );
-})
-
-// export function storiesOfCard<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     cardTemplate
-//   }: CardParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Card', parameters, cardArgTypes)
-//     .addParameters({
-//       args: componentArgs<Omit<CardArgs, 'image'>>({
-//         label: 'Omgevingsplan Nieuwegein',
-//         selectable: false,
-//         content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-//         interactions: [
-//           {
-//             variant: 'tertiary',
-//             label: 'Toon informatie',
-//             icon: {
-//               icon: 'info'
-//             }
-//           }
-//         ]
-//       })
-//     });
-
-//   const template = bindTemplate(cardArgsMapper, cardTemplate);
-
-
-// }
+});

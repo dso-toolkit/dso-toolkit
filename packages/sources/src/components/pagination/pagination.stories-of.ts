@@ -24,16 +24,4 @@ export const storiesOfPagination = storiesOfFactory<PaginationTemplates<any>, Pa
       }
     }
   );
-})
-
-// export function storiesOfPagination<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     paginationTemplate
-//   }: PaginationParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Pagination', parameters, paginationArgTypes);
-//   const template = bindTemplate(paginationArgsMapper, paginationTemplate);
-
-
-// }
+});

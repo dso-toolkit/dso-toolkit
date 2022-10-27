@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssWhitebox: ComponentImplementation<Whitebox> = {
   component: 'whitebox',
   implementation: 'css',
-  template: ({ iconTemplate, imageTemplate }) => function whiteboxTemplate({ count, icon, iconLabel, image, label, description, title }: Whitebox) {
+  template: ({ iconTemplate, imageTemplate }) => function whiteboxTemplate({ count, icon, iconLabel, image, label, description, title }) {
     return html`
       <div class="dso-whitebox ${classMap({ 'dso-has-counter': !!(count || (icon && iconLabel)) })}">
         ${icon && iconLabel

@@ -80,16 +80,4 @@ export const storiesOfAccordion = storiesOfFactory<AccordionTemplates<any>, Acco
       }
     }
   );
-})
-
-// export function storiesOfAccordion<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     accordionTemplate
-//   }: AccordionParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Accordion', parameters, accordionArgTypes);
-//   const template = bindTemplate(accordionArgsMapper, accordionTemplate);
-
-
-// }
+});

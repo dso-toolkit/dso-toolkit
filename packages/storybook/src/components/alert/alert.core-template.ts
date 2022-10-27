@@ -4,10 +4,6 @@ import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 
 import { ComponentImplementation } from '../../templates';
 
-export function alertTemplate(_model: Alert<TemplateResult>): TemplateResult {
-  return html`Not implemented`;
-}
-
 export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: 'alert',
   implementation: 'core',

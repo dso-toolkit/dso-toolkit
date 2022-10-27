@@ -35,14 +35,4 @@ export const storiesOfOzonContent = storiesOfFactory<OzonContentTemplates<any>, 
       }),
     });
   });
-})
-
-// export function storiesOfOzonContent<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   { ozonContentTemplate }: OzonContentParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Ozon Content', parameters, ozonContentArgTypes);
-//   const template = bindTemplate(ozonContentArgsMapper, ozonContentTemplate);
-
-
-// }
+});

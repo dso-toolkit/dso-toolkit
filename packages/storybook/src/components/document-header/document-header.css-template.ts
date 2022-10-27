@@ -16,7 +16,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
     status,
     statusContentOpen,
     statusContent
-  }: DocumentHeader<TemplateResult>) {
+  }) {
     return html`
       <dso-responsive-element class="dso-document-header">
         <h1>${title}</h1>

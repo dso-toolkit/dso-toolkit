@@ -1,10 +1,8 @@
-import { ArgTypes } from './arg-types.type';
 import { StorybookParameters } from './storybook-parameters.interface';
 
-export function createStories<ComponentArgs>(
+export function createStories(
   name: string,
-  { storiesOf, readme, module: mainModule, root }: StorybookParameters,
-  argTypes?: ArgTypes<ComponentArgs>, // DO NOT MERGE
+  { storiesOf, readme, module: mainModule, root }: StorybookParameters
 ) {
   const stories = storiesOf(root ? `${root}/${name}` : name, mainModule)
     .addParameters({
@@ -12,14 +10,6 @@ export function createStories<ComponentArgs>(
         page: readme
       }
     });
-
-  // REMOVE -- DO NOT MERGE
-  if (argTypes) {
-    stories.addParameters({
-      argTypes
-    });
-  }
-  // END REMOVE
 
   return stories;
 }

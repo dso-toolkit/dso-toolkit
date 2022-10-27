@@ -13,7 +13,7 @@ export const coreToggleTip: ComponentImplementation<Toggletip> = {
     position,
     small,
     secondary,
-  }: Toggletip) {
+  }) {
     return html`<dso-toggletip
       label=${ifDefined(label)}
       position=${ifDefined(position)}

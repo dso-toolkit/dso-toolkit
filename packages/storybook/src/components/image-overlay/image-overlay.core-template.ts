@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreImageOverlay: ComponentImplementation<ImageOverlay> = {
   component: 'imageOverlay',
   implementation: 'core',
-  template: ({ imageTemplate }) => function imageOverlayTemplate({ image }: ImageOverlay) {
+  template: ({ imageTemplate }) => function imageOverlayTemplate({ image }) {
     return html`
       <dso-image-overlay>
         <div slot="titel">

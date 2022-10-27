@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssApplicationHeading: ComponentImplementation<ApplicationHeading> = {
   component: 'applicationHeading',
   implementation: 'css',
-  template: () => function applicationHeadingTemplate({ title, subtitle, step }: ApplicationHeading) {
+  template: () => function applicationHeadingTemplate({ title, subtitle, step }) {
     return html`
       <div class="dso-app-heading">
         ${title

@@ -5,7 +5,7 @@ import { dangerRichContent, dangerWithHeadingsRichContent, richWarningRichConten
 import { Banner } from './banner.models';
 
 export interface BannerTemplates<TemplateFnReturnType> {
-  bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
+  bannerTemplate: (bannerProperties: Banner) => TemplateFnReturnType;
 }
 
 export const storiesOfBanner = storiesOfFactory<BannerTemplates<any>, BannerArgs>('Banner', (stories, templateMapper) => {

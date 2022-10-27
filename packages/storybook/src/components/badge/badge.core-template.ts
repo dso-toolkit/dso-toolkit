@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreBadge: ComponentImplementation<Badge> = {
   component: 'badge',
   implementation: 'core',
-  template: () => function badgeTemplate({ status, message }: Badge) {
+  template: () => function badgeTemplate({ status, message }) {
     return html`
       <dso-badge status=${ifDefined(status)}>${message}</dso-badge>
     `;

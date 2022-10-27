@@ -14,8 +14,8 @@ storiesOfMapControls(
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ mapControlsTemplate }) => ({
-    mapControlsTemplate,
+  ({ mapControlsTemplate }) => ({ mapControlsTemplate }),
+  {
     decorator
-  })
+  }
 );

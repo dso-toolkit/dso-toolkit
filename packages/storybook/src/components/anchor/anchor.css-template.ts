@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssAnchor: ComponentImplementation<Anchor> = {
   component: 'anchor',
   implementation: 'css',
-  template: ({ iconTemplate }) => function anchorTemplate({ icon, iconMode, label, modifier, url, ariaCurrent }: Anchor) {
+  template: ({ iconTemplate }) => function anchorTemplate({ icon, iconMode, label, modifier, url, ariaCurrent }) {
     return html`<a
       href=${url}
       class=${ifDefined(modifier)}

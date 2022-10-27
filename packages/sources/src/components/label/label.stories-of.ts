@@ -81,24 +81,4 @@ export const storiesOfLabel = storiesOfFactory<LabelTemplates<any>, LabelArgs, L
       }
     }
   );
-})
-
-// export function storiesOfLabel<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     labelTemplate,
-//     decorator
-//   }: LabelParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Label', parameters, labelArgTypes)
-//     .addParameters({
-//       args: {
-//         label: 'Label'
-//       }
-//     })
-//     .addDecorator(story => decorator(story, css));
-
-//   const template = bindTemplate(labelArgsMapper, labelTemplate);
-
-
-// }
+});

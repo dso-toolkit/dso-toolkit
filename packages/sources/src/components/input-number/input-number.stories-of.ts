@@ -24,24 +24,4 @@ export const storiesOfInputNumber = storiesOfFactory<InputNumberTemplates<any>, 
     'Input Number',
     template
   );
-})
-
-// export function storiesOfInputNumber<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     inputNumberTemplate: inputNumberTemplate
-//   }: InputNumberParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Input Number', parameters, inputNumberArgTypes)
-//     .addParameters({
-//       args: {
-//         label: 'Aantal onderdelen',
-//         id: uuidv4(),
-//         count: 99
-//       }
-//     });
-
-//   const template = bindTemplate(inputNumberArgsMapper, inputNumberTemplate);
-
-
-// }
+});

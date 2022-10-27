@@ -10,7 +10,12 @@ export interface TileTemplates<TemplateFnReturnType> {
 
 export const storiesOfTile = storiesOfFactory<TileTemplates<any>, TileArgs>('Tile', (stories, templateMapper) => {
   stories.addParameters({
-    argTypes: tileArgTypes
+    argTypes: tileArgTypes,
+    args: componentArgs<TileArgs>({
+      label: 'Boom kappen of snoeien',
+      imageSource: 'images/icon-tree.png',
+      imageAlt: 'Boom'
+    })
   });
 
   const template = templateMapper((args, { tileTemplate }) => tileTemplate(tileArgsMapper(args)));
@@ -29,24 +34,4 @@ export const storiesOfTile = storiesOfFactory<TileTemplates<any>, TileArgs>('Til
       })
     }
   );
-})
-
-// export function storiesOfTile<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     tileTemplate
-//   }: TileParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Tile', parameters, tileArgTypes)
-//     .addParameters({
-//       args: componentArgs<TileArgs>({
-//         label: 'Boom kappen of snoeien',
-//         imageSource: 'images/icon-tree.png',
-//         imageAlt: 'Boom'
-//       })
-//     });
-
-//   const template = bindTemplate(tileArgsMapper, tileTemplate);
-
-
-// }
+});

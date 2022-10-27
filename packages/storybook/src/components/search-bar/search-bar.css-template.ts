@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssSearchBar: ComponentImplementation<SearchBar> = {
   component: 'searchBar',
   implementation: 'css',
-  template: () => function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, placeholder, value, buttonLabel, hideSearchButton, ariaDescribedBy, ariaErrorMessage, resultsMessage, resultsHidden, clearButton }: SearchBar) {
+  template: () => function searchBarTemplate({ label, id, icon, hiddenLabel, invalid, placeholder, value, buttonLabel, hideSearchButton, ariaDescribedBy, ariaErrorMessage, resultsMessage, resultsHidden, clearButton }) {
     return html`
       <div class="dso-search-bar ${classMap({ 'dso-invalid': !!invalid })}">
         <div class="dso-search-bar-input">

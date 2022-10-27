@@ -60,13 +60,4 @@ export const storiesOfHeader = storiesOfFactory<HeaderTemplates<any>, HeaderArgs
       userHomeUrl: "#myhome",
     },
   });
-})
-
-// export function storiesOfHeader<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   { headerTemplate }: HeaderParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Header', parameters, headerArgTypes);
-
-
-// }
+});

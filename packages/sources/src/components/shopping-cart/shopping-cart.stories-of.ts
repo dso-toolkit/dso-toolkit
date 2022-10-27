@@ -236,29 +236,4 @@ export const storiesOfShoppingCart = storiesOfFactory<ShoppingCartTemplates<any>
       })
     }
   );
-})
-
-// export function storiesOfShoppingCart<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     shoppingCartTemplate: shoppingCartTemplate
-//   }: ShoppingCartParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Shopping Cart', parameters, shoppingCartArgTypes)
-//     .addParameters({
-//       args: componentArgs<ShoppingCartArgs>({
-//         collapsable: true,
-//         collapsed: false,
-//         hideSummary: false,
-//         removeAll: false,
-//         isOpen: false,
-//         shoppingcartTitle: 'Mijn activiteiten',
-//         shoppingcartTitleTag: 'h2',
-//         items: []
-//       })
-//     });
-
-//   const template = bindTemplate(shoppingCartArgsMapper, shoppingCartTemplate);
-
-
-// }
+});

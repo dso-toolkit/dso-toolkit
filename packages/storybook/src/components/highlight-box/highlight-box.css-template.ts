@@ -1,5 +1,5 @@
 import { HighlightBox } from '@dso-toolkit/sources';
-import { html, nothing, TemplateResult } from 'lit-html';
+import { html, nothing } from 'lit-html';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { ComponentImplementation } from '../../templates';
@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
   component: 'highlightBox',
   implementation: 'css',
-  template: ({ iconTemplate }) => function highlightBoxTemplate<T = TemplateResult>({ yellow, white, dropShadow, border, step, icon, richContent }: HighlightBox<T>) {
+  template: ({ iconTemplate }) => function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent }) {
     return html`
       <div class="dso-highlight-box ${classMap({
         'dso-yellow': !!yellow,

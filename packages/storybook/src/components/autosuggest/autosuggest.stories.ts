@@ -56,6 +56,7 @@ storiesOfAutosuggest(
         suggestionsDemoPreElement.textContent = JSON.stringify(suggestions, null, 2);
       }
     };
+
     return ({
       autosuggestDemoTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters) => html`
         <label for="autosuggestInputId">Label voor input</label>
@@ -63,20 +64,20 @@ storiesOfAutosuggest(
         <pre id="suggestions-demo">null</pre>
       `,
       autosuggestInSearchBarTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel) => html`
-      <div class="dso-search-bar">
-        <div class="dso-search-bar-input">
-          <label for="search-bar--with-value">Label</label>
-          <span class="dso-search-icon" aria-hidden="true"></span>
-          ${autosuggestTemplate(autosuggestConnector([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]))}
-          <button type="button">
-            Zoekopdracht legen
+        <div class="dso-search-bar">
+          <div class="dso-search-bar-input">
+            <label for="search-bar--with-value">Label</label>
+            <span class="dso-search-icon" aria-hidden="true"></span>
+            ${autosuggestTemplate(autosuggestConnector([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]))}
+            <button type="button">
+              Zoekopdracht legen
+            </button>
+          </div>
+          <button type="button" class="dso-secondary">
+            Button
           </button>
         </div>
-        <button type="button" class="dso-secondary">
-          Button
-        </button>
-      </div>
-    `
+      `
     });
   }
 );

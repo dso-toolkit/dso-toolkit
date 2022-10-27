@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssImage: ComponentImplementation<Image> = {
   component: 'image',
   implementation: 'css',
-  template: () => function imageTemplate({ source, modifier, alt, width, height }: Image) {
+  template: () => function imageTemplate({ source, modifier, alt, width, height }) {
     return html`
       <img
         src=${source}

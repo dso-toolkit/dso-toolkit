@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const coreLabel: ComponentImplementation<Label> = {
   component: 'label',
   implementation: 'core',
-  template: () => function labelTemplate({ status, label, removable, dsoRemoveClick, compact, truncate, symbol }: Label) {
+  template: () => function labelTemplate({ status, label, removable, dsoRemoveClick, compact, truncate, symbol }) {
     return html`
       <dso-label
         status=${ifDefined(status)}

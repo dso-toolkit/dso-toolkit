@@ -7,10 +7,13 @@ import { MapControls } from './map-controls.models';
 
 export interface MapControlsTemplates<TemplateFnReturnType> {
   mapControlsTemplate: (mapControlsProperties: MapControls) => TemplateFnReturnType;
+}
+
+export interface MapControlsParameters<TemplateFnReturnType> {
   decorator: DecoratorFunction<TemplateFnReturnType>;
 }
 
-export const storiesOfMapControls = storiesOfFactory<MapControlsTemplates<any>, MapControlsArgs>('Map Controls', (stories, templateMapper) => {
+export const storiesOfMapControls = storiesOfFactory<MapControlsTemplates<any>, MapControlsArgs, MapControlsParameters<any>>('Map Controls', (stories, templateMapper, { decorator }) => {
   stories
     .addParameters({
       argTypes: mapControlsArgTypes,
@@ -24,7 +27,7 @@ export const storiesOfMapControls = storiesOfFactory<MapControlsTemplates<any>, 
       },
       layout: 'fullscreen'
     })
-    // .addDecorator(decorator);
+    .addDecorator(decorator);
 
   stories.add(
     'Map Controls',

@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssTile: ComponentImplementation<Tile> = {
   component: 'tile',
   implementation: 'css',
-  template: ({ imageTemplate }) => function tileTemplate({ anchor, image, label, variant }: Tile) {
+  template: ({ imageTemplate }) => function tileTemplate({ anchor, image, label, variant }) {
     return html`
       <div class="dso-tile ${classMap({ 'dso-theme': variant === 'theme' })}">
         <a href=${anchor}>

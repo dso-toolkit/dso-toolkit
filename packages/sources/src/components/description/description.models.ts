@@ -4,7 +4,3 @@ export interface Description {
   content: string;
   open: boolean;
 }
-
-export interface DescriptionExample {
-  openTerm: boolean;
-}

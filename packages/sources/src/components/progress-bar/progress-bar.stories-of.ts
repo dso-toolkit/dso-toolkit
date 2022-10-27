@@ -36,16 +36,4 @@ export const storiesOfProgressBar = storiesOfFactory<ProgressBarTemplates<any>, 
       }
     }
   );
-})
-
-// export function storiesOfProgressBar<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     progressBarTemplate
-//   }: ProgressBarParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Progress Bar', parameters, progressBarArgTypes);
-//   const template = bindTemplate(progressBarArgsMapper, progressBarTemplate);
-
-
-// }
+});

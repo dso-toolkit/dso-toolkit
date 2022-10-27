@@ -90,16 +90,4 @@ export const storiesOfBadge = storiesOfFactory<BadgeTemplates<any>, BadgeArgs>('
       }
     }
   );
-})
-
-// export function storiesOfBadge<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     badgeTemplate
-//   }: BadgeParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Badge', parameters, badgeArgTypes);
-//   const template = bindTemplate(badgeArgsMapper, badgeTemplate);
-
-
-// }
+});

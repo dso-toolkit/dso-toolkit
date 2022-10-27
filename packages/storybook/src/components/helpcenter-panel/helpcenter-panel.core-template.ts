@@ -11,7 +11,7 @@ export const coreHelpcenterPanel: ComponentImplementation<HelpcenterPanel> = {
     label,
     url,
     content,
-  }: HelpcenterPanel) {
+  }) {
     return html`
       ${unsafeHTML(content)}
       <dso-helpcenter-panel

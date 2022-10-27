@@ -80,29 +80,4 @@ export const storiesOfHighlightBox = storiesOfFactory<HighlightBoxTemplates<any>
       }
     }
   );
-})
-
-// export function storiesOfHighlightBox<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     highlightBoxTemplate,
-//     richContent
-//   }: HighlightBoxParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Highlight Box', parameters, highlightBoxArgTypes)
-//     .addParameters({
-//       args: {
-//         yellow: false,
-//         white: false,
-//         border: false,
-//         dropShadow: false,
-//         step: null,
-//         icon: null,
-//         richContent
-//       }
-//     });
-
-//   const template = bindTemplate(highlightBoxArgsMapper, highlightBoxTemplate);
-
-
-// }
+});

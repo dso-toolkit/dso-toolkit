@@ -55,22 +55,4 @@ export const storiesOfInfoButton = storiesOfFactory<InfoButtonTemplates<any>, In
       }
     }
   );
-})
-
-// export function storiesOfInfoButton<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     infoButtonTemplate
-//   }: InfoButtonParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Info Button', parameters, infoButtonArgTypes)
-//     .addParameters({
-//       args: {
-//         label: 'Toelichting bij vraag'
-//       }
-//     });
-
-//   const template = bindTemplate(infoButtonArgsMapper, infoButtonTemplate);
-
-
-// }
+});

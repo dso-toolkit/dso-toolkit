@@ -40,13 +40,4 @@ export const storiesOfHelpcenterPanel = storiesOfFactory<HelpcenterPanelTemplate
       },
     }
   );
-})
-
-// export function storiesOfHelpcenterPanel<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   { helpcenterPanelTemplate }: HelpcenterPanelParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Helpcenter Panel', parameters, helpcenterPanelArgTypes);
-
-
-// }
+});

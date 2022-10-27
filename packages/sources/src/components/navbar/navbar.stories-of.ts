@@ -77,24 +77,4 @@ export const storiesOfNavbar = storiesOfFactory<NavbarTemplates<any>, NavbarArgs
       })
     }
   );
-})
-
-// export function storiesOfNavbar<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     navbarTemplate
-//   }: NavbarParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Navbar', parameters, navbarArgTypes)
-//     .addParameters({
-//       args: componentArgs<NavbarArgs>({
-//         open: false,
-//         modifier: '',
-//         items: []
-//       })
-//     });
-
-//   const template = bindTemplate(navbarArgsMapper, navbarTemplate);
-
-
-// }
+});

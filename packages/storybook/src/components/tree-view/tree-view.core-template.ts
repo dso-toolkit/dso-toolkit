@@ -12,7 +12,7 @@ export const coreTreeView: ComponentImplementation<TreeView> = {
       dsoOpenItem,
       dsoCloseItem,
       dsoClickItem
-    }: TreeView
+    }
   ) {
     return html`
       <dso-tree-view

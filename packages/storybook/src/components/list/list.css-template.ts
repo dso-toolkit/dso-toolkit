@@ -33,7 +33,7 @@ function ol(children: TemplateResult, modifier?: string) {
 export const cssList: ComponentImplementation<List> = {
   component: 'list',
   implementation: 'css',
-  template: () => function listTemplate({ type, items, modifier }: List) {
+  template: () => function listTemplate({ type, items, modifier }) {
     const children = html`
       ${items.map(item => html`
         <li class="${classMap({'list-group-item': modifier === 'group'})}">

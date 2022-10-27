@@ -37,27 +37,4 @@ export const storiesOfContext = storiesOfFactory<ContextTemplates<any>, ContextA
       }
     }
   );
-})
-
-// export function storiesOfContext<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     contextTemplate,
-//     children,
-//     content,
-//     label
-//   }: ContextParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Context', parameters, contextArgTypes)
-//     .addParameters({
-//       args: {
-//         children,
-//         content,
-//         label
-//       }
-//     });
-
-//   const template = bindTemplate(contextArgsMapper, contextTemplate);
-
-
-// }
+});

@@ -12,7 +12,7 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
     dropdownAlign,
     isCheckable,
     groups
-  }: DropdownMenu) {
+  }) {
     return html`
       <dso-dropdown-menu
         dropdown-align=${ifDefined(dropdownAlign)}

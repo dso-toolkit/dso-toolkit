@@ -19,7 +19,7 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
 
 export interface AutosuggestTemplates<TemplateFnReturnType> {
   autosuggestDemoTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
-  autosuggestInSearchBarTemplate?: AutosuggestTemplateFnType<TemplateFnReturnType>;
+  autosuggestInSearchBarTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
 export const storiesOfAutosuggest = storiesOfFactory<AutosuggestTemplates<any>, AutosuggestArgs>('Autosuggest', (stories, templateMapper) => {
@@ -41,18 +41,8 @@ export const storiesOfAutosuggest = storiesOfFactory<AutosuggestTemplates<any>, 
     templateMapper((args, { autosuggestDemoTemplate }) => autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3))
   );
 
-  // if (autosuggestInSearchBarTemplate) {
-  //   stories.add(
-  //     'in searchbar',
-  //     (a: Args | undefined) => {
-  //       if (!a) {
-  //         throw new ArgsError();
-  //       }
-
-  //       const args = a as AutosuggestArgs;
-
-  //       return autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel);
-  //     }
-  //   );
-  // }
+  stories.add(
+    'in searchbar',
+    templateMapper((args, { autosuggestInSearchBarTemplate }) => autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel))
+  );
 });

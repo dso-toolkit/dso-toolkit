@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssPagination: ComponentImplementation<Pagination> = {
   component: 'pagination',
   implementation: 'css',
-  template: () => function paginationTemplate({ currentPage, totalPages }: Pagination) {
+  template: () => function paginationTemplate({ currentPage, totalPages }) {
     return html`
       <ul class="pagination">
         ${currentPage !== 1

@@ -96,16 +96,4 @@ export const storiesOfButtonRow = storiesOfFactory<ButtonRowTemplates<any>, Butt
       }
     }
   );
-})
-
-// export function storiesOfButtonRow<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     buttonRowTemplate
-//   }: ButtonRowParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Button Row', parameters, buttonRowArgTypes);
-//   const template = bindTemplate(buttonRowArgsMapper, buttonRowTemplate);
-
-
-// }
+});

@@ -32,8 +32,7 @@ storiesOfLinkList(
         ${highlightBoxTemplate({ richContent: linkList, dropShadow: true, white: true })}
       `;
     }
-    
-    
+
     return ({ linkListTemplate, inHighlightBoxTemplate, inFooterTemplate });
   }
 );

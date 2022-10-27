@@ -12,7 +12,7 @@ export const reactDropdownMenu: ComponentImplementation<DropdownMenu> = {
     dropdownAlign,
     isCheckable,
     groups,
-  }: DropdownMenu) {
+  }) {
     return (
       <DsoDropdownMenu dropdown-align={dropdownAlign === 'right' ? 'right' : undefined} checkable={isCheckable || undefined}>
         <button type="button" className={`dso-${button.variant}`} slot="toggle">

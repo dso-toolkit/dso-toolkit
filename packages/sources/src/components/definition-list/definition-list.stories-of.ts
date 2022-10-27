@@ -150,22 +150,4 @@ export const storiesOfDefinitionList = storiesOfFactory<DefinitionListTemplates<
       }
     }
   );
-})
-
-// export function storiesOfDefinitionList<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     definitionListTemplate
-//   }: DefinitionListParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Definition List', parameters, definitionListArgTypes)
-//     .addParameters({
-//       args: {
-//         definitions
-//       }
-//     });
-
-//   const template = bindTemplate(definitionListArgsMapper, definitionListTemplate);
-
-
-// }
+});

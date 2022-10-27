@@ -71,16 +71,4 @@ export const storiesOfTabs = storiesOfFactory<TabsTemplates<any>, TabsArgs>('Tab
       })
     }
   );
-})
-
-// export function storiesOfTabs<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     tabsTemplate
-//   }: TabsParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Tabs', parameters, tabsArgTypes);
-//   const template = bindTemplate(tabsArgsMapper, tabsTemplate);
-
-
-// }
+});

@@ -4,10 +4,6 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { ComponentImplementation } from '../../templates';
 
-export function alertTemplate(_alert: Alert<TemplateResult>): TemplateResult {
-  return html`Not implemented`;
-}
-
 // Todo: Move to @dso-toolkit/sources ?
 const statusMap = new Map<string, string>([
   ['success', 'Gelukt'],

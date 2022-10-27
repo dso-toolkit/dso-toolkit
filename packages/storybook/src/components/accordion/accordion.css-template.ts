@@ -8,7 +8,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssAccordion: ComponentImplementation<Accordion> = {
   component: 'accordion',
   implementation: 'css',
-  template: ({ attachmentsCounterTemplate, iconTemplate }) => function accordionTemplate(accordion: Accordion) {
+  template: ({ attachmentsCounterTemplate, iconTemplate }) => function accordionTemplate(accordion) {
     const statusMap = new Map<string, string>([
       ['success', 'succes:'],
       ['info', 'info:'],

@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResult>> = {
   component: 'documentList',
   implementation: 'css',
-  template: ({ anchorTemplate }) => function documentListTemplate({ items }: DocumentList<TemplateResult>) {
+  template: ({ anchorTemplate }) => function documentListTemplate({ items }) {
     function documentListItemTemplate({
       title,
       type,

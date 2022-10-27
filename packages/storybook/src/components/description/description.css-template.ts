@@ -8,7 +8,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssDescription: ComponentImplementation<Description> = {
   component: 'description',
   implementation: 'css',
-  template: () => function descriptionTemplate({ id, open, term, content }: Description) {
+  template: () => function descriptionTemplate({ id, open, term, content }) {
     return html`
       <a
         id="${id}-term"

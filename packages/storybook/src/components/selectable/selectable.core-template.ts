@@ -20,7 +20,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
     disabled,
     dsoChange,
     info
-  }: Selectable<TemplateResult>) {
+  }) {
     return html`
       <dso-selectable
         type=${type}

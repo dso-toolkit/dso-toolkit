@@ -8,7 +8,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssNavbar: ComponentImplementation<Navbar> = {
   component: 'navbar',
   implementation: 'css',
-  template: ({ iconTemplate }) => function navbarTemplate({ items, modifier, open }: Navbar) {
+  template: ({ iconTemplate }) => function navbarTemplate({ items, modifier, open }) {
     return html`
       <nav class="dso-navbar ${classMap({'dso-open': !!open})}">
         ${modifier === 'main'

@@ -1,5 +1,4 @@
-import { Args } from '@storybook/addons';
-import { createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { ResponsiveElementArgs, responsiveElementArgTypes } from './responsive-element.args';
 
@@ -15,24 +14,17 @@ type ResponsiveElementTemplateFnType<TemplateFnReturnType> = (
   grid: string[][],
 ) => TemplateFnReturnType;
 
-export interface ResponsiveElementParameters<TemplateFnReturnType> {
+export interface ResponsiveElementTemplates<TemplateFnReturnType> {
   gridTemplate: ResponsiveElementTemplateFnType<TemplateFnReturnType>;
 }
 
-export function storiesOfResponsiveElement<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    gridTemplate
-  }: ResponsiveElementParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Responsive Element', parameters, responsiveElementArgTypes);
+export const storiesOfResponsiveElement = storiesOfFactory<ResponsiveElementTemplates<any>, ResponsiveElementArgs>('Responsive Element', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: responsiveElementArgTypes
+  });
 
   stories.add(
     'Responsive Element',
-    (a: Args) => {
-      const args = a as ResponsiveElementArgs;
-
-      return gridTemplate(args.dsoSizeChange, demoGrid);
-    }
+    templateMapper((args, { gridTemplate }) => gridTemplate(args.dsoSizeChange, demoGrid))
   );
-}
+});

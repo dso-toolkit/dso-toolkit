@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssLinkList: ComponentImplementation<LinkList> = {
   component: 'linkList',
   implementation: 'css',
-  template: ({ anchorTemplate }) => function linkListTemplate({ navLabel, type, links }: LinkList) {
+  template: ({ anchorTemplate }) => function linkListTemplate({ navLabel, type, links }) {
     function ul(children: TemplateResult) {
       return html`
         <ul class="dso-link-list">

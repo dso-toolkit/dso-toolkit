@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssTabs: ComponentImplementation<Tabs> = {
   component: 'tabs',
   implementation: 'css',
-  template: () => function tabsTemplate({ items }: Tabs) {
+  template: () => function tabsTemplate({ items }) {
     return html`
       <ul class="nav nav-tabs" role="tablist">
         ${items.map(item => html`

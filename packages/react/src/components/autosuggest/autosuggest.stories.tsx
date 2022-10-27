@@ -80,6 +80,9 @@ storiesOfAutosuggest(
           loadingDelayed={loadingDelay}
           notFoundLabel={notFoundLabel}
         />
+      ),
+      autosuggestInSearchBarTemplate: () => (
+        <p>Zie Web Component in Core.</p>
       )
     });
   }

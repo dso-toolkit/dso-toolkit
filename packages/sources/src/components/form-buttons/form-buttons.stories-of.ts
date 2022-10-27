@@ -119,16 +119,4 @@ export const storiesOfFormButtons = storiesOfFactory<FormButtonsTemplates<any>, 
       }
     }
   );
-})
-
-// export function storiesOfFormButtons<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     formButtonsTemplate
-//   }: FormButtonsParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Form/Form Buttons', parameters, formButtonsArgTypes);
-//   const template = bindTemplate(formButtonsArgsMapper, formButtonsTemplate);
-
-
-// }
+});

@@ -7,7 +7,7 @@ import { ComponentImplementation } from '../../templates';
 export const reactIcon: ComponentImplementation<Icon> = {
   component: 'icon',
   implementation: 'react',
-  template: () => function iconTemplate({ icon, slot }: Icon) {
+  template: () => function iconTemplate({ icon, slot }) {
     return (
       <DsoIcon
         icon={icon}

@@ -39,7 +39,7 @@ function contextFieldsetTemplate(label: TemplateResult, content: TemplateResult,
 export const cssContext: ComponentImplementation<Context<TemplateResult>> = {
   component: 'context',
   implementation: 'css',
-  template: () => function contextTemplate({ label, type, content, children }: Context<TemplateResult>) {
+  template: () => function contextTemplate({ label, type, content, children }) {
     switch (type) {
       case 'label':
         return contextLabelTemplate(label, content, children);

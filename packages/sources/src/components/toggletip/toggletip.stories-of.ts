@@ -9,7 +9,7 @@ export interface ToggletipTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-export const storiesOfToggletip = storiesOfFactory<ToggletipTemplates<any>, ToggletipArgs>('Toggle Tip', (stories, templateMapper) => {
+export const storiesOfToggletip = storiesOfFactory<ToggletipTemplates<any>, ToggletipArgs>('Toggletip', (stories, templateMapper) => {
   stories.addParameters({
     argTypes: toggletipArgTypes
   });
@@ -36,13 +36,4 @@ export const storiesOfToggletip = storiesOfFactory<ToggletipTemplates<any>, Togg
       },
     }
   );
-})
-
-// export function storiesOfToggletip<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   { toggletipTemplate }: ToggletipParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Toggletip', parameters, toggletipArgTypes);
-
-
-// }
+});

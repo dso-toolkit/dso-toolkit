@@ -6,7 +6,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssInputNumber: ComponentImplementation<InputNumber> = {
   component: 'inputNumber',
   implementation: 'css',
-  template: ({ buttonTemplate }) => function inputNumberTemplate({ label, id, min, max, count, minusButtonInactive, plusButtonInactive }: InputNumber) {
+  template: ({ buttonTemplate }) => function inputNumberTemplate({ label, id, min, max, count, minusButtonInactive, plusButtonInactive }) {
     return html`
       <div class="dso-input-number">
         ${label && html`

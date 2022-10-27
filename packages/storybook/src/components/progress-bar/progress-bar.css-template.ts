@@ -5,7 +5,7 @@ import { ComponentImplementation } from '../../templates';
 export const cssProgressBar: ComponentImplementation<ProgressBar> = {
   component: 'progresBar',
   implementation: 'css',
-  template: () => function progressBarTemplate({ progress, label, min, max }: ProgressBar) {
+  template: () => function progressBarTemplate({ progress, label, min, max }) {
     return html`
       <div class="progress">
         <span

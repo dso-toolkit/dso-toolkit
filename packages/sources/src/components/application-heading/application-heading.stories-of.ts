@@ -69,15 +69,3 @@ export const storiesOfApplicationHeading = storiesOfFactory<ApplicationHeadingTe
     }
   );
 })
-
-// export function storiesOfApplicationHeading<TemplateFnReturnType>(
-//   parameters: StorybookParameters,
-//   {
-//     applicationHeadingTemplate
-//   }: ApplicationHeadingParameters<TemplateFnReturnType>
-// ) {
-//   const stories = createStories('Application Heading', parameters, applicationHeadingArgTypes);
-//   const template = bindTemplate(applicationHeadingArgsMapper, applicationHeadingTemplate);
-
-
-// }
