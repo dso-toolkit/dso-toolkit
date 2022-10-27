@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
+* **core + react + sources + storybook:** `<dso-card>` Web component + hele card klikbaar ([#1800](https://github.com/dso-toolkit/dso-toolkit/issues/1800))
 
 ### Fixed
 * **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))

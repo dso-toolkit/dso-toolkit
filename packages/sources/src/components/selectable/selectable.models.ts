@@ -14,4 +14,5 @@ export interface Selectable<TemplateFnReturnType> {
   disabled?: boolean;
   dsoChange?: (e: Event) => void;
   info?: Info<TemplateFnReturnType>;
+  slot?: string;
 }

@@ -1,0 +1,28 @@
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/components/card";
+
+@include utilities.box-sizing();
+
+:host {
+  @include card.root();
+
+  display: block;
+
+  dso-icon {
+    align-self: center;
+  }
+
+  .dso-card-heading {
+    h2,
+    h3,
+    h4,
+    h5 {
+      line-height: units.$u3;
+    }
+  }
+
+  .dso-card-interactions {
+    @include card.interactions();
+  }
+}

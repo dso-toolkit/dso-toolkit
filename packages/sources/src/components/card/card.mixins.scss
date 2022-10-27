@@ -1,0 +1,91 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../../components/button";
+
+%card-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 100%);
+
+  .dso-card-heading,
+  .dso-card-content {
+    grid-column: 2 /-1;
+  }
+}
+
+%card-grid-addon {
+  grid-row: span 2;
+}
+
+@mixin base() {
+  padding: units.$u2 units.$u2 units.$u1;
+  width: 100%;
+
+  &:hover {
+    background-color: colors.$grijs-5;
+    cursor: pointer;
+
+    .dso-card-heading > a {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin root() {
+  .dso-card-heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: units.$u1;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .dso-rich-content {
+    :first-child {
+      margin-top: 0;
+    }
+  }
+
+  .dso-card-selectable {
+    @extend %card-grid-addon;
+  }
+
+  .dso-card-image {
+    @extend %card-grid-addon;
+
+    margin-right: units.$u1;
+  }
+}
+
+@mixin selectable() {
+  label {
+    font-size: 0;
+  }
+}
+
+@mixin interactions() {
+  display: flex;
+  justify-content: space-between;
+
+  .dso-card-interaction {
+    align-items: center;
+    display: flex;
+    text-align: center;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .dso-info-button {
+    margin: 0;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100%;
+    margin-top: units.$u2;
+  }
+}

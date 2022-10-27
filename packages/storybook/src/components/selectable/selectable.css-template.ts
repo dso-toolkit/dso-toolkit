@@ -21,6 +21,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
       disabled,
       dsoChange,
       info,
+      slot,
     }) {
       const ariaDescribedBy =
         [describedById, info?.fixed ? info.id : undefined].filter((id) => !!id).join(" ") || undefined;
@@ -34,6 +35,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             name=${ifDefined(name)}
             aria-invalid=${ifDefined(invalid)}
             aria-describedby=${ifDefined(ariaDescribedBy)}
+            slot=${ifDefined(slot)}
             @change=${(e: Event) => dsoChange?.(e)}
             ?disabled=${disabled}
             ?required=${required}

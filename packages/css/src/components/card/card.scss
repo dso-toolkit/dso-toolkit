@@ -1,45 +1,30 @@
-@use "@dso-toolkit/sources/src/variables/units";
 @use "@dso-toolkit/sources/src/variables/colors";
-@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
+@use "@dso-toolkit/sources/src/variables/units";
 @use "@dso-toolkit/sources/src/components/button";
-
-%card-grid {
-  display: grid;
-  grid-template-columns: 1fr minmax(0, 100%);
-
-  .dso-card-heading,
-  .dso-card-content {
-    grid-column: 2 /-1;
-  }
-}
-
-%card-grid-addon {
-  grid-row: span 2;
-}
+@use "@dso-toolkit/sources/src/components/card";
 
 .dso-card {
-  padding: units.$u2 units.$u2 units.$u1;
-  width: 100%;
+  @include card.root();
+}
 
-  &:hover {
-    background-color: colors.$grijs-5;
-    cursor: pointer;
+.dso-card,
+dso-card {
+  @include card.base();
 
-    .dso-card-heading > a {
-      text-decoration: underline;
-    }
+  &[is-selectable],
+  &.dso-is-selectable,
+  &[has-image],
+  &.dso-has-image {
+    @extend %card-grid;
   }
 
-  .dso-card-heading {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: units.$u1;
-
+  .dso-card-heading,
+  *[slot="heading"] {
     h2:first-child,
-    h3:first-child {
+    h3:first-child,
+    h4:first-child,
+    h5:first-child {
       display: flex;
-      font-size: 1.125em;
       margin-bottom: 0;
       margin-top: 0;
 
@@ -54,10 +39,7 @@
       }
     }
 
-    h3:first-child {
-      line-height: units.$font-line-height-h2;
-    }
-
+    &,
     > a {
       text-decoration: none;
 
@@ -73,72 +55,20 @@
         text-decoration: underline;
       }
     }
-
-    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-      flex-wrap: wrap;
-    }
   }
 
-  .dso-rich-content {
-    :first-child {
-      margin-top: 0;
-    }
-  }
-
-  &.dso-is-selectable {
-    @extend %card-grid;
-
-    .dso-card-selectable {
-      @extend %card-grid-addon;
-    }
-  }
-
-  &.dso-has-image {
-    @extend %card-grid;
-
-    .dso-card-image {
-      @extend %card-grid-addon;
-
-      margin-right: units.$u1;
-
-      img {
-        display: flex;
-        height: units.$u3;
-        width: units.$u3;
-      }
-    }
-  }
-}
-
-.dso-card-selectable {
   .dso-selectable,
   dso-selectable {
-    label {
-      font-size: 0;
-    }
+    @include card.selectable();
+  }
+
+  img {
+    display: flex;
+    height: units.$u3;
+    width: units.$u3;
   }
 }
 
 .dso-card-interactions {
-  display: flex;
-  justify-content: space-between;
-
-  .dso-card-interaction {
-    align-items: center;
-    display: flex;
-    text-align: center;
-
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  .dso-info-button {
-    margin: 0;
-  }
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    flex-basis: 100%;
-    margin-top: units.$u2;
-  }
+  @include card.interactions();
 }

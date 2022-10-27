@@ -22,6 +22,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
       disabled,
       dsoChange,
       info,
+      slot,
     }) {
       return html`
         <dso-selectable
@@ -30,6 +31,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           value=${value}
           name=${ifDefined(name)}
           described-by-id=${ifDefined(describedById)}
+          slot=${ifDefined(slot)}
           ?invalid=${invalid}
           ?disabled=${disabled}
           ?required=${required}

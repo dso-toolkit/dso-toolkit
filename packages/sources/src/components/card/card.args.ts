@@ -1,4 +1,5 @@
-import { ArgTypes } from "../../storybook";
+import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes, noControl } from "../../storybook";
 
 import { Button } from "../button/button.models";
 
@@ -9,28 +10,27 @@ export interface CardArgs {
   selectable: boolean;
   interactions: Button[];
   image: string | undefined;
+  dsoCardClicked: HandlerFunction;
 }
 
 export const cardArgTypes: ArgTypes<CardArgs> = {
   label: {
     control: {
-      type: "string",
+      type: "text",
     },
   },
   selectable: {
-    control: {
-      type: "boolean",
-    },
+    ...noControl,
   },
   interactions: {
-    control: {
-      disable: true,
-    },
+    ...noControl,
   },
   image: {
-    control: {
-      type: "text",
-    },
+    ...noControl,
+  },
+  dsoCardClicked: {
+    ...noControl,
+    action: "dsoCardClicked",
   },
 };
 
@@ -39,18 +39,16 @@ export function cardArgsMapper<TemplateFnReturnType>(
   content: TemplateFnReturnType
 ): Card<TemplateFnReturnType> {
   return {
-    label: a.label,
+    ...a,
     selectable: a.selectable
       ? {
           id: "1",
           label: "Selecteer",
-          dsoChange: () => undefined,
           type: "checkbox",
           value: "1",
+          slot: "selectable",
         }
       : undefined,
     content,
-    interactions: a.interactions,
-    image: a.image,
   };
 }

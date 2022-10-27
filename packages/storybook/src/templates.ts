@@ -89,6 +89,7 @@ import { cssBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.css-templat
 import { cssButtonRow } from "./components/button-row/button-row.css-template";
 import { cssButton } from "./components/button/button.css-template";
 import { cssCard } from "./components/card/card.css-template";
+import { coreCard } from "./components/card/card.core-template";
 import { cssCardGrid } from "./components/card-grid/card-grid.css-template";
 import { cssCardList } from "./components/card-list/card-list.css-template";
 import { cssContext } from "./components/context/context.css-template";
@@ -273,6 +274,7 @@ templateContainer.add(coreAttachmentsCounter);
 templateContainer.add(coreAutosuggest);
 templateContainer.add(coreBadge);
 templateContainer.add(coreBanner);
+templateContainer.add(coreCard);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDropdownMenu);
 templateContainer.add(coreHeader);

@@ -1,21 +1,22 @@
 import { Card } from "@dso-toolkit/sources";
 import { html, nothing, TemplateResult } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
+import { ifDefined } from "lit-html/directives/if-defined.js";
+
 import { ComponentImplementation } from "../../templates";
 
 export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
   component: "card",
   implementation: "css",
   template: ({ buttonTemplate, iconTemplate, selectableTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image }) {
+    function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return html`
-        <div class="dso-card ${classMap({ "dso-is-selectable": !!selectable, "dso-has-image": !!image })}">
+        <div
+          class="dso-card ${classMap({ "dso-is-selectable": !!selectable, "dso-has-image": !!image })}"
+          @click=${ifDefined(dsoCardClicked)}
+        >
           ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
-          ${image
-            ? html`<div class="dso-card-image">
-                <img src=${image} />
-              </div>`
-            : nothing}
+          ${image ? html`<div class="dso-card-image"></div>` : nothing}
           <div class="dso-card-heading">
             <a href="#">
               <h2>
@@ -33,7 +34,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
               </div>
             `}
           </div>
-          <div class="dso-card-content">${content}</div>
+          <div class="dso-rich-content">${content}</div>
         </div>
       `;
     },

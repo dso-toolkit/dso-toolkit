@@ -1,3 +1,3 @@
 # `.dso-card`
 
-Er dient door de implementator doormiddel van script een doorklik gemaakt te worden op de `.dso-card`
+Er dient door de implementator een click event op `.dso-card` te worden gezet. Hiermee kan de functionaliteit van het doorklikken worden gebouwd.
