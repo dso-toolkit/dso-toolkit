@@ -1,23 +1,18 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
-import { tableArgsMapper, tableArgTypes } from './table.args';
+import { storiesOfFactory } from '../../storybook/stories-of-factory';
+import { TableArgs, tableArgsMapper, tableArgTypes } from './table.args';
 import { defaultTable, imageOverlayTable } from './table.content';
 import { Table } from './table.models';
 
-export interface TableParameters<TemplateFnReturnType> {
+export interface TableTemplates<TemplateFnReturnType> {
   tableTemplate: (TableProperties: Table) => TemplateFnReturnType;
 }
 
-export function storiesOfTable<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    tableTemplate
-  }: TableParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Table', parameters, tableArgTypes)
-    .addParameters({
-    });
+export const storiesOfTable = storiesOfFactory<TableTemplates<any>, TableArgs>('Table', (stories, templateMapper) => {
+  stories.addParameters({
+    argTypes: tableArgTypes
+  });
 
-  const template = bindTemplate(tableArgsMapper, tableTemplate);
+  const template = templateMapper((args, { tableTemplate }) => tableTemplate(tableArgsMapper(args)));
 
   stories.add(
     'default',
@@ -40,4 +35,4 @@ export function storiesOfTable<TemplateFnReturnType>(
       }
     }
   );
-}
+});

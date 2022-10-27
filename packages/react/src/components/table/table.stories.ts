@@ -1,8 +1,8 @@
 import { storiesOfTable } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
-import { tableTemplate } from './table.template';
 
 storiesOfTable(
   {
@@ -10,7 +10,6 @@ storiesOfTable(
     storiesOf,
     readme
   },
-  {
-    tableTemplate
-  }
+  templateContainer,
+  ({ tableTemplate }) => ({ tableTemplate })
 );

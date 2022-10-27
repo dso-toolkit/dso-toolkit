@@ -3,21 +3,26 @@ import { DatePicker } from '@dso-toolkit/sources';
 import * as React from 'react';
 
 import { DsoDatePicker } from '../..';
+import { ComponentImplementation } from '../../templates';
 
-export function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, autofocus, direction }: DatePicker) {
-  return (
-    <DsoDatePicker
-      onDsoDateChange={(e: CustomEvent<DsoDatePickerChangeEvent>) => dsoDateChange?.(e)}
-      identifier={id}
-      direction={direction}
-      value={value}
-      min={min}
-      max={max}
-      dsoAutofocus={autofocus}
-      disabled={disabled}
-    ></DsoDatePicker>
-  );
-}
+export const reactDatePicker: ComponentImplementation<DatePicker> = {
+  component: 'datePicker',
+  implementation: 'react',
+  template: () => function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, autofocus, direction }) {
+    return (
+      <DsoDatePicker
+        onDsoDateChange={(e: CustomEvent<DsoDatePickerChangeEvent>) => dsoDateChange?.(e)}
+        identifier={id}
+        direction={direction}
+        value={value}
+        min={min}
+        max={max}
+        dsoAutofocus={autofocus}
+        disabled={disabled}
+      ></DsoDatePicker>
+    );
+  }
+};
 
 export function datePickerWithLabelTemplate(datePicker: JSX.Element, id: string, label: string) {
   return (

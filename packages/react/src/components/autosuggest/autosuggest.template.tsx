@@ -2,23 +2,26 @@ import { Autosuggest } from "@dso-toolkit/sources";
 import * as React from "react";
 
 import { DsoAutosuggest } from "../..";
+import { ComponentImplementation } from '../../templates';
 
-export class AutosuggestTemplate extends React.Component<React.PropsWithChildren<Autosuggest<JSX.Element>>> {
-  render() {
+export const reactAutosuggest: ComponentImplementation<Autosuggest<JSX.Element>> = {
+  component: 'autosuggest',
+  implementation: 'react',
+  template: () => function autosuggestTemplate({ children, dsoChange, dsoSearch, dsoSelect, loading, suggestOnFocus, suggestions, loadingDelayed, loadingLabel, notFoundLabel }) {
     return (
       <DsoAutosuggest
-        suggestions={this.props.suggestions}
-        onDsoSelect={this.props.dsoSelect}
-        onDsoChange={this.props.dsoChange}
-        onDsoSearch={this.props.dsoSearch}
-        suggestOnFocus={this.props.suggestOnFocus}
-        loading={this.props.loading}
-        loadingLabel={this.props.loadingLabel}
-        loadingDelayed={this.props.loadingDelayed}
-        notFoundLabel={this.props.notFoundLabel}
+        suggestions={suggestions}
+        onDsoSelect={dsoSelect}
+        onDsoChange={dsoChange}
+        onDsoSearch={dsoSearch}
+        suggestOnFocus={suggestOnFocus}
+        loading={loading}
+        loadingLabel={loadingLabel}
+        loadingDelayed={loadingDelayed}
+        notFoundLabel={notFoundLabel}
       >
-        {this.props.children}
+        {children}
       </DsoAutosuggest>
     );
   }
-}
+};

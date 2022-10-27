@@ -73,6 +73,7 @@ import {
   TileGrid,
   ViewerGrid,
   RowEqualHeights,
+  Table,
 } from '@dso-toolkit/sources';
 
 import { TemplateResult } from 'lit-html';
@@ -161,6 +162,7 @@ import { cssFormGroupSelect } from './components/form/form-group-select.css-temp
 import { cssFormGroupStatic } from './components/form/form-group-static.css-template';
 import { cssFormGroupTextarea } from './components/form/form-group-textarea.css-template';
 import { cssFormGroup } from './components/form/form-group.css-template';
+import { coreTable } from './components/table/table.core-template';
 
 export interface Components {
   accordion: Accordion;
@@ -226,6 +228,7 @@ export interface Components {
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
+  table: Table;
   tabs: Tabs;
   tileGrid: TileGrid<TemplateResult>;
   tile: Tile;
@@ -321,6 +324,7 @@ templateContainer.add(corePagination);
 templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
 templateContainer.add(coreSelectable);
+templateContainer.add(coreTable);
 templateContainer.add(coreToggleTip);
 templateContainer.add(coreTooltip);
 templateContainer.add(coreTreeView);

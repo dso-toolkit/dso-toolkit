@@ -22,6 +22,8 @@ import {
   TreeView,
   InfoButton,
   Selectable,
+  Table,
+  Autosuggest,
 } from "@dso-toolkit/sources";
 
 import { reactAlert } from "./components/alert/alert.react-template";
@@ -29,6 +31,7 @@ import { reactAlert } from "./components/alert/alert.react-template";
 export interface Components {
   alert: Alert<JSX.Element>;
   accordion: Accordion;
+  autosuggest: Autosuggest<JSX.Element>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
   banner: Banner<JSX.Element>;
@@ -44,6 +47,7 @@ export interface Components {
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   selectable: Selectable<JSX.Element>;
+  table: Table;
   toggletip: Toggletip;
   tooltip: Tooltip;
   treeView: TreeView;
