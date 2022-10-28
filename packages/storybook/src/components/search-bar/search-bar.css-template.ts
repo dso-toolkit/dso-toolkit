@@ -70,5 +70,4 @@ export const cssSearchBar: ComponentImplementation<SearchBar> = {
       }
     `;
   }
-
 }

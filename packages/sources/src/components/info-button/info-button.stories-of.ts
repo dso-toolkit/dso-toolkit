@@ -9,7 +9,10 @@ export interface InfoButtonTemplates<TemplateFnReturnType> {
 
 export const storiesOfInfoButton = storiesOfFactory<InfoButtonTemplates<any>, InfoButtonArgs>('Info Button', (stories, templateMapper) => {
   stories.addParameters({
-    argTypes: infoButtonArgTypes
+    argTypes: infoButtonArgTypes,
+    args: {
+      label: 'Toelichting bij vraag'
+    }
   });
 
   const template = templateMapper((args, { infoButtonTemplate }) => infoButtonTemplate(infoButtonArgsMapper(args)));

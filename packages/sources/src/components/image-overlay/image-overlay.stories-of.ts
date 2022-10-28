@@ -11,6 +11,7 @@ export interface ImageOverlayTemplates<TemplateFnReturnType> {
 export const storiesOfImageOverlay = storiesOfFactory<ImageOverlayTemplates<any>, ImageOverlayArgs>('Image Overlay', (stories, templateMapper) => {
   stories.addParameters({
     argTypes: imageOverlayArgTypes,
+    layout: 'fullscreen'
   });
 
   const template = templateMapper((args, { imageOverlayTemplate }) => imageOverlayTemplate(imageOverlayArgsMapper(args)));

@@ -1,10 +1,11 @@
 import { Selectable } from '@dso-toolkit/sources';
 import { html, nothing, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import { ComponentImplementation } from '../../templates';
 
 export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>> = {
-  component: 'seletable',
+  component: 'selectable',
   implementation: 'core',
   template: () => function selectableTemplate({
     type,
@@ -37,7 +38,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
         @dsoChange=${(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
       >
         ${label}
-        ${info?.richContent ?? nothing}
+        ${typeof info?.richContent === 'string' ? unsafeHTML(info.richContent) : info?.richContent ?? nothing}
       </dso-selectable>
     `;
   }

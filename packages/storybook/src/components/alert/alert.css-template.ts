@@ -21,9 +21,7 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
         <span class="sr-only">${statusMap.get(status)}:</span>
         <div class="dso-rich-content">
           ${typeof message === 'string'
-            ? html`
-              <p>${unsafeHTML(message)}</p>
-            `
+            ? unsafeHTML(message)
             : message
           }
           ${onClick

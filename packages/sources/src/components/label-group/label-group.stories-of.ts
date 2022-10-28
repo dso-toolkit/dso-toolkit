@@ -13,7 +13,7 @@ export const storiesOfLabelGroup = storiesOfFactory<LabelGroupTemplates<any>, La
       argTypes: labelGroupArgTypes
     });
 
-  const template = templateMapper((args, { labelGroupTemplate }) => labelGroupTemplate(labelGroupArgsMapper(args)));
+  const template = templateMapper((_args, { labelGroupTemplate }) => labelGroupTemplate(labelGroupArgsMapper()));
 
   stories.add(
     'Label Group',

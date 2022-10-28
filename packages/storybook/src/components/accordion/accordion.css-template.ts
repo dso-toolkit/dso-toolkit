@@ -53,10 +53,10 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
 
       if (section.handleUrl) {
         return html`
-            <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>
-              ${children}
-            </a>
-          `;
+          <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>
+            ${children}
+          </a>
+        `;
       }
 
       return html`

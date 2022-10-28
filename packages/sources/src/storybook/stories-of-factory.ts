@@ -21,6 +21,8 @@ export function storiesOfFactory<StoryTemplates, StoryArgs, StoryParameters = un
   ) => {
     const stories = createStories(name, parameters);
 
+    const preferredImplementation = parameters.root === 'Core' ? 'core' : 'css';
+
     const implementations = templateContainer.getImplementationTypes();
     if (implementations.length > 99) { // insert condition for example pages only
       stories.addParameters({
@@ -36,7 +38,7 @@ export function storiesOfFactory<StoryTemplates, StoryArgs, StoryParameters = un
           }
         },
         args: {
-          preferredImplementation: implementations[0]
+          preferredImplementation
         }
       });
     }

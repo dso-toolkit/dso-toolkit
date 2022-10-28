@@ -159,5 +159,4 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
       </div>
     `;
   }
-
 }

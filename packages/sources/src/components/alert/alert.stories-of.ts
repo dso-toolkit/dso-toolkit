@@ -26,7 +26,7 @@ export const storiesOfAlert = storiesOfFactory<AlertTemplates<any>, AlertArgs>('
     {
       args: {
         status: 'success',
-        message: 'Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.'
+        message: '<p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>'
       }
     }
   );
@@ -37,7 +37,7 @@ export const storiesOfAlert = storiesOfFactory<AlertTemplates<any>, AlertArgs>('
     {
       args: {
         status: 'info',
-        message: 'Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#" class="extern" target="_blank" rel="noopener noreferrer">aanvullende</a> informatie of tips.'
+        message: '<p>Dit is een informatiemelding. Deze wordt gebruikt voor <a href="#" class="extern" target="_blank" rel="noopener noreferrer">aanvullende</a> informatie of tips.</p>'
       }
     }
   );
@@ -48,7 +48,7 @@ export const storiesOfAlert = storiesOfFactory<AlertTemplates<any>, AlertArgs>('
     {
       args: {
         status: 'warning',
-        message: 'Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.'
+        message: '<p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>'
       }
     }
   );
@@ -59,7 +59,7 @@ export const storiesOfAlert = storiesOfFactory<AlertTemplates<any>, AlertArgs>('
     {
       args: {
         status: 'danger',
-        message: 'Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.'
+        message: '<p>Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.</p>'
       }
     }
   );

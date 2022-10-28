@@ -12,9 +12,7 @@ export const coreAlert: ComponentImplementation<Alert<TemplateResult>> = {
       <dso-alert status=${status} ?role-alert=${withRoleAlert}>
         <div class="dso-rich-content">
           ${typeof message === 'string'
-            ? html`
-              <p>${unsafeHTML(message)}</p>
-            `
+            ? unsafeHTML(message)
             : message
           }
           ${onClick

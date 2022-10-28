@@ -21,7 +21,7 @@ export const reactAlert: ComponentImplementation<Alert<JSX.Element>> = {
         <div className="dso-rich-content">
           {typeof message === 'string'
             ? (
-              <p dangerouslySetInnerHTML={({ __html: message })} />
+              <div dangerouslySetInnerHTML={({ __html: message })} />
             )
             : message
           }

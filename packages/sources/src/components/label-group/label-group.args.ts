@@ -1,10 +1,9 @@
 import { ArgTypes } from '../../storybook';
 
-import { Label } from '../label/label.models';
+import { activeFilters } from './label-group.content';
 import { LabelGroup } from './label-group.models';
 
 export interface LabelGroupArgs {
-  labels: Label[];
 }
 
 export const labelGroupArgTypes: ArgTypes<LabelGroupArgs> = {
@@ -15,8 +14,8 @@ export const labelGroupArgTypes: ArgTypes<LabelGroupArgs> = {
   }
 };
 
-export function labelGroupArgsMapper(a: LabelGroupArgs): LabelGroup {
+export function labelGroupArgsMapper(): LabelGroup {
   return {
-    labels: a.labels
+    labels: activeFilters
   };
 }

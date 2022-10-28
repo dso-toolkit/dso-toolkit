@@ -37,13 +37,13 @@ export class TemplateContainer<Implementation, Templates, TemplateFnReturnType> 
     const container = this.componentImplementations.reduce<Templates & { [key: string]: BaseComponentImplementation<any, Implementation, Templates, TemplateFnReturnType> }>((templates, { component, implementation, template }) => {
       const functionName = `${component}Template`;
 
-      if (!templates[functionName] && (preferredImplementation === implementation || this.componentImplementations.filter(({ component: c }) => component === c).length === 0)) {
+      if (!templates[functionName] && (preferredImplementation === implementation || this.componentImplementations.filter(({ component: c }) => component === c).length === 1)) {
         Object.defineProperty(templates, functionName, { get: () => template(templates) });
       }
 
       return templates;
     }, {} as any);
-console.log(container);
+
     return container;
   }
 }

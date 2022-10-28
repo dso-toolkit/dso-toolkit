@@ -1,4 +1,4 @@
-import { AlertType, DocumentList, DocumentListItemStatusDemoContent, Label, storiesOfViewerGrid, Tile, ViewerGridDocumentHeaderProperties } from "@dso-toolkit/sources";
+import { AlertType, DocumentList, DocumentListItemStatusDemoContent, storiesOfViewerGrid, Tile, ViewerGridDocumentHeaderProperties } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
@@ -6,6 +6,8 @@ import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md";
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from "../../templates";
 import { HandlerFunction } from '@storybook/addon-actions';
+
+import { activeFilters } from '@dso-toolkit/sources/src/components/label-group/label-group.content';
 
 storiesOfViewerGrid(
   {
@@ -162,45 +164,6 @@ storiesOfViewerGrid(
     }
 
     function filterblokExampleTemplate() {
-      const activeFilters: Label[] = [
-        {
-          label: 'Bouwwerken, werken en objecten bouwen',
-          status: 'bright',
-          removable: true,
-          truncate: true,
-        },
-        {
-          label: 'Regels',
-          status: 'bright',
-          removable: true,
-          truncate: true
-        },
-        {
-          label: 'Tuin',
-          status: 'bright',
-          removable: true,
-          truncate: true
-        },
-        {
-          label: 'Slopen of verwijderen bij een hoofdspoorweg of een bijzondere spoorweg',
-          status: 'bright',
-          removable: true,
-          truncate: true
-        },
-        {
-          label: 'Geluidzone',
-          status: 'bright',
-          removable: true,
-          truncate: true
-        },
-        {
-          label: 'Thema: milieu algemeen',
-          status: 'bright',
-          removable: true,
-          truncate: true
-        }
-      ];
-    
       return viewerGridTemplate({
         main: html`
           <section class="dso-filterblok">

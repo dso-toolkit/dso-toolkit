@@ -72,5 +72,4 @@ export const cssPagination: ComponentImplementation<Pagination> = {
       </ul>
     `;
   }
-
-}
+};

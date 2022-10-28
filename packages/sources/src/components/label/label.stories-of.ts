@@ -18,7 +18,10 @@ export interface LabelParameters<TemplateFnReturnType> {
 export const storiesOfLabel = storiesOfFactory<LabelTemplates<any>, LabelArgs, LabelParameters<any>>('Label', (stories, templateMapper, { decorator }) => {
   stories
     .addParameters({
-      argTypes: labelArgTypes
+      argTypes: labelArgTypes,
+      args: {
+        label: 'Label'
+      }
     })
     .addDecorator(story => decorator(story, css));
 
