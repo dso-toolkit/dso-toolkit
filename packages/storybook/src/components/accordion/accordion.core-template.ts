@@ -25,6 +25,7 @@ export const coreAccordion: ComponentImplementation<Accordion> = {
           <dso-accordion-section
             ?open=${ifDefined(section.open)}
             handle-title=${section.handleTitle}
+            heading=${section.heading}
             handle-url=${ifDefined(section.handleUrl)}
             state=${ifDefined(section.state)}
             status=${ifDefined(section.status)}

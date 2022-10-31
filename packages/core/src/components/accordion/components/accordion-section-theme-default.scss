@@ -28,7 +28,10 @@
 @mixin dso-web-component-accordion-default-open {
   > .dso-section-handle {
     background-color: accordion.$default-nested-handle-bgcolor;
-    border-radius: accordion.$border-radius;
+    border-radius: 0;
+    border-top-left-radius: accordion.$border-radius;
+    border-top-right-radius: accordion.$border-radius;
+
 
     a,
     button {

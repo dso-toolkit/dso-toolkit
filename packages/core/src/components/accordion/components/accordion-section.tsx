@@ -78,7 +78,7 @@ export class AccordionSection implements ComponentInterface {
     }
 
     const { variant, reverseAlign } = this.accordionState;
-    const hasAddons = this.status || this.state || this.icon || this.attachmentCount;
+    const hasAddons = !!this.status || !!this.state || !!this.icon || !!this.attachmentCount;
 
     return (
       <Host
