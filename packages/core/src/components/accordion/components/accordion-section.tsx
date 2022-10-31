@@ -103,7 +103,7 @@ export class AccordionSection implements ComponentInterface {
                 <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
               </Fragment>)
               : (<Fragment>
-                <dso-icon icon={this.open ? 'chevron-up' : 'chevron-down'}></dso-icon>
+                <dso-icon icon={this.open ? 'chevron-down' : 'chevron-right'}></dso-icon>
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 

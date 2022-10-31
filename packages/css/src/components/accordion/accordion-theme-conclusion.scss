@@ -12,8 +12,16 @@
     button {
       color: accordion.$conclusion-color;
 
-      &::before {
-        @include di.base("chevron-down-grijs90");
+      &.dso-left-align {
+        &::before {
+          @include di.base("chevron-right-grijs90");
+        }
+      }
+
+      &.dso-right-align {
+        &::before {
+          @include di.base("chevron-down-grijs90");
+        }
       }
 
       &:hover,
@@ -35,8 +43,16 @@
           button {
             color: accordion.$conclusion-color;
 
-            &::before {
-              @include di.variant("chevron-up-grijs90");
+            &.dso-left-align {
+              &::before {
+                @include di.base("chevron-down-grijs90");
+              }
+            }
+
+            &.dso-right-align {
+              &::before {
+                @include di.base("chevron-up-grijs90");
+              }
             }
 
             dso-attachments-counter {
@@ -62,8 +78,16 @@
         > .dso-section-handle {
           a,
           button {
-            &::before {
-              @include di.variant("chevron-up-grijs90");
+            &.dso-left-align {
+              &::before {
+                @include di.base("chevron-right-grijs-90");
+              }
+            }
+
+            &.dso-right-align {
+              &::before {
+                @include di.base("chevron-down-grijs-90");
+              }
             }
           }
         }

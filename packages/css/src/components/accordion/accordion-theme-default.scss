@@ -13,8 +13,16 @@
     button {
       color: accordion.$default-color;
 
-      &::before {
-        @include di.base("chevron-down-mauve");
+      &.dso-left-align {
+        &::before {
+          @include di.base("chevron-right-mauve");
+        }
+      }
+
+      &.dso-right-align {
+        &::before {
+          @include di.base("chevron-down-mauve");
+        }
       }
 
       &:hover,
@@ -36,8 +44,16 @@
           button {
             color: colors.$wit;
 
-            &::before {
-              @include di.variant("chevron-up-wit");
+            &.dso-left-align {
+              &::before {
+                @include di.base("chevron-down-wit");
+              }
+            }
+
+            &.dso-right-align {
+              &::before {
+                @include di.base("chevron-up-wit");
+              }
             }
 
             dso-attachments-counter {
@@ -62,8 +78,16 @@
         > .dso-section-handle {
           a,
           button {
-            &::before {
-              @include di.variant("chevron-up-mauve");
+            &.dso-left-align {
+              &::before {
+                @include di.base("chevron-right-mauve");
+              }
+            }
+
+            &.dso-right-align {
+              &::before {
+                @include di.base("chevron-down-mauve");
+              }
             }
           }
         }

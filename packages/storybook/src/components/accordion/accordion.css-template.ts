@@ -53,14 +53,22 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
 
       if (section.handleUrl) {
         return html`
-          <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>
+          <a
+            href="${section.handleUrl}"
+            class=${accordion.reverseAlign ? 'dso-right-align' : 'dso-left-align'}
+            aria-expanded=${ariaExpanded}
+          >
             ${children}
           </a>
         `;
       }
 
       return html`
-        <button type="button" aria-expanded=${ariaExpanded}>
+        <button
+          type="button"
+          class=${accordion.reverseAlign ? 'dso-right-align' : 'dso-left-align'}
+          aria-expanded=${ariaExpanded}
+        >
           ${children}
         </button>
       `;
