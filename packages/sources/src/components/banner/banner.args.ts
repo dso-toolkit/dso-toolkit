@@ -1,8 +1,8 @@
-import { HandlerFunction } from "@storybook/addon-actions";
+import { HandlerFunction } from '@storybook/addon-actions';
 
-import { ArgTypes } from "../../storybook";
+import { ArgTypes } from '../../storybook';
 
-import { Banner } from "./banner.models";
+import { Banner } from './banner.models';
 
 export interface BannerArgs {
   status: string;
@@ -11,23 +11,20 @@ export interface BannerArgs {
 
 export const bannerArgTypes: ArgTypes<BannerArgs> = {
   status: {
-    options: ["warning", "danger"],
+    options: ['warning', 'danger'],
     control: {
-      type: "select",
-    },
+      type: 'select'
+    }
   },
   onClick: {
-    action: "closed",
-  },
+    action: 'closed'
+  }
 };
 
-export function bannerArgsMapper<TemplateFnReturnType>(
-  a: BannerArgs,
-  richContent: TemplateFnReturnType
-): Banner<TemplateFnReturnType> {
+export function bannerArgsMapper<TemplateFnReturnType>(a: BannerArgs, richContent: TemplateFnReturnType): Banner<TemplateFnReturnType> {
   return {
     onClick: (e: Event) => a.onClick(e),
-    richContent: richContent,
-    status: a.status,
+    content: richContent,
+    status: a.status
   };
 }

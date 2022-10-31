@@ -1,11 +1,12 @@
-export interface TableContent {
+export interface TableContent<TemplateFnReturnType> {
   caption: string;
   head: string[];
-  rows: string[][];
+  rows: (TemplateFnReturnType | string)[][];
 }
 
-export interface Table {
+export interface Table<TemplateFnReturnType> {
   /** Prevents the table being opened in a modal. */
   noModal?: boolean;
-  content: TableContent;
+  content: TableContent<TemplateFnReturnType>;
+  headingColumns?: boolean;
 }

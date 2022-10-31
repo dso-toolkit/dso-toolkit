@@ -1,14 +1,14 @@
-import { HighlightBox } from "@dso-toolkit/sources";
-import { html, nothing } from "lit-html";
-import { classMap } from "lit-html/directives/class-map.js";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
-import { ComponentImplementation } from "../../templates";
+import { HighlightBox } from '@dso-toolkit/sources';
+import { html, nothing } from 'lit-html';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { ComponentImplementation } from '../../templates';
 
 export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "css",
   template: ({ iconTemplate, imageTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent, bannerImage }) {
+    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, content, bannerImage }) {
       function stepCounter() {
         if (step) {
           return html`<div class="dso-step-counter">${step}</div>`;
@@ -39,7 +39,7 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
                 modifier: "dso-highlight-box-banner",
               })
             : nothing}
-          <div class="dso-rich-content">${typeof richContent === "string" ? unsafeHTML(richContent) : richContent}</div>
+          ${typeof content === "string" ? unsafeHTML(content) : content}
         </div>
       `;
     },

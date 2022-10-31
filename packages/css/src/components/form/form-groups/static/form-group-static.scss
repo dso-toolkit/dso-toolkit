@@ -19,14 +19,17 @@
       }
     }
 
-    &.dso-edit .dso-field-container {
-      padding-right: units.$u5;
-      position: relative;
+    &.dso-edit,
+    &.has-edit {
+      .dso-field-container {
+        padding-right: units.$u5;
+        position: relative;
 
-      button {
-        position: absolute;
-        right: units.$u2;
-        top: 0;
+        button {
+          position: absolute;
+          right: units.$u2;
+          top: 0;
+        }
       }
     }
   }

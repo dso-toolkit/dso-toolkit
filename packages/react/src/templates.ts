@@ -71,7 +71,7 @@ export interface Components {
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   selectable: Selectable<JSX.Element>;
-  table: Table;
+  table: Table<JSX.Element>;
   toggletip: Toggletip;
   tooltip: Tooltip;
   treeView: TreeView;

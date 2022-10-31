@@ -10,7 +10,7 @@ export interface Accordion {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
   allowMultipleOpen?: boolean;
-  dsoToggleSection: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
+  dsoToggleSection?: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
   sections: AccordionSection[];
 }
 

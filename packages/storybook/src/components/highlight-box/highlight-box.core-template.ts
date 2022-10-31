@@ -8,7 +8,7 @@ export const coreHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "core",
   template: ({ iconTemplate, imageTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent, bannerImage }) {
+    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, content, bannerImage }) {
       return html`
         <dso-highlight-box
           step=${ifDefined(typeof step === "number" && step > 0 ? step : undefined)}
@@ -25,7 +25,7 @@ export const coreHighlightBox: ComponentImplementation<HighlightBox> = {
                 modifier: "dso-highlight-box-banner",
               })
             : nothing}
-          ${typeof richContent === "string" ? unsafeHTML(richContent) : richContent}
+          ${typeof content === "string" ? unsafeHTML(content) : content}
         </dso-highlight-box>
       `;
     },

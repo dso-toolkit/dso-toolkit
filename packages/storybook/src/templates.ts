@@ -233,7 +233,7 @@ export interface Components {
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
-  table: Table;
+  table: Table<TemplateResult>;
   tabs: Tabs;
   tileGrid: TileGrid<TemplateResult>;
   tile: Tile;

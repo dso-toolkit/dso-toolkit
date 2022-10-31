@@ -22,11 +22,11 @@ storiesOfLinkList({
 
     function inHighlightBoxTemplate(linkList: TemplateResult) {
       return html`
-        ${highlightBoxTemplate({ richContent: linkList })}
-        ${highlightBoxTemplate({ richContent: linkList, yellow: true })}
-        ${highlightBoxTemplate({ richContent: linkList, border: true })}
+        ${highlightBoxTemplate({ content: linkList })}
+        ${highlightBoxTemplate({ content: linkList, yellow: true })}
+        ${highlightBoxTemplate({ content: linkList, border: true })}
         ${highlightBoxTemplate({
-          richContent: linkList,
+          content: linkList,
           dropShadow: true,
           white: true,
         })}

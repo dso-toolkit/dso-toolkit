@@ -11,7 +11,7 @@ export interface FormGroupSelect<TemplateFnReturnType> extends FormGroupBase<Tem
 }
 
 export interface SelectOptionGroup {
-  label: string;
+  label?: string;
   options: SelectOption[];
   disabled?: boolean;
 }

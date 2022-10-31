@@ -3,5 +3,5 @@ export interface Info<TemplateFnReturnType> {
   fixed?: boolean;
   active?: boolean;
   richContent: TemplateFnReturnType | string;
-  dsoClose: (e: MouseEvent) => void;
+  dsoClose?: (e: MouseEvent) => void;
 }
