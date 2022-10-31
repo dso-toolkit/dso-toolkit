@@ -1,20 +1,17 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { TileArgs, tileArgsMapper, tileArgTypes } from './tile.args';
 import { Tile } from './tile.models';
 
-export interface TileParameters<TemplateFnReturnType> {
+export interface TileTemplates<TemplateFnReturnType> {
   tileTemplate: (tileProperties: Tile) => TemplateFnReturnType;
 }
 
-export function storiesOfTile<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    tileTemplate
-  }: TileParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Tile', parameters, tileArgTypes)
-    .addParameters({
+export function storiesOfTile<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, TileTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Tile', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: tileArgTypes,
       args: componentArgs<TileArgs>({
         label: 'Boom kappen of snoeien',
         imageSource: 'images/icon-tree.png',
@@ -22,20 +19,21 @@ export function storiesOfTile<TemplateFnReturnType>(
       })
     });
 
-  const template = bindTemplate(tileArgsMapper, tileTemplate);
+    const template = templateMapper<TileArgs>((args, { tileTemplate }) => tileTemplate(tileArgsMapper(args)));
 
-  stories.add(
-    'default',
-    template
-  );
+    stories.add(
+      'default',
+      template
+    );
 
-  stories.add(
-    'theme',
-    template,
-    {
-      args: componentArgs<Pick<TileArgs, 'variant'>>({
-        variant: 'theme'
-      })
-    }
-  );
+    stories.add(
+      'theme',
+      template,
+      {
+        args: componentArgs<Pick<TileArgs, 'variant'>>({
+          variant: 'theme'
+        })
+      }
+    );
+  });
 }

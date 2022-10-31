@@ -1,21 +1,17 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
 import { v4 as uuidv4 } from 'uuid';
 
-import { listButtonArgsMapper, listButtonArgTypes } from './list-button.args';
+import { ListButtonArgs, listButtonArgsMapper, listButtonArgTypes } from './list-button.args';
 import { ListButton } from './list-button.models';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-export interface ListButtonParameters<TemplateFnReturnType> {
+export interface ListButtonTemplates<TemplateFnReturnType> {
   listButtonTemplate: (listButtonProperties: ListButton) => TemplateFnReturnType;
 }
 
-export function storiesOfListButton<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    listButtonTemplate: listButtonTemplate
-  }: ListButtonParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('List Button', parameters, listButtonArgTypes)
-    .addParameters({
+export function storiesOfListButton<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ListButtonTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('List Button', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: listButtonArgTypes,
       args: {
         label: 'Milieubelastende activiteit - Melding',
         count: 0,
@@ -25,10 +21,11 @@ export function storiesOfListButton<TemplateFnReturnType>(
       }
     });
 
-  const template = bindTemplate(listButtonArgsMapper, listButtonTemplate);
+    const template = templateMapper<ListButtonArgs>((args, { listButtonTemplate }) => listButtonTemplate(listButtonArgsMapper(args)));
 
-  stories.add(
-    'List Button',
-    template
-  );
+    stories.add(
+      'List Button',
+      template
+    );
+  });
 }

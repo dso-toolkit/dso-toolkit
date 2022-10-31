@@ -1,18 +1,18 @@
 import { storiesOfJustifyFormGroups } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { justifyFormGroupsTemplate } from '@dso-toolkit/css/src/components/justify-form-groups/justify-form-groups.template';
-import readme from '@dso-toolkit/css/src/components/justify-form-groups/readme.md';
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import cssReadme from '@dso-toolkit/css/src/components/justify-form-groups/readme.md';
 
-storiesOfJustifyFormGroups(
-  {
+import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
+
+storiesOfJustifyFormGroups({
+  parameters: {
     storiesOf,
     module,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    justifyFormGroupsTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ justifyFormGroupsTemplate }) => ({ justifyFormGroupsTemplate })
+});

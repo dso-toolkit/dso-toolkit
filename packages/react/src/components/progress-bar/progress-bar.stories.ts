@@ -1,16 +1,15 @@
 import { storiesOfProgressBar } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { progressBarTemplate } from './progress-bar.template';
 import readme from './readme.md';
 
-storiesOfProgressBar(
-  {
+storiesOfProgressBar({
+  parameters: {
     module,
     storiesOf,
     readme
   },
-  {
-    progressBarTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ progressBarTemplate }) => ({ progressBarTemplate })
+});

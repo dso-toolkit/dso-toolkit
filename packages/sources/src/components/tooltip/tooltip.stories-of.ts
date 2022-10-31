@@ -1,60 +1,35 @@
-import { Args } from '@storybook/addons';
 import { HandlerFunction } from '@storybook/addon-actions';
 import { v4 as uuidv4 } from 'uuid';
 
-import { bindTemplate, ArgsError, StorybookParameters, createStories } from '../../storybook';
-
 import { TooltipArgs, tooltipArgsMapper, tooltipArgTypes } from './tooltip.args';
 import { Tooltip } from './tooltip.models';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-export interface TooltipParameters<TemplateFnReturnType> {
+export interface TooltipTemplates<TemplateFnReturnType> {
   tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;
-  asChildTemplate?: (tooltip: TemplateFnReturnType, action: HandlerFunction) => TemplateFnReturnType;
-  asSiblingTemplate?: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
+  asChildTemplate: (tooltip: TemplateFnReturnType, action: HandlerFunction) => TemplateFnReturnType;
+  asSiblingTemplate: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
 }
 
-export function storiesOfTooltip<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    tooltipTemplate,
-    asChildTemplate,
-    asSiblingTemplate
-  }: TooltipParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Tooltip', parameters, tooltipArgTypes);
+export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, TooltipTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Tooltip', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: tooltipArgTypes
+    });
 
-  if (asChildTemplate) {
     stories.add(
       'as child',
-      (a: Args | undefined) => {
-        if (!a) {
-          throw new ArgsError();
-        }
-
-        const args = a as TooltipArgs;
-
-        return asChildTemplate(tooltipTemplate(tooltipArgsMapper(a as TooltipArgs)), args.action)
-      },
+      templateMapper<TooltipArgs>((args, { tooltipTemplate, asChildTemplate }) => asChildTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.action)),
       {
         args: {
           position: 'right'
         }
       }
     );
-  }
 
-  if (asSiblingTemplate) {
     stories.add(
       'as sibling',
-      (a: Args | undefined) => {
-        if (!a) {
-          throw new ArgsError();
-        }
-
-        const args = a as TooltipArgs;
-
-        return asSiblingTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id!, args.action)
-      },
+      templateMapper<TooltipArgs>((args, { tooltipTemplate, asSiblingTemplate }) => asSiblingTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id!, args.action)),
       {
         args: {
           id: uuidv4(),
@@ -62,15 +37,15 @@ export function storiesOfTooltip<TemplateFnReturnType>(
         }
       }
     );
-  }
 
-  stories.add(
-    'tooltip',
-    bindTemplate(tooltipArgsMapper, tooltipTemplate),
-    {
-      args: {
-        position: 'bottom'
+    stories.add(
+      'tooltip',
+      templateMapper<TooltipArgs>((args, { tooltipTemplate }) => tooltipTemplate(tooltipArgsMapper(args))),
+      {
+        args: {
+          position: 'bottom'
+        }
       }
-    }
-  )
+    )
+  });
 }

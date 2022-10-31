@@ -1,65 +1,68 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { storiesOfFactory, StoriesOfArguments } from '../../storybook/stories-of-factory';
 
-import { anchorArgsMapper, anchorArgTypes } from './anchor.args';
+import { AnchorArgs, anchorArgsMapper, anchorArgTypes } from './anchor.args';
 import { Anchor } from './anchor.models';
 
-export interface AnchorParameters<TemplateFnReturnType> {
+export interface AnchorTemplates<TemplateFnReturnType> {
   anchorTemplate: (anchorProperties: Anchor) => TemplateFnReturnType;
 }
 
-export function storiesOfAnchor<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    anchorTemplate
-  }: AnchorParameters<TemplateFnReturnType>
+export function storiesOfAnchor<Implementation, Templates, TemplateFnReturnType>(
+  storyFunctionArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, AnchorTemplates<TemplateFnReturnType>>
 ) {
-  const stories = createStories('Anchor', parameters, anchorArgTypes);
-  const template = bindTemplate(anchorArgsMapper, anchorTemplate);
+  return storiesOfFactory('Anchor', storyFunctionArguments, (stories, templateMapper) => {
+    stories
+      .addParameters({
+        argTypes: anchorArgTypes
+      });
 
-  stories.add(
-    'default',
-    template,
-    {
-      args: {
-        label: 'Home',
-        url: '#'
-      }
-    }
-  );
+    const template = templateMapper<AnchorArgs>((args, { anchorTemplate }) => anchorTemplate(anchorArgsMapper(args)));
 
-  stories.add(
-    'download link',
-    template,
-    {
-      args: {
-        label: 'Download Afvalkalender 2017',
-        url: 'afvalkalender.pdf',
-        modifier: 'download'
+    stories.add(
+      'default',
+      template,
+      {
+        args: {
+          label: 'Home',
+          url: '#'
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'external link',
-    template,
-    {
-      args: {
-        label: 'Een link naar Google',
-        url: 'http://www.google.nl',
-        modifier: 'extern'
+    stories.add(
+      'download link',
+      template,
+      {
+        args: {
+          label: 'Download Afvalkalender 2017',
+          url: 'afvalkalender.pdf',
+          modifier: 'download'
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'link with icon',
-    template,
-    {
-      args: {
-        label: 'Product zoeken',
-        url: '#',
-        icon: 'search'
+    stories.add(
+      'external link',
+      template,
+      {
+        args: {
+          label: 'Een link naar Google',
+          url: 'http://www.google.nl',
+          modifier: 'extern'
+        }
       }
-    }
-  );
+    );
+
+    stories.add(
+      'link with icon',
+      template,
+      {
+        args: {
+          label: 'Product zoeken',
+          url: '#',
+          icon: 'search'
+        }
+      }
+    );
+  });
 }

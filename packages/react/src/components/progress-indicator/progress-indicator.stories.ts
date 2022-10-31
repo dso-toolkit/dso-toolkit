@@ -1,16 +1,15 @@
-import { storiesOfProgressIndicator } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
+import { storiesOfProgressIndicator } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import { templateContainer } from "../../templates";
 
-import { progressIndicatorTemplate } from './progress-indicator.template';
-import readme from './readme.md';
+import readme from "./readme.md";
 
-storiesOfProgressIndicator(
-  {
+storiesOfProgressIndicator({
+  parameters: {
     module,
     storiesOf,
-    readme
+    readme,
   },
-  {
-    progressIndicatorTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
+});

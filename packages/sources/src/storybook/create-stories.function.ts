@@ -1,22 +1,14 @@
-import { ArgTypes } from './arg-types.type';
 import { StorybookParameters } from './storybook-parameters.interface';
 
-export function createStories<ComponentArgs>(
+export function createStories(
   name: string,
-  {
-    module: mainModule,
-    storiesOf,
-    readme,
-    root
-  }: StorybookParameters,
-  argTypes: ArgTypes<ComponentArgs>
+  { storiesOf, readme, module: mainModule, root }: StorybookParameters
 ) {
   const stories = storiesOf(root ? `${root}/${name}` : name, mainModule)
     .addParameters({
       docs: {
         page: readme
-      },
-      argTypes
+      }
     });
 
   return stories;

@@ -1,43 +1,31 @@
-import { storiesOfBanner } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
+import { storiesOfBanner } from '@dso-toolkit/sources/src/components/banner/banner.stories-of';
 
-import * as css from '@dso-toolkit/css/src/components/banner/banner.template';
 import cssReadme from '@dso-toolkit/css/src/components/banner/readme.md';
-
-import * as core from '@dso-toolkit/core/src/components/banner/banner.template';
 import coreReadme from '@dso-toolkit/core/src/components/banner/readme.md';
 
-import { dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent } from './banner.content';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
+import { dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent } from './banner.content';
 
-storiesOfBanner(
-  {
+storiesOfBanner({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    bannerTemplate: css.bannerTemplate,
-    warningRichContent,
-    dangerRichContent,
-    richWarningRichContent,
-    dangerWithHeadingsRichContent
-  }
-);
+  templateContainer,
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate, dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent })
+});
 
-storiesOfBanner(
-  {
+storiesOfBanner({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    bannerTemplate: core.bannerTemplate,
-    warningRichContent,
-    dangerRichContent,
-    richWarningRichContent,
-    dangerWithHeadingsRichContent
-  }
-);
+  templateContainer,
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate, dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent })
+});

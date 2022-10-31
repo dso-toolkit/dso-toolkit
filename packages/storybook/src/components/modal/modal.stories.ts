@@ -1,21 +1,18 @@
 import { storiesOfModal } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { progressIndicatorTemplate } from '@dso-toolkit/css/src/components/progress-indicator/progress-indicator.template';
+import cssReadme from '@dso-toolkit/css/src/components/modal/readme.md';
 
-import { modalTemplate } from '@dso-toolkit/css/src/components/modal/modal.template';
-import readme from '@dso-toolkit/css/src/components/modal/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
-storiesOfModal(
-  {
+storiesOfModal({
+  parameters: {
     storiesOf,
     module,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    modalTemplate,
-    progressIndicatorTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ modalTemplate, progressIndicatorTemplate }) => ({ modalTemplate, progressIndicatorTemplate })
+});

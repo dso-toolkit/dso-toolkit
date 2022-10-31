@@ -16,7 +16,7 @@ export const cardListArgTypes: ArgTypes<CardListArgs<never>> = {
   }
 };
 
-export function cardListArgsMapper(a: CardListArgs<never>): CardList<never> {
+export function cardListArgsMapper<TemplateFnReturnType>(a: CardListArgs<TemplateFnReturnType>): CardList<TemplateFnReturnType> {
   return {
     cards: a.cards
   };

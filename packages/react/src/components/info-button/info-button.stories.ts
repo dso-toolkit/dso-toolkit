@@ -1,16 +1,15 @@
 import { storiesOfInfoButton } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { infoButtonTemplate } from './info-button.template';
 import readme from './readme.md';
 
-storiesOfInfoButton(
-  {
+storiesOfInfoButton({
+  parameters: {
     module,
     storiesOf,
     readme
   },
-  {
-    infoButtonTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ infoButtonTemplate }) => ({ infoButtonTemplate })
+});

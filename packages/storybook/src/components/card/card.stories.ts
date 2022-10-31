@@ -1,18 +1,18 @@
 import { storiesOfCard } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { cardTemplate } from '@dso-toolkit/css/src/components/card/card.template';
-import readme from '@dso-toolkit/css/src/components/card/readme.md';
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import cssReadme from '@dso-toolkit/css/src/components/card/readme.md';
 
-storiesOfCard(
-  {
+import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
+
+storiesOfCard({
+  parameters: {
     module,
     storiesOf,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    cardTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ cardTemplate }) => ({ cardTemplate })
+});

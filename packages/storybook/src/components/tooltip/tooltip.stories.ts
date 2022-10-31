@@ -1,38 +1,32 @@
 import { storiesOfTooltip } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import * as css from '@dso-toolkit/css/src/components/tooltip/tooltip.template';
 import cssReadme from '@dso-toolkit/css/src/components/tooltip/readme.md';
-
-import * as core from '@dso-toolkit/core/src/components/tooltip/tooltip.template';
 import coreReadme from '@dso-toolkit/core/src/components/tooltip/readme.md';
 
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 
 import { asChildTemplate, asSiblingTemplate } from './tooltip.content';
+import { templateContainer } from '../../templates';
 
-storiesOfTooltip(
-  {
+storiesOfTooltip({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    tooltipTemplate: css.tooltipTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
+});
 
-storiesOfTooltip(
-  {
+storiesOfTooltip({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    tooltipTemplate: core.tooltipTemplate,
-    asChildTemplate,
-    asSiblingTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
+});

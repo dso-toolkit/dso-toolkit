@@ -135,15 +135,23 @@ describe("Helpcenter panel", () => {
       .click()
       .viewport(768, 660)
       .get('@iframeContainer')
-      .should('have.css', 'width', '640px')
+      .invoke('css', 'width')
+      .then(str => parseInt('' + str, 10))
+      .should('equal', 640)
       .viewport(767, 660)
       .get('@iframeContainer')
-      .should('have.css', 'width', '480px')
+      .invoke('css', 'width')
+      .then(str => parseInt('' + str, 10))
+      .should('equal', 480)
       .viewport(481, 660)
       .get('@iframeContainer')
-      .should('have.css', 'width', '480px')
+      .invoke('css', 'width')
+      .then(str => parseInt('' + str, 10))
+      .should('equal', 480)
       .viewport(480, 660)
       .get('@iframeContainer')
-      .should('have.css', 'width', '320px');
+      .invoke('css', 'width')
+      .then(str => parseInt('' + str, 10))
+      .should('equal', 320);
   });
 });

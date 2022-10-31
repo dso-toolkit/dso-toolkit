@@ -1,62 +1,60 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { buttonArgsMapper, buttonArgTypes } from './button.args';
+import { ButtonArgs, buttonArgsMapper, buttonArgTypes } from './button.args';
 import { Button, ButtonAnchor } from './button.models';
 
-export interface ButtonParameters<TemplateFnReturnType> {
+export interface ButtonTemplates<TemplateFnReturnType> {
   buttonTemplate: (buttonProperties: Button | ButtonAnchor) => TemplateFnReturnType;
 }
 
-export function storiesOfButton<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    buttonTemplate
-  }: ButtonParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Button', parameters, buttonArgTypes)
-    .addParameters({
-      args: {
-        element: 'button'
-      }
-    });
-
-  const template = bindTemplate(buttonArgsMapper, buttonTemplate);
-
-  stories.add(
-    'primary',
-    template,
-    {
-      argTypes: {
-        iconMode: {
-          options: [undefined, 'after']
+export function storiesOfButton<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ButtonTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('button', storiesOfArguments, (stories, templateMapper) => {
+    stories
+      .addParameters({
+        argTypes: buttonArgTypes,
+        args: {
+          element: 'button'
         }
-      },
-      args: {
-        variant: 'primary',
-        label: 'Primary button'
-      }
-    }
-  );
+      });
 
-  stories.add(
-    'secondary (default)',
-    template,
-    {
-      args: {
-        variant: 'secondary',
-        label: 'Secondary button'
-      }
-    }
-  );
+    const template = templateMapper<ButtonArgs>((args, { buttonTemplate }) => buttonTemplate(buttonArgsMapper(args)));
 
-  stories.add(
-    'tertiary (link)',
-    template,
-    {
-      args: {
-        variant: 'tertiary',
-        label: 'Tertiary button'
+    stories.add(
+      'primary',
+      template,
+      {
+        argTypes: {
+          iconMode: {
+            options: [undefined, 'after']
+          }
+        },
+        args: {
+          variant: 'primary',
+          label: 'Primary button'
+        }
       }
-    }
-  );
+    );
+
+    stories.add(
+      'secondary (default)',
+      template,
+      {
+        args: {
+          variant: 'secondary',
+          label: 'Secondary button'
+        }
+      }
+    );
+
+    stories.add(
+      'tertiary (link)',
+      template,
+      {
+        args: {
+          variant: 'tertiary',
+          label: 'Tertiary button'
+        }
+      }
+    );
+  });
 }

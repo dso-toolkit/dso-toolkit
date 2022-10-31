@@ -1,37 +1,41 @@
-import { storiesOfLabel } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { storiesOfLabel } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import * as css from '@dso-toolkit/css/src/components/label/label.template';
-import cssReadme from '@dso-toolkit/css/src/components/label/readme.md';
+import cssReadme from "@dso-toolkit/css/src/components/label/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/label/readme.md";
 
-import * as core from '@dso-toolkit/core/src/components/label/label.template';
-import coreReadme from '@dso-toolkit/core/src/components/label/readme.md';
-
-import { decorator } from './label.decorator';
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { decorator } from "./label.decorator";
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+import { templateContainer } from "../../templates";
 
 storiesOfLabel(
   {
-    module,
-    storiesOf,
-    readme: cssReadme,
-    root: StoryRoot.HtmlCss
+    parameters: {
+      module,
+      storiesOf,
+      readme: cssReadme,
+      root: StoryRoot.HtmlCss,
+    },
+    templateContainer,
+    storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
   },
   {
-    labelTemplate: css.labelTemplate,
-    decorator
+    decorator,
   }
 );
 
 storiesOfLabel(
   {
-    module,
-    storiesOf,
-    readme: coreReadme,
-    root: StoryRoot.Core
+    parameters: {
+      module,
+      storiesOf,
+      readme: coreReadme,
+      root: StoryRoot.Core,
+    },
+    templateContainer,
+    storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
   },
   {
-    labelTemplate: core.labelTemplate,
-    decorator
+    decorator,
   }
 );

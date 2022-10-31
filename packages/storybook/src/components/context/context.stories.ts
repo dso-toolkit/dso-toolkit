@@ -1,23 +1,19 @@
 import { storiesOfContext } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { contextTemplate } from '@dso-toolkit/css/src/components/context/context.template';
+import cssReadme from '@dso-toolkit/css/src/components/context/readme.md';
 
-import readme from '@dso-toolkit/css/src/components/context/readme.md';
 import { children, content, label } from './context.content';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
 
-storiesOfContext(
-  {
+storiesOfContext({
+  parameters: {
     storiesOf,
     module,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    contextTemplate,
-    label,
-    content,
-    children
-  }
-);
+  templateContainer,
+  storyTemplates: ({ contextTemplate }) => ({ contextTemplate, label, content, children })
+});

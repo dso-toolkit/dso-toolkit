@@ -1,16 +1,15 @@
-import { storiesOfToggletip } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
+import { storiesOfToggletip } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import { templateContainer } from "../../templates";
 
-import readme from './readme.md';
-import { toggletipTemplate } from './toggletip.template';
+import readme from "./readme.md";
 
-storiesOfToggletip(
-  {
+storiesOfToggletip({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
-  {
-    toggletipTemplate,
-  }
-);
+  templateContainer,
+  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate })
+});

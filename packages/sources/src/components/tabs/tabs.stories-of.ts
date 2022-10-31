@@ -1,20 +1,20 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { TabsArgs, tabsArgsMapper, tabsArgTypes } from './tabs.args';
 import { Tabs } from './tabs.models';
 
-export interface TabsParameters<TemplateFnReturnType> {
+export interface TabsTemplates<TemplateFnReturnType> {
   tabsTemplate: (tabsProperties: Tabs) => TemplateFnReturnType;
 }
 
-export function storiesOfTabs<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    tabsTemplate
-  }: TabsParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Tabs', parameters, tabsArgTypes);
-  const template = bindTemplate(tabsArgsMapper, tabsTemplate);
+export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, TabsTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Tabs', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: tabsArgTypes
+    });
+
+    const template = templateMapper<TabsArgs>((args, { tabsTemplate }) => tabsTemplate(tabsArgsMapper(args)));
 
     stories.add(
       'default',
@@ -44,32 +44,33 @@ export function storiesOfTabs<TemplateFnReturnType>(
       }
     );
 
-  stories.add(
-    'inactief',
-    template,
-    {
-      args: componentArgs<TabsArgs>({
-        items: [
-          {
-            label: 'Zoek op adres',
-            id: 'tabitem-1'
-          },
-          {
-            label: 'Postcode en huisnummer',
-            id: 'tabitem-2',
-            modifiers: 'active'
-          },
-          {
-            label: 'Kadastraal nummer',
-            id: 'tabitem-3'
-          },
-          {
-            label: 'Coordinaten',
-            id: 'tabitem-4',
-            modifiers: 'disabled'
-          }
-        ]
-      })
-    }
-  );
+    stories.add(
+      'inactief',
+      template,
+      {
+        args: componentArgs<TabsArgs>({
+          items: [
+            {
+              label: 'Zoek op adres',
+              id: 'tabitem-1'
+            },
+            {
+              label: 'Postcode en huisnummer',
+              id: 'tabitem-2',
+              modifiers: 'active'
+            },
+            {
+              label: 'Kadastraal nummer',
+              id: 'tabitem-3'
+            },
+            {
+              label: 'Coordinaten',
+              id: 'tabitem-4',
+              modifiers: 'disabled'
+            }
+          ]
+        })
+      }
+    );
+  });
 }

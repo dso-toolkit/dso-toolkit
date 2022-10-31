@@ -1,18 +1,18 @@
 import { storiesOfFormButtons } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/web-components';
 
-import { formButtonsTemplate } from '@dso-toolkit/css/src/components/form/form-buttons/form-buttons.template';
-import readme from '@dso-toolkit/css/src/components/form/form-buttons/readme.md';
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import cssReadme from '@dso-toolkit/css/src/components/form/form-buttons/readme.md';
 
-storiesOfFormButtons(
-  {
+import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
+
+storiesOfFormButtons({
+  parameters: {
     module,
     storiesOf,
-    readme,
+    readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    formButtonsTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ formButtonsTemplate }) => ({ formButtonsTemplate })
+});

@@ -1,34 +1,30 @@
+import { storiesOfBadge } from '@dso-toolkit/sources/src';
 import { storiesOf } from '@storybook/web-components';
 
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
-import { storiesOfBadge } from '@dso-toolkit/sources/src';
-
-import * as css from '@dso-toolkit/css/src/components/badge/badge.template';
 import cssReadme from '@dso-toolkit/css/src/components/badge/readme.md';
-
-import * as core from '@dso-toolkit/core/src/components/badge/badge.template';
 import coreReadme from '@dso-toolkit/core/src/components/badge/readme.md';
 
-storiesOfBadge(
-  {
+import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { templateContainer } from '../../templates';
+
+storiesOfBadge({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
-  {
-    badgeTemplate: css.badgeTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate })
+});
 
-storiesOfBadge(
-  {
+storiesOfBadge({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
-  {
-    badgeTemplate: core.badgeTemplate
-  }
-);
+  templateContainer,
+  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate })
+});

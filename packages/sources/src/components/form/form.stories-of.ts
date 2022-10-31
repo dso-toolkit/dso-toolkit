@@ -1,8 +1,8 @@
 import { DecoratorFunction } from '@storybook/addons';
 
-import { bindTemplate, StorybookParameters } from '../../storybook';
+import { StorybookParameters } from '../../storybook';
 
-import { formArgsMapper, formArgTypes } from './form.args';
+import { FormArgs, formArgsMapper, formArgTypes } from './form.args';
 
 import { checkboxesContent } from './content/checkboxes.content';
 import { confirmContent } from './content/confirm.content';
@@ -15,21 +15,21 @@ import { selectContent } from './content/select.content';
 import { staticContent } from './content/static.content';
 import { textareaContent } from './content/textarea.content';
 import { Form, FormGroupCheckboxes, FormGroupConfirm, FormGroupFiles, FormGroupInput, FormGroupInputDate, FormGroupInputNumber, FormGroupRadios, FormGroupSearchBar, FormGroupSelect, FormGroupStatic, FormGroupTextarea } from './form.models';
-import { formGroupCheckboxesArgsMapper, formGroupCheckboxesArgTypes } from './form-groups/checkboxes/form-group-checkboxes.args';
-import { formGroupConfirmArgsMapper, formGroupConfirmArgTypes } from './form-groups/confirm/form-group-confirm.args';
-import { formGroupFilesArgsMapper, formGroupFilesArgTypes } from './form-groups/files/form-group-files.args';
-import { formGroupInputArgsMapper, formGroupInputArgTypes } from './form-groups/input/form-group-input.args';
-import { formGroupInputNumberArgsMapper, formGroupInputNumberArgTypes } from './form-groups/input-number/form-group-input-number.args';
-import { formGroupRadiosArgsMapper, formGroupRadiosArgTypes } from './form-groups/radios/form-group-radios.args';
-import { formGroupSearchBarArgsMapper, formGroupSearchBarArgTypes } from './form-groups/search-bar/form-group-search-bar.args';
-import { formGroupSelectArgsMapper, formGroupSelectArgTypes } from './form-groups/select/form-group-select.args';
-import { formGroupStaticArgsMapper, formGroupStaticArgTypes } from './form-groups/static/form-group-static.args';
-import { formGroupTextareaArgsMapper, formGroupTextareaArgTypes } from './form-groups/textarea/form-group-textarea.args';
+import { FormGroupCheckboxesArgs, formGroupCheckboxesArgsMapper, formGroupCheckboxesArgTypes } from './form-groups/checkboxes/form-group-checkboxes.args';
+import { FormGroupConfirmArgs, formGroupConfirmArgsMapper, formGroupConfirmArgTypes } from './form-groups/confirm/form-group-confirm.args';
+import { FormGroupFilesArgs, formGroupFilesArgsMapper, formGroupFilesArgTypes } from './form-groups/files/form-group-files.args';
+import { FormGroupInputArgs, formGroupInputArgsMapper, formGroupInputArgTypes } from './form-groups/input/form-group-input.args';
+import { FormGroupInputNumberArgs, formGroupInputNumberArgsMapper, formGroupInputNumberArgTypes } from './form-groups/input-number/form-group-input-number.args';
+import { FormGroupRadiosArgs, formGroupRadiosArgsMapper, formGroupRadiosArgTypes } from './form-groups/radios/form-group-radios.args';
+import { FormGroupSearchBarArgs, formGroupSearchBarArgsMapper, formGroupSearchBarArgTypes } from './form-groups/search-bar/form-group-search-bar.args';
+import { FormGroupSelectArgs, formGroupSelectArgsMapper, formGroupSelectArgTypes } from './form-groups/select/form-group-select.args';
+import { FormGroupStaticArgs, formGroupStaticArgsMapper, formGroupStaticArgTypes } from './form-groups/static/form-group-static.args';
+import { FormGroupTextareaArgs, formGroupTextareaArgsMapper, formGroupTextareaArgTypes } from './form-groups/textarea/form-group-textarea.args';
 import { StoryRoot } from '../../storybook';
+import { TemplateContainer } from '../../template-container';
 
-export interface FormParameters<TemplateFnReturnType> {
+export interface FormTemplates<TemplateFnReturnType> {
   formTemplate: (form: Form<TemplateFnReturnType>) => TemplateFnReturnType;
-  formGroupDecorator: DecoratorFunction<TemplateFnReturnType>;
   formGroupCheckboxesTemplate: (formGroupCheckboxes: FormGroupCheckboxes<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupConfirmTemplate: (formGroupConfirm: FormGroupConfirm<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupFilesTemplate: (formGroupFiles: FormGroupFiles<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -42,26 +42,19 @@ export interface FormParameters<TemplateFnReturnType> {
   formGroupTextareaTemplate: (formGroupTextarea: FormGroupTextarea<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export function storiesOfForm<TemplateFnReturnType>(
+export interface FormParameters<TemplateFnReturnType> {
+  formGroupDecorator: DecoratorFunction<TemplateFnReturnType>;
+}
+
+export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
   {
     module: mainModule,
     storiesOf,
     readme
   }: StorybookParameters,
-  {
-    formTemplate,
-    formGroupDecorator,
-    formGroupCheckboxesTemplate,
-    formGroupConfirmTemplate,
-    formGroupFilesTemplate,
-    formGroupInputTemplate,
-    formGroupInputNumberTemplate,
-    formGroupRadiosTemplate,
-    formGroupSearchBarTemplate,
-    formGroupSelectTemplate,
-    formGroupStaticTemplate,
-    formGroupTextareaTemplate
-  }: FormParameters<TemplateFnReturnType>
+  templateContainer: TemplateContainer<Implementation, Templates, TemplateFnReturnType>,
+  storyTemplates: (templates: Templates) => FormTemplates<TemplateFnReturnType>,
+  { formGroupDecorator }: FormParameters<TemplateFnReturnType>
 ) {
   storiesOf(`${StoryRoot.HtmlCss}/Form/form`, mainModule)
     .addParameters({
@@ -70,8 +63,11 @@ export function storiesOfForm<TemplateFnReturnType>(
         page: readme
       }
     })
-    .add('form', bindTemplate(formArgsMapper, formTemplate)
-  );
+    .add('form', templateContainer.fromArgs<FormArgs>((args, templates) => {
+      const { formTemplate } = storyTemplates(templates);
+
+      return formTemplate(formArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/checkboxes`, mainModule)
     .addParameters({
@@ -82,8 +78,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('checkboxes', bindTemplate(formGroupCheckboxesArgsMapper, formGroupCheckboxesTemplate)
-  );
+    .add('checkboxes', templateContainer.fromArgs<FormGroupCheckboxesArgs>((args, templates) => {
+      const { formGroupCheckboxesTemplate } = storyTemplates(templates);
+
+      return formGroupCheckboxesTemplate(formGroupCheckboxesArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/confirm`, mainModule)
     .addParameters({
@@ -94,8 +93,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('confirm', bindTemplate(formGroupConfirmArgsMapper, formGroupConfirmTemplate)
-  );
+    .add('confirm', templateContainer.fromArgs<FormGroupConfirmArgs>((args, templates) => {
+      const { formGroupConfirmTemplate } = storyTemplates(templates);
+
+      return formGroupConfirmTemplate(formGroupConfirmArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/files`, mainModule)
     .addParameters({
@@ -106,8 +108,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('files', bindTemplate(formGroupFilesArgsMapper, formGroupFilesTemplate)
-  );
+    .add('files', templateContainer.fromArgs<FormGroupFilesArgs>((args, templates) => {
+      const { formGroupFilesTemplate } = storyTemplates(templates);
+
+      return formGroupFilesTemplate(formGroupFilesArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/input`, mainModule)
     .addParameters({
@@ -118,8 +123,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('input', bindTemplate(formGroupInputArgsMapper, formGroupInputTemplate)
-  );
+    .add('input', templateContainer.fromArgs<FormGroupInputArgs>((args, templates) => {
+      const { formGroupInputTemplate } = storyTemplates(templates);
+
+      return formGroupInputTemplate(formGroupInputArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/input-number`, mainModule)
     .addParameters({
@@ -130,8 +138,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('input number', bindTemplate(formGroupInputNumberArgsMapper, formGroupInputNumberTemplate)
-  );
+    .add('input number', templateContainer.fromArgs<FormGroupInputNumberArgs>((args, templates) => {
+      const { formGroupInputNumberTemplate } = storyTemplates(templates);
+
+      return formGroupInputNumberTemplate(formGroupInputNumberArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/radios`, mainModule)
     .addParameters({
@@ -142,8 +153,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('radios', bindTemplate(formGroupRadiosArgsMapper, formGroupRadiosTemplate)
-  );
+    .add('radios', templateContainer.fromArgs<FormGroupRadiosArgs>((args, templates) => {
+      const { formGroupRadiosTemplate } = storyTemplates(templates);
+
+      return formGroupRadiosTemplate(formGroupRadiosArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/search bar`, mainModule)
     .addParameters({
@@ -154,8 +168,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('search bar', bindTemplate(formGroupSearchBarArgsMapper, formGroupSearchBarTemplate)
-  );
+    .add('search bar', templateContainer.fromArgs<FormGroupSearchBarArgs>((args, templates) => {
+      const { formGroupSearchBarTemplate } = storyTemplates(templates);
+
+      return formGroupSearchBarTemplate(formGroupSearchBarArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/select`, mainModule)
     .addParameters({
@@ -166,8 +183,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('select', bindTemplate(formGroupSelectArgsMapper, formGroupSelectTemplate)
-  );
+    .add('select', templateContainer.fromArgs<FormGroupSelectArgs>((args, templates) => {
+      const { formGroupSelectTemplate } = storyTemplates(templates);
+
+      return formGroupSelectTemplate(formGroupSelectArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/static`, mainModule)
     .addParameters({
@@ -178,8 +198,11 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('static', bindTemplate(formGroupStaticArgsMapper, formGroupStaticTemplate)
-  );
+    .add('static', templateContainer.fromArgs<FormGroupStaticArgs>((args, templates) => {
+      const { formGroupStaticTemplate } = storyTemplates(templates);
+
+      return formGroupStaticTemplate(formGroupStaticArgsMapper(args));
+    }));
 
   storiesOf(`${StoryRoot.HtmlCss}/Form/groups/textarea`, mainModule)
     .addParameters({
@@ -190,5 +213,9 @@ export function storiesOfForm<TemplateFnReturnType>(
       }
     })
     .addDecorator(formGroupDecorator)
-    .add('textarea', bindTemplate(formGroupTextareaArgsMapper, formGroupTextareaTemplate)
-  );}
+    .add('textarea', templateContainer.fromArgs<FormGroupTextareaArgs>((args, templates) => {
+      const { formGroupTextareaTemplate } = storyTemplates(templates);
+
+      return formGroupTextareaTemplate(formGroupTextareaArgsMapper(args));
+    }));
+}

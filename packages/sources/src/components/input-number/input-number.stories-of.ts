@@ -1,21 +1,17 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
 import { v4 as uuidv4 } from 'uuid';
 
-import { inputNumberArgsMapper, inputNumberArgTypes } from './input-number.args';
+import { InputNumberArgs, inputNumberArgsMapper, inputNumberArgTypes } from './input-number.args';
 import { InputNumber } from './input-number.models';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-export interface InputNumberParameters<TemplateFnReturnType> {
+export interface InputNumberTemplates<TemplateFnReturnType> {
   inputNumberTemplate: (inputNumberProperties: InputNumber) => TemplateFnReturnType;
 }
 
-export function storiesOfInputNumber<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    inputNumberTemplate: inputNumberTemplate
-  }: InputNumberParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Input Number', parameters, inputNumberArgTypes)
-    .addParameters({
+export function storiesOfInputNumber<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, InputNumberTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Input Number', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: inputNumberArgTypes,
       args: {
         label: 'Aantal onderdelen',
         id: uuidv4(),
@@ -23,10 +19,11 @@ export function storiesOfInputNumber<TemplateFnReturnType>(
       }
     });
 
-  const template = bindTemplate(inputNumberArgsMapper, inputNumberTemplate);
+    const template = templateMapper<InputNumberArgs>((args, { inputNumberTemplate }) => inputNumberTemplate(inputNumberArgsMapper(args)));
 
-  stories.add(
-    'Input Number',
-    template
-  );
+    stories.add(
+      'Input Number',
+      template
+    );
+  });
 }

@@ -1,20 +1,17 @@
-import { bindTemplate, componentArgs, createStories, StorybookParameters } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { SearchBarArgs, searchBarArgsMapper, searchBarArgTypes } from './search-bar.args';
 import { SearchBar } from './search-bar.models';
 
-export interface SearchBarParameters<TemplateFnReturnType> {
+export interface SearchBarTemplates<TemplateFnReturnType> {
   searchBarTemplate: (searchBarProperties: SearchBar) => TemplateFnReturnType;
 }
 
-export function storiesOfSearchBar<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    searchBarTemplate
-  }: SearchBarParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Search Bar', parameters, searchBarArgTypes)
-    .addParameters({
+export function storiesOfSearchBar<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, SearchBarTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Search Bar', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: searchBarArgTypes,
       args: componentArgs<SearchBarArgs>({
         id: 'search-bar-id',
         label: 'Label',
@@ -32,103 +29,104 @@ export function storiesOfSearchBar<TemplateFnReturnType>(
       })
     });
 
-  const template = bindTemplate(searchBarArgsMapper, searchBarTemplate);
+    const template = templateMapper<SearchBarArgs>((args, { searchBarTemplate }) => searchBarTemplate(searchBarArgsMapper(args)));
 
-  stories.add(
-    'visual label with icon',
-    template
-  );
+    stories.add(
+      'visual label with icon',
+      template
+    );
 
-  stories.add(
-    'visual label without icon',
-    template,
-    {
-      args: {
-        icon: false
+    stories.add(
+      'visual label without icon',
+      template,
+      {
+        args: {
+          icon: false
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'placeholder with long text',
-    template,
-    {
-      args: {
-        placeholder: 'Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text.'
+    stories.add(
+      'placeholder with long text',
+      template,
+      {
+        args: {
+          placeholder: 'Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text. Placeholder with long text, long text, long text.'
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'hidden label with icon',
-    template,
-    {
-      args: {
-        hiddenLabel: true,
-        icon: true
+    stories.add(
+      'hidden label with icon',
+      template,
+      {
+        args: {
+          hiddenLabel: true,
+          icon: true
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'hidden label without icon',
-    template,
-    {
-      args: {
-        hiddenLabel: true,
-        icon: false
+    stories.add(
+      'hidden label without icon',
+      template,
+      {
+        args: {
+          hiddenLabel: true,
+          icon: false
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'with value',
-    template,
-    {
-      args: {
-        value: 'Laan van Eik en Duinen 155'
+    stories.add(
+      'with value',
+      template,
+      {
+        args: {
+          value: 'Laan van Eik en Duinen 155'
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'invalid',
-    template,
-    {
-      args: {
-        invalid: true
+    stories.add(
+      'invalid',
+      template,
+      {
+        args: {
+          invalid: true
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'hidden button',
-    template,
-    {
-      args: {
-        hideSearchButton: true
+    stories.add(
+      'hidden button',
+      template,
+      {
+        args: {
+          hideSearchButton: true
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'with results message',
-    template,
-    {
-      args: {
-        resultsMessage: '7 gevonden resultaten'
+    stories.add(
+      'with results message',
+      template,
+      {
+        args: {
+          resultsMessage: '7 gevonden resultaten'
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'with hidden results message',
-    template,
-    {
-      args: {
-        resultsMessage: '7 gevonden resultaten',
-        resultsHidden: true
+    stories.add(
+      'with hidden results message',
+      template,
+      {
+        args: {
+          resultsMessage: '7 gevonden resultaten',
+          resultsHidden: true
+        }
       }
-    }
-  );
+    );
+  });
 }

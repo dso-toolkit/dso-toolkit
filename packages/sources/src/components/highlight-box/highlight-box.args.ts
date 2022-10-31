@@ -2,22 +2,16 @@ import { ArgTypes } from '../../storybook';
 
 import { HighlightBox } from './highlight-box.models';
 
-export interface HighlightBoxArgs<TemplateFnReturnType> {
+export interface HighlightBoxArgs {
   yellow: boolean;
   white: boolean;
   dropShadow: boolean;
   border: boolean;
   step?: number;
   icon?: string;
-  richContent: TemplateFnReturnType;
 }
 
-export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs<unknown>> = {
-  richContent: {
-    control: {
-      disable: true
-    }
-  },
+export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
   yellow: {
     control: {
       type: 'boolean'
@@ -52,11 +46,11 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs<unknown>> = {
   }
 };
 
-export function highlightBoxArgsMapper(a: HighlightBoxArgs<any>): HighlightBox<any> {
+export function highlightBoxArgsMapper<TemplateFnReturnType>(a: HighlightBoxArgs, richContent: TemplateFnReturnType): HighlightBox<TemplateFnReturnType> {
   return {
     border: a.border,
     dropShadow: a.dropShadow,
-    richContent: a.richContent,
+    richContent,
     white: a.white,
     yellow: a.yellow,
     icon: a.icon,

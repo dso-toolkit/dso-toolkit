@@ -2,9 +2,9 @@ import { storiesOfTooltip } from '@dso-toolkit/sources';
 import { HandlerFunction } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
-import { tooltipTemplate } from './tooltip.template';
 
 function asChildTemplate(tooltip: JSX.Element, action: HandlerFunction) {
   return (
@@ -25,15 +25,16 @@ function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunc
   );
 }
 
-storiesOfTooltip(
-  {
+storiesOfTooltip({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
-  {
+  templateContainer,
+  storyTemplates: ({ tooltipTemplate }) => ({
     tooltipTemplate,
     asChildTemplate,
     asSiblingTemplate
-  }
-);
+  })
+});

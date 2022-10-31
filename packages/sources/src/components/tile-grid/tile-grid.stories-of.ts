@@ -1,28 +1,24 @@
-import { createStories, StorybookParameters } from '../../storybook';
-
-import { tileGridArgTypes } from './tile-grid.args';
+import { TileGridArgs, tileGridArgTypes } from './tile-grid.args';
 import { Tile } from '../..';
 import { tiles } from './tile-grid.content';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-export interface TileGridParameters<TemplateFnReturnType> {
+export interface TileGridTemplates<TemplateFnReturnType> {
   tileGridDemoTemplate: (children: Tile[]) => TemplateFnReturnType;
 }
 
-export function storiesOfTileGrid<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    tileGridDemoTemplate
-  }: TileGridParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Tile Grid', parameters, tileGridArgTypes)
-    .addParameters({
+export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, TileGridTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Tile Grid', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: tileGridArgTypes,
       controls: {
         hideNoControlsWarning: true
       }
     });
 
-  stories.add(
-    'Tile Grid',
-    () => tileGridDemoTemplate(tiles)
-  );
+    stories.add(
+      'Tile Grid',
+      templateMapper<TileGridArgs>((_args, { tileGridDemoTemplate }) => tileGridDemoTemplate(tiles))
+    );
+  });
 }

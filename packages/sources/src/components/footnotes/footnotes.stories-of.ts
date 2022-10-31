@@ -1,9 +1,10 @@
-import { Args } from '@storybook/addons';
-
-import { bindTemplate, ArgsError, StorybookParameters, createStories } from '../../storybook';
+import { componentArgs } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import {
   FootnotesExampleArgs,
+  FootnotesReferenceArgs,
+  FootnotesListArgs,
   footnotesExampleArgTypes,
   footnotesListArgsMapper,
   footnotesReferenceArgsMapper,
@@ -13,68 +14,52 @@ import {
 import { footnotes } from './footnotes.content';
 import { Footnote } from './footnotes.models';
 
-export interface FootnotesParameters<TemplateFnReturnType> {
-  footnotesReferenceTemplate: (footnote: Footnote) => TemplateFnReturnType;
-  footnotesListTemplate: (footnotes: Footnote[]) => TemplateFnReturnType;
-  footnotesExampleTemplate: (footnote14: TemplateFnReturnType, footnote15: TemplateFnReturnType, list: TemplateFnReturnType) => TemplateFnReturnType;
+export interface FootnotesTemplates<TemplateFnReturnType> {
+  footnoteTemplate: (footnote: Footnote) => TemplateFnReturnType;
+  footnotesTemplate: (footnotes: Footnote[]) => TemplateFnReturnType;
+  footnotesExampleTemplate: (footnote14: Footnote, footnote15: Footnote, list: Footnote[]) => TemplateFnReturnType;
 }
 
-export function storiesOfFootnotes<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    footnotesReferenceTemplate,
-    footnotesListTemplate,
-    footnotesExampleTemplate
-  }: FootnotesParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Footnotes', parameters, {});
-
-  stories.add(
-    'example',
-    (a: Args | undefined) => {
-      if (!a) {
-        throw new ArgsError();
-      }
-
-      const args = a as FootnotesExampleArgs;
-
-      return footnotesExampleTemplate(
-        footnotesReferenceTemplate(args.footnote14),
-        footnotesReferenceTemplate(args.footnote15),
-        footnotesListTemplate(footnotes)
-      );
-    },
-    {
-      argTypes: footnotesExampleArgTypes,
-      args: {
-        footnote14: footnotes[0],
-        footnote15: footnotes[1],
+export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, FootnotesTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Footnotes', storiesOfArguments, (stories, templateMapper) => {
+    stories.add(
+      'example',
+      templateMapper<FootnotesExampleArgs>((args, { footnotesExampleTemplate }) => footnotesExampleTemplate(
+        args.footnote14,
+        args.footnote15,
         footnotes
+      )),
+      {
+        argTypes: footnotesExampleArgTypes,
+        args: {
+          footnote14: footnotes[0],
+          footnote15: footnotes[1],
+          footnotes
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'reference',
-    bindTemplate(footnotesReferenceArgsMapper, footnotesReferenceTemplate),
-    {
-      argTypes: footnotesReferenceArgTypes,
-      args: {
-        label: footnotes[0].label,
-        number: footnotes[0].number
+    stories.add(
+      'reference',
+      templateMapper<FootnotesReferenceArgs>((args, { footnoteTemplate: footnotesReferenceTemplate }) => footnotesReferenceTemplate(footnotesReferenceArgsMapper(args))),
+      {
+        argTypes: footnotesReferenceArgTypes,
+        args: {
+          label: footnotes[0].label,
+          number: footnotes[0].number
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'list',
-    bindTemplate(footnotesListArgsMapper, footnotesListTemplate),
-    {
-      argTypes: footnotesListArgTypes,
-      args: {
-        footnote14: footnotes[0],
-        footnote15: footnotes[1]
+    stories.add(
+      'list',
+      templateMapper<FootnotesListArgs>((args, { footnotesTemplate }) => footnotesTemplate(footnotesListArgsMapper(args))),
+      {
+        argTypes: footnotesListArgTypes,
+        args: componentArgs<FootnotesListArgs>({
+          footnotes
+        })
       }
-    }
-  );
+    );
+  });
 }

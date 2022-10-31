@@ -1,23 +1,23 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { justifyFormGroupsArgsMapper, justifyFormGroupsArgTypes } from './justify-form-groups.args';
+import { JustifyFormGroupsArgs, justifyFormGroupsArgsMapper, justifyFormGroupsArgTypes } from './justify-form-groups.args';
 import { JustifyFormGroups } from './justify-form-groups.models';
 
-export interface JustifyFormGroupsParameters<TemplateFnReturnType> {
+export interface JustifyFormGroupsTemplates<TemplateFnReturnType> {
   justifyFormGroupsTemplate: (justifyFormGroupsProperties: JustifyFormGroups<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export function storiesOfJustifyFormGroups<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    justifyFormGroupsTemplate: JustifyFormGroups
-  }: JustifyFormGroupsParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Form/justify form groups', parameters, justifyFormGroupsArgTypes);
-  const template = bindTemplate(justifyFormGroupsArgsMapper, JustifyFormGroups);
+export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, JustifyFormGroupsTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Form/justify form groups', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: justifyFormGroupsArgTypes
+    });
 
-  stories.add(
-    'justify form groups',
-    template
-  );
+    const template = templateMapper<JustifyFormGroupsArgs>((args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(justifyFormGroupsArgsMapper(args)));
+
+    stories.add(
+      'justify form groups',
+      template
+    );
+  });
 }

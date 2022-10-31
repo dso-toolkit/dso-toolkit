@@ -1,16 +1,17 @@
 import { storiesOfIcon } from '@dso-toolkit/sources';
 import { storiesOf } from '@storybook/react';
+import { templateContainer } from '../../templates';
 
-import { iconTemplate } from './icon.template';
 import readme from './readme.md';
 
-storiesOfIcon(
-  {
+storiesOfIcon({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
-  {
+  templateContainer,
+  storyTemplates: ({ iconTemplate }) => ({
     iconTemplate
-  }
-);
+  })
+});

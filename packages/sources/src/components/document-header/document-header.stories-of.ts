@@ -1,41 +1,32 @@
 import { HandlerFunction } from '@storybook/addon-actions';
-import { Args } from '@storybook/addons';
 
-import { createStories, noControl, StorybookParameters } from '../../storybook';
+import { noControl } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 import { DefinitionList } from '../definition-list/definition-list.models';
 
-import { DocumentHeaderArgs, documentHeaderMapper } from './document-header.args';
+import { DocumentHeaderArgs, documentHeaderArgsMapper } from './document-header.args';
 import { DocumentHeader } from './document-header.models';
 
-export interface DocumentHeaderParameters<TemplateFnReturnType> {
+export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   documentHeaderTemplate: (documentHeaderProperties: DocumentHeader<TemplateFnReturnType>) => TemplateFnReturnType;
   status: (documentHeaderFeatureOpen: boolean, documentHeaderFeatureAction: HandlerFunction) => TemplateFnReturnType;
   features: DefinitionList<TemplateFnReturnType>;
   statusContent: TemplateFnReturnType;
 }
 
-export function storiesOfDocumentHeader<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    documentHeaderTemplate,
-    status,
-    features,
-    statusContent
-  }: DocumentHeaderParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Document Header', parameters, {})
-    .addParameters({
+export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, DocumentHeaderTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Document Header', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
       args: {
         ...noControl
       }
     });
 
-  stories.add(
-    'Document Header',
-    (a: Args) => {
-      const args = a as DocumentHeaderArgs;
+    const template = templateMapper<DocumentHeaderArgs>((args, { documentHeaderTemplate, features, status, statusContent }) => documentHeaderTemplate(documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)));
 
-      return documentHeaderTemplate(documentHeaderMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent));
-    }
-  );
+    stories.add(
+      'Document Header',
+      template
+    );
+  });
 }

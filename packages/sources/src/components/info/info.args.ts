@@ -2,15 +2,14 @@ import { ArgTypes } from '../../storybook';
 import { HandlerFunction } from '@storybook/addon-actions';
 import { Info } from './info.models';
 
-export interface InfoArgs<TemplateFnReturnType> {
+export interface InfoArgs {
   id: string;
   fixed: boolean;
   active: boolean;
-  richContent: TemplateFnReturnType;
   dsoClose: HandlerFunction;
 }
 
-export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
+export const infoArgTypes: ArgTypes<InfoArgs> = {
   id: {
     control: {
       type: 'text'
@@ -28,14 +27,18 @@ export const infoArgTypes: ArgTypes<InfoArgs<unknown>> = {
   },
   dsoClose: {
     action: 'dsoClosed'
-  },
-  richContent: {
-    control: {
-      disable: true
-    }
   }
 };
 
-export function infoArgsMapper(a: InfoArgs<any>): Required<Info<any>> {
-  return { ...a };
+export function infoArgsMapper<TemplateFnReturnType>(
+    a: InfoArgs,
+    richContent: TemplateFnReturnType
+  ): Required<Info<any>> {
+  return {
+    id: a.id,
+    fixed: a.fixed,
+    active: a.active,
+    richContent,
+    dsoClose: a.dsoClose
+  };
 }

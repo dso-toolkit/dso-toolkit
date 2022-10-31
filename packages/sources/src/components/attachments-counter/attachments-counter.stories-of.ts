@@ -1,28 +1,29 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { attachmentsCounterArgsMapper, attachmentsCounterArgTypes } from './attachments-counter.args';
+import { AttachmentsCounterArgs, attachmentsCounterArgsMapper, attachmentsCounterArgTypes } from './attachments-counter.args';
 import { AttachmentsCounter } from './attachments-counter.models';
 
-export interface AttachmentsCounterParameters<TemplateFnReturnType> {
+export interface AttachmentsCounterTemplates<TemplateFnReturnType> {
   attachmentsCounterTemplate: (attachmentsCounterProperties: AttachmentsCounter) => TemplateFnReturnType;
 }
 
-export function storiesOfAttachmentsCounter<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    attachmentsCounterTemplate
-  }: AttachmentsCounterParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Attachments Counter', parameters, attachmentsCounterArgTypes);
-  const template = bindTemplate(attachmentsCounterArgsMapper, attachmentsCounterTemplate);
+export function storiesOfAttachmentsCounter<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, AttachmentsCounterTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Attachments Counter', storiesOfArguments, (stories, templateMapper) => {
+    stories
+      .addParameters({
+        argTypes: attachmentsCounterArgTypes
+      });
 
-  stories.add(
-    'Attachments Counter',
-    template,
-    {
-      args: {
-        count: 3
+    const template = templateMapper<AttachmentsCounterArgs>((args, { attachmentsCounterTemplate }) => attachmentsCounterTemplate(attachmentsCounterArgsMapper(args)));
+
+    stories.add(
+      'Attachments Counter',
+      template,
+      {
+        args: {
+          count: 3
+        }
       }
-    }
-  );
+    );
+  });
 }

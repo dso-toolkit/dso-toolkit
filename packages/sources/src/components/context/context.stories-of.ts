@@ -1,52 +1,42 @@
-import { bindTemplate, createStories, StorybookParameters } from '../../storybook';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
-import { contextArgsMapper, contextArgTypes } from './context.args';
+import { ContextArgs, contextArgsMapper, contextArgTypes } from './context.args';
 import { Context } from './context.models';
 
-export interface ContextParameters<TemplateFnReturnType> {
+export interface ContextTemplates<TemplateFnReturnType> {
   contextTemplate: (contextProperties: Context<TemplateFnReturnType>) => TemplateFnReturnType;
   children: TemplateFnReturnType;
   content: TemplateFnReturnType;
   label: TemplateFnReturnType;
 }
 
-export function storiesOfContext<TemplateFnReturnType>(
-  parameters: StorybookParameters,
-  {
-    contextTemplate,
-    children,
-    content,
-    label
-  }: ContextParameters<TemplateFnReturnType>
-) {
-  const stories = createStories('Context', parameters, contextArgTypes)
-    .addParameters({
-      args: {
-        children,
-        content,
-        label
-      }
-    });
+export function storiesOfContext<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ContextTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Context', storiesOfArguments, (stories, templateMapper) => {
+    stories
+      .addParameters({
+        argTypes: contextArgTypes
+      });
 
-  const template = bindTemplate(contextArgsMapper, contextTemplate);
+    const template = templateMapper<ContextArgs>((args, { contextTemplate, children, content, label }) => contextTemplate(contextArgsMapper(args, content, children, label)));
 
-  stories.add(
-    'Label',
-    template,
-    {
-      args: {
-        type: 'label'
+    stories.add(
+      'Label',
+      template,
+      {
+        args: {
+          type: 'label'
+        }
       }
-    }
-  );
+    );
 
-  stories.add(
-    'Legend',
-    template,
-    {
-      args: {
-        type: 'legend'
+    stories.add(
+      'Legend',
+      template,
+      {
+        args: {
+          type: 'legend'
+        }
       }
-    }
-  );
+    );
+  });
 }

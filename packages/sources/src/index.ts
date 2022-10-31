@@ -1,3 +1,5 @@
+export * from './template-container';
+
 export * from './components/accordion/accordion.models';
 export * from './components/accordion/accordion.stories-of';
 export * from './components/alert/alert.models';
@@ -69,6 +71,7 @@ export * from './components/justify-form-groups/justify-form-groups.stories-of';
 export * from './components/label/label.models';
 export * from './components/label/label.stories-of';
 export * from './components/label-group/label-group.models';
+export * from './components/label-group/label-group.stories-of';
 export * from './components/link-list/link-list.models';
 export * from './components/link-list/link-list.stories-of';
 export * from './components/list/list.models';
