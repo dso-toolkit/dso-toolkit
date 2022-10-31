@@ -1,7 +1,7 @@
-import { FormGroupBase } from './form-group.base-model';
+import { FormGroupBase } from "./form-group.base-model";
 
 export interface FormGroupStatic<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
-  group: 'static',
-  edit?: boolean,
-  value: string
+  group: "static";
+  edit?: boolean;
+  value: string;
 }

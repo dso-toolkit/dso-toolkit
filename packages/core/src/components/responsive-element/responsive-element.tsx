@@ -1,23 +1,26 @@
-import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, State } from '@stencil/core';
+import { Component, ComponentInterface, Element, Event, EventEmitter, h, Host, Method, State } from "@stencil/core";
 
-import { ElementSize, ResponsiveElementSize } from './responsive-element.interfaces';
+import { ElementSize, ResponsiveElementSize } from "./responsive-element.interfaces";
 
 const elementSizes: ElementSize[] = [
   {
-    width: 624, alias: 'large'
+    width: 624,
+    alias: "large",
   },
   {
-    width: 375, alias: 'medium'
+    width: 375,
+    alias: "medium",
   },
   {
-    width: 0, alias: 'small'
-  }
+    width: 0,
+    alias: "small",
+  },
 ];
 
 @Component({
-  tag: 'dso-responsive-element',
-  styleUrl: './responsive-element.scss',
-  shadow: true
+  tag: "dso-responsive-element",
+  styleUrl: "./responsive-element.scss",
+  shadow: true,
 })
 export class ResponsiveElement implements ComponentInterface {
   @State()
@@ -35,10 +38,10 @@ export class ResponsiveElement implements ComponentInterface {
   }
 
   observer = new ResizeObserver(([entry]) => {
-    const size = elementSizes.find(s => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
+    const size = elementSizes.find((s) => entry.contentRect.width >= s.width)?.alias ?? elementSizes[0].alias;
 
     this.sizeAlias = size;
-    this.dsoSizeChange.emit(size)
+    this.dsoSizeChange.emit(size);
   });
 
   @Element()
@@ -54,11 +57,7 @@ export class ResponsiveElement implements ComponentInterface {
 
   render() {
     return (
-      <Host
-        small={this.sizeAlias === 'small'}
-        medium={this.sizeAlias === 'medium'}
-        large={this.sizeAlias === 'large'}
-      >
+      <Host small={this.sizeAlias === "small"} medium={this.sizeAlias === "medium"} large={this.sizeAlias === "large"}>
         <slot />
       </Host>
     );

@@ -1,45 +1,66 @@
-import { AlertType, DocumentList, DocumentListItemStatusDemoContent, storiesOfViewerGrid, Tile, ViewerGridDocumentHeaderProperties } from "@dso-toolkit/sources";
+import {
+  AlertType,
+  DocumentList,
+  DocumentListItemStatusDemoContent,
+  storiesOfViewerGrid,
+  Tile,
+  ViewerGridDocumentHeaderProperties,
+} from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/web-components";
 import { html } from "lit-html";
 
 import readme from "@dso-toolkit/core/src/components/viewer-grid/readme.md";
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { activeFilters } from '@dso-toolkit/sources/src/components/label-group/label-group.content';
+import { activeFilters } from "@dso-toolkit/sources/src/components/label-group/label-group.content";
 
 storiesOfViewerGrid({
   parameters: {
     module,
     storiesOf,
     readme,
-    root: StoryRoot.Core
+    root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ anchorTemplate, iconTemplate, badgeTemplate, labelTemplate, viewerGridTemplate, alertTemplate, documentHeaderTemplate, documentListTemplate, labelGroupTemplate, contextTemplate, buttonTemplate, tileGridTemplate, tileTemplate }) => {
+  storyTemplates: ({
+    anchorTemplate,
+    iconTemplate,
+    badgeTemplate,
+    labelTemplate,
+    viewerGridTemplate,
+    alertTemplate,
+    documentHeaderTemplate,
+    documentListTemplate,
+    labelGroupTemplate,
+    contextTemplate,
+    buttonTemplate,
+    tileGridTemplate,
+    tileTemplate,
+  }) => {
     function documentHeaderExampleTemplate({
       documentHeaderFeaturesOpen,
       documentHeaderFeatureAction,
-      documentHeaderStatusOpen
+      documentHeaderStatusOpen,
     }: ViewerGridDocumentHeaderProperties) {
       function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureAction: HandlerFunction) {
         return html`
           ${labelTemplate({
-            status: 'bright',
-            label: 'in werking',
+            status: "bright",
+            label: "in werking",
           })}
           Gepubliceerd 03-03-2021
           ${buttonTemplate({
             ariaExpanded: documentHeaderStatusOpen,
             onClick: documentHeaderFeatureAction,
-            label: 'overige versies',
+            label: "overige versies",
             variant: null,
-            modifier: 'dso-document-header-toggle-status',
+            modifier: "dso-document-header-toggle-status",
             icon: {
-              icon: documentHeaderStatusOpen ? 'chevron-up' : 'chevron-down',
+              icon: documentHeaderStatusOpen ? "chevron-up" : "chevron-down",
             },
-            iconMode: 'after',
+            iconMode: "after",
           })}
           <span class="dso-document-header-badges">
             <span class="dso-badge badge-warning">
@@ -56,45 +77,45 @@ storiesOfViewerGrid({
 
       return viewerGridTemplate({
         main: documentHeaderTemplate({
-          title: 'Omgevingsplan gemeente Gouda',
-          type: 'Een omgevingsplan waar de omgeving mooier van wordt',
-          owner: 'Gemeente Gouda',
+          title: "Omgevingsplan gemeente Gouda",
+          type: "Een omgevingsplan waar de omgeving mooier van wordt",
+          owner: "Gemeente Gouda",
           features: {
-            modifier: 'dso-document-header-features',
+            modifier: "dso-document-header-features",
             definitions: [
               {
-                term: 'Opschrift',
+                term: "Opschrift",
                 descriptions: [
                   {
-                    content: 'Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving'
+                    content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
                   },
                 ],
               },
               {
-                term: 'Identificatie',
+                term: "Identificatie",
                 descriptions: [
                   {
-                    content: '/akn/nl/act/mnre1034/2021/BWBR0041330'
-                  }
+                    content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+                  },
                 ],
               },
               {
-                term: 'Besluit',
+                term: "Besluit",
                 descriptions: [
                   {
                     content: anchorTemplate({
-                      label: 'Bekijk besluit',
-                      url: '#',
+                      label: "Bekijk besluit",
+                      url: "#",
                       icon: {
-                        icon: 'external-link',
+                        icon: "external-link",
                       },
-                      iconMode: 'after',
-                    })
-                  }
+                      iconMode: "after",
+                    }),
+                  },
                 ],
               },
             ],
-            useSrOnlyColon: false
+            useSrOnlyColon: false,
           },
           featureAction: documentHeaderFeatureAction,
           featuresOpen: documentHeaderFeaturesOpen,
@@ -104,62 +125,63 @@ storiesOfViewerGrid({
             <h2>Versies</h2>
             <h3>Vastgesteld</h3>
             <div>
-              ${iconTemplate({ icon: 'eye' })}
+              ${iconTemplate({ icon: "eye" })}
               <strong>Gepubliceerd op 01-03-2021</strong>
               ${labelTemplate({
-                label: 'In werking',
+                label: "In werking",
               })}
             </div>
             <div>
-              ${iconTemplate({ icon: 'chevron-right' })}
-              Gepubliceerd op 10-03-2021
+              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 10-03-2021
               ${labelTemplate({
-                status: 'bright',
-                label: 'Toekomstige versie',
+                status: "bright",
+                label: "Toekomstige versie",
               })}
               datum in werking: 1-6-2022
             </div>
-            ${anchorTemplate({ label: 'bekijk eerdere versies', url: '#' })}
-      
+            ${anchorTemplate({ label: "bekijk eerdere versies", url: "#" })}
+
             <h3>Ontwerpen binnen inzagetermijn</h3>
             <div>
-              ${iconTemplate({ icon: 'chevron-right' })}
-              Gepubliceerd op 09-02-2021
+              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 09-02-2021
               ${labelTemplate({
-                status: 'warning',
-                label: 'Ontwerp',
+                status: "warning",
+                label: "Ontwerp",
               })}
               Eind inzagetermijn: 23-03-2022
             </div>
             <div>
-              ${iconTemplate({ icon: 'chevron-right' })}
-              Gepubliceerd op 01-02-2021
+              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 01-02-2021
               ${labelTemplate({
-                status: 'warning',
-                label: 'Ontwerp',
+                status: "warning",
+                label: "Ontwerp",
               })}
               Eind inzagetermijn: 15-03-2022
             </div>
             <div>
-              ${iconTemplate({ icon: 'chevron-right' })}
-              Gepubliceerd op 20-01-2021
+              ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 20-01-2021
               ${labelTemplate({
-                status: 'warning',
-                label: 'Ontwerp',
+                status: "warning",
+                label: "Ontwerp",
               })}
               Eind inzagetermijn: 03-03-2022
             </div>
-            ${anchorTemplate({ label: 'bekijk ontwerpen waarvan inzagetermijn voorbij is', url: '#' })}
-          `
+            ${anchorTemplate({ label: "bekijk ontwerpen waarvan inzagetermijn voorbij is", url: "#" })}
+          `,
         }),
-        map: alertTemplate({ message: 'Dit is de kaart', status: AlertType.Info })
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
       });
     }
 
     function documentListExampleTemplate(documentList: DocumentList<DocumentListItemStatusDemoContent>) {
       return viewerGridTemplate({
-        main: documentListTemplate({ items: documentList.items.map(item => ({ ...item, status: html`${badgeTemplate(item.status.badge)} ${item.status.date}` })) }),
-        map: alertTemplate({ message: 'Dit is de kaart', status: AlertType.Info })
+        main: documentListTemplate({
+          items: documentList.items.map((item) => ({
+            ...item,
+            status: html`${badgeTemplate(item.status.badge)} ${item.status.date}`,
+          })),
+        }),
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
       });
     }
 
@@ -186,7 +208,7 @@ storiesOfViewerGrid({
             </div>
           </section>
         `,
-        map: alertTemplate({ message: 'Dit is de kaart', status: AlertType.Info })
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
       });
     }
 
@@ -195,28 +217,45 @@ storiesOfViewerGrid({
         main: html`
           <h2>Thema's</h2>
           <p>Bekijk regels en beleid rond een bepaald thema.</p>
-          ${tileGridTemplate({ children: html`${tiles.map(tile => tileTemplate(tile))}` })}
+          ${tileGridTemplate({ children: html`${tiles.map((tile) => tileTemplate(tile))}` })}
         `,
-        map: alertTemplate({ message: 'Dit is de kaart', status: AlertType.Info })
+        map: alertTemplate({ message: "Dit is de kaart", status: AlertType.Info }),
       });
     }
 
-    return ({
+    return {
       viewerGridTemplate,
       example: {
         main: alertTemplate({ status: AlertType.Info, message: html`<p>Dit is <code>slot="main"</code>.</p>` }),
         map: html`<div class="alert alert-info">Dit is <code>slot="map"</code>.</div>`,
         filterpanel: html`<div class="alert alert-info">Dit is <code>slot="filterpanel"</code>.</div>`,
         overlay: html`<div class="alert alert-info">Dit is <code>slot="overlay"</code></div>
-          <div><p>Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc eget cursus lorem. Sed massa nunc, maximus sodales <a href="#">ultrices</a> nec, luctus et lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi ultrices tincidunt ipsum, sit amet ultricies nulla pulvinar nec. Cras sed tellus in nunc viverra aliquam. Aenean sed libero nulla. Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus a. Etiam vel ex nec eros porttitor aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.</p>
+          <div>
+            <p>
+              Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at felis quam. Nullam commodo ex
+              ultrices, viverra urna a, pretium arcu. Nunc eget cursus lorem. Sed massa nunc, maximus sodales
+              <a href="#">ultrices</a> nec, luctus et lectus. Interdum et malesuada fames ac ante ipsum primis in
+              faucibus. Morbi ultrices tincidunt ipsum, sit amet ultricies nulla pulvinar nec. Cras sed tellus in nunc
+              viverra aliquam. Aenean sed libero nulla. Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus
+              a. Etiam vel ex nec eros porttitor aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi
+              tristique senectus et netus et malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
+            </p>
 
-          <p>Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at felis quam. Nullam commodo ex ultrices, viverra urna a, pretium arcu. Nunc eget cursus lorem. Sed massa nunc, maximus sodales ultrices nec, luctus et lectus. Interdum et malesuada fames ac ante <a href="#">ipsum primis</a> in faucibus. Morbi ultrices tincidunt ipsum, sit amet ultricies nulla pulvinar nec. Cras sed tellus in nunc viverra aliquam. Aenean sed libero nulla. Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus a. Etiam vel ex nec eros porttitor aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.</p></div>
-        `
+            <p>
+              Ut elit purus, scelerisque nec tincidunt id, dictum at sapien. Nulla at felis quam. Nullam commodo ex
+              ultrices, viverra urna a, pretium arcu. Nunc eget cursus lorem. Sed massa nunc, maximus sodales ultrices
+              nec, luctus et lectus. Interdum et malesuada fames ac ante <a href="#">ipsum primis</a> in faucibus. Morbi
+              ultrices tincidunt ipsum, sit amet ultricies nulla pulvinar nec. Cras sed tellus in nunc viverra aliquam.
+              Aenean sed libero nulla. Curabitur placerat ullamcorper nisl, ut facilisis tortor rhoncus a. Etiam vel ex
+              nec eros porttitor aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi tristique
+              senectus et netus et malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
+            </p>
+          </div> `,
       },
       tilesExampleTemplate,
       filterblokExampleTemplate,
       documentHeaderExampleTemplate,
-      documentListExampleTemplate
-    });
-  }
+      documentListExampleTemplate,
+    };
+  },
 });

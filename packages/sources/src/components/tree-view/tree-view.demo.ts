@@ -1,80 +1,79 @@
-import { TreeViewItem } from './tree-view.models';
-import { items, subItems } from './tree-view.content';
+import { TreeViewItem } from "./tree-view.models";
+import { items, subItems } from "./tree-view.content";
 
 export let collection = items;
 
 export function onOpenItem(path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void): void {
   const actionItem = path[path.length - 1];
-  const actionBehaviour = new Map(
-    [
-      ['item.1.3', { loading: false, loadTime: 250 }],
-      ['item.1.4', { loading: true, loadTime: 2500 }]
-    ]
-  ).get(actionItem.id);
+  const actionBehaviour = new Map([
+    ["item.1.3", { loading: false, loadTime: 250 }],
+    ["item.1.4", { loading: true, loadTime: 2500 }],
+  ]).get(actionItem.id);
 
   if (actionBehaviour && actionItem.hasItems && !actionItem.items && !actionItem.loading) {
-    collection = updateDeepTree(
-      collection,
-      path,
-      item => ({ ...item, open: true, loading: actionBehaviour.loading })
-    );
+    collection = updateDeepTree(collection, path, (item) => ({
+      ...item,
+      open: true,
+      loading: actionBehaviour.loading,
+    }));
 
     callback(collection);
 
     window.setTimeout(() => {
       const newItems = subItems[actionItem.id];
-      collection = updateDeepTree(
-        collection,
-        path,
-        item => ({ ...item, open: true, loading: false, items: newItems })
-      );
+      collection = updateDeepTree(collection, path, (item) => ({
+        ...item,
+        open: true,
+        loading: false,
+        items: newItems,
+      }));
 
       callback(collection);
     }, actionBehaviour.loadTime);
-  }
-  else {
-    collection = updateDeepTree(
-      collection,
-      path,
-      item => ({ ...item, open: true })
-    );
+  } else {
+    collection = updateDeepTree(collection, path, (item) => ({ ...item, open: true }));
 
     callback(collection);
   }
 }
 
 export function onCloseItem(path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) {
-  collection = updateDeepTree(
-    collection,
-    path,
-    item => ({ ...item, open: false })
-  );
+  collection = updateDeepTree(collection, path, (item) => ({ ...item, open: false }));
 
   callback(collection);
 }
 
-export function onClickItem(path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) {
+export function onClickItem(
+  path: TreeViewItem[],
+  originalEvent: MouseEvent,
+  callback: (collection: TreeViewItem[]) => void
+) {
   const currentItem = path.length > 0 ? path[path.length - 1] : null;
 
   // demo click behaviour: hrefs with wiki:[subject] will open the wikipedia page about [subject] in a new window
-  if (currentItem && currentItem?.href?.slice(0, 5) === 'wiki:') {
-    window.open(`https://nl.wikipedia.org/wiki/${currentItem.href?.slice(5)}`, '_blank');
+  if (currentItem && currentItem?.href?.slice(0, 5) === "wiki:") {
+    window.open(`https://nl.wikipedia.org/wiki/${currentItem.href?.slice(5)}`, "_blank");
     originalEvent.preventDefault();
   }
 
   // set active = false for all items except current item
-  collection = updateTree(collection, item => ({ ...item, active: item.id === currentItem?.id }));
+  collection = updateTree(collection, (item) => ({ ...item, active: item.id === currentItem?.id }));
 
   callback(collection);
 }
 
 export function onFilter(value: string, callback: (collection: TreeViewItem[], resultText: string) => void): void {
   // set selected = false for all items except when value is not empty and label contains text value
-  collection = updateTree(collection, item => ({ ...item, selected: !!value && item.label.toLowerCase().indexOf(value.toLowerCase()) > -1 }));
+  collection = updateTree(collection, (item) => ({
+    ...item,
+    selected: !!value && item.label.toLowerCase().indexOf(value.toLowerCase()) > -1,
+  }));
 
   const itemCount = openItems(collection, false);
 
-  const resultText = `${(itemCount > 0 ? itemCount : 'geen')} resulta${(itemCount === 1 ? 'at' : 'ten')} gevonden ${(value ? ` voor "${value}"` : '')}`;
+  const resultText = `${itemCount > 0 ? itemCount : "geen"} resulta${itemCount === 1 ? "at" : "ten"} gevonden ${
+    value ? ` voor "${value}"` : ""
+  }`;
 
   callback(collection, resultText);
 }
@@ -90,9 +89,9 @@ function updateDeepTree(
   path: TreeViewItem[],
   updater: (item: TreeViewItem) => TreeViewItem
 ): TreeViewItem[] {
-  const item = collection.find(item => item.id === path[0].id);
+  const item = collection.find((item) => item.id === path[0].id);
 
-  return collection.map(root => {
+  return collection.map((root) => {
     if (root !== item) {
       return root;
     }
@@ -104,11 +103,11 @@ function updateDeepTree(
     if (root === item) {
       return {
         ...item,
-        items: item.items ? updateDeepTree(item.items, path.slice(1), updater) : item.items
+        items: item.items ? updateDeepTree(item.items, path.slice(1), updater) : item.items,
       };
     }
 
-    throw new Error('Updating items collection encountered an error.');
+    throw new Error("Updating items collection encountered an error.");
   });
 }
 
@@ -117,16 +116,12 @@ function updateDeepTree(
  * @param collection {TreeViewItem[]} the collection
  * @param updater the updater function
  */
-function updateTree(
-  collection: TreeViewItem[],
-  updater: (item: TreeViewItem) => TreeViewItem
-): TreeViewItem[] {
-
-  return collection.map(root => {
+function updateTree(collection: TreeViewItem[], updater: (item: TreeViewItem) => TreeViewItem): TreeViewItem[] {
+  return collection.map((root) => {
     const item = updater(root);
     return {
       ...item,
-      items: item.items ? updateTree(item.items, updater) : item.items
+      items: item.items ? updateTree(item.items, updater) : item.items,
     };
   });
 }
@@ -136,22 +131,19 @@ function updateTree(
  * @param collection {TreeViewItem[]} the collection
  * @param collapse {boolean} if true items with no selected descendants will be closed
  */
-function openItems(
-  collection: TreeViewItem[],
-  collapse: boolean
-): number {
-  const flatten = (data: any, level: number) => data ? data.flatMap((item: any) => ([{ level, item}, ...flatten(item.items, level + 1)])) : [];
+function openItems(collection: TreeViewItem[], collapse: boolean): number {
+  const flatten = (data: TreeViewItem[] | undefined, level: number): Array<{ level: number; item: TreeViewItem }> =>
+    data ? data.flatMap((item) => [{ level, item }, ...flatten(item.items, level + 1)]) : [];
 
-  const list: Array<{ level: number, item: TreeViewItem }> = flatten(collection, 0).reverse();
+  const list: Array<{ level: number; item: TreeViewItem }> = flatten(collection, 0).reverse();
 
-  let levelOpen: boolean[] = [];
+  const levelOpen: boolean[] = [];
 
-  list.forEach(row => {
+  list.forEach((row) => {
     if (levelOpen[row.level + 1]) {
       row.item.open = true;
       levelOpen[row.level + 1] = false;
-    }
-    else if (collapse) {
+    } else if (collapse) {
       row.item.open = false;
     }
 
@@ -160,5 +152,5 @@ function openItems(
     }
   });
 
-  return list.filter(row => row.item.selected).length;
+  return list.filter((row) => row.item.selected).length;
 }

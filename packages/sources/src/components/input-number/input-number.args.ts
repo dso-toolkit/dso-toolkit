@@ -1,53 +1,53 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { InputNumber } from './input-number.models';
+import { InputNumber } from "./input-number.models";
 
 export interface InputNumberArgs {
-  label?: string,
-  id: string,
-  min?: number,
-  max?: number,
-  count: number,
-  minusButtonInactive: boolean,
-  plusButtonInactive: boolean
+  label?: string;
+  id: string;
+  min?: number;
+  max?: number;
+  count: number;
+  minusButtonInactive: boolean;
+  plusButtonInactive: boolean;
 }
 
 export const inputNumberArgTypes: ArgTypes<InputNumberArgs> = {
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   id: {
     control: {
-      type: 'string'
-    }
+      type: "string",
+    },
   },
   min: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   max: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   count: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   minusButtonInactive: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   plusButtonInactive: {
     control: {
-      type: 'boolean'
-    }
-  }
+      type: "boolean",
+    },
+  },
 };
 
 export function inputNumberArgsMapper(a: InputNumberArgs): InputNumber {
@@ -58,6 +58,6 @@ export function inputNumberArgsMapper(a: InputNumberArgs): InputNumber {
     max: a.max,
     count: a.count,
     minusButtonInactive: a.minusButtonInactive,
-    plusButtonInactive: a.plusButtonInactive
+    plusButtonInactive: a.plusButtonInactive,
   };
 }

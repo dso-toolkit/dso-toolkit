@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Image } from './image.models';
+import { Image } from "./image.models";
 
 export interface ImageArgs {
   source: string;
@@ -11,26 +11,26 @@ export interface ImageArgs {
 export const imageArgTypes: ArgTypes<ImageArgs> = {
   source: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   modifier: {
-    options: [undefined, 'img-responsive', 'img-circle'],
+    options: [undefined, "img-responsive", "img-circle"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   alt: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function imageArgsMapper(a: ImageArgs): Image {
   return {
     source: a.source,
     modifier: a.modifier,
-    alt: a.alt
+    alt: a.alt,
   };
 }

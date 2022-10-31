@@ -1,1 +1,1 @@
-export { OzonContentTableNode } from './table.node';
+export { OzonContentTableNode } from "./table.node";

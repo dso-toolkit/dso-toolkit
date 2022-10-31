@@ -1,4 +1,4 @@
-import { html } from 'lit-html';
+import { html } from "lit-html";
 
 export const content = html`
   <div class="dso-context-select">
@@ -12,12 +12,8 @@ export const content = html`
 
 export const children = html`
   <div class="row">
-    <div class="col-xs-12">
-      [..]
-    </div>
+    <div class="col-xs-12">[..]</div>
   </div>
 `;
 
-export const label = html`
-  <h4>5 activiteiten</h4>
-`;
+export const label = html` <h4>5 activiteiten</h4> `;

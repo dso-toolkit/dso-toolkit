@@ -1,8 +1,8 @@
-import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
+import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
-import { AutosuggestArgs, autosuggestArgTypes } from './autosuggest.args';
-import { fetchSuggestions } from './autosuggest.demo';
-import { AutosuggestSuggestion } from './autosuggest.models';
+import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args";
+import { fetchSuggestions } from "./autosuggest.demo";
+import { AutosuggestSuggestion } from "./autosuggest.models";
 
 type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   fetchSuggestions: (value: string) => AutosuggestSuggestion[],
@@ -14,7 +14,7 @@ type AutosuggestTemplateFnType<TemplateFnReturnType> = (
   loadingLabel: string,
   loadingDelayed: number,
   notFoundLabel: string,
-  minimalCharacters?: number,
+  minimalCharacters?: number
 ) => TemplateFnReturnType;
 
 export interface AutosuggestTemplates<TemplateFnReturnType> {
@@ -22,29 +22,73 @@ export interface AutosuggestTemplates<TemplateFnReturnType> {
   autosuggestInSearchBarTemplate: AutosuggestTemplateFnType<TemplateFnReturnType>;
 }
 
-export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, AutosuggestTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Autosuggest', storiesOfArguments, (stories, templateMapper) => {
+export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    AutosuggestTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Autosuggest", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: autosuggestArgTypes,
       args: {
         suggestOnFocus: false,
-        loading: false
-      }
+        loading: false,
+      },
     });
 
     stories.add(
-      'example',
-      templateMapper<AutosuggestArgs>((args, { autosuggestDemoTemplate }) => autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel))
+      "example",
+      templateMapper<AutosuggestArgs>((args, { autosuggestDemoTemplate }) =>
+        autosuggestDemoTemplate(
+          fetchSuggestions,
+          args.dsoSelect,
+          args.dsoChange,
+          args.dsoSearch,
+          args.suggestOnFocus,
+          args.loading,
+          args.loadingLabel,
+          args.loadingDelayed,
+          args.notFoundLabel
+        )
+      )
     );
 
     stories.add(
-      'minimal 3 characters',
-      templateMapper<AutosuggestArgs>((args, { autosuggestDemoTemplate }) => autosuggestDemoTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel, 3))
+      "minimal 3 characters",
+      templateMapper<AutosuggestArgs>((args, { autosuggestDemoTemplate }) =>
+        autosuggestDemoTemplate(
+          fetchSuggestions,
+          args.dsoSelect,
+          args.dsoChange,
+          args.dsoSearch,
+          args.suggestOnFocus,
+          args.loading,
+          args.loadingLabel,
+          args.loadingDelayed,
+          args.notFoundLabel,
+          3
+        )
+      )
     );
 
     stories.add(
-      'in searchbar',
-      templateMapper<AutosuggestArgs>((args, { autosuggestInSearchBarTemplate }) => autosuggestInSearchBarTemplate(fetchSuggestions, args.dsoSelect, args.dsoChange, args.dsoSearch, args.suggestOnFocus, args.loading, args.loadingLabel, args.loadingDelayed, args.notFoundLabel))
+      "in searchbar",
+      templateMapper<AutosuggestArgs>((args, { autosuggestInSearchBarTemplate }) =>
+        autosuggestInSearchBarTemplate(
+          fetchSuggestions,
+          args.dsoSelect,
+          args.dsoChange,
+          args.dsoSearch,
+          args.suggestOnFocus,
+          args.loading,
+          args.loadingLabel,
+          args.loadingDelayed,
+          args.notFoundLabel
+        )
+      )
     );
   });
 }

@@ -1,6 +1,6 @@
-export const tooltipPositions = ['top', 'right', 'bottom', 'left'] as const;
+export const tooltipPositions = ["top", "right", "bottom", "left"] as const;
 
-export const tooltipStrategy = ['auto', 'absolute', 'fixed'] as const;
+export const tooltipStrategy = ["auto", "absolute", "fixed"] as const;
 
 export interface Tooltip {
   active?: boolean;

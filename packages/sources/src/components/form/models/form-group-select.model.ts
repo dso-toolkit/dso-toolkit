@@ -1,9 +1,9 @@
-import { Icon } from '../../..';
+import { Icon } from "../../..";
 
-import { FormGroupBase } from './form-group.base-model';
+import { FormGroupBase } from "./form-group.base-model";
 
 export interface FormGroupSelect<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
-  group: 'select',
+  group: "select";
   value?: string;
   multiple?: boolean;
   feedback?: Icon;

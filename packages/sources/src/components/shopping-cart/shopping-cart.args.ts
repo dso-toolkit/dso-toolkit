@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { ShoppingCart, ShoppingCartItem } from './shopping-cart.models';
+import { ShoppingCart, ShoppingCartItem } from "./shopping-cart.models";
 
 export interface ShoppingCartArgs {
   collapsable?: boolean;
@@ -9,52 +9,52 @@ export interface ShoppingCartArgs {
   removeAll?: boolean;
   isOpen?: boolean;
   items: ShoppingCartItem[];
-  shoppingcartTitleTag: 'h2' | 'h3';
+  shoppingcartTitleTag: "h2" | "h3";
   shoppingcartTitle: string;
 }
 
 export const shoppingCartArgTypes: ArgTypes<ShoppingCartArgs> = {
   collapsable: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   collapsed: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   hideSummary: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   removeAll: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   isOpen: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   items: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   shoppingcartTitleTag: {
-    options: ['h2', 'h3'],
+    options: ["h2", "h3"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   shoppingcartTitle: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
@@ -66,6 +66,6 @@ export function shoppingCartArgsMapper(a: ShoppingCartArgs): ShoppingCart {
     isOpen: a.isOpen,
     items: a.items,
     shoppingcartTitleTag: a.shoppingcartTitleTag,
-    shoppingcartTitle: a.shoppingcartTitle
+    shoppingcartTitle: a.shoppingcartTitle,
   };
 }

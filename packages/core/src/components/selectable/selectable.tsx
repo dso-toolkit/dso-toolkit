@@ -1,17 +1,28 @@
-export interface SelectableChangeEvent extends Event {
-}
+export interface SelectableChangeEvent extends Event {}
 
-import { h, Component, Prop, Event, EventEmitter, Fragment, Element, State, forceUpdate, Watch, Method } from '@stencil/core';
-import { createIdentifier } from '../../utils/create-identifier';
+import {
+  h,
+  Component,
+  Prop,
+  Event,
+  EventEmitter,
+  Fragment,
+  Element,
+  State,
+  forceUpdate,
+  Watch,
+  Method,
+} from "@stencil/core";
+import { createIdentifier } from "../../utils/create-identifier";
 
 @Component({
-  tag: 'dso-selectable',
-  styleUrl: 'selectable.scss',
-  scoped: true
+  tag: "dso-selectable",
+  styleUrl: "selectable.scss",
+  scoped: true,
 })
 export class Selectable {
   @Prop()
-  type!: 'checkbox' | 'radio';
+  type!: "checkbox" | "radio";
 
   @Prop()
   identifier?: string;
@@ -59,7 +70,7 @@ export class Selectable {
 
   private mutationObserver?: MutationObserver;
 
-  private fallbackIdentifier = createIdentifier('DsoSelectable');
+  private fallbackIdentifier = createIdentifier("DsoSelectable");
 
   private input: HTMLInputElement | undefined;
 
@@ -68,7 +79,7 @@ export class Selectable {
 
     this.mutationObserver = new MutationObserver(() => forceUpdate(this.host));
     this.mutationObserver.observe(this.host, {
-      childList: true
+      childList: true,
     });
 
     this.setIndeterminate();
@@ -78,9 +89,9 @@ export class Selectable {
     this.mutationObserver?.disconnect();
   }
 
-  @Watch('indeterminate')
+  @Watch("indeterminate")
   setIndeterminate() {
-    if (!(this.input instanceof HTMLInputElement) || this.type != 'checkbox') {
+    if (!(this.input instanceof HTMLInputElement) || this.type !== "checkbox") {
       return;
     }
 
@@ -98,12 +109,12 @@ export class Selectable {
           value={this.value}
           name={this.name}
           aria-invalid={this.invalid?.toString()}
-          aria-describedby={(hasInfo && this.infoFixed) ? this.describedById : undefined}
+          aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
           disabled={this.disabled}
           required={this.required}
           checked={this.checked}
-          onChange={e => this.dsoChange.emit(e)}
-          ref={(el) => this.input = el}
+          onChange={(e) => this.dsoChange.emit(e)}
+          ref={(el) => (this.input = el)}
         />
         <label htmlFor={this.getIdentifier()}>
           <slot></slot>
@@ -113,14 +124,14 @@ export class Selectable {
             {!this.infoFixed && (
               <dso-info-button
                 active={this.infoActive}
-                onDsoToggle={e => this.infoActive = e.detail.active}
+                onDsoToggle={(e) => (this.infoActive = e.detail.active)}
               ></dso-info-button>
             )}
             <dso-info
-              id={(hasInfo && this.infoFixed) ? this.describedById : undefined}
+              id={hasInfo && this.infoFixed ? this.describedById : undefined}
               fixed={this.infoFixed}
               active={this.infoActive}
-              onDsoClose={() => this.infoActive = false}
+              onDsoClose={() => (this.infoActive = false)}
             >
               <div>
                 <slot name="info"></slot>

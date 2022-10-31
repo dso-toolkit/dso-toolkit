@@ -1,4 +1,4 @@
-import { OzonContentAnchorClick } from './ozon-content.interfaces';
+import { OzonContentAnchorClick } from "./ozon-content.interfaces";
 
 export interface OzonContentNodeContext<T = unknown> {
   path: Node[];

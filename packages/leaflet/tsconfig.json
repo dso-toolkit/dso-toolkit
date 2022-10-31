@@ -6,16 +6,9 @@
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noEmit": true,
-    "lib": [
-      "DOM",
-      "ES2017"
-    ],
+    "lib": ["dom", "es2019"],
     "removeComments": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

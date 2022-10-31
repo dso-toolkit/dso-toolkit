@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Definition, DefinitionList } from './definition-list.models';
+import { Definition, DefinitionList } from "./definition-list.models";
 
 export interface DefinitionListArgs {
   modifier?: string;
@@ -11,25 +11,25 @@ export interface DefinitionListArgs {
 export const definitionListArgTypes: ArgTypes<DefinitionListArgs> = {
   definitions: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   modifier: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   useSrOnlyColon: {
     control: {
-      type: 'boolean'
-    }
-  }
+      type: "boolean",
+    },
+  },
 };
 
 export function definitionListArgsMapper(a: DefinitionListArgs): DefinitionList {
   return {
     definitions: a.definitions,
     modifier: a.modifier,
-    useSrOnlyColon: a.useSrOnlyColon
+    useSrOnlyColon: a.useSrOnlyColon,
   };
 }

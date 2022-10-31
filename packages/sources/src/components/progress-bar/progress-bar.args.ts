@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { ProgressBar } from './progress-bar.models';
+import { ProgressBar } from "./progress-bar.models";
 
 export interface ProgressBarArgs {
   progress: number;
@@ -12,24 +12,24 @@ export interface ProgressBarArgs {
 export const progressBarArgTypes: ArgTypes<ProgressBarArgs> = {
   min: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   max: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   progress: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function progressBarArgsMapper(a: ProgressBarArgs): ProgressBar {
@@ -37,6 +37,6 @@ export function progressBarArgsMapper(a: ProgressBarArgs): ProgressBar {
     progress: a.progress,
     label: a.label || undefined,
     max: a.max,
-    min: a.min
+    min: a.min,
   };
 }

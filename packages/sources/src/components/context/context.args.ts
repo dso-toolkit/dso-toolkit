@@ -1,18 +1,18 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Context } from './context.models';
+import { Context } from "./context.models";
 
 export interface ContextArgs {
-  type: 'legend' | 'label';
+  type: "legend" | "label";
 }
 
 export const contextArgTypes: ArgTypes<ContextArgs> = {
   type: {
-    options: ['legend', 'label'],
+    options: ["legend", "label"],
     control: {
-      type: 'select'
-    }
-  }
+      type: "select",
+    },
+  },
 };
 
 export function contextArgsMapper<TemplateFnReturnType>(
@@ -25,6 +25,6 @@ export function contextArgsMapper<TemplateFnReturnType>(
     content,
     children,
     label,
-    type: a.type
+    type: a.type,
   };
 }

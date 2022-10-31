@@ -14,8 +14,8 @@ Import or bundle `dist/dso.css`.
 
 ## Public API
 
-* `dist/dso-icons.svg`
-* `dist/dso.css`
+- `dist/dso-icons.svg`
+- `dist/dso.css`
 
 ## Iconen
 

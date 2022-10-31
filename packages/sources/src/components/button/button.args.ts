@@ -1,102 +1,100 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../storybook';
-import { Button, ButtonAnchor } from './button.models';
+import { ArgTypes } from "../../storybook";
+import { Button, ButtonAnchor } from "./button.models";
 
 export interface ButtonArgs {
-  element: 'button' | 'anchor';
+  element: "button" | "anchor";
   legacy?: boolean;
-  variant: 'primary' | 'secondary' | 'tertiary';
+  variant: "primary" | "secondary" | "tertiary";
   click: HandlerFunction;
-  type?: 'button' | 'submit';
+  type?: "button" | "submit";
   label: string;
   id?: string;
   disabled?: boolean;
   icon?: string;
-  iconMode?: 'only' | 'after';
+  iconMode?: "only" | "after";
 }
 
 export const buttonArgTypes: ArgTypes<ButtonArgs> = {
   element: {
-    options: ['button', 'anchor'],
+    options: ["button", "anchor"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   legacy: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   variant: {
-    options: ['primary', 'secondary', 'tertiary'],
+    options: ["primary", "secondary", "tertiary"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   click: {
-    action: 'onClick'
+    action: "onClick",
   },
   type: {
-    options: ['button', 'submit'],
+    options: ["button", "submit"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   disabled: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   icon: {
-    options: [undefined, 'chevron-left', 'chevron-right'],
+    options: [undefined, "chevron-left", "chevron-right"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   iconMode: {
-    options: [undefined, 'only', 'after'],
+    options: [undefined, "only", "after"],
     control: {
-      type: 'select'
-    }
-  }
-}
+      type: "select",
+    },
+  },
+};
 
 const legacyVariantMap = {
-  primary: 'btn btn-primary',
-  secondary: 'btn btn-default',
-  tertiary: 'btn btn-link'
+  primary: "btn btn-primary",
+  secondary: "btn btn-default",
+  tertiary: "btn btn-link",
 };
 
 export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
-  switch(a.element) {
-    case 'anchor':
-      const args: ButtonAnchor = {
+  switch (a.element) {
+    case "anchor":
+      return {
         variant: a.legacy ? null : a.variant,
-        url: '#',
+        url: "#",
         label: a.label,
         icon: a.icon
           ? {
-            icon: a.icon
-          }
+              icon: a.icon,
+            }
           : undefined,
         iconMode: a.iconMode,
         id: a.id,
-        modifier: a.legacy ? legacyVariantMap[a.variant] : `dso-${a.variant}`
+        modifier: a.legacy ? legacyVariantMap[a.variant] : `dso-${a.variant}`,
       };
-
-      return args;
-    case 'button':
+    case "button":
       return {
         variant: a.legacy ? null : a.variant,
         onClick: a.click,
@@ -107,12 +105,12 @@ export function buttonArgsMapper(a: ButtonArgs): Button | ButtonAnchor {
         disabled: a.disabled,
         icon: a.icon
           ? {
-            icon: a.icon
-          }
+              icon: a.icon,
+            }
           : undefined,
-        iconMode: a.iconMode
+        iconMode: a.iconMode,
       };
     default:
-      throw new Error('Unknown element type for Button component');
+      throw new Error("Unknown element type for Button component");
   }
 }

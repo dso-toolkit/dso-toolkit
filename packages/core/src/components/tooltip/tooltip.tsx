@@ -1,30 +1,30 @@
-import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperState } from '@popperjs/core';
-import maxSize from 'popper-max-size-modifier';
-import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from '@stencil/core';
-import clsx from 'clsx';
+import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperState } from "@popperjs/core";
+import maxSize from "popper-max-size-modifier";
+import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from "@stencil/core";
+import clsx from "clsx";
 
 // Keep const in sync with $tooltip-transition-duration in @dso-toolkit/sources/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
 
-function hasOverflow (el:Element) : boolean {
+function hasOverflow(el: Element): boolean {
   const style = window.getComputedStyle(el);
-  const overflowX = style.getPropertyValue('overflow-x');
-  const overflowY = style.getPropertyValue('overflow-y');
-  const overflowValues = ['hidden', 'clip'];
-  return overflowValues.indexOf(overflowX) != -1 || overflowValues.indexOf(overflowY) != -1;
+  const overflowX = style.getPropertyValue("overflow-x");
+  const overflowY = style.getPropertyValue("overflow-y");
+  const overflowValues = ["hidden", "clip"];
+  return overflowValues.indexOf(overflowX) !== -1 || overflowValues.indexOf(overflowY) !== -1;
 }
 
 @Component({
-  tag: 'dso-tooltip',
-  styleUrl: 'tooltip.scss',
-  shadow: true
+  tag: "dso-tooltip",
+  styleUrl: "tooltip.scss",
+  shadow: true,
 })
 export class Tooltip {
   /**
    * Defines if the tooltip is descriptive. A descriptive tooltip contains a meaningful message. Tooltips that are not descriptive are hidden from screenreaders using `aria-hidden`.
    */
   @Prop({
-    reflect: true
+    reflect: true,
   })
   descriptive = false;
 
@@ -32,13 +32,13 @@ export class Tooltip {
    * Set position of tooltip relative to target
    */
   @Prop()
-  position: 'top' | 'right' | 'bottom' | 'left' = 'top';
+  position: "top" | "right" | "bottom" | "left" = "top";
 
   /**
    * Set position strategy of tooltip
    */
   @Prop()
-  strategy: 'auto' | 'absolute' | 'fixed' = 'auto';
+  strategy: "auto" | "absolute" | "fixed" = "auto";
 
   /**
    * Specify target element that the tooltip will describe and listens to for events.
@@ -90,18 +90,18 @@ export class Tooltip {
     this.active = false;
   }
 
-  @Watch('position')
+  @Watch("position")
   watchPosition() {
     if (!this.popper) {
       return;
     }
 
     this.popper.setOptions({
-      placement: this.position
+      placement: this.position,
     });
   }
 
-  @Watch('strategy')
+  @Watch("strategy")
   watchStrategy() {
     this.setStrategy();
   }
@@ -111,7 +111,7 @@ export class Tooltip {
       return;
     }
 
-    if (this.strategy == 'absolute' || this.strategy == 'fixed') {
+    if (this.strategy === "absolute" || this.strategy === "fixed") {
       this.popper.setOptions({
         strategy: this.strategy,
       });
@@ -120,11 +120,11 @@ export class Tooltip {
     }
 
     let element: Element | null = this.element;
-    while (element?.parentNode != null && element.parentNode != document) {
+    while (element && element.parentNode !== document) {
       element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
-      if (element != null && hasOverflow(element)) {
+      if (element !== null && hasOverflow(element)) {
         this.popper.setOptions({
-          strategy: 'fixed',
+          strategy: "fixed",
         });
 
         return;
@@ -132,11 +132,11 @@ export class Tooltip {
     }
 
     this.popper.setOptions({
-      strategy: 'absolute',
+      strategy: "absolute",
     });
   }
 
-  @Watch('active')
+  @Watch("active")
   watchActive() {
     if (this.active) {
       this.hidden = false;
@@ -144,17 +144,17 @@ export class Tooltip {
       if (!this.stateless) {
         setTimeout(() => {
           this.popper?.setOptions({
-            modifiers: [{ name: 'eventListeners', enabled: true }]
+            modifiers: [{ name: "eventListeners", enabled: true }],
           });
-          document.addEventListener('keydown', this.keyDownListener);
+          document.addEventListener("keydown", this.keyDownListener);
         });
       }
     } else {
       if (!this.stateless) {
         this.popper?.setOptions({
-          modifiers: [{ name: 'eventListeners', enabled: false }]
+          modifiers: [{ name: "eventListeners", enabled: false }],
         });
-        document.removeEventListener('keydown', this.keyDownListener);
+        document.removeEventListener("keydown", this.keyDownListener);
       }
 
       setTimeout(() => (this.hidden = true), transitionDuration);
@@ -173,16 +173,16 @@ export class Tooltip {
   @State()
   private hidden = true;
 
-  @Listen('click')
+  @Listen("click")
   listenClick(e: MouseEvent) {
     e.stopPropagation();
   }
 
   private applyMaxSize = {
-    name: 'applyMaxSize',
+    name: "applyMaxSize",
     enabled: true,
     phase: beforeWrite,
-    requires: ['maxSize'],
+    requires: ["maxSize"],
     fn({ state }: { state: PopperState }) {
       let { width } = state.modifiersData.maxSize;
       if (width < 160) {
@@ -201,9 +201,9 @@ export class Tooltip {
       return;
     }
 
-    const tooltip = this.element.shadowRoot?.querySelector('.tooltip');
+    const tooltip = this.element.shadowRoot?.querySelector(".tooltip");
     if (!(tooltip instanceof HTMLElement)) {
-      throw new Error('tooltip element is not instanceof HTMLElement');
+      throw new Error("tooltip element is not instanceof HTMLElement");
     }
 
     this.target = this.getTarget();
@@ -215,14 +215,14 @@ export class Tooltip {
 
     this.callbacks = {
       activate: () => (this.active = true),
-      deactivate: () => (this.active = false)
+      deactivate: () => (this.active = false),
     };
 
     if (!this.stateless) {
-      this.target.addEventListener('mouseenter', this.callbacks.activate);
-      this.target.addEventListener('mouseleave', this.callbacks.deactivate);
-      this.target.addEventListener('focus', this.callbacks.activate);
-      this.target.addEventListener('blur', this.callbacks.deactivate);
+      this.target.addEventListener("mouseenter", this.callbacks.activate);
+      this.target.addEventListener("mouseleave", this.callbacks.deactivate);
+      this.target.addEventListener("focus", this.callbacks.activate);
+      this.target.addEventListener("blur", this.callbacks.deactivate);
     }
   }
 
@@ -230,10 +230,10 @@ export class Tooltip {
     this.popper?.destroy();
 
     if (!this.stateless && this.target && this.callbacks) {
-      this.target.removeEventListener('mouseenter', this.callbacks.activate);
-      this.target.removeEventListener('mouseleave', this.callbacks.deactivate);
-      this.target.removeEventListener('focus', this.callbacks.activate);
-      this.target.removeEventListener('blur', this.callbacks.deactivate);
+      this.target.removeEventListener("mouseenter", this.callbacks.activate);
+      this.target.removeEventListener("mouseleave", this.callbacks.deactivate);
+      this.target.removeEventListener("focus", this.callbacks.activate);
+      this.target.removeEventListener("blur", this.callbacks.deactivate);
     }
 
     this.callbacks = undefined;
@@ -248,17 +248,17 @@ export class Tooltip {
   }
 
   keyDownListener = (event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+    if (event.key === "Escape") {
       this.deactivate();
     }
   };
 
   render() {
     return (
-      <Host class={{ 'hidden': this.hidden }}>
-        <div class={clsx('tooltip', { in: this.active })}>
+      <Host class={{ hidden: this.hidden }}>
+        <div class={clsx("tooltip", { in: this.active })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
-          <div aria-hidden={!this.descriptive || undefined} class={clsx('tooltip-inner', { 'dso-small': this.small })}>
+          <div aria-hidden={!this.descriptive || undefined} class={clsx("tooltip-inner", { "dso-small": this.small })}>
             <slot></slot>
           </div>
         </div>
@@ -271,7 +271,7 @@ export class Tooltip {
       return this.for;
     }
 
-    if (typeof this.for === 'string') {
+    if (typeof this.for === "string") {
       const rootNode = this.element.getRootNode();
       if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
         throw new Error(`rootNode is not instance of Document or ShadowRoot`);
@@ -287,7 +287,7 @@ export class Tooltip {
 
     const { parentElement } = this.element;
     if (!parentElement) {
-      throw new Error('No reference given with [for] attribute but no parent found either');
+      throw new Error("No reference given with [for] attribute but no parent found either");
     }
 
     return parentElement;

@@ -10,4 +10,3 @@ export const alertWithHeadingsContent = `
   <h6>Dit is een H6</h6>
   <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
 `;
-

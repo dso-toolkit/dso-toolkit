@@ -9,9 +9,9 @@ export enum DaysOfWeek {
 }
 
 export function createDate(year: string, month: string, day: string): Date | undefined {
-  var dayInt = parseInt(day, 10)
-  var monthInt = parseInt(month, 10)
-  var yearInt = parseInt(year, 10)
+  const dayInt = parseInt(day, 10);
+  const monthInt = parseInt(month, 10);
+  const yearInt = parseInt(year, 10);
 
   const isValid =
     Number.isInteger(yearInt) && // all parts should be integers
@@ -21,10 +21,10 @@ export function createDate(year: string, month: string, day: string): Date | und
     monthInt <= 12 &&
     dayInt > 0 && // day must be 1-31
     dayInt <= 31 &&
-    yearInt > 0
+    yearInt > 0;
 
   if (isValid) {
-    return new Date(yearInt, monthInt - 1, dayInt)
+    return new Date(yearInt, monthInt - 1, dayInt);
   }
 }
 
@@ -33,13 +33,13 @@ export function createDate(year: string, month: string, day: string): Date | und
  */
 export function parseDutchDate(value: string | undefined): Date | undefined {
   if (!value) {
-    return
+    return;
   }
 
-  const matches = value.split('-');
+  const matches = value.split("-");
 
   if (matches.length === 3 && matches[2].length === 4) {
-    return createDate(matches[2], matches[1], matches[0])
+    return createDate(matches[2], matches[1], matches[0]);
   }
 }
 
@@ -49,14 +49,14 @@ export function parseDutchDate(value: string | undefined): Date | undefined {
  */
 export function printDutchDate(date: Date | undefined): string {
   if (!date) {
-    return '';
+    return "";
   }
 
-  var d = date.getDate().toString(10).padStart(2, '0');
-  var m = (date.getMonth() + 1).toString(10).padStart(2, '0');
-  var y = date.getFullYear().toString(10).padStart(2, '0');
+  const d = date.getDate().toString(10).padStart(2, "0");
+  const m = (date.getMonth() + 1).toString(10).padStart(2, "0");
+  const y = date.getFullYear().toString(10).padStart(2, "0");
 
-  return `${d}-${m}-${y}`
+  return `${d}-${m}-${y}`;
 }
 
 /**
@@ -64,90 +64,90 @@ export function printDutchDate(date: Date | undefined): string {
  */
 export function isEqual(a: Date | undefined, b: Date | undefined): boolean {
   if (!a || !b) {
-    return false
+    return false;
   }
 
-  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate()
+  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
 }
 
 export function addDays(date: Date, days: number): Date {
-  var d = new Date(date)
-  d.setDate(d.getDate() + days)
-  return d
+  const d = new Date(date);
+  d.setDate(d.getDate() + days);
+  return d;
 }
 
 export function addMonths(date: Date, months: number): Date {
-  const d = new Date(date)
-  d.setMonth(date.getMonth() + months)
-  return d
+  const d = new Date(date);
+  d.setMonth(date.getMonth() + months);
+  return d;
 }
 
 export function addYears(date: Date, years: number): Date {
-  const d = new Date(date)
-  d.setFullYear(date.getFullYear() + years)
-  return d
+  const d = new Date(date);
+  d.setFullYear(date.getFullYear() + years);
+  return d;
 }
 
 export function startOfWeek(date: Date, firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday): Date {
-  var d = new Date(date)
-  var day = d.getDay()
-  var diff = (day < firstDayOfWeek ? 7 : 0) + day - firstDayOfWeek
+  const d = new Date(date);
+  const day = d.getDay();
+  const diff = (day < firstDayOfWeek ? 7 : 0) + day - firstDayOfWeek;
 
-  d.setDate(d.getDate() - diff)
-  return d
+  d.setDate(d.getDate() - diff);
+  return d;
 }
 
 export function endOfWeek(date: Date, firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday): Date {
-  var d = new Date(date)
-  var day = d.getDay()
-  var diff = (day < firstDayOfWeek ? -7 : 0) + 6 - (day - firstDayOfWeek)
+  const d = new Date(date);
+  const day = d.getDay();
+  const diff = (day < firstDayOfWeek ? -7 : 0) + 6 - (day - firstDayOfWeek);
 
-  d.setDate(d.getDate() + diff)
-  return d
+  d.setDate(d.getDate() + diff);
+  return d;
 }
 
 export function startOfMonth(date: Date): Date {
-  return new Date(date.getFullYear(), date.getMonth(), 1)
+  return new Date(date.getFullYear(), date.getMonth(), 1);
 }
 
 export function endOfMonth(date: Date): Date {
-  return new Date(date.getFullYear(), date.getMonth() + 1, 0)
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
 }
 
 export function setMonth(date: Date, month: number): Date {
-  const d = new Date(date)
-  d.setMonth(month)
-  return d
+  const d = new Date(date);
+  d.setMonth(month);
+  return d;
 }
 
 export function setYear(date: Date, year: number): Date {
-  const d = new Date(date)
-  d.setFullYear(year)
-  return d
+  const d = new Date(date);
+  d.setFullYear(year);
+  return d;
 }
 
 /**
  * Check if date is within a min and max
  */
 export function inRange(date: Date, min?: Date, max?: Date): boolean {
-  return clamp(date, min, max) === date
+  return clamp(date, min, max) === date;
 }
 
 /**
  * Ensures date is within range, returns min or max if out of bounds
  */
 export function clamp(date: Date, min?: Date, max?: Date): Date {
-  const time = date.getTime()
+  const time = date.getTime();
 
   if (min && min instanceof Date && time < min.getTime()) {
-    return min
+    return min;
   }
 
   if (max && max instanceof Date && time > max.getTime()) {
-    return max
+    return max;
   }
 
-  return date
+  return date;
 }
 
 /**
@@ -156,17 +156,17 @@ export function clamp(date: Date, min?: Date, max?: Date): Date {
  * @param end
  */
 function getDaysInRange(start: Date, end: Date): Date[] {
-  const days: Date[] = []
-  let current = start
+  const days: Date[] = [];
+  let current = start;
 
   while (!isEqual(current, end)) {
-    days.push(current)
-    current = addDays(current, 1)
+    days.push(current);
+    current = addDays(current, 1);
   }
 
-  days.push(current)
+  days.push(current);
 
-  return days
+  return days;
 }
 
 /**
@@ -175,8 +175,8 @@ function getDaysInRange(start: Date, end: Date): Date[] {
  * @param firstDayOfWeek
  */
 export function getViewOfMonth(date: Date, firstDayOfWeek: DaysOfWeek = DaysOfWeek.Monday): Date[] {
-  const start = startOfWeek(startOfMonth(date), firstDayOfWeek)
-  const end = endOfWeek(endOfMonth(date), firstDayOfWeek)
+  const start = startOfWeek(startOfMonth(date), firstDayOfWeek);
+  const end = endOfWeek(endOfMonth(date), firstDayOfWeek);
 
-  return getDaysInRange(start, end)
+  return getDaysInRange(start, end);
 }

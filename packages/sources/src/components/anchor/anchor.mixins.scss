@@ -21,8 +21,7 @@
     &:visited {
       color: anchor-variables.$visited-color;
     }
-  }
-  @else {
+  } @else {
     cursor: pointer;
   }
 }
@@ -49,4 +48,3 @@
     text-decoration: underline;
   }
 }
-

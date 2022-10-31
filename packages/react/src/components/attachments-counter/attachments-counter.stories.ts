@@ -1,15 +1,15 @@
-import { storiesOfAttachmentsCounter } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
-import { templateContainer } from '../../templates';
+import { storiesOfAttachmentsCounter } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import { templateContainer } from "../../templates";
 
-import readme from './readme.md';
+import readme from "./readme.md";
 
 storiesOfAttachmentsCounter({
   parameters: {
     module,
     storiesOf,
-    readme
+    readme,
   },
   templateContainer,
-  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate }),
 });

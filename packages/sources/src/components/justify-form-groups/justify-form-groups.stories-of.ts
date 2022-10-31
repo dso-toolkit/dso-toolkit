@@ -1,23 +1,30 @@
-import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
+import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
-import { JustifyFormGroupsArgs, justifyFormGroupsArgsMapper, justifyFormGroupsArgTypes } from './justify-form-groups.args';
-import { JustifyFormGroups } from './justify-form-groups.models';
+import { JustifyFormGroups } from "./justify-form-groups.models";
 
 export interface JustifyFormGroupsTemplates<TemplateFnReturnType> {
-  justifyFormGroupsTemplate: (justifyFormGroupsProperties: JustifyFormGroups<TemplateFnReturnType>) => TemplateFnReturnType;
+  justifyFormGroupsTemplate: (
+    justifyFormGroupsProperties: JustifyFormGroups<TemplateFnReturnType>
+  ) => TemplateFnReturnType;
 }
 
-export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, JustifyFormGroupsTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Form/justify form groups', storiesOfArguments, (stories, templateMapper) => {
-    stories.addParameters({
-      argTypes: justifyFormGroupsArgTypes
-    });
+export interface JustifyFormGroupsParameters<TemplateFnReturnType> {
+  content: JustifyFormGroups<TemplateFnReturnType>;
+}
 
-    const template = templateMapper<JustifyFormGroupsArgs>((args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(justifyFormGroupsArgsMapper(args)));
-
+export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    JustifyFormGroupsTemplates<TemplateFnReturnType>
+  >,
+  { content }: JustifyFormGroupsParameters<TemplateFnReturnType>
+) {
+  return storiesOfFactory("Form/justify form groups", storiesOfArguments, (stories, templateMapper) => {
     stories.add(
-      'justify form groups',
-      template
+      "justify form groups",
+      templateMapper((_args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(content))
     );
   });
 }

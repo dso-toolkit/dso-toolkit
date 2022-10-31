@@ -15,7 +15,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
 }
 
 export interface ViewerGridChangeSizeEvent {
-  stage: 'start' | 'end';
+  stage: "start" | "end";
   previousSize: string;
   currentSize: string;
 }

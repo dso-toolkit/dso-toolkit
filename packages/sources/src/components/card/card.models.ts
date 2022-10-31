@@ -1,4 +1,4 @@
-import { Selectable } from '../..';
+import { Selectable } from "../..";
 import { Button } from "../button/button.models";
 
 export interface Card<TemplateFnReturnType = never> {

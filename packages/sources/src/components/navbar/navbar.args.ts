@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Navbar, NavbarItem } from './navbar.models';
+import { Navbar, NavbarItem } from "./navbar.models";
 
 export interface NavbarArgs {
   items: NavbarItem[];
@@ -11,26 +11,26 @@ export interface NavbarArgs {
 export const navbarArgTypes: ArgTypes<NavbarArgs> = {
   items: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   modifier: {
-    options: ['main', 'sub'],
+    options: ["main", "sub"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   open: {
     control: {
-      type: 'boolean'
-    }
-  }
+      type: "boolean",
+    },
+  },
 };
 
 export function navbarArgsMapper(a: NavbarArgs): Navbar {
   return {
     items: a.items,
     modifier: a.modifier,
-    open: a.open
+    open: a.open,
   };
 }

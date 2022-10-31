@@ -97,7 +97,9 @@ button {
   flex-grow: 0;
   padding-right: units.$u1;
   position: relative;
-  transition: flex-basis core-viewer-grid-variables.$transition-time ease-in, max-width core-viewer-grid-variables.$transition-time ease-in, min-width core-viewer-grid-variables.$transition-time ease-in;
+  transition: flex-basis core-viewer-grid-variables.$transition-time ease-in,
+    max-width core-viewer-grid-variables.$transition-time ease-in,
+    min-width core-viewer-grid-variables.$transition-time ease-in;
   z-index: zindex.$viewer-grid-map-panel;
 
   .dso-filterblok-address {

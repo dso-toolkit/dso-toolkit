@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { SearchBar } from './search-bar.models';
+import { SearchBar } from "./search-bar.models";
 
 export interface SearchBarArgs {
   label: string;
@@ -21,69 +21,69 @@ export interface SearchBarArgs {
 export const searchBarArgTypes: ArgTypes<SearchBarArgs> = {
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   icon: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   hiddenLabel: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   invalid: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   placeholder: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   value: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   buttonLabel: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   hideSearchButton: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   resultsMessage: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   resultsHidden: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   ariaDescribedBy: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   ariaErrorMessage: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function searchBarArgsMapper(a: SearchBarArgs): SearchBar {

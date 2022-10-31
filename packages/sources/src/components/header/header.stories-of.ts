@@ -6,12 +6,18 @@ export interface HeaderTemplates<TemplateFnReturnType> {
   headerTemplate: (headerProperties: Header) => TemplateFnReturnType;
 }
 
-export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, HeaderTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Header', storiesOfArguments, (stories, templateMapper) => {
-    stories
-      .addParameters({
-        argTypes: headerArgTypes
-      });
+export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    HeaderTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Header", storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: headerArgTypes,
+    });
 
     const template = templateMapper<HeaderArgs>((args, { headerTemplate }) => headerTemplate(headerArgsMapper(args)));
 
@@ -53,7 +59,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
         ],
         noMainMenu: false,
         useDropDownMenu: "auto",
-        authStatus: 'none',
+        authStatus: "none",
         loginUrl: "#login",
         logoutUrl: "#logout",
         userProfileName: "J.A. Jansen",

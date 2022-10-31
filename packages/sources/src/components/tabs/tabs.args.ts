@@ -1,6 +1,6 @@
-import { ArgTypes, noControl } from '../../storybook';
+import { ArgTypes, noControl } from "../../storybook";
 
-import { Tabs, TabsItem } from './tabs.models';
+import { Tabs, TabsItem } from "./tabs.models";
 
 export interface TabsArgs {
   items: TabsItem[];
@@ -8,12 +8,12 @@ export interface TabsArgs {
 
 export const tabsArgTypes: ArgTypes<TabsArgs> = {
   items: {
-    ...noControl
-  }
+    ...noControl,
+  },
 };
 
 export function tabsArgsMapper(a: TabsArgs): Tabs {
   return {
-    items: a.items
+    items: a.items,
   };
 }

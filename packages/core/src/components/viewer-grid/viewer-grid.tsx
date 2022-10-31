@@ -1,26 +1,16 @@
-import {
-  h,
-  Component,
-  Prop,
-  State,
-  Host,
-  Element,
-  Event,
-  EventEmitter,
-  Watch,
-} from "@stencil/core";
+import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } from "@stencil/core";
 import { FocusTrap, createFocusTrap } from "focus-trap";
-import { ViewerGridFilterpanelButtons } from './viewer-grid-filterpanel-buttons';
+import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
 
 export type MainSize = "small" | "medium" | "large";
 
-export type LabelSizeMap = { [key in MainSize]: string; }
+export type LabelSizeMap = { [key in MainSize]: string };
 
 export interface ViewerGridChangeSizeEvent {
   /**
    * Indicates whether it's before or after the animation
    */
-  stage: 'start' | 'end';
+  stage: "start" | "end";
   previousSize: MainSize;
   currentSize: MainSize;
 }
@@ -37,12 +27,11 @@ const TRANSITION_TIME = 200; // Keep in sync with dso-viewer-grid.variables.scss
   shadow: true,
 })
 export class ViewerGrid {
-
   private sizeLabelMap: LabelSizeMap = {
-    small: 'smal',
-    medium: 'middel',
-    large: 'breed',
-  }
+    small: "smal",
+    medium: "middel",
+    large: "breed",
+  };
 
   @Prop({ reflect: true })
   filterpanelOpen = false;
@@ -86,29 +75,29 @@ export class ViewerGrid {
 
   overlayFocustrap: FocusTrap | undefined;
 
-  @Watch('mainSize')
+  @Watch("mainSize")
   mainSizeWatcher(currentSize: MainSize, previousSize: MainSize) {
     this.dsoMainSizeChange.emit({
-      stage: 'start',
+      stage: "start",
       previousSize,
-      currentSize
+      currentSize,
     });
 
     setTimeout(() => {
       this.dsoMainSizeChange.emit({
-        stage: 'end',
+        stage: "end",
         previousSize,
-        currentSize
+        currentSize,
       });
     }, TRANSITION_TIME);
   }
 
   shrinkMain = () => {
-    this.mainSize = this.mainSize === 'large' ? 'medium' : 'small';
+    this.mainSize = this.mainSize === "large" ? "medium" : "small";
   };
 
   expandMain = () => {
-    this.mainSize = this.mainSize === 'small' ? 'medium' : 'large';
+    this.mainSize = this.mainSize === "small" ? "medium" : "large";
   };
 
   updateFocusTrap() {
@@ -138,7 +127,7 @@ export class ViewerGrid {
   }
 
   keyDownListener = (event: KeyboardEvent) => {
-    if (event.key != "Escape") {
+    if (event.key !== "Escape") {
       return;
     }
 
@@ -146,13 +135,9 @@ export class ViewerGrid {
   };
 
   connectedCallback() {
-    this.filterpanelSlot = this.host.querySelector<HTMLDivElement>(
-      "div[slot='filterpanel']"
-    );
+    this.filterpanelSlot = this.host.querySelector<HTMLDivElement>("div[slot='filterpanel']");
 
-    this.overlaySlot = this.host.querySelector<HTMLDivElement>(
-      "div[slot='overlay']"
-    );
+    this.overlaySlot = this.host.querySelector<HTMLDivElement>("div[slot='overlay']");
   }
 
   componentDidLoad() {
@@ -162,7 +147,7 @@ export class ViewerGrid {
         allowOutsideClick: true,
         tabbableOptions: {
           getShadowRoot: true,
-        }
+        },
       });
     }
 
@@ -172,7 +157,7 @@ export class ViewerGrid {
         allowOutsideClick: true,
         tabbableOptions: {
           getShadowRoot: true,
-        }
+        },
       });
     }
 
@@ -203,22 +188,14 @@ export class ViewerGrid {
       <Host {...{ [this.mainSize]: true }}>
         <div class="dso-map-panel">
           <div class="sizing-buttons">
-            <span class="sr-only" aria-live="polite" aria-atomic="true">breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}</span>
-            <button
-              type="button"
-              class="shrink"
-              disabled={this.mainSize == "small"}
-              onClick={this.shrinkMain}
-            >
+            <span class="sr-only" aria-live="polite" aria-atomic="true">
+              breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}
+            </span>
+            <button type="button" class="shrink" disabled={this.mainSize === "small"} onClick={this.shrinkMain}>
               <span class="sr-only">Kaartpaneel smaller maken</span>
               <dso-icon icon="chevron-left"></dso-icon>
             </button>
-            <button
-              type="button"
-              class="expand"
-              disabled={this.mainSize == "large"}
-              onClick={this.expandMain}
-            >
+            <button type="button" class="expand" disabled={this.mainSize === "large"} onClick={this.expandMain}>
               <span class="sr-only">Kaartpaneel breder maken</span>
               <dso-icon icon="chevron-right"></dso-icon>
             </button>
@@ -230,12 +207,18 @@ export class ViewerGrid {
         <div
           id="filterpanel"
           hidden={!this.filterpanelOpen || !this.filterpanelSlot}
-          ref={(element) => this.filterpanel = element}
+          ref={(element) => (this.filterpanel = element)}
         >
           <h2>Uw keuzes</h2>
-          <ViewerGridFilterpanelButtons onApply={e => this.handleFilterpanelApply(e)} onCancel={e => this.handleFilterpanelCancel(e)} />
+          <ViewerGridFilterpanelButtons
+            onApply={(e) => this.handleFilterpanelApply(e)}
+            onCancel={(e) => this.handleFilterpanelCancel(e)}
+          />
           <slot name="filterpanel" />
-          <ViewerGridFilterpanelButtons onApply={e => this.handleFilterpanelApply(e)} onCancel={e => this.handleFilterpanelCancel(e)} />
+          <ViewerGridFilterpanelButtons
+            onApply={(e) => this.handleFilterpanelApply(e)}
+            onCancel={(e) => this.handleFilterpanelCancel(e)}
+          />
         </div>
         <div class="map">
           <slot name="map" />
@@ -245,22 +228,13 @@ export class ViewerGrid {
           hidden={!this.overlayOpen || !this.overlaySlot}
           ref={(element) => (this.overlay = element)}
         >
-          <button
-            type="button"
-            class="overlay-close-button"
-            onClick={(e) => this.dsoCloseOverlay.emit(e)}
-          >
+          <button type="button" class="overlay-close-button" onClick={(e) => this.dsoCloseOverlay.emit(e)}>
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">sluiten</span>
           </button>
           <slot name="overlay" />
           {/* This button is needed for the `focus-trap` library to function correctly. It is never focused. */}
-          <button
-            aria-hidden="true"
-            type="button"
-            class="overlay-close-button"
-            style={{ zIndex: '-100' }}
-          >
+          <button aria-hidden="true" type="button" class="overlay-close-button" style={{ zIndex: "-100" }}>
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">sluiten</span>
           </button>

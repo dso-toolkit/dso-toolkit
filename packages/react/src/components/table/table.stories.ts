@@ -1,15 +1,15 @@
-import { storiesOfTable } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
-import { templateContainer } from '../../templates';
+import { storiesOfTable } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import { templateContainer } from "../../templates";
 
-import readme from './readme.md';
+import readme from "./readme.md";
 
 storiesOfTable({
   parameters: {
     module,
     storiesOf,
-    readme
+    readme,
   },
   templateContainer,
-  storyTemplates: ({ tableTemplate }) => ({ tableTemplate })
+  storyTemplates: ({ tableTemplate }) => ({ tableTemplate }),
 });

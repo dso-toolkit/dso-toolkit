@@ -1,15 +1,12 @@
-describe('Tooltip', () => {
+describe("Tooltip", () => {
   beforeEach(() => {
-    cy.visit('http://localhost:45000/iframe.html?id=core-tooltip--as-child');
+    cy.visit("http://localhost:45000/iframe.html?id=core-tooltip--as-child");
   });
 
   function prepareComponent() {
-    cy.get('#root')
-      .invoke('attr', 'style', 'min-height: 360px;');
+    cy.get("#root").invoke("attr", "style", "min-height: 360px;");
 
-    cy.get('dso-tooltip')
-      .closest('button')
-      .as('dsoButton');
+    cy.get("dso-tooltip").closest("button").as("dsoButton");
   }
 
   // https://github.com/dmtrKovalenko/cypress-real-events/issues/247
@@ -23,21 +20,20 @@ describe('Tooltip', () => {
   //     .realHover();
   // });
 
-  it.skip('should show tooltip on focus on button and hide on escape key', () => {
+  it.skip("should show tooltip on focus on button and hide on escape key", () => {
     prepareComponent();
 
-    cy
-      .get('@dsoButton')
+    cy.get("@dsoButton")
       .wait(100)
       .focus()
       .wait(100)
-      .find('dso-tooltip')
-      .should('not.have.class', 'hidden')
+      .find("dso-tooltip")
+      .should("not.have.class", "hidden")
       .wait(250)
-      .realPress('Escape')
+      .realPress("Escape")
       .wait(100)
-      .get('@dsoButton')
-      .find('dso-tooltip')
-      .should('have.class', 'hidden');
+      .get("@dsoButton")
+      .find("dso-tooltip")
+      .should("have.class", "hidden");
   });
 });

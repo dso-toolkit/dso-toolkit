@@ -1,8 +1,8 @@
 export enum AlertType {
-  Danger = 'danger',
-  Warning = 'warning',
-  Info = 'info',
-  Success = 'success'
+  Danger = "danger",
+  Warning = "warning",
+  Info = "info",
+  Success = "success",
 }
 
 export interface Alert<TemplateFnReturnType> {

@@ -1,9 +1,9 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { baseLayers, overlays } from './map-controls.content';
-import { MapControls } from './map-controls.models';
+import { baseLayers, overlays } from "./map-controls.content";
+import { MapControls } from "./map-controls.models";
 
 export interface MapControlsArgs {
   dsoZoomIn: HandlerFunction;
@@ -13,50 +13,56 @@ export interface MapControlsArgs {
   dsoBaseLayerChange: HandlerFunction;
   overlays: typeof overlays;
   dsoToggleOverlay: HandlerFunction;
-  disableZoom: 'both' | 'in' | 'out';
+  disableZoom: "both" | "in" | "out";
 }
 
 export const mapControlsArgTypes: ArgTypes<MapControlsArgs> = {
   open: {
-    type: 'boolean'
+    type: "boolean",
   },
   dsoZoomIn: {
-    action: 'dsoZoomIn'
+    action: "dsoZoomIn",
   },
   dsoZoomOut: {
-    action: 'dsoZoomOut'
+    action: "dsoZoomOut",
   },
   baseLayers: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   dsoBaseLayerChange: {
-    action: 'dsoBaseLayerChange'
+    action: "dsoBaseLayerChange",
   },
   overlays: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   dsoToggleOverlay: {
-    action: 'dsoToggleOverlay'
+    action: "dsoToggleOverlay",
   },
   disableZoom: {
-    options: ['both', 'in', 'out'],
+    options: ["both", "in", "out"],
     control: {
-      type: 'select'
-    }
-  }
+      type: "select",
+    },
+  },
 };
 
 export function mapControlsArgsMapper(a: MapControlsArgs): Required<MapControls> {
   return {
     ...a,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- In deze library weten hebben we geen weet van de door Stencil gegenereerde Web Components
     dsoBaseLayerChange: (e: any) => {
-      e.target!.baseLayers = [...e.target.baseLayers.map((l: any) => l.checked !== (l === e.detail.activeBaseLayer) ? { ...l, checked: l === e.detail.activeBaseLayer } : l)];
+      e.target.baseLayers = [
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- In deze library weten hebben we geen weet van de door Stencil gegenereerde Web Components
+        ...e.target.baseLayers.map((l: any) =>
+          l.checked !== (l === e.detail.activeBaseLayer) ? { ...l, checked: l === e.detail.activeBaseLayer } : l
+        ),
+      ];
 
       a.dsoBaseLayerChange(e);
-    }
+    },
   };
 }

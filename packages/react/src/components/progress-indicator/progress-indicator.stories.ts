@@ -11,5 +11,5 @@ storiesOfProgressIndicator({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
+  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate }),
 });

@@ -26,5 +26,5 @@ storiesOfSelectable({
   storyTemplates: ({ selectableTemplate }) => ({
     selectableTemplate,
     infoRichContent,
-  })
+  }),
 });

@@ -1,69 +1,69 @@
 @use "sass:color";
 
-$gray-base:              #000 !default;
-$gray-dark:              color.adjust($gray-base, $lightness: 20%) !default;   // #333
-$gray:                   color.adjust($gray-base, $lightness: 33.5%) !default; // #555
-$gray-light:             color.adjust($gray-base, $lightness: 46.7%) !default; // #777
-$gray-lighter:           color.adjust($gray-base, $lightness: 93.5%) !default; // #eee
+$gray-base: #000 !default;
+$gray-dark: color.adjust($gray-base, $lightness: 20%) !default; // #333
+$gray: color.adjust($gray-base, $lightness: 33.5%) !default; // #555
+$gray-light: color.adjust($gray-base, $lightness: 46.7%) !default; // #777
+$gray-lighter: color.adjust($gray-base, $lightness: 93.5%) !default; // #eee
 
 // DSO kleuren                http://webaim.org/resources/contrastchecker/ (contrast op een witte achtergrond)
 
-$grasgroen:             #39870c;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grasgroen-80:          #609f3c;    //  80% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
-$grasgroen-40:          #afcf9d;    //  40% tint       - niet te gebruiken als leestekst
-$grasgroen-10:          #ebf3e6;    //  10% tint       - niet te gebruiken als leestekst
+$grasgroen: #39870c; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grasgroen-80: #609f3c; //  80% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
+$grasgroen-40: #afcf9d; //  40% tint       - niet te gebruiken als leestekst
+$grasgroen-10: #ebf3e6; //  10% tint       - niet te gebruiken als leestekst
 
-$lime:                  #79b929;
-$lime-20:               #e4f1d4;
+$lime: #79b929;
+$lime-20: #e4f1d4;
 
-$bosgroen-130:          #15301e;    // 130% tint
-$bosgroen:              #275937;    // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$bosgroen-80:           #527a5e;    //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$bosgroen-60:           #7d9886;    //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
-$bosgroen-40:           #a8bcaf;    //  40% tint       - niet te gebruiken als leestekst
-$bosgroen-10:           #e9eeeb;    //  10% tint       - niet te gebruiken als leestekst
+$bosgroen-130: #15301e; // 130% tint
+$bosgroen: #275937; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$bosgroen-80: #527a5e; //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$bosgroen-60: #7d9886; //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
+$bosgroen-40: #a8bcaf; //  40% tint       - niet te gebruiken als leestekst
+$bosgroen-10: #e9eeeb; //  10% tint       - niet te gebruiken als leestekst
 
-$oranje:                #e17000;    // 100% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
-$oranje-80:             #e78c32;
-$oranje-40:             #f3c599;
-$oranje-10:             #fcf0e5;
+$oranje: #e17000; // 100% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
+$oranje-80: #e78c32;
+$oranje-40: #f3c599;
+$oranje-10: #fcf0e5;
 
-$zwart:                 #000;       // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grijs-90:              #191919;    //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grijs-80:              #323232;    //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grijs-70:              #4c4c4c;    //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grijs-60:              #666;       //                 - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
-$grijs-50:              #7f7f7f;    //                 - niet te gebruiken als leestekst
-$grijs-40:              #999;       //                 - niet te gebruiken als leestekst
-$grijs-30:              #b2b2b2;    //                 - niet te gebruiken als leestekst
-$grijs-20:              #ccc;       //                 - niet te gebruiken als leestekst
-$grijs-10:              #e5e5e5;    //                 - niet te gebruiken als leestekst
-$grijs-5:               #f2f2f2;    //                 - niet te gebruiken als leestekst
-$wit:                   #fff;
+$zwart: #000; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grijs-90: #191919; //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grijs-80: #323232; //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grijs-70: #4c4c4c; //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grijs-60: #666; //                 - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$grijs-50: #7f7f7f; //                 - niet te gebruiken als leestekst
+$grijs-40: #999; //                 - niet te gebruiken als leestekst
+$grijs-30: #b2b2b2; //                 - niet te gebruiken als leestekst
+$grijs-20: #ccc; //                 - niet te gebruiken als leestekst
+$grijs-10: #e5e5e5; //                 - niet te gebruiken als leestekst
+$grijs-5: #f2f2f2; //                 - niet te gebruiken als leestekst
+$wit: #fff;
 
-$mauve:                 #8b4a6a;
-$mauve-40:              #d1b7c4;
+$mauve: #8b4a6a;
+$mauve-40: #d1b7c4;
 
-$scampi:                #676cb0;
+$scampi: #676cb0;
 
-$opac10:                rgba(0, 0, 0, 0.1);
+$opac10: rgba(0, 0, 0, 0.1);
 
-$success-color:     $grasgroen;
-$info-color:        #6ca4d9;
-$warning-color:     #dcd400;
-$danger-color:      #ce3f51;
-$invalid-color:     #b62f41;
+$success-color: $grasgroen;
+$info-color: #6ca4d9;
+$warning-color: #dcd400;
+$danger-color: #ce3f51;
+$invalid-color: #b62f41;
 
-$success-bg-color:  $lime-20;
-$info-bg-color:     #e1ecf7;
-$warning-bg-color:  #f8f6cc;
-$danger-bg-color:   #f5d8dc;
+$success-bg-color: $lime-20;
+$info-bg-color: #e1ecf7;
+$warning-bg-color: #f8f6cc;
+$danger-bg-color: #f5d8dc;
 
 $input-color-placeholder: $grijs-60;
-$input-bg:              #fff;
-$input-color:           $grijs-90;
-$input-border:          $bosgroen;
-$input-bg-disabled:     $wit;
+$input-bg: #fff;
+$input-color: $grijs-90;
+$input-border: $bosgroen;
+$input-bg-disabled: $wit;
 
 $input-disabled-color: $grijs-40;
 $input-disabled-border-color: $grijs-10;

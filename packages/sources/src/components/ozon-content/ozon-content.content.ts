@@ -1,11 +1,11 @@
 export const content = [
   {
-    title: 'Al',
+    title: "Al",
     content:
-      '<Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>',
+      "<Al>De wijze van begrenzing van Vogelrichtlijngebieden is toegelicht in de Nota van Antwoord Vogelrichtlijn (2000).</Al>",
   },
   {
-    title: 'Inhoud',
+    title: "Inhoud",
     content: `
       <Inhoud>
         <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
@@ -14,7 +14,7 @@ export const content = [
     `,
   },
   {
-    title: 'Inhoud met Lijst',
+    title: "Inhoud met Lijst",
     content: `
       <Inhoud>
         <Lijst
@@ -128,7 +128,7 @@ export const content = [
   },
   {
     // De Noot in deze content is verzonnen. Volgens STOP kan dit voorkomen maar ik heb geen echte content gevonden.
-    title: 'Opschrift',
+    title: "Opschrift",
     content: `
       <Opschrift
         xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
@@ -152,12 +152,12 @@ export const content = [
     args: {
       inline: true,
       interactive: true,
-      prefix: 'Afdeling 4.1 ',
-      suffix: ' [gereserveerd]'
-    }
+      prefix: "Afdeling 4.1 ",
+      suffix: " [gereserveerd]",
+    },
   },
   {
-    title: 'Lijst',
+    title: "Lijst",
     content: `
       <Lijst
         eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
@@ -255,10 +255,10 @@ export const content = [
         </Li>
         <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
       </Lijst>
-    `
+    `,
   },
   {
-    title: 'IntRef',
+    title: "IntRef",
     content: `
       <Al>
         Dit is een <IntRef ref="longTitle_inst2">aanwijzingsbesluit Natura2000</IntRef>. Dit besluit treedt in werking per 28 maart 2021.
@@ -266,11 +266,11 @@ export const content = [
     `,
   },
   {
-    title: 'ExtRef',
+    title: "ExtRef",
     content: `<ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef>`,
   },
   {
-    title: 'IntIoRef',
+    title: "IntIoRef",
     content: `
       <Inhoud>
         <Al>
@@ -283,7 +283,7 @@ export const content = [
     `,
   },
   {
-    title: 'ExtIoRef',
+    title: "ExtIoRef",
     content: `
     <Inhoud xmlns='https://standaarden.overheid.nl/stop/imop/tekst/' xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12' xmlns:data='https://standaarden.overheid.nl/stop/imop/data/' xmlns:ns10='http://www.w3.org/2001/SMIL20/Language' xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/' xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/' xmlns:ns5='http://www.opengis.net/se' xmlns:ns6='http://www.w3.org/1999/xlink' xmlns:ns7='http://www.opengis.net/ogc' xmlns:ns8='http://www.opengis.net/gml' xmlns:ns9='http://www.w3.org/2001/SMIL20/'>
       <Begrippenlijst eId='cmp_2__content_o_1__list_o_1' wId='pv31_1__cmp_2__content_o_1__list_o_1'>
@@ -300,7 +300,7 @@ export const content = [
     `,
   },
   {
-    title: 'Inhoud > Al > Noot',
+    title: "Inhoud > Al > Noot",
     content: `
       <Inhoud>
         <Al>
@@ -356,7 +356,7 @@ export const content = [
     `,
   },
   {
-    title: 'Figuur',
+    title: "Figuur",
     content: `
       <Inhoud>
         <Al>Alde Feanen behoort tot het Natura 2000-landschap 'Meren en Moerassen'.</Al>
@@ -378,7 +378,7 @@ export const content = [
     `,
   },
   {
-    title: 'Table',
+    title: "Table",
     content: `
       <table
         colsep="1"
@@ -484,10 +484,10 @@ export const content = [
           </tbody>
         </tgroup>
       </table>
-    `
+    `,
   },
   {
-    title: 'Table met Noot',
+    title: "Table met Noot",
     content: `
       <Inhoud>
         <Al>
@@ -652,10 +652,10 @@ export const content = [
           </tgroup>
         </table>
       </Inhoud>
-    `
+    `,
   },
   {
-    title: 'Table met thead',
+    title: "Table met thead",
     content: `
       <table
         colsep="0"
@@ -960,6 +960,6 @@ export const content = [
           </tbody>
         </tgroup>
       </table>
-    `
-  }
+    `,
+  },
 ];

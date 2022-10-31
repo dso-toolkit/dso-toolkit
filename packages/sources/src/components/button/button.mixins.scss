@@ -56,8 +56,7 @@
     > span {
       @include utilities.sr-only();
     }
-  }
-  @else {
+  } @else {
     dso-icon,
     svg.di {
       margin-left: units.$u1 * -1;
@@ -198,22 +197,22 @@
   $defaults-map: (
     "background-color": button-variables.$primary-background-color,
     "border-color": button-variables.$primary-background-color,
-    "color": button-variables.$primary-color
+    "color": button-variables.$primary-color,
   );
 
   $hover-map: (
     "background-color": button-variables.$primary-hover-background-color,
-    "border-color": button-variables.$primary-hover-background-color
+    "border-color": button-variables.$primary-hover-background-color,
   );
 
   $active-map: (
     "background-color": button-variables.$primary-active-background-color,
-    "border-color": button-variables.$primary-active-background-color
+    "border-color": button-variables.$primary-active-background-color,
   );
 
   $disabled-map: (
     "background-color": button-variables.$primary-disabled-background-color,
-    "border-color": button-variables.$primary-disabled-background-color
+    "border-color": button-variables.$primary-disabled-background-color,
   );
 
   @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, false);
@@ -249,29 +248,29 @@
   }
 }
 
-@mixin secondary($base-styling: true ,$modifiers: true, $icon-only: false) {
+@mixin secondary($base-styling: true, $modifiers: true, $icon-only: false) {
   $defaults-map: (
     "background-color": button-variables.$secondary-background-color,
     "border-color": button-variables.$secondary-border-color,
-    "color": button-variables.$secondary-color
+    "color": button-variables.$secondary-color,
   );
 
   $hover-map: (
     "background-color": button-variables.$secondary-hover-background-color,
     "border-color": button-variables.$secondary-hover-background-color,
-    "color": colors.$wit
+    "color": colors.$wit,
   );
 
   $active-map: (
     "background-color": button-variables.$secondary-active-background-color,
     "border-color": button-variables.$secondary-active-background-color,
-    "color": colors.$wit
+    "color": colors.$wit,
   );
 
   $disabled-map: (
     "background-color": colors.$wit,
     "border-color": button-variables.$secondary-disabled-color,
-    "color": button-variables.$secondary-disabled-color
+    "color": button-variables.$secondary-disabled-color,
   );
 
   @include _shared($base-styling, $modifiers, $defaults-map, $hover-map, $active-map, $disabled-map, $icon-only);
@@ -395,8 +394,7 @@
     > span {
       @include utilities.sr-only();
     }
-  }
-  @else {
+  } @else {
     dso-icon + span:not(.sr-only),
     svg.di + span:not(.sr-only),
     span:not(.sr-only) + dso-icon,
@@ -445,7 +443,7 @@
     "border-color": button-variables.$secondary-hover-background-color,
     "color": colors.$wit,
     "type-download-di": "download-wit",
-    "type-extern-di": "external-link-wit"
+    "type-extern-di": "external-link-wit",
   );
 
   &:focus-visible {

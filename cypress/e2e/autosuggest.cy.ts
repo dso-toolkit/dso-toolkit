@@ -42,11 +42,7 @@ describe("Autosuggest", () => {
     cy.realPress("ArrowDown");
     cy.realPress("ArrowDown");
     cy.checkA11y("dso-autosuggest");
-    cy.get("@input").should(
-      "have.attr",
-      "aria-activedescendant",
-      "autosuggestInputId-2"
-    );
+    cy.get("@input").should("have.attr", "aria-activedescendant", "autosuggestInputId-2");
   });
 
   it("escape should hide suggestions", { browser: "!firefox" }, () => {
@@ -61,39 +57,29 @@ describe("Autosuggest", () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
     cy.realPress("ArrowDown");
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(0)
-      .should("have.attr", "aria-selected", "true");
+    cy.get("@listbox").get("li[role='option']").eq(0).should("have.attr", "aria-selected", "true");
   });
 
   it("ArrowUp should select last option", { browser: "!firefox" }, () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
     cy.realPress("ArrowUp");
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(9)
-      .should("have.attr", "aria-selected", "true");
+    cy.get("@listbox").get("li[role='option']").eq(9).should("have.attr", "aria-selected", "true");
   });
 
-  it(
-    "should pick option with keyboard navigation and not change input value",
-    { browser: "!firefox" },
-    () => {
-      cy.get("dso-autosuggest").then((c) => {
-        c.get(0).addEventListener("dsoSelect", cy.stub().as("dsoSelect"));
-      });
-      cy.get("@input").focus().type("rotterdam");
-      cy.wait(200);
-      cy.realPress("ArrowDown");
-      cy.realPress("ArrowDown");
-      cy.realPress("ArrowDown");
-      cy.get("@input").type("{enter}").invoke("val").should("eq", "rotterdam");
-      cy.get("@listbox").should("not.be.visible");
-      cy.get("@dsoSelect").should("have.been.calledOnce");
-    }
-  );
+  it("should pick option with keyboard navigation and not change input value", { browser: "!firefox" }, () => {
+    cy.get("dso-autosuggest").then((c) => {
+      c.get(0).addEventListener("dsoSelect", cy.stub().as("dsoSelect"));
+    });
+    cy.get("@input").focus().type("rotterdam");
+    cy.wait(200);
+    cy.realPress("ArrowDown");
+    cy.realPress("ArrowDown");
+    cy.realPress("ArrowDown");
+    cy.get("@input").type("{enter}").invoke("val").should("eq", "rotterdam");
+    cy.get("@listbox").should("not.be.visible");
+    cy.get("@dsoSelect").should("have.been.calledOnce");
+  });
 
   it("mouse enter should select option", () => {
     cy.get("@input").focus().type("rotterdam");
@@ -121,11 +107,7 @@ describe("Autosuggest", () => {
     });
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(0)
-      .trigger("mouseenter")
-      .click();
+    cy.get("@listbox").get("li[role='option']").eq(0).trigger("mouseenter").click();
     cy.get("@input").invoke("val").should("eq", "rotterdam");
     cy.get("@listbox").should("not.be.visible");
     cy.get("@selected").should("have.been.calledOnce");
@@ -151,42 +133,30 @@ describe("Autosuggest", () => {
   it("should show type in options", () => {
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(0)
-      .should("not.contain", "adres in Rotterdam");
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(1)
-      .should("contain", "adres in Rotterdam");
+    cy.get("@listbox").get("li[role='option']").eq(0).should("not.contain", "adres in Rotterdam");
+    cy.get("@listbox").get("li[role='option']").eq(1).should("contain", "adres in Rotterdam");
   });
 
-  it(
-    "suggestOnFocus should show suggestions on focus by keyboard",
-    { browser: "!firefox" },
-    () => {
-      cy.get("@input").focus().type("rotterdam");
-      cy.wait(200);
-      cy.get("@listbox").should("be.visible");
-      cy.realPress("Tab");
-      cy.get("@listbox").should("not.be.visible");
-      cy.realPress(["Shift", "Tab"]);
-      cy.get("@listbox").should("not.be.visible");
+  it("suggestOnFocus should show suggestions on focus by keyboard", { browser: "!firefox" }, () => {
+    cy.get("@input").focus().type("rotterdam");
+    cy.wait(200);
+    cy.get("@listbox").should("be.visible");
+    cy.realPress("Tab");
+    cy.get("@listbox").should("not.be.visible");
+    cy.realPress(["Shift", "Tab"]);
+    cy.get("@listbox").should("not.be.visible");
 
-      cy.visit(
-        "http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true"
-      );
+    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true");
 
-      cy.get("@input").focus().type("rotterdam");
-      cy.wait(200);
-      cy.get("@listbox").should("be.visible");
-      cy.realPress(["Shift", "Tab"]);
-      cy.get("@listbox").should("not.be.visible");
-      cy.realPress("Tab");
-      cy.get("@listbox").should("be.visible");
-      cy.get("@listbox").get("li[role='option']").should("have.length", 10);
-    }
-  );
+    cy.get("@input").focus().type("rotterdam");
+    cy.wait(200);
+    cy.get("@listbox").should("be.visible");
+    cy.realPress(["Shift", "Tab"]);
+    cy.get("@listbox").should("not.be.visible");
+    cy.realPress("Tab");
+    cy.get("@listbox").should("be.visible");
+    cy.get("@listbox").get("li[role='option']").should("have.length", 10);
+  });
 
   it("suggestOnFocus should show suggestions on focus by mouse", () => {
     cy.get("@input").focus().type("rotterdam");
@@ -197,9 +167,7 @@ describe("Autosuggest", () => {
     cy.get("@input").click("bottomRight", { force: true });
     cy.get("@listbox").should("not.be.visible");
 
-    cy.visit(
-      "http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true"
-    );
+    cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&args=suggestOnFocus:true");
 
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
@@ -228,40 +196,29 @@ describe("Autosuggest", () => {
     });
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(0)
-      .trigger("mouseenter")
-      .click();
+    cy.get("@listbox").get("li[role='option']").eq(0).trigger("mouseenter").click();
     cy.get("@dsoSearch").should("not.have.been.called");
   });
 
-  it(
-    "should not emit dsoSearch event on suggestion select with enter",
-    { browser: "!firefox" },
-    () => {
-      cy.get("dso-autosuggest").then((c) => {
-        c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
-      });
-      cy.get("@input").focus().type("rotterdam");
-      cy.wait(200);
-      cy.realPress("ArrowDown");
-      cy.realPress("ArrowDown");
-      cy.realPress("ArrowDown");
-      cy.get("@input").type("{enter}");
-      cy.get("@dsoSearch").should("not.have.been.called");
-    }
-  );
+  it("should not emit dsoSearch event on suggestion select with enter", { browser: "!firefox" }, () => {
+    cy.get("dso-autosuggest").then((c) => {
+      c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
+    });
+    cy.get("@input").focus().type("rotterdam");
+    cy.wait(200);
+    cy.realPress("ArrowDown");
+    cy.realPress("ArrowDown");
+    cy.realPress("ArrowDown");
+    cy.get("@input").type("{enter}");
+    cy.get("@dsoSearch").should("not.have.been.called");
+  });
 
   it("should emit dsoSearch event on enter in input", () => {
     cy.get("dso-autosuggest").then((c) => {
       c.get(0).addEventListener("dsoSearch", cy.stub().as("dsoSearch"));
     });
     cy.get("@input").focus().type("rotterdam{enter}");
-    cy.get("@dsoSearch")
-      .should("have.been.calledOnce")
-      .its("firstCall.args.0.detail")
-      .should("equal", "rotterdam");
+    cy.get("@dsoSearch").should("have.been.calledOnce").its("firstCall.args.0.detail").should("equal", "rotterdam");
   });
 
   it("should pass supplied object to dsoSelect event", () => {
@@ -270,11 +227,7 @@ describe("Autosuggest", () => {
     });
     cy.get("@input").focus().type("rotterdam");
     cy.wait(200);
-    cy.get("@listbox")
-      .get("li[role='option']")
-      .eq(3)
-      .trigger("mouseenter")
-      .click();
+    cy.get("@listbox").get("li[role='option']").eq(3).trigger("mouseenter").click();
     cy.get("@selected").should("have.been.calledWithMatch", {
       detail: {
         type: "adres in Rotterdam",
@@ -291,7 +244,6 @@ describe("Autosuggest", () => {
     cy.get("@listbox").should("not.exist");
     cy.get("dso-progress-indicator").should("be.visible");
   });
-
 
   it("should remove progress indicator when loading attribute is removed", () => {
     cy.get("dso-autosuggest").invoke("attr", "loading", true);
@@ -311,74 +263,85 @@ describe("Autosuggest", () => {
     cy.wait(200);
     cy.get("@listbox").should("not.exist");
     cy.get("dso-progress-indicator").should("be.visible");
-    cy.get("dso-progress-indicator").shadow().find(".dso-progress-indicator-label").should("exist").contains("Patience");
+    cy.get("dso-progress-indicator")
+      .shadow()
+      .find(".dso-progress-indicator-label")
+      .should("exist")
+      .contains("Patience");
   });
 
-  it('should delay progress indicator when loadingDelayed is set', () => {
+  it("should delay progress indicator when loadingDelayed is set", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--example&args=loadingDelayed:1000");
-    cy.get('@input').focus().type('ams')
+    cy.get("@input")
+      .focus()
+      .type("ams")
       .wait(200)
-      .get('dso-autosuggest').invoke('attr', 'loading', true)
-      .get('dso-progress-indicator').should('not.exist')
+      .get("dso-autosuggest")
+      .invoke("attr", "loading", true)
+      .get("dso-progress-indicator")
+      .should("not.exist")
       .wait(1000)
-      .get('dso-progress-indicator').should('be.visible')
+      .get("dso-progress-indicator")
+      .should("be.visible")
       .wait(1500)
-      .get('dso-autosuggest').invoke('attr', 'loading', false)
-      .get('dso-progress-indicator').should('not.exist');
+      .get("dso-autosuggest")
+      .invoke("attr", "loading", false)
+      .get("dso-progress-indicator")
+      .should("not.exist");
   });
 
-  it('should show not found text when no results are found', () => {
-    cy.get('@input').focus().type('akjehfowef');
+  it("should show not found text when no results are found", () => {
+    cy.get("@input").focus().type("akjehfowef");
     cy.wait(200);
-    cy.get('@listbox').should('be.visible');
-    cy.get('@listbox').get('li.sc-dso-autosuggest').should('have.length', 1);
-    cy.get('@listbox').get('li mark').should('exist').contains('akjehfowef');
-    cy.get('@listbox').get('li span').should('exist').contains('is niet gevonden.');
+    cy.get("@listbox").should("be.visible");
+    cy.get("@listbox").get("li.sc-dso-autosuggest").should("have.length", 1);
+    cy.get("@listbox").get("li mark").should("exist").contains("akjehfowef");
+    cy.get("@listbox").get("li span").should("exist").contains("is niet gevonden.");
   });
 
-  it('should show custom not found text when notFoundLabel attribute is set and no results are found', () => {
-    cy.get('dso-autosuggest').invoke('attr', 'not-found-label', 'Er zijn geen resultaten gevonden.');
-    cy.get('@input').focus().type('akjehfowef');
+  it("should show custom not found text when notFoundLabel attribute is set and no results are found", () => {
+    cy.get("dso-autosuggest").invoke("attr", "not-found-label", "Er zijn geen resultaten gevonden.");
+    cy.get("@input").focus().type("akjehfowef");
     cy.wait(200);
-    cy.get('@listbox').should('be.visible');
-    cy.get('@listbox').get('li.sc-dso-autosuggest').should('have.length', 1);
-    cy.get('@listbox').get('li span').should('exist').contains('Er zijn geen resultaten gevonden.');
+    cy.get("@listbox").should("be.visible");
+    cy.get("@listbox").get("li.sc-dso-autosuggest").should("have.length", 1);
+    cy.get("@listbox").get("li span").should("exist").contains("Er zijn geen resultaten gevonden.");
   });
 
-  it('should hide listbox when there is no input value', () => {
-    cy.get('@input').focus().type('akjehfowef');
+  it("should hide listbox when there is no input value", () => {
+    cy.get("@input").focus().type("akjehfowef");
     cy.wait(200);
-    cy.get('@listbox').should('be.visible');
-    cy.get('@input').focus().clear();
+    cy.get("@listbox").should("be.visible");
+    cy.get("@input").focus().clear();
     cy.wait(200);
-    cy.get('@listbox').should('not.be.visible');
-    cy.get('@input').focus().type('ams');
+    cy.get("@listbox").should("not.be.visible");
+    cy.get("@input").focus().type("ams");
     cy.wait(200);
-    cy.get('@listbox').should('be.visible');
-    cy.get('@input').focus().clear();
+    cy.get("@listbox").should("be.visible");
+    cy.get("@input").focus().clear();
     cy.wait(200);
-    cy.get('@listbox').should('not.be.visible');
+    cy.get("@listbox").should("not.be.visible");
   });
 
   it('should not show "not found" when suggestions are null', () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-autosuggest--minimal-3-characters");
 
-    cy.get('#suggestions-demo')
-      .as('pre')
-      .should('have.text', 'null')
-      .get('@input')
+    cy.get("#suggestions-demo")
+      .as("pre")
+      .should("have.text", "null")
+      .get("@input")
       .focus()
-      .type('ddd')
-      .get('@listbox')
-      .should('be.visible')
-      .get('@pre')
-      .should('have.text', '[]')
-      .get('@input')
+      .type("ddd")
+      .get("@listbox")
+      .should("be.visible")
+      .get("@pre")
+      .should("have.text", "[]")
+      .get("@input")
       .focus()
-      .realPress('Backspace')
-      .get('@listbox')
-      .should('not.be.visible')
-      .get('@pre')
-      .should('have.text', 'null');
+      .realPress("Backspace")
+      .get("@listbox")
+      .should("not.be.visible")
+      .get("@pre")
+      .should("have.text", "null");
   });
 });

@@ -1,29 +1,32 @@
-import * as React from 'react';
-import { render } from 'react-dom';
-import { MapContainer, TileLayer, Marker, Popup, LayerGroup, useMapEvents, WMSTileLayer } from 'react-leaflet';
-import { defineCustomElements } from '@dso-toolkit/core';
-import { markerIcon } from '@dso-toolkit/leaflet';
+import * as React from "react";
+import { render } from "react-dom";
+import { MapContainer, TileLayer, Marker, Popup, LayerGroup, useMapEvents, WMSTileLayer } from "react-leaflet";
+import { defineCustomElements } from "@dso-toolkit/core";
+import { markerIcon } from "@dso-toolkit/leaflet";
 
-import { MapControls } from '../src';
+import { MapControls } from "../src";
 
 defineCustomElements();
 
-const mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
-const mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+const mapboxAttribution =
+  'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+const mapboxUrl =
+  "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
 
 function App() {
-  const [baseLayer, setBaseLayer] = React.useState<string>('mapbox/light-v9');
+  const [baseLayer, setBaseLayer] = React.useState<string>("mapbox/light-v9");
   const [disabled, setDisabled] = React.useState<boolean>(true);
 
   function MapEvents() {
     useMapEvents({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Type definitie loopt achter op de werkelijkheid
       layeradd: (e: any) => {
         const id: string = e.layer.options.id;
 
-        if (baseLayer !== id && ['mapbox/streets-v11', 'mapbox/light-v9'].includes(id)) {
+        if (baseLayer !== id && ["mapbox/streets-v11", "mapbox/light-v9"].includes(id)) {
           setBaseLayer(id);
         }
-      }
+      },
     });
 
     return null;
@@ -32,11 +35,14 @@ function App() {
   return (
     <>
       <div>
-        <button type="button" onClick={e => setBaseLayer(baseLayer === 'mapbox/streets-v11' ? 'mapbox/light-v9' : 'mapbox/streets-v11')}>
-          Toggle base layer ({baseLayer === 'mapbox/streets-v11' ? 'Straten => Grayscale' : 'Grayscale => Straten'})
+        <button
+          type="button"
+          onClick={() => setBaseLayer(baseLayer === "mapbox/streets-v11" ? "mapbox/light-v9" : "mapbox/streets-v11")}
+        >
+          Toggle base layer ({baseLayer === "mapbox/streets-v11" ? "Straten => Grayscale" : "Grayscale => Straten"})
         </button>
-        <button type="button" onClick={e => setDisabled(!disabled)}>
-          Toggle disabled ({disabled ? 'disabled => enabled' : 'enabled => disabled'})
+        <button type="button" onClick={() => setDisabled(!disabled)}>
+          Toggle disabled ({disabled ? "disabled => enabled" : "enabled => disabled"})
         </button>
       </div>
       <MapContainer
@@ -48,7 +54,7 @@ function App() {
         zoomControl={false}
       >
         <MapControls>
-          <MapControls.BaseLayer name="Straten" checked={baseLayer === 'mapbox/streets-v11'}>
+          <MapControls.BaseLayer name="Straten" checked={baseLayer === "mapbox/streets-v11"}>
             <TileLayer
               id="mapbox/streets-v11"
               tileSize={512}
@@ -57,7 +63,7 @@ function App() {
               url={mapboxUrl}
             />
           </MapControls.BaseLayer>
-          <MapControls.BaseLayer name="Grayscale" checked={baseLayer === 'mapbox/light-v9'}>
+          <MapControls.BaseLayer name="Grayscale" checked={baseLayer === "mapbox/light-v9"}>
             <TileLayer
               id="mapbox/light-v9"
               tileSize={512}
@@ -69,24 +75,16 @@ function App() {
           <MapControls.Overlay name="Plaatsen">
             <LayerGroup>
               <Marker position={[52.3676, 4.9041]} icon={markerIcon()}>
-                <Popup>
-                  Dit is Amsterdam
-                </Popup>
+                <Popup>Dit is Amsterdam</Popup>
               </Marker>
               <Marker position={[52.2292, 5.1669]} icon={markerIcon()}>
-                <Popup>
-                  Dit is Hilversum
-                </Popup>
+                <Popup>Dit is Hilversum</Popup>
               </Marker>
               <Marker position={[52.1561, 5.3878]} icon={markerIcon()}>
-                <Popup>
-                  Dit is Amersfoort
-                </Popup>
+                <Popup>Dit is Amersfoort</Popup>
               </Marker>
               <Marker position={[52.2738, 5.1664]} icon={markerIcon()}>
-                <Popup>
-                  Dit is Bussum
-                </Popup>
+                <Popup>Dit is Bussum</Popup>
               </Marker>
             </LayerGroup>
           </MapControls.Overlay>
@@ -106,7 +104,7 @@ function App() {
         <MapEvents />
       </MapContainer>
     </>
-  )
-};
+  );
+}
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));

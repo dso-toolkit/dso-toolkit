@@ -1,6 +1,6 @@
-import { HandlerFunction } from '@storybook/addon-actions';
-import { DefinitionList } from '../definition-list/definition-list.models';
-import { DocumentHeader } from './document-header.models';
+import { HandlerFunction } from "@storybook/addon-actions";
+import { DefinitionList } from "../definition-list/definition-list.models";
+import { DocumentHeader } from "./document-header.models";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -26,6 +26,6 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
     featureAction: a.featureAction,
     featuresOpen: a.featuresOpen,
     statusContent,
-    statusContentOpen: a.statusContentOpen
+    statusContentOpen: a.statusContentOpen,
   };
 }

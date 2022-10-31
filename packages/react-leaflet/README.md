@@ -6,8 +6,8 @@
 
 This package needs
 
-* `@dso-toolkit/core` for the presentation and interaction
-* `@dso-toolkit/leaflet` for the Web Component to work with Leaflet
+- `@dso-toolkit/core` for the presentation and interaction
+- `@dso-toolkit/leaflet` for the Web Component to work with Leaflet
 
 ## Getting started
 
@@ -20,18 +20,18 @@ npm install @dso-toolkit/core @dso-toolkit/leaflet @dso-toolkit/react-leaflet
 Presentation is handled by a custom element (Web Component) `<dso-map-controls>` so we need to define the custom elements:
 
 ```ts
-import { defineCustomElements } from '@dso-toolkit/core'
-import { render } from 'react-dom'
+import { defineCustomElements } from "@dso-toolkit/core";
+import { render } from "react-dom";
 
-defineCustomElements()
+defineCustomElements();
 
-render(app, document.getElementById('root'))
+render(app, document.getElementById("root"));
 ```
 
 ### `<MapControls>`
 
-* Make sure to disable the default `ZoomControl`.
-* Pass any layers that needs to be controlled as children.
+- Make sure to disable the default `ZoomControl`.
+- Pass any layers that needs to be controlled as children.
 
 ### `<MapControls.BaseLayer>` & `<MapControls.Overlay>`
 
@@ -42,12 +42,12 @@ export interface ControlledLayerProps {
   /**
    * Name of layer, shown to user.
    */
-  name: string
+  name: string;
 
   /**
    * Whether or not the layer is currently visible.
    */
-  checked?: boolean
+  checked?: boolean;
 
   /**
    * Whether or not the layer is disabled.
@@ -57,31 +57,26 @@ export interface ControlledLayerProps {
   /**
    * Layer that this ControlledLayer component manages.
    */
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 ```
 
 ## Example
 
 ```tsx
-import * as React from 'react';
-import { MapContainer, TileLayer, Marker, Popup, LayerGroup } from 'react-leaflet';
-import { markerIcon } from '@dso-toolkit/leaflet';
-import { MapControls } from '@dso-toolkit/react-leaflet';
+import * as React from "react";
+import { MapContainer, TileLayer, Marker, Popup, LayerGroup } from "react-leaflet";
+import { markerIcon } from "@dso-toolkit/leaflet";
+import { MapControls } from "@dso-toolkit/react-leaflet";
 
 function MyMap() {
-  const mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
-  const mapboxUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'
+  const mapboxAttribution =
+    'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+  const mapboxUrl =
+    "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw";
 
   return (
-    <MapContainer
-      id="map"
-      center={[39.73, -104.99]}
-      zoom={11}
-      maxZoom={18}
-      minZoom={5}
-      zoomControl={false}
-    >
+    <MapContainer id="map" center={[39.73, -104.99]} zoom={11} maxZoom={18} minZoom={5} zoomControl={false}>
       <MapControls>
         <MapControls.BaseLayer name="Streets" checked>
           <TileLayer
@@ -104,30 +99,22 @@ function MyMap() {
         <MapControls.Overlay name="Cities" disabled>
           <LayerGroup>
             <Marker position={[39.61, -105.02]} icon={markerIcon()}>
-              <Popup>
-                This is Littleton, CO.
-              </Popup>
+              <Popup>This is Littleton, CO.</Popup>
             </Marker>
             <Marker position={[39.74, -104.99]} icon={markerIcon()}>
-              <Popup>
-                This is Denver, CO.
-              </Popup>
+              <Popup>This is Denver, CO.</Popup>
             </Marker>
             <Marker position={[39.73, -104.8]} icon={markerIcon()}>
-              <Popup>
-                This is Denver, CO.
-              </Popup>
+              <Popup>This is Denver, CO.</Popup>
             </Marker>
             <Marker position={[39.77, -105.23]} icon={markerIcon()}>
-              <Popup>
-                This is Golden, CO.
-              </Popup>
+              <Popup>This is Golden, CO.</Popup>
             </Marker>
           </LayerGroup>
         </MapControls.Overlay>
       </MapControls>
     </MapContainer>
-  )
+  );
 }
 ```
 

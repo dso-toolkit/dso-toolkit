@@ -5,7 +5,7 @@ import { DropdownMenu, DropdownMenuGroup } from "./dropdown-menu.models";
 export interface DropdownMenuArgs {
   id: string;
   buttonLabel: string;
-  buttonVariant: 'primary' | 'secondary' | 'tertiary';
+  buttonVariant: "primary" | "secondary" | "tertiary";
   dropdownAlign: "left" | "right";
   isCheckable: boolean;
   groups: DropdownMenuGroup[];
@@ -14,19 +14,19 @@ export interface DropdownMenuArgs {
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   buttonLabel: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   buttonVariant: {
-    options: ['primary', 'secondary', 'tertiary'],
+    options: ["primary", "secondary", "tertiary"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   dropdownAlign: {
     options: ["left", "right"],
@@ -41,9 +41,9 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
   },
   groups: {
     table: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
 export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
@@ -51,7 +51,7 @@ export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
     id: a.id,
     button: {
       label: a.buttonLabel,
-      variant: a.buttonVariant
+      variant: a.buttonVariant,
     },
     dropdownAlign: a.dropdownAlign,
     groups: a.groups,

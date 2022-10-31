@@ -8,7 +8,7 @@
     "noEmit": true,
     "allowJs": true,
     "jsx": "preserve",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "es2019"],
     "removeComments": true
   }
 }

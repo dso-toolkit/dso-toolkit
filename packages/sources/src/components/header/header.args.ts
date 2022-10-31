@@ -10,7 +10,7 @@ export interface HeaderArgs {
     label: string;
     url: string;
   }[];
-  noMainMenu: boolean,
+  noMainMenu: boolean;
   useDropDownMenu: "always" | "never" | "auto";
   authStatus: "none" | "loggedOut" | "loggedIn";
   loginUrl: string;
@@ -78,14 +78,14 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   },
   dsoHeaderClick: {
     ...noControl,
-    action: 'dsoHeaderClick',
-  }
+    action: "dsoHeaderClick",
+  },
 };
 
 export function headerArgsMapper(a: HeaderArgs): Required<Header> {
   return {
     ...a,
-    subLogo: a.showSubLogo ? a.subLogo : '',
+    subLogo: a.showSubLogo ? a.subLogo : "",
     mainMenu: a.noMainMenu ? [] : a.mainMenu,
     dsoHeaderClick: (event) => {
       event.detail.originalEvent.preventDefault();

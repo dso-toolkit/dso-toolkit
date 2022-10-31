@@ -1,14 +1,14 @@
-const concurrently = require('concurrently');
+const concurrently = require("concurrently");
 
 concurrently(
   [
     {
-      name: 'stencil',
-      command: 'yarn stencil build --prod --watch --serve --no-open',
-      prefixColor: 'bgCyan'
-    }
+      name: "stencil",
+      command: "yarn stencil build --prod --watch --serve --no-open",
+      prefixColor: "bgCyan",
+    },
   ],
   {
-    killOthers: ['failure', 'success']
+    killOthers: ["failure", "success"],
   }
 );

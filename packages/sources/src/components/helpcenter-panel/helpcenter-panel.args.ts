@@ -25,9 +25,7 @@ export const helpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
   },
 };
 
-export function helpcenterPanelArgsMapper(
-  a: HelpcenterPanelArgs
-): HelpcenterPanel {
+export function helpcenterPanelArgsMapper(a: HelpcenterPanelArgs): HelpcenterPanel {
   return {
     content: a.content,
     label: a.label,

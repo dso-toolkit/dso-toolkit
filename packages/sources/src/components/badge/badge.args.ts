@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Badge } from './badge.models';
+import { Badge } from "./badge.models";
 
 export interface BadgeArgs {
   status?: string;
@@ -9,21 +9,21 @@ export interface BadgeArgs {
 
 export const badgeArgTypes: ArgTypes<BadgeArgs> = {
   status: {
-    options: [undefined, 'primary', 'success', 'info', 'warning', 'danger', 'outline'],
+    options: [undefined, "primary", "success", "info", "warning", "danger", "outline"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   message: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function badgeArgsMapper(a: BadgeArgs): Badge {
   return {
     status: a.status,
-    message: a.message
+    message: a.message,
   };
 }

@@ -1,4 +1,4 @@
-import { Badge } from '../badge/badge.models';
+import { Badge } from "../badge/badge.models";
 
 export interface DocumentList<TemplateFnReturnType> {
   items: DocumentListItem<TemplateFnReturnType>[];

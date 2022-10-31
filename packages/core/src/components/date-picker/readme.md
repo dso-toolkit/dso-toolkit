@@ -2,7 +2,6 @@
 
 Based on the [Duet Date Picker](https://duetds.github.io/date-picker/).
 
-
 <!-- Auto Generated Below -->
 
 

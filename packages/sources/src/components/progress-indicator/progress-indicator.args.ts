@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { ProgressIndicator } from './progress-indicator.models';
+import { ProgressIndicator } from "./progress-indicator.models";
 
 export interface ProgressIndicatorArgs {
   label?: string;
@@ -11,26 +11,26 @@ export interface ProgressIndicatorArgs {
 export const progressIndicatorArgTypes: ArgTypes<ProgressIndicatorArgs> = {
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   size: {
-    options: [undefined, 'small', 'medium', 'large'],
+    options: [undefined, "small", "medium", "large"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   block: {
     control: {
-      type: 'boolean'
-    }
-  }
+      type: "boolean",
+    },
+  },
 };
 
 export function progressIndicatorArgsMapper(a: ProgressIndicatorArgs): ProgressIndicator {
   return {
     label: a.label || undefined,
     size: a.size,
-    block: a.block
+    block: a.block,
   };
 }

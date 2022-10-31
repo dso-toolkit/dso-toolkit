@@ -26,28 +26,28 @@ import {
   Autosuggest,
 } from "@dso-toolkit/sources";
 
-import { reactAccordion } from './components/accordion/accordion.react-template';
+import { reactAccordion } from "./components/accordion/accordion.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";
-import { reactAttachmentsCounter } from './components/attachments-counter/attachments-counter.react-template';
-import { reactAutosuggest } from './components/autosuggest/autosuggest.react-template';
-import { reactBadge } from './components/badge/badge.react-template';
-import { reactBanner } from './components/banner/banner.react-template';
-import { reactDatePicker } from './components/date-picker/date-picker.react-template';
-import { reactDropdownMenu } from './components/dropdown-menu/dropdown-menu.react-template';
-import { reactHighlightBox } from './components/highlight-box/highlight-box.react-template';
-import { reactIcon } from './components/icon/icon.react-template';
-import { reactInfo } from './components/info/info.react-template';
-import { reactInfoButton } from './components/info-button/info-button.react-template';
-import { reactLabel } from './components/label/label.react-template';
-import { reactOzonContent } from './components/ozon-content/ozon-content.react-template';
-import { reactPagination } from './components/pagination/pagination.react-template';
-import { reactProgressBar } from './components/progress-bar/progress-bar.react-template';
-import { reactProgressIndicator } from './components/progress-indicator/progress-indicator.react-template';
-import { reactSelectable } from './components/selectable/selectable.react-template';
-import { reactTable } from './components/table/table.react-template';
-import { reactToggletip } from './components/toggletip/toggletip.react-template';
-import { reactTooltip } from './components/tooltip/tooltip.react-template';
-import { reactTreeView } from './components/tree-view/tree-view.react-template';
+import { reactAttachmentsCounter } from "./components/attachments-counter/attachments-counter.react-template";
+import { reactAutosuggest } from "./components/autosuggest/autosuggest.react-template";
+import { reactBadge } from "./components/badge/badge.react-template";
+import { reactBanner } from "./components/banner/banner.react-template";
+import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
+import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
+import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
+import { reactIcon } from "./components/icon/icon.react-template";
+import { reactInfo } from "./components/info/info.react-template";
+import { reactInfoButton } from "./components/info-button/info-button.react-template";
+import { reactLabel } from "./components/label/label.react-template";
+import { reactOzonContent } from "./components/ozon-content/ozon-content.react-template";
+import { reactPagination } from "./components/pagination/pagination.react-template";
+import { reactProgressBar } from "./components/progress-bar/progress-bar.react-template";
+import { reactProgressIndicator } from "./components/progress-indicator/progress-indicator.react-template";
+import { reactSelectable } from "./components/selectable/selectable.react-template";
+import { reactTable } from "./components/table/table.react-template";
+import { reactToggletip } from "./components/toggletip/toggletip.react-template";
+import { reactTooltip } from "./components/tooltip/tooltip.react-template";
+import { reactTreeView } from "./components/tree-view/tree-view.react-template";
 
 export interface Components {
   alert: Alert<JSX.Element>;
@@ -77,17 +77,8 @@ export interface Components {
 type Implementation = "react";
 
 export type Templates = ComponentsToTemplates<Components, JSX.Element>;
-export type ComponentImplementation<Model> = BaseComponentImplementation<
-  Model,
-  Implementation,
-  Templates,
-  JSX.Element
->;
-export const templateContainer = new TemplateContainer<
-  Implementation,
-  Templates,
-  JSX.Element
->();
+export type ComponentImplementation<Model> = BaseComponentImplementation<Model, Implementation, Templates, JSX.Element>;
+export const templateContainer = new TemplateContainer<Implementation, Templates, JSX.Element>();
 
 templateContainer.add(reactAccordion);
 templateContainer.add(reactAlert);

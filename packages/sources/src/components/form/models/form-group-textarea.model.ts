@@ -1,9 +1,9 @@
-import { Icon } from '../../..';
+import { Icon } from "../../..";
 
-import { FormGroupBase } from './form-group.base-model';
+import { FormGroupBase } from "./form-group.base-model";
 
 export interface FormGroupTextarea<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
-  group: 'textarea',
+  group: "textarea";
   value?: string;
   placeholder?: string;
   rows?: number;

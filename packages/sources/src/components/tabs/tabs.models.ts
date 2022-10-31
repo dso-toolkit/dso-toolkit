@@ -5,5 +5,5 @@ export interface Tabs {
 export interface TabsItem {
   label: string;
   id: string;
-  modifiers?: 'active' | 'disabled';
+  modifiers?: "active" | "disabled";
 }

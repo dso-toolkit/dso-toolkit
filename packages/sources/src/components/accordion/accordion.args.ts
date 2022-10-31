@@ -1,10 +1,10 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes, noControl } from '../../storybook';
-import { Accordion, AccordionHeading, AccordionSection, AccordionSectionState } from './accordion.models';
+import { ArgTypes, noControl } from "../../storybook";
+import { Accordion, AccordionHeading, AccordionSection, AccordionSectionState } from "./accordion.models";
 
 export interface AccordionArgs {
-  variant: undefined | 'compact' | 'conclusion';
+  variant: undefined | "compact" | "conclusion";
   reverseAlign: boolean;
   allowMultipleOpen: boolean;
   dsoToggleSection: HandlerFunction;
@@ -21,75 +21,75 @@ export interface AccordionArgs {
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   variant: {
-    options: [undefined, 'compact', 'conclusion'],
+    options: [undefined, "compact", "conclusion"],
     control: {
-      type: 'select',
+      type: "select",
       labels: {
-        undefined: 'default',
-      }
+        undefined: "default",
+      },
     },
   },
   allowMultipleOpen: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   reverseAlign: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   dsoToggleSection: {
     ...noControl,
-    action: 'dsoToggleSection',
+    action: "dsoToggleSection",
   },
   /* Section args */
   open: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   status: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   state: {
-    options: [undefined, 'success', 'info', 'warning', 'danger'],
+    options: [undefined, "success", "info", "warning", "danger"],
     control: {
-      type: 'select'
+      type: "select",
     },
   },
   attachmentCount: {
     control: {
-      type: 'number',
-    }
+      type: "number",
+    },
   },
   icon: {
-    options: [undefined, '', 'plus', 'table'],
+    options: [undefined, "", "plus", "table"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   heading: {
-    options: ['h2', 'h3', 'h4', 'h5'],
+    options: ["h2", "h3", "h4", "h5"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   handleUrl: {
     control: {
-      text: 'select',
-    }
+      text: "select",
+    },
   },
   handleTitle: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   sections: {
     ...noControl,
-  }
+  },
 };
 
 export function accordionArgsMapper(a: AccordionArgs): Accordion {

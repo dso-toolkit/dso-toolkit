@@ -5,5 +5,6 @@ Kan ook op `a` worden gebruikt: `a.dso-primary`, `a.dso-secondary`, `a.dso-terti
 Het label van de button staat altijd in een `<span>`.
 
 ## Modifiers
-* `.btn-sm`
-* `.btn-block`
+
+- `.btn-sm`
+- `.btn-block`

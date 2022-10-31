@@ -1,8 +1,8 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Button } from '../button/button.models';
+import { Button } from "../button/button.models";
 
-import { Card } from './card.models';
+import { Card } from "./card.models";
 
 export interface CardArgs {
   label: string;
@@ -15,29 +15,29 @@ export interface CardArgs {
 export const cardArgTypes: ArgTypes<Card<never>> = {
   label: {
     control: {
-      type: 'string'
-    }
+      type: "string",
+    },
   },
   selectable: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   content: {
     control: {
-      type: 'text',
-      required: true
-    }
+      type: "text",
+      required: true,
+    },
   },
   interactions: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   image: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
 };
 
@@ -46,12 +46,12 @@ export function cardArgsMapper(a: CardArgs): Card<never> {
     label: a.label,
     selectable: a.selectable
       ? {
-        id: '1',
-        label: 'Selecteer',
-        dsoChange: () => undefined,
-        type: 'checkbox',
-        value: '1'
-      }
+          id: "1",
+          label: "Selecteer",
+          dsoChange: () => undefined,
+          type: "checkbox",
+          value: "1",
+        }
       : undefined,
     content: a.content,
     interactions: a.interactions,

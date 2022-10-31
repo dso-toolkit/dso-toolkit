@@ -17,37 +17,34 @@ export interface OzonContentArgs {
 export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   content: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   inline: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   interactive: {
-    options: [
-      'default',
-      'sub',
-    ],
+    options: ["default", "sub"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   deleted: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   prefix: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   suffix: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   dsoAnchorClick: {
     ...noControl,
@@ -55,16 +52,16 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   },
   dsoClick: {
     ...noControl,
-    action: 'dsoClick'
-  }
+    action: "dsoClick",
+  },
 };
 
 export function ozonContentArgsMapper(a: OzonContentArgs): Required<OzonContent> {
   return {
     ...a,
-    prefix: a.prefix || '',
-    suffix: a.suffix || '',
-    interactive: a.interactive === 'sub' ? 'sub' : a.interactive === 'default',
-    dsoAnchorClick: (e: any) => a.dsoAnchorClick(e.detail),
+    prefix: a.prefix || "",
+    suffix: a.suffix || "",
+    interactive: a.interactive === "sub" ? "sub" : a.interactive === "default",
+    dsoAnchorClick: (e) => a.dsoAnchorClick(e.detail),
   };
 }

@@ -11,5 +11,5 @@ storiesOfOzonContent({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ ozonContentTemplate }) => ({ ozonContentTemplate })
+  storyTemplates: ({ ozonContentTemplate }) => ({ ozonContentTemplate }),
 });

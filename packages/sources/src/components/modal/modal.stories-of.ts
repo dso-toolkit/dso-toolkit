@@ -1,13 +1,13 @@
-import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
-import { ProgressIndicator } from '../progress-indicator/progress-indicator.models';
+import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
+import { ProgressIndicator } from "../progress-indicator/progress-indicator.models";
 
-import { ModalArgs, modalArgsMapper, modalArgTypes, ModalLoadingArgs, modalLoadingArgTypes } from './modal.args';
-import { content } from './modal.content';
-import { Modal } from './modal.models';
+import { ModalArgs, modalArgsMapper, modalArgTypes, ModalLoadingArgs, modalLoadingArgTypes } from "./modal.args";
+import { content } from "./modal.content";
+import { Modal } from "./modal.models";
 
 // <see #1550>
-let onLeave: { load: Function, unload: Function } | null = null;
-function onStory(load: Function, unload: Function) {
+let onLeave: { load: () => void; unload: () => void } | null = null;
+function onStory(load: () => void, unload: () => void) {
   onLeave = { load, unload };
 
   load();
@@ -20,10 +20,11 @@ const storyObserver = new MutationObserver(() => {
     onLeave = null;
   }
 });
-storyObserver.observe(window.parent.document.head.querySelector('title')!, { childList: true, subtree: true });
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- <title> exists
+storyObserver.observe(window.parent.document.head.querySelector("title")!, { childList: true, subtree: true });
 
-const canvasObserver = new MutationObserver(mutationRecords => {
-  for (const mutationRecord of mutationRecords.filter(r => r.type === 'attributes')) {
+const canvasObserver = new MutationObserver((mutationRecords) => {
+  for (const mutationRecord of mutationRecords.filter((r) => r.type === "attributes")) {
     if (!(mutationRecord.target instanceof HTMLElement)) {
       continue;
     }
@@ -33,14 +34,16 @@ const canvasObserver = new MutationObserver(mutationRecords => {
     }
   }
 });
-canvasObserver.observe(document.getElementById('root')!, { attributes: true });
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- #root exists
+canvasObserver.observe(document.getElementById("root")!, { attributes: true });
 
 function toggleClass(className: string) {
   setTimeout(
-    () => onStory(
-      () => document.body.classList.add(className),
-      () => document.body.classList.remove(className)
-    ),
+    () =>
+      onStory(
+        () => document.body.classList.add(className),
+        () => document.body.classList.remove(className)
+      ),
     400
   );
 }
@@ -51,68 +54,67 @@ export interface ModalTemplates<TemplateFnReturnType> {
   progressIndicatorTemplate: (progressIndicatorProperties: ProgressIndicator) => TemplateFnReturnType;
 }
 
-export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ModalTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Modal', storiesOfArguments, (stories, templateMapper) => {
+export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ModalTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Modal", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
-      argTypes: modalArgTypes
+      argTypes: modalArgTypes,
     });
 
     const template = templateMapper<ModalArgs>((args, { modalTemplate }) => {
-      toggleClass('dso-modal-open');
+      toggleClass("dso-modal-open");
 
       return modalTemplate(modalArgsMapper(args));
     });
 
     stories.add(
-      'confirm',
+      "confirm",
       templateMapper<ModalArgs>((args, { modalTemplate }) => {
-        toggleClass('dso-modal-open');
+        toggleClass("dso-modal-open");
 
         return modalTemplate(modalArgsMapper(args));
       }),
       {
         argTypes: modalArgTypes,
-        args: content.confirm
+        args: content.confirm,
       }
     );
 
-    stories.add(
-      'passive',
-      template,
-      {
-        argTypes: modalArgTypes,
-        args: content.passive
-      }
-    );
+    stories.add("passive", template, {
+      argTypes: modalArgTypes,
+      args: content.passive,
+    });
+
+    stories.add("active", template, {
+      argTypes: modalArgTypes,
+      args: content.active,
+    });
 
     stories.add(
-      'active',
-      template,
-      {
-        argTypes: modalArgTypes,
-        args: content.active
-      }
-    );
-
-    stories.add(
-      'loading',
+      "loading",
       templateMapper<ModalLoadingArgs>((args, { modalTemplate, progressIndicatorTemplate }) => {
-        toggleClass('dso-modal-open');
+        toggleClass("dso-modal-open");
 
-        const modal: Modal<any> = {
+        const modal: Modal<TemplateFnReturnType> = {
           role: args.role,
           body: progressIndicatorTemplate({
-            size: 'small',
+            size: "small",
             block: true,
-            label: args.progressIndicatorLabel
-          })
+            label: args.progressIndicatorLabel,
+          }),
         };
 
         return modalTemplate(modal);
       }),
       {
         argTypes: modalLoadingArgTypes,
-        args: content.loading
+        args: content.loading,
       }
     );
   });

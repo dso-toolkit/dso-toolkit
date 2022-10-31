@@ -1,50 +1,50 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Tile } from './tile.models';
+import { Tile } from "./tile.models";
 
 export interface TileArgs {
   label: string;
   imageSource: string;
   imageAlt: string;
-  variant?: 'theme';
+  variant?: "theme";
 }
 
 export const tileArgTypes: ArgTypes<TileArgs> = {
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   imageSource: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   imageAlt: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   variant: {
-    options: [undefined, 'theme'],
+    options: [undefined, "theme"],
     control: {
-      type: 'select',
+      type: "select",
       labels: {
-        undefined: 'default',
-        'theme': 'theme'
-      }
-    }
-  }
+        undefined: "default",
+        theme: "theme",
+      },
+    },
+  },
 };
 
 export function tileArgsMapper(a: TileArgs): Tile {
   return {
-    anchor: '#',
+    anchor: "#",
     label: a.label,
     image: {
       source: a.imageSource,
-      alt: a.imageAlt
+      alt: a.imageAlt,
     },
-    variant: a.variant
+    variant: a.variant,
   };
 }

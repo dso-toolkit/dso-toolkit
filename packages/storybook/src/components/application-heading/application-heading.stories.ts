@@ -1,17 +1,17 @@
-import { storiesOfApplicationHeading } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { storiesOfApplicationHeading } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from '@dso-toolkit/css/src/components/application-heading/readme.md';
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
-import { templateContainer } from '../../templates';
+import cssReadme from "@dso-toolkit/css/src/components/application-heading/readme.md";
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+import { templateContainer } from "../../templates";
 
 storiesOfApplicationHeading({
   parameters: {
     module,
     storiesOf,
     readme: cssReadme,
-    root: StoryRoot.HtmlCss
+    root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ applicationHeadingTemplate }) => ({ applicationHeadingTemplate })
+  storyTemplates: ({ applicationHeadingTemplate }) => ({ applicationHeadingTemplate }),
 });

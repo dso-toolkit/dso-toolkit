@@ -1,7 +1,5 @@
 # `<dso-progress-bar>`
 
-
-
 <!-- Auto Generated Below -->
 
 

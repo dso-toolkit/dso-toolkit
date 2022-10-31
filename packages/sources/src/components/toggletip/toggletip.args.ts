@@ -25,8 +25,8 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
   },
   small: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   label: {
     control: {
@@ -35,8 +35,8 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
   },
   secondary: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
 };
 

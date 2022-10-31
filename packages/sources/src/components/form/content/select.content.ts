@@ -1,66 +1,66 @@
-import { FormGroupSelectArgs } from '../form-groups/select/form-group-select.args';
-import { SelectOption, SelectOptionGroup } from '../form.models';
+import { FormGroupSelectArgs } from "../args/form-group-select.args";
+import { SelectOption, SelectOptionGroup } from "../form.models";
 
-export const selectContent: Omit<FormGroupSelectArgs, 'infoButtonHandler' | 'infoCloseHandler'> = {
+export const selectContent: Omit<FormGroupSelectArgs, "infoButtonHandler" | "infoCloseHandler"> = {
   metOptGroup: false,
-  id: 'mijn-id',
+  id: "mijn-id",
   label: 'Vul "een waarde" in',
   required: false,
   disabled: false,
   multiple: false,
-  infoButtonLabel: 'Toelichting bij veld',
+  infoButtonLabel: "Toelichting bij veld",
   infoActive: false,
   infoText: '<div class="dso-rich-content"><p>Rich text</p></div>',
-  infoFixed: false
+  infoFixed: false,
 };
 
 export const selectOptionsContent: SelectOption[] = [
   {
-    value: 'be',
-    label: 'België'
+    value: "be",
+    label: "België",
   },
   {
-    value: 'nl',
+    value: "nl",
     selected: true,
-    label: 'Nederland'
+    label: "Nederland",
   },
   {
-    value: 'lux',
-    label: 'Luxemburg'
-  }
+    value: "lux",
+    label: "Luxemburg",
+  },
 ];
 
 export const selectOptionGroupContent: SelectOptionGroup[] = [
   {
-    label: 'Vlees',
+    label: "Vlees",
     options: [
       {
-        value: 'worst',
-        label: 'Worst'
+        value: "worst",
+        label: "Worst",
       },
       {
-        value: 'salami',
+        value: "salami",
         selected: true,
-        label: 'Salami'
+        label: "Salami",
       },
       {
-        value: 'geit',
-        label: 'Geit'
+        value: "geit",
+        label: "Geit",
       },
-    ]
+    ],
   },
   {
-    label: 'Vis',
+    label: "Vis",
     disabled: true,
     options: [
       {
-        value: 'zalm',
-        label: 'Zalm'
+        value: "zalm",
+        label: "Zalm",
       },
       {
-        value: 'makreel',
-        label: 'Makreel'
-      }
-    ]
-  }
+        value: "makreel",
+        label: "Makreel",
+      },
+    ],
+  },
 ];

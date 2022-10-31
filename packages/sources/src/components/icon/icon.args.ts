@@ -1,5 +1,5 @@
-import { ArgTypes } from '../../storybook';
-import { Icon } from './icon.models';
+import { ArgTypes } from "../../storybook";
+import { Icon } from "./icon.models";
 
 export interface IconArgs {
   icon: string;
@@ -7,15 +7,15 @@ export interface IconArgs {
 
 export const iconArgTypes: ArgTypes<IconArgs> = {
   icon: {
-    options: ['user', 'table'],
+    options: ["user", "table"],
     control: {
-      type: 'select',
-    }
-  }
+      type: "select",
+    },
+  },
 };
 
 export function iconArgsMapper(a: IconArgs): Icon {
   return {
-    icon: a.icon
+    icon: a.icon,
   };
 }

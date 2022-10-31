@@ -1,8 +1,8 @@
-import { Anchor } from '../anchor/anchor.models';
+import { Anchor } from "../anchor/anchor.models";
 
 export enum LinkListType {
-  Ul = 'ul',
-  Ol = 'ol'
+  Ul = "ul",
+  Ol = "ol",
 }
 
 export interface LinkList {

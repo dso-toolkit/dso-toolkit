@@ -30,14 +30,14 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     },
   },
   initialMainSize: {
-    options: ['small', 'medium', 'large'],
+    options: ["small", "medium", "large"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   dsoMainSizeChange: {
     ...noControl,
-    action: 'dsoMainSizeChange'
+    action: "dsoMainSizeChange",
   },
   dsoCloseOverlay: {
     ...noControl,
@@ -45,12 +45,12 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
   },
   dsoFilterpanelCancel: {
     ...noControl,
-    action: 'dsoFilterpanelCancel'
+    action: "dsoFilterpanelCancel",
   },
   dsoFilterpanelApply: {
     ...noControl,
-    action: 'dsoFilterpanelApply'
-  }
+    action: "dsoFilterpanelApply",
+  },
 };
 
 export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs> = {
@@ -66,14 +66,14 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
   },
   documentHeaderFeatureAction: {
     ...noControl,
-    action: 'documentHeaderFeatureAction'
-  }
+    action: "documentHeaderFeatureAction",
+  },
 };
 
-export function viewerGridArgsMapper(a: ViewerGridArgs): Required<any> {
+export function viewerGridArgsMapper(a: ViewerGridArgs): Required<unknown> {
   return { ...a };
 }
 
-export function viewerGridDocumentHeaderArgsMapper(a: ViewerGridDocumentHeaderArgs): Required<any> {
+export function viewerGridDocumentHeaderArgsMapper(a: ViewerGridDocumentHeaderArgs): Required<unknown> {
   return { ...a };
 }

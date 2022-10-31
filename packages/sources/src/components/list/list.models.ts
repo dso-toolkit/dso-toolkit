@@ -1,6 +1,6 @@
 export enum Type {
-  Ul = 'ul',
-  Ol = 'ol'
+  Ul = "ul",
+  Ol = "ol",
 }
 
 export interface List {

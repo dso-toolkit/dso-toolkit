@@ -1,5 +1,5 @@
-import { ArgTypes, noControl } from '../../storybook';
-import { Table, TableContent } from './table.models';
+import { ArgTypes, noControl } from "../../storybook";
+import { Table, TableContent } from "./table.models";
 
 export interface TableArgs {
   noModal: boolean;
@@ -9,12 +9,12 @@ export interface TableArgs {
 export const tableArgTypes: ArgTypes<TableArgs> = {
   noModal: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   content: {
     ...noControl,
-  }
+  },
 };
 
 export function tableArgsMapper(a: TableArgs): Required<Table> {

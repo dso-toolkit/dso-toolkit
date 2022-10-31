@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { List, ListItem, Type } from './list.models';
+import { List, ListItem, Type } from "./list.models";
 
 export interface ListArgs {
   items: ListItem[];
@@ -11,27 +11,27 @@ export interface ListArgs {
 export const listArgTypes: ArgTypes<ListArgs> = {
   items: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   type: {
     options: [Type.Ul, Type.Ol],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   modifier: {
-    options: [undefined, 'group', 'columns', 'img-list'],
+    options: [undefined, "group", "columns", "img-list"],
     control: {
-      type: 'select'
-    }
-  }
+      type: "select",
+    },
+  },
 };
 
 export function listArgsMapper(a: ListArgs): List {
   return {
     items: a.items,
     type: a.type,
-    modifier: a.modifier
+    modifier: a.modifier,
   };
 }

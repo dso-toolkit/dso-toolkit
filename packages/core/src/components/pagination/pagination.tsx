@@ -1,11 +1,22 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Listen, Prop, State } from '@stencil/core';
+import {
+  h,
+  Component,
+  ComponentInterface,
+  Element,
+  Event,
+  EventEmitter,
+  Fragment,
+  Listen,
+  Prop,
+  State,
+} from "@stencil/core";
 
-import { ResponsiveElementSize } from '../responsive-element/responsive-element.interfaces';
-import { PaginationSelectPageEvent } from './pagination.interfaces';
+import { ResponsiveElementSize } from "../responsive-element/responsive-element.interfaces";
+import { PaginationSelectPageEvent } from "./pagination.interfaces";
 
 @Component({
-  tag: 'dso-pagination',
-  styleUrl: 'pagination.scss',
+  tag: "dso-pagination",
+  styleUrl: "pagination.scss",
   shadow: true,
 })
 export class Pagination implements ComponentInterface {
@@ -38,7 +49,7 @@ export class Pagination implements ComponentInterface {
    * This function is called to format the href
    */
   @Prop()
-  formatHref: (page: number) => string = (page) => '#' + page;
+  formatHref: (page: number) => string = (page) => "#" + page;
 
   /**
    * Emitted on page select
@@ -49,7 +60,7 @@ export class Pagination implements ComponentInterface {
   /**
    * Listens to the dsoSizeChange event on Responsive Element
    */
-  @Listen('dsoSizeChange')
+  @Listen("dsoSizeChange")
   sizeChangeHandler(event: CustomEvent<ResponsiveElementSize>) {
     this.availablePositions = this.getAvailablePositions(this.sizePositionsMap[event.detail]);
   }
@@ -60,10 +71,15 @@ export class Pagination implements ComponentInterface {
       page,
       isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,
     });
-  };
+  }
 
   componentDidLoad(): void {
-    this.responsiveElement?.getSize().then((size: ResponsiveElementSize) => this.availablePositions = this.getAvailablePositions(this.sizePositionsMap[size]));
+    this.responsiveElement
+      ?.getSize()
+      .then(
+        (size: ResponsiveElementSize) =>
+          (this.availablePositions = this.getAvailablePositions(this.sizePositionsMap[size]))
+      );
   }
 
   render() {
@@ -72,9 +88,7 @@ export class Pagination implements ComponentInterface {
     }
 
     if (this.availablePositions === undefined) {
-      return (
-        <dso-responsive-element ref={element => this.responsiveElement = element}></dso-responsive-element>
-      );
+      return <dso-responsive-element ref={(element) => (this.responsiveElement = element)}></dso-responsive-element>;
     }
 
     const availablePositions = this.availablePositions;
@@ -84,40 +98,50 @@ export class Pagination implements ComponentInterface {
     const pages: number[] = this.getPages(currentPage, this.availablePositions, this.totalPages);
 
     return (
-      <dso-responsive-element ref={element => this.responsiveElement = element}>
+      <dso-responsive-element ref={(element) => (this.responsiveElement = element)}>
         <ul class="pagination">
-          <li class={(currentPage <= 1 || currentPage > this.totalPages) ? 'dso-page-hidden' : undefined}>
-            <a href={this.formatHref(pages[pages.indexOf(currentPage) - 1] ?? 1)} aria-label="Vorige" onClick={e => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) - 1] ?? 1)}>
+          <li class={currentPage <= 1 || currentPage > this.totalPages ? "dso-page-hidden" : undefined}>
+            <a
+              href={this.formatHref(pages[pages.indexOf(currentPage) - 1] ?? 1)}
+              aria-label="Vorige"
+              onClick={(e) => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) - 1] ?? 1)}
+            >
               <dso-icon icon="chevron-left"></dso-icon>
             </a>
           </li>
-          {(pages).map(page => (
+          {pages.map((page) => (
             <>
-              {this.showEllipsisBeforeLast(pages, page, availablePositions, pages[pages.length - 1]) &&
+              {this.showEllipsisBeforeLast(pages, page, availablePositions, pages[pages.length - 1]) && (
                 <li>
                   <span>...</span>
                 </li>
-              }
+              )}
 
-              <li key={page} class={currentPage === page ? 'active' : undefined}>
-                {currentPage === page
-                  ? (
-                    <span aria-current="page">{page}</span>
-                  )
-                  : (
-                    <a href={this.formatHref(page)} onClick={e => this.clickHandler(e, page)}>{page}</a>
-                  )}
+              <li key={page} class={currentPage === page ? "active" : undefined}>
+                {currentPage === page ? (
+                  <span aria-current="page">{page}</span>
+                ) : (
+                  <a href={this.formatHref(page)} onClick={(e) => this.clickHandler(e, page)}>
+                    {page}
+                  </a>
+                )}
               </li>
 
-              {this.showEllipsisAfterFirst(pages, page, availablePositions) &&
+              {this.showEllipsisAfterFirst(pages, page, availablePositions) && (
                 <li>
                   <span>...</span>
                 </li>
-              }
+              )}
             </>
           ))}
-          <li class={(currentPage < 1 || currentPage >= this.totalPages) ? 'dso-page-hidden' : undefined}>
-            <a href={this.formatHref(pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)} aria-label="Volgende" onClick={e => currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)}>
+          <li class={currentPage < 1 || currentPage >= this.totalPages ? "dso-page-hidden" : undefined}>
+            <a
+              href={this.formatHref(pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)}
+              aria-label="Volgende"
+              onClick={(e) =>
+                currentPage && this.clickHandler(e, pages[pages.indexOf(currentPage) + 1] ?? this.totalPages)
+              }
+            >
               <dso-icon icon="chevron-right"></dso-icon>
             </a>
           </li>
@@ -127,10 +151,12 @@ export class Pagination implements ComponentInterface {
   }
 
   private getAvailablePositions(sizePositions: number) {
-    if (sizePositions % 2 === 0) { // Even aantal posities zorgt voor een scheve pagination
+    if (sizePositions % 2 === 0) {
+      // Even aantal posities zorgt voor een scheve pagination
       return sizePositions - 1;
     }
-    if (sizePositions <= 3) { // Voor het kunnen tonen van de vorige knop, volgende knop en 1 pagina zijn minimaal 3 posities nodig.
+    if (sizePositions <= 3) {
+      // Voor het kunnen tonen van de vorige knop, volgende knop en 1 pagina zijn minimaal 3 posities nodig.
       return 3;
     }
 
@@ -138,7 +164,8 @@ export class Pagination implements ComponentInterface {
   }
 
   private getPages(currentPage: number, availablePositions: number, totalPages: number): number[] {
-    if (totalPages + 2 <= availablePositions) { // + 2 voor de vorige en volgende knop
+    if (totalPages + 2 <= availablePositions) {
+      // + 2 voor de vorige en volgende knop
       return Array.from({ length: totalPages }, (_value, i) => i + 1);
     }
 
@@ -150,11 +177,7 @@ export class Pagination implements ComponentInterface {
       return [1, currentPage, totalPages];
     }
 
-    return [
-      1,
-      ...this.getPageRange(currentPage, availablePositions, totalPages),
-      totalPages
-    ];
+    return [1, ...this.getPageRange(currentPage, availablePositions, totalPages), totalPages];
   }
 
   private getPageRange(currentPage: number, availablePositions: number, totalPages: number): number[] {
@@ -170,7 +193,7 @@ export class Pagination implements ComponentInterface {
 
     if (currentPage >= positionRange && currentPage <= totalPages - positionRange) {
       if (positionRange === 1) {
-        if(currentPage > totalPages - 2) {
+        if (currentPage > totalPages - 2) {
           range.push(totalPages - 2);
         }
 
@@ -197,7 +220,7 @@ export class Pagination implements ComponentInterface {
     }
 
     if (currentPage > totalPages - positionRange) {
-      for (let i = totalPages - (availablePositions - 5); i <= totalPages - 1 ; i++) {
+      for (let i = totalPages - (availablePositions - 5); i <= totalPages - 1; i++) {
         range.push(i);
       }
     }
@@ -206,16 +229,25 @@ export class Pagination implements ComponentInterface {
   }
 
   private showEllipsisAfterFirst(pages: number[], page: number, availablePositions: number): boolean {
-    return pages.indexOf(page) === 0  &&
+    return (
+      pages.indexOf(page) === 0 &&
       pages[pages.length - 1] > availablePositions - 2 &&
-      !pages.some(p => p === 2) &&
-      availablePositions >= 7;
+      !pages.some((p) => p === 2) &&
+      availablePositions >= 7
+    );
   }
 
-  private showEllipsisBeforeLast(pages: number[], page: number, availablePositions: number, totalPages: number): boolean {
-    return pages.indexOf(page) === pages.length - 1 &&
+  private showEllipsisBeforeLast(
+    pages: number[],
+    page: number,
+    availablePositions: number,
+    totalPages: number
+  ): boolean {
+    return (
+      pages.indexOf(page) === pages.length - 1 &&
       pages[pages.length - 1] > availablePositions - 2 &&
-      !pages.some(p => p === totalPages - 1) &&
-      availablePositions >= 7;
+      !pages.some((p) => p === totalPages - 1) &&
+      availablePositions >= 7
+    );
   }
 }

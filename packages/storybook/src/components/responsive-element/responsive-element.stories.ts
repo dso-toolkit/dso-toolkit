@@ -1,21 +1,20 @@
-import readme from '@dso-toolkit/core/src/components/responsive-element/readme.md';
-import { storiesOfResponsiveElement } from '@dso-toolkit/sources';
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
-import { storiesOf } from '@storybook/web-components';
-import { html } from 'lit-html';
-import { templateContainer } from '../../templates';
+import readme from "@dso-toolkit/core/src/components/responsive-element/readme.md";
+import { storiesOfResponsiveElement } from "@dso-toolkit/sources";
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+import { storiesOf } from "@storybook/web-components";
+import { html } from "lit-html";
+import { templateContainer } from "../../templates";
 
 storiesOfResponsiveElement({
   parameters: {
     module,
     storiesOf,
     readme,
-    root: StoryRoot.Core
+    root: StoryRoot.Core,
   },
   templateContainer,
   storyTemplates: ({ responsiveElementTemplate }) => ({
-    gridTemplate: (dsoSizeChange, grid) => html`
-      <style type="text/css">
+    gridTemplate: (dsoSizeChange, grid) => html` <style type="text/css">
         dso-responsive-element:not([small]) .demo-small {
           display: none;
         }
@@ -46,22 +45,32 @@ storiesOfResponsiveElement({
           background-color: #79b929;
         }
       </style>
-      ${grid.map(cols => html`
-        <div class="row">
-          ${cols.map(col => html`
-            <div class=${col}>
-              ${responsiveElementTemplate({
-                dsoSizeChange: dsoSizeChange,
-                children: html`
-                  <div class="demo-small"><p><strong>small</strong></p><div>${col}</div></div>
-                  <div class="demo-medium"><p><strong>medium</strong></p><div>${col}</div></div>
-                  <div class="demo-large"><p><strong>large</strong></p><div>${col}</div></div>
-                `
-              })}
-            </div>`
-          )}
-        </div>
-      `)
-    }`
-  })
+      ${grid.map(
+        (cols) => html`
+          <div class="row">
+            ${cols.map(
+              (col) => html` <div class=${col}>
+                ${responsiveElementTemplate({
+                  dsoSizeChange: dsoSizeChange,
+                  children: html`
+                    <div class="demo-small">
+                      <p><strong>small</strong></p>
+                      <div>${col}</div>
+                    </div>
+                    <div class="demo-medium">
+                      <p><strong>medium</strong></p>
+                      <div>${col}</div>
+                    </div>
+                    <div class="demo-large">
+                      <p><strong>large</strong></p>
+                      <div>${col}</div>
+                    </div>
+                  `,
+                })}
+              </div>`
+            )}
+          </div>
+        `
+      )}`,
+  }),
 });

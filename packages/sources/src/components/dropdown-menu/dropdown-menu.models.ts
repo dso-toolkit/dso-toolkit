@@ -4,7 +4,7 @@ export interface DropdownMenu {
   id: string;
   button: Button;
   groups: DropdownMenuGroup[];
-  dropdownAlign?: 'left' | 'right';
+  dropdownAlign?: "left" | "right";
   isCheckable?: boolean;
 }
 
@@ -19,10 +19,10 @@ export interface DropdownMenuItem {
 }
 
 export interface DropdownMenuItemAnchor {
-  type: 'anchor';
+  type: "anchor";
   url: string;
 }
 
 export interface DropdownMenuItemButton {
-  type: 'button';
+  type: "button";
 }

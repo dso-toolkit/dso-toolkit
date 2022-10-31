@@ -48,7 +48,7 @@ a.btn-link {
 }
 
 .btn-block {
-  @include button.block('.btn-block');
+  @include button.block(".btn-block");
 }
 
 input[type="submit"],
@@ -65,16 +65,28 @@ label {
   &.dso-primary {
     @include button.primary($base-styling: true);
     @include css-button-mixins.shared(
-      ("default": "download-wit"),
-      ("default": "external-link-wit")
+      (
+        "default": "download-wit",
+      ),
+      (
+        "default": "external-link-wit",
+      )
     );
   }
 
   &.dso-secondary {
     @include button.secondary($base-styling: true);
     @include css-button-mixins.shared(
-      ("default": "download", "hover": "download-wit", "disabled": "download-grasgroen-40"),
-      ("default": "external-link", "hover": "external-link-wit", "disabled": "external-link-grasgroen-40")
+      (
+        "default": "download",
+        "hover": "download-wit",
+        "disabled": "download-grasgroen-40",
+      ),
+      (
+        "default": "external-link",
+        "hover": "external-link-wit",
+        "disabled": "external-link-grasgroen-40",
+      )
     );
   }
 

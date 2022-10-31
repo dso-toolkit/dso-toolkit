@@ -1,9 +1,9 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'dso-progress-bar',
-  styleUrl: 'progress-bar.scss',
-  shadow: true
+  tag: "dso-progress-bar",
+  styleUrl: "progress-bar.scss",
+  shadow: true,
 })
 export class ProgressBar {
   @Prop()
@@ -17,7 +17,7 @@ export class ProgressBar {
 
   render() {
     const progressNumber = Math.round(this.progress);
-    const progressPercentage = `${progressNumber}%`
+    const progressPercentage = `${progressNumber}%`;
 
     return (
       <div class="progress">

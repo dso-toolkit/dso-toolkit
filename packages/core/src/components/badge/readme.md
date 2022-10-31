@@ -1,7 +1,5 @@
 # `<dso-badge>`
 
-
-
 <!-- Auto Generated Below -->
 
 

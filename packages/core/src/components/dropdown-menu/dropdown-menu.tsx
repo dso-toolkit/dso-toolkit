@@ -55,7 +55,7 @@ export class DropdownMenu {
     });
 
     const options = this.host.querySelector(".dso-dropdown-options");
-    if (options == null) {
+    if (!options) {
       throw new ReferenceError("Dropdown options not found");
     }
 
@@ -143,9 +143,9 @@ export class DropdownMenu {
 
     if (activeEl.shadowRoot) {
       return this.getActiveElement(activeEl.shadowRoot);
-    } else {
-      return activeEl;
     }
+
+    return activeEl;
   }
 
   tabInPopup(direction: number) {
@@ -169,10 +169,7 @@ export class DropdownMenu {
 
   render() {
     return (
-      <Host
-        onFocusout={this.focusOutListener}
-        tabindex={this.open ? "-1" : undefined}
-      >
+      <Host onFocusout={this.focusOutListener} tabindex={this.open ? "-1" : undefined}>
         <slot name="toggle" />
         <div hidden={!this.open}>
           <slot />

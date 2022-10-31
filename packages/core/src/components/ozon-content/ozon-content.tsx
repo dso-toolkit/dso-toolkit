@@ -1,15 +1,15 @@
-import { h, Component,  ComponentInterface, Element,  Event,  EventEmitter,  Prop,  State, Host } from '@stencil/core';
-import { isTabbable } from 'tabbable';
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, Host } from "@stencil/core";
+import { isTabbable } from "tabbable";
 
-import { Mapper } from './ozon-content-mapper';
-import { OzonContentContext } from './ozon-content-context.interface';
-import { OzonContentAnchorClick, OzonContentClick } from './ozon-content.interfaces';
-import { OzonContentNodeState } from './ozon-content-node-state.interface';
+import { Mapper } from "./ozon-content-mapper";
+import { OzonContentContext } from "./ozon-content-context.interface";
+import { OzonContentAnchorClick, OzonContentClick } from "./ozon-content.interfaces";
+import { OzonContentNodeState } from "./ozon-content-node-state.interface";
 
 @Component({
-  tag: 'dso-ozon-content',
-  styleUrl: 'ozon-content.scss',
-  scoped: true
+  tag: "dso-ozon-content",
+  styleUrl: "ozon-content.scss",
+  scoped: true,
 })
 export class OzonContent implements ComponentInterface {
   /**
@@ -22,7 +22,7 @@ export class OzonContent implements ComponentInterface {
    * Setting this property creates dso-ozon-content as inline element instead of a block element.
    */
   @Prop({ reflect: true })
-  inline: boolean = false;
+  inline = false;
 
   /**
    * Marks content as deleted using visual and accessible clues.
@@ -41,7 +41,7 @@ export class OzonContent implements ComponentInterface {
    * * `false | undefined`: Disabled
    */
   @Prop({ reflect: true })
-  interactive: 'sub' | '' | boolean = false;
+  interactive: "sub" | "" | boolean = false;
 
   @State()
   state: OzonContentNodeState = {};
@@ -62,11 +62,12 @@ export class OzonContent implements ComponentInterface {
 
   handleHostOnClick(e: UIEvent) {
     // '' is `true`: <dso-ozon-content interactive>
-    if (this.interactive !== '' && !this.interactive) {
+    if (this.interactive !== "" && !this.interactive) {
       return;
     }
 
-    const doIt = e.composedPath().find(e => e === this.host || (e instanceof HTMLElement && isTabbable(e))) === this.host;
+    const doIt =
+      e.composedPath().find((e) => e === this.host || (e instanceof HTMLElement && isTabbable(e))) === this.host;
 
     if (doIt) {
       this.dsoClick.emit({ originalEvent: e });
@@ -76,11 +77,11 @@ export class OzonContent implements ComponentInterface {
   render(): JSX.Element {
     const context: OzonContentContext = {
       state: this.state,
-      setState: state => this.state = state,
-      emitAnchorClick: this.dsoAnchorClick.emit
+      setState: (state) => (this.state = state),
+      emitAnchorClick: this.dsoAnchorClick.emit,
     };
 
-    const transformed = this.mapper.transform(this.content ?? '', context);
+    const transformed = this.mapper.transform(this.content ?? "", context);
 
     if (this.deleted) {
       return (

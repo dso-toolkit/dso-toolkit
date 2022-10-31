@@ -1,8 +1,8 @@
-import { FormGroupBase } from './form-group.base-model';
+import { FormGroupBase } from "./form-group.base-model";
 
 export interface FormGroupFiles<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
-  group: 'files';
-  addFileButtonVariant: 'primary' | 'secondary';
+  group: "files";
+  addFileButtonVariant: "primary" | "secondary";
   files: FormGroupFilesFile[];
   warning: string;
 }

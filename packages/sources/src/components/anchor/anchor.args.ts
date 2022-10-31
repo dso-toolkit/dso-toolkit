@@ -1,10 +1,10 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Anchor } from './anchor.models';
+import { Anchor } from "./anchor.models";
 
 export interface AnchorArgs {
   icon?: string;
-  iconMode?: 'after';
+  iconMode?: "after";
   label: string;
   modifier?: string;
   url: string;
@@ -14,49 +14,49 @@ export interface AnchorArgs {
 export const anchorArgTypes: ArgTypes<AnchorArgs> = {
   icon: {
     control: {
-      type: 'string'
-    }
+      type: "string",
+    },
   },
   iconMode: {
-    options: [undefined, 'after'],
+    options: [undefined, "after"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   modifier: {
-    options: [undefined, 'download', 'extern'],
+    options: [undefined, "download", "extern"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   url: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   ariaCurrent: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function anchorArgsMapper(a: AnchorArgs): Anchor {
   return {
     icon: a.icon
       ? {
-        icon: a.icon
-      }
+          icon: a.icon,
+        }
       : undefined,
     iconMode: a.iconMode,
     label: a.label,
     modifier: a.modifier,
     url: a.url,
-    ariaCurrent: a.ariaCurrent
+    ariaCurrent: a.ariaCurrent,
   };
 }

@@ -1,139 +1,139 @@
-import { Tile } from '../..';
+import { Tile } from "../..";
 
 export const tiles: Tile[] = [
   {
-    anchor: '#',
-    label: 'Bodem',
+    anchor: "#",
+    label: "Bodem",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Bouwwerken',
+    anchor: "#",
+    label: "Bouwwerken",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Cultureel erfgoed',
+    anchor: "#",
+    label: "Cultureel erfgoed",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Energie en natuurlijke hulpbronnen',
+    anchor: "#",
+    label: "Energie en natuurlijke hulpbronnen",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Externe veiligheid',
+    anchor: "#",
+    label: "Externe veiligheid",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Geluid',
+    anchor: "#",
+    label: "Geluid",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Gezondheid',
+    anchor: "#",
+    label: "Gezondheid",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Infrastructuur',
+    anchor: "#",
+    label: "Infrastructuur",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Landgebruik',
+    anchor: "#",
+    label: "Landgebruik",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Landschap',
+    anchor: "#",
+    label: "Landschap",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Lucht',
+    anchor: "#",
+    label: "Lucht",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Milieu algemeen',
+    anchor: "#",
+    label: "Milieu algemeen",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Natuur',
+    anchor: "#",
+    label: "Natuur",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Procedures',
+    anchor: "#",
+    label: "Procedures",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
+    variant: "theme",
   },
   {
-    anchor: '#',
-    label: 'Water en watersystemen',
+    anchor: "#",
+    label: "Water en watersystemen",
     image: {
-      source: 'images/icon-tree.png',
-      alt: 'Boom'
+      source: "images/icon-tree.png",
+      alt: "Boom",
     },
-    variant: 'theme'
-  }
+    variant: "theme",
+  },
 ];

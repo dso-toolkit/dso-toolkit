@@ -1,16 +1,4 @@
-import {
-  Component,
-  Element,
-  h,
-  Listen,
-  Prop,
-  State,
-  Fragment,
-  Event,
-  EventEmitter,
-  VNode,
-  Watch,
-} from "@stencil/core";
+import { Component, Element, h, Listen, Prop, State, Fragment, Event, EventEmitter, VNode, Watch } from "@stencil/core";
 import debounce from "debounce";
 import { v4 } from "uuid";
 import escapeStringRegexp from "escape-string-regexp";
@@ -55,7 +43,7 @@ export class Autosuggest {
    * Shows progress indicator when fetching results.
    */
   @Prop()
-  loading: boolean = false;
+  loading = false;
 
   /**
    * To override progress indicator's default loading label.
@@ -79,11 +67,11 @@ export class Autosuggest {
    * Whether the previous suggestions will be presented when the input gets focus again.
    */
   @Prop()
-  suggestOnFocus: boolean = false;
+  suggestOnFocus = false;
 
   /**
    * Emitted when a suggestion is selected.
-   * The `detail` property of the `CustomEvent` will contain the selected suggestion.
+   * The `detail` property of the `CustomEvent` will contain the selected suggestion.
    */
   @Event()
   dsoSelect!: EventEmitter<Suggestion>;
@@ -96,7 +84,7 @@ export class Autosuggest {
 
   /**
    * Emitted when enter is pressed.
-   * The `detail` property of the `CustomEvent` will contain the input text.
+   * The `detail` property of the `CustomEvent` will contain the input text.
    */
   @Event()
   dsoSearch!: EventEmitter<string>;
@@ -105,25 +93,24 @@ export class Autosuggest {
   host!: HTMLElement;
 
   @State()
-  showSuggestions: boolean = false;
+  showSuggestions = false;
 
   @State()
   selectedSuggestion: Suggestion | undefined;
 
   @State()
-  notFound: boolean = false;
+  notFound = false;
 
   @State()
-  showLoading: boolean = false;
+  showLoading = false;
 
-  @Watch('suggestions')
+  @Watch("suggestions")
   suggestionsWatcher() {
     this.resetSelectedSuggestion();
 
     if ((!this.showSuggestions || !this.notFound) && this.inputValue) {
       this.openSuggestions();
-    }
-    else if ((this.showSuggestions || this.notFound) && !this.inputValue) {
+    } else if ((this.showSuggestions || this.notFound) && !this.inputValue) {
       this.closeSuggestions();
     }
   }
@@ -145,11 +132,11 @@ export class Autosuggest {
 
   debouncedShowLoading = debounce(() => {
     if (this.inputValue) {
-      this.showLoading = true
+      this.showLoading = true;
     }
   }, this.loadingDelayed);
 
-  inputValue: string = '';
+  inputValue = "";
 
   onInput = (event: Event) => {
     if (!(event.target instanceof HTMLInputElement)) {
@@ -158,7 +145,7 @@ export class Autosuggest {
 
     this.showLoading = !this.loadingDelayed;
     this.inputValue = event.target.value;
-    this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : '');
+    this.debouncedEmitValue(event.target.value.match(/(\S+)/g) ? event.target.value : "");
   };
 
   onFocusIn = () => {
@@ -174,7 +161,7 @@ export class Autosuggest {
       this.listbox &&
       event.target instanceof Node &&
       !this.listbox.contains(event.target) &&
-      this.input != event.target
+      this.input !== event.target
     ) {
       this.closeSuggestions();
     }
@@ -224,14 +211,14 @@ export class Autosuggest {
 
   markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
     if (!suggestionValue || !terms || terms.length === 0) {
-      return [''];
+      return [""];
     }
 
-    const termRegex = new RegExp(`(${escapeStringRegexp(terms[0])})`, 'gi');
+    const termRegex = new RegExp(`(${escapeStringRegexp(terms[0])})`, "gi");
 
     return suggestionValue.split(termRegex).map((valuePart: string) => {
       if (!valuePart) {
-        return '';
+        return "";
       }
 
       if (termRegex.test(valuePart)) {
@@ -260,7 +247,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[0];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -272,7 +259,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -286,7 +273,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -300,7 +287,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute('aria-activedescendant', this.listboxItemId(this.selectedSuggestion));
+      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -308,18 +295,17 @@ export class Autosuggest {
     this.showLoading = !this.loadingDelayed;
     this.notFound = false;
     this.selectedSuggestion = undefined;
-    this.input.setAttribute('aria-activedescendant', '');
+    this.input.setAttribute("aria-activedescendant", "");
   }
 
-  openSuggestions(selectSuggestion?: 'first' | 'last') {
+  openSuggestions(selectSuggestion?: "first" | "last") {
     this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
     this.notFound = this.suggestions?.length === 0 ?? false;
     this.input.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
-    if (this.showSuggestions && selectSuggestion === 'first') {
+    if (this.showSuggestions && selectSuggestion === "first") {
       this.selectFirstSuggestion();
-    }
-    else if (this.showSuggestions && selectSuggestion === 'last') {
+    } else if (this.showSuggestions && selectSuggestion === "last") {
       this.selectLastSuggestion();
     }
   }
@@ -347,35 +333,33 @@ export class Autosuggest {
     }
 
     switch (event.key) {
-      case 'ArrowDown':
+      case "ArrowDown":
         if (!this.showSuggestions) {
-          this.openSuggestions('first');
-        }
-        else {
+          this.openSuggestions("first");
+        } else {
           this.selectNextSuggestion();
         }
 
         break;
 
-      case 'ArrowUp':
+      case "ArrowUp":
         if (!this.showSuggestions) {
-          this.openSuggestions('last');
-        }
-        else {
+          this.openSuggestions("last");
+        } else {
           this.selectPreviousSuggestion();
         }
 
         break;
 
-      case 'Tab':
+      case "Tab":
         this.closeSuggestions();
         return;
 
-      case 'Escape':
+      case "Escape":
         this.closeSuggestions();
         break;
 
-      case 'Enter':
+      case "Enter":
         this.pickSelectedValue();
         break;
 
@@ -388,64 +372,58 @@ export class Autosuggest {
 
   listboxItemId(suggestion: Suggestion): string {
     if (!this.suggestions) {
-      return '';
+      return "";
     }
     return `${this.inputId}-${this.suggestions.indexOf(suggestion) + 1}`;
   }
 
   render() {
-    const terms = this.input.value.split(' ').filter(t => t);
+    const terms = this.input.value.split(" ").filter((t) => t);
 
     return (
       <>
         <slot />
-        {this.loading && this.showLoading
-          ? <div class="autosuggest-progress-box">
-              <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
-            </div>
-          : <ul
-              role="listbox"
-              id={this.listboxId}
-              aria-labelledby={this.labelId}
-              ref={element => this.listbox = element}
-              hidden={!this.showSuggestions && !this.notFound}
-            >
-              {this.showSuggestions && this.suggestions
-                ? this.suggestions.map((suggestion) => (
-                    <li
-                      role="option"
-                      id={this.listboxItemId(suggestion)}
-                      key={suggestion.value}
-                      onMouseEnter={() => this.selectSuggestion(suggestion)}
-                      onMouseLeave={() => this.resetSelectedSuggestion()}
-                      onClick={() => this.pickSelectedValue()}
-                      aria-selected={(suggestion === this.selectedSuggestion).toString()}
-                      aria-label={suggestion.value}
-                    >
-                      <span class="value">
-                        {this.markTerms(suggestion.value, terms)}
-                      </span>
-                      {suggestion.type
-                        ? (
-                          <span class="type">{suggestion.type}</span>
-                        )
-                        : undefined
-                      }
-                    </li>
-                  ))
-                : this.notFound
-                  ? <li>
-                      <span class="value">
-                        {!this.notFoundLabel
-                          ? this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
-                          : <span>{this.notFoundLabel}</span>
-                        }
-                      </span>
-                    </li>
-                  : undefined
-              }
-            </ul>
-        }
+        {this.loading && this.showLoading ? (
+          <div class="autosuggest-progress-box">
+            <dso-progress-indicator label={this.loadingLabel}></dso-progress-indicator>
+          </div>
+        ) : (
+          <ul
+            role="listbox"
+            id={this.listboxId}
+            aria-labelledby={this.labelId}
+            ref={(element) => (this.listbox = element)}
+            hidden={!this.showSuggestions && !this.notFound}
+          >
+            {this.showSuggestions && this.suggestions ? (
+              this.suggestions.map((suggestion) => (
+                <li
+                  role="option"
+                  id={this.listboxItemId(suggestion)}
+                  key={suggestion.value}
+                  onMouseEnter={() => this.selectSuggestion(suggestion)}
+                  onMouseLeave={() => this.resetSelectedSuggestion()}
+                  onClick={() => this.pickSelectedValue()}
+                  aria-selected={(suggestion === this.selectedSuggestion).toString()}
+                  aria-label={suggestion.value}
+                >
+                  <span class="value">{this.markTerms(suggestion.value, terms)}</span>
+                  {suggestion.type ? <span class="type">{suggestion.type}</span> : undefined}
+                </li>
+              ))
+            ) : this.notFound ? (
+              <li>
+                <span class="value">
+                  {!this.notFoundLabel ? (
+                    this.markTerms(`${this.inputValue} is niet gevonden.`, terms)
+                  ) : (
+                    <span>{this.notFoundLabel}</span>
+                  )}
+                </span>
+              </li>
+            ) : undefined}
+          </ul>
+        )}
       </>
     );
   }

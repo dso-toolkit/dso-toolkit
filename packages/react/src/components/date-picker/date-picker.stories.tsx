@@ -4,10 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
-import {
-  datePickerShowByScriptingTemplate,
-  datePickerWithLabelTemplate,
-} from "./date-picker.react-template";
+import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.react-template";
 
 storiesOfDatePicker(
   {

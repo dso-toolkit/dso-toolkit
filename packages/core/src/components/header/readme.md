@@ -26,7 +26,7 @@ interface HeaderMenuLogoutClick {
 
 | Property          | Attribute            | Description                                                                                                 | Type                                  | Default     |
 | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------- | ----------- |
-| `authStatus`      | `auth-status`        | Used to show the login/logout option. 'none' renders nothing.                                               | `"loggedIn" \| "loggedOut" \| "none"` | `'none'`    |
+| `authStatus`      | `auth-status`        | Used to show the login/logout option. 'none' renders nothing.                                               | `"loggedIn" \| "loggedOut" \| "none"` | `"none"`    |
 | `loginUrl`        | `login-url`          | When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor. | `string \| undefined`                 | `undefined` |
 | `logoutUrl`       | `logout-url`         |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `mainMenu`        | --                   |                                                                                                             | `HeaderMenuItem[] \| undefined`       | `[]`        |

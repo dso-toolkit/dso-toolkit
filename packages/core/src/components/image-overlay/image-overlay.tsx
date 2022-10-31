@@ -1,6 +1,6 @@
 import { Component, ComponentInterface, Element, forceUpdate, h, Host, Listen, State } from "@stencil/core";
-import debounce from 'debounce';
-import { createFocusTrap, FocusTrap } from 'focus-trap';
+import debounce from "debounce";
+import { createFocusTrap, FocusTrap } from "focus-trap";
 
 @Component({
   tag: "dso-image-overlay",
@@ -34,7 +34,7 @@ export class ImageOverlay implements ComponentInterface {
 
   private resizeObserver?: ResizeObserver;
 
-  @Listen('load', { capture: true })
+  @Listen("load", { capture: true })
   loadListener(event: Event) {
     if (event.target instanceof HTMLImageElement) {
       this.setZoomable(event.target);
@@ -42,28 +42,26 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   connectedCallback() {
-    this.titelSlot = this.host.querySelector<HTMLDivElement>(
-      "div[slot='titel']"
-    );
+    this.titelSlot = this.host.querySelector<HTMLDivElement>("div[slot='titel']");
 
-    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>(
-      "div[slot='bijschrift']"
-    );
+    this.bijschriftSlot = this.host.querySelector<HTMLDivElement>("div[slot='bijschrift']");
   }
 
   componentDidLoad() {
-    this.resizeObserver = new ResizeObserver(debounce(() => {
-      const imgElement = this.host.querySelector('img');
+    this.resizeObserver = new ResizeObserver(
+      debounce(() => {
+        const imgElement = this.host.querySelector("img");
 
-      if (imgElement instanceof HTMLImageElement) {
-        this.setZoomable(imgElement);
-      }
-    }, 200));
+        if (imgElement instanceof HTMLImageElement) {
+          this.setZoomable(imgElement);
+        }
+      }, 200)
+    );
 
     this.mutationObserver = new MutationObserver((e) => {
       forceUpdate(this.host);
 
-      if (e[0]?.type === 'childList') {
+      if (e[0]?.type === "childList") {
         this.resizeObserver?.disconnect();
         // <img> is gone or a new element.
         this.initZoomableImage();
@@ -73,7 +71,7 @@ export class ImageOverlay implements ComponentInterface {
     this.mutationObserver.observe(this.host, {
       attributes: true,
       subtree: true,
-      attributeFilter: ['src', 'alt'],
+      attributeFilter: ["src", "alt"],
       childList: true,
     });
 
@@ -87,7 +85,7 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   initZoomableImage(): void {
-    const imgElement = this.host.querySelector('img');
+    const imgElement = this.host.querySelector("img");
 
     if (!(imgElement instanceof HTMLImageElement)) {
       return;
@@ -108,21 +106,18 @@ export class ImageOverlay implements ComponentInterface {
   }
 
   render() {
-    const { src, alt } = this.host.querySelector('img') ?? {};
+    const { src, alt } = this.host.querySelector("img") ?? {};
 
     return (
-      <Host
-        tabindex={this.focused || !this.zoomable ? -1 : 0}
-        onFocus={() => this.buttonElement?.focus()}
-      >
+      <Host tabindex={this.focused || !this.zoomable ? -1 : 0} onFocus={() => this.buttonElement?.focus()}>
         {this.active && src && alt && (
           <div class="dimmer">
-            <div class="wrapper" ref={element => this.wrapperElement = element}>
+            <div class="wrapper" ref={(element) => (this.wrapperElement = element)}>
               <div class="titel" hidden={!this.titelSlot}>
                 <slot name="titel" />
               </div>
               <img src={src} alt={alt} />
-              <button type="button" class="close" onClick={() => this.active = false}>
+              <button type="button" class="close" onClick={() => (this.active = false)}>
                 <dso-icon icon="times"></dso-icon>
                 <span>Sluiten</span>
               </button>
@@ -137,10 +132,10 @@ export class ImageOverlay implements ComponentInterface {
           <button
             type="button"
             class="open"
-            ref={element => this.buttonElement = element}
-            onClick={() => this.active = true}
-            onFocus={() => this.focused = true}
-            onBlur={() => this.focused = false}
+            ref={(element) => (this.buttonElement = element)}
+            onClick={() => (this.active = true)}
+            onFocus={() => (this.focused = true)}
+            onBlur={() => (this.focused = false)}
           >
             <dso-icon icon="external-link"></dso-icon>
             <span>Afbeelding vergroot weergeven</span>
@@ -164,10 +159,9 @@ export class ImageOverlay implements ComponentInterface {
           return true;
         },
         setReturnFocus: this.buttonElement ?? false,
-        onDeactivate: () => this.active = false
+        onDeactivate: () => (this.active = false),
       }).activate();
-    }
-    else if (!this.active && this.trap) {
+    } else if (!this.active && this.trap) {
       this.trap?.deactivate();
 
       delete this.trap;

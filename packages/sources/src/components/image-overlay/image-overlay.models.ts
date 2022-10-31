@@ -1,4 +1,4 @@
-import { Image } from '../..';
+import { Image } from "../..";
 
 export interface ImageOverlay {
   image: Image;

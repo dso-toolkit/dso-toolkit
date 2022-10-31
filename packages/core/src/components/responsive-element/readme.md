@@ -1,7 +1,5 @@
 # `<dso-responsive-element>`
 
-
-
 <!-- Auto Generated Below -->
 
 

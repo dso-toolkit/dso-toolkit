@@ -8,32 +8,32 @@ Het begint met een samenvatting waarna per onderdeel een uitgebreide beschrijvin
 
 De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 
-* `@dso-toolkit/sources`
-* `dso-toolkit`
-* `@dso-toolkit/css`
-* `@dso-toolkit/core`
-* `@dso-toolkit/react`
-* `@dso-toolkit/leaflet`
-* `@dso-toolkit/react-leaflet`
+- `@dso-toolkit/sources`
+- `dso-toolkit`
+- `@dso-toolkit/css`
+- `@dso-toolkit/core`
+- `@dso-toolkit/react`
+- `@dso-toolkit/leaflet`
+- `@dso-toolkit/react-leaflet`
 
 ![DSO Toolkit dependency graph](dependency-graph.svg)
 
 ## Termen
 
-* **implementatie**: Binnen de context van de toolkit bedoelen we hier een *type uitvoering*: Een component heeft één of meerdere implementaties: HTML/CSS component, Web Component, React Component, Angular Component. Buiten de context van de toolkit kan een afnemer van de toolkit een component binnen zijn applicatie implementeren.
-* **maintainer**: Een maintainer beheert de codebase van de DSO Toolkit.
-* **component**: De DSO Toolkit maakt geen gebruik van een methode zoals Atomic Design: Binnen de toolkit is alles een component. Van een heading zoals `h1` tot een complexe werkvorm zoals Accordion.
+- **implementatie**: Binnen de context van de toolkit bedoelen we hier een _type uitvoering_: Een component heeft één of meerdere implementaties: HTML/CSS component, Web Component, React Component, Angular Component. Buiten de context van de toolkit kan een afnemer van de toolkit een component binnen zijn applicatie implementeren.
+- **maintainer**: Een maintainer beheert de codebase van de DSO Toolkit.
+- **component**: De DSO Toolkit maakt geen gebruik van een methode zoals Atomic Design: Binnen de toolkit is alles een component. Van een heading zoals `h1` tot een complexe werkvorm zoals Accordion.
 
 ## Sources
 
 Deze package is de basis voor de andere packages in het DSO Toolkit Design System. Hier centraliseren we de functionaliteit die door maintainers wordt gebruikt:
 
-* Implementatie details: Implementatie-agnostische documentatie over de functionaliteit van een component.
-* Iconen: Alle iconen die in de applicaties van het DSO worden gebruikt.
-* Styling: Component styling in de vorm van Sass mixins waarmee de diverse implementaties worden gestijld.
-* Component model: Het technische model wat de functionaliteit van een component beschrijft.
-* Storybook definities: Alles wat niet met templating van een Story te maken heeft.
-* Storybook args: de laag tussen de Controls van Storybook en het technische model van een component.
+- Implementatie details: Implementatie-agnostische documentatie over de functionaliteit van een component.
+- Iconen: Alle iconen die in de applicaties van het DSO worden gebruikt.
+- Styling: Component styling in de vorm van Sass mixins waarmee de diverse implementaties worden gestijld.
+- Component model: Het technische model wat de functionaliteit van een component beschrijft.
+- Storybook definities: Alles wat niet met templating van een Story te maken heeft.
+- Storybook args: de laag tussen de Controls van Storybook en het technische model van een component.
 
 In deze package wordt de eerste vertaalslag van Ontwerp naar Code gemaakt.
 
@@ -79,8 +79,8 @@ Componenten waarvan een web component aanwezig is hanteren de `dso` prefix voor 
 
 Per component wordt de Storybook definitie bijgehouden. In de basis is dit een `export function storiesOfComponent(storybookParameters, componentParameters)`:
 
-* `storybookParameters` is een component-overstijgend model voor de basis functionaliteit van Storybook.
-* `componentParameters` is een component specifiek model. Over het algemeen zal dit alleen om de implementatie-specifieke template van het component gaan, maar voor complexe werkvormen kan dit uitgebreid worden om de documentatie te verbeteren.
+- `storybookParameters` is een component-overstijgend model voor de basis functionaliteit van Storybook.
+- `componentParameters` is een component specifiek model. Over het algemeen zal dit alleen om de implementatie-specifieke template van het component gaan, maar voor complexe werkvormen kan dit uitgebreid worden om de documentatie te verbeteren.
 
 Met deze opzet worden implementaties geforceerd identieke varianten op te leveren.
 

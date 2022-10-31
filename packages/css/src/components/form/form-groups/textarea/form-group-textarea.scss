@@ -18,7 +18,11 @@
       height: auto;
 
       &:not([rows]) {
-        height: calc(#{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(units.$padding-base-vertical + 1) * 2});
+        height: calc(
+          #{typography.$line-height-base * css-form-variables.$textarea-default-rows}em + #{(
+              units.$padding-base-vertical + 1
+            ) * 2}
+        );
       }
     }
   }

@@ -3,19 +3,26 @@ import { ImageOverlayArgs, imageOverlayArgsMapper, imageOverlayArgTypes } from "
 import { ImageOverlay } from "./image-overlay.models";
 
 export interface ImageOverlayTemplates<TemplateFnReturnType> {
-  imageOverlayTemplate: (
-    imageOverlayProperties: ImageOverlay
-  ) => TemplateFnReturnType;
+  imageOverlayTemplate: (imageOverlayProperties: ImageOverlay) => TemplateFnReturnType;
 }
 
-export function storiesOfImageOverlay<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ImageOverlayTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Image Overlay', storiesOfArguments, (stories, templateMapper) => {
+export function storiesOfImageOverlay<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ImageOverlayTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Image Overlay", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: imageOverlayArgTypes,
-      layout: 'fullscreen'
+      layout: "fullscreen",
     });
 
-    const template = templateMapper<ImageOverlayArgs>((args, { imageOverlayTemplate }) => imageOverlayTemplate(imageOverlayArgsMapper(args)));
+    const template = templateMapper<ImageOverlayArgs>((args, { imageOverlayTemplate }) =>
+      imageOverlayTemplate(imageOverlayArgsMapper(args))
+    );
 
     stories.add("Image Overlay", template);
   });

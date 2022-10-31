@@ -1,27 +1,27 @@
-import { Fragment, h } from '@stencil/core';
+import { Fragment, h } from "@stencil/core";
 
-import { OzonContentAlNode } from './nodes/al.node';
-import { OzonContentDocumentNode } from './nodes/document.node';
-import { OzonContentExtRefNode } from './nodes/ext-ref.node';
-import { OzonContentFiguurNode } from './nodes/figuur.node';
-import { OzonContentInhoudNode } from './nodes/inhoud.node';
-import { OzonContentInlineTekstAfbeeldingNode } from './nodes/inline-tekst-afbeelding.node';
-import { OzonContentOpschriftNode } from './nodes/opschrift.node';
-import { OzonContentInlineNodes } from './nodes/inline.nodes';
-import { OzonContentIntIoRefNode } from './nodes/int-io-ref.node';
-import { OzonContentIntRefNode } from './nodes/int-ref.node';
-import { OzonContentNootNode } from './nodes/noot.node';
-import { OzonContentTableNode } from './nodes/table.node';
-import { OzonContentTextNode } from './nodes/text.node';
+import { OzonContentAlNode } from "./nodes/al.node";
+import { OzonContentDocumentNode } from "./nodes/document.node";
+import { OzonContentExtRefNode } from "./nodes/ext-ref.node";
+import { OzonContentFiguurNode } from "./nodes/figuur.node";
+import { OzonContentInhoudNode } from "./nodes/inhoud.node";
+import { OzonContentInlineTekstAfbeeldingNode } from "./nodes/inline-tekst-afbeelding.node";
+import { OzonContentOpschriftNode } from "./nodes/opschrift.node";
+import { OzonContentInlineNodes } from "./nodes/inline.nodes";
+import { OzonContentIntIoRefNode } from "./nodes/int-io-ref.node";
+import { OzonContentIntRefNode } from "./nodes/int-ref.node";
+import { OzonContentNootNode } from "./nodes/noot.node";
+import { OzonContentTableNode } from "./nodes/table.node";
+import { OzonContentTextNode } from "./nodes/text.node";
 
-import { getNodeName } from './get-node-name.function';
-import { OzonContentNode } from './ozon-content-node.interface';
-import { OzonContentContext } from './ozon-content-context.interface';
-import { OzonContentFallbackNode } from './nodes/fallback.node';
-import { OzonContentLijstNode } from './nodes/lijst.node';
+import { getNodeName } from "./get-node-name.function";
+import { OzonContentNode } from "./ozon-content-node.interface";
+import { OzonContentContext } from "./ozon-content-context.interface";
+import { OzonContentFallbackNode } from "./nodes/fallback.node";
+import { OzonContentLijstNode } from "./nodes/lijst.node";
 
 export class Mapper {
-  private cache: { xml: string, document: Document } | undefined;
+  private cache: { xml: string; document: Document } | undefined;
 
   private mappers: OzonContentNode[] = [
     new OzonContentTextNode(),
@@ -42,7 +42,7 @@ export class Mapper {
 
   private skip = this.mappers.reduce<string[]>((t, m) => {
     if (m.handles) {
-      t.push(...m.handles)
+      t.push(...m.handles);
     }
 
     return t;
@@ -57,22 +57,24 @@ export class Mapper {
       return undefined;
     }
 
-    return this.mappers.find(m => {
-      if (Array.isArray(m.name)) {
-        return m.name.includes(name);
-      }
+    return (
+      this.mappers.find((m) => {
+        if (Array.isArray(m.name)) {
+          return m.name.includes(name);
+        }
 
-      return m.name === name;
-    }) ?? this.fallbackNode;
+        return m.name === name;
+      }) ?? this.fallbackNode
+    );
   }
 
   mapNodeToJsx(node: Node | Node[] | NodeList, context: OzonContentContext, path: Node[]): JSX.Element {
     if (node instanceof NodeList) {
-      return <Fragment>{Array.from(node).map(n => this.mapNodeToJsx(n, context, path))}</Fragment>
+      return <Fragment>{Array.from(node).map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
     }
 
     if (Array.isArray(node)) {
-      return <Fragment>{node.map(n => this.mapNodeToJsx(n, context, path))}</Fragment>
+      return <Fragment>{node.map((n) => this.mapNodeToJsx(n, context, path))}</Fragment>;
     }
 
     const nodeName = getNodeName(node);
@@ -84,20 +86,22 @@ export class Mapper {
     const identity = mapper.identify?.(node);
 
     const state = identity ? context.state[identity] : undefined;
-    const setState = identity ? (state: unknown) => context.setState({ ...context.state, [identity]: state }) : undefined;
+    const setState = identity
+      ? (state: unknown) => context.setState({ ...context.state, [identity]: state })
+      : undefined;
 
     return mapper.render(node, {
-      mapNodeToJsx: n => this.mapNodeToJsx(n, context, [...path, node]),
+      mapNodeToJsx: (n) => this.mapNodeToJsx(n, context, [...path, node]),
       emitAnchorClick: context.emitAnchorClick,
       setState,
       state,
-      path
+      path,
     });
   }
 
   transform(xml: string, context: OzonContentContext): JSX.Element {
     if (!this.cache || this.cache.xml !== xml) {
-      this.cache = { xml, document: this.domParser.parseFromString(xml, 'text/xml') };
+      this.cache = { xml, document: this.domParser.parseFromString(xml, "text/xml") };
     }
 
     const xmlDocument = this.cache.document;

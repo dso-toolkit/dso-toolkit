@@ -1,11 +1,11 @@
-import { ArgTypes } from '../../../../storybook';
-import { v4 as uuidv4 } from 'uuid';
+import { ArgTypes } from "../../../storybook";
+import { v4 as uuidv4 } from "uuid";
 
-import { FormGroupConfirm } from '../../form.models';
+import { FormGroupConfirm } from "../form.models";
 
 export interface FormGroupConfirmArgs {
   id: string;
-  state?: 'invalid' | 'valid';
+  state?: "invalid" | "valid";
   required: boolean;
   disabled: boolean;
   errorText?: string;
@@ -17,50 +17,52 @@ export interface FormGroupConfirmArgs {
 export const formGroupConfirmArgTypes: ArgTypes<FormGroupConfirmArgs> = {
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   state: {
-    options: [undefined, 'invalid', 'valid'],
+    options: [undefined, "invalid", "valid"],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   required: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   disabled: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   errorText: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   helpText: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   selectableLabel: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   selectableValue: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
-export function formGroupConfirmArgsMapper(a: FormGroupConfirmArgs): FormGroupConfirm<any> {
+export function formGroupConfirmArgsMapper<TemplateFnReturnType>(
+  a: FormGroupConfirmArgs
+): FormGroupConfirm<TemplateFnReturnType> {
   return {
-    group: 'confirm',
+    group: "confirm",
     id: a.id,
     required: a.required,
     disabled: a.disabled,
@@ -69,9 +71,9 @@ export function formGroupConfirmArgsMapper(a: FormGroupConfirmArgs): FormGroupCo
     helpText: a.helpText,
     selectable: {
       id: uuidv4(),
-      type: 'checkbox',
+      type: "checkbox",
       value: a.selectableValue,
-      label: a.selectableLabel
-    }
+      label: a.selectableLabel,
+    },
   };
 }

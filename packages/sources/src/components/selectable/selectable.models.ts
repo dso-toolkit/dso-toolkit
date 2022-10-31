@@ -1,7 +1,7 @@
-import { Info } from '../info/info.models';
+import { Info } from "../info/info.models";
 
 export interface Selectable<TemplateFnReturnType> {
-  type: 'radio' | 'checkbox';
+  type: "radio" | "checkbox";
   id: string;
   name?: string;
   label: string;

@@ -52,7 +52,8 @@
     }
 
     .dso-body {
-      $dso-body-height: (2 * modal-variables.$header-padding) + (modal-variables.$footer-button-height + modal-variables.$footer-padding);
+      $dso-body-height: (2 * modal-variables.$header-padding) +
+        (modal-variables.$footer-button-height + modal-variables.$footer-padding);
 
       @include rich-content.children();
 

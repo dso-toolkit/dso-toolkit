@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Breadcrumb, Breadcrumbs } from './breadcrumbs.models';
+import { Breadcrumb, Breadcrumbs } from "./breadcrumbs.models";
 
 export interface BreadcrumbsArgs {
   breadcrumbs: Breadcrumb[];
@@ -9,13 +9,13 @@ export interface BreadcrumbsArgs {
 export const breadcrumbsArgTypes: ArgTypes<BreadcrumbsArgs> = {
   breadcrumbs: {
     control: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
 export function breadcrumbsArgsMapper(a: BreadcrumbsArgs): Breadcrumbs {
   return {
-    breadcrumbs: a.breadcrumbs
+    breadcrumbs: a.breadcrumbs,
   };
 }
