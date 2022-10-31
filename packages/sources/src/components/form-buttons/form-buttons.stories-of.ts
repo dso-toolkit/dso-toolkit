@@ -8,7 +8,7 @@ export interface FormButtonsTemplates<TemplateFnReturnType> {
 }
 
 export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, FormButtonsTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Form Buttons', storiesOfArguments, (stories, templateMapper) => {
+  return storiesOfFactory('Form/Form Buttons', storiesOfArguments, (stories, templateMapper) => {
     stories
       .addParameters({
         argTypes: formButtonsArgTypes

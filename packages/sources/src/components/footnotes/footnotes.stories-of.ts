@@ -1,3 +1,4 @@
+import { componentArgs } from '../../storybook';
 import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import {
@@ -52,13 +53,12 @@ export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnTy
 
     stories.add(
       'list',
-      templateMapper<FootnotesListArgs>((args, { footnotesTemplate: footnotesListTemplate }) => footnotesListTemplate(footnotesListArgsMapper(args))),
+      templateMapper<FootnotesListArgs>((args, { footnotesTemplate }) => footnotesTemplate(footnotesListArgsMapper(args))),
       {
         argTypes: footnotesListArgTypes,
-        args: {
-          footnote14: footnotes[0],
-          footnote15: footnotes[1]
-        }
+        args: componentArgs<FootnotesListArgs>({
+          footnotes
+        })
       }
     );
   });

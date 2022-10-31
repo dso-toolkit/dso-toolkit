@@ -68,7 +68,10 @@ storiesOfAutosuggest({
           <div class="dso-search-bar-input">
             <label for="search-bar--with-value">Label</label>
             <span class="dso-search-icon" aria-hidden="true"></span>
-            ${autosuggestTemplate(autosuggestConnector([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]))}
+            ${autosuggestTemplate({
+              ...autosuggestConnector([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel]),
+              children: html`<input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'">`
+            })}
             <button type="button">
               Zoekopdracht legen
             </button>

@@ -8,7 +8,7 @@ export interface JustifyFormGroupsTemplates<TemplateFnReturnType> {
 }
 
 export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, JustifyFormGroupsTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Justify Form Groups', storiesOfArguments, (stories, templateMapper) => {
+  return storiesOfFactory('Form/justify form groups', storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: justifyFormGroupsArgTypes
     });

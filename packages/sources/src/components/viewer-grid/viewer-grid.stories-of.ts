@@ -23,7 +23,6 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
 export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ViewerGridTemplates<TemplateFnReturnType>>) {
   return storiesOfFactory('Viewer Grid', storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
-      argTypes: viewerGridArgTypes,
       layout: "fullscreen",
       controls: {
         hideNoControlsWarning: true
@@ -46,6 +45,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
         overlay: example.overlay
       })),
       {
+        argTypes: viewerGridArgTypes,
         args: componentArgs<Pick<ViewerGridArgs, 'filterpanelOpen' | 'overlayOpen'>>({
           filterpanelOpen: false,
           overlayOpen: false

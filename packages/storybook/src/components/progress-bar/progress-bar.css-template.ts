@@ -3,9 +3,10 @@ import { html } from 'lit-html';
 import { ComponentImplementation } from '../../templates';
 
 export const cssProgressBar: ComponentImplementation<ProgressBar> = {
-  component: 'progresBar',
+  component: 'progressBar',
   implementation: 'css',
   template: () => function progressBarTemplate({ progress, label, min, max }) {
+    console.log(max);
     return html`
       <div class="progress">
         <span

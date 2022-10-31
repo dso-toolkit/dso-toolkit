@@ -22,7 +22,7 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
       }
     });
 
-    const template = templateMapper<HighlightBoxArgs>((args, { highlightBoxTemplate }) => highlightBoxTemplate(highlightBoxArgsMapper(args)));
+    const template = templateMapper<HighlightBoxArgs>((args, { highlightBoxTemplate, content }) => highlightBoxTemplate(highlightBoxArgsMapper(args, content)));
 
     stories.add(
       'default',

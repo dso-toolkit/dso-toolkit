@@ -9,15 +9,9 @@ export interface HighlightBoxArgs {
   border: boolean;
   step?: number;
   icon?: string;
-  richContent: string;
 }
 
 export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
-  richContent: {
-    control: {
-      disable: true
-    }
-  },
   yellow: {
     control: {
       type: 'boolean'
@@ -52,11 +46,11 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
   }
 };
 
-export function highlightBoxArgsMapper(a: HighlightBoxArgs): HighlightBox<any> {
+export function highlightBoxArgsMapper<TemplateFnReturnType>(a: HighlightBoxArgs, richContent: TemplateFnReturnType): HighlightBox<TemplateFnReturnType> {
   return {
     border: a.border,
     dropShadow: a.dropShadow,
-    richContent: a.richContent,
+    richContent,
     white: a.white,
     yellow: a.yellow,
     icon: a.icon,
