@@ -3,7 +3,7 @@ export interface OzonContent {
   inline?: boolean;
   prefix?: string;
   suffix?: string;
-  interactive?: 'sub' | boolean;
+  interactive?: "sub" | boolean;
   deleted?: boolean;
   dsoAnchorClick: (e: CustomEvent) => void;
   dsoClick: (e: CustomEvent) => void;

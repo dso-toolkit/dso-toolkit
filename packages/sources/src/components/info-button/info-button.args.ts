@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
-import { HandlerFunction } from '@storybook/addon-actions';
-import { InfoButton } from './info-button.models';
+import { ArgTypes } from "../../storybook";
+import { HandlerFunction } from "@storybook/addon-actions";
+import { InfoButton } from "./info-button.models";
 
 export interface InfoButtonArgs {
   active: boolean;
@@ -12,22 +12,22 @@ export interface InfoButtonArgs {
 export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   active: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   secondary: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   dsoToggle: {
-    action: 'dsoToggle'
-  }
+    action: "dsoToggle",
+  },
 };
 
 export function infoButtonArgsMapper(a: InfoButtonArgs): Required<InfoButton> {

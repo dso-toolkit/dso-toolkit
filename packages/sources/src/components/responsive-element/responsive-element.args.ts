@@ -1,6 +1,6 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
 export interface ResponsiveElementArgs {
   dsoSizeChange: HandlerFunction;
@@ -8,6 +8,6 @@ export interface ResponsiveElementArgs {
 
 export const responsiveElementArgTypes: ArgTypes<ResponsiveElementArgs> = {
   dsoSizeChange: {
-    action: 'dsoSizeChange',
+    action: "dsoSizeChange",
   },
 };

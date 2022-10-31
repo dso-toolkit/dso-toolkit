@@ -1,8 +1,8 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { Label } from './label.models';
+import { Label } from "./label.models";
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
 export interface LabelArgs {
   status: string;
@@ -16,39 +16,39 @@ export interface LabelArgs {
 
 export const labelArgTypes: ArgTypes<LabelArgs> = {
   status: {
-    options: ['primary', 'success', 'info', 'warning', 'danger', 'bright'],
+    options: ["primary", "success", "info", "warning", "danger", "bright"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   removable: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   dsoRemoveClick: {
-    action: 'dsoRemoveClick'
+    action: "dsoRemoveClick",
   },
   compact: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   truncate: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   symbol: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function labelArgsMapper(a: LabelArgs): Required<Label> {

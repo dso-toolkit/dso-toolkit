@@ -1,7 +1,5 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-export interface TileGridArgs {
-}
+export interface TileGridArgs {}
 
-export const tileGridArgTypes: ArgTypes<TileGridArgs> = {
-};
+export const tileGridArgTypes: ArgTypes<TileGridArgs> = {};

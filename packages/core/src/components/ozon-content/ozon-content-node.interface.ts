@@ -1,4 +1,4 @@
-import { OzonContentNodeContext } from './ozon-content-node-context.interface';
+import { OzonContentNodeContext } from "./ozon-content-node-context.interface";
 
 export interface OzonContentNode<T = unknown> {
   name: string | string[];

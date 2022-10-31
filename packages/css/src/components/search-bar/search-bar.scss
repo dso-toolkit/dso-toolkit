@@ -161,7 +161,8 @@
     border-color: css-search-bar-variables.$invalid-input-border-color;
 
     &:focus {
-      box-shadow: inset 0 0 0 css-search-bar-variables.$focus-border-width css-search-bar-variables.$invalid-input-border-color;
+      box-shadow: inset 0 0 0 css-search-bar-variables.$focus-border-width
+        css-search-bar-variables.$invalid-input-border-color;
     }
   }
 }

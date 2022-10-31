@@ -1,21 +1,28 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
-import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
+import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
-import { SelectableArgs, selectableArgsMapper, selectableArgTypes } from './selectable.args';
-import { infoRichContent } from './selectable.content';
-import { Selectable } from './selectable.models';
+import { SelectableArgs, selectableArgsMapper, selectableArgTypes } from "./selectable.args";
+import { infoRichContent } from "./selectable.content";
+import { Selectable } from "./selectable.models";
 
 export interface SelectableTemplates<TemplateFnReturnType> {
   selectableTemplate: (selectableProperties: Selectable<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
-export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, SelectableTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Selectable', storiesOfArguments, (stories, templateMapper) => {
+export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    SelectableTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Selectable", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: selectableArgTypes,
       args: {
-        type: 'radio',
+        type: "radio",
         checked: false,
         disabled: false,
         id: uuidv4(),
@@ -23,43 +30,33 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
         infoActive: false,
         infoFixed: false,
         invalid: false,
-        label: 'Label',
+        label: "Label",
         required: false,
-        value: 'the-value'
-      }
+        value: "the-value",
+      },
     });
 
-    const template = templateMapper<SelectableArgs<TemplateFnReturnType>>((args, { selectableTemplate }) => selectableTemplate(selectableArgsMapper(args)));
-
-    stories.add(
-      'radio',
-      template,
-      {
-        args: {
-          type: 'radio'
-        }
-      }
+    const template = templateMapper<SelectableArgs<TemplateFnReturnType>>((args, { selectableTemplate }) =>
+      selectableTemplate(selectableArgsMapper(args))
     );
 
-    stories.add(
-      'checkbox',
-      template,
-      {
-        args: {
-          type: 'checkbox'
-        }
-      }
-    );
+    stories.add("radio", template, {
+      args: {
+        type: "radio",
+      },
+    });
 
-    stories.add(
-      'with info',
-      template,
-      {
-        args: {
-          infoFixed: false,
-          infoRichContent
-        }
-      }
-    );
+    stories.add("checkbox", template, {
+      args: {
+        type: "checkbox",
+      },
+    });
+
+    stories.add("with info", template, {
+      args: {
+        infoFixed: false,
+        infoRichContent,
+      },
+    });
   });
 }

@@ -1,4 +1,4 @@
-import { FunctionalComponent, h } from '@stencil/core';
+import { FunctionalComponent, h } from "@stencil/core";
 
 export interface ViewerGridFilterpanelProps {
   onApply: (mouseEvent: MouseEvent) => void;
@@ -7,7 +7,7 @@ export interface ViewerGridFilterpanelProps {
 
 export const ViewerGridFilterpanelButtons: FunctionalComponent<ViewerGridFilterpanelProps> = ({
   onApply,
-  onCancel
+  onCancel,
 }) => (
   <div class="filterpanel-buttons">
     <button type="button" class="cancel-button" onClick={onCancel}>

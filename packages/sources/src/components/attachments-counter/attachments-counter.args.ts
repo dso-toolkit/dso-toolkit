@@ -1,5 +1,5 @@
-import { ArgTypes } from '../../storybook';
-import { AttachmentsCounter } from './attachments-counter.models';
+import { ArgTypes } from "../../storybook";
+import { AttachmentsCounter } from "./attachments-counter.models";
 
 export interface AttachmentsCounterArgs {
   count: number;
@@ -8,13 +8,13 @@ export interface AttachmentsCounterArgs {
 export const attachmentsCounterArgTypes: ArgTypes<AttachmentsCounterArgs> = {
   count: {
     control: {
-      type: 'number'
-    }
-  }
+      type: "number",
+    },
+  },
 };
 
 export function attachmentsCounterArgsMapper(a: AttachmentsCounterArgs): AttachmentsCounter {
   return {
-    count: a.count
+    count: a.count,
   };
 }

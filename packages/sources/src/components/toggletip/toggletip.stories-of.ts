@@ -4,25 +4,29 @@ import { ToggletipArgs, toggletipArgsMapper, toggletipArgTypes } from "./togglet
 import { Toggletip } from "./toggletip.models";
 
 export interface ToggletipTemplates<TemplateFnReturnType> {
-  toggletipTemplate: (
-    toggletipProperties: Toggletip
-  ) => TemplateFnReturnType;
+  toggletipTemplate: (toggletipProperties: Toggletip) => TemplateFnReturnType;
 }
 
-export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ToggletipTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Toggletip', storiesOfArguments, (stories, templateMapper) => {
+export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ToggletipTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Toggletip", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
-      argTypes: toggletipArgTypes
+      argTypes: toggletipArgTypes,
     });
 
-    const template = templateMapper<ToggletipArgs>((args, { toggletipTemplate }) => toggletipTemplate(toggletipArgsMapper(args)));
+    const template = templateMapper<ToggletipArgs>((args, { toggletipTemplate }) =>
+      toggletipTemplate(toggletipArgsMapper(args))
+    );
 
-    stories.add(
-      "Toggletip",
-      template,
-      {
-        args: {
-          children: `
+    stories.add("Toggletip", template, {
+      args: {
+        children: `
             <div class="dso-rich-content">
               <h2>Samenspel tussen wetgever en ontwikkelaars</h2>
               <p>
@@ -34,8 +38,7 @@ export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnTy
               </p>
             </div>
           `,
-        },
-      }
-    );
+      },
+    });
   });
 }

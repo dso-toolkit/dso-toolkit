@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
-import { HandlerFunction } from '@storybook/addon-actions';
-import { DatePicker } from './date-picker.models';
+import { ArgTypes } from "../../storybook";
+import { HandlerFunction } from "@storybook/addon-actions";
+import { DatePicker } from "./date-picker.models";
 
 export interface DatePickerArgs {
   id: string;
@@ -17,58 +17,58 @@ export interface DatePickerArgs {
 export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   disabled: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   direction: {
-    options: [undefined, 'left', 'right'],
+    options: [undefined, "left", "right"],
     control: {
-      type: 'select',
+      type: "select",
       labels: {
-        undefined: 'default',
-        'left': 'left',
-        'right': 'right'
-      }
-    }
+        undefined: "default",
+        left: "left",
+        right: "right",
+      },
+    },
   },
   value: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   min: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   max: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   autofocus: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   dsoDateChange: {
-    action: 'dsoDateChange'
-  }
+    action: "dsoDateChange",
+  },
 };
 
 export function datePickerArgsMapper(a: DatePickerArgs): Required<DatePicker> {
   return {
     ...a,
-    dsoDateChange: e => a.dsoDateChange(e.detail),
+    dsoDateChange: (e) => a.dsoDateChange(e.detail),
   };
 }

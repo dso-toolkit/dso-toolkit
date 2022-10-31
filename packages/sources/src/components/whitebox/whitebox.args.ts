@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Whitebox } from './whitebox.models';
+import { Whitebox } from "./whitebox.models";
 
 export interface WhiteboxArgs {
   title: string;
@@ -16,44 +16,44 @@ export interface WhiteboxArgs {
 export const whiteboxArgTypes: ArgTypes<WhiteboxArgs> = {
   count: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   description: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   icon: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   iconLabel: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   imageSource: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   imageAlt: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   title: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function whiteboxArgsMapper(a: WhiteboxArgs): Whitebox {
@@ -62,15 +62,15 @@ export function whiteboxArgsMapper(a: WhiteboxArgs): Whitebox {
     description: a.description,
     icon: a.icon
       ? {
-        icon: a.icon
-      }
+          icon: a.icon,
+        }
       : undefined,
     iconLabel: a.iconLabel,
     label: a.label,
     image: {
       source: a.imageSource,
-      alt: a.imageAlt
+      alt: a.imageAlt,
     },
-    title: a.title
+    title: a.title,
   };
 }

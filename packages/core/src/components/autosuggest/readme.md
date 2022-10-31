@@ -17,6 +17,7 @@ Search Bar is voorbereid op het gebruik van Autosuggest. Let op dat Search Bar e
 ## Models
 
 <!-- Keep in sync with autosuggest.tsx:Suggestion -->
+
 ```typescript
 export interface Suggestion {
   /**
@@ -56,8 +57,8 @@ export interface Suggestion {
 | Event       | Description                                                                                                             | Type                      |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------- |
 | `dsoChange` | This is emitted debounced for every change for the slotted input type=text element.                                     | `CustomEvent<string>`     |
-| `dsoSearch` | Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.                  | `CustomEvent<string>`     |
-| `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
+| `dsoSearch` | Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.                  | `CustomEvent<string>`     |
+| `dsoSelect` | Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion. | `CustomEvent<Suggestion>` |
 
 
 ## Dependencies

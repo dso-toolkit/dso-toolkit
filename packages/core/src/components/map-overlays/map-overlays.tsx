@@ -1,14 +1,14 @@
-import { Component, Event, EventEmitter, Prop, h, ComponentInterface } from '@stencil/core';
-import { v4 as uuidv4 } from 'uuid';
+import { Component, Event, EventEmitter, Prop, h, ComponentInterface } from "@stencil/core";
+import { v4 as uuidv4 } from "uuid";
 
-import { Overlay, OverlayChangeEvent } from './map-overlays.interfaces';
+import { Overlay, OverlayChangeEvent } from "./map-overlays.interfaces";
 
-import { SelectableChangeEvent } from '../selectable/selectable';
+import { SelectableChangeEvent } from "../selectable/selectable";
 
 @Component({
-  tag: 'dso-map-overlays',
-  styleUrl: './map-overlays.scss',
-  shadow: true
+  tag: "dso-map-overlays",
+  styleUrl: "./map-overlays.scss",
+  shadow: true,
 })
 export class MapOverlays implements ComponentInterface {
   previousOverlays: Overlay[] | undefined;
@@ -31,8 +31,8 @@ export class MapOverlays implements ComponentInterface {
 
   componentDidRender() {
     this.overlays
-      .filter(o => !o.disabled && this.previousOverlays?.find(p => p.id === o.id)?.disabled === true)
-      .forEach(o => {
+      .filter((o) => !o.disabled && this.previousOverlays?.find((p) => p.id === o.id)?.disabled === true)
+      .forEach((o) => {
         this.selectableRefs[o.id]?.toggleInfo(false);
       });
 
@@ -50,10 +50,10 @@ export class MapOverlays implements ComponentInterface {
         <div class="dso-label-container">
           <span class="control-label" aria-hidden="true">
             Kaartlagen
-        </span>
+          </span>
         </div>
         <div class="dso-field-container">
-          {this.overlays.map(overlay => (
+          {this.overlays.map((overlay) => (
             <dso-selectable
               key={overlay.id}
               type="checkbox"
@@ -61,14 +61,11 @@ export class MapOverlays implements ComponentInterface {
               checked={overlay.checked}
               disabled={overlay.disabled}
               name={this.group}
-              ref={ref => this.selectableRefs[overlay.id] = ref!}
-              onDsoChange={e => this.overlayChangeHandler(overlay, e)}
+              ref={(ref) => ref && (this.selectableRefs[overlay.id] = ref)}
+              onDsoChange={(e) => this.overlayChangeHandler(overlay, e)}
             >
               {overlay.name}
-              {overlay.info
-                ? <p slot="info">{overlay.info}</p>
-                : null
-              }
+              {overlay.info ? <p slot="info">{overlay.info}</p> : null}
             </dso-selectable>
           ))}
         </div>

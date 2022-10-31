@@ -1,55 +1,55 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Tooltip, tooltipPositions, tooltipStrategy } from './tooltip.models';
+import { Tooltip, tooltipPositions, tooltipStrategy } from "./tooltip.models";
 
 export interface TooltipArgs {
-  active?: boolean;
+  active: boolean;
   descriptive?: boolean;
   position: typeof tooltipPositions;
   strategy: typeof tooltipStrategy;
-  label?: string;
-  id?: string;
-  action: HandlerFunction
+  label: string;
+  id: string;
+  action: HandlerFunction;
 }
 
 export const tooltipArgTypes: ArgTypes<TooltipArgs> = {
   active: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   descriptive: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   position: {
     options: tooltipPositions,
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   strategy: {
     options: tooltipStrategy,
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   action: {
-    action: 'Button'
-  }
+    action: "Button",
+  },
 };
 
 export function tooltipArgsMapper(a: TooltipArgs): Tooltip {
@@ -59,6 +59,6 @@ export function tooltipArgsMapper(a: TooltipArgs): Tooltip {
     label: a.label || `Ik sta "${a.position}"`,
     position: a.position,
     strategy: a.strategy,
-    id: a.id
+    id: a.id,
   };
 }

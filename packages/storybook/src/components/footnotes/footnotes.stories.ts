@@ -1,18 +1,18 @@
-import { html } from 'lit-html';
-import { storiesOfFootnotes } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { html } from "lit-html";
+import { storiesOfFootnotes } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from '@dso-toolkit/css/src/components/footnotes/readme.md';
+import cssReadme from "@dso-toolkit/css/src/components/footnotes/readme.md";
 
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
-import { templateContainer } from '../../templates';
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+import { templateContainer } from "../../templates";
 
 storiesOfFootnotes({
   parameters: {
     module,
     storiesOf,
     readme: cssReadme,
-    root: StoryRoot.HtmlCss
+    root: StoryRoot.HtmlCss,
   },
   templateContainer,
   storyTemplates: ({ footnoteTemplate, footnotesTemplate }) => ({
@@ -20,9 +20,12 @@ storiesOfFootnotes({
     footnotesTemplate,
     footnotesExampleTemplate: (footnote14, footnote15, footnotes) => html`
       <p>
-        In juli 2018 is er een quick scan natuur uitgevoerd voor het plangebied${footnoteTemplate(footnote14)}. Dit onderzoek is een actualisatie van een eerder door Blom Ecologie uitgevoerd oriënterend onderzoek dat vanwege de datum van uitvoering haar geldigheid was verloren. In januari 2019 is dit onderzoek aangevuld${footnoteTemplate(footnote15)} met vrije kavel, welke eveneens onderdeel zijn van dit bestemmingsplan.
+        In juli 2018 is er een quick scan natuur uitgevoerd voor het plangebied${footnoteTemplate(footnote14)}. Dit
+        onderzoek is een actualisatie van een eerder door Blom Ecologie uitgevoerd oriënterend onderzoek dat vanwege de
+        datum van uitvoering haar geldigheid was verloren. In januari 2019 is dit onderzoek
+        aangevuld${footnoteTemplate(footnote15)} met vrije kavel, welke eveneens onderdeel zijn van dit bestemmingsplan.
       </p>
       ${footnotesTemplate(footnotes)}
-    `
-  })
+    `,
+  }),
 });

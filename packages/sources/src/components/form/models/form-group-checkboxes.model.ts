@@ -1,8 +1,8 @@
-import { Selectable } from '../../selectable/selectable.models';
+import { Selectable } from "../../selectable/selectable.models";
 
-import { FormGroupBase } from './form-group.base-model';
+import { FormGroupBase } from "./form-group.base-model";
 
 export interface FormGroupCheckboxes<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
-  group: 'checkboxes',
+  group: "checkboxes";
   selectables: Selectable<TemplateFnReturnType>[];
 }

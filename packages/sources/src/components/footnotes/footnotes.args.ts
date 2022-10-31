@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Footnote } from './footnotes.models';
+import { Footnote } from "./footnotes.models";
 
 export interface FootnotesReferenceArgs {
   number: number;
@@ -10,20 +10,20 @@ export interface FootnotesReferenceArgs {
 export const footnotesReferenceArgTypes: ArgTypes<FootnotesReferenceArgs> = {
   number: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
-  }
+      type: "text",
+    },
+  },
 };
 
 export function footnotesReferenceArgsMapper(a: FootnotesReferenceArgs): Footnote {
   return {
     label: a.label,
-    number: a.number
+    number: a.number,
   };
 }
 
@@ -34,9 +34,9 @@ export interface FootnotesListArgs {
 export const footnotesListArgTypes: ArgTypes<FootnotesListArgs> = {
   footnotes: {
     control: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
 export function footnotesListArgsMapper(a: FootnotesListArgs): Footnote[] {
@@ -52,17 +52,17 @@ export interface FootnotesExampleArgs {
 export const footnotesExampleArgTypes: ArgTypes<FootnotesExampleArgs> = {
   footnote14: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   footnote15: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   footnotes: {
     control: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };

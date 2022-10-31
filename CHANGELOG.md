@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Helpcenterpanel - Responsive maken ([#1781](https://github.com/dso-toolkit/dso-toolkit/issues/1781))
 * **core + css:** Header styling verbeteringen ([#1763](https://github.com/dso-toolkit/dso-toolkit/issues/1763))
 * **core + css + sources + dso-toolkit:** Overstappen naar Sass modules (@use ipv @import) ([#1805](https://github.com/dso-toolkit/dso-toolkit/issues/1805))
+* **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
 
 ## 45.1.0
 

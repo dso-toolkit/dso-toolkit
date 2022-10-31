@@ -1,5 +1,5 @@
-import { Icon } from '../icon/icon.models';
-import { Image } from '../image/image.models';
+import { Icon } from "../icon/icon.models";
+import { Image } from "../image/image.models";
 
 export interface Whitebox {
   title: string;

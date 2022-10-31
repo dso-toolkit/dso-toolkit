@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
-import { HandlerFunction } from '@storybook/addon-actions';
-import { Info } from './info.models';
+import { ArgTypes } from "../../storybook";
+import { HandlerFunction } from "@storybook/addon-actions";
+import { Info } from "./info.models";
 
 export interface InfoArgs {
   id: string;
@@ -12,33 +12,33 @@ export interface InfoArgs {
 export const infoArgTypes: ArgTypes<InfoArgs> = {
   id: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   fixed: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   active: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   dsoClose: {
-    action: 'dsoClosed'
-  }
+    action: "dsoClosed",
+  },
 };
 
 export function infoArgsMapper<TemplateFnReturnType>(
-    a: InfoArgs,
-    richContent: TemplateFnReturnType
-  ): Required<Info<any>> {
+  a: InfoArgs,
+  richContent: TemplateFnReturnType
+): Required<Info<TemplateFnReturnType>> {
   return {
     id: a.id,
     fixed: a.fixed,
     active: a.active,
     richContent,
-    dsoClose: a.dsoClose
+    dsoClose: a.dsoClose,
   };
 }

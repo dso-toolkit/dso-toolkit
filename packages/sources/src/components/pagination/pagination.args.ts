@@ -1,7 +1,7 @@
-import { HandlerFunction } from '@storybook/addon-actions';
-import { ArgTypes } from '../../storybook';
+import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes } from "../../storybook";
 
-import { Pagination } from './pagination.models';
+import { Pagination } from "./pagination.models";
 
 export interface PaginationArgs {
   totalPages: number;
@@ -12,17 +12,17 @@ export interface PaginationArgs {
 export const paginationArgTypes: ArgTypes<PaginationArgs> = {
   totalPages: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   currentPage: {
     control: {
-      type: 'number'
-    }
+      type: "number",
+    },
   },
   dsoSelectPage: {
-    action: 'dsoSelectPage'
-  }
+    action: "dsoSelectPage",
+  },
 };
 
 export function paginationArgsMapper(a: PaginationArgs): Required<Pagination> {
@@ -32,6 +32,6 @@ export function paginationArgsMapper(a: PaginationArgs): Required<Pagination> {
       event.detail.originalEvent.preventDefault();
       a.dsoSelectPage(event);
     },
-    formatHref: page => '#' + page,
+    formatHref: (page) => "#" + page,
   };
 }

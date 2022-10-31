@@ -1,15 +1,15 @@
-import { h } from '@stencil/core';
+import { h } from "@stencil/core";
 
-import { OzonContentNodeContext } from '../ozon-content-node-context.interface';
-import { OzonContentNode } from '../ozon-content-node.interface';
+import { OzonContentNodeContext } from "../ozon-content-node-context.interface";
+import { OzonContentNode } from "../ozon-content-node.interface";
 
 export class OzonContentIntRefNode implements OzonContentNode {
-  name = 'IntRef';
+  name = "IntRef";
 
   render(node: Element, { mapNodeToJsx, emitAnchorClick }: OzonContentNodeContext) {
-    const ref = node.getAttribute('ref');
+    const ref = node.getAttribute("ref");
     if (!ref) {
-      return mapNodeToJsx(node.childNodes)
+      return mapNodeToJsx(node.childNodes);
     }
 
     const intRefOnClick = (event: MouseEvent) => {
@@ -26,7 +26,7 @@ export class OzonContentIntRefNode implements OzonContentNode {
         node: this.name,
         href,
         documentComponent: ref,
-        originalEvent: event
+        originalEvent: event,
       });
     };
 

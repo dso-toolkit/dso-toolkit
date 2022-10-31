@@ -1,10 +1,15 @@
 import { componentArgs } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
-import { documentListContent } from '../document-list/document-list.content';
+import { documentListContent } from "../document-list/document-list.content";
 import { tiles } from "../tile-grid/tile-grid.content";
 import { Tile } from "../tile/tile.models";
-import { viewerGridArgTypes, ViewerGridArgs, viewerGridDocumentHeaderArgs, ViewerGridDocumentHeaderArgs } from "./viewer-grid.args";
-import { ViewerGrid, ViewerGridDocumentHeaderProperties} from "./viewer-grid.models";
+import {
+  viewerGridArgTypes,
+  ViewerGridArgs,
+  viewerGridDocumentHeaderArgs,
+  ViewerGridDocumentHeaderArgs,
+} from "./viewer-grid.args";
+import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.models";
 
 export interface ViewerGridTemplates<TemplateFnReturnType> {
   viewerGridTemplate: (viewerGridProperties: ViewerGrid<TemplateFnReturnType>) => TemplateFnReturnType;
@@ -16,40 +21,51 @@ export interface ViewerGridTemplates<TemplateFnReturnType> {
   };
   tilesExampleTemplate: (tiles: Tile[]) => TemplateFnReturnType;
   filterblokExampleTemplate: () => TemplateFnReturnType;
-  documentHeaderExampleTemplate: (ViewerGridDocumentHeaderProperties: ViewerGridDocumentHeaderProperties) => TemplateFnReturnType;
+  documentHeaderExampleTemplate: (
+    ViewerGridDocumentHeaderProperties: ViewerGridDocumentHeaderProperties
+  ) => TemplateFnReturnType;
   documentListExampleTemplate: (documentList: typeof documentListContent) => TemplateFnReturnType;
 }
 
-export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ViewerGridTemplates<TemplateFnReturnType>>) {
-  return storiesOfFactory('Viewer Grid', storiesOfArguments, (stories, templateMapper) => {
+export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnType>(
+  storiesOfArguments: StoriesOfArguments<
+    Implementation,
+    Templates,
+    TemplateFnReturnType,
+    ViewerGridTemplates<TemplateFnReturnType>
+  >
+) {
+  return storiesOfFactory("Viewer Grid", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       layout: "fullscreen",
       controls: {
-        hideNoControlsWarning: true
-      }
+        hideNoControlsWarning: true,
+      },
     });
 
     stories.add(
-      'Viewer Grid',
-      templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) => viewerGridTemplate({
-        dsoCloseOverlay: args.dsoCloseOverlay,
-        dsoFilterpanelApply: args.dsoFilterpanelApply,
-        dsoFilterpanelCancel: args.dsoFilterpanelCancel,
-        filterpanelOpen: args.filterpanelOpen,
-        dsoMainSizeChange: args.dsoMainSizeChange,
-        initialMainSize: args.initialMainSize,
-        overlayOpen: args.overlayOpen,
-        main: example.main,
-        map: example.map,
-        filterpanel: example.filterpanel,
-        overlay: example.overlay
-      })),
+      "Viewer Grid",
+      templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
+        viewerGridTemplate({
+          dsoCloseOverlay: args.dsoCloseOverlay,
+          dsoFilterpanelApply: args.dsoFilterpanelApply,
+          dsoFilterpanelCancel: args.dsoFilterpanelCancel,
+          filterpanelOpen: args.filterpanelOpen,
+          dsoMainSizeChange: args.dsoMainSizeChange,
+          initialMainSize: args.initialMainSize,
+          overlayOpen: args.overlayOpen,
+          main: example.main,
+          map: example.map,
+          filterpanel: example.filterpanel,
+          overlay: example.overlay,
+        })
+      ),
       {
         argTypes: viewerGridArgTypes,
-        args: componentArgs<Pick<ViewerGridArgs, 'filterpanelOpen' | 'overlayOpen'>>({
+        args: componentArgs<Pick<ViewerGridArgs, "filterpanelOpen" | "overlayOpen">>({
           filterpanelOpen: false,
-          overlayOpen: false
-        })
+          overlayOpen: false,
+        }),
       }
     );
 
@@ -65,17 +81,21 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
 
     stories.add(
       'Voorbeeldpagina "Document header"',
-      templateMapper<ViewerGridDocumentHeaderArgs>((args, { documentHeaderExampleTemplate }) => documentHeaderExampleTemplate({
-        documentHeaderFeaturesOpen: args.documentHeaderFeaturesOpen,
-        documentHeaderFeatureAction: args.documentHeaderFeatureAction,
-        documentHeaderStatusOpen: args.documentHeaderStatusOpen
-      })),
+      templateMapper<ViewerGridDocumentHeaderArgs>((args, { documentHeaderExampleTemplate }) =>
+        documentHeaderExampleTemplate({
+          documentHeaderFeaturesOpen: args.documentHeaderFeaturesOpen,
+          documentHeaderFeatureAction: args.documentHeaderFeatureAction,
+          documentHeaderStatusOpen: args.documentHeaderStatusOpen,
+        })
+      ),
       {
-        args: componentArgs<Pick<ViewerGridDocumentHeaderArgs, 'documentHeaderFeaturesOpen' | 'documentHeaderStatusOpen'>>({
+        args: componentArgs<
+          Pick<ViewerGridDocumentHeaderArgs, "documentHeaderFeaturesOpen" | "documentHeaderStatusOpen">
+        >({
           documentHeaderFeaturesOpen: false,
-          documentHeaderStatusOpen: false
+          documentHeaderStatusOpen: false,
         }),
-        argTypes: viewerGridDocumentHeaderArgs
+        argTypes: viewerGridDocumentHeaderArgs,
       }
     );
 

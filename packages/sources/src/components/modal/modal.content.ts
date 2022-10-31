@@ -1,36 +1,36 @@
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 import { ModalArgs, ModalLoadingArgs } from "./modal.args";
 
-export const content: { [key in ModalArgs['variant']]: ModalArgs | ModalLoadingArgs } = {
+export const content: { [key in ModalArgs["variant"]]: ModalArgs | ModalLoadingArgs } = {
   active: {
-    variant: 'active',
-    role: 'dialog',
+    variant: "active",
+    role: "dialog",
     id: uuid(),
-    heading: 'Verwijderen werkzaamheid',
-    body: '<p>U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op de vragen worden dan ook verwijderd. Wilt u doorgaan?</p>',
+    heading: "Verwijderen werkzaamheid",
+    body: "<p>U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op de vragen worden dan ook verwijderd. Wilt u doorgaan?</p>",
     buttons: [
       {
-        variant: 'tertiary',
-        type: 'button',
-        label: 'Annuleren'
+        variant: "tertiary",
+        type: "button",
+        label: "Annuleren",
       },
       {
-        variant: 'secondary',
-        type: 'button',
-        label: 'Secundaire actie'
+        variant: "secondary",
+        type: "button",
+        label: "Secundaire actie",
       },
       {
-        variant: 'primary',
-        type: 'button',
-        label: 'Verwijderen'
-      }
-    ]
+        variant: "primary",
+        type: "button",
+        label: "Verwijderen",
+      },
+    ],
   },
   passive: {
-    variant: 'passive',
+    variant: "passive",
     id: uuid(),
-    role: 'dialog',
-    heading: 'Bestandsformaten',
+    role: "dialog",
+    heading: "Bestandsformaten",
     body: `
       <p>Gebruik de volgende bestandsformaten voor een document:</p>
       <ul>
@@ -54,37 +54,37 @@ export const content: { [key in ModalArgs['variant']]: ModalArgs | ModalLoadingA
     `,
     buttons: [
       {
-        variant: 'tertiary',
-        type: 'button',
-        label: 'Sluiten'
-      }
-    ]
+        variant: "tertiary",
+        type: "button",
+        label: "Sluiten",
+      },
+    ],
   },
   confirm: {
-    variant: 'confirm',
+    variant: "confirm",
     id: uuid(),
-    role: 'dialog',
-    heading: 'Disclaimer',
+    role: "dialog",
+    heading: "Disclaimer",
     body: `
       <p>Welkom op het nieuwe Omgevingsloket. Deze website is nog in ontwikkeling. Dat betekent dat bepaalde onderdelen nog niet beschikbaar zijn. En dat u geen rechten kunt ontlenen aan de teksten in de vergunningcheck en regels op de kaart. Ook kunt u nog geen aanvraag of melding indienen via dit loket.</p>
       <p>De website <a href="#">Aan de stag met de omgevingswet</a> biedt extra uitleg over het Omgevingsloket en de ontwikkeling ervan. Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw lokale systemen op het loket.</p>
     `,
     buttons: [
       {
-        variant: 'secondary',
-        type: 'button',
-        label: 'Secundaire actie'
+        variant: "secondary",
+        type: "button",
+        label: "Secundaire actie",
       },
       {
-        variant: 'primary',
-        type: 'button',
-        label: 'Akkoord'
-      }
-    ]
+        variant: "primary",
+        type: "button",
+        label: "Akkoord",
+      },
+    ],
   },
   loading: {
-    variant: 'loading',
-    role: 'alert',
-    progressIndicatorLabel: 'Resultaten laden. Een moment geduld.'
-  }
+    variant: "loading",
+    role: "alert",
+    progressIndicatorLabel: "Resultaten laden. Een moment geduld.",
+  },
 };

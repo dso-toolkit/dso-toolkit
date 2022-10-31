@@ -5,21 +5,16 @@ import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { ComponentImplementation } from "../../templates";
 
 export const coreToggletip: ComponentImplementation<Toggletip> = {
-  component: 'toggletip',
-  implementation: 'core',
-  template: () => function toggletipTemplate({
-    children,
-    label,
-    position,
-    small,
-    secondary,
-  }) {
-    return html`<dso-toggletip
-      label=${ifDefined(label)}
-      position=${ifDefined(position)}
-      ?small=${small}
-      ?secondary=${secondary}
-      >${unsafeHTML(children)}</dso-toggletip
-    >`;
-  }
-}
+  component: "toggletip",
+  implementation: "core",
+  template: () =>
+    function toggletipTemplate({ children, label, position, small, secondary }) {
+      return html`<dso-toggletip
+        label=${ifDefined(label)}
+        position=${ifDefined(position)}
+        ?small=${small}
+        ?secondary=${secondary}
+        >${unsafeHTML(children)}</dso-toggletip
+      >`;
+    },
+};

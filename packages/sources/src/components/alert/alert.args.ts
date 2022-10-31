@@ -1,7 +1,7 @@
-import { ArgTypes } from '../../storybook';
-import { HandlerFunction } from '@storybook/addon-actions';
+import { ArgTypes } from "../../storybook";
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { Alert, AlertType } from './alert.models';
+import { Alert, AlertType } from "./alert.models";
 
 export interface AlertArgs {
   status: AlertType;
@@ -13,30 +13,30 @@ export interface AlertArgs {
 
 export const alertArgTypes: ArgTypes<AlertArgs> = {
   status: {
-    options: ['success', 'info', 'warning', 'danger'],
+    options: ["success", "info", "warning", "danger"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   message: {
     control: {
-      type: 'text',
-      required: true
-    }
+      type: "text",
+      required: true,
+    },
   },
   withRoleAlert: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   withButton: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   click: {
-    action: 'closed'
-  }
+    action: "closed",
+  },
 };
 
 export function alertArgsMapper<TemplateFnReturnType>(a: AlertArgs): Alert<TemplateFnReturnType> {
@@ -44,6 +44,6 @@ export function alertArgsMapper<TemplateFnReturnType>(a: AlertArgs): Alert<Templ
     message: a.message,
     status: a.status,
     onClick: a.withButton ? () => a.click(a) : undefined,
-    withRoleAlert: a.withRoleAlert
+    withRoleAlert: a.withRoleAlert,
   };
 }

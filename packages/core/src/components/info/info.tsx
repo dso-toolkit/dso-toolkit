@@ -1,9 +1,9 @@
-import { h, Component, Event, Prop, EventEmitter, Fragment } from '@stencil/core';
+import { h, Component, Event, Prop, EventEmitter, Fragment } from "@stencil/core";
 
 @Component({
-  tag: 'dso-info',
-  styleUrl: './info.scss',
-  shadow: true
+  tag: "dso-info",
+  styleUrl: "./info.scss",
+  shadow: true,
 })
 export class Info {
   @Prop({ reflect: true })
@@ -20,7 +20,7 @@ export class Info {
       <Fragment>
         <slot></slot>
         {!this.fixed && (
-          <button type="button" onClick={e => this.dsoClose.emit(e)}>
+          <button type="button" onClick={(e) => this.dsoClose.emit(e)}>
             <dso-icon icon="times"></dso-icon>
             <span class="sr-only">Sluiten</span>
           </button>

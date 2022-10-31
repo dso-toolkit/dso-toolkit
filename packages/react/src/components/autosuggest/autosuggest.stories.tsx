@@ -1,7 +1,7 @@
 import { storiesOfAutosuggest, AutosuggestSuggestion } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/react";
-import * as React from 'react';
-import { templateContainer } from '../../templates';
+import * as React from "react";
+import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
@@ -29,12 +29,15 @@ storiesOfAutosuggest({
       suggestions: AutosuggestSuggestion[];
     }
 
-    class AutosuggestDemoTemplate extends React.Component<ConstructorParameters<typeof AutosuggestDemoTemplate>[0], AutosuggestDemoTemplateState> {
+    class AutosuggestDemoTemplate extends React.Component<
+      ConstructorParameters<typeof AutosuggestDemoTemplate>[0],
+      AutosuggestDemoTemplateState
+    > {
       constructor(props: AutosuggestDemoTemplateProps) {
         super(props);
-    
+
         this.state = {
-          suggestions: []
+          suggestions: [],
         };
       }
 
@@ -48,10 +51,10 @@ storiesOfAutosuggest({
               dsoSelect: this.props.dsoSelect,
               dsoChange: (e: CustomEvent<string>) => {
                 this.props.dsoChange(e);
-    
-                this.setState(state => ({
+
+                this.setState((state) => ({
                   ...state,
-                  suggestions: this.props.fetchSuggestions(e.detail)
+                  suggestions: this.props.fetchSuggestions(e.detail),
                 }));
               },
               suggestOnFocus: this.props.suggestOnFocus,
@@ -59,7 +62,7 @@ storiesOfAutosuggest({
               loadingLabel: this.props.loadingLabel,
               loadingDelayed: this.props.loadingDelayed,
               notFoundLabel: this.props.notFoundLabel,
-              children: <input id="autosuggestInputId" type="text" className="form-control" />
+              children: <input id="autosuggestInputId" type="text" className="form-control" />,
             })}
             <pre>{JSON.stringify(this.state.suggestions, null, 2)}</pre>
           </>
@@ -67,8 +70,18 @@ storiesOfAutosuggest({
       }
     }
 
-    return ({
-      autosuggestDemoTemplate: (fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelay, notFoundLabel) => (
+    return {
+      autosuggestDemoTemplate: (
+        fetchSuggestions,
+        dsoSelect,
+        dsoChange,
+        dsoSearch,
+        suggestOnFocus,
+        loading,
+        loadingLabel,
+        loadingDelay,
+        notFoundLabel
+      ) => (
         <AutosuggestDemoTemplate
           fetchSuggestions={fetchSuggestions}
           dsoChange={dsoChange}
@@ -81,9 +94,7 @@ storiesOfAutosuggest({
           notFoundLabel={notFoundLabel}
         />
       ),
-      autosuggestInSearchBarTemplate: () => (
-        <p>Zie Web Component in Core.</p>
-      )
-    });
-  }
+      autosuggestInSearchBarTemplate: () => <p>Zie Web Component in Core.</p>,
+    };
+  },
 });

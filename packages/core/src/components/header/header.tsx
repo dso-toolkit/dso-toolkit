@@ -1,29 +1,23 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  Fragment,
-  h,
-  Prop,
-  State,
-  Watch,
-} from "@stencil/core";
+import { Component, Element, Event, EventEmitter, Fragment, h, Prop, State, Watch } from "@stencil/core";
 
 import clsx from "clsx";
 import debounce from "debounce";
 
-import { HeaderMenuItem, HeaderNavigationType, HeaderClickEvent, HeaderClickMenuItemEvent } from './header.interfaces';
+import { HeaderMenuItem, HeaderNavigationType, HeaderClickEvent, HeaderClickMenuItemEvent } from "./header.interfaces";
 
 const minDesktopViewportWidth = 992;
 
 @Component({
   tag: "dso-header",
   styleUrl: "header.scss",
-  scoped: true
+  scoped: true,
 })
 export class Header {
-  private clickHandler(e: MouseEvent, type: HeaderNavigationType, options?: { menuItem?: HeaderMenuItem; url?: string; }) {
+  private clickHandler(
+    e: MouseEvent,
+    type: HeaderNavigationType,
+    options?: { menuItem?: HeaderMenuItem; url?: string }
+  ) {
     this.dsoHeaderClick.emit({
       originalEvent: e,
       isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,
@@ -31,7 +25,7 @@ export class Header {
       menuItem: options?.menuItem,
       url: options?.url ?? options?.menuItem?.url,
     });
-  };
+  }
 
   @Element()
   host!: HTMLElement;
@@ -44,7 +38,7 @@ export class Header {
 
   /** Used to show the login/logout option. 'none' renders nothing. */
   @Prop()
-  authStatus: 'none' | 'loggedIn' | 'loggedOut' = 'none';
+  authStatus: "none" | "loggedIn" | "loggedOut" = "none";
 
   /** When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor. */
   @Prop()
@@ -66,10 +60,10 @@ export class Header {
   showDropDown?: boolean;
 
   @State()
-  hasSubLogo: boolean = false;
+  hasSubLogo = false;
 
   @State()
-  overflowMenuItems: number = 0;
+  overflowMenuItems = 0;
 
   /**
    * Emitted when something in the header is selected.
@@ -130,7 +124,7 @@ export class Header {
       return;
     }
 
-    if (this.overflowMenuItems != 0) {
+    if (this.overflowMenuItems !== 0) {
       this.overflowMenuItems = 0;
       return;
     }
@@ -165,7 +159,7 @@ export class Header {
         <a
           href={item.url}
           aria-current={item.active ? "page" : undefined}
-          onClick={e => this.clickHandler(e, 'menuItem', { menuItem: item })}
+          onClick={(e) => this.clickHandler(e, "menuItem", { menuItem: item })}
         >
           {item.label}
         </a>
@@ -207,33 +201,55 @@ export class Header {
                     {this.mainMenu.map(this.MenuItem)}
                     {this.userHomeUrl && (
                       <li>
-                        <a href={this.userHomeUrl} onClick={e => this.clickHandler(e, 'userHome', { url: this.userHomeUrl})}>Mijn Omgevingsloket</a>
+                        <a
+                          href={this.userHomeUrl}
+                          onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
+                        >
+                          Mijn Omgevingsloket
+                        </a>
                       </li>
                     )}
-                    {this.userProfileUrl &&
-                      this.userProfileName &&
-                      this.authStatus === 'loggedIn' && (
-                        <li>
-                          <a href={this.userProfileUrl} onClick={e => this.clickHandler(e, 'profile', { url: this.userProfileUrl})}>
-                            {this.userProfileName}
-                            <span class="profile-label"> - Mijn profiel</span>
+                    {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
+                      <li>
+                        <a
+                          href={this.userProfileUrl}
+                          onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
+                        >
+                          {this.userProfileName}
+                          <span class="profile-label"> - Mijn profiel</span>
+                        </a>
+                      </li>
+                    )}
+                    {this.authStatus === "loggedOut" && (
+                      <li>
+                        {this.loginUrl ? (
+                          <a
+                            href={this.loginUrl}
+                            onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}
+                          >
+                            Inloggen
                           </a>
-                        </li>
-                      )}
-                    {this.authStatus === 'loggedOut' && (
-                      <li>
-                        {this.loginUrl
-                          ? <a href={this.loginUrl} onClick={e => this.clickHandler(e, 'login', { url: this.loginUrl })}>Inloggen</a>
-                          : <button type="button" onClick={e => this.clickHandler(e, 'login')}>Inloggen</button>
-                        }
+                        ) : (
+                          <button type="button" onClick={(e) => this.clickHandler(e, "login")}>
+                            Inloggen
+                          </button>
+                        )}
                       </li>
                     )}
-                    {this.authStatus === 'loggedIn' && (
+                    {this.authStatus === "loggedIn" && (
                       <li>
-                        {this.logoutUrl
-                          ? <a href={this.logoutUrl} onClick={e => this.clickHandler(e, 'logout', { url: this.logoutUrl })}>Uitloggen</a>
-                          : <button type="button" onClick={e => this.clickHandler(e, 'logout')}>Uitloggen</button>
-                        }
+                        {this.logoutUrl ? (
+                          <a
+                            href={this.logoutUrl}
+                            onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}
+                          >
+                            Uitloggen
+                          </a>
+                        ) : (
+                          <button type="button" onClick={(e) => this.clickHandler(e, "logout")}>
+                            Uitloggen
+                          </button>
+                        )}
                       </li>
                     )}
                   </ul>
@@ -244,40 +260,51 @@ export class Header {
           {!this.showDropDown && (
             <>
               <div class="dso-header-session">
-                {this.userProfileUrl &&
-                  this.userProfileName &&
-                  this.authStatus === 'loggedIn' && (
-                    <div class="profile">
-                      <span class="profile-label">Welkom:</span>
-                      <a href={this.userProfileUrl} onClick={e => this.clickHandler(e, 'profile', { url: this.userProfileUrl })}>{this.userProfileName}</a>
-                    </div>
-                  )}
-                {this.authStatus === 'loggedOut' && (
-                  <div class="login">
-                    {this.loginUrl
-                      ? <a href={this.loginUrl} onClick={e => this.clickHandler(e, 'login', { url: this.loginUrl })}>Inloggen</a>
-                      : <button class="dso-tertiary" type="button" onClick={e => this.clickHandler(e, 'login')}>Inloggen</button>
-                    }
+                {this.userProfileUrl && this.userProfileName && this.authStatus === "loggedIn" && (
+                  <div class="profile">
+                    <span class="profile-label">Welkom:</span>
+                    <a
+                      href={this.userProfileUrl}
+                      onClick={(e) => this.clickHandler(e, "profile", { url: this.userProfileUrl })}
+                    >
+                      {this.userProfileName}
+                    </a>
                   </div>
                 )}
-                {this.authStatus === 'loggedIn' && (
+                {this.authStatus === "loggedOut" && (
+                  <div class="login">
+                    {this.loginUrl ? (
+                      <a href={this.loginUrl} onClick={(e) => this.clickHandler(e, "login", { url: this.loginUrl })}>
+                        Inloggen
+                      </a>
+                    ) : (
+                      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "login")}>
+                        Inloggen
+                      </button>
+                    )}
+                  </div>
+                )}
+                {this.authStatus === "loggedIn" && (
                   <div class="logout">
-                    {this.logoutUrl
-                      ? <a href={this.logoutUrl} onClick={e => this.clickHandler(e, 'logout', { url: this.logoutUrl })}>Uitloggen</a>
-                      : <button class="dso-tertiary" type="button" onClick={e => this.clickHandler(e, 'logout')}>Uitloggen</button>
-                    }
+                    {this.logoutUrl ? (
+                      <a href={this.logoutUrl} onClick={(e) => this.clickHandler(e, "logout", { url: this.logoutUrl })}>
+                        Uitloggen
+                      </a>
+                    ) : (
+                      <button class="dso-tertiary" type="button" onClick={(e) => this.clickHandler(e, "logout")}>
+                        Uitloggen
+                      </button>
+                    )}
                   </div>
                 )}
               </div>
               {((this.mainMenu && this.mainMenu.length > 0) || this.userHomeUrl) && (
                 <nav class="dso-navbar">
-                  <ul
-                    class="dso-nav dso-nav-main"
-                    ref={(element) => (this.nav = element)}
-                  >
-                    {this.mainMenu && this.mainMenu
-                      .filter((_, index) => index < this.mainMenu!.length - this.overflowMenuItems)
-                      .map(this.MenuItem)}
+                  <ul class="dso-nav dso-nav-main" ref={(element) => (this.nav = element)}>
+                    {this.mainMenu &&
+                      this.mainMenu
+                        .filter((_, index) => this.mainMenu && index < this.mainMenu.length - this.overflowMenuItems)
+                        .map(this.MenuItem)}
                     {this.overflowMenuItems > 0 && (
                       <li>
                         <dso-dropdown-menu dropdown-align="left">
@@ -286,9 +313,13 @@ export class Header {
                           </button>
                           <div class="dso-dropdown-options">
                             <ul>
-                              {this.mainMenu && this.mainMenu
-                                .filter((_, index) => index >= this.mainMenu!.length - this.overflowMenuItems)
-                                .map(this.MenuItem)}
+                              {this.mainMenu &&
+                                this.mainMenu
+                                  .filter(
+                                    (_, index) =>
+                                      this.mainMenu && index >= this.mainMenu.length - this.overflowMenuItems
+                                  )
+                                  .map(this.MenuItem)}
                             </ul>
                           </div>
                         </dso-dropdown-menu>
@@ -296,7 +327,10 @@ export class Header {
                     )}
                     {this.userHomeUrl && (
                       <li class="menu-user-home">
-                        <a href={this.userHomeUrl} onClick={e => this.clickHandler(e, 'userHome', { url: this.userHomeUrl})}>
+                        <a
+                          href={this.userHomeUrl}
+                          onClick={(e) => this.clickHandler(e, "userHome", { url: this.userHomeUrl })}
+                        >
                           <dso-icon icon="user-line"></dso-icon>
                           Mijn Omgevingsloket
                         </a>

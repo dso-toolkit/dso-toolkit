@@ -1,22 +1,22 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'dso-progress-indicator',
-  styleUrl: 'progress-indicator.scss',
-  shadow: true
+  tag: "dso-progress-indicator",
+  styleUrl: "progress-indicator.scss",
+  shadow: true,
 })
 export class Progressindicator {
   @Prop()
   label?: string;
 
   @Prop()
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
 
   @Prop()
   block?: boolean;
 
   render() {
-    const label = this.label ?? 'Resultaten laden: een moment geduld alstublieft.';
+    const label = this.label ?? "Resultaten laden: een moment geduld alstublieft.";
 
     return (
       <Host>
@@ -34,7 +34,9 @@ export class Progressindicator {
             <circle class="path" fill="none" stroke-width="10" stroke-linecap="butt" cx="50" cy="50" r="45"></circle>
           </svg>
         </span>
-        <span id="progress-indicator-label" class="dso-progress-indicator-label">{label}</span>
+        <span id="progress-indicator-label" class="dso-progress-indicator-label">
+          {label}
+        </span>
       </Host>
     );
   }

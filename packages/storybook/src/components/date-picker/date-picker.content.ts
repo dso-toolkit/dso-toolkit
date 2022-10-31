@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from "lit-html";
 
 export function datePickerWithLabelTemplate(datePicker: TemplateResult, id: string, label: string) {
   return html`
@@ -11,7 +11,14 @@ export function datePickerShowByScriptingTemplate(datePicker: TemplateResult, id
   return html`
     ${datePicker}
 
-    <button type="button" @click=${() => document.querySelector<any>(`dso-date-picker[identifier="${id}"]`)?.show()}>
+    <button
+      type="button"
+      @click=${() => {
+        Array.from(document.querySelectorAll("dso-date-picker"))
+          .filter((e) => e.id === id)[0]
+          ?.show();
+      }}
+    >
       Open
     </button>
   `;

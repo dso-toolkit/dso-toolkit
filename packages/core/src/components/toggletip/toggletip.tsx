@@ -10,10 +10,10 @@ export class Toggletip {
   host!: HTMLElement;
 
   @State()
-  active: boolean = false;
+  active = false;
 
   @Prop()
-  label: string = "Toelichting";
+  label = "Toelichting";
 
   @Prop()
   position: "top" | "right" | "bottom" | "left" = "right";
@@ -49,7 +49,7 @@ export class Toggletip {
   };
 
   keyDownListener = (event: KeyboardEvent) => {
-    if (!event.defaultPrevented && event.key == "Escape") {
+    if (!event.defaultPrevented && event.key === "Escape") {
       this.close();
       this.infoButton?.setFocus();
       event.preventDefault();
@@ -67,7 +67,7 @@ export class Toggletip {
           label={this.label}
           active={this.active}
           secondary={this.secondary}
-          ref={element => this.infoButton = element}
+          ref={(element) => (this.infoButton = element)}
         />
         <dso-tooltip
           stateless

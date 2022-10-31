@@ -1,5 +1,5 @@
-import { h, Component, Event, Prop, EventEmitter, Method, Host, State } from '@stencil/core';
-import clsx from 'clsx';
+import { h, Component, Event, Prop, EventEmitter, Method, Host, State } from "@stencil/core";
+import clsx from "clsx";
 
 export interface InfoButtonToggleEvent {
   originalEvent: MouseEvent;
@@ -7,9 +7,9 @@ export interface InfoButtonToggleEvent {
 }
 
 @Component({
-  tag: 'dso-info-button',
+  tag: "dso-info-button",
   shadow: true,
-  styleUrl: 'info-button.scss'
+  styleUrl: "info-button.scss",
 })
 export class InfoButton {
   private button?: HTMLButtonElement;
@@ -24,7 +24,7 @@ export class InfoButton {
   secondary?: boolean;
 
   @Prop()
-  label = 'Toelichting bij optie';
+  label = "Toelichting bij optie";
 
   @Event()
   dsoToggle!: EventEmitter<InfoButtonToggleEvent>;
@@ -40,18 +40,16 @@ export class InfoButton {
 
   render() {
     return (
-      <Host onMouseenter={() => this.hover = true} onMouseleave={() => this.hover = false}>
+      <Host onMouseenter={() => (this.hover = true)} onMouseleave={() => (this.hover = false)}>
         <button
           type="button"
-          class={clsx('btn', { 'dso-open': !!this.active, 'dso-info-secondary': !!this.secondary })}
-          aria-expanded={typeof this.active === 'boolean' ? this.active.toString() : undefined}
-          onClick={e => this.handleToggle(e)}
-          ref={element => (this.button = element)}
+          class={clsx("btn", { "dso-open": !!this.active, "dso-info-secondary": !!this.secondary })}
+          aria-expanded={typeof this.active === "boolean" ? this.active.toString() : undefined}
+          onClick={(e) => this.handleToggle(e)}
+          ref={(element) => (this.button = element)}
         >
-          <dso-icon icon={this.active || this.hover ? 'info-active' : 'info'}></dso-icon>
-          <span class="sr-only">
-            {this.label}
-          </span>
+          <dso-icon icon={this.active || this.hover ? "info-active" : "info"}></dso-icon>
+          <span class="sr-only">{this.label}</span>
         </button>
       </Host>
     );

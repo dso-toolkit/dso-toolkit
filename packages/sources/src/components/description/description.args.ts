@@ -1,6 +1,6 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Description } from './description.models';
+import { Description } from "./description.models";
 
 export interface DescriptionArgs {
   id: string;
@@ -12,27 +12,27 @@ export interface DescriptionArgs {
 export const descriptionArgTypes: ArgTypes<DescriptionArgs> = {
   term: {
     control: {
-      type: 'text',
-      required: true
-    }
+      type: "text",
+      required: true,
+    },
   },
   content: {
     control: {
-      type: 'text',
-      required: true
-    }
+      type: "text",
+      required: true,
+    },
   },
   id: {
     control: {
-      type: 'text',
-      required: true
-    }
+      type: "text",
+      required: true,
+    },
   },
   open: {
     control: {
-      type: 'boolean'
-    }
-  }
+      type: "boolean",
+    },
+  },
 };
 
 export function descriptionArgsMapper(a: DescriptionArgs): Description {
@@ -40,7 +40,7 @@ export function descriptionArgsMapper(a: DescriptionArgs): Description {
     content: a.content,
     id: a.id,
     open: a.open,
-    term: a.term
+    term: a.term,
   };
 }
 
@@ -51,7 +51,7 @@ export interface DescriptionExampleArgs {
 export const descriptionExampleArgTypes: ArgTypes<DescriptionExampleArgs> = {
   openTerm: {
     control: {
-      type: 'boolean'
-    }
-  }
+      type: "boolean",
+    },
+  },
 };

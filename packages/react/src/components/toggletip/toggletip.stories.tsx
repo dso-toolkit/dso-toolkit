@@ -11,5 +11,5 @@ storiesOfToggletip({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate })
+  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate }),
 });

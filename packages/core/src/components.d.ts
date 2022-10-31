@@ -70,7 +70,7 @@ export namespace Components {
         /**
           * Set status of alert
          */
-        "status": 'success' | 'info' | 'warning' | 'danger';
+        "status": "success" | "info" | "warning" | "danger";
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -102,10 +102,10 @@ export namespace Components {
         "suggestions": Suggestion[] | null;
     }
     interface DsoBadge {
-        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
+        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
     }
     interface DsoBanner {
-        "status": 'warning' | 'danger';
+        "status": "warning" | "danger";
     }
     interface DsoDatePicker {
         /**
@@ -179,7 +179,7 @@ export namespace Components {
         /**
           * Used to show the login/logout option. 'none' renders nothing.
          */
-        "authStatus": 'none' | 'loggedIn' | 'loggedOut';
+        "authStatus": "none" | "loggedIn" | "loggedOut";
         /**
           * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
          */
@@ -220,7 +220,7 @@ export namespace Components {
     interface DsoLabel {
         "compact"?: boolean;
         "removable"?: boolean;
-        "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
+        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
         "truncate"?: boolean;
     }
     interface DsoMapBaseLayers {
@@ -228,7 +228,7 @@ export namespace Components {
         "group": string;
     }
     interface DsoMapControls {
-        "disableZoom"?: 'in' | 'out' | 'both';
+        "disableZoom"?: "in" | "out" | "both";
         "open": boolean;
     }
     interface DsoMapOverlays {
@@ -251,7 +251,7 @@ export namespace Components {
         /**
           * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
-        "interactive": 'sub' | '' | boolean;
+        "interactive": "sub" | "" | boolean;
     }
     interface DsoPagination {
         /**
@@ -275,7 +275,7 @@ export namespace Components {
     interface DsoProgressIndicator {
         "block"?: boolean;
         "label"?: string;
-        "size"?: 'small' | 'medium' | 'large';
+        "size"?: "small" | "medium" | "large";
     }
     interface DsoResponsiveElement {
         "getSize": () => Promise<ResponsiveElementSize>;
@@ -291,7 +291,7 @@ export namespace Components {
         "name"?: string;
         "required"?: boolean;
         "toggleInfo": (active?: boolean) => Promise<void>;
-        "type": 'checkbox' | 'radio';
+        "type": "checkbox" | "radio";
         "value": string;
     }
     interface DsoTable {
@@ -338,7 +338,7 @@ export namespace Components {
         /**
           * Set position of tooltip relative to target
          */
-        "position": 'top' | 'right' | 'bottom' | 'left';
+        "position": "top" | "right" | "bottom" | "left";
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -350,7 +350,7 @@ export namespace Components {
         /**
           * Set position strategy of tooltip
          */
-        "strategy": 'auto' | 'absolute' | 'fixed';
+        "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoTreeView {
         /**
@@ -701,7 +701,7 @@ declare namespace LocalJSX {
         /**
           * Set status of alert
          */
-        "status": 'success' | 'info' | 'warning' | 'danger';
+        "status": "success" | "info" | "warning" | "danger";
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -728,11 +728,11 @@ declare namespace LocalJSX {
          */
         "onDsoChange"?: (event: DsoAutosuggestCustomEvent<string>) => void;
         /**
-          * Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.
+          * Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.
          */
         "onDsoSearch"?: (event: DsoAutosuggestCustomEvent<string>) => void;
         /**
-          * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
+          * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
          */
         "onDsoSelect"?: (event: DsoAutosuggestCustomEvent<Suggestion>) => void;
         /**
@@ -745,10 +745,10 @@ declare namespace LocalJSX {
         "suggestions"?: Suggestion[] | null;
     }
     interface DsoBadge {
-        "status"?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'outline';
+        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
     }
     interface DsoBanner {
-        "status": 'warning' | 'danger';
+        "status": "warning" | "danger";
     }
     interface DsoDatePicker {
         /**
@@ -830,7 +830,7 @@ declare namespace LocalJSX {
         /**
           * Used to show the login/logout option. 'none' renders nothing.
          */
-        "authStatus"?: 'none' | 'loggedIn' | 'loggedOut';
+        "authStatus"?: "none" | "loggedIn" | "loggedOut";
         /**
           * When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor.
          */
@@ -877,7 +877,7 @@ declare namespace LocalJSX {
         "compact"?: boolean;
         "onDsoRemoveClick"?: (event: DsoLabelCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
-        "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
+        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
         "truncate"?: boolean;
     }
     interface DsoMapBaseLayers {
@@ -886,7 +886,7 @@ declare namespace LocalJSX {
         "onDsoBaseLayerChange"?: (event: DsoMapBaseLayersCustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
-        "disableZoom"?: 'in' | 'out' | 'both';
+        "disableZoom"?: "in" | "out" | "both";
         "onDsoZoomIn"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         "onDsoZoomOut"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         "open"?: boolean;
@@ -912,7 +912,7 @@ declare namespace LocalJSX {
         /**
           * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
-        "interactive"?: 'sub' | '' | boolean;
+        "interactive"?: "sub" | "" | boolean;
         "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClick>) => void;
         /**
           * These events are only emitted when the component is `interactive`.
@@ -945,7 +945,7 @@ declare namespace LocalJSX {
     interface DsoProgressIndicator {
         "block"?: boolean;
         "label"?: string;
-        "size"?: 'small' | 'medium' | 'large';
+        "size"?: "small" | "medium" | "large";
     }
     interface DsoResponsiveElement {
         "onDsoSizeChange"?: (event: DsoResponsiveElementCustomEvent<ResponsiveElementSize>) => void;
@@ -961,7 +961,7 @@ declare namespace LocalJSX {
         "name"?: string;
         "onDsoChange"?: (event: DsoSelectableCustomEvent<SelectableChangeEvent>) => void;
         "required"?: boolean;
-        "type": 'checkbox' | 'radio';
+        "type": "checkbox" | "radio";
         "value": string;
     }
     interface DsoTable {
@@ -1000,7 +1000,7 @@ declare namespace LocalJSX {
         /**
           * Set position of tooltip relative to target
          */
-        "position"?: 'top' | 'right' | 'bottom' | 'left';
+        "position"?: "top" | "right" | "bottom" | "left";
         /**
           * Defines if the tooltip has a smaller max-width
          */
@@ -1012,7 +1012,7 @@ declare namespace LocalJSX {
         /**
           * Set position strategy of tooltip
          */
-        "strategy"?: 'auto' | 'absolute' | 'fixed';
+        "strategy"?: "auto" | "absolute" | "fixed";
     }
     interface DsoTreeView {
         /**
@@ -1020,15 +1020,15 @@ declare namespace LocalJSX {
          */
         "collection": TreeViewItem[];
         /**
-          * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain an object with: `path` = the complete path of TreeViewItems from the root to the item that is emitting the clicked event. `originalEvent` = the original click event. The consumer of the event is responsible for updating the TreeView's collection (usually set the active state on the last TreeViewItem in path and clear all other active item states).
+          * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain an object with: `path` = the complete path of TreeViewItems from the root to the item that is emitting the clicked event. `originalEvent` = the original click event. The consumer of the event is responsible for updating the TreeView's collection (usually set the active state on the last TreeViewItem in path and clear all other active item states).
          */
         "onDsoClickItem"?: (event: DsoTreeViewCustomEvent<TreeViewPointerEvent>) => void;
         /**
-          * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
+          * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
         "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
         /**
-          * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
+          * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
         "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
     }

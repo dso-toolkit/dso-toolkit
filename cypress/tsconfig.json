@@ -1,18 +1,8 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
-    "types": [
-      "cypress",
-      "cypress-axe",
-      "cypress-real-events"
-    ]
+    "lib": ["es2019", "dom"],
+    "types": ["cypress", "cypress-axe", "cypress-real-events"]
   },
-  "include": [
-    "../packages/core/src/components.d.ts",
-    "**/*.ts"
-  ]
+  "include": ["../packages/core/src/components.d.ts", "**/*.ts"]
 }

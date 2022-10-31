@@ -1,1 +1,1 @@
-export { tiles } from '../tile-grid/tile-grid.content';
+export { tiles } from "../tile-grid/tile-grid.content";

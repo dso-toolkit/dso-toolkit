@@ -4,10 +4,7 @@ import { html } from "lit-html";
 
 import cssReadme from "@dso-toolkit/core/src/components/date-picker/readme.md";
 
-import {
-  datePickerShowByScriptingTemplate,
-  datePickerWithLabelTemplate,
-} from "./date-picker.content";
+import { datePickerShowByScriptingTemplate, datePickerWithLabelTemplate } from "./date-picker.content";
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
 

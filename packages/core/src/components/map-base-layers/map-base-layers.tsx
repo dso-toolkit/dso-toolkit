@@ -1,12 +1,12 @@
-import { Component, h, Prop, Event, EventEmitter, ComponentInterface } from '@stencil/core';
-import { v4 as uuidv4 } from 'uuid';
+import { Component, h, Prop, Event, EventEmitter, ComponentInterface } from "@stencil/core";
+import { v4 as uuidv4 } from "uuid";
 
-import { BaseLayer, BaseLayerChangeEvent } from './map-base-layers.interfaces';
+import { BaseLayer, BaseLayerChangeEvent } from "./map-base-layers.interfaces";
 
 @Component({
-  tag: 'dso-map-base-layers',
-  styleUrl: './map-base-layers.scss',
-  shadow: true
+  tag: "dso-map-base-layers",
+  styleUrl: "./map-base-layers.scss",
+  shadow: true,
 })
 export class MapBaseLayers implements ComponentInterface {
   previousBaselayers: BaseLayer[] | undefined;
@@ -27,8 +27,8 @@ export class MapBaseLayers implements ComponentInterface {
 
   componentDidRender() {
     this.baseLayers
-      .filter(l => !l.disabled && this.previousBaselayers?.find(p => p.id === l.id)?.disabled === true)
-      .forEach(o => {
+      .filter((l) => !l.disabled && this.previousBaselayers?.find((p) => p.id === l.id)?.disabled === true)
+      .forEach((o) => {
         this.selectableRefs[o.id]?.toggleInfo(false);
       });
 
@@ -49,7 +49,7 @@ export class MapBaseLayers implements ComponentInterface {
           </span>
         </div>
         <div class="dso-field-container">
-          {this.baseLayers.map(baseLayer => (
+          {this.baseLayers.map((baseLayer) => (
             <dso-selectable
               key={baseLayer.id}
               type="radio"
@@ -57,14 +57,11 @@ export class MapBaseLayers implements ComponentInterface {
               checked={baseLayer.checked}
               disabled={baseLayer.disabled}
               name={this.group}
-              ref={ref => this.selectableRefs[baseLayer.id] = ref!}
+              ref={(ref) => ref && (this.selectableRefs[baseLayer.id] = ref)}
               onDsoChange={() => this.baseLayerChangeHandler(baseLayer)}
             >
               {baseLayer.name}
-              {baseLayer.info
-                ? <p slot="info">{baseLayer.info}</p>
-                : null
-              }
+              {baseLayer.info ? <p slot="info">{baseLayer.info}</p> : null}
             </dso-selectable>
           ))}
         </div>

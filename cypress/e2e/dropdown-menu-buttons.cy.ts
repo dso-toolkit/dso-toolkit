@@ -37,74 +37,55 @@ describe("Dropdown menu - buttons", () => {
   });
 
   it("should have role menu with menuitemradio", () => {
-    cy.get("@button")
-      .should("have.attr", "aria-haspopup", "menu")
-      .click()
-      .blur();
+    cy.get("@button").should("have.attr", "aria-haspopup", "menu").click().blur();
 
     cy.get("@button")
       .invoke("attr", "id")
       .then((id) => {
-        cy.get("@options")
-          .should("have.attr", "role", "menu")
-          .should("have.attr", "aria-labelledby", id);
+        cy.get("@options").should("have.attr", "role", "menu").should("have.attr", "aria-labelledby", id);
       });
 
-    cy.get(".dso-dropdown-options ul, .dso-dropdown-options li").should(
-      "have.attr",
-      "role",
-      "none"
-    );
+    cy.get(".dso-dropdown-options ul, .dso-dropdown-options li").should("have.attr", "role", "none");
 
     cy.get("@menuitems").should("have.attr", "role", "menuitem");
   });
 
   it("checkable should have role menuitemradio", () => {
-    cy.visit(
-      "http://localhost:45000/iframe.html?id=core-dropdown-menu--buttons&args=isCheckable:true"
-    );
+    cy.visit("http://localhost:45000/iframe.html?id=core-dropdown-menu--buttons&args=isCheckable:true");
 
     cy.get("@button").click().blur();
 
     cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
   });
 
-  it(
-    "tab should tab out and close menu at the bottom",
-    { browser: "!firefox" },
-    () => {
-      cy.get("@button").focus().click();
+  it("tab should tab out and close menu at the bottom", { browser: "!firefox" }, () => {
+    cy.get("@button").focus().click();
 
-      cy.realPress("Tab");
-      cy.realPress("Tab");
+    cy.realPress("Tab");
+    cy.realPress("Tab");
 
-      cy.get("@menuitems").eq(1).should("have.focus");
+    cy.get("@menuitems").eq(1).should("have.focus");
 
-      cy.realPress("Tab");
+    cy.realPress("Tab");
 
-      cy.get("@options").should("not.be.visible");
+    cy.get("@options").should("not.be.visible");
 
-      cy.get("@button").should("not.have.focus");
-    }
-  );
+    cy.get("@button").should("not.have.focus");
+  });
 
-  it(
-    "shift-tab should tab out and close menu at the top",
-    { browser: "!firefox" },
-    () => {
-      cy.get("@button").focus().click();
+  it("shift-tab should tab out and close menu at the top", { browser: "!firefox" }, () => {
+    cy.get("@button").focus().click();
 
-      cy.realPress("Tab");
+    cy.realPress("Tab");
 
-      cy.get("@menuitems").eq(0).should("have.focus");
+    cy.get("@menuitems").eq(0).should("have.focus");
 
-      cy.realPress(["Shift", "Tab"]);
+    cy.realPress(["Shift", "Tab"]);
 
-      cy.get("@options").should("not.be.visible");
+    cy.get("@options").should("not.be.visible");
 
-      cy.get("@button").should("have.focus");
-    }
-  );
+    cy.get("@button").should("have.focus");
+  });
 
   it("arrow down should cycle menu", { browser: "!firefox" }, () => {
     cy.get("@button").focus().click();

@@ -1,21 +1,21 @@
-import { storiesOfAttachmentsCounter } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { storiesOfAttachmentsCounter } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from '@dso-toolkit/css/src/components/attachments-counter/readme.md';
-import coreReadme from '@dso-toolkit/core/src/components/attachments-counter/readme.md';
+import cssReadme from "@dso-toolkit/css/src/components/attachments-counter/readme.md";
+import coreReadme from "@dso-toolkit/core/src/components/attachments-counter/readme.md";
 
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
-import { templateContainer } from '../../templates';
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+import { templateContainer } from "../../templates";
 
 storiesOfAttachmentsCounter({
   parameters: {
     module,
     storiesOf,
     readme: cssReadme,
-    root: StoryRoot.HtmlCss
+    root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate }),
 });
 
 storiesOfAttachmentsCounter({
@@ -23,8 +23,8 @@ storiesOfAttachmentsCounter({
     module,
     storiesOf,
     readme: coreReadme,
-    root: StoryRoot.Core
+    root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate }),
 });

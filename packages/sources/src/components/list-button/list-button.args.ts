@@ -1,55 +1,55 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { InputNumber } from '../input-number/input-number.models';
+import { InputNumber } from "../input-number/input-number.models";
 
-import { ListButton } from './list-button.models';
+import { ListButton } from "./list-button.models";
 
 export interface ListButtonArgs {
   label: string;
-  hasInputNumber?: boolean,
-  inputNumber?: InputNumber,
-  disabled?: boolean,
-  sublabel?: string,
-  subcontent?: string,
-  count: number
+  hasInputNumber?: boolean;
+  inputNumber?: InputNumber;
+  disabled?: boolean;
+  sublabel?: string;
+  subcontent?: string;
+  count: number;
 }
 
 export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   hasInputNumber: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   inputNumber: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   disabled: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   sublabel: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   subcontent: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   count: {
     control: {
-      type: 'number'
-    }
-  }
+      type: "number",
+    },
+  },
 };
 
 export function listButtonArgsMapper(a: ListButtonArgs): ListButton {
@@ -60,6 +60,6 @@ export function listButtonArgsMapper(a: ListButtonArgs): ListButton {
     disabled: a.disabled,
     sublabel: a.sublabel,
     subcontent: a.subcontent,
-    count: a.count
+    count: a.count,
   };
 }

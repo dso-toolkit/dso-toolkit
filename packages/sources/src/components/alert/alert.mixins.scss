@@ -78,7 +78,8 @@
   position: relative;
 
   @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
-    padding: alert-variables.$vertical-padding alert-variables.$horizontal-padding alert-variables.$vertical-padding alert-variables.$left-padding;
+    padding: alert-variables.$vertical-padding alert-variables.$horizontal-padding alert-variables.$vertical-padding
+      alert-variables.$left-padding;
   }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {

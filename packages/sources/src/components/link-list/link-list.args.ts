@@ -1,7 +1,7 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { LinkList, LinkListType } from './link-list.models';
-import { Anchor } from '../anchor/anchor.models';
+import { LinkList, LinkListType } from "./link-list.models";
+import { Anchor } from "../anchor/anchor.models";
 
 export interface LinkListArgs {
   navLabel: string;
@@ -12,24 +12,24 @@ export interface LinkListArgs {
 export const linkListArgTypes: ArgTypes<LinkListArgs> = {
   navLabel: {
     control: {
-      type: 'string'
-    }
+      type: "string",
+    },
   },
   type: {
     options: [LinkListType.Ul, LinkListType.Ol],
     control: {
-      type: 'select'
-    }
+      type: "select",
+    },
   },
   links: {
     control: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
 export function linkListArgsMapper(a: LinkListArgs): LinkList {
   return {
-    ...a
+    ...a,
   };
 }

@@ -1,17 +1,17 @@
-import { Component, h, Prop } from '@stencil/core';
-import clsx from 'clsx';
+import { Component, h, Prop } from "@stencil/core";
+import clsx from "clsx";
 
 @Component({
-  tag: 'dso-alert',
-  styleUrl: 'alert.scss',
-  shadow: true
+  tag: "dso-alert",
+  styleUrl: "alert.scss",
+  shadow: true,
 })
 export class Alert {
   /**
    * Set status of alert
    */
   @Prop()
-  status!: 'success' | 'info' | 'warning' | 'danger';
+  status!: "success" | "info" | "warning" | "danger";
 
   /**
    * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -20,10 +20,10 @@ export class Alert {
   roleAlert?: boolean;
 
   private static statusMap = new Map<string, string>([
-    ['success', 'Gelukt'],
-    ['info', 'Opmerking'],
-    ['warning', 'Waarschuwing'],
-    ['danger', 'Fout']
+    ["success", "Gelukt"],
+    ["info", "Opmerking"],
+    ["warning", "Waarschuwing"],
+    ["danger", "Fout"],
   ]);
 
   render() {
@@ -33,8 +33,8 @@ export class Alert {
     }
 
     return (
-      <div class={clsx('alert', `alert-${this.status}`)} role={this.roleAlert ? 'alert' : undefined}>
-        <dso-icon icon={'status-' + this.status}></dso-icon>
+      <div class={clsx("alert", `alert-${this.status}`)} role={this.roleAlert ? "alert" : undefined}>
+        <dso-icon icon={"status-" + this.status}></dso-icon>
         <span class="sr-only">{status}:</span>
         <slot></slot>
       </div>

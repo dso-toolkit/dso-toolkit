@@ -1,9 +1,9 @@
-import { BaseLayer, BaseLayerChangeEvent, Overlay, OverlayChangeEvent } from '@dso-toolkit/core';
-import * as L from 'leaflet';
-import { render, html, TemplateResult, nothing } from 'lit-html';
+import { BaseLayer, BaseLayerChangeEvent, Overlay, OverlayChangeEvent } from "@dso-toolkit/core";
+import * as L from "leaflet";
+import { render, html, TemplateResult, nothing } from "lit-html";
 
 const defaultLayerOptions: Readonly<LayerOptions> = {
-  disabled: false
+  disabled: false,
 };
 
 export class MapControls {
@@ -20,13 +20,13 @@ export class MapControls {
    * @param baseLayers The base layers to manage
    * @param overlays The overlays to manage
    */
-  constructor(baseLayers?: LayerObject[], overlays?: LayerObject[], options?: MapControlsOptions) {
+  constructor(baseLayers?: LayerObject[], overlays?: LayerObject[], _options?: MapControlsOptions) {
     this.state = {
       layers: [
-        ...baseLayers?.map(l => this.mapToControlledLayer(l, LayerType.BaseLayer)) ?? [],
-        ...overlays?.map(l => this.mapToControlledLayer(l, LayerType.Overlay)) ?? []
+        ...(baseLayers?.map((l) => this.mapToControlledLayer(l, LayerType.BaseLayer)) ?? []),
+        ...(overlays?.map((l) => this.mapToControlledLayer(l, LayerType.Overlay)) ?? []),
       ],
-      disableZoom: undefined
+      disableZoom: undefined,
     };
   }
 
@@ -47,15 +47,15 @@ export class MapControls {
     this.remove();
     this.map = map;
 
-    this.container = L.DomUtil.create('div', 'dso-leaflet-controls') as HTMLDivElement;
+    this.container = L.DomUtil.create("div", "dso-leaflet-controls") as HTMLDivElement;
 
     L.DomEvent.disableClickPropagation(this.container);
 
     this.render();
 
     this.map.getContainer().appendChild(this.container);
-    this.map.on('zoomend zoomlevelschange', this.updateZoomDisabled, this);
-    this.map.on('unload', this.remove, this);
+    this.map.on("zoomend zoomlevelschange", this.updateZoomDisabled, this);
+    this.map.on("unload", this.remove, this);
 
     this.updateZoomDisabled();
 
@@ -76,8 +76,8 @@ export class MapControls {
     }
 
     if (this.map) {
-      this.map.off('unload', this.remove, this);
-      this.map.off('zoomend zoomlevelschange', this.updateZoomDisabled, this);
+      this.map.off("unload", this.remove, this);
+      this.map.off("zoomend zoomlevelschange", this.updateZoomDisabled, this);
       this.map = undefined;
     }
 
@@ -86,7 +86,7 @@ export class MapControls {
 
   /**
    * Adds a base layer to the DSO Map Controls.
-   * 
+   *
    * Note: This method does **not activate** the base layer.
    * @param layer The Leaflet Layer to add to the control
    * @param name The name of the Leaflet Layer.
@@ -100,7 +100,7 @@ export class MapControls {
 
   /**
    * Adds an overlay to the DSO Map Controls.
-   * 
+   *
    * Note: This method does **not activate** the overlay.
    * @param layer The Leaflet Layer to add to the control
    * @param name The name of the Leaflet Layer.
@@ -114,7 +114,7 @@ export class MapControls {
 
   enableLayer(layer: L.Layer) {
     this.update({
-      layers: this.state.layers.map(l => l.layer === layer ? { ...l, disabled: false } : l)
+      layers: this.state.layers.map((l) => (l.layer === layer ? { ...l, disabled: false } : l)),
     });
 
     return this;
@@ -122,7 +122,7 @@ export class MapControls {
 
   disableLayer(layer: L.Layer) {
     this.update({
-      layers: this.state.layers.map(l => l.layer === layer ? { ...l, disabled: true } : l)
+      layers: this.state.layers.map((l) => (l.layer === layer ? { ...l, disabled: true } : l)),
     });
 
     return this;
@@ -130,33 +130,32 @@ export class MapControls {
 
   /**
    * Remove a BaseLayer or Overlay from the DSO Map Controls.
-   * 
+   *
    * Note: This also removes the layer from the Leaflet Map instance.
    * @param layer The Leaflet Layer to remove.
    * @returns The DSO Map Controls instance.
    */
   removeLayer(layer: L.Layer) {
-    const meta = this.state.layers.find(l => l.layer === layer);
+    const meta = this.state.layers.find((l) => l.layer === layer);
     if (!meta) {
       return;
     }
 
     this.update({
-      layers: this.state.layers.filter(l => l.layer !== layer)
+      layers: this.state.layers.filter((l) => l.layer !== layer),
     });
 
     if (this.map) {
-      layer.off('add remove', this.onLayerChange, this);
+      layer.off("add remove", this.onLayerChange, this);
 
       if (meta.type === LayerType.BaseLayer && this.map.hasLayer(layer)) {
         this.removeLayerFromMap(layer);
 
-        const nextBaseLayer = this.state.layers.find(l => l.type === LayerType.BaseLayer);
+        const nextBaseLayer = this.state.layers.find((l) => l.type === LayerType.BaseLayer);
         if (nextBaseLayer) {
           this.addLayerToMap(nextBaseLayer.layer);
         }
-      }
-      else {
+      } else {
         this.removeLayerFromMap(layer);
       }
     }
@@ -165,7 +164,7 @@ export class MapControls {
   }
 
   private addLayer(layer: L.Layer, name: string, type: LayerType, { disabled }: LayerOptions) {
-    if (this.state.layers.some(l => l.layer === layer)) {
+    if (this.state.layers.some((l) => l.layer === layer)) {
       return;
     }
 
@@ -177,13 +176,13 @@ export class MapControls {
           name: name,
           layer,
           type,
-          disabled
-        }
-      ]
+          disabled,
+        },
+      ],
     });
 
     if (this.map) {
-      layer.on('add remove', this.onLayerChange, this);
+      layer.on("add remove", this.onLayerChange, this);
     }
   }
 
@@ -207,22 +206,21 @@ export class MapControls {
 
   private onLayerChange(e: L.LeafletEvent) {
     if (!this.map) {
-      throw new Error('onBaseLayerChange event without map');
+      throw new Error("onBaseLayerChange event without map");
     }
 
-    const item = this.state.layers.find(l => l.layer === e.target);
+    const item = this.state.layers.find((l) => l.layer === e.target);
     if (!item) {
       console.error(e.target);
-      throw new Error('Layer not found');
+      throw new Error("Layer not found");
     }
 
-    let type: 'baselayerchange' | 'overlayadd' | 'overlayremove' | null;
+    let type: "baselayerchange" | "overlayadd" | "overlayremove" | null;
 
     if (item.type === LayerType.BaseLayer) {
-      type = e.type === 'add' ? 'baselayerchange' : null;
-    }
-    else {
-      type = e.type === 'add' ? 'overlayadd' : 'overlayremove';
+      type = e.type === "add" ? "baselayerchange" : null;
+    } else {
+      type = e.type === "add" ? "overlayadd" : "overlayremove";
     }
 
     if (type) {
@@ -237,9 +235,9 @@ export class MapControls {
       return;
     }
 
-    const layer = this.state.layers.find(l => l.id === activeBaseLayer.id);
+    const layer = this.state.layers.find((l) => l.id === activeBaseLayer.id);
     if (!layer) {
-      throw new Error('Trying to add non-existing layer');
+      throw new Error("Trying to add non-existing layer");
     }
 
     for (const layer of this.state.layers) {
@@ -263,8 +261,7 @@ export class MapControls {
 
     if (checked && !this.map.hasLayer(layer.layer)) {
       this.addLayerToMap(layer.layer);
-    }
-    else if (!checked && this.map.hasLayer(layer.layer)) {
+    } else if (!checked && this.map.hasLayer(layer.layer)) {
       this.removeLayerFromMap(layer.layer);
     }
   }
@@ -294,23 +291,20 @@ export class MapControls {
       return;
     }
 
-    if (this.state.disableZoom !== 'in' && this.map.getZoom() >= this.map.getMaxZoom()) {
-      this.update({ ...this.state, disableZoom: 'in' });
-    }
-    else if (this.state.disableZoom !== 'out' && this.map.getZoom() <= this.map.getMinZoom()) {
-      this.update({ ...this.state, disableZoom: 'out' });
-    }
-    else if (this.state.disableZoom !== undefined) {
+    if (this.state.disableZoom !== "in" && this.map.getZoom() >= this.map.getMaxZoom()) {
+      this.update({ ...this.state, disableZoom: "in" });
+    } else if (this.state.disableZoom !== "out" && this.map.getZoom() <= this.map.getMinZoom()) {
+      this.update({ ...this.state, disableZoom: "out" });
+    } else if (this.state.disableZoom !== undefined) {
       this.update({ ...this.state, disableZoom: undefined });
-    }
-    else {
+    } else {
       this.update();
     }
   }
 
   private filterLayersByTypeAndSort(type: LayerType) {
     return this.state.layers
-      .filter(l => l.type === type)
+      .filter((l) => l.type === type)
       .sort((a, b) => a.name.localeCompare(b.name))
       .map(({ id, name, layer, disabled = false }) => {
         const { available, message } = this.layerAvailability(name, layer);
@@ -320,15 +314,15 @@ export class MapControls {
           name,
           checked: available && (this.map?.hasLayer(layer) ?? false),
           disabled: !available || disabled,
-          info: message
+          info: message,
         };
       });
   }
 
-  private layerAvailability(name: string, { options }: Layer): { available: boolean, message?: string } {
+  private layerAvailability(name: string, { options }: Layer): { available: boolean; message?: string } {
     if (options?.minZoom === undefined || options?.maxZoom === undefined || this.map === undefined) {
       return {
-        available: true
+        available: true,
       };
     }
 
@@ -336,13 +330,13 @@ export class MapControls {
 
     if (options.maxZoom >= zoom && options.minZoom <= zoom) {
       return {
-        available: true
+        available: true,
       };
     }
 
     return {
       available: false,
-      message: `Zoom ${options.maxZoom >= zoom ? 'in' : 'uit'} om "${name}" te bekijken`
+      message: `Zoom ${options.maxZoom >= zoom ? "in" : "uit"} om "${name}" te bekijken`,
     };
   }
 
@@ -352,7 +346,7 @@ export class MapControls {
       type: layerType,
       name: layerObject.name,
       layer: layerObject.layer,
-      disabled: !!layerObject.disabled
+      disabled: !!layerObject.disabled,
     };
   }
 
@@ -364,7 +358,7 @@ export class MapControls {
 
   private render() {
     if (!this.container) {
-      throw new Error('update() needs a container');
+      throw new Error("update() needs a container");
     }
 
     render(this.template(), this.container);
@@ -381,21 +375,17 @@ export class MapControls {
         .disableZoom=${this.state.disableZoom}
       >
         ${baseLayers.length > 0
-          ? html`
-            <dso-map-base-layers
+          ? html` <dso-map-base-layers
               .baseLayers=${baseLayers}
               @dsoBaseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
             ></dso-map-base-layers>`
-          : nothing
-        }
+          : nothing}
         ${overlays.length > 0
-          ? html`
-            <dso-map-overlays
+          ? html` <dso-map-overlays
               .overlays=${overlays}
               @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
             ></dso-map-overlays>`
-          : nothing
-        }
+          : nothing}
       </dso-map-controls>
     `;
   }
@@ -413,14 +403,13 @@ interface LayerOptions {
 }
 
 export enum LayerType {
-  BaseLayer = 'BASE_LAYER',
-  Overlay = 'OVERLAY'
+  BaseLayer = "BASE_LAYER",
+  Overlay = "OVERLAY",
 }
 
-export interface MapControlsOptions {
-}
+export interface MapControlsOptions {}
 
-type Layer = L.Layer & { options?: { minZoom?: number, maxZoom?: number } };
+type Layer = L.Layer & { options?: { minZoom?: number; maxZoom?: number } };
 
 interface ControlledLayer {
   id: number;
@@ -432,5 +421,5 @@ interface ControlledLayer {
 
 interface State {
   layers: ControlledLayer[];
-  disableZoom: 'both' | 'in' | 'out' | undefined;
+  disableZoom: "both" | "in" | "out" | undefined;
 }

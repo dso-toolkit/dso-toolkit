@@ -7,7 +7,7 @@ cache:
     - ./.yarn/cache
     - ~/.cache/Cypress
 node_js:
-  - '16'
+  - "16"
 git:
   depth: false
 before_install:
@@ -41,8 +41,7 @@ jobs:
             - packages/dso-toolkit/libs/@dso-toolkit
             - packages/react/dist
             - packages/react/www
-      script:
-        (yarn npm audit --all --recursive || true) &&
+      script: (yarn npm audit --all --recursive || true) &&
         yarn lint &&
         yarn build &&
         yarn test &&
@@ -65,8 +64,7 @@ jobs:
       name: publish to npm
       workspaces:
         use: build-artifacts
-      script:
-        yarn config set npmAuthToken "${DEPLOY_NPM_TOKEN}" &&
+      script: yarn config set npmAuthToken "${DEPLOY_NPM_TOKEN}" &&
         cp README.md packages/dso-toolkit &&
         yarn workspace @dso-toolkit/core version ${TRAVIS_TAG:1} --deferred &&
         yarn workspace @dso-toolkit/react version ${TRAVIS_TAG:1} --deferred &&
@@ -82,12 +80,12 @@ jobs:
         ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions" &&
         zip --recurse-paths --no-dir-entries --quiet --exclude="node_modules*" dso-toolkit-${TRAVIS_TAG:1}.zip ./packages/dso-toolkit
       deploy:
-      - provider: releases
-        edge: true
-        token: $DEPLOY_GITHUB_TOKEN
-        file: dso-toolkit-${TRAVIS_TAG:1}.zip
-        on:
-          tags: true
+        - provider: releases
+          edge: true
+          token: $DEPLOY_GITHUB_TOKEN
+          file: dso-toolkit-${TRAVIS_TAG:1}.zip
+          on:
+            tags: true
 env:
   global:
     - secure: hV4IoQHsW8+xY6m/hqHJ8c5x7zC5VkZ7XGBOZTWzhSD2+7aOrWdfO9R55cDL4a8YXoyzaArbw4k61X5f64licxzSV1TT1v1rLLyVh99nqf3OATqyI5PYHAU4ichSsfrVSlo24jHN3Scl3sDIgv+wgWIMCxAGZ+s66KJgOcROZRnRCnV3Gb3HBb5mgr+ejv1hHoCNs5/1J6k/aLOKHlBkRKQ2JLbLE5jyo13lsSQufrEbgQ18L0kH4JAqZFGde0k9HuNej85WgLKVBS4rEG2/iPcnUOrZupQmQNPzLSWj0DjkdcqLRt7wfSQki1uBGBfdOMhjkhNL2npt3go+fg9r/8i8uNdFUfvlK+NRrwXz854ZUw2kbFo9MPnYssFVsiYIEumS+0Ket2tIzs7p7xxO93IN6g+EcvKHTjKh2ZZqCawcjeat6Haoe6IbnwAZEEat2loexEb6VsbQcuSXIRB+O7WgEj/KMJVDoVgEzTXl9M0JsPQzx+rN/EiZAuJk6an2ABkUOgZEK4IuxxQ5kR/Tvu4dI+jgCRALxkgjtVed14ZyErF1KUP+djKuREX6ktYV9OMjROJro8c2Kjz6Isig/6yLlPu6h1k2ZTsXWLgIEJPWUd/iF9VmUUNGVU2ewEZnSgek5cRov4qnmg8KOuyF3oVKPjpzjhG9/KIyr+Tyn7Q=

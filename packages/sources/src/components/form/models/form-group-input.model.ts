@@ -1,10 +1,10 @@
-import { Icon } from '../../..';
+import { Icon } from "../../..";
 
-import { FormGroupBase } from './form-group.base-model';
+import { FormGroupBase } from "./form-group.base-model";
 
 export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<TemplateFnReturnType> {
-  group: 'input',
-  type: 'text' | 'email' | 'password' | 'url' | 'tel';
+  group: "input";
+  type: "text" | "email" | "password" | "url" | "tel";
   value?: string;
   placeholder?: string;
   size?: number;
@@ -12,8 +12,8 @@ export interface FormGroupInput<TemplateFnReturnType> extends FormGroupBase<Temp
   feedback?: Icon;
 }
 
-export interface FormGroupInputDate<TemplateFnReturnType> extends Omit<FormGroupInput<TemplateFnReturnType>, 'type'> {
-  type: 'date';
+export interface FormGroupInputDate<TemplateFnReturnType> extends Omit<FormGroupInput<TemplateFnReturnType>, "type"> {
+  type: "date";
   min?: string;
   max?: string;
 }

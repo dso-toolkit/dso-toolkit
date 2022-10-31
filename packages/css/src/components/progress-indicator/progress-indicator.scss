@@ -6,7 +6,6 @@
   .dso-progress-indicator-spinner {
     // Keep in sync with /packages/core/src/components/progress-indicator/progress-indicator.scss
     // Unescaped { and } are because of Angular 12 anomaly, see dso-toolkit/dso-toolkit/#1152
-    // stylelint-disable-next-line scss/operator-no-unspaced -- it appears stylelint is wrongfully parsing the SVG and finding operators
     background-image: url("data:image/svg+xml,%3Csvg class='spinner' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E .spinner { animation: rotator 8s linear infinite; transform-origin: center; } @keyframes rotator { 0%25 { transform: rotate(0deg); } 100%25 { transform: rotate(360deg); } } .path { stroke-dasharray: 265; stroke-dashoffset: 0; transform-origin: center; stroke: %2339870c; animation: dash 2s ease-in-out infinite; } @keyframes dash { 0%25 { stroke-dashoffset: 265; } 50%25 { stroke-dashoffset: 65; transform:rotate(90deg); } 100%25 { stroke-dashoffset: 265; transform:rotate(360deg); } %3C/style%3E%3Ccircle class='path' fill='none' stroke-width='10' stroke-linecap='butt' cx='50' cy='50' r='45'%3E%3C/circle%3E%3C/svg%3E");
     background-repeat: no-repeat;
   }

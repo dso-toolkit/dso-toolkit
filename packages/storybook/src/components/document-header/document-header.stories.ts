@@ -1,78 +1,78 @@
-import { DefinitionList, storiesOfDocumentHeader } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { DefinitionList, storiesOfDocumentHeader } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from '@dso-toolkit/css/src/components/document-header/readme.md';
+import cssReadme from "@dso-toolkit/css/src/components/document-header/readme.md";
 
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 
-import { templateContainer } from '../../templates';
-import { html, TemplateResult } from 'lit-html';
-import { HandlerFunction } from '@storybook/addon-actions';
+import { templateContainer } from "../../templates";
+import { html, TemplateResult } from "lit-html";
+import { HandlerFunction } from "@storybook/addon-actions";
 
 storiesOfDocumentHeader({
   parameters: {
     module,
     storiesOf,
     readme: cssReadme,
-    root: StoryRoot.HtmlCss
+    root: StoryRoot.HtmlCss,
   },
   templateContainer,
   storyTemplates: ({ documentHeaderTemplate, anchorTemplate, labelTemplate, buttonTemplate, iconTemplate }) => {
     const features: DefinitionList<TemplateResult> = {
-      modifier: 'dso-document-header-features',
+      modifier: "dso-document-header-features",
       definitions: [
         {
-          term: 'Opschrift',
+          term: "Opschrift",
           descriptions: [
             {
-              content: 'Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving'
+              content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
             },
           ],
         },
         {
-          term: 'Identificatie',
+          term: "Identificatie",
           descriptions: [
             {
-              content: '/akn/nl/act/mnre1034/2021/BWBR0041330'
-            }
+              content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
+            },
           ],
         },
         {
-          term: 'Besluit',
+          term: "Besluit",
           descriptions: [
             {
               content: anchorTemplate({
-                label: 'Bekijk besluit',
-                url: '#',
+                label: "Bekijk besluit",
+                url: "#",
                 icon: {
-                  icon: 'external-link',
+                  icon: "external-link",
                 },
-                iconMode: 'after',
-              })
-            }
+                iconMode: "after",
+              }),
+            },
           ],
         },
       ],
-      useSrOnlyColon: false
+      useSrOnlyColon: false,
     };
 
     function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureAction: HandlerFunction) {
       return html`
         ${labelTemplate({
-          status: 'bright',
-          label: 'in werking',
+          status: "bright",
+          label: "in werking",
         })}
         Gepubliceerd 03-03-2021
         ${buttonTemplate({
           ariaExpanded: documentHeaderStatusOpen,
           onClick: documentHeaderFeatureAction,
-          label: 'overige versies',
+          label: "overige versies",
           variant: null,
-          modifier: 'dso-document-header-toggle-status',
+          modifier: "dso-document-header-toggle-status",
           icon: {
-            icon: documentHeaderStatusOpen ? 'chevron-up' : 'chevron-down',
+            icon: documentHeaderStatusOpen ? "chevron-up" : "chevron-down",
           },
-          iconMode: 'after',
+          iconMode: "after",
         })}
         <span class="dso-document-header-badges">
           <span class="dso-badge badge-warning">
@@ -91,54 +91,50 @@ storiesOfDocumentHeader({
       <h2>Versies</h2>
       <h3>Vastgesteld</h3>
       <div>
-        ${iconTemplate({ icon: 'eye' })}
+        ${iconTemplate({ icon: "eye" })}
         <strong>Gepubliceerd op 01-03-2021</strong>
         ${labelTemplate({
-          label: 'In werking',
+          label: "In werking",
         })}
       </div>
       <div>
-        ${iconTemplate({ icon: 'chevron-right' })}
-        Gepubliceerd op 10-03-2021
+        ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 10-03-2021
         ${labelTemplate({
-          status: 'bright',
-          label: 'Toekomstige versie',
+          status: "bright",
+          label: "Toekomstige versie",
         })}
         datum in werking: 1-6-2022
       </div>
-      ${anchorTemplate({ label: 'bekijk eerdere versies', url: '#' })}
+      ${anchorTemplate({ label: "bekijk eerdere versies", url: "#" })}
 
       <h3>Ontwerpen binnen inzagetermijn</h3>
       <div>
-        ${iconTemplate({ icon: 'chevron-right' })}
-        Gepubliceerd op 09-02-2021
+        ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 09-02-2021
         ${labelTemplate({
-          status: 'warning',
-          label: 'Ontwerp',
+          status: "warning",
+          label: "Ontwerp",
         })}
         Eind inzagetermijn: 23-03-2022
       </div>
       <div>
-        ${iconTemplate({ icon: 'chevron-right' })}
-        Gepubliceerd op 01-02-2021
+        ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 01-02-2021
         ${labelTemplate({
-          status: 'warning',
-          label: 'Ontwerp',
+          status: "warning",
+          label: "Ontwerp",
         })}
         Eind inzagetermijn: 15-03-2022
       </div>
       <div>
-        ${iconTemplate({ icon: 'chevron-right' })}
-        Gepubliceerd op 20-01-2021
+        ${iconTemplate({ icon: "chevron-right" })} Gepubliceerd op 20-01-2021
         ${labelTemplate({
-          status: 'warning',
-          label: 'Ontwerp',
+          status: "warning",
+          label: "Ontwerp",
         })}
         Eind inzagetermijn: 03-03-2022
       </div>
-      ${anchorTemplate({ label: 'bekijk ontwerpen waarvan inzagetermijn voorbij is', url: '#' })}
+      ${anchorTemplate({ label: "bekijk ontwerpen waarvan inzagetermijn voorbij is", url: "#" })}
     `;
 
-    return ({ documentHeaderTemplate, features, status, statusContent });
-  }
+    return { documentHeaderTemplate, features, status, statusContent };
+  },
 });

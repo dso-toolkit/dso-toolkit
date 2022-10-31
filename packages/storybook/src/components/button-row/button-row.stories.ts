@@ -1,18 +1,18 @@
-import { storiesOfButtonRow } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
+import { storiesOfButtonRow } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
 
-import cssReadme from '@dso-toolkit/css/src/components/button-row/readme.md';
+import cssReadme from "@dso-toolkit/css/src/components/button-row/readme.md";
 
-import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
-import { templateContainer } from '../../templates';
+import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+import { templateContainer } from "../../templates";
 
 storiesOfButtonRow({
   parameters: {
     module,
     storiesOf,
     readme: cssReadme,
-    root: StoryRoot.HtmlCss
+    root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ buttonRowTemplate }) => ({ buttonRowTemplate })
+  storyTemplates: ({ buttonRowTemplate }) => ({ buttonRowTemplate }),
 });

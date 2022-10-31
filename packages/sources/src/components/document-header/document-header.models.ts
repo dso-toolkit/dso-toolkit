@@ -1,4 +1,4 @@
-import { DefinitionList } from '../definition-list/definition-list.models';
+import { DefinitionList } from "../definition-list/definition-list.models";
 
 export interface DocumentHeader<TemplateFnReturnType> {
   title: string;

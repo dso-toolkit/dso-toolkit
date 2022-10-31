@@ -1,8 +1,8 @@
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Button } from '../button/button.models';
+import { Button } from "../button/button.models";
 
-import { FormButtons } from './form-buttons.models';
+import { FormButtons } from "./form-buttons.models";
 
 export interface FormButtonsArgs {
   formModifier?: string;
@@ -13,25 +13,25 @@ export interface FormButtonsArgs {
 export const formButtonsArgTypes: ArgTypes<FormButtonsArgs> = {
   formModifier: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   buttons: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   asideButtons: {
     control: {
-      disable: true
-    }
-  }
+      disable: true,
+    },
+  },
 };
 
 export function formButtonsArgsMapper(a: FormButtonsArgs): FormButtons {
   return {
     formModifier: a.formModifier,
     buttons: a.buttons,
-    asideButtons: a.asideButtons
+    asideButtons: a.asideButtons,
   };
 }

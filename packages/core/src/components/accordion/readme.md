@@ -1,7 +1,5 @@
 # dso-accordion
 
-
-
 <!-- Auto Generated Below -->
 
 
@@ -11,7 +9,7 @@
 | ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- | ----------- |
 | `allowMultipleOpen` | `allow-multiple-open` | Allows multiple sections to be open at the same time.                                                                                                              | `boolean`                                             | `false`     |
 | `reverseAlign`      | `reverse-align`       | Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements | `boolean`                                             | `false`     |
-| `variant`           | `variant`             |                                                                                                                                                                    | `"compact" \| "conclusion" \| "default" \| undefined` | `'default'` |
+| `variant`           | `variant`             |                                                                                                                                                                    | `"compact" \| "conclusion" \| "default" \| undefined` | `"default"` |
 
 
 ## Events

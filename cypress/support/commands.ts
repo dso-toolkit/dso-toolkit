@@ -29,6 +29,7 @@
 export {};
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace -- De namespace wordt opgelegd vanuit Cypress
   namespace Cypress {
     interface Chainable {
       /**
@@ -39,7 +40,7 @@ declare global {
   }
 }
 
-Cypress.Commands.add('isWithinViewport', { prevSubject: true }, (subject) => {
+Cypress.Commands.add("isWithinViewport", { prevSubject: true }, (subject) => {
   const windowInnerWidth = Cypress.config(`viewportWidth`);
   const windowInnerHeight = Cypress.config(`viewportHeight`);
 

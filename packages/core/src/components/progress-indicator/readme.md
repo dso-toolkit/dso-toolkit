@@ -1,7 +1,5 @@
 # dso-progress-indicator
 
-
-
 <!-- Auto Generated Below -->
 
 

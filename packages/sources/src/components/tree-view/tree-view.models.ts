@@ -30,9 +30,9 @@ export interface TreeViewItemIcon {
 
 export interface TreeViewPointerEvent {
   /** The path to the clicked item */
-  path: TreeViewItem[],
+  path: TreeViewItem[];
   /** The original pointer event */
-  originalEvent: MouseEvent
+  originalEvent: MouseEvent;
 }
 
 export interface TreeView {

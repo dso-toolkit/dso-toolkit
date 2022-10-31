@@ -1,6 +1,6 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
 export interface AutosuggestArgs {
   suggestOnFocus: boolean;
@@ -16,36 +16,36 @@ export interface AutosuggestArgs {
 export const autosuggestArgTypes: ArgTypes<AutosuggestArgs> = {
   suggestOnFocus: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   loading: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   loadingLabel: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   loadingDelayed: {
     control: {
-      type: 'number',
+      type: "number",
     },
   },
   notFoundLabel: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   dsoSelect: {
-    action: 'dsoSelect'
+    action: "dsoSelect",
   },
   dsoChange: {
-    action: 'dsoChange'
+    action: "dsoChange",
   },
   dsoSearch: {
-    action: 'dsoSearch'
-  }
+    action: "dsoSearch",
+  },
 };

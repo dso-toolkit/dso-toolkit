@@ -3,7 +3,7 @@
 
 // HTML/CSS
 .dso-selectable {
-  @include selectable.root('.dso-info');
+  @include selectable.root(".dso-info");
 
   &:not(:last-child) {
     @include selectable.notLastChild();

@@ -12,8 +12,7 @@
   @if ($gutter > 0) {
     padding-left: calc(50vw - 50% - #{math.ceil($gutter * 0.5)});
     padding-right: calc(50vw - 50% - #{math.floor($gutter * 0.5)});
-  }
-  @else {
+  } @else {
     padding-left: calc(50vw - 50%);
     padding-right: calc(50vw - 50%);
   }

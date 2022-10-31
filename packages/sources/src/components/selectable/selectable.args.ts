@@ -1,11 +1,11 @@
-import { HandlerFunction } from '@storybook/addon-actions';
+import { HandlerFunction } from "@storybook/addon-actions";
 
-import { ArgTypes } from '../../storybook';
+import { ArgTypes } from "../../storybook";
 
-import { Selectable } from './selectable.models';
+import { Selectable } from "./selectable.models";
 
 export interface SelectableArgs<TemplateFnReturnType> {
-  type: 'radio' | 'checkbox';
+  type: "radio" | "checkbox";
   id: string;
   name?: string;
   label: string;
@@ -26,97 +26,99 @@ export interface SelectableArgs<TemplateFnReturnType> {
 
 export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
   type: {
-    options: ['radio', 'checkbox'],
+    options: ["radio", "checkbox"],
     control: {
-      type: 'select',
-    }
+      type: "select",
+    },
   },
   id: {
     control: {
-      type: 'text',
-      required: true
-    }
+      type: "text",
+      required: true,
+    },
   },
   name: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   label: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   value: {
-    control: 'text',
-    required: true
+    control: "text",
+    required: true,
   },
   required: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   invalid: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   describedById: {
     control: {
-      type: 'text'
-    }
+      type: "text",
+    },
   },
   checked: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   indeterminate: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   disabled: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   dsoChange: {
-    action: 'dsoChange'
+    action: "dsoChange",
   },
   infoFixed: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   infoRichContent: {
     control: {
-      disable: true
-    }
+      disable: true,
+    },
   },
   infoActive: {
     control: {
-      type: 'boolean'
-    }
+      type: "boolean",
+    },
   },
   infoClosed: {
-    action: 'infoClosed'
+    action: "infoClosed",
   },
   infoToggled: {
-    action: 'infoToggled'
-  }
+    action: "infoToggled",
+  },
 };
 
-export function selectableArgsMapper<TemplateFnReturnType>(a: SelectableArgs<TemplateFnReturnType>): Selectable<TemplateFnReturnType> {
+export function selectableArgsMapper<TemplateFnReturnType>(
+  a: SelectableArgs<TemplateFnReturnType>
+): Selectable<TemplateFnReturnType> {
   return {
     ...a,
     info: a.infoRichContent
       ? {
-        dsoClose: e => a.infoClosed(e),
-        richContent: a.infoRichContent,
-        active: a.infoActive,
-        fixed: a.infoFixed
-      }
+          dsoClose: (e) => a.infoClosed(e),
+          richContent: a.infoRichContent,
+          active: a.infoActive,
+          fixed: a.infoFixed,
+        }
       : undefined,
   };
 }

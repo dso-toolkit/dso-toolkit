@@ -81,7 +81,8 @@
       &::before {
         background: colors.$wit;
         border: 0;
-        box-shadow: 0 0 0 selectable-variables.$border-width var(--dso-selectable-color, selectable-variables.$valid-color);
+        box-shadow: 0 0 0 selectable-variables.$border-width
+          var(--dso-selectable-color, selectable-variables.$valid-color);
         content: "";
         height: selectable-variables.$size - 2 * selectable-variables.$border-width;
         left: selectable-variables.$border-width;
@@ -95,7 +96,8 @@
       outline: 0;
 
       + label::before {
-        box-shadow: 0 0 0 selectable-variables.$focus-border-width var(--dso-selectable-color, selectable-variables.$valid-color);
+        box-shadow: 0 0 0 selectable-variables.$focus-border-width
+          var(--dso-selectable-color, selectable-variables.$valid-color);
         height: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
         left: selectable-variables.$focus-border-width;
         top: selectable-variables.$focus-border-width;
