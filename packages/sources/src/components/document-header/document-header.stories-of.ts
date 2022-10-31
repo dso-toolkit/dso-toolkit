@@ -1,7 +1,7 @@
 import { HandlerFunction } from '@storybook/addon-actions';
 
 import { noControl } from '../../storybook';
-import { storiesOfFactory } from '../../storybook/stories-of-factory';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 import { DefinitionList } from '../definition-list/definition-list.models';
 
 import { DocumentHeaderArgs, documentHeaderArgsMapper } from './document-header.args';
@@ -14,17 +14,19 @@ export interface DocumentHeaderTemplates<TemplateFnReturnType> {
   statusContent: TemplateFnReturnType;
 }
 
-export const storiesOfDocumentHeader = storiesOfFactory<DocumentHeaderTemplates<any>, DocumentHeaderArgs>('Document Header', (stories, templateMapper) => {
-  stories.addParameters({
-    args: {
-      ...noControl
-    }
+export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, DocumentHeaderTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Document Header', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      args: {
+        ...noControl
+      }
+    });
+
+    const template = templateMapper<DocumentHeaderArgs>((args, { documentHeaderTemplate, features, status, statusContent }) => documentHeaderTemplate(documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)));
+
+    stories.add(
+      'Document Header',
+      template
+    );
   });
-
-  const template = templateMapper((args, { documentHeaderTemplate, features, status, statusContent }) => documentHeaderTemplate(documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)));
-
-  stories.add(
-    'Document Header',
-    template
-  );
-});
+}

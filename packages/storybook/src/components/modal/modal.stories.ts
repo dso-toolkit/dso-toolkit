@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/modal/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfModal(
-  {
+storiesOfModal({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ modalTemplate, progressIndicatorTemplate }) => ({ modalTemplate, progressIndicatorTemplate })
-);
+  storyTemplates: ({ modalTemplate, progressIndicatorTemplate }) => ({ modalTemplate, progressIndicatorTemplate })
+});

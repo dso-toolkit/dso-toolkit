@@ -7,24 +7,24 @@ import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 import { storiesOfLabelGroup } from '@dso-toolkit/sources';
 
-storiesOfLabelGroup(
-  {
+storiesOfLabelGroup({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ labelGroupTemplate }) => ({ labelGroupTemplate })
-);
+  storyTemplates: ({ labelGroupTemplate }) => ({ labelGroupTemplate })
+});
 
-storiesOfLabelGroup(
-  {
+storiesOfLabelGroup({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ labelGroupTemplate }) => ({ labelGroupTemplate })
-);
+  storyTemplates: ({ labelGroupTemplate }) => ({ labelGroupTemplate })
+});

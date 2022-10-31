@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfPagination(
-  {
+storiesOfPagination({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ paginationTemplate }) => ({ paginationTemplate })
-);
+  storyTemplates: ({ paginationTemplate }) => ({ paginationTemplate })
+});

@@ -5,13 +5,13 @@ import coreReadme from "@dso-toolkit/core/src/components/image-overlay/readme.md
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from "../../templates";
 
-storiesOfImageOverlay(
-  {
+storiesOfImageOverlay({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ imageOverlayTemplate }) => ({ imageOverlayTemplate })
-);
+  storyTemplates: ({ imageOverlayTemplate }) => ({ imageOverlayTemplate })
+});

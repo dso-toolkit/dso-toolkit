@@ -1,15 +1,15 @@
-import { storiesOfAlert } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
-import { templateContainer } from '../../templates';
+import { storiesOfAlert } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import { templateContainer } from "../../templates";
 
-import readme from './readme.md';
+import readme from "./readme.md";
 
-storiesOfAlert(
-  {
+storiesOfAlert({
+  parameters: {
     module,
     storiesOf,
-    readme
+    readme,
   },
   templateContainer,
-  ({ alertTemplate }) => ({ alertTemplate })
-);
+  storyTemplates: ({ alertTemplate }) => ({ alertTemplate }),
+});

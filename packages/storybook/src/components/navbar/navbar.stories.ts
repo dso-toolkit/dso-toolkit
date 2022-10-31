@@ -5,13 +5,13 @@ import cssReadme from '@dso-toolkit/css/src/components/navbar/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfNavbar(
-  {
+storiesOfNavbar({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ navbarTemplate }) => ({ navbarTemplate })
-);
+  storyTemplates: ({ navbarTemplate }) => ({ navbarTemplate })
+});

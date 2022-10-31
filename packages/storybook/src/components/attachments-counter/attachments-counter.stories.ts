@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/attachments-counter/rea
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfAttachmentsCounter(
-  {
+storiesOfAttachmentsCounter({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
-);
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
+});
 
-storiesOfAttachmentsCounter(
-  {
+storiesOfAttachmentsCounter({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
-);
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
+});

@@ -5,13 +5,13 @@ import readme from '@dso-toolkit/css/src/components/input-number/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfInputNumber(
-  {
+storiesOfInputNumber({
+  parameters: {
     storiesOf,
     module,
     readme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ inputNumberTemplate }) => ({ inputNumberTemplate })
-);
+  storyTemplates: ({ inputNumberTemplate }) => ({ inputNumberTemplate })
+});

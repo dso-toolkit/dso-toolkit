@@ -7,24 +7,24 @@ import cssReadme from '@dso-toolkit/css/src/components/icon/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfIcon(
-  {
+storiesOfIcon({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ iconTemplate }) => ({ iconTemplate })
-);
+  storyTemplates: ({ iconTemplate }) => ({ iconTemplate })
+});
 
-storiesOfIcon(
-  {
+storiesOfIcon({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ iconTemplate }) => ({ iconTemplate })
-);
+  storyTemplates: ({ iconTemplate }) => ({ iconTemplate })
+});

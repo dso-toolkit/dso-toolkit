@@ -1,4 +1,4 @@
-import { storiesOfFactory } from '../../storybook/stories-of-factory';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 import { TreeViewArgs, treeViewArgTypes } from './tree-view.args';
 
 import * as TreeViewDemo from './tree-view.demo';
@@ -14,33 +14,35 @@ export interface TreeViewTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-export const storiesOfTreeView = storiesOfFactory<TreeViewTemplates<any>, TreeViewArgs>('Tree View', (stories, templateMapper) => {
-  stories.addParameters({
-    argTypes: treeViewArgTypes,
-    options: {
-      // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
-      enableShortcuts: false
-    },
-    controls: {
-      hideNoControlsWarning: true
-    }
-  });
-
-  stories.add(
-    'Tree View',
-    templateMapper((args, { treeViewDemoTemplate }) => {
-      const click = (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => {
-        args.dsoClickItem(path, originalEvent, callback);
-        TreeViewDemo.onClickItem(path, originalEvent, callback);
+export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, TreeViewTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Tree View', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: treeViewArgTypes,
+      options: {
+        // https://github.com/storybookjs/storybook/issues/12074#issuecomment-961294555
+        enableShortcuts: false
+      },
+      controls: {
+        hideNoControlsWarning: true
       }
+    });
 
-      return treeViewDemoTemplate(
-        TreeViewDemo.collection,
-        TreeViewDemo.onOpenItem,
-        TreeViewDemo.onCloseItem,
-        click,
-        TreeViewDemo.onFilter
-      );
-    })
-  );
-});
+    stories.add(
+      'Tree View',
+      templateMapper<TreeViewArgs>((args, { treeViewDemoTemplate }) => {
+        const click = (path: TreeViewItem[], originalEvent: MouseEvent, callback: (collection: TreeViewItem[]) => void) => {
+          args.dsoClickItem(path, originalEvent, callback);
+          TreeViewDemo.onClickItem(path, originalEvent, callback);
+        }
+
+        return treeViewDemoTemplate(
+          TreeViewDemo.collection,
+          TreeViewDemo.onOpenItem,
+          TreeViewDemo.onCloseItem,
+          click,
+          TreeViewDemo.onFilter
+        );
+      })
+    );
+  });
+}

@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfTable(
-  {
+storiesOfTable({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ tableTemplate }) => ({ tableTemplate })
-);
+  storyTemplates: ({ tableTemplate }) => ({ tableTemplate })
+});

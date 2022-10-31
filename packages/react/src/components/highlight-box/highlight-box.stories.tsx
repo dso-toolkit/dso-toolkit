@@ -5,14 +5,14 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfHighlightBox(
-  {
+storiesOfHighlightBox({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ highlightBoxTemplate, iconTemplate }) => ({
+  storyTemplates: ({ highlightBoxTemplate, iconTemplate }) => ({
     highlightBoxTemplate,
     content: (
       <div className="dso-rich-content">
@@ -30,4 +30,4 @@ storiesOfHighlightBox(
       </div>
     )
   })
-);
+});

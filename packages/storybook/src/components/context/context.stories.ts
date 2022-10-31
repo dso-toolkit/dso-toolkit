@@ -7,13 +7,13 @@ import { children, content, label } from './context.content';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfContext(
-  {
+storiesOfContext({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ contextTemplate }) => ({ contextTemplate, label, content, children })
-);
+  storyTemplates: ({ contextTemplate }) => ({ contextTemplate, label, content, children })
+});

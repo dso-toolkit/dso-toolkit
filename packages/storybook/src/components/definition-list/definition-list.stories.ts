@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/definition-list/readme.md
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfDefinitionList(
-  {
+storiesOfDefinitionList({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ definitionListTemplate }) => ({ definitionListTemplate })
-);
+  storyTemplates: ({ definitionListTemplate }) => ({ definitionListTemplate })
+});

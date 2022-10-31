@@ -1,19 +1,21 @@
-import { storiesOfLabel } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/react';
-import { templateContainer } from '../../templates';
+import { storiesOfLabel } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/react";
+import { templateContainer } from "../../templates";
 
-import { decorator } from './label.decorator';
-import readme from './readme.md';
+import { decorator } from "./label.decorator";
+import readme from "./readme.md";
 
 storiesOfLabel(
   {
-    module,
-    storiesOf,
-    readme
+    parameters: {
+      module,
+      storiesOf,
+      readme,
+    },
+    templateContainer,
+    storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
   },
-  templateContainer,
-  ({ labelTemplate }) => ({ labelTemplate }),
   {
-    decorator
+    decorator,
   }
 );

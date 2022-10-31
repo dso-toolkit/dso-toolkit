@@ -5,13 +5,13 @@ import cssReadme from '@dso-toolkit/css/src/components/image/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfImage(
-  {
+storiesOfImage({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ imageTemplate }) => ({ imageTemplate })
-);
+  storyTemplates: ({ imageTemplate }) => ({ imageTemplate })
+});

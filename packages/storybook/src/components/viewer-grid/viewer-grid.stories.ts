@@ -9,15 +9,15 @@ import { HandlerFunction } from '@storybook/addon-actions';
 
 import { activeFilters } from '@dso-toolkit/sources/src/components/label-group/label-group.content';
 
-storiesOfViewerGrid(
-  {
+storiesOfViewerGrid({
+  parameters: {
     module,
     storiesOf,
     readme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ anchorTemplate, iconTemplate, badgeTemplate, labelTemplate, viewerGridTemplate, alertTemplate, documentHeaderTemplate, documentListTemplate, labelGroupTemplate, contextTemplate, buttonTemplate, tileGridTemplate, tileTemplate }) => {
+  storyTemplates: ({ anchorTemplate, iconTemplate, badgeTemplate, labelTemplate, viewerGridTemplate, alertTemplate, documentHeaderTemplate, documentListTemplate, labelGroupTemplate, contextTemplate, buttonTemplate, tileGridTemplate, tileTemplate }) => {
     function documentHeaderExampleTemplate({
       documentHeaderFeaturesOpen,
       documentHeaderFeatureAction,
@@ -219,4 +219,4 @@ storiesOfViewerGrid(
       documentListExampleTemplate
     });
   }
-);
+});

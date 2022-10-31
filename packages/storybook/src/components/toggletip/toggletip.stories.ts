@@ -6,13 +6,13 @@ import cssReadme from "@dso-toolkit/core/src/components/toggletip/readme.md";
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from "../../templates";
 
-storiesOfToggletip(
-  {
+storiesOfToggletip({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ toggletipTemplate }) => ({ toggletipTemplate })
-);
+  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate })
+});

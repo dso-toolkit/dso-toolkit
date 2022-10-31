@@ -5,14 +5,14 @@ import { templateContainer } from '../../templates';
 
 import readme from "./readme.md";
 
-storiesOfAutosuggest(
-  {
+storiesOfAutosuggest({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ autosuggestTemplate }) => {
+  storyTemplates: ({ autosuggestTemplate }) => {
     interface AutosuggestDemoTemplateProps {
       fetchSuggestions: (value: string) => AutosuggestSuggestion[];
       dsoSelect: (suggestion: CustomEvent<AutosuggestSuggestion>) => void;
@@ -86,4 +86,4 @@ storiesOfAutosuggest(
       )
     });
   }
-);
+});

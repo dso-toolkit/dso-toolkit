@@ -5,13 +5,13 @@ import readme from '@dso-toolkit/core/src/components/header/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfHeader(
-  {
+storiesOfHeader({
+  parameters: {
     module,
     storiesOf,
     readme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ headerTemplate }) => ({ headerTemplate })
-);
+  storyTemplates: ({ headerTemplate }) => ({ headerTemplate })
+});

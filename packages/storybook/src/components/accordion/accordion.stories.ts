@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/accordion/readme.md';
 
 import { templateContainer } from '../../templates';
 
-storiesOfAccordion(
-  {
+storiesOfAccordion({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ accordionTemplate }) => ({ accordionTemplate })
-);
+  storyTemplates: ({ accordionTemplate }) => ({ accordionTemplate })
+});
 
-storiesOfAccordion(
-  {
+storiesOfAccordion({
+  parameters: {
     storiesOf,
     module,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ accordionTemplate }) => ({ accordionTemplate })
-);
+  storyTemplates: ({ accordionTemplate }) => ({ accordionTemplate })
+});

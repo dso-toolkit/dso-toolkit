@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfAttachmentsCounter(
-  {
+storiesOfAttachmentsCounter({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
-);
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate })
+});

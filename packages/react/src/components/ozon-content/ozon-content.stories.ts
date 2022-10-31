@@ -4,12 +4,12 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfOzonContent(
-  {
+storiesOfOzonContent({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ ozonContentTemplate }) => ({ ozonContentTemplate })
-);
+  storyTemplates: ({ ozonContentTemplate }) => ({ ozonContentTemplate })
+});

@@ -16,15 +16,15 @@ const infoRichContent = (
   </div>
 );
 
-storiesOfSelectable(
-  {
+storiesOfSelectable({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ selectableTemplate }) => ({
+  storyTemplates: ({ selectableTemplate }) => ({
     selectableTemplate,
     infoRichContent,
   })
-);
+});

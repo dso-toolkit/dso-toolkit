@@ -6,16 +6,16 @@ import readme from "@dso-toolkit/core/src/components/autosuggest/readme.md";
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfAutosuggest(
-  {
+storiesOfAutosuggest({
+  parameters: {
     module,
     storiesOf,
     readme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ autosuggestTemplate }) => {
-    type AutosuggestConnector = (parameters: Parameters<ReturnType<Parameters<typeof storiesOfAutosuggest>[2]>['autosuggestDemoTemplate']>) => Parameters<typeof autosuggestTemplate>[0];
+  storyTemplates: ({ autosuggestTemplate }) => {
+    type AutosuggestConnector = (parameters: Parameters<ReturnType<Parameters<typeof storiesOfAutosuggest>[0]['storyTemplates']>['autosuggestDemoTemplate']>) => Parameters<typeof autosuggestTemplate>[0];
 
     const autosuggestConnector: AutosuggestConnector = ([fetchSuggestions, dsoSelect, dsoChange, dsoSearch, suggestOnFocus, loading, loadingLabel, loadingDelayed, notFoundLabel, minimalCharacters = 1]) => ({
       children: html`<input id="autosuggestInputId" type="text" class="form-control">`,
@@ -80,4 +80,4 @@ storiesOfAutosuggest(
       `
     });
   }
-);
+});

@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from "./readme.md";
 
-storiesOfDropdownMenu(
-  {
+storiesOfDropdownMenu({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
-);
+  storyTemplates: ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
+});

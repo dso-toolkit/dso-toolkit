@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/tabs/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfTabs(
-  {
+storiesOfTabs({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ tabsTemplate }) => ({ tabsTemplate })
-);
+  storyTemplates: ({ tabsTemplate }) => ({ tabsTemplate })
+});

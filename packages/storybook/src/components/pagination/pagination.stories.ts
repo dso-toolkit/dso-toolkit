@@ -7,24 +7,24 @@ import cssReadme from '@dso-toolkit/css/src/components/pagination/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfPagination(
-  {
+storiesOfPagination({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ paginationTemplate }) => ({ paginationTemplate })
-);
+  storyTemplates: ({ paginationTemplate }) => ({ paginationTemplate })
+});
 
-storiesOfPagination(
-  {
+storiesOfPagination({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ paginationTemplate }) => ({ paginationTemplate })
-);
+  storyTemplates: ({ paginationTemplate }) => ({ paginationTemplate })
+});

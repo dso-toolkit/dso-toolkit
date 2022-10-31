@@ -8,24 +8,24 @@ import { richContent } from './info.content';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfInfo(
-  {
+storiesOfInfo({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) })
-);
+  storyTemplates: ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) })
+});
 
-storiesOfInfo(
-  {
+storiesOfInfo({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) })
-);
+  storyTemplates: ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) })
+});

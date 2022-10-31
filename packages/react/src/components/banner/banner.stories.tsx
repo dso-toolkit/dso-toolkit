@@ -5,12 +5,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfBanner(
-  {
+storiesOfBanner({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ bannerTemplate }) => ({ bannerTemplate })
-);
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate })
+});

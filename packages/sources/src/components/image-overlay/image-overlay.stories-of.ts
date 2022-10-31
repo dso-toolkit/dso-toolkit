@@ -1,4 +1,4 @@
-import { storiesOfFactory } from "../../storybook/stories-of-factory";
+import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { ImageOverlayArgs, imageOverlayArgsMapper, imageOverlayArgTypes } from "./image-overlay.args";
 import { ImageOverlay } from "./image-overlay.models";
 
@@ -8,13 +8,15 @@ export interface ImageOverlayTemplates<TemplateFnReturnType> {
   ) => TemplateFnReturnType;
 }
 
-export const storiesOfImageOverlay = storiesOfFactory<ImageOverlayTemplates<any>, ImageOverlayArgs>('Image Overlay', (stories, templateMapper) => {
-  stories.addParameters({
-    argTypes: imageOverlayArgTypes,
-    layout: 'fullscreen'
+export function storiesOfImageOverlay<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, ImageOverlayTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Image Overlay', storiesOfArguments, (stories, templateMapper) => {
+    stories.addParameters({
+      argTypes: imageOverlayArgTypes,
+      layout: 'fullscreen'
+    });
+
+    const template = templateMapper<ImageOverlayArgs>((args, { imageOverlayTemplate }) => imageOverlayTemplate(imageOverlayArgsMapper(args)));
+
+    stories.add("Image Overlay", template);
   });
-
-  const template = templateMapper((args, { imageOverlayTemplate }) => imageOverlayTemplate(imageOverlayArgsMapper(args)));
-
-  stories.add("Image Overlay", template);
-})
+}

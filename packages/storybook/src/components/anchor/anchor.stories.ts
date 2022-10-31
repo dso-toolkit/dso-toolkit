@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/anchor/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfAnchor(
-  {
+storiesOfAnchor({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ anchorTemplate }) => ({ anchorTemplate })
-);
+  storyTemplates: ({ anchorTemplate }) => ({ anchorTemplate })
+});

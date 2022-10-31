@@ -5,14 +5,14 @@ import { storiesOf } from "@storybook/react";
 import readme from "./readme.md";
 import { templateContainer } from '../../templates';
 
-storiesOfTreeView(
-  {
+storiesOfTreeView({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ treeViewTemplate }) => {
+  storyTemplates: ({ treeViewTemplate }) => {
     interface TreeViewDemoProps {
       collection: TreeViewItem[];
       dsoOpenItem: (path: TreeViewItem[], callback: (collection: TreeViewItem[]) => void) => void;
@@ -73,4 +73,4 @@ storiesOfTreeView(
       )
     });
   }
-);
+});

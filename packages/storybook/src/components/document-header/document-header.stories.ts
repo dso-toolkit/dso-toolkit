@@ -9,15 +9,15 @@ import { templateContainer } from '../../templates';
 import { html, TemplateResult } from 'lit-html';
 import { HandlerFunction } from '@storybook/addon-actions';
 
-storiesOfDocumentHeader(
-  {
+storiesOfDocumentHeader({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ documentHeaderTemplate, anchorTemplate, labelTemplate, buttonTemplate, iconTemplate }) => {
+  storyTemplates: ({ documentHeaderTemplate, anchorTemplate, labelTemplate, buttonTemplate, iconTemplate }) => {
     const features: DefinitionList<TemplateResult> = {
       modifier: 'dso-document-header-features',
       definitions: [
@@ -141,4 +141,4 @@ storiesOfDocumentHeader(
 
     return ({ documentHeaderTemplate, features, status, statusContent });
   }
-);
+});

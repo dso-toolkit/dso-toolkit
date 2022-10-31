@@ -9,24 +9,24 @@ import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { asChildTemplate, asSiblingTemplate } from './tooltip.content';
 import { templateContainer } from '../../templates';
 
-storiesOfTooltip(
-  {
+storiesOfTooltip({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
-);
+  storyTemplates: ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
+});
 
-storiesOfTooltip(
-  {
+storiesOfTooltip({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
-);
+  storyTemplates: ({ tooltipTemplate }) => ({ tooltipTemplate, asChildTemplate, asSiblingTemplate })
+});

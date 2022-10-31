@@ -7,15 +7,15 @@ import cssReadme from '@dso-toolkit/css/src/components/footnotes/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfFootnotes(
-  {
+storiesOfFootnotes({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ footnoteTemplate, footnotesTemplate }) => ({
+  storyTemplates: ({ footnoteTemplate, footnotesTemplate }) => ({
     footnoteTemplate,
     footnotesTemplate,
     footnotesExampleTemplate: (footnote14, footnote15, footnotes) => html`
@@ -25,4 +25,4 @@ storiesOfFootnotes(
       ${footnotesTemplate(footnotes)}
     `
   })
-);
+});

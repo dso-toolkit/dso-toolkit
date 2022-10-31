@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/banner/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfBanner(
-  {
+storiesOfBanner({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ bannerTemplate }) => ({ bannerTemplate })
-);
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate })
+});
 
-storiesOfBanner(
-  {
+storiesOfBanner({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ bannerTemplate }) => ({ bannerTemplate })
-);
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate })
+});

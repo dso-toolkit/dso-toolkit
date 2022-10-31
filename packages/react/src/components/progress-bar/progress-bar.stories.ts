@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfProgressBar(
-  {
+storiesOfProgressBar({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ progressBarTemplate }) => ({ progressBarTemplate })
-);
+  storyTemplates: ({ progressBarTemplate }) => ({ progressBarTemplate })
+});

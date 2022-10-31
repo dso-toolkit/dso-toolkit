@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/justify-form-groups/readm
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfJustifyFormGroups(
-  {
+storiesOfJustifyFormGroups({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ justifyFormGroupsTemplate }) => ({ justifyFormGroupsTemplate })
-);
+  storyTemplates: ({ justifyFormGroupsTemplate }) => ({ justifyFormGroupsTemplate })
+});

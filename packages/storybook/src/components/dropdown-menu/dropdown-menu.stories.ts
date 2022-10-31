@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/dropdown-menu/readme.md
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfDropdownMenu(
-  {
+storiesOfDropdownMenu({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
-);
+  storyTemplates: ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
+});
 
-storiesOfDropdownMenu(
-  {
+storiesOfDropdownMenu({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
-);
+  storyTemplates: ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate })
+});

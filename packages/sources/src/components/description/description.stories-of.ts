@@ -1,4 +1,4 @@
-import { storiesOfFactory } from '../../storybook/stories-of-factory';
+import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { DescriptionArgs, descriptionArgsMapper, descriptionArgTypes, DescriptionExampleArgs, descriptionExampleArgTypes } from './description.args';
 import { termContent, descriptionExample } from './description.content';
@@ -9,29 +9,31 @@ export interface DescriptionTemplates<TemplateFnReturnType> {
   exampleTemplate: (exampleData: ReturnType<typeof descriptionExample>) => TemplateFnReturnType;
 }
 
-export const storiesOfDescription = storiesOfFactory<DescriptionTemplates<any>, DescriptionArgs>('description', (stories, templateMapper) => {
-  stories
-    .addParameters({
-      argTypes: descriptionArgTypes
-    });
+export function storiesOfDescription<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, DescriptionTemplates<TemplateFnReturnType>>) {
+  return storiesOfFactory('Description', storiesOfArguments, (stories, templateMapper) => {
+    stories
+      .addParameters({
+        argTypes: descriptionArgTypes
+      });
 
-  stories.add(
-    'term',
-    templateMapper((args, { descriptionTemplate }) => descriptionTemplate(descriptionArgsMapper(args))),
-    {
-      argTypes: descriptionArgTypes,
-      args: termContent
-    }
-  );
-
-  stories.add(
-    'example',
-    templateMapper<DescriptionExampleArgs>((args, { exampleTemplate }) => exampleTemplate(descriptionExample(args.openTerm))),
-    {
-      argTypes: descriptionExampleArgTypes,
-      args: {
-        openTerm: false
+    stories.add(
+      'term',
+      templateMapper<DescriptionArgs>((args, { descriptionTemplate }) => descriptionTemplate(descriptionArgsMapper(args))),
+      {
+        argTypes: descriptionArgTypes,
+        args: termContent
       }
-    }
-  );
-});
+    );
+
+    stories.add(
+      'example',
+      templateMapper<DescriptionExampleArgs>((args, { exampleTemplate }) => exampleTemplate(descriptionExample(args.openTerm))),
+      {
+        argTypes: descriptionExampleArgTypes,
+        args: {
+          openTerm: false
+        }
+      }
+    );
+  });
+}

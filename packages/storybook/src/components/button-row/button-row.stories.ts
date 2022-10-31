@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/button-row/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfButtonRow(
-  {
+storiesOfButtonRow({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ buttonRowTemplate }) => ({ buttonRowTemplate })
-);
+  storyTemplates: ({ buttonRowTemplate }) => ({ buttonRowTemplate })
+});

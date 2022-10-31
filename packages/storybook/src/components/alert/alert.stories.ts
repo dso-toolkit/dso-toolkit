@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/alert/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfAlert(
-  {
+storiesOfAlert({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ alertTemplate }) => ({ alertTemplate })
-);
+  storyTemplates: ({ alertTemplate }) => ({ alertTemplate })
+});
 
-storiesOfAlert(
-  {
+storiesOfAlert({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ alertTemplate }) => ({ alertTemplate })
-);
+  storyTemplates: ({ alertTemplate }) => ({ alertTemplate })
+});

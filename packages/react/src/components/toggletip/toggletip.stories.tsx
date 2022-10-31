@@ -4,12 +4,12 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfToggletip(
-  {
+storiesOfToggletip({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ toggletipTemplate }) => ({ toggletipTemplate })
-);
+  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate })
+});

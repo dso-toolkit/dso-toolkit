@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/card/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfCard(
-  {
+storiesOfCard({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ cardTemplate }) => ({ cardTemplate })
-);
+  storyTemplates: ({ cardTemplate }) => ({ cardTemplate })
+});

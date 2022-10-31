@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/badge/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfBadge(
-  {
+storiesOfBadge({
+  parameters: {
     storiesOf,
     module,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ badgeTemplate }) => ({ badgeTemplate })
-);
+  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate })
+});
 
-storiesOfBadge(
-  {
+storiesOfBadge({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ badgeTemplate }) => ({ badgeTemplate })
-);
+  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate })
+});

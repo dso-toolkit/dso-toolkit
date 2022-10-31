@@ -4,14 +4,14 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfIcon(
-  {
+storiesOfIcon({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ iconTemplate }) => ({
+  storyTemplates: ({ iconTemplate }) => ({
     iconTemplate
   })
-);
+});

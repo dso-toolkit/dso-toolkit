@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfBadge(
-  {
+storiesOfBadge({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ badgeTemplate }) => ({ badgeTemplate })
-);
+  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate })
+});

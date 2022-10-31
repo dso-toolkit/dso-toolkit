@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/info-button/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfInfoButton(
-  {
+storiesOfInfoButton({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ infoButtonTemplate }) => ({ infoButtonTemplate })
-);
+  storyTemplates: ({ infoButtonTemplate }) => ({ infoButtonTemplate })
+});
 
-storiesOfInfoButton(
-  {
+storiesOfInfoButton({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ infoButtonTemplate }) => ({ infoButtonTemplate })
-);
+  storyTemplates: ({ infoButtonTemplate }) => ({ infoButtonTemplate })
+});

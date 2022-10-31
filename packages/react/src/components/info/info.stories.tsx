@@ -5,14 +5,14 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfInfo(
-  {
+storiesOfInfo({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ infoTemplate, iconTemplate }) => ({
+  storyTemplates: ({ infoTemplate, iconTemplate }) => ({
     infoTemplate,
     richContent: (
       <div className="dso-rich-content">
@@ -29,4 +29,4 @@ storiesOfInfo(
       </div>
     )
   })
-);
+});

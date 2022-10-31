@@ -7,18 +7,19 @@ import coreReadme from '@dso-toolkit/core/src/components/highlight-box/readme.md
 import cssReadme from '@dso-toolkit/css/src/components/highlight-box/readme.md';
 
 import { templateContainer } from '../../templates';
+import { html } from 'lit-html';
 
-storiesOfHighlightBox(
-  {
+storiesOfHighlightBox({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ highlightBoxTemplate, buttonTemplate }) => ({
+  storyTemplates: ({ highlightBoxTemplate, buttonTemplate }) => ({
     highlightBoxTemplate,
-    content: `
+    content: html`
       <div class="dso-rich-content">
         <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
         <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p>
@@ -33,19 +34,19 @@ storiesOfHighlightBox(
       </div>
     `
   })
-);
+});
 
-storiesOfHighlightBox(
-  {
+storiesOfHighlightBox({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ highlightBoxTemplate, buttonTemplate }) => ({
+  storyTemplates: ({ highlightBoxTemplate, buttonTemplate }) => ({
     highlightBoxTemplate,
-    content: `
+    content: html`
       <div class="dso-rich-content">
         <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
         <p>Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het Opleverdossier, de Bouwregelgeving, de Vergunningvrije bouwwerken en een Digitaliseringshulp.</p>
@@ -60,4 +61,4 @@ storiesOfHighlightBox(
       </div>
     `
   })
-);
+});

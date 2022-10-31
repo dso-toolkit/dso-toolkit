@@ -6,17 +6,17 @@ import readme from '@dso-toolkit/css/src/components/tile-grid/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfTileGrid(
-  {
+storiesOfTileGrid({
+  parameters: {
     module,
     storiesOf,
     readme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ tileGridTemplate, tileTemplate }) => ({
+  storyTemplates: ({ tileGridTemplate, tileTemplate }) => ({
     tileGridDemoTemplate: (children) => tileGridTemplate({
       children: html`${children.map(c => tileTemplate(c))}`
     })
   })
-);
+});

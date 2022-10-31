@@ -7,15 +7,15 @@ import { html } from 'lit-html';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfTreeView(
-  {
+storiesOfTreeView({
+  parameters: {
     module,
     storiesOf,
     readme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ treeViewTemplate }) => ({
+  storyTemplates: ({ treeViewTemplate }) => ({
     treeViewDemoTemplate: (collection, dsoOpenItem, dsoCloseItem, dsoClickItem, onFilterInput) => html`
       <div style="display: grid; width: 100%; grid-auto-columns: minmax(0, 1fr); grid-auto-flow: column;">
         <div>
@@ -51,4 +51,4 @@ storiesOfTreeView(
       </div>
     `
   })
-);
+});

@@ -5,15 +5,15 @@ import { storiesOf } from '@storybook/web-components';
 import { html } from 'lit-html';
 import { templateContainer } from '../../templates';
 
-storiesOfResponsiveElement(
-  {
+storiesOfResponsiveElement({
+  parameters: {
     module,
     storiesOf,
     readme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ responsiveElementTemplate }) => ({
+  storyTemplates: ({ responsiveElementTemplate }) => ({
     gridTemplate: (dsoSizeChange, grid) => html`
       <style type="text/css">
         dso-responsive-element:not([small]) .demo-small {
@@ -64,4 +64,4 @@ storiesOfResponsiveElement(
       `)
     }`
   })
-);
+});

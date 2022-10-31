@@ -5,13 +5,13 @@ import cssReadme from '@dso-toolkit/css/src/components/application-heading/readm
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfApplicationHeading(
-  {
+storiesOfApplicationHeading({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ applicationHeadingTemplate }) => ({ applicationHeadingTemplate })
-);
+  storyTemplates: ({ applicationHeadingTemplate }) => ({ applicationHeadingTemplate })
+});

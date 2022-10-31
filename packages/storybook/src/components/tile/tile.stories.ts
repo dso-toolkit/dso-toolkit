@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/tile/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfTile(
-  {
+storiesOfTile({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ tileTemplate }) => ({ tileTemplate })
-);
+  storyTemplates: ({ tileTemplate }) => ({ tileTemplate })
+});

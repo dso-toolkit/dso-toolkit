@@ -25,16 +25,16 @@ function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunc
   );
 }
 
-storiesOfTooltip(
-  {
+storiesOfTooltip({
+  parameters: {
     module,
     storiesOf,
     readme,
   },
   templateContainer,
-  ({ tooltipTemplate }) => ({
+  storyTemplates: ({ tooltipTemplate }) => ({
     tooltipTemplate,
     asChildTemplate,
     asSiblingTemplate
   })
-);
+});

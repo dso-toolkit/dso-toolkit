@@ -7,24 +7,24 @@ import coreReadme from '@dso-toolkit/core/src/components/progress-indicator/read
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfProgressIndicator(
-  {
+storiesOfProgressIndicator({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
-);
+  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
+});
 
-storiesOfProgressIndicator(
-  {
+storiesOfProgressIndicator({
+  parameters: {
     module,
     storiesOf,
     readme: coreReadme,
     root: StoryRoot.Core
   },
   templateContainer,
-  ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
-);
+  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate })
+});

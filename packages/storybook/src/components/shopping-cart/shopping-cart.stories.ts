@@ -5,13 +5,13 @@ import cssReadme from '@dso-toolkit/css/src/components/shopping-cart/readme.md';
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfShoppingCart(
-  {
+storiesOfShoppingCart({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ shoppingCartTemplate }) => ({ shoppingCartTemplate })
-);
+  storyTemplates: ({ shoppingCartTemplate }) => ({ shoppingCartTemplate })
+});

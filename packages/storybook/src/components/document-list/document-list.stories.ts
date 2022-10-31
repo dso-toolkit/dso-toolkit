@@ -7,16 +7,16 @@ import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 import { html } from 'lit-html';
 
-storiesOfDocumentList(
-  {
+storiesOfDocumentList({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ documentListTemplate, badgeTemplate }) => ({
+  storyTemplates: ({ documentListTemplate, badgeTemplate }) => ({
     documentListTemplate,
     statusDemoMap: ({ badge, date }) => html`${badgeTemplate(badge)} ${date}`
   })
-);
+});

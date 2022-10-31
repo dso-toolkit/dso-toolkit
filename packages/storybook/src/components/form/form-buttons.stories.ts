@@ -6,13 +6,13 @@ import cssReadme from '@dso-toolkit/css/src/components/form/form-buttons/readme.
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
 
-storiesOfFormButtons(
-  {
+storiesOfFormButtons({
+  parameters: {
     module,
     storiesOf,
     readme: cssReadme,
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  ({ formButtonsTemplate }) => ({ formButtonsTemplate })
-);
+  storyTemplates: ({ formButtonsTemplate }) => ({ formButtonsTemplate })
+});

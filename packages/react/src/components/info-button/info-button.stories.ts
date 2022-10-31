@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfInfoButton(
-  {
+storiesOfInfoButton({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ infoButtonTemplate }) => ({ infoButtonTemplate })
-);
+  storyTemplates: ({ infoButtonTemplate }) => ({ infoButtonTemplate })
+});

@@ -4,12 +4,12 @@ import { templateContainer } from '../../templates';
 
 import readme from './readme.md';
 
-storiesOfAccordion(
-  {
+storiesOfAccordion({
+  parameters: {
     module,
     storiesOf,
     readme
   },
   templateContainer,
-  ({ accordionTemplate }) => ({ accordionTemplate })
-);
+  storyTemplates: ({ accordionTemplate }) => ({ accordionTemplate })
+});
