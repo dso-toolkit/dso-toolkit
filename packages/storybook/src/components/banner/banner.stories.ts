@@ -6,6 +6,7 @@ import coreReadme from '@dso-toolkit/core/src/components/banner/readme.md';
 
 import { StoryRoot } from '@dso-toolkit/sources/src/storybook';
 import { templateContainer } from '../../templates';
+import { dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent } from './banner.content';
 
 storiesOfBanner({
   parameters: {
@@ -15,7 +16,7 @@ storiesOfBanner({
     root: StoryRoot.HtmlCss
   },
   templateContainer,
-  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate })
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate, dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent })
 });
 
 storiesOfBanner({
@@ -26,5 +27,5 @@ storiesOfBanner({
     root: StoryRoot.Core
   },
   templateContainer,
-  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate })
+  storyTemplates: ({ bannerTemplate }) => ({ bannerTemplate, dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent })
 });

@@ -1,4 +1,6 @@
-export const warningRichContent = `
+import { html } from 'lit-html';
+
+export const warningRichContent = html`
   <div class="dso-rich-content">
     <h2>
       Onderhoudsmelding:
@@ -7,7 +9,7 @@ export const warningRichContent = `
   </div>
 `;
 
-export const dangerRichContent = `
+export const dangerRichContent = html`
   <div class="dso-rich-content">
     <h2>
       Storingsmelding:
@@ -16,7 +18,7 @@ export const dangerRichContent = `
   </div>
 `;
 
-export const richWarningRichContent = `
+export const richWarningRichContent = html`
   <div class="dso-rich-content">
     <h2>
       Onderhoudsmelding:
@@ -29,7 +31,7 @@ export const richWarningRichContent = `
   </div>
 `;
 
-export const dangerWithHeadingsRichContent = `
+export const dangerWithHeadingsRichContent = html`
   <div class="dso-rich-content">
     <h2>
       Storingsmelding:

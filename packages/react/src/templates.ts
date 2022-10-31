@@ -55,7 +55,7 @@ export interface Components {
   autosuggest: Autosuggest<JSX.Element>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
-  banner: Banner;
+  banner: Banner<JSX.Element>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
   highlightBox: HighlightBox<JSX.Element>;

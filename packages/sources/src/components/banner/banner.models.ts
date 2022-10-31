@@ -1,5 +1,5 @@
-export interface Banner {
+export interface Banner<TemplateFnReturnType> {
   status: string;
-  richContent: string;
+  richContent: TemplateFnReturnType;
   onClick: (e: Event) => void;
 }

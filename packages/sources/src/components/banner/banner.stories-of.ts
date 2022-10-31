@@ -1,11 +1,14 @@
 import { StoriesOfArguments, storiesOfFactory } from '../../storybook/stories-of-factory';
 
 import { BannerArgs, bannerArgsMapper, bannerArgTypes } from './banner.args';
-import { dangerRichContent, dangerWithHeadingsRichContent, richWarningRichContent, warningRichContent } from './banner.content';
 import { Banner } from './banner.models';
 
 export interface BannerTemplates<TemplateFnReturnType> {
-  bannerTemplate: (bannerProperties: Banner) => TemplateFnReturnType;
+  bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
+  dangerRichContent: TemplateFnReturnType;
+  warningRichContent: TemplateFnReturnType;
+  richWarningRichContent: TemplateFnReturnType;
+  dangerWithHeadingsRichContent: TemplateFnReturnType;
 }
 
 export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>(storiesOfArguments: StoriesOfArguments<Implementation, Templates, TemplateFnReturnType, BannerTemplates<TemplateFnReturnType>>) {
@@ -15,48 +18,42 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
         argTypes: bannerArgTypes
       });
 
-    const template = templateMapper<BannerArgs>((args, { bannerTemplate }) => bannerTemplate(bannerArgsMapper(args)));
-
     stories.add(
       'danger',
-      template,
+      templateMapper<BannerArgs>((args, { bannerTemplate, dangerRichContent }) => bannerTemplate(bannerArgsMapper(args, dangerRichContent))),
       {
         args: {
-          status: 'danger',
-          richContent: dangerRichContent
+          status: 'danger'
         }
       }
     );
 
     stories.add(
       'warning',
-      template,
+      templateMapper<BannerArgs>((args, { bannerTemplate, warningRichContent }) => bannerTemplate(bannerArgsMapper(args, warningRichContent))),
       {
         args: {
-          status: 'warning',
-          richContent: warningRichContent
+          status: 'warning'
         }
       }
     );
 
     stories.add(
       'rich warning',
-      template,
+      templateMapper<BannerArgs>((args, { bannerTemplate, richWarningRichContent }) => bannerTemplate(bannerArgsMapper(args, richWarningRichContent))),
       {
         args: {
-          status: 'danger',
-          richContent: richWarningRichContent
+          status: 'danger'
         }
       }
     );
 
     stories.add(
       'danger with headings',
-      template,
+      templateMapper<BannerArgs>((args, { bannerTemplate, dangerWithHeadingsRichContent }) => bannerTemplate(bannerArgsMapper(args, dangerWithHeadingsRichContent))),
       {
         args: {
-          status: 'warning',
-          richContent: dangerWithHeadingsRichContent
+          status: 'warning'
         }
       }
     );

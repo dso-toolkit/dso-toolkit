@@ -176,7 +176,7 @@ export interface Components {
   attachmentsCounter: AttachmentsCounter;
   autosuggest: Autosuggest<TemplateResult>;
   badge: Badge;
-  banner: Banner;
+  banner: Banner<TemplateResult>;
   breadcrumbs: Breadcrumbs;
   button: Button | ButtonAnchor;
   buttonRow: ButtonRow;

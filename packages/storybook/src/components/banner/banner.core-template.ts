@@ -1,9 +1,8 @@
 import { Banner } from '@dso-toolkit/sources';
-import { html } from 'lit-html';
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+import { html, TemplateResult } from 'lit-html';
 import { ComponentImplementation } from '../../templates';
 
-export const coreBanner: ComponentImplementation<Banner> = {
+export const coreBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: 'banner',
   implementation: 'core',
   template: ({ iconTemplate }) => function bannerTemplate({ status, richContent, onClick }) {
@@ -12,7 +11,7 @@ export const coreBanner: ComponentImplementation<Banner> = {
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              ${unsafeHTML(richContent)}
+              ${richContent}
               <button type="button" class="dso-tertiary" @click=${onClick}>
                 <span class="sr-only">Sluiten</span>
                 ${iconTemplate({ icon: 'times' })}

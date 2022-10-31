@@ -6,16 +6,10 @@ import { Banner } from './banner.models';
 
 export interface BannerArgs {
   status: string;
-  richContent: string;
   onClick: HandlerFunction;
 }
 
 export const bannerArgTypes: ArgTypes<BannerArgs> = {
-  richContent: {
-    control: {
-      disable: true
-    }
-  },
   status: {
     options: ['warning', 'danger'],
     control: {
@@ -27,10 +21,10 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
   }
 };
 
-export function bannerArgsMapper(a: BannerArgs): Banner {
+export function bannerArgsMapper<TemplateFnReturnType>(a: BannerArgs, richContent: TemplateFnReturnType): Banner<TemplateFnReturnType> {
   return {
     onClick: (e: Event) => a.onClick(e),
-    richContent: a.richContent,
+    richContent: richContent,
     status: a.status
   };
 }
