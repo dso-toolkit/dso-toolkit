@@ -7,7 +7,6 @@ const path = require('path');
 const prettier = require('prettier');
 const sass = require('gulp-sass')(require('sass'));
 const tap = require('gulp-tap');
-const trim = require('gulp-trim');
 const svgmin = require('gulp-svgmin');
 const filter = require('gulp-filter');
 const log = require('fancy-log');
@@ -29,7 +28,6 @@ module.exports.build = gulp.series(
   module.exports.buildToolkit({ library: true }),
   buildTheme,
   buildSite,
-  trimReports,
   cleanUpBuild,
   module.exports.buildToolkit()
 );
@@ -57,13 +55,6 @@ function buildSite() {
   return builder.build().then(() => {
     log('Fractal build completed!');
   });
-}
-
-function trimReports() {
-  return gulp
-    .src('dist/library/components/preview/*.html')
-    .pipe(trim())
-    .pipe(gulp.dest('dist/library/components/preview'));
 }
 
 function cleanUpBuild() {
