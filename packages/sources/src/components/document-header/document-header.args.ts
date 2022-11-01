@@ -9,6 +9,7 @@ export interface DocumentHeaderArgs {
   featureAction: HandlerFunction;
   featuresOpen: boolean;
   statusContentOpen: boolean;
+  sticky: boolean;
 }
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
@@ -27,5 +28,6 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
     featuresOpen: a.featuresOpen,
     statusContent,
     statusContentOpen: a.statusContentOpen,
+    sticky: a.sticky
   };
 }

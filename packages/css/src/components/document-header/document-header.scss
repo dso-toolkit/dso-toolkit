@@ -12,6 +12,50 @@
   margin-left: grid-variables.$grid-gutter-width * -0.5;
   margin-right: grid-variables.$grid-gutter-width * -0.5;
 
+  h1 button {
+    border: 0;
+    padding: 0;
+
+    svg.di {
+      display: none;
+    }
+  }
+
+  &.dso-document-header-sticky {
+    padding: units.$u1 - 1 units.$u2 units.$u1;
+    position: fixed;
+    width: 100%;
+
+    h1 {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+
+      button {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+
+        span {
+          display: inline-block;
+          max-width: calc(100% - #{units.$u2 * 2});
+          overflow: hidden;
+          text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
+          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
+        }
+
+        svg.di {
+          display: inline;
+          margin-left: units.$u1;
+        }
+      }
+    }
+
+    .dso-document-header-container {
+      display: none;
+    }
+  }
+
   a {
     color: colors.$zwart;
   }

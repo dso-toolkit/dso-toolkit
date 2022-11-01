@@ -10,4 +10,5 @@ export interface DocumentHeader<TemplateFnReturnType> {
   status: TemplateFnReturnType;
   statusContentOpen?: boolean;
   statusContent?: TemplateFnReturnType;
+  sticky?: boolean;
 }

@@ -24,16 +24,36 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
 ) {
   return storiesOfFactory("Document Header", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
-      args: {
-        ...noControl,
-      },
+      argTypes: {
+        ...noControl
+      }
     });
 
-    const template = templateMapper<DocumentHeaderArgs>(
-      (args, { documentHeaderTemplate, features, status, statusContent }) =>
-        documentHeaderTemplate(
-          documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)
-        )
+    const template = templateMapper<DocumentHeaderArgs>((args, { documentHeaderTemplate, features, status, statusContent }) => documentHeaderTemplate(documentHeaderArgsMapper(args, status(args.featuresOpen, args.featureAction), features, statusContent)));
+
+    stories.add(
+      'default',
+      template,
+      {
+        args: {
+          title: 'Omgevingsplan gemeente Gouda',
+          type: 'Een omgevingsplan waar de omgeving mooier van wordt',
+          owner: 'Gemeente Gouda'
+        }
+      }
+    );
+
+    stories.add(
+      'sticky',
+      template,
+      {
+        args: {
+          title: 'Omgevingsplan gemeente Gouda',
+          type: 'Een omgevingsplan waar de omgeving mooier van wordt',
+          owner: 'Gemeente Gouda',
+          sticky: true
+        }
+      }
     );
 
     stories.add("Document Header", template);
