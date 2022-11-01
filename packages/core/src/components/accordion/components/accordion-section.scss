@@ -98,7 +98,7 @@
   @include accordion-section-theme-default.dso-web-component-accordion-default();
 }
 
-:host(.dso-accordion-default[open]:not(.dso-nested-accordion)) {
+:host(.dso-accordion-default[open]) {
   @include accordion-section-theme-default.dso-web-component-accordion-default-open();
 }
 

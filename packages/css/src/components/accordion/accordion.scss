@@ -214,11 +214,9 @@
 
   &.dso-open {
     &.dso-nested-accordion {
-      border: 0;
       border-radius: 0 0 accordion.$border-radius accordion.$border-radius;
 
       > .dso-section-body {
-        border: 0;
         padding: (units.$u2 + accordion.$border-radius - 1) (units.$u2 + 1) units.$u2; // corrections for missing borders in nested accordion
       }
 

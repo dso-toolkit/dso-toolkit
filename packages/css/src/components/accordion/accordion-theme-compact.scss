@@ -80,35 +80,33 @@
     }
 
     &.dso-open {
-      &:not(.dso-nested-accordion) {
-        > .dso-section-handle {
-          background-color: transparent;
+      > .dso-section-handle {
+        background-color: transparent;
 
-          a,
-          button {
+        a,
+        button {
+          color: accordion.$compact-color;
+
+          &:hover,
+          &:active,
+          &.active {
             color: accordion.$compact-color;
+          }
 
-            &:hover,
-            &:active,
-            &.active {
-              color: accordion.$compact-color;
-            }
+          &::before {
+            @include di.variant("chevron-up-grasgroen");
+          }
 
-            &::before {
-              @include di.base("chevron-up-grasgroen");
-            }
+          dso-attachments-counter {
+            --dso-attachments-counter-color: #{colors.$grijs-60};
+            --dso-icon: var(--di-paperclip-grijs);
+          }
 
-            dso-attachments-counter {
-              --dso-attachments-counter-color: #{colors.$grijs-60};
-              --dso-icon: var(--di-paperclip-grijs);
-            }
+          .dso-attachments {
+            color: colors.$grijs-60;
 
-            .dso-attachments {
-              color: colors.$grijs-60;
-
-              &::after {
-                @include di.variant("paperclip-grijs");
-              }
+            &::after {
+              @include di.variant("paperclip-grijs");
             }
           }
         }
