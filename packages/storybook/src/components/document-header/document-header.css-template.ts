@@ -23,15 +23,12 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
     return html`
       <dso-responsive-element class="dso-document-header ${classMap({ 'dso-document-header-sticky': sticky })}">
         <h1>
-          <button>
+          <button type="button">
             <span>${title}</span>
-            ${iconTemplate({ icon: 'chevron-up' })}
           </button>
         </h1>
 
-        <div
-          aria-hidden=${ifDefined(sticky)}
-          class="dso-document-header-container">
+        <div class="dso-document-header-container">
           <div class="dso-document-header-owner-wrapper">
             <p class="dso-document-header-type">${type}</p>
             <p class="dso-document-header-owner">${owner}</p>
