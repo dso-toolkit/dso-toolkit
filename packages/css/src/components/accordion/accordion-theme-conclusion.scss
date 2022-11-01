@@ -4,6 +4,43 @@
 @use "../../di";
 
 @mixin conclusion() {
+  &.dso-accordion-reverse-align {
+    .dso-section-handle {
+      a,
+      button {
+        &::before {
+          @include di.base("chevron-down-grijs90");
+        }
+      }
+    }
+
+    .dso-accordion-section {
+      &.dso-open {
+        &:not(.dso-nested-accordion) {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.base("chevron-up-grijs90");
+              }
+            }
+          }
+        }
+
+        &.dso-nested-accordion {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.variant("chevron-down-grijs90");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .dso-section-handle {
     background-color: accordion.$conclusion-bgcolor;
     border: 1px solid accordion.$conclusion-border-color;
@@ -12,16 +49,8 @@
     button {
       color: accordion.$conclusion-color;
 
-      &.dso-left-align {
-        &::before {
-          @include di.base("chevron-right-grijs90");
-        }
-      }
-
-      &.dso-right-align {
-        &::before {
-          @include di.base("chevron-down-grijs90");
-        }
+      &::before {
+        @include di.base("chevron-down-grijs90");
       }
 
       &:hover,
@@ -43,16 +72,8 @@
           button {
             color: accordion.$conclusion-color;
 
-            &.dso-left-align {
-              &::before {
-                @include di.base("chevron-down-grijs90");
-              }
-            }
-
-            &.dso-right-align {
-              &::before {
-                @include di.base("chevron-up-grijs90");
-              }
+            &::before {
+              @include di.base("chevron-up-grijs90");
             }
 
             dso-attachments-counter {
@@ -78,16 +99,8 @@
         > .dso-section-handle {
           a,
           button {
-            &.dso-left-align {
-              &::before {
-                @include di.base("chevron-right-grijs-90");
-              }
-            }
-
-            &.dso-right-align {
-              &::before {
-                @include di.base("chevron-down-grijs-90");
-              }
+            &::before {
+              @include di.base("chevron-down-grijs-90");
             }
           }
         }

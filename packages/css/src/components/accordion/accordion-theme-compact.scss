@@ -4,6 +4,43 @@
 @use "../../di";
 
 @mixin compact() {
+  &.dso-accordion-reverse-align {
+    .dso-section-handle {
+      a,
+      button {
+        &::before {
+          @include di.base("chevron-down-grasgroen");
+        }
+      }
+    }
+
+    .dso-accordion-section {
+      &.dso-open {
+        &:not(.dso-nested-accordion) {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.base("chevron-up-grasgroen");
+              }
+            }
+          }
+        }
+
+        &.dso-nested-accordion {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.variant("chevron-down-grasgroen");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .dso-section-handle {
     border: 1px solid transparent;
 
@@ -11,16 +48,8 @@
     button {
       color: accordion.$compact-color;
 
-      &.dso-left-align {
-        &::before {
-          @include di.base("chevron-right-grasgroen");
-        }
-      }
-
-      &.dso-right-align {
-        &::before {
-          @include di.base("chevron-down-grasgroen");
-        }
+      &::before {
+        @include di.base("chevron-down-grasgroen");
       }
 
       &:hover,
@@ -65,16 +94,8 @@
               color: accordion.$compact-color;
             }
 
-            &.dso-left-align {
-              &::before {
-                @include di.base("chevron-down-grasgroen");
-              }
-            }
-
-            &.dso-right-align {
-              &::before {
-                @include di.base("chevron-up-grasgroen");
-              }
+            &::before {
+              @include di.base("chevron-up-grasgroen");
             }
 
             dso-attachments-counter {
@@ -97,16 +118,8 @@
         > .dso-section-handle {
           a,
           button {
-            &.dso-left-align {
-              &::before {
-                @include di.base("chevron-right-grasgroen");
-              }
-            }
-
-            &.dso-right-align {
-              &::before {
-                @include di.base("chevron-down-grasgroen");
-              }
+            &::before {
+              @include di.base("chevron-down-grasgroen");
             }
           }
         }
