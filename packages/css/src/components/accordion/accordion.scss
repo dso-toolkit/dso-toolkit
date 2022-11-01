@@ -160,7 +160,7 @@
     }
   }
 
-  + .dso-accordion-section {
+  &:not(.dso-accordion-compact) + .dso-accordion-section {
     margin-top: units.$u1 * 0.5;
   }
 
