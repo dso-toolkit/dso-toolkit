@@ -4,6 +4,43 @@
 @use "../../di";
 
 @mixin compact() {
+  &.dso-accordion-reverse-align {
+    .dso-section-handle {
+      a,
+      button {
+        &::before {
+          @include di.base("chevron-down-grasgroen");
+        }
+      }
+    }
+
+    .dso-accordion-section {
+      &.dso-open {
+        &:not(.dso-nested-accordion) {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.base("chevron-up-grasgroen");
+              }
+            }
+          }
+        }
+
+        &.dso-nested-accordion {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.variant("chevron-down-grasgroen");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   .dso-section-handle {
     border: 1px solid transparent;
 
@@ -58,7 +95,7 @@
             }
 
             &::before {
-              @include di.variant("chevron-up-grasgroen");
+              @include di.base("chevron-up-grasgroen");
             }
 
             dso-attachments-counter {
@@ -82,7 +119,7 @@
           a,
           button {
             &::before {
-              @include di.variant("chevron-up-grasgroen");
+              @include di.base("chevron-down-grasgroen");
             }
           }
         }

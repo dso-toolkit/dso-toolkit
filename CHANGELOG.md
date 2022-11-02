@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **core + css + sources:** Aanpassing chevrons in accordion component ([#1827](https://github.com/dso-toolkit/dso-toolkit/issues/1827))
+
 ## 45.2.0
 
 ### Added
