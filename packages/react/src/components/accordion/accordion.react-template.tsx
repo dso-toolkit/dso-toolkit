@@ -19,26 +19,26 @@ export const reactAccordion: ComponentImplementation<Accordion> = {
   ) {
     class DemoHtml extends React.PureComponent<{ html?: string; }> {
       divRef: React.RefObject<HTMLDivElement>;
-    
+
       constructor(props: { html?: string; }) {
         super(props);
-    
+
         this.divRef = React.createRef();
       }
-    
+
       componentDidMount() {
         const parent = this.divRef.current?.parentElement;
-    
+
         if (parent instanceof HTMLElement) {
           this.divRef.current?.childNodes.forEach(node => parent.appendChild(node));
         }
       }
-    
+
       render() {
         if (!this.props.html) {
           return;
         }
-    
+
         return <div style={{ display: 'none' }} ref={this.divRef} dangerouslySetInnerHTML={{ __html: this.props.html }}></div>;
       }
     }
@@ -55,6 +55,7 @@ export const reactAccordion: ComponentImplementation<Accordion> = {
             key={`dsoAccordionSection-${i}`}
             open={section.open}
             handleTitle={section.handleTitle}
+            heading={section.heading}
             handleUrl={section.handleUrl}
             state={section.state}
             status={section.status}

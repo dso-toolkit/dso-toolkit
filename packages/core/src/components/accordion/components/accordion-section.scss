@@ -53,6 +53,7 @@
     line-height: accordion.$handle-line-height;
     margin: 0;
     padding: accordion.$vertical-padding accordion.$horizontal-padding accordion.$vertical-padding;
+    text-align: start;
     width: 100%;
     word-break: break-word;
 
@@ -97,7 +98,7 @@
   @include accordion-section-theme-default.dso-web-component-accordion-default();
 }
 
-:host(.dso-accordion-default[open]:not(.dso-nested-accordion)) {
+:host(.dso-accordion-default[open]) {
   @include accordion-section-theme-default.dso-web-component-accordion-default-open();
 }
 

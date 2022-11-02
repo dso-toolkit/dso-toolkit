@@ -84,6 +84,10 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
     function accordionSectionTemplate(accordion: Accordion, section: AccordionSection): TemplateResult {
       const hasNestedAccordion = section.content?.includes('<dso-accordion') ?? false;
 
+      if(!section.heading) {
+        section.heading = 'h2';
+      }
+
       return html`
         <div class="dso-accordion-section ${classMap({
           [`dso-${section.state}`]: !!section.state,
@@ -106,7 +110,7 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
 
     return html`
       <div class="dso-accordion ${classMap({
-        [`${accordion.variant}`]: !!accordion.variant,
+        [`dso-accordion-${accordion.variant}`]: !!accordion.variant,
         'dso-accordion-reverse-align': !!accordion.reverseAlign
       })}">
         ${accordion.sections.map(section => accordionSectionTemplate(accordion, section))}

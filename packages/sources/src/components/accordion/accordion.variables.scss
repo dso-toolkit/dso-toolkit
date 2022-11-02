@@ -4,7 +4,7 @@
 $default-border-color: colors.$mauve;
 $default-color: colors.$mauve;
 $default-nested-handle-bgcolor: colors.$mauve;
-$default-nested-body-bgcolor: colors.$mauve-40;
+$default-nested-body-bgcolor: colors.$grijs-10;
 
 $conclusion-bgcolor: colors.$grijs-5;
 $conclusion-hover-bgcolor: colors.$grijs-10;
@@ -15,6 +15,7 @@ $conclusion-nested-body-bgcolor: colors.$wit;
 
 $compact-color: colors.$grasgroen;
 $compact-border-color: colors.$grijs-20;
+$compact-border-width: 1px;
 
 $border-radius: units.$u1 * 0.5;
 $horizontal-padding: units.$u2;

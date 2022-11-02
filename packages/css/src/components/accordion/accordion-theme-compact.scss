@@ -1,4 +1,5 @@
 @use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/units";
 @use "@dso-toolkit/sources/src/components/accordion";
 
 @use "../../di";
@@ -8,8 +9,12 @@
     .dso-section-handle {
       a,
       button {
+        padding-left: units.$u2;
+
         &::before {
           @include di.base("chevron-down-grasgroen");
+
+          left: auto;
         }
       }
     }
@@ -43,13 +48,17 @@
 
   .dso-section-handle {
     border: 1px solid transparent;
+    border-top-width: 0;
 
     a,
     button {
       color: accordion.$compact-color;
+      padding-left: units.$u4;
 
       &::before {
         @include di.base("chevron-down-grasgroen");
+
+        left: 0;
       }
 
       &:hover,
@@ -65,6 +74,7 @@
     .dso-section-body {
       border: 0;
       border-top: 1px solid accordion.$compact-border-color;
+      padding-top: 0;
     }
 
     &:last-child {
@@ -77,41 +87,44 @@
 
     .dso-section-body {
       margin-top: 0;
+      padding-bottom: units.$u1 * 1.5;
     }
 
     &.dso-open {
-      &:not(.dso-nested-accordion) {
-        > .dso-section-handle {
-          background-color: transparent;
+      > .dso-section-handle {
+        background-color: transparent;
 
-          a,
-          button {
+        a,
+        button {
+          color: accordion.$compact-color;
+
+          &:hover,
+          &:active,
+          &.active {
             color: accordion.$compact-color;
+          }
 
-            &:hover,
-            &:active,
-            &.active {
-              color: accordion.$compact-color;
-            }
+          &::before {
+            @include di.variant("chevron-up-grasgroen");
+          }
 
-            &::before {
-              @include di.base("chevron-up-grasgroen");
-            }
+          dso-attachments-counter {
+            --dso-attachments-counter-color: #{colors.$grijs-60};
+            --dso-icon: var(--di-paperclip-grijs);
+          }
 
-            dso-attachments-counter {
-              --dso-attachments-counter-color: #{colors.$grijs-60};
-              --dso-icon: var(--di-paperclip-grijs);
-            }
+          .dso-attachments {
+            color: colors.$grijs-60;
 
-            .dso-attachments {
-              color: colors.$grijs-60;
-
-              &::after {
-                @include di.variant("paperclip-grijs");
-              }
+            &::after {
+              @include di.variant("paperclip-grijs");
             }
           }
         }
+      }
+
+      > .dso-section-body {
+        border-top: 0;
       }
 
       &.dso-nested-accordion {

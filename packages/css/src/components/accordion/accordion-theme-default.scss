@@ -64,30 +64,30 @@
 
   .dso-accordion-section {
     &.dso-open {
-      &:not(.dso-nested-accordion) {
-        > .dso-section-handle {
-          background-color: accordion.$default-nested-handle-bgcolor;
-          border-radius: accordion.$border-radius;
+      > .dso-section-handle {
+        background-color: accordion.$default-nested-handle-bgcolor;
+        border-radius: 0;
+        border-top-left-radius: accordion.$border-radius;
+        border-top-right-radius: accordion.$border-radius;
 
-          a,
-          button {
+        a,
+        button {
+          color: colors.$wit;
+
+          &::before {
+            @include di.variant("chevron-up-wit");
+          }
+
+          dso-attachments-counter {
+            --dso-attachments-counter-color: #{colors.$wit};
+            --dso-icon: var(--di-paperclip-wit);
+          }
+
+          .dso-attachments {
             color: colors.$wit;
 
-            &::before {
-              @include di.variant("chevron-down-wit");
-            }
-
-            dso-attachments-counter {
-              --dso-attachments-counter-color: #{colors.$wit};
-              --dso-icon: var(--di-paperclip-wit);
-            }
-
-            .dso-attachments {
-              color: colors.$wit;
-
-              &::after {
-                @include di.variant("paperclip-wit");
-              }
+            &::after {
+              @include di.variant("paperclip-wit");
             }
           }
         }
@@ -95,15 +95,6 @@
 
       &.dso-nested-accordion {
         background-color: accordion.$default-nested-body-bgcolor;
-
-        > .dso-section-handle {
-          a,
-          button {
-            &::before {
-              @include di.variant("chevron-right-mauve");
-            }
-          }
-        }
       }
     }
   }
