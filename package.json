@@ -16,33 +16,33 @@
     "percy": "percy snapshot packages/dso-toolkit/dist/library",
     "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
     "fractal": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=fractal yarn node scripts/fractal.js",
-    "reference:dom": "yarn workspace @dso-toolkit/core build && yarn workspace dso-toolkit gulp reference:dom",
+    "reference:dom": "yarn workspace dso-toolkit gulp reference:dom",
     "start": "yarn node scripts/start.js",
     "start:leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=leaflet yarn node scripts/start.js --mode leaflet",
     "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=react-leaflet yarn node scripts/start.js --mode react-leaflet"
   },
   "dependencies": {
     "@infoprojects/stylelint-config-scss": "^0.2.0",
-    "@percy/cli": "^1.0.0-beta.76",
-    "axe-core": "^4.4.1",
-    "concurrently": "^7.1.0",
-    "cpy-cli": "^4.1.0",
+    "@percy/cli": "^1.13.0",
+    "axe-core": "^4.5.1",
+    "concurrently": "^7.5.0",
+    "cpy-cli": "^4.2.0",
     "cross-env": "^7.0.3",
-    "cypress": "^9.5.4",
-    "cypress-axe": "^0.14.0",
-    "cypress-real-events": "^1.7.0",
-    "http-server": "^14.1.0",
-    "minimist": "^1.2.6",
-    "patch-package": "^6.4.7",
+    "cypress": "^10.11.0",
+    "cypress-axe": "^1.0.0",
+    "cypress-real-events": "^1.7.2",
+    "http-server": "^14.1.1",
+    "minimist": "^1.2.7",
+    "patch-package": "^6.5.0",
     "postinstall-postinstall": "^2.1.0",
     "rimraf": "^3.0.2",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^14.6.1",
+    "stylelint": "^14.14.0",
     "wait-on": "^6.0.1"
   },
   "resolutions": {
     "@types/estree": "0.0.50",
     "@types/node": "^14.0.0"
   },
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.2.4"
 }

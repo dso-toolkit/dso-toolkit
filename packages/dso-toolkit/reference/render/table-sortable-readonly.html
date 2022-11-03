@@ -1,21 +1,27 @@
 <div class="toolkit-example-wrapper">
   <div class="toolkit-example-text">
     <h2>Sorteerbare data-grid</h2>
-    <p>In het voorbeeld hieronder is de data is oplopend gesorteerd voor de kolom "Bron". Dit wordt aangeduid met <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.</p>
+    <p>
+      In het voorbeeld hieronder is de data is oplopend gesorteerd voor de kolom "Bron". Dit wordt aangeduid met
+      <code>role=columnheader"</code> en <code>aria-sort="ascending"</code>. Daarnaast is de data niet aanpasbaar in dit
+      voorbeeld. Zodoende wordt ook <code>aria-readonly="true"</code> gebruikt.
+    </p>
   </div>
   <table class="table" role="grid" aria-readonly="true">
-    <caption class="sr-only">Overzicht bronnen</caption>
+    <caption class="sr-only">
+      Overzicht bronnen
+    </caption>
     <thead>
       <tr role="row">
         <th scope="col" role="columnheader" aria-sort="ascending">
           Bron
-          <button type="button" class="dso-tertiary"><span class="sr-only">Sorteer</span>
-            <dso-icon icon="sort"></dso-icon>
+
+          <button type="button" class="dso-tertiary">
+            <span class="sr-only">Sorteer</span><dso-icon icon="sort"></dso-icon>
           </button>
         </th>
-        <th scope="col">
-          Uitleg
-        </th>
+
+        <th scope="col">Uitleg</th>
       </tr>
     </thead>
     <tbody>
@@ -23,26 +29,32 @@
         <td><a href="#">AQUO</a></td>
         <td>In de Aquo-begrippenset staan begrippen, die worden gebruikt in de watersector.</td>
       </tr>
+
       <tr role="row">
         <td><a href="#">BesluitActiviteitenLeefomgeving</a></td>
         <td>Besluit Activiteiten Leefomgeving</td>
       </tr>
+
       <tr role="row">
         <td><a href="#">BesluitBouwwerkenLeefomgeving</a></td>
         <td>Besluit Bouwwerken Leefomgeving</td>
       </tr>
+
       <tr role="row">
         <td><a href="#">BesluitKwaliteitLeefomgeving</a></td>
         <td>Besluit Kwaliteit Leefomgeving</td>
       </tr>
+
       <tr role="row">
         <td><a href="#">Omgevingsbesluit</a></td>
         <td>Omgevingsbesluit</td>
       </tr>
+
       <tr role="row">
         <td><a href="#">Omgevingswet</a></td>
         <td>Omgevingswet</td>
       </tr>
+
       <tr role="row">
         <td><a href="#">VNGBegrippenkaderGemeenten</a></td>
         <td>Dit is de bron waar alle VNG begrippen op gebaseerd zijn.</td>

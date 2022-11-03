@@ -23,19 +23,19 @@
     "build": "yarn node scripts/run.js --build"
   },
   "dependencies": {
-    "lit-html": "^2.2.2"
+    "lit-html": "^2.4.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
-    "@types/leaflet": "^1.7.11",
-    "concurrently": "^7.1.0",
+    "@types/leaflet": "^1.9.0",
+    "concurrently": "^7.5.0",
     "fs-extra": "^10.1.0",
-    "klap": "^7.0.10",
-    "leaflet": "1.8.0",
-    "minimist": "^1.2.6",
+    "klap": "^7.0.11",
+    "leaflet": "1.9.2",
+    "minimist": "^1.2.7",
     "rimraf": "^3.0.2",
-    "sass": "^1.50.1",
-    "typescript": "^4.5.0",
+    "sass": "^1.55.0",
+    "typescript": "^4.8.4",
     "wait-on": "^6.0.1"
   },
   "peerDependencies": {

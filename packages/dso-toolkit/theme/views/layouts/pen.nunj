@@ -100,16 +100,9 @@
               </li>
               <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-html" aria-controls="html-tab">
-                  {% if entity.meta.webComponent %}Usage{% else %}HTML{% endif %}
+                  HTML
                 </a>
               </li>
-              {% if entity.meta.webComponent and entity.meta.markup %}
-                <li class="is-active dso-browser-navbar-item">
-                  <a href="#browser-{{ entity.id }}-panel-statified" aria-controls="statified-tab">
-                    Markup
-                  </a>
-                </li>
-              {% endif %}
               <li class="is-active dso-browser-navbar-item">
                 <a href="#browser-{{ entity.id }}-panel-context" aria-controls="context-tab">
                   Context

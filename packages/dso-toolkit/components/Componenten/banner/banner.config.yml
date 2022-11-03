@@ -1,6 +1,5 @@
 meta:
   webComponent: dso-banner
-  markup: true
 notes: |
   Banners verschijnen helemaal bovenaan het scherm en verschuiven de inhoud eronder. Ze laten algemene meldingen zien over het product of systeem, maar niet over specifieke gebruikersacties.
 

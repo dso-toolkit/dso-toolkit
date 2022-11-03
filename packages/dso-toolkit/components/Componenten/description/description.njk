@@ -1,4 +1,4 @@
-{{ textBefore }}
+{{ textBefore | safe }}
 <a
   id="{{ _self.handle }}-term"
   href="#{{ _self.handle }}-content"
@@ -13,4 +13,4 @@
     <span class="sr-only">Verbergen</span>
   </a>
 </span>
-{{ textAfter }}
+{{ textAfter | safe }}

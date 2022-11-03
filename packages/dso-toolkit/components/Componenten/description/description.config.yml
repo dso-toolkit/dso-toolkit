@@ -7,10 +7,10 @@ collated: true
 context:
   __title: Term Collapsed
   open: false
-  textBefore: Om interpretatieproblemen te voorkomen heeft het 
+  textBefore: <p>Om interpretatieproblemen te voorkomen heeft het 
   term: W3C
   content: World Wide Web Consortium
-  textAfter: aanbevelingen opgesteld over welke tags geldig zijn en hoe ze moeten worden geïnterpreteerd. De oorspronkelijke aanbeveling is een aantal malen geactualiseerd in verband met verdere ontwikkeling van HTML.
+  textAfter: aanbevelingen opgesteld over welke tags geldig zijn en hoe ze moeten worden geïnterpreteerd. De oorspronkelijke aanbeveling is een aantal malen geactualiseerd in verband met verdere ontwikkeling van HTML.</p>
 variants:
   - name: expanded
     context:

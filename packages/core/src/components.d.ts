@@ -36,7 +36,7 @@ export namespace Components {
         /**
           * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
          */
-        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent | undefined) => Promise<void>;
+        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<void>;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
@@ -290,7 +290,7 @@ export namespace Components {
         "invalid"?: boolean;
         "name"?: string;
         "required"?: boolean;
-        "toggleInfo": (active?: boolean | undefined) => Promise<void>;
+        "toggleInfo": (active?: boolean) => Promise<void>;
         "type": 'checkbox' | 'radio';
         "value": string;
     }
@@ -372,6 +372,70 @@ export namespace Components {
         "initialMainSize": MainSize;
         "overlayOpen": boolean;
     }
+}
+export interface DsoAccordionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAccordionElement;
+}
+export interface DsoAutosuggestCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAutosuggestElement;
+}
+export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoDatePickerElement;
+}
+export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoHeaderElement;
+}
+export interface DsoInfoCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoInfoElement;
+}
+export interface DsoInfoButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoInfoButtonElement;
+}
+export interface DsoLabelCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoLabelElement;
+}
+export interface DsoMapBaseLayersCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapBaseLayersElement;
+}
+export interface DsoMapControlsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapControlsElement;
+}
+export interface DsoMapOverlaysCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoMapOverlaysElement;
+}
+export interface DsoOzonContentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoOzonContentElement;
+}
+export interface DsoPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoPaginationElement;
+}
+export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoResponsiveElementElement;
+}
+export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSelectableElement;
+}
+export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoTreeViewElement;
+}
+export interface DsoViewerGridCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoViewerGridElement;
 }
 declare global {
     interface HTMLDsoAccordionElement extends Components.DsoAccordion, HTMLStencilElement {
@@ -603,7 +667,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
          */
-        "onDsoToggleSection"?: (event: CustomEvent<AccordionSectionToggleEvent>) => void;
+        "onDsoToggleSection"?: (event: DsoAccordionCustomEvent<AccordionSectionToggleEvent>) => void;
         /**
           * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
          */
@@ -662,15 +726,15 @@ declare namespace LocalJSX {
         /**
           * This is emitted debounced for every change for the slotted input type=text element.
          */
-        "onDsoChange"?: (event: CustomEvent<string>) => void;
+        "onDsoChange"?: (event: DsoAutosuggestCustomEvent<string>) => void;
         /**
           * Emitted when enter is pressed. The `detail` property of the `CustomEvent` will contain the input text.
          */
-        "onDsoSearch"?: (event: CustomEvent<string>) => void;
+        "onDsoSearch"?: (event: DsoAutosuggestCustomEvent<string>) => void;
         /**
           * Emitted when a suggestion is selected. The `detail` property of the `CustomEvent` will contain the selected suggestion.
          */
-        "onDsoSelect"?: (event: CustomEvent<Suggestion>) => void;
+        "onDsoSelect"?: (event: DsoAutosuggestCustomEvent<Suggestion>) => void;
         /**
           * Whether the previous suggestions will be presented when the input gets focus again.
          */
@@ -718,23 +782,23 @@ declare namespace LocalJSX {
         /**
           * Event emitted the date picker input is blurred.
          */
-        "onDsoBlur"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        "onDsoBlur"?: (event: DsoDatePickerCustomEvent<DsoDatePickerFocusEvent>) => void;
         /**
           * Event emitted when a date is selected.
          */
-        "onDsoDateChange"?: (event: CustomEvent<DsoDatePickerChangeEvent>) => void;
+        "onDsoDateChange"?: (event: DsoDatePickerCustomEvent<DsoDatePickerChangeEvent>) => void;
         /**
           * Event emitted the date picker input is focused.
          */
-        "onDsoFocus"?: (event: CustomEvent<DsoDatePickerFocusEvent>) => void;
+        "onDsoFocus"?: (event: DsoDatePickerCustomEvent<DsoDatePickerFocusEvent>) => void;
         /**
           * Event emitted on key down in the date picker input.
          */
-        "onDsoKeyDown"?: (event: CustomEvent<DsoDatePickerKeyboardEvent>) => void;
+        "onDsoKeyDown"?: (event: DsoDatePickerCustomEvent<DsoDatePickerKeyboardEvent>) => void;
         /**
           * Event emitted on key up in the date picker input.
          */
-        "onDsoKeyUp"?: (event: CustomEvent<DsoDatePickerKeyboardEvent>) => void;
+        "onDsoKeyUp"?: (event: DsoDatePickerCustomEvent<DsoDatePickerKeyboardEvent>) => void;
         /**
           * Should the input be marked as required?
          */
@@ -776,7 +840,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
-        "onDsoHeaderClick"?: (event: CustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
+        "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
@@ -801,17 +865,17 @@ declare namespace LocalJSX {
     interface DsoInfo {
         "active"?: boolean;
         "fixed"?: boolean;
-        "onDsoClose"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoClose"?: (event: DsoInfoCustomEvent<MouseEvent>) => void;
     }
     interface DsoInfoButton {
         "active"?: boolean;
         "label"?: string;
-        "onDsoToggle"?: (event: CustomEvent<InfoButtonToggleEvent>) => void;
+        "onDsoToggle"?: (event: DsoInfoButtonCustomEvent<InfoButtonToggleEvent>) => void;
         "secondary"?: boolean;
     }
     interface DsoLabel {
         "compact"?: boolean;
-        "onDsoRemoveClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoRemoveClick"?: (event: DsoLabelCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
         "status"?: 'primary' | 'info' | 'success' | 'warning' | 'danger' | 'bright';
         "truncate"?: boolean;
@@ -819,17 +883,17 @@ declare namespace LocalJSX {
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
         "group"?: string;
-        "onDsoBaseLayerChange"?: (event: CustomEvent<BaseLayerChangeEvent>) => void;
+        "onDsoBaseLayerChange"?: (event: DsoMapBaseLayersCustomEvent<BaseLayerChangeEvent>) => void;
     }
     interface DsoMapControls {
         "disableZoom"?: 'in' | 'out' | 'both';
-        "onDsoZoomIn"?: (event: CustomEvent<MouseEvent>) => void;
-        "onDsoZoomOut"?: (event: CustomEvent<MouseEvent>) => void;
+        "onDsoZoomIn"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
+        "onDsoZoomOut"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         "open"?: boolean;
     }
     interface DsoMapOverlays {
         "group"?: string;
-        "onDsoToggleOverlay"?: (event: CustomEvent<OverlayChangeEvent>) => void;
+        "onDsoToggleOverlay"?: (event: DsoMapOverlaysCustomEvent<OverlayChangeEvent>) => void;
         "overlays": Overlay[];
     }
     interface DsoOzonContent {
@@ -849,11 +913,11 @@ declare namespace LocalJSX {
           * Visualize the component as interactive. This means that the component will emit `dsoClick` events when the user clicks non-interactive elements.  **Do not** use this without an accessible companion element! `interactive` is only meant to ease the use of the companion element for mouse/touch users.  * `true`: Interactive anchor-look-alike * `"sub"`: Interactive anchor-look-alike for sub navigation * `false | undefined`: Disabled
          */
         "interactive"?: 'sub' | '' | boolean;
-        "onDsoAnchorClick"?: (event: CustomEvent<OzonContentAnchorClick>) => void;
+        "onDsoAnchorClick"?: (event: DsoOzonContentCustomEvent<OzonContentAnchorClick>) => void;
         /**
           * These events are only emitted when the component is `interactive`.
          */
-        "onDsoClick"?: (event: CustomEvent<OzonContentClick>) => void;
+        "onDsoClick"?: (event: DsoOzonContentCustomEvent<OzonContentClick>) => void;
     }
     interface DsoPagination {
         /**
@@ -867,7 +931,7 @@ declare namespace LocalJSX {
         /**
           * Emitted on page select
          */
-        "onDsoSelectPage"?: (event: CustomEvent<PaginationSelectPageEvent>) => void;
+        "onDsoSelectPage"?: (event: DsoPaginationCustomEvent<PaginationSelectPageEvent>) => void;
         /**
           * Total pages
          */
@@ -884,7 +948,7 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'medium' | 'large';
     }
     interface DsoResponsiveElement {
-        "onDsoSizeChange"?: (event: CustomEvent<ResponsiveElementSize>) => void;
+        "onDsoSizeChange"?: (event: DsoResponsiveElementCustomEvent<ResponsiveElementSize>) => void;
     }
     interface DsoSelectable {
         "checked"?: boolean;
@@ -895,7 +959,7 @@ declare namespace LocalJSX {
         "infoFixed"?: boolean;
         "invalid"?: boolean;
         "name"?: string;
-        "onDsoChange"?: (event: CustomEvent<SelectableChangeEvent>) => void;
+        "onDsoChange"?: (event: DsoSelectableCustomEvent<SelectableChangeEvent>) => void;
         "required"?: boolean;
         "type": 'checkbox' | 'radio';
         "value": string;
@@ -958,15 +1022,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when a tree view item is clicked. The `detail` property of the `CustomEvent` will contain an object with: `path` = the complete path of TreeViewItems from the root to the item that is emitting the clicked event. `originalEvent` = the original click event. The consumer of the event is responsible for updating the TreeView's collection (usually set the active state on the last TreeViewItem in path and clear all other active item states).
          */
-        "onDsoClickItem"?: (event: CustomEvent<TreeViewPointerEvent>) => void;
+        "onDsoClickItem"?: (event: DsoTreeViewCustomEvent<TreeViewPointerEvent>) => void;
         /**
           * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
-        "onDsoCloseItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
+        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
         /**
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
-        "onDsoOpenItem"?: (event: CustomEvent<TreeViewItem[]>) => void;
+        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
     }
     interface DsoViewerGrid {
         "filterpanelOpen"?: boolean;
@@ -974,10 +1038,10 @@ declare namespace LocalJSX {
           * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
          */
         "initialMainSize"?: MainSize;
-        "onDsoCloseOverlay"?: (event: CustomEvent<MouseEvent | KeyboardEvent>) => void;
-        "onDsoFilterpanelApply"?: (event: CustomEvent<FilterpanelEvent>) => void;
-        "onDsoFilterpanelCancel"?: (event: CustomEvent<FilterpanelEvent>) => void;
-        "onDsoMainSizeChange"?: (event: CustomEvent<ViewerGridChangeSizeEvent>) => void;
+        "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<MouseEvent | KeyboardEvent>) => void;
+        "onDsoFilterpanelApply"?: (event: DsoViewerGridCustomEvent<FilterpanelEvent>) => void;
+        "onDsoFilterpanelCancel"?: (event: DsoViewerGridCustomEvent<FilterpanelEvent>) => void;
+        "onDsoMainSizeChange"?: (event: DsoViewerGridCustomEvent<ViewerGridChangeSizeEvent>) => void;
         "overlayOpen"?: boolean;
     }
     interface IntrinsicElements {

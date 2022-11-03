@@ -1,11 +1,14 @@
-<label for="showButton">
-  Toon kalender knop
-</label>
+<label for="showButton"> Toon kalender knop </label>
 <dso-date-picker identifier="showButton"></dso-date-picker>
-<br><button type="button" class="dso-secondary btn-sm" id="showButton-show-button">Open date picker met script</button>
+
+<br /><button type="button" class="dso-secondary btn-sm" id="showButton-show-button">
+  Open date picker met script
+</button>
+
 <script>
-  const button = document.getElementById('showButton-show-button');
-  button.addEventListener('click', function() {
+  const button = document.getElementById("showButton-show-button");
+
+  button.addEventListener("click", function () {
     document.querySelector('dso-date-picker[identifier="showButton"]').show();
   });
 </script>

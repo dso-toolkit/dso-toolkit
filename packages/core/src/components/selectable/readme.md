@@ -31,7 +31,7 @@
 
 ## Methods
 
-### `toggleInfo(active?: boolean | undefined) => Promise<void>`
+### `toggleInfo(active?: boolean) => Promise<void>`
 
 
 

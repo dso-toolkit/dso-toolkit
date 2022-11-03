@@ -9,15 +9,15 @@
     "@dso-toolkit/core": "workspace:packages/core",
     "@dso-toolkit/css": "workspace:packages/css",
     "@dso-toolkit/sources": "workspace:packages/sources",
-    "@storybook/addon-a11y": "6.5.10",
-    "@storybook/addon-actions": "6.5.10",
-    "@storybook/addon-essentials": "6.5.10",
-    "@storybook/addons": "6.5.10",
-    "@storybook/builder-webpack5": "6.5.10",
-    "@storybook/manager-webpack5": "6.5.10",
-    "@storybook/web-components": "6.5.10",
+    "@storybook/addon-a11y": "6.5.13",
+    "@storybook/addon-actions": "6.5.13",
+    "@storybook/addon-essentials": "6.5.13",
+    "@storybook/addons": "6.5.13",
+    "@storybook/builder-webpack5": "6.5.13",
+    "@storybook/manager-webpack5": "6.5.13",
+    "@storybook/web-components": "6.5.13",
     "@whitespace/storybook-addon-html": "5.0.0",
     "cross-env": "^7.0.3",
-    "lit-html": "^2.2.2"
+    "lit-html": "^2.4.0"
   }
 }

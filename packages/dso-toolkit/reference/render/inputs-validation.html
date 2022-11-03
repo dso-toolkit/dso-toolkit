@@ -4,7 +4,9 @@
   </div>
   <div class="toolkit-example">
     <table class="table">
-      <caption>Formulierelementen met inline validatiemelding (<code>.dso-invalid</code>).</caption>
+      <caption>
+        Formulierelementen met inline validatiemelding (<code>.dso-invalid</code>).
+      </caption>
       <thead>
         <tr>
           <th scope="col">Beschrijving</th>
@@ -18,14 +20,14 @@
             <form>
               <fieldset>
                 <legend class="sr-only">Contact</legend>
+
                 <div class="form-group dso-input dso-input-text">
                   <div class="dso-label-container">
-                    <label for="name" class="control-label">
-                      Naam
-                    </label>
+                    <label for="name" class="control-label"> Naam </label>
                   </div>
                   <div class="dso-field-container">
-                    <input type="text" id="name" class="form-control" aria-describedby="helpTextId_name">
+                    <input type="text" id="name" class="form-control" aria-describedby="helpTextId_name" />
+
                     <p class="dso-help-block" id="helpTextId_name">Instructie tekst buiten een tekstveld.</p>
                   </div>
                 </div>
@@ -39,15 +41,23 @@
             <form>
               <fieldset>
                 <legend class="sr-only">Contact</legend>
+
                 <div class="form-group dso-input dso-input-text dso-invalid dso-required">
                   <div class="dso-label-container">
-                    <label for="name2" class="control-label">
-                      Naam
-                    </label>
+                    <label for="name2" class="control-label"> Naam </label>
                   </div>
                   <div class="dso-field-container">
-                    <input type="text" id="name2" class="form-control" aria-describedby="errorTextId_name2 helpTextId_name2" required aria-invalid="true">
+                    <input
+                      type="text"
+                      id="name2"
+                      class="form-control"
+                      aria-describedby="errorTextId_name2 helpTextId_name2"
+                      required
+                      aria-invalid="true"
+                    />
+
                     <p class="dso-message" id="errorTextId_name2">Verplicht veld niet gevuld.</p>
+
                     <p class="dso-help-block" id="helpTextId_name2">Instructie tekst buiten een tekstveld.</p>
                   </div>
                 </div>

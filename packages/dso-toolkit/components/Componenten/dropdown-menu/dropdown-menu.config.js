@@ -1,7 +1,6 @@
 module.exports = {
   meta: {
-    webComponent: 'dso-dropdown-menu',
-    markup: false
+    webComponent: 'dso-dropdown-menu'
   },
   notes: `
   ## Voorschriften/algemeen

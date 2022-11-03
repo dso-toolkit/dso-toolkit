@@ -14,9 +14,5 @@
 } %}
 {% block content -%}{% import "macros/errors.nunj" as errors -%}{{ errors.renderError('component', error.message, error.stack) }}{% endblock %}
 {%- else -%}
-{% if not request.query.inline %}
-{{ hydrateForPreview(rendered, entity) | async(true) }}
-{% else %}
-{{ rendered }}
-{% endif %}
+{{ rendered | prettier }}
 {%- endif %}

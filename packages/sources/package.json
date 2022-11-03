@@ -5,15 +5,15 @@
   "main": "src/index.ts",
   "source": "src/index.ts",
   "devDependencies": {
-    "@storybook/client-api": "6.5.10",
-    "concurrently": "^7.1.0",
+    "@storybook/client-api": "6.5.13",
+    "concurrently": "^7.5.0",
     "escape-string-regexp": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
   },
   "peerDependencies": {
-    "@storybook/addon-actions": "6.5.10",
-    "@storybook/addons": "6.5.10"
+    "@storybook/addon-actions": "6.5.13",
+    "@storybook/addons": "6.5.13"
   }
 }

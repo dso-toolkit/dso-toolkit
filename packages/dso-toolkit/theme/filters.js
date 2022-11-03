@@ -1,9 +1,9 @@
 'use strict';
 
+const prettier = require('prettier');
 const _ = require('lodash');
 const Path = require('path');
 const beautifyHTML = require('js-beautify').html;
-
 
 module.exports = function (theme, env, app) {
 
@@ -39,6 +39,13 @@ module.exports = function (theme, env, app) {
     beautifyOptions = _.merge({}, defaults, beautifyOptions);
 
     return beautifyHTML(str, beautifyOptions);
+  });
+
+  env.engine.addFilter('prettier', function (str) {
+    return prettier.format(str, {
+      printWidth: 120,
+      parser: 'html'
+    });
   });
 
   env.engine.addFilter('componentPath', function (str) {

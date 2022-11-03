@@ -4,7 +4,7 @@ const gulp = require('gulp');
 const del = require('del');
 const fse = require('fs-extra');
 const path = require('path');
-const pretty = require('pretty');
+const prettier = require('prettier');
 const sass = require('gulp-sass')(require('sass'));
 const tap = require('gulp-tap');
 const trim = require('gulp-trim');
@@ -132,9 +132,20 @@ function createDomReference() {
         .pipe(f)
         .pipe(tap(function (file) {
           let html = file.contents.toString();
-          let prettied = pretty(html, { ocd: true, newlines: '\r\n', eol: '\r\n', end_with_newline: true });
 
-          file.contents = Buffer.from(prettied);
+          try {
+            const prettied = prettier.format(html, {
+              printWidth: 120,
+              parser: 'html'
+            });
+
+            file.contents = Buffer.from(prettied);
+          }
+          catch (e) {
+            console.error(file.path);
+
+            throw e;
+          }
         }))
         .pipe(gulp.dest('reference/render'));
     });

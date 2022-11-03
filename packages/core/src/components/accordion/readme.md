@@ -43,7 +43,7 @@ Type: `Promise<AccordionInternalState>`
 
 
 
-### `toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent | undefined) => Promise<void>`
+### `toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<void>`
 
 Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
 

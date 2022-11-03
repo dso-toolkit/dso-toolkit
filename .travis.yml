@@ -38,7 +38,6 @@ jobs:
             - packages/css/dist
             - packages/storybook/www
             - packages/dso-toolkit/dist
-            - packages/dso-toolkit/hydrate
             - packages/dso-toolkit/libs/@dso-toolkit
             - packages/react/dist
             - packages/react/www

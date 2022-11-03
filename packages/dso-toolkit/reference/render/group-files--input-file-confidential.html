@@ -1,38 +1,58 @@
 <fieldset class="form-group dso-files dso-required">
   <legend class="sr-only">Files - Confidential</legend>
   <div class="dso-label-container">
-    <label for="input-file-confidential" class="control-label" aria-hidden="true">
-      Files - Confidential
-    </label>
+    <label for="input-file-confidential" class="control-label" aria-hidden="true"> Files - Confidential </label>
   </div>
   <div class="dso-field-container">
     <ul class="dso-filelist">
       <li>
-        <div class="dso-filename" id="input-file-confidential-file-filename-0">
-          Bestandsnaam.pdf
-        </div>
+        <div class="dso-filename" id="input-file-confidential-file-filename-0">Bestandsnaam.pdf</div>
+
         <div class="dso-selectable dso-confidential">
-          <input type="checkbox" id="input-file-confidential-input-confirm-0" name="input-file-confidential-input-confirm-0" aria-describedby="input-file-confidential-file-filename-0">
-          <label for="input-file-confidential-input-confirm-0">
-            Vertrouwelijk
-          </label>
+          <input
+            type="checkbox"
+            id="input-file-confidential-input-confirm-0"
+            name="input-file-confidential-input-confirm-0"
+            aria-describedby="input-file-confidential-file-filename-0"
+          />
+          <label for="input-file-confidential-input-confirm-0"> Vertrouwelijk </label>
         </div>
-        <button type="button" aria-describedby="input-file-confidential-file-filename-0" class="dso-tertiary dso-remove"><span >Verwijder document</span></button>
+
+        <button
+          type="button"
+          aria-describedby="input-file-confidential-file-filename-0"
+          class="dso-tertiary dso-remove"
+        >
+          <span>Verwijder document</span>
+        </button>
       </li>
+
       <li>
-        <div class="dso-filename" id="input-file-confidential-file-filename-1">
-          Bestandsnaam.pdf
-        </div>
+        <div class="dso-filename" id="input-file-confidential-file-filename-1">Bestandsnaam.pdf</div>
+
         <div class="dso-selectable dso-confidential">
-          <input type="checkbox" id="input-file-confidential-input-confirm-1" name="input-file-confidential-input-confirm-1" aria-describedby="input-file-confidential-file-filename-1" checked>
-          <label for="input-file-confidential-input-confirm-1">
-            Vertrouwelijk
-          </label>
+          <input
+            type="checkbox"
+            id="input-file-confidential-input-confirm-1"
+            name="input-file-confidential-input-confirm-1"
+            aria-describedby="input-file-confidential-file-filename-1"
+            checked
+          />
+          <label for="input-file-confidential-input-confirm-1"> Vertrouwelijk </label>
         </div>
+
         <dso-icon icon="status-warning"></dso-icon>
-        <button type="button" aria-describedby="input-file-confidential-file-filename-1" class="dso-tertiary dso-remove"><span >Verwijder document</span></button>
+
+        <button
+          type="button"
+          aria-describedby="input-file-confidential-file-filename-1"
+          class="dso-tertiary dso-remove"
+        >
+          <span>Verwijder document</span>
+        </button>
       </li>
     </ul>
+
     <dso-alert status="warning">
       <div class="dso-rich-content">
         <p>U vraagt of wij een document vertrouwelijk willen behandelen. Hiervoor moet u twee dingen doen:</p>
@@ -54,9 +74,10 @@
   </div>
 
   <!-- Or to trigger the upload using a button element (not recommended) -->
-
   <!--
     <button type="button"
+  
   class="dso-tertiary"><dso-icon icon="plus"></dso-icon><span >Document toevoegen</span></button>
+
   -->
 </fieldset>

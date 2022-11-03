@@ -1,14 +1,8 @@
-
 <!-- Impliciet: Geen @for attribute dus target is direct parent -->
 <button type="button">
-  <dso-icon icon="plus"></dso-icon>
-  <dso-tooltip position="left">
-    Ik sta links van de inhoud
-  </dso-tooltip>
+  <dso-icon icon="plus"></dso-icon><dso-tooltip position="left"> Ik sta links van de inhoud </dso-tooltip>
 </button>
 
 <!-- Expliciet: @for attribute met verwijzing naar ander element -->
-<input type="text" id="demo-tooltip--tooltip-left">
-<dso-tooltip descriptive position="left" for="demo-tooltip--tooltip-left">
-  Ik sta links van de inhoud
-</dso-tooltip>
+<input type="text" id="demo-tooltip--tooltip-left" />
+<dso-tooltip descriptive position="left" for="demo-tooltip--tooltip-left"> Ik sta links van de inhoud </dso-tooltip>

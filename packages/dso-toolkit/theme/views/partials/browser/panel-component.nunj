@@ -1,40 +1,19 @@
 <div class="dso-browser-navbar-item-panel" id="browser-{{ entity.id }}-panel-component" aria-labelledby="component-tab">
-  {% if entity.meta.webComponent and not entity.meta.markup %}
-    {% set entity = frctl.components.find('@' + request.params.handle) -%}
-    {% set withLayout = true -%}
-    {% set withCollation = true -%}
-
-    {% if not entity %}{{ throw(404, "Component '" + request.params.handle + "' not found.") }}{% endif -%}
-
-    {% set rendered = entity.render(null, renderEnv, { preview: withLayout, collate: withCollation }) | async(true) %}
-
-    {% if rendered | isError -%}
-      {% extends 'layouts/full.nunj' %}
-      {% set error = rendered %}
-      {% set page = {
-          title: 'Error rendering component ' + request.params.handle
-      } %}
-      {% block content -%}{% import "macros/errors.nunj" as errors -%}{{ errors.renderError('component', error.message, error.stack) }}{% endblock %}
-    {%- else -%}
-      {{ hydrate(rendered, entity) | async(true) }}
-    {%- endif %}
-  {% else %}
-    <iframe
-      id="component-preview-iframe"
-      class="dso-preview-iframe"
-      onload="fixFrameHeight()"
-      data-role="window"
-      src="{{ previewUrl }}?inline=1"
-      style="width: 100%;"
-      sandbox="allow-same-origin allow-scripts allow-forms allow-modals"
-      {% if entity.display %}
-        style="{% for property, value in entity.display %}{{ property }}: {{ value }} !important; {% endfor %}"
-      {% endif %}
-      marginwidth="0"
-      marginheight="0"
-      frameborder="0"
-      vspace="0"
-      hspace="0"
-    ></iframe>
-  {% endif %}
+  <iframe
+    id="component-preview-iframe"
+    class="dso-preview-iframe"
+    onload="fixFrameHeight()"
+    data-role="window"
+    src="{{ previewUrl }}?inline=1"
+    style="width: 100%;"
+    sandbox="allow-same-origin allow-scripts allow-forms allow-modals"
+    {% if entity.display %}
+      style="{% for property, value in entity.display %}{{ property }}: {{ value }} !important; {% endfor %}"
+    {% endif %}
+    marginwidth="0"
+    marginheight="0"
+    frameborder="0"
+    vspace="0"
+    hspace="0"
+  ></iframe>
 </div>

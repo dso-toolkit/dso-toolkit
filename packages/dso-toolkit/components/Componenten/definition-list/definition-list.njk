@@ -2,7 +2,7 @@
   {% if dsoColumns %}
     {%- for definition in definitions %}
       <div>
-        <dt>{{ definition.term }}{% if definition.useSrOnlyColon %}<span class="sr-only">:<span>{% else %}:{% endif %}</dt>
+        <dt>{{ definition.term }}{% if definition.useSrOnlyColon %}<span class="sr-only">:</span>{% else %}:{% endif %}</dt>
         {%- for description in definition.descriptions %}
           <dd>{{ description.description | safe }}</dd>
         {%- endfor -%}
@@ -17,7 +17,7 @@
     {% endfor -%}
   {% else %}
     {%- for definition in definitions %}
-      <dt>{{ definition.term }}{% if definition.useSrOnlyColon %}<span class="sr-only">:<span>{% else %}:{% endif %}</dt>
+      <dt>{{ definition.term }}{% if definition.useSrOnlyColon %}<span class="sr-only">:</span>{% else %}:{% endif %}</dt>
       {%- for description in definition.descriptions %}
         <dd>
           {%- if description.columnsList -%}

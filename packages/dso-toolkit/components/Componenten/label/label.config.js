@@ -4,8 +4,7 @@ const symbolColor = '<span class="symboolcode" data-symboolcode="vszt030"></span
 module.exports = {
   label: 'Label (Web Component)',
   meta: {
-    webComponent: 'dso-label',
-    markup: false
+    webComponent: 'dso-label'
   },
   status: 'ready',
   collated: true,
