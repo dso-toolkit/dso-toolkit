@@ -196,6 +196,7 @@ button {
 
 .overlay {
   box-shadow: -2px 0 5px colors.$grijs-60;
+  overflow: visible;
   padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
   right: 0;
   width: core-viewer-grid-variables.$overlay-width;
