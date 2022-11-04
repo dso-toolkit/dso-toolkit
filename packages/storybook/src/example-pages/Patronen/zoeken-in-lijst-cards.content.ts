@@ -4,56 +4,56 @@ import { TemplateResult } from "lit-html";
 export const cardList: CardList<TemplateResult> = {
   cards: [
     {
-      label: 'Omgevingsplan industrieterrein Lange Voorden',
-      content: 'Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      label: "Omgevingsplan industrieterrein Lange Voorden",
+      content: "Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       interactions: [
         {
-          type: 'button',
-          variant: 'tertiary',
-          icon: { icon: 'info' },
-          label: 'Extra informatie',
-          iconMode: 'only'
-        }
-      ]
+          type: "button",
+          variant: "tertiary",
+          icon: { icon: "info" },
+          label: "Extra informatie",
+          iconMode: "only",
+        },
+      ],
     },
     {
-      label: 'Omgevingsplan Gemeente Den Haag',
-      content: 'Brouwersmolen eget iaculis nisi quam in libero.',
+      label: "Omgevingsplan Gemeente Den Haag",
+      content: "Brouwersmolen eget iaculis nisi quam in libero.",
       interactions: [
         {
-          type: 'button',
-          variant: 'tertiary',
-          icon: { icon: 'info' },
-          label: 'Extra informatie',
-          iconMode: 'only'
-        }
-      ]
+          type: "button",
+          variant: "tertiary",
+          icon: { icon: "info" },
+          label: "Extra informatie",
+          iconMode: "only",
+        },
+      ],
     },
     {
-      label: 'Flora en Fauna beslissing 2019',
-      content: 'Brouwersmolen eget iaculis nisi quam in libero.',
+      label: "Flora en Fauna beslissing 2019",
+      content: "Brouwersmolen eget iaculis nisi quam in libero.",
       interactions: [
         {
-          type: 'button',
-          variant: 'tertiary',
-          icon: { icon: 'info' },
-          label: 'Extra informatie',
-          iconMode: 'only'
-        }
-      ]
+          type: "button",
+          variant: "tertiary",
+          icon: { icon: "info" },
+          label: "Extra informatie",
+          iconMode: "only",
+        },
+      ],
     },
     {
-      label: 'Bestemmingsplan Zuiderpark',
-      content: 'Zuiderpark eget iaculis nisi quam in libero.',
+      label: "Bestemmingsplan Zuiderpark",
+      content: "Zuiderpark eget iaculis nisi quam in libero.",
       interactions: [
         {
-          type: 'button',
-          variant: 'tertiary',
-          icon: { icon: 'info' },
-          label: 'Extra informatie',
-          iconMode: 'only'
-        }
-      ]
-    }
-  ]
+          type: "button",
+          variant: "tertiary",
+          icon: { icon: "info" },
+          label: "Extra informatie",
+          iconMode: "only",
+        },
+      ],
+    },
+  ],
 };

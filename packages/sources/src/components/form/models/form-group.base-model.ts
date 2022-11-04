@@ -1,5 +1,5 @@
-import { Info } from '../../..';
-import { InfoButton } from '../../info-button/info-button.models';
+import { Info } from "../../..";
+import { InfoButton } from "../../info-button/info-button.models";
 
 export interface FormGroupBase<TemplateFnReturnType> {
   group: string;
@@ -11,7 +11,7 @@ export interface FormGroupBase<TemplateFnReturnType> {
   infoButton?: InfoButton;
   info?: Info<TemplateFnReturnType>;
   inline?: boolean;
-  state?: 'invalid' | 'valid';
+  state?: "invalid" | "valid";
   errorText?: string;
   helpText?: string;
 }

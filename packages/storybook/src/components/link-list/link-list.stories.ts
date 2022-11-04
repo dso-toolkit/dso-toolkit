@@ -22,8 +22,7 @@ storiesOfLinkList({
 
     function inHighlightBoxTemplate(linkList: TemplateResult) {
       return html`
-        ${highlightBoxTemplate({ content: linkList })}
-        ${highlightBoxTemplate({ content: linkList, yellow: true })}
+        ${highlightBoxTemplate({ content: linkList })} ${highlightBoxTemplate({ content: linkList, yellow: true })}
         ${highlightBoxTemplate({ content: linkList, border: true })}
         ${highlightBoxTemplate({
           content: linkList,

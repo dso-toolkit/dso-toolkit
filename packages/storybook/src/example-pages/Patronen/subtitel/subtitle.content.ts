@@ -1,25 +1,25 @@
 export const definitionList = {
-  modifier: 'dso-bordered',
+  modifier: "dso-bordered",
   useSrOnlyColon: true,
   definitions: [
     {
-      term: 'Thema',
+      term: "Thema",
       descriptions: [
         {
-          content: 'Wonen'
+          content: "Wonen",
         },
         {
-          content: 'Werken'
-        }
-      ]
+          content: "Werken",
+        },
+      ],
     },
     {
-      term: 'Regelkwalificatie',
+      term: "Regelkwalificatie",
       descriptions: [
         {
-          content: 'Instructieregels'
-        }
-      ]
-    }
-  ]
-}
+          content: "Instructieregels",
+        },
+      ],
+    },
+  ],
+};

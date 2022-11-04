@@ -1,33 +1,44 @@
-import { html } from 'lit-html';
+import { html } from "lit-html";
 
-import { examplePageFactory } from '../../example-page-factory';
-import { footerPartial } from '../partials/footer';
-import { headerPartial } from '../partials/header';
-import { header } from '../partials/header.content';
+import { examplePageFactory } from "../../example-page-factory";
+import { footerPartial } from "../partials/footer";
+import { headerPartial } from "../partials/header";
+import { header } from "../partials/header.content";
 
 examplePageFactory(
-  'patronen',
-  'Pagina met banner',
+  "patronen",
+  "Pagina met banner",
   ({ bannerTemplate, highlightBoxTemplate }, templates) => html`
-    ${bannerTemplate({ status: 'danger', content: html`
-      <div class="dso-rich-content">
-        <h2>
-          Storingsmelding:
-        </h2>
-        <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
-      </div>
-    `})}
+    ${bannerTemplate({
+      status: "danger",
+      content: html`
+        <div class="dso-rich-content">
+          <h2>Storingsmelding:</h2>
+          <p>
+            Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.
+          </p>
+        </div>
+      `,
+    })}
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
         <div class="row">
           <div class="col-lg-8">
-            ${highlightBoxTemplate({ yellow: true, content: html`
-              <div class="dso-rich-content">
-                <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
-                <p>Zo voorkomt u dat uw aanvraag vertraging oploopt. Er zijn slechts een aantal vragen verplicht, maar om uw aanvraag in behandeling te kunnen nemen moeten er voldoende gegevens over uw activiteit(en) bekend zijn. Welke dat zijn is in elke situatie anders. Controleer daarom extra op de volledigheid van uw aanvraag.</p>
-              </div>
-            ` })}
+            ${highlightBoxTemplate({
+              yellow: true,
+              content: html`
+                <div class="dso-rich-content">
+                  <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
+                  <p>
+                    Zo voorkomt u dat uw aanvraag vertraging oploopt. Er zijn slechts een aantal vragen verplicht, maar
+                    om uw aanvraag in behandeling te kunnen nemen moeten er voldoende gegevens over uw activiteit(en)
+                    bekend zijn. Welke dat zijn is in elke situatie anders. Controleer daarom extra op de volledigheid
+                    van uw aanvraag.
+                  </p>
+                </div>
+              `,
+            })}
             <div class="dso-rich-content">
               <h2>Proefverzoek</h2>
               <p>Ben u niet zeker over uw aanvraag? Vraag u zich bijvoorbeeld af of die extra meter voor de aanbouw wel mag? Dan kunt u gebruik maken van een proefverzoek. Door uw aanvraag in te dienen als proefverzoek kunt u samen met de gemeente, waterschap of provincie kijken wat er nodig is voor een passende vergunning of melding van iw activiteit(en).</p>
@@ -35,13 +46,20 @@ examplePageFactory(
             </div>
           </div>
           <div class="col-lg-4">
-            ${highlightBoxTemplate({ white: true, border: true, content: html`
-              <div class="dso-rich-content">
-                <h2>Vragen?</h2>
-                <h3>Bel 088 - 79 70 790</h3>
-                <p>Bereikbaar op werkdagen van 9.00-12.00 uur en van 13.00-16.30 uur. Kijk op de website <a href="#">www.aandeslagmetdeomgevingswet.nl</a> of neem <a href="#">contact</a> met ons op.</p>
-              </div>
-            ` })}
+            ${highlightBoxTemplate({
+              white: true,
+              border: true,
+              content: html`
+                <div class="dso-rich-content">
+                  <h2>Vragen?</h2>
+                  <h3>Bel 088 - 79 70 790</h3>
+                  <p>
+                    Bereikbaar op werkdagen van 9.00-12.00 uur en van 13.00-16.30 uur. Kijk op de website
+                    <a href="#">www.aandeslagmetdeomgevingswet.nl</a> of neem <a href="#">contact</a> met ons op.
+                  </p>
+                </div>
+              `,
+            })}
           </div>
         </div>
       </main>

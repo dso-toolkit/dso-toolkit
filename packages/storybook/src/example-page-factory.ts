@@ -1,8 +1,8 @@
-import { storiesOfFactory } from '@dso-toolkit/sources';
-import { storiesOf } from '@storybook/web-components';
-import { TemplateResult } from 'lit-html';
+import { storiesOfFactory } from "@dso-toolkit/sources";
+import { storiesOf } from "@storybook/web-components";
+import { TemplateResult } from "lit-html";
 
-import { templateContainer, Templates } from './templates';
+import { templateContainer, Templates } from "./templates";
 
 export function examplePageFactory(
   location: string,
@@ -14,18 +14,21 @@ export function examplePageFactory(
     {
       parameters: {
         module,
-        readme: '',
-        storiesOf
+        readme: "",
+        storiesOf,
       },
       storyTemplates,
-      templateContainer
+      templateContainer,
     },
     (stories, templateMapper) => {
       stories
         .addParameters({
-          layout: 'fullscreen'
+          layout: "fullscreen",
         })
-        .add(name, templateMapper((_args, storyTemplates) => storyTemplates))
+        .add(
+          name,
+          templateMapper((_args, storyTemplates) => storyTemplates)
+        );
     }
   );
 }

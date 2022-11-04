@@ -17,7 +17,7 @@ export const cssInfoButton: ComponentImplementation<InfoButton> = {
             "dso-info-secondary": !!secondary,
           })}"
           aria-expanded=${ifDefined(active?.toString())}
-          @click=${dsoToggle}
+          @click=${ifDefined(dsoToggle)}
         >
           <span class="sr-only"> ${label ?? "Toelichting bij optie"} </span>
         </button>

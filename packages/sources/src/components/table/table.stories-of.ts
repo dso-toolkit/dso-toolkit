@@ -20,7 +20,9 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
       argTypes: tableArgTypes,
     });
 
-    const template = templateMapper<TableArgs<TemplateFnReturnType>>((args, { tableTemplate }) => tableTemplate(tableArgsMapper(args)));
+    const template = templateMapper<TableArgs<TemplateFnReturnType>>((args, { tableTemplate }) =>
+      tableTemplate(tableArgsMapper(args))
+    );
 
     stories.add("default", template, {
       args: {
