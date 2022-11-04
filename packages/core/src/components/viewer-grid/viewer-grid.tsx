@@ -19,8 +19,6 @@ export interface FilterpanelEvent {
   originalEvent: MouseEvent;
 }
 
-const TRANSITION_TIME = 200; // Keep in sync with dso-viewer-grid.variables.scss:$dso-viewer-grid-transition-time;
-
 @Component({
   tag: "dso-viewer-grid",
   styleUrl: "viewer-grid.scss",
@@ -32,6 +30,8 @@ export class ViewerGrid {
     medium: "middel",
     large: "breed",
   };
+
+  private mapPanel?: HTMLDivElement;
 
   @Prop({ reflect: true })
   filterpanelOpen = false;
@@ -83,13 +83,19 @@ export class ViewerGrid {
       currentSize,
     });
 
-    setTimeout(() => {
-      this.dsoMainSizeChange.emit({
-        stage: "end",
-        previousSize,
-        currentSize,
-      });
-    }, TRANSITION_TIME);
+    this.mapPanel?.addEventListener(
+      "transitionend",
+      (e) => {
+        if (e.propertyName === "flex-basis") {
+          this.dsoMainSizeChange.emit({
+            stage: "end",
+            previousSize,
+            currentSize,
+          });
+        }
+      },
+      { once: true }
+    );
   }
 
   shrinkMain = () => {
@@ -186,7 +192,7 @@ export class ViewerGrid {
   render() {
     return (
       <Host {...{ [this.mainSize]: true }}>
-        <div class="dso-map-panel">
+        <div class="dso-map-panel" ref={(element) => (this.mapPanel = element)}>
           <div class="sizing-buttons">
             <span class="sr-only" aria-live="polite" aria-atomic="true">
               breedte tekstpaneel: {this.sizeLabelMap[this.mainSize]}
