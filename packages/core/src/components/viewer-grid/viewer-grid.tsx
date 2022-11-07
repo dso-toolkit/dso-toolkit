@@ -223,6 +223,7 @@ export class ViewerGrid {
         <div class="map">
           <slot name="map" />
         </div>
+        <div hidden={!this.overlayOpen || !this.overlaySlot} class="dimscreen"></div>
         <div
           class="overlay"
           hidden={!this.overlayOpen || !this.overlaySlot}

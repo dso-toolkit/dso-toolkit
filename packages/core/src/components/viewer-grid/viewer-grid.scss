@@ -196,7 +196,6 @@ button {
 
 .overlay {
   box-shadow: -2px 0 5px colors.$grijs-60;
-  overflow: visible;
   padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
   right: 0;
   width: core-viewer-grid-variables.$overlay-width;
@@ -204,17 +203,16 @@ button {
   @media screen and (max-width: core-viewer-grid-variables.$overlay-width) {
     width: 100vw;
   }
+}
 
-  &::before {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: core-viewer-grid-variables.$overlay-width;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+.dimscreen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: core-viewer-grid-variables.$overlay-width;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: zindex.$viewer-grid-map-panel + 2;
 }
 
 .filterpanel-buttons {
