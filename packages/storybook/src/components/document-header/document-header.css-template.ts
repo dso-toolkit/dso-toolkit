@@ -2,13 +2,12 @@ import { html, nothing, TemplateResult } from "lit-html";
 
 import { DocumentHeader } from "@dso-toolkit/sources";
 import { ComponentImplementation } from "../../templates";
-import { ifDefined } from "lit-html/directives/if-defined.js";
 import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
   implementation: "css",
-  template: ({ buttonTemplate, definitionListTemplate, iconTemplate }) =>
+  template: ({ buttonTemplate, definitionListTemplate }) =>
     function documentHeaderTemplate({
       title,
       type,
