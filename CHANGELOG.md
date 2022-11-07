@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 * **css + sources + storybook:** Document header: state toevoegen tbv sticky maken ([#1809](https://github.com/dso-toolkit/dso-toolkit/issues/1809))
 
+### Fixed
+* **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
+
 ### Added
 * **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
 
