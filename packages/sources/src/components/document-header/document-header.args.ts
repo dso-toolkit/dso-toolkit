@@ -1,7 +1,7 @@
-import { HandlerFunction } from '@storybook/addon-actions';
-import { DefinitionList } from '../definition-list/definition-list.models';
-import { DocumentHeader } from './document-header.models';
-import { ArgTypes, noControl } from '../../storybook';
+import { HandlerFunction } from "@storybook/addon-actions";
+import { DefinitionList } from "../definition-list/definition-list.models";
+import { DocumentHeader } from "./document-header.models";
+import { ArgTypes, noControl } from "../../storybook";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -16,38 +16,38 @@ export interface DocumentHeaderArgs {
 export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
   title: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   owner: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   type: {
     control: {
-      type: 'text',
+      type: "text",
     },
   },
   featureAction: {
     ...noControl,
-    action: 'dsoToggleSection',
+    action: "dsoToggleSection",
   },
   featuresOpen: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   statusContentOpen: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
   },
   sticky: {
     control: {
-      type: 'boolean',
+      type: "boolean",
     },
-  }
+  },
 };
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
@@ -66,6 +66,6 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
     featuresOpen: a.featuresOpen,
     statusContent,
     statusContentOpen: a.statusContentOpen,
-    sticky: a.sticky
+    sticky: a.sticky,
   };
 }

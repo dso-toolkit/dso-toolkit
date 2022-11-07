@@ -86,14 +86,19 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
           documentHeaderFeaturesOpen: args.documentHeaderFeaturesOpen,
           documentHeaderFeatureAction: args.documentHeaderFeatureAction,
           documentHeaderStatusOpen: args.documentHeaderStatusOpen,
+          documentHeaderSticky: args.documentHeaderSticky,
         })
       ),
       {
         args: componentArgs<
-          Pick<ViewerGridDocumentHeaderArgs, "documentHeaderFeaturesOpen" | "documentHeaderStatusOpen">
+          Pick<
+            ViewerGridDocumentHeaderArgs,
+            "documentHeaderFeaturesOpen" | "documentHeaderStatusOpen" | "documentHeaderSticky"
+          >
         >({
           documentHeaderFeaturesOpen: false,
           documentHeaderStatusOpen: false,
+          documentHeaderSticky: false,
         }),
         argTypes: viewerGridDocumentHeaderArgs,
       }

@@ -43,6 +43,7 @@ storiesOfViewerGrid({
       documentHeaderFeaturesOpen,
       documentHeaderFeatureAction,
       documentHeaderStatusOpen,
+      documentHeaderSticky,
     }: ViewerGridDocumentHeaderProperties) {
       function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureAction: HandlerFunction) {
         return html`
@@ -120,6 +121,7 @@ storiesOfViewerGrid({
           featureAction: documentHeaderFeatureAction,
           featuresOpen: documentHeaderFeaturesOpen,
           statusContentOpen: documentHeaderStatusOpen,
+          sticky: documentHeaderSticky,
           status: status(documentHeaderFeaturesOpen, documentHeaderFeatureAction),
           statusContent: html`
             <h2>Versies</h2>

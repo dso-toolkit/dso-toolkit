@@ -16,6 +16,7 @@ export interface ViewerGridDocumentHeaderArgs {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderFeatureAction: HandlerFunction;
   documentHeaderStatusOpen: boolean;
+  documentHeaderSticky: boolean;
 }
 
 export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
@@ -67,6 +68,11 @@ export const viewerGridDocumentHeaderArgs: ArgTypes<ViewerGridDocumentHeaderArgs
   documentHeaderFeatureAction: {
     ...noControl,
     action: "documentHeaderFeatureAction",
+  },
+  documentHeaderSticky: {
+    control: {
+      type: "boolean",
+    },
   },
 };
 
