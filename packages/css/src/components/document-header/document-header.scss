@@ -1,6 +1,9 @@
+@use "../../di";
+
 @use "@dso-toolkit/sources/src/utilities";
 @use "@dso-toolkit/sources/src/variables/units";
 @use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/typography";
 @use "@dso-toolkit/sources/src/components/button";
 @use "@dso-toolkit/sources/src/components/icon";
 
@@ -11,6 +14,56 @@
   padding: grid-variables.$grid-gutter-width * 0.5;
   margin-left: grid-variables.$grid-gutter-width * -0.5;
   margin-right: grid-variables.$grid-gutter-width * -0.5;
+
+  #{typography.$headings} {
+    button {
+      border: 0;
+      padding: 0;
+
+      svg.di {
+        display: none;
+      }
+    }
+  }
+
+  &.dso-document-header-sticky {
+    left: 0;
+    padding: units.$u1 - 1 units.$u2 units.$u1;
+    position: sticky;
+    top: 0;
+
+    #{typography.$headings} {
+      font-size: 1.25rem;
+      margin-bottom: 0;
+
+      button {
+        align-items: center;
+        display: flex;
+        text-align: left;
+        width: 100%;
+
+        &::after {
+          @include di.base("chevron-up-bosgroen");
+
+          content: "";
+          display: inline-block;
+        }
+
+        span {
+          display: inline-block;
+          margin-right: units.$u1;
+          max-width: calc(100% - #{units.$u2 * 2});
+          overflow: hidden;
+          text-overflow: ellipsis; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
+          white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- We don't want wrapping in sticky document-header: full text in initial (scroll=0) position
+        }
+      }
+    }
+
+    .dso-document-header-container {
+      display: none;
+    }
+  }
 
   a {
     color: colors.$zwart;

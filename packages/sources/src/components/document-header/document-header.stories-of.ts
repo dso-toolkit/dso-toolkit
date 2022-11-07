@@ -1,10 +1,9 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 
-import { noControl } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { DefinitionList } from "../definition-list/definition-list.models";
 
-import { DocumentHeaderArgs, documentHeaderArgsMapper } from "./document-header.args";
+import { DocumentHeaderArgs, documentHeaderArgsMapper, documentHeaderArgTypes } from "./document-header.args";
 import { DocumentHeader } from "./document-header.models";
 
 export interface DocumentHeaderTemplates<TemplateFnReturnType> {
@@ -24,8 +23,11 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
 ) {
   return storiesOfFactory("Document Header", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
+      argTypes: documentHeaderArgTypes,
       args: {
-        ...noControl,
+        featuresOpen: false,
+        statusContentOpen: false,
+        sticky: false,
       },
     });
 
@@ -36,6 +38,21 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
         )
     );
 
-    stories.add("Document Header", template);
+    stories.add("default", template, {
+      args: {
+        title: "Omgevingsplan gemeente Gouda",
+        type: "Een omgevingsplan waar de omgeving mooier van wordt",
+        owner: "Gemeente Gouda",
+      },
+    });
+
+    stories.add("sticky", template, {
+      args: {
+        title: "Omgevingsplan gemeente Gouda",
+        type: "Een omgevingsplan waar de omgeving mooier van wordt",
+        owner: "Gemeente Gouda",
+        sticky: true,
+      },
+    });
   });
 }

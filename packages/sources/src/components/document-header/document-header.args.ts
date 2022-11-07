@@ -1,6 +1,7 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 import { DefinitionList } from "../definition-list/definition-list.models";
 import { DocumentHeader } from "./document-header.models";
+import { ArgTypes, noControl } from "../../storybook";
 
 export interface DocumentHeaderArgs {
   title: string;
@@ -9,7 +10,45 @@ export interface DocumentHeaderArgs {
   featureAction: HandlerFunction;
   featuresOpen: boolean;
   statusContentOpen: boolean;
+  sticky: boolean;
 }
+
+export const documentHeaderArgTypes: ArgTypes<DocumentHeaderArgs> = {
+  title: {
+    control: {
+      type: "text",
+    },
+  },
+  owner: {
+    control: {
+      type: "text",
+    },
+  },
+  type: {
+    control: {
+      type: "text",
+    },
+  },
+  featureAction: {
+    ...noControl,
+    action: "dsoToggleSection",
+  },
+  featuresOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
+  statusContentOpen: {
+    control: {
+      type: "boolean",
+    },
+  },
+  sticky: {
+    control: {
+      type: "boolean",
+    },
+  },
+};
 
 export function documentHeaderArgsMapper<TemplateFnReturnType>(
   a: DocumentHeaderArgs,
@@ -27,5 +66,6 @@ export function documentHeaderArgsMapper<TemplateFnReturnType>(
     featuresOpen: a.featuresOpen,
     statusContent,
     statusContentOpen: a.statusContentOpen,
+    sticky: a.sticky,
   };
 }

@@ -2,6 +2,7 @@ import { html, nothing, TemplateResult } from "lit-html";
 
 import { DocumentHeader } from "@dso-toolkit/sources";
 import { ComponentImplementation } from "../../templates";
+import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
@@ -17,10 +18,15 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       status,
       statusContentOpen,
       statusContent,
+      sticky,
     }) {
       return html`
-        <dso-responsive-element class="dso-document-header">
-          <h1>${title}</h1>
+        <dso-responsive-element class="dso-document-header ${classMap({ "dso-document-header-sticky": sticky })}">
+          <h1>
+            <button type="button">
+              <span>${title}</span>
+            </button>
+          </h1>
 
           <div class="dso-document-header-container">
             <div class="dso-document-header-owner-wrapper">

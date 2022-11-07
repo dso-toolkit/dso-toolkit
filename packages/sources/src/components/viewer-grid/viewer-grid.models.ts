@@ -43,4 +43,5 @@ export interface ViewerGridDocumentHeaderProperties {
   documentHeaderFeaturesOpen: boolean;
   documentHeaderFeatureAction: (e: MouseEvent) => void;
   documentHeaderStatusOpen: boolean;
+  documentHeaderSticky: boolean;
 }

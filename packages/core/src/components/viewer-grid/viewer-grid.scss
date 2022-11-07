@@ -110,7 +110,7 @@ button {
   .main {
     height: 100%;
     overflow-y: scroll;
-    padding: units.$u1 css-grid.$grid-gutter-width * 0.5;
+    padding: 0 css-grid.$grid-gutter-width * 0.5 units.$u1;
   }
 }
 
