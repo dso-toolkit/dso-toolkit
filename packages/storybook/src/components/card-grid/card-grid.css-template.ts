@@ -7,6 +7,6 @@ export const cssCardGrid: ComponentImplementation<CardGrid<TemplateResult>> = {
   implementation: "css",
   template: ({ cardTemplate }) =>
     function cardGridTemplate({ cards }) {
-      return html` <div class="dso-card-grid">${cards.map((card) => cardTemplate(card))}</div> `;
+      return html`<div class="dso-card-grid">${cards.map((card) => cardTemplate(card))}</div>`;
     },
 };

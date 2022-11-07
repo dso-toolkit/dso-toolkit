@@ -252,7 +252,7 @@ storiesOfViewerGrid({
               nec eros porttitor aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi tristique
               senectus et netus et malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
             </p>
-          </div> `,
+          </div>`,
       },
       tilesExampleTemplate,
       filterblokExampleTemplate,

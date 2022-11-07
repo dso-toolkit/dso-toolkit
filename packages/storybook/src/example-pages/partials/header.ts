@@ -4,5 +4,5 @@ import { Templates } from "../../templates";
 import { breadcrumbs } from "./header.content";
 
 export function headerPartial({ headerTemplate, breadcrumbsTemplate }: Templates, header: Header) {
-  return html` <header>${headerTemplate(header)} ${breadcrumbsTemplate(breadcrumbs)}</header> `;
+  return html`<header>${headerTemplate(header)} ${breadcrumbsTemplate(breadcrumbs)}</header>`;
 }

@@ -10,7 +10,6 @@ export interface FormGroupBase<TemplateFnReturnType> {
   disabled?: boolean;
   infoButton?: InfoButton;
   info?: Info<TemplateFnReturnType>;
-  inline?: boolean;
   state?: "invalid" | "valid";
   errorText?: string;
   helpText?: string;

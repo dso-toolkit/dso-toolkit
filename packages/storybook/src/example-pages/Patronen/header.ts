@@ -7,5 +7,5 @@ import { header } from "../partials/header.content";
 examplePageFactory(
   "Patronen",
   "Header",
-  (templates) => html` <div class="container">${headerPartial(templates, header)}</div> `
+  (templates) => html`<div class="container">${headerPartial(templates, header)}</div>`
 );

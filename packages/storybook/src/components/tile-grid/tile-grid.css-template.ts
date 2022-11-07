@@ -7,6 +7,6 @@ export const cssTileGrid: ComponentImplementation<TileGrid<TemplateResult>> = {
   implementation: "css",
   template: () =>
     function tileGridTemplate({ children }) {
-      return html` <dso-responsive-element class="dso-tile-grid"> ${children} </dso-responsive-element> `;
+      return html`<dso-responsive-element class="dso-tile-grid"> ${children} </dso-responsive-element>`;
     },
 };

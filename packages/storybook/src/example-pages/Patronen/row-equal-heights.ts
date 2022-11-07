@@ -33,16 +33,16 @@ examplePageFactory(
         <main>
           <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-3">
-              ${highlightBoxTemplate({ dropShadow: true, content: html` <code>col-sm-12 col-md-6 col-lg-3</code> ` })}
+              ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-              ${highlightBoxTemplate({ dropShadow: true, content: html` <code>col-sm-12 col-md-6 col-lg-3</code> ` })}
+              ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-              ${highlightBoxTemplate({ dropShadow: true, content: html` <code>col-sm-12 col-md-6 col-lg-3</code> ` })}
+              ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
-              ${highlightBoxTemplate({ dropShadow: true, content: html` <code>col-sm-12 col-md-6 col-lg-3</code> ` })}
+              ${highlightBoxTemplate({ dropShadow: true, content: html`<code>col-sm-12 col-md-6 col-lg-3</code>` })}
             </div>
           </div>
 

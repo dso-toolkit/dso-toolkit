@@ -7,6 +7,6 @@ export const coreInfo: ComponentImplementation<Info<TemplateResult>> = {
   implementation: "core",
   template: () =>
     function infoTemplate({ fixed, active, richContent, dsoClose }) {
-      return html` <dso-info ?fixed=${fixed} ?active=${active} @dsoClose=${dsoClose}> ${richContent} </dso-info> `;
+      return html`<dso-info ?fixed=${fixed} ?active=${active} @dsoClose=${dsoClose}> ${richContent} </dso-info>`;
     },
 };

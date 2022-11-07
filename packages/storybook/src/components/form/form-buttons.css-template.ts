@@ -13,7 +13,7 @@ export const cssFormButtons: ComponentImplementation<FormButtons> = {
           <div class="dso-form-buttons">
             ${asideButtons &&
             asideButtons.length > 0 &&
-            html` <div class="dso-aside">${asideButtons.map((button: Button) => buttonTemplate(button))}</div> `}
+            html`<div class="dso-aside">${asideButtons.map((button: Button) => buttonTemplate(button))}</div>`}
             ${buttons.map((button) => buttonTemplate(button))}
           </div>
         </form>

@@ -10,9 +10,9 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     function cardTemplate({ label, selectable, content, interactions, image }) {
       return html`
         <div class="dso-card ${classMap({ "dso-is-selectable": !!selectable, "dso-has-image": !!image })}">
-          ${selectable ? html` <div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
+          ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
           ${image
-            ? html` <div class="dso-card-image">
+            ? html`<div class="dso-card-image">
                 <img src=${image} />
               </div>`
             : nothing}
@@ -28,7 +28,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             html`
               <div class="dso-card-interactions">
                 ${interactions.map(
-                  (interaction) => html` <div class="dso-card-interaction">${buttonTemplate(interaction)}</div> `
+                  (interaction) => html`<div class="dso-card-interaction">${buttonTemplate(interaction)}</div>`
                 )}
               </div>
             `}

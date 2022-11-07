@@ -7,6 +7,6 @@ export const coreResponsiveElement: ComponentImplementation<ResponsiveElement<Te
   implementation: "core",
   template: () =>
     function responsiveElementTemplate({ dsoSizeChange, children }) {
-      return html` <dso-responsive-element @dsoSizeChange=${dsoSizeChange}> ${children} </dso-responsive-element> `;
+      return html`<dso-responsive-element @dsoSizeChange=${dsoSizeChange}> ${children} </dso-responsive-element>`;
     },
 };

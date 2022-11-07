@@ -16,14 +16,14 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
           <div class="dso-dropdown-options">
             ${groups.map(
               (group) => html`
-                ${group.header ? html` <h2 class="dso-group-label">${group.header}</h2> ` : nothing}
+                ${group.header ? html`<h2 class="dso-group-label">${group.header}</h2>` : nothing}
                 <ul>
                   ${group.items.map(
                     (item) => html`
                       <li class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
                         ${item.type === "anchor"
-                          ? html` <a href=${item.url}>${item.label}</a> `
-                          : html` <button type="button">${item.label}</button> `}
+                          ? html`<a href=${item.url}>${item.label}</a>`
+                          : html`<button type="button">${item.label}</button>`}
                       </li>
                     `
                   )}

@@ -7,6 +7,6 @@ export const cssRowEqualHeights: ComponentImplementation<RowEqualHeights<Templat
   implementation: "css",
   template: () =>
     function rowEqualHeightsTemplate({ children }) {
-      return html` <div class="row dso-equal-heights">${children}</div> `;
+      return html`<div class="row dso-equal-heights">${children}</div>`;
     },
 };

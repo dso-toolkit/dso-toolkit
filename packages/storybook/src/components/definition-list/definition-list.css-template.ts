@@ -19,7 +19,7 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList> = {
       function definitionTemplate({ term, descriptions }: Definition<TemplateResult>, useSrOnlyColon: boolean) {
         return html`
           <dt>${term}${useSrOnlyColon ? html`<span class="sr-only">:</span>` : ":"}</dt>
-          ${descriptions.map((description) => html` <dd>${definitionContentTemplate(description)}</dd> `)}
+          ${descriptions.map((description) => html`<dd>${definitionContentTemplate(description)}</dd>`)}
         `;
       }
 
@@ -41,7 +41,7 @@ export const cssDefinitionList: ComponentImplementation<DefinitionList> = {
         <dl class=${ifDefined(modifier)}>
           ${definitions.map((definition) =>
             modifier?.split(" ").includes("dso-columns")
-              ? html` <div>${definitionTemplate(definition, useSrOnlyColon)}</div> `
+              ? html`<div>${definitionTemplate(definition, useSrOnlyColon)}</div>`
               : definitionTemplate(definition, useSrOnlyColon)
           )}
         </dl>

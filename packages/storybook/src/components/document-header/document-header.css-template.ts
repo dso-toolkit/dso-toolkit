@@ -62,7 +62,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
             <div class="dso-document-header-status-wrapper">
               <p class="dso-document-header-status">${status}</p>
               ${statusContentOpen && statusContent
-                ? html` <div class="dso-document-header-status-content">${statusContent}</div> `
+                ? html`<div class="dso-document-header-status-content">${statusContent}</div>`
                 : nothing}
             </div>
           </div>

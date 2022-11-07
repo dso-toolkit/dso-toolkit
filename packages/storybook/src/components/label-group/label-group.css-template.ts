@@ -9,7 +9,7 @@ export const cssLabelGroup: ComponentImplementation<LabelGroup> = {
     function labelGroupTemplate({ labels }) {
       return html`<div class="dso-label-group">
         <ul>
-          ${labels.map((label) => html` <li>${labelTemplate(label)}</li> `)}
+          ${labels.map((label) => html`<li>${labelTemplate(label)}</li>`)}
         </ul>
       </div>`;
     },

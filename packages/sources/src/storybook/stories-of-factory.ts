@@ -16,7 +16,7 @@ export interface StoryOfFactoryArguments<TemplateFnReturnType, StoryTemplates> {
     stories: StoryApi<TemplateFnReturnType>,
     templateMapper: <StoryVariantArgs>(
       cb: (args: StoryVariantArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType
-    ) => (args: Args, context: unknown) => TemplateFnReturnType
+    ) => (args: Args) => TemplateFnReturnType
   ): void;
 }
 

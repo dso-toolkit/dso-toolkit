@@ -17,7 +17,7 @@ export const coreAccordion: ComponentImplementation<Accordion> = {
           @dsoToggleSection=${dsoToggleSection}
         >
           ${sections.map(
-            (section) => html` <dso-accordion-section
+            (section) => html`<dso-accordion-section
               ?open=${ifDefined(section.open)}
               handle-title=${section.handleTitle}
               heading=${section.heading}

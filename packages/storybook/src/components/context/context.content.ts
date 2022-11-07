@@ -16,4 +16,4 @@ export const children = html`
   </div>
 `;
 
-export const label = html` <h4>5 activiteiten</h4> `;
+export const label = html`<h4>5 activiteiten</h4>`;

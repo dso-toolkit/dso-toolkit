@@ -7,6 +7,6 @@ export const cssBadge: ComponentImplementation<Badge> = {
   implementation: "css",
   template: () =>
     function badgeTemplate({ status, message }) {
-      return html` <span class="dso-badge ${status ? `badge-${status}` : ""}"> ${message} </span>`;
+      return html`<span class="dso-badge ${status ? `badge-${status}` : ""}"> ${message} </span>`;
     },
 };

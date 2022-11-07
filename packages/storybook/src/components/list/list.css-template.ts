@@ -43,7 +43,7 @@ export const cssList: ComponentImplementation<List> = {
         ${items.map(
           (item) => html`
             <li class="${classMap({ "list-group-item": modifier === "group" })}">
-              ${modifier === "img-list" ? html` <img src=${item.imgSrc} /> ` : nothing} ${item.text}
+              ${modifier === "img-list" ? html`<img src=${item.imgSrc} />` : nothing} ${item.text}
             </li>
           `
         )}

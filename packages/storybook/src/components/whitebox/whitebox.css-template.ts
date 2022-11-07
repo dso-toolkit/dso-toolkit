@@ -17,7 +17,7 @@ export const cssWhitebox: ComponentImplementation<Whitebox> = {
                   <span class="sr-only">${iconLabel}</span>
                 </div>
               `
-            : nothing}${count ? html` <div class="dso-step-counter">${count}</div> ` : nothing}
+            : nothing}${count ? html`<div class="dso-step-counter">${count}</div>` : nothing}
           <div class="dso-whitebox-title">
             <h2>${title}</h2>
           </div>

@@ -8,6 +8,6 @@ export const coreIcon: ComponentImplementation<Icon> = {
   implementation: "core",
   template: () =>
     function iconTemplate({ icon, slot }) {
-      return html` <dso-icon icon=${icon} slot=${ifDefined(slot)}></dso-icon> `;
+      return html`<dso-icon icon=${icon} slot=${ifDefined(slot)}></dso-icon>`;
     },
 };

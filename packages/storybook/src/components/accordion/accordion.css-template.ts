@@ -37,10 +37,10 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
         const children = accordionHandleChildren(accordion, section);
 
         if (section.handleUrl) {
-          return html` <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}> ${children} </a> `;
+          return html`<a href="${section.handleUrl}" aria-expanded=${ariaExpanded}> ${children} </a>`;
         }
 
-        return html` <button type="button" aria-expanded=${ariaExpanded}>${children}</button> `;
+        return html`<button type="button" aria-expanded=${ariaExpanded}>${children}</button>`;
       }
 
       function accordionHandleTemplate(accordion: Accordion, section: AccordionSection) {
@@ -74,7 +74,7 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
             })}"
           >
             ${accordionHandleTemplate(accordion, section)}
-            ${section.open ? html` <div class="dso-section-body">${unsafeHTML(section.content)}</div> ` : nothing}
+            ${section.open ? html`<div class="dso-section-body">${unsafeHTML(section.content)}</div>` : nothing}
           </div>
         `;
       }

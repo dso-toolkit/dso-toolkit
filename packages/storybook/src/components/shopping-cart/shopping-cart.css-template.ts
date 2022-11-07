@@ -43,7 +43,7 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
       shoppingcartTitle,
     }) {
       return html`
-        ${shoppingcartTitleTag === "h2" ? html` <h2>${shoppingcartTitle}</h2> ` : html` <h3>${shoppingcartTitle}</h3> `}
+        ${shoppingcartTitleTag === "h2" ? html`<h2>${shoppingcartTitle}</h2>` : html`<h3>${shoppingcartTitle}</h3>`}
 
         <div class="dso-shopping-cart">
           <div class="dso-contents">
@@ -52,7 +52,7 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                   ${!hideSummary
                     ? html`
                         ${collapsable
-                          ? html` <button
+                          ? html`<button
                               type="button"
                               class="dso-status"
                               aria-expanded="${ifDefined(collapsed ? "false" : "true")}"
@@ -99,7 +99,7 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                                   : nothing}
                                 ${item.label}
                                 ${!item.readonly && !item.edit && item.additive
-                                  ? html` <span class="dso-additive">${item.additive}</span> `
+                                  ? html`<span class="dso-additive">${item.additive}</span>`
                                   : nothing}
                                 ${!item.readonly
                                   ? html`
@@ -171,7 +171,7 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                       `
                     : nothing}
                 `
-              : html` <p class="dso-empty">U heeft nog geen activiteiten gekozen</p> `}
+              : html`<p class="dso-empty">U heeft nog geen activiteiten gekozen</p>`}
           </div>
 
           ${items && hasWarning(items) && isOpen

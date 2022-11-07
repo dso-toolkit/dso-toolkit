@@ -17,7 +17,7 @@ storiesOfLinkList({
   templateContainer,
   storyTemplates: ({ linkListTemplate, highlightBoxTemplate }) => {
     function inFooterTemplate(linkList: TemplateResult) {
-      return html` <footer>${linkList}</footer> `;
+      return html`<footer>${linkList}</footer>`;
     }
 
     function inHighlightBoxTemplate(linkList: TemplateResult) {

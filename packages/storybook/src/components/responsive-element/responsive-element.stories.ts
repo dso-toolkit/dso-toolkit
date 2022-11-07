@@ -14,7 +14,7 @@ storiesOfResponsiveElement({
   },
   templateContainer,
   storyTemplates: ({ responsiveElementTemplate }) => ({
-    gridTemplate: (dsoSizeChange, grid) => html` <style type="text/css">
+    gridTemplate: (dsoSizeChange, grid) => html`<style type="text/css">
         dso-responsive-element:not([small]) .demo-small {
           display: none;
         }
@@ -49,7 +49,7 @@ storiesOfResponsiveElement({
         (cols) => html`
           <div class="row">
             ${cols.map(
-              (col) => html` <div class=${col}>
+              (col) => html`<div class=${col}>
                 ${responsiveElementTemplate({
                   dsoSizeChange: dsoSizeChange,
                   children: html`

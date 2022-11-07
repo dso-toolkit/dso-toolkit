@@ -9,7 +9,7 @@ export const cssCardList: ComponentImplementation<CardList<TemplateResult>> = {
     function cardListTemplate({ cards }) {
       return html`
         <ul class="dso-card-list">
-          ${cards.map((card) => html` <li>${cardTemplate(card)}</li> `)}
+          ${cards.map((card) => html`<li>${cardTemplate(card)}</li>`)}
         </ul>
       `;
     },

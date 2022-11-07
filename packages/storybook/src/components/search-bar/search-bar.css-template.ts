@@ -34,13 +34,13 @@ export const cssSearchBar: ComponentImplementation<SearchBar> = {
                     <span class="dso-search-icon" aria-hidden="true"></span>
                   `
                 : label && !icon && !hiddenLabel // else if
-                ? html` <label for=${id}> ${label} </label> `
+                ? html`<label for=${id}> ${label} </label>`
                 : label && hiddenLabel && icon // else if
-                ? html` <label for=${id} class="dso-search-icon"> ${label} </label> `
+                ? html`<label for=${id} class="dso-search-icon"> ${label} </label>`
                 : label && hiddenLabel && !icon // else if
-                ? html` <label for=${id} class="sr-only"> ${label} </label>`
+                ? html`<label for=${id} class="sr-only"> ${label} </label>`
                 : !label && !hiddenLabel && icon // else if
-                ? html` <span class="dso-search-icon" aria-hidden="true"></span>`
+                ? html`<span class="dso-search-icon" aria-hidden="true"></span>`
                 : nothing // else
             }
             <input
@@ -52,12 +52,12 @@ export const cssSearchBar: ComponentImplementation<SearchBar> = {
               aria-errormessage=${ifDefined(ariaErrorMessage || undefined)}
               aria-invalid=${ifDefined(!!invalid || undefined)}
             />
-            ${clearButton ? html` <button type="button">Zoekopdracht legen</button>` : nothing}
+            ${clearButton ? html`<button type="button">Zoekopdracht legen</button>` : nothing}
           </div>
           <button class="dso-secondary ${classMap({ "sr-only": !!hideSearchButton })}">${buttonLabel}</button>
         </div>
         ${resultsMessage
-          ? html` <div class="dso-results ${classMap({ "sr-only": !!resultsHidden })}" aria-live="polite">
+          ? html`<div class="dso-results ${classMap({ "sr-only": !!resultsHidden })}" aria-live="polite">
               ${resultsMessage}
             </div>`
           : nothing}

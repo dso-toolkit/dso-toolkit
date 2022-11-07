@@ -375,13 +375,13 @@ export class MapControls {
         .disableZoom=${this.state.disableZoom}
       >
         ${baseLayers.length > 0
-          ? html` <dso-map-base-layers
+          ? html`<dso-map-base-layers
               .baseLayers=${baseLayers}
               @dsoBaseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => this.handleBaselayerChange(e.detail)}
             ></dso-map-base-layers>`
           : nothing}
         ${overlays.length > 0
-          ? html` <dso-map-overlays
+          ? html`<dso-map-overlays
               .overlays=${overlays}
               @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => this.handleToggleOverlay(e.detail)}
             ></dso-map-overlays>`
