@@ -41,6 +41,6 @@ export const content = {
   },
   loading: {
     role: "alert",
-    body: '<dso-progress-indicator label="Resultaten laden. Een moment geduld."></dso-progress-indicator>',
+    body: '<dso-progress-indicator label="Resultaten laden. Een moment geduld." block></dso-progress-indicator>',
   },
 };

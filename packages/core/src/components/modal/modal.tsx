@@ -13,9 +13,9 @@ export interface DsoModalCloseEvent {
   shadow: true,
 })
 export class Modal implements ComponentInterface {
-  private trap?: FocusTrap;
+  private static modalOpenClass = "dso-modal-open";
 
-  private classModalOpen = "dso-modal-open";
+  private trap?: FocusTrap;
 
   private dialogElement?: HTMLDivElement;
 
@@ -25,35 +25,40 @@ export class Modal implements ComponentInterface {
   @State()
   ariaId = v4();
 
+  @State()
+  hasFooter?: boolean;
+
   @Prop()
   modalTitle?: string;
 
+  /** the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog` */
   @Prop()
-  role?: ModalRole;
-
-  @Prop()
-  hasFooter?: boolean;
+  role: ModalRole = "dialog";
 
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 
+  componentWillLoad(): void {
+    this.hasFooter = this.host.querySelector("*[slot = 'footer']") !== null;
+  }
+
   componentDidLoad(): void {
-    document.body.classList.add(this.classModalOpen);
+    document.body.classList.add(Modal.modalOpenClass);
 
     this.setFocusTrap();
   }
 
   disconnectedCallback(): void {
-    document.body.classList.remove(this.classModalOpen);
+    document.body.classList.remove(Modal.modalOpenClass);
 
     this.trap?.deactivate();
   }
 
   render() {
     return (
-      <Host class="dso-modal" role={this.role ?? "dialog"} aria-modal="true" aria-labelledby={this.ariaId}>
+      <Host class="dso-modal" role={this.role} aria-modal="true" aria-labelledby={this.ariaId}>
         <div class="dso-dialog" role="document" ref={(element) => (this.dialogElement = element)}>
-          {this.modalTitle && (
+          {this.modalTitle ? (
             <div class="dso-header">
               <h2 id={this.ariaId}>{this.modalTitle}</h2>
               <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
@@ -61,6 +66,10 @@ export class Modal implements ComponentInterface {
                 <span class="sr-only">Sluiten</span>
               </button>
             </div>
+          ) : (
+            <span class="sr-only" id={this.ariaId}>
+              Dialoog
+            </span>
           )}
 
           <div class="dso-body">

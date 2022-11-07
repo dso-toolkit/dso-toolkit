@@ -11,9 +11,13 @@ export const reactModal: ComponentImplementation<Modal> = {
   template: () =>
     function modalTemplate({ modalTitle, role, body, footer, dsoClose }) {
       return (
-        <DsoModal role={role} modalTitle={modalTitle} hasFooter={!!footer} onDsoClose={dsoClose}>
-          <div slot="body">{<DemoHtml html={body} />}</div>
-          <div slot="footer">{<DemoHtml html={footer} />}</div>
+        <DsoModal role={role} modalTitle={modalTitle} onDsoClose={dsoClose}>
+          <div slot="body">
+            <DemoHtml html={body} />
+          </div>
+          <div slot="footer">
+            <DemoHtml html={footer} />
+          </div>
         </DsoModal>
       );
     },

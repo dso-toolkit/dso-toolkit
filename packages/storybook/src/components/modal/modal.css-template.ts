@@ -33,7 +33,7 @@ export const cssModal: ComponentImplementation<Modal> = {
                 `
               : nothing}
             <div class="dso-body">${unsafeHTML(body)}</div>
-            ${footer && html` <div class="dso-footer">${unsafeHTML(footer)}</div> `}
+            ${footer && html`<div class="dso-footer">${unsafeHTML(footer)}</div>`}
           </div>
         </div>
       `;

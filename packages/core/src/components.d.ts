@@ -238,9 +238,11 @@ export namespace Components {
         "overlays": Overlay[];
     }
     interface DsoModal {
-        "hasFooter"?: boolean;
         "modalTitle"?: string;
-        "role"?: ModalRole;
+        /**
+          * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
+         */
+        "role": ModalRole;
     }
     interface DsoOzonContent {
         /**
@@ -915,9 +917,11 @@ declare namespace LocalJSX {
         "overlays": Overlay[];
     }
     interface DsoModal {
-        "hasFooter"?: boolean;
         "modalTitle"?: string;
         "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
+        /**
+          * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
+         */
         "role"?: ModalRole;
     }
     interface DsoOzonContent {

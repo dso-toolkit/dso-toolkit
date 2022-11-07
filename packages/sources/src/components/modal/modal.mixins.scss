@@ -67,16 +67,6 @@
     text-align: right;
   }
 
-  &.dso-confirm {
-    .dso-footer {
-      button {
-        &:first-child {
-          float: left;
-        }
-      }
-    }
-  }
-
   @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
     bottom: 0;
     height: 100%;

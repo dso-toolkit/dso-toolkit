@@ -44,6 +44,18 @@ body.dso-modal-open {
     }
   }
 
+  .dso-footer {
+    .dso-tertiary,
+    .btn-link {
+      float: left;
+      line-height: calc(1.5em - 1px);
+      padding: button.$vertical-padding 0;
+      position: relative;
+    }
+  }
+}
+
+dso-modal {
   div[slot="footer"] {
     .dso-tertiary,
     .btn-link {

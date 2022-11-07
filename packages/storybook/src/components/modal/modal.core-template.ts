@@ -11,7 +11,7 @@ export const coreModal: ComponentImplementation<Modal> = {
   template: () =>
     function modalTemplate({ modalTitle, role, body, footer, dsoClose }) {
       return html`
-        <dso-modal role=${role} modal-title=${ifDefined(modalTitle)} has-footer=${!!footer} @dsoClose=${dsoClose}>
+        <dso-modal role=${role} modal-title=${ifDefined(modalTitle)} @dsoClose=${dsoClose}>
           <div slot="body">${unsafeHTML(body)}</div>
           <div slot="footer">${unsafeHTML(footer)}</div>
         </dso-modal>

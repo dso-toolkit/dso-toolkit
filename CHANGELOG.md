@@ -11,8 +11,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
 
 ### Added
+* **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1792](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
+De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class was verantwoordelijk voor `button:first-child { float: left; }`
 * **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
-* **core + css + react + sources:** `<dso-modal>` Web component ([#1792](https://github.com/dso-toolkit/dso-toolkit/issues/1793))
 
 ### Changed
 * **core + css + react + storybook:** Webcomponent Accordion: Algemene verbeteringen ([#1826](https://github.com/dso-toolkit/dso-toolkit/issues/1826))
