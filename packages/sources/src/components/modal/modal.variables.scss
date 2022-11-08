@@ -1,5 +1,5 @@
-@use "../../variables/units";
 @use "../../variables/colors";
+@use "../../variables/units";
 
 $max-width: 640px;
 $max-height: 70vh;
@@ -10,6 +10,7 @@ $content-bg: colors.$wit;
 $border-color: colors.$grijs-20;
 
 $close-icon-size: units.$u4;
+$close-icon-color: colors.$grasgroen;
 
 $header-padding: units.$u2;
 $body-padding: units.$u4;
