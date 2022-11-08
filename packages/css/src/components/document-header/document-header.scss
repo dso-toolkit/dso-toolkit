@@ -28,7 +28,7 @@
 
   &.dso-document-header-sticky {
     left: 0;
-    padding: units.$u1 - 1 units.$u2 units.$u1;
+    padding: 0;
     position: sticky;
     top: 0;
 
@@ -39,6 +39,7 @@
       button {
         align-items: center;
         display: flex;
+        padding: units.$u1 - 1 units.$u2 units.$u1;
         text-align: left;
         width: 100%;
 
