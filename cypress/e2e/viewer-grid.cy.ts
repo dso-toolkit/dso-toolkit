@@ -140,7 +140,7 @@ describe("Viewer Grid", () => {
     cy.wrap(eventListener).should("not.be.called");
   });
 
-  it("uppon size change it should emit start and end events", () => {
+  it("upon size change it should emit start and end events", () => {
     const expected = [
       {
         stage: "start",

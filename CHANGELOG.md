@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
+* **core:** ViewerGrid: dsoMainSizeChange 'end' fires too early ([1847](https://github.com/dso-toolkit/dso-toolkit/issues/1847))
 
 ### Added
 * **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1792](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
