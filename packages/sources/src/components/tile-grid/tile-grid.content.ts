@@ -6,7 +6,7 @@ export const tiles: Tile[] = [
     label: "Bodem",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -15,7 +15,7 @@ export const tiles: Tile[] = [
     label: "Bouwwerken",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -24,7 +24,7 @@ export const tiles: Tile[] = [
     label: "Cultureel erfgoed",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -33,7 +33,7 @@ export const tiles: Tile[] = [
     label: "Energie en natuurlijke hulpbronnen",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -42,7 +42,7 @@ export const tiles: Tile[] = [
     label: "Externe veiligheid",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -51,7 +51,7 @@ export const tiles: Tile[] = [
     label: "Geluid",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -60,7 +60,7 @@ export const tiles: Tile[] = [
     label: "Gezondheid",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -69,7 +69,7 @@ export const tiles: Tile[] = [
     label: "Infrastructuur",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -78,7 +78,7 @@ export const tiles: Tile[] = [
     label: "Landgebruik",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -87,7 +87,7 @@ export const tiles: Tile[] = [
     label: "Landschap",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -96,7 +96,7 @@ export const tiles: Tile[] = [
     label: "Lucht",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -105,7 +105,7 @@ export const tiles: Tile[] = [
     label: "Milieu algemeen",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -114,7 +114,7 @@ export const tiles: Tile[] = [
     label: "Natuur",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -123,7 +123,7 @@ export const tiles: Tile[] = [
     label: "Procedures",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },
@@ -132,7 +132,7 @@ export const tiles: Tile[] = [
     label: "Water en watersystemen",
     image: {
       source: "images/icon-tree.png",
-      alt: "Boom",
+      alt: "",
     },
     variant: "theme",
   },

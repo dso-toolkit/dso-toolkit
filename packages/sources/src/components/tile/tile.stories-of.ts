@@ -22,7 +22,7 @@ export function storiesOfTile<Implementation, Templates, TemplateFnReturnType>(
       args: componentArgs<TileArgs>({
         label: "Boom kappen of snoeien",
         imageSource: "images/icon-tree.png",
-        imageAlt: "Boom",
+        imageAlt: "",
       }),
     });
 
