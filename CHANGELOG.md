@@ -4,23 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
-### Fixed
-* **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
-* **storybook + sources:** Tiles component en pagina's: decoratieve afbeeldingen moeten alt="" krijgen ([#1841](https://github.com/dso-toolkit/dso-toolkit/issues/1841))
-* **core:** ViewerGrid: dsoMainSizeChange 'end' fires too early ([1847](https://github.com/dso-toolkit/dso-toolkit/issues/1847))
+
+## 46.0.0
+
+### Deprecated
+* `<dso-tooltip>` Het element wat beschreven wordt met de tooltip zal in plaats van `id` een `aria-describedby` nodig hebben. Meer informatie in het issue. ([#1782](https://github.com/dso-toolkit/dso-toolkit/issues/1782))\
+
 
 ### Added
-* **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1792](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
+* **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1793](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
 De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class was verantwoordelijk voor `button:first-child { float: left; }`
 * **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
-* **storybook + sources:** Highlightbox banner-image ([#1813](https://github.com/dso-toolkit/dso-toolkit/issues/1813))
+* **sources:** Highlightbox banner-image ([#1813](https://github.com/dso-toolkit/dso-toolkit/issues/1813))
+
+### Fixed
+* **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
+* **sources:** Tiles component en pagina's: decoratieve afbeeldingen moeten alt="" krijgen ([#1841](https://github.com/dso-toolkit/dso-toolkit/issues/1841))
+* **core:** ViewerGrid: dsoMainSizeChange 'end' fires too early ([1847](https://github.com/dso-toolkit/dso-toolkit/issues/1847))
 
 ### Changed
-* **css + sources + storybook:** Document header: state toevoegen tbv sticky maken ([#1809](https://github.com/dso-toolkit/dso-toolkit/issues/1809))
-* **core + css + react + storybook:** Webcomponent Accordion: Algemene verbeteringen ([#1826](https://github.com/dso-toolkit/dso-toolkit/issues/1826))
+* **css + sources:** Document header: state toevoegen tbv sticky maken ([#1809](https://github.com/dso-toolkit/dso-toolkit/issues/1809))
+* **core + css + react:** Webcomponent Accordion: Algemene verbeteringen ([#1826](https://github.com/dso-toolkit/dso-toolkit/issues/1826))
 * **core + css + sources:** Aanpassing chevrons in accordion component ([#1827](https://github.com/dso-toolkit/dso-toolkit/issues/1827))
 * **all:** Package updates ([#1852](https://github.com/dso-toolkit/dso-toolkit/issues/1852))
 * **core + sources:** Icoon toevoegen - meerdere kaartlagen ([#1859](https://github.com/dso-toolkit/dso-toolkit/issues/1859))
+* **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
 
 ## 45.2.0
 
@@ -39,7 +47,6 @@ De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class wa
 * **core:** Helpcenterpanel - Responsive maken ([#1781](https://github.com/dso-toolkit/dso-toolkit/issues/1781))
 * **core + css:** Header styling verbeteringen ([#1763](https://github.com/dso-toolkit/dso-toolkit/issues/1763))
 * **core + css + sources + dso-toolkit:** Overstappen naar Sass modules (@use ipv @import) ([#1805](https://github.com/dso-toolkit/dso-toolkit/issues/1805))
-* **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
 
 ## 45.1.0
 
