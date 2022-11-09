@@ -7,8 +7,8 @@ import { ComponentImplementation } from "../../templates";
 export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
   implementation: "css",
-  template: ({ iconTemplate }) =>
-    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent }) {
+  template: ({ iconTemplate, imageTemplate }) =>
+    function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, richContent, bannerImage }) {
       function stepCounter() {
         if (step) {
           return html`<div class="dso-step-counter">${step}</div>`;
@@ -32,6 +32,13 @@ export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
           })}"
         >
           ${stepCounter()}
+          ${bannerImage
+            ? imageTemplate({
+                source: "images/man-vrouw-kaart.png",
+                alt: "man en vrouw met kaart",
+                modifier: "dso-highlight-box-banner",
+              })
+            : nothing}
           <div class="dso-rich-content">${typeof richContent === "string" ? unsafeHTML(richContent) : richContent}</div>
         </div>
       `;

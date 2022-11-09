@@ -26,6 +26,7 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
         dropShadow: false,
         step: null,
         icon: null,
+        bannerImage: false,
       },
     });
 
@@ -54,17 +55,16 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
       },
     });
 
-    stories.add("with step", template, {
-      args: {
-        yellow: true,
-        step: 2,
-      },
-    });
-
     stories.add("with icon", template, {
       args: {
         yellow: true,
         icon: "plus",
+      },
+    });
+
+    stories.add("with banner image", template, {
+      args: {
+        bannerImage: true,
       },
     });
   });

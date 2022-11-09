@@ -4,9 +4,6 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
-### Changed
-* **css + sources + storybook:** Document header: state toevoegen tbv sticky maken ([#1809](https://github.com/dso-toolkit/dso-toolkit/issues/1809))
-
 ### Fixed
 * **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
 * **core:** ViewerGrid: dsoMainSizeChange 'end' fires too early ([1847](https://github.com/dso-toolkit/dso-toolkit/issues/1847))
@@ -15,8 +12,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1792](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
 De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class was verantwoordelijk voor `button:first-child { float: left; }`
 * **core + css + sources + dso-toolkit:** Prettier en ESLint ([#1441](https://github.com/dso-toolkit/dso-toolkit/issues/1441))
+* **storybook + sources:** Highlightbox banner-image ([#1813](https://github.com/dso-toolkit/dso-toolkit/issues/1813))
 
 ### Changed
+* **css + sources + storybook:** Document header: state toevoegen tbv sticky maken ([#1809](https://github.com/dso-toolkit/dso-toolkit/issues/1809))
 * **core + css + react + storybook:** Webcomponent Accordion: Algemene verbeteringen ([#1826](https://github.com/dso-toolkit/dso-toolkit/issues/1826))
 * **core + css + sources:** Aanpassing chevrons in accordion component ([#1827](https://github.com/dso-toolkit/dso-toolkit/issues/1827))
 * **all:** Package updates ([#1852](https://github.com/dso-toolkit/dso-toolkit/issues/1852))

@@ -39,7 +39,16 @@
 }
 
 @mixin children() {
-  > .dso-rich-content {
+  > .dso-highlight-box-banner {
+    aspect-ratio: 2.38 / 1;
+    margin-left: units.$u2 * -1;
+    margin-right: units.$u2 * -1;
+    margin-top: units.$u2 * -1;
+    object-fit: cover;
+    width: calc(100% + #{units.$u4});
+  }
+
+  > .dso-rich-content:first-child {
     *:first-child {
       margin-top: 0 !important;
     }
