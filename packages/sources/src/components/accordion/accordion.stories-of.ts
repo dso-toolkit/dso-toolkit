@@ -1,10 +1,16 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args";
-import * as AccordionContent from "./accordion.content";
-import { Accordion } from "./accordion.models";
+// import * as AccordionContent from "./accordion.content";
+import { Accordion, AccordionSection } from "./accordion.models";
 
 export interface AccordionTemplates<TemplateFnReturnType> {
-  accordionTemplate: (accordionProperties: Accordion) => TemplateFnReturnType;
+  accordionTemplate: (accordionProperties: Accordion<TemplateFnReturnType>) => TemplateFnReturnType;
+  basicSections: AccordionSection<TemplateFnReturnType>[];
+  anchorSections: AccordionSection<TemplateFnReturnType>[];
+  subSections: AccordionSection<TemplateFnReturnType>[];
+  allowMultipleOpenSections: AccordionSection<TemplateFnReturnType>[];
+  addonsSections: AccordionSection<TemplateFnReturnType>[];
+  alignmentSections: AccordionSection<TemplateFnReturnType>[];
 }
 
 export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnType>(
@@ -20,46 +26,46 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       argTypes: accordionArgTypes,
     });
 
-    const template = templateMapper<AccordionArgs>((args, { accordionTemplate }) =>
-      accordionTemplate(accordionArgsMapper(args))
+    stories.add(
+      "default",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, basicSections }) =>
+        accordionTemplate(accordionArgsMapper(args, basicSections))
+      )
     );
 
-    stories.add("default", template, {
-      args: {
-        sections: AccordionContent.basicSections,
-      },
-    });
+    stories.add(
+      "handle anchors",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, anchorSections }) =>
+        accordionTemplate(accordionArgsMapper(args, anchorSections))
+      )
+    );
 
-    stories.add("handle anchors", template, {
-      args: {
-        sections: AccordionContent.anchorSections,
-      },
-    });
+    stories.add(
+      "nested",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, subSections }) =>
+        accordionTemplate(accordionArgsMapper(args, subSections))
+      )
+    );
 
-    stories.add("nested", template, {
-      args: {
-        sections: AccordionContent.subSections,
-      },
-    });
+    stories.add(
+      "allowMultipleOpen",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, allowMultipleOpenSections }) =>
+        accordionTemplate(accordionArgsMapper(args, allowMultipleOpenSections))
+      )
+    );
 
-    stories.add("allowMultipleOpen", template, {
-      args: {
-        sections: AccordionContent.allowMultipleOpenSections,
-        allowMultipleOpen: true,
-      },
-    });
+    stories.add(
+      "allowMultipleOpen",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, addonsSections }) =>
+        accordionTemplate(accordionArgsMapper(args, addonsSections))
+      )
+    );
 
-    stories.add("addons", template, {
-      args: {
-        sections: AccordionContent.addonsSections,
-      },
-    });
-
-    stories.add("alignment", template, {
-      args: {
-        sections: AccordionContent.alignmentSections,
-        reverseAlign: true,
-      },
-    });
+    stories.add(
+      "allowMultipleOpen",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, alignmentSections }) =>
+        accordionTemplate(accordionArgsMapper(args, alignmentSections))
+      )
+    );
   });
 }

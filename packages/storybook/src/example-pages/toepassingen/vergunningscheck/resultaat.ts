@@ -6,12 +6,11 @@ import { accordionSections1, accordionSections2 } from "./resultaat.content";
 examplePageFactory(
   "Toepassingen/Vergunningscheck",
   "Resultaat",
-  ({ applicationHeadingTemplate, accordionTemplate }) => html`
+  ({ applicationHeadingTemplate, accordionTemplate, infoTemplate, formButtonsTemplate }) => html`
     <div class="container">
       <main>
         <form>
           ${applicationHeadingTemplate({ title: "Vergunningcheck", subtitle: "4. Resultaat", step: "Stap 4/4" })}
-          <!-- {% render '@application-heading', appheading %} -->
 
           <div class="dso-rich-content">
             <p>
@@ -46,107 +45,96 @@ examplePageFactory(
                 heading: "h4",
                 icon: "forbidden",
                 open: true,
-              },
-            ],
-          })}
-          <!-- <div class="dso-accordion dso-accordion-conclusion dso-accordion-reverse-align">
-            <div class="dso-accordion-section dso-open">
-              <h4 class="dso-section-handle">
-                <a href="#" aria-expanded="false">
-                  <span class="dso-icon">
-                    {% render '@icon', {icon: 'forbidden'} -%}
-                  </span>
-                  H4 actie nodig van de gebruiker voor 5 activiteiten.
-                </a>
-              </h4>
-              <div class="dso-section-body">
-                <div class="dso-rich-content">
+                content: html`
                   <ul>
                     <li>Activiteit 1</li>
                     <li>
                       Activiteit 2
-                      <div class="dso-info">
-                        <div class="dso-rich-content">
-                          <p><strong>Let op:</strong> <i>voorbehoud A bij activiteit 2.</i></p>
-                        </div>
-                      </div>
-                      <div class="dso-info">
-                        <div class="dso-rich-content">
-                          <p><strong>Let op:</strong> <i>voorbehoud B bij activiteit 2.</i></p>
-                        </div>
-                      </div>
-                      <div class="dso-info">
-                        <div class="dso-rich-content">
-                          <p>Toelichting bij activiteit 2.</p>
-                        </div>
-                      </div>
+                      ${infoTemplate({
+                        fixed: true,
+                        content: html`<strong>Let op:</strong> <i>voorbehoud A bij activiteit 2.</i>`,
+                      })}
+                      ${infoTemplate({
+                        fixed: true,
+                        content: html`<strong>Let op:</strong> <i>voorbehoud B bij activiteit 2.</i>`,
+                      })}
+                      ${infoTemplate({
+                        fixed: true,
+                        content: html`Toelichting bij activiteit 2.`,
+                      })}
                     </li>
                     <li>
                       Activiteit 3
                       <ul>
                         <li>
                           Activiteit 3.1
-                          <div class="dso-info">
-                            <div class="dso-rich-content">
-                              <p><strong>Let op:</strong> <i>voorbehoud bij activiteit 3.1.</i></p>
-                            </div>
-                          </div>
-                          <div class="dso-info">
-                            <div class="dso-rich-content">
-                              <p>Toelichting bij activiteit 3.1.</p>
-                            </div>
-                          </div>
+                          ${infoTemplate({
+                            fixed: true,
+                            content: html`<strong>Let op:</strong> <i>voorbehoud bij activiteit 3.1.</i>`,
+                          })}
+                          ${infoTemplate({
+                            fixed: true,
+                            content: html`Toelichting bij activiteit 3.1.`,
+                          })}
                         </li>
                         <li>
                           Activiteit 3.2
-                          <div class="dso-info">
-                            <div class="dso-rich-content">
-                              <p><strong>Let op:</strong> <i>voorbehoud bij activiteit 3.2.</i></p>
-                            </div>
-                          </div>
-                          <div class="dso-info">
-                            <div class="dso-rich-content">
-                              <p>Toelichting bij activiteit 3.2.</p>
-                            </div>
-                          </div>
+                          ${infoTemplate({
+                            fixed: true,
+                            content: html`<strong>Let op:</strong> <i>voorbehoud bij activiteit 3.2.</i>`,
+                          })}
+                          ${infoTemplate({
+                            fixed: true,
+                            content: html`Toelichting bij activiteit 3.2.`,
+                          })}
                         </li>
                       </ul>
                     </li>
                   </ul>
-                  <p class="text-muted">Voor deze vragen missen we vragen van de Rijksoverheid. Dit betekent dat u misschien toch een vergunning of melding nodig heeft. De gemeente kan u vertellen van wat u moet indienen. Neem voor de volgende activiteiten contact op:</p>
+                  <p class="text-muted">
+                    Voor deze vragen missen we vragen van de Rijksoverheid. Dit betekent dat u misschien toch een
+                    vergunning of melding nodig heeft. De gemeente kan u vertellen van wat u moet indienen. Neem voor de
+                    volgende activiteiten contact op:
+                  </p>
                   <ul>
                     <li>
                       Activiteit 4
                       <ul>
-                        <li>
-                          Activiteit 4.1
-                        </li>
+                        <li>Activiteit 4.1</li>
                       </ul>
                     </li>
-                    <li>
-                        Activiteit 5
-                    </li>
+                    <li>Activiteit 5</li>
                   </ul>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <div class="dso-form-buttons">
-            <div class="dso-aside">
-              {% render '@button', {label:'Download resultaat als pdf', type:'button', modifier:'dso-secondary
-              btn-align', icon: 'download'} %}
-            </div>
-          </div>
-
-          <div class="dso-form-buttons">
-            <div class="dso-aside">
-              {% render '@button', {label:'Vorige stap', type:'button', modifier:'dso-tertiary btn-align', icon:
-              'chevron-left'} %}
-            </div>
-            {% render '@button', {label:'Opslaan in Mijn Omgevingsloket', type:'button', modifier:'dso-secondary'} %} {%
-            render '@button', {label:'Naar aanvragen', type:'button', modifier:'dso-primary'} %}
-          </div>
+                `,
+              },
+            ],
+          })}
+          ${formButtonsTemplate({
+            asideButtons: [
+              {
+                label: "Download resultaat als pdf",
+                type: "button",
+                variant: "secondary",
+                icon: { icon: "download" },
+              },
+            ],
+            buttons: [],
+          })}
+          ${formButtonsTemplate({
+            asideButtons: [
+              {
+                label: "Vorige stap",
+                variant: "tertiary",
+                modifier: "btn-align",
+                type: "button",
+                icon: { icon: "chevron-left" },
+              },
+            ],
+            buttons: [
+              { label: "Opslaan in Mijn Omgevingsloket", type: "button", variant: "secondary" },
+              { label: "Naar aanvragen", type: "button", variant: "primary" },
+            ],
+          })}
         </form>
 
         <hr />

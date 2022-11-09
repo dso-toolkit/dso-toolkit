@@ -1,19 +1,12 @@
 import { html } from "lit-html";
 
 import { examplePageFactory } from "../../../example-page-factory";
-import { dropdownItems } from "./locatie.content";
+import { dropdownItems, formGroup } from "./locatie.content";
 
 examplePageFactory(
   "Toepassingen/Aanvragen",
   "Locatie",
-  ({
-    applicationHeadingTemplate,
-    dropdownMenuTemplate,
-    formGroupSelectTemplate,
-    formGroupInputTemplate,
-    formButtonsTemplate,
-    buttonTemplate,
-  }) => html`
+  ({ applicationHeadingTemplate, dropdownMenuTemplate, formButtonsTemplate, justifyFormGroupsTemplate }) => html`
     <style>
       .dso-map-example {
         background-image: url("/images/map-lved125.png");
@@ -42,59 +35,24 @@ examplePageFactory(
                 id: "locatie--dropdownmenu",
                 groups: dropdownItems,
               })}
-              <!-- {% render '@dropdown-menu-css', dropdownButton %} -->
             </div>
           </div>
-          <div class="dso-justify-form-groups">
-            ${formGroupSelectTemplate({
-              group: "select",
-              id: "type",
-              label: "Type",
-              items: [
-                {
-                  options: [
-                    { label: "RD", value: "rd" },
-                    { label: "WGS84", value: "wgs84", selected: true },
-                  ],
-                },
-              ],
-            })}
-            ${formGroupInputTemplate({
-              group: "input",
-              type: "text",
-              id: "locatie--latt",
-              label: "Lattitude",
-              value: "52.07066496",
-            })}
-            ${formGroupInputTemplate({
-              group: "input",
-              type: "text",
-              id: "locatie--long",
-              label: "Longitude",
-              value: "4.26389251",
-            })}
-            ${formButtonsTemplate({
-              buttons: [{ label: "Zoeken", type: "button", variant: "secondary", modifier: "btn-sm" }],
-            })}
-          </div>
+          ${justifyFormGroupsTemplate(formGroup)}
           <div class="dso-map-example"></div>
-          <div class="dso-form-buttons">
-            <div class="dso-aside">
-              ${buttonTemplate({
-                type: "button",
-                variant: "tertiary",
-                label: "Vorige stap",
-                icon: { icon: "chevron-left" },
-              })}
-            </div>
-            ${buttonTemplate({
-              type: "submit",
-              variant: "primary",
-              label: "Volgende stap",
-              icon: { icon: "chevron-right" },
-              iconMode: "after",
-            })}
-          </div>
+          ${formButtonsTemplate({
+            asideButtons: [
+              { label: "Vorige stap", type: "button", variant: "tertiary", icon: { icon: "chevron-left" } },
+            ],
+            buttons: [
+              {
+                label: "Volgende stap",
+                type: "submit",
+                variant: "primary",
+                icon: { icon: "chevron-right" },
+                iconMode: "after",
+              },
+            ],
+          })}
         </form>
       </main>
     </div>

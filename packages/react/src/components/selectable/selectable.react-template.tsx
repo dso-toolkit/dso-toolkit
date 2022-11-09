@@ -39,7 +39,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
           onDsoChange={(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
         >
           {label}
-          {info?.richContent ?? ""}
+          {info?.content ?? ""}
         </DsoSelectable>
       );
     },

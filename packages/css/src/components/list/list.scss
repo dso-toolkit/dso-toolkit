@@ -76,9 +76,12 @@ ol {
     }
   }
 
-  li .dso-info {
-    margin-bottom: units.$u1;
-    margin-top: units.$u1;
+  li {
+    .dso-info,
+    dso-info {
+      margin-bottom: units.$u1;
+      margin-top: units.$u1;
+    }
   }
 
   ul,

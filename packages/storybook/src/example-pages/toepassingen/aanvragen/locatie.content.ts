@@ -1,4 +1,5 @@
-import { DropdownMenuGroup } from "@dso-toolkit/sources";
+import { DropdownMenuGroup, JustifyFormGroups } from "@dso-toolkit/sources";
+import { TemplateResult } from "lit-html";
 
 export const dropdownItems: DropdownMenuGroup[] = [
   {
@@ -26,3 +27,37 @@ export const dropdownItems: DropdownMenuGroup[] = [
     ],
   },
 ];
+
+export const formGroup: JustifyFormGroups<TemplateResult> = {
+  formGroups: [
+    {
+      group: "select",
+      id: "type",
+      label: "Type",
+      items: [
+        {
+          label: "",
+          options: [
+            { label: "RD", value: "rd" },
+            { label: "WGS84", value: "wgs84", selected: true },
+          ],
+        },
+      ],
+    },
+    {
+      group: "input",
+      type: "text",
+      id: "locatie--latt",
+      label: "Lattitude",
+      value: "52.07066496",
+    },
+    {
+      group: "input",
+      type: "text",
+      id: "locatie--long",
+      label: "Longitude",
+      value: "4.26389251",
+    },
+  ],
+  buttons: [{ label: "Zoeken", type: "button", variant: "secondary", modifier: "btn-sm" }],
+};

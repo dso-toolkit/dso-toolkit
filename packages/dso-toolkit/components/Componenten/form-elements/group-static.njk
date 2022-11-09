@@ -4,7 +4,7 @@
   {% set ariaDescribedBy = ((ariaDescribedBy + ' ') if ariaDescribedBy) + infoTextId %}
 {% endif %}
 
-<div {{ className('form-group dso-static', [edit, 'dso-edit']) }}>
+<div {{ className('form-group dso-static', [edit, 'has-edit']) }}>
   <div class="dso-label-container">
     <span class="control-label">{{ label }}</span>
     {% if infoText and not static %}

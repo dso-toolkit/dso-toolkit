@@ -8,7 +8,7 @@ export const cssInfo: ComponentImplementation<Info<TemplateResult>> = {
   component: "info",
   implementation: "css",
   template: ({ buttonTemplate }) =>
-    function infoTemplate({ fixed, richContent, dsoClose, id }) {
+    function infoTemplate({ fixed, content: richContent, dsoClose, id }) {
       return html`
         <div class="dso-info" id=${ifDefined(id)}>
           ${typeof richContent === "string" ? html`${unsafeHTML(richContent)}` : richContent}

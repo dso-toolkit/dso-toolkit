@@ -38,7 +38,7 @@ export function infoArgsMapper<TemplateFnReturnType>(
     id: a.id,
     fixed: a.fixed,
     active: a.active,
-    richContent,
+    content: richContent,
     dsoClose: a.dsoClose,
   };
 }

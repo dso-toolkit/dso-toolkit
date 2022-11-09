@@ -38,8 +38,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           ?info-fixed=${info?.fixed}
           @dsoChange=${(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
         >
-          ${label}
-          ${typeof info?.richContent === "string" ? unsafeHTML(info.richContent) : info?.richContent ?? nothing}
+          ${label} ${typeof info?.content === "string" ? unsafeHTML(info.content) : info?.content ?? nothing}
         </dso-selectable>
       `;
     },

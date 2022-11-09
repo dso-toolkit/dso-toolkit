@@ -45,6 +45,7 @@ examplePageFactory(
                   label: "Indienen bij:",
                   items: [
                     {
+                      label: "",
                       options: [
                         { label: "Hoogheemraadschap van Delfland", value: "delfland" },
                         { label: "Gemeente Den Haag", value: "denhaag" },
@@ -80,6 +81,7 @@ examplePageFactory(
                   label: "Indienen bij:",
                   items: [
                     {
+                      label: "",
                       options: [
                         { label: "Gemeente Den Haag", value: "denhaag" },
                         { label: "Hoogheemraadschap van Delfland", value: "delfland" },

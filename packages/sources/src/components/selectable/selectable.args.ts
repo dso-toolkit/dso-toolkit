@@ -115,7 +115,7 @@ export function selectableArgsMapper<TemplateFnReturnType>(
     info: a.infoRichContent
       ? {
           dsoClose: (e) => a.infoClosed(e),
-          richContent: a.infoRichContent,
+          content: a.infoRichContent,
           active: a.infoActive,
           fixed: a.infoFixed,
         }

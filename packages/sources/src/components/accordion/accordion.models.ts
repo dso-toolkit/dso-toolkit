@@ -6,15 +6,15 @@ export type AccordionSectionState = "success" | "info" | "warning" | "danger";
 
 export type AccordionHeading = "h2" | "h3" | "h4" | "h5";
 
-export interface Accordion {
+export interface Accordion<TemplateFnReturnType> {
   variant?: AccordionVariant;
   reverseAlign?: boolean;
   allowMultipleOpen?: boolean;
   dsoToggleSection?: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
-  sections: AccordionSection[];
+  sections: AccordionSection<TemplateFnReturnType>[];
 }
 
-export interface AccordionSection {
+export interface AccordionSection<TemplateFnReturnType> {
   open?: boolean;
   handleTitle: string;
   heading: AccordionHeading;
@@ -23,7 +23,7 @@ export interface AccordionSection {
   state?: AccordionSectionState;
   icon?: string;
   attachmentCount?: number;
-  content?: string;
+  content?: TemplateFnReturnType;
 }
 
 export interface AccordionSectionToggleEvent {
