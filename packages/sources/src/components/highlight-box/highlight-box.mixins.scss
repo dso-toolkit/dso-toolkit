@@ -44,9 +44,8 @@
     margin-left: units.$u2 * -1;
     margin-right: units.$u2 * -1;
     margin-top: units.$u2 * -1;
-    max-width: 100vw;
     object-fit: cover;
-    width: calc(100% + 32px);
+    width: calc(100% + #{units.$u4});
   }
 
   > .dso-rich-content:first-child {
