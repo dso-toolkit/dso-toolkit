@@ -44,7 +44,7 @@ export const tiles: Tile[] = [
     anchor: "#",
     label: "Kort verhaal",
     image: {
-      alt: "Boom",
+      alt: "",
       source: "images/icon-tree.png",
     },
   },
@@ -52,7 +52,7 @@ export const tiles: Tile[] = [
     anchor: "#",
     label: "Lang verhaal waardoor dit blok hoger op je scherm wordt",
     image: {
-      alt: "Boom",
+      alt: "",
       source: "images/icon-tree.png",
     },
   },
@@ -60,7 +60,7 @@ export const tiles: Tile[] = [
     anchor: "#",
     label: "Kort verhaal",
     image: {
-      alt: "Boom",
+      alt: "",
       source: "images/icon-tree.png",
     },
   },
@@ -68,7 +68,7 @@ export const tiles: Tile[] = [
     anchor: "#",
     label: "Lang verhaal waardoor dit blok hoger op je scherm wordt",
     image: {
-      alt: "Boom",
+      alt: "",
       source: "images/icon-tree.png",
     },
   },
@@ -76,7 +76,7 @@ export const tiles: Tile[] = [
     anchor: "#",
     label: "Kort verhaal",
     image: {
-      alt: "Boom",
+      alt: "",
       source: "images/icon-tree.png",
     },
   },
@@ -84,7 +84,7 @@ export const tiles: Tile[] = [
     anchor: "#",
     label: "Lang verhaal waardoor dit blok hoger op je scherm wordt",
     image: {
-      alt: "Boom",
+      alt: "",
       source: "images/icon-tree.png",
     },
   },
@@ -96,7 +96,7 @@ export const whiteboxes: Whitebox[] = [
     title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
     description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
     image: {
-      alt: "Indienen",
+      alt: "",
       source: "images/indienen.png",
     },
   },
@@ -106,7 +106,7 @@ export const whiteboxes: Whitebox[] = [
     description:
       "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen? Dan kunt u de aanvraag of melding direct indienen.",
     image: {
-      alt: "Indienen",
+      alt: "",
       source: "images/indienen.png",
     },
   },
@@ -115,7 +115,7 @@ export const whiteboxes: Whitebox[] = [
     title: "Ik wil weten welke wetten en regels er gelden voor mijn huis/bedrijf.",
     description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
     image: {
-      alt: "Indienen",
+      alt: "",
       source: "images/indienen.png",
     },
   },

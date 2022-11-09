@@ -26,7 +26,7 @@ export function storiesOfWhitebox<Implementation, Templates, TemplateFnReturnTyp
         description: "Weet u al voor welke activiteiten u een vergunning moet aanvragen of een melding moet doen?",
         label: "Direct naar aanvragen",
         imageSource: "images/indienen.png",
-        imageAlt: "Indienen",
+        imageAlt: "",
       }),
     });
 

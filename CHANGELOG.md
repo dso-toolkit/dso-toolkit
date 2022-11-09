@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 ### Fixed
 * **core:** Overlay toont geen shadow in Safari ([#1840](https://github.com/dso-toolkit/dso-toolkit/issues/1840))
+* **storybook + sources:** Tiles component en pagina's: decoratieve afbeeldingen moeten alt="" krijgen ([#1841](https://github.com/dso-toolkit/dso-toolkit/issues/1841))
 * **core:** ViewerGrid: dsoMainSizeChange 'end' fires too early ([1847](https://github.com/dso-toolkit/dso-toolkit/issues/1847))
 
 ### Added
