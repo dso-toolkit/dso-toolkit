@@ -20,6 +20,7 @@ De optional `.dso-confirm` class op `div.dso-modal` is verwijderd. Deze class wa
 * **core + css + react + storybook:** Webcomponent Accordion: Algemene verbeteringen ([#1826](https://github.com/dso-toolkit/dso-toolkit/issues/1826))
 * **core + css + sources:** Aanpassing chevrons in accordion component ([#1827](https://github.com/dso-toolkit/dso-toolkit/issues/1827))
 * **all:** Package updates ([#1852](https://github.com/dso-toolkit/dso-toolkit/issues/1852))
+* **core + sources:** Icoon toevoegen - meerdere kaartlagen ([#1859](https://github.com/dso-toolkit/dso-toolkit/issues/1859))
 
 ## 45.2.0
 
