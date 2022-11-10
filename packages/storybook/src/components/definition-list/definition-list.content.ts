@@ -1,8 +1,9 @@
-import { Definition } from "./definition-list.models";
+import { html, TemplateResult } from "lit-html";
+import { Definition } from "@dso-toolkit/sources";
 
-export const definitions: Definition[] = [
+export const definitions: Definition<TemplateResult>[] = [
   {
-    term: "Thema",
+    term: html`Thema:`,
     descriptions: [
       {
         content: "Wonen",
@@ -13,7 +14,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Regelkwalificatie",
+    term: html`Regelkwalificatie:`,
     descriptions: [
       {
         content: "Instructieregels",
@@ -21,7 +22,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Onderwerp",
+    term: html`Onderwerp:`,
     descriptions: [
       {
         content: "Bedrijventerrein",
@@ -29,7 +30,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Functie",
+    term: html`Functie:`,
     descriptions: [
       {
         content: "Bedrijventerrein > Bedrijventerrein",
@@ -37,7 +38,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Type regel",
+    term: html`Type regel:`,
     descriptions: [
       {
         content: "Bindend voor bestuursorganen",
@@ -45,7 +46,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Normadressaat",
+    term: html`Normadressaat:`,
     descriptions: [
       {
         content:
@@ -58,7 +59,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus",
+    term: html`Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus:`,
     descriptions: [
       {
         content:
@@ -67,7 +68,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "De stoflongziekte (mijnwerkers-pneumoconiose)",
+    term: html`De stoflongziekte (mijnwerkers-pneumoconiose):`,
     descriptions: [
       {
         content: "<p>Veroorzaakt door lange blootstelling aan kolengruis.</p>",
@@ -75,7 +76,7 @@ export const definitions: Definition[] = [
     ],
   },
   {
-    term: "Pneumoconiose",
+    term: html`Pneumoconiose:`,
     descriptions: [
       {
         content:
@@ -85,9 +86,94 @@ export const definitions: Definition[] = [
   },
 ];
 
-export const columnDefinitions: Definition[] = [
+export const definitionsSrOnlyColon: Definition<TemplateResult>[] = [
   {
-    term: "Verzoek 1",
+    term: html`Thema<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content: "Wonen",
+      },
+      {
+        content: "Werken",
+      },
+    ],
+  },
+  {
+    term: html`Regelkwalificatie<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content: "Instructieregels",
+      },
+    ],
+  },
+  {
+    term: html`Onderwerp<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content: "Bedrijventerrein",
+      },
+    ],
+  },
+  {
+    term: html`Functie<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content: "Bedrijventerrein > Bedrijventerrein",
+      },
+    ],
+  },
+  {
+    term: html`Type regel<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content: "Bindend voor bestuursorganen",
+      },
+    ],
+  },
+  {
+    term: html`Normadressaat<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content:
+          "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>",
+      },
+      {
+        content:
+          "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+      },
+    ],
+  },
+  {
+    term: html`Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content:
+          "<p>Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.</p>",
+      },
+    ],
+  },
+  {
+    term: html`De stoflongziekte (mijnwerkers-pneumoconiose)<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content: "<p>Veroorzaakt door lange blootstelling aan kolengruis.</p>",
+      },
+    ],
+  },
+  {
+    term: html`Pneumoconiose<span class="sr-only">:</span>`,
+    descriptions: [
+      {
+        content:
+          "<p>Pneumoconiose of stoflong is een longaandoening die door de inhalatie van stof wordt veroorzaakt.</p>",
+      },
+    ],
+  },
+];
+
+export const columnDefinitions: Definition<TemplateResult>[] = [
+  {
+    term: html`Verzoek 1:`,
     descriptions: [
       {
         content: "Aanleg rondweg Leiden traject Rijnland route 1",
@@ -95,7 +181,7 @@ export const columnDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Verzoeknummer",
+    term: html`Verzoeknummer:`,
     descriptions: [
       {
         content: "20181024 00729 000",
@@ -103,7 +189,7 @@ export const columnDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Datum ingediend",
+    term: html`Datum ingediend:`,
     descriptions: [
       {
         content: "24/10/2018",
@@ -111,7 +197,7 @@ export const columnDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Ingediend bij",
+    term: html`Ingediend bij:`,
     descriptions: [
       {
         content: "Gemeente Den Haag",
@@ -119,7 +205,7 @@ export const columnDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Uw verzoek wordt behandeld door",
+    term: html`Uw verzoek wordt behandeld door:`,
     descriptions: [
       {
         content: "Omgevingsdienst Haaglanden",
@@ -128,9 +214,9 @@ export const columnDefinitions: Definition[] = [
   },
 ];
 
-export const smallContentDefinitions: Definition[] = [
+export const smallContentDefinitions: Definition<TemplateResult>[] = [
   {
-    term: "Organisator",
+    term: html`Organisator:`,
     descriptions: [
       {
         content: "Gemeente Rotterdam",
@@ -138,7 +224,7 @@ export const smallContentDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Verzoeknummer",
+    term: html`Verzoeknummer:`,
     descriptions: [
       {
         content: "12123497987",
@@ -146,7 +232,7 @@ export const smallContentDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Status",
+    term: html`Status:`,
     descriptions: [
       {
         content: "Open",
@@ -154,7 +240,7 @@ export const smallContentDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Creatiedatum",
+    term: html`Creatiedatum:`,
     descriptions: [
       {
         content: "17-12-2019",
@@ -162,7 +248,7 @@ export const smallContentDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Contactpersoon",
+    term: html`Contactpersoon:`,
     descriptions: [
       {
         content: "Jan van Veen",
@@ -170,7 +256,7 @@ export const smallContentDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Emailadres",
+    term: html`Emailadres:`,
     descriptions: [
       {
         content: "j.veen@testmail.nl",
@@ -178,7 +264,7 @@ export const smallContentDefinitions: Definition[] = [
     ],
   },
   {
-    term: "Telefoonnummer",
+    term: html`Telefoonnummer:`,
     descriptions: [
       {
         content: "06-12345678",
@@ -187,9 +273,9 @@ export const smallContentDefinitions: Definition[] = [
   },
 ];
 
-export const listDefinitions: Definition[] = [
+export const listDefinitions: Definition<TemplateResult>[] = [
   {
-    term: "Trefwoorden",
+    term: html`Trefwoorden:`,
     descriptions: [
       {
         list: {

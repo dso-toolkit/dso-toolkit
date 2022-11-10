@@ -1,3 +1,5 @@
+import { html } from "lit-html";
+
 export const mainMenu = [
   {
     label: "Home",
@@ -26,7 +28,7 @@ export const definitionList = {
   useSrOnlyColon: false,
   definitions: [
     {
-      term: "Description lists",
+      term: html`Description lists:`,
       descriptions: [
         {
           content: "A description list is perfect for defining terms.",
@@ -34,7 +36,7 @@ export const definitionList = {
       ],
     },
     {
-      term: "Euismod",
+      term: html`Euismod:`,
       descriptions: [
         {
           content: "Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.",
@@ -45,7 +47,7 @@ export const definitionList = {
       ],
     },
     {
-      term: "Malesuada porta",
+      term: html`Malesuada porta:`,
       descriptions: [
         {
           content: "Etiam porta sem malesuada magna mollis euismod.",
@@ -53,7 +55,7 @@ export const definitionList = {
       ],
     },
     {
-      term: "Felis euismod semper eget lacinia",
+      term: html`Felis euismod semper eget lacinia:`,
       descriptions: [
         {
           content:

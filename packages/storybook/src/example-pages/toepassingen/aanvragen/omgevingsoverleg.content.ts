@@ -1,11 +1,10 @@
 import { DefinitionList, FormGroupRadios } from "@dso-toolkit/sources";
 import { html, TemplateResult } from "lit-html";
 
-export const definitionList1: DefinitionList = {
-  useSrOnlyColon: false,
+export const definitionList1: DefinitionList<TemplateResult> = {
   definitions: [
     {
-      term: "Verzoek 1",
+      term: html`Verzoek 1:`,
       descriptions: [
         {
           content: "Object Laan van Eik en Duinen 125, 's-Gravenhage 1",
@@ -13,7 +12,7 @@ export const definitionList1: DefinitionList = {
       ],
     },
     {
-      term: "Indienen bij",
+      term: html`Indienen bij:`,
       descriptions: [
         {
           content: "Hoogheemraadschap van Delfland",
@@ -21,7 +20,7 @@ export const definitionList1: DefinitionList = {
       ],
     },
     {
-      term: "Soort",
+      term: html`Soort:`,
       descriptions: [
         {
           content: "Aanvraag vergunning",
@@ -29,7 +28,7 @@ export const definitionList1: DefinitionList = {
       ],
     },
     {
-      term: "Bevat",
+      term: html`Bevat:`,
       descriptions: [
         {
           content: "Milieubelastende activiteit - Vergunning (Gemeente)",
@@ -37,7 +36,7 @@ export const definitionList1: DefinitionList = {
       ],
     },
     {
-      term: "Omgevingsoverleg mogelijk",
+      term: html`Omgevingsoverleg mogelijk:`,
       descriptions: [
         {
           content: "Nee",
@@ -47,11 +46,10 @@ export const definitionList1: DefinitionList = {
   ],
 };
 
-export const definitionlist2: DefinitionList = {
-  useSrOnlyColon: false,
+export const definitionlist2: DefinitionList<TemplateResult> = {
   definitions: [
     {
-      term: "Verzoek 2",
+      term: html`Verzoek 2:`,
       descriptions: [
         {
           content: "Object Laan van Eik en Duinen 125, 's-Gravenhage 2",
@@ -59,7 +57,7 @@ export const definitionlist2: DefinitionList = {
       ],
     },
     {
-      term: "Indienen bij",
+      term: html`Indienen bij:`,
       descriptions: [
         {
           content: "Gemeente Den Haag",
@@ -67,7 +65,7 @@ export const definitionlist2: DefinitionList = {
       ],
     },
     {
-      term: "Soort",
+      term: html`Soort:`,
       descriptions: [
         {
           content: "Melding",
@@ -75,7 +73,7 @@ export const definitionlist2: DefinitionList = {
       ],
     },
     {
-      term: "Bevat",
+      term: html`Bevat:`,
       descriptions: [
         {
           content: "Milieubelastende activiteit - Vergunning (Gemeente)",
@@ -83,7 +81,7 @@ export const definitionlist2: DefinitionList = {
       ],
     },
     {
-      term: "Omgevingsoverleg mogelijk",
+      term: html`Omgevingsoverleg mogelijk:`,
       descriptions: [
         {
           content: "Ja",

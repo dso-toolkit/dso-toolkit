@@ -26,10 +26,9 @@ export const mainMenu = [
 ];
 
 export const definitions: DefinitionList<TemplateResult> = {
-  useSrOnlyColon: false,
   definitions: [
     {
-      term: "Ingediend bij",
+      term: html`Ingediend bij:`,
       descriptions: [
         {
           content: html`<strong>Gemeente Den Haag</strong>`,
@@ -37,7 +36,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Behandeld door",
+      term: html`Behandeld door:`,
       descriptions: [
         {
           content: html`<strong>Omgevingsdienst Haaglanden</strong>`,
@@ -45,7 +44,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Soort",
+      term: html`Soort:`,
       descriptions: [
         {
           content: html`Aanvraag vergunning`,
@@ -53,7 +52,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Locatie",
+      term: html`Locatie:`,
       descriptions: [
         {
           content: html`Laan van Eik en Duinen 125, 2564GX 's-Gravenhage`,
@@ -61,7 +60,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Activiteit(en)",
+      term: html`Activiteit(en):`,
       descriptions: [
         {
           content: html`Milieubelastende activiteit - vergunning`,
@@ -72,7 +71,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Doel",
+      term: html`Doel:`,
       descriptions: [
         {
           content: html`Definitief`,
@@ -80,7 +79,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Status",
+      term: html`Status:`,
       descriptions: [
         {
           content: html`Aangevuld`,
@@ -88,7 +87,7 @@ export const definitions: DefinitionList<TemplateResult> = {
       ],
     },
     {
-      term: "Verzoek hulpnummer(s)",
+      term: html`Verzoek hulpnummer(s):`,
       descriptions: [
         {
           content: html`20220101 00201 002 - 02-01-2022`,

@@ -1,9 +1,11 @@
+import { html } from "lit-html";
+
 export const definitionList = {
   modifier: "dso-bordered",
   useSrOnlyColon: true,
   definitions: [
     {
-      term: "Thema",
+      term: html`Thema`,
       descriptions: [
         {
           content: "Wonen",
@@ -14,7 +16,7 @@ export const definitionList = {
       ],
     },
     {
-      term: "Regelkwalificatie",
+      term: html`Regelkwalificatie`,
       descriptions: [
         {
           content: "Instructieregels",

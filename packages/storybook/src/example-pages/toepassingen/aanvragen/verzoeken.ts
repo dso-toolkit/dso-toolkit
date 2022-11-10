@@ -35,7 +35,7 @@ examplePageFactory(
                 ${formGroupInputTemplate({
                   group: "input",
                   type: "text",
-                  label: "Verzoek 1",
+                  label: "Verzoek 1:",
                   id: "verzoeken-form-1",
                   value: "Object Laan van Eik en Duinen 125, 's-Gravenhage 1",
                 })}
@@ -71,7 +71,7 @@ examplePageFactory(
                 ${formGroupStaticTemplate({
                   group: "static",
                   id: "verzoeken-form-5",
-                  label: "Verzoek 2",
+                  label: "Verzoek 2:",
                   value: "Object Laan van Eik en Duinen 125, 's-Gravenhage 1",
                   edit: true,
                 })}
