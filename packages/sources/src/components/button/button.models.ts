@@ -1,4 +1,5 @@
 import { Icon } from "../icon/icon.models";
+import { Tooltip } from "../tooltip/tooltip.models";
 
 export interface Button {
   /**
@@ -20,6 +21,7 @@ export interface Button {
   ariaHaspopup?: "false" | "true" | "menu" | "listbox" | "tree" | "grid" | "dialog";
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
+  tooltip?: Tooltip;
 }
 
 export interface ButtonAnchor {

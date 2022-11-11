@@ -52,6 +52,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       ariaExpanded,
       ariaHaspopup,
       ariaRoledescription,
+      tooltip,
       onClick,
     }: Button) {
       type ??= "button";
@@ -73,6 +74,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
             >${label}</span
           >${icon && iconMode ? iconTemplate(icon) : nothing}
+          ${tooltip ? html` <dso-tooltip position="${tooltip.position}">${tooltip.label}</dso-tooltip> ` : nothing}
         </button>
       `;
     }
