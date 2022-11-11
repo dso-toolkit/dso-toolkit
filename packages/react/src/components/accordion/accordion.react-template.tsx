@@ -4,7 +4,6 @@ import * as React from "react";
 
 import { DsoAccordion, DsoAccordionSection } from "../..";
 import { ComponentImplementation } from "../../templates";
-import { DemoHtml } from "../../utils/demo-html";
 
 export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
   component: "accordion",
