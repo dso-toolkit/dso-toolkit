@@ -1,6 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
+
 import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args";
-// import * as AccordionContent from "./accordion.content";
 import { Accordion, AccordionSection } from "./accordion.models";
 
 export interface AccordionTemplates<TemplateFnReturnType> {

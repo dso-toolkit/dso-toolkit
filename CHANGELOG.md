@@ -6,13 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Changed
-* **all:** Verhuizen voorbeeldpagina's ([#1844](https://github.com/dso-toolkit/dso-toolkit/issues/1844))
+* **BREAKING: all:** Verhuizen voorbeeldpagina's ([#1844](https://github.com/dso-toolkit/dso-toolkit/issues/1844))\
+  Door een documentatie discrepentie is er mogelijk spraee van een breaking change. Op `.form-group.dso-static` werd zowel `.has-edit` als `.dso-edit` gecommuniceerd. Dit is uniform gemaakt en alleen `.dso-edit` wordt nu ondersteund:
+  ```html
+  <div class="form-group dso-static dso-edit">
+  ```
 
 ## 46.0.0
 
 ### Deprecated
-* `<dso-tooltip>` Het element wat beschreven wordt met de tooltip zal in plaats van `id` een `aria-describedby` nodig hebben. Meer informatie in het issue. ([#1782](https://github.com/dso-toolkit/dso-toolkit/issues/1782))\
-
+* `<dso-tooltip>` Het element wat beschreven wordt met de tooltip zal in plaats van `id` een `aria-describedby` nodig hebben. Meer informatie in het issue. ([#1782](https://github.com/dso-toolkit/dso-toolkit/issues/1782))
 
 ### Added
 * **BREAKING: core + css + react + sources:** `<dso-modal>` Web component ([#1793](https://github.com/dso-toolkit/dso-toolkit/issues/1793))\
