@@ -81,114 +81,36 @@ examplePageFactory(
                   cards: [
                     {
                       label: "Boom kappen in de achtertuin 1",
-                      interactions: [{ label: "", variant: "primary" }],
-                      content: "ja",
+                      interactions: [{ label: "Ingediend", variant: "tertiary" }],
+                      content: html`<dl>
+                        <dt>Soort verzoek:</dt>
+                        <dd>Aanvraag</dd>
+                        <dt>Datum:</dt>
+                        <dd>02-20-2022</dd>
+                      </dl>`,
+                    },
+                    {
+                      label: "Boom kappen in de achtertuin 2",
+                      interactions: [{ label: "Ingediend", variant: "tertiary" }],
+                      content: html`<dl>
+                        <dt>Soort verzoek:</dt>
+                        <dd>Aanvraag toestemming gelijkwaardige maatregel</dd>
+                        <dt>Datum:</dt>
+                        <dd>02-20-2022</dd>
+                      </dl>`,
+                    },
+                    {
+                      label: "Boom kappen in de achtertuin 3",
+                      interactions: [{ label: "Omgevingsoverleg", variant: "tertiary" }],
+                      content: html`<dl>
+                        <dt>Soort verzoek:</dt>
+                        <dd>Melding</dd>
+                        <dt>Datum:</dt>
+                        <dd>02-20-2022</dd>
+                      </dl>`,
                     },
                   ],
                 })}
-                <ul class="dso-card-list">
-                  <li>
-                    <div class="dso-card">
-                      <div class="dso-card-heading">
-                        <a href="#">
-                          <h3>
-                            <span>Boom kappen in de achtertuin 1</span>
-                            <dso-icon icon="chevron-right"></dso-icon>
-                          </h3>
-                        </a>
-                        <div class="dso-card-interactions">
-                          <div class="dso-card-interaction">
-                            <p class="text-muted">
-                              <dso-toggletip secondary="true">
-                                Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de
-                                behandelende organisatie
-                              </dso-toggletip>
-                              Ingediend
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="dso-card-content">
-                        <div class="dso-rich-content">
-                          <dl>
-                            <dt>Soort verzoek:</dt>
-                            <dd>Aanvraag</dd>
-                            <dt>Datum:</dt>
-                            <dd>02-20-2022</dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="dso-card">
-                      <div class="dso-card-heading">
-                        <a href="#">
-                          <h3>
-                            <span>Boom kappen in de achtertuin 2</span>
-                            <dso-icon icon="chevron-right"></dso-icon>
-                          </h3>
-                        </a>
-                        <div class="dso-card-interactions">
-                          <div class="dso-card-interaction">
-                            <p class="text-muted">
-                              <dso-toggletip secondary="true">
-                                Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de
-                                behandelende organisatie
-                              </dso-toggletip>
-                              Ingediend
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="dso-card-content">
-                        <div class="dso-rich-content">
-                          <dl>
-                            <dt>Soort verzoek:</dt>
-                            <dd>Aanvraag toestemming gelijkwaardige maatregel</dd>
-                            <dt>Datum:</dt>
-                            <dd>02-20-2022</dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <li>
-                    <div class="dso-card">
-                      <div class="dso-card-heading">
-                        <a href="#">
-                          <h3>
-                            <span>Boom kappen in de achtertuin 3</span>
-                            <dso-icon icon="chevron-right"></dso-icon>
-                          </h3>
-                        </a>
-                        <div class="dso-card-interactions">
-                          <div class="dso-card-interaction">
-                            <p class="text-muted">
-                              <dso-toggletip secondary="true">
-                                Uw verzoek is ingediend. Meestal krijgt u binnen acht weken het besluit van de
-                                behandelende organisatie
-                              </dso-toggletip>
-                              Omgevingsoverleg
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="dso-card-content">
-                        <div class="dso-rich-content">
-                          <dl>
-                            <dt>Soort verzoek:</dt>
-                            <dd>Melding</dd>
-                            <dt>Datum:</dt>
-                            <dd>02-20-2022</dd>
-                          </dl>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>

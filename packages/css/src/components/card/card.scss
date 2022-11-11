@@ -111,7 +111,8 @@
 }
 
 .dso-card-selectable {
-  .dso-selectable {
+  .dso-selectable,
+  dso-selectable {
     label {
       font-size: 0;
     }

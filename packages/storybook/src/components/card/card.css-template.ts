@@ -33,11 +33,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
               </div>
             `}
           </div>
-          <div class="dso-card-content">
-            <div class="dso-rich-content">
-              <p>${content}</p>
-            </div>
-          </div>
+          <div class="dso-card-content">${content}</div>
         </div>
       `;
     },

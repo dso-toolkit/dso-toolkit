@@ -1,11 +1,11 @@
 import { CardList } from "@dso-toolkit/sources";
-import { TemplateResult } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 
 export const cardList: CardList<TemplateResult> = {
   cards: [
     {
       label: "Omgevingsplan industrieterrein Lange Voorden",
-      content: "Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      content: html`Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
       interactions: [
         {
           type: "button",
@@ -18,7 +18,7 @@ export const cardList: CardList<TemplateResult> = {
     },
     {
       label: "Omgevingsplan Gemeente Den Haag",
-      content: "Brouwersmolen eget iaculis nisi quam in libero.",
+      content: html`Brouwersmolen eget iaculis nisi quam in libero.`,
       interactions: [
         {
           type: "button",
@@ -31,7 +31,7 @@ export const cardList: CardList<TemplateResult> = {
     },
     {
       label: "Flora en Fauna beslissing 2019",
-      content: "Brouwersmolen eget iaculis nisi quam in libero.",
+      content: html`Brouwersmolen eget iaculis nisi quam in libero.`,
       interactions: [
         {
           type: "button",
@@ -44,7 +44,7 @@ export const cardList: CardList<TemplateResult> = {
     },
     {
       label: "Bestemmingsplan Zuiderpark",
-      content: "Zuiderpark eget iaculis nisi quam in libero.",
+      content: html`Zuiderpark eget iaculis nisi quam in libero.`,
       interactions: [
         {
           type: "button",

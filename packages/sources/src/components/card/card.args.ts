@@ -7,12 +7,11 @@ import { Card } from "./card.models";
 export interface CardArgs {
   label: string;
   selectable: boolean;
-  content: string;
   interactions: Button[];
-  image: string;
+  image: string | undefined;
 }
 
-export const cardArgTypes: ArgTypes<Card<never>> = {
+export const cardArgTypes: ArgTypes<CardArgs> = {
   label: {
     control: {
       type: "string",
@@ -21,12 +20,6 @@ export const cardArgTypes: ArgTypes<Card<never>> = {
   selectable: {
     control: {
       type: "boolean",
-    },
-  },
-  content: {
-    control: {
-      type: "text",
-      required: true,
     },
   },
   interactions: {
@@ -41,7 +34,10 @@ export const cardArgTypes: ArgTypes<Card<never>> = {
   },
 };
 
-export function cardArgsMapper(a: CardArgs): Card<never> {
+export function cardArgsMapper<TemplateFnReturnType>(
+  a: CardArgs,
+  content: TemplateFnReturnType
+): Card<TemplateFnReturnType> {
   return {
     label: a.label,
     selectable: a.selectable
@@ -53,7 +49,7 @@ export function cardArgsMapper(a: CardArgs): Card<never> {
           value: "1",
         }
       : undefined,
-    content: a.content,
+    content,
     interactions: a.interactions,
     image: a.image,
   };
