@@ -10,7 +10,7 @@ export const cssInputNumber: ComponentImplementation<InputNumber> = {
     function inputNumberTemplate({ label, id, min, max, count, minusButtonInactive, plusButtonInactive }) {
       return html`
         <div class="dso-input-number">
-          ${label && html`<label for=${id} class="control-label"> ${label} </label>`}
+          ${label && html`<label for=${id} class="control-label">${label}</label>`}
           ${buttonTemplate({
             type: "button",
             label: "Aantal verlagen",

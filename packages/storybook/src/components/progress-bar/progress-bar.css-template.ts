@@ -20,7 +20,7 @@ export const cssProgressBar: ComponentImplementation<ProgressBar> = {
           >
             <span style="width: ${Math.round((progress / (max || 100)) * 100)}%"></span>
           </span>
-          <span id="progress-bar-label"> ${label} </span>
+          <span id="progress-bar-label">${label}</span>
         </div>
       `;
     },

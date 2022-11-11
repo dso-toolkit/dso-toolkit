@@ -1,4 +1,5 @@
-import { html } from "lit-html";
+import { DefinitionList, List } from "@dso-toolkit/sources";
+import { html, TemplateResult } from "lit-html";
 
 export const mainMenu = [
   {
@@ -24,8 +25,7 @@ export const mainMenu = [
   },
 ];
 
-export const definitionList = {
-  useSrOnlyColon: false,
+export const definitionList: DefinitionList<TemplateResult> = {
   definitions: [
     {
       term: html`Description lists:`,
@@ -66,7 +66,7 @@ export const definitionList = {
   ],
 };
 
-export const listGroup = {
+export const listGroup: List = {
   modifier: "group",
   items: [
     {

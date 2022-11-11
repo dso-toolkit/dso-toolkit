@@ -5,8 +5,10 @@ import { ComponentImplementation } from "../../templates";
 export const cssButtonRow: ComponentImplementation<ButtonRow> = {
   component: "buttonRow",
   implementation: "css",
-  template: ({ buttonTemplate }) =>
+  template: ({ buttonTemplate, anchorTemplate }) =>
     function buttonRowTemplate({ buttons }) {
-      return html`<div class="dso-button-row">${buttons.map((button) => buttonTemplate(button))}</div>`;
+      return html`<div class="dso-button-row">
+        ${buttons.map((button) => ("variant" in button ? buttonTemplate(button) : anchorTemplate(button)))}
+      </div>`;
     },
 };

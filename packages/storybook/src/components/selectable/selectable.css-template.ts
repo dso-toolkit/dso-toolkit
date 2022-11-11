@@ -46,7 +46,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             : html`<script>
                 document.getElementById("${id}").indeterminate = false;
               </script>`}
-          <label for=${id}> ${label} </label>
+          <label for=${id}>${label}</label>
           ${info
             ? html`
                 ${!info.fixed ? infoButtonTemplate({ active: info.active, dsoToggle: info.dsoClose }) : nothing}

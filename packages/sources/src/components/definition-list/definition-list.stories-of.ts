@@ -1,7 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { DefinitionListArgs, definitionListArgsMapper, definitionListArgTypes } from "./definition-list.args";
-import { definitions } from "../../../../storybook/src/components/definition-list/definition-list.content";
 import { Definition, DefinitionList } from "./definition-list.models";
 
 export interface DefinitionListTemplates<TemplateFnReturnType> {
@@ -24,9 +23,6 @@ export function storiesOfDefinitionList<Implementation, Templates, TemplateFnRet
   return storiesOfFactory("Definition List", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: definitionListArgTypes,
-      args: {
-        definitions,
-      },
     });
 
     stories.add(

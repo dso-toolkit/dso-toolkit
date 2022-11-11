@@ -15,12 +15,10 @@ variants:
     definitionList:
       modifier: dso-bordered
       definitions:
-        - term: Thema
-          useSrOnlyColon: true
+        - term: "Thema:"
           descriptions:
             - description: Wonen
             - description: Werken
-        - term: Regelkwalificatie
-          useSrOnlyColon: true
+        - term: "Regelkwalificatie:"
           descriptions:
             - description: Instructieregels

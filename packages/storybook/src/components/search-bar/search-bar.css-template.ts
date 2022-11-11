@@ -30,15 +30,15 @@ export const cssSearchBar: ComponentImplementation<SearchBar> = {
             ${
               label && icon && !hiddenLabel // if
                 ? html`
-                    <label for=${id}> ${label} </label>
+                    <label for=${id}>${label}</label>
                     <span class="dso-search-icon" aria-hidden="true"></span>
                   `
                 : label && !icon && !hiddenLabel // else if
-                ? html`<label for=${id}> ${label} </label>`
+                ? html`<label for=${id}>${label}</label>`
                 : label && hiddenLabel && icon // else if
-                ? html`<label for=${id} class="dso-search-icon"> ${label} </label>`
+                ? html`<label for=${id} class="dso-search-icon">${label}</label>`
                 : label && hiddenLabel && !icon // else if
-                ? html`<label for=${id} class="sr-only"> ${label} </label>`
+                ? html`<label for=${id} class="sr-only">${label}</label>`
                 : !label && !hiddenLabel && icon // else if
                 ? html`<span class="dso-search-icon" aria-hidden="true"></span>`
                 : nothing // else

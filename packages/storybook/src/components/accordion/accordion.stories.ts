@@ -23,14 +23,14 @@ storiesOfAccordion({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ accordionTemplate }) => ({
+  storyTemplates: ({ accordionTemplate }, templates) => ({
     accordionTemplate,
     basicSections,
     addonsSections,
     alignmentSections,
     allowMultipleOpenSections,
     anchorSections,
-    subSections,
+    subSections: subSections(templates),
   }),
 });
 
@@ -42,13 +42,13 @@ storiesOfAccordion({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ accordionTemplate }) => ({
+  storyTemplates: ({ accordionTemplate }, templates) => ({
     accordionTemplate,
     basicSections,
     addonsSections,
     alignmentSections,
     allowMultipleOpenSections,
     anchorSections,
-    subSections,
+    subSections: subSections(templates),
   }),
 });

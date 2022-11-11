@@ -16,13 +16,10 @@ examplePageFactory(
         <div class="row">
           <div class="col-md-12">
             ${buttonRowTemplate({
-              buttons: [{ label: "Naar project overzicht", variant: "tertiary", icon: { icon: "chevron-left" } }],
+              buttons: [
+                { label: "Naar project overzicht", modifier: "dso-tertiary", url: "#", icon: { icon: "chevron-left" } },
+              ],
             })}
-            <!-- Anchor in buttonRowTemplate, gaat niet? -->
-            <!-- <div class="dso-button-row">
-              {% render '@anchor', {modifier: 'dso-tertiary', label: 'Naar project overzicht', url: '#', icon:
-              'chevron-left'} %}
-            </div> -->
             ${applicationHeadingTemplate({
               title: "Boom kappen in de achtertuin",
               subtitle: "Boom kappen in de achtertuin 1",

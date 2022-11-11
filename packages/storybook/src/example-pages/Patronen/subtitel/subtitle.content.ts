@@ -1,8 +1,8 @@
-import { html } from "lit-html";
+import { DefinitionList } from "@dso-toolkit/sources";
+import { html, TemplateResult } from "lit-html";
 
-export const definitionList = {
+export const definitionList: DefinitionList<TemplateResult> = {
   modifier: "dso-bordered",
-  useSrOnlyColon: true,
   definitions: [
     {
       term: html`Thema`,

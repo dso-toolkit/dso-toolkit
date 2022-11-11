@@ -39,7 +39,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         const children = accordionHandleChildren(accordion, section);
 
         if (section.handleUrl) {
-          return html`<a href="${section.handleUrl}" aria-expanded=${ariaExpanded}> ${children} </a>`;
+          return html`<a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>${children}</a>`;
         }
 
         return html`<button type="button" aria-expanded=${ariaExpanded}>${children}</button>`;

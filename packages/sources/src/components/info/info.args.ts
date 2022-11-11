@@ -32,13 +32,13 @@ export const infoArgTypes: ArgTypes<InfoArgs> = {
 
 export function infoArgsMapper<TemplateFnReturnType>(
   a: InfoArgs,
-  richContent: TemplateFnReturnType
+  content: TemplateFnReturnType
 ): Required<Info<TemplateFnReturnType>> {
   return {
     id: a.id,
     fixed: a.fixed,
     active: a.active,
-    content: richContent,
+    content,
     dsoClose: a.dsoClose,
   };
 }
