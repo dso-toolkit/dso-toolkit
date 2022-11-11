@@ -26,9 +26,17 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
                 <tr key={index}>
                   {row.map((col, cellIndex) =>
                     index === 0 ? (
-                      <th key={cellIndex} scope="row" dangerouslySetInnerHTML={{ __html: col }}></th>
-                    ) : (
+                      typeof col === "string" ? (
+                        <th key={cellIndex} scope="row" dangerouslySetInnerHTML={{ __html: col }}></th>
+                      ) : (
+                        <th key={cellIndex} scope="row">
+                          {col}
+                        </th>
+                      )
+                    ) : typeof col === "string" ? (
                       <td key={cellIndex} dangerouslySetInnerHTML={{ __html: col }}></td>
+                    ) : (
+                      <td key={cellIndex}>{col}</td>
                     )
                   )}
                 </tr>
