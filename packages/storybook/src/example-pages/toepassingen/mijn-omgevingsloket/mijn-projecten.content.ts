@@ -1,4 +1,6 @@
-export const mainMenu = [
+import { Header } from "@dso-toolkit/sources";
+
+export const mainMenu: Header["mainMenu"] = [
   {
     label: "Home",
     url: "#",

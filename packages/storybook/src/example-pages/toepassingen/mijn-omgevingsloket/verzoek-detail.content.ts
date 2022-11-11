@@ -1,7 +1,7 @@
-import { DefinitionList } from "@dso-toolkit/sources";
+import { DefinitionList, Header } from "@dso-toolkit/sources";
 import { html, TemplateResult } from "lit-html";
 
-export const mainMenu = [
+export const mainMenu: Header["mainMenu"] = [
   {
     label: "Home",
     url: "#",

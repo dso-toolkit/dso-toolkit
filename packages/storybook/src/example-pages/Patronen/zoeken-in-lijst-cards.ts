@@ -15,13 +15,13 @@ examplePageFactory(
       searchBarTemplate,
       badgeTemplate,
       cardListTemplate,
-      selectableTemplate,
       footnoteTemplate,
+      footnotesTemplate,
+      formTemplate,
     },
     templates
   ) => html`
     <div class="container">
-      {% render '@header', {menu: menu, breadcrumbs: breadcrumbs} %}
       ${headerPartial(templates, {
         ...header,
         mainMenu: [
@@ -66,56 +66,48 @@ examplePageFactory(
             </div>
             <div class="col-md-4">
               <h2 class="dso-steps-indicator">Filters</h2>
-              <form>
-                <fieldset>
-                  <legend hidden></legend>
-                  <fieldset class="form-group dso-checkboxes">
-                    <legend class="sr-only">Selecteer uw gewenste filter</legend>
-                    <div class="dso-label-container">
-                      <span class="control-label" aria-hidden="true"> Selecteer uw gewenste filter </span>
-                    </div>
-                    <div class="dso-field-container">
-                      ${selectableTemplate({
+              ${formTemplate({
+                formGroups: [
+                  {
+                    group: "checkboxes",
+                    label: "Selecteer uw gewenste filter",
+                    id: "selecteer-uw-gewenste-filter",
+                    selectables: [
+                      {
                         type: "checkbox",
                         id: "aanhanger-0",
                         name: "aanhanger",
                         label: html`${badgeTemplate({ message: "Omgevingswet document", status: "success" })}`,
                         value: "bak",
                         checked: true,
-                      })}
-                      ${selectableTemplate({
+                      },
+                      {
                         type: "checkbox",
                         id: "aanhanger-1",
                         name: "aanhanger",
                         label: html`${badgeTemplate({ message: "Geldige oude wetgeving", status: "warning" })}`,
                         value: "caravan",
                         checked: true,
-                      })}
-                      ${selectableTemplate({
+                      },
+                      {
                         type: "checkbox",
                         id: "aanhanger-2",
                         name: "aanhanger",
                         label: html`${badgeTemplate({ message: "Niet geldige oude wetgeving", status: "danger" })}`,
                         value: "fietsendrager",
-                      })}
-                    </div>
-                  </fieldset>
-                </fieldset>
-              </form>
+                      },
+                    ],
+                  },
+                ],
+              })}
             </div>
           </div>
-          <ol class="dso-footnotes">
-            <li class="dso-footnote" id="voetnoot14">
-              14.
-              <a
-                href="#voetnoot14link"
-                class="dso-footnote-backlink"
-                aria-label="Terug naar voetnoot 14"
-                title="Terug naar voetnoot 14"
-              ></a>
-              Foreest Groen Consult (2018) Quickscan natuuronderzoek Ontwikkeling Herveld-Noord. 26 juli 2018.
-            </li>
-          </ol>
+          ${footnotesTemplate([
+            {
+              label: "Foreest Groen Consult (2018) Quickscan natuuronderzoek Ontwikkeling Herveld-Noord. 26 juli 2018.",
+              number: 14,
+            },
+          ])}
         </div>
       </main>
       ${footerPartial(templates)}

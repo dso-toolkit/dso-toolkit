@@ -26,13 +26,15 @@ examplePageFactory(
         <div class="row">
           <div class="col-md-12">
             ${buttonRowTemplate({
-              buttons: [{ label: "Bekijk andere projecten", variant: "tertiary", icon: { icon: "chevron-left" } }],
+              buttons: [
+                {
+                  modifier: "dso-tertiary",
+                  label: "Bekijk andere projecten",
+                  url: "#",
+                  icon: { icon: "chevron-left" },
+                },
+              ],
             })}
-            <!-- ButtonAnchor kan niet in een buttonRowTemplate?? -->
-            <!-- <div class="dso-button-row">
-              {% render '@anchor', {modifier: 'dso-tertiary', label: 'Bekijk andere projecten', url: '#', icon:
-              'chevron-left'} %}
-            </div> -->
             ${applicationHeadingTemplate({ title: "Boom kappen in de achtertuin" })}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { html, TemplateResult } from "lit-html";
 import { AccordionSection } from "@dso-toolkit/sources";
+import { Templates } from "../../templates";
 
 const section1: AccordionSection<TemplateResult> = {
   handleTitle: "Is het verplicht om de Vergunningcheck te doen?",
@@ -85,35 +86,44 @@ export const anchorSections: AccordionSection<TemplateResult>[] = [
   },
 ];
 
-export const subSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-    content: html`<div class="dso-rich-content">
-        <p><strong>hallo</strong> dit is content</p>
-      </div>
+export function subSections({ accordionTemplate }: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    {
+      ...section1,
+      content: html`<div class="dso-rich-content">
+          <p><strong>hallo</strong> dit is content</p>
+        </div>
 
-      <dso-accordion>
-        <dso-accordion-section handle-title="Voor hoeveel locaties kan ik de Vergunningcheck doen?">
-          <div class="dso-rich-content">
-            <p><strong>hallo</strong> dit is content</p>
-          </div>
-        </dso-accordion-section>
-        <dso-accordion-section open handle-title="Hoe lang duurt de Vergunningcheck?">
-          <div class="dso-rich-content">
-            De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u alle
-            benodigde informatie bij de hand heeft.
-          </div>
-        </dso-accordion-section>
-      </dso-accordion>
+        ${accordionTemplate({
+          sections: [
+            {
+              handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+              heading: "h4",
+              content: html`<div className="dso-rich-content">
+                <p><strong>hallo</strong> dit is content</p>
+              </div> `,
+            },
+            {
+              handleTitle: "Hoe lang duurt de Vergunningcheck?",
+              heading: "h4",
+              open: true,
+              content: html`<div className="dso-rich-content">
+                De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
+                alle benodigde informatie bij de hand heeft.
+              </div> `,
+            },
+          ],
+        })}
 
-      <div class="dso-rich-content">
-        <p><strong>hallo</strong> dit is content na de nested section</p>
-      </div>`,
-  },
-  section2,
-  section3,
-  section4,
-];
+        <div class="dso-rich-content">
+          <p><strong>hallo</strong> dit is content na de nested section</p>
+        </div>`,
+    },
+    section2,
+    section3,
+    section4,
+  ];
+}
 
 export const allowMultipleOpenSections: AccordionSection<TemplateResult>[] = [
   {

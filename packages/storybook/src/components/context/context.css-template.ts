@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 function contextLabelTemplate(label: TemplateResult, content: TemplateResult, children: TemplateResult) {
   return html`
     <div class="dso-context-wrapper">
-      <span class="dso-context-label"> ${label} </span>
+      <span class="dso-context-label">${label}</span>
       <div class="dso-context-container">${content}</div>
     </div>
     ${children}
@@ -18,7 +18,7 @@ function contextFieldsetTemplate(label: TemplateResult, content: TemplateResult,
     <fieldset>
       <legend class="sr-only">${label}</legend>
       <div class="dso-context-wrapper">
-        <span class="dso-context-label" aria-hidden="true"> ${label} </span>
+        <span class="dso-context-label" aria-hidden="true">${label}</span>
         <div class="dso-context-container">${content}</div>
       </div>
       ${children}
