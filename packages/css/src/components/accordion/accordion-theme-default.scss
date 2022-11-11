@@ -75,7 +75,7 @@
           color: colors.$wit;
 
           &::before {
-            @include di.variant("chevron-up-wit");
+            @include di.variant("chevron-down-wit");
           }
 
           dso-attachments-counter {

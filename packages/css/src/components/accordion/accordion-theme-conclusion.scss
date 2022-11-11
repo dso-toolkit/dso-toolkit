@@ -50,7 +50,7 @@
       color: accordion.$conclusion-color;
 
       &::before {
-        @include di.base("chevron-down-grijs90");
+        @include di.base("chevron-right-grijs90");
       }
 
       &:hover,
@@ -73,7 +73,7 @@
             color: accordion.$conclusion-color;
 
             &::before {
-              @include di.base("chevron-up-grijs90");
+              @include di.base("chevron-down-grijs90");
             }
 
             dso-attachments-counter {

@@ -43,6 +43,7 @@ Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 * **core + react + sources + storybook:** `<dso-card>` Web component ([#1800](https://github.com/dso-toolkit/dso-toolkit/issues/1800))\
   En ook `<dso-card-container>` om de card in op te nemen. Dit component ondersteund `mode="list"` en `mode="grid"`
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
+* **core:** Webcomponent Accordion: Animaties ([#1846](https://github.com/dso-toolkit/dso-toolkit/issues/1846))
 
 ### Fixed
 * **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))

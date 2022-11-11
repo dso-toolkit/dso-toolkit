@@ -5,7 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionHeading, AccordionInternalState, AccordionSectionState, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionInternalState, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";

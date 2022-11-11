@@ -91,6 +91,11 @@ describe("Accordion", () => {
       .should("not.have.attr", "open")
       .get("@dsoSectionHandle")
       .should("have.attr", "aria-expanded", "false")
+      .get("@dsoAccordionSection")
+      .shadow()
+      .find(".dso-section-body")
+      .as("dsoSectionBody")
+      .should("have.attr", "aria-hidden", "true")
       .get("dso-accordion")
       .then(($accordion) => {
         const accordionElement = $accordion[0];
@@ -104,6 +109,8 @@ describe("Accordion", () => {
       .should("have.attr", "open")
       .get("@dsoSectionHandle")
       .should("have.attr", "aria-expanded", "true")
+      .get("@dsoSectionBody")
+      .should("have.attr", "aria-hidden", "false")
       .get("dso-accordion")
       .then(($accordion) => {
         const accordionElement = $accordion[0];
@@ -116,7 +123,9 @@ describe("Accordion", () => {
       .get("@dsoAccordionSection")
       .should("not.have.attr", "open")
       .get("@dsoSectionHandle")
-      .should("have.attr", "aria-expanded", "true");
+      .should("have.attr", "aria-expanded", "true")
+      .get("@dsoSectionBody")
+      .should("have.attr", "aria-hidden", "false");
   });
 
   it("should keep only one section open when allowMultipleOpen = false", () => {
