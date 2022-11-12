@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   <div class="form-group dso-static dso-edit">
   ```
 
+### Added
+* `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
+
 ## 46.0.0
 
 ### Deprecated

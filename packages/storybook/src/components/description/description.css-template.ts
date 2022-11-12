@@ -14,8 +14,8 @@ export const cssDescription: ComponentImplementation<Description> = {
         <a
           id="${id}-term"
           href="#${id}-content"
-          class="${classMap({ [`dso-description-term`]: true, "dso-open": open })}"
-          aria-expanded="${ifDefined(open ? "true" : "false")}"
+          class=${classMap({ [`dso-description-term`]: true, "dso-open": open })}
+          aria-expanded=${ifDefined(open ? "true" : "false")}
           aria-controls="${id}-content"
           >${unsafeHTML(term)}</a
         >

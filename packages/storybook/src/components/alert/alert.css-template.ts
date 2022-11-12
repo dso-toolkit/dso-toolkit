@@ -18,7 +18,7 @@ export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
   template: ({ buttonTemplate }) =>
     function alertTemplate({ status, message, onClick, withRoleAlert }) {
       return html`
-        <div class="alert alert-${status}" role="${ifDefined(withRoleAlert ? "alert" : undefined)}">
+        <div class="alert alert-${status}" role=${ifDefined(withRoleAlert ? "alert" : undefined)}>
           <span class="sr-only">${statusMap.get(status)}:</span>
           <div class="dso-rich-content">
             ${typeof message === "string" ? unsafeHTML(message) : message}

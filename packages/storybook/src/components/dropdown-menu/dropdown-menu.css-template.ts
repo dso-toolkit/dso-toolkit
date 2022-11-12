@@ -18,7 +18,7 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
           })}"
         >
           ${buttonTemplate({ ...button, id })}
-          <div class="dso-dropdown-options" role="menu" aria-labelledby="${id}">
+          <div class="dso-dropdown-options" role="menu" aria-labelledby=${id}>
             ${groups.map(
               (group) => html`
                 ${group.header ? html`<h2 class="dso-group-label">${group.header}</h2>` : nothing}

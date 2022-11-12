@@ -14,9 +14,9 @@ export const cssProgressBar: ComponentImplementation<ProgressBar> = {
             class="progress-bar"
             role="progressbar"
             aria-labelledby="progress-bar-label"
-            aria-valuenow="${Math.round(progress)}"
-            aria-valuemin="${min || 0}"
-            aria-valuemax="${max || 100}"
+            aria-valuenow=${Math.round(progress)}
+            aria-valuemin=${min || 0}
+            aria-valuemax=${max || 100}
           >
             <span style="width: ${Math.round((progress / (max || 100)) * 100)}%"></span>
           </span>

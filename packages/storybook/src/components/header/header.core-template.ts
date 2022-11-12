@@ -31,8 +31,8 @@ export const coreHeader: ComponentImplementation<Header> = {
         user-home-url=${ifDefined(userHomeUrl)}
         @dsoHeaderClick=${dsoHeaderClick}
       >
-        <div slot="logo"><img alt="Omgevingsloket" src="${logo}" /></div>
-        ${subLogo ? html`<div slot="sub-logo"><img alt="Regels op de kaart" src="${subLogo}" /></div>` : undefined}
+        <div slot="logo"><img alt="Omgevingsloket" src=${logo} /></div>
+        ${subLogo ? html`<div slot="sub-logo"><img alt="Regels op de kaart" src=${subLogo} /></div>` : undefined}
       </dso-header>`;
     },
 };

@@ -40,10 +40,10 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             ?checked=${checked}
           />
           ${indeterminate
-            ? html`<script>
+            ? /* eslint-disable-next-line lit/quoted-expressions -- quotes are needed because id is passed as a string in javascript */ html`<script>
                 document.getElementById("${id}").indeterminate = true;
               </script>`
-            : html`<script>
+            : /* eslint-disable-next-line lit/quoted-expressions -- quotes are needed because id is passed as a string in javascript */ html`<script>
                 document.getElementById("${id}").indeterminate = false;
               </script>`}
           <label for=${id}>${label}</label>

@@ -55,7 +55,7 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                           ? html`<button
                               type="button"
                               class="dso-status"
-                              aria-expanded="${ifDefined(collapsed ? "false" : "true")}"
+                              aria-expanded=${ifDefined(collapsed ? "false" : "true")}
                             >
                               ${!collapsed
                                 ? html` ${iconTemplate({ icon: "chevron-up" })} `

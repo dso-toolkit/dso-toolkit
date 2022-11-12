@@ -18,7 +18,7 @@ export const cssNavbar: ComponentImplementation<Navbar> = {
                   <button
                     type="button"
                     class="dso-navbar-toggle dso-secondary"
-                    aria-expanded="${ifDefined(open ? "true" : "false")}"
+                    aria-expanded=${ifDefined(open ? "true" : "false")}
                   >
                     ${iconTemplate({ icon: "bars" })}
                     <span class="sr-only">Menu</span>
@@ -29,10 +29,8 @@ export const cssNavbar: ComponentImplementation<Navbar> = {
           <ul class="dso-nav dso-nav-${modifier}">
             ${items.map(
               (item: NavbarItem) => html`
-                <li class="${ifDefined(item.active ? "dso-active" : undefined)}">
-                  <a href="${item.href}" aria-current="${ifDefined(item.active ? "page" : undefined)}">
-                    ${item.label}
-                  </a>
+                <li class=${ifDefined(item.active ? "dso-active" : undefined)}>
+                  <a href=${item.href} aria-current=${ifDefined(item.active ? "page" : undefined)}> ${item.label} </a>
                 </li>
               `
             )}

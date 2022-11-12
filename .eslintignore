@@ -6,3 +6,5 @@
 /packages/dso-toolkit
 /packages/react/src/components.ts
 /packages/react/src/react-component-lib
+/website/.docusaurus
+/website/build
