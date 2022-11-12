@@ -14,13 +14,13 @@ context:
     modifier: dso-columns dso-2-columns
     dsoColumns: true
     definitions:
-      - term: "Status"
+      - term: "Status:"
         descriptions:
           - description: Open
-      - term: "Verzonden aan"
+      - term: "Verzonden aan:"
         descriptions:
           - description: Gemeente Den Haag
-      - term: "Datum"
+      - term: "Datum:"
         descriptions:
           - description: 20-10-2020
   formContent:

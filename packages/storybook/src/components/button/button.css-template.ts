@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
   component: "button",
   implementation: "css",
-  template: ({ iconTemplate }) => {
+  template: ({ iconTemplate, tooltipTemplate }) => {
     function getClassName(variant: "primary" | "secondary" | "tertiary" | null, modifier: string | undefined) {
       if (variant && modifier) {
         return `dso-${variant} ${modifier}`;
@@ -73,8 +73,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
             >${label}</span
-          >${icon && iconMode ? iconTemplate(icon) : nothing}
-          ${tooltip ? html` <dso-tooltip position="${tooltip.position}">${tooltip.label}</dso-tooltip> ` : nothing}
+          >${icon && iconMode ? iconTemplate(icon) : nothing} ${tooltip ? tooltipTemplate(tooltip) : nothing}
         </button>
       `;
     }
