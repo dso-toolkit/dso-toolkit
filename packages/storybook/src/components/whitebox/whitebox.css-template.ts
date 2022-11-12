@@ -17,12 +17,12 @@ export const cssWhitebox: ComponentImplementation<Whitebox> = {
                   <span class="sr-only">${iconLabel}</span>
                 </div>
               `
-            : nothing}${count ? html` <div class="dso-step-counter">${count}</div> ` : nothing}
+            : nothing}${count ? html`<div class="dso-step-counter">${count}</div>` : nothing}
           <div class="dso-whitebox-title">
             <h2>${title}</h2>
           </div>
           <div class="dso-whitebox-link">
-            <a href="#" class="dso-tertiary"> ${iconTemplate({ icon: "angle-right" })} ${label} </a>
+            <a href="#" class="dso-tertiary"> ${iconTemplate({ icon: "angle-right" })} ${label}</a>
           </div>
           <div class="dso-whitebox-icon">${imageTemplate(image)}</div>
           <div class="dso-rich-content">

@@ -110,7 +110,7 @@ export function formGroupSearchBarArgsMapper<TemplateFnReturnType>(
             active: a.infoActive,
             fixed: a.infoFixed,
             dsoClose: a.infoCloseHandler,
-            richContent: a.infoText,
+            content: a.infoText,
           }
         : undefined,
     state: a.state,

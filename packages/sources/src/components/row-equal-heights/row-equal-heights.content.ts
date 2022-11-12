@@ -9,8 +9,8 @@ export const highlightBoxes: HighlightBox<string>[] = [
     border: false,
     dropShadow: false,
     step: 1,
-    richContent:
-      "<h2>Ongelijke inhoud</h2><p>Dit blok is hoger, dit blok heeft meer te vertellen omdat het een veel boeiender blok is. Mijn broertjes zijn minder interessant, dat zie je aan de inhoud.</p><p>PS: Ik ben het tweede blokje</p>",
+    content:
+      '<div class="dso-rich-content"><h2>Ongelijke inhoud</h2><p>Dit blok is hoger, dit blok heeft meer te vertellen omdat het een veel boeiender blok is. Mijn broertjes zijn minder interessant, dat zie je aan de inhoud.</p><p>PS: Ik ben het tweede blokje</p></div>',
   },
   {
     yellow: false,
@@ -18,8 +18,8 @@ export const highlightBoxes: HighlightBox<string>[] = [
     border: false,
     dropShadow: false,
     step: 2,
-    richContent:
-      "<h2>Ongelijke inhoud</h2><p>een <code>.row</code> een <code>.dso-equal-heights</code> krijgt, worden voor de volgende componenten de kolommen visueel even hoog:</p><ul><li>Highlight Box</li><li>Whitebox</li><li>Whitebox small</li></ul>",
+    content:
+      '<div class="dso-rich-content"><h2>Ongelijke inhoud</h2><p>een <code>.row</code> een <code>.dso-equal-heights</code> krijgt, worden voor de volgende componenten de kolommen visueel even hoog:</p><ul><li>Highlight Box</li><li>Whitebox</li><li>Whitebox small</li></ul></div>',
   },
   {
     yellow: false,
@@ -27,7 +27,7 @@ export const highlightBoxes: HighlightBox<string>[] = [
     border: false,
     dropShadow: false,
     step: 3,
-    richContent: "<h2>Ongelijke inhoud</h2><p>Oninteressant blokje</p>",
+    content: '<div class="dso-rich-content"><h2>Ongelijke inhoud</h2><p>Oninteressant blokje</p></div>',
   },
   {
     yellow: false,
@@ -35,7 +35,7 @@ export const highlightBoxes: HighlightBox<string>[] = [
     border: false,
     dropShadow: false,
     step: 4,
-    richContent: "<h2>Ongelijke inhoud</h2><p>Aha</p>",
+    content: '<div class="dso-rich-content"><h2>Ongelijke inhoud</h2><p>Aha</p></div>',
   },
 ];
 

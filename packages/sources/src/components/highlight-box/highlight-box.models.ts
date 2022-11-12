@@ -5,6 +5,6 @@ export interface HighlightBox<TemplateFnReturnType = string> {
   border?: boolean;
   step?: number;
   icon?: string;
-  richContent: TemplateFnReturnType | string;
+  content: TemplateFnReturnType | string;
   bannerImage?: boolean;
 }

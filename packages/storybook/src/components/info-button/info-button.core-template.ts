@@ -12,7 +12,7 @@ export const coreInfoButton: ComponentImplementation<InfoButton> = {
           label=${label}
           ?active=${active}
           ?secondary=${secondary}
-          @dsoToggle=${(e: CustomEvent) => dsoToggle(e.detail)}
+          @dsoToggle=${(e: CustomEvent) => dsoToggle?.(e.detail)}
         ></dso-info-button>
       `;
     },

@@ -1,5 +1,5 @@
 export interface ApplicationHeading {
-  title: string;
+  title?: string;
   subtitle?: string;
   step?: string;
 }

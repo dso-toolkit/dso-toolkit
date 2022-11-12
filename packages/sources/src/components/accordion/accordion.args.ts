@@ -16,7 +16,6 @@ export interface AccordionArgs {
   heading: AccordionHeading;
   handleUrl: string;
   handleTitle: string;
-  sections: AccordionSection[];
 }
 
 export const accordionArgTypes: ArgTypes<AccordionArgs> = {
@@ -87,13 +86,13 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
       type: "text",
     },
   },
-  sections: {
-    ...noControl,
-  },
 };
 
-export function accordionArgsMapper(a: AccordionArgs): Accordion {
-  const firstSection = a.sections[0];
+export function accordionArgsMapper<TemplateFnReturnType>(
+  a: AccordionArgs,
+  sections: AccordionSection<TemplateFnReturnType>[]
+): Accordion<TemplateFnReturnType> {
+  const firstSection = sections[0];
 
   if (firstSection) {
     firstSection.open = a.open;
@@ -110,6 +109,6 @@ export function accordionArgsMapper(a: AccordionArgs): Accordion {
     reverseAlign: a.reverseAlign,
     allowMultipleOpen: a.allowMultipleOpen,
     dsoToggleSection: a.dsoToggleSection,
-    sections: a.sections,
+    sections,
   };
 }

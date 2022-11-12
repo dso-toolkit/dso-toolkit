@@ -8,10 +8,10 @@ export const reactInfo: ComponentImplementation<Info<JSX.Element>> = {
   component: "info",
   implementation: "react",
   template: () =>
-    function infoTemplate({ fixed, active, richContent, dsoClose }) {
+    function infoTemplate({ fixed, active, content, dsoClose }) {
       return (
         <DsoInfo fixed={fixed} active={active} onDsoClose={dsoClose}>
-          {richContent}
+          {content}
         </DsoInfo>
       );
     },

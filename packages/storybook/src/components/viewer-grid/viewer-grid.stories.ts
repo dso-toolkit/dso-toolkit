@@ -85,7 +85,7 @@ storiesOfViewerGrid({
             modifier: "dso-document-header-features",
             definitions: [
               {
-                term: "Opschrift",
+                term: html`Opschrift:`,
                 descriptions: [
                   {
                     content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
@@ -93,7 +93,7 @@ storiesOfViewerGrid({
                 ],
               },
               {
-                term: "Identificatie",
+                term: html`Identificatie:`,
                 descriptions: [
                   {
                     content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
@@ -101,7 +101,7 @@ storiesOfViewerGrid({
                 ],
               },
               {
-                term: "Besluit",
+                term: html`Besluit:`,
                 descriptions: [
                   {
                     content: anchorTemplate({
@@ -116,7 +116,6 @@ storiesOfViewerGrid({
                 ],
               },
             ],
-            useSrOnlyColon: false,
           },
           featureAction: documentHeaderFeatureAction,
           featuresOpen: documentHeaderFeaturesOpen,
@@ -252,7 +251,7 @@ storiesOfViewerGrid({
               nec eros porttitor aliquam. Duis blandit vel ex at venenatis. Pellentesque habitant morbi tristique
               senectus et netus et malesuada fames ac turpis egestas. Nulla sodales facilisis hendrerit.
             </p>
-          </div> `,
+          </div>`,
       },
       tilesExampleTemplate,
       filterblokExampleTemplate,

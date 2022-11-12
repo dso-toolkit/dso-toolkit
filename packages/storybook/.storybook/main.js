@@ -17,7 +17,7 @@ module.exports = {
     "@whitespace/storybook-addon-html",
     "@storybook/addon-a11y",
   ],
-  stories: ["../src/**/*.stories.ts"],
+  stories: ["../src/components/**/*.stories.ts", "../src/example-pages/**/*.ts"],
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso.css">

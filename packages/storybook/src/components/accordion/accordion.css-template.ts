@@ -1,11 +1,10 @@
 import { Accordion, AccordionSection } from "@dso-toolkit/sources";
 import { html, nothing, TemplateResult } from "lit-html";
 import { classMap } from "lit-html/directives/class-map.js";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { ComponentImplementation } from "../../templates";
 
-export const cssAccordion: ComponentImplementation<Accordion> = {
+export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = {
   component: "accordion",
   implementation: "css",
   template: ({ attachmentsCounterTemplate, iconTemplate }) =>
@@ -17,7 +16,10 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
         ["danger", "fout:"],
       ]);
 
-      function accordionHandleChildren(accordion: Accordion, section: AccordionSection) {
+      function accordionHandleChildren(
+        accordion: Accordion<TemplateResult>,
+        section: AccordionSection<TemplateResult>
+      ) {
         return html`
           ${section.state ? html`<span class="sr-only">${statusMap.get(section.state)}:</span>` : nothing}
           ${section.icon && accordion.reverseAlign
@@ -32,18 +34,21 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
         `;
       }
 
-      function accordionHandleContent(accordion: Accordion, section: AccordionSection) {
+      function accordionHandleContent(accordion: Accordion<TemplateResult>, section: AccordionSection<TemplateResult>) {
         const ariaExpanded = (section.open ?? false).toString();
         const children = accordionHandleChildren(accordion, section);
 
         if (section.handleUrl) {
-          return html` <a href="${section.handleUrl}" aria-expanded=${ariaExpanded}> ${children} </a> `;
+          return html`<a href="${section.handleUrl}" aria-expanded=${ariaExpanded}>${children}</a>`;
         }
 
-        return html` <button type="button" aria-expanded=${ariaExpanded}>${children}</button> `;
+        return html`<button type="button" aria-expanded=${ariaExpanded}>${children}</button>`;
       }
 
-      function accordionHandleTemplate(accordion: Accordion, section: AccordionSection) {
+      function accordionHandleTemplate(
+        accordion: Accordion<TemplateResult>,
+        section: AccordionSection<TemplateResult>
+      ) {
         const content = accordionHandleContent(accordion, section);
 
         switch (section.heading) {
@@ -58,8 +63,11 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
         }
       }
 
-      function accordionSectionTemplate(accordion: Accordion, section: AccordionSection): TemplateResult {
-        const hasNestedAccordion = section.content?.includes("<dso-accordion") ?? false;
+      function accordionSectionTemplate(
+        accordion: Accordion<TemplateResult>,
+        section: AccordionSection<TemplateResult>
+      ): TemplateResult {
+        const hasNestedAccordion = section.content?.strings.includes("<dso-accordion") ?? false;
 
         if (!section.heading) {
           section.heading = "h2";
@@ -74,7 +82,7 @@ export const cssAccordion: ComponentImplementation<Accordion> = {
             })}"
           >
             ${accordionHandleTemplate(accordion, section)}
-            ${section.open ? html` <div class="dso-section-body">${unsafeHTML(section.content)}</div> ` : nothing}
+            ${section.open ? html`<div class="dso-section-body">${section.content}</div>` : nothing}
           </div>
         `;
       }

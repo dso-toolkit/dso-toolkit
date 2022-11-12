@@ -23,11 +23,11 @@ export const bannerArgTypes: ArgTypes<BannerArgs> = {
 
 export function bannerArgsMapper<TemplateFnReturnType>(
   a: BannerArgs,
-  richContent: TemplateFnReturnType
+  content: TemplateFnReturnType
 ): Banner<TemplateFnReturnType> {
   return {
     onClick: (e: Event) => a.onClick(e),
-    richContent: richContent,
+    content,
     status: a.status,
   };
 }

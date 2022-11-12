@@ -4,7 +4,7 @@ import { defaultTable, imageOverlayTable } from "./table.content";
 import { Table } from "./table.models";
 
 export interface TableTemplates<TemplateFnReturnType> {
-  tableTemplate: (TableProperties: Table) => TemplateFnReturnType;
+  tableTemplate: (TableProperties: Table<TemplateFnReturnType>) => TemplateFnReturnType;
 }
 
 export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
@@ -20,7 +20,9 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
       argTypes: tableArgTypes,
     });
 
-    const template = templateMapper<TableArgs>((args, { tableTemplate }) => tableTemplate(tableArgsMapper(args)));
+    const template = templateMapper<TableArgs<TemplateFnReturnType>>((args, { tableTemplate }) =>
+      tableTemplate(tableArgsMapper(args))
+    );
 
     stories.add("default", template, {
       args: {

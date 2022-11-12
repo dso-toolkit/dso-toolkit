@@ -6,13 +6,13 @@ export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: "banner",
   implementation: "css",
   template: ({ buttonTemplate }) =>
-    function bannerTemplate({ status, richContent, onClick }) {
+    function bannerTemplate({ status, content, onClick }) {
       return html`
         <section class="dso-banner ${status ? `alert-${status}` : ""}" role="alert">
           <div class="container">
             <div class="row">
               <div class="col-sm-12">
-                ${richContent}
+                ${content}
                 ${buttonTemplate({
                   label: "Sluiten",
                   variant: "tertiary",

@@ -16,7 +16,7 @@ export const cssFormGroupStatic: ComponentImplementation<FormGroupStatic<Templat
         [formGroup.info?.fixed ? infoTextId : undefined].filter((s) => !!s).join(" ") || undefined;
 
       return html`
-        <div class="form-group dso-static ${classMap({ "has-edit": !!formGroup.edit })}">
+        <div class="form-group dso-static ${classMap({ "dso-edit": !!formGroup.edit })}">
           <div class="dso-label-container">
             <label for=${formGroup.id} class="control-label"> ${formGroup.label} </label>
             ${formGroup.info?.fixed === false && formGroup.infoButton

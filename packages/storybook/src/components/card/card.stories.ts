@@ -5,6 +5,7 @@ import cssReadme from "@dso-toolkit/css/src/components/card/readme.md";
 
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
+import { content } from "./card.content";
 
 storiesOfCard({
   parameters: {
@@ -14,5 +15,5 @@ storiesOfCard({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ cardTemplate }) => ({ cardTemplate }),
+  storyTemplates: ({ cardTemplate }) => ({ cardTemplate, content }),
 });

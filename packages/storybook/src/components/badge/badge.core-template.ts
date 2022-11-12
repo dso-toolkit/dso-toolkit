@@ -8,6 +8,6 @@ export const coreBadge: ComponentImplementation<Badge> = {
   implementation: "core",
   template: () =>
     function badgeTemplate({ status, message }) {
-      return html` <dso-badge status=${ifDefined(status)}>${message}</dso-badge> `;
+      return html`<dso-badge status=${ifDefined(status)}>${message}</dso-badge>`;
     },
 };

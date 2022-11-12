@@ -25,6 +25,7 @@ export const cssFormGroupRadios: ComponentImplementation<FormGroupRadios<Templat
         <fieldset
           class="form-group dso-radios ${classMap({
             "dso-required": !!formGroup.required,
+            "dso-inline": !!formGroup.inline,
             [`dso-${formGroup.state}`]: !!formGroup.state,
           })}"
           aria-describedby=${ifDefined(ariaDescribedBy)}
@@ -42,11 +43,9 @@ export const cssFormGroupRadios: ComponentImplementation<FormGroupRadios<Templat
               selectableTemplate({ ...selectable, disabled: formGroup.disabled })
             )}
             ${formGroup.errorText && formGroup.state === "invalid"
-              ? html` <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p> `
+              ? html`<p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>`
               : nothing}
-            ${formGroup.helpText
-              ? html` <p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p> `
-              : nothing}
+            ${formGroup.helpText ? html`<p class="dso-help-block" id=${helpTextId}>${formGroup.helpText}</p>` : nothing}
           </div>
         </fieldset>
       `;

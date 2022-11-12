@@ -22,7 +22,7 @@ storiesOfDocumentHeader({
       modifier: "dso-document-header-features",
       definitions: [
         {
-          term: "Opschrift",
+          term: html`Opschrift:`,
           descriptions: [
             {
               content: "Besluit van 3 juli 2018, houdende regels over activiteiten in de fysieke leefomgeving",
@@ -30,7 +30,7 @@ storiesOfDocumentHeader({
           ],
         },
         {
-          term: "Identificatie",
+          term: html`Identificatie:`,
           descriptions: [
             {
               content: "/akn/nl/act/mnre1034/2021/BWBR0041330",
@@ -38,7 +38,7 @@ storiesOfDocumentHeader({
           ],
         },
         {
-          term: "Besluit",
+          term: html`Besluit:`,
           descriptions: [
             {
               content: anchorTemplate({
@@ -53,7 +53,6 @@ storiesOfDocumentHeader({
           ],
         },
       ],
-      useSrOnlyColon: false,
     };
 
     function status(documentHeaderStatusOpen: boolean, documentHeaderFeatureAction: HandlerFunction) {

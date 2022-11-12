@@ -1,19 +1,19 @@
 import { Table } from "@dso-toolkit/sources";
 
-import { html } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { ComponentImplementation } from "../../templates";
 
-export const coreTable: ComponentImplementation<Table> = {
+export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
   component: "table",
   implementation: "core",
   template: () =>
-    function tableTemplate({ noModal, content }) {
+    function tableTemplate({ noModal, content, headingColumns }) {
       return html`
         <dso-table ?no-modal=${noModal}>
           <table class="table">
-            <caption>
+            <caption class="sr-only">
               ${content.caption}
             </caption>
 
@@ -27,7 +27,9 @@ export const coreTable: ComponentImplementation<Table> = {
                 (row) => html`
                   <tr>
                     ${row.map((col, index) =>
-                      index === 0 ? html`<th scope="row">${unsafeHTML(col)}</th>` : html`<td>${unsafeHTML(col)}</td>`
+                      index === 0 && headingColumns
+                        ? html`<th scope="row">${typeof col === "string" ? unsafeHTML(col) : col}</th>`
+                        : html`<td>${typeof col === "string" ? unsafeHTML(col) : col}</td>`
                     )}
                   </tr>
                 `

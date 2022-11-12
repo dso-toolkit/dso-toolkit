@@ -5,8 +5,8 @@ export const tooltipStrategy = ["auto", "absolute", "fixed"] as const;
 export interface Tooltip {
   active?: boolean;
   descriptive?: boolean;
-  position: typeof tooltipPositions;
-  strategy: typeof tooltipStrategy;
+  position: typeof tooltipPositions[number];
+  strategy?: typeof tooltipStrategy[number];
   label: string;
   id?: string;
 }

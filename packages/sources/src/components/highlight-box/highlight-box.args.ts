@@ -54,12 +54,12 @@ export const highlightBoxArgTypes: ArgTypes<HighlightBoxArgs> = {
 
 export function highlightBoxArgsMapper<TemplateFnReturnType>(
   a: HighlightBoxArgs,
-  richContent: TemplateFnReturnType
+  content: TemplateFnReturnType
 ): HighlightBox<TemplateFnReturnType> {
   return {
     border: a.border,
     dropShadow: a.dropShadow,
-    richContent,
+    content,
     white: a.white,
     yellow: a.yellow,
     icon: a.icon,

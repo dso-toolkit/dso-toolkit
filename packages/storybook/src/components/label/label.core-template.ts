@@ -17,7 +17,7 @@ export const coreLabel: ComponentImplementation<Label> = {
           ?compact=${compact}
           ?removable=${removable}
         >
-          ${symbol ? html` <span slot="symbol"> ${unsafeHTML(symbol)} </span> ` : nothing} ${label}
+          ${symbol ? html`<span slot="symbol"> ${unsafeHTML(symbol)} </span>` : nothing} ${label}
         </dso-label>
       `;
     },

@@ -53,7 +53,7 @@ import { reactTreeView } from "./components/tree-view/tree-view.react-template";
 
 export interface Components {
   alert: Alert<JSX.Element>;
-  accordion: Accordion;
+  accordion: Accordion<JSX.Element>;
   autosuggest: Autosuggest<JSX.Element>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
@@ -71,7 +71,7 @@ export interface Components {
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   selectable: Selectable<JSX.Element>;
-  table: Table;
+  table: Table<JSX.Element>;
   toggletip: Toggletip;
   tooltip: Tooltip;
   treeView: TreeView;

@@ -170,7 +170,7 @@ import { coreInfo } from "./components/info/info.core-template";
 import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-heights.css-template";
 
 export interface Components {
-  accordion: Accordion;
+  accordion: Accordion<TemplateResult>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
   applicationHeading: ApplicationHeading;
@@ -233,7 +233,7 @@ export interface Components {
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
-  table: Table;
+  table: Table<TemplateResult>;
   tabs: Tabs;
   tileGrid: TileGrid<TemplateResult>;
   tile: Tile;

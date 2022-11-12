@@ -7,6 +7,6 @@ export const coreAttachmentsCounter: ComponentImplementation<AttachmentsCounter>
   implementation: "core",
   template: () =>
     function attachmentsCounterTemplate({ count }) {
-      return html` <dso-attachments-counter count=${count}></dso-attachments-counter> `;
+      return html`<dso-attachments-counter count=${count}></dso-attachments-counter>`;
     },
 };

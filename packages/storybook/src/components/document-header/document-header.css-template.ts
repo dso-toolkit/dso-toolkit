@@ -21,7 +21,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
       sticky,
     }) {
       return html`
-        <dso-responsive-element class="dso-document-header ${classMap({ "dso-document-header-sticky": sticky })}">
+        <dso-responsive-element class="dso-document-header ${classMap({ "dso-document-header-sticky": !!sticky })}">
           <h1>
             <button type="button">
               <span>${title}</span>
@@ -62,7 +62,7 @@ export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateR
             <div class="dso-document-header-status-wrapper">
               <p class="dso-document-header-status">${status}</p>
               ${statusContentOpen && statusContent
-                ? html` <div class="dso-document-header-status-content">${statusContent}</div> `
+                ? html`<div class="dso-document-header-status-content">${statusContent}</div>`
                 : nothing}
             </div>
           </div>

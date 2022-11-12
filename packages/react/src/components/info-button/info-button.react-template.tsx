@@ -14,7 +14,7 @@ export const reactInfoButton: ComponentImplementation<InfoButton> = {
           label={label}
           active={active}
           secondary={secondary}
-          onDsoToggle={(e: CustomEvent) => dsoToggle(e.detail)}
+          onDsoToggle={(e: CustomEvent) => dsoToggle?.(e.detail)}
         ></DsoInfoButton>
       );
     },

@@ -36,7 +36,7 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
             <ul class="dso-filelist">
               ${formGroup.files.map(
                 (file, index) =>
-                  html` <li>
+                  html`<li>
                     <div class="dso-filename" id=${`${formGroup.id}-file-filename-${index}`}>${file.filename}</div>
                     ${selectableTemplate({
                       id: `${formGroup.id}-file-confirm-${index}`,
@@ -73,7 +73,7 @@ export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateR
             </div>
 
             ${formGroup.errorText && formGroup.state === "invalid"
-              ? html` <p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p> `
+              ? html`<p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>`
               : nothing}
           </div>
         </fieldset>

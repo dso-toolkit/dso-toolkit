@@ -4,7 +4,7 @@ import * as React from "react";
 import { DsoTable } from "../..";
 import { ComponentImplementation } from "../../templates";
 
-export const reactTable: ComponentImplementation<Table> = {
+export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
   component: "table",
   implementation: "react",
   template: () =>
@@ -12,7 +12,7 @@ export const reactTable: ComponentImplementation<Table> = {
       return (
         <DsoTable noModal={noModal}>
           <table className="table">
-            <caption>{content.caption}</caption>
+            <caption className="sr-only">{content.caption}</caption>
 
             <thead>
               <tr>
@@ -22,13 +22,21 @@ export const reactTable: ComponentImplementation<Table> = {
               </tr>
             </thead>
             <tbody>
-              {content.rows.map((row) => (
-                <tr key={row[0]}>
-                  {row.map((col, index) =>
+              {content.rows.map((row, index) => (
+                <tr key={index}>
+                  {row.map((col, cellIndex) =>
                     index === 0 ? (
-                      <th key={row[0] + index} scope="row" dangerouslySetInnerHTML={{ __html: col }}></th>
+                      typeof col === "string" ? (
+                        <th key={cellIndex} scope="row" dangerouslySetInnerHTML={{ __html: col }}></th>
+                      ) : (
+                        <th key={cellIndex} scope="row">
+                          {col}
+                        </th>
+                      )
+                    ) : typeof col === "string" ? (
+                      <td key={cellIndex} dangerouslySetInnerHTML={{ __html: col }}></td>
                     ) : (
-                      <td key={row[0] + index} dangerouslySetInnerHTML={{ __html: col }}></td>
+                      <td key={cellIndex}>{col}</td>
                     )
                   )}
                 </tr>

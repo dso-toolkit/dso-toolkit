@@ -1,4 +1,5 @@
 export * from "./template-container";
+export * from "./storybook";
 
 export * from "./components/accordion/accordion.models";
 export * from "./components/accordion/accordion.stories-of";

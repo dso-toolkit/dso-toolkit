@@ -1,10 +1,9 @@
 import { Accordion } from "@dso-toolkit/sources";
-import { html } from "lit-html";
+import { html, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { ComponentImplementation } from "../../templates";
 
-export const coreAccordion: ComponentImplementation<Accordion> = {
+export const coreAccordion: ComponentImplementation<Accordion<TemplateResult>> = {
   component: "accordion",
   implementation: "core",
   template: () =>
@@ -17,7 +16,7 @@ export const coreAccordion: ComponentImplementation<Accordion> = {
           @dsoToggleSection=${dsoToggleSection}
         >
           ${sections.map(
-            (section) => html` <dso-accordion-section
+            (section) => html`<dso-accordion-section
               ?open=${ifDefined(section.open)}
               handle-title=${section.handleTitle}
               heading=${section.heading}
@@ -27,7 +26,7 @@ export const coreAccordion: ComponentImplementation<Accordion> = {
               icon=${ifDefined(section.icon)}
               attachment-count=${ifDefined(section.attachmentCount)}
             >
-              ${unsafeHTML(section.content)}
+              ${section.content}
             </dso-accordion-section>`
           )}
         </dso-accordion>

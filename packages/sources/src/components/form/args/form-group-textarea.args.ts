@@ -152,7 +152,7 @@ export function formGroupTextareaArgsMapper<TemplateFnReturnType>(
             active: a.infoActive,
             fixed: a.infoFixed,
             dsoClose: a.infoCloseHandler,
-            richContent: a.infoText,
+            content: a.infoText,
           }
         : undefined,
   };

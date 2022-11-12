@@ -5,6 +5,13 @@ import cssReadme from "@dso-toolkit/css/src/components/definition-list/readme.md
 
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
+import {
+  columnDefinitions,
+  definitions,
+  definitionsSrOnlyColon,
+  listDefinitions,
+  smallContentDefinitions,
+} from "./definition-list.content";
 
 storiesOfDefinitionList({
   parameters: {
@@ -14,5 +21,12 @@ storiesOfDefinitionList({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ definitionListTemplate }) => ({ definitionListTemplate }),
+  storyTemplates: ({ definitionListTemplate }) => ({
+    definitionListTemplate,
+    definitions,
+    definitionsSrOnlyColon,
+    columnDefinitions,
+    smallContentDefinitions,
+    listDefinitions,
+  }),
 });

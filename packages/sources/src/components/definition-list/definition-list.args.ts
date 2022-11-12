@@ -4,32 +4,22 @@ import { Definition, DefinitionList } from "./definition-list.models";
 
 export interface DefinitionListArgs {
   modifier?: string;
-  definitions: Definition[];
-  useSrOnlyColon: boolean;
 }
 
 export const definitionListArgTypes: ArgTypes<DefinitionListArgs> = {
-  definitions: {
-    control: {
-      disable: true,
-    },
-  },
   modifier: {
     control: {
       type: "text",
     },
   },
-  useSrOnlyColon: {
-    control: {
-      type: "boolean",
-    },
-  },
 };
 
-export function definitionListArgsMapper(a: DefinitionListArgs): DefinitionList {
+export function definitionListArgsMapper<TemplateFnReturnType>(
+  a: DefinitionListArgs,
+  definitions: Definition<TemplateFnReturnType>[]
+): DefinitionList<TemplateFnReturnType> {
   return {
-    definitions: a.definitions,
+    definitions,
     modifier: a.modifier,
-    useSrOnlyColon: a.useSrOnlyColon,
   };
 }

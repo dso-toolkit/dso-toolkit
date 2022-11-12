@@ -15,29 +15,29 @@ context:
     title: Boom kappen in de achtertuin
     subtitle: Boom kappen in de achtertuin 1
   definitions:
-    - term: "Ingediend bij"
+    - term: "Ingediend bij:"
       descriptions:
         - description: <strong>Gemeente Den Haag</strong>
-    - term: "Behandeld door"
+    - term: "Behandeld door:"
       descriptions:
         - description: <strong>Omgevingsdienst Haaglanden</strong>
-    - term: "Soort"
+    - term: "Soort:"
       descriptions:
         - description: Aanvraag vergunning
-    - term: "Locatie"
+    - term: "Locatie:"
       descriptions:
         - description: Laan van Eik en Duinen 125, 2564GX 's-Gravenhage
-    - term: "Activiteit(en)"
+    - term: "Activiteit(en):"
       descriptions:
         - description: Milieubelastende activiteit - vergunning
         - description: Kappen van een boom - vergunning
-    - term: "Doel"
+    - term: "Doel:"
       descriptions:
         - description: Definitief
-    - term: "Status"
+    - term: "Status:"
       descriptions:
         - description: Aangevuld
-    - term: "Verzoek hulpnummer(s)"
+    - term: "Verzoek hulpnummer(s):"
       descriptions:
         - description: 20220101 00201 002 - 02-01-2022
         - description: 20220101 00201 002 - 02-01-2022

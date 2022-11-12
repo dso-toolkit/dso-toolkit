@@ -10,6 +10,6 @@ export interface PaginationSelectPageEvent {
 export interface Pagination {
   totalPages: number;
   currentPage: number;
-  formatHref: (page: number) => string;
-  dsoSelectPage: (e: CustomEvent<PaginationSelectPageEvent>) => void;
+  formatHref?: (page: number) => string;
+  dsoSelectPage?: (e: CustomEvent<PaginationSelectPageEvent>) => void;
 }

@@ -1,13 +1,12 @@
 import { List } from "../list/list.models";
 
-export interface DefinitionList<TemplateFnReturnType = never> {
+export interface DefinitionList<TemplateFnReturnType> {
   modifier?: string;
   definitions: Definition<TemplateFnReturnType>[];
-  useSrOnlyColon: boolean;
 }
 
-export interface Definition<TemplateFnReturnType = never> {
-  term: string;
+export interface Definition<TemplateFnReturnType> {
+  term: TemplateFnReturnType;
   descriptions: (DefinitionDescriptionContent<TemplateFnReturnType> | DefinitionDescriptionItems)[];
 }
 

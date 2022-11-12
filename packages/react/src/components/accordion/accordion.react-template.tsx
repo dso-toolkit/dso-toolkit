@@ -4,9 +4,8 @@ import * as React from "react";
 
 import { DsoAccordion, DsoAccordionSection } from "../..";
 import { ComponentImplementation } from "../../templates";
-import { DemoHtml } from "../../utils/demo-html";
 
-export const reactAccordion: ComponentImplementation<Accordion> = {
+export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
   component: "accordion",
   implementation: "react",
   template: () =>
@@ -30,7 +29,7 @@ export const reactAccordion: ComponentImplementation<Accordion> = {
               icon={section.icon}
               attachmentCount={section.attachmentCount}
             >
-              <DemoHtml html={section.content} />
+              {section.content}
             </DsoAccordionSection>
           ))}
         </DsoAccordion>

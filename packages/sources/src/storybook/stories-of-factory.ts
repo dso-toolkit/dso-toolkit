@@ -31,11 +31,8 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
 ) {
   const stories = createStories(name, parameters);
 
-  const preferredImplementation = parameters.root === "Core" ? "core" : "css";
-
   const implementations = templateContainer.getImplementationTypes();
-  if (implementations.length > 99) {
-    // insert condition for example pages only
+  if (name.startsWith("Voorbeeldpagina") && implementations.length > 1) {
     stories.addParameters({
       argTypes: {
         preferredImplementation: {
@@ -49,7 +46,7 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
         },
       },
       args: {
-        preferredImplementation,
+        preferredImplementation: "core",
       },
     });
   }
@@ -60,9 +57,7 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
     const args = { ...a };
     delete args.preferredImplementation;
 
-    const templates = templateContainer.render(
-      preferredImplementation ?? (parameters.root === "Core" ? "core" : "css")
-    );
+    const templates = templateContainer.render(preferredImplementation ?? "core");
 
     return mapper(args as never, storyTemplates(templates, templates));
   });

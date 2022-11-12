@@ -23,34 +23,34 @@ context:
   __title: Standaard
   __explanation: Responsive component. Gedrag kan gestuurd worden met <code>.dso-vertical</code> en <code>.dso-emphasize-description</code>
   definitions:
-    - term: "Thema"
+    - term: "Thema:"
       descriptions:
         - description: Wonen
         - description: Werken
-    - term: "Regelkwalificatie"
+    - term: "Regelkwalificatie:"
       descriptions:
         - description: Instructieregels
-    - term: "Onderwerp"
+    - term: "Onderwerp:"
       descriptions:
         - description: Bedrijventerrein
-    - term: "Functie"
+    - term: "Functie:"
       descriptions:
         - description:
             "Bedrijventerrein &gt; Bedrijventerrein"
-    - term: "Type regel"
+    - term: "Type regel:"
       descriptions:
         - description: Bindend voor bestuursorganen
-    - term: "Normadressaat"
+    - term: "Normadressaat:"
       longread:
         - paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         - paragraph: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    - term: "Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus"
+    - term: "Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus:"
       longread:
         - paragraph: Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.
-    - term: "De stoflongziekte (mijnwerkers-pneumoconiose)"
+    - term: "De stoflongziekte (mijnwerkers-pneumoconiose):"
       longread:
         - paragraph: Veroorzaakt door lange blootstelling aan kolengruis.
-    - term: "Pneumoconiose"
+    - term: "Pneumoconiose:"
       longread:
         - paragraph: Pneumoconiose of stoflong is een longaandoening die door de inhalatie van stof wordt veroorzaakt.
 variants:
@@ -79,19 +79,19 @@ variants:
       __explanation: Kolomverdeling 1-3, groene koppen door class <code>dso-with-header</code>.
       modifier: dso-columns-1-3 dso-with-header
       definitions:
-        - term: "Verzoek 1"
+        - term: "Verzoek 1:"
           descriptions:
             - description: Aanleg rondweg Leiden traject Rijnland route 1
-        - term: "Verzoeknummer"
+        - term: "Verzoeknummer:"
           descriptions:
             - description: 20181024 00729 000
-        - term: "Datum ingediend"
+        - term: "Datum ingediend:"
           descriptions:
             - description: 24/10/2018
-        - term: "Ingediend bij"
+        - term: "Ingediend bij:"
           descriptions:
             - description: Gemeente Den Haag
-        - term: "Uw verzoek wordt behandeld door"
+        - term: "Uw verzoek wordt behandeld door:"
           descriptions:
             - description: Omgevingsdienst Haaglanden
   - name: columns-2-2
@@ -140,25 +140,25 @@ variants:
       modifier: dso-columns dso-2-columns
       dsoColumns: true
       definitions:
-        - term: "Organisator"
+        - term: "Organisator:"
           descriptions:
             - description: Gemeente Rotterdam
-        - term: "Verzoeknummer"
+        - term: "Verzoeknummer:"
           descriptions:
             - description: 12123497987
-        - term: "Status"
+        - term: "Status:"
           descriptions:
             - description: Open
-        - term: "Creatie datum"
+        - term: "Creatie datum:"
           descriptions:
             - description: 17-12-2019
-        - term: "Contactpersoon"
+        - term: "Contactpersoon:"
           descriptions:
             - description: Jan van Veen
-        - term: "Emailadres"
+        - term: "Emailadres:"
           descriptions:
             - description: j.veen@testmail.nl
-        - term: "Telefoonnummer"
+        - term: "Telefoonnummer:"
           descriptions:
             - description: 06-12345678
   - name: two-columns
@@ -207,43 +207,34 @@ variants:
       __explanation: De class <code>dso-bordered,</code> zorgt op de definition list voor horizontale borders. De breedte classes <code>dso-columns-1-3</code>, <code>dso-columns-2-2,</code> en <code>dso-columns-3-1,</code> kunnen ook toegepast worden.
       modifier: dso-bordered
       definitions:
-        - term: "Thema"
-          useSrOnlyColon: true
+        - term: "Thema:"
           descriptions:
             - description: Wonen
             - description: Werken
-        - term: "Regelkwalificatie"
-          useSrOnlyColon: true
+        - term: "Regelkwalificatie:"
           descriptions:
             - description: Instructieregels
-        - term: "Onderwerp"
-          useSrOnlyColon: true
+        - term: "Onderwerp:"
           descriptions:
             - description: Bedrijventerrein
-        - term: "Functie"
-          useSrOnlyColon: true
+        - term: "Functie:"
           descriptions:
             - description:
                 "Bedrijventerrein &gt; Bedrijventerrein"
-        - term: "Type regel"
-          useSrOnlyColon: true
+        - term: "Type regel:"
           descriptions:
             - description: Bindend voor bestuursorganen
-        - term: "Normadressaat"
-          useSrOnlyColon: true
+        - term: "Normadressaat:"
           longread:
             - paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             - paragraph: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        - term: "Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus"
-          useSrOnlyColon: true
+        - term: "Pneumonoultramicroscopicsilicovolcanoconiosisfantasismus:"
           longread:
             - paragraph: Een factitious (quasi-fictieve) vorm van pneumoconiose (stoflongen), veroorzaakt door het inademen van microscopisch kleine silicadeeltjes uit vulkanen.
-        - term: "De stoflongziekte (mijnwerkers-pneumoconiose)"
-          useSrOnlyColon: true
+        - term: "De stoflongziekte (mijnwerkers-pneumoconiose):"
           longread:
             - paragraph: Veroorzaakt door lange blootstelling aan kolengruis.
-        - term: "Pneumoconiose"
-          useSrOnlyColon: true
+        - term: "Pneumoconiose:"
           longread:
             - paragraph: Pneumoconiose of stoflong is een longaandoening die door de inhalatie van stof wordt veroorzaakt.
   - name: with-list-in-columns
@@ -251,7 +242,7 @@ variants:
       __title: Met lijst in kolommen
       __explanation: Responsive component. Kolommen worden gezet doormiddel van <code>ul.dso-columns-list</code>.
       definitions:
-        - term: "Trefwoorden"
+        - term: "Trefwoorden:"
           descriptions:
             - columnsList: |
                 <ul class="dso-columns-list">

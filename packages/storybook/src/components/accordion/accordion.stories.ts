@@ -6,6 +6,14 @@ import cssReadme from "@dso-toolkit/css/src/components/accordion/readme.md";
 import coreReadme from "@dso-toolkit/core/src/components/accordion/readme.md";
 
 import { templateContainer } from "../../templates";
+import {
+  addonsSections,
+  alignmentSections,
+  allowMultipleOpenSections,
+  anchorSections,
+  basicSections,
+  subSections,
+} from "./accordion.content";
 
 storiesOfAccordion({
   parameters: {
@@ -15,7 +23,15 @@ storiesOfAccordion({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ accordionTemplate }) => ({ accordionTemplate }),
+  storyTemplates: ({ accordionTemplate }, templates) => ({
+    accordionTemplate,
+    basicSections,
+    addonsSections,
+    alignmentSections,
+    allowMultipleOpenSections,
+    anchorSections,
+    subSections: subSections(templates),
+  }),
 });
 
 storiesOfAccordion({
@@ -26,5 +42,13 @@ storiesOfAccordion({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ accordionTemplate }) => ({ accordionTemplate }),
+  storyTemplates: ({ accordionTemplate }, templates) => ({
+    accordionTemplate,
+    basicSections,
+    addonsSections,
+    alignmentSections,
+    allowMultipleOpenSections,
+    anchorSections,
+    subSections: subSections(templates),
+  }),
 });

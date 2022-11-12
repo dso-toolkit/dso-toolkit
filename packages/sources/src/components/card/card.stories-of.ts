@@ -6,6 +6,7 @@ import { Card } from "./card.models";
 
 export interface CardTemplates<TemplateFnReturnType> {
   cardTemplate: (cardProperties: Card<TemplateFnReturnType>) => TemplateFnReturnType;
+  content: TemplateFnReturnType;
 }
 
 export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
@@ -19,10 +20,10 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
   return storiesOfFactory("Card", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: cardArgTypes,
-      args: componentArgs<Omit<CardArgs, "image">>({
+      args: componentArgs<CardArgs>({
         label: "Omgevingsplan Nieuwegein",
         selectable: false,
-        content: "Gemeente Nieuwegein lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        image: undefined,
         interactions: [
           {
             variant: "tertiary",
@@ -35,7 +36,9 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       }),
     });
 
-    const template = templateMapper<CardArgs>((args, { cardTemplate }) => cardTemplate(cardArgsMapper(args)));
+    const template = templateMapper<CardArgs>((args, { cardTemplate, content }) =>
+      cardTemplate(cardArgsMapper(args, content))
+    );
 
     stories.add("default", template);
 
