@@ -7,7 +7,6 @@ export const cssProgressBar: ComponentImplementation<ProgressBar> = {
   implementation: "css",
   template: () =>
     function progressBarTemplate({ progress, label, min, max }) {
-      console.log(max);
       return html`
         <div class="progress">
           <span

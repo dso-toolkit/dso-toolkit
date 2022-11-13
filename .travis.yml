@@ -50,7 +50,7 @@ jobs:
         yarn e2e
 
     - stage: deploy
-      name: deploy to dso-toolkit.nl and percy
+      name: deploy to dso-toolkit.nl
       workspaces:
         use: build-artifacts
       script:
@@ -60,7 +60,6 @@ jobs:
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/build/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}/beta
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
-        - yarn percy
 
     - stage: release
       name: publish to npm
