@@ -4,7 +4,7 @@ import * as React from "react";
 import { DsoToggletip } from "../..";
 import { ComponentImplementation } from "../../templates";
 
-export const reactToggletip: ComponentImplementation<Toggletip> = {
+export const reactToggletip: ComponentImplementation<Toggletip<JSX.Element>> = {
   component: "toggletip",
   implementation: "react",
   template: () =>

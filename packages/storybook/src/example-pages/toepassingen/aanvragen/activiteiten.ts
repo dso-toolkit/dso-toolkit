@@ -10,6 +10,7 @@ examplePageFactory(
   ({
     applicationHeadingTemplate,
     alertTemplate,
+    anchorTemplate,
     shoppingCartTemplate,
     highlightBoxTemplate,
     searchBarTemplate,
@@ -28,7 +29,8 @@ examplePageFactory(
             step: "Stap 3/7",
           })}
           ${alertTemplate({
-            message: html`Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.`,
+            message: html`Hulp nodig bij kiezen? Doe dan eerst de
+            ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
             status: AlertType.Info,
           })}
           ${shoppingCartTemplate(shoppingCart)}

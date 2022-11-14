@@ -22,6 +22,7 @@ export interface Button {
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
   tooltip?: Tooltip;
+  slot?: string;
 }
 
 export interface ButtonAnchor {

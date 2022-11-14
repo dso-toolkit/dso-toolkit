@@ -1,7 +1,7 @@
 import { tooltipPositions } from "../tooltip/tooltip.models";
 
-export interface Toggletip {
-  children: string;
+export interface Toggletip<TemplateFnReturnType> {
+  children: TemplateFnReturnType | string;
   position?: typeof tooltipPositions;
   small?: boolean;
   label?: string;

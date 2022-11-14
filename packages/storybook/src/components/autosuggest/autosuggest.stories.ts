@@ -14,7 +14,7 @@ storiesOfAutosuggest({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ autosuggestTemplate }) => {
+  storyTemplates: ({ autosuggestTemplate, buttonTemplate }) => {
     type AutosuggestConnector = (
       parameters: Parameters<
         ReturnType<Parameters<typeof storiesOfAutosuggest>[0]["storyTemplates"]>["autosuggestDemoTemplate"]
@@ -129,9 +129,9 @@ storiesOfAutosuggest({
               ]),
               children: html`<input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'" />`,
             })}
-            <button type="button">Zoekopdracht legen</button>
+            ${buttonTemplate({ label: "Zoekopdracht legen", type: "button", variant: "tertiary", iconMode: "only" })}
           </div>
-          <button type="button" class="dso-secondary">Button</button>
+          ${buttonTemplate({ label: "Button", variant: "secondary", type: "button" })}
         </div>
       `,
     };

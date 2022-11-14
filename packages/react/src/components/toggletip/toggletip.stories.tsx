@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
+import { children } from "./toggletip.content";
 
 storiesOfToggletip({
   parameters: {
@@ -11,5 +12,5 @@ storiesOfToggletip({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate }),
+  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate, children }),
 });

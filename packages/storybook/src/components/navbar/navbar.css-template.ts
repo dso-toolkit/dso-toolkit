@@ -30,7 +30,7 @@ export const cssNavbar: ComponentImplementation<Navbar> = {
             ${items.map(
               (item: NavbarItem) => html`
                 <li class=${ifDefined(item.active ? "dso-active" : undefined)}>
-                  <a href=${item.href} aria-current=${ifDefined(item.active ? "page" : undefined)}> ${item.label} </a>
+                  <a href=${item.href} aria-current=${ifDefined(item.active ? "page" : undefined)}>${item.label}</a>
                 </li>
               `
             )}

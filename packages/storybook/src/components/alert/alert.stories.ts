@@ -6,6 +6,7 @@ import coreReadme from "@dso-toolkit/core/src/components/alert/readme.md";
 
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
+import { alertWithHeadingsContent, dangerMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
 storiesOfAlert({
   parameters: {
@@ -15,7 +16,14 @@ storiesOfAlert({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ alertTemplate }) => ({ alertTemplate }),
+  storyTemplates: ({ alertTemplate }, templates) => ({
+    alertTemplate,
+    dangerMessage: dangerMessage(templates),
+    infoMessage: infoMessage(templates),
+    successMessage: successMessage,
+    warningMessage: warningMessage,
+    alertWithHeadingsContent: alertWithHeadingsContent,
+  }),
 });
 
 storiesOfAlert({
@@ -26,5 +34,12 @@ storiesOfAlert({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ alertTemplate }) => ({ alertTemplate }),
+  storyTemplates: ({ alertTemplate }, templates) => ({
+    alertTemplate,
+    dangerMessage: dangerMessage(templates),
+    infoMessage: infoMessage(templates),
+    successMessage: successMessage,
+    warningMessage: warningMessage,
+    alertWithHeadingsContent: alertWithHeadingsContent,
+  }),
 });

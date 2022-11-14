@@ -1,20 +1,16 @@
-import { ArgTypes, noControl } from "../../storybook";
+import { ArgTypes } from "../../storybook";
 import { Table, TableContent } from "./table.models";
 
-export interface TableArgs<TemplateFnReturnType> {
+export interface TableArgs {
   noModal: boolean;
-  content: TableContent<TemplateFnReturnType>;
   headingColumns: boolean;
 }
 
-export const tableArgTypes: ArgTypes<TableArgs<never>> = {
+export const tableArgTypes: ArgTypes<TableArgs> = {
   noModal: {
     control: {
       type: "boolean",
     },
-  },
-  content: {
-    ...noControl,
   },
   headingColumns: {
     control: {
@@ -24,7 +20,8 @@ export const tableArgTypes: ArgTypes<TableArgs<never>> = {
 };
 
 export function tableArgsMapper<TemplateFnReturnType>(
-  a: TableArgs<TemplateFnReturnType>
+  a: TableArgs,
+  content: TableContent<TemplateFnReturnType>
 ): Required<Table<TemplateFnReturnType>> {
-  return { ...a };
+  return { ...a, content };
 }

@@ -1,10 +1,11 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { TableArgs, tableArgsMapper, tableArgTypes } from "./table.args";
-import { defaultTable, imageOverlayTable } from "./table.content";
-import { Table } from "./table.models";
+import { Table, TableContent } from "./table.models";
 
 export interface TableTemplates<TemplateFnReturnType> {
   tableTemplate: (TableProperties: Table<TemplateFnReturnType>) => TemplateFnReturnType;
+  defaultTable: TableContent<TemplateFnReturnType>;
+  imageOverlayTable: TableContent<TemplateFnReturnType>;
 }
 
 export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
@@ -20,22 +21,28 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
       argTypes: tableArgTypes,
     });
 
-    const template = templateMapper<TableArgs<TemplateFnReturnType>>((args, { tableTemplate }) =>
-      tableTemplate(tableArgsMapper(args))
+    stories.add(
+      "default",
+      templateMapper<TableArgs>((args, { tableTemplate, defaultTable }) =>
+        tableTemplate(tableArgsMapper(args, defaultTable))
+      ),
+      {
+        args: {
+          noModal: false,
+        },
+      }
     );
 
-    stories.add("default", template, {
-      args: {
-        noModal: false,
-        content: defaultTable,
-      },
-    });
-
-    stories.add("with dso-image-overlay", template, {
-      args: {
-        noModal: false,
-        content: imageOverlayTable,
-      },
-    });
+    stories.add(
+      "with dso-image-overlay",
+      templateMapper<TableArgs>((args, { tableTemplate, imageOverlayTable }) =>
+        tableTemplate(tableArgsMapper(args, imageOverlayTable))
+      ),
+      {
+        args: {
+          noModal: false,
+        },
+      }
+    );
   });
 }

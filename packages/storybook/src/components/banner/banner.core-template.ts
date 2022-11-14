@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: "banner",
   implementation: "core",
-  template: ({ iconTemplate }) =>
+  template: ({ buttonTemplate }) =>
     function bannerTemplate({ status, content, onClick }) {
       return html`
         <dso-banner status=${status}>
@@ -13,10 +13,14 @@ export const coreBanner: ComponentImplementation<Banner<TemplateResult>> = {
             <div class="row">
               <div class="col-sm-12">
                 ${content}
-                <button type="button" class="dso-tertiary" @click=${onClick}>
-                  <span class="sr-only">Sluiten</span>
-                  ${iconTemplate({ icon: "times" })}
-                </button>
+                ${buttonTemplate({
+                  label: "Sluiten",
+                  type: "button",
+                  variant: "tertiary",
+                  onClick: onClick,
+                  icon: { icon: "times" },
+                  iconMode: "only",
+                })}
               </div>
             </div>
           </div>

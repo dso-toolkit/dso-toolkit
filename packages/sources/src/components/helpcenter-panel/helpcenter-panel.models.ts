@@ -1,5 +1,5 @@
-export interface HelpcenterPanel {
-  content: string;
+export interface HelpcenterPanel<TemplateFnReturnType> {
+  content: TemplateFnReturnType | string;
   label?: string;
   url: string;
 }

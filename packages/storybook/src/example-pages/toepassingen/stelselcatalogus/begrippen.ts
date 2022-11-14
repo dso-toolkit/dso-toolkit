@@ -18,7 +18,7 @@ examplePageFactory(
         <p role="doc-subtitle">Begrip uit het Omgevingsloket</p>
 
         <h2>Algemeen</h2>
-        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions1 })}
+        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions1(templates) })}
         ${buttonRowTemplate({
           buttons: [
             {
@@ -32,16 +32,16 @@ examplePageFactory(
         })}
 
         <h3>Unieke identificatie</h3>
-        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions2 })}
+        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions2(templates) })}
 
         <h3>Relaties binnen AQUO begrippenkader</h3>
-        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions3 })}
+        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions3(templates) })}
 
         <h3>Relaties buiten AQUO begrippenkader</h3>
-        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions4 })}
+        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions4(templates) })}
 
         <h3>Technisch</h3>
-        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions5 })}
+        ${definitionListTemplate({ modifier: "dso-bordered", definitions: definitions5(templates) })}
       </main>
       ${footerPartial(templates)}
     </div>

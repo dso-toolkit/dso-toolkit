@@ -7,13 +7,14 @@ import { form } from "./project.content";
 examplePageFactory(
   "Toepassingen/Aanvragen",
   "Project",
-  ({ applicationHeadingTemplate, alertTemplate, formTemplate, formButtonsTemplate }) => html`
+  ({ applicationHeadingTemplate, alertTemplate, formTemplate, formButtonsTemplate, anchorTemplate }) => html`
     <div class="container">
       <main>
         ${applicationHeadingTemplate({ title: "Aanvragen", subtitle: "1. Project", step: "Stap 1/7" })}
         ${alertTemplate({
           status: AlertType.Info,
-          message: html`Hulp nodig bij kiezen? Doe dan eerst de <a href="#">Vergunningscheck</a>.`,
+          message: html`Hulp nodig bij kiezen? Doe dan eerst de
+          ${anchorTemplate({ label: "Vergunningscheck", url: "#" })}.`,
         })}
         ${formTemplate(form)}
         ${formButtonsTemplate({

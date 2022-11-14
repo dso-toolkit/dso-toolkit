@@ -44,10 +44,16 @@ examplePageFactory(
                 caption: "Titel van de tabel voor screenreaders",
                 head: ["Nummer", "Voornaam", "Achternaam", "Github gebruikersnaam", "Modifier"],
                 rows: [
-                  ["1", html`<a href="#">Fabien</a>`, "Potentier", "fabpot", html`<code>tr</code>`],
-                  ["2", html`<a href="#">Andrew</a>`, "Nesbitt", "andrew", html`<code>tr</code>`],
-                  ["3", html`<a href="#">Taylor</a>`, "Otwell", "taylorotwell", html`<code>tr</code>`],
-                  ["4", html`<a href="#">Kitty</a>`, "Giraudel", "KittyGiraudel", html`<code>tr</code>`],
+                  ["1", anchorTemplate({ label: "Fabien", url: "#" }), "Potentier", "fabpot", html`<code>tr</code>`],
+                  ["2", anchorTemplate({ label: "Andrew", url: "#" }), "Nesbitt", "andrew", html`<code>tr</code>`],
+                  ["3", anchorTemplate({ label: "Taylor", url: "#" }), "Otwell", "taylorotwell", html`<code>tr</code>`],
+                  [
+                    "4",
+                    anchorTemplate({ label: "Kitty", url: "#" }),
+                    "Giraudel",
+                    "KittyGiraudel",
+                    html`<code>tr</code>`,
+                  ],
                 ],
               },
             })}

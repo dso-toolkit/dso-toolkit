@@ -1,7 +1,7 @@
 import { html } from "lit-html";
 import { Templates } from "../../templates";
 
-export function footerPartial({ linkListTemplate }: Templates) {
+export function footerPartial({ linkListTemplate, anchorTemplate }: Templates) {
   return html`
     <footer>
       <div class="row">
@@ -33,7 +33,7 @@ export function footerPartial({ linkListTemplate }: Templates) {
         </div>
         <div class="col-sm-6 col-md-3">
           <h2>Combinatie links en tekst</h2>
-          <p>Tekst kan worden gevolgd door verscheidene <a href="#">links</a>.</p>
+          <p>Tekst kan worden gevolgd door verscheidene ${anchorTemplate({ label: "links", url: "#" })}.</p>
           ${linkListTemplate({
             links: [
               { label: "Combinatie link", url: "#" },

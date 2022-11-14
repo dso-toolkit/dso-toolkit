@@ -11,6 +11,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   ```html
   <div class="form-group dso-static dso-edit">
   ```
+* **sources + storybook:** anchorTemplate() en buttonTemplate() toepassen ([#1867](https://github.com/dso-toolkit/dso-toolkit/issues/1867))
 
 ### Added
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))

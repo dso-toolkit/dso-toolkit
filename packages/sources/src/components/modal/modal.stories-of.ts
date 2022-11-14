@@ -1,7 +1,7 @@
+import { componentArgs } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { ModalArgs, modalArgsMapper, modalArgTypes } from "./modal.args";
-import { content } from "./modal.content";
 import { Modal } from "./modal.models";
 
 // <see #1550>
@@ -55,7 +55,14 @@ function toggleClass(className: string) {
 // </see #1550>
 
 export interface ModalTemplates<TemplateFnReturnType> {
-  modalTemplate: (modalProperties: Modal) => TemplateFnReturnType;
+  modalTemplate: (modalProperties: Modal<TemplateFnReturnType>) => TemplateFnReturnType;
+  activeBody: TemplateFnReturnType;
+  activeFooter: TemplateFnReturnType;
+  passiveBody: TemplateFnReturnType;
+  passiveFooter: TemplateFnReturnType;
+  confirmBody: TemplateFnReturnType;
+  confirmFooter: TemplateFnReturnType;
+  loadingBody: TemplateFnReturnType;
 }
 
 export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
@@ -71,22 +78,55 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
       argTypes: modalArgTypes,
     });
 
-    const template = templateMapper<ModalArgs>((args, { modalTemplate }) => modalTemplate(modalArgsMapper(args)));
+    stories.add(
+      "confirm",
+      templateMapper<ModalArgs>((args, { modalTemplate, confirmBody, confirmFooter }) =>
+        modalTemplate(modalArgsMapper(args, confirmBody, confirmFooter))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+          role: "dialog",
+          modalTitle: "Disclaimer",
+        }),
+      }
+    );
 
-    stories.add("confirm", template, {
-      args: content.confirm,
-    });
+    stories.add(
+      "passive",
+      templateMapper<ModalArgs>((args, { modalTemplate, passiveBody, passiveFooter }) =>
+        modalTemplate(modalArgsMapper(args, passiveBody, passiveFooter))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+          role: "dialog",
+          modalTitle: "Bestandsformaten",
+        }),
+      }
+    );
 
-    stories.add("passive", template, {
-      args: content.passive,
-    });
+    stories.add(
+      "active",
+      templateMapper<ModalArgs>((args, { modalTemplate, activeBody, activeFooter }) =>
+        modalTemplate(modalArgsMapper(args, activeBody, activeFooter))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+          role: "alertdialog",
+          modalTitle: "Verwijderen werkzaamheid",
+        }),
+      }
+    );
 
-    stories.add("active", template, {
-      args: content.active,
-    });
-
-    stories.add("loading", template, {
-      args: content.loading,
-    });
+    stories.add(
+      "loading",
+      templateMapper<ModalArgs>((args, { modalTemplate, loadingBody }) =>
+        modalTemplate(modalArgsMapper(args, loadingBody))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role">>({
+          role: "alert",
+        }),
+      }
+    );
   });
 }

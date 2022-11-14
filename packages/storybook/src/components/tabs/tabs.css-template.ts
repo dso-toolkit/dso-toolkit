@@ -20,7 +20,7 @@ export const cssTabs: ComponentImplementation<Tabs> = {
                 id=${item.id}
                 aria-controls="${item.id}-tab"
               >
-                <a href="#" role="tab"> ${item.label} </a>
+                <a href="#" role="tab">${item.label}</a>
               </li>
             `
           )}

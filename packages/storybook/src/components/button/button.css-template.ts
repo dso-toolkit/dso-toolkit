@@ -52,6 +52,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       ariaExpanded,
       ariaHaspopup,
       ariaRoledescription,
+      slot,
       tooltip,
       onClick,
     }: Button) {
@@ -69,6 +70,7 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
           aria-haspopup=${ifDefined(ariaHaspopup)}
           aria-roledescription=${ifDefined(ariaRoledescription)}
           @click=${ifDefined(onClick)}
+          slot=${ifDefined(slot)}
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}

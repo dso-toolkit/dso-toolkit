@@ -17,7 +17,7 @@ storiesOfHighlightBox({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ highlightBoxTemplate, buttonTemplate }) => ({
+  storyTemplates: ({ highlightBoxTemplate, buttonTemplate, anchorTemplate }) => ({
     highlightBoxTemplate,
     content: html`
       <div class="dso-rich-content">
@@ -33,9 +33,9 @@ storiesOfHighlightBox({
           inspecties).
         </p>
         <p>
-          De <a href="#">Bouwregelgeving</a> is een database met alle bouwregelgeving in Nederland, die op zodanige
-          wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-          bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+          De ${anchorTemplate({ label: "Bouwregelgeving", url: "#" })} is een database met alle bouwregelgeving in
+          Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de
+          Omgevingswet (3B's), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
         </p>
         <p>
           Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken
@@ -66,7 +66,7 @@ storiesOfHighlightBox({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ highlightBoxTemplate, buttonTemplate }) => ({
+  storyTemplates: ({ highlightBoxTemplate, buttonTemplate, anchorTemplate }) => ({
     highlightBoxTemplate,
     content: html`
       <div class="dso-rich-content">
@@ -82,9 +82,9 @@ storiesOfHighlightBox({
           inspecties).
         </p>
         <p>
-          De <a href="#">Bouwregelgeving</a> is een database met alle bouwregelgeving in Nederland, die op zodanige
-          wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de Omgevingswet (3B's), en daarmee
-          bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
+          De ${anchorTemplate({ label: "Bouwregelgeving", url: "#" })} is een database met alle bouwregelgeving in
+          Nederland, die op zodanige wijze moet zijn ingericht en ontsloten dat die voldoet aan de eisen van de
+          Omgevingswet (3B's), en daarmee bruikbaar is in de ontwerp- en toetsingsfase van ieder bouwwerk.
         </p>
         <p>
           Het derde informatieproduct zijn de Vergunningvrije bouwwerken, hierin zijn opgenomen de (bekende) bouwwerken

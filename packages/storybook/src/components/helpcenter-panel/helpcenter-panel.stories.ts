@@ -5,6 +5,7 @@ import coreReadme from "@dso-toolkit/core/src/components/helpcenter-panel/readme
 
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
+import { content } from "./helpcenter-panel.content";
 
 storiesOfHelpcenterPanel({
   parameters: {
@@ -14,5 +15,8 @@ storiesOfHelpcenterPanel({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate }),
+  storyTemplates: ({ helpcenterPanelTemplate }, templates) => ({
+    helpcenterPanelTemplate,
+    content: content(templates),
+  }),
 });
