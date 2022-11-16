@@ -19,12 +19,8 @@ export const helpcenterPanelArgTypes: ArgTypes<HelpcenterPanelArgs> = {
   },
 };
 
-export function helpcenterPanelArgsMapper<TemplateFnReturnType>(
-  a: HelpcenterPanelArgs,
-  content: TemplateFnReturnType
-): HelpcenterPanel<TemplateFnReturnType> {
+export function helpcenterPanelArgsMapper(a: HelpcenterPanelArgs): HelpcenterPanel {
   return {
-    content,
     label: a.label,
     url: a.url,
   };

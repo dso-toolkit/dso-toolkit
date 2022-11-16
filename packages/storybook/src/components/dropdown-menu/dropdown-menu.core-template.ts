@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: "dropdownMenu",
   implementation: "core",
-  template: ({ buttonTemplate, anchorTemplate }) =>
+  template: ({ buttonTemplate }) =>
     function dropdownMenuTemplate({ id, button, dropdownAlign, isCheckable, groups }) {
       return html`
         <dso-dropdown-menu dropdown-align=${ifDefined(dropdownAlign)} ?checkable=${isCheckable}>
@@ -20,7 +20,7 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
                     (item) => html`
                       <li class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
                         ${item.type === "anchor"
-                          ? anchorTemplate({ label: item.label, url: item.url })
+                          ? html`<a href=${item.url}>${item.label}</a>`
                           : html`<button type="button">${item.label}</button>`}
                       </li>
                     `

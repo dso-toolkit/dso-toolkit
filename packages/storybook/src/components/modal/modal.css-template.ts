@@ -8,7 +8,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "css",
-  template: ({ buttonTemplate }) =>
+  template: () =>
     function modalTemplate({ modalTitle, role, body, footer }) {
       const ariaId = v4();
 
@@ -25,13 +25,9 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
               ? html`
                   <div class="dso-header">
                     <h2 id=${ariaId}>${modalTitle}</h2>
-                    ${buttonTemplate({
-                      label: "Sluiten",
-                      type: "button",
-                      variant: "tertiary",
-                      modifier: "dso-close",
-                      iconMode: "only",
-                    })}
+                    <button type="button" class="dso-close">
+                      <span class="sr-only">Sluiten</span>
+                    </button>
                   </div>
                 `
               : nothing}

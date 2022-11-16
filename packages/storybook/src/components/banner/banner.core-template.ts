@@ -17,7 +17,7 @@ export const coreBanner: ComponentImplementation<Banner<TemplateResult>> = {
                   label: "Sluiten",
                   type: "button",
                   variant: "tertiary",
-                  onClick: onClick,
+                  onClick,
                   icon: { icon: "times" },
                   iconMode: "only",
                 })}

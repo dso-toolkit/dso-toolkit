@@ -10,7 +10,9 @@ export const reactToggletip: ComponentImplementation<Toggletip<JSX.Element>> = {
   template: () =>
     function toggletipTemplate({ children, label, position, small }) {
       return (
-        <DsoToggletip label={label} position={position} small={small} dangerouslySetInnerHTML={{ __html: children }} />
+        <DsoToggletip label={label} position={position} small={small}>
+          {children}
+        </DsoToggletip>
       );
     },
 };

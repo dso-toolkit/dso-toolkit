@@ -207,7 +207,7 @@ export interface Components {
   formGroupStatic: FormGroupStatic<TemplateResult>;
   formGroupTextarea: FormGroupTextarea<TemplateResult>;
   header: Header;
-  helpcenterPanel: HelpcenterPanel<TemplateResult>;
+  helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<TemplateResult | string>;
   icon: Icon;
   imageOverlay: ImageOverlay;

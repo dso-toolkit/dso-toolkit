@@ -33,4 +33,5 @@ export interface ButtonAnchor {
   id?: string;
   icon?: Icon;
   iconMode?: "only" | "after";
+  slot?: string;
 }

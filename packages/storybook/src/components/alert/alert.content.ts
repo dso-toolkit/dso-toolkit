@@ -1,27 +1,23 @@
 import { html } from "lit-html";
 import { Templates } from "../../templates";
 
-export const successMessage = html`
-  <p>Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.</p>
-`;
+export const successMessage = html`<p>
+  Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
+</p>`;
 
 export function infoMessage({ anchorTemplate }: Templates) {
-  return html`
-    <p>
-      Dit is een informatiemelding. Deze wordt gebruikt voor
-      ${anchorTemplate({ label: "aanvullende", url: "#", modifier: "extern" })} informatie of tips.
-    </p>
-  `;
+  return html`<p>
+    Dit is een informatiemelding. Deze wordt gebruikt voor
+    ${anchorTemplate({ label: "aanvullende", url: "#", modifier: "extern" })} informatie of tips.
+  </p>`;
 }
 
-export const warningMessage = html` <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p> `;
+export const warningMessage = html`<p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>`;
 
 export function dangerMessage({ anchorTemplate }: Templates) {
-  return html`
-    <p>
-      Dit is een ${anchorTemplate({ label: "foutmelding", url: "#" })}. Deze wordt getoond als er iets is misgegaan.
-    </p>
-  `;
+  return html`<p>
+    Dit is een ${anchorTemplate({ label: "foutmelding", url: "#" })}. Deze wordt getoond als er iets is misgegaan.
+  </p>`;
 }
 
 export const alertWithHeadingsContent = html`

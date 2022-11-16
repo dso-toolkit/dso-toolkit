@@ -18,6 +18,7 @@ examplePageFactory(
       searchBarTemplate,
       anchorTemplate,
       labelTemplate,
+      helpcenterPanelTemplate,
     },
     templates
   ) => html`
@@ -165,6 +166,9 @@ examplePageFactory(
         })}
       </main>
 
+      ${helpcenterPanelTemplate({
+        url: location.host.startsWith("localhost") ? "/" : "https://dso-toolkit.nl/",
+      })}
       ${footerPartial(templates)}
     </div>
   `

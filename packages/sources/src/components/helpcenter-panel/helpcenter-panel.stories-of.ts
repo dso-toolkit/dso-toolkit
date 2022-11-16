@@ -3,8 +3,7 @@ import { HelpcenterPanelArgs, helpcenterPanelArgsMapper, helpcenterPanelArgTypes
 import { HelpcenterPanel } from "./helpcenter-panel.models";
 
 export interface HelpcenterPanelTemplates<TemplateFnReturnType> {
-  helpcenterPanelTemplate: (helpcenterPanelProperties: HelpcenterPanel<TemplateFnReturnType>) => TemplateFnReturnType;
-  content: TemplateFnReturnType;
+  helpcenterPanelTemplate: (helpcenterPanelProperties: HelpcenterPanel) => TemplateFnReturnType;
 }
 
 export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnReturnType>(
@@ -22,8 +21,8 @@ export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnRe
 
     stories.add(
       "Helpcenter Panel",
-      templateMapper<HelpcenterPanelArgs>((args, { helpcenterPanelTemplate, content }) =>
-        helpcenterPanelTemplate(helpcenterPanelArgsMapper(args, content))
+      templateMapper<HelpcenterPanelArgs>((args, { helpcenterPanelTemplate }) =>
+        helpcenterPanelTemplate(helpcenterPanelArgsMapper(args))
       ),
       {
         args: {

@@ -129,7 +129,7 @@ storiesOfAutosuggest({
               ]),
               children: html`<input type="text" id="search-bar--with-value" placeholder="Bijvoorbeeld 'Rotterdam'" />`,
             })}
-            ${buttonTemplate({ label: "Zoekopdracht legen", type: "button", variant: "tertiary", iconMode: "only" })}
+            <button type="button">Zoekopdracht legen</button>
           </div>
           ${buttonTemplate({ label: "Button", variant: "secondary", type: "button" })}
         </div>

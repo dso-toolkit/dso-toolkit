@@ -24,11 +24,16 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       return undefined;
     }
 
-    function anchorElement({ variant, url, label, modifier, id, icon, iconMode }: ButtonAnchor) {
+    function anchorElement({ variant, url, label, modifier, id, icon, iconMode, slot }: ButtonAnchor) {
       const className = getClassName(variant, modifier);
 
       return html`
-        <a href=${url} class=${ifDefined(className)} ?id=${id}>
+        <a
+          href=${url}
+          class=${ifDefined(className || undefined)}
+          id=${ifDefined(id || undefined)}
+          slot=${ifDefined(slot || undefined)}
+        >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
             >${label}</span
@@ -62,15 +67,15 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       return html`
         <button
           type=${type}
-          id=${ifDefined(id)}
-          class=${ifDefined(className)}
+          id=${ifDefined(id || undefined)}
+          class=${ifDefined(className || undefined)}
           ?disabled=${disabled}
-          aria-describedby=${ifDefined(ariaDescribedby)}
-          aria-expanded=${ifDefined(ariaExpanded)}
-          aria-haspopup=${ifDefined(ariaHaspopup)}
-          aria-roledescription=${ifDefined(ariaRoledescription)}
+          aria-describedby=${ifDefined(ariaDescribedby || undefined)}
+          aria-expanded=${ifDefined(ariaExpanded || undefined)}
+          aria-haspopup=${ifDefined(ariaHaspopup || undefined)}
+          aria-roledescription=${ifDefined(ariaRoledescription || undefined)}
           @click=${ifDefined(onClick)}
-          slot=${ifDefined(slot)}
+          slot=${ifDefined(slot || undefined)}
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
