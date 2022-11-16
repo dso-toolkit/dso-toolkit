@@ -1,7 +1,6 @@
 meta:
   webComponent: dso-highlight-box
 status: ready
-notes: Standaard achtergrondkleur grijs, andere varianten geel (modifier <code>dso-yellow</code>) en met grijze border (modifier <code>dso-border</code>).
 context:
   __title: Standaard
   yield: |

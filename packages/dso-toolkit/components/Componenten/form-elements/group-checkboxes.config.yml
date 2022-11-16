@@ -1,5 +1,3 @@
-notes: |
-  Een checkbox group heeft een root element `fieldset.form-group`, en geen `div.form-group`.
 label: Checkboxes
 status: ready
 collated: true

@@ -1,6 +1,4 @@
 status: ready
-notes:
-  De class `.dso-info-open` (bij getoonde toelichting) maakt de button groen.
 id: toggle-info
 collated: true
 context:

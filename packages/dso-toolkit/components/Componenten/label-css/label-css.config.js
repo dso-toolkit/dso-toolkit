@@ -3,20 +3,6 @@ const symbolColor = '<span class="symboolcode" data-symboolcode="vszt030"></span
 
 module.exports = {
   label: 'Label (CSS)',
-  notes: `
-## Technische opmerkingen
-* Het label component kent een normale en een een smalle variant (\`.dso-compact\`);
-* De hover state voor het Web Component is onderdeel van de werkvorm, voor de CSS versie moet deze door developers worden geimplementeerd dmv. class \`.dso-label-hover\` op de \`<span class="dso-label">\`;
-
-## Gedrag en toegankelijkheid
-De kleur van een label mag geen zelfstandige betekenis hebben. Gelet op [WCAG succescriterium 1.4.1](https://www.w3.org/Translations/WCAG21-nl/#gebruik-van-kleur) gebruik van kleur mag de kleur van een label nooit een zelfstandige betekenis hebben. Kleurverschillen mogen wel worden gebruikt als extra visuele hint, maar als kleurverschillen een betekenis hebben dan moet deze betekenis daarnaast afleidbaar zijn uit de zichtbare tekst of een andere visuele hint in combinatie met een sr-only tekst.
-
-**Voorbeeld:**
-Op een pagina met de uitslag van een quiz wordt gemeld dat de gebruiker 4 antwoorden goed en 6 antwoorden fout heeft gekozen. We adviseren om een op zichzelf duidelijke tekst te kiezen voor het label en de groene / rode achtergrondkleur alleen decoratief te gebruiken.
-
-### Variant met verwijder kruisje
-Het tekstalternatief voor een verwijder knopje in een label is: verwijder [tekst label]. De tekst van het label wordt in het verwijder knopje herhaald om te zorgen dat voor screenreader gebruikers altijd duidelijk is welk verwijder knopje bij welk label hoort. Dit stelt hen in staat sneller te werken en voorkomt het per ongeluk verwijderen van het verkeerde item.
-  `,
   status: 'ready',
   collated: true,
   collator: (markup, item) => `<div class="col-xs-4" style="height: 3em;"><p>${item.context._ignore ? '' : markup}</p></div>`,

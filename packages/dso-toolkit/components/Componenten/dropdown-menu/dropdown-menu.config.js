@@ -2,14 +2,6 @@ module.exports = {
   meta: {
     webComponent: 'dso-dropdown-menu'
   },
-  notes: `
-  ## Voorschriften/algemeen
-
-  * \`<dso-dropdown-menu>\` is de root van het component, dat bestaat uit een  \`button\` en het daadwerkelijke menu, de \`.dso-dropdown-options\`;
-  * \`button\` heeft attribute \`slot="toggle"\`, zodat het Web Component 'weet' dat dit de bedieningsknop is;
-
-  Note: de \`button\` mag class \`dso-primary\`, \`dso-secondary\` of \`dso-tertiary\` hebben, afhankelijk van de toepassing. Ook de oude bootstrap classes \`btn\`, \`btn-default\`, \`btn-link\` worden nog ondersteund.
-  `,
   label: 'Dropdown Menu (Web Component)',
   status: 'ready',
   collated: true,

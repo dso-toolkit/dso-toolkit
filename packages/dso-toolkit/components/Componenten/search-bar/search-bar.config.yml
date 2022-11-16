@@ -1,16 +1,3 @@
-notes: |
-  ## Technische opmerkingen
-  Pas bij een waarde toont de reset-knop, initieel is deze knop er niet.
-
-  ## Toegankelijkheid
-  Een input, en dus ook deze search-bar, dient volgens WCAG succescriterium 1.3.1 te worden voorzien van een label.
-  Een label wordt aan een specifieke input gekoppeld door het gebruik van het `for`-attribuut.
-  De waarde van het `for` attribuut moet gelijk zijn aan de waarde van het `id` attribuut van de input.
-
-  NB. zie ook [Search bar in form]({{ '/components/detail/group-search-bar' | docPath }}) waar het label wordt verstrekt als onderdeel van de `.form-group`.
-
-  ### Bronvermelding
-  - Using label elements to associate text labels with form controls, https://www.w3.org/WAI/WCAG21/Techniques/html/H44
 status: ready
 collated: true
 context:

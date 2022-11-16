@@ -1,0 +1,38 @@
+# Breadcrumbs
+
+Breadcrumbs laat de stappen zien die de gebruiker heeft genomen om op de huidige pagina te komen. Elke stap is een klikbare paginatitel behalve de laatste. Samen vormen die stappen een visueel pad. Het laat gebruikers zien waar ze zich bevinden binnen de structuur van de website of applicatie. Ze kunnen breadcrumbs gebruiken om terug of omhoog te navigeren naar vorige niveaus of naar de homepage.
+
+## Wanneer te gebruiken
+
+Gebruik breadcrumbs bij een geneste navigatie waarbij elk onderdeel een link is. Ze zijn effectief bij een systeem of product dat uit meer dan twee niveaus bestaat. Ze nemen weinig ruimte in, bieden overzicht en geven inzicht in waar de gebruiker zich bevindt.
+
+## Wanneer niet te gebruiken
+
+Gebruik breadcrumbs nooit om een complete navigatie vervangen. Gebruik ze ook niet bij systemen of producten met één niveau, of bij websites met een lineaire structuur.
+
+## Hoe te gebruiken
+
+Breadcrumbs staan bovenaan de pagina, onder de header en navigatie, maar boven de paginatitel. Elke paginalink moet kort zijn en duidelijk de locatie laten zien waar het naartoe linkt.
+
+De pagina waarop de gebruiker zich bevindt wordt wel getoond in het pad maar is niet klikbaar (uitgegrijsd). Begin met de pagina op het hoogste niveau en toon daarna steeds een dieper niveau tot de huidige pagina bereikt is.
+
+Breadcrumbs tonen zo de daadwerkelijke stappen die de gebruiker heeft genomen om naar de huidige pagina te gaan, in plaats van de informatiearchitectuur van de site. Path gebaseerde breadcrumbs worden altijd dynamisch gegenereerd.
+
+## Gedrag en toegankelijkheid
+
+- Plaats de breadcrumb in een nav gebied met als `aria-label` "u bevindt zich hier", dit maakt voor gebruikers die de breadcrumb niet zien duidelijk wat dit is
+- Plaats het `aria-current` attribuut op het list item `<li>` waarin de "huidige pagina" wordt benoemd
+
+<!--
+## Component in context
+
+todo(thomas): Link aanpassen naar juiste locatie
+- [Aanvragen]({{ '/components/detail/aanvragen' | docPath }}) -->
+
+## Bronvermelding
+
+- NN/g Nielsen Norman Group. Breadcrumbs. Geraadpleegd juli 2020, van https://www.nngroup.com/articles/breadcrumbs/
+- Carbon Design System. Breadcrumb usage. Geraadpleegd juli 2020, van
+  https://www.carbondesignsystem.com/components/breadcrumb/usage/
+- Atlassian Design System. Breadcrumbs examples. Geraadpleegd juli 2020, van
+  https://atlassian.design/components/breadcrumbs/examples

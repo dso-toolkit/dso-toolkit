@@ -1,5 +1,3 @@
-notes: |
-  Dit component dient te worden ingezet bij alle artikel-achtige werkvormen waar rich text in voorkomt
 status: wip
 context:
   tableContext:

@@ -1,6 +1,4 @@
 status: ready
-notes:
-  Afbeeldingen worden in <code>form .dso-info</code> in het midden uitgelijnd
 id: toggle-info-open
 context:
   __title: default

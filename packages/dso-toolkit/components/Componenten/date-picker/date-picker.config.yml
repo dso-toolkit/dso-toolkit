@@ -1,15 +1,3 @@
-notes: |
-  ## Gedrag en toegankelijkheid
-  ### Checklist bij implementatie
-  - Het invoerveld moet een label hebben wat de gevraagde datum duidelijk omschrijft, zoals "datum afgifte vergunning" of "startdatum werkzaamheden".
-  **Toelichting toegankelijkheidsfuncties**
-  Toetsenbord gebruikers kunnen de datum in het invoerveld typen, dat werkt sneller dan de datum kiezen in het modal. Het modal is echter wel volledig toegankelijk. Hiertoe zijn de volgende maatregelen genomen:
-  - Het knopje om de modal voor het kiezen van een datum te openen heeft het `aria-expanded` attribuut en als label "kies datum", daaraan wordt "geselecteerde datum [datum]"' toegevoegd als al een datum is geselecteerd. Dit is bedoeld als extra hint voor de gebruiker.
-  - Het modal kan worden gesloten met de escape toets of het sluitknopje.
-  - Rond de huidige datum (vandaag) wordt een groen cirkeltje geplaatst. Tekstalternatief daarvoor is het attribuut `aria-current="date"`, op het referentie platform wordt dit uitgesproken als "huidige datum".
-  - De geselecteerde datum (datum die in het invoerveld staat / komt) staat in een gevuld groen cirkeltje. Tekstalternatief is het attribuut `aria-selected="true"`. Op het referentie platform wordt dit uitgesproken als "geselecteerd".
-  - In de tabel met datums kan worden genavigeerd met de pijltjestoetsen, met enter wordt een datum geselecteerd en sluit het modal. Op het referentie platform behandelt NVDA dit als een standaard tabel waardoor met de commando's voor tabel navigatie wordt genavigeerd, dit is een kennelijke ontwerpkeuze van NVDA en werkt goed. Het is ook mogelijk op de gebruikelijke manier met pijltjestoetsen te navigeren door de focusmodus te activeren (NVDA + spatie).
-
 meta:
   webComponent: dso-date-picker
 collated: true
