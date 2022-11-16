@@ -20,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))
 * TemplateContainer valt onterecht terug op CSS implementatie ([#1890](https://github.com/dso-toolkit/dso-toolkit/issues/1890))
+* **core + css:** Header test "should show/remove overflowmenu" faalt incidenteel ([#1717](https://github.com/dso-toolkit/dso-toolkit/issues/1717))
 
 ## 46.0.0
 
