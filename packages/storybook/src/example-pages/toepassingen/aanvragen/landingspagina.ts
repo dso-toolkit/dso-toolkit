@@ -8,7 +8,7 @@ import { header } from "../../partials/header.content";
 examplePageFactory(
   "Toepassingen/Aanvragen",
   "Landingspagina",
-  ({ highlightBoxTemplate, buttonTemplate }, templates) => html`
+  ({ highlightBoxTemplate, buttonTemplate, anchorTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -20,9 +20,7 @@ examplePageFactory(
                 <div class="dso-rich-content">
                   <h1>Direct een aanvraag of melding indienen</h1>
                   <p>Weet u al welke activiteiten u wilt gaan uitvoeren?</p>
-                  <p>
-                    <a href="#" class="dso-primary">Start met aanvragen</a>
-                  </p>
+                  <p>${anchorTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
                 </div>
               `,
             })}
@@ -53,7 +51,9 @@ examplePageFactory(
               <p>Is uw plan erg ingewikkeld? Dan adviseren we u een aanvraag te doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt samen met uw gemeente, waterschap of provincie en andere relevante betrokkenen. Het uitgangspunt van het Omgevingsoverleg is 'Hoe kunnen we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar is. Ook weet u hoe u uw verzoek het beste kunt indienen.</p>
               <p><em class="text-muted">Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid en mogelijke kosten van een Omgevingsoverleg</em></p>
               <h2>Eerst een vergunningcheck?</h2>
-              <p>Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard. Dat scheelt u veel werk in de toekomst. Start <a href="#">de Vergunningcheck</a>.</p>
+              <p>Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard. Dat scheelt u veel werk in de toekomst. Start ${anchorTemplate(
+                { label: "de Vergunningscheck", url: "#" }
+              )}.</p>
             </div>
           </div>
           <div class="col-lg-4">
@@ -66,7 +66,7 @@ examplePageFactory(
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
-                    <a href="#" class="extern">het Informatiepunt</a>.
+                    ${anchorTemplate({ label: "het Informatiepunt", url: "#", modifier: "extern" })}.
                   </p>
                 </div>
               `,
@@ -86,7 +86,8 @@ examplePageFactory(
                     <div class="dso-rich-content">
                       <h3>Project aanmaken</h3>
                       <p>
-                        Maak eerst een project aan. Deze vindt u daarna terug in <a href="#">Mijn omgevingsloket</a>.
+                        Maak eerst een project aan. Deze vindt u daarna terug in
+                        ${anchorTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
                       </p>
                     </div>
                   `,
@@ -209,8 +210,8 @@ examplePageFactory(
                   <h3>Aanvullen verzoek</h3>
                   <p>
                     Als er iets mist of niet klopt wordt u gevraagd het verzoek aan te vullen. Dit kan in
-                    <a href="#">Mijn Omgevingsloket </a>. De periode waarin er een besluit genomen wordt kan worden
-                    verlengd.
+                    ${anchorTemplate({ label: "Mijn Omgevingsloket", url: "#" })}. De periode waarin er een besluit
+                    genomen wordt kan worden verlengd.
                   </p>
                 </div>
               `,

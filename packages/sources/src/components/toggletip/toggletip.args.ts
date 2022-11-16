@@ -4,7 +4,6 @@ import { Toggletip } from "./toggletip.models";
 import { tooltipPositions } from "../tooltip/tooltip.models";
 
 export interface ToggletipArgs {
-  children: string;
   position: typeof tooltipPositions;
   small?: boolean;
   label?: string;
@@ -12,11 +11,6 @@ export interface ToggletipArgs {
 }
 
 export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
-  children: {
-    table: {
-      disable: true,
-    },
-  },
   position: {
     options: tooltipPositions,
     control: {
@@ -40,9 +34,12 @@ export const toggletipArgTypes: ArgTypes<ToggletipArgs> = {
   },
 };
 
-export function toggletipArgsMapper(a: ToggletipArgs): Toggletip {
+export function toggletipArgsMapper<TemplateFnReturnType>(
+  a: ToggletipArgs,
+  children: TemplateFnReturnType
+): Toggletip<TemplateFnReturnType> {
   return {
-    children: a.children,
+    children,
     position: a.position,
     small: a.small,
     label: a.label,

@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
+import { defaultTable, imageOverlayTable } from "./table.content";
 
 storiesOfTable({
   parameters: {
@@ -11,5 +12,5 @@ storiesOfTable({
     readme,
   },
   templateContainer,
-  storyTemplates: ({ tableTemplate }) => ({ tableTemplate }),
+  storyTemplates: ({ tableTemplate }) => ({ tableTemplate, defaultTable, imageOverlayTable }),
 });

@@ -21,12 +21,12 @@ storiesOfBanner({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ bannerTemplate }) => ({
+  storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
     dangerRichContent,
-    dangerWithHeadingsRichContent,
+    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
     richWarningRichContent,
-    warningRichContent,
+    warningRichContent: warningRichContent(templates),
   }),
 });
 
@@ -38,11 +38,11 @@ storiesOfBanner({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ bannerTemplate }) => ({
+  storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
     dangerRichContent,
-    dangerWithHeadingsRichContent,
+    dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
     richWarningRichContent,
-    warningRichContent,
+    warningRichContent: warningRichContent(templates),
   }),
 });

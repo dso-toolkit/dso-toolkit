@@ -222,7 +222,7 @@ export interface Components {
   listButton: ListButton;
   list: List;
   mapControls: MapControls;
-  modal: Modal;
+  modal: Modal<TemplateResult>;
   navbar: Navbar;
   ozonContent: OzonContent;
   pagination: Pagination;
@@ -237,7 +237,7 @@ export interface Components {
   tabs: Tabs;
   tileGrid: TileGrid<TemplateResult>;
   tile: Tile;
-  toggletip: Toggletip;
+  toggletip: Toggletip<TemplateResult>;
   tooltip: Tooltip;
   treeView: TreeView;
   viewerGrid: ViewerGrid<TemplateResult>;

@@ -22,6 +22,7 @@ export interface Button {
   ariaRoledescription?: string;
   onClick?: (event: MouseEvent) => void;
   tooltip?: Tooltip;
+  slot?: string;
 }
 
 export interface ButtonAnchor {
@@ -32,4 +33,5 @@ export interface ButtonAnchor {
   id?: string;
   icon?: Icon;
   iconMode?: "only" | "after";
+  slot?: string;
 }

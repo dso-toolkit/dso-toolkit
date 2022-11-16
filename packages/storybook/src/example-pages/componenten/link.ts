@@ -25,8 +25,7 @@ examplePageFactory(
               semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend
               ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut
               metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
-              ullamcorper
-              <a class="download" href="#">ultricies nisi</a>.
+              ullamcorper ${anchorTemplate({ label: "ultricies nisi", url: "#", modifier: "download" })}.
             </p>
           </div>
         </div>

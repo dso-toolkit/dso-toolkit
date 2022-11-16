@@ -6,13 +6,11 @@ import { ComponentImplementation } from "../../templates";
 export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: "dropdownMenu",
   implementation: "core",
-  template: () =>
+  template: ({ buttonTemplate }) =>
     function dropdownMenuTemplate({ id, button, dropdownAlign, isCheckable, groups }) {
       return html`
         <dso-dropdown-menu dropdown-align=${ifDefined(dropdownAlign)} ?checkable=${isCheckable}>
-          <button type="button" class=${`dso-${button.variant}`} slot="toggle" id=${ifDefined(id || undefined)}>
-            <span>${button.label}</span>
-          </button>
+          ${buttonTemplate({ label: button.label, type: "button", variant: button.variant, id: id, slot: "toggle" })}
           <div class="dso-dropdown-options">
             ${groups.map(
               (group) => html`

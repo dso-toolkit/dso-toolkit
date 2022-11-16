@@ -5,8 +5,6 @@ import { Modal, ModalRole } from "./modal.models";
 
 export interface ModalArgs {
   modalTitle: string;
-  body: string;
-  footer: string;
   role: ModalRole;
   dsoClose: HandlerFunction;
 }
@@ -17,18 +15,20 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
   modalTitle: {
     ...noControl,
   },
-  body: {
-    ...noControl,
-  },
-  footer: {
-    ...noControl,
-  },
   dsoClose: {
     ...noControl,
     action: "dsoClose",
   },
 };
 
-export function modalArgsMapper(a: ModalArgs): Modal {
-  return { ...a };
+export function modalArgsMapper<TemplateFnReturnType>(
+  a: ModalArgs,
+  body: TemplateFnReturnType,
+  footer?: TemplateFnReturnType
+): Modal<TemplateFnReturnType> {
+  return {
+    ...a,
+    body,
+    footer,
+  };
 }

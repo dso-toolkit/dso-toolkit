@@ -5,6 +5,7 @@ import coreReadme from "@dso-toolkit/core/src/components/table/readme.md";
 
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { templateContainer } from "../../templates";
+import { defaultTable, imageOverlayTable } from "./table.content";
 
 storiesOfTable({
   parameters: {
@@ -14,5 +15,9 @@ storiesOfTable({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ tableTemplate }) => ({ tableTemplate }),
+  storyTemplates: ({ tableTemplate }, templates) => ({
+    tableTemplate,
+    defaultTable: defaultTable(templates),
+    imageOverlayTable: imageOverlayTable(templates),
+  }),
 });

@@ -11,7 +11,7 @@ export const cssTile: ComponentImplementation<Tile> = {
       return html`
         <div class="dso-tile ${classMap({ "dso-theme": variant === "theme" })}">
           <a href=${anchor}>
-            <span class="dso-tile-icon"> ${imageTemplate(image)} </span>
+            <span class="dso-tile-icon">${imageTemplate(image)}</span>
             <span class="dso-tile-link">${label}</span>
           </a>
         </div>

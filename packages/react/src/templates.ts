@@ -65,14 +65,14 @@ export interface Components {
   info: Info<JSX.Element>;
   infoButton: InfoButton;
   label: Label;
-  modal: Modal;
+  modal: Modal<JSX.Element>;
   ozonContent: OzonContent;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   selectable: Selectable<JSX.Element>;
   table: Table<JSX.Element>;
-  toggletip: Toggletip;
+  toggletip: Toggletip<JSX.Element>;
   tooltip: Tooltip;
   treeView: TreeView;
 }

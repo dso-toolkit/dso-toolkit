@@ -1,12 +1,11 @@
 import { Modal } from "@dso-toolkit/sources";
-import { html, nothing } from "lit-html";
+import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
-import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 import { v4 } from "uuid";
 
 import { ComponentImplementation } from "../../templates";
 
-export const cssModal: ComponentImplementation<Modal> = {
+export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "css",
   template: () =>
@@ -32,8 +31,8 @@ export const cssModal: ComponentImplementation<Modal> = {
                   </div>
                 `
               : nothing}
-            <div class="dso-body">${unsafeHTML(body)}</div>
-            ${footer && html`<div class="dso-footer">${unsafeHTML(footer)}</div>`}
+            <div class="dso-body">${body}</div>
+            ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
         </div>
       `;

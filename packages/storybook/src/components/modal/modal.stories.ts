@@ -5,6 +5,15 @@ import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
 import { storiesOf } from "@storybook/web-components";
 
 import { templateContainer } from "../../templates";
+import {
+  activeBody,
+  activeFooter,
+  confirmBody,
+  confirmFooter,
+  passiveBody,
+  passiveFooter,
+  loadingBody,
+} from "./modal.content";
 
 storiesOfModal({
   parameters: {
@@ -14,7 +23,16 @@ storiesOfModal({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ modalTemplate, progressIndicatorTemplate }) => ({ modalTemplate, progressIndicatorTemplate }),
+  storyTemplates: ({ modalTemplate }, templates) => ({
+    modalTemplate,
+    activeBody: activeBody(),
+    activeFooter: activeFooter(templates),
+    passiveBody: passiveBody(templates),
+    passiveFooter: passiveFooter(templates),
+    confirmBody: confirmBody(templates),
+    confirmFooter: confirmFooter(templates),
+    loadingBody: loadingBody(templates),
+  }),
 });
 
 storiesOfModal({
@@ -25,5 +43,14 @@ storiesOfModal({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ modalTemplate, progressIndicatorTemplate }) => ({ modalTemplate, progressIndicatorTemplate }),
+  storyTemplates: ({ modalTemplate }, templates) => ({
+    modalTemplate,
+    activeBody: activeBody(),
+    activeFooter: activeFooter(templates),
+    passiveBody: passiveBody(templates),
+    passiveFooter: passiveFooter(templates),
+    confirmBody: confirmBody(templates),
+    confirmFooter: confirmFooter(templates),
+    loadingBody: loadingBody(templates),
+  }),
 });

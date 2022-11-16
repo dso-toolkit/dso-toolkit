@@ -14,5 +14,7 @@ storiesOfHelpcenterPanel({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate }),
+  storyTemplates: ({ helpcenterPanelTemplate }) => ({
+    helpcenterPanelTemplate,
+  }),
 });

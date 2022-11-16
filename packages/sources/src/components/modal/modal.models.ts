@@ -1,7 +1,7 @@
-export interface Modal {
+export interface Modal<TemplateFnReturnType> {
   modalTitle?: string;
-  body: string;
-  footer?: string;
+  body: TemplateFnReturnType;
+  footer?: TemplateFnReturnType;
   role?: ModalRole;
   dsoClose?: (value: CustomEvent) => void;
 }

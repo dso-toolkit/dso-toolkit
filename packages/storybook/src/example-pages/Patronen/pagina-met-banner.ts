@@ -8,7 +8,7 @@ import { header } from "../partials/header.content";
 examplePageFactory(
   "patronen",
   "Pagina met banner",
-  ({ bannerTemplate, highlightBoxTemplate }, templates) => html`
+  ({ bannerTemplate, highlightBoxTemplate, anchorTemplate }, templates) => html`
     ${bannerTemplate({
       status: "danger",
       content: html`
@@ -55,7 +55,8 @@ examplePageFactory(
                   <h3>Bel 088 - 79 70 790</h3>
                   <p>
                     Bereikbaar op werkdagen van 9.00-12.00 uur en van 13.00-16.30 uur. Kijk op de website
-                    <a href="#">www.aandeslagmetdeomgevingswet.nl</a> of neem <a href="#">contact</a> met ons op.
+                    ${anchorTemplate({ label: "www.aandeslagmetdeomgevingswet.nl", url: "#" })} of neem
+                    ${anchorTemplate({ label: "contant", url: "#" })} met ons op.
                   </p>
                 </div>
               `,

@@ -8,7 +8,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssNavbar: ComponentImplementation<Navbar> = {
   component: "navbar",
   implementation: "css",
-  template: ({ iconTemplate }) =>
+  template: ({ iconTemplate, anchorTemplate }) =>
     function navbarTemplate({ items, modifier, open }) {
       return html`
         <nav class="dso-navbar ${classMap({ "dso-open": !!open })}">
@@ -30,7 +30,11 @@ export const cssNavbar: ComponentImplementation<Navbar> = {
             ${items.map(
               (item: NavbarItem) => html`
                 <li class=${ifDefined(item.active ? "dso-active" : undefined)}>
-                  <a href=${item.href} aria-current=${ifDefined(item.active ? "page" : undefined)}> ${item.label} </a>
+                  ${anchorTemplate({
+                    label: item.label,
+                    url: item.href,
+                    ariaCurrent: item.active ? "page" : undefined,
+                  })}
                 </li>
               `
             )}

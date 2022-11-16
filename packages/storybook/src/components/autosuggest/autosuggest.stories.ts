@@ -14,7 +14,7 @@ storiesOfAutosuggest({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ autosuggestTemplate }) => {
+  storyTemplates: ({ autosuggestTemplate, buttonTemplate }) => {
     type AutosuggestConnector = (
       parameters: Parameters<
         ReturnType<Parameters<typeof storiesOfAutosuggest>[0]["storyTemplates"]>["autosuggestDemoTemplate"]
@@ -131,7 +131,7 @@ storiesOfAutosuggest({
             })}
             <button type="button">Zoekopdracht legen</button>
           </div>
-          <button type="button" class="dso-secondary">Button</button>
+          ${buttonTemplate({ label: "Button", variant: "secondary", type: "button" })}
         </div>
       `,
     };
