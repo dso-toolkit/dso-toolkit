@@ -17,6 +17,8 @@ describe("Table", () => {
       .then(($tableBody) =>
         expect($tableBody[0].scrollWidth).to.be.greaterThan($tableBody[0].getBoundingClientRect().width)
       );
+
+    cy.percySnapshot();
   });
 
   it("should open and close an accessible modal", () => {

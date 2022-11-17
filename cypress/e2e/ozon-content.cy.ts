@@ -8,6 +8,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").find("a[href = '#longTitle_inst2']").click();
 
     cy.get("@anchorClick").should("have.been.calledOnce");
+
+    cy.percySnapshot();
   });
 
   it("should open and close notes", () => {
@@ -26,12 +28,16 @@ describe("Ozon Content", () => {
     button("N7").should("have.attr", "aria-expanded", "false");
     tooltip("N7").should("be.not.visible");
 
+    cy.percySnapshot();
+
     button("N7").click();
 
     button("N6").should("have.attr", "aria-expanded", "false");
     tooltip("N6").should("be.not.visible");
     button("N7").should("have.attr", "aria-expanded", "true");
     tooltip("N7").should("be.visible");
+
+    cy.percySnapshot(`${Cypress.currentTest.title} -- visible notes`);
 
     button("N7").click();
 
@@ -49,6 +55,8 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content").find("span.fallback.od-aap").should("exist").contains("baviaan");
+
+    cy.percySnapshot();
   });
 
   it("should render br element", () => {
@@ -59,6 +67,8 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content").find("span.fallback.od-e").children("br").should("exist").and("be.empty");
+
+    cy.percySnapshot();
   });
 
   it("should render Al element", () => {
@@ -69,6 +79,8 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content").find("p").should("exist").children('span[role="paragraph"]').should("exist");
+
+    cy.percySnapshot();
   });
 
   it("should render sub, sup, strong, b, i and u elements", () => {
@@ -97,6 +109,8 @@ describe("Ozon Content", () => {
       .should("exist")
       .children("span.fallback.od-inner")
       .contains("text");
+
+    cy.percySnapshot();
   });
 
   it("should render Inhoud element and handle xml namespace", () => {
@@ -115,6 +129,8 @@ describe("Ozon Content", () => {
       .should("exist")
       .children("span.od-e")
       .contains("de inhoud");
+
+    cy.percySnapshot();
   });
 
   it("should render IntRef element", () => {
@@ -130,6 +146,8 @@ describe("Ozon Content", () => {
       .should("exist")
       .children("span.fallback.od-e")
       .contains("document");
+
+    cy.percySnapshot();
   });
 
   it("should render IntIoRef element", () => {
@@ -138,6 +156,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content")
       .find('a[href = "#gm0037_1__cmp_I__content_1__list_o_1__item_o_1__ref_o_1"]')
       .should("exist");
+
+    cy.percySnapshot();
   });
 
   it("should emit anchorClick on IntIoRef anchor click", () => {
@@ -154,6 +174,8 @@ describe("Ozon Content", () => {
       .invoke("getCall", 0)
       .its("args.0.detail.node")
       .should("equal", "IntIoRef");
+
+    cy.percySnapshot();
   });
 
   it("should render ExtRef element", () => {
@@ -172,6 +194,8 @@ describe("Ozon Content", () => {
       .parent()
       .children("span.fallback.od-e")
       .contains("document");
+
+    cy.percySnapshot();
   });
 
   it("should render ExtIoRef element", () => {
@@ -187,6 +211,8 @@ describe("Ozon Content", () => {
       )
       .contains("opent in nieuw venster")
       .should("exist");
+
+    cy.percySnapshot();
   });
 
   it("should render Illustratie element", () => {
@@ -197,6 +223,8 @@ describe("Ozon Content", () => {
     });
 
     cy.get("dso-ozon-content").find("img[src = 'afbeelding.jpg'][height = '12'][width = '34']").should("exist");
+
+    cy.percySnapshot();
   });
 
   it("should render simple table", () => {
@@ -213,6 +241,8 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(1) td:nth-child(2)").contains("2");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
+
+    cy.percySnapshot();
   });
 
   it("should render table with heading", () => {
@@ -227,6 +257,8 @@ describe("Ozon Content", () => {
     cy.get("@head").should("exist").children("tr").should("exist").children("td").should("exist");
     cy.get("@head").find("tr:nth-child(1) td:nth-child(1)").contains("een");
     cy.get("@head").find("tr:nth-child(1) td:nth-child(2)").contains("twee");
+
+    cy.percySnapshot();
   });
 
   it("should render table with rowspan", () => {
@@ -242,6 +274,8 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(1) td:nth-child(1)").contains("1").should("have.attr", "rowspan", "2");
     cy.get("@body").find("tr:nth-child(1) td:nth-child(2)").contains("2");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("4");
+
+    cy.percySnapshot();
   });
 
   it("should render table with colspan", () => {
@@ -259,12 +293,16 @@ describe("Ozon Content", () => {
     cy.get("@body").find("tr:nth-child(1) td:nth-child(1)").contains("1").should("have.attr", "colspan", "2");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(1)").contains("3");
     cy.get("@body").find("tr:nth-child(2) td:nth-child(2)").contains("4");
+
+    cy.percySnapshot();
   });
 
   it("should render inline paragraphs in Opschrift", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--opschrift");
 
     cy.get('dso-ozon-content > dso-tooltip > span[role="section"] > span[role="paragraph"]').should("exist");
+
+    cy.percySnapshot();
   });
 
   it("should have correct display", () => {
@@ -275,6 +313,8 @@ describe("Ozon Content", () => {
       .and("have.css", "display", "inline")
       .invoke("attr", "inline", null)
       .should("have.css", "display", "block");
+
+    cy.percySnapshot();
   });
 
   it("should mark and denote deleted content", () => {
@@ -288,6 +328,8 @@ describe("Ozon Content", () => {
     cy.get("dso-ozon-content").find(".deleted-start").should("have.text", "Begin verwijderd element");
 
     cy.get("dso-ozon-content").find(".deleted-end").should("have.text", "Einde verwijderd element");
+
+    cy.percySnapshot();
   });
 
   it("when interactive it should emit events", () => {
@@ -305,6 +347,8 @@ describe("Ozon Content", () => {
       .click();
 
     cy.get("@click").should("have.been.calledOnce");
+
+    cy.percySnapshot();
   });
 
   it("when interactive it should appear like a link", () => {
@@ -319,6 +363,8 @@ describe("Ozon Content", () => {
       .invoke("attr", "interactive", "sub")
       .should("have.css", "text-decoration-line", "none")
       .and("have.css", "color", "rgb(25, 25, 25)"); // $grijs-90
+
+    cy.percySnapshot();
   });
 
   it("should render Figuur as dso-image-overlay", () => {
@@ -354,6 +400,8 @@ describe("Ozon Content", () => {
       .and("have.attr", "height", "562")
       .get("dso-ozon-content .dso-ozon-figuur > .figuur-bijschrift")
       .should("have.text", "Bijschrift bij het figuur. (bron: Bron waaruit het figuur is overgenomen)");
+
+    cy.percySnapshot();
   });
 
   it("should render Lijst element", () => {
@@ -475,5 +523,7 @@ describe("Ozon Content", () => {
       .should("have.length", 6)
       .get("@dsoOzonLijst")
       .find("> ul");
+
+    cy.percySnapshot();
   });
 });

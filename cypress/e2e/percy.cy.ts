@@ -22,9 +22,7 @@ describe("Percy", () => {
         for (const story of filteredStories) {
           cy.visit(`http://localhost:45000/iframe.html?id=${story}`);
 
-          cy.percySnapshot(story, {
-            enableJavaScript: true,
-          });
+          cy.percySnapshot(story);
         }
       });
     });

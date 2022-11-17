@@ -21,6 +21,8 @@ describe("Toggletip", () => {
   it("should focus on button after escape", () => {
     prepareComponent();
 
+    cy.percySnapshot();
+
     cy.get("@dsoButton")
       .click()
       .get("@dsoTooltip")

@@ -8,6 +8,8 @@ describe("Accordion", () => {
   });
 
   it("should open and close a section by clicking the handle", () => {
+    cy.percySnapshot();
+
     cy.get("dso-accordion")
       .then(($accordion) => $accordion[0]?.closeOpenSections())
       .find("dso-accordion-section")

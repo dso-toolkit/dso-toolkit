@@ -22,6 +22,8 @@ describe("Modal", () => {
       .find(".dso-close span")
       .should("have.class", "sr-only")
       .and("have.text", "Sluiten");
+
+    cy.percySnapshot();
   });
 
   it("should have focus trap", () => {
