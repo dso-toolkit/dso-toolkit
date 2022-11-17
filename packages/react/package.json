@@ -20,7 +20,7 @@
     "dist/"
   ],
   "devDependencies": {
-    "@babel/core": "^7.19.6",
+    "@babel/core": "^7.20.2",
     "@dso-toolkit/sources": "workspace:packages/sources",
     "@storybook/addon-a11y": "6.5.13",
     "@storybook/addon-actions": "6.5.13",
@@ -31,7 +31,7 @@
     "@storybook/react": "6.5.13",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^8.3.0",
     "concurrently": "^7.5.0",
     "cross-env": "^7.0.3",
     "react": "^18.2.0",
@@ -41,7 +41,7 @@
     "tslib": "2.4.1",
     "typescript": "^4.8.4",
     "wait-on": "^6.0.1",
-    "webpack": "^5.74.0"
+    "webpack": "^5.75.0"
   },
   "peerDependencies": {
     "@dso-toolkit/core": ">=41",

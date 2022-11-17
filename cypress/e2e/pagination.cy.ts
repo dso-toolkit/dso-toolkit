@@ -29,6 +29,8 @@ describe("Pagination", () => {
       .get("@dsoPagination")
       .find('a[aria-label="Volgende"]')
       .should("be.visible");
+
+    cy.percySnapshot();
   });
 
   it("should not show ellipsis when page count is in range", () => {
@@ -48,6 +50,8 @@ describe("Pagination", () => {
       .should("not.contain.html", "<span>...</span>")
       .find("a")
       .should("have.text", "7");
+
+    cy.percySnapshot();
   });
 
   it("should show ... when first and/or last page are out of range", () => {

@@ -40,6 +40,8 @@ describe("Helpcenter panel", () => {
   });
 
   it("should open panel on help button click", () => {
+    cy.percySnapshot();
+
     cy.get("@iframeContainer")
       .should("have.class", "close")
       .get("@openButton")
@@ -52,6 +54,8 @@ describe("Helpcenter panel", () => {
       .should("be.visible")
       .get("@openButton")
       .should("have.class", "open");
+
+    cy.percySnapshot(`${Cypress.currentTest.title}" -- opened`);
   });
 
   it("should not load iframe when panel is closed", () => {

@@ -34,6 +34,7 @@ describe("Image Overlay", () => {
 
   it("should open and close overlay", () => {
     openOverlay();
+    cy.percySnapshot();
     cy.get("dso-image-overlay").shadow().find("button.close").click();
     cy.get("dso-image-overlay").shadow().find(".wrapper > img").should("not.exist");
   });

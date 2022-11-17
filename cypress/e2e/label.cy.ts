@@ -14,6 +14,8 @@ describe.skip("Label", () => {
   it("should be able to truncate label", () => {
     prepareComponent();
 
+    cy.percySnapshot();
+
     cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
       .invoke("attr", "truncate", "")
@@ -30,6 +32,8 @@ describe.skip("Label", () => {
       .get("@dsoLabelShadow")
       .find(".dso-label-content")
       .should("exist");
+
+    cy.percySnapshot(`${Cypress.currentTest.title} -- truncated`);
   });
 
   it("should show tooltip on focus", () => {

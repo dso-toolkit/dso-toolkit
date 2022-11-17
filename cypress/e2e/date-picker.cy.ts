@@ -13,6 +13,8 @@ describe("Date Picker", () => {
       .then((id) => {
         cy.get(`label[for="${id}"]`).should("exist").and("not.be.empty");
       });
+
+    cy.percySnapshot();
   });
 
   it("should have focus trap", () => {

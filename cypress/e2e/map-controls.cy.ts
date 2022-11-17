@@ -49,5 +49,7 @@ describe("Map Controls", () => {
       .closest("header")
       .find("button span")
       .should("have.text", "Verberg paneel Kaartlagen");
+
+    cy.percySnapshot();
   });
 });

@@ -57,6 +57,7 @@ describe("Header", () => {
 
   it("should be accessible", () => {
     cy.injectAxe();
+    cy.percySnapshot();
     cy.checkA11y("dso-header");
     cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:true");
     cy.injectAxe();

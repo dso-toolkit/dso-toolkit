@@ -18,8 +18,8 @@
   },
   "homepage": "https://www.dso-toolkit.nl/",
   "devDependencies": {
-    "@babel/core": "^7.19.6",
-    "@babel/preset-env": "^7.19.4",
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
     "@dso-toolkit/core": "workspace:packages/core",
     "@dso-toolkit/css": "workspace:packages/css",
     "@dso-toolkit/sources": "workspace:packages/sources",

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es2019", "dom"],
-    "types": ["cypress", "cypress-axe", "cypress-real-events"]
+    "types": ["cypress", "cypress-axe", "cypress-real-events", "@percy/cypress"]
   },
   "include": ["../packages/core/src/components.d.ts", "**/*.ts"]
 }

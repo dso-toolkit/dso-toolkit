@@ -27,6 +27,8 @@ describe("Alert", () => {
         .invoke("text")
         .should("equal", `${message}:`);
 
+      cy.percySnapshot();
+
       cy.get("dso-alert").shadow().find(".alert > dso-icon").invoke("prop", "icon").should("equal", icon);
     });
   }
