@@ -103,6 +103,7 @@ export class AccordionSection implements ComponentInterface {
           "dso-accordion-section": true,
           ["dso-accordion-" + variant]: true,
           "dso-nested-accordion": this.hasNestedSection,
+          "dso-accordion-reverse-align": this.accordionState.reverseAlign,
         }}
       >
         <Handle heading={this.heading}>

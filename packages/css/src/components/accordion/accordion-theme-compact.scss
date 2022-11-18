@@ -19,6 +19,11 @@
       }
     }
 
+    > .dso-accordion-section > .dso-section-body {
+      padding-left: units.$u2;
+      padding-right: 0;
+    }
+
     .dso-accordion-section {
       &.dso-open {
         &:not(.dso-nested-accordion) {
@@ -46,35 +51,28 @@
     }
   }
 
-  .dso-section-handle {
-    border: 1px solid transparent;
-    border-top-width: 0;
-
-    a,
-    button {
-      color: accordion.$compact-color;
-      padding-left: units.$u4;
-
-      &::before {
-        @include di.base("chevron-down-grasgroen");
-
-        left: 0;
-      }
-
-      &:hover,
-      &:active,
-      &.active {
-        color: accordion.$compact-color;
-      }
-    }
-  }
-
-  .dso-accordion-section {
-    &,
-    .dso-section-body {
-      border: 0;
+  > .dso-accordion-section {
+    > .dso-section-handle {
+      border-bottom: 1px solid transparent;
       border-top: 1px solid accordion.$compact-border-color;
-      padding-top: 0;
+
+      a,
+      button {
+        color: accordion.$compact-color;
+        padding-left: units.$u4;
+
+        &::before {
+          @include di.base("chevron-down-grasgroen");
+
+          left: 0;
+        }
+
+        &:hover,
+        &:active,
+        &.active {
+          color: accordion.$compact-color;
+        }
+      }
     }
 
     &:last-child {
@@ -85,8 +83,11 @@
       margin-top: 0;
     }
 
-    .dso-section-body {
+    > .dso-section-body {
       margin-top: 0;
+      padding-left: units.$u4;
+      padding-top: 0;
+      padding-right: 0;
       padding-bottom: units.$u1 * 1.5;
     }
 

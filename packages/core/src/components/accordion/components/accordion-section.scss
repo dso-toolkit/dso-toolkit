@@ -111,6 +111,10 @@
   @include accordion-section-theme-compact.dso-web-component-accordion-compact();
 }
 
+:host(.dso-accordion-compact.dso-accordion-reverse-align) {
+  @include accordion-section-theme-compact.dso-web-component-accordion-compact-reverse();
+}
+
 :host(.dso-accordion-compact[open]:not(.dso-nested-accordion)) {
   @include accordion-section-theme-compact.dso-web-component-accordion-compact-open();
 }
