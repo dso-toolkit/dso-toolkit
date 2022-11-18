@@ -4,51 +4,16 @@ import type { LinkLikeNavbarItemProps } from "@theme/NavbarItem";
 
 import styles from "./styles.module.scss";
 import clsx from "clsx";
-
-interface Release {
-  version: string;
-}
-
-interface Master {
-  version: "master";
-  branch: "master";
-}
-
-interface Topic {
-  version: string;
-  branch: "topic";
-  label: string;
-}
-
-type Version = Release | Master | Topic;
-
-function isReleaseVersion(version: unknown): version is Release {
-  return typeof version["version"] === "string" && Object.keys(version).length === 1;
-}
-
-function isMasterVersion(version: unknown): version is Master {
-  return (
-    typeof version["branch"] === "string" &&
-    version["branch"] === "master" &&
-    typeof version["version"] === "string" &&
-    version["version"] === "master" &&
-    Object.keys(version).length === 2
-  );
-}
-
-function isTopicVersion(version: unknown): version is Topic {
-  return (
-    typeof version["branch"] === "string" &&
-    version["branch"] === "topic" &&
-    typeof version["version"] === "string" &&
-    typeof version["label"] === "string" &&
-    Object.keys(version).length === 3
-  );
-}
-
-function isVersion(version: unknown): version is Version {
-  return isTopicVersion(version) || isMasterVersion(version) || isReleaseVersion(version);
-}
+import {
+  getAllVersions,
+  isMasterVersion,
+  isReleaseVersion,
+  isTopicVersion,
+  Master,
+  Release,
+  Topic,
+  Version,
+} from "@site/src/functions/versions.function";
 
 function isSelectedVersion(version: Version) {
   return document.location.pathname.split("/")[1] === version.version;
@@ -72,26 +37,12 @@ function mapMaster(version: Master) {
   };
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function VersionSelector(): JSX.Element | null {
   const [versions, setVersions] = useState<LinkLikeNavbarItemProps[] | undefined>();
 
   useEffect(() => {
     async function fetchData() {
-      const result = await fetch("https://www.dso-toolkit.nl/versions.json?t=" + new Date().getTime());
-
-      const { versions } = await result.json();
-
-      if (!Array.isArray(versions)) {
-        throw new Error("versions is not an array");
-      }
-
-      const parsed = versions.reduce<Version[]>((total, version) => {
-        if (isVersion(version)) {
-          total.push(version);
-        }
-
-        return total;
-      }, []);
+      const parsed = await getAllVersions();
 
       const topicsVersions: Topic[] = [];
       const masterVersions: Master[] = [];

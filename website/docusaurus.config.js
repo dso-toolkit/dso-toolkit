@@ -28,15 +28,12 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
+          routeBasePath: "/",
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/dso-toolkit/dso-toolkit/tree/master/website/",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/dso-toolkit/dso-toolkit/tree/master/website/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),
