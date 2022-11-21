@@ -85,16 +85,6 @@ yarn install
 
 Depending on the work being done, development can be done in several environments:
 
-#### `fractal`
-
-The classic environment with Fractal and Stencil. Because this environment needs two packages (`@dso-toolkit/core` and `dso-toolkit`) running, this command only be started from the root of the repository, :
-
-```
-yarn fractal
-```
-
-Fractal is started at http://localhost:43000/, Stencil is running on http://localhost:53333. See the [Fractal guide](https://fractal.build/) for more information on Fractal.
-
 #### `development`
 
 This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/sources` (`/packages/sources`). All the implementations have a devDependency on `@dso-toolkit/sources`.
@@ -119,7 +109,7 @@ This will start Stencil on http://localhost:53333, Storybook on http://localhost
 
 #### `leaflet`
 
-Like `fractal`, development of Leaflet plugins is package transcendent. Run the following command from root:
+Development of Leaflet plugins is package transcendent. Run the following command from root:
 
 ```
 yarn start:leaflet
@@ -132,33 +122,13 @@ This will start Stencil (http://localhost:53333) and Storybook (http://localhost
 
 Node 16. For development on the DSO Toolkit you also need Yarn.
 
-## Dependencies
-
-The DSO Toolkit and Component Library uses
-
-- `npm` as the registry for node packages
-- `yarn` for package management
-- `gulp` for build automation
-- `sass` to compile SCSS to css
-- `fractal` to document the toolkit
-- `yaml` to configure fractal components
-
-## Further reading
-
-- https://www.npmjs.com/
-- http://fractal.build/
-- http://keepachangelog.com/en/1.0.0/
-- http://semver.org/
-- http://handlebarsjs.com/
-- http://www.yaml.org/
-
 ## Ports
 
 Ports used during development:
 
 - 41234 - Leaflet plugins dev app
 - 42345 - React Leaflet plugins dev app
-- 43000 - Fractal
+- 43300 - Docusaurus
 - 53333 - Stencil
 - 45000 - Storybook for HTML/CSS + Web Components
 - 56406 - Storybook for React components

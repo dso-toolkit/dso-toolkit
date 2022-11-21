@@ -4,13 +4,9 @@
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "25.0.0",
   "scripts": {
-    "start": "gulp",
     "build": "gulp build",
     "copy-libs": "gulp copy-libs",
-    "gulp": "gulp",
-    "lint": "gulp lint",
-    "test": "gulp test",
-    "smoke-test": "sass --load-path=libs src/dso.scss ../../dso-toolkit-smoke-test/dso.css"
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -18,32 +14,14 @@
   },
   "homepage": "https://www.dso-toolkit.nl/",
   "devDependencies": {
-    "@babel/core": "^7.20.2",
-    "@babel/preset-env": "^7.20.2",
     "@dso-toolkit/core": "workspace:packages/core",
     "@dso-toolkit/css": "workspace:packages/css",
     "@dso-toolkit/sources": "workspace:packages/sources",
-    "@frctl/fractal": "1.5.14",
-    "@frctl/nunjucks": "2.0.15",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-inject": "^4.0.4",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@types/fancy-log": "^1.3.1",
     "del": "6.1.1",
-    "fancy-log": "^2.0.0",
-    "fs-extra": "10.1.0",
     "gulp": "4.0.2",
     "gulp-filter": "7.0.0",
     "gulp-sass": "5.1.0",
     "gulp-svgmin": "4.1.0",
-    "gulp-tap": "2.0.0",
-    "hiff": "0.3.1",
-    "highlight.js": "^11.6.0",
-    "jquery": "^2.2.4",
-    "jquery-pjax": "^2.0.1",
-    "prettier": "^2.7.1",
-    "rollup": "^2.79.1",
     "sass": "^1.55.0"
   }
 }

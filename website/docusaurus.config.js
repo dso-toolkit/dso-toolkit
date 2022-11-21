@@ -11,7 +11,7 @@ const config = {
   url: "https://www.dso-toolkit.nl",
   baseUrl:
     process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
-      ? `/${process.env.TRAVIS_BRANCH.replace(/#/, "_")}/beta/`
+      ? `/${process.env.TRAVIS_BRANCH.replace(/#/, "_")}/`
       : "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
@@ -74,15 +74,6 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
             title: "Community",
             items: [
               {
@@ -92,6 +83,35 @@ const config = {
               {
                 label: "Slack invite link",
                 href: "https://join.slack.com/t/dso-toolkit/shared_invite/zt-58125gbo-FtPAARcnU47rMgkT7KWikA",
+              },
+              {
+                label: "GitHub issues",
+                href: "https://github.com/dso-toolkit/dso-toolkit/issues",
+              },
+            ],
+          },
+          {
+            title: "NPM",
+            items: [
+              {
+                label: "dso-toolkit",
+                href: "https://www.npmjs.com/package/dso-toolkit",
+              },
+              {
+                label: "@dso-toolkit/core",
+                href: "https://www.npmjs.com/package/@dso-toolkit/core",
+              },
+              {
+                label: "@dso-toolkit/react",
+                href: "https://www.npmjs.com/package/@dso-toolkit/react",
+              },
+              {
+                label: "@dso-toolkit/leaflet",
+                href: "https://www.npmjs.com/package/@dso-toolkit/leaflet",
+              },
+              {
+                label: "@dso-toolkit/react-leaflet",
+                href: "https://www.npmjs.com/package/@dso-toolkit/react-leaflet",
               },
             ],
           },

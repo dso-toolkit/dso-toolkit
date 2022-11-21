@@ -1,6 +1,18 @@
 @use "sass:color";
 @use "~@dso-toolkit/sources/src/variables/colors";
 
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;

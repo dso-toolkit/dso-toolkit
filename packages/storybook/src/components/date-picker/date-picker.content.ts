@@ -13,11 +13,10 @@ export function datePickerShowByScriptingTemplate(datePicker: TemplateResult, id
 
     <button
       type="button"
-      @click=${() => {
+      @click=${() =>
         Array.from(document.querySelectorAll("dso-date-picker"))
           .filter((e) => e.id === id)[0]
-          ?.show();
-      }}
+          ?.show()}
     >
       Open
     </button>

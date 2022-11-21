@@ -158,7 +158,7 @@ export namespace Components {
         /**
           * Defines a specific role attribute for the date picker input.
          */
-        "role": string | undefined;
+        "role": string | null;
         /**
           * Sets focus on the date picker's input. Use this method instead of the global `focus()`.
          */
@@ -865,7 +865,7 @@ declare namespace LocalJSX {
         /**
           * Defines a specific role attribute for the date picker input.
          */
-        "role"?: string | undefined;
+        "role"?: string | null;
         /**
           * Date value. Must be in Dutch date format: DD-MM-YYYY.
          */

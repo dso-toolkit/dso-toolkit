@@ -10,7 +10,7 @@ This project uses [Semantic Versioning](http://semver.org/).
 
 ## Language
 
-There are two language domains: English and Dutch. Anything tech-related (styling, source code, standard open source files, etc) is in English. Anything else (Fractal notes, manuals, GitHub issues and comments) is in Dutch.
+There are two language domains: English and Dutch. Anything tech-related (styling, source code, standard open source files, etc) is in English. Anything else (component notes, manuals, GitHub issues and comments) is in Dutch.
 
 ## How to contribute
 

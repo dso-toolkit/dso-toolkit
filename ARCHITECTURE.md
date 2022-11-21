@@ -8,13 +8,16 @@ Het begint met een samenvatting waarna per onderdeel een uitgebreide beschrijvin
 
 De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 
-- `@dso-toolkit/sources`
 - `dso-toolkit`
-- `@dso-toolkit/css`
 - `@dso-toolkit/core`
 - `@dso-toolkit/react`
 - `@dso-toolkit/leaflet`
 - `@dso-toolkit/react-leaflet`
+
+Verder hebben we de volgende private packages:
+
+- `@dso-toolkit/sources`. Deze package dient uitsluitend voor code organisatie en centralisatie.
+- `@dso-toolkit/storybook`. Dit is de primaire Storybook voor HTML/CSS componenten en Web Components. Deze wordt naar `https://storybook.dso-toolkit.nl` gepubliceerd.
 
 ![DSO Toolkit dependency graph](dependency-graph.svg)
 
@@ -108,12 +111,6 @@ React Components worden gegenereerd door Stencil. Voor elke Web Component wordt 
 
 We leveren geen Angular componenten. Angular heeft first class support voor Web Componenten. Voor meer informatie, zie de [Stencil documentatie](https://github.com/ionic-team/stencil-site/blob/f9289b0d52b13576b2dfcbdf4166e5f1aebb33e2/src/docs/framework-integration/angular.md#angular). Het hoofdstuk "Bindings" is niet van toepassing.
 
-## Fractal
+## Docusaurus
 
-Fractal is het documentatie framework waar we mee zijn begonnen. Dit framework is EOL en wordt deprecated. Templates worden in Nunjucks geschreven waardoor het lastig is om componenten te "slotten".
-
-De Fractal omgeving is nauw verweven met de toolkit codebase. Alles zit samen in de package `dso-toolkit`. We zijn bezig om deze codebase op te splitsen naar SCSS styling, markdown documentatie en lit templates. De component variant generator functionaliteit wordt overgenomen door Storybook.
-
-### Bootstrap
-
-De toolkit is gebaseerd op Bootstrap 3.3.7. Waar Bootstrap voorheen een expliciete dependency was die ook bij de afnemer werd geinstalleerd, hebben we de codebase van Bootstrap inmiddels ingecheckt en zijn we die langzaamaan aan het ontmantelen en opsplitsen. We zijn daar zo ver mee dat we de toolkit geen variant van Bootstrap meer kunnen noemen en third party Bootstrap gebaseerde modules (React/Angular componenten) zullen waarschijnlijk niet of slecht werken.
+Docusaurus is ons documentatie platform. In Docusaurus zijn componenten geschreven waarmee een Story kan worden ingeladen. Daarnaast is er nog een maatwerk `VersionSelector` en `AllVersions` component.

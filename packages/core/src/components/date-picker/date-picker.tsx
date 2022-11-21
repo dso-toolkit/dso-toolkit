@@ -161,7 +161,7 @@ export class DsoDatePicker implements ComponentInterface {
   /**
    * Defines a specific role attribute for the date picker input.
    */
-  @Prop() role: string | undefined;
+  @Prop() role: string | null = null;
 
   /**
    * Forces the opening direction of the calendar modal to be always left or right.
@@ -641,7 +641,7 @@ export class DsoDatePicker implements ComponentInterface {
               placeholder={this.localization.placeholder}
               id={this.identifier}
               disabled={this.disabled}
-              role={this.role}
+              role={this.role ?? undefined}
               required={this.required ? true : undefined}
               aria-autocomplete="none"
               onInput={this.handleInputChange}

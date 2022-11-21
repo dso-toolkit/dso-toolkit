@@ -1,5 +1,0 @@
-<div class="dso-browser-navbar-item-panel" id="browser-{{ entity.id }}-panel-view" aria-labelledby="view-tab">
-  <div>
-    <pre>{{ entity.getPreviewContent() | async | trim | highlight('django') | linkRefs(entity) }}</pre>
-  </div>
-</div>

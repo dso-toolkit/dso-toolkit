@@ -1,7 +1,6 @@
 node_modules
 *.log
 *.zip
-/dso-toolkit-smoke-test
 
 # Yarn v2 ignores
 .yarn/*
