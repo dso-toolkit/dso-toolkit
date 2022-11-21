@@ -1,3 +1,4 @@
+import IframeResizer from "iframe-resizer-react";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 import React, { useState } from "react";
 
@@ -39,7 +40,13 @@ export function StorybookComponent({ name, implementations }: Props) {
   return (
     <div>
       <BrowserOnly>
-        {() => <iframe src={getStoryUrl(name, implementation)} style={{ display: "block", width: "100%" }}></iframe>}
+        {() => (
+          <IframeResizer
+            src={getStoryUrl(name, implementation)}
+            style={{ width: "1px", minWidth: "100%" }}
+            heightCalculationMethod="lowestElement"
+          />
+        )}
       </BrowserOnly>
       <div>
         {allImplementations.map((i) => (
