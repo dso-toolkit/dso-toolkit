@@ -253,7 +253,19 @@ export type ComponentImplementation<Model> = BaseComponentImplementation<
   Templates,
   TemplateResult
 >;
-export const templateContainer = new TemplateContainer<Implementation, Templates, TemplateResult>();
+export const templateContainer = new TemplateContainer<Implementation, Templates, TemplateResult>({
+  getNameByKind: (kind: string): string | undefined => {
+    if (kind.startsWith("HTML|CSS")) {
+      return "css";
+    }
+
+    if (kind.startsWith("Core")) {
+      return "core";
+    }
+
+    return undefined;
+  },
+});
 
 templateContainer.add(coreAccordion);
 templateContainer.add(coreAlert);

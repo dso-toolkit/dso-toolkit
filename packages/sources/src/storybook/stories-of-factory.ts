@@ -57,7 +57,7 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
     const args = { ...a };
     delete args.preferredImplementation;
 
-    const templates = templateContainer.render(preferredImplementation ?? "core");
+    const templates = templateContainer.create(preferredImplementation, stories.kind);
 
     return mapper(args as never, storyTemplates(templates, templates));
   });
