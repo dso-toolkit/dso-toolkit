@@ -15,7 +15,7 @@ export function storiesOfButton<Implementation, Templates, TemplateFnReturnType>
     ButtonTemplates<TemplateFnReturnType>
   >
 ) {
-  return storiesOfFactory("button", storiesOfArguments, (stories, templateMapper) => {
+  return storiesOfFactory("Button", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: buttonArgTypes,
       args: {

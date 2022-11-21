@@ -27,6 +27,14 @@ function hasShape<T>(keys: Array<keyof T>, obj: unknown): obj is T {
   );
 }
 
+export function getVersion() {
+  return window.location.hostname === "localhost" ? "local" : document.location.pathname.split("/")[1];
+}
+
+export function isSelectedVersion({ version }: Version) {
+  return getVersion() === version;
+}
+
 export function isReleaseVersion(obj: unknown): obj is Release {
   return hasShape<Release>(["version"], obj) && typeof obj.version === "string";
 }

@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  margin-bottom: var(--ifm-leading);
+}
+
+.implementationButtons {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  align-items: center;
+  height: 32px;
+  gap: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  > button {
+    background: none;
+    border: 0;
+    padding: 0;
+
+    &:focus,
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.openInStorybook {
+  margin-left: auto;
+}
+
+.loading {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.loading + iframe {
+  visibility: hidden;
+}
+
+.activeButton {
+  font-weight: bold;
+}
+
+.implementationButtons,
+.openInStorybook {
+  font-size: 14px;
+}

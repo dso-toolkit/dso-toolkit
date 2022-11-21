@@ -6,18 +6,16 @@ import styles from "./styles.module.scss";
 import clsx from "clsx";
 import {
   getAllVersions,
+  getVersion,
   isMasterVersion,
   isReleaseVersion,
+  isSelectedVersion,
   isTopicVersion,
   Master,
   Release,
   Topic,
   Version,
 } from "@site/src/functions/versions.function";
-
-function isSelectedVersion(version: Version) {
-  return document.location.pathname.split("/")[1] === version.version;
-}
 
 function mapVersion(version: Version) {
   return {
@@ -26,6 +24,26 @@ function mapVersion(version: Version) {
     href: `https://www.dso-toolkit.nl/${version.version}`,
     target: "_self",
   };
+}
+
+function getVersionLabel(): string {
+  const version = getVersion();
+
+  if (version?.startsWith("_")) {
+    const issueId = parseInt(version.substring(1, version.indexOf("-")));
+
+    return `#${isNaN(issueId) ? version.substring(1) : issueId}`;
+  }
+
+  if (version === "master") {
+    return "master 🚧";
+  }
+
+  if (version === "local") {
+    return "dev 👨‍🔧";
+  }
+
+  return version ?? "Onbekend";
 }
 
 function mapMaster(version: Master) {
@@ -96,5 +114,7 @@ export default function VersionSelector(): JSX.Element | null {
     fetchData().catch(console.error);
   }, []);
 
-  return versions ? <DropdownNavbarItem position="right" label="Versies" items={versions} /> : null;
+  return versions ? (
+    <DropdownNavbarItem position="right" label={`Versie: ${getVersionLabel()}`} items={versions} />
+  ) : null;
 }

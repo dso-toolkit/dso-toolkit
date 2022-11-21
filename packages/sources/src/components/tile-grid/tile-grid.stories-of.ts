@@ -1,10 +1,10 @@
 import { TileGridArgs, tileGridArgTypes } from "./tile-grid.args";
-import { Tile } from "../..";
+import { TileGrid } from "../..";
 import { tiles } from "./tile-grid.content";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 export interface TileGridTemplates<TemplateFnReturnType> {
-  tileGridDemoTemplate: (children: Tile[]) => TemplateFnReturnType;
+  tileGridTemplate: (tileGridProperties: TileGrid) => TemplateFnReturnType;
 }
 
 export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnType>(
@@ -25,7 +25,7 @@ export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnTyp
 
     stories.add(
       "Tile Grid",
-      templateMapper<TileGridArgs>((_args, { tileGridDemoTemplate }) => tileGridDemoTemplate(tiles))
+      templateMapper<TileGridArgs>((_args, { tileGridTemplate }) => tileGridTemplate({ tiles }))
     );
   });
 }
