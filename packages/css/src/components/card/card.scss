@@ -1,5 +1,7 @@
 @use "@dso-toolkit/sources/src/variables/colors";
+@use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
 @use "@dso-toolkit/sources/src/variables/units";
+
 @use "@dso-toolkit/sources/src/components/button";
 @use "@dso-toolkit/sources/src/components/card";
 
@@ -24,7 +26,9 @@ dso-card {
     h3:first-child,
     h4:first-child,
     h5:first-child {
+      align-items: center;
       display: flex;
+      font-size: 1.25em;
       margin-bottom: 0;
       margin-top: 0;
 
@@ -57,6 +61,12 @@ dso-card {
     }
   }
 
+  .dso-rich-content {
+    :first-child {
+      margin-top: 0;
+    }
+  }
+
   .dso-selectable,
   dso-selectable {
     @include card.selectable();
@@ -69,6 +79,26 @@ dso-card {
   }
 }
 
-.dso-card-interactions {
+.dso-card-interactions,
+[slot="interactions"] {
   @include card.interactions();
+
+  .dso-card-interaction {
+    align-items: center;
+    display: flex;
+    text-align: center;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .dso-info-button {
+    margin: 0;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+    flex-basis: 100%;
+    margin-top: units.$u2;
+  }
 }

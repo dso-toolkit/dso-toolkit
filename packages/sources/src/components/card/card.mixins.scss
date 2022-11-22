@@ -43,12 +43,6 @@
     }
   }
 
-  .dso-rich-content {
-    :first-child {
-      margin-top: 0;
-    }
-  }
-
   .dso-card-selectable {
     @extend %card-grid-addon;
   }
@@ -69,23 +63,4 @@
 @mixin interactions() {
   display: flex;
   justify-content: space-between;
-
-  .dso-card-interaction {
-    align-items: center;
-    display: flex;
-    text-align: center;
-
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  .dso-info-button {
-    margin: 0;
-  }
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
-    flex-basis: 100%;
-    margin-top: units.$u2;
-  }
 }
