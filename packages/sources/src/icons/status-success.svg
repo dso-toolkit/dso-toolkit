@@ -1,7 +1,10 @@
-<svg id="status-success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <g>
-    <circle cx="12" cy="12" r="11" fill="#39870c"/>
-    <path d="M12,1A11,11,0,1,1,1,12,11,11,0,0,1,12,1m0-1A12,12,0,1,0,24,12,12,12,0,0,0,12,0Z" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <g id="status-success">
+      <rect id="Rectangle" x="0" y="0"/>
+      <path id="Outer" fill="#FFF" fill-rule="nonzero" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12A12 12 0 0 0 12 0Z"/>
+      <path id="Inner" fill="#39870c" fill-rule="nonzero" d="M12 1.5c5.799 0 10.5 4.701 10.5 10.5S17.799 22.5 12 22.5 1.5 17.799 1.5 12 6.201 1.5 12 1.5"/>
+      <path id="V" fill="#FFF" fill-rule="nonzero" d="M15.873 7.887a1 1 0 1 1 1.58 1.226l-6.488 8.365-4.405-4.837a1 1 0 1 1 1.48-1.345l2.803 3.075 5.03-6.484Z"/>
+    </g>
   </g>
-  <path d="M10.11,18,5.29,13.31A.92.92,0,0,1,5.3,12a1,1,0,0,1,1.41,0l3.4,3.3,7.18-7a1,1,0,0,1,1.41,0,.92.92,0,0,1,0,1.35Z" fill="#fff"/>
 </svg>

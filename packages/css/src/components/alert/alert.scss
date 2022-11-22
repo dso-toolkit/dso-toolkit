@@ -20,9 +20,9 @@
     }
   }
 
-  &.alert-danger {
+  &.alert-error {
     &::before {
-      @include di.base("status-danger", alert.$icon-size);
+      @include di.base("status-error", alert.$icon-size);
     }
   }
 

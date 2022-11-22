@@ -14,7 +14,7 @@ export const infoMessage = (
 
 export const warningMessage = <p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>;
 
-export const dangerMessage = (
+export const errorMessage = (
   <p>
     Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   </p>

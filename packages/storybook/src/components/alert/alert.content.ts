@@ -14,7 +14,7 @@ export function infoMessage({ anchorTemplate }: Templates) {
 
 export const warningMessage = html`<p>Dit is een waarschuwingsmelding. Deze wordt gebruikt voor waarschuwingen.</p>`;
 
-export function dangerMessage({ anchorTemplate }: Templates) {
+export function errorMessage({ anchorTemplate }: Templates) {
   return html`<p>
     Dit is een ${anchorTemplate({ label: "foutmelding", url: "#" })}. Deze wordt getoond als er iets is misgegaan.
   </p>`;

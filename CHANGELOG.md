@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Deprecated
+* Icoon `danger` is deprecated en gaat worden verwijderd. Zie issue voor mogelijke vervangende iconen ([#1812](https://github.com/dso-toolkit/dso-toolkit/issues/1812))
+
 ### Changed
 * **BREAKING: all:** Verhuizen voorbeeldpagina's ([#1844](https://github.com/dso-toolkit/dso-toolkit/issues/1844))\
   Door een documentatie discrepentie is er mogelijk spraee van een breaking change. Op `.form-group.dso-static` werd zowel `.has-edit` als `.dso-edit` gecommuniceerd. Dit is uniform gemaakt en alleen `.dso-edit` wordt nu ondersteund:
@@ -13,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   ```
 * **sources + storybook:** anchorTemplate() en buttonTemplate() toepassen ([#1867](https://github.com/dso-toolkit/dso-toolkit/issues/1867))
 * Percy omgelegd naar Cypress en Storybook ([#1851](https://github.com/dso-toolkit/dso-toolkit/issues/1851))
+* **all:** Aanpassing iconenset en alert notificaties ([#1812](https://github.com/dso-toolkit/dso-toolkit/issues/1812))
 
 ### Added
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))

@@ -15,7 +15,7 @@ describe("Alert", () => {
     { status: "success", message: "Gelukt", icon: "status-success" },
     { status: "info", message: "Opmerking", icon: "status-info" },
     { status: "warning", message: "Waarschuwing", icon: "status-warning" },
-    { status: "danger", message: "Fout", icon: "status-danger" },
+    { status: "error", message: "Fout", icon: "status-error" },
   ];
 
   for (const { status, message, icon } of statuses) {

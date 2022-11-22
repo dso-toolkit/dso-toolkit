@@ -72,7 +72,7 @@ export namespace Components {
         /**
           * Set status of alert
          */
-        "status": "success" | "info" | "warning" | "danger";
+        "status": "success" | "info" | "warning" | "error";
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -721,7 +721,7 @@ declare namespace LocalJSX {
         /**
           * Set status of alert
          */
-        "status": "success" | "info" | "warning" | "danger";
+        "status": "success" | "info" | "warning" | "error";
     }
     interface DsoAttachmentsCounter {
         "count": number;
