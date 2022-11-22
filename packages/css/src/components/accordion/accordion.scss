@@ -238,6 +238,10 @@ dso-accordion-section {
   > *:last-child:not(.dso-info) {
     margin-bottom: 0;
   }
+
+  &.dso-accordion-compact:last-child {
+    border-bottom: 1px solid accordion.$compact-border-color;
+  }
 }
 
 dso-accordion {

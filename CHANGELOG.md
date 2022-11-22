@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
 
 ### Fixed
+* **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))
 * TemplateContainer valt onterecht terug op CSS implementatie ([#1890](https://github.com/dso-toolkit/dso-toolkit/issues/1890))
 
 ## 46.0.0

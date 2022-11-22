@@ -4,8 +4,8 @@
 
 @mixin dso-web-component-accordion-compact() {
   .dso-section-handle {
-    border: 1px solid transparent;
-    border-top-width: 0;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid accordion.$compact-border-color;
 
     a,
     button {
@@ -22,20 +22,24 @@
     }
   }
 
-  &,
   .dso-section-body {
-    border: 0;
-    border-top: 1px solid accordion.$compact-border-color;
+    padding-left: units.$u4;
     padding-top: 0;
+    padding-right: 0;
   }
+}
 
-  &:last-child {
-    border-bottom: 1px solid accordion.$compact-border-color;
+@mixin dso-web-component-accordion-compact-reverse() {
+  .dso-section-handle {
+    a,
+    button {
+      padding-left: units.$u2;
+    }
   }
 
   .dso-section-body {
-    margin-top: 0;
-    padding-bottom: units.$u1 * 1.5;
+    padding-left: units.$u2;
+    padding-right: 0;
   }
 }
 
