@@ -1,4 +1,1 @@
-@use "../../variables/colors";
-
-$list-border-color: colors.$grijs-20;
-$list-border-width: 1px;
+@forward "../card-list/card-list.variables.scss";

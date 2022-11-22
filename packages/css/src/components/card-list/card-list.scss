@@ -1,4 +1,3 @@
-@use "@dso-toolkit/sources/src/components/card-container";
 @use "@dso-toolkit/sources/src/components/card-list";
 @use "@dso-toolkit/sources/src/components/list";
 
@@ -9,12 +8,9 @@ ol {
 
     border-bottom: card-list.$border-width solid card-list.$border-color;
     margin-top: card-list.$border-width * -1;
-  }
-}
 
-dso-card-container[mode="list"],
-.dso-card-list {
-  > li {
-    border-top: card-container.$list-border-width solid card-container.$list-border-color;
+    > li {
+      border-top: card-list.$border-width solid card-list.$border-color;
+    }
   }
 }

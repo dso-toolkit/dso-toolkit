@@ -8,8 +8,4 @@
   @include card.root();
 
   display: block;
-
-  .dso-card-interactions {
-    @include card.interactions();
-  }
 }

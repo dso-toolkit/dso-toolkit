@@ -1,0 +1,13 @@
+@use "@dso-toolkit/sources/src/components/card-container";
+
+dso-card-container[mode="list"] {
+  > li {
+    border-top: card-container.$border-width solid card-container.$border-color;
+  }
+}
+
+dso-card-container[mode="grid"] {
+  dso-card {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  }
+}

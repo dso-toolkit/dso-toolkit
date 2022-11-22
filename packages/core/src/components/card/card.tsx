@@ -1,8 +1,6 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop } from "@stencil/core";
 
-export interface DsoCardClickedEvent {
-  originalEvent?: MouseEvent;
-}
+import { DsoCardClickedEvent } from "./card.interfaces";
 
 @Component({
   tag: "dso-card",
@@ -12,9 +10,6 @@ export interface DsoCardClickedEvent {
 export class Card implements ComponentInterface {
   @Element()
   host!: HTMLElement;
-
-  @Prop()
-  label!: string;
 
   @Prop({ reflect: true })
   isSelectable = false;
@@ -32,7 +27,7 @@ export class Card implements ComponentInterface {
 
     let element: HTMLElement | null = e.target;
 
-    while (element !== this.host) {
+    while (element !== this.host && element !== null) {
       if (
         element instanceof HTMLButtonElement ||
         element instanceof HTMLAnchorElement ||
@@ -68,7 +63,7 @@ export class Card implements ComponentInterface {
         </div>
         <div class="dso-card-heading">
           <slot name="heading" />
-          <slot name="interactions"></slot>
+          <slot name="interactions" />
         </div>
         <div class="dso-card-content">
           <slot name="content" />

@@ -1,5 +1,5 @@
-import { CardContainerMode } from "@dso-toolkit/sources";
 import { h, Component, ComponentInterface, Fragment, Prop } from "@stencil/core";
+import { CardContainerMode } from "./card-container.interfaces";
 
 @Component({
   tag: "dso-card-container",
@@ -14,12 +14,12 @@ export class CardContainer implements ComponentInterface {
     return (
       <>
         {this.mode === "list" && (
-          <ul class={`dso-card-${this.mode}`}>
+          <ul class="dso-card-list">
             <slot />
           </ul>
         )}
         {this.mode === "grid" && (
-          <div class={`dso-card-${this.mode}`}>
+          <div class="dso-card-grid">
             <slot />
           </div>
         )}

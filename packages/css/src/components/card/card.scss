@@ -20,6 +20,10 @@ dso-card {
     @extend %card-grid;
   }
 
+  a[slot="heading"] {
+    text-decoration: none;
+  }
+
   .dso-card-heading,
   *[slot="heading"] {
     h2:first-child,
@@ -28,7 +32,7 @@ dso-card {
     h5:first-child {
       align-items: center;
       display: flex;
-      font-size: 1.25em;
+      font-size: 1.125em;
       margin-bottom: 0;
       margin-top: 0;
 
@@ -43,7 +47,6 @@ dso-card {
       }
     }
 
-    &,
     > a {
       text-decoration: none;
 

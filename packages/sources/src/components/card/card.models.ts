@@ -7,5 +7,9 @@ export interface Card<TemplateFnReturnType> {
   content: TemplateFnReturnType;
   interactions?: Button[];
   image?: string;
-  dsoCardClicked?: (e: CustomEvent<void>) => void;
+  dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
+}
+
+export interface DsoCardClickedEvent {
+  originalEvent?: MouseEvent;
 }

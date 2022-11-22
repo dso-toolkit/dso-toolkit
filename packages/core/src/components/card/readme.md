@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property             | Attribute       | Description | Type      | Default     |
-| -------------------- | --------------- | ----------- | --------- | ----------- |
-| `hasImage`           | `has-image`     |             | `boolean` | `false`     |
-| `isSelectable`       | `is-selectable` |             | `boolean` | `false`     |
-| `label` _(required)_ | `label`         |             | `string`  | `undefined` |
+| Property       | Attribute       | Description | Type      | Default |
+| -------------- | --------------- | ----------- | --------- | ------- |
+| `hasImage`     | `has-image`     |             | `boolean` | `false` |
+| `isSelectable` | `is-selectable` |             | `boolean` | `false` |
 
 
 ## Events
