@@ -65,6 +65,9 @@ export class Header {
   @State()
   overflowMenuItems = 0;
 
+  @State()
+  navType: "main" | "sub" = "main";
+
   /**
    * Emitted when something in the header is selected.
    *
@@ -80,6 +83,7 @@ export class Header {
       return;
     }
 
+    this.navType = window.innerWidth < minDesktopViewportWidth ? "sub" : "main";
     this.showDropDown = value === "always";
   }
 
@@ -143,6 +147,7 @@ export class Header {
   onWindowResize = debounce(() => {
     this.setDropDownMenu();
     this.setOverflowMenu();
+    this.navType = window.innerWidth < minDesktopViewportWidth ? "sub" : "main";
   }, 100);
 
   connectedCallback() {
@@ -300,7 +305,7 @@ export class Header {
               </div>
               {((this.mainMenu && this.mainMenu.length > 0) || this.userHomeUrl) && (
                 <nav class="dso-navbar">
-                  <ul class="dso-nav dso-nav-main" ref={(element) => (this.nav = element)}>
+                  <ul class={clsx("dso-nav", `dso-nav-${this.navType}`)} ref={(element) => (this.nav = element)}>
                     {this.mainMenu &&
                       this.mainMenu
                         .filter((_, index) => this.mainMenu && index < this.mainMenu.length - this.overflowMenuItems)

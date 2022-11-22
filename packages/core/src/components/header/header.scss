@@ -48,10 +48,6 @@
   flex-wrap: wrap;
   padding-bottom: units.$u2;
   padding-top: units.$u2;
-
-  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
-    max-height: 40px;
-  }
 }
 
 .sub-logo {
@@ -285,6 +281,31 @@ dso-dropdown-menu {
   &.dso-nav-sub {
     > li {
       display: inline-block;
+
+      dso-dropdown-menu {
+        padding-bottom: 1px;
+        top: 0;
+
+        button {
+          align-items: center;
+          color: colors.$bosgroen;
+          padding-right: units.$u4;
+
+          &:hover,
+          &:active {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+
+          &::after {
+            margin-left: units.$u1;
+            position: absolute;
+            right: 0px;
+            top: auto;
+            transform: none;
+          }
+        }
+      }
 
       > a {
         @include anchor.reverse();

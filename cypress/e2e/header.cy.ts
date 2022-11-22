@@ -59,50 +59,34 @@ describe("Header", () => {
     cy.injectAxe();
     cy.percySnapshot();
     cy.checkA11y("dso-header");
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:true");
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:always");
     cy.injectAxe();
     cy.checkA11y("dso-header");
     cy.viewport(400, 600);
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:false");
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:never");
     cy.injectAxe();
     cy.checkA11y("dso-header");
   });
 
-  // https://github.com/dso-toolkit/dso-toolkit/issues/1717
-  // it("should show/remove dropdownmenu", () => {
-  //   cy.get("dso-header").find("nav").should("be.visible");
-  //   cy.get("dso-header")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("not.exist");
-  //   cy.viewport(991, 600);
-  //   cy.get("dso-header").find("nav").should("not.exist");
-  //   cy.get("dso-header")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("be.visible");
-  //   cy.viewport(992, 600);
-  //   cy.get("dso-header").find("nav").should("be.visible");
-  //   cy.get("dso-header")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("not.exist");
-  // });
+  it("should show/remove dropdownmenu", () => {
+    cy.get("dso-header").find("nav").should("be.visible");
+    cy.get("dso-header").find(".dropdown dso-dropdown-menu").should("not.exist");
+    cy.viewport(991, 600);
+    cy.get("dso-header").find("nav").should("not.exist");
+    cy.get("dso-header").find(".dropdown dso-dropdown-menu").should("be.visible");
+    cy.viewport(992, 600);
+    cy.get("dso-header").find("nav").should("be.visible");
+    cy.get("dso-header").find(".dropdown dso-dropdown-menu").should("not.exist");
+  });
 
-  // https://github.com/dso-toolkit/dso-toolkit/issues/1717
-  // it("should show/remove overflowmenu", () => {
-  //   cy.visit(
-  //     "http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:false"
-  //   );
-  //   cy.get("dso-header")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("not.exist");
-  //   cy.viewport(568, 600);
-  //   cy.get("dso-header")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("be.visible");
-  //   cy.viewport(992, 600);
-  //   cy.get("dso-header")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("not.exist");
-  // });
+  it("should show/remove overflowmenu", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:never");
+    cy.get("dso-header").find("nav ul li dso-dropdown-menu").should("not.exist");
+    cy.viewport(568, 600);
+    cy.get("dso-header").find("nav ul li dso-dropdown-menu").should("be.visible");
+    cy.viewport(1220, 600);
+    cy.get("dso-header").find("nav ul li dso-dropdown-menu").should("not.exist");
+  });
 
   it("should act on user-profile attributes", () => {
     cy.get("dso-header").invoke("attr", "auth-status", "loggedIn");
