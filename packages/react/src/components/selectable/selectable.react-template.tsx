@@ -22,6 +22,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
       disabled,
       dsoChange,
       info,
+      slot,
     }) {
       return (
         <DsoSelectable
@@ -36,6 +37,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
           checked={checked}
           indeterminate={indeterminate}
           infoFixed={info?.fixed}
+          slot={slot}
           onDsoChange={(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
         >
           {label}
