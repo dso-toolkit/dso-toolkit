@@ -1,7 +1,7 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop } from "@stencil/core";
 
 export interface DsoCardClickedEvent {
-  originalEvent: MouseEvent;
+  originalEvent?: MouseEvent;
 }
 
 @Component({
@@ -25,7 +25,7 @@ export class Card implements ComponentInterface {
   @Event()
   dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
 
-  clickEventHandler = (e: MouseEvent) => {
+  private clickEventHandler(e: MouseEvent) {
     if (!(e.target instanceof HTMLElement)) {
       return;
     }
@@ -50,7 +50,7 @@ export class Card implements ComponentInterface {
     }
 
     return this.dsoCardClicked.emit({ originalEvent: e });
-  };
+  }
 
   componentWillLoad() {
     this.isSelectable = this.host.querySelector("*[slot = 'selectable']") !== null;
@@ -59,7 +59,7 @@ export class Card implements ComponentInterface {
 
   render() {
     return (
-      <Host onClick={this.clickEventHandler}>
+      <Host onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
         <div class="dso-card-selectable" hidden={!this.isSelectable}>
           <slot name="selectable" />
         </div>

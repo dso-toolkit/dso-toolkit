@@ -1,25 +1,23 @@
-import { ArgTypes } from "../../storybook";
-
-import { Card } from "../card/card.models";
-
+import { ArgTypes, noControl } from "../../storybook";
+import { CardArgs, cardArgsMapper } from "../card/card.args";
 import { CardList } from "./card-list.models";
 
-export interface CardListArgs<TemplateFnReturnType> {
-  cards: Card<TemplateFnReturnType>[];
+export interface CardListArgs {
+  cards: CardArgs[];
 }
 
-export const cardListArgTypes: ArgTypes<CardListArgs<never>> = {
+export const cardListArgTypes: ArgTypes<CardListArgs> = {
   cards: {
-    control: {
-      disable: true,
-    },
+    ...noControl,
   },
 };
 
 export function cardListArgsMapper<TemplateFnReturnType>(
-  a: CardListArgs<TemplateFnReturnType>
+  a: CardListArgs,
+  content: TemplateFnReturnType[]
 ): CardList<TemplateFnReturnType> {
   return {
-    cards: a.cards,
+    ...a,
+    cards: a.cards.map((card, index) => cardArgsMapper(card, content[index])),
   };
 }

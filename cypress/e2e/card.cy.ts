@@ -3,10 +3,12 @@ describe.skip("Card", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-card--default")
       .get("dso-card")
       .then(($card) => {
+        console.log("test", $card[0], $card[0] !== undefined);
         $card.on("dsoCardClicked", cy.stub().as("dsoCardClickedListener"));
-      })
-      .shadow()
-      .as("dsoCard");
+        $card[0].addEventListener("dsoCardClicked", (e) => {
+          console.log(e);
+        });
+      });
   });
 
   it("should call dsoCardClicked event when user clicks a non-interactive element in card", () => {
@@ -24,7 +26,7 @@ describe.skip("Card", () => {
       .get("@dsoCardClickedListener")
       .should("not.have.been.called")
       .get("dso-card")
-      .click()
+      .realClick()
       .get("@dsoCardClickedListener")
       .should("have.been.calledOnce");
   });

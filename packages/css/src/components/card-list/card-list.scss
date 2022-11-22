@@ -1,17 +1,20 @@
+@use "@dso-toolkit/sources/src/components/card-container";
+@use "@dso-toolkit/sources/src/components/card-list";
 @use "@dso-toolkit/sources/src/components/list";
-
-@use "card-list.variables" as css-card-list-variables;
 
 ul,
 ol {
   &.dso-card-list {
     @include list.unstyled();
 
-    border-bottom: css-card-list-variables.$border-width solid css-card-list-variables.$border-color;
-    margin-top: css-card-list-variables.$border-width * -1;
+    border-bottom: card-list.$border-width solid card-list.$border-color;
+    margin-top: card-list.$border-width * -1;
+  }
+}
 
-    li {
-      border-top: css-card-list-variables.$border-width solid css-card-list-variables.$border-color;
-    }
+dso-card-container[mode="list"],
+.dso-card-list {
+  > li {
+    border-top: card-container.$list-border-width solid card-container.$list-border-color;
   }
 }
