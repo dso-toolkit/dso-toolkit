@@ -9,19 +9,33 @@
   @include card.root();
 }
 
-.dso-card,
 dso-card {
-  @include card.base();
-
   &[is-selectable],
-  &.dso-is-selectable,
-  &[has-image],
-  &.dso-has-image {
+  &[has-image] {
     @extend %card-grid;
   }
 
   a[slot="heading"] {
     text-decoration: none;
+
+    dso-icon:last-child {
+      align-self: flex-start;
+    }
+  }
+
+  &:hover a[slot="heading"] {
+    color: colors.$bosgroen;
+    text-decoration: underline;
+  }
+}
+
+.dso-card,
+dso-card {
+  @include card.base();
+
+  &.dso-is-selectable,
+  &.dso-has-image {
+    @extend %card-grid;
   }
 
   .dso-card-heading,
@@ -64,7 +78,7 @@ dso-card {
     }
   }
 
-  .dso-rich-content {
+  .dso-rich-content.dso-rich-content {
     :first-child {
       margin-top: 0;
     }

@@ -16,7 +16,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
           @click=${ifDefined(dsoCardClicked)}
         >
           ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
-          ${image ? html`<div class="dso-card-image"></div>` : nothing}
+          ${image ? html`<div class="dso-card-image"><img slot="image" src=${image} /></div>` : nothing}
           <div class="dso-card-heading">
             <a href="#">
               <h2>
