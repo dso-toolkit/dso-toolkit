@@ -30,4 +30,8 @@ describe.skip("Card", () => {
       .get("@dsoCardClickedListener")
       .should("have.been.calledOnce");
   });
+
+  it("should set isModifiedEvent when the card event is triggered with modifiers (eg. holding CTRL or right-click)", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--selectable");
+  });
 });

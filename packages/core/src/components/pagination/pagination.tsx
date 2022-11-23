@@ -10,6 +10,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
+import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { ResponsiveElementSize } from "../responsive-element/responsive-element.interfaces";
 import { PaginationSelectPageEvent } from "./pagination.interfaces";
@@ -69,7 +70,7 @@ export class Pagination implements ComponentInterface {
     this.dsoSelectPage.emit({
       originalEvent: e,
       page,
-      isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,
+      isModifiedEvent: isModifiedEvent(e),
     });
   }
 

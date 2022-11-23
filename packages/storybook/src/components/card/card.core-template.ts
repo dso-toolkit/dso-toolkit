@@ -25,7 +25,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
               (interaction) => html`<div class="dso-card-interaction">${buttonTemplate(interaction)}</div>`
             )}
           </div>`}
-          <div slot="content">${content}</div>
+          <div class="dso-rich-content" slot="content">${content}</div>
         </dso-card>
       `;
     },

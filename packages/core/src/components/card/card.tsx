@@ -1,4 +1,5 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop } from "@stencil/core";
+import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { DsoCardClickedEvent } from "./card.interfaces";
 
@@ -44,7 +45,7 @@ export class Card implements ComponentInterface {
       }
     }
 
-    return this.dsoCardClicked.emit({ originalEvent: e });
+    return this.dsoCardClicked.emit({ originalEvent: e, isModifiedEvent: isModifiedEvent(e) });
   }
 
   componentWillLoad() {
