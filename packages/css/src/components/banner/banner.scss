@@ -23,11 +23,11 @@
     top: 0;
   }
 
-  &.alert-error {
+  &.alert-danger {
     @include banner.danger();
 
     .row > div::before {
-      @include di.base("status-error");
+      @include di.base("status-danger");
     }
   }
 
