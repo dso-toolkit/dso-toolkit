@@ -35,6 +35,10 @@ export class Modal implements ComponentInterface {
   @Prop()
   role: ModalRole = "dialog";
 
+  /** when `false` the close button in the header will not be rendered. Defaults to `true`  */
+  @Prop()
+  showCloseButton = true;
+
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
 
@@ -61,10 +65,12 @@ export class Modal implements ComponentInterface {
           {this.modalTitle ? (
             <div class="dso-header">
               <h2 id={this.ariaId}>{this.modalTitle}</h2>
-              <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-                <dso-icon icon="times"></dso-icon>
-                <span class="sr-only">Sluiten</span>
-              </button>
+              {this.showCloseButton && (
+                <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
+                  <dso-icon icon="times"></dso-icon>
+                  <span class="sr-only">Sluiten</span>
+                </button>
+              )}
             </div>
           ) : (
             <span class="sr-only" id={this.ariaId}>
