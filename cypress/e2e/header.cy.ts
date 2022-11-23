@@ -79,7 +79,7 @@ describe("Header", () => {
     cy.get("dso-header").find(".dropdown dso-dropdown-menu").should("not.exist");
   });
 
-  it("should show/remove overflowmenu", () => {
+  it.skip("should show/remove overflowmenu", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:never");
     cy.get("dso-header").find("nav ul li dso-dropdown-menu").should("not.exist");
     cy.viewport(568, 600);

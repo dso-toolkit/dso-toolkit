@@ -80,6 +80,7 @@ import sortDescending from "@dso-toolkit/sources/src/icons/sort-descending.svg";
 import sort from "@dso-toolkit/sources/src/icons/sort.svg";
 import sound from "@dso-toolkit/sources/src/icons/sound.svg";
 import statusError from "@dso-toolkit/sources/src/icons/status-error.svg";
+import statusDanger from "@dso-toolkit/sources/src/icons/status-danger.svg";
 import statusInfo from "@dso-toolkit/sources/src/icons/status-info.svg";
 import statusSuccess from "@dso-toolkit/sources/src/icons/status-success.svg";
 import statusWarning from "@dso-toolkit/sources/src/icons/status-warning.svg";
@@ -175,6 +176,7 @@ const icons = [
   { alias: "sort-descending", svg: sortDescending },
   { alias: "sort", svg: sort },
   { alias: "sound", svg: sound },
+  { alias: "status-danger", svg: statusDanger },
   { alias: "status-error", svg: statusError },
   { alias: "status-info", svg: statusInfo },
   { alias: "status-success", svg: statusSuccess },

@@ -14,9 +14,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
   ```html
   <div class="form-group dso-static dso-edit">
   ```
+* **BREAKING: all:** Aanpassing iconenset en alert notificaties. Alert component heeft niet langer `.alert-danger` dit moet worden vervangen met `.alert-error` ([#1812](https://github.com/dso-toolkit/dso-toolkit/issues/1812))
 * **sources + storybook:** anchorTemplate() en buttonTemplate() toepassen ([#1867](https://github.com/dso-toolkit/dso-toolkit/issues/1867))
 * Percy omgelegd naar Cypress en Storybook ([#1851](https://github.com/dso-toolkit/dso-toolkit/issues/1851))
-* **all:** Aanpassing iconenset en alert notificaties ([#1812](https://github.com/dso-toolkit/dso-toolkit/issues/1812))
 
 ### Added
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
