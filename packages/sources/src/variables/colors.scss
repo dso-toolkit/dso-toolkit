@@ -41,17 +41,23 @@ $grijs-10: #e5e5e5; //                 - niet te gebruiken als leestekst
 $grijs-5: #f2f2f2; //                 - niet te gebruiken als leestekst
 $wit: #fff;
 
+$lichtblauw: #6ca4d9;
+$donkerblauw: #2b5780;
+$mintgroen: #3fb498;
+$bruin: #644f49;
 $mauve: #8b4a6a;
 $mauve-40: #d1b7c4;
+$rood: #ce3f51;
+$geel: #dcd400;
 
 $scampi: #676cb0;
 
 $opac10: rgba(0, 0, 0, 0.1);
 
 $success-color: $grasgroen;
-$info-color: #6ca4d9;
-$warning-color: #dcd400;
-$danger-color: #ce3f51;
+$info-color: $lichtblauw;
+$warning-color: $geel;
+$danger-color: $rood;
 $invalid-color: #b62f41;
 
 $success-bg-color: $lime-20;

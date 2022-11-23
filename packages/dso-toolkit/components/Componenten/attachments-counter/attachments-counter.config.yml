@@ -1,6 +1,0 @@
-meta:
-  webComponent: dso-attachments-counter
-  markup: false
-context:
-  __title: attachments counter
-  count: 1

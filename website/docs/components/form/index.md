@@ -38,12 +38,12 @@ Op het moment dat de gebruiker focus verplaatst uit het verplichte invoerveld of
   - Als een gebruiker een gebruikersnaam maakt, om te controleren of een naam beschikbaar is.
   - Als een gebruiker een bericht typt met een tekenlimiet.
 
-![Formulier met verplichte invoervelden]({{ '/docs/images/form-verplicht.jpg' | path }})
+![Formulier met verplichte invoervelden](/docs/form/form-verplicht.jpg)
 
 **Verplicht invoerformaat**
 Net als de verplichte velden kunnen er ook verplichte invoerformaten zijn. Bijvoorbeeld een e-mailadres wat de vorm naam@domein.nl moet hebben. Het is belangrijk om vóór het invoerveld duidelijk te maken wat de eisen zijn aan de invoer, óf automatisch de invoer te corrigeren. Bijvoorbeeld: Postcode (1234 AB). Het beste is om de instructie binnen het labelelement te plaatsen zodat de instructie wordt voorgelezen als de bezoeker op het invoerveld staat.
 
-![Formulier met verplicht invoerformaat]({{ '/docs/images/form-verplicht-formaat.jpg' | path }})
+![Formulier met verplicht invoerformaat](/docs/form/form-verplicht-formaat.jpg)
 
 ### Toegankelijkheid meldingen
 
@@ -62,20 +62,14 @@ Al deze onderdelen dienen een uniek `id` te krijgen, en daarnaar wordt verwezen 
 
 Als het formulier wordt ingediend en er zijn invoervelden niet of niet juist ingevuld, verschijnt er een alert boven het formulier. De alert krijgt een `role="alert"`, zodat het direct door screenreaders wordt voorgelezen. In de alert staan één of meerdere anchor links naar de invoervelden. Zodra een invoerveld is gecorrigeerd, verdwijnt deze uit de melding.
 
-<!--
-
-todo(thomas): Link aanpassen naar juiste locatie
-![Formulier alert]({{ '/docs/images/form-alert.jpg' | path }})
-![Formulier alert met samenvatting]({{ '/docs/images/form-alert-samenvatting.jpg' | path }}) -->
+![Formulier alert](/docs/form/form-alert.jpg)
+![Formulier alert met samenvatting](/docs/form/form-alert-samenvatting.jpg)
 
 ### Formulier met accordions
 
 Als het formulier accordions gebruikt, moet het duidelijk zijn waar de fout ingevulde invoervelden zich bevinden. Hiervoor tonen we een indicator-icoon op de betreffende accordion heading. Let op: bij geneste accordions moet ook de bovenliggende accordion een icoon krijgen. Zo is het fout ingevulde invoerveld te herleiden als de accordion is dichtgeklapt.
 
-<!--
-
-todo(thomas): Link aanpassen naar juiste locatie
-![Formulier met accordions]({{ '/docs/images/form-accordion.jpg' | path }}) -->
+![Formulier met accordions](/docs/form/form-accordion.jpg)
 
 ### Bronvermelding
 

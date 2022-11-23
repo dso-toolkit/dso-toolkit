@@ -1,7 +1,0 @@
-context:
-  whiteboxSmall:
-    label: Kort verhaal
-    source: /dummy/images/icon-tree.png
-  whiteboxLarge:
-    label: Lang verhaal waardoor dit blok hoger op je scherm wordt
-    source: /dummy/images/icon-tree.png

@@ -5,13 +5,13 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
 
 import styles from "./index.module.scss";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 type FeatureItem = {
   title: string;
   linkTo: string;
   children: React.ReactNode;
-  // Svg: React.ComponentType<React.ComponentProps<"svg">>;
-  // description: JSX.Element;
+  image: string;
 };
 
 function HomepageHeader() {
@@ -40,11 +40,12 @@ function HomepageHeader() {
   );
 }
 
-function Feature({ title, linkTo, children }: FeatureItem) {
+function Feature({ title, linkTo, children, image }: FeatureItem) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">{/* <Svg className={styles.featureSvg} role="img" /> */}</div>
       <div className="text--center padding-horiz--md">
+        <img src={useBaseUrl(image)} />
         <h3>{title}</h3>
         {children}
       </div>
@@ -65,19 +66,19 @@ export default function Home(): JSX.Element {
         <section className={styles.features}>
           <div className="container">
             <div className="row">
-              <Feature title="Voor ontwikkelaars" linkTo="/designers">
+              <Feature title="Voor ontwikkelaars" linkTo="/voor-designers" image="/docs/bouwvakkers.png">
                 <p>
                   Als developer wil je voorkomen dat er dubbel werk uitgevoerd wordt. De toolkit geeft een css basis met
                   alle Do's and Dont's over het front-end ontwerp.
                 </p>
               </Feature>
-              <Feature title="Voor ontwerpers" linkTo="/developers">
+              <Feature title="Voor ontwerpers" linkTo="/voor-developers" image="/docs/medewerker.png">
                 <p>
                   Probeer te voorkomen dat er onderdelen gemaakt worden die al bestaan. Hier staat hoe je nieuwe
                   componenten kunt toevoegen of updates op bestaande componenten kan doorvoeren.
                 </p>
               </Feature>
-              <Feature title="Voor productowners" linkTo="/productowners">
+              <Feature title="Voor productowners" linkTo="/voor-productowners" image="/docs/kaartmensen.png">
                 <p>
                   De toolkit is een collectie van alle visuele onderdelen zoals templates, componenten, Sketch
                   libraries, inzicht in veel voorkomende fouten.

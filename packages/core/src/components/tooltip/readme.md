@@ -1,5 +1,10 @@
 # `<dso-tooltip>`
 
+Een tooltip hoort bij een `target` element. Dit kan aangegeven worden met het attribuut `for`. Dit kan een `string` zijn met een id of een `HTMLElement`. Zonder `target` wordt de parent van `<dso-tooltip>` gebruikt.
+
+Scriptend de tooltip tonen/verbergen kan met de instance methods `activate()` en `deactivate()` of met het het attribuut `active`.
+
+Het positioneren van de tooltip wordt met [Popper](https://popper.js.org/) gedaan.
 
 
 <!-- Auto Generated Below -->

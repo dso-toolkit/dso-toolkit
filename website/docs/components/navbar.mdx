@@ -4,8 +4,7 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 <StorybookComponent implementations={["css"]} />
 
-Navigatiemenu's helpen een gebruiker bij het navigeren tussen schermen. Zodat een gebruiker snel en efficiënt zijn doel kan bereiken.
-Een sub-navigatie helpt een gebruiker navigeren tussen verschillende onderwerpen op een lager niveau in de informatiearchitectuur.
+Navigatiemenu's helpen een gebruiker bij het navigeren tussen schermen. Zodat een gebruiker snel en efficiënt zijn doel kan bereiken. Een sub-navigatie helpt een gebruiker navigeren tussen verschillende onderwerpen op een lager niveau in de informatiearchitectuur.
 
 ## Technische opmerkingen component
 
@@ -67,13 +66,13 @@ Een gebruiker moet altijd weten waar hij is op de website. Geef dus duidelijk aa
 
 Een navigatie brengt ook een bepaalde hiërarchie met zich mee.
 
-![Platte hierarchie]({{ '/docs/images/Flat-hierarchy.png' | path }})
-![Diepe hierarchie]({{ '/docs/images/Deep-hierarchy.png' | path }})
+![Platte hierarchie](/docs/images/flat-hierarchy.png)
+![Diepe hierarchie](/docs/images/deep-hierarchy.png)
 
 Bovenstaande afbeelding toont de twee types van navigatie hiërarchieën. Boven staat een platte hiërarchie waar de gebruiker start met 7 categorieën en vervolgens te maken krijgt met 1 laag aan subcategorieën. Er onder staat een Diepe hiërarchie afbeelding, met minder start categorieën en die vervolgens 5 lagen diep is.
 
 Er is geen direct antwoord welke hiërarchie het beste is. Het is altijd afhankelijk van de situatie. Maar zoek nooit de extremen op voor beide situaties.
-Een platte hiërarchie is voor gebruikers makkelijk te begrijpen waardoor deze pagina's snel aan elkaar kan relateren. Bij een diepe hiërarchie wordt het moeilijker voor een gebruiker de structuur van een website te overzien en kan hierdoor gedesoriënteerd raken. Heeft je website meerdere niveaus? Overweeg dan om [breadcrumbs]({{ '/components/detail/breadcrumbs' | docPath }}) toe te passen.
+Een platte hiërarchie is voor gebruikers makkelijk te begrijpen waardoor deze pagina's snel aan elkaar kan relateren. Bij een diepe hiërarchie wordt het moeilijker voor een gebruiker de structuur van een website te overzien en kan hierdoor gedesoriënteerd raken. Heeft je website meerdere niveaus? Overweeg dan om [breadcrumbs](/components/breadcrumbs) toe te passen.
 
 Uiteindelijk is het beste als je een platte hiërarchie gebruikt wanneer je duidelijk en herkenbare categorieën hebt en gebruikers niet teveel wilt laten klikken om snel bij de informatie te laten komen.
 
@@ -90,12 +89,6 @@ Geeft de hoofdnavigatie een `aria-label="hoofdmenu"` mee. Zodat screenreader geb
 
 **Sub-navigatie:**
 Een sub-navigatie heeft ook een `aria-label` nodig. Maar geef een sub-navigatie geen algemene naam mee. Geef een naam die het doel van de sub-navigatie in de context in een oog/oor opslag duidelijk maakt. Zodat screenreader gebruikers duidelijk de unieke functie van een sub-navigatie op een pagina begrijpen. In componenten in context staat een voorbeeld van een context specifieke sub-navigatie. Wanneer een menu-item actief is pas ook `aria-current="page"` toe.
-
-<!--
-## Component in voorbeeldpagina's:
-
-todo(thomas): Link aanpassen naar juiste locatie
-- [Hoofdnavigatie]({{ '/components/detail/landingspagina' | docPath }}) -->
 
 ## Bronvermelding
 

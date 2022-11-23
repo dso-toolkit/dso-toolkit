@@ -23,7 +23,7 @@ Er zijn verschillende anchorelementen:
 
 ## Technische opmerkingen
 
-Externe links krijgen de class extern en een `target="_blank"` en `rel="noopener noreferrer"`. In de link staat een `span.sr-only` met de tekst 'opent in nieuw venster'.
+Externe links moeten `class="extern" target="_blank" rel="noopener noreferrer"` krijgen. In de link staat een `span.sr-only` met de tekst 'opent in nieuw venster'.
 
 ## Skiplinks en jumplinks: wanneer te gebruiken
 
@@ -86,12 +86,6 @@ Verminder dubbelzinnigheid door een label met een icoon op te nemen. Zorg dat zo
 - Als er een link "product" is met rechts daarvan een vergrootglasicoontje, is visueel duidelijk dat hier "product zoeken" wordt bedoeld. Dat is alleen niet duidelijk voor iemand die alleen de tekst "product" leest. Dit is een voorbeeld van dat het icoontje essentieel is om de functie van de link te begrijpen. Het is daarom aan te raden om de zoekfunctie ook in de tekst duidelijk te maken. Doe dat bijvoorbeeld met de tekst "product zoeken".
 - Stel dat er een link "Google" is, met rechts daarvan een icoontje om aan te geven dat een externe website wordt geopend. U moet voor dit icoontje een tekstueel alternatief geven. Maar omdat het icoontje niet essentieel is om te begrijpen wat de link doet, hoeft het tekstuele alternatief niet zichtbaar te zijn. Gebruik daarom een `sr-only` span om het aan te bieden. Formuleer het bijvoorbeeld als: Google `<span class="sr-only">(Opent in nieuw venster)</span>`
 - Als de anchor link verwijst naar een deel van de huidige pagina ('same page link'), dan moet je dit voor gebruikers van screenreaders duidelijk maken door "spring naar" `sr-only` voor de linktekst te zetten. Bijvoorbeeld: `<span class="sr-only">spring naar</span> inhoudsopgave`.
-
-<!--
-## Component in context
-
-todo(thomas): Link aanpassen naar juiste locatie
-- [Landingspagina](/components/detail/landingspagina) -->
 
 ## Bronvermelding
 

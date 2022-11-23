@@ -1,4 +1,4 @@
-# `<dso-progress-bar>`
+# `<dso-pagination>`
 
 
 

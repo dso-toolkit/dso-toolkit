@@ -1,6 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const { resolve, dirname } = require("path");
+
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -20,6 +22,7 @@ const config = {
     defaultLocale: "nl",
     locales: ["nl"],
   },
+  staticDirectories: [resolve(dirname(require.resolve("@dso-toolkit/sources/package.json")), "assets"), "static"],
   plugins: ["docusaurus-plugin-sass"],
   presets: [
     [
@@ -59,6 +62,24 @@ const config = {
             label: "Documentatie",
           },
           { to: "/blog", label: "Blog", position: "left" },
+          {
+            href: `https://storybook.dso-toolkit.nl/${
+              process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
+                ? process.env.TRAVIS_BRANCH.replace(/#/, "_")
+                : "master"
+            }`,
+            label: "Storybook",
+            position: "left",
+          },
+          {
+            href: `https://react.dso-toolkit.nl/${
+              process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
+                ? process.env.TRAVIS_BRANCH.replace(/#/, "_")
+                : "master"
+            }`,
+            label: "React Storybook",
+            position: "left",
+          },
           {
             type: "custom-dsoVersionSelector",
             position: "right",

@@ -8,7 +8,7 @@ Als de gebruiker een suggestie activeert wordt het event `dsoSelect` met het typ
 
 ### Naamgeving events
 
-De events van dit Web Component heten `dsoChange` en `dsoSelect` omdat `change` en `select` native DOM events zijn waar Stencil.js een build warning voor afgeeft.
+De events van dit Web Component heten `dsoChange` en `dsoSelect` omdat `change` en `select` gereserveerde (native) DOM event names zijn.
 
 ## Autosuggest en Search Bar
 

@@ -4,17 +4,6 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 <StorybookComponent implementations={["core", "react"]} />
 
-Het `<table>` component is gebasseerd op Bootstrap's Table.
-
-Met de volgende uitzonderingen is de markup identiek aan Bootstrap:
-
-- Er zijn geen `.table-bordered`, `.table-condensed` en `.table-striped` varianten.
-- Er is geen `tr.primary` en `tr.secondary`.
-- De Bootstrap `.table-responsive` functionaliteit is beschikbaar onder `.dso-table-responsive`. Zie ook hieronder.
-- Er zijn geen `success`, `info`, `warning` en `danger` row-modifiers.
-
-Zie [Bootstrap Table](https://getbootstrap.com/docs/3.3/css/#tables).
-
 ## Table responsive
 
 Met de class `.dso-table-responsive` wordt de tabel responsive wanneer de viewport smaller is dan 768px:
@@ -40,10 +29,7 @@ Het component `<table>` wordt als een data-tabel gebruikt of als data-grid.
 - Gebruik `<th scope="col">` voor koptitels in de kolommen.
 - Gebruik `<th scope="row">` voor koptitels in de rijen.
 
-<!--
-
-todo(thomas): Link aanpassen naar juiste locatie
-{% render '@lib-frame', {path: ('/components/preview/table-data-table' | docPath)} %} -->
+<StorybookComponent implementations={["css"]} name="voorbeeldpagina-s-snippets-table-data-table" />
 
 ## Wanneer gebruik je het component "table" niet
 
@@ -51,9 +37,9 @@ todo(thomas): Link aanpassen naar juiste locatie
 
 Gebruik een `<table>` nooit om inhoud op een pagina op te maken. Dit is ook wel bekend als een layout-tabel. Gebruik in plaats daarvan het responsive grid-systeem om inhoud op een pagina op te maken.
 
-Zie ook: [de layout documentatie]({{ '/docs/fundament/layout' | docPath }})
+Zie ook: [Layout](/fundament/layout)
 
-![Voorbeeld van een layout-tabel]({{ '/docs/images/tables/layout-tabel_voorbeeld.png' | docPath }})
+![Voorbeeld van een layout-tabel](/docs/images/layout-tabel_voorbeeld.png)
 
 ### Maak geen definition lists met "table"
 
@@ -61,14 +47,7 @@ Zie ook: [de layout documentatie]({{ '/docs/fundament/layout' | docPath }})
 - Gebruik een definition list als je **geen** koptitel als header boven de kolom kan plaatsen.
 - Gebruik een `<table>` als je **wel** een koptitel boven de kolommen kunt plaatsen. De kolom kun je als een groep met een koptitel beschouwen.
 
-<!--
-
-todo(thomas): Link aanpassen naar juiste locatie
-Zie ook: [Definition List]({{ '/components/detail/definition-list' | docPath }})
-
-{% render '@lib-frame', {path: ('/components/preview/table-definition-list' | docPath)} %}
-
-{% render '@lib-frame', {path: ('/components/preview/table-header' | docPath)} %} -->
+Zie ook: [Definition List](/components/definition-list).
 
 ## Hoe component "table" te gebruiken als data-grid
 
@@ -79,10 +58,7 @@ Het bevat **wel** interactieve elementen om de tabel aan te passen.
 - Gebruik `<th>` om koptitels in header te definiëren.
 - Specifieke keyboard interacties moeten verder worden toegevoegd voor interactieve elementen.
 
-<!--
-
-todo(thomas): Link aanpassen naar juiste locatie
-{% render '@lib-frame', {path: ('/components/preview/table-data-grid' | docPath)} %} -->
+<StorybookComponent implementations={["css"]} name="voorbeeldpagina-s-snippets-table-data-grid" />
 
 ### Sorteren in een data-grid
 
@@ -91,7 +67,6 @@ todo(thomas): Link aanpassen naar juiste locatie
 - - Als je een rij sorteerbaar wilt maken, voeg dan aan `<th>` `"role=rowheader"` toe.
 - Wanneer de sortering oplopend is, geef dit bij `<th>` aan met `aria-sort="ascending"`. Bij aflopende resultaten, gebruik `aria-sort="descending"`.
 - Als er meerdere sorteerbare kolommen of rijen zijn, dan mag er alleen één sortering tegelijk actief zijn met `aria-sort`.
-  {% render '@lib-frame', {path: ('/components/preview/table-sortable-readonly' | docPath)} %}
 
 ## Gedrag en toegankelijkheid
 

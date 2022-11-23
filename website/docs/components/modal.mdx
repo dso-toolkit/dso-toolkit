@@ -27,7 +27,7 @@ Gebruik een modal alleen voor simpele interacties. Vermijd modals voor complexe 
 
 ## Gedrag en toegankelijkheid
 
-**Algemeen**
+### Algemeen
 
 - `aria-label` of `aria-labelledby` geeft de modal een toegankelijke naam.
 - `aria-describedby` verwijst naar de inhoud waarin het doel van de modal wordt beschreven. Daarvoor moet er vaste tekst aanwezig zijn die het doel beschrijft.
@@ -37,7 +37,7 @@ Gebruik een modal alleen voor simpele interacties. Vermijd modals voor complexe 
 - Wanneer de modal wordt gesloten, moet de focus, indien mogelijk, teruggezet worden naar de positie die hij had voordat de modal werd geopend.
 - Valideer eventuele invoer van een gebruiker voordat de modal wordt gesloten. Als een validatiefout optreed, moet de modal open blijven en wordt er een alert en/of inline foutmelding gegeven bij het betreffende invoerveld.
 
-**Modal Dialog roles: `dialog` vs `alertdialog`**
+### Modal Dialog roles: `dialog` vs `alertdialog`
 
 Is een modal bedoeld om gebruikers te onderbreken met dringende informatie, details of acties? Gebruik dan de `role="alertdialog"`. In andere gevallen gebruik je `role="dialog"`.
 
