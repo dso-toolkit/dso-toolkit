@@ -5,12 +5,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 47.0.0
+
 ### Deprecated
-* Icoon `danger` is deprecated en gaat worden verwijderd. Zie issue voor mogelijke vervangende iconen ([#1812](https://github.com/dso-toolkit/dso-toolkit/issues/1812))
+* Icoon `status-danger` is deprecated en gaat worden verwijderd. `status-warning-inline` of `status-error` kunnen gebruikt worden om het icoon mee te vervangen. Zie issue voor andere nieuwe iconen. ([#1812](https://github.com/dso-toolkit/dso-toolkit/issues/1812))
 
 ### Changed
 * **BREAKING: all:** Verhuizen voorbeeldpagina's ([#1844](https://github.com/dso-toolkit/dso-toolkit/issues/1844))\
-  Door een documentatie discrepentie is er mogelijk spraee van een breaking change. Op `.form-group.dso-static` werd zowel `.has-edit` als `.dso-edit` gecommuniceerd. Dit is uniform gemaakt en alleen `.dso-edit` wordt nu ondersteund:
+  Door een documentatie discrepentie is er mogelijk sprake van een breaking change. Op `.form-group.dso-static` werd zowel `.has-edit` als `.dso-edit` gecommuniceerd. Dit is uniform gemaakt en alleen `.dso-edit` wordt nu ondersteund:
   ```html
   <div class="form-group dso-static dso-edit">
   ```
@@ -19,14 +21,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Percy omgelegd naar Cypress en Storybook ([#1851](https://github.com/dso-toolkit/dso-toolkit/issues/1851))
 
 ### Added
+* **core + react + sources + storybook:** `<dso-card>` Web component ([#1800](https://github.com/dso-toolkit/dso-toolkit/issues/1800))\
+  En ook `<dso-card-container>` om de card in op te nemen. Dit component ondersteund `mode="list"` en `mode="grid"`
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
-* **core + react + sources + storybook:** `<dso-card>` Web component + hele card klikbaar ([#1800](https://github.com/dso-toolkit/dso-toolkit/issues/1800))
 
 ### Fixed
 * **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))
 * TemplateContainer valt onterecht terug op CSS implementatie ([#1890](https://github.com/dso-toolkit/dso-toolkit/issues/1890))
 * **core + css:** Header: smalle viewport: Menu toont niet bij dropdownmenu never, en sub-logo valt buiten de header ([#1889](https://github.com/dso-toolkit/dso-toolkit/issues/1889))
-* **core:** `<dso-ozon-content>` kan lege titels/bijschrift div renderen bij image-overlay ([#1881](https://github.com/dso-toolkit/dso-toolkit/issues/1881))
+* **core:** `<dso-ozon-content>` kan lege titels/bijschrift div renderen bij image-overlay via Figuur node ([#1881](https://github.com/dso-toolkit/dso-toolkit/issues/1881))
 
 ## 46.0.0
 
