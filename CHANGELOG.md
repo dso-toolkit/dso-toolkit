@@ -25,6 +25,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))
 * TemplateContainer valt onterecht terug op CSS implementatie ([#1890](https://github.com/dso-toolkit/dso-toolkit/issues/1890))
 * **core + css:** Header: smalle viewport: Menu toont niet bij dropdownmenu never, en sub-logo valt buiten de header ([#1889](https://github.com/dso-toolkit/dso-toolkit/issues/1889))
+* **core:** `<dso-ozon-content>` kan lege titels/bijschrift div renderen bij image-overlay ([#1881](https://github.com/dso-toolkit/dso-toolkit/issues/1881))
 
 ## 46.0.0
 
