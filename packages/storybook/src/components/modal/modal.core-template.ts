@@ -8,9 +8,14 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
   implementation: "core",
   template: () =>
-    function modalTemplate({ modalTitle, role, body, footer, dsoClose }) {
+    function modalTemplate({ modalTitle, role, showCloseButton, body, footer, dsoClose }) {
       return html`
-        <dso-modal role=${role} modal-title=${ifDefined(modalTitle)} @dsoClose=${dsoClose}>
+        <dso-modal
+          role=${role}
+          modal-title=${ifDefined(modalTitle)}
+          show-close-button=${ifDefined(showCloseButton)}
+          @dsoClose=${dsoClose}
+        >
           <div slot="body">${body}</div>
           ${footer && html`<div slot="footer">${footer}</div>`}
         </dso-modal>

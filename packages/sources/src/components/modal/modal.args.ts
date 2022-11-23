@@ -6,14 +6,21 @@ import { Modal, ModalRole } from "./modal.models";
 export interface ModalArgs {
   modalTitle: string;
   role: ModalRole;
+  showCloseButton: boolean;
   dsoClose: HandlerFunction;
 }
+
 export const modalArgTypes: ArgTypes<ModalArgs> = {
+  modalTitle: {
+    ...noControl,
+  },
   role: {
     ...noControl,
   },
-  modalTitle: {
-    ...noControl,
+  showCloseButton: {
+    control: {
+      type: "boolean",
+    },
   },
   dsoClose: {
     ...noControl,

@@ -243,6 +243,10 @@ export namespace Components {
           * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
          */
         "role": ModalRole;
+        /**
+          * when `false` the close button in the header will not be rendered. Defaults to `true`
+         */
+        "showCloseButton": boolean;
     }
     interface DsoOzonContent {
         /**
@@ -923,6 +927,10 @@ declare namespace LocalJSX {
           * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
          */
         "role"?: ModalRole;
+        /**
+          * when `false` the close button in the header will not be rendered. Defaults to `true`
+         */
+        "showCloseButton"?: boolean;
     }
     interface DsoOzonContent {
         /**
