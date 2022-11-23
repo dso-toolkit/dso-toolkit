@@ -73,17 +73,21 @@ export class OzonContentFiguurNode implements OzonContentNode {
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
           )}
           <dso-image-overlay>
-            <div slot="titel">
-              <span>{titel}</span>
-            </div>
+            {titel && (
+              <div slot="titel">
+                <span>{titel}</span>
+              </div>
+            )}
             <img
               src={illustratie.naam ?? undefined}
               alt={illustratie.alt ?? titel ?? illustratie.naam ?? undefined}
               onLoad={(event: Event) => this.onImageLoad(event, Number(illustratie.schaal))}
             />
-            <div slot="bijschrift">
-              <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
-            </div>
+            {(bijschrift || bron) && (
+              <div slot="bijschrift">
+                <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
+              </div>
+            )}
           </dso-image-overlay>
           {(bijschrift?.locatie === "onder" || (!bijschrift && bron)) && (
             <Bijschrift bijschrift={bijschrift} bron={bron} mapNodeToJsx={mapNodeToJsx} />
