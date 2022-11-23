@@ -79,10 +79,13 @@ import sortAscending from "@dso-toolkit/sources/src/icons/sort-ascending.svg";
 import sortDescending from "@dso-toolkit/sources/src/icons/sort-descending.svg";
 import sort from "@dso-toolkit/sources/src/icons/sort.svg";
 import sound from "@dso-toolkit/sources/src/icons/sound.svg";
+import statusError from "@dso-toolkit/sources/src/icons/status-error.svg";
 import statusDanger from "@dso-toolkit/sources/src/icons/status-danger.svg";
 import statusInfo from "@dso-toolkit/sources/src/icons/status-info.svg";
 import statusSuccess from "@dso-toolkit/sources/src/icons/status-success.svg";
 import statusWarning from "@dso-toolkit/sources/src/icons/status-warning.svg";
+import statusWarningInline from "@dso-toolkit/sources/src/icons/status-warning-inline.svg";
+import statusWarningInlineNegative from "@dso-toolkit/sources/src/icons/status-warning-inline-negative.svg";
 import table from "@dso-toolkit/sources/src/icons/table.svg";
 import times from "@dso-toolkit/sources/src/icons/times.svg";
 import trash from "@dso-toolkit/sources/src/icons/trash.svg";
@@ -174,9 +177,12 @@ const icons = [
   { alias: "sort", svg: sort },
   { alias: "sound", svg: sound },
   { alias: "status-danger", svg: statusDanger },
+  { alias: "status-error", svg: statusError },
   { alias: "status-info", svg: statusInfo },
   { alias: "status-success", svg: statusSuccess },
   { alias: "status-warning", svg: statusWarning },
+  { alias: "status-warning-inline", svg: statusWarningInline },
+  { alias: "status-warning-inline-negative", svg: statusWarningInlineNegative },
   { alias: "table", svg: table },
   { alias: "times", svg: times },
   { alias: "trash", svg: trash },

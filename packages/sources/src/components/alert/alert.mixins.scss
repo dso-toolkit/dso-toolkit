@@ -94,7 +94,7 @@
     @include _variant(alert-variables.$success-bg, alert-variables.$success-border, alert-variables.$success-text);
   }
 
-  &.alert-danger {
+  &.alert-error {
     @include _variant(alert-variables.$danger-bg, alert-variables.$danger-border, alert-variables.$danger-text);
   }
 

@@ -61,10 +61,10 @@ variants:
       status: success
       message: Dit is een succesmelding. Deze wordt getoond als een proces succesvol is afgerond.
       roleAlert: true
-  - name: danger
+  - name: error
     context:
-      __title: danger
-      status: danger
+      __title: error
+      status: error
       message: Dit is een <a href="#">foutmelding</a>. Deze wordt getoond als er iets is misgegaan.
   - name: warning
     context:

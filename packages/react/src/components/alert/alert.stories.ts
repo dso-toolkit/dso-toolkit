@@ -1,7 +1,7 @@
 import { storiesOfAlert } from "@dso-toolkit/sources";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
-import { alertWithHeadingsContent, dangerMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
+import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";
 
 import readme from "./readme.md";
 
@@ -14,7 +14,7 @@ storiesOfAlert({
   templateContainer,
   storyTemplates: ({ alertTemplate }) => ({
     alertTemplate,
-    dangerMessage: dangerMessage,
+    errorMessage: errorMessage,
     infoMessage: infoMessage,
     successMessage: successMessage,
     warningMessage: warningMessage,

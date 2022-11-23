@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 24">
+  <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+    <g id="iconen/status-warning-inline-negative" transform="translate(1)">
+      <g id="status-warning-inline-negative" transform="translate(-.121)">
+        <path id="Rectangle" d="M.121 0h24v24h-24z"/>
+        <path id="Outer" fill="#ce3f51" fill-rule="nonzero" d="M9.796 3.277.425 18.115a2.75 2.75 0 0 0 2.325 4.218h18.743a2.75 2.75 0 0 0 2.325-4.218L14.446 3.277a2.75 2.75 0 0 0-4.65 0Z"/>
+        <path id="Inner" fill="#FFF" fill-rule="nonzero" d="M12.789 3.689c.157.099.29.232.39.389l9.37 14.838a1.25 1.25 0 0 1-1.056 1.917H2.75a1.25 1.25 0 0 1-1.057-1.917l9.371-14.838a1.25 1.25 0 0 1 1.606-.456l.119.067Z"/>
+        <path id="Path" fill="#ce3f51" fill-rule="nonzero" d="m11.121 14.94-.15-6.18c0-.693.456-1.15 1.15-1.15s1.15.457 1.15 1.15l-.15 6.18a1 1 0 0 1-1 .91 1 1 0 0 1-1-.91ZM12.121 16.85a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

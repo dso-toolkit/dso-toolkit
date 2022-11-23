@@ -5,7 +5,7 @@ import { Alert } from "./alert.models";
 
 export interface AlertTemplates<TemplateFnReturnType> {
   alertTemplate: (alertProperties: Alert<TemplateFnReturnType>) => TemplateFnReturnType;
-  dangerMessage: TemplateFnReturnType;
+  errorMessage: TemplateFnReturnType;
   infoMessage: TemplateFnReturnType;
   successMessage: TemplateFnReturnType;
   warningMessage: TemplateFnReturnType;
@@ -66,13 +66,13 @@ export function storiesOfAlert<Implementation, Templates, TemplateFnReturnType>(
     );
 
     stories.add(
-      "danger",
-      templateMapper<AlertArgs>((args, { alertTemplate, dangerMessage }) =>
-        alertTemplate(alertArgsMapper(args, dangerMessage))
+      "error",
+      templateMapper<AlertArgs>((args, { alertTemplate, errorMessage }) =>
+        alertTemplate(alertArgsMapper(args, errorMessage))
       ),
       {
         args: {
-          status: "danger",
+          status: "error",
         },
       }
     );

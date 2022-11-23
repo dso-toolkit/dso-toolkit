@@ -12,7 +12,7 @@ export interface AlertArgs {
 
 export const alertArgTypes: ArgTypes<AlertArgs> = {
   status: {
-    options: ["success", "info", "warning", "danger"],
+    options: ["success", "info", "warning", "error"],
     control: {
       type: "select",
     },

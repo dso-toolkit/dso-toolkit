@@ -9,7 +9,7 @@ const statusMap = new Map<string, string>([
   ["success", "Gelukt"],
   ["info", "Opmerking"],
   ["warning", "Waarschuwing"],
-  ["danger", "Fout"],
+  ["error", "Fout"],
 ]);
 
 export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {

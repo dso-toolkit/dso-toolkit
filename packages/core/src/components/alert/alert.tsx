@@ -11,7 +11,7 @@ export class Alert {
    * Set status of alert
    */
   @Prop()
-  status!: "success" | "info" | "warning" | "danger";
+  status!: "success" | "info" | "warning" | "error";
 
   /**
    * Whether or not to show the role attribute with value "alert". To control the tooltip add the `role-alert` attribute.
@@ -23,7 +23,7 @@ export class Alert {
     ["success", "Gelukt"],
     ["info", "Opmerking"],
     ["warning", "Waarschuwing"],
-    ["danger", "Fout"],
+    ["error", "Fout"],
   ]);
 
   render() {
