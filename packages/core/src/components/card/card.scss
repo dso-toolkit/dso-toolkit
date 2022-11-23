@@ -1,0 +1,11 @@
+@use "~@dso-toolkit/sources/src/utilities";
+@use "~@dso-toolkit/sources/src/variables/units";
+@use "~@dso-toolkit/sources/src/components/card";
+
+@include utilities.box-sizing();
+
+:host {
+  @include card.root();
+
+  display: block;
+}

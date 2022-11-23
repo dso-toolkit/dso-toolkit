@@ -2,6 +2,7 @@ import { Component, Element, Event, EventEmitter, Fragment, h, Prop, State, Watc
 
 import clsx from "clsx";
 import debounce from "debounce";
+import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { HeaderMenuItem, HeaderNavigationType, HeaderClickEvent, HeaderClickMenuItemEvent } from "./header.interfaces";
 
@@ -20,7 +21,7 @@ export class Header {
   ) {
     this.dsoHeaderClick.emit({
       originalEvent: e,
-      isModifiedEvent: e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey,
+      isModifiedEvent: isModifiedEvent(e),
       type,
       menuItem: options?.menuItem,
       url: options?.url ?? options?.menuItem?.url,

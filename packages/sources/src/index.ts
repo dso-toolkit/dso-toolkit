@@ -25,6 +25,8 @@ export * from "./components/button-row/button-row.models";
 export * from "./components/button-row/button-row.stories-of";
 export * from "./components/card/card.models";
 export * from "./components/card/card.stories-of";
+export * from "./components/card-container/card-container.models";
+export * from "./components/card-container/card-container.stories-of";
 export * from "./components/card-grid/card-grid.models";
 export * from "./components/card-grid/card-grid.stories-of";
 export * from "./components/card-list/card-list.models";

@@ -7,6 +7,8 @@ import {
   AttachmentsCounter,
   Badge,
   Banner,
+  Card,
+  CardContainer,
   DatePicker,
   DropdownMenu,
   HighlightBox,
@@ -33,6 +35,8 @@ import { reactAttachmentsCounter } from "./components/attachments-counter/attach
 import { reactAutosuggest } from "./components/autosuggest/autosuggest.react-template";
 import { reactBadge } from "./components/badge/badge.react-template";
 import { reactBanner } from "./components/banner/banner.react-template";
+import { reactCard } from "./components/card/card.react-template";
+import { reactCardContainer } from "./components/card-container/card-container.react-template";
 import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
 import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
@@ -58,6 +62,8 @@ export interface Components {
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
   banner: Banner<JSX.Element>;
+  card: Card<JSX.Element>;
+  cardContainer: CardContainer<JSX.Element>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
   highlightBox: HighlightBox<JSX.Element>;
@@ -89,6 +95,8 @@ templateContainer.add(reactAttachmentsCounter);
 templateContainer.add(reactAutosuggest);
 templateContainer.add(reactBadge);
 templateContainer.add(reactBanner);
+templateContainer.add(reactCard);
+templateContainer.add(reactCardContainer);
 templateContainer.add(reactDatePicker);
 templateContainer.add(reactDropdownMenu);
 templateContainer.add(reactHighlightBox);
