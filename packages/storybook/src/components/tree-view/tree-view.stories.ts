@@ -21,13 +21,13 @@ storiesOfTreeView({
         <div>
           ${treeViewTemplate({
             collection,
-            dsoOpenItem: function (e) {
+            dsoOpenItem(e) {
               dsoOpenItem(e.detail, (collection) => (this.collection = collection));
             },
-            dsoCloseItem: function (e) {
+            dsoCloseItem(e) {
               dsoCloseItem(e.detail, (collection) => (this.collection = collection));
             },
-            dsoClickItem: function (e) {
+            dsoClickItem(e) {
               dsoClickItem(e.detail.path, e.detail.originalEvent, (collection) => (this.collection = collection));
             },
           })}

@@ -22,7 +22,7 @@ export const cssWhitebox: ComponentImplementation<Whitebox> = {
             <h2>${title}</h2>
           </div>
           <div class="dso-whitebox-link">
-            ${anchorTemplate({ label: label, url: "#", modifier: "dso-tertiary", icon: { icon: "angle-right" } })}
+            ${anchorTemplate({ label, url: "#", modifier: "dso-tertiary", icon: { icon: "angle-right" } })}
           </div>
           <div class="dso-whitebox-icon">${imageTemplate(image)}</div>
           <div class="dso-rich-content">

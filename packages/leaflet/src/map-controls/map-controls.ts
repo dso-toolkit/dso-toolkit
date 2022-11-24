@@ -173,7 +173,7 @@ export class MapControls {
         ...this.state.layers,
         {
           id: ++this.lastLayerId,
-          name: name,
+          name,
           layer,
           type,
           disabled,

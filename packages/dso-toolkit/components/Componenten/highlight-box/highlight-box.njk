@@ -1,8 +1,0 @@
-<dso-highlight-box
-  {{ attributes([yellow, 'yellow'], [border, 'border'], [white, 'white'], [dropShadow, 'drop-shadow'], [step, 'step', step])}}
->
-  {%- if icon and label %}
-    <dso-icon icon="{{ icon }}" slot="icon"></dso-icon>
-  {% endif -%}
-  {{ yield | safe }}
-</dso-highlight-box>

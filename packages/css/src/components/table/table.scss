@@ -173,7 +173,7 @@ table.table,
 table col[class*="col-"] {
   display: table-column;
   float: none;
-  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+  position: static;
 }
 
 table {
@@ -186,7 +186,7 @@ table {
     &[class*="col-"] {
       display: table-cell;
       float: none;
-      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+      position: static;
     }
   }
 }
@@ -196,7 +196,7 @@ table {
 
 .dso-table-responsive,
 .dso-table-scroll-container {
-  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+  min-height: 0.01%;
   overflow-x: auto;
   position: relative;
 }

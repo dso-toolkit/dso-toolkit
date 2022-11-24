@@ -1,6 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+const { resolve, dirname } = require("path");
+
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
@@ -11,15 +13,16 @@ const config = {
   url: "https://www.dso-toolkit.nl",
   baseUrl:
     process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
-      ? `/${process.env.TRAVIS_BRANCH.replace(/#/, "_")}/beta/`
+      ? `/${process.env.TRAVIS_BRANCH.replace(/#/, "_")}/`
       : "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
-  favicon: "img/favicon.ico",
+  favicon: "favicon.ico",
   i18n: {
     defaultLocale: "nl",
     locales: ["nl"],
   },
+  staticDirectories: [resolve(dirname(require.resolve("@dso-toolkit/sources/package.json")), "assets"), "static"],
   plugins: ["docusaurus-plugin-sass"],
   presets: [
     [
@@ -28,15 +31,15 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
+          routeBasePath: "/",
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/dso-toolkit/dso-toolkit/tree/master/website/",
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/dso-toolkit/dso-toolkit/tree/master/website/",
+          feedOptions: {
+            type: "all",
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),
@@ -63,6 +66,24 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
+            href: `https://storybook.dso-toolkit.nl/${
+              process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
+                ? process.env.TRAVIS_BRANCH.replace(/#/, "_")
+                : "master"
+            }`,
+            label: "Storybook",
+            position: "left",
+          },
+          {
+            href: `https://react.dso-toolkit.nl/${
+              process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
+                ? process.env.TRAVIS_BRANCH.replace(/#/, "_")
+                : "master"
+            }`,
+            label: "React Storybook",
+            position: "left",
+          },
+          {
             type: "custom-dsoVersionSelector",
             position: "right",
           },
@@ -77,15 +98,6 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
-            items: [
-              {
-                label: "Tutorial",
-                to: "/docs/intro",
-              },
-            ],
-          },
-          {
             title: "Community",
             items: [
               {
@@ -95,6 +107,35 @@ const config = {
               {
                 label: "Slack invite link",
                 href: "https://join.slack.com/t/dso-toolkit/shared_invite/zt-58125gbo-FtPAARcnU47rMgkT7KWikA",
+              },
+              {
+                label: "GitHub issues",
+                href: "https://github.com/dso-toolkit/dso-toolkit/issues",
+              },
+            ],
+          },
+          {
+            title: "NPM",
+            items: [
+              {
+                label: "dso-toolkit",
+                href: "https://www.npmjs.com/package/dso-toolkit",
+              },
+              {
+                label: "@dso-toolkit/core",
+                href: "https://www.npmjs.com/package/@dso-toolkit/core",
+              },
+              {
+                label: "@dso-toolkit/react",
+                href: "https://www.npmjs.com/package/@dso-toolkit/react",
+              },
+              {
+                label: "@dso-toolkit/leaflet",
+                href: "https://www.npmjs.com/package/@dso-toolkit/leaflet",
+              },
+              {
+                label: "@dso-toolkit/react-leaflet",
+                href: "https://www.npmjs.com/package/@dso-toolkit/react-leaflet",
               },
             ],
           },

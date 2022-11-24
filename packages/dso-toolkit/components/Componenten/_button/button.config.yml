@@ -1,6 +1,0 @@
-notes: |
-  Een icon button moet in de markup eerst het label en dan het icoon hebben staan.
-status: wip
-context:
-  type: button
-  modifier: dso-secondary

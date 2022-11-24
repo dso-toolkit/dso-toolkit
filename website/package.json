@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "start": "docusaurus start --port 43300 --host 0.0.0.0",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -28,6 +28,7 @@
     "@dso-toolkit/sources": "workspace:^",
     "@tsconfig/docusaurus": "^1.0.6",
     "docusaurus-plugin-sass": "^0.2.2",
+    "iframe-resizer-react": "^1.1.0",
     "sass": "^1.55.0",
     "typescript": "^4.8.4"
   },

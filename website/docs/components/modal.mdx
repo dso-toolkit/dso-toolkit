@@ -1,0 +1,50 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
+# Modal
+
+<StorybookComponent />
+
+Modals onderbreken de flow van de gebruiker en vragen om actie. Ze zijn geschikt wanneer de gebruiker zijn aandacht moet richten op belangrijke informatie. Bijvoorbeeld een modal met een waarschuwing om te voorkomen dat gebruikers per ongeluk een destructieve actie uitvoeren zonder dat ze het resultaat begrijpen.
+
+## Wanneer te gebruiken
+
+- **Onderbreken:** Gebruik een modal om informatie op te vragen of weer te geven die nodig is om verder te gaan met een door de gebruiker gestart proces.
+- **Informeren:** Gebruik een modal om de gebruiker te informeren, bijvoorbeeld over belangrijke waarschuwingen, een systeemfout of gevolg van een gebruikersactie.
+- **Bevestigen:** Gebruik een modal om een beslissing van de gebruiker af te dwingen, bijvoorbeeld met de tekst "Weet u het zeker?"". Beschrijf duidelijk welke actie wordt bevestigd. Leg ook de mogelijke gevolgen uit.
+
+## Wanneer niet te gebruiken
+
+Modals zijn zeer storend en blokkeren de flow totdat de gebruiker ze verwijdert. Gebruik een modal alleen als de informatie een directe relatie heeft met de huidige taak.
+
+Gebruik een modal alleen voor simpele interacties. Vermijd modals voor complexe interacties of besluitvorming waar aanvullende informatie nodig is die niet in de modal staat. Plaats dus geen lange formulieren of 'check-out' stappen in een modal.
+
+## Hoe te gebruiken
+
+- Houd de titel eenvoudig, zodat de gebruiker direct begrijpt wat er van hem wordt gevraagd door de titel te lezen.
+- Zorg voor korte en bondige teksten in de modal.
+- Button labels moeten de gebruiker duidelijk vertellen wat er gebeurt als ze erop klikken.
+- Gebruik geen modal bovenop een ander modal. Als de flow een tweede modal vereist is die vaak te complex om in een modal te plaatsen.
+
+## Gedrag en toegankelijkheid
+
+### Algemeen
+
+- `aria-label` of `aria-labelledby` geeft de modal een toegankelijke naam.
+- `aria-describedby` verwijst naar de inhoud waarin het doel van de modal wordt beschreven. Daarvoor moet er vaste tekst aanwezig zijn die het doel beschrijft.
+- Wanneer een modal verschijnt, moet de focus verplaatst worden naar de modal. Als er interactieve elementen in de modal staan, wordt de focus op het eerste element gezet.
+- De tab focus moet beperkt zijn tot de modal (keyboard trap).
+- Een modal kan gesloten worden door op de sluitknop te klikken. Ook kan een modal gesloten worden door op de ESC-toets te drukken of door buiten de modal te klikken.
+- Wanneer de modal wordt gesloten, moet de focus, indien mogelijk, teruggezet worden naar de positie die hij had voordat de modal werd geopend.
+- Valideer eventuele invoer van een gebruiker voordat de modal wordt gesloten. Als een validatiefout optreed, moet de modal open blijven en wordt er een alert en/of inline foutmelding gegeven bij het betreffende invoerveld.
+
+### Modal Dialog roles: `dialog` vs `alertdialog`
+
+Is een modal bedoeld om gebruikers te onderbreken met dringende informatie, details of acties? Gebruik dan de `role="alertdialog"`. In andere gevallen gebruik je `role="dialog"`.
+
+In tegenstelling tot gewone meldingen moet er tenminste één interactief element in een alertdialog staan. Zet de focus daarop als de modal verschijnt. Meestal is dit een actie om te bevestigen, sluiten of annuleren. Er kunnen ook andere interactieve elementen in een alertdialog staan, zoals invoervelden, checkboxen en radio selecties. Waar de focus gezet moet worden is afhankelijk van het doel van de modal.
+
+## Bronvermelding
+
+- Nielsen Norman Group (2017, 23 April). Modal & Nonmodal Dialogs. Geraadpleegd op 13 oktober 2020, via https://www.nngroup.com/articles/modal-nonmodal-dialog/
+- Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/indicators-validations-notifications/
+- Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 13 oktober 2020, via https://www.w3.org/WAI/standards-guidelines/wcag/

@@ -10,7 +10,7 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
     function dropdownMenuTemplate({ id, button, dropdownAlign, isCheckable, groups }) {
       return html`
         <dso-dropdown-menu dropdown-align=${ifDefined(dropdownAlign)} ?checkable=${isCheckable}>
-          ${buttonTemplate({ label: button.label, type: "button", variant: button.variant, id: id, slot: "toggle" })}
+          ${buttonTemplate({ label: button.label, type: "button", variant: button.variant, id, slot: "toggle" })}
           <div class="dso-dropdown-options">
             ${groups.map(
               (group) => html`

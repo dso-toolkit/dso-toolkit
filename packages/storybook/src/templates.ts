@@ -239,7 +239,7 @@ export interface Components {
   shoppingCart: ShoppingCart;
   table: Table<TemplateResult>;
   tabs: Tabs;
-  tileGrid: TileGrid<TemplateResult>;
+  tileGrid: TileGrid;
   tile: Tile;
   toggletip: Toggletip<TemplateResult>;
   tooltip: Tooltip;

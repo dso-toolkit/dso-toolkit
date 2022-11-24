@@ -1,4 +1,10 @@
-# dso-progress-indicator
+# `<dso-progress-indicator>`
+
+- toevoeging attribute `block` zorgt voor horizontaal en verticaal gecentreerde progress-indicator;
+- icm. `size="small"` zorgt dit voor een (afhankelijk van de inhoud) minimaal 48px hoge progress indicator;
+- icm. `size="medium"` zorgt dit voor een (afhankelijk van de inhoud) minimaal 64px hoge progress indicator;
+- icm. `size="large"` zorgt dit voor een (afhankelijk van de inhoud) minimaal 96px hoge progress indicator;
+
 
 <!-- Auto Generated Below -->
 

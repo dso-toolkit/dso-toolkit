@@ -8,10 +8,10 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
   component: "table",
   implementation: "react",
   template: () =>
-    function tableTemplate({ noModal, content }) {
+    function tableTemplate({ noModal, content, role }) {
       return (
         <DsoTable noModal={noModal}>
-          <table className="table">
+          <table className="table" role={role}>
             <caption className="sr-only">{content.caption}</caption>
 
             <thead>

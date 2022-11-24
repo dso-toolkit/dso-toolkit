@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **BREAKING** Nieuw documentatieplatform. Zie blog op www.dso-toolkit.nl voor meer informatie ([#1868](https://github.com/dso-toolkit/dso-toolkit/issues/1868)).
+
 ## 47.0.1
 
 ### Fixed

@@ -1,5 +1,0 @@
-status: ready
-meta:
-  markup: false
-notes:
-  Card-panel is een voorbeeld van het `<dso-viewer-grid>`, zie [Web Components Storybook](https://core.dso-toolkit.nl/master/?path=/story/viewer-grid)

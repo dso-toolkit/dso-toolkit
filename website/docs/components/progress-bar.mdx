@@ -1,0 +1,43 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
+# Progress Bar
+
+<StorybookComponent />
+
+Voortgangsindicatoren informeren gebruikers over de status van lopende processen, zoals het laden de pagina, het indienen van een formulier of het uploaden van bestanden. Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren.
+
+### Bepaalde of onbepaalde tijd (Material Design, 2020)
+
+**Bepaalde tijd:** Deze voortgangsindicatoren geven aan hoe lang een proces duurt. Ze moeten worden gebruikt wanneer het voltooiingspercentage van het proces kan worden gedetecteerd.
+
+**Onbepaalde tijd:** Deze voortgangsindicatoren geven een onbepaalde hoeveelheid wachttijd aan. Ze moeten worden gebruikt als er geen voortgang is waar te nemen of als het niet nodig is om aan te geven hoe lang een proces duurt.
+
+## Technische opmerkingen component
+
+Let op het gebruik van correcte waardes voor `aria-valuenow` (de huidige waarde van de progressbar, dit moet _niet_ een percentage zijn), `aria-valuemin` (de minimale waarde) en `aria-valuemax` (de maximale waarde).
+
+## Wanneer het component gebruiken:
+
+Gebruik een progress bar om gebruikers te laten weten dat inhoud wordt geladen en dat het een bepaalde tijd zal duren.
+
+Richtlijnen bij gebruik spinner/progress bar:
+
+- wachttijd kleiner dan 1 seconde: geen spinner
+- wachttijd tussen 1 en 4 seconden: spinner (voorbeeld boven)
+- wachttijd groter dan 4 seconden: progress bar (voorbeelden beneden)
+- wachttijd tussen 4 seconden en 1 minuut: progress bar met percentage
+- wachttijd groter dan 1 minuut: progress bar met tijd inschatting
+
+## Wanneer het component niet te gebruiken:
+
+Gebruik geen progress bar als de verwachte wachttijd kleiner is dan 4 seconden of de wachttijd niet van te voren kan worden ingeschat (onbepaalde tijd).
+
+## Hoe het component te gebruiken:
+
+Probeer altijd de progress waarde in `aria-valuenow` op te nemen, zodat de gebruiker weet hoe lang hij/zij moet wachten.
+Omdat het label ook de 'accessible name' is voor het component, dient daarin idealiter ook genoemd te worden 'waarop' de gebruiker aan het wachten is.
+
+## Bronvermelding
+
+- Material Design. Progress indicators. Geraadpleegd op 4 juni 2020, van https://material.io/components/progress-indicators
+- UX Movement. (2016, 15 november). Progress Bars vs. Spinners: When to Use Which. Geraadpleegd op 4 juni 2020, van https://uxmovement.com/navigation/progress-bars-vs-spinners-when-to-use-which/

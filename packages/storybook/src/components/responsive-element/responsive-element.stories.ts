@@ -51,7 +51,7 @@ storiesOfResponsiveElement({
             ${cols.map(
               (col) => html`<div class=${col}>
                 ${responsiveElementTemplate({
-                  dsoSizeChange: dsoSizeChange,
+                  dsoSizeChange,
                   children: html`
                     <div class="demo-small">
                       <p><strong>small</strong></p>

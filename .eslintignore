@@ -1,4 +1,3 @@
-/dso-toolkit-smoke-test
 /packages/*/dist
 /packages/*/www
 /packages/core/loader

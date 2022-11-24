@@ -1,7 +1,6 @@
 node_modules
 *.log
 *.zip
-/dso-toolkit-smoke-test
 
 # Yarn v2 ignores
 .yarn/*
@@ -13,4 +12,3 @@ node_modules
 
 .eslintcache
 .stylelintcache
-cypress/fixtures/example.json

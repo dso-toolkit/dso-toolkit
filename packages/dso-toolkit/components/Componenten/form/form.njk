@@ -1,6 +1,0 @@
-{% set formPrefix = generateformPrefix(__title, formModifier) %}
-
-<form {{ className(formModifier) }}>
-  {% render '@form-fieldsets', {fieldsets: fieldsets, prefix: formPrefix} %}
-  {% render '@form-buttons', {buttons: buttons, asideButtons: asideButtons} %}
-</form>

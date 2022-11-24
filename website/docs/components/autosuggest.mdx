@@ -1,0 +1,26 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
+# Autosuggest
+
+<StorybookComponent implementations={["core", "react"]} />
+
+Zoeksuggesties zijn aanbevolen resultaten die verschijnen in een dropdown als gebruikers in een zoekveld typen.
+
+## Hoe te gebruiken
+
+Een goede zoeksuggestie helpt de gebruiker bij het bedenken van een zoekopdracht. Dat kan een vrije zoekopdracht zijn, zoals bij Google, of zoeken in een 'onzichtbare' lijst met vaste waarden. Denk hierbij aan een adresboeken in een applicatie met een kaart.
+
+Zoeksuggesties gebruiken heeft de volgende voordelen voor een gebruiker:
+
+- Betere zoekresultaten door gebruik van relevante suggesties.
+- De gebruiker kan sneller zoeken.
+- Minder typefouten doordat de gebruikers niet zelf hoeven te typen.
+- Het kost de gebruiker minder inspanning doordat het systeem een deel van het werk overneemt.
+
+## Gedrag en toegankelijkheid
+
+- Geef maximaal 10 suggesties. Zo houden we de lijst compact en zijn er geen scrollbars te zien.
+- Breek een zoeksuggestie nooit af. Past een zin niet binnen de breedte van de lijst? Laat de zin dan verdergaan op de volgende regel.
+- Maak het mogelijk dat gebruikers met de pijltoetsen door het menu kunnen navigeren en met enter een resultaat kunnen kiezen.
+- Geef de zoeksuggestie een duidelijke hover state met een 'hand'-cursor.
+- Toon eerdere zoekopdrachten als de gebruiker in het veld focust. Deze stap is optioneel.

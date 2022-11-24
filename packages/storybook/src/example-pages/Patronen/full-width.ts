@@ -11,7 +11,7 @@ examplePageFactory(
   "Full Width",
   ({ definitionListTemplate, listTemplate, tableTemplate, anchorTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu })}
       <main>
         <div class="row dso-featured">
           <div class="col-md-6">

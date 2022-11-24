@@ -18,6 +18,7 @@
     "@storybook/web-components": "6.5.13",
     "@whitespace/storybook-addon-html": "5.0.0",
     "cross-env": "^7.0.3",
+    "iframe-resizer": "^4.3.2",
     "lit-html": "^2.4.0"
   }
 }
