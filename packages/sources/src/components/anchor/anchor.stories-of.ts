@@ -52,5 +52,7 @@ export function storiesOfAnchor<Implementation, Templates, TemplateFnReturnType>
         icon: "search",
       },
     });
+
+    return stories;
   });
 }

@@ -94,5 +94,7 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
     stories.add("narrow input", template, {
       decorators: [decorator],
     });
+
+    return stories;
   });
 }

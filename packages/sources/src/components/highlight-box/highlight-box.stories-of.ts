@@ -67,5 +67,7 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
         bannerImage: true,
       },
     });
+
+    return stories;
   });
 }

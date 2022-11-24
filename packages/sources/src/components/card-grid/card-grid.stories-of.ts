@@ -23,5 +23,7 @@ export function storiesOfCardGrid<Implementation, Templates, TemplateFnReturnTyp
     );
 
     stories.add("Card Grid", template);
+
+    return stories;
   });
 }

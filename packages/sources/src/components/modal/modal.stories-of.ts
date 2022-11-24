@@ -128,5 +128,7 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
         }),
       }
     );
+
+    return stories;
   });
 }

@@ -41,6 +41,8 @@ jobs:
             - packages/dso-toolkit/libs/@dso-toolkit
             - packages/react/dist
             - packages/react/www
+            - packages/angular-workspace/dist
+            - packages/angular-workspace/www
             - website/build
       script: yarn dedupe --check &&
         (yarn npm audit --all --recursive || true) &&
@@ -56,6 +58,7 @@ jobs:
       script:
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
+        - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/angular/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/build/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_}
         - ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"

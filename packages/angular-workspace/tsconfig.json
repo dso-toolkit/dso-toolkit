@@ -4,15 +4,14 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "component-library": [
-        "dist/component-library"
-      ]
+      "component-library": ["dist/component-library"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "allowSyntheticDefaultImports": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -23,10 +22,7 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

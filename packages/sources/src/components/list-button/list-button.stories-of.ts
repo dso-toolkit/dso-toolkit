@@ -33,5 +33,7 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
     );
 
     stories.add("List Button", template);
+
+    return stories;
   });
 }

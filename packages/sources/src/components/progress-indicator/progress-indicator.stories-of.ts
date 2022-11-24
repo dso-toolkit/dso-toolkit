@@ -45,5 +45,7 @@ export function storiesOfProgressIndicator<Implementation, Templates, TemplateFn
         size: "large",
       },
     });
+
+    return stories;
   });
 }

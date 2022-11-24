@@ -4,7 +4,7 @@ import clsx from "clsx";
 import debounce from "debounce";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { HeaderMenuItem, HeaderNavigationType, HeaderClickEvent, HeaderClickMenuItemEvent } from "./header.interfaces";
+import { HeaderMenuItem, HeaderNavigationType, HeaderEvent } from "./header.interfaces";
 
 const minDesktopViewportWidth = 992;
 
@@ -72,7 +72,7 @@ export class Header {
    * `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
    */
   @Event()
-  dsoHeaderClick!: EventEmitter<HeaderClickEvent | HeaderClickMenuItemEvent>;
+  dsoHeaderClick!: EventEmitter<HeaderEvent>;
 
   @Watch("useDropDownMenu")
   setShowDropDown(value: "always" | "never" | "auto") {

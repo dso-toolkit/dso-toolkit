@@ -10,12 +10,12 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalRole } from "@dso-toolkit/sources";
-import { DsoModalCloseEvent } from "./components/modal/modal";
+import { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
@@ -900,7 +900,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
-        "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
+        "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;

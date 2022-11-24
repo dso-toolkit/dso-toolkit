@@ -2,6 +2,9 @@
 /.yarn
 /packages/*/dist
 /packages/*/www
+/packages/angular-workspace/.angular
+/packages/angular-workspace/documentation.json
+/packages/angular-workspace/projects/component-library/src/lib/stencil-generated
 /packages/core/loader
 /packages/core/src/components.d.ts
 /packages/core/src/components/**/README.md

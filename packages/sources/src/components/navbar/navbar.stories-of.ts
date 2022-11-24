@@ -77,5 +77,7 @@ export function storiesOfNavbar<Implementation, Templates, TemplateFnReturnType>
         ],
       }),
     });
+
+    return stories;
   });
 }

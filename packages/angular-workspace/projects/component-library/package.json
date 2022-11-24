@@ -4,9 +4,9 @@
   "peerDependencies": {
     "@angular/common": "^14.0.0",
     "@angular/core": "^14.0.0",
-    "@dso-toolkit/core": "^38.1.0"
+    "@dso-toolkit/core": "workspace:packages/core"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.4.1"
   }
 }

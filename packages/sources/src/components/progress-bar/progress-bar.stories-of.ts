@@ -38,5 +38,7 @@ export function storiesOfProgressBar<Implementation, Templates, TemplateFnReturn
         label: "Bestanden comprimeren: 12 stuks.",
       },
     });
+
+    return stories;
   });
 }

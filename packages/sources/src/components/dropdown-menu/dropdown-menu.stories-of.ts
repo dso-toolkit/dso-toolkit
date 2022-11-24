@@ -49,5 +49,7 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
         groups: content.settings,
       }),
     });
+
+    return stories;
   });
 }

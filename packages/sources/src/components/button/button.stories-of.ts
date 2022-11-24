@@ -50,5 +50,7 @@ export function storiesOfButton<Implementation, Templates, TemplateFnReturnType>
         label: "Tertiary button",
       },
     });
+
+    return stories;
   });
 }

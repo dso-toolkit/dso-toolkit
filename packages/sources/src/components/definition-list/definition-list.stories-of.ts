@@ -175,5 +175,7 @@ export function storiesOfDefinitionList<Implementation, Templates, TemplateFnRet
         },
       }
     );
+
+    return stories;
   });
 }

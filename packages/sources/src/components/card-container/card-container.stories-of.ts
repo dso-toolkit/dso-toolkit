@@ -28,8 +28,11 @@ export function storiesOfCardContainer<Implementation, Templates, TemplateFnRetu
     stories.add("Card List", template, {
       args: { ...cardContainerContent, mode: "list" },
     });
+
     stories.add("Card Grid", template, {
       args: { ...cardContainerContent, mode: "grid" },
     });
+
+    return stories;
   });
 }

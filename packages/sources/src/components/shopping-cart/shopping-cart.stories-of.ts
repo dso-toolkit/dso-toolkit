@@ -216,5 +216,7 @@ export function storiesOfShoppingCart<Implementation, Templates, TemplateFnRetur
         ],
       }),
     });
+
+    return stories;
   });
 }

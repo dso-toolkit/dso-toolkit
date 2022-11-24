@@ -29,5 +29,7 @@ export function storiesOfDocumentList<Implementation, Templates, TemplateFnRetur
     );
 
     stories.add("Document List", template);
+
+    return stories;
   });
 }

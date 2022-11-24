@@ -71,5 +71,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
         ],
       }),
     });
+
+    return stories;
   });
 }

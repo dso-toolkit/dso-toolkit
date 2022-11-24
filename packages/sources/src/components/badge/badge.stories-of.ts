@@ -13,11 +13,13 @@ export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     BadgeTemplates<TemplateFnReturnType>
-  >
+  >,
+  ng?: any
 ) {
   return storiesOfFactory("Badge", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: badgeArgTypes,
+      ...ng,
     });
 
     const template = templateMapper<BadgeArgs>((args, { badgeTemplate }) => badgeTemplate(badgeArgsMapper(args)));
@@ -69,5 +71,7 @@ export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
         message: "Outline",
       },
     });
+
+    return stories;
   });
 }

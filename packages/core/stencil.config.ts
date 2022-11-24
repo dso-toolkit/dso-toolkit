@@ -17,7 +17,7 @@ export const config: Config = {
   ],
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: "@dso-toolkit/core",
+      componentCorePackage: "@dso-toolkit/core/dist",
       includeImportCustomElements: true,
       directivesProxyFile: "../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts",
       directivesArrayFile: "../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
@@ -31,7 +31,7 @@ export const config: Config = {
       esmLoaderPath: "../loader",
     },
     {
-      type: "dist-custom-elements-bundle",
+      type: "dist-custom-elements",
     },
     {
       type: "docs-readme",
