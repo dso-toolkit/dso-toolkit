@@ -36,8 +36,8 @@ export const cssFormGroupSearchBar: ComponentImplementation<FormGroupSearchBar<T
             ${searchBarTemplate({
               ...formGroup.searchBar,
               invalid: formGroup.state === "invalid",
-              ariaDescribedBy: ariaDescribedBy,
-              ariaErrorMessage: ariaErrorMessage,
+              ariaDescribedBy,
+              ariaErrorMessage,
             })}
             ${formGroup.errorText && formGroup.state === "invalid"
               ? html`<p class="dso-message" id=${errorTextId}>${formGroup.errorText}</p>`

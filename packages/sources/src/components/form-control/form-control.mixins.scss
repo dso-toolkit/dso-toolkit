@@ -37,7 +37,7 @@
   &[readonly],
   fieldset[disabled] & {
     background-color: colors.$input-bg-disabled;
-    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
+    opacity: 1;
   }
 
   &[disabled],

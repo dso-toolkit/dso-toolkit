@@ -1,6 +1,0 @@
-notes: |
-  De breedte van het element wordt gedicteerd door de breedte van het omliggende element. Als afbeelding kan alleen een `<img>` gebruikt worden.
-context:
-  id: tile
-  source: /dummy/images/icon-tree.png
-  label: Boom kappen of snoeien

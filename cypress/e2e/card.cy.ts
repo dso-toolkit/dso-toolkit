@@ -3,10 +3,10 @@ describe.skip("Card", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-card--default")
       .get("dso-card")
       .then(($card) => {
-        console.log("test", $card[0], $card[0] !== undefined);
+        console.info("test", $card[0], $card[0] !== undefined);
         $card.on("dsoCardClicked", cy.stub().as("dsoCardClickedListener"));
         $card[0].addEventListener("dsoCardClicked", (e) => {
-          console.log(e);
+          console.info(e);
         });
       });
   });

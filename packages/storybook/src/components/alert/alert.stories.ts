@@ -20,9 +20,9 @@ storiesOfAlert({
     alertTemplate,
     errorMessage: errorMessage(templates),
     infoMessage: infoMessage(templates),
-    successMessage: successMessage,
-    warningMessage: warningMessage,
-    alertWithHeadingsContent: alertWithHeadingsContent,
+    successMessage,
+    warningMessage,
+    alertWithHeadingsContent,
   }),
 });
 
@@ -38,8 +38,8 @@ storiesOfAlert({
     alertTemplate,
     errorMessage: errorMessage(templates),
     infoMessage: infoMessage(templates),
-    successMessage: successMessage,
-    warningMessage: warningMessage,
-    alertWithHeadingsContent: alertWithHeadingsContent,
+    successMessage,
+    warningMessage,
+    alertWithHeadingsContent,
   }),
 });

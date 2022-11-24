@@ -11,7 +11,7 @@ examplePageFactory(
   "Begrippen",
   ({ definitionListTemplate, buttonRowTemplate }, templates) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu })}
 
       <main>
         <h1>Aanlegplaats</h1>

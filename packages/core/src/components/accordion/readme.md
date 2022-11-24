@@ -1,4 +1,4 @@
-# dso-accordion
+# `<dso-accordion>`
 
 <!-- Auto Generated Below -->
 

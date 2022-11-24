@@ -22,6 +22,6 @@ export const tableArgTypes: ArgTypes<TableArgs> = {
 export function tableArgsMapper<TemplateFnReturnType>(
   a: TableArgs,
   content: TableContent<TemplateFnReturnType>
-): Required<Table<TemplateFnReturnType>> {
+): Table<TemplateFnReturnType> {
   return { ...a, content };
 }

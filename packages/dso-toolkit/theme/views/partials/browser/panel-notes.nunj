@@ -1,9 +1,0 @@
-<div class="dso-browser-navbar-item-panel" id="browser-{{ entity.id }}-panel-notes" aria-labelledby="notes-tab">
-  <div class="dso-rich-content">
-    {% if entity.notes %}
-      {{ frctl.docs.renderString(entity.notes, renderEnv) | async }}
-    {% else %}
-      <p>There are no notes for this item.</p>
-    {% endif %}
-  </div>
-</div>

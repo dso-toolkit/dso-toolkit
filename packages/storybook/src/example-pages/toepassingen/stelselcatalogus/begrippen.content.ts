@@ -39,7 +39,7 @@ export function definitions1({ anchorTemplate, toggletipTemplate }: Templates): 
     {
       term: html`
         Voorkeursterm<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -50,7 +50,7 @@ export function definitions1({ anchorTemplate, toggletipTemplate }: Templates): 
     {
       term: html`
         Omschrijving<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -62,7 +62,7 @@ export function definitions1({ anchorTemplate, toggletipTemplate }: Templates): 
     {
       term: html`
         Toelichting<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -86,7 +86,7 @@ export function definitions2({ toggletipTemplate, anchorTemplate }: Templates): 
     {
       term: html`
         URI<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -106,7 +106,7 @@ export function definitions3({ toggletipTemplate, anchorTemplate }: Templates): 
     {
       term: html`
         Vergelijkbaar met<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -122,7 +122,7 @@ export function definitions4({ toggletipTemplate, anchorTemplate }: Templates): 
     {
       term: html`
         Zie ook<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -138,7 +138,7 @@ export function definitions5({ toggletipTemplate, anchorTemplate }: Templates): 
     {
       term: html`
         Bron<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -149,7 +149,7 @@ export function definitions5({ toggletipTemplate, anchorTemplate }: Templates): 
     {
       term: html`
         Type<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {
@@ -164,7 +164,7 @@ export function definitions5({ toggletipTemplate, anchorTemplate }: Templates): 
     {
       term: html`
         Metadata<span class="sr-only">:</span>
-        ${toggletipTemplate({ secondary: true, children: "Dit is een toggletip met platte content." })}
+        ${toggletipTemplate({ secondary: true, children: html`Dit is een toggletip met platte content.` })}
       `,
       descriptions: [
         {

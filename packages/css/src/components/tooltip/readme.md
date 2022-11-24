@@ -1,3 +1,3 @@
 # `.tooltip`
 
-Based on Bootstrap 3's Tooltip.
+**Het gebruik van de CSS implementatie wordt sterk afgeraden, gebruik het Web Component.**

@@ -9,4 +9,5 @@ export interface Table<TemplateFnReturnType> {
   noModal?: boolean;
   content: TableContent<TemplateFnReturnType>;
   headingColumns?: boolean;
+  role?: string;
 }

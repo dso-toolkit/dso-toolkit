@@ -14,10 +14,10 @@ storiesOfAlert({
   templateContainer,
   storyTemplates: ({ alertTemplate }) => ({
     alertTemplate,
-    errorMessage: errorMessage,
-    infoMessage: infoMessage,
-    successMessage: successMessage,
-    warningMessage: warningMessage,
-    alertWithHeadingsContent: alertWithHeadingsContent,
+    errorMessage,
+    infoMessage,
+    successMessage,
+    warningMessage,
+    alertWithHeadingsContent,
   }),
 });

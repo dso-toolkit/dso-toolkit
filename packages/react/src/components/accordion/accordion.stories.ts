@@ -21,11 +21,11 @@ storiesOfAccordion({
   templateContainer,
   storyTemplates: ({ accordionTemplate }, templates) => ({
     accordionTemplate,
-    basicSections: basicSections,
-    anchorSections: anchorSections,
+    basicSections,
+    anchorSections,
     subSections: subSections(templates),
-    allowMultipleOpenSections: allowMultipleOpenSections,
-    addonsSections: addonsSections,
-    alignmentSections: alignmentSections,
+    allowMultipleOpenSections,
+    addonsSections,
+    alignmentSections,
   }),
 });

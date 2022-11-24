@@ -21,7 +21,7 @@ examplePageFactory(
     templates
   ) => html`
     <div class="container">
-      ${headerPartial(templates, { ...header, mainMenu: mainMenu })}
+      ${headerPartial(templates, { ...header, mainMenu })}
       <main>
         <div class="row">
           <div class="col-md-12">

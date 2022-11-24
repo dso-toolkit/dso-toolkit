@@ -1,0 +1,38 @@
+import { StorybookComponent } from "@site/src/components/StorybookComponent";
+
+# Banner
+
+<StorybookComponent />
+
+Banners verschijnen helemaal bovenaan het scherm en verschuiven de inhoud eronder. Ze laten algemene meldingen zien over het product of systeem, maar niet over specifieke gebruikersacties.
+
+Ze blijven staan totdat de gebruiker ze verwijdert, of als de status die de banner veroorzaakte is opgelost. Banners kunnen optioneel een button of link bevatten, bijvoorbeeld naar meer informatie. Er mag slechts één banner tegelijk te zien zijn.
+
+## Technische opmerkingen
+
+Om de content in een banner goed te tonen, gelden de volgende voorwaarden:
+
+- Content in een Rich Content component.
+- Een `<h2>`-heading met een indicatie van 'Storingsmelding:' of 'Onderhoudsmelding:'
+- Een `<p>`-tag om de paragrafen
+
+## Wanneer te gebruiken
+
+Gebruik een banner om een status van het product of systeem te laten zien die niet specifiek met een taak van de gebruiker te maken heeft.
+
+## Hoe te gebruiken
+
+- Plaats banners altijd bovenaan het scherm.
+- Bedek andere inhoud niet met een bannermelding.
+- Banners zijn niet 'sticky' en scrollen mee met de inhoud op de pagina.
+- Laat slechts één banner per keer zien.
+
+## Gedrag en toegankelijkheid
+
+Banners blijven staan totdat de gebruiker ze verwijdert of als de status, die de banner veroorzaakte, is opgelost. Banners hebben altijd een ARIA `role="alert"`, zodat een screenreader ze meteen voorleest wanneer ze verschijnen. Screenreaders en andere hulptechnologie starten vaak bij de `<h1>`, dus zonder `role="alert"` worden ze gemist.
+
+## Bronvermelding
+
+- Nielsen Norman Group (1994, 24 april). 10 Usability Heuristics for User Interface Design. Geraadpleegd op 20 juli 2020, via https://www.nngroup.com/articles/ten-usability-heuristics/
+- Nielsen Norman Group (2015, 26 juli). Indicators, Validations, and Notifications. Geraadpleegd op 2 oktober 2020, via https://www.nngroup.com/articles/indicators-validations-notifications/
+- Web Content Accessibility Guidelines (2018, 05 June). WC3. Geraadpleegd op 20 juli 2020, via https://www.w3.org/WAI/standards-guidelines/wcag/

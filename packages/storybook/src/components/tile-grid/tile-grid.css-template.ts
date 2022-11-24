@@ -1,12 +1,14 @@
 import { TileGrid } from "@dso-toolkit/sources";
-import { html, TemplateResult } from "lit-html";
+import { html } from "lit-html";
 import { ComponentImplementation } from "../../templates";
 
-export const cssTileGrid: ComponentImplementation<TileGrid<TemplateResult>> = {
+export const cssTileGrid: ComponentImplementation<TileGrid> = {
   component: "tileGrid",
   implementation: "css",
-  template: () =>
-    function tileGridTemplate({ children }) {
-      return html`<dso-responsive-element class="dso-tile-grid">${children}</dso-responsive-element>`;
+  template: ({ tileTemplate }) =>
+    function tileGridTemplate({ tiles }) {
+      return html`<dso-responsive-element class="dso-tile-grid"
+        >${tiles.map((t) => tileTemplate(t))}</dso-responsive-element
+      >`;
     },
 };

@@ -1,6 +1,7 @@
 import { Table } from "@dso-toolkit/sources";
 
 import { html, TemplateResult } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 import { ComponentImplementation } from "../../templates";
@@ -9,10 +10,10 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
   component: "table",
   implementation: "core",
   template: () =>
-    function tableTemplate({ noModal, content, headingColumns }) {
+    function tableTemplate({ noModal, content, headingColumns, role }) {
       return html`
         <dso-table ?no-modal=${noModal}>
-          <table class="table">
+          <table class="table" role=${ifDefined(role)}>
             <caption class="sr-only">
               ${content.caption}
             </caption>

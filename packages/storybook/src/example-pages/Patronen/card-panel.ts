@@ -15,7 +15,6 @@ examplePageFactory(
     labelTemplate,
     viewerGridTemplate,
     tileGridTemplate,
-    tileTemplate,
   }) => html`
     <div class="container">
       ${viewerGridTemplate({
@@ -101,32 +100,32 @@ examplePageFactory(
               </div>
 
               ${tileGridTemplate({
-                children: html`
-                  ${tileTemplate({
+                tiles: [
+                  {
                     anchor: "#",
                     image: { alt: "", source: "images/icon-tree.png" },
                     label: "Bodem",
                     variant: "theme",
-                  })}
-                  ${tileTemplate({
+                  },
+                  {
                     anchor: "#",
                     image: { alt: "", source: "images/icon-tree.png" },
                     label: "Bodem",
                     variant: "theme",
-                  })}
-                  ${tileTemplate({
+                  },
+                  {
                     anchor: "#",
                     image: { alt: "", source: "images/icon-tree.png" },
                     label: "Bodem",
                     variant: "theme",
-                  })}
-                  ${tileTemplate({
+                  },
+                  {
                     anchor: "#",
                     image: { alt: "", source: "images/icon-tree.png" },
                     label: "Bodem",
                     variant: "theme",
-                  })}
-                `,
+                  },
+                ],
               })}
 
               <div class="dso-context-wrapper">
@@ -149,7 +148,7 @@ examplePageFactory(
               <div class="dso-rich-content">
                 <h2>
                   Activiteiten
-                  ${toggletipTemplate({ secondary: true, children: "Meer informatie over deze activiteiten" })}
+                  ${toggletipTemplate({ secondary: true, children: html`Meer informatie over deze activiteiten` })}
                 </h2>
                 <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
               </div>

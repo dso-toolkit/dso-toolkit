@@ -1,5 +1,10 @@
 module.exports = {
-  staticDirs: ["../../sources/storybook-assets", "../../css/dist", { from: "../../core/dist", to: "/core" }],
+  staticDirs: [
+    "../../sources/storybook-assets",
+    "../../css/dist",
+    { from: "../../core/dist", to: "/core" },
+    { from: "../../../node_modules/iframe-resizer/js", to: "iframe-resizer" },
+  ],
   features: {
     // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
     postcss: false,
@@ -20,6 +25,7 @@ module.exports = {
     ${head}
     <link rel="stylesheet" href="dso.css">
     <script type="module" src="./core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
   `,
   previewBody: (body) =>
     process.env.DSO_ENV === "development"

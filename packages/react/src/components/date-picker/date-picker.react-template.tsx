@@ -40,7 +40,11 @@ export function datePickerShowByScriptingTemplate(datePicker: JSX.Element, id: s
       {datePicker}
       <button
         type="button"
-        onClick={() => document.querySelector<HTMLDsoDatePickerElement>(`DsoDatePicker[identifier="${id}"]`)?.show()}
+        onClick={() =>
+          Array.from(document.querySelectorAll("dso-date-picker"))
+            .filter((e) => e.id === id)[0]
+            ?.show()
+        }
       >
         Open
       </button>

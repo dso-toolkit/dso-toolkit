@@ -26,6 +26,7 @@
     "concurrently": "^7.5.0",
     "cross-env": "^7.0.3",
     "css": "^3.0.0",
+    "fancy-log": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-cheerio": "^1.0.0",
     "gulp-pretty-data": "^0.1.2",
