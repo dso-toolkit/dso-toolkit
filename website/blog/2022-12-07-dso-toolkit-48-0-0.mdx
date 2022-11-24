@@ -1,0 +1,75 @@
+---
+title: DSO Toolkit 48.0.0
+authors: [tfrijsewijk]
+---
+
+> Hello DSO!
+
+🎊 Vandaag lanceren wij onze nieuwe documentatie site 🎉
+
+Lees verder voor meer informatie over deze release.
+
+<!--truncate-->
+
+## Fractal -> Docusaurus
+
+Vanaf nu maken we gebruik van Docusaurus voor het onderhouden van de documentatie site. Fractal was al een tijd EOL. De nieuwe site geeft ons de flexibiliteit die we zoeken om de diversie tooling in één documentatieplatform aan te bieden en te blijven onderhouden.
+
+Alle documentatie die voorheen in Fractal was ondergebracht heeft een nieuw plekje in het DSO Toolkit landschap gekregen:
+
+- Docusaurus: Algemene informatie, component documentatie;
+- Storybook: Implementatie specificatie component documentatie;
+
+De meeste componenten hebben nu ook een "Component Widget" waarmee een live weergave uit Storybook wordt getoond.
+
+We zijn benieuwd wat jullie van de nieuwe site vinden. Je kan ons (natuurlijk) in de DSO Toolkit Slack vinden, zie de frontpage voor de juiste links.
+
+## Package size `dso-toolkit`.
+
+Met Fractal _out of the picture_ is de package NPM package `dso-toolkit` aanzienlijk kleiner geworden:
+
+Van 84MB package size (123MB unpacked) naar 8MB package size (9.8MB unpacked).
+
+Ik wil benadrukken dat dit niet aan Fractal lag, maar aan ons. Fractal zat ons gewoon in de weg om het op te lossen.
+
+## Bloggen
+
+Vanaf nu zullen we elke twee weken een blogpost plaatsen. De CHANGELOG is (vooral voor Breaking changes) niet de juiste plek om de afnemer snel op weg te helpen.
+
+Alle issues over de afgelopen twee weken zullen worden genoemd en waar nodig toegelicht.
+
+## Toekomst
+
+Verder gaan we op korte termijn de volgende punten oppakken:
+
+### De API (koppelvlak) van de toolkit documenteren.
+
+In dit document willen we duidelijk maken wat onder de public API van de toolkit valt.
+
+Dit document zal de basis vormen voor de SemVer releases. Hoewel we nu ook al SemVer hanteren zijn er soms verrassingen dat een release breaking blijkt te zijn.
+
+### Nieuw CHANGELOG.md format
+
+We willen de CHANGELOG bondiger maken door uitsluitend de API te loggen. Afnemers van de toolkit zullen geen interne issues meer voorbij zien komen waardoor ze de impact van een release sneller kunnen inschatten.
+
+### RSS feed voor blogposts.
+
+Docusaurus biedt RSS en Atom feeds aan. Maar onze release strategie sluit daar niet bij aan: Elke versie op dso-toolkit.nl is een complete kopie van het hele platform, waarmee ook de feeds geversioneerd worden.
+
+In de toekomst willen we de feed op een centrale plek (zoals `dso-toolkit.nl/rss.xml`) aanbieden zodat afnemers op de hoogte kunnen blijven van nieuwe releases.
+
+### Branch releases naar NPM.
+
+Op dit moment ondersteunen we alleen branch releases naar dso-toolkit.nl. Dit werkt uitstekend tijdens de ondekkingsfase tussen UX-er en maintainer. Door elke branch ook als NPM package te publiceren hopen we dezelfde ervaring tussen de maintainers en de afnemers te realiseren: Voordat een feature in het product wordt opgenomen kan het door een afnemer worden getest.
+
+Hiermee wordt de feedback loop korter en worden zowel de maintainers als afnemers wendbaarder.
+
+### Rolling releases.
+
+Niet meer elke twee weken een release maar elke change op `master`.
+
+We blijven nog steeds een twee-wekelijkse planning maken, maar waarom zou een afnemer twee weken op een bugfix moeten wachten?
+
+### De Leaflet packages
+
+`@dso-toolkit/leaflet` en `@dso-toolkit/react-leaflet` worden vaak vergeten. We willen deze twee pareltjes een prominenter positioneren met documentatie en live preview.
