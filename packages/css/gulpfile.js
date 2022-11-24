@@ -123,7 +123,7 @@ async function createSvgSpritesheet() {
       )
       .pipe(
         cheerio({
-          run ($) {
+          run($) {
             const canvas = 32;
             const gutter = 10;
             const symbols = $("symbol").toArray();
