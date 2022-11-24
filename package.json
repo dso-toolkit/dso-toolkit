@@ -25,7 +25,7 @@
     "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=react-leaflet yarn node scripts/start.js --mode react-leaflet"
   },
   "dependencies": {
-    "@infoprojects/eslint-config": "^1.0.0",
+    "@infoprojects/eslint-config": "^1.1.0",
     "@infoprojects/prettier-config": "^1.0.0",
     "@infoprojects/stylelint-config-scss": "^1.0.0",
     "@percy/cli": "^1.14.0",

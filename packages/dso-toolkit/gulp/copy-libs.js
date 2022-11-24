@@ -2,8 +2,24 @@ const gulp = require('gulp');
 const { resolve } = require('path');
 
 module.exports = {
-  copyLibs: gulp.parallel(copySources, copyCss)
+  copyLibs: gulp.parallel(copyGraphics, copyFavicon, copySources, copyCss)
 };
+
+function copyGraphics() {
+  return gulp
+    .src('assets/graphics/**', {
+      cwd: resolve(__dirname, '../../sources')
+    })
+    .pipe(gulp.dest('assets/graphics'));
+}
+
+function copyFavicon() {
+  return gulp
+    .src('assets/favicon.ico', {
+      cwd: resolve(__dirname, '../../sources')
+    })
+    .pipe(gulp.dest('assets'));
+}
 
 function copySources() {
   const stylingGlobs = [

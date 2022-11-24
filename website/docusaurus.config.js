@@ -17,7 +17,7 @@ const config = {
       : "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
-  favicon: "img/favicon.ico",
+  favicon: "favicon.ico",
   i18n: {
     defaultLocale: "nl",
     locales: ["nl"],
@@ -37,6 +37,9 @@ const config = {
         },
         blog: {
           showReadingTime: true,
+          feedOptions: {
+            type: "all",
+          },
         },
         theme: {
           customCss: require.resolve("./src/css/custom.scss"),

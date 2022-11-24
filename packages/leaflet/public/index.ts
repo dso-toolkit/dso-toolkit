@@ -11,7 +11,7 @@ const ButtonControl = L.Control.extend({
     const button = document.createElement("button");
     button.classList.add("dso-leaflet-button");
     button.innerHTML = '<dso-icon icon="pencil"></dso-icon><span>Teken een gebied op de kaart</span>';
-    button.addEventListener("click", console.log);
+    button.addEventListener("click", console.info);
 
     L.DomEvent.disableClickPropagation(button);
 

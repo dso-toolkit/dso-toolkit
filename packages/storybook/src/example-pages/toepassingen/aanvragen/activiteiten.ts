@@ -85,7 +85,7 @@ examplePageFactory(
                   children: html`
                     <div class="row">
                       <div class="col-xs-12">
-                        ${labelGroupTemplate({ labels: labels })}
+                        ${labelGroupTemplate({ labels })}
                         ${listButtons.map((listButton) => listButtonTemplate(listButton))}
                       </div>
                     </div>

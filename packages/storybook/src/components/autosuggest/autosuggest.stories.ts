@@ -35,7 +35,7 @@ storiesOfAutosuggest({
     ]) => ({
       children: html`<input id="autosuggestInputId" type="text" class="form-control" />`,
       suggestions: null,
-      dsoChange: function (e) {
+      dsoChange (e) {
         dsoChange(e);
 
         if (loadingDelayed) {

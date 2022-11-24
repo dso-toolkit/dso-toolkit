@@ -2625,14 +2625,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@infoprojects/eslint-config@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@infoprojects/eslint-config@npm:1.0.0"
+"@infoprojects/eslint-config@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@infoprojects/eslint-config@npm:1.1.0"
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^5.42.0
     "@typescript-eslint/parser": ^5.42.0
     eslint: ^8.26.0
-  checksum: 2e6c78a188fd3726a961353fbf9378cdce0bd6584693110bcbb5bb705e9529c377c5bae6717cafe0ee0e4236e0b59391da4c705182998a086d2638c361392467
+  checksum: 0f63fc388c07a963b252636133515c0992cc74f64f613b5fe6cc54660e1df83eb65975df1a9e98f2258a5bc0c6b0ccea130f3c27388622641b1337246496fa6d
   languageName: node
   linkType: hard
 
@@ -9887,7 +9887,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dso-toolkit-monorepo@workspace:."
   dependencies:
-    "@infoprojects/eslint-config": ^1.0.0
+    "@infoprojects/eslint-config": ^1.1.0
     "@infoprojects/prettier-config": ^1.0.0
     "@infoprojects/stylelint-config-scss": ^1.0.0
     "@percy/cli": ^1.14.0

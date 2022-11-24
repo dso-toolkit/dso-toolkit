@@ -22,12 +22,12 @@ storiesOfModal({
   templateContainer,
   storyTemplates: ({ modalTemplate }, templates) => ({
     modalTemplate,
-    activeBody: activeBody,
-    activeFooter: activeFooter,
-    passiveBody: passiveBody,
-    passiveFooter: passiveFooter,
-    confirmBody: confirmBody,
-    confirmFooter: confirmFooter,
+    activeBody,
+    activeFooter,
+    passiveBody,
+    passiveFooter,
+    confirmBody,
+    confirmFooter,
     loadingBody: loadingBody(templates),
   }),
 });
