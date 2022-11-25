@@ -14,6 +14,7 @@ export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
     TemplateFnReturnType,
     BadgeTemplates<TemplateFnReturnType>
   >,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- don't merge this
   ng?: any
 ) {
   return storiesOfFactory("Badge", storiesOfArguments, (stories, templateMapper) => {
