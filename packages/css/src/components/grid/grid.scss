@@ -40,6 +40,7 @@ form {
 
   @media (min-width: $screen-sm-min) {
     width: $container-sm;
+    
   }
 
   @media (min-width: $screen-md-min) {
@@ -84,8 +85,12 @@ form {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 32px;
-    height: 336px;
+    padding-top: 24px;
+    height: 352px;
+
+    &.no-button-banner{
+      height: 296px;
+    }
 
     +.row {
       margin-top: 24px;
@@ -132,3 +137,9 @@ form {
 @media (min-width: $screen-lg-min) {
   @include grid-mixins.make-grid(lg);
 }
+
+@media only screen and (max-width: 769px) { 
+  .dso-banner{
+    padding-top: 8px !important;
+  }
+ }
