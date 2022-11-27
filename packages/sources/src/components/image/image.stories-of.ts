@@ -39,5 +39,7 @@ export function storiesOfImage<Implementation, Templates, TemplateFnReturnType>(
         modifier: "img-circle",
       },
     });
+
+    return stories;
   });
 }

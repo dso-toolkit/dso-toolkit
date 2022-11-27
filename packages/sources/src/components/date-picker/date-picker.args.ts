@@ -6,7 +6,7 @@ export interface DatePickerArgs {
   id: string;
   label: string;
   dsoDateChange: HandlerFunction;
-  direction: string;
+  direction: "left" | "right";
   value: string;
   min: string;
   max: string;

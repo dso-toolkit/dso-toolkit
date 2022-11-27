@@ -27,5 +27,7 @@ export function storiesOfTileGrid<Implementation, Templates, TemplateFnReturnTyp
       "Tile Grid",
       templateMapper<TileGridArgs>((_args, { tileGridTemplate }) => tileGridTemplate({ tiles }))
     );
+
+    return stories;
   });
 }

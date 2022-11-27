@@ -99,5 +99,7 @@ export function storiesOfSearchBar<Implementation, Templates, TemplateFnReturnTy
         resultsHidden: true,
       },
     });
+
+    return stories;
   });
 }

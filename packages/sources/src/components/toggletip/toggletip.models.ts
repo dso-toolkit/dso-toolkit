@@ -1,8 +1,6 @@
-import { tooltipPositions } from "../tooltip/tooltip.models";
-
 export interface Toggletip<TemplateFnReturnType> {
   children: TemplateFnReturnType;
-  position?: typeof tooltipPositions;
+  position?: "top" | "right" | "bottom" | "left";
   small?: boolean;
   label?: string;
   secondary?: boolean;

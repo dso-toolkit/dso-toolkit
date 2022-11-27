@@ -54,7 +54,7 @@ export class TemplateContainer<Implementation, Templates, TemplateFnReturnType> 
     return (a, context) => {
       const { preferredImplementation } = a;
       const args = { ...a };
-      delete args.preferredImplementation;
+      delete args["preferredImplementation"];
 
       return mapper(args as StoryArgs, this.create(preferredImplementation, context.kind));
     };

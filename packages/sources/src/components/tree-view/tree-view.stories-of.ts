@@ -59,5 +59,7 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
         );
       })
     );
+
+    return stories;
   });
 }

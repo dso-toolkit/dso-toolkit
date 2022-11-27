@@ -1,10 +1,7 @@
 import { h, Component, Event, Prop, EventEmitter, Method, Host, State } from "@stencil/core";
 import clsx from "clsx";
 
-export interface InfoButtonToggleEvent {
-  originalEvent: MouseEvent;
-  active: boolean;
-}
+import { InfoButtonToggleEvent } from "./info-button.interfaces";
 
 @Component({
   tag: "dso-info-button",

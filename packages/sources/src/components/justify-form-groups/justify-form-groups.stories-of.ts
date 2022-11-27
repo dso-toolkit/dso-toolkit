@@ -26,5 +26,7 @@ export function storiesOfJustifyFormGroups<Implementation, Templates, TemplateFn
       "justify form groups",
       templateMapper((_args, { justifyFormGroupsTemplate }) => justifyFormGroupsTemplate(content))
     );
+
+    return stories;
   });
 }

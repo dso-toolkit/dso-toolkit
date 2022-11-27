@@ -33,5 +33,7 @@ export function storiesOfAttachmentsCounter<Implementation, Templates, TemplateF
         count: 3,
       },
     });
+
+    return stories;
   });
 }

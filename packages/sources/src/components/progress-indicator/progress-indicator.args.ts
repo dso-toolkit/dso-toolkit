@@ -3,9 +3,9 @@ import { ArgTypes } from "../../storybook";
 import { ProgressIndicator } from "./progress-indicator.models";
 
 export interface ProgressIndicatorArgs {
-  label?: string;
-  size?: string;
-  block?: boolean;
+  label: string;
+  size: "small" | "medium" | "large";
+  block: boolean;
 }
 
 export const progressIndicatorArgTypes: ArgTypes<ProgressIndicatorArgs> = {

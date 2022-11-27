@@ -92,5 +92,7 @@ export function storiesOfList<Implementation, Templates, TemplateFnReturnType>(
         modifier: "unstyled",
       },
     });
+
+    return stories;
   });
 }

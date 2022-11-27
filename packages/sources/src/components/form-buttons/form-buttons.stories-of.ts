@@ -108,5 +108,7 @@ export function storiesOfFormButtons<Implementation, Templates, TemplateFnReturn
         ],
       },
     });
+
+    return stories;
   });
 }

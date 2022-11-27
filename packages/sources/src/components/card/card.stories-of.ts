@@ -42,5 +42,7 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
         image: "images/rectangle1.png",
       },
     });
+
+    return stories;
   });
 }

@@ -39,5 +39,7 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
         }),
       });
     });
+
+    return stories;
   });
 }

@@ -58,5 +58,7 @@ export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType
         },
       }
     );
+
+    return stories;
   });
 }

@@ -48,5 +48,7 @@ export function storiesOfRowEqualHeights<Implementation, Templates, TemplateFnRe
       "whiteboxes",
       templateMapper((_args, { whiteboxExample }) => whiteboxExample(whiteboxes))
     );
+
+    return stories;
   });
 }

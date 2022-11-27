@@ -26,5 +26,7 @@ export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnTy
     );
 
     stories.add("Toggletip", template, {});
+
+    return stories;
   });
 }

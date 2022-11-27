@@ -4,6 +4,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
+      "packages/angular-workspace/projects/*",
       "website"
     ]
   },
@@ -14,13 +15,13 @@
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint 'packages/**/*.scss'",
     "lint:eslint": "eslint --max-warnings=0 .",
-    "build": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
-    "build-www": "yarn workspace website build && yarn workspace @dso-toolkit/storybook build && yarn workspace @dso-toolkit/react build-www",
+    "build": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace angular-workspace build component-library && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
+    "build-www": "yarn workspace website build && yarn workspace @dso-toolkit/storybook build && yarn workspace @dso-toolkit/react build-www && yarn workspace angular-workspace build-www",
     "e2e": "start-server-and-test 'http-server --silent --port 45000 packages/storybook/www' http://localhost:45000 'percy exec -- cypress run'",
-    "clear-node-modules": "npx rimraf node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
+    "clear-node-modules": "npx rimraf node_modules packages/angular-workspace/node_modules packages/angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
     "website": "yarn workspace website start",
     "reference:dom": "yarn workspace dso-toolkit gulp reference:dom",
-    "start": "yarn node scripts/start.js",
+    "start": "cross-env DSO_ENV=development yarn node scripts/start.js",
     "start:leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=leaflet yarn node scripts/start.js --mode leaflet",
     "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=react-leaflet yarn node scripts/start.js --mode react-leaflet"
   },
@@ -28,18 +29,18 @@
     "@infoprojects/eslint-config": "^1.1.0",
     "@infoprojects/prettier-config": "^1.0.0",
     "@infoprojects/stylelint-config-scss": "^1.0.0",
-    "@percy/cli": "^1.14.0",
+    "@percy/cli": "^1.16.0",
     "@percy/cypress": "^3.1.2",
-    "@typescript-eslint/eslint-plugin": "^5.42.0",
-    "@typescript-eslint/parser": "^5.42.0",
-    "axe-core": "^4.5.1",
-    "concurrently": "^7.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "axe-core": "^4.5.2",
+    "concurrently": "^7.6.0",
     "cpy-cli": "^4.2.0",
     "cross-env": "^7.0.3",
-    "cypress": "^11.0.1",
+    "cypress": "^11.2.0",
     "cypress-axe": "^1.0.0",
     "cypress-real-events": "^1.7.4",
-    "eslint": "^8.26.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-lit": "^1.6.1",
     "eslint-plugin-only-warn": "^1.0.3",
@@ -47,14 +48,17 @@
     "minimist": "^1.2.7",
     "patch-package": "^6.5.0",
     "postinstall-postinstall": "^2.1.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^14.14.1",
+    "stylelint": "^14.15.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-recommended-scss": "^8.0.0",
     "wait-on": "^6.0.1"
   },
   "prettier": "@infoprojects/prettier-config",
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.2.4",
+  "resolutions": {
+    "@types/react@^16.14.23": "18.0.25"
+  }
 }

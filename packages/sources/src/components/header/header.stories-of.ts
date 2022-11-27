@@ -67,5 +67,7 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
         userHomeUrl: "#myhome",
       },
     });
+
+    return stories;
   });
 }

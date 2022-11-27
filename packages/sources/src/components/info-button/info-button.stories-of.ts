@@ -52,5 +52,7 @@ export function storiesOfInfoButton<Implementation, Templates, TemplateFnReturnT
         secondary: true,
       },
     });
+
+    return stories;
   });
 }

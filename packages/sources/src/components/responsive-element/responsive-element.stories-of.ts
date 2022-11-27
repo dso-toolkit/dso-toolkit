@@ -35,5 +35,7 @@ export function storiesOfResponsiveElement<Implementation, Templates, TemplateFn
       "Responsive Element",
       templateMapper<ResponsiveElementArgs>((args, { gridTemplate }) => gridTemplate(args.dsoSizeChange, demoGrid))
     );
+
+    return stories;
   });
 }
