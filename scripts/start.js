@@ -13,6 +13,7 @@ rimraf.sync("packages/react/www");
 rimraf.sync("packages/leaflet/dist");
 rimraf.sync("packages/react-leaflet/dist");
 rimraf.sync("packages/angular-workspace/.angular");
+rimraf.sync("packages/angular-workspace/www");
 rimraf.sync("packages/angular-workspace/projects/component-library/src/lib/stencil-generated");
 
 const startStorybook = {
