@@ -1,11 +1,7 @@
 import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } from "@stencil/core";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
-import { FilterpanelEvent, ViewerGridChangeSizeEvent } from "./viewer-grid.interfaces";
-
-export type MainSize = "small" | "medium" | "large";
-
-export type LabelSizeMap = { [key in MainSize]: string };
+import { FilterpanelEvent, LabelSizeMap, MainSize, ViewerGridChangeSizeEvent } from "./viewer-grid.interfaces";
 
 @Component({
   tag: "dso-viewer-grid",
