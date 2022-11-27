@@ -5,7 +5,7 @@ import { ArgTypes } from "../../storybook";
 import { Banner } from "./banner.models";
 
 export interface BannerArgs {
-  status: string;
+  status: "warning" | "danger";
   onClick: HandlerFunction;
 }
 

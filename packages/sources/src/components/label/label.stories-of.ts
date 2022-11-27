@@ -74,5 +74,7 @@ export function storiesOfLabel<Implementation, Templates, TemplateFnReturnType>(
         symbol: '<span class="symboolcode" data-symboolcode="vszt030"></span>',
       },
     });
+
+    return stories;
   });
 }

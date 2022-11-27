@@ -19,5 +19,7 @@ export function storiesOfLabelGroup<Implementation, Templates, TemplateFnReturnT
     const template = templateMapper((_args, { labelGroupTemplate }) => labelGroupTemplate(labelGroupArgsMapper()));
 
     stories.add("Label Group", template);
+
+    return stories;
   });
 }

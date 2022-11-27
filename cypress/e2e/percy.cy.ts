@@ -1,4 +1,4 @@
-describe("Percy", () => {
+describe.skip("Percy", () => {
   before(() => {
     cy.visit("http://localhost:45000/")
       .get('button[title="Shortcuts"]')

@@ -6,21 +6,22 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionHeading, AccordionInternalState, AccordionSectionState, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
-import { Suggestion } from "./components/autosuggest/autosuggest";
+import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
-import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker";
-import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./components/header/header.interfaces";
-import { InfoButtonToggleEvent } from "./components/info-button/info-button";
+import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
+import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { DsoModalCloseEvent, ModalRole } from "./components/modal/modal";
+import { ModalRole } from "./components/modal/modal";
+import { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
-import { SelectableChangeEvent } from "./components/selectable/selectable";
+import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
-import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid";
+import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
     interface DsoAccordion {
         /**
@@ -388,9 +389,9 @@ export namespace Components {
     interface DsoViewerGrid {
         "filterpanelOpen": boolean;
         /**
-          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
          */
-        "initialMainSize": MainSize;
+        "initialMainSize"?: MainSize;
         "overlayOpen": boolean;
     }
 }
@@ -898,7 +899,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
-        "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderClickEvent | HeaderClickMenuItemEvent>) => void;
+        "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
         "useDropDownMenu"?: "always" | "never" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
@@ -1096,16 +1097,16 @@ declare namespace LocalJSX {
         /**
           * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
-        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
+        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<Array<TreeViewItem>>) => void;
         /**
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
-        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
+        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<Array<TreeViewItem>>) => void;
     }
     interface DsoViewerGrid {
         "filterpanelOpen"?: boolean;
         /**
-          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+          * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.  Default size is `large`.
          */
         "initialMainSize"?: MainSize;
         "onDsoCloseOverlay"?: (event: DsoViewerGridCustomEvent<MouseEvent | KeyboardEvent>) => void;

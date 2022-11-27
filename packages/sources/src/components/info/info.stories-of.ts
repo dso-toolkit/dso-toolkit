@@ -31,5 +31,7 @@ export function storiesOfInfo<Implementation, Templates, TemplateFnReturnType>(
         fixed: true,
       },
     });
+
+    return stories;
   });
 }

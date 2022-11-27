@@ -95,5 +95,7 @@ export function storiesOfAlert<Implementation, Templates, TemplateFnReturnType>(
         },
       }
     );
+
+    return stories;
   });
 }

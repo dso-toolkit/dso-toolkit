@@ -41,5 +41,7 @@ export function storiesOfBreadcrumbs<Implementation, Templates, TemplateFnReturn
         ],
       },
     });
+
+    return stories;
   });
 }

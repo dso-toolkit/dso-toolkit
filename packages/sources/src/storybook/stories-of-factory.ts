@@ -17,7 +17,7 @@ export interface StoryOfFactoryArguments<TemplateFnReturnType, StoryTemplates> {
     templateMapper: <StoryVariantArgs>(
       cb: (args: StoryVariantArgs, storyTemplates: StoryTemplates) => TemplateFnReturnType
     ) => (args: Args) => TemplateFnReturnType
-  ): void;
+  ): StoryApi<TemplateFnReturnType>;
 }
 
 export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemplates, Templates>(
@@ -51,11 +51,11 @@ export function storiesOfFactory<Implementation, TemplateFnReturnType, StoryTemp
     });
   }
 
-  factory(stories, (mapper) => (a) => {
+  return factory(stories, (mapper) => (a) => {
     // misschien fuseren met TemplateContainer.fromArgs() ?
     const { preferredImplementation } = a;
     const args = { ...a };
-    delete args.preferredImplementation;
+    delete args["preferredImplementation"];
 
     const templates = templateContainer.create(preferredImplementation, stories.kind);
 

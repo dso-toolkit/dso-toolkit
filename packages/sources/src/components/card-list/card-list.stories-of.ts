@@ -26,5 +26,7 @@ export function storiesOfCardList<Implementation, Templates, TemplateFnReturnTyp
     );
 
     stories.add("Card List", template, { args: cardListContent });
+
+    return stories;
   });
 }

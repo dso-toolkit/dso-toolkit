@@ -90,5 +90,7 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
         )
       )
     );
+
+    return stories;
   });
 }

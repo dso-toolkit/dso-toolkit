@@ -25,5 +25,7 @@ export function storiesOfImageOverlay<Implementation, Templates, TemplateFnRetur
     );
 
     stories.add("Image Overlay", template);
+
+    return stories;
   });
 }

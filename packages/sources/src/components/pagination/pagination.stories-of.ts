@@ -30,5 +30,7 @@ export function storiesOfPagination<Implementation, Templates, TemplateFnReturnT
         currentPage: 8,
       },
     });
+
+    return stories;
   });
 }

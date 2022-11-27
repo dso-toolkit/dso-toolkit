@@ -70,5 +70,7 @@ export function storiesOfFootnotes<Implementation, Templates, TemplateFnReturnTy
         }),
       }
     );
+
+    return stories;
   });
 }

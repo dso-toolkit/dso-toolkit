@@ -67,5 +67,7 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
         accordionTemplate(accordionArgsMapper(args, alignmentSections))
       )
     );
+
+    return stories;
   });
 }

@@ -6,7 +6,7 @@
   "source": "src/index.ts",
   "devDependencies": {
     "@storybook/client-api": "6.5.13",
-    "concurrently": "^7.5.0",
+    "concurrently": "^7.6.0",
     "escape-string-regexp": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

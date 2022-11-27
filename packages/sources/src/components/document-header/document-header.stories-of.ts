@@ -54,5 +54,7 @@ export function storiesOfDocumentHeader<Implementation, Templates, TemplateFnRet
         sticky: true,
       },
     });
+
+    return stories;
   });
 }

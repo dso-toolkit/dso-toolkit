@@ -1,4 +1,4 @@
 export interface Badge {
-  status?: string;
+  status?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
   message: string;
 }

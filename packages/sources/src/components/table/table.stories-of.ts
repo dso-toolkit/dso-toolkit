@@ -44,5 +44,7 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
         },
       }
     );
+
+    return stories;
   });
 }

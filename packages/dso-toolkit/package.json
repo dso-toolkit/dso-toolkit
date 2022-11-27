@@ -22,6 +22,6 @@
     "gulp-filter": "7.0.0",
     "gulp-sass": "5.1.0",
     "gulp-svgmin": "4.1.0",
-    "sass": "^1.55.0"
+    "sass": "^1.56.1"
   }
 }

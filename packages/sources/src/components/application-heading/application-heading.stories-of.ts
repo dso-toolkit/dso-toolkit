@@ -61,5 +61,7 @@ export function storiesOfApplicationHeading<Implementation, Templates, TemplateF
         step: "Stap x van x",
       },
     });
+
+    return stories;
   });
 }

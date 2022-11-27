@@ -12,6 +12,9 @@ rimraf.sync("packages/react/dist");
 rimraf.sync("packages/react/www");
 rimraf.sync("packages/leaflet/dist");
 rimraf.sync("packages/react-leaflet/dist");
+rimraf.sync("packages/angular-workspace/.angular");
+rimraf.sync("packages/angular-workspace/www");
+rimraf.sync("packages/angular-workspace/projects/component-library/src/lib/stencil-generated");
 
 const startStorybook = {
   command:
@@ -42,6 +45,12 @@ const startReact = {
   name: "react",
 };
 
+const startAngular = {
+  command:
+    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace angular-workspace storybook",
+  name: "angular",
+};
+
 const startLeaflet = {
   command:
     "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/leaflet start",
@@ -65,12 +74,17 @@ const startReactLeaflet = {
 if (!argv.mode) {
   if (argv.all) {
     // --all
-    concurrently([watchCss, watchCore, startStorybook, startReact], {
+    concurrently([watchCss, watchCore, startStorybook, startReact, startAngular], {
       killOthers: ["failure", "success"],
     });
   } else if (argv.react) {
     // --react
     concurrently([watchCss, watchCore, startReact], {
+      killOthers: ["failure", "success"],
+    });
+  } else if (argv.angular) {
+    // --angular
+    concurrently([watchCss, watchCore, startAngular], {
       killOthers: ["failure", "success"],
     });
   } else {

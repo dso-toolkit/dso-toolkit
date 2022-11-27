@@ -3,7 +3,7 @@ import { ArgTypes } from "../../storybook";
 import { Badge } from "./badge.models";
 
 export interface BadgeArgs {
-  status?: string;
+  status?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
   message: string;
 }
 

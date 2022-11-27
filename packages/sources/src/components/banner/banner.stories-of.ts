@@ -71,5 +71,7 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
         },
       }
     );
+
+    return stories;
   });
 }

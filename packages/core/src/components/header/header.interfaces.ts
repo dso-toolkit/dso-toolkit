@@ -18,3 +18,5 @@ export interface HeaderClickEvent {
 export interface HeaderClickMenuItemEvent extends HeaderClickEvent {
   menuItem: HeaderMenuItem;
 }
+
+export type HeaderEvent = HeaderClickEvent | HeaderClickMenuItemEvent;

@@ -51,5 +51,7 @@ export function storiesOfDescription<Implementation, Templates, TemplateFnReturn
         },
       }
     );
+
+    return stories;
   });
 }

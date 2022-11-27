@@ -58,5 +58,7 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
         infoRichContent,
       },
     });
+
+    return stories;
   });
 }

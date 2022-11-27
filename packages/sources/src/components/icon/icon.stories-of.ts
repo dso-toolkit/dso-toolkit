@@ -30,5 +30,7 @@ export function storiesOfIcon<Implementation, Templates, TemplateFnReturnType>(
         icon: "user",
       },
     });
+
+    return stories;
   });
 }

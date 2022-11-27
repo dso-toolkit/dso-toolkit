@@ -1,23 +1,7 @@
 import { h, Component, Prop, State, Host, Element, Event, EventEmitter, Watch } from "@stencil/core";
 import { FocusTrap, createFocusTrap } from "focus-trap";
 import { ViewerGridFilterpanelButtons } from "./viewer-grid-filterpanel-buttons";
-
-export type MainSize = "small" | "medium" | "large";
-
-export type LabelSizeMap = { [key in MainSize]: string };
-
-export interface ViewerGridChangeSizeEvent {
-  /**
-   * Indicates whether it's before or after the animation
-   */
-  stage: "start" | "end";
-  previousSize: MainSize;
-  currentSize: MainSize;
-}
-
-export interface FilterpanelEvent {
-  originalEvent: MouseEvent;
-}
+import { FilterpanelEvent, LabelSizeMap, MainSize, ViewerGridChangeSizeEvent } from "./viewer-grid.interfaces";
 
 @Component({
   tag: "dso-viewer-grid",
@@ -41,12 +25,14 @@ export class ViewerGrid {
 
   /**
    * Size of the main content panel when component loads. Changing this attribute afterwards has no effect.
+   *
+   * Default size is `large`.
    */
   @Prop()
-  initialMainSize: MainSize = "large";
+  initialMainSize?: MainSize;
 
   @State()
-  mainSize: MainSize = this.initialMainSize;
+  mainSize: MainSize = "large";
 
   @Event()
   dsoCloseOverlay!: EventEmitter<MouseEvent | KeyboardEvent>;
@@ -168,6 +154,12 @@ export class ViewerGrid {
     }
 
     this.updateFocusTrap();
+  }
+
+  componentWillLoad() {
+    if (this.initialMainSize) {
+      this.mainSize = this.initialMainSize;
+    }
   }
 
   componentDidUpdate() {

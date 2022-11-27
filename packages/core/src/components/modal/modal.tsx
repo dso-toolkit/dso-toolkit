@@ -2,9 +2,7 @@ import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, P
 import { createFocusTrap, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
-export interface DsoModalCloseEvent {
-  originalEvent?: MouseEvent;
-}
+import { DsoModalCloseEvent } from "./modal.interfaces";
 
 export type ModalRole = "alert" | "dialog" | "alertdialog";
 

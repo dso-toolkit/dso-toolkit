@@ -97,5 +97,7 @@ export function storiesOfButtonRow<Implementation, Templates, TemplateFnReturnTy
         ],
       },
     });
+
+    return stories;
   });
 }

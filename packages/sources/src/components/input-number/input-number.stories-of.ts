@@ -31,5 +31,7 @@ export function storiesOfInputNumber<Implementation, Templates, TemplateFnReturn
     );
 
     stories.add("Input Number", template);
+
+    return stories;
   });
 }

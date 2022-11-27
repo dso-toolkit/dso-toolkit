@@ -108,5 +108,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
       'Voorbeeldpagina "Document list"',
       templateMapper((_args, { documentListExampleTemplate }) => documentListExampleTemplate(documentListContent))
     );
+
+    return stories;
   });
 }

@@ -52,5 +52,7 @@ export function storiesOfWhitebox<Implementation, Templates, TemplateFnReturnTyp
         iconLabel: "afgerond",
       }),
     });
+
+    return stories;
   });
 }

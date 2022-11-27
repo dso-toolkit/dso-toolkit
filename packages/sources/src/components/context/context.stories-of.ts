@@ -38,5 +38,7 @@ export function storiesOfContext<Implementation, Templates, TemplateFnReturnType
         type: "legend",
       },
     });
+
+    return stories;
   });
 }

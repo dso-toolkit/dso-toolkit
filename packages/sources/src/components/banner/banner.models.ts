@@ -1,5 +1,5 @@
 export interface Banner<TemplateFnReturnType> {
-  status: string;
+  status: "warning" | "danger";
   content: TemplateFnReturnType;
   onClick?: (e: Event) => void;
 }

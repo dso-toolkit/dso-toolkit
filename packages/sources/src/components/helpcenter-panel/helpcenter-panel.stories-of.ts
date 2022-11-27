@@ -31,5 +31,7 @@ export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnRe
         },
       }
     );
+
+    return stories;
   });
 }

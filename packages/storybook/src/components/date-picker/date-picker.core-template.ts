@@ -3,7 +3,7 @@ import { html } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 import { ComponentImplementation } from "../../templates";
 
-import { DsoDatePickerChangeEvent } from "@dso-toolkit/core/src/components/date-picker/date-picker";
+import { DsoDatePickerChangeEvent } from "@dso-toolkit/core/src/components/date-picker/date-picker.interfaces";
 
 export const coreDatePicker: ComponentImplementation<DatePicker> = {
   component: "datePicker",

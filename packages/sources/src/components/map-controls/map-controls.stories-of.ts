@@ -44,5 +44,7 @@ export function storiesOfMapControls<Implementation, Templates, TemplateFnReturn
         mapControlsTemplate(mapControlsArgsMapper(args))
       )
     );
+
+    return stories;
   });
 }

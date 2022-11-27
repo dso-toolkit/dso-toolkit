@@ -24,7 +24,7 @@ export class TreeView implements ComponentInterface {
    * the TreeView's collection (usually set the open state on the last TreeViewItem in path).
    */
   @Event()
-  dsoOpenItem!: EventEmitter<TreeViewItem[]>;
+  dsoOpenItem!: EventEmitter<Array<TreeViewItem>>;
 
   /**
    * Emitted when a tree view item is closed.
@@ -33,7 +33,7 @@ export class TreeView implements ComponentInterface {
    * the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
    */
   @Event()
-  dsoCloseItem!: EventEmitter<TreeViewItem[]>;
+  dsoCloseItem!: EventEmitter<Array<TreeViewItem>>;
 
   /**
    * Emitted when a tree view item is clicked.

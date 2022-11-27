@@ -75,5 +75,7 @@ export function storiesOfLinkList<Implementation, Templates, TemplateFnReturnTyp
         inFooterTemplate(linkListTemplate(linkListArgsMapper(args)))
       )
     );
+
+    return stories;
   });
 }

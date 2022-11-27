@@ -35,5 +35,7 @@ export function storiesOfTile<Implementation, Templates, TemplateFnReturnType>(
         variant: "theme",
       }),
     });
+
+    return stories;
   });
 }
