@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* **core:** Core importeert `ModalRole` uit sources ([#1912](https://github.com/dso-toolkit/dso-toolkit/issues/1912)).
+
 ## 47.0.0
 
 ### Deprecated

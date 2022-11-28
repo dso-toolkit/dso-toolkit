@@ -14,8 +14,7 @@ import { HeaderClickEvent, HeaderClickMenuItemEvent, HeaderMenuItem } from "./co
 import { InfoButtonToggleEvent } from "./components/info-button/info-button";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
-import { ModalRole } from "@dso-toolkit/sources";
-import { DsoModalCloseEvent } from "./components/modal/modal";
+import { DsoModalCloseEvent, ModalRole } from "./components/modal/modal";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
