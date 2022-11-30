@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions";
-import { PartialStoryFn } from "@storybook/addons";
+import { Parameters, PartialStoryFn } from "@storybook/addons";
 
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
@@ -22,7 +22,8 @@ export function storiesOfLabel<Implementation, Templates, TemplateFnReturnType>(
     TemplateFnReturnType,
     LabelTemplates<TemplateFnReturnType>
   >,
-  { decorator }: LabelParameters<TemplateFnReturnType>
+  { decorator }: LabelParameters<TemplateFnReturnType>,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Label", storiesOfArguments, (stories, templateMapper) => {
     stories
@@ -31,6 +32,7 @@ export function storiesOfLabel<Implementation, Templates, TemplateFnReturnType>(
         args: {
           label: "Label",
         },
+        ...parameters,
       })
       .addDecorator((story) => decorator(story, css));
 

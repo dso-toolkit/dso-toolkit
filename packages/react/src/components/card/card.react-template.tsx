@@ -10,7 +10,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   template: () =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return (
-        <DsoCard onDsoCardClicked={dsoCardClicked}>
+        <DsoCard onDsoCardClicked={(e: CustomEvent) => dsoCardClicked?.(e.detail)}>
           {selectable && <DsoSelectable {...selectable}>{selectable.label}</DsoSelectable>}
           {image && <img slot="image" src={image} />}
           <a slot="heading" href="#">

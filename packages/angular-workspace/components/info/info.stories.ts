@@ -1,0 +1,21 @@
+import { storiesOf } from "@storybook/angular";
+
+import { storiesOfInfo } from "../../../sources";
+import { DsoInfo } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
+import { richContent } from "./info.content";
+
+import readme from "./readme.md";
+
+storiesOfInfo(
+  {
+    parameters: {
+      module,
+      storiesOf,
+      readme,
+    },
+    templateContainer,
+    storyTemplates: ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) }),
+  },
+  { component: DsoInfo }
+);

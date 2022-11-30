@@ -26,7 +26,7 @@ export const infoButtonArgTypes: ArgTypes<InfoButtonArgs> = {
     },
   },
   dsoToggle: {
-    action: "dsoToggle",
+    action: "dsoToggleasdf",
   },
 };
 

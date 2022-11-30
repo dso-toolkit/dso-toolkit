@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { CardContainerArgs, cardContainerArgsMapper, cardContainerArgTypes } from "./card-container.args";
 import { cardContainerContent } from "./card-container.content";
@@ -14,11 +15,13 @@ export function storiesOfCardContainer<Implementation, Templates, TemplateFnRetu
     Templates,
     TemplateFnReturnType,
     CardContainerTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Card Container", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: cardContainerArgTypes,
+      ...parameters,
     });
 
     const template = templateMapper<CardContainerArgs>((args, { cardContainerTemplate, content }) =>

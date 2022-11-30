@@ -27,7 +27,7 @@ export const coreViewerGrid: ComponentImplementation<ViewerGrid<TemplateResult>>
           @dsoMainSizeChange=${dsoMainSizeChange}
           @dsoCloseOverlay=${dsoCloseOverlay}
           @dsoFilterpanelApply=${dsoFilterpanelApply}
-          @dspFilterpanelCancel=${dsoFilterpanelCancel}
+          @dsoFilterpanelCancel=${dsoFilterpanelCancel}
           initial-main-size=${ifDefined(initialMainSize)}
         >
           ${filterpanel ? html`<div slot="filterpanel">${filterpanel}</div>` : nothing}

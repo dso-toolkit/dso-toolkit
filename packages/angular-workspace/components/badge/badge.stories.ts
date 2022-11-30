@@ -1,17 +1,17 @@
 import { storiesOf } from "@storybook/angular";
 
 import { storiesOfBadge } from "../../../sources";
-import { templateContainer } from "../../templates";
 import { DsoBadge } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
 
-import cssReadme from "./readme.md";
+import readme from "./readme.md";
 
 storiesOfBadge(
   {
     parameters: {
       module,
       storiesOf,
-      readme: cssReadme,
+      readme,
     },
     templateContainer,
     storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate }),

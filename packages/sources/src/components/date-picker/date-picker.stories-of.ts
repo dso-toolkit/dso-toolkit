@@ -1,4 +1,4 @@
-import { DecoratorFunction } from "@storybook/addons";
+import { DecoratorFunction, Parameters } from "@storybook/addons";
 import { v4 as uuidv4 } from "uuid";
 
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
@@ -23,7 +23,8 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
     TemplateFnReturnType,
     DatePickerTemplates<TemplateFnReturnType>
   >,
-  { decorator }: DatePickerParameters<TemplateFnReturnType>
+  { decorator }: DatePickerParameters<TemplateFnReturnType>,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Date Picker", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -36,6 +37,7 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
         label: "Datum",
         disabled: false,
       },
+      ...parameters,
     });
 
     const template = templateMapper<DatePickerArgs>((args, { datePickerTemplate }) =>

@@ -1,13 +1,15 @@
+import { Parameters } from "@storybook/addons";
 import { v4 as uuidv4 } from "uuid";
 
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { SelectableArgs, selectableArgsMapper, selectableArgTypes } from "./selectable.args";
-import { infoRichContent } from "./selectable.content";
+// import { infoRichContent } from "./selectable.content";
 import { Selectable } from "./selectable.models";
 
 export interface SelectableTemplates<TemplateFnReturnType> {
   selectableTemplate: (selectableProperties: Selectable<TemplateFnReturnType>) => TemplateFnReturnType;
+  infoRichContent: TemplateFnReturnType;
 }
 
 export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnType>(
@@ -16,7 +18,8 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     SelectableTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Selectable", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -34,10 +37,11 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
         required: false,
         value: "the-value",
       },
+      ...parameters,
     });
 
-    const template = templateMapper<SelectableArgs<TemplateFnReturnType>>((args, { selectableTemplate }) =>
-      selectableTemplate(selectableArgsMapper(args))
+    const template = templateMapper<SelectableArgs<TemplateFnReturnType>>(
+      (args, { selectableTemplate, infoRichContent }) => selectableTemplate(selectableArgsMapper(args, infoRichContent))
     );
 
     stories.add("radio", template, {
@@ -55,7 +59,6 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
     stories.add("with info", template, {
       args: {
         infoFixed: false,
-        infoRichContent,
       },
     });
 

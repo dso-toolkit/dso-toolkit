@@ -1,3 +1,4 @@
+import { DecoratorFunction, Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { HeaderArgs, headerArgsMapper, headerArgTypes } from "./header.args";
 import { Header } from "./header.models";
@@ -12,12 +13,19 @@ export function storiesOfHeader<Implementation, Templates, TemplateFnReturnType>
     Templates,
     TemplateFnReturnType,
     HeaderTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters,
+  decorator?: DecoratorFunction<TemplateFnReturnType>
 ) {
   return storiesOfFactory("Header", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: headerArgTypes,
+      ...parameters,
     });
+
+    if (decorator) {
+      stories.addDecorator(decorator);
+    }
 
     const template = templateMapper<HeaderArgs>((args, { headerTemplate }) => headerTemplate(headerArgsMapper(args)));
 

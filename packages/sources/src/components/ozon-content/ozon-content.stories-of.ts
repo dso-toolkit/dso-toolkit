@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { componentArgs } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
@@ -15,11 +16,13 @@ export function storiesOfOzonContent<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     OzonContentTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Ozon Content", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: ozonContentArgTypes,
+      ...parameters,
     });
 
     const template = templateMapper<OzonContentArgs>((args, { ozonContentTemplate }) =>

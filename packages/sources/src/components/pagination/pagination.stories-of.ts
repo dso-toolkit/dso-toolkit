@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { PaginationArgs, paginationArgsMapper, paginationArgTypes } from "./pagination.args";
@@ -13,11 +14,13 @@ export function storiesOfPagination<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     PaginationTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Pagination", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: paginationArgTypes,
+      ...parameters,
     });
 
     const template = templateMapper<PaginationArgs>((args, { paginationTemplate }) =>

@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { componentArgs } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
@@ -71,11 +72,13 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     ModalTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Modal", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: modalArgTypes,
+      ...parameters,
     });
 
     stories.add(

@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { IconArgs, iconArgsMapper, iconArgTypes } from "./icon.args";
@@ -13,7 +14,8 @@ export function storiesOfIcon<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     IconTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Icon", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -21,6 +23,7 @@ export function storiesOfIcon<Implementation, Templates, TemplateFnReturnType>(
       args: {
         icon: "user",
       },
+      ...parameters,
     });
 
     const template = templateMapper<IconArgs>((args, { iconTemplate }) => iconTemplate(iconArgsMapper(args)));

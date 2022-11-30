@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { ResponsiveElementArgs, responsiveElementArgTypes } from "./responsive-element.args";
@@ -24,11 +25,13 @@ export function storiesOfResponsiveElement<Implementation, Templates, TemplateFn
     Templates,
     TemplateFnReturnType,
     ResponsiveElementTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Responsive Element", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: responsiveElementArgTypes,
+      ...parameters,
     });
 
     stories.add(

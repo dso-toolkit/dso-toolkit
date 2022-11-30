@@ -108,14 +108,15 @@ export const selectableArgTypes: ArgTypes<SelectableArgs<unknown>> = {
 };
 
 export function selectableArgsMapper<TemplateFnReturnType>(
-  a: SelectableArgs<TemplateFnReturnType>
+  a: SelectableArgs<TemplateFnReturnType>,
+  infoRichContent: TemplateFnReturnType
 ): Selectable<TemplateFnReturnType> {
   return {
     ...a,
-    info: a.infoRichContent
+    info: infoRichContent
       ? {
           dsoClose: (e) => a.infoClosed(e),
-          content: a.infoRichContent,
+          content: infoRichContent,
           active: a.infoActive,
           fixed: a.infoFixed,
         }

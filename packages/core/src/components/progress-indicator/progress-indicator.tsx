@@ -9,7 +9,7 @@ export class Progressindicator {
   @Prop()
   label?: string;
 
-  @Prop()
+  @Prop({ reflect: true })
   size?: "small" | "medium" | "large";
 
   @Prop()

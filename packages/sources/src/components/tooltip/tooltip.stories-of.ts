@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { TooltipArgs, tooltipArgsMapper, tooltipArgTypes } from "./tooltip.args";
 import { Tooltip } from "./tooltip.models";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
+import { Parameters } from "@storybook/addons";
 
 export interface TooltipTemplates<TemplateFnReturnType> {
   tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;
@@ -17,11 +18,13 @@ export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType
     Templates,
     TemplateFnReturnType,
     TooltipTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Tooltip", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: tooltipArgTypes,
+      ...parameters,
     });
 
     stories.add(

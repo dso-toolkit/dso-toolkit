@@ -1,3 +1,4 @@
+import { DecoratorFunction, Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { HighlightBoxArgs, highlightBoxArgsMapper, highlightBoxArgTypes } from "./highlight-box.args";
@@ -14,7 +15,9 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     HighlightBoxTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters,
+  decorator?: DecoratorFunction<TemplateFnReturnType>
 ) {
   return storiesOfFactory("Highlight Box", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -28,7 +31,12 @@ export function storiesOfHighlightBox<Implementation, Templates, TemplateFnRetur
         icon: null,
         bannerImage: false,
       },
+      ...parameters,
     });
+
+    if (decorator) {
+      stories.addDecorator(decorator);
+    }
 
     const template = templateMapper<HighlightBoxArgs>((args, { highlightBoxTemplate, content }) =>
       highlightBoxTemplate(highlightBoxArgsMapper(args, content))

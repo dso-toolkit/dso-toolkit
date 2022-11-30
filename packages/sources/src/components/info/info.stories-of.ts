@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { InfoArgs, infoArgsMapper, infoArgTypes } from "./info.args";
 import { Info } from "./info.models";
@@ -13,11 +14,13 @@ export function storiesOfInfo<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     InfoTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Info", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: infoArgTypes,
+      ...parameters,
     });
 
     const template = templateMapper<InfoArgs>((args, { infoTemplate, richContent }) =>

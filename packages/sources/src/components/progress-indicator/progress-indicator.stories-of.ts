@@ -1,3 +1,4 @@
+import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import {
@@ -17,11 +18,13 @@ export function storiesOfProgressIndicator<Implementation, Templates, TemplateFn
     Templates,
     TemplateFnReturnType,
     ProgressIndicatorTemplates<TemplateFnReturnType>
-  >
+  >,
+  parameters?: Parameters
 ) {
   return storiesOfFactory("Progress Indicator", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: progressIndicatorArgTypes,
+      ...parameters,
     });
 
     const template = templateMapper<ProgressIndicatorArgs>((args, { progressIndicatorTemplate }) =>

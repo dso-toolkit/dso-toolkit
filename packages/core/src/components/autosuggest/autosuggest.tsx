@@ -99,7 +99,7 @@ export class Autosuggest {
     }
   }
 
-  input!: HTMLInputElement;
+  input?: HTMLInputElement;
 
   listbox: HTMLUListElement | undefined;
 
@@ -152,45 +152,47 @@ export class Autosuggest {
   }
 
   connectedCallback() {
-    const input = this.host.querySelector('input[type="text"]');
-    if (!(input instanceof HTMLInputElement)) {
-      throw new ReferenceError("Mandatory text input not found");
-    }
+    setTimeout(() => {
+      const input = this.host.querySelector('input[type="text"]');
+      if (!(input instanceof HTMLInputElement)) {
+        throw new ReferenceError("Mandatory text input not found");
+      }
 
-    this.input = input;
-    if (input.id) {
-      this.inputId = input.id;
-    } else {
-      input.id = this.inputId;
-    }
+      this.input = input;
+      if (input.id) {
+        this.inputId = input.id;
+      } else {
+        input.id = this.inputId;
+      }
 
-    if (!this.input.labels || this.input.labels.length < 1) {
-      throw new ReferenceError("Mandatory label for text input not found");
-    }
+      if (!this.input.labels || this.input.labels.length < 1) {
+        throw new ReferenceError("Mandatory label for text input not found");
+      }
 
-    const label = this.input.labels[0];
-    if (label.id) {
-      this.labelId = label.id;
-    } else {
-      label.id = this.labelId;
-    }
+      const label = this.input.labels[0];
+      if (label.id) {
+        this.labelId = label.id;
+      } else {
+        label.id = this.labelId;
+      }
 
-    this.input.setAttribute("role", "combobox");
-    this.input.setAttribute("aria-haspopup", "listbox");
-    this.input.setAttribute("aria-controls", this.listboxId);
-    this.input.setAttribute("aria-expanded", "false");
-    this.input.setAttribute("autocomplete", "off");
-    this.input.setAttribute("aria-autocomplete", "list");
-    this.input.setAttribute("aria-activedescendant", "");
-    this.input.addEventListener("input", this.onInput);
-    this.input.addEventListener("keydown", this.onKeyDown);
-    this.input.addEventListener("focusin", this.onFocusIn);
+      this.input.setAttribute("role", "combobox");
+      this.input.setAttribute("aria-haspopup", "listbox");
+      this.input.setAttribute("aria-controls", this.listboxId);
+      this.input.setAttribute("aria-expanded", "false");
+      this.input.setAttribute("autocomplete", "off");
+      this.input.setAttribute("aria-autocomplete", "list");
+      this.input.setAttribute("aria-activedescendant", "");
+      this.input.addEventListener("input", this.onInput);
+      this.input.addEventListener("keydown", this.onKeyDown);
+      this.input.addEventListener("focusin", this.onFocusIn);
+    });
   }
 
   disconnectedCallback() {
-    this.input.removeEventListener("input", this.onInput);
-    this.input.removeEventListener("keydown", this.onKeyDown);
-    this.input.removeEventListener("focusin", this.onFocusIn);
+    this.input?.removeEventListener("input", this.onInput);
+    this.input?.removeEventListener("keydown", this.onKeyDown);
+    this.input?.removeEventListener("focusin", this.onFocusIn);
   }
 
   markTerms(suggestionValue: string, terms: string[]): (VNode | string)[] {
@@ -220,7 +222,7 @@ export class Autosuggest {
   selectSuggestion(suggestion: Suggestion) {
     this.selectedSuggestion = suggestion;
 
-    this.input.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
+    this.input?.setAttribute("aria-activedescendant", this.listboxItemId(suggestion));
   }
 
   selectFirstSuggestion() {
@@ -231,7 +233,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[0];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -243,7 +245,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[this.suggestions.length - 1];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -257,7 +259,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[index + 1] ?? this.suggestions[0];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -271,7 +273,7 @@ export class Autosuggest {
     this.selectedSuggestion = this.suggestions[index - 1] ?? this.suggestions[this.suggestions.length - 1];
 
     if (this.selectedSuggestion) {
-      this.input.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
+      this.input?.setAttribute("aria-activedescendant", this.listboxItemId(this.selectedSuggestion));
     }
   }
 
@@ -279,13 +281,13 @@ export class Autosuggest {
     this.showLoading = !this.loadingDelayed;
     this.notFound = false;
     this.selectedSuggestion = undefined;
-    this.input.setAttribute("aria-activedescendant", "");
+    this.input?.setAttribute("aria-activedescendant", "");
   }
 
   openSuggestions(selectSuggestion?: "first" | "last") {
     this.showSuggestions = (this.suggestions && this.suggestions.length > 0) ?? false;
     this.notFound = this.suggestions?.length === 0 ?? false;
-    this.input.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
+    this.input?.setAttribute("aria-expanded", (this.showSuggestions || this.notFound).toString());
 
     if (this.showSuggestions && selectSuggestion === "first") {
       this.selectFirstSuggestion();
@@ -297,7 +299,7 @@ export class Autosuggest {
   closeSuggestions() {
     this.showSuggestions = false;
     this.notFound = false;
-    this.input.setAttribute("aria-expanded", "false");
+    this.input?.setAttribute("aria-expanded", "false");
     this.selectFirstSuggestion();
   }
 
@@ -305,7 +307,7 @@ export class Autosuggest {
     if (this.selectedSuggestion && this.showSuggestions) {
       this.dsoSelect.emit(this.selectedSuggestion);
     } else {
-      this.dsoSearch.emit(this.input.value);
+      this.dsoSearch.emit(this.input?.value);
     }
 
     this.closeSuggestions();
@@ -362,7 +364,7 @@ export class Autosuggest {
   }
 
   render() {
-    const terms = this.input.value.split(" ").filter((t) => t);
+    const terms = this.input?.value.split(" ").filter((t) => t) ?? [];
 
     return (
       <>
