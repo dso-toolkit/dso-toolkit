@@ -2,7 +2,7 @@ describe("Percy", () => {
   before(() => {
     cy.visit("http://localhost:45000/?path=/story/html-css-accordion--default")
       .get("#storybook-preview-iframe")
-      .should("be.visible")
+      .then(($iframe) => new Cypress.Promise((resolve) => $iframe.on("load", () => resolve())))
       .get('button[title="Shortcuts"]')
       .should(($shortcuts) => {
         expect(Cypress.dom.isDetached($shortcuts)).to.eq(false);
