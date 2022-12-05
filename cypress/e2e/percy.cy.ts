@@ -1,7 +1,13 @@
-describe.skip("Percy", () => {
+describe("Percy", () => {
   before(() => {
-    cy.visit("http://localhost:45000/")
+    cy.visit("http://localhost:45000/?path=/story/html-css-accordion--default")
+      .get("#storybook-preview-iframe")
+      .then(($iframe) => new Cypress.Promise((resolve) => $iframe.on("load", () => resolve())))
       .get('button[title="Shortcuts"]')
+      .should(($shortcuts) => {
+        expect(Cypress.dom.isDetached($shortcuts)).to.eq(false);
+      })
+      .should("be.visible")
       .click()
       .get("#collapse")
       .click()
