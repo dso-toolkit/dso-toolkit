@@ -5,131 +5,129 @@ sidebar_position: 2
 import { ColorSwatch } from "@site/src/components/ColorSwatch";
 
 # Kleuren
+Goed kleurgebruik is essentieel om een gebruiker te ondersteunen in het gebruik van een website. Slecht kleurgebruik daarintegen maakt een website ontoegankelijk. Daarom staan op deze pagina niet alleen de kleuren, maar ook hoe deze toe te passen.
 
+## Toegankelijkheid en kleur
+### Geef geen betekenissen aan kleuren
+Een succes criteria van de WCAG is <a href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">1.4.1 Use of Color</a>:
+
+<blockquote>Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.</blockquote>
+
+#### Gebruik dus nooit alleen kleur om te communiceren met een gebruiker. 
+Sommige kleuren hebben online een betekenis gekregen omdat vele websites een aantal kleuren voor specifieke situaties gebruikt. Rood = fout, Geel = pas op, Groen = succes. Ook al gebruiken vele websites dit patroon, kleur alleen is niet genoeg! Juist wanneer je een van deze kleuren toepast wees dan extra waakzaam. Zorg ervoor dat via de tekst en context de boodschap ook overkomt voor mensen die de kleuren niet kunnen zien.
+
+### Contrast tussen kleuren
+Essentieel kleurencontrast wordt benoemd in succes criteria <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">1.4.3 Contrast (minimum)</a>:
+
+
+<blockquote>The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for ...</blockquote>
+
+Alle kleuren en tekst combinaties die je op deze pagina ziet, voldoen aan de WCAG AA contrast waarde van 4.5:1. Contrast kun checken op een website zoals <a href="https://webaim.org/resources/contrastchecker/">Webaim</a>. 
+
+*Er zijn uitzonderingen voor de 4.5:1 waarde. Deze zijn alleen van toepassing op grote tekst, decoratieve elementen en logo's. Voor speciefiek uitleg zie het <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">WCAG succescriteria.</a>*
+ 
 ## Primaire kleuren
+Groen is de basis kleur van DSO en zorgt voor een rustige en natuurlijke uitstraling. De kleuren voor het
+beeldscherm moeten voldoende contrast hebben in verband met Leesbaarheid. Gebruik nooit de
+printwaarden voor online. Bosgroen gebruiken we voor titels, menu, etc. Grasgroen veelal voor
+interactieve elementen. En de steunkleur Mauve voor ondersteunende UI elementen
 
-Binnen het DSO gebruiken we vaste kleuren voor bepaalde functionaliteiten. Zo kunnen gebruikers de functionaliteit makkelijker herkennen. Hier leest u welke kleuren u waarvoor gebruikt.
-
-### Groen
-
-Groen is de basiskleur voor het ontwerp van het DSO. Het geeft een rustige en natuurlijke uitstraling.
+### Bosgroen
 
 #### Gebruiken voor
-
 - Titels
 - Subtitels
 - Menutekst
-- Knoppen
-- Steunkleuren
 
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Grasgroen" name="grasgroen" rgb="rgb(57, 135, 12)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Grasgroen 80%" name="grasgroen-80" rgb="rgb(96, 159, 60)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Grasgroen 40%" name="grasgroen-40" rgb="rgb(175, 207, 157)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Grasgroen 10%" name="grasgroen-10" rgb="rgb(235, 243, 230)" />
-  </div>
-</div>
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Bosgroen" name="bosgroen" rgb="rgb(39, 89, 55)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Bosgroen 80%" name="bosgroen-80" rgb="rgb(82, 122, 94)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Bosgroen 40%" name="bosgroen-40" rgb="rgb(168, 188, 175)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Bosgroen 10%" name="bosgroen-10" rgb="rgb(233, 238, 235)" />
-  </div>
-</div>
+Bosgroen komt vaak voor in titels (headings) van het DSO. Deze titels zijn meestal statisch, wil je een interactieve titel zet er dan een icoon voor of achter. Zoals bij card list en documentheader, zodat de gebruiker weet dat interactie mogelijk is.
 
-### Lime
+<ColorSwatch label="Bosgroen" name="bosgroen" rgb="rgb(39, 89, 55)" textcolor="wit"/>
+<ColorSwatch label="Bosgroen 80%" name="bosgroen-80" rgb="rgb(82, 122, 94)" textcolor="wit"/>
+<ColorSwatch label="Bosgroen 60%" name="bosgroen-60" rgb="rgb(125, 155, 135)" textcolor="grijs-90"/>
+<ColorSwatch label="Bosgroen 40%" name="bosgroen-40" rgb="rgb(168, 188, 175)" textcolor="grijs-90"/>
+<ColorSwatch label="Bosgroen 10%" name="bosgroen-10" rgb="rgb(233, 238, 235)" textcolor="grijs-90"/>
+<ColorSwatch label="Bosgroen 140%" name="bosgroen-140" rgb="rgb(23, 53, 33)" textcolor="wit"/>
 
-Gebruik de kleur lime voor niet-essentiële beeldmerken, zoals het toevoegen van vinkjes na een successvolle post. Het is geen interactiekleur, in tegenstelling tot andere groenkleuren.
-
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Lime" name="lime" rgb="rgb(121, 185, 41)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Lime 20%" name="lime-20" rgb="rgb(228, 241, 212)" />
-  </div>
-</div>
-
-### Mauve
-
-Mauve is een accentkleur voor componenten in de Toolkit. Het wordt gebruikt als indicator voor het actieve menu en als achtergrond kleur voor de accordion.
+### Grasgroen
 
 #### Gebruiken voor
+- Call to action
+- Knoppen
+- Interacties
 
+Grasgroen is onze hoofdinteractie kleur. Is iets grasgroen? Dan is het aanklikbaar. Gebruik deze kleur dus niet ter decoratie. 
+
+<ColorSwatch label="Grasgroen" name="grasgroen" rgb="rgb(57, 135, 12)" textcolor="wit"/>
+<ColorSwatch label="Grasgroen 80%" name="grasgroen-80" rgb="rgb(96, 159, 60)" textcolor="grijs-90"/>
+<ColorSwatch label="Grasgroen 40%" name="grasgroen-40" rgb="rgb(175, 207, 157)" textcolor="grijs-90"/>
+<ColorSwatch label="Grasgroen 10%" name="grasgroen-10" rgb="rgb(235, 243, 230)" textcolor="grijs-90"/>
+
+### Mauve
+Mauve is een accentkleur voor componenten in de Toolkit. Het wordt gebruikt als indicator voor het actieve menu en als achtergrond kleur voor de accordion.
+ 
+#### Gebruiken voor
 - Accenten
 - Indicatoren
 
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Mauve" name="mauve" rgb="rgb(140, 75, 107)" />
-  </div>
-</div>
+<ColorSwatch label="Mauve" name="mauve" rgb="rgb(140, 75, 107)" textcolor="wit"/>
+<ColorSwatch label="Mauve 40%" name="mauve-40" rgb="rgb(209, 183, 196)" textcolor="grijs-90"/>
 
-### Zwart
 
-"Zwart 90%" is minder intensief dan echt zwart en verhoogt de leesbaarheid als er lange stukken tekst op de pagina staan.
+## Steunkleuren
 
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Zwart 90%" name="grijs-90" rgb="rgb(25, 25, 25)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Zwart 60%" name="grijs-60" rgb="rgb(102, 102, 102)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Zwart 10%" name="grijs-10" rgb="rgb(229, 229, 229)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Zwart 5%" name="grijs-5" rgb="rgb(242, 242, 242)" />
-  </div>
-</div>
+### Neutrale kleuren
+Voor bodytekst gebruiken we hoofdzakelijk zwart. 90% zwart is minder intensief dan vol zwart en
+verhoogt de leesbaarheid als er lange stukken tekst op de pagina staan. De grijstinten komen voor als
+onderscheidende achtergrond of scheidingsijn
+
+<ColorSwatch label="Zwart 90%" name="grijs-90" rgb="rgb(25, 25, 25)" textcolor="wit"/>
+<ColorSwatch label="Zwart 60%" name="grijs-60" rgb="rgb(102, 102, 102)" textcolor="wit"/>
+<ColorSwatch label="Zwart 40%" name="grijs-40" rgb="rgb(153, 153, 153)" textcolor="grijs-90"/>
+<ColorSwatch label="Zwart 20%" name="grijs-20" rgb="rgb(204, 204, 204)" textcolor="grijs-90"/>
+<ColorSwatch label="Zwart 10%" name="grijs-10" rgb="rgb(229, 229, 229)" textcolor="grijs-90"/>
+<ColorSwatch label="Zwart 5%" name="grijs-5" rgb="rgb(242, 242, 242)" textcolor="grijs-90"/>
 
 ## Secundaire kleurenpalet
-
-U kunt de secundaire kleuren gebruiken als u meer kleuren nodig heeft dan er primaire
-kleuren zijn. Denk bijvoorbeeld aan tabellen of grafieken waar u met kleurvariatie verschillende waarden duidelijk maakt.
+De secundaire kleuren zijn ontwikkeld naast de communicatiekleuren en zijn ontstaan vanuit de
+basiselementen: Aarde Water Lucht en Vuur. Warme en koude keuren die de communicatiekleuren
+aanvullen. Deze kleuren kun je gebruiken als de communicatiekleuren niet toereikend zijn. Bijvoorbeeld
+in tabellen en grafieken waar meer kleurvariatie nodig is om duidelijk onderscheid te kunnen maken in
+verschillende waarden of legenda's. Dus nooit als steunkleur voor accenten in de reguliere opmaak, Dan
+gebruikje uitsluitend het primaire kleurenpalet
 
 **Let op: gebruik deze kleuren alleen als het niet lukt met de primaire kleuren.**
 
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Geel" name="geel" rgb="rgb(220, 213, 0)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Rood" name="rood" rgb="rgb(206, 63, 81)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Mintgroen" name="mintgroen" rgb="rgb(63, 180, 152)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Mauve" name="mauve" rgb="rgb(140, 75, 107)" />
-  </div>
-</div>
-<div className="row">
-  <div className="col">
-    <ColorSwatch label="Paars" name="scampi" rgb="rgb(104, 108, 176)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Donkerblauw" name="donkerblauw" rgb="rgb(43, 87, 129)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Lichtblauw" name="lichtblauw" rgb="rgb(108, 165, 218)" />
-  </div>
-  <div className="col">
-    <ColorSwatch label="Bruin" name="bruin" rgb="rgb(100, 80, 74)" />
-  </div>
-</div>
+<ColorSwatch label="Bruin" name="bruin" rgb="rgb(100, 80, 74)" textcolor="wit"/>
+<ColorSwatch label="Rood" name="rood" rgb="rgb(206, 63, 81)" textcolor="wit"/>
+<ColorSwatch label="Paars" name="scampi" rgb="rgb(104, 108, 176)" textcolor="wit"/>
+<ColorSwatch label="Donkerblauw" name="donkerblauw" rgb="rgb(43, 87, 129)" textcolor="wit"/> 
+
+<ColorSwatch label="Lichtblauw" name="lichtblauw" rgb="rgb(108, 165, 218)" textcolor="grijs-90"/>
+<ColorSwatch label="Lime" name="lime" rgb="rgb(121, 185, 41)" textcolor="grijs-90"/>
+<ColorSwatch label="Geel" name="geel" rgb="rgb(220, 213, 0)" textcolor="grijs-90"/>
+<ColorSwatch label="Oranje" name="oranje" rgb="rgb(225, 112, 0)" textcolor="grijs-90"/>
+
+### Opmerkingen secundaire kleuren
+Ter herhaling, communiceer niet alleen met kleur je boodschap. Hieronder staan de kleuren die het vaakst een betekenis mee krijgen. Let bij deze kleuren dus extra op.
+
+#### Rood
+Rood wordt vaak gebruikt voor foutsituaties. Een industriestandaard. Zorg er altijd voor dat de foutmeldingen helder en duidelijk zijn voor elke gebruiker. Als de kleur wegvalt moet de tekst en context communiceren dat er iets is fout gegaan.
+<ColorSwatch label="Rood" name="rood" rgb="rgb(206, 63, 81)" textcolor="wit"/>
+<ColorSwatch label="Rood 20%" name="rood-20" rgb="rgb(245, 217, 220)" textcolor="grijs-90"/>
+<ColorSwatch label="Rood 110%" name="rood-110" rgb="rgb(182, 47, 65)" textcolor="wit"/>
+
+#### Geel
+Geel is een waarschuwingskleur maar niet altijd. Hier geldt net als voor foutmeldingen: Communiceer duidelijk met de tekst de aard van een waarschuwing als het een waarschuwing is. 
+<ColorSwatch label="Geel" name="geel" rgb="rgb(220, 213, 0)" textcolor="grijs-90"/>
+<ColorSwatch label="Geel 20%" name="geel-20" rgb="rgb(228, 241, 212)" textcolor="grijs-90"/>
+
+#### Lime
+Gebruik de kleur lime voor niet-essentiële beeldmerken, zoals het toevoegen van vinkjes
+na een successvolle post. Het is geen interactiekleur, in tegenstelling tot andere groenkleuren.
+<ColorSwatch label="Lime" name="lime" rgb="rgb(121, 185, 41)" textcolor="grijs-90"/>
+<ColorSwatch label="Lime 20%" name="lime-20" rgb="rgb(228, 241, 212)" textcolor="grijs-90"/>
+
+#### Blauw
+Online wordt blauw vaak gebruik als informatie indicator. Gebruik het niet teveel. Als een kleur of kleurvakken teveel gebruikt worden gaan mensen deze negeren. 
+<ColorSwatch label="Lichtblauw" name="lichtblauw" rgb="rgb(108, 165, 218)" textcolor="grijs-90"/>
+<ColorSwatch label="Lichtblauw 20%" name="lichtblauw-20" rgb="rgb(226, 237, 247)" textcolor="grijs-90"/>

@@ -7,7 +7,7 @@ $grasgroen-80: #609f3c; //  80% tint       - Normal text: WCAG AA: Fail;  WCAG A
 $grasgroen-40: #afcf9d; //  40% tint       - niet te gebruiken als leestekst
 $grasgroen-10: #ebf3e6; //  10% tint       - niet te gebruiken als leestekst
 
-$bosgroen-130: #15301e; // 130% tint
+$bosgroen-140: #173521; // 130% tint
 $bosgroen: #275937; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-80: #527a5e; //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-60: #7d9886; //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
@@ -33,12 +33,12 @@ $wit: #fff;
 $lime: #79b929;
 $lime-20: #e4f1d4;
 $rood: #ce3f51;
-$rood-40: #f5d8dc;
+$rood-20: #f5d8dc;
 $rood-110: #b62f41;
 $geel: #dcd400;
-$geel-40: #f8f6cc;
+$geel-20: #f8f6cc;
 $lichtblauw: #6ca4d9;
-$lichtblauw-40: #e1ecf7;
+$lichtblauw-20: #e1ecf7;
 
 $donkerblauw: #2b5780;
 $mintgroen: #3fb498;
@@ -53,9 +53,9 @@ $danger-color: $rood;
 $invalid-color: $rood-110;
 
 $success-bg-color: $lime-20;
-$info-bg-color: $lichtblauw-40;
-$warning-bg-color:$geel-40;
-$danger-bg-color: $rood-40;
+$info-bg-color: $lichtblauw-20;
+$warning-bg-color:$geel-20;
+$danger-bg-color: $rood-20;
 
 $input-color-placeholder: $grijs-60;
 $input-bg: $wit;

@@ -3,26 +3,38 @@
 /* stylelint-disable property-no-unknown -- unknown properties are used as objet propertes in ColorSwatch/index.ts */
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown -- :export psuedo is needed for scss module import in ColorSwatch/index.ts */
 :export {
-  bruin: colors.$bruin;
-  lichtblauw: colors.$lichtblauw;
-  donkerblauw: colors.$donkerblauw;
-  scampi: colors.$scampi;
-  mauve: colors.$mauve;
-  mintgroen: colors.$mintgroen;
-  rood: colors.$rood;
-  geel: colors.$geel;
+  wit: colors.$wit;
   grijs-5: colors.$grijs-5;
   grijs-10: colors.$grijs-10;
+  grijs-20: colors.$grijs-20;
+  grijs-40: colors.$grijs-40;
   grijs-60: colors.$grijs-60;
   grijs-90: colors.$grijs-90;
-  lime: colors.$lime;
-  lime-20: colors.$lime-20;
+  zwart: colors.$zwart;
   bosgroen-10: colors.$bosgroen-10;
   bosgroen-40: colors.$bosgroen-40;
+  bosgroen-60: colors.$bosgroen-60;
   bosgroen-80: colors.$bosgroen-80;
+  bosgroen-140: colors.$bosgroen-140;
   bosgroen: colors.$bosgroen;
   grasgroen-10: colors.$grasgroen-10;
   grasgroen-40: colors.$grasgroen-40;
   grasgroen-80: colors.$grasgroen-80;
   grasgroen: colors.$grasgroen;
+  mauve: colors.$mauve;
+  mauve-40: colors.$mauve-40;
+  rood: colors.$rood;
+  rood-20: colors.$rood-20;
+  rood-110: colors.$rood-110;
+  geel: colors.$geel;
+  geel-20: colors.$geel-20;
+  lime: colors.$lime;
+  lime-20: colors.$lime-20;
+  lichtblauw: colors.$lichtblauw;
+  lichtblauw-20: colors.$lichtblauw-20;
+  donkerblauw: colors.$donkerblauw;
+  scampi: colors.$scampi;
+  mintgroen: colors.$mintgroen;
+  bruin: colors.$bruin;
+  oranje: colors.$oranje;
 }
