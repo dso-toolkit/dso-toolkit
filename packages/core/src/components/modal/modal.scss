@@ -2,10 +2,6 @@
 @use "~@dso-toolkit/sources/src/components/button";
 @use "~@dso-toolkit/sources/src/components/modal";
 
-:host {
-  @include modal.root();
-}
-
 @include utilities.box-sizing();
 
 .sr-only {
@@ -14,6 +10,14 @@
 
 button {
   @include button.element();
+}
+
+.dso-modal {
+  @include modal.root();
+}
+
+.dso-modal-overlay {
+  @include modal.overlay();
 }
 
 .dso-close {

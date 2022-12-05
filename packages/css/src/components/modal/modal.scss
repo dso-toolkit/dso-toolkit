@@ -1,6 +1,7 @@
 @use "@dso-toolkit/sources/src/variables/media-query-breakpoints";
 @use "@dso-toolkit/sources/src/variables/zindex";
 @use "@dso-toolkit/sources/src/components/button";
+@use "@dso-toolkit/sources/src/components/rich-content";
 @use "@dso-toolkit/sources/src/components/modal";
 
 @use "../../di";
@@ -10,15 +11,9 @@ body.dso-modal-open {
     overflow: hidden;
 
     &::before {
-      background-color: fade-out(modal.$backdrop-bg, modal.$backdrop-opacity);
-      bottom: 0;
+      @include modal.overlay();
+
       content: "";
-      display: block;
-      left: 0;
-      position: fixed;
-      right: 0;
-      top: 0;
-      z-index: zindex.$modal - 5;
     }
   }
 
@@ -56,7 +51,13 @@ body.dso-modal-open {
 }
 
 dso-modal {
+  *[slot="body"] {
+    @include rich-content.children();
+  }
+
   div[slot="footer"] {
+    @include modal.modal-wide-buttons();
+
     .dso-tertiary,
     .btn-link {
       float: left;

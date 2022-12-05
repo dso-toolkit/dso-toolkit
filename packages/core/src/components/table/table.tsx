@@ -67,6 +67,8 @@ export class Table implements ComponentInterface, TableInterface {
           <div class="dso-table-placeholder" style={{ height: `${this.placeholderHeight}px` }} />
         )}
 
+        {this.modalActive && <div class="dso-modal-overlay"></div>}
+
         <div class={{ "dso-modal": this.modalActive }}>
           <div
             class={{ "dso-dialog": this.modalActive, "dso-table-dialog": true }}
@@ -119,13 +121,11 @@ export class Table implements ComponentInterface, TableInterface {
 
   private openModal() {
     this.placeholderHeight = this.host.clientHeight;
-    document.body.classList.add("dso-modal-open");
     this.modalActive = true;
   }
 
   private closeModal() {
     this.placeholderHeight = undefined;
-    document.body.classList.remove("dso-modal-open", "dso-modal-open");
     this.modalActive = false;
   }
 

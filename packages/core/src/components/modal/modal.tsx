@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop, State } from "@stencil/core";
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Fragment, Prop, State } from "@stencil/core";
 import { createFocusTrap, FocusTrap } from "focus-trap";
 import { v4 } from "uuid";
 
@@ -12,11 +12,11 @@ export type ModalRole = "alert" | "dialog" | "alertdialog";
   shadow: true,
 })
 export class Modal implements ComponentInterface {
-  private static modalOpenClass = "dso-modal-open";
-
   private trap?: FocusTrap;
 
   private dialogElement?: HTMLDivElement;
+
+  private modalElement?: HTMLDivElement;
 
   @Element()
   host!: HTMLElement;
@@ -46,48 +46,53 @@ export class Modal implements ComponentInterface {
   }
 
   componentDidLoad(): void {
-    document.body.classList.add(Modal.modalOpenClass);
-
     this.setFocusTrap();
   }
 
   disconnectedCallback(): void {
-    document.body.classList.remove(Modal.modalOpenClass);
-
     this.trap?.deactivate();
   }
 
   render() {
     return (
-      <Host class="dso-modal" role={this.role} aria-modal="true" aria-labelledby={this.ariaId}>
-        <div class="dso-dialog" role="document" ref={(element) => (this.dialogElement = element)}>
-          {this.modalTitle ? (
-            <div class="dso-header">
-              <h2 id={this.ariaId}>{this.modalTitle}</h2>
-              {this.showCloseButton && (
-                <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
-                  <dso-icon icon="times"></dso-icon>
-                  <span class="sr-only">Sluiten</span>
-                </button>
-              )}
-            </div>
-          ) : (
-            <span class="sr-only" id={this.ariaId}>
-              Dialoog
-            </span>
-          )}
+      <Fragment>
+        <div class="dso-modal-overlay"></div>
+        <div
+          class="dso-modal"
+          role={this.role}
+          aria-modal="true"
+          aria-labelledby={this.ariaId}
+          ref={(element) => (this.modalElement = element)}
+        >
+          <div class="dso-dialog" role="document" ref={(element) => (this.dialogElement = element)}>
+            {this.modalTitle ? (
+              <div class="dso-header">
+                <h2 id={this.ariaId}>{this.modalTitle}</h2>
+                {this.showCloseButton && (
+                  <button type="button" class="dso-close" onClick={(e) => this.dsoClose.emit({ originalEvent: e })}>
+                    <dso-icon icon="times"></dso-icon>
+                    <span class="sr-only">Sluiten</span>
+                  </button>
+                )}
+              </div>
+            ) : (
+              <span class="sr-only" id={this.ariaId}>
+                Dialoog
+              </span>
+            )}
 
-          <div class="dso-body">
-            <slot name="body"></slot>
+            <div class="dso-body">
+              <slot name="body"></slot>
+            </div>
+
+            {this.hasFooter && (
+              <div class="dso-footer">
+                <slot name="footer"></slot>
+              </div>
+            )}
           </div>
-
-          {this.hasFooter && (
-            <div class="dso-footer">
-              <slot name="footer"></slot>
-            </div>
-          )}
         </div>
-      </Host>
+      </Fragment>
     );
   }
 
@@ -100,7 +105,7 @@ export class Modal implements ComponentInterface {
           getShadowRoot: true,
         },
         clickOutsideDeactivates: (e) => {
-          if (e instanceof MouseEvent && e.composedPath()[0] === this.host) {
+          if (e instanceof MouseEvent && e.composedPath()[0] === this.modalElement) {
             return true;
           }
 

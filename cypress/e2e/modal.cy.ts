@@ -12,7 +12,8 @@ describe("Modal", () => {
   it("should be accessible", () => {
     cy.injectAxe();
     cy.checkA11y("dso-modal");
-    cy.get("dso-modal")
+    cy.get("@dsoModal")
+      .find(".dso-modal")
       .should("have.attr", "role", "dialog")
       .and("have.attr", "aria-modal", "true")
       .and("have.attr", "aria-labelledby")
@@ -48,11 +49,11 @@ describe("Modal", () => {
       .should("have.focus");
   });
 
-  it("should call dsoClose event when user closes modal", () => {
+  it("should emit dsoClose event when user closes modal", () => {
     cy.get("@dsoModal").find(".dso-close").click().get("@dsoCloseListener").should("have.been.calledOnce");
   });
 
-  it("should call dsoClose event on outside click", () => {
+  it("should emit dsoClose event on outside click", () => {
     cy.get("@dsoModal")
       .find(".dso-close")
       .should("have.focus")
@@ -62,7 +63,7 @@ describe("Modal", () => {
       .should("have.been.calledOnce");
   });
 
-  it("should call dsoClose event on escape press", () => {
+  it("should emit dsoClose event on escape press", () => {
     cy.get("@dsoModal")
       .find(".dso-close")
       .should("have.focus")
