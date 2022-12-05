@@ -4,6 +4,7 @@ import { Table, TableContent } from "./table.models";
 export interface TableArgs {
   noModal: boolean;
   headingColumns: boolean;
+  verticalLines: boolean;
 }
 
 export const tableArgTypes: ArgTypes<TableArgs> = {
@@ -13,6 +14,11 @@ export const tableArgTypes: ArgTypes<TableArgs> = {
     },
   },
   headingColumns: {
+    control: {
+      type: "boolean",
+    },
+  },
+  verticalLines: {
     control: {
       type: "boolean",
     },

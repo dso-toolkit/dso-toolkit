@@ -24,7 +24,7 @@ export class Table implements ComponentInterface, TableInterface {
   @Element()
   host!: HTMLElement;
 
-  /** Prevents the table being   opened in a modal. */
+  /** Prevents the table being opened in a modal. */
   @Prop({ reflect: true })
   noModal = false;
 

@@ -45,6 +45,19 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
       }
     );
 
+    stories.add(
+      "with vertical lines",
+      templateMapper<TableArgs>((args, { tableTemplate, imageOverlayTable }) =>
+        tableTemplate(tableArgsMapper(args, imageOverlayTable))
+      ),
+      {
+        args: {
+          noModal: false,
+          verticalLines: true,
+        },
+      }
+    );
+
     return stories;
   });
 }

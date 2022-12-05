@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import { Table } from "@dso-toolkit/sources";
 
 import { html, TemplateResult } from "lit-html";
@@ -10,10 +12,10 @@ export const coreTable: ComponentImplementation<Table<TemplateResult>> = {
   component: "table",
   implementation: "core",
   template: () =>
-    function tableTemplate({ noModal, content, headingColumns, role }) {
+    function tableTemplate({ noModal, content, headingColumns, role, verticalLines }) {
       return html`
         <dso-table ?no-modal=${noModal}>
-          <table class="table" role=${ifDefined(role)}>
+          <table class=${clsx("table", { ["dso-table-vertical-lines"]: verticalLines })} role=${ifDefined(role)}>
             <caption class="sr-only">
               ${content.caption}
             </caption>

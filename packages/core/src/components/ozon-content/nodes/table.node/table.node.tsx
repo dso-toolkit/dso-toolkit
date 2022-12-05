@@ -30,7 +30,7 @@ export class OzonContentTableNode implements OzonContentNode {
 
     return (
       <dso-table>
-        <table class="table">
+        <table class="table dso-table-vertical-lines">
           {caption && <caption>{caption}</caption>}
           {colspecs && <Colgroup colspecs={colspecs} />}
           {headRows.length > 0 && (
