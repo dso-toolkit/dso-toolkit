@@ -1,5 +1,5 @@
 @use "@dso-toolkit/sources/src/variables/scaffolding";
 
-$group-background-color: #fff;
-$group-border-color: #ddd;
+$group-background-color: colors.$wit;
+$group-border-color: colors.$grijs-20;
 $group-border-radius: scaffolding.$border-radius-base;

@@ -341,7 +341,7 @@
   &:disabled {
     &,
     &:hover {
-      background-color: #fff;
+      background-color: colors.$wit;
       border-color: core-date-picker-variables.$nav-button-disabled;
       color: core-date-picker-variables.$nav-button-disabled;
       opacity: 1;

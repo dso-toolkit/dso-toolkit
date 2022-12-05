@@ -6,7 +6,7 @@
 @use "map-controls.variables" as core-map-controls-variables;
 
 :host {
-  background-color: #fff;
+  background-color: colors.$wit;
   border: 1px solid colors.$grijs-20;
   bottom: 0;
   display: block;

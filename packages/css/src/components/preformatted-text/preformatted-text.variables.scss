@@ -1,5 +1,5 @@
 @use "@dso-toolkit/sources/src/variables/colors";
 
-$background-color: $grijs-5;
+$background-color: colors.$grijs-5;
 $color: colors.$grijs-80;
-$border-color: $grijs-20;
+$border-color: colors.$grijs-20;
