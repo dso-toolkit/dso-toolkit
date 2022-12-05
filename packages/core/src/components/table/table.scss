@@ -16,6 +16,8 @@
 }
 
 .dso-header {
+  min-height: units.$u4;
+
   h2 {
     color: colors.$bosgroen;
     font-size: units.$font-size-h2;
@@ -93,6 +95,10 @@
 
 .sr-only {
   @include utilities.sr-only();
+}
+
+.dso-modal-overlay {
+  @include modal.overlay();
 }
 
 .dso-table-placeholder {
