@@ -1,11 +1,5 @@
 @use "sass:color";
 
-$gray-base: #000 !default;
-$gray-dark: color.adjust($gray-base, $lightness: 20%) !default; // #333
-$gray: color.adjust($gray-base, $lightness: 33.5%) !default; // #555
-$gray-light: color.adjust($gray-base, $lightness: 46.7%) !default; // #777
-$gray-lighter: color.adjust($gray-base, $lightness: 93.5%) !default; // #eee
-
 // DSO kleuren                http://webaim.org/resources/contrastchecker/ (contrast op een witte achtergrond)
 
 $grasgroen: #39870c; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
@@ -13,20 +7,15 @@ $grasgroen-80: #609f3c; //  80% tint       - Normal text: WCAG AA: Fail;  WCAG A
 $grasgroen-40: #afcf9d; //  40% tint       - niet te gebruiken als leestekst
 $grasgroen-10: #ebf3e6; //  10% tint       - niet te gebruiken als leestekst
 
-$lime: #79b929;
-$lime-20: #e4f1d4;
-
-$bosgroen-130: #15301e; // 130% tint
+$bosgroen-140: #173521; // 130% tint
 $bosgroen: #275937; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-80: #527a5e; //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-60: #7d9886; //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
 $bosgroen-40: #a8bcaf; //  40% tint       - niet te gebruiken als leestekst
 $bosgroen-10: #e9eeeb; //  10% tint       - niet te gebruiken als leestekst
 
-$oranje: #e17000; // 100% tint       - Normal text: WCAG AA: Fail;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
-$oranje-80: #e78c32;
-$oranje-40: #f3c599;
-$oranje-10: #fcf0e5;
+$mauve: #8b4a6a;
+$mauve-40: #d1b7c4;
 
 $zwart: #000; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $grijs-90: #191919; //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
@@ -41,32 +30,35 @@ $grijs-10: #e5e5e5; //                 - niet te gebruiken als leestekst
 $grijs-5: #f2f2f2; //                 - niet te gebruiken als leestekst
 $wit: #fff;
 
+$lime: #79b929;
+$lime-20: #e4f1d4;
+$rood: #ce3f51;
+$rood-20: #f5d8dc;
+$rood-110: #b62f41;
+$geel: #dcd400;
+$geel-20: #f8f6cc;
 $lichtblauw: #6ca4d9;
+$lichtblauw-20: #e1ecf7;
+
 $donkerblauw: #2b5780;
 $mintgroen: #3fb498;
 $bruin: #644f49;
-$mauve: #8b4a6a;
-$mauve-40: #d1b7c4;
-$rood: #ce3f51;
-$geel: #dcd400;
-
+$oranje: #e17000;
 $scampi: #676cb0;
-
-$opac10: rgba(0, 0, 0, 0.1);
 
 $success-color: $grasgroen;
 $info-color: $lichtblauw;
 $warning-color: $geel;
 $danger-color: $rood;
-$invalid-color: #b62f41;
+$invalid-color: $rood-110;
 
 $success-bg-color: $lime-20;
-$info-bg-color: #e1ecf7;
-$warning-bg-color: #f8f6cc;
-$danger-bg-color: #f5d8dc;
+$info-bg-color: $lichtblauw-20;
+$warning-bg-color: $geel-20;
+$danger-bg-color: $rood-20;
 
 $input-color-placeholder: $grijs-60;
-$input-bg: #fff;
+$input-bg: $wit;
 $input-color: $grijs-90;
 $input-border: $bosgroen;
 $input-bg-disabled: $wit;

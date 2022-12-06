@@ -1,7 +1,8 @@
-@use "../../variables/states";
+@use "@dso-toolkit/sources/src/variables/states";
+@use "@dso-toolkit/sources/src/variables/colors";
 
 mark {
   background-color: states.$warning-bg;
-  color: #000;
+  color: colors.$zwart;
   padding: 0.2em;
 }
