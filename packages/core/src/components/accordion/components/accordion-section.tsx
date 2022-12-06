@@ -6,17 +6,18 @@ import {
   Element,
   State,
   Prop,
-  FunctionalComponent,
   Fragment,
   Method,
   forceUpdate,
+  Watch,
 } from "@stencil/core";
-import {
-  AccordionHeading,
-  AccordionInterface,
-  AccordionInternalState,
-  AccordionSectionState,
-} from "../accordion.interfaces";
+
+import anime from "animejs";
+import debounce from "debounce";
+
+import { AccordionInterface, AccordionInternalState } from "../accordion.interfaces";
+import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
+import { Handle, HandleElement, HandleIcon } from "./handles";
 
 @Component({
   tag: "dso-accordion-section",
@@ -27,6 +28,14 @@ export class AccordionSection implements ComponentInterface {
   private accordion?: AccordionInterface;
 
   private accordionState?: AccordionInternalState;
+
+  private animeInstance?: anime.AnimeInstance;
+
+  private sectionBody?: HTMLDivElement;
+
+  private resizeObserver?: ResizeObserver;
+
+  private bodyHeight?: number;
 
   @Element()
   host!: HTMLElement;
@@ -61,8 +70,15 @@ export class AccordionSection implements ComponentInterface {
   @State()
   hasNestedSection = false;
 
+  @Watch("open")
+  toggleOpen() {
+    this.activateAnimation();
+  }
+
   componentWillLoad() {
     const accordion = this.host.parentElement;
+
+    this.hasNestedSection = this.host.querySelector("dso-accordion") !== null;
 
     if (isAccordion(accordion)) {
       this.accordion = accordion;
@@ -71,10 +87,20 @@ export class AccordionSection implements ComponentInterface {
         forceUpdate(this.host);
       });
     }
+
+    this.startAnimationResizeObserver();
   }
 
-  componentDidLoad() {
-    this.hasNestedSection = this.host.querySelector("dso-accordion") !== null;
+  componentDidLoad(): void {
+    const bodyContentElement = this.host.shadowRoot?.querySelector(".dso-section-body-content");
+
+    if (bodyContentElement) {
+      this.resizeObserver?.observe(bodyContentElement);
+    }
+  }
+
+  disconnectedCallback() {
+    this.resizeObserver?.disconnect();
   }
 
   /** Toggle this section */
@@ -90,11 +116,7 @@ export class AccordionSection implements ComponentInterface {
   }
 
   render() {
-    if (!this.accordionState) {
-      return;
-    }
-
-    const { variant, reverseAlign } = this.accordionState;
+    const { variant, reverseAlign } = this.accordionState ?? {};
     const hasAddons = !!this.status || !!this.state || !!this.icon || !!this.attachmentCount;
 
     return (
@@ -103,8 +125,9 @@ export class AccordionSection implements ComponentInterface {
           "dso-accordion-section": true,
           ["dso-accordion-" + variant]: true,
           "dso-nested-accordion": this.hasNestedSection,
-          "dso-accordion-reverse-align": this.accordionState.reverseAlign,
+          "dso-accordion-reverse-align": reverseAlign ?? false,
         }}
+        hidden={!variant}
       >
         <Handle heading={this.heading}>
           <HandleElement
@@ -122,11 +145,11 @@ export class AccordionSection implements ComponentInterface {
 
                 <span>{this.handleTitle}</span>
 
-                <dso-icon icon={this.open ? "chevron-up" : "chevron-down"}></dso-icon>
+                <dso-icon class="dso-section-handle-chevron" icon="chevron-down"></dso-icon>
               </Fragment>
             ) : (
               <Fragment>
-                <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
+                <dso-icon class="dso-section-handle-chevron" icon="chevron-right"></dso-icon>
 
                 {this.state && <span class="sr-only">{stateMap[this.state]}</span>}
 
@@ -142,91 +165,86 @@ export class AccordionSection implements ComponentInterface {
             )}
           </HandleElement>
         </Handle>
-        <div class="dso-section-body" style={this.open ? {} : { display: "none" }}>
-          <slot />
+        <div
+          class={{ "dso-section-body": true, "dso-animate-ready": !!this.animeInstance }}
+          ref={(element) => (this.sectionBody = element)}
+          aria-hidden={this.open ? "false" : "true"}
+        >
+          <div class="dso-section-body-content">
+            <slot />
+          </div>
         </div>
       </Host>
     );
+  }
+
+  private startAnimationResizeObserver() {
+    this.resizeObserver = new ResizeObserver(
+      debounce(([entry]) => {
+        if (this.bodyHeight !== entry.contentRect.height) {
+          this.bodyHeight = entry.contentRect.height;
+
+          this.instantiateAnimation();
+        }
+      }, 150)
+    );
+  }
+
+  private instantiateAnimation() {
+    this.animeInstance = anime({
+      targets: this.sectionBody,
+      height: 4,
+      easing: "cubicBezier(0.4, 0, 0.2, 1)",
+      duration: 260,
+      autoplay: false,
+      direction: "normal",
+      begin: () => {
+        if (this.sectionBody) {
+          if (this.open) {
+            this.sectionBody.style.visibility = "";
+            this.sectionBody.style.position = "";
+          }
+        }
+      },
+      complete: () => {
+        if (this.sectionBody) {
+          this.sectionBody.style.height = "";
+
+          if (!this.open) {
+            this.sectionBody.style.visibility = "hidden";
+            this.sectionBody.style.position = "absolute";
+          }
+        }
+      },
+    });
+
+    if (!this.open) {
+      this.animeInstance.reverse();
+      this.animeInstance.play();
+    }
+
+    if (this.sectionBody) {
+      this.sectionBody.style.height = "";
+    }
+  }
+
+  private activateAnimation() {
+    if (this.animeInstance) {
+      if (this.animeInstance.progress > 0 && this.animeInstance.progress < 100) {
+        this.animeInstance.reverse();
+      } else {
+        if (this.open) {
+          this.animeInstance.direction = "reverse";
+          this.animeInstance.play();
+        } else {
+          this.animeInstance.direction = "normal";
+          this.animeInstance.play();
+        }
+      }
+    }
   }
 }
 
 function isAccordion(element: HTMLElement | AccordionInterface | null): element is AccordionInterface {
   return element instanceof HTMLElement && "getState" in element;
 }
-
-const Handle: FunctionalComponent<{ heading: AccordionHeading }> = ({ heading }, children) => {
-  switch (heading) {
-    default:
-    case "h2":
-      return <h2 class="dso-section-handle">{children}</h2>;
-    case "h3":
-      return <h3 class="dso-section-handle">{children}</h3>;
-    case "h4":
-      return <h4 class="dso-section-handle">{children}</h4>;
-    case "h5":
-      return <h5 class="dso-section-handle">{children}</h5>;
-  }
-};
-
-const HandleElement: FunctionalComponent<{
-  handleUrl: string | undefined;
-  open: boolean;
-  onClick: (e: MouseEvent) => void;
-}> = ({ handleUrl, onClick, open }, children) => {
-  if (handleUrl) {
-    return (
-      <a href={handleUrl} onClick={onClick} aria-expanded={open ? "true" : "false"}>
-        {children}
-      </a>
-    );
-  }
-
-  return (
-    <button type="button" onClick={onClick} aria-expanded={open ? "true" : "false"}>
-      {children}
-    </button>
-  );
-};
-
-const HandleIcon: FunctionalComponent<{ state?: AccordionSectionState; icon?: string; attachmentCount?: number }> = ({
-  state,
-  icon,
-  attachmentCount,
-}) => {
-  if (state) {
-    return <HandleStateIcon state={state} />;
-  }
-
-  if (attachmentCount) {
-    return <dso-attachments-counter count={attachmentCount}></dso-attachments-counter>;
-  }
-
-  if (icon) {
-    return <dso-icon icon={icon}></dso-icon>;
-  }
-};
-
-const stateMap: Record<AccordionSectionState, string> = {
-  success: "succes:",
-  info: "info:",
-  warning: "waarschuwing:",
-  danger: "fout:",
-};
-
-const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = ({ state }) => {
-  if (state === "danger") {
-    return <dso-icon icon="status-danger"></dso-icon>;
-  }
-
-  if (state === "success") {
-    return <dso-icon icon="status-success"></dso-icon>;
-  }
-
-  if (state === "info") {
-    return <dso-icon icon="status-info"></dso-icon>;
-  }
-
-  if (state === "warning") {
-    return <dso-icon icon="status-warning"></dso-icon>;
-  }
-};

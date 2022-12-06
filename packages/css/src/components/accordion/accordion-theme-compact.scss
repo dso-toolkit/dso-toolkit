@@ -62,7 +62,7 @@
         padding-left: units.$u4;
 
         &::before {
-          @include di.base("chevron-down-grasgroen");
+          @include di.base("chevron-right-grasgroen");
 
           left: 0;
         }
@@ -106,7 +106,7 @@
           }
 
           &::before {
-            @include di.variant("chevron-up-grasgroen");
+            @include di.variant("chevron-down-grasgroen");
           }
 
           dso-attachments-counter {

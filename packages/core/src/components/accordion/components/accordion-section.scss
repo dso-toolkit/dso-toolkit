@@ -59,6 +59,11 @@
 
     dso-icon {
       flex-shrink: 0;
+
+      &.dso-section-handle-chevron {
+        transform: rotate(0);
+        transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
     }
 
     > .dso-section-handle-addons:first-child,
@@ -80,17 +85,42 @@
   }
 }
 
-:host(:not([open])) {
+:host([open]) {
   .dso-section-body {
-    display: none;
+    position: inherit;
+    visibility: inherit;
+  }
+
+  .dso-section-handle {
+    > button,
+    > a {
+      .dso-section-handle-chevron {
+        &:first-child {
+          transform: rotate(90deg);
+        }
+
+        &:last-child {
+          transform: rotate(-180deg);
+        }
+      }
+    }
   }
 }
 
 .dso-section-body {
+  &:not(.dso-animate-ready) {
+    position: absolute;
+    visibility: hidden;
+  }
+
   background-color: colors.$wit;
   border-top: 0;
   margin-top: accordion.$border-radius * -1;
-  padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
+  overflow-y: hidden;
+
+  .dso-section-body-content {
+    padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
+  }
 }
 
 // Default

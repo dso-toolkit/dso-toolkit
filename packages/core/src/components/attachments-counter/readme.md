@@ -12,10 +12,6 @@
 
 ## Dependencies
 
-### Used by
-
- - [dso-accordion-section](../accordion/components)
-
 ### Depends on
 
 - [dso-icon](../icon)
@@ -24,7 +20,6 @@
 ```mermaid
 graph TD;
   dso-attachments-counter --> dso-icon
-  dso-accordion-section --> dso-attachments-counter
   style dso-attachments-counter fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

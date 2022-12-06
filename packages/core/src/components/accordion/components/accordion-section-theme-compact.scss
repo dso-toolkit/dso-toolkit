@@ -23,9 +23,11 @@
   }
 
   .dso-section-body {
-    padding-left: units.$u4;
-    padding-top: 0;
-    padding-right: 0;
+    .dso-section-body-content {
+      padding-left: units.$u4;
+      padding-top: 0;
+      padding-right: 0;
+    }
   }
 }
 
@@ -38,8 +40,10 @@
   }
 
   .dso-section-body {
-    padding-left: units.$u2;
-    padding-right: 0;
+    .dso-section-body-content {
+      padding-left: units.$u2;
+      padding-right: 0;
+    }
   }
 }
 
