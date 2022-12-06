@@ -7,7 +7,7 @@ import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of
 
 export interface TooltipTemplates<TemplateFnReturnType> {
   tooltipTemplate: (tooltipProperties: Tooltip) => TemplateFnReturnType;
-  asChildTemplate: (tooltip: TemplateFnReturnType, action: HandlerFunction) => TemplateFnReturnType;
+  asChildTemplate: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
   asSiblingTemplate: (tooltip: TemplateFnReturnType, id: string, action: HandlerFunction) => TemplateFnReturnType;
 }
 
@@ -27,10 +27,11 @@ export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType
     stories.add(
       "as child",
       templateMapper<TooltipArgs>((args, { tooltipTemplate, asChildTemplate }) =>
-        asChildTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.action)
+        asChildTemplate(tooltipTemplate(tooltipArgsMapper(args)), args.id, args.action)
       ),
       {
         args: {
+          id: uuidv4(),
           position: "right",
         },
       }
@@ -44,16 +45,6 @@ export function storiesOfTooltip<Implementation, Templates, TemplateFnReturnType
       {
         args: {
           id: uuidv4(),
-          position: "bottom",
-        },
-      }
-    );
-
-    stories.add(
-      "tooltip",
-      templateMapper<TooltipArgs>((args, { tooltipTemplate }) => tooltipTemplate(tooltipArgsMapper(args))),
-      {
-        args: {
           position: "bottom",
         },
       }

@@ -14,14 +14,14 @@ describe("Ozon Content", () => {
 
   it("should open and close notes", () => {
     function button(n: string) {
-      return cy.get("dso-ozon-content").find(`button#dso-ozon-note-${n}`);
+      return cy.get("dso-ozon-content").find(`button[aria-describedby="dso-ozon-note-${n}"]`);
     }
 
     function tooltip(n: string) {
-      return cy.get("dso-ozon-content").find(`sup:has(button#dso-ozon-note-${n}) + dso-tooltip`);
+      return cy.get("dso-ozon-content").find(`sup:has(button[aria-describedby="dso-ozon-note-${n}"]) + dso-tooltip`);
     }
 
-    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--inhoud-al-noot");
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--inhoud-al-noot").wait(1000);
 
     button("N6").should("have.attr", "aria-expanded", "false");
     tooltip("N6").should("be.not.visible");
@@ -343,7 +343,7 @@ describe("Ozon Content", () => {
       .click()
       .invoke("removeAttr", "interactive")
       .click()
-      .find("#dso-ozon-note-Noot5000")
+      .find("button[aria-describedby='dso-ozon-note-Noot5000']")
       .click();
 
     cy.get("@click").should("have.been.calledOnce");

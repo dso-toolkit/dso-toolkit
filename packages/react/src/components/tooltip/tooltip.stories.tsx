@@ -6,9 +6,9 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-function asChildTemplate(tooltip: JSX.Element, action: HandlerFunction) {
+function asChildTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (
-    <button type="button" onClick={action}>
+    <button type="button" aria-describedby={id} onClick={action}>
       <span>Hover or focus me</span>
       {tooltip}
     </button>
@@ -18,7 +18,7 @@ function asChildTemplate(tooltip: JSX.Element, action: HandlerFunction) {
 function asSiblingTemplate(tooltip: JSX.Element, id: string, action: HandlerFunction) {
   return (
     <>
-      <button type="button" id={id} onClick={action}>
+      <button type="button" aria-describedby={id} onClick={action}>
         <span>Hover or focus me</span>
       </button>
       {tooltip}

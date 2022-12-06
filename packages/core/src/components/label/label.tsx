@@ -161,7 +161,7 @@ export class Label implements ComponentInterface {
         }
       >
         <span
-          id="toggle-anchor"
+          aria-describedby="toggle-anchor"
           class={clsx("dso-label", {
             [`dso-label-${this.status}`]: this.status,
             "dso-compact": this.compact && !this.removable,
@@ -199,7 +199,7 @@ export class Label implements ComponentInterface {
         </span>
         <dso-tooltip
           stateless
-          for="toggle-anchor"
+          id="toggle-anchor"
           active={!!this.truncatedContent && (this.textHover || this.textFocus)}
           position="top"
           strategy="absolute"

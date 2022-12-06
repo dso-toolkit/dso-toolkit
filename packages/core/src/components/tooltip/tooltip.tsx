@@ -41,16 +41,6 @@ export class Tooltip {
   strategy: "auto" | "absolute" | "fixed" = "auto";
 
   /**
-   * Specify target element that the tooltip will describe and listens to for events.
-   * * `undefined`: The direct parent is used.
-   * * `string`: The element is located using `document.getElementById()`
-   * * `HTMLElement`: Pass the target element directly
-   * If the element is not found an Error is thrown.
-   */
-  @Prop()
-  for?: string | HTMLElement;
-
-  /**
    * Set attribute `no-arrow` to hide the arrow
    */
   @Prop()
@@ -206,7 +196,11 @@ export class Tooltip {
       throw new Error("tooltip element is not instanceof HTMLElement");
     }
 
-    this.target = this.getTarget();
+    if (!this.element.id) {
+      throw new Error("Unable to find reference tooltip has no [id] attribute.");
+    }
+
+    this.target = this.getTarget(this.element.id);
 
     this.popper = createPopper(this.target, tooltip, {
       placement: this.position,
@@ -255,7 +249,7 @@ export class Tooltip {
 
   render() {
     return (
-      <Host class={{ hidden: this.hidden }}>
+      <Host class={{ hidden: this.hidden }} role="tooltip">
         <div class={clsx("tooltip", { in: this.active })}>
           {!this.noArrow && <div data-popper-arrow class="tooltip-arrow"></div>}
           <div aria-hidden={!this.descriptive || undefined} class={clsx("tooltip-inner", { "dso-small": this.small })}>
@@ -266,31 +260,18 @@ export class Tooltip {
     );
   }
 
-  private getTarget(): HTMLElement {
-    if (this.for instanceof HTMLElement) {
-      return this.for;
+  private getTarget(id: string): HTMLElement {
+    const rootNode = this.element.getRootNode();
+    if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
+      throw new Error(`rootNode is not instance of Document or ShadowRoot`);
     }
 
-    if (typeof this.for === "string") {
-      const rootNode = this.element.getRootNode();
-      if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
-        throw new Error(`rootNode is not instance of Document or ShadowRoot`);
-      }
-
-      const reference = rootNode.getElementById(this.for);
-      if (!reference) {
-        throw new Error(`Unable to find reference with id ${this.for}`);
-      }
-
-      return reference;
+    const reference = rootNode.querySelector<HTMLElement>(`[aria-describedBy="${id}`);
+    if (!reference) {
+      throw new Error(`Unable to find reference with aria-describedby ${id}`);
     }
 
-    const { parentElement } = this.element;
-    if (!parentElement) {
-      throw new Error("No reference given with [for] attribute but no parent found either");
-    }
-
-    return parentElement;
+    return reference;
   }
 }
 
