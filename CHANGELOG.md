@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* **core + react + sources + css:** Tabel class `.dso-table-vertical-lines` kan op `table` gezet worden om verticale borders toe te voegen ([#1913](https://github.com/dso-toolkit/dso-toolkit/issues/1913))\
+Voor tabellen in `<dso-ozon-content>` staan verticale borders altijd aan.
+
 ### Fixed
 * **core + css + sources:** `<dso-modal>` Grijze overlay toont soms bovenop de modal. ([#1902](https://github.com/dso-toolkit/dso-toolkit/issues/1902))\
 Dit is ook fixed in de `<dso-table>` vergroot tabel modal.

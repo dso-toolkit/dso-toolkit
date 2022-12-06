@@ -322,7 +322,7 @@ export namespace Components {
          */
         "isResponsive": boolean;
         /**
-          * Prevents the table being   opened in a modal.
+          * Prevents the table being opened in a modal.
          */
         "noModal": boolean;
     }
@@ -1041,7 +1041,7 @@ declare namespace LocalJSX {
          */
         "isResponsive"?: boolean;
         /**
-          * Prevents the table being   opened in a modal.
+          * Prevents the table being opened in a modal.
          */
         "noModal"?: boolean;
     }

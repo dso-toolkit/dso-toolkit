@@ -10,4 +10,5 @@ export interface Table<TemplateFnReturnType> {
   content: TableContent<TemplateFnReturnType>;
   headingColumns?: boolean;
   role?: string;
+  verticalLines?: boolean;
 }

@@ -1,5 +1,6 @@
 import { Table } from "@dso-toolkit/sources";
 import * as React from "react";
+import clsx from "clsx";
 
 import { DsoTable } from "../..";
 import { ComponentImplementation } from "../../templates";
@@ -8,10 +9,10 @@ export const reactTable: ComponentImplementation<Table<JSX.Element>> = {
   component: "table",
   implementation: "react",
   template: () =>
-    function tableTemplate({ noModal, content, role }) {
+    function tableTemplate({ noModal, content, role, verticalLines }) {
       return (
         <DsoTable noModal={noModal}>
-          <table className="table" role={role}>
+          <table className={clsx("table", { ["dso-table-vertical-lines"]: verticalLines })} role={role}>
             <caption className="sr-only">{content.caption}</caption>
 
             <thead>

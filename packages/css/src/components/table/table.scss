@@ -69,6 +69,34 @@ table.table,
     }
   }
 
+  &.dso-table-vertical-lines {
+    > thead {
+      > tr {
+        > td,
+        > th {
+          border: 1px solid table.$th-border-color;
+        }
+      }
+    }
+
+    > tbody,
+    > tfoot {
+      > tr {
+        > td,
+        > th {
+          border: 1px solid table.$border-color;
+        }
+      }
+    }
+
+    > thead + tbody > tr:first-child {
+      > td,
+      > th {
+        border-top: 0;
+      }
+    }
+  }
+
   th,
   td {
     &.dso-text-left {
