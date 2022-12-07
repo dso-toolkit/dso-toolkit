@@ -4,7 +4,7 @@
 :host {
   display: block;
 
-  @include selectable.root("dso-info");
+  @include selectable.root("dso-info", false);
 }
 
 :host(:not(:last-child)) {
@@ -12,3 +12,22 @@
 }
 
 @include utilities.box-sizing();
+
+.dso-selectable-input-wrapper {
+  display: inline-block;
+  padding-left: 32px;
+
+  &:focus-within {
+    @include utilities.focus-outline();
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    &:focus + label::before {
+      @include selectable.selectableBoxShadow(
+        selectable.$border-width,
+        var(--dso-selectable-color, selectable.$valid-color)
+      );
+    }
+  }
+}
