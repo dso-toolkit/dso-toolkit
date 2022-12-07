@@ -39,7 +39,13 @@
 }
 
 .dso-modal .dso-dialog.dso-table-dialog {
+  margin-top: 1rem;
   max-width: calc(100% - 2rem);
+
+  .dso-body {
+    $dso-body-unavailable-height: (2 * modal.$header-padding) + (modal.$footer-button-height + modal.$footer-padding);
+    max-height: calc(100vh - #{$dso-body-unavailable-height} - 1.5em - 2rem); // margin
+  }
 
   @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
     max-width: 100%;
