@@ -19,9 +19,12 @@
   }
 }
 
-@mixin root($info-selector) {
-  padding: 0 0 0 units.$u4;
+@mixin root($info-selector, $set-padding: true) {
   position: relative;
+
+  @if ($set-padding) {
+    padding: 0 0 0 units.$u4;
+  }
 
   .dso-selectable-options {
     list-style: none;
@@ -204,4 +207,12 @@
     margin: units.$u1 units.$u2 0 #{units.$u4 * -1};
     width: calc(100% + #{units.$u4});
   }
+}
+
+@mixin selectableBoxShadow($border-width, $color) {
+  box-shadow: 0 0 0 $border-width $color;
+  height: selectable-variables.$size - 2 * $border-width;
+  left: $border-width;
+  top: $border-width;
+  width: selectable-variables.$size - 2 * $border-width;
 }

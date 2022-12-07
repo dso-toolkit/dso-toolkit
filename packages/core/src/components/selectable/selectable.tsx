@@ -102,22 +102,24 @@ export class Selectable {
 
     return (
       <Fragment>
-        <input
-          type={this.type}
-          id={this.getIdentifier()}
-          value={this.value}
-          name={this.name}
-          aria-invalid={this.invalid?.toString()}
-          aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
-          disabled={this.disabled}
-          required={this.required}
-          checked={this.checked}
-          onChange={(e) => this.dsoChange.emit(e)}
-          ref={(el) => (this.input = el)}
-        />
-        <label htmlFor={this.getIdentifier()}>
-          <slot></slot>
-        </label>
+        <div class="dso-selectable-input-wrapper">
+          <input
+            type={this.type}
+            id={this.getIdentifier()}
+            value={this.value}
+            name={this.name}
+            aria-invalid={this.invalid?.toString()}
+            aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
+            disabled={this.disabled}
+            required={this.required}
+            checked={this.checked}
+            onChange={(e) => this.dsoChange.emit(e)}
+            ref={(el) => (this.input = el)}
+          />
+          <label htmlFor={this.getIdentifier()}>
+            <slot></slot>
+          </label>
+        </div>
         {hasInfo && (
           <Fragment>
             {!this.infoFixed && (

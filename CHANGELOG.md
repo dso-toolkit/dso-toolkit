@@ -22,6 +22,7 @@ Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 ```
 * **BREAKING** Nieuw documentatieplatform. Zie blog op www.dso-toolkit.nl voor meer informatie ([#1868](https://github.com/dso-toolkit/dso-toolkit/issues/1868)).
 * **core:** `dso-table` modal benut nu de volledige hoogte van de pagina ([#1879](https://github.com/dso-toolkit/dso-toolkit/issues/1879))
+* **core:** `dso-selectable` focus-styling verbeterd ([#1845](https://github.com/dso-toolkit/dso-toolkit/issues/1845))
 
 ### Fixed
 * percy.cy.ts faalt incidenteel ([#1899](https://github.com/dso-toolkit/dso-toolkit/issues/1899)).

@@ -1,3 +1,6 @@
+@use "./variables/colors";
+@use "./variables/units";
+
 @mixin box-sizing($box-sizing: border-box) {
   *,
   *::after,
@@ -45,4 +48,10 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+@mixin focus-outline() {
+  border-radius: units.$focus-border-radius;
+  outline-offset: units.$focus-outline-offset;
+  outline: units.$focus-outline-width solid colors.$focus-outline-color;
 }
