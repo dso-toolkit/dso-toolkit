@@ -5,14 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 48.0.0
+
 ### Added
 * **core + react + sources + css:** Tabel class `.dso-table-vertical-lines` kan op `table` gezet worden om verticale borders toe te voegen ([#1913](https://github.com/dso-toolkit/dso-toolkit/issues/1913))\
 Voor tabellen in `<dso-ozon-content>` staan verticale borders altijd aan.
 * **angular:** Angular componenten documentatie in Angular Storybook toegevoegd ([#1908](https://github.com/dso-toolkit/dso-toolkit/issues/1908)).
+* **core:** Webcomponent Accordion: Animaties ([#1846](https://github.com/dso-toolkit/dso-toolkit/issues/1846))
 
 ### Fixed
 * **core + css + sources:** `<dso-modal>` Grijze overlay toont soms bovenop de modal. ([#1902](https://github.com/dso-toolkit/dso-toolkit/issues/1902))\
 Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
+* percy.cy.ts faalt incidenteel ([#1899](https://github.com/dso-toolkit/dso-toolkit/issues/1899)).
 
 ### Changed
 * **BREAKING core + react + sources:** De api van `<dso-tooltip>` is gewijzigd. De tooltip vereist nu altijd een uniek `[id]` attribuut, dit id moet te vinden zijn op het element beschreven wordt met `[aria-describedby]`. Zie onderstaand voorbeeld. ([#1782](https://github.com/dso-toolkit/dso-toolkit/issues/1782))
@@ -23,9 +27,6 @@ Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 * **BREAKING** Nieuw documentatieplatform. Zie blog op www.dso-toolkit.nl voor meer informatie ([#1868](https://github.com/dso-toolkit/dso-toolkit/issues/1868)).
 * **core:** `dso-table` modal benut nu de volledige hoogte van de pagina ([#1879](https://github.com/dso-toolkit/dso-toolkit/issues/1879))
 * **core:** `dso-selectable` focus-styling verbeterd ([#1845](https://github.com/dso-toolkit/dso-toolkit/issues/1845))
-
-### Fixed
-* percy.cy.ts faalt incidenteel ([#1899](https://github.com/dso-toolkit/dso-toolkit/issues/1899)).
 
 ## 47.0.1
 
@@ -51,7 +52,6 @@ Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 * **core + react + sources + storybook:** `<dso-card>` Web component ([#1800](https://github.com/dso-toolkit/dso-toolkit/issues/1800))\
   En ook `<dso-card-container>` om de card in op te nemen. Dit component ondersteund `mode="list"` en `mode="grid"`
 * `eslint-plugin-lit` rules ([#1873](https://github.com/dso-toolkit/dso-toolkit/issues/1873))
-* **core:** Webcomponent Accordion: Animaties ([#1846](https://github.com/dso-toolkit/dso-toolkit/issues/1846))
 
 ### Fixed
 * **core:** Accordion compact: inspring klopt niet ([#1883](https://github.com/dso-toolkit/dso-toolkit/issues/1883))
