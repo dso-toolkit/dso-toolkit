@@ -10,7 +10,7 @@ export const reactTooltip: ComponentImplementation<Tooltip> = {
   template: () =>
     function tooltipTemplate({ position, label, id }) {
       return (
-        <DsoTooltip position={position} for={id}>
+        <DsoTooltip position={position} id={id}>
           {label}
         </DsoTooltip>
       );

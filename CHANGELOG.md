@@ -15,6 +15,11 @@ Voor tabellen in `<dso-ozon-content>` staan verticale borders altijd aan.
 Dit is ook fixed in de `<dso-table>` vergroot tabel modal.
 
 ### Changed
+* **BREAKING core + react + sources:** De api van `<dso-tooltip>` is gewijzigd. De tooltip vereist nu altijd een uniek `[id]` attribuut, dit id moet te vinden zijn op het element beschreven wordt met `[aria-describedby]`. Zie onderstaand voorbeeld. ([#1782](https://github.com/dso-toolkit/dso-toolkit/issues/1782))
+```
+<button type="button" aria-describedby="ariaId">Hover of focus me</button>
+<dso-tooltip position="bottom" id="ariaId">Tooltip</dso-tooltip>
+```
 * **BREAKING** Nieuw documentatieplatform. Zie blog op www.dso-toolkit.nl voor meer informatie ([#1868](https://github.com/dso-toolkit/dso-toolkit/issues/1868)).
 * **core:** `dso-table` modal benut nu de volledige hoogte van de pagina ([#1879](https://github.com/dso-toolkit/dso-toolkit/issues/1879))
 

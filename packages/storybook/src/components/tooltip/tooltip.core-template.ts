@@ -11,7 +11,7 @@ export const coreTooltip: ComponentImplementation<Tooltip> = {
       return html`<dso-tooltip
         ?descriptive=${ifDefined(descriptive)}
         position=${position}
-        for=${ifDefined(id)}
+        id=${ifDefined(id)}
         ?active=${active}
       >
         ${label}
