@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * **core + react + sources + css:** Tabel class `.dso-table-vertical-lines` kan op `table` gezet worden om verticale borders toe te voegen ([#1913](https://github.com/dso-toolkit/dso-toolkit/issues/1913))\
 Voor tabellen in `<dso-ozon-content>` staan verticale borders altijd aan.
+* **angular:** Angular componenten documentatie in Angular Storybook toegevoegd ([#1908](https://github.com/dso-toolkit/dso-toolkit/issues/1908)).
 
 ### Fixed
 * **core + css + sources:** `<dso-modal>` Grijze overlay toont soms bovenop de modal. ([#1902](https://github.com/dso-toolkit/dso-toolkit/issues/1902))\

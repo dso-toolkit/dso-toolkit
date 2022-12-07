@@ -8,11 +8,11 @@ export const cssInfo: ComponentImplementation<Info<TemplateResult>> = {
   component: "info",
   implementation: "css",
   template: ({ buttonTemplate }) =>
-    function infoTemplate({ fixed, content, dsoClose, id }) {
+    function infoTemplate({ fixed, content, id }) {
       return html`
         <div class="dso-info" id=${ifDefined(id)}>
           ${typeof content === "string" ? unsafeHTML(content) : content}
-          ${!fixed ? buttonTemplate({ label: "Sluiten", variant: null, onClick: dsoClose, iconMode: "only" }) : nothing}
+          ${!fixed ? buttonTemplate({ label: "Sluiten", variant: null, iconMode: "only" }) : nothing}
         </div>
       `;
     },

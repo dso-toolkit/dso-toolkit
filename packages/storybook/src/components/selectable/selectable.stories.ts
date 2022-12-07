@@ -5,7 +5,9 @@ import cssReadme from "@dso-toolkit/css/src/components/selectable/readme.md";
 import coreReadme from "@dso-toolkit/core/src/components/selectable/readme.md";
 
 import { StoryRoot } from "@dso-toolkit/sources/src/storybook";
+
 import { templateContainer } from "../../templates";
+import { infoRichContent } from "./selectable.content";
 
 storiesOfSelectable({
   parameters: {
@@ -15,7 +17,7 @@ storiesOfSelectable({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate }),
+  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
 });
 
 storiesOfSelectable({
@@ -26,5 +28,5 @@ storiesOfSelectable({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate }),
+  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
 });

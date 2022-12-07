@@ -1,5 +1,10 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "search.exclude": {
+    "packages/*/dist": true,
+    "packages/angular-workspace/.angular": true,
+    "packages/angular-workspace/documentation.json": true
+  }
 }

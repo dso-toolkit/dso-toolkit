@@ -1,31 +1,43 @@
 import { StoryFn } from "@storybook/addons";
 
-export interface BaseComponentImplementation<Model, Implementation, Templates, TemplateFnReturnType> {
+export interface BaseComponentImplementation<
+  Model,
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TemplateFunction = DefaultTemplateFunction<Model, TemplateFnReturnType>
+> {
   component: string;
   implementation: Implementation;
-  template(templates: Templates): TemplateFunction<Model, TemplateFnReturnType>;
+  template(templates: Templates): TemplateFunction;
 }
 
-export interface TemplateFunction<Model, TemplateFnReturnType> {
+export interface DefaultTemplateFunction<Model, TemplateFnReturnType> {
   (model: Model): TemplateFnReturnType;
 }
 
 export type ComponentsToTemplates<Components, TemplateFnReturnType> = {
-  [P in keyof Components & string as `${P}Template`]: TemplateFunction<Components[P], TemplateFnReturnType>;
+  [P in keyof Components & string as `${P}Template`]: DefaultTemplateFunction<Components[P], TemplateFnReturnType>;
 };
 
 export interface Options {
   getNameByKind?(kind: string): string | undefined;
 }
 
-export class TemplateContainer<Implementation, Templates, TemplateFnReturnType> {
+export class TemplateContainer<
+  Implementation,
+  Templates,
+  TemplateFnReturnType,
+  TemplateFunction = DefaultTemplateFunction<never, TemplateFnReturnType>
+> {
   private getNameByKind: Options["getNameByKind"] | undefined;
 
   private componentImplementations: BaseComponentImplementation<
     never,
     Implementation,
     Templates,
-    TemplateFnReturnType
+    TemplateFnReturnType,
+    TemplateFunction
   >[] = [];
 
   constructor(options?: Options) {
@@ -33,7 +45,13 @@ export class TemplateContainer<Implementation, Templates, TemplateFnReturnType> 
   }
 
   add<Model>(
-    componentImplementation: BaseComponentImplementation<Model, Implementation, Templates, TemplateFnReturnType>
+    componentImplementation: BaseComponentImplementation<
+      Model,
+      Implementation,
+      Templates,
+      TemplateFnReturnType,
+      TemplateFunction
+    >
   ) {
     this.componentImplementations.push(componentImplementation);
   }

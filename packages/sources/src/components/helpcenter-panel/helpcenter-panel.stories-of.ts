@@ -27,7 +27,11 @@ export function storiesOfHelpcenterPanel<Implementation, Templates, TemplateFnRe
       {
         args: {
           label: "Hulp nodig",
-          url: window.location.origin + "/iframe.html?id=core-helpcenter-panel--helpcenter-panel&viewMode=docs",
+          url:
+            window.location.origin +
+            `/iframe.html?id=${
+              window.location.port === "45000" ? "core-" : ""
+            }helpcenter-panel--helpcenter-panel&viewMode=docs`,
         },
       }
     );

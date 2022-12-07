@@ -51,7 +51,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
           <label for=${id}>${label}</label>
           ${info
             ? html`
-                ${!info.fixed ? infoButtonTemplate({ active: info.active, dsoToggle: info.dsoClose }) : nothing}
+                ${!info.fixed ? infoButtonTemplate({ active: info.active }) : nothing}
                 ${info.active || info.fixed ? infoTemplate({ ...info, id: info ? describedById : undefined }) : nothing}
               `
             : nothing}

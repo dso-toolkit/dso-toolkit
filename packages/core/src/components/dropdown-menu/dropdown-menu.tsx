@@ -31,7 +31,8 @@ export class DropdownMenu {
   host!: HTMLElement;
 
   get button(): HTMLButtonElement {
-    const button = this.host.querySelectorAll('button[slot="toggle"]')[0];
+    const button = this.host.querySelector('button[slot="toggle"]');
+
     if (!(button instanceof HTMLButtonElement)) {
       throw new ReferenceError("Mandatory toggle button not found");
     }
@@ -43,7 +44,7 @@ export class DropdownMenu {
     return tabbable(this.host).filter((e) => e !== this.button);
   }
 
-  connectedCallback() {
+  componentDidLoad() {
     this.button.setAttribute("aria-haspopup", "menu");
     this.button.setAttribute("aria-expanded", "false");
     if (!this.button.id) {

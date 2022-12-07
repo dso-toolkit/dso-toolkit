@@ -21,7 +21,7 @@ export function examplePageFactory(
       templateContainer,
     },
     (stories, templateMapper) => {
-      stories
+      return stories
         .addParameters({
           layout: "fullscreen",
         })

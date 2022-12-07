@@ -11,6 +11,12 @@ module.exports = {
   },
   stories: ["../components/**/*.stories.ts"],
   addons: [
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        transcludeMarkdown: true,
+      },
+    },
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",

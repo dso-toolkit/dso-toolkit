@@ -7,7 +7,7 @@ import { CardContainerMode } from "./card-container.interfaces";
   shadow: true,
 })
 export class CardContainer implements ComponentInterface {
-  @Prop()
+  @Prop({ reflect: true })
   mode: CardContainerMode = "list";
 
   render() {
