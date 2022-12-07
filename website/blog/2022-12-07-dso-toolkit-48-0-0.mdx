@@ -32,6 +32,22 @@ Van 84MB package size (123MB unpacked) naar 8MB package size (9.8MB unpacked).
 
 Ik wil benadrukken dat dit niet aan Fractal lag, maar aan ons. Fractal zat ons gewoon in de weg om het op te lossen.
 
+## Nieuwe distributie in `@dso-toolkit/core`.
+
+De toolkit maakt gebruik van [Stencil](https://stenciljs.com). Stencil compileert naar verschillende "distributies". Voorheen maakt de toolkit van de `dist` en `dist-custom-elements-bundle` release gebruik. Sinds deze release is de `dist-custom-elements-bundle` distributie vervangen met `dist-custom-elements`.
+
+Tot zover de Stencil-specifieke termen, maar wat betekent dit nou voor afnemers?
+
+De `dist` distributie is de lazy loadending variant: Hier is niets gewijzigd.
+
+En voor wat betreft `dist-custom-elements-bundle` naar `dist-custom-elements` zou er als het goed iets ook niets gewijzigd moeten zijn:
+
+> The dist-custom-elements-bundle output target is nearly the same as dist-custom-elements, and has been deprecated in Stencil v2.12.0 in favor of dist-custom-elements for its improved tree-shaking features. Stencil's React, Vue, and Angular output targets use the dist-custom-elements for this reason.
+
+https://stenciljs.com/docs/custom-elements#how-is-this-different-from-the-dist-and-the-dist-custom-element-bundle-output-targets
+
+Zowel `dist-custom-elements-bundle` als `dist-custom-elements` zijn ES6 modules. Mocht je van deze distributie gebruik maken en niet kunnen upgraden, schiet mij dan aan in de DSO Toolkit Slack en dan kijk ik met je mee. Mocht de oplossing in de toolkit zitten zal ik direct een fix uitbrengen.
+
 ## Bloggen
 
 Vanaf nu zullen we elke twee weken een blogpost plaatsen. De CHANGELOG is (vooral voor Breaking changes) niet de juiste plek om de afnemer snel op weg te helpen.

@@ -24,7 +24,7 @@
     "module": "es2020",
     "lib": ["es2020", "dom"]
   },
-  "exclude": ["www"],
+  "exclude": ["www", ".angular"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

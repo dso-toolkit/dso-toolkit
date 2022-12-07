@@ -1,5 +1,5 @@
 import { moduleMetadata, storiesOf } from "@storybook/angular";
-import { SanitizeUrlPipe } from "projects/component-library/src/lib/sanitize-url.pipe";
+import { SanitizeUrlPipe } from "components/sanitize-url.pipe";
 
 import { storiesOfHeader } from "../../../sources";
 import { DsoHeader } from "../../projects/component-library/src/public-api";
