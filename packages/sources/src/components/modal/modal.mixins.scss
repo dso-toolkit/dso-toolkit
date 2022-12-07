@@ -63,13 +63,13 @@
   }
 
   .dso-body {
-    $dso-body-height: (2 * modal-variables.$header-padding) +
+    $dso-body-unavailable-height: (2 * modal-variables.$header-padding) +
       (modal-variables.$footer-button-height + modal-variables.$footer-padding);
 
     @include rich-content.children();
 
     height: calc(100% - #{modal-variables.$body-padding * 2 + units.$u4} - 1.5rem);
-    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-height + units.$u4} - 1.5em);
+    max-height: calc(#{modal-variables.$max-height} - #{$dso-body-unavailable-height + units.$u4} - 1.5em);
     min-height: 1.5rem;
     overflow-x: auto;
     padding: modal-variables.$body-padding;
