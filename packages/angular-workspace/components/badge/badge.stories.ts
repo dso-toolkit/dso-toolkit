@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfBadge(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfBadge({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoBadge,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate }),
   },
-  { component: DsoBadge }
-);
+  templateContainer,
+  storyTemplates: ({ badgeTemplate }) => ({ badgeTemplate }),
+});

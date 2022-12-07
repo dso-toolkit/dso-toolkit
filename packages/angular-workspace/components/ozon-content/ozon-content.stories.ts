@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfOzonContent(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfOzonContent({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoOzonContent,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ ozonContentTemplate }) => ({ ozonContentTemplate }),
   },
-  { component: DsoOzonContent }
-);
+  templateContainer,
+  storyTemplates: ({ ozonContentTemplate }) => ({ ozonContentTemplate }),
+});

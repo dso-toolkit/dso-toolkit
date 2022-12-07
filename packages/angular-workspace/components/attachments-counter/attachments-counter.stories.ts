@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfAttachmentsCounter(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfAttachmentsCounter({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoAttachmentsCounter,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate }),
   },
-  { component: DsoAttachmentsCounter }
-);
+  templateContainer,
+  storyTemplates: ({ attachmentsCounterTemplate }) => ({ attachmentsCounterTemplate }),
+});

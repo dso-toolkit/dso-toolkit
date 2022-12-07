@@ -13,12 +13,18 @@ storiesOfLabel(
       module,
       storiesOf,
       readme,
+      storyApiOptions: {
+        parameters: [
+          {
+            component: DsoLabel,
+          },
+        ],
+      },
     },
     templateContainer,
     storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
   },
   {
     decorator,
-  },
-  { component: DsoLabel }
+  }
 );

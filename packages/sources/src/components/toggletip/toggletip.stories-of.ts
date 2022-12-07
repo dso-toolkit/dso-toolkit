@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { ToggletipArgs, toggletipArgsMapper, toggletipArgTypes } from "./toggletip.args";
@@ -15,13 +14,11 @@ export function storiesOfToggletip<Implementation, Templates, TemplateFnReturnTy
     Templates,
     TemplateFnReturnType,
     ToggletipTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Toggletip", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: toggletipArgTypes,
-      ...parameters,
     });
 
     const template = templateMapper<ToggletipArgs>((args, { toggletipTemplate, children }) =>

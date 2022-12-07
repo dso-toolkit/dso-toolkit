@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { v4 as uuidv4 } from "uuid";
 import { componentArgs } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
@@ -17,8 +16,7 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     DropdownMenuTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Dropdown Menu", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -26,7 +24,6 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
       args: {
         id: uuidv4(),
       },
-      ...parameters,
     });
 
     const template = templateMapper<DropdownMenuArgs>((args, { dropdownMenuTemplate }) =>

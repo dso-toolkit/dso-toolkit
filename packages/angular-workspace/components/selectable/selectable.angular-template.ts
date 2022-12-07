@@ -2,83 +2,68 @@ import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/p
 
 import { Selectable } from "../../../sources";
 import { ComponentImplementation } from "../../templates";
-import { SelectableVariables } from "./selectable.models";
+
+const defaultPropValues = {
+  type: "type",
+  identifier: "id",
+  label: "label",
+  value: "value",
+  name: "name",
+  describedById: "describedById",
+  invalid: "invalid",
+  disabled: "disabled",
+  required: "required",
+  checked: "checked",
+  indeterminate: "indeterminate",
+  infoFixed: "info?.fixed",
+  slot: "slot",
+  dsoChange: "dsoChange?.($event.detail)",
+};
 
 export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngularReturnType>> = {
   component: "selectable",
   implementation: "angular",
   template: () =>
-    function selectableTemplate(props) {
-      const template = selectableHtml({
-        type: "type",
-        identifier: "id",
-        label: "label",
-        value: "value",
-        name: "name",
-        describedById: "describedById",
-        invalid: "invalid",
-        disabled: "disabled",
-        required: "required",
-        checked: "checked",
-        indeterminate: "indeterminate",
-        infoContent: "info?.content.template",
-        infoFixed: "info?.fixed",
-        slot: "slot",
-        dsoChange: "dsoChange?.($event.detail)",
-      });
+    function selectableTemplate(props, propValues) {
+      const {
+        type,
+        identifier,
+        label,
+        value,
+        name,
+        describedById,
+        invalid,
+        disabled,
+        required,
+        checked,
+        indeterminate,
+        infoFixed,
+        slot,
+        dsoChange,
+      } = { ...defaultPropValues, ...propValues };
 
       return {
         props,
-        template,
+        template: `
+        <dso-selectable
+          [type]="${type}"
+          [identifier]="${identifier}"
+          [value]="${value}"
+          ${props.name ? `[name] = "${name}"` : ""}
+          ${props.describedById ? `[describedById]="${describedById}"` : ""}
+          ${props.invalid ? `[invalid]="${invalid}"` : ""}
+          ${props.disabled ? `[disabled]="${disabled}"` : ""}
+          ${props.required ? `[required]="${required}"` : ""}
+          ${props.checked ? `[checked]="${checked}"` : ""}
+          ${props.indeterminate ? `[indeterminate]="${indeterminate}"` : ""}
+          [infoFixed]="${infoFixed}"
+          ${props.slot ? `[slot]="${slot}"` : ""}
+          ${props.dsoChange ? `(dsoChange)="${dsoChange}"` : ""}
+        >
+          {{ ${label} }}
+          ${props.info?.content ?? ""}
+        </dso-selectable>
+      `,
       };
     },
 };
-
-export function selectableHtml(variables: SelectableVariables) {
-  const template = `
-    <dso-selectable
-      [type]="${variables.type}"
-      [identifier]="${variables.identifier}"
-      [value]="${variables.value}"
-      ${variables.name ? `[name] = "${variables.name}"` : ""}
-      ${variables.describedById ? `[describedById]="${variables.describedById}"` : ""}
-      ${variables.invalid ? `[invalid]="${variables.invalid}"` : ""}
-      ${variables.disabled ? `[disabled]="${variables.disabled}"` : ""}
-      ${variables.required ? `[required]="${variables.required}"` : ""}
-      ${variables.checked ? `[checked]="${variables.checked}"` : ""}
-      ${variables.indeterminate ? `[indeterminate]="${variables.indeterminate}"` : ""}
-      [infoFixed]="${variables.infoFixed}"
-      ${variables.slot ? `[slot]="${variables.slot}"` : ""}
-      (dsoChange)="${variables.dsoChange}"
-    >
-      {{ ${variables.label} }}
-      ${variables.infoContent ? `<div [outerHTML]="${variables.infoContent}"></div>` : ""}
-    </dso-selectable>
-  `;
-
-  return template;
-}
-
-export function selectableMapper(selectable: Selectable<StoryFnAngularReturnType>): SelectableVariables {
-  return {
-    type: `'${selectable.type}'`,
-    identifier: `'${selectable.id}'`,
-    label: typeof selectable.label === "string" ? `'${selectable.label}'` : `'${selectable.label.template}'`,
-    name: selectable.name ? `'${selectable.name}'` : "",
-    value: `'${selectable.value}'`,
-    required: selectable.required,
-    invalid: selectable.invalid,
-    describedById: selectable.describedById ? `'${selectable.describedById}'` : "",
-    checked: selectable.checked,
-    indeterminate: selectable.indeterminate,
-    disabled: selectable.disabled,
-    infoContent: selectable.info
-      ? typeof selectable.info.content === "string"
-        ? `'${selectable.info.content}'`
-        : `'${selectable.info.content.template}'`
-      : "",
-    infoFixed: selectable.info && selectable.info.fixed,
-    slot: selectable.slot ? `'${selectable.slot}'` : "",
-    // dsoChange: "",
-  };
-}

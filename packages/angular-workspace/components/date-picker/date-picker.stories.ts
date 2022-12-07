@@ -13,6 +13,13 @@ storiesOfDatePicker(
       module,
       storiesOf,
       readme,
+      storyApiOptions: {
+        parameters: [
+          {
+            component: DsoDatePicker,
+          },
+        ],
+      },
     },
     templateContainer,
     storyTemplates: ({ datePickerTemplate }) => ({
@@ -23,6 +30,5 @@ storiesOfDatePicker(
   },
   {
     decorator: (story) => ({ template: `<div style="width: 175px;">${story().template}</div>` }),
-  },
-  { component: DsoDatePicker }
+  }
 );

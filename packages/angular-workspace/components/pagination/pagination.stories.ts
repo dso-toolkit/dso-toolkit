@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfPagination(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfPagination({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoPagination,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ paginationTemplate }) => ({ paginationTemplate }),
   },
-  { component: DsoPagination }
-);
+  templateContainer,
+  storyTemplates: ({ paginationTemplate }) => ({ paginationTemplate }),
+});

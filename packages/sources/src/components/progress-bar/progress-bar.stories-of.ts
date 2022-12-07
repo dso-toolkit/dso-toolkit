@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { ProgressBarArgs, progressBarArgsMapper, progressBarArgTypes } from "./progress-bar.args";
@@ -14,13 +13,11 @@ export function storiesOfProgressBar<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     ProgressBarTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Progress Bar", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: progressBarArgTypes,
-      ...parameters,
     });
 
     const template = templateMapper<ProgressBarArgs>((args, { progressBarTemplate }) =>

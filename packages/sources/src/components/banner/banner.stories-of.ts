@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { BannerArgs, bannerArgsMapper, bannerArgTypes } from "./banner.args";
@@ -18,13 +17,11 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
     Templates,
     TemplateFnReturnType,
     BannerTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Banner", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: bannerArgTypes,
-      ...parameters,
     });
 
     stories.add(

@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { BadgeArgs, badgeArgsMapper, badgeArgTypes } from "./badge.args";
@@ -14,13 +13,11 @@ export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     BadgeTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Badge", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: badgeArgTypes,
-      ...parameters,
     });
 
     const template = templateMapper<BadgeArgs>((args, { badgeTemplate }) => badgeTemplate(badgeArgsMapper(args)));

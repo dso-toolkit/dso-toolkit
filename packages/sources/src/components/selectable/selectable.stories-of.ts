@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { v4 as uuidv4 } from "uuid";
 
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
@@ -18,8 +17,7 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     SelectableTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Selectable", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -37,7 +35,6 @@ export function storiesOfSelectable<Implementation, Templates, TemplateFnReturnT
         required: false,
         value: "the-value",
       },
-      ...parameters,
     });
 
     const template = templateMapper<SelectableArgs<TemplateFnReturnType>>(

@@ -7,15 +7,15 @@ import { children } from "./toggletip.content";
 
 import readme from "./readme.md";
 
-storiesOfToggletip(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfToggletip({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [{ component: DsoToggletip }],
     },
-    templateContainer,
-    storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate, children }),
   },
-  { component: DsoToggletip }
-);
+  templateContainer,
+  storyTemplates: ({ toggletipTemplate }) => ({ toggletipTemplate, children }),
+});

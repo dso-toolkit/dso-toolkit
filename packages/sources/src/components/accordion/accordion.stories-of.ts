@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { AccordionArgs, accordionArgsMapper, accordionArgTypes } from "./accordion.args";
@@ -20,13 +19,11 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
     Templates,
     TemplateFnReturnType,
     AccordionTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Accordion", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: accordionArgTypes,
-      ...parameters,
     });
 
     stories.add(

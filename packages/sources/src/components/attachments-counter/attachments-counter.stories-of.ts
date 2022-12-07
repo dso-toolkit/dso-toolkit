@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import {
@@ -18,13 +17,11 @@ export function storiesOfAttachmentsCounter<Implementation, Templates, TemplateF
     Templates,
     TemplateFnReturnType,
     AttachmentsCounterTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Attachments Counter", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: attachmentsCounterArgTypes,
-      ...parameters,
     });
 
     const template = templateMapper<AttachmentsCounterArgs>((args, { attachmentsCounterTemplate }) =>

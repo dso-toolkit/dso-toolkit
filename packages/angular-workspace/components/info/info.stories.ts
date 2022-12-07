@@ -7,15 +7,19 @@ import { richContent } from "./info.content";
 
 import readme from "./readme.md";
 
-storiesOfInfo(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfInfo({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoInfo,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) }),
   },
-  { component: DsoInfo }
-);
+  templateContainer,
+  storyTemplates: ({ infoTemplate }, templates) => ({ infoTemplate, richContent: richContent(templates) }),
+});

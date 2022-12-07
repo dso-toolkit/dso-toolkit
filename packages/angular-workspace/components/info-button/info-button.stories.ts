@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfInfoButton(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfInfoButton({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoInfoButton,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ infoButtonTemplate }) => ({ infoButtonTemplate }),
   },
-  { component: DsoInfoButton }
-);
+  templateContainer,
+  storyTemplates: ({ infoButtonTemplate }) => ({ infoButtonTemplate }),
+});

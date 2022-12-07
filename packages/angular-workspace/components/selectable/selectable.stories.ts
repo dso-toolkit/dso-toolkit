@@ -7,15 +7,15 @@ import { infoRichContent } from "./selectable.content";
 
 import readme from "./readme.md";
 
-storiesOfSelectable(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfSelectable({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [{ component: DsoSelectable }],
     },
-    templateContainer,
-    storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
   },
-  { component: DsoSelectable }
-);
+  templateContainer,
+  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
+});

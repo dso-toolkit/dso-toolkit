@@ -1,4 +1,4 @@
-import { progressIndicatorHtml } from "../progress-indicator/progress-indicator.angular-template";
+import { Templates } from "../../templates";
 
 export const activeBody = {
   template: `
@@ -84,9 +84,9 @@ export const confirmFooter = {
   `,
 };
 
-export function loadingBody() {
+export function loadingBody({ progressIndicatorTemplate }: Templates) {
   return {
-    template: progressIndicatorHtml({
+    template: progressIndicatorTemplate({
       label: "'Resultaten laden. Een moment geduld.'",
       block: true,
     }),

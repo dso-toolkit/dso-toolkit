@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { AlertArgs, alertArgsMapper, alertArgTypes } from "./alert.args";
@@ -19,8 +18,7 @@ export function storiesOfAlert<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     AlertTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Alert", storyFunctionArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -29,7 +27,6 @@ export function storiesOfAlert<Implementation, Templates, TemplateFnReturnType>(
         withRoleAlert: false,
         withButton: true,
       },
-      ...parameters,
     });
 
     stories.add(

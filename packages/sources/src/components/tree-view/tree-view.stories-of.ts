@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { TreeViewArgs, treeViewArgTypes } from "./tree-view.args";
 
@@ -25,8 +24,7 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
     Templates,
     TemplateFnReturnType,
     TreeViewTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Tree View", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -38,7 +36,6 @@ export function storiesOfTreeView<Implementation, Templates, TemplateFnReturnTyp
       controls: {
         hideNoControlsWarning: true,
       },
-      ...parameters,
     });
 
     stories.add(

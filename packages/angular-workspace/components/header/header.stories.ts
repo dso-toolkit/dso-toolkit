@@ -7,20 +7,24 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfHeader(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfHeader({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoHeader,
+        },
+      ],
+      decorators: [
+        moduleMetadata({
+          declarations: [SanitizeUrlPipe],
+        }),
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ headerTemplate }) => ({ headerTemplate }),
   },
-  {
-    component: DsoHeader,
-  },
-  moduleMetadata({
-    declarations: [SanitizeUrlPipe],
-  })
-);
+  templateContainer,
+  storyTemplates: ({ headerTemplate }) => ({ headerTemplate }),
+});

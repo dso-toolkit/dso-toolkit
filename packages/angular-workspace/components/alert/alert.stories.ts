@@ -7,22 +7,26 @@ import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, wa
 
 import readme from "./readme.md";
 
-storiesOfAlert(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfAlert({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoAlert,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ alertTemplate }) => ({
-      alertTemplate,
-      errorMessage,
-      infoMessage,
-      successMessage,
-      warningMessage,
-      alertWithHeadingsContent,
-    }),
   },
-  { component: DsoAlert }
-);
+  templateContainer,
+  storyTemplates: ({ alertTemplate }) => ({
+    alertTemplate,
+    errorMessage,
+    infoMessage,
+    successMessage,
+    warningMessage,
+    alertWithHeadingsContent,
+  }),
+});

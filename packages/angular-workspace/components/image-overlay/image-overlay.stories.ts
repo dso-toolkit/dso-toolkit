@@ -6,15 +6,15 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfImageOverlay(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfImageOverlay({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [{ component: DsoImageOverlay }],
     },
-    templateContainer,
-    storyTemplates: ({ imageOverlayTemplate }) => ({ imageOverlayTemplate }),
   },
-  { component: DsoImageOverlay }
-);
+  templateContainer,
+  storyTemplates: ({ imageOverlayTemplate }) => ({ imageOverlayTemplate }),
+});

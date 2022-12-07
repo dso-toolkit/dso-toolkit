@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { ImageOverlayArgs, imageOverlayArgsMapper, imageOverlayArgTypes } from "./image-overlay.args";
 import { ImageOverlay } from "./image-overlay.models";
@@ -13,14 +12,12 @@ export function storiesOfImageOverlay<Implementation, Templates, TemplateFnRetur
     Templates,
     TemplateFnReturnType,
     ImageOverlayTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Image Overlay", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: imageOverlayArgTypes,
       layout: "fullscreen",
-      ...parameters,
     });
 
     const template = templateMapper<ImageOverlayArgs>((args, { imageOverlayTemplate }) =>

@@ -12,21 +12,25 @@ import {
 
 import readme from "./readme.md";
 
-storiesOfBanner(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfBanner({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoBanner,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ bannerTemplate }) => ({
-      bannerTemplate,
-      dangerRichContent,
-      dangerWithHeadingsRichContent,
-      richWarningRichContent,
-      warningRichContent,
-    }),
   },
-  { component: DsoBanner }
-);
+  templateContainer,
+  storyTemplates: ({ bannerTemplate }) => ({
+    bannerTemplate,
+    dangerRichContent,
+    dangerWithHeadingsRichContent,
+    richWarningRichContent,
+    warningRichContent,
+  }),
+});

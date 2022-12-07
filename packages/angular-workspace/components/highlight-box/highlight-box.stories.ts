@@ -7,18 +7,24 @@ import { content } from "./highlight-box.content";
 
 import readme from "./readme.md";
 
-storiesOfHighlightBox(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfHighlightBox({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      decorators: [
+        moduleMetadata({
+          declarations: [DsoIcon],
+        }),
+      ],
+      parameters: [
+        {
+          component: DsoHighlightBox,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ highlightBoxTemplate }, templates) => ({ highlightBoxTemplate, content: content(templates) }),
   },
-  { component: DsoHighlightBox },
-  moduleMetadata({
-    declarations: [DsoIcon],
-  })
-);
+  templateContainer,
+  storyTemplates: ({ highlightBoxTemplate }, templates) => ({ highlightBoxTemplate, content: content(templates) }),
+});

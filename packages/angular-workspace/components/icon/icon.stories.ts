@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfIcon(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfIcon({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoIcon,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ iconTemplate }) => ({ iconTemplate }),
   },
-  { component: DsoIcon }
-);
+  templateContainer,
+  storyTemplates: ({ iconTemplate }) => ({ iconTemplate }),
+});

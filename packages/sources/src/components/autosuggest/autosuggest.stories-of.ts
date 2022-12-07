@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { AutosuggestArgs, autosuggestArgTypes } from "./autosuggest.args";
@@ -29,8 +28,7 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
     Templates,
     TemplateFnReturnType,
     AutosuggestTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Autosuggest", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -39,7 +37,6 @@ export function storiesOfAutosuggest<Implementation, Templates, TemplateFnReturn
         suggestOnFocus: false,
         loading: false,
       },
-      ...parameters,
     });
 
     stories.add(

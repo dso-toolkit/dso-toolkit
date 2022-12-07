@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfProgressIndicator(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfProgressIndicator({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoProgressIndicator,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate }),
   },
-  { component: DsoProgressIndicator }
-);
+  templateContainer,
+  storyTemplates: ({ progressIndicatorTemplate }) => ({ progressIndicatorTemplate }),
+});

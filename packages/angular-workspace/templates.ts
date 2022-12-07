@@ -1,4 +1,4 @@
-import { ICollection, StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
+import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
 
 import {
   TemplateContainer,
@@ -83,8 +83,11 @@ export interface Components {
   // viewerGrid: ViewerGrid<StoryFnAngularReturnType>;
 }
 
+export type DefaultPropValues<Model> = { [P in keyof Required<Model>]: string };
+export type PropValues<Model> = { [P in keyof Partial<Model>]: string };
+
 export interface AngularTemplateFunction<Model, TemplateFnReturnType> {
-  (model: Model, propNames?: ICollection): TemplateFnReturnType;
+  (model: Model, propValues?: PropValues<Model>): TemplateFnReturnType;
 }
 
 export type ComponentsToTemplates<Components, TemplateFnReturnType> = {

@@ -1,13 +1,14 @@
 describe("Percy", () => {
   before(() => {
     cy.visit("http://localhost:45000/?path=/story/html-css-accordion--default")
-      .get("#storybook-preview-iframe")
-      .then(($iframe) => new Cypress.Promise((resolve) => $iframe.on("load", () => resolve())))
+      .get<HTMLIFrameElement>("#storybook-preview-iframe")
+      .then(($iframe) =>
+        $iframe[0].contentDocument.readyState === "loading"
+          ? new Cypress.Promise((resolve) => $iframe.on("load", () => resolve()))
+          : Cypress.Promise.resolve()
+      )
       .get('button[title="Shortcuts"]')
-      .should(($shortcuts) => {
-        expect(Cypress.dom.isDetached($shortcuts)).to.eq(false);
-      })
-      .should("be.visible")
+      .and("be.visible")
       .click()
       .get("#collapse")
       .click()

@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { TableArgs, tableArgsMapper, tableArgTypes } from "./table.args";
 import { Table, TableContent } from "./table.models";
@@ -15,13 +14,11 @@ export function storiesOfTable<Implementation, Templates, TemplateFnReturnType>(
     Templates,
     TemplateFnReturnType,
     TableTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Table", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: tableArgTypes,
-      ...parameters,
     });
 
     stories.add(

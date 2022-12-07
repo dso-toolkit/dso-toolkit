@@ -15,24 +15,28 @@ import {
 
 import readme from "./readme.md";
 
-storiesOfModal(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfModal({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoModal,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ modalTemplate }) => ({
-      modalTemplate,
-      activeBody,
-      activeFooter,
-      passiveBody,
-      passiveFooter,
-      confirmBody,
-      confirmFooter,
-      loadingBody: loadingBody(),
-    }),
   },
-  { component: DsoModal }
-);
+  templateContainer,
+  storyTemplates: ({ modalTemplate }, templates) => ({
+    modalTemplate,
+    activeBody,
+    activeFooter,
+    passiveBody,
+    passiveFooter,
+    confirmBody,
+    confirmFooter,
+    loadingBody: loadingBody(templates).template,
+  }),
+});

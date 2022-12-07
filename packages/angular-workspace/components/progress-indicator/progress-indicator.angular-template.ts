@@ -1,31 +1,28 @@
 import { ProgressIndicator } from "../../../sources";
-import { ComponentImplementation } from "../../templates";
-import { ProgressIndicatorVariables } from "./progress-indicator.models";
+import { ComponentImplementation, DefaultPropValues } from "../../templates";
+
+const defaultPropValues: DefaultPropValues<ProgressIndicator> = {
+  label: "label",
+  block: "block",
+  size: "size",
+};
 
 export const angularProgressIndicator: ComponentImplementation<ProgressIndicator> = {
   component: "progressIndicator",
   implementation: "angular",
   template: () =>
-    function progressIndicatorTemplate(props) {
+    function progressIndicatorTemplate(props, propValues) {
+      const { label, block, size } = { ...defaultPropValues, ...propValues };
+
       return {
         props,
         template: `
           <dso-progress-indicator
-            [label]="label"
-            [block]="block"
-            [size]="size"
+            [label]="${label}"
+            ${block ? `[block]="${block}"` : ""}
+            ${size ? `[size]="${size}"` : ""}
           ></dso-progress-indicator>
         `,
       };
     },
 };
-
-export function progressIndicatorHtml(variables: ProgressIndicatorVariables) {
-  return `
-    <dso-progress-indicator
-      [label]="${variables.label}"
-      ${variables.block ? `[block]="${variables.block}"` : ""}
-      ${variables.size ? `[size]="${variables.size}"` : ""}
-    ></dso-progress-indicator>
-  `;
-}

@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfProgressBar(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfProgressBar({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoProgressBar,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ progressBarTemplate }) => ({ progressBarTemplate }),
   },
-  { component: DsoProgressBar }
-);
+  templateContainer,
+  storyTemplates: ({ progressBarTemplate }) => ({ progressBarTemplate }),
+});

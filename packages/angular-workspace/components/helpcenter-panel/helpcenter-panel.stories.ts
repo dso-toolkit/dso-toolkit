@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfHelpcenterPanel(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfHelpcenterPanel({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoHelpcenterPanel,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate }),
   },
-  { component: DsoHelpcenterPanel }
-);
+  templateContainer,
+  storyTemplates: ({ helpcenterPanelTemplate }) => ({ helpcenterPanelTemplate }),
+});

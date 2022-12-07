@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { componentArgs } from "../../storybook";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 import { documentListContent } from "../document-list/document-list.content";
@@ -34,8 +33,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     ViewerGridTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Viewer Grid", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -43,7 +41,6 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
       controls: {
         hideNoControlsWarning: true,
       },
-      ...parameters,
     });
 
     stories.add(

@@ -6,15 +6,19 @@ import { templateContainer } from "../../templates";
 
 import readme from "./readme.md";
 
-storiesOfDropdownMenu(
-  {
-    parameters: {
-      module,
-      storiesOf,
-      readme,
+storiesOfDropdownMenu({
+  parameters: {
+    module,
+    storiesOf,
+    readme,
+    storyApiOptions: {
+      parameters: [
+        {
+          component: DsoDropdownMenu,
+        },
+      ],
     },
-    templateContainer,
-    storyTemplates: ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate }),
   },
-  { component: DsoDropdownMenu }
-);
+  templateContainer,
+  storyTemplates: ({ dropdownMenuTemplate }) => ({ dropdownMenuTemplate }),
+});

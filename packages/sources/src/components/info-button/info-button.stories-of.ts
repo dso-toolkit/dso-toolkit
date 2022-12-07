@@ -1,4 +1,3 @@
-import { Parameters } from "@storybook/addons";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/stories-of-factory";
 
 import { InfoButtonArgs, infoButtonArgsMapper, infoButtonArgTypes } from "./info-button.args";
@@ -14,8 +13,7 @@ export function storiesOfInfoButton<Implementation, Templates, TemplateFnReturnT
     Templates,
     TemplateFnReturnType,
     InfoButtonTemplates<TemplateFnReturnType>
-  >,
-  parameters?: Parameters
+  >
 ) {
   return storiesOfFactory("Info Button", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
@@ -23,7 +21,6 @@ export function storiesOfInfoButton<Implementation, Templates, TemplateFnReturnT
       args: {
         label: "Toelichting bij vraag",
       },
-      ...parameters,
     });
 
     const template = templateMapper<InfoButtonArgs>((args, { infoButtonTemplate }) =>
