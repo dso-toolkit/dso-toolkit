@@ -203,6 +203,7 @@ export class AccordionSection implements ComponentInterface {
           if (this.open) {
             this.sectionBody.style.visibility = "";
             this.sectionBody.style.position = "";
+            this.sectionBody.style.bottom = "";
           }
         }
       },
@@ -213,6 +214,7 @@ export class AccordionSection implements ComponentInterface {
           if (!this.open) {
             this.sectionBody.style.visibility = "hidden";
             this.sectionBody.style.position = "absolute";
+            this.sectionBody.style.bottom = "100%";
           }
         }
       },
