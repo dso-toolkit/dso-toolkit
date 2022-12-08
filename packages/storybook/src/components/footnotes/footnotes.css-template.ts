@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFootnotes: ComponentImplementation<Footnote[]> = {
   component: "footnotes",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function footnotesListTemplate(footnotes) {
       return html`

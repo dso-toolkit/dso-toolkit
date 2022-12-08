@@ -9,9 +9,10 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "start": "cross-env DSO_ENV=development yarn node scripts/start.js",
     "build": "npm run clean && npm run compile",
-    "build-www": "cross-env DSO_ENV=production yarn build-storybook --output-dir ./www",
+    "storybook:start": "cross-env DSO_ENV=development yarn node scripts/start.js",
+    "storybook:build": "cross-env DSO_ENV=production yarn build-storybook --output-dir ./www",
+    "storybook:build-extract": "yarn storybook:build && yarn storybook extract www",
     "compile": "tsc --project ."
   },
   "main": "dist/index.js",
@@ -39,6 +40,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rimraf": "3.0.2",
+    "storybook": "6.5.14",
     "storybook-addon-jsx": "^7.3.14",
     "tslib": "2.4.1",
     "typescript": "^4.8.4",

@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssRowEqualHeights: ComponentImplementation<RowEqualHeights<TemplateResult>> = {
   component: "rowEqualHeights",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function rowEqualHeightsTemplate({ children }) {
       return html`<div class="row dso-equal-heights">${children}</div>`;

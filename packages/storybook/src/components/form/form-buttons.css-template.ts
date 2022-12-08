@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormButtons: ComponentImplementation<FormButtons> = {
   component: "formButtons",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function formButtonsTemplate({ formModifier, buttons, asideButtons }) {
       return html`

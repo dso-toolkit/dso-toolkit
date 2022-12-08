@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssBreadcrumbs: ComponentImplementation<Breadcrumbs> = {
   component: "breadcrumbs",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function breadcrumbsTemplate({ breadcrumbs }) {
       return html`

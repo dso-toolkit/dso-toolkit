@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssForm: ComponentImplementation<Form<TemplateResult>> = {
   component: "form",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ formGroupTemplate }) =>
     function formTemplate({ legend, legendHeading, mode, formGroups }) {
       return html`

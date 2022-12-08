@@ -28,7 +28,7 @@ function contextFieldsetTemplate(label: TemplateResult, content: TemplateResult,
 
 export const cssContext: ComponentImplementation<Context<TemplateResult>> = {
   component: "context",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function contextTemplate({ label, type, content, children }) {
       switch (type) {

@@ -7,9 +7,9 @@ import styles from "./styles.module.scss";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 
-type Implementation = "core" | "css" | "react";
+type Implementation = "core" | "angular" | "html-css" | "react";
 
-const allImplementations = ["core", "react", "css"] as const;
+const allImplementations = ["core", "angular", "react", "html-css"] as const;
 
 interface Props {
   /**
@@ -28,43 +28,56 @@ interface Props {
    */
 }
 
-function getStoryUrl(name: string, implementation: Implementation, variant: string | undefined): string {
-  const version = getVersion();
-  const subDomain = implementation === "react" ? "react" : "storybook";
+function getSubDomain(implementation: Implementation) {
+  return isComposedStorybook(implementation) ? implementation : "storybook";
+}
 
-  return `https://${subDomain}.dso-toolkit.nl/${version !== "local" ? version : "master"}/?path=/story/${getStoryId(
-    name,
+function isComposedStorybook(implementation: Implementation) {
+  return implementation === "react" || implementation === "angular";
+}
+
+function joinNameAndVariant(name: string, variant: string | undefined) {
+  return [name, variant].filter((t) => !!t).join("--");
+}
+
+function getStoryUrl(implementation: Implementation, name: string, variant: string | undefined): string {
+  const version = getVersion();
+
+  return `https://storybook.dso-toolkit.nl/${version !== "local" ? version : "master"}/?path=/story/${getStoryUrlId(
     implementation,
+    name,
     variant
   )}&viewMode=story`;
 }
 
-function getStoryIframeUrl(name: string, implementation: Implementation, variant: string | undefined): string {
+function getStoryUrlId(implementation: Implementation, name: string, variant: string | undefined) {
+  if (isComposedStorybook(implementation)) {
+    return `${implementation}_${joinNameAndVariant(name, variant)}`;
+  }
+
+  return `${implementation}-${joinNameAndVariant(name, variant)}`;
+}
+
+function getStoryIframeUrl(implementation: Implementation, name: string, variant: string | undefined): string {
+  const host = window.location.hostname === "localhost" ? "dso-toolkit.nl" : window.location.host;
   const version = getVersion();
-  const subDomain = implementation === "react" ? "react" : "storybook";
+  const subDomain = getSubDomain(implementation);
+  const id = getStoryIframeId(implementation, name, variant);
 
-  return `https://${window.location.hostname === "localhost" ? "dso-toolkit.nl" : window.location.host}/!${subDomain}/${
+  return `https://${host}/!${subDomain}/${
     version !== "local" ? version : "master"
-  }/iframe.html?id=${getStoryId(name, implementation, variant)}&viewMode=story`;
+  }/iframe.html?id=${id}&viewMode=story`;
 }
 
-function getStoryId(name: string, implementation: Implementation, variant: string | undefined) {
-  let id = "";
-
-  if (implementation === "react" || name.startsWith("voorbeeldpagina")) {
-    id += name;
-  } else {
-    id += `${implementation === "css" ? "html-css" : "core"}-${name}`;
+function getStoryIframeId(implementation: Implementation, name: string, variant: string | undefined) {
+  if (isComposedStorybook(implementation) || name.startsWith("voorbeeldpagina")) {
+    return joinNameAndVariant(name, variant);
   }
 
-  if (variant) {
-    id += `--${variant}`;
-  }
-
-  return id;
+  return `${implementation}-${joinNameAndVariant(name, variant)}`;
 }
 
-function getNameFromLocation(pathname: string): string {
+function getNameFromPathname(pathname: string): string {
   let path: string | undefined;
   let component: string | undefined;
 
@@ -82,12 +95,12 @@ function getNameFromLocation(pathname: string): string {
 }
 
 export function StorybookComponent({ name, implementations, variant }: Props) {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   const [implementation, setImplementation] = useState<Implementation>(() => {
     const implementation = (implementations ?? allImplementations)[0];
     if (!implementation) {
-      throw new Error(`No implementation found for ${name}`);
+      throw new Error(`No implementation found for ${name ?? getNameFromPathname(pathname)}`);
     }
 
     return implementation;
@@ -107,7 +120,7 @@ export function StorybookComponent({ name, implementations, variant }: Props) {
             {loading && <div className={styles.loading}>loading</div>}
             <IframeResizer
               onLoad={() => setLoading(false)}
-              src={getStoryIframeUrl(name ?? getNameFromLocation(location.pathname), implementation, variant)}
+              src={getStoryIframeUrl(implementation, name ?? getNameFromPathname(pathname), variant)}
               style={{ width: "1px", minWidth: "100%" }}
               heightCalculationMethod="lowestElement"
             />
@@ -125,7 +138,7 @@ export function StorybookComponent({ name, implementations, variant }: Props) {
                   </button>
                 ))}
               <Link
-                to={getStoryUrl(name ?? getNameFromLocation(location.pathname), implementation, variant)}
+                to={getStoryUrl(implementation, name ?? getNameFromPathname(pathname), variant)}
                 className={styles.openInStorybook}
               >
                 Open in Storybook

@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["es2019", "dom"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "types": ["cypress", "cypress-axe", "cypress-real-events", "@percy/cypress"]
   },
   "include": ["../packages/core/src/components.d.ts", "**/*.ts"]

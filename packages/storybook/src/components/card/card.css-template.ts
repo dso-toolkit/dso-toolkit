@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
   component: "card",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate, iconTemplate, selectableTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return html`

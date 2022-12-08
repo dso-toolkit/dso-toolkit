@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssTabs: ComponentImplementation<Tabs> = {
   component: "tabs",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function tabsTemplate({ items }) {
       return html`

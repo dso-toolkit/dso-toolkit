@@ -13,7 +13,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssDefinitionList: ComponentImplementation<DefinitionList<TemplateResult>> = {
   component: "definitionList",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ listTemplate }) =>
     function definitionListTemplate({ modifier, definitions }) {
       function definitionTemplate({ term, descriptions }: Definition<TemplateResult>) {

@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssApplicationHeading: ComponentImplementation<ApplicationHeading> = {
   component: "applicationHeading",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function applicationHeadingTemplate({ title, subtitle, step }) {
       return html`

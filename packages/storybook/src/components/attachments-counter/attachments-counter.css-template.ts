@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssAttachmentsCounter: ComponentImplementation<AttachmentsCounter> = {
   component: "attachmentsCounter",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function attachmentsCounterTemplate({ count }) {
       return html`

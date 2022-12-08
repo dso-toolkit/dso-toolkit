@@ -36,7 +36,7 @@ function ol(children: TemplateResult, modifier?: string) {
 
 export const cssList: ComponentImplementation<List> = {
   component: "list",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function listTemplate({ type, items, modifier }) {
       const children = html`

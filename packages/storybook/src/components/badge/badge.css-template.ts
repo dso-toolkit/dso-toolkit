@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssBadge: ComponentImplementation<Badge> = {
   component: "badge",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function badgeTemplate({ status, message }) {
       return html`<span class="dso-badge ${status ? `badge-${status}` : ""}"> ${message} </span>`;

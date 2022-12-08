@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssWhitebox: ComponentImplementation<Whitebox> = {
   component: "whitebox",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ iconTemplate, imageTemplate, anchorTemplate }) =>
     function whiteboxTemplate({ count, icon, iconLabel, image, label, description, title }) {
       return html`

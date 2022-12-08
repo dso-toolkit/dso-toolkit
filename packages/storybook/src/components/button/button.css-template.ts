@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
   component: "button",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ iconTemplate, tooltipTemplate }) => {
     function getClassName(variant: "primary" | "secondary" | "tertiary" | null, modifier: string | undefined) {
       if (variant && modifier) {

@@ -9,7 +9,7 @@ export const cssFormGroupInput: ComponentImplementation<
   FormGroupInput<TemplateResult> | FormGroupInputDate<TemplateResult>
 > = {
   component: "formGroupInput",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, datePickerTemplate, iconTemplate }) =>
     function formGroupInputTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

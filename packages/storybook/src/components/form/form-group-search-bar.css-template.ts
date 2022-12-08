@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupSearchBar: ComponentImplementation<FormGroupSearchBar<TemplateResult>> = {
   component: "formGroupSearchBar",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, searchBarTemplate }) =>
     function formGroupSearchBarTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

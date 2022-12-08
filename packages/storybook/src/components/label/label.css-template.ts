@@ -17,7 +17,7 @@ const statusMap = new Map<string, string>([
 
 export const cssLabel: ComponentImplementation<Label> = {
   component: "label",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ iconTemplate }) =>
     function labelTemplate({ status, label, removable, dsoRemoveClick, compact, symbol }) {
       return html`

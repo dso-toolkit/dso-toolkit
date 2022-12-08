@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssProgressIndicator: ComponentImplementation<ProgressIndicator> = {
   component: "progressIndicator",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function progressIndicatorTemplate({ label, size, block }) {
       label ??= "Resultaten laden: een moment geduld alstublieft.";

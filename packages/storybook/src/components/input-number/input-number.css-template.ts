@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssInputNumber: ComponentImplementation<InputNumber> = {
   component: "inputNumber",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function inputNumberTemplate({ label, id, min, max, count, minusButtonInactive, plusButtonInactive }) {
       return html`

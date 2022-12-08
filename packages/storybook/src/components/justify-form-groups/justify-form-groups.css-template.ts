@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssJustifyFormGroups: ComponentImplementation<JustifyFormGroups<TemplateResult>> = {
   component: "justifyFormGroups",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate, formGroupTemplate }) =>
     function justifyFormGroupsTemplate({ formGroups, buttons }) {
       return html`

@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupTextarea: ComponentImplementation<FormGroupTextarea<TemplateResult>> = {
   component: "formGroupTextarea",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, iconTemplate }) =>
     function formGroupTextareaTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

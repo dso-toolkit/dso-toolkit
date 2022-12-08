@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssHighlightBox: ComponentImplementation<HighlightBox> = {
   component: "highlightBox",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ iconTemplate, imageTemplate }) =>
     function highlightBoxTemplate({ yellow, white, dropShadow, border, step, icon, content, bannerImage }) {
       function stepCounter() {

@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssTile: ComponentImplementation<Tile> = {
   component: "tile",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ imageTemplate }) =>
     function tileTemplate({ anchor, image, label, variant }) {
       return html`

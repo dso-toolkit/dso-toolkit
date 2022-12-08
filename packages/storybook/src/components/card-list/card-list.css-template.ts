@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssCardList: ComponentImplementation<CardList<TemplateResult>> = {
   component: "cardList",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ cardTemplate }) =>
     function cardListTemplate({ cards }) {
       return html`

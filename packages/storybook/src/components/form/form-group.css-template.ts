@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroup: ComponentImplementation<FormGroup<TemplateResult>> = {
   component: "formGroup",
-  implementation: "css",
+  implementation: "html-css",
   template: ({
     formGroupCheckboxesTemplate,
     formGroupConfirmTemplate,

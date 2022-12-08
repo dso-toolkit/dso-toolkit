@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssInfo: ComponentImplementation<Info<TemplateResult>> = {
   component: "info",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function infoTemplate({ fixed, content, id }) {
       return html`
