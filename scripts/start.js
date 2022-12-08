@@ -41,13 +41,13 @@ const watchCss = {
 
 const startReact = {
   command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/react start",
+    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/react storybook:start",
   name: "react",
 };
 
 const startAngular = {
   command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace angular-workspace storybook",
+    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace angular-workspace storybook:start",
   name: "angular",
 };
 

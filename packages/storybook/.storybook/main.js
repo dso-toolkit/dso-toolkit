@@ -1,5 +1,23 @@
 const { sep } = require("path");
 
+function getBaseUrl(defaultBaseUrl) {
+  if (!defaultBaseUrl) {
+    throw new Error("No defaultBaseUrl passed");
+  }
+
+  if (process.env.CI) {
+    if (typeof process.env.TRAVIS_BRANCH === "string") {
+      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
+    }
+
+    if (typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
+      return process.env.TRAVIS_TAG.substring(1);
+    }
+  }
+
+  return defaultBaseUrl;
+}
+
 module.exports = {
   staticDirs: [
     "../../sources/storybook-assets",
@@ -10,6 +28,20 @@ module.exports = {
   features: {
     // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
     postcss: false,
+  },
+  refs: (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      return {
+        angular: {
+          title: "Angular",
+          url: `//storybook.dso-toolkit.nl/!react/${getBaseUrl("master")}`,
+        },
+        react: {
+          title: "React",
+          url: `//storybook.dso-toolkit.nl/!angular/${getBaseUrl("master")}`,
+        },
+      };
+    }
   },
   addons: [
     {

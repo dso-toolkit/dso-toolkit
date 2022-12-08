@@ -7,9 +7,9 @@ import styles from "./styles.module.scss";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
 
-type Implementation = "core" | "css" | "react";
+type Implementation = "core" | "angular" | "css" | "react";
 
-const allImplementations = ["core", "react", "css"] as const;
+const allImplementations = ["core", "angular", "react", "css"] as const;
 
 interface Props {
   /**
@@ -28,9 +28,13 @@ interface Props {
    */
 }
 
+function getSubDomain(implementation: Implementation) {
+  return ["react", "angular"].includes(implementation) ? implementation : "storybook";
+}
+
 function getStoryUrl(name: string, implementation: Implementation, variant: string | undefined): string {
   const version = getVersion();
-  const subDomain = implementation === "react" ? "react" : "storybook";
+  const subDomain = getSubDomain(implementation);
 
   return `https://${subDomain}.dso-toolkit.nl/${version !== "local" ? version : "master"}/?path=/story/${getStoryId(
     name,
@@ -41,7 +45,7 @@ function getStoryUrl(name: string, implementation: Implementation, variant: stri
 
 function getStoryIframeUrl(name: string, implementation: Implementation, variant: string | undefined): string {
   const version = getVersion();
-  const subDomain = implementation === "react" ? "react" : "storybook";
+  const subDomain = getSubDomain(implementation);
 
   return `https://${window.location.hostname === "localhost" ? "dso-toolkit.nl" : window.location.host}/!${subDomain}/${
     version !== "local" ? version : "master"
@@ -51,7 +55,7 @@ function getStoryIframeUrl(name: string, implementation: Implementation, variant
 function getStoryId(name: string, implementation: Implementation, variant: string | undefined) {
   let id = "";
 
-  if (implementation === "react" || name.startsWith("voorbeeldpagina")) {
+  if (implementation === "react" || implementation === "angular" || name.startsWith("voorbeeldpagina")) {
     id += name;
   } else {
     id += `${implementation === "css" ? "html-css" : "core"}-${name}`;

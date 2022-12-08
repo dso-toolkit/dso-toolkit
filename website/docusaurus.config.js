@@ -6,15 +6,41 @@ const { resolve, dirname } = require("path");
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+function getVersion() {
+  if (process.env.CI && typeof process.env.TRAVIS_BRANCH === "string") {
+    return process.env.TRAVIS_BRANCH.replace(/#/, "_");
+  }
+
+  if (process.env.CI && typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
+    return process.env.TRAVIS_TAG.substring(1);
+  }
+
+  return undefined;
+}
+
+/**
+ * @param {string} [defaultBaseUrl]
+ */
+function getBaseUrl(defaultBaseUrl) {
+  if (!defaultBaseUrl) {
+    throw new Error("No defaultBaseUrl passed");
+  }
+
+  if (!process.env.CI) {
+    return "/";
+  }
+
+  const version = getVersion();
+
+  return version ? `/${version}/` : defaultBaseUrl;
+}
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "DSO Toolkit",
   tagline: "Design System",
   url: "https://www.dso-toolkit.nl",
-  baseUrl:
-    process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
-      ? `/${process.env.TRAVIS_BRANCH.replace(/#/, "_")}/`
-      : "/",
+  baseUrl: getBaseUrl("/"),
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   favicon: "favicon.ico",
@@ -66,21 +92,8 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
-            href: `https://storybook.dso-toolkit.nl/${
-              process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
-                ? process.env.TRAVIS_BRANCH.replace(/#/, "_")
-                : "master"
-            }`,
+            href: `https://storybook.dso-toolkit.nl/${getVersion() ?? "master"}`,
             label: "Storybook",
-            position: "left",
-          },
-          {
-            href: `https://react.dso-toolkit.nl/${
-              process.env.CI && typeof process.env.TRAVIS_BRANCH === "string"
-                ? process.env.TRAVIS_BRANCH.replace(/#/, "_")
-                : "master"
-            }`,
-            label: "React Storybook",
             position: "left",
           },
           {
