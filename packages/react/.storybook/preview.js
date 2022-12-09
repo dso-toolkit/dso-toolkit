@@ -1,7 +1,5 @@
 import { jsxDecorator } from "storybook-addon-jsx";
 
-import "../../css";
-
 export const parameters = {
   jsx: {
     displayName: function getDisplayName(ReactElement) {

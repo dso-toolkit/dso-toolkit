@@ -1,7 +1,7 @@
-import { Label } from "@dso-toolkit/sources";
+import { Label } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoLabel } from "../..";
+import { DsoLabel } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactLabel: ComponentImplementation<Label> = {

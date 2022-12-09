@@ -1,0 +1,16 @@
+@use "components/icon";
+
+@use "config";
+
+@mixin base($icon, $size: icon.$size, $vertical-align: icon.$vertical-align) {
+  background: url("#{config.$icons-path}dso-icons.svg#img-#{$icon}") no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: $size;
+  vertical-align: $vertical-align;
+  width: $size;
+}
+
+@mixin variant($icon) {
+  background-image: url("#{config.$icons-path}dso-icons.svg#img-#{$icon}");
+}

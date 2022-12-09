@@ -1,0 +1,202 @@
+@use "sass:map";
+
+@use "../../di";
+@use "../../variables/units";
+@use "../../variables/colors";
+
+@use "button.mixins" as button-mixins;
+
+@mixin _shared-icon($default-di, $hover-di, $disabled-di) {
+  &::after {
+    @include di.base($default-di);
+  }
+
+  @if ($hover-di) {
+    &:hover {
+      &::after {
+        @include di.variant($hover-di);
+      }
+    }
+  }
+
+  @if ($disabled-di) {
+    &[disabled] {
+      &::after {
+        @include di.variant($disabled-di);
+      }
+    }
+  }
+}
+
+@mixin tertiary-icon($default-di, $disabled-di, $hover-active-di) {
+  &::after {
+    @include di.base($default-di);
+  }
+
+  &[disabled] {
+    &::after {
+      @include di.variant($disabled-di);
+    }
+  }
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      &::after {
+        @include di.variant($hover-active-di);
+      }
+    }
+  }
+}
+
+@mixin shared($download-map, $extern-map) {
+  &.download {
+    @include _shared-icon(
+      map.get($download-map, "default"),
+      map.get($download-map, "hover"),
+      map.get($download-map, "disabled")
+    );
+  }
+
+  &.extern {
+    @include _shared-icon(
+      map.get($extern-map, "default"),
+      map.get($extern-map, "hover"),
+      map.get($extern-map, "disabled")
+    );
+  }
+}
+
+button {
+  @include button-mixins.element();
+}
+
+.btn {
+  @include button-mixins.base();
+}
+
+.btn-primary {
+  @include button-mixins.primary($base-styling: false);
+
+  background-color: colors.$invalid-color;
+}
+
+a.btn-primary {
+  @include button-mixins.anchor-primary();
+
+  background-color: colors.$invalid-color;
+}
+
+.btn-default {
+  @include button-mixins.secondary($base-styling: false);
+
+  background-color: colors.$invalid-color;
+}
+
+a.btn-default {
+  @include button-mixins.anchor-secondary();
+
+  background-color: colors.$invalid-color;
+}
+
+.btn-link {
+  @include button-mixins.tertiary($base-styling: false);
+
+  background-color: colors.$invalid-color;
+}
+
+a.btn-link {
+  @include button-mixins.anchor-tertiary();
+
+  background-color: colors.$invalid-color;
+}
+
+.btn-block {
+  @include button-mixins.block(".btn-block");
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+a,
+button,
+label {
+  &.dso-primary {
+    @include button-mixins.primary($base-styling: true);
+    @include shared(
+      (
+        "default": "download-wit",
+      ),
+      (
+        "default": "external-link-wit",
+      )
+    );
+  }
+
+  &.dso-secondary {
+    @include button-mixins.secondary($base-styling: true);
+    @include shared(
+      (
+        "default": "download",
+        "hover": "download-wit",
+        "disabled": "download-grasgroen-40",
+      ),
+      (
+        "default": "external-link",
+        "hover": "external-link-wit",
+        "disabled": "external-link-grasgroen-40",
+      )
+    );
+  }
+
+  &.dso-tertiary {
+    @include button-mixins.tertiary($base-styling: true);
+
+    &.extern,
+    &.download {
+      &::after {
+        position: relative;
+        top: -2px;
+      }
+    }
+
+    &.download {
+      @include tertiary-icon("download", "download-grasgroen-40", "download-scampi");
+    }
+
+    &.extern {
+      @include tertiary-icon("external-link", "external-link-grasgroen-40", "external-link-scampi");
+    }
+  }
+}
+
+a {
+  &.dso-primary {
+    @include button-mixins.anchor-primary();
+  }
+
+  &.dso-secondary {
+    @include button-mixins.anchor-secondary();
+  }
+
+  &.dso-tertiary {
+    @include button-mixins.anchor-tertiary();
+  }
+}
+
+.btn:not(.dso-list-button),
+.dso-primary,
+.dso-secondary,
+.dso-tertiary {
+  + .btn:not(.dso-list-button),
+  + .dso-primary,
+  + .dso-secondary,
+  + .dso-tertiary {
+    margin-left: units.$u2;
+  }
+}

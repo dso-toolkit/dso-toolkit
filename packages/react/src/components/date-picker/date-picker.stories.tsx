@@ -1,5 +1,5 @@
 import * as React from "react";
-import { storiesOfDatePicker } from "@dso-toolkit/sources";
+import { storiesOfDatePicker } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

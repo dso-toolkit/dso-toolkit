@@ -1,0 +1,5 @@
+@use "../progress-bar";
+
+.progress {
+  @include progress-bar.root();
+}

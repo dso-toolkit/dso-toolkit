@@ -1,9 +1,9 @@
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/variables/units";
-@use "~@dso-toolkit/sources/src/variables/zindex";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/zindex";
 
-@use "~@dso-toolkit/sources/src/components/button";
-@use "~@dso-toolkit/sources/src/utilities";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/utilities";
 
 :host {
   display: inline-block;

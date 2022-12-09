@@ -1,0 +1,5 @@
+@use "../breadcrumbs";
+
+ol.breadcrumb {
+  @include breadcrumbs.root();
+}

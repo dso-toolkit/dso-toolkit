@@ -1,0 +1,5 @@
+@use "../form-control";
+
+.form-control {
+  @include form-control.root();
+}

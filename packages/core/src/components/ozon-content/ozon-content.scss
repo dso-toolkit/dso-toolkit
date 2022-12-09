@@ -1,8 +1,8 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/variables/units";
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/components/button";
-@use "~@dso-toolkit/sources/src/components/anchor";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/anchor";
 
 :host(:not([inline])) {
   display: block;

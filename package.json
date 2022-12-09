@@ -3,8 +3,10 @@
   "private": true,
   "workspaces": {
     "packages": [
+      "angular-workspace",
+      "angular-workspace/projects/*",
       "packages/*",
-      "packages/angular-workspace/projects/*",
+      "storybook",
       "website"
     ]
   },
@@ -15,15 +17,14 @@
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint 'packages/**/*.scss'",
     "lint:eslint": "eslint --max-warnings=0 .",
-    "build": "yarn workspace @dso-toolkit/css build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace angular-workspace build component-library && yarn workspace dso-toolkit build && yarn workspace dso-toolkit copy-libs && cpy packages/core/dist/dso-toolkit packages/dso-toolkit/dist/toolkit/core",
-    "build-www": "yarn workspace website build && yarn workspace @dso-toolkit/storybook build && yarn workspace @dso-toolkit/react storybook:build-extract && yarn workspace angular-workspace storybook:build-extract",
-    "e2e": "start-server-and-test 'http-server --silent --port 45000 packages/storybook/www' http://localhost:45000 'percy exec -- cypress run'",
-    "clear-node-modules": "npx rimraf node_modules packages/angular-workspace/node_modules packages/angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules packages/sources/node_modules",
+    "build": "yarn workspace dso-toolkit build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace angular-workspace build",
+    "build-www": "rimraf angular-workspace/.angular '**/node_modules/.cache' && concurrently --names \"website,storybook,react,angular\" \"yarn workspace website build\" \"yarn workspace storybook build\" \"yarn workspace @dso-toolkit/react storybook:build-extract\" \"yarn workspace angular-workspace storybook:build-extract\"",
+    "e2e": "start-server-and-test 'http-server --silent --port 45000 storybook/www' http://localhost:45000 'percy exec -- cypress run'",
+    "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules storybook/node_modules",
     "website": "yarn workspace website start",
-    "reference:dom": "yarn workspace dso-toolkit gulp reference:dom",
-    "start": "cross-env DSO_ENV=development yarn node scripts/start.js",
-    "start:leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=leaflet yarn node scripts/start.js --mode leaflet",
-    "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && cross-env DSO_ENV=react-leaflet yarn node scripts/start.js --mode react-leaflet"
+    "start": "yarn node scripts/start.js",
+    "start:leaflet": "yarn workspace @dso-toolkit/core clear && yarn node scripts/start.js --mode leaflet",
+    "start:react-leaflet": "yarn workspace @dso-toolkit/core clear && yarn node scripts/start.js --mode react-leaflet"
   },
   "dependencies": {
     "@infoprojects/eslint-config": "^1.1.0",
@@ -38,7 +39,6 @@
     "axe-core": "^4.5.2",
     "concurrently": "^7.6.0",
     "cpy-cli": "^4.2.0",
-    "cross-env": "^7.0.3",
     "cypress": "^11.2.0",
     "cypress-axe": "^1.0.0",
     "cypress-real-events": "^1.7.4",

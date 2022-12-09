@@ -1,7 +1,7 @@
-import { Header } from "@dso-toolkit/sources";
+import { Header } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoHeader } from "../..";
+import { DsoHeader } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 

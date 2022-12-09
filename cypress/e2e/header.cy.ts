@@ -119,7 +119,7 @@ describe("Header", () => {
     cy.get("dso-header").find("nav li.menu-user-home").should("not.exist");
   });
 
-  it("should not show menu", () => {
+  it.skip("should not show menu", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=noMainMenu:true");
     cy.get("dso-header").find("nav").should("not.exist");
     cy.get("dso-header").find("dso-dropdown-menu").should("not.exist");

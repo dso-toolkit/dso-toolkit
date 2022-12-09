@@ -1,4 +1,4 @@
-@use "~@dso-toolkit/sources/src/variables/units";
+@use "~dso-toolkit/src/variables/units";
 
 $transition-duration: 300ms; // Sync with const transitionDuration in map-overlays.tsx
 $controls-margin: units.$u2;

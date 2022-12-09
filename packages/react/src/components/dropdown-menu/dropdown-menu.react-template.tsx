@@ -1,7 +1,7 @@
-import { DropdownMenu } from "@dso-toolkit/sources";
+import { DropdownMenu } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoDropdownMenu } from "../..";
+import { DsoDropdownMenu } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactDropdownMenu: ComponentImplementation<DropdownMenu> = {

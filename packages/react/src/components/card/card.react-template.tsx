@@ -1,7 +1,7 @@
-import { Card } from "@dso-toolkit/sources";
+import { Card } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoCard, DsoSelectable, DsoIcon } from "../..";
+import { DsoCard, DsoSelectable, DsoIcon } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {

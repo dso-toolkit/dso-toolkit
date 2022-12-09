@@ -7,7 +7,7 @@ import {
   DefinitionList,
   List,
   Type,
-} from "@dso-toolkit/sources";
+} from "dso-toolkit";
 
 export function definitionListTemplate({ modifier, definitions }: DefinitionList<JSX.Element>) {
   function definitionTemplate({ term, descriptions }: Definition<JSX.Element>) {

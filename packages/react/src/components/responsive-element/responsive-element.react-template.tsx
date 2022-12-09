@@ -1,7 +1,7 @@
-import { ResponsiveElement } from "@dso-toolkit/sources";
+import { ResponsiveElement } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoResponsiveElement } from "../..";
+import { DsoResponsiveElement } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 

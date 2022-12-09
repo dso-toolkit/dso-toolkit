@@ -1,7 +1,7 @@
-import { HighlightBox } from "@dso-toolkit/sources";
+import { HighlightBox } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoHighlightBox } from "../..";
+import { DsoHighlightBox } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactHighlightBox: ComponentImplementation<HighlightBox> = {

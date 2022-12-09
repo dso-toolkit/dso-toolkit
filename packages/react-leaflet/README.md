@@ -125,8 +125,7 @@ function MyMap() {
 Build local dependencies:
 
 ```
-yarn workspace @dso-toolkit/sources build
-yarn workspace @dso-toolkit/css build
+yarn workspace dso-toolkit build
 yarn workspace @dso-toolkit/core build
 yarn workspace @dso-toolkit/leaflet build
 ```

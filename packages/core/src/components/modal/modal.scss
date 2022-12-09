@@ -1,6 +1,6 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/components/button";
-@use "~@dso-toolkit/sources/src/components/modal";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/modal";
 
 @include utilities.box-sizing();
 

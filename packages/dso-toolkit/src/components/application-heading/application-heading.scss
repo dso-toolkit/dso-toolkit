@@ -1,0 +1,5 @@
+@use "../application-heading";
+
+.dso-app-heading {
+  @include application-heading.root();
+}

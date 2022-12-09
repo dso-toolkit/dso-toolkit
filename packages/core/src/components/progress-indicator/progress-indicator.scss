@@ -1,5 +1,5 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/components/progress-indicator";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/progress-indicator";
 
 @include utilities.box-sizing();
 @include progress-indicator.root();

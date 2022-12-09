@@ -1,7 +1,7 @@
-import { HelpcenterPanel } from "@dso-toolkit/sources";
+import { HelpcenterPanel } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoHelpcenterPanel } from "../..";
+import { DsoHelpcenterPanel } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 

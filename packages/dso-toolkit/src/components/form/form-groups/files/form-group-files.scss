@@ -1,0 +1,148 @@
+@use "../../../../utilities";
+@use "../../../../variables/units";
+@use "../../../../variables/colors";
+@use "../../../../variables/media-query-breakpoints";
+@use "../../../../variables/typography";
+@use "../../../button";
+
+@use "../../../../di";
+
+@use "../../form.variables" as css-form-variables;
+@use "../../form.mixins" as css-form-mixins;
+
+.form-group.dso-files {
+  &.dso-required {
+    .control-label::after {
+      @include css-form-mixins.form-group-required();
+    }
+  }
+
+  dso-selectable,
+  .dso-selectable {
+    margin: #{units.$u1 * 0.5} 0;
+  }
+
+  .dso-file-upload {
+    input[type="file"] {
+      @include utilities.sr-only();
+
+      + label {
+        cursor: pointer;
+      }
+
+      &:focus {
+        & + label {
+          &.dso-primary {
+            background-color: button.$primary-hover-background-color;
+          }
+
+          &.dso-secondary {
+            background-color: button.$secondary-hover-background-color;
+            color: button.$secondary-hover-color;
+          }
+        }
+      }
+
+      &[disabled] {
+        + label {
+          cursor: default;
+
+          &.dso-primary {
+            background-color: button.$primary-disabled-background-color;
+            border-color: button.$primary-disabled-background-color;
+          }
+
+          &.dso-secondary {
+            background-color: colors.$wit;
+            border-color: button.$secondary-disabled-color;
+            color: button.$secondary-disabled-color;
+          }
+        }
+      }
+    }
+  }
+
+  .dso-filelist {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    li {
+      background-color: colors.$grijs-5;
+      border: 1px solid colors.$grijs-10;
+      border-radius: button.$border-radius;
+      display: flex;
+      padding: #{units.$u1 * 0.5 - 1} #{units.$u1 - 1} #{units.$u1 * 0.5 - 2};
+
+      + li {
+        margin-top: units.$u1;
+      }
+
+      .dso-filename {
+        font-weight: 600;
+        padding-right: units.$u1;
+        width: calc(100% - #{units.$u1});
+        word-break: break-all;
+      }
+
+      .dso-selectable,
+      dso-selectable {
+        + .dso-remove {
+          margin-left: units.$u4;
+        }
+      }
+
+      .dso-remove {
+        font-size: 0;
+        min-width: auto;
+        padding: units.$u1 * 0.5;
+
+        &::before {
+          @include di.base("times-bosgroen");
+
+          content: "";
+          display: block;
+          font-size: typography.$root-font-size-base;
+        }
+      }
+
+      .dso-filename,
+      .dso-confidential {
+        margin: #{units.$u1 * 0.5} 0;
+      }
+
+      > dso-icon,
+      > svg.di {
+        flex: 0 0 24px;
+        height: 24px;
+        margin: #{units.$u1 * 0.5} 0 #{units.$u1 * 0.5} units.$u1;
+      }
+
+      button.btn-link {
+        color: colors.$grijs-90;
+      }
+
+      @media screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+        @include utilities.clearfix();
+
+        display: block;
+
+        .dso-confidential,
+        > dso-icon,
+        > svg.di,
+        .dso-remove {
+          display: block;
+          float: left;
+        }
+
+        .dso-confidential {
+          width: calc(100% - #{units.$u8});
+        }
+      }
+    }
+
+    + .dso-file-upload {
+      margin-top: units.$u2;
+    }
+  }
+}

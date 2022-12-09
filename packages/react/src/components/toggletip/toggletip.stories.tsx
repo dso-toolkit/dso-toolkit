@@ -1,4 +1,4 @@
-import { storiesOfToggletip } from "@dso-toolkit/sources";
+import { storiesOfToggletip } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

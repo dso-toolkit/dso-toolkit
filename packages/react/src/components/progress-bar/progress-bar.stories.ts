@@ -1,4 +1,4 @@
-import { storiesOfProgressBar } from "@dso-toolkit/sources";
+import { storiesOfProgressBar } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

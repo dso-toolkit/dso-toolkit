@@ -1,7 +1,7 @@
-import { ImageOverlay } from "@dso-toolkit/sources";
+import { ImageOverlay } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoImageOverlay } from "../..";
+import { DsoImageOverlay } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 

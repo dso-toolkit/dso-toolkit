@@ -37,7 +37,7 @@ const klapBuild = {
 };
 
 if (argv.start) {
-  fs.copy("../css/dist", "dist/css");
+  fs.copy("../dso-toolkit/dist", "dist/dso-toolkit");
 
   concurrently([klapStart, sassWatch], {
     killOthers: ["success", "failure"],

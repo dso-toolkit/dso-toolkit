@@ -1,0 +1,45 @@
+@use "../../variables/scaffolding";
+
+input {
+  color: inherit;
+  font: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+
+  &[type="reset"],
+  &[type="submit"] {
+    cursor: pointer;
+  }
+
+  &[type="checkbox"],
+  &[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    line-height: normal;
+    margin: 4px 0 0;
+
+    &[disabled] {
+      cursor: scaffolding.$cursor-disabled;
+    }
+  }
+
+  &[type="file"] {
+    display: block;
+  }
+
+  &[disabled] {
+    cursor: default;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+}

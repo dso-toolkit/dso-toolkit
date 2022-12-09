@@ -1,8 +1,8 @@
 @use "sass:math";
 
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/variables/scaffolding";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/scaffolding";
 
 @use "tree-view.mixins" as core-tree-view-mixins;
 @use "tree-view.variables" as core-tree-view-variables;

@@ -1,0 +1,176 @@
+@use "../../utilities";
+@use "../../variables/colors";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+@use "../anchor";
+
+@use "tabs.variables" as css-tabs-variables;
+
+.nav {
+  @include utilities.clearfix();
+
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: css-tabs-variables.$nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: css-tabs-variables.$nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: css-tabs-variables.$nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: css-tabs-variables.$nav-disabled-link-hover-color;
+        text-decoration: none;
+        cursor: scaffolding.$cursor-disabled;
+        background-color: transparent;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: css-tabs-variables.$nav-link-hover-bg;
+      border-color: scaffolding.$link-color;
+    }
+  }
+}
+
+.nav.nav-tabs {
+  border-bottom: 1px solid css-tabs-variables.$border-color;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: css-tabs-variables.$margin-bottom;
+  padding-left: 0;
+
+  @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
+    border-bottom: 1px solid colors.$grasgroen;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    border-bottom: 1px solid colors.$wit;
+    display: block;
+  }
+
+  > li {
+    border-color: css-tabs-variables.$color;
+    font-weight: bold;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    min-height: css-tabs-variables.$height;
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      margin: 10px 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Actual tabs (as links)
+    > a {
+      @include anchor.clean();
+
+      border: 1px solid transparent;
+      border-radius: css-tabs-variables.$border-radius css-tabs-variables.$border-radius 0 0;
+      color: css-tabs-variables.$text-color;
+      display: block;
+      line-height: typography.$line-height-base;
+      margin-right: 2px;
+      min-height: css-tabs-variables.$height;
+      padding: css-tabs-variables.$horizontal-padding css-tabs-variables.$vertical-padding;
+      position: relative;
+
+      &:hover {
+        border-color: css-tabs-variables.$link-hover-border-color css-tabs-variables.$link-hover-border-color
+          css-tabs-variables.$border-color;
+      }
+    }
+
+    &:not(.disabled) > a:visited {
+      color: css-tabs-variables.$text-color;
+    }
+
+    a:active,
+    a:focus,
+    a:hover {
+      background-color: css-tabs-variables.$hover-color;
+      border: 1px solid transparent;
+      border-bottom-color: css-tabs-variables.$color;
+      text-decoration: none;
+    }
+
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:active,
+      &:focus,
+      &:hover,
+      &:visited {
+        background-color: colors.$wit;
+        border: 1px solid css-tabs-variables.$color;
+        border-bottom-color: colors.$wit;
+        color: css-tabs-variables.$color;
+        cursor: default;
+      }
+    }
+
+    &.disabled > a {
+      color: css-tabs-variables.$nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: css-tabs-variables.$nav-disabled-link-hover-color;
+        text-decoration: none;
+        cursor: scaffolding.$cursor-disabled;
+        background-color: transparent;
+      }
+    }
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+      a {
+        border-color: colors.$wit;
+        border-radius: 8px;
+        padding: 18px 20px;
+
+        &:active,
+        &:focus,
+        &:hover {
+          border-bottom-width: 1px;
+          border-color: transparent;
+        }
+      }
+
+      &.active a {
+        &,
+        &:focus,
+        &:hover {
+          border-bottom-width: 1px;
+          border-color: css-tabs-variables.$color;
+        }
+      }
+    }
+  }
+}

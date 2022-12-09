@@ -1,4 +1,4 @@
-import { storiesOfSelectable } from "@dso-toolkit/sources";
+import { storiesOfSelectable } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 
 import { templateContainer } from "../../templates";

@@ -1,7 +1,7 @@
-import { ViewerGrid } from "@dso-toolkit/sources";
+import { ViewerGrid } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoViewerGrid } from "../..";
+import { DsoViewerGrid } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 

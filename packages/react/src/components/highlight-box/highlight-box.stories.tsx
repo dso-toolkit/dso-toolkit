@@ -1,4 +1,4 @@
-import { storiesOfHighlightBox } from "@dso-toolkit/sources";
+import { storiesOfHighlightBox } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { templateContainer } from "../../templates";

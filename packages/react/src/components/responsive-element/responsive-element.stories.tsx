@@ -1,4 +1,4 @@
-import { storiesOfResponsiveElement } from "@dso-toolkit/sources";
+import { storiesOfResponsiveElement } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 
 import * as React from "react";

@@ -1,0 +1,147 @@
+@use "../../di";
+@use "../../variables/units";
+
+@use "../dropdown-menu";
+
+@mixin icons() {
+  > .dso-primary,
+  > .btn-primary {
+    &::after {
+      @include di.base("chevron-down-wit");
+    }
+  }
+
+  > .dso-secondary,
+  > .btn-default {
+    &::after {
+      @include di.base("chevron-down");
+    }
+
+    &:hover {
+      &::after {
+        @include di.variant("chevron-down-wit");
+      }
+    }
+  }
+
+  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
+  > .dso-tertiary,
+  > .btn-link {
+    &::after {
+      @include di.base("chevron-down");
+
+      margin-left: units.$u1 * 0.5;
+      position: relative;
+      top: -2px;
+    }
+
+    &:hover {
+      &::after {
+        @include di.variant("chevron-down-scampi");
+      }
+    }
+  }
+}
+
+@mixin icons-open() {
+  > .dso-primary,
+  > .btn-primary {
+    &::after {
+      @include di.variant("chevron-up-wit");
+    }
+  }
+
+  > .dso-secondary,
+  > .btn-default {
+    &::after {
+      @include di.variant("chevron-up");
+    }
+
+    &:hover::after {
+      @include di.variant("chevron-up-wit");
+    }
+  }
+
+  > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary),
+  > .dso-tertiary,
+  > .btn-link {
+    &::after {
+      @include di.variant("chevron-up");
+    }
+
+    &:hover::after {
+      @include di.variant("chevron-up-scampi");
+    }
+  }
+}
+
+// HTML/CSS
+.dso-dropdown-menu {
+  @include dropdown-menu.root();
+  @include dropdown-menu.children();
+  @include icons();
+
+  &.dso-open {
+    @include icons-open();
+  }
+
+  &.dso-checkable {
+    @include dropdown-menu.checkable();
+
+    li {
+      &.dso-checked {
+        a,
+        button {
+          &::before {
+            @include di.base("check-wit", units.$u3);
+
+            content: "";
+            display: block;
+            float: left;
+            margin-left: units.$u4 * -1;
+            margin-right: units.$u1;
+          }
+        }
+      }
+    }
+  }
+
+  &.dso-dropdown-align-right {
+    @include dropdown-menu.align-right();
+  }
+}
+
+// Web Component
+dso-dropdown-menu {
+  @include dropdown-menu.children();
+  @include icons();
+
+  &[dropdown-align="right"] {
+    @include dropdown-menu.align-right();
+  }
+
+  &[open] {
+    @include icons-open();
+  }
+
+  &[checkable] {
+    @include dropdown-menu.checkable();
+
+    li {
+      &.dso-checked {
+        a,
+        button {
+          &::before {
+            @include di.base("check-wit", units.$u3);
+
+            content: "";
+            display: block;
+            float: left;
+            margin-left: units.$u4 * -1;
+            margin-right: units.$u1;
+          }
+        }
+      }
+    }
+  }
+}

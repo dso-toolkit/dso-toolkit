@@ -1,7 +1,7 @@
-import { Badge } from "@dso-toolkit/sources";
+import { Badge } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoBadge } from "../..";
+import { DsoBadge } from "../../components";
 
 import { ComponentImplementation } from "../../templates";
 

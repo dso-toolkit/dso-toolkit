@@ -1,4 +1,4 @@
-import { storiesOfPagination } from "@dso-toolkit/sources";
+import { storiesOfPagination } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

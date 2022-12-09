@@ -1,7 +1,7 @@
-import { AttachmentsCounter } from "@dso-toolkit/sources";
+import { AttachmentsCounter } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoAttachmentsCounter } from "../..";
+import { DsoAttachmentsCounter } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactAttachmentsCounter: ComponentImplementation<AttachmentsCounter> = {

@@ -1,0 +1,30 @@
+import { storiesOf } from "@storybook/angular";
+
+import { storiesOfLabel } from "dso-toolkit";
+import { DsoLabel } from "../../projects/component-library/src/public-api";
+import { templateContainer } from "../../templates";
+import { decorator } from "./label.decorator";
+
+import readme from "./readme.md";
+
+storiesOfLabel(
+  {
+    parameters: {
+      module,
+      storiesOf,
+      readme,
+      storyApiOptions: {
+        parameters: [
+          {
+            component: DsoLabel,
+          },
+        ],
+      },
+    },
+    templateContainer,
+    storyTemplates: ({ labelTemplate }) => ({ labelTemplate }),
+  },
+  {
+    decorator,
+  }
+);

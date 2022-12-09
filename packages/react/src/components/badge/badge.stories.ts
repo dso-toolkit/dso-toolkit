@@ -1,4 +1,4 @@
-import { storiesOfBadge } from "@dso-toolkit/sources";
+import { storiesOfBadge } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

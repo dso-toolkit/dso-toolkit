@@ -1,5 +1,5 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/components/progress-bar";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/progress-bar";
 
 :host {
   display: block;

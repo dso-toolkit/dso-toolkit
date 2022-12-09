@@ -1,4 +1,4 @@
-import { storiesOfDropdownMenu } from "@dso-toolkit/sources";
+import { storiesOfDropdownMenu } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

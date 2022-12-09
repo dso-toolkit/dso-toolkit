@@ -1,7 +1,7 @@
-import { Icon } from "@dso-toolkit/sources";
+import { Icon } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoIcon } from "../..";
+import { DsoIcon } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactIcon: ComponentImplementation<Icon> = {

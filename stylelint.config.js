@@ -3,7 +3,7 @@ module.exports = {
   overrides: [
     {
       extends: ["@infoprojects/stylelint-config-scss", "stylelint-config-prettier-scss"],
-      files: ["packages/sources/src/icons/**.scss"],
+      files: ["packages/dso-toolkit/src/icons/**.scss"],
       rules: {
         "selector-pseudo-class-no-unknown": null,
         "selector-type-no-unknown": null,

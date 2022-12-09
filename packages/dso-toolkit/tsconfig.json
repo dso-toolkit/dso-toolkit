@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "ESNext"],
+    "importHelpers": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "declarationDir": "dist/types",
+    "target": "ESNext"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

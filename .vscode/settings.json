@@ -3,8 +3,10 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "search.exclude": {
-    "packages/*/dist": true,
-    "packages/angular-workspace/.angular": true,
-    "packages/angular-workspace/documentation.json": true
+    ".yarn": true,
+    "**/dist": true,
+    "**/www": true,
+    "angular-workspace/.angular": true,
+    "angular-workspace/documentation.json": true
   }
 }

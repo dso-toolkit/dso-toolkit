@@ -1,7 +1,8 @@
 module.exports = {
   staticDirs: [
-    "../../sources/storybook-assets",
-    "../../css/dist",
+    "../../dso-toolkit/storybook-assets",
+    "../../dso-toolkit/dist",
+    { from: "../../dso-toolkit/assets", to: "/assets" },
     { from: "../../core/dist", to: "/core" },
     { from: "../../../node_modules/iframe-resizer/js", to: "iframe-resizer" },
   ],
@@ -28,7 +29,7 @@ module.exports = {
     <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
   `,
   previewBody: (body) =>
-    process.env.DSO_ENV === "development"
+    !process.env.CI
       ? `
       ${body}
       <iframe title="Stencil Dev Server Connector ⚡" src="/~dev-server" style="display:block;width:0;height:0;border:0;visibility:hidden" aria-hidden="true"></iframe>

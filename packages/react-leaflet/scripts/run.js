@@ -19,7 +19,7 @@ const klapBuild = {
 };
 
 if (argv.start) {
-  fs.copy("../css/dist", "dist/css");
+  fs.copy("../dso-toolkit/dist", "dist/dso-toolkit");
   fs.copy("../leaflet/dist/dso-leaflet.css", "dist/leaflet/dso-leaflet.css");
   fs.copy("../leaflet/dist/dso-leaflet.css.map", "dist/leaflet/dso-leaflet.css.map");
 

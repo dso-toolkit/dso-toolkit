@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { DocumentList, DocumentListItem } from "@dso-toolkit/sources";
+import { DocumentList, DocumentListItem } from "dso-toolkit";
 import { DsoResponsiveElement } from "../../components";
 
 export function documentListTemplate({ items }: DocumentList<JSX.Element>) {

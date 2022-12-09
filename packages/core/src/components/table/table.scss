@@ -1,14 +1,14 @@
-@use "~@dso-toolkit/css/src/components/grid/grid.variables" as grid-variables;
+@use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
 
-@use "~@dso-toolkit/sources/src/variables/units";
-@use "~@dso-toolkit/sources/src/variables/media-query-breakpoints";
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/utilities";
 
-@use "~@dso-toolkit/sources/src/components/button";
-@use "~@dso-toolkit/sources/src/components/modal";
-@use "~@dso-toolkit/sources/src/components/rich-content";
-@use "~@dso-toolkit/sources/src/components/table";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/modal";
+@use "~dso-toolkit/src/components/rich-content";
+@use "~dso-toolkit/src/components/table";
 
 :host {
   display: block;

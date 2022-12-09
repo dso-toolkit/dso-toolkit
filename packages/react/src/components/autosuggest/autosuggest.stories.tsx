@@ -1,4 +1,4 @@
-import { storiesOfAutosuggest, AutosuggestSuggestion } from "@dso-toolkit/sources";
+import { AutosuggestSuggestion, storiesOfAutosuggest } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { templateContainer } from "../../templates";

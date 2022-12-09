@@ -1,7 +1,7 @@
-import { Info } from "@dso-toolkit/sources";
+import { Info } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoInfo } from "../..";
+import { DsoInfo } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactInfo: ComponentImplementation<Info<JSX.Element>> = {

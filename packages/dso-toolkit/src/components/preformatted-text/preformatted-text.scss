@@ -1,0 +1,20 @@
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+
+@use "preformatted-text.variables" as css-preformatted-text-variables;
+
+pre {
+  background-color: css-preformatted-text-variables.$background-color;
+  border: 1px solid css-preformatted-text-variables.$border-color;
+  border-radius: scaffolding.$border-radius-base;
+  color: css-preformatted-text-variables.$color;
+  display: block;
+  font-family: typography.$font-family-monospace;
+  font-size: (typography.$font-size-base - 1); // 14px to 13px
+  overflow: auto;
+  line-height: typography.$line-height-base;
+  margin: 0 0 (typography.$line-height-computed * 0.5);
+  padding: ((typography.$line-height-computed - 1) * 0.5);
+  word-break: break-all;
+  word-wrap: break-word;
+}

@@ -43,7 +43,7 @@ const config = {
     defaultLocale: "nl",
     locales: ["nl"],
   },
-  staticDirectories: [resolve(dirname(require.resolve("@dso-toolkit/sources/package.json")), "assets"), "static"],
+  staticDirectories: [resolve(dirname(require.resolve("dso-toolkit/package.json")), "assets"), "static"],
   plugins: ["docusaurus-plugin-sass"],
   presets: [
     [

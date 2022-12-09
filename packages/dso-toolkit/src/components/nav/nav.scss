@@ -1,0 +1,11 @@
+@use "../../variables/colors";
+
+nav {
+  display: block;
+
+  .dso-link-list {
+    a:visited {
+      color: colors.$grasgroen;
+    }
+  }
+}

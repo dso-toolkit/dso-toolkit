@@ -1,10 +1,10 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/variables/units";
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/variables/typography";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/typography";
 
-@use "~@dso-toolkit/sources/src/components/accordion";
-@use "~@dso-toolkit/sources/src/components/anchor";
+@use "~dso-toolkit/src/components/accordion";
+@use "~dso-toolkit/src/components/anchor";
 
 @use "accordion-section-theme-compact";
 @use "accordion-section-theme-conclusion";

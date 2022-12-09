@@ -1,0 +1,24 @@
+@use "../../variables/units";
+@use "../../variables/media-query-breakpoints";
+
+@use "../grid/grid.variables" as css-grid-variables;
+
+dso-viewer-grid {
+  .dso-filterblok {
+    margin-left: css-grid-variables.$grid-gutter-width * -0.5;
+    margin-right: css-grid-variables.$grid-gutter-width * -0.5;
+
+    .dso-filterblok-address {
+      font-weight: bold;
+      margin: units.$u1 0;
+    }
+
+    @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+      .dso-context-wrapper {
+        .dso-context-container {
+          flex-basis: auto;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { storiesOfAccordion } from "@dso-toolkit/sources";
+import { storiesOfAccordion } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import {

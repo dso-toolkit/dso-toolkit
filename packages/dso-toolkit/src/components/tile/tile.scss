@@ -1,0 +1,21 @@
+@use "../../variables/colors";
+@use "../tile";
+
+.dso-whitebox-small,
+.dso-tile {
+  @include tile.root();
+}
+
+.row.dso-equal-heights {
+  > [class*="col-"] {
+    > .dso-tile,
+    > .dso-whitebox-small {
+      @include tile.equal-heights();
+    }
+  }
+}
+
+.dso-whitebox-small {
+  // DEPRECATED
+  background-color: colors.$invalid-color;
+}

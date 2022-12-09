@@ -1,0 +1,16 @@
+@use "../../variables/units";
+
+@use "blockquote.variables" as css-blockquote-variables;
+
+blockquote {
+  border-left: 5px solid css-blockquote-variables.$border-color;
+  font-size: css-blockquote-variables.$font-size;
+  margin: 0 0 units.$u2;
+  padding: units.$u2;
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
