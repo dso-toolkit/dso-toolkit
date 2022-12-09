@@ -29,12 +29,12 @@ De markup moet conform de voorschriften worden gegenereerd.
 npm install dso-toolkit
 ```
 
-CSS file: `node_modules/dso-toolkit/dist/toolkit/styles/dso.css`
+CSS file: `dso-toolkit/styles/dso.css`
 
-Bij een omgeving met webpack of Rollup:
+Bij een omgeving met een bundler:
 
 ```javascript
-import "dso-toolkit/dist/toolkit/styles/dso.css";
+import "dso-toolkit/dso.css";
 ```
 
 Let op verwijzingen naar assets bij het handmatig kopiëren.

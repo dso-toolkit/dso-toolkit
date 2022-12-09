@@ -1,0 +1,14 @@
+@use "../../di";
+
+@use "../attachments-counter";
+
+.dso-attachments {
+  @include attachments-counter.root();
+
+  &::after {
+    @include di.base("paperclip-grijs");
+
+    content: "";
+    display: inline-block;
+  }
+}

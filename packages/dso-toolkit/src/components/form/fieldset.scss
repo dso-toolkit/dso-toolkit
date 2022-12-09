@@ -1,0 +1,46 @@
+@use "sass:math";
+
+@use "../../variables/units";
+@use "../headings";
+
+@use "form.variables" as css-form-variables;
+@use "form.mixins" as css-form-mixins;
+
+#{css-form-variables.$form-selectors} {
+  fieldset {
+    margin-bottom: units.$u2;
+
+    > legend {
+      @include headings.h3();
+
+      border-bottom: 0;
+      margin-bottom: css-form-variables.$fieldset-separator-unit;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+      }
+    }
+
+    + fieldset:not(.form-group) {
+      > legend {
+        border-top: 1px solid css-form-variables.$fieldset-separator-color;
+        padding-top: css-form-variables.$fieldset-separator-unit;
+      }
+    }
+
+    fieldset {
+      margin-bottom: 0;
+      padding-bottom: 0;
+
+      + fieldset {
+        margin-top: 0;
+        padding-top: 0;
+      }
+    }
+  }
+}

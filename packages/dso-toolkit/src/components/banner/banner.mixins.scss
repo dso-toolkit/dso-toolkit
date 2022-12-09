@@ -1,0 +1,111 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+@use "../../variables/media-query-breakpoints";
+
+@use "banner.variables" as banner-variables;
+
+@mixin _variant($background, $border, $text-color) {
+  color: $text-color;
+  background-color: $background;
+  border-color: $border;
+}
+
+@mixin children() {
+  a {
+    text-decoration: underline;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: scaffolding.$text-color;
+    }
+
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  .row {
+    > div {
+      line-height: typography.$line-height-base;
+      position: relative;
+
+      button {
+        position: absolute;
+        right: units.$u2;
+        top: 0;
+
+        dso-icon,
+        svg.di {
+          color: colors.$zwart;
+        }
+      }
+
+      @media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
+        padding-left: banner-variables.$left-padding;
+      }
+
+      @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+        padding-top: banner-variables.$small-padding-top;
+      }
+
+      > .dso-rich-content {
+        padding-right: units.$u3;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          color: colors.$zwart;
+          font-size: 1rem;
+          line-height: typography.$line-height-base;
+          margin-bottom: 0;
+
+          + p {
+            display: inline;
+
+            + * {
+              margin-top: units.$u2;
+            }
+          }
+        }
+
+        > h2:first-child {
+          float: left;
+          margin-right: units.$u1;
+        }
+
+        *:first-child {
+          margin-top: 0;
+        }
+
+        *:last-child {
+          margin-bottom: 0;
+        }
+
+        @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin danger() {
+  @include _variant(banner-variables.$danger-bg, banner-variables.$danger-border, banner-variables.$danger-text);
+}
+
+@mixin warning() {
+  @include _variant(banner-variables.$warning-bg, banner-variables.$warning-border, banner-variables.$warning-text);
+}
+
+@mixin root() {
+  padding: units.$u2 0;
+  position: relative;
+}

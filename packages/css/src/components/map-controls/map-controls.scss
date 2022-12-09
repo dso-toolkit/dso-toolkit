@@ -1,7 +1,0 @@
-@use "@dso-toolkit/sources/src/variables/units";
-
-dso-map-controls {
-  & > * + * {
-    margin-top: units.$u4;
-  }
-}

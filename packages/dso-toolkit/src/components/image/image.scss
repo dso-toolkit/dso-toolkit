@@ -1,0 +1,22 @@
+@use "../image";
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+.img-responsive {
+  @include image.responsive();
+}
+
+.img-rounded {
+  @include image.rounded();
+}
+
+.img-thumbnail {
+  @include image.thumbnail();
+}
+
+.img-circle {
+  @include image.circle();
+}

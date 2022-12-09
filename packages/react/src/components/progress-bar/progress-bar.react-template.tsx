@@ -1,7 +1,7 @@
-import { ProgressBar } from "@dso-toolkit/sources";
+import { ProgressBar } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoProgressBar } from "../..";
+import { DsoProgressBar } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactProgressBar: ComponentImplementation<ProgressBar> = {

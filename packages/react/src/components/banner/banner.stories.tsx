@@ -1,4 +1,4 @@
-import { storiesOfBanner } from "@dso-toolkit/sources";
+import { storiesOfBanner } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 
 import { templateContainer } from "../../templates";

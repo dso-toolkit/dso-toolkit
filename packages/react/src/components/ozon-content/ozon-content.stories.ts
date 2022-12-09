@@ -1,4 +1,4 @@
-import { storiesOfOzonContent } from "@dso-toolkit/sources";
+import { storiesOfOzonContent } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 

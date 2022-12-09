@@ -1,7 +1,7 @@
-import { Modal } from "@dso-toolkit/sources";
+import { Modal } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoModal } from "../..";
+import { DsoModal } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {

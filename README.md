@@ -7,18 +7,9 @@
 
 De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er twee implementaties geleverd: CSS en Web Components. De Web Components krijgen voor Angular en React wrappers, zie issue #915.
 
-De deliverables van de DSO Toolkit:
-
-- **Handleiding**: Een handleiding voor elke versie op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/)
-- **CDN**: Een CDN op https://cdn.dso-toolkit.nl/, voor documentatie zie verderop in deze README
-- **NPM package `@dso-toolkit/sources`**: Alle bronbestanden van het DSO Design System.
-- **NPM package `dso-toolkit`**: De handleiding en complete CSS implementatie van de DSO stijlset.
-
-We zijn bezig met het verhuizen van de styling van `dso-toolkit` naar `@dso-toolkit/sources`. Zodra die verhuizing is afgerond zal `dso-toolkit` worden deprecated en moeten implementaties overstappen naar `@dso-toolkit/core` (eventueel met Framework bindings), `@dso-toolkit/css` of `@dso-toolkit/sources`. De componenten zoals die worden aangeboden op [https://www.dso-toolkit.nl/](https://www.dso-toolkit.nl/) blijven functioneren. Voor meer informatie zie [#827](https://github.com/dso-toolkit/dso-toolkit/issues/#827)
-
 ## Getting started
 
-Stable releases can be found on the [GitHub Releases page](https://github.com/dso-toolkit/dso-toolkit/releases).
+Zie https://www.dso-toolkit.nl voor actuele documentatie.
 
 ### NPM registry
 
@@ -28,7 +19,7 @@ npm install dso-toolkit --save-dev
 
 #### Bundle CSS
 
-Import or bundle `/node_modules/dso-toolkit/dist/toolkit/styles/dso.css`.
+Import or bundle `dso-toolkit/dist/dso.css`.
 
 ### CDN
 
@@ -47,7 +38,7 @@ The same goes for the component library:
 | _tags only_ | _releases_ | `https://www.dso-toolkit.nl/VERSION/` |
 
 ```html
-<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|VERSION]/styles/dso.css" />
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|VERSION]/dso.css" />
 ```
 
 For Web Components:
@@ -87,7 +78,7 @@ Depending on the work being done, development can be done in several environment
 
 #### `development`
 
-This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation), the stories are put in a separate package `@dso-toolkit/sources` (`/packages/sources`). All the implementations have a devDependency on `@dso-toolkit/sources`.
+This environment is used to develop new components in Storybook. Storybook is built around stories and since this project has multiple Storybooks (one for each implementation).
 
 The easiest way to start this environment is with one of the following commands:
 
@@ -97,7 +88,7 @@ yarn start --react
 yarn start --all
 ```
 
-This will start `@dso-toolkit/sources` in watch mode and run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
+This will run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
 
 The following processes are started:
 

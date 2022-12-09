@@ -1,0 +1,9 @@
+@use "../../variables/typography";
+
+html {
+  font-family: sans-serif;
+  font-size: typography.$root-font-size-base;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+}

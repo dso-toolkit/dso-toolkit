@@ -3,7 +3,7 @@ import maxSize from "popper-max-size-modifier";
 import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
 
-// Keep const in sync with $tooltip-transition-duration in @dso-toolkit/sources/tooltip.scss tooltip_root() mixin
+// Keep const in sync with $tooltip-transition-duration in dso-toolkit/src/components/tooltip/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
 
 function hasOverflow(el: Element): boolean {

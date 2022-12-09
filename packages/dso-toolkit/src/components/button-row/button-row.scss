@@ -1,0 +1,23 @@
+@use "../../variables/units";
+
+.dso-button-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: units.$u2;
+  margin: units.$u2 0 units.$u4;
+
+  .btn:not(.dso-list-button),
+  .dso-primary,
+  .dso-secondary,
+  .dso-tertiary {
+    white-space: nowrap; // stylelint-disable-line declaration-property-value-disallowed-list -- No text wrap after icon
+
+    + .btn:not(.dso-list-button),
+    + .dso-primary,
+    + .dso-secondary,
+    + .dso-tertiary {
+      margin-left: 0;
+    }
+  }
+}

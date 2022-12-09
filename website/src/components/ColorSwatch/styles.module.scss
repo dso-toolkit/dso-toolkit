@@ -1,4 +1,4 @@
-@use "@dso-toolkit/sources/src/variables/colors";
+@use "dso-toolkit/src/variables/colors";
 
 /* stylelint-disable property-no-unknown -- unknown properties are used as objet propertes in ColorSwatch/index.ts */
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown -- :export psuedo is needed for scss module import in ColorSwatch/index.ts */

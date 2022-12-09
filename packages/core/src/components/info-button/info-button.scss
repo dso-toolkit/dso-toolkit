@@ -1,5 +1,5 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/components/info-button";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/info-button";
 
 :host {
   display: inline-block;

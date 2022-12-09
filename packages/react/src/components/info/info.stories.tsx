@@ -1,4 +1,4 @@
-import { storiesOfInfo } from "@dso-toolkit/sources";
+import { storiesOfInfo } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { templateContainer } from "../../templates";

@@ -1,0 +1,5 @@
+@use "../../variables/colors";
+@use "../../variables/typography";
+
+$font-size: (typography.$root-font-size-base * 1.25);
+$border-color: colors.$gray-lighter;

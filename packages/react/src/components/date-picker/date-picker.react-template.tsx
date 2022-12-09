@@ -1,8 +1,8 @@
 import { DsoDatePickerChangeEvent } from "@dso-toolkit/core/dist/types/components/date-picker/date-picker.interfaces";
-import { DatePicker } from "@dso-toolkit/sources";
+import { DatePicker } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoDatePicker } from "../..";
+import { DsoDatePicker } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactDatePicker: ComponentImplementation<DatePicker> = {

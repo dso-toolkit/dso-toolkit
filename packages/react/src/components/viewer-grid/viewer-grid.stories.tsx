@@ -1,14 +1,15 @@
 import * as React from "react";
 
 import {
+  storiesOfViewerGrid,
   AlertType,
   DocumentList,
   DocumentListItemStatusDemoContent,
-  storiesOfViewerGrid,
   Tile,
   ViewerGridDocumentHeaderProperties,
-} from "@dso-toolkit/sources";
-import { activeFilters } from "@dso-toolkit/sources/src/components/label-group/label-group.content";
+} from "dso-toolkit";
+
+import { activeFilters } from "dso-toolkit/dist/components/label-group/label-group.content";
 import { HandlerFunction } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 

@@ -1,4 +1,4 @@
-import { storiesOfCardContainer } from "@dso-toolkit/sources";
+import { storiesOfCardContainer } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 
 import readme from "./readme.md";

@@ -1,7 +1,7 @@
-import { Pagination } from "@dso-toolkit/sources";
+import { Pagination } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoPagination } from "../..";
+import { DsoPagination } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactPagination: ComponentImplementation<Pagination> = {

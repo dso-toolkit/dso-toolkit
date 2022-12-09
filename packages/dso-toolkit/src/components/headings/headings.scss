@@ -1,0 +1,80 @@
+@use "../../variables/units";
+@use "../../variables/colors";
+@use "../../variables/typography";
+@use "../headings";
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-bottom: units.$vertical-spacing-medium;
+  margin-top: typography.$line-height-computed;
+}
+
+h1,
+.h1 {
+  line-height: units.$font-line-height-h1;
+}
+
+h1 {
+  @include headings.h1();
+}
+
+h2,
+.h2 {
+  line-height: units.$font-line-height-h2;
+}
+
+h2 {
+  color: colors.$bosgroen;
+  font-size: units.$font-size-h2;
+  font-weight: 700;
+}
+
+h3,
+.h3 {
+  line-height: units.$font-line-height-h3;
+}
+
+h3 {
+  @include headings.h3();
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-bottom: units.$vertical-spacing-medium;
+  margin-top: (typography.$line-height-computed * 0.5);
+}
+
+h4,
+.h4 {
+  line-height: units.$font-line-height-h4;
+}
+
+h4 {
+  color: colors.$bosgroen;
+  font-size: units.$font-size-h4;
+  font-weight: 600;
+}
+
+h5,
+.h5 {
+  line-height: units.$font-line-height-h5;
+}
+
+h5 {
+  color: colors.$grijs-90;
+  font-size: units.$font-size-h5;
+  font-weight: 600;
+}
+
+h6,
+.h6 {
+  line-height: units.$font-line-height-h6;
+}

@@ -1,7 +1,7 @@
-import { OzonContent } from "@dso-toolkit/sources";
+import { OzonContent } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoOzonContent } from "../..";
+import { DsoOzonContent } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactOzonContent: ComponentImplementation<OzonContent> = {

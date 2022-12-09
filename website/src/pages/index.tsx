@@ -66,13 +66,13 @@ export default function Home(): JSX.Element {
         <section className={styles.features}>
           <div className="container">
             <div className="row">
-              <Feature title="Voor ontwikkelaars" linkTo="/voor-designers" image="/docs/bouwvakkers.png">
+              <Feature title="Voor ontwikkelaars" linkTo="/voor-developers" image="/docs/bouwvakkers.png">
                 <p>
                   Als developer wil je voorkomen dat er dubbel werk uitgevoerd wordt. De toolkit geeft een css basis met
                   alle Do's and Dont's over het front-end ontwerp.
                 </p>
               </Feature>
-              <Feature title="Voor ontwerpers" linkTo="/voor-developers" image="/docs/medewerker.png">
+              <Feature title="Voor ontwerpers" linkTo="/voor-designers" image="/docs/medewerker.png">
                 <p>
                   Probeer te voorkomen dat er onderdelen gemaakt worden die al bestaan. Hier staat hoe je nieuwe
                   componenten kunt toevoegen of updates op bestaande componenten kan doorvoeren.

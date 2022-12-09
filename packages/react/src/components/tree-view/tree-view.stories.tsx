@@ -1,5 +1,6 @@
 import * as React from "react";
-import { storiesOfTreeView, TreeViewItem } from "@dso-toolkit/sources";
+import { storiesOfTreeView, TreeViewItem } from "dso-toolkit";
+
 import { storiesOf } from "@storybook/react";
 
 import readme from "./readme.md";

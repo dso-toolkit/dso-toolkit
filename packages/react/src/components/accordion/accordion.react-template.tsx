@@ -1,4 +1,4 @@
-import { Accordion } from "@dso-toolkit/sources";
+import { Accordion } from "dso-toolkit";
 
 import * as React from "react";
 

@@ -1,0 +1,5 @@
+@use "../../variables/colors";
+
+del {
+  background-color: colors.$danger-bg-color;
+}

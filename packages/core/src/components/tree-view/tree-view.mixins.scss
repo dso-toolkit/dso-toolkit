@@ -1,4 +1,4 @@
-@use "~@dso-toolkit/sources/src/variables/colors";
+@use "~dso-toolkit/src/variables/colors";
 
 @mixin horizontal-line($left, $top, $width, $color: colors.$bosgroen) {
   border-top: 1px solid $color;

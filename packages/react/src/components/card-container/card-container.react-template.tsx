@@ -1,7 +1,7 @@
-import { CardContainer } from "@dso-toolkit/sources";
+import { CardContainer } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoCardContainer } from "../..";
+import { DsoCardContainer } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactCardContainer: ComponentImplementation<CardContainer<JSX.Element>> = {

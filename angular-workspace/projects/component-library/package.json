@@ -1,0 +1,12 @@
+{
+  "name": "@dso-toolkit/angular",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@dso-toolkit/core": ">=45"
+  },
+  "dependencies": {
+    "tslib": "^2.4.1"
+  }
+}

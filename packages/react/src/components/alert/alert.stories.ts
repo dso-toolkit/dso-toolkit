@@ -1,4 +1,4 @@
-import { storiesOfAlert } from "@dso-toolkit/sources";
+import { storiesOfAlert } from "dso-toolkit";
 import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import { alertWithHeadingsContent, errorMessage, infoMessage, successMessage, warningMessage } from "./alert.content";

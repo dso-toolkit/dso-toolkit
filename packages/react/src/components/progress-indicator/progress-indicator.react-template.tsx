@@ -1,7 +1,7 @@
-import { ProgressIndicator } from "@dso-toolkit/sources";
+import { ProgressIndicator } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoProgressIndicator } from "../..";
+import { DsoProgressIndicator } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactProgressIndicator: ComponentImplementation<ProgressIndicator> = {

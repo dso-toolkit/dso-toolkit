@@ -1,3 +1,4 @@
 /dist
-/assets
-/libs/@dso-toolkit
+/README.md
+/CHANGELOG.md
+/*.tgz

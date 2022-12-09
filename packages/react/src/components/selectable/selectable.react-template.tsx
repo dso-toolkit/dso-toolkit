@@ -1,7 +1,7 @@
-import { Selectable } from "@dso-toolkit/sources";
+import { Selectable } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoSelectable } from "../..";
+import { DsoSelectable } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> = {

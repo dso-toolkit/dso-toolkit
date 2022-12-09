@@ -1,27 +1,60 @@
 {
   "name": "dso-toolkit",
-  "description": "DSO Toolkit and Component Library",
+  "description": "DSO Toolkit",
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "25.0.0",
   "scripts": {
-    "build": "gulp build",
-    "copy-libs": "gulp copy-libs",
-    "gulp": "gulp"
+    "watch": "gulp",
+    "build": "gulp build"
   },
+  "files": [
+    "assets",
+    "dist/dso-icons.svg",
+    "dist/dso.css",
+    "src/**/*.scss",
+    "CHANGELOG.md",
+    "DISCLAIMER.txt",
+    "README.md",
+    "!src/icons/**"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
   "homepage": "https://www.dso-toolkit.nl/",
   "devDependencies": {
-    "@dso-toolkit/core": "workspace:packages/core",
-    "@dso-toolkit/css": "workspace:packages/css",
-    "@dso-toolkit/sources": "workspace:packages/sources",
-    "del": "6.1.1",
-    "gulp": "4.0.2",
-    "gulp-filter": "7.0.0",
-    "gulp-sass": "5.1.0",
-    "gulp-svgmin": "4.1.0",
-    "sass": "^1.56.1"
+    "@prettier/plugin-xml": "^2.2.0",
+    "@storybook/addon-actions": "6.5.13",
+    "@storybook/addons": "6.5.13",
+    "@storybook/client-api": "6.5.13",
+    "@types/css": "^0.0.33",
+    "@types/fancy-log": "^2.0.0",
+    "@types/gulp": "^4.0.10",
+    "@types/gulp-cheerio": "^0.0.34",
+    "@types/gulp-rename": "^2.0.1",
+    "@types/gulp-sass": "^5.0.0",
+    "@types/list-stream": "^1.0.1",
+    "concurrently": "^7.6.0",
+    "css": "^3.0.0",
+    "del": "^6.1.1",
+    "escape-string-regexp": "^5.0.0",
+    "fancy-log": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cheerio": "^1.0.0",
+    "gulp-filter": "^7.0.0",
+    "gulp-prettier": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-svgstore": "^9.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "list-stream": "^2.1.0",
+    "prettier": "^2.8.0",
+    "sass": "^1.56.1",
+    "typescript": "~4.8.2",
+    "uuid": "^9.0.0"
   }
 }

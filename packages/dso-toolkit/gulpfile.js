@@ -1,10 +1,14 @@
-/* eslint-env node */
+import gulp from "gulp";
 
-const gulp = require('gulp');
+import { buildScripting } from "./gulp/build-scripting.js";
+import { buildStyling } from "./gulp/build-styling.js";
+import { buildSvgSpritesheet } from "./gulp/build-svg-spritesheet.js";
+import { cleanDist } from "./gulp/clean-dist.js";
+import { copyMiscellaneous } from "./gulp/copy-miscellaneous.js";
+import { watcher } from "./gulp/watcher.js";
 
-const { build } = require('./gulp/build');
-const { copyLibs } = require('./gulp/copy-libs');
-
-gulp.task('build', build);
-
-gulp.task('copy-libs', copyLibs);
+gulp.task(
+  "build",
+  gulp.series(cleanDist, gulp.parallel(copyMiscellaneous, buildScripting, buildStyling, buildSvgSpritesheet))
+);
+gulp.task("default", gulp.series("build", watcher));

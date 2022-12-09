@@ -1,0 +1,5 @@
+@use "../label-group";
+
+.dso-label-group {
+  @include label-group.root();
+}

@@ -1,0 +1,18 @@
+@use "../selectable";
+@use "../info";
+
+// HTML/CSS
+.dso-selectable {
+  @include selectable.root(".dso-info");
+
+  &:not(:last-child) {
+    @include selectable.notLastChild();
+  }
+}
+
+// Web Component
+dso-selectable {
+  .dso-rich-content[slot="info"] {
+    @include info.richContent();
+  }
+}

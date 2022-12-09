@@ -1,7 +1,7 @@
-import { Banner } from "@dso-toolkit/sources";
+import { Banner } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoBanner } from "../..";
+import { DsoBanner } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactBanner: ComponentImplementation<Banner<JSX.Element>> = {

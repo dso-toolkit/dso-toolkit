@@ -1,0 +1,106 @@
+@use "../../variables/colors";
+@use "../../components/accordion";
+
+@use "../../di";
+
+@mixin default() {
+  &.dso-accordion-reverse-align {
+    .dso-section-handle {
+      a,
+      button {
+        &::before {
+          @include di.base("chevron-down-mauve");
+        }
+      }
+    }
+
+    .dso-accordion-section {
+      &.dso-open {
+        &:not(.dso-nested-accordion) {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.base("chevron-up-wit");
+              }
+            }
+          }
+        }
+
+        &.dso-nested-accordion {
+          > .dso-section-handle {
+            a,
+            button {
+              &::before {
+                @include di.variant("chevron-down-mauve");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .dso-section-handle {
+    background-color: colors.$wit;
+    border: 1px solid accordion.$default-border-color;
+    border-radius: accordion.$border-radius;
+
+    a,
+    button {
+      color: accordion.$default-color;
+
+      &::before {
+        @include di.base("chevron-right-mauve");
+      }
+
+      &:hover,
+      &:active,
+      &.active {
+        color: accordion.$default-color;
+      }
+    }
+  }
+
+  .dso-accordion-section {
+    &.dso-open {
+      > .dso-section-handle {
+        background-color: accordion.$default-nested-handle-bgcolor;
+        border-radius: 0;
+        border-top-left-radius: accordion.$border-radius;
+        border-top-right-radius: accordion.$border-radius;
+
+        a,
+        button {
+          color: colors.$wit;
+
+          &::before {
+            @include di.variant("chevron-down-wit");
+          }
+
+          dso-attachments-counter {
+            --dso-attachments-counter-color: #{colors.$wit};
+            --dso-icon: var(--di-paperclip-wit);
+          }
+
+          .dso-attachments {
+            color: colors.$wit;
+
+            &::after {
+              @include di.variant("paperclip-wit");
+            }
+          }
+        }
+      }
+
+      &.dso-nested-accordion {
+        background-color: accordion.$default-nested-body-bgcolor;
+      }
+    }
+  }
+
+  .dso-section-body {
+    border: 1px solid accordion.$default-border-color;
+    border-radius: 0 0 accordion.$border-radius accordion.$border-radius;
+  }
+}

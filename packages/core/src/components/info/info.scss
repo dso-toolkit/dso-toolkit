@@ -1,6 +1,6 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/components/button";
-@use "~@dso-toolkit/sources/src/components/info";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/info";
 
 :host {
   display: block;

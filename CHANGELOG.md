@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-## Added
+### Added
 * Storybook Composition ([#1869](https://github.com/dso-toolkit/dso-toolkit/issues/1869)).
+
+## Changed
+* Meta packages `@dso-toolkit/css` en `@dso-toolkit/sources` fuseren naar `dso-toolkit` ([#1871](https://github.com/dso-toolkit/dso-toolkit/issues/1871)).
 
 ## 48.0.0
 

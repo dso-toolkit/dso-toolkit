@@ -1,0 +1,78 @@
+@use "../../variables/units";
+@use "../../variables/media-query-breakpoints";
+@use "../../variables/typography";
+@use "../icon";
+@use "../form-control";
+
+@use "../../di";
+
+.dso-context-wrapper {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: units.$u1;
+  row-gap: units.$u2;
+
+  .dso-context-container {
+    margin-left: auto;
+  }
+
+  .dso-context-label {
+    #{typography.$headings} {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  .dso-context-select {
+    align-items: center;
+    display: flex;
+
+    label {
+      margin-bottom: units.$u1;
+      margin-right: units.$u1;
+    }
+
+    select {
+      @include form-control.root();
+      @include di.variant("caret-down");
+
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      background-position: calc(100% - #{units.$u1});
+      background-repeat: no-repeat;
+      background-size: icon.$size icon.$size;
+      padding-right: units.$u4;
+      width: auto;
+    }
+  }
+}
+
+@media screen and (min-width: #{media-query-breakpoints.$screen-xs-min + 1}) {
+  .dso-context-wrapper {
+    .dso-context-container {
+      .dso-context-select {
+        label {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
+  .dso-context-wrapper {
+    .dso-context-container {
+      flex-basis: 100%;
+
+      .dso-context-select {
+        flex-wrap: wrap;
+
+        label {
+          flex-basis: 100%;
+        }
+      }
+    }
+  }
+}

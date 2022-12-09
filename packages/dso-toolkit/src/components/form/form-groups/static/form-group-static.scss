@@ -1,0 +1,35 @@
+@use "../../../../variables/units";
+@use "../../../../variables/typography";
+
+.form-group.dso-static {
+  .form-horizontal & {
+    .dso-field-container {
+      margin-bottom: 0;
+      min-height: typography.$root-line-height-computed + typography.$root-font-size-base;
+      padding-bottom: units.$padding-base-vertical + 1;
+      padding-top: units.$padding-base-vertical + 1;
+
+      * {
+        margin-bottom: 0;
+        margin-top: 0;
+
+        + * {
+          margin-top: units.$vertical-spacing-small;
+        }
+      }
+    }
+
+    &.dso-edit {
+      .dso-field-container {
+        padding-right: units.$u5;
+        position: relative;
+
+        button {
+          position: absolute;
+          right: units.$u2;
+          top: 0;
+        }
+      }
+    }
+  }
+}

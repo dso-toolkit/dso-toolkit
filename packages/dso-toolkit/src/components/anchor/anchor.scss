@@ -1,0 +1,30 @@
+@use "../anchor";
+@use "../icon";
+
+@use "../../di";
+
+a {
+  @include anchor.root();
+
+  &.download,
+  &.extern {
+    &::after {
+      content: "";
+      display: inline-block;
+      margin-left: anchor.$spacer-width;
+      vertical-align: icon.$vertical-align;
+    }
+  }
+
+  &.download {
+    &::after {
+      @include di.base("download");
+    }
+  }
+
+  &.extern {
+    &::after {
+      @include di.base("external-link");
+    }
+  }
+}

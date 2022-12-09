@@ -1,7 +1,7 @@
-import { Alert } from "@dso-toolkit/sources";
+import { Alert } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoAlert } from "../..";
+import { DsoAlert } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactAlert: ComponentImplementation<Alert<JSX.Element>> = {

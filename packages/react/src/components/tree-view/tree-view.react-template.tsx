@@ -1,7 +1,7 @@
-import { TreeView } from "@dso-toolkit/sources";
+import { TreeView } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoTreeView } from "../..";
+import { DsoTreeView } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactTreeView: ComponentImplementation<TreeView> = {

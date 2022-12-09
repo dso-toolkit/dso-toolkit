@@ -1,7 +1,7 @@
-@use "~@dso-toolkit/sources/src/variables/units";
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/variables/scaffolding";
-@use "~@dso-toolkit/sources/src/variables/zindex";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/scaffolding";
+@use "~dso-toolkit/src/variables/zindex";
 
 @use "autosuggest.variables" as core-autosuggest-variables;
 

@@ -1,4 +1,4 @@
-import { storiesOfTooltip } from "@dso-toolkit/sources";
+import { storiesOfTooltip } from "dso-toolkit";
 import { HandlerFunction } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";

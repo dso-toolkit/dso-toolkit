@@ -1,0 +1,5 @@
+@use "../footnotes";
+
+.dso-footnotes {
+  @include footnotes.root();
+}

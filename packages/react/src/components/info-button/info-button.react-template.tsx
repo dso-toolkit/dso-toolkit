@@ -1,7 +1,7 @@
-import { InfoButton } from "@dso-toolkit/sources";
+import { InfoButton } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoInfoButton } from "../..";
+import { DsoInfoButton } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactInfoButton: ComponentImplementation<InfoButton> = {

@@ -1,0 +1,38 @@
+@use "../../../utilities";
+@use "../../../variables/units";
+@use "../../../variables/typography";
+@use "../../button";
+
+.dso-form-buttons {
+  @include utilities.clearfix();
+
+  margin-bottom: units.$vertical-spacing-medium;
+  text-align: right;
+
+  &:last-child {
+    margin-bottom: units.$vertical-spacing-xlarge;
+  }
+
+  a,
+  button {
+    &.dso-tertiary,
+    &.btn-link {
+      line-height: typography.$line-height-base;
+      padding: button.$vertical-padding 0; // $horizontal??
+    }
+  }
+
+  .dso-aside {
+    clear: both;
+    float: left;
+  }
+}
+
+.dso-single-page {
+  &.dso-form-buttons,
+  .dso-form-buttons {
+    #{button.$buttons} {
+      float: left;
+    }
+  }
+}

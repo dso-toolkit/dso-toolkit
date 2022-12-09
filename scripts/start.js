@@ -2,29 +2,29 @@ const concurrently = require("concurrently");
 const rimraf = require("rimraf");
 const argv = require("minimist")(process.argv.slice(2));
 
+rimraf.sync("packages/dso-toolkit/dist");
 rimraf.sync("packages/core/dist");
 rimraf.sync("packages/core/loader");
-rimraf.sync("packages/css/dist");
-rimraf.sync("packages/storybook/www");
+rimraf.sync("storybook/www");
 rimraf.sync("packages/react/src/components.ts");
 rimraf.sync("packages/react/src/react-component-lib");
 rimraf.sync("packages/react/dist");
 rimraf.sync("packages/react/www");
 rimraf.sync("packages/leaflet/dist");
 rimraf.sync("packages/react-leaflet/dist");
-rimraf.sync("packages/angular-workspace/.angular");
-rimraf.sync("packages/angular-workspace/www");
-rimraf.sync("packages/angular-workspace/projects/component-library/src/lib/stencil-generated");
+rimraf.sync("angular-workspace/.angular");
+rimraf.sync("angular-workspace/www");
+rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
 
 const startStorybook = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/storybook start",
+  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace storybook start",
   name: "storybook",
   prefixColor: "bgMagenta",
 };
 
 const watchCore = {
-  command: "yarn workspace @dso-toolkit/core watch",
+  command:
+    "wait-on file:./packages/dso-toolkit/dist/index.js file:./packages/dso-toolkit/dist/dso.css && yarn workspace @dso-toolkit/core watch",
   name: "core",
 };
 
@@ -34,9 +34,9 @@ const startCypress = {
   prefixColor: "bgGreen",
 };
 
-const watchCss = {
-  command: "yarn workspace @dso-toolkit/css watch",
-  name: "css",
+const watchToolkit = {
+  command: "yarn workspace dso-toolkit watch",
+  name: "toolkit",
 };
 
 const startReact = {
@@ -74,31 +74,31 @@ const startReactLeaflet = {
 if (!argv.mode) {
   if (argv.all) {
     // --all
-    concurrently([watchCss, watchCore, startStorybook, startReact, startAngular], {
+    concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular], {
       killOthers: ["failure", "success"],
     });
   } else if (argv.react) {
     // --react
-    concurrently([watchCss, watchCore, startReact], {
+    concurrently([watchToolkit, watchCore, startReact], {
       killOthers: ["failure", "success"],
     });
   } else if (argv.angular) {
     // --angular
-    concurrently([watchCss, watchCore, startAngular], {
+    concurrently([watchToolkit, watchCore, startAngular], {
       killOthers: ["failure", "success"],
     });
   } else {
     // normal
-    concurrently([watchCss, watchCore, startStorybook, startCypress], {
+    concurrently([watchToolkit, watchCore, startStorybook, startCypress], {
       killOthers: ["failure", "success"],
     });
   }
 } else if (argv.mode === "leaflet") {
-  concurrently([watchCss, watchCore, startLeaflet], {
+  concurrently([watchToolkit, watchCore, startLeaflet], {
     killOthers: ["failure", "success"],
   });
 } else if (argv.mode === "react-leaflet") {
-  concurrently([watchCss, watchCore, buildLeaflet, startReactLeaflet], {
+  concurrently([watchToolkit, watchCore, buildLeaflet, startReactLeaflet], {
     killOthers: ["failure"],
   });
 } else {

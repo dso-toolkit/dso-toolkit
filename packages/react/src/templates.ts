@@ -1,15 +1,14 @@
 import {
-  ComponentsToTemplates,
-  TemplateContainer,
-  BaseComponentImplementation,
   Accordion,
   Alert,
   AttachmentsCounter,
   Autosuggest,
   Badge,
   Banner,
+  BaseComponentImplementation,
   Card,
   CardContainer,
+  ComponentsToTemplates,
   DatePicker,
   DropdownMenu,
   Header,
@@ -28,11 +27,12 @@ import {
   ResponsiveElement,
   Selectable,
   Table,
+  TemplateContainer,
   Toggletip,
   Tooltip,
   TreeView,
   ViewerGrid,
-} from "@dso-toolkit/sources";
+} from "dso-toolkit";
 
 import { reactAccordion } from "./components/accordion/accordion.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";

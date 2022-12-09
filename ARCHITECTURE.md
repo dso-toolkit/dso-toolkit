@@ -14,11 +14,6 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 - `@dso-toolkit/leaflet`
 - `@dso-toolkit/react-leaflet`
 
-Verder hebben we de volgende private packages:
-
-- `@dso-toolkit/sources`. Deze package dient uitsluitend voor code organisatie en centralisatie.
-- `@dso-toolkit/storybook`. Dit is de primaire Storybook voor HTML/CSS componenten en Web Components. Deze wordt naar `https://storybook.dso-toolkit.nl` gepubliceerd.
-
 ![DSO Toolkit dependency graph](dependency-graph.svg)
 
 ## Termen
@@ -27,50 +22,13 @@ Verder hebben we de volgende private packages:
 - **maintainer**: Een maintainer beheert de codebase van de DSO Toolkit.
 - **component**: De DSO Toolkit maakt geen gebruik van een methode zoals Atomic Design: Binnen de toolkit is alles een component. Van een heading zoals `h1` tot een complexe werkvorm zoals Accordion.
 
-## Sources
-
-Deze package is de basis voor de andere packages in het DSO Toolkit Design System. Hier centraliseren we de functionaliteit die door maintainers wordt gebruikt:
-
-- Implementatie details: Implementatie-agnostische documentatie over de functionaliteit van een component.
-- Iconen: Alle iconen die in de applicaties van het DSO worden gebruikt.
-- Styling: Component styling in de vorm van Sass mixins waarmee de diverse implementaties worden gestijld.
-- Component model: Het technische model wat de functionaliteit van een component beschrijft.
-- Storybook definities: Alles wat niet met templating van een Story te maken heeft.
-- Storybook args: de laag tussen de Controls van Storybook en het technische model van een component.
-
-In deze package wordt de eerste vertaalslag van Ontwerp naar Code gemaakt.
-
-Directory layout:
-
-```
-/packages/sources
-  /assets                                 Assets die van belang zijn voor afnemers van de toolkit, geen Storybook demo assets
-  /src
-    /components
-      /<component>                        Directory per component
-        /<component>.args.ts              Storybook techniek naar Model routines
-        /<component>.content.ts           Demo/dummy content
-        /<component>.models.ts            Functionaliteit in code
-        /<component>.stories.ts           Implementatie agnostische Storybook definitie
-        /readme.md                        Functionele documentatie
-        /<component>.scss                 SCSS mixins. Bij het importeren van deze stylesheets genereren ze geen styling
-    /icons                                DSO icons
-    /styling                              Styling die niet bij een component hoort
-      /global                             Basisstyling per element per stylesheet
-      /grid                               Grid stylesheets
-      /mixins                             Utility mixins
-      /variables                          Globale variables
-```
-
 ### Implementatie details
 
 Per component wordt in `readme.md` functionele documentatie bijgehouden.
 
 ### Styling
 
-De styling van de toolkit wordt in SCSS geschreven. Vanuit Sources bieden we de globale (basis) en component styling aan.
-
-Als een component meerdere implementaties krijgt centraliseren we de styling in deze `sources` package en bieden we die aan als Sass mixins. Als een component maar één implementatie krijgt is de styling alleen in de betreffende package te vinden. Uiteraard baseert de styling zich wel op variables die in `sources` worden gezet.
+De styling van de toolkit wordt in SCSS geschreven. Vanuit `dso-toolkit` bieden we de globale (basis) en component styling aan.
 
 ### Component model
 

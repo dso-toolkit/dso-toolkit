@@ -1,9 +1,9 @@
-@use "~@dso-toolkit/sources/src/variables/units";
-@use "~@dso-toolkit/sources/src/variables/colors";
-@use "~@dso-toolkit/sources/src/variables/media-query-breakpoints";
-@use "~@dso-toolkit/sources/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
+@use "~dso-toolkit/src/variables/typography";
 
-@use "~@dso-toolkit/sources/src/components/anchor";
+@use "~dso-toolkit/src/components/anchor";
 
 @use "header.variables" as core-header-variables;
 

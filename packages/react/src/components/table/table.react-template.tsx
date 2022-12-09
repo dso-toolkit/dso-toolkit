@@ -1,8 +1,8 @@
-import { Table } from "@dso-toolkit/sources";
+import { Table } from "dso-toolkit";
 import * as React from "react";
-import clsx from "clsx";
+import { clsx } from "clsx";
 
-import { DsoTable } from "../..";
+import { DsoTable } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactTable: ComponentImplementation<Table<JSX.Element>> = {

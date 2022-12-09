@@ -1,7 +1,7 @@
-import { Autosuggest } from "@dso-toolkit/sources";
+import { Autosuggest } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoAutosuggest } from "../..";
+import { DsoAutosuggest } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactAutosuggest: ComponentImplementation<Autosuggest<JSX.Element>> = {

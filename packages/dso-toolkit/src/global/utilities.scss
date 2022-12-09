@@ -1,0 +1,32 @@
+@use "../utilities";
+@use "../variables/colors";
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: colors.$text-muted;
+}
+
+.caption {
+  font-style: italic;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sr-only {
+  @include utilities.sr-only();
+}

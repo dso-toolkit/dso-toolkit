@@ -1,5 +1,5 @@
-@use "~@dso-toolkit/sources/src/utilities";
-@use "~@dso-toolkit/sources/src/components/attachments-counter";
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/components/attachments-counter";
 
 :host {
   display: inline-block;

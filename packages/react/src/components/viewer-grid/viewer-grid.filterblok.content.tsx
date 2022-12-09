@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Context } from "@dso-toolkit/sources";
+import { Context } from "dso-toolkit";
 
 function contextLabelTemplate(label: JSX.Element, content: JSX.Element, children: JSX.Element) {
   return (

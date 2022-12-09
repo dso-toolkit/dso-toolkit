@@ -1,7 +1,7 @@
-import { Tooltip } from "@dso-toolkit/sources";
+import { Tooltip } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoTooltip } from "../..";
+import { DsoTooltip } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactTooltip: ComponentImplementation<Tooltip> = {

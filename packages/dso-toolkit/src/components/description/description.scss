@@ -1,0 +1,20 @@
+@use "../description";
+
+@use "../../di";
+
+$content-selector: ".dso-description-content";
+
+.dso-description-term {
+  @include description.root($content-selector);
+
+  + #{$content-selector} {
+    > a {
+      &::before {
+        @include di.base("times-zwart");
+
+        content: "";
+        display: block;
+      }
+    }
+  }
+}

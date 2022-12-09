@@ -27,5 +27,6 @@ module.exports = {
     "lit/no-template-bind": "error",
     "lit/no-useless-template-literals": "error",
     "lit/quoted-expressions": "error",
+    "no-duplicate-imports": "error",
   },
 };

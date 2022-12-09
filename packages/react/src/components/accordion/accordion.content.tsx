@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AccordionSection } from "@dso-toolkit/sources";
+import { AccordionSection } from "dso-toolkit";
 import { Templates } from "../../templates";
 
 const section1: AccordionSection<JSX.Element> = {

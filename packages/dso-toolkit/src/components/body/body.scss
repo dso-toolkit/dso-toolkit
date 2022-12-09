@@ -1,0 +1,14 @@
+@use "../../variables/scaffolding";
+@use "../../variables/typography";
+
+body {
+  font-family: typography.$font-family-base;
+  font-size: typography.$root-font-size-base;
+  line-height: typography.$line-height-base;
+  color: scaffolding.$text-color;
+  background-color: scaffolding.$body-bg;
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+}
