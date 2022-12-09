@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssLinkList: ComponentImplementation<LinkList> = {
   component: "linkList",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ anchorTemplate }) =>
     function linkListTemplate({ navLabel, type, links }) {
       function ul(children: TemplateResult) {

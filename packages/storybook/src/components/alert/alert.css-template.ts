@@ -14,7 +14,7 @@ const statusMap = new Map<string, string>([
 
 export const cssAlert: ComponentImplementation<Alert<TemplateResult>> = {
   component: "alert",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function alertTemplate({ status, message, onClick, withRoleAlert }) {
       return html`

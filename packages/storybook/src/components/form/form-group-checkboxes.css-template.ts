@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupCheckboxes: ComponentImplementation<FormGroupCheckboxes<TemplateResult>> = {
   component: "formGroupCheckboxes",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, selectableTemplate }) =>
     function formGroupCheckboxesTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

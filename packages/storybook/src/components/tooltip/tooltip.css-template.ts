@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssTooltip: ComponentImplementation<Tooltip> = {
   component: "tooltip",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function tooltipTemplate({ position, descriptive }) {
       return html`

@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupInputNumber: ComponentImplementation<FormGroupInputNumber<TemplateResult>> = {
   component: "formGroupInputNumber",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ inputNumberTemplate }) =>
     function formGroupInputNumberTemplate(formGroup) {
       return html`

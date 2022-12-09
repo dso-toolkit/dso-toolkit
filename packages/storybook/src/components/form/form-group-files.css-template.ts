@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupFiles: ComponentImplementation<FormGroupFiles<TemplateResult>> = {
   component: "formGroupFiles",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, selectableTemplate, iconTemplate, buttonTemplate, alertTemplate }) =>
     function formGroupFilesTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

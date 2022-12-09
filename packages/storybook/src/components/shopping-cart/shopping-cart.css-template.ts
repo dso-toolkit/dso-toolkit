@@ -30,7 +30,7 @@ function hasWarning(items: ShoppingCartItem[] | ShoppingCartSubitem[]) {
 
 export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
   component: "shoppingCart",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate, iconTemplate }) =>
     function shoppingCartTemplate({
       collapsable,

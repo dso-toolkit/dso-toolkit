@@ -248,7 +248,7 @@ export interface Components {
   whitebox: Whitebox;
 }
 
-type Implementation = "css" | "core";
+type Implementation = "html-css" | "core";
 
 export type Templates = ComponentsToTemplates<Components, TemplateResult>;
 export type ComponentImplementation<Model> = BaseComponentImplementation<
@@ -260,7 +260,7 @@ export type ComponentImplementation<Model> = BaseComponentImplementation<
 export const templateContainer = new TemplateContainer<Implementation, Templates, TemplateResult>({
   getNameByKind: (kind: string): string | undefined => {
     if (kind.startsWith("HTML|CSS")) {
-      return "css";
+      return "html-css";
     }
 
     if (kind.startsWith("Core")) {

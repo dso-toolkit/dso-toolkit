@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssListButton: ComponentImplementation<ListButton> = {
   component: "listButton",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ inputNumberTemplate, iconTemplate }) =>
     function listButtonTemplate(listButton) {
       function listButtonComponentTemplate({

@@ -11,7 +11,7 @@ function selectOptionTemplate(option: SelectOption) {
 
 export const cssFormGroupSelect: ComponentImplementation<FormGroupSelect<TemplateResult>> = {
   component: "formGroupSelect",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, iconTemplate }) =>
     function formGroupSelectTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssPagination: ComponentImplementation<Pagination> = {
   component: "pagination",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function paginationTemplate({ currentPage, totalPages }) {
       return html`

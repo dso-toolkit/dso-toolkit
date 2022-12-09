@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupStatic: ComponentImplementation<FormGroupStatic<TemplateResult>> = {
   component: "formGroupStatic",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, buttonTemplate }) =>
     function formGroupStaticTemplate(formGroup) {
       const infoTextId = `${formGroup.id}-info-text`;

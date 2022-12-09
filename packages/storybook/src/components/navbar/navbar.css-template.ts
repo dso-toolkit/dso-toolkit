@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssNavbar: ComponentImplementation<Navbar> = {
   component: "navbar",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ iconTemplate, anchorTemplate }) =>
     function navbarTemplate({ items, modifier, open }) {
       return html`

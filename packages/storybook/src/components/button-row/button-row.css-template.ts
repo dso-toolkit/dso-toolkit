@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssButtonRow: ComponentImplementation<ButtonRow> = {
   component: "buttonRow",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate, anchorTemplate }) =>
     function buttonRowTemplate({ buttons }) {
       return html`<div class="dso-button-row">

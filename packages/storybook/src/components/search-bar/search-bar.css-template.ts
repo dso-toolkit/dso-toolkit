@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssSearchBar: ComponentImplementation<SearchBar> = {
   component: "searchBar",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function searchBarTemplate({
       label,

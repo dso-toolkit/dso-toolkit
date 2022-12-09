@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssLabelGroup: ComponentImplementation<LabelGroup> = {
   component: "labelGroup",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ labelTemplate }) =>
     function labelGroupTemplate({ labels }) {
       return html`<div class="dso-label-group">

@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
   component: "modal",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function modalTemplate({ modalTitle, role, showCloseButton, body, footer }) {
       const ariaId = v4();

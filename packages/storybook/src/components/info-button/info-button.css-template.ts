@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssInfoButton: ComponentImplementation<InfoButton> = {
   component: "infoButton",
-  implementation: "css",
+  implementation: "html-css",
   template: () =>
     function infoButtonTemplate({ active, label, secondary, dsoToggle }) {
       return html`

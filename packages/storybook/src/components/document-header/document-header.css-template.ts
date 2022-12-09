@@ -6,7 +6,7 @@ import { classMap } from "lit-html/directives/class-map.js";
 
 export const cssDocumentHeader: ComponentImplementation<DocumentHeader<TemplateResult>> = {
   component: "documentHeader",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate, definitionListTemplate }) =>
     function documentHeaderTemplate({
       title,

@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssTileGrid: ComponentImplementation<TileGrid> = {
   component: "tileGrid",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ tileTemplate }) =>
     function tileGridTemplate({ tiles }) {
       return html`<dso-responsive-element class="dso-tile-grid"

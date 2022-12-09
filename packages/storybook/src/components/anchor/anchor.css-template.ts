@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssAnchor: ComponentImplementation<Anchor> = {
   component: "anchor",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ iconTemplate }) =>
     function anchorTemplate({ icon, iconMode, label, modifier, url, ariaCurrent }) {
       return html`<a

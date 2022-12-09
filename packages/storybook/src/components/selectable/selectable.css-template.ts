@@ -5,7 +5,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> = {
   component: "selectable",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate }) =>
     function selectableTemplate({
       type,

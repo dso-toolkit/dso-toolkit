@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssFormGroupRadios: ComponentImplementation<FormGroupRadios<TemplateResult>> = {
   component: "formGroupRadios",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ infoButtonTemplate, infoTemplate, selectableTemplate }) =>
     function formGroupRadiosTemplate(formGroup) {
       const errorTextId = `${formGroup.id}-error-text`;

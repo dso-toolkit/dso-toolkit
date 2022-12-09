@@ -4,7 +4,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssBanner: ComponentImplementation<Banner<TemplateResult>> = {
   component: "banner",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function bannerTemplate({ status, content, onClick }) {
       return html`

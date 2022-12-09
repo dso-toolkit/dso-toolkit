@@ -7,7 +7,7 @@ import { ComponentImplementation } from "../../templates";
 
 export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
   component: "dropdownMenu",
-  implementation: "css",
+  implementation: "html-css",
   template: ({ buttonTemplate }) =>
     function dropdownMenuTemplate({ id, button, dropdownAlign, groups, isCheckable }) {
       return html`
