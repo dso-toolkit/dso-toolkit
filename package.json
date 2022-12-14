@@ -4,21 +4,21 @@
   "workspaces": {
     "packages": [
       "angular-workspace",
-      "angular-workspace/projects/*",
       "packages/*",
       "storybook",
       "website"
     ]
   },
   "scripts": {
+    "graph": "nx graph --watch=true",
     "postinstall": "patch-package",
     "format": "prettier --write .",
     "lint": "yarn lint:prettier && yarn lint:stylelint && yarn lint:eslint",
     "lint:prettier": "prettier --check .",
     "lint:stylelint": "stylelint 'packages/**/*.scss'",
     "lint:eslint": "eslint --max-warnings=0 .",
-    "build": "yarn workspace dso-toolkit build && yarn workspace @dso-toolkit/core build && yarn workspace @dso-toolkit/react build && yarn workspace angular-workspace build",
-    "build-www": "rimraf angular-workspace/.angular '**/node_modules/.cache' && concurrently --names \"website,storybook,react,angular\" \"yarn workspace website build\" \"yarn workspace storybook build\" \"yarn workspace @dso-toolkit/react storybook:build-extract\" \"yarn workspace angular-workspace storybook:build-extract\"",
+    "build": "nx run-many --target=build",
+    "build-www": "nx run-many --target=build-www",
     "e2e": "start-server-and-test 'http-server --silent --port 45000 storybook/www' http://localhost:45000 'percy exec -- cypress run'",
     "clear-node-modules": "npx rimraf node_modules angular-workspace/node_modules angular-workspace/projects/component-library/node_modules packages/core/node_modules packages/dso-toolkit/node_modules packages/leaflet/node_modules packages/react/node_modules packages/react-leaflet/node_modules storybook/node_modules",
     "website": "yarn workspace website start",
@@ -32,10 +32,8 @@
     "@infoprojects/stylelint-config-scss": "^1.0.0",
     "@percy/cli": "^1.16.0",
     "@percy/cypress": "^3.1.2",
-    "@types/animejs": "^3.1.6",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
-    "animejs": "3.2.1",
     "axe-core": "^4.5.2",
     "concurrently": "^7.6.0",
     "cpy-cli": "^4.2.0",
@@ -48,6 +46,7 @@
     "eslint-plugin-only-warn": "^1.0.3",
     "http-server": "^14.1.1",
     "minimist": "^1.2.7",
+    "nx": "15.3.3",
     "patch-package": "^6.5.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.8.0",

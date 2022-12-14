@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build-www": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docusaurus build --out-dir www",
+        "cwd": "website"
+      },
+      "dependsOn": ["^build"],
+      "inputs": ["^styles", "^assets", "default"],
+      "outputs": ["{projectRoot}/www"]
+    }
+  }
+}

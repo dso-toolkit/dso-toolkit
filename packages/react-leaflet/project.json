@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "dependsOn": ["^build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn node scripts/run.js --build",
+        "cwd": "packages/react-leaflet"
+      },
+      "outputs": ["{projectRoot}/dist"]
+    }
+  }
+}

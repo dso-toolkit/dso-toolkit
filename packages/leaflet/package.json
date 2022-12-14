@@ -19,16 +19,17 @@
   ],
   "scripts": {
     "start": "yarn node scripts/run.js --start",
-    "watch": "yarn node scripts/run.js --watch",
-    "build": "yarn node scripts/run.js --build"
+    "watch": "yarn node scripts/run.js --watch"
   },
   "dependencies": {
     "lit-html": "^2.4.0"
   },
   "devDependencies": {
+    "@dso-toolkit/core": "*",
     "@types/fs-extra": "^9.0.13",
     "@types/leaflet": "^1.9.0",
     "concurrently": "^7.6.0",
+    "dso-toolkit": "*",
     "fs-extra": "^10.1.0",
     "klap": "^7.0.11",
     "leaflet": "1.9.3",
@@ -43,5 +44,8 @@
   "klap": {
     "example": "public/index.ts",
     "port": "41234"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

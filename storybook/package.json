@@ -1,9 +1,9 @@
 {
-  "name": "storybook",
+  "name": "dso-storybook",
   "private": true,
   "scripts": {
     "start": "start-storybook --port 45000",
-    "build": "build-storybook --output-dir ./www"
+    "storybook:build": "build-storybook --output-dir ./www"
   },
   "dependencies": {
     "@dso-toolkit/core": "workspace:*",
@@ -20,5 +20,8 @@
     "iframe-resizer": "^4.3.2",
     "lit-html": "^2.4.0",
     "react-syntax-highlighter": "^15.5.0"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

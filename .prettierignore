@@ -1,3 +1,4 @@
+/.cache
 **/CHANGELOG.md
 /.yarn
 /dependency-graph.svg
@@ -17,5 +18,5 @@
 /packages/react/src/react-component-lib
 /storybook/www
 /website/.docusaurus
-/website/build
+/website/www
 /website/static/docs/logos

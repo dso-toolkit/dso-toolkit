@@ -17,7 +17,7 @@ rimraf.sync("angular-workspace/www");
 rimraf.sync("angular-workspace/projects/component-library/src/lib/stencil-generated");
 
 const startStorybook = {
-  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace storybook start",
+  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace dso-storybook start",
   name: "storybook",
   prefixColor: "bgMagenta",
 };

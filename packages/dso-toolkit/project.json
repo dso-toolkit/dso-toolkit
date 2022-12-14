@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "namedInputs": {
+    "styles": ["{projectRoot}/src/**/*.scss"],
+    "assets": ["{projectRoot}/assets/**/*"]
+  },
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "gulp build",
+        "cwd": "packages/dso-toolkit"
+      },
+      "outputs": ["{projectRoot}/CHANGELOG.md", "{projectRoot}/README.md", "{projectRoot}/dist"]
+    }
+  }
+}

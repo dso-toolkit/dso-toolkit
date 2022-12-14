@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "dependsOn": ["^build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "stencil build",
+        "cwd": "packages/core"
+      },
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/loader"]
+    }
+  }
+}

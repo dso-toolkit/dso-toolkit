@@ -6,6 +6,7 @@
     ".yarn": true,
     "**/dist": true,
     "**/www": true,
+    "**/.docusaurus": true,
     "angular-workspace/.angular": true,
     "angular-workspace/documentation.json": true
   }

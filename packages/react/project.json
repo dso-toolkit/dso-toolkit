@@ -1,0 +1,23 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build": {
+      "dependsOn": ["^build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "rimraf dist && tsc --project .",
+        "cwd": "packages/react"
+      },
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "build-www": {
+      "dependsOn": ["^build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn storybook:build-extract",
+        "cwd": "packages/react"
+      },
+      "outputs": ["{projectRoot}/www"]
+    }
+  }
+}

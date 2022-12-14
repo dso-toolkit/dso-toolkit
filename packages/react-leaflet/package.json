@@ -19,7 +19,6 @@
   ],
   "scripts": {
     "start": "yarn node scripts/run.js --start",
-    "build": "yarn node scripts/run.js --build",
     "watch": "klap watch"
   },
   "dependencies": {
@@ -46,5 +45,8 @@
   "klap": {
     "example": "public/index.tsx",
     "port": "42345"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

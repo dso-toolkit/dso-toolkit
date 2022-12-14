@@ -6,6 +6,7 @@ cache:
   directories:
     - ./.yarn/cache
     - ~/.cache/Cypress
+    - ./.cache/nx
 node_js:
   - "16"
 git:
@@ -41,7 +42,7 @@ jobs:
             - packages/react/dist
             - packages/react/www
             - storybook/www
-            - website/build
+            - website/www
       script: yarn dedupe --check &&
         (yarn npm audit --all --recursive || true) &&
         yarn lint &&
@@ -57,7 +58,7 @@ jobs:
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/build/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
         ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
 
@@ -66,18 +67,19 @@ jobs:
       workspaces:
         use: build-artifacts
       script: yarn config set npmAuthToken "${DEPLOY_NPM_TOKEN}" &&
+        npm config set _authToken=${DEPLOY_NPM_TOKEN} &&
         cp README.md packages/dso-toolkit &&
-        yarn workspace @dso-toolkit/core version ${TRAVIS_TAG:1} --deferred &&
-        yarn workspace @dso-toolkit/react version ${TRAVIS_TAG:1} --deferred &&
-        yarn workspace dso-toolkit version ${TRAVIS_TAG:1} --deferred &&
-        yarn version apply --all &&
+        yarn workspace @dso-toolkit/core version ${TRAVIS_TAG:1} --immediate &&
+        yarn workspace @dso-toolkit/react version ${TRAVIS_TAG:1} --immediate &&
+        yarn workspace dso-toolkit version ${TRAVIS_TAG:1} --immediate &&
+        yarn workspace dso-toolkit npm publish --access public &&
         yarn workspace @dso-toolkit/core npm publish --access public &&
         yarn workspace @dso-toolkit/react npm publish --access public &&
-        yarn workspace dso-toolkit npm publish --access public &&
+        cd angular-workspace/component-library/dist && npm version ${TRAVIS_TAG:1} && npm publish && cd ../../..
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_TAG:1}
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/build/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
 env:
