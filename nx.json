@@ -6,7 +6,7 @@
       "options": {
         "useDaemonProcess": false,
         "cacheDirectory": ".cache/nx",
-        "cacheableOperations": ["build", "build-www"]
+        "cacheableOperations": ["build", "build-www", "e2e"]
       }
     }
   },

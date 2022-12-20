@@ -9,6 +9,15 @@
       },
       "dependsOn": ["^build"],
       "outputs": ["{projectRoot}/www"]
+    },
+    "e2e": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "start-server-and-test 'http-server --silent --port 45000 www' http://localhost:45000 'percy exec -- cypress run'",
+        "cwd": "storybook"
+      },
+      "dependsOn": ["build-www"],
+      "outputs": []
     }
   }
 }

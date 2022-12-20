@@ -11951,6 +11951,8 @@ __metadata:
   resolution: "dso-storybook@workspace:storybook"
   dependencies:
     "@dso-toolkit/core": "workspace:*"
+    "@percy/cli": ^1.16.0
+    "@percy/cypress": ^3.1.2
     "@storybook/addon-a11y": 6.5.13
     "@storybook/addon-actions": 6.5.13
     "@storybook/addon-essentials": 6.5.13
@@ -11959,11 +11961,16 @@ __metadata:
     "@storybook/manager-webpack5": 6.5.13
     "@storybook/web-components": 6.5.13
     "@whitespace/storybook-addon-html": 5.0.3
+    cypress: ^11.2.0
+    cypress-axe: ^1.0.0
+    cypress-real-events: ^1.7.4
     dso-toolkit: "workspace:*"
     http-proxy-middleware: ^2.0.6
+    http-server: ^14.1.1
     iframe-resizer: ^4.3.2
     lit-html: ^2.4.0
     react-syntax-highlighter: ^15.5.0
+    start-server-and-test: ^1.14.0
   languageName: unknown
   linkType: soft
 
@@ -11974,28 +11981,21 @@ __metadata:
     "@infoprojects/eslint-config": ^1.1.0
     "@infoprojects/prettier-config": ^1.0.0
     "@infoprojects/stylelint-config-scss": ^1.0.0
-    "@percy/cli": ^1.16.0
-    "@percy/cypress": ^3.1.2
     "@typescript-eslint/eslint-plugin": ^5.44.0
     "@typescript-eslint/parser": ^5.44.0
     axe-core: ^4.5.2
     concurrently: ^7.6.0
     cpy-cli: ^4.2.0
-    cypress: ^11.2.0
-    cypress-axe: ^1.0.0
-    cypress-real-events: ^1.7.4
     eslint: ^8.28.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-lit: ^1.6.1
     eslint-plugin-only-warn: ^1.0.3
-    http-server: ^14.1.1
     minimist: ^1.2.7
     nx: 15.3.3
     patch-package: ^6.5.0
     postinstall-postinstall: ^2.1.0
     prettier: ^2.8.0
     rimraf: ^3.0.2
-    start-server-and-test: ^1.14.0
     stylelint: ^14.15.0
     stylelint-config-prettier-scss: ^0.0.1
     stylelint-config-recommended-scss: ^8.0.0
@@ -18457,11 +18457,11 @@ __metadata:
   linkType: hard
 
 "memfs@npm:^3.1.2, memfs@npm:^3.2.2, memfs@npm:^3.4.3":
-  version: 3.4.11
-  resolution: "memfs@npm:3.4.11"
+  version: 3.4.12
+  resolution: "memfs@npm:3.4.12"
   dependencies:
     fs-monkey: ^1.0.3
-  checksum: 47a9b0ea5d96da7978ac190df1420340ff3d010e087b8e4e1a971b1913a82f892eb0603b71a1b913d833e9b919113e3a7e541fe366e759bb16ff30d5940c8bcb
+  checksum: dab8dec1ae0b2a92e4d563ac86846047cd7aeb17cde4ad51da85cff6e580c32d12b886354527788e36eb75f733dd8edbaf174476b7cea73fed9c5a0e45a6b428
   languageName: node
   linkType: hard
 

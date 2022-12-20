@@ -29,7 +29,7 @@ const watchCore = {
 };
 
 const startCypress = {
-  command: `wait-on http://localhost:45000 && yarn cypress open"`,
+  command: `wait-on http://localhost:45000 && yarn workspace dso-storybook cypress open"`,
   name: "cypress",
   prefixColor: "bgGreen",
 };
