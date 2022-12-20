@@ -7,6 +7,16 @@ describe("Accordion", () => {
       });
   });
 
+  const prepareScrollIntoView = () => {
+    cy.get("dso-accordion")
+      .then(($accordion) => $accordion[0]?.closeOpenSections())
+      .find("dso-accordion-section:nth-child(2)")
+      .then(($element) => {
+        $element.after(`<div class="cy-test-spacer" style="height: 1000px; background-color: yellow;"></div>`);
+      })
+      .wait(200);
+  };
+
   it("should open and close a section by clicking the handle", () => {
     cy.percySnapshot();
 
@@ -134,12 +144,14 @@ describe("Accordion", () => {
       .invoke("removeAttr", "allowMultipleOpen")
       .get("dso-accordion")
       .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .then(($accordion) => $accordion[0]?.toggleSection(0))
+      .then(async ($accordion) => await $accordion[0]?.toggleSection(0))
+      .get("dso-accordion")
       .find("dso-accordion-section")
       .eq(0)
       .should("have.attr", "open")
       .get("dso-accordion")
-      .then(($accordion) => $accordion[0]?.toggleSection(1))
+      .then(async ($accordion) => await $accordion[0]?.toggleSection(1))
+      .get("dso-accordion")
       .find("dso-accordion-section")
       .eq(0)
       .should("not.have.attr", "open")
@@ -155,8 +167,9 @@ describe("Accordion", () => {
       .invoke("attr", "allow-multiple-open", "")
       .get("dso-accordion")
       .then(($accordion) => $accordion[0]?.closeOpenSections())
-      .then(($accordion) => $accordion[0]?.toggleSection(0))
-      .then(($accordion) => $accordion[0]?.toggleSection(1))
+      .then(async ($accordion) => await $accordion[0]?.toggleSection(0))
+      .get("dso-accordion")
+      .then(async ($accordion) => await $accordion[0]?.toggleSection(1))
       .get("dso-accordion")
       .find("dso-accordion-section")
       .eq(0)
@@ -295,5 +308,66 @@ describe("Accordion", () => {
       .invoke("at", -1)
       .its("args.0.detail.section.open")
       .should("equal", true);
+  });
+
+  it("should scroll section into view when opened", () => {
+    prepareScrollIntoView();
+    cy.get("dso-accordion")
+      .find("dso-accordion-section")
+      .last()
+      .shadow()
+      .find(".dso-section-handle")
+      .realClick()
+      .window()
+      .its("scrollY")
+      .should("be.greaterThan", 600);
+  });
+
+  it("should scroll section into view when scrollSectionIntoView is called", () => {
+    prepareScrollIntoView();
+    cy.get("dso-accordion")
+      .find<HTMLDsoAccordionSectionElement>("dso-accordion-section")
+      .last()
+      .then(($sections) => {
+        const sectionElement = $sections[0];
+        if ("scrollSectionIntoView" in sectionElement && typeof sectionElement.scrollSectionIntoView === "function") {
+          sectionElement.scrollSectionIntoView();
+        }
+      })
+      .window()
+      .its("scrollY")
+      .should("be.greaterThan", 560);
+  });
+
+  it("should scroll section into view when toggleSection is called", () => {
+    prepareScrollIntoView();
+    cy.get("dso-accordion")
+      .find<HTMLDsoAccordionSectionElement>("dso-accordion-section")
+      .last()
+      .then(($sections) => {
+        const sectionElement = $sections[0];
+        if ("toggleSection" in sectionElement && typeof sectionElement.toggleSection === "function") {
+          sectionElement.toggleSection();
+        }
+      })
+      .window()
+      .its("scrollY")
+      .should("be.greaterThan", 600);
+  });
+
+  it("should NOT scroll section into view when toggleSection is called with param 'false'", () => {
+    prepareScrollIntoView();
+    cy.get("dso-accordion")
+      .find<HTMLDsoAccordionSectionElement>("dso-accordion-section")
+      .last()
+      .then(($sections) => {
+        const sectionElement = $sections[0];
+        if ("toggleSection" in sectionElement && typeof sectionElement.toggleSection === "function") {
+          sectionElement.toggleSection(false);
+        }
+      })
+      .window()
+      .its("scrollY")
+      .should("equal", 0);
   });
 });

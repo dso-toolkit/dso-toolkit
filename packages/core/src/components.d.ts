@@ -39,9 +39,9 @@ export namespace Components {
          */
         "reverseAlign": boolean;
         /**
-          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+          * Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\ returns `undefined` when no section is tiggled.\ returns `true` when the section is opened and `false` when the section is closed.
          */
-        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<void>;
+        "toggleSection": (sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>;
         "variant"?: AccordionVariant;
     }
     interface DsoAccordionSection {
@@ -58,14 +58,19 @@ export namespace Components {
         "icon"?: string;
         "open": boolean;
         /**
+          * Scroll this section into view when needed.
+         */
+        "scrollSectionIntoView": () => Promise<void>;
+        /**
           * `state` takes precedence over `attachmentCount` and `icon`
          */
         "state"?: AccordionSectionState;
         "status"?: string;
         /**
-          * Toggle this section
+          * Toggle this section.
+          * @param scrollIntoView boolean - defaults to true
          */
-        "toggleSection": () => Promise<void>;
+        "toggleSection": (scrollIntoView?: boolean) => Promise<void>;
     }
     interface DsoAlert {
         /**

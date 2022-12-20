@@ -41,13 +41,15 @@ Type: `Promise<AccordionInternalState>`
 
 
 
-### `toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<void>`
+### `toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent) => Promise<undefined | boolean>`
 
-Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.
+Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
+returns `undefined` when no section is tiggled.\
+returns `true` when the section is opened and `false` when the section is closed.
 
 #### Returns
 
-Type: `Promise<void>`
+Type: `Promise<boolean | undefined>`
 
 
 

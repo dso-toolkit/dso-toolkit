@@ -25,6 +25,8 @@ import { Handle, HandleElement, HandleIcon } from "./handles";
   shadow: true,
 })
 export class AccordionSection implements ComponentInterface {
+  private static scrollCandidate?: HTMLElement;
+
   private accordion?: AccordionInterface;
 
   private accordionState?: AccordionInternalState;
@@ -32,6 +34,8 @@ export class AccordionSection implements ComponentInterface {
   private animeInstance?: anime.AnimeInstance;
 
   private sectionBody?: HTMLDivElement;
+
+  private sectionHeading?: HTMLHeadingElement;
 
   private resizeObserver?: ResizeObserver;
 
@@ -88,7 +92,7 @@ export class AccordionSection implements ComponentInterface {
       });
     }
 
-    this.startAnimationResizeObserver();
+    this.prepareAnimationResizeObserver();
   }
 
   componentDidLoad(): void {
@@ -103,16 +107,76 @@ export class AccordionSection implements ComponentInterface {
     this.resizeObserver?.disconnect();
   }
 
-  /** Toggle this section */
+  /** Toggle this section.
+   * @param scrollIntoView boolean - defaults to true
+   */
   @Method()
-  async toggleSection(): Promise<void> {
-    return this.accordion?.toggleSection(this.host);
+  async toggleSection(scrollIntoView = true): Promise<void> {
+    await this.accordion?.toggleSection(this.host).then(async () => {
+      if (scrollIntoView) {
+        await this.scrollIntoViewWhenNeeded(true);
+      }
+    });
+  }
+
+  /** Scroll this section into view when needed. */
+  @Method()
+  async scrollSectionIntoView(): Promise<void> {
+    await this.scrollIntoViewWhenNeeded(false);
+  }
+
+  private async scrollIntoViewWhenNeeded(sectionToggled: boolean): Promise<void> {
+    AccordionSection.scrollCandidate = undefined;
+
+    const bodyClientRect = this.sectionBody?.getBoundingClientRect();
+    const headingClientRect = this.sectionHeading?.getBoundingClientRect();
+
+    if (!bodyClientRect || !headingClientRect || !this.accordionState) {
+      return;
+    }
+
+    const waitForAnimationBeforeScrolling = (state: AccordionInternalState) => {
+      const sectionBottomOffsetTop =
+        this.host.offsetTop + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
+
+      return (
+        sectionToggled && (sectionBottomOffsetTop > document.documentElement.scrollHeight || state.allowMultipleOpen)
+      );
+    };
+
+    if (waitForAnimationBeforeScrolling(this.accordionState)) {
+      AccordionSection.scrollCandidate = this.host;
+      return;
+    }
+
+    // this y is relative to the top of the viewport.
+    const sectionBottomY = headingClientRect.top + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
+    if (sectionBottomY > window.innerHeight) {
+      const expandedAccordionHeight = sectionBottomY - headingClientRect.top;
+      const shouldScrollToTopOfSection = expandedAccordionHeight > window.innerHeight;
+
+      window.scrollTo({
+        top: shouldScrollToTopOfSection
+          ? this.host.offsetTop
+          : this.host.offsetTop - (window.innerHeight - expandedAccordionHeight),
+        behavior: "smooth",
+      });
+    } else if (headingClientRect.top < 0) {
+      window.scrollTo({
+        top: this.host.offsetTop,
+        behavior: "smooth",
+      });
+    }
   }
 
   private async toggle(e?: MouseEvent): Promise<void> {
     e?.preventDefault();
 
-    return this.accordion?.toggleSection(this.host, e);
+    this.accordion?.toggleSection(this.host, e).then(async (isOpen) => {
+      if (isOpen) {
+        await this.scrollIntoViewWhenNeeded(true);
+      }
+    });
   }
 
   render() {
@@ -129,7 +193,7 @@ export class AccordionSection implements ComponentInterface {
         }}
         hidden={!variant}
       >
-        <Handle heading={this.heading}>
+        <Handle heading={this.heading} ref={(element) => (this.sectionHeading = element)}>
           <HandleElement
             handleUrl={this.handleUrl}
             onClick={async (event) => await this.toggle(event)}
@@ -178,11 +242,13 @@ export class AccordionSection implements ComponentInterface {
     );
   }
 
-  private startAnimationResizeObserver() {
+  private prepareAnimationResizeObserver() {
     this.resizeObserver = new ResizeObserver(
       debounce(([entry]) => {
-        if (this.bodyHeight !== entry.contentRect.height) {
-          this.bodyHeight = entry.contentRect.height;
+        // entry.contentRect does not include padding, so we use getBoundingClientRect.
+        const height = entry.target.getBoundingClientRect().height;
+        if (this.bodyHeight !== height) {
+          this.bodyHeight = height;
 
           this.instantiateAnimation();
         }
@@ -198,6 +264,12 @@ export class AccordionSection implements ComponentInterface {
       duration: 260,
       autoplay: false,
       direction: "normal",
+      changeComplete: async () => {
+        if (AccordionSection.scrollCandidate === this.host) {
+          AccordionSection.scrollCandidate = undefined;
+          await this.scrollSectionIntoView();
+        }
+      },
       begin: () => {
         if (this.sectionBody) {
           if (this.open) {

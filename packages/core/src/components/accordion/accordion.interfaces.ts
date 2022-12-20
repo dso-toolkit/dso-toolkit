@@ -3,11 +3,16 @@ export type AccordionVariant = "default" | "compact" | "conclusion";
 export interface AccordionInternalState {
   variant: AccordionVariant;
   reverseAlign: boolean;
+  allowMultipleOpen: boolean;
 }
 
 export interface AccordionInterface {
   getState(): Promise<AccordionInternalState>;
-  toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<void>;
+  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
+   * returns `undefined` when no section is tiggled.\
+   * returns `true` when the section is opened and `false` when the section is closed.
+   */
+  toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<undefined | boolean>;
 }
 
 export interface AccordionSectionToggleEvent {
