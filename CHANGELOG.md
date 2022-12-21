@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Deprecated
+* het html/css header component is deprecated en wordt binnenkort definitief verwijderd. Afnemers kunnen overstappen op het `<dso-header>` webcomponent. ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
+
 ### Added
 * Storybook Composition ([#1869](https://github.com/dso-toolkit/dso-toolkit/issues/1869)).
 * Angular package publish naar NPM met Nx workspaces ([#1928](https://github.com/dso-toolkit/dso-toolkit/issues/1928))
