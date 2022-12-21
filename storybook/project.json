@@ -1,0 +1,23 @@
+{
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "targets": {
+    "build-www": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "yarn storybook:build",
+        "cwd": "storybook"
+      },
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/www"]
+    },
+    "e2e": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "start-server-and-test 'http-server --silent --port 45000 www' http://localhost:45000 'percy exec -- cypress run'",
+        "cwd": "storybook"
+      },
+      "dependsOn": ["build-www"],
+      "outputs": []
+    }
+  }
+}

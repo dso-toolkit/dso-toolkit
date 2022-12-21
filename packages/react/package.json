@@ -2,18 +2,15 @@
   "name": "@dso-toolkit/react",
   "version": "25.0.1",
   "description": "React specific wrapper for @dso-toolkit/core web components",
-  "homepage": "https://www.dso-toolkit.nl",
+  "homepage": "https://www.dso-toolkit.nl/",
   "repository": {
     "type": "git",
     "url": "https://github.com/dso-toolkit/dso-toolkit.git"
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "yarn clean && yarn compile",
     "storybook:start": "yarn node scripts/start.js",
     "storybook:build": "build-storybook --output-dir ./www",
-    "storybook:build-extract": "yarn storybook:build && yarn storybook extract www",
-    "compile": "tsc --project ."
+    "storybook:build-extract": "yarn storybook:build && yarn storybook extract www"
   },
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
@@ -38,7 +35,7 @@
     "iframe-resizer": "^4.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "3.0.2",
+    "rimraf": "^3.0.2",
     "storybook": "6.5.14",
     "storybook-addon-jsx": "^7.3.14",
     "tslib": "2.4.1",
@@ -50,5 +47,8 @@
     "@dso-toolkit/core": ">=45",
     "react": "^17.0.2 || ^18.2.0",
     "react-dom": "^17.0.2 || ^18.2.0"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

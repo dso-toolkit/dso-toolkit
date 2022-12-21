@@ -4,8 +4,7 @@
   "license": "SEE LICENSE IN DISCLAIMER.txt",
   "version": "25.0.0",
   "scripts": {
-    "watch": "gulp",
-    "build": "gulp build"
+    "watch": "gulp"
   },
   "files": [
     "assets",
@@ -56,5 +55,8 @@
     "sass": "^1.56.1",
     "typescript": "~4.8.2",
     "uuid": "^9.0.0"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

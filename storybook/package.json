@@ -1,12 +1,14 @@
 {
-  "name": "storybook",
+  "name": "dso-storybook",
   "private": true,
   "scripts": {
     "start": "start-storybook --port 45000",
-    "build": "build-storybook --output-dir ./www"
+    "storybook:build": "build-storybook --output-dir ./www"
   },
   "dependencies": {
     "@dso-toolkit/core": "workspace:*",
+    "@percy/cli": "^1.16.0",
+    "@percy/cypress": "^3.1.2",
     "@storybook/addon-a11y": "6.5.13",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-essentials": "6.5.13",
@@ -15,10 +17,18 @@
     "@storybook/manager-webpack5": "6.5.13",
     "@storybook/web-components": "6.5.13",
     "@whitespace/storybook-addon-html": "5.0.3",
+    "cypress": "^11.2.0",
+    "cypress-axe": "^1.0.0",
+    "cypress-real-events": "^1.7.4",
     "dso-toolkit": "workspace:*",
     "http-proxy-middleware": "^2.0.6",
+    "http-server": "^14.1.1",
     "iframe-resizer": "^4.3.2",
     "lit-html": "^2.4.0",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "start-server-and-test": "^1.14.0"
+  },
+  "nx": {
+    "includedScripts": []
   }
 }

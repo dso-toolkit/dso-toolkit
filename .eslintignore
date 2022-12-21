@@ -1,3 +1,4 @@
+/.cache
 /angular-workspace/.angular
 /angular-workspace/dist
 /angular-workspace/projects/component-library/src/lib/stencil-generated
@@ -10,4 +11,4 @@
 /packages/react/src/react-component-lib
 /storybook/www
 /website/.docusaurus
-/website/build
+/website/www
