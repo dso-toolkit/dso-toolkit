@@ -63,6 +63,11 @@ export class Accordion implements ComponentInterface, AccordionInterface {
   }
 
   @Watch("allowMultipleOpen")
+  updateAllowMultipleOpen(allowMultipleOpen: boolean) {
+    this.accordionState.allowMultipleOpen = allowMultipleOpen;
+  }
+
+  @Watch("allowMultipleOpen")
   watchAllowMultiple(allowMultipleOpen: boolean) {
     if (!allowMultipleOpen) {
       const openSections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section[open]"));
@@ -79,9 +84,12 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     return this.accordionState;
   }
 
-  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section. */
+  /** Toggle a section. Pass the `<dso-accordion-section>` element or the index of the section.\
+   * returns `undefined` when no section is toggled.\
+   * returns `true` when the section is opened and `false` when the section is closed.
+   */
   @Method()
-  async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<void> {
+  async toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<undefined | boolean> {
     const sections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section"));
 
     if (typeof sectionElement === "number") {
@@ -97,20 +105,22 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     if (this.allowMultipleOpen) {
       this.controlOpenAttribute(sectionElement, !sectionIsOpen);
       this.emitToggleEvent(sectionElement, sections, event);
-      return;
+      return !sectionIsOpen;
     }
 
     if (sectionIsOpen) {
       this.controlOpenAttribute(sectionElement, false);
       this.emitToggleEvent(sectionElement, sections, event);
 
-      return;
+      return false;
     }
 
     await this.closeOpenSections();
 
     this.controlOpenAttribute(sectionElement, true);
     this.emitToggleEvent(sectionElement, sections, event);
+
+    return true;
   }
 
   /** Closes all sections belonging to this accordion. */
@@ -126,6 +136,7 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     const { state } = createStore<AccordionInternalState>({
       variant: this.variant || "default",
       reverseAlign: this.reverseAlign,
+      allowMultipleOpen: this.allowMultipleOpen,
     });
 
     this.accordionState = state;

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Storybook Composition ([#1869](https://github.com/dso-toolkit/dso-toolkit/issues/1869)).
 * Angular package publish naar NPM met Nx workspaces ([#1928](https://github.com/dso-toolkit/dso-toolkit/issues/1928))
+* **core:** `dso-accordion-section` scrolled de content into view als dat nodig is bij uitklappen. Sections kunnen ook programmatisch in beeld gescrolled worden met `scrollSectionIntoView()`.\
+`toggleSection()` is uitgebreid met een param `scrollIntoView: boolean = true`. Door de param op false te zetten toggled de sectie zonder dat er gescrolled wordt. ([#1875](https://github.com/dso-toolkit/dso-toolkit/issues/1875))
 
 ## Changed
 * Meta packages `@dso-toolkit/css` en `@dso-toolkit/sources` fuseren naar `dso-toolkit` ([#1871](https://github.com/dso-toolkit/dso-toolkit/issues/1871)).

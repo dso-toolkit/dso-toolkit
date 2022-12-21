@@ -19,9 +19,19 @@
 
 ## Methods
 
-### `toggleSection() => Promise<void>`
+### `scrollSectionIntoView() => Promise<void>`
 
-Toggle this section
+Scroll this section into view when needed.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `toggleSection(scrollIntoView?: boolean) => Promise<void>`
+
+Toggle this section.
 
 #### Returns
 
