@@ -132,6 +132,21 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     openSections.forEach((section) => this.controlOpenAttribute(section, false));
   }
 
+  // These checks are needed for a React timing issue.
+  componentWillLoad() {
+    if (this.accordionState.variant !== this.variant) {
+      this.accordionState.variant = this.variant || "default";
+    }
+
+    if (this.accordionState.reverseAlign !== this.reverseAlign) {
+      this.accordionState.reverseAlign = this.reverseAlign;
+    }
+
+    if (this.accordionState.allowMultipleOpen !== this.allowMultipleOpen) {
+      this.accordionState.allowMultipleOpen = this.allowMultipleOpen;
+    }
+  }
+
   constructor() {
     const { state } = createStore<AccordionInternalState>({
       variant: this.variant || "default",

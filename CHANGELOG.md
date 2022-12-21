@@ -17,6 +17,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## Changed
 * Meta packages `@dso-toolkit/css` en `@dso-toolkit/sources` fuseren naar `dso-toolkit` ([#1871](https://github.com/dso-toolkit/dso-toolkit/issues/1871)).
 
+### Fixed
+* **core:** `dso-accordion` props komen niet goed door bij initiele render van de React binding `<DsoAccordion />`. ([#1930](https://github.com/dso-toolkit/dso-toolkit/issues/1930))
+
 ## 48.0.0
 
 ### Added
