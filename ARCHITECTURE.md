@@ -11,6 +11,7 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 - `dso-toolkit`
 - `@dso-toolkit/core`
 - `@dso-toolkit/react`
+- `@dso-toolkit/angular`
 - `@dso-toolkit/leaflet`
 - `@dso-toolkit/react-leaflet`
 
@@ -21,6 +22,7 @@ De DSO Toolkit is een Design System en bestaat uit de volgende NPM packages:
 - **implementatie**: Binnen de context van de toolkit bedoelen we hier een _type uitvoering_: Een component heeft één of meerdere implementaties: HTML/CSS component, Web Component, React Component, Angular Component. Buiten de context van de toolkit kan een afnemer van de toolkit een component binnen zijn applicatie implementeren.
 - **maintainer**: Een maintainer beheert de codebase van de DSO Toolkit.
 - **component**: De DSO Toolkit maakt geen gebruik van een methode zoals Atomic Design: Binnen de toolkit is alles een component. Van een heading zoals `h1` tot een complexe werkvorm zoals Accordion.
+- **afnemer**: Een applicatie / developer die componenten / onderdelen van de toolkit gebruikt.
 
 ### Implementatie details
 

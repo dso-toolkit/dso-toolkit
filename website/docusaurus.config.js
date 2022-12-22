@@ -134,6 +134,10 @@ const config = {
                 href: "https://www.npmjs.com/package/@dso-toolkit/core",
               },
               {
+                label: "@dso-toolkit/angular",
+                href: "https://www.npmjs.com/package/@dso-toolkit/angular",
+              },
+              {
                 label: "@dso-toolkit/react",
                 href: "https://www.npmjs.com/package/@dso-toolkit/react",
               },

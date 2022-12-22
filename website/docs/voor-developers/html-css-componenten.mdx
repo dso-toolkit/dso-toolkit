@@ -1,0 +1,33 @@
+---
+sidebar_position: 2
+---
+
+# HTML/CSS componenten
+
+De HTML/CSS componenten worden via de NPM package `dso-toolkit` aangeboden. In deze package zitten alle SCSS bronbestanden, icon spritesheet en de CSS stylesheet:
+
+- `dso-toolkit/dist/dso.css`
+- `dso-toolkit/dist/dso-icons.svg`
+- `dso-toolkit/src`
+
+De markup moet conform de voorschriften in Storybook worden gegenereerd.
+
+## Getting started
+
+```
+npm install dso-toolkit
+```
+
+Bundle de stylesheet met
+
+```typescript
+import "dso-toolkit/dist/dso.css";
+```
+
+## CDN
+
+```html
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/<VERSION>/dso.css" />
+```
+
+Waar `<VERSION>` een release `x.y.z` of `master` is.
