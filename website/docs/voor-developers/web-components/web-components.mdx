@@ -1,0 +1,80 @@
+---
+sidebar_position: 1
+---
+
+# Web Components
+
+De toolkit levert Web Components in twee verschillende distributies: Lazy loading en tree shakeable. Beide distributies zitten in de NPM package `@dso-toolkit/core`.
+
+Wij raden aan om voor productie applicaties de tree shakeable distributie te gebruiken. De lazy loading distributie komt beter tot z'n recht in Codepens of prototyping.
+
+Daarnaast raden wij aan om ook gebruik te maken van framework bindings als een React of Angular applicatie Web Componenten gaat gebruiken.
+
+**De Web Components hebben een peerDependency op de basis package `dso-toolkit`. De afnemer moet deze package volgens de bijbehorende instructies installeren.**
+
+## Tree shakeable
+
+In deze distributie is elk component een ES module en daarom uitstekend tree shakeable. De applicatie bundle bevat uitsluitend de componenten die worden gebruikt. Daarnaast is er uitstekende Developer Experience omdat de IDE alle type definities tot z'n beschikking heeft.
+
+Zonder framework bindings moet de afnemer elk Web Component afzonderlijk registreren. Naarmate het aantal componenten toeneemt wordt dit een foutgevoelige taak.
+
+### Getting started
+
+Onderstaand voorbeeld laat zien hoe Web Components handmatig worden geregistreerd. Als je gebruik maakt van framework bindings (`@dso-toolkit/angular` of `@dso-toolkit/react`) hoeft niet dit.
+
+```
+npm install @dso-toolkit/core
+```
+
+```typescript
+import { defineCustomElementDsoBadge, defineCustomElementDsoToggletip } from "@dso-toolkit/core";
+
+defineCustomElementDsoBadge();
+defineCustomElementDsoToggletip();
+
+// <dso-badge> element is nu overal beschikbaar
+document.getElementById("#root").innerHTML = "<dso-badge>Deze badge werkt</dso-badge>";
+```
+
+## Lazy loading
+
+Bij deze distributie worden alle Web Components door de loader geregistreerd maar wordt het component pas ingeladen als het wordt gebruikt.
+
+### Voordelen
+
+- Alle componenten zijn beschikbaar maar worden pas bij gebruik ingeladen;
+- Deze distributie is ook via de CDN in te laden;
+
+### Nadelen
+
+- De applicatie bundle bevat alle Web Componenten, bundlers zijn niet in staat te bepalen welke componenten nodig zijn.
+- De Developer Experience kan de wensen overlaten, in het bijzonder als de Web Componenten vanaf de CDN worden ingeladen.
+
+### Getting started
+
+#### NPM
+
+```
+npm install @dso-toolkit/core
+```
+
+```typescript
+import { defineCustomElements } from "@dso-toolkit/core/loader";
+
+defineCustomElements();
+
+// <dso-badge> element is nu overal beschikbaar
+document.getElementById("#root").innerHTML = "<dso-badge>Deze badge werkt</dso-badge>";
+```
+
+#### CDN
+
+🚧 Nog niet beschikbaar 🚧
+
+```html
+<script type="module" src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.esm.js"></script>
+<script nomodule src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.js"></script>
+
+<!-- <dso-badge> element is nu overal beschikbaar --->
+<dso-badge>Deze badge werkt</dso-badge>
+```

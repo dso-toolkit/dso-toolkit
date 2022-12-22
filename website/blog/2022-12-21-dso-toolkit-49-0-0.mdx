@@ -1,0 +1,32 @@
+---
+title: DSO Toolkit 49.0.0
+authors: [tfrijsewijk]
+---
+
+Dit is de laatste (BREAKING) release van 2022.
+
+## Breaking changes
+
+De indeling van de NPM package `dso-toolkit` is aangepast.
+
+- De stylesheet: `dso-toolkit/dist/toolkit/styles/dso.css` -> `dso-toolkit/dist/dso.css`
+- De icon spritesheet: `dso-toolkit/dist/toolkit/dso-icons.svg` -> `dso-toolkit/dist/dso-icons.svg`
+
+Er is geen formele definitie wat de publieke API van de toolkit is. Hier zijn we mee bezig in het kader [#1882](https://github.com/dso-toolkit/dso-toolkit/issues/1882). We helpen je graag verder als je bij het updaten naar versie 49.0.0 vastloopt op de package layout.
+
+## Issue highlights
+
+- Feature: Accordion is uitgebreid met scroll into view ([#1875](https://github.com/dso-toolkit/dso-toolkit/issues/1875)).
+- Fixed: `dso-accordion` props komen niet goed door bij initiele render van de React binding `<DsoAccordion />` ([#1930](https://github.com/dso-toolkit/dso-toolkit/issues/1930)).
+
+## Angular
+
+Vanaf nu publiceren we Angular bindings in `@dso-toolkit/angular`. Dit deden we al een tijd voor React met `@dso-toolkit/react`. Zie de documentatie voor meer informatie: [Angular bindings](/voor-developers/web-components/angular-bindings).
+
+## Storybook Composition
+
+Met de komst van Angular bindings was er ook noodzaak voor een extra Storybook. Samen met de HTML/CSS + Web Components en React bindings levert de DSO Toolkit 3 Storybooks. Tot de vorige release publiceerden we deze Storybooks los naar `https://storybook.dso-toolkit.nl` en `https://react.storybook.nl`. Vanaf nu publiceren we alle Storybooks als één Storybook naar `https://storybook.dso-toolkit.nl`.
+
+Zie de link in de primaire navigatie om de Storybook voor de huidige versie te openen.
+
+Tot volgend jaar!

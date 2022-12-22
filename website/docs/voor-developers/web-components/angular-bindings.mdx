@@ -1,0 +1,42 @@
+---
+sidebar_position: 1
+---
+
+# Angular bindings
+
+Als er gebruik wordt gemaakt van Angular heeft deze methode de voorkeur. De Angular bindings bestaat uit een gegenereerde NgModule met Angular Componenten.
+
+Zie instructies voor HTML/CSS componenten en Web Components. Daarnaast:
+
+```
+npm install @dso-toolkit/angular
+```
+
+```typescript
+import { DsoToolkitModule } from "@dso-toolkit/angular";
+
+@NgModule({
+  imports: [DsoToolkitModule],
+})
+export class AppModule {}
+```
+
+De Angular bindings zijn nu beschikbaar:
+
+```typescript
+import { DsoDatePickerChangeEvent } from "@dso-toolkit/core";
+
+@Component({
+  template: '<dso-date-picker [value]="date" (dsoDateChange)="handleChange($event)"></dso-date-picker>',
+})
+export class MyComponent {
+  date = "19-09-1988";
+
+  handleChange(e: DsoDatePickerChangeEvent) {
+    console.log(e);
+  }
+}
+```
+
+- https://stenciljs.com/docs/custom-elements
+- https://stenciljs.com/docs/angular#consumer-usage

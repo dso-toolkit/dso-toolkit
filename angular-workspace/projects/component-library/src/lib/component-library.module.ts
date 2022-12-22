@@ -6,4 +6,4 @@ import { DIRECTIVES } from "./stencil-generated";
   declarations: [...DIRECTIVES],
   exports: [...DIRECTIVES],
 })
-export class ComponentLibraryModule {}
+export class DsoToolkitModule {}

@@ -1,0 +1,43 @@
+---
+sidebar_position: 2
+---
+
+# React bindings
+
+Als er gebruik wordt gemaakt van React heeft deze methode de voorkeur. Dit zijn gegenereerde React componenten die het bijbehorende Web Component aanroept.
+
+Zie instructies voor HTML/CSS componenten en Web Components. Daarnaast:
+
+```
+npm install @dso-toolkit/react
+```
+
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+
+// Gebruik de React wrappers voor de Web Components
+import { DsoDatePicker } from "@dso-toolkit/react";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+function App() {
+  const [date, setDate] = useState({});
+
+  return (
+    <>
+      {/* Gebruik <DsoDatePicker> en NIET <dso-date-picker> */}
+      <DsoDatePicker value={date.value} onDsoDateChange={(e) => setDate(e.detail)} />
+      <pre>{JSON.stringify(date || "change date")}</pre>
+    </>
+  );
+}
+```
+
+- https://stenciljs.com/docs/custom-elements
+- https://stenciljs.com/docs/react#usage

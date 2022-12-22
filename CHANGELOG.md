@@ -5,8 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Deprecated
-* het html/css header component is deprecated en wordt binnenkort definitief verwijderd. Afnemers kunnen overstappen op het `<dso-header>` webcomponent. ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
+### 49.0.0
+
+Het HTML/CSS Header component is deprecated en wordt binnenkort definitief verwijderd. Afnemers kunnen overstappen op het `<dso-header>` Web Component ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460)).
 
 ### Added
 * Storybook Composition ([#1869](https://github.com/dso-toolkit/dso-toolkit/issues/1869)).
@@ -14,7 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * **core:** `dso-accordion-section` scrolled de content into view als dat nodig is bij uitklappen. Sections kunnen ook programmatisch in beeld gescrolled worden met `scrollSectionIntoView()`.\
 `toggleSection()` is uitgebreid met een param `scrollIntoView: boolean = true`. Door de param op false te zetten toggled de sectie zonder dat er gescrolled wordt. ([#1875](https://github.com/dso-toolkit/dso-toolkit/issues/1875))
 
-## Changed
+### Changed
 * Meta packages `@dso-toolkit/css` en `@dso-toolkit/sources` fuseren naar `dso-toolkit` ([#1871](https://github.com/dso-toolkit/dso-toolkit/issues/1871)).
 
 ### Fixed
