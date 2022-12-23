@@ -78,7 +78,7 @@ jobs:
         cd angular-workspace/dist/component-library && npm version ${TRAVIS_TAG:1} && npm publish && cd ../../..
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_TAG:1}
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
