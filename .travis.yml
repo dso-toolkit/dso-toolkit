@@ -75,7 +75,7 @@ jobs:
         yarn workspace dso-toolkit npm publish --access public &&
         yarn workspace @dso-toolkit/core npm publish --access public &&
         yarn workspace @dso-toolkit/react npm publish --access public &&
-        cd angular-workspace/component-library/dist && npm version ${TRAVIS_TAG:1} && npm publish && cd ../../..
+        cd angular-workspace/dist/component-library && npm version ${TRAVIS_TAG:1} && npm publish && cd ../../..
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./storybook/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/storybook.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_TAG:1}

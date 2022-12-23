@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 49.0.1
+
+### Fixed
+* Assets en font path kloppen incorrect in `dso.css` ([#1941](https://github.com/dso-toolkit/dso-toolkit/issues/1941)).
+
 ### 49.0.0
 
 Het HTML/CSS Header component is deprecated en wordt binnenkort definitief verwijderd. Afnemers kunnen overstappen op het `<dso-header>` Web Component ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460)).
