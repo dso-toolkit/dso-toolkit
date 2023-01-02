@@ -7,7 +7,7 @@ import { inlineSvg } from "stencil-inline-svg";
 export const config: Config = {
   namespace: "dso-toolkit",
   devServer: {
-    port: 53333,
+    port: 45333,
   },
   plugins: [
     inlineSvg(),
@@ -23,7 +23,8 @@ export const config: Config = {
       directivesArrayFile: "../../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts",
     }),
     reactOutputTarget({
-      componentCorePackage: "@dso-toolkit/core",
+      componentCorePackage: "@dso-toolkit/core/dist",
+      includeImportCustomElements: true,
       proxiesFile: "../react/src/components.ts",
     }),
     {
@@ -32,6 +33,7 @@ export const config: Config = {
     },
     {
       type: "dist-custom-elements",
+      generateTypeDeclarations: true,
     },
     {
       type: "docs-readme",

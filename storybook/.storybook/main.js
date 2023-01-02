@@ -18,7 +18,7 @@ module.exports = {
   staticDirs: [
     "../../packages/dso-toolkit/storybook-assets",
     { from: "../../packages/dso-toolkit", to: "/dso-toolkit" },
-    { from: "../../packages/core/dist", to: "/core" },
+    { from: "../../packages/core/dist/dso-toolkit", to: "/core" },
     { from: "../../node_modules/iframe-resizer/js", to: "iframe-resizer" },
   ],
   features: {
@@ -54,7 +54,7 @@ module.exports = {
   previewHead: (head) => `
     ${head}
     <link rel="stylesheet" href="dso-toolkit/dist/dso.css">
-    <script type="module" src="core/dso-toolkit/dso-toolkit.esm.js"></script>
+    <script type="module" src="core/dso-toolkit.esm.js"></script>
     <script src="iframe-resizer/iframeResizer.contentWindow.min.js"></script>
   `,
   previewBody: (body) =>

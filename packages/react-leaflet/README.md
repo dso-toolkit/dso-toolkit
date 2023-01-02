@@ -15,18 +15,12 @@ This package needs
 npm install @dso-toolkit/core @dso-toolkit/leaflet @dso-toolkit/react-leaflet
 ```
 
-### Define custom elements
+## React Components
 
-Presentation is handled by a custom element (Web Component) `<dso-map-controls>` so we need to define the custom elements:
+Don't confuse `<MapControls />` with `<DsoMapControls />` from `@dso-toolkit/react`:
 
-```ts
-import { defineCustomElements } from "@dso-toolkit/core";
-import { render } from "react-dom";
-
-defineCustomElements();
-
-render(app, document.getElementById("root"));
-```
+- `<MapControls />` is a React Leaflet component that instantiates and binds the Leaflet Control "Map Controls" from `@dso-toolkit/leaflet`.
+- `<DsoMapControls />` is a React Component from `@dso-toolkit/react` that binds the Web Component `<dso-map-controls>` in a React Component.
 
 ### `<MapControls>`
 

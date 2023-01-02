@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     "/~dev-server",
     createProxyMiddleware({
-      target: "http://localhost:53333",
+      target: "http://localhost:45333",
       changeOrigin: true,
       logLevel: "silent",
       ws: true,

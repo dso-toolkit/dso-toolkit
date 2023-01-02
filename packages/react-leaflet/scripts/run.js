@@ -19,9 +19,10 @@ const klapBuild = {
 };
 
 if (argv.start) {
-  fs.copy("../dso-toolkit/dist", "dist/dso-toolkit");
-  fs.copy("../leaflet/dist/dso-leaflet.css", "dist/leaflet/dso-leaflet.css");
-  fs.copy("../leaflet/dist/dso-leaflet.css.map", "dist/leaflet/dso-leaflet.css.map");
+  fs.copySync("../dso-toolkit/dist", "dist/dso-toolkit/dist");
+  fs.copySync("../dso-toolkit/assets", "dist/dso-toolkit/assets");
+  fs.copySync("../leaflet/dist/dso-leaflet.css", "dist/leaflet/dso-leaflet.css");
+  fs.copySync("../leaflet/dist/dso-leaflet.css.map", "dist/leaflet/dso-leaflet.css.map");
 
   concurrently([klapStart]);
 } else if (argv.build) {

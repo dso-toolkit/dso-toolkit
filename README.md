@@ -96,7 +96,7 @@ The following processes are started:
 - **--react**: CSS in watch mode, Stencil in watch mode, Storybook for React components
 - **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React components
 
-This will start Stencil on http://localhost:53333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
+This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
 
 #### `leaflet`
 
@@ -107,7 +107,7 @@ yarn start:leaflet
 yarn start:react-leaflet
 ```
 
-This will start Stencil (http://localhost:53333) and Storybook (http://localhost:45000) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234 or the React Leaflet development environment on http://localhost:42345.
+This will start Stencil (http://localhost:45333) and Storybook (http://localhost:45000) in **production** (no live reload / HMR) and the Leaflet plugins development environment on http://localhost:41234 or the React Leaflet development environment on http://localhost:42345.
 
 ## Requirements
 
@@ -120,7 +120,7 @@ Ports used during development:
 - 41234 - Leaflet plugins dev app
 - 42345 - React Leaflet plugins dev app
 - 43300 - Docusaurus
-- 53333 - Stencil
+- 45333 - Stencil
 - 45000 - Storybook for HTML/CSS + Web Components
 - 56406 - Storybook for React components
 - 46006 - Storybook for Angular Components

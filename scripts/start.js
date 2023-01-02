@@ -59,8 +59,7 @@ const startLeaflet = {
 };
 
 const buildLeaflet = {
-  command:
-    "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn workspace @dso-toolkit/leaflet build",
+  command: "wait-on file:./packages/core/dist/dso-toolkit/dso-toolkit.esm.js && yarn nx run leaflet:build",
   name: "leaflet",
   prefixColor: "green",
 };

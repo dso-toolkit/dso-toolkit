@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 49.0.2
+
+### Fixed
+* `@dso-toolkit/react-leaflet` heeft nog een dependency op "defineCustomElements()" uit `@dso-toolkit/core` ([#1943](https://github.com/dso-toolkit/dso-toolkit/issues/1943)).
+
 ## 49.0.1
 
 ### Fixed

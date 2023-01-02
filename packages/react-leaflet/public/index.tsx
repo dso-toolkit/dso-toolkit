@@ -1,12 +1,10 @@
 import * as React from "react";
 import { render } from "react-dom";
 import { MapContainer, TileLayer, Marker, Popup, LayerGroup, useMapEvents, WMSTileLayer } from "react-leaflet";
-import { defineCustomElements } from "@dso-toolkit/core";
+
 import { markerIcon } from "@dso-toolkit/leaflet";
 
 import { MapControls } from "../src";
-
-defineCustomElements();
 
 const mapboxAttribution =
   'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
