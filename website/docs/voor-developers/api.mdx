@@ -4,6 +4,32 @@ sidebar_position: 3
 
 # API
 
-🚧 Under construction 🚧
+Dit document beschrijft de API van de DSO Toolkit. De API noemen we ook wel het koppelvlak of de public interface.
 
-Dit document beschrijft het koppelvlak van de DSO Toolkit.
+Alleen over het koppelvlak is [SemVer](https://www.semver.org/) van toepassing.
+
+Voor de volgende NPM packages is het koppelvlak gedocumenteerd:
+
+## `dso-toolkit`
+
+- Package layout: `package.json`, `/assets` en `/dist`.
+- HTML voorschriften voor de HTML/CSS componenten.
+- SCSS stylesheets en variables in `dso-toolkit/src/variables/*.scss`.
+- Iconen.
+
+Onder andere vallen de volgende punten niet onder het koppelvlak:
+
+- De overige SCSS stylesheets.
+- CSS changes die geen gewijzigde HTML voorschriften betekenen.
+
+## `@dso-toolkit/core`
+
+- Package layout: `/package.json`, `/dist` en `/loader`.
+- Markup en events van Web Components.
+- Event objects (naam en vorm).
+
+De markup **in** een Web Component valt niet onder het koppelvlak.
+
+## `@dso-toolkit/react` en `@dso-toolkit/angular`.
+
+Deze packages worden gegenereerd aan de hand van `@dso-toolkit/core` en volgen (in principe) `@dso-toolkit/core`.

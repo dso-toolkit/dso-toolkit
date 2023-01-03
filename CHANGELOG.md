@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* SCSS variabelen beschikbaar maken ([#1882](https://github.com/dso-toolkit/dso-toolkit/issues/1882)).
+
 ## 49.0.2
 
 ### Fixed
