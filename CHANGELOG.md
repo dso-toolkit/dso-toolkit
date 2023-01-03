@@ -12,6 +12,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * `dso-icons.svg` resolved niet in Storybook ([#1944](https://github.com/dso-toolkit/dso-toolkit/issues/1944)).
 * Ozon Content maakt per ongeluk gebruik van React JSX ([#1948](https://github.com/dso-toolkit/dso-toolkit/issues/1948)).
+* Niet op #id stijlen in template voorschriften ([#1839](https://github.com/dso-toolkit/dso-toolkit/issues/1839))
 
 ## 49.0.2
 

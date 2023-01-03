@@ -204,6 +204,7 @@ export class ViewerGrid {
         </div>
         <div
           id="filterpanel"
+          class="filterpanel"
           hidden={!this.filterpanelOpen || !this.filterpanelSlot}
           ref={(element) => (this.filterpanel = element)}
         >
