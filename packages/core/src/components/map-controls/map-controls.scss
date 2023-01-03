@@ -24,7 +24,7 @@
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
   transform: translateX(-100%);
 
-  #toggle-visibility-button {
+  .toggle-visibility-button {
     display: none;
   }
 }
@@ -33,7 +33,7 @@ button {
   @include button.element();
 }
 
-#toggle-visibility-button {
+.toggle-visibility-button {
   @include button.map();
 
   position: absolute;
@@ -41,7 +41,7 @@ button {
   top: core-map-controls-variables.$controls-margin;
 }
 
-#zoom-buttons {
+.zoom-buttons {
   border-radius: 4px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   display: flex;
@@ -74,7 +74,7 @@ button {
   }
 }
 
-#close-button {
+.close-button {
   @include button.tertiary($modifiers: false, $icon-only: true);
 
   padding: 0;

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## Changed
+* Niet op #id stijlen in template voorschriften ([#1839](https://github.com/dso-toolkit/dso-toolkit/issues/1839))
+
 ## 49.0.2
 
 ### Fixed
