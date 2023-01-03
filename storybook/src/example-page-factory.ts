@@ -5,12 +5,12 @@ import { TemplateResult } from "lit-html";
 import { templateContainer, Templates } from "./templates";
 
 export function examplePageFactory(
-  location: string,
+  location: string | null,
   name: string,
   storyTemplates: (templates: Templates, allTemplates: Templates) => TemplateResult
 ) {
   storiesOfFactory(
-    `Voorbeeldpagina's/${location}/${name}`,
+    `Voorbeeldpagina's/${[location, name].filter((s) => s).join("/")}`,
     {
       parameters: {
         module,

@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * SCSS variabelen beschikbaar maken ([#1882](https://github.com/dso-toolkit/dso-toolkit/issues/1882)).
+* Iconen overzicht ([#1929](https://github.com/dso-toolkit/dso-toolkit/issues/1929)).
 
 ### Fixed
 * `dso-icons.svg` resolved niet in Storybook ([#1944](https://github.com/dso-toolkit/dso-toolkit/issues/1944)).
