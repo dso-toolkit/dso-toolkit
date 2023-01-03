@@ -1,4 +1,6 @@
 const { sep } = require("path");
+const { readdirSync } = require("fs");
+const { resolve, dirname, parse } = require("path");
 
 function getVersion() {
   if (process.env.CI) {
@@ -24,6 +26,16 @@ module.exports = {
   features: {
     // https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#deprecated-implicit-postcss-loader
     postcss: false,
+  },
+  env: (config) => {
+    const corePath = dirname(require.resolve("dso-toolkit/package.json"));
+    const iconsPath = resolve(corePath, "src/icons");
+    const icons = readdirSync(iconsPath)
+      .map((f) => parse(f))
+      .filter((p) => p.ext === ".svg")
+      .map((p) => p.name);
+
+    return { ...config, ICONS: icons.join(",") };
   },
   refs: (config, { configType }) => {
     if (configType === "PRODUCTION") {
