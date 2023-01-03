@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * SCSS variabelen beschikbaar maken ([#1882](https://github.com/dso-toolkit/dso-toolkit/issues/1882)).
 
 ### Fixed
+* `dso-icons.svg` resolved niet in Storybook ([#1944](https://github.com/dso-toolkit/dso-toolkit/issues/1944)).
 * Ozon Content maakt per ongeluk gebruik van React JSX ([#1948](https://github.com/dso-toolkit/dso-toolkit/issues/1948)).
 
 ## 49.0.2
