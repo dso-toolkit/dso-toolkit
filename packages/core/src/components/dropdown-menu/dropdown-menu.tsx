@@ -79,10 +79,9 @@ export class DropdownMenu {
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
-        if (this.checkable && li.classList.contains("dso-checked")) {
-          tab.setAttribute("aria-checked", "true");
-        } else {
-          tab.setAttribute("aria-checked", "false");
+
+        if (this.checkable) {
+          tab.setAttribute("aria-checked", li.classList.contains("dso-checked").toString());
         }
       }
     }

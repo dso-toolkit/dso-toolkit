@@ -28,12 +28,19 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
                       <li role="none" class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
                         ${item.type === "anchor"
                           ? html`
-                              <a role="menuitemradio" href=${item.url} aria-checked=${ifDefined(item.checked || false)}
+                              <a
+                                role=${isCheckable ? "menuitemradio" : "menuitem"}
+                                href=${item.url}
+                                aria-checked=${ifDefined(isCheckable ? item.checked || false : undefined)}
                                 >${item.label}</a
                               >
                             `
                           : html`
-                              <button role="menuitem" type="button" aria-checked=${ifDefined(item.checked || false)}>
+                              <button
+                                role=${isCheckable ? "menuitemradio" : "menuitem"}
+                                type="button"
+                                aria-checked=${ifDefined(isCheckable ? item.checked || false : undefined)}
+                              >
                                 ${item.label}
                               </button>
                             `}
