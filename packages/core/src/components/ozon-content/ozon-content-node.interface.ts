@@ -1,3 +1,5 @@
+import { JSX } from "@stencil/core";
+
 import { OzonContentNodeContext } from "./ozon-content-node-context.interface";
 
 export interface OzonContentNode<T = unknown> {

@@ -30,11 +30,11 @@ module.exports = {
       return {
         angular: {
           title: "Angular",
-          url: `//storybook.dso-toolkit.nl/!react/${getVersion() ?? "master"}`,
+          url: `//storybook.dso-toolkit.nl/!angular/${getVersion() ?? "master"}`,
         },
         react: {
           title: "React",
-          url: `//storybook.dso-toolkit.nl/!angular/${getVersion() ?? "master"}`,
+          url: `//storybook.dso-toolkit.nl/!react/${getVersion() ?? "master"}`,
         },
       };
     }

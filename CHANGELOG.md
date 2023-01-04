@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * SCSS variabelen beschikbaar maken ([#1882](https://github.com/dso-toolkit/dso-toolkit/issues/1882)).
 
+### Fixed
+* Ozon Content maakt per ongeluk gebruik van React JSX ([#1948](https://github.com/dso-toolkit/dso-toolkit/issues/1948)).
+
 ## 49.0.2
 
 ### Fixed
