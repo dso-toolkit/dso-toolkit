@@ -46,6 +46,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Ozon Content maakt per ongeluk gebruik van React JSX ([#1948](https://github.com/dso-toolkit/dso-toolkit/issues/1948)).
 * Niet op #id stijlen in template voorschriften ([#1839](https://github.com/dso-toolkit/dso-toolkit/issues/1839))
 
+### Changed
+* html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
+
 ## 49.0.2
 
 ### Fixed
