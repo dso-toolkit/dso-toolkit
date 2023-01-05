@@ -1,15 +1,17 @@
-const { sep } = require("path");
 const { readdirSync } = require("fs");
-const { resolve, dirname, parse } = require("path");
+const { sep, resolve, dirname, parse } = require("path");
 
 function getVersion() {
   if (process.env.CI) {
-    if (typeof process.env.TRAVIS_BRANCH === "string") {
-      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
-    }
-
     if (typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
       return process.env.TRAVIS_TAG.substring(1);
+    }
+
+    if (
+      typeof process.env.TRAVIS_BRANCH === "string" &&
+      (process.env.TRAVIS_TAG[0] === "#" || process.env.TRAVIS_TAG === "master")
+    ) {
+      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
     }
   }
 
