@@ -7,15 +7,15 @@ $grasgroen-80: #609f3c; //  80% tint       - Normal text: WCAG AA: Fail;  WCAG A
 $grasgroen-40: #afcf9d; //  40% tint       - niet te gebruiken als leestekst
 $grasgroen-10: #ebf3e6; //  10% tint       - niet te gebruiken als leestekst
 
-$bosgroen-140: #173521; // 130% tint
 $bosgroen: #275937; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
+$bosgroen-140: #173521; // 140% tint
 $bosgroen-80: #527a5e; //  80% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $bosgroen-60: #7d9886; //  60% tint       - Normal text: WCAG AA: OK;  WCAG AAA: Fail - Large text: WCAG AA: OK;  WCAG AAA: Fail;
 $bosgroen-40: #a8bcaf; //  40% tint       - niet te gebruiken als leestekst
 $bosgroen-10: #e9eeeb; //  10% tint       - niet te gebruiken als leestekst
 
-$mauve: #8b4a6a;
-$mauve-40: #d1b7c4;
+$mauve: #8b4a6a; // 100% tint
+$mauve-40: #d1b7c4; // 40% tint
 
 $zwart: #000; // 100% tint       - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
 $grijs-90: #191919; //                 - Normal text: WCAG AA: OK;  WCAG AAA: OK - Large text: WCAG AA: OK;  WCAG AAA: OK;
@@ -30,15 +30,15 @@ $grijs-10: #e5e5e5; //                 - niet te gebruiken als leestekst
 $grijs-5: #f2f2f2; //                 - niet te gebruiken als leestekst
 $wit: #fff;
 
-$lime: #79b929;
-$lime-20: #e4f1d4;
-$rood: #ce3f51;
-$rood-20: #f5d8dc;
-$rood-110: #b62f41;
-$geel: #dcd400;
-$geel-20: #f8f6cc;
-$lichtblauw: #6ca4d9;
-$lichtblauw-20: #e1ecf7;
+$lime: #79b929; // 100% tint
+$lime-20: #e4f1d4; // 20% tint
+$rood: #ce3f51; // 100% tint
+$rood-110: #b62f41; // 110% tint
+$rood-20: #f5d8dc; // 20% tint
+$geel: #dcd400; // 100% tint
+$geel-20: #f8f6cc; // 20% tint
+$lichtblauw: #6ca4d9; // 100% tint
+$lichtblauw-20: #e1ecf7; // 20% tint
 
 $donkerblauw: #2b5780;
 $mintgroen: #3fb498;
