@@ -19,7 +19,10 @@ examplePageFactory(
               content: html`
                 <div class="dso-rich-content">
                   <h1>Direct een aanvraag of melding indienen</h1>
-                  <p>Weet u al welke activiteiten u wilt gaan uitvoeren?</p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quisno
+                  </p>
                   <p>${anchorTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
                 </div>
               `,

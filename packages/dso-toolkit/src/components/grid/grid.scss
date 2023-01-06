@@ -13,9 +13,9 @@ form {
 
   > .row {
     &.dso-featured {
-      margin-bottom: units.$u5;
-      padding-bottom: units.$u6;
-      padding-top: units.$u5;
+      margin-bottom: units.$u4;
+      padding-bottom: units.$u5;
+      padding-top: units.$u3;
 
       & + .row div:not(.dso-rich-content) {
         h1,
@@ -82,12 +82,36 @@ form {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
+    min-height: 352px;
+    padding-top: units.$u3;
 
-    &,
-    &:not(.dso-featured):first-child {
-      margin-bottom: units.$u4;
-      padding-top: 2rem;
+    @media only screen and (max-width: media-query-breakpoints.$screen-sm-max) {
+      padding-top: units.$u1;
+    }
+
+    &.no-button-banner {
+      height: 296px;
+    }
+
+    + .row {
+      margin-top: units.$u3;
+
+      &.dso-featured {
+        margin-top: 0;
+      }
+    }
+
+    & + .row div:not(.dso-rich-content) {
+      h1,
+      .h1,
+      h2,
+      .h2,
+      h3,
+      .h3 {
+        &:first-child {
+          margin-top: 0;
+        }
+      }
     }
   }
 
@@ -95,10 +119,6 @@ form {
     @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
 
     background-color: css-grid-variables.$featured-background-color;
-  }
-
-  + .dso-featured {
-    margin-top: units.$u3;
   }
 }
 
