@@ -1,7 +1,8 @@
 @use "../../variables/states";
+@use "../../variables/colors";
 
 mark {
   background-color: states.$warning-bg;
-  color: #000;
+  color: colors.$zwart;
   padding: 0.2em;
 }
