@@ -203,7 +203,7 @@ export namespace Components {
         "loginUrl"?: string;
         "logoutUrl"?: string;
         "mainMenu"?: HeaderMenuItem[];
-        "useDropDownMenu": "always" | "never" | "auto";
+        "useDropDownMenu": "always" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;
@@ -902,7 +902,7 @@ declare namespace LocalJSX {
           * Emitted when something in the header is selected.  `event.detail.type` indicates the functionality the user pressed. eg. `'login'` or `'menuItem'`
          */
         "onDsoHeaderClick"?: (event: DsoHeaderCustomEvent<HeaderEvent>) => void;
-        "useDropDownMenu"?: "always" | "never" | "auto";
+        "useDropDownMenu"?: "always" | "auto";
         "userHomeUrl"?: string;
         "userProfileName"?: string;
         "userProfileUrl"?: string;

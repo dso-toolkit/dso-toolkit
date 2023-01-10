@@ -30,7 +30,7 @@ interface HeaderMenuLogoutClick {
 | `loginUrl`        | `login-url`          | When the `authStatus` is `loggedOut` a loginUrl can be provided, the login button will render as an anchor. | `string \| undefined`                 | `undefined` |
 | `logoutUrl`       | `logout-url`         |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `mainMenu`        | --                   |                                                                                                             | `HeaderMenuItem[] \| undefined`       | `[]`        |
-| `useDropDownMenu` | `use-drop-down-menu` |                                                                                                             | `"always" \| "auto" \| "never"`       | `"auto"`    |
+| `useDropDownMenu` | `use-drop-down-menu` |                                                                                                             | `"always" \| "auto"`                  | `"auto"`    |
 | `userHomeUrl`     | `user-home-url`      |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `userProfileName` | `user-profile-name`  |                                                                                                             | `string \| undefined`                 | `undefined` |
 | `userProfileUrl`  | `user-profile-url`   |                                                                                                             | `string \| undefined`                 | `undefined` |

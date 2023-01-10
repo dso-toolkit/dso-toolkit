@@ -31,6 +31,7 @@ dso-header {
 
   dso-dropdown-menu {
     > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+      &,
       &:hover,
       &:active {
         &::after {
@@ -41,10 +42,35 @@ dso-header {
 
     &[open] {
       > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+        &,
         &:hover,
         &:active {
           &::after {
             @include di.variant("chevron-up-grasgroen");
+          }
+        }
+      }
+    }
+  }
+
+  nav dso-dropdown-menu {
+    > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+      &,
+      &:hover,
+      &:active {
+        &::after {
+          @include di.variant("chevron-down-bosgroen");
+        }
+      }
+    }
+
+    &[open] {
+      > button:not(.dso-primary):not(.dso-secondary):not(.dso-tertiary) {
+        &,
+        &:hover,
+        &:active {
+          &::after {
+            @include di.variant("chevron-up-bosgroen");
           }
         }
       }
