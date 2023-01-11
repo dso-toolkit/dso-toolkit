@@ -1,0 +1,30 @@
+---
+authors: [tfrijsewijk]
+---
+
+# DSO Toolkit v50.0.0
+
+In deze breaking release is met name de CDN een punt van aandacht.
+
+## CDN
+
+De CDN heeft een andere layout gekregen. Toen we begonnen met de toolkit was er maar één package. Inmiddels zijn er veel meer packages. Vanaf deze release worden packages in een eigen directory naar de CDN gepubliceerd.
+
+Dit betekent applicaties die `dso-toolkit` via de CDN gebruiken een andere URL moeten gebruiken.
+
+- voorheen: `https://cdn.dso-toolkit.nl/<versie>/<dso-toolkit artifacts>`
+- nu: `https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/<dso-toolkit artifacts>`.
+
+Zie de [documentatie over de CDN](./voor-developers/cdn) voor meer informatie.
+
+### Incomplete release artifacts
+
+Sinds versie 48.0.0 zijn er incomplete releases naar de CDN gepubliceerd. De package layout van `dso-toolkit` is gewijzigd. Voorheen zat alles in `/dist`. Uitsluitend de bestanden in deze directory werden naar de CDN gepubliceerd. Icons, illustraties en fonts zijn verhuisd naar `/assets` en werden niet gepubliceerd naar de CDN. Fonts die vanuit `dso.css` worden aangeroepen werken dus niet.
+
+Concreet betekent dit dat CDN gebruikers vanaf nu de volgende url voor `dso.css` kunnen gebruiken:
+
+```
+https://cdn.dso-toolkit.nl/dso-toolkit/<versie>/dist/dso.css
+```
+
+Waar `<versie>` `master` of een semver zonder prefix vanaf `50.0.0` kan zijn.

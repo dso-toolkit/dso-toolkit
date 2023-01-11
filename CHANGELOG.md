@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## Fixed
 * Tijdens release gaat deployen van website niet goed ([#1949](https://github.com/dso-toolkit/dso-toolkit/issues/1949)).
+* CDN verbeteringen ([#1952](https://github.com/dso-toolkit/dso-toolkit/issues/1952)).
 
 ## 49.1.0
 
