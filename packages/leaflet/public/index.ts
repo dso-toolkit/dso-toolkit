@@ -1,10 +1,7 @@
-import { defineCustomElements } from "@dso-toolkit/core";
 import * as L from "leaflet";
 import { html, nothing, render } from "lit-html";
 
 import * as Dso from "../src";
-
-defineCustomElements();
 
 const ButtonControl = L.Control.extend({
   onAdd(_map: L.Map) {

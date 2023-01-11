@@ -49,13 +49,14 @@ export class MapControls {
         <button
           type="button"
           id="toggle-visibility-button"
+          class="toggle-visibility-button"
           onClick={() => (this.open = !this.open)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>
           <span>Kaartlagen</span>
         </button>
-        <div id="zoom-buttons">
+        <div class="zoom-buttons">
           <button
             type="button"
             onClick={(e) => this.dsoZoomIn.emit(e)}
@@ -78,7 +79,7 @@ export class MapControls {
             <h2>{this.panelTitle}</h2>
             <button
               type="button"
-              id="close-button"
+              class="close-button"
               onClick={() => (this.open = false)}
               ref={(element) => (this.#closeButtonElement = element)}
             >

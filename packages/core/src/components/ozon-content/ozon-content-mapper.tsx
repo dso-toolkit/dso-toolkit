@@ -1,4 +1,4 @@
-import { Fragment, h } from "@stencil/core";
+import { Fragment, h, JSX } from "@stencil/core";
 
 import { OzonContentAlNode } from "./nodes/al.node";
 import { OzonContentDocumentNode } from "./nodes/document.node";

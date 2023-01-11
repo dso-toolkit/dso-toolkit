@@ -22,17 +22,13 @@ npm install @dso-toolkit/core @dso-toolkit/leaflet
 
 Make sure to bundle `dso-leaflet.css` from this package and NOT the default `leaflet.css`. This is to make sure every Leaflet instance looks the same.
 
-### Define custom elements, create `MapControls` and add to `map`.
+### Create `MapControls` and add to `map`.
 
-- Presentation is handled by a custom element (Web Component) `<dso-map-controls>` so we need to define the custom elements.
 - Make sure to disable the default `ZoomControl`.
 - Pass any layers that needs to be controlled as arguments.
 
 ```tsx
-import { defineCustomElements } from "@dso-toolkit/core";
 import { markerIcon, MapControls, LayerObject } from "@dso-toolkit/leaflet";
-
-defineCustomElements();
 
 const cities = L.layerGroup();
 

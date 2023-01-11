@@ -1,4 +1,7 @@
 import { BaseLayer, BaseLayerChangeEvent, Overlay, OverlayChangeEvent } from "@dso-toolkit/core";
+import { defineCustomElement as defineCustomElementDsoMapControls } from "@dso-toolkit/core/dist/components/dso-map-controls.js";
+import { defineCustomElement as defineCustomElementDsoMapBaseLayers } from "@dso-toolkit/core/dist/components/dso-map-base-layers";
+import { defineCustomElement as defineCustomElementDsoMapOverlays } from "@dso-toolkit/core/dist/components/dso-map-overlays";
 import * as L from "leaflet";
 import { render, html, TemplateResult, nothing } from "lit-html";
 
@@ -44,6 +47,8 @@ export class MapControls {
    * @returns The DSO Map Controls instance
    */
   addTo(map: L.Map) {
+    this.defineCustomElements();
+
     this.remove();
     this.map = map;
 
@@ -362,6 +367,12 @@ export class MapControls {
     }
 
     render(this.template(), this.container);
+  }
+
+  private defineCustomElements() {
+    defineCustomElementDsoMapControls();
+    defineCustomElementDsoMapBaseLayers();
+    defineCustomElementDsoMapOverlays();
   }
 
   private template(): TemplateResult {

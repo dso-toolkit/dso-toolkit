@@ -7,27 +7,44 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 function getVersion() {
-  if (process.env.CI) {
-    if (typeof process.env.TRAVIS_BRANCH === "string") {
-      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
-    }
+  console.info("Resolving version...");
 
+  if (process.env.DT_VERSION) {
+    console.warn(`Using DT_VERSION "${process.env.DT_VERSION}".`);
+
+    return process.env.DT_VERSION;
+  }
+
+  if (process.env.CI) {
     if (typeof process.env.TRAVIS_TAG === "string" && process.env.TRAVIS_TAG[0] === "v") {
+      console.info(`Using TRAVIS_TAG "${process.env.TRAVIS_TAG}".`);
+
       return process.env.TRAVIS_TAG.substring(1);
     }
+
+    if (
+      typeof process.env.TRAVIS_BRANCH === "string" &&
+      (process.env.TRAVIS_BRANCH[0] === "#" || process.env.TRAVIS_BRANCH === "master")
+    ) {
+      console.info(`Using TRAVIS_BRANCH "${process.env.TRAVIS_BRANCH}".`);
+
+      return process.env.TRAVIS_BRANCH.replace(/#/, "_");
+    }
   }
+
+  console.info("Unable to resolve version.");
 
   return undefined;
 }
 
+const VERSION = getVersion();
+
 function getBaseUrl() {
-  if (!process.env.CI) {
+  if (!VERSION) {
     return "/";
   }
 
-  const version = getVersion();
-
-  return version ? `/${version}/` : undefined;
+  return VERSION ? `/${VERSION}/` : undefined;
 }
 
 /** @type {import('@docusaurus/types').Config} */
@@ -87,7 +104,7 @@ const config = {
           },
           { to: "/blog", label: "Blog", position: "left" },
           {
-            href: `https://storybook.dso-toolkit.nl/${getVersion() ?? "master"}`,
+            href: `https://storybook.dso-toolkit.nl/${VERSION ?? "master"}`,
             label: "Storybook",
             position: "left",
           },

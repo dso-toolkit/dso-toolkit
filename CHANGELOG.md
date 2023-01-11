@@ -5,6 +5,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## Fixed
+* Tijdens release gaat deployen van website niet goed ([#1949](https://github.com/dso-toolkit/dso-toolkit/issues/1949)).
+
+## 49.1.0
+
+### Added
+* SCSS variabelen beschikbaar maken ([#1882](https://github.com/dso-toolkit/dso-toolkit/issues/1882)).
+* Iconen overzicht ([#1929](https://github.com/dso-toolkit/dso-toolkit/issues/1929)).
+
+### Fixed
+* `dso-icons.svg` resolved niet in Storybook ([#1944](https://github.com/dso-toolkit/dso-toolkit/issues/1944)).
+* Ozon Content maakt per ongeluk gebruik van React JSX ([#1948](https://github.com/dso-toolkit/dso-toolkit/issues/1948)).
+* Niet op #id stijlen in template voorschriften ([#1839](https://github.com/dso-toolkit/dso-toolkit/issues/1839))
+
+## 49.0.2
+
+### Fixed
+* `@dso-toolkit/react-leaflet` heeft nog een dependency op "defineCustomElements()" uit `@dso-toolkit/core` ([#1943](https://github.com/dso-toolkit/dso-toolkit/issues/1943)).
+
 ## 49.0.1
 
 ### Fixed

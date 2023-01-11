@@ -1,5 +1,6 @@
 @use "../../variables/scaffolding";
+@use "../../variables/colors";
 
-$group-background-color: #fff;
-$group-border-color: #ddd;
+$group-background-color: colors.$wit;
+$group-border-color: colors.$grijs-20;
 $group-border-radius: scaffolding.$border-radius-base;

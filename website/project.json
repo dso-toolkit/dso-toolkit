@@ -8,7 +8,14 @@
         "cwd": "website"
       },
       "dependsOn": ["^build"],
-      "inputs": ["^styles", "^assets", "default"],
+      "inputs": [
+        "^styles",
+        "^assets",
+        "default",
+        { "env": "DT_VERSION" },
+        { "env": "TRAVIS_TAG" },
+        { "env": "TRAVIS_BRANCH" }
+      ],
       "outputs": ["{projectRoot}/www"]
     }
   }

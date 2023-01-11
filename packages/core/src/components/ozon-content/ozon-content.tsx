@@ -1,4 +1,4 @@
-import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, Host } from "@stencil/core";
+import { h, Component, ComponentInterface, Element, Event, EventEmitter, Prop, State, Host, JSX } from "@stencil/core";
 import { isTabbable } from "tabbable";
 
 import { Mapper } from "./ozon-content-mapper";

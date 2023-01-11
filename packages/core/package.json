@@ -11,8 +11,8 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/dso-toolkit/dso-toolkit.js",
   "files": [
-    "/dist",
-    "/loader"
+    "dist/",
+    "loader/"
   ],
   "scripts": {
     "clear": "rimraf dist && rimraf loader",

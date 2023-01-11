@@ -1,3 +1,5 @@
+import { JSX } from "@stencil/core";
+
 import { OzonContentAnchorClick } from "./ozon-content.interfaces";
 
 export interface OzonContentNodeContext<T = unknown> {
