@@ -59,7 +59,8 @@ jobs:
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_BRANCH/\#/_} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/dso-toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/dso-toolkit/${TRAVIS_BRANCH/\#/_} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/core/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${TRAVIS_BRANCH/\#/_} &&
         ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
 
     - stage: release
@@ -80,7 +81,8 @@ jobs:
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/react/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/react.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./angular-workspace/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/angular.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
         rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./website/www/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
-        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive ./packages/dso-toolkit/dist/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/${TRAVIS_TAG:1} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/dso-toolkit/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/dso-toolkit/${TRAVIS_TAG:1} &&
+        rsync --rsh "ssh -p ${DEPLOY_PORT}" --delete --recursive --exclude 'node_modules' ./packages/core/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_ROOT}/cdn.dso-toolkit.nl/www/@dso-toolkit/core/${TRAVIS_TAG:1} &&
         ssh -p ${DEPLOY_PORT} ${DEPLOY_USER}@${DEPLOY_HOST} "cd ${DEPLOY_ROOT}/webhooks.dso-toolkit.nl && npm run update-versions"
 env:
   global:
