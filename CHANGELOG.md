@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Tijdens release gaat deployen van website niet goed ([#1949](https://github.com/dso-toolkit/dso-toolkit/issues/1949)).
 * CDN verbeteringen ([#1952](https://github.com/dso-toolkit/dso-toolkit/issues/1952)).
 * Documentatie doorzoeken in Docusaurus ([#1950](https://github.com/dso-toolkit/dso-toolkit/issues/1950)).
+* Angular componenten missen Intellisense voor events ([#1961](https://github.com/dso-toolkit/dso-toolkit/issues/1961)).
 
 ## 49.1.0
 
