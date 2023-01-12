@@ -1,6 +1,6 @@
 import { h, FunctionalComponent, Fragment } from "@stencil/core";
 import clsx from "clsx";
-import { TreeViewItem, TreeViewItemIcon } from "dso-toolkit";
+import { TreeViewItem, TreeViewItemIcon } from "./tree-view.interfaces";
 
 import { TreeView } from "./tree-view";
 

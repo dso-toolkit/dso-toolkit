@@ -1095,11 +1095,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when a tree view item is closed. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the close event. The consumer of the event is responsible for updating the TreeView's collection (usually set the closed state on the last TreeViewItem in path).
          */
-        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<Array<TreeViewItem>>) => void;
+        "onDsoCloseItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
         /**
           * Emitted when a tree view item is opened. The `detail` property of the `CustomEvent` will contain the complete path of TreeViewItems from the root to the item that is emitting the open event. The consumer of the event is responsible for updating the TreeView's collection (usually set the open state on the last TreeViewItem in path).
          */
-        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<Array<TreeViewItem>>) => void;
+        "onDsoOpenItem"?: (event: DsoTreeViewCustomEvent<TreeViewItem[]>) => void;
     }
     interface DsoViewerGrid {
         "filterpanelOpen"?: boolean;
