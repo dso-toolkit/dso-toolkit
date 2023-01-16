@@ -44,162 +44,20 @@
 
   input[type="checkbox"][disabled],
   input[type="radio"][disabled] {
-    &,
-    &:active,
-    &:focus {
-      + label {
-        &::before {
-          background-color: colors.$wit;
-          box-shadow: 0 0 0 selectable-variables.$border-width selectable-variables.$disabled-color;
-        }
-      }
-    }
+    @include selectableFunctionalStylingDisabled();
   }
 
   input[type="checkbox"],
   input[type="radio"] {
-    height: selectable-variables.$size;
-    left: 0;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: selectable-variables.$size;
-    z-index: zindex.$selectable;
-    zoom: 1;
-
-    @media (prefers-contrast: more) {
-      opacity: 1;
-    }
-
-    &:not([disabled]) {
-      cursor: pointer;
-    }
-
-    + label {
-      display: inline;
-      font-style: normal;
-      padding-left: 0;
-
-      &::before {
-        background: colors.$wit;
-        border: 0;
-        box-shadow: 0 0 0 selectable-variables.$border-width
-          var(--dso-selectable-color, selectable-variables.$valid-color);
-        content: "";
-        height: selectable-variables.$size - 2 * selectable-variables.$border-width;
-        left: selectable-variables.$border-width;
-        position: absolute;
-        top: selectable-variables.$border-width;
-        width: selectable-variables.$size - 2 * selectable-variables.$border-width;
-      }
-    }
-
-    &:focus {
-      outline: 0;
-
-      + label::before {
-        box-shadow: 0 0 0 selectable-variables.$focus-border-width
-          var(--dso-selectable-color, selectable-variables.$valid-color);
-        height: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
-        left: selectable-variables.$focus-border-width;
-        top: selectable-variables.$focus-border-width;
-        width: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
-      }
-    }
-
-    &:active,
-    &.active {
-      + label::before {
-        background-color: selectable-variables.$active-background-color;
-        box-shadow: 0 0 0 1px selectable-variables.$valid-color;
-        height: selectable-variables.$size - 2px;
-        left: 1px;
-        top: 1px;
-        width: selectable-variables.$size - 2px;
-      }
-    }
+    @include selectableFunctionalStyling();
   }
 
   input[type="checkbox"] {
-    + label {
-      &::before {
-        border-radius: 4px;
-      }
-
-      &::after {
-        background: transparent;
-        content: "";
-        left: 6px;
-        opacity: 0;
-        position: absolute;
-        top: 6px;
-        zoom: 1;
-      }
-    }
-
-    &:checked,
-    &:indeterminate {
-      + label {
-        &::after {
-          opacity: 1;
-        }
-      }
-    }
-
-    &:checked {
-      + label {
-        &::after {
-          border: solid;
-          border-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
-          border-top-color: transparent;
-          border-width: 0 0 3px 3px;
-          height: 8px;
-          transform: rotate(-45deg);
-          width: 13px;
-        }
-      }
-    }
-
-    &:indeterminate {
-      + label {
-        &::after {
-          background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
-          height: selectable-variables.$indeterminate-size;
-          width: selectable-variables.$indeterminate-size;
-        }
-      }
-    }
+    @include selectableFunctionalStylingCheckbox();
   }
 
   input[type="radio"] {
-    + label {
-      &::before {
-        border-radius: 50%;
-      }
-
-      &::after {
-        background-color: transparent;
-        border-radius: 50%;
-        content: "";
-        height: 12px;
-        left: 6px;
-        opacity: 0;
-        position: absolute;
-        top: 6px;
-        width: 12px;
-        zoom: 1;
-      }
-    }
-
-    &:checked {
-      + label {
-        &::after {
-          background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
-          opacity: 1;
-        }
-      }
-    }
+    @include selectableFunctionalStylingRadio();
   }
 
   > #{$info-selector} {
@@ -215,4 +73,162 @@
   left: $border-width;
   top: $border-width;
   width: selectable-variables.$size - 2 * $border-width;
+}
+
+@mixin selectableFunctionalStylingDisabled() {
+  &,
+  &:active,
+  &:focus {
+    + label {
+      &::before {
+        background-color: colors.$wit;
+        box-shadow: 0 0 0 selectable-variables.$border-width selectable-variables.$disabled-color;
+      }
+    }
+  }
+}
+
+@mixin selectableFunctionalStyling() {
+  height: selectable-variables.$size;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: selectable-variables.$size;
+  z-index: zindex.$selectable;
+  zoom: 1;
+
+  @media (prefers-contrast: more) {
+    opacity: 1;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  + label {
+    display: inline;
+    font-style: normal;
+    padding-left: 0;
+
+    &::before {
+      background: colors.$wit;
+      border: 0;
+      box-shadow: 0 0 0 selectable-variables.$border-width
+        var(--dso-selectable-color, selectable-variables.$valid-color);
+      content: "";
+      height: selectable-variables.$size - 2 * selectable-variables.$border-width;
+      left: selectable-variables.$border-width;
+      position: absolute;
+      top: selectable-variables.$border-width;
+      width: selectable-variables.$size - 2 * selectable-variables.$border-width;
+    }
+  }
+
+  &:focus {
+    outline: 0;
+
+    + label::before {
+      box-shadow: 0 0 0 selectable-variables.$focus-border-width
+        var(--dso-selectable-color, selectable-variables.$valid-color);
+      height: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
+      left: selectable-variables.$focus-border-width;
+      top: selectable-variables.$focus-border-width;
+      width: selectable-variables.$size - 2 * selectable-variables.$focus-border-width;
+    }
+  }
+
+  &:active,
+  &.active {
+    + label::before {
+      background-color: selectable-variables.$active-background-color;
+      box-shadow: 0 0 0 1px selectable-variables.$valid-color;
+      height: selectable-variables.$size - 2px;
+      left: 1px;
+      top: 1px;
+      width: selectable-variables.$size - 2px;
+    }
+  }
+}
+
+@mixin selectableFunctionalStylingCheckbox() {
+  + label {
+    &::before {
+      border-radius: 4px;
+    }
+
+    &::after {
+      background: transparent;
+      content: "";
+      left: 6px;
+      opacity: 0;
+      position: absolute;
+      top: 6px;
+      zoom: 1;
+    }
+  }
+
+  &:checked,
+  &:indeterminate {
+    + label {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:checked {
+    + label {
+      &::after {
+        border: solid;
+        border-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+        border-top-color: transparent;
+        border-width: 0 0 3px 3px;
+        height: 8px;
+        transform: rotate(-45deg);
+        width: 13px;
+      }
+    }
+  }
+
+  &:indeterminate {
+    + label {
+      &::after {
+        background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+        height: selectable-variables.$indeterminate-size;
+        width: selectable-variables.$indeterminate-size;
+      }
+    }
+  }
+}
+
+@mixin selectableFunctionalStylingRadio() {
+  + label {
+    &::before {
+      border-radius: 50%;
+    }
+
+    &::after {
+      background-color: transparent;
+      border-radius: 50%;
+      content: "";
+      height: 12px;
+      left: 6px;
+      opacity: 0;
+      position: absolute;
+      top: 6px;
+      width: 12px;
+      zoom: 1;
+    }
+  }
+
+  &:checked {
+    + label {
+      &::after {
+        background-color: var(--dso-selectable-color, selectable-variables.$valid-marker-color);
+        opacity: 1;
+      }
+    }
+  }
 }

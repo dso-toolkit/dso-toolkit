@@ -17,3 +17,7 @@
     @include list-button.sibling();
   }
 }
+
+dso-list-button > input[slot="counter"] {
+  display: none;
+}

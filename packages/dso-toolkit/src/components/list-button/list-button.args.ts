@@ -1,17 +1,20 @@
-import { ArgTypes } from "../../storybook/index.js";
-
-import { InputNumber } from "../input-number/input-number.models.js";
+import { ArgTypes, noControl } from "../../storybook/index.js";
+import { HandlerFunction } from "@storybook/addon-actions";
 
 import { ListButton } from "./list-button.models.js";
 
 export interface ListButtonArgs {
   label: string;
   hasInputNumber?: boolean;
-  inputNumber?: InputNumber;
   disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
-  count: number;
+  checked?: boolean;
+  count?: number;
+  min?: number;
+  max?: number;
+  dsoCountChange: HandlerFunction;
+  dsoSelectedChange: HandlerFunction;
 }
 
 export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
@@ -23,11 +26,6 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
   hasInputNumber: {
     control: {
       type: "boolean",
-    },
-  },
-  inputNumber: {
-    control: {
-      disable: true,
     },
   },
   disabled: {
@@ -45,21 +43,42 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
       type: "text",
     },
   },
+  checked: {
+    control: {
+      type: "boolean",
+    },
+  },
   count: {
     control: {
       type: "number",
     },
   },
+  min: {
+    control: {
+      type: "number",
+    },
+  },
+  max: {
+    control: {
+      type: "number",
+    },
+  },
+  dsoCountChange: {
+    ...noControl,
+    action: "dsoCountChange",
+  },
+  dsoSelectedChange: {
+    ...noControl,
+    action: "dsoSelectedChange",
+  },
 };
 
 export function listButtonArgsMapper(a: ListButtonArgs): ListButton {
   return {
-    label: a.label,
-    hasInputNumber: a.hasInputNumber,
-    inputNumber: a.inputNumber,
-    disabled: a.disabled,
-    sublabel: a.sublabel,
-    subcontent: a.subcontent,
-    count: a.count,
+    ...a,
   };
+}
+
+export function listButtonDefaultArgs(a: Partial<ListButton>): Partial<ListButton> {
+  return a;
 }

@@ -24,6 +24,7 @@
  - [dso-info](../info)
  - [dso-info-button](../info-button)
  - [dso-label](../label)
+ - [dso-list-button](../list-button)
  - [dso-map-controls](../map-controls)
  - [dso-modal](../modal)
  - [dso-pagination](../pagination)
@@ -44,6 +45,7 @@ graph TD;
   dso-info --> dso-icon
   dso-info-button --> dso-icon
   dso-label --> dso-icon
+  dso-list-button --> dso-icon
   dso-map-controls --> dso-icon
   dso-modal --> dso-icon
   dso-pagination --> dso-icon

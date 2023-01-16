@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { ListButtonArgs, listButtonArgsMapper, listButtonArgTypes } from "./list-button.args.js";
+import { ListButtonArgs, listButtonArgsMapper, listButtonArgTypes, listButtonDefaultArgs } from "./list-button.args.js";
 import { ListButton } from "./list-button.models.js";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
@@ -21,7 +21,6 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
       argTypes: listButtonArgTypes,
       args: {
         label: "Milieubelastende activiteit - Melding",
-        count: 0,
         inputNumber: {
           id: uuidv4(),
         },
@@ -32,7 +31,24 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
       listButtonTemplate(listButtonArgsMapper(args))
     );
 
-    stories.add("List Button", template);
+    stories.add("default", template, {
+      args: {},
+    });
+
+    stories.add("With count", template, {
+      args: listButtonDefaultArgs({
+        count: 0,
+      }),
+    });
+
+    stories.add("With count", template, {
+      args: listButtonDefaultArgs({
+        count: 0,
+        hasInputNumber: true,
+        min: 0,
+        max: 100,
+      }),
+    });
 
     return stories;
   });

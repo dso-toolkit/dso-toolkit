@@ -1,0 +1,81 @@
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/components/input-number";
+@use "~dso-toolkit/src/components/list-button";
+@use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/selectable";
+@use "~dso-toolkit/src/components/form-control";
+@use "~dso-toolkit/src/utilities";
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+.dso-tertiary {
+  @include button.tertiary($modifiers: false);
+}
+
+.dso-input-number {
+  @include input-number.root();
+}
+
+.dso-btn-group {
+  @include list-button.button-group(".dso-input-number", ".dso-list-button");
+}
+
+.dso-selectable {
+  @include selectable.root("dso-info");
+
+  label {
+    font-weight: 700;
+  }
+}
+
+.dso-list-button {
+  @include button.base($modifiers: false);
+  @include list-button.root();
+
+  .dso-sublabel {
+    padding-left: selectable.$size + units.$u1;
+  }
+
+  .dso-subcontent {
+    padding-left: selectable.$size + units.$u3;
+    padding-top: units.$u1;
+  }
+}
+
+.dso-list-button,
+.dso-btn-group {
+  + .dso-list-button,
+  + .dso-btn-group {
+    @include list-button.sibling();
+  }
+}
+
+.dso-input-wrapper {
+  position: relative;
+
+  .form-control {
+    width: 9ch;
+  }
+}
+
+.form-control {
+  @include form-control.root();
+}
+
+.dso-manual-input-button[type="button"] {
+  background-color: transparent;
+  border: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.hidden {
+  display: none !important;
+}
