@@ -17,8 +17,11 @@
 
   &.dso-document-list-item-sticky {
     .dso-document-list-item-heading {
+      padding: css-grid-variables.$grid-gutter-width * 0.25 css-grid-variables.$grid-gutter-width * 0.5;
+
       h2 {
         font-size: 1.25rem;
+        line-height: 1.2;
       }
 
       .dso-document-list-item-container {
