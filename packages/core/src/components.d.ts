@@ -22,6 +22,7 @@ import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-cont
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
@@ -341,6 +342,9 @@ export namespace Components {
         "type": "checkbox" | "radio";
         "value": string;
     }
+    interface DsoSlideToggle {
+        "checked": boolean;
+    }
     interface DsoTable {
         /**
           * Indicates whether the table is currently horizontally scrollable
@@ -483,6 +487,10 @@ export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSelectableElement;
+}
+export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSlideToggleElement;
 }
 export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -673,6 +681,12 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoSlideToggleElement extends Components.DsoSlideToggle, HTMLStencilElement {
+    }
+    var HTMLDsoSlideToggleElement: {
+        prototype: HTMLDsoSlideToggleElement;
+        new (): HTMLDsoSlideToggleElement;
+    };
     interface HTMLDsoTableElement extends Components.DsoTable, HTMLStencilElement {
     }
     var HTMLDsoTableElement: {
@@ -734,6 +748,7 @@ declare global {
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-table": HTMLDsoTableElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
@@ -1090,6 +1105,10 @@ declare namespace LocalJSX {
         "type": "checkbox" | "radio";
         "value": string;
     }
+    interface DsoSlideToggle {
+        "checked"?: boolean;
+        "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
+    }
     interface DsoTable {
         /**
           * Indicates whether the table is currently horizontally scrollable
@@ -1197,6 +1216,7 @@ declare namespace LocalJSX {
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-selectable": DsoSelectable;
+        "dso-slide-toggle": DsoSlideToggle;
         "dso-table": DsoTable;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
@@ -1238,6 +1258,7 @@ declare module "@stencil/core" {
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;

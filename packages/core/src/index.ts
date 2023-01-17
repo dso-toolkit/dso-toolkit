@@ -14,5 +14,6 @@ export * from "./components/ozon-content/ozon-content.interfaces";
 export * from "./components/pagination/pagination.interfaces";
 export * from "./components/responsive-element/responsive-element.interfaces";
 export * from "./components/selectable/selectable.interfaces";
+export * from "./components/slide-toggle/slide-toggle.interfaces";
 export * from "./components/tree-view/tree-view.interfaces";
 export * from "./components/viewer-grid/viewer-grid.interfaces";

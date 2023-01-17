@@ -7,7 +7,7 @@ export const angularToggletip: ComponentImplementation<Toggletip<StoryFnAngularR
   component: "toggletip",
   implementation: "angular",
   template: () =>
-    function toggleTipTemplate(props) {
+    function toggletipTemplate(props) {
       return {
         props,
         template: `

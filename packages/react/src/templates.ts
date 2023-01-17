@@ -27,6 +27,7 @@ import {
   ProgressIndicator,
   ResponsiveElement,
   Selectable,
+  SlideToggle,
   Table,
   TemplateContainer,
   Toggletip,
@@ -61,6 +62,7 @@ import { reactProgressBar } from "./components/progress-bar/progress-bar.react-t
 import { reactProgressIndicator } from "./components/progress-indicator/progress-indicator.react-template";
 import { reactResponsiveElement } from "./components/responsive-element/responsive-element.react-template";
 import { reactSelectable } from "./components/selectable/selectable.react-template";
+import { reactSlideToggle } from "./components/slide-toggle/slide-toggle.react-template";
 import { reactTable } from "./components/table/table.react-template";
 import { reactToggletip } from "./components/toggletip/toggletip.react-template";
 import { reactTooltip } from "./components/tooltip/tooltip.react-template";
@@ -94,6 +96,7 @@ export interface Components {
   progressIndicator: ProgressIndicator;
   responsiveElement: ResponsiveElement<JSX.Element>;
   selectable: Selectable<JSX.Element>;
+  slideToggle: SlideToggle;
   table: Table<JSX.Element>;
   toggletip: Toggletip<JSX.Element>;
   tooltip: Tooltip;
@@ -133,6 +136,7 @@ templateContainer.add(reactProgressBar);
 templateContainer.add(reactProgressIndicator);
 templateContainer.add(reactResponsiveElement);
 templateContainer.add(reactSelectable);
+templateContainer.add(reactSlideToggle);
 templateContainer.add(reactTable);
 templateContainer.add(reactToggletip);
 templateContainer.add(reactTooltip);
