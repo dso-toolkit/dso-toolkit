@@ -14,6 +14,7 @@ form {
   > .row {
     &.dso-featured {
       margin-bottom: units.$u4;
+      margin-top: units.$u4;
       padding-bottom: units.$u5;
       padding-top: units.$u3;
 
@@ -90,7 +91,7 @@ form {
     }
 
     &.no-button-banner {
-      height: 296px;
+      min-height: 296px;
     }
 
     + .row {
