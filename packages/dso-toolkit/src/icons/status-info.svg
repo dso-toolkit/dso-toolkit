@@ -1,11 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-  <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
-    <g id="status-info">
-      <path id="Rectangle" d="M0 0h24v24H0z"/>
-      <path id="Outer" fill="#FFF" d="M19 1a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V5a4 4 0 0 1 4-4h14Z"/>
-      <path id="Inner" fill="#2b5780" d="M5.35 2.5h13.3a2.85 2.85 0 0 1 2.85 2.85v13.3a2.85 2.85 0 0 1-2.85 2.85H5.35a2.85 2.85 0 0 1-2.85-2.85V5.35A2.85 2.85 0 0 1 5.35 2.5Z"/>
-      <path id="Path" fill="#FFF" fill-rule="nonzero" d="M13.695 17.952a1.28 1.28 0 0 1-2.561 0v-6.405h-.754a.942.942 0 0 1-.94-.874l-.002-.067c0-.52.422-.942.942-.942h2.373c.52 0 .942.422.942.942v7.346Z"/>
-      <circle id="Oval" cx="12.075" cy="6.5" r="1.658" fill="#FFF"/>
-    </g>
+<svg id="status-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <g id="status-info">
+    <path fill="#FFF" d="M19 1a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H5a4 4 0 0 1-4-4V5a4 4 0 0 1 4-4h14Z"/>
+    <path fill="#2b5780" d="M5.35 2.5h13.3a2.85 2.85 0 0 1 2.85 2.85v13.3a2.85 2.85 0 0 1-2.85 2.85H5.35a2.85 2.85 0 0 1-2.85-2.85V5.35A2.85 2.85 0 0 1 5.35 2.5Z"/>
+    <path fill="#FFF" fill-rule="nonzero" d="M13.695 17.952a1.28 1.28 0 0 1-2.561 0v-6.405h-.754a.942.942 0 0 1-.94-.874l-.002-.067c0-.52.422-.942.942-.942h2.373c.52 0 .942.422.942.942v7.346Z"/>
+    <circle id="Oval" cx="12.075" cy="6.5" r="1.658" fill="#FFF"/>
   </g>
 </svg>
