@@ -1,6 +1,6 @@
 import { noControl, StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 
-import { documentListMapper } from "./document-list.args.js";
+import { documentListMapper, documentListStickyMapper } from "./document-list.args.js";
 import { DocumentList, DocumentListItemStatusDemoContent } from "./document-list.models.js";
 
 export interface DocumentListTemplates<TemplateFnReturnType> {
@@ -23,11 +23,19 @@ export function storiesOfDocumentList<Implementation, Templates, TemplateFnRetur
       },
     });
 
-    const template = templateMapper((_args, { documentListTemplate, statusDemoMap }) =>
-      documentListTemplate(documentListMapper(statusDemoMap))
+    stories.add(
+      "default",
+      templateMapper((_args, { documentListTemplate, statusDemoMap }) =>
+        documentListTemplate(documentListMapper(statusDemoMap))
+      )
     );
 
-    stories.add("Document List", template);
+    stories.add(
+      "sticky",
+      templateMapper((_args, { documentListTemplate, statusDemoMap }) =>
+        documentListTemplate(documentListStickyMapper(statusDemoMap))
+      )
+    );
 
     return stories;
   });

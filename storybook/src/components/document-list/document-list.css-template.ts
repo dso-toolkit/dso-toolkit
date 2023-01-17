@@ -1,5 +1,6 @@
 import { DocumentList, DocumentListItem } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
+import { classMap } from "lit-html/directives/class-map.js";
 import { ComponentImplementation } from "../../templates";
 
 export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResult>> = {
@@ -7,9 +8,9 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
   implementation: "html-css",
   template: ({ anchorTemplate }) =>
     function documentListTemplate({ items }) {
-      function documentListItemTemplate({ title, type, owner, status }: DocumentListItem<TemplateResult>) {
+      function documentListItemTemplate({ title, type, owner, status, sticky }: DocumentListItem<TemplateResult>) {
         return html`
-          <div class="dso-document-list-item">
+          <div class="dso-document-list-item ${classMap({ "dso-document-list-item-sticky": !!sticky })}">
             <div class="dso-document-list-item-heading">
               <h2>${title}</h2>
               <div class="dso-document-list-item-container">
