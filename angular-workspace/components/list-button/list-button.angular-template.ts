@@ -9,16 +9,19 @@ export const angularListButton: ComponentImplementation<ListButton> = {
       return {
         props,
         template: `
-        <form #form>
           <dso-list-button
             [label]="label"
             [sublabel]="sublabel"
             [subcontent]="subcontent"
             [count]="count"
+            [min]="min"
+            [max]="max"
             [disabled]="disabled"
+            [checked]="checked"
+            (dsoCountChange)="dsoCountChange()"
+            (dsoSelectedChange)="dsoSelectedChange()"
           >
           </dso-list-button>
-        </form>
         `,
       };
     },

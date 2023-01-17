@@ -5,7 +5,6 @@ import { ListButton } from "./list-button.models.js";
 
 export interface ListButtonArgs {
   label: string;
-  hasInputNumber?: boolean;
   disabled?: boolean;
   sublabel?: string;
   subcontent?: string;
@@ -21,11 +20,6 @@ export const listButtonArgTypes: ArgTypes<ListButtonArgs> = {
   label: {
     control: {
       type: "text",
-    },
-  },
-  hasInputNumber: {
-    control: {
-      type: "boolean",
     },
   },
   disabled: {

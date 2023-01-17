@@ -242,15 +242,12 @@ export namespace Components {
         "truncate"?: boolean;
     }
     interface DsoListButton {
-        "checked"?: boolean;
+        "checked": boolean;
         /**
           * When defined the count can show on the list-button.
          */
         "count"?: number;
-        /**
-          * When set to true, the user can set the count. Changes are emitted with @dsoCountChange
-         */
-        "hasInputNumber"?: boolean;
+        "disabled": boolean;
         "label"?: string;
         "max"?: string | number;
         "min"?: string | number;
@@ -979,10 +976,7 @@ declare namespace LocalJSX {
           * When defined the count can show on the list-button.
          */
         "count"?: number;
-        /**
-          * When set to true, the user can set the count. Changes are emitted with @dsoCountChange
-         */
-        "hasInputNumber"?: boolean;
+        "disabled"?: boolean;
         "label"?: string;
         "max"?: string | number;
         "min"?: string | number;

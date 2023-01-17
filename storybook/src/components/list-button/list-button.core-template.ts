@@ -1,5 +1,6 @@
 import { ListButton } from "dso-toolkit";
 import { html } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -9,7 +10,6 @@ export const coreListButton: ComponentImplementation<ListButton> = {
   template: () => {
     return function listButtonTemplate({
       disabled,
-      hasInputNumber,
       label,
       sublabel,
       subcontent,
@@ -23,12 +23,11 @@ export const coreListButton: ComponentImplementation<ListButton> = {
       return html`
         <dso-list-button
           label=${label}
-          sublabel=${sublabel}
-          subcontent=${subcontent}
-          count=${count}
-          min=${min}
-          max=${max}
-          ?has-input-number=${hasInputNumber}
+          sublabel=${ifDefined(sublabel)}
+          subcontent=${ifDefined(subcontent)}
+          count=${ifDefined(count)}
+          min=${ifDefined(min)}
+          max=${ifDefined(max)}
           ?disabled=${disabled}
           ?checked=${checked}
           @dsoCountChange=${dsoCountChange}

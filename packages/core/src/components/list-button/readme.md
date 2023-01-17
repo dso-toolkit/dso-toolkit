@@ -7,16 +7,16 @@
 
 ## Properties
 
-| Property         | Attribute          | Description                                                                            | Type                            | Default     |
-| ---------------- | ------------------ | -------------------------------------------------------------------------------------- | ------------------------------- | ----------- |
-| `checked`        | `checked`          |                                                                                        | `boolean \| undefined`          | `undefined` |
-| `count`          | `count`            | When defined the count can show on the list-button.                                    | `number \| undefined`           | `undefined` |
-| `hasInputNumber` | `has-input-number` | When set to true, the user can set the count. Changes are emitted with @dsoCountChange | `boolean \| undefined`          | `undefined` |
-| `label`          | `label`            |                                                                                        | `string \| undefined`           | `undefined` |
-| `max`            | `max`              |                                                                                        | `number \| string \| undefined` | `undefined` |
-| `min`            | `min`              |                                                                                        | `number \| string \| undefined` | `undefined` |
-| `subcontent`     | `subcontent`       |                                                                                        | `string \| undefined`           | `undefined` |
-| `sublabel`       | `sublabel`         |                                                                                        | `string \| undefined`           | `undefined` |
+| Property     | Attribute    | Description                                         | Type                            | Default     |
+| ------------ | ------------ | --------------------------------------------------- | ------------------------------- | ----------- |
+| `checked`    | `checked`    |                                                     | `boolean`                       | `false`     |
+| `count`      | `count`      | When defined the count can show on the list-button. | `number \| undefined`           | `undefined` |
+| `disabled`   | `disabled`   |                                                     | `boolean`                       | `false`     |
+| `label`      | `label`      |                                                     | `string \| undefined`           | `undefined` |
+| `max`        | `max`        |                                                     | `number \| string \| undefined` | `undefined` |
+| `min`        | `min`        |                                                     | `number \| string \| undefined` | `undefined` |
+| `subcontent` | `subcontent` |                                                     | `string \| undefined`           | `undefined` |
+| `sublabel`   | `sublabel`   |                                                     | `string \| undefined`           | `undefined` |
 
 
 ## Events

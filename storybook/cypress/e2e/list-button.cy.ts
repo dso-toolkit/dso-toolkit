@@ -1,6 +1,6 @@
-describe.skip("ListButton", () => {
+describe("ListButton", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-list-button--default");
+    cy.visit("http://localhost:45000/iframe.html?id=core-list-button--single-select");
   });
 
   it("should render label, sublabel and subcontent correctly", () => {
@@ -38,29 +38,10 @@ describe.skip("ListButton", () => {
     cy.checkA11y("dso-list-button");
   });
 
-  it("should render the count correctly", () => {
-    cy.get("dso-list-button")
-      .as("dsoListButton")
-      .invoke("attr", "count", 1)
-      .shadow()
-      .as("dsoListButtonShadow")
-      .find("dso-icon")
-      .should("be.visible")
-      .get("@dsoListButton")
-      .invoke("attr", "count", 3)
-      .get("@dsoListButtonShadow")
-      .find("dso-icon")
-      .should("not.exist")
-      .get("@dsoListButtonShadow")
-      .find(".dso-count")
-      .should("contain.text", "3x");
-  });
-
   it("should render the interactive count input", () => {
     cy.get("dso-list-button")
       .as("dsoListButton")
       .invoke("attr", "count", 8)
-      .invoke("attr", "has-input-number", "")
       .shadow()
       .as("dsoListButtonShadow")
       .find(".dso-input-step-counter")
@@ -162,7 +143,6 @@ describe.skip("ListButton", () => {
       .find(".dso-tertiary")
       .first()
       .click()
-      .click()
       .get("@dsoCountChangeListener")
       .should("have.been.calledOnce")
       .get("@dsoListButtonShadow")
@@ -170,7 +150,7 @@ describe.skip("ListButton", () => {
       .last()
       .click()
       .click()
-      .click()
+      .should("be.disabled")
       .get("@dsoListButtonShadow")
       .find(".dso-manual-input-button")
       .click()

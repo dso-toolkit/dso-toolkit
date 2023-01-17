@@ -1,1 +1,1 @@
-# `<dso-label>`
+# `<dso-list-button>`

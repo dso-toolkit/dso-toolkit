@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Fragment } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 import { createFocusTrap, FocusTrap } from "focus-trap";
@@ -34,17 +34,16 @@ export class ListButton implements ComponentInterface {
   count?: number;
 
   @Prop()
-  checked?: boolean;
-
-  @Prop()
   min?: string | number;
 
   @Prop()
   max?: string | number;
 
-  /** When set to true, the user can set the count. Changes are emitted with @dsoCountChange */
-  @Prop()
-  hasInputNumber?: boolean;
+  @Prop({ reflect: true })
+  checked = false;
+
+  @Prop({ reflect: true })
+  disabled = false;
 
   @Event()
   dsoCountChange!: EventEmitter<ListButtonChangeEvent>;
@@ -52,13 +51,24 @@ export class ListButton implements ComponentInterface {
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 
+  @Watch("checked")
+  updateChecked(checked: boolean) {
+    if (this.count !== undefined) {
+      this.count = checked ? 1 : 0;
+    }
+  }
+
   componentDidRender(): void {
     if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
       this.trap = createFocusTrap(this.manualInputWrapperElement, {
         escapeDeactivates: true,
-        clickOutsideDeactivates: true,
         setReturnFocus: false,
 
+        clickOutsideDeactivates: (e) => {
+          this.setCount(e);
+
+          return true;
+        },
         onDeactivate: () => this.stopManualCountInput(),
         onPostDeactivate: () => this.manualInputButtonElement?.focus(),
       }).activate();
@@ -106,16 +116,12 @@ export class ListButton implements ComponentInterface {
     }
   }
 
-  private handleOnSelect(e: Event): void {
-    this.dsoSelectedChange.emit({
-      originalEvent: e,
-      checked: !this.checked,
-    });
-  }
-
   private handleSelectClick(e: Event): void {
     e.preventDefault();
 
+    if (this.count !== undefined) {
+      this.count = !this.checked ? 1 : 0;
+    }
     this.dsoSelectedChange.emit({
       originalEvent: e,
       checked: !this.checked,
@@ -131,7 +137,11 @@ export class ListButton implements ComponentInterface {
   }
 
   private isNewCountValid(newValue: number): boolean {
-    if (this.min !== undefined && this.max !== undefined && (newValue < this.min || newValue > this.max)) {
+    if (
+      this.min !== undefined &&
+      this.max !== undefined &&
+      (newValue < Number(this.min) || newValue > Number(this.max))
+    ) {
       return false;
     }
 
@@ -141,10 +151,14 @@ export class ListButton implements ComponentInterface {
   render() {
     const showButtonInputs = this.manualCount === undefined;
 
+    const selected = this.checked || (this.count !== undefined && this.count > 0);
+
+    const multiSelect = this.count !== undefined;
+
     return (
-      <div class="dso-btn-group">
+      <div class={clsx(["dso-btn-group", { "dso-disabled": this.disabled }])}>
         <div
-          class={clsx(["dso-list-button", { "dso-selected": this.checked }])}
+          class={clsx(["dso-list-button", { "dso-selected": selected, "dso-single-count": this.count === 1 }])}
           onClick={(e) => this.handleSelectClick(e)}
         >
           <div class="dso-selectable">
@@ -153,34 +167,32 @@ export class ListButton implements ComponentInterface {
               type="checkbox"
               value="list-button"
               name="naam"
-              checked={this.checked}
+              checked={selected}
+              disabled={this.disabled}
               aria-label={this.label}
-              onChange={(e) => this.handleOnSelect(e)}
             />
             <label htmlFor="dso-list-button-checkbox">{this.label}</label>
           </div>
           {this.sublabel && <span class="dso-sublabel">{this.sublabel}</span>}
           {this.subcontent && <span class="dso-subcontent">{this.subcontent}</span>}
-
-          {this.count !== undefined && !this.hasInputNumber && (
-            <Fragment>
-              {this.count === 1 && <dso-icon icon="check"></dso-icon>}
-              {this.count > 1 && <span class="dso-count">{this.count}x</span>}
-            </Fragment>
-          )}
         </div>
 
-        {this.count !== undefined && this.hasInputNumber && (
+        {multiSelect && this.count !== undefined && this.count > 0 && (
           <div class="dso-input-number">
             {this.manualCount === undefined && this.count > 1 && (
-              <button type="button" class="dso-tertiary" onClick={(e) => this.stepValue(e, "decrement")}>
+              <button
+                type="button"
+                class="dso-tertiary"
+                disabled={this.count === Number(this.min) || this.disabled}
+                onClick={(e) => this.stepValue(e, "decrement")}
+              >
                 <dso-icon icon="minus-circle"></dso-icon>
                 <span class="sr-only">Aantal verlagen</span>
               </button>
             )}
 
             <div class="dso-input-wrapper">
-              {this.manualCount === undefined && (
+              {this.manualCount === undefined && this.count > 1 && (
                 <input
                   class="dso-input-step-counter"
                   type="number"
@@ -207,6 +219,7 @@ export class ListButton implements ComponentInterface {
                 <button
                   class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
                   type={!showButtonInputs ? "submit" : "button"}
+                  disabled={this.disabled}
                   onClick={() => showButtonInputs && this.startManualCountInput()}
                 >
                   {showButtonInputs ? (
@@ -219,7 +232,12 @@ export class ListButton implements ComponentInterface {
             </div>
 
             {showButtonInputs && (
-              <button type="button" class="dso-tertiary" onClick={(e) => this.stepValue(e, "increment")}>
+              <button
+                type="button"
+                class="dso-tertiary"
+                disabled={this.count === Number(this.max) || this.disabled}
+                onClick={(e) => this.stepValue(e, "increment")}
+              >
                 <dso-icon icon="plus-circle"></dso-icon>
                 <span class="sr-only">Aantal verhogen</span>
               </button>

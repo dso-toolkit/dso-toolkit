@@ -31,22 +31,13 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
       listButtonTemplate(listButtonArgsMapper(args))
     );
 
-    stories.add("default", template, {
-      args: {},
-    });
+    stories.add("single select", template, { args: {} });
 
-    stories.add("With count", template, {
+    stories.add("multi select", template, {
       args: listButtonDefaultArgs({
         count: 0,
-      }),
-    });
-
-    stories.add("With count", template, {
-      args: listButtonDefaultArgs({
-        count: 0,
-        hasInputNumber: true,
         min: 0,
-        max: 100,
+        max: 99,
       }),
     });
 
