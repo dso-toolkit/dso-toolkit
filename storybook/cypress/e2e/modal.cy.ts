@@ -28,7 +28,12 @@ describe("Modal", () => {
   });
 
   it("should have focus trap", () => {
-    cy.get("@dsoModal")
+    cy.get("dso-modal")
+      .find("div[slot='footer'] .dso-primary")
+      .should("have.focus")
+      .get("dso-modal")
+      .realPress("Tab")
+      .get("@dsoModal")
       .find(".dso-close")
       .should("have.focus")
       .realPress("Tab")
@@ -42,11 +47,29 @@ describe("Modal", () => {
       .realPress("Tab")
       .get("dso-modal")
       .find("button.dso-primary")
-      .should("have.focus")
-      .realPress("Tab")
-      .get("@dsoModal")
+      .should("have.focus");
+
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&args=initialFocus:a")
+      .get("dso-modal")
+      .find("a")
+      .should("have.focus");
+
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive")
+      .get("dso-modal")
+      .shadow()
       .find(".dso-close")
       .should("have.focus");
+
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&args=initialFocus:img", {
+      onBeforeLoad(win) {
+        cy.stub(win.console, "warn").as("consoleWarn");
+      },
+    })
+      .get("dso-modal")
+      .find("div[slot='footer'] .dso-primary")
+      .should("have.focus")
+      .get("@consoleWarn")
+      .should("be.calledWith", "element 'img' could not be found");
   });
 
   it("should emit dsoClose event when user closes modal", () => {
@@ -54,8 +77,8 @@ describe("Modal", () => {
   });
 
   it("should emit dsoClose event on outside click", () => {
-    cy.get("@dsoModal")
-      .find(".dso-close")
+    cy.get("dso-modal")
+      .find("div[slot='footer'] .dso-primary")
       .should("have.focus")
       .get("body")
       .realClick({ y: 50, x: 50 })
@@ -64,8 +87,8 @@ describe("Modal", () => {
   });
 
   it("should emit dsoClose event on escape press", () => {
-    cy.get("@dsoModal")
-      .find(".dso-close")
+    cy.get("dso-modal")
+      .find("div[slot='footer'] .dso-primary")
       .should("have.focus")
       .realPress("Escape")
       .get("@dsoCloseListener")

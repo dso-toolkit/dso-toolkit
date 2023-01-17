@@ -8,9 +8,15 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
   component: "modal",
   implementation: "react",
   template: () =>
-    function modalTemplate({ modalTitle, role, showCloseButton, body, footer, dsoClose }) {
+    function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose }) {
       return (
-        <DsoModal role={role} modalTitle={modalTitle} showCloseButton={showCloseButton} onDsoClose={dsoClose}>
+        <DsoModal
+          role={role}
+          modalTitle={modalTitle}
+          showCloseButton={showCloseButton}
+          initialFocus={initialFocus}
+          onDsoClose={dsoClose}
+        >
           <div slot="body">{body}</div>
           {footer && <div slot="footer">{footer}</div>}
         </DsoModal>

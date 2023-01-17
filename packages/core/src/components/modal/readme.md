@@ -9,6 +9,7 @@ Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` geze
 
 | Property          | Attribute           | Description                                                                          | Type                                   | Default     |
 | ----------------- | ------------------- | ------------------------------------------------------------------------------------ | -------------------------------------- | ----------- |
+| `initialFocus`    | `initial-focus`     | selector for the element to be focused initially                                     | `string \| undefined`                  | `undefined` |
 | `modalTitle`      | `modal-title`       |                                                                                      | `string \| undefined`                  | `undefined` |
 | `role`            | `role`              | the role for the modal `dialog` \| `alert` \| `alertdialog` defaults to `dialog`     | `"alert" \| "alertdialog" \| "dialog"` | `"dialog"`  |
 | `showCloseButton` | `show-close-button` | when `false` the close button in the header will not be rendered. Defaults to `true` | `boolean`                              | `true`      |

@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * sticky variant voor Document List Item Heading ([#1905](https://github.com/dso-toolkit/dso-toolkit/issues/1905))
 * Grid - Landingspagina styling verbeteringen ([#1923](https://github.com/dso-toolkit/dso-toolkit/issues/1923))
+* Webcomponent Modal: `initialFocus` prop ([#1934](https://github.com/dso-toolkit/dso-toolkit/issues/1934))
 
 ### Fixed
 * Tijdens release gaat deployen van website niet goed ([#1949](https://github.com/dso-toolkit/dso-toolkit/issues/1949)).

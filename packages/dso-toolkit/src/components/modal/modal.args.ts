@@ -8,6 +8,7 @@ export interface ModalArgs {
   modalTitle: string;
   role: ModalRole;
   showCloseButton: boolean;
+  initialFocus: string;
   dsoClose: HandlerFunction;
 }
 
@@ -17,6 +18,9 @@ export const modalArgTypes: ArgTypes<ModalArgs> = {
   },
   role: {
     ...noControl,
+  },
+  initialFocus: {
+    type: "string",
   },
   showCloseButton: {
     control: {

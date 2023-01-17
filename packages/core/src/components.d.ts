@@ -253,6 +253,10 @@ export namespace Components {
         "overlays": Overlay[];
     }
     interface DsoModal {
+        /**
+          * selector for the element to be focused initially
+         */
+        "initialFocus"?: string;
         "modalTitle"?: string;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
@@ -958,6 +962,10 @@ declare namespace LocalJSX {
         "overlays": Overlay[];
     }
     interface DsoModal {
+        /**
+          * selector for the element to be focused initially
+         */
+        "initialFocus"?: string;
         "modalTitle"?: string;
         "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
         /**
