@@ -12,8 +12,14 @@
   @include utilities.sr-only();
 }
 
+.dso-manual-input-button {
+  cursor: text;
+}
+
 .dso-tertiary {
   @include button.tertiary($modifiers: false);
+
+  cursor: pointer;
 }
 
 .dso-input-number {

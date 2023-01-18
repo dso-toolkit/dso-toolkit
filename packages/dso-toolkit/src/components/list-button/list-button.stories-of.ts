@@ -35,7 +35,7 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
 
     stories.add("multi select", template, {
       args: listButtonDefaultArgs({
-        count: 0,
+        count: 5,
         min: 0,
         max: 99,
         hasInputNumber: true,
