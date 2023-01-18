@@ -19,6 +19,7 @@ import {
   Info,
   InfoButton,
   Label,
+  ListButton,
   Modal,
   OzonContent,
   Pagination,
@@ -52,6 +53,7 @@ import { reactImageOverlay } from "./components/image-overlay/image-overlay.reac
 import { reactInfo } from "./components/info/info.react-template";
 import { reactInfoButton } from "./components/info-button/info-button.react-template";
 import { reactLabel } from "./components/label/label.react-template";
+import { reactListButton } from "./components/list-button/list-button.react-template";
 import { reactModal } from "./components/modal/modal.react-template";
 import { reactOzonContent } from "./components/ozon-content/ozon-content.react-template";
 import { reactPagination } from "./components/pagination/pagination.react-template";
@@ -84,6 +86,7 @@ export interface Components {
   info: Info<JSX.Element>;
   infoButton: InfoButton;
   label: Label;
+  listButton: ListButton;
   modal: Modal<JSX.Element>;
   ozonContent: OzonContent;
   pagination: Pagination;
@@ -122,6 +125,7 @@ templateContainer.add(reactImageOverlay);
 templateContainer.add(reactInfo);
 templateContainer.add(reactInfoButton);
 templateContainer.add(reactLabel);
+templateContainer.add(reactListButton);
 templateContainer.add(reactModal);
 templateContainer.add(reactOzonContent);
 templateContainer.add(reactPagination);

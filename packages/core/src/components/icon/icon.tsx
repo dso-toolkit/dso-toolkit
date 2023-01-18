@@ -54,6 +54,7 @@ import mapLayers from "dso-toolkit/src/icons/map-layers.svg";
 import mapLocation from "dso-toolkit/src/icons/map-location.svg";
 import marker from "dso-toolkit/src/icons/marker.svg";
 import measurement from "dso-toolkit/src/icons/measurement.svg";
+import minusCircle from "dso-toolkit/src/icons/minus-circle.svg";
 import minusSquare from "dso-toolkit/src/icons/minus-square.svg";
 import minus from "dso-toolkit/src/icons/minus.svg";
 import more from "dso-toolkit/src/icons/more.svg";
@@ -65,6 +66,7 @@ import parking from "dso-toolkit/src/icons/parking.svg";
 import pencil from "dso-toolkit/src/icons/pencil.svg";
 import pin from "dso-toolkit/src/icons/pin.svg";
 import pinOutline from "dso-toolkit/src/icons/pin-outline.svg";
+import plusCircle from "dso-toolkit/src/icons/plus-circle.svg";
 import plusSquare from "dso-toolkit/src/icons/plus-square.svg";
 import plus from "dso-toolkit/src/icons/plus.svg";
 import print from "dso-toolkit/src/icons/print.svg";
@@ -151,6 +153,7 @@ const icons = [
   { alias: "map-location", svg: mapLocation },
   { alias: "marker", svg: marker },
   { alias: "measurement", svg: measurement },
+  { alias: "minus-circle", svg: minusCircle },
   { alias: "minus-square", svg: minusSquare },
   { alias: "minus", svg: minus },
   { alias: "more", svg: more },
@@ -162,6 +165,7 @@ const icons = [
   { alias: "pencil", svg: pencil },
   { alias: "pin", svg: pin },
   { alias: "pin-outline", svg: pinOutline },
+  { alias: "plus-circle", svg: plusCircle },
   { alias: "plus-square", svg: plusSquare },
   { alias: "plus", svg: plus },
   { alias: "print", svg: print },

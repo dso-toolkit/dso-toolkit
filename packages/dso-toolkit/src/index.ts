@@ -211,7 +211,11 @@ export { LinkListTemplates, storiesOfLinkList } from "./components/link-list/lin
 export { List, ListItem, Type } from "./components/list/list.models.js";
 export { ListTemplates, storiesOfList } from "./components/list/list.stories-of.js";
 
-export { ListButton } from "./components/list-button/list-button.models.js";
+export {
+  ListButton,
+  ListButtonChangeEvent,
+  ListButtonSelectedEvent,
+} from "./components/list-button/list-button.models.js";
 export { ListButtonTemplates, storiesOfListButton } from "./components/list-button/list-button.stories-of.js";
 
 export { Modal, ModalRole } from "./components/modal/modal.models.js";

@@ -13,6 +13,7 @@ import { CardContainerMode } from "./components/card-container/card-container.in
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
+import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalRole } from "./components/modal/modal";
@@ -240,6 +241,19 @@ export namespace Components {
         "status"?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
         "truncate"?: boolean;
     }
+    interface DsoListButton {
+        "checked": boolean;
+        /**
+          * When defined the count can show on the list-button.
+         */
+        "count"?: number;
+        "disabled": boolean;
+        "label"?: string;
+        "max"?: string | number;
+        "min"?: string | number;
+        "subcontent"?: string;
+        "sublabel"?: string;
+    }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
         "group": string;
@@ -433,6 +447,10 @@ export interface DsoLabelCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoLabelElement;
 }
+export interface DsoListButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoListButtonElement;
+}
 export interface DsoMapBaseLayersCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoMapBaseLayersElement;
@@ -588,6 +606,12 @@ declare global {
         prototype: HTMLDsoLabelElement;
         new (): HTMLDsoLabelElement;
     };
+    interface HTMLDsoListButtonElement extends Components.DsoListButton, HTMLStencilElement {
+    }
+    var HTMLDsoListButtonElement: {
+        prototype: HTMLDsoListButtonElement;
+        new (): HTMLDsoListButtonElement;
+    };
     interface HTMLDsoMapBaseLayersElement extends Components.DsoMapBaseLayers, HTMLStencilElement {
     }
     var HTMLDsoMapBaseLayersElement: {
@@ -698,6 +722,7 @@ declare global {
         "dso-info": HTMLDsoInfoElement;
         "dso-info-button": HTMLDsoInfoButtonElement;
         "dso-label": HTMLDsoLabelElement;
+        "dso-list-button": HTMLDsoListButtonElement;
         "dso-map-base-layers": HTMLDsoMapBaseLayersElement;
         "dso-map-controls": HTMLDsoMapControlsElement;
         "dso-map-overlays": HTMLDsoMapOverlaysElement;
@@ -945,6 +970,21 @@ declare namespace LocalJSX {
         "status"?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
         "truncate"?: boolean;
     }
+    interface DsoListButton {
+        "checked"?: boolean;
+        /**
+          * When defined the count can show on the list-button.
+         */
+        "count"?: number;
+        "disabled"?: boolean;
+        "label"?: string;
+        "max"?: string | number;
+        "min"?: string | number;
+        "onDsoCountChange"?: (event: DsoListButtonCustomEvent<ListButtonChangeEvent>) => void;
+        "onDsoSelectedChange"?: (event: DsoListButtonCustomEvent<ListButtonSelectedEvent>) => void;
+        "subcontent"?: string;
+        "sublabel"?: string;
+    }
     interface DsoMapBaseLayers {
         "baseLayers": BaseLayer[];
         "group"?: string;
@@ -1141,6 +1181,7 @@ declare namespace LocalJSX {
         "dso-info": DsoInfo;
         "dso-info-button": DsoInfoButton;
         "dso-label": DsoLabel;
+        "dso-list-button": DsoListButton;
         "dso-map-base-layers": DsoMapBaseLayers;
         "dso-map-controls": DsoMapControls;
         "dso-map-overlays": DsoMapOverlays;
@@ -1181,6 +1222,7 @@ declare module "@stencil/core" {
             "dso-info": LocalJSX.DsoInfo & JSXBase.HTMLAttributes<HTMLDsoInfoElement>;
             "dso-info-button": LocalJSX.DsoInfoButton & JSXBase.HTMLAttributes<HTMLDsoInfoButtonElement>;
             "dso-label": LocalJSX.DsoLabel & JSXBase.HTMLAttributes<HTMLDsoLabelElement>;
+            "dso-list-button": LocalJSX.DsoListButton & JSXBase.HTMLAttributes<HTMLDsoListButtonElement>;
             "dso-map-base-layers": LocalJSX.DsoMapBaseLayers & JSXBase.HTMLAttributes<HTMLDsoMapBaseLayersElement>;
             "dso-map-controls": LocalJSX.DsoMapControls & JSXBase.HTMLAttributes<HTMLDsoMapControlsElement>;
             "dso-map-overlays": LocalJSX.DsoMapOverlays & JSXBase.HTMLAttributes<HTMLDsoMapOverlaysElement>;

@@ -15,6 +15,14 @@
   display: flex;
   flex-direction: row;
 
+  &.dso-disabled {
+    > * {
+      @include _state-styling(colors.$wit, colors.$grijs-10, colors.$grijs-60);
+
+      pointer-events: none;
+    }
+  }
+
   > * {
     border-radius: 0;
 
@@ -29,6 +37,10 @@
     &:last-child {
       border-radius: 0 list-button-variables.$border-radius list-button-variables.$border-radius 0;
     }
+
+    &:only-child {
+      border-radius: list-button-variables.$border-radius;
+    }
   }
 
   > #{$input-number-selector} {
@@ -37,7 +49,7 @@
     border-style: solid;
     border-width: 1px;
     flex-wrap: nowrap;
-    padding: units.$u2;
+    padding: 0 units.$u2;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
       justify-content: center;
@@ -52,7 +64,8 @@
   > *.dso-selected + #{$input-number-selector} {
     @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
 
-    border-width: 2px;
+    border-width: 1px;
+    outline: 1px solid button.$secondary-hover-background-color;
   }
 
   > *:active + #{$input-number-selector},
@@ -92,6 +105,10 @@
 
       &:last-child {
         border-radius: 0 0 list-button-variables.$border-radius list-button-variables.$border-radius;
+      }
+
+      &:only-child {
+        border-radius: list-button-variables.$border-radius;
       }
     }
   }
@@ -135,7 +152,23 @@
 
   &.dso-selected {
     border-color: colors.$grasgroen;
-    border-width: 2px;
+    border-width: 1px;
+    outline: 1px solid colors.$grasgroen;
+
+    &.dso-single-count {
+      position: relative;
+
+      &::after {
+        background-color: colors.$wit;
+        bottom: 0;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: -2px;
+        top: 0;
+        width: 2px;
+      }
+    }
   }
 
   > span {
@@ -178,6 +211,14 @@
 
   .dso-count {
     font-weight: 700;
+  }
+
+  @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
+    &.dso-selected.dso-single-count {
+      &::after {
+        width: 0;
+      }
+    }
   }
 }
 
