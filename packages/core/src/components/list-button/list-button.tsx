@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State } from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
 import { createFocusTrap, FocusTrap } from "focus-trap";
@@ -50,13 +50,6 @@ export class ListButton implements ComponentInterface {
 
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
-
-  @Watch("checked")
-  updateChecked(checked: boolean) {
-    if (this.count !== undefined) {
-      this.count = checked ? 1 : 0;
-    }
-  }
 
   componentDidRender(): void {
     if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
@@ -159,8 +152,6 @@ export class ListButton implements ComponentInterface {
 
     const selected = this.checked || (this.count !== undefined && this.count > 0);
 
-    const multiSelect = this.count !== undefined;
-
     return (
       <div class={clsx(["dso-btn-group", { "dso-disabled": this.disabled }])}>
         <div
@@ -183,7 +174,7 @@ export class ListButton implements ComponentInterface {
           {this.subcontent && <span class="dso-subcontent">{this.subcontent}</span>}
         </div>
 
-        {multiSelect && this.count !== undefined && this.count > 0 && (
+        {this.count !== undefined && this.count > 0 && (
           <div class="dso-input-number">
             {this.manualCount === undefined && this.count > 1 && (
               <button

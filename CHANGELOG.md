@@ -5,7 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Deprecated
+* Het html/css list-button component is deprecated. We raden aan om over te stappen naar het nieuwe webcomponent. ([#1903](https://github.com/dso-toolkit/dso-toolkit/issues/1903))
+
 ### Added
+* Nieuw `<dso-list-button>` webcomponent ([#1903](https://github.com/dso-toolkit/dso-toolkit/issues/1903))
 * sticky variant voor Document List Item Heading ([#1905](https://github.com/dso-toolkit/dso-toolkit/issues/1905))
 * Grid - Landingspagina styling verbeteringen ([#1923](https://github.com/dso-toolkit/dso-toolkit/issues/1923))
 * Webcomponent Modal: `initialFocus` prop ([#1934](https://github.com/dso-toolkit/dso-toolkit/issues/1934))

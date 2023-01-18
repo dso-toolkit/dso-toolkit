@@ -1,5 +1,4 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
-import { angularListButton } from "components/list-button/list-button.angular-template";
 import {
   Accordion,
   Alert,
@@ -43,6 +42,7 @@ import { angularImageOverlay } from "./components/image-overlay/image-overlay.an
 import { angularInfoButton } from "./components/info-button/info-button.angular-template";
 import { angularInfo } from "./components/info/info.angular-template";
 import { angularLabel } from "./components/label/label.angular-template";
+import { angularListButton } from "./components/list-button/list-button.angular-template";
 import { angularModal } from "./components/modal/modal.angular-template";
 import { angularOzonContent } from "./components/ozon-content/ozon-content.angular-template";
 import { angularPagination } from "./components/pagination/pagination.angular-template";
