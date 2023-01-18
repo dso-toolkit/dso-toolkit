@@ -48,7 +48,9 @@ describe("Modal", () => {
       .get("dso-modal")
       .find("button.dso-primary")
       .should("have.focus");
+  });
 
+  it("should focus on initialFocus selector when given", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&args=initialFocus:a")
       .get("dso-modal")
       .find("a")
@@ -59,7 +61,9 @@ describe("Modal", () => {
       .shadow()
       .find(".dso-close")
       .should("have.focus");
+  });
 
+  it("should warn if initialFocus could not be found", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-modal--confirm&args=initialFocus:img", {
       onBeforeLoad(win) {
         cy.stub(win.console, "warn").as("consoleWarn");

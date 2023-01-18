@@ -38,7 +38,7 @@ export class Modal implements ComponentInterface {
   @Prop()
   showCloseButton = true;
 
-  /** selector for the element to be focused initially */
+  /** Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.*/
   @Prop()
   initialFocus?: string;
 
@@ -113,17 +113,11 @@ export class Modal implements ComponentInterface {
             }
           }
 
-          const primaryButton = this.host.querySelector<HTMLButtonElement>("div[slot='footer'] .dso-primary");
-          if (primaryButton) {
-            return primaryButton;
-          }
-
-          const closeButton = this.modalElement?.querySelector<HTMLButtonElement>(".dso-close");
-          if (closeButton) {
-            return closeButton;
-          }
-
-          return false;
+          return (
+            this.host.querySelector<HTMLButtonElement>("div[slot='footer'] .dso-primary") ??
+            this.modalElement?.querySelector<HTMLButtonElement>(".dso-close") ??
+            false
+          );
         },
         allowOutsideClick: true,
         escapeDeactivates: true,
