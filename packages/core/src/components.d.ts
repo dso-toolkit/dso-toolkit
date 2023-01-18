@@ -253,6 +253,10 @@ export namespace Components {
         "overlays": Overlay[];
     }
     interface DsoModal {
+        /**
+          * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
+         */
+        "initialFocus"?: string;
         "modalTitle"?: string;
         /**
           * the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog`
@@ -958,6 +962,10 @@ declare namespace LocalJSX {
         "overlays": Overlay[];
     }
     interface DsoModal {
+        /**
+          * Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.
+         */
+        "initialFocus"?: string;
         "modalTitle"?: string;
         "onDsoClose"?: (event: DsoModalCustomEvent<DsoModalCloseEvent>) => void;
         /**

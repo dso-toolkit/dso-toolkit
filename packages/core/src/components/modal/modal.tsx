@@ -34,9 +34,13 @@ export class Modal implements ComponentInterface {
   @Prop()
   role: ModalRole = "dialog";
 
-  /** when `false` the close button in the header will not be rendered. Defaults to `true`  */
+  /** when `false` the close button in the header will not be rendered. Defaults to `true` */
   @Prop()
   showCloseButton = true;
+
+  /** Selector used to query the element which will be focused when the component instantiated. When undefined the modal focuses the first button.dso-primary in the modal footer. If no button can be found the close button is focused.*/
+  @Prop()
+  initialFocus?: string;
 
   @Event()
   dsoClose!: EventEmitter<DsoModalCloseEvent>;
@@ -99,6 +103,22 @@ export class Modal implements ComponentInterface {
   private setFocusTrap() {
     if (this.dialogElement && !this.trap) {
       this.trap = createFocusTrap(this.dialogElement, {
+        initialFocus: () => {
+          if (this.initialFocus) {
+            const initialFocusElement = this.host.querySelector<HTMLElement>(this.initialFocus);
+            if (!initialFocusElement) {
+              console.warn(`element '${this.initialFocus}' could not be found`);
+            } else {
+              return initialFocusElement;
+            }
+          }
+
+          return (
+            this.host.querySelector<HTMLButtonElement>("div[slot='footer'] .dso-primary") ??
+            this.modalElement?.querySelector<HTMLButtonElement>(".dso-close") ??
+            false
+          );
+        },
         allowOutsideClick: true,
         escapeDeactivates: true,
         tabbableOptions: {
