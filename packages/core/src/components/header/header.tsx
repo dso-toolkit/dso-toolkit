@@ -35,7 +35,7 @@ export class Header {
   mainMenu?: HeaderMenuItem[] = [];
 
   @Prop()
-  useDropDownMenu: "always" | "never" | "auto" = "auto";
+  useDropDownMenu: "always" | "auto" = "auto";
 
   /** Used to show the login/logout option. 'none' renders nothing. */
   @Prop()
@@ -75,7 +75,7 @@ export class Header {
   dsoHeaderClick!: EventEmitter<HeaderEvent>;
 
   @Watch("useDropDownMenu")
-  setShowDropDown(value: "always" | "never" | "auto") {
+  setShowDropDown(value: "always" | "auto") {
     if (value === "auto") {
       this.setDropDownMenu();
       return;

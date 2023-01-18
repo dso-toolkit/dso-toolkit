@@ -12,7 +12,7 @@ export interface HeaderArgs {
     url: string;
   }[];
   noMainMenu: boolean;
-  useDropDownMenu: "always" | "never" | "auto";
+  useDropDownMenu: "always" | "auto";
   authStatus: "none" | "loggedOut" | "loggedIn";
   loginUrl: string;
   logoutUrl: string;
@@ -39,8 +39,8 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
     },
   },
   useDropDownMenu: {
-    name: "Dropdown menu",
-    options: ["always", "never", "auto"],
+    name: "Compacte header",
+    options: ["always", "auto"],
     control: {
       type: "select",
     },
