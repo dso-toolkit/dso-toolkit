@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * CDN verbeteringen ([#1952](https://github.com/dso-toolkit/dso-toolkit/issues/1952)).
 * Documentatie doorzoeken in Docusaurus ([#1950](https://github.com/dso-toolkit/dso-toolkit/issues/1950)).
 * Angular componenten missen Intellisense voor events ([#1961](https://github.com/dso-toolkit/dso-toolkit/issues/1961)).
+* SVG fix voor nieuwe iconen ([#1969](https://github.com/dso-toolkit/dso-toolkit/issues/1969))
 
 ## 49.1.0
 
