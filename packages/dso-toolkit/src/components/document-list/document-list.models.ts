@@ -9,6 +9,7 @@ export interface DocumentListItem<TemplateFnReturnType> {
   type: string;
   owner: string;
   status: TemplateFnReturnType;
+  sticky?: boolean;
 }
 
 export interface DocumentListItemStatusDemoContent {
