@@ -38,6 +38,14 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
         count: 0,
         min: 0,
         max: 99,
+        hasInputNumber: true,
+      }),
+    });
+
+    stories.add("css legacy - readonly count", template, {
+      args: listButtonDefaultArgs({
+        count: 5,
+        hasInputNumber: false,
       }),
     });
 

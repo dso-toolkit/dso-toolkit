@@ -106,6 +106,10 @@
       &:last-child {
         border-radius: 0 0 list-button-variables.$border-radius list-button-variables.$border-radius;
       }
+
+      &:only-child {
+        border-radius: list-button-variables.$border-radius;
+      }
     }
   }
 }

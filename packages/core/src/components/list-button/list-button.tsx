@@ -120,8 +120,14 @@ export class ListButton implements ComponentInterface {
     e.preventDefault();
 
     if (this.count !== undefined) {
-      this.count = !this.checked ? 1 : 0;
+      this.dsoCountChange.emit({
+        originalEvent: e,
+        count: this.count > 0 ? 0 : 1,
+      });
+
+      return;
     }
+
     this.dsoSelectedChange.emit({
       originalEvent: e,
       checked: !this.checked,
