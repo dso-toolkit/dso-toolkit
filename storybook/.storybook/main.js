@@ -9,7 +9,7 @@ function getVersion() {
 
     if (
       typeof process.env.TRAVIS_BRANCH === "string" &&
-      (process.env.TRAVIS_TAG[0] === "#" || process.env.TRAVIS_TAG === "master")
+      (process.env.TRAVIS_BRANCH[0] === "#" || process.env.TRAVIS_BRANCH === "master")
     ) {
       return process.env.TRAVIS_BRANCH.replace(/#/, "_");
     }

@@ -15,6 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Documentatie doorzoeken in Docusaurus ([#1950](https://github.com/dso-toolkit/dso-toolkit/issues/1950)).
 * Angular componenten missen Intellisense voor events ([#1961](https://github.com/dso-toolkit/dso-toolkit/issues/1961)).
 * SVG fix voor nieuwe iconen ([#1969](https://github.com/dso-toolkit/dso-toolkit/issues/1969))
+* dso-toolkit.nl: Storybook opent altijd in master ([#1973](https://github.com/dso-toolkit/dso-toolkit/issues/1973))
 
 ### Changed
 * Webcomponent header - verbeteringen ([#1904](https://github.com/dso-toolkit/dso-toolkit/issues/1904)).
