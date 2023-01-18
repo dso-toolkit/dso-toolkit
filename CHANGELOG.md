@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 50.0.0
+
 ### Deprecated
 * Het html/css list-button component is deprecated. We raden aan om over te stappen naar het nieuwe webcomponent. ([#1903](https://github.com/dso-toolkit/dso-toolkit/issues/1903))
 
