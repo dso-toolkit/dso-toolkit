@@ -9,6 +9,7 @@ export interface DropdownMenu {
 }
 
 export interface DropdownMenuGroup {
+  id?: string;
   header?: string;
   items: Array<DropdownMenuItem & (DropdownMenuItemAnchor | DropdownMenuItemButton)>;
 }

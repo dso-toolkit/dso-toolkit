@@ -66,11 +66,7 @@ export class DropdownMenu {
     for (const ul of Array.from(this.host.getElementsByTagName("ul"))) {
       ul.setAttribute("role", "group");
       for (const li of Array.from(ul.getElementsByTagName("li"))) {
-        if (li.classList.contains("dso-group-label")) {
-          li.setAttribute("role", "menuitem");
-        } else {
-          li.setAttribute("role", "none");
-        }
+        li.setAttribute("role", "none");
       }
     }
   }

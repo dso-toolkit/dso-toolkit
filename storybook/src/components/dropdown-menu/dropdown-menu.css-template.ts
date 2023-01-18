@@ -21,8 +21,10 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
           <div class="dso-dropdown-options" role="menu" aria-labelledby=${id}>
             ${groups.map(
               (group) => html`
-                <ul role="group">
-                  ${group.header ? html`<li class="dso-group-label" role="menuitem">${group.header}</li>` : nothing}
+                <ul role="group" aria-labelledby=${group.id}>
+                  ${group.header
+                    ? html`<li id=${group.id} class="dso-group-label" role="none">${group.header}</li>`
+                    : nothing}
                   ${group.items.map(
                     (item) => html`
                       <li role="none" class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
