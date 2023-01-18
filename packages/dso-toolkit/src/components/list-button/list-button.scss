@@ -18,6 +18,10 @@
   }
 }
 
+dso-list-button + dso-list-button {
+  @include list-button.sibling();
+}
+
 dso-list-button > input[slot="counter"] {
   display: none;
 }
