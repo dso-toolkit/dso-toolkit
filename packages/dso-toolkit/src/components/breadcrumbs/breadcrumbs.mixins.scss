@@ -8,7 +8,8 @@
   @include utilities.clearfix();
 
   list-style: none;
-  margin-bottom: units.$u1;
+  margin-bottom: units.$u2;
+  margin-top: units.$u2;
   padding: 0 units.$u1;
 
   > li {
