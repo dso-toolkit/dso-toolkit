@@ -50,7 +50,7 @@ describe("Dropdown menu - anchors", () => {
     cy.get(".dso-checked a").should("have.attr", "aria-checked", "true");
 
     cy.get(".dso-dropdown-options ul").should("have.attr", "role", "group");
-    cy.get(".dso-dropdown-options li.dso-group-label").should("have.attr", "role", "menuitem");
+    cy.get(".dso-dropdown-options li.dso-group-label").should("have.attr", "role", "none");
     cy.get(".dso-dropdown-options li:not(.dso-group-label)").should("have.attr", "role", "none");
 
     cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
