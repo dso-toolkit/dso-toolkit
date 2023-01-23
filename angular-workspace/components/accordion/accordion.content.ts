@@ -184,18 +184,18 @@ export const addonsSections: AccordionSection<StoryFnAngularReturnType>[] = [
   },
   {
     ...section1,
-    state: "danger",
+    state: "error",
     icon: "user-line",
     open: true,
   },
   {
     ...section1,
-    state: "danger",
+    state: "error",
     status: "5 van 8 beantwoord",
   },
   {
     ...section1,
-    state: "danger",
+    state: "error",
     status: "5 van 8 beantwoord",
   },
   {

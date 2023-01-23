@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* **BREAKING:** Accordion: status danger eruit (deprecate), status error erin ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
+
 ## 50.0.0
 
 ### Deprecated

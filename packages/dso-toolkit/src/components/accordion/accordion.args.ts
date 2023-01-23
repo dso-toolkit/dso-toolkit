@@ -54,7 +54,7 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
     },
   },
   state: {
-    options: [undefined, "success", "info", "warning", "danger"],
+    options: [undefined, "success", "info", "warning", "error"],
     control: {
       type: "select",
     },

@@ -217,7 +217,7 @@ describe("Accordion", () => {
       success: "succes:",
       info: "info:",
       warning: "waarschuwing:",
-      danger: "fout:",
+      error: "fout:",
     };
 
     Object.entries(stateMap).forEach(([key, text]) => {

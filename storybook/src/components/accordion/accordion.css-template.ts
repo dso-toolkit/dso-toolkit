@@ -13,7 +13,7 @@ export const cssAccordion: ComponentImplementation<Accordion<TemplateResult>> = 
         ["success", "succes:"],
         ["info", "info:"],
         ["warning", "waarschuwing:"],
-        ["danger", "fout:"],
+        ["error", "fout:"],
       ]);
 
       function accordionHandleChildren(

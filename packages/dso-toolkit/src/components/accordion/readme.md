@@ -11,11 +11,11 @@ Een accordion (`.dso-accordion`) bestaat uit secties (`.dso-accordion-section`).
 
 Een accordion section in de state "open" moet een `.dso-open` class op `.dso-accordion-section` krijgen. Dit zorgt voor het "chevron-up"-icoon. Ook als het `.dso-accordion-section` element niet in het DOM staat, moet een open accordion altijd `.dso-open` krijgen.
 
-Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-danger` die op de `.dso-accordion-section` kunnen.
+Er zijn 4 modifiers: `.dso-succes`, `.dso-warning`, `.dso-info` en `.dso-error` die op de `.dso-accordion-section` kunnen.
 
 Het is mogelijk om een accordion in een accordion te plaatsen. Er moet dan wel `.dso-nested-accordion` op de `.dso-accordion-section` worden gezet.
 
-Voegt u via een modifier een statusicoon toe aan de uitklapbare knop (`.dso-succes`, `.dso-warning`, `.dso-info` of `.dso-danger`)? Let dan op de volgende dingen:
+Voegt u via een modifier een statusicoon toe aan de uitklapbare knop (`.dso-succes`, `.dso-warning`, `.dso-info` of `.dso-error`)? Let dan op de volgende dingen:
 
 - Beschrijf de betekenis van het statusicoon in de context van de accordion met een .sr-only span. Plaats deze in de tekst van de knop.
 - Voorbeeldtekst voor `.dso-succes`: "Informatie bouwwerkzaamheden `<span class="sr-only">(afgerond)</span>`"
