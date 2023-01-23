@@ -56,17 +56,53 @@ NB: Bovenstaand voorbeeld bevat een `.dso-steps-indicator`, een `.alert` en een 
 
 Voor de horizontale verdeling wordt een 12 koloms structuur gebruikt. Met dit systeem kunnen onderdelen op de pagina worden gepositioneerd en kan worden geprogrammeerd wat het responsive gedrag van deze positionering is.
 
-![Responsive grid beschrijving](/docs/layout/layout_1.png)
+### Responsive grid
+
+De pagina layout en de breedte van de componenten schalen mee met de afmetingen van het scherm met behulp van een responsive grid. De pagina layout en de breedte van de componenten schalen mee met de afmetingen van het scherm met behulp van een responsive grid.
+
+![Het responsive grid en de columns op een laptop, tablet en mobiel](/docs/layout/layout_1.png)
+
+<table>
+  <tr>
+    <th></th>
+    <th>Extra Small (XS)</th>
+    <th>Small (S)</th>
+    <th>Medium (MD)</th>
+    <th>Large (LG)</th>
+    <th>Extra Large (XL)</th>
+  </tr>
+  <tr>
+    <th>Breakpoint</th>
+    <td>&lt; 576px</td>
+    <td>&ge; 576px</td>
+    <td>&ge; 768px</td>
+    <td>&ge; 992px</td>
+    <td>&ge; 1200px</td>
+  </tr>
+  <tr>
+    <th>Number of columns</th>
+    <td colspan="2">2</td>
+    <td colspan="3">3</td>
+  </tr>
+  <tr>
+    <th>Gutter width</th>
+    <td colspan="5"> 32px (16px on each side of a column)</td>
+  </tr>
+</table>
 
 ## Verticale lay-out
 
 Voor de verticale layout en hiërarchie wordt het 8px grid gebruikt. Het 8px grid betekent het volgende: gebruik increments van 8px om de grootte van en ruimte tussen de elementen te tonen op een pagina. Dus height, width, padding, margin bestaan allemaal uit increments van 8.
 
-![8px grid beschrijving](/docs/layout/layout_2.png)
+### Baseline grid
+
+Alle componenten worden uitgelijnd op een 8px baseline grid voor mobiel, tablet en desktop. De hoogte van elk component is een veelvoud van 8px. De breedte kan variëren op basis van het responsive grid.
+
+![Voorbeeld van het 8px grid op een mobiel layout](/docs/layout/layout_2.png)
 
 Een voorbeeld van een button in het 8px grid:
 
-![8px grid in een button beschrijving](/docs/layout/layout_3.png)
+![8px grid in een button](/docs/layout/layout_3.png)
 
 ### Softgrid
 
@@ -74,9 +110,7 @@ Deze individuele elementen worden vervolgens relatieve gepositioneerd in increme
 
 De meest populaire groottes van schermen zijn te delen door 8. Op zijn minst op één axis maar vaak beiden. Wat scalibility verbetert. Door 8px increments te gebruiken haal je 7 tot 8 spacing opties weg, wat het aantal keuzes reduceert en vervolgens sneller gecodeerd kan worden.
 
-Consistentie, wanneer deze regels gevolgd worden voor elk element onstaat er automatisch een meer consistente User Interface
-
-![Pagina opgebouwd met het 8px grid](/docs/layout/layout_4.png)
+Consistentie, wanneer deze regels gevolgd worden voor elk element onstaat er automatisch een meer consistente User Interface.
 
 ## Grid
 
