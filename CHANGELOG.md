@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Accordion: status error toegevoegd ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
+
+### Deprecated
+* Accordion: status danger is deprecated. Gebruik voortaan status warning of status error ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
+
 ## 50.0.1
 
 ### Fixed

@@ -2,7 +2,7 @@ export type AccordionHandleElement = "anchor" | "button";
 
 export type AccordionVariant = "default" | "compact" | "conclusion";
 
-export type AccordionSectionState = "success" | "info" | "warning" | "danger";
+export type AccordionSectionState = "success" | "info" | "warning" | "danger" | "error";
 
 export type AccordionHeading = "h2" | "h3" | "h4" | "h5";
 
