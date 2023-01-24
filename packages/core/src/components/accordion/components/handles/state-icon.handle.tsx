@@ -7,6 +7,10 @@ export const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState
     return <dso-icon icon="status-error"></dso-icon>;
   }
 
+  if (state === "danger") {
+    return <dso-icon icon="status-danger"></dso-icon>;
+  }
+
   if (state === "success") {
     return <dso-icon icon="status-success"></dso-icon>;
   }
