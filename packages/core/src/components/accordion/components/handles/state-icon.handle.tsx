@@ -3,6 +3,10 @@ import { FunctionalComponent, h } from "@stencil/core";
 import { AccordionSectionState } from "../accordion-section.interfaces";
 
 export const HandleStateIcon: FunctionalComponent<{ state: AccordionSectionState }> = ({ state }) => {
+  if (state === "error") {
+    return <dso-icon icon="status-error"></dso-icon>;
+  }
+
   if (state === "danger") {
     return <dso-icon icon="status-danger"></dso-icon>;
   }

@@ -165,6 +165,7 @@
   }
 
   &.dso-success,
+  &.dso-error,
   &.dso-danger,
   &.dso-warning,
   &.dso-info {
@@ -181,6 +182,15 @@
       a::after,
       button::after {
         @include di.base("status-success", accordion.$chevron-icon-size);
+      }
+    }
+  }
+
+  &.dso-error {
+    > .dso-section-handle {
+      a::after,
+      button::after {
+        @include di.base("status-error", accordion.$chevron-icon-size);
       }
     }
   }
