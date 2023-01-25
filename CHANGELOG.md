@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Deprecated
 * Accordion: status danger is deprecated. Gebruik voortaan status warning of status error ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
+* HTML/CSS component "header" verwijderen; De legacy styling die in legacy-header.scss zat is verwijderd. We raden aan om over te stappen naar het nieuwe webcomponent ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
 
 ## 50.0.1
 
