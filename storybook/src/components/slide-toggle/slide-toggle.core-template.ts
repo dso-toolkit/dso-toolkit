@@ -8,7 +8,14 @@ export const coreSlideToggle: ComponentImplementation<SlideToggle> = {
   component: "slideToggle",
   implementation: "core",
   template: () =>
-    function slideToggleTemplate({ checked }) {
-      return html` <dso-slide-toggle checked=${ifDefined(checked)}> </dso-slide-toggle> `;
+    function slideToggleTemplate({ checked, disabled, dsoActiveChange }) {
+      return html`
+        <dso-slide-toggle
+          checked=${ifDefined(checked)}
+          disabled=${ifDefined(disabled)}
+          @dsoActiveChange=${dsoActiveChange}
+        >
+        </dso-slide-toggle>
+      `;
     },
 };

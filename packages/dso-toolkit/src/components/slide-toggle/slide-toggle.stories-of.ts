@@ -19,6 +19,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
       argTypes: slideToggleArgTypes,
       args: {
         checked: false,
+        disabled: false,
       },
     });
 
@@ -29,6 +30,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
     stories.add("Slide Toggle", template, {
       args: {
         checked: false,
+        disabled: false,
       },
     });
 

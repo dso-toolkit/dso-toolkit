@@ -16,3 +16,32 @@ storiesOfSlideToggle({
     slideToggleTemplate,
   }),
 });
+
+storiesOfSlideToggle({
+  parameters: {
+    storiesOf,
+    module,
+    readme: coreReadme,
+    root: StoryRoot.Core,
+  },
+  templateContainer,
+  storyTemplates: ({ slideToggleTemplate }) => {
+    type SlideToggleConnector = (
+      parameters: Parameters<
+        ReturnType<Parameters<typeof storiesOfSlideToggle>[0]["storyTemplates"]>["slideToggleTemplate"]
+      >
+    ) => Parameters<typeof slideToggleTemplate>[0];
+
+    const slideToggleConnector: SlideToggleConnector = ([props]) => ({
+      ...props,
+      dsoActiveChange(e) {
+        this.checked = e.detail.checked;
+        props.dsoActiveChange(e);
+      },
+    });
+
+    return {
+      slideToggleTemplate: (props) => slideToggleTemplate(slideToggleConnector([props])),
+    };
+  },
+});

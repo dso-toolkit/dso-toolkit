@@ -8,7 +8,13 @@ export const angularSlideToggle: ComponentImplementation<SlideToggle> = {
     function slideToggleTemplate(props) {
       return {
         props,
-        template: `<dso-slide-toggle [checked]="checked"></dso-slide-toggle>`,
+        template: `
+          <dso-slide-toggle
+            [checked]="checked"
+            [disabled]="disabled"
+            (dsoActiveChange)="dsoActiveChange()"
+          ></dso-slide-toggle>
+        `,
       };
     },
 };
