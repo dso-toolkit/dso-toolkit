@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Accordion: status danger is deprecated. Gebruik voortaan status warning of status error ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
 * HTML/CSS component "header" verwijderen; De legacy styling die in legacy-header.scss zat is verwijderd. We raden aan om over te stappen naar het nieuwe webcomponent ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
 
+### Fixed
+* html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
+
 ## 50.0.0
 
 ### Deprecated
@@ -31,7 +34,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Angular componenten missen Intellisense voor events ([#1961](https://github.com/dso-toolkit/dso-toolkit/issues/1961)).
 * SVG fix voor nieuwe iconen ([#1969](https://github.com/dso-toolkit/dso-toolkit/issues/1969))
 * dso-toolkit.nl: Storybook opent altijd in master ([#1973](https://github.com/dso-toolkit/dso-toolkit/issues/1973))
-* html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
 
 ### Changed
 * Webcomponent header - verbeteringen ([#1904](https://github.com/dso-toolkit/dso-toolkit/issues/1904)).
