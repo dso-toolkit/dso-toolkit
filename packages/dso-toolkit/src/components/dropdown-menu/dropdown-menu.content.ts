@@ -1,7 +1,10 @@
+import { v4 as uuidv4 } from "uuid";
+
 import { DropdownMenuGroup } from "./dropdown-menu.models.js";
 
 export const versions: DropdownMenuGroup[] = [
   {
+    id: uuidv4(),
     header: "Versies",
     items: [
       { type: "anchor", url: "#", label: "10.6.0" },
@@ -13,6 +16,7 @@ export const versions: DropdownMenuGroup[] = [
     items: [{ type: "anchor", url: "#", label: "master" }],
   },
   {
+    id: uuidv4(),
     header: "Branch releases",
     items: [
       { type: "anchor", url: "#", label: "#500-Margins-Testbuilds" },

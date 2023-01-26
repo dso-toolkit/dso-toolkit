@@ -12,6 +12,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Accordion: status danger is deprecated. Gebruik voortaan status warning of status error ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
 * HTML/CSS component "header" verwijderen; De legacy styling die in legacy-header.scss zat is verwijderd. We raden aan om over te stappen naar het nieuwe webcomponent ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
 
+### Fixed
+* html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
+
 ## 50.0.1
 
 ### Fixed
@@ -50,6 +53,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * `dso-icons.svg` resolved niet in Storybook ([#1944](https://github.com/dso-toolkit/dso-toolkit/issues/1944)).
 * Ozon Content maakt per ongeluk gebruik van React JSX ([#1948](https://github.com/dso-toolkit/dso-toolkit/issues/1948)).
 * Niet op #id stijlen in template voorschriften ([#1839](https://github.com/dso-toolkit/dso-toolkit/issues/1839))
+
+### Changed
+* html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
 
 ## 49.0.2
 

@@ -21,25 +21,27 @@ export const cssDropdownMenu: ComponentImplementation<DropdownMenu> = {
           <div class="dso-dropdown-options" role="menu" aria-labelledby=${id}>
             ${groups.map(
               (group) => html`
-                ${group.header ? html`<h2 class="dso-group-label">${group.header}</h2>` : nothing}
-                <ul role="none">
+                <ul role="group" aria-labelledby=${group.id}>
+                  ${group.header
+                    ? html`<li id=${group.id} class="dso-group-label" role="none">${group.header}</li>`
+                    : nothing}
                   ${group.items.map(
                     (item) => html`
                       <li role="none" class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
                         ${item.type === "anchor"
                           ? html`
                               <a
-                                role="menuitemradio"
+                                role=${isCheckable ? "menuitemradio" : "menuitem"}
                                 href=${item.url}
-                                aria-checked=${ifDefined(item.checked || undefined)}
+                                aria-checked=${ifDefined(isCheckable ? item.checked || false : undefined)}
                                 >${item.label}</a
                               >
                             `
                           : html`
                               <button
-                                role="menuitem"
+                                role=${isCheckable ? "menuitemradio" : "menuitem"}
                                 type="button"
-                                aria-checked=${ifDefined(item.checked || undefined)}
+                                aria-checked=${ifDefined(isCheckable ? item.checked || false : undefined)}
                               >
                                 ${item.label}
                               </button>

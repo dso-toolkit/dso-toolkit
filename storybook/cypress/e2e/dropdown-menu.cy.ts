@@ -49,7 +49,9 @@ describe("Dropdown menu - anchors", () => {
 
     cy.get(".dso-checked a").should("have.attr", "aria-checked", "true");
 
-    cy.get(".dso-dropdown-options ul, .dso-dropdown-options li").should("have.attr", "role", "none");
+    cy.get(".dso-dropdown-options ul").should("have.attr", "role", "group");
+    cy.get(".dso-dropdown-options li.dso-group-label").should("have.attr", "role", "none");
+    cy.get(".dso-dropdown-options li:not(.dso-group-label)").should("have.attr", "role", "none");
 
     cy.get("@menuitems").should("have.attr", "role", "menuitemradio");
   });
@@ -224,7 +226,8 @@ describe("Dropdown menu - buttons", () => {
         cy.get("@options").should("have.attr", "role", "menu").should("have.attr", "aria-labelledby", id);
       });
 
-    cy.get(".dso-dropdown-options ul, .dso-dropdown-options li").should("have.attr", "role", "none");
+    cy.get(".dso-dropdown-options ul").should("have.attr", "role", "group");
+    cy.get(".dso-dropdown-options li:not(.dso-group-label)").should("have.attr", "role", "none");
 
     cy.get("@menuitems").should("have.attr", "role", "menuitem");
   });

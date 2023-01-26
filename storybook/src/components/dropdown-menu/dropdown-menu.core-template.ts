@@ -14,8 +14,8 @@ export const coreDropdownMenu: ComponentImplementation<DropdownMenu> = {
           <div class="dso-dropdown-options">
             ${groups.map(
               (group) => html`
-                ${group.header ? html`<h2 class="dso-group-label">${group.header}</h2>` : nothing}
-                <ul>
+                <ul aria-labelledby=${group.id}>
+                  ${group.header ? html`<li id=${group.id} class="dso-group-label">${group.header}</li>` : nothing}
                   ${group.items.map(
                     (item) => html`
                       <li class=${ifDefined(item.checked ? "dso-checked" : undefined)}>
