@@ -38,6 +38,11 @@ describe("Modal", () => {
       .should("have.focus")
       .realPress("Tab")
       .get("dso-modal")
+      .shadow()
+      .find(".dso-body")
+      .should("have.focus")
+      .realPress("Tab")
+      .get("dso-modal")
       .find('div[slot="body"] > p > a')
       .should("have.focus")
       .realPress("Tab")
@@ -107,5 +112,23 @@ describe("Modal", () => {
     cy.get("dso-modal").invoke("remove").should("not.exist");
 
     cy.get("@close").should("not.have.been.called");
+  });
+
+  it("should have keyboard accessible body container", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-modal--passive");
+
+    cy.get("dso-modal").shadow().find(".dso-body").as("modalBody");
+
+    cy.get("dso-modal").shadow().find(".dso-close").should("have.focus");
+    cy.get("@modalBody").should("have.attr", "tabindex", 0);
+    cy.get("@modalBody").invoke("scrollTop").should("eq", 0);
+
+    cy.realPress("Tab");
+
+    cy.get("@modalBody").should("have.focus");
+
+    cy.realPress("{downarrow}");
+
+    cy.get("@modalBody").invoke("scrollTop").should("be.greaterThan", 0);
   });
 });
