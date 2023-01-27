@@ -98,4 +98,14 @@ describe("Modal", () => {
       .get("@dsoCloseListener")
       .should("have.been.calledOnce");
   });
+
+  it("should not emit dsoClose upon disconnecting", () => {
+    cy.get("dso-modal").should("have.class", "hydrated").shadow().find(".dso-body").should("exist");
+
+    cy.get("dso-modal").then(($dsoModal) => $dsoModal[0].addEventListener("dsoClose", cy.stub().as("close")));
+
+    cy.get("dso-modal").invoke("remove").should("not.exist");
+
+    cy.get("@close").should("not.have.been.called");
+  });
 });

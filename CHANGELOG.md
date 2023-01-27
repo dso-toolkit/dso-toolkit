@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 50.0.1
+
+### Fixed
+* Modal emit dsoClose event bij disconnectCallback ([#1993](https://github.com/dso-toolkit/dso-toolkit/issues/1993))
+
 ## 50.0.0
 
 ### Deprecated

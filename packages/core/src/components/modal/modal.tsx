@@ -54,7 +54,7 @@ export class Modal implements ComponentInterface {
   }
 
   disconnectedCallback(): void {
-    this.trap?.deactivate();
+    this.trap?.deactivate({ onDeactivate: () => undefined }); // override FocusTrap onDeactivate callback to avoid double event emits
   }
 
   render() {
