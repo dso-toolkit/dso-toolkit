@@ -14,12 +14,23 @@
 
 ## Events
 
-| Event              | Description                                                                                                                                                                                                                                                                                                                                   | Type                                       |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `dsoToggleSection` | Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion. | `CustomEvent<AccordionSectionToggleEvent>` |
+| Event                          | Description                                                                                                                                                                                                                                                                                                                                   | Type                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| `dsoToggleSection`             | Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion. | `CustomEvent<AccordionSectionToggleEvent>`             |
+| `dsoToggleSectionAnimationEnd` | Event emitted when the accordion section completes its toggle animation.                                                                                                                                                                                                                                                                      | `CustomEvent<AccordionSectionToggleAnimationEndEvent>` |
 
 
 ## Methods
+
+### `animationEnd(sectionElement: HTMLElement) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 ### `closeOpenSections() => Promise<void>`
 

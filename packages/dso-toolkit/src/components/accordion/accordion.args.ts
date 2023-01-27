@@ -8,6 +8,7 @@ export interface AccordionArgs {
   reverseAlign: boolean;
   allowMultipleOpen: boolean;
   dsoToggleSection: HandlerFunction;
+  dsoToggleSectionAnimationEnd: HandlerFunction;
   open: boolean;
   status: string;
   state: AccordionSectionState;
@@ -41,6 +42,10 @@ export const accordionArgTypes: ArgTypes<AccordionArgs> = {
   dsoToggleSection: {
     ...noControl,
     action: "dsoToggleSection",
+  },
+  dsoToggleSectionAnimationEnd: {
+    ...noControl,
+    action: "dsoToggleSectionAnimationEnd",
   },
   /* Section args */
   open: {
@@ -108,7 +113,8 @@ export function accordionArgsMapper<TemplateFnReturnType>(
     variant: a.variant,
     reverseAlign: a.reverseAlign,
     allowMultipleOpen: a.allowMultipleOpen,
-    dsoToggleSection: a.dsoToggleSection,
+    dsoToggleSection: (e) => a.dsoToggleSection(e.detail),
+    dsoToggleSectionAnimationEnd: (e) => a.dsoToggleSectionAnimationEnd(e.detail),
     sections,
   };
 }

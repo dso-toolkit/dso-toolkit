@@ -9,3 +9,7 @@ export const stateMap: Record<AccordionSectionState, string> = {
   danger: "fout:",
   error: "fout:",
 };
+
+export interface AccordionSectionToggleEndEvent {
+  open: boolean;
+}

@@ -14,6 +14,7 @@ import {
 import {
   AccordionInterface,
   AccordionInternalState,
+  AccordionSectionToggleAnimationEndEvent,
   AccordionSectionToggleEvent,
   AccordionVariant,
 } from "./accordion.interfaces";
@@ -52,6 +53,12 @@ export class Accordion implements ComponentInterface, AccordionInterface {
   @Event()
   dsoToggleSection!: EventEmitter<AccordionSectionToggleEvent>;
 
+  /**
+   * Event emitted when the accordion section completes its toggle animation.
+   */
+  @Event()
+  dsoToggleSectionAnimationEnd!: EventEmitter<AccordionSectionToggleAnimationEndEvent>;
+
   @Watch("variant")
   updateVariant(variant: AccordionVariant = "default") {
     this.accordionState.variant = variant || "default";
@@ -65,10 +72,7 @@ export class Accordion implements ComponentInterface, AccordionInterface {
   @Watch("allowMultipleOpen")
   updateAllowMultipleOpen(allowMultipleOpen: boolean) {
     this.accordionState.allowMultipleOpen = allowMultipleOpen;
-  }
 
-  @Watch("allowMultipleOpen")
-  watchAllowMultiple(allowMultipleOpen: boolean) {
     if (!allowMultipleOpen) {
       const openSections = Array.from(this.host.querySelectorAll<HTMLElement>(":scope > dso-accordion-section[open]"));
 
@@ -121,6 +125,16 @@ export class Accordion implements ComponentInterface, AccordionInterface {
     this.emitToggleEvent(sectionElement, sections, event);
 
     return true;
+  }
+
+  @Method()
+  async animationEnd(sectionElement: HTMLElement): Promise<void> {
+    this.dsoToggleSectionAnimationEnd.emit({
+      section: {
+        element: sectionElement,
+        open: this.isSectionOpen(sectionElement),
+      },
+    });
   }
 
   /** Closes all sections belonging to this accordion. */

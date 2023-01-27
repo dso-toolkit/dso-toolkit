@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Accordion: status error toegevoegd ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
+* Accordion: `dsoToggleSectionAnimationEnd` Event ([#1966](https://github.com/dso-toolkit/dso-toolkit/issues/1966))
 
 ### Deprecated
 * Accordion: status danger is deprecated. Gebruik voortaan status warning of status error ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))

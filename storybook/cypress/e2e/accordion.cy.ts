@@ -4,6 +4,7 @@ describe("Accordion", () => {
       .get("dso-accordion")
       .then(($accordion) => {
         $accordion.on("dsoToggleSection", cy.stub().as("dsoToggleSectionListener"));
+        $accordion.on("dsoToggleSectionAnimationEnd", cy.stub().as("dsoToggleSectionAnimationEndListener"));
       });
   });
 
@@ -369,5 +370,22 @@ describe("Accordion", () => {
       .window()
       .its("scrollY")
       .should("equal", 0);
+  });
+
+  it("emit dsoToggleSectionEnd event for all toggle animations end", () => {
+    cy.get("dso-accordion")
+      .wait(1000)
+      .find("dso-accordion-section")
+      .first()
+      .shadow()
+      .find(".dso-section-handle")
+      .realClick()
+      .wait(1000)
+      .get("@dsoToggleSectionAnimationEndListener")
+      .should("have.been.calledTwice")
+      .invoke("getCalls")
+      .invoke("at", -1)
+      .its("args.0.detail.section.open")
+      .should("equal", true);
   });
 });

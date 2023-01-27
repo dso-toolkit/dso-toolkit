@@ -8,32 +8,51 @@ export const angularAccordion: ComponentImplementation<Accordion<StoryFnAngularR
   implementation: "angular",
   template: () =>
     function accordionTemplate(props) {
+      const customProps = {
+        ...props,
+        toggleSection: (event: CustomEvent) => {
+          /* eslint-disable @typescript-eslint/no-explicit-any */
+          event.detail.section.element = "elementRef" as any;
+          event.detail.sections = ["elementRef"] as any;
+          /* eslint-enable @typescript-eslint/no-explicit-any */
+
+          props.dsoToggleSection?.(event);
+        },
+        toggleSectionAnimationEnd: (event: CustomEvent) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          event.detail.section.element = "elementRef" as any;
+
+          props.dsoToggleSectionAnimationEnd?.(event);
+        },
+      };
+
       return {
-        props,
+        props: customProps,
         template: `
           <dso-accordion
             [variant]="variant"
             [reverseAlign]="reverseAlign"
             [allowMultipleOpen]="allowMultipleOpen"
-            (dsoToggleSection)="dsoToggleSection()"
+            (dsoToggleSection)="toggleSection($event)"
+            (dsoToggleSectionAnimationEnd)="toggleSectionAnimationEnd($event)"
           >
             ${props.sections
               .map(
                 (s, i) => `
-              <dso-accordion-section
-                *ngIf="sections[${i}] as section"
-                [open]="section.open"
-                [handleTitle]="section.handleTitle"
-                [heading]="section.heading"
-                [handleUrl]="section.handleUrl"
-                [state]="section.state"
-                [status]="section.status"
-                [icon]="section.icon"
-                [attachmentCount]="section.attachmentCount"
-              >
-                ${s.content?.template}
-              </dso-accordion-section>
-            `
+                  <dso-accordion-section
+                    *ngIf="sections[${i}] as section"
+                    [open]="section.open"
+                    [handleTitle]="section.handleTitle"
+                    [heading]="section.heading"
+                    [handleUrl]="section.handleUrl"
+                    [state]="section.state"
+                    [status]="section.status"
+                    [icon]="section.icon"
+                    [attachmentCount]="section.attachmentCount"
+                  >
+                    ${s.content?.template}
+                  </dso-accordion-section>
+                `
               )
               .join("")}
           </dso-accordion>

@@ -51,18 +51,23 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       "allowMultipleOpen",
       templateMapper<AccordionArgs>((args, { accordionTemplate, allowMultipleOpenSections }) =>
         accordionTemplate(accordionArgsMapper(args, allowMultipleOpenSections))
-      )
+      ),
+      {
+        args: {
+          allowMultipleOpen: true,
+        },
+      }
     );
 
     stories.add(
-      "allowMultipleOpen",
+      "addonsSections",
       templateMapper<AccordionArgs>((args, { accordionTemplate, addonsSections }) =>
         accordionTemplate(accordionArgsMapper(args, addonsSections))
       )
     );
 
     stories.add(
-      "allowMultipleOpen",
+      "alignmentSections",
       templateMapper<AccordionArgs>((args, { accordionTemplate, alignmentSections }) =>
         accordionTemplate(accordionArgsMapper(args, alignmentSections))
       )

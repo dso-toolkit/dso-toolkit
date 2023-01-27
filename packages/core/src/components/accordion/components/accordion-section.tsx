@@ -2,16 +2,15 @@ import {
   h,
   Component,
   ComponentInterface,
-  Host,
   Element,
-  State,
-  Prop,
-  Fragment,
-  Method,
   forceUpdate,
+  Fragment,
+  Host,
+  Method,
+  Prop,
+  State,
   Watch,
 } from "@stencil/core";
-
 import anime from "animejs";
 import debounce from "debounce";
 
@@ -265,6 +264,8 @@ export class AccordionSection implements ComponentInterface {
       autoplay: false,
       direction: "normal",
       changeComplete: async () => {
+        this.accordion?.animationEnd(this.host);
+
         if (AccordionSection.scrollCandidate === this.host) {
           AccordionSection.scrollCandidate = undefined;
           await this.scrollSectionIntoView();

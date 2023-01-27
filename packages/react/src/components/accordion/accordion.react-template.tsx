@@ -1,3 +1,7 @@
+import {
+  AccordionSectionToggleAnimationEndEvent,
+  AccordionSectionToggleEvent,
+} from "@dso-toolkit/core/dist/types/components/accordion/accordion.interfaces";
 import { Accordion } from "dso-toolkit";
 
 import * as React from "react";
@@ -9,13 +13,33 @@ export const reactAccordion: ComponentImplementation<Accordion<JSX.Element>> = {
   component: "accordion",
   implementation: "react",
   template: () =>
-    function accordionTemplate({ variant, reverseAlign, allowMultipleOpen, dsoToggleSection, sections }) {
+    function accordionTemplate({
+      variant,
+      reverseAlign,
+      allowMultipleOpen,
+      dsoToggleSection,
+      dsoToggleSectionAnimationEnd,
+      sections,
+    }) {
       return (
         <DsoAccordion
           variant={variant}
           reverseAlign={reverseAlign}
           allowMultipleOpen={allowMultipleOpen}
-          onDsoToggleSection={dsoToggleSection}
+          onDsoToggleSection={(e: CustomEvent<AccordionSectionToggleEvent>) => {
+            /* eslint-disable @typescript-eslint/no-explicit-any */
+            e.detail.section.element = "elementRef" as any;
+            e.detail.sections = ["elementRef"] as any;
+            /* eslint-enable @typescript-eslint/no-explicit-any */
+
+            dsoToggleSection?.(e);
+          }}
+          onDsoToggleSectionAnimationEnd={(e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            e.detail.section.element = "elementRef" as any;
+
+            dsoToggleSectionAnimationEnd?.(e);
+          }}
         >
           {sections.map((section, i) => (
             <DsoAccordionSection

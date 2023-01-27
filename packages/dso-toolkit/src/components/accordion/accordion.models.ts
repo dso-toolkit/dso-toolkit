@@ -11,6 +11,7 @@ export interface Accordion<TemplateFnReturnType> {
   reverseAlign?: boolean;
   allowMultipleOpen?: boolean;
   dsoToggleSection?: (e: CustomEvent<AccordionSectionToggleEvent>) => void;
+  dsoToggleSectionAnimationEnd?: (e: CustomEvent<AccordionSectionToggleAnimationEndEvent>) => void;
   sections: AccordionSection<TemplateFnReturnType>[];
 }
 
@@ -34,4 +35,11 @@ export interface AccordionSectionToggleEvent {
     open: boolean;
   };
   sections: HTMLElement[];
+}
+
+export interface AccordionSectionToggleAnimationEndEvent {
+  section: {
+    element: HTMLElement;
+    open: boolean;
+  };
 }

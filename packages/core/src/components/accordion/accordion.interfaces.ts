@@ -13,6 +13,7 @@ export interface AccordionInterface {
    * returns `true` when the section is opened and `false` when the section is closed.
    */
   toggleSection(sectionElement: HTMLElement | number, event?: MouseEvent): Promise<undefined | boolean>;
+  animationEnd(sectionElement: HTMLElement): Promise<void>;
 }
 
 export interface AccordionSectionToggleEvent {
@@ -23,4 +24,11 @@ export interface AccordionSectionToggleEvent {
     open: boolean;
   };
   sections: HTMLElement[];
+}
+
+export interface AccordionSectionToggleAnimationEndEvent {
+  section: {
+    element: HTMLElement;
+    open: boolean;
+  };
 }
