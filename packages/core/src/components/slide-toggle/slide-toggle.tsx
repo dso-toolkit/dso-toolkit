@@ -11,6 +11,8 @@ export class SlideToggle implements ComponentInterface {
 
   @Prop() disabled = false;
 
+  @Prop() identifier = "";
+
   @Event()
   dsoActiveChange!: EventEmitter<SlideToggleActiveEvent>;
 
@@ -26,7 +28,7 @@ export class SlideToggle implements ComponentInterface {
       <>
         <button
           aria-checked={"" + this.checked}
-          aria-labeledby="slide-label"
+          aria-labelledby={this.identifier}
           class="dso-slider"
           id="slide-toggle"
           role="switch"
@@ -40,9 +42,6 @@ export class SlideToggle implements ComponentInterface {
             </g>
           </svg>
         </button>
-        <label class="dso-switch" htmlFor="slide-toggle" id="slide-label">
-          <slot></slot>
-        </label>
       </>
     );
   }

@@ -8,11 +8,12 @@ export const coreSlideToggle: ComponentImplementation<SlideToggle> = {
   component: "slideToggle",
   implementation: "core",
   template: () =>
-    function slideToggleTemplate({ checked, disabled, dsoActiveChange }) {
+    function slideToggleTemplate({ checked, disabled, identifier, dsoActiveChange }) {
       return html`
         <dso-slide-toggle
           checked=${ifDefined(checked)}
           disabled=${ifDefined(disabled)}
+          identifier=${identifier}
           @dsoActiveChange=${dsoActiveChange}
         >
         </dso-slide-toggle>

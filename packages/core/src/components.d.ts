@@ -345,6 +345,7 @@ export namespace Components {
     interface DsoSlideToggle {
         "checked": boolean;
         "disabled": boolean;
+        "identifier": string;
     }
     interface DsoTable {
         /**
@@ -1109,6 +1110,7 @@ declare namespace LocalJSX {
     interface DsoSlideToggle {
         "checked"?: boolean;
         "disabled"?: boolean;
+        "identifier"?: string;
         "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
     }
     interface DsoTable {

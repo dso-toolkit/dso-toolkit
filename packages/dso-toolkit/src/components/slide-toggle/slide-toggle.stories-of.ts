@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 import { SlideToggleArgs, slideToggleArgsMapper, slideToggleArgTypes } from "./slide-toggle.args.js";
 import { SlideToggle } from "./slide-toggle.models.js";
@@ -20,6 +21,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
       args: {
         checked: false,
         disabled: false,
+        identifier: uuidv4(),
       },
     });
 

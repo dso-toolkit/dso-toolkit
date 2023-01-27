@@ -5,6 +5,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 export interface SlideToggleArgs {
   checked: boolean;
   disabled: boolean;
+  identifier: string;
   dsoActiveChange: HandlerFunction;
 }
 
@@ -17,6 +18,11 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
   disabled: {
     control: {
       type: "boolean",
+    },
+  },
+  identifier: {
+    control: {
+      type: "text",
     },
   },
   dsoActiveChange: {

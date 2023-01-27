@@ -12,6 +12,7 @@ export const angularSlideToggle: ComponentImplementation<SlideToggle> = {
           <dso-slide-toggle
             [checked]="checked"
             [disabled]="disabled"
+            [identifier]="identifier"
             (dsoActiveChange)="dsoActiveChange()"
           ></dso-slide-toggle>
         `,
