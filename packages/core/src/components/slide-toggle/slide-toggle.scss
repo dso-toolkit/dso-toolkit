@@ -59,7 +59,7 @@ button.dso-slider {
 
 .dso-slider {
   border-radius: units.$u3;
-  display: flex;
+  display: inline-flex;
 
   &:hover {
     cursor: pointer;

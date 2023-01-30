@@ -8,7 +8,14 @@ export const reactSlideToggle: ComponentImplementation<SlideToggle> = {
   component: "slideToggle",
   implementation: "react",
   template: () =>
-    function slideToggleTemplate({ checked, disabled, identifier }) {
-      return <DsoSlideToggle checked={checked} disabled={disabled} identifier={identifier}></DsoSlideToggle>;
+    function slideToggleTemplate({ checked, disabled, identifier, arialabelledbyid }) {
+      return (
+        <DsoSlideToggle
+          checked={checked}
+          disabled={disabled}
+          identifier={identifier}
+          arialabelledbyid={arialabelledbyid}
+        ></DsoSlideToggle>
+      );
     },
 };

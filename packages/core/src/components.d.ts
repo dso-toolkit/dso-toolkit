@@ -343,6 +343,7 @@ export namespace Components {
         "value": string;
     }
     interface DsoSlideToggle {
+        "arialabelledbyid": string;
         "checked": boolean;
         "disabled": boolean;
         "identifier": string;
@@ -1108,6 +1109,7 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface DsoSlideToggle {
+        "arialabelledbyid"?: string;
         "checked"?: boolean;
         "disabled"?: boolean;
         "identifier"?: string;

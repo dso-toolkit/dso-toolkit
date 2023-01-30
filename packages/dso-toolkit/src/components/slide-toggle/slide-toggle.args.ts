@@ -6,6 +6,7 @@ export interface SlideToggleArgs {
   checked: boolean;
   disabled: boolean;
   identifier: string;
+  arialabelledbyid: string;
   dsoActiveChange: HandlerFunction;
 }
 
@@ -21,6 +22,11 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
     },
   },
   identifier: {
+    control: {
+      type: "text",
+    },
+  },
+  arialabelledbyid: {
     control: {
       type: "text",
     },

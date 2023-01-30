@@ -22,6 +22,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
         checked: false,
         disabled: false,
         identifier: uuidv4(),
+        arialabelledbyid: uuidv4(),
       },
     });
 

@@ -3,6 +3,7 @@ export interface SlideToggle {
   checked?: boolean;
   disabled?: boolean;
   identifier: string;
+  arialabelledbyid: string;
 }
 
 export interface SlideToggleChangeEvent {

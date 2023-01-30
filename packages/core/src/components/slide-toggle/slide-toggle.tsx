@@ -4,7 +4,7 @@ import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";
 @Component({
   tag: "dso-slide-toggle",
   styleUrl: "slide-toggle.scss",
-  shadow: true,
+  shadow: false,
 })
 export class SlideToggle implements ComponentInterface {
   @Prop() checked = false;
@@ -12,6 +12,8 @@ export class SlideToggle implements ComponentInterface {
   @Prop() disabled = false;
 
   @Prop() identifier = "";
+
+  @Prop() arialabelledbyid = "";
 
   @Event()
   dsoActiveChange!: EventEmitter<SlideToggleActiveEvent>;
@@ -28,9 +30,9 @@ export class SlideToggle implements ComponentInterface {
       <>
         <button
           aria-checked={"" + this.checked}
-          aria-labelledby={this.identifier}
+          aria-labelledby={this.arialabelledbyid}
           class="dso-slider"
-          id="slide-toggle"
+          id={this.identifier}
           role="switch"
           disabled={this.disabled}
           onClick={(e) => this.handleSwitch(e)}
