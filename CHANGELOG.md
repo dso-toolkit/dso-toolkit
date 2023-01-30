@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
+* Storybook rolt niet uit ([#1977](https://github.com/dso-toolkit/dso-toolkit/issues/1977))
 
 ## 50.0.1
 
