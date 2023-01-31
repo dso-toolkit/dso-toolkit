@@ -18,6 +18,8 @@ describe("Accordion", () => {
       .wait(200);
   };
 
+  const animationTime = 260;
+
   it("should open and close a section by clicking the handle", () => {
     cy.percySnapshot();
 
@@ -372,20 +374,26 @@ describe("Accordion", () => {
       .should("equal", 0);
   });
 
-  it("emit dsoToggleSectionEnd event for all toggle animations end", () => {
+  it("should emit dsoToggleSectionEnd event for all toggle animations end", () => {
     cy.get("dso-accordion")
-      .wait(1000)
+      .wait(500)
       .find("dso-accordion-section")
       .first()
       .shadow()
+      .as("dsoFirstSection")
       .find(".dso-section-handle")
       .realClick()
-      .wait(1000)
+      .wait(animationTime)
       .get("@dsoToggleSectionAnimationEndListener")
       .should("have.been.calledTwice")
+      .get("@dsoFirstSection")
+      .find(".dso-section-handle")
+      .realClick()
+      .get("@dsoToggleSectionAnimationEndListener")
+      .should("have.been.calledThrice")
       .invoke("getCalls")
       .invoke("at", -1)
       .its("args.0.detail.section.open")
-      .should("equal", true);
+      .should("equal", false);
   });
 });
