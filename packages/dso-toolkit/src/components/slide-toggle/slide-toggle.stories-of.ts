@@ -1,6 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
-import { SlideToggleArgs, slideToggleArgsMapper, slideToggleArgTypes } from "./slide-toggle.args.js";
+import {
+  SlideToggleArgs,
+  slideToggleArgsMapper,
+  slideToggleArgTypes,
+  slideToggleDefaultArgs,
+} from "./slide-toggle.args.js";
 import { SlideToggle } from "./slide-toggle.models.js";
 
 export interface SlideToggleTemplates<TemplateFnReturnType> {
@@ -26,31 +31,31 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
     );
 
     stories.add("default", template, {
-      args: {
+      args: slideToggleDefaultArgs({
         checked: false,
         accessibleLabel: "sr-only label van het schuifje",
-      },
+      }),
     });
 
     stories.add("disabled", template, {
-      args: {
+      args: slideToggleDefaultArgs({
         checked: false,
         disabled: true,
-      },
+      }),
     });
 
     stories.add("zichtbaar label", template, {
-      args: {
+      args: slideToggleDefaultArgs({
         checked: false,
         label: "Schuifje",
-      },
+      }),
     });
 
     stories.add("labelledbyId", template, {
-      args: {
+      args: slideToggleDefaultArgs({
         checked: false,
         labelledbyId: uuidv4(),
-      },
+      }),
     });
 
     return stories;

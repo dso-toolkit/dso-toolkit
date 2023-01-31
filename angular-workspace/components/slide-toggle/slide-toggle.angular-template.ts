@@ -9,13 +9,16 @@ export const angularSlideToggle: ComponentImplementation<SlideToggle> = {
       return {
         props,
         template: `
-          <dso-slide-toggle
-            [checked]="checked"
-            [disabled]="disabled"
-            [identifier]="identifier"
-            [arialabelledbyid]="arialabelledbyid"
-            (dsoActiveChange)="dsoActiveChange()"
-          ></dso-slide-toggle>
+        <div *ngIf="labelledbyId"><span [id]="labelledbyId">Label elders op de pagina</span></div>
+        <dso-slide-toggle
+          [checked]="checked"
+          [disabled]="disabled"
+          [accessibleLabel]=accessibleLabel
+          [labelledbyId]="labelledbyId"
+          (dsoActiveChange)="dsoActiveChange()"
+        >
+          <span *ngIf="label">{{ label }}</span>
+        </dso-slide-toggle>
         `,
       };
     },
