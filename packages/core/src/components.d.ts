@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { AccordionInternalState, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
+import { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
@@ -30,6 +30,7 @@ export namespace Components {
           * Allows multiple sections to be open at the same time.
          */
         "allowMultipleOpen": boolean;
+        "animationEnd": (sectionElement: HTMLElement) => Promise<void>;
         /**
           * Closes all sections belonging to this accordion.
          */
@@ -750,6 +751,10 @@ declare namespace LocalJSX {
           * Emitted when a section is toggled.  `event.detail.originalEvent` contains the original `MouseEvent` when the section is toggled by clicking on the header `event.detail.section` contains the toggled section and its new opened value.\ `event.detail.sections` contains all `<dso-accordion-section>` elements belonging to this accordion.
          */
         "onDsoToggleSection"?: (event: DsoAccordionCustomEvent<AccordionSectionToggleEvent>) => void;
+        /**
+          * Event emitted when the accordion section completes its toggle animation.
+         */
+        "onDsoToggleSectionAnimationEnd"?: (event: DsoAccordionCustomEvent<AccordionSectionToggleAnimationEndEvent>) => void;
         /**
           * Places the chevron at the opposite side. Note: this mode does not display `state`, `attachmentCount` or `status` props on child `<dso-accordion-section>` elements
          */
