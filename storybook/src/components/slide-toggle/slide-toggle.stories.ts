@@ -6,19 +6,6 @@ import { templateContainer } from "../../templates";
 
 storiesOfSlideToggle({
   parameters: {
-    module,
-    storiesOf,
-    readme: coreReadme,
-    root: StoryRoot.Core,
-  },
-  templateContainer,
-  storyTemplates: ({ slideToggleTemplate }) => ({
-    slideToggleTemplate,
-  }),
-});
-
-storiesOfSlideToggle({
-  parameters: {
     storiesOf,
     module,
     readme: coreReadme,

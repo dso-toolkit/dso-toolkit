@@ -1,9 +1,10 @@
 export interface SlideToggle {
   dsoActiveChange: (e: CustomEvent<SlideToggleChangeEvent>) => void;
-  checked?: boolean;
+  checked: boolean;
   disabled?: boolean;
-  identifier: string;
-  arialabelledbyid: string;
+  accessibleLabel?: string;
+  labelledbyId?: string;
+  label?: string;
 }
 
 export interface SlideToggleChangeEvent {

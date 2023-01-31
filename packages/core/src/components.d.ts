@@ -343,10 +343,16 @@ export namespace Components {
         "value": string;
     }
     interface DsoSlideToggle {
-        "arialabelledbyid": string;
+        /**
+          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component
+         */
+        "accessibleLabel"?: string;
         "checked": boolean;
         "disabled": boolean;
-        "identifier": string;
+        /**
+          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
+         */
+        "labelledbyId"?: string;
     }
     interface DsoTable {
         /**
@@ -1109,10 +1115,16 @@ declare namespace LocalJSX {
         "value": string;
     }
     interface DsoSlideToggle {
-        "arialabelledbyid"?: string;
+        /**
+          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component
+         */
+        "accessibleLabel"?: string;
         "checked"?: boolean;
         "disabled"?: boolean;
-        "identifier"?: string;
+        /**
+          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
+         */
+        "labelledbyId"?: string;
         "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
     }
     interface DsoTable {

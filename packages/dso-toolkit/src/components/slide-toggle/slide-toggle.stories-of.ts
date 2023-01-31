@@ -18,22 +18,38 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
   return storiesOfFactory("Slide Toggle", storiesOfArguments, (stories, templateMapper) => {
     stories.addParameters({
       argTypes: slideToggleArgTypes,
-      args: {
-        checked: false,
-        disabled: false,
-        identifier: uuidv4(),
-        arialabelledbyid: uuidv4(),
-      },
+      args: {},
     });
 
     const template = templateMapper<SlideToggleArgs>((args, { slideToggleTemplate }) =>
       slideToggleTemplate(slideToggleArgsMapper(args))
     );
 
-    stories.add("Slide Toggle", template, {
+    stories.add("default", template, {
       args: {
         checked: false,
-        disabled: false,
+        accessibleLabel: "sr-only label van het schuifje",
+      },
+    });
+
+    stories.add("disabled", template, {
+      args: {
+        checked: false,
+        disabled: true,
+      },
+    });
+
+    stories.add("zichtbaar label", template, {
+      args: {
+        checked: false,
+        label: "Schuifje",
+      },
+    });
+
+    stories.add("labelledbyId", template, {
+      args: {
+        checked: false,
+        labelledbyId: uuidv4(),
       },
     });
 

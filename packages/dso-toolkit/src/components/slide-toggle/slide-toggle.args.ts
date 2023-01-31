@@ -5,8 +5,9 @@ import { HandlerFunction } from "@storybook/addon-actions";
 export interface SlideToggleArgs {
   checked: boolean;
   disabled: boolean;
-  identifier: string;
-  arialabelledbyid: string;
+  accessibleLabel: string;
+  labelledbyId: string;
+  label: string;
   dsoActiveChange: HandlerFunction;
 }
 
@@ -21,15 +22,19 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
       type: "boolean",
     },
   },
-  identifier: {
+  accessibleLabel: {
     control: {
       type: "text",
     },
   },
-  arialabelledbyid: {
+  labelledbyId: {
     control: {
       type: "text",
     },
+  },
+  // Re-enable when label will officially be part of the component.
+  label: {
+    ...noControl,
   },
   dsoActiveChange: {
     ...noControl,

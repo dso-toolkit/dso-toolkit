@@ -55,3 +55,7 @@
   outline-offset: units.$focus-outline-offset;
   outline: units.$focus-outline-width solid colors.$focus-outline-color;
 }
+
+@mixin transition($property) {
+  transition: $property 260ms cubic-bezier(0.4, 0, 0.2, 1);
+}
