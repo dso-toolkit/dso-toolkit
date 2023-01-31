@@ -8,7 +8,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
   component: "card",
   implementation: "html-css",
-  template: ({ buttonTemplate, iconTemplate, selectableTemplate }) =>
+  template: ({ buttonTemplate, iconTemplate, selectableTemplate, toggletipTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return html`
         <div
@@ -29,7 +29,14 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             html`
               <div class="dso-card-interactions">
                 ${interactions.map(
-                  (interaction) => html`<div class="dso-card-interaction">${buttonTemplate(interaction)}</div>`
+                  (interaction) => html`
+                    <div class="dso-card-interaction">
+                      ${interaction.type === "button" ? buttonTemplate(interaction) : nothing}
+                      ${interaction.type === "toggletip"
+                        ? html`${toggletipTemplate(interaction)} ${interaction.label}`
+                        : nothing}
+                    </div>
+                  `
                 )}
               </div>
             `}

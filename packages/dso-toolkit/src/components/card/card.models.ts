@@ -1,11 +1,11 @@
 import { Selectable } from "../selectable/selectable.models.js";
-import { Button } from "../button/button.models.js";
 
 export interface Card<TemplateFnReturnType> {
   label: string;
   selectable?: Selectable<TemplateFnReturnType>;
   content: TemplateFnReturnType;
-  interactions?: Button[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  interactions?: any[];
   image?: string;
   dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
 }

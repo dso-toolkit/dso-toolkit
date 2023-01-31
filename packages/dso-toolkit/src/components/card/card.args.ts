@@ -1,15 +1,12 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 
 import { ArgTypes, noControl } from "../../storybook/index.js";
-
-import { Button } from "../button/button.models.js";
-
 import { Card } from "./card.models.js";
 
 export interface CardArgs {
   label: string;
   selectable: boolean;
-  interactions: Button[];
+  interactions: unknown[];
   image: string | undefined;
   dsoCardClicked: HandlerFunction;
 }
@@ -51,5 +48,6 @@ export function cardArgsMapper<TemplateFnReturnType>(
         }
       : undefined,
     content,
+    dsoCardClicked: (e) => a.dsoCardClicked(e.detail),
   };
 }

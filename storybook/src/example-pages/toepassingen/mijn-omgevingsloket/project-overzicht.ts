@@ -83,7 +83,7 @@ examplePageFactory(
                   cards: [
                     {
                       label: "Boom kappen in de achtertuin 1",
-                      interactions: [{ label: "Ingediend", variant: "tertiary" }],
+                      interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
                         <dt>Soort verzoek:</dt>
                         <dd>Aanvraag</dd>
@@ -93,7 +93,7 @@ examplePageFactory(
                     },
                     {
                       label: "Boom kappen in de achtertuin 2",
-                      interactions: [{ label: "Ingediend", variant: "tertiary" }],
+                      interactions: [{ type: "button", label: "Ingediend", variant: "tertiary" }],
                       content: html`<dl>
                         <dt>Soort verzoek:</dt>
                         <dd>Aanvraag toestemming gelijkwaardige maatregel</dd>
@@ -103,7 +103,7 @@ examplePageFactory(
                     },
                     {
                       label: "Boom kappen in de achtertuin 3",
-                      interactions: [{ label: "Omgevingsoverleg", variant: "tertiary" }],
+                      interactions: [{ type: "button", label: "Omgevingsoverleg", variant: "tertiary" }],
                       content: html`<dl>
                         <dt>Soort verzoek:</dt>
                         <dd>Melding</dd>

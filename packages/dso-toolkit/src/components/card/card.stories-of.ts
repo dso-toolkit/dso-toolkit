@@ -1,6 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 import { CardArgs, cardArgsMapper, cardArgTypes } from "./card.args.js";
-import { cardContent } from "./card.content.js";
+import { cardContentButton, cardContentToggletip } from "./card.content.js";
 import { Card } from "./card.models.js";
 
 export interface CardTemplates<TemplateFnReturnType> {
@@ -26,21 +26,25 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
     );
 
     stories.add("default", template, {
-      args: cardContent,
+      args: cardContentButton,
     });
 
     stories.add("selectable", template, {
       args: {
-        ...cardContent,
+        ...cardContentButton,
         selectable: true,
       },
     });
 
     stories.add("with image", template, {
       args: {
-        ...cardContent,
+        ...cardContentButton,
         image: "images/rectangle1.png",
       },
+    });
+
+    stories.add("with toggletip", template, {
+      args: cardContentToggletip,
     });
 
     return stories;

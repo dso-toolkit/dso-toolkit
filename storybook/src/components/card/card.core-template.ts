@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
   implementation: "core",
-  template: ({ buttonTemplate, selectableTemplate }) =>
+  template: ({ buttonTemplate, selectableTemplate, toggletipTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }: Card<TemplateResult>) {
       return html`
         <dso-card @dsoCardClicked=${dsoCardClicked}>
@@ -22,7 +22,14 @@ export const coreCard: ComponentImplementation<Card<never>> = {
           interactions.length > 0 &&
           html`<div slot="interactions">
             ${interactions.map(
-              (interaction) => html`<div class="dso-card-interaction">${buttonTemplate(interaction)}</div>`
+              (interaction) => html`
+                <div class="dso-card-interaction">
+                  ${interaction.type === "button" ? buttonTemplate(interaction) : nothing}
+                  ${interaction.type === "toggletip"
+                    ? html`${toggletipTemplate(interaction)} ${interaction.label}`
+                    : nothing}
+                </div>
+              `
             )}
           </div>`}
           <div class="dso-rich-content" slot="content">${content}</div>

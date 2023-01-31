@@ -1,7 +1,8 @@
+import { DsoCardClickedEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
 import { Card } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoCard, DsoSelectable, DsoIcon } from "../../components";
+import { DsoCard, DsoSelectable, DsoIcon, DsoToggletip } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
@@ -10,7 +11,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   template: () =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return (
-        <DsoCard onDsoCardClicked={(e: CustomEvent) => dsoCardClicked?.(e.detail)}>
+        <DsoCard onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
           {selectable && <DsoSelectable {...selectable}>{selectable.label}</DsoSelectable>}
           {image && <img slot="image" src={image} />}
           <a slot="heading" href="#">
@@ -23,26 +24,38 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
             <div slot="interactions" className="dso-card-interactions">
               {interactions.map((interaction, index) => (
                 <div key={index} className="dso-card-interaction">
-                  <button
-                    type={interaction.type}
-                    id={interaction.id}
-                    className="dso-tertiary"
-                    disabled={interaction.disabled}
-                    aria-describedby={interaction.ariaDescribedby}
-                    aria-expanded={interaction.ariaExpanded}
-                    aria-haspopup={interaction.ariaHaspopup}
-                    aria-roledescription={interaction.ariaRoledescription}
-                  >
-                    {interaction.icon && !interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
-                    <span className={interaction.iconMode === "only" ? "sr-only" : undefined}>{interaction.label}</span>
-                    {interaction.icon && interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
-                  </button>
+                  {interaction.type === "button" && (
+                    <button
+                      type={interaction.type}
+                      id={interaction.id}
+                      className="dso-tertiary"
+                      disabled={interaction.disabled}
+                      aria-describedby={interaction.ariaDescribedby}
+                      aria-expanded={interaction.ariaExpanded}
+                      aria-haspopup={interaction.ariaHaspopup}
+                      aria-roledescription={interaction.ariaRoledescription}
+                    >
+                      {interaction.icon && !interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
+                      <span className={interaction.iconMode === "only" ? "sr-only" : undefined}>
+                        {interaction.label}
+                      </span>
+                      {interaction.icon && interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
+                    </button>
+                  )}
+                  {interaction.type === "toggletip" && (
+                    <>
+                      <DsoToggletip label={interaction.label} position={interaction.position} small={interaction.small}>
+                        {interaction.children}
+                      </DsoToggletip>
+                      {interaction.label}
+                    </>
+                  )}
                 </div>
               ))}
             </div>
           )}
           <div slot="content" className="dso-rich-content">
-            <p>{content}</p>
+            {content}
           </div>
         </DsoCard>
       );

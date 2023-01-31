@@ -17,6 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
 * Storybook rolt niet uit ([#1977](https://github.com/dso-toolkit/dso-toolkit/issues/1977))
 * Teveel witruimte tussen legend en alert in een fieldset ([#1982](https://github.com/dso-toolkit/dso-toolkit/issues/1982))
+* Klik op Toggletip in Card afvangen ([#1981](https://github.com/dso-toolkit/dso-toolkit/issues/1981))
 
 ## 50.0.1
 
