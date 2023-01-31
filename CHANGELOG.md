@@ -40,6 +40,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Angular componenten missen Intellisense voor events ([#1961](https://github.com/dso-toolkit/dso-toolkit/issues/1961)).
 * SVG fix voor nieuwe iconen ([#1969](https://github.com/dso-toolkit/dso-toolkit/issues/1969))
 * dso-toolkit.nl: Storybook opent altijd in master ([#1973](https://github.com/dso-toolkit/dso-toolkit/issues/1973))
+* **BREAKING** Modal body niet bereikbaar met toetsenbord bij scrollbaar gebied. ([#1989](https://github.com/dso-toolkit/dso-toolkit/issues/1989))
 
 ### Changed
 * Webcomponent header - verbeteringen ([#1904](https://github.com/dso-toolkit/dso-toolkit/issues/1904)).

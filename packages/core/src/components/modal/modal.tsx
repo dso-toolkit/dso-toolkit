@@ -85,7 +85,7 @@ export class Modal implements ComponentInterface {
               </span>
             )}
 
-            <div class="dso-body">
+            <div class="dso-body" tabIndex={0}>
               <slot name="body"></slot>
             </div>
 

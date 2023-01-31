@@ -37,7 +37,7 @@ export const cssModal: ComponentImplementation<Modal<TemplateResult>> = {
                   </div>
                 `
               : nothing}
-            <div class="dso-body">${body}</div>
+            <div class="dso-body" tabindex="0">${body}</div>
             ${footer && html`<div class="dso-footer">${footer}</div>`}
           </div>
         </div>
