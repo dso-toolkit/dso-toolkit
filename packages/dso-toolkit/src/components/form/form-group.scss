@@ -56,6 +56,10 @@
     margin-bottom: units.$u1;
   }
 
+  legend + .alert {
+    margin-top: 0;
+  }
+
   .dso-label-container + .dso-field-container {
     margin-top: units.$u1;
   }
