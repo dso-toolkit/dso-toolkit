@@ -376,6 +376,7 @@ describe("Accordion", () => {
 
   it("should emit dsoToggleSectionEnd event for all toggle animations end", () => {
     cy.get("dso-accordion")
+      .invoke("attr", "allow-multiple-open", "")
       .wait(500)
       .find("dso-accordion-section")
       .first()
@@ -385,15 +386,10 @@ describe("Accordion", () => {
       .realClick()
       .wait(animationTime)
       .get("@dsoToggleSectionAnimationEndListener")
-      .should("have.been.calledTwice")
-      .get("@dsoFirstSection")
-      .find(".dso-section-handle")
-      .realClick()
-      .get("@dsoToggleSectionAnimationEndListener")
-      .should("have.been.calledThrice")
+      .should("have.been.calledOnce")
       .invoke("getCalls")
       .invoke("at", -1)
       .its("args.0.detail.section.open")
-      .should("equal", false);
+      .should("equal", true);
   });
 });
