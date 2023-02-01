@@ -66,15 +66,15 @@
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-max) {
       box-shadow: inset 0 -1px 0 0 button.$secondary-hover-background-color,
-      inset 0 0 0 0 button.$secondary-hover-background-color,
-      inset -1px 0 0 0 button.$secondary-hover-background-color,
-      inset 1px 0 0 0 button.$secondary-hover-background-color;
+        inset 0 0 0 0 button.$secondary-hover-background-color,
+        inset -1px 0 0 0 button.$secondary-hover-background-color,
+        inset 1px 0 0 0 button.$secondary-hover-background-color;
     }
 
     @media screen and (min-width: media-query-breakpoints.$screen-sm-min) {
       box-shadow: inset 0 -1px 0 0 button.$secondary-hover-background-color,
-      inset 0 1px 0 0 button.$secondary-hover-background-color,
-      inset -1px 0 0 0 button.$secondary-hover-background-color;
+        inset 0 1px 0 0 button.$secondary-hover-background-color,
+        inset -1px 0 0 0 button.$secondary-hover-background-color;
     }
   }
 
@@ -163,11 +163,12 @@
   &.dso-selected {
     border-color: colors.$grasgroen;
     border-width: 1px;
-    box-shadow: inset 0px 0px 0px 1px colors.$grasgroen, inset -2px 0px 0px 0px colors.$grasgroen;
+    box-shadow: inset 0px 0px 0px 1px colors.$grasgroen, inset -1px 0px 0px 0px colors.$grasgroen;
 
     &.dso-single-count {
       border-right: 0;
-      box-shadow: colors.$grasgroen 0px 1px 0px 0px inset, colors.$grasgroen 1px 0px 0px 0px inset, colors.$grasgroen 0px -1px 0px 0px inset;
+      box-shadow: colors.$grasgroen 0px 1px 0px 0px inset, colors.$grasgroen 1px 0px 0px 0px inset,
+        colors.$grasgroen 0px -1px 0px 0px inset;
     }
   }
 
