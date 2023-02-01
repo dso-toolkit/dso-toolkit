@@ -24,6 +24,11 @@
       h6 {
         margin: 0;
       }
+
+      + dso-alert,
+      + .alert {
+        margin-top: 0;
+      }
     }
 
     + fieldset:not(.form-group) {
