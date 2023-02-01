@@ -1,14 +1,14 @@
 import { DsoCardClickedEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
-import { Card } from "dso-toolkit";
+import { Card, isButtonInterface, isToggletipInterface } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoCard, DsoSelectable, DsoIcon, DsoToggletip } from "../../components";
+import { DsoCard, DsoSelectable, DsoIcon } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
-  template: () =>
+  template: ({ toggletipTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return (
         <DsoCard onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
@@ -24,7 +24,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
             <div slot="interactions" className="dso-card-interactions">
               {interactions.map((interaction, index) => (
                 <div key={index} className="dso-card-interaction">
-                  {interaction.type === "button" && (
+                  {isButtonInterface(interaction) && (
                     <button
                       type={interaction.type}
                       id={interaction.id}
@@ -42,14 +42,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
                       {interaction.icon && interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
                     </button>
                   )}
-                  {interaction.type === "toggletip" && (
-                    <>
-                      <DsoToggletip label={interaction.label} position={interaction.position} small={interaction.small}>
-                        {interaction.children}
-                      </DsoToggletip>
-                      {interaction.label}
-                    </>
-                  )}
+                  {isToggletipInterface(interaction) && toggletipTemplate(interaction)}
                 </div>
               ))}
             </div>

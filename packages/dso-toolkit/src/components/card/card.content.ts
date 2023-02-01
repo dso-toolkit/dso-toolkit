@@ -8,7 +8,6 @@ export const cardContentButton = {
   ...cardContent,
   interactions: [
     {
-      type: "button",
       variant: "tertiary",
       label: "Toon informatie",
       icon: {
@@ -22,7 +21,6 @@ export const cardContentToggletip = {
   ...cardContent,
   interactions: [
     {
-      type: "toggletip",
       children: "Extra informatie",
       label: "Toon informatie",
       position: "left",

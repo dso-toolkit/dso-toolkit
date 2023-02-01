@@ -5,3 +5,7 @@ export interface Toggletip<TemplateFnReturnType> {
   label?: string;
   secondary?: boolean;
 }
+
+export function isToggletipInterface<TemplateFnReturnType>(object: unknown): object is Toggletip<TemplateFnReturnType> {
+  return "position" in (object as Toggletip<TemplateFnReturnType>);
+}

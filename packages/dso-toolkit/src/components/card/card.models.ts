@@ -1,11 +1,12 @@
+import { Button } from "../button/button.models.js";
 import { Selectable } from "../selectable/selectable.models.js";
+import { Toggletip } from "../toggletip/toggletip.models.js";
 
 export interface Card<TemplateFnReturnType> {
   label: string;
   selectable?: Selectable<TemplateFnReturnType>;
   content: TemplateFnReturnType;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  interactions?: any[];
+  interactions?: Array<Button | Toggletip<TemplateFnReturnType>>;
   image?: string;
   dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
 }

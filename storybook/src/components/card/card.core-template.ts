@@ -1,4 +1,4 @@
-import { Card } from "dso-toolkit";
+import { Card, isButtonInterface, isToggletipInterface } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 
 import { ComponentImplementation } from "../../templates";
@@ -24,10 +24,8 @@ export const coreCard: ComponentImplementation<Card<never>> = {
             ${interactions.map(
               (interaction) => html`
                 <div class="dso-card-interaction">
-                  ${interaction.type === "button" ? buttonTemplate(interaction) : nothing}
-                  ${interaction.type === "toggletip"
-                    ? html`${toggletipTemplate(interaction)} ${interaction.label}`
-                    : nothing}
+                  ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
+                  ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
                 </div>
               `
             )}
