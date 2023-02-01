@@ -2,9 +2,9 @@ import { moduleMetadata, storiesOf } from "@storybook/angular";
 
 import { storiesOfModal } from "dso-toolkit";
 
-import { SanitizeHtmlPipe } from "../../components/sanitize-html.pipe";
 import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+import { TrustHtmlPipe } from "../trust-html.pipe";
 import {
   activeBody,
   activeFooter,
@@ -30,7 +30,7 @@ storiesOfModal({
       ],
       decorators: [
         moduleMetadata({
-          declarations: [SanitizeHtmlPipe],
+          declarations: [TrustHtmlPipe],
         }),
       ],
     },

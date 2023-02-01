@@ -18,8 +18,8 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [initialFocus]="initialFocus"
             (dsoClose)="dsoClose?.($event)"
           >
-            <div slot="body" [innerHTML]="body.template | sanitizeHtml"></div>
-            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template | sanitizeHtml"></div>
+            <div slot="body" [innerHTML]="body.template | trustHtml"></div>
+            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template | trustHtml"></div>
           </dso-modal>`,
       };
     },

@@ -1,9 +1,10 @@
 import { moduleMetadata, storiesOf } from "@storybook/angular";
-import { SanitizeUrlPipe } from "../../components/sanitize-url.pipe";
 
 import { storiesOfHeader } from "dso-toolkit";
+
 import { DsoHeader } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+import { TrustUrlPipe } from "../trust-url.pipe";
 
 import readme from "./readme.md";
 
@@ -20,7 +21,7 @@ storiesOfHeader({
       ],
       decorators: [
         moduleMetadata({
-          declarations: [SanitizeUrlPipe],
+          declarations: [TrustUrlPipe],
         }),
       ],
     },
