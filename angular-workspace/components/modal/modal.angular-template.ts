@@ -16,10 +16,10 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [modalTitle]="modalTitle"
             [showCloseButton]="showCloseButton"
             [initialFocus]="initialFocus"
-            (dsoClose)="dsoClose()"
+            (dsoClose)="dsoClose?.($event)"
           >
-            <div slot="body" [innerHTML]="body.template"></div>
-            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template"></div>
+            <div slot="body" [innerHTML]="body.template | sanitizeHtml"></div>
+            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template | sanitizeHtml"></div>
           </dso-modal>`,
       };
     },

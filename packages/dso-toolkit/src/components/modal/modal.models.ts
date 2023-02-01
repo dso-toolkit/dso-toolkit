@@ -5,7 +5,11 @@ export interface Modal<TemplateFnReturnType> {
   role?: ModalRole;
   showCloseButton?: boolean;
   initialFocus?: string;
-  dsoClose?: (value: CustomEvent) => void;
+  dsoClose?: (e: CustomEvent<DsoModalCloseEvent>) => void;
 }
 
 export type ModalRole = "alert" | "dialog" | "alertdialog";
+
+export interface DsoModalCloseEvent {
+  originalEvent?: MouseEvent;
+}

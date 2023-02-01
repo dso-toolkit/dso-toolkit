@@ -1,6 +1,8 @@
-import { storiesOf } from "@storybook/angular";
+import { moduleMetadata, storiesOf } from "@storybook/angular";
 
 import { storiesOfModal } from "dso-toolkit";
+
+import { SanitizeHtmlPipe } from "../../components/sanitize-html.pipe";
 import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import {
@@ -25,6 +27,11 @@ storiesOfModal({
         {
           component: DsoModal,
         },
+      ],
+      decorators: [
+        moduleMetadata({
+          declarations: [SanitizeHtmlPipe],
+        }),
       ],
     },
   },

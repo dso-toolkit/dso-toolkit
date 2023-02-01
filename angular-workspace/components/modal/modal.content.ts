@@ -66,7 +66,7 @@ export const confirmBody = {
       kaart. Ook kunt u nog geen aanvraag of melding indienen via dit loket.
     </p>
     <p>
-      De website <a href="#">Aan de slag met de omgevingswet</a>biedt extra uitleg over het Omgevingsloket en de
+      De website <a href="#">Aan de slag met de omgevingswet</a> biedt extra uitleg over het Omgevingsloket en de
       ontwikkeling ervan. Ook vindt u informatie over hoe u kunt oefenen met aansluiten van uw lokale systemen op het
       loket.
     </p>
