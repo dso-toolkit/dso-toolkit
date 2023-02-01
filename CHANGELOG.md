@@ -5,19 +5,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
-### Added
-* Accordion: status error toegevoegd ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
-* Accordion: `dsoToggleSectionAnimationEnd` Event ([#1966](https://github.com/dso-toolkit/dso-toolkit/issues/1966))
+## 51.0.0
+
+### Removed
+* **BREAKING**: HTML/CSS component "header" is verwijderd.  We raden aan om over te stappen naar het nieuwe webcomponent ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
 
 ### Deprecated
 * Accordion: status danger is deprecated. Gebruik voortaan status warning of status error ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
-* HTML/CSS component "header" verwijderen; De legacy styling die in legacy-header.scss zat is verwijderd. We raden aan om over te stappen naar het nieuwe webcomponent ([#1460](https://github.com/dso-toolkit/dso-toolkit/issues/1460))
+
+### Added
+* Accordion: status error toegevoegd ([#1976](https://github.com/dso-toolkit/dso-toolkit/issues/1976))
+* Accordion: `dsoToggleSectionAnimationEnd` Event ([#1966](https://github.com/dso-toolkit/dso-toolkit/issues/1966))
 
 ### Fixed
 * html/css - dropdown menu / anchors: aria correcties in markup ([#1918](https://github.com/dso-toolkit/dso-toolkit/issues/1918))
 * Storybook rolt niet uit ([#1977](https://github.com/dso-toolkit/dso-toolkit/issues/1977))
 * Teveel witruimte tussen legend en alert in een fieldset ([#1982](https://github.com/dso-toolkit/dso-toolkit/issues/1982))
-* Klik op Toggletip in Card afvangen ([#1981](https://github.com/dso-toolkit/dso-toolkit/issues/1981))
+* Klik op Toggletip in Card werkt niet ([#1981](https://github.com/dso-toolkit/dso-toolkit/issues/1981))
 * html/css - list-button heeft verkeerde focus-styling ([#1997](https://github.com/dso-toolkit/dso-toolkit/issues/1997))
 
 ## 50.0.1
