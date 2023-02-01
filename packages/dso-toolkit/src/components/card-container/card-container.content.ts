@@ -9,6 +9,7 @@ export const cardContainerContent = {
       selectable: false,
       interactions: [
         {
+          type: "button",
           variant: "tertiary",
           label: "Toon informatie",
           icon: {

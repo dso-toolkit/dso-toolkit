@@ -35,3 +35,7 @@ export interface ButtonAnchor {
   iconMode?: "only" | "after";
   slot?: string;
 }
+
+export function isButtonInterface(object: unknown): object is Button {
+  return "variant" in (object as Button);
+}

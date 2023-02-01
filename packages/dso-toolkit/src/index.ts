@@ -62,7 +62,7 @@ export { BannerTemplates, storiesOfBanner } from "./components/banner/banner.sto
 export { Breadcrumb, Breadcrumbs } from "./components/breadcrumbs/breadcrumbs.models.js";
 export { BreadcrumbsTemplates, storiesOfBreadcrumbs } from "./components/breadcrumbs/breadcrumbs.stories-of.js";
 
-export { Button, ButtonAnchor } from "./components/button/button.models.js";
+export { Button, ButtonAnchor, isButtonInterface } from "./components/button/button.models.js";
 export { ButtonTemplates, storiesOfButton } from "./components/button/button.stories-of.js";
 
 export { ButtonRow } from "./components/button-row/button-row.models.js";
@@ -289,7 +289,7 @@ export { TileTemplates, storiesOfTile } from "./components/tile/tile.stories-of.
 export { TileGrid } from "./components/tile-grid/tile-grid.models.js";
 export { TileGridTemplates, storiesOfTileGrid } from "./components/tile-grid/tile-grid.stories-of.js";
 
-export { Toggletip } from "./components/toggletip/toggletip.models.js";
+export { Toggletip, isToggletipInterface } from "./components/toggletip/toggletip.models.js";
 export { ToggletipTemplates, storiesOfToggletip } from "./components/toggletip/toggletip.stories-of.js";
 
 export { Tooltip, tooltipPositions, tooltipStrategy } from "./components/tooltip/tooltip.models.js";

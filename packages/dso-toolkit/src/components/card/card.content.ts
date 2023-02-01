@@ -1,7 +1,11 @@
-export const cardContent = {
+const cardContent = {
   label: "Omgevingsplan Nieuwegein",
   selectable: false,
   image: undefined,
+};
+
+export const cardContentButton = {
+  ...cardContent,
   interactions: [
     {
       variant: "tertiary",
@@ -9,6 +13,19 @@ export const cardContent = {
       icon: {
         icon: "info",
       },
+    },
+  ],
+};
+
+export const cardContentToggletip = {
+  ...cardContent,
+  interactions: [
+    {
+      children: "Extra informatie",
+      label: "Toon informatie",
+      position: "left",
+      small: false,
+      secondary: false,
     },
   ],
 };

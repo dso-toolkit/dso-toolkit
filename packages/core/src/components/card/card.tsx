@@ -1,4 +1,6 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop } from "@stencil/core";
+
+import { isInteractiveElement } from "../../utils/is-interactive-element";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
 import { DsoCardClickedEvent } from "./card.interfaces";
@@ -29,12 +31,7 @@ export class Card implements ComponentInterface {
     let element: HTMLElement | null = e.target;
 
     while (element !== this.host && element !== null) {
-      if (
-        element instanceof HTMLButtonElement ||
-        element instanceof HTMLAnchorElement ||
-        element instanceof HTMLInputElement ||
-        element === null
-      ) {
+      if (isInteractiveElement(element) || element === null) {
         return;
       }
 
