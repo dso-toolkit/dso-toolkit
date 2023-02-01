@@ -8,6 +8,7 @@ export interface SlideToggleArgs {
   accessibleLabel: string;
   labelledbyId: string;
   label: string;
+  useOwnLabelId: string;
   dsoActiveChange: HandlerFunction;
 }
 
@@ -23,11 +24,19 @@ export const slideToggleArgTypes: ArgTypes<SlideToggleArgs> = {
     },
   },
   accessibleLabel: {
+    ...noControl,
     control: {
       type: "text",
     },
   },
   labelledbyId: {
+    ...noControl,
+    control: {
+      type: "text",
+    },
+  },
+  useOwnLabelId: {
+    ...noControl,
     control: {
       type: "text",
     },

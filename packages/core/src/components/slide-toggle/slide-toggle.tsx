@@ -5,7 +5,7 @@ import { SlideToggleActiveEvent } from "./slide-toggle.interfaces";
 @Component({
   tag: "dso-slide-toggle",
   styleUrl: "slide-toggle.scss",
-  shadow: true,
+  shadow: false,
 })
 export class SlideToggle implements ComponentInterface {
   @Element()
@@ -28,7 +28,8 @@ export class SlideToggle implements ComponentInterface {
   @State()
   hasVisibleLabel?: boolean;
 
-  @State()
+  /** Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">` */
+  @Prop()
   identifier = v4();
 
   @Event()

@@ -15,12 +15,10 @@ describe("Slide Toggle", () => {
     cy.checkA11y("dso-slide-toggle");
 
     cy.get("dso-slide-toggle")
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "aria-checked", "false")
       .get("dso-slide-toggle")
       .invoke("attr", "checked", true)
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "aria-checked", "true")
       .wait(400);
@@ -29,7 +27,6 @@ describe("Slide Toggle", () => {
 
     cy.get("dso-slide-toggle")
       .invoke("attr", "disabled", true)
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "disabled")
       .wait(400);
@@ -40,7 +37,6 @@ describe("Slide Toggle", () => {
   it("should correctly set aria-label", () => {
     cy.get("dso-slide-toggle")
       .invoke("attr", "accessible-label", "slide label")
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "aria-label", "slide label");
   });
@@ -51,19 +47,16 @@ describe("Slide Toggle", () => {
     cy.get("dso-slide-toggle")
       .invoke("removeAttr", "accessible-label")
       .invoke("attr", "labelledby-id", id)
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "aria-labelledby", id);
   });
 
   it("should emit event when clicked", () => {
     cy.get("dso-slide-toggle")
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "aria-checked", "false")
       .realClick()
       .get("dso-slide-toggle")
-      .shadow()
       .find('button[role="switch"]')
       .should("have.attr", "aria-checked", "true")
       .get("@dsoActiveChangeListener")

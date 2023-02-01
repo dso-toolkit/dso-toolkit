@@ -5,6 +5,7 @@ export interface SlideToggle {
   accessibleLabel?: string;
   labelledbyId?: string;
   label?: string;
+  useOwnLabelId?: string;
 }
 
 export interface SlideToggleChangeEvent {

@@ -350,6 +350,10 @@ export namespace Components {
         "checked": boolean;
         "disabled": boolean;
         /**
+          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`
+         */
+        "identifier": string;
+        /**
           * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
          */
         "labelledbyId"?: string;
@@ -1121,6 +1125,10 @@ declare namespace LocalJSX {
         "accessibleLabel"?: string;
         "checked"?: boolean;
         "disabled"?: boolean;
+        /**
+          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`
+         */
+        "identifier"?: string;
         /**
           * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
          */

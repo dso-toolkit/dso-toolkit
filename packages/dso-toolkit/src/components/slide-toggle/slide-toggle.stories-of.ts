@@ -47,7 +47,7 @@ export function storiesOfSlideToggle<Implementation, Templates, TemplateFnReturn
     stories.add("zichtbaar label", template, {
       args: slideToggleDefaultArgs({
         checked: false,
-        label: "Schuifje",
+        useOwnLabelId: uuidv4(),
       }),
     });
 
