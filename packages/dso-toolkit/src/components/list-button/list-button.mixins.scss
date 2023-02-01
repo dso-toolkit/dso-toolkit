@@ -163,7 +163,12 @@
   &.dso-selected {
     border-color: colors.$grasgroen;
     border-width: 1px;
-    box-shadow: inset 0px 0px 0px 1px colors.$grasgroen;
+    box-shadow: inset 0px 0px 0px 1px colors.$grasgroen, inset -2px 0px 0px 0px colors.$grasgroen;
+
+    &.dso-single-count {
+      border-right: 0;
+      box-shadow: colors.$grasgroen 0px 1px 0px 0px inset, colors.$grasgroen 1px 0px 0px 0px inset, colors.$grasgroen 0px -1px 0px 0px inset;
+    }
   }
 
   > span {
