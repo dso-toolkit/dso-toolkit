@@ -1,4 +1,4 @@
-import { DsoModalCloseEvent } from "@dso-toolkit/core/dist/types/components/modal/modal.interfaces";
+import { DsoModalCloseEvent } from "@dso-toolkit/core";
 import { Modal } from "dso-toolkit";
 import * as React from "react";
 
