@@ -64,8 +64,9 @@
   > *.dso-selected + #{$input-number-selector} {
     @include _state-styling(colors.$wit, button.$secondary-hover-background-color, colors.$grijs-90);
 
-    border-width: 1px;
-    outline: 1px solid button.$secondary-hover-background-color;
+    box-shadow: inset 0px -1px 0px 0px button.$secondary-hover-background-color,
+      inset 0px 1px 0px 0px button.$secondary-hover-background-color,
+      inset -1px 0px 0px 0px button.$secondary-hover-background-color;
   }
 
   > *:active + #{$input-number-selector},
@@ -153,7 +154,7 @@
   &.dso-selected {
     border-color: colors.$grasgroen;
     border-width: 1px;
-    outline: 1px solid colors.$grasgroen;
+    box-shadow: inset 0px 0px 0px 1px colors.$grasgroen;
 
     &.dso-single-count {
       position: relative;

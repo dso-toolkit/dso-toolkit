@@ -14,6 +14,7 @@ export const cssListButton: ComponentImplementation<ListButton> = {
         count,
         disabled,
         hasInputNumber,
+        checked,
         label,
         sublabel,
         subcontent,
@@ -21,7 +22,7 @@ export const cssListButton: ComponentImplementation<ListButton> = {
         return html`
           <button
             type="button"
-            class="dso-list-button ${classMap({ "dso-selected": count > 0 })}"
+            class="dso-list-button ${classMap({ "dso-selected": count > 0 || checked })}"
             ?disabled=${disabled}
           >
             <span>${label}</span>
