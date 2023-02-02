@@ -61,6 +61,7 @@ import {
   SearchBar,
   Selectable,
   ShoppingCart,
+  SlideToggle,
   Tabs,
   TemplateContainer,
   Tile,
@@ -172,6 +173,7 @@ import { coreTable } from "./components/table/table.core-template";
 import { coreResponsiveElement } from "./components/responsive-element/responsive-element.core-template";
 import { coreInfo } from "./components/info/info.core-template";
 import { cssRowEqualHeights } from "./components/row-equal-heights/row-equal-heights.css-template";
+import { coreSlideToggle } from "./components/slide-toggle/slide-toggle.core-template";
 
 export interface Components {
   accordion: Accordion<TemplateResult>;
@@ -238,6 +240,7 @@ export interface Components {
   searchBar: SearchBar;
   selectable: Selectable<TemplateResult>;
   shoppingCart: ShoppingCart;
+  slideToggle: SlideToggle;
   table: Table<TemplateResult>;
   tabs: Tabs;
   tileGrid: TileGrid;
@@ -299,6 +302,7 @@ templateContainer.add(coreProgressBar);
 templateContainer.add(coreProgressIndicator);
 templateContainer.add(coreResponsiveElement);
 templateContainer.add(coreSelectable);
+templateContainer.add(coreSlideToggle);
 templateContainer.add(coreTable);
 templateContainer.add(coreToggletip);
 templateContainer.add(coreTooltip);

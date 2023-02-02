@@ -23,6 +23,7 @@ import {
   ProgressBar,
   ProgressIndicator,
   Selectable,
+  SlideToggle,
   TemplateContainer,
   Toggletip,
 } from "dso-toolkit";
@@ -49,6 +50,7 @@ import { angularPagination } from "./components/pagination/pagination.angular-te
 import { angularProgressBar } from "./components/progress-bar/progress-bar.angular-template";
 import { angularProgressIndicator } from "./components/progress-indicator/progress-indicator.angular-template";
 import { angularSelectable } from "./components/selectable/selectable.angular-template";
+import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angular-template";
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
 
 export interface Components {
@@ -78,6 +80,7 @@ export interface Components {
   progressIndicator: ProgressIndicator;
   // responsiveElement: ResponsiveElement<StoryFnAngularReturnType>;
   selectable: Selectable<StoryFnAngularReturnType>;
+  slideToggle: SlideToggle;
   // table: Table<StoryFnAngularReturnType>;
   toggletip: Toggletip<StoryFnAngularReturnType>;
   // tooltip: Tooltip;
@@ -131,4 +134,5 @@ templateContainer.add(angularPagination);
 templateContainer.add(angularProgressBar);
 templateContainer.add(angularProgressIndicator);
 templateContainer.add(angularSelectable);
+templateContainer.add(angularSlideToggle);
 templateContainer.add(angularToggletip);

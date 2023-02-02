@@ -1,0 +1,67 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+button.dso-slider {
+  border: 0;
+  padding: 0;
+
+  &:focus-visible {
+    outline: 2px solid colors.$grijs-80;
+    outline-offset: 1px;
+  }
+
+  svg {
+    rect {
+      fill: colors.$grijs-40;
+      transition: fill 0.25s;
+    }
+
+    circle {
+      @include utilities.transition(transform);
+
+      transform: translateX(10px);
+      fill: colors.$wit;
+    }
+  }
+
+  &[aria-checked="true"] svg {
+    rect {
+      fill: colors.$bosgroen;
+    }
+
+    circle {
+      transform: translateX(30px);
+      fill: colors.$wit;
+    }
+  }
+
+  &[disabled] svg {
+    rect {
+      fill: colors.$grijs-20;
+    }
+
+    circle {
+      fill: colors.$grijs-10;
+    }
+  }
+
+  &[disabled][aria-checked="true"] svg {
+    rect {
+      fill: colors.$bosgroen-40;
+    }
+
+    circle {
+      fill: colors.$grijs-10;
+    }
+  }
+}
+
+.dso-slider {
+  border-radius: units.$u3;
+  display: inline-flex;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -61,8 +61,9 @@
       flex-shrink: 0;
 
       &.dso-section-handle-chevron {
+        @include utilities.transition(transform);
+
         transform: rotate(0);
-        transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1);
       }
     }
 

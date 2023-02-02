@@ -277,6 +277,9 @@ export {
 } from "./components/shopping-cart/shopping-cart.models.js";
 export { ShoppingCartTemplates, storiesOfShoppingCart } from "./components/shopping-cart/shopping-cart.stories-of.js";
 
+export { SlideToggle } from "./components/slide-toggle/slide-toggle.models.js";
+export { SlideToggleTemplates, storiesOfSlideToggle } from "./components/slide-toggle/slide-toggle.stories-of.js";
+
 export { Table, TableContent } from "./components/table/table.models.js";
 export { TableTemplates, storiesOfTable } from "./components/table/table.stories-of.js";
 

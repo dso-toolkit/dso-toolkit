@@ -22,6 +22,7 @@ import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-cont
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
+import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
 import { FilterpanelEvent, MainSize, ViewerGridChangeSizeEvent } from "./components/viewer-grid/viewer-grid.interfaces";
 export namespace Components {
@@ -341,6 +342,22 @@ export namespace Components {
         "type": "checkbox" | "radio";
         "value": string;
     }
+    interface DsoSlideToggle {
+        /**
+          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component
+         */
+        "accessibleLabel"?: string;
+        "checked": boolean;
+        "disabled": boolean;
+        /**
+          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`
+         */
+        "identifier": string;
+        /**
+          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
+         */
+        "labelledbyId"?: string;
+    }
     interface DsoTable {
         /**
           * Indicates whether the table is currently horizontally scrollable
@@ -483,6 +500,10 @@ export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoSelectableElement;
+}
+export interface DsoSlideToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoSlideToggleElement;
 }
 export interface DsoTreeViewCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -673,6 +694,12 @@ declare global {
         prototype: HTMLDsoSelectableElement;
         new (): HTMLDsoSelectableElement;
     };
+    interface HTMLDsoSlideToggleElement extends Components.DsoSlideToggle, HTMLStencilElement {
+    }
+    var HTMLDsoSlideToggleElement: {
+        prototype: HTMLDsoSlideToggleElement;
+        new (): HTMLDsoSlideToggleElement;
+    };
     interface HTMLDsoTableElement extends Components.DsoTable, HTMLStencilElement {
     }
     var HTMLDsoTableElement: {
@@ -734,6 +761,7 @@ declare global {
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
         "dso-selectable": HTMLDsoSelectableElement;
+        "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-table": HTMLDsoTableElement;
         "dso-toggletip": HTMLDsoToggletipElement;
         "dso-tooltip": HTMLDsoTooltipElement;
@@ -1090,6 +1118,23 @@ declare namespace LocalJSX {
         "type": "checkbox" | "radio";
         "value": string;
     }
+    interface DsoSlideToggle {
+        /**
+          * When provided the `<button>` will be labelled with `aria-label`. For a visible label provide a `<span>` inside the component
+         */
+        "accessibleLabel"?: string;
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        /**
+          * Provide an `id` for the `<button>`. Useful for placing your to place your own `<label for="id">`
+         */
+        "identifier"?: string;
+        /**
+          * Provide the `id` of the element that labels this element. this property sets the `aria-labelledby` on the switch button
+         */
+        "labelledbyId"?: string;
+        "onDsoActiveChange"?: (event: DsoSlideToggleCustomEvent<SlideToggleActiveEvent>) => void;
+    }
     interface DsoTable {
         /**
           * Indicates whether the table is currently horizontally scrollable
@@ -1197,6 +1242,7 @@ declare namespace LocalJSX {
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-responsive-element": DsoResponsiveElement;
         "dso-selectable": DsoSelectable;
+        "dso-slide-toggle": DsoSlideToggle;
         "dso-table": DsoTable;
         "dso-toggletip": DsoToggletip;
         "dso-tooltip": DsoTooltip;
@@ -1238,6 +1284,7 @@ declare module "@stencil/core" {
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
+            "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;
             "dso-toggletip": LocalJSX.DsoToggletip & JSXBase.HTMLAttributes<HTMLDsoToggletipElement>;
             "dso-tooltip": LocalJSX.DsoTooltip & JSXBase.HTMLAttributes<HTMLDsoTooltipElement>;
