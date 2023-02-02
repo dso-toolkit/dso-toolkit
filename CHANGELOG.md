@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 51.1.0
+
 ### Added
 * Nieuw webcomponent: `<dso-slide-toggle>` ([#1967](https://github.com/dso-toolkit/dso-toolkit/issues/1967))
 
