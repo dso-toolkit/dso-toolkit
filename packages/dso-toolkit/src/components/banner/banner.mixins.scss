@@ -101,6 +101,10 @@
   @include _variant(banner-variables.$danger-bg, banner-variables.$danger-border, banner-variables.$danger-text);
 }
 
+@mixin error() {
+  @include _variant(banner-variables.$error-bg, banner-variables.$error-border, banner-variables.$error-text);
+}
+
 @mixin warning() {
   @include _variant(banner-variables.$warning-bg, banner-variables.$warning-border, banner-variables.$warning-text);
 }

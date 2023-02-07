@@ -11,7 +11,7 @@ export interface BannerArgs {
 
 export const bannerArgTypes: ArgTypes<BannerArgs> = {
   status: {
-    options: ["warning", "danger"],
+    options: ["warning", "danger", "error"],
     control: {
       type: "select",
     },

@@ -18,6 +18,15 @@ export const dangerRichContent = {
   `,
 };
 
+export const errorRichContent = {
+  template: `
+    <div class="dso-rich-content">
+      <h2>Storingsmelding:</h2>
+      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+    </div>
+  `,
+};
+
 export const richWarningRichContent = {
   template: `
     <div class="dso-rich-content">

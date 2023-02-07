@@ -8,7 +8,7 @@ import clsx from "clsx";
 })
 export class Banner {
   @Prop({ reflect: true })
-  status!: "warning" | "danger";
+  status!: "warning" | "danger" | "error";
 
   render() {
     return (

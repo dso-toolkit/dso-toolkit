@@ -6,6 +6,7 @@ import { Banner } from "./banner.models.js";
 export interface BannerTemplates<TemplateFnReturnType> {
   bannerTemplate: (bannerProperties: Banner<TemplateFnReturnType>) => TemplateFnReturnType;
   dangerRichContent: TemplateFnReturnType;
+  errorRichContent: TemplateFnReturnType;
   warningRichContent: TemplateFnReturnType;
   richWarningRichContent: TemplateFnReturnType;
   dangerWithHeadingsRichContent: TemplateFnReturnType;
@@ -32,6 +33,18 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
       {
         args: {
           status: "danger",
+        },
+      }
+    );
+
+    stories.add(
+      "error",
+      templateMapper<BannerArgs>((args, { bannerTemplate, errorRichContent }) =>
+        bannerTemplate(bannerArgsMapper(args, errorRichContent))
+      ),
+      {
+        args: {
+          status: "error",
         },
       }
     );

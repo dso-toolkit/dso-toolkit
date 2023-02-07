@@ -20,6 +20,13 @@ export const dangerRichContent = html`
   </div>
 `;
 
+export const errorRichContent = html`
+  <div class="dso-rich-content">
+    <h2>Storingsmelding:</h2>
+    <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+  </div>
+`;
+
 export const richWarningRichContent = html`
   <div class="dso-rich-content">
     <h2>Onderhoudsmelding:</h2>

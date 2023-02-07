@@ -118,7 +118,7 @@ export namespace Components {
         "status"?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
     }
     interface DsoBanner {
-        "status": "warning" | "danger";
+        "status": "warning" | "danger" | "error";
     }
     interface DsoCard {
         "hasImage": boolean;
@@ -863,7 +863,7 @@ declare namespace LocalJSX {
         "status"?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
     }
     interface DsoBanner {
-        "status": "warning" | "danger";
+        "status": "warning" | "danger" | "error";
     }
     interface DsoCard {
         "hasImage"?: boolean;
