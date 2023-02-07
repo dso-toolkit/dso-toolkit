@@ -45,6 +45,12 @@
     color: colors.$wit;
   }
 
+  &.badge-error {
+    background-color: badge-variables.$error-bg-color;
+    border-color: badge-variables.$error-bg-color;
+    color: colors.$wit;
+  }
+
   &.badge-outline {
     background-color: colors.$wit;
     border-color: colors.$grijs-90;

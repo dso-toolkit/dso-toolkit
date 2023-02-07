@@ -115,7 +115,7 @@ export namespace Components {
         "suggestions": Suggestion[] | null;
     }
     interface DsoBadge {
-        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
+        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline";
     }
     interface DsoBanner {
         "status": "warning" | "danger" | "error";
@@ -860,7 +860,7 @@ declare namespace LocalJSX {
         "suggestions"?: Suggestion[] | null;
     }
     interface DsoBadge {
-        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "outline";
+        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline";
     }
     interface DsoBanner {
         "status": "warning" | "danger" | "error";

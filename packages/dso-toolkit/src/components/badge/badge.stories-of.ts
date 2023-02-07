@@ -63,6 +63,13 @@ export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
       },
     });
 
+    stories.add("error", template, {
+      args: {
+        status: "error",
+        message: "Error",
+      },
+    });
+
     stories.add("outline", template, {
       args: {
         status: "outline",
