@@ -17,6 +17,13 @@ export const dangerRichContent = (
   </div>
 );
 
+export const errorRichContent = (
+  <div className="dso-rich-content">
+    <h2>Storingsmelding:</h2>
+    <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+  </div>
+);
+
 export const richWarningRichContent = (
   <div className="dso-rich-content">
     <h2>Onderhoudsmelding:</h2>

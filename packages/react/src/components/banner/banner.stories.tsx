@@ -4,6 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { templateContainer } from "../../templates";
 import {
   dangerRichContent,
+  errorRichContent,
   dangerWithHeadingsRichContent,
   richWarningRichContent,
   warningRichContent,
@@ -21,6 +22,7 @@ storiesOfBanner({
   storyTemplates: ({ bannerTemplate }) => ({
     bannerTemplate,
     dangerRichContent,
+    errorRichContent,
     dangerWithHeadingsRichContent,
     richWarningRichContent,
     warningRichContent,
