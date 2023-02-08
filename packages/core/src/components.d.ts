@@ -240,7 +240,7 @@ export namespace Components {
     interface DsoLabel {
         "compact"?: boolean;
         "removable"?: boolean;
-        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
+        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright";
         "truncate"?: boolean;
     }
     interface DsoListButton {
@@ -1000,7 +1000,7 @@ declare namespace LocalJSX {
         "compact"?: boolean;
         "onDsoRemoveClick"?: (event: DsoLabelCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
-        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "bright";
+        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright";
         "truncate"?: boolean;
     }
     interface DsoListButton {
