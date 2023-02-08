@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Toevoeging `error` status bij `badge`, `banner` en `label` ([#1985](https://github.com/dso-toolkit/dso-toolkit/issues/1985))
+
+### Deprecated
+* Deprecation van `danger` status bij `badge`, `banner` en `label`. Gebruik voortaan de `error` status ([#1985](https://github.com/dso-toolkit/dso-toolkit/issues/1985))
+
 ## 51.1.0
 
 ### Added
