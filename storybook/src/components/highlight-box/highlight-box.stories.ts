@@ -15,10 +15,10 @@ storiesOfHighlightBox({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ highlightBoxTemplate, buttonTemplate, anchorTemplate }) => ({
+  storyTemplates: ({ anchorTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }) => ({
     highlightBoxTemplate,
-    content: html`
-      <div class="dso-rich-content">
+    content: richContentTemplate({
+      children: html`
         <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
         <p>
           Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het
@@ -51,8 +51,8 @@ storiesOfHighlightBox({
             url: "#",
           })}
         </div>
-      </div>
-    `,
+      `,
+    }),
   }),
 });
 
@@ -64,10 +64,10 @@ storiesOfHighlightBox({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ highlightBoxTemplate, buttonTemplate, anchorTemplate }) => ({
+  storyTemplates: ({ anchorTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }) => ({
     highlightBoxTemplate,
-    content: html`
-      <div class="dso-rich-content">
+    content: richContentTemplate({
+      children: html`
         <h3>Toelichting: Vergunningvrij onder voorbehoud</h3>
         <p>
           Het Informatiehuis Bouw kent, op basis van de huidige gebruikerswensen, vier Informatieproducten, namelijk het
@@ -100,7 +100,7 @@ storiesOfHighlightBox({
             url: "#",
           })}
         </div>
-      </div>
-    `,
+      `,
+    }),
   }),
 });

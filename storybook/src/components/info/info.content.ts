@@ -1,9 +1,9 @@
 import { html } from "lit-html";
 import { Templates } from "../../templates";
 
-export function richContent({ buttonTemplate, anchorTemplate }: Templates) {
-  return html`
-    <div class="dso-rich-content">
+export function richContent({ anchorTemplate, buttonTemplate, richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
       <h2>Heading 2</h2>
 
       <p>
@@ -25,6 +25,6 @@ export function richContent({ buttonTemplate, anchorTemplate }: Templates) {
           url: "#",
         })}
       </div>
-    </div>
-  `;
+    `,
+  });
 }

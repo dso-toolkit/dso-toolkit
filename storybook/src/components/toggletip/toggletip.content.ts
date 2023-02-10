@@ -1,9 +1,10 @@
 import { html } from "lit-html";
+
 import { Templates } from "../../templates";
 
-export function children({ anchorTemplate }: Templates) {
-  return html`
-    <div class="dso-rich-content">
+export function children({ anchorTemplate, richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
       <h2>Samenspel tussen wetgever en ontwikkelaars</h2>
       <p>
         Het DSO wordt ontwikkeld door het programma
@@ -16,6 +17,6 @@ export function children({ anchorTemplate }: Templates) {
         en regelgeving wordt geregeld ook makkelijk toegankelijk is of kan worden. Anderzijds moeten zij zorgen dat
         alles wat digitaal wordt gerealiseerd, ook juridisch verankerd is of kan worden.
       </p>
-    </div>
-  `;
+    `,
+  });
 }

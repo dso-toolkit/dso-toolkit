@@ -9,7 +9,7 @@ import { accordionSections } from "./landingspagina.content";
 examplePageFactory(
   "Toepassingen/Regels op de kaart",
   "Landingspagina",
-  ({ highlightBoxTemplate, accordionTemplate, anchorTemplate }, templates) => html`
+  ({ accordionTemplate, anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -20,15 +20,15 @@ examplePageFactory(
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h1>Regels op de kaart</h1>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quisno
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>
@@ -39,8 +39,8 @@ examplePageFactory(
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h2>Regels die nu gelden op uw locatie</h2>
                       <div class="row">
                         <div class="col-md-4 col-xs-12">
@@ -53,16 +53,16 @@ examplePageFactory(
                           </button>
                         </div>
                       </div>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-6 col-xs-12">
                 ${highlightBoxTemplate({
                   white: true,
                   dropShadow: true,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h2>Regels in voorbereiding</h2>
                       <div class="row">
                         <div class="col-md-4 col-xs-12">
@@ -78,8 +78,8 @@ examplePageFactory(
                           </button>
                         </div>
                       </div>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
             </div>
@@ -142,16 +142,16 @@ examplePageFactory(
             ${highlightBoxTemplate({
               white: true,
               border: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h2>Vragen?</h2>
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
                     ${anchorTemplate({ label: "het Informatiepunt", url: "#", modifier: "extern" })}.
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
 
@@ -159,8 +159,8 @@ examplePageFactory(
             ${highlightBoxTemplate({
               white: true,
               border: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h3>Actueel</h3>
                   <p>Regels op de kaart is in ontwikkeling. Regelmatig worden er verbeteringen doorgevoerd.</p>
                   ${anchorTemplate({
@@ -169,8 +169,8 @@ examplePageFactory(
                     modifier: "dso-tertiary",
                     icon: { icon: "chevron-right" },
                   })}
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>

@@ -9,7 +9,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreMapControls: ComponentImplementation<MapControls> = {
   component: "mapControls",
   implementation: "core",
-  template: () =>
+  template: ({ richContentTemplate }) =>
     function mapControlsTemplate({
       dsoZoomIn,
       dsoZoomOut,
@@ -30,9 +30,9 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
             .overlays=${overlays}
             @dsoToggleOverlay=${(e: CustomEvent<OverlayChangeEvent>) => dsoToggleOverlay(e)}
           ></dso-map-overlays>
-          <div class="dso-rich-content">
-            <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p>
-          </div>
+          ${richContentTemplate({
+            children: html` <p>Dit is een Web Component wat aangesloten kan worden op Leaflet.js of OpenLayers.</p> `,
+          })}
         </dso-map-controls>
       `;
     },

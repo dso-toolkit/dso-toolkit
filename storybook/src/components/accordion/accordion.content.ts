@@ -31,112 +31,120 @@ const section3: AccordionSection<TemplateResult> = {
   alle benodigde informatie bij de hand heeft.`,
 };
 
-const section4: AccordionSection<TemplateResult> = {
-  handleTitle: "Wat kan ik met de uitkomst van de Vergunningcheck?",
-  heading: "h2",
-  content: html`<div class="dso-rich-content">
-    <ul>
-      <li>Locatie 1</li>
-      <li>
-        Locatie 2
-        <div class="dso-info">
-          <div class="dso-rich-content">
-            <p><strong>Let op:</strong> <i>voorbehoud A bij Locatie 2.</i></p>
-          </div>
-        </div>
-      </li>
-      <li>
-        Locatie 3
+function section4({ richContentTemplate }: Templates): AccordionSection<TemplateResult> {
+  return {
+    handleTitle: "Wat kan ik met de uitkomst van de Vergunningcheck?",
+    heading: "h2",
+    content: richContentTemplate({
+      children: html`
         <ul>
-          <li>Locatie 3.1</li>
-          <li>Locatie 3.2</li>
+          <li>Locatie 1</li>
+          <li>
+            Locatie 2
+            <div class="dso-info">
+              <div class="dso-rich-content">
+                <p><strong>Let op:</strong> <i>voorbehoud A bij Locatie 2.</i></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            Locatie 3
+            <ul>
+              <li>Locatie 3.1</li>
+              <li>Locatie 3.2</li>
+            </ul>
+          </li>
         </ul>
-      </li>
-    </ul>
-  </div>`,
-};
+      `,
+    }),
+  };
+}
 
-export const basicSections: AccordionSection<TemplateResult>[] = [
-  section1,
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
-
-export const anchorSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-    handleUrl: "#",
-  },
-  {
-    ...section2,
-    handleUrl: "#",
-  },
-  {
-    ...section3,
-    handleUrl: "#",
-    open: true,
-  },
-  {
-    ...section4,
-    handleUrl: "#",
-  },
-];
-
-export function subSections({ accordionTemplate }: Templates): AccordionSection<TemplateResult>[] {
+export function basicSections(templates: Templates): AccordionSection<TemplateResult>[] {
   return [
-    {
-      ...section1,
-      content: html`<div class="dso-rich-content">
-          <p><strong>hallo</strong> dit is content</p>
-        </div>
-
-        ${accordionTemplate({
-          sections: [
-            {
-              handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
-              heading: "h4",
-              content: html`<div className="dso-rich-content">
-                <p><strong>hallo</strong> dit is content</p>
-              </div> `,
-            },
-            {
-              handleTitle: "Hoe lang duurt de Vergunningcheck?",
-              heading: "h4",
-              open: true,
-              content: html`<div className="dso-rich-content">
-                De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
-                alle benodigde informatie bij de hand heeft.
-              </div> `,
-            },
-          ],
-        })}
-
-        <div class="dso-rich-content">
-          <p><strong>hallo</strong> dit is content na de nested section</p>
-        </div>`,
-    },
+    section1,
     section2,
-    section3,
-    section4,
+    {
+      ...section3,
+      open: true,
+    },
+    section4(templates),
   ];
 }
 
-export const allowMultipleOpenSections: AccordionSection<TemplateResult>[] = [
-  {
-    ...section1,
-    open: true,
-  },
-  section2,
-  {
-    ...section3,
-    open: true,
-  },
-  section4,
-];
+export function anchorSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    {
+      ...section1,
+      handleUrl: "#",
+    },
+    {
+      ...section2,
+      handleUrl: "#",
+    },
+    {
+      ...section3,
+      handleUrl: "#",
+      open: true,
+    },
+    {
+      ...section4(templates),
+      handleUrl: "#",
+    },
+  ];
+}
+
+export function subSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  const { accordionTemplate, richContentTemplate } = templates;
+
+  return [
+    {
+      ...section1,
+      content: html` ${richContentTemplate({ children: html`<p><strong>hallo</strong> dit is content</p>` })}
+      ${accordionTemplate({
+        sections: [
+          {
+            handleTitle: "Voor hoeveel locaties kan ik de Vergunningcheck doen?",
+            heading: "h4",
+            content: richContentTemplate({
+              children: html` <p><strong>hallo</strong> dit is content</p> `,
+            }),
+          },
+          {
+            handleTitle: "Hoe lang duurt de Vergunningcheck?",
+            heading: "h4",
+            open: true,
+            content: richContentTemplate({
+              children: html`
+                De Vergunningcheck duurt ongeveer vijf minuten per gekozen werkzaamheid. Het is wel belangrijk dat u
+                alle benodigde informatie bij de hand heeft.
+              `,
+            }),
+          },
+        ],
+      })}
+      ${richContentTemplate({ children: html` <p><strong>hallo</strong> dit is content na de nested section</p> ` })}`,
+    },
+    section2,
+    section3,
+    section4(templates),
+  ];
+}
+
+export function allowMultipleOpenSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    {
+      ...section1,
+      open: true,
+    },
+    section2,
+    {
+      ...section3,
+      open: true,
+    },
+    section4(templates),
+  ];
+}
 
 export const addonsSections: AccordionSection<TemplateResult>[] = [
   {

@@ -9,7 +9,7 @@ import { accordionSections } from "./landingspagina.content";
 examplePageFactory(
   "Toepassingen/Maatregelen op maat",
   "Landingspagina",
-  ({ highlightBoxTemplate, accordionTemplate, anchorTemplate }, templates) => html`
+  ({ accordionTemplate, anchorTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -20,16 +20,16 @@ examplePageFactory(
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h1>Maatregelen op maat</h1>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quisno
                   </p>
                   <p>${anchorTemplate({ label: "Start maatregelen op maat", url: "#", modifier: "dso-primary" })}</p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>
@@ -50,16 +50,16 @@ examplePageFactory(
             ${highlightBoxTemplate({
               white: true,
               border: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h2>Vragen?</h2>
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
                     ${anchorTemplate({ label: "het Informatiepunt", url: "#", modifier: "extern" })}.
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>
@@ -72,12 +72,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 1,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Locatie</h3>
                       <p>Kies de plek waar u iets wilt doen.</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -85,12 +85,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 2,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Werkzaamheden</h3>
                       <p>Kies de werkzaamheden van uw project.</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -98,15 +98,15 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 3,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Vragen beantwoorden</h3>
                       <p>
                         Doorloop de check en beantwoord alle benodigde vragen. Vragen die in uw situatie niet meer
                         relevant zijn vallen vanzelf weg.
                       </p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -114,12 +114,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 4,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Resultaat</h3>
                       <p>Download het overzicht van de maatregelen.</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
             </div>

@@ -8,7 +8,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
   component: "card",
   implementation: "html-css",
-  template: ({ buttonTemplate, iconTemplate, selectableTemplate, toggletipTemplate }) =>
+  template: ({ buttonTemplate, iconTemplate, richContentTemplate, selectableTemplate, toggletipTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
       return html`
         <div
@@ -39,7 +39,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
               </div>
             `}
           </div>
-          <div class="dso-rich-content">${content}</div>
+          ${richContentTemplate({ children: content })}
         </div>
       `;
     },

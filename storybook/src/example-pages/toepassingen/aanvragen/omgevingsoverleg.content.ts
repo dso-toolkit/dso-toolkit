@@ -1,6 +1,8 @@
 import { DefinitionList, FormGroupRadios } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
 
+import { Templates } from "../../../templates";
+
 export const definitionList1: DefinitionList<TemplateResult> = {
   definitions: [
     {
@@ -91,44 +93,46 @@ export const definitionlist2: DefinitionList<TemplateResult> = {
   ],
 };
 
-export const radios: FormGroupRadios<TemplateResult> = {
-  group: "radios",
-  id: "omgevings-overleg-radio",
-  label: "Wilt u uw verzoeken definitief of als Omgevingsoverleg indienen?",
-  inline: true,
-  info: {
-    fixed: true,
-    active: true,
-    content: html`
-      <div class="dso-rich-content">
-        <p>
-          Als u wilt, kunt u een aanvraag doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig proces
-          waarin u uw plan bespreekt met uw gemeente, waterschap of provincie en andere betrokkenen. Samen kijkt u dan
-          naar hoe haalbaar uw plan is, en hoe u uw plan het beste mogelijk kunt maken. Bij elk verzoek staat aangegeven
-          of het mogelijk is om een Omgevingsoverleg in te dienen.
-        </p>
-        <p>
-          Twijfelt u over uw plan, of heeft u een vraag? Neem dan contact op met uw gemeente, waterschap of provincie.
-        </p>
-        <p>
-          Let op: kijk altijd eerst op de website van <em>Gemeente Den Haag</em> voor de mogelijke kosten van een
-          Omgevingsoverleg.
-        </p>
-      </div>
-    `,
-  },
-  selectables: [
-    {
-      id: "omgevings-overleg-radio-1",
-      label: "Omgevingsoverleg",
-      value: "Omgevingsoverleg",
-      type: "radio",
+export function radios({ richContentTemplate }: Templates): FormGroupRadios<TemplateResult> {
+  return {
+    group: "radios",
+    id: "omgevings-overleg-radio",
+    label: "Wilt u uw verzoeken definitief of als Omgevingsoverleg indienen?",
+    inline: true,
+    info: {
+      fixed: true,
+      active: true,
+      content: richContentTemplate({
+        children: html`
+          <p>
+            Als u wilt, kunt u een aanvraag doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig
+            proces waarin u uw plan bespreekt met uw gemeente, waterschap of provincie en andere betrokkenen. Samen
+            kijkt u dan naar hoe haalbaar uw plan is, en hoe u uw plan het beste mogelijk kunt maken. Bij elk verzoek
+            staat aangegeven of het mogelijk is om een Omgevingsoverleg in te dienen.
+          </p>
+          <p>
+            Twijfelt u over uw plan, of heeft u een vraag? Neem dan contact op met uw gemeente, waterschap of provincie.
+          </p>
+          <p>
+            Let op: kijk altijd eerst op de website van <em>Gemeente Den Haag</em> voor de mogelijke kosten van een
+            Omgevingsoverleg.
+          </p>
+        `,
+      }),
     },
-    {
-      id: "omgevings-overleg-radio-2",
-      label: "Definitief verzoek",
-      value: "definitiefverzoek",
-      type: "radio",
-    },
-  ],
-};
+    selectables: [
+      {
+        id: "omgevings-overleg-radio-1",
+        label: "Omgevingsoverleg",
+        value: "Omgevingsoverleg",
+        type: "radio",
+      },
+      {
+        id: "omgevings-overleg-radio-2",
+        label: "Definitief verzoek",
+        value: "definitiefverzoek",
+        type: "radio",
+      },
+    ],
+  };
+}

@@ -258,6 +258,9 @@ export {
   storiesOfResponsiveElement,
 } from "./components/responsive-element/responsive-element.stories-of.js";
 
+export { RichContent } from "./components/rich-content/rich-content.models.js";
+export { RichContentTemplates, storiesOfRichContent } from "./components/rich-content/rich-content.stories-of.js";
+
 export { RowEqualHeights } from "./components/row-equal-heights/row-equal-heights.models.js";
 export {
   RowEqualHeightsTemplates,

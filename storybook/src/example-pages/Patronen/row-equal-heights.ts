@@ -8,7 +8,10 @@ import { header } from "../partials/header.content";
 examplePageFactory(
   "patronen",
   "Row Equal Heights",
-  ({ highlightBoxTemplate, rowEqualHeightsTemplate, tileTemplate, whiteboxTemplate }, templates) => {
+  (
+    { highlightBoxTemplate, richContentTemplate, rowEqualHeightsTemplate, tileTemplate, whiteboxTemplate },
+    templates
+  ) => {
     const shortTile = () =>
       html`${tileTemplate({ label: "Kort verhaal", anchor: "#", image: { alt: "", source: "images/icon-tree.png" } })}`;
     const longTile = () =>
@@ -51,8 +54,8 @@ examplePageFactory(
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 1,
-                content: html`
-                  <div class="dso-rich-content">
+                content: richContentTemplate({
+                  children: html`
                     <h2>Ongelijke inhoud</h2>
                     <p>
                       Zodra een <code>.row</code> een <code>.dso-equal-heights</code> krijgt, worden voor de volgende
@@ -63,8 +66,8 @@ examplePageFactory(
                       <li>Whitebox</li>
                       <li>Whitebox small</li>
                     </ul>
-                  </div>
-                `,
+                  `,
+                }),
               })}
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
@@ -72,40 +75,40 @@ examplePageFactory(
                 yellow: true,
                 dropShadow: true,
                 step: 2,
-                content: html`
-                  <div class="dso-rich-content">
+                content: richContentTemplate({
+                  children: html`
                     <h2>Ongelijke inhoud</h2>
                     <p>
                       Dit blok is hoger, dit blok heeft meer te vertellen omdat het een veel boeiender blok is. Mijn
                       broertjes zijn minder interessant, dat zie je aan de inhoud
                     </p>
                     <p>PS: Ik ben het tweede blokje</p>
-                  </div>
-                `,
+                  `,
+                }),
               })}
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 3,
-                content: html`
-                  <div class="dso-rich-content">
+                content: richContentTemplate({
+                  children: html`
                     <h2>Ongelijke inhoud</h2>
                     <p>Oninteressant blokje</p>
-                  </div>
-                `,
+                  `,
+                }),
               })}
             </div>
             <div class="col-sm-12 col-md-6 col-lg-3">
               ${highlightBoxTemplate({
                 dropShadow: true,
                 step: 4,
-                content: html`
-                  <div class="dso-rich-content">
+                content: richContentTemplate({
+                  children: html`
                     <h2>Ongelijke inhoud</h2>
                     <p>Aha</p>
-                  </div>
-                `,
+                  `,
+                }),
               })}
             </div>
           </div>

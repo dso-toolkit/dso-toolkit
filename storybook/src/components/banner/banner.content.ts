@@ -1,49 +1,56 @@
 import { html } from "lit-html";
+
 import { Templates } from "../../templates";
 
-export function warningRichContent({ anchorTemplate }: Templates) {
-  return html`
-    <div class="dso-rich-content">
+export function warningRichContent({ anchorTemplate, richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
       <h2>Onderhoudsmelding:</h2>
       <p>
         Op <strong>zondag 8 december 2019 van 10.00 uur tot 17.00 uur</strong> vindt er onderhoud plaats aan het
         Omgevingsloket. ${anchorTemplate({ label: "Meer informatie", url: "#" })}
       </p>
-    </div>
-  `;
+    `,
+  });
 }
 
-export const dangerRichContent = html`
-  <div class="dso-rich-content">
-    <h2>Storingsmelding:</h2>
-    <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
-  </div>
-`;
+export function dangerRichContent({ richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
+      <h2>Storingsmelding:</h2>
+      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+    `,
+  });
+}
 
-export const errorRichContent = html`
-  <div class="dso-rich-content">
-    <h2>Storingsmelding:</h2>
-    <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
-  </div>
-`;
+export function errorRichContent({ richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
+      <h2>Storingsmelding:</h2>
+      <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
+    `,
+  });
+}
 
-export const richWarningRichContent = html`
-  <div class="dso-rich-content">
-    <h2>Onderhoudsmelding:</h2>
-    <p>
-      Banners zullen vaak worden ingezet voor 'one-liners', maar kunnen ook rijkere content bevatten, zoals meerdere
-      paragrafen, en/of een geordende lijst. Zolang de markup maar aan de juiste voorschriften voldoet gaat dit prima:
-    </p>
-    <ul>
-      <li>class <code>.dso-rich-content</code> op de omringende <code>&lt;div&gt;</code></li>
-      <li>een <code>&lt;p&gt;</code>-tag om paragrafen</li>
-    </ul>
-  </div>
-`;
+export function richWarningRichContent({ richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
+      <h2>Onderhoudsmelding:</h2>
+      <p>
+        Banners zullen vaak worden ingezet voor 'one-liners', maar kunnen ook rijkere content bevatten, zoals meerdere
+        paragrafen, en/of een geordende lijst. Zolang de markup maar aan de juiste voorschriften voldoet gaat dit prima:
+      </p>
+      <ul>
+        <li>class <code>.dso-rich-content</code> op de omringende <code>&lt;div&gt;</code></li>
+        <li>een <code>&lt;p&gt;</code>-tag om paragrafen</li>
+      </ul>
+    `,
+  });
+}
 
-export function dangerWithHeadingsRichContent({ anchorTemplate }: Templates) {
-  return html`
-    <div class="dso-rich-content">
+export function dangerWithHeadingsRichContent({ anchorTemplate, richContentTemplate }: Templates) {
+  return richContentTemplate({
+    children: html`
       <h2>Storingsmelding:</h2>
       <p>Op dit moment ervaren wij een storing in de Vergunningcheck. U kunt wel een aanvraag of melding indienen.</p>
       <h2>Dit is een H2</h2>
@@ -59,6 +66,6 @@ export function dangerWithHeadingsRichContent({ anchorTemplate }: Templates) {
       <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
       <h6>Dit is een H6</h6>
       <p>Dit is een informatiemelding. Deze wordt gebruikt voor aanvullende informatie of tips.</p>
-    </div>
-  `;
+    `,
+  });
 }
