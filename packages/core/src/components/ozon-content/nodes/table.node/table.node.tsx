@@ -1,5 +1,6 @@
 import { h } from "@stencil/core";
 
+import { getNodeName } from "../../get-node-name.function";
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
 import { OzonContentNode } from "../../ozon-content-node.interface";
 
@@ -28,6 +29,8 @@ export class OzonContentTableNode implements OzonContentNode {
   render(node: Element, context: OzonContentNodeContext) {
     const { caption, colspecs, headRows, bodyRows } = mapData(node);
 
+    const bron = Array.from(node.childNodes).find((n) => getNodeName(n) === "Bron");
+
     return (
       <dso-table>
         <table class="table dso-table-vertical-lines">
@@ -43,6 +46,7 @@ export class OzonContentTableNode implements OzonContentNode {
               <Rows rows={bodyRows} colspecs={colspecs} context={context}></Rows>
             </tbody>
           )}
+          {bron && context.mapNodeToJsx(bron)}
         </table>
       </dso-table>
     );

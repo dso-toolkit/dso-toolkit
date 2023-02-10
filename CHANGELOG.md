@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Ozon Content: Ondersteuning bron bij tabel ([#1954](https://github.com/dso-toolkit/dso-toolkit/issues/1954))
+
 ## 51.1.0
 
 ### Added
