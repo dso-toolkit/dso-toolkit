@@ -1,24 +1,24 @@
 import { Fragment, h, JSX } from "@stencil/core";
 
+import { getNodeName } from "./get-node-name.function";
 import { OzonContentAlNode } from "./nodes/al.node";
+import { OzonContentBronNode } from "./nodes/bron.node";
 import { OzonContentDocumentNode } from "./nodes/document.node";
 import { OzonContentExtRefNode } from "./nodes/ext-ref.node";
+import { OzonContentFallbackNode } from "./nodes/fallback.node";
 import { OzonContentFiguurNode } from "./nodes/figuur.node";
 import { OzonContentInhoudNode } from "./nodes/inhoud.node";
 import { OzonContentInlineTekstAfbeeldingNode } from "./nodes/inline-tekst-afbeelding.node";
-import { OzonContentOpschriftNode } from "./nodes/opschrift.node";
 import { OzonContentInlineNodes } from "./nodes/inline.nodes";
 import { OzonContentIntIoRefNode } from "./nodes/int-io-ref.node";
 import { OzonContentIntRefNode } from "./nodes/int-ref.node";
+import { OzonContentLijstNode } from "./nodes/lijst.node";
 import { OzonContentNootNode } from "./nodes/noot.node";
+import { OzonContentOpschriftNode } from "./nodes/opschrift.node";
 import { OzonContentTableNode } from "./nodes/table.node";
 import { OzonContentTextNode } from "./nodes/text.node";
-
-import { getNodeName } from "./get-node-name.function";
-import { OzonContentNode } from "./ozon-content-node.interface";
 import { OzonContentContext } from "./ozon-content-context.interface";
-import { OzonContentFallbackNode } from "./nodes/fallback.node";
-import { OzonContentLijstNode } from "./nodes/lijst.node";
+import { OzonContentNode } from "./ozon-content-node.interface";
 
 export class Mapper {
   private cache: { xml: string; document: Document } | undefined;
@@ -38,6 +38,7 @@ export class Mapper {
     new OzonContentIntIoRefNode(),
     new OzonContentFiguurNode(),
     new OzonContentLijstNode(),
+    new OzonContentBronNode(),
   ];
 
   private skip = this.mappers.reduce<string[]>((t, m) => {

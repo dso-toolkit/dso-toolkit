@@ -11,7 +11,7 @@ export class OzonContentExtRefNode implements OzonContentNode {
 
     return (
       <a target="_blank" rel="noopener noreferrer" href={href ?? undefined}>
-        <span class="sr-only">opent in nieuw venster</span>
+        <span class="sr-only">opent in nieuw venster </span>
         {mapNodeToJsx(node.childNodes)}
       </a>
     );
