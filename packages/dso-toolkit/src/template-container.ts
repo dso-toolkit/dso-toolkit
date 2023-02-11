@@ -12,8 +12,11 @@ export interface BaseComponentImplementation<
   template(templates: Templates): TemplateFunction;
 }
 
+export type SlottableTemplate = {
+  slotName?: string;
+};
 export interface DefaultTemplateFunction<Model, TemplateFnReturnType> {
-  (model: Model): TemplateFnReturnType;
+  (model: Model & SlottableTemplate): TemplateFnReturnType;
 }
 
 export type ComponentsToTemplates<Components, TemplateFnReturnType> = {

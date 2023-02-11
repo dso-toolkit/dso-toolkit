@@ -1,0 +1,47 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+@use "~dso-toolkit/src/variables/colors";
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+.dso-annotation-header {
+  align-items: center;
+  background-color: colors.$grijs-5;
+  display: flex;
+  margin-bottom: 2px;
+  padding-left: units.$u2;
+  padding-right: units.$u1;
+  padding-top: units.$u1;
+  padding-bottom: units.$u1;
+
+  > *[slot="title"] {
+    color: colors.$zwart;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  > *:nth-child(2) {
+    margin-left: auto;
+  }
+}
+
+.dso-annotation-content {
+  background-color: colors.$grijs-5;
+  padding-left: units.$u2;
+  padding-right: units.$u1;
+  padding-top: units.$u1;
+  padding-bottom: units.$u1;
+}
+
+.dso-annotation-close-button {
+  margin-left: units.$u2;
+}

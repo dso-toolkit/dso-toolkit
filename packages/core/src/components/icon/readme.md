@@ -16,8 +16,11 @@
 
  - [dso-accordion-section](../accordion/components)
  - [dso-alert](../alert)
+ - [dso-annotation-button](../annotation-button)
+ - [dso-annotation-output](../annotation-output)
  - [dso-attachments-counter](../attachments-counter)
  - [dso-date-picker](../date-picker)
+ - [dso-expandable-heading](../expandable-heading)
  - [dso-header](../header)
  - [dso-helpcenter-panel](../helpcenter-panel)
  - [dso-image-overlay](../image-overlay)
@@ -37,8 +40,11 @@
 graph TD;
   dso-accordion-section --> dso-icon
   dso-alert --> dso-icon
+  dso-annotation-button --> dso-icon
+  dso-annotation-output --> dso-icon
   dso-attachments-counter --> dso-icon
   dso-date-picker --> dso-icon
+  dso-expandable-heading --> dso-icon
   dso-header --> dso-icon
   dso-helpcenter-panel --> dso-icon
   dso-image-overlay --> dso-icon

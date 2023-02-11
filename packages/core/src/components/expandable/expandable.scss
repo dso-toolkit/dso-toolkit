@@ -1,0 +1,16 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+
+:host {
+  display: none;
+}
+
+:host([open]) {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
