@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Console error logging tooltip rootNode geen document of shadowRoot ([#1963](https://github.com/dso-toolkit/dso-toolkit/issues/1963))
+
 ## 51.1.0
 
 ### Added

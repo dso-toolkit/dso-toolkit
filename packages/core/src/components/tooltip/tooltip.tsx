@@ -261,12 +261,17 @@ export class Tooltip {
   }
 
   private getTarget(id: string): HTMLElement {
-    const rootNode = this.element.getRootNode();
+    let rootNode = this.element.getRootNode();
+
+    if (!rootNode.childNodes.length) {
+      setTimeout(() => (rootNode = this.element.getRootNode()), 0);
+    }
+
     if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
       throw new Error(`rootNode is not instance of Document or ShadowRoot`);
     }
 
-    const reference = rootNode.querySelector<HTMLElement>(`[aria-describedBy="${id}`);
+    const reference = rootNode.querySelector<HTMLElement>(`[aria-describedBy="${id}"]`);
     if (!reference) {
       throw new Error(`Unable to find reference with aria-describedby ${id}`);
     }
