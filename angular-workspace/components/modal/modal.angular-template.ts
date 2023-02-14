@@ -1,6 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
-
 import { Modal } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnType>> = {

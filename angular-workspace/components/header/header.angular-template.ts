@@ -1,4 +1,5 @@
 import { Header } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularHeader: ComponentImplementation<Header> = {
