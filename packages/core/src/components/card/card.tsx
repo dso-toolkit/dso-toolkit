@@ -1,4 +1,5 @@
 import { h, Component, ComponentInterface, Element, Event, EventEmitter, Host, Prop } from "@stencil/core";
+import clsx from "clsx";
 
 import { isInteractiveElement } from "../../utils/is-interactive-element";
 import { isModifiedEvent } from "../../utils/is-modified-event";
@@ -20,11 +21,14 @@ export class Card implements ComponentInterface {
   @Prop({ reflect: true })
   hasImage = false;
 
+  @Prop()
+  clickable = true;
+
   @Event()
   dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
 
   private clickEventHandler(e: MouseEvent) {
-    if (!(e.target instanceof HTMLElement)) {
+    if (!(e.target instanceof HTMLElement) || !this.clickable) {
       return;
     }
 
@@ -52,7 +56,10 @@ export class Card implements ComponentInterface {
 
   render() {
     return (
-      <Host onClick={(e: MouseEvent) => this.clickEventHandler(e)}>
+      <Host
+        class={clsx({ "dso-not-clickable": !this.clickable })}
+        onClick={(e: MouseEvent) => this.clickEventHandler(e)}
+      >
         <div class="dso-card-selectable" hidden={!this.isSelectable}>
           <slot name="selectable" />
         </div>
@@ -61,6 +68,7 @@ export class Card implements ComponentInterface {
         </div>
         <div class="dso-card-heading">
           <slot name="heading" />
+          <slot name="addon" />
           <slot name="interactions" />
         </div>
         <div class="dso-card-content">

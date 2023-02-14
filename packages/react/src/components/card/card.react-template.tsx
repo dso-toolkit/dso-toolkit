@@ -8,18 +8,25 @@ import { ComponentImplementation } from "../../templates";
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
-  template: ({ toggletipTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
+  template: ({ labelTemplate, toggletipTemplate }) =>
+    function cardTemplate({ label, selectable, content, interactions, image, clickable, addon, dsoCardClicked }) {
       return (
-        <DsoCard onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
+        <DsoCard clickable={clickable} onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
           {selectable && <DsoSelectable {...selectable}>{selectable.label}</DsoSelectable>}
           {image && <img slot="image" src={image} />}
-          <a slot="heading" href="#">
-            <h2>
+          {clickable ? (
+            <a slot="heading" href="#">
+              <h2>
+                <span>{label}</span>
+                <DsoIcon icon="chevron-right"></DsoIcon>
+              </h2>
+            </a>
+          ) : (
+            <h2 slot="heading">
               <span>{label}</span>
-              <DsoIcon icon="chevron-right"></DsoIcon>
             </h2>
-          </a>
+          )}
+          {addon && labelTemplate(addon)}
           {interactions && interactions.length > 0 && (
             <div slot="interactions" className="dso-card-interactions">
               {interactions.map((interaction, index) => (

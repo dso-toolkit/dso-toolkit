@@ -44,4 +44,12 @@ describe("Card", () => {
   it("should set isModifiedEvent when the card event is triggered with modifiers (eg. holding CTRL or right-click)", () => {
     cy.visit("http://localhost:45000/iframe.html?id=core-card--selectable");
   });
+
+  it("should not call events when clickable is false", () => {
+    cy.get("dso-card")
+      .invoke("attr", "clickable", "false")
+      .realClick()
+      .get("@dsoCardClickedListener")
+      .should("not.have.been.called");
+  });
 });

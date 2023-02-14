@@ -6,18 +6,32 @@ import { ComponentImplementation } from "../../templates";
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
   implementation: "core",
-  template: ({ buttonTemplate, richContentTemplate, selectableTemplate, toggletipTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }: Card<TemplateResult>) {
+  template: ({ buttonTemplate, labelTemplate, richContentTemplate, selectableTemplate, toggletipTemplate }) =>
+    function cardTemplate({
+      label,
+      selectable,
+      content,
+      interactions,
+      image,
+      clickable,
+      addon,
+      dsoCardClicked,
+    }: Card<TemplateResult>) {
       return html`
-        <dso-card @dsoCardClicked=${dsoCardClicked}>
+        <dso-card clickable=${clickable} @dsoCardClicked=${dsoCardClicked}>
           ${selectable ? selectableTemplate(selectable) : nothing}
           ${image ? html`<img slot="image" src=${image} />` : nothing}
-          <a slot="heading" href="#">
-            <h2>
-              <span>${label}</span>
-              <dso-icon icon="chevron-right"></dso-icon>
-            </h2>
-          </a>
+          ${clickable
+            ? html`<a href="#" slot="heading">
+                <h2>
+                  <span>${label}</span>
+                  <dso-icon icon="chevron-right"></dso-icon>
+                </h2>
+              </a>`
+            : html`<h2 slot="heading">
+                <span>${label}</span>
+              </h2>`}
+          ${addon && labelTemplate(addon)}
           ${interactions &&
           interactions.length > 0 &&
           html`<div slot="interactions">

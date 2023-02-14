@@ -19,9 +19,12 @@ export const cssLabel: ComponentImplementation<Label> = {
   component: "label",
   implementation: "html-css",
   template: ({ iconTemplate }) =>
-    function labelTemplate({ status, label, removable, dsoRemoveClick, compact, symbol }) {
+    function labelTemplate({ slotName, status, label, removable, dsoRemoveClick, compact, symbol }) {
       return html`
-        <span class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}">
+        <span
+          slot=${ifDefined(slotName)}
+          class="dso-label ${classMap({ [`dso-label-${status}`]: !!status, [`dso-compact`]: !!compact })}"
+        >
           ${symbol ? html`<span class="dso-label-symbol">${unsafeHTML(symbol)}</span>` : nothing}${status &&
           statusMap.has(status)
             ? html`<span class="sr-only">${statusMap.get(status)}: </span>`

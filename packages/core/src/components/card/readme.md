@@ -9,6 +9,7 @@
 
 | Property       | Attribute       | Description | Type      | Default |
 | -------------- | --------------- | ----------- | --------- | ------- |
+| `clickable`    | `clickable`     |             | `boolean` | `true`  |
 | `hasImage`     | `has-image`     |             | `boolean` | `false` |
 | `isSelectable` | `is-selectable` |             | `boolean` | `false` |
 

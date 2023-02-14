@@ -2,6 +2,7 @@ import { HandlerFunction } from "@storybook/addon-actions";
 
 import { ArgTypes, noControl } from "../../storybook/index.js";
 import { Button } from "../button/button.models.js";
+import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
 import { Card } from "./card.models.js";
 
@@ -10,6 +11,8 @@ export interface CardArgs {
   selectable: boolean;
   interactions: Array<Button | Toggletip<never>>;
   image: string | undefined;
+  clickable: boolean;
+  addon: Label;
   dsoCardClicked: HandlerFunction;
 }
 
@@ -31,6 +34,14 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   dsoCardClicked: {
     ...noControl,
     action: "dsoCardClicked",
+  },
+  clickable: {
+    control: {
+      type: "boolean",
+    },
+  },
+  addon: {
+    ...noControl,
   },
 };
 

@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 * Ozon uitklapbare titels ([#1810](https://github.com/dso-toolkit/dso-toolkit/issues/1810))
 * Extra kleurvariant `attention` voor label en badge ([#2008](https://github.com/dso-toolkit/dso-toolkit/issues/2008))
+* Uitbreiding Card: slot `addon` om een label toe te voegen en property `clickable` om klikbaarheid aan te geven ([#2016](https://github.com/dso-toolkit/dso-toolkit/issues/2016))
 
 ### Fixed
 * Label met status bright reageert niet op "compact" ([#1996](https://github.com/dso-toolkit/dso-toolkit/issues/1996))

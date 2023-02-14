@@ -47,6 +47,13 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       args: cardContentToggletip,
     });
 
+    stories.add("not clickable", template, {
+      args: {
+        ...cardContentButton,
+        clickable: false,
+      },
+    });
+
     return stories;
   });
 }

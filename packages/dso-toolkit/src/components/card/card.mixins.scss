@@ -29,13 +29,22 @@
       text-decoration: underline;
     }
   }
+
+  &.dso-not-clickable {
+    h2 {
+      color: colors.$zwart;
+    }
+
+    &:hover {
+      cursor: initial;
+    }
+  }
 }
 
 @mixin root() {
   .dso-card-heading {
     align-items: center;
     display: flex;
-    justify-content: space-between;
     margin-bottom: units.$u1;
 
     @media screen and (max-width: media-query-breakpoints.$screen-xs-min) {
@@ -63,4 +72,5 @@
 @mixin interactions() {
   display: flex;
   justify-content: space-between;
+  margin-left: auto;
 }
