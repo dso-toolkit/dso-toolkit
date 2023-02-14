@@ -1,6 +1,6 @@
 import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
-
 import { Modal } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnType>> = {
@@ -16,10 +16,10 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [modalTitle]="modalTitle"
             [showCloseButton]="showCloseButton"
             [initialFocus]="initialFocus"
-            (dsoClose)="dsoClose()"
+            (dsoClose)="dsoClose?.($event)"
           >
-            <div slot="body" [innerHTML]="body.template"></div>
-            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template"></div>
+            <div slot="body" [innerHTML]="body.template | trustHtml"></div>
+            <div *ngIf="footer" slot="footer" [innerHTML]="footer.template | trustHtml"></div>
           </dso-modal>`,
       };
     },

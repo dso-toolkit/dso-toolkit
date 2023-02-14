@@ -1,8 +1,10 @@
-import { storiesOf } from "@storybook/angular";
+import { moduleMetadata, storiesOf } from "@storybook/angular";
 
 import { storiesOfModal } from "dso-toolkit";
+
 import { DsoModal } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
+import { TrustHtmlPipe } from "../trust-html.pipe";
 import {
   activeBody,
   activeFooter,
@@ -25,6 +27,11 @@ storiesOfModal({
         {
           component: DsoModal,
         },
+      ],
+      decorators: [
+        moduleMetadata({
+          declarations: [TrustHtmlPipe],
+        }),
       ],
     },
   },
