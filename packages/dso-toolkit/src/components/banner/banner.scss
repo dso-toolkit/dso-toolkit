@@ -31,6 +31,14 @@
     }
   }
 
+  &.alert-error {
+    @include banner.error();
+
+    .row > div::before {
+      @include di.base("status-error");
+    }
+  }
+
   &.alert-warning {
     @include banner.warning();
 
@@ -71,6 +79,14 @@ dso-banner {
 
     .row > div::before {
       @include di.base("status-danger");
+    }
+  }
+
+  &[status="error"] {
+    @include banner.error();
+
+    .row > div::before {
+      @include di.base("status-error");
     }
   }
 

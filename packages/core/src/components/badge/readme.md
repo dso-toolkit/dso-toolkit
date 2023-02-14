@@ -5,9 +5,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                                                                  | Default     |
-| -------- | --------- | ----------- | ------------------------------------------------------------------------------------- | ----------- |
-| `status` | `status`  |             | `"danger" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| Property | Attribute | Description | Type                                                                                             | Default     |
+| -------- | --------- | ----------- | ------------------------------------------------------------------------------------------------ | ----------- |
+| `status` | `status`  |             | `"danger" \| "error" \| "info" \| "outline" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
 
 
 ----------------------------------------------

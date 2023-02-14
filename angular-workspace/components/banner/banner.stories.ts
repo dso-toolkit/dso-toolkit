@@ -6,6 +6,7 @@ import { templateContainer } from "../../templates";
 import {
   dangerRichContent,
   dangerWithHeadingsRichContent,
+  errorRichContent,
   richWarningRichContent,
   warningRichContent,
 } from "./banner.content";
@@ -32,5 +33,6 @@ storiesOfBanner({
     dangerWithHeadingsRichContent,
     richWarningRichContent,
     warningRichContent,
+    errorRichContent,
   }),
 });

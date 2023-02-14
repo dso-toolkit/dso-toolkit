@@ -5,12 +5,12 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                                                                                 | Default     |
-| ----------- | ----------- | ----------- | ------------------------------------------------------------------------------------ | ----------- |
-| `compact`   | `compact`   |             | `boolean \| undefined`                                                               | `undefined` |
-| `removable` | `removable` |             | `boolean \| undefined`                                                               | `undefined` |
-| `status`    | `status`    |             | `"bright" \| "danger" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
-| `truncate`  | `truncate`  |             | `boolean \| undefined`                                                               | `undefined` |
+| Property    | Attribute   | Description | Type                                                                                            | Default     |
+| ----------- | ----------- | ----------- | ----------------------------------------------------------------------------------------------- | ----------- |
+| `compact`   | `compact`   |             | `boolean \| undefined`                                                                          | `undefined` |
+| `removable` | `removable` |             | `boolean \| undefined`                                                                          | `undefined` |
+| `status`    | `status`    |             | `"bright" \| "danger" \| "error" \| "info" \| "primary" \| "success" \| "warning" \| undefined` | `undefined` |
+| `truncate`  | `truncate`  |             | `boolean \| undefined`                                                                          | `undefined` |
 
 
 ## Events

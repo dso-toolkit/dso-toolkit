@@ -73,6 +73,11 @@
     color: label-variables.$danger-color;
   }
 
+  &.dso-label-error {
+    background-color: label-variables.$error-bg-color;
+    color: label-variables.$error-color;
+  }
+
   &.dso-label-bright {
     background-color: label-variables.$bright-bg-color;
     color: label-variables.$bright-color;

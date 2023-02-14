@@ -7,6 +7,7 @@ import coreReadme from "@dso-toolkit/core/src/components/banner/readme.md";
 import { templateContainer } from "../../templates";
 import {
   dangerRichContent,
+  errorRichContent,
   dangerWithHeadingsRichContent,
   richWarningRichContent,
   warningRichContent,
@@ -23,6 +24,7 @@ storiesOfBanner({
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
     dangerRichContent,
+    errorRichContent,
     dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
     richWarningRichContent,
     warningRichContent: warningRichContent(templates),
@@ -40,6 +42,7 @@ storiesOfBanner({
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
     dangerRichContent,
+    errorRichContent,
     dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
     richWarningRichContent,
     warningRichContent: warningRichContent(templates),

@@ -8,7 +8,13 @@
         "command": "stencil build",
         "cwd": "packages/core"
       },
-      "outputs": ["{projectRoot}/dist", "{projectRoot}/loader"]
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/loader",
+        "{projectRoot}/../react/src/components.ts",
+        "{projectRoot}/../react/src/react-component-lib",
+        "{projectRoot}/../../angular-workspace/projects/component-library/src/lib/stencil-generated"
+      ]
     }
   }
 }
