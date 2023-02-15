@@ -534,7 +534,7 @@ describe("Ozon Content", () => {
       .should("exist")
       .and("have.text", "Activiteiten die bomen aantasten. Zie de tabel hieronder.")
       .get("dso-ozon-content")
-      .find("dso-table > table > .dso-ozon-bron")
+      .find("dso-table > div > .dso-ozon-bron")
       .should("exist")
       .and("have.text", "bron: opent in nieuw venster artikel 4.7 van de wet");
   });

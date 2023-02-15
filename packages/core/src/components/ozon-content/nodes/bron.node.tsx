@@ -7,6 +7,6 @@ export class OzonContentBronNode implements OzonContentNode {
   name = "Bron";
 
   render(node: Element, { mapNodeToJsx }: OzonContentNodeContext) {
-    return <span class="dso-ozon-bron">bron: {mapNodeToJsx(node.childNodes)}</span>;
+    return <span class="dso-ozon-bron">{mapNodeToJsx(node.childNodes)}</span>;
   }
 }

@@ -1115,7 +1115,7 @@ export const content = [
               </row>
             </tbody>
           </tgroup>
-          <Bron><ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef></Bron>
+          <Bron>bron: <ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef></Bron>
         </table>
       </Inhoud>`,
   },

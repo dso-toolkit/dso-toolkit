@@ -19,8 +19,12 @@ const Bijschrift = ({ bijschrift, bron, mapNodeToJsx }: BijschriftProps): HTMLSp
   return (
     <span class="figuur-bijschrift">
       {bijschrift && bijschrift.inhoud && mapNodeToJsx(bijschrift.inhoud)}
-      {bron && bijschrift && " "}
-      {bron && <Fragment>({mapNodeToJsx(bron)})</Fragment>}
+      {bron && (
+        <Fragment>
+          {`${bijschrift ? " " : ""}(bron: `}
+          {mapNodeToJsx(bron)})
+        </Fragment>
+      )}
     </span>
   );
 };
