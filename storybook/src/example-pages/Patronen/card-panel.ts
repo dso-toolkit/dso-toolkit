@@ -6,15 +6,16 @@ examplePageFactory(
   "patronen",
   "Card Panel",
   ({
-    searchBarTemplate,
     anchorTemplate,
     buttonTemplate,
-    imageTemplate,
     highlightBoxTemplate,
-    toggletipTemplate,
+    imageTemplate,
     labelTemplate,
-    viewerGridTemplate,
+    richContentTemplate,
+    searchBarTemplate,
     tileGridTemplate,
+    toggletipTemplate,
+    viewerGridTemplate,
   }) => html`
     <div class="container">
       ${viewerGridTemplate({
@@ -26,10 +27,12 @@ examplePageFactory(
             white: true,
             dropShadow: true,
             content: html`
-              <div class="dso-rich-content">
-                <h2>Activiteiten</h2>
-                <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
-              </div>
+              ${richContentTemplate({
+                children: html`
+                  <h2>Activiteiten</h2>
+                  <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
+                `,
+              })}
               ${searchBarTemplate({
                 buttonLabel: "Zoekopdracht legen",
                 id: "PatronenCardPanelSearchBarID",
@@ -39,13 +42,15 @@ examplePageFactory(
                 icon: true,
                 hideSearchButton: true,
               })}
-              <div class="dso-rich-content">
-                <p>
-                  Veel gebruikt: ${anchorTemplate({ label: "Boom kappen", url: "#" })},
-                  ${anchorTemplate({ label: "Dakkapel plaatsen", url: "#" })},
-                  ${anchorTemplate({ label: "Schuur bouwen", url: "#" })}
-                </p>
-              </div>
+              ${richContentTemplate({
+                children: html`
+                  <p>
+                    Veel gebruikt: ${anchorTemplate({ label: "Boom kappen", url: "#" })},
+                    ${anchorTemplate({ label: "Dakkapel plaatsen", url: "#" })},
+                    ${anchorTemplate({ label: "Schuur bouwen", url: "#" })}
+                  </p>
+                `,
+              })}
 
               <div class="dso-context-wrapper">
                 <div class="dso-context-container">
@@ -64,18 +69,20 @@ examplePageFactory(
             white: true,
             dropShadow: true,
             content: html`
-              <div class="dso-rich-content">
-                <h2>Gebieden op de kaart</h2>
-                <p>Gebieden op deze locatie waar aparte regels voor gelden:</p>
-                <p>
-                  ${imageTemplate({ alt: "Geel vierkantje", source: "images/rectangle1.png" })}
-                  <strong>Tuin</strong> (enkelbestemming) ${anchorTemplate({ label: "Bekijk de regels", url: "#" })}
-                </p>
-                <p>
-                  ${imageTemplate({ alt: "Groen vierkantje", source: "images/rectangle2.png" })}
-                  <strong>Wonen</strong> (functie) ${anchorTemplate({ label: "Bekijk de regels", url: "#" })}
-                </p>
-              </div>
+              ${richContentTemplate({
+                children: html`
+                  <h2>Gebieden op de kaart</h2>
+                  <p>Gebieden op deze locatie waar aparte regels voor gelden:</p>
+                  <p>
+                    ${imageTemplate({ alt: "Geel vierkantje", source: "images/rectangle1.png" })}
+                    <strong>Tuin</strong> (enkelbestemming) ${anchorTemplate({ label: "Bekijk de regels", url: "#" })}
+                  </p>
+                  <p>
+                    ${imageTemplate({ alt: "Groen vierkantje", source: "images/rectangle2.png" })}
+                    <strong>Wonen</strong> (functie) ${anchorTemplate({ label: "Bekijk de regels", url: "#" })}
+                  </p>
+                `,
+              })}
 
               <div class="dso-context-wrapper">
                 <div class="dso-context-container">
@@ -94,11 +101,12 @@ examplePageFactory(
             white: true,
             dropShadow: true,
             content: html`
-              <div class="dso-rich-content">
-                <h2>Thema's</h2>
-                <p>Regels en beleid voor algemene onderwerpen zoals:</p>
-              </div>
-
+              ${richContentTemplate({
+                children: html`
+                  <h2>Thema's</h2>
+                  <p>Regels en beleid voor algemene onderwerpen zoals:</p>
+                `,
+              })}
               ${tileGridTemplate({
                 tiles: [
                   {
@@ -145,13 +153,15 @@ examplePageFactory(
             yellow: true,
             dropShadow: true,
             content: html`
-              <div class="dso-rich-content">
-                <h2>
-                  Activiteiten
-                  ${toggletipTemplate({ secondary: true, children: html`Meer informatie over deze activiteiten` })}
-                </h2>
-                <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
-              </div>
+              ${richContentTemplate({
+                children: html`
+                  <h2>
+                    Activiteiten
+                    ${toggletipTemplate({ secondary: true, children: html`Meer informatie over deze activiteiten` })}
+                  </h2>
+                  <p>Als u wilt bouwen of aanpassen kunt u regels zoeken voor deze activiteit.</p>
+                `,
+              })}
 
               <div class="dso-context-wrapper">
                 <div class="dso-context-label">

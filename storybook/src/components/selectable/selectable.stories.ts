@@ -15,7 +15,10 @@ storiesOfSelectable({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
+  storyTemplates: ({ selectableTemplate }, templates) => ({
+    selectableTemplate,
+    infoRichContent: infoRichContent(templates),
+  }),
 });
 
 storiesOfSelectable({
@@ -26,5 +29,8 @@ storiesOfSelectable({
     root: StoryRoot.Core,
   },
   templateContainer,
-  storyTemplates: ({ selectableTemplate }) => ({ selectableTemplate, infoRichContent }),
+  storyTemplates: ({ selectableTemplate }, templates) => ({
+    selectableTemplate,
+    infoRichContent: infoRichContent(templates),
+  }),
 });

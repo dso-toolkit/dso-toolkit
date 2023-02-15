@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const coreCard: ComponentImplementation<Card<never>> = {
   component: "card",
   implementation: "core",
-  template: ({ buttonTemplate, selectableTemplate, toggletipTemplate }) =>
+  template: ({ buttonTemplate, richContentTemplate, selectableTemplate, toggletipTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }: Card<TemplateResult>) {
       return html`
         <dso-card @dsoCardClicked=${dsoCardClicked}>
@@ -30,7 +30,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
               `
             )}
           </div>`}
-          <div class="dso-rich-content" slot="content">${content}</div>
+          ${richContentTemplate({ children: content, slot: "content" })}
         </dso-card>
       `;
     },

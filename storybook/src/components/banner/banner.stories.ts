@@ -23,10 +23,10 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
-    dangerRichContent,
-    errorRichContent,
+    errorRichContent: errorRichContent(templates),
+    dangerRichContent: dangerRichContent(templates),
     dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
-    richWarningRichContent,
+    richWarningRichContent: richWarningRichContent(templates),
     warningRichContent: warningRichContent(templates),
   }),
 });
@@ -41,10 +41,10 @@ storiesOfBanner({
   templateContainer,
   storyTemplates: ({ bannerTemplate }, templates) => ({
     bannerTemplate,
-    dangerRichContent,
-    errorRichContent,
+    errorRichContent: errorRichContent(templates),
+    dangerRichContent: dangerRichContent(templates),
     dangerWithHeadingsRichContent: dangerWithHeadingsRichContent(templates),
-    richWarningRichContent,
+    richWarningRichContent: richWarningRichContent(templates),
     warningRichContent: warningRichContent(templates),
   }),
 });

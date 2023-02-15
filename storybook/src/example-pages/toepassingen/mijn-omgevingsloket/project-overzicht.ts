@@ -11,12 +11,13 @@ examplePageFactory(
   "Project Overzicht",
   (
     {
-      buttonRowTemplate,
+      anchorTemplate,
       applicationHeadingTemplate,
+      buttonRowTemplate,
+      cardListTemplate,
       highlightBoxTemplate,
       linkListTemplate,
-      anchorTemplate,
-      cardListTemplate,
+      richContentTemplate,
     },
     templates
   ) => html`
@@ -44,19 +45,19 @@ examplePageFactory(
               <div class="col-md-12 col-sm-6 col-xs-12">
                 ${highlightBoxTemplate({
                   border: true,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h2>Mijn project</h2>
                       ${linkListTemplate(linkList)}
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-12 col-sm-6 col-xs-12">
                 ${highlightBoxTemplate({
                   border: true,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h2>Deelnemers</h2>
                       <p>
                         Wit u dat iemand anders uw aanvraag kan maken of indienen? Dan kunt u iemand hiervoor machtigen
@@ -68,8 +69,8 @@ examplePageFactory(
                         modifier: "dso-secondary",
                         icon: { icon: "chevron-right" },
                       })}
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
             </div>

@@ -6,7 +6,10 @@ import { definitionList1, definitionlist2, radios } from "./omgevingsoverleg.con
 examplePageFactory(
   "Toepassingen/Aanvragen",
   "Omgevingsoverleg",
-  ({ applicationHeadingTemplate, definitionListTemplate, formButtonsTemplate, formGroupRadiosTemplate }) => html`
+  (
+    { applicationHeadingTemplate, definitionListTemplate, formButtonsTemplate, formGroupRadiosTemplate },
+    templates
+  ) => html`
     <div class="container">
       <main>
         <form>
@@ -15,7 +18,7 @@ examplePageFactory(
             subtitle: "7. Verzoeken indienen",
             step: "Stap 7/7",
           })}
-          ${formGroupRadiosTemplate(radios)} ${definitionListTemplate(definitionList1)}
+          ${formGroupRadiosTemplate(radios(templates))} ${definitionListTemplate(definitionList1)}
           ${definitionListTemplate(definitionlist2)}
           ${formButtonsTemplate({
             buttons: [

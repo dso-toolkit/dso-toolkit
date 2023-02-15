@@ -8,7 +8,7 @@ import { header } from "../../partials/header.content";
 examplePageFactory(
   "Toepassingen/Aanvragen",
   "Landingspagina",
-  ({ highlightBoxTemplate, buttonTemplate, anchorTemplate }, templates) => html`
+  ({ anchorTemplate, buttonTemplate, highlightBoxTemplate, richContentTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -16,16 +16,16 @@ examplePageFactory(
           <div class="col-lg-6 col-sm-8">
             ${highlightBoxTemplate({
               white: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h1>Direct een aanvraag of melding indienen</h1>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quisno
                   </p>
                   <p>${anchorTemplate({ label: "Start met aanvragen", url: "#", modifier: "dso-primary" })}</p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>
@@ -33,8 +33,8 @@ examplePageFactory(
           <div class="col-lg-8">
             ${highlightBoxTemplate({
               yellow: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h2>Vul uw aanvraag zo compleet mogelijk in</h2>
                   <p>
                     Zo voorkomt u dat uw aanvraag vertraging oploopt. Er zijn weinig vragen verplicht. Om uw aanvraag in
@@ -46,33 +46,49 @@ examplePageFactory(
                     De kosten van een aanvraag zijn verschillend. Kijk op de website van uw gemeente, waterschap of
                     provincie voor de precieze kosten.
                   </p>
-                </div>
+                `,
+              }),
+            })}
+            ${richContentTemplate({
+              children: html`
+                <h2>Omgevingsoverleg</h2>
+                <p>
+                  Is uw plan erg ingewikkeld? Dan adviseren we u een aanvraag te doen voor een Omgevingsoverleg. Het
+                  Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt samen met uw gemeente, waterschap
+                  of provincie en andere relevante betrokkenen. Het uitgangspunt van het Omgevingsoverleg is 'Hoe kunnen
+                  we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar is. Ook weet u hoe
+                  u uw verzoek het beste kunt indienen.
+                </p>
+                <p>
+                  <em class="text-muted"
+                    >Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor
+                    beschikbaarheid en mogelijke kosten van een Omgevingsoverleg</em
+                  >
+                </p>
+                <h2>Eerst een vergunningcheck?</h2>
+                <p>
+                  Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt
+                  vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard.
+                  Dat scheelt u veel werk in de toekomst. Start
+                  ${anchorTemplate({ label: "de Vergunningscheck", url: "#" })}.
+                </p>
               `,
             })}
-            <div class="dso-rich-content">
-              <h2>Omgevingsoverleg</h2>
-              <p>Is uw plan erg ingewikkeld? Dan adviseren we u een aanvraag te doen voor een Omgevingsoverleg. Het Omgevingsoverleg is een zorgvuldig proces waarin u uw plan bespreekt samen met uw gemeente, waterschap of provincie en andere relevante betrokkenen. Het uitgangspunt van het Omgevingsoverleg is 'Hoe kunnen we dit plan mogelijk maken?'. Na het Omgevingsoverleg weet u of uw project haalbaar is. Ook weet u hoe u uw verzoek het beste kunt indienen.</p>
-              <p><em class="text-muted">Let op, bekijk altijd eerst de website van uw gemeente, waterschap of provincie voor beschikbaarheid en mogelijke kosten van een Omgevingsoverleg</em></p>
-              <h2>Eerst een vergunningcheck?</h2>
-              <p>Weet u niet goed uit welke activiteiten uw project bestaat? Doe dan eerst een Vergunningcheck. U kunt vanuit de Vergunningcheck een aanvraag klaar zetten. Dan worden uw locatie en activiteiten bewaard. Dat scheelt u veel werk in de toekomst. Start ${anchorTemplate(
-                { label: "de Vergunningscheck", url: "#" }
-              )}.</p>
-            </div>
           </div>
           <div class="col-lg-4">
             ${highlightBoxTemplate({
               border: true,
               white: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h2>Vragen?</h2>
                   <p>
                     Heeft u vragen over uw vergunning of melding? Neem dan contact op met uw gemeente of waterschap.
                     Heeft u vragen over hoe de website werkt? Neem dan contact op met
                     ${anchorTemplate({ label: "het Informatiepunt", url: "#", modifier: "extern" })}.
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>
@@ -85,15 +101,15 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 1,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Project aanmaken</h3>
                       <p>
                         Maak eerst een project aan. Deze vindt u daarna terug in
                         ${anchorTemplate({ label: "Mijn omgevingsloket", url: "#" })}.
                       </p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -101,12 +117,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 2,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Locatie</h3>
                       <p>Kies de locatie voor uw bouwactiviteit(en).</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -114,12 +130,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 3,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Activiteiten</h3>
                       <p>Kies de activiteiten van uw project.</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -127,15 +143,15 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 4,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Vragen beantwoorden</h3>
                       <p>
                         Beantwoord alle vragen die nodig zijn voor uw aanvraag. Vragen die in uw situatie niet meer
                         relevant zijn vallen vanzelf weg.
                       </p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
             </div>
@@ -145,12 +161,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 5,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Documenten toevoegen</h3>
                       <p>Voeg alle benodigde documenten toe.</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -158,12 +174,12 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 6,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Uw gegevens</h3>
                       <p>Controleer uw gegevens en vul aan waar nodig.</p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
               <div class="col-md-3 col-sm-6">
@@ -171,15 +187,15 @@ examplePageFactory(
                   white: true,
                   dropShadow: true,
                   step: 7,
-                  content: html`
-                    <div class="dso-rich-content">
+                  content: richContentTemplate({
+                    children: html`
                       <h3>Verzoek samenstellen</h3>
                       <p>
                         In de laatste stap bepaalt u voor welke activiteit(en) een Omgevingsoverleg of definitief
                         verzoek wordt verstuurd.
                       </p>
-                    </div>
-                  `,
+                    `,
+                  }),
                 })}
               </div>
             </div>
@@ -193,46 +209,46 @@ examplePageFactory(
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h3>Besluitperiode</h3>
                   <p>
                     U ontvangt een bericht van de organisatie die uw verzoek behandeld. Meestal ontvangt u binnen 8
                     weken een besluit van de behandelende organisatie.
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
           <div class="col-xs-12 col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h3>Aanvullen verzoek</h3>
                   <p>
                     Als er iets mist of niet klopt wordt u gevraagd het verzoek aan te vullen. Dit kan in
                     ${anchorTemplate({ label: "Mijn Omgevingsloket", url: "#" })}. De periode waarin er een besluit
                     genomen wordt kan worden verlengd.
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
           <div class="col-xs-12 col-sm-4">
             ${highlightBoxTemplate({
               white: true,
               dropShadow: true,
-              content: html`
-                <div class="dso-rich-content">
+              content: richContentTemplate({
+                children: html`
                   <h3>Bezwaar en beroep</h3>
                   <p>
                     Na het besluit hebben u én andere betrokkenen 6 weken de tijd om bezwaar te maken. Het is verstandig
                     om deze tijd te wachten met het uitvoeren van de werkzaamheden.
                   </p>
-                </div>
-              `,
+                `,
+              }),
             })}
           </div>
         </div>
