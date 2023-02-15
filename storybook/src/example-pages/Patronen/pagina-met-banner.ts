@@ -56,12 +56,13 @@ examplePageFactory(
                 </p>
               `,
             })}
+          </div>
           <div class="col-lg-4">
             ${highlightBoxTemplate({
               white: true,
               border: true,
               content: richContentTemplate({
-                children: html` <h2>Vragen?</h2>
+                children: html`<h2>Vragen?</h2>
                   <h3>Bel 088 - 79 70 790</h3>
                   <p>
                     Bereikbaar op werkdagen van 9.00-12.00 uur en van 13.00-16.30 uur. Kijk op de website

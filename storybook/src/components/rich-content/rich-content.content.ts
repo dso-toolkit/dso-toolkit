@@ -1,6 +1,8 @@
 import { html } from "lit-html";
 
-export function children() {
+import { Templates } from "../../templates";
+
+export function children({ anchorTemplate, imageTemplate }: Templates) {
   return html`
     <div class="dso-rich-content">
       <h1>Kop 1</h1>
@@ -12,8 +14,7 @@ export function children() {
         Verder doen we aan <sub>lage</sub> en <sup>hoge</sup> letters en voegen we wel eens wat <del>weg</del
         ><ins>toe</ins>.
       </p>
-      <p>Een {% render '@anchor', {label: 'externe link', url: '#', modifier: 'extern') %} maak je zo</p>
-      <p>{% render '@image' %}</p>
+      <p>Een ${anchorTemplate({ label: "externe link", url: "#", modifier: "extern" })} maak je zo</p>
       <ul>
         <li>Ongesorteerde lijst</li>
         <li>Item 2</li>
@@ -27,10 +28,6 @@ export function children() {
       </blockquote>
       <p>Zo maken we een <em>horizontal rule</em></p>
       <hr />
-      <p>Een tabel kan dit:</p>
-      {% render '@table', tableContext, true %}
-      <p>Een lijst met definities gaat zo:</p>
-      {% render '@definition-list' %}
       <p>Een highlight box in de tekst gaat zo:</p>
       <dso-highlight-box>
         <div class="dso-rich-content">
@@ -71,7 +68,7 @@ export function children() {
         proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze
         door elkaar husselde om een font-catalogus te maken.
       </p>
-      <p>{% render '@image', {source: '/dummy/images/ocean-480.jpg', alt: 'Afbeelding van een oceaangolf'} %}</p>
+      <p>${imageTemplate({ source: "/dummy/images/ocean-480.jpg", alt: "Afbeelding van een oceaangolf" })}</p>
       <p>
         Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische
         letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum
@@ -82,7 +79,6 @@ export function children() {
         In tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het heeft zijn
         wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar oud.
       </p>
-      <p>{% render '@image' %}</p>
       <p>
         Richard McClintock, een professor latijn aan de Hampden-Sydney College in Virginia, heeft één van de meer
         obscure latijnse woorden, consectetur, uit een Lorem Ipsum passage opgezocht, en heeft tijdens het zoeken naar

@@ -14,5 +14,5 @@ storiesOfRichContent({
     root: StoryRoot.HtmlCss,
   },
   templateContainer,
-  storyTemplates: ({ richContentTemplate }) => ({ richContentTemplate, children: children() }),
+  storyTemplates: ({ richContentTemplate }, templates) => ({ richContentTemplate, children: children(templates) }),
 });
