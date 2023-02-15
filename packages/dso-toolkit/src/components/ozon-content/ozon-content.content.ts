@@ -962,4 +962,161 @@ export const content = [
       </table>
     `,
   },
+  {
+    title: "Table met Bron",
+    content: `
+      <Inhoud
+        xmlns='https://standaarden.overheid.nl/stop/imop/tekst/'
+        xmlns:DSO-PI12='https://standaarden.overheid.nl/lvbb/DSO-PI12'
+        xmlns:data='https://standaarden.overheid.nl/stop/imop/data/'
+        xmlns:ns10='http://www.w3.org/2001/SMIL20/Language'
+        xmlns:ns2='https://standaarden.overheid.nl/stop/imop/consolidatie/'
+        xmlns:ns4='https://standaarden.overheid.nl/lvbb/stop/uitlevering/'
+        xmlns:ns5='http://www.opengis.net/se'
+        xmlns:ns6='http://www.w3.org/1999/xlink'
+        xmlns:ns7='http://www.opengis.net/ogc'
+        xmlns:ns8='http://www.opengis.net/gml'
+        xmlns:ns9='http://www.w3.org/2001/SMIL20/'
+      >
+        <Al>Activiteiten die bomen aantasten. Zie de tabel hieronder.</Al>
+        <table
+          eId='chp_4_subchp_4.2subsec_4.2.17art_4.35para_2table_o_1'
+          frame='none'
+          wId='gm0344_d664286667bc4dcf85b4599f3f341031chp_4subchp_4.2subsec_4.2.17art_4.35para_2_table_o_1'
+        >
+          <title>Hoogte boom</title>
+          <tgroup align='left' cols='6'>
+            <colspec colname='col1' colnum='1'/>
+            <colspec colname='col2' colnum='2'/>
+            <colspec colname='col3' colnum='3'/>
+            <colspec colname='col4' colnum='4'/>
+            <colspec colname='col5' colnum='5'/>
+            <colspec colname='col6' colnum='6'/>
+            <tbody valign='middle'>
+              <row>
+                <entry align='left' colname='col1' colsep='0'  rowsep='0' valign='middle'>
+                  <Al>hoogte</Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rowsep='0' valign='middle'>
+                  <Al>100cm</Al>
+                </entry>
+                <entry align='left' colname='col3' colsep='0'  rowsep='0' valign='middle'>
+                  <Al>150cm</Al>
+                </entry>
+                <entry align='left' colname='col4' colsep='0'  rowsep='0' valign='middle'>
+                  <Al>200cm</Al>
+                </entry>
+                <entry align='left' colname='col5' colsep='0' rowsep='0' valign='middle'>
+                  <Al>500cm</Al>
+                </entry>
+                <entry align='left' colname='col6' colsep='0' rowsep='0' valign='middle'>
+                  <Al>>500cm</Al>
+                </entry>
+              </row>
+              <row>
+                <entry align='left' colname='col1' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rowsep='0' valign='middle'>
+                  <Al>ja</Al>
+                </entry>
+                <entry align='left' colname='col3' colsep='0' rowsep='0' valign='middle'>
+                  <Al>ja</Al>
+                </entry>
+                <entry align='left' colname='col4' colsep='0' rowsep='0' valign='middle'>
+                  <Al>ja</Al>
+                </entry>
+                <entry align='left' colname='col5' colsep='0' rowsep='0' valign='middle'>
+                  <Al>nee</Al>
+                </entry>
+                <entry align='left' colname='col6' colsep='0' rowsep='0' valign='middle'>
+                  <Al>nee</Al>
+                </entry>
+              </row>
+              <row>
+                <entry align='left' colname='col1' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col3' colsep='0' rowsep='0' valign='middle'>
+                  <Al>nee</Al>
+                </entry>
+                <entry align='left' colname='col4' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col5' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col6' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+              </row>
+              <row>
+                <entry align='left' colname='col1' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col3' colsep='0' rowsep='0' valign='middle'>
+                  <Al>nee</Al>
+                </entry>
+                <entry align='left' colname='col4' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col5' colsep='0' rowsep='0' valign='middle'>
+                  <Al>ja</Al>
+                </entry>
+                <entry align='left' colname='col6' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+              </row>
+              <row>
+                <entry align='left' colname='col1' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col3' colsep='0' rowsep='0' valign='middle'>
+                  <Al>nee</Al>
+                </entry>
+                <entry align='left' colname='col4' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col5' colsep='0' rowsep='0' valign='middle'>
+                  <Al>ja</Al>
+                </entry>
+                <entry align='left' colname='col6' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+              </row>
+              <row>
+                <entry align='left' colname='col1' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col2' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col3' colsep='0' rowsep='0' valign='middle'>
+                  <Al>nee</Al>
+                </entry>
+                <entry align='left' colname='col4' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col5' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+                <entry align='left' colname='col6' colsep='0' rowsep='0' valign='middle'>
+                  <Al></Al>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+          <Bron>bron: <ExtRef ref="http://wetten.overheid.nl/jci1.3:c:BWBR0037885&amp;artikel=4.7">artikel 4.7 van de wet</ExtRef></Bron>
+        </table>
+      </Inhoud>`,
+  },
 ];

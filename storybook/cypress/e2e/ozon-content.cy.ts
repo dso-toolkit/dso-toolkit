@@ -526,4 +526,16 @@ describe("Ozon Content", () => {
 
     cy.percySnapshot();
   });
+
+  it("should show <Bron> at a table", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--table-met-bron")
+      .get("dso-ozon-content")
+      .find("> .dso-rich-content > p")
+      .should("exist")
+      .and("have.text", "Activiteiten die bomen aantasten. Zie de tabel hieronder.")
+      .get("dso-ozon-content")
+      .find("dso-table > div > .dso-ozon-bron")
+      .should("exist")
+      .and("have.text", "bron: opent in nieuw venster artikel 4.7 van de wet");
+  });
 });

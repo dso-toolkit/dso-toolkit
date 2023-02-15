@@ -9,5 +9,8 @@
     "**/.docusaurus": true,
     "angular-workspace/.angular": true,
     "angular-workspace/documentation.json": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

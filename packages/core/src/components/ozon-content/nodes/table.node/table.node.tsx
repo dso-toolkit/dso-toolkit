@@ -1,5 +1,7 @@
 import { h } from "@stencil/core";
+import { v4 as uuidv4 } from "uuid";
 
+import { getNodeName } from "../../get-node-name.function";
 import { OzonContentNodeContext } from "../../ozon-content-node-context.interface";
 import { OzonContentNode } from "../../ozon-content-node.interface";
 
@@ -25,12 +27,16 @@ export class OzonContentTableNode implements OzonContentNode {
 
   handles = ["title", "tgroup", "colspec", "thead", "tbody", "row", "cell"];
 
+  id = uuidv4();
+
   render(node: Element, context: OzonContentNodeContext) {
     const { caption, colspecs, headRows, bodyRows } = mapData(node);
 
+    const bron = Array.from(node.childNodes).find((n) => getNodeName(n) === "Bron");
+
     return (
       <dso-table>
-        <table class="table dso-table-vertical-lines">
+        <table class="table dso-table-vertical-lines" {...(bron ? { "aria-describedby": this.id } : {})}>
           {caption && <caption>{caption}</caption>}
           {colspecs && <Colgroup colspecs={colspecs} />}
           {headRows.length > 0 && (
@@ -44,6 +50,7 @@ export class OzonContentTableNode implements OzonContentNode {
             </tbody>
           )}
         </table>
+        {bron && <div id={this.id}>{context.mapNodeToJsx(bron)}</div>}
       </dso-table>
     );
   }
