@@ -1,6 +1,7 @@
 export { Components, JSX } from "./components";
 
 export * from "./components/accordion/accordion.interfaces";
+export * from "./components/annotation-output/annotation-output.interfaces";
 export * from "./components/autosuggest/autosuggest.interfaces";
 export * from "./components/card/card.interfaces";
 export * from "./components/date-picker/date-picker.interfaces";

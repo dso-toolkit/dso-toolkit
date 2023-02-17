@@ -1,17 +1,16 @@
-import { storiesOf } from "@storybook/web-components";
-import { storiesOfExpandableHeading, StoryRoot } from "dso-toolkit";
-
-import coreReadme from "@dso-toolkit/core/src/components/expandable-heading/readme.md";
+import { storiesOf } from "@storybook/react";
+import { storiesOfExpandableHeading } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
 import { expandableHeading, expandableHeadingWithChildList } from "./expandable-heading.content";
+
+import readme from "./readme.md";
 
 storiesOfExpandableHeading({
   parameters: {
     module,
     storiesOf,
-    readme: coreReadme,
-    root: StoryRoot.Core,
+    readme,
   },
   templateContainer,
   storyTemplates: ({ expandableHeadingTemplate }, templates) => ({

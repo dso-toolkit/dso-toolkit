@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
+import { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
@@ -91,6 +92,7 @@ export namespace Components {
     }
     interface DsoAnnotationOutput {
         "identifier": string;
+        "toggleAnnotation": (e: MouseEvent, identifier: string) => Promise<void>;
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -451,6 +453,10 @@ export namespace Components {
 export interface DsoAccordionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionElement;
+}
+export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAnnotationOutputElement;
 }
 export interface DsoAutosuggestCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -866,6 +872,7 @@ declare namespace LocalJSX {
     }
     interface DsoAnnotationOutput {
         "identifier": string;
+        "onDsoToggleAnnotation"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
     }
     interface DsoAttachmentsCounter {
         "count": number;

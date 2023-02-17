@@ -3,4 +3,10 @@ export interface AnnotationOutput<TemplateFnReturnType> {
   title: TemplateFnReturnType;
   addons?: TemplateFnReturnType;
   content: TemplateFnReturnType;
+  dsoToggleAnnotation?: (e: CustomEvent<AnnotationToggleEvent>) => void;
+}
+
+export interface AnnotationToggleEvent {
+  originalEvent?: MouseEvent;
+  open: boolean;
 }

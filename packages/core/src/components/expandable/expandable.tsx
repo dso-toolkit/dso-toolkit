@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Host, Prop } from "@stencil/core";
 
 @Component({
   tag: "dso-expandable",
@@ -10,6 +10,10 @@ export class Expandable {
   open?: boolean;
 
   render() {
-    return <slot />;
+    return (
+      <Host aria-hidden={this.open ? "false" : "true"}>
+        <slot />
+      </Host>
+    );
   }
 }

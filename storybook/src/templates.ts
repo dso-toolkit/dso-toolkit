@@ -1,6 +1,7 @@
 import {
   Accordion,
   Alert,
+  Annotation,
   AnnotationButton,
   AnnotationOutput,
   Anchor,
@@ -87,6 +88,7 @@ import { TemplateResult } from "lit-html";
 
 import { cssAlert } from "./components/alert/alert.css-template";
 import { cssAnchor } from "./components/anchor/anchor.css-template";
+import { coreAnnotation } from "./components/annotation/annotation.core-template";
 import { coreAnnotationButton } from "./components/annotation-button/annotation-button.core-template";
 import { coreAnnotationOutput } from "./components/annotation-output/annotation-output.core-template";
 import { cssApplicationHeading } from "./components/application-heading/application-heading.css-template";
@@ -187,6 +189,7 @@ export interface Components {
   accordion: Accordion<TemplateResult>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
+  annotation: Annotation<TemplateResult>;
   annotationButton: AnnotationButton;
   annotationOutput: AnnotationOutput<TemplateResult>;
   applicationHeading: ApplicationHeading;
@@ -293,6 +296,7 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 
 templateContainer.add(coreAccordion);
 templateContainer.add(coreAlert);
+templateContainer.add(coreAnnotation);
 templateContainer.add(coreAnnotationButton);
 templateContainer.add(coreAnnotationOutput);
 templateContainer.add(coreAttachmentsCounter);

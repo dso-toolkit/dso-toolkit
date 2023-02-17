@@ -11,6 +11,12 @@ export class AnnotationButton implements ComponentInterface {
   @Prop()
   identifier!: string;
 
+  annotationOutput!: HTMLDsoAnnotationOutputElement | null;
+
+  componentDidLoad() {
+    this.annotationOutput = document.querySelector(`dso-annotation-output[identifier='${this.identifier}']`);
+  }
+
   render() {
     return (
       <Fragment>
@@ -18,10 +24,11 @@ export class AnnotationButton implements ComponentInterface {
           type="button"
           class="dso-tertiary"
           aria-controls={this.identifier}
-          aria-expanded={AnnotationService.state[this.identifier]}
-          onClick={() => AnnotationService.toggle(this.identifier)}
+          aria-expanded={AnnotationService.state[this.identifier] ? "true" : "false"}
+          onClick={(e) => this.annotationOutput?.toggleAnnotation(e, this.identifier)}
         >
           <dso-icon icon="label"></dso-icon>
+          <span class="sr-only">Toelichting bekijken</span>
         </button>
       </Fragment>
     );

@@ -44,17 +44,12 @@ export {
   storiesOfApplicationHeading,
 } from "./components/application-heading/application-heading.stories-of.js";
 
+export { Annotation } from "./components/annotation/annotation.models.js";
+export { AnnotationTemplates, storiesOfAnnotation } from "./components/annotation/annotation.stories-of.js";
+
 export { AnnotationButton } from "./components/annotation-button/annotation-button.models.js";
-export {
-  AnnotationButtonTemplates,
-  // storiesOfApplicationHeading,
-} from "./components/annotation-button/annotation-button.stories-of.js";
 
 export { AnnotationOutput } from "./components/annotation-output/annotation-output.models.js";
-export {
-  AnnotationOutputTemplates,
-  // storiesOfApplicationHeading,
-} from "./components/annotation-output/annotation-output.stories-of.js";
 
 export { AttachmentsCounter } from "./components/attachments-counter/attachments-counter.models.js";
 export {

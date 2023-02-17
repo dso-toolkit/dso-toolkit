@@ -1,35 +1,52 @@
 describe("Annotation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-alert");
+    cy.visit("http://localhost:45000/iframe.html?id=core-annotation--annotation");
+    cy.injectAxe();
+    cy.get("dso-annotation-output").then(($annotationOutput) => {
+      $annotationOutput.on("dsoToggleAnnotation", cy.stub().as("dsoToggleAnnotationListener"));
+    });
   });
 
-  it("should have button", () => {
-    cy.get("dso-alert").shadow().get("button");
+  it("should be accessible", () => {
+    cy.checkA11y("#root-inner");
+    cy.get("dso-annotation-output > dso-expandable")
+      .should("have.attr", "id", "annotation-test")
+      .get("dso-annotation-button > button")
+      .should("have.attr", "aria-controls", "annotation-test")
+      .and("have.attr", "aria-expanded", "false")
+      .click()
+      .get("dso-annotation-button > button")
+      .should("have.attr", "aria-expanded", "true");
   });
 
-  // const statuses: Array<{
-  //   status: string;
-  //   message: string;
-  //   icon: string;
-  // }> = [
-  //   { status: "success", message: "Gelukt", icon: "status-success" },
-  //   { status: "info", message: "Opmerking", icon: "status-info" },
-  //   { status: "warning", message: "Waarschuwing", icon: "status-warning" },
-  //   { status: "error", message: "Fout", icon: "status-error" },
-  // ];
+  it("should open and close annotation output on annotation button click", () => {
+    cy.get("dso-annotation-output")
+      .should("not.be.visible")
+      .get("dso-annotation-button > button")
+      .click()
+      .get("@dsoToggleAnnotationListener")
+      .should("have.been.calledOnce")
+      .get("dso-annotation-output")
+      .should("be.visible")
+      .get("dso-annotation-button > button")
+      .click()
+      .get("@dsoToggleAnnotationListener")
+      .should("have.been.calledTwice")
+      .get("dso-annotation-output")
+      .should("not.be.visible");
+  });
 
-  // for (const { status, message, icon } of statuses) {
-  //   it(`should have appropriate message and icon for status "${status}"`, () => {
-  //     cy.get("dso-alert")
-  //       .invoke("attr", "status", status)
-  //       .shadow()
-  //       .find(".alert > span.sr-only")
-  //       .invoke("text")
-  //       .should("equal", `${message}:`);
-
-  //     cy.percySnapshot();
-
-  //     cy.get("dso-alert").shadow().find(".alert > dso-icon").invoke("prop", "icon").should("equal", icon);
-  //   });
-  // }
+  it("should close annotation output on close button click", () => {
+    cy.get("dso-annotation-button > button")
+      .click()
+      .get("dso-annotation-output")
+      .should("be.visible")
+      .get("dso-annotation-output")
+      .find(".dso-annotation-header > button.dso-annotation-close-button")
+      .click()
+      .get("@dsoToggleAnnotationListener")
+      .should("have.been.calledTwice")
+      .get("dso-annotation-output")
+      .should("not.be.visible");
+  });
 });

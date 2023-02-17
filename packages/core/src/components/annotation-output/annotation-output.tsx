@@ -1,6 +1,7 @@
-import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, Event, EventEmitter, h, Method, Prop } from "@stencil/core";
 
 import { AnnotationService } from "../../services/annotation.service";
+import { AnnotationToggleEvent } from "./annotation-output.interfaces";
 
 @Component({
   tag: "dso-annotation-output",
@@ -12,25 +13,34 @@ export class AnnotationOutput implements ComponentInterface {
   @Prop()
   identifier!: string;
 
-  componentDidLoad(): void {
-    // AnnotationService.state[this.identifier];
+  @Event()
+  dsoToggleAnnotation!: EventEmitter<AnnotationToggleEvent>;
+
+  @Method()
+  async toggleAnnotation(e: MouseEvent, identifier: string) {
+    AnnotationService.toggle(identifier);
+
+    this.dsoToggleAnnotation.emit({
+      originalEvent: e,
+      open: AnnotationService.state[this.identifier],
+    });
+  }
+
+  toggleHandler(e: MouseEvent) {
+    this.toggleAnnotation(e, this.identifier);
   }
 
   render() {
     const expandableProperties = AnnotationService.state[this.identifier] ? { open: true } : {};
 
-    console.log("render", AnnotationService.state[this.identifier]);
     return (
-      <dso-expandable {...expandableProperties}>
+      <dso-expandable id={this.identifier} {...expandableProperties}>
         <div class="dso-annotation-header">
           <slot name="title" />
           <slot name="addons" />
-          <button
-            type="button"
-            class="dso-tertiary dso-annotation-close-button"
-            onClick={() => AnnotationService.toggle(this.identifier)}
-          >
+          <button type="button" class="dso-tertiary dso-annotation-close-button" onClick={(e) => this.toggleHandler(e)}>
             <dso-icon icon="times"></dso-icon>
+            <span class="sr-only">Toelichting sluiten</span>
           </button>
         </div>
         <div class="dso-annotation-content">

@@ -9,10 +9,10 @@ import { ExpandableHeading } from "./expandable-heading.models.js";
 
 export interface ExpandableHeadingTemplates<TemplateFnReturnType> {
   expandableHeadingTemplate: (
-    expandableHeadingProperties: ExpandableHeading<TemplateFnReturnType>[]
+    expandableHeadingProperties: ExpandableHeading<TemplateFnReturnType>
   ) => TemplateFnReturnType;
   expandableHeading: ExpandableHeading<TemplateFnReturnType>;
-  expandableHeadingWithChildlist: ExpandableHeading<TemplateFnReturnType>;
+  expandableHeadingWithChildList: ExpandableHeading<TemplateFnReturnType>;
 }
 
 export function storiesOfExpandableHeading<Implementation, Templates, TemplateFnReturnType>(
@@ -34,6 +34,18 @@ export function storiesOfExpandableHeading<Implementation, Templates, TemplateFn
       templateMapper<ExpandableHeadingArgs>((args, { expandableHeadingTemplate, expandableHeading }) =>
         expandableHeadingTemplate(expandableHeadingArgsMapper(args, expandableHeading))
       ),
+      {
+        args: {
+          heading: "h3",
+        },
+      }
+    );
+
+    stories.add(
+      "with child list",
+      templateMapper<ExpandableHeadingArgs>((args, { expandableHeadingTemplate, expandableHeadingWithChildList }) => {
+        return expandableHeadingTemplate(expandableHeadingArgsMapper(args, expandableHeadingWithChildList));
+      }),
       {
         args: {
           heading: "h3",

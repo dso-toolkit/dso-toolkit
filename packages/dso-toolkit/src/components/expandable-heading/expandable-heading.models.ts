@@ -5,3 +5,10 @@ export interface ExpandableHeading<TemplateFnReturnType> {
   addonsEnd?: TemplateFnReturnType;
   content: TemplateFnReturnType;
 }
+
+export interface ExpandableHeadingTemplates<TemplateFnReturnType> {
+  title: TemplateFnReturnType;
+  addonsStart?: TemplateFnReturnType;
+  addonsEnd?: TemplateFnReturnType;
+  content: TemplateFnReturnType;
+}

@@ -1,43 +1,54 @@
+import * as React from "react";
 import { ExpandableHeading } from "dso-toolkit";
-import { html, TemplateResult } from "lit-html";
 
 import { Templates } from "../../templates";
 
-export const annotationContent = html`<p>Gebruik de volgende bestandsformaten voor een document:</p>
-  <ul>
-    <li>Foto's en gescande documenten: PNG, TIFF</li>
-    <li>Digitale documenten: ODT1.2, PDF/A-1, PDF/A-2</li>
-    <li>Tekeningen: PDF/A-2, 5VG</li>
-    <li>Spreadsheet: [SV, 0E1512, PDF/A</li>
-  </ul>`;
+export const annotationContent = (
+  <>
+    <p>Gebruik de volgende bestandsformaten voor een document:</p>
+    <ul>
+      <li>Foto's en gescande documenten: PNG, TIFF</li>
+      <li>Digitale documenten: ODT1.2, PDF/A-1, PDF/A-2</li>
+      <li>Tekeningen: PDF/A-2, 5VG</li>
+      <li>Spreadsheet: [SV, 0E1512, PDF/A</li>
+    </ul>
+  </>
+);
 
-export const annotationHeader = html`<h3 slot="title">Annotaties</h3>`;
+export const annotationHeader = <h3 slot="title">Annotaties</h3>;
 
-export const annotationAddons = html`<div slot="addons" class="dso-selectable">
-  <input type="checkbox" id="ca8ecb1d-56b4-4dc9-b64a-726277104732" value="Akkoord" />
-  <label for="ca8ecb1d-56b4-4dc9-b64a-726277104732">Toon uitgebreide weergave</label>
-</div>`;
+export const annotationAddons = (
+  <div slot="addons" className="dso-selectable">
+    <input type="checkbox" id="ca8ecb1d-56b4-4dc9-b64a-726277104732" value="Akkoord" />
+    <label htmlFor="ca8ecb1d-56b4-4dc9-b64a-726277104732">Toon uitgebreide weergave</label>
+  </div>
+);
 
-const nestedExpandableHeading = html`<p>genest!</p>`;
+const nestedExpandableHeading = <p>genest!</p>;
 
 function parentExpandableHeadingContent(
-  { anchorTemplate, annotationOutputTemplate, expandableHeadingTemplate }: Templates,
-  nestedExpandableHeadings?: ExpandableHeading<TemplateResult>[]
+  { annotationOutputTemplate, expandableHeadingTemplate }: Templates,
+  nestedExpandableHeadings?: ExpandableHeading<JSX.Element>[]
 ) {
-  return html`
-    ${annotationOutputTemplate({
-      identifier: "annotatie-id",
-      content: annotationContent,
-      title: annotationHeader,
-      addons: annotationAddons,
-    })}
-    <p>
-      Dit is de content van een uitklapbare titel. Deze kan vrij ingevuld worden met rich content.
-      ${anchorTemplate({ label: "Bijvoorbeeld", url: "#", modifier: "extern" })} externe links.
-    </p>
-    ${nestedExpandableHeadings &&
-    nestedExpandableHeadings.map((nestedExpandableHeading) => expandableHeadingTemplate(nestedExpandableHeading))}
-  `;
+  return (
+    <>
+      {annotationOutputTemplate({
+        identifier: "annotatie-id",
+        content: annotationContent,
+        title: annotationHeader,
+        addons: annotationAddons,
+      })}
+      <p>
+        Dit is de content van een uitklapbare titel. Deze kan vrij ingevuld worden met rich content.
+        <a href="#" className="extern">
+          Bijvoorbeeld
+        </a>
+        externe links.
+      </p>
+      {nestedExpandableHeadings &&
+        nestedExpandableHeadings.map((nestedExpandableHeading) => expandableHeadingTemplate(nestedExpandableHeading))}
+    </>
+  );
 }
 
 function nestedExpandableHeading1({ ozonContentTemplate }: Templates) {
@@ -124,7 +135,7 @@ function nestedExpandableHeading3({ ozonContentTemplate }: Templates) {
   };
 }
 
-export function expandableHeading(templates: Templates): ExpandableHeading<TemplateResult> {
+export function expandableHeading(templates: Templates): ExpandableHeading<JSX.Element> {
   const { annotationButtonTemplate, labelTemplate, ozonContentTemplate } = templates;
 
   return {
@@ -156,7 +167,7 @@ export function expandableHeading(templates: Templates): ExpandableHeading<Templ
   };
 }
 
-export function expandableHeadingWithChildList(templates: Templates): ExpandableHeading<TemplateResult> {
+export function expandableHeadingWithChildList(templates: Templates): ExpandableHeading<JSX.Element> {
   const { annotationButtonTemplate, labelTemplate, ozonContentTemplate } = templates;
 
   return {

@@ -10,6 +10,26 @@
 | `identifier` _(required)_ | `identifier` |             | `string` | `undefined` |
 
 
+## Events
+
+| Event                 | Description | Type                                 |
+| --------------------- | ----------- | ------------------------------------ |
+| `dsoToggleAnnotation` |             | `CustomEvent<AnnotationToggleEvent>` |
+
+
+## Methods
+
+### `toggleAnnotation(e: MouseEvent, identifier: string) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

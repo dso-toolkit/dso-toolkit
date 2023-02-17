@@ -8,9 +8,10 @@ export const reactLabel: ComponentImplementation<Label> = {
   component: "label",
   implementation: "react",
   template: () =>
-    function labelTemplate({ status, label, removable, dsoRemoveClick, compact, truncate, symbol }) {
+    function labelTemplate({ slotName, status, label, removable, dsoRemoveClick, compact, truncate, symbol }) {
       return (
         <DsoLabel
+          slot={slotName}
           status={status}
           onDsoRemoveClick={dsoRemoveClick}
           compact={compact}

@@ -8,8 +8,19 @@ export const coreAnnotationOutput: ComponentImplementation<AnnotationOutput<Temp
   component: "annotationOutput",
   implementation: "core",
   template: () =>
-    function annotationOutputTemplate({ identifier, slotName, content, title, addons }) {
-      return html`<dso-annotation-output slot=${ifDefined(slotName)} identifier=${identifier}>
+    function annotationOutputTemplate({
+      identifier,
+      slotName,
+      content,
+      title,
+      addons,
+      dsoToggleAnnotation,
+    }: AnnotationOutput<TemplateResult>) {
+      return html`<dso-annotation-output
+        slot=${ifDefined(slotName)}
+        identifier=${identifier}
+        @dsoToggleAnnotation=${dsoToggleAnnotation}
+      >
         ${title} ${addons ? addons : ""} ${content}</dso-annotation-output
       >`;
     },
