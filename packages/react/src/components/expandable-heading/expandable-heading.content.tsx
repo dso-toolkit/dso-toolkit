@@ -124,7 +124,7 @@ function nestedExpandableHeading3({ ozonContentTemplate }: Templates) {
         xmlns:ns10="http://www.w3.org/2001/SMIL20/Language"
         xmlns:ns2="https://standaarden.overheid.nl/stop/imop/consolidatie/"
         xmlns:ns3="https://standaarden.overheid.nl/lvbb/stop/uitlevering/"
-      >Rijswateren</Opschrift>
+      >Rijkswateren</Opschrift>
     `,
       dsoAnchorClick: () => void 0,
       dsoClick: () => void 0,

@@ -1,7 +1,9 @@
 import { Label } from "dso-toolkit";
+
 import { ComponentImplementation } from "../../templates";
 
 const defaultPropValues = {
+  slotName: "slotName",
   label: "label",
   symbol: "symbol",
   status: "status",
@@ -16,7 +18,7 @@ export const angularLabel: ComponentImplementation<Label> = {
   implementation: "angular",
   template: () =>
     function labelTemplate(props, propValues) {
-      const { label, symbol, status, compact, truncate, removable, dsoRemoveClick } = {
+      const { slotName, label, symbol, status, compact, truncate, removable, dsoRemoveClick } = {
         ...defaultPropValues,
         ...propValues,
       };
@@ -25,6 +27,7 @@ export const angularLabel: ComponentImplementation<Label> = {
         props,
         template: `
           <dso-label
+            [slot]="${slotName}"
             [status]="${status}"
             [compact]="${compact}"
             [truncate]="${truncate}"

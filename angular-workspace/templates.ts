@@ -2,12 +2,16 @@ import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/p
 import {
   Accordion,
   Alert,
+  Annotation,
+  AnnotationButton,
+  AnnotationOutput,
   AttachmentsCounter,
   Badge,
   Banner,
   BaseComponentImplementation,
   DatePicker,
   DropdownMenu,
+  ExpandableHeading,
   Header,
   HelpcenterPanel,
   HighlightBox,
@@ -30,11 +34,15 @@ import {
 
 import { angularAccordion } from "./components/accordion/accordion.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
+import { angularAnnotation } from "./components/annotation/annotation.angular-template";
+import { angularAnnotationButton } from "./components/annotation-button/annotation-button.angular-template";
+import { angularAnnotationOutput } from "./components/annotation-output/annotation-output.angular-template";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularBanner } from "./components/banner/banner.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
+import { angularExpandableHeading } from "./components/expandable-heading/expandable-heading.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
 import { angularHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.angular-template";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
@@ -56,6 +64,9 @@ import { angularToggletip } from "./components/toggletip/toggletip.angular-templ
 export interface Components {
   accordion: Accordion<StoryFnAngularReturnType>;
   alert: Alert<StoryFnAngularReturnType>;
+  annotation: Annotation<StoryFnAngularReturnType>;
+  annotationButton: AnnotationButton;
+  annotationOutput: AnnotationOutput<StoryFnAngularReturnType>;
   // autosuggest: Autosuggest<StoryFnAngularReturnType>;
   attachmentsCounter: AttachmentsCounter;
   badge: Badge;
@@ -64,6 +75,7 @@ export interface Components {
   // cardContainer: CardContainer<StoryFnAngularReturnType>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
+  expandableHeading: ExpandableHeading<StoryFnAngularReturnType>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<StoryFnAngularReturnType>;
@@ -92,16 +104,20 @@ export type DefaultPropValues<Model> = { [P in keyof Required<Model>]: string };
 export type PropValues<Model> = { [P in keyof Partial<Model>]: string };
 
 export interface AngularTemplateFunction<Model, TemplateFnReturnType> {
-  (model: Model, propValues?: PropValues<Model>): TemplateFnReturnType;
+  (model: Model & SlottableTemplate, propValues?: PropValues<Model & SlottableTemplate>): TemplateFnReturnType;
 }
 
 export type ComponentsToTemplates<Components, TemplateFnReturnType> = {
   [P in keyof Components & string as `${P}Template`]: AngularTemplateFunction<Components[P], TemplateFnReturnType>;
 };
 
+export type SlottableTemplate = {
+  slotName?: string;
+};
+
 export type Templates = ComponentsToTemplates<Components, StoryFnAngularReturnType>;
 export type ComponentImplementation<Model> = BaseComponentImplementation<
-  Model,
+  Model & SlottableTemplate,
   Implementation,
   Templates,
   StoryFnAngularReturnType,
@@ -114,11 +130,15 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 
 templateContainer.add(angularAccordion);
 templateContainer.add(angularAlert);
+templateContainer.add(angularAnnotation);
+templateContainer.add(angularAnnotationButton);
+templateContainer.add(angularAnnotationOutput);
 templateContainer.add(angularAttachmentsCounter);
 templateContainer.add(angularBadge);
 templateContainer.add(angularBanner);
 templateContainer.add(angularDatePicker);
 templateContainer.add(angularDropdownMenu);
+templateContainer.add(angularExpandableHeading);
 templateContainer.add(angularHeader);
 templateContainer.add(angularHelpcenterPanel);
 templateContainer.add(angularHighlightBox);
