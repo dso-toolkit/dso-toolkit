@@ -5,6 +5,8 @@ import { ComponentImplementation } from "../../templates";
 
 const defaultPropValues = {
   identifier: "id",
+  slotName: "slotName",
+  dsoToggleAnnotation: "dsoToggleAnnotation?.($event)",
 };
 
 export const angularAnnotationOutput: ComponentImplementation<AnnotationOutput<StoryFnAngularReturnType>> = {
@@ -12,7 +14,7 @@ export const angularAnnotationOutput: ComponentImplementation<AnnotationOutput<S
   implementation: "angular",
   template: () =>
     function annotationOutputTemplate(props, propValues) {
-      const { identifier } = {
+      const { identifier, slotName, dsoToggleAnnotation } = {
         ...defaultPropValues,
         ...propValues,
       };
@@ -20,13 +22,16 @@ export const angularAnnotationOutput: ComponentImplementation<AnnotationOutput<S
       return {
         props,
         template: `
-        <dso-annotation-output
-          [slot]="slotName"
-          [attr.identifier]="${identifier}"
-          (dsoToggleAnnotation)="dsoToggleAnnotation()"
-        >
-          {{title}} {{addons ? addons : ""}} {{content}}</dso-annotation-output
-        >`,
+          <dso-annotation-output
+            ${props.slotName ? `[slot]="${slotName}"` : ""}
+            [attr.identifier]="${identifier}"
+            (dsoToggleAnnotation)="${dsoToggleAnnotation}"
+          >
+            ${props.title.template}
+            ${props.addons ? props.addons.template : ""}
+            ${props.content.template}
+          </dso-annotation-output>
+        `,
       };
     },
 };

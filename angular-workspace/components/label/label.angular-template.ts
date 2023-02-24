@@ -27,7 +27,7 @@ export const angularLabel: ComponentImplementation<Label> = {
         props,
         template: `
           <dso-label
-            [slot]="${slotName}"
+            ${props.slotName ? `[slot]="${slotName}"` : ""}
             [status]="${status}"
             [compact]="${compact}"
             [truncate]="${truncate}"

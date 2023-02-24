@@ -9,8 +9,14 @@ export const reactAnnotationOutput: ComponentImplementation<AnnotationOutput<JSX
   implementation: "react",
   template: () =>
     function annotationOutputTemplate({ identifier, slotName, content, title, addons, dsoToggleAnnotation }) {
+      const props = {
+        identifier,
+        onDsoToggleAnnotation: dsoToggleAnnotation,
+        ...(slotName && { slot: slotName }),
+      };
+
       return (
-        <DsoAnnotationOutput slot={slotName} identifier={identifier} onDsoToggleAnnotation={dsoToggleAnnotation}>
+        <DsoAnnotationOutput {...props}>
           {title}
           {addons && addons}
           {content}
