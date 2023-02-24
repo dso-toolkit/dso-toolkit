@@ -17,6 +17,7 @@ describe("Annotation", () => {
       .click()
       .get("dso-annotation-button > button")
       .should("have.attr", "aria-expanded", "true");
+    cy.percySnapshot();
   });
 
   it("should open and close annotation output on annotation button click", () => {

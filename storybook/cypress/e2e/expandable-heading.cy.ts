@@ -23,6 +23,7 @@ describe("Expandable Heading", () => {
       .click()
       .get("@toggleButton")
       .should("have.attr", "aria-expanded", "true");
+    cy.percySnapshot();
   });
 
   it("should open and close when heading is clicked", () => {

@@ -1,1 +1,1 @@
-# `<dso-annotation-button> <dso-annotation-output>`
+# `<dso-annotation-button>` & `<dso-annotation-output>`
