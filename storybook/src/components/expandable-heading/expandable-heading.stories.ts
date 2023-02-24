@@ -4,7 +4,8 @@ import { storiesOfExpandableHeading, StoryRoot } from "dso-toolkit";
 import coreReadme from "@dso-toolkit/core/src/components/expandable-heading/readme.md";
 
 import { templateContainer } from "../../templates";
-import { expandableHeading, expandableHeadingWithChildList } from "./expandable-heading.content";
+import { expandableHeading } from "./content/expandable-heading";
+import { expandableHeadingWithChildList } from "./content/expandable-heading-with-children";
 
 storiesOfExpandableHeading({
   parameters: {

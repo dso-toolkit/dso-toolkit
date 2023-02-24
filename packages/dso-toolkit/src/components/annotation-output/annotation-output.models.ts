@@ -3,6 +3,7 @@ export interface AnnotationOutput<TemplateFnReturnType> {
   title: TemplateFnReturnType;
   addons?: TemplateFnReturnType;
   content: TemplateFnReturnType;
+  prefix?: string;
   dsoToggleAnnotation?: (e: CustomEvent<AnnotationToggleEvent>) => void;
 }
 

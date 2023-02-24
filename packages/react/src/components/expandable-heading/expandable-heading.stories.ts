@@ -2,7 +2,8 @@ import { storiesOf } from "@storybook/react";
 import { storiesOfExpandableHeading } from "dso-toolkit";
 
 import { templateContainer } from "../../templates";
-import { expandableHeading, expandableHeadingWithChildList } from "./expandable-heading.content";
+import { expandableHeading } from "./content/expandable-heading";
+import { expandableHeadingWithChildList } from "./content/expandable-heading-with-children";
 
 import readme from "./readme.md";
 

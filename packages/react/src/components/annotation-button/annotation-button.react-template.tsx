@@ -9,6 +9,11 @@ export const reactAnnotationButton: ComponentImplementation<AnnotationButton> = 
   implementation: "react",
   template: () =>
     function annotationButtonTemplate({ identifier, slotName }) {
-      return <DsoAnnotationButton slot={slotName} identifier={identifier}></DsoAnnotationButton>;
+      const props = {
+        ...(slotName && { slot: slotName }),
+        identifier,
+      };
+
+      return <DsoAnnotationButton {...props}></DsoAnnotationButton>;
     },
 };

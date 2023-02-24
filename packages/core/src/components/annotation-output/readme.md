@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property                  | Attribute    | Description | Type     | Default     |
-| ------------------------- | ------------ | ----------- | -------- | ----------- |
-| `identifier` _(required)_ | `identifier` |             | `string` | `undefined` |
+| Property                  | Attribute           | Description | Type                  | Default     |
+| ------------------------- | ------------------- | ----------- | --------------------- | ----------- |
+| `annotationPrefix`        | `annotation-prefix` |             | `string \| undefined` | `undefined` |
+| `identifier` _(required)_ | `identifier`        |             | `string`              | `undefined` |
 
 
 ## Events

@@ -91,6 +91,7 @@ export namespace Components {
         "identifier": string;
     }
     interface DsoAnnotationOutput {
+        "annotationPrefix"?: string;
         "identifier": string;
         "toggleAnnotation": (e: MouseEvent, identifier: string) => Promise<void>;
     }
@@ -871,6 +872,7 @@ declare namespace LocalJSX {
         "identifier": string;
     }
     interface DsoAnnotationOutput {
+        "annotationPrefix"?: string;
         "identifier": string;
         "onDsoToggleAnnotation"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
     }

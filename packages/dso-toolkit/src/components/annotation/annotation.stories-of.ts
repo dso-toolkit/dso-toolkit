@@ -24,10 +24,22 @@ export function storiesOfAnnotation<Implementation, Templates, TemplateFnReturnT
     });
 
     stories.add(
-      "Annotation",
+      "default",
       templateMapper<AnnotationArgs>((args, { annotationTemplate, annotationContent }) =>
         annotationTemplate(annotationArgsMapper(args, annotationContent))
       )
+    );
+
+    stories.add(
+      "met lid",
+      templateMapper<AnnotationArgs>((args, { annotationTemplate, annotationContent }) =>
+        annotationTemplate(annotationArgsMapper(args, annotationContent))
+      ),
+      {
+        args: {
+          prefix: "Dit lid heeft annotaties:",
+        },
+      }
     );
 
     return stories;

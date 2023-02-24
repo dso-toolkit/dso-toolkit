@@ -1,6 +1,6 @@
 describe("Annotation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-annotation--annotation");
+    cy.visit("http://localhost:45000/iframe.html?id=core-annotation--default");
     cy.injectAxe();
     cy.get("dso-annotation-output").then(($annotationOutput) => {
       $annotationOutput.on("dsoToggleAnnotation", cy.stub().as("dsoToggleAnnotationListener"));

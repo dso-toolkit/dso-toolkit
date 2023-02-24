@@ -9,8 +9,14 @@ export const reactOzonContent: ComponentImplementation<OzonContent> = {
   implementation: "react",
   template: () =>
     function ozonContentTemplate({ slotName, content, prefix, suffix, dsoAnchorClick }) {
+      const props = {
+        ...(slotName && { slot: slotName }),
+        content,
+        onDsoAnchorClick: dsoAnchorClick,
+      };
+
       return (
-        <DsoOzonContent slot={slotName} content={content} onDsoAnchorClick={dsoAnchorClick}>
+        <DsoOzonContent {...props}>
           {prefix && <span slot="prefix">{prefix}</span>}
           {suffix && <span slot="suffix">{suffix}</span>}
         </DsoOzonContent>

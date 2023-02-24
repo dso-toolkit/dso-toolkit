@@ -13,6 +13,9 @@ export class AnnotationOutput implements ComponentInterface {
   @Prop()
   identifier!: string;
 
+  @Prop()
+  annotationPrefix?: string;
+
   @Event()
   dsoToggleAnnotation!: EventEmitter<AnnotationToggleEvent>;
 
@@ -35,6 +38,7 @@ export class AnnotationOutput implements ComponentInterface {
 
     return (
       <dso-expandable id={this.identifier} {...expandableProperties}>
+        {this.annotationPrefix && <span class="dso-annotation-prefix">{this.annotationPrefix}</span>}
         <div class="dso-annotation-header">
           <slot name="title" />
           <slot name="addons" />

@@ -5,12 +5,16 @@ import { Annotation } from "./annotation.models.js";
 
 export interface AnnotationArgs {
   identifier: string;
+  prefix: string;
   dsoToggleAnnotation: HandlerFunction;
 }
 
 export const annotationArgTypes: ArgTypes<AnnotationArgs> = {
   identifier: {
     ...noControl,
+  },
+  prefix: {
+    type: "string",
   },
   dsoToggleAnnotation: {
     ...noControl,
@@ -32,6 +36,7 @@ export function annotationArgsMapper<TemplateFnReturnType>(
     },
     annotationOutput: {
       identifier: a.identifier,
+      prefix: a.prefix,
       title: annotationContent.title,
       addons: annotationContent.addons,
       content: annotationContent.content,
