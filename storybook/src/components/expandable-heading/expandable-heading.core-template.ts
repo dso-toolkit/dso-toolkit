@@ -1,5 +1,6 @@
 import { ExpandableHeading } from "dso-toolkit";
 import { html, TemplateResult } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -7,7 +8,16 @@ export const coreExpandableHeading: ComponentImplementation<ExpandableHeading<Te
   component: "expandableHeading",
   implementation: "core",
   template: () =>
-    function expandableHeadingTemplate({ title, addonsStart, addonsEnd, content }: ExpandableHeading<TemplateResult>) {
-      return html`<dso-expandable-heading>${title} ${addonsStart} ${addonsEnd} ${content}</dso-expandable-heading>`;
+    function expandableHeadingTemplate({
+      heading,
+      color,
+      title,
+      addonsStart,
+      addonsEnd,
+      content,
+    }: ExpandableHeading<TemplateResult>) {
+      return html`<dso-expandable-heading heading=${ifDefined(heading)} color=${ifDefined(color)}
+        >${title} ${addonsStart} ${addonsEnd} ${content}</dso-expandable-heading
+      >`;
     },
 };

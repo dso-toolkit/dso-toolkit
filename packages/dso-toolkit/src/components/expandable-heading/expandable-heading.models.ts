@@ -1,5 +1,6 @@
 export interface ExpandableHeading<TemplateFnReturnType> {
   heading?: "h2" | "h3" | "h4" | "h5" | "h6";
+  color?: "default" | "black";
   title: TemplateFnReturnType;
   addonsStart?: TemplateFnReturnType;
   addonsEnd?: TemplateFnReturnType;

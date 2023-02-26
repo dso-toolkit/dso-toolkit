@@ -11,7 +11,10 @@ export const angularExpandableHeading: ComponentImplementation<ExpandableHeading
       return {
         props,
         template: `
-          <dso-expandable-heading>
+          <dso-expandable-heading
+            [color]="color"
+            [heading]="heading"
+          >
             ${props.title.template}
             ${props.addonsStart ? props.addonsStart.template : ""}
             ${props.addonsEnd ? props.addonsEnd.template : ""}

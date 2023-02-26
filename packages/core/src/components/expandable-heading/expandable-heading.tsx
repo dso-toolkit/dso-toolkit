@@ -1,4 +1,5 @@
 import { Component, Fragment, h, Prop } from "@stencil/core";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
 import { HeadingTags } from "./expandable-heading.interfaces";
@@ -30,8 +31,8 @@ export class ExpandableHeading {
 
     return (
       <Fragment>
-        <div class="expandable-heading">
-          <Heading heading={this.heading} className={this.color === "black" ? "dso-expandable-heading-black" : ""}>
+        <div class={clsx("expandable-heading", this.color === "black" ? "dso-expandable-heading-black" : "")}>
+          <Heading heading={this.heading}>
             <button
               type="button"
               aria-expanded={this.open ? "true" : "false"}

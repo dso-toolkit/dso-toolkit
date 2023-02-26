@@ -32,15 +32,21 @@
   }
 
   button {
-    align-items: center;
+    align-items: flex-start;
     cursor: pointer;
     background-color: transparent;
     border: 0;
     color: inherit;
     display: flex;
+    line-height: 24px;
     font-size: inherit;
     font-weight: inherit;
     padding: 0;
+    text-align: left;
+
+    > dso-icon {
+      flex-shrink: 0;
+    }
   }
 
   &.dso-expandable-heading-black button {

@@ -18,7 +18,7 @@ export const annotationAddons = html`<div slot="addons" class="dso-selectable">
   <label for="ca8ecb1d-56b4-4dc9-b64a-726277104732">Toon uitgebreide weergave</label>
 </div>`;
 
-export function nestedExpandableHeading({ ozonContentTemplate }: Templates) {
+export function expandandableHeadingDemoContent({ ozonContentTemplate }: Templates) {
   return ozonContentTemplate({
     content: `
       <Inhoud

@@ -1,14 +1,24 @@
-import { ArgTypes, noControl } from "../../storybook/index.js";
+import { ArgTypes } from "../../storybook/index.js";
 
 import { ExpandableHeading, ExpandableHeadingTemplates } from "./expandable-heading.models.js";
 
 export interface ExpandableHeadingArgs {
   heading: "h2" | "h3" | "h4" | "h5" | "h6";
+  color: "default" | "black";
 }
 
 export const expandableHeadingArgTypes: ArgTypes<ExpandableHeadingArgs> = {
   heading: {
-    ...noControl,
+    options: [undefined, "h2", "h3", "h4", "h5", "h6"],
+    control: {
+      type: "select",
+    },
+  },
+  color: {
+    options: [undefined, "default", "black"],
+    control: {
+      type: "select",
+    },
   },
 };
 
