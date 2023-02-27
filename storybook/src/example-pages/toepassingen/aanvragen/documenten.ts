@@ -20,8 +20,8 @@ examplePageFactory(
         <form>
           ${applicationHeadingTemplate({
             title: "Aanvraag Laan van Eik en Duinen 125, Den Haag",
-            subtitle: "4. Documenten",
-            step: "Stap 4/7",
+            subtitle: "5. Documenten",
+            step: "Stap 5/7",
           })}
           <h3>Mileubelastende activiteit - Vergunning (Gemeente)</h3>
           ${accordionTemplate({
@@ -35,35 +35,39 @@ examplePageFactory(
                 content: html`
                   <fieldset>
                     <legend class="sr-only">Documenten</legend>
-                    <div class="dso-rich-content">
-                      <p>
-                        Een plattegrond is een schematische tekening van een horizontale doorsnede van het bouwwerk van
-                        bovenaf gezien.<br />
-                        Hieronder staat een voor deze vraag een niet relevante afbeelding tbv de test.
-                        <img src="https://image.ibb.co/g1dKZf/019.jpg" alt="Afbeelding 19" /><br />
-                        Een doorsnede is een schematische tekening van een aanzicht van een dwarsdoorsnede van het
-                        bouwwerk
-                      </p>
-
+                    <div class="form-group dso-files">
+                      <div class="dso-rich-content">
+                        <p>
+                          Een plattegrond is een schematische tekening van een horizontale doorsnede van het bouwwerk
+                          van bovenaf gezien.<br />
+                          Hieronder staat een voor deze vraag een niet relevante afbeelding tbv de test.
+                          <img src="https://image.ibb.co/g1dKZf/019.jpg" alt="Afbeelding 19" /><br />
+                          Een doorsnede is een schematische tekening van een aanzicht van een dwarsdoorsnede van het
+                          bouwwerk
+                        </p>
+                      </div>
                       ${buttonTemplate({
                         label: "Lees meer",
                         type: "button",
                         variant: "tertiary",
                         icon: { icon: "chevron-down" },
                       })}
-                    </div>
-                    <div class="form-group dso-files">
                       <div class="dso-field-container">
                         <div class="dso-file-upload">
-                          <input type="file" aria-errormessage="mijn-id-error-text" id="" />
-                          <label class="dso-primary" for="{ mijn-id }">
-                            <svg class="di di-plus">
-                              <use href="dso-toolkit/dist/dso-icons.svg#plus"></use>
-                            </svg>
-                            <span>Document toevoegen</span>
-                          </label>
+                          <div class="dso-button-row">
+                            <input type="file" aria-errormessage="mijn-id-error-text" id="" />
+                            <label class="dso-primary" for="{ mijn-id }">
+                              <svg class="di di-plus">
+                                <use href="dso-toolkit/dist/dso-icons.svg#plus"></use>
+                              </svg>
+                              <span>Document toevoegen</span>
+                            </label>
+                          </div>
                         </div>
                       </div>
+                      ${formButtonsTemplate({
+                        buttons: [{ label: "Volgende", type: "button", variant: "secondary" }],
+                      })}
                     </div>
                   </fieldset>
                 `,
