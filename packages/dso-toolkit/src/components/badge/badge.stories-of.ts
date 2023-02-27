@@ -77,6 +77,13 @@ export function storiesOfBadge<Implementation, Templates, TemplateFnReturnType>(
       },
     });
 
+    stories.add("attention", template, {
+      args: {
+        status: "attention",
+        message: "Attention",
+      },
+    });
+
     return stories;
   });
 }

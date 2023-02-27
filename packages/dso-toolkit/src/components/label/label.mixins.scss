@@ -84,6 +84,11 @@
     border: 1px solid label-variables.$bright-border-color;
     padding: #{units.$u1 * 0.5 - 1px} units.$u1 - 1px;
   }
+
+  &.dso-label-attention {
+    background-color: label-variables.$attention-bg-color;
+    color: label-variables.$attention-color;
+  }
 }
 
 @mixin symbolContainer() {

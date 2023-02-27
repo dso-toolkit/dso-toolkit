@@ -8,7 +8,7 @@ import clsx from "clsx";
 })
 export class Badge {
   @Prop()
-  status?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline";
+  status?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
 
   render() {
     return (

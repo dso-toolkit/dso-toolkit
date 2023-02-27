@@ -3,13 +3,13 @@ import { ArgTypes } from "../../storybook/index.js";
 import { Badge } from "./badge.models.js";
 
 export interface BadgeArgs {
-  status?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline";
+  status?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
   message: string;
 }
 
 export const badgeArgTypes: ArgTypes<BadgeArgs> = {
   status: {
-    options: [undefined, "primary", "success", "info", "warning", "danger", "error", "outline"],
+    options: [undefined, "primary", "success", "info", "warning", "danger", "error", "outline", "attention"],
     control: {
       type: "select",
     },

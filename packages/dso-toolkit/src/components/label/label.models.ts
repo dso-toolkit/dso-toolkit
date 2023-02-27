@@ -1,5 +1,5 @@
 export interface Label {
-  status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright";
+  status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
   compact?: boolean;
   truncate?: boolean;
   label: string;
