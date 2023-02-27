@@ -10,10 +10,7 @@
   display: inline-block;
   line-height: 1.5;
   max-width: 100%;
-
-  &:not(.dso-label-bright) {
-    padding: #{units.$u1 * 0.5} units.$u1;
-  }
+  padding: #{units.$u1 * 0.5} units.$u1;
 
   &:focus-within,
   &.dso-hover {
@@ -41,11 +38,6 @@
     > svg.di {
       display: block;
     }
-  }
-
-  &.dso-compact {
-    border: 0;
-    padding: 0 8px;
   }
 
   &.dso-label-info {
@@ -81,8 +73,12 @@
   &.dso-label-bright {
     background-color: label-variables.$bright-bg-color;
     color: label-variables.$bright-color;
-    border: 1px solid label-variables.$bright-border-color;
-    padding: #{units.$u1 * 0.5 - 1px} units.$u1 - 1px;
+    outline: 1px solid label-variables.$bright-border-color;
+    outline-offset: -1px;
+  }
+
+  &.dso-compact {
+    padding: 0 units.$u1;
   }
 }
 
