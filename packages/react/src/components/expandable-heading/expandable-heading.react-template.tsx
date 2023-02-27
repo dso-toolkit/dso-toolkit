@@ -10,11 +10,18 @@ export const reactExpandableHeading: ComponentImplementation<ExpandableHeading<J
   component: "expandableHeading",
   implementation: "react",
   template: () =>
-    function expandableHeadingTemplate({ title, addonsStart, addonsEnd, content }: ExpandableHeading<JSX.Element>) {
+    function expandableHeadingTemplate({
+      heading,
+      title,
+      color,
+      addonsStart,
+      addonsEnd,
+      content,
+    }: ExpandableHeading<JSX.Element>) {
       const key = uuidv4();
 
       return (
-        <DsoExpandableHeading key={key}>
+        <DsoExpandableHeading key={key} heading={heading} color={color}>
           {title} {addonsStart} {addonsEnd} {content}
         </DsoExpandableHeading>
       );

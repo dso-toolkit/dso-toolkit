@@ -5,7 +5,7 @@ describe("Expandable Heading", () => {
     cy.get("dso-expandable-heading")
       .shadow()
       .as("dsoExpandableHeading")
-      .find(".expandable-heading > h2 > button")
+      .find(".expandable-heading > h3 > button")
       .as("toggleButton");
   });
 
