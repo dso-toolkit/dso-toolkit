@@ -56,4 +56,10 @@
     border-color: colors.$grijs-90;
     color: colors.$grijs-90;
   }
+
+  &.badge-attention {
+    background-color: badge-variables.$attention-bg-color;
+    border-color: badge-variables.$attention-bg-color;
+    color: colors.$wit;
+  }
 }

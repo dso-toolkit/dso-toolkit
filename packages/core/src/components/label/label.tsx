@@ -46,7 +46,7 @@ export class Label implements ComponentInterface {
   removable?: boolean;
 
   @Prop()
-  status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright";
+  status?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
 
   @State()
   removeHover?: boolean;

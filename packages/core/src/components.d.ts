@@ -115,7 +115,7 @@ export namespace Components {
         "suggestions": Suggestion[] | null;
     }
     interface DsoBadge {
-        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline";
+        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
     }
     interface DsoBanner {
         "status": "warning" | "danger" | "error";
@@ -240,7 +240,7 @@ export namespace Components {
     interface DsoLabel {
         "compact"?: boolean;
         "removable"?: boolean;
-        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright";
+        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
         "truncate"?: boolean;
     }
     interface DsoListButton {
@@ -860,7 +860,7 @@ declare namespace LocalJSX {
         "suggestions"?: Suggestion[] | null;
     }
     interface DsoBadge {
-        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline";
+        "status"?: "primary" | "success" | "info" | "warning" | "danger" | "error" | "outline" | "attention";
     }
     interface DsoBanner {
         "status": "warning" | "danger" | "error";
@@ -1000,7 +1000,7 @@ declare namespace LocalJSX {
         "compact"?: boolean;
         "onDsoRemoveClick"?: (event: DsoLabelCustomEvent<MouseEvent>) => void;
         "removable"?: boolean;
-        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright";
+        "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
         "truncate"?: boolean;
     }
     interface DsoListButton {
