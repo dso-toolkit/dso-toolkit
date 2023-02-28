@@ -192,3 +192,27 @@ export const alignmentSections: AccordionSection<TemplateResult>[] = [
     icon: "user-line",
   },
 ];
+
+export function conclusionSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    section1,
+    section2,
+    {
+      ...section3,
+      open: true,
+    },
+    section4(templates),
+  ];
+}
+
+export function compactSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    section1,
+    section2,
+    {
+      ...section3,
+      open: true,
+    },
+    section4(templates),
+  ];
+}
