@@ -3,7 +3,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 
 examplePageFactory(
   "Toepassingen/Aanvragen",
-  "documenten",
+  "Documenten",
   ({ applicationHeadingTemplate, formButtonsTemplate, accordionTemplate, buttonTemplate }) => html`
     <style>
       .dso-map-example {
