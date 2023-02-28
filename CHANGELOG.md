@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 * Label met status bright reageert niet op "compact" ([#1996](https://github.com/dso-toolkit/dso-toolkit/issues/1996))
+* `<dso-label>` heeft onterecht strikethrough bij :active ([#2010](https://github.com/dso-toolkit/dso-toolkit/issues/2010))
 
 ## 51.2.0
 
