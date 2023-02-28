@@ -77,13 +77,13 @@
     outline-offset: -1px;
   }
 
-  &.dso-compact {
-    padding: 0 units.$u1;
-  }
-
   &.dso-label-attention {
     background-color: label-variables.$attention-bg-color;
     color: label-variables.$attention-color;
+  }
+
+  &.dso-compact {
+    padding: 0 units.$u1;
   }
 }
 

@@ -175,7 +175,7 @@ export class Label implements ComponentInterface {
               "dso-truncate": !!this.truncate,
             })}
             ref={(element) => (this.labelContent = element)}
-            tabindex={this.truncate && this.truncatedContent ? 0 : -1}
+            tabindex={this.truncate && this.truncatedContent ? 0 : undefined}
             onMouseEnter={() => (this.textHover = true)}
             onMouseLeave={() => (this.textHover = false)}
             onFocus={() => (this.textFocus = true)}
