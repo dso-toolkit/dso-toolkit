@@ -36,18 +36,6 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
     );
 
     stories.add(
-      "conclusion",
-      templateMapper<AccordionArgs>((args, { accordionTemplate, conclusionSections }) =>
-        accordionTemplate(accordionArgsMapper(args, conclusionSections))
-      ),
-      {
-        args: {
-          variant: "conclusion",
-        },
-      }
-    );
-
-    stories.add(
       "compact",
       templateMapper<AccordionArgs>((args, { accordionTemplate, compactSections }) =>
         accordionTemplate(accordionArgsMapper(args, compactSections))
@@ -55,6 +43,18 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       {
         args: {
           variant: "compact",
+        },
+      }
+    );
+
+    stories.add(
+      "conclusion",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, conclusionSections }) =>
+        accordionTemplate(accordionArgsMapper(args, conclusionSections))
+      ),
+      {
+        args: {
+          variant: "conclusion",
         },
       }
     );
