@@ -1,5 +1,7 @@
+@use "../../variables/units";
+
 dso-expandable-heading {
-  *[slot="addons"] {
-    margin-left: auto;
+  *[slot="addons-end"] {
+    margin-left: units.$u1;
   }
 }

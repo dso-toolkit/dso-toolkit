@@ -1,6 +1,6 @@
-dso-output {
-  *[slot="heading"] {
-    margin-bottom: 0;
-    margin-top: 0;
-  }
+@use "../../variables/units.scss";
+
+dso-annotation-output {
+  display: block;
+  margin-top: units.$u1;
 }

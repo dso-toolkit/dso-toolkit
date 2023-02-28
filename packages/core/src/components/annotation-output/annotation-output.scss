@@ -2,10 +2,6 @@
 @use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/variables/colors";
 
-:host {
-  display: block;
-}
-
 @include utilities.box-sizing();
 
 .sr-only {
