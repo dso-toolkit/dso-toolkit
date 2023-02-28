@@ -15,9 +15,6 @@ export class ImageOverlay implements ComponentInterface {
   active = false;
 
   @State()
-  focused = false;
-
-  @State()
   zoomable = false;
 
   buttonElement: HTMLButtonElement | undefined;
@@ -109,7 +106,7 @@ export class ImageOverlay implements ComponentInterface {
     const { src, alt } = this.host.querySelector("img") ?? {};
 
     return (
-      <Host tabindex={this.focused || !this.zoomable ? -1 : 0} onFocus={() => this.buttonElement?.focus()}>
+      <Host onClick={() => this.buttonElement?.focus()}>
         {this.active && src && alt && (
           <div class="dimmer">
             <div class="wrapper" ref={(element) => (this.wrapperElement = element)}>
@@ -134,8 +131,6 @@ export class ImageOverlay implements ComponentInterface {
             class="open"
             ref={(element) => (this.buttonElement = element)}
             onClick={() => (this.active = true)}
-            onFocus={() => (this.focused = true)}
-            onBlur={() => (this.focused = false)}
           >
             <dso-icon icon="external-link"></dso-icon>
             <span>Afbeelding vergroot weergeven</span>

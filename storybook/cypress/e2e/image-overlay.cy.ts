@@ -13,11 +13,15 @@ describe("Image Overlay", () => {
   });
 
   it("should forward focus to button", () => {
-    cy.get("dso-image-overlay").should("have.attr", "tabindex", "0").click();
-
-    cy.get("dso-image-overlay").shadow().find("button.open").should("have.focus");
-
-    cy.get("dso-image-overlay").should("have.attr", "tabindex", "-1");
+    cy.get("dso-image-overlay")
+      .shadow()
+      .find("button.open")
+      .should("not.have.focus")
+      .get("dso-image-overlay")
+      .click()
+      .shadow()
+      .find("button.open")
+      .should("have.focus");
   });
 
   it("should show open button on hover", () => {
