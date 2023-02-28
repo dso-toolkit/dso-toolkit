@@ -6,13 +6,13 @@ import { Accordion, AccordionSection } from "./accordion.models.js";
 export interface AccordionTemplates<TemplateFnReturnType> {
   accordionTemplate: (accordionProperties: Accordion<TemplateFnReturnType>) => TemplateFnReturnType;
   basicSections: AccordionSection<TemplateFnReturnType>[];
+  conclusionSections: AccordionSection<TemplateFnReturnType>[];
+  compactSections: AccordionSection<TemplateFnReturnType>[];
   anchorSections: AccordionSection<TemplateFnReturnType>[];
   subSections: AccordionSection<TemplateFnReturnType>[];
   allowMultipleOpenSections: AccordionSection<TemplateFnReturnType>[];
   addonsSections: AccordionSection<TemplateFnReturnType>[];
   alignmentSections: AccordionSection<TemplateFnReturnType>[];
-  conclusionSections: AccordionSection<TemplateFnReturnType>[];
-  compactSections: AccordionSection<TemplateFnReturnType>[];
 }
 
 export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnType>(
