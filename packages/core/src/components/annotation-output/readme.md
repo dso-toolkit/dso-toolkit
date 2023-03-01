@@ -36,12 +36,14 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-expandable](../expandable)
+- [dso-responsive-element](../responsive-element)
 - [dso-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-annotation-output --> dso-expandable
+  dso-annotation-output --> dso-responsive-element
   dso-annotation-output --> dso-icon
   style dso-annotation-output fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -27,11 +27,13 @@ Type: `Promise<ResponsiveElementSize>`
 
 ### Used by
 
+ - [dso-annotation-output](../annotation-output)
  - [dso-pagination](../pagination)
 
 ### Graph
 ```mermaid
 graph TD;
+  dso-annotation-output --> dso-responsive-element
   dso-pagination --> dso-responsive-element
   style dso-responsive-element fill:#f9f,stroke:#333,stroke-width:4px
 ```

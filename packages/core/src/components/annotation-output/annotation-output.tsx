@@ -39,14 +39,20 @@ export class AnnotationOutput implements ComponentInterface {
     return (
       <dso-expandable id={this.identifier} {...expandableProperties}>
         {this.annotationPrefix && <span class="dso-annotation-prefix">{this.annotationPrefix}</span>}
-        <div class="dso-annotation-header">
-          <slot name="title" />
-          <slot name="addons" />
-          <button type="button" class="dso-tertiary dso-annotation-close-button" onClick={(e) => this.toggleHandler(e)}>
-            <dso-icon icon="times"></dso-icon>
-            <span class="sr-only">Toelichting sluiten</span>
-          </button>
-        </div>
+        <dso-responsive-element>
+          <div class="dso-annotation-header">
+            <slot name="title" />
+            <slot name="addons" />
+            <button
+              type="button"
+              class="dso-tertiary dso-annotation-close-button"
+              onClick={(e) => this.toggleHandler(e)}
+            >
+              <dso-icon icon="times"></dso-icon>
+              <span class="sr-only">Toelichting sluiten</span>
+            </button>
+          </div>
+        </dso-responsive-element>
         <div class="dso-annotation-content">
           <slot />
         </div>
