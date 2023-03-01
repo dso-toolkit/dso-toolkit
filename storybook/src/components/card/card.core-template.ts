@@ -1,5 +1,6 @@
 import { Card, isButtonInterface, isToggletipInterface } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
+import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { ComponentImplementation } from "../../templates";
 
@@ -18,7 +19,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
-        <dso-card ?clickable=${clickable} @dsoCardClicked=${dsoCardClicked}>
+        <dso-card clickable=${ifDefined(clickable)} @dsoCardClicked=${dsoCardClicked}>
           ${selectable ? selectableTemplate(selectable) : nothing}
           ${image ? html`<img slot="image" src=${image} />` : nothing}
           ${clickable
