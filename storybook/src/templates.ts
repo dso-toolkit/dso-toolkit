@@ -1,6 +1,9 @@
 import {
   Accordion,
   Alert,
+  Annotation,
+  AnnotationButton,
+  AnnotationOutput,
   Anchor,
   ApplicationHeading,
   AttachmentsCounter,
@@ -78,12 +81,16 @@ import {
   RowEqualHeights,
   Table,
   ResponsiveElement,
+  ExpandableHeading,
 } from "dso-toolkit";
 
 import { TemplateResult } from "lit-html";
 
 import { cssAlert } from "./components/alert/alert.css-template";
 import { cssAnchor } from "./components/anchor/anchor.css-template";
+import { coreAnnotation } from "./components/annotation/annotation.core-template";
+import { coreAnnotationButton } from "./components/annotation-button/annotation-button.core-template";
+import { coreAnnotationOutput } from "./components/annotation-output/annotation-output.core-template";
 import { cssApplicationHeading } from "./components/application-heading/application-heading.css-template";
 import { cssAttachmentsCounter } from "./components/attachments-counter/attachments-counter.css-template";
 import { cssBadge } from "./components/badge/badge.css-template";
@@ -109,6 +116,7 @@ import { coreAutosuggest } from "./components/autosuggest/autosuggest.core-templ
 import { coreBadge } from "./components/badge/badge.core-template";
 import { coreBanner } from "./components/banner/banner.core-template";
 import { coreDatePicker } from "./components/date-picker/date-picker.core-template";
+import { coreExpandableHeading } from "./components/expandable-heading/expandable-heading.core-template";
 import { coreHighlightBox } from "./components/highlight-box/highlight-box.core-template";
 import { coreIcon } from "./components/icon/icon.core-template";
 import { coreSelectable } from "./components/selectable/selectable.core-template";
@@ -181,6 +189,9 @@ export interface Components {
   accordion: Accordion<TemplateResult>;
   alert: Alert<TemplateResult>;
   anchor: Anchor;
+  annotation: Annotation<TemplateResult>;
+  annotationButton: AnnotationButton;
+  annotationOutput: AnnotationOutput<TemplateResult>;
   applicationHeading: ApplicationHeading;
   attachmentsCounter: AttachmentsCounter;
   autosuggest: Autosuggest<TemplateResult>;
@@ -200,6 +211,7 @@ export interface Components {
   documentHeader: DocumentHeader<TemplateResult>;
   documentList: DocumentList<TemplateResult>;
   dropdownMenu: DropdownMenu;
+  expandableHeading: ExpandableHeading;
   footnote: Footnote;
   footnotes: Footnote[];
   formButtons: FormButtons;
@@ -257,9 +269,13 @@ export interface Components {
 
 type Implementation = "html-css" | "core";
 
+export type SlottableTemplate = {
+  slotName?: string;
+};
+
 export type Templates = ComponentsToTemplates<Components, TemplateResult>;
 export type ComponentImplementation<Model> = BaseComponentImplementation<
-  Model,
+  Model & SlottableTemplate,
   Implementation,
   Templates,
   TemplateResult
@@ -280,6 +296,9 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 
 templateContainer.add(coreAccordion);
 templateContainer.add(coreAlert);
+templateContainer.add(coreAnnotation);
+templateContainer.add(coreAnnotationButton);
+templateContainer.add(coreAnnotationOutput);
 templateContainer.add(coreAttachmentsCounter);
 templateContainer.add(coreAutosuggest);
 templateContainer.add(coreBadge);
@@ -288,6 +307,7 @@ templateContainer.add(coreCard);
 templateContainer.add(coreCardContainer);
 templateContainer.add(coreDatePicker);
 templateContainer.add(coreDropdownMenu);
+templateContainer.add(coreExpandableHeading);
 templateContainer.add(coreHeader);
 templateContainer.add(coreHelpcenterPanel);
 templateContainer.add(coreHighlightBox);

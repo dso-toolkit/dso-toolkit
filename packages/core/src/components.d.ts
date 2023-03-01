@@ -7,10 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, AccordionSectionToggleEvent, AccordionVariant } from "./components/accordion/accordion.interfaces";
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
+import { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
+import { ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -84,6 +86,20 @@ export namespace Components {
           * Set status of alert
          */
         "status": "success" | "info" | "warning" | "error";
+    }
+    interface DsoAnnotationButton {
+        "identifier": string;
+    }
+    interface DsoAnnotationOutput {
+        /**
+          * This text will be displayed above the annotation-output when opened
+         */
+        "annotationPrefix"?: string;
+        /**
+          * The annotation-button that toggles this component should have the same identifier.
+         */
+        "identifier": string;
+        "toggleAnnotation": (e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>;
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -194,6 +210,14 @@ export namespace Components {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
+    }
+    interface DsoExpandable {
+        "open"?: boolean;
+    }
+    interface DsoExpandableHeading {
+        "color": "default" | "black";
+        "heading": HeadingTags;
+        "open"?: boolean;
     }
     interface DsoHeader {
         /**
@@ -437,6 +461,10 @@ export interface DsoAccordionCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAccordionElement;
 }
+export interface DsoAnnotationOutputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoAnnotationOutputElement;
+}
 export interface DsoAutosuggestCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoAutosuggestElement;
@@ -448,6 +476,10 @@ export interface DsoCardCustomEvent<T> extends CustomEvent<T> {
 export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerElement;
+}
+export interface DsoExpandableHeadingCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoExpandableHeadingElement;
 }
 export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -532,6 +564,18 @@ declare global {
         prototype: HTMLDsoAlertElement;
         new (): HTMLDsoAlertElement;
     };
+    interface HTMLDsoAnnotationButtonElement extends Components.DsoAnnotationButton, HTMLStencilElement {
+    }
+    var HTMLDsoAnnotationButtonElement: {
+        prototype: HTMLDsoAnnotationButtonElement;
+        new (): HTMLDsoAnnotationButtonElement;
+    };
+    interface HTMLDsoAnnotationOutputElement extends Components.DsoAnnotationOutput, HTMLStencilElement {
+    }
+    var HTMLDsoAnnotationOutputElement: {
+        prototype: HTMLDsoAnnotationOutputElement;
+        new (): HTMLDsoAnnotationOutputElement;
+    };
     interface HTMLDsoAttachmentsCounterElement extends Components.DsoAttachmentsCounter, HTMLStencilElement {
     }
     var HTMLDsoAttachmentsCounterElement: {
@@ -579,6 +623,18 @@ declare global {
     var HTMLDsoDropdownMenuElement: {
         prototype: HTMLDsoDropdownMenuElement;
         new (): HTMLDsoDropdownMenuElement;
+    };
+    interface HTMLDsoExpandableElement extends Components.DsoExpandable, HTMLStencilElement {
+    }
+    var HTMLDsoExpandableElement: {
+        prototype: HTMLDsoExpandableElement;
+        new (): HTMLDsoExpandableElement;
+    };
+    interface HTMLDsoExpandableHeadingElement extends Components.DsoExpandableHeading, HTMLStencilElement {
+    }
+    var HTMLDsoExpandableHeadingElement: {
+        prototype: HTMLDsoExpandableHeadingElement;
+        new (): HTMLDsoExpandableHeadingElement;
     };
     interface HTMLDsoHeaderElement extends Components.DsoHeader, HTMLStencilElement {
     }
@@ -734,6 +790,8 @@ declare global {
         "dso-accordion": HTMLDsoAccordionElement;
         "dso-accordion-section": HTMLDsoAccordionSectionElement;
         "dso-alert": HTMLDsoAlertElement;
+        "dso-annotation-button": HTMLDsoAnnotationButtonElement;
+        "dso-annotation-output": HTMLDsoAnnotationOutputElement;
         "dso-attachments-counter": HTMLDsoAttachmentsCounterElement;
         "dso-autosuggest": HTMLDsoAutosuggestElement;
         "dso-badge": HTMLDsoBadgeElement;
@@ -742,6 +800,8 @@ declare global {
         "dso-card-container": HTMLDsoCardContainerElement;
         "dso-date-picker": HTMLDsoDatePickerElement;
         "dso-dropdown-menu": HTMLDsoDropdownMenuElement;
+        "dso-expandable": HTMLDsoExpandableElement;
+        "dso-expandable-heading": HTMLDsoExpandableHeadingElement;
         "dso-header": HTMLDsoHeaderElement;
         "dso-helpcenter-panel": HTMLDsoHelpcenterPanelElement;
         "dso-highlight-box": HTMLDsoHighlightBoxElement;
@@ -817,6 +877,20 @@ declare namespace LocalJSX {
           * Set status of alert
          */
         "status": "success" | "info" | "warning" | "error";
+    }
+    interface DsoAnnotationButton {
+        "identifier": string;
+    }
+    interface DsoAnnotationOutput {
+        /**
+          * This text will be displayed above the annotation-output when opened
+         */
+        "annotationPrefix"?: string;
+        /**
+          * The annotation-button that toggles this component should have the same identifier.
+         */
+        "identifier": string;
+        "onDsoToggle"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -947,6 +1021,15 @@ declare namespace LocalJSX {
         /**
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
+        "open"?: boolean;
+    }
+    interface DsoExpandable {
+        "open"?: boolean;
+    }
+    interface DsoExpandableHeading {
+        "color"?: "default" | "black";
+        "heading"?: HeadingTags;
+        "onDsoToggle"?: (event: DsoExpandableHeadingCustomEvent<ExpandableHeadingToggleEvent>) => void;
         "open"?: boolean;
     }
     interface DsoHeader {
@@ -1215,6 +1298,8 @@ declare namespace LocalJSX {
         "dso-accordion": DsoAccordion;
         "dso-accordion-section": DsoAccordionSection;
         "dso-alert": DsoAlert;
+        "dso-annotation-button": DsoAnnotationButton;
+        "dso-annotation-output": DsoAnnotationOutput;
         "dso-attachments-counter": DsoAttachmentsCounter;
         "dso-autosuggest": DsoAutosuggest;
         "dso-badge": DsoBadge;
@@ -1223,6 +1308,8 @@ declare namespace LocalJSX {
         "dso-card-container": DsoCardContainer;
         "dso-date-picker": DsoDatePicker;
         "dso-dropdown-menu": DsoDropdownMenu;
+        "dso-expandable": DsoExpandable;
+        "dso-expandable-heading": DsoExpandableHeading;
         "dso-header": DsoHeader;
         "dso-helpcenter-panel": DsoHelpcenterPanel;
         "dso-highlight-box": DsoHighlightBox;
@@ -1257,6 +1344,8 @@ declare module "@stencil/core" {
             "dso-accordion": LocalJSX.DsoAccordion & JSXBase.HTMLAttributes<HTMLDsoAccordionElement>;
             "dso-accordion-section": LocalJSX.DsoAccordionSection & JSXBase.HTMLAttributes<HTMLDsoAccordionSectionElement>;
             "dso-alert": LocalJSX.DsoAlert & JSXBase.HTMLAttributes<HTMLDsoAlertElement>;
+            "dso-annotation-button": LocalJSX.DsoAnnotationButton & JSXBase.HTMLAttributes<HTMLDsoAnnotationButtonElement>;
+            "dso-annotation-output": LocalJSX.DsoAnnotationOutput & JSXBase.HTMLAttributes<HTMLDsoAnnotationOutputElement>;
             "dso-attachments-counter": LocalJSX.DsoAttachmentsCounter & JSXBase.HTMLAttributes<HTMLDsoAttachmentsCounterElement>;
             "dso-autosuggest": LocalJSX.DsoAutosuggest & JSXBase.HTMLAttributes<HTMLDsoAutosuggestElement>;
             "dso-badge": LocalJSX.DsoBadge & JSXBase.HTMLAttributes<HTMLDsoBadgeElement>;
@@ -1265,6 +1354,8 @@ declare module "@stencil/core" {
             "dso-card-container": LocalJSX.DsoCardContainer & JSXBase.HTMLAttributes<HTMLDsoCardContainerElement>;
             "dso-date-picker": LocalJSX.DsoDatePicker & JSXBase.HTMLAttributes<HTMLDsoDatePickerElement>;
             "dso-dropdown-menu": LocalJSX.DsoDropdownMenu & JSXBase.HTMLAttributes<HTMLDsoDropdownMenuElement>;
+            "dso-expandable": LocalJSX.DsoExpandable & JSXBase.HTMLAttributes<HTMLDsoExpandableElement>;
+            "dso-expandable-heading": LocalJSX.DsoExpandableHeading & JSXBase.HTMLAttributes<HTMLDsoExpandableHeadingElement>;
             "dso-header": LocalJSX.DsoHeader & JSXBase.HTMLAttributes<HTMLDsoHeaderElement>;
             "dso-helpcenter-panel": LocalJSX.DsoHelpcenterPanel & JSXBase.HTMLAttributes<HTMLDsoHelpcenterPanelElement>;
             "dso-highlight-box": LocalJSX.DsoHighlightBox & JSXBase.HTMLAttributes<HTMLDsoHighlightBoxElement>;

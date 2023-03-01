@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/angular";
-
 import { storiesOfOzonContent } from "dso-toolkit";
+
 import { DsoOzonContent } from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 

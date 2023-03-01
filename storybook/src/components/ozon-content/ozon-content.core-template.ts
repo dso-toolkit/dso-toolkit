@@ -8,9 +8,20 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
   component: "ozonContent",
   implementation: "core",
   template: () =>
-    function ozonContentTemplate({ content, inline, interactive, deleted, prefix, suffix, dsoAnchorClick, dsoClick }) {
+    function ozonContentTemplate({
+      slotName,
+      content,
+      inline,
+      interactive,
+      deleted,
+      prefix,
+      suffix,
+      dsoAnchorClick,
+      dsoClick,
+    }) {
       return html`
         <dso-ozon-content
+          slot=${ifDefined(slotName)}
           interactive=${ifDefined(interactive || undefined)}
           .content=${content}
           ?inline=${inline}

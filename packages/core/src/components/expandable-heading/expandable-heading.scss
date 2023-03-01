@@ -1,0 +1,64 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/colors";
+@use "~dso-toolkit/src/variables/units";
+
+@use "~dso-toolkit/src/components/headings/headings";
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}
+
+.expandable-heading {
+  align-items: center;
+  display: flex;
+  margin-bottom: units.$u1;
+  margin-top: units.$u1;
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    margin-right: units.$u1;
+    margin-top: 0;
+  }
+
+  button {
+    align-items: flex-start;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    display: flex;
+    line-height: 24px;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 0;
+    text-align: left;
+
+    > dso-icon {
+      flex-shrink: 0;
+    }
+  }
+
+  &.dso-expandable-heading-black button {
+    color: colors.$zwart;
+  }
+}
+
+dso-expandable {
+  padding-left: units.$u3;
+}
+
+.addons-end {
+  display: inline-block;
+  margin-left: auto;
+}

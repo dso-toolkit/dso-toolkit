@@ -73,7 +73,7 @@ const startReactLeaflet = {
 if (!argv.mode) {
   if (argv.all) {
     // --all
-    concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular], {
+    concurrently([watchToolkit, watchCore, startStorybook, startReact, startAngular, startCypress], {
       killOthers: ["failure", "success"],
     });
   } else if (argv.react) {

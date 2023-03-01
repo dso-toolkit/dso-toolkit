@@ -1,6 +1,9 @@
 import {
   Accordion,
   Alert,
+  Annotation,
+  AnnotationButton,
+  AnnotationOutput,
   AttachmentsCounter,
   Autosuggest,
   Badge,
@@ -11,6 +14,7 @@ import {
   ComponentsToTemplates,
   DatePicker,
   DropdownMenu,
+  ExpandableHeading,
   Header,
   HelpcenterPanel,
   HighlightBox,
@@ -38,6 +42,9 @@ import {
 
 import { reactAccordion } from "./components/accordion/accordion.react-template";
 import { reactAlert } from "./components/alert/alert.react-template";
+import { reactAnnotation } from "./components/annotation/annotation.react-template";
+import { reactAnnotationButton } from "./components/annotation-button/annotation-button.react-template";
+import { reactAnnotationOutput } from "./components/annotation-output/annotation-output.react-template";
 import { reactAttachmentsCounter } from "./components/attachments-counter/attachments-counter.react-template";
 import { reactAutosuggest } from "./components/autosuggest/autosuggest.react-template";
 import { reactBadge } from "./components/badge/badge.react-template";
@@ -46,6 +53,7 @@ import { reactCard } from "./components/card/card.react-template";
 import { reactCardContainer } from "./components/card-container/card-container.react-template";
 import { reactDatePicker } from "./components/date-picker/date-picker.react-template";
 import { reactDropdownMenu } from "./components/dropdown-menu/dropdown-menu.react-template";
+import { reactExpandableHeading } from "./components/expandable-heading/expandable-heading.react-template";
 import { reactHeader } from "./components/header/header.react-template";
 import { reactHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.react-template";
 import { reactHighlightBox } from "./components/highlight-box/highlight-box.react-template";
@@ -72,14 +80,18 @@ import { reactViewerGrid } from "./components/viewer-grid/viewer-grid.react-temp
 export interface Components {
   alert: Alert<JSX.Element>;
   accordion: Accordion<JSX.Element>;
-  autosuggest: Autosuggest<JSX.Element>;
+  annotation: Annotation<JSX.Element>;
+  annotationButton: AnnotationButton;
+  annotationOutput: AnnotationOutput<JSX.Element>;
   attachmentsCounter: AttachmentsCounter;
+  autosuggest: Autosuggest<JSX.Element>;
   badge: Badge;
   banner: Banner<JSX.Element>;
   card: Card<JSX.Element>;
   cardContainer: CardContainer<JSX.Element>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
+  expandableHeading: ExpandableHeading<JSX.Element>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
   highlightBox: HighlightBox<JSX.Element>;
@@ -112,6 +124,9 @@ export const templateContainer = new TemplateContainer<Implementation, Templates
 
 templateContainer.add(reactAccordion);
 templateContainer.add(reactAlert);
+templateContainer.add(reactAnnotation);
+templateContainer.add(reactAnnotationButton);
+templateContainer.add(reactAnnotationOutput);
 templateContainer.add(reactAttachmentsCounter);
 templateContainer.add(reactAutosuggest);
 templateContainer.add(reactBadge);
@@ -120,6 +135,7 @@ templateContainer.add(reactCard);
 templateContainer.add(reactCardContainer);
 templateContainer.add(reactDatePicker);
 templateContainer.add(reactDropdownMenu);
+templateContainer.add(reactExpandableHeading);
 templateContainer.add(reactHeader);
 templateContainer.add(reactHelpcenterPanel);
 templateContainer.add(reactHighlightBox);

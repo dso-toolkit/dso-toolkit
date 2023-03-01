@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
+* Ozon uitklapbare titels ([#1810](https://github.com/dso-toolkit/dso-toolkit/issues/1810))
 * Extra kleurvariant `attention` voor label en badge ([#2008](https://github.com/dso-toolkit/dso-toolkit/issues/2008))
 
 ### Fixed

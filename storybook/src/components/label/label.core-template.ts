@@ -8,9 +8,10 @@ export const coreLabel: ComponentImplementation<Label> = {
   component: "label",
   implementation: "core",
   template: () =>
-    function labelTemplate({ status, label, removable, dsoRemoveClick, compact, truncate, symbol }) {
+    function labelTemplate({ slotName, status, label, removable, dsoRemoveClick, compact, truncate, symbol }) {
       return html`
         <dso-label
+          slot=${ifDefined(slotName)}
           status=${ifDefined(status)}
           @dsoRemoveClick=${ifDefined(dsoRemoveClick)}
           ?truncate=${truncate}

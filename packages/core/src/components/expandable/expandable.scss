@@ -1,0 +1,15 @@
+@use "~dso-toolkit/src/utilities";
+
+:host {
+  display: none;
+}
+
+:host([open]) {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.sr-only {
+  @include utilities.sr-only();
+}

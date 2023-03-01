@@ -44,6 +44,13 @@ export {
   storiesOfApplicationHeading,
 } from "./components/application-heading/application-heading.stories-of.js";
 
+export { Annotation } from "./components/annotation/annotation.models.js";
+export { AnnotationTemplates, storiesOfAnnotation } from "./components/annotation/annotation.stories-of.js";
+
+export { AnnotationButton } from "./components/annotation-button/annotation-button.models.js";
+
+export { AnnotationOutput } from "./components/annotation-output/annotation-output.models.js";
+
 export { AttachmentsCounter } from "./components/attachments-counter/attachments-counter.models.js";
 export {
   AttachmentsCounterTemplates,
@@ -128,6 +135,12 @@ export {
   DropdownMenuItemButton,
 } from "./components/dropdown-menu/dropdown-menu.models.js";
 export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropdown-menu/dropdown-menu.stories-of.js";
+
+export { ExpandableHeading } from "./components/expandable-heading/expandable-heading.models.js";
+export {
+  ExpandableHeadingTemplates,
+  storiesOfExpandableHeading,
+} from "./components/expandable-heading/expandable-heading.stories-of.js";
 
 export { Footnote } from "./components/footnotes/footnotes.models.js";
 export { FootnotesTemplates, storiesOfFootnotes } from "./components/footnotes/footnotes.stories-of.js";
