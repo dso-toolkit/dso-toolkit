@@ -7,8 +7,8 @@
   --dso-selectable-color: #{selectable-variables.$invalid-color};
 }
 
-@mixin nextSibling() {
-  margin-top: units.$u1;
+@mixin notLastChild() {
+  margin-bottom: units.$u1;
 }
 
 @mixin inline($siblingSelectableSelector) {

@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Fragment, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import { AnnotationService } from "../../services/annotation.service";
 
 @Component({
@@ -19,18 +19,16 @@ export class AnnotationButton implements ComponentInterface {
 
   render() {
     return (
-      <Fragment>
-        <button
-          type="button"
-          class="dso-tertiary"
-          aria-controls={this.identifier}
-          aria-expanded={AnnotationService.state[this.identifier] ? "true" : "false"}
-          onClick={(e) => this.annotationOutput?.toggleAnnotation(e, this.identifier)}
-        >
-          <dso-icon icon="label"></dso-icon>
-          <span class="sr-only">Toelichting bekijken</span>
-        </button>
-      </Fragment>
+      <button
+        type="button"
+        class="dso-tertiary"
+        aria-controls={this.identifier}
+        aria-expanded={AnnotationService.state[this.identifier] ? "true" : "false"}
+        onClick={(e) => this.annotationOutput?.toggleAnnotation(e, this.identifier)}
+      >
+        <dso-icon icon="label"></dso-icon>
+        <span class="sr-only">Toelichting bekijken</span>
+      </button>
     );
   }
 }

@@ -10,18 +10,18 @@ import {
   parentExpandableHeadingContent,
 } from "./expandable-heading.content";
 
-function expandableHeadingDemoListContent({
-  annotationButtonTemplate,
-  annotationOutputTemplate,
-}: Templates): StoryFnAngularReturnType {
+function expandableHeadingDemoListContent(
+  { annotationButtonTemplate, annotationOutputTemplate }: Templates,
+  key: number
+): StoryFnAngularReturnType {
   return {
     template: `<ol>
       <li>
-        <div style="float: right;">${annotationButtonTemplate({ identifier: "annotatie-list-1" }).template}</div>
+        <div style="float: right;">${annotationButtonTemplate({ identifier: `annotatie-list-${key}` }).template}</div>
         <div>
           ${
             annotationOutputTemplate({
-              identifier: "annotatie-list-1",
+              identifier: `annotatie-list-${key}`,
               content: annotationContent,
               title: annotationHeader,
               addons: annotationAddons,
@@ -69,7 +69,7 @@ function nestedExpandableHeading1(templates: Templates): ExpandableHeading<Story
                   </dso-ozon-content>
                 `,
               },
-              content: expandableHeadingDemoListContent(templates),
+              content: expandableHeadingDemoListContent(templates, article),
             }).template
         )
         .join(" "),

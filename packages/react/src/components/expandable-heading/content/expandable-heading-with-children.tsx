@@ -11,18 +11,17 @@ import {
   parentExpandableHeadingContent,
 } from "./expandable-heading.content";
 
-function expandableHeadingDemoListContent({
-  ozonContentTemplate,
-  annotationButtonTemplate,
-  annotationOutputTemplate,
-}: Templates): JSX.Element {
+function expandableHeadingDemoListContent(
+  { ozonContentTemplate, annotationButtonTemplate, annotationOutputTemplate }: Templates,
+  key: number
+): JSX.Element {
   return (
     <ol>
       <li>
-        <div style={{ float: "right" }}>{annotationButtonTemplate({ identifier: "annotatie-list-1" })}</div>
+        <div style={{ float: "right" }}>{annotationButtonTemplate({ identifier: `annotatie-list-${key}` })}</div>
         <div>
           {annotationOutputTemplate({
-            identifier: "annotatie-list-1",
+            identifier: `annotatie-list-${key}`,
             content: annotationContent,
             title: annotationHeader,
             addons: annotationAddons,
@@ -96,7 +95,7 @@ function nestedExpandableHeading1(templates: Templates) {
               prefix: `Artikel 2.1.${article} `,
               inline: true,
             }),
-            content: expandableHeadingDemoListContent(templates),
+            content: expandableHeadingDemoListContent(templates, article),
           })
         )}
       </>

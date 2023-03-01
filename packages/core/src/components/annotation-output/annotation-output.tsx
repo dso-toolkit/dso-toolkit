@@ -10,26 +10,28 @@ import { AnnotationToggleEvent } from "./annotation-output.interfaces";
   shadow: false,
 })
 export class AnnotationOutput implements ComponentInterface {
+  /** The annotation-button that toggles this component should have the same identifier. */
   @Prop()
   identifier!: string;
 
+  /** This text will be displayed above the annotation-output when opened */
   @Prop()
   annotationPrefix?: string;
 
   @Event()
-  dsoToggleAnnotation!: EventEmitter<AnnotationToggleEvent>;
+  dsoToggle!: EventEmitter<AnnotationToggleEvent>;
 
   @Method()
-  async toggleAnnotation(e: MouseEvent, identifier: string) {
+  async toggleAnnotation(e: MouseEvent | KeyboardEvent, identifier: string) {
     AnnotationService.toggle(identifier);
 
-    this.dsoToggleAnnotation.emit({
+    this.dsoToggle.emit({
       originalEvent: e,
       open: AnnotationService.state[this.identifier],
     });
   }
 
-  toggleHandler(e: MouseEvent) {
+  toggleHandler(e: MouseEvent | KeyboardEvent) {
     this.toggleAnnotation(e, this.identifier);
   }
 
@@ -37,9 +39,9 @@ export class AnnotationOutput implements ComponentInterface {
     const expandableProperties = AnnotationService.state[this.identifier] ? { open: true } : {};
 
     return (
-      <dso-expandable id={this.identifier} {...expandableProperties}>
-        {this.annotationPrefix && <span class="dso-annotation-prefix">{this.annotationPrefix}</span>}
-        <dso-responsive-element>
+      <dso-responsive-element>
+        <dso-expandable id={this.identifier} {...expandableProperties}>
+          {this.annotationPrefix && <span class="dso-annotation-prefix">{this.annotationPrefix}</span>}
           <div class="dso-annotation-header">
             <slot name="title" />
             <slot name="addons" />
@@ -52,11 +54,11 @@ export class AnnotationOutput implements ComponentInterface {
               <span class="sr-only">Toelichting sluiten</span>
             </button>
           </div>
-        </dso-responsive-element>
-        <div class="dso-annotation-content">
-          <slot />
-        </div>
-      </dso-expandable>
+          <div class="dso-annotation-content">
+            <slot />
+          </div>
+        </dso-expandable>
+      </dso-responsive-element>
     );
   }
 }

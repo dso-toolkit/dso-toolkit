@@ -5,8 +5,8 @@
 .dso-selectable {
   @include selectable.root(".dso-info");
 
-  & + .dso-selectable {
-    @include selectable.nextSibling();
+  &:not(:last-child) {
+    @include selectable.notLastChild();
   }
 }
 
@@ -14,9 +14,5 @@
 dso-selectable {
   .dso-rich-content[slot="info"] {
     @include info.richContent();
-  }
-
-  & + dso-selectable {
-    @include selectable.nextSibling();
   }
 }

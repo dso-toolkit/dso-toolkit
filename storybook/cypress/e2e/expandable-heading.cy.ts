@@ -23,7 +23,6 @@ describe("Expandable Heading", () => {
       .click()
       .get("@toggleButton")
       .should("have.attr", "aria-expanded", "true");
-    cy.percySnapshot();
   });
 
   it("should open and close when heading is clicked", () => {
@@ -35,6 +34,7 @@ describe("Expandable Heading", () => {
       .click()
       .get("@dsoExpandableHeading")
       .find("dso-expandable")
-      .should("be.visible");
+      .should("be.visible")
+      .percySnapshot();
   });
 });

@@ -15,13 +15,13 @@ export const coreAnnotationOutput: ComponentImplementation<AnnotationOutput<Temp
       title,
       addons,
       prefix,
-      dsoToggleAnnotation,
+      dsoToggle,
     }: AnnotationOutput<TemplateResult>) {
       return html`<dso-annotation-output
         slot=${ifDefined(slotName)}
         identifier=${identifier}
         annotation-prefix=${ifDefined(prefix)}
-        @dsoToggleAnnotation=${dsoToggleAnnotation}
+        @dsoToggle=${dsoToggle}
       >
         ${title} ${addons ? addons : ""} ${content}
       </dso-annotation-output>`;

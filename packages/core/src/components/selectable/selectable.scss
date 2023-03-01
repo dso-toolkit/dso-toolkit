@@ -7,6 +7,10 @@
   @include selectable.root("dso-info", false);
 }
 
+:host(:not(:last-child)) {
+  @include selectable.notLastChild();
+}
+
 @include utilities.box-sizing();
 
 .dso-selectable-input-wrapper {

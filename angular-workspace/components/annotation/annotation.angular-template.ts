@@ -16,7 +16,7 @@ export const angularAnnotation: ComponentImplementation<Annotation<StoryFnAngula
             [slot]="annotationOutput.slotName"
             [attr.identifier]="annotationOutput.identifier"
             [annotationPrefix]="annotationOutput.prefix"
-            (dsoToggleAnnotation)="annotationOutput.dsoToggleAnnotation?.($event)"
+            (dsoToggle)="annotationOutput.dsoToggle?.($event)"
           >
             ${props.annotationOutput.title.template}
             ${props.annotationOutput.addons?.template ?? ""}

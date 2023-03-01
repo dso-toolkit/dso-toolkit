@@ -14,6 +14,7 @@ export const angularExpandableHeading: ComponentImplementation<ExpandableHeading
           <dso-expandable-heading
             [color]="color"
             [heading]="heading"
+            (dsoToggle)="dsoToggle?.($event)
           >
             ${props.title.template}
             ${props.addonsStart ? props.addonsStart.template : ""}

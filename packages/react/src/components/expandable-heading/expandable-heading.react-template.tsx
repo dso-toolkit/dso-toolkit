@@ -17,11 +17,12 @@ export const reactExpandableHeading: ComponentImplementation<ExpandableHeading<J
       addonsStart,
       addonsEnd,
       content,
+      dsoToggle,
     }: ExpandableHeading<JSX.Element>) {
       const key = uuidv4();
 
       return (
-        <DsoExpandableHeading key={key} heading={heading} color={color}>
+        <DsoExpandableHeading key={key} heading={heading} color={color} onDsoToggle={dsoToggle}>
           {title} {addonsStart} {addonsEnd} {content}
         </DsoExpandableHeading>
       );

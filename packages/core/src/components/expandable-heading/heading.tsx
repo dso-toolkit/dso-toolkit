@@ -1,4 +1,5 @@
 import { FunctionalComponent, h } from "@stencil/core";
+
 import { HeadingTags } from "./expandable-heading.interfaces";
 
 export const Heading: FunctionalComponent<{

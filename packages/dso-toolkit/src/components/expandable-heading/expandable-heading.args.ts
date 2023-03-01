@@ -1,10 +1,11 @@
-import { ArgTypes } from "../../storybook/index.js";
-
+import { HandlerFunction } from "@storybook/addon-actions";
+import { ArgTypes, noControl } from "../../storybook/index.js";
 import { ExpandableHeading, ExpandableHeadingTemplates } from "./expandable-heading.models.js";
 
 export interface ExpandableHeadingArgs {
   heading: "h2" | "h3" | "h4" | "h5" | "h6";
   color: "default" | "black";
+  dsoToggle: HandlerFunction;
 }
 
 export const expandableHeadingArgTypes: ArgTypes<ExpandableHeadingArgs> = {
@@ -20,6 +21,10 @@ export const expandableHeadingArgTypes: ArgTypes<ExpandableHeadingArgs> = {
       type: "select",
     },
   },
+  dsoToggle: {
+    ...noControl,
+    action: "dsoToggle",
+  },
 };
 
 export function expandableHeadingArgsMapper<TemplateFnReturnType>(
@@ -32,5 +37,6 @@ export function expandableHeadingArgsMapper<TemplateFnReturnType>(
     addonsStart,
     addonsEnd,
     content,
+    dsoToggle: (e) => a.dsoToggle(e.detail),
   };
 }

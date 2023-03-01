@@ -12,7 +12,7 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
+import { ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -91,9 +91,15 @@ export namespace Components {
         "identifier": string;
     }
     interface DsoAnnotationOutput {
+        /**
+          * This text will be displayed above the annotation-output when opened
+         */
         "annotationPrefix"?: string;
+        /**
+          * The annotation-button that toggles this component should have the same identifier.
+         */
         "identifier": string;
-        "toggleAnnotation": (e: MouseEvent, identifier: string) => Promise<void>;
+        "toggleAnnotation": (e: MouseEvent | KeyboardEvent, identifier: string) => Promise<void>;
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -470,6 +476,10 @@ export interface DsoCardCustomEvent<T> extends CustomEvent<T> {
 export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerElement;
+}
+export interface DsoExpandableHeadingCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoExpandableHeadingElement;
 }
 export interface DsoHeaderCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -872,9 +882,15 @@ declare namespace LocalJSX {
         "identifier": string;
     }
     interface DsoAnnotationOutput {
+        /**
+          * This text will be displayed above the annotation-output when opened
+         */
         "annotationPrefix"?: string;
+        /**
+          * The annotation-button that toggles this component should have the same identifier.
+         */
         "identifier": string;
-        "onDsoToggleAnnotation"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
+        "onDsoToggle"?: (event: DsoAnnotationOutputCustomEvent<AnnotationToggleEvent>) => void;
     }
     interface DsoAttachmentsCounter {
         "count": number;
@@ -1013,6 +1029,7 @@ declare namespace LocalJSX {
     interface DsoExpandableHeading {
         "color"?: "default" | "black";
         "heading"?: HeadingTags;
+        "onDsoToggle"?: (event: DsoExpandableHeadingCustomEvent<ExpandableHeadingToggleEvent>) => void;
         "open"?: boolean;
     }
     interface DsoHeader {

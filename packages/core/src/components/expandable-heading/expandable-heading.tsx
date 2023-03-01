@@ -1,8 +1,8 @@
-import { Component, Fragment, h, Prop } from "@stencil/core";
+import { Component, Event, EventEmitter, Fragment, h, Prop } from "@stencil/core";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
-import { HeadingTags } from "./expandable-heading.interfaces";
+import { ExpandableHeadingToggleEvent, HeadingTags } from "./expandable-heading.interfaces";
 import { Heading } from "./heading";
 
 @Component({
@@ -20,10 +20,15 @@ export class ExpandableHeading {
   @Prop()
   color: "default" | "black" = "default";
 
+  @Event()
+  dsoToggle!: EventEmitter<ExpandableHeadingToggleEvent>;
+
   identifier = uuidv4();
 
-  toggle() {
+  toggle(e: MouseEvent | KeyboardEvent) {
     this.open = !this.open;
+
+    this.dsoToggle.emit({ originalEvent: e, open: this.open });
   }
 
   render() {
@@ -37,7 +42,7 @@ export class ExpandableHeading {
               type="button"
               aria-expanded={this.open ? "true" : "false"}
               aria-controls={this.identifier}
-              onClick={() => this.toggle()}
+              onClick={(e) => this.toggle(e)}
             >
               <dso-icon icon={this.open ? "chevron-down" : "chevron-right"}></dso-icon>
               <slot name="title" />

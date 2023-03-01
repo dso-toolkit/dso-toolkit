@@ -12,6 +12,13 @@
 | `open`    | `open`    |             | `boolean \| undefined`                 | `undefined` |
 
 
+## Events
+
+| Event       | Description | Type                                        |
+| ----------- | ----------- | ------------------------------------------- |
+| `dsoToggle` |             | `CustomEvent<ExpandableHeadingToggleEvent>` |
+
+
 ## Dependencies
 
 ### Depends on

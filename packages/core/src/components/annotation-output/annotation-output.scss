@@ -4,6 +4,10 @@
 
 @include utilities.box-sizing();
 
+dso-annotation-output {
+  display: block;
+}
+
 .sr-only {
   @include utilities.sr-only();
 }
@@ -34,7 +38,7 @@
 
 dso-responsive-element[small],
 dso-responsive-element[medium] {
-  > .dso-annotation-header {
+  .dso-annotation-header {
     display: grid;
     row-gap: units.$u1;
 

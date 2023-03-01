@@ -5,6 +5,7 @@ export interface ExpandableHeading<TemplateFnReturnType> {
   addonsStart?: TemplateFnReturnType;
   addonsEnd?: TemplateFnReturnType;
   content: TemplateFnReturnType;
+  dsoToggle?: (e: CustomEvent<ExpandableHeadingToggleEvent>) => void;
 }
 
 export interface ExpandableHeadingTemplates<TemplateFnReturnType> {
@@ -12,4 +13,9 @@ export interface ExpandableHeadingTemplates<TemplateFnReturnType> {
   addonsStart?: TemplateFnReturnType;
   addonsEnd?: TemplateFnReturnType;
   content: TemplateFnReturnType;
+}
+
+export interface ExpandableHeadingToggleEvent {
+  originalEvent?: MouseEvent | KeyboardEvent;
+  open: boolean;
 }

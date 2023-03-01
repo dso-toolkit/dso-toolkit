@@ -9,17 +9,17 @@ export const reactLabel: ComponentImplementation<Label> = {
   implementation: "react",
   template: () =>
     function labelTemplate({ slotName, status, label, removable, dsoRemoveClick, compact, truncate, symbol }) {
-      const props = {
-        ...(slotName && { slot: slotName }),
-        status,
-        onDsoRemoveClick: dsoRemoveClick,
-        compact,
-        truncate,
-        removable,
-      };
+      const slotProp = slotName && { slot: slotName };
 
       return (
-        <DsoLabel {...props}>
+        <DsoLabel
+          status={status}
+          compact={compact}
+          truncate={truncate}
+          removable={removable}
+          onDsoRemoveClick={dsoRemoveClick}
+          {...slotProp}
+        >
           {symbol && <span slot="symbol" dangerouslySetInnerHTML={{ __html: symbol }} />}
           {label}
         </DsoLabel>

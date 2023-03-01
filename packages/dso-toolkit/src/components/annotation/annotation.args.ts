@@ -6,7 +6,7 @@ import { Annotation } from "./annotation.models.js";
 export interface AnnotationArgs {
   identifier: string;
   prefix: string;
-  dsoToggleAnnotation: HandlerFunction;
+  dsoToggle: HandlerFunction;
 }
 
 export const annotationArgTypes: ArgTypes<AnnotationArgs> = {
@@ -16,9 +16,9 @@ export const annotationArgTypes: ArgTypes<AnnotationArgs> = {
   prefix: {
     type: "string",
   },
-  dsoToggleAnnotation: {
+  dsoToggle: {
     ...noControl,
-    action: "dsoToggleAnnotation",
+    action: "dsoToggle",
   },
 };
 
@@ -40,7 +40,7 @@ export function annotationArgsMapper<TemplateFnReturnType>(
       title: annotationContent.title,
       addons: annotationContent.addons,
       content: annotationContent.content,
-      dsoToggleAnnotation: (e) => a.dsoToggleAnnotation(e.detail),
+      dsoToggle: (e) => a.dsoToggle(e.detail),
     },
   };
 }

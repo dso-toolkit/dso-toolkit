@@ -1,4 +1,4 @@
 export interface AnnotationToggleEvent {
-  originalEvent?: MouseEvent;
+  originalEvent?: MouseEvent | KeyboardEvent;
   open: boolean;
 }
