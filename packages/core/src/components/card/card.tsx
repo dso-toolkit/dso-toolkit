@@ -68,7 +68,6 @@ export class Card implements ComponentInterface {
         </div>
         <div class="dso-card-heading">
           <slot name="heading" />
-          <slot name="addon" />
           <slot name="interactions" />
         </div>
         <div class="dso-card-content">

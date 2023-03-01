@@ -9,10 +9,9 @@ import { Card } from "./card.models.js";
 export interface CardArgs {
   label: string;
   selectable: boolean;
-  interactions: Array<Button | Toggletip<never>>;
+  interactions: Array<Button | Label | Toggletip<never>>;
   image: string | undefined;
   clickable: boolean;
-  addon: Label;
   dsoCardClicked: HandlerFunction;
 }
 
@@ -39,9 +38,6 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
     control: {
       type: "boolean",
     },
-  },
-  addon: {
-    ...noControl,
   },
 };
 

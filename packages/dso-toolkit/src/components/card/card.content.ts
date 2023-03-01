@@ -30,3 +30,14 @@ export const cardContentToggletip = {
     },
   ],
 };
+
+export const cardContentLabel = {
+  ...cardContent,
+  interactions: [
+    {
+      status: "warning",
+      compact: true,
+      label: "Ontwerp",
+    },
+  ],
+};

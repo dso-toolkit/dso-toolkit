@@ -212,7 +212,7 @@ export {
   storiesOfJustifyFormGroups,
 } from "./components/justify-form-groups/justify-form-groups.stories-of.js";
 
-export { Label } from "./components/label/label.models.js";
+export { Label, isLabelInterface } from "./components/label/label.models.js";
 export { LabelParameters, LabelTemplates, storiesOfLabel } from "./components/label/label.stories-of.js";
 
 export { LabelGroup } from "./components/label-group/label-group.models.js";

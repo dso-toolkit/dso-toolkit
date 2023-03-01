@@ -1,5 +1,5 @@
 import { DsoCardClickedEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
-import { Card, isButtonInterface, isToggletipInterface } from "dso-toolkit";
+import { Card, isButtonInterface, isLabelInterface, isToggletipInterface } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoCard, DsoSelectable, DsoIcon } from "../../components";
@@ -9,7 +9,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
   template: ({ labelTemplate, toggletipTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, clickable, addon, dsoCardClicked }) {
+    function cardTemplate({ label, selectable, content, interactions, image, clickable, dsoCardClicked }) {
       return (
         <DsoCard clickable={clickable} onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
           {selectable && <DsoSelectable {...selectable}>{selectable.label}</DsoSelectable>}
@@ -26,7 +26,6 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
               <span>{label}</span>
             </h2>
           )}
-          {addon && labelTemplate(addon)}
           {interactions && interactions.length > 0 && (
             <div slot="interactions" className="dso-card-interactions">
               {interactions.map((interaction, index) => (
@@ -49,6 +48,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
                       {interaction.icon && interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
                     </button>
                   )}
+                  {isLabelInterface(interaction) && labelTemplate(interaction)}
                   {isToggletipInterface(interaction) && toggletipTemplate(interaction)}
                 </div>
               ))}

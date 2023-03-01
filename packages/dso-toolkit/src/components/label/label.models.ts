@@ -7,3 +7,7 @@ export interface Label {
   dsoRemoveClick?: (e: CustomEvent<MouseEvent>) => void;
   symbol?: string;
 }
+
+export function isLabelInterface(object: unknown): object is Label {
+  return "compact" in (object as Label);
+}

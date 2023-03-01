@@ -1,4 +1,4 @@
-import { Card, isButtonInterface, isToggletipInterface } from "dso-toolkit";
+import { Card, isButtonInterface, isToggletipInterface, isLabelInterface } from "dso-toolkit";
 import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
@@ -15,7 +15,6 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       interactions,
       image,
       clickable = true,
-      addon,
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
@@ -32,7 +31,6 @@ export const coreCard: ComponentImplementation<Card<never>> = {
             : html`<h2 slot="heading">
                 <span>${label}</span>
               </h2>`}
-          ${addon && labelTemplate(addon)}
           ${interactions &&
           interactions.length > 0 &&
           html`<div slot="interactions">
@@ -40,6 +38,7 @@ export const coreCard: ComponentImplementation<Card<never>> = {
               (interaction) => html`
                 <div class="dso-card-interaction">
                   ${isButtonInterface(interaction) ? buttonTemplate(interaction) : nothing}
+                  ${isLabelInterface(interaction) ? labelTemplate(interaction) : nothing}
                   ${isToggletipInterface(interaction) ? toggletipTemplate(interaction) : nothing}
                 </div>
               `

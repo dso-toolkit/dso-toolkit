@@ -1,6 +1,6 @@
 import { StoriesOfArguments, storiesOfFactory } from "../../storybook/index.js";
 import { CardArgs, cardArgsMapper, cardArgTypes } from "./card.args.js";
-import { cardContentButton, cardContentToggletip } from "./card.content.js";
+import { cardContentButton, cardContentLabel, cardContentToggletip } from "./card.content.js";
 import { Card } from "./card.models.js";
 
 export interface CardTemplates<TemplateFnReturnType> {
@@ -47,22 +47,16 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       args: cardContentToggletip,
     });
 
+    stories.add("with label", template, {
+      args: {
+        ...cardContentLabel,
+      },
+    });
+
     stories.add("not clickable", template, {
       args: {
         ...cardContentButton,
         clickable: false,
-      },
-    });
-
-    stories.add("with label", template, {
-      args: {
-        ...cardContentButton,
-        addon: {
-          status: "warning",
-          compact: true,
-          label: "Ontwerp",
-          slotName: "addon",
-        },
       },
     });
 
