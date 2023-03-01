@@ -16,7 +16,16 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     selectableTemplate,
     toggletipTemplate,
   }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, clickable, addon, dsoCardClicked }) {
+    function cardTemplate({
+      label,
+      selectable,
+      content,
+      interactions,
+      image,
+      clickable = true,
+      addon,
+      dsoCardClicked,
+    }) {
       return html`
         <div
           class="dso-card ${classMap({

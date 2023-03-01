@@ -61,6 +61,7 @@ export function cardArgsMapper<TemplateFnReturnType>(
         }
       : undefined,
     content,
+    clickable: a.clickable ?? true,
     dsoCardClicked: (e) => a.dsoCardClicked(e.detail),
   };
 }
