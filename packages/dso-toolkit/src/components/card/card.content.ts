@@ -3,12 +3,6 @@ const cardContent = {
   selectable: false,
   image: undefined,
   clickable: true,
-  addon: {
-    status: "warning",
-    compact: true,
-    label: "Ontwerp",
-    slotName: "addon",
-  },
 };
 
 export const cardContentButton = {

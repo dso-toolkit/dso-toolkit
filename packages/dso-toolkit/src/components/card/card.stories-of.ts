@@ -54,6 +54,18 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       },
     });
 
+    stories.add("with label", template, {
+      args: {
+        ...cardContentButton,
+        addon: {
+          status: "warning",
+          compact: true,
+          label: "Ontwerp",
+          slotName: "addon",
+        },
+      },
+    });
+
     return stories;
   });
 }
