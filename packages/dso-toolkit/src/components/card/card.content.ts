@@ -2,6 +2,7 @@ const cardContent = {
   label: "Omgevingsplan Nieuwegein",
   selectable: false,
   image: undefined,
+  clickable: true,
 };
 
 export const cardContentButton = {
@@ -26,6 +27,17 @@ export const cardContentToggletip = {
       position: "left",
       small: false,
       secondary: false,
+    },
+  ],
+};
+
+export const cardContentLabel = {
+  ...cardContent,
+  interactions: [
+    {
+      status: "warning",
+      compact: true,
+      label: "Ontwerp",
     },
   ],
 };

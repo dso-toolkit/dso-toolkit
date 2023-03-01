@@ -137,6 +137,7 @@ export namespace Components {
         "status": "warning" | "danger" | "error";
     }
     interface DsoCard {
+        "clickable": boolean;
         "hasImage": boolean;
         "isSelectable": boolean;
     }
@@ -940,6 +941,7 @@ declare namespace LocalJSX {
         "status": "warning" | "danger" | "error";
     }
     interface DsoCard {
+        "clickable"?: boolean;
         "hasImage"?: boolean;
         "isSelectable"?: boolean;
         "onDsoCardClicked"?: (event: DsoCardCustomEvent<DsoCardClickedEvent>) => void;

@@ -38,6 +38,27 @@ dso-card {
     @extend %card-grid;
   }
 
+  h2[slot="heading"],
+  h3[slot="heading"],
+  h4[slot="heading"],
+  h5[slot="heading"] {
+    align-items: center;
+    display: flex;
+    font-size: 1.125em;
+    margin-bottom: 0;
+    margin-top: 0;
+
+    span {
+      margin-right: units.$u1;
+
+      + dso-icon,
+      + svg.di {
+        flex-shrink: 0;
+        position: relative;
+      }
+    }
+  }
+
   .dso-card-heading,
   *[slot="heading"] {
     h2:first-child,
@@ -76,6 +97,11 @@ dso-card {
         text-decoration: underline;
       }
     }
+  }
+
+  *[slot="addon"] {
+    margin-left: units.$u2;
+    margin-right: units.$u1;
   }
 
   .dso-rich-content.dso-rich-content {

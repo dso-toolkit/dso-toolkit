@@ -1,5 +1,5 @@
 import { DsoCardClickedEvent } from "@dso-toolkit/core/dist/types/components/card/card.interfaces";
-import { Card, isButtonInterface, isToggletipInterface } from "dso-toolkit";
+import { Card, isButtonInterface, isLabelInterface, isToggletipInterface } from "dso-toolkit";
 import * as React from "react";
 
 import { DsoCard, DsoSelectable, DsoIcon } from "../../components";
@@ -8,18 +8,24 @@ import { ComponentImplementation } from "../../templates";
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
-  template: ({ toggletipTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, dsoCardClicked }) {
+  template: ({ labelTemplate, toggletipTemplate }) =>
+    function cardTemplate({ label, selectable, content, interactions, image, clickable, dsoCardClicked }) {
       return (
-        <DsoCard onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
+        <DsoCard clickable={clickable} onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
           {selectable && <DsoSelectable {...selectable}>{selectable.label}</DsoSelectable>}
           {image && <img slot="image" src={image} />}
-          <a slot="heading" href="#">
-            <h2>
+          {clickable ? (
+            <a slot="heading" href="#">
+              <h2>
+                <span>{label}</span>
+                <DsoIcon icon="chevron-right"></DsoIcon>
+              </h2>
+            </a>
+          ) : (
+            <h2 slot="heading">
               <span>{label}</span>
-              <DsoIcon icon="chevron-right"></DsoIcon>
             </h2>
-          </a>
+          )}
           {interactions && interactions.length > 0 && (
             <div slot="interactions" className="dso-card-interactions">
               {interactions.map((interaction, index) => (
@@ -42,6 +48,7 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
                       {interaction.icon && interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
                     </button>
                   )}
+                  {isLabelInterface(interaction) && labelTemplate(interaction)}
                   {isToggletipInterface(interaction) && toggletipTemplate(interaction)}
                 </div>
               ))}
