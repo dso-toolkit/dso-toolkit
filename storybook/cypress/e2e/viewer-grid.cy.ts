@@ -218,12 +218,13 @@ describe("Viewer Grid", () => {
       .and("be.visible");
   });
 
-  it.only("should show VDK view", () => {
+  it("should show VDK view", () => {
     cy.visit(url);
 
     cy.get("dso-viewer-grid")
       .invoke("attr", "mode", "vdk")
       .invoke("attr", "main-size", "small")
+      .invoke("attr", "document-panel-size", "small")
       .invoke("attr", "document-panel-open", "true")
       .then((e) => {
         e.on("dsoDocumentPanelSizeChange", cy.stub().as("dsoDocumentPanelSizeChange"));
@@ -255,7 +256,7 @@ describe("Viewer Grid", () => {
       .find(".dso-main-panel .sizing-buttons")
       .should("not.exist")
       .get("@viewerGrid")
-      .find(".dso-main-panel .toggle-button")
+      .find(".dso-main-panel .toggle-button > button")
       .should("exist")
       .click()
       .get("@dsoMainPanelToggle")

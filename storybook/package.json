@@ -7,7 +7,7 @@
     "cy:run": "cypress run",
     "e2e": "start-server-and-test 'yarn e2e:start' http-get://127.0.0.1:45000 'yarn e2e:test'",
     "e2e:start": "http-server --silent --port 45000 www",
-    "e2e:test": "percy exec -- cypress-parallel --verbose --script cy:run --threads 2 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
+    "e2e:test": "percy exec -- cypress-parallel --verbose --script cy:run --threads 4 --weights-json cypress-parallel/parallel-weights.json --specsDir cypress/e2e --reporterModulePath ../node_modules/cypress-multi-reporters"
   },
   "dependencies": {
     "@babel/core": "^7.22.11",
@@ -15,7 +15,7 @@
     "@babel/preset-typescript": "^7.22.11",
     "@dso-toolkit/core": "workspace:^",
     "@infoprojects/prettier-config": "^1.0.0",
-    "@percy/cli": "^1.26.3",
+    "@percy/cli": "^1.27.1",
     "@percy/cypress": "^3.1.2",
     "@storybook/addon-a11y": "7.3.2",
     "@storybook/addon-actions": "7.3.2",
