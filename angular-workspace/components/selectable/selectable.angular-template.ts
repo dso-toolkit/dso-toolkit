@@ -10,6 +10,7 @@ const defaultPropValues = {
   value: "value",
   name: "name",
   describedById: "describedById",
+  labelledById: "labelledById",
   invalid: "invalid",
   disabled: "disabled",
   required: "required",
@@ -32,6 +33,7 @@ export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngula
         value,
         name,
         describedById,
+        labelledById,
         invalid,
         disabled,
         required,
@@ -51,6 +53,7 @@ export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngula
           [value]="${value}"
           ${props.name ? `[name] = "${name}"` : ""}
           ${props.describedById ? `[describedById]="${describedById}"` : ""}
+          ${props.labelledById ? `[labelledById]="${labelledById}"` : ""}
           ${props.invalid ? `[invalid]="${invalid}"` : ""}
           ${props.disabled ? `[disabled]="${disabled}"` : ""}
           ${props.required ? `[required]="${required}"` : ""}
@@ -60,7 +63,7 @@ export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngula
           ${props.slot ? `[slot]="${slot}"` : ""}
           ${props.dsoChange ? `(dsoChange)="${dsoChange}"` : ""}
         >
-          {{ ${label} }}
+          ${!props.labelledById ? `{{ ${label} }}` : ""}
           ${props.info?.content ?? ""}
         </dso-selectable>
       `,

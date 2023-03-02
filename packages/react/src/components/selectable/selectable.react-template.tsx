@@ -17,6 +17,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
       required,
       invalid,
       describedById,
+      labelledById,
       checked,
       indeterminate,
       disabled,
@@ -31,6 +32,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
           value={value}
           name={name}
           describedById={describedById}
+          labelledById={labelledById}
           invalid={invalid}
           disabled={disabled}
           required={required}
@@ -40,7 +42,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
           slot={slot}
           onDsoChange={(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
         >
-          {label}
+          {!labelledById ? label : ""}
           {info?.content ?? ""}
         </DsoSelectable>
       );

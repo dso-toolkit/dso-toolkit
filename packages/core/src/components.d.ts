@@ -363,6 +363,7 @@ export namespace Components {
         "indeterminate"?: boolean;
         "infoFixed"?: boolean;
         "invalid"?: boolean;
+        "labelledById"?: string;
         "name"?: string;
         "required"?: boolean;
         "toggleInfo": (active?: boolean) => Promise<void>;
@@ -1203,6 +1204,7 @@ declare namespace LocalJSX {
         "indeterminate"?: boolean;
         "infoFixed"?: boolean;
         "invalid"?: boolean;
+        "labelledById"?: string;
         "name"?: string;
         "onDsoChange"?: (event: DsoSelectableCustomEvent<SelectableChangeEvent>) => void;
         "required"?: boolean;

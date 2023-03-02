@@ -2,28 +2,28 @@ import { DsoCardClickedEvent } from "@dso-toolkit/core/dist/types/components/car
 import { Card, isButtonInterface, isLabelInterface, isToggletipInterface } from "dso-toolkit";
 import * as React from "react";
 
-import { DsoCard, DsoSelectable, DsoIcon } from "../../components";
+import { DsoCard } from "../../components";
 import { ComponentImplementation } from "../../templates";
 
 export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
-  template: ({ labelTemplate, toggletipTemplate }) =>
+  template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate }) =>
     function cardTemplate({ label, selectable, content, interactions, image, clickable, dsoCardClicked }) {
       return (
         <DsoCard clickable={clickable} onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
-          {selectable && <DsoSelectable {...selectable}>{selectable.label}</DsoSelectable>}
+          {selectable && selectableTemplate(selectable)}
           {image && <img slot="image" src={image} />}
           {clickable ? (
             <a slot="heading" href="#">
               <h2>
-                <span>{label}</span>
-                <DsoIcon icon="chevron-right"></DsoIcon>
+                <span id="card-title">{label}</span>
+                {iconTemplate({ icon: "chevron-right" })}
               </h2>
             </a>
           ) : (
             <h2 slot="heading">
-              <span>{label}</span>
+              <span id="card-title">{label}</span>
             </h2>
           )}
           {interactions && interactions.length > 0 && (
@@ -41,11 +41,14 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
                       aria-haspopup={interaction.ariaHaspopup}
                       aria-roledescription={interaction.ariaRoledescription}
                     >
-                      {interaction.icon && !interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
+                      {interaction.icon && !interaction.iconMode && iconTemplate(interaction.icon)}
                       <span className={interaction.iconMode === "only" ? "sr-only" : undefined}>
                         {interaction.label}
+                        {interaction.referenceLabel ? (
+                          <span className="sr-only">{`over "${interaction.referenceLabel}"`}</span>
+                        ) : undefined}
                       </span>
-                      {interaction.icon && interaction.iconMode && <DsoIcon icon={interaction.icon.icon}></DsoIcon>}
+                      {interaction.icon && interaction.iconMode && iconTemplate(interaction.icon)}
                     </button>
                   )}
                   {isLabelInterface(interaction) && labelTemplate(interaction)}

@@ -20,6 +20,7 @@ export interface Button {
   ariaExpanded?: boolean;
   ariaHaspopup?: "false" | "true" | "menu" | "listbox" | "tree" | "grid" | "dialog";
   ariaRoledescription?: string;
+  referenceLabel?: string;
   onClick?: (event: MouseEvent) => void;
   tooltip?: Tooltip;
   slot?: string;

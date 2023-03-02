@@ -16,6 +16,7 @@
 | `indeterminate`      | `indeterminate`   |             | `boolean \| undefined`  | `undefined` |
 | `infoFixed`          | `info-fixed`      |             | `boolean \| undefined`  | `undefined` |
 | `invalid`            | `invalid`         |             | `boolean \| undefined`  | `undefined` |
+| `labelledById`       | `labelled-by-id`  |             | `string \| undefined`   | `undefined` |
 | `name`               | `name`            |             | `string \| undefined`   | `undefined` |
 | `required`           | `required`        |             | `boolean \| undefined`  | `undefined` |
 | `type` _(required)_  | `type`            |             | `"checkbox" \| "radio"` | `undefined` |

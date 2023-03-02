@@ -53,6 +53,7 @@ export function cardArgsMapper<TemplateFnReturnType>(
           label: "Selecteer",
           type: "checkbox",
           value: "1",
+          labelledById: "card-title",
           slot: "selectable",
         }
       : undefined,
