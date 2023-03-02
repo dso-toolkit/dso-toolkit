@@ -29,6 +29,9 @@ De dso-toolkit.nl landingspagina is gewijzigd naar de introductiepagina ([#2082]
 
 ## 52.0.1
 
+### Added
+* Controller voor het DsoModal component ([#1983](https://github.com/dso-toolkit/dso-toolkit/issues/1983))
+
 ### Changed
 * Viewer Grid: Details fixen filterpaneel ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
 * Diverse voorbeeldpagina's zijn toegevoegd, uitgebreid en/of aangepast naar de laatste toolkit inzichten ([#2024](https://github.com/dso-toolkit/dso-toolkit/issues/2024))

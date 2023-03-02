@@ -13,3 +13,14 @@ export type ModalRole = "alert" | "dialog" | "alertdialog";
 export interface DsoModalCloseEvent {
   originalEvent?: MouseEvent;
 }
+
+export interface ModalContentComponent<TemplateFnReturnType> {
+  component: TemplateFnReturnType;
+  open(): void;
+  close(): void;
+}
+
+export interface DsoModalController<TemplateFnReturnType> {
+  getInstance(component: TemplateFnReturnType): ModalContentComponent<TemplateFnReturnType>;
+  create(properties: Modal<TemplateFnReturnType>): ModalContentComponent<TemplateFnReturnType>;
+}
