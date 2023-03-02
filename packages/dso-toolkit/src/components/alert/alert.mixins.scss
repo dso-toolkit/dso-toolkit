@@ -1,6 +1,5 @@
 @use "../../variables/units";
 @use "../../variables/colors";
-@use "../../variables/scaffolding";
 @use "../../variables/typography";
 @use "../../variables/media-query-breakpoints";
 
@@ -48,14 +47,14 @@
   a {
     &,
     &:not(.btn):visited {
-      color: scaffolding.$text-color;
+      color: colors.$zwart;
     }
 
     &:hover,
     &:focus,
     &:active,
     &:visited {
-      color: scaffolding.$text-color;
+      color: colors.$zwart;
     }
 
     &:active {

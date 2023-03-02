@@ -36,10 +36,10 @@
   a {
     @include anchor.reverse();
 
-    color: colors.$grijs-90;
+    color: colors.$zwart;
 
     &:active {
-      color: colors.$grijs-90;
+      color: colors.$zwart;
       text-decoration: none;
     }
   }

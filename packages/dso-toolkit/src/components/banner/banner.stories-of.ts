@@ -68,7 +68,7 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
       ),
       {
         args: {
-          status: "danger",
+          status: "warning",
         },
       }
     );
@@ -80,7 +80,7 @@ export function storiesOfBanner<Implementation, Templates, TemplateFnReturnType>
       ),
       {
         args: {
-          status: "warning",
+          status: "danger",
         },
       }
     );

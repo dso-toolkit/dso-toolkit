@@ -24,19 +24,19 @@
         &:focus,
         &:hover {
           &::before {
-            @include di.base("chevron-right-grijs90");
+            @include di.base("chevron-right-zwart");
           }
         }
 
         &.download {
           &::after {
-            @include di.base("download-grijs90");
+            @include di.base("download-zwart");
           }
         }
 
         &.extern {
           &::after {
-            @include di.base("external-link-grijs90");
+            @include di.base("external-link-zwart");
           }
         }
       }
@@ -64,19 +64,19 @@ dso-highlight-box {
         &:focus,
         &:hover {
           &::before {
-            @include di.base("chevron-right-grijs90");
+            @include di.base("chevron-right-zwart");
           }
         }
 
         &.download {
           &::after {
-            @include di.base("download-grijs90");
+            @include di.base("download-zwart");
           }
         }
 
         &.extern {
           &::after {
-            @include di.base("external-link-grijs90");
+            @include di.base("external-link-zwart");
           }
         }
       }
