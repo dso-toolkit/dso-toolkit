@@ -2,10 +2,24 @@ import { BaseLayer } from "../../packages/core/src/components/map-base-layers/ma
 import { Overlay } from "../../packages/core/src/components/map-overlays/map-overlays.interfaces";
 
 describe("Map Controls", () => {
-  it("should close layer info when layer becomes available", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls");
+  beforeEach(() => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls")
+      .get("dso-map-controls")
+      .then(($mapControls) => {
+        $mapControls.on("dsoZoomIn", cy.stub().as("dsoZoomIn"));
+        $mapControls.on("dsoZoomOut", cy.stub().as("dsoZoomOut"));
+        $mapControls.on("dsoToggle", cy.stub().as("dsoToggle"));
+        $mapControls.on("dsoBaseLayerChange", cy.stub().as("dsoBaseLayerChange"));
+        $mapControls.on("dsoToggleOverlay", cy.stub().as("dsoToggleOverlay"));
+      })
+      .shadow()
+      .as("dsoMapControlsShadow")
+      .find("#toggle-visibility-button")
+      .as("toggleVisibilityButton");
+  });
 
-    cy.get("dso-map-controls").shadow().find("#toggle-visibility-button").click();
+  it("should close layer info when layer becomes available", () => {
+    cy.get("@toggleVisibilityButton").click();
 
     testLayer("dso-map-overlays", "overlays", "Riool");
     testLayer("dso-map-base-layers", "baseLayers", "Lavakaart");
@@ -36,12 +50,7 @@ describe("Map Controls", () => {
   });
 
   it('panel should have header "Kaartlagen" and close button "Verberg paneel Kaartlagen"', () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-map-controls--map-controls");
-
-    cy.get("dso-map-controls")
-      .shadow()
-      .as("dsoMapControlsShadow")
-      .find("#toggle-visibility-button")
+    cy.get("@toggleVisibilityButton")
       .click()
       .get("@dsoMapControlsShadow")
       .find("section header h2")
@@ -51,5 +60,88 @@ describe("Map Controls", () => {
       .should("have.text", "Verberg paneel Kaartlagen");
 
     cy.percySnapshot();
+  });
+
+  it("should emit events", () => {
+    cy.get("@dsoMapControlsShadow")
+      .find(".zoom-buttons")
+      .as("zoomButtons")
+      .find("button")
+      .first()
+      .should("have.text", "Zoom in")
+      .click()
+      .get("@dsoZoomIn")
+      .should("have.been.calledOnce")
+      .get("@zoomButtons")
+      .find("button")
+      .last()
+      .should("have.text", "Zoom uit")
+      .click()
+      .get("@dsoZoomOut")
+      .should("have.been.calledOnce")
+      .get("@toggleVisibilityButton")
+      .click()
+      .get("@dsoToggle")
+      .should("have.been.calledOnce")
+      .and("have.been.calledWith", Cypress.sinon.match.object)
+      .its("firstCall.args.0.detail")
+      .should("deep.include", { open: true })
+      .get("dso-map-base-layers")
+      .shadow()
+      .find(".form-group > .dso-field-container > dso-selectable")
+      .first()
+      .find(".dso-selectable-input-wrapper > input")
+      .should("have.value", "Kaart")
+      .click()
+      .get("@dsoBaseLayerChange")
+      .should("have.been.calledOnce")
+      .and("have.been.calledWith", Cypress.sinon.match.object)
+      .its("firstCall.args.0.detail")
+      .should("deep.equal", { activeBaseLayer: { id: 0, name: "Kaart" } })
+      .get("dso-map-overlays")
+      .shadow()
+      .find(".form-group > .dso-field-container > dso-selectable")
+      .first()
+      .find(".dso-selectable-input-wrapper > input")
+      .should("have.value", "Kadastrale grenzen")
+      .click()
+      .get("@dsoToggleOverlay")
+      .should("have.been.calledOnce")
+      .and("have.been.calledWith", Cypress.sinon.match.object)
+      .its("firstCall.args.0.detail")
+      .should("deep.equal", {
+        checked: true,
+        overlay: {
+          id: 0,
+          name: "Kadastrale grenzen",
+        },
+      })
+      .get("dso-map-overlays")
+      .shadow()
+      .find(".form-group > .dso-field-container > dso-selectable")
+      .eq(1)
+      .find(".dso-selectable-input-wrapper > input")
+      .should("have.value", "Basisregistratie Adressen en Gebouwen (BAG)")
+      .click()
+      .get("@dsoToggleOverlay")
+      .should("have.been.calledTwice")
+      .and("have.been.calledWith", Cypress.sinon.match.object)
+      .its("lastCall.args.0.detail")
+      .should("deep.equal", {
+        checked: false,
+        overlay: {
+          id: 1,
+          name: "Basisregistratie Adressen en Gebouwen (BAG)",
+          checked: true,
+        },
+      })
+      .get("@dsoMapControlsShadow")
+      .find(".close-button")
+      .click()
+      .get("@dsoToggle")
+      .should("have.been.calledTwice")
+      .and("have.been.calledWith", Cypress.sinon.match.object)
+      .its("lastCall.args.0.detail")
+      .should("deep.include", { open: false });
   });
 });

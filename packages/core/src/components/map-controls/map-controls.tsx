@@ -1,6 +1,5 @@
-import { Component, h, Host, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
-
-const transitionDuration = 300; // Sync with $transition-duration in ./map-controls.scss
+import { Component, h, Host, Prop, Event, EventEmitter, State, Watch, Method } from "@stencil/core";
+import { MapControlsToggleEvent, transitionDuration } from "./map-controls.interfaces";
 
 @Component({
   tag: "dso-map-controls",
@@ -22,6 +21,9 @@ export class MapControls {
   @Event()
   dsoZoomOut!: EventEmitter<MouseEvent>;
 
+  @Event()
+  dsoToggle!: EventEmitter<MapControlsToggleEvent>;
+
   @State()
   hideContent = !this.open;
 
@@ -40,6 +42,16 @@ export class MapControls {
     }
   }
 
+  @Method()
+  async toggleVisibility(e: MouseEvent | KeyboardEvent) {
+    this.open = !this.open;
+
+    this.dsoToggle.emit({
+      originalEvent: e,
+      open: this.open,
+    });
+  }
+
   #closeButtonElement: HTMLButtonElement | undefined;
   #toggleButtonElement: HTMLButtonElement | undefined;
 
@@ -50,7 +62,7 @@ export class MapControls {
           type="button"
           id="toggle-visibility-button"
           class="toggle-visibility-button"
-          onClick={() => (this.open = !this.open)}
+          onClick={(e) => this.toggleVisibility(e)}
           ref={(element) => (this.#toggleButtonElement = element)}
         >
           <dso-icon icon="layers"></dso-icon>
@@ -80,7 +92,7 @@ export class MapControls {
             <button
               type="button"
               class="close-button"
-              onClick={() => (this.open = false)}
+              onClick={(e) => this.toggleVisibility(e)}
               ref={(element) => (this.#closeButtonElement = element)}
             >
               <span>Verberg paneel {this.panelTitle}</span>

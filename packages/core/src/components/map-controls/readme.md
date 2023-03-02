@@ -13,10 +13,24 @@
 
 ## Events
 
-| Event        | Description | Type                      |
-| ------------ | ----------- | ------------------------- |
-| `dsoZoomIn`  |             | `CustomEvent<MouseEvent>` |
-| `dsoZoomOut` |             | `CustomEvent<MouseEvent>` |
+| Event        | Description | Type                                  |
+| ------------ | ----------- | ------------------------------------- |
+| `dsoToggle`  |             | `CustomEvent<MapControlsToggleEvent>` |
+| `dsoZoomIn`  |             | `CustomEvent<MouseEvent>`             |
+| `dsoZoomOut` |             | `CustomEvent<MouseEvent>`             |
+
+
+## Methods
+
+### `toggleVisibility(e: MouseEvent | KeyboardEvent) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies
