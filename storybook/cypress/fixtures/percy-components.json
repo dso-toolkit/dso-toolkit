@@ -103,9 +103,6 @@
   "html-css-navbar--secondary",
   "html-css-progress-bar--default",
   "html-css-progress-bar--arbitrary-values",
-  "html-css-progress-indicator--small",
-  "html-css-progress-indicator--medium",
-  "html-css-progress-indicator--large",
   "html-css-row-equal-heights--highlight-boxes",
   "html-css-row-equal-heights--tiles",
   "html-css-row-equal-heights--whiteboxes",
@@ -168,8 +165,5 @@
   "core-list-button--multi-select",
   "core-progress-bar--default",
   "core-progress-bar--arbitrary-values",
-  "core-progress-indicator--small",
-  "core-progress-indicator--medium",
-  "core-progress-indicator--large",
   "core-responsive-element--responsive-element"
 ]
