@@ -9,10 +9,7 @@ import { linkList } from "./helpcentrum.content";
 examplePageFactory(
   "Toepassingen/Loket",
   "Helpcentrum",
-  (
-    { linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate, imageTemplate },
-    templates
-  ) => html`
+  ({ linkListTemplate, highlightBoxTemplate, richContentTemplate, searchBarTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
