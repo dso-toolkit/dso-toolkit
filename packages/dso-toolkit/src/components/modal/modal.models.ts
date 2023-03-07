@@ -14,6 +14,7 @@ export interface DsoModalCloseEvent {
   originalEvent?: MouseEvent;
 }
 
+// Modal Controller Models
 export interface ModalContentComponent<TemplateFnReturnType> {
   component: TemplateFnReturnType;
   open(): void;
