@@ -13,11 +13,11 @@
 
 ## Events
 
-| Event        | Description | Type                                  |
-| ------------ | ----------- | ------------------------------------- |
-| `dsoToggle`  |             | `CustomEvent<MapControlsToggleEvent>` |
-| `dsoZoomIn`  |             | `CustomEvent<MouseEvent>`             |
-| `dsoZoomOut` |             | `CustomEvent<MouseEvent>`             |
+| Event        | Description                                                                                                                                                                                                                                                                                   | Type                                  |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `dsoToggle`  | emits when the panel opens or closes.  - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button. - `event.detail.open` is true when the panel opens and false when the panel closes. | `CustomEvent<MapControlsToggleEvent>` |
+| `dsoZoomIn`  |                                                                                                                                                                                                                                                                                               | `CustomEvent<MouseEvent>`             |
+| `dsoZoomOut` |                                                                                                                                                                                                                                                                                               | `CustomEvent<MouseEvent>`             |
 
 
 ## Methods

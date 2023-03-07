@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Added
-* Map control: `dsoToggle` event bij het in en uitklappen van kaarlagen ([#2033](https://github.com/dso-toolkit/dso-toolkit/issues/2033))
+* Map control: `dsoToggle` event bij het in en uitklappen van kaartlagen ([#2033](https://github.com/dso-toolkit/dso-toolkit/issues/2033))
 
 ## 51.3.0
 

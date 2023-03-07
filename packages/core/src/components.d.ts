@@ -1112,6 +1112,9 @@ declare namespace LocalJSX {
     }
     interface DsoMapControls {
         "disableZoom"?: "in" | "out" | "both";
+        /**
+          * emits when the panel opens or closes.  - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button. - `event.detail.open` is true when the panel opens and false when the panel closes.
+         */
         "onDsoToggle"?: (event: DsoMapControlsCustomEvent<MapControlsToggleEvent>) => void;
         "onDsoZoomIn"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         "onDsoZoomOut"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
