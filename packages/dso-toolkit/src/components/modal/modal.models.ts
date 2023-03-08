@@ -21,7 +21,7 @@ export interface ModalContentComponent<TemplateFnReturnType> {
   close(): void;
 }
 
-export interface DsoModalController<TemplateFnReturnType> {
+export interface DsoModalController<TemplateFnReturnType, ContentTemplateType = never> {
   getInstance(component: TemplateFnReturnType): ModalContentComponent<TemplateFnReturnType>;
-  create(properties: Modal<TemplateFnReturnType>): ModalContentComponent<TemplateFnReturnType>;
+  create(properties: Modal<ContentTemplateType | TemplateFnReturnType>): ModalContentComponent<TemplateFnReturnType>;
 }
