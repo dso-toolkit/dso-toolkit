@@ -62,7 +62,7 @@ describe("Map Controls", () => {
     cy.percySnapshot();
   });
 
-  it("should emit events", () => {
+  it("should emit zoom events", () => {
     cy.get("@dsoMapControlsShadow")
       .find(".zoom-buttons")
       .as("zoomButtons")
@@ -78,14 +78,30 @@ describe("Map Controls", () => {
       .should("have.text", "Zoom uit")
       .click()
       .get("@dsoZoomOut")
-      .should("have.been.calledOnce")
-      .get("@toggleVisibilityButton")
+      .should("have.been.calledOnce");
+  });
+
+  it("should emit toggle events", () => {
+    cy.get("@toggleVisibilityButton")
       .click()
       .get("@dsoToggle")
       .should("have.been.calledOnce")
       .and("have.been.calledWith", Cypress.sinon.match.object)
       .its("firstCall.args.0.detail")
       .should("deep.include", { open: true })
+      .get("@dsoMapControlsShadow")
+      .find(".close-button")
+      .click()
+      .get("@dsoToggle")
+      .should("have.been.calledTwice")
+      .and("have.been.calledWith", Cypress.sinon.match.object)
+      .its("lastCall.args.0.detail")
+      .should("deep.include", { open: false });
+  });
+
+  it("should emit dsoBaseLayerChange event", () => {
+    cy.get("@toggleVisibilityButton")
+      .click()
       .get("dso-map-base-layers")
       .shadow()
       .find(".form-group > .dso-field-container > dso-selectable")
@@ -97,7 +113,12 @@ describe("Map Controls", () => {
       .should("have.been.calledOnce")
       .and("have.been.calledWith", Cypress.sinon.match.object)
       .its("firstCall.args.0.detail")
-      .should("deep.equal", { activeBaseLayer: { id: 0, name: "Kaart" } })
+      .should("deep.equal", { activeBaseLayer: { id: 0, name: "Kaart" } });
+  });
+
+  it("should emit dsoToggleOverlay event", () => {
+    cy.get("@toggleVisibilityButton")
+      .click()
       .get("dso-map-overlays")
       .shadow()
       .find(".form-group > .dso-field-container > dso-selectable")
@@ -134,14 +155,6 @@ describe("Map Controls", () => {
           name: "Basisregistratie Adressen en Gebouwen (BAG)",
           checked: true,
         },
-      })
-      .get("@dsoMapControlsShadow")
-      .find(".close-button")
-      .click()
-      .get("@dsoToggle")
-      .should("have.been.calledTwice")
-      .and("have.been.calledWith", Cypress.sinon.match.object)
-      .its("lastCall.args.0.detail")
-      .should("deep.include", { open: false });
+      });
   });
 });
