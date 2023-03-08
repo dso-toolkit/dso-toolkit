@@ -23,7 +23,7 @@ install:
 stages:
   - name: build
   - name: deploy
-    if: (branch =~ /^#/ || branch = master) && type = push
+    if: (branch =~ /^#/ || branch = master || branch = latest) && type = push
   - name: release
     if: tag =~ /^v/
 jobs:
