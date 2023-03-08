@@ -168,12 +168,7 @@ examplePageFactory(
                 </h3>
                 <p>Gebieden op deze locatie waar aparte regels gelden.</p>
                 <dso-responsive-element class="dso-tile-grid">
-                  ${tileTemplate({
-                    anchor: "#",
-                    image: "assets/graphics/boom_kappen.svg",
-                    label: "boom kappen",
-                    variant: "theme",
-                  })}
+                  ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
                   ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
                   ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
                   ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}

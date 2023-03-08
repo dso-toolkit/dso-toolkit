@@ -26,4 +26,3 @@ export const breadcrumbs: Breadcrumbs = {
     },
   ],
 };
-

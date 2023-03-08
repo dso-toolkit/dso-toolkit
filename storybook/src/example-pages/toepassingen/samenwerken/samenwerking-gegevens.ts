@@ -8,18 +8,20 @@ import { header, definitions, items } from "./samenwerking-gegevens.content";
 examplePageFactory(
   "Toepassingen/Samenwerken",
   "Samenwerking gegevens",
-  ({ buttonTemplate, tabsTemplate, definitionListTemplate }, templates) => html`
+  ({ buttonTemplate, buttonRowTemplate, tabsTemplate, definitionListTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
-        <div class="dso-button-row">
-          ${buttonTemplate({
-            label: "Terug naar samenwerkingen",
-            type: "button",
-            variant: "tertiary",
-            icon: { icon: "chevron-left" },
-          })}
-        </div>
+        ${buttonRowTemplate({
+          buttons: [
+            {
+              label: "Terug naar samenwerkingenn",
+              type: "button",
+              variant: "tertiary",
+              icon: { icon: "chevron-left" },
+            },
+          ],
+        })}
         <div class="dso-app-heading">
           <div class="dso-context-wrapper">
             <span class="dso-context-label">
@@ -39,13 +41,9 @@ examplePageFactory(
         </div>
         ${tabsTemplate(items)}
         <h2>Samenwerkingsgegevens</h2>
-        <div class="dso-button-row">
-          ${buttonTemplate({
-            label: "Samenwerking aanpassen",
-            type: "button",
-            variant: "secondary",
-          })}
-        </div>
+        ${buttonRowTemplate({
+          buttons: [{ label: "Samenwerking aanpassen", type: "button", variant: "secondary" }],
+        })}
         <div class="row">
           <div class="col-md-4">${definitionListTemplate(definitions)}</div>
           <div class="col-md-4">

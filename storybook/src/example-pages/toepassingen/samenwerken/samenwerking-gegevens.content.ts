@@ -118,4 +118,3 @@ export const definitions: DefinitionList<TemplateResult> = {
     },
   ],
 };
-

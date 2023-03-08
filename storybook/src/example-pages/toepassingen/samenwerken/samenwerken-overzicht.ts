@@ -1,5 +1,4 @@
 import { html } from "lit-html";
-
 import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
@@ -8,7 +7,7 @@ import { header } from "./samenwerken-overzicht.content";
 examplePageFactory(
   "Toepassingen/Samenwerken",
   "Samenwerken overzicht",
-  ({ anchorTemplate, buttonTemplate, applicationHeadingTemplate, badgeTemplate }, templates) => html`
+  ({ anchorTemplate, buttonRowTemplate, applicationHeadingTemplate, badgeTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
@@ -16,14 +15,9 @@ examplePageFactory(
           title: "Samenwerken aan behandelen",
           subtitle: "Overzicht Samenwerkingen",
         })}
-        <div class="dso-button-row">
-          ${buttonTemplate({
-            label: "Samenwerking starten",
-            type: "button",
-            variant: "secondary",
-          })}
-        </div>
-
+        ${buttonRowTemplate({
+          buttons: [{ label: "Samenwerking starten", type: "button", variant: "secondary" }],
+        })}
         <div class="dso-table-responsive">
           <table class="table">
             <caption class="sr-only">

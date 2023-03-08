@@ -1,4 +1,4 @@
-import { Breadcrumbs, Header, isToggletipInterface } from "dso-toolkit";
+import { Breadcrumbs, Header } from "dso-toolkit";
 import { html } from "lit-html";
 
 export const header: Header = {
@@ -135,4 +135,3 @@ export const cardList = {
     },
   ],
 };
-
