@@ -24,7 +24,9 @@ function getVersion() {
 
     if (
       typeof process.env.TRAVIS_BRANCH === "string" &&
-      (process.env.TRAVIS_BRANCH[0] === "#" || process.env.TRAVIS_BRANCH === "master")
+      (process.env.TRAVIS_BRANCH[0] === "#" ||
+        process.env.TRAVIS_BRANCH === "master" ||
+        process.env.TRAVIS_BRANCH === "latest")
     ) {
       console.info(`Using TRAVIS_BRANCH "${process.env.TRAVIS_BRANCH}".`);
 

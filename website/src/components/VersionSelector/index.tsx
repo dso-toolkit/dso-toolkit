@@ -7,10 +7,12 @@ import clsx from "clsx";
 import {
   getAllVersions,
   getVersion,
+  isLatestVersion,
   isMasterVersion,
   isReleaseVersion,
   isSelectedVersion,
   isTopicVersion,
+  Latest,
   Master,
   Release,
   Topic,
@@ -26,6 +28,24 @@ function mapVersion(version: Version) {
   };
 }
 
+function mapLatest(version: Latest, releases: Release[]) {
+  return {
+    label: `${version.version} 🏁 (${releases[releases.length - 1]?.version})`,
+    className: clsx(styles.navItem),
+    href: `https://www.dso-toolkit.nl/${version.version}`,
+    target: "_self",
+  };
+}
+
+function mapMaster(version: Master) {
+  return {
+    label: `${version.version} 🚧`,
+    className: clsx(styles.navItem),
+    href: `https://www.dso-toolkit.nl/${version.version}`,
+    target: "_self",
+  };
+}
+
 function getVersionLabel(): string {
   const version = getVersion();
 
@@ -33,6 +53,10 @@ function getVersionLabel(): string {
     const issueId = parseInt(version.substring(1, version.indexOf("-")));
 
     return `#${isNaN(issueId) ? version.substring(1) : issueId}`;
+  }
+
+  if (version === "latest") {
+    return "latest 🏁";
   }
 
   if (version === "master") {
@@ -46,15 +70,6 @@ function getVersionLabel(): string {
   return version ?? "Onbekend";
 }
 
-function mapMaster(version: Master) {
-  return {
-    label: `${version.version} 🚧`,
-    href: `https://www.dso-toolkit.nl/${version.version}`,
-    target: "_self",
-    className: clsx(styles.navItem),
-  };
-}
-
 export default function VersionSelector(): JSX.Element | null {
   const [versions, setVersions] = useState<LinkLikeNavbarItemProps[] | undefined>();
 
@@ -62,13 +77,18 @@ export default function VersionSelector(): JSX.Element | null {
     async function fetchData() {
       const parsed = await getAllVersions();
 
-      const topicsVersions: Topic[] = [];
+      const latestVersions: Latest[] = [];
       const masterVersions: Master[] = [];
+      const topicsVersions: Topic[] = [];
       const releases: Release[] = [];
 
       for (const version of parsed) {
         if (isTopicVersion(version)) {
           topicsVersions.push(version);
+        }
+
+        if (isLatestVersion(version)) {
+          latestVersions.push(version);
         }
 
         if (isMasterVersion(version)) {
@@ -81,7 +101,7 @@ export default function VersionSelector(): JSX.Element | null {
       }
 
       const list: LinkLikeNavbarItemProps[] = [
-        ...masterVersions.map((v) => mapMaster(v)),
+        ...latestVersions.map((v) => mapLatest(v, releases)),
         ...releases
           .reverse()
           .slice(0, 5)
@@ -95,6 +115,7 @@ export default function VersionSelector(): JSX.Element | null {
           className: styles.heading,
           value: "Branch releases",
         },
+        ...masterVersions.map((v) => mapMaster(v)),
         ...topicsVersions.map((v) => mapVersion(v)),
         {
           type: "html",

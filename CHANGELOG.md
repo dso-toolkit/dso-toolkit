@@ -192,6 +192,9 @@ Afnemers van dit html/css component moeten het icoon vervangen met `chevron-righ
 ### Fixed
 * Refix: dso-dropdown-menu gedeeltelijk verborgen ([#2021](https://github.com/dso-toolkit/dso-toolkit/issues/2021))
 
+### Added
+* Latest version toevoegen aan toolkit ([#2003](https://github.com/dso-toolkit/dso-toolkit/issues/2003))
+
 ## 51.4.0
 
 ### Added
