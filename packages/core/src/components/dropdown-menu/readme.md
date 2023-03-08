@@ -11,11 +11,12 @@ Items can be marked as "checked" by adding the attribute `checkable` and adding 
 
 ## Properties
 
-| Property        | Attribute        | Description                                                                  | Type                | Default  |
-| --------------- | ---------------- | ---------------------------------------------------------------------------- | ------------------- | -------- |
-| `checkable`     | `checkable`      | Whether the menu is checkable.                                               | `boolean`           | `false`  |
-| `dropdownAlign` | `dropdown-align` | Alignment of the dropdown                                                    | `"left" \| "right"` | `"left"` |
-| `open`          | `open`           | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean`           | `false`  |
+| Property        | Attribute        | Description                                                                  | Type                  | Default     |
+| --------------- | ---------------- | ---------------------------------------------------------------------------- | --------------------- | ----------- |
+| `boundary`      | `boundary`       | Selector for the element the dropdown options should not be overflowing.     | `string \| undefined` | `undefined` |
+| `checkable`     | `checkable`      | Whether the menu is checkable.                                               | `boolean`             | `false`     |
+| `dropdownAlign` | `dropdown-align` | Alignment of the dropdown                                                    | `"left" \| "right"`   | `"left"`    |
+| `open`          | `open`           | Whether the menu is open or closed. This attribute is reflected and mutable. | `boolean`             | `false`     |
 
 
 ## Dependencies

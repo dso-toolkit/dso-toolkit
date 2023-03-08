@@ -36,6 +36,7 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
         isCheckable: true,
         dropdownAlign: "left",
         groups: content.versions,
+        boundary: "#root",
       }),
     });
 
@@ -46,6 +47,7 @@ export function storiesOfDropdownMenu<Implementation, Templates, TemplateFnRetur
         isCheckable: false,
         dropdownAlign: "left",
         groups: content.settings,
+        boundary: "#root",
       }),
     });
 

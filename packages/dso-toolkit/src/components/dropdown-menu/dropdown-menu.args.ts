@@ -1,4 +1,4 @@
-import { ArgTypes } from "../../storybook/index.js";
+import { ArgTypes, noControl } from "../../storybook/index.js";
 
 import { DropdownMenu, DropdownMenuGroup } from "./dropdown-menu.models.js";
 
@@ -9,6 +9,7 @@ export interface DropdownMenuArgs {
   dropdownAlign: "left" | "right";
   isCheckable: boolean;
   groups: DropdownMenuGroup[];
+  boundary: string;
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
@@ -44,6 +45,9 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
       disable: true,
     },
   },
+  boundary: {
+    ...noControl,
+  },
 };
 
 export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
@@ -56,5 +60,6 @@ export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
     dropdownAlign: a.dropdownAlign,
     groups: a.groups,
     isCheckable: a.isCheckable,
+    boundary: a.boundary,
   };
 }

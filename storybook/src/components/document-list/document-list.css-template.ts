@@ -6,7 +6,7 @@ import { ComponentImplementation } from "../../templates";
 export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResult>> = {
   component: "documentList",
   implementation: "html-css",
-  template: ({ anchorTemplate }) =>
+  template: ({ anchorTemplate, dropdownMenuTemplate }) =>
     function documentListTemplate({ items }) {
       function documentListItemTemplate({ title, type, owner, status, sticky }: DocumentListItem<TemplateResult>) {
         return html`
@@ -27,6 +27,27 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
               </div>
             </div>
             <div class="dso-document-list-item-content">
+              <span
+                >Bovenliggend:
+                ${dropdownMenuTemplate({
+                  id: "dropdown-id",
+                  button: { type: "button", variant: "tertiary", label: "AFDELING 1.1 Algemeen" },
+                  groups: [
+                    {
+                      items: [
+                        {
+                          type: "anchor",
+                          url: "#",
+                          label: "HOOFDSTUK 2 Milieubelasende activiteiten en lozingsactiviteiten",
+                        },
+                        { type: "anchor", url: "#", label: "AFDELING 2.1 Toepassingsbereik" },
+                      ],
+                    },
+                  ],
+                  dropdownAlign: "left",
+                  boundary: ".dso-document-list-item-content",
+                })}</span
+              >
               <p>Hier komt vulling</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
