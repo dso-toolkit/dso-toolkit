@@ -58,7 +58,7 @@ describe("Header", () => {
   it("should be accessible", () => {
     cy.checkA11y("dso-header");
     cy.percySnapshot().get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
-    cy.percySnapshot()
+    cy.percySnapshot(`${Cypress.currentTest.title}" -- dropdown menu`)
       .viewport(400, 600)
       .get("dso-header")
       .invoke("attr", "useDropDownMenu", "auto")
@@ -135,6 +135,7 @@ describe("Header", () => {
   it("should not show menu", () => {
     cy.get("dso-header")
       .invoke("attr", "noMainMenu", "true")
+      .invoke("attr", "userHomeUrl", "")
       .find("nav")
       .should("not.exist")
       .get("dso-header")
