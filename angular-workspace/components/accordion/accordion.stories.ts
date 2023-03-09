@@ -8,6 +8,8 @@ import {
   allowMultipleOpenSections,
   anchorSections,
   basicSections,
+  compactSections,
+  conclusionSections,
   subSections,
 } from "./accordion.content";
 
@@ -24,6 +26,8 @@ storiesOfAccordion({
     accordionTemplate,
     basicSections,
     anchorSections,
+    compactSections,
+    conclusionSections,
     subSections: subSections(templates),
     allowMultipleOpenSections,
     addonsSections,
