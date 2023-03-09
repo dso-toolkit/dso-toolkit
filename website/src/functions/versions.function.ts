@@ -2,6 +2,11 @@ export interface Release {
   version: string;
 }
 
+export interface Latest {
+  version: "latest";
+  branch: "latest";
+}
+
 export interface Master {
   version: "master";
   branch: "master";
@@ -39,6 +44,16 @@ export function isReleaseVersion(obj: unknown): obj is Release {
   return hasShape<Release>(["version"], obj) && typeof obj.version === "string";
 }
 
+export function isLatestVersion(obj: unknown): obj is Latest {
+  return (
+    hasShape<Latest>(["branch", "version"], obj) &&
+    typeof obj.branch === "string" &&
+    obj.branch === "latest" &&
+    typeof obj.version === "string" &&
+    obj.version === "latest"
+  );
+}
+
 export function isMasterVersion(obj: unknown): obj is Master {
   return (
     hasShape<Master>(["branch", "version"], obj) &&
@@ -60,7 +75,7 @@ export function isTopicVersion(obj: unknown): obj is Topic {
 }
 
 export function isVersion(version: unknown): version is Version {
-  return isTopicVersion(version) || isMasterVersion(version) || isReleaseVersion(version);
+  return isTopicVersion(version) || isLatestVersion(version) || isMasterVersion(version) || isReleaseVersion(version);
 }
 
 export async function getAllVersions(): Promise<Version[]> {
