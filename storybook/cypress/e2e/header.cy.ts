@@ -133,9 +133,9 @@ describe("Header", () => {
   });
 
   it("should not show menu", () => {
-    cy.get("dso-header")
-      .invoke("attr", "noMainMenu", "true")
-      .invoke("attr", "userHomeUrl", "")
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=noMainMenu:true")
+      .get("dso-header")
+      .invoke("removeAttr", "user-home-url")
       .find("nav")
       .should("not.exist")
       .get("dso-header")
