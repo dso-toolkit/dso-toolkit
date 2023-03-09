@@ -120,6 +120,7 @@ form {
     @include css-grid-mixins.full-width-row(css-grid-variables.$grid-gutter-width);
 
     background-color: css-grid-variables.$featured-background-color;
+    color: colors.$zwart;
   }
 }
 
