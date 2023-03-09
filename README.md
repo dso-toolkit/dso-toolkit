@@ -5,7 +5,8 @@
 
 # DSO Toolkit - Design System van het Digitaal Stelsel Omgevingswet (DSO)
 
-De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er twee implementaties geleverd: CSS en Web Components. De Web Components krijgen voor Angular en React wrappers, zie issue #915.
+De DSO Toolkit bestaat uit documentatie en een stijlgids. Daarnaast worden er twee implementaties geleverd: HTML/CSS en Web Components.
+De Web Components krijgen voor Angular en React wrappers, zie issue #915.
 
 ## Getting started
 
@@ -28,6 +29,7 @@ The toolkit and component library are distributed to dso-toolkit.nl. Use the tab
 | branch      | channel    | url                                   |
 | ----------- | ---------- | ------------------------------------- |
 | master      | stable     | `https://cdn.dso-toolkit.nl/master/`  |
+| latest      | stable     | `https://cdn.dso-toolkit.nl/latest/`  |
 | _tags only_ | _releases_ | `https://cdn.dso-toolkit.nl/VERSION/` |
 
 The same goes for the component library:
@@ -35,24 +37,26 @@ The same goes for the component library:
 | branch      | channel    | url                                   |
 | ----------- | ---------- | ------------------------------------- |
 | master      | stable     | `https://www.dso-toolkit.nl/master/`  |
+| latest      | stable     | `https://www.dso-toolkit.nl/latest/`  |
 | _tags only_ | _releases_ | `https://www.dso-toolkit.nl/VERSION/` |
 
 ```html
-<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|VERSION]/dso.css" />
+<link rel="stylesheet" href="https://cdn.dso-toolkit.nl/[master|latest|VERSION]/dso.css" />
 ```
 
 For Web Components:
 
 ```html
-<script type="module" src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.esm.js"></script>
-<script nomodule src="https://cdn.dso-toolkit.nl/[master|VERSION]/core/dso-toolkit.js"></script>
+<script type="module" src="https://cdn.dso-toolkit.nl/[master|latest|VERSION]/core/dso-toolkit.esm.js"></script>
+<script nomodule src="https://cdn.dso-toolkit.nl/[master|latest|VERSION]/core/dso-toolkit.js"></script>
 ```
 
 The referenced scripts are very small: Only the actually used Web Components are lazy loaded. For more information: https://stenciljs.com/docs/distribution
 
 ### Develop or mockups
 
-To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 16 and Yarn. See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
+To work on the DSO Toolkit using components and variants or create mockups of pages, forms or components you need Node 16 and Yarn.
+See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute.
 
 Either install Yarn with
 
@@ -88,7 +92,7 @@ yarn start --react
 yarn start --all
 ```
 
-This will run the corresponding Storybook(s). Since these commands contain a colon (`:`), these commands can be run from anywhere in the project.
+This will run the corresponding Storybook(s).
 
 The following processes are started:
 
@@ -96,7 +100,8 @@ The following processes are started:
 - **--react**: CSS in watch mode, Stencil in watch mode, Storybook for React components
 - **--all**: CSS in watch mode, Stencil in watch mode, Storybook, and Storybook for React components
 
-This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI. Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment: This means no Stencil development tools like HMR.
+This will start Stencil on http://localhost:45333, Storybook on http://localhost:45000 and the Cypress GUI.
+Since Stencil and Storybook are running it's possible to develop the components, but keep in mind the tests run in a production environment, so Stencil development tools like HMR will not be available.
 
 #### `leaflet`
 
