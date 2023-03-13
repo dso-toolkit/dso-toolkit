@@ -17,6 +17,7 @@ import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfac
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
 import { BaseLayer, BaseLayerChangeEvent } from "./components/map-base-layers/map-base-layers.interfaces";
+import { MapControlsToggleEvent } from "./components/map-controls/map-controls.interfaces";
 import { Overlay, OverlayChangeEvent } from "./components/map-overlays/map-overlays.interfaces";
 import { ModalRole } from "./components/modal/modal";
 import { DsoModalCloseEvent } from "./components/modal/modal.interfaces";
@@ -288,6 +289,7 @@ export namespace Components {
     interface DsoMapControls {
         "disableZoom"?: "in" | "out" | "both";
         "open": boolean;
+        "toggleVisibility": (e: MouseEvent | KeyboardEvent) => Promise<void>;
     }
     interface DsoMapOverlays {
         "group": string;
@@ -1110,6 +1112,10 @@ declare namespace LocalJSX {
     }
     interface DsoMapControls {
         "disableZoom"?: "in" | "out" | "both";
+        /**
+          * emits when the panel opens or closes.  - `event.detail.originalEvent` contains the original `MouseEvent / KeyboardEvent` when the panel is toggled by clicking the visibility button or the close button. - `event.detail.open` is true when the panel opens and false when the panel closes.
+         */
+        "onDsoToggle"?: (event: DsoMapControlsCustomEvent<MapControlsToggleEvent>) => void;
         "onDsoZoomIn"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         "onDsoZoomOut"?: (event: DsoMapControlsCustomEvent<MouseEvent>) => void;
         "open"?: boolean;

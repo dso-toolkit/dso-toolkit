@@ -13,6 +13,7 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
     function mapControlsTemplate({
       dsoZoomIn,
       dsoZoomOut,
+      dsoToggle,
       open,
       baseLayers,
       dsoBaseLayerChange,
@@ -21,7 +22,13 @@ export const coreMapControls: ComponentImplementation<MapControls> = {
       disableZoom,
     }) {
       return html`
-        <dso-map-controls @dsoZoomIn=${dsoZoomIn} @dsoZoomOut=${dsoZoomOut} .disableZoom=${disableZoom} ?open=${open}>
+        <dso-map-controls
+          @dsoZoomIn=${dsoZoomIn}
+          @dsoZoomOut=${dsoZoomOut}
+          @dsoToggle=${dsoToggle}
+          .disableZoom=${disableZoom}
+          ?open=${open}
+        >
           <dso-map-base-layers
             .baseLayers=${baseLayers}
             @dsoBaseLayerChange=${(e: CustomEvent<BaseLayerChangeEvent>) => dsoBaseLayerChange(e)}
