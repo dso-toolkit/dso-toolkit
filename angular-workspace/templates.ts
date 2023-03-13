@@ -156,5 +156,3 @@ templateContainer.add(angularProgressIndicator);
 templateContainer.add(angularSelectable);
 templateContainer.add(angularSlideToggle);
 templateContainer.add(angularToggletip);
-
-export * from "./components/modal/modal.controller";

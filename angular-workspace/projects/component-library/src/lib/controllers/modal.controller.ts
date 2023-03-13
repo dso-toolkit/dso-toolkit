@@ -1,78 +1,80 @@
 import { DOCUMENT } from "@angular/common";
-import { ApplicationRef, createComponent, EnvironmentInjector, inject, Injectable, Type } from "@angular/core";
+import {
+  ApplicationRef,
+  ComponentRef,
+  createComponent,
+  EnvironmentInjector,
+  inject,
+  Injectable,
+  Type,
+} from "@angular/core";
 
-import { DsoModalController, Modal, ModalContentComponent } from "dso-toolkit";
+import { DsoModalController, ModalContent, ModalContentComponent, ModalOptions } from "dso-toolkit";
 
 import { DsoModal } from "../stencil-generated/components";
 
-export class AngularModalContentComponent implements ModalContentComponent<Type<DsoModal>> {
-  // private appRef: ApplicationRef = inject(ApplicationRef);
-  // private injector: EnvironmentInjector = inject(EnvironmentInjector);
-  // private document: Document = inject(DOCUMENT);
-
+export class AngularModalContentComponent implements ModalContentComponent<ComponentRef<DsoModal>> {
   private appRef: ApplicationRef;
-
-  private injector: EnvironmentInjector;
 
   private document: Document;
 
-  component: Type<DsoModal>;
+  component: ComponentRef<DsoModal>;
 
-  constructor(component: Type<DsoModal>, appRef: ApplicationRef, injector: EnvironmentInjector, document: Document) {
+  constructor(component: ComponentRef<DsoModal>, appRef: ApplicationRef, document: Document) {
     this.component = component;
     this.appRef = appRef;
-    this.injector = injector;
     this.document = document;
   }
 
   open() {
-    const modalComponentRef = createComponent(this.component, {
-      environmentInjector: this.injector,
-    });
-
-    this.document.body.appendChild(modalComponentRef.location.nativeElement);
+    this.document.body.appendChild(this.component.location.nativeElement);
 
     // Register the newly created ref using the `ApplicationRef` instance
     // to include the component view into change detection cycles.
-    this.appRef.attachView(modalComponentRef.hostView);
+    this.appRef.attachView(this.component.hostView);
   }
 
   close() {
-    this.document.body.lastChild?.remove();
-    // this.document.removeChild(modalComponentRef.location.nativeElement);
+    this.document.body.removeChild(this.component.location.nativeElement);
+  }
+
+  addEventListener(eventName: string, fn: () => void): void {
+    this.component.location.nativeElement.addEventListener(eventName, fn);
+  }
+
+  removeEventListener(eventName: string, fn: () => void): void {
+    this.component.location.nativeElement.removeEventListener(eventName, fn);
   }
 }
 
 @Injectable({ providedIn: "root" })
-export class ModalController implements DsoModalController<Type<DsoModal>, string> {
+export class ModalController implements DsoModalController<ComponentRef<DsoModal>, Type<unknown>> {
   private appRef: ApplicationRef = inject(ApplicationRef);
 
   private injector: EnvironmentInjector = inject(EnvironmentInjector);
 
   private document: Document = inject(DOCUMENT);
 
-  getInstance(component: Type<DsoModal>): AngularModalContentComponent {
-    return new AngularModalContentComponent(component, this.appRef, this.injector, this.document);
-  }
+  createInstance(
+    { title, body, footer }: ModalContent<Type<unknown>>,
+    options?: ModalOptions
+  ): AngularModalContentComponent {
+    const bodyRef = createComponent(body, {
+      environmentInjector: this.injector,
+    });
 
-  create({
-    modalTitle,
-    body,
-    footer,
-    role,
-    showCloseButton,
-    initialFocus,
-    dsoClose,
-  }: Modal<string>): AngularModalContentComponent {
     const bodyHtml = document.createElement("div");
     bodyHtml.setAttribute("slot", "body");
-    bodyHtml.innerHTML = body;
+    bodyHtml.appendChild(bodyRef.location.nativeElement);
 
     const footerHtml = document.createElement("div");
     footerHtml.setAttribute("slot", "footer");
 
     if (footer) {
-      footerHtml.innerHTML = footer;
+      const footerRef = createComponent(body, {
+        environmentInjector: this.injector,
+      });
+      footerHtml.appendChild(footerRef.location.nativeElement);
     }
 
     const modalComponentRef = createComponent(DsoModal, {
@@ -80,17 +82,18 @@ export class ModalController implements DsoModalController<Type<DsoModal>, strin
       projectableNodes: [[bodyHtml], footer ? [footerHtml] : []],
     });
 
-    modalComponentRef.setInput("modalTitle", modalTitle);
-    modalComponentRef.setInput("role", role);
-    modalComponentRef.setInput("showCloseButton", showCloseButton);
-    modalComponentRef.setInput("initialFocus", initialFocus);
-    modalComponentRef.setInput("dsoClose", dsoClose);
+    if (title) {
+      modalComponentRef.setInput("modalTitle", title);
+    }
 
-    return new AngularModalContentComponent(
-      modalComponentRef.location.nativeElement,
-      this.appRef,
-      this.injector,
-      this.document
-    );
+    if (options) {
+      const { role, showCloseButton, initialFocus } = options;
+
+      modalComponentRef.setInput("role", role);
+      modalComponentRef.setInput("showCloseButton", showCloseButton);
+      modalComponentRef.setInput("initialFocus", initialFocus);
+    }
+
+    return new AngularModalContentComponent(modalComponentRef, this.appRef, this.document);
   }
 }

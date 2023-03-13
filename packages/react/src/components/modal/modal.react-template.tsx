@@ -14,7 +14,7 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
         <DsoModal
           role={role}
           modalTitle={modalTitle}
-          showCloseButton={showCloseButton}
+          showCloseButton={showCloseButton ?? true}
           initialFocus={initialFocus}
           onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
         >

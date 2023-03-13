@@ -1,11 +1,9 @@
-import { DsoModalController, Modal, ModalContentComponent } from "dso-toolkit";
+import { DsoModalController, ModalContent, ModalContentComponent, ModalOptions } from "dso-toolkit";
 
-import { DsoModalCloseEvent } from "./modal.interfaces";
+export class CoreModalContentComponent implements ModalContentComponent<HTMLElement> {
+  component: HTMLElement;
 
-export class CoreModalContentComponent implements ModalContentComponent<HTMLDsoModalElement> {
-  component: HTMLDsoModalElement;
-
-  constructor(component: HTMLDsoModalElement) {
+  constructor(component: HTMLElement) {
     this.component = component;
   }
 
@@ -16,30 +14,44 @@ export class CoreModalContentComponent implements ModalContentComponent<HTMLDsoM
   close() {
     document.body.removeChild(this.component);
   }
-}
 
-export class ModalController implements DsoModalController<HTMLDsoModalElement> {
-  getInstance(component: HTMLDsoModalElement): CoreModalContentComponent {
-    return new CoreModalContentComponent(component);
+  addEventListener(eventName: "dsoClose", fn: () => void) {
+    this.component.addEventListener(eventName, fn);
   }
 
-  create({
-    modalTitle,
-    body,
-    footer,
-    role,
-    showCloseButton,
-    initialFocus,
-    dsoClose,
-  }: Modal<HTMLDsoModalElement>): CoreModalContentComponent {
+  removeEventListener(eventName: "dsoClose", fn: () => void) {
+    this.component.removeEventListener(eventName, fn);
+  }
+}
+
+export class ModalController implements DsoModalController<HTMLElement> {
+  createInstance(
+    { title, body, footer }: ModalContent<string | HTMLElement>,
+    options?: ModalOptions
+  ): CoreModalContentComponent {
     const element = document.createElement(`dso-modal`);
 
-    const attributes: { [key: string]: string | undefined } = {
-      "modal-title": modalTitle,
-      role,
-      "show-close-button": showCloseButton !== undefined ? String(showCloseButton) : showCloseButton,
-      "initial-focus": initialFocus,
-    };
+    const attributes: { [key: string]: string | undefined } = {};
+
+    if (title) {
+      attributes["modal-title"] = title;
+    }
+
+    if (options) {
+      const { role, showCloseButton, initialFocus } = options;
+
+      if (role) {
+        attributes["role"] = role;
+      }
+
+      if (showCloseButton) {
+        attributes["show-close-button"] = String(showCloseButton);
+      }
+
+      if (initialFocus) {
+        attributes["initial-focus"] = initialFocus;
+      }
+    }
 
     for (const key in attributes) {
       const value = attributes[key];
@@ -49,12 +61,30 @@ export class ModalController implements DsoModalController<HTMLDsoModalElement> 
       }
     }
 
-    if (dsoClose) {
-      element.addEventListener("dsoClose", ((e: CustomEvent<DsoModalCloseEvent>) => dsoClose(e)) as EventListener);
+    const bodyDiv = document.createElement("div");
+
+    if (typeof body === "string") {
+      bodyDiv.setAttribute("slot", "body");
+      bodyDiv.innerHTML = body;
+    } else {
+      bodyDiv.appendChild(body);
     }
 
-    element.innerHTML = `<div slot="body">${body}</div>${footer ? `<div slot="footer">${footer}</div>` : undefined}`;
+    element.appendChild(bodyDiv);
 
-    return this.getInstance(element);
+    if (footer) {
+      const footerDiv = document.createElement("div");
+
+      if (typeof footer === "string") {
+        footerDiv.setAttribute("slot", "footer");
+        footerDiv.innerHTML = footer;
+      } else {
+        footerDiv.appendChild(footer);
+      }
+
+      element.appendChild(footerDiv);
+    }
+
+    return new CoreModalContentComponent(element);
   }
 }

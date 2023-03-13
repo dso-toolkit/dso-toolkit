@@ -19,9 +19,25 @@ export interface ModalContentComponent<TemplateFnReturnType> {
   component: TemplateFnReturnType;
   open(): void;
   close(): void;
+  addEventListener?(eventName: string, fn: () => void): void;
+  removeEventListener?(eventName: string, fn: () => void): void;
 }
 
 export interface DsoModalController<TemplateFnReturnType, ContentTemplateType = never> {
-  getInstance(component: TemplateFnReturnType): ModalContentComponent<TemplateFnReturnType>;
-  create(properties: Modal<ContentTemplateType | TemplateFnReturnType>): ModalContentComponent<TemplateFnReturnType>;
+  createInstance(
+    content: ModalContent<ContentTemplateType | TemplateFnReturnType>,
+    options: ModalOptions
+  ): ModalContentComponent<TemplateFnReturnType>;
+}
+
+export interface ModalContent<TemplateFnReturnType> {
+  title?: string;
+  body: TemplateFnReturnType;
+  footer?: TemplateFnReturnType;
+}
+
+export interface ModalOptions {
+  role?: ModalRole;
+  showCloseButton?: boolean;
+  initialFocus?: string;
 }
