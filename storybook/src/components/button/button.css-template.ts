@@ -57,7 +57,8 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
       ariaExpanded,
       ariaHaspopup,
       ariaRoledescription,
-      referenceLabel,
+      screenreaderPrefix,
+      screenreaderSuffix,
       slot,
       tooltip,
       onClick,
@@ -80,8 +81,10 @@ export const cssButton: ComponentImplementation<Button | ButtonAnchor> = {
         >
           ${icon && !iconMode ? iconTemplate(icon) : nothing}<span
             class=${ifDefined(iconMode === "only" ? "sr-only" : undefined)}
-            >${label}${referenceLabel
-              ? html` <span class="sr-only">${`over "${referenceLabel}"`}</span>`
+            >${screenreaderPrefix
+              ? html`<span class="sr-only">${screenreaderPrefix}</span>`
+              : nothing}${label}${screenreaderSuffix
+              ? html`<span class="sr-only">${screenreaderSuffix}</span>`
               : nothing}</span
           >${icon && iconMode ? iconTemplate(icon) : nothing} ${tooltip ? tooltipTemplate(tooltip) : nothing}
         </button>

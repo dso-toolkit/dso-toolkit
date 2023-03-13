@@ -43,9 +43,12 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
                     >
                       {interaction.icon && !interaction.iconMode && iconTemplate(interaction.icon)}
                       <span className={interaction.iconMode === "only" ? "sr-only" : undefined}>
+                        {interaction.screenreaderPrefix ? (
+                          <span className="sr-only">{interaction.screenreaderPrefix}</span>
+                        ) : undefined}
                         {interaction.label}
-                        {interaction.referenceLabel ? (
-                          <span className="sr-only">{`over "${interaction.referenceLabel}"`}</span>
+                        {interaction.screenreaderSuffix ? (
+                          <span className="sr-only">{interaction.screenreaderSuffix}</span>
                         ) : undefined}
                       </span>
                       {interaction.icon && interaction.iconMode && iconTemplate(interaction.icon)}

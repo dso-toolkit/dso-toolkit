@@ -14,7 +14,7 @@ export const cardContentButton = {
       icon: {
         icon: "info",
       },
-      referenceLabel: cardContent.label,
+      screenreaderSuffix: `over "${cardContent.label}"`,
     },
   ],
 };
