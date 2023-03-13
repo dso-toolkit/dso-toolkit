@@ -42,7 +42,7 @@ export const reactSelectable: ComponentImplementation<Selectable<JSX.Element>> =
           slot={slot}
           onDsoChange={(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
         >
-          {!labelledById ? label : ""}
+          {label ?? ""}
           {info?.content ?? ""}
         </DsoSelectable>
       );
