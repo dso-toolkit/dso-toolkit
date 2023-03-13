@@ -13,6 +13,7 @@ footer {
 
   background-color: colors.$grijs-5;
   border-top: 1px solid css-footer-variables.$border-color;
+  color: colors.$zwart;
   display: block;
   margin-top: units.$u6;
   padding-bottom: units.$u6;
@@ -27,19 +28,19 @@ footer {
       &:focus,
       &:hover {
         &::before {
-          @include di.base("chevron-right-grijs90");
+          @include di.base("chevron-right-zwart");
         }
       }
 
       &.download {
         &::after {
-          @include di.base("download-grijs90");
+          @include di.base("download-zwart");
         }
       }
 
       &.extern {
         &::after {
-          @include di.base("external-link-grijs90");
+          @include di.base("external-link-zwart");
         }
       }
     }
@@ -47,7 +48,7 @@ footer {
 
   h2 {
     border-bottom: 1px solid css-footer-variables.$header-border-color;
-    color: colors.$grijs-90;
+    color: colors.$zwart;
     font-size: 1.25em;
     font-weight: 700;
     margin-bottom: units.$u2;
@@ -61,7 +62,7 @@ footer {
     &.active,
     &:active,
     &:focus {
-      color: colors.$grijs-90;
+      color: colors.$zwart;
     }
 
     &#{button.$not-dso-buttons}:visited {
@@ -70,7 +71,7 @@ footer {
       &.active,
       &:active,
       &:focus {
-        color: colors.$grijs-90;
+        color: colors.$zwart;
       }
     }
   }

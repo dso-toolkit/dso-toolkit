@@ -1,6 +1,5 @@
 @use "../../variables/units";
 @use "../../variables/colors";
-@use "../../variables/scaffolding";
 
 @use "../button";
 @use "../step-counter";
@@ -9,6 +8,7 @@
 
 @mixin root() {
   background-color: colors.$grijs-5;
+  color: colors.$zwart;
   margin-top: units.$u2;
   padding: units.$u2;
   margin-bottom: units.$vertical-spacing-large;
@@ -73,22 +73,13 @@
 @mixin exoticChildren() {
   .dso-tertiary:not([disabled]),
   .btn-link:not([disabled]) {
-    color: colors.$grijs-90;
-
-    &:hover,
-    &:focus {
-      &,
-      dso-icon,
-      svg.di {
-        color: colors.$grijs-60;
-      }
-    }
+    color: colors.$zwart;
   }
 
   a,
   a:visited {
     &#{button.$not-dso-buttons} {
-      color: scaffolding.$text-color;
+      color: colors.$zwart;
     }
   }
 }

@@ -18,7 +18,7 @@
   &.badge-info {
     background-color: badge-variables.$info-bg-color;
     border-color: badge-variables.$info-bg-color;
-    color: colors.$grijs-90;
+    color: colors.$zwart;
   }
 
   &.badge-primary {
@@ -36,7 +36,7 @@
   &.badge-warning {
     background-color: badge-variables.$warning-bg-color;
     border-color: badge-variables.$warning-bg-color;
-    color: colors.$grijs-90;
+    color: colors.$zwart;
   }
 
   &.badge-danger {

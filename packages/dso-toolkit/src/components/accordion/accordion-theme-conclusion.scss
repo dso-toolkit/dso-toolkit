@@ -9,7 +9,7 @@
       a,
       button {
         &::before {
-          @include di.base("chevron-down-grijs90");
+          @include di.base("chevron-down-zwart");
         }
       }
     }
@@ -21,7 +21,7 @@
             a,
             button {
               &::before {
-                @include di.base("chevron-up-grijs90");
+                @include di.base("chevron-up-zwart");
               }
             }
           }
@@ -32,7 +32,7 @@
             a,
             button {
               &::before {
-                @include di.variant("chevron-down-grijs90");
+                @include di.variant("chevron-down-zwart");
               }
             }
           }
@@ -41,28 +41,27 @@
     }
   }
 
-  .dso-section-handle {
-    background-color: accordion.$conclusion-bgcolor;
-    border: 1px solid accordion.$conclusion-border-color;
+  > .dso-accordion-section {
+    > .dso-section-handle {
+      background-color: accordion.$conclusion-bgcolor;
+      border: 1px solid accordion.$conclusion-border-color;
 
-    a,
-    button {
-      color: accordion.$conclusion-color;
-
-      &::before {
-        @include di.base("chevron-right-grijs90");
-      }
-
-      &:hover,
-      &:active,
-      &.active {
-        background-color: accordion.$conclusion-hover-bgcolor;
+      a,
+      button {
         color: accordion.$conclusion-color;
+
+        &::before {
+          @include di.base("chevron-right-zwart");
+        }
+
+        &:hover,
+        &:active,
+        &.active {
+          background-color: accordion.$conclusion-hover-bgcolor;
+        }
       }
     }
-  }
 
-  .dso-accordion-section {
     &.dso-open {
       &:not(.dso-nested-accordion) {
         > .dso-section-handle {
@@ -73,20 +72,7 @@
             color: accordion.$conclusion-color;
 
             &::before {
-              @include di.base("chevron-down-grijs90");
-            }
-
-            dso-attachments-counter {
-              --dso-attachments-counter-color: #{colors.$grijs-60};
-              --dso-icon: var(--di-paperclip-grijs);
-            }
-
-            .dso-attachments {
-              color: colors.$grijs-60;
-
-              &::after {
-                @include di.variant("paperclip-grijs");
-              }
+              @include di.base("chevron-down-zwart");
             }
           }
         }
@@ -99,7 +85,27 @@
           a,
           button {
             &::before {
-              @include di.base("chevron-down-grijs-90");
+              @include di.base("chevron-down-zwart");
+            }
+          }
+        }
+      }
+    }
+
+    &:not(.dso-nested-accordion) {
+      > .dso-section-handle {
+        a,
+        button {
+          dso-attachments-counter {
+            --dso-attachments-counter-color: #{colors.$zwart};
+            --dso-icon: var(--di-paperclip-zwart);
+          }
+
+          .dso-attachments {
+            color: colors.$zwart;
+
+            &::after {
+              @include di.variant("paperclip-zwart");
             }
           }
         }

@@ -9,7 +9,7 @@
 
   > button {
     &::before {
-      @include di.base("times-grijs90");
+      @include di.base("times-zwart");
 
       content: "";
       display: inline-block;

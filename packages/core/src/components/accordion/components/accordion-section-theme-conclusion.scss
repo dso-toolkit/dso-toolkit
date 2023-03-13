@@ -14,7 +14,11 @@
       &:active,
       &.active {
         background-color: accordion.$conclusion-hover-bgcolor;
-        color: accordion.$conclusion-color;
+      }
+
+      dso-attachments-counter {
+        --dso-attachments-counter-color: #{colors.$zwart};
+        --dso-icon: var(--di-paperclip-zwart);
       }
     }
   }
@@ -27,16 +31,6 @@
 @mixin dso-web-component-accordion-conclusion-open() {
   > .dso-section-handle {
     background-color: accordion.$conclusion-nested-handle-bgcolor;
-
-    a,
-    button {
-      color: accordion.$conclusion-color;
-
-      dso-attachments-counter {
-        --dso-attachments-counter-color: #{colors.$grijs-60};
-        --dso-icon: var(--di-paperclip-grijs);
-      }
-    }
   }
 }
 
