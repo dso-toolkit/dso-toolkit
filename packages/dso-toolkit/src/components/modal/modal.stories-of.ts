@@ -62,6 +62,7 @@ export interface ModalTemplates<TemplateFnReturnType> {
   confirmBody: TemplateFnReturnType;
   confirmFooter: TemplateFnReturnType;
   loadingBody: TemplateFnReturnType;
+  datePickerBody: TemplateFnReturnType;
 }
 
 export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
@@ -124,6 +125,19 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
       {
         args: componentArgs<Pick<ModalArgs, "role">>({
           role: "alert",
+        }),
+      }
+    );
+
+    stories.add(
+      "with datepicker",
+      templateMapper<ModalArgs>((args, { modalTemplate, datePickerBody }) =>
+        modalTemplate(modalArgsMapper(args, datePickerBody))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+          role: "dialog",
+          modalTitle: "Zet een datum",
         }),
       }
     );

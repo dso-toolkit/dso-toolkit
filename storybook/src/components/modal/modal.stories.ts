@@ -12,6 +12,7 @@ import {
   passiveBody,
   passiveFooter,
   loadingBody,
+  datePickerBody,
 } from "./modal.content";
 
 storiesOfModal({
@@ -31,6 +32,7 @@ storiesOfModal({
     confirmBody: confirmBody(templates),
     confirmFooter: confirmFooter(templates),
     loadingBody: loadingBody(templates),
+    datePickerBody: datePickerBody(templates),
   }),
 });
 
@@ -51,5 +53,6 @@ storiesOfModal({
     confirmBody: confirmBody(templates),
     confirmFooter: confirmFooter(templates),
     loadingBody: loadingBody(templates),
+    datePickerBody: datePickerBody(templates),
   }),
 });

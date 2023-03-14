@@ -92,3 +92,12 @@ export function loadingBody({ progressIndicatorTemplate }: Templates) {
     }),
   };
 }
+
+export function datePickerBody({ datePickerTemplate }: Templates) {
+  return {
+    template: datePickerTemplate({
+      id: "modal-id",
+      disabled: false,
+    }),
+  };
+}

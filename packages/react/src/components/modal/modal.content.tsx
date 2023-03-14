@@ -87,3 +87,10 @@ export function loadingBody({ progressIndicatorTemplate }: Templates) {
     block: true,
   });
 }
+
+export function datePickerBody({ datePickerTemplate }: Templates) {
+  return datePickerTemplate({
+    id: "modal-id",
+    disabled: false,
+  });
+}
