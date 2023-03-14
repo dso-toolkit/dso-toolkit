@@ -4,11 +4,12 @@ export interface Selectable<TemplateFnReturnType> {
   type: "radio" | "checkbox";
   id: string;
   name?: string;
-  label: string | TemplateFnReturnType;
+  label?: string | TemplateFnReturnType;
   value: string;
   required?: boolean;
   invalid?: boolean;
   describedById?: string;
+  labelledById?: string;
   checked?: boolean;
   indeterminate?: boolean;
   disabled?: boolean;

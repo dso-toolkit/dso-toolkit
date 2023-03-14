@@ -39,6 +39,9 @@ export class Selectable {
   describedById?: string;
 
   @Prop()
+  labelledById?: string;
+
+  @Prop()
   disabled?: boolean;
 
   @Prop()
@@ -110,15 +113,20 @@ export class Selectable {
             name={this.name}
             aria-invalid={this.invalid?.toString()}
             aria-describedby={hasInfo && this.infoFixed ? this.describedById : undefined}
+            aria-labelledBy={this.labelledById}
             disabled={this.disabled}
             required={this.required}
             checked={this.checked}
             onChange={(e) => this.dsoChange.emit(e)}
             ref={(el) => (this.input = el)}
           />
-          <label htmlFor={this.getIdentifier()}>
-            <slot></slot>
-          </label>
+          {!this.labelledById ? (
+            <label htmlFor={this.getIdentifier()}>
+              <slot></slot>
+            </label>
+          ) : (
+            <label></label>
+          )}
         </div>
         {hasInfo && (
           <Fragment>

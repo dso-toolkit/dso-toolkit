@@ -17,6 +17,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
       required,
       invalid,
       describedById,
+      labelledById,
       checked,
       indeterminate,
       disabled,
@@ -31,6 +32,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           value=${value}
           name=${ifDefined(name)}
           described-by-id=${ifDefined(describedById)}
+          labelled-by-id=${ifDefined(labelledById)}
           slot=${ifDefined(slot)}
           ?invalid=${invalid}
           ?disabled=${disabled}
@@ -40,7 +42,7 @@ export const coreSelectable: ComponentImplementation<Selectable<TemplateResult>>
           ?info-fixed=${info?.fixed}
           @dsoChange=${(e: CustomEvent<Event>) => dsoChange?.(e.detail)}
         >
-          ${label} ${typeof info?.content === "string" ? unsafeHTML(info.content) : info?.content ?? nothing}
+          ${ifDefined(label)} ${typeof info?.content === "string" ? unsafeHTML(info.content) : info?.content ?? nothing}
         </dso-selectable>
       `;
     },

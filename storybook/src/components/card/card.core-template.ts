@@ -24,12 +24,12 @@ export const coreCard: ComponentImplementation<Card<never>> = {
           ${clickable
             ? html`<a href="#" slot="heading">
                 <h2>
-                  <span>${label}</span>
+                  <span id="card-title">${label}</span>
                   <dso-icon icon="chevron-right"></dso-icon>
                 </h2>
               </a>`
             : html`<h2 slot="heading">
-                <span>${label}</span>
+                <span id="card-title">${label}</span>
               </h2>`}
           ${interactions &&
           interactions.length > 0 &&

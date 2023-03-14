@@ -50,9 +50,9 @@ export function cardArgsMapper<TemplateFnReturnType>(
     selectable: a.selectable
       ? {
           id: "1",
-          label: "Selecteer",
           type: "checkbox",
           value: "1",
+          labelledById: "card-title",
           slot: "selectable",
         }
       : undefined,

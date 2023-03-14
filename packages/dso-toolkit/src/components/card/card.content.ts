@@ -14,6 +14,7 @@ export const cardContentButton = {
       icon: {
         icon: "info",
       },
+      screenreaderSuffix: `over "${cardContent.label}"`,
     },
   ],
 };
@@ -23,7 +24,7 @@ export const cardContentToggletip = {
   interactions: [
     {
       children: "Extra informatie",
-      label: "Toon informatie",
+      label: `Toon informatie over "${cardContent.label}"`,
       position: "left",
       small: false,
       secondary: false,

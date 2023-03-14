@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/components/selectable";
+@use "~dso-toolkit/src/variables/units";
 
 :host {
   display: block;
@@ -15,6 +16,7 @@
 
 .dso-selectable-input-wrapper {
   display: inline-block;
+  min-height: units.$u3;
   padding-left: 32px;
 
   &:focus-within {

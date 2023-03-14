@@ -16,6 +16,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
       required,
       invalid,
       describedById,
+      labelledById,
       checked,
       indeterminate,
       disabled,
@@ -35,6 +36,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             name=${ifDefined(name)}
             aria-invalid=${ifDefined(invalid)}
             aria-describedby=${ifDefined(ariaDescribedBy)}
+            aria-labelledby=${ifDefined(labelledById)}
             slot=${ifDefined(slot)}
             @change=${(e: Event) => dsoChange?.(e)}
             ?disabled=${disabled}
@@ -48,7 +50,7 @@ export const cssSelectable: ComponentImplementation<Selectable<TemplateResult>> 
             : /* eslint-disable-next-line lit/quoted-expressions -- quotes are needed because id is passed as a string in javascript */ html`<script>
                 document.getElementById("${id}").indeterminate = false;
               </script>`}
-          <label for=${id}>${label}</label>
+          ${!labelledById ? html`<label for=${id}>${label}</label>` : html`<label></label>`}
           ${info
             ? html`
                 ${!info.fixed ? infoButtonTemplate({ active: info.active }) : nothing}

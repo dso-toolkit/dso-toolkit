@@ -32,12 +32,12 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             ${clickable
               ? html`<a href="#">
                   <h2>
-                    <span>${label}</span>
+                    <span id="card-title">${label}</span>
                     ${iconTemplate({ icon: "chevron-right" })}
                   </h2>
                 </a>`
               : html`<h2>
-                  <span>${label}</span>
+                  <span id="card-title">${label}</span>
                 </h2>`}
             ${interactions &&
             interactions.length > 0 &&

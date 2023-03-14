@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Tekstkleur tekst en interactieve element op gekleurde achtergrond naar #000 ([#2005](https://github.com/dso-toolkit/dso-toolkit/issues/2005))
+* card - selectable: titel in labels selectievakje en informatie knopje ([#2006](https://github.com/dso-toolkit/dso-toolkit/issues/2006))
 
 ## 51.3.0
 
