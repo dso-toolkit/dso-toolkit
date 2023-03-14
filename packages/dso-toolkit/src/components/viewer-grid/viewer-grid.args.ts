@@ -6,6 +6,7 @@ export interface ViewerGridArgs {
   overlayOpen: boolean;
   filterpanelOpen: boolean;
   initialMainSize: "small" | "medium" | "large";
+  show: boolean;
   dsoMainSizeChange: HandlerFunction;
   dsoCloseOverlay: HandlerFunction;
   dsoFilterpanelCancel: HandlerFunction;
@@ -34,6 +35,11 @@ export const viewerGridArgTypes: ArgTypes<ViewerGridArgs> = {
     options: ["small", "medium", "large"],
     control: {
       type: "select",
+    },
+  },
+  show: {
+    control: {
+      type: "boolean",
     },
   },
   dsoMainSizeChange: {

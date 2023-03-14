@@ -7,6 +7,7 @@ import {
   ViewerGridArgs,
   viewerGridDocumentHeaderArgs,
   ViewerGridDocumentHeaderArgs,
+  viewerGridArgsMapper,
 } from "./viewer-grid.args.js";
 import { ViewerGrid, ViewerGridDocumentHeaderProperties } from "./viewer-grid.models.js";
 
@@ -46,13 +47,7 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
       "Viewer Grid",
       templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
         viewerGridTemplate({
-          dsoCloseOverlay: args.dsoCloseOverlay,
-          dsoFilterpanelApply: args.dsoFilterpanelApply,
-          dsoFilterpanelCancel: args.dsoFilterpanelCancel,
-          filterpanelOpen: args.filterpanelOpen,
-          dsoMainSizeChange: args.dsoMainSizeChange,
-          initialMainSize: args.initialMainSize,
-          overlayOpen: args.overlayOpen,
+          ...viewerGridArgsMapper(args),
           main: example.main,
           map: example.map,
           filterpanel: example.filterpanel,

@@ -7,6 +7,7 @@ export interface ViewerGrid<TemplateFnReturnType> {
   map: TemplateFnReturnType;
   overlay?: TemplateFnReturnType;
   overlayOpen?: boolean;
+  show?: boolean;
   initialMainSize?: "small" | "medium" | "large";
   dsoMainSizeChange?: (e: CustomEvent<ViewerGridChangeSizeEvent>) => void;
   dsoCloseOverlay?: (e: MouseEvent | KeyboardEvent) => void;
