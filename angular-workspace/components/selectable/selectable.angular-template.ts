@@ -63,7 +63,7 @@ export const angularSelectable: ComponentImplementation<Selectable<StoryFnAngula
           ${props.slot ? `[slot]="${slot}"` : ""}
           ${props.dsoChange ? `(dsoChange)="${dsoChange}"` : ""}
         >
-          ${!props.labelledById ? `{{ ${label} }}` : ""}
+          {{ ${label} }}
           ${props.info?.content ?? ""}
         </dso-selectable>
       `,
