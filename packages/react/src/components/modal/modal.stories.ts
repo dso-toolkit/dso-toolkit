@@ -7,6 +7,7 @@ import {
   activeFooter,
   confirmBody,
   confirmFooter,
+  datePickerBody,
   loadingBody,
   passiveBody,
   passiveFooter,
@@ -29,5 +30,6 @@ storiesOfModal({
     confirmBody,
     confirmFooter,
     loadingBody: loadingBody(templates),
+    datePickerBody: datePickerBody(templates),
   }),
 });

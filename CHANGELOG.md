@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Map control: `dsoToggle` event bij het in en uitklappen van kaartlagen ([#2033](https://github.com/dso-toolkit/dso-toolkit/issues/2033))
+* Storybook voorbeeld: Modal met datepicker ([#2019](https://github.com/dso-toolkit/dso-toolkit/issues/2019))
 
 ### Changed
 * Tekstkleur tekst en interactieve element op gekleurde achtergrond naar #000 ([#2005](https://github.com/dso-toolkit/dso-toolkit/issues/2005))
