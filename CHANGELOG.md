@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 51.4.0
+
 ### Added
 * Alle varianten accordion etaleren ([#2025](https://github.com/dso-toolkit/dso-toolkit/issues/2025))
 * Map control: `dsoToggle` event bij het in en uitklappen van kaartlagen ([#2033](https://github.com/dso-toolkit/dso-toolkit/issues/2033))
