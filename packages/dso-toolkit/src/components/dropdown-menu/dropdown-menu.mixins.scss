@@ -19,6 +19,8 @@
   > .dso-secondary,
   > .dso-tertiary,
   > .btn {
+    position: relative;
+
     &::after {
       content: "";
       display: inline-block;
