@@ -6,6 +6,8 @@ import { Accordion, AccordionSection } from "./accordion.models.js";
 export interface AccordionTemplates<TemplateFnReturnType> {
   accordionTemplate: (accordionProperties: Accordion<TemplateFnReturnType>) => TemplateFnReturnType;
   basicSections: AccordionSection<TemplateFnReturnType>[];
+  conclusionSections: AccordionSection<TemplateFnReturnType>[];
+  compactSections: AccordionSection<TemplateFnReturnType>[];
   anchorSections: AccordionSection<TemplateFnReturnType>[];
   subSections: AccordionSection<TemplateFnReturnType>[];
   allowMultipleOpenSections: AccordionSection<TemplateFnReturnType>[];
@@ -31,6 +33,30 @@ export function storiesOfAccordion<Implementation, Templates, TemplateFnReturnTy
       templateMapper<AccordionArgs>((args, { accordionTemplate, basicSections }) =>
         accordionTemplate(accordionArgsMapper(args, basicSections))
       )
+    );
+
+    stories.add(
+      "compact",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, compactSections }) =>
+        accordionTemplate(accordionArgsMapper(args, compactSections))
+      ),
+      {
+        args: {
+          variant: "compact",
+        },
+      }
+    );
+
+    stories.add(
+      "conclusion",
+      templateMapper<AccordionArgs>((args, { accordionTemplate, conclusionSections }) =>
+        accordionTemplate(accordionArgsMapper(args, conclusionSections))
+      ),
+      {
+        args: {
+          variant: "conclusion",
+        },
+      }
     );
 
     stories.add(

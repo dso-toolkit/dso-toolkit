@@ -146,6 +146,30 @@ export function allowMultipleOpenSections(templates: Templates): AccordionSectio
   ];
 }
 
+export function conclusionSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    section1,
+    section2,
+    {
+      ...section3,
+      open: true,
+    },
+    section4(templates),
+  ];
+}
+
+export function compactSections(templates: Templates): AccordionSection<TemplateResult>[] {
+  return [
+    section1,
+    section2,
+    {
+      ...section3,
+      open: true,
+    },
+    section4(templates),
+  ];
+}
+
 export const addonsSections: AccordionSection<TemplateResult>[] = [
   {
     ...section1,

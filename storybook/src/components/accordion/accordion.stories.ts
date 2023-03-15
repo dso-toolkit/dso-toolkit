@@ -11,6 +11,8 @@ import {
   allowMultipleOpenSections,
   anchorSections,
   basicSections,
+  conclusionSections,
+  compactSections,
   subSections,
 } from "./accordion.content";
 
@@ -29,6 +31,8 @@ storiesOfAccordion({
     alignmentSections,
     allowMultipleOpenSections: allowMultipleOpenSections(templates),
     anchorSections: anchorSections(templates),
+    conclusionSections: conclusionSections(templates),
+    compactSections: compactSections(templates),
     subSections: subSections(templates),
   }),
 });
@@ -48,6 +52,8 @@ storiesOfAccordion({
     alignmentSections,
     allowMultipleOpenSections: allowMultipleOpenSections(templates),
     anchorSections: anchorSections(templates),
+    conclusionSections: conclusionSections(templates),
+    compactSections: compactSections(templates),
     subSections: subSections(templates),
   }),
 });

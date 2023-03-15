@@ -2,7 +2,15 @@ import { StorybookComponent } from "@site/src/components/StorybookComponent";
 
 # Accordion
 
-<StorybookComponent variant="default" />
+<StorybookComponent />
+
+## Zie ook
+
+Dit component bestaat in 3 varianten:
+
+- [Standaard](#default)
+- [Compact](#compact)
+- [Conclusie](#conclusie)
 
 Een Accordion is een lijst met uitklapbare titels. Gebruikers kunnen hiermee delen van content in- en uitklappen. Doordat alleen de titels zichtbaar zijn ziet de gebruiker snel wat belangrijk is om te lezen.
 
@@ -19,6 +27,20 @@ Gebruik een accordion niet als alle content zichtbaar moet zijn om vragen van ge
 ## Hoe te gebruiken
 
 Zorg dat de gebruiker meerdere delen tegelijk kan openen. De delen van een accordion hebben twee verschillende posities: ingeklapt en uitgeklapt. De posities zijn af te lezen aan de chevron. Wijst de chevron naar beneden, dan is de accordion ingeklapt. Wijst de chevron naar boven, dan is de accordion uitgeklapt. De accordion kan ook genest gebruikt worden.
+
+## Varianten
+
+### Default
+
+<StorybookComponent variant="default" />
+
+### Compact
+
+<StorybookComponent variant="compact" implementations={["core"]} />
+
+### Conclusie
+
+<StorybookComponent variant="conclusion" implementations={["core"]} />
 
 ## Bronvermelding
 
