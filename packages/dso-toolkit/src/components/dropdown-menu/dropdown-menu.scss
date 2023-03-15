@@ -1,5 +1,6 @@
 @use "../../di";
 @use "../../variables/units";
+@use "../../variables/zindex";
 
 @use "../dropdown-menu";
 
@@ -81,6 +82,8 @@
   @include dropdown-menu.children();
   @include icons();
 
+  position: relative;
+
   &.dso-open {
     @include icons-open();
   }
@@ -107,7 +110,17 @@
   }
 
   &.dso-dropdown-align-right {
-    @include dropdown-menu.align-right();
+    .dso-dropdown-options {
+      right: 0;
+    }
+  }
+
+  .dso-dropdown-options {
+    margin: 2px 0 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: zindex.$dropdown-options;
   }
 }
 
@@ -115,10 +128,6 @@
 dso-dropdown-menu {
   @include dropdown-menu.children();
   @include icons();
-
-  &[dropdown-align="right"] {
-    @include dropdown-menu.align-right();
-  }
 
   &[open] {
     @include icons-open();

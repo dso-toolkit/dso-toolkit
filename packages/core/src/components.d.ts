@@ -201,6 +201,10 @@ export namespace Components {
     }
     interface DsoDropdownMenu {
         /**
+          * Selector for the element the dropdown options should not be overflowing.
+         */
+        "boundary"?: string;
+        /**
           * Whether the menu is checkable.
          */
         "checkable": boolean;
@@ -1015,6 +1019,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface DsoDropdownMenu {
+        /**
+          * Selector for the element the dropdown options should not be overflowing.
+         */
+        "boundary"?: string;
         /**
           * Whether the menu is checkable.
          */

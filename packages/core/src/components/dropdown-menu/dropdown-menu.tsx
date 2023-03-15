@@ -1,4 +1,5 @@
-import { Component, h, Prop, Element, Host } from "@stencil/core";
+import { createPopper, Instance as PopperInstance } from "@popperjs/core";
+import { Component, h, Prop, Element, Host, Watch } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
 
@@ -27,8 +28,25 @@ export class DropdownMenu {
   @Prop()
   checkable = false;
 
+  /** Selector for the element the dropdown options should not be overflowing.*/
+  @Prop()
+  boundary?: string;
+
+  @Watch("dropdownAlign")
+  watchPosition() {
+    if (!this.popper) {
+      return;
+    }
+
+    this.popper.setOptions({
+      placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+    });
+  }
+
   @Element()
   host!: HTMLElement;
+
+  private popper: PopperInstance | undefined;
 
   get button(): HTMLButtonElement {
     const button = this.host.querySelector('button[slot="toggle"]');
@@ -69,9 +87,39 @@ export class DropdownMenu {
         li.setAttribute("role", "none");
       }
     }
+
+    if (this.popper) {
+      return;
+    }
+
+    const dropdownOptions = this.host.querySelector(".dso-dropdown-options");
+
+    if (!(dropdownOptions instanceof HTMLElement)) {
+      throw new Error("dropdown options element is not instanceof HTMLElement");
+    }
+
+    this.popper = createPopper(this.button, dropdownOptions, {
+      placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 2], // 2px margin between button and options
+          },
+        },
+        {
+          name: "preventOverflow",
+          options: {
+            boundary: this.boundary ? document.querySelector(this.boundary) : null,
+          },
+          enabled: this.boundary !== undefined,
+        },
+      ],
+    });
   }
 
   componentDidRender() {
+    this.popper?.update();
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
@@ -94,6 +142,10 @@ export class DropdownMenu {
         tabbable.addEventListener("click", this.escape);
       }
     });
+  }
+
+  disconnectedCallback() {
+    this.popper?.destroy();
   }
 
   focusOutListener = (event: FocusEvent) => {

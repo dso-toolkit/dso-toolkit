@@ -239,8 +239,8 @@ dso-dropdown-menu {
 
     dso-dropdown-menu {
       .dso-dropdown-options {
-        left: units.$ru2 * -1;
-        top: calc(100% + 3px);
+        left: units.$ru2 * -1 !important;
+        top: 3px !important;
       }
 
       button {

@@ -6,6 +6,7 @@ export interface DropdownMenu {
   groups: DropdownMenuGroup[];
   dropdownAlign?: "left" | "right";
   isCheckable?: boolean;
+  boundary?: string;
 }
 
 export interface DropdownMenuGroup {
