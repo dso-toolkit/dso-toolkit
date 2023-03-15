@@ -2,7 +2,7 @@ import { HeaderMenuItem } from "../../packages/core/src/components/header/header
 
 describe("Header", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--header");
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--header").injectAxe();
   });
 
   const defaultMenuItems = [
@@ -56,73 +56,91 @@ describe("Header", () => {
   }
 
   it("should be accessible", () => {
-    cy.injectAxe();
-    cy.percySnapshot();
     cy.checkA11y("dso-header");
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:true");
-    cy.injectAxe();
-    cy.checkA11y("dso-header");
-    cy.viewport(400, 600);
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:false");
-    cy.injectAxe();
-    cy.checkA11y("dso-header");
+    cy.percySnapshot().get("dso-header").invoke("attr", "useDropDownMenu", "always").checkA11y("dso-header");
+    cy.percySnapshot(`${Cypress.currentTest.title}" -- dropdown menu`)
+      .viewport(400, 600)
+      .get("dso-header")
+      .invoke("attr", "useDropDownMenu", "auto")
+      .checkA11y("dso-header");
   });
 
-  // https://github.com/dso-toolkit/dso-toolkit/issues/1717
-  // it("should show/remove dropdownmenu", () => {
-  //   cy.get("dso-header").find("nav").should("be.visible");
-  //   cy.get("dso-header")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("not.exist");
-  //   cy.viewport(991, 600);
-  //   cy.get("dso-header").find("nav").should("not.exist");
-  //   cy.get("dso-header")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("be.visible");
-  //   cy.viewport(992, 600);
-  //   cy.get("dso-header").find("nav").should("be.visible");
-  //   cy.get("dso-header")
-  //     .find(".dropdown dso-dropdown-menu")
-  //     .should("not.exist");
-  // });
+  it("should show/remove dropdownmenu", () => {
+    cy.get("dso-header")
+      .find("nav")
+      .should("be.visible")
+      .get("dso-header")
+      .find(".dropdown dso-dropdown-menu")
+      .should("not.exist")
+      .viewport(991, 600)
+      .get("dso-header")
+      .find("nav")
+      .should("not.exist")
+      .get("dso-header")
+      .find(".dropdown dso-dropdown-menu")
+      .should("be.visible")
+      .viewport(992, 600)
+      .get("dso-header")
+      .find("nav")
+      .should("be.visible")
+      .get("dso-header")
+      .find(".dropdown dso-dropdown-menu")
+      .should("not.exist");
+  });
 
-  // https://github.com/dso-toolkit/dso-toolkit/issues/1717
-  // it("should show/remove overflowmenu", () => {
-  //   cy.visit(
-  //     "http://localhost:45000/iframe.html?id=core-header--header&args=useDropDownMenu:false"
-  //   );
-  //   cy.get("dso-header")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("not.exist");
-  //   cy.viewport(568, 600);
-  //   cy.get("dso-header")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("be.visible");
-  //   cy.viewport(992, 600);
-  //   cy.get("dso-header")
-  //     .find("nav ul li dso-dropdown-menu")
-  //     .should("not.exist");
-  // });
+  it("should show/remove overflowmenu", () => {
+    cy.viewport(1280, 600)
+      .get("dso-header nav")
+      .should("exist")
+      .and("be.visible")
+      .find("ul li dso-dropdown-menu")
+      .should("not.exist")
+      .and("be.null")
+      .viewport(992, 600)
+      .get("dso-header")
+      .find("nav ul li dso-dropdown-menu")
+      .should("exist")
+      .and("be.visible")
+      .viewport(568, 600)
+      .get("dso-header")
+      .find("nav ul li dso-dropdown-menu")
+      .should("not.exist")
+      .and("be.null");
+  });
 
   it("should act on user-profile attributes", () => {
-    cy.get("dso-header").invoke("attr", "auth-status", "loggedIn");
-    cy.get("dso-header").find(".profile").should("be.visible");
-    cy.get("dso-header").invoke("removeAttr", "user-profile-url");
-    cy.get("dso-header").invoke("removeAttr", "user-profile-name");
-    cy.get("dso-header").find(".profile").should("not.exist");
+    cy.get("dso-header")
+      .invoke("attr", "auth-status", "loggedIn")
+      .find(".profile")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("removeAttr", "user-profile-url")
+      .invoke("removeAttr", "user-profile-name")
+      .find(".profile")
+      .should("not.exist");
   });
 
   it("should act on user-home-url attribute", () => {
-    cy.get("dso-header").invoke("attr", "auth-status", "loggedIn");
-    cy.get("dso-header").find("nav li.menu-user-home").should("be.visible");
-    cy.get("dso-header").invoke("removeAttr", "user-home-url");
-    cy.get("dso-header").find("nav li.menu-user-home").should("not.exist");
+    cy.get("dso-header")
+      .invoke("attr", "auth-status", "loggedIn")
+      .find("nav li.menu-user-home")
+      .should("be.visible")
+      .get("dso-header")
+      .invoke("removeAttr", "user-home-url")
+      .get("dso-header")
+      .find("nav li.menu-user-home")
+      .should("not.exist");
   });
 
-  it.skip("should not show menu", () => {
-    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=noMainMenu:true");
-    cy.get("dso-header").find("nav").should("not.exist");
-    cy.get("dso-header").find("dso-dropdown-menu").should("not.exist");
+  it("should not show menu", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-header--header&args=noMainMenu:true")
+      .get("dso-header")
+      .invoke("removeAttr", "user-home-url")
+      .find("nav")
+      .should("not.exist")
+      .get("dso-header")
+      .find("dso-dropdown-menu")
+      .should("not.exist");
   });
 
   it("should show login or logout when no menuItems are provided", () => {
