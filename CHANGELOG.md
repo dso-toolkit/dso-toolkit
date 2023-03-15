@@ -15,7 +15,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * card - selectable: titel in labels selectievakje en informatie knopje ([#2006](https://github.com/dso-toolkit/dso-toolkit/issues/2006))
 
 ### Fixed
-* `<dso-dropdown-menu>` gedeeltelijk verborgen ([#2021](https://github.com/dso-toolkit/dso-toolkit/issues/2021))
+* `<dso-dropdown-menu>` valt soms onterecht buiten beeld. ([#2021](https://github.com/dso-toolkit/dso-toolkit/issues/2021))
 
 ## 51.3.0
 
