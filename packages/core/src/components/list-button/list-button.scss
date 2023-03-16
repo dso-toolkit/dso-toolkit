@@ -20,6 +20,10 @@
   @include button.tertiary($modifiers: false);
 
   cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 .dso-input-number {
@@ -59,7 +63,16 @@
   position: relative;
 
   .form-control {
-    width: 9ch;
+    &[type="number"] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 }
 

@@ -39,6 +39,7 @@ export function storiesOfListButton<Implementation, Templates, TemplateFnReturnT
         min: 0,
         max: 99,
         hasInputNumber: true,
+        manual: true,
       }),
     });
 

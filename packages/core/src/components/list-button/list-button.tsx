@@ -1,7 +1,6 @@
-import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State, Watch } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop, Event, EventEmitter, State } from "@stencil/core";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./list-button.interfaces";
 
-import { createFocusTrap, FocusTrap } from "focus-trap";
 import clsx from "clsx";
 
 @Component({
@@ -10,12 +9,9 @@ import clsx from "clsx";
   styleUrl: "list-button.scss",
 })
 export class ListButton implements ComponentInterface {
-  private trap?: FocusTrap;
+  private manualInputElement?: HTMLInputElement;
 
-  @State()
-  private manualInputWrapperElement?: HTMLDivElement;
-
-  private manualInputButtonElement?: HTMLButtonElement;
+  private checkboxElement?: HTMLInputElement;
 
   @State()
   manualCount?: number;
@@ -56,38 +52,6 @@ export class ListButton implements ComponentInterface {
   @Event()
   dsoSelectedChange!: EventEmitter<ListButtonSelectedEvent>;
 
-  @Watch("manual")
-  watchManualCallback() {
-    if (!this.manual && this.manualCount) {
-      this.stopManualCountInput();
-    }
-  }
-
-  componentDidRender(): void {
-    if (this.manualCount !== undefined && this.manualInputWrapperElement && !this.trap) {
-      this.trap = createFocusTrap(this.manualInputWrapperElement, {
-        escapeDeactivates: true,
-        setReturnFocus: false,
-
-        clickOutsideDeactivates: (e) => {
-          this.setCount(e);
-
-          return true;
-        },
-        onDeactivate: () => this.stopManualCountInput(),
-        onPostDeactivate: () => this.manualInputButtonElement?.focus(),
-      }).activate();
-    } else if (this.manualCount === undefined && this.trap) {
-      this.trap?.deactivate();
-
-      delete this.trap;
-    }
-  }
-
-  disconnectedCallback(): void {
-    this.trap?.deactivate();
-  }
-
   private handleOnChange({ target }: Event): void {
     if (target instanceof HTMLInputElement) {
       this.manualCount = target.valueAsNumber;
@@ -106,6 +70,12 @@ export class ListButton implements ComponentInterface {
         originalEvent: e,
         count: newValue,
       });
+
+      if (newValue === 1) {
+        this.checkboxElement?.focus();
+      } else {
+        setTimeout(() => this.manualInputElement?.focus(), 0);
+      }
     }
   }
 
@@ -117,7 +87,6 @@ export class ListButton implements ComponentInterface {
         originalEvent: e,
         count: this.manualCount,
       });
-      this.stopManualCountInput();
     }
   }
 
@@ -139,14 +108,6 @@ export class ListButton implements ComponentInterface {
     });
   }
 
-  private startManualCountInput(): void {
-    this.manualCount = this.count;
-  }
-
-  private stopManualCountInput(): void {
-    this.manualCount = undefined;
-  }
-
   private isNewCountValid(newValue: number): boolean {
     if (
       this.min !== undefined &&
@@ -160,8 +121,6 @@ export class ListButton implements ComponentInterface {
   }
 
   render() {
-    const showButtonInputs = this.manualCount === undefined;
-
     const selected = this.checked || (this.count !== undefined && this.count > 0);
 
     return (
@@ -172,6 +131,7 @@ export class ListButton implements ComponentInterface {
         >
           <div class="dso-selectable">
             <input
+              ref={(element) => (this.checkboxElement = element)}
               id="dso-list-button-checkbox"
               type="checkbox"
               value="list-button"
@@ -188,7 +148,7 @@ export class ListButton implements ComponentInterface {
 
         {this.count !== undefined && this.count > 0 && (
           <div class="dso-input-number">
-            {this.manualCount === undefined && this.count > 1 && (
+            {this.count > 1 && (
               <button
                 type="button"
                 class="dso-tertiary"
@@ -201,7 +161,7 @@ export class ListButton implements ComponentInterface {
             )}
 
             <div class="dso-input-wrapper">
-              {this.manualCount === undefined && this.count > 1 && (
+              {!(this.manual === true) && this.count > 1 && (
                 <input
                   class="dso-input-step-counter"
                   type="number"
@@ -212,37 +172,24 @@ export class ListButton implements ComponentInterface {
                 />
               )}
 
-              <form onSubmit={(e) => this.setCount(e)}>
-                <div ref={(element) => (this.manualInputWrapperElement = element)}>
+              {this.manual === true && (
+                <form onSubmit={(e) => this.setCount(e)}>
                   <input
-                    class={clsx("form-control", { hidden: showButtonInputs })}
+                    ref={(element) => (this.manualInputElement = element)}
+                    class={clsx("form-control", { hidden: this.count <= 1 })}
                     type="number"
                     aria-label="Aantal"
-                    value={this.manualCount}
+                    value={this.count}
                     min={this.min}
                     max={this.max}
+                    style={{ width: this.max ? `${this.max.toString().length + 4}ch` : "9ch" }}
                     onInput={(e) => this.handleOnChange(e)}
                   />
-                </div>
-
-                {this.manual === true && (
-                  <button
-                    class={clsx("dso-manual-input-button", { "sr-only": !showButtonInputs })}
-                    type={!showButtonInputs ? "submit" : "button"}
-                    disabled={this.disabled}
-                    onClick={() => showButtonInputs && this.startManualCountInput()}
-                  >
-                    {showButtonInputs ? (
-                      <span class="sr-only">Handmatig aantal invullen</span>
-                    ) : (
-                      <span class="sr-only">Zet waarde</span>
-                    )}
-                  </button>
-                )}
-              </form>
+                </form>
+              )}
             </div>
 
-            {showButtonInputs && (
+            {this.count !== undefined && (
               <button
                 type="button"
                 class="dso-tertiary"

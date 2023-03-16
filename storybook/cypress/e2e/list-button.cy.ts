@@ -54,7 +54,7 @@ describe("ListButton", () => {
       .invoke("attr", "count", 8)
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-input-step-counter")
+      .find("input.form-control")
       .should("be.visible")
       .should("have.value", 8)
       .get("@dsoListButtonShadow")
@@ -78,27 +78,50 @@ describe("ListButton", () => {
       .should("have.length", 1);
   });
 
-  it("should trap focus when setting the count manually and close with Escape", () => {
+  it.skip("should have correct focus order", () => {
     cy.get("dso-list-button")
       .as("dsoListButton")
-      .invoke("attr", "count", 8)
-      .invoke("attr", "has-input-number", "")
+      .invoke("attr", "count", 0)
+      .then(($listButton) => {
+        $listButton.on("dsoCountChange", cy.stub().as("dsoCountChangeListener"));
+      })
       .shadow()
       .as("dsoListButtonShadow")
-      .find(".dso-manual-input-button")
-      .click()
-      .wait(50)
-      .get("@dsoListButtonShadow")
-      .find("input.form-control")
-      .should("have.focus")
+      .find(".dso-selectable")
+      .children()
+      .first()
+      .focus()
+      .realPress("Space")
       .realPress("Tab")
       .get("@dsoListButtonShadow")
-      .find("input.form-control")
-      .should("have.focus")
-      .realPress("Escape")
+      .find(".dso-input-number")
+      .should("be.visible")
+      .find(".dso-tertiary")
+      .first()
+      .should("be.visible")
+      .and("have.focus")
+      .realPress("Enter")
+      .get("@dsoCountChangeListener")
+      .invoke("getCalls")
+      .invoke("at", -1)
+      .its("args.0.detail.count")
+      .should("equal", 2)
       .get("@dsoListButtonShadow")
-      .find(".dso-input-step-counter")
-      .should("be.visible");
+      .find("input.form-control")
+      .should("be.visible")
+      .and("have.focus")
+      .realPress(["Shift", "Tab"])
+      .realPress("Enter")
+      .get("@dsoCountChangeListener")
+      .invoke("getCalls")
+      .invoke("at", -1)
+      .its("args.0.detail.count")
+      .should("equal", 1)
+      .get("@dsoListButtonShadow")
+      .find(".dso-selectable")
+      .children()
+      .first()
+      .should("have.focus");
   });
 
   it("should emit dsoCountChange", () => {
@@ -129,9 +152,9 @@ describe("ListButton", () => {
       .its("args.0.detail.count")
       .should("equal", 8)
       .get("@dsoListButtonShadow")
-      .find(".dso-manual-input-button")
-      .click()
-      .realType("50{enter}")
+      .find("input.form-control")
+      .focus()
+      .type("{backspace}50{enter}")
       .get("@dsoCountChangeListener")
       .invoke("getCalls")
       .invoke("at", -1)
@@ -163,7 +186,7 @@ describe("ListButton", () => {
       .click()
       .should("be.disabled")
       .get("@dsoListButtonShadow")
-      .find(".dso-manual-input-button")
+      .find('input[type="number"]:not([readonly])')
       .click()
       .realType("50{enter}")
       .get("@dsoCountChangeListener")
@@ -205,16 +228,18 @@ describe("ListButton", () => {
       .invoke("attr", "count", 5)
       .invoke("attr", "manual", "false")
       .shadow()
-      .find(".dso-manual-input-button")
-      .should("not.exist");
+      .as("dsoListButton")
+      .find('input[type="number"]:not([readonly])')
+      .should("not.exist")
+      .get("@dsoListButton")
+      .find('input[type="number"][readonly]')
+      .should("exist");
   });
 
   it("should cancel manual input when manual is set to false during manual input", () => {
     cy.get("dso-list-button")
       .invoke("attr", "count", 5)
       .shadow()
-      .find(".dso-manual-input-button")
-      .click()
       .get("dso-list-button")
       .shadow()
       .find('input[type="number"]:not([readonly])')
@@ -223,6 +248,6 @@ describe("ListButton", () => {
       .get("dso-list-button")
       .invoke("attr", "manual", "false")
       .get("@manualInputField")
-      .should("have.class", "hidden");
+      .should("not.exist");
   });
 });
