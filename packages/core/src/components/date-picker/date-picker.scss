@@ -67,7 +67,7 @@
 
   &:disabled {
     color: core-date-picker-variables.$nav-button-disabled;
-    cursor: pointer;
+    cursor: default;
   }
 }
 

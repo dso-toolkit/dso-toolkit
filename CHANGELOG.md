@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Date picker: Handje op kalender icon van een disabled date picker ([#2041](https://github.com/dso-toolkit/dso-toolkit/issues/2041))
+
 ## 51.4.0
 
 ### Added
