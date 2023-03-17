@@ -8,6 +8,10 @@
   &:not(:last-child) {
     @include selectable.notLastChild();
   }
+
+  label[aria-invalid="true"] {
+    @include selectable.invalid();
+  }
 }
 
 // Web Component
