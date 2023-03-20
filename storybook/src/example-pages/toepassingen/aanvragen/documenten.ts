@@ -4,7 +4,7 @@ import { examplePageFactory } from "../../../example-page-factory";
 examplePageFactory(
   "Toepassingen/Aanvragen",
   "Documenten",
-  ({ applicationHeadingTemplate, formButtonsTemplate, accordionTemplate, buttonTemplate }) => html`
+  ({ applicationHeadingTemplate, formButtonsTemplate, accordionTemplate, buttonTemplate, iconTemplate }) => html`
     <style>
       .dso-map-example {
         background-image: url("/images/map-lved125.png");
@@ -57,19 +57,20 @@ examplePageFactory(
                           <div class="dso-button-row">
                             <input type="file" aria-errormessage="mijn-id-error-text" id="" />
                             <label class="dso-primary" for="{ mijn-id }">
-                              <svg class="di di-plus">
-                                <use href="dso-toolkit/dist/dso-icons.svg#plus"></use>
-                              </svg>
+                              ${iconTemplate({
+                                icon: "plus",
+                              })}
                               <span>Document toevoegen</span>
                             </label>
                           </div>
                         </div>
                       </div>
                       <div class="dso-form-buttons">
-                        <button type="submit" class="dso-secondary">
-                          <span> Volgende stap </span>
-                          <dso-icon icon="chevron-right"></dso-icon>
-                        </button>
+                        ${buttonTemplate({
+                          label: "Volgende stap",
+                          type: "button",
+                          variant: "secondary",
+                        })}
                       </div>
                     </div>
                   </fieldset>
@@ -130,9 +131,9 @@ examplePageFactory(
                               />
                               <label for="mijn-id-file-confirm-1"> Vertrouwelijk </label>
                             </div>
-                            <svg class="di di-status-warning">
-                              <use href="dso-toolkit/dist/dso-icons.svg#status-warning"></use>
-                            </svg>
+                            ${iconTemplate({
+                              icon: "status-warning",
+                            })}
 
                             <button
                               type="button"
@@ -147,20 +148,20 @@ examplePageFactory(
                           <div class="dso-button-row">
                             <input type="file" aria-errormessage="mijn-id-error-text" id="" />
                             <label class="dso-primary" for="{ mijn-id }">
-                              <svg class="di di-plus">
-                                <use href="dso-toolkit/dist/dso-icons.svg#plus"></use>
-                              </svg>
+                              ${iconTemplate({
+                                icon: "plus",
+                              })}
                               <span>Document toevoegen</span>
                             </label>
                           </div>
                         </div>
                       </div>
                       <div class="dso-form-buttons">
-                        <button type="submit" class="dso-secondary">
-                          <span> Volgende stap </span>
-
-                          <dso-icon icon="chevron-right"></dso-icon>
-                        </button>
+                        ${buttonTemplate({
+                          label: "Volgende stap",
+                          type: "button",
+                          variant: "secondary",
+                        })}
                       </div>
                     </div>
                   </fieldset>

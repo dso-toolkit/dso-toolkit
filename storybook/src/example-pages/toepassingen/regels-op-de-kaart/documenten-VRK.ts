@@ -5,7 +5,7 @@ import { headerPartial } from "../../partials/header";
 import { header, cardList } from "./documenten-VRK.content";
 
 examplePageFactory(
-  "Toepassingen/Viewer",
+  "Toepassingen/Regels op de kaart",
   "Documenten VRK",
   (
     {
@@ -23,7 +23,7 @@ examplePageFactory(
     ${headerPartial(templates, header)}
     <main>
       ${viewerGridTemplate({
-        filterpanelOpen: "false",
+        filterpanelOpen: false,
         initialMainSize: "medium",
         main: html`
           ${buttonTemplate({

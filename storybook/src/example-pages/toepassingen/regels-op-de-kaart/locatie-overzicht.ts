@@ -1,11 +1,10 @@
 import { html } from "lit-html";
-
 import { examplePageFactory } from "../../../example-page-factory";
 import { headerPartial } from "../../partials/header";
 import { header } from "./locatie-overzicht.content";
 
 examplePageFactory(
-  "Toepassingen/Viewer",
+  "Toepassingen/Regels op de kaart",
   "Locatie overzicht",
   (
     {
@@ -50,7 +49,7 @@ examplePageFactory(
                   <p class="dso-filterblok-address">
                     Achterwillenseweg 9a, Gouda
                     ${toggletipTemplate({
-                      childeren: html` <p>Test</p> `,
+                      children: html` <p>Test</p> `,
                     })}
                   </p>
                   ${labelGroupTemplate({
@@ -75,7 +74,7 @@ examplePageFactory(
                 <h3>
                   Documenten met regels
                   ${toggletipTemplate({
-                    childeren: html` <p>Test</p> `,
+                    children: html` <p>Test</p> `,
                   })}
                 </h3>
                 <p>Er zijn 51+ documenten gevonden met regels die gelden op uw locatie.</p>
@@ -102,7 +101,7 @@ examplePageFactory(
                 <h3>
                   Activiteiten
                   ${toggletipTemplate({
-                    childeren: html` <p>Test</p> `,
+                    children: html` <p>Test</p> `,
                   })}
                 </h3>
                 <p>Als u iets wil bouwen of aanpassen kunt u de regels zoeken voor deze activiteit.</p>
@@ -136,7 +135,7 @@ examplePageFactory(
                 <h3>
                   Gebieden met regels
                   ${toggletipTemplate({
-                    childeren: html` <p>Test</p> `,
+                    children: html` <p>Test</p> `,
                   })}
                 </h3>
                 <p>Gebieden op deze locatie waar aparte regels gelden.</p>
@@ -163,7 +162,7 @@ examplePageFactory(
                 <h3>
                   Thema's
                   ${toggletipTemplate({
-                    childeren: html` <p>Test</p> `,
+                    children: html` <p>Test</p> `,
                   })}
                 </h3>
                 <p>Gebieden op deze locatie waar aparte regels gelden.</p>
