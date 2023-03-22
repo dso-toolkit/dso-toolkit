@@ -216,6 +216,10 @@ export namespace Components {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open": boolean;
+        /**
+          * Set position strategy of dropdown options
+         */
+        "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
         "open"?: boolean;
@@ -1035,6 +1039,10 @@ declare namespace LocalJSX {
           * Whether the menu is open or closed. This attribute is reflected and mutable.
          */
         "open"?: boolean;
+        /**
+          * Set position strategy of dropdown options
+         */
+        "strategy"?: "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
         "open"?: boolean;
