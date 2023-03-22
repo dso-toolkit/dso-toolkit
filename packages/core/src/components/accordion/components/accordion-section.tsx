@@ -9,10 +9,8 @@ import {
   Method,
   Prop,
   State,
-  Watch,
 } from "@stencil/core";
-import anime from "animejs";
-import debounce from "debounce";
+import { ExpandableInterface } from "../../expandable/expandable.interfaces";
 
 import { AccordionInterface, AccordionInternalState } from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
@@ -30,15 +28,13 @@ export class AccordionSection implements ComponentInterface {
 
   private accordionState?: AccordionInternalState;
 
-  private animeInstance?: anime.AnimeInstance;
-
   private sectionBody?: HTMLDivElement;
 
   private sectionHeading?: HTMLHeadingElement;
 
-  private resizeObserver?: ResizeObserver;
-
   private bodyHeight?: number;
+
+  private expandableElement?: ExpandableInterface;
 
   @Element()
   host!: HTMLElement;
@@ -74,15 +70,7 @@ export class AccordionSection implements ComponentInterface {
   hasNestedSection = false;
 
   @State()
-  animationReady = false;
-
-  @State()
   hover = false;
-
-  @Watch("open")
-  toggleOpen() {
-    this.activateAnimation();
-  }
 
   componentWillLoad() {
     const accordion = this.host.parentElement;
@@ -96,20 +84,30 @@ export class AccordionSection implements ComponentInterface {
         forceUpdate(this.host);
       });
     }
-
-    this.prepareAnimationResizeObserver();
   }
 
   componentDidLoad(): void {
-    const bodyContentElement = this.host.shadowRoot?.querySelector(".dso-section-body-content");
+    if (this.host.shadowRoot) {
+      const expandable = this.host.shadowRoot.querySelector<HTMLElement>("dso-expandable");
 
-    if (bodyContentElement) {
-      this.resizeObserver?.observe(bodyContentElement);
+      if (isExpandable(expandable)) {
+        this.expandableElement = expandable;
+
+        this.expandableElement.getAnimeInstance().then((animeInstance) => {
+          if (animeInstance) {
+            animeInstance.update;
+            animeInstance.changeComplete = async () => {
+              this.accordion?.animationEnd(this.host);
+
+              if (AccordionSection.scrollCandidate === this.host) {
+                AccordionSection.scrollCandidate = undefined;
+                await this.scrollSectionIntoView();
+              }
+            };
+          }
+        });
+      }
     }
-  }
-
-  disconnectedCallback() {
-    this.resizeObserver?.disconnect();
   }
 
   /** Toggle this section.
@@ -245,100 +243,20 @@ export class AccordionSection implements ComponentInterface {
             )}
           </HandleElement>
         </Handle>
-        <div
-          class={{ "dso-section-body": true, "dso-animate-ready": this.animationReady }}
-          ref={(element) => (this.sectionBody = element)}
-          aria-hidden={this.open ? "false" : "true"}
-        >
-          <div class="dso-section-body-content">
+        <dso-expandable class="dso-section-body" open={this.open} enableAnimation={true} animationOffset={this.isNeutral ? 0 : 4}>
+          <div class="dso-section-body-content" ref={(element) => (this.sectionBody = element)}>
             <slot />
           </div>
-        </div>
+        </dso-expandable>
       </Host>
     );
-  }
-
-  private prepareAnimationResizeObserver() {
-    this.resizeObserver = new ResizeObserver(
-      debounce(([entry]) => {
-        // entry.contentRect does not include padding, so we use getBoundingClientRect.
-        const height = entry.target.getBoundingClientRect().height;
-        if (this.bodyHeight !== height) {
-          this.bodyHeight = height;
-
-          this.instantiateAnimation();
-        }
-      }, 150)
-    );
-  }
-
-  private instantiateAnimation() {
-    this.animeInstance = anime({
-      targets: this.sectionBody,
-      height: this.isNeutral ? 0 : 4,
-      easing: "cubicBezier(0.4, 0, 0.2, 1)",
-      duration: 260,
-      autoplay: false,
-      direction: "normal",
-      changeComplete: async () => {
-        this.accordion?.animationEnd(this.host);
-
-        if (AccordionSection.scrollCandidate === this.host) {
-          AccordionSection.scrollCandidate = undefined;
-          await this.scrollSectionIntoView();
-        }
-      },
-      begin: () => {
-        if (this.sectionBody) {
-          if (this.open) {
-            this.sectionBody.style.visibility = "";
-            this.sectionBody.style.position = "";
-            this.sectionBody.style.bottom = "";
-          }
-        }
-      },
-      complete: () => {
-        if (this.sectionBody) {
-          this.sectionBody.style.height = "";
-
-          if (!this.open) {
-            this.sectionBody.style.visibility = "hidden";
-            this.sectionBody.style.position = "absolute";
-            this.sectionBody.style.bottom = "100%";
-          }
-        }
-      },
-    });
-
-    if (!this.open) {
-      this.animeInstance.reverse();
-      this.animeInstance.play();
-    }
-
-    if (this.sectionBody) {
-      this.sectionBody.style.height = "";
-    }
-
-    this.animationReady = !!this.animeInstance;
-  }
-
-  private activateAnimation() {
-    if (this.animeInstance) {
-      if (this.animeInstance.progress > 0 && this.animeInstance.progress < 100) {
-        this.animeInstance.reverse();
-      } else {
-        if (this.open) {
-          this.animeInstance.direction = "reverse";
-          this.animeInstance.play();
-        } else {
-          this.animeInstance.direction = "normal";
-          this.animeInstance.play();
-        }
-      }
-    }
   }
 }
 
 function isAccordion(element: HTMLElement | AccordionInterface | null): element is AccordionInterface {
   return element instanceof HTMLElement && "getState" in element;
+}
+
+function isExpandable(element: HTMLElement | ExpandableInterface | null): element is ExpandableInterface {
+  return element instanceof HTMLElement && "getAnimeInstance" in element;
 }

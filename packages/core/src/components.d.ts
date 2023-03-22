@@ -12,7 +12,8 @@ import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
 import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
-import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
+import { ExpandableToggleEvent } from "./components/expandable/expandable.interfaces";
+import { ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
 import { HeaderEvent, HeaderMenuItem } from "./components/header/header.interfaces";
 import { InfoButtonToggleEvent } from "./components/info-button/info-button.interfaces";
 import { ListButtonChangeEvent, ListButtonSelectedEvent } from "./components/list-button/list-button.interfaces";
@@ -249,6 +250,9 @@ export namespace Components {
         "strategy": "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
+        "animationOffset"?: number;
+        "enableAnimation": boolean;
+        "getAnimeInstance": () => Promise<anime.AnimeInstance | undefined>;
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
@@ -521,6 +525,10 @@ export interface DsoCardCustomEvent<T> extends CustomEvent<T> {
 export interface DsoDatePickerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoDatePickerElement;
+}
+export interface DsoExpandableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoExpandableElement;
 }
 export interface DsoExpandableHeadingCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1120,6 +1128,9 @@ declare namespace LocalJSX {
         "strategy"?: "auto" | "absolute" | "fixed";
     }
     interface DsoExpandable {
+        "animationOffset"?: number;
+        "enableAnimation"?: boolean;
+        "onDsoToggle"?: (event: DsoExpandableCustomEvent<ExpandableToggleEvent>) => void;
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
