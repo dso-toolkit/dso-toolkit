@@ -38,8 +38,8 @@ examplePageFactory(
                 content: html`
                   <fieldset>
                     <legend class="sr-only">Vragenlijst</legend>
-                    ${formGroupRadiosTemplate(radios(templates))}
-                    ${formGroupCheckboxesTemplate(checkboxes(templates))}${formGroupInputTemplate({
+                    ${formGroupRadiosTemplate(radios(templates))} ${formGroupCheckboxesTemplate(checkboxes)}
+                    ${formGroupInputTemplate({
                       group: "input",
                       id: "vraag 3",
                       type: "text",

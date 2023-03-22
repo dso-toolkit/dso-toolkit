@@ -1,5 +1,5 @@
 import { html, TemplateResult } from "lit-html";
-import { FormGroupRadios, FormGroupCheckboxes } from "dso-toolkit";
+import { FormGroupRadios } from "dso-toolkit";
 import { Templates } from "../../../templates";
 
 export function radios({ richContentTemplate }: Templates): FormGroupRadios<TemplateResult> {
@@ -32,7 +32,7 @@ export function radios({ richContentTemplate }: Templates): FormGroupRadios<Temp
   };
 }
 
-export function checkboxes({}: Templates): FormGroupCheckboxes<TemplateResult> {
+export function checkboxes() {
   return {
     group: "checkboxes",
     id: "checkboxes",

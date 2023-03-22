@@ -153,25 +153,25 @@ examplePageFactory(
                 <dso-responsive-element class="dso-tile-grid">
                   ${tileTemplate({
                     anchor: "#",
-                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    image: { alt: "Icoon Boom", source: "images/icon-tree.png" },
                     label: "boom kappen",
                     variant: "theme",
                   })}
                   ${tileTemplate({
                     anchor: "#",
-                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    image: { alt: "Icoon Boom", source: "images/icon-tree.png" },
                     label: "boom kappen",
                     variant: "theme",
                   })}
                   ${tileTemplate({
                     anchor: "#",
-                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    image: { alt: "Icoon Boom", source: "images/icon-tree.png" },
                     label: "boom kappen",
                     variant: "theme",
                   })}
                   ${tileTemplate({
                     anchor: "#",
-                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    image: { alt: "Icoon Boom", source: "images/icon-tree.png" },
                     label: "boom kappen",
                     variant: "theme",
                   })}
