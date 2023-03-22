@@ -2,17 +2,10 @@ import { beforeWrite, createPopper, Instance as PopperInstance, State as PopperS
 import maxSize from "popper-max-size-modifier";
 import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
+import { hasOverflow } from "../../utils/has-overflow";
 
 // Keep const in sync with $tooltip-transition-duration in dso-toolkit/src/components/tooltip/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
-
-function hasOverflow(el: Element): boolean {
-  const style = window.getComputedStyle(el);
-  const overflowX = style.getPropertyValue("overflow-x");
-  const overflowY = style.getPropertyValue("overflow-y");
-  const overflowValues = ["hidden", "clip"];
-  return overflowValues.indexOf(overflowX) !== -1 || overflowValues.indexOf(overflowY) !== -1;
-}
 
 @Component({
   tag: "dso-tooltip",

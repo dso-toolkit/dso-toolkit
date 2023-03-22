@@ -1,6 +1,6 @@
 import { ArgTypes, noControl } from "../../storybook/index.js";
 
-import { DropdownMenu, DropdownMenuGroup } from "./dropdown-menu.models.js";
+import { DropdownMenu, DropdownMenuGroup, dropdownMenuStrategy } from "./dropdown-menu.models.js";
 
 export interface DropdownMenuArgs {
   id: string;
@@ -10,6 +10,7 @@ export interface DropdownMenuArgs {
   isCheckable: boolean;
   groups: DropdownMenuGroup[];
   boundary: string;
+  strategy: typeof dropdownMenuStrategy[number];
 }
 
 export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
@@ -48,6 +49,12 @@ export const dropdownMenuArgTypes: ArgTypes<DropdownMenuArgs> = {
   boundary: {
     ...noControl,
   },
+  strategy: {
+    options: dropdownMenuStrategy,
+    control: {
+      type: "select",
+    },
+  },
 };
 
 export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
@@ -61,5 +68,6 @@ export function dropdownMenuArgsMapper(a: DropdownMenuArgs): DropdownMenu {
     groups: a.groups,
     isCheckable: a.isCheckable,
     boundary: a.boundary,
+    strategy: a.strategy,
   };
 }

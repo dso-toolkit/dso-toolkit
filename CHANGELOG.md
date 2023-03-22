@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Fixed
+* Refix: dso-dropdown-menu gedeeltelijk verborgen ([#2021](https://github.com/dso-toolkit/dso-toolkit/issues/2021))
+
 ## 51.4.0
 
 ### Added

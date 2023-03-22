@@ -1,7 +1,9 @@
 import { createPopper, Instance as PopperInstance } from "@popperjs/core";
-import { Component, h, Prop, Element, Host, Watch } from "@stencil/core";
+import { h, Component, Element, Host, Prop, Watch } from "@stencil/core";
 import { FocusableElement, tabbable } from "tabbable";
 import { v4 as uuidv4 } from "uuid";
+
+import { hasOverflow } from "../../utils/has-overflow";
 
 @Component({
   tag: "dso-dropdown-menu",
@@ -32,6 +34,12 @@ export class DropdownMenu {
   @Prop()
   boundary?: string;
 
+  /**
+   * Set position strategy of dropdown options
+   */
+  @Prop()
+  strategy: "auto" | "absolute" | "fixed" = "auto";
+
   @Watch("dropdownAlign")
   watchPosition() {
     if (!this.popper) {
@@ -40,6 +48,44 @@ export class DropdownMenu {
 
     this.popper.setOptions({
       placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
+    });
+  }
+
+  @Watch("strategy")
+  watchStrategy() {
+    this.setStrategy();
+  }
+
+  setStrategy() {
+    if (!this.popper) {
+      return;
+    }
+
+    if (this.strategy === "absolute" || this.strategy === "fixed") {
+      this.popper.setOptions({
+        strategy: this.strategy,
+      });
+
+      return;
+    }
+
+    let element: Element | null = this.host;
+
+    const boundary = this.boundary || document;
+
+    while (element && element.parentNode !== boundary) {
+      element = element.parentNode instanceof ShadowRoot ? element.parentNode.host : element.parentElement;
+      if (element !== null && hasOverflow(element)) {
+        this.popper.setOptions({
+          strategy: "fixed",
+        });
+
+        return;
+      }
+    }
+
+    this.popper.setOptions({
+      strategy: "absolute",
     });
   }
 
@@ -92,13 +138,13 @@ export class DropdownMenu {
       return;
     }
 
-    const dropdownOptions = this.host.querySelector(".dso-dropdown-options");
+    const dropdownOptionsElement = this.host.querySelector(".dso-dropdown-options");
 
-    if (!(dropdownOptions instanceof HTMLElement)) {
+    if (!(dropdownOptionsElement instanceof HTMLElement)) {
       throw new Error("dropdown options element is not instanceof HTMLElement");
     }
 
-    this.popper = createPopper(this.button, dropdownOptions, {
+    this.popper = createPopper(this.button, dropdownOptionsElement, {
       placement: this.dropdownAlign === "right" ? "bottom-end" : "bottom-start",
       modifiers: [
         {
@@ -119,7 +165,11 @@ export class DropdownMenu {
   }
 
   componentDidRender() {
-    this.popper?.update();
+    this.setStrategy();
+    if (this.open) {
+      this.popper?.update();
+    }
+
     for (const li of Array.from(this.host.getElementsByTagName("li"))) {
       for (const tab of tabbable(li)) {
         tab.setAttribute("role", this.checkable ? "menuitemradio" : "menuitem");
