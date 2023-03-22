@@ -139,6 +139,9 @@ export {
 } from "./components/dropdown-menu/dropdown-menu.models.js";
 export { DropdownMenuTemplates, storiesOfDropdownMenu } from "./components/dropdown-menu/dropdown-menu.stories-of.js";
 
+export { Expandable } from "./components/expandable/expandable.models.js";
+export { ExpandableTemplates, storiesOfExpandable } from "./components/expandable/expandable.stories-of.js";
+
 export { ExpandableHeading } from "./components/expandable-heading/expandable-heading.models.js";
 export {
   ExpandableHeadingTemplates,

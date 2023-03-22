@@ -1,11 +1,22 @@
 @use "~dso-toolkit/src/utilities";
 
 :host {
+  display: block;
+  overflow-y: hidden;
+}
+
+:host(.dso-hide) {
   display: none;
 }
 
+:host(:not(.dso-animate-ready)) {
+  position: absolute;
+  visibility: hidden;
+}
+
 :host([open]) {
-  display: block;
+  position: inherit;
+  visibility: inherit;
 }
 
 @include utilities.box-sizing();

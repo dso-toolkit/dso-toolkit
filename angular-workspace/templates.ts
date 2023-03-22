@@ -12,6 +12,7 @@ import {
   BaseComponentImplementation,
   DatePicker,
   DropdownMenu,
+  Expandable,
   ExpandableHeading,
   Header,
   HelpcenterPanel,
@@ -36,15 +37,16 @@ import {
 import { angularAccordion } from "./components/accordion/accordion.angular-template";
 import { angularActionList } from "./components/action-list/action-list.angular-template";
 import { angularAlert } from "./components/alert/alert.angular-template";
-import { angularAnnotation } from "./components/annotation/annotation.angular-template";
 import { angularAnnotationButton } from "./components/annotation-button/annotation-button.angular-template";
 import { angularAnnotationOutput } from "./components/annotation-output/annotation-output.angular-template";
+import { angularAnnotation } from "./components/annotation/annotation.angular-template";
 import { angularAttachmentsCounter } from "./components/attachments-counter/attachments-counter.angular-template";
 import { angularBadge } from "./components/badge/badge.angular-template";
 import { angularBanner } from "./components/banner/banner.angular-template";
 import { angularDatePicker } from "./components/date-picker/date-picker.angular-template";
 import { angularDropdownMenu } from "./components/dropdown-menu/dropdown-menu.angular-template";
 import { angularExpandableHeading } from "./components/expandable-heading/expandable-heading.angular-template";
+import { angularExpandable } from "./components/expandable/expandable.angular-template";
 import { angularHeader } from "./components/header/header.angular-template";
 import { angularHelpcenterPanel } from "./components/helpcenter-panel/helpcenter-panel.angular-template";
 import { angularHighlightBox } from "./components/highlight-box/highlight-box.angular-template";
@@ -78,6 +80,7 @@ export interface Components {
   // cardContainer: CardContainer<StoryFnAngularReturnType>;
   datePicker: DatePicker;
   dropdownMenu: DropdownMenu;
+  expandable: Expandable<StoryFnAngularReturnType>;
   expandableHeading: ExpandableHeading<StoryFnAngularReturnType>;
   header: Header;
   helpcenterPanel: HelpcenterPanel;
@@ -143,6 +146,7 @@ templateContainer.add(angularBadge);
 templateContainer.add(angularBanner);
 templateContainer.add(angularDatePicker);
 templateContainer.add(angularDropdownMenu);
+templateContainer.add(angularExpandable);
 templateContainer.add(angularExpandableHeading);
 templateContainer.add(angularHeader);
 templateContainer.add(angularHelpcenterPanel);

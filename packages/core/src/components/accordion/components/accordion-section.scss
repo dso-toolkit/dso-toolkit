@@ -89,11 +89,6 @@
 }
 
 :host([open]) {
-  .dso-section-body {
-    position: inherit;
-    visibility: inherit;
-  }
-
   .dso-section-handle {
     > button,
     > a {
@@ -111,15 +106,9 @@
 }
 
 .dso-section-body {
-  &:not(.dso-animate-ready) {
-    position: absolute;
-    visibility: hidden;
-  }
-
   background-color: colors.$wit;
   border-top: 0;
   margin-top: accordion.$border-radius * -1;
-  overflow-y: hidden;
 
   .dso-section-body-content {
     padding: units.$u2 + accordion.$border-radius units.$u2 units.$u2;
