@@ -59,10 +59,30 @@ examplePageFactory(
                         <h3>Meest gekozen werkzaamheden</h3>
                       </div>
                       <div class="dso-tile-grid">
-                        ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
-                        ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
-                        ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
-                        ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
+                        ${tileTemplate({
+                          anchor: "#",
+                          image: { alt: "Boom Icoon", source: "images/icon-tree.png" },
+                          label: "boom kappen",
+                          variant: "theme",
+                        })}
+                        ${tileTemplate({
+                          anchor: "#",
+                          image: { alt: "Boom Icoon", source: "images/icon-tree.png" },
+                          label: "boom kappen",
+                          variant: "theme",
+                        })}
+                        ${tileTemplate({
+                          anchor: "#",
+                          image: { alt: "Boom Icoon", source: "images/icon-tree.png" },
+                          label: "boom kappen",
+                          variant: "theme",
+                        })}
+                        ${tileTemplate({
+                          anchor: "#",
+                          image: { alt: "Boom Icoon", source: "images/icon-tree.png" },
+                          label: "boom kappen",
+                          variant: "theme",
+                        })}
                       </div>
                     </div>
                   </div>

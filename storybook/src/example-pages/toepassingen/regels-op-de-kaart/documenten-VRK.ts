@@ -48,7 +48,7 @@ examplePageFactory(
                   <p class="dso-filterblok-address">
                     Domplein1, 3512JC Utrecht
                     ${toggletipTemplate({
-                      childeren: html` <p>Test</p> `,
+                      children: html` <p>Test</p> `,
                     })}
                   </p>
                   ${labelGroupTemplate({

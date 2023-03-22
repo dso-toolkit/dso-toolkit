@@ -78,18 +78,13 @@ examplePageFactory(
                   })}
                 </h3>
                 <p>Er zijn 51+ documenten gevonden met regels die gelden op uw locatie.</p>
-                <div class="dso-context-wrapper">
-                  <div class="dso-context-container">
-                    <div class="dso-context-select">
-                      ${buttonTemplate({
-                        label: "Bekijk documenten",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "chevron-right" },
-                      })}
-                    </div>
-                  </div>
-                </div>
+
+                ${buttonTemplate({
+                  label: "Bekijk documenten",
+                  type: "button",
+                  variant: "tertiary",
+                  icon: { icon: "chevron-right" },
+                })}
               `,
             }),
           })}
@@ -112,18 +107,12 @@ examplePageFactory(
                   icon: true,
                   hideSearchButton: true,
                 })}
-                <div class="dso-context-wrapper">
-                  <div class="dso-context-container">
-                    <div class="dso-context-select">
-                      ${buttonTemplate({
-                        label: "Bekijk alle activiteiten",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "chevron-right" },
-                      })}
-                    </div>
-                  </div>
-                </div>
+                ${buttonTemplate({
+                  label: "Bekijk alle activiteiten",
+                  type: "button",
+                  variant: "tertiary",
+                  icon: { icon: "chevron-right" },
+                })}
               `,
             }),
           })}
@@ -139,18 +128,13 @@ examplePageFactory(
                   })}
                 </h3>
                 <p>Gebieden op deze locatie waar aparte regels gelden.</p>
-                <div class="dso-context-wrapper">
-                  <div class="dso-context-container">
-                    <div class="dso-context-select">
-                      ${buttonTemplate({
-                        label: "Bekijk alle gebieden",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "chevron-right" },
-                      })}
-                    </div>
-                  </div>
-                </div>
+
+                ${buttonTemplate({
+                  label: "Bekijk alle gebieden",
+                  type: "button",
+                  variant: "tertiary",
+                  icon: { icon: "chevron-right" },
+                })}
               `,
             }),
           })}
@@ -167,23 +151,37 @@ examplePageFactory(
                 </h3>
                 <p>Gebieden op deze locatie waar aparte regels gelden.</p>
                 <dso-responsive-element class="dso-tile-grid">
-                  ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
-                  ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
-                  ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
-                  ${tileTemplate({ anchor: "#", image: "#", label: "boom kappen", variant: "theme" })}
+                  ${tileTemplate({
+                    anchor: "#",
+                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    label: "boom kappen",
+                    variant: "theme",
+                  })}
+                  ${tileTemplate({
+                    anchor: "#",
+                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    label: "boom kappen",
+                    variant: "theme",
+                  })}
+                  ${tileTemplate({
+                    anchor: "#",
+                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    label: "boom kappen",
+                    variant: "theme",
+                  })}
+                  ${tileTemplate({
+                    anchor: "#",
+                    image: { alt: "Geel vierkantje", source: "images/icon-tree.png" },
+                    label: "boom kappen",
+                    variant: "theme",
+                  })}
                 </dso-responsive-element>
-                <div class="dso-context-wrapper">
-                  <div class="dso-context-container">
-                    <div class="dso-context-select">
-                      ${buttonTemplate({
-                        label: "Bekijk alle thema's",
-                        type: "button",
-                        variant: "tertiary",
-                        icon: { icon: "chevron-right" },
-                      })}
-                    </div>
-                  </div>
-                </div>
+                ${buttonTemplate({
+                  label: "Bekijk alle thema's",
+                  type: "button",
+                  variant: "tertiary",
+                  icon: { icon: "chevron-right" },
+                })}
               `,
             }),
           })}

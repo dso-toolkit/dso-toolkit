@@ -53,4 +53,3 @@ export function checkboxes({}: Templates): FormGroupCheckboxes<TemplateResult> {
     ],
   };
 }
-
