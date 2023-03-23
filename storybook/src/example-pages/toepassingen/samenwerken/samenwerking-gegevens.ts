@@ -3,19 +3,19 @@ import { html } from "lit-html";
 import { examplePageFactory } from "../../../example-page-factory";
 import { footerPartial } from "../../partials/footer";
 import { headerPartial } from "../../partials/header";
-import { header, definitions, items } from "./samenwerking-gegevens.content";
+import { header, items } from "./samenwerking-gegevens.content";
 
 examplePageFactory(
   "Toepassingen/Samenwerken",
   "Samenwerking gegevens",
-  ({ buttonTemplate, buttonRowTemplate, tabsTemplate, definitionListTemplate }, templates) => html`
+  ({ buttonTemplate, buttonRowTemplate, tabsTemplate }, templates) => html`
     <div class="container">
       ${headerPartial(templates, header)}
       <main>
         ${buttonRowTemplate({
           buttons: [
             {
-              label: "Terug naar samenwerkingenn",
+              label: "Terug naar samenwerkingen",
               type: "button",
               variant: "tertiary",
               icon: { icon: "chevron-left" },
@@ -39,21 +39,7 @@ examplePageFactory(
             </div>
           </div>
         </div>
-        ${tabsTemplate(items)}
-        <h2>Samenwerkingsgegevens</h2>
-        ${buttonRowTemplate({
-          buttons: [{ label: "Samenwerking aanpassen", type: "button", variant: "secondary" }],
-        })}
-        <div class="row">
-          <div class="col-md-4">${definitionListTemplate(definitions)}</div>
-          <div class="col-md-4">
-            <p><strong>Beschrijving</strong></p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            </p>
-          </div>
-        </div>
+        ${tabsTemplate(items(templates))}
       </main>
       ${footerPartial(templates)}
     </div>

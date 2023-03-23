@@ -1,9 +1,10 @@
-export interface Tabs {
-  items: TabsItem[];
+export interface Tabs<TemplateFnRetunType> {
+  items: TabsItem<TemplateFnRetunType>[];
 }
 
-export interface TabsItem {
+export interface TabsItem<TemplateFnRetunType> {
   label: string;
   id: string;
   modifiers?: "active" | "disabled";
+  content: TemplateFnRetunType | string;
 }

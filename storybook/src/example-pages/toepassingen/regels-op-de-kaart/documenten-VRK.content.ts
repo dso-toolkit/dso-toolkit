@@ -52,21 +52,20 @@ export const cardList = {
         Omgevingsplan gemeente Utrecht <br />
         In werking vanaf 03-03-2023
       </p>`,
-      selectable: [
-        {
-          type: "radio",
-          checked: false,
-          disabled: false,
-          id: "test",
-          indeterminate: false,
-          infoActive: false,
-          infoFixed: false,
-          invalid: false,
-          label: "Label",
-          required: false,
-          value: "the-value",
-        },
-      ],
+      selectable: {
+        type: "radio",
+        checked: false,
+        disabled: false,
+        id: "test",
+        indeterminate: false,
+        infoActive: false,
+        infoFixed: false,
+        invalid: false,
+        label: "Label",
+        required: false,
+        value: "the-value",
+        slot: "selectable",
+      },
       interactions: [
         {
           position: "right",
@@ -81,21 +80,20 @@ export const cardList = {
         Omgevingsplan gemeente Utrecht <br />
         In werking vanaf 03-03-2023 - vastgesteld
       </p>`,
-      selectable: [
-        {
-          type: "radio",
-          checked: false,
-          disabled: false,
-          id: "test",
-          indeterminate: false,
-          infoActive: false,
-          infoFixed: false,
-          invalid: false,
-          label: "Label",
-          required: false,
-          value: "the-value",
-        },
-      ],
+      selectable: {
+        type: "radio",
+        checked: false,
+        disabled: false,
+        id: "test",
+        indeterminate: false,
+        infoActive: false,
+        infoFixed: false,
+        invalid: false,
+        label: "Label",
+        required: false,
+        value: "the-value",
+        slot: "selectable",
+      },
       interactions: [
         {
           position: "right",
@@ -110,21 +108,20 @@ export const cardList = {
         Omgevingsplan gemeente Utrecht <br />
         In werking vanaf 03-03-2023 - geheel onherroepelijk in werking
       </p>`,
-      selectable: [
-        {
-          type: "radio",
-          checked: false,
-          disabled: false,
-          id: "test",
-          indeterminate: false,
-          infoActive: false,
-          infoFixed: false,
-          invalid: false,
-          label: "Label",
-          required: false,
-          value: "the-value",
-        },
-      ],
+      selectable: {
+        type: "radio",
+        checked: false,
+        disabled: false,
+        id: "test",
+        indeterminate: false,
+        infoActive: false,
+        infoFixed: false,
+        invalid: false,
+        label: "Label",
+        required: false,
+        value: "the-value",
+        slot: "selectable",
+      },
       interactions: [
         {
           position: "right",
