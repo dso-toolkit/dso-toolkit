@@ -44,7 +44,7 @@ export const cssDocumentList: ComponentImplementation<DocumentList<TemplateResul
                       ],
                     },
                   ],
-                  dropdownAlign: "right",
+                  dropdownAlign: "left",
                   boundary: ".dso-document-list-item-content",
                 })}</span
               >
