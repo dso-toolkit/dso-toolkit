@@ -1,4 +1,5 @@
 import { h } from "@stencil/core";
+import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
 import { getNodeName } from "../../get-node-name.function";
@@ -19,6 +20,7 @@ function mapData(node: Element) {
     colspecs: tgroup && columnCount ? mapColspecs(columnCount, tgroup.querySelectorAll(":scope > colspec")) : undefined,
     headRows: Array.from(node.querySelectorAll(":scope > tgroup > thead > row")),
     bodyRows: Array.from(node.querySelectorAll(":scope > tgroup > tbody > row")),
+    editAction: node.getAttribute("wijzigactie"),
   };
 }
 
@@ -30,13 +32,19 @@ export class OzonContentTableNode implements OzonContentNode {
   id = uuidv4();
 
   render(node: Element, context: OzonContentNodeContext) {
-    const { caption, colspecs, headRows, bodyRows } = mapData(node);
+    const { caption, colspecs, headRows, bodyRows, editAction } = mapData(node);
 
     const bron = Array.from(node.childNodes).find((n) => getNodeName(n) === "Bron");
 
     return (
       <dso-table>
-        <table class="table dso-table-vertical-lines" {...(bron ? { "aria-describedby": this.id } : {})}>
+        <table
+          class={clsx("table dso-table-vertical-lines", {
+            "dso-del": editAction === "verwijder",
+            "dso-ins": editAction === "voegtoe",
+          })}
+          {...(bron ? { "aria-describedby": this.id } : {})}
+        >
           {caption && <caption>{caption}</caption>}
           {colspecs && <Colgroup colspecs={colspecs} />}
           {headRows.length > 0 && (

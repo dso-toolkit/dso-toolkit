@@ -412,103 +412,103 @@ describe("Ozon Content", () => {
         "prop",
         "content",
         `
-      <Lijst
-        eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-        type="expliciet"
-        wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
-      >
-        <Lijstaanhef>Deze afdeling is niet van toepassing op:</Lijstaanhef>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
-        >
-          <LiNummer>a.</LiNummer>
-          <Al>wonen;</Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
-        >
-          <LiNummer>b.</LiNummer>
-          <Al>
-            het feitelijk verrichten van bouw- en sloopwerkzaamheden aan bouwwerken of
-            het feitelijk verrichten van onderhoudswerkzaamheden aan een bouwwerk of
-            van een terrein;
-          </Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
-        >
-          <LiNummer>c.</LiNummer>
-          <Al>
-            een milieubelastende activiteit die in hoofdzaak in de openbare
-            buitenruimte wordt verricht;
-          </Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
-        >
-          <LiNummer>d.</LiNummer>
-          <Al>doorgaand verkeer op wegen, vaarwegen en spoorwegen;</Al>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
-        >
-          <LiNummer>e.</LiNummer>
           <Lijst
-            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
+            eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
             type="expliciet"
-            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
+            wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1"
           >
-            <Lijstaanhef>een evenement:</Lijstaanhef>
+            <Lijstaanhef>Deze afdeling is niet van toepassing op:</Lijstaanhef>
             <Li
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_a"
             >
-              <LiNummer>1°.</LiNummer>
+              <LiNummer>a.</LiNummer>
+              <Al>wonen;</Al>
+            </Li>
+            <Li
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_b"
+            >
+              <LiNummer>b.</LiNummer>
               <Al>
-                dat ergens anders plaatsvindt dan op een locatie voor evenementen;
+                het feitelijk verrichten van bouw- en sloopwerkzaamheden aan bouwwerken of
+                het feitelijk verrichten van onderhoudswerkzaamheden aan een bouwwerk of
+                van een terrein;
               </Al>
             </Li>
             <Li
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_c"
             >
-              <LiNummer>2°.</LiNummer>
+              <LiNummer>c.</LiNummer>
               <Al>
-                dat geen festiviteit als bedoeld in artikel 5.68 van het Besluit
-                kwaliteit leefomgeving is; of
+                een milieubelastende activiteit die in hoofdzaak in de openbare
+                buitenruimte wordt verricht;
               </Al>
             </Li>
             <Li
-              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
-              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_d"
             >
-              <LiNummer>3°.</LiNummer>
+              <LiNummer>d.</LiNummer>
+              <Al>doorgaand verkeer op wegen, vaarwegen en spoorwegen;</Al>
+            </Li>
+            <Li
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e"
+            >
+              <LiNummer>e.</LiNummer>
+              <Lijst
+                eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
+                type="expliciet"
+                wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1"
+              >
+                <Lijstaanhef>een evenement:</Lijstaanhef>
+                <Li
+                  eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
+                  wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_1"
+                >
+                  <LiNummer>1°.</LiNummer>
+                  <Al>
+                    dat ergens anders plaatsvindt dan op een locatie voor evenementen;
+                  </Al>
+                </Li>
+                <Li
+                  eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
+                  wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_2"
+                >
+                  <LiNummer>2°.</LiNummer>
+                  <Al>
+                    dat geen festiviteit als bedoeld in artikel 5.68 van het Besluit
+                    kwaliteit leefomgeving is; of
+                  </Al>
+                </Li>
+                <Li
+                  eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
+                  wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_e__list_o_1__item_3"
+                >
+                  <LiNummer>3°.</LiNummer>
+                  <Al>
+                    waarover geluidregels zijn gesteld bij of krachtens een gemeentelijke
+                    verordening; en
+                  </Al>
+                </Li>
+              </Lijst>
+            </Li>
+            <Li
+              eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
+              wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
+            >
+              <LiNummer>f.</LiNummer>
               <Al>
-                waarover geluidregels zijn gesteld bij of krachtens een gemeentelijke
-                verordening; en
+                het verrichten van werkzaamheden met een mobiele installatie op een
+                weiland, akker of bos die geen verplaatsbaar mijnbouwwerk als bedoeld in
+                artikel 4.1116 van het Besluit activiteiten leefomgeving is.
               </Al>
             </Li>
+            <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
           </Lijst>
-        </Li>
-        <Li
-          eId="chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
-          wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.1__art_3.41__para_2__list_o_1__item_f"
-        >
-          <LiNummer>f.</LiNummer>
-          <Al>
-            het verrichten van werkzaamheden met een mobiele installatie op een
-            weiland, akker of bos die geen verplaatsbaar mijnbouwwerk als bedoeld in
-            artikel 4.1116 van het Besluit activiteiten leefomgeving is.
-          </Al>
-        </Li>
-        <Lijstsluiting>Dit is de plaats om een afsluitende zin onder de lijst te plaatsen.</Lijstsluiting>
-      </Lijst>
-    `
+        `
       )
       .find("> .dso-ozon-lijst")
       .as("dsoOzonLijst")
@@ -523,6 +523,25 @@ describe("Ozon Content", () => {
       .should("have.length", 6)
       .get("@dsoOzonLijst")
       .find("> ul");
+
+    cy.percySnapshot();
+  });
+
+  it("should render renvooi-weergave elements", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-ozon-content--renvooi-weergave");
+
+    cy.get("dso-ozon-content")
+      .find("del")
+      .should("have.css", "background-color", "rgb(245, 216, 220)")
+      .get("dso-ozon-content")
+      .find("ins")
+      .should("have.css", "background-color", "rgb(228, 241, 212)")
+      .get("dso-ozon-content")
+      .find("table.dso-del")
+      .should("have.css", "background-color", "rgb(245, 216, 220)")
+      .get("dso-ozon-content")
+      .find("table.dso-ins")
+      .should("have.css", "background-color", "rgb(228, 241, 212)");
 
     cy.percySnapshot();
   });

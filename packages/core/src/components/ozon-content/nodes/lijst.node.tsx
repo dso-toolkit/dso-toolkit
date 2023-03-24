@@ -19,11 +19,11 @@ export class OzonContentLijstNode implements OzonContentNode {
         <ul class={node.getAttribute("type") ?? ""}>
           {listItems.map((item) => {
             const itemNodes = Array.from(item.childNodes);
-            const liNummer = itemNodes.find((n) => getNodeName(n) === "LiNummer")?.textContent;
+            const liNummer = itemNodes.find((n) => getNodeName(n) === "LiNummer")?.childNodes;
 
             return (
               <li class="od-Li">
-                {liNummer && <span class="od-LiNummer">{liNummer}</span>}
+                {liNummer && <span class="od-LiNummer">{mapNodeToJsx(liNummer)}</span>}
                 {mapNodeToJsx(itemNodes.filter((n) => getNodeName(n) !== "LiNummer"))}
               </li>
             );

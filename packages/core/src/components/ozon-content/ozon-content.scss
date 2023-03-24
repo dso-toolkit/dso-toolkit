@@ -144,3 +144,12 @@ span[role="paragraph"] {
   margin-bottom: 1rem;
   padding: 1rem;
 }
+
+.dso-del {
+  background-color: colors.$danger-bg-color;
+  text-decoration: line-through;
+}
+
+.dso-ins {
+  background-color: colors.$success-bg-color;
+}
