@@ -40,6 +40,15 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
+        wideImage: false,
+      },
+    });
+
+    stories.add("with wide image", template, {
+      args: {
+        ...cardContentButton,
+        image: "images/rectangle1.png",
+        wideImage: true,
       },
     });
 

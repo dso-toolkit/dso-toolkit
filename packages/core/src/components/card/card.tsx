@@ -24,6 +24,10 @@ export class Card implements ComponentInterface {
   @Prop()
   clickable = true;
 
+  /** Presentation of image in header. Default dimensions: "24 x 24". Wide dimensions: "30 x 26" */
+  @Prop({ reflect: true })
+  wideImage = false;
+
   @Event()
   dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
 

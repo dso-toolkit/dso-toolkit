@@ -16,18 +16,32 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
     selectableTemplate,
     toggletipTemplate,
   }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, clickable = true, dsoCardClicked }) {
+    function cardTemplate({
+      label,
+      selectable,
+      content,
+      interactions,
+      image,
+      wideImage,
+      clickable = true,
+      dsoCardClicked,
+    }) {
       return html`
         <div
           class="dso-card ${classMap({
             "dso-is-selectable": !!selectable,
             "dso-has-image": !!image,
             "dso-not-clickable": !clickable,
+            "dso-wide-image": !!image && wideImage === true,
           })}"
           @click=${ifDefined(dsoCardClicked)}
         >
           ${selectable ? html`<div class="dso-card-selectable">${selectableTemplate(selectable)}</div>` : nothing}
-          ${image ? html`<div class="dso-card-image"><img slot="image" src=${image} /></div>` : nothing}
+          ${image
+            ? html`<div class="dso-card-image">
+                <img slot="image" src=${image} />
+              </div>`
+            : nothing}
           <div class="dso-card-heading">
             ${clickable
               ? html`<a href="#">

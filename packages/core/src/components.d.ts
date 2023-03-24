@@ -141,6 +141,10 @@ export namespace Components {
         "clickable": boolean;
         "hasImage": boolean;
         "isSelectable": boolean;
+        /**
+          * Presentation of image in header. Default dimensions: "24 x 24". Wide dimensions: "30 x 26"
+         */
+        "wideImage": boolean;
     }
     interface DsoCardContainer {
         "mode": CardContainerMode;
@@ -956,6 +960,10 @@ declare namespace LocalJSX {
         "hasImage"?: boolean;
         "isSelectable"?: boolean;
         "onDsoCardClicked"?: (event: DsoCardCustomEvent<DsoCardClickedEvent>) => void;
+        /**
+          * Presentation of image in header. Default dimensions: "24 x 24". Wide dimensions: "30 x 26"
+         */
+        "wideImage"?: boolean;
     }
     interface DsoCardContainer {
         "mode"?: CardContainerMode;

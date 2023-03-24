@@ -120,6 +120,12 @@ dso-card {
     height: units.$u3;
     width: units.$u3;
   }
+
+  &.dso-wide-image img,
+  &[wide-image] img {
+    height: units.$u1 * 3.25;
+    width: units.$u1 * 3.75;
+  }
 }
 
 .dso-card-interactions,
