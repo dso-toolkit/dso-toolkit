@@ -54,7 +54,7 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                         ${collapsable
                           ? html`<button
                               type="button"
-                              class=${`dso-status ${!collapsed ? "dso-open" : ""}`}
+                              class="dso-status"
                               aria-expanded=${ifDefined(collapsed ? "false" : "true")}
                             >
                               ${iconTemplate({ icon: "chevron-right" })} U heeft ${countItems(items)}

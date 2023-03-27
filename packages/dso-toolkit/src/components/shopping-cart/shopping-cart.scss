@@ -28,7 +28,7 @@
       transform: rotate(0);
     }
 
-    &.dso-open {
+    &[aria-expanded="true"] {
       dso-icon,
       svg.di {
         transform: rotate(90deg);
