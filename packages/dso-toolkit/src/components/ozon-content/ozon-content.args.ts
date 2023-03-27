@@ -8,8 +8,8 @@ export interface OzonContentArgs {
   inline: boolean;
   interactive: string | boolean;
   deleted: boolean;
-  prefix: string;
-  suffix: string;
+  prefix?: string;
+  suffix?: string;
   dsoAnchorClick: HandlerFunction;
   dsoClick: HandlerFunction;
 }
@@ -56,11 +56,15 @@ export const ozonContentArgTypes: ArgTypes<OzonContentArgs> = {
   },
 };
 
-export function ozonContentArgsMapper(a: OzonContentArgs): Required<OzonContent> {
+export function ozonContentArgsMapper<TemplateFnReturnType>(
+  a: OzonContentArgs,
+  prefix?: TemplateFnReturnType,
+  suffix?: TemplateFnReturnType
+): OzonContent<TemplateFnReturnType> {
   return {
     ...a,
-    prefix: a.prefix || "",
-    suffix: a.suffix || "",
+    prefix: a.prefix || prefix,
+    suffix: a.suffix || suffix,
     interactive: a.interactive === "sub" ? "sub" : a.interactive === "default",
     dsoAnchorClick: (e) => a.dsoAnchorClick(e.detail),
   };

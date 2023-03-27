@@ -1,10 +1,10 @@
-import { html, nothing } from "lit-html";
+import { html, nothing, TemplateResult } from "lit-html";
 import { ifDefined } from "lit-html/directives/if-defined.js";
 
 import { OzonContent } from "dso-toolkit";
 import { ComponentImplementation } from "../../templates";
 
-export const coreOzonContent: ComponentImplementation<OzonContent> = {
+export const coreOzonContent: ComponentImplementation<OzonContent<TemplateResult>> = {
   component: "ozonContent",
   implementation: "core",
   template: () =>
@@ -28,10 +28,10 @@ export const coreOzonContent: ComponentImplementation<OzonContent> = {
           ?deleted=${deleted}
           @dsoAnchorClick=${dsoAnchorClick}
           @dsoClick=${ifDefined(interactive ? dsoClick : undefined)}
-          >${prefix ? html`<span slot="prefix">${prefix}</span>` : nothing}${suffix
-            ? html`<span slot="suffix">${suffix}</span>`
-            : nothing}</dso-ozon-content
         >
+          ${prefix ? (typeof prefix === "string" ? html`<span slot="prefix">${prefix}</span>` : prefix) : nothing}
+          ${suffix ? (typeof suffix === "string" ? html`<span slot="suffix">${suffix}</span>` : suffix) : nothing}
+        </dso-ozon-content>
       `;
     },
 };

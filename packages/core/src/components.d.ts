@@ -233,6 +233,7 @@ export namespace Components {
     }
     interface DsoExpandableHeading {
         "color": "default" | "black";
+        "editAction"?: "delete" | "insert";
         "heading": HeadingTags;
         "open"?: boolean;
     }
@@ -1069,6 +1070,7 @@ declare namespace LocalJSX {
     }
     interface DsoExpandableHeading {
         "color"?: "default" | "black";
+        "editAction"?: "delete" | "insert";
         "heading"?: HeadingTags;
         "onDsoToggle"?: (event: DsoExpandableHeadingCustomEvent<ExpandableHeadingToggleEvent>) => void;
         "open"?: boolean;

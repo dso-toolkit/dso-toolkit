@@ -1,8 +1,8 @@
-export interface OzonContent {
+export interface OzonContent<TemplateFnReturnType> {
   content: string;
   inline?: boolean;
-  prefix?: string;
-  suffix?: string;
+  prefix?: TemplateFnReturnType | string;
+  suffix?: TemplateFnReturnType | string;
   interactive?: "sub" | boolean;
   deleted?: boolean;
   dsoAnchorClick: (e: CustomEvent) => void;

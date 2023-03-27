@@ -60,10 +60,10 @@ function nestedExpandableHeading1(templates: Templates) {
     `,
       dsoAnchorClick: () => void 0,
       dsoClick: () => void 0,
-      prefix: "Afdeling 2.1 ",
+      prefix: html`<span slot="prefix">Afdeling 2.1 </span>`,
       inline: true,
     }),
-    content: [1, 2, 3].map((article) =>
+    content: html`${[1, 2, 3].map((article) =>
       expandableHeadingTemplate({
         heading: "h4",
         color: "black",
@@ -86,12 +86,12 @@ function nestedExpandableHeading1(templates: Templates) {
           `,
           dsoAnchorClick: () => void 0,
           dsoClick: () => void 0,
-          prefix: `Artikel 2.1.${article} `,
+          prefix: html`<span slot="prefix">Artikel 2.1.${article} </span>`,
           inline: true,
         }),
         content: expandableHeadingDemoListContent(templates, article),
       })
-    ),
+    )}`,
   };
 }
 
@@ -118,7 +118,7 @@ function nestedExpandableHeading2(templates: Templates) {
     `,
       dsoAnchorClick: () => void 0,
       dsoClick: () => void 0,
-      prefix: "Afdeling 2.2 ",
+      prefix: html`<span slot="prefix">Afdeling 2.2 </div>`,
       inline: true,
     }),
     content: expandandableHeadingDemoContent(templates),
@@ -148,7 +148,7 @@ function nestedExpandableHeading3(templates: Templates) {
     `,
       dsoAnchorClick: () => void 0,
       dsoClick: () => void 0,
-      prefix: "Afdeling 2.3 ",
+      prefix: html`<span slot="prefix">Afdeling 2.3 </span>`,
       inline: true,
     }),
     content: expandandableHeadingDemoContent(templates),
@@ -178,7 +178,7 @@ export function expandableHeadingWithChildList(templates: Templates): Expandable
       `,
       dsoAnchorClick: () => void 0,
       dsoClick: () => void 0,
-      prefix: "Hoofdstuk 2 ",
+      prefix: html`<span slot="prefix">Hoofdstuk 2 </span>`,
       inline: true,
     }),
     addonsStart: labelTemplate({ slotName: "addons-start", label: "een label", status: "danger", compact: true }),

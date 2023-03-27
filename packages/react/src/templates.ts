@@ -102,7 +102,7 @@ export interface Components {
   label: Label;
   listButton: ListButton;
   modal: Modal<JSX.Element>;
-  ozonContent: OzonContent;
+  ozonContent: OzonContent<JSX.Element>;
   pagination: Pagination;
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
