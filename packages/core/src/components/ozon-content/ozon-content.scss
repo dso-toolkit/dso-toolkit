@@ -147,9 +147,19 @@ span[role="paragraph"] {
 
 .dso-del {
   background-color: colors.$danger-bg-color;
+  color: colors.$zwart;
   text-decoration: line-through;
+
+  a {
+    color: colors.$zwart;
+  }
 }
 
 .dso-ins {
   background-color: colors.$success-bg-color;
+  color: colors.$zwart;
+
+  a {
+    color: colors.$zwart;
+  }
 }
