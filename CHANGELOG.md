@@ -7,8 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * Viewer Grid: Details fixen filterpaneel ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
+* Diverse voorbeeldpagina's zijn toegevoegd, uitgebreid en/of aangepast naar de laatste toolkit inzichten ([#2024](https://github.com/dso-toolkit/dso-toolkit/issues/2024))
 
-### 52.0.0
+## 52.0.0
 
 ### Added
 * Ozon Content: Ondersteuning `<NieuweTekst>`, `<VerwijderdeTekst>`, `<table wijzigactie="verwijder">` & `<table wijzigactie="voegtoe">` ([#2060](https://github.com/dso-toolkit/dso-toolkit/issues/2060))

@@ -112,13 +112,13 @@ examplePageFactory(
                               />
                               <label for="mijn-id-file-confirm-0"> Vertrouwelijk </label>
                             </div>
-                            <button
-                              type="button"
-                              class="dso-tertiary dso-remove"
-                              aria-describedby="mijn-id-file-filename-0"
-                            >
-                              <span> Verwijder document </span>
-                            </button>
+                            ${buttonTemplate({
+                              label: "Verwijder document",
+                              type: "button",
+                              variant: "tertiary",
+                              modifier: "dso-remove",
+                              ariaDescribedby: "mijn-id-file-filename-0",
+                            })}
                           </li>
                           <li>
                             <div class="dso-filename" id="mijn-id-file-filename-1">Erfgrens dispuut.docx</div>
@@ -134,14 +134,13 @@ examplePageFactory(
                             ${iconTemplate({
                               icon: "status-warning",
                             })}
-
-                            <button
-                              type="button"
-                              class="dso-tertiary dso-remove"
-                              aria-describedby="mijn-id-file-filename-1"
-                            >
-                              <span> Verwijder document </span>
-                            </button>
+                            ${buttonTemplate({
+                              label: "Verwijder document",
+                              type: "button",
+                              variant: "tertiary",
+                              modifier: "dso-remove",
+                              ariaDescribedby: "mijn-id-file-filename-1",
+                            })}
                           </li>
                         </ul>
                         <div class="dso-file-upload">

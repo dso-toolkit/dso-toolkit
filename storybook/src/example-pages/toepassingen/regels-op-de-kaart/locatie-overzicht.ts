@@ -24,7 +24,7 @@ examplePageFactory(
     ${headerPartial(templates, header)}
     <main>
       ${viewerGridTemplate({
-        filterpanelOpen: "false",
+        filterpanelOpen: false,
         initialMainSize: "medium",
         main: html`
           ${buttonTemplate({
@@ -57,7 +57,7 @@ examplePageFactory(
                       {
                         label: "Regels",
                         status: "bright",
-                        removable: "true",
+                        removable: true,
                       },
                     ],
                   })}
@@ -101,6 +101,7 @@ examplePageFactory(
                 </h3>
                 <p>Als u iets wil bouwen of aanpassen kunt u de regels zoeken voor deze activiteit.</p>
                 ${searchBarTemplate({
+                  id: "searchBar_id",
                   label: "Wat wilt u doen?",
                   placeholder: "Juridische activiteit",
                   buttonLabel: "Zoeken",
