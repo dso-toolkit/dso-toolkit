@@ -20,9 +20,19 @@
 
     dso-icon,
     svg.di {
+      @include utilities.transition(transform);
+
       left: units.$u2;
       position: absolute;
       margin-right: units.$u1;
+      transform: rotate(0);
+    }
+
+    &.dso-open {
+      dso-icon,
+      svg.di {
+        transform: rotate(90deg);
+      }
     }
   }
 
