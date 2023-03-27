@@ -4,6 +4,7 @@
 
 :host {
   display: block;
+  padding-left: units.$u4;
 
   @include selectable.root("dso-info", false);
 
@@ -20,6 +21,7 @@
 
 .dso-selectable-input-wrapper {
   display: inline-block;
+  margin-left: -#{units.$u4};
   min-height: units.$u3;
   padding-left: units.$u4;
 
