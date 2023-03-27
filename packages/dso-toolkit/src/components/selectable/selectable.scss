@@ -9,7 +9,7 @@
     @include selectable.notLastChild();
   }
 
-  label[aria-invalid="true"] {
+  input[aria-invalid="true"] + label {
     @include selectable.invalid();
   }
 }
