@@ -122,9 +122,9 @@ dso-card {
   }
 
   &.dso-wide-image img,
-  &[wide-image] img {
-    height: units.$u1 * 3.25;
-    width: units.$u1 * 3.75;
+  &[image-shape="wide"] img {
+    height: 26px;
+    width: 30px;
   }
 }
 

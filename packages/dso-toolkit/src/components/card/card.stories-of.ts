@@ -40,7 +40,6 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
-        wideImage: false,
       },
     });
 
@@ -48,7 +47,7 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       args: {
         ...cardContentButton,
         image: "images/rectangle1.png",
-        wideImage: true,
+        imageShape: "wide",
       },
     });
 

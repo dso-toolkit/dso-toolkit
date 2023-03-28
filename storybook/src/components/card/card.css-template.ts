@@ -22,7 +22,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
       content,
       interactions,
       image,
-      wideImage,
+      imageShape = "normal",
       clickable = true,
       dsoCardClicked,
     }) {
@@ -32,7 +32,7 @@ export const cssCard: ComponentImplementation<Card<TemplateResult>> = {
             "dso-is-selectable": !!selectable,
             "dso-has-image": !!image,
             "dso-not-clickable": !clickable,
-            "dso-wide-image": !!image && wideImage === true,
+            "dso-wide-image": image !== undefined && image !== "" && imageShape === "wide",
           })}"
           @click=${ifDefined(dsoCardClicked)}
         >

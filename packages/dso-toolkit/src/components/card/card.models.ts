@@ -3,7 +3,7 @@ import { Label } from "../label/label.models.js";
 import { Selectable } from "../selectable/selectable.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
 
-export type ImageShape = "square" | "rectangle";
+export const imageShapes = ["normal", "wide"] as const;
 
 export interface Card<TemplateFnReturnType> {
   label: string;
@@ -11,7 +11,7 @@ export interface Card<TemplateFnReturnType> {
   content: TemplateFnReturnType;
   interactions?: Array<Button | Label | Toggletip<TemplateFnReturnType>>;
   image?: string;
-  wideImage?: boolean;
+  imageShape?: typeof imageShapes[number];
   clickable?: boolean;
   dsoCardClicked?: (e: CustomEvent<DsoCardClickedEvent>) => void;
 }

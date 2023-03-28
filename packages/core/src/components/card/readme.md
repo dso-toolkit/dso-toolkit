@@ -7,12 +7,12 @@
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                | Type      | Default |
-| -------------- | --------------- | ------------------------------------------------------------------------------------------ | --------- | ------- |
-| `clickable`    | `clickable`     |                                                                                            | `boolean` | `true`  |
-| `hasImage`     | `has-image`     |                                                                                            | `boolean` | `false` |
-| `isSelectable` | `is-selectable` |                                                                                            | `boolean` | `false` |
-| `wideImage`    | `wide-image`    | Presentation of image in header. Default dimensions: "24 x 24". Wide dimensions: "30 x 26" | `boolean` | `false` |
+| Property       | Attribute       | Description                                                                     | Type      | Default    |
+| -------------- | --------------- | ------------------------------------------------------------------------------- | --------- | ---------- |
+| `clickable`    | `clickable`     |                                                                                 | `boolean` | `true`     |
+| `hasImage`     | `has-image`     |                                                                                 | `boolean` | `false`    |
+| `imageShape`   | `image-shape`   | Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26") | `string`  | `"normal"` |
+| `isSelectable` | `is-selectable` |                                                                                 | `boolean` | `false`    |
 
 
 ## Events
