@@ -1123,11 +1123,6 @@ export const content = [
     title: "Renvooi-weergave",
     content: `
       <Artikel eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60">
-        <Kop>
-          <Label>Artikel</Label>
-          <Nummer>3.60</Nummer>
-          <Opschrift>Geluid: onderzoek</Opschrift>
-        </Kop>
         <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1">
           <LidNummer>1.</LidNummer>
           <Inhoud>
@@ -1279,7 +1274,7 @@ export const content = [
                       <Al>Tabelcel met enkele alinea</Al>
                     </entry>
                     <entry align="left" nameend="col3" namest="col3">
-                      <Al>Tabelcel met meerdere alinea’s.</Al>
+                      <Al>Tabelcel met meerdere alinea's.</Al>
                       <Al>Alinea 2.</Al>
                       <Al>Alinea 3.</Al>
                     </entry>
@@ -1368,7 +1363,7 @@ export const content = [
                       <Al>Tabelcel met enkele alinea</Al>
                     </entry>
                     <entry align="left" nameend="col3" namest="col3">
-                      <Al>Tabelcel met meerdere alinea’s.</Al>
+                      <Al>Tabelcel met meerdere alinea's.</Al>
                       <Al>Alinea 2.</Al>
                       <Al>Alinea 3.</Al>
                     </entry>
