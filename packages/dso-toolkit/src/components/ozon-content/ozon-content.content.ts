@@ -1119,4 +1119,287 @@ export const content = [
         </table>
       </Inhoud>`,
   },
+  {
+    title: "Renvooi-weergave",
+    content: `
+      <Artikel eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60">
+        <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1">
+          <LidNummer>1.</LidNummer>
+          <Inhoud>
+            <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1" type="expliciet">
+              <Lijstaanhef>In de volgende gevallen wordt er een geluidonderzoek verricht:</Lijstaanhef>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_a" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_a">
+                <LiNummer>a.</LiNummer>
+                <Al>als tussen <VerwijderdeTekst>19.00</VerwijderdeTekst><NieuweTekst>20.00</NieuweTekst> en <VerwijderdeTekst>7.00</VerwijderdeTekst><NieuweTekst>8.00</NieuweTekst> uur per dag meer dan vier transportbewegingen plaatsvinden met motorvoertuigen waarvan de massa van het ledig voertuig vermeerderd met het laadvermogen meer is dan 3.500 kg en binnen een afstand van 50 m van de begrenzing van de locatie waarop de activiteit wordt verricht geluidgevoelige gebouwen aanwezig zijn, tenzij het
+                  gaat om het bieden van gelegenheid voor het tanken van motorvoertuigen van derden of een activiteit waarvan horeca-activiteiten de kern vormen;</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_b" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_b">
+                <LiNummer>b.</LiNummer>
+                <Al>bij het opwekken van <NieuweTekst>stroom en </NieuweTekst>elektriciteit met een windturbine met een rotordiameter van meer dan 2 m, bedoeld in artikel 3.11 van het Besluit activiteiten leefomgeving;</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_c" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_c">
+                <LiNummer>c.</LiNummer>
+                <Al>als in de buitenlucht metalen in bulk worden overgeslagen <VerwijderdeTekst>of in de buitenlucht metalen mechanisch worden bewerkt;</VerwijderdeTekst></Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_d" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_d">
+                <LiNummer>d.</LiNummer>
+                <Al>bij het reinigen van afvalwater door waterstraal- of oppervlaktebeluchters met een capaciteit van 120.000 of meer vervuilingseenheden;</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_e" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_e">
+                <LiNummer><NieuweTekst>e.</NieuweTekst></LiNummer>
+                <Al><NieuweTekst>bij het neutraliseren van airbags of gordelspanners door deze te ontsteken;</NieuweTekst></Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_f" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_f">
+                <LiNummer><VerwijderdeTekst>d.</VerwijderdeTekst><NieuweTekst>f.</NieuweTekst></LiNummer>
+                <Al>bij het vervaardigen van betonmortel of betonwaren;</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_g" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_g">
+                <LiNummer>g.</LiNummer>
+                <Al>bij een binnenschietbaan als de afstand van de binnenschietbaan tot het dichtstbijzijnde geluidgevoelige gebouw kleiner is dan <VerwijderdeTekst>50 m;</VerwijderdeTekst><NieuweTekst>30 m;</NieuweTekst></Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_h" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_h">
+                <LiNummer>h.</LiNummer>
+                <Al>bij een buitenschietbaan als bedoeld in artikel 3.79; en</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i">
+                <LiNummer>i.</LiNummer>
+                <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1" type="expliciet">
+                  <Lijstaanhef>als het op basis van de aard van de activiteit aannemelijk is dat:</Lijstaanhef>
+                  <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1">
+                    <LiNummer>1°.</LiNummer>
+                    <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1__list_o_1" type="expliciet">
+                      <Lijstaanhef>in enig vertrek op de locatie waarop de activiteit wordt verricht, het equivalente geluidniveau (L<sub>Aeq</sub>) veroorzaakt door de ten gehore gebrachte muziek in de representatieve bedrijfssituatie, meer bedraagt dan:</Lijstaanhef>
+                      <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1__list_o_1__item_i" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1__list_o_1__item_i">
+                        <LiNummer>i.</LiNummer>
+                        <Al>70 dB(A), als dit vertrek in- of aanpandig is gelegen met geluidgevoelige gebouwen; of</Al>
+                      </Li>
+                      <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1__list_o_1__item_ii" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_1__list_o_1__item_ii">
+                        <LiNummer>ii.</LiNummer>
+                        <Al>80 dB(A), in andere gevallen; of</Al>
+                      </Li>
+                    </Lijst>
+                  </Li>
+                  <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_2" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_1__list_o_1__item_i__list_o_1__item_2">
+                    <LiNummer>2°.</LiNummer>
+                    <Al>in <VerwijderdeTekst>de buitenlucht of op</VerwijderdeTekst>een open terrein muziek ten gehore zal worden gebracht.</Al>
+                  </Li>
+                </Lijst>
+              </Li>
+            </Lijst>
+          </Inhoud>
+        </Lid>
+        <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_2" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_2">
+          <LidNummer>2.</LidNummer>
+          <Inhoud>
+            <Al>Het gemiddelde aantal transportbewegingen is een gemiddelde gemeten over de periode van <VerwijderdeTekst>een</VerwijderdeTekst><NieuweTekst>drie</NieuweTekst> jaar.</Al>
+          </Inhoud>
+        </Lid>
+        <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_3" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_3">
+          <LidNummer>3.</LidNummer>
+          <Inhoud>
+            <Al>Voor een activiteit waarvan agrarische activiteiten de kern vormen, geldt in afwijking van het eerste lid, onder a, het aantal transportbewegingen tussen 19.00 en 6.00 uur.</Al>
+          </Inhoud>
+        </Lid>
+        <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4">
+          <LidNummer>4.</LidNummer>
+          <Inhoud>
+            <Lijst eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1" type="expliciet">
+              <Lijstaanhef>Uit het rapport van een geluidonderzoek, bedoeld in het eerste lid, blijkt op grond van verrichte geluidsmetingen of geluidsberekeningen of wordt voldaan aan:</Lijstaanhef>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_a">
+                <LiNummer>a.</LiNummer>
+                <Al>de waarden, bedoeld in de paragrafen 3.3.4.2, 3.3.4.3 en 3.3.4.4; of</Al>
+              </Li>
+              <Li eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_4__list_o_1__item_b">
+                <LiNummer>b.</LiNummer>
+                <Al>de van toepassing zijnde geluidswaarden van de omgevingsvergunning of een maatwerkvoorschrift. In het rapport wordt aangegeven welke voorzieningen worden getroffen om te voorkomen dat de waarden, bedoeld onder a en b, worden overschreden.</Al>
+              </Li>
+            </Lijst>
+          </Inhoud>
+        </Lid>
+        <Lid eId="chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_5" wId="gm1979_2__chp_3__subchp_3.4__subsec_3.4.4__subsec_3.3.4.1__art_3.60__para_5">
+          <LidNummer>5.</LidNummer>
+          <Inhoud>
+            <table
+              colsep="1"
+              class="standaard"
+              eId="chp_13__subsec_13.7__art_13.72__table_o_1"
+              frame="all"
+              rowsep="1"
+              wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1"
+              wijzigactie="verwijder"
+            >
+              <tgroup align="left" cols="5">
+                <colspec colname="col1" colwidth="1585*" />
+                <colspec colname="col2" colwidth="1585*" />
+                <colspec colname="col3" colwidth="1585*" />
+                <colspec colname="col4" colwidth="1586*" />
+                <colspec colname="col5" colwidth="1586*" />
+                <tbody valign="top">
+                  <row>
+                    <entry align="left" nameend="col1" namest="col1">
+                      <Al>Header 1</Al>
+                    </entry>
+                    <entry align="left" nameend="col2" namest="col2">
+                      <Al>Header 2</Al>
+                    </entry>
+                    <entry align="left" nameend="col3" namest="col3">
+                      <Al>Header 3</Al>
+                    </entry>
+                    <entry align="left" nameend="col4" namest="col4">
+                      <Al>Header 4</Al>
+                    </entry>
+                    <entry align="left" nameend="col5" namest="col5">
+                      <Al>Header 5</Al>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry align="left" morerows="1" nameend="col1" namest="col1">
+                      <Al>Verticaal samengevoegde cel</Al>
+                    </entry>
+                    <entry align="left" nameend="col5" namest="col2">
+                      <Al>
+                        <IntIoRef
+                          eId="chp_13__subsec_13.7__art_13.72__table_o_1__ref_o_1"
+                          ref="gm1979_1__cmp_II__content_o_1__list_o_1__item_o_1__ref_o_1"
+                          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__ref_o_1"
+                        >
+                          GIO-verwijzing</IntIoRef
+                        >
+                        als IntIoRef</Al
+                      >
+                    </entry>
+                  </row>
+                  <row>
+                    <entry align="left" nameend="col2" namest="col2">
+                      <Al>Tabelcel met enkele alinea</Al>
+                    </entry>
+                    <entry align="left" nameend="col3" namest="col3">
+                      <Al>Tabelcel met meerdere alinea's.</Al>
+                      <Al>Alinea 2.</Al>
+                      <Al>Alinea 3.</Al>
+                    </entry>
+                    <entry align="left" nameend="col4" namest="col4">
+                      <Lijst
+                        eId="chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1"
+                        type="expliciet"
+                        wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1"
+                      >
+                        <Lijstaanhef>Tabelcel met lijst:</Lijstaanhef>
+                        <li
+                          eId="chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_1"
+                          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_1"
+                        >
+                          <LiNummer>1.</LiNummer>
+                          <Al>Item 1</Al>
+                        </li>
+                        <li
+                          eId="chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_2"
+                          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_2"
+                        >
+                          <LiNummer>2.</LiNummer>
+                          <Al>Item 2</Al>
+                        </li>
+                      </Lijst>
+                    </entry>
+                    <entry align="left" nameend="col5" namest="col5">
+                      <Al>Tabelcel met <b>vet</b>, <i>cursief</i>. </Al>
+                    </entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+            <table
+              colsep="1"
+              class="standaard"
+              eId="chp_13__subsec_13.7__art_13.72__table_o_1"
+              frame="all"
+              rowsep="1"
+              wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1"
+              wijzigactie="voegtoe"
+            >
+              <tgroup align="left" cols="5">
+                <colspec colname="col1" colwidth="1585*" />
+                <colspec colname="col2" colwidth="1585*" />
+                <colspec colname="col3" colwidth="1585*" />
+                <colspec colname="col4" colwidth="1586*" />
+                <colspec colname="col5" colwidth="1586*" />
+                <tbody valign="top">
+                  <row>
+                    <entry align="left" nameend="col1" namest="col1">
+                      <Al>Header 1</Al>
+                    </entry>
+                    <entry align="left" nameend="col2" namest="col2">
+                      <Al>Header 2</Al>
+                    </entry>
+                    <entry align="left" nameend="col3" namest="col3">
+                      <Al>Header 3</Al>
+                    </entry>
+                    <entry align="left" nameend="col4" namest="col4">
+                      <Al>Header 4</Al>
+                    </entry>
+                    <entry align="left" nameend="col5" namest="col5">
+                      <Al>Header 5</Al>
+                    </entry>
+                  </row>
+                  <row>
+                    <entry align="left" morerows="1" nameend="col1" namest="col1">
+                      <Al>Verticaal samengevoegde cel</Al>
+                    </entry>
+                    <entry align="left" nameend="col5" namest="col2">
+                      <Al>
+                        <IntIoRef
+                          eId="chp_13__subsec_13.7__art_13.72__table_o_1__ref_o_1"
+                          ref="gm1979_1__cmp_II__content_o_1__list_o_1__item_o_1__ref_o_1"
+                          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__ref_o_1"
+                        >
+                          GIO-verwijzing</IntIoRef
+                        >
+                        als IntIoRef</Al
+                      >
+                    </entry>
+                  </row>
+                  <row>
+                    <entry align="left" nameend="col2" namest="col2">
+                      <Al>Tabelcel met enkele alinea</Al>
+                    </entry>
+                    <entry align="left" nameend="col3" namest="col3">
+                      <Al>Tabelcel met meerdere alinea's.</Al>
+                      <Al>Alinea 2.</Al>
+                      <Al>Alinea 3.</Al>
+                    </entry>
+                    <entry align="left" nameend="col4" namest="col4">
+                      <Lijst
+                        eId="chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1"
+                        type="expliciet"
+                        wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1"
+                      >
+                        <Lijstaanhef>Tabelcel met lijst:</Lijstaanhef>
+                        <li
+                          eId="chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_1"
+                          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_1"
+                        >
+                          <LiNummer>1.</LiNummer>
+                          <Al>Item 1</Al>
+                        </li>
+                        <li
+                          eId="chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_2"
+                          wId="gm1979_2__chp_13__subsec_13.7__art_13.72__table_o_1__list_o_1__item_2"
+                        >
+                          <LiNummer>2.</LiNummer>
+                          <Al>Item 2</Al>
+                        </li>
+                      </Lijst>
+                    </entry>
+                    <entry align="left" nameend="col5" namest="col5">
+                      <Al>Tabelcel met <b>vet</b>, <i>cursief</i>. </Al>
+                    </entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </table>
+          </Inhoud>
+        </Lid>
+      </Artikel>
+    `,
+  },
 ];

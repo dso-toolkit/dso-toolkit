@@ -13,10 +13,12 @@ import { OzonContentInlineNodes } from "./nodes/inline.nodes";
 import { OzonContentIntIoRefNode } from "./nodes/int-io-ref.node";
 import { OzonContentIntRefNode } from "./nodes/int-ref.node";
 import { OzonContentLijstNode } from "./nodes/lijst.node";
+import { OzonContentNieuweTekstNode } from "./nodes/nieuwe-tekst.node";
 import { OzonContentNootNode } from "./nodes/noot.node";
 import { OzonContentOpschriftNode } from "./nodes/opschrift.node";
 import { OzonContentTableNode } from "./nodes/table.node";
 import { OzonContentTextNode } from "./nodes/text.node";
+import { OzonContentVerwijderdeTekstNode } from "./nodes/verwijderde-tekst.node";
 import { OzonContentContext } from "./ozon-content-context.interface";
 import { OzonContentNode } from "./ozon-content-node.interface";
 
@@ -39,6 +41,8 @@ export class Mapper {
     new OzonContentFiguurNode(),
     new OzonContentLijstNode(),
     new OzonContentBronNode(),
+    new OzonContentNieuweTekstNode(),
+    new OzonContentVerwijderdeTekstNode(),
   ];
 
   private skip = this.mappers.reduce<string[]>((t, m) => {
