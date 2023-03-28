@@ -7,4 +7,5 @@ export interface DatePicker {
   max?: string;
   disabled: boolean;
   autofocus?: boolean;
+  invalid?: boolean;
 }

@@ -9,6 +9,7 @@ export const cssFormGroup: ComponentImplementation<FormGroup<TemplateResult>> = 
   template: ({
     formGroupCheckboxesTemplate,
     formGroupConfirmTemplate,
+    formGroupDatePickerTemplate,
     formGroupFilesTemplate,
     formGroupInputTemplate,
     formGroupInputNumberTemplate,
@@ -24,6 +25,8 @@ export const cssFormGroup: ComponentImplementation<FormGroup<TemplateResult>> = 
           return formGroupCheckboxesTemplate(formGroup);
         case "confirm":
           return formGroupConfirmTemplate(formGroup);
+        case "date-picker":
+          return formGroupDatePickerTemplate(formGroup);
         case "files":
           return formGroupFilesTemplate(formGroup);
         case "input":

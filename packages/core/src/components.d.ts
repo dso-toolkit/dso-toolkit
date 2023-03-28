@@ -167,6 +167,10 @@ export namespace Components {
          */
         "identifier": string | undefined;
         /**
+          * Is input invalid?
+         */
+        "invalid"?: boolean;
+        /**
           * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */
         "max": string | undefined;
@@ -977,6 +981,10 @@ declare namespace LocalJSX {
           * Adds a unique identifier for the date picker input. Use this instead of html `id` attribute.
          */
         "identifier"?: string | undefined;
+        /**
+          * Is input invalid?
+         */
+        "invalid"?: boolean;
         /**
           * Maximum date allowed to be picked. Must be in Dutch date format: DD-MM-YYYY. This setting can be used alone or together with the min property.
          */

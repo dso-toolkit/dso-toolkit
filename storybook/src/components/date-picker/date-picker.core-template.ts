@@ -9,7 +9,7 @@ export const coreDatePicker: ComponentImplementation<DatePicker> = {
   component: "datePicker",
   implementation: "core",
   template: () =>
-    function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, autofocus, direction }) {
+    function datePickerTemplate({ id, dsoDateChange, value, min, max, disabled, invalid, autofocus, direction }) {
       return html`
         <dso-date-picker
           @dsoDateChange=${(e: CustomEvent<DsoDatePickerChangeEvent>) => dsoDateChange?.(e)}
@@ -20,6 +20,7 @@ export const coreDatePicker: ComponentImplementation<DatePicker> = {
           max=${ifDefined(max || undefined)}
           dso-autofocus=${ifDefined(autofocus || undefined)}
           ?disabled=${disabled}
+          ?invalid=${invalid}
         ></dso-date-picker>
       `;
     },

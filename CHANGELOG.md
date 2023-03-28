@@ -10,10 +10,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Changed
 * **BREAKING**: Winkelwagentje open en dicht net zoals accordion. Gebruik icoon `chevron-right` ([#1984](https://github.com/dso-toolkit/dso-toolkit/issues/1984))
+* Date picker: Property `invalid` voor invalid state (`<input>`: rode border en aria-invalid) ([#2040](https://github.com/dso-toolkit/dso-toolkit/issues/2040))
 
 ### Fixed
 * Date picker: Handje op kalender icon van een disabled date picker ([#2041](https://github.com/dso-toolkit/dso-toolkit/issues/2041))
-* Rode border op invalid Selectable ([#2037](https://github.com/dso-toolkit/dso-toolkit/issues/2037))
+* Selectable: Rode border ontbreekt op invalid Selectable ([#2037](https://github.com/dso-toolkit/dso-toolkit/issues/2037))
 
 ## 51.4.1
 

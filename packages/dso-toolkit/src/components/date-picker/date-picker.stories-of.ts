@@ -50,6 +50,12 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
       },
     });
 
+    stories.add("invalid", template, {
+      args: {
+        invalid: true,
+      },
+    });
+
     stories.add("with value", template, {
       args: {
         value: "15-11-2020",

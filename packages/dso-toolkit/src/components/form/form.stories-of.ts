@@ -25,6 +25,11 @@ import {
   formGroupConfirmArgsMapper,
   formGroupConfirmArgTypes,
 } from "./args/form-group-confirm.args.js";
+import {
+  FormGroupDatePickerArgs,
+  formGroupDatePickerArgsMapper,
+  formGroupDatePickerArgTypes,
+} from "./args/form-group-date-picker.args.js";
 import { FormGroupFilesArgs, formGroupFilesArgsMapper, formGroupFilesArgTypes } from "./args/form-group-files.args.js";
 import { FormGroupInputArgs, formGroupInputArgsMapper, formGroupInputArgTypes } from "./args/form-group-input.args.js";
 import {
@@ -61,6 +66,7 @@ import {
 import { TemplateContainer } from "../../template-container.js";
 import { FormGroupCheckboxes } from "./models/form-group-checkboxes.model.js";
 import { FormGroupConfirm } from "./models/form-group-confirm.model.js";
+import { FormGroupDatePicker } from "./models/form-group-date-picker.model.js";
 import { FormGroupFiles } from "./models/form-group-files.model.js";
 import { FormGroupInputNumber } from "./models/form-group-input-number.model.js";
 import { FormGroupInput, FormGroupInputDate } from "./models/form-group-input.model.js";
@@ -70,11 +76,13 @@ import { FormGroupSelect } from "./models/form-group-select.model.js";
 import { FormGroupStatic } from "./models/form-group-static.model.js";
 import { FormGroupTextarea } from "./models/form-group-textarea.model.js";
 import { Form } from "./models/form.model.js";
+import { datePickerContent } from "./content/date-picker.content.js";
 
 export interface FormTemplates<TemplateFnReturnType> {
   formTemplate: (form: Form<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupCheckboxesTemplate: (formGroupCheckboxes: FormGroupCheckboxes<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupConfirmTemplate: (formGroupConfirm: FormGroupConfirm<TemplateFnReturnType>) => TemplateFnReturnType;
+  formGroupDatePickerTemplate: (formGroupDatePicker: FormGroupDatePicker<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupFilesTemplate: (formGroupFiles: FormGroupFiles<TemplateFnReturnType>) => TemplateFnReturnType;
   formGroupInputTemplate: (
     formGroupInput: FormGroupInput<TemplateFnReturnType> | FormGroupInputDate<TemplateFnReturnType>
@@ -148,6 +156,24 @@ export function storiesOfForm<Implementation, Templates, TemplateFnReturnType>(
         const { formGroupConfirmTemplate } = storyTemplates(templates);
 
         return formGroupConfirmTemplate(formGroupConfirmArgsMapper(args));
+      })
+    );
+
+  storiesOf(`${StoryRoot.HtmlCss}/Form/groups/date-picker`, mainModule)
+    .addParameters({
+      argTypes: formGroupDatePickerArgTypes,
+      args: datePickerContent,
+      docs: {
+        page: readme,
+      },
+    })
+    .addDecorator(formGroupDecorator)
+    .add(
+      "date picker",
+      templateContainer.fromArgs<FormGroupDatePickerArgs>((args, templates) => {
+        const { formGroupDatePickerTemplate } = storyTemplates(templates);
+
+        return formGroupDatePickerTemplate(formGroupDatePickerArgsMapper(args));
       })
     );
 
