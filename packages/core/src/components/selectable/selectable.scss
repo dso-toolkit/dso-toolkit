@@ -4,8 +4,13 @@
 
 :host {
   display: block;
+  padding-left: units.$u4;
 
   @include selectable.root("dso-info", false);
+
+  &[invalid] {
+    @include selectable.invalid();
+  }
 }
 
 :host(:not(:last-child)) {
@@ -16,8 +21,9 @@
 
 .dso-selectable-input-wrapper {
   display: inline-block;
+  margin-left: -#{units.$u4};
   min-height: units.$u3;
-  padding-left: 32px;
+  padding-left: units.$u4;
 
   &:focus-within {
     @include utilities.focus-outline();
