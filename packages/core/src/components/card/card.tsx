@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { isInteractiveElement } from "../../utils/is-interactive-element";
 import { isModifiedEvent } from "../../utils/is-modified-event";
 
-import { DsoCardClickedEvent } from "./card.interfaces";
+import { DsoCardClickedEvent, ImageShape } from "./card.interfaces";
 
 @Component({
   tag: "dso-card",
@@ -30,7 +30,7 @@ export class Card implements ComponentInterface {
    *  - "wide" ("30 x 26")
    */
   @Prop({ reflect: true })
-  imageShape = "normal";
+  imageShape: ImageShape = "normal";
 
   @Event()
   dsoCardClicked!: EventEmitter<DsoCardClickedEvent>;
