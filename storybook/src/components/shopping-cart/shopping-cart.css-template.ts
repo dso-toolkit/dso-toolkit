@@ -57,11 +57,8 @@ export const cssShoppingCart: ComponentImplementation<ShoppingCart> = {
                               class="dso-status"
                               aria-expanded=${ifDefined(collapsed ? "false" : "true")}
                             >
-                              ${!collapsed
-                                ? html` ${iconTemplate({ icon: "chevron-up" })} `
-                                : html` ${iconTemplate({ icon: "chevron-down" })} `}
-                              U heeft ${countItems(items)} activiteit${countItems(items) > 1 ? html`en` : nothing}
-                              gekozen
+                              ${iconTemplate({ icon: "chevron-right" })} U heeft ${countItems(items)}
+                              activiteit${countItems(items) > 1 ? html`en` : nothing} gekozen
                             </button>`
                           : html`
                               <span class="dso-status"
