@@ -4,13 +4,14 @@ import { ArgTypes, noControl } from "../../storybook/index.js";
 import { Button } from "../button/button.models.js";
 import { Label } from "../label/label.models.js";
 import { Toggletip } from "../toggletip/toggletip.models.js";
-import { Card } from "./card.models.js";
+import { Card, imageShapes } from "./card.models.js";
 
 export interface CardArgs {
   label: string;
   selectable: boolean;
   interactions: Array<Button | Label | Toggletip<never>>;
   image: string | undefined;
+  imageShape: typeof imageShapes[number];
   clickable: boolean;
   dsoCardClicked: HandlerFunction;
 }
@@ -29,6 +30,13 @@ export const cardArgTypes: ArgTypes<CardArgs> = {
   },
   image: {
     ...noControl,
+  },
+  imageShape: {
+    control: {
+      options: imageShapes,
+      type: "select",
+    },
+    if: { arg: "image" },
   },
   dsoCardClicked: {
     ...noControl,

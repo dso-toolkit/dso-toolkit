@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 * Ozon Content: Ondersteuning `<NieuweTekst>`, `<VerwijderdeTekst>`, `<table wijzigactie="verwijder">` & `<table wijzigactie="voegtoe">` ([#2060](https://github.com/dso-toolkit/dso-toolkit/issues/2060))
+* Card: optional property `imageShape` met opties: "normal", "wide". default: "normal"  ([#2059](https://github.com/dso-toolkit/dso-toolkit/issues/2059))
 
 ### Changed
 * **BREAKING**: Winkelwagentje open en dicht net zoals accordion. Gebruik icoon `chevron-right` ([#1984](https://github.com/dso-toolkit/dso-toolkit/issues/1984))

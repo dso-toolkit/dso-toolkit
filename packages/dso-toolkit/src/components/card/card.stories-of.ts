@@ -43,6 +43,14 @@ export function storiesOfCard<Implementation, Templates, TemplateFnReturnType>(
       },
     });
 
+    stories.add("with wide image", template, {
+      args: {
+        ...cardContentButton,
+        image: "images/rectangle1.png",
+        imageShape: "wide",
+      },
+    });
+
     stories.add("with toggletip", template, {
       args: cardContentToggletip,
     });

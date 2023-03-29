@@ -52,4 +52,17 @@ describe("Card", () => {
       .get("@dsoCardClickedListener")
       .should("not.have.been.called");
   });
+
+  it("should have correct image dimensions", () => {
+    cy.visit("http://localhost:45000/iframe.html?id=core-card--with-image")
+      .get("dso-card")
+      .find("img[slot='image']")
+      .should("have.css", "height", "24px")
+      .and("have.css", "width", "24px")
+      .get("dso-card")
+      .invoke("attr", "image-shape", "wide")
+      .find("img[slot='image']")
+      .should("have.css", "height", "26px")
+      .and("have.css", "width", "30px");
+  });
 });

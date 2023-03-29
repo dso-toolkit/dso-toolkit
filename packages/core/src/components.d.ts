@@ -9,7 +9,7 @@ import { AccordionInternalState, AccordionSectionToggleAnimationEndEvent, Accord
 import { AccordionHeading, AccordionSectionState } from "./components/accordion/components/accordion-section.interfaces";
 import { AnnotationToggleEvent } from "./components/annotation-output/annotation-output.interfaces";
 import { Suggestion } from "./components/autosuggest/autosuggest.interfaces";
-import { DsoCardClickedEvent } from "./components/card/card.interfaces";
+import { DsoCardClickedEvent, ImageShape } from "./components/card/card.interfaces";
 import { CardContainerMode } from "./components/card-container/card-container.interfaces";
 import { DsoDatePickerChangeEvent, DsoDatePickerDirection, DsoDatePickerFocusEvent, DsoDatePickerKeyboardEvent } from "./components/date-picker/date-picker.interfaces";
 import { ExpandableHeadingToggleEvent, HeadingTags } from "./components/expandable-heading/expandable-heading.interfaces";
@@ -140,6 +140,10 @@ export namespace Components {
     interface DsoCard {
         "clickable": boolean;
         "hasImage": boolean;
+        /**
+          * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
+         */
+        "imageShape": ImageShape;
         "isSelectable": boolean;
     }
     interface DsoCardContainer {
@@ -954,6 +958,10 @@ declare namespace LocalJSX {
     interface DsoCard {
         "clickable"?: boolean;
         "hasImage"?: boolean;
+        /**
+          * Presentation of image in header.  - "normal" ("24 x 24").  - "wide" ("30 x 26")
+         */
+        "imageShape"?: ImageShape;
         "isSelectable"?: boolean;
         "onDsoCardClicked"?: (event: DsoCardCustomEvent<DsoCardClickedEvent>) => void;
     }

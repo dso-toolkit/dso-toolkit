@@ -14,11 +14,16 @@ export const coreCard: ComponentImplementation<Card<never>> = {
       content,
       interactions,
       image,
+      imageShape,
       clickable = true,
       dsoCardClicked,
     }: Card<TemplateResult>) {
       return html`
-        <dso-card clickable=${ifDefined(clickable)} @dsoCardClicked=${dsoCardClicked}>
+        <dso-card
+          clickable=${ifDefined(clickable)}
+          image-shape=${ifDefined(imageShape)}
+          @dsoCardClicked=${dsoCardClicked}
+        >
           ${selectable ? selectableTemplate(selectable) : nothing}
           ${image ? html`<img slot="image" src=${image} />` : nothing}
           ${clickable

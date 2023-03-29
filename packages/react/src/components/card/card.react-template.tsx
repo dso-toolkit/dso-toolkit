@@ -9,9 +9,13 @@ export const reactCard: ComponentImplementation<Card<JSX.Element>> = {
   component: "card",
   implementation: "react",
   template: ({ iconTemplate, labelTemplate, toggletipTemplate, selectableTemplate }) =>
-    function cardTemplate({ label, selectable, content, interactions, image, clickable, dsoCardClicked }) {
+    function cardTemplate({ label, selectable, content, interactions, image, imageShape, clickable, dsoCardClicked }) {
       return (
-        <DsoCard clickable={clickable} onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}>
+        <DsoCard
+          clickable={clickable}
+          imageShape={imageShape}
+          onDsoCardClicked={(e: CustomEvent<DsoCardClickedEvent>) => dsoCardClicked?.(e)}
+        >
           {selectable && selectableTemplate(selectable)}
           {image && <img slot="image" src={image} />}
           {clickable ? (
