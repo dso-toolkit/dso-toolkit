@@ -7,6 +7,12 @@
 
 :host {
   display: block;
+
+  &[invalid] {
+    .dso-date__input {
+      border-color: colors.$danger-color;
+    }
+  }
 }
 
 .dso-date *,

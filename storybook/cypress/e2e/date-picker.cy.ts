@@ -421,4 +421,12 @@ describe("Date Picker", () => {
       .get("dso-date-picker input.dso-date__input")
       .should("have.prop", "selectionStart", 1);
   });
+
+  it("should have an invalid state", () => {
+    cy.get("dso-date-picker")
+      .invoke("attr", "invalid", "true")
+      .find(".dso-date__input")
+      .should("have.css", "border-color", "rgb(206, 63, 81)")
+      .and("have.attr", "aria-invalid", "true");
+  });
 });

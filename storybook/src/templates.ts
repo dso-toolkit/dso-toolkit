@@ -32,6 +32,7 @@ import {
   FormGroup,
   FormGroupCheckboxes,
   FormGroupConfirm,
+  FormGroupDatePicker,
   FormGroupFiles,
   FormGroupInput,
   FormGroupInputDate,
@@ -169,6 +170,7 @@ import { coreViewerGrid } from "./components/viewer-grid/viewer-grid.core-templa
 import { cssForm } from "./components/form/form.css-template";
 import { cssFormGroupCheckboxes } from "./components/form/form-group-checkboxes.css-template";
 import { cssFormGroupConfirm } from "./components/form/form-group-confirm.css-template";
+import { cssFormGroupDatePicker } from "./components/form/form-group-date-picker.css-template";
 import { cssFormGroupFiles } from "./components/form/form-group-files.css-template";
 import { cssFormGroupInputNumber } from "./components/form/form-group-input-number.css-template";
 import { cssFormGroupInput } from "./components/form/form-group-input.css-template";
@@ -219,6 +221,7 @@ export interface Components {
   formGroup: FormGroup<TemplateResult>;
   formGroupCheckboxes: FormGroupCheckboxes<TemplateResult>;
   formGroupConfirm: FormGroupConfirm<TemplateResult>;
+  formGroupDatePicker: FormGroupDatePicker<TemplateResult>;
   formGroupFiles: FormGroupFiles<TemplateResult>;
   formGroupInput: FormGroupInput<TemplateResult> | FormGroupInputDate<TemplateResult>;
   formGroupInputNumber: FormGroupInputNumber<TemplateResult>;
@@ -358,6 +361,7 @@ templateContainer.add(cssFormButtons);
 templateContainer.add(cssFormGroup);
 templateContainer.add(cssFormGroupCheckboxes);
 templateContainer.add(cssFormGroupConfirm);
+templateContainer.add(cssFormGroupDatePicker);
 templateContainer.add(cssFormGroupFiles);
 templateContainer.add(cssFormGroupInput);
 templateContainer.add(cssFormGroupInputNumber);

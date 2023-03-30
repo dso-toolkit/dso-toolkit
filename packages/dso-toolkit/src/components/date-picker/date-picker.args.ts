@@ -12,6 +12,7 @@ export interface DatePickerArgs {
   max: string;
   disabled: boolean;
   autofocus: boolean;
+  invalid: boolean;
 }
 
 export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
@@ -60,6 +61,9 @@ export const datePickerArgTypes: ArgTypes<DatePickerArgs> = {
     control: {
       type: "boolean",
     },
+  },
+  invalid: {
+    type: "boolean",
   },
   dsoDateChange: {
     action: "dsoDateChange",
