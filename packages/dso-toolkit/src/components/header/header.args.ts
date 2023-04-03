@@ -26,10 +26,7 @@ export const headerArgTypes: ArgTypes<HeaderArgs> = {
   logo: noControl,
   subLogo: noControl,
   showSubLogo: {
-    name: "Sub logo tonen",
-    control: {
-      type: "boolean",
-    },
+    ...noControl,
   },
   mainMenu: noControl,
   noMainMenu: {
