@@ -46,23 +46,31 @@ export function storiesOfViewerGrid<Implementation, Templates, TemplateFnReturnT
       "Viewer Grid",
       templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
         viewerGridTemplate({
-          dsoCloseOverlay: args.dsoCloseOverlay,
-          dsoFilterpanelApply: args.dsoFilterpanelApply,
-          dsoFilterpanelCancel: args.dsoFilterpanelCancel,
-          filterpanelOpen: args.filterpanelOpen,
-          dsoMainSizeChange: args.dsoMainSizeChange,
-          initialMainSize: args.initialMainSize,
-          overlayOpen: args.overlayOpen,
-          main: example.main,
-          map: example.map,
-          filterpanel: example.filterpanel,
-          overlay: example.overlay,
+          ...args,
+          ...example,
         })
       ),
       {
         argTypes: viewerGridArgTypes,
         args: componentArgs<Pick<ViewerGridArgs, "filterpanelOpen" | "overlayOpen">>({
           filterpanelOpen: false,
+          overlayOpen: false,
+        }),
+      }
+    );
+
+    stories.add(
+      "Filterpanel",
+      templateMapper<ViewerGridArgs>((args, { viewerGridTemplate, example }) =>
+        viewerGridTemplate({
+          ...args,
+          ...example,
+        })
+      ),
+      {
+        argTypes: viewerGridArgTypes,
+        args: componentArgs<Pick<ViewerGridArgs, "filterpanelOpen" | "overlayOpen">>({
+          filterpanelOpen: true,
           overlayOpen: false,
         }),
       }
