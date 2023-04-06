@@ -2,6 +2,22 @@
 
 Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` gezet. Deze class zorgt ervoor dat het scrollgedrag 'achter' de modal wordt uitgezet. Als afnemer kun je dus een modal starten door `<dso-modal>` pas te renderen als je een modal wil.
 
+Modal kan op 2 manieren worden ingezet. De traditionele manier door het `<DsoModal>` element te plaatsen of met een controller.
+
+```
+const controller = new ModalController();
+
+const instance = controller.createInstance({
+  title: "Een titel",
+  body: "<p>Hallo</p>",
+  footer: "<button>Bevestig</button>"
+});
+
+instance.addEventListener("dsoClose", () => instance.close());
+```
+
+Het openen van de modal gaat met `instance.open()`.
+
 <!-- Auto Generated Below -->
 
 
