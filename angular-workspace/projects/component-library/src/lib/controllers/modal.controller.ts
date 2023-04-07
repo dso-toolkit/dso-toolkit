@@ -14,17 +14,7 @@ import { DsoModalController, ModalContent, ModalContentComponent, ModalOptions }
 import { DsoModal } from "../stencil-generated/components";
 
 export class AngularModalContentComponent implements ModalContentComponent<ComponentRef<DsoModal>> {
-  private appRef: ApplicationRef;
-
-  private document: Document;
-
-  component: ComponentRef<DsoModal>;
-
-  constructor(component: ComponentRef<DsoModal>, appRef: ApplicationRef, document: Document) {
-    this.component = component;
-    this.appRef = appRef;
-    this.document = document;
-  }
+  constructor(public component: ComponentRef<DsoModal>, private appRef: ApplicationRef, private document: Document) {}
 
   open() {
     this.document.body.appendChild(this.component.location.nativeElement);
@@ -63,15 +53,14 @@ export class ModalController implements DsoModalController<ComponentRef<DsoModal
       environmentInjector: this.injector,
     });
 
-    const bodyHtml = document.createElement("div");
-    bodyHtml.setAttribute("slot", "body");
-    bodyHtml.appendChild(bodyRef.location.nativeElement);
+    bodyRef.location.nativeElement.setAttribute("slot", "body");
+    this.appRef.attachView(bodyRef.hostView);
 
     const footerHtml = document.createElement("div");
     footerHtml.setAttribute("slot", "footer");
 
     if (footer) {
-      const footerRef = createComponent(body, {
+      const footerRef = createComponent(footer, {
         environmentInjector: this.injector,
       });
       footerHtml.appendChild(footerRef.location.nativeElement);
@@ -79,7 +68,7 @@ export class ModalController implements DsoModalController<ComponentRef<DsoModal
 
     const modalComponentRef = createComponent(DsoModal, {
       environmentInjector: this.injector,
-      projectableNodes: [[bodyHtml], footer ? [footerHtml] : []],
+      projectableNodes: [[bodyRef.location.nativeElement], footer ? [footerHtml] : []],
     });
 
     if (title) {
