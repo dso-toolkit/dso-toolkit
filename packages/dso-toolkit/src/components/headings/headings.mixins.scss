@@ -13,7 +13,7 @@
 
 @mixin margin-small() {
   margin-bottom: units.$vertical-spacing-medium;
-  margin-top: typography.$line-height-computed;
+  margin-top: (typography.$line-height-computed * 0.5);
 }
 
 @mixin h1() {
