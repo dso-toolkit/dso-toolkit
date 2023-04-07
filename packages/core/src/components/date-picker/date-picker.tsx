@@ -1,5 +1,3 @@
-import { createIdentifier } from "../../utils/create-identifier";
-
 import {
   Component,
   ComponentInterface,
@@ -14,6 +12,7 @@ import {
   Method,
 } from "@stencil/core";
 
+import { createIdentifier } from "../../utils/create-identifier";
 import {
   addDays,
   startOfWeek,
@@ -36,14 +35,8 @@ import {
   DsoDatePickerFocusEvent,
   DsoDatePickerKeyboardEvent,
 } from "./date-picker.interfaces";
-
-function range(from: number, to: number) {
-  const result: number[] = [];
-  for (let i = from; i <= to; i++) {
-    result.push(i);
-  }
-  return result;
-}
+import { monthRange } from "./utils/month-range";
+import { range } from "./utils/range";
 
 const keyCode = {
   TAB: 9,
@@ -591,6 +584,19 @@ export class DsoDatePicker implements ComponentInterface {
     }
   };
 
+  componentWillLoad(): void | Promise<void> {
+    const minDate = parseDutchDate(this.max);
+    const maxDate = parseDutchDate(this.max);
+
+    if (minDate && minDate > this.focusedDay) {
+      this.focusedDay = minDate;
+    }
+
+    if (maxDate && maxDate < this.focusedDay) {
+      this.focusedDay = maxDate;
+    }
+  }
+
   componentDidLoad() {
     const valueAsDate = parseDutchDate(this.value);
     if (valueAsDate) {
@@ -717,7 +723,7 @@ export class DsoDatePicker implements ComponentInterface {
                       ref={(element) => (this.monthSelectNode = element)}
                       onChange={this.handleMonthSelect}
                     >
-                      {this.localization.monthNames.map((month, i) => (
+                      {monthRange(selectedYear, minDate, maxDate).map((month, i) => (
                         <option key={month} value={i} selected={i === focusedMonth}>
                           {month}
                         </option>

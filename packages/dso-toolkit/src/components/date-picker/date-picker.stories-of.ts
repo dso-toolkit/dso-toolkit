@@ -64,8 +64,8 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
 
     stories.add("with min and max", template, {
       args: {
-        min: "3-1-2020",
-        max: "28-1-2020",
+        min: "3-8-2020",
+        max: "28-3-2022",
       },
     });
 
