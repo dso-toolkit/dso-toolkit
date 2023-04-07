@@ -32,7 +32,7 @@ export const coreHeader: ComponentImplementation<Header> = {
         @dsoHeaderClick=${dsoHeaderClick}
       >
         <div slot="logo"><img alt="Omgevingsloket" src=${logo} /></div>
-        ${subLogo ? html`<div slot="sub-logo"><img alt="Regels op de kaart" src=${subLogo} /></div>` : undefined}
+        ${subLogo ? html`<img slot="sub-logo" alt="Regels op de kaart" src=${subLogo} />` : null}
       </dso-header>`;
     },
 };

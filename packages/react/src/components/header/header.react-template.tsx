@@ -37,11 +37,7 @@ export const reactHeader: ComponentImplementation<Header> = {
           <div slot="logo">
             <img alt="Omgevingsloket" src={logo} />
           </div>
-          {subLogo && (
-            <div slot="sub-logo">
-              <img alt="Regels op de kaart" src={subLogo} />
-            </div>
-          )}
+          {subLogo ? <img slot="sub-logo" alt="Regels op de kaart" src={subLogo} /> : null}
         </DsoHeader>
       );
     },
