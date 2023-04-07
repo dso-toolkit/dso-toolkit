@@ -259,20 +259,20 @@
   }
 
   &.is-outside {
-    background: core-date-picker-variables.$color-button-disabled;
+    background: core-date-picker-variables.$color-button-is-outside;
     box-shadow: none;
-    color: core-date-picker-variables.$color-text-disabled;
     cursor: default;
     pointer-events: none;
+
+    &.not-current-month {
+      background: core-date-picker-variables.$color-button-not-current-month;
+    }
   }
 
-  &.is-disabled {
+  &.not-current-month {
     background: colors.$wit;
+    color: core-date-picker-variables.$color-text-not-current-month;
     cursor: default;
-
-    &:hover {
-      color: core-date-picker-variables.$color-text-disabled;
-    }
   }
 
   span[aria-hidden="true"] {

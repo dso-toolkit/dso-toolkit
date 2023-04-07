@@ -22,7 +22,7 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
 }) => {
   const isToday = isEqual(day, today);
   const isFocused = isEqual(day, focusedDay);
-  const isDisabled = day.getMonth() !== focusedDay.getMonth();
+  const notCurrentMonth = day.getMonth() !== focusedDay.getMonth();
   const isOutsideRange = !inRange;
 
   function handleClick(e: MouseEvent) {
@@ -34,13 +34,13 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
       class={{
         "dso-date__day": true,
         "is-outside": isOutsideRange,
-        "is-disabled": isDisabled,
+        "not-current-month": notCurrentMonth,
         "is-today": isToday,
       }}
       tabIndex={isFocused ? 0 : -1}
       onClick={handleClick}
       onKeyDown={onKeyboardNavigation}
-      disabled={isOutsideRange || isDisabled}
+      disabled={isOutsideRange || notCurrentMonth}
       type="button"
       ref={(el) => {
         if (isFocused && el && focusedDayRef) {
