@@ -63,6 +63,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
           {
             label: "Postcode en huisnummer",
             id: "tabitem-2",
+            modifiers: "active",
             content: "Inhoud Postcode en huisnummer",
           },
           {
@@ -73,6 +74,7 @@ export function storiesOfTabs<Implementation, Templates, TemplateFnReturnType>(
           {
             label: "Coordinaten",
             id: "tabitem-4",
+            modifiers: "disabled",
             content: "Inhoud Coordinaten",
           },
         ],

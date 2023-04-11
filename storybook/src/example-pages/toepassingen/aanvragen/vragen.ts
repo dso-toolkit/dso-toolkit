@@ -1,6 +1,7 @@
 import { html } from "lit-html";
+
 import { examplePageFactory } from "../../../example-page-factory";
-import { radios, checkboxes } from "./vragen.content";
+import { checkboxes, radios } from "./vragen.content";
 
 examplePageFactory(
   "Toepassingen/Aanvragen",
