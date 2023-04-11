@@ -14,20 +14,14 @@ export interface DsoModalCloseEvent {
   originalEvent?: MouseEvent;
 }
 
-// Modal Controller Models
-export interface ModalContentComponent<TemplateFnReturnType> {
-  component: TemplateFnReturnType;
-  open(): void;
-  close(): void;
-  addEventListener?(eventName: string, fn: () => void): void;
-  removeEventListener?(eventName: string, fn: () => void): void;
+export interface ModalController<TemplateFnReturnType> {
+  open(modal: ModalContent<TemplateFnReturnType>, config?: ModalConfig): ModalRef;
 }
 
-export interface DsoModalController<TemplateFnReturnType, ContentTemplateType = never> {
-  createInstance(
-    content: ModalContent<ContentTemplateType | TemplateFnReturnType>,
-    options: ModalOptions
-  ): ModalContentComponent<TemplateFnReturnType>;
+export interface ModalRef {
+  close(): void;
+  onDsoClose(fn: (e: Event | CustomEvent) => void): void;
+  offDsoClose(): void;
 }
 
 export interface ModalContent<TemplateFnReturnType> {
@@ -40,4 +34,9 @@ export interface ModalOptions {
   role?: ModalRole;
   showCloseButton?: boolean;
   initialFocus?: string;
+}
+
+export interface ModalConfig {
+  data?: any;
+  options?: ModalOptions;
 }

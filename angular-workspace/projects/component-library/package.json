@@ -13,6 +13,7 @@
   "peerDependencies": {
     "@angular/common": "^15.0.3",
     "@angular/core": "^15.0.3",
+    "@angular/cdk": "^15.0.3",
     "@dso-toolkit/core": ">=45"
   },
   "dependencies": {

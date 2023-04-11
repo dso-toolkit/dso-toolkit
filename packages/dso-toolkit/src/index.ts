@@ -233,11 +233,12 @@ export { ListButtonTemplates, storiesOfListButton } from "./components/list-butt
 
 export {
   Modal,
+  ModalConfig,
   ModalContent,
-  ModalContentComponent,
+  ModalController,
   ModalOptions,
+  ModalRef,
   ModalRole,
-  DsoModalController,
 } from "./components/modal/modal.models.js";
 export { ModalTemplates, storiesOfModal } from "./components/modal/modal.stories-of.js";
 
