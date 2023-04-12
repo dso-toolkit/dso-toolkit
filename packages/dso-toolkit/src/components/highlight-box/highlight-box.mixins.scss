@@ -48,6 +48,7 @@
     width: calc(100% + #{units.$u4});
   }
 
+  > .dso-step-counter:first-child + .dso-rich-content,
   > .dso-rich-content:first-child {
     *:first-child {
       margin-top: 0 !important;
