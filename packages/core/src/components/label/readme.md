@@ -20,6 +20,29 @@
 | `dsoRemoveClick` |             | `CustomEvent<MouseEvent>` |
 
 
+## Methods
+
+### `truncateLabel() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `updateTooltipText() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
