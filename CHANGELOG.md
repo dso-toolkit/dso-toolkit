@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 * Label: instantieert maar één `MutationObserver` en `ResizeObserver` ([#2065](https://github.com/dso-toolkit/dso-toolkit/issues/2065))
 
+### Fixed
+* Te weinig witruime tussen img banner en heading in Highlightbox ([#2043](https://github.com/dso-toolkit/dso-toolkit/issues/2043))
+
 ## 52.0.0
 
 ### Added
