@@ -9,8 +9,12 @@ import {
   Element,
   Watch,
   Host,
+  Method,
 } from "@stencil/core";
 import clsx from "clsx";
+
+import { mutationObserver } from "./mutation-observer";
+import { resizeObserver } from "./resize-observer";
 
 function hasEllipses(el: HTMLElement): boolean {
   return el.scrollWidth > el.clientWidth;
@@ -22,16 +26,6 @@ function hasEllipses(el: HTMLElement): boolean {
   shadow: true,
 })
 export class Label implements ComponentInterface {
-  private mutationObserver = new MutationObserver(() => {
-    this.labelText = this.host.innerText;
-
-    if (this.truncate) {
-      this.truncateLabel();
-    }
-  });
-
-  private resizeObserver = new ResizeObserver(() => this.truncateLabel());
-
   private labelContent: HTMLSpanElement | undefined;
 
   private keydownListenerActive = false;
@@ -102,7 +96,8 @@ export class Label implements ComponentInterface {
     ["danger", "Fout"],
   ]);
 
-  truncateLabel() {
+  @Method()
+  async truncateLabel() {
     setTimeout(() => {
       if (this.labelContent) {
         this.truncatedContent = hasEllipses(this.labelContent) ? this.host.innerText : undefined;
@@ -110,10 +105,19 @@ export class Label implements ComponentInterface {
     });
   }
 
+  @Method()
+  async updateTooltipText() {
+    this.labelText = this.host.innerText;
+
+    if (this.truncate) {
+      this.truncateLabel();
+    }
+  }
+
   componentDidLoad() {
     this.labelText = this.host.innerText;
 
-    this.mutationObserver.observe(this.host, {
+    mutationObserver.observe(this.host, {
       attributes: true,
       subtree: true,
     });
@@ -124,12 +128,12 @@ export class Label implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    this.mutationObserver?.disconnect();
+    mutationObserver?.disconnect();
     this.stopTruncate();
   }
 
   startTruncate(): void {
-    this.resizeObserver.observe(this.host);
+    resizeObserver.observe(this.host);
 
     this.truncateLabel();
   }
@@ -137,7 +141,7 @@ export class Label implements ComponentInterface {
   stopTruncate(): void {
     document.removeEventListener("keydown", this.keyDownListener);
 
-    this.resizeObserver.unobserve(this.host);
+    resizeObserver.unobserve(this.host);
     this.truncatedContent = undefined;
     this.keydownListenerActive = false;
   }

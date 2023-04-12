@@ -284,6 +284,8 @@ export namespace Components {
         "removable"?: boolean;
         "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
         "truncate"?: boolean;
+        "truncateLabel": () => Promise<void>;
+        "updateTooltipText": () => Promise<void>;
     }
     interface DsoListButton {
         "checked": boolean;

@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Viewer Grid: Details fixen filterpaneel ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
 * Diverse voorbeeldpagina's zijn toegevoegd, uitgebreid en/of aangepast naar de laatste toolkit inzichten ([#2024](https://github.com/dso-toolkit/dso-toolkit/issues/2024))
 
+### Fixed
+* Label: instantieert maar één `MutationObserver` en `ResizeObserver` ([#2065](https://github.com/dso-toolkit/dso-toolkit/issues/2065))
+
 ## 52.0.0
 
 ### Added
