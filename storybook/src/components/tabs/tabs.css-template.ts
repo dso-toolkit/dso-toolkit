@@ -34,7 +34,7 @@ export const cssTabs: ComponentImplementation<Tabs> = {
               aria-labelledby=${item.id}
               ?hidden=${item.modifiers !== "active"}
             >
-              Inhoud ${item.label}
+              ${item.content}
             </div>
           `
         )}
