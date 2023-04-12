@@ -187,6 +187,7 @@
   font-weight: core-date-picker-variables.$font-bold;
   height: 36px;
   line-height: 36px;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -258,21 +259,10 @@
     }
   }
 
-  &.is-outside {
-    background: core-date-picker-variables.$color-button-disabled;
-    box-shadow: none;
+  &:disabled {
+    background: colors.$wit;
     color: core-date-picker-variables.$color-text-disabled;
     cursor: default;
-    pointer-events: none;
-  }
-
-  &.is-disabled {
-    background: colors.$wit;
-    cursor: default;
-
-    &:hover {
-      color: core-date-picker-variables.$color-text-disabled;
-    }
   }
 
   span[aria-hidden="true"] {
