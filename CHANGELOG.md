@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* Viewer Grid: Details fixen filterpaneel ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
+
 ### 52.0.0
 
 ### Added

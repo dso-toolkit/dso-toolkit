@@ -8,9 +8,23 @@ h1,
 h2,
 .h2,
 h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  @include headings.base();
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
 .h3 {
-  margin-bottom: units.$vertical-spacing-medium;
-  margin-top: typography.$line-height-computed;
+  @include headings.margin-large();
 }
 
 h1,
@@ -28,9 +42,7 @@ h2,
 }
 
 h2 {
-  color: colors.$bosgroen;
-  font-size: units.$font-size-h2;
-  font-weight: 700;
+  @include headings.h2();
 }
 
 h3,
@@ -48,8 +60,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin-bottom: units.$vertical-spacing-medium;
-  margin-top: (typography.$line-height-computed * 0.5);
+  @include headings.margin-small();
 }
 
 h4,
@@ -58,9 +69,7 @@ h4,
 }
 
 h4 {
-  color: colors.$bosgroen;
-  font-size: units.$font-size-h4;
-  font-weight: 600;
+  @include headings.h4();
 }
 
 h5,
@@ -69,9 +78,7 @@ h5,
 }
 
 h5 {
-  color: colors.$grijs-90;
-  font-size: units.$font-size-h5;
-  font-weight: 600;
+  @include headings.h5();
 }
 
 h6,

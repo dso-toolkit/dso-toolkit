@@ -1,14 +1,46 @@
 @use "../../variables/units";
 @use "../../variables/colors";
+@use "../../variables/typography";
+
+@mixin base() {
+  color: colors.$bosgroen;
+}
+
+@mixin margin-large() {
+  margin-bottom: units.$vertical-spacing-medium;
+  margin-top: typography.$line-height-computed;
+}
+
+@mixin margin-small() {
+  margin-bottom: units.$vertical-spacing-medium;
+  margin-top: (typography.$line-height-computed * 0.5);
+}
 
 @mixin h1() {
-  color: colors.$bosgroen;
   font-size: units.$font-size-h1;
+  font-weight: 700;
+}
+
+@mixin h2() {
+  color: colors.$bosgroen;
+  font-size: units.$font-size-h2;
   font-weight: 700;
 }
 
 @mixin h3() {
   color: colors.$bosgroen;
   font-size: units.$font-size-h3;
+  font-weight: 600;
+}
+
+@mixin h4() {
+  color: colors.$bosgroen;
+  font-size: units.$font-size-h4;
+  font-weight: 600;
+}
+
+@mixin h5() {
+  color: colors.$grijs-90;
+  font-size: units.$font-size-h5;
   font-weight: 600;
 }

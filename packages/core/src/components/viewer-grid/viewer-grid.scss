@@ -5,6 +5,7 @@
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/zindex";
 @use "~dso-toolkit/src/components/button";
+@use "~dso-toolkit/src/components/headings";
 
 @use "viewer-grid.variables" as core-viewer-grid-variables;
 
@@ -164,7 +165,7 @@ button {
 
 .filterpanel {
   box-shadow: 2px 0 5px colors.$grijs-60;
-  padding: units.$u5 css-grid.$grid-gutter-width * 0.5 units.$u1;
+  padding: units.$u1 css-grid.$grid-gutter-width * 0.5;
   left: 0;
   max-width: core-viewer-grid-variables.$filterpanel-max-width;
   width: calc(100vw - 40px);
@@ -175,6 +176,12 @@ button {
     &::before {
       display: none !important;
     }
+  }
+
+  h2 {
+    @include headings.base();
+    @include headings.margin-large();
+    @include headings.h2();
   }
 
   &::before {
