@@ -33,8 +33,6 @@ export const DatePickerDay: FunctionalComponent<DatePickerDayProps> = ({
     <button
       class={{
         "dso-date__day": true,
-        "is-outside": isOutsideRange,
-        "not-current-month": notCurrentMonth,
         "is-today": isToday,
       }}
       tabIndex={isFocused ? 0 : -1}

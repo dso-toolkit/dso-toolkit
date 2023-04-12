@@ -187,6 +187,7 @@
   font-weight: core-date-picker-variables.$font-bold;
   height: 36px;
   line-height: 36px;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -258,20 +259,9 @@
     }
   }
 
-  &.is-outside {
-    background: core-date-picker-variables.$color-button-is-outside;
-    box-shadow: none;
-    cursor: default;
-    pointer-events: none;
-
-    &.not-current-month {
-      background: core-date-picker-variables.$color-button-not-current-month;
-    }
-  }
-
-  &.not-current-month {
+  &:disabled {
     background: colors.$wit;
-    color: core-date-picker-variables.$color-text-not-current-month;
+    color: core-date-picker-variables.$color-text-disabled;
     cursor: default;
   }
 
