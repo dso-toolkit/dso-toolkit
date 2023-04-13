@@ -208,7 +208,7 @@ export class ViewerGrid {
           hidden={!this.filterpanelOpen || !this.filterpanelSlot}
           ref={(element) => (this.filterpanel = element)}
         >
-          <h2>Uw keuzes</h2>
+          <h1>Uw keuzes</h1>
           <ViewerGridFilterpanelButtons
             onApply={(e) => this.handleFilterpanelApply(e)}
             onCancel={(e) => this.handleFilterpanelCancel(e)}
