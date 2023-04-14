@@ -1,6 +1,7 @@
-describe.skip("Label", () => {
+describe("Label", () => {
   beforeEach(() => {
     cy.visit("http://localhost:45000/iframe.html?id=core-label--default");
+    prepareComponent();
   });
 
   const defaultLabelText = "Bouwwerken, werken en objecten bouwen";
@@ -12,8 +13,6 @@ describe.skip("Label", () => {
   }
 
   it("should be able to truncate label", () => {
-    prepareComponent();
-
     cy.percySnapshot();
 
     cy.get("@dsoLabel")
@@ -37,13 +36,11 @@ describe.skip("Label", () => {
   });
 
   it("should show tooltip on focus", () => {
-    prepareComponent();
-
     cy.get("@dsoLabel")
       .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .invoke("attr", "truncate", "")
       .invoke("attr", "removable", "")
-      .wait(100)
+      .wait(400)
       .get("@dsoLabelShadow")
       .find(".dso-label-content")
       .focus()
@@ -59,16 +56,15 @@ describe.skip("Label", () => {
   });
 
   it("should close tooltip when escape is pressed", () => {
-    prepareComponent();
-
     cy.get("@dsoLabel")
       .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .get("@dsoLabel")
       .invoke("attr", "truncate", "")
+      .wait(400)
       .get("@dsoLabelShadow")
       .find(".dso-label-content")
       .focus()
-      .wait(200)
+      .wait(400)
       .get("@dsoLabelShadow")
       .find("dso-tooltip")
       .should("not.have.class", "hidden")
@@ -80,8 +76,6 @@ describe.skip("Label", () => {
   });
 
   it("should have label text on remove button", () => {
-    prepareComponent();
-
     cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
       .invoke("attr", "removable", "")
@@ -92,8 +86,6 @@ describe.skip("Label", () => {
   });
 
   it("should update label and remove button text", () => {
-    prepareComponent();
-
     cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
       .invoke("attr", "removable", "")
@@ -106,24 +98,34 @@ describe.skip("Label", () => {
       .should("have.text", "Verwijder: andere tekst");
   });
 
-  it.skip("should emit removeClick event", () => {
-    prepareComponent();
-
+  it.only("should emit removeClick event", () => {
     cy.get("@dsoLabel")
       .then(($element) => $element.on("dsoRemoveClick", cy.stub().as("removeClickListener")))
+      .should("have.text", defaultLabelText)
+      .invoke("attr", "removable", "")
+      .wait(100)
+      .get("@dsoLabelShadow")
+      .find("button")
+      .click()
+      .get("@removeClickListener")
+      .should("have.been.calledOnce");
+  });
+
+  it("Should update tooltip and remove button text when changed", () => {
+    const updatedText = "andere tekst";
+
+    cy.get("@dsoLabel")
       .should("have.text", defaultLabelText)
       .invoke("attr", "removable", "")
       .get("@dsoLabelShadow")
       .find("button span.sr-only")
       .should("have.text", `Verwijder: ${defaultLabelText}`)
+      .wait(100)
       .get("@dsoLabel")
-      .invoke("html", "andere tekst")
+      .invoke("text", updatedText)
+      .wait(100)
       .get("@dsoLabelShadow")
       .find("button span.sr-only")
-      .should("have.text", `Verwijder: andere tekst`)
-      .closest("button")
-      .click()
-      .get("@removeClickListener")
-      .should("have.been.calledOnce");
+      .should("have.text", `Verwijder: ${updatedText}`);
   });
 });

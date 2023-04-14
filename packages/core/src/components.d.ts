@@ -283,9 +283,12 @@ export namespace Components {
         "compact"?: boolean;
         "removable"?: boolean;
         "status"?: "primary" | "info" | "success" | "warning" | "danger" | "error" | "bright" | "attention";
+        /**
+          * **[Internal]** Synchronizes the text on the remove button and tooltip. You should never have to use this.
+         */
+        "syncLabelText": () => Promise<void>;
         "truncate"?: boolean;
         "truncateLabel": () => Promise<void>;
-        "updateTooltipText": () => Promise<void>;
     }
     interface DsoListButton {
         "checked": boolean;

@@ -1,5 +1,11 @@
 # `<dso-label>`
 
+## Gedrag bij `[truncate]` en `[removable]`
+In de content van het label wordt alleen tekst volledig ondersteund.
+
+Wanneer het label getruncate wordt toont de tekst in de tooltip bij hoveren. De tekst die in `<dso-tooltip>` toont zal ook verborgen tekst tonen (uit bv. `<span class="sr-only">`). De tekst die bij de `[removable]` knop wordt voorgelezen bevat ook verborgen tekst. In beiden gevallen wordt de tekst uitgelezen door middel van `HTMLElement.textContent` op `<dso-label>`.
+
+
 <!-- Auto Generated Below -->
 
 
@@ -22,9 +28,9 @@
 
 ## Methods
 
-### `truncateLabel() => Promise<void>`
+### `syncLabelText() => Promise<void>`
 
-
+**[Internal]** Synchronizes the text on the remove button and tooltip. You should never have to use this.
 
 #### Returns
 
@@ -32,7 +38,7 @@ Type: `Promise<void>`
 
 
 
-### `updateTooltipText() => Promise<void>`
+### `truncateLabel() => Promise<void>`
 
 
 
