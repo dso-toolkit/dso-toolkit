@@ -13,7 +13,6 @@ import {
 } from "@stencil/core";
 import clsx from "clsx";
 
-import { mutationObserver } from "./mutation-observer";
 import { resizeObserver } from "./resize-observer";
 
 function hasEllipses(el: HTMLElement): boolean {
@@ -29,6 +28,8 @@ export class Label implements ComponentInterface {
   private labelContent: HTMLSpanElement | undefined;
 
   private keydownListenerActive = false;
+
+  private mutationObserver?: MutationObserver;
 
   @Element()
   private host!: HTMLElement;
@@ -58,10 +59,10 @@ export class Label implements ComponentInterface {
   textFocus?: boolean;
 
   @State()
-  truncatedContent?: string | null;
+  isTruncated?: boolean;
 
   @State()
-  labelText?: string;
+  labelText: string | null = null;
 
   @Event()
   dsoRemoveClick!: EventEmitter<MouseEvent>;
@@ -99,42 +100,50 @@ export class Label implements ComponentInterface {
   @Method()
   async truncateLabel() {
     setTimeout(() => {
-      if (this.labelContent) {
-        this.truncatedContent = hasEllipses(this.labelContent) ? this.host.innerText : undefined;
-      }
+      this.isTruncated = this.labelContent && hasEllipses(this.labelContent);
     });
   }
 
+  /** **[Internal]** Synchronizes the text on the remove button and tooltip. You should never have to use this. */
   @Method()
-  async updateTooltipText() {
-    this.labelText = this.host.innerText;
-
-    if (this.truncate) {
-      this.truncateLabel();
-    }
+  async syncLabelText() {
+    this.labelText = this.host.textContent;
   }
 
   componentDidLoad() {
-    this.labelText = this.host.innerText;
-
-    mutationObserver.observe(this.host, {
-      attributes: true,
-      subtree: true,
-    });
-
     if (this.truncate) {
       this.startTruncate();
+    }
+
+    if (this.removable) {
+      this.startMutationObserver();
     }
   }
 
   disconnectedCallback() {
-    mutationObserver?.disconnect();
     this.stopTruncate();
+  }
+
+  /** The mutationObserver fetches the text placed inside the label, this is then used for the remove button and tooltip. */
+  startMutationObserver(): void {
+    if (this.mutationObserver) {
+      return;
+    }
+
+    this.mutationObserver = new MutationObserver((entries) => entries.forEach(() => this.syncLabelText()));
+
+    this.mutationObserver.observe(this.host, {
+      characterData: true,
+      subtree: true,
+      attributes: true,
+    });
+
+    this.labelText = this.host.textContent;
   }
 
   startTruncate(): void {
     resizeObserver.observe(this.host);
-
+    this.startMutationObserver();
     this.truncateLabel();
   }
 
@@ -142,7 +151,7 @@ export class Label implements ComponentInterface {
     document.removeEventListener("keydown", this.keyDownListener);
 
     resizeObserver.unobserve(this.host);
-    this.truncatedContent = undefined;
+    this.isTruncated = undefined;
     this.keydownListenerActive = false;
   }
 
@@ -159,7 +168,7 @@ export class Label implements ComponentInterface {
     return (
       <Host
         aria-roledescription={
-          this.truncate && this.truncatedContent
+          this.truncate && this.isTruncated
             ? "Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus."
             : undefined
         }
@@ -179,7 +188,7 @@ export class Label implements ComponentInterface {
               "dso-truncate": !!this.truncate,
             })}
             ref={(element) => (this.labelContent = element)}
-            tabindex={this.truncate && this.truncatedContent ? 0 : undefined}
+            tabindex={this.truncate && this.isTruncated ? 0 : undefined}
             onMouseEnter={() => (this.textHover = true)}
             onMouseLeave={() => (this.textHover = false)}
             onFocus={() => (this.textFocus = true)}
@@ -201,15 +210,17 @@ export class Label implements ComponentInterface {
             </button>
           )}
         </span>
-        <dso-tooltip
-          stateless
-          id="toggle-anchor"
-          active={!!this.truncatedContent && (this.textHover || this.textFocus)}
-          position="top"
-          strategy="absolute"
-        >
-          {this.truncatedContent}
-        </dso-tooltip>
+        {this.isTruncated && (
+          <dso-tooltip
+            stateless
+            id="toggle-anchor"
+            active={this.textHover || this.textFocus}
+            position="top"
+            strategy="absolute"
+          >
+            {this.labelText}
+          </dso-tooltip>
+        )}
       </Host>
     );
   }

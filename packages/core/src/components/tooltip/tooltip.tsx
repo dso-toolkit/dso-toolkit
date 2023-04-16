@@ -3,9 +3,28 @@ import maxSize from "popper-max-size-modifier";
 import { h, Component, Element, Host, Listen, Method, Prop, State, Watch } from "@stencil/core";
 import clsx from "clsx";
 import { hasOverflow } from "../../utils/has-overflow";
+import debounce from "debounce";
 
 // Keep const in sync with $tooltip-transition-duration in dso-toolkit/src/components/tooltip/tooltip.scss tooltip_root() mixin
 const transitionDuration = 150;
+
+const applyMaxSize = {
+  name: "applyMaxSize",
+  enabled: true,
+  phase: beforeWrite,
+  requires: ["maxSize"],
+  fn({ state }: { state: PopperState }) {
+    let { width } = state.modifiersData.maxSize;
+    if (width < 160) {
+      width = 160;
+    }
+
+    state.styles.popper = {
+      ...state.styles.popper,
+      maxWidth: `${width}px`,
+    };
+  },
+};
 
 @Component({
   tag: "dso-tooltip",
@@ -122,7 +141,7 @@ export class Tooltip {
   @Watch("active")
   watchActive() {
     if (this.active) {
-      this.hidden = false;
+      this.activatePopper();
 
       if (!this.stateless) {
         setTimeout(() => {
@@ -133,25 +152,20 @@ export class Tooltip {
         });
       }
     } else {
-      if (!this.stateless) {
-        this.popper?.setOptions({
-          modifiers: [{ name: "eventListeners", enabled: false }],
-        });
-        document.removeEventListener("keydown", this.keyDownListener);
-      }
-
-      setTimeout(() => (this.hidden = true), transitionDuration);
+      document.removeEventListener("keydown", this.keyDownListener);
+      this.deactivatePopper();
     }
   }
 
   @Element()
   private element!: HTMLElement;
 
-  private target: HTMLElement | undefined;
-
   private popper: PopperInstance | undefined;
 
-  private callbacks: TooltipCallbacks | undefined;
+  private callbacks: TooltipCallbacks = {
+    activate: () => (this.active = true),
+    deactivate: () => (this.active = false),
+  };
 
   @State()
   private hidden = true;
@@ -161,49 +175,11 @@ export class Tooltip {
     e.stopPropagation();
   }
 
-  private applyMaxSize = {
-    name: "applyMaxSize",
-    enabled: true,
-    phase: beforeWrite,
-    requires: ["maxSize"],
-    fn({ state }: { state: PopperState }) {
-      let { width } = state.modifiersData.maxSize;
-      if (width < 160) {
-        width = 160;
-      }
-
-      state.styles.popper = {
-        ...state.styles.popper,
-        maxWidth: `${width}px`,
-      };
-    },
-  };
-
   componentDidLoad(): void {
-    if (this.popper) {
-      return;
-    }
-
     const tooltip = this.element.shadowRoot?.querySelector(".tooltip");
     if (!(tooltip instanceof HTMLElement)) {
       throw new Error("tooltip element is not instanceof HTMLElement");
     }
-
-    if (!this.element.id) {
-      throw new Error("Unable to find reference tooltip has no [id] attribute.");
-    }
-
-    this.target = this.getTarget(this.element.id);
-
-    this.popper = createPopper(this.target, tooltip, {
-      placement: this.position,
-      modifiers: [maxSize, this.applyMaxSize],
-    });
-
-    this.callbacks = {
-      activate: () => (this.active = true),
-      deactivate: () => (this.active = false),
-    };
 
     if (!this.stateless) {
       this.target.addEventListener("mouseenter", this.callbacks.activate);
@@ -216,19 +192,17 @@ export class Tooltip {
   disconnectedCallback(): void {
     this.popper?.destroy();
 
-    if (!this.stateless && this.target && this.callbacks) {
+    if (!this.stateless && this.target) {
       this.target.removeEventListener("mouseenter", this.callbacks.activate);
       this.target.removeEventListener("mouseleave", this.callbacks.deactivate);
       this.target.removeEventListener("focus", this.callbacks.activate);
       this.target.removeEventListener("blur", this.callbacks.deactivate);
     }
 
-    this.callbacks = undefined;
     this.target = undefined;
   }
 
   componentDidRender() {
-    this.setStrategy();
     if (this.active) {
       this.popper?.update();
     }
@@ -253,7 +227,49 @@ export class Tooltip {
     );
   }
 
-  private getTarget(id: string): HTMLElement {
+  private deactivatePopper = debounce(() => {
+    this.hidden = true;
+    this.popper?.destroy();
+    this.popper = undefined;
+  }, transitionDuration);
+
+  private activatePopper(): void {
+    this.hidden = false;
+
+    if (this.popper) {
+      return;
+    }
+
+    const tooltip = this.element.shadowRoot?.querySelector(".tooltip");
+    if (!(tooltip instanceof HTMLElement)) {
+      throw new Error("tooltip element is not instanceof HTMLElement");
+    }
+
+    this.popper = createPopper(this.target, tooltip, {
+      placement: this.position,
+      modifiers: [maxSize, applyMaxSize, { name: "eventListeners", enabled: false }],
+    });
+
+    this.setStrategy();
+  }
+
+  private get target(): HTMLElement {
+    return this.#target ?? this.initializeTarget();
+  }
+
+  private set target(element: HTMLElement | undefined) {
+    this.#target = element;
+  }
+
+  #target?: HTMLElement;
+
+  private initializeTarget(): HTMLElement {
+    const id = this.element.id;
+
+    if (!id) {
+      throw new Error("Unable to find reference tooltip has no [id] attribute.");
+    }
+
     const rootNode = this.element.getRootNode();
     if (!(rootNode instanceof Document || rootNode instanceof ShadowRoot)) {
       throw new Error(`rootNode is not instance of Document or ShadowRoot`);
@@ -264,6 +280,7 @@ export class Tooltip {
       throw new Error(`Unable to find reference with aria-describedby ${id}`);
     }
 
+    this.#target = reference;
     return reference;
   }
 }

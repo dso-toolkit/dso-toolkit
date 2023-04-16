@@ -30,13 +30,13 @@ describe("Tooltip", () => {
 
     cy.get("@dsoButton")
       .wait(100)
-      .focus()
-      .wait(100)
+      .realClick()
+      .wait(200)
       .find("dso-tooltip")
       .should("not.have.class", "hidden")
       .wait(250)
       .realPress("Escape")
-      .wait(100)
+      .wait(200)
       .get("@dsoButton")
       .find("dso-tooltip")
       .should("have.class", "hidden");
