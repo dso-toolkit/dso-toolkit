@@ -5,8 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 52.0.2
+
 ### Fixed
-* `<dso-label>` en `<dso-tooltip>` performance optimalisaties. ([#2065](https://github.com/dso-toolkit/dso-toolkit/issues/2065))\
+* `<dso-label>` en `<dso-tooltip>` performance optimalisaties. ([#2065](https://github.com/dso-toolkit/dso-toolkit/issues/2065))
   - `<dso-label>` leest de content nu uit door middel van `HTMLElement.textContent` in plaats van `HTMLElement.innerText`. Zie https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext. de textContent is nodig voor de tooltip bij `[truncate]` en de knop tekst bij `[removable]`.
   - `<dso-tooltip>` instantieerde een popper instance bij initialisatie, de instantie wordt nu gemaakt wanneer de tooltip daadewerkelijk toont.
 * Viewer Grid: filterpaneel titel was `h2` en is nu `h1` ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
