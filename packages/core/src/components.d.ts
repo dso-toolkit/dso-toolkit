@@ -26,6 +26,7 @@ import { FocusTargetValueOrFalse } from "focus-trap";
 import { OzonContentAnchorClick, OzonContentClick } from "./components/ozon-content/ozon-content.interfaces";
 import { PaginationSelectPageEvent } from "./components/pagination/pagination.interfaces";
 import { ResponsiveElementSize } from "./components/responsive-element/responsive-element.interfaces";
+import { DsoScrollEndEvent } from "./components/scrollable/scrollable.interfaces";
 import { SelectableChangeEvent } from "./components/selectable/selectable.interfaces";
 import { SlideToggleActiveEvent } from "./components/slide-toggle/slide-toggle.interfaces";
 import { TreeViewItem, TreeViewPointerEvent } from "./components/tree-view/tree-view.interfaces";
@@ -413,6 +414,12 @@ export namespace Components {
     interface DsoResponsiveElement {
         "getSize": () => Promise<ResponsiveElementSize>;
     }
+    interface DsoScrollable {
+        /**
+          * Internal method. Do not use.
+         */
+        "_setScrollState": () => Promise<void>;
+    }
     interface DsoSelectable {
         "checked"?: boolean;
         "describedById"?: string;
@@ -594,6 +601,10 @@ export interface DsoPaginationCustomEvent<T> extends CustomEvent<T> {
 export interface DsoResponsiveElementCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLDsoResponsiveElementElement;
+}
+export interface DsoScrollableCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDsoScrollableElement;
 }
 export interface DsoSelectableCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -822,6 +833,12 @@ declare global {
         prototype: HTMLDsoResponsiveElementElement;
         new (): HTMLDsoResponsiveElementElement;
     };
+    interface HTMLDsoScrollableElement extends Components.DsoScrollable, HTMLStencilElement {
+    }
+    var HTMLDsoScrollableElement: {
+        prototype: HTMLDsoScrollableElement;
+        new (): HTMLDsoScrollableElement;
+    };
     interface HTMLDsoSelectableElement extends Components.DsoSelectable, HTMLStencilElement {
     }
     var HTMLDsoSelectableElement: {
@@ -900,6 +917,7 @@ declare global {
         "dso-progress-bar": HTMLDsoProgressBarElement;
         "dso-progress-indicator": HTMLDsoProgressIndicatorElement;
         "dso-responsive-element": HTMLDsoResponsiveElementElement;
+        "dso-scrollable": HTMLDsoScrollableElement;
         "dso-selectable": HTMLDsoSelectableElement;
         "dso-slide-toggle": HTMLDsoSlideToggleElement;
         "dso-table": HTMLDsoTableElement;
@@ -1323,6 +1341,12 @@ declare namespace LocalJSX {
     interface DsoResponsiveElement {
         "onDsoSizeChange"?: (event: DsoResponsiveElementCustomEvent<ResponsiveElementSize>) => void;
     }
+    interface DsoScrollable {
+        /**
+          * Event emitted when the scrollbar has reached top or bottom.
+         */
+        "onDsoScrollEnd"?: (event: DsoScrollableCustomEvent<DsoScrollEndEvent>) => void;
+    }
     interface DsoSelectable {
         "checked"?: boolean;
         "describedById"?: string;
@@ -1467,6 +1491,7 @@ declare namespace LocalJSX {
         "dso-progress-bar": DsoProgressBar;
         "dso-progress-indicator": DsoProgressIndicator;
         "dso-responsive-element": DsoResponsiveElement;
+        "dso-scrollable": DsoScrollable;
         "dso-selectable": DsoSelectable;
         "dso-slide-toggle": DsoSlideToggle;
         "dso-table": DsoTable;
@@ -1515,6 +1540,7 @@ declare module "@stencil/core" {
             "dso-progress-bar": LocalJSX.DsoProgressBar & JSXBase.HTMLAttributes<HTMLDsoProgressBarElement>;
             "dso-progress-indicator": LocalJSX.DsoProgressIndicator & JSXBase.HTMLAttributes<HTMLDsoProgressIndicatorElement>;
             "dso-responsive-element": LocalJSX.DsoResponsiveElement & JSXBase.HTMLAttributes<HTMLDsoResponsiveElementElement>;
+            "dso-scrollable": LocalJSX.DsoScrollable & JSXBase.HTMLAttributes<HTMLDsoScrollableElement>;
             "dso-selectable": LocalJSX.DsoSelectable & JSXBase.HTMLAttributes<HTMLDsoSelectableElement>;
             "dso-slide-toggle": LocalJSX.DsoSlideToggle & JSXBase.HTMLAttributes<HTMLDsoSlideToggleElement>;
             "dso-table": LocalJSX.DsoTable & JSXBase.HTMLAttributes<HTMLDsoTableElement>;

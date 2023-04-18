@@ -32,6 +32,7 @@ import {
   ProgressBar,
   ProgressIndicator,
   ResponsiveElement,
+  Scrollable,
   Selectable,
   SlideToggle,
   Table,
@@ -73,6 +74,7 @@ import { reactPagination } from "./components/pagination/pagination.react-templa
 import { reactProgressBar } from "./components/progress-bar/progress-bar.react-template";
 import { reactProgressIndicator } from "./components/progress-indicator/progress-indicator.react-template";
 import { reactResponsiveElement } from "./components/responsive-element/responsive-element.react-template";
+import { reactScrollable } from "./components/scrollable/scrollable.react-template";
 import { reactSelectable } from "./components/selectable/selectable.react-template";
 import { reactSlideToggle } from "./components/slide-toggle/slide-toggle.react-template";
 import { reactTable } from "./components/table/table.react-template";
@@ -113,6 +115,7 @@ export interface Components {
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   responsiveElement: ResponsiveElement<JSX.Element>;
+  scrollable: Scrollable<JSX.Element>;
   selectable: Selectable<JSX.Element>;
   slideToggle: SlideToggle;
   table: Table<JSX.Element>;
@@ -159,6 +162,7 @@ templateContainer.add(reactPagination);
 templateContainer.add(reactProgressBar);
 templateContainer.add(reactProgressIndicator);
 templateContainer.add(reactResponsiveElement);
+templateContainer.add(reactScrollable);
 templateContainer.add(reactSelectable);
 templateContainer.add(reactSlideToggle);
 templateContainer.add(reactTable);

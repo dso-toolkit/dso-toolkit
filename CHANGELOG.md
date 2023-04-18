@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Nieuw Web Component "Scrollable" ([#2071](https://github.com/dso-toolkit/dso-toolkit/issues/2071))
+
 ### Documentatie
 * Action List documentatie verwijst naar niet-bestaande variant ([#2149](https://github.com/dso-toolkit/dso-toolkit/issues/2149))
 

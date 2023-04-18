@@ -1,6 +1,7 @@
 @use "~dso-toolkit/src/utilities";
 @use "~dso-toolkit/src/variables/colors";
 @use "~dso-toolkit/src/variables/typography";
+@use "~dso-toolkit/src/variables/units";
 @use "~dso-toolkit/src/components/button";
 
 @use "map-controls.variables" as core-map-controls-variables;
@@ -91,7 +92,7 @@ section:not([hidden]) {
 
 header,
 .content {
-  padding: 16px;
+  padding: units.$u2;
 }
 
 header {
@@ -105,9 +106,4 @@ header {
     line-height: 1;
     margin: 0;
   }
-}
-
-.content {
-  flex-grow: 1;
-  overflow-y: auto;
 }

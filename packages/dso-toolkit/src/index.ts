@@ -287,6 +287,9 @@ export {
   storiesOfRowEqualHeights,
 } from "./components/row-equal-heights/row-equal-heights.stories-of.js";
 
+export { Scrollable } from "./components/scrollable/scrollable.models.js";
+export { ScrollableTemplates, storiesOfScrollable } from "./components/scrollable/scrollable.stories-of.js";
+
 export { SearchBar } from "./components/search-bar/search-bar.models.js";
 export { SearchBarTemplates, storiesOfSearchBar } from "./components/search-bar/search-bar.stories-of.js";
 
