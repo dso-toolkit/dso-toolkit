@@ -1,0 +1,32 @@
+@use "~dso-toolkit/src/utilities";
+@use "~dso-toolkit/src/variables/units";
+
+:host {
+  display: block;
+}
+
+@include utilities.box-sizing();
+
+.scroll-container {
+  max-height: 500px;
+  overflow-y: auto;
+
+  &.scroll-top {
+    background: linear-gradient(0deg, #b7b7b7, transparent 70%) bottom;
+    background-size: 100% 24px;
+    background-repeat: no-repeat;
+  }
+
+  &.scroll-bottom {
+    background: linear-gradient(180deg, #b7b7b7, transparent 70%);
+    background-size: 100% 24px;
+    background-repeat: no-repeat;
+  }
+
+  &.scroll-middle {
+    background: linear-gradient(180deg, #b7b7b7, transparent 70%),
+      linear-gradient(0deg, #b7b7b7, transparent 70%) bottom;
+    background-size: 100% 24px;
+    background-repeat: no-repeat;
+  }
+}
