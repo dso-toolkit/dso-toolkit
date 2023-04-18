@@ -287,6 +287,12 @@ export {
   storiesOfRowEqualHeights,
 } from "./components/row-equal-heights/row-equal-heights.stories-of.js";
 
+export { ScrollContainer } from "./components/scroll-container/scroll-container.models.js";
+export {
+  ScrollContainerTemplates,
+  storiesOfScrollContainer,
+} from "./components/scroll-container/scroll-container.stories-of.js";
+
 export { SearchBar } from "./components/search-bar/search-bar.models.js";
 export { SearchBarTemplates, storiesOfSearchBar } from "./components/search-bar/search-bar.stories-of.js";
 

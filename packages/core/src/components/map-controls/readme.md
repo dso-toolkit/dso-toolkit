@@ -38,11 +38,13 @@ Type: `Promise<void>`
 ### Depends on
 
 - [dso-icon](../icon)
+- [dso-scroll-container](../scroll-container)
 
 ### Graph
 ```mermaid
 graph TD;
   dso-map-controls --> dso-icon
+  dso-map-controls --> dso-scroll-container
   style dso-map-controls fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

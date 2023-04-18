@@ -28,6 +28,7 @@ import {
   Pagination,
   ProgressBar,
   ProgressIndicator,
+  ScrollContainer,
   Selectable,
   SlideToggle,
   TemplateContainer,
@@ -61,6 +62,7 @@ import { angularOzonContent } from "./components/ozon-content/ozon-content.angul
 import { angularPagination } from "./components/pagination/pagination.angular-template";
 import { angularProgressBar } from "./components/progress-bar/progress-bar.angular-template";
 import { angularProgressIndicator } from "./components/progress-indicator/progress-indicator.angular-template";
+import { angularScrollContainer } from "./components/scroll-container/scroll-container.angular-template";
 import { angularSelectable } from "./components/selectable/selectable.angular-template";
 import { angularSlideToggle } from "./components/slide-toggle/slide-toggle.angular-template";
 import { angularToggletip } from "./components/toggletip/toggletip.angular-template";
@@ -98,6 +100,7 @@ export interface Components {
   progressBar: ProgressBar;
   progressIndicator: ProgressIndicator;
   // responsiveElement: ResponsiveElement<StoryFnAngularReturnType>;
+  scrollContainer: ScrollContainer<StoryFnAngularReturnType>;
   selectable: Selectable<StoryFnAngularReturnType>;
   slideToggle: SlideToggle;
   // table: Table<StoryFnAngularReturnType>;
@@ -162,6 +165,7 @@ templateContainer.add(angularOzonContent);
 templateContainer.add(angularPagination);
 templateContainer.add(angularProgressBar);
 templateContainer.add(angularProgressIndicator);
+templateContainer.add(angularScrollContainer);
 templateContainer.add(angularSelectable);
 templateContainer.add(angularSlideToggle);
 templateContainer.add(angularToggletip);
