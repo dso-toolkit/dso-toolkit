@@ -1,3 +1,3 @@
 export * from "./components";
 
-export * from "./components/modal/modal.controller";
+export * from "./controllers/modal/modal.controller";
