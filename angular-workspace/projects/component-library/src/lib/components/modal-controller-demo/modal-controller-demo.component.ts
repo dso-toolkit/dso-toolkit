@@ -1,16 +1,16 @@
-import { Component, inject, Input, TemplateRef, Type, ViewChild } from "@angular/core";
+import { Component, EventEmitter, inject, Input, Output, TemplateRef, Type } from "@angular/core";
 
-import { StoryFnAngularReturnType } from "@storybook/angular/dist/ts3.9/client/preview/types";
-
-import { DsoModalController } from "../../controllers/modal";
+import { DsoModalController, DsoModalRef } from "../../controllers/modal";
 
 /** This component is used to demo the DsoModalController for angular */
 @Component({
   selector: "modal-controller-demo",
-  template: `<button class="dso-primary" type="button" (click)="open()">Toon modal</button>`,
+  template: ``,
 })
 export class ModalControllerDemo {
   private controller = inject(DsoModalController);
+
+  private modalRef?: DsoModalRef;
 
   @Input()
   body?: Type<unknown> | TemplateRef<unknown>;
@@ -22,26 +22,27 @@ export class ModalControllerDemo {
   modalTitle?: string;
 
   @Input()
-  startOpen = false;
-
-  @Input()
   showCloseButton = false;
 
-  open(): void {
-    console.log("bodyRef", this.body, this.footer);
+  @Output()
+  dsoClose = new EventEmitter();
 
+  open(): void {
     if (this.body) {
-      this.controller.open(
+      this.modalRef = this.controller.open(
         { body: this.body, footer: this.footer, title: this.modalTitle },
         { options: { showCloseButton: this.showCloseButton } }
       );
+
+      this.modalRef.onDsoClose().subscribe((e) => this.dsoClose.emit(e));
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any)["modalRef"] = { framework: "angular", ref: this.modalRef };
     }
   }
 
   ngAfterViewInit() {
-    if (this.startOpen) {
-      this.open();
-    }
+    this.open();
   }
 }
 

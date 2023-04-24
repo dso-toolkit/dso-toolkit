@@ -1,32 +1,51 @@
 # `<dso-modal>`
 
-Het gebruiken van de modal in Angular kan zo:
+**Let op: het los plaatsen van `<dso-modal>` wordt sterk afgeraden. Maak gebruik van de `DsoModalController`.**
+
+## DsoModalController
+
+Het gebruiken van het Modal component in Angular kan zo:
 
 Injecteren van `ModalController`:
 
 ```
-  private modalController: DsoModalController = inject(DsoModalController);
-
-  of
-
- constructor(private modalController: ModalController) {}
+  private controller: DsoModalController = inject(DsoModalController);
 ```
 
-Er moet een component worden aangemaakt voor de body en optioneel ook voor de footer. Hiermee kan een modal worden geopend door:
+of
 
 ```
-this.modalController.open({
+ constructor(private controller: DsoModalController) {}
+```
+
+De controller heeft één functie `open` met 2 parameters.
+
+- Modal
+  - title: `string` \*optioneel
+  - body: `Type<unknown> | TemplateRef<unknown>`
+  - title: `Type<unknown> | TemplateRef<unknown>` \*optioneel
+- Config \*optioneel
+  - data: `any`
+  - options:
+    - role: `ModalRole ("alert" | "dialog" | "alertdialog")`
+    - showCloseButton: `boolean`
+    - initialFocus: `string`
+
+Voorbeeld:
+
+```
+modalRef = this.modalController.open({
   title: 'DSO Angular Modal',
   body: ModalBodyComponent,
   footer: ModalFooterComponent,
 },
-{ // optionele config
-  data: { // Hierin kan data worden meegegeven die nodig is voor de modal body/footer
+{
+  data: {
     text: 'Ik ben data',
     count: 1,
     confirmLabel: 'akkoord',
   },
-  options: { // property waardes voor: role, showCloseButton & initialFocus
+  options: {
     showCloseButton: true,
   },
 })
@@ -36,20 +55,14 @@ De data in het config gedeelde hierboven kan in de `body` en `footer` componente
 
 ```
 data = inject(DIALOG_DATA);
+```
 
 of
 
+```
 constructor(@Inject(DIALOG_DATA) public data: any) {}
 ```
 
-Luisteren naar de `dsoClose` event gebeurt met:
+### DsoModalRef
 
-```
-this.modalRef.onDsoClose(() => this.modalRef?.close());
-```
-
-Niet meer luisteren naar `dsoClose`:
-
-```
-this.modalRef.offDsoClose();
-```
+De `open` functie van de controller geeft een `DsoModalRef` terug. Deze ref bevat de functie `close` om de modal te sluiten en een functie `onDsoClose` om naar het `dsoClose` event te luisteren. `modalRef.onDsoClose().subscribe()`

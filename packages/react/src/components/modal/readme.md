@@ -1,32 +1,24 @@
 # `<DsoModal>`
 
-Instantieren met de controller kan op 2 manieren:
-Manier 1
+**Let op: het los plaatsen van `<DsoModal>` wordt sterk afgeraden. Maak gebruik van `<DsoModalPortal>`.**
+
+## DsoModalPortal
+
+`DsoModalPortal` is een wrapper component die het `DsoModal` op de juiste plek in de DOM zet.
+
+Voorbeeld:
 
 ```
-  const controller = new ModalController();
-
-  const instance = controller.createInstance({
-    title: "Een titel", // optioneel
-    body: <p>Dit is een modal</p>,
-    footer: <button>Bevestig</button>, // optioneel
-  });
+<DsoModalPortal>
+  <DsoModal
+    role={role}
+    modalTitle={modalTitle}
+    showCloseButton={showCloseButton}
+    initialFocus={initialFocus}
+    onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
+  >
+    <div slot="body">{body}</div>
+    {footer && <div slot="footer">{footer}</div>}
+  </DsoModal>
+</DsoModalPortal>
 ```
-
-Manier 2:
-
-```
-  const instance = useModal({
-    title: "Een titel", // optioneel
-    body: <p>Dit is een modal</p>,
-    footer: <button>Bevestig</button>, // optioneel
-  });
-```
-
-Het `dsoClose` event listener kan worden toegevoegd op de volgende manier:
-
-```
-  instance.addEventListener("dsoClose", (e) => instance.close());
-```
-
-Het openen van de modal gaat met `instance.open()`.

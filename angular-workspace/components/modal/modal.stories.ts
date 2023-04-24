@@ -43,9 +43,8 @@ storiesOfModal({
     },
   },
   templateContainer,
-  storyTemplates: ({ modalTemplate, modalControllerTemplate }, templates) => ({
+  storyTemplates: ({ modalTemplate }, templates) => ({
     modalTemplate,
-    modalControllerTemplate,
     activeBody,
     activeFooter,
     passiveBody,

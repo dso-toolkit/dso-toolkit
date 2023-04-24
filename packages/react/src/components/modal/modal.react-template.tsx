@@ -19,6 +19,8 @@ export const reactModal: ComponentImplementation<Modal<JSX.Element>> = {
             showCloseButton={showCloseButton ?? true}
             initialFocus={initialFocus}
             onDsoClose={(e: CustomEvent<DsoModalCloseEvent>) => dsoClose?.(e)}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            ref={(el) => ((window as any)["modalRef"] = { framework: "react", ref: el })}
           >
             <div slot="body">{body}</div>
             {footer && <div slot="footer">{footer}</div>}

@@ -4,7 +4,6 @@ import { DsoModalContainer } from "../../components/modal-container/modal-contai
 import { EventEmitter } from "@angular/core";
 import { DsoModalCloseEvent } from "@dso-toolkit/core";
 
-// export class DsoModalRef implements ModalRef {
 export class DsoModalRef {
   constructor(private dialogRef: DialogRef<unknown, DsoModalContainer>) {}
 

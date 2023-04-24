@@ -8,7 +8,6 @@ import { DsoModalContainer } from "../../components/modal-container/modal-contai
 import { DsoModalRef } from "./modal-ref";
 
 export interface ModalConfig {
-  /** TODO: DIALOG_DATA jsdoc */
   data?: Record<string, unknown>;
   options?: ModalOptions;
 }
@@ -18,7 +17,6 @@ export class DsoModalController {
   private cdkDialog = inject(Dialog);
 
   open({ title, body, footer }: ModalContent<Type<unknown> | TemplateRef<unknown>>, config?: ModalConfig): DsoModalRef {
-    // Even documenteren dat dit zit in DIALOG_DATA
     const dialogRef = this.cdkDialog.open(DsoModalContainer, { data: config?.data });
 
     if (dialogRef.componentInstance) {

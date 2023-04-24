@@ -1,22 +1,45 @@
 # dso-modal
 
-Bij het instantieren van een `dso-modal` wordt op de body `.dso-modal-open` gezet. Deze class zorgt ervoor dat het scrollgedrag 'achter' de modal wordt uitgezet. Als afnemer kun je dus een modal starten door `<dso-modal>` pas te renderen als je een modal wil.
+**Let op: het los plaatsen van `<dso-modal>` wordt sterk afgeraden. Maak gebruik van de `DsoModalController`.**
 
-Modal kan op 2 manieren worden ingezet. De traditionele manier door het `<DsoModal>` element te plaatsen of met een controller.
+## DsoModalController
+
+Het gebruiken van het Modal component kan zo:
+
+Injecteren van `ModalController`:
 
 ```
-const controller = new ModalController();
-
-const instance = controller.createInstance({
-  title: "Een titel",
-  body: "<p>Hallo</p>",
-  footer: "<button>Bevestig</button>"
-});
-
-instance.addEventListener("dsoClose", () => instance.close());
+  private controller: DsoModalController = new DsoModalController();
 ```
 
-Het openen van de modal gaat met `instance.open()`.
+De controller heeft één functie `open` met 2 parameters.
+
+- Modal
+  - title: `string` \*optioneel
+  - body: `HtmlElement | string`
+  - title: `HtmlElement | string` \*optioneel
+- Options \*optioneel
+  - role: `ModalRole ("alert" | "dialog" | "alertdialog")`
+  - showCloseButton: `boolean`
+  - initialFocus: `string`
+
+Voorbeeld:
+
+```
+modalRef = this.modalController.open({
+  title: 'DSO Angular Modal',
+  body: ModalBodyComponent,
+  footer: ModalFooterComponent,
+},
+{
+  showCloseButton: true,
+})
+```
+
+### DsoModalRef
+
+De `open` functie van de controller geeft een `DsoModalRef` terug. Deze ref bevat de functie `close` om de modal te sluiten en de functies `addEventListener` en `removeEventlistener` om naar het `dsoClose` event te luisteren. `modalRef.addEventListener('dsoClose', () => modalRef.close())`
+
 
 <!-- Auto Generated Below -->
 

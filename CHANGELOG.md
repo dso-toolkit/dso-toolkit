@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Added
+* Modal: Controller voor Core, React en Angular. Hiermee krijgt `dso-modal` de juiste plek in het DOM ([#1983](https://github.com/dso-toolkit/dso-toolkit/issues/1983))
+
 ### Fixed
 * Card grid: schaalt niet. Kolom aantal is nu afhankelijk van viewport ([#2103](https://github.com/dso-toolkit/dso-toolkit/issues/2103))
 
@@ -28,9 +31,6 @@ De dso-toolkit.nl landingspagina is gewijzigd naar de introductiepagina ([#2082]
 * Viewer Grid: filterpaneel titel was `h2` en is nu `h1` ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
 
 ## 52.0.1
-
-### Added
-* Controller voor het DsoModal component ([#1983](https://github.com/dso-toolkit/dso-toolkit/issues/1983))
 
 ### Changed
 * Viewer Grid: Details fixen filterpaneel ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))

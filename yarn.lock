@@ -12184,7 +12184,7 @@ __metadata:
     http-proxy-middleware: ^2.0.6
     http-server: ^14.1.1
     iframe-resizer: ^4.3.2
-    lit-html: ^2.4.0
+    lit-html: ^2.7.2
     react-syntax-highlighter: ^15.5.0
     start-server-and-test: ^1.14.0
   languageName: unknown
@@ -17991,12 +17991,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-html@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "lit-html@npm:2.4.0"
+"lit-html@npm:^2.4.0, lit-html@npm:^2.7.2":
+  version: 2.7.2
+  resolution: "lit-html@npm:2.7.2"
   dependencies:
     "@types/trusted-types": ^2.0.2
-  checksum: fb2ff513a23ce35783c231d3c184103b681f62792e2fa500b17f0bbd93b1a3168153b3fd52ccaca2c25ee5bb7f4006b657fc15ae893fa5dc733774c01eda5dce
+  checksum: 885309bd72a9b6eb6c488ae901595c44b270023e02cafebca774b3ad14c1ec34dbe35a69d7ad22362e4ba3e7c2600662c003145db412cd9d61ecea91a93227ac
   languageName: node
   linkType: hard
 
@@ -20651,16 +20651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse5@npm:^7.0.0":
-  version: 7.1.1
-  resolution: "parse5@npm:7.1.1"
-  dependencies:
-    entities: ^4.4.0
-  checksum: 8f72fbfa6df83a3f29f58e1818f7bd46b47ff3e26d79c74e10b8fc7ef7ee76163f205113f1b2f6a5b8dc4e31e726f490444f04890cead6e974dbcbe8172b1321
-  languageName: node
-  linkType: hard
-
-"parse5@npm:^7.1.2":
+"parse5@npm:^7.0.0, parse5@npm:^7.1.2":
   version: 7.1.2
   resolution: "parse5@npm:7.1.2"
   dependencies:

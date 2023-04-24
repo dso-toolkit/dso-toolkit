@@ -24,7 +24,7 @@
     "http-proxy-middleware": "^2.0.6",
     "http-server": "^14.1.1",
     "iframe-resizer": "^4.3.2",
-    "lit-html": "^2.4.0",
+    "lit-html": "^2.7.2",
     "react-syntax-highlighter": "^15.5.0",
     "start-server-and-test": "^1.14.0"
   },

@@ -20,10 +20,9 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
             [footer]="footerRef"
             [modalTitle]="modalTitle"
             [showCloseButton]="showCloseButton"
-            [startOpen]="true"
+            [initialFocus]="initialFocus"
+            (dsoClose)="dsoClose?.($event)"
           ></modal-controller-demo>
-
-
 
           <ng-template #bodyRef
             ><div [outerHTML]="$any(body?.template) | trustHtml"></div
@@ -37,17 +36,6 @@ export const angularModal: ComponentImplementation<Modal<StoryFnAngularReturnTyp
               : ""
           }
           `,
-        // template: `
-        //   <dso-modal
-        //     [role]="role"
-        //     [modalTitle]="modalTitle"
-        //     [showCloseButton]="showCloseButton"
-        //     [initialFocus]="initialFocus"
-        //     (dsoClose)="dsoClose?.($event)"
-        //   >
-        //     <div slot="body" [innerHTML]="body.template | trustHtml"></div>
-        //     <div *ngIf="footer" slot="footer" [innerHTML]="footer.template | trustHtml"></div>
-        //   </dso-modal>`,
       };
     },
 };

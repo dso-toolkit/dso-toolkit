@@ -2,8 +2,10 @@ import { ModalContent, ModalOptions } from "dso-toolkit";
 
 import { DsoModalRef } from "./modal-ref";
 
+export type AllowedModalContentTypes = HTMLElement | DocumentFragment | string;
+
 export class DsoModalController {
-  open(modal: ModalContent<HTMLElement | string>, options?: ModalOptions): DsoModalRef {
+  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoModalRef {
     const dsoModalElement = this.createModal(modal, options);
 
     document.body.appendChild(dsoModalElement);
@@ -12,48 +14,35 @@ export class DsoModalController {
   }
 
   private createModal(
-    { title, body, footer }: ModalContent<string | HTMLElement>,
+    { title, body, footer }: ModalContent<AllowedModalContentTypes>,
     options?: ModalOptions
   ): HTMLElement {
     const element = document.createElement(`dso-modal`);
 
-    // moet nog even een eigen Type krijgen.
-    const attributes: { [key: string]: string | undefined } = {};
-
     if (title) {
-      attributes["modal-title"] = title;
+      element.modalTitle = title;
     }
 
     if (options) {
       const { role, showCloseButton, initialFocus } = options;
 
       if (role) {
-        attributes["role"] = role;
+        element.role = role;
       }
 
       if (showCloseButton) {
-        attributes["show-close-button"] = String(showCloseButton);
+        element.showCloseButton = showCloseButton;
       }
 
       if (initialFocus) {
-        attributes["initial-focus"] = initialFocus;
-        // element.initialFocus = "div";
-        // element.showCloseButton = showCloseButton;
-      }
-    }
-
-    for (const key in attributes) {
-      const value = attributes[key];
-
-      if (value) {
-        element.setAttribute(key, value);
+        element.initialFocus = initialFocus;
       }
     }
 
     const bodyDiv = document.createElement("div");
+    bodyDiv.setAttribute("slot", "body");
 
     if (typeof body === "string") {
-      bodyDiv.setAttribute("slot", "body");
       bodyDiv.innerHTML = body;
     } else {
       bodyDiv.appendChild(body);
@@ -63,9 +52,9 @@ export class DsoModalController {
 
     if (footer) {
       const footerDiv = document.createElement("div");
+      footerDiv.setAttribute("slot", "footer");
 
       if (typeof footer === "string") {
-        footerDiv.setAttribute("slot", "footer");
         footerDiv.innerHTML = footer;
       } else {
         footerDiv.appendChild(footer);
