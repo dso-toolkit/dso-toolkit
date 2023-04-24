@@ -585,7 +585,7 @@ export class DsoDatePicker implements ComponentInterface {
   };
 
   componentWillLoad(): void | Promise<void> {
-    const minDate = parseDutchDate(this.max);
+    const minDate = parseDutchDate(this.min);
     const maxDate = parseDutchDate(this.max);
 
     if (minDate && minDate > this.focusedDay) {
@@ -723,7 +723,7 @@ export class DsoDatePicker implements ComponentInterface {
                       ref={(element) => (this.monthSelectNode = element)}
                       onChange={this.handleMonthSelect}
                     >
-                      {monthRange(selectedYear, minDate, maxDate).map((month, i) => (
+                      {monthRange(this.localization, selectedYear, minDate, maxDate).map((month, i) => (
                         <option key={month} value={i} selected={i === focusedMonth}>
                           {month}
                         </option>
