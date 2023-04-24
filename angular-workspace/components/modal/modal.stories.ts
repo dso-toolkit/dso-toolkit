@@ -2,7 +2,12 @@ import { moduleMetadata, storiesOf } from "@storybook/angular";
 
 import { storiesOfModal } from "dso-toolkit";
 
-import { DsoModal } from "../../projects/component-library/src/public-api";
+import {
+  DsoModal,
+  DsoToolkitModule,
+  ModalControllerDemo,
+  ModalDemoContentComponent,
+} from "../../projects/component-library/src/public-api";
 import { templateContainer } from "../../templates";
 import { TrustHtmlPipe } from "../trust-html.pipe";
 import {
@@ -31,14 +36,16 @@ storiesOfModal({
       ],
       decorators: [
         moduleMetadata({
-          declarations: [TrustHtmlPipe],
+          imports: [DsoToolkitModule],
+          declarations: [TrustHtmlPipe, ModalControllerDemo, ModalDemoContentComponent],
         }),
       ],
     },
   },
   templateContainer,
-  storyTemplates: ({ modalTemplate }, templates) => ({
+  storyTemplates: ({ modalTemplate, modalControllerTemplate }, templates) => ({
     modalTemplate,
+    modalControllerTemplate,
     activeBody,
     activeFooter,
     passiveBody,

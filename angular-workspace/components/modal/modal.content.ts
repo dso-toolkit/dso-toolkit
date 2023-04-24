@@ -6,6 +6,7 @@ export const activeBody = {
         U wilt de werkzaamheid <strong>Dakkapel plaatsen, vervangen of veranderen</strong> verwijderen. Uw antwoorden op de
         vragen worden dan ook verwijderd. Wilt u doorgaan?
       </p>
+      <modal-demo-content-component></modal-demo-content-component>
     `,
 };
 

@@ -1,3 +1,3 @@
 export * from "./components";
 
-export * from "./controllers/modal/modal.controller";
+export * from "./react-components/modal-portal.component";

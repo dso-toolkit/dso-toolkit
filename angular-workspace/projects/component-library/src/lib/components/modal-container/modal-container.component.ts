@@ -1,5 +1,5 @@
-import { ComponentPortal } from "@angular/cdk/portal";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ComponentPortal, TemplatePortal } from "@angular/cdk/portal";
+import { Component, EventEmitter, Input, Output, ViewContainerRef, inject } from "@angular/core";
 import { DsoModalCloseEvent } from "@dso-toolkit/core";
 
 import { ModalOptions } from "dso-toolkit";
@@ -20,6 +20,8 @@ import { ModalOptions } from "dso-toolkit";
   `,
 })
 export class DsoModalContainer {
+  viewContainerRef = inject(ViewContainerRef);
+
   @Input()
   title?: string;
 
@@ -27,10 +29,10 @@ export class DsoModalContainer {
   options?: ModalOptions;
 
   @Input()
-  bodyPortalRef?: ComponentPortal<unknown>;
+  bodyPortalRef?: ComponentPortal<unknown> | TemplatePortal<unknown>;
 
   @Input()
-  footerPortalRef?: ComponentPortal<unknown>;
+  footerPortalRef?: ComponentPortal<unknown> | TemplatePortal<unknown>;
 
   @Output()
   dsoClose = new EventEmitter<DsoModalCloseEvent>();

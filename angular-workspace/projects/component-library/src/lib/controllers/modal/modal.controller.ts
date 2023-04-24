@@ -1,18 +1,24 @@
 import { Dialog } from "@angular/cdk/dialog";
-import { ComponentPortal } from "@angular/cdk/portal";
-import { inject, Injectable, Type } from "@angular/core";
+import { ComponentPortal, TemplatePortal } from "@angular/cdk/portal";
+import { inject, Injectable, TemplateRef, Type } from "@angular/core";
 
-import { ModalConfig, ModalContent, ModalController } from "dso-toolkit";
+import { ModalContent, ModalOptions } from "dso-toolkit";
 
-import { DsoModal } from "../../stencil-generated/components";
-import { DsoModalContainer } from "./modal-container.component";
-import { DsoModalRef } from "./modal.ref";
+import { DsoModalContainer } from "../../components/modal-container/modal-container.component";
+import { DsoModalRef } from "./modal-ref";
+
+export interface ModalConfig {
+  /** TODO: DIALOG_DATA jsdoc */
+  data?: Record<string, unknown>;
+  options?: ModalOptions;
+}
 
 @Injectable()
-export class DsoModalController implements ModalController<Type<DsoModal>> {
+export class DsoModalController {
   private cdkDialog = inject(Dialog);
 
-  open({ title, body, footer }: ModalContent<Type<unknown>>, config?: ModalConfig): DsoModalRef {
+  open({ title, body, footer }: ModalContent<Type<unknown> | TemplateRef<unknown>>, config?: ModalConfig): DsoModalRef {
+    // Even documenteren dat dit zit in DIALOG_DATA
     const dialogRef = this.cdkDialog.open(DsoModalContainer, { data: config?.data });
 
     if (dialogRef.componentInstance) {
@@ -24,11 +30,17 @@ export class DsoModalController implements ModalController<Type<DsoModal>> {
         dialogRef.componentInstance.options = config.options;
       }
 
-      const bodyPortal = new ComponentPortal(body);
+      const bodyPortal =
+        body instanceof TemplateRef
+          ? new TemplatePortal(body, dialogRef.componentInstance.viewContainerRef)
+          : new ComponentPortal(body);
       dialogRef.componentInstance.bodyPortalRef = bodyPortal;
 
       if (footer) {
-        const footerPortal = new ComponentPortal(footer);
+        const footerPortal =
+          footer instanceof TemplateRef
+            ? new TemplatePortal(footer, dialogRef.componentInstance.viewContainerRef)
+            : new ComponentPortal(footer);
         dialogRef.componentInstance.footerPortalRef = footerPortal;
       }
     }

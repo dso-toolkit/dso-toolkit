@@ -1,2 +1,2 @@
 export * from "./modal.controller";
-export * from "./modal.ref";
+export * from "./modal-ref";

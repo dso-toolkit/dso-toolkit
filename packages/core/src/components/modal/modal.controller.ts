@@ -1,44 +1,23 @@
-import { ModalContent } from "dso-toolkit";
+import { ModalContent, ModalOptions } from "dso-toolkit";
+
+import { DsoModalRef } from "./modal-ref";
 
 export class DsoModalController {
-  component?: HTMLElement;
+  open(modal: ModalContent<HTMLElement | string>, options?: ModalOptions): DsoModalRef {
+    const dsoModalElement = this.createModal(modal, options);
 
-  open(modal: ModalContent<string | HTMLElement>, options?: any) {
-    if (this.component) {
-      this.close();
-    }
-    this.component = this.createModal(modal, options);
+    document.body.appendChild(dsoModalElement);
 
-    document.body.appendChild(this.component);
+    return new DsoModalRef(dsoModalElement);
   }
 
-  close() {
-    if (!this.component) {
-      throw new Error("component not found");
-    }
-
-    document.body.removeChild(this.component);
-  }
-
-  addEventListener(eventName: "dsoClose", fn: (e: any) => void) {
-    if (!this.component) {
-      throw new Error("unable to add event listener. try opening the modal first");
-    }
-
-    this.component.addEventListener(eventName, fn);
-  }
-
-  removeEventListener(eventName: "dsoClose", fn: (e: any) => void) {
-    if (!this.component) {
-      throw new Error("unable to add event listener. try opening the modal first");
-    }
-
-    this.component.removeEventListener(eventName, fn);
-  }
-
-  private createModal({ title, body, footer }: ModalContent<string | HTMLElement>, options?: any): HTMLElement {
+  private createModal(
+    { title, body, footer }: ModalContent<string | HTMLElement>,
+    options?: ModalOptions
+  ): HTMLElement {
     const element = document.createElement(`dso-modal`);
 
+    // moet nog even een eigen Type krijgen.
     const attributes: { [key: string]: string | undefined } = {};
 
     if (title) {
@@ -58,6 +37,8 @@ export class DsoModalController {
 
       if (initialFocus) {
         attributes["initial-focus"] = initialFocus;
+        // element.initialFocus = "div";
+        // element.showCloseButton = showCloseButton;
       }
     }
 

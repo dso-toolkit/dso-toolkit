@@ -55,6 +55,7 @@ function toggleClass(className: string) {
 
 export interface ModalTemplates<TemplateFnReturnType> {
   modalTemplate: (modalProperties: Modal<TemplateFnReturnType>) => TemplateFnReturnType;
+  modalControllerTemplate: (modalProperties: Modal<TemplateFnReturnType>) => TemplateFnReturnType;
   activeBody: TemplateFnReturnType;
   activeFooter: TemplateFnReturnType;
   passiveBody: TemplateFnReturnType;
@@ -77,6 +78,19 @@ export function storiesOfModal<Implementation, Templates, TemplateFnReturnType>(
     stories.addParameters({
       argTypes: modalArgTypes,
     });
+
+    stories.add(
+      "controller",
+      templateMapper<ModalArgs>((args, { modalControllerTemplate, confirmBody, confirmFooter }) =>
+        modalControllerTemplate(modalArgsMapper(args, confirmBody, confirmFooter))
+      ),
+      {
+        args: componentArgs<Pick<ModalArgs, "role" | "modalTitle">>({
+          role: "dialog",
+          modalTitle: "Disclaimer",
+        }),
+      }
+    );
 
     stories.add(
       "confirm",
