@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * tertiaire button heeft nu bosgroen bij :hover en bosgroen-140 bij :active. ([#2070](https://github.com/dso-toolkit/dso-toolkit/issues/2070))
 * Label-truncate: aria-roledescription verwijderen ([#2074](https://github.com/dso-toolkit/dso-toolkit/issues/2074))
 
+### Fixed
+* Date picker: bij een range staan alle maanden in de keuzelijst ([#2038](https://github.com/dso-toolkit/dso-toolkit/issues/2038))
+
 ## 52.0.2
 
 ### Fixed

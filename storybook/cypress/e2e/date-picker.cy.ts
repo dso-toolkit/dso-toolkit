@@ -429,4 +429,65 @@ describe("Date Picker", () => {
       .should("have.css", "border-color", "rgb(206, 63, 81)")
       .and("have.attr", "aria-invalid", "true");
   });
+
+  it("should only show available months in range", () => {
+    cy.get("dso-date-picker")
+      .invoke("attr", "min", "3-8-2020")
+      .invoke("attr", "max", "28-3-2022")
+      .get("dso-date-picker")
+      .find(".dso-date__toggle")
+      .click()
+      .wait(300)
+      .get("dso-date-picker")
+      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option")
+      .then((options) => {
+        const actual = [...options].map((o) => o.text);
+        expect(actual).to.deep.eq(["Januari", "Februari", "Maart"]);
+      })
+      .get("dso-date-picker")
+      .find(`.dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option[value="2"]`)
+      .should("be.selected")
+      .get("dso-date-picker")
+      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--year")
+      .select("2021")
+      .wait(300)
+      .get("dso-date-picker")
+      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option")
+      .then((options) => {
+        const actual = [...options].map((o) => o.text);
+
+        expect(actual).to.deep.eq([
+          "Januari",
+          "Februari",
+          "Maart",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Augustus",
+          "September",
+          "Oktober",
+          "November",
+          "December",
+        ]);
+      })
+      .get("dso-date-picker")
+      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--year")
+      .select("2020")
+      .wait(300)
+      .get("dso-date-picker")
+      .find(`.dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option[value="7"]`)
+      .should("be.selected")
+      .get("dso-date-picker")
+      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month option")
+      .then((options) => {
+        const actual = [...options].map((o) => o.text);
+        expect(actual).to.deep.eq(["Augustus", "September", "Oktober", "November", "December"]);
+      })
+      .get("dso-date-picker")
+      .find(".dso-date__dialog .dso-date__header .dso-date__select > select.dso-date__select--month")
+      .select("9")
+      .find(`option[value="9"]`)
+      .should("be.selected");
+  });
 });

@@ -69,6 +69,13 @@ export function storiesOfDatePicker<Implementation, Templates, TemplateFnReturnT
       },
     });
 
+    stories.add("month range", template, {
+      args: {
+        min: "3-8-2020",
+        max: "28-3-2022",
+      },
+    });
+
     stories.add(
       "with label",
       templateMapper<DatePickerArgs>((args, { datePickerTemplate, datePickerWithLabelTemplate }) =>
