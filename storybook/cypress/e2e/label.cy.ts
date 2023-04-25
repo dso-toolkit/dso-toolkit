@@ -19,7 +19,9 @@ describe("Label", () => {
       .should("have.text", defaultLabelText)
       .invoke("attr", "truncate", "")
       .get("dso-label")
-      .then(($element) => $element.wrap('<div style="max-width: 100px">'))      
+      .should("not.have.attr", "aria-roledescription")
+      .get("dso-label")
+      .then(($element) => $element.wrap('<div style="max-width: 100px">'))
       .get("@dsoLabelShadow")
       .find(".dso-label-content")
       .should("exist");
