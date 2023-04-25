@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+### Changed
+* tertiaire button heeft nu bosgroen bij :hover en bosgroen-140 bij :active. ([#2070](https://github.com/dso-toolkit/dso-toolkit/issues/2070))
+
 ## 52.0.2
 
 ### Fixed
