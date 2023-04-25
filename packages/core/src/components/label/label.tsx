@@ -1,19 +1,32 @@
 import {
-  Component,
   h,
-  Prop,
-  Event,
-  EventEmitter,
-  State,
+  Component,
   ComponentInterface,
   Element,
-  Watch,
+  Event,
+  EventEmitter,
   Fragment,
   Method,
+  Prop,
+  State,
+  Watch,
 } from "@stencil/core";
 import clsx from "clsx";
+import { debounce } from "debounce";
 
-import { resizeObserver } from "./resize-observer";
+const resizeObserver = new ResizeObserver(
+  debounce((entries) => {
+    entries.forEach(({ target }) => {
+      if (isDsoLabelComponent(target)) {
+        target.truncateLabel();
+      }
+    });
+  }, 150)
+);
+
+function isDsoLabelComponent(element: Element | HTMLDsoLabelElement): element is HTMLDsoLabelElement {
+  return (element as HTMLDsoLabelElement).truncateLabel !== undefined;
+}
 
 function hasEllipses(el: HTMLElement): boolean {
   return el.scrollWidth > el.clientWidth;
