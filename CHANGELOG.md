@@ -5,12 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## NEXT
 
+## 52.0.3
+De dso-toolkit.nl landingspagina is gewijzigd naar de introductiepagina ([#2082](https://github.com/dso-toolkit/dso-toolkit/issues/2082))
+
 ### Changed
 * tertiaire button heeft nu bosgroen bij :hover en bosgroen-140 bij :active. ([#2070](https://github.com/dso-toolkit/dso-toolkit/issues/2070))
-* Label-truncate: aria-roledescription verwijderen ([#2074](https://github.com/dso-toolkit/dso-toolkit/issues/2074))
+* `<dso-label>` bij truncate: aria-roledescription verwijderen ([#2074](https://github.com/dso-toolkit/dso-toolkit/issues/2074))
 
 ### Fixed
-* Date picker: bij een range staan alle maanden in de keuzelijst ([#2038](https://github.com/dso-toolkit/dso-toolkit/issues/2038))
+* `<h1>` bij filterpaneel is nu bosgroen zoals bedoelt ([#2075](https://github.com/dso-toolkit/dso-toolkit/issues/2075))
+* `<dso-date-picker>`: bij een range staan alle maanden in de keuzelijst ([#2038](https://github.com/dso-toolkit/dso-toolkit/issues/2038))
 
 ## 52.0.2
 
