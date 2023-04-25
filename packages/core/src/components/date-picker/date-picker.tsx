@@ -723,11 +723,15 @@ export class DsoDatePicker implements ComponentInterface {
                       ref={(element) => (this.monthSelectNode = element)}
                       onChange={this.handleMonthSelect}
                     >
-                      {monthRange(this.localization, selectedYear, minDate, maxDate).map((month, i) => (
-                        <option key={month} value={i} selected={i === focusedMonth}>
-                          {month}
-                        </option>
-                      ))}
+                      {monthRange(this.localization, selectedYear, minDate, maxDate).map((month) => {
+                        const index = this.localization.monthNames.indexOf(month);
+
+                        return (
+                          <option key={month} value={index} selected={index === focusedMonth}>
+                            {month}
+                          </option>
+                        );
+                      })}
                     </select>
                     <div class="dso-date__select-label" aria-hidden="true">
                       <span>{this.localization.monthNamesShort[focusedMonth]}</span>
