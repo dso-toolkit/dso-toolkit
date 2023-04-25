@@ -8,7 +8,7 @@ import {
   ComponentInterface,
   Element,
   Watch,
-  Host,
+  Fragment,
   Method,
 } from "@stencil/core";
 import clsx from "clsx";
@@ -166,13 +166,7 @@ export class Label implements ComponentInterface {
     const status = this.status && Label.statusMap.get(this.status);
 
     return (
-      <Host
-        aria-roledescription={
-          this.truncate && this.isTruncated
-            ? "Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus."
-            : undefined
-        }
-      >
+      <Fragment>
         <span
           aria-describedby="toggle-anchor"
           class={clsx("dso-label", {
@@ -221,7 +215,7 @@ export class Label implements ComponentInterface {
             {this.labelText}
           </dso-tooltip>
         )}
-      </Host>
+      </Fragment>
     );
   }
 }

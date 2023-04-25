@@ -19,15 +19,9 @@ describe("Label", () => {
       .should("have.text", defaultLabelText)
       .invoke("attr", "truncate", "")
       .get("dso-label")
-      .should("have.not.have.attr", "aria-roledescription")
+      .should("not.have.attr", "aria-roledescription")
       .get("dso-label")
       .then(($element) => $element.wrap('<div style="max-width: 100px">'))
-      .get("dso-label")
-      .should(
-        "have.attr",
-        "aria-roledescription",
-        "Deze tekst is visueel afgekapt en wordt volledig zichtbaar bij focus."
-      )
       .get("@dsoLabelShadow")
       .find(".dso-label-content")
       .should("exist");
