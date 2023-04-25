@@ -94,6 +94,7 @@ const config = {
         logo: {
           alt: "",
           src: "img/logo.png",
+          href: `${VERSION ? "/" + VERSION : ""}/intro`,
         },
         items: [
           {
