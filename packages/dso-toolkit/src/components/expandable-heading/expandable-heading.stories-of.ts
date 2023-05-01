@@ -55,27 +55,13 @@ export function storiesOfExpandableHeading<Implementation, Templates, TemplateFn
     );
 
     stories.add(
-      "delete",
+      "renvooiweergave",
       templateMapper<ExpandableHeadingArgs>((args, { expandableHeadingTemplate, expandableHeadingRenvooi }) => {
         return expandableHeadingTemplate(expandableHeadingArgsMapper(args, expandableHeadingRenvooi));
       }),
       {
         args: {
           heading: "h3",
-          editAction: "delete",
-        },
-      }
-    );
-
-    stories.add(
-      "insert",
-      templateMapper<ExpandableHeadingArgs>((args, { expandableHeadingTemplate, expandableHeadingRenvooi }) => {
-        return expandableHeadingTemplate(expandableHeadingArgsMapper(args, expandableHeadingRenvooi));
-      }),
-      {
-        args: {
-          heading: "h3",
-          editAction: "insert",
         },
       }
     );

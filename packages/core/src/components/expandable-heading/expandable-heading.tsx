@@ -2,7 +2,7 @@ import { Component, Event, EventEmitter, Host, h, Prop } from "@stencil/core";
 import clsx from "clsx";
 import { v4 as uuidv4 } from "uuid";
 
-import { ExpandableHeadingToggleEvent, HeadingTags } from "./expandable-heading.interfaces";
+import { EditAction, ExpandableHeadingToggleEvent, HeadingTags } from "./expandable-heading.interfaces";
 import { Heading } from "./heading";
 
 @Component({
@@ -21,7 +21,7 @@ export class ExpandableHeading {
   color: "default" | "black" = "default";
 
   @Prop()
-  editAction?: "delete" | "insert";
+  editAction?: EditAction;
 
   @Event()
   dsoToggle!: EventEmitter<ExpandableHeadingToggleEvent>;

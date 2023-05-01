@@ -1,11 +1,11 @@
 import { HandlerFunction } from "@storybook/addon-actions";
 import { ArgTypes, noControl } from "../../storybook/index.js";
-import { ExpandableHeading, ExpandableHeadingTemplates } from "./expandable-heading.models.js";
+import { EditAction, ExpandableHeading, ExpandableHeadingTemplates } from "./expandable-heading.models.js";
 
 export interface ExpandableHeadingArgs {
   heading: "h2" | "h3" | "h4" | "h5" | "h6";
   color: "default" | "black";
-  editAction: "delete" | "insert";
+  editAction: EditAction;
   dsoToggle: HandlerFunction;
 }
 

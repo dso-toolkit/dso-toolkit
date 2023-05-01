@@ -9,6 +9,7 @@ import {
   expandandableHeadingDemoContent,
   parentExpandableHeadingContent,
 } from "./expandable-heading.content";
+import { EditAction } from "@dso-toolkit/core";
 
 function expandableHeadingDemoListContent(
   { ozonContentTemplate, annotationButtonTemplate, annotationOutputTemplate }: Templates,
@@ -37,7 +38,7 @@ function expandableHeadingDemoListContent(
   </ol>`;
 }
 
-function nestedExpandableHeading1(templates: Templates) {
+function nestedExpandableHeading1(templates: Templates, editAction?: EditAction) {
   const { expandableHeadingTemplate, ozonContentTemplate } = templates;
 
   return {
@@ -63,6 +64,7 @@ function nestedExpandableHeading1(templates: Templates) {
       prefix: html`<span slot="prefix">Afdeling 2.1 </span>`,
       inline: true,
     }),
+    editAction,
     content: html`${[1, 2, 3].map((article) =>
       expandableHeadingTemplate({
         heading: "h4",
@@ -125,7 +127,7 @@ function nestedExpandableHeading2(templates: Templates) {
   };
 }
 
-function nestedExpandableHeading3(templates: Templates) {
+function nestedExpandableHeading3(templates: Templates, editAction?: EditAction) {
   const { ozonContentTemplate } = templates;
 
   return {
@@ -151,11 +153,15 @@ function nestedExpandableHeading3(templates: Templates) {
       prefix: html`<span slot="prefix">Afdeling 2.3 </span>`,
       inline: true,
     }),
+    editAction,
     content: expandandableHeadingDemoContent(templates),
   };
 }
 
-export function expandableHeadingWithChildList(templates: Templates): ExpandableHeading<TemplateResult> {
+export function expandableHeadingWithChildList(
+  templates: Templates,
+  renvooi = false
+): ExpandableHeading<TemplateResult> {
   const { annotationButtonTemplate, labelTemplate, ozonContentTemplate } = templates;
 
   return {
@@ -184,9 +190,9 @@ export function expandableHeadingWithChildList(templates: Templates): Expandable
     addonsStart: labelTemplate({ slotName: "addons-start", label: "een label", status: "danger", compact: true }),
     addonsEnd: annotationButtonTemplate({ slotName: "addons-end", identifier: "annotatie-id" }),
     content: parentExpandableHeadingContent(templates, [
-      nestedExpandableHeading1(templates),
+      renvooi ? nestedExpandableHeading1(templates, "delete") : nestedExpandableHeading1(templates),
       nestedExpandableHeading2(templates),
-      nestedExpandableHeading3(templates),
+      renvooi ? nestedExpandableHeading3(templates, "insert") : nestedExpandableHeading3(templates),
     ]),
   };
 }

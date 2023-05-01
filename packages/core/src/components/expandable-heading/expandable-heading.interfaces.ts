@@ -4,3 +4,5 @@ export interface ExpandableHeadingToggleEvent {
   originalEvent?: MouseEvent | KeyboardEvent;
   open: boolean;
 }
+
+export type EditAction = "delete" | "insert";
