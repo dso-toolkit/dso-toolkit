@@ -48,8 +48,7 @@ describe("Expandable Heading", () => {
       .get("@dsoExpandableHeading")
       .find(".dso-edit-action-text")
       .should("exist")
-      .should("have.text", "verwijderd:")
-      .percySnapshot(`${Cypress.currentTest.title}" -- delete`);
+      .should("have.text", "verwijderd:");
   });
 
   it("should show insert", () => {
@@ -62,7 +61,6 @@ describe("Expandable Heading", () => {
       .get("@dsoExpandableHeading")
       .find(".dso-edit-action-text")
       .should("exist")
-      .should("have.text", "toegevoegd:")
-      .percySnapshot(`${Cypress.currentTest.title}" -- insert`);
+      .should("have.text", "toegevoegd:");
   });
 });
