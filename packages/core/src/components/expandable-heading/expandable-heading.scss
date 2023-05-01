@@ -3,10 +3,12 @@
 @use "~dso-toolkit/src/variables/units";
 
 @use "~dso-toolkit/src/components/headings/headings";
+@use "~dso-toolkit/src/components/insert/insert";
 
 :host {
   display: block;
-  padding: units.$u1 * 0.5 0;
+  margin-inline: -(units.$u1);
+  padding-inline: units.$u1;
 }
 
 :host(.dso-del) {
@@ -17,7 +19,7 @@
 
 :host(.dso-ins) {
   background-color: colors.$success-bg-color;
-  box-shadow: 0 2px 2px 1px rgb(0 0 0 / 20%);
+  box-shadow: insert.$insert-box-shadow;
   color: colors.$zwart;
 }
 
@@ -29,7 +31,7 @@
 
 .dso-edit-action-text {
   margin-bottom: 0;
-  margin-top: units.$u1 * 0.5;
+  margin-top: -(units.$u1 * 0.5);
   padding: units.$u1 * 0.5 units.$u1 0;
 
   span {
@@ -46,9 +48,8 @@
 .expandable-heading {
   align-items: center;
   display: flex;
-  margin-bottom: units.$u1 * 0.5;
-  margin-top: units.$u1 * 0.5;
-  padding: units.$u1 * 0.5;
+  margin-bottom: units.$u1;
+  margin-top: units.$u1;
 
   h2,
   h3,

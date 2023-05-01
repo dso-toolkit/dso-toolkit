@@ -18,6 +18,6 @@ storiesOfExpandableHeading({
     expandableHeadingTemplate,
     expandableHeading: expandableHeading(templates),
     expandableHeadingWithChildList: expandableHeadingWithChildList(templates),
-    expandableHeadingRenvooi: expandableHeadingWithChildList(templates),
+    expandableHeadingRenvooi: expandableHeadingWithChildList(templates, true),
   }),
 });
