@@ -4,65 +4,58 @@
 
 ## DsoModalController
 
-Het gebruiken van het Modal component in Angular kan zo:
-
-Injecteren van `ModalController`:
-
 ```
+import { ModalContent, ModalOptions } from "dso-toolkit";
+import { DsoModalController, DsoModalRef } from "@dso-toolkit/angular";
+
+@Component()
+export class ModalControllerDemo {
   private controller: DsoModalController = inject(DsoModalController);
+
+  open() {
+    const ref = this.modalController.open({
+      title: 'DSO Angular Modal',
+      body: ModalBodyComponent, // Angular Component. note: TemplateRef's are also allowed.
+      footer: ModalFooterComponent, // Angular Component.
+    },
+    {
+      data: {
+        text: 'Dit object is beschikbaar via 'private data = inject(DIALOG_DATA)' binnen bijvoorbeeld ModalBodyComponent',
+      },
+    });
+
+    ref.onDsoClose().subscribe(() => ref.close());
+  }
+}
 ```
 
-of
+### API
 
 ```
- constructor(private controller: DsoModalController) {}
+export type AllowedModalContentTypes = Type<unknown> | TemplateRef<unknown>;
+
+class DsoModalController {
+  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoDialogRef
+}
+
+interface ModalContent<AllowedModalContentTypes> {
+  title?: string;
+  body: AllowedModalContentTypes;
+  footer?: AllowedModalContentTypes;
+}
+
+interface ModalOptions {
+  role?: "alert" | "dialog" | "alertdialog";
+  showCloseButton?: boolean;
+  initialFocus?: string;
+}
+
+class DialogRef {
+  /** Removes the Dialog **/
+  close(): void;
+
+  onDsoClose(): EventEmitter<DsoModalCloseEvent>;
+}
 ```
 
-De controller heeft één functie `open` met 2 parameters.
-
-- Modal
-  - title: `string` \*optioneel
-  - body: `Type<unknown> | TemplateRef<unknown>`
-  - title: `Type<unknown> | TemplateRef<unknown>` \*optioneel
-- Config \*optioneel
-  - data: `any`
-  - options:
-    - role: `ModalRole ("alert" | "dialog" | "alertdialog")`
-    - showCloseButton: `boolean`
-    - initialFocus: `string`
-
-Voorbeeld:
-
-```
-modalRef = this.modalController.open({
-  title: 'DSO Angular Modal',
-  body: ModalBodyComponent,
-  footer: ModalFooterComponent,
-},
-{
-  data: {
-    text: 'Ik ben data',
-    count: 1,
-    confirmLabel: 'akkoord',
-  },
-  options: {
-    showCloseButton: true,
-  },
-})
-```
-
-De data in het config gedeelde hierboven kan in de `body` en `footer` componenten worden opgehaald door:
-
-```
-data = inject(DIALOG_DATA);
-```
-
-of
-
-```
-constructor(@Inject(DIALOG_DATA) public data: any) {}
-```
-
-### DsoModalRef
-
-De `open` functie van de controller geeft een `DsoModalRef` terug. Deze ref bevat de functie `close` om de modal te sluiten en een functie `onDsoClose` om naar het `dsoClose` event te luisteren. `modalRef.onDsoClose().subscribe()`
+De `DsoModalRef` bevat de functie `close` om de modal te sluiten en een functie `onDsoClose` om naar het `dsoClose` event te luisteren. `modalRef.onDsoClose().subscribe(() => modalRef.close())`

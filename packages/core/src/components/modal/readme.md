@@ -1,44 +1,133 @@
 # dso-modal
 
-**Let op: het los plaatsen van `<dso-modal>` wordt sterk afgeraden. Maak gebruik van de `DsoModalController`.**
+**Let op: Core, React en Angular hebben ieder een eigen preferred method voor het gebruik van `<dso-modal>`.**
 
-## DsoModalController
+Modals werken het best wanneer deze op een hoog niveau in de DOM tree geplaatst worden. (bv als last child in `<body>`). Om dit te bewerkstelligen schrijven we voor elk framework een eigen manier van implementeren voor. Voor Core en Angular kan programmatisch de modal geopent worden. Bij React is een Higher-Order-Component beschikbaar die de modal op de juiste locatie in het DOM plaatst.
 
-Het gebruiken van het Modal component kan zo:
-
-Injecteren van `ModalController`:
-
-```
-  private controller: DsoModalController = new DsoModalController();
-```
-
-De controller heeft één functie `open` met 2 parameters.
-
-- Modal
-  - title: `string` \*optioneel
-  - body: `HtmlElement | string`
-  - title: `HtmlElement | string` \*optioneel
-- Options \*optioneel
-  - role: `ModalRole ("alert" | "dialog" | "alertdialog")`
-  - showCloseButton: `boolean`
-  - initialFocus: `string`
+## Core `DsoModalController`
 
 Voorbeeld:
 
 ```
-modalRef = this.modalController.open({
-  title: 'DSO Angular Modal',
-  body: ModalBodyComponent,
-  footer: ModalFooterComponent,
-},
-{
-  showCloseButton: true,
-})
+import { ModalContent, ModalOptions } from "dso-toolkit";
+import { DsoModalController } from "@dso-toolkit/core";
+
+const controller = new DsoModalController();
+
+const modal:  = {
+  title: 'Titel',
+  body: '<span>content</span>',
+};
+
+const ref = controller.open(modal);
+
+// Remove modal from DOM
+ref.close();
 ```
 
-### DsoModalRef
+### API
 
-De `open` functie van de controller geeft een `DsoModalRef` terug. Deze ref bevat de functie `close` om de modal te sluiten en de functies `addEventListener` en `removeEventlistener` om naar het `dsoClose` event te luisteren. `modalRef.addEventListener('dsoClose', () => modalRef.close())`
+```
+export type AllowedModalContentTypes = HTMLElement | DocumentFragment | string;
+
+class DsoModalController {
+  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoDialogRef
+}
+
+interface ModalContent<AllowedModalContentTypes> {
+  title?: string;
+  body: AllowedModalContentTypes;
+  footer?: AllowedModalContentTypes;
+}
+
+interface ModalOptions {
+  role?: "alert" | "dialog" | "alertdialog";
+  showCloseButton?: boolean;
+  initialFocus?: string;
+}
+
+class DialogRef {
+  /** Removes the Dialog **/
+  close(): void;
+
+  addEventListener(eventName: "dsoClose", fn: EventListenerOrEventListenerObject): void;
+
+  removeEventListener(eventName: "dsoClose", fn: EventListenerOrEventListenerObject): void;
+}
+```
+
+Deze `DsoModalRef` bevat de functie `close` om de modal te sluiten. via de functies `addEventListener` en `removeEventlistener` kan de afnemer aanhaken op het `dsoClose` event. `modalRef.addEventListener('dsoClose', () => modalRef.close())`
+
+## React `<DsoModalPortal />`
+Voor React is een higher order component (`<DsoModalPortal />`) beschikbaar om de `<DsoModal />` op de juiste plek in het DOM te plaatsen. Zie "Properties" onderaan deze pagina voor de API van `<DsoModal/>`
+
+```
+<DsoModalPortal>
+  <DsoModal {...modalProps}>
+    <div slot="body">{body}</div>
+    <div slot="footer">{footer}</div>
+  </DsoModal>
+</DsoModalPortal>
+```
+
+## Angular `DsoModalController`
+
+Voorbeeld:
+
+```
+import { ModalContent, ModalOptions } from "dso-toolkit";
+import { DsoModalController, DsoModalRef } from "@dso-toolkit/angular";
+
+@Component()
+export class ModalControllerDemo {
+  private controller: DsoModalController = inject(DsoModalController);
+
+  open() {
+    const ref = this.modalController.open({
+      title: 'DSO Angular Modal',
+      body: ModalBodyComponent, // Angular Component. note: TemplateRef's are also allowed.
+      footer: ModalFooterComponent, // Angular Component.
+    },
+    {
+      data: {
+        text: 'Dit object is beschikbaar via 'private data = inject(DIALOG_DATA)' binnen bijvoorbeeld ModalBodyComponent',
+      },
+    });
+
+    ref.onDsoClose().subscribe(() => ref.close());
+  }
+}
+```
+
+### API
+```
+export type AllowedModalContentTypes = Type<unknown> | TemplateRef<unknown>;
+
+class DsoModalController {
+  open(modal: ModalContent<AllowedModalContentTypes>, options?: ModalOptions): DsoDialogRef
+}
+
+interface ModalContent<AllowedModalContentTypes> {
+  title?: string;
+  body: AllowedModalContentTypes;
+  footer?: AllowedModalContentTypes;
+}
+
+interface ModalOptions {
+  role?: "alert" | "dialog" | "alertdialog";
+  showCloseButton?: boolean;
+  initialFocus?: string;
+}
+
+class DialogRef {
+  /** Removes the Dialog **/
+  close(): void;
+
+  onDsoClose(): EventEmitter<DsoModalCloseEvent>;
+}
+```
+
+De `DsoModalRef` bevat de functie `close` om de modal te sluiten en een functie `onDsoClose` om naar het `dsoClose` event te luisteren. `modalRef.onDsoClose().subscribe(() => modalRef.close())`
 
 
 <!-- Auto Generated Below -->

@@ -5,6 +5,7 @@ export class DsoModalRef {
     }
   }
 
+  /** Removes the modal from the DOM. */
   close() {
     document.body.removeChild(this.modalElement);
   }

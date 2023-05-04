@@ -1,6 +1,8 @@
 # `<DsoModal>`
 
-**Let op: het los plaatsen van `<DsoModal>` wordt sterk afgeraden. Maak gebruik van `<DsoModalPortal>`.**
+**Let op: het los plaatsen van `<DsoModal>` wordt sterk afgeraden. `<DsoModal>` Moet altijd in een `<DsoModalPortal>` geplaatst worden.**
+
+**Let op: voor Core en Angular geldt eigen documentatie**
 
 ## DsoModalPortal
 
