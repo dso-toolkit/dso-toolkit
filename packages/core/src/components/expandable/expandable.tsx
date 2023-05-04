@@ -43,6 +43,9 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   @Event()
   dsoToggle!: EventEmitter<ExpandableToggleEvent>;
 
+  @Event()
+  animationInstantiated!: EventEmitter<void>;
+
   @Watch("open")
   toggleOpen() {
     if (this.enableAnimation) {
@@ -139,6 +142,8 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
     if (this.host) {
       this.host.style.height = "";
     }
+
+    this.animationInstantiated.emit();
   }
 
   private activateAnimation(): void {

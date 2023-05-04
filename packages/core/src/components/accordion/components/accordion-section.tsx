@@ -34,7 +34,7 @@ export class AccordionSection implements ComponentInterface {
 
   private bodyHeight?: number;
 
-  private expandableElement?: ExpandableInterface;
+  private expandable?: ExpandableInterface;
 
   @Element()
   host!: HTMLElement;
@@ -83,30 +83,6 @@ export class AccordionSection implements ComponentInterface {
         this.accordionState = state;
         forceUpdate(this.host);
       });
-    }
-  }
-
-  componentDidLoad(): void {
-    if (this.host.shadowRoot) {
-      const expandable = this.host.shadowRoot.querySelector<HTMLElement>("dso-expandable");
-
-      if (isExpandable(expandable)) {
-        this.expandableElement = expandable;
-
-        this.expandableElement.getAnimeInstance().then((animeInstance) => {
-          if (animeInstance) {
-            animeInstance.update;
-            animeInstance.changeComplete = async () => {
-              this.accordion?.animationEnd(this.host);
-
-              if (AccordionSection.scrollCandidate === this.host) {
-                AccordionSection.scrollCandidate = undefined;
-                await this.scrollSectionIntoView();
-              }
-            };
-          }
-        });
-      }
     }
   }
 
@@ -172,6 +148,39 @@ export class AccordionSection implements ComponentInterface {
       window.scrollTo({
         top: this.host.offsetTop,
         behavior: "smooth",
+      });
+    }
+  }
+
+  private setAnimationBehaviour(event: Event, section?: HTMLElement): void {
+    const expandableElement = event.target;
+
+    if (!(expandableElement instanceof HTMLElement)) {
+      return;
+    }
+
+    if (isExpandable(expandableElement)) {
+      this.expandable = expandableElement;
+      this.expandable.getAnimeInstance().then((animeInstance) => {
+        if (animeInstance) {
+          animeInstance.update;
+          animeInstance.changeComplete = async () => {
+            if (!section) {
+              return;
+            }
+
+            const accordion = section.parentElement;
+
+            if (isAccordion(accordion)) {
+              accordion?.animationEnd(section);
+            }
+
+            if (AccordionSection.scrollCandidate === this.host) {
+              AccordionSection.scrollCandidate = undefined;
+              await this.scrollSectionIntoView();
+            }
+          };
+        }
       });
     }
   }
@@ -243,7 +252,13 @@ export class AccordionSection implements ComponentInterface {
             )}
           </HandleElement>
         </Handle>
-        <dso-expandable class="dso-section-body" open={this.open} enableAnimation={true} animationOffset={this.isNeutral ? 0 : 4}>
+        <dso-expandable
+          class="dso-section-body"
+          open={this.open}
+          enableAnimation={true}
+          animationOffset={this.isNeutral ? 0 : 4}
+          onAnimationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
+        >
           <div class="dso-section-body-content" ref={(element) => (this.sectionBody = element)}>
             <slot />
           </div>

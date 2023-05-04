@@ -374,7 +374,7 @@ describe("Accordion", () => {
       .should("equal", 0);
   });
 
-  it("should emit dsoToggleSectionEnd event for all toggle animations end", () => {
+  it("should emit dsoToggleSectionAnimationEnd event for all toggle animations end", () => {
     cy.get("dso-accordion")
       .invoke("attr", "allow-multiple-open", "")
       .wait(500)

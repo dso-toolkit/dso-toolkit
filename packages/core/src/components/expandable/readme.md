@@ -14,9 +14,10 @@
 
 ## Events
 
-| Event       | Description | Type                                 |
-| ----------- | ----------- | ------------------------------------ |
-| `dsoToggle` |             | `CustomEvent<ExpandableToggleEvent>` |
+| Event                   | Description | Type                                 |
+| ----------------------- | ----------- | ------------------------------------ |
+| `animationInstantiated` |             | `CustomEvent<void>`                  |
+| `dsoToggle`             |             | `CustomEvent<ExpandableToggleEvent>` |
 
 
 ## Methods

@@ -1130,6 +1130,7 @@ declare namespace LocalJSX {
     interface DsoExpandable {
         "animationOffset"?: number;
         "enableAnimation"?: boolean;
+        "onAnimationInstantiated"?: (event: DsoExpandableCustomEvent<void>) => void;
         "onDsoToggle"?: (event: DsoExpandableCustomEvent<ExpandableToggleEvent>) => void;
         "open"?: boolean;
     }
