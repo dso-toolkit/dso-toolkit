@@ -149,7 +149,7 @@ function nestedExpandableHeading2(templates: Templates, renvooi: boolean) {
           prefix: html`<span slot="prefix">Artikel 2.1.${article} </span>`,
           inline: true,
         }),
-        editAction: renvooi && article === 2 ? "delete" : undefined,
+        editAction: renvooi && article === 2 ? "insert" : undefined,
         content: expandableHeadingDemoListContent(templates, article),
       })
     )}`,

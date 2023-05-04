@@ -113,7 +113,7 @@ function nestedExpandableHeading2(templates: Templates, renvooi: boolean): Expan
                   </dso-ozon-content>
                 `,
               },
-              editAction: renvooi && article === 2 ? "delete" : undefined,
+              editAction: renvooi && article === 2 ? "insert" : undefined,
               content: expandableHeadingDemoListContent(templates, article),
             }).template
         )

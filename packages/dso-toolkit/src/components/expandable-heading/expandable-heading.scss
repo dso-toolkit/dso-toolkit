@@ -11,5 +11,25 @@ dso-expandable-heading {
     a {
       color: colors.$zwart;
     }
+
+    .dso-annotation-header,
+    .dso-annotation-content {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .dso-annotation-header {
+      border-bottom: 2px solid colors.$wit;
+      border-left: 1px solid colors.$grijs-20;
+      border-right: 1px solid colors.$grijs-20;
+      border-top: 1px solid colors.$grijs-20;
+      margin-bottom: -2px;
+    }
+
+    .dso-annotation-content {
+      border-bottom: 1px solid colors.$grijs-20;
+      border-left: 1px solid colors.$grijs-20;
+      border-right: 1px solid colors.$grijs-20;
+      padding-top: units.$u2 + 2px;
+    }
   }
 }
