@@ -1,5 +1,6 @@
 @use "~dso-toolkit/src/components/card-container";
 @use "~dso-toolkit/src/components/list";
+@use "~dso-toolkit/src/variables/media-query-breakpoints";
 
 @use "~dso-toolkit/src/components/grid/grid.variables" as grid-variables;
 
@@ -14,7 +15,18 @@
   .dso-card-grid {
     display: grid;
     gap: grid-variables.$grid-gutter-width;
-    grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 1fr;
+
+    @media (max-width: media-query-breakpoints.$screen-sm-max) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: media-query-breakpoints.$screen-md-min) and (max-width: media-query-breakpoints.$screen-md-max) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: media-query-breakpoints.$screen-lg-min) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
