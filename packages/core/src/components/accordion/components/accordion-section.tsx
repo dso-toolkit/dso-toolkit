@@ -118,7 +118,9 @@ export class AccordionSection implements ComponentInterface {
       return;
     }
 
-    const waitForAnimationBeforeScrolling = (state: AccordionInternalState) => {
+    const waitForAnimationBeforeScrolling = async (state: AccordionInternalState) => {
+      this.bodyHeight = await this.expandable?.getBodyHeight();
+
       const sectionBottomOffsetTop =
         this.host.offsetTop + headingClientRect.height + (this.open ? this.bodyHeight ?? 0 : 0);
 
@@ -127,7 +129,7 @@ export class AccordionSection implements ComponentInterface {
       );
     };
 
-    if (waitForAnimationBeforeScrolling(this.accordionState)) {
+    if (await waitForAnimationBeforeScrolling(this.accordionState)) {
       AccordionSection.scrollCandidate = this.host;
       return;
     }
@@ -259,7 +261,11 @@ export class AccordionSection implements ComponentInterface {
           animationOffset={this.isNeutral ? 0 : 4}
           onAnimationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
         >
-          <div class="dso-section-body-content" ref={(element) => (this.sectionBody = element)}>
+          <div
+            slot="expandable-content"
+            class="dso-section-body-content"
+            ref={(element) => (this.sectionBody = element)}
+          >
             <slot />
           </div>
         </dso-expandable>

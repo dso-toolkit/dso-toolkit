@@ -32,6 +32,16 @@ Type: `Promise<AnimeInstance | undefined>`
 
 
 
+### `getBodyHeight() => Promise<number | undefined>`
+
+
+
+#### Returns
+
+Type: `Promise<number | undefined>`
+
+
+
 
 ## Dependencies
 

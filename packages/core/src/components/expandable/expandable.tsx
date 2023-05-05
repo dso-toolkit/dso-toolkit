@@ -58,6 +58,11 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
     return this.animeInstance;
   }
 
+  @Method()
+  async getBodyHeight(): Promise<number | undefined> {
+    return this.bodyHeight;
+  }
+
   componentWillLoad(): void {
     if (this.enableAnimation) {
       this.prepareAnimationResizeObserver();
@@ -65,7 +70,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   }
 
   componentDidLoad(): void {
-    const bodyContentElement = this.host.shadowRoot?.querySelector("slot");
+    const bodyContentElement = this.host.querySelector(`[slot="expandable-content"]`);
 
     if (bodyContentElement) {
       this.resizeObserver?.observe(bodyContentElement);
@@ -85,7 +90,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
           "dso-hide": !this.enableAnimation && !this.open,
         })}
       >
-        <slot />
+        <slot name="expandable-content" />
       </Host>
     );
   }

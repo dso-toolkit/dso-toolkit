@@ -253,6 +253,7 @@ export namespace Components {
         "animationOffset"?: number;
         "enableAnimation": boolean;
         "getAnimeInstance": () => Promise<anime.AnimeInstance | undefined>;
+        "getBodyHeight": () => Promise<number | undefined>;
         "open"?: boolean;
     }
     interface DsoExpandableHeading {
