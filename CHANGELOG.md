@@ -6,6 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ## NEXT
 
 ### Fixed
+* **BREAKING** Layout issue in justify form groups: de class `.form-groups-n`, waarbij `n` moet worden vervangen met het aantal `.form-group` velden er in het `.dso-justify-form-groups` staan. ([#2026](https://github.com/dso-toolkit/dso-toolkit/issues/2026))
 * Card grid: schaalt niet. Kolom aantal is nu afhankelijk van viewport ([#2103](https://github.com/dso-toolkit/dso-toolkit/issues/2103))
 
 ## 52.0.3

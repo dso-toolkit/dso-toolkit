@@ -1,28 +1,77 @@
+@use "../../variables/media-query-breakpoints";
 @use "../../variables/units";
 
 .dso-justify-form-groups {
   display: flex;
+  flex-direction: column;
+  gap: units.$u2;
 
-  > div {
-    flex: 1 1 0;
-    padding-left: units.$u1;
+  .form-group {
+    display: initial;
+    margin-bottom: 0;
 
-    &:first-child {
-      padding-left: 0;
+    + .form-group,
+    + .dso-form-buttons {
+      margin-top: 0;
     }
 
-    &.dso-form-buttons {
-      align-self: flex-end;
-      flex: 0 0 0;
+    .dso-label-container {
+      align-self: auto;
     }
   }
 
-  .form-group {
-    &,
-    + .form-group,
-    + .dso-form-buttons {
-      margin-bottom: 0;
-      margin-top: 0;
+  @media (min-width: media-query-breakpoints.$screen-sm-min) {
+    display: grid;
+    grid-gap: units.$u1;
+    grid-template-rows: repeat(2, auto);
+
+    @for $i from 1 through 3 {
+      &.form-groups-#{$i} {
+        grid-template-columns: repeat(#{$i}, 1fr) auto;
+      }
+
+      > div {
+        &.dso-form-buttons {
+          grid-column: #{$i + 1};
+        }
+      }
+    }
+
+    > div {
+      &.dso-form-buttons {
+        grid-row: 2;
+        margin-bottom: 0;
+      }
+    }
+
+    .form-group {
+      display: contents;
+
+      &,
+      + .form-group,
+      + .dso-form-buttons {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .dso-label-container {
+        align-self: end;
+        grid-row: 1;
+      }
+
+      .dso-field-container {
+        grid-row: 2;
+        margin-top: 0;
+      }
+
+      .dso-info-container {
+        grid-row: 3;
+
+        .dso-help-block,
+        .dso-message {
+          margin-top: 0;
+        }
+      }
     }
   }
 }
