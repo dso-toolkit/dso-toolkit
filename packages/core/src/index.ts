@@ -20,3 +20,5 @@ export * from "./components/selectable/selectable.interfaces";
 export * from "./components/slide-toggle/slide-toggle.interfaces";
 export * from "./components/tree-view/tree-view.interfaces";
 export * from "./components/viewer-grid/viewer-grid.interfaces";
+
+export * from "./components/modal/modal.controller";

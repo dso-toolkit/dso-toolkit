@@ -5,6 +5,7 @@ import { Modal } from "./modal.models.js";
 
 // <see #1550>
 let onLeave: { load: () => void; unload: () => void } | null = null;
+
 function onStory(load: () => void, unload: () => void) {
   onLeave = { load, unload };
 
@@ -14,6 +15,48 @@ function onStory(load: () => void, unload: () => void) {
 const storyObserver = new MutationObserver(([titleMutationRecord]) => {
   if (titleMutationRecord.target.textContent?.startsWith("HTML|CSS / Modal")) {
     toggleClass("dso-modal-open");
+  }
+
+  if (titleMutationRecord.target.textContent?.startsWith("Core / Modal")) {
+    setTimeout(
+      () =>
+        onStory(
+          () => null,
+          () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const modalRef = (window as any).modalRef;
+
+            if (modalRef) {
+              modalRef.close();
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              delete (window as any).modalRef;
+            }
+          }
+        ),
+      400
+    );
+  }
+
+  if (titleMutationRecord.target.textContent?.startsWith("Modal")) {
+    setTimeout(
+      () =>
+        onStory(
+          () => null,
+          () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const modalRef = (window as any).modalRef;
+
+            if (modalRef.framework === "angular") {
+              modalRef.ref.close();
+            }
+
+            if (modalRef.framework === "react") {
+              modalRef.ref.remove();
+            }
+          }
+        ),
+      400
+    );
   }
 
   if (onLeave) {

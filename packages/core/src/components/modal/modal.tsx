@@ -4,8 +4,6 @@ import { v4 } from "uuid";
 
 import { DsoModalCloseEvent } from "./modal.interfaces";
 
-export type ModalRole = "alert" | "dialog" | "alertdialog";
-
 @Component({
   tag: "dso-modal",
   styleUrl: "modal.scss",
@@ -32,7 +30,7 @@ export class Modal implements ComponentInterface {
 
   /** the role for the modal `dialog` | `alert` | `alertdialog` defaults to `dialog` */
   @Prop()
-  role: ModalRole = "dialog";
+  role = "dialog";
 
   /** when `false` the close button in the header will not be rendered. Defaults to `true` */
   @Prop()
