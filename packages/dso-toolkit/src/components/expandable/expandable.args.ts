@@ -5,7 +5,7 @@ import { Expandable } from "./expandable.models.js";
 export interface ExpandableArgs {
   open: boolean;
   enableAnimation: boolean;
-  animationOffset: number;
+  minimumHeight: number;
   dsoToggle: HandlerFunction;
 }
 
@@ -16,7 +16,7 @@ export const expandableArgTypes: ArgTypes<ExpandableArgs> = {
   enableAnimation: {
     type: "boolean",
   },
-  animationOffset: {
+  minimumHeight: {
     ...noControl,
   },
   dsoToggle: {

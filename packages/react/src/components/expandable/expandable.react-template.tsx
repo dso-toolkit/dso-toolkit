@@ -8,17 +8,11 @@ export const reactExpandable: ComponentImplementation<Expandable<JSX.Element>> =
   component: "expandable",
   implementation: "react",
   template: () =>
-    function expandableTemplate({
-      open,
-      enableAnimation,
-      animationOffset,
-      content,
-      dsoToggle,
-    }: Expandable<JSX.Element>) {
+    function expandableTemplate({ open, enableAnimation, minimumHeight, content, dsoToggle }: Expandable<JSX.Element>) {
       return (
         <DsoExpandable
           enableAnimation={enableAnimation}
-          animationOffset={animationOffset}
+          minimumHeight={minimumHeight}
           open={open}
           onDsoToggle={dsoToggle}
         >

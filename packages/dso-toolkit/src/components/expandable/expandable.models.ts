@@ -1,7 +1,7 @@
 export interface Expandable<TemplateFnReturnType> {
   open?: boolean;
   enableAnimation?: boolean;
-  animationOffset?: number;
+  minimumHeight?: number;
   content: TemplateFnReturnType;
   dsoToggle?: (e: CustomEvent<ExpandableToggleEvent>) => void;
 }

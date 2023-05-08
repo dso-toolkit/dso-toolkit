@@ -10,7 +10,7 @@ import {
   Prop,
   State,
 } from "@stencil/core";
-import { ExpandableInterface } from "../../expandable/expandable.interfaces";
+import { ExpandableInterface, isExpandable } from "../../expandable/expandable.interfaces";
 
 import { AccordionInterface, AccordionInternalState } from "../accordion.interfaces";
 import { AccordionHeading, AccordionSectionState, stateMap } from "./accordion-section.interfaces";
@@ -258,7 +258,7 @@ export class AccordionSection implements ComponentInterface {
           class="dso-section-body"
           open={this.open}
           enableAnimation={true}
-          animationOffset={this.isNeutral ? 0 : 4}
+          minimumHeight={this.isNeutral ? 0 : 4}
           onAnimationInstantiated={(e: Event) => this.setAnimationBehaviour(e, this.host)}
         >
           <div
@@ -276,8 +276,4 @@ export class AccordionSection implements ComponentInterface {
 
 function isAccordion(element: HTMLElement | AccordionInterface | null): element is AccordionInterface {
   return element instanceof HTMLElement && "getState" in element;
-}
-
-function isExpandable(element: HTMLElement | ExpandableInterface | null): element is ExpandableInterface {
-  return element instanceof HTMLElement && "getAnimeInstance" in element;
 }

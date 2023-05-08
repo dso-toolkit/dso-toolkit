@@ -11,14 +11,14 @@ export const coreExpandable: ComponentImplementation<Expandable<TemplateResult>>
     function expandableTemplate({
       open,
       enableAnimation,
-      animationOffset,
+      minimumHeight,
       content,
       dsoToggle,
     }: Expandable<TemplateResult>) {
       return html`
         <dso-expandable
           enable-animation=${ifDefined(enableAnimation)}
-          animation-offset=${ifDefined(animationOffset)}
+          minimum-height=${ifDefined(minimumHeight)}
           ?open=${ifDefined(open)}
           @dsoToggle=${dsoToggle}
         >

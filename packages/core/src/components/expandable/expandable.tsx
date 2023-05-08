@@ -37,8 +37,9 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   @Prop()
   enableAnimation = false;
 
+  /** When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to */
   @Prop()
-  animationOffset?: number;
+  minimumHeight?: number;
 
   @Event()
   dsoToggle!: EventEmitter<ExpandableToggleEvent>;
@@ -112,7 +113,7 @@ export class Expandable implements ComponentInterface, ExpandableInterface {
   private instantiateAnimation(): void {
     this.animeInstance = anime({
       targets: this.host,
-      height: this.animationOffset ?? 0,
+      height: this.minimumHeight ?? 0,
       easing: "cubicBezier(0.4, 0, 0.2, 1)",
       duration: 260,
       autoplay: false,

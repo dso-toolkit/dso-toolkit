@@ -13,7 +13,7 @@ export const angularExpandable: ComponentImplementation<Expandable<StoryFnAngula
         template: `
           <dso-expandable
             [enableAnimation]="enableAnimation"
-            [animationOffset]="animationOffset"
+            [minimunHeight]="minimunHeight"
             [open]="open"
             (dsoToggle)="dsoToggle()"
           >

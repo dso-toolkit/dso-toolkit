@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property          | Attribute          | Description | Type                   | Default     |
-| ----------------- | ------------------ | ----------- | ---------------------- | ----------- |
-| `animationOffset` | `animation-offset` |             | `number \| undefined`  | `undefined` |
-| `enableAnimation` | `enable-animation` |             | `boolean`              | `false`     |
-| `open`            | `open`             |             | `boolean \| undefined` | `undefined` |
+| Property          | Attribute          | Description                                                                                                                                     | Type                   | Default     |
+| ----------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ----------- |
+| `enableAnimation` | `enable-animation` |                                                                                                                                                 | `boolean`              | `false`     |
+| `minimumHeight`   | `minimum-height`   | When enableAnimation is set to `true`, this property specifies the height of this element at which the animation will expand from / collapse to | `number \| undefined`  | `undefined` |
+| `open`            | `open`             |                                                                                                                                                 | `boolean \| undefined` | `undefined` |
 
 
 ## Events
