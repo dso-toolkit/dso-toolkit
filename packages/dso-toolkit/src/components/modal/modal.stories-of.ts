@@ -22,8 +22,16 @@ const storyObserver = new MutationObserver(([titleMutationRecord]) => {
       () =>
         onStory(
           () => null,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          () => (window as any).modalRef.close()
+          () => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const modalRef = (window as any).modalRef;
+
+            if (modalRef) {
+              modalRef.close();
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              delete (window as any).modalRef;
+            }
+          }
         ),
       400
     );

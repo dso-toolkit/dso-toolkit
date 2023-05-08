@@ -10,6 +10,13 @@ export const coreModal: ComponentImplementation<Modal<TemplateResult>> = {
   template: () =>
     function modalTemplate({ modalTitle, role, showCloseButton, initialFocus, body, footer, dsoClose }) {
       const open = () => {
+        /* eslint-disable @typescript-eslint/no-explicit-any */
+        if ((window as any).modalRef) {
+          (window as any).modalRef.close();
+          delete (window as any).modalRef;
+        }
+        /* eslint-enable @typescript-eslint/no-explicit-any */
+
         const controller = new DsoModalController();
 
         const bodyElement = document.createDocumentFragment();

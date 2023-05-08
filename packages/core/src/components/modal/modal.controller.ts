@@ -20,7 +20,7 @@ export class DsoModalController {
     const element = document.createElement(`dso-modal`);
 
     if (title) {
-      element.modalTitle = title;
+      element.setAttribute("modal-title", title);
     }
 
     if (options) {
@@ -31,11 +31,11 @@ export class DsoModalController {
       }
 
       if (showCloseButton) {
-        element.showCloseButton = showCloseButton;
+        element.setAttribute("show-close-button", showCloseButton ? "true" : "false");
       }
 
       if (initialFocus) {
-        element.initialFocus = initialFocus;
+        element.setAttribute("initial-focus", initialFocus);
       }
     }
 
