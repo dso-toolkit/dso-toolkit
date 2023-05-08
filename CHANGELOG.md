@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## NEXT
+### Changed
+* Label: Screen reader only tekst uit label component verwijderen ([#2044](https://github.com/dso-toolkit/dso-toolkit/issues/2044))
 
 ### Added
 * Modal: Controller voor Core, React en Angular. Hiermee krijgt `dso-modal` de juiste plek in het DOM ([#1983](https://github.com/dso-toolkit/dso-toolkit/issues/1983))
