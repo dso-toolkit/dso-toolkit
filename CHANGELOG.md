@@ -13,6 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 Instructie: Voeg een extra class toe met het aantal velden: `<div class="dso-justify-form-groups form-groups-n">`, waarbij `n` moet worden vervangen met het aantal `.form-group` velden er in het `.dso-justify-form-groups` staan. ([#2026](https://github.com/dso-toolkit/dso-toolkit/issues/2026))
 * Card grid: schaalt niet. Kolom aantal is nu afhankelijk van viewport ([#2103](https://github.com/dso-toolkit/dso-toolkit/issues/2103))
 
+### Changed
+* <dso-tooltip>-stil-laten-falen. ([#2101](https://github.com/dso-toolkit/dso-toolkit/issues/2101))
+
 ## 52.0.3
 De dso-toolkit.nl landingspagina is gewijzigd naar de introductiepagina ([#2082](https://github.com/dso-toolkit/dso-toolkit/issues/2082))
 
