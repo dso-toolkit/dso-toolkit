@@ -8,6 +8,8 @@ dso-expandable-heading {
 
   &.dso-del,
   &.dso-ins {
+    padding-block: units.$u2 units.$u1 * 0.5;
+
     a {
       color: colors.$zwart;
     }

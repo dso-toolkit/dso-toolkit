@@ -32,7 +32,7 @@
 .dso-edit-action-text {
   margin-bottom: 0;
   margin-top: -(units.$u1 * 0.5);
-  padding: units.$u1 * 0.5 units.$u1 0;
+  padding: 0 units.$u1;
 
   span {
     display: inline-block;
