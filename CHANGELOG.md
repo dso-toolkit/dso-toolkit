@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 * Modal: Controller voor Core, React en Angular. Hiermee krijgt `dso-modal` de juiste plek in het DOM ([#1983](https://github.com/dso-toolkit/dso-toolkit/issues/1983))
 
 ### Fixed
+* **BREAKING** `.dso-justify-form-groups` Layout issue.\
+Instructie: Voeg een extra class toe met het aantal velden: `<div class="dso-justify-form-groups form-groups-n">`, waarbij `n` moet worden vervangen met het aantal `.form-group` velden er in het `.dso-justify-form-groups` staan. ([#2026](https://github.com/dso-toolkit/dso-toolkit/issues/2026))
 * Card grid: schaalt niet. Kolom aantal is nu afhankelijk van viewport ([#2103](https://github.com/dso-toolkit/dso-toolkit/issues/2103))
 
 ## 52.0.3

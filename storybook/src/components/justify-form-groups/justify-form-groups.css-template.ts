@@ -8,7 +8,7 @@ export const cssJustifyFormGroups: ComponentImplementation<JustifyFormGroups<Tem
   template: ({ buttonTemplate, formGroupTemplate }) =>
     function justifyFormGroupsTemplate({ formGroups, buttons }) {
       return html`
-        <div class="dso-justify-form-groups">
+        <div class="dso-justify-form-groups form-groups-${formGroups.length}">
           ${formGroups.map((formGroup) => formGroupTemplate(formGroup))}
           <div class="dso-form-buttons">${buttons.map((button) => buttonTemplate(button))}</div>
         </div>
